@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Thu Feb 22 13:20:38 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 
 # Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
 CLASS:Black Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Black Dragon	PRERACE:Dragon (Black%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Black Dragon	PRERACE:1,Dragon (Black%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Hide|Move Silently|Swim
 1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
@@ -41,7 +41,7 @@ CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 # Class Name	Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
 CLASS:Blue Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
-CLASS:Blue Dragon	PRERACE:Dragon (Blue%	PRERACETYPE:Dragon
+CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Spellcraft
 1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
@@ -77,8 +77,8 @@ CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 
 # Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
 CLASS:Green Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Green Dragon	PRERACE:Dragon (Green%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Green Dragon	PRERACE:1,Dragon (Green%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Move Silently
 1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
@@ -115,7 +115,7 @@ CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 # Class Name	Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
 CLASS:Red Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
-CLASS:Red Dragon	PRERACE:Dragon (Red%	PRERACETYPE:Dragon
+CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Red Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Appraise|Bluff|Jump
 1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
@@ -152,8 +152,8 @@ CLASS:Red Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Con
 
 # Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
 CLASS:White Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:White Dragon	PRERACE:Dragon (White%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:White Dragon	PRERACE:1,Dragon (White%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Hide|Move Silently|Swim
 1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
@@ -187,8 +187,8 @@ CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 
 # Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
 CLASS:Brass Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Brass Dragon	PRERACE:Dragon (Brass%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Gather Information|Survival
 1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
@@ -227,8 +227,8 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 
 # Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
 CLASS:Bronze Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Bronze Dragon	PRERACE:Dragon (Bronze%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Disguise|Swim|Survival
 1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
@@ -266,8 +266,8 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 
 # Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
 CLASS:Copper Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Copper Dragon	PRERACE:Dragon (Copper%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Copper Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Jump
 1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
@@ -306,7 +306,7 @@ CLASS:Copper Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 # Class Name	Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
 CLASS:Gold Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
-CLASS:Gold Dragon	PRERACE:Dragon (Gold%	PRERACETYPE:Dragon
+CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Gold Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Disguise|Heal|Swim
 1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
@@ -346,8 +346,8 @@ CLASS:Gold Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 
 # Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
 CLASS:Silver Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Silver Dragon	PRERACE:Dragon (Silver%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Silver Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Disguise|Jump
 1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
