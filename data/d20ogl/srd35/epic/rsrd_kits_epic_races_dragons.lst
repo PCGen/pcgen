@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Default Dragon (Force Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Wyrmling)]
-RACE:Dragon (Force Wyrmling)	!PRERACE:%
+STARTPACK:Default Dragon (Force Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Wyrmling)]
+RACE:Dragon (Force Wyrmling)	!PRERACE:1,%
 NAME:Dragon (Force Wyrmling)
 SKILL:Listen		RANK:23
 SKILL:Search		RANK:23
@@ -22,8 +22,8 @@ FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Very Young)]
-RACE:Dragon (Force Very Young)	!PRERACE:%
+STARTPACK:Default Dragon (Force Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Very Young)]
+RACE:Dragon (Force Very Young)	!PRERACE:1,%
 NAME:Dragon (Force Very Young)
 SKILL:Concentration	RANK:28
 SKILL:Escape Artist	RANK:28
@@ -45,8 +45,8 @@ FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Young)]
-RACE:Dragon (Force Young)	!PRERACE:%
+STARTPACK:Default Dragon (Force Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Young)]
+RACE:Dragon (Force Young)	!PRERACE:1,%
 NAME:Dragon (Force Young)
 SKILL:Concentration	RANK:33
 SKILL:Escape Artist	RANK:33
@@ -70,8 +70,8 @@ FEAT:Weapon Focus(Claw)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Juvenile)]
-RACE:Dragon (Force Juvenile)	!PRERACE:%
+STARTPACK:Default Dragon (Force Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Juvenile)]
+RACE:Dragon (Force Juvenile)	!PRERACE:1,%
 NAME:Dragon (Force Juvenile)
 SKILL:Concentration	RANK:38
 SKILL:Escape Artist	RANK:38
@@ -96,8 +96,8 @@ FEAT:Weapon Focus(Claw)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Young Adult)]
-RACE:Dragon (Force Young Adult)	!PRERACE:%
+STARTPACK:Default Dragon (Force Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Young Adult)]
+RACE:Dragon (Force Young Adult)	!PRERACE:1,%
 NAME:Dragon (Force Young Adult)
 SKILL:Concentration	RANK:43
 SKILL:Escape Artist	RANK:43
@@ -124,8 +124,8 @@ FEAT:Weapon Focus(Claw)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Adult)]
-RACE:Dragon (Force Adult)	!PRERACE:%
+STARTPACK:Default Dragon (Force Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Adult)]
+RACE:Dragon (Force Adult)	!PRERACE:1,%
 NAME:Dragon (Force Adult)
 SKILL:Appraise			RANK:4
 SKILL:Bluff				RANK:4
@@ -166,8 +166,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Mature Adult)]
-RACE:Dragon (Force Mature Adult)	!PRERACE:%
+STARTPACK:Default Dragon (Force Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Mature Adult)]
+RACE:Dragon (Force Mature Adult)	!PRERACE:1,%
 NAME:Dragon (Force Mature Adult)
 SKILL:Concentration		RANK:53
 SKILL:Escape Artist		RANK:53
@@ -209,8 +209,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Old)]
-RACE:Dragon (Force Old)	!PRERACE:%
+STARTPACK:Default Dragon (Force Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Old)]
+RACE:Dragon (Force Old)	!PRERACE:1,%
 NAME:Dragon (Force Old)
 SKILL:Intimidate			RANK:56
 SKILL:Concentration		RANK:58
@@ -254,8 +254,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Very Old)]
-RACE:Dragon (Force Very Old)	!PRERACE:%
+STARTPACK:Default Dragon (Force Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Very Old)]
+RACE:Dragon (Force Very Old)	!PRERACE:1,%
 NAME:Dragon (Force Very Old)
 SKILL:Jump				RANK:6
 SKILL:Diplomacy			RANK:59
@@ -302,8 +302,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Ancient)]
-RACE:Dragon (Force Ancient)	!PRERACE:%
+STARTPACK:Default Dragon (Force Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Ancient)]
+RACE:Dragon (Force Ancient)	!PRERACE:1,%
 NAME:Dragon (Force Ancient)
 SKILL:Tumble			RANK:25
 SKILL:Appraise			RANK:27
@@ -351,8 +351,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Wyrm)]
-RACE:Dragon (Force Wyrm)	!PRERACE:%
+STARTPACK:Default Dragon (Force Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Wyrm)]
+RACE:Dragon (Force Wyrm)	!PRERACE:1,%
 NAME:Dragon (Force Wyrm)
 SKILL:Diplomacy			RANK:69
 SKILL:Tumble			RANK:32
@@ -400,8 +400,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Force Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Great Wyrm)]
-RACE:Dragon (Force Great Wyrm)	!PRERACE:%
+STARTPACK:Default Dragon (Force Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Great Wyrm)]
+RACE:Dragon (Force Great Wyrm)	!PRERACE:1,%
 NAME:Dragon (Force Great Wyrm)
 SKILL:Jump				RANK:25
 SKILL:Diplomacy			RANK:74
@@ -449,8 +449,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Sample Dragon (Force Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Adult)]
-RACE:Dragon (Force Adult)	!PRERACE:%
+STARTPACK:Sample Dragon (Force Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Adult)]
+RACE:Dragon (Force Adult)	!PRERACE:1,%
 NAME:Sample Force Dragon, Adult
 ALIGN:TN
 SKILL:Appraise						RANK:36
@@ -499,8 +499,8 @@ GEAR:Pearl of Power (7th Level)	LOCATION:Equipped
 GEAR:Coin (Gold)				QTY:8000	LOCATION:Not Carried
 GEAR:Circlet of Eyes			LOCATION:Equipped
 
-STARTPACK:Default Dragon (Prismatic Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Wyrmling)]
-RACE:Dragon (Prismatic Wyrmling)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Wyrmling)]
+RACE:Dragon (Prismatic Wyrmling)	!PRERACE:1,%
 NAME:Dragon (Prismatic Wyrmling)
 SKILL:Concentration	RANK:25
 SKILL:Escape Artist	RANK:25
@@ -521,8 +521,8 @@ FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Very Young)]
-RACE:Dragon (Prismatic Very Young)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Very Young)]
+RACE:Dragon (Prismatic Very Young)	!PRERACE:1,%
 NAME:Dragon (Prismatic Very Young)
 SKILL:Diplomacy		RANK:29
 SKILL:Concentration	RANK:31
@@ -545,8 +545,8 @@ FEAT:Weapon Focus(Claw)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Young)]
-RACE:Dragon (Prismatic Young)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Young)]
+RACE:Dragon (Prismatic Young)	!PRERACE:1,%
 NAME:Dragon (Prismatic Young)
 SKILL:Diplomacy		RANK:34
 SKILL:Concentration	RANK:36
@@ -571,8 +571,8 @@ FEAT:Weapon Focus(Claw)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Juvenile)]
-RACE:Dragon (Prismatic Juvenile)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Juvenile)]
+RACE:Dragon (Prismatic Juvenile)	!PRERACE:1,%
 NAME:Dragon (Prismatic Juvenile)
 SKILL:Diplomacy		RANK:39
 SKILL:Concentration	RANK:41
@@ -598,8 +598,8 @@ FEAT:Weapon Focus(Claw)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Young Adult)]
-RACE:Dragon (Prismatic Young Adult)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Young Adult)]
+RACE:Dragon (Prismatic Young Adult)	!PRERACE:1,%
 NAME:Dragon (Prismatic Young Adult)
 SKILL:Concentration		RANK:46
 SKILL:Escape Artist		RANK:46
@@ -639,8 +639,8 @@ FEAT:Weapon Focus(Claw)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Adult)]
-RACE:Dragon (Prismatic Adult)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Adult)]
+RACE:Dragon (Prismatic Adult)	!PRERACE:1,%
 NAME:Dragon (Prismatic Adult)
 SKILL:Appraise			RANK:6
 SKILL:Bluff				RANK:6
@@ -682,8 +682,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Mature Adult)]
-RACE:Dragon (Prismatic Mature Adult)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Mature Adult)]
+RACE:Dragon (Prismatic Mature Adult)	!PRERACE:1,%
 NAME:Dragon (Prismatic Mature Adult)
 SKILL:Diplomacy			RANK:52
 SKILL:Appraise			RANK:11
@@ -726,8 +726,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Old)]
-RACE:Dragon (Prismatic Old)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Old)]
+RACE:Dragon (Prismatic Old)	!PRERACE:1,%
 NAME:Dragon (Prismatic Old)
 SKILL:Intimidate			RANK:59
 SKILL:Jump				RANK:3
@@ -773,8 +773,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Very Old)]
-RACE:Dragon (Prismatic Very Old)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Very Old)]
+RACE:Dragon (Prismatic Very Old)	!PRERACE:1,%
 NAME:Dragon (Prismatic Very Old)
 SKILL:Tumble			RANK:21
 SKILL:Intimidate			RANK:64
@@ -822,8 +822,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Ancient)]
-RACE:Dragon (Prismatic Ancient)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Ancient)]
+RACE:Dragon (Prismatic Ancient)	!PRERACE:1,%
 NAME:Dragon (Prismatic Ancient)
 SKILL:Intimidate			RANK:69
 SKILL:Diplomacy			RANK:67
@@ -871,8 +871,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Wyrm)]
-RACE:Dragon (Prismatic Wyrm)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Wyrm)]
+RACE:Dragon (Prismatic Wyrm)	!PRERACE:1,%
 NAME:Dragon (Prismatic Wyrm)
 SKILL:Hide				RANK:22
 SKILL:Intimidate			RANK:74
@@ -920,8 +920,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragon (Prismatic Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Great Wyrm)]
-RACE:Dragon (Prismatic Great Wyrm)	!PRERACE:%
+STARTPACK:Default Dragon (Prismatic Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Great Wyrm)]
+RACE:Dragon (Prismatic Great Wyrm)	!PRERACE:1,%
 NAME:Dragon (Prismatic Great Wyrm)
 SKILL:Jump				RANK:27
 SKILL:Hide				RANK:25
@@ -969,8 +969,8 @@ FEAT:Weapon Focus(Tail Slap)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Sample Dragon (Prismatic Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Old)]
-RACE:Dragon (Prismatic Old)	!PRERACE:%
+STARTPACK:Sample Dragon (Prismatic Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Old)]
+RACE:Dragon (Prismatic Old)	!PRERACE:1,%
 NAME:Sample Prismatic Dragon, Old
 SKILL:Balance						RANK:61
 SKILL:Bluff							RANK:61
