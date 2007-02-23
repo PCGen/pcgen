@@ -23,7 +23,7 @@ Electricity Resist Chitin		VISIBLE:NO																																											
 Sonic Resist Chitin			VISIBLE:NO																																																														SA:Resistance to Energy (sonic) 5
 
 #Astral Construct Menu A Abilities
-Astral Construct A Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Buff Ability|Celerity Ability|Cleave Ability|Deflection Ability|Fly Ability|Improved Bull Rush Ability|Improved Slam Attack Ability|Mobility Ability|Power Attack Ability|Resistance Ability|Swim Ability|Trip Ability																																													PRERACE:Astral Construct%
+Astral Construct A Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Buff Ability|Celerity Ability|Cleave Ability|Deflection Ability|Fly Ability|Improved Bull Rush Ability|Improved Slam Attack Ability|Mobility Ability|Power Attack Ability|Resistance Ability|Swim Ability|Trip Ability																																													PRERACE:1,Astral Construct%
 Buff Ability				VISIBLE:NO																																																														SA:Buff (Ex)																																							BONUS:HP|CURRENTMAX|5
 Celerity Ability				VISIBLE:NO																																																														SA:Celerity (Ex)																																											BONUS:MOVEADD|TYPE.Walk|10
 Cleave Ability				VISIBLE:NO																																																														SA:Cleave (Ex)																																																			FEAT:Cleave
@@ -43,7 +43,7 @@ AC Sonic Resist				VISIBLE:NO																																																			
 AC Acid Resist				VISIBLE:NO																																																														SA:Resistance to Energy (acid) 5
 
 #Astral Construct Menu B Abilities
-Astral Construct B Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Two A Abilities|Energy Touch Ability|Extra Attack Ability|Fast Healing Ability|Heavy Deflection Ability|Improved Buff Ability|Improved Critical Ability|Improved Damage Reduction Ability|Improved Fly Ability|Improved Grab Ability|Improved Swim Ability|Muscle Ability|Poison Touch Ability|Pounce Ability|Smite Ability|Trample Ability																										PRERACE:Astral Construct%
+Astral Construct B Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Two A Abilities|Energy Touch Ability|Extra Attack Ability|Fast Healing Ability|Heavy Deflection Ability|Improved Buff Ability|Improved Critical Ability|Improved Damage Reduction Ability|Improved Fly Ability|Improved Grab Ability|Improved Swim Ability|Muscle Ability|Poison Touch Ability|Pounce Ability|Smite Ability|Trample Ability																										PRERACE:1,Astral Construct%
 Two A Abilities				VISIBLE:NO				TEMPLATE:Astral Construct A Ability	TEMPLATE:Astral Construct A Ability
 Energy Touch Ability			VISIBLE:NO				TEMPLATE:CHOOSE:AC ETouch Fire|AC ETouch Cold|AC ETouch Acid|AC ETouch Electricity
 Extra Attack Ability			VISIBLE:NO																																																														SA:Extra Slam Attack (1) (Ex)|PRESIZELTEQ:M	SA:Extra Slam Attack (2) (Ex)|PRESIZEGT:M
@@ -66,7 +66,7 @@ AC ETouch Electricity			VISIBLE:NO																																														
 AC ETouch Fire				VISIBLE:NO																																																														SA:Energy Touch (Ex) (+1d4 Fire damage)|!PRESUBCLASS:1,Kineticist	SA:Energy Touch (+1d6 Fire damage)|PRESUBCLASS:1,Kineticist
 
 #Astral Construct Menu C Abilities
-Astral Construct C Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Two B Abilities|Blindsight Ability|Concussion Ability|Constrict Ability|Dimension Slide Ability|Energy Bolt Ability|Extra Buff Ability|Extreme Damage Reduction Ability|Extreme Deflection Ability|Natural Invisibility Ability|Power Resistance Ability|Rend Ability|Spring Attack Ability|Whirlwind Attack Ability																													PRERACE:Astral Construct%
+Astral Construct C Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Two B Abilities|Blindsight Ability|Concussion Ability|Constrict Ability|Dimension Slide Ability|Energy Bolt Ability|Extra Buff Ability|Extreme Damage Reduction Ability|Extreme Deflection Ability|Natural Invisibility Ability|Power Resistance Ability|Rend Ability|Spring Attack Ability|Whirlwind Attack Ability																													PRERACE:1,Astral Construct%
 Two B Abilities				VISIBLE:NO				TEMPLATE:Astral Construct B Ability	TEMPLATE:Astral Construct B Ability
 Blindsight Ability			VISIBLE:NO																																																														SA:Blindsight (Ex)																																																										VISION:Blindsight (60')
 Concussion Ability			VISIBLE:NO																																																														SA:Concussion (Concussion Blast (7th lvl) 1x/round) (Sp)
