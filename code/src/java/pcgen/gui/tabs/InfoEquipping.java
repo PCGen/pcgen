@@ -562,7 +562,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 		else if (eqI.isType("BELT"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameBoot");
+			locTypeName = PropertyFactory.getString("in_ieLocNameBelt");
 		}
 		else if (eqI.isType("BOOT"))
 		{
