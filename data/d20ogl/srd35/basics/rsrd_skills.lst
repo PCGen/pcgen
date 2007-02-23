@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 19 00:41:22 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Fri Feb 23 07:58:53 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas - Mad OS Test Monkey - tjannes@vub.ac.be
 
@@ -59,7 +59,7 @@ Knowledge (Nobility and Royalty)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intellige
 Knowledge (Religion)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge																																																SOURCEPAGE:SkillsII.rtf																																																																											BONUS:VAR|TurnCheckUndead|2|PRESKILL:1,Knowledge (Religion)=5
 Knowledge (The Planes)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge																																																SOURCEPAGE:SkillsII.rtf
 Listen						KEYSTAT:WIS								TYPE:Wisdom																																																			SOURCEPAGE:SkillsII.rtf
-Literacy								USEUNTRAINED:NO					TYPE:None.Language																																																	SOURCEPAGE:SkillsII.rtf
+Literacy								USEUNTRAINED:NO					TYPE:None.Language																																																	SOURCEPAGE:SkillsII.rtf																																																																											BONUS:VAR|IlliteracyLVL|-1|PRESKILL:1,Literacy=1
 Move Silently					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity																																																		SOURCEPAGE:SkillsII.rtf
 Open Lock						KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity						BONUS:SKILL|Open Lock|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC																															SOURCEPAGE:SkillsII.rtf																																																																																						TEMPDESC:Attempting an Open Lock check without a set of thieves' tools imposes a -2 circumstance penalty on the check
 Perform (Act)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform																																																	SOURCEPAGE:SkillsII.rtf
