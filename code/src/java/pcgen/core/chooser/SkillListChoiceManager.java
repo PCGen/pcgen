@@ -31,6 +31,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * This is one of the choosers that deals with choosing a skill.
@@ -89,7 +90,7 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager<String>
 
 		else // if it was LIST
 		{
-			for ( Skill skill : Globals.getSkillList() )
+			for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
 			{
 				final String rootName = skill.getRootName();
 				final int rootNameLength = rootName.length();
@@ -136,7 +137,7 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager<String>
 			Ability ability = (Ability) pobject;
 			if (rootArrayList.contains(item))
 			{
-				for ( Skill skill : Globals.getSkillList() )
+				for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
 				{
 					if (skill.getRootName().equalsIgnoreCase(item))
 					{

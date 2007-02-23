@@ -28,6 +28,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * This is the chooser that deals with choosing a skill.
@@ -73,7 +74,7 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 		if (pobject != null && pobject instanceof Ability)
 		{
 			Ability anAbility = (Ability) pobject;
-			for ( Skill skill : Globals.getSkillList() )
+			for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
 			{
 				if (skill.getRootName().equalsIgnoreCase(item))
 				{

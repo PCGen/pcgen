@@ -29,6 +29,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * This is one of the choosers that deals with choosing a skill.
@@ -84,7 +85,7 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 
 		else // if it was LIST
 		{
-			for ( Skill skill : Globals.getSkillList() )
+			for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
 			{
 				if ((skill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Class()) || skill.isExclusive())
 				{
