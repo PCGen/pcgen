@@ -74,7 +74,7 @@ CLASS:Guardian Paramount	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Intimidate
 # Class Name		Hit Dice	Type			Abbreviation	Source Page					Save checks bonus
 CLASS:High Proselytizer	HD:8		TYPE:Epic.PC	ABB:Hig		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required Feat					Required Lvl	Required Skill											Req. Spell Type
-CLASS:High Proselytizer	PREFEAT:2,Leadership,Epic Leadership	PRELEVEL:20		PRESKILL:1,Knowledge (Religion),Knowledge (Nature)=24	PRESKILL:1,Diplomacy=12	PRESPELLTYPE:Divine,1,5
+CLASS:High Proselytizer	PREFEAT:2,Leadership,Epic Leadership	PRELEVEL:20		PRESKILL:1,Knowledge (Religion),Knowledge (Nature)=24	PRESKILL:1,Diplomacy=12	PRESPELLTYPE:1,Divine=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft|TYPE.Craft|TYPE.Profession
 1								SA:Proselytize (Sp) %/day|HPProsetilyze				BONUS:VAR|HPProsetilyze|ceil(CL/10)	DEFINE:HPProsetilyze|0
