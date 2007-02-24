@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 23 11:36:46 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Feb 23 16:50:57 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -303,12 +303,12 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 ###Block: Level progression
-1				DEFINE:AllowHolyAvenger|1	FEATAUTO:Aura of Good|Smite Evil|Paladin Tracker - Aura of Good|Paladin Tracker - Smite Evil|Paladin Tracker - Detect Evil
-2									FEATAUTO:Divine Grace|Lay on Hands|Paladin Tracker - Lay on Hands
-3									FEATAUTO:Aura of Courage|Divine Health
-4	CAST:0,0							FEATAUTO:Basic Turning|Turn Undead|Paladin Tracker - Turn Undead
-5	CAST:0,0							FEATAUTO:Special Mount|Paladin Tracker - Special Mount
-6	CAST:0,1							FEATAUTO:Remove Disease|Paladin Tracker - Remove Disease
+1				BONUS:VAR|AuraGood,DetectEvilLVL,PaladinSmiteEvilLVL|CL	DEFINE:AllowHolyAvenger|1	FEATAUTO:Aura of Good|Detect Evil|Smite Evil|Paladin Smite Evil
+2				BONUS:VAR|LayOnHandsLVL|CL											FEATAUTO:Divine Grace|Lay on Hands
+3																			FEATAUTO:Aura of Courage|Divine Health
+4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											FEATAUTO:Basic Turning|Turn Undead|Paladin Turn Undead
+5	CAST:0,0		BONUS:VAR|SMLevel|CL												FEATAUTO:Special Mount
+6	CAST:0,1		BONUS:VAR|RemoveDiseaseLVL|CL											FEATAUTO:Remove Disease
 7	CAST:0,1
 8	CAST:0,1,0
 9	CAST:0,1,0

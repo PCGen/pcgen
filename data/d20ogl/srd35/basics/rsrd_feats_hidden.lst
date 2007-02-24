@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb 21 18:36:58 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Feb 23 16:50:57 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -196,30 +196,23 @@ Perfect Self			TYPE:Special.Supernatural	VISIBLE:NO	SA:Perfect Self (Su)								
 # Feat Name	Type					Visible	Special Ability																																																																																																																														Define															Source Page
 Ki Strike	TYPE:Special.Supernatural	VISIBLE:NO	SA:Ki Strike (Su) (Magic)|PREVARGTEQ:KiStrikeMagic,1|PREVARLTEQ:KiStrikeLawful,0,KiStrikeAdaman,0	SA:Ki Strike (Su) (Lawful)|PREVARGTEQ:KiStrikeLawful,1|PREVARLTEQ:KiStrikeMagic,0,KiStrikeAdaman,0	SA:Ki Strike (Su) (Adamantine)|PREVARGTEQ:KiStrikeAdaman,1|PREVARLTEQ:KiStrikeMagic,0,KiStrikeLawful,0	SA:Ki Strike (Su) (Magic and Lawful)|PREVARGTEQ:KiStrikeMagic,1,KiStrikeLawful,1|PREVARLTEQ:KiStrikeAdaman,0	SA:Ki Strike (Su) (Magic and Adamantine)|PREVARGTEQ:KiStrikeMagic,1,KiStrikeAdaman,1|PREVARLTEQ:KiStrikeLawful,0	SA:Ki Strike (Su) (Lawful and Adamantine)|PREVARGTEQ:KiStrikeAdaman,1,KiStrikeLawful,1|PREVARLTEQ:KiStrikeMagic,0	SA:Ki Strike (Su) (Magic and Lawful and Adamantine)|PREVARGTEQ:KiStrikeMagic,1,KiStrikeLawful,1,KiStrikeAdaman,1	DEFINE:KiStrikeLVL|0	DEFINE:KiStrikeMagic|0	DEFINE:KiStrikeLawful|0	DEFINE:KiStrikeAdaman|0	SOURCEPAGE:ClassesI.rtf
 
-###Block: Monk Trackers
-# Feat Name				Visible	Modify VAR																										Source Page
-Monk Ki Strike Advancement	VISIBLE:NO	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
+###Block: Monk Internals
+# Feat Name				Type			Visible	Modify VAR																										Source Page
+Monk Ki Strike Advancement	TYPE:Internal	VISIBLE:NO	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Paladin Abilities
-# Feat Name		Type				Visible	Special Ability						Define			Spells												Save checks bonus						Source Page
-Aura of Courage	TYPE:Extraordinary	VISIBLE:NO	SA:Aura of Courage (Su)																														SOURCEPAGE:ClassesII.rtf
-Divine Health	TYPE:Supernatural		VISIBLE:NO	SA:Divine Health (Ex)																														SOURCEPAGE:ClassesII.rtf
-Remove Disease	TYPE:SpellLike		VISIBLE:NO	SA:Remove Disease (Sp) %/week|RemoveDisease	DEFINE:RemoveDisease|0																						SOURCEPAGE:ClassesII.rtf
-Lay on Hands	TYPE:Supernatural		VISIBLE:NO	SA:Lay on Hands (Su) % hp/day|LayOnHands		DEFINE:LayOnHands|0																						SOURCEPAGE:ClassesII.rtf
-Divine Grace	TYPE:Supernatural		VISIBLE:NO	SA:Divine Grace (Su)																						BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	SOURCEPAGE:ClassesII.rtf
-Detect Evil		TYPE:SpellLike		VISIBLE:NO	SA:Detect Evil (Sp)									SPELLS:Paladin|TIMES=-1|CASTERLEVEL=var("CL=Paladin")|Detect Evil,11+WIS									SOURCEPAGE:ClassesII.rtf
+# Feat Name		Type				Visible	Special Ability						Define								Spells											Save checks bonus						Modify VAR							Source Page
+Aura of Courage	TYPE:Extraordinary	VISIBLE:NO	SA:Aura of Courage (Su)																																										SOURCEPAGE:ClassesII.rtf
+Divine Health	TYPE:Supernatural		VISIBLE:NO	SA:Divine Health (Ex)																																										SOURCEPAGE:ClassesII.rtf
+Remove Disease	TYPE:SpellLike		VISIBLE:NO	SA:Remove Disease (Sp) %/week|RemoveDisease	DEFINE:RemoveDisease|0	DEFINE:RemoveDiseaseLVL|0																					BONUS:VAR|RemoveDisease|RemoveDiseaseLVL/3-1	SOURCEPAGE:ClassesII.rtf
+Lay on Hands	TYPE:Supernatural		VISIBLE:NO	SA:Lay on Hands (Su) % hp/day|LayOnHands		DEFINE:LayOnHands|0	DEFINE:LayOnHandsLVL|0																						BONUS:VAR|LayOnHands|LayOnHandsLVL*max(CHA,0)	SOURCEPAGE:ClassesII.rtf
+Divine Grace	TYPE:Supernatural		VISIBLE:NO	SA:Divine Grace (Su)																										BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)									SOURCEPAGE:ClassesII.rtf
+Detect Evil		TYPE:SpellLike		VISIBLE:NO	SA:Detect Evil (Sp)					DEFINE:DetectEvilLVL|0						SPELLS:Paladin|TIMES=-1|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																	SOURCEPAGE:ClassesII.rtf
 
-###Block: Paladin Trackers
-# Feat Name					Visible	Define									Virtual Feat		Modify VAR																					Source Page
-Paladin Tracker - Aura of Good	VISIBLE:NO											VFEAT:Aura of Good	BONUS:VAR|AuraGood|var("CL=Paladin")																SOURCEPAGE:ClassesII.rtf
-Paladin Tracker - Smite Evil		VISIBLE:NO											VFEAT:Smite Evil		BONUS:VAR|SmiteEvil|(var("CL=Paladin")/5)+1															SOURCEPAGE:ClassesII.rtf
-Paladin Tracker - Detect Evil		VISIBLE:NO											VFEAT:Detect Evil																								SOURCEPAGE:ClassesII.rtf
-# created Detect Evil hidden feat and moved SPELLS tag there. Not sure if the Detect Evil Paladin tracker is really needed as
-# there are no variables involved, so maybe it should be deleted and the Detect Evil feat added directly? -- Frank
-Paladin Tracker - Special Mount	VISIBLE:NO											VFEAT:Special Mount	BONUS:VAR|SMLevel|var("CL=Paladin")																	SOURCEPAGE:ClassesII.rtf
-Paladin Tracker - Remove Disease	VISIBLE:NO											VFEAT:Remove Disease	BONUS:VAR|RemoveDisease|var("CL=Paladin")/3-1															SOURCEPAGE:ClassesII.rtf
-Paladin Tracker - Turn Undead		VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	VFEAT:Turn Undead		BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnLevelBase|var("CL=Paladin")-3	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	SOURCEPAGE:ClassesII.rtf
-Paladin Tracker - Lay on Hands	VISIBLE:NO											VFEAT:Lay on Hands	BONUS:VAR|LayOnHands|var("CL=Paladin")*max(CHA,0)														SOURCEPAGE:ClassesII.rtf
+###Block: Paladin Internals
+# Feat Name			Type			Visible	Define													Modify VAR																				Source Page
+Paladin Smite Evil	TYPE:Internal	VISIBLE:NO	DEFINE:PaladinSmiteEvilLVL|0										BONUS:VAR|SmiteEvil|PaladinSmiteEvilLVL/5+1														SOURCEPAGE:ClassesII.rtf
+Paladin Turn Undead	TYPE:Internal	VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:PaladinTurnLVL|0	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase|PaladinTurnLVL-3	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Ranger Abilities
 # Feat Name				Type				Visible	Special Ability			Source Page
