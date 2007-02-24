@@ -66,10 +66,10 @@ Init |INITIATIVEMOD|
 |AC.Total| (flatfooted |AC.Flatfooted|, touch
 |AC.Touch|), 
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-2,1,1|
-|WEAPON.%weap.NAME| |WEAPON.%weap.TOTALHIT| |WEAPON.%weap.RANGE|/|WEAPON.%weap.TYPE| (|WEAPON.%weap.DAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|) or 
+|WEAPON.%weap.NAME| |WEAPON.%weap.BASEHIT| |WEAPON.%weap.RANGE|/|WEAPON.%weap.TYPE| (|WEAPON.%weap.DAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|) or 
 |ENDFOR|
 |FOR,%weap,COUNT[EQTYPE.WEAPON]-1,COUNT[EQTYPE.WEAPON]-1,1,1|
-|WEAPON.%weap.NAME| |WEAPON.%weap.TOTALHIT| |WEAPON.%weap.RANGE|/|WEAPON.%weap.TYPE| (|WEAPON.%weap.DAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|); 
+|WEAPON.%weap.NAME| |WEAPON.%weap.BASEHIT| |WEAPON.%weap.RANGE|/|WEAPON.%weap.TYPE| (|WEAPON.%weap.DAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|); 
 |ENDFOR|
 SA: |SPECIALLIST|; Vision: |VISION| AL: |ALIGNMENT.SHORT|; Sv: 
 |FOR,%checks,0,COUNT[CHECKS]-2,1,0|
