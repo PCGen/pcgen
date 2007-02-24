@@ -2,6 +2,7 @@ package plugin.lsttokens.template;
 
 import pcgen.core.PCTemplate;
 import pcgen.persistence.lst.PCTemplateLstToken;
+import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -19,18 +20,42 @@ public class VisibleToken implements PCTemplateLstToken
 	{
 		if (value.startsWith("DISPLAY"))
 		{
+			if (!value.equals("DISPLAY"))
+			{
+				Logging.errorPrint("Use of '" + value
+					+ "' is not valid, please use DISPLAY "
+					+ "(exact String, upper case)");
+			}
 			template.setVisibility(Visibility.DISPLAY_ONLY);
 		}
 		else if (value.startsWith("EXPORT"))
 		{
+			if (!value.equals("EXPORT"))
+			{
+				Logging.errorPrint("Use of '" + value
+					+ "' is not valid, please use EXPORT "
+					+ "(exact String, upper case)");
+			}
 			template.setVisibility(Visibility.OUTPUT_ONLY);
 		}
 		else if (value.startsWith("NO"))
 		{
+			if (!value.equals("NO"))
+			{
+				Logging.errorPrint("Use of '" + value
+					+ "' is not valid, please use NO "
+					+ "(exact String, upper case)");
+			}
 			template.setVisibility(Visibility.HIDDEN);
 		}
 		else
 		{
+			if (!value.equals("ALWAYS"))
+			{
+				Logging.errorPrint("Use of '" + value
+					+ "' is not valid, please use ALWAYS "
+					+ "(exact String, upper case)");
+			}
 			template.setVisibility(Visibility.DEFAULT);
 		}
 		return true;
