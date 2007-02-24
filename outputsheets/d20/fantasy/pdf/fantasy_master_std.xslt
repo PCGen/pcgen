@@ -1955,8 +1955,9 @@
 	<xsl:template match="weapons/unarmed">
 		<!-- START Unarmed Attack Table -->
 		<fo:table table-layout="fixed" space-before="2mm">
-			<fo:table-column column-width="35mm"/>
-			<fo:table-column column-width="35mm"/>
+			<fo:table-column column-width="27mm"/>
+			<fo:table-column column-width="27mm"/>
+			<fo:table-column column-width="16mm"/>
 			<fo:table-column column-width="16mm"/>
 			<fo:table-column column-width="16mm"/>
 			<fo:table-body>
@@ -1985,6 +1986,12 @@
 						</xsl:call-template>
 						<fo:block font-size="6pt">CRITICAL</fo:block>
 					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">REACH</fo:block>
+					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell>
@@ -2009,6 +2016,14 @@
 						</xsl:call-template>
 						<fo:block font-size="8pt">
 							<xsl:value-of select="critical"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="reach"/>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
@@ -2071,17 +2086,19 @@
 			<xsl:choose>
 				<xsl:when test="$column_width='wide'">
 					<fo:table-column column-width="50mm"/>
-					<fo:table-column column-width="21mm"/>
-					<fo:table-column column-width="9mm"/>
-					<fo:table-column column-width="9mm"/>
+					<fo:table-column column-width="12mm"/>
+					<fo:table-column column-width="8mm"/>
+					<fo:table-column column-width="8mm"/>
 					<fo:table-column column-width="13mm"/>
+					<fo:table-column column-width="11mm"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<fo:table-column column-width="47mm"/>
-					<fo:table-column column-width="19mm"/>
-					<fo:table-column column-width="8mm"/>
-					<fo:table-column column-width="8mm"/>
+					<fo:table-column column-width="46mm"/>
 					<fo:table-column column-width="12mm"/>
+					<fo:table-column column-width="7mm"/>
+					<fo:table-column column-width="7mm"/>
+					<fo:table-column column-width="12mm"/>
+					<fo:table-column column-width="10mm"/>
 				</xsl:otherwise>
 			</xsl:choose>
 			<fo:table-body>
@@ -2110,7 +2127,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
 						</xsl:call-template>
-						<fo:block font-size="6pt">CURRENT HAND</fo:block>
+						<fo:block font-size="6pt">HAND</fo:block>
 					</fo:table-cell>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -2129,6 +2146,12 @@
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
 						</xsl:call-template>
 						<fo:block font-size="6pt">CRITICAL</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">REACH</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
@@ -2165,6 +2188,14 @@
 							<xsl:value-of select="critical/range"/>
 							<xsl:text>/x</xsl:text>
 							<xsl:value-of select="critical/multiplier"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon'"/>
+						</xsl:call-template>
+						<fo:block font-size="7pt">
+							<xsl:value-of select="reach"/> ft. 
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>

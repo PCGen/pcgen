@@ -431,6 +431,7 @@
 			<damage>|WEAPONH.DAMAGE|</damage>
 			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
 			<!-- Should be changed to a variable due to improved crit -->
+			<reach>|REACH|</reach>
 		</unarmed>
 
 
