@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 23 16:50:57 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Feb 23 18:14:28 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -351,26 +351,26 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6
 1	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11
 ###Block: Level progression
-1				ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatStyle)	FEATAUTO:Wild Empathy|Track|Ranger Tracker - Wild Empathy
-2				ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatStyle)
-3				ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Endurance
-4	CAST:0,0		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Animal Companion|Ranger Tracker - Animal Companion
-5	CAST:0,0		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-6	CAST:0,1		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-7	CAST:0,1		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Woodland Stride
-8	CAST:0,1,0		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Swift Tracker
-9	CAST:0,1,0		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Evasion
-10	CAST:0,1,1		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-11	CAST:0,1,1,0	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-12	CAST:0,1,1,1	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-13	CAST:0,1,1,1	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Camouflage
-14	CAST:0,2,1,1,0	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-15	CAST:0,2,1,1,1	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-16	CAST:0,2,2,1,1	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-17	CAST:0,2,2,2,1	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Hide in Plain Sight (Ranger)
-18	CAST:0,3,2,2,1	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-19	CAST:0,3,3,3,2	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-20	CAST:0,3,3,3,3	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+1				BONUS:VAR|WildEmpathy|CL		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatStyle)	FEATAUTO:Wild Empathy|Track
+2										ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatStyle)
+3										ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Endurance
+4	CAST:0,0		BONUS:VAR|RangerAnimalCompLVL|CL	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Animal Companion|Ranger Animal Companion
+5	CAST:0,0								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+6	CAST:0,1								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+7	CAST:0,1								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Woodland Stride
+8	CAST:0,1,0								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Swift Tracker
+9	CAST:0,1,0								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Evasion
+10	CAST:0,1,1								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+11	CAST:0,1,1,0							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+12	CAST:0,1,1,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+13	CAST:0,1,1,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Camouflage
+14	CAST:0,2,1,1,0							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+15	CAST:0,2,1,1,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+16	CAST:0,2,2,1,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+17	CAST:0,2,2,2,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Hide in Plain Sight (Ranger)
+18	CAST:0,3,2,2,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+19	CAST:0,3,3,3,2							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+20	CAST:0,3,3,3,3							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Save checks bonus												Combat bonus
 CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

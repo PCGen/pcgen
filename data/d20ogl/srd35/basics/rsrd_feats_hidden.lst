@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 23 16:50:57 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Feb 23 18:14:28 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -221,10 +221,9 @@ Swift Tracker			TYPE:Extraordinary	VISIBLE:NO	SA:Swift Tracker (Ex)		SOURCEPAGE:
 Camouflage				TYPE:Extraordinary	VISIBLE:NO	SA:Camouflage (Ex)		SOURCEPAGE:ClassesII.rtf
 Hide in Plain Sight (Ranger)	TYPE:Extraordinary	VISIBLE:NO	SA:Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
 
-###Block: Ranger Trackers
-# Feat Name					Visible	Virtual Feat		Modify VAR						Source Page
-Ranger Tracker - Wild Empathy		VISIBLE:NO	VFEAT:Wild Empathy	BONUS:VAR|WildEmpathy|var("CL=Ranger")	SOURCEPAGE:ClassesII.rtf
-Ranger Tracker - Animal Companion	VISIBLE:NO	VFEAT:Animal Companion	BONUS:VAR|CompLevel|var("CL=Ranger")/2	SOURCEPAGE:ClassesII.rtf
+###Block: Ranger Internal
+# Feat Name			Type			Visible	Define				Modify VAR						Source Page
+Ranger Animal Companion	TYPE:Internal	VISIBLE:NO	DEFINE:RangerAnimalCompLVL|0	BONUS:VAR|CompLevel|RangerAnimalCompLVL/2	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Rogue Abilities
 # Feat Name	Type			Visible	Special Ability	Source Page
