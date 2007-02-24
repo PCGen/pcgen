@@ -1,0 +1,50 @@
+<group-set> 
+ <game-name>Init Tool Default D&amp;D</game-name> 
+ <groups> 
+  <group> 
+   <name>PCGen Party</name> 
+   <combatants>
+|FOR.0,50,1,
+	<name>\\%.NAME\\</name>
+	<count>1</count>
+	<init-modifier>\\%.VAR.INITIATIVEMOD.INTVAL\\</init-modifier>
+	<player>\\%.PLAYERNAME\\</player>
+	<type>default</type>
+	<token\\%.FOR.0,STRLEN[PORTRAIT]/STRLEN[PORTRAIT],1, type="url",,,\\>\\%.FOR.0,STRLEN[PORTRAIT]/STRLEN[PORTRAIT],1,file:\PORTRAIT\,,,\\</token>
+	<type>\\%.RACETYPE\\</type>
+	<descriptor>\\%.RACESUBTYPE\\</descriptor>
+	<levels>\\%.FOR.0,COUNT[CLASSES],1,\CLASS.%.LEVEL\ \TEXT.NUMSUFFIX.CLASS.%.LEVEL\ lvl \CLASS.%\; ,,,\\</levels>
+	<hitDice>\\%.HITDICE\\  (\\%.HP\\ hp)</hitDice>
+	<hitPoints>\\%.HP\\</hitPoints>
+	<currentHitPoints>\\%.HP\\</currentHitPoints>
+	<size>\\%.SIZE\\</size>
+	<speed>\\%.MOVEMENT\\</speed>
+	<ac>\\%.AC.Total\\</ac>
+	<touchAc>\\%.AC.Touch\\</touchAc>
+	<flatFootedAc>\\%.AC.Flatfooted\\</flatFootedAc>
+	<baseAttack>\\%.VAR.BAB.INTVAL.SIGN\\</baseAttack>
+	<grapple>\\%.VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN\\</grapple>
+	<space>\\%.FACE\\</space>
+	<reach>\\%.REACH\\</reach>
+	<fortSave>\\%.CHECK.FORTITUDE.TOTAL\\</fortSave>
+	<reflexSave>\\%.CHECK.REFLEX.TOTAL\\</reflexSave>
+	<willSave>\\%.CHECK.WILL.TOTAL\\</willSave>
+	<str>\\%.STAT.0\\ [\\%.STAT.0.MOD\\]</str>
+	<dex>\\%.STAT.1\\ [\\%.STAT.1.MOD\\]</dex>
+	<con>\\%.STAT.2\\ [\\%.STAT.2.MOD\\]</con>
+	<int>\\%.STAT.3\\ [\\%.STAT.3.MOD\\]</int>
+	<wis>\\%.STAT.4\\ [\\%.STAT.4.MOD\\]</wis>
+	<cha>\\%.STAT.5\\ [\\%.STAT.5.MOD\\]</cha>
+	<challengeRating>\\%.CR\\</challengeRating>
+	<attack>\\%.FOR.0,100,1,\WEAPON.%.NAME.NOSTAR\: \WEAPON.%.BASEHIT\ (\WEAPON.%.DAMAGE\/\WEAPON.%.CRIT\/x\WEAPON.%.MULT\), ,;,1\\</attack>
+	<specialQualitities>\\%.SPECIALLIST\\</specialQualitities>
+	<skills>\\%.FOR.0,COUNT[SKILLS],1,\SKILL.%\: \SKILL.%.TOTAL.SIGN\, ,; ,1\\</skills>
+	<feats>\\%.FEATALLLIST\\</feats>
+	<languages>\\%.LANGUAGES\\</languages>
+	<alignment>\\%.ALIGNMENT\\</alignment>
+	<levalAdjustment>\\%.VAR.ECL-TL.INTVAL\\</levalAdjustment>
+,<combatant>,</combatant>,1|
+   </combatants> 
+  </group> 
+ </groups> 
+</group-set>
