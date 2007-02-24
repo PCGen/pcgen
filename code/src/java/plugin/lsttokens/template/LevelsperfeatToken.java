@@ -2,6 +2,7 @@ package plugin.lsttokens.template;
 
 import pcgen.core.PCTemplate;
 import pcgen.persistence.lst.PCTemplateLstToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with LEVELSPERFEAT Token
@@ -24,6 +25,12 @@ public class LevelsperfeatToken implements PCTemplateLstToken
 			if (newLevels >= 0)
 			{
 				template.setLevelsPerFeat(newLevels);
+			}
+			else
+			{
+				Logging.errorPrint("Levels Per Feat must be "
+					+ "greater than or equal to zero: " + value);
+				return false;
 			}
 		}
 		catch (NumberFormatException nfe)
