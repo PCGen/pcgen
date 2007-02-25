@@ -1560,7 +1560,11 @@
 </table>
 <!-- STOP Allegiances Table -->
 <font style="font-size:2pt"><br /></font>
+
 <!-- START Mutations Table -->
+|FOR,%MutationTest,STRLEN[ABILITYLIST.Mutation],STRLEN[ABILITYLIST.Mutation],1,0|
+|IIF(%MutationTest:0)|
+|ELSE|
     <table width="100%" cellspacing="0" cellpadding="3" summary="Mutations Table">
      <tr>
       <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>MUTATIONS</b></font></td>
@@ -1570,7 +1574,10 @@
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>
+|ENDIF|
+|ENDFOR|
 <!-- STOP Mutations Table -->
+
 <font style="font-size:2pt"><br /></font>
 |%DOMAIN.1|
 <!-- START Domain Table -->
