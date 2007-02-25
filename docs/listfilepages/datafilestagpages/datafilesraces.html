@@ -108,19 +108,8 @@
 
 
 		<p></p><a name="HITDICE"></a><hr>
-		<p class="new">deprecated . . 5.11.4</p>
+		<p class="new">deprecated . . 5.11.4, use <a href="#HITDIE">HITDIE</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> HITDICE:x,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Starting number of dice)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (Type of Hit Dice)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>The first number is the number of Automatic Hit Dice the race starts with.</li>
-			<li>The second number is the Hit Die Size for those dice.</li>
-			<li>This is used Only with Default Monsters ON</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>HITDICE:2,8</code></p>
-		<p class="indent3">Race has 2d8 hit points to start with.</p>
 
 		<p></p><a name="HITDICEADVANCEMENT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> HITDICEADVANCEMENT:x,x</p>
@@ -140,6 +129,54 @@
 		<p class="indent3">Assassin Vine: starts out as Large, with 4 HD. 5-16 it is Huge,
 			17-32 it is Gargantuan, 33+ it is Colossal. 99 HD is the maximum
 			it can ever raise to.</p>
+
+		<p></p><a name="HITDIE"></a><hr>
+		<p class="new">*** New 5.7.8 *** Updated 5.9.4 *** Updated 5.11.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> HITDIE:x.y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Dice size)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %+Number (Amount added to Hit Dice)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %-Number (Amount subtracted from Hit Dice)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %*Number (Amount Hit Dice is multiplied by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %/Number (Amount Hit Dice is divided by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %upNumber (Amount Hit Dice size is stepped up by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %downNumber (Amount Hit Dice size is stepped down by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %Hup (Amount Hit Dice size is stepped up by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %Hdown (Amount Hit Dice size is stepped down by)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> CLASS=&lt;class name&gt; (Optional, Specific class the HITDIE will be applied to)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> CLASS.TYPE=&lt;class type name&gt; (Optional, Specific class type the HITDIE will be applied to)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Specifies the new Hit Dice size the template grants to the
+  			creature and retroactively recalculates hit points based on the new Hit Dice size.
+			When using the step up function (%upNumber) the steps are d4,d6,d8,d10 and stops at d12.
+			When using the step down function (%downNumber) the steps are d12,d10,d8,d6 and stops at d4.
+			Regardless of the number it will never allow a hit die below 1.</p>
+		<p class="indent2">This tag can be used on a level line to specify a hit dice size which will be applied only that level.
+			When using the step up function (%Hup) the steps are d1-d1000.
+			When using the step down function (%Hdown) the steps are d1-d1000.
+			 Regardless of the number it will never allow a hit die below 1.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HITDIE:12</code></p>
+		<p class="indent3">The character now has a Hit Dice of 12.</p>
+		<p class="indent2"><code>HITDIE:%+2</code></p>
+		<p class="indent3">Adds 2 to the current Hit Dice size.</p>
+		<p class="indent2"><code>HITDIE:%-4</code></p>
+		<p class="indent3">Subtracts 4 from the current Hit Dice size.</p>
+		<p class="indent2"><code>HITDIE:%*3</code></p>
+		<p class="indent3">Multiplies the current Hit Dice size by 3.</p>
+		<p class="indent2"><code>HITDIE:%/2</code></p>
+		<p class="indent3">Divides the current Hit Dice size by 2.</p>
+		<p class="indent2"><code>HITDIE:%up2</code></p>
+		<p class="indent3">Steps up the Hit Dice size by two steps. If the creature has a Hit Die of d6 it will be stepped up to d10.</p>
+		<p class="indent2"><code>HITDIE:%down1</code></p>
+		<p class="indent3">Steps down the Hit Dice size by one step. If the creature has a Hit Die of d6 it will be stepped down to d4.</p>
+		<p class="indent2"><code>HITDIE:%up1|CLASS.TYPE=Monster</code></p>
+		<p class="indent3">Steps up the Hit Dice size by one step for any Monster class levels the creature has.
+			If the creature has a Monster class Hit Die of d8 it will be stepped up to d10.</p>
+		<p class="indent3">Steps down the Hit Dice size by one step. If the class has a Hit Die of d6 it will be stepped down to d4.</p>
+		<p class="indent2"><code>HITDIE:%Hup9</code></p>
+		<p class="indent3">Steps up the Hit Dice size by nine steps. If the class has a Hit Die of d6 it will be stepped up to d15.</p>
+		<p class="indent2"><code>HITDIE:%Hdown3</code></p>
+		<p class="indent3">Steps down the Hit Dice size by three step. If the class has a Hit Die of d6 it will be stepped down to d3.</p>
 
 		<p></p><a name="LANGBONUS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> LANGBONUS:x,x</p>
