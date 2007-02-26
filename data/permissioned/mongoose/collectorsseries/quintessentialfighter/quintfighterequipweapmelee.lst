@@ -45,7 +45,7 @@ War Rake			TYPE:Weapon.Martial.Melee.Large.Piercing.Metal				COST:5	WT:12		CRITM
 Spiked Helmet		TYPE:Weapon.Unarmed.Melee.Small.Piercing.Metal				COST:25	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6						SIZE:S	SOURCEPAGE:p.45
 #
 #Small ----------------------------------------------------------------------------------------------------------
-Axe (Carpenter's)		TYPE:Weapon.Simple.Melee.Small.Slashing.Metal				COST:1	WT:3		CRITMULT:3			CRITRANGE:1			DAMAGE:1d6						SIZE:S	SOURCEPAGE:p.43
+Axe (Carpenter's)		TYPE:Weapon.Simple.Melee.Small.Slashing.Metal				COST:1	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6						SIZE:S	SOURCEPAGE:p.43
 #
 #Medium ---------------------------------------------------------------------------------------------------------
 Sawtooth			TYPE:Weapon.Simple.Melee.Medium.Slashing.Nonmetal			COST:10	WT:4		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8						SIZE:M	SOURCEPAGE:p.45
