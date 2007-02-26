@@ -16,7 +16,8 @@ public class CritmultToken implements EquipmentLstToken
 
 	public boolean parse(Equipment eq, String value)
 	{
-		if ((value.length() > 0) && (value.charAt(0) == 'x'))
+		if ((value.length() > 0)
+			&& (Character.toLowerCase(value.charAt(0)) == 'x'))
 		{
 			try
 			{
