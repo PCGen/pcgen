@@ -270,6 +270,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public final Object getAssociatedObject(final int idx)
 	{
+		if (associatedList == null) 
+		{
+			return Constants.EMPTY_STRING;
+		}
 		return associatedList.get(idx);
 	}
 
