@@ -159,7 +159,7 @@ Tower Shield,
   </tr>
 
   <tr valign="top">
-    <td width="25%"><b>Attacks: </b></td>
+    <td width="25%"><b>Full Attack: </b></td>
     <td width="75%">
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
 <strong>|WEAPON.%weap.NAME.NOSTAR| </strong>
@@ -178,6 +178,53 @@ Tower Shield,
 ); 
 |ELSE|
 |WEAPON.%weap.BASEHIT| 
+|IIF(WEAPON.%weap.ISTYPE.Ranged)|
+ranged
+|ELSE|
+melee
+|ENDIF|
+ (
+|IIF(WEAPON.%weap.ISTYPE.Ranged)|
+|WEAPON.%weap.RANGELIST.0.DAMAGE|
+|ELSE|
+|WEAPON.%weap.DAMAGE|
+|ENDIF|
+|FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
+|IIF(%CritTest:2)|
+|ELSE|
+/|WEAPON.%weap.CRIT|
+|ENDIF|
+|ENDFOR|
+|IIF(WEAPON.%weap.MULT:2)|
+|ELSE|
+/x|WEAPON.%weap.MULT|
+|ENDIF|
+); 
+|ENDIF|
+
+|ENDFOR|
+    </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Attack: </b></td>
+    <td width="75%">
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
+<strong>|WEAPON.%weap.NAME.NOSTAR| </strong>
+|IIF(WEAPON.%weap.TOTALHIT:N/A)|
+(two handed) |WEAPON.%weap.THHIT.0| melee ((two handed) |WEAPON.%weap.THDAMAGE|
+|FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
+|IIF(%CritTest:2)|
+|ELSE|
+/|WEAPON.%weap.CRIT|
+|ENDIF|
+|ENDFOR|
+|IIF(WEAPON.%weap.MULT:2)|
+|ELSE|
+/x|WEAPON.%weap.MULT|
+|ENDIF|
+); 
+|ELSE|
+|WEAPON.%weap.BASEHIT.0| 
 |IIF(WEAPON.%weap.ISTYPE.Ranged)|
 ranged
 |ELSE|
