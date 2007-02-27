@@ -1028,8 +1028,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 		Object defaultValue = cmbSellPercent.getSelectedItem().toString();
 		InputInterface ii = InputFactory.getInputInstance();
 		Object input =
-				ii.showInputDialog(this, PropertyFactory.getString("in_igBuyPricePercMsg"),
-					PropertyFactory.getString("in_igBuyPricePercTitle"), MessageType.QUESTION, null, defaultValue);
+				ii.showInputDialog(this, PropertyFactory.getString("in_igBuyPricePercMsg"), //$NON-NLS-1$
+					PropertyFactory.getString("in_igBuyPricePercTitle"), MessageType.QUESTION, null, defaultValue); //$NON-NLS-1$
 
 		if (input != null)
 		{
@@ -1043,7 +1043,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			catch (NumberFormatException nfe)
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_igBuyPricePercNoInteger"), Constants.s_APPNAME,
+					PropertyFactory.getString("in_igBuyPricePercNoInteger"), Constants.s_APPNAME, //$NON-NLS-1$
 					MessageType.ERROR);
 			}
 		}
@@ -1070,7 +1070,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate
 						.showMessageDialog(
-							PropertyFactory.getString("in_igBuyMustCustomizeItemFirst"),
+							PropertyFactory.getString("in_igBuyMustCustomizeItemFirst"), //$NON-NLS-1$
 							Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
@@ -1085,7 +1085,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (buyQty < 0)
 			{
 				Object selectedValue =
-						JOptionPane.showInputDialog(null, "Enter Quantity",
+						JOptionPane.showInputDialog(null, PropertyFactory.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
 							Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 				if (selectedValue != null)
@@ -1099,7 +1099,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					catch (Exception e)
 					{
 						ShowMessageDelegate.showMessageDialog(
-							"Invalid number!", Constants.s_APPNAME,
+							PropertyFactory.getString("in_igInvalidNumber"), Constants.s_APPNAME, //$NON-NLS-1$
 							MessageType.ERROR);
 
 						return;
@@ -1115,8 +1115,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				&& !CoreUtility.doublesEqual((buyQty % 1), 0))
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"You cannot buy, own or carry non-integral numbers of containers\n"
-						+ "i.e. Half a sack is nonsensical.",
+					PropertyFactory.getString("in_igBuyNonIntegralNumContainers"), //$NON-NLS-1$
 					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
@@ -1198,8 +1197,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 			else
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"Insufficient funds for purchase of " + qtyToBuy + " "
-						+ selectedEquipment.getName(), Constants.s_APPNAME,
+					PropertyFactory.getFormattedString("in_igBuyInsufficientFunds", qtyToBuy, //$NON-NLS-1$ 
+					selectedEquipment.getName()), Constants.s_APPNAME,
 					MessageType.INFORMATION);
 			}
 		}
@@ -1516,7 +1515,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (!(e.getItem() instanceof Equipment))
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"Can only customise items, not types.",
+					PropertyFactory.getString("in_igCanNotCustomizeTypes"), //$NON-NLS-1$
 					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
@@ -1542,7 +1541,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (!(e.getItem() instanceof Equipment))
 			{
-				ShowMessageDelegate.showMessageDialog("Cannot delete types.",
+				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_igCanNotDeleteTypes"), //$NON-NLS-1$
 					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
@@ -1553,7 +1552,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (!aEq.isType(Constants.s_CUSTOM))
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"Can only delete custom items.", Constants.s_APPNAME,
+					PropertyFactory.getString("in_igCanOnlyDeleteCustom"), Constants.s_APPNAME, //$NON-NLS-1$
 					MessageType.ERROR);
 
 				return;
@@ -1575,9 +1574,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 				whose = whose.substring(1, whose.length() - 1);
 				ShowMessageDelegate
 					.showMessageDialog(
-						"Can only delete items that are in no character's possession. "
-							+ "The following character(s) have this item in their possession:\n"
-							+ whose, Constants.s_APPNAME, MessageType.ERROR);
+						PropertyFactory.getFormattedString("in_igCanOnlyDeleteUncarriedItems",whose), //$NON-NLS-1$
+						Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
 			}
@@ -1589,9 +1587,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 				//
 				// Give user a chance to bail
 				//
-				if (JOptionPane.showConfirmDialog(null, "Delete "
-					+ aEq.getName() + " from database?", Constants.s_APPNAME,
-					JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)
+				if (JOptionPane.showConfirmDialog(null, 
+					PropertyFactory.getFormattedString("in_igConfirmDelete",aEq.getName()), //$NON-NLS-1$ 
+					Constants.s_APPNAME, JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)
 				{
 					return;
 				}
@@ -1623,7 +1621,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		if (minCharges < 0)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"This item cannot hold charges.", Constants.s_APPNAME,
+				"This item cannot hold charges.", Constants.s_APPNAME, //$NON-NLS-1$
 				MessageType.ERROR);
 
 			return;
@@ -3013,48 +3011,48 @@ public final class InfoGear extends FilterAdapterPanel implements
 		private JMenuItem createBuyMenuItem(String label, int qty,
 			String accelerator)
 		{
-			return Utility.createMenuItem(label,
-				new BuyGearActionListener(qty), "Buy" + qty, (char) 0,
-				accelerator, "Buy " + ((qty < 0) ? "n" : Integer.toString(qty))
-					+ " at the current rate", "Add16.gif", true);
+			return Utility.createMenuItem(label, new BuyGearActionListener(qty), 
+				PropertyFactory.getFormattedString("in_igBuyMenuCommand" , qty), (char) 0, //$NON-NLS-1$
+				accelerator, PropertyFactory.getFormattedString("in_igBuyRateMenuDesc" , //$NON-NLS-1$
+				(qty < 0) ? "n" : Integer.toString(qty)),"Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createBuyRateMenuItem(String label, int qty,
 			String accelerator)
 		{
-			return Utility.createMenuItem(label, new BuyRateGearActionListener(
-				qty), "Buy" + qty, (char) 0, accelerator, "Buy "
-				+ ((qty < 0) ? "n" : Integer.toString(qty))
-				+ " at a specified rate", "Add16.gif", true);
+			return Utility.createMenuItem(label, new BuyRateGearActionListener(	qty), 
+				PropertyFactory.getFormattedString("in_igBuyRateMenuCommand", qty), (char) 0, accelerator, //$NON-NLS-1$ 
+				PropertyFactory.getFormattedString("in_igBuyRateMenuDesc", //$NON-NLS-1$
+				(qty < 0) ? "n" : Integer.toString(qty) ), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, int qty,
 			String accelerator)
 		{
-			return Utility.createMenuItem(label, new RemoveGearActionListener(
-				qty), "Remove" + qty, (char) 0, accelerator, "Remove "
-				+ ((qty < 0) ? "n" : Integer.toString(qty))
-				+ " from your inventory", "Remove16.gif", true);
+			return Utility.createMenuItem(label, new RemoveGearActionListener(qty), PropertyFactory.
+				getFormattedString("in_igRemoveMenuCommand" , qty), (char) 0, accelerator, //$NON-NLS-1$  
+				PropertyFactory.getFormattedString("in_igRemoveMenuDesc", //$NON-NLS-1$
+				(qty < 0) ? "n" : Integer.toString(qty) ), "Remove16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createSellMenuItem(String label, int qty,
 			String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new SellGearActionListener(qty), "Sell" + qty, (char) 0,
-				accelerator, "Sell "
-					+ ((qty < 0) ? "n" : Integer.toString(qty))
-					+ " from your inventory", null, true);
+				new SellGearActionListener(qty), PropertyFactory.
+				getFormattedString("in_igSellMenuCommand",qty), (char) 0, //$NON-NLS-1$
+				accelerator, PropertyFactory.getFormattedString("in_igSellMenuDesc", //$NON-NLS-1$
+				(qty < 0) ? "n" : Integer.toString(qty)), null, true); //$NON-NLS-1$
 		}
 
 		private JMenuItem createSellRateMenuItem(String label, int qty,
 			String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new SellRateGearActionListener(qty), "Sell" + qty, (char) 0,
-				accelerator, "Sell "
-					+ ((qty < 0) ? "n" : Integer.toString(qty))
-					+ " from your inventory at a rate", null, true);
+				new SellRateGearActionListener(qty), PropertyFactory.
+				getFormattedString("in_igSellRateMenuCommand" , qty), (char) 0, //$NON-NLS-1$
+				accelerator, PropertyFactory.getFormattedString("in_igSellRateMenuDesc", //$NON-NLS-1$
+				(qty < 0) ? "n" : Integer.toString(qty)), null, true); //$NON-NLS-1$
 		}
 	}
 
@@ -3478,7 +3476,12 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 		// Names of the columns.
 		private String[] names =
-				{"Item", "Cost", "Weight", "Qty", "Order", "Source"};
+				{PropertyFactory.getString("in_igEqModelColItem"), //$NON-NLS-1$
+				PropertyFactory.getString("in_igEqModelColCost"), //$NON-NLS-1$
+				PropertyFactory.getString("in_igEqModelColWeight"), //$NON-NLS-1$
+				PropertyFactory.getString("in_igEqModelColQty"), //$NON-NLS-1$
+				PropertyFactory.getString("in_igEqModelColOrder"), //$NON-NLS-1$ 
+				PropertyFactory.getString("in_igEqModelColSource")}; //$NON-NLS-1$
 		private int[] widths = {100, 20, 20, 20, 20, 100};
 
 		// Types of the columns.
@@ -3503,29 +3506,29 @@ public final class InfoGear extends FilterAdapterPanel implements
 			int i = 1;
 			displayList = new ArrayList<Boolean>();
 			displayList.add(Boolean.TRUE);
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." //$NON-NLS-1$
 				+ names[i++], true)));
 			if (available)
 			{
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], false)));
+					+ "." + names[i++], false))); //$NON-NLS-1$
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], false)));
+					+ "." + names[i++], false))); //$NON-NLS-1$
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], false)));
+					+ "." + names[i++], false))); //$NON-NLS-1$
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], true)));
+					+ "." + names[i++], true))); //$NON-NLS-1$
 			}
 			else
 			{
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], false)));
+					+ "." + names[i++], false))); //$NON-NLS-1$
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], true)));
+					+ "." + names[i++], true))); //$NON-NLS-1$
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], true)));
+					+ "." + names[i++], true))); //$NON-NLS-1$
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], false)));
+					+ "." + names[i++], false))); //$NON-NLS-1$
 			}
 		}
 
@@ -4020,8 +4023,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 			{
 				if (sourceString == null)
 				{
-					Logging.errorPrint("Gear " + eq.getName()
-						+ " has no source long entry.");
+					Logging.errorPrintLocalised("in_igLogGearHasNoLongSource", 
+							eq.getName() ); //$NON-NLS-1$
 				}
 				else if (sourceString.equals(rootAsPObjectNode.getChild(i)
 					.toString()))
@@ -4175,7 +4178,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 		public void setMColumnDisplayed(int col, boolean disp)
 		{
-			setColumnViewOption(modelType + "." + names[col], disp);
+			setColumnViewOption(modelType + "." + names[col], disp); //$NON-NLS-1$
 			displayList.set(col, Boolean.valueOf(disp));
 		}
 
@@ -4186,25 +4189,25 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 		public int getMColumnDefaultWidth(int col)
 		{
-			return SettingsHandler.getPCGenOption("InfoGear.sizecol."
+			return SettingsHandler.getPCGenOption("InfoGear.sizecol." //$NON-NLS-1$
 				+ names[col], widths[col]);
 		}
 
 		public void setMColumnDefaultWidth(int col, int width)
 		{
-			SettingsHandler.setPCGenOption("InfoGear.sizecol." + names[col],
+			SettingsHandler.setPCGenOption("InfoGear.sizecol." + names[col], //$NON-NLS-1$
 				width);
 		}
 
 		private boolean getColumnViewOption(String colName, boolean defaultVal)
 		{
 			return SettingsHandler.getPCGenOption(
-				"InfoGear.viewcol." + colName, defaultVal);
+				"InfoGear.viewcol." + colName, defaultVal); //$NON-NLS-1$
 		}
 
 		private void setColumnViewOption(String colName, boolean val)
 		{
-			SettingsHandler.setPCGenOption("InfoGear.viewcol." + colName, val);
+			SettingsHandler.setPCGenOption("InfoGear.viewcol." + colName, val); //$NON-NLS-1$
 		}
 
 		public void resetMColumn(int col, TableColumn column)
@@ -4230,7 +4233,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 	{
 		private final transient List<CellEditorListener> d_listeners =
 				new ArrayList<CellEditorListener>();
-		private transient String d_originalValue = "";
+		private transient String d_originalValue = ""; //$NON-NLS-1$
 
 		private QuantityEditor()
 		{
@@ -4271,7 +4274,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				}
 				else
 				{
-					setText("0");
+					setText("0"); //$NON-NLS-1$
 				}
 			}
 
