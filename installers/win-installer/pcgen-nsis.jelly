@@ -291,7 +291,7 @@ SubSection /e "PlugIns" Section3
 
 	SectionEnd
 
-	Section "Optional Plugins"
+	Section "GMGen Plugins"
 
 	SectionIn 1 2 3
 	SetOutPath "$$INSTDIR\$${APPDIR}\plugins"
