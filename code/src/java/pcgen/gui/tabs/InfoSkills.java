@@ -494,7 +494,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		if (idx < pc.getLevelInfoSize())
 		{
 			resetSelectedModel = !(previouslySelectedClass == aClass);
-			currCharacterClass.setSelectedIndex(idx);
+			if (currCharacterClass.getSelectedIndex() != idx)
+			{
+				currCharacterClass.setSelectedIndex(idx);
+				updateAvailableModel();
+			}
 			previouslySelectedClass = aClass;
 			resetSelectedModel = oldFlag;
 		}
