@@ -44,6 +44,7 @@ public final class Campaign extends PObject
 	private boolean isLicensed;
 	private boolean isLoaded;
 	private boolean isOGL;
+	private boolean isMature;
 	private boolean showInMenu;
 
 	/**
@@ -1122,6 +1123,15 @@ public final class Campaign extends PObject
 	}
 
 	/**
+	 * Set the isMature flag
+	 * @param isMature
+	 */
+	public void setIsMature(final boolean isMature)
+	{
+		this.isMature = isMature;
+	}
+
+	/**
 	 * Returns whether this campaign is licensed
 	 * @return true if this campaign is licensed
 	 */
@@ -1144,6 +1154,14 @@ public final class Campaign extends PObject
 	public boolean isOGL()
 	{
 		return isOGL;
+	}
+
+	/**
+	 * @return whether or not the Mature dataset warning will pop up when this campaign is loaded
+	 */
+	public boolean isMature()
+	{
+		return isMature;
 	}
 
 	/**

@@ -55,6 +55,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 import pcgen.core.Constants;
@@ -490,6 +491,62 @@ public class pcGenGUI
 		}
 
 		showLicense("OGL License 1.0a", aString);
+	}
+
+	public static void showMature(String text)
+	{
+		Logging.errorPrint("Warning: The following datasets contains mature themes. User discretion is advised.");
+		Logging.errorPrint(text);
+		
+		final JFrame aFrame = new JFrame("Maturity Warning");
+
+		final JPanel jPanel1 = new JPanel();
+		final JPanel jPanel2 = new JPanel();
+		final JPanel jPanel3 = new JPanel();
+		final JLabel jLabel1 = new JLabel("Warning: The following datasets contains mature themes.", SwingConstants.CENTER);
+		final JLabel jLabel2 = new JLabel("User discretion is advised.", SwingConstants.CENTER);
+		final JCheckBox jCheckBox1 = new JCheckBox("Show on source load");
+		final JButton jClose = new JButton("Close");
+
+		jPanel1.setLayout(new BorderLayout());
+		jPanel1.add(jLabel1, BorderLayout.NORTH);
+		jPanel1.add(jLabel2, BorderLayout.SOUTH);
+
+		jPanel2.setLayout(new BorderLayout());
+		aFrame.getContentPane().add(jPanel1, BorderLayout.NORTH);
+		aFrame.getContentPane().add(jPanel2, BorderLayout.CENTER);
+		aFrame.getContentPane().add(jPanel3, BorderLayout.SOUTH);
+
+		final JEditorPane a = new JEditorPane("text/html", text);
+		a.setEditable(false);
+
+		final JScrollPane aPane = new JScrollPane();
+		aPane.setViewportView(a);
+		jPanel2.add(aPane, BorderLayout.CENTER);
+
+		jPanel3.add(jCheckBox1);
+		jPanel3.add(jClose);
+		jCheckBox1.setSelected(SettingsHandler.showMature());
+
+		jClose.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					aFrame.dispose();
+				}
+			});
+
+		jCheckBox1.addItemListener(new ItemListener()
+			{
+				public void itemStateChanged(ItemEvent evt)
+				{
+					SettingsHandler.setShowMature(jCheckBox1.isSelected());
+				}
+			});
+
+		aFrame.setSize(new Dimension(456, 176));
+		Utility.centerFrame(aFrame, false);
+		aFrame.setVisible(true);
 	}
 
 	public static void showLicense(String title, List<URI> fileList)

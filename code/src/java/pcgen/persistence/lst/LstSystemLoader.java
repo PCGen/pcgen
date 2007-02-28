@@ -257,11 +257,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	/////////////////////////////////////////////////////////////////
 	private String skillReq = "";
 	private StringBuffer licensesToDisplayString = new StringBuffer();
+	private StringBuffer matureCampaigns = new StringBuffer();
 	private TraitLoader traitLoader = new TraitLoader();
 	private WeaponProfLoader wProfLoader = new WeaponProfLoader();
 	private boolean customItemsLoaded = false;
 	private boolean showD20 = false;
 	private boolean showLicensed = true;
+	private boolean showMature = false;
 	private boolean showOGL = false;
 
 	////////////////////////////////////////////////////////////
@@ -353,6 +355,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		loadedFiles.clear();
 		chosenCampaignSourcefiles.clear();
 		licensesToDisplayString = new StringBuffer();
+		matureCampaigns = new StringBuffer();
 		//Globals.getBioSet().clearUserMap();
 
 		releaseFileData();
@@ -1186,6 +1189,15 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			{
 				licenseFiles.addAll(licenseURIs);
 			}
+		}
+		
+		// check if maturity warning needs to be shown
+		showMature |= aCamp.isMature();
+		
+		if (aCamp.isMature())
+		{
+			matureCampaigns.append(aCamp.getSourceEntry().getFieldByType(SourceEntry.SourceFormat.LONG) + 
+				                   " (" + aCamp.getPubNameLong() + ")<br>");
 		}
 
 		// Load the LST files to be loaded for the campaign
@@ -2046,6 +2058,15 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				// some products may still be D20 compliant, so we need to display this
 				// even though PCGen itself is not D20 compliant
 				pcGenGUI.showMandatoryD20Info();
+			}
+
+			if (showMature && SettingsHandler.showMature())
+			{
+				String matureInfo = matureCampaigns.toString();
+				if (matureInfo.trim().length() > 0)
+				{
+					pcGenGUI.showMature(matureInfo);
+				}
 			}
 		}
 

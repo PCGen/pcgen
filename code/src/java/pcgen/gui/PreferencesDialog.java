@@ -93,121 +93,228 @@ final class PreferencesDialog extends JDialog
 	// Used to create the entries for the max spell level combos
 	private static final int SPELLLVLMIN = 0;
 	private static final int SPELLLVLMAX = 9;
-	private static String[] potionSpellLevel = new String[SPELLLVLMAX - SPELLLVLMIN + 1];
-	private static String[] wandSpellLevel = new String[SPELLLVLMAX - SPELLLVLMIN + 1];
+	private static String[] potionSpellLevel =
+			new String[SPELLLVLMAX - SPELLLVLMIN + 1];
+	private static String[] wandSpellLevel =
+			new String[SPELLLVLMAX - SPELLLVLMIN + 1];
 
 	// Resource strings
-	private static String in_abilities = PropertyFactory.getString("in_Prefs_abilities");
+	private static String in_abilities =
+			PropertyFactory.getString("in_Prefs_abilities");
 	//PropertyFactory.getString("in_Prefs_abilitiesUserRolled");
 	//PropertyFactory.getString("in_Prefs_abilitiesAllSame");
 	//PropertyFactory.getString("in_Prefs_abilitiesPurchased");
-	private static String in_allowMetamagic = PropertyFactory.getString("in_Prefs_allowMetamagic");
-	private static String in_allowOverride = PropertyFactory.getString("in_Prefs_allowOverride");
-	private static String in_alwaysOverwrite = PropertyFactory.getString("in_Prefs_alwaysOverwrite");
-	private static String in_appearance = PropertyFactory.getString("in_Prefs_appearance");
-	private static String in_autoLoadAtStart = PropertyFactory.getString("in_Prefs_autoLoadAtStart");
-	private static String in_autoLoadWithPC = PropertyFactory.getString("in_Prefs_autoLoadWithPC");
-	private static String in_anyAutoEquip = PropertyFactory.getString("in_Prefs_anyAutoEquip");
-	private static String in_autoEquip = PropertyFactory.getString("in_Prefs_autoEquip");
-	private static String in_autoEquipRace = PropertyFactory.getString("in_Prefs_autoEquipRace");
-	private static String in_autoEquipMasterwork = PropertyFactory.getString("in_Prefs_autoEquipMasterwork");
-	private static String in_autoEquipMagic = PropertyFactory.getString("in_Prefs_autoEquipMagic");
-	private static String in_autoEquipExotic = PropertyFactory.getString("in_Prefs_autoEquipExotic");
-	private static String in_browserPath = PropertyFactory.getString("in_Prefs_browserPath");
-	private static String in_clearBrowserPath = PropertyFactory.getString("in_Prefs_clearBrowserPath");
-	private static String in_color = PropertyFactory.getString("in_Prefs_color");
-	private static String in_colorPrereqQualify = PropertyFactory.getString("in_Prefs_colorPrereqQualify");
-	private static String in_colorPrereqFail = PropertyFactory.getString("in_Prefs_colorPrereqFail");
-	private static String in_colorAutoFeat = PropertyFactory.getString("in_Prefs_colorAutoFeat");
-	private static String in_colorVirtFeat = PropertyFactory.getString("in_Prefs_colorVirtFeat");
-	private static String in_charTabPlacement = PropertyFactory.getString("in_Prefs_charTabPlacement");
-	private static String in_charTabLabel = PropertyFactory.getString("in_Prefs_charTabLabel");
-	private static String in_character = PropertyFactory.getString("in_Prefs_character");
+	private static String in_allowMetamagic =
+			PropertyFactory.getString("in_Prefs_allowMetamagic");
+	private static String in_allowOverride =
+			PropertyFactory.getString("in_Prefs_allowOverride");
+	private static String in_alwaysOverwrite =
+			PropertyFactory.getString("in_Prefs_alwaysOverwrite");
+	private static String in_appearance =
+			PropertyFactory.getString("in_Prefs_appearance");
+	private static String in_autoLoadAtStart =
+			PropertyFactory.getString("in_Prefs_autoLoadAtStart");
+	private static String in_autoLoadWithPC =
+			PropertyFactory.getString("in_Prefs_autoLoadWithPC");
+	private static String in_anyAutoEquip =
+			PropertyFactory.getString("in_Prefs_anyAutoEquip");
+	private static String in_autoEquip =
+			PropertyFactory.getString("in_Prefs_autoEquip");
+	private static String in_autoEquipRace =
+			PropertyFactory.getString("in_Prefs_autoEquipRace");
+	private static String in_autoEquipMasterwork =
+			PropertyFactory.getString("in_Prefs_autoEquipMasterwork");
+	private static String in_autoEquipMagic =
+			PropertyFactory.getString("in_Prefs_autoEquipMagic");
+	private static String in_autoEquipExotic =
+			PropertyFactory.getString("in_Prefs_autoEquipExotic");
+	private static String in_browserPath =
+			PropertyFactory.getString("in_Prefs_browserPath");
+	private static String in_clearBrowserPath =
+			PropertyFactory.getString("in_Prefs_clearBrowserPath");
+	private static String in_color =
+			PropertyFactory.getString("in_Prefs_color");
+	private static String in_colorPrereqQualify =
+			PropertyFactory.getString("in_Prefs_colorPrereqQualify");
+	private static String in_colorPrereqFail =
+			PropertyFactory.getString("in_Prefs_colorPrereqFail");
+	private static String in_colorAutoFeat =
+			PropertyFactory.getString("in_Prefs_colorAutoFeat");
+	private static String in_colorVirtFeat =
+			PropertyFactory.getString("in_Prefs_colorVirtFeat");
+	private static String in_charTabPlacement =
+			PropertyFactory.getString("in_Prefs_charTabPlacement");
+	private static String in_charTabLabel =
+			PropertyFactory.getString("in_Prefs_charTabLabel");
+	private static String in_character =
+			PropertyFactory.getString("in_Prefs_character");
 	//PropertyFactory.getString("in_Prefs_chooseSkin");
-	private static String in_cmNone = PropertyFactory.getString("in_Prefs_cmNone");
-	private static String in_cmSelect = PropertyFactory.getString("in_Prefs_cmSelect");
-	private static String in_cmSelectExit = PropertyFactory.getString("in_Prefs_cmSelectExit");
-	private static String in_displayOGL = PropertyFactory.getString("in_Prefs_displayOGL");
-	private static String in_displayd20 = PropertyFactory.getString("in_Prefs_displayd20");
-	private static String in_displaySponsors = PropertyFactory.getString("in_Prefs_displaySponsors");
-	private static String in_dialogTitle = PropertyFactory.getString("in_Prefs_title");
-	private static String in_displayOpts = PropertyFactory.getString("in_Prefs_displayOpts");
-	private static String in_expertGUI = PropertyFactory.getString("in_Prefs_expertGUI");
-	private static String in_enforceSpending = PropertyFactory.getString("in_Prefs_enforceSpending");
-	private static String in_equipment = PropertyFactory.getString("in_Prefs_equipment");
-//	private static String in_featWindow = PropertyFactory.getString("in_Prefs_featWindow");
+	private static String in_cmNone =
+			PropertyFactory.getString("in_Prefs_cmNone");
+	private static String in_cmSelect =
+			PropertyFactory.getString("in_Prefs_cmSelect");
+	private static String in_cmSelectExit =
+			PropertyFactory.getString("in_Prefs_cmSelectExit");
+	private static String in_displayOGL =
+			PropertyFactory.getString("in_Prefs_displayOGL");
+	private static String in_displayMature =
+			PropertyFactory.getString("in_Prefs_displayMature");
+	private static String in_displayd20 =
+			PropertyFactory.getString("in_Prefs_displayd20");
+	private static String in_displaySponsors =
+			PropertyFactory.getString("in_Prefs_displaySponsors");
+	private static String in_dialogTitle =
+			PropertyFactory.getString("in_Prefs_title");
+	private static String in_displayOpts =
+			PropertyFactory.getString("in_Prefs_displayOpts");
+	private static String in_expertGUI =
+			PropertyFactory.getString("in_Prefs_expertGUI");
+	private static String in_enforceSpending =
+			PropertyFactory.getString("in_Prefs_enforceSpending");
+	private static String in_equipment =
+			PropertyFactory.getString("in_Prefs_equipment");
+	//	private static String in_featWindow = PropertyFactory.getString("in_Prefs_featWindow");
 	private static String in_hp = PropertyFactory.getString("in_Prefs_hp");
-	private static String in_houseRules = PropertyFactory.getString("in_Prefs_houseRules");
-	private static String in_hpWindow = PropertyFactory.getString("in_Prefs_hpWindow");
-	private static String in_invalidToHitText = PropertyFactory.getString("in_Prefs_invalidToHitText");
-	private static String in_invalidDmgText = PropertyFactory.getString("in_Prefs_invalidDmgText");
-	private static String in_loadURLs = PropertyFactory.getString("in_Prefs_loadURLs");
-	private static String in_language = PropertyFactory.getString("in_Prefs_language");
-	private static String in_langEnglish = PropertyFactory.getString("in_Prefs_langEnglish");
-	private static String in_langFrench = PropertyFactory.getString("in_Prefs_langFrench");
-	private static String in_langGerman = PropertyFactory.getString("in_Prefs_langGerman");
-	private static String in_langItalian = PropertyFactory.getString("in_Prefs_langItalian");
-	private static String in_langSpanish = PropertyFactory.getString("in_Prefs_langSpanish");
-	private static String in_langPortuguese = PropertyFactory.getString("in_Prefs_langPortuguese");
-	private static String in_langSystem = PropertyFactory.getString("in_Prefs_langSystem");
-	private static String in_location = PropertyFactory.getString("in_Prefs_location");
-	private static String in_lookAndFeel = PropertyFactory.getString("in_Prefs_lookAndFeel");
-	private static String in_aaText = PropertyFactory.getString("in_Prefs_aaText");
-	private static String in_levelUp = PropertyFactory.getString("in_Prefs_levelUp");
-	private static String in_monsters = PropertyFactory.getString("in_Prefs_monsters");
-	private static String in_mainTabPlacement = PropertyFactory.getString("in_Prefs_mainTabPlacement");
-	private static String in_noAutoEquip = PropertyFactory.getString("in_Prefs_noAutoEquip");
-	private static String in_output = PropertyFactory.getString("in_Prefs_output");
-	private static String in_outputSheetEqSet = PropertyFactory.getString("in_Prefs_templateEqSet");
-	private static String in_pcgen = PropertyFactory.getString("in_Prefs_pcgen");
+	private static String in_houseRules =
+			PropertyFactory.getString("in_Prefs_houseRules");
+	private static String in_hpWindow =
+			PropertyFactory.getString("in_Prefs_hpWindow");
+	private static String in_invalidToHitText =
+			PropertyFactory.getString("in_Prefs_invalidToHitText");
+	private static String in_invalidDmgText =
+			PropertyFactory.getString("in_Prefs_invalidDmgText");
+	private static String in_loadURLs =
+			PropertyFactory.getString("in_Prefs_loadURLs");
+	private static String in_language =
+			PropertyFactory.getString("in_Prefs_language");
+	private static String in_langEnglish =
+			PropertyFactory.getString("in_Prefs_langEnglish");
+	private static String in_langFrench =
+			PropertyFactory.getString("in_Prefs_langFrench");
+	private static String in_langGerman =
+			PropertyFactory.getString("in_Prefs_langGerman");
+	private static String in_langItalian =
+			PropertyFactory.getString("in_Prefs_langItalian");
+	private static String in_langSpanish =
+			PropertyFactory.getString("in_Prefs_langSpanish");
+	private static String in_langPortuguese =
+			PropertyFactory.getString("in_Prefs_langPortuguese");
+	private static String in_langSystem =
+			PropertyFactory.getString("in_Prefs_langSystem");
+	private static String in_location =
+			PropertyFactory.getString("in_Prefs_location");
+	private static String in_lookAndFeel =
+			PropertyFactory.getString("in_Prefs_lookAndFeel");
+	private static String in_aaText =
+			PropertyFactory.getString("in_Prefs_aaText");
+	private static String in_levelUp =
+			PropertyFactory.getString("in_Prefs_levelUp");
+	private static String in_monsters =
+			PropertyFactory.getString("in_Prefs_monsters");
+	private static String in_mainTabPlacement =
+			PropertyFactory.getString("in_Prefs_mainTabPlacement");
+	private static String in_noAutoEquip =
+			PropertyFactory.getString("in_Prefs_noAutoEquip");
+	private static String in_output =
+			PropertyFactory.getString("in_Prefs_output");
+	private static String in_outputSheetEqSet =
+			PropertyFactory.getString("in_Prefs_templateEqSet");
+	private static String in_pcgen =
+			PropertyFactory.getString("in_Prefs_pcgen");
 	//PropertyFactory.getString("in_Prefs_purchaseModeConfig");
-	private static String in_potionMax = PropertyFactory.getString("in_Prefs_potionMax");
-	private static String in_paperType = PropertyFactory.getString("in_Prefs_paperType");
-	private static String in_postExportCommandStandard = PropertyFactory.getString("in_Prefs_postExportCommandStandard");
-	private static String in_postExportCommandPDF = PropertyFactory.getString("in_Prefs_postExportCommandPDF");
-	private static String in_removeTemp = PropertyFactory.getString("in_Prefs_removeTemp");
-	private static String in_statWindow = PropertyFactory.getString("in_Prefs_statWindow");
-	private static String in_showToolTips = PropertyFactory.getString("in_Prefs_showToolTips");
-	private static String in_showToolBar = PropertyFactory.getString("in_Prefs_showToolBar");
-	private static String in_showFeatDescription = PropertyFactory.getString("in_Prefs_showFeatDesciption");
-	private static String in_singleChoiceOption = PropertyFactory.getString("in_Prefs_singleChoiceOption");
-	private static String in_skinnedLAF = PropertyFactory.getString("in_Prefs_skinnedLAF");
-	private static String in_sources = PropertyFactory.getString("in_Prefs_sources");
-	private static String in_saveCustom = PropertyFactory.getString("in_Prefs_saveCustom");
-	private static String in_saveOutputSheetWithPC = PropertyFactory.getString("in_Prefs_saveOutputSheetWithPC");
-	private static String in_sdLong = PropertyFactory.getString("in_Prefs_sdLong");
-	private static String in_sdPage = PropertyFactory.getString("in_Prefs_sdPage");
-	private static String in_sdShort = PropertyFactory.getString("in_Prefs_sdShort");
-	private static String in_sdMedium = PropertyFactory.getString("in_Prefs_sdMedium");
-	private static String in_sdWeb = PropertyFactory.getString("in_Prefs_sdWeb");
-	private static String in_showMemory = PropertyFactory.getString("in_Prefs_showMemory");
-	private static String in_showImagePreview = PropertyFactory.getString("in_Prefs_showImagePreview");
-	private static String in_showSkillModifierBreakdown = PropertyFactory.getString("in_Prefs_showSkillModifierBreakdown");
-	private static String in_sourceDisplay = PropertyFactory.getString("in_Prefs_sourceDisplay");
+	private static String in_potionMax =
+			PropertyFactory.getString("in_Prefs_potionMax");
+	private static String in_paperType =
+			PropertyFactory.getString("in_Prefs_paperType");
+	private static String in_postExportCommandStandard =
+			PropertyFactory.getString("in_Prefs_postExportCommandStandard");
+	private static String in_postExportCommandPDF =
+			PropertyFactory.getString("in_Prefs_postExportCommandPDF");
+	private static String in_removeTemp =
+			PropertyFactory.getString("in_Prefs_removeTemp");
+	private static String in_statWindow =
+			PropertyFactory.getString("in_Prefs_statWindow");
+	private static String in_showToolTips =
+			PropertyFactory.getString("in_Prefs_showToolTips");
+	private static String in_showToolBar =
+			PropertyFactory.getString("in_Prefs_showToolBar");
+	private static String in_showFeatDescription =
+			PropertyFactory.getString("in_Prefs_showFeatDesciption");
+	private static String in_singleChoiceOption =
+			PropertyFactory.getString("in_Prefs_singleChoiceOption");
+	private static String in_skinnedLAF =
+			PropertyFactory.getString("in_Prefs_skinnedLAF");
+	private static String in_sources =
+			PropertyFactory.getString("in_Prefs_sources");
+	private static String in_saveCustom =
+			PropertyFactory.getString("in_Prefs_saveCustom");
+	private static String in_saveOutputSheetWithPC =
+			PropertyFactory.getString("in_Prefs_saveOutputSheetWithPC");
+	private static String in_sdLong =
+			PropertyFactory.getString("in_Prefs_sdLong");
+	private static String in_sdPage =
+			PropertyFactory.getString("in_Prefs_sdPage");
+	private static String in_sdShort =
+			PropertyFactory.getString("in_Prefs_sdShort");
+	private static String in_sdMedium =
+			PropertyFactory.getString("in_Prefs_sdMedium");
+	private static String in_sdWeb =
+			PropertyFactory.getString("in_Prefs_sdWeb");
+	private static String in_showMemory =
+			PropertyFactory.getString("in_Prefs_showMemory");
+	private static String in_showImagePreview =
+			PropertyFactory.getString("in_Prefs_showImagePreview");
+	private static String in_showSkillModifierBreakdown =
+			PropertyFactory.getString("in_Prefs_showSkillModifierBreakdown");
+	private static String in_sourceDisplay =
+			PropertyFactory.getString("in_Prefs_sourceDisplay");
 	private static String in_tabs = PropertyFactory.getString("in_Prefs_tabs");
-	private static String in_tabLabelPlain = PropertyFactory.getString("in_Prefs_tabLabelPlain");
-	private static String in_tabLabelEpic = PropertyFactory.getString("in_Prefs_tabLabelEpic");
-	private static String in_tabLabelRace = PropertyFactory.getString("in_Prefs_tabLabelRace");
-	private static String in_tabLabelNetHack = PropertyFactory.getString("in_Prefs_tabLabelNetHack");
-	private static String in_tabLabelFull = PropertyFactory.getString("in_Prefs_tabLabelFull");
-	private static String in_tabPosTop = PropertyFactory.getString("in_Prefs_tabPosTop");
-	private static String in_tabPosBottom = PropertyFactory.getString("in_Prefs_tabPosBottom");
-	private static String in_tabPosLeft = PropertyFactory.getString("in_Prefs_tabPosLeft");
-	private static String in_tabPosRight = PropertyFactory.getString("in_Prefs_tabPosRight");
-	private static String in_tabAbilities = PropertyFactory.getString("in_Prefs_tabAbilities");
-	private static String in_unitSetType = PropertyFactory.getString("in_Prefs_unitSetType");
-	private static String in_useAutoWaitCursor = PropertyFactory.getString("in_Prefs_useAutoWaitCursor");
-	private static String in_useOutputNamesEquipment = PropertyFactory.getString("in_Prefs_useOutputNamesEquipment");
-	private static String in_useOutputNamesSpells = PropertyFactory.getString("in_Prefs_useOutputNamesSpells");
-	private static String in_wandMax = PropertyFactory.getString("in_Prefs_wandMax");
-	private static String in_warnFirstLevelUp = PropertyFactory.getString("in_Prefs_warnFirstLevelUp");
-	private static String in_weaponProfPrintout = PropertyFactory.getString("in_Prefs_weaponProfPrintout");
-	private static String in_skillChoice = PropertyFactory.getString("in_Prefs_skillChoiceLabel");
-	private static String in_skillChoiceNone = PropertyFactory.getString("in_Prefs_skillChoiceNone");
-	private static String in_skillChoiceUntrained = PropertyFactory.getString("in_Prefs_skillChoiceUntrained");
-	private static String in_skillChoiceAll = PropertyFactory.getString("in_Prefs_skillChoiceAll");
-	private static String in_skillChoiceAsUI = PropertyFactory.getString("in_Prefs_skillChoiceAsUI");
-	private static String[] singleChoiceMethods = { in_cmNone, in_cmSelect, in_cmSelectExit };
+	private static String in_tabLabelPlain =
+			PropertyFactory.getString("in_Prefs_tabLabelPlain");
+	private static String in_tabLabelEpic =
+			PropertyFactory.getString("in_Prefs_tabLabelEpic");
+	private static String in_tabLabelRace =
+			PropertyFactory.getString("in_Prefs_tabLabelRace");
+	private static String in_tabLabelNetHack =
+			PropertyFactory.getString("in_Prefs_tabLabelNetHack");
+	private static String in_tabLabelFull =
+			PropertyFactory.getString("in_Prefs_tabLabelFull");
+	private static String in_tabPosTop =
+			PropertyFactory.getString("in_Prefs_tabPosTop");
+	private static String in_tabPosBottom =
+			PropertyFactory.getString("in_Prefs_tabPosBottom");
+	private static String in_tabPosLeft =
+			PropertyFactory.getString("in_Prefs_tabPosLeft");
+	private static String in_tabPosRight =
+			PropertyFactory.getString("in_Prefs_tabPosRight");
+	private static String in_tabAbilities =
+			PropertyFactory.getString("in_Prefs_tabAbilities");
+	private static String in_unitSetType =
+			PropertyFactory.getString("in_Prefs_unitSetType");
+	private static String in_useAutoWaitCursor =
+			PropertyFactory.getString("in_Prefs_useAutoWaitCursor");
+	private static String in_useOutputNamesEquipment =
+			PropertyFactory.getString("in_Prefs_useOutputNamesEquipment");
+	private static String in_useOutputNamesSpells =
+			PropertyFactory.getString("in_Prefs_useOutputNamesSpells");
+	private static String in_wandMax =
+			PropertyFactory.getString("in_Prefs_wandMax");
+	private static String in_warnFirstLevelUp =
+			PropertyFactory.getString("in_Prefs_warnFirstLevelUp");
+	private static String in_weaponProfPrintout =
+			PropertyFactory.getString("in_Prefs_weaponProfPrintout");
+	private static String in_skillChoice =
+			PropertyFactory.getString("in_Prefs_skillChoiceLabel");
+	private static String in_skillChoiceNone =
+			PropertyFactory.getString("in_Prefs_skillChoiceNone");
+	private static String in_skillChoiceUntrained =
+			PropertyFactory.getString("in_Prefs_skillChoiceUntrained");
+	private static String in_skillChoiceAll =
+			PropertyFactory.getString("in_Prefs_skillChoiceAll");
+	private static String in_skillChoiceAsUI =
+			PropertyFactory.getString("in_Prefs_skillChoiceAsUI");
+	private static String[] singleChoiceMethods =
+			{in_cmNone, in_cmSelect, in_cmSelectExit};
 	private static String in_choose = "...";
 	private ButtonGroup groupFilesDir;
 	private DefaultTreeModel settingsModel;
@@ -251,7 +358,7 @@ final class PreferencesDialog extends JDialog
 	private JCheckBox displayAbilitiesAsTab = new JCheckBox();
 	private JCheckBox expertGUICheckBox = new JCheckBox();
 	private JCheckBox featDescriptionShown = new JCheckBox();
-//	private JCheckBox featDialogShownAtLevelUp = new JCheckBox();
+	//	private JCheckBox featDialogShownAtLevelUp = new JCheckBox();
 	private JCheckBox hideMonsterClasses = new JCheckBox();
 
 	// Level Up
@@ -264,6 +371,7 @@ final class PreferencesDialog extends JDialog
 	private JCheckBox saveCustom = new JCheckBox();
 	private JCheckBox saveOutputSheetWithPC = new JCheckBox();
 	private JCheckBox showOGL = new JCheckBox();
+	private JCheckBox showMature = new JCheckBox();
 	private JCheckBox showToolbar = new JCheckBox();
 	private JCheckBox showWarningAtFirstLevelUp = new JCheckBox();
 	private JCheckBox showd20 = new JCheckBox();
@@ -289,7 +397,7 @@ final class PreferencesDialog extends JDialog
 	private JComboBoxEx abilityRolledModeCombo = null;
 	private JComboBoxEx charTabPlacementCombo;
 	private JComboBoxEx cmbChoiceMethods = new JComboBoxEx(singleChoiceMethods);
-//	private JComboBoxEx crossClassSkillCostCombo = new JComboBoxEx(new String[]{ "0  ", "1  ", "2  " });
+	//	private JComboBoxEx crossClassSkillCostCombo = new JComboBoxEx(new String[]{ "0  ", "1  ", "2  " });
 
 	// Tab Options
 	private JComboBoxEx mainTabPlacementCombo;
@@ -311,11 +419,16 @@ final class PreferencesDialog extends JDialog
 	private JRadioButton autoEquipCreate;
 
 	// "HP Roll Methods"
-	private JRadioButton hpAutomax = new JRadioButton(PropertyFactory.getString("in_Prefs_hpAutoMax"));
-	private JRadioButton hpAverage = new JRadioButton(PropertyFactory.getString("in_Prefs_hpAverage"));
-	private JRadioButton hpPercentage = new JRadioButton(PropertyFactory.getString("in_Prefs_hpPercentage"));
-	private JRadioButton hpStandard = new JRadioButton(PropertyFactory.getString("in_Prefs_hpStandard"));
-	private JRadioButton hpUserRolled = new JRadioButton(PropertyFactory.getString("in_Prefs_hpUserRolled"));
+	private JRadioButton hpAutomax =
+			new JRadioButton(PropertyFactory.getString("in_Prefs_hpAutoMax"));
+	private JRadioButton hpAverage =
+			new JRadioButton(PropertyFactory.getString("in_Prefs_hpAverage"));
+	private JRadioButton hpPercentage =
+			new JRadioButton(PropertyFactory.getString("in_Prefs_hpPercentage"));
+	private JRadioButton hpStandard =
+			new JRadioButton(PropertyFactory.getString("in_Prefs_hpStandard"));
+	private JRadioButton hpUserRolled =
+			new JRadioButton(PropertyFactory.getString("in_Prefs_hpUserRolled"));
 
 	// Language
 	private JRadioButton langEng;
@@ -364,9 +477,10 @@ final class PreferencesDialog extends JDialog
 	// Listeners
 	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 	private PurchaseModeFrame pmsFrame = null;
-	private final TextFocusLostListener textFieldListener = new TextFocusLostListener();
+	private final TextFocusLostListener textFieldListener =
+			new TextFocusLostListener();
 	private WholeNumberField hpPct = new WholeNumberField(0, 6);
-//	private String[] allSameValue = new String[STATMAX - STATMIN + 1];
+	//	private String[] allSameValue = new String[STATMAX - STATMIN + 1];
 
 	// "House Rules"
 	private JCheckBox[] hrBoxes = null;
@@ -414,28 +528,32 @@ final class PreferencesDialog extends JDialog
 
 	public static PreferencesComponent getPreferencesComponent()
 	{
-		if(compInst == null)
+		if (compInst == null)
 		{
 			compInst = new PreferencesComponent();
 		}
 		return compInst;
 	}
 
-	private void addPluginPanes(DefaultMutableTreeNode rootNode, DefaultMutableTreeNode pluginNode)
+	private void addPluginPanes(DefaultMutableTreeNode rootNode,
+		DefaultMutableTreeNode pluginNode)
 	{
 		List<String> nameList = compInst.getNameList();
 		List<PreferencesPanel> panelList = compInst.getPanelList();
-		HashMap<String, JTabbedPane> nodeMap = new HashMap<String, JTabbedPane>();
+		HashMap<String, JTabbedPane> nodeMap =
+				new HashMap<String, JTabbedPane>();
 
-		for(int i = 0; i < nameList.size(); i++)
+		for (int i = 0; i < nameList.size(); i++)
 		{
 			String name = nameList.get(i);
 			PreferencesPanel panel = panelList.get(i);
 			JTabbedPane tpane;
-			if(nodeMap.get(name) == null) {
+			if (nodeMap.get(name) == null)
+			{
 				tpane = new JTabbedPane();
 			}
-			else {
+			else
+			{
 				tpane = nodeMap.get(name);
 			}
 
@@ -444,7 +562,7 @@ final class PreferencesDialog extends JDialog
 		}
 
 		Set<String> keySet = nodeMap.keySet();
-		for(String name : keySet) 
+		for (String name : keySet)
 		{
 			JTabbedPane tpane = nodeMap.get(name);
 
@@ -452,7 +570,8 @@ final class PreferencesDialog extends JDialog
 			settingsPanel.add(tpane, name);
 		}
 
-		if(pluginsPanel == null) {
+		if (pluginsPanel == null)
+		{
 			pluginsPanel = new PreferencesPluginsPanel();
 		}
 		JTabbedPane tpane = new JTabbedPane();
@@ -463,7 +582,7 @@ final class PreferencesDialog extends JDialog
 
 	public void applyPluginPreferences()
 	{
-		List<PreferencesPanel>  panelList = compInst.getPanelList();
+		List<PreferencesPanel> panelList = compInst.getPanelList();
 
 		for (int i = 0; i < panelList.size(); i++)
 		{
@@ -478,7 +597,8 @@ final class PreferencesDialog extends JDialog
 		final GameMode gameMode = SettingsHandler.getGame();
 
 		// Abilities
-		gameMode.setAllStatsValue(abilityScoreCombo.getSelectedIndex() + gameMode.getStatMin());
+		gameMode.setAllStatsValue(abilityScoreCombo.getSelectedIndex()
+			+ gameMode.getStatMin());
 
 		if (abilitiesUserRolledButton.isSelected())
 		{
@@ -490,20 +610,25 @@ final class PreferencesDialog extends JDialog
 		}
 		else if (abilitiesPurchasedButton.isSelected())
 		{
-			if (abilityPurchaseModeCombo.isVisible() && (abilityPurchaseModeCombo.getSelectedIndex() >= 0))
+			if (abilityPurchaseModeCombo.isVisible()
+				&& (abilityPurchaseModeCombo.getSelectedIndex() >= 0))
 			{
-				gameMode.setPurchaseMethodName(pModeMethodName[abilityPurchaseModeCombo.getSelectedIndex()]);
+				gameMode
+					.setPurchaseMethodName(pModeMethodName[abilityPurchaseModeCombo
+						.getSelectedIndex()]);
 			}
 			else
 			{
 				gameMode.setRollMethod(Constants.CHARACTERSTATMETHOD_USER);
 			}
 		}
-		else if ((abilitiesRolledButton != null) && (abilitiesRolledButton.isSelected()))
+		else if ((abilitiesRolledButton != null)
+			&& (abilitiesRolledButton.isSelected()))
 		{
 			if (abilityRolledModeCombo.getSelectedIndex() >= 0)
 			{
-				gameMode.setRollMethodExpressionByName(abilityRolledModeCombo.getSelectedItem().toString());
+				gameMode.setRollMethodExpressionByName(abilityRolledModeCombo
+					.getSelectedItem().toString());
 			}
 			else
 			{
@@ -521,7 +646,6 @@ final class PreferencesDialog extends JDialog
 			characterPane.setRefresh(true);
 			characterPane.refresh();
 		}
-
 
 		// Hit points
 		if (hpStandard.isSelected())
@@ -580,7 +704,7 @@ final class PreferencesDialog extends JDialog
 			}
 		}
 
-//		SettingsHandler.setIntCrossClassSkillCost(crossClassSkillCostCombo.getSelectedIndex());
+		//		SettingsHandler.setIntCrossClassSkillCost(crossClassSkillCostCombo.getSelectedIndex());
 
 		// Monsters
 		SettingsHandler.setMonsterDefault(useMonsterDefault.isSelected());
@@ -611,8 +735,10 @@ final class PreferencesDialog extends JDialog
 				break;
 
 			default:
-				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (mainTabPlacementCombo) the index "
-					+ mainTabPlacementCombo.getSelectedIndex() + " is unsupported.");
+				Logging
+					.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (mainTabPlacementCombo) the index "
+						+ mainTabPlacementCombo.getSelectedIndex()
+						+ " is unsupported.");
 
 				break;
 		}
@@ -640,8 +766,10 @@ final class PreferencesDialog extends JDialog
 				break;
 
 			default:
-				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (charTabPlacementCombo) the index "
-					+ charTabPlacementCombo.getSelectedIndex() + " is unsupported.");
+				Logging
+					.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (charTabPlacementCombo) the index "
+						+ charTabPlacementCombo.getSelectedIndex()
+						+ " is unsupported.");
 
 				break;
 		}
@@ -649,38 +777,46 @@ final class PreferencesDialog extends JDialog
 		switch (tabLabelsCombo.getSelectedIndex())
 		{
 			case 0:
-				SettingsHandler.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME);
+				SettingsHandler
+					.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME);
 
 				break;
 
 			case 1:
-				SettingsHandler.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_CLASS);
+				SettingsHandler
+					.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_CLASS);
 
 				break;
 
 			case 2:
-				SettingsHandler.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_RACE);
+				SettingsHandler
+					.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_RACE);
 
 				break;
 
 			case 3:
-				SettingsHandler.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_RACE_CLASS);
+				SettingsHandler
+					.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_RACE_CLASS);
 
 				break;
 
 			case 4:
-				SettingsHandler.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_FULL);
+				SettingsHandler
+					.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_FULL);
 
 				break;
 
 			default:
-				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (tabLabelsCombo) the index "
-					+ tabLabelsCombo.getSelectedIndex() + " is unsupported.");
+				Logging
+					.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (tabLabelsCombo) the index "
+						+ tabLabelsCombo.getSelectedIndex()
+						+ " is unsupported.");
 
 				break;
 		}
 
-		SettingsHandler.setAbilitiesShownAsATab(displayAbilitiesAsTab.isSelected());
+		SettingsHandler.setAbilitiesShownAsATab(displayAbilitiesAsTab
+			.isSelected());
 		SettingsHandler.setExpertGUI(expertGUICheckBox.isSelected());
 		SettingsHandler.setIncludeSkills(skillChoice.getSelectedIndex());
 
@@ -690,9 +826,12 @@ final class PreferencesDialog extends JDialog
 		SettingsHandler.setShowImagePreview(showImagePreview.isSelected());
 		SettingsHandler.setToolBarShown(showToolbar.isSelected());
 		SettingsHandler.setUseWaitCursor(waitCursor.isSelected());
-		SettingsHandler.setGUIUsesOutputNameEquipment(useOutputNamesEquipment.isSelected());
-		SettingsHandler.setGUIUsesOutputNameSpells(useOutputNamesSpells.isSelected());
-		SettingsHandler.setSingleChoicePreference(cmbChoiceMethods.getSelectedIndex());
+		SettingsHandler.setGUIUsesOutputNameEquipment(useOutputNamesEquipment
+			.isSelected());
+		SettingsHandler.setGUIUsesOutputNameSpells(useOutputNamesSpells
+			.isSelected());
+		SettingsHandler.setSingleChoicePreference(cmbChoiceMethods
+			.getSelectedIndex());
 		SettingsHandler.setUseFeatBenefits(!featDescriptionShown.isSelected());
 		SettingsHandler.setShowSkillModifier(showSkillModifier.isSelected());
 
@@ -726,7 +865,9 @@ final class PreferencesDialog extends JDialog
 			{
 				if (SettingsHandler.getSkinLFThemePack().length() == 0)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_noSkinError"), in_pcgen, MessageType.WARNING);
+					ShowMessageDelegate.showMessageDialog(PropertyFactory
+						.getString("in_Prefs_noSkinError"), in_pcgen,
+						MessageType.WARNING);
 				}
 				else
 				{
@@ -740,39 +881,57 @@ final class PreferencesDialog extends JDialog
 					{
 						SettingsHandler.setLookAndFeel(0);
 						UIFactory.setLookAndFeel(0);
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_skinSetError") + e.toString(),
-							in_pcgen, MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(PropertyFactory
+							.getString("in_Prefs_skinSetError")
+							+ e.toString(), in_pcgen, MessageType.ERROR);
 					}
 				}
 			}
 			else
 			{
-				Logging.errorPrint(SkinLFResourceChecker.getMissingResourceMessage());
+				Logging.errorPrint(SkinLFResourceChecker
+					.getMissingResourceMessage());
 
 				//final String missingLibMsg = PropertyFactory.getString("MissingLibMessage").replace('|', '\n');
 				//GuiFacade.showMessageDialog(null, SkinLFResourceChecker.getMissingResourceMessage() + missingLibMsg, Constants.s_APPNAME, GuiFacade.WARNING_MESSAGE);
-				new LinkableHtmlMessage(this, SkinLFResourceChecker.getMissingResourceMessage(), Constants.s_APPNAME)
-				.setVisible(true);
+				new LinkableHtmlMessage(this, SkinLFResourceChecker
+					.getMissingResourceMessage(), Constants.s_APPNAME)
+					.setVisible(true);
 			}
 		}
 
 		// Level up
-		SettingsHandler.setShowHPDialogAtLevelUp(hpDialogShownAtLevelUp.isSelected());
+		SettingsHandler.setShowHPDialogAtLevelUp(hpDialogShownAtLevelUp
+			.isSelected());
 		//SettingsHandler.setShowFeatDialogAtLevelUp(featDialogShownAtLevelUp.isSelected());
-		SettingsHandler.setShowStatDialogAtLevelUp(statDialogShownAtLevelUp.isSelected());
-		SettingsHandler.setShowWarningAtFirstLevelUp(showWarningAtFirstLevelUp.isSelected());
-		SettingsHandler.setEnforceSpendingBeforeLevelUp(enforceSpendingBeforeLevelUp.isSelected());
+		SettingsHandler.setShowStatDialogAtLevelUp(statDialogShownAtLevelUp
+			.isSelected());
+		SettingsHandler.setShowWarningAtFirstLevelUp(showWarningAtFirstLevelUp
+			.isSelected());
+		SettingsHandler
+			.setEnforceSpendingBeforeLevelUp(enforceSpendingBeforeLevelUp
+				.isSelected());
 
 		// Equipment
-		SettingsHandler.setMetamagicAllowedInEqBuilder(allowMetamagicInEqBuilder.isSelected());
-		SettingsHandler.setMaxPotionSpellLevel(potionMaxLevel.getSelectedIndex() + SPELLLVLMIN);
-		SettingsHandler.setMaxWandSpellLevel(wandMaxLevel.getSelectedIndex() + SPELLLVLMIN);
+		SettingsHandler
+			.setMetamagicAllowedInEqBuilder(allowMetamagicInEqBuilder
+				.isSelected());
+		SettingsHandler.setMaxPotionSpellLevel(potionMaxLevel
+			.getSelectedIndex()
+			+ SPELLLVLMIN);
+		SettingsHandler.setMaxWandSpellLevel(wandMaxLevel.getSelectedIndex()
+			+ SPELLLVLMIN);
 		SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn it off temporarily so we can set the values
-		SettingsHandler.setAutogen(Constants.AUTOGEN_RACIAL, autoMethod1.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_MASTERWORK, autoMethod2.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_MAGIC, autoMethod3.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_EXOTICMATERIAL, autoMethod4.isSelected());
-		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate.isSelected()); // Now set it properly
+		SettingsHandler.setAutogen(Constants.AUTOGEN_RACIAL, autoMethod1
+			.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_MASTERWORK, autoMethod2
+			.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_MAGIC, autoMethod3
+			.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_EXOTICMATERIAL,
+			autoMethod4.isSelected());
+		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate
+			.isSelected()); // Now set it properly
 
 		// Language
 		if (langEng.isSelected())
@@ -811,14 +970,16 @@ final class PreferencesDialog extends JDialog
 			Globals.setCountry(null);
 		}
 
-		SettingsHandler.getGame().selectUnitSet((String) unitSetType.getSelectedItem());
+		SettingsHandler.getGame().selectUnitSet(
+			(String) unitSetType.getSelectedItem());
 
 		// Location -- added 10 April 2000 by sage_sam
 		SettingsHandler.setBrowserPath(browserPath.getText());
 		SettingsHandler.setPcgPath(new File(pcgenCharacterDir.getText()));
 		SettingsHandler.setPortraitsPath(new File(pcgenPortraitsDir.getText()));
 		SettingsHandler.setPcgenCustomDir(new File(pcgenCustomDir.getText()));
-		SettingsHandler.setPcgenVendorDataDir(new File(pcgenVendorDataDir.getText()));
+		SettingsHandler.setPcgenVendorDataDir(new File(pcgenVendorDataDir
+			.getText()));
 		SettingsHandler.setPccFilesLocation(new File(pcgenDataDir.getText()));
 		SettingsHandler.setPcgenDocsDir(new File(pcgenDocsDir.getText()));
 		SettingsHandler.setPcgenSystemDir(new File(pcgenSystemDir.getText()));
@@ -835,36 +996,48 @@ final class PreferencesDialog extends JDialog
 			SettingsHandler.setFilePaths(pcgenFilesDir.getText());
 		}
 		SettingsHandler.setPcgenFilesDir(new File(pcgenFilesDir.getText()));
-		SettingsHandler.setPcgenOutputSheetDir(new File(pcgenOutputSheetDir.getText()));
-		SettingsHandler.setCreatePcgBackup(pcgenCreateBackupCharacter.isSelected());
-		SettingsHandler.setBackupPcgPath(new File(pcgenBackupCharacterDir.getText()));
+		SettingsHandler.setPcgenOutputSheetDir(new File(pcgenOutputSheetDir
+			.getText()));
+		SettingsHandler.setCreatePcgBackup(pcgenCreateBackupCharacter
+			.isSelected());
+		SettingsHandler.setBackupPcgPath(new File(pcgenBackupCharacterDir
+			.getText()));
 
 		// Output
 		Globals.selectPaper((String) paperType.getSelectedItem());
 
-		if (SettingsHandler.getCleanupTempFiles() || removeTempFiles.isSelected())
+		if (SettingsHandler.getCleanupTempFiles()
+			|| removeTempFiles.isSelected())
 		{
 			SettingsHandler.setCleanupTempFiles(removeTempFiles.isSelected());
 		}
 
-		if (SettingsHandler.getWeaponProfPrintout() != weaponProfPrintout.isSelected())
+		if (SettingsHandler.getWeaponProfPrintout() != weaponProfPrintout
+			.isSelected())
 		{
-			SettingsHandler.setWeaponProfPrintout(weaponProfPrintout.isSelected());
+			SettingsHandler.setWeaponProfPrintout(weaponProfPrintout
+				.isSelected());
 		}
 
-		if (SettingsHandler.getAlwaysOverwrite() || alwaysOverwrite.isSelected())
+		if (SettingsHandler.getAlwaysOverwrite()
+			|| alwaysOverwrite.isSelected())
 		{
 			SettingsHandler.setAlwaysOverwrite(alwaysOverwrite.isSelected());
 		}
 
 		// added 10 April 2000 by sage_sam
-		SettingsHandler.setSelectedCharacterHTMLOutputSheet(outputSheetHTMLDefault.getText(), null);
-		SettingsHandler.setSelectedCharacterPDFOutputSheet(outputSheetPDFDefault.getText(), null);
+		SettingsHandler.setSelectedCharacterHTMLOutputSheet(
+			outputSheetHTMLDefault.getText(), null);
+		SettingsHandler.setSelectedCharacterPDFOutputSheet(
+			outputSheetPDFDefault.getText(), null);
 		SettingsHandler.setSelectedEqSetTemplate(outputSheetEqSet.getText());
-		SettingsHandler.setSaveOutputSheetWithPC(saveOutputSheetWithPC.isSelected());
-		SettingsHandler.setSelectedSpellSheet(outputSheetSpellsDefault.getText());
+		SettingsHandler.setSaveOutputSheetWithPC(saveOutputSheetWithPC
+			.isSelected());
+		SettingsHandler.setSelectedSpellSheet(outputSheetSpellsDefault
+			.getText());
 		SettingsHandler.setPrintSpellsWithPC(printSpellsWithPC.isSelected());
-		SettingsHandler.setPostExportCommandStandard(postExportCommandStandard.getText());
+		SettingsHandler.setPostExportCommandStandard(postExportCommandStandard
+			.getText());
 		SettingsHandler.setPostExportCommandPDF(postExportCommandPDF.getText());
 		SettingsHandler.setInvalidToHitText(invalidToHitText.getText());
 		SettingsHandler.setInvalidDmgText(invalidDmgText.getText());
@@ -872,9 +1045,11 @@ final class PreferencesDialog extends JDialog
 		// Sources
 		SettingsHandler.setLoadCampaignsAtStart(campLoad.isSelected());
 		SettingsHandler.setLoadCampaignsWithPC(charCampLoad.isSelected());
-		SettingsHandler.setOptionAllowedInSources(allowOptsInSource.isSelected());
+		SettingsHandler.setOptionAllowedInSources(allowOptsInSource
+			.isSelected());
 		SettingsHandler.setSaveCustomEquipment(saveCustom.isSelected());
 		SettingsHandler.setShowLicense(showOGL.isSelected());
+		SettingsHandler.setShowMature(showMature.isSelected());
 		SettingsHandler.setShowD20Info(showd20.isSelected());
 		SettingsHandler.setShowSponsors(showSponsors.isSelected());
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
@@ -909,8 +1084,9 @@ final class PreferencesDialog extends JDialog
 				break;
 
 			default:
-				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (sourceOptions) the index "
-					+ sourceOptions.getSelectedIndex() + " is unsupported.");
+				Logging
+					.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (sourceOptions) the index "
+						+ sourceOptions.getSelectedIndex() + " is unsupported.");
 
 				break;
 		}
@@ -944,7 +1120,8 @@ final class PreferencesDialog extends JDialog
 				break;
 
 			case Constants.CHARACTERSTATMETHOD_PURCHASE:
-				if (!abilitiesPurchasedButton.isVisible() || (pMode.length == 0))
+				if (!abilitiesPurchasedButton.isVisible()
+					|| (pMode.length == 0))
 				{
 					bValid = false;
 				}
@@ -963,7 +1140,8 @@ final class PreferencesDialog extends JDialog
 				else
 				{
 					abilitiesRolledButton.setSelected(true);
-					abilityRolledModeCombo.setSelectedItem(gameMode.getRollMethodExpressionName());
+					abilityRolledModeCombo.setSelectedItem(gameMode
+						.getRollMethodExpressionName());
 				}
 
 				break;
@@ -980,9 +1158,11 @@ final class PreferencesDialog extends JDialog
 			gameMode.setRollMethod(Constants.CHARACTERSTATMETHOD_USER);
 		}
 
-		final int allStatsValue = Math.min(gameMode.getStatMax(), gameMode.getAllStatsValue());
+		final int allStatsValue =
+				Math.min(gameMode.getStatMax(), gameMode.getAllStatsValue());
 		gameMode.setAllStatsValue(allStatsValue);
-		abilityScoreCombo.setSelectedIndex(allStatsValue - gameMode.getStatMin());
+		abilityScoreCombo.setSelectedIndex(allStatsValue
+			- gameMode.getStatMin());
 
 		if ((pMode != null) && (pModeMethodName != null))
 		{
@@ -1021,7 +1201,7 @@ final class PreferencesDialog extends JDialog
 				break;
 
 			case Constants.HP_STANDARD:
-			//No break
+				//No break
 			default:
 				hpStandard.setSelected(true);
 
@@ -1032,7 +1212,7 @@ final class PreferencesDialog extends JDialog
 		maxHpAtFirstLevel.setSelected(SettingsHandler.isHPMaxAtFirstLevel());
 
 		// House Rules
-//		crossClassSkillCostCombo.setSelectedIndex(SettingsHandler.getIntCrossClassSkillCost());
+		//		crossClassSkillCostCombo.setSelectedIndex(SettingsHandler.getIntCrossClassSkillCost());
 
 		// Monsters
 		useMonsterDefault.setSelected(SettingsHandler.isMonsterDefault());
@@ -1040,10 +1220,14 @@ final class PreferencesDialog extends JDialog
 		ignoreMonsterHDCap.setSelected(SettingsHandler.isIgnoreMonsterHDCap());
 
 		// Colors
-		prereqQualifyColor.setForeground(new Color(SettingsHandler.getPrereqQualifyColor()));
-		prereqFailColor.setForeground(new Color(SettingsHandler.getPrereqFailColor()));
-		featAutoColor.setForeground(new Color(SettingsHandler.getFeatAutoColor()));
-		featVirtualColor.setForeground(new Color(SettingsHandler.getFeatVirtualColor()));
+		prereqQualifyColor.setForeground(new Color(SettingsHandler
+			.getPrereqQualifyColor()));
+		prereqFailColor.setForeground(new Color(SettingsHandler
+			.getPrereqFailColor()));
+		featAutoColor.setForeground(new Color(SettingsHandler
+			.getFeatAutoColor()));
+		featVirtualColor.setForeground(new Color(SettingsHandler
+			.getFeatVirtualColor()));
 
 		// Tab options
 		switch (SettingsHandler.getTabPlacement())
@@ -1069,8 +1253,10 @@ final class PreferencesDialog extends JDialog
 				break;
 
 			default:
-				Logging.errorPrint("In PreferencesDialog.applyOptionValuesToControls (tab placement) the tab option "
-					+ SettingsHandler.getTabPlacement() + " is unsupported.");
+				Logging
+					.errorPrint("In PreferencesDialog.applyOptionValuesToControls (tab placement) the tab option "
+						+ SettingsHandler.getTabPlacement()
+						+ " is unsupported.");
 
 				break;
 		}
@@ -1098,9 +1284,10 @@ final class PreferencesDialog extends JDialog
 				break;
 
 			default:
-				Logging.errorPrint(
-					"In PreferencesDialog.applyOptionValuesToControls (cha tab placement) the tab option "
-					+ SettingsHandler.getChaTabPlacement() + " is unsupported.");
+				Logging
+					.errorPrint("In PreferencesDialog.applyOptionValuesToControls (cha tab placement) the tab option "
+						+ SettingsHandler.getChaTabPlacement()
+						+ " is unsupported.");
 
 				break;
 		}
@@ -1133,27 +1320,32 @@ final class PreferencesDialog extends JDialog
 				break;
 
 			default:
-				Logging.errorPrint(
-					"In PreferencesDialog.applyOptionValuesToControls (name display style) the tab option "
-					+ SettingsHandler.getNameDisplayStyle() + " is unsupported.");
+				Logging
+					.errorPrint("In PreferencesDialog.applyOptionValuesToControls (name display style) the tab option "
+						+ SettingsHandler.getNameDisplayStyle()
+						+ " is unsupported.");
 
 				break;
 		}
 
-		displayAbilitiesAsTab.setSelected(SettingsHandler.isAbilitiesShownAsATab());
+		displayAbilitiesAsTab.setSelected(SettingsHandler
+			.isAbilitiesShownAsATab());
 		expertGUICheckBox.setSelected(SettingsHandler.isExpertGUI());
 		skillChoice.setSelectedIndex(SettingsHandler.getIncludeSkills());
 
 		// Display options
-		cmbChoiceMethods.setSelectedIndex(SettingsHandler.getSingleChoicePreference());
+		cmbChoiceMethods.setSelectedIndex(SettingsHandler
+			.getSingleChoicePreference());
 		featDescriptionShown.setSelected(!SettingsHandler.useFeatBenefits());
 		showMemory.setSelected(SettingsHandler.isShowMemoryArea());
 		showImagePreview.setSelected(SettingsHandler.isShowImagePreview());
 		showSkillModifier.setSelected(SettingsHandler.getShowSkillModifier());
 		showToolbar.setSelected(SettingsHandler.isToolBarShown());
 		toolTipTextShown.setSelected(SettingsHandler.isToolTipTextShown());
-		useOutputNamesEquipment.setSelected(SettingsHandler.guiUsesOutputNameEquipment());
-		useOutputNamesSpells.setSelected(SettingsHandler.guiUsesOutputNameSpells());
+		useOutputNamesEquipment.setSelected(SettingsHandler
+			.guiUsesOutputNameEquipment());
+		useOutputNamesSpells.setSelected(SettingsHandler
+			.guiUsesOutputNameSpells());
 		waitCursor.setSelected(SettingsHandler.getUseWaitCursor());
 
 		// Look and feel
@@ -1182,16 +1374,24 @@ final class PreferencesDialog extends JDialog
 		}
 
 		// Level up
-		hpDialogShownAtLevelUp.setSelected(SettingsHandler.getShowHPDialogAtLevelUp());
+		hpDialogShownAtLevelUp.setSelected(SettingsHandler
+			.getShowHPDialogAtLevelUp());
 		//featDialogShownAtLevelUp.setSelected(SettingsHandler.getShowFeatDialogAtLevelUp());
-		statDialogShownAtLevelUp.setSelected(SettingsHandler.getShowStatDialogAtLevelUp());
-		showWarningAtFirstLevelUp.setSelected(SettingsHandler.isShowWarningAtFirstLevelUp());
-		enforceSpendingBeforeLevelUp.setSelected(SettingsHandler.getEnforceSpendingBeforeLevelUp());
+		statDialogShownAtLevelUp.setSelected(SettingsHandler
+			.getShowStatDialogAtLevelUp());
+		showWarningAtFirstLevelUp.setSelected(SettingsHandler
+			.isShowWarningAtFirstLevelUp());
+		enforceSpendingBeforeLevelUp.setSelected(SettingsHandler
+			.getEnforceSpendingBeforeLevelUp());
 
 		// Equipment
-		allowMetamagicInEqBuilder.setSelected(SettingsHandler.isMetamagicAllowedInEqBuilder());
-		potionMaxLevel.setSelectedIndex(SettingsHandler.getMaxPotionSpellLevel() - SPELLLVLMIN);
-		wandMaxLevel.setSelectedIndex(SettingsHandler.getMaxWandSpellLevel() - SPELLLVLMIN);
+		allowMetamagicInEqBuilder.setSelected(SettingsHandler
+			.isMetamagicAllowedInEqBuilder());
+		potionMaxLevel.setSelectedIndex(SettingsHandler
+			.getMaxPotionSpellLevel()
+			- SPELLLVLMIN);
+		wandMaxLevel.setSelectedIndex(SettingsHandler.getMaxWandSpellLevel()
+			- SPELLLVLMIN);
 
 		if (SettingsHandler.wantToLoadMasterworkAndMagic())
 		{
@@ -1203,11 +1403,16 @@ final class PreferencesDialog extends JDialog
 		}
 
 		SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn off temporarily so we get current setting
-		autoMethod1.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_RACIAL));
-		autoMethod2.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_MASTERWORK));
-		autoMethod3.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_MAGIC));
-		autoMethod4.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_EXOTICMATERIAL));
-		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate.isSelected()); // Reset its state now we are done
+		autoMethod1.setSelected(SettingsHandler
+			.getAutogen(Constants.AUTOGEN_RACIAL));
+		autoMethod2.setSelected(SettingsHandler
+			.getAutogen(Constants.AUTOGEN_MASTERWORK));
+		autoMethod3.setSelected(SettingsHandler
+			.getAutogen(Constants.AUTOGEN_MAGIC));
+		autoMethod4.setSelected(SettingsHandler
+			.getAutogen(Constants.AUTOGEN_EXOTICMATERIAL));
+		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate
+			.isSelected()); // Reset its state now we are done
 
 		// Language
 		langEng.setSelected(false);
@@ -1219,7 +1424,8 @@ final class PreferencesDialog extends JDialog
 		langSystem.setSelected(false);
 
 		String language = Globals.getLanguage();
-		if (language==null || language.equals("")) {
+		if (language == null || language.equals(""))
+		{
 			langSystem.setSelected(true);
 		}
 		else if (Globals.getLanguage().equals("en"))
@@ -1255,27 +1461,32 @@ final class PreferencesDialog extends JDialog
 		unitSetType.setSelectedIndex(0);
 		for (int i = 0; i < SystemCollections.getUnitSetList().size(); ++i)
 		{
-			if (unitSetNames[i].equals(SettingsHandler.getGameModeUnitSet().getName()))
+			if (unitSetNames[i].equals(SettingsHandler.getGameModeUnitSet()
+				.getName()))
 			{
 				unitSetType.setSelectedIndex(i);
 			}
 		}
 
 		// Locations
-		pcgenCreateBackupCharacter.setSelected(SettingsHandler.getCreatePcgBackup());
+		pcgenCreateBackupCharacter.setSelected(SettingsHandler
+			.getCreatePcgBackup());
 
 		// Output
 		paperType.setSelectedIndex(Globals.getSelectedPaper());
 		weaponProfPrintout.setSelected(SettingsHandler.getWeaponProfPrintout());
-		saveOutputSheetWithPC.setSelected(SettingsHandler.getSaveOutputSheetWithPC());
+		saveOutputSheetWithPC.setSelected(SettingsHandler
+			.getSaveOutputSheetWithPC());
 		printSpellsWithPC.setSelected(SettingsHandler.getPrintSpellsWithPC());
 
 		// Sources
 		campLoad.setSelected(SettingsHandler.isLoadCampaignsAtStart());
 		charCampLoad.setSelected(SettingsHandler.isLoadCampaignsWithPC());
-		allowOptsInSource.setSelected(SettingsHandler.isOptionAllowedInSources());
+		allowOptsInSource.setSelected(SettingsHandler
+			.isOptionAllowedInSources());
 		saveCustom.setSelected(SettingsHandler.getSaveCustomEquipment());
 		showOGL.setSelected(SettingsHandler.showLicense());
+		showMature.setSelected(SettingsHandler.showMature());
 		showd20.setSelected(SettingsHandler.showD20Info());
 		showSponsors.setSelected(SettingsHandler.showSponsors());
 		loadURL.setSelected(SettingsHandler.isLoadURLs());
@@ -1309,8 +1520,9 @@ final class PreferencesDialog extends JDialog
 				break;
 
 			default:
-				Logging.errorPrint("In PreferencesDialog.applyOptionValuesToControls (source display) the option "
-					+ Globals.getSourceDisplay() + " is unsupported.");
+				Logging
+					.errorPrint("In PreferencesDialog.applyOptionValuesToControls (source display) the option "
+						+ Globals.getSourceDisplay() + " is unsupported.");
 
 				break;
 		}
@@ -1323,7 +1535,8 @@ final class PreferencesDialog extends JDialog
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_abilities);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_abilities);
 		JPanel abilityScoresPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -1339,7 +1552,10 @@ final class PreferencesDialog extends JDialog
 
 		exclusiveGroup = new ButtonGroup();
 		Utility.buildConstraints(c, 0, row++, 3, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_abilitiesGenLabel") + ": (" + gameMode.getName() + ")");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_abilitiesGenLabel")
+					+ ": (" + gameMode.getName() + ")");
 		gridbag.setConstraints(label, c);
 		abilityScoresPanel.add(label);
 		Utility.buildConstraints(c, 0, row, 1, 1, 0, 0);
@@ -1348,13 +1564,18 @@ final class PreferencesDialog extends JDialog
 		abilityScoresPanel.add(label);
 
 		Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);
-		abilitiesUserRolledButton = new JRadioButton(PropertyFactory.getString("in_Prefs_abilitiesUserRolled"));
+		abilitiesUserRolledButton =
+				new JRadioButton(PropertyFactory
+					.getString("in_Prefs_abilitiesUserRolled"));
 		gridbag.setConstraints(abilitiesUserRolledButton, c);
 		abilityScoresPanel.add(abilitiesUserRolledButton);
 		exclusiveGroup.add(abilitiesUserRolledButton);
 
 		Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);
-		abilitiesAllSameButton = new JRadioButton(PropertyFactory.getString("in_Prefs_abilitiesAllSame") + ": ");
+		abilitiesAllSameButton =
+				new JRadioButton(PropertyFactory
+					.getString("in_Prefs_abilitiesAllSame")
+					+ ": ");
 		gridbag.setConstraints(abilitiesAllSameButton, c);
 		abilityScoresPanel.add(abilitiesAllSameButton);
 		exclusiveGroup.add(abilitiesAllSameButton);
@@ -1386,7 +1607,7 @@ final class PreferencesDialog extends JDialog
 			abilityRolledModeCombo = new JComboBoxEx();
 
 			int gmi = 0;
-			while(rm != null)
+			while (rm != null)
 			{
 				abilityRolledModeCombo.addItem(rm.getMethodName());
 				rm = gameMode.getRollingMethod(++gmi);
@@ -1398,7 +1619,10 @@ final class PreferencesDialog extends JDialog
 
 		final int purchaseMethodCount = gameMode.getPurchaseMethodCount();
 		Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);
-		abilitiesPurchasedButton = new JRadioButton(PropertyFactory.getString("in_Prefs_abilitiesPurchased") + ": ");
+		abilitiesPurchasedButton =
+				new JRadioButton(PropertyFactory
+					.getString("in_Prefs_abilitiesPurchased")
+					+ ": ");
 		gridbag.setConstraints(abilitiesPurchasedButton, c);
 		abilityScoresPanel.add(abilitiesPurchasedButton);
 		exclusiveGroup.add(abilitiesPurchasedButton);
@@ -1433,7 +1657,9 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		abilityScoresPanel.add(label);
 		Utility.buildConstraints(c, 1, row++, 3, 1, 0, 0);
-		purchaseModeButton = new JButton(PropertyFactory.getString("in_Prefs_purchaseModeConfig"));
+		purchaseModeButton =
+				new JButton(PropertyFactory
+					.getString("in_Prefs_purchaseModeConfig"));
 		gridbag.setConstraints(purchaseModeButton, c);
 		abilityScoresPanel.add(purchaseModeButton);
 		purchaseModeButton.addActionListener(prefsButtonHandler);
@@ -1453,7 +1679,8 @@ final class PreferencesDialog extends JDialog
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_color);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_color);
 		JPanel colorsPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -1468,14 +1695,18 @@ final class PreferencesDialog extends JDialog
 		int col = 0;
 
 		// NB - not alphabetized!
-		col = addColorsOption(col, c, gridbag, colorsPanel,
-				prereqQualifyColor = new JButton(in_colorPrereqQualify));
-		col = addColorsOption(col, c, gridbag, colorsPanel,
-				prereqFailColor = new JButton(in_colorPrereqFail));
-		col = addColorsOption(col, c, gridbag, colorsPanel,
-				featAutoColor = new JButton(in_colorAutoFeat));
-		col = addColorsOption(col, c, gridbag, colorsPanel,
-				featVirtualColor = new JButton(in_colorVirtFeat));
+		col =
+				addColorsOption(col, c, gridbag, colorsPanel,
+					prereqQualifyColor = new JButton(in_colorPrereqQualify));
+		col =
+				addColorsOption(col, c, gridbag, colorsPanel, prereqFailColor =
+						new JButton(in_colorPrereqFail));
+		col =
+				addColorsOption(col, c, gridbag, colorsPanel, featAutoColor =
+						new JButton(in_colorAutoFeat));
+		col =
+				addColorsOption(col, c, gridbag, colorsPanel, featVirtualColor =
+						new JButton(in_colorVirtFeat));
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
@@ -1487,8 +1718,8 @@ final class PreferencesDialog extends JDialog
 	}
 
 	private int addColorsOption(int col, final GridBagConstraints c,
-			final GridBagLayout gridbag, final JPanel colorsPanel,
-			final JButton button)
+		final GridBagLayout gridbag, final JPanel colorsPanel,
+		final JButton button)
 	{
 		Utility.buildConstraints(c, 0, col++, 1, 1, 0, 0);
 		gridbag.setConstraints(button, c);
@@ -1504,7 +1735,8 @@ final class PreferencesDialog extends JDialog
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_displayOpts);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_displayOpts);
 		JPanel displayOptsPanel = new JPanel();
 		int line = 0;
 
@@ -1518,7 +1750,8 @@ final class PreferencesDialog extends JDialog
 		c.insets = new Insets(2, 2, 2, 2);
 
 		// Automatically sort the options alphabetically.
-		final SortedMap<String, JComponent> options = new TreeMap<String, JComponent>();
+		final SortedMap<String, JComponent> options =
+				new TreeMap<String, JComponent>();
 
 		options.put(in_showFeatDescription, featDescriptionShown);
 		options.put(in_showMemory, showMemory);
@@ -1533,8 +1766,9 @@ final class PreferencesDialog extends JDialog
 
 		for (Map.Entry<String, JComponent> entry : options.entrySet())
 		{
-			line = addDisplayOption(line, c, gridbag, displayOptsPanel,
-					entry.getKey(), entry.getValue());
+			line =
+					addDisplayOption(line, c, gridbag, displayOptsPanel, entry
+						.getKey(), entry.getValue());
 		}
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
@@ -1547,8 +1781,8 @@ final class PreferencesDialog extends JDialog
 	}
 
 	private int addDisplayOption(final int line,
-			final GridBagConstraints constraints, final GridBagLayout gridbag,
-			final JPanel panel, final String labelText, final JComponent c)
+		final GridBagConstraints constraints, final GridBagLayout gridbag,
+		final JPanel panel, final String labelText, final JComponent c)
 	{
 		final JLabel label = new JLabel(labelText + ": ");
 
@@ -1612,7 +1846,8 @@ final class PreferencesDialog extends JDialog
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_equipment);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_equipment);
 		JPanel equipmentPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -1747,7 +1982,9 @@ final class PreferencesDialog extends JDialog
 
 		exclusiveGroup = new ButtonGroup();
 		Utility.buildConstraints(c, 0, iRow, 3, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_hpGenLabel") + ": ");
+		label =
+				new JLabel(PropertyFactory.getString("in_Prefs_hpGenLabel")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		hitPointsPanel.add(label);
 
@@ -1789,7 +2026,9 @@ final class PreferencesDialog extends JDialog
 		hitPointsPanel.add(hpPct);
 
 		Utility.buildConstraints(c, 0, iRow, 2, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_hpMaxAtFirst") + ": ");
+		label =
+				new JLabel(PropertyFactory.getString("in_Prefs_hpMaxAtFirst")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		hitPointsPanel.add(label);
 		Utility.buildConstraints(c, 2, iRow, 1, 1, 0, 0);
@@ -1811,7 +2050,8 @@ final class PreferencesDialog extends JDialog
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_houseRules);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_houseRules);
 		JPanel houseRulesPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -1824,12 +2064,15 @@ final class PreferencesDialog extends JDialog
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 0, 2, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_hrCrossSkillCost") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_hrCrossSkillCost")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		houseRulesPanel.add(label);
-//		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
-//		gridbag.setConstraints(crossClassSkillCostCombo, c);
-//		houseRulesPanel.add(crossClassSkillCostCombo);
+		//		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
+		//		gridbag.setConstraints(crossClassSkillCostCombo, c);
+		//		houseRulesPanel.add(crossClassSkillCostCombo);
 
 		// build a list of checkboxes from the current gameMode Rules
 		int gridNum = 1;
@@ -2007,7 +2250,8 @@ final class PreferencesDialog extends JDialog
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_language);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_language);
 		JPanel langPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -2021,16 +2265,19 @@ final class PreferencesDialog extends JDialog
 		int line = 0;
 
 		// Use OS system language
-		line = addLanguageOption(line, c, gridbag, langPanel,
-				langSystem = new JRadioButton(in_langSystem), exclusiveGroup);
+		line =
+				addLanguageOption(line, c, gridbag, langPanel, langSystem =
+						new JRadioButton(in_langSystem), exclusiveGroup);
 
-		final SortedSet<JRadioButton> sorted = new TreeSet<JRadioButton>(new Comparator<JRadioButton>()
-		{
-			public int compare(final JRadioButton o1, final JRadioButton o2)
-			{
-				return o1.getText().compareToIgnoreCase(o2.getText());
-			}
-		});
+		final SortedSet<JRadioButton> sorted =
+				new TreeSet<JRadioButton>(new Comparator<JRadioButton>()
+				{
+					public int compare(final JRadioButton o1,
+						final JRadioButton o2)
+					{
+						return o1.getText().compareToIgnoreCase(o2.getText());
+					}
+				});
 
 		sorted.add(langEng = new JRadioButton(in_langEnglish));
 		sorted.add(langFre = new JRadioButton(in_langFrench));
@@ -2041,7 +2288,9 @@ final class PreferencesDialog extends JDialog
 
 		for (JRadioButton b : sorted)
 		{
-			line = addLanguageOption(line, c, gridbag, langPanel, b, exclusiveGroup);
+			line =
+					addLanguageOption(line, c, gridbag, langPanel, b,
+						exclusiveGroup);
 		}
 
 		Utility.buildConstraints(c, 0, line++, 1, 1, 0, 0);
@@ -2075,9 +2324,8 @@ final class PreferencesDialog extends JDialog
 	}
 
 	private static int addLanguageOption(int line,
-			final GridBagConstraints constraints, final GridBagLayout gridbag,
-			final JPanel panel, final JRadioButton button,
-			final ButtonGroup group)
+		final GridBagConstraints constraints, final GridBagLayout gridbag,
+		final JPanel panel, final JRadioButton button, final ButtonGroup group)
 	{
 		Utility.buildConstraints(constraints, 0, line++, 2, 1, 0, 0);
 		gridbag.setConstraints(button, constraints);
@@ -2093,7 +2341,8 @@ final class PreferencesDialog extends JDialog
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_levelUp);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_levelUp);
 		JPanel levelUpPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -2113,13 +2362,13 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(hpDialogShownAtLevelUp, c);
 		levelUpPanel.add(hpDialogShownAtLevelUp);
 
-//		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
-//		label = new JLabel(in_featWindow + ": ");
-//		gridbag.setConstraints(label, c);
-//		levelUpPanel.add(label);
-//		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
-//		gridbag.setConstraints(featDialogShownAtLevelUp, c);
-//		levelUpPanel.add(featDialogShownAtLevelUp);
+		//		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
+		//		label = new JLabel(in_featWindow + ": ");
+		//		gridbag.setConstraints(label, c);
+		//		levelUpPanel.add(label);
+		//		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
+		//		gridbag.setConstraints(featDialogShownAtLevelUp, c);
+		//		levelUpPanel.add(featDialogShownAtLevelUp);
 
 		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
 		label = new JLabel(in_statWindow + ": ");
@@ -2160,7 +2409,8 @@ final class PreferencesDialog extends JDialog
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_location);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_location);
 		JPanel locationPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -2177,7 +2427,8 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 0, 1, 1, 1, 0);
-		browserPath = new JTextField(String.valueOf(SettingsHandler.getBrowserPath()));
+		browserPath =
+				new JTextField(String.valueOf(SettingsHandler.getBrowserPath()));
 
 		// sage_sam 9 April 2003
 		browserPath.addFocusListener(textFieldListener);
@@ -2196,11 +2447,15 @@ final class PreferencesDialog extends JDialog
 		clearBrowserPathButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(c, 0, 2, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenCharacterDir") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_pcgenCharacterDir")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 2, 1, 1, 0, 0);
-		pcgenCharacterDir = new JTextField(String.valueOf(SettingsHandler.getPcgPath()));
+		pcgenCharacterDir =
+				new JTextField(String.valueOf(SettingsHandler.getPcgPath()));
 
 		// sage_sam 9 April 2003
 		pcgenCharacterDir.addFocusListener(textFieldListener);
@@ -2219,7 +2474,9 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 3, 1, 1, 0, 0);
-		pcgenPortraitsDir = new JTextField(String.valueOf(SettingsHandler.getPortraitsPath()));
+		pcgenPortraitsDir =
+				new JTextField(String.valueOf(SettingsHandler
+					.getPortraitsPath()));
 
 		// sage_sam 9 April 2003
 		pcgenPortraitsDir.addFocusListener(textFieldListener);
@@ -2232,11 +2489,15 @@ final class PreferencesDialog extends JDialog
 		pcgenPortraitsDirButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(c, 0, 4, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenDataDir") + ": ");
+		label =
+				new JLabel(PropertyFactory.getString("in_Prefs_pcgenDataDir")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 4, 1, 1, 0, 0);
-		pcgenDataDir = new JTextField(String.valueOf(SettingsHandler.getPccFilesLocation()));
+		pcgenDataDir =
+				new JTextField(String.valueOf(SettingsHandler
+					.getPccFilesLocation()));
 
 		// sage_sam 9 April 2003
 		pcgenDataDir.addFocusListener(textFieldListener);
@@ -2248,13 +2509,17 @@ final class PreferencesDialog extends JDialog
 		locationPanel.add(pcgenDataDirButton);
 		pcgenDataDirButton.addActionListener(prefsButtonHandler);
 
-//////////////////////
+		//////////////////////
 		Utility.buildConstraints(c, 0, 5, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenCustomDir") + ": ");
+		label =
+				new JLabel(PropertyFactory.getString("in_Prefs_pcgenCustomDir")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 5, 1, 1, 0, 0);
-		pcgenCustomDir = new JTextField(String.valueOf(SettingsHandler.getPcgenCustomDir()));
+		pcgenCustomDir =
+				new JTextField(String.valueOf(SettingsHandler
+					.getPcgenCustomDir()));
 
 		// sage_sam 9 April 2003
 		pcgenCustomDir.addFocusListener(textFieldListener);
@@ -2266,14 +2531,19 @@ final class PreferencesDialog extends JDialog
 		locationPanel.add(pcgenCustomDirButton);
 		pcgenCustomDirButton.addActionListener(prefsButtonHandler);
 
-////////////////////
+		////////////////////
 
 		Utility.buildConstraints(c, 0, 6, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenVendorDataDir") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_pcgenVendorDataDir")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 6, 1, 1, 0, 0);
-		pcgenVendorDataDir = new JTextField(String.valueOf(SettingsHandler.getPcgenVendorDataDir()));
+		pcgenVendorDataDir =
+				new JTextField(String.valueOf(SettingsHandler
+					.getPcgenVendorDataDir()));
 
 		// sage_sam 9 April 2003
 		pcgenVendorDataDir.addFocusListener(textFieldListener);
@@ -2285,13 +2555,16 @@ final class PreferencesDialog extends JDialog
 		locationPanel.add(pcgenVendorDataDirButton);
 		pcgenVendorDataDirButton.addActionListener(prefsButtonHandler);
 
-
 		Utility.buildConstraints(c, 0, 7, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenDocsDir") + ": ");
+		label =
+				new JLabel(PropertyFactory.getString("in_Prefs_pcgenDocsDir")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 7, 1, 1, 0, 0);
-		pcgenDocsDir = new JTextField(String.valueOf(SettingsHandler.getPcgenDocsDir()));
+		pcgenDocsDir =
+				new JTextField(String
+					.valueOf(SettingsHandler.getPcgenDocsDir()));
 
 		// sage_sam 9 April 2003
 		pcgenDocsDir.addFocusListener(textFieldListener);
@@ -2304,11 +2577,15 @@ final class PreferencesDialog extends JDialog
 		pcgenDocsDirButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(c, 0, 8, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenSystemDir") + ": ");
+		label =
+				new JLabel(PropertyFactory.getString("in_Prefs_pcgenSystemDir")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 8, 1, 1, 0, 0);
-		pcgenSystemDir = new JTextField(String.valueOf(SettingsHandler.getPcgenSystemDir()));
+		pcgenSystemDir =
+				new JTextField(String.valueOf(SettingsHandler
+					.getPcgenSystemDir()));
 
 		// sage_sam 9 April 2003
 		pcgenSystemDir.addFocusListener(textFieldListener);
@@ -2322,11 +2599,16 @@ final class PreferencesDialog extends JDialog
 
 		// Output Sheet directory
 		Utility.buildConstraints(c, 0, 9, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenOutputSheetDir") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_pcgenOutputSheetDir")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 9, 1, 1, 0, 0);
-		pcgenOutputSheetDir = new JTextField(String.valueOf(SettingsHandler.getPcgenOutputSheetDir()));
+		pcgenOutputSheetDir =
+				new JTextField(String.valueOf(SettingsHandler
+					.getPcgenOutputSheetDir()));
 		pcgenOutputSheetDir.addFocusListener(textFieldListener);
 		gridbag.setConstraints(pcgenOutputSheetDir, c);
 		locationPanel.add(pcgenOutputSheetDir);
@@ -2338,7 +2620,10 @@ final class PreferencesDialog extends JDialog
 
 		// Character File Backup directory
 		Utility.buildConstraints(c, 0, 10, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenCreateBackupCharacter") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_pcgenCreateBackupCharacter")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 10, 1, 1, 0, 0);
@@ -2346,11 +2631,16 @@ final class PreferencesDialog extends JDialog
 		locationPanel.add(pcgenCreateBackupCharacter);
 
 		Utility.buildConstraints(c, 0, 11, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenBackupCharacterDir") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_pcgenBackupCharacterDir")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 11, 1, 1, 0, 0);
-		pcgenBackupCharacterDir = new JTextField(String.valueOf(SettingsHandler.getBackupPcgPath()));
+		pcgenBackupCharacterDir =
+				new JTextField(String.valueOf(SettingsHandler
+					.getBackupPcgPath()));
 		pcgenBackupCharacterDir.addFocusListener(textFieldListener);
 		gridbag.setConstraints(pcgenBackupCharacterDir, c);
 		locationPanel.add(pcgenBackupCharacterDir);
@@ -2362,14 +2652,18 @@ final class PreferencesDialog extends JDialog
 
 		// Where to store options.ini file
 		Utility.buildConstraints(c, 0, 12, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenFilesDir") + ": ");
+		label =
+				new JLabel(PropertyFactory.getString("in_Prefs_pcgenFilesDir")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 
 		pcgenFilesDirRadio = new JRadioButton("PCGen Dir");
 		usersFilesDirRadio = new JRadioButton("Home Dir");
 		selectFilesDirRadio = new JRadioButton("Select a directory");
-		pcgenFilesDir = new JTextField(String.valueOf(SettingsHandler.getPcgenFilesDir()));
+		pcgenFilesDir =
+				new JTextField(String.valueOf(SettingsHandler
+					.getPcgenFilesDir()));
 		pcgenFilesDir.addFocusListener(textFieldListener);
 
 		String fType = SettingsHandler.getFilePaths();
@@ -2389,7 +2683,8 @@ final class PreferencesDialog extends JDialog
 		else if (fType.equals("user"))
 		{
 			usersFilesDirRadio.setSelected(true);
-			pcgenFilesDir.setText(System.getProperty("user.home") + File.separator + ".pcgen");
+			pcgenFilesDir.setText(System.getProperty("user.home")
+				+ File.separator + ".pcgen");
 		}
 		else
 		{
@@ -2409,29 +2704,30 @@ final class PreferencesDialog extends JDialog
 		groupFilesDir.add(selectFilesDirRadio);
 
 		pcgenFilesDirRadio.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					pcgenFilesDir.setText(System.getProperty("user.dir"));
-					pcgenFilesDirButton.setEnabled(false);
-				}
-			});
+				pcgenFilesDir.setText(System.getProperty("user.dir"));
+				pcgenFilesDirButton.setEnabled(false);
+			}
+		});
 		usersFilesDirRadio.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					pcgenFilesDir.setText(System.getProperty("user.home") + File.separator + ".pcgen");
-					pcgenFilesDirButton.setEnabled(false);
-				}
-			});
+				pcgenFilesDir.setText(System.getProperty("user.home")
+					+ File.separator + ".pcgen");
+				pcgenFilesDirButton.setEnabled(false);
+			}
+		});
 		selectFilesDirRadio.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					pcgenFilesDir.setText("");
-					pcgenFilesDirButton.setEnabled(true);
-				}
-			});
+				pcgenFilesDir.setText("");
+				pcgenFilesDirButton.setEnabled(true);
+			}
+		});
 
 		Utility.buildConstraints(c, 0, 14, 1, 1, 0, 0);
 		gridbag.setConstraints(selectFilesDirRadio, c);
@@ -2463,7 +2759,8 @@ final class PreferencesDialog extends JDialog
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_lookAndFeel);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_lookAndFeel);
 		JPanel lafPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -2500,8 +2797,10 @@ final class PreferencesDialog extends JDialog
 		}
 
 		skinnedLookFeel.setText(in_skinnedLAF + ": ");
-		Utility.setDescription(skinnedLookFeel, PropertyFactory.getString("in_Prefs_skinnedLAFTooltip"));
-		skinnedLookFeel.setMnemonic(PropertyFactory.getMnemonic("in_mn_Prefs_skinnedLAF"));
+		Utility.setDescription(skinnedLookFeel, PropertyFactory
+			.getString("in_Prefs_skinnedLAFTooltip"));
+		skinnedLookFeel.setMnemonic(PropertyFactory
+			.getMnemonic("in_mn_Prefs_skinnedLAF"));
 		Utility.buildConstraints(c, 0, laf.length, 3, 1, 0, 0);
 		gridbag.setConstraints(skinnedLookFeel, c);
 		lafPanel.add(skinnedLookFeel);
@@ -2514,15 +2813,16 @@ final class PreferencesDialog extends JDialog
 		lafPanel.add(themepackLabel);
 		Utility.buildConstraints(c, 4, laf.length, 1, 1, 0, 0);
 		themepack = new JButton(in_choose);
-		Utility.setDescription(themepack, PropertyFactory.getString("in_Prefs_chooseSkinTooltip"));
+		Utility.setDescription(themepack, PropertyFactory
+			.getString("in_Prefs_chooseSkinTooltip"));
 		gridbag.setConstraints(themepack, c);
 		lafPanel.add(themepack);
 		themepack.addActionListener(prefsButtonHandler);
 
 		aaText.setText(in_aaText);
-//		aaText.setSelected(SettingsHandler.isAaText());
-		Utility.setDescription(aaText,
-				PropertyFactory.getString("in_Prefs_aaTextTooltip"));
+		//		aaText.setSelected(SettingsHandler.isAaText());
+		Utility.setDescription(aaText, PropertyFactory
+			.getString("in_Prefs_aaTextTooltip"));
 		aaText.setMnemonic(PropertyFactory.getMnemonic("in_mn_Prefs_aaText"));
 		lafPanel.add(aaText);
 
@@ -2541,7 +2841,8 @@ final class PreferencesDialog extends JDialog
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_monsters);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_monsters);
 		JPanel monstersPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -2554,7 +2855,10 @@ final class PreferencesDialog extends JDialog
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 0, 2, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_defaultMonsters") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_defaultMonsters")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		monstersPanel.add(label);
 		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
@@ -2562,7 +2866,10 @@ final class PreferencesDialog extends JDialog
 		monstersPanel.add(useMonsterDefault);
 
 		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_hideMonsterClasses") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_hideMonsterClasses")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		monstersPanel.add(label);
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
@@ -2570,7 +2877,10 @@ final class PreferencesDialog extends JDialog
 		monstersPanel.add(hideMonsterClasses);
 
 		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_ignoreMonsterHDCap") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_ignoreMonsterHDCap")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		monstersPanel.add(label);
 		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
@@ -2592,7 +2902,8 @@ final class PreferencesDialog extends JDialog
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_output);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_output);
 		JPanel outputPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -2603,11 +2914,16 @@ final class PreferencesDialog extends JDialog
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_outputSheetHTMLDefault") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_outputSheetHTMLDefault")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 0, 1, 1, 1, 0);
-		outputSheetHTMLDefault = new JTextField(String.valueOf(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null)));
+		outputSheetHTMLDefault =
+				new JTextField(String.valueOf(SettingsHandler
+					.getSelectedCharacterHTMLOutputSheet(null)));
 
 		// sage_sam 9 April 2003
 		outputSheetHTMLDefault.addFocusListener(textFieldListener);
@@ -2620,11 +2936,16 @@ final class PreferencesDialog extends JDialog
 		outputSheetHTMLDefaultButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_outputSheetPDFDefault") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_outputSheetPDFDefault")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 1, 1, 1, 1, 0);
-		outputSheetPDFDefault = new JTextField(String.valueOf(SettingsHandler.getSelectedCharacterPDFOutputSheet(null)));
+		outputSheetPDFDefault =
+				new JTextField(String.valueOf(SettingsHandler
+					.getSelectedCharacterPDFOutputSheet(null)));
 
 		// sage_sam 9 April 2003
 		outputSheetPDFDefault.addFocusListener(textFieldListener);
@@ -2641,7 +2962,9 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 2, 1, 1, 0, 0);
-		outputSheetEqSet = new JTextField(String.valueOf(SettingsHandler.getSelectedEqSetTemplate()));
+		outputSheetEqSet =
+				new JTextField(String.valueOf(SettingsHandler
+					.getSelectedEqSetTemplate()));
 
 		// sage_sam 9 April 2003
 		outputSheetEqSet.addFocusListener(textFieldListener);
@@ -2662,11 +2985,16 @@ final class PreferencesDialog extends JDialog
 		outputPanel.add(saveOutputSheetWithPC);
 
 		Utility.buildConstraints(c, 0, 4, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_outputSpellSheetDefault") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_outputSpellSheetDefault")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 4, 1, 1, 0, 0);
-		outputSheetSpellsDefault = new JTextField(String.valueOf(SettingsHandler.getSelectedSpellSheet()));
+		outputSheetSpellsDefault =
+				new JTextField(String.valueOf(SettingsHandler
+					.getSelectedSpellSheet()));
 		outputSheetSpellsDefault.addFocusListener(textFieldListener);
 		gridbag.setConstraints(outputSheetSpellsDefault, c);
 		outputPanel.add(outputSheetSpellsDefault);
@@ -2677,7 +3005,10 @@ final class PreferencesDialog extends JDialog
 		outputSheetSpellsDefaultButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(c, 0, 5, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_printSpellsWithPC") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_printSpellsWithPC")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 5, 1, 1, 0, 0);
@@ -2703,12 +3034,16 @@ final class PreferencesDialog extends JDialog
 		outputPanel.add(paperType);
 
 		Utility.buildConstraints(c, 0, 7, 3, 1, 0, 0);
-		removeTempFiles = new JCheckBox(in_removeTemp, SettingsHandler.getCleanupTempFiles());
+		removeTempFiles =
+				new JCheckBox(in_removeTemp, SettingsHandler
+					.getCleanupTempFiles());
 		gridbag.setConstraints(removeTempFiles, c);
 		outputPanel.add(removeTempFiles);
 
 		Utility.buildConstraints(c, 0, 8, 3, 1, 0, 0);
-		weaponProfPrintout = new JCheckBox(in_weaponProfPrintout, SettingsHandler.getWeaponProfPrintout());
+		weaponProfPrintout =
+				new JCheckBox(in_weaponProfPrintout, SettingsHandler
+					.getWeaponProfPrintout());
 		gridbag.setConstraints(weaponProfPrintout, c);
 		outputPanel.add(weaponProfPrintout);
 
@@ -2717,7 +3052,9 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 9, 1, 1, 0, 0);
-		postExportCommandStandard = new JTextField(String.valueOf(SettingsHandler.getPostExportCommandStandard()));
+		postExportCommandStandard =
+				new JTextField(String.valueOf(SettingsHandler
+					.getPostExportCommandStandard()));
 		gridbag.setConstraints(postExportCommandStandard, c);
 		outputPanel.add(postExportCommandStandard);
 
@@ -2726,7 +3063,9 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 10, 1, 1, 0, 0);
-		postExportCommandPDF = new JTextField(String.valueOf(SettingsHandler.getPostExportCommandPDF()));
+		postExportCommandPDF =
+				new JTextField(String.valueOf(SettingsHandler
+					.getPostExportCommandPDF()));
 		gridbag.setConstraints(postExportCommandPDF, c);
 		outputPanel.add(postExportCommandPDF);
 
@@ -2735,8 +3074,9 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 11, 1, 1, 0, 0);
-		skillChoice.setModel(new DefaultComboBoxModel(
-				new String[]{ in_skillChoiceNone, in_skillChoiceUntrained, in_skillChoiceAll, in_skillChoiceAsUI }));
+		skillChoice.setModel(new DefaultComboBoxModel(new String[]{
+			in_skillChoiceNone, in_skillChoiceUntrained, in_skillChoiceAll,
+			in_skillChoiceAsUI}));
 		skillChoice.setSelectedIndex(SettingsHandler.getIncludeSkills());
 		gridbag.setConstraints(skillChoice, c);
 		outputPanel.add(skillChoice);
@@ -2746,7 +3086,9 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 12, 1, 1, 0, 0);
-		invalidToHitText = new JTextField(String.valueOf(SettingsHandler.getInvalidToHitText()));
+		invalidToHitText =
+				new JTextField(String.valueOf(SettingsHandler
+					.getInvalidToHitText()));
 		gridbag.setConstraints(invalidToHitText, c);
 		outputPanel.add(invalidToHitText);
 
@@ -2755,12 +3097,16 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 13, 1, 1, 0, 0);
-		invalidDmgText = new JTextField(String.valueOf(SettingsHandler.getInvalidDmgText()));
+		invalidDmgText =
+				new JTextField(String.valueOf(SettingsHandler
+					.getInvalidDmgText()));
 		gridbag.setConstraints(invalidDmgText, c);
 		outputPanel.add(invalidDmgText);
 
 		Utility.buildConstraints(c, 0, 14, 3, 1, 0, 0);
-		alwaysOverwrite = new JCheckBox(in_alwaysOverwrite, SettingsHandler.getAlwaysOverwrite());
+		alwaysOverwrite =
+				new JCheckBox(in_alwaysOverwrite, SettingsHandler
+					.getAlwaysOverwrite());
 		gridbag.setConstraints(alwaysOverwrite, c);
 		outputPanel.add(alwaysOverwrite);
 
@@ -2786,7 +3132,8 @@ final class PreferencesDialog extends JDialog
 
 		// Build the selection tree
 		characterNode = new DefaultMutableTreeNode(in_character);
-		settingsPanel.add(buildEmptyPanel("", PropertyFactory.getString("in_Prefs_charTip")), in_character);
+		settingsPanel.add(buildEmptyPanel("", PropertyFactory
+			.getString("in_Prefs_charTip")), in_character);
 
 		characterNode.add(new DefaultMutableTreeNode(in_abilities));
 		settingsPanel.add(buildAbilitiesPanel(), in_abilities);
@@ -2799,7 +3146,8 @@ final class PreferencesDialog extends JDialog
 		rootNode.add(characterNode);
 
 		appearanceNode = new DefaultMutableTreeNode(in_appearance);
-		settingsPanel.add(buildEmptyPanel("", PropertyFactory.getString("in_Prefs_appearanceTip")), in_appearance);
+		settingsPanel.add(buildEmptyPanel("", PropertyFactory
+			.getString("in_Prefs_appearanceTip")), in_appearance);
 
 		appearanceNode.add(new DefaultMutableTreeNode(in_color));
 		settingsPanel.add(buildColorsPanel(), in_color);
@@ -2814,7 +3162,8 @@ final class PreferencesDialog extends JDialog
 		rootNode.add(appearanceNode);
 
 		pcGenNode = new DefaultMutableTreeNode(in_pcgen);
-		settingsPanel.add(buildEmptyPanel("", PropertyFactory.getString("in_Prefs_pcgenTip")), in_pcgen);
+		settingsPanel.add(buildEmptyPanel("", PropertyFactory
+			.getString("in_Prefs_pcgenTip")), in_pcgen);
 
 		pcGenNode.add(new DefaultMutableTreeNode(in_equipment));
 		settingsPanel.add(buildEquipmentPanel(), in_equipment);
@@ -2828,7 +3177,8 @@ final class PreferencesDialog extends JDialog
 		settingsPanel.add(buildSourcesPanel(), in_sources);
 		rootNode.add(pcGenNode);
 
-		DefaultMutableTreeNode pluginNode = new DefaultMutableTreeNode("Plugins");
+		DefaultMutableTreeNode pluginNode =
+				new DefaultMutableTreeNode("Plugins");
 
 		addPluginPanes(rootNode, pluginNode);
 
@@ -2843,9 +3193,11 @@ final class PreferencesDialog extends JDialog
 		 *    date:     02/10/02
 		 * -->
 		 */
-		if (UIFactory.getLookAndFeelName(SettingsHandler.getLookAndFeel()).equals("Kunststoff"))
+		if (UIFactory.getLookAndFeelName(SettingsHandler.getLookAndFeel())
+			.equals("Kunststoff"))
 		{
-			settingsTree.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
+			settingsTree
+				.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
 		}
 		else
 		{
@@ -2854,9 +3206,12 @@ final class PreferencesDialog extends JDialog
 
 		settingsTree.setRootVisible(false);
 		settingsTree.setShowsRootHandles(true);
-		settingsTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-		settingsScroll = new JScrollPane(settingsTree, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		settingsTree.getSelectionModel().setSelectionMode(
+			TreeSelectionModel.SINGLE_TREE_SELECTION);
+		settingsScroll =
+				new JScrollPane(settingsTree,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
 		// Turn off the icons
 		DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
@@ -2873,23 +3228,27 @@ final class PreferencesDialog extends JDialog
 
 		// Add the listener which switches panels when a node of the tree is selected
 		settingsTree.addTreeSelectionListener(new TreeSelectionListener()
+		{
+			public void valueChanged(TreeSelectionEvent e)
 			{
-				public void valueChanged(TreeSelectionEvent e)
+				DefaultMutableTreeNode node =
+						(DefaultMutableTreeNode) settingsTree
+							.getLastSelectedPathComponent();
+
+				if (node == null)
 				{
-					DefaultMutableTreeNode node = (DefaultMutableTreeNode) settingsTree.getLastSelectedPathComponent();
-
-					if (node == null)
-					{
-						return;
-					}
-
-					CardLayout cl = (CardLayout) (settingsPanel.getLayout());
-					cl.show(settingsPanel, String.valueOf(node));
+					return;
 				}
-			});
+
+				CardLayout cl = (CardLayout) (settingsPanel.getLayout());
+				cl.show(settingsPanel, String.valueOf(node));
+			}
+		});
 
 		// Build the split pane
-		splitPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, settingsScroll, settingsPanel);
+		splitPane =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT,
+					settingsScroll, settingsPanel);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
@@ -2901,23 +3260,24 @@ final class PreferencesDialog extends JDialog
 		okButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_ok"));
 		controlPanel.add(okButton);
 		okButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					okButtonActionPerformed();
-				}
-			});
+				okButtonActionPerformed();
+			}
+		});
 
-		JButton cancelButton = new JButton(PropertyFactory.getString("in_cancel"));
+		JButton cancelButton =
+				new JButton(PropertyFactory.getString("in_cancel"));
 		cancelButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_cancel"));
 		controlPanel.add(cancelButton);
 		cancelButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					cancelButtonActionPerformed();
-				}
-			});
+				cancelButtonActionPerformed();
+			}
+		});
 	}
 
 	private JPanel buildSourcesPanel()
@@ -2926,7 +3286,8 @@ final class PreferencesDialog extends JDialog
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_sources);
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_sources);
 		JPanel sourcesPanel = new JPanel();
 
 		title1.setTitleJustification(TitledBorder.LEFT);
@@ -2953,7 +3314,10 @@ final class PreferencesDialog extends JDialog
 		sourcesPanel.add(charCampLoad);
 
 		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_allowOptionInSource") + ": ");
+		label =
+				new JLabel(PropertyFactory
+					.getString("in_Prefs_allowOptionInSource")
+					+ ": ");
 		gridbag.setConstraints(label, c);
 		sourcesPanel.add(label);
 		Utility.buildConstraints(c, 3, 2, 1, 1, 0, 0);
@@ -2993,38 +3357,49 @@ final class PreferencesDialog extends JDialog
 		sourcesPanel.add(showSponsors);
 
 		Utility.buildConstraints(c, 0, 7, 3, 1, 0, 0);
-		label = new JLabel(in_sourceDisplay + ": ");
+		label = new JLabel(in_displayMature + ": ");
 		gridbag.setConstraints(label, c);
 		sourcesPanel.add(label);
 		Utility.buildConstraints(c, 3, 7, 1, 1, 0, 0);
-		sourceOptions = new JComboBoxEx(new String[]{ in_sdLong, in_sdMedium, in_sdShort, in_sdPage, in_sdWeb });
-		gridbag.setConstraints(sourceOptions, c);
-		sourcesPanel.add(sourceOptions);
+		gridbag.setConstraints(showMature, c);
+		sourcesPanel.add(showMature);
 
 		Utility.buildConstraints(c, 0, 8, 3, 1, 0, 0);
-		label = new JLabel(in_loadURLs + ": ");
+		label = new JLabel(in_sourceDisplay + ": ");
 		gridbag.setConstraints(label, c);
 		sourcesPanel.add(label);
 		Utility.buildConstraints(c, 3, 8, 1, 1, 0, 0);
-		gridbag.setConstraints(loadURL, c);
-		sourcesPanel.add(loadURL);
-		loadURL.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					if (((JCheckBox) evt.getSource()).isSelected())
-					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_urlBlocked"), Constants.s_APPNAME,
-							MessageType.WARNING);
-					}
-				}
-			});
+		sourceOptions =
+				new JComboBoxEx(new String[]{in_sdLong, in_sdMedium,
+					in_sdShort, in_sdPage, in_sdWeb});
+		gridbag.setConstraints(sourceOptions, c);
+		sourcesPanel.add(sourceOptions);
 
 		Utility.buildConstraints(c, 0, 9, 3, 1, 0, 0);
-		label = new JLabel(in_allowOverride + ": ");
+		label = new JLabel(in_loadURLs + ": ");
 		gridbag.setConstraints(label, c);
 		sourcesPanel.add(label);
 		Utility.buildConstraints(c, 3, 9, 1, 1, 0, 0);
+		gridbag.setConstraints(loadURL, c);
+		sourcesPanel.add(loadURL);
+		loadURL.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
+			{
+				if (((JCheckBox) evt.getSource()).isSelected())
+				{
+					ShowMessageDelegate.showMessageDialog(PropertyFactory
+						.getString("in_Prefs_urlBlocked"), Constants.s_APPNAME,
+						MessageType.WARNING);
+				}
+			}
+		});
+
+		Utility.buildConstraints(c, 0, 10, 3, 1, 0, 0);
+		label = new JLabel(in_allowOverride + ": ");
+		gridbag.setConstraints(label, c);
+		sourcesPanel.add(label);
+		Utility.buildConstraints(c, 3, 10, 1, 1, 0, 0);
 		gridbag.setConstraints(allowOverride, c);
 		sourcesPanel.add(allowOverride);
 
@@ -3060,10 +3435,9 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		tabsPanel.add(label);
 		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
-		mainTabPlacementCombo = new JComboBoxEx(new String[]
-				{
-					in_tabPosTop, in_tabPosBottom, in_tabPosLeft, in_tabPosRight
-				});
+		mainTabPlacementCombo =
+				new JComboBoxEx(new String[]{in_tabPosTop, in_tabPosBottom,
+					in_tabPosLeft, in_tabPosRight});
 		gridbag.setConstraints(mainTabPlacementCombo, c);
 		tabsPanel.add(mainTabPlacementCombo);
 
@@ -3072,10 +3446,9 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		tabsPanel.add(label);
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
-		charTabPlacementCombo = new JComboBoxEx(new String[]
-				{
-					in_tabPosTop, in_tabPosBottom, in_tabPosLeft, in_tabPosRight
-				});
+		charTabPlacementCombo =
+				new JComboBoxEx(new String[]{in_tabPosTop, in_tabPosBottom,
+					in_tabPosLeft, in_tabPosRight});
 		gridbag.setConstraints(charTabPlacementCombo, c);
 		tabsPanel.add(charTabPlacementCombo);
 
@@ -3084,10 +3457,9 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		tabsPanel.add(label);
 		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
-		tabLabelsCombo = new JComboBoxEx(new String[]
-				{
-					in_tabLabelPlain, in_tabLabelEpic, in_tabLabelRace, in_tabLabelNetHack, in_tabLabelFull
-				});
+		tabLabelsCombo =
+				new JComboBoxEx(new String[]{in_tabLabelPlain, in_tabLabelEpic,
+					in_tabLabelRace, in_tabLabelNetHack, in_tabLabelFull});
 		gridbag.setConstraints(tabLabelsCombo, c);
 		tabsPanel.add(tabLabelsCombo);
 
@@ -3108,12 +3480,12 @@ final class PreferencesDialog extends JDialog
 		tabsPanel.add(expertGUICheckBox);
 
 		expertGUICheckBox.addItemListener(new ItemListener()
+		{
+			public void itemStateChanged(ItemEvent evt)
 			{
-				public void itemStateChanged(ItemEvent evt)
-				{
-					SettingsHandler.setExpertGUI(expertGUICheckBox.isSelected());
-				}
-			});
+				SettingsHandler.setExpertGUI(expertGUICheckBox.isSelected());
+			}
+		});
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
@@ -3146,14 +3518,17 @@ final class PreferencesDialog extends JDialog
 
 	private void selectThemePack()
 	{
-		JFileChooser fc = new JFileChooser(SettingsHandler.getPcgenThemePackDir());
-		fc.setDialogTitle(PropertyFactory.getString("in_Prefs_chooseSkinDialogTitle"));
+		JFileChooser fc =
+				new JFileChooser(SettingsHandler.getPcgenThemePackDir());
+		fc.setDialogTitle(PropertyFactory
+			.getString("in_Prefs_chooseSkinDialogTitle"));
 
 		String theme = SettingsHandler.getSkinLFThemePack();
 
 		if (theme.length() > 0)
 		{
-			fc.setCurrentDirectory(new File(SettingsHandler.getSkinLFThemePack()));
+			fc.setCurrentDirectory(new File(SettingsHandler
+				.getSkinLFThemePack()));
 			fc.setSelectedFile(new File(SettingsHandler.getSkinLFThemePack()));
 		}
 
@@ -3163,9 +3538,12 @@ final class PreferencesDialog extends JDialog
 		{
 			File newTheme = fc.getSelectedFile();
 
-			if (newTheme.isDirectory() || (!newTheme.getName().endsWith("themepack.zip")))
+			if (newTheme.isDirectory()
+				|| (!newTheme.getName().endsWith("themepack.zip")))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_notAThemeErrorItem"), in_pcgen, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(PropertyFactory
+					.getString("in_Prefs_notAThemeErrorItem"), in_pcgen,
+					MessageType.ERROR);
 			}
 			else
 			{
@@ -3182,8 +3560,9 @@ final class PreferencesDialog extends JDialog
 						//I can't think of anything better to do.
 						SettingsHandler.setLookAndFeel(0);
 						UIFactory.setLookAndFeel(0);
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_skinSetError") + e.toString(),
-							in_pcgen, MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(PropertyFactory
+							.getString("in_Prefs_skinSetError")
+							+ e.toString(), in_pcgen, MessageType.ERROR);
 					}
 				}
 			}
@@ -3199,49 +3578,56 @@ final class PreferencesDialog extends JDialog
 
 			// add a listener to know when the window has closed
 			pmsFrame.addWindowListener(new WindowAdapter()
+			{
+				public void windowClosed(WindowEvent e)
 				{
-					public void windowClosed(WindowEvent e)
+					final int purchaseMethodCount =
+							SettingsHandler.getGame().getPurchaseMethodCount();
+					pMode = new String[purchaseMethodCount];
+					pModeMethodName = new String[purchaseMethodCount];
+
+					final String methodName =
+							SettingsHandler.getGame()
+								.getPurchaseModeMethodName();
+					abilityPurchaseModeCombo.removeAllItems();
+
+					for (int i = 0; i < purchaseMethodCount; ++i)
 					{
-						final int purchaseMethodCount = SettingsHandler.getGame().getPurchaseMethodCount();
-						pMode = new String[purchaseMethodCount];
-						pModeMethodName = new String[purchaseMethodCount];
+						final PointBuyMethod pbm =
+								SettingsHandler.getGame().getPurchaseMethod(i);
+						pMode[i] = pbm.getDescription();
+						pModeMethodName[i] = pbm.getMethodName();
+						abilityPurchaseModeCombo.addItem(pMode[i]);
 
-						final String methodName = SettingsHandler.getGame().getPurchaseModeMethodName();
-						abilityPurchaseModeCombo.removeAllItems();
-
-						for (int i = 0; i < purchaseMethodCount; ++i)
+						if (pModeMethodName[i].equals(methodName))
 						{
-							final PointBuyMethod pbm = SettingsHandler.getGame().getPurchaseMethod(i);
-							pMode[i] = pbm.getDescription();
-							pModeMethodName[i] = pbm.getMethodName();
-							abilityPurchaseModeCombo.addItem(pMode[i]);
-
-							if (pModeMethodName[i].equals(methodName))
-							{
-								abilityPurchaseModeCombo.setSelectedIndex(i);
-							}
+							abilityPurchaseModeCombo.setSelectedIndex(i);
 						}
-
-						// free resources
-						pmsFrame = null;
-
-						//
-						// If user has added at least one method, then make the controls visible. Otherwise
-						// it is not a valid choice and cannot be selected, so hide it.
-						//
-						abilityPurchaseModeCombo.setVisible(purchaseMethodCount != 0);
-						abilitiesPurchasedButton.setVisible(purchaseMethodCount != 0);
-
-						//
-						// If no longer visible, but was selected, then use 'user rolled' instead
-						//
-						if (!abilitiesPurchasedButton.isVisible() && abilitiesPurchasedButton.isSelected())
-						{
-							abilitiesUserRolledButton.setSelected(true);
-						}
-
 					}
-				});
+
+					// free resources
+					pmsFrame = null;
+
+					//
+					// If user has added at least one method, then make the controls visible. Otherwise
+					// it is not a valid choice and cannot be selected, so hide it.
+					//
+					abilityPurchaseModeCombo
+						.setVisible(purchaseMethodCount != 0);
+					abilitiesPurchasedButton
+						.setVisible(purchaseMethodCount != 0);
+
+					//
+					// If no longer visible, but was selected, then use 'user rolled' instead
+					//
+					if (!abilitiesPurchasedButton.isVisible()
+						&& abilitiesPurchasedButton.isSelected())
+					{
+						abilitiesUserRolledButton.setSelected(true);
+					}
+
+				}
+			});
 		}
 
 		Utility.centerDialog(pmsFrame);
@@ -3253,30 +3639,30 @@ final class PreferencesDialog extends JDialog
 	private void addAbilitiesPanelListeners()
 	{
 		abilityScoreCombo.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					abilitiesAllSameButton.setSelected(true);
-				}
-			});
+				abilitiesAllSameButton.setSelected(true);
+			}
+		});
 
 		abilityPurchaseModeCombo.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					abilitiesPurchasedButton.setSelected(true);
-				}
-			});
+				abilitiesPurchasedButton.setSelected(true);
+			}
+		});
 
 		if (abilityRolledModeCombo != null)
 		{
 			abilityRolledModeCombo.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
 				{
-					public void actionPerformed(ActionEvent evt)
-					{
-						abilitiesRolledButton.setSelected(true);
-					}
-				});
+					abilitiesRolledButton.setSelected(true);
+				}
+			});
 		}
 	}
 
@@ -3319,12 +3705,15 @@ final class PreferencesDialog extends JDialog
 			{
 				showPurchaseModeConfiguration();
 			}
-			else if ((source == prereqQualifyColor) || (source == prereqFailColor) || (source == featAutoColor)
+			else if ((source == prereqQualifyColor)
+				|| (source == prereqFailColor) || (source == featAutoColor)
 				|| (source == featVirtualColor))
 			{
-				final Color newColor = JColorChooser.showDialog(Globals.getRootFrame(),
-						PropertyFactory.getString("in_Prefs_colorSelect") + source.getText().toLowerCase(),
-						source.getForeground());
+				final Color newColor =
+						JColorChooser.showDialog(Globals.getRootFrame(),
+							PropertyFactory.getString("in_Prefs_colorSelect")
+								+ source.getText().toLowerCase(), source
+								.getForeground());
 
 				if (newColor != null)
 				{
@@ -3332,7 +3721,8 @@ final class PreferencesDialog extends JDialog
 
 					if (source == prereqQualifyColor)
 					{
-						SettingsHandler.setPrereqQualifyColor(newColor.getRGB());
+						SettingsHandler
+							.setPrereqQualifyColor(newColor.getRGB());
 					}
 					else if (source == prereqFailColor)
 					{
@@ -3351,12 +3741,14 @@ final class PreferencesDialog extends JDialog
 			else if (source == themepack)
 			{
 				selectThemePack();
-				themepackLabel.setText(String.valueOf(SettingsHandler.getSkinLFThemePack()));
+				themepackLabel.setText(String.valueOf(SettingsHandler
+					.getSkinLFThemePack()));
 			}
 			else if (source == browserPathButton)
 			{
 				Utility.selectDefaultBrowser(getParent());
-				browserPath.setText(String.valueOf(SettingsHandler.getBrowserPath()));
+				browserPath.setText(String.valueOf(SettingsHandler
+					.getBrowserPath()));
 			}
 			else if (source == clearBrowserPathButton)
 			{
@@ -3366,201 +3758,260 @@ final class PreferencesDialog extends JDialog
 					return;
 				}
 
-				final int choice = JOptionPane.showConfirmDialog(null,
-						PropertyFactory.getString("in_Prefs_clearBrowserWarn"),
-						PropertyFactory.getString("in_Prefs_clearBrowserTitle"), JOptionPane.YES_NO_OPTION);
+				final int choice =
+						JOptionPane.showConfirmDialog(null, PropertyFactory
+							.getString("in_Prefs_clearBrowserWarn"),
+							PropertyFactory
+								.getString("in_Prefs_clearBrowserTitle"),
+							JOptionPane.YES_NO_OPTION);
 
 				if (choice == JOptionPane.YES_OPTION)
 				{
 					SettingsHandler.setBrowserPath(null);
 				}
 
-				browserPath.setText(String.valueOf(SettingsHandler.getBrowserPath()));
+				browserPath.setText(String.valueOf(SettingsHandler
+					.getBrowserPath()));
 			}
 			else if (source == pcgenCharacterDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenCharacterDirTitle");
+				final String dialogTitle =
+						PropertyFactory
+							.getString("in_Prefs_pcgenCharacterDirTitle");
 				final File currentPath = SettingsHandler.getPcgPath();
 				final JTextField textField = pcgenCharacterDir;
 				askForPath(currentPath, dialogTitle, textField);
 			}
 			else if (source == pcgenBackupCharacterDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenBackupCharacterDirTitle");
+				final String dialogTitle =
+						PropertyFactory
+							.getString("in_Prefs_pcgenBackupCharacterDirTitle");
 				final File currentPath = SettingsHandler.getBackupPcgPath();
 				final JTextField textField = pcgenBackupCharacterDir;
 				askForPath(currentPath, dialogTitle, textField);
 			}
 			else if (source == pcgenPortraitsDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenPortraitDirTitle");
+				final String dialogTitle =
+						PropertyFactory
+							.getString("in_Prefs_pcgenPortraitDirTitle");
 				final File currentPath = SettingsHandler.getPortraitsPath();
 				final JTextField textField = pcgenPortraitsDir;
 				askForPath(currentPath, dialogTitle, textField);
 			}
 			else if (source == pcgenCustomDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenCustomDirTitle");
+				final String dialogTitle =
+						PropertyFactory
+							.getString("in_Prefs_pcgenCustomDirTitle");
 				final File currentPath = SettingsHandler.getPcgenCustomDir();
 				final JTextField textField = pcgenCustomDir;
 				askForPath(currentPath, dialogTitle, textField);
 			}
 			else if (source == pcgenVendorDataDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenVendorDataDirTitle");
-				final File currentPath = SettingsHandler.getPcgenVendorDataDir();
+				final String dialogTitle =
+						PropertyFactory
+							.getString("in_Prefs_pcgenVendorDataDirTitle");
+				final File currentPath =
+						SettingsHandler.getPcgenVendorDataDir();
 				final JTextField textField = pcgenVendorDataDir;
 				askForPath(currentPath, dialogTitle, textField);
 			}
 			else if (source == pcgenDataDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenDataDirTitle");
+				final String dialogTitle =
+						PropertyFactory.getString("in_Prefs_pcgenDataDirTitle");
 				final File currentPath = SettingsHandler.getPccFilesLocation();
 				final JTextField textField = pcgenDataDir;
 				askForPath(currentPath, dialogTitle, textField);
 			}
 			else if (source == pcgenDocsDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenDocsDirTitle");
+				final String dialogTitle =
+						PropertyFactory.getString("in_Prefs_pcgenDocsDirTitle");
 				final File currentPath = SettingsHandler.getPcgenDocsDir();
 				final JTextField textField = pcgenDocsDir;
 				askForPath(currentPath, dialogTitle, textField);
 			}
 			else if (source == pcgenSystemDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenSystemDirTitle");
+				final String dialogTitle =
+						PropertyFactory
+							.getString("in_Prefs_pcgenSystemDirTitle");
 				final File currentPath = SettingsHandler.getPcgenSystemDir();
 				final JTextField textField = pcgenSystemDir;
 				askForPath(currentPath, dialogTitle, textField);
 			}
 			else if (source == pcgenFilesDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenFilesDirTitle");
+				final String dialogTitle =
+						PropertyFactory
+							.getString("in_Prefs_pcgenFilesDirTitle");
 				final File currentPath = SettingsHandler.getPcgenFilesDir();
 				askForPath(currentPath, dialogTitle, pcgenFilesDir);
 			}
 			else if (source == pcgenOutputSheetDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenOutputSheetDirTitle");
-				final File currentPath = SettingsHandler.getPcgenOutputSheetDir();
+				final String dialogTitle =
+						PropertyFactory
+							.getString("in_Prefs_pcgenOutputSheetDirTitle");
+				final File currentPath =
+						SettingsHandler.getPcgenOutputSheetDir();
 				final JTextField textField = pcgenOutputSheetDir;
 				askForPath(currentPath, dialogTitle, textField);
 			}
 			else if (source == outputSheetHTMLDefaultButton)
 			{
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(PropertyFactory.getString("in_Prefs_outputSheetHTMLDefaultTitle"));
-				fc.setCurrentDirectory(new File(SettingsHandler.getHTMLOutputSheetPath()));
-				fc.setSelectedFile(new File(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null)));
+				fc.setDialogTitle(PropertyFactory
+					.getString("in_Prefs_outputSheetHTMLDefaultTitle"));
+				fc.setCurrentDirectory(new File(SettingsHandler
+					.getHTMLOutputSheetPath()));
+				fc.setSelectedFile(new File(SettingsHandler
+					.getSelectedCharacterHTMLOutputSheet(null)));
 
 				if (fc.showOpenDialog(getParent()) == JFileChooser.APPROVE_OPTION)
 				{
 					File newTemplate = fc.getSelectedFile();
 
 					if (newTemplate.isDirectory()
-						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate.getName().startsWith("psheet")))
+						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate
+							.getName().startsWith("psheet")))
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_outputSheetDefaultError"),
+						ShowMessageDelegate.showMessageDialog(PropertyFactory
+							.getString("in_Prefs_outputSheetDefaultError"),
 							in_pcgen, MessageType.ERROR);
 					}
 					else
 					{
 						if (newTemplate.getName().startsWith("csheet"))
 						{
-							SettingsHandler.setSelectedCharacterHTMLOutputSheet(newTemplate.getAbsolutePath(), null);
+							SettingsHandler
+								.setSelectedCharacterHTMLOutputSheet(
+									newTemplate.getAbsolutePath(), null);
 						}
 						else
 						{
 							//it must be a psheet
-							SettingsHandler.setSelectedPartyHTMLOutputSheet(newTemplate.getAbsolutePath());
+							SettingsHandler
+								.setSelectedPartyHTMLOutputSheet(newTemplate
+									.getAbsolutePath());
 						}
 					}
 				}
 
-				outputSheetHTMLDefault.setText(String.valueOf(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null)));
+				outputSheetHTMLDefault.setText(String.valueOf(SettingsHandler
+					.getSelectedCharacterHTMLOutputSheet(null)));
 			}
 			else if (source == outputSheetPDFDefaultButton)
 			{
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(PropertyFactory.getString("in_Prefs_outputSheetPDFDefaultTitle"));
-				fc.setCurrentDirectory(new File(SettingsHandler.getPDFOutputSheetPath()));
-				fc.setSelectedFile(new File(SettingsHandler.getSelectedCharacterPDFOutputSheet(null)));
+				fc.setDialogTitle(PropertyFactory
+					.getString("in_Prefs_outputSheetPDFDefaultTitle"));
+				fc.setCurrentDirectory(new File(SettingsHandler
+					.getPDFOutputSheetPath()));
+				fc.setSelectedFile(new File(SettingsHandler
+					.getSelectedCharacterPDFOutputSheet(null)));
 
 				if (fc.showOpenDialog(getParent()) == JFileChooser.APPROVE_OPTION)
 				{
 					File newTemplate = fc.getSelectedFile();
 
 					if (newTemplate.isDirectory()
-						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate.getName().startsWith("psheet")))
+						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate
+							.getName().startsWith("psheet")))
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_outputSheetDefaultError"),
+						ShowMessageDelegate.showMessageDialog(PropertyFactory
+							.getString("in_Prefs_outputSheetDefaultError"),
 							in_pcgen, MessageType.ERROR);
 					}
 					else
 					{
 						if (newTemplate.getName().startsWith("csheet"))
 						{
-							SettingsHandler.setSelectedCharacterPDFOutputSheet(newTemplate.getAbsolutePath(), null);
+							SettingsHandler.setSelectedCharacterPDFOutputSheet(
+								newTemplate.getAbsolutePath(), null);
 						}
 						else
 						{
 							//it must be a psheet
-							SettingsHandler.setSelectedPartyPDFOutputSheet(newTemplate.getAbsolutePath());
+							SettingsHandler
+								.setSelectedPartyPDFOutputSheet(newTemplate
+									.getAbsolutePath());
 						}
 					}
 				}
 
-				outputSheetPDFDefault.setText(String.valueOf(SettingsHandler.getSelectedCharacterPDFOutputSheet(null)));
+				outputSheetPDFDefault.setText(String.valueOf(SettingsHandler
+					.getSelectedCharacterPDFOutputSheet(null)));
 			}
 			else if (source == outputSheetEqSetButton)
 			{
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(PropertyFactory.getString("in_Prefs_templateEqSetTitle"));
-				fc.setCurrentDirectory(SettingsHandler.getPcgenOutputSheetDir());
-				fc.setSelectedFile(new File(SettingsHandler.getSelectedEqSetTemplate()));
+				fc.setDialogTitle(PropertyFactory
+					.getString("in_Prefs_templateEqSetTitle"));
+				fc
+					.setCurrentDirectory(SettingsHandler
+						.getPcgenOutputSheetDir());
+				fc.setSelectedFile(new File(SettingsHandler
+					.getSelectedEqSetTemplate()));
 
 				if (fc.showOpenDialog(getParent()) == JFileChooser.APPROVE_OPTION)
 				{
 					File newTemplate = fc.getSelectedFile();
 
-					if (newTemplate.isDirectory() || !newTemplate.getName().startsWith("eqsheet"))
+					if (newTemplate.isDirectory()
+						|| !newTemplate.getName().startsWith("eqsheet"))
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_templateEqSetError"), in_pcgen,
-							MessageType.ERROR);
-					}
-					else
-					{
-						//it must be a psheet
-						SettingsHandler.setSelectedEqSetTemplate(newTemplate.getAbsolutePath());
-					}
-				}
-
-				outputSheetEqSet.setText(String.valueOf(SettingsHandler.getSelectedEqSetTemplate()));
-			}
-			else if (source == outputSheetSpellsDefaultButton)
-			{
-				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(PropertyFactory.getString("in_Prefs_outputSpellSheetDefault"));
-				fc.setCurrentDirectory(SettingsHandler.getPcgenOutputSheetDir());
-				fc.setSelectedFile(new File(SettingsHandler.getSelectedSpellSheet()));
-
-				if (fc.showOpenDialog(getParent()) == JFileChooser.APPROVE_OPTION)
-				{
-					File newTemplate = fc.getSelectedFile();
-
-					if (newTemplate.isDirectory() || !newTemplate.getName().startsWith("csheet"))
-					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_outputSheetDefaultError"),
+						ShowMessageDelegate.showMessageDialog(PropertyFactory
+							.getString("in_Prefs_templateEqSetError"),
 							in_pcgen, MessageType.ERROR);
 					}
 					else
 					{
 						//it must be a psheet
-						SettingsHandler.setSelectedSpellSheet(newTemplate.getAbsolutePath());
+						SettingsHandler.setSelectedEqSetTemplate(newTemplate
+							.getAbsolutePath());
 					}
 				}
 
-				outputSheetSpellsDefault.setText(String.valueOf(SettingsHandler.getSelectedSpellSheet()));
+				outputSheetEqSet.setText(String.valueOf(SettingsHandler
+					.getSelectedEqSetTemplate()));
+			}
+			else if (source == outputSheetSpellsDefaultButton)
+			{
+				JFileChooser fc = new JFileChooser();
+				fc.setDialogTitle(PropertyFactory
+					.getString("in_Prefs_outputSpellSheetDefault"));
+				fc
+					.setCurrentDirectory(SettingsHandler
+						.getPcgenOutputSheetDir());
+				fc.setSelectedFile(new File(SettingsHandler
+					.getSelectedSpellSheet()));
+
+				if (fc.showOpenDialog(getParent()) == JFileChooser.APPROVE_OPTION)
+				{
+					File newTemplate = fc.getSelectedFile();
+
+					if (newTemplate.isDirectory()
+						|| !newTemplate.getName().startsWith("csheet"))
+					{
+						ShowMessageDelegate.showMessageDialog(PropertyFactory
+							.getString("in_Prefs_outputSheetDefaultError"),
+							in_pcgen, MessageType.ERROR);
+					}
+					else
+					{
+						//it must be a psheet
+						SettingsHandler.setSelectedSpellSheet(newTemplate
+							.getAbsolutePath());
+					}
+				}
+
+				outputSheetSpellsDefault.setText(String.valueOf(SettingsHandler
+					.getSelectedSpellSheet()));
 			}
 		}
 
@@ -3571,7 +4022,8 @@ final class PreferencesDialog extends JDialog
 		 * @param textField to update with the path information
 		 * @return A path to the directory.
 		 */
-		private File askForPath(final File currentPath, final String dialogTitle, final JTextField textField)
+		private File askForPath(final File currentPath,
+			final String dialogTitle, final JTextField textField)
 		{
 			File returnFile = currentPath;
 			JFileChooser fc = null;
@@ -3591,7 +4043,8 @@ final class PreferencesDialog extends JDialog
 			if (System.getProperty("os.name").startsWith("Mac OS"))
 			{
 				// On MacOS X, do not traverse file bundles
-				fc.putClientProperty("JFileChooser.appBundleIsTraversable", "never");
+				fc.putClientProperty("JFileChooser.appBundleIsTraversable",
+					"never");
 			}
 
 			final int returnVal = fc.showOpenDialog(getParent());
@@ -3645,12 +4098,14 @@ final class PreferencesDialog extends JDialog
 				final String fieldValue = ((JTextField) source).getText();
 				final File fieldFile = new File(fieldValue);
 
-				if ((!fieldFile.exists()) && (!fieldValue.equalsIgnoreCase("null")) && (fieldValue.trim().length() > 0)
-					&& (!dialogOpened))
+				if ((!fieldFile.exists())
+					&& (!fieldValue.equalsIgnoreCase("null"))
+					&& (fieldValue.trim().length() > 0) && (!dialogOpened))
 				{
 					// display error dialog and restore previous value
 					dialogOpened = true;
-					ShowMessageDelegate.showMessageDialog("File does not exist; preferences were not set.",
+					ShowMessageDelegate.showMessageDialog(
+						"File does not exist; preferences were not set.",
 						"Invalid Path", MessageType.ERROR);
 					((JTextField) source).setText(initialValue);
 				}
@@ -3658,23 +4113,30 @@ final class PreferencesDialog extends JDialog
 		}
 	}
 
-	public static class PreferencesComponent implements GMBComponent {
-		private List<PreferencesPanel> panelList = new ArrayList<PreferencesPanel>();
+	public static class PreferencesComponent implements GMBComponent
+	{
+		private List<PreferencesPanel> panelList =
+				new ArrayList<PreferencesPanel>();
 		private List<String> nameList = new ArrayList<String>();
 
-		public void handleMessage(GMBMessage message) {
-			if(message instanceof PreferencesPanelAddMessage) {
-				PreferencesPanelAddMessage pmessage = (PreferencesPanelAddMessage)message;
+		public void handleMessage(GMBMessage message)
+		{
+			if (message instanceof PreferencesPanelAddMessage)
+			{
+				PreferencesPanelAddMessage pmessage =
+						(PreferencesPanelAddMessage) message;
 				panelList.add(pmessage.getPane());
 				nameList.add(pmessage.getName());
 			}
 		}
 
-		public List<String> getNameList() {
+		public List<String> getNameList()
+		{
 			return nameList;
 		}
 
-		public List<PreferencesPanel> getPanelList() {
+		public List<PreferencesPanel> getPanelList()
+		{
 			return panelList;
 		}
 	}

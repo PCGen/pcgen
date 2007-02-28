@@ -102,6 +102,7 @@ public final class SettingsHandler
 	private static boolean showD20InfoAtStart = true;
 	private static boolean loadURLs = false;
 	private static boolean showOGLOnLoad = true;
+	private static boolean showMatureOnLoad = true;
 	private static boolean showSponsorsOnLoad = true;
 	private static boolean hpMaxAtFirstLevel = true;
 	private static int hpRollMethod = Constants.HP_STANDARD;
@@ -1132,6 +1133,7 @@ public final class SettingsHandler
 		loadURLs = getPCGenOption("loadURLs", false); //$NON-NLS-1$
 		allowOverride = getPCGenOption("allowOverride", false); //$NON-NLS-1$
 		showOGLOnLoad = getPCGenOption("showOGLOnLoad", true); //$NON-NLS-1$
+		showMatureOnLoad = getPCGenOption("showMatureOnLoad", true); //$NON-NLS-1$
 		showSponsorsOnLoad = getPCGenOption("showSponsorsOnLoad", true); //$NON-NLS-1$
 
 		Globals.setSourceDisplay(SourceEntry.SourceFormat.valueOf(getPCGenOption("sourceDisplay", SourceEntry.SourceFormat.LONG.ordinal()))); //$NON-NLS-1$
@@ -1573,6 +1575,7 @@ public final class SettingsHandler
 		setPCGenOption("showImagePreview", isShowImagePreview()); //$NON-NLS-1$
 		setPCGenOption("showNatWeaponTab", showNatWeaponTab); //$NON-NLS-1$
 		setPCGenOption("showOGLOnLoad", showOGLOnLoad); //$NON-NLS-1$
+		setPCGenOption("showMatureOnLoad", showMatureOnLoad); //$NON-NLS-1$
 		setPCGenOption("showSponsorsOnLoad", showSponsorsOnLoad); //$NON-NLS-1$
 		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
@@ -2167,6 +2170,11 @@ public final class SettingsHandler
 		showOGLOnLoad = arg;
 	}
 
+	public static void setShowMature(final boolean arg)
+	{
+		showMatureOnLoad = arg;
+	}
+
 	public static void setShowSponsors(final boolean arg)
 	{
 		showSponsorsOnLoad = arg;
@@ -2514,6 +2522,11 @@ public final class SettingsHandler
 	public static boolean showLicense()
 	{
 		return showOGLOnLoad;
+	}
+
+	public static boolean showMature()
+	{
+		return showMatureOnLoad;
 	}
 
 	public static boolean showSponsors() {
