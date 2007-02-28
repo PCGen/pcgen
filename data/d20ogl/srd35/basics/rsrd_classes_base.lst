@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 23 18:14:28 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Wed Feb 28 16:56:54 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -380,9 +380,9 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Deci
 1	FEATAUTO:Simple Weapon Proficiency|Rogue Weapon Proficiencies|All Automatic Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Level progression
-1																									FEATAUTO:Trapfinding|Sneak Attack|Rogue Tracker - Sneak Attack
+1	BONUS:VAR|RogueSneakAttackLVL|CL																			FEATAUTO:Trapfinding|Sneak Attack|Rogue Sneak Attack
 2																									FEATAUTO:Evasion
-3																									FEATAUTO:Trap Sense Ability|Rogue Tracker - Trap Sense
+3	BONUS:VAR|RogueTrapSenseLVL|CL																			FEATAUTO:Trap Sense Ability|Rogue Trap Sense
 4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
 8												ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
 10												ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)

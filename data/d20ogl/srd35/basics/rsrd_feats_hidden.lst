@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 23 18:14:28 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Wed Feb 28 16:56:54 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -230,9 +230,9 @@ Ranger Animal Companion	TYPE:Internal	VISIBLE:NO	DEFINE:RangerAnimalCompLVL|0	BO
 Trapfinding	TYPE:Special	VISIBLE:NO	SA:Trapfinding	SOURCEPAGE:p.ClassesII.rtf
 
 ###Block: Rogue Trackers
-# Feat Name				Visible	Virtual Feat			Modify VAR							Source Page
-Rogue Tracker - Sneak Attack	VISIBLE:NO	VFEAT:Sneak Attack		BONUS:VAR|SneakAttack|(var("CL=Rogue")+1)/2	SOURCEPAGE:ClassesII.rtf
-Rogue Tracker - Trap Sense	VISIBLE:NO	VFEAT:Trap Sense Ability	BONUS:VAR|TrapSense|var("CL=Rogue")/3		SOURCEPAGE:ClassesII.rtf
+# Feat Name			Visible	Define				Modify VAR							Source Page
+Rogue Sneak Attack	VISIBLE:NO	DEFINE:RogueSneakAttackLVL|0	BONUS:VAR|SneakAttack|(RogueSneakAttackLVL+1)/2	SOURCEPAGE:ClassesII.rtf
+Rogue Trap Sense		VISIBLE:NO	DEFINE:RogueTrapSenseLVL|0	BONUS:VAR|TrapSense|RogueTrapSenseLVL/3		SOURCEPAGE:ClassesII.rtf
 
 ###Block: Ranger Combat Styles
 # Feat Name					Type				Visible	Prohibited Feat				Var. Min. Value			Special Ability				Virtual Feat
@@ -363,14 +363,14 @@ Undead Traits			TYPE:Special	VISIBLE:NO	SA:Undead Traits|!PRERULE:DISPLAYTYPETRA
 Vermin Traits			TYPE:Special	VISIBLE:NO	SA:Vermin Traits|!PRERULE:DISPLAYTYPETRAITS	SA:Vermin eat/sleep/breathe|PRERULE:DISPLAYTYPETRAITS	SA:Mindless - Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:Mindless|PRERULE:DISPLAYTYPETRAITS																																																																																																																																																																				VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Special Abilities
-# Feat Name				Output Name							Type					Visible	Special Ability					Multiple?	Choose			Combat bonus									Weapon prof. bonus
+# Feat Name				Output Name							Type					Visible	Special Ability					Multiple?	Choose			Combat bonus									Weapon prof. bonus																		Source Page
 Oversized Weapon			OUTPUTNAME:Oversized Weapon (Ex)			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Oversized Weapon (Ex)			MULT:YES	CHOOSE:WEAPONPROFS|LIST												BONUS:WEAPONPROF=%LIST|PCSIZE|1
-Powerful Build											TYPE:Special			VISIBLE:NO																									BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1
+Powerful Build			OUTPUTNAME:Powerful Build (Ex)			TYPE:Special.Extraordinary	VISIBLE:NO																									BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1	SOURCEPAGE:PsionicMonsters.rtf
 Superior Two-Weapon Fighting	OUTPUTNAME:Superior Two-Weapon Fighting (Ex)	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Superior Two-Weapon Fighting (Ex)							BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
 
 ###Block: Leadership feat support
-# Feat Name		Type			Visible	Multiple?	Choose												Modify VAR							Temporary effect description
-Leadership Score	TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:NUMCHOICES=1|NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
+# Feat Name		Type				Visible	Multiple?	Choose												Modify VAR							Temporary effect description
+Leadership Score	TYPE:SPECIAL.Internal	VISIBLE:NO	MULT:YES	CHOOSE:NUMCHOICES=1|NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
 
 ###Block:Nightshade support
 # Feat Name		Output Name					Type					Visible	Special Ability			Save checks bonus										Combat bonus														Bonus to HP											Source Page				Temporary effect description
