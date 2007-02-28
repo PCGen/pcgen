@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jan 21 08:54:03 2007 -- reformated by prettylst.pl v1.35 (build 1961)
+# CVS $Revision$ $Author$ -- Wed Feb 28 15:59:10 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -96,8 +96,8 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	SA:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayOnHands|0
 1	SA:Fiendish Summoning (Sp)|PRECLASS:1,Ex Paladin=7
 ###Block: Servants Servant (Undead and Fiendish)
-5	VFEAT:Undead Companion|PRECLASS:1,Ex Paladin=9	FEATAUTO:Blackguard Tracker - Undead Companion
-5									FEATAUTO:Fiendish Servant|Blackguard Tracker - Fiendish Servant
+5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	VFEAT:Undead Companion|PRECLASS:1,Ex Paladin=9
+5	BONUS:VAR|FSLevel|CL							VFEAT:Fiendish Servant
 ###Block: Weapons / Armor Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)

@@ -385,11 +385,6 @@ Fiendish Servant	TYPE:Special		VISIBLE:NO	SA:Fiendish Servant		DEFINE:FSLevel|0	
 Undead Companion	TYPE:Special		VISIBLE:NO	SA:Undead Companion		DEFINE:UndeadCompanionLVL|0						COMPANIONLIST:Undead Companion|Skeleton (Human Warrior),Zombie (Human Commoner)																																																																																																																																																															FOLLOWERS:Undead Companion|1
 Summon Shadow	TYPE:Supernatural		VISIBLE:NO	SA:Summon Shadow (Su)		DEFINE:ShadowCompanion|0						COMPANIONLIST:Shadow Companion|Shadow																																																																																																																																																																						FOLLOWERS:Shadow Companion|1
 
-###Block: Companion Trackers
-# Feat Name						Visible	Modify VAR												Source Page
-Blackguard Tracker - Fiendish Servant	VISIBLE:NO	BONUS:VAR|FSLevel|var("CL=Blackguard")							SOURCEPAGE:PrestigeClasses.rtf
-Blackguard Tracker - Undead Companion	VISIBLE:NO	BONUS:VAR|UndeadCompanionLVL|var("CL=Blackguard")|PRECLASS:1,Ex Paladin=9	SOURCEPAGE:PrestigeClasses.rtf
-
 #
 #EOF
 #
