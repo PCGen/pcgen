@@ -869,16 +869,9 @@ public final class Spell extends PObject
 		return variantList;
 	}
 
-	public void setXPCost(final String aString)
+	public void setXPCost(int cost)
 	{
-		try
-		{
-			xpCost = Integer.parseInt(aString);
-		}
-		catch (NumberFormatException ignore)
-		{
-			//ignore
-		}
+		xpCost = cost;
 	}
 
 	public int getXPCost()
@@ -1244,10 +1237,8 @@ public final class Spell extends PObject
 		final Spell otherSpell = (Spell)other;
 		if ( getKeyName().equals( otherSpell.getKeyName() ) )
 		{
-			if ( levelInfo != null && otherSpell.levelInfo != null )
-			{
-				return levelInfo.equals( otherSpell.levelInfo );
-			}
+			return levelInfo == null && otherSpell.levelInfo == null
+				|| levelInfo != null && levelInfo.equals(otherSpell.levelInfo);
 		}
 		return false;
 	}

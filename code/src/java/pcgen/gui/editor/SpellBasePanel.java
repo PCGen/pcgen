@@ -212,7 +212,7 @@ public class SpellBasePanel extends BasePanel
 		}
 
 		s.setCost(Double.toString(txtCost.getValue()));
-		s.setXPCost(Integer.toString(txtXpCost.getValue()));
+		s.setXPCost(txtXpCost.getValue());
 		s.setStat((String) cmbStat.getSelectedItem());
 
 		//
