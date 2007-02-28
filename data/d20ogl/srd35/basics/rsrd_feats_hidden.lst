@@ -89,7 +89,7 @@ Rage		TYPE:Special.Extraordinary	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|
 
 ###Block: Barbarian abilities
 # Feat Name			Type				Visible	Special Ability			Define							Add to base move																		Modify VAR							Damage Reduction	Source Page
-Illiteracy			TYPE:Special		VISIBLE:NO	SA:Illiteracy																																										SOURCEPAGE:ClassesI.rtf
+Illiteracy			TYPE:Special		VISIBLE:NO	SA:Illiteracy			DEFINE:IlliteracyLVL|0																																				SOURCEPAGE:ClassesI.rtf
 Barbarian Fast Movement	TYPE:Extraordinary	VISIBLE:NO	SA:Fast Movement (Ex)										BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement												SOURCEPAGE:ClassesI.rtf
 Barbarian DR		TYPE:Extraordinary	VISIBLE:NO	SA:Damage Reduction (Ex)	DEFINE:BarbarianDR|0	DEFINE:BarbarianDRLVL|0																					BONUS:VAR|BarbarianDR|(BarbarianDRLVL-4)/3	DR:BarbarianDR/-	SOURCEPAGE:ClassesI.rtf
 Indomitable Will		TYPE:Extraordinary	VISIBLE:NO	SA:Indomitable Will (Ex)																																								SOURCEPAGE:ClassesI.rtf
