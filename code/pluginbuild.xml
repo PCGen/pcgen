@@ -3427,13 +3427,6 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-lst-race-plugins" depends="makeplugindirs" description="Build (Link) Race Lst Token plugin jar files">
 		<!-- Race tokens-->
-		<jar jarfile="${lstplugins.dir}/RaceLstToken-AC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/race/AcToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/RaceLstToken-CR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -5927,6 +5920,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/deprecated/NameLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-DEPRECATED-AC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/RaceAcToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
