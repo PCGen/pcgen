@@ -399,7 +399,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 ###Block:Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency|All Automatic Proficiencies
 ###Block: Familiar
-1	FEATAUTO:Summon Familiar|Sorcerer Tracker - Summon Familiar
+1	BONUS:VAR|FMLevel|CL	FEATAUTO:Summon Familiar
 ###Block: Level progression
 1	CAST:5,3				KNOWN:4,2
 2	CAST:6,4				KNOWN:5,2
@@ -449,7 +449,7 @@ SUBCLASSLEVEL:1	FEATAUTO:Transmuter Learning Bonus
 ###Block:Proficiencies
 1	FEATAUTO:Wizard Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Familiar
-1	FEATAUTO:Summon Familiar|Wizard Tracker - Summon Familiar
+1	BONUS:VAR|FMLevel|CL	FEATAUTO:Summon Familiar
 ###Block: Level progression
 1	CAST:3,1														FEATAUTO:Scribe Scroll
 2	CAST:4,2
