@@ -2,6 +2,7 @@ package plugin.lsttokens.skill;
 
 import pcgen.core.Skill;
 import pcgen.persistence.lst.SkillLstToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with EXCLUSIVE Token
@@ -16,7 +17,29 @@ public class ExclusiveToken implements SkillLstToken
 
 	public boolean parse(Skill skill, String value)
 	{
-		skill.setIsExclusive(value.startsWith("Y"));
+		boolean set;
+		char firstChar = value.charAt(0);
+		if (firstChar == 'y' || firstChar == 'Y')
+		{
+			if (!value.equalsIgnoreCase("YES"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+					+ getTokenName());
+				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+			}
+			set = true;
+		}
+		else
+		{
+			if (value.equalsIgnoreCase("NO"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+					+ getTokenName());
+				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+			}
+			set = false;
+		}
+		skill.setIsExclusive(set);
 		return true;
 	}
 }
