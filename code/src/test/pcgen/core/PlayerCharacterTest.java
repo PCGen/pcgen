@@ -445,7 +445,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final BonusObj humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
 		final StringBuffer buf = new StringBuffer();
 
-		buf.append("PREMULT:1,[PREDEFAULTMONSTER:N],[!PREHD:1]");
+		buf.append("PREMULT:1,[PREDEFAULTMONSTER:N],[!PREHD:1+]");
 
 		final Prerequisite humanFeatPrereq = factory.parse(buf.toString());
 
