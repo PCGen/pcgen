@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/
 
-STARTPACK:Default Ashmalkin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ashmalkin]
-RACE:Ashmalkin	!PRERACE:%
+STARTPACK:Default Ashmalkin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ashmalkin]
+RACE:Ashmalkin	!PRERACE:1,%
 NAME:Ashmalkin
 CLASS:Warrior	LEVEL:1
 SKILL:Swim			RANK:4
@@ -13,8 +13,8 @@ SKILL:Move Silently	RANK:1
 FEAT:Weapon Finesse
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
-STARTPACK:Default Blood Bloat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Blood Bloat]
-RACE:Blood Bloat	!PRERACE:%
+STARTPACK:Default Blood Bloat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blood Bloat]
+RACE:Blood Bloat	!PRERACE:1,%
 NAME:Blood Bloat
 ALIGN:TN
 SKILL:Hide			RANK:2
