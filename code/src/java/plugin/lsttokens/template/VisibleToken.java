@@ -22,7 +22,7 @@ public class VisibleToken implements PCTemplateLstToken
 		{
 			if (!value.equals("DISPLAY"))
 			{
-				Logging.errorPrint("Use of '" + value
+				Logging.errorPrint("In " + getTokenName() + " Use of '" + value
 					+ "' is not valid, please use DISPLAY "
 					+ "(exact String, upper case)");
 			}
@@ -32,7 +32,7 @@ public class VisibleToken implements PCTemplateLstToken
 		{
 			if (!value.equals("EXPORT"))
 			{
-				Logging.errorPrint("Use of '" + value
+				Logging.errorPrint("In " + getTokenName() + " Use of '" + value
 					+ "' is not valid, please use EXPORT "
 					+ "(exact String, upper case)");
 			}
@@ -42,7 +42,7 @@ public class VisibleToken implements PCTemplateLstToken
 		{
 			if (!value.equals("NO"))
 			{
-				Logging.errorPrint("Use of '" + value
+				Logging.errorPrint("In " + getTokenName() + " Use of '" + value
 					+ "' is not valid, please use NO "
 					+ "(exact String, upper case)");
 			}
@@ -52,7 +52,7 @@ public class VisibleToken implements PCTemplateLstToken
 		{
 			if (!value.equals("ALWAYS") && !value.equals("YES"))
 			{
-				Logging.errorPrint("Use of '" + value
+				Logging.errorPrint("In " + getTokenName() + " Use of '" + value
 					+ "' is not valid, please use YES or ALWAYS "
 					+ "(exact String, upper case)");
 			}
