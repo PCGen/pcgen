@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Sep 24 06:00:36 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
-# Equipment Name					Output Name				Required Proficiency	Type												Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Size		Source Page		Spells											Bonus to skill						Weapon prop. bonus					Special Property
+# Equipment Name					Output Name				Required Proficiency	Type												Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Size		Source Page		Innate Spells										Bonus to skill						Weapon prop. bonus					Special Property
 Badge of Allegiance													TYPE:Badge.Brooch.Magic.Wondrous.Headgear											COST:5400	WT:0																	SOURCEPAGE:p.325
 Bag of People Holding													TYPE:Artifact.Bag.Magic.Wondrous												COST:0	WT:1																	SOURCEPAGE:p.325
 Bag of Pigeon Holding													TYPE:Artifact.Bag.Magic.Wondrous												COST:0	WT:0.5																SOURCEPAGE:p.325

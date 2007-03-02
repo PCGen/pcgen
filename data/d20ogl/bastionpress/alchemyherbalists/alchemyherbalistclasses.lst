@@ -9,7 +9,7 @@ CLASS:Black Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Black Alchemist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|Black Alchemist|CL
+CLASS:Black Alchemist	SPELLSTAT:NONE	SPELLTYPE:None	BONUS:CASTERLEVEL|Black Alchemist|CL
 1	ADD:SPELLCASTER(ANY)	SA:Enhanced Illusions
 2	ADD:SPELLCASTER(ANY)						FEATAUTO:Craft Chymicals
 3	ADD:SPELLCASTER(ANY)	SA:Enhanced Transmutations
@@ -28,7 +28,7 @@ CLASS:White Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:White Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Sense Motive|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:White Alchemist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|White Alchemist|CL
+CLASS:White Alchemist	SPELLSTAT:NONE	SPELLTYPE:None	BONUS:CASTERLEVEL|White Alchemist|CL
 1	ADD:SPELLCASTER(ANY)					FEATAUTO:Craft Toxins
 2	ADD:SPELLCASTER(ANY)
 3	ADD:SPELLCASTER(ANY)					FEATAUTO:Brew Ingestibles
@@ -47,7 +47,7 @@ CLASS:Red Alchemist	PREFEAT:1,Skill Focus(Alchemy)	PRESKILL:1,Alchemy=8	PRESKILL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Red Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Appraise|Concentration|TYPE.Craft|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Sense Motive|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Red Alchemist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|Red Alchemist|CL
+CLASS:Red Alchemist	SPELLSTAT:NONE	SPELLTYPE:None	BONUS:CASTERLEVEL|Red Alchemist|CL
 1	ADD:SPELLCASTER(ANY)	FEATAUTO:Craft Chymicals
 2	ADD:SPELLCASTER(ANY)	FEATAUTO:Craft Powders and Dusts
 3	ADD:SPELLCASTER(ANY)	FEATAUTO:Craft Toxins
@@ -66,7 +66,7 @@ CLASS:Taraston Herbalist	PRECHECK:1,Fortitude=2	PRECLASS:1,Spellcaster=3	PREFEAT
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Taraston Herbalist	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Spellcraft|Swim|Use Magic Device|Wilderness Lore
 # Class Name			Spell Stat		Spell Type		Caster level
-CLASS:Taraston Herbalist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|Taraston Herbalist|CL
+CLASS:Taraston Herbalist	SPELLSTAT:NONE	SPELLTYPE:None	BONUS:CASTERLEVEL|Taraston Herbalist|CL
 1								FEATAUTO:Craft Toxins
 2	ADD:SPELLCASTER(ANY)
 3								FEATAUTO:Craft Herbal Restoratives
