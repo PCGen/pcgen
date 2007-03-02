@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Original entry by: Blithwyn
 
@@ -43,7 +43,7 @@ Enhanced Charisma IV		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.Legen
 Enhanced Charisma V		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma V		BONUS:STAT|CHA|5|TYPE=Legendary	SOURCEPAGE:p.103
 
 ###Block:Abyssal Infiltrator legendary abilities
-# Feat Name				Type								Visible	Required Class				Prohibited Feat				Special Ability					Spells								Choose				Bonus to skill				Source Page
+# Feat Name				Type								Visible	Required Class				Prohibited Feat				Special Ability					Innate Spells							Choose				Bonus to skill				Source Page
 Abyssal Skill I			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAAbyssalSkill	SA:Abyssal Skill I													CHOOSE:SKILLSNAMEDTOCSKILL|1	BONUS:SKILL|LIST|3|TYPE=Legendary	SOURCEPAGE:p.83
 Abyssal Skill II			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAAbyssalSkill	SA:Abyssal Skill II													CHOOSE:SKILLSNAMEDTOCSKILL|2	BONUS:SKILL|LIST|6|TYPE=Legendary	SOURCEPAGE:p.83
 Abyssal Skill III			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAAbyssalSkill	SA:Abyssal Skill III													CHOOSE:SKILLSNAMEDTOCSKILL|3	BONUS:SKILL|LIST|9|TYPE=Legendary	SOURCEPAGE:p.83
@@ -117,7 +117,7 @@ Wounding IV			TYPE:LAWounding.BloodThiefLAPL4	VISIBLE:NO	PRECLASS:1,Blood Thief=
 Wounding V			TYPE:LAWounding.BloodThiefLAPL5	VISIBLE:NO	PRECLASS:1,Blood Thief=5	!PREFEAT:1,TYPE.LAWounding	SA:Wounding V (Ex)										SOURCEPAGE:p.85
 
 ###Block:Fortune's Fool legendary abilities
-# Feat Name						Type							Visible	Required Class			Prohibited Feat				Special Ability						Spells					Save checks bonus							Stat bonus					Source Page
+# Feat Name						Type							Visible	Required Class			Prohibited Feat				Special Ability						Innate Spells				Save checks bonus							Stat bonus					Source Page
 Clever I						TYPE:LAClever.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LAClever		SA:Clever I																						BONUS:STAT|INT|1|TYPE=Legendary	SOURCEPAGE:p.87
 Clever II						TYPE:LAClever.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LAClever		SA:Clever II																					BONUS:STAT|INT|2|TYPE=Legendary	SOURCEPAGE:p.87
 Clever III						TYPE:LAClever.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LAClever		SA:Clever III																					BONUS:STAT|INT|3|TYPE=Legendary	SOURCEPAGE:p.87

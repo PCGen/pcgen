@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 27 05:51:06 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe
 
@@ -9,7 +9,7 @@ Improvised Weapon Damage	TYPE:General	PREFEAT:1,Improvised Implements									DE
 Virgin				TYPE:General							PRETEXT:If you don't know, ask your parents.	DESC:So long as you're pure, you have a real chance at surviving.									BONUS:CHECKS|ALL|2|TYPE=Morale	SOURCEPAGE:p.17
 
 ###Block:Slasher Feats
-# Feat Name			Type			Req. Att.	Required Feat											Minimum Size	Required Skill		Required Stat		Var. Max. Value			Special Ability					Description																				Stackable?	Multiple?	Choose					Choose a Feat		Combat bonus			Damage reduction	Bonus to skill		Weapon prof. bonus				Source Page		KEY
+# Feat Name			Type			Req. Att.	Required Feat											Minimum Size	Required Skill		Required Stat		Var. Max. Value			Special Ability					Description																				Stackable?	Multiple?	Choose					Choose a Feat		Combat bonus			Damage reduction	Bonus to skill		Weapon prof. bonus				Source Page		Unique Key
 Awesome Blow		TYPE:Stalker			PREFEAT:2,Power Attack,Improved Bull Rush							PRESIZEGTEQ:L					PRESTAT:1,STR=25														DESC:The slasher can inflict awesome blows on his opponents.																																												SOURCEPAGE:p.52
 Catch Phrase		TYPE:Stalker																							PRESTAT:1,WIS=13							SA:Catchphrase DC %|10+CHA			DESC:The Slasher is just chock full of witticisms and he has a few he likes to use over and over. And over and over.																																			SOURCEPAGE:p.52
 Damage Reduction		TYPE:Stalker																							PRESTAT:1,CON=21														DESC:The slasher is nearly immune to damage from most attacks.											STACK:YES	MULT:YES	CHOOSE:NOCHOICE				ADD:FEAT(Initiate DR)						BONUS:DR|-|3												SOURCEPAGE:p.52

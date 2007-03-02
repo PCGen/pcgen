@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 21 05:57:37 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -32,7 +32,7 @@ Transformation +1 on Spot		TYPE:TransfSkill.ForestWightTransfSkill	VISIBLE:NO	!P
 
 ###Block: Dwarf
 # Racial Talents
-# Feat Name				Type						Visible	Required Feat								Prohibited Feat				Required Lvl	Special Ability					Define				Spells												Stackable?	Multiple?	Choose					Choose a Feat																						Modify VAR													Vision					Source Page
+# Feat Name				Type						Visible	Required Feat								Prohibited Feat				Required Lvl	Special Ability					Define				Innate Spells											Stackable?	Multiple?	Choose					Choose a Feat																						Modify VAR													Vision					Source Page
 Subterranean Empathy		TYPE:DwarfRacialTalent			VISIBLE:NO																				SA:Subterranean Empathy (Ex)																							MULT:NO																																																			SOURCEPAGE:p.6
 Elemental Empathy			TYPE:DwarfRacialTalent			VISIBLE:NO	PREFEAT:1,Subterranean Empathy														SA:Elemental Empathy (Ex)																							MULT:NO																																																			SOURCEPAGE:p.6
 Underbeast Empathy		TYPE:DwarfRacialTalent			VISIBLE:NO	PREFEAT:1,Elemental Empathy															SA:Underbeast Empathy (Ex)																							MULT:NO																																																			SOURCEPAGE:p.6
@@ -42,7 +42,7 @@ Stone Brother			TYPE:DwarfRacialTalent			VISIBLE:NO	PREFEAT:1,Subterranean Empat
 
 
 ### Racial Transformations
-# Feat Name				Type						Visible	Required Feat								Prohibited Feat				Required Lvl	Special Ability					Define				Spells												Stackable?	Multiple?	Choose					Choose a Feat																						Modify VAR													Vision					Source Page
+# Feat Name				Type						Visible	Required Feat								Prohibited Feat				Required Lvl	Special Ability					Define				Innate Spells											Stackable?	Multiple?	Choose					Choose a Feat																						Modify VAR													Vision					Source Page
 Dwarf Fire Resistance 2		TYPE:DwarfRacialTransformation2	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Fire Resistance)																				BONUS:VAR|FireResistance|2																SOURCEPAGE:p.7
 Dwarf Fire Resistance 4		TYPE:DwarfRacialTransformation4	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Dwarf Fire Resistance 2)																			BONUS:VAR|FireResistance|2																SOURCEPAGE:p.7
 Dwarf Fire Resistance 6		TYPE:DwarfRacialTransformation6	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Dwarf Fire Resistance 2)	ADD:FEAT(Dwarf Fire Resistance 4)													BONUS:VAR|FireResistance|2																SOURCEPAGE:p.7
@@ -141,7 +141,7 @@ Ghost Elf Transformation Skills 10	TYPE:GhostElfRacialTransformation10	VISIBLE:N
 
 ###Block: Moon Elf
 # Racial Talents
-# Feat Name					Type						Visible	Required Feat					Prohibited Feat						Required Lvl	Required Stat	Special Ability				Stackable?	Multiple?	Choose a Feat																																																															BONUS:DC				Bonus to skill						Source Page
+# Feat Name					Type						Visible	Required Feat					Prohibited Feat						Required Lvl	Required Stat	Special Ability				Stackable?	Multiple?	Choose a Feat																																																															Bonus to DC				Bonus to skill						Source Page
 Perfect Memory				TYPE:MoonElfRacialTalent		VISIBLE:NO																						SA:Perfect Memory (Ex)					MULT:NO																																																																															SOURCEPAGE:p.27
 Stories of the Past			TYPE:MoonElfRacialTalent		VISIBLE:NO																						SA:Stories of the Past (Ex)				MULT:NO																																																																							BONUS:SKILL|Knowledge (History)|2|TYPE=Racial	SOURCEPAGE:p.27
 Stories of the Future			TYPE:MoonElfRacialTalent		VISIBLE:NO	PREFEAT:1,Stories of the Past																	SA:Stories of the Future (Ex)				MULT:NO																																																																															SOURCEPAGE:p.27
@@ -160,7 +160,7 @@ Moon Elf Talent Skills 7		TYPE:MoonElfRacialTalent7		VISIBLE:NO																	
 Moon Elf Talent Skills 9		TYPE:MoonElfRacialTalent9		VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)														SOURCEPAGE:p.27
 
 ### Racial Transformations
-# Feat Name					Type						Visible	Required Feat					Prohibited Feat						Required Lvl	Required Stat	Special Ability				Stackable?	Multiple?	Choose a Feat																																																															BONUS:DC				Bonus to skill						Source Page
+# Feat Name					Type						Visible	Required Feat					Prohibited Feat						Required Lvl	Required Stat	Special Ability				Stackable?	Multiple?	Choose a Feat																																																															Bonus to DC				Bonus to skill						Source Page
 Eyes of the Stars				TYPE:MoonElfRacialTransformation	VISIBLE:NO																PRELEVEL:4		PRESTAT:1,CHA=13	SA:Eyes of the Stars (Su)				MULT:NO																																																																															SOURCEPAGE:p.27
 Face of the Sun				TYPE:MoonElfRacialTransformation	VISIBLE:NO																						SA:Face of the Sun (Ex)					MULT:NO																																																																							BONUS:SKILL|Bluff,Diplomacy|2|TYPE=Racial		SOURCEPAGE:p.27
 Body of the Moon				TYPE:MoonElfRacialTransformation	VISIBLE:NO																						SA:Body of the Moon (Ex)				MULT:NO																																																																		BONUS:DC|SCHOOL.Enchantment|1									SOURCEPAGE:p.27
@@ -185,7 +185,7 @@ Moon Elf Transformation Skills 10	TYPE:MoonElfRacialTransformation10	VISIBLE:NO	
 
 ###Block: Night Elf
 # Racial Talents
-# Feat Name			Type						Visible	Required AL		Required Feat							Required Lvl	Req. Spell Type		Required Vision		Special Ability				Spells					Multiple?	Source Page
+# Feat Name			Type						Visible	Required AL		Required Feat							Required Lvl	Req. Spell Type		Required Vision		Special Ability				Innate Spells				Multiple?	Source Page
 Rites of Blood		TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:1,Rites of Darkness								PRESPELLTYPE:Divine,1,3					SA:Rites of Blood (Ex)									MULT:NO	SOURCEPAGE:p.28
 Rites of Darkness		TYPE:NightElfRacialTalent		VISIBLE:NO																								SA:Rites of Darkness (Ex)								MULT:NO	SOURCEPAGE:p.28
 Rites of Fury		TYPE:NightElfRacialTalent		VISIBLE:NO	PREALIGN:LE,NE,CE																					SA:Rites of Fury (Ex)									MULT:NO	SOURCEPAGE:p.28
@@ -196,7 +196,7 @@ Songs of Bladecrafting	TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:2,Songs 
 Songs of Armorcrafting	TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:2,Songs of Mending,Craft Magic Arms and Armor	PRELEVEL:6										SA:Songs of Armorcrafting (Ex)							MULT:NO	SOURCEPAGE:p.28
 
 ### Racial Transformations
-# Feat Name			Type						Visible	Required AL		Required Feat							Required Lvl	Req. Spell Type		Required Vision		Special Ability				Spells					Multiple?	Source Page
+# Feat Name			Type						Visible	Required AL		Required Feat							Required Lvl	Req. Spell Type		Required Vision		Special Ability				Innate Spells				Multiple?	Source Page
 Bleed Black Waters	TYPE:NightElfRacialTransformation	VISIBLE:NO																								SA:Bleed Black Waters (Ex)								MULT:NO	SOURCEPAGE:p.29
 Dream of the Light	TYPE:NightElfRacialTransformation	VISIBLE:NO																				PREVISION:1,Darkvision	SA:Dream of the Light (Ex)								MULT:NO	SOURCEPAGE:p.29
 Drink the Darkness	TYPE:NightElfRacialTransformation	VISIBLE:NO																								SA:Drink the Darkness (Ex)								MULT:NO	SOURCEPAGE:p.29
@@ -255,7 +255,7 @@ Wood Elf Transformation Skills 10	TYPE:WoodElfRacialTransformation10	VISIBLE:NO	
 
 ###Block: Gnome
 # Racial Talents
-# Feat Name				Type						Visible	Required Feat		Required Lvl	Required Stat		Special Ability						Spells					Multiple?	Save checks bonus					Source Page
+# Feat Name				Type						Visible	Required Feat		Required Lvl	Required Stat		Special Ability						Innate Spells				Multiple?	Save checks bonus					Source Page
 Bend before the Wind		TYPE:GnomeRacialTalent			VISIBLE:NO												SA:Bend before the Wind (Ex)										MULT:NO								SOURCEPAGE:p.34
 Deep Roots				TYPE:GnomeRacialTalent			VISIBLE:NO												SA:Deep Roots (Ex)											MULT:NO								SOURCEPAGE:p.35
 Flash of Thunder			TYPE:GnomeRacialTalent			VISIBLE:NO					PRELEVEL:4						SA:Flash of Thunder (Ex)										MULT:NO								SOURCEPAGE:p.35
@@ -271,7 +271,7 @@ Voices on the Leaves		TYPE:GnomeRacialTalent			VISIBLE:NO												SA:Voices o
 #TODO: Friend of the Land: animal companion....
 
 ### Racial Transformations
-# Feat Name				Type						Visible	Required Feat		Required Lvl	Required Stat		Special Ability						Spells					Multiple?	Save checks bonus					Source Page
+# Feat Name				Type						Visible	Required Feat		Required Lvl	Required Stat		Special Ability						Innate Spells				Multiple?	Save checks bonus					Source Page
 Heart of Autumn			TYPE:GnomeRacialTransformation	VISIBLE:NO												SA:Heart of Autumn (Ex)											MULT:NO	BONUS:CHECKS|Fortitude|2|TYPE=Talent	SOURCEPAGE:p.34
 Heart of Spring			TYPE:GnomeRacialTransformation	VISIBLE:NO												SA:Heart of Spring (Ex)											MULT:NO								SOURCEPAGE:p.34
 Heart of Summer			TYPE:GnomeRacialTransformation	VISIBLE:NO												SA:Heart of Summer (Ex) (resistance to fire 5)							MULT:NO								SOURCEPAGE:p.34
@@ -318,7 +318,7 @@ Thoughtful		TYPE:HHighlRacialTransformation	VISIBLE:NO														SA:Thoughtfu
 
 ###Block:Lowlander
 # Racial Talents
-# Feat Name			Type						Visible	Special Ability										Spells								Multiple?	Choose			Save checks bonus					Combat bonus					Bonus to skill							Class Skill					Cost		Source Page
+# Feat Name			Type						Visible	Special Ability										Innate Spells							Multiple?	Choose			Save checks bonus					Combat bonus					Bonus to skill							Class Skill					Cost		Source Page
 Elnaria			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Elnaria																				MULT:NO																			BONUS:SKILL|Knowledge (Geography)|2|TYPE=Talent		CSKILL:Knowledge (Geography)				SOURCEPAGE:p.47
 #+ a Knowledge skill of his choice...
 Larakis			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Larakis																				MULT:NO																																				SOURCEPAGE:p.47
@@ -330,7 +330,7 @@ Saranor			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Saranor																				MULT
 Stormhaven			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Stormhaven																			MULT:NO																			BONUS:SKILL|Decipher Script,Forgery|2|TYPE=Talent	CSKILL:Decipher Script|Forgery			SOURCEPAGE:p.48
 
 ### Racial Transformations
-# Feat Name			Type						Visible	Special Ability										Spells								Multiple?	Choose			Save checks bonus					Combat bonus					Bonus to skill							Class Skill					Cost		Source Page
+# Feat Name			Type						Visible	Special Ability										Innate Spells							Multiple?	Choose			Save checks bonus					Combat bonus					Bonus to skill							Class Skill					Cost		Source Page
 Black Eyed			TYPE:HLowlRacialTransformation	VISIBLE:NO	SA:Black-Eyed										SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Command,11+CHA	MULT:NO																																				SOURCEPAGE:p.48
 Gold Blooded		TYPE:HLowlRacialTransformation	VISIBLE:NO	SA:Gold-Blooded (resistance acid 1, cold 1, fire 1, electricity 1)										MULT:NO																																				SOURCEPAGE:p.48
 
@@ -454,7 +454,7 @@ Wait like Rock	TYPE:OrcRacialTransformation	VISIBLE:NO																SA:Wait li
 
 ###Block: Forest Wight
 # Racial Talents
-# Feat Name						Type							Visible	Prohibited Feat						Required Lvl	Special Ability							Define				Spells								Stackable?	Multiple?	Choose a Feat																																	Caster level				Modify VAR					Source Page
+# Feat Name						Type							Visible	Prohibited Feat						Required Lvl	Special Ability							Define				Innate Spells							Stackable?	Multiple?	Choose a Feat																																	Caster level				Modify VAR					Source Page
 Forest Fade						TYPE:ForestWightRacialTalent			VISIBLE:NO									PRELEVEL:6		SA:Forest Fade (Ex)																						MULT:NO																																																SOURCEPAGE:p.72
 Hawk Swoop						TYPE:ForestWightRacialTalent			VISIBLE:NO												SA:Hawk Swoop (Ex)																						MULT:NO																																																SOURCEPAGE:p.72
 Shadow in Darkness				TYPE:ForestWightRacialTalent			VISIBLE:NO												SA:Shadow in Darkness (Ex)																					MULT:NO																																																SOURCEPAGE:p.73
@@ -471,7 +471,7 @@ Forest Wight Talent Skills 7			TYPE:ForestWightRacialTalent7			VISIBLE:NO							
 Forest Wight Talent Skills 9			TYPE:ForestWightRacialTalent9			VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)													SOURCEPAGE:p.73
 
 ### Racial Transformations
-# Feat Name						Type							Visible	Prohibited Feat						Required Lvl	Special Ability							Define				Spells								Stackable?	Multiple?	Choose a Feat																																	Caster level				Modify VAR					Source Page
+# Feat Name						Type							Visible	Prohibited Feat						Required Lvl	Special Ability							Define				Innate Spells							Stackable?	Multiple?	Choose a Feat																																	Caster level				Modify VAR					Source Page
 Blood of Shadows					TYPE:ForestWightRacialTransformation	VISIBLE:NO												SA:Blood of Shadows (Ex)																					MULT:NO																																																SOURCEPAGE:p.73
 Child of Darkness					TYPE:Special					VISIBLE:NO									PRELEVEL:6		SA:Child of Darkness (Sp) %/day|ChildDarknessTimes	DEFINE:ChildDarknessTimes|0	SPELLS:Innate|TIMES=ChildDarknessTimes|Invisibility			MULT:NO																																																SOURCEPAGE:p.73
 Child of Darkness 6				TYPE:ForestWightRacialTransformation6	VISIBLE:NO									PRELEVEL:6																											MULT:NO	ADD:FEAT(Child of Darkness)																																					BONUS:VAR|ChildDarknessTimes|1	SOURCEPAGE:p.73
@@ -540,7 +540,7 @@ Unseen Strength		TYPE:HalflingRacialTransformation	VISIBLE:NO				PRESTAT:1,STR=1
 
 ###Block: Lizardfolk
 # Racial Talents
-# Feat Name			Type						Visible	Required Feat				Special Ability					Spells										Multiple?	Add to base move							Bonus to skill							Weapon prof. bonus			Source Page
+# Feat Name			Type						Visible	Required Feat				Special Ability					Innate Spells									Multiple?	Add to base move							Bonus to skill							Weapon prof. bonus			Source Page
 Fire from Stones		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Fire from Stones (Sp)			SPELLS:Innate|TIMES=max(1,TL/2)|CASTERLEVEL=TL/2|Produce Fire	MULT:NO																									SOURCEPAGE:p.85
 #number of spells per day....
 Light in Shadow		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Light in Shadow (Ex)															MULT:NO																									SOURCEPAGE:p.85
@@ -549,7 +549,7 @@ River Racer			TYPE:LizardRacialTalent			VISIBLE:NO							SA:River Racer (Ex)				
 Speak through Silence	TYPE:LizardRacialTalent			VISIBLE:NO							SA:Speak through Silence (Ex)														MULT:NO																									SOURCEPAGE:p.85
 
 ### Racial Transformations
-# Feat Name			Type						Visible	Required Feat				Special Ability					Spells										Multiple?	Add to base move							Bonus to skill							Weapon prof. bonus			Source Page
+# Feat Name			Type						Visible	Required Feat				Special Ability					Innate Spells									Multiple?	Add to base move							Bonus to skill							Weapon prof. bonus			Source Page
 Ancestor's Claws		TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery I	SA:Ancestor's Claws (1d6)														MULT:NO										BONUS:SKILL|Open Locks,Sleight of Hand|-2|TYPE=Racial	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1	SOURCEPAGE:p.86
 Pounce			TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery II	SA:Pounce (Ex)																MULT:NO																									SOURCEPAGE:p.86
 Rend				TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Ancestor's Claws		SA:Rend (Ex)																MULT:NO																									SOURCEPAGE:p.86
@@ -562,7 +562,7 @@ Thunder Shout		TYPE:LizardRacialTransformation	VISIBLE:NO							SA:Thunder Shout
 
 ###Block: Tiefling
 # Racial Talents
-# Feat Name			Type						Visible	Required Feat			Prohibited Feat				Required Lvl	Required Stat	Required Template			Special Ability			Define					Spells											Multiple?	Move		Choose a Feat																Combat bonus			Bonus to skill													Bonus to nb of slots	Modify VAR					Source Page
+# Feat Name			Type						Visible	Required Feat			Prohibited Feat				Required Lvl	Required Stat	Required Template			Special Ability			Define					Innate Spells										Multiple?	Move		Choose a Feat																Combat bonus			Bonus to skill													Bonus to nb of slots	Modify VAR					Source Page
 Covert Casting 5		TYPE:TieflingRacialTalent5		VISIBLE:NO																																														MULT:NO			ADD:FEAT(Eschew Materials,Silent Spell,Still Spell,Quicken Spell)																																						SOURCEPAGE:p.92
 Covert Casting 7		TYPE:TieflingRacialTalent7		VISIBLE:NO						!PREFEAT:1,Covert Casting 5																																				MULT:NO			ADD:FEAT(Eschew Materials,Silent Spell,Still Spell,Quicken Spell)																																						SOURCEPAGE:p.92
 Covert Casting 9		TYPE:TieflingRacialTalent9		VISIBLE:NO						!PREFEAT:1,Covert Casting 7																																				MULT:NO			ADD:FEAT(Eschew Materials,Silent Spell,Still Spell,Quicken Spell)																																						SOURCEPAGE:p.92
@@ -592,7 +592,7 @@ Trip and Stab		TYPE:TieflingRacialTalent		VISIBLE:NO	PREFEAT:1,Whip Fighting				
 Whip Fighting		TYPE:TieflingRacialTalent		VISIBLE:NO	PREFEAT:1,Weapon Focus(Whip)										PRESTAT:1,DEX=13						SA:Whip Fighting (Ex)																				MULT:NO																																																			SOURCEPAGE:p.94
 
 ### Racial Transformations
-# Feat Name			Type						Visible	Required Feat			Prohibited Feat				Required Lvl	Required Stat	Required Template			Special Ability			Define					Spells											Multiple?	Move		Choose a Feat																Combat bonus			Bonus to skill													Bonus to nb of slots	Modify VAR					Source Page
+# Feat Name			Type						Visible	Required Feat			Prohibited Feat				Required Lvl	Required Stat	Required Template			Special Ability			Define					Innate Spells										Multiple?	Move		Choose a Feat																Combat bonus			Bonus to skill													Bonus to nb of slots	Modify VAR					Source Page
 Claws				TYPE:TieflingRacialTransformation	VISIBLE:NO																							SA:Claws (1d3)																					MULT:NO																										BONUS:SKILL|Open Locks,Sleight of Hand|-2|TYPE=Racial																	SOURCEPAGE:p.94
 #TODO: Claws as weapons plus multiple time...
 Fiendish Form		TYPE:TieflingRacialTransformation	VISIBLE:NO																		PRETEMPLATE:Tiefling Outsider	SA:Fiendish Form (Ex)																				MULT:NO																					BONUS:COMBAT|TOHIT.GRAPPLE|2	BONUS:SKILL|Hide|4|TYPE=Transformation	BONUS:SKILL|Handle Animal,Ride|-4|TYPE=Racial											SOURCEPAGE:p.94
@@ -608,7 +608,7 @@ Wings				TYPE:TieflingRacialTransformation	VISIBLE:NO	PREFEAT:1,Fiendish Form			
 
 ###Block:Trueborn
 # Racial Talents
-# Feat Name			Type						Visible	Req. Att.	Required Feat		Special Ability			Spells				Multiple?	Choose a Feat								Bonus to skill				Source Page
+# Feat Name			Type						Visible	Req. Att.	Required Feat		Special Ability			Innate Spells			Multiple?	Choose a Feat								Bonus to skill				Source Page
 Hard Worker			TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Hard Worker								MULT:NO	ADD:FEAT(Athletic,Endurance,Great Fortitude,Toughness)							SOURCEPAGE:p.106
 Bowman			TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Bowman (Ex)								MULT:NO																	SOURCEPAGE:p.106
 Fleet Footed		TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Fleet-Footed (Ex)							MULT:NO											BONUS:SKILL|Tumble|2|TYPE=Talent	SOURCEPAGE:p.106
@@ -619,7 +619,7 @@ Horse Talker		TYPE:HTrueRacialTalent			VISIBLE:NO			PREFEAT:1,Horse Trainer	SA:H
 Ironclad			TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Ironclad (Ex)								MULT:NO																	SOURCEPAGE:p.107
 
 ### Racial Transformations
-# Feat Name			Type						Visible	Req. Att.	Required Feat		Special Ability			Spells				Multiple?	Choose a Feat								Bonus to skill				Source Page
+# Feat Name			Type						Visible	Req. Att.	Required Feat		Special Ability			Innate Spells			Multiple?	Choose a Feat								Bonus to skill				Source Page
 Defending Soldier		TYPE:HTrueRacialTransformation	VISIBLE:NO			PREFEAT:1,Dodge		SA:Defending Soldier (Ex)						MULT:NO																	SOURCEPAGE:p.107
 Strength of Conquest	TYPE:HTrueRacialTransformation	VISIBLE:NO							SA:Strength of Conquest (Su)						MULT:NO																	SOURCEPAGE:p.107
 Holy Light			TYPE:HTrueRacialTransformation	VISIBLE:NO							SA:Holy Light (Sp)		SPELLS:Innate|TIMES=-1|Light	MULT:NO																	SOURCEPAGE:p.107
@@ -635,7 +635,7 @@ Staunch			TYPE:HTrueRacialTransformation	VISIBLE:NO							SA:Staunch (Ex)							
 
 ###Block: Thinblood
 # Racial Talents
-# Feat Name			Type						Visible	Required Feat				Prohibited Feat							Special Ability			Spells					Stackable?	Multiple?	Choose			Save checks bonus					Source Page
+# Feat Name			Type						Visible	Required Feat				Prohibited Feat							Special Ability			Innate Spells				Stackable?	Multiple?	Choose			Save checks bonus					Source Page
 Friendly Advice		TYPE:ThinbloodRacialTalent		VISIBLE:NO	PREFEAT:1,Rapport													SA:Friendly Advice (Ex)		SPELLS:Innate|TIMES=1|Suggestion	STACK:YES	MULT:YES	CHOOSE:+1 time per day								SOURCEPAGE:p.115
 Mesmerizing Motions	TYPE:ThinbloodRacialTalent		VISIBLE:NO	PREFEAT:1,Soothing Words											SA:Mesmerizing Motions (Ex)	SPELLS:Innate|TIMES=1|Hypnotism	STACK:YES	MULT:YES	CHOOSE:+1 time per day								SOURCEPAGE:p.115
 Rapport			TYPE:ThinbloodRacialTalent		VISIBLE:NO	PREFEAT:1,Mesmerizing Motions											SA:Rapport (Ex)			SPELLS:Innate|TIMES=1|Charm Person	STACK:YES	MULT:YES	CHOOSE:+1 time per day								SOURCEPAGE:p.115
@@ -646,7 +646,7 @@ Unseen Stillness		TYPE:ThinbloodRacialTalent		VISIBLE:NO	PREFEAT:1,Silent Slithe
 Wall Walking		TYPE:ThinbloodRacialTalent		VISIBLE:NO																SA:Wall Walking (Sp)		SPELLS:Innate|TIMES=1|Spider Climb	STACK:YES	MULT:YES	CHOOSE:+1 time per day								SOURCEPAGE:p.115
 
 ### Racial Transformations
-# Feat Name			Type						Visible	Required Feat				Prohibited Feat							Special Ability			Spells					Stackable?	Multiple?	Choose			Save checks bonus					Source Page
+# Feat Name			Type						Visible	Required Feat				Prohibited Feat							Special Ability			Innate Spells				Stackable?	Multiple?	Choose			Save checks bonus					Source Page
 Embracing the Taint	TYPE:ThinbloodRacialTransformation	VISIBLE:NO																SA:Embracing the Taint										MULT:NO												SOURCEPAGE:p.115
 Becoming the Taint	TYPE:ThinbloodRacialTransformation	VISIBLE:NO							!PREFEAT:1,Bite Attack,Natural Armor,Balancing Tail	SA:Becoming the Taint (Ex)									MULT:NO												SOURCEPAGE:p.116
 Improved Grab		TYPE:ThinbloodRacialTransformation	VISIBLE:NO	PREFEAT:1,Bite Attack,Lashing Tail										SA:Improved Grab (Ex)										MULT:NO												SOURCEPAGE:p.116

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Mar 29 20:35:51 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
 ###Order of the Inner Demon Inner Demon Feats
-# Feat Name				Type					Visible		Required Feat					Clear SAs							Special Ability																																			Define																										Spells																						Template			Virtual Feat			Choose a Feat			Save checks bonus					Combat bonus						Bonus to skill						Stat bonus													Modify VAR																																																													Weapon prof. bonus			Spell Res.
+# Feat Name				Type					Visible		Required Feat					Clear SAs							Special Ability																																			Define																										Innate Spells																					Template			Virtual Feat			Choose a Feat			Save checks bonus					Combat bonus						Bonus to skill						Stat bonus													Modify VAR																																																													Weapon prof. bonus			Spell Res.
 Inner Demon Succubus		TYPE:Special.InnerDemon		VISIBLE:EXPORT
 Inner Demon Vrock			TYPE:Special.InnerDemon		VISIBLE:EXPORT
 Inner Demon Glabrezu		TYPE:Special.InnerDemon		VISIBLE:EXPORT

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com
 
 # Equipment Name			Output Name					Required Proficiency		Type					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Combat bonus						Bonus to skill							Special Property	Special Ability
@@ -16,5 +16,5 @@ Staff (Protection)		OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Ma
 # Fey Token requires a MOD but there are no MODs set up for it, perhaps it needs to be a mod since a fey token can be any object
 
 ###Block: Fey Token
-# Equipment Name	Type		Cost		Weight	MODS			Source Page
-Fey Token		TYPE:Token	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:p.50
+# Equipment Name	Type		Cost		Weight	Requires Modification?	Source Page
+Fey Token		TYPE:Token	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.50

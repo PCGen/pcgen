@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Bastion Press - Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://www.bastionpress.com
 #
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus					Deity
-CLASS:Faemancer	HD:4		TYPE:PC.Prestige	ABB:Fmc		SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEITY:None (Faemancer)
-# Class Name	Required AL		Required Feat		Required Skill					Required Text
-CLASS:Faemancer	PREALIGN:CG,CN	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy,Knowledge (Fey)=8	PRETEXT:The character must have been chosen by the fey to become a faemancer.
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Faemancer	HD:4		TYPE:PC.Prestige	ABB:Fmc		SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Deities allowed		Required AL		Required Feat		Required Skill					Required Text
+CLASS:Faemancer	DEITY:None (Faemancer)	PREALIGN:CG,CN	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy,Knowledge (Fey)=8	PRETEXT:The character must have been chosen by the fey to become a faemancer.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Faemancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Arcana)|Knowledge (Fey)|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level				Use Spell List

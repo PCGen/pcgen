@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 # Original Entry by: Felipe Diniz
 
 ###Block: Minor Artifacts, Weapons
-# Equipment Name	Required Proficiency	Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Range		Size		Source Page		Spells						Multiply spell cast/day				Weapon prop. bonus					Special Property
+# Equipment Name	Required Proficiency	Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Range		Size		Source Page		Innate Spells					Multiply spell cast/day				Weapon prop. bonus					Special Property
 Bluewand		PROFICIENCY:Greatsword	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:0	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	EQMOD:STEEL.BANE_M|Magical Beast.KEEN	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.185								BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=4|2	BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement
 Hungersword		PROFICIENCY:Longsword	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:0	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL.UNHLY_M				WIELD:OneHanded	RANGE:30	SIZE:M	SOURCEPAGE:p.186	SPELLS:Hungersword|TIMES=1|Mark of Death								BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement	SPROP:Absorbs good spells, that can be used as damage bonus. Bestows 1 negative level with each strike
 
@@ -15,11 +15,11 @@ Liquid Power		TYPE:Magic.Wondrous		COST:0	WT:1		SOURCEPAGE:p.186
 Vallis Staff		TYPE:Magic.Wondrous.Staff	COST:0	WT:1		SOURCEPAGE:p.186
 
 ###Block: Major Artifacts, Weapons
-# Equipment Name			Output Name						Required Proficiency	Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Size		Source Page		Spells										Weapon prop. bonus					Special Property
+# Equipment Name			Output Name						Required Proficiency	Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Size		Source Page		Innate Spells									Weapon prop. bonus					Special Property
 Paraden (Blade of the Nexus)	OUTPUTNAME:Paraden, Blade of the Nexus	PROFICIENCY:Greatsword	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:0	WT:15		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	EQMOD:STEEL.KEEN	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.188	SPELLS:Paraden|TIMES=-1|Window to Elsewhere|Doorway to Elsewhere	BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement	SPROP:3x/day, casts bolt of energy for 15d6 damage
 
 ###Block: Major Artifacts, Wondrous
-# Equipment Name			Type					Cost		Weight	Source Page		Spell Res.	Damage Reduction	Spells													Stat bonus								Special Property
+# Equipment Name			Type					Cost		Weight	Source Page		Spell Res.	Damage Reduction	Innate Spells												Stat bonus								Special Property
 Black Grail				TYPE:Magic.Wondrous		COST:0	WT:1		SOURCEPAGE:p.186						SPELLS:Black Grail|TIMES=1|Sudden Wave|Cone of Cold|Wall of Ice|Summon Monster VII	BONUS:STAT|STR,CON,CHA|2|TYPE=Enhancement			SPROP:While held, Charisma bonus is +4
 The Book of Eldritch Might	TYPE:Magic.Wondrous.Book	COST:0	WT:1		SOURCEPAGE:p.187
 Medusa Crown			TYPE:Magic.Wondrous.Headgear	COST:0	WT:1		SOURCEPAGE:p.187

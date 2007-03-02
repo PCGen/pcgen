@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 21 23:06:08 2006 -- reformated by prettylst.pl v1.35 (build 1495)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:The Psychic's Handbook	SOURCESHORT:psychicshandbook	SOURCEWEB:http://www.greenronin.com
 
 # To Do
@@ -8,7 +8,7 @@ SOURCELONG:The Psychic's Handbook	SOURCESHORT:psychicshandbook	SOURCEWEB:http://
 
 #Changed Wild Talent to make the chosen skill a class skill - Frank
 
-# Feat Name			Type				Required Class			Required Feat						Multiple Requirements																		Required Skill					Required Stat	Description																								Stackable?	Multiple?	Choose													BONUS:DC						Bonus to skill							Class Skill																														Source Page		KEY
+# Feat Name			Type				Required Class			Required Feat						Multiple Requirements																		Required Skill					Required Stat	Description																								Stackable?	Multiple?	Choose													Bonus to DC						Bonus to skill							Class Skill																														Source Page		Unique Key
 Combat Concentration	TYPE:General							PREFEAT:1,Psychic Ability																																			DESC:You can use your psychic skills in combat.																																																																																			SOURCEPAGE:p.44
 Mental Fortitude		TYPE:General																																											PRESTAT:1,WIS=13	DESC:You are particularly resistant to psychic attack.																STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																											SOURCEPAGE:p.46
 Psychic Ability		TYPE:General																																														DESC:You have the potential to acqurie psychic feats.																																																			CSKILL:Psychic Sense|Psychic Shield																										SOURCEPAGE:p.46

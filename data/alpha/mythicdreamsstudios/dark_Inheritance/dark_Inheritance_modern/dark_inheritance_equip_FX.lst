@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 # Original Entry by: Frank Kliewe
 
@@ -7,7 +7,7 @@ SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT
 Deadly Stick	PROFICIENCY:Metal Baton	TYPE:FX.Specific.Weapon.Simple.Melee.Bludgeoning.Standard.Wooden	COST:28	WT:2		BASEITEM:Metal Baton	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PLUS1W	SIZE:M	SOURCEPAGE:p.49	SPROP:activate a blade to work as +1 Knife of Wounding (1d4, Victim bleeds and loses 1 HP/hit each round until treated)
 
 ###Block: Wondrous Items
-# Equipment Name		Type				Cost		Weight	Source Page		Spells										Special Property
+# Equipment Name		Type				Cost		Weight	Source Page		Innate Spells									Special Property
 The Chongquing Fan	TYPE:FX.Wondrous.Magic	COST:33	WT:3		SOURCEPAGE:p.49												SPROP:Protection from Arrows/Bullets vs. 100 points of damage (reloads after 24h)
 Fists of Shadow		TYPE:FX.Wondrous.Magic	COST:29	WT:0.5	SOURCEPAGE:p.49	SPELLS:Fists of Shadow|TIMES=-1|CASTERLEVEL=3|Spider Climb,11	SPROP:+4 to Hide in dark or shadowy conditions.
 

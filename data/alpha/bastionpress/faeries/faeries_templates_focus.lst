@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 16:36:16 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Bastion Press - Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://www.bastionpress.com
 #
 ##Block:Prestige Races
 # Template Name				Visible		Damage Reduction	Template												Source Page		Special Ability																		Define																Required Lvl		Required Template				Prohibited Template								Combat bonus						Bonus to HP			Misc bonus		Add to base move			Bonus to skill																				Stat bonus					Modify VAR					Class Skill			Move			Spell Res.	Vision								Natural Attacks																				Move class								Bonus to nb of slots
 #Focus of the Beast
 #---------------------------------------------------
-# Template Name			Size		Visible	Source Page		Special Ability								Required Lvl	Required Template					Prohibited Template										Save checks bonus					Combat bonus						Bonus to skill														Bonus to nb of slots	Stat bonus					Choose a Feat		Type			Vision				Spells												Natural Attacks
+# Template Name			Size		Visible	Source Page		Special Ability								Required Lvl	Required Template					Prohibited Template										Save checks bonus					Combat bonus						Bonus to skill														Bonus to nb of slots	Stat bonus					Choose a Feat		Type			Vision				Innate Spells											Natural Attacks
 Feral Creature					VISIBLE:YES	SOURCEPAGE:p.34	SA:Cold Resistance (5)(Ex)						PRELEVEL:4									!PRETEMPLATE:Barked Creature|Scaled Creature (Serpent)|Scaled Creature (Wyrm)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
 Wild Creature					VISIBLE:YES	SOURCEPAGE:p.34											PRELEVEL:5		PRETEMPLATE:Feral Creature																																																																																		NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8
 Snouted Creature					VISIBLE:YES	SOURCEPAGE:p.34	SA:Scent (Ex)								PRELEVEL:6		PRETEMPLATE:Wild Creature

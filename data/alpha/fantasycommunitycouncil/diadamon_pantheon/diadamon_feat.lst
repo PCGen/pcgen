@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Diadamon Pantheon	SOURCESHORT:DP	SOURCEWEB:http://www.dcrouzet.net/nbomisc/
 
-# Feat Name			Type			Req. Att.	Required Class		Required Deity		PREDOMAIN		Required Feat		Required Lvl	Required Skill				Required Stat		Description																				Stackable?	Multiple?	Choose										Save checks bonus		Combat bonus			Bonus to skill										Class Skill										Source Page
+# Feat Name			Type			Req. Att.	Required Class		Required Deity		Required Domain	Required Feat		Required Lvl	Required Skill				Required Stat		Description																				Stackable?	Multiple?	Choose										Save checks bonus		Combat bonus			Bonus to skill										Class Skill										Source Page
 Agonizing Blow		TYPE:General	PREATT:5					PREDEITY:Mor Brawg																	PRESTAT:1,WIS=13		DESC:You are particularly good at using a melee weapon to inflict especially painful wounds.																																																					SOURCEPAGE:p.53
 Arcane Empowerment	TYPE:Special			PRECLASS:1,Cleric=1	PREDEITY:Zykhiralamshad	PREDOMAIN:1,Magic														PRESTAT:1,INT=13		DESC:You can pray for a limited number of arcane spells from the same school.																																																								SOURCEPAGE:p.45
 Athletic			TYPE:General							PREDEITY:Shizle																		PRESTAT:2,STR=13,DEX=13	DESC:You are trained in the physical skills used in sporting competitions.																																	BONUS:SKILL|Balance,Climb,Jump,Swim,Tumble|1					CSKILL:Balance|Climb|Jump|Swim|Tumble					SOURCEPAGE:p.70

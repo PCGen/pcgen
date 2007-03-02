@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Oct 21 03:25:07 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:The Psychic's Handbook	SOURCESHORT:psychicshandbook	SOURCEWEB:http://www.greenronin.com
 
 # Elixirs
-# Equipment Name		Output Name				Type						Cost		Weight	MODS			Source Page		Description
-Elixir (Enhancing)	OUTPUTNAME:Elixir of [NAME]	TYPE:Psychic.Elixir.ElixirRanks	COST:100	WT:0		MODS:REQUIRED	SOURCEPAGE:p.56	DESC:An enhancing elixir improves the drinker's psychic skills.
-Elixir (Recovery)		OUTPUTNAME:Elixir of [NAME]	TYPE:Psychic.Elixir			COST:50	WT:0		MODS:NO		SOURCEPAGE:p.56	DESC:A recovery elixir sppeds recovery of nonm lethal damage from the strain of using psychic abilities.
-Elixir (Stamina)		OUTPUTNAME:Elixir of [NAME]	TYPE:Psychic.Elixir			COST:100	WT:0		MODS:NO		SOURCEPAGE:p.56	DESC:A stamina elixir postpones the accumulation of strain damage for the duration of the elixir.
-Elixir (Stimulation)	OUTPUTNAME:Elixir of [NAME]	TYPE:Psychic.Elixir.ElixirRanks	COST:100	WT:0		MODS:REQUIRED	SOURCEPAGE:p.56	DESC:A stimulation elixir unlocks latent psychic potential.
-Elixir (Suppression)	OUTPUTNAME:Elixir of [NAME]	TYPE:Psychic.Elixir			COST:200	WT:0		MODS:NO		SOURCEPAGE:p.56	DESC:A supression elixir suppresses psychi talents.
+# Equipment Name		Output Name				Type						Cost		Weight	Requires Modification?	Source Page		Description
+Elixir (Enhancing)	OUTPUTNAME:Elixir of [NAME]	TYPE:Psychic.Elixir.ElixirRanks	COST:100	WT:0		MODS:REQUIRED		SOURCEPAGE:p.56	DESC:An enhancing elixir improves the drinker's psychic skills.
+Elixir (Recovery)		OUTPUTNAME:Elixir of [NAME]	TYPE:Psychic.Elixir			COST:50	WT:0		MODS:NO			SOURCEPAGE:p.56	DESC:A recovery elixir sppeds recovery of nonm lethal damage from the strain of using psychic abilities.
+Elixir (Stamina)		OUTPUTNAME:Elixir of [NAME]	TYPE:Psychic.Elixir			COST:100	WT:0		MODS:NO			SOURCEPAGE:p.56	DESC:A stamina elixir postpones the accumulation of strain damage for the duration of the elixir.
+Elixir (Stimulation)	OUTPUTNAME:Elixir of [NAME]	TYPE:Psychic.Elixir.ElixirRanks	COST:100	WT:0		MODS:REQUIRED		SOURCEPAGE:p.56	DESC:A stimulation elixir unlocks latent psychic potential.
+Elixir (Suppression)	OUTPUTNAME:Elixir of [NAME]	TYPE:Psychic.Elixir			COST:200	WT:0		MODS:NO			SOURCEPAGE:p.56	DESC:A supression elixir suppresses psychi talents.

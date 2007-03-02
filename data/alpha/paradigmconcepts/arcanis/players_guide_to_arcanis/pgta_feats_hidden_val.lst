@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Apr 28 12:51:32 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
 
 ###val'Abebi Bloodline Powers
-# Feat Name						Type					Visible	Multiple Requirements															Special Ability																			Define							Spells																Template		Virtual Feat	Combat bonus			Add to base move			Bonus to skill						Modify VAR											Class Skill			Vision
+# Feat Name						Type					Visible	Multiple Requirements															Special Ability																			Define							Innate Spells															Template		Virtual Feat	Combat bonus			Add to base move			Bonus to skill						Modify VAR											Class Skill			Vision
 Enhanced Memory					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SA:Enhanced Memory (Ex)
 The Tongues of Man are of All Men		TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SA:The Tongues of Man are of All Men (Sp)																							SPELLS:Innate|TIMES=BloodTotal|CASTERLEVEL=TL|Comprehend Languages
 Wisdom of the Ages				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SA:Wisdom of the ages (Ex)																																																																														CSKILL:TYPE.Knowledge

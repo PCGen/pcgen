@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -6,7 +6,7 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 # Arcane Schools
 #
 
-# Template Name									Visible		Source Page		Special Ability			Required Class				Required Feat				Required Gender	Required Language		Required Skill												Req. Spell Type		Required Stat	Required Template											Required Text	Var. Min. Value			Bonus to skill							Bonus to spell known/L				Removable?		Spells
+# Template Name									Visible		Source Page		Special Ability			Required Class				Required Feat				Required Gender	Required Language		Required Skill												Req. Spell Type		Required Stat	Required Template											Required Text	Var. Min. Value			Bonus to skill							Bonus to spell known/L				Removable?		Innate Spells
 Stormweaver - Lesson 1								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:The Study of Weather																																																																															REMOVABLE:NO
 Stormweaver - Lesson 2								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Trick Knee																																											PRETEMPLATE:Stormweaver - Lesson 1																																REMOVABLE:NO
 Stormweaver - Lesson 3								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Rain Dance																																											PRETEMPLATE:Stormweaver - Lesson 2																																REMOVABLE:NO
@@ -91,7 +91,7 @@ Carharte Timekeeper - Lesson 10						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:The Key
 # Arcane Organizations
 #
 
-# Template Name									Visible		Source Page		Special Ability			Required Class				Required Feat				Required Gender	Required Language		Required Skill												Req. Spell Type		Required Stat	Required Template											Required Text	Var. Min. Value			Bonus to skill							Bonus to spell known/L				Removable?		Spells
+# Template Name									Visible		Source Page		Special Ability			Required Class				Required Feat				Required Gender	Required Language		Required Skill												Req. Spell Type		Required Stat	Required Template											Required Text	Var. Min. Value			Bonus to skill							Bonus to spell known/L				Removable?		Innate Spells
 Bringers - Rank 1 - Apprentice						VISIBLE:YES		SOURCEPAGE:p.138						PRECLASS:1,Sorcerer=1																PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Sense Motive=1																								PRETEXT:See Text.																						REMOVABLE:YES
 Bringers - Rank 2 - Finder							VISIBLE:YES		SOURCEPAGE:p.138																									PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Sense Motive=3											PRETEMPLATE:Bringers - Rank 1 - Apprentice																														REMOVABLE:YES
 Bringers - Rank 3 - Bringer							VISIBLE:YES		SOURCEPAGE:p.138																									PRESKILL:1,Sense Motive=5														PRESTAT:1,CHA=14	PRETEMPLATE:Bringers - Rank 2 - Finder																															REMOVABLE:YES

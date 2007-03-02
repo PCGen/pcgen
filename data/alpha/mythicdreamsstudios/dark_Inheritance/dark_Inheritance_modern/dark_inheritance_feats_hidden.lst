@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 21:36:36 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 #Original Entry by: Frank Kliewe
 
@@ -67,7 +67,7 @@ Plan.MOD				PRE:.CLEAR		PREMULT:1,[PREFEAT:1,TYPE=Research],[PRECLASS:1,Super So
 Savant.MOD																															BONUS:SKILL|LIST|CL=Super Soldier
 
 ###Block: Daemon Form Abilities
-# Feat Name							Type			Visible	Required Size	Special Ability											Stackable?	Multiple?	Choose																		Template				Combat bonus						Bonus to HP			BONUS:SIZEMOD		Damage Reduction
+# Feat Name							Type			Visible	Required Size	Special Ability											Stackable?	Multiple?	Choose																		Template				Combat bonus						Bonus to HP			Adjust PC Size		Damage Reduction
 Claws (Daemon Form)					TYPE:DaemonForm	VISIBLE:NO				SA:Claws(Ex)																																		TEMPLATE:Daemon Claws
 Daemonic Armor (Daemon Form)				TYPE:DaemonForm	VISIBLE:NO				SA:Daemonic Armor(Ex)																																						BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE
 Daemonic Aura (Daemon Form)				TYPE:DaemonForm	VISIBLE:NO				SA:Daemonic Aura(Ex)(Fort Save DC %)|10+(TL-LevelsBeforePossession)/2+CON

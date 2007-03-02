@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -92,7 +92,7 @@ Western Marches		NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Ride											SUBREGION:Wes
 
 #################################	ELORII TEMPLATES	############################################
 ###Block: Elorii Subraces
-# Template Name	Product Identity?	Visible	Special Ability							Save checks bonus		Bonus to skill							Stat bonus							FAVOREDCLASS		Automatic Languages			Move			Removable?		SUBRACE		Type		Spells
+# Template Name	Product Identity?	Visible	Special Ability							Save checks bonus		Bonus to skill							Stat bonus							FAVOREDCLASS		Automatic Languages			Move			Removable?		SUBRACE		Type		Innate Spells
 Ardakene		NAMEISPI:YES	VISIBLE:YES	SA:May not select any elemental domains.			BONUS:CHECKS|Will|2	BONUS:SKILL|Heal,Survival|2|TYPE=Racial			BONUS:STAT|WIS,CHA|2	BONUS:STAT|STR,CON|-2	FAVOREDCLASS:Cleric	LANGAUTO:Eloran,Low Coryani					REMOVABLE:NO	SUBRACE:Ardakene			SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Cleric")|Speak With Animals
 Berokene		NAMEISPI:YES	VISIBLE:YES	SA:May not select any elemental domain except water.	BONUS:CHECKS|Will|2	BONUS:SKILL|Balance,Profession (Sailor)|2|TYPE=Racial	BONUS:STAT|WIS,DEX|2	BONUS:STAT|INT,CON|-2	FAVOREDCLASS:Rogue	LANGAUTO:Eloran,Low Coryani,Aquan	MOVE:Swim,30	REMOVABLE:NO	SUBRACE:Berokene
 Kelekene		NAMEISPI:YES	VISIBLE:YES	SA:May not select any elemental domain except fire.	BONUS:CHECKS|Will|2	BONUS:SKILL|Intimidate|2|TYPE=Racial			BONUS:STAT|INT,DEX|2	BONUS:STAT|WIS,CON|-2	FAVOREDCLASS:Wizard	LANGAUTO:Eloran,Low Coryani,Ignan				REMOVABLE:NO	SUBRACE:Kelekene

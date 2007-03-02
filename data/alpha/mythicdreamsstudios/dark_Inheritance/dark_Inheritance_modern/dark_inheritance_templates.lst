@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 21:17:41 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 #Original Entry by: Frank Kliewe
 
@@ -65,13 +65,13 @@ Base Birthright Bonus Tracker	VISIBLE:NO	SOURCEPAGE:p.135	PREVARGTEQ:CheckLPtoBB
 Strain Tracker			VISIBLE:NO	SOURCEPAGE:p.136						BONUS:VAR|Strain|%CHOICE|PRERACE:1,Titan|PREAPPLY:ANYPC										CHOOSE:NUMBER|MIN=-10|MAX=-1|TITLE=Strain					TEMPDESC:This can be used to track your Strain. If you have less than -10 this can be applied multiple times.
 
 ###Block: failed Strain check conditions
-# Template Name			Visible	Source Page		Special Ability									Save checks bonus							Combat bonus							Multiply base more														Bonus to skill							Stat bonus								Temporary effect description
+# Template Name			Visible	Source Page		Special Ability									Save checks bonus							Combat bonus							Multiply base move														Bonus to skill							Stat bonus								Temporary effect description
 Strain Result (Shaken)		VISIBLE:NO	SOURCEPAGE:p.137												BONUS:CHECKS|ALL|-2|PRERACE:1,Titan|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|-2|PRERACE:1,Titan|PREAPPLY:ANYPC																		BONUS:SKILL|ALL|-2|PRERACE:1,Titan|PREAPPLY:ANYPC										TEMPDESC:You are shaken due to Strain
 Strain Result (Fatigued)	VISIBLE:NO	SOURCEPAGE:p.137	SA:You can't run or charge																																																			BONUS:STAT|STR,DEX|-2|PRERACE:1,Titan|PREAPPLY:ANYPC	TEMPDESC:You are fatigued due to Strain
 Strain Result (Exhausted)	VISIBLE:NO	SOURCEPAGE:p.137	SA:You can't run or charge	SA:You cannot manifest Birthrights																			BONUS:MOVEMULT|TYPE.Walk,TYPE.Fly,TYPE.Swim,TYPE.Burrow,TYPE.Climb|0.5|PRERACE:1,Titan|PREAPPLY:ANYPC										BONUS:STAT|STR,DEX|-6|PRERACE:1,Titan|PREAPPLY:ANYPC	TEMPDESC:You are exhausted due to Strain
 
 ###Block: Birthright Selectors
-# Template Name							Product Identity?	Visible		Source Page		Multiple Requirements																																																		Modify VAR												Spells
+# Template Name							Product Identity?	Visible		Source Page		Multiple Requirements																																																		Modify VAR												Innate Spells
 Birthright Emotion (Light of Joy)				NAMEISPI:YES	VISIBLE:DISPLAY	SOURCEPAGE:p.139	PREMULT:3,[!PRETEMPLATE:Birthright Emotion (Light of Joy)],[PRETEMPLATE:Crimson Lords],[PREMULT:1,[PREMULT:2,[PREVARGTEQ:ActionRemain,1],[PREVARGTEQ:APspentonBR,1]],[PRELEVELMAX:1]]																							BONUS:VAR|ActionUsed|1	BONUS:VAR|APspentonBR|-1					SPELLS:Birthright|TIMES=-1|CASTERLEVEL=max(1,BBB+CHA)|Light of Joy,11+CHA
 Birthright Emotion (Kiss of Dionysus)			NAMEISPI:YES	VISIBLE:DISPLAY	SOURCEPAGE:p.139	PREMULT:5,[PREMULT:2,[PREVARGTEQ:ActionRemain,3],[PREVARGTEQ:APspentonBR,3]],[!PRETEMPLATE:Birthright Emotion (Kiss of Dionysus)],[PRETEMPLATE:Crimson Lords],[PRELEVEL:6],[PRETEMPLATE:Birthright Emotion (Light of Joy)]																	BONUS:VAR|ActionUsed|3	BONUS:VAR|APspentonBR|-3					SPELLS:Birthright|TIMES=-1|CASTERLEVEL=max(1,BBB+CON)|Kiss of Dionysus,13+CON
 Birthright Emotion (Face of Kali)				NAMEISPI:YES	VISIBLE:DISPLAY	SOURCEPAGE:p.139	PREMULT:5,[PREMULT:2,[PREVARGTEQ:ActionRemain,4],[PREVARGTEQ:APspentonBR,4]],[!PRETEMPLATE:Birthright Emotion (Face of Kali)],[PRETEMPLATE:Crimson Lords],[PRELEVEL:8],[PRETEMPLATE:Birthright Emotion (Kiss of Dionysus)]																	BONUS:VAR|ActionUsed|4	BONUS:VAR|APspentonBR|-4					SPELLS:Birthright|TIMES=-1|CASTERLEVEL=max(1,BBB+CHA)|Face of Kali,14+CHA

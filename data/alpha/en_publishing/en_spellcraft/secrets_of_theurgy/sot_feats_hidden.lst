@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:E.N. Publishing	SOURCESHORT:ENPub	SOURCEWEB:http://www.enworld.org/index.php?page=enpublishing
 
 ###Block: Theurgic Lorewarden Secrets
-# Feat Name			Type		Visible	Var. Min. Value	Special Ability		Spells										Save checks bonus			Add domain number		Bonus to HP			Bonus to skill							Bonus to spell cast/day				Source Page
+# Feat Name			Type		Visible	Var. Min. Value	Special Ability		Innate Spells									Save checks bonus			Add domain number		Bonus to HP			Bonus to skill							Bonus to spell cast/day				Source Page
 Deeper Understanding	TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,1	SA:Deeper Understanding																									BONUS:SKILL|Knowledge (Arcana),Knowledge (Religion)|3								SOURCEPAGE:9
 Secret Health		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,2	SA:Secret Health																						BONUS:HP|CURRENTMAX|3																	SOURCEPAGE:9
 Inner Strength		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,3	SA:Inner Strength													BONUS:CHECKS|BASE.Will|2																									SOURCEPAGE:9
@@ -17,7 +17,7 @@ True Lore			TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,11	SA:True Lore		SPELLS:Theurgic 
 Divine Inspiration	TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,12	SA:Divine Inspiration																	BONUS:DOMAIN|NUMBER|1																					SOURCEPAGE:9
 
 ###Block: Hierophant Theurge Ability I block
-# Feat Name				Type		Visible	Required Feat				Prohibited Feat								Special Ability			Description							Multiple?	Choose		BONUS:DC			Add domain number		Bonus to skill				Stat bonus					Modify VAR				Source Page
+# Feat Name				Type		Visible	Required Feat				Prohibited Feat								Special Ability			Description							Multiple?	Choose		Bonus to DC			Add domain number		Bonus to skill				Stat bonus					Modify VAR				Source Page
 Channeled Might I			TYPE:HTA1	VISIBLE:NO																	SA:Channeled Might I										MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1																						SOURCEPAGE:11
 Defense of Faith I		TYPE:HTA1	VISIBLE:NO																	SA:Defense of Faith I																																								SOURCEPAGE:11
 Enhanced Charisma I		TYPE:HTA1	VISIBLE:NO																	SA:Enhanced Charisma I																													BONUS:STAT|CHA|1|TYPE=Legendary						SOURCEPAGE:11

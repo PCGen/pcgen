@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 21:20:17 2007 -- reformated by prettylst.pl v1.35 (build 1881)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -42,7 +42,7 @@ Scent		TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SA:Scent (Ex)
 
 ###Block: Special Abilities
 
-# Feat Name				Type							Visible	Special Ability																																																																																																																																		Define																																									Spells																																																																																																Multiple?	Choose																		Move		Save checks bonus							Combat bonus								Damage reduction				Bonus to HP						Misc bonus						Add to base move				Bonus to skill															Add to vision								Stat bonus																	Modify VAR																																																																		Class Skill			Damage Reduction	Temporary effect description
+# Feat Name				Type							Visible	Special Ability																																																																																																																																		Define																																									Innate Spells																																																																																															Multiple?	Choose																		Move		Save checks bonus							Combat bonus								Damage reduction				Bonus to HP						Misc bonus						Add to base move				Bonus to skill															Add to vision								Stat bonus																	Modify VAR																																																																		Class Skill			Damage Reduction	Temporary effect description
 Turn Animal				TYPE:SpecialAbility.Turning.TurnAnimal	VISIBLE:NO	SA:Turn Animals (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesAnimals|TurnLevelAnimals|TurnDiceAnimals|TurnDieSizeAnimals|TurnDamagePlusAnimals																																																																																																											DEFINE:TurnTimesAnimals|TurnTimesBase	DEFINE:TurnLevelAnimals|TurnLevelBase	DEFINE:TurnDiceAnimals|TurnDiceBase	DEFINE:TurnDieSizeAnimals|TurnDieSizeBase	DEFINE:TurnDamagePlusAnimals|TurnDamagePlusBase	DEFINE:TurnCheckAnimals|TurnCheckBase
 Sense the Dead			TYPE:SpecialAbility.Supernatural		VISIBLE:NO	SA:Sense the Dead %-ft. range (Su)|SenseDeadRange																																																																																																																												DEFINE:SenseDeadRange|0																																																																																																																																																																																																																																																									BONUS:VAR|SenseDeadRange|min(60,15+(floor((TL-1)/2)*5))
 Touch of the Living		TYPE:SpecialAbility.Supernatural		VISIBLE:NO	SA:Touch of the Living +% (Su)|UndeadDmgBonus																																																																																																																													DEFINE:UndeadDmgBonus|0																																																																																																																																																																								BONUS:COMBAT|DAMAGE.Melee|UndeadDmgBonus|PREAPPLY:PC																																																																									BONUS:VAR|UndeadDmgBonus|min(5,1+(floor(TL/5)))
@@ -254,9 +254,9 @@ Metamagic Aura Redirect				TYPE:MetamagicAura			VISIBLE:NO						SA:Metamagic Aur
 Metamagic Aura Supress Magic			TYPE:MetamagicAura			VISIBLE:NO						SA:Metamagic Aura: Supress Magic
 
 ###Block: Special Mounts
-# Feat Name		Type			Visible	Special Ability	Define			COMPANIONLIST							FOLLOWERS
-Sarcosan Mount	TYPE:Special	VISIBLE:NO	SA:Special Mount	DEFINE:SarSMLevel|0	COMPANIONLIST:Special Mount|Horse (Warhorse Light)	FOLLOWERS:Special Mount|1
-Wogren Mount	TYPE:Special	VISIBLE:NO	SA:Special Mount	DEFINE:WogrenRiderLvl|0	COMPANIONLIST:Special Mount|Wogren				FOLLOWERS:Special Mount|1
+# Feat Name		Type			Visible	Special Ability	Define			Allow Follower			Allowed Companions
+Sarcosan Mount	TYPE:Special	VISIBLE:NO	SA:Special Mount	DEFINE:SarSMLevel|0	FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|Horse (Warhorse Light)
+Wogren Mount	TYPE:Special	VISIBLE:NO	SA:Special Mount	DEFINE:WogrenRiderLvl|0	FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|Wogren
 
 #
 # End

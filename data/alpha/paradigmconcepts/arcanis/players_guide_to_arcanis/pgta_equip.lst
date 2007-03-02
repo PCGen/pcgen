@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -105,7 +105,7 @@ Cannon (Field)	OUTPUTNAME:Cannon, [NAME]	PROFICIENCY:Cannon (Field)	TYPE:Weapon.
 Cannon (Siege)	OUTPUTNAME:Cannon, [NAME]	PROFICIENCY:Cannon (Siege)	TYPE:Weapon.Siege.Standard.Ranged.Container.Projectile.Cannon	CONTAINS:1|Siege Cannonball=1|Siege Mortar Shell=1	COST:2500	WT:2800	CRITMULT:x1			CRITRANGE:1			DAMAGE:Special	EQMOD:STEEL.WOOD	WIELD:Unusable	RANGE:300	SIZE:M	SPROP:Damage dealt depends on shell type used
 
 ###Block: Ammunition -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Equipment Name			Output Name						Type								Cost		Weight	Base Quantity	Damage	Modifier		MODS		Range		Special Property
+# Equipment Name			Output Name						Type								Cost		Weight	Base Quantity	Damage	Modifier		Requires Modification?	Range		Special Property
 Disk (Crossbow/Repeating/6)	OUTPUTNAME:Disk, Repeating, Crossbow (6)	TYPE:Ammunition.Standard.Disk				COST:3	WT:1		BASEQTY:6				EQMOD:STEEL		MODS:YES
 Disk (Crossbow/Repeating)	OUTPUTNAME:Disk, Repeating, Crossbow	TYPE:Ammunition.Standard.Individual.Disk		COST:.5	WT:.2		BASEQTY:1				EQMOD:STEEL		MODS:YES
 Blastpowder (20)										TYPE:Ammunition.Standard.Blastpowder		COST:100	WT:2		BASEQTY:20				EQMOD:STEEL		MODS:YES
@@ -115,12 +115,12 @@ Arrow (Footbow/20)		OUTPUTNAME:Arrow, Footbow (20)		TYPE:Ammunition.Standard.Arr
 Arrow (Footbow)			OUTPUTNAME:Arrow, Footbow			TYPE:Ammunition.Standard.Arrow.Individual		COST:.5	WT:.1		BASEQTY:1				EQMOD:STEEL.WOOD	MODS:YES
 Footbow Strings (5)									TYPE:Ammunition.Standard.String			COST:5	WT:0		BASEQTY:5
 Footbow String										TYPE:Ammunition.Standard.String.Individual	COST:1	WT:0		BASEQTY:1
-Cannon Ball											TYPE:Ammunition.Standard.Bludgeoning.Cannon	COST:100	WT:15		BASEQTY:1				EQMOD:STEEL		MODS:YES			SPROP:6d6 Bludgeoning Damage
-Mortal Shell										TYPE:Ammunition.Standard.Piercing.Fire.Cannon	COST:300	WT:20		BASEQTY:1				EQMOD:STEEL		MODS:YES			SPROP:5d6 Piercing/Fire Damage in a 20 ft radius
-Siege Mortal Shell									TYPE:Ammunition.Standard.Piercing.Fire.Cannon	COST:450	WT:30		BASEQTY:1				EQMOD:STEEL		MODS:YES			SPROP:8d6 Piercing/Fire Damage in a 30 ft radius
-Siege Cannon Ball										TYPE:Ammunition.Standard.Bludgeoning.Cannon	COST:150	WT:25		BASEQTY:1				EQMOD:STEEL		MODS:YES			SPROP:10d6 Bludgeoning Damage
+Cannon Ball											TYPE:Ammunition.Standard.Bludgeoning.Cannon	COST:100	WT:15		BASEQTY:1				EQMOD:STEEL		MODS:YES					SPROP:6d6 Bludgeoning Damage
+Mortal Shell										TYPE:Ammunition.Standard.Piercing.Fire.Cannon	COST:300	WT:20		BASEQTY:1				EQMOD:STEEL		MODS:YES					SPROP:5d6 Piercing/Fire Damage in a 20 ft radius
+Siege Mortal Shell									TYPE:Ammunition.Standard.Piercing.Fire.Cannon	COST:450	WT:30		BASEQTY:1				EQMOD:STEEL		MODS:YES					SPROP:8d6 Piercing/Fire Damage in a 30 ft radius
+Siege Cannon Ball										TYPE:Ammunition.Standard.Bludgeoning.Cannon	COST:150	WT:25		BASEQTY:1				EQMOD:STEEL		MODS:YES					SPROP:10d6 Bludgeoning Damage
 
-Fragmentation Bomb									TYPE:Goods.Alchemical.Vial.Consumable		COST:50	WT:2		BASEQTY:1		DAMAGE:2d6						RANGE:10
+Fragmentation Bomb									TYPE:Goods.Alchemical.Vial.Consumable		COST:50	WT:2		BASEQTY:1		DAMAGE:2d6								RANGE:10
 
 ###Block: Armor -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Equipment Name				Product Identity?	Output Name					Type									Cost		Weight	Required Feat								AC Penalty Check	Modifier	Maximum DEX Bonus	% of Spell Failure	Combat bonus					BONUS:EQMARMOR							Add to base move

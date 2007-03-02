@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat Oct 28 05:06:13 2006 -- reformated by prettylst.pl v1.35 (build 1495)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
 
 ###BLOCK: Strong talents
-# Feat Name				Type										Visible	Required Feat							Special Ability										Define																													Save checks bonus								Combat bonus									BONUS:RANGEADD			Stat bonus																			Modify VAR																																					Source Page
+# Feat Name				Type										Visible	Required Feat							Special Ability										Define																													Save checks bonus								Combat bonus									Bonus to base range		Stat bonus																			Modify VAR																																					Source Page
 Gravity Resistance		TYPE:Talent.StrongTalent.HeavyGravityResistance			VISIBLE:NO	PREFEAT:1,Extreme Effort					SA:Gravity Resistance																																																																																																																											SOURCEPAGE:p.28
 Improved Gravity Resistance	TYPE:Talent.StrongTalent.HeavyGravityResistance.StrongPlus	VISIBLE:NO	PREFEAT:1,Gravity Resistance					SA:Improved Gravity Resistance																																																																																																																									SOURCEPAGE:p.28
 

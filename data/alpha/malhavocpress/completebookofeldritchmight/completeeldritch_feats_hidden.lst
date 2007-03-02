@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 # Original Entry by: Felipe Diniz
 
 ###Block: Rituals of Potency
-# Feat Name						Type				Visible		Var. Min. Value					Special Ability										Define			Spells						Stackable?	Multiple?	Choose				Combat bonus					Add to base move			Stat bonus					Modify VAR							Vision			Source Page
+# Feat Name						Type				Visible		Var. Min. Value					Special Ability										Define			Innate Spells					Stackable?	Multiple?	Choose				Combat bonus					Add to base move			Stat bonus					Modify VAR							Vision			Source Page
 Ritual of Potency (Sense Magic)		TYPE:RitualofPotency	VISIBLE:EXPORT																								SPELLS:Class Ability|TIMES=1|Detect Magic			MULT:NO																																				SOURCEPAGE:p.28
 Ritual of Potency (Darksight)			TYPE:RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+cl("Eldritch Warrior"),3																										MULT:NO																																VISION:Darkvision|30	SOURCEPAGE:p.28
 Ritual of Potency (The Sparkling Shield)	TYPE:RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+cl("Eldritch Warrior"),5																										MULT:NO						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																								SOURCEPAGE:p.28
@@ -13,7 +13,7 @@ Ritual of Potency (Slice Through Wards)	TYPE:RitualofPotency	VISIBLE:EXPORT	PREV
 Ritual of Potency (Destroy Spell)		TYPE:RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+cl("Eldritch Warrior"),11	SA:Dispel Magic with melee weapon strike (1 times/day)																MULT:NO																																				SOURCEPAGE:p.28
 
 ###Block: Tattoos of Power
-# Feat Name					Type				Visible	Var. Min. Value				Special Ability					Spells												Multiple?	Combat bonus					Misc bonus					Bonus to skill							Stat bonus					Damage Reduction	Source Page
+# Feat Name					Type				Visible	Var. Min. Value				Special Ability					Innate Spells											Multiple?	Combat bonus					Misc bonus					Bonus to skill							Stat bonus					Damage Reduction	Source Page
 Tattoo of Power (Endurance)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),1	SA:Tattoo of Power (Endurance)(Su)															MULT:NO																							BONUS:STAT|CON|2|TYPE=Enhancement				SOURCEPAGE:p.33
 Tattoo of Power (Strength)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),2	SA:Tattoo of Power (Strength)(Su)															MULT:NO																							BONUS:STAT|STR|2|TYPE=Enhancement				SOURCEPAGE:p.33
 Tattoo of Power (Dexterity)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),3	SA:Tattoo of Power (Dexterity)(Su)															MULT:NO																							BONUS:STAT|DEX|2|TYPE=Enhancement				SOURCEPAGE:p.33

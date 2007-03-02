@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr 30 17:55:23 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -48,7 +48,7 @@ Rebuke Aquatic Undead		TYPE:Special.Turning.TurnYarrisGood		VISIBLE:NO	PREALIGN:
 
 ###Block: Elorii Feats
 #Elorii Bloodline feats
-# Feat Name					Type						Visible		Multiple Requirements						Special Ability												Spells											Description																																	Template				MOVECLONE				Caster level					Add to base move
+# Feat Name					Type						Visible		Multiple Requirements						Special Ability												Innate Spells										Description																																	Template				MOVECLONE				Caster level					Add to base move
 Ardakene Bloodline			TYPE:Special.EloriiBloodline		VISIBLE:EXPORT	PREMULT:2[PRERACE:Elorii],[PRETEMPLATE:Ardakene]															SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Cure Light Wounds (Bloodline)	DESC:As a spell-like ability, you may cast cure light wounds 1/day. You may ignore the +5 limit when using the blooline ability.																							BONUS:CASTERLEVEL|RACE.Elorii.RESET|TL
 Berokene Bloodline			TYPE:Special.EloriiBloodline		VISIBLE:EXPORT	PREMULT:2[PRERACE:Elorii],[PRETEMPLATE:Berokene]															SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Water Breathing				DESC:As a spell-like ability, you may cast water breathing 1/day.																																		BONUS:CASTERLEVEL|RACE.Elorii.RESET|TL
 Kelekene Bloodline			TYPE:Special.EloriiBloodline		VISIBLE:EXPORT	PREMULT:2[PRERACE:Elorii],[PRETEMPLATE:Kelekene]																											DESC:As a free action, 1/day, you may make one bonus attack at your highest attack bonus. You may only use this on your turn, and in a round when you are using an standard or full round attack action.											BONUS:CASTERLEVEL|RACE.Elorii.RESET|TL

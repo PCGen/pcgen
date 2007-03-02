@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -744,7 +744,7 @@ Tiefling Transformation Skills 10	TYPE:TieflingRacialTransformation10	VISIBLE:NO
 #
 
 ###Block: Racial Talents
-# Feat Name				Type					Visible	Required Feat				Prohibited Feat				Required Lvl	Special Ability			Spells											Stackable?	Multiple?	Choose a Feat																																																																																			Source Page
+# Feat Name				Type					Visible	Required Feat				Prohibited Feat				Required Lvl	Special Ability			Innate Spells										Stackable?	Multiple?	Choose a Feat																																																																																			Source Page
 Bite Attack				TYPE:ThinbloodRacialTalent	VISIBLE:NO																SA:Bite Attack																	MULT:NO																																																																																						SOURCEPAGE:p.55
 Poison Attack			TYPE:ThinbloodRacialTalent	VISIBLE:NO																SA:Poison Attack																	MULT:NO																																																																																						SOURCEPAGE:p.55
 Lesser Psionics I			TYPE:ThinbloodRacialTalent	VISIBLE:NO																SA:Lesser Psionics I		SPELLS:RacialTalent|TIMES=1|Chameleon,11|Detect Poison,10|Produce Acid			MULT:NO																																																																																						SOURCEPAGE:p.55

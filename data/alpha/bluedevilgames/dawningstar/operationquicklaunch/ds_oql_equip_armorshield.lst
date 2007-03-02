@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov  3 04:32:10 2006 -- reformated by prettylst.pl v1.35 (build 1495)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
 
 ###BLOCK: Light
@@ -18,7 +18,7 @@ Heavy Combat Armor	TYPE:Armor.Heavy.Suit.Tactical.PL5	COST:24	WT:45		ACCHECK:-6	
 EDF Assault Armor		TYPE:Armor.Heavy.Suit.Tactical.PL6	COST:26	WT:35		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.94	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|6|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK	SPROP:Mil(+3)
 
 ###BLOCK: Powered
-# Equipment Name				Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus																	BONUS:SIZEMOD		Stat bonus					Special Property
+# Equipment Name				Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus																	Adjust PC Size		Stat bonus					Special Property
 EFL Robotic Combat Armor		TYPE:Armor.Heavy.Powered.Suit.Tactical.PL6	COST:27	WT:240	ACCHECK:-8		MAXDEX:0		SOURCEPAGE:p.94	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|6|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|8|TYPE=Equipment	SPROP:Mil(+3)
 DS Construction Unit (armored)	TYPE:Armor.Heavy.Powered.Suit.Tactical.PL6	COST:29	WT:400	ACCHECK:-16		MAXDEX:0		SOURCEPAGE:p.94	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:SIZEMOD|NUMBER|1							SPROP:Mil(+3)
 DS Construction Unit (unarmored)	TYPE:Armor.Heavy.Powered.Suit.Tactical.PL6	COST:25	WT:400	ACCHECK:-16		MAXDEX:0		SOURCEPAGE:p.94	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:SIZEMOD|NUMBER|1							SPROP:Mil(+3)

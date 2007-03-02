@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 21:32:53 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
-# Feat Name				Type				Required Class			Required Feat		Required Language		Maximum Level	Req. Special Ability					Required Skill			Required Stat				Special Ability							Stackable?	Multiple?	Choose									Combat bonus										BONUS:DC				Bonus to skill				Stat bonus		Modify VAR				Class Skill				Source Page
+# Feat Name				Type				Required Class			Required Feat		Required Language		Maximum Level	Req. Special Ability					Required Skill			Required Stat				Special Ability							Stackable?	Multiple?	Choose									Combat bonus										Bonus to DC				Bonus to skill				Stat bonus		Modify VAR				Class Skill				Source Page
 Channeling (Hermit)		TYPE:General							PREFEAT:1,Power Surge																																																																																						SOURCEPAGE:p51
 Channeling (Hedge Mage)		TYPE:General							PREFEAT:1,Power Surge																																																																																						SOURCEPAGE:p51
 Channeling (Crusader)		TYPE:General							PREFEAT:1,Power Surge																																																																																						SOURCEPAGE:p51

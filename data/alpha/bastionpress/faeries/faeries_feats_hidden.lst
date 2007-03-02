@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 16:24:01 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Bastion Press - Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://www.bastionpress.com
 
 
@@ -10,7 +10,7 @@ Racial Trait Cost (0.75 ECL)	TYPE:Special.RacialTraitCost	VISIBLE:NO												
 Racial Trait Cost (1.00 ECL)	TYPE:Special.RacialTraitCost	VISIBLE:NO																		BONUS:VAR|RacialTraitsECL|1		SOURCEPAGE:p.7
 
 ###Block: Fey Arts
-# Feat Name			Type			Visible	Special Ability					Spells													Stackable?	Multiple?	Caster level			Cost		Source Page
+# Feat Name			Type			Visible	Special Ability					Innate Spells												Stackable?	Multiple?	Caster level			Cost		Source Page
 Bogan's Fog			TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Bogan's Fog) (Sp)																STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.23
 Gnome Brew			TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Gnome Brew) (Sp)																	STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.23
 Grig Fiddle			TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Grig Fiddle) (Sp)																STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.23
@@ -24,7 +24,7 @@ Siren Song			TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Siren Song) (Sp)														
 Sprite Charm		TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Sprite Charm) (Sp)		SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Charm Animal,11+CHA|Charm Person,11+CHA	STACK:NO	MULT:NO	BONUS:CASTERLEVEL|Innate|6	COST:1	SOURCEPAGE:p.24
 
 ###Block: Faerie Physical Characteristics
-# Feat Name			Type				Visible	Special Ability							Stackable?	Multiple?	Template					Move			Virtual Feat					Choose a Feat				Combat bonus				BONUS:SIZEMOD		Bonus to skill					Stat bonus		Modify VAR					Vision			Cost		Source Page
+# Feat Name			Type				Visible	Special Ability							Stackable?	Multiple?	Template					Move			Virtual Feat					Choose a Feat				Combat bonus				Adjust PC Size		Bonus to skill					Stat bonus		Modify VAR					Vision			Cost		Source Page
 Antennae			TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Antennae)					STACK:NO	MULT:NO																																	BONUS:SKILL|Spot|4|TYPE=Racial					BONUS:VAR|RacialTraitsECL|0.25					COST:1	SOURCEPAGE:p.7
 Body (Snake-like)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Snake-like Body)				STACK:NO	MULT:NO							MOVE:Walk,30														BONUS:COMBAT|AC|3|TYPE=NaturalArmor															BONUS:VAR|RacialTraitsECL|0.75					COST:1	SOURCEPAGE:p.7
 Body (Unusual)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Unusual Body)				STACK:NO	MULT:NO																	ADD:FEAT(TYPE=RacialTraitCost)1																															COST:1	SOURCEPAGE:p.7
@@ -56,7 +56,7 @@ Wings (Bird)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Bird Wings)				
 Wings (Furred Flaps)	TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Furred Flaps)				STACK:NO	MULT:NO							MOVE:Glide,10																																		BONUS:VAR|RacialTraitsECL|0.5						COST:1	SOURCEPAGE:p.7
 
 ###Block: Spell-like Abilities
-# Feat Name				Type				Visible	Spells															Stackable?	Multiple?	Modify VAR					Damage Reduction	Cost		Source Page
+# Feat Name				Type				Visible	Innate Spells														Stackable?	Multiple?	Modify VAR					Damage Reduction	Cost		Source Page
 Acid Fog				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(TL,1)|Acid Fog,16+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
 Bad Luck				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Bad Luck,11+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
 Bad Luck at will			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(TL,1)|Bad Luck,11+CHA						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
