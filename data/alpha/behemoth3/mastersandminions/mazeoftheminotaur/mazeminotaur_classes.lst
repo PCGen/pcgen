@@ -14,7 +14,7 @@ SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Minotaur	HD:8		TYPE:Monster	MAXLEVEL:8	SOURCEPAGE:p. 18	BONUS:CHECKS|BASE.Fortitude|CL/4	BONUS:CHECKS|BASE.Reflex,BASE.Will|((CL+1)/3)+2	BONUS:COMBAT|BAB|((CL+1)*2)/3|TYPE=Base.REPLACE
 # Class Name	Required Race
-CLASS:Minotaur	PRERACE:Minotaur (Variant)
+CLASS:Minotaur	PRERACE:1,Minotaur (Variant)
 # Class Name	Skill Pts/Lvl
 CLASS:Minotaur	STARTSKILLPTS:2
 1	BONUS:VAR|ScentRange|((CL+2)/3)*10
@@ -87,7 +87,7 @@ CLASS:Bull Lord	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Search|Spot|
 # Class Name	Hit Dice	Type			Max Level	Source Page
 CLASS:Minotrice	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:p. 20
 # Class Name	Required Race
-CLASS:Minotrice	PRERACE:Minotrice
+CLASS:Minotrice	PRERACE:1,Minotrice
 # Class Name	Skill Pts/Lvl
 CLASS:Minotrice	STARTSKILLPTS:2
 
@@ -124,7 +124,7 @@ CLASS:Minotrice	STARTSKILLPTS:2
 # Class Name			Hit Dice	Type			Max Level	Source Page
 CLASS:Minotrice Maze Mage	HD:8		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:p. 22
 # Class Name			Required Race
-CLASS:Minotrice Maze Mage	PRERACE:Minotrice Maze Mage
+CLASS:Minotrice Maze Mage	PRERACE:1,Minotrice Maze Mage
 # Class Name			Skill Pts/Lvl
 CLASS:Minotrice Maze Mage	STARTSKILLPTS:2
 # Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level							Use Spell List
