@@ -6,7 +6,7 @@ SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http
 Occupation (Bureaucrat)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Bureaucrat_Skills)2	ADD:FEAT(TYPE=Bureaucrat)		BONUS:VAR|Wealth|2					SOURCEPAGE:p.36
 Occupation (Courtier)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,CHA=13	ADD:FEAT(TYPE=Courtier_Skills)3							BONUS:VAR|Wealth|4					SOURCEPAGE:p.36
 Occupation (Dissident)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Dissident_Skills)3	ADD:FEAT(TYPE=Dissident)		BONUS:VAR|Wealth|1					SOURCEPAGE:p.36
-Occupation (Explorer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Explorer_Skills)3	ADD:FEAT(TYPE=Explorer)			BONUS:VAR|Wealth|1					SOURCEPAGE:p.37
+Occupation (Explorer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Explorer_Skills)3	ADD:FEAT(TYPE=ExplorerOccupation)	BONUS:VAR|Wealth|1					SOURCEPAGE:p.37
 Occupation (Hunter)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Hunter_Skills)3	ADD:FEAT(TYPE=Hunter)												SOURCEPAGE:p.37
 Occupation (Nomad)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Nomad_Skills)3	ADD:FEAT(TYPE=Nomad)				BONUS:VAR|Wealth|1					SOURCEPAGE:p.37
 Occupation (Pilot)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Pilot_Skills)2	ADD:FEAT(TYPE=Pilot)				BONUS:VAR|Wealth|1					SOURCEPAGE:p.37

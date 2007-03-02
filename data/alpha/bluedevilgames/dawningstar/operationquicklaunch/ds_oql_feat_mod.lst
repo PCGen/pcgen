@@ -39,7 +39,7 @@ Faction Camp Familiarity.MOD		TYPE:HumanSurvivor.AirRunner.BarterKing.ColonialLe
 Frightful Presence.MOD			TYPE:Lawman.VelinGuardian.VelinChief
 Gearhead.MOD				TYPE:Scientist.AirRunner.ColonialLeader.Rebuilder
 Great Fortitude.MOD			TYPE:HumanSurvivor.VelinHunter.BarterKing.ColonialLeader.Gunhand.Lawman.Rancher.Rebuilder.VelinGuardian.VelinChief
-Guide.MOD					TYPE:Explorer.TribalLeader.Nomad.HumanSurvivor.VelinHunter.AirRunner.BarterKing.VelinGuardian.VelinChief
+Guide.MOD					TYPE:ExplorerOccupation.TribalLeader.Nomad.HumanSurvivor.VelinHunter.AirRunner.BarterKing.VelinGuardian.VelinChief
 Heroic Surge.MOD				TYPE:Lawman.Rancher.VelinGuardian.VelinChief
 Improved Brawl.MOD			TYPE:Gunhand.Lawman.Rancher
 Improved Damage Threshold.MOD		TYPE:HumanSurvivor.Gunhand.Lawman.Rancher.VelinGuardian.VelinChief
