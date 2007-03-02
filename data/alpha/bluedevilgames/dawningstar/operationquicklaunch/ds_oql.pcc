@@ -30,6 +30,7 @@ BIOSET:ds_oql_bioset.lst
 CLASS:ds_oql_class_advanced.lst
 CLASS:ds_oql_class_prestige.lst
 CLASS:ds_oql_class_race.lst
+CLASS:ds_oql_class_mod.lst
 COMPANIONMOD:ds_oql_companionmod.lst
 EQUIPMENT:ds_oql_equip.lst
 EQUIPMENT:ds_oql_equip_armorshield.lst
