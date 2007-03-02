@@ -31,7 +31,6 @@ Draconic			TYPE:Spoken.Written.Read.Wizard
 Infernal			TYPE:Spoken.Written.Read.Cleric
 Sylvan			TYPE:Spoken.Written.Read.Druid
 Druidic			TYPE:Spoken.Written.Read.Druid.Secret	PREVARGTEQ:DruidicLanguage,1
-Literacy			TYPE:Written.Read.Special
 
 # 	other languages (found in monsters*.rtf)
 #		assuming that all non-basic languages are of Spoken type, i.e. that they do not possess any alphabet (exceptions happen, of course)
