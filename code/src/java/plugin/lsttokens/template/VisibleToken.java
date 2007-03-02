@@ -50,10 +50,10 @@ public class VisibleToken implements PCTemplateLstToken
 		}
 		else
 		{
-			if (!value.equals("ALWAYS"))
+			if (!value.equals("ALWAYS") && !value.equals("YES"))
 			{
 				Logging.errorPrint("Use of '" + value
-					+ "' is not valid, please use ALWAYS "
+					+ "' is not valid, please use YES or ALWAYS "
 					+ "(exact String, upper case)");
 			}
 			template.setVisibility(Visibility.DEFAULT);
