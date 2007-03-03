@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Wed Jan 17 18:11:37 2007 -- reformated by prettylst.pl v1.35 (build 1881)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # RSRD Entry by: jaymecox
 
 ###Block:Special Mount
-# Class of the Master	Type				Hit Dice	Spell Res.	Special Ability													Define						Combat bonus						Add to base move																																					Stat bonus		Automaticaly Gained Armor Prof.
-FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				SA:Share saving throws	SA:Empathic Link	SA:Share spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	AUTO:ARMORPROF|TYPE.Barding
-FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2				SA:Improved Speed (Ex)												DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
-FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2				SA:Command creatures of its kind										DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
-FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																	DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+# Class of the Master	Type				Hit Dice	Spell Res.	Automaticaly Gained Armor Prof.	Special Ability													Define						Combat bonus						Add to base move																																					Stat bonus
+FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				AUTO:ARMORPROF|TYPE.Barding		SA:Share saving throws	SA:Empathic Link	SA:Share spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2										SA:Improved Speed (Ex)												DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
+FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2										SA:Command creatures of its kind										DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																							DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
 FOLLOWER:SMLevel=16	TYPE:Special Mount			SR:21
 FOLLOWER:SMLevel=17	TYPE:Special Mount			SR:22
 FOLLOWER:SMLevel=18	TYPE:Special Mount			SR:23
@@ -33,12 +33,12 @@ FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																
 FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 
 ###Block: Specific Undead Companions
-# Class of the Master		Type				KIT							Required Race
-FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	KIT:1|Default Skeleton (Human Warrior)	PRERACE:1,Skeleton (Human Warrior)
-FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	KIT:1|Default Zombie (Human Commoner)	PRERACE:1,Zombie (Human Commoner)
+# Class of the Master		Type				Required Race				Apply Kit
+FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Skeleton (Human Warrior)	KIT:1|Default Skeleton (Human Warrior)
+FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Zombie (Human Commoner)	KIT:1|Default Zombie (Human Commoner)
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	COPYMASTERBAB		COPYMASTERCHECK		COPYMASTERHP			USEMASTERSKILL		Special Ability						Define						Combat bonus						SWITCHRACE
+# Class of the Master	Type			Spell Res.	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special Ability						Define						Combat bonus						Change Racetype
 FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	SA:Empathic Link
 FOLLOWER:FMLevel=1	TYPE:Familiar																				SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	SWITCHRACE:Animal|Magical Beast
 FOLLOWER:FMLevel=3	TYPE:Familiar																				SA:Deliver touch spells					DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
@@ -57,18 +57,18 @@ FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																											DEFINE:LOCK.IN
 FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 
 ###Block: Specific Familiars
-# Class of the Master	Type			Special Ability		ADD:Language			KIT						Required Race
-FOLLOWER:FMLevel=1	TYPE:Familiar	SA:Speak one language	ADD:Language(TYPE=Spoken)1							PRERACE:1,Raven
-FOLLOWER:FMLevel=1	TYPE:Familiar										KIT:1|Default Bat				PRERACE:1,Bat
-FOLLOWER:FMLevel=1	TYPE:Familiar										KIT:1|Default Cat				PRERACE:1,Cat
-FOLLOWER:FMLevel=1	TYPE:Familiar										KIT:1|Default Hawk			PRERACE:1,Hawk
-FOLLOWER:FMLevel=1	TYPE:Familiar										KIT:1|Default Lizard			PRERACE:1,Lizard
-FOLLOWER:FMLevel=1	TYPE:Familiar										KIT:1|Default Owl				PRERACE:1,Owl
-FOLLOWER:FMLevel=1	TYPE:Familiar										KIT:1|Default Rat				PRERACE:1,Rat
-FOLLOWER:FMLevel=1	TYPE:Familiar										KIT:1|Default Raven			PRERACE:1,Raven
-FOLLOWER:FMLevel=1	TYPE:Familiar										KIT:1|Default Snake (Viper/Tiny)	PRERACE:1,Snake (Viper/Tiny)
-FOLLOWER:FMLevel=1	TYPE:Familiar										KIT:1|Default Toad			PRERACE:1,Toad
-FOLLOWER:FMLevel=1	TYPE:Familiar										KIT:1|Default Weasel			PRERACE:1,Weasel
+# Class of the Master	Type			Required Race			Apply Kit					Special Ability		ADD:Language
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Raven									SA:Speak one language	ADD:Language(TYPE=Spoken)1
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Bat			KIT:1|Default Bat
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Cat			KIT:1|Default Cat
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Hawk			KIT:1|Default Hawk
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Lizard			KIT:1|Default Lizard
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Owl			KIT:1|Default Owl
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Rat			KIT:1|Default Rat
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Raven			KIT:1|Default Raven
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Snake (Viper/Tiny)	KIT:1|Default Snake (Viper/Tiny)
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Toad			KIT:1|Default Toad
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Weasel			KIT:1|Default Weasel
 #
 
 ###Block:Familiar Bonuses to Master
@@ -86,7 +86,7 @@ MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Ale
 #
 
 ###Block:Animal Companion
-# Class of the Master	Type				Hit Dice	Virtual Feat				Special Ability					Define			Combat bonus						BONUS:SIZEMOD																																																																																																																																																																																																																																																											Stat bonus
+# Class of the Master	Type				Hit Dice	Virtual Feat				Special Ability					Define			Combat bonus						Adjust PC Size																																																																																																																																																																																																																																																											Stat bonus
 FOLLOWER:CompLevel=1	TYPE:Animal Companion									SA:Link (Ex)	SA:Share Spells (Ex)
 FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2								SA:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolverine|PREVARGT:TL,3|PREVARLT:TL,6	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Tiger|PREVARGT:TL,12|PREVARLT:TL,19	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2								SA:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																														BONUS:STAT|STR|1	BONUS:STAT|DEX|1

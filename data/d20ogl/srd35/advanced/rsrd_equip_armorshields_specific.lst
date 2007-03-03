@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Dec 10 01:36:13 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 ## Original entry by: Thaldorf
 
 ###Block: Specific Armors
 
-# Equipment Name			Type								Cost		Weight	AC Penalty Check	Modifier							Maximum DEX Bonus	Source Page				% of Spell Failure	Virtual Feat		Damage Reduction	Spells								Combat bonus					Bonus to skill						Modify VAR									Special Property																		Automaticaly Added to Inventory
+# Equipment Name			Type								Cost		Weight	AC Penalty Check	Modifier							Maximum DEX Bonus	Source Page				% of Spell Failure	Virtual Feat		Damage Reduction	Innate Spells							Combat bonus					Bonus to skill						Modify VAR									Special Property																		Automaticaly Added to Inventory
 Adamantine Breastplate		TYPE:Armor.Medium.Suit.Specific			COST:200	WT:30		ACCHECK:-4		EQMOD:ADAMANT_ARMR_MED					MAXDEX:3		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:25						DR:2/-											BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
 Banded Mail of Luck		TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:250	WT:35		ACCHECK:-6		EQMOD:STEEL.MWORKA.PLUS3A.MAGIC_COST|9500		MAXDEX:1		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:35																		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE																			SPROP:Allows the wearer to reroll one attack against him 1/week
 Breastplate of Command		TYPE:Enhancement.Armor.Medium.Suit.Specific	COST:200	WT:30		ACCHECK:-4		EQMOD:STEEL.MWORKA.PLUS2A.MAGIC_COST|21050	MAXDEX:3		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:25																		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE	BONUS:SKILL|TYPE=Charisma|2|TYPE=Competence	BONUS:VAR|LeadershipScore,TurnCheckBase|2|TYPE=Competence
@@ -20,7 +20,7 @@ Rhino Hide				TYPE:Armor.Medium.Suit.Specific.Nonmetal		COST:15	WT:25		ACCHECK:-
 
 ###Block: Specific Shields
 
-# Equipment Name		Type								Cost		Weight	Modifier							Source Page				Spells								Combat bonus																					Special Property
+# Equipment Name		Type								Cost		Weight	Modifier							Source Page				Innate Spells							Combat bonus																					Special Property
 Absorbing Shield		TYPE:Enhancement.Shield.Heavy.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS1S.MAGIC_COST|49000	SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE																	SPROP:Allows the wearer to disintegrate an object on command as a touch attack once every 2 days
 Caster's Shield		TYPE:Enhancement.Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.MWORKA.PLUS1S.MAGIC_COST|2000		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE																	SPROP:It has a reusable back strip that allows the wearer to scribe a single spell as a scroll
 Darkwood Buckler		TYPE:Shield.Buckler.Specific.Nonmetal		COST:15	WT:4		EQMOD:DARK							SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]

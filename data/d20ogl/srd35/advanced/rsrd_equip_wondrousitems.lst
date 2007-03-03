@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Dec 28 05:45:30 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas tjannes@vub.ac.be based on srdequipwondrous
 
@@ -128,104 +128,104 @@ Dust of Dryness												TYPE:Magic.Wondrous.Consumable	COST:850	WT:0								S
 Dust of Illusion												TYPE:Magic.Wondrous.Consumable	COST:1200	WT:0								SOURCEPAGE:MagicItemsV.rtf
 Dust of Tracelessness											TYPE:Magic.Wondrous.Consumable	COST:250	WT:0								SOURCEPAGE:MagicItemsV.rtf
 ###Block:E's
-# Equipment Name						Output Name					Type							Contains							Cost		Weight	Slot Needed	Modifier					Source Page				Virtual Feat		Vision			Bonus to skill					Stat bonus					KEY
-Efficient Quiver												TYPE:Magic.Wondrous.Container			CONTAINS:*-1|Ammunition=60|Thrown=18|Weapon=6	COST:1800	WT:2										SOURCEPAGE:MagicItemsV.rtf
-Efreeti Bottle												TYPE:Magic.Wondrous												COST:145000	WT:1										SOURCEPAGE:MagicItemsV.rtf
-Elemental Gem (Transparent)										TYPE:Magic.Wondrous.Consumable										COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Elemental Gem (Light Brown)										TYPE:Magic.Wondrous.Consumable										COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Elemental Gem (Reddish Orange)									TYPE:Magic.Wondrous.Consumable										COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Elemental Gem (Blue-Green)										TYPE:Magic.Wondrous.Consumable										COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Elixir of Fire Breath											TYPE:Magic.Wondrous.Potion.Consumable									COST:1100	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Elixir of Hiding												TYPE:Magic.Wondrous.Potion.Consumable									COST:250	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Elixir of Love												TYPE:Magic.Wondrous.Potion.Consumable									COST:150	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Elixir of Sneaking											TYPE:Magic.Wondrous.Potion.Consumable									COST:250	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Elixir of Swimming											TYPE:Magic.Wondrous.Potion.Consumable									COST:250	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Elixir of Truth												TYPE:Magic.Wondrous.Potion.Consumable									COST:500	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Elixir of Vision												TYPE:Magic.Wondrous.Potion.Consumable									COST:250	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Eversmoking Bottle											TYPE:Magic.Wondrous												COST:5400	WT:1										SOURCEPAGE:MagicItemsV.rtf
-Eyes of Charming												TYPE:Magic.Wondrous.Eyegear											COST:56000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Eyes of Doom												TYPE:Magic.Wondrous.Eyegear											COST:25000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Eyes of the Eagle												TYPE:Magic.Wondrous.Eyegear											COST:2500	WT:0										SOURCEPAGE:MagicItemsV.rtf									BONUS:SKILL|Spot|5|TYPE=Competence
-Eyes of Petrification											TYPE:Magic.Wondrous.Eyegear											COST:98000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Feather Token (Anchor)											TYPE:Magic.Wondrous.Consumable										COST:50	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Feather Token (Bird)											TYPE:Magic.Wondrous.Consumable										COST:300	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Feather Token (Fan)											TYPE:Magic.Wondrous.Consumable										COST:200	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Feather Token (Swan Boat)										TYPE:Magic.Wondrous.Consumable										COST:450	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Feather Token (Tree)											TYPE:Magic.Wondrous.Consumable										COST:400	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Feather Token (Whip)											TYPE:Magic.Wondrous.Consumable										COST:500	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Figurine of Wondrous Power (Bronze Griffon)							TYPE:Magic.Wondrous												COST:10000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Figurine of Wondrous Power (Ebony Fly)								TYPE:Magic.Wondrous												COST:10000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Figurine of Wondrous Power (Golden Lions)								TYPE:Magic.Wondrous												COST:16500	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Figurine of Wondrous Power (Ivory Goats)								TYPE:Magic.Wondrous												COST:21000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Figurine of Wondrous Power (Marble Elephant)							TYPE:Magic.Wondrous												COST:17000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Figurine of Wondrous Power (Obsidian Steed)							TYPE:Magic.Wondrous												COST:28500	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Figurine of Wondrous Power (Onyx Dog)								TYPE:Magic.Wondrous												COST:15500	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Figurine of Wondrous Power (Serpentine Owl)							TYPE:Magic.Wondrous												COST:9100	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Figurine of Wondrous Power (Silver Raven)								TYPE:Magic.Wondrous												COST:3800	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Gauntlets of Ogre Power											TYPE:Magic.Wondrous.Glove											COST:4000	WT:4		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																BONUS:STAT|STR|2|TYPE=Enhancement
-Gauntlet of Rust												TYPE:Magic.Wondrous.Glove											COST:11500	WT:2		SLOTS:1							SOURCEPAGE:MagicItemsV.rtf
-Gem of Brightness												TYPE:Magic.Wondrous												COST:13000	WT:0				EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:MagicItemsV.rtf
-Gem of Seeing												TYPE:Magic.Wondrous												COST:75000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Gloves of Arrow Snaring											TYPE:Magic.Wondrous.Glove											COST:4000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf	VFEAT:Snatch Arrows
-Gloves of Dexterity +2											TYPE:Magic.Wondrous.Glove											COST:4000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																BONUS:STAT|DEX|2|TYPE=Enhancement
-Gloves of Dexterity +4											TYPE:Magic.Wondrous.Glove											COST:16000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																BONUS:STAT|DEX|4|TYPE=Enhancement
-Gloves of Dexterity +6											TYPE:Magic.Wondrous.Glove											COST:36000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																BONUS:STAT|DEX|6|TYPE=Enhancement
-Glove of Storing												TYPE:Magic.Wondrous.Glove.Container		CONTAINS:*20|Any=1					COST:10000	WT:0		SLOTS:1							SOURCEPAGE:MagicItemsV.rtf
-Gloves of Swimming and Climbing									TYPE:Magic.Wondrous.Glove											COST:6250	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf									BONUS:SKILL|Climb,Swim|5|TYPE=Competence							KEY:Gloves of Swimming/Climbing
-Goggles of Minute Seeing										TYPE:Magic.Wondrous.Eyegear											COST:1250	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Goggles of Night												TYPE:Magic.Wondrous.Eyegear											COST:12000	WT:0										SOURCEPAGE:MagicItemsV.rtf					VISION:Darkvision (60')
-Golem Manual (Clay)					OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.Wondrous.Book.Consumable										COST:12000	WT:5										SOURCEPAGE:MagicItemsV.rtf
-Golem Manual (Flesh)					OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.Wondrous.Book.Consumable										COST:8000	WT:5										SOURCEPAGE:MagicItemsV.rtf
-Golem Manual (Iron)					OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.Wondrous.Book.Consumable										COST:35000	WT:5										SOURCEPAGE:MagicItemsV.rtf
-Golem Manual (Stone)					OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.Wondrous.Book.Consumable										COST:22000	WT:5										SOURCEPAGE:MagicItemsV.rtf
-Golem Manual (Greater Stone)				OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.Wondrous.Book.Consumable										COST:44000	WT:5										SOURCEPAGE:MagicItemsV.rtf
+# Equipment Name						Output Name					Unique Key					Type							Contains							Cost		Weight	Slot Needed	Modifier					Source Page				Virtual Feat		Vision			Bonus to skill					Stat bonus
+Efficient Quiver																		TYPE:Magic.Wondrous.Container			CONTAINS:*-1|Ammunition=60|Thrown=18|Weapon=6	COST:1800	WT:2										SOURCEPAGE:MagicItemsV.rtf
+Efreeti Bottle																		TYPE:Magic.Wondrous												COST:145000	WT:1										SOURCEPAGE:MagicItemsV.rtf
+Elemental Gem (Transparent)																TYPE:Magic.Wondrous.Consumable										COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Elemental Gem (Light Brown)																TYPE:Magic.Wondrous.Consumable										COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Elemental Gem (Reddish Orange)															TYPE:Magic.Wondrous.Consumable										COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Elemental Gem (Blue-Green)																TYPE:Magic.Wondrous.Consumable										COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Elixir of Fire Breath																	TYPE:Magic.Wondrous.Potion.Consumable									COST:1100	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Elixir of Hiding																		TYPE:Magic.Wondrous.Potion.Consumable									COST:250	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Elixir of Love																		TYPE:Magic.Wondrous.Potion.Consumable									COST:150	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Elixir of Sneaking																	TYPE:Magic.Wondrous.Potion.Consumable									COST:250	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Elixir of Swimming																	TYPE:Magic.Wondrous.Potion.Consumable									COST:250	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Elixir of Truth																		TYPE:Magic.Wondrous.Potion.Consumable									COST:500	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Elixir of Vision																		TYPE:Magic.Wondrous.Potion.Consumable									COST:250	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Eversmoking Bottle																	TYPE:Magic.Wondrous												COST:5400	WT:1										SOURCEPAGE:MagicItemsV.rtf
+Eyes of Charming																		TYPE:Magic.Wondrous.Eyegear											COST:56000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Eyes of Doom																		TYPE:Magic.Wondrous.Eyegear											COST:25000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Eyes of the Eagle																		TYPE:Magic.Wondrous.Eyegear											COST:2500	WT:0										SOURCEPAGE:MagicItemsV.rtf									BONUS:SKILL|Spot|5|TYPE=Competence
+Eyes of Petrification																	TYPE:Magic.Wondrous.Eyegear											COST:98000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Feather Token (Anchor)																	TYPE:Magic.Wondrous.Consumable										COST:50	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Feather Token (Bird)																	TYPE:Magic.Wondrous.Consumable										COST:300	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Feather Token (Fan)																	TYPE:Magic.Wondrous.Consumable										COST:200	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Feather Token (Swan Boat)																TYPE:Magic.Wondrous.Consumable										COST:450	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Feather Token (Tree)																	TYPE:Magic.Wondrous.Consumable										COST:400	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Feather Token (Whip)																	TYPE:Magic.Wondrous.Consumable										COST:500	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Figurine of Wondrous Power (Bronze Griffon)													TYPE:Magic.Wondrous												COST:10000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Figurine of Wondrous Power (Ebony Fly)														TYPE:Magic.Wondrous												COST:10000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Figurine of Wondrous Power (Golden Lions)														TYPE:Magic.Wondrous												COST:16500	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Figurine of Wondrous Power (Ivory Goats)														TYPE:Magic.Wondrous												COST:21000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Figurine of Wondrous Power (Marble Elephant)													TYPE:Magic.Wondrous												COST:17000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Figurine of Wondrous Power (Obsidian Steed)													TYPE:Magic.Wondrous												COST:28500	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Figurine of Wondrous Power (Onyx Dog)														TYPE:Magic.Wondrous												COST:15500	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Figurine of Wondrous Power (Serpentine Owl)													TYPE:Magic.Wondrous												COST:9100	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Figurine of Wondrous Power (Silver Raven)														TYPE:Magic.Wondrous												COST:3800	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Gauntlets of Ogre Power																	TYPE:Magic.Wondrous.Glove											COST:4000	WT:4		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																BONUS:STAT|STR|2|TYPE=Enhancement
+Gauntlet of Rust																		TYPE:Magic.Wondrous.Glove											COST:11500	WT:2		SLOTS:1							SOURCEPAGE:MagicItemsV.rtf
+Gem of Brightness																		TYPE:Magic.Wondrous												COST:13000	WT:0				EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:MagicItemsV.rtf
+Gem of Seeing																		TYPE:Magic.Wondrous												COST:75000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Gloves of Arrow Snaring																	TYPE:Magic.Wondrous.Glove											COST:4000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf	VFEAT:Snatch Arrows
+Gloves of Dexterity +2																	TYPE:Magic.Wondrous.Glove											COST:4000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																BONUS:STAT|DEX|2|TYPE=Enhancement
+Gloves of Dexterity +4																	TYPE:Magic.Wondrous.Glove											COST:16000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																BONUS:STAT|DEX|4|TYPE=Enhancement
+Gloves of Dexterity +6																	TYPE:Magic.Wondrous.Glove											COST:36000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																BONUS:STAT|DEX|6|TYPE=Enhancement
+Glove of Storing																		TYPE:Magic.Wondrous.Glove.Container		CONTAINS:*20|Any=1					COST:10000	WT:0		SLOTS:1							SOURCEPAGE:MagicItemsV.rtf
+Gloves of Swimming and Climbing									KEY:Gloves of Swimming/Climbing	TYPE:Magic.Wondrous.Glove											COST:6250	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf									BONUS:SKILL|Climb,Swim|5|TYPE=Competence
+Goggles of Minute Seeing																TYPE:Magic.Wondrous.Eyegear											COST:1250	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Goggles of Night																		TYPE:Magic.Wondrous.Eyegear											COST:12000	WT:0										SOURCEPAGE:MagicItemsV.rtf					VISION:Darkvision (60')
+Golem Manual (Clay)					OUTPUTNAME:[NAME] Golem Manual							TYPE:Magic.Wondrous.Book.Consumable										COST:12000	WT:5										SOURCEPAGE:MagicItemsV.rtf
+Golem Manual (Flesh)					OUTPUTNAME:[NAME] Golem Manual							TYPE:Magic.Wondrous.Book.Consumable										COST:8000	WT:5										SOURCEPAGE:MagicItemsV.rtf
+Golem Manual (Iron)					OUTPUTNAME:[NAME] Golem Manual							TYPE:Magic.Wondrous.Book.Consumable										COST:35000	WT:5										SOURCEPAGE:MagicItemsV.rtf
+Golem Manual (Stone)					OUTPUTNAME:[NAME] Golem Manual							TYPE:Magic.Wondrous.Book.Consumable										COST:22000	WT:5										SOURCEPAGE:MagicItemsV.rtf
+Golem Manual (Greater Stone)				OUTPUTNAME:[NAME] Golem Manual							TYPE:Magic.Wondrous.Book.Consumable										COST:44000	WT:5										SOURCEPAGE:MagicItemsV.rtf
 ###Block: H's
-# Equipment Name						Type						Contains		Cost		Weight	Source Page				Virtual Feat	Spells												Save checks bonus							Combat bonus					Bonus to nb of slots	Bonus to skill																			Bonus to skill point/L		Stat bonus					Modify VAR						Special Property						ADD:SPELLCASTER		KEY
-Hand of Glory						TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2		SOURCEPAGE:MagicItemsV.rtf				SPELLS:Hand of Glory|TIMES=1|CASTERLEVEL=9|Daylight,13|See Invisibility,13																	BONUS:SLOTS|RING|1
-Hand of the Mage						TYPE:Magic.Wondrous.Amulet					COST:900	WT:2		SOURCEPAGE:MagicItemsV.rtf				SPELLS:Hand of the Mage|TIMES=-1|CASTERLEVEL=3|Mage Hand,10
-Handy Haversack						TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5		SOURCEPAGE:MagicItemsV.rtf
-Harp of Charming						TYPE:Magic.Wondrous						COST:7500	WT:5		SOURCEPAGE:MagicItemsV.rtf
-Hat of Disguise						TYPE:Magic.Wondrous.Headgear					COST:1800	WT:0		SOURCEPAGE:MagicItemsV.rtf
-Headband of Intellect +2				TYPE:Magic.Wondrous.Headgear					COST:4000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																										BONUS:SKILLPOINTS|NUMBER|-1	BONUS:STAT|INT|2|TYPE=Enhancement
-Headband of Intellect +4				TYPE:Magic.Wondrous.Headgear					COST:16000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																										BONUS:SKILLPOINTS|NUMBER|-2	BONUS:STAT|INT|4|TYPE=Enhancement
-Headband of Intellect +6				TYPE:Magic.Wondrous.Headgear					COST:36000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																										BONUS:SKILLPOINTS|NUMBER|-3	BONUS:STAT|INT|6|TYPE=Enhancement
-Helm of Brilliance					TYPE:Magic.Wondrous.Headgear					COST:125000	WT:3		SOURCEPAGE:MagicItemsV.rtf
-Helm of Comprehend Languages and Read Magic	TYPE:Magic.Wondrous.Headgear					COST:5200	WT:3		SOURCEPAGE:MagicItemsV.rtf																																																																																								KEY:Helm of Comprehending Languages and Reading Magic
-Helm of Telepathy						TYPE:Magic.Wondrous.Headgear					COST:27000	WT:3		SOURCEPAGE:MagicItemsV.rtf
-Helm of Teleportation					TYPE:Magic.Wondrous.Headgear					COST:73500	WT:3		SOURCEPAGE:MagicItemsV.rtf
-Helm of Underwater Action				TYPE:Magic.Wondrous.Headgear					COST:57000	WT:3		SOURCEPAGE:MagicItemsV.rtf
-Horn of Blasting						TYPE:Magic.Wondrous						COST:20000	WT:1		SOURCEPAGE:MagicItemsV.rtf
-Horn of Blasting (Greater)				TYPE:Magic.Wondrous						COST:70000	WT:1		SOURCEPAGE:MagicItemsV.rtf
-Horn of Fog							TYPE:Magic.Wondrous						COST:2000	WT:1		SOURCEPAGE:MagicItemsV.rtf
-Horn of Goodness/Evil					TYPE:Magic.Wondrous						COST:6500	WT:1		SOURCEPAGE:MagicItemsV.rtf
-Horn of the Tritons					TYPE:Magic.Wondrous						COST:15100	WT:2		SOURCEPAGE:MagicItemsV.rtf
-Horn of Valhalla (Brass)				TYPE:Magic.Wondrous						COST:50000	WT:2		SOURCEPAGE:MagicItemsV.rtf
-Horn of Valhalla (Bronze)				TYPE:Magic.Wondrous						COST:50000	WT:2		SOURCEPAGE:MagicItemsV.rtf
-Horn of Valhalla (Iron)					TYPE:Magic.Wondrous						COST:50000	WT:2		SOURCEPAGE:MagicItemsV.rtf
-Horn of Valhalla (Silver)				TYPE:Magic.Wondrous						COST:50000	WT:2		SOURCEPAGE:MagicItemsV.rtf
-Horseshoes of Speed					TYPE:Magic.Wondrous						COST:3000	WT:12		SOURCEPAGE:MagicItemsV.rtf
-Horseshoes of a Zephyr					TYPE:Magic.Wondrous						COST:6000	WT:4		SOURCEPAGE:MagicItemsV.rtf
-Incense of Meditation					TYPE:Magic.Wondrous.Consumable				COST:4900	WT:1		SOURCEPAGE:MagicItemsV.rtf
-Instant Fortress						TYPE:Magic.Wondrous						COST:55000	WT:0		SOURCEPAGE:MagicItemsV.rtf
-Ioun Stone (Dull Grey)					TYPE:Magic.Wondrous						COST:25	WT:0		SOURCEPAGE:MagicItemsV.rtf
-Ioun Stone (Clear)					TYPE:Magic.Wondrous						COST:4000	WT:0		SOURCEPAGE:MagicItemsV.rtf
-Ioun Stone (Dusty Rose)					TYPE:Magic.Wondrous						COST:5000	WT:0		SOURCEPAGE:MagicItemsV.rtf																										BONUS:COMBAT|AC|1|TYPE=Insight
-Ioun Stone (Deep Red)					TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|DEX|2|TYPE=Enhancement
-Ioun Stone (Incandescent Blue)			TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|WIS|2|TYPE=Enhancement
-Ioun Stone (Pale Blue)					TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|STR|2|TYPE=Enhancement
-Ioun Stone (Pink)						TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|CON|2|TYPE=Enhancement
-Ioun Stone (Pink and Green)				TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|CHA|2|TYPE=Enhancement
-Ioun Stone (Scarlet and Blue)				TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|INT|2|TYPE=Enhancement
-Ioun Stone (Dark Blue)					TYPE:Magic.Wondrous						COST:10000	WT:0		SOURCEPAGE:MagicItemsV.rtf	VFEAT:Alertness
-Ioun Stone (Vibrant Purple)				TYPE:Magic.Wondrous						COST:36000	WT:0		SOURCEPAGE:MagicItemsV.rtf
-Ioun Stone (Iridescent)					TYPE:Magic.Wondrous						COST:18000	WT:0		SOURCEPAGE:MagicItemsV.rtf
-Ioun Stone (Pale Lavender)				TYPE:Magic.Wondrous						COST:20000	WT:0		SOURCEPAGE:MagicItemsV.rtf
-Ioun Stone (Pearly White)				TYPE:Magic.Wondrous						COST:20000	WT:0		SOURCEPAGE:MagicItemsV.rtf
-Ioun Stone (Pale Green)					TYPE:Magic.Wondrous						COST:30000	WT:0		SOURCEPAGE:MagicItemsV.rtf																	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Competence	BONUS:COMBAT|TOHIT|1|TYPE=Competence					BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Competence												BONUS:VAR|TurnCheckBase|1|TYPE=Competence	SPROP:+1 Competence bonus to ability checks
-Ioun Stone (Orange)					TYPE:Magic.Wondrous						COST:30000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																																																				ADD:SPELLCASTER(ANY)
-Ioun Stone (Lavender and Green)			TYPE:Magic.Wondrous						COST:40000	WT:0		SOURCEPAGE:MagicItemsV.rtf
-Iron Bands of Binding					TYPE:Magic.Wondrous						COST:26000	WT:1		SOURCEPAGE:MagicItemsV.rtf
-Iron Flask							TYPE:Magic.Wondrous.Vial					COST:170000	WT:1		SOURCEPAGE:MagicItemsV.rtf
+# Equipment Name						Unique Key								Type						Contains		Cost		Weight	Source Page				Virtual Feat	Innate Spells											Save checks bonus							Combat bonus					Bonus to nb of slots	Bonus to skill																			Bonus to skill point/L		Stat bonus					Modify VAR						Special Property						ADD:SPELLCASTER
+Hand of Glory															TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2		SOURCEPAGE:MagicItemsV.rtf				SPELLS:Hand of Glory|TIMES=1|CASTERLEVEL=9|Daylight,13|See Invisibility,13																	BONUS:SLOTS|RING|1
+Hand of the Mage															TYPE:Magic.Wondrous.Amulet					COST:900	WT:2		SOURCEPAGE:MagicItemsV.rtf				SPELLS:Hand of the Mage|TIMES=-1|CASTERLEVEL=3|Mage Hand,10
+Handy Haversack															TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5		SOURCEPAGE:MagicItemsV.rtf
+Harp of Charming															TYPE:Magic.Wondrous						COST:7500	WT:5		SOURCEPAGE:MagicItemsV.rtf
+Hat of Disguise															TYPE:Magic.Wondrous.Headgear					COST:1800	WT:0		SOURCEPAGE:MagicItemsV.rtf
+Headband of Intellect +2													TYPE:Magic.Wondrous.Headgear					COST:4000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																										BONUS:SKILLPOINTS|NUMBER|-1	BONUS:STAT|INT|2|TYPE=Enhancement
+Headband of Intellect +4													TYPE:Magic.Wondrous.Headgear					COST:16000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																										BONUS:SKILLPOINTS|NUMBER|-2	BONUS:STAT|INT|4|TYPE=Enhancement
+Headband of Intellect +6													TYPE:Magic.Wondrous.Headgear					COST:36000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																										BONUS:SKILLPOINTS|NUMBER|-3	BONUS:STAT|INT|6|TYPE=Enhancement
+Helm of Brilliance														TYPE:Magic.Wondrous.Headgear					COST:125000	WT:3		SOURCEPAGE:MagicItemsV.rtf
+Helm of Comprehend Languages and Read Magic	KEY:Helm of Comprehending Languages and Reading Magic	TYPE:Magic.Wondrous.Headgear					COST:5200	WT:3		SOURCEPAGE:MagicItemsV.rtf
+Helm of Telepathy															TYPE:Magic.Wondrous.Headgear					COST:27000	WT:3		SOURCEPAGE:MagicItemsV.rtf
+Helm of Teleportation														TYPE:Magic.Wondrous.Headgear					COST:73500	WT:3		SOURCEPAGE:MagicItemsV.rtf
+Helm of Underwater Action													TYPE:Magic.Wondrous.Headgear					COST:57000	WT:3		SOURCEPAGE:MagicItemsV.rtf
+Horn of Blasting															TYPE:Magic.Wondrous						COST:20000	WT:1		SOURCEPAGE:MagicItemsV.rtf
+Horn of Blasting (Greater)													TYPE:Magic.Wondrous						COST:70000	WT:1		SOURCEPAGE:MagicItemsV.rtf
+Horn of Fog																TYPE:Magic.Wondrous						COST:2000	WT:1		SOURCEPAGE:MagicItemsV.rtf
+Horn of Goodness/Evil														TYPE:Magic.Wondrous						COST:6500	WT:1		SOURCEPAGE:MagicItemsV.rtf
+Horn of the Tritons														TYPE:Magic.Wondrous						COST:15100	WT:2		SOURCEPAGE:MagicItemsV.rtf
+Horn of Valhalla (Brass)													TYPE:Magic.Wondrous						COST:50000	WT:2		SOURCEPAGE:MagicItemsV.rtf
+Horn of Valhalla (Bronze)													TYPE:Magic.Wondrous						COST:50000	WT:2		SOURCEPAGE:MagicItemsV.rtf
+Horn of Valhalla (Iron)														TYPE:Magic.Wondrous						COST:50000	WT:2		SOURCEPAGE:MagicItemsV.rtf
+Horn of Valhalla (Silver)													TYPE:Magic.Wondrous						COST:50000	WT:2		SOURCEPAGE:MagicItemsV.rtf
+Horseshoes of Speed														TYPE:Magic.Wondrous						COST:3000	WT:12		SOURCEPAGE:MagicItemsV.rtf
+Horseshoes of a Zephyr														TYPE:Magic.Wondrous						COST:6000	WT:4		SOURCEPAGE:MagicItemsV.rtf
+Incense of Meditation														TYPE:Magic.Wondrous.Consumable				COST:4900	WT:1		SOURCEPAGE:MagicItemsV.rtf
+Instant Fortress															TYPE:Magic.Wondrous						COST:55000	WT:0		SOURCEPAGE:MagicItemsV.rtf
+Ioun Stone (Dull Grey)														TYPE:Magic.Wondrous						COST:25	WT:0		SOURCEPAGE:MagicItemsV.rtf
+Ioun Stone (Clear)														TYPE:Magic.Wondrous						COST:4000	WT:0		SOURCEPAGE:MagicItemsV.rtf
+Ioun Stone (Dusty Rose)														TYPE:Magic.Wondrous						COST:5000	WT:0		SOURCEPAGE:MagicItemsV.rtf																										BONUS:COMBAT|AC|1|TYPE=Insight
+Ioun Stone (Deep Red)														TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|DEX|2|TYPE=Enhancement
+Ioun Stone (Incandescent Blue)												TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|WIS|2|TYPE=Enhancement
+Ioun Stone (Pale Blue)														TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|STR|2|TYPE=Enhancement
+Ioun Stone (Pink)															TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|CON|2|TYPE=Enhancement
+Ioun Stone (Pink and Green)													TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|CHA|2|TYPE=Enhancement
+Ioun Stone (Scarlet and Blue)													TYPE:Magic.Wondrous						COST:8000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																															BONUS:STAT|INT|2|TYPE=Enhancement
+Ioun Stone (Dark Blue)														TYPE:Magic.Wondrous						COST:10000	WT:0		SOURCEPAGE:MagicItemsV.rtf	VFEAT:Alertness
+Ioun Stone (Vibrant Purple)													TYPE:Magic.Wondrous						COST:36000	WT:0		SOURCEPAGE:MagicItemsV.rtf
+Ioun Stone (Iridescent)														TYPE:Magic.Wondrous						COST:18000	WT:0		SOURCEPAGE:MagicItemsV.rtf
+Ioun Stone (Pale Lavender)													TYPE:Magic.Wondrous						COST:20000	WT:0		SOURCEPAGE:MagicItemsV.rtf
+Ioun Stone (Pearly White)													TYPE:Magic.Wondrous						COST:20000	WT:0		SOURCEPAGE:MagicItemsV.rtf
+Ioun Stone (Pale Green)														TYPE:Magic.Wondrous						COST:30000	WT:0		SOURCEPAGE:MagicItemsV.rtf																	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Competence	BONUS:COMBAT|TOHIT|1|TYPE=Competence					BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Competence												BONUS:VAR|TurnCheckBase|1|TYPE=Competence	SPROP:+1 Competence bonus to ability checks
+Ioun Stone (Orange)														TYPE:Magic.Wondrous						COST:30000	WT:0		SOURCEPAGE:MagicItemsV.rtf																																																																																				ADD:SPELLCASTER(ANY)
+Ioun Stone (Lavender and Green)												TYPE:Magic.Wondrous						COST:40000	WT:0		SOURCEPAGE:MagicItemsV.rtf
+Iron Bands of Binding														TYPE:Magic.Wondrous						COST:26000	WT:1		SOURCEPAGE:MagicItemsV.rtf
+Iron Flask																TYPE:Magic.Wondrous.Vial					COST:170000	WT:1		SOURCEPAGE:MagicItemsV.rtf
 ###Block:L's
 # Equipment Name				Required Proficiency	Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page				Spell Res.	Damage Reduction	Bonus to skill		Weapon prop. bonus																Special Property
 Lantern of Revealing							TYPE:Magic.Wondrous									COST:30000	WT:2														SOURCEPAGE:MagicItemsV.rtf

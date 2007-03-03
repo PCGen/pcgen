@@ -1,4 +1,4 @@
-# CVS $Revision: 400 $ $Author: eddyanthony $ -- Thu Feb 15 18:43:06 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision: 400 $ $Author: eddyanthony $ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -56,7 +56,7 @@ Alternative Animal Companion Master	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:4th Level or
 16th Level or Higher (Level -15)	VISIBLE:NO	BONUS:VAR|CompLevel|-15
 
 ###Block: Awakened Animal
-# Template Name	Required Race					ADD:Language			KIT				Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL
+# Template Name	Required Race					ADD:Language			Apply Kit			Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL
 Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:Language(TYPE=Spoken)1	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2
 
 ###Block: Righteous Might spell workaround
@@ -64,13 +64,13 @@ Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:Language(TYPE=Spoken)1
 RighteousMightDR	VISIBLE:NO	SA:DR %/Evil|RighteousMightDR_Evil	SA:DR %/Good|RighteousMightDR_Good	DEFINE:RighteousMightDR_Evil|0	DEFINE:RighteousMightDR_Good|0
 
 ###Block: Timeless Body For Druid and Monk
-# Template Name			Visible		Template																		Required Class			Multiple Requirements						Stat bonus																																	!PREAGESET			PREAGESET
-Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable	PRECLASS:1,Druid=15,Monk=17
+# Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class			Multiple Requirements						Stat bonus
+Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable									PRECLASS:1,Druid=15,Monk=17
 
-Timeless Body ~ Adult		VISIBLE:NO																																			BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:Venerable	!PREAGESET:Middle Age
-Timeless Body ~ Middle Age	VISIBLE:NO																										PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:Venerable
-Timeless Body ~ Old		VISIBLE:NO																										PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|3|PREAGESET:Venerable
-Timeless Body ~ Venerable	VISIBLE:NO																																																																									PREAGESET:Venerable
+Timeless Body ~ Adult		VISIBLE:NO																									!PREAGESET:Middle Age															BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:Venerable
+Timeless Body ~ Middle Age	VISIBLE:NO																																		PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:Venerable
+Timeless Body ~ Old		VISIBLE:NO																																		PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|3|PREAGESET:Venerable
+Timeless Body ~ Venerable	VISIBLE:NO																					PREAGESET:Venerable
 
 #
 # End

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 27 15:09:31 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -44,7 +44,7 @@ Save against Poisons			TYPE:Extraordinary	VISIBLE:NO	SA:+% save against poisons|
 Hide in Plain Sight (Assassin)	TYPE:Supernatural		VISIBLE:NO	SA:Hide in Plain Sight (Su)									SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Blackguard special abilities
-# Feat Name		Type			Visible	Special Ability		Spells													Save checks bonus						Source Page
+# Feat Name		Type			Visible	Special Ability		Innate Spells												Save checks bonus						Source Page
 Detect Good		TYPE:SpellLike	VISIBLE:NO	SA:Detect Good (Sp)	SPELLS:Blackguard|TIMES=-1|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS									SOURCEPAGE:PrestigeClasses.rtf
 Dark Blessing	TYPE:Supernatural	VISIBLE:NO	SA:Dark Blessing (Su)															BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
 Aura of Despair	TYPE:Supernatural	VISIBLE:NO	SA:Aura of Despair (Su)																							SOURCEPAGE:PrestigeClasses.rtf
@@ -139,7 +139,7 @@ Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SA:S
 More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SA:Secret (More Newfound Arcana)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Shadowdancer special abilities
-# Feat Name		Type						Visible	Special Ability																																																			Define													Spells												Source Page
+# Feat Name		Type						Visible	Special Ability																																																			Define													Innate Spells											Source Page
 Shadow Illusion	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SA:Shadow Illusion (Sp)																																																		DEFINE:ShadowIllusionLVL|0										SPELLS:Shadowdancer|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA	SOURCEPAGE:PrestigeClasses.rtf
 Shadow Jump		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	SA:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SA:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SA:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:ShadowJump|0	DEFINE:EpicShadowJump|0	DEFINE:ShadowJumpProgression|0														SOURCEPAGE:PrestigeClasses.rtf
 
