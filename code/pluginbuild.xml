@@ -1898,7 +1898,7 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 
-	<target name="jar-lst-plugins" depends="jar-lst-global-plugins, jar-lst-ability-plugins, jar-lst-auto-plugins, jar-lst-campaign-plugins, jar-lst-class-plugins, jar-lst-companionmod-plugins, jar-lst-diety-plugins, jar-lst-domain-plugins, jar-lst-equipment-plugins, jar-lst-equipmentmodifier-plugins, jar-lst-race-plugins, jar-lst-skill-plugins, jar-lst-spell-plugins, jar-lst-subclass-plugins, jar-lst-substitutionlevel-plugins, jar-lst-template-plugins, jar-lst-weaponprof-plugins, jar-lst-kit-plugins" description="Build (Link) Lst Token plugin jar files">
+	<target name="jar-lst-plugins" depends="jar-lst-global-plugins, jar-lst-ability-plugins, jar-lst-add-plugins, jar-lst-auto-plugins, jar-lst-campaign-plugins, jar-lst-class-plugins, jar-lst-companionmod-plugins, jar-lst-diety-plugins, jar-lst-domain-plugins, jar-lst-equipment-plugins, jar-lst-equipmentmodifier-plugins, jar-lst-race-plugins, jar-lst-skill-plugins, jar-lst-spell-plugins, jar-lst-subclass-plugins, jar-lst-substitutionlevel-plugins, jar-lst-template-plugins, jar-lst-weaponprof-plugins, jar-lst-kit-plugins" description="Build (Link) Lst Token plugin jar files">
 	</target>
 
 	<target name="jar-lst-global-plugins" depends="makeplugindirs" description="Build (Link) Global Lst Token plugin jar files">
@@ -2266,6 +2266,17 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 
+	<target name="jar-lst-add-plugins" depends="makeplugindirs" description="Build (Link) Auto Lst Token plugin jar files">
+		<!-- Add tokens-->
+		<jar jarfile="${lstplugins.dir}/AddLstToken-FEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/FeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+		
 	<target name="jar-lst-auto-plugins" depends="makeplugindirs" description="Build (Link) Auto Lst Token plugin jar files">
 		<!-- Auto tokens-->
 		<jar jarfile="${lstplugins.dir}/AutoLstToken-ARMORPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
@@ -5920,6 +5931,20 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/deprecated/NameLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-DEPRECATED-INIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/AddInitToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-DEPRECATED-SPECIAL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/AddSpecialToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

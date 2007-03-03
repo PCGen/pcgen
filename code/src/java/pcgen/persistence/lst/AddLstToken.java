@@ -1,4 +1,5 @@
 /*
+ * AddLstToken
  * Copyright 2007 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 17, 2007
+ * Created on February 23, 2007
  *
  * Current Ver: $Revision: 197 $
  * Last Editor: $Author: nuance $
@@ -31,7 +32,7 @@ import pcgen.core.PObject;
  *
  * @author  Thomas Parker <thpr@users.sourceforge.net>
  */
-public interface AutoLstToken extends LstToken
+public interface AddLstToken extends LstToken
 {
-	public abstract boolean parse(PObject target, String value);
+	public abstract boolean parse(PObject target, String value, int level);
 }

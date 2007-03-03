@@ -1,5 +1,5 @@
 /*
- * AutoLoader.java
+ * AddLoader.java
  * Copyright 2007 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,7 +18,7 @@
  *
  * Created on February 17, 2007
  *
- * $Id: AutoLoader.java 2077 2007-01-27 16:45:58Z thpr $
+ * $Id: AddLoader.java 2077 2007-01-27 16:45:58Z thpr $
  */
 package pcgen.persistence.lst;
 
@@ -28,38 +28,38 @@ import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
-public final class AutoLoader
+public final class AddLoader
 {
-	private AutoLoader()
+	private AddLoader()
 	{
 		//Utility Class, no construction needed
 	}
 
 	/**
-	 * This method is static so it can be used by the AUTO Token.
+	 * This method is static so it can be used by the ADD Token.
 	 * @param target
 	 * @param lstLine
 	 * @param source
 	 * @throws PersistenceLayerException
 	 */
-	public static boolean parseLine(PObject target, String key, String value)
+	public static boolean parseLine(PObject target, String key, String value, int level)
 	{
 		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(AutoLstToken.class);
-		AutoLstToken token = (AutoLstToken) tokenMap.get(key);
+				TokenStore.inst().getTokenMap(AddLstToken.class);
+		AddLstToken token = (AddLstToken) tokenMap.get(key);
 		if (token != null)
 		{
 			LstUtils.deprecationCheck(token, target, value);
-			if (!token.parse(target, value))
+			if (!token.parse(target, value, level))
 			{
-				Logging.errorPrint("Error parsing AUTO: " + key + ":" + value);
+				Logging.errorPrint("Error parsing ADD: " + key + ":" + value);
 				return false;
 			}
 			return true;
 		}
 		else
 		{
-			Logging.errorPrint("Error parsing AUTO, invalid SubToken: " + key);
+			Logging.errorPrint("Error parsing ADD, invalid SubToken: " + key);
 			return false;
 		}
 	}

@@ -34,6 +34,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Visibility;
 
 import java.util.*;
 
@@ -438,6 +439,20 @@ class LevelAbilityFeat extends LevelAbility
 	 */
 	private List<String> getFeatList(final String aToken, final PlayerCharacter aPC) {
 
+		if (aToken.equals("ALL") || aToken.equals("ANY"))
+		{
+			ArrayList<String> featList = new ArrayList<String>();
+			for (Categorisable catz : Globals.getUnmodifiableAbilityList("FEAT"))
+			{
+				Ability a = (Ability) catz;
+				if (aPC.canSelectAbility(a, isVirtual)
+					&& a.getVisibility().equals(Visibility.DEFAULT))
+				{
+					featList.add(a.getKeyName());
+				}
+			}
+			return featList;
+		}
 		if (aToken.startsWith("TYPE=") || aToken.startsWith("TYPE."))
 		{
 			ArrayList<String> featList = new ArrayList<String>();

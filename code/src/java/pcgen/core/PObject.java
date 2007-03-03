@@ -2402,6 +2402,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public LevelAbility addAddList(final int aLevel, final String aString)
 	{
+		if (this.getClass().equals(PCClass.class)) System.err.println(aString);
 		if (levelAbilityList == null)
 		{
 			levelAbilityList = new ArrayList<LevelAbility>();
@@ -4948,6 +4949,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 
 		return iBonus * iTimes;
+	}
+
+	public void clearAdds() {
+		levelAbilityList.clear();
 	}
 	
 //	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC, final String aBonusType, final String aBonusName)

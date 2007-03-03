@@ -31,8 +31,8 @@ public class UseuntrainedToken implements SkillLstToken
 		}
 		else
 		{
-			if (firstChar == 'N' || firstChar == 'n'
-				|| value.equalsIgnoreCase("NO"))
+			if (firstChar != 'N' && firstChar != 'n'
+				&& !value.equalsIgnoreCase("NO"))
 			{
 				Logging.errorPrint("You should use 'YES' or 'NO' as the "
 					+ getTokenName());

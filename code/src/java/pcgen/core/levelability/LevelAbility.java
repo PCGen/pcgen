@@ -475,7 +475,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		{
 			return new LevelAbilityList(aowner, aLevel, aString);
 		}
-		else if (aString.startsWith("Language"))
+		else if (aString.startsWith("LANGUAGE") || aString.startsWith("Language"))
 		{
 			return new LevelAbilityLanguage(aowner, aLevel, aString);
 		}

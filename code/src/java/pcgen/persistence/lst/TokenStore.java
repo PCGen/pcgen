@@ -118,6 +118,7 @@ public class TokenStore
 		
 		//subtokens
 		tokenTypeList.add(AutoLstToken.class);
+		tokenTypeList.add(AddLstToken.class);
 	}
 
 	/**
