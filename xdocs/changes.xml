@@ -10,6 +10,9 @@
       <action dev="maredudd800" type="update" >Updated and corrected documentation issues with KNOWNSPELLS and the default spell level for wands.</action>
       <action dev="maredudd800" type="update" >Updated the race file documentation to include HITDIE tag.</action>
       <action dev="jdempsey" type="add" issue="1588325">User input for feat target.</action>
+      <action dev="thpr" type="update" issue="1670470">Deprecate ADD:LIST and ADD:WEAPONBONUS</action>
+      <action dev="thpr" type="update" issue="1669592">ADD:FEAT Supports ALL</action>
+      <action dev="thpr" type="update" issue="1671219">Deprecated RACE AC Tag</action>
     </release>
     <release version="5.11.8" date="2007-02-18" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1648569">[5.11.6] Virtual Feats Lost on Character Load</action>
