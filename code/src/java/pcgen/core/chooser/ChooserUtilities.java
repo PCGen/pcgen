@@ -342,6 +342,7 @@ public class ChooserUtilities
 		classLookup.put("FEAT",                 SimpleFeatChoiceManager.class.getName());
 		classLookup.put("SHIELDPROF",           SimpleShieldProfChoiceManager.class.getName());
 		//classLookup.put("SPELLLEVEL",           SimpleSpellLevelChoiceManager.class.getName());
+		classLookup.put("USERINPUT",            UserInputChoiceManager.class.getName());
 		classLookup.put("WEAPONPROF",           SimpleWeaponProfChoiceManager.class.getName());
 
 		// The following three choosers can be deprecated in favor of CHOOSE:SKILLSNAMED|CLASS

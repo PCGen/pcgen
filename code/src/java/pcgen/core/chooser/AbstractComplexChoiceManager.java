@@ -55,7 +55,8 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 	protected int     maxNewSelections    = 0;
 	protected int     maxSelections       = 0;
 	protected boolean remove              = false;
-	private int preChooserChoices = 0;
+	protected boolean infiniteAvail       = false;
+	protected int preChooserChoices = 0;
 
 	/**
 	 * Creates a new ChoiceManager object.
@@ -141,6 +142,15 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 
 		choices        = mainList.subList(i, mainList.size());
 
+		calcPool(aPC);
+	}
+
+	/**
+	 * Calculate the pool and associated values. 
+	 * @param aPC The character the chooser is being displayed for.
+	 */
+	protected void calcPool(PlayerCharacter aPC)
+	{
 		double pool = 0;
 		if (pobject instanceof Ability)
 		{
@@ -225,7 +235,7 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 
 		preChooserChoices = selectedList.size();
 		int numChoicesThisTime = numberOfChoices;
-		if (numChoicesThisTime > 0)
+		if (numChoicesThisTime > 0 && !infiniteAvail)
 		{
 			// Make sure that we don't try to make the user choose more selections
 			// than are available or we'll be in an infinite loop...
@@ -243,7 +253,7 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 		}
 
 		boolean showChooser = true;
-		if (availableList.size() == 1 && "NOCHOICE".equals(availableList.get(0).toString())) {
+		if (!infiniteAvail && availableList.size() == 1 && "NOCHOICE".equals(availableList.get(0).toString())) {
 			if (remove)
 			{
 				try
@@ -264,14 +274,12 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 			numChoicesThisTime = 0;
 		}
 
-		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
+		final ChooserInterface chooser = getChooserInstance();
 		chooser.setPoolFlag(false);         // user is not required to make any changes
 		chooser.setAllowsDups(dupsAllowed); // only stackable feats can be duped
 		chooser.setVisible(false);
 		chooser.setPool(requestedSelections);
 
-		title = title + " (" + pobject.getDisplayName() + ')';
-		chooser.setTitle(title);
 		Globals.sortChooserLists(availableList, selectedList);
 
 		while (true)
@@ -320,6 +328,19 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 		}
 
 		return chooser.getSelectedList();
+	}
+
+	/**
+	 * Retrieve the appropriate chooser to use and set its title.
+	 *  
+	 * @return The chooser to be displayed to the user.
+	 */
+	protected ChooserInterface getChooserInstance()
+	{
+		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
+		title = title + " (" + pobject.getDisplayName() + ')';
+		chooser.setTitle(title);
+		return chooser;
 	}
 
 	/**

@@ -75,6 +75,7 @@ import pcgen.gui.utils.NonGuiChooserRadio;
 import pcgen.gui.utils.ShowMessageGuiObserver;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.gui.utils.SwingChooserRadio;
+import pcgen.gui.utils.SwingChooserUserInput;
 import pcgen.gui.utils.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGFile;
@@ -171,6 +172,8 @@ public class pcGenGUI
 			ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 			ChooserFactory.setRadioInterfaceClassname(SwingChooserRadio.class
 				.getName());
+			ChooserFactory.setUserInputInterfaceClassname(SwingChooserUserInput.class
+				.getName());
 			InputFactory.setInterfaceClassname(DialogInputInterface.class
 				.getName());
 		}
@@ -178,6 +181,8 @@ public class pcGenGUI
 		{
 			ChooserFactory.setInterfaceClassname(NonGuiChooser.class.getName());
 			ChooserFactory.setRadioInterfaceClassname(NonGuiChooserRadio.class
+				.getName());
+			ChooserFactory.setUserInputInterfaceClassname(NonGuiChooser.class
 				.getName());
 		}
 

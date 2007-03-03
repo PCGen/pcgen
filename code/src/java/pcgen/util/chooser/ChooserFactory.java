@@ -19,6 +19,8 @@
  */
 package pcgen.util.chooser;
 
+import pcgen.core.chooser.ChooserUtilities;
+
 /**
  * This factory class returns a Chooser of the appropriate type. This is intended
  * to reduce the core/gui interdependence. Much more work is needed on this...
@@ -31,6 +33,7 @@ public final class ChooserFactory
 {
 	private static String interfaceClassname = null;
 	private static String radioInterfaceClassname = null;
+	private static String userInputInterfaceClassname = null;
 
 	/**
 	 * Deliberately private so it can't be instantiated.
@@ -95,6 +98,33 @@ public final class ChooserFactory
 	}
 
 	/**
+	 * Get the userInput instance
+	 * @return ChooserInterface
+	 */
+	public static ChooserInterface getUserInputInstance()
+	{
+		try
+		{
+			Class<?> c = Class.forName(userInputInterfaceClassname);
+			ChooserInterface ci = (ChooserInterface) c.newInstance();
+			return ci;
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (InstantiationException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IllegalAccessException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
 	 * @param interfaceClassname The interfaceClassname to set.
 	 */
 	public static void setInterfaceClassname(String interfaceClassname)
@@ -108,6 +138,14 @@ public final class ChooserFactory
 	public static void setRadioInterfaceClassname(String radioInterfaceClassname)
 	{
 		ChooserFactory.radioInterfaceClassname = radioInterfaceClassname;
+	}
+
+	/**
+	 * @param uiInterfaceClassname The uiInterfaceClassname to set.
+	 */
+	public static void setUserInputInterfaceClassname(String uiInterfaceClassname)
+	{
+		ChooserFactory.userInputInterfaceClassname = uiInterfaceClassname;
 	}
 
 	/**
@@ -126,5 +164,14 @@ public final class ChooserFactory
 	public static String getRadioInterfaceClassname()
 	{
 		return ChooserFactory.radioInterfaceClassname;
+	}
+
+	/**
+	 * Get the class name of the user input interface
+	 * @return the class name of the user input interface
+	 */
+	public static String getUserInputInterfaceClassname()
+	{
+		return ChooserFactory.userInputInterfaceClassname;
 	}
 }
