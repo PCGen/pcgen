@@ -328,12 +328,12 @@ Transmuter Learning Bonus	TYPE:Extraordinary	VISIBLE:NO	SA:+2 bonus to Spellcraf
 All Automatic Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)
 All Martial Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial
 Bard Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
-Druid Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Spear
+Druid Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
 Monk Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling|Unarmed Strike
 Rogue Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
 Wizard Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 Assassin Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Crossbow|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Sword (Short)
-Shadowdancer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|TYPE.Crossbow|TYPE.Dagger|Dart|Mace|Morningstar|Rapier|Sap|Shortbow|Sword (Short)
+Shadowdancer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|TYPE.Crossbow|TYPE.Dagger|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)
 
 ###Block: Automatic Creature Type Proficiencies
 # Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.		Source Page
