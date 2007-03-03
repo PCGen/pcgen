@@ -21,7 +21,7 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft
 17	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill17,1
 ###Block: Animal Companion & Master of the Wild
 1										BONUS:VAR|CompLevel|CL								FEATAUTO:Animal Companion
-1	SA:Master of the Wild (%/day)(Ex)|MasteroftheWild	BONUS:VAR|MasterOfTheWild|(CL+5)/6	DEFINE:MasteroftheWild|0
+1	SA:Master of the Wild (%/day)(Ex)|MasteroftheWild	BONUS:VAR|MasterOfTheWild|(CL+5)/6	DEFINE:MasterOfTheWild|0
 ###Block: Normal Level Progression
 1						ADD:FEAT(TYPE.AnimalLordAbility)	ADD:FEAT(TYPE.AnimalLordTotem)	FEATAUTO:Feral Child
 2																		FEATAUTO:Track

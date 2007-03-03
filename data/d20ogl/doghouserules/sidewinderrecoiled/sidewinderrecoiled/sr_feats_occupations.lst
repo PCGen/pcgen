@@ -20,7 +20,7 @@ Occupation (Merchant)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:A
 Occupation (Outlaw)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Outlaw_Skills)2	ADD:FEAT(Brawl,Personal Firearms Proficiency)											BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 47
 Occupation (Politician)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,CHA=13	PRETEXT:Age 21	ADD:FEAT(TYPE=Politician_Skills)2	ADD:FEAT(Renown,Trustworthy,Windfall)											BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 48
 Occupation (Prospector)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Prospector_Skills)2	ADD:FEAT(Endurance,Personal Firearms Proficiency)									BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
-Occupation (Ranch Hand)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Ranch_Hand_Skills)2	ADD:FEAT(Animal Affinity,Exotic Ranged Weapon Proficiency (Lasso),Personal Firearms Proficiency)	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
+Occupation (Ranch Hand)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Ranch_Hand_Skills)2	ADD:FEAT(Animal Affinity,Exotic Ranged Weapon Proficiency(Lasso),Personal Firearms Proficiency)		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
 Occupation (Sodbuster)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Sodbuster_Skills)2	ADD:FEAT(Home Ground,Personal Firearms Proficiency)									BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
 Occupation (Tribal)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 13	ADD:FEAT(TYPE=Tribal_Skills)3	ADD:FEAT(Archaic Weapons Proficiency,Athletic)											BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 49
 

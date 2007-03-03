@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat Mar 25 23:17:27 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
-# Feat Name						Type				Req. Att.	Required Class			Required Feat						Required Skill			Required Stat	Req. Weapond Prof.		Define			Spells										Description															Multiple?	Choose									Automaticaly Gained Armor Prof.	Combat bonus								Bonus to skill					Source Page
+# Feat Name						Type				Req. Att.	Required Class			Required Feat						Required Skill			Required Stat	Req. Weapond Prof.		Define			Innate Spells									Description															Multiple?	Choose									Automaticaly Gained Armor Prof.	Combat bonus								Bonus to skill					Source Page
 Armor Proficiency (Steamcraft Armor)	TYPE:General.Fighter								PREFEAT:1,Armor Proficiency (Heavy)																															DESC:You are proficient with the operation of steam-powered armor																		AUTO:ARMORPROF|TYPE.Steamcraft																		SOURCEPAGE:p.102
 Brew Injection					TYPE:ItemCreation				PRECLASS:1,Spellcaster=3																						DEFINE:BrewLevel|3												DESC:You can create magical injections imbued with spell effects																																									SOURCEPAGE:p.102
 Combat Climbing					TYPE:General																	PRESKILL:1,Climb=1		PRESTAT:1,DEX=13																					DESC:You exhibit exceptional skill in simutaneously fighting and climbing																																BONUS:SKILL|Climb|2|TYPE=Circumstance	SOURCEPAGE:p.102

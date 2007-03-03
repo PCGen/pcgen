@@ -1,31 +1,31 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
 
 ###Block: Comm Gear
-# Equipment Name					Type						Cost		Weight	MODS			Source Page		Bonus to skill
-Spellbook Software				TYPE:HighTechGoods.CommGear.Spells	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:p.106
-Spellware Datachip Backup			TYPE:HighTechGoods.CommGear.Spells	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:p.106
-Credit Chip						TYPE:HighTechGoods.CommGear		COST:1	WT:0					SOURCEPAGE:p.106
-Datachip (blank)					TYPE:HighTechGoods.CommGear		COST:1	WT:0					SOURCEPAGE:p.106
-Datachip Program					TYPE:HighTechGoods.CommGear		COST:50	WT:0		MODS:REQUIRED	SOURCEPAGE:p.106
-Datachip (Agricultural Science)		TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Profession (Farmer)|2|TYPE=Circumstance
-Datachip (Animal Husbandry)			TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Handle Animal|2|TYPE=Circumstance
-Datachip (Arcanist's Lorebook)		TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Arcana)|2|TYPE=Circumstance	BONUS:SKILL|Spellcraft|2|TYPE=Circumstance
-Datachip (Art Collector's Price Guide)	TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Appraise|2|TYPE=Circumstance
-Datachip (Computers and Electronics)	TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Use Device|2|TYPE=Circumstance
-Datachip (Desktop Physician)			TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Heal|2|TYPE=Circumstance
-Datachip (Imperial Biological Survey)	TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Biology)|2|TYPE=Circumstance
-Datachip (Chemical Database)			TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Chemistry)|2|TYPE=Circumstance
-Datachip (Alchemist's Handbook)		TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Alchemy|2|TYPE=Circumstance
-Datachip (Imperial Encyclopedia)		TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Geography)|2|TYPE=Circumstance	BONUS:SKILL|Knowledge (History)|2|TYPE=Circumstance
-Datachip (Languages and Linguistics)	TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Decipher Script|2|TYPE=Circumstance
-Datachip (Military Surplus Guide)		TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Appraise|2|TYPE=Circumstance
-Datachip (Survival Guide)			TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Wilderness Lore|2|TYPE=Circumstance
-Datachip (Technical Design Database)	TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Engineering)|2|TYPE=Circumstance
-Datachip (Unification Bible)			TYPE:HighTechGoods.CommGear		COST:50	WT:0					SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Religion)|2|TYPE=Circumstance
-Datapad						TYPE:HighTechGoods.CommGear.Datapad	COST:300	WT:1		MODS:YES		SOURCEPAGE:p.106
-Language translator				TYPE:HighTechGoods.CommGear		COST:200	WT:1					SOURCEPAGE:p.107
-Personal communicator				TYPE:HighTechGoods.CommGear		COST:100	WT:0					SOURCEPAGE:p.107
+# Equipment Name					Type						Cost		Weight	Requires Modification?	Source Page		Bonus to skill
+Spellbook Software				TYPE:HighTechGoods.CommGear.Spells	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.106
+Spellware Datachip Backup			TYPE:HighTechGoods.CommGear.Spells	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.106
+Credit Chip						TYPE:HighTechGoods.CommGear		COST:1	WT:0						SOURCEPAGE:p.106
+Datachip (blank)					TYPE:HighTechGoods.CommGear		COST:1	WT:0						SOURCEPAGE:p.106
+Datachip Program					TYPE:HighTechGoods.CommGear		COST:50	WT:0		MODS:REQUIRED		SOURCEPAGE:p.106
+Datachip (Agricultural Science)		TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Profession (Farmer)|2|TYPE=Circumstance
+Datachip (Animal Husbandry)			TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Handle Animal|2|TYPE=Circumstance
+Datachip (Arcanist's Lorebook)		TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Arcana)|2|TYPE=Circumstance	BONUS:SKILL|Spellcraft|2|TYPE=Circumstance
+Datachip (Art Collector's Price Guide)	TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Appraise|2|TYPE=Circumstance
+Datachip (Computers and Electronics)	TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Use Device|2|TYPE=Circumstance
+Datachip (Desktop Physician)			TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Heal|2|TYPE=Circumstance
+Datachip (Imperial Biological Survey)	TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Biology)|2|TYPE=Circumstance
+Datachip (Chemical Database)			TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Chemistry)|2|TYPE=Circumstance
+Datachip (Alchemist's Handbook)		TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Alchemy|2|TYPE=Circumstance
+Datachip (Imperial Encyclopedia)		TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Geography)|2|TYPE=Circumstance	BONUS:SKILL|Knowledge (History)|2|TYPE=Circumstance
+Datachip (Languages and Linguistics)	TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Decipher Script|2|TYPE=Circumstance
+Datachip (Military Surplus Guide)		TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Appraise|2|TYPE=Circumstance
+Datachip (Survival Guide)			TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Wilderness Lore|2|TYPE=Circumstance
+Datachip (Technical Design Database)	TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Engineering)|2|TYPE=Circumstance
+Datachip (Unification Bible)			TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Religion)|2|TYPE=Circumstance
+Datapad						TYPE:HighTechGoods.CommGear.Datapad	COST:300	WT:1		MODS:YES			SOURCEPAGE:p.106
+Language translator				TYPE:HighTechGoods.CommGear		COST:200	WT:1						SOURCEPAGE:p.107
+Personal communicator				TYPE:HighTechGoods.CommGear		COST:100	WT:0						SOURCEPAGE:p.107
 
 ###Block: Sensors
 # Equipment Name			Type					Cost		Weight	Source Page		Vision		Bonus to skill						Special Property
@@ -81,12 +81,12 @@ Safecracker's kit				TYPE:HighTechGoods.Espionage			COST:550	WT:10		SOURCEPAGE:p
 Signal jammer				TYPE:HighTechGoods.Espionage			COST:750	WT:1		SOURCEPAGE:p.111
 
 ###Block: Tools
-# Equipment Name			Type						Cost		Weight	MODS			Source Page			Bonus to skill
-Appraisal kit			TYPE:HighTechGoods.Tools		COST:100	WT:5					SOURCEPAGE:p.114
-Demolitions kit			TYPE:HighTechGoods.Tools		COST:200	WT:5					SOURCEPAGE:p.114
-Demolitions kit (masterwork)	TYPE:HighTechGoods.Tools.Masterwork	COST:500	WT:8					SOURCEPAGE:p.114		BONUS:SKILL|Demolitions|2|TYPE=EquipmentCircumstance
-Laser torch				TYPE:HighTechGoods.Tools		COST:250	WT:5					SOURCEPAGE:p.114
-Toolkit				TYPE:HighTechGoods.Tools		COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:p.113-114
+# Equipment Name			Type						Cost		Weight	Requires Modification?	Source Page			Bonus to skill
+Appraisal kit			TYPE:HighTechGoods.Tools		COST:100	WT:5						SOURCEPAGE:p.114
+Demolitions kit			TYPE:HighTechGoods.Tools		COST:200	WT:5						SOURCEPAGE:p.114
+Demolitions kit (masterwork)	TYPE:HighTechGoods.Tools.Masterwork	COST:500	WT:8						SOURCEPAGE:p.114		BONUS:SKILL|Demolitions|2|TYPE=EquipmentCircumstance
+Laser torch				TYPE:HighTechGoods.Tools		COST:250	WT:5						SOURCEPAGE:p.114
+Toolkit				TYPE:HighTechGoods.Tools		COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.113-114
 
 
 ###Block: Space gear

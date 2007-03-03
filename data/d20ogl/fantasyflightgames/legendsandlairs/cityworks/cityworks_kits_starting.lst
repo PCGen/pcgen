@@ -14,22 +14,22 @@ SKILL:Escape Artist	RANK:4
 SKILL:Jump			RANK:4
 SKILL:Tumble		RANK:4
 FEAT:Improved Initiative
-FEAT:Dodge				PRERACE:Human	PRESTAT:1,DEX=13
-FEAT:Expertise			PRERACE:Human	PRESTAT:1,INT=13
+FEAT:Dodge				PRERACE:1,Human	PRESTAT:1,DEX=13
+FEAT:Expertise			PRERACE:1,Human	PRESTAT:1,INT=13
 
 
 STARTPACK:Assassin Starting Package	PRECLASS:1,Assassin (CW)=1	SOURCEPAGE:p.21
 GEAR:Leather
-GEAR:Greatsword		PRERACE:Dwarf%,Elf%,Half-Elf,Half-Orc,Human
-GEAR:Longsword		PRERACE:Gnome,Halfling
+GEAR:Greatsword		PRERACE:1,Dwarf%,Elf%,Half-Elf,Half-Orc,Human
+GEAR:Longsword		PRERACE:1,Gnome,Halfling
 GEAR:Crossbow (Light)
 GEAR:Bolt (Crossbow)	QTY:20
 SKILL:Bluff			RANK:4
 SKILL:Disguise		RANK:4
 SKILL:Hide			RANK:4
 SKILL:Move Silently	RANK:4
-FEAT:Exotic Weapon Proficiency (Kukri)
-FEAT:Improved Initiative			PRERACE:Human
+FEAT:Exotic Weapon Proficiency(Kukri)
+FEAT:Improved Initiative			PRERACE:1,Human
 GEAR:Kukri
 
 

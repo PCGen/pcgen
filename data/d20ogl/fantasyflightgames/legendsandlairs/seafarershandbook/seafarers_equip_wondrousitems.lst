@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
 # Original Entry by: Eddy Anthony
 
-# Equipment Name						Type						Cost		Weight	Slot Needed	MODS			Source Page		Spells									Combat bonus				Special Property
-Amulet of Untarnished Steel				TYPE:Magic.Wondrous.Amulet		COST:30000	WT:0							SOURCEPAGE:p.40
-Amulet of Protection against Aquatic Creatures	TYPE:Magic.Wondrous.Amulet		COST:36000	WT:0							SOURCEPAGE:p.40
-Amulet of Storm Dispersal				TYPE:Magic.Wondrous.Amulet		COST:8100	WT:0							SOURCEPAGE:p.40
-Boots of Water Walking					TYPE:Magic.Wondrous.Boot		COST:12000	WT:1		SLOTS:2				SOURCEPAGE:p.40
-Coracle of Xaren						TYPE:Magic.Wondrous.Transportation	COST:100000	WT:2000						SOURCEPAGE:p.40
-Daoud's Marvelous Maritime Map			TYPE:Magic.Wondrous			COST:81000	WT:150						SOURCEPAGE:p.41
-Figurehead of Protection				TYPE:Magic.Wondrous			COST:27000	WT:300						SOURCEPAGE:p.41
-Master Wheel						TYPE:Magic.Wondrous			COST:72000	WT:75							SOURCEPAGE:p.41
-Helmet of the Crab					TYPE:Magic.Wondrous.Headgear		COST:5800	WT:3							SOURCEPAGE:p.41											BONUS:COMBAT|AC|1|TYPE=Enhancement	SPROP:Wearer cannot be suprised
-Lacedon Cloak						TYPE:Magic.Wondrous.Cape		COST:4750	WT:1							SOURCEPAGE:p.41	SPELLS:Lacedon Cloak|TIMES=6|CASTERLEVEL=7|Ghoul Touch,15	BONUS:COMBAT|AC|2|TYPE=Enhancement
-Waterproof Scroll						TYPE:WaterproofScroll.Consumable	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:p.24																	SPROP:Ignors all damage caused by immersion in or exposure to water
+# Equipment Name						Type						Cost		Weight	Slot Needed	Requires Modification?	Source Page		Innate Spells								Combat bonus				Special Property
+Amulet of Untarnished Steel				TYPE:Magic.Wondrous.Amulet		COST:30000	WT:0								SOURCEPAGE:p.40
+Amulet of Protection against Aquatic Creatures	TYPE:Magic.Wondrous.Amulet		COST:36000	WT:0								SOURCEPAGE:p.40
+Amulet of Storm Dispersal				TYPE:Magic.Wondrous.Amulet		COST:8100	WT:0								SOURCEPAGE:p.40
+Boots of Water Walking					TYPE:Magic.Wondrous.Boot		COST:12000	WT:1		SLOTS:2					SOURCEPAGE:p.40
+Coracle of Xaren						TYPE:Magic.Wondrous.Transportation	COST:100000	WT:2000							SOURCEPAGE:p.40
+Daoud's Marvelous Maritime Map			TYPE:Magic.Wondrous			COST:81000	WT:150							SOURCEPAGE:p.41
+Figurehead of Protection				TYPE:Magic.Wondrous			COST:27000	WT:300							SOURCEPAGE:p.41
+Master Wheel						TYPE:Magic.Wondrous			COST:72000	WT:75								SOURCEPAGE:p.41
+Helmet of the Crab					TYPE:Magic.Wondrous.Headgear		COST:5800	WT:3								SOURCEPAGE:p.41											BONUS:COMBAT|AC|1|TYPE=Enhancement	SPROP:Wearer cannot be suprised
+Lacedon Cloak						TYPE:Magic.Wondrous.Cape		COST:4750	WT:1								SOURCEPAGE:p.41	SPELLS:Lacedon Cloak|TIMES=6|CASTERLEVEL=7|Ghoul Touch,15	BONUS:COMBAT|AC|2|TYPE=Enhancement
+Waterproof Scroll						TYPE:WaterproofScroll.Consumable	COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:p.24																	SPROP:Ignors all damage caused by immersion in or exposure to water

@@ -6,5 +6,5 @@ Perform (Chant)		KEYSTAT:CHA							CLASSES:Bard	TYPE:Charisma.Perform											
 Herald's Intuition	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES				TYPE:Wisdom.Rhonian	PRECLASS:1,Rhonian Emissary=1						SOURCEPAGE:p.113
 
 # Changed Skills
-Control Shape.MOD																						PRERACE:Mhuinntir,Rezurbek
+Control Shape.MOD																						PRERACE:1,Mhuinntir,Rezurbek
 Perform.MOD														TYPE:Charisma.Perform

@@ -86,7 +86,7 @@ CLASS:Dread Lord	HD:4		TYPE:PC.Prestige	ABB:Dre		MAXLEVEL:10	SOURCEPAGE:p.11	BON
 # Class Name	Required AL				Required Feat				Required Skill						Req. Known Spell			Req. Spell Type		Required Text
 CLASS:Dread Lord	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Spell Focus(Illusion)	PRESKILL:1,Intimidate=6	PRESKILL:1,Spellcraft=8	PRESPELL:1,Awakened Fears	PRESPELLTYPE:Arcane,2,3	PRETEXT:See text
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Dread Lord	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidation|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
+CLASS:Dread Lord	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
 1	ADD:SPELLCASTER(ANY)	SA:Intensify Fears I
 2	ADD:SPELLCASTER(ANY)
 3	ADD:SPELLCASTER(ANY)	SA:Tame Fears
