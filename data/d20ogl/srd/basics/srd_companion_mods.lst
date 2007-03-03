@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 # Original Entry by Emily and Tir Gwaith
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 ###Block:Special Mount
-# Class of the Master	Type				Hit Dice	Spell Res.	Special Ability													Define						Combat bonus						Stat bonus		Automaticaly Gained Armor Prof.
-FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				SA:Share saving throws	SA:Empathic Link	SA:Share spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	AUTO:ARMORPROF|TYPE.Barding
-FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2																			DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2				SA:Command creatures of its kind										DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																	DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+# Class of the Master	Type				Hit Dice	Spell Res.	Automaticaly Gained Armor Prof.	Special Ability													Define						Combat bonus						Stat bonus
+FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				AUTO:ARMORPROF|TYPE.Barding		SA:Share saving throws	SA:Empathic Link	SA:Share spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2																									DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2										SA:Command creatures of its kind										DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																							DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:SMLevel=16	TYPE:Special Mount			SR:21
 FOLLOWER:SMLevel=17	TYPE:Special Mount			SR:22
 FOLLOWER:SMLevel=18	TYPE:Special Mount			SR:23
@@ -15,21 +15,21 @@ FOLLOWER:SMLevel=19	TYPE:Special Mount			SR:24
 FOLLOWER:SMLevel=20	TYPE:Special Mount			SR:25
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	COPYMASTERBAB		COPYMASTERCHECK		COPYMASTERHP		USEMASTERSKILL		Special Ability									Define						Combat bonus						SWITCHRACE
-FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2	USEMASTERSKILL:YES	SA:Empathic Link	SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	SWITCHRACE:Animal|Magical Beast	SWITCHRACE:Beast|Magical Beast
-FOLLOWER:FMLevel=3	TYPE:Familiar																			SA:Touch										DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=5	TYPE:Familiar																			SA:Speak with master								DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=7	TYPE:Familiar																			SA:Speak with animals of its type						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=9	TYPE:Familiar																														DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																													DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+# Class of the Master	Type			Spell Res.	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special Ability									Define						Combat bonus						Change Racetype
+FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	SA:Empathic Link	SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	SWITCHRACE:Animal|Magical Beast	SWITCHRACE:Beast|Magical Beast
+FOLLOWER:FMLevel=3	TYPE:Familiar																				SA:Touch										DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=5	TYPE:Familiar																				SA:Speak with master								DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=7	TYPE:Familiar																				SA:Speak with animals of its type						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=9	TYPE:Familiar																															DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																														DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=12	TYPE:Familiar	SR:17
-FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18																		SA:Master can Scry								DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18																			SA:Master can Scry								DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=14	TYPE:Familiar	SR:19
-FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																													DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																														DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=16	TYPE:Familiar	SR:21
-FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																													DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																														DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=18	TYPE:Familiar	SR:23
-FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																													DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																														DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 
 ###Block:Familiar Bonuses to Master

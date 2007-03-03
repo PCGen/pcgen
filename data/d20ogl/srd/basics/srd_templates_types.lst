@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 #
@@ -36,13 +36,13 @@ Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:20/+1		SOURCEPAGE:srdbasicch
 Familiar within arms reach	VISIBLE:NO	SOURCEPAGE:srdNPCsFamMntsComps.rtf	BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PRESA:1,Summon Familiar|PREAPPLY:ANYPC	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
 
 ###Block: Timeless Body For Druid and Monk
-# Template Name			Visible		Template																		Required Class			Multiple Requirements						Stat bonus																																	!PREAGESET			PREAGESET
-Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable	PRECLASS:1,Druid=15,Monk=17										BONUS:STAT|INT|20|PREAGESET:Venerable
+# Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class			Multiple Requirements						Stat bonus
+Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable									PRECLASS:1,Druid=15,Monk=17										BONUS:STAT|INT|20|PREAGESET:Venerable
 
-Timeless Body ~ Adult		VISIBLE:NO																																			BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:Venerable	!PREAGESET:Middle Age
-Timeless Body ~ Middle Age	VISIBLE:NO																										PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:Venerable
-Timeless Body ~ Old		VISIBLE:NO																										PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|3|PREAGESET:Venerable
-Timeless Body ~ Venerable	VISIBLE:NO																																																																									PREAGESET:Venerable
+Timeless Body ~ Adult		VISIBLE:NO																									!PREAGESET:Middle Age															BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:Venerable
+Timeless Body ~ Middle Age	VISIBLE:NO																																		PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:Venerable
+Timeless Body ~ Old		VISIBLE:NO																																		PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|3|PREAGESET:Venerable
+Timeless Body ~ Venerable	VISIBLE:NO																					PREAGESET:Venerable
 
 ###Block: Conditional Templates
 # Template Name				Visible	Source Page					Save checks bonus									Combat bonus									Bonus to skill																					Stat bonus							Choose								Temporary effect description
@@ -73,7 +73,7 @@ Fighting Defensively	VISIBLE:NO	SOURCEPAGE:SRDCombatActions.rtf	BONUS:COMBAT|TOH
 Total Defense		VISIBLE:NO	SOURCEPAGE:SRDCombatActions.rtf								BONUS:VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC					TEMPDESC:You are defending yourself as a standard action
 
 ###Block: Awakened Animal
-# Template Name	Required Race					ADD:Language			KIT				Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL
+# Template Name	Required Race					ADD:Language			Apply Kit			Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL
 Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:Language(TYPE=Spoken)1	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2
 
 #
