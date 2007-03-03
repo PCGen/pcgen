@@ -21,21 +21,22 @@ public class UseuntrainedToken implements SkillLstToken
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
-			if (!value.equalsIgnoreCase("YES"))
+			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				Logging.errorPrint("You should use 'YES' or 'NO' as the "
 					+ getTokenName());
-				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+				Logging.errorPrint("Strange Abbreviations will fail after PCGen 5.12");
 			}
 			set = true;
 		}
 		else
 		{
-			if (value.equalsIgnoreCase("NO"))
+			if (firstChar == 'N' || firstChar == 'n'
+				|| value.equalsIgnoreCase("NO"))
 			{
 				Logging.errorPrint("You should use 'YES' or 'NO' as the "
 					+ getTokenName());
-				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+				Logging.errorPrint("Strange Abbreviations will fail after PCGen 5.12");
 			}
 			set = false;
 		}
