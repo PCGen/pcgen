@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb  5 03:11:57 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Specific Templates used in monster races
 #
@@ -51,7 +51,7 @@ Lernaean Cryohydra	CR:3	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SA:Body immune to
 Drow Male		VISIBLE:NO	SOURCEPAGE:srdmonsterse.rtf	PRERACE:1,Elf (Drow)	BONUS:STAT|CHA|-2	FAVOREDCLASS:Wizard	REMOVABLE:YES	SUBRACE:Male	GENDERLOCK:Male
 Drow Female		VISIBLE:NO	SOURCEPAGE:srdmonsterse.rtf	PRERACE:1,Elf (Drow)	BONUS:STAT|CHA|2	FAVOREDCLASS:Cleric	REMOVABLE:YES	SUBRACE:Female	GENDERLOCK:Female
 ###Block: Pixie
-# Template Name		Visible	Source Page				Spells
+# Template Name		Visible	Source Page				Innate Spells
 Irresistible Dance	VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf	SPELLS:Innate|TIMES=1|CASTERLEVEL=8|Irresistible Dance,21
 Normal Pixie		VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf
 ###Block: Sahuagin

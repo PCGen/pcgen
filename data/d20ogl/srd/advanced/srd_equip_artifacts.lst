@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 16 05:32:00 2007 -- reformated by prettylst.pl v1.35 (build 1881)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 #Original Entry by: DJ Chair
 
@@ -6,7 +6,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 # Artefact - Frank
 
 ###Block:Minor Artifacts
-# Equipment Name			Required Proficiency	Type															Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Range		Size		Source Page						Spell Res.	Spells																																																											Weapon prop. bonus					Special Property
+# Equipment Name			Required Proficiency	Type															Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Range		Size		Source Page						Spell Res.	Innate Spells																																																										Weapon prop. bonus					Special Property
 Book of Infinite Spells						TYPE:Magic.Artifact.Minor											WT:3												EQMOD:LEATHER.PAPER					SOURCEPAGE:srdmagicitemsartifacts.rtf																																																																							SPROP:This work bestows upon any character of any class the ability to use the spells within its pages
 Deck of Many Things						TYPE:Magic.Artifact.Minor											WT:0												EQMOD:PAPER							SOURCEPAGE:srdmagicitemsartifacts.rtf																																																																							SPROP:See text
 Hammer of Thunderbolts		PROFICIENCY:Warhammer	TYPE:Magic.Artifact.Minor.Weapon.Martial.Melee.Metal.Thrown.Bludgeoning.Hammer.Specific	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d8	EQMOD:STEEL			RANGE:30	SIZE:L	SOURCEPAGE:srdmagicitemsartifacts.rtf																																																															BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement	SPROP:See text
@@ -18,7 +18,7 @@ Talisman of Ultimate Evil					TYPE:Magic.Artifact.Minor											WT:0										
 Talisman of Reluctant Wishes					TYPE:Magic.Artifact.Minor											WT:1												EQMOD:STONE							SOURCEPAGE:srdmagicitemsartifacts.rtf																																																																							SPROP:See text
 
 ###Block:Major artifacts
-# Equipment Name		Type					Weight	Modifier	Source Page						Spells									Special Property
+# Equipment Name		Type					Weight	Modifier	Source Page						Innate Spells								Special Property
 The Saint's Mace		TYPE:Magic.Artifact.Major	WT:0		EQMOD:STEEL	SOURCEPAGE:srdmagicitemsartifacts.rtf	SPELLS:Artifact|TIMES=-1|CASTERLEVEL=20|Searing Light,14	SPROP:See text
 The Moaning Diamond	TYPE:Magic.Artifact.Major	WT:0				SOURCEPAGE:srdmagicitemsartifacts.rtf	SPELLS:Artifact|TIMES=3|CASTERLEVEL=20|Stone Shape,14		SPROP:See text
 Black Dragon Orb		TYPE:Magic.Artifact.Major	WT:0				SOURCEPAGE:srdmagicitemsartifacts.rtf											SPROP:See text. Fly once per round

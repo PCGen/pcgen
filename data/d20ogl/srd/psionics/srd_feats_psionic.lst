@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 20:09:20 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 
-# Feat Name				Type			Req. Att.	Required Class				Required Feat									Maximum Level	Required Skill	Required Stat	Description		Stackable?	Multiple?	Choose																			Choose a Feat				Combat bonus					BONUS:DC						Bonus to HP																			Bonus to skill					Source Page
+# Feat Name				Type			Req. Att.	Required Class				Required Feat									Maximum Level	Required Skill	Required Stat	Description		Stackable?	Multiple?	Choose																			Choose a Feat				Combat bonus					Bonus to DC						Bonus to HP																			Bonus to skill					Source Page
 Body Fuel				TYPE:Psionic									PREFEAT:2,Inner Strength,Talented	PREFEAT:1,PsionicClass											DESC:See text																																																																								SOURCEPAGE:srdpsionicfeats.rtf
 Combat Manifestation		TYPE:Psionic									PREFEAT:1,PsionicClass																	DESC:See text																																																																	BONUS:SKILL|Concentration|4			SOURCEPAGE:srdpsionicfeats.rtf
 Deep Impact				TYPE:Psionic	PREATT:3							PREFEAT:2,Power Attack,Psionic Weapon	PREFEAT:1,PsionicClass							PRESTAT:1,STR=13	DESC:See text																																																																								SOURCEPAGE:srdpsionicfeats.rtf

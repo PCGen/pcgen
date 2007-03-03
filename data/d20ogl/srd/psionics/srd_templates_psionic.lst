@@ -3,7 +3,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 # Original entry for Astral Contruct templates by: Ian
 
 # Template Name		Visible	Add to magical move								FAVOREDCLASS
-PP >= 1					BONUS:POSTMOVEADD|TYPE=Walk|(10*var("HASFEAT:Speed of Thought)")
+PP >= 1					BONUS:POSTMOVEADD|TYPE=Walk|10*var("HASFEAT:Speed of Thought")
 
 # Race templates
 
