@@ -9,6 +9,7 @@
       <action dev="jdempsey" type="add" issue="1411073">OS Token IFF() to accept any JEP Boolean functions</action>
       <action dev="maredudd800" type="update" >Updated and corrected documentation issues with KNOWNSPELLS and the default spell level for wands.</action>
       <action dev="maredudd800" type="update" >Updated the race file documentation to include HITDIE tag.</action>
+      <action dev="jdempsey" type="add" issue="1588325">User input for feat target.</action>
     </release>
     <release version="5.11.8" date="2007-02-18" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1648569">[5.11.6] Virtual Feats Lost on Character Load</action>
