@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 25 00:11:32 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 # Equipment Name				Product Identity?	Output Name				Required Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Size		Source Page			Save checks bonus		Combat bonus						Bonus to skill											Stat bonus
@@ -55,7 +55,7 @@ Kelder Feedbag				NAMEISPI:YES										TYPE:Magic.Wondrous							COST:6000	WT:1
 Luthia's Tools of Precision		NAMEISPI:YES										TYPE:Magic.Wondrous							COST:2160	WT:2															SOURCEPAGE:p.189														BONUS:SKILL|Disable Device,Open Lock|6
 
 ###Block
-# Equipment Name				Product Identity?	Output Name								Type					Cost		Weight	Source Page			Virtual Feat	Spells																						Combat bonus				Bonus to skill							Weapon prof. bonus
+# Equipment Name				Product Identity?	Output Name								Type					Cost		Weight	Source Page			Virtual Feat	Innate Spells																					Combat bonus				Bonus to skill							Weapon prof. bonus
 Mask (Desire)				NAMEISPI:YES	OUTPUTNAME:Mask of [NAME]					TYPE:Magic.Wondrous		COST:93000	WT:1		SOURCEPAGE:p.189-190
 Medallion (Acorn)				NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:21600	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wondrous Item|TIMES=3|CASTERLEVEL=10|Tongues,14
 Medallion (Adamantite)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:78100	WT:0		SOURCEPAGE:p.190-191

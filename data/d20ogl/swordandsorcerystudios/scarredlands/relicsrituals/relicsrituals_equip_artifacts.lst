@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Mon Sep 25 00:11:32 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 ###Block: Relics - These have multiple powers, some are able to be done in the data file - Mynex 12/10/02
-# Equipment Name		Product Identity?	Type						Cost		Weight	Source Page		Vision			Spells										Bonus to skill
+# Equipment Name		Product Identity?	Type						Cost		Weight	Source Page		Vision			Innate Spells									Bonus to skill
 Amulet of Ebon Dreams	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Amulet	COST:-	WT:0		SOURCEPAGE:p.202	VISION:Darkvision (60')	SPELLS:Artifact Power|TIMES=3|CASTERLEVEL=7|Dimension Door,16	BONUS:SKILL|Hide,Spot|10|TYPE=Circumstance
 
 ###Block: Armor of flesh grants neg levels to any non evil characters
@@ -19,7 +19,7 @@ Armor of Grace			NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0							
 Black Book of Belsameth		NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0								SOURCEPAGE:p.203
 Clotstone				NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0								SOURCEPAGE:p.203
 ###Block: Divine Tokens
-# Equipment Name			Product Identity?	Type					Cost		Weight	Define			Source Page			ADD:DOMAIN		Virtual Feat		Spell Res.	Spells																																																				Save checks bonus						Combat bonus				Bonus to skill									Stat bonus								Modify VAR							Special Ability				Class Skill
+# Equipment Name			Product Identity?	Type					Cost		Weight	Define			Source Page			ADD:DOMAIN		Virtual Feat		Spell Res.	Innate Spells																																																			Save checks bonus						Combat bonus				Bonus to skill									Stat bonus								Modify VAR							Special Ability				Class Skill
 Divine Tokens (Belsameth)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204	ADD:DOMAIN(Magic)	VFEAT:Negative Levels																																																																																										BONUS:VAR|NegLevels|1|PREALIGN:0,3,6
 Divine Tokens (Chardun)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204				VFEAT:Negative Levels																																																																						BONUS:SKILL|Intimidation|STR																BONUS:VAR|NegLevels|1|PREALIGN:0,3,6		SA:Smite Good %/day|SmiteGood
 Divine Tokens (Corean)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204																																																															BONUS:CHECKS|Fortitude|2|PREALIGN:0,1,2,3,6																																			SA:Defensive Stance %/day|DefStance
