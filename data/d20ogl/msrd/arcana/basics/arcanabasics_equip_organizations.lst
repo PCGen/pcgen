@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Tue Apr  4 03:33:45 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Magic Items
-# Equipment Name					Type						Cost		Weight	Required Template				Base Quantity	Source Page					Spells																				Special Property
+# Equipment Name					Type						Cost		Weight	Required Template				Base Quantity	Source Page					Innate Spells																			Special Property
 Synchronicity Watch				TYPE:FX.Magic.Wondrous			COST:32	WT:0		PRETEMPLATE:Agent of Department 7				SOURCEPAGE:ArcanaOrganizations.rtf	SPELLS:Synchronicity Watch|TIMES=1|CASTERLEVEL=5|Synchronicity,17											SPROP:Once per day, the watch can be used to activate a limited version of the synchronicity spell. Duration is only 10 rounds.
 Secret Pockets					TYPE:FX.Magic.Wondrous			COST:34	WT:0		PRETEMPLATE:Agent of Department 7				SOURCEPAGE:ArcanaOrganizations.rtf	SPELLS:Garment|TIMES=-1|CASTERLEVEL=5|Secret Pocket,14												SPROP:Choose one garment and have up to two pockets of the garment function as described in the secret pocket spell.
 Daylight Flares					TYPE:FX.Magic.Wondrous			COST:27	WT:0		PRETEMPLATE:Agent of Department 7				SOURCEPAGE:ArcanaOrganizations.rtf	SPELLS:Daylight Flares|TIMES=6|CASTERLEVEL=2|Daylight,11												SPROP:Every agent receives six sticks that look very much like unsharpened pencils. When a stick is snapped in two, the tip of the bottom half glows as thought it was the target of a daylight spell. This effect lasts for 20 minutes.

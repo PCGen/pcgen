@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan  6 04:52:14 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Magic Shields and Armor
@@ -115,7 +115,7 @@ Wounding		KEY:WOUNDING		TYPE:Weapon.Melee			COST:3	VISIBLE:QUALIFY						SOURCEPA
 ###	for ITEM COST 32	1-28==>33	29-31 ==>34	32 ==>35	33-34==>36	35-36==>37	37+==>+1
 ###	BONUS:ITEMCOST|TYPE.Transportation|if(BASECOST<29,33,if(BASECOST<32,34,if(BASECOST=32,35,if(BASECOST<35,36,if(BASECOST<37,37,BASECOST+1)))))
 
-# Modifier Name				Unique Key		Type				Cost			Visible		Keys to replace								Source Page				Prohibited Type		Modify the item cost																								Modify VAR					Special Property																																													Spells
+# Modifier Name				Unique Key		Type				Cost			Visible		Keys to replace								Source Page				Prohibited Type		Modify the item cost																								Modify VAR					Special Property																																													Innate Spells
 Ablative Paint Job			KEY:CPNT_ABLATV	TYPE:Transportation	COST:-BASECOST	VISIBLE:QUALIFY	REPLACES:CPNT_FLAME,CPNT_NDSCRPT,CPNT_BLUR,CPNT_SHRNK		SOURCEPAGE:ArcanaFXItems.rtf	!PRETYPE:1,Armored	BONUS:ITEMCOST|TYPE.Transportation|if(BASECOST<25,29,if(BASECOST<28,30,if(BASECOST<30,31,if(BASECOST<31,32,if(BASECOST<33,33,BASECOST+1)))))				BONUS:VAR|vhard|5
 Bumpers of Blasting			KEY:BUMP_BLAST	TYPE:Transportation	COST:-BASECOST	VISIBLE:QUALIFY	REPLACES:BUMP_RAM								SOURCEPAGE:ArcanaFXItems.rtf					BONUS:ITEMCOST|TYPE.Transportation|if(BASECOST<24,28,if(BASECOST<27,29,if(BASECOST<29,30,if(BASECOST<31,31,BASECOST+1))))													SPROP:On hitting a creature or object while moving at least street speed the bumpers can be commanded to emit an explosive blast that does an additional 5d6 points of fire damage (up to 3 times per day)
 Bumper of the Ram				KEY:BUMP_RAM	TYPE:Transportation	COST:-BASECOST	VISIBLE:QUALIFY	REPLACES:BUMP_BLAST							SOURCEPAGE:ArcanaFXItems.rtf					BONUS:ITEMCOST|TYPE.Transportation|if(BASECOST<29,33,if(BASECOST<32,34,if(BASECOST<33,35,if(BASECOST<35,36,if(BASECOST<37,37,BASECOST+1)))))										SPROP:Mount bumper on the front or back. On ramming increase damage to the other vehicle by 1 size and 1 speed increment and decrease damage to this vehicle by 1 size and 1 speed increment

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Entries by: Tir Gwaith, Doug Mcmillan, and Ian Dale
 
@@ -82,7 +82,7 @@ Scroll (Neutralize Poison)	TYPE:FX.Scroll.Magic.Divine	COST:29	WT:0		SOURCEPAGE:
 
 ###Block: Staffs
 
-# Equipment Name		Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Size		Source Page				Spells																Special Property
+# Equipment Name		Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Size		Source Page				Innate Spells															Special Property
 Staff of Fire		PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Magic.Arcane.Weapon.Simple.Melee.Bludgeoning.Standard.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:43	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of Fire|TIMES=-1|CASTERLEVEL=9|Burning Hands,13|Fireball,15|Wall of Fire,17			SPROP:Burning Hands (1 Chrg), Fireball (1 Chrg), Wall of Fire (2 Chrg)
 Staff of Illumination	PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Magic.Divine.Weapon.Simple.Melee.Bludgeoning.Standard.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:41	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of Illumination|TIMES=-1|CASTERLEVEL=9|Light,10|Searing Light,15|True Seeing,17		SPROP:Light (No Chrg), Searing Light (1 Chrg), True Seeing (2 Chrg)
 Staff of the Mind's Eye	PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Psionic.Weapon.Simple.Melee.Bludgeoning.Standard.Double		ALTTYPE:Weapon.Melee.Bludgeoning	COST:40	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of the Mind's Eye|TIMES=-1|CASTERLEVEL=9|Brain Lock,13|Inflict Pain,15|Whitefire,17	SPROP:Brain Lock (1 Chrg), Inflict Pain (1 Chrg), Whitefire (1 Chrg)
@@ -103,7 +103,7 @@ Wand of Web			TYPE:FX.Wand.Magic.Arcane	COST:0	WT:1		BASEITEM:Wand		EQMOD:SPL_CH
 
 ###Block: Wondrous Items
 
-# Equipment Name					Required Proficiency		Type							Cost		Weight	Slot Needed	Base Item for EQMOD	Damage	Modifier					Range		Size		Source Page				Spells											Save checks bonus							Damage reduction	Special Property
+# Equipment Name					Required Proficiency		Type							Cost		Weight	Slot Needed	Base Item for EQMOD	Damage	Modifier					Range		Size		Source Page				Innate Spells										Save checks bonus							Damage reduction	Special Property
 Chemical Light Stick of Revealing							TYPE:FX.Wondrous.Magic.Consumable		COST:29	WT:1																				SOURCEPAGE:msrdfxitems.rtf																									SPROP:As normal chemical light stick plus reveals invisible creatures and objects
 Crystal Pistol					PROFICIENCY:Crystal Pistol	TYPE:FX.Wondrous.Psionic.Weapon.Ranged	COST:29	WT:2								DAMAGE:3d6	EQMOD:CHARGED_ITEM_50|CHARGES[50]	RANGE:130	SIZE:S	SOURCEPAGE:msrdfxitems.rtf																									SPROP:50 charges. Cannot be recharged
 Duct Tape of Repair									TYPE:FX.Wondrous.Magic.Consumable		COST:31	WT:1										EQMOD:CHARGED_ITEM_14|CHARGES[14]					SOURCEPAGE:msrdfxitems.rtf																									SPROP:5ft strip applied repairs 1d8+5 object damage, 14 uses per roll
@@ -120,13 +120,13 @@ Windbreaker of Resistance +3								TYPE:FX.Wondrous.Magic.Shirt			COST:28	WT:1	
 
 ###Block: Base Items
 
-# Equipment Name	Type				Cost		Weight	MODS			Source Page
-Potion		TYPE:Potion.Consumable	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
-Ring			TYPE:Ring			COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
-Scroll		TYPE:Scroll			COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
-Staff			TYPE:Staff			COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
-Tattoo		TYPE:Tattoo.Consumable	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
-Wand			TYPE:Wand			COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
+# Equipment Name	Type				Cost		Weight	Requires Modification?	Source Page
+Potion		TYPE:Potion.Consumable	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:msrdFXitems.rtf
+Ring			TYPE:Ring			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:msrdFXitems.rtf
+Scroll		TYPE:Scroll			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:msrdFXitems.rtf
+Staff			TYPE:Staff			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:msrdFXitems.rtf
+Tattoo		TYPE:Tattoo.Consumable	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:msrdFXitems.rtf
+Wand			TYPE:Wand			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:msrdFXitems.rtf
 
 ###Block: Spellbooks
 # Equipment Name		Type					Cost		Weight	Source Page						Virtual Feat

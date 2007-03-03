@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar  3 03:43:32 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Sat Mar  3 05:55:43 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Feat Name		Type			Visible	Req. Spellbook	Special Ability								Define			Description																											Multiple?	Choose			Add Spell Lvl	Source Page
@@ -11,8 +11,8 @@ Wild Talent		TYPE:General						SA:one 0-LEVEL psionic power useable 3x per 24 ho
 
 ###Block: Hidden Feats
 
-# Feat Name		Type			Visible	Special Ability		Define		COMPANIONLIST											FOLLOWERS
-Summon Familiar	TYPE:Special	VISIBLE:NO	SA:Summon Familiar	DEFINE:FMLevel|0	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad	FOLLOWERS:Familiar|1
+# Feat Name		Type			Visible	Special Ability		Define		Allow Follower		Allowed Companions
+Summon Familiar	TYPE:Special	VISIBLE:NO	SA:Summon Familiar	DEFINE:FMLevel|0	FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad
 
 #
 # End
