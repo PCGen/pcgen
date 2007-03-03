@@ -11,6 +11,7 @@ Knowledge (Heaven)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	S
 
 
 ### Stuff found while doing cross checking with Prettylst.  Either in CSKILL listings, or PRExxx
+Profession (Lawyer)		KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession		SOURCEPAGE:p.
 Profession (Politician)		KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession		SOURCEPAGE:p.
 Knowledge (Lost Treasures)	KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
 Knowledge (Boating)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
