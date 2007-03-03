@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Dec 14 00:44:06 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Sat Mar  3 04:37:25 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Masterwork
@@ -17,11 +17,11 @@ Steel			NAMEOPT:NORMAL	KEY:STEEL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shie
 
 ###Block: Strength Bow
 
-# Modifier Name	Naming Option	Unique Key	Type				Cost		Visible		Source Page				Required Type	Modify the item cost																	Weapon prop. bonus												Special Property			Choose				Apply to both heads
-Bow_STR		NAMEOPT:NONAME	KEY:BOWSTR	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite	BONUS:ITEMCOST|TYPE.Shortbow|75*%CHOICE|PREVARGT:%CHOICE,0	BONUS:ITEMCOST|TYPE.Longbow|100*%CHOICE|PREVARGT:%CHOICE,0	BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage	CHOOSE:STR mod|MIN=-5|MAX=100	ASSIGNTOALL:YES
+# Modifier Name	Naming Option	Unique Key	Type				Cost		Visible		Source Page				Required Type	Modify the item cost																	Weapon prop. bonus												Special Property			Choose							Apply to both heads
+Bow_STR		NAMEOPT:NONAME	KEY:BOWSTR	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite	BONUS:ITEMCOST|TYPE.Shortbow|75*%CHOICE|PREVARGT:%CHOICE,0	BONUS:ITEMCOST|TYPE.Longbow|100*%CHOICE|PREVARGT:%CHOICE,0	BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage	CHOOSE:NUMBER|MIN=-5|MAX=100|TITLE=STR mod	ASSIGNTOALL:YES
 
-#Bow_STR		KEY:BOWSTR		TYPE:Bow.Composite	COST:0MAX(100*%CHOICE)	VISIBLE:QUALIFY		NAMEOPT:NONAME		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite		BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage			CHOOSE:STR mod|MIN=-5|MAX=100	ASSIGNTOALL:YES
-#Bow_STR		KEY:BOWSTR		TYPE:Bow.Composite	COST:0MAX(100*%CHOICE)	VISIBLE:QUALIFY		NAMEOPT:NONAME		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite		BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage of %|%CHOICE	CHOOSE:STR mod|MIN=-5|MAX=20	ASSIGNTOALL:YES
+#Bow_STR		KEY:BOWSTR		TYPE:Bow.Composite	COST:0MAX(100*%CHOICE)	VISIBLE:QUALIFY		NAMEOPT:NONAME		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite		BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage			CHOOSE:NUMBER|MIN=-5|MAX=100|TITLE=STR mod	ASSIGNTOALL:YES
+#Bow_STR		KEY:BOWSTR		TYPE:Bow.Composite	COST:0MAX(100*%CHOICE)	VISIBLE:QUALIFY		NAMEOPT:NONAME		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite		BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage of %|%CHOICE	CHOOSE:NUMBER|MIN=-5|MAX=20|TITLE=STR mod	ASSIGNTOALL:YES
 
 ###Block: Armor Accesories
 
@@ -44,5 +44,5 @@ Thrown Ammunition	KEY:THROWN_AMMO	COST:0	VISIBLE:NO	BONUS:ITEMCOST|TYPE.Masterwo
 
 ###Block Spell Component stuff
 # Modifier Name				Naming Option	Unique Key		Type				Cost		Visible		Source Page				Required Type			Modify the item cost					Choose
-Spell Material Component Value	NAMEOPT:NOTHING	KEY:SPELLMATERIAL	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:Material Component Value|MIN=0|MAX=50000
-Spell Focus Value				NAMEOPT:NOTHING	KEY:SPELLFOCUS	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:Spell Focus Value|MIN=0|MAX=10000
+Spell Material Component Value	NAMEOPT:NOTHING	KEY:SPELLMATERIAL	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:NUMBER|MIN=0|MAX=50000|TITLE=Material Component Value
+Spell Focus Value				NAMEOPT:NOTHING	KEY:SPELLFOCUS	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:NUMBER|MIN=0|MAX=10000|TITLE=Spell Focus Value
