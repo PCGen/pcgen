@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.11.9
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.11.9</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.11.9</a></li>
+	<li><a href="#GMGenIssue">GMGen known issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.11.9</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.11.9</a></h2>
+<p>
+PCGen v5.11.9 is an alpha release from our development branch to allow experimentation and testing of our latest 
+work. Some notable new changes are:
+</p>
+<ul>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+OS Token IFF() to accept any JEP Boolean functions
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1411073" class="externalLink" title="External Link">1411073</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Updated and corrected documentation issues with KNOWNSPELLS and the default spell level for wands.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#maredudd800">maredudd800</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Updated the race file documentation to include HITDIE tag.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#maredudd800">maredudd800</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+User input for feat target.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1588325" class="externalLink" title="External Link">1588325</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Deprecate ADD:LIST and ADD:WEAPONBONUS
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1670470" class="externalLink" title="External Link">1670470</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+ADD:FEAT Supports ALL
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1669592" class="externalLink" title="External Link">1669592</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Deprecated RACE AC Tag
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1671219" class="externalLink" title="External Link">1671219</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+</ul>
+<p>
+For full details of the changes, see the <a href="#ChangeLog">Change Log</a>
+.
+</p>
+<p>James Dempsey for the PCGEN Team -- March 4, 2007.</p>
+
+
+<h2><a name="GMGenIssue">GMGen known issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative 
+  Tab when running a combat when you select any character other than the one whose 
+  turn it is and click the Damage or Heal buttons the character whose turn it 
+  is becomes selected and the damage is applied to him instead of the character 
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around. 
+  The problem will only manifest when using the System Look and Feel, you can 
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and 
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.11.9 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5119_full.zip?download">pcgen5119_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5119_full.zip.asc?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5119_partial.zip?download">pcgen5119_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5119_partial.zip.asc?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5119_win_install.exe?download">pcgen5119_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5119_win_install.exe.asc?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5119_mac_install.dmg?download">pcgen5119_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5119_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.11.9</a></h2>
+
+<h3>Code FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1669592">1669592</a> ]	ADD:FEAT Support ALL
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1670470">1670470</a> ]	Deprecate ADD:LIST and ADD:WEAPONBONUS
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1588325">1588325</a> ]	User input for feat target
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1671219">1671219</a> ]	Deprecate Race's AC Token
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1660695">1660695</a> ]	new PCC tag: ISMATURE
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1025273">1025273</a> ]	LEVEL &amp; HD tags need to be able to call all global tags
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1304407">1304407</a> ]	redo plugin and lib directory
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411073">1411073</a> ]	OS Token IFF() to accept any JEP Boolean functions
+</ul>
+
+<h3>Data FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1339969">1339969</a> ]	Monk's Timeless Body ability should counter aging penalties
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1536247">1536247</a> ]	New feat TYPEs to support new OS Text Block style
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1620625">1620625</a> ]	RSRD uses undocumented feature
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1638080">1638080</a> ]	[RSRD] Convert Salient Divine Abilities to Ability Object
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1639771">1639771</a> ]	[MSRD] Convert Mutations set to use Ability Object
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1640434">1640434</a> ]	[RSRD] Winter Wolf breath weapon
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1645734">1645734</a> ]	[RSRD] Spontaneous Casting improvements (transparent)
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1645737">1645737</a> ]	[RSRD] Fighter improvements - Stackable feat qualifications
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1654762">1654762</a> ]	Replace ADD:FEAT tags with BONUS:FEAT|POOL tags
+</ul>
+
+<h3>New Data Source Development
+</h3><ul>
+</ul>
+
+<h3>Doc FREQs
+</h3><ul>
+</ul>
+
+<h3>OS FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411527">1411527</a> ]	Full Attack and Attack
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1625254">1625254</a> ]	Output Melee Weapon Reach
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1667706">1667706</a> ]	New OS to export to RPTools InitTool file format
+</ul>
+
+<h3>Plugin FREQs
+</h3><ul>
+</ul>
+
+<h3>Code Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1249379">1249379</a> ]	HIDETYPE:SKILL not only hides the type but also skills
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1472832">1472832</a> ]	NPE when no ini file in starting PCGen
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1530432">1530432</a> ]	Cost:0 Feat
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1546173">1546173</a> ]	FEAT and PREVIEW pane not displaying/refreshing
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1585680">1585680</a> ]	Chooser and Skill conditionals support
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1602107">1602107</a> ]	Generating NPC doesn't always do so.
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1629128">1629128</a> ]	Preview Tab - Skill Block Header missing
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1658733">1658733</a> ]	broken link on web page
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1662662">1662662</a> ]	Class skills list does not change when class auto changed
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1666027">1666027</a> ]	Error when loading character with the Toughness feat
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1668946">1668946</a> ]	CRITMULT is case sensitive
+</ul>
+
+<h3>Plugin Bugs
+</h3><ul>
+</ul>
+
+<h3>Data Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1635256">1635256</a> ]	[SRD] Invalid Race References
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1645958">1645958</a> ]	Midnight Campaign Template File Typo
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1652918">1652918</a> ]	Replace deprecated BONUS:MOVE tags
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1660509">1660509</a> ]	[BDG][OQL] Explorer occupation off
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1660511">1660511</a> ]	[BDG][OQL] Velin missing 1st level feat
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1660515">1660515</a> ]	[BDG][OQL] missing languages
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1660519">1660519</a> ]	[BDG][OQL] barter skill and Charismatic hero
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1661042">1661042</a> ]	[RSRD] Healer's kit is not single-use item
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1663221">1663221</a> ]	my_dataset contains deprecated tags
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1666493">1666493</a> ]	[RSRD] missing Merrow
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1667110">1667110</a> ]	[RSRD] Barbarian SA:Illiterate doesn't go away
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1668936">1668936</a> ]	[Swords Edge Publishing] Covert Hero refers to bad path
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1668940">1668940</a> ]	[Malhavoc Press] Book Of Hallowed Might refers to bad path
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1668942">1668942</a> ]	[RPG Objects] Problem with # in folder name
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1668945">1668945</a> ]	CRITMULT tag without x
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1669648">1669648</a> ]	[RSRD] Remove Literacy as a language
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672171">1672171</a> ]	[MSRD] Duplicate entries in MSRD Future
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672645">1672645</a> ]	[MSRD] Duplicate EquipmentModifier
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672646">1672646</a> ]	[MSRD] Duplicate WeaponProf
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672647">1672647</a> ]	[MSRD] Duplicated Equipment
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672648">1672648</a> ]	[MSRD] Invalid COST Token in Basic Spells
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672649">1672649</a> ]	[MSRD] Incorrect Feat MOD
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672650">1672650</a> ]	[MSRD] Invalid Equipment References
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672651">1672651</a> ]	[MSRD] Bad Race References
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672652">1672652</a> ]	[MSRD] Race File misuses AUTO:WEAPONPROF
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672654">1672654</a> ]	[SRD] Typo in Lillend Race
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672655">1672655</a> ]	[RSRD] Bad WeaponProf references
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1672656">1672656</a> ]	[RSRD] Typo in Base/Enhancing EQMOD
+</ul>
+
+<h3>Output Sheet Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1385663">1385663</a> ]	pdf exports and spellbooks
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1480980">1480980</a> ]	Carried weapons suffer incorrect penalty
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1656594">1656594</a> ]	HTML sheet shows hidden feats in feat block
+</ul>
+
+<h3>Doc Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1580943">1580943</a> ]	KNOWNSPELLS does not mention Class Line.
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1603271">1603271</a> ]	RACE Tag not documented for Deity File
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1608167">1608167</a> ]	Error in PCGen_Docs_510.pdf
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1646102">1646102</a> ]	HITDIE available in Race
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1646131">1646131</a> ]	COMPANIONLIST is improper link
+
+</ul>
+
+</body>
+</html>
