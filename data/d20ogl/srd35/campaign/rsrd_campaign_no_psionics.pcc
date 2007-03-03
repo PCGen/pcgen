@@ -177,7 +177,7 @@ EQUIPMOD:@/d20ogl/srd35/epic/rsrd_equipmods_epic_enhancing.lst
 SPELL:@/d20ogl/srd35/epic/rsrd_spells_epic.lst
 
 # Divine
-FEAT:@/d20ogl/srd35/divine/rsrd_divine_feats_sda.lst
+ABILITY:@/d20ogl/srd35/divine/rsrd_divine_feats_sda.lst
 TEMPLATE:@/d20ogl/srd35/divine/rsrd_divine_templates.lst
 
 # Universal tags
