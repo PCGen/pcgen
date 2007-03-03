@@ -662,8 +662,10 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		}
 		catch (Exception exc)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iayAddAbility") + ": "
-				+ exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			Logging.errorPrint("Failed to add ability due to ", exc);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getFormattedString("in_iayAddAbility", exc.getMessage()),
+				Constants.s_APPNAME, MessageType.ERROR);
 		}
 
 		// update the skills tab, as feats could effect totals
