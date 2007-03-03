@@ -48,6 +48,7 @@ import pcgen.core.FeatMultipleChoice;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
+import pcgen.core.Language;
 import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
 import pcgen.core.PCSpell;
@@ -2743,8 +2744,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		for (PCGElement element : tokens.getElements())
 		{
-			thePC.addLanguage(Globals.getLanguageKeyed(EntityEncoder
-				.decode(element.getText())));
+			final Language aLang = Globals.getLanguageKeyed(EntityEncoder
+				.decode(element.getText()));
+			if (aLang == null)
+			{
+				final String message =	"No longer speaks language: " + element.getText();  //$NON-NLS-1$
+				warnings.add(message);
+				return;
+			}
+			thePC.addLanguage(aLang);
 		}
 	}
 
