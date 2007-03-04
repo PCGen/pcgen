@@ -288,7 +288,8 @@ public class CampaignSourceEntry
 			// URLs always use forward slash; take off the file name
 			try {
 				return new URI(pccPath.getScheme(), null, (path.substring(0,
-						path.lastIndexOf('/') + 1) + basePath), null);
+					path.lastIndexOf('/') + 1) + basePath.replace('\\', '/')),
+					null);
 			} catch (URISyntaxException e) {
 				Logging.errorPrint("GPURI failed to convert "
 						+ path.substring(0, path.lastIndexOf('/') + 1)
