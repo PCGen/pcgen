@@ -2948,15 +2948,17 @@ public final class InfoGear extends FilterAdapterPanel implements
 					-5, null));
 				this.addSeparator();
 
-				GearPopupMenu.this.add(Utility.createMenuItem("Modify Charges",
+				GearPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.
+					getString("in_igModChargesMenuLabel"), //$NON-NLS-1$
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							editChargesButtonClicked();
 						}
-					}, "editCharges", (char) 0, "shortcut ?", "Edit charges",
-					null, true));
+					}, PropertyFactory.getString("in_igModChargesMenuCommand"), //$NON-NLS-1$
+					(char) 0, PropertyFactory.getString("in_igModChargesMenuAccelerator"), //$NON-NLS-1$
+					PropertyFactory.getString("in_igModChargesMenuDesc"), null, true)); //$NON-NLS-1$
 				this.addSeparator();
 
 				GearPopupMenu.this.add(pcMoveMenu);
@@ -2964,46 +2966,49 @@ public final class InfoGear extends FilterAdapterPanel implements
 				this.addSeparator();
 
 				JMenu resortMenu =
-						Utility.createMenu("Output Order", (char) 0,
-							"Output Order", null, true);
+						Utility.createMenu(PropertyFactory.getString("in_igSortMenuLabel"), //$NON-NLS-1$ 
+						(char) 0,PropertyFactory.getString("in_igSortMenuDesc"), //$NON-NLS-1$
+						null, true);
 
 				GearPopupMenu.this.add(resortMenu);
 
 				resortMenu
 					.add(Utility
 						.createMenuItem(
-							"By name (ascending)",
+							PropertyFactory.getString("in_igSortNameAscLabel"), //$NON-NLS-1$
 							new ResortActionListener(
 								ResortComparator.RESORT_NAME,
 								ResortComparator.RESORT_ASCENDING),
-							"sortOutput",
+							PropertyFactory.getString("in_igSortCommand"), //$NON-NLS-1$
 							(char) 0,
 							null,
-							"Sort equipment list by name in ascending alphabetical order",
+							PropertyFactory.getString("in_igSortNameAscDesc"), //$NON-NLS-1$
 							null, true));
 				resortMenu
 					.add(Utility
 						.createMenuItem(
-							"By name (descending)",
+							PropertyFactory.getString("in_igSortNameDscLabel"), //$NON-NLS-1$
 							new ResortActionListener(
 								ResortComparator.RESORT_NAME,
 								ResortComparator.RESORT_DESCENDING),
-							"sortOutput",
+							PropertyFactory.getString("in_igSortCommand"), //$NON-NLS-1$
 							(char) 0,
 							null,
-							"Sort equipment list by name in descending alphabetical order",
+							PropertyFactory.getString("in_igSortNameDscDesc"), //$NON-NLS-1$
 							null, true));
-				resortMenu.add(Utility.createMenuItem("By weight (ascending)",
+				resortMenu.add(Utility.createMenuItem(PropertyFactory.
+					getString("in_igSortWeightAscLabel"), //$NON-NLS-1$
 					new ResortActionListener(ResortComparator.RESORT_WEIGHT,
-						ResortComparator.RESORT_ASCENDING), "sortOutput",
-					(char) 0, null,
-					"Sort equipment list by weight in ascending order", null,
+						ResortComparator.RESORT_ASCENDING), PropertyFactory.
+					getString("in_igSortCommand"), (char) 0, null, //$NON-NLS-1$
+					PropertyFactory.getString("in_igSortWeightAscDesc"), null, //$NON-NLS-1$
 					true));
-				resortMenu.add(Utility.createMenuItem("By weight (descending)",
+				resortMenu.add(Utility.createMenuItem(PropertyFactory.
+					getString("in_igSortWeightDscLabel"), //$NON-NLS-1$
 					new ResortActionListener(ResortComparator.RESORT_WEIGHT,
-						ResortComparator.RESORT_DESCENDING), "sortOutput",
-					(char) 0, null,
-					"Sort equipment list by weight in descending order", null,
+						ResortComparator.RESORT_DESCENDING), PropertyFactory.
+					getString("in_igSortCommand"), (char) 0, null, //$NON-NLS-1$
+					PropertyFactory.getString("in_igSortWeightDscDesc"), null, //$NON-NLS-1$
 					true));
 			}
 		}
