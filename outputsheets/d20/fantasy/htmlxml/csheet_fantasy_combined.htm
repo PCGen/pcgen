@@ -3371,7 +3371,9 @@ function RemoveStat (attribute) {
 			<td class="lt8s">
 |FOR.0,COUNT[EQTYPE.Coin],1,\EQTYPE.Coin.%.NAME\: <script language="javascript" type="text/javascript">document.write(StripZero('\EQTYPE.Coin.%.QTY\'));</script>, ,<br/>,1|
 |FOR.0,COUNT[EQTYPE.Gem],1,<script language="javascript" type="text/javascript">document.write(StripZero('\EQTYPE.Gem.%.QTY\'));</script>x\EQTYPE.Gem.%.NAME\ (<script language="javascript" type="text/javascript">document.write(StripZero('\EQTYPE.Gem.%.COST\'));</script>) , ,<br/>,1|
-|MISC.FUNDS,<br />|
+|FOR,%fund,0,COUNT[MISC.FUNDS]-1,1,1|
+			|MISC.FUNDS.%fund|<br />
+|ENDFOR|
 			</td>
 		</tr>
 		</table>
@@ -3537,7 +3539,11 @@ function RemoveStat (attribute) {
 			<td class="c9wB">MAGIC</td>
 		</tr>
 		<tr>
-			<td class="lt8s">|MISC.MAGIC,<br />|</td>
+			<td class="lt8s">
+|FOR,%magic,0,COUNT[MISC.MAGIC]-1,1,1|
+			|MISC.MAGIC.%magic|<br />
+|ENDFOR|
+			</td>
 		</tr>
 		</table>
 |%|
