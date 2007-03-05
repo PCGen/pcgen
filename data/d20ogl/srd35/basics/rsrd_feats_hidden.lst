@@ -29,6 +29,7 @@ Smite				TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite (Su) %/day|Smi
 Smite Evil			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Evil (Su) %/day|SmiteEvil																				DEFINE:SmiteEvil|0																																																																											SOURCEPAGE:ClassesII.rtf
 Smite Good			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Good (Su) %/day|SmiteGood																				DEFINE:SmiteGood|0																																																																											SOURCEPAGE:PrestigeClasses.rtf
 Wild Empathy		TYPE:Special.Extraordinary			VISIBLE:NO					SA:Wild Empathy (Ex) +%|WildEmpathy																				DEFINE:WildEmpathy|0																																													BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK												SOURCEPAGE:ClassesI.rtf
+Woodland Stride		TYPE:Extraordinary				VISIBLE:NO					SA:Woodland Stride (Ex)																																																																																																				SOURCEPAGE:ClassesI.rtf
 Death Attack		TYPE:Special					VISIBLE:NO					SA:Death Attack (DC %)|DeathAttack																				DEFINE:DeathAttack|0																																													BONUS:VAR|DeathAttack|10+INT																										SOURCEPAGE:PrestigeClasses.rtf
 Poison Use			TYPE:Special.Extraordinary			VISIBLE:NO					SA:Poison Use (Ex)																																																																																																				SOURCEPAGE:PrestigeClasses.rtf
 
@@ -136,7 +137,6 @@ Fighter Level Advanced Feat Tracker		TYPE:Internal	VISIBLE:NO	DEFINE:FighterLVL|
 ###Block: Druid abilities
 # Feat Name			Type				Visible	Special Ability			Bonus to skill					Source Page
 Nature Sense		TYPE:Extraordinary	VISIBLE:NO	SA:Nature Sense (Ex)		BONUS:SKILL|Knowledge (Nature),Survival|2	SOURCEPAGE:ClassesI.rtf
-Woodland Stride		TYPE:Extraordinary	VISIBLE:NO	SA:Woodland Stride (Ex)									SOURCEPAGE:ClassesI.rtf
 Trackless Step		TYPE:Extraordinary	VISIBLE:NO	SA:Trackless Step (Ex)									SOURCEPAGE:ClassesI.rtf
 Resist Nature's Lure	TYPE:Extraordinary	VISIBLE:NO	SA:Resist Nature's Lure (Ex)								SOURCEPAGE:ClassesI.rtf
 Venom Immunity		TYPE:Extraordinary	VISIBLE:NO	SA:Venom Immunity (Ex)									SOURCEPAGE:ClassesI.rtf
@@ -216,7 +216,6 @@ Paladin Turn Undead	TYPE:Internal	VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFIN
 
 ###Block: Ranger Abilities
 # Feat Name				Type				Visible	Special Ability			Source Page
-Woodland Stride			TYPE:Extraordinary	VISIBLE:NO	SA:Woodland Stride (Ex)		SOURCEPAGE:ClassesII.rtf
 Swift Tracker			TYPE:Extraordinary	VISIBLE:NO	SA:Swift Tracker (Ex)		SOURCEPAGE:ClassesII.rtf
 Camouflage				TYPE:Extraordinary	VISIBLE:NO	SA:Camouflage (Ex)		SOURCEPAGE:ClassesII.rtf
 Hide in Plain Sight (Ranger)	TYPE:Extraordinary	VISIBLE:NO	SA:Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
