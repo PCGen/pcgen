@@ -217,13 +217,6 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	public static void setLevelList(Spell spell, final String typeString,
 		String listString) throws PersistenceLayerException
 	{
-		if (listString.equals(".CLEAR"))
-		{
-			spell.clearLevelInfo();
-
-			return;
-		}
-
 		String preReqTag = null;
 		final int i = listString.lastIndexOf('[');
 		int j = listString.lastIndexOf(']');

@@ -26,6 +26,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -520,30 +521,35 @@ public final class Spell extends PObject
 		}
 	}
 
+	public void clearLevelInfo(String type)
+	{
+		String typeBar = type + "|";
+		for (Iterator<String> it = levelInfo.keySet().iterator(); it.hasNext(); )
+		{
+			if (it.next().startsWith(typeBar))
+			{
+				it.remove();
+			}
+		}
+	}
+
 	public void setLevelInfo(final String key, final int level)
 	{
-		if (".CLEAR".equals(key))
+		if (level == -1)
 		{
-			levelInfo = null;
+			if (levelInfo != null)
+			{
+				levelInfo.remove(key);
+			}
 		}
 		else
 		{
-			if (level == -1)
+			if (levelInfo == null)
 			{
-				if (levelInfo != null)
-				{
-					levelInfo.remove(key);
-				}
+				levelInfo = new HashMap<String, Integer>();
 			}
-			else
-			{
-				if (levelInfo == null)
-				{
-					levelInfo = new HashMap<String, Integer>();
-				}
 
-				levelInfo.put(key, Integer.valueOf(level));
-			}
+			levelInfo.put(key, Integer.valueOf(level));
 		}
 	}
 
@@ -927,6 +933,7 @@ public final class Spell extends PObject
 		}
 	}
 
+	@Deprecated
 	public void clearLevelInfo()
 	{
 		levelInfo = null;

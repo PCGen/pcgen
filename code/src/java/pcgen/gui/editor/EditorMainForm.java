@@ -871,7 +871,8 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_SPELL:
 				((SpellBasePanel2) pnlBase2).updateData(thisPObject);
-				((Spell) thisPObject).setLevelInfo(".CLEAR", 0);
+				((Spell) thisPObject).clearLevelInfo("CLASS");
+				((Spell) thisPObject).clearLevelInfo("DOMAIN");
 				sel = pnlQClasses.getSelectedList();
 
 				for (int i = 0; i < sel.length; ++i)

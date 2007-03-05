@@ -1,15 +1,16 @@
-package plugin.lsttokens.spell;
+package plugin.lsttokens.deprecated;
 
 import java.util.StringTokenizer;
 
+import pcgen.core.PObject;
 import pcgen.core.spell.Spell;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.SpellLstToken;
-import pcgen.util.Logging;
 
 /**
  * Class deals with SPELLLEVEL Token
  */
-public class SpelllevelToken implements SpellLstToken
+public class SpelllevelToken implements SpellLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -19,20 +20,20 @@ public class SpelllevelToken implements SpellLstToken
 
 	public boolean parse(Spell spell, String value)
 	{
-		//TODO: When will this deprecated tag be removed? Or will it remain indefinitely?
-		Logging
-			.errorPrint("Warning: tag 'SPELLLEVEL' has been deprecated. Use CLASSES or DOMAINS tag instead.");
-
 		final StringTokenizer slTok = new StringTokenizer(value, "|");
 
 		while (slTok.countTokens() >= 3)
 		{
 			final String typeString = slTok.nextToken();
 			final String mainString = slTok.nextToken();
-			// TODO SPELLLIST need to figure out what this syntax is
 			spell
 				.setLevelInfo(typeString + "|" + mainString, slTok.nextToken());
 		}
 		return true;
+	}
+
+	public String getMessage(PObject obj, String value)
+	{
+		return "Warning: tag 'SPELLLEVEL' has been deprecated. Use CLASSES or DOMAINS tag instead.";
 	}
 }
