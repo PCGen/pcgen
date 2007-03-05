@@ -32,45 +32,53 @@ public class MiscToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		int i = -1;
+		StringTokenizer aTok = new StringTokenizer(tokenSource, ",");
+		String tokenHead = aTok.nextToken();
 
-		if (tokenSource.substring(5).startsWith("FUNDS"))
-		{
-			i = 0;
-		}
-		else if (tokenSource.substring(5).startsWith("COMPANIONS"))
-		{
-			i = 1;
-		}
-		else if (tokenSource.substring(5).startsWith("MAGIC"))
-		{
-			i = 2;
-		}
+		StringTokenizer aHeadTok = new StringTokenizer(tokenHead, ".");
+		aHeadTok.nextToken();
+		String subToken = aHeadTok.nextToken();
 
-		// For tags like the following in FOR loops
-		// will add after the ',' at end of each line
-		// |MISC.MAGIC,</fo:block><fo:block font-size="7pt">|
-		final int k = tokenSource.lastIndexOf(',');
+		int index = -1;
 
-		String sourceText;
-		if (k >= 0)
+		if ("FUNDS".equals(subToken))
 		{
-			sourceText = tokenSource.substring(k + 1);
+			index = 0;
 		}
-		else
+		else if ("COMPANIONS".equals(subToken))
 		{
-			sourceText = "";
+			index = 1;
+		}
+		else if ("MAGIC".equals(subToken))
+		{
+			index = 2;
 		}
 
 		StringBuffer buf = new StringBuffer();
-		if (i >= 0)
+		if (index >= 0)
 		{
-			final List<String> stringList = getLineForMiscList(i, pc);
+			final List<String> stringList = getLineForMiscList(index, pc);
 
-			for (String str : stringList)
+			if(aHeadTok.hasMoreTokens())
 			{
-				buf.append(str);
-				buf.append(sourceText);
+				int subIndex = Integer.parseInt(aHeadTok.nextToken());
+				buf.append(stringList.get(subIndex));
+			}
+			else
+			{
+				// This should be deprecated now
+				// For tags like the following in FOR loops
+				// will add after the ',' at end of each line
+				// |MISC.MAGIC,</fo:block><fo:block font-size="7pt">|
+				String sourceText = "";
+				if(aTok.hasMoreTokens())
+					sourceText = aTok.nextToken();
+				
+				for (String str : stringList)
+				{
+					buf.append(str);
+					buf.append(sourceText);
+				}
 			}
 		}
 		return buf.toString();
