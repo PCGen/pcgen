@@ -38,7 +38,7 @@ public class RepeatlevelToken implements PCTemplateLstToken
 		}
 		String repeatSec = value.substring(0, endRepeat);
 		final StringTokenizer repeatToken = new StringTokenizer(repeatSec, "|");
-		if (repeatToken.countTokens() == 3)
+		if (repeatToken.countTokens() != 3)
 		{
 			Logging.errorPrint("Invalid " + getTokenName()
 				+ " (repeat section " + repeatSec
