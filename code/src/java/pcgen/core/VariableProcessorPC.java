@@ -1095,6 +1095,27 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			valString = Integer.toString(getPc().getVisionList().size());
 		}
+		else if ("COUNT[MISC.FUNDS]".equals(valString))
+		{
+			final StringTokenizer aTok =
+					new StringTokenizer(getPc().getMiscList().get(0), "\r\n", false);
+
+			valString = Integer.toString(aTok.countTokens());
+		}
+		else if ("COUNT[MISC.COMPANIONS]".equals(valString))
+		{
+			final StringTokenizer aTok =
+					new StringTokenizer(getPc().getMiscList().get(1), "\r\n", false);
+
+			valString = Integer.toString(aTok.countTokens());
+		}
+		else if ("COUNT[MISC.MAGIC]".equals(valString))
+		{
+			final StringTokenizer aTok =
+					new StringTokenizer(getPc().getMiscList().get(2), "\r\n", false);
+
+			valString = Integer.toString(aTok.countTokens());
+		}
 		else if (valString.startsWith("COUNT[FOLLOWERTYPE.") && valString.endsWith("]"))
 		{
 			if (valString.indexOf(".") == valString.lastIndexOf("."))
