@@ -27,7 +27,6 @@ package plugin.pretokens.parser;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -145,6 +144,13 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 							.getFormattedString(
 								"Errors.PreAbility.MultipleCategory",
 								categoryName, tempCat));
+					}
+					else if (p != prereqList.get(0))
+					{
+						throw new PersistenceLayerException(PropertyFactory
+							.getFormattedString(
+								"Errors.PreAbility.CategoryNotFirst",
+								tempCat));
 					}
 					
 					if (!tempCat.toUpperCase().trim().equals("ANY"))
