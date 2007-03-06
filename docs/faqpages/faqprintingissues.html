@@ -44,8 +44,7 @@
 				<p>Since PCGen is cross-platform it's hard to assume what browser you're using.
 				Click on the menu item Settings-&gt;Preferences and a dialog box will appear.</p>
 					
-				<p>One of the options under Locations is to set your Browser Path. For Windows users that will most likely be:
-				<code>C:\Program Files\InternetExplorer\iexplore.exe</code></p>
+				<p>One of the options under Locations is to set your Browser Path, just navigate to the executable of your favourite browser.</p>
 			</li>
 			
 			<li>
@@ -53,19 +52,15 @@
 					
 				<p>The pdf_new.zip library is required if you want to print directly from PCGen - otherwise you can
 				view the files in your browser or adobe acrobat (pdf files) and print from there. The pdf_new.zip
-				file is located at: 
-				<a href="http://prdownloads.sourceforge.net/pcgen/pdf_new.zip">http://prdownloads.sourceforge.net/pcgen/pdf_new.zip</a></p>
-				
-				<p>Unzip it into the lib subdirectory where you installed PCGen. Then you'll need to re-launch PCGen for it 
+				file is located <a href="http://prdownloads.sourceforge.net/pcgen/pdf_new.zip">here</a>, 
+				unzip it into the lib subdirectory where you installed PCGen. Then you'll need to re-launch PCGen for it 
 				to find it properly.</p>
 			</li>
 
 			<li>
 				<p><span class="underline">Does PCGen support any command line exporting functionality?</span></p>
-					
-				
 				<p>For this to work you must have the 'Load Campaign Data with character' box checked and type the following all on one line.</p>
-				<p>java -Dpcgen.templatefile=C:\Pcgen\outputsheets\d20\fantasy\htmlxml\csheet_fantasy_std.htm -Dpcgen.inputfile=C:\Pcgen\characters\aaa.pcg -Dpcgen.outputfile=C:\Pcgen\characters\aaa.htm -jar pcgen.jar</p>				
+				<p><code>java -Dpcgen.templatefile=C:\Pcgen\outputsheets\d20\fantasy\htmlxml\csheet_fantasy_std.htm -Dpcgen.inputfile=C:\Pcgen\characters\aaa.pcg -Dpcgen.outputfile=C:\Pcgen\characters\aaa.htm -jar pcgen.jar</code></p>				
 			</li>
 		</ol>
 		

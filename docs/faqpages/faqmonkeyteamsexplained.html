@@ -22,11 +22,11 @@
 		
 		<h1>PCGen Monkey Teams Explained</h1>
 		
-		<p class="bolditalicunderline">who does what?</p>
+		<p class="bolditalicunderline">Who does what?</p>
 		
 		<p>In the &quot;About&quot; box of PCGen, you'll quickly notice the PCGen has 
-  		a monkey meme. I chose &quot;Chief Code Monkey&quot; as my title when I first 
-  		made PCGen available to the public, and I later adopted the title of Benevolent 
+  		a monkey theme. Bryan McRoberts chose &quot;Chief Code Monkey&quot; as his title 
+  		when he first made PCGen available to the public, and later adopted the title of Benevolent 
   		Dictator. Other teams formed to focus on different aspects of PCGen, and all 
   		have taken to referring to themselves as monkeys. In the About box we try to 
   		list everyone who has contributed to PCGen in chronological order, and the monkeys 
@@ -56,10 +56,8 @@
   		in PCGen. These templates involve xml, xsl and html. Their trackers are located 
   		at pcgendocs.sf.net.</p>
 
-		<p class="indent1"><strong>Quality Assurance Monkeys (QA Monkeys)</strong><br>
-  		This team works on testing PCGen to make sure the releases are reliable and 
-  		high quality. They have a yahoo group called pcgenqa where they discuss what 
-		they're doing.</p>
+		<p class="indent1"><strong>Public Relations Monkeys</strong><br>
+  		This team encompasses all public relations work with PCGen. This includes Publisher Liaison, OGL and Advertising.</p>
 
 		<p class="indent1"><strong>Publisher Liaison Monkeys</strong><br>
   		This team servers as the contact for all the publishers. This way all contact 
@@ -70,10 +68,13 @@
   		possible. This team makes sure that all material included in PCGen meets any 
   		license requirements (not just the OGL).</p>
 
-		<p class="indent1"><strong>Tracker Monkeys</strong><br>
+		<p class="indent1"><strong>Advertising Monkeys</strong><br>
+  		This team deals with Advertising PCGen in magazines etc.</p>
+
+		<p class="indent1"><strong>Admin Monkeys</strong><br>
   		This is the team that monitors the pcgen yahoo site for bug reports and feature 
-  		requests. They also prioritize all trackers submitted at the three sourceforge 
-  		sites.</p>
+  		requests. They also prioritize all trackers submitted at the sourceforge 
+  		site and generally organise the project.</p>
 
 		<p class="bolditalicunderline">More Detailed Listing of what each team does:</p>
 
@@ -116,21 +117,6 @@
   		also know java so they can look at the code of PCGen itself to better understand 
   		(and even modify) what it's doing when it outputs a character sheet. </p>
 
-		<p class="indent1"><strong>Quality Assurance Monkeys</strong><br>
-  		<em>Requirements:</em> Ability to describe steps to reliably reproduce a bug, 
-  		preferably some professional QA experience but not required <br>
-  		This team develops regression tests to make sure that code changes in PCGen 
-  		don't break anything that was working. They also help test the interface to 
-  		make sure that it works as expected. They also help try to determine where and 
-  		when PCGen slows down or runs into trouble so the Code Monkey team can resolve 
-  		the problem and improve PCGen's performance. As the QA team discovers issues, 
-  		it enters the bug in the appropriate place (pcgen.sf.net for code bugs, pcgendm.sf.net 
-  		for data bugs, pcgendocs.sf.net for doc or OS bugs).</p>
-
-		<p class="indent1"><strong>Special Project Monkeys</strong> <br>
-  		This team is used intermittently based solely upon need and generally consists 
-  		of a combination of code and data monkeys.</p>
-
 		<p class="indent1"><strong>Publisher Liaison Monkeys</strong> <br>
   		<em>Requirements:</em> Desire to communicate to publishers and ability to communicate clearly <br>
   		Since this group is our contact point with all publishers, it's a small group.</p>
@@ -143,54 +129,27 @@
 		and any other licenses that apply to PCGen. Any issues found are immediately reported - 
 		to pcgen_experimental if it's a data issue, to pcgen.sf.net if it's a code issue.</p>
 
-		<p class="indent1"><strong>Tracker Monkeys</strong> <br>
+		<p class="indent1"><strong>Admin Monkeys</strong> <br>
   		This is the team that monitors the pcgen yahoo group for bug and feature requests. 
- 		Any bugs that are confirmed are entered as a tracker in the appropriate group's 
-  		list (code items at pcgen.sf.net, data items at pcgendm.sf.net, output sheet 
-  		and documentation items at pcgendocs.sf.net). After the confirm/reject a report, 
-  		they respond to the user's post to indicate the tracker number or to indicate 
-  		that they couldn't reproduce it. Some trackers help monitor the Files folders 
-  		where users can upload character files that exhibit a bug they're reporting. 
-  		Other trackers help monitor all items submitted to the various groups and make 
-  		sure they're not duplicates, and adjust the priority on the item according to 
-  		the list of rules supplied by the Board of Directors.</p>
+ 		Any bugs that are confirmed are entered as a tracker in the appropriate areas. 
+ 		After the confirm/reject a report, they respond to the user's post to indicate the 
+ 		tracker number or to indicate that they couldn't reproduce it. Some Admin staff help 
+ 		monitor the Files folders where users can upload character files that exhibit a bug 
+ 		they're reporting. Other Admin staff help monitor all items submitted to the various 
+ 		groups and make sure they're not duplicates, and adjust the priority on the item according 
+ 		to the list of rules supplied by the Board of Directors.</p>
 		
-		<p class="indent1">Tracker priority ranks</p>
+		<p class="indent1">General Tracker priority ranks</p>
 		
 		<p class="indent2">
 			P9 = Emergency! fix me NOW. This priority is reserved for crashes and other issues which block usability.<br>
-  			P7 = Next production release.<br>
-  			P5 = Production release after that.<br>
+  			P7/8 = Next production release.<br>
+  			P5/6 = Production release after that.<br>
   			P3 = Default priority.<br>
   			P1 = Low priority.</p>
 
-		<p class="indent1">How this all works:</p>
-
-		<p class="indent1">Scenario 1 - A user submits a bug report <br>
-  		Suppose someone submits something like this to the pcgen yahoo group: &quot;[BUG] 
-  		5.7.2 - My Fighter's BAB is 0!&quot;. A Tracker Monkey monitoring the group 
-  		attempts to confirm the bug with the version specified. If no version is specified, 
-  		simply try the most recent version. If the bug can be confirmed, try it in the 
-  		most recent production release to see if it was a problem there. If it's a code-related 
-  		issue, submit a bug report at pcgen.sf.net and indicate whether or not it's 
-  		a bug in the most recent production release as well as the version specified. 
-  		If it's a data-related bug, follow the same process at pcgendm.sf.net. If it's 
-  		a bug in a production release, it gets assigned priority 9. Then respond to 
-  		the user's post at the yahoo group with the tracker number. If you cannot confirm 
-  		the bug, respond to the user's post and let them know what you tried. Request 
-  		more information if it isn't clear what steps the user took. If the tracker 
-  		was submitted to pcgen.sf.net, a code monkey would work on the item and mark 
-  		it as closed once the code for it has been checked in. A data monkey would do 
-  		the same thing for anything submitted to pcgendm.sf.net.</p>
-
-		<p class="indent1">Scenario 2 - QA finds something <br>
-  		A QA monkey testing PCGen comes across an issue. This is reported to the pcgenqa 
-  		yahoo group so others can confirm it. Once it's confirmed, one of the QA monkeys 
-  		or one of the tracker monkeys can submit the bug in either pcgen.sf.net or pcgendm.net. 
-  		It then follows the same process as scenario 1.</p>
-		
-		<p class="indent1"><strong>Note:</strong> Tracker can mean two things. It can refer to a member 
-  		of the Tracker Monkey team, it can also refer to an item that has been submitted 
+		<p class="indent1"><strong>Note:</strong> Tracker can mean two things. It can refer 
+		to a member of the Admin Monkey team, it can also refer to an item that has been submitted 
   		either as a bug report or feature request at a sourceforge site. Sourceforge, 
   		also referred to as SF, calls these list of reports as Trackers. This way bug 
   		reports and feature requests don't get lost and is a primary way we act on the 
