@@ -5,16 +5,16 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
-    <release version="5.11.9" date="In SVN" description="Alpha release">
+    <release version="5.11.9" date="2007-03-06" description="Alpha release">
       <action dev="jdempsey" type="add" issue="1411073">OS Token IFF() to accept any JEP Boolean functions</action>
-      <action dev="maredudd800" type="update" >Updated and corrected documentation issues with KNOWNSPELLS and the default spell level for wands.</action>
-      <action dev="maredudd800" type="update" >Updated the race file documentation to include HITDIE tag.</action>
+      <action dev="maredudd800" type="update">Updated and corrected documentation issues with KNOWNSPELLS and the default spell level for wands.</action>
+      <action dev="maredudd800" type="update">Updated the race file documentation to include HITDIE tag.</action>
       <action dev="jdempsey" type="add" issue="1588325">User input for feat target.</action>
       <action dev="thpr" type="update" issue="1670470">Deprecate ADD:LIST and ADD:WEAPONBONUS</action>
       <action dev="thpr" type="update" issue="1669592">ADD:FEAT Supports ALL</action>
       <action dev="thpr" type="update" issue="1671219">Deprecated RACE AC Tag</action>
-      <action dev="eddyanthony" type="add" issue="1667706">New OS to export to RPTools InitTool file format. </action>
-      <action dev="eddyanthony" type="add" issue="1339969">Monk's Timeless Body ability should counter aging penalties. </action>
+      <action dev="eddyanthony" type="add" issue="1667706">New OS to export to RPTools InitTool file format.</action>
+      <action dev="eddyanthony" type="add" issue="1339969">Monk's Timeless Body ability should counter aging penalties.</action>
       <action dev="thpr" type="update" issue="1673230">Altered CLEAR behavior in DOMAINS: and CLASSES: Tokens</action>
       <action dev="thpr" type="fix" issue="1673191">Backslash in relative path causes relative path failure</action>
     </release>
