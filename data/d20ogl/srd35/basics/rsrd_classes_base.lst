@@ -26,7 +26,7 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 1	BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL,11	DEFINE:GreaterRage|0
 1	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,17	DEFINE:TirelessRage|0
 1	BONUS:VAR|MightyRage|1|PREVARGTEQ:BarbRagePowerLVL,20		DEFINE:MightyRage|0
-1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1			DEFINE:RageTimes|0		FEATAUTO:Rage
+1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1								FEATAUTO:Rage
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
