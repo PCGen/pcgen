@@ -210,9 +210,9 @@ Divine Grace	TYPE:Supernatural		VISIBLE:NO	SA:Divine Grace (Su)																	
 Detect Evil		TYPE:SpellLike		VISIBLE:NO	SA:Detect Evil (Sp)					DEFINE:DetectEvilLVL|0						SPELLS:Paladin|TIMES=-1|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Paladin Internals
-# Feat Name			Type			Visible	Define													Modify VAR																				Source Page
-Paladin Smite Evil	TYPE:Internal	VISIBLE:NO	DEFINE:PaladinSmiteEvilLVL|0										BONUS:VAR|SmiteEvil|PaladinSmiteEvilLVL/5+1														SOURCEPAGE:ClassesII.rtf
-Paladin Turn Undead	TYPE:Internal	VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:PaladinTurnLVL|0	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase|PaladinTurnLVL-3	SOURCEPAGE:ClassesII.rtf
+# Feat Name			Type			Visible	Define													Modify VAR																											Source Page
+Paladin Smite Evil	TYPE:Internal	VISIBLE:NO	DEFINE:PaladinSmiteEvilLVL|0										BONUS:VAR|SmiteEvil|PaladinSmiteEvilLVL/5+1																					SOURCEPAGE:ClassesII.rtf
+Paladin Turn Undead	TYPE:Internal	VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:PaladinTurnLVL|0	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|PaladinTurnLVL-3|TYPE=Level.REPLACE	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Ranger Abilities
 # Feat Name				Type				Visible	Special Ability			Source Page
