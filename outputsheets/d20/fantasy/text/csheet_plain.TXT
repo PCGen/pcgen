@@ -189,7 +189,7 @@ Dominant Hand: |HANDED||FOR.1,((11-STRLEN[HEIGHT])).INTVAL,11, ,NONE,NONE,1|Quir
 Speech style: |SPEECHTENDENCY||FOR.1,((12-STRLEN[HEIGHT])).INTVAL,12, ,NONE,NONE,1|Quotable: |CATCHPHRASE|</text>
 
 Full Description
-|DESCRIPTION|
+|DESC|
 
 Background
 |BIO|
