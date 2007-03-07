@@ -2,11 +2,13 @@ package plugin.exporttokens;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+
 
 /**
  * @author karianna
@@ -92,16 +94,7 @@ public class MiscToken extends Token
 	 */
 	private List<String> getLineForMiscList(int index, PlayerCharacter aPC)
 	{
-		final List<String> aArrayList = new ArrayList<String>();
-		final StringTokenizer aTok =
-				new StringTokenizer(aPC.getMiscList().get(index), "\r\n", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			aArrayList.add(aTok.nextToken());
-		}
-
-		return aArrayList;
+		return new ArrayList<String>(Arrays.asList(aPC.getMiscList().get(index).split("\r?\n")));
 	}
 
 }

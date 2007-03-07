@@ -28,6 +28,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -1097,24 +1098,15 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("COUNT[MISC.FUNDS]".equals(valString))
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(getPc().getMiscList().get(0), "\r\n", false);
-
-			valString = Integer.toString(aTok.countTokens());
+			valString = Integer.toString(Arrays.asList(getPc().getMiscList().get(0).split("\r?\n")).size());
 		}
 		else if ("COUNT[MISC.COMPANIONS]".equals(valString))
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(getPc().getMiscList().get(1), "\r\n", false);
-
-			valString = Integer.toString(aTok.countTokens());
+			valString = Integer.toString(Arrays.asList(getPc().getMiscList().get(1).split("\r?\n")).size());
 		}
 		else if ("COUNT[MISC.MAGIC]".equals(valString))
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(getPc().getMiscList().get(2), "\r\n", false);
-
-			valString = Integer.toString(aTok.countTokens());
+			valString = Integer.toString(Arrays.asList(getPc().getMiscList().get(2).split("\r?\n")).size());
 		}
 		else if (valString.startsWith("COUNT[FOLLOWERTYPE.") && valString.endsWith("]"))
 		{
