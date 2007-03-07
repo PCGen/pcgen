@@ -82,7 +82,7 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 1	VFEAT:Bardic Inspire Heroics|PREVARGTEQ:BardicMusicLvl,15
 1	VFEAT:Bardic Mass Suggestion|PREVARGTEQ:BardicMusicLvl,18
 ###Block: Level progression
-1	CAST:2			KNOWN:4			SA:May wear light armor without incurring the normal arcane spell failure chance.
+1	CAST:2			KNOWN:4			FEATAUTO:Armored Casting (Bard)
 2	CAST:3,0			KNOWN:5,2
 3	CAST:3,1			KNOWN:6,3
 4	CAST:3,2,0			KNOWN:6,3,2
