@@ -967,7 +967,11 @@
 <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>COMPANIONS</b></font></td>
 </tr>
 <tr>
-<td valign="top" width="70%" class="border8">|MISC.COMPANIONS|<br /></td>
+<td valign="top" width="70%" class="border8">
+|FOR,%companions,0,COUNT[MISC.COMPANIONS]-1,1,1|
+			 |MISC.COMPANIONS.%companions|<br />
+|ENDFOR|
+</td>
 </tr>
 </table>
 <!-- STOP Companions Table -->
@@ -993,7 +997,11 @@
 <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>MAGIC</b></font></td>
 </tr>
 <tr>
-<td valign="top" width="70%" class="border8">|MISC.MAGIC|<br /></td>
+<td valign="top" width="70%" class="border8">
+|FOR,%magic,0,COUNT[MISC.MAGIC]-1,1,1|
+			 |MISC.MAGIC.%magic|<br />
+|ENDFOR|
+</td>
 </tr>
 </table>
 <!-- STOP Misc Magic Table -->
@@ -1624,10 +1632,10 @@
      <td valign="top" width="40%" class="border8"><b>NAME</b></td>
      <td valign="top" width="60%" class="border8" align="left"><b>DESCRIPTION</b></td>
     </tr>
-|FOR,%feat,0,COUNT[FEATSALL]-1,1,0|
+|FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
 |OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8">|FEATALL.%feat.!TYPE=Occupation|</td>
-     <td valign="top" align="left" class="font8">|FEATALL.%feat.!TYPE=Occupation.DESC|</td>
+     <td valign="top" class="font8">|FEATALL.VISIBLE.%feat.!TYPE=Occupation|</td>
+     <td valign="top" align="left" class="font8">|FEATALL.VISIBLE.%feat.!TYPE=Occupation.DESC|</td>
     </tr>
 |ENDFOR|
    </table>
