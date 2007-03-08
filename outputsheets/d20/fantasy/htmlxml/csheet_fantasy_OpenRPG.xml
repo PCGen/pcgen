@@ -667,7 +667,7 @@ Quirks: |PERSONALITY1|, |PERSONALITY2| Speech style: |SPEECHTENDENCY| Quotable: 
   <nodehandler class="form_handler" icon="compass" module="forms" name="Misc.">
     <form height="600" width="400"/>
     <nodehandler class="textctrl_handler" icon="note" module="forms" name="Background">
-      <text multiline="1" send_button="1">|BIO,&lt;BR&gt;|</text>
+      <text multiline="1" send_button="1">|BIO|</text>
     </nodehandler>
     <nodehandler class="textctrl_handler" icon="note" module="forms" name="Notes">
       <text multiline="1" send_button="0"></text>
