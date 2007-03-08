@@ -583,9 +583,16 @@
 					<xsl:call-template name="paragraghlist.table"/>
 				</xsl:if>
 				<xsl:if test="count(./*[name()='table']) = 0">
-					<fo:block text-indent="5pt">
-						<xsl:value-of select="."/>
-					</fo:block>
+					<xsl:if test="string-length(.) &gt; 0">
+						<fo:block text-indent="5pt">
+							<xsl:value-of select="." />
+						</fo:block> 
+					</xsl:if>
+					<xsl:if test="string-length(.) = 0">
+						<fo:block text-indent="5pt">
+							&#160;
+						</fo:block> 
+					</xsl:if>
 				</xsl:if>
 			</xsl:for-each>
 		</xsl:if>
