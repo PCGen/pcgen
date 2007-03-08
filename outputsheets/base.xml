@@ -1392,9 +1392,7 @@
 |%|
 |%MISC.MAGIC|
 		<magics>
-|FOR,%magic,0,COUNT[MISC.MAGIC]-1,1,1|
-			<magic>|MISC.MAGIC.%magic|</magic>
-|ENDFOR|
+			<magic>|MISC.MAGIC|</magic>
 		</magics>
 |%|
 	</misc>

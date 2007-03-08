@@ -34,15 +34,19 @@ public class MiscToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ",");
-		String tokenHead = aTok.nextToken();
+		String tokens[] = tokenSource.split(",", 2);
+		String tokenHead = tokens[0];
+		String sourceText = "\n";
 
-		StringTokenizer aHeadTok = new StringTokenizer(tokenHead, ".");
-		aHeadTok.nextToken();
-		String subToken = aHeadTok.nextToken();
+		if(tokens.length == 2)
+		{
+			sourceText = tokens[1];
+		}
+
+		String headTokens[] = tokenHead.split("\\.");
+		String subToken = headTokens[1];
 
 		int index = -1;
-
 		if ("FUNDS".equals(subToken))
 		{
 			index = 0;
@@ -57,14 +61,12 @@ public class MiscToken extends Token
 		}
 
 		StringBuffer buf = new StringBuffer();
-		if (index >= 0)
+		if (-1 != index)
 		{
-			final List<String> stringList = getLineForMiscList(index, pc);
-
-			if(aHeadTok.hasMoreTokens())
+			List<String> stringList = getLineForMiscList(index, pc);
+			if(3 == headTokens.length)
 			{
-				int subIndex = Integer.parseInt(aHeadTok.nextToken());
-				buf.append(stringList.get(subIndex));
+				buf.append(stringList.get(Integer.parseInt(headTokens[2])));
 			}
 			else
 			{
@@ -72,10 +74,6 @@ public class MiscToken extends Token
 				// For tags like the following in FOR loops
 				// will add after the ',' at end of each line
 				// |MISC.MAGIC,</fo:block><fo:block font-size="7pt">|
-				String sourceText = "";
-				if(aTok.hasMoreTokens())
-					sourceText = aTok.nextToken();
-				
 				for (String str : stringList)
 				{
 					buf.append(str);
@@ -83,6 +81,7 @@ public class MiscToken extends Token
 				}
 			}
 		}
+
 		return buf.toString();
 	}
 

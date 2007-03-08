@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!-- $Id$ -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -3889,15 +3888,15 @@
 					</fo:table-row>
 				</fo:table-header>
 				<fo:table-body>
-					<xsl:for-each select="magic">
-						<fo:table-row keep-with-next.within-column="always">
-							<fo:table-cell>
-								<fo:block font-size="7pt">
-									<xsl:value-of select="."/>
-								</fo:block>
-							</fo:table-cell>
-						</fo:table-row>
-					</xsl:for-each>
+					<fo:table-row keep-with-next.within-column="always">
+						<fo:table-cell>
+							<fo:block font-size="7pt">
+								<xsl:call-template name="paragraghlist">
+									<xsl:with-param name="tag" select="'magic'"/>
+								</xsl:call-template>
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
 				</fo:table-body>
 			</fo:table>
 		</xsl:if>
