@@ -25,14 +25,9 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * Handles Tokens
@@ -56,8 +51,7 @@ public class BioToken extends Token
 
 	/**
 	 * TODO  Could expand Token itself or even create a sub class of Token so that
-	 * the beforeValue and afterValue can be handled more cleanly.  Also see comment
-	 * on Token.replaceWithDelimiter itself
+	 * the beforeValue and afterValue can be handled more cleanly. 
 	 *
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
@@ -87,42 +81,4 @@ public class BioToken extends Token
 			+ pc.getBio().replaceAll("\n", afterValue + "\n" + beforeValue)
 			+ afterValue;
 	}
-
-	/**
-	 * Convert the characters bio token to a list of strings, each
-	 * string being a line.
-	 *
-	 * @param pc The character being processed.
-	 * @return A list lines in the character's bio
-	 */
-	private static List<String> getBioToken(PlayerCharacter pc)
-	{
-		List<String> bioList = new ArrayList<String>();
-		StringTokenizer tok = new StringTokenizer(pc.getBio(), "\r\n", false);
-
-		while (tok.hasMoreTokens())
-		{
-			bioList.add(tok.nextToken());
-		}
-
-		return bioList;
-	}
-
-	/**
-	 * TODO  This method could become common across several OS tokens
-	 * Helper method to return a CR/LF equivalent for different OS tempaltes
-	 * @param eh
-	 * @return CR/LF equivalent
-	 */
-	private static String getAfterValue(ExportHandler eh)
-	{
-		if (eh != null
-			&& eh.getTemplateFile().getName().endsWith(
-				Constants.XSL_FO_EXTENSION))
-		{
-			return "			</fo:block><fo:block font-size=\"9pt\" text-indent=\"5mm\" space-after.optimum=\"2mm\">";
-		}
-		return "<br/>";
-	}
-
 }

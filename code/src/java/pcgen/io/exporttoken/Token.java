@@ -105,34 +105,4 @@ public abstract class Token
 		}
 		return retInt;
 	}
-
-	/**
-	 * Replaces any end-of-line occurrences in the supplied string with
-	 * the supplied delimiter.
-	 * 
-	 * TODO:  Currently only used by one token, should either remove this 
-	 * method or convert other tokens to use this one
-	 *
-	 * @param sString The string to be converted.
-	 * @param sDelim The delimiter to be used instead of EOL.
-	 * @return The converted string.
-	 */
-	public static String replaceWithDelimiter(String sString, String sDelim)
-	{
-		final StringTokenizer bTok =
-				new StringTokenizer(sString, "\r\n", false); //$NON-NLS-1$
-		StringBuffer retValue = new StringBuffer();
-
-		while (bTok.hasMoreTokens())
-		{
-			retValue.append(bTok.nextToken());
-
-			if (bTok.hasMoreTokens())
-			{
-				retValue.append(sDelim);
-			}
-		}
-
-		return retValue.toString();
-	}
 }
