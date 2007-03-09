@@ -339,14 +339,9 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	FEATAUTO:Armor Proficiency (Light)
 1	FEATAUTO:Shield Proficiency
 ###Block: Favored Enemy level stacking
-1	BONUS:VAR|RangerFavoredEnemyLVL|CL				DEFINE:RangerFavoredEnemyLVL|0	FEATAUTO:Basic Favored Enemy
-1	BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1
-1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5
+1	BONUS:VAR|RangerFavoredEnemyLVL|CL	FEATAUTO:Basic Favored Enemy|Ranger Favored Enemy
 ###Block: Combat Trees
-1	BONUS:VAR|RangerCombatTreeLVL|CL						DEFINE:RangerCombatTreeLVL|0
-1	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,2	DEFINE:RangerCombatTree|0
-1	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6
-1	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11
+1	BONUS:VAR|RangerCombatTreeLVL|CL	FEATAUTO:Ranger Combat Tree
 ###Block: Level progression
 1				BONUS:VAR|WildEmpathy|CL		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatStyle)	FEATAUTO:Wild Empathy|Track
 2										ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatStyle)

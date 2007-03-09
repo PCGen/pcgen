@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar  7 15:56:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Fri Mar  9 06:39:28 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -112,6 +112,7 @@ Bardic Mass Suggestion		TYPE:Special.SpellLike		VISIBLE:NO	SA:Mass Suggestion (S
 Armored Casting (Bard)		TYPE:Special			VISIBLE:NO	SA:May wear light armor without incurring the normal arcane spell failure chance.
 
 ###Block: Cleric abilities
+# Feat Name		Visible	Define									Modify VAR
 Cleric Turning	VISIBLE:NO	DEFINE:AllowExtraTurning|1	DEFINE:AllowImprovedTurning|1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 
 
@@ -226,8 +227,19 @@ Camouflage				TYPE:Extraordinary	VISIBLE:NO	SA:Camouflage (Ex)		SOURCEPAGE:Class
 Hide in Plain Sight (Ranger)	TYPE:Extraordinary	VISIBLE:NO	SA:Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Ranger Internal
-# Feat Name			Type			Visible	Define				Modify VAR						Source Page
-Ranger Animal Companion	TYPE:Internal	VISIBLE:NO	DEFINE:RangerAnimalCompLVL|0	BONUS:VAR|CompLevel|RangerAnimalCompLVL/2	SOURCEPAGE:ClassesII.rtf
+# Feat Name			Type			Visible	Define									Modify VAR																																Source Page
+Ranger Animal Companion	TYPE:Internal	VISIBLE:NO	DEFINE:RangerAnimalCompLVL|0						BONUS:VAR|CompLevel|RangerAnimalCompLVL/2																											SOURCEPAGE:ClassesII.rtf
+Ranger Combat Tree	TYPE:Internal	VISIBLE:NO	DEFINE:RangerCombatTreeLVL|0	DEFINE:RangerCombatTree|0	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11	SOURCEPAGE:ClassesII.rtf
+Ranger Favored Enemy	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0					BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5																SOURCEPAGE:ClassesII.rtf
+
+
+
+
+
+
+
+
+
 
 ###Block: Rogue Abilities
 # Feat Name	Type			Visible	Special Ability	Source Page
