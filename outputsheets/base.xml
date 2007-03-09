@@ -1378,16 +1378,12 @@
 	<misc>
 |%MISC.FUNDS|
 		<funds>
-|FOR,%fund,0,COUNT[MISC.FUNDS]-1,1,1|
-			<fund>|MISC.FUNDS.%fund|</fund>
-|ENDFOR|
+			<fund>|MISC.FUNDS|</fund>
 		</funds>
 |%|
 |%MISC.COMPANIONS|
 		<companions>
-|FOR,%companion,0,COUNT[MISC.COMPANIONS]-1,1,1|
-			<companion>|MISC.COMPANIONS.%companion|</companion>
-|ENDFOR|
+			<companion>|MISC.COMPANIONS|</companion>
 		</companions>
 |%|
 |%MISC.MAGIC|
