@@ -164,6 +164,7 @@
 #[\r\n]+$	
 ^(.*[\r\n](.*[\r\n]?)*)$	<fo:block>$1</fo:block>
 [\r\n]	</fo:block><fo:block>
+<fo:block></fo:block>	<fo:block>&#160;</fo:block>
 \[BR\]	\n
 \{table\}	<fo:table table-layout="fixed" inline-progression-dimension="auto">
 \{/table\}	</fo:table>
