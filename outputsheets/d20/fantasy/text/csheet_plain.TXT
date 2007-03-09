@@ -127,14 +127,13 @@ Name                                            QTY	LBS
 |ENDFOR|
 |ENDFOR|
 
-Total weight caried: |TOTAL.WEIGHT.INTVAL|
-Current load:        |TOTAL.LOAD|
+Total weight carried: |TOTAL.WEIGHT.INTVAL|
+Current load:         |TOTAL.LOAD|
 
-   Encumbrance
+Encumbrance
 Light:  |WEIGHT.LIGHT.INTVAL|   
 Medium: |WEIGHT.MEDIUM.INTVAL|   
 Heavy:  |WEIGHT.HEAVY.INTVAL|
-
 
 --------------------------- Magic --------------------------
 |%SPELLLISTBOOK.0.0.1|
