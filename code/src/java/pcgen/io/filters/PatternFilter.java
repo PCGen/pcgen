@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 import pcgen.core.Constants;
-import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
