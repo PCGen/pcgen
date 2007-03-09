@@ -1,4 +1,3 @@
-<!-- $Id$ -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
@@ -3844,7 +3843,7 @@
 					<xsl:variable name="gem_count" select="count( equipment/item[contains(type, 'GEM')] )"/>
 
 					<!-- misc funds -->
-					<xsl:for-each select="misc/funds/fund">
+					<xsl:for-each select="misc/funds">
 						<xsl:variable name="shade">
 							<xsl:choose>
 								<xsl:when test="($coin_count + $gem_count + position()) mod 2 = 0 ">darkline</xsl:when>
@@ -3855,7 +3854,9 @@
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('money.', $shade)"/></xsl:call-template>
 							<fo:table-cell>
 								<fo:block font-size="7pt">
-									<xsl:value-of select="."/>
+									<xsl:call-template name="paragraghlist">
+										<xsl:with-param name="tag" select="'fund'"/>
+									</xsl:call-template>
 								</fo:block>
 							</fo:table-cell>
 						</fo:table-row>
@@ -3890,6 +3891,9 @@
 				<fo:table-body>
 					<fo:table-row keep-with-next.within-column="always">
 						<fo:table-cell>
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'magic.lightline'"/>
+							</xsl:call-template>
 							<fo:block font-size="7pt">
 								<xsl:call-template name="paragraghlist">
 									<xsl:with-param name="tag" select="'magic'"/>
