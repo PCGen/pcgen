@@ -117,10 +117,7 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 #	both OS and data to include modifications for differences in Turning ability for Undead,
 #	Air, Fire, etc.
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
-1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
-1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
-1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+1	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning|Cleric Turning
 ###Block: Spontaneous casting
 1	VFEAT:Spontaneous casting (Cure spells)|PREFEAT:1,Turn Undead
 1	VFEAT:Spontaneous casting (Inflict spells)|PREFEAT:1,Rebuke Undead

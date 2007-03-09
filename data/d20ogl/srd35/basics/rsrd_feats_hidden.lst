@@ -110,6 +110,11 @@ Bardic Song of Freedom		TYPE:Special.Supernatural	VISIBLE:NO	SA:Song of Freedom 
 Bardic Inspire Heroics		TYPE:Special.Supernatural	VISIBLE:NO	SA:Inspire Heroics (Su) character and % willing allies gain +% moral bonus on saving throws and +% dodge bonus to AC (Concentration + % rounds).|InspireHeroicsAllies|InspireHeroicsSaves|InspireHeroicsDodge|InspireHeroicsDuration|PREVARGTEQ:BardicMusicLvl,15																					DEFINE:InspireHeroicsDuration|InspireDurationBase	DEFINE:InspireHeroicsAllies|0	DEFINE:InspireHeroicsSaves|0	DEFINE:InspireHeroicsDodge|0									BONUS:VAR|InspireHeroicsAllies|(BardicMusicLvl-12)/3	BONUS:VAR|InspireHeroicsSaves,InspireHeroicsDodge|4
 Bardic Mass Suggestion		TYPE:Special.SpellLike		VISIBLE:NO	SA:Mass Suggestion (Sp) Will DC % negates - as Suggestion, but simultaneously to any number of creatures the character has already fascinated|MassSuggestionDC|PRESKILL:1,TYPE.Perform=21																																	DEFINE:MassSuggestionDC|SuggestionDC
 Armored Casting (Bard)		TYPE:Special			VISIBLE:NO	SA:May wear light armor without incurring the normal arcane spell failure chance.
+
+###Block: Cleric abilities
+Cleric Turning	VISIBLE:NO	DEFINE:AllowExtraTurning|1	DEFINE:AllowImprovedTurning|1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+
+
 #
 #	##############################
 #	## Fighter VAR Descriptions ##
