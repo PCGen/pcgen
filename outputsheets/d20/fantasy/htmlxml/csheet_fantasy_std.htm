@@ -987,10 +987,7 @@ Wisdom
       <td valign="top" width="70%" class="border"><font style="font-size: 8pt">
 |FOR.0,COUNT[EQTYPE.Coin],1,\EQTYPE.Coin.%.NAME\: \EQTYPE.Coin.%.QTY\, ,<br/>,1|
 |FOR.0,COUNT[EQTYPE.Gem],1,\EQTYPE.Gem.%.QTY\x\EQTYPE.Gem.%.NAME\ (\EQTYPE.Gem.%.COST\) , ,<br/>,1|
-|FOR,%fund,0,COUNT[MISC.FUNDS]-1,1,1|
-			 |MISC.FUNDS.%fund|<br />
-|ENDFOR|
-</font></td>
+|MISC.FUNDS|</font></td>
      </tr>
     </table>
 <!-- STOP Money Table -->
@@ -1133,11 +1130,7 @@ Wisdom
       <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>OTHER COMPANIONS</b></font></td>
      </tr>
      <tr>
-      <td valign="top" width="70%" class="border8">
-|FOR,%companion,0,COUNT[MISC.COMPANIONS]-1,1,1|
-			 |MISC.COMPANIONS.%companion|<br />
-|ENDFOR|
-	</td>
+      <td valign="top" width="70%" class="border8">|MISC.COMPANIONS.%companion|</td>
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>
@@ -1177,11 +1170,7 @@ Wisdom
       <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>MAGIC</b></font></td>
      </tr>
      <tr>
-      <td valign="top" width="70%" class="border8">
-|FOR,%magic,0,COUNT[MISC.MAGIC]-1,1,1|
-			 |MISC.MAGIC.%magic|<br />
-|ENDFOR|
-	</td>
+      <td valign="top" width="70%" class="border8">|MISC.MAGIC|<br /></td>
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>
