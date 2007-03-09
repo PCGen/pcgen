@@ -134,7 +134,8 @@
 
 #[\r\n]+$	
 ^(.*[\r\n](.*[\r\n]?)*)$	<p>$1</p>
-([\r\n]+)	</p>$1<p>
+(\r?\n)	</p><p>
+<p></p>	<p>&nbsp;</p>
 \[BR\]	<BR/>
 \{table\}	<table>
 \{/table\}	</table>
