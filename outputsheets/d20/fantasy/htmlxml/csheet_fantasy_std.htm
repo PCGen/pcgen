@@ -81,7 +81,7 @@ $Date$
 		border-bottom: 1pt solid black;
 		font-size:8pt;
 	}
-	div.notes p {margin-top:0; margin-bottom:0;}
+	span.notes p {margin-top:0; margin-bottom:0;}
 
 </style>
 </head>
@@ -988,7 +988,7 @@ Wisdom
       <td valign="top" width="70%" class="border"><font style="font-size: 8pt">
 |FOR.0,COUNT[EQTYPE.Coin],1,\EQTYPE.Coin.%.NAME\: \EQTYPE.Coin.%.QTY\, ,<br/>,1|
 |FOR.0,COUNT[EQTYPE.Gem],1,\EQTYPE.Gem.%.QTY\x\EQTYPE.Gem.%.NAME\ (\EQTYPE.Gem.%.COST\) , ,<br/>,1|
-<div class="notes">|MISC.FUNDS|</div></font></td>
+<span class="notes">|MISC.FUNDS|</span></font></td>
      </tr>
     </table>
 <!-- STOP Money Table -->
@@ -1131,7 +1131,7 @@ Wisdom
       <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>OTHER COMPANIONS</b></font></td>
      </tr>
      <tr>
-      <td valign="top" width="70%" class="border8"><div class="notes">|MISC.COMPANIONS|<div class="notes"></td>
+      <td valign="top" width="70%" class="border8"><span class="notes">|MISC.COMPANIONS|<span class="notes"></td>
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>
@@ -1171,7 +1171,7 @@ Wisdom
       <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>MAGIC</b></font></td>
      </tr>
      <tr>
-      <td valign="top" width="70%" class="border8"><div class="notes">|MISC.MAGIC|</div></td>
+      <td valign="top" width="70%" class="border8"><span class="notes">|MISC.MAGIC|</span></td>
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>
@@ -2590,11 +2590,11 @@ Wisdom
   </td>
  </tr>
  <tr><td class="borderbottom" colspan="2"><font style="font-size: 14pt">Description</font></td></tr>
- <tr><td colspan="2"><font style="font-size: 9pt">|DESC|<br/></font></td></tr>
+ <tr><td colspan="2"><font style="font-size: 9pt"><span class="notes">|DESC|</span></font></td></tr>
  <tr><td class="borderbottom" colspan="2"><font style="font-size: 14pt">Home</font></td></tr>
  <tr><td colspan="2"><font style="font-size: 9pt">|%REGION| From |REGION|. |%| |%BIO| |RESIDENCE|, |LOCATION|<br/></font></td></tr>
  <tr><td class="borderbottom" colspan="2"><font style="font-size: 14pt">Biography</font></td></tr>
- <tr><td colspan="2"><font style="font-size: 9pt">|BIO|<br/></font></td></tr>
+ <tr><td colspan="2"><font style="font-size: 9pt"><span class="notes">|BIO|</span></font></td></tr>
 </table>
 |%|
 |%NOTES|
@@ -2606,7 +2606,7 @@ Wisdom
  </tr>
 |FOR,%note,0,COUNT[NOTES]-1,1,1|
  <tr>
-  <td class="notetab" width="20%">|NOTE.%note.NAME|</td><td class="notetab" width="80%">|NOTE.%note.VALUE|</td>
+  <td class="notetab" width="20%"><span class="notes">|NOTE.%note.NAME|</span></td><td class="notetab" width="80%"><span class="notes">|NOTE.%note.VALUE|</span></td>
  </tr>
 |ENDFOR|
 </table>
