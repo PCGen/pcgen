@@ -73,9 +73,9 @@ Rebuke Scalykind	TYPE:Special.Turning.TurnScalykind	VISIBLE:NO												SA:Reb
 
 ###Block: Spontaneous Casting abilities
 # Feat Name							Type			Visible	Special Ability		Source Page
-Spontaneous casting (Cure spells)			TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting	SOURCEPAGE:ClassesI.rtf
-Spontaneous casting (Inflict spells)		TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting	SOURCEPAGE:ClassesI.rtf
-Spontaneous casting (Summon Nature's Ally)	TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting	SOURCEPAGE:ClassesI.rtf
+Spontaneous casting - Cure spells			TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting	SOURCEPAGE:ClassesI.rtf
+Spontaneous casting - Inflict spells		TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting	SOURCEPAGE:ClassesI.rtf
+Spontaneous casting - Summon Nature's Ally	TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Barbarian Rage
 # Feat Name	Type					Visible	Special Ability																																																																																																							Define																														Save checks bonus					Combat bonus						Stat bonus													Modify VAR

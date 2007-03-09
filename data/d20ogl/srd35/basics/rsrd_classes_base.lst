@@ -119,8 +119,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning|Cleric Turning
 ###Block: Spontaneous casting
-1	VFEAT:Spontaneous casting (Cure spells)|PREFEAT:1,Turn Undead
-1	VFEAT:Spontaneous casting (Inflict spells)|PREFEAT:1,Rebuke Undead
+1	VFEAT:Spontaneous casting - Cure spells|PREFEAT:1,Turn Undead
+1	VFEAT:Spontaneous casting - Inflict spells|PREFEAT:1,Rebuke Undead
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6
@@ -182,7 +182,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Normal Progression
-1	CAST:3,1				BONUS:VAR|WildEmpathy,CompLevel|CL					FEATAUTO:Nature Sense|Animal Companion|Wild Empathy|Spontaneous casting (Summon Nature's Ally)
+1	CAST:3,1				BONUS:VAR|WildEmpathy,CompLevel|CL					FEATAUTO:Nature Sense|Animal Companion|Wild Empathy|Spontaneous casting - Summon Nature's Ally
 2	CAST:4,2														FEATAUTO:Woodland Stride
 3	CAST:4,2,1														FEATAUTO:Trackless Step
 4	CAST:5,3,2														FEATAUTO:Resist Nature's Lure
