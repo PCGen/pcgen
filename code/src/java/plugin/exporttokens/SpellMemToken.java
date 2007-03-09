@@ -370,8 +370,7 @@ public class SpellMemToken extends Token
 
 							if (altLabel.length() > 0)
 							{
-								retValue.append(Token.replaceWithDelimiter(
-									sString, altLabel));
+								retValue.append(sString.replaceAll("\r?\n", altLabel));
 							}
 							else
 							{
