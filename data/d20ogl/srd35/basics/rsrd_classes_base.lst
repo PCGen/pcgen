@@ -21,12 +21,7 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 #	RageTimes		For if a class has it's own Rage / day progression.  This is a straight 'Rage / day' variable.
 #	RageDuration	For if a class has it's onw Rage duration. This is a straight 'Number of rounds' variable.
 ###Block: Rage variables
-1	BONUS:VAR|BarbRageTimesLVL|CL						DEFINE:BarbRageTimesLVL|0
-1	BONUS:VAR|BarbRagePowerLVL|CL						DEFINE:BarbRagePowerLVL|0
-1	BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL,11	DEFINE:GreaterRage|0
-1	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,17	DEFINE:TirelessRage|0
-1	BONUS:VAR|MightyRage|1|PREVARGTEQ:BarbRagePowerLVL,20		DEFINE:MightyRage|0
-1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1								FEATAUTO:Rage
+1	BONUS:VAR|BarbRageTimesLVL,BarbRagePowerLVL|CL	FEATAUTO:Rage|Barbarian Rage
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.

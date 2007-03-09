@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  9 11:48:13 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Fri Mar  9 15:52:50 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -15,23 +15,23 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus - Frank
 
 # BASICS
-# Feat Name			Type							Visible	Required Feat		Special Ability																							Define									Description				Save checks bonus							Combat bonus				Bonus to skill																		Modify VAR																													Source Page
-Evasion			TYPE:Special.Extraordinary			VISIBLE:NO					SA:Evasion (Ex)|EvasionUsable																					DEFINE:EvasionUsable|0																																															BONUS:VAR|EvasionUsable|1|PREVAREQ:var("COUNT[FEATNAME=Improved Evasion.ALL]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0
-Improved Evasion		TYPE:Special.Extraordinary.RogueAbilities	VISIBLE:NO	PREFEAT:1,Evasion		SA:Improved Evasion (Ex)|ImprovedEvasionUsable																		DEFINE:ImprovedEvasionUsable|0					DESC:Class Special Ability																																				BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0								SOURCEPAGE:ClassesII.rtf
+# Feat Name			Type							Visible	Required Feat		Special Ability																							Define											Description				Save checks bonus							Combat bonus				Bonus to skill																		Modify VAR																													Source Page
+Evasion			TYPE:Special.Extraordinary			VISIBLE:NO					SA:Evasion (Ex)|EvasionUsable																					DEFINE:EvasionUsable|0																																																	BONUS:VAR|EvasionUsable|1|PREVAREQ:var("COUNT[FEATNAME=Improved Evasion.ALL]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0
+Improved Evasion		TYPE:Special.Extraordinary.RogueAbilities	VISIBLE:NO	PREFEAT:1,Evasion		SA:Improved Evasion (Ex)|ImprovedEvasionUsable																		DEFINE:ImprovedEvasionUsable|0							DESC:Class Special Ability																																				BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0								SOURCEPAGE:ClassesII.rtf
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
-Uncanny Dodge		TYPE:Special.UncannyDodge			VISIBLE:NO					SA:Uncanny Dodge (Dex bonus to AC)|var("COUNT[FEATNAME=Improved Uncanny Dodge.ALL]")-1																																																																																											SOURCEPAGE:ClassesII.rtf
-Improved Uncanny Dodge	TYPE:Special.UncannyDodge			VISIBLE:NO	PREFEAT:1,Uncanny Dodge	SA:Improved Uncanny Dodge (can't be flanked except by a rogue of % level)|UncannyDodgeFlankingLevel									DEFINE:UncannyDodgeFlankingLevel|0																																													BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly																						SOURCEPAGE:ClassesII.rtf
+Uncanny Dodge		TYPE:Special.UncannyDodge			VISIBLE:NO					SA:Uncanny Dodge (Dex bonus to AC)|var("COUNT[FEATNAME=Improved Uncanny Dodge.ALL]")-1																																																																																													SOURCEPAGE:ClassesII.rtf
+Improved Uncanny Dodge	TYPE:Special.UncannyDodge			VISIBLE:NO	PREFEAT:1,Uncanny Dodge	SA:Improved Uncanny Dodge (can't be flanked except by a rogue of % level)|UncannyDodgeFlankingLevel									DEFINE:UncannyDodgeFlankingLevel|0																																															BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly																						SOURCEPAGE:ClassesII.rtf
 Trap Sense Ability	TYPE:Special.Extraordinary			VISIBLE:NO					SA:Trap Sense (Ex) +%|TrapSense																				DEFINE:TrapSense|0
-Sneak Attack		TYPE:Special					VISIBLE:NO					SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie																		DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0			DESC:Class Special Ability																																																																		SOURCEPAGE:ClassesII.rtf
-Negative Levels		TYPE:Special					VISIBLE:NO					SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0												BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
-Smite				TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite (Su) %/day|SmiteAnyTimes																				DEFINE:SmiteAnyTimes|0																																																																													SOURCEPAGE:SpellListI.rtf
-Smite Evil			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Evil (Su) %/day|SmiteEvil																				DEFINE:SmiteEvil|0																																																																													SOURCEPAGE:ClassesII.rtf
-Smite Good			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Good (Su) %/day|SmiteGood																				DEFINE:SmiteGood|0																																																																													SOURCEPAGE:PrestigeClasses.rtf
-Wild Empathy		TYPE:Special.Extraordinary			VISIBLE:NO					SA:Wild Empathy (Ex) +% (+% on Magical Beasts)|WildEmpathy|WildEmpathyMagicalBeast												DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy																																									BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK				SOURCEPAGE:ClassesI.rtf
-Woodland Stride		TYPE:Extraordinary				VISIBLE:NO					SA:Woodland Stride (Ex)																																																																																																						SOURCEPAGE:ClassesI.rtf
-Death Attack		TYPE:Special					VISIBLE:NO					SA:Death Attack (DC %)|DeathAttack																				DEFINE:DeathAttack|0																																															BONUS:VAR|DeathAttack|10+INT																										SOURCEPAGE:PrestigeClasses.rtf
-Poison Use			TYPE:Special.Extraordinary			VISIBLE:NO					SA:Poison Use (Ex)																																																																																																						SOURCEPAGE:PrestigeClasses.rtf
+Sneak Attack		TYPE:Special					VISIBLE:NO					SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie																		DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0					DESC:Class Special Ability																																																																		SOURCEPAGE:ClassesII.rtf
+Negative Levels		TYPE:Special					VISIBLE:NO					SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0														BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
+Smite				TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite (Su) %/day|SmiteAnyTimes																				DEFINE:SmiteAnyTimes|0																																																																															SOURCEPAGE:SpellListI.rtf
+Smite Evil			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Evil (Su) %/day|SmiteEvil																				DEFINE:SmiteEvil|0																																																																															SOURCEPAGE:ClassesII.rtf
+Smite Good			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Good (Su) %/day|SmiteGood																				DEFINE:SmiteGood|0																																																																															SOURCEPAGE:PrestigeClasses.rtf
+Wild Empathy		TYPE:Special.Extraordinary			VISIBLE:NO					SA:Wild Empathy (Ex) +% (+% on Magical Beasts)|WildEmpathy|WildEmpathyMagicalBeast												DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy																																									BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK					SOURCEPAGE:ClassesI.rtf
+Woodland Stride		TYPE:Extraordinary				VISIBLE:NO					SA:Woodland Stride (Ex)																																																																																																								SOURCEPAGE:ClassesI.rtf
+Death Attack		TYPE:Special					VISIBLE:NO					SA:Death Attack (DC %)|DeathAttack																				DEFINE:DeathAttack|0																																																	BONUS:VAR|DeathAttack|10+INT																										SOURCEPAGE:PrestigeClasses.rtf
+Poison Use			TYPE:Special.Extraordinary			VISIBLE:NO					SA:Poison Use (Ex)																																																																																																								SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Aura for Clerics, other Class level tracked auras.
 #	Applying this to more than just Cleric will require more work or more hidden feats.
@@ -89,11 +89,13 @@ Rage		TYPE:Special.Extraordinary	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|
 #IlliteracyLVL: Level of all classes that are illiterate.  Add this (and the hidden feat via VFEAT:Illiteracy|PREVAREQ:TL,IlliteracyLVL) to any classes that are not literate.
 
 ###Block: Barbarian abilities
-# Feat Name			Type				Visible	Special Ability			Define							Add to base move																		Modify VAR							Damage Reduction	Source Page
-Illiteracy			TYPE:Special		VISIBLE:NO	SA:Illiteracy			DEFINE:IlliteracyLVL|0																																				SOURCEPAGE:ClassesI.rtf
-Barbarian Fast Movement	TYPE:Extraordinary	VISIBLE:NO	SA:Fast Movement (Ex)										BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement												SOURCEPAGE:ClassesI.rtf
-Barbarian DR		TYPE:Extraordinary	VISIBLE:NO	SA:Damage Reduction (Ex)	DEFINE:BarbarianDR|0	DEFINE:BarbarianDRLVL|0																					BONUS:VAR|BarbarianDR|(BarbarianDRLVL-4)/3	DR:BarbarianDR/-	SOURCEPAGE:ClassesI.rtf
-Indomitable Will		TYPE:Extraordinary	VISIBLE:NO	SA:Indomitable Will (Ex)																																								SOURCEPAGE:ClassesI.rtf
+# Feat Name			Type				Visible	Special Ability			Define																					Add to base move																		Modify VAR																																				Damage Reduction	Source Page
+Illiteracy			TYPE:Special		VISIBLE:NO	SA:Illiteracy			DEFINE:IlliteracyLVL|0																																																																															SOURCEPAGE:ClassesI.rtf
+Barbarian Fast Movement	TYPE:Extraordinary	VISIBLE:NO	SA:Fast Movement (Ex)																								BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement																																									SOURCEPAGE:ClassesI.rtf
+Barbarian DR		TYPE:Extraordinary	VISIBLE:NO	SA:Damage Reduction (Ex)	DEFINE:BarbarianDR|0	DEFINE:BarbarianDRLVL|0																																			BONUS:VAR|BarbarianDR|(BarbarianDRLVL-4)/3																														DR:BarbarianDR/-	SOURCEPAGE:ClassesI.rtf
+Indomitable Will		TYPE:Extraordinary	VISIBLE:NO	SA:Indomitable Will (Ex)																																																																																			SOURCEPAGE:ClassesI.rtf
+Barbarian Rage		TYPE:Internal		VISIBLE:NO						DEFINE:GreaterRage|0	DEFINE:TirelessRage|0	DEFINE:MightyRage|0	DEFINE:BarbRageTimesLVL|0	DEFINE:BarbRagePowerLVL|0																					BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL,11	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,17	BONUS:VAR|MightyRage|1|PREVARGTEQ:BarbRagePowerLVL,20	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1				SOURCEPAGE:ClassesI.rtf
+
 
 ###Block: Bard abilities
 # Feat Name				Type					Visible	Special Ability																																																													Define																															Modify VAR
