@@ -1196,7 +1196,6 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if (valString.startsWith("EQTYPE"))
 		{
-			//valString = ExportHandler.returnReplacedTokenEq(this, valString);
 			final EqTypeToken token = new EqTypeToken();
 			valString = token.getToken(valString, getPc(), null);
 
