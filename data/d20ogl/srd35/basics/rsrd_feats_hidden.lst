@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  9 06:39:28 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Fri Mar  9 11:25:00 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -115,7 +115,12 @@ Armored Casting (Bard)		TYPE:Special			VISIBLE:NO	SA:May wear light armor withou
 # Feat Name		Visible	Define									Modify VAR
 Cleric Turning	VISIBLE:NO	DEFINE:AllowExtraTurning|1	DEFINE:AllowImprovedTurning|1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 
-
+###Block: Druid abilities
+# Feat Name					Type			Visible	Define			Modify VAR																																																																												Source Page
+Druid Wild Shape				TYPE:Internal	VISIBLE:NO	DEFINE:DruidWildShape|0	BONUS:VAR|WildShapeDuration|DruidWildShape																																																																						SOURCEPAGE:ClassesI.rtf
+Druid Wild Shape Times			TYPE:Internal	VISIBLE:NO					BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,18																		SOURCEPAGE:ClassesI.rtf
+Druid Elemental Wild Shape Times	TYPE:Internal	VISIBLE:NO					BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,18	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,20																																													SOURCEPAGE:ClassesI.rtf
+Druid Wild Shape Progression		TYPE:Internal	VISIBLE:NO					BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20	SOURCEPAGE:ClassesI.rtf
 #
 #	##############################
 #	## Fighter VAR Descriptions ##
