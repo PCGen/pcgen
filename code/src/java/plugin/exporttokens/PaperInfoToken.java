@@ -74,7 +74,7 @@ public class PaperInfoToken extends Token
 		}
 		else if (sourceText.startsWith("MARGIN"))
 		{
-			sourceText = tokenSource.substring(6);
+			sourceText = sourceText.substring(6);
 
 			if (sourceText.startsWith("TOP"))
 			{
