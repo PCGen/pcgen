@@ -90,7 +90,7 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<Weapo
 			}
 			else
 			{
-				Logging.errorPrint("CHOOSE:PROFICIENCY - Unknown scope " + choices.get(1));
+				Logging.errorPrint("CHOOSE:PROFICIENCY - Expecting PC, ALL or UNIQUE - got " + choices.get(1));
 			}
 		}
 	}
