@@ -9996,7 +9996,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			calcMove = (int) (calcMove * moveMult);
 		}
 
-		double postMove = moveInFeet;
+		double postMove = calcMove;
 
 		// now add on any POSTMOVE bonuses
 		postMove += getTotalBonusTo("POSTMOVEADD", "TYPE."
