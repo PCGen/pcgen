@@ -58,7 +58,8 @@ public class SkillListModsToken extends Token
 				}
 				needcomma = true;
 
-				returnString.append(aSkill.getOutputName()).append(" +")
+				
+				returnString.append(aSkill.getOutputName()).append(temp >= 0 ? " +" : " ")
 					.append(Integer.toString(temp));
 			}
 		}
