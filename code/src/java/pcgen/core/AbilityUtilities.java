@@ -479,6 +479,7 @@ public class AbilityUtilities
 		}
 
 		aPC.setAutomaticAbilitiesStable(null, false);
+		aPC.adjustMoveRates();
 
 		if (addIt && !aPC.isImporting())
 		{
