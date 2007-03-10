@@ -68,30 +68,41 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<Weapo
 			choices = choices.subList(1, choices.size());
 		}
 
-		if (choices.size() < 3)
-		{
-			Logging.errorPrint("CHOOSE:PROFICIENCY - Incorrect format, not enough tokens. " + choiceString);
-		}
-		else
-		{
-			typeOfProf = choices.get(0);
+		switch (choices.size()) {
+			case 0:
+				Logging.errorPrint("CHOOSE:PROFICIENCY - Incorrect format, not enough tokens. " + choiceString);
+				break;
+			case 1:
+				Logging.errorPrint("CHOOSE:PROFICIENCY - Incorrect format, not enough tokens. " + choiceString);				
+				Logging.errorPrint("First token should be WEAPON, ARMOR, SHIELD - is " + choices.get(0));
+				Logging.errorPrint("Second token should be PC, ALL or UNIQUE - is missing");
+				Logging.errorPrint("Third and subsequent tokens (missing) should be <proficency1>|TYPE=<proftyp> - is missing");
+				break;
+			case 2:
+				Logging.errorPrint("CHOOSE:PROFICIENCY - Incorrect format, not enough tokens. " + choiceString);
+				Logging.errorPrint("First token should be WEAPON, ARMOR, SHIELD - is " + choices.get(0));
+				Logging.errorPrint("Second token should be PC, ALL or UNIQUE - is " + choices.get(1));
+				Logging.errorPrint("Third and subsequent tokens (missing) should be <proficency1>|TYPE=<proftyp> - is missing");
+				break;
+			default:
+				typeOfProf = choices.get(0);
 
-			if ("PC".equals(choices.get(1)))
-			{
-				intScope = SCOPE_PC;
-			}
-			else if ("ALL".equals(choices.get(1)))
-			{
-				intScope = SCOPE_ALL;
-			}
-			else if ("UNIQUE".equals(choices.get(1)))
-			{
-				intScope = SCOPE_UNIQUE;
-			}
-			else
-			{
-				Logging.errorPrint("CHOOSE:PROFICIENCY - Expecting PC, ALL or UNIQUE - got " + choices.get(1));
-			}
+				if ("PC".equals(choices.get(1)))
+				{
+					intScope = SCOPE_PC;
+				}
+				else if ("ALL".equals(choices.get(1)))
+				{
+					intScope = SCOPE_ALL;
+				}
+				else if ("UNIQUE".equals(choices.get(1)))
+				{
+					intScope = SCOPE_UNIQUE;
+				}
+				else
+				{
+					Logging.errorPrint("CHOOSE:PROFICIENCY - Expecting PC, ALL or UNIQUE - got " + choices.get(1));
+				}
 		}
 	}
 
