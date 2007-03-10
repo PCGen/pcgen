@@ -65,21 +65,22 @@ public class CheckToken extends Token
 
 		String saveType = aTok.nextToken();
 
-		StringBuffer saveMods = new StringBuffer();
+		StringBuffer saveModsBuf = new StringBuffer();
 		while (aTok.hasMoreTokens())
 		{
-			if (saveMods.length() > 0)
+			if (saveModsBuf.length() > 0)
 			{
-				saveMods.append(".");
+				saveModsBuf.append(".");
 			}
-			saveMods.append(aTok.nextToken());
+			saveModsBuf.append(aTok.nextToken());
 		}
+		String saveMods = saveModsBuf.toString(); 
 
 		if ("NAME".equals(saveMods))
 		{
 			return getNameToken(saveType);
 		}
-		return Delta.toString(getCheckToken(pc, saveType, saveMods.toString()));
+		return Delta.toString(getCheckToken(pc, saveType, saveMods));
 	}
 
 	/**
