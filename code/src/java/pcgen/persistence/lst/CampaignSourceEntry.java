@@ -276,7 +276,7 @@ public class CampaignSourceEntry
 				try {
 					// if it's a URL, then we are all done, just return a URI
 					URL url = new URL(basePath);
-					return new URI(url.getProtocol(), null, url.getPath(), null);
+					return new URI(url.getProtocol(), url.getHost(), url.getPath(), null);
 				} catch (URISyntaxException e) {
 					//Something broke, so wasn't a URL
 				} catch (MalformedURLException e) {
