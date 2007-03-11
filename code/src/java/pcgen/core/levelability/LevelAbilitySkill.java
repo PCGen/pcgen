@@ -77,7 +77,7 @@ class LevelAbilitySkill extends LevelAbility
 		final List<String> aArrayList = new ArrayList<String>();
 
 		final StringTokenizer aTok = new StringTokenizer(rawTagData.substring(rawTagData
-			.lastIndexOf('(') + 1, rawTagData.lastIndexOf(')')), ",", false);
+			.indexOf('(') + 1, rawTagData.lastIndexOf(')')), ",", false);
 
 		while (aTok.hasMoreTokens())
 		{
