@@ -1,12 +1,14 @@
-package plugin.lsttokens.template;
+package plugin.lsttokens.deprecated;
 
 import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.PCTemplateLstToken;
 
 /**
  * Class deals with COST Token
  */
-public class CostToken implements PCTemplateLstToken
+public class CostToken implements PCTemplateLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -18,5 +20,10 @@ public class CostToken implements PCTemplateLstToken
 	{
 		template.setCost(value);
 		return true;
+	}
+
+	public String getMessage(PObject obj, String value)
+	{
+		return "Template's COST Token is unused";
 	}
 }
