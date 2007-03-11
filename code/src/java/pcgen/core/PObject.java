@@ -2402,7 +2402,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public LevelAbility addAddList(final int aLevel, final String aString)
 	{
-		if (this.getClass().equals(PCClass.class)) System.err.println(aString);
 		if (levelAbilityList == null)
 		{
 			levelAbilityList = new ArrayList<LevelAbility>();
