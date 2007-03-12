@@ -18,7 +18,7 @@
  *
  * Created on 10 March 2007
  *
- * $Id: ParameterTree.java 2489 2007-03-12 20:50:11Z nuance $
+ * $Id$
  *
  */
 package pcgen.util;

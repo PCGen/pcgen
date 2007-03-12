@@ -18,7 +18,7 @@
  *
  * Created on 10 March 2007
  *
- * $Id: ParameterTreeTest.java 2489 2007-03-12 20:50:11Z nuance $
+ * $Id$
  *
  */
 
@@ -35,11 +35,11 @@ import pcgen.util.ParameterTree;
 /**
  * <code>ParameterTreeTest</code> is ...
  *
- * Last Editor: $Author: nuance $
- * Last Edited: $Date: 2007-03-12 20:50:11 +0000 (Mon, 12 Mar 2007) $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision: 2489 $
+ * @version $Revision$
  */
 public class ParameterTreeTest extends PCGenTestCase 
 {
