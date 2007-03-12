@@ -18,6 +18,122 @@
 		</myAttribs:myAttribs>
 	</xsl:variable>
 	<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
+	<xsl:variable name="pageHeight">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/height, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/height, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/height, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/height, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/height, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/height, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:choose>
+					<xsl:when test="contains(/character/export/paperinfo/name, 'Letter')">
+						<xsl:value-of select="25.4 * 11.0"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="297"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pageWidth">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/width, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/width, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/width, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/width, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/width, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/width, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:choose>
+					<xsl:when test="contains(/character/export/paperinfo/name, 'Letter')">
+						<xsl:value-of select="25.4 * 8.5"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="210"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pageMarginTop">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/margins/top, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/top, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/top, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/top, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/top, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/top, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="10"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pageMarginBottom">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/margins/bottom, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/bottom, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/bottom, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/bottom, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/bottom, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/bottom, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="10"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pageMarginLeft">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/margins/left, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/left, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/left, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/left, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/left, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/left, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="10"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pageMarginRight">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/margins/right, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/right, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/right, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/right, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/right, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/right, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="10"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pagePrintableWidth">
+		<xsl:value-of select="($pageWidth - $pageMarginLeft - $pageMarginRight)"/>
+	</xsl:variable>
+	<xsl:variable name="pagePrintableHeight">
+		<xsl:value-of select="($pageHeight - $pageMarginTop - $pageMarginBottom)"/>
+	</xsl:variable>
 
 
 	<!-- Include all of the output attributes -->
@@ -36,13 +152,49 @@
 	<xsl:template name="page.layouts">
 			<!--	PAGE DEFINITIONS	-->
 			<fo:layout-master-set>
-				<fo:simple-page-master master-name="Portrait 2 Column" page-height="297mm" page-width="210mm" margin-top="10mm" margin-bottom="15mm" margin-left="6mm" margin-right="6mm">
+				<fo:simple-page-master master-name="Portrait 2 Column">
+				    <xsl:attribute name="page-height">
+				      <xsl:value-of select="concat($pageHeight, 'mm')" />
+				    </xsl:attribute>
+				    <xsl:attribute name="page-width">
+				      <xsl:value-of select="concat($pageWidth, 'mm')" />
+				    </xsl:attribute>
+				    <xsl:attribute name="margin-top">
+				      <xsl:value-of select="concat($pageMarginTop, 'mm')" />
+				    </xsl:attribute>
+				    <xsl:attribute name="margin-bottom">
+				      <xsl:value-of select="concat($pageMarginBottom, 'mm')" />
+				    </xsl:attribute>
+				    <xsl:attribute name="margin-left">
+				      <xsl:value-of select="concat($pageMarginLeft, 'mm')" />
+				    </xsl:attribute>
+				    <xsl:attribute name="margin-right">
+				      <xsl:value-of select="concat($pageMarginRight, 'mm')" />
+				    </xsl:attribute>
 					<fo:region-body region-name="body" column-count="2" column-gap="2mm" margin-bottom="7mm"/>
-					<fo:region-after region-name="footer" extent="0.25in"/>
+					<fo:region-after region-name="footer" extent="6.4mm"/>
 				</fo:simple-page-master>
-				<fo:simple-page-master master-name="Portrait" page-height="297mm" page-width="210mm" margin-top="10mm" margin-bottom="15mm" margin-left="6mm" margin-right="6mm">
+				<fo:simple-page-master master-name="Portrait">
+				    <xsl:attribute name="page-height">
+				      <xsl:value-of select="concat($pageHeight, 'mm')" />
+				    </xsl:attribute>
+				    <xsl:attribute name="page-width">
+				      <xsl:value-of select="concat($pageWidth, 'mm')" />
+				    </xsl:attribute>
+				    <xsl:attribute name="margin-top">
+				      <xsl:value-of select="concat($pageMarginTop, 'mm')" />
+				    </xsl:attribute>
+				    <xsl:attribute name="margin-bottom">
+				      <xsl:value-of select="concat($pageMarginBottom, 'mm')" />
+				    </xsl:attribute>
+				    <xsl:attribute name="margin-left">
+				      <xsl:value-of select="concat($pageMarginLeft, 'mm')" />
+				    </xsl:attribute>
+				    <xsl:attribute name="margin-right">
+				      <xsl:value-of select="concat($pageMarginRight, 'mm')" />
+				    </xsl:attribute>
 					<fo:region-body region-name="body" margin-bottom="7mm"/>
-					<fo:region-after region-name="footer" extent="0.25in"/>
+					<fo:region-after region-name="footer" extent="6.4mm"/>
 				</fo:simple-page-master>
 			</fo:layout-master-set>
 	</xsl:template>
@@ -67,9 +219,21 @@
 ====================================-->
 	<xsl:template name="page.footer.content">
 		<fo:table table-layout="fixed">
-			<fo:table-column column-width="1.875in"/>
-			<fo:table-column column-width="3.75in"/>
-			<fo:table-column column-width="1.875in"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.25 * $pagePrintableWidth, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.5 * $pagePrintableWidth, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.25 * $pagePrintableWidth, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next="always" keep-together="always">
 					<fo:table-cell text-align="start" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
@@ -123,9 +287,21 @@
 					</fo:block>
 					<fo:block span="all">
 						<fo:table table-layout="fixed">
-							<fo:table-column column-width="55mm"/>
-							<fo:table-column column-width="49mm"/>
-							<fo:table-column column-width="86mm"/>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.29 * $pagePrintableWidth, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.26 * $pagePrintableWidth, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.45 * $pagePrintableWidth, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
 							<fo:table-body>
 								<fo:table-row>
 									<fo:table-cell number-rows-spanned="2" border-width="1pt" border-color="red">
@@ -145,10 +321,12 @@
 										<xsl:apply-templates select="skills">
 											<xsl:with-param name="first_skill" select="0"/>
 											<xsl:with-param name="last_skill" select="$first_page_skills_count"/>
-											<xsl:with-param name="column_width" select="'narrow'"/>
+											<xsl:with-param name="column_width" select="0.45 * $pagePrintableWidth"/>
 										</xsl:apply-templates>
 										<xsl:apply-templates select="class_features/bardic_music"/>
-										<xsl:apply-templates select="class_features/turning"/>
+										<xsl:apply-templates select="class_features/turning[@kind='UNDEAD']">
+											<xsl:with-param name="column_width" select="0.45 * $pagePrintableWidth"/>
+										</xsl:apply-templates>
 									</fo:table-cell>
 								</fo:table-row>
 								<fo:table-row>
@@ -159,7 +337,7 @@
 										<xsl:apply-templates select="weapons">
 											<xsl:with-param name="first_weapon" select="1"/>
 											<xsl:with-param name="last_weapon" select="$first_page_weapon_count"/>
-											<xsl:with-param name="column_width" select="'wide'"/>
+											<xsl:with-param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 										</xsl:apply-templates>
 										<xsl:apply-templates select="protection"/>
 										<xsl:apply-templates select="class_features/rage"/>
@@ -186,12 +364,15 @@
 						<xsl:apply-templates select="weapons">
 							<xsl:with-param name="first_weapon" select="$first_page_weapon_count+1"/>
 							<xsl:with-param name="last_weapon" select="9999"/>
-							<xsl:with-param name="column_width" select="'narrow'"/>
+							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
 						</xsl:apply-templates>
 						<xsl:apply-templates select="skills">
 							<xsl:with-param name="first_skill" select="$first_page_skills_count+1"/>
 							<xsl:with-param name="last_skill" select="9999"/>
-							<xsl:with-param name="column_width" select="'wide'"/>
+							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
+						</xsl:apply-templates>
+						<xsl:apply-templates select="class_features/turning[@kind!='UNDEAD']">
+							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
 						</xsl:apply-templates>
 						<xsl:apply-templates select="equipment" />
 						<xsl:apply-templates select="weight_allowance"/>
@@ -222,51 +403,114 @@
 ====================================-->
 	<xsl:template match="basics">
 		<!-- Character Header -->
-		<fo:table table-layout="fixed" width="190mm">
+		<fo:table table-layout="fixed">
+		    <xsl:attribute name="width">
+		      <xsl:value-of select="concat($pagePrintableWidth, 'mm')" />
+		    </xsl:attribute>
 			<xsl:choose>
 				<xsl:when test="string-length(portrait) &gt; 0">
-					<fo:table-column column-width="22mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(($pagePrintableWidth - 14) div 8, 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<fo:table-column column-width="2mm"/>
-					<fo:table-column column-width="22mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(($pagePrintableWidth - 14) div 8, 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<fo:table-column column-width="2mm"/>
-					<fo:table-column column-width="22mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(($pagePrintableWidth - 14) div 8, 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<fo:table-column column-width="2mm"/>
-					<fo:table-column column-width="22mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(($pagePrintableWidth - 14) div 8, 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<fo:table-column column-width="2mm"/>
-					<fo:table-column column-width="22mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(($pagePrintableWidth - 14) div 8, 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<fo:table-column column-width="2mm"/>
-					<fo:table-column column-width="22mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(($pagePrintableWidth - 14) div 8, 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<fo:table-column column-width="2mm"/>
-					<fo:table-column column-width="22mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(($pagePrintableWidth - 14) div 8, 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<fo:table-column column-width="2mm"/>
-					<fo:table-column column-width="22mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(($pagePrintableWidth - 14) div 8, 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 				</xsl:when>
 				<xsl:otherwise>
-					<fo:table-column column-width="27mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.15 * ($pagePrintableWidth - 12), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- Class -->
 					<fo:table-column column-width="2mm"/>
 					<!--  -->
-					<fo:table-column column-width="25mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.14 * ($pagePrintableWidth - 12), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- Experience -->
 					<fo:table-column column-width="2mm"/>
 					<!-- -->
-					<fo:table-column column-width="25mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.14 * ($pagePrintableWidth - 12), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- Race -->
 					<fo:table-column column-width="2mm"/>
 					<!-- -->
-					<fo:table-column column-width="25mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.14 * ($pagePrintableWidth - 12), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- Size -->
 					<fo:table-column column-width="2mm"/>
 					<!-- -->
-					<fo:table-column column-width="25mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.14 * ($pagePrintableWidth - 12), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- Height -->
 					<fo:table-column column-width="2mm"/>
 					<!-- -->
-					<fo:table-column column-width="24mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.14 * ($pagePrintableWidth - 12), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- Weight -->
 					<fo:table-column column-width="2mm"/>
 					<!-- -->
-					<fo:table-column column-width="27mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.15 * ($pagePrintableWidth - 12), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- Vision -->
 				</xsl:otherwise>
 			</xsl:choose>
@@ -317,7 +561,11 @@
 							</xsl:call-template>
 							<fo:block>
 								<xsl:variable name="portrait_file" select="portrait"/>
-								<fo:external-graphic src="file:{$portrait_file}" width="22mm"/>
+								<fo:external-graphic src="file:{$portrait_file}">
+								    <xsl:attribute name="column-width">
+								      <xsl:value-of select="concat(($pagePrintableWidth - 14) div 8, 'mm')" />
+								    </xsl:attribute>
+								</fo:external-graphic>
 							</fo:block>
 						</fo:table-cell>
 					</xsl:if>
@@ -643,26 +891,19 @@
 	<xsl:template name="features.right">
 		<xsl:param name="features"/>
 		<xsl:param name="RunningTotal" select="0"/>
-		<xsl:choose>
-			<xsl:when test="not($features)">
-				<!--  No more Items so return Running Total -->
-				<xsl:copy-of select="$RunningTotal"/>
-			</xsl:when>
-			<xsl:otherwise>
-				<!--  Call template for remaining Items -->
-				<xsl:variable name="ClassLength">
-					<xsl:choose>
-						<xsl:when test="name($features[1]) = 'bardic_music'">17</xsl:when>
-						<xsl:when test="name($features[1]) = 'turning'">43</xsl:when>
-						<xsl:otherwise>0</xsl:otherwise>
-					</xsl:choose>
-				</xsl:variable>
-				<xsl:call-template name="features.right">
-					<xsl:with-param name="features" select="$features[position() &gt; 1]"/>
-					<xsl:with-param name="RunningTotal" select="$ClassLength + $RunningTotal"/>
-				</xsl:call-template>
-			</xsl:otherwise>
-		</xsl:choose>
+		<xsl:variable name="bardic_music">
+			<xsl:choose>
+				<xsl:when test="count($features/bardic_music) &gt; 1">17</xsl:when>
+				<xsl:otherwise>0</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="turning">
+			<xsl:choose>
+				<xsl:when test="count($features/turning) &gt; 1">43</xsl:when>
+				<xsl:otherwise>0</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:copy-of select="$bardic_music + $turning"/>
 	</xsl:template>
 	<!--
 ====================================
@@ -722,20 +963,48 @@
 	<xsl:template match="abilities">
 		<!-- BEGIN Ability Block -->
 		<fo:table table-layout="fixed">
-			<fo:table-column column-width="9mm"/>
-			<!-- 52mm total -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.22 * (0.29 * $pagePrintableWidth - 9), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- 0.29*$pagePrintableWidth total -->
 			<fo:table-column column-width="1mm"/>
-			<fo:table-column column-width="6mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.13 * (0.29 * $pagePrintableWidth - 9), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="1mm"/>
-			<fo:table-column column-width="6mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.13 * (0.29 * $pagePrintableWidth - 9), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="1.5mm"/>
-			<fo:table-column column-width="6mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.13 * (0.29 * $pagePrintableWidth - 9), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="1mm"/>
-			<fo:table-column column-width="6mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.13 * (0.29 * $pagePrintableWidth - 9), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="1.5mm"/>
-			<fo:table-column column-width="6mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.13 * (0.29 * $pagePrintableWidth - 9), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="1mm"/>
-			<fo:table-column column-width="6mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.13 * (0.29 * $pagePrintableWidth - 9), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row>
 					<fo:table-cell>
@@ -850,27 +1119,43 @@
 		<fo:table table-layout="fixed">
 			<xsl:choose>
 				<xsl:when test="hit_points/usealternatedamage = 0">
-					<fo:table-column column-width="12mm"/>
+					<fo:table-column column-width="12mm" />
 					<!-- TITLE -->
 					<fo:table-column column-width="2mm"/>
 					<!-- space -->
-					<fo:table-column column-width="8mm"/>
+					<fo:table-column column-width="8mm" />
 					<!-- TOTAL HP -->
 					<fo:table-column column-width="2mm"/>
 					<!-- space -->
-					<fo:table-column column-width="30.5mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.28 * (0.71 * $pagePrintableWidth - 31), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- WOUNDS -->
 					<fo:table-column column-width="2mm"/>
 					<!-- space  -->
-					<fo:table-column column-width="28.5mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.28 * (0.71 * $pagePrintableWidth - 31), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- SUBDUAL -->
 					<fo:table-column column-width="2mm"/>
 					<!-- space -->
-					<fo:table-column column-width="18mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.17 * (0.71 * $pagePrintableWidth - 31), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- DR -->
 					<fo:table-column column-width="3mm"/>
 					<!-- space -->
-					<fo:table-column column-width="27mm"/>
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.27 * (0.71 * $pagePrintableWidth - 31), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
 					<!-- SPEED -->
 					<fo:table-body>
 						<fo:table-row>
@@ -949,21 +1234,54 @@
 					</fo:table-body>
 				</xsl:when>
 				<xsl:otherwise>
-					<fo:table-column column-width="12mm"/><!-- TITLE Vitality -->
+					<fo:table-column column-width="12mm" />
+					<!-- TITLE Vitality -->
+					<fo:table-column column-width="2mm"/>
+					<!-- space -->
+					<fo:table-column column-width="8mm" />
+					<!-- TOTAL Vitality -->
 					<fo:table-column column-width="2mm"/><!-- space -->
-					<fo:table-column column-width="8mm"/><!-- TOTAL Vitality -->
-					<fo:table-column column-width="2mm"/><!-- space -->
-					<fo:table-column column-width="18mm"/><!-- WOUNDS -->
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.18 * (0.71 * $pagePrintableWidth - 34), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
+					<!-- WOUNDS -->
 					<fo:table-column column-width="2mm"/><!-- space  -->
-					<fo:table-column column-width="18mm"/><!-- SUBDUAL -->
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.18 * (0.71 * $pagePrintableWidth - 34), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
+					<!-- SUBDUAL -->
 					<fo:table-column column-width="2mm"/><!-- space -->
-					<fo:table-column column-width="12mm"/><!-- TITLE Wound points-->
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.11 * (0.71 * $pagePrintableWidth - 34), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
+					<!-- TITLE Wound points-->
 					<fo:table-column column-width="2mm"/><!-- space -->
-					<fo:table-column column-width="8mm"/><!-- TOTAL Wound points -->
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.08 * (0.71 * $pagePrintableWidth - 34), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
+					<!-- TOTAL Wound points -->
 					<fo:table-column column-width="2mm"/><!-- space -->
-					<fo:table-column column-width="18mm"/><!-- DR -->
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.18 * (0.71 * $pagePrintableWidth - 34), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
+					<!-- DR -->
 					<fo:table-column column-width="2mm"/><!-- space -->
-					<fo:table-column column-width="27mm"/><!-- SPEED -->
+					<fo:table-column>
+					    <xsl:attribute name="column-width">
+					      <xsl:value-of select="concat(0.27 * (0.71 * $pagePrintableWidth - 34), 'mm')" />
+					    </xsl:attribute>
+					</fo:table-column>
+					<!-- SPEED -->
 					<fo:table-body>
 						<fo:table-row>
 							<fo:table-cell/><!-- TITLE Vitality -->
@@ -1075,35 +1393,108 @@
 ====================================-->
 	<xsl:template match="armor_class">
 		<fo:table table-layout="fixed" space-before="2pt">
-			<fo:table-column column-width="12mm"/>			<!-- TITLE -->
-			<fo:table-column column-width="2mm"/>			<!-- space -->
-			<fo:table-column column-width="8mm"/>			<!-- TOTAL AC -->
-			<fo:table-column column-width="2mm"/>			<!-- : -->
-			<fo:table-column column-width="8mm"/>			<!-- FLAT -->
-			<fo:table-column column-width="2mm"/>			<!-- : -->
-			<fo:table-column column-width="8mm"/>			<!-- TOUCH -->
-			<fo:table-column column-width="2mm"/>			<!-- = -->
-			<fo:table-column column-width="7mm"/>			<!-- BASE -->
-			<fo:table-column column-width="2mm"/>			<!-- + -->
-			<fo:table-column column-width="6mm"/>			<!-- armour -->
-			<fo:table-column column-width="2mm"/>			<!-- + -->
-			<fo:table-column column-width="6mm"/>			<!-- armour -->
-			<fo:table-column column-width="2mm"/>			<!-- + -->
-			<fo:table-column column-width="6mm"/>			<!-- stat -->
-			<fo:table-column column-width="2mm"/>			<!-- + -->
-			<fo:table-column column-width="5mm"/>			<!--  size -->
-			<fo:table-column column-width="2mm"/>			<!-- + -->
-			<fo:table-column column-width="5mm"/>			<!-- natural armour-->
-			<fo:table-column column-width="2mm"/>			<!-- + -->
-			<fo:table-column column-width="5mm"/>			<!-- misc   -->
-			<fo:table-column column-width="4mm"/>			<!-- space -->
-			<fo:table-column column-width="7mm"/>			<!-- miss chance -->
-			<fo:table-column column-width="3mm"/>			<!-- space -->
-			<fo:table-column column-width="7mm"/>			<!-- arcane spell failure -->
-			<fo:table-column column-width="2mm"/>			<!-- space -->
-			<fo:table-column column-width="7mm"/>			<!-- armour check-->
-			<fo:table-column column-width="2mm"/>			<!-- space -->
-			<fo:table-column column-width="7mm"/>			<!-- SR -->
+			<fo:table-column column-width="12mm"/>
+			<!-- TITLE -->
+			<fo:table-column column-width="2mm"/>
+			<!-- space -->
+			<fo:table-column column-width="8mm"/>
+			<!-- TOTAL AC -->
+			<fo:table-column column-width="2mm"/>
+			<!-- : -->
+			<fo:table-column column-width="8mm"/>
+			<!-- FLAT -->
+			<fo:table-column column-width="2mm"/>
+			<!-- : -->
+			<fo:table-column column-width="8mm"/>
+			<!-- TOUCH -->
+			<fo:table-column column-width="2mm"/>
+			<!-- = -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.09 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- BASE -->
+			<fo:table-column column-width="2mm"/>
+			<!-- + -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.09 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- armour -->
+			<fo:table-column column-width="2mm"/>
+			<!-- + -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.09 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- armour -->
+			<fo:table-column column-width="2mm"/>
+			<!-- + -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.09 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- stat -->
+			<fo:table-column column-width="2mm"/>
+			<!-- + -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.08 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!--  size -->
+			<fo:table-column column-width="2mm"/>
+			<!-- + -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.08 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- natural armour-->
+			<fo:table-column column-width="2mm"/>
+			<!-- + -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.08 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- misc   -->
+			<fo:table-column column-width="4mm"/>
+			<!-- space -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.10 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- miss chance -->
+			<fo:table-column column-width="3mm"/>
+			<!-- space -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.10 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- arcane spell failure -->
+			<fo:table-column column-width="2mm"/>
+			<!-- space -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.10 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- armour check-->
+			<fo:table-column column-width="2mm"/>
+			<!-- space -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.10 * (0.71 * $pagePrintableWidth - 67), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<!-- SR -->
 			<fo:table-body>
 				<fo:table-row>
 					<fo:table-cell>
@@ -1329,14 +1720,30 @@
 	<xsl:template match="initiative">
 		<!-- BEGIN ini-base table -->
 		<fo:table table-layout="fixed">
-			<!-- 47mm -->
-			<fo:table-column column-width="20mm"/>
+			<!-- 0.26 * $pagePrintableWidth - mm -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.49 * (0.26 * $pagePrintableWidth - 8), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="7mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.17 * (0.26 * $pagePrintableWidth - 8), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="7mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.17 * (0.26 * $pagePrintableWidth - 8), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="7mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.17 * (0.26 * $pagePrintableWidth - 8), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row height="2pt"/>
 				<fo:table-row>
@@ -1408,10 +1815,18 @@
 	<xsl:template match="bab" mode="bab">
 		<!-- BEGIN ini-base table -->
 		<fo:table table-layout="fixed">
-			<!-- 47mm -->
-			<fo:table-column column-width="20mm"/>
+			<!-- 0.26 * $pagePrintableWidth - 2 mm -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.44 * (0.26 * $pagePrintableWidth - 4), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="25mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.56 * (0.26 * $pagePrintableWidth - 4), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row height="2pt"/>
 				<fo:table-row>
@@ -1483,50 +1898,31 @@
 	<xsl:template match="skills">
 		<xsl:param name="first_skill" select="0"/>
 		<xsl:param name="last_skill" select="0"/>
-		<xsl:param name="column_width" select="'wide'"/>
+		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth"/>
 		<!-- begin skills table -->
 		<xsl:if test="count(skill) &gt;= $first_skill">
 			<xsl:variable name="columns">
-				<xsl:choose>
-					<xsl:when test="$column_width='wide'">
-						<fo:table-column column-width="4mm"/>
-						<fo:table-column column-width="38mm"/>
-						<fo:table-column column-width="3mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="8mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="8mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="8mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="8mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="8mm"/>
-					</xsl:when>
-					<xsl:otherwise>
-						<fo:table-column column-width="4mm"/>
-						<fo:table-column column-width="38mm"/>
-						<fo:table-column column-width="2mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="7mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="7mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="6mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="6mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="1mm"/>
-						<fo:table-column column-width="7mm"/>
-					</xsl:otherwise>
-				</xsl:choose>
+				<fo:table-column column-width="4mm"/>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat($column_width - 48, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
+				<fo:table-column column-width="2mm"/>
+				<fo:table-column column-width="1mm"/>
+				<fo:table-column column-width="7mm"/>
+				<fo:table-column column-width="1mm"/>
+				<fo:table-column column-width="1mm"/>
+				<fo:table-column column-width="7mm"/>
+				<fo:table-column column-width="1mm"/>
+				<fo:table-column column-width="1mm"/>
+				<fo:table-column column-width="6mm"/>
+				<fo:table-column column-width="1mm"/>
+				<fo:table-column column-width="1mm"/>
+				<fo:table-column column-width="6mm"/>
+				<fo:table-column column-width="1mm"/>
+				<fo:table-column column-width="1mm"/>
+				<fo:table-column column-width="7mm"/>
 			</xsl:variable>
 
 			<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt">
@@ -1697,9 +2093,13 @@
 	<xsl:template match="saving_throws">
 		<!-- BEGIN Saves table -->
 		<fo:table table-layout="fixed" space-before="2mm">
-			<fo:table-column column-width="79mm"/>
+			<fo:table-column column-width="82mm"/>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="21mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth - 86, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row>
 					<fo:table-cell>
@@ -1729,7 +2129,11 @@
 	<xsl:template match="saving_throws" mode="saves">
 		<!-- BEGIN Saves table -->
 		<fo:table table-layout="fixed">
-			<fo:table-column column-width="25mm"/>
+			<fo:table-column column-width="23mm"/>
+			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="7mm"/>
+			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="7mm"/>
 			<fo:table-column column-width="2mm"/>
 			<fo:table-column column-width="6mm"/>
 			<fo:table-column column-width="2mm"/>
@@ -1739,11 +2143,7 @@
 			<fo:table-column column-width="2mm"/>
 			<fo:table-column column-width="6mm"/>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="5mm"/>
-			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="5mm"/>
-			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="5mm"/>
+			<fo:table-column column-width="6mm"/>
 			<fo:table-body>
 				<fo:table-row>
 					<fo:table-cell>
@@ -1810,6 +2210,7 @@
 							</xsl:call-template>
 						</fo:table-cell>
 					</fo:table-row>
+					<fo:table-row height="2pt"/>
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
@@ -1840,7 +2241,11 @@
 		<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="18mm"/>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="21mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth - 84, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="3mm"/>
 			<fo:table-column column-width="21mm"/>
 			<fo:table-column column-width="2mm"/>
@@ -1954,7 +2359,11 @@
 		<!-- START Unarmed Attack Table -->
 		<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
-			<fo:table-column column-width="27mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth - 77, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="16mm"/>
 			<fo:table-column column-width="16mm"/>
 			<fo:table-column column-width="16mm"/>
@@ -2038,7 +2447,7 @@
 	<xsl:template match="weapons">
 		<xsl:param name="first_weapon" select="0"/>
 		<xsl:param name="last_weapon" select="0"/>
-		<xsl:param name="column_width" select="'wide'"/>
+		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<xsl:for-each select="weapon">
 			<xsl:if test="(position() &gt;= $first_weapon) and (position() &lt;= $last_weapon)">
 				<xsl:apply-templates select="common">
@@ -2079,26 +2488,18 @@
 ====================================
 ====================================-->
 	<xsl:template match="common">
-		<xsl:param name="column_width" select="'wide'"/>
+		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<fo:table table-layout="fixed" space-before="2mm" keep-with-next="always" keep-together="always">
-			<xsl:choose>
-				<xsl:when test="$column_width='wide'">
-					<fo:table-column column-width="50mm"/>
-					<fo:table-column column-width="12mm"/>
-					<fo:table-column column-width="8mm"/>
-					<fo:table-column column-width="8mm"/>
-					<fo:table-column column-width="13mm"/>
-					<fo:table-column column-width="11mm"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<fo:table-column column-width="46mm"/>
-					<fo:table-column column-width="12mm"/>
-					<fo:table-column column-width="7mm"/>
-					<fo:table-column column-width="7mm"/>
-					<fo:table-column column-width="12mm"/>
-					<fo:table-column column-width="10mm"/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat($column_width - 48, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column column-width="12mm"/>
+			<fo:table-column column-width="7mm"/>
+			<fo:table-column column-width="7mm"/>
+			<fo:table-column column-width="12mm"/>
+			<fo:table-column column-width="10mm"/>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
 					<!-- Name row (including Hand, Type, Size and Crit -->
@@ -2207,20 +2608,14 @@
 ====================================
 ====================================-->
 	<xsl:template match="common" mode="special_properties">
-		<xsl:param name="column_width" select="'wide'"/>
+		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
-			<xsl:choose>
-				<xsl:when test="$column_width='wide'">
-					<!-- 102mm -->
-					<fo:table-column column-width="21mm"/>
-					<fo:table-column column-width="81mm"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<!-- 94mm -->
-					<fo:table-column column-width="21mm"/>
-					<fo:table-column column-width="73mm"/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<fo:table-column column-width="20mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat($column_width - 20, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
 					<fo:table-cell>
@@ -2248,7 +2643,7 @@
 ====================================
 ====================================-->
 	<xsl:template match="simple">
-		<xsl:param name="column_width" select="'wide'"/>
+		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<xsl:call-template name="simple_weapon">
 			<xsl:with-param name="to_hit" select="to_hit"/>
 			<xsl:with-param name="damage" select="damage"/>
@@ -2258,20 +2653,18 @@
 	<xsl:template name="simple_weapon">
 		<xsl:param name="to_hit" select="''"/>
 		<xsl:param name="damage" select="''"/>
-		<xsl:param name="column_width" select="'wide'"/>
+		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth"/>
 		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
-			<xsl:choose>
-				<xsl:when test="$column_width='wide'">
-					<!-- 102mm -->
-					<fo:table-column column-width="51mm"/>
-					<fo:table-column column-width="51mm"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<!-- 94mm -->
-					<fo:table-column column-width="47mm"/>
-					<fo:table-column column-width="47mm"/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.5 * $column_width, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.5 * $column_width, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
 					<fo:table-cell>
@@ -2346,26 +2739,30 @@
 ====================================
 ====================================-->
 	<xsl:template match="melee">
-		<xsl:param name="column_width" select="'wide'"/>
+		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 1"/>
 		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
-			<xsl:choose>
-				<xsl:when test="$column_width='wide'">
-					<fo:table-column column-width="8mm"/>
-					<fo:table-column column-width="29mm"/>
-					<fo:table-column column-width="13mm"/>
-					<fo:table-column column-width="11mm"/>
-					<fo:table-column column-width="28mm"/>
-					<fo:table-column column-width="13mm"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<fo:table-column column-width="8mm"/>
-					<fo:table-column column-width="26mm"/>
-					<fo:table-column column-width="12mm"/>
-					<fo:table-column column-width="11mm"/>
-					<fo:table-column column-width="25mm"/>
-					<fo:table-column column-width="12mm"/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<fo:table-column column-width="8mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.35 * ($column_width - 19), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.15 * ($column_width - 19), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column column-width="11mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.35 * ($column_width - 19), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.15 * ($column_width - 19), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
 					<!-- To hit and Damage titles -->
@@ -2392,19 +2789,22 @@
 						<fo:block font-size="6pt" font-weight="bold" space-before="1pt">Dam</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
-					<!-- 1HP, 2WP-OH -->
-					<xsl:call-template name="weapon.complex.tohit">
-						<xsl:with-param name="title" select="'1H-P'"/>
-						<xsl:with-param name="tohit" select="w1_h1_p/to_hit"/>
-						<xsl:with-param name="damage" select="w1_h1_p/damage" />
-					</xsl:call-template>
-					<xsl:call-template name="weapon.complex.tohit">
-						<xsl:with-param name="title" select="'2W-P-(OH)'"/>
-						<xsl:with-param name="tohit" select="w2_p_oh/to_hit"/>
-						<xsl:with-param name="damage" select="w2_p_oh/damage" />
-					</xsl:call-template>
-				</fo:table-row>
+				<xsl:if test="not(w1_h1_p/to_hit = 'N/A' and w1_h1_p/damage = 'N/A' and w2_p_oh/to_hit = 'N/A' and w2_p_oh/damage = 'N/A')">
+					<fo:table-row keep-with-next.within-column="always">
+						<!-- 1HP, 2WP-OH -->
+						<xsl:call-template name="weapon.complex.tohit">
+							<xsl:with-param name="title" select="'1H-P'"/>
+							<xsl:with-param name="tohit" select="w1_h1_p/to_hit"/>
+							<xsl:with-param name="damage" select="w1_h1_p/damage" />
+						</xsl:call-template>
+						<xsl:call-template name="weapon.complex.tohit">
+							<xsl:with-param name="title" select="'2W-P-(OH)'"/>
+							<xsl:with-param name="tohit" select="w2_p_oh/to_hit"/>
+							<xsl:with-param name="damage" select="w2_p_oh/damage" />
+						</xsl:call-template>
+					</fo:table-row>
+				</xsl:if>
+				<xsl:if test="not(w1_h1_o/to_hit = 'N/A' and w1_h1_o/damage = 'N/A' and w2_p_ol/to_hit = 'N/A' and w2_p_ol/damage = 'N/A')">
 				<fo:table-row keep-with-next.within-column="always">
 					<!-- 1HO, 2WPOL -->
 					<xsl:call-template name="weapon.complex.tohit">
@@ -2418,6 +2818,7 @@
 						<xsl:with-param name="damage" select="w2_p_ol/damage" />
 					</xsl:call-template>
 				</fo:table-row>
+				</xsl:if>
 				<fo:table-row keep-with-next.within-column="always">
 					<!-- 2H, OH -->
 					<xsl:call-template name="weapon.complex.tohit">
@@ -2441,26 +2842,34 @@
 ====================================
 ====================================-->
 	<xsl:template match="ranges">
-		<xsl:param name="column_width" select="'wide'"/>
+		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
-			<xsl:choose>
-				<xsl:when test="$column_width='wide'">
-					<fo:table-column column-width="7mm"/>
-					<fo:table-column column-width="19mm"/>
-					<fo:table-column column-width="19mm"/>
-					<fo:table-column column-width="19mm"/>
-					<fo:table-column column-width="19mm"/>
-					<fo:table-column column-width="19mm"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<fo:table-column column-width="7mm"/>
-					<fo:table-column column-width="18mm"/>
-					<fo:table-column column-width="18mm"/>
-					<fo:table-column column-width="17mm"/>
-					<fo:table-column column-width="17mm"/>
-					<fo:table-column column-width="17mm"/>
-				</xsl:otherwise>
-			</xsl:choose>
+			<fo:table-column column-width="5mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.2 * ($column_width - 5), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.2 * ($column_width - 5), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.2 * ($column_width - 5), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.2 * ($column_width - 5), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.2 * ($column_width - 5), 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<xsl:if test="./ammunition">
 					<fo:table-row keep-with-next.within-column="always">
@@ -2494,12 +2903,18 @@
 					<!-- Range To-Hits -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-						<fo:block font-size="6pt" font-weight="bold">To Hit</fo:block>
+						<fo:block font-size="6pt" font-weight="bold">TH</fo:block>
 					</fo:table-cell>
 					<xsl:for-each select="range">
 						<fo:table-cell>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
-							<fo:block font-size="7pt" space-before="1pt">
+							<fo:block space-before="1pt">
+							    <xsl:attribute name="font-size">
+									<xsl:choose>
+										<xsl:when test="string-length(to_hit) &gt; 15">6pt</xsl:when>
+										<xsl:otherwise>7pt</xsl:otherwise>
+									</xsl:choose>
+							    </xsl:attribute>
 								<xsl:value-of select="to_hit"/>
 							</fo:block>
 						</fo:table-cell>
@@ -2533,7 +2948,11 @@
 		<!-- BEGIN Armor table -->
 		<fo:table table-layout="fixed" space-before="2mm">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'protection.border'"/></xsl:call-template>
-			<fo:table-column column-width="55mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth - 49, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="12mm"/>
 			<fo:table-column column-width="6mm"/>
 			<fo:table-column column-width="8mm"/>
@@ -2646,10 +3065,11 @@
 		<fo:table table-layout="fixed" space-before="2mm" keep-together="always" border-collapse="collapse">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column column-width="18mm"/>
-			<xsl:choose>
-				<xsl:when test="$width='narrow'"><fo:table-column column-width="68mm"/></xsl:when>
-				<xsl:otherwise><fo:table-column column-width="84mm"/></xsl:otherwise>
-			</xsl:choose>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth - 20, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
 					<fo:table-cell padding-top="1pt" number-columns-spanned="2">
@@ -2809,12 +3229,21 @@
 ====================================
 ====================================-->
 	<xsl:template match="turning">
+		<xsl:param name="column_width" select="0.45 * $pagePrintableWidth"/>
 		<!-- BEGIN Turning Table -->
 		<fo:table table-layout="fixed" space-before="1mm" keep-together="always"  border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.border'"/></xsl:call-template>
-			<fo:table-column column-width="52mm"/>
-			<fo:table-column column-width="34mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.60 * $column_width, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.40 * $column_width, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
 					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
@@ -2828,8 +3257,16 @@
 					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
 					<fo:table-cell>
 						<fo:table table-layout="fixed">
-							<fo:table-column column-width="26mm"/>
-							<fo:table-column column-width="26mm"/>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.30 * $column_width, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.30 * $column_width, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
 							<fo:table-body>
 								<fo:table-row>
 									<fo:table-cell>
@@ -2848,8 +3285,16 @@
 					</fo:table-cell>
 					<fo:table-cell>
 						<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt">
-							<fo:table-column column-width="17mm"/>
-							<fo:table-column column-width="17mm"/>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.20 * $column_width, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.20 * $column_width, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
 							<fo:table-body>
 								<xsl:call-template name="turning.info">
 									<xsl:with-param name="title" select="'Turning Check'"/>
@@ -2863,8 +3308,16 @@
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
 						<fo:table table-layout="fixed"  border-collapse="collapse" padding="0.5pt">
-							<fo:table-column column-width="26mm"/>
-							<fo:table-column column-width="26mm"/>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.30 * $column_width, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.30 * $column_width, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
 							<fo:table-body>
 								<fo:table-row height="1pt"/>
 								<xsl:call-template name="turning.hitdice">
@@ -2908,8 +3361,16 @@
 					</fo:table-cell>
 					<fo:table-cell>
 						<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt">
-							<fo:table-column column-width="17mm"/>
-							<fo:table-column column-width="17mm"/>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.20 * $column_width, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat(0.20 * $column_width, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
 							<fo:table-body>
 								<xsl:call-template name="turning.info">
 									<xsl:with-param name="title" select="'Turn level'"/>
@@ -2935,7 +3396,11 @@
 					<fo:table-cell number-columns-spanned="2">
 						<fo:table border-collapse="collapse" padding="0.5pt" table-layout="fixed">
 							<fo:table-column column-width="22mm"/>
-							<fo:table-column column-width="64mm"/>
+							<fo:table-column>
+							    <xsl:attribute name="column-width">
+							      <xsl:value-of select="concat($column_width - 22, 'mm')" />
+							    </xsl:attribute>
+							</fo:table-column>
 							<fo:table-body>
 								<xsl:call-template name="turns.per.day">
 									<xsl:with-param name="title" select="concat(@type, '/DAY')"/>
@@ -3110,12 +3575,36 @@
 		<!-- BEGIN psionicsTable -->
 		<fo:table table-layout="fixed" space-before="2mm" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.border'"/></xsl:call-template>
-			<fo:table-column column-width="17mm"/>
-			<fo:table-column column-width="17mm"/>
-			<fo:table-column column-width="17mm"/>
-			<fo:table-column column-width="17mm"/>
-			<fo:table-column column-width="17mm"/>
-			<fo:table-column column-width="17mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth div 6, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth div 6, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth div 6, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth div 6, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth div 6, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth div 6, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
 					<fo:table-cell padding-top="1pt" number-columns-spanned="6">
@@ -3150,6 +3639,11 @@
 		<!-- Attack / Defence table -->
 		<fo:table table-layout="fixed" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.border'"/></xsl:call-template>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.55 * $pagePrintableWidth - 70, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-column column-width="34mm"/>
 			<fo:table-column column-width="8mm"/>
 			<fo:table-column column-width="12mm"/>
@@ -3319,7 +3813,11 @@
 	<xsl:template name="followers.list">
 		<xsl:if test="count(follower) &gt; 0">
 			<fo:table table-layout="fixed" space-after.optimum="2mm">
-				<fo:table-column column-width="94mm"/>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat(0.5 * ($pagePrintableWidth - 2), 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
 				<fo:table-body>
 					<fo:table-row keep-with-next.within-column="always">
 						<fo:table-cell>
@@ -3348,7 +3846,11 @@
 	<xsl:template name="show_companion">
 		<xsl:param name="followerType" select="Follower"/>
 		<fo:table table-layout="fixed" space-before.optimum="2mm">
-			<fo:table-column column-width="25mm"/>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat(0.5 * ($pagePrintableWidth - 2) - 69, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
 			<fo:table-column column-width="15mm"/>
 			<fo:table-column column-width="13mm"/>
 			<fo:table-column column-width="14mm"/>
@@ -3544,7 +4046,11 @@
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'equipment.border'"/>
 				</xsl:call-template>
-				<fo:table-column column-width="51mm"/>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat(0.5 * ($pagePrintableWidth - 2) - 43, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
 				<fo:table-column column-width="19mm"/>
 				<fo:table-column column-width="6mm"/>
 				<fo:table-column column-width="8mm"/>
@@ -3712,12 +4218,36 @@
 		<!-- BEGIN Weight table -->
 		<fo:table table-layout="fixed" space-before.optimum="2mm" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weight.border'"/></xsl:call-template>
-			<fo:table-column column-width="20mm"/>
-			<fo:table-column column-width="11mm"/>
-			<fo:table-column column-width="20mm"/>
-			<fo:table-column column-width="11mm"/>
-			<fo:table-column column-width="20mm"/>
-			<fo:table-column column-width="12mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.65 * 0.5 * ($pagePrintableWidth - 2) div 3, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.35 * 0.5 * ($pagePrintableWidth - 2) div 3, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.65 * 0.5 * ($pagePrintableWidth - 2) div 3, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.35 * 0.5 * ($pagePrintableWidth - 2) div 3, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.65 * 0.5 * ($pagePrintableWidth - 2) div 3, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat(0.35 * 0.5 * ($pagePrintableWidth - 2) div 3, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
 					<fo:table-cell padding-top="1pt" number-columns-spanned="6">
@@ -3770,7 +4300,11 @@
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'money.border'"/>
 				</xsl:call-template>
-				<fo:table-column column-width="94mm"/>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat(0.5 * ($pagePrintableWidth - 2), 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
 				<fo:table-header>
 					<fo:table-row keep-with-next.within-column="always">
 						<fo:table-cell padding-top="1pt">
@@ -3877,7 +4411,11 @@
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'magic.border'"/>
 				</xsl:call-template>
-				<fo:table-column column-width="94mm"/>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat(0.5 * ($pagePrintableWidth - 2), 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
 				<fo:table-header>
 					<fo:table-row keep-with-next.within-column="always">
 						<fo:table-cell padding-top="1pt">
@@ -4220,13 +4758,17 @@
 		<xsl:param name="columnOne" select="''"/>
 		<xsl:param name="details" select="'true'"/>
 		<fo:table-column column-width="11mm"/>
-		<fo:table-column column-width="37mm"/>
+		<fo:table-column>
+		    <xsl:attribute name="column-width">
+		      <xsl:value-of select="concat($pagePrintableWidth - 153, 'mm')" />
+		    </xsl:attribute>
+		</fo:table-column>
 		<!-- name -->
-		<fo:table-column column-width="6mm"/>
+		<fo:table-column column-width="5mm"/>
 		<!-- dc -->
 		<fo:table-column column-width="18mm"/>
 		<!-- saving throw -->
-		<fo:table-column column-width="8mm"/>
+		<fo:table-column column-width="9mm"/>
 		<!-- time -->
 		<fo:table-column column-width="32mm"/>
 		<!-- duration -->
@@ -4479,7 +5021,11 @@
 	<xsl:template name="spells.memorized.header">
 		<xsl:param name="title" select="'Unknown'"/>
 		<fo:table table-layout="fixed">
-			<fo:table-column column-width="190mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width">
+			      <xsl:value-of select="concat($pagePrintableWidth, 'mm')" />
+			    </xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row>
 					<fo:table-cell padding-top="1pt">
@@ -4506,8 +5052,16 @@
 				<xsl:with-param name="title" select="'Innate'"/>
 			</xsl:call-template>
 			<fo:table table-layout="fixed" space-after="5mm">
-				<fo:table-column column-width="8mm"/>
-				<fo:table-column column-width="30mm"/>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat(0.20 * $pagePrintableWidth div 5, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat(0.80 * $pagePrintableWidth div 5, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
 				<fo:table-body>
 					<xsl:apply-templates mode="spells.memorized"/>
 				</fo:table-body>
@@ -4537,8 +5091,16 @@
 				<xsl:with-param name="title" select="concat(@name, ' Innate Spells')"/>
 			</xsl:call-template>
 			<fo:table table-layout="fixed">
-				<fo:table-column column-width="8mm"/>
-				<fo:table-column column-width="30mm"/>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat(0.20 * $pagePrintableWidth div 5, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat(0.80 * $pagePrintableWidth div 5, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
 				<fo:table-body>
 					<xsl:apply-templates mode="spells.memorized"/>
 				</fo:table-body>
@@ -4554,11 +5116,31 @@
 	<xsl:template match="spellbook" mode="spells.memorized">
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:table table-layout="fixed" space-before="4mm">
-				<fo:table-column column-width="38mm"/>
-				<fo:table-column column-width="38mm"/>
-				<fo:table-column column-width="38mm"/>
-				<fo:table-column column-width="38mm"/>
-				<fo:table-column column-width="38mm"/>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat($pagePrintableWidth div 5, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat($pagePrintableWidth div 5, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat($pagePrintableWidth div 5, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat($pagePrintableWidth div 5, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
+				<fo:table-column>
+				    <xsl:attribute name="column-width">
+				      <xsl:value-of select="concat($pagePrintableWidth div 5, 'mm')" />
+				    </xsl:attribute>
+				</fo:table-column>
 				<fo:table-body>
 					<fo:table-row>
 						<fo:table-cell padding-top="1pt" number-columns-spanned="5">
@@ -4612,8 +5194,16 @@
 			<fo:block font-size="5pt">
 				<xsl:if test="count(.//spell) &gt; 0">
 					<fo:table table-layout="fixed">
-						<fo:table-column column-width="8mm"/>
-						<fo:table-column column-width="30mm"/>
+						<fo:table-column>
+						    <xsl:attribute name="column-width">
+						      <xsl:value-of select="concat(0.20 * $pagePrintableWidth div 5, 'mm')" />
+						    </xsl:attribute>
+						</fo:table-column>
+						<fo:table-column>
+						    <xsl:attribute name="column-width">
+						      <xsl:value-of select="concat(0.80 * $pagePrintableWidth div 5, 'mm')" />
+						    </xsl:attribute>
+						</fo:table-column>
 						<fo:table-body>
 							<fo:table-row>
 								<fo:table-cell padding-top="1pt" number-columns-spanned="2">
@@ -4726,11 +5316,28 @@
 					</fo:block>
 					<fo:block>
 						<fo:table table-layout="fixed">
-							<fo:table-column column-width="94mm"/>
-							<xsl:if test="string-length(portrait) &gt; 0">
-								<fo:table-column column-width="2mm"/>
-								<fo:table-column column-width="94mm"/>
-							</xsl:if>
+							<xsl:choose>
+								<xsl:when test="string-length(portrait) &gt; 0">
+									<fo:table-column>
+									    <xsl:attribute name="column-width">
+									      <xsl:value-of select="concat(($pagePrintableWidth - 2) div 2, 'mm')" />
+									    </xsl:attribute>
+									</fo:table-column>
+									<fo:table-column column-width="2mm"/>
+									<fo:table-column>
+									    <xsl:attribute name="column-width">
+									      <xsl:value-of select="concat(($pagePrintableWidth - 2) div 2, 'mm')" />
+									    </xsl:attribute>
+									</fo:table-column>
+								</xsl:when>
+								<xsl:otherwise>
+									<fo:table-column>
+									    <xsl:attribute name="column-width">
+									      <xsl:value-of select="concat($pagePrintableWidth, 'mm')" />
+									    </xsl:attribute>
+									</fo:table-column>
+								</xsl:otherwise>
+							</xsl:choose>
 							<fo:table-body>
 								<fo:table-row>
 									<xsl:if test="string-length(portrait) &gt; 0">
