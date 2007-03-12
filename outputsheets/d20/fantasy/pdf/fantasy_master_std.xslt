@@ -893,13 +893,13 @@
 		<xsl:param name="RunningTotal" select="0"/>
 		<xsl:variable name="bardic_music">
 			<xsl:choose>
-				<xsl:when test="count($features/bardic_music) &gt; 1">17</xsl:when>
+				<xsl:when test="count($features/bardic_music) &gt; 0">17</xsl:when>
 				<xsl:otherwise>0</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
 		<xsl:variable name="turning">
 			<xsl:choose>
-				<xsl:when test="count($features/turning) &gt; 1">43</xsl:when>
+				<xsl:when test="count($features/turning) &gt; 0">43</xsl:when>
 				<xsl:otherwise>0</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
