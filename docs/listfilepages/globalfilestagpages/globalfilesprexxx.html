@@ -423,16 +423,19 @@
 		<p class="indent3">Character must have chosen of deity with either the &quot;good&quot; domain or the &quot;law&quot; domain.</p>
 
 		<p></p><a name="PREDOMAIN"></a><hr>
+		<p class="new">*** Updated 5.11.7</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREDOMAIN:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the deity's domains that must match).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text (Domain names).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Domain names or ANY).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Set's requirements for a character's domains.
 			This tag applies to the domains that the PC has selected for itself. </p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREDOMAIN:1,Good,Law</code></p>
 		<p class="indent3">Character must have 1 of the two listed domains.</p>
-
+		<p class="indent2"><code>PREDOMAIN:2,ANY</code></p>
+		<p class="indent3">Character must have 2 domains of any type.</p>
+		
 		<p></p><a name="PREDR"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong>PREDR:x,y=z,y=z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the DR conditions that must be met).</p>
