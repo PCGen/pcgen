@@ -30,7 +30,10 @@ package pcgen.core;
 
 import java.awt.HeadlessException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
@@ -44,11 +47,13 @@ import pcgen.core.spell.Spell;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.StatToken;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Visibility;
+import plugin.lsttokens.AbilityLst;
 
 /**
  * @author wardc
@@ -81,6 +86,118 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	 * @see junit.framework.TestCase#setUp()
+	 */
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+	
+		final PreParserFactory factory = PreParserFactory.getInstance();
+	
+		// Human
+		human = new Race();
+		final BonusObj humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
+		final StringBuffer buf = new StringBuffer();
+	
+		buf.append("PREMULT:1,[PREDEFAULTMONSTER:N],[!PREHD:1+]");
+	
+		final Prerequisite humanFeatPrereq = factory.parse(buf.toString());
+	
+		humanRaceFeatBonus.addPreReq(humanFeatPrereq);
+		human.setBonusInitialFeats(humanRaceFeatBonus);
+	
+		// Giant Race
+		giantRace = new Race();
+		giantRace.setName("Ogre");
+		giantRace.setMonsterClass("Giant");
+		giantRace.setMonsterClassLevels(4);
+		giantRace.setHitDiceAdvancement(new int[]{100});
+		final BonusObj babBonus =
+				Bonus
+					.newBonus("COMBAT|BAB|3|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE");
+		giantRace.addBonusList(babBonus);
+	
+		final BonusObj giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
+		final Prerequisite giantFeatPrereq = factory.parse(buf.toString());
+		giantRaceFeatBonus.addPreReq(giantFeatPrereq);
+	
+		giantRace.setBonusInitialFeats(giantRaceFeatBonus);
+	
+		Globals.addRace(giantRace);
+	
+		// Create the monster class type
+		SettingsHandler.getGame().addClassType(
+			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
+	
+		// Giant Class
+		giantClass = new PCClass();
+		giantClass.setName("Giant");
+		giantClass.setAbbrev("Gnt");
+		giantClass.addMyType("MONSTER");
+		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
+		giantClass.addBonusList(babClassBonus);
+		Globals.getClassList().add(giantClass);
+	
+		pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellType("ARCANE");
+		Globals.getClassList().add(pcClass);
+	
+		classWarmind = new PCClass();
+		classWarmind.setName("Warmind");
+		classWarmind.setAbbrev("WM");
+		Globals.getClassList().add(classWarmind);
+	
+		Ability toughness = new Ability();
+		toughness.setName("Toughness");
+		toughness.setMultiples("Y");
+		toughness.setStacks("Y");
+		toughness.setChoiceString("NOCHOICE");
+		toughness.setCategory("FEAT");
+		Globals.addAbility(toughness);
+	
+		Ability exoticWpnProf =
+				TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT",
+					"General.Fighter");
+		exoticWpnProf.setMultiples("YES");
+		exoticWpnProf.setChoiceString("PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
+		exoticWpnProf.addAutoArray("WEAPONPROF", "%LIST");
+	
+		WeaponProf wpnProfTestA = new WeaponProf();
+		wpnProfTestA.setName("Weapon A");
+		wpnProfTestA.setKeyName("Weapon A");
+		wpnProfTestA.setTypeInfo("Exotic");
+		Globals.addWeaponProf(wpnProfTestA);
+	
+		WeaponProf wpnProfTestB = new WeaponProf();
+		wpnProfTestB.setName("Weapon B");
+		wpnProfTestB.setKeyName("Weapon B");
+		wpnProfTestB.setTypeInfo("Exotic");
+		Globals.addWeaponProf(wpnProfTestB);
+	
+		WeaponProf wpnProfTestC = new WeaponProf();
+		wpnProfTestC.setName("Weapon C");
+		wpnProfTestC.setKeyName("Weapon C");
+		wpnProfTestC.setTypeInfo("Exotic");
+		Globals.addWeaponProf(wpnProfTestC);
+	
+		SettingsHandler
+			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
+	
+		pcClass.addAddList(1, "FEAT(KEY_Exotic Weapon Proficiency (Weapon A))");
+		pcClass.addAddList(2, "FEAT(KEY_Exotic Weapon Proficiency (Weapon B))");
+		pcClass.addAddList(3, "FEAT(KEY_Exotic Weapon Proficiency (Weapon C))");
+	}
+
+	protected void tearDown()
+	{
+		Logging.setDebugMode(false);
+	}
+	
+	/**
 	 * @throws Exception
 	 */
 	public void testGetBonusFeatsForNewLevel1() throws Exception
@@ -89,7 +206,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
-		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(1, pcClass, true);
 		assertEquals(2, (int) character.getRawFeats(true));
 	}
 
@@ -102,7 +219,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
-		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(1, pcClass, true);
 		assertEquals(2, (int) character.getRawFeats(true));
 	}
 
@@ -115,7 +232,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
-		character.incrementClassLevel(3, pcClass);
+		character.incrementClassLevel(3, pcClass, true);
 		assertEquals(3, (int) character.getRawFeats(true));
 	}
 
@@ -128,7 +245,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
-		character.incrementClassLevel(3, pcClass);
+		character.incrementClassLevel(3, pcClass, true);
 		assertEquals(3, (int) character.getRawFeats(true));
 	}
 
@@ -144,10 +261,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(giantRace);
-		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(1, pcClass, true);
 		is((int) character.getRawFeats(true), eq(2),
 			"One level of PCClass, PC has one feat for level and one for a missing feat.");
-		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(1, pcClass, true);
 		is((int) character.getRawFeats(true), eq(3),
 			"Two levels of PCClass, feats increment");
 	}
@@ -163,14 +280,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(giantRace);
-		character.incrementClassLevel(4, giantClass);
+		character.incrementClassLevel(4, giantClass, true);
 
 		is((int) character.getRawFeats(true), eq(0),
 			"Default monster doesn't get feats from initial levels");
-		character.incrementClassLevel(2, giantClass);
+		character.incrementClassLevel(2, giantClass, true);
 		is((int) character.getRawFeats(true), eq(0),
 			"Default monster doesn't get feats up to level 6 (4 monster + 2 extra)");
-		character.incrementClassLevel(1, giantClass);
+		character.incrementClassLevel(1, giantClass, true);
 		is((int) character.getRawFeats(true), eq(1),
 			"Default monster gets first feat at level 7 (4 monster + 3 extra)");
 	}
@@ -198,7 +315,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(giantRace);
-		character.incrementClassLevel(4, giantClass);
+		character.incrementClassLevel(4, giantClass, true);
 		assertEquals(6, character.baseAttackBonus());
 	}
 
@@ -225,7 +342,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(giantRace);
-		character.incrementClassLevel(4, giantClass);
+		character.incrementClassLevel(4, giantClass, true);
 		assertEquals(6, character.baseAttackBonus());
 	}
 
@@ -236,6 +353,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetVariableValue1() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(false);
+		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValue1()");
 		giantRace.addVariable(-9, "GiantVar1", "0");
 		final BonusObj raceBonus = Bonus.newBonus("1|VAR|GiantVar1|7+HD");
@@ -249,7 +367,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = new PlayerCharacter();
 		// NOTE: This will add 4 levels of giantClass to the character 
 		character.setRace(giantRace);
-		character.incrementClassLevel(4, giantClass);
+		character.incrementClassLevel(4, giantClass, true);
 
 		assertEquals(new Float(15.0), character.getVariableValue("GiantVar1",
 			"CLASS:Giant"));
@@ -264,7 +382,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetVariableValue2() throws Exception
 	{
-		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValue2()");
 		SettingsHandler.setMonsterDefault(true);
 		giantRace.addVariable(-9, "GiantVar1", "0");
@@ -278,7 +395,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(giantRace);
-		character.incrementClassLevel(4, giantClass);
+		character.incrementClassLevel(4, giantClass, true);
 
 		assertEquals(new Float(11.0), character.getVariableValue("GiantVar1",
 			"CLASS:Giant"));
@@ -297,14 +414,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetVariableValueStatMod() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(false);
-		Logging.setDebugMode(true);
+		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatMod()");
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		final StatList statList = character.getStatList();
 		final PCStat stat = statList.getStatAt(0);
 		stat.setBaseScore(16);
-		character.incrementClassLevel(2, pcClass);
+		character.incrementClassLevel(2, pcClass, true);
 
 		final Float result =
 				character.getVariableValue("(SCORE/2).TRUNC-5", "STAT:STR");
@@ -318,14 +435,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetVariableValueStatModNew() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(false);
+		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatModNew()");
-		Logging.setDebugMode(true);
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		final StatList statList = character.getStatList();
 		final PCStat stat = statList.getStatAt(0);
 		stat.setBaseScore(16);
-		character.incrementClassLevel(2, pcClass);
+		character.incrementClassLevel(2, pcClass, true);
 
 		final Float result =
 				character.getVariableValue("floor(SCORE/2)-5", "STAT:STR");
@@ -343,7 +460,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final StatList statList = character.getStatList();
 		final PCStat stat = statList.getStatAt(0);
 		stat.setBaseScore(16);
-		character.incrementClassLevel(2, pcClass);
+		character.incrementClassLevel(2, pcClass, true);
 
 		int iVal = character.getVariableValue("roll(\"3d6\")+5", "").intValue();
 		boolean match = true;
@@ -369,7 +486,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(1, pcClass, true);
 
 		SettingsHandler
 			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
@@ -402,7 +519,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertFalse("Not yet proficient in Weapon C", character
 			.hasWeaponProfKeyed("Weapon C"));
 
-		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(1, pcClass, true);
 
 		assertTrue("First Proficient in Weapon A", character
 			.hasWeaponProfKeyed("Weapon A"));
@@ -411,7 +528,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertFalse("Not yet proficient in Weapon C", character
 			.hasWeaponProfKeyed("Weapon C"));
 
-		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(1, pcClass, true);
 
 		assertTrue("Second Proficient in Weapon A", character
 			.hasWeaponProfKeyed("Weapon A"));
@@ -420,7 +537,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertFalse("Not yet proficient in Weapon C", character
 			.hasWeaponProfKeyed("Weapon C"));
 
-		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(1, pcClass, true);
 
 		assertTrue("Third Proficient in Weapon A", character
 			.hasWeaponProfKeyed("Weapon A"));
@@ -431,123 +548,16 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-
-		final PreParserFactory factory = PreParserFactory.getInstance();
-
-		// Human
-		human = new Race();
-		final BonusObj humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
-		final StringBuffer buf = new StringBuffer();
-
-		buf.append("PREMULT:1,[PREDEFAULTMONSTER:N],[!PREHD:1+]");
-
-		final Prerequisite humanFeatPrereq = factory.parse(buf.toString());
-
-		humanRaceFeatBonus.addPreReq(humanFeatPrereq);
-		human.setBonusInitialFeats(humanRaceFeatBonus);
-
-		// Giant Race
-		giantRace = new Race();
-		giantRace.setName("Ogre");
-		giantRace.setMonsterClass("Giant");
-		giantRace.setMonsterClassLevels(4);
-		giantRace.setHitDiceAdvancement(new int[]{100});
-		final BonusObj babBonus =
-				Bonus
-					.newBonus("COMBAT|BAB|3|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE");
-		giantRace.addBonusList(babBonus);
-
-		final BonusObj giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
-		final Prerequisite giantFeatPrereq = factory.parse(buf.toString());
-		giantRaceFeatBonus.addPreReq(giantFeatPrereq);
-
-		giantRace.setBonusInitialFeats(giantRaceFeatBonus);
-
-		Globals.addRace(giantRace);
-
-		// Create the monster class type
-		SettingsHandler.getGame().addClassType(
-			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
-
-		// Giant Class
-		giantClass = new PCClass();
-		giantClass.setName("Giant");
-		giantClass.setAbbrev("Gnt");
-		giantClass.addMyType("MONSTER");
-		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
-		giantClass.addBonusList(babClassBonus);
-		Globals.getClassList().add(giantClass);
-
-		pcClass = new PCClass();
-		pcClass.setName("MyClass");
-		pcClass.setAbbrev("My");
-		pcClass.setSpellType("ARCANE");
-		Globals.getClassList().add(pcClass);
-
-		classWarmind = new PCClass();
-		classWarmind.setName("Warmind");
-		classWarmind.setAbbrev("WM");
-		Globals.getClassList().add(classWarmind);
-
-		Ability toughness = new Ability();
-		toughness.setName("Toughness");
-		toughness.setMultiples("Y");
-		toughness.setStacks("Y");
-		toughness.setChoiceString("NOCHOICE");
-		toughness.setCategory("FEAT");
-		Globals.addAbility(toughness);
-
-		Ability exoticWpnProf =
-				TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT",
-					"General.Fighter");
-		exoticWpnProf.setMultiples("YES");
-		exoticWpnProf.setChoiceString("PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
-		exoticWpnProf.addAutoArray("WEAPONPROF", "%LIST");
-
-		WeaponProf wpnProfTestA = new WeaponProf();
-		wpnProfTestA.setName("Weapon A");
-		wpnProfTestA.setKeyName("Weapon A");
-		wpnProfTestA.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestA);
-
-		WeaponProf wpnProfTestB = new WeaponProf();
-		wpnProfTestB.setName("Weapon B");
-		wpnProfTestB.setKeyName("Weapon B");
-		wpnProfTestB.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestB);
-
-		WeaponProf wpnProfTestC = new WeaponProf();
-		wpnProfTestC.setName("Weapon C");
-		wpnProfTestC.setKeyName("Weapon C");
-		wpnProfTestC.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestC);
-
-		SettingsHandler
-			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
-		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
-
-		pcClass.addAddList(1, "FEAT(KEY_Exotic Weapon Proficiency (Weapon A))");
-		pcClass.addAddList(2, "FEAT(KEY_Exotic Weapon Proficiency (Weapon B))");
-		pcClass.addAddList(3, "FEAT(KEY_Exotic Weapon Proficiency (Weapon C))");
-	}
-
-	/**
 	 * Tests CL variable
 	 * @throws Exception
 	 */
 	public void testGetClassVar() throws Exception
 	{
-		Logging.setDebugMode(true);
+		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetClassVar()");
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		character.incrementClassLevel(2, classWarmind);
+		character.incrementClassLevel(2, classWarmind, true);
 
 		final Float result =
 				character.getVariableValue("var(\"CL=Warmind\")", "");
@@ -585,7 +595,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final BonusObj raceBonus = Bonus.newBonus("1|STAT|DEX|-2");
 		giantClass.addBonusList(raceBonus);
 		pc.setRace(giantRace);
-		pc.incrementClassLevel(4, giantClass);
+		pc.incrementClassLevel(4, giantClass, true);
 
 		assertEquals("Total stat.", "12", statTok.getToken("STAT.1", pc, null));
 		assertEquals("Temp stat.", "12", statTok.getToken("STAT.1.NOEQUIP", pc,
@@ -674,7 +684,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(1, pcClass, true);
 
 		final List<Ability> none = Collections.emptyList();
 		String response =
@@ -774,5 +784,4 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 					-1), giantClass, spellBookName);
 		assertEquals("Delete spell should not be rejected.", "", response);
 	}
-
 }

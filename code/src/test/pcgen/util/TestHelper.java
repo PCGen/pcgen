@@ -48,6 +48,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.EquipmentLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -58,8 +59,10 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 @SuppressWarnings("nls")
 public class TestHelper
 {
-
-	private static boolean loaded = false;
+	private static boolean 				loaded = false;
+	private static EquipmentLoader 		eqLoader = new EquipmentLoader();
+	private static AbilityLoader   		abLoader = new AbilityLoader();
+	private static CampaignSourceEntry 	source = null;
 
 	/**
 	 * Make some size adjustments
@@ -90,8 +93,6 @@ public class TestHelper
 		}
 		gamemode.getSizeAdjustmentNamed("Medium").setIsDefaultSize(true);
 	}
-
-	private static EquipmentLoader loader = new EquipmentLoader();
 	
 	/**
 	 * Make some equipment
@@ -117,7 +118,7 @@ public class TestHelper
 			{
 				throw new UnreachableError(e);
 			}
-			loader.parseLine(eq, input, source);
+			eqLoader.parseLine(eq, input, source);
 			EquipmentList.addEquipment(eq);
 			return true;
 		}
@@ -216,6 +217,45 @@ public class TestHelper
 		return anAbility;
 	}
 
+	/**
+	 * Make some equipment
+	 * @param input
+	 * @return true if OK
+	 */
+	public static boolean makeAbilityFromString(String input)
+	{
+		if (!loaded)
+		{
+			loadPlugins();
+		}
+
+		try
+		{
+			if (null == source)
+			{
+				try
+				{
+					source = new CampaignSourceEntry(new Campaign(),
+							new URI("file:/" + TestHelper.class.getName() + ".java"));
+				}
+				catch (URISyntaxException e)
+				{
+					throw new UnreachableError(e);
+				}
+			}
+
+			abLoader.parseLine(null, input, source);
+			return true;
+		}
+		catch (Exception e)
+		{
+			// TODO Deal with Exception?
+		}
+		return false;
+	}
+
+	
+	
 	/**
 	 * Set the important info about a WeaponProf
 	 * @param name The weaponprof name

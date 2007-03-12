@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
+import pcgen.util.Logging;
 import pcgen.util.TestChecker;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.testchecker.BoolAnd;
@@ -44,6 +45,10 @@ import pcgen.util.testchecker.CompareSubstring;
 @SuppressWarnings("nls")
 public abstract class PCGenTestCase extends TestCase
 {
+	protected boolean verbose = false;
+	protected int     count   = 0;
+	protected int     errors  = 0;
+
 	/**
 	 * Sets up some basic stuff that must be present for tests to work.
 	 * @see junit.framework.TestCase#setUp()
@@ -58,6 +63,8 @@ public abstract class PCGenTestCase extends TestCase
 		gamemode.setTabName(Tab.ABILITIES, "Feats");
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");
+		count  = 0;
+		errors = 0;
 	}
 
 	/**
@@ -79,7 +86,7 @@ public abstract class PCGenTestCase extends TestCase
 	{
 		super(name);
 	}
-
+	
 	/**
 	 * Fixes {@link TestCase#runBare()} to not swallow a throwable from {@link
 	 * #runTest()} if {@link #tearDown()} also throws.
@@ -97,6 +104,11 @@ public abstract class PCGenTestCase extends TestCase
 		{
 			runTest();
 
+			if (verbose && 0 != errors)
+			{
+				Logging.errorPrint("Failed " + errors + " of " + count + " interruptable tests");
+				fail("Failed " + errors + " of " + count + " interruptable tests");
+			}
 		}
 
 		catch (final Throwable t)
@@ -127,8 +139,29 @@ public abstract class PCGenTestCase extends TestCase
 
 	protected void is(Object something, TestChecker matches)
 	{
-		if (!matches.check(something))
+		count = count + 1;
+
+		if (verbose)
 		{
+			if (matches.check(something))
+			{
+				Logging.errorPrint("OK - unlabelled test case");
+			}
+			else
+			{
+				Logging.errorPrint("\n!!! Not OK !!! - unlabelled test case");
+
+				StringBuffer message = new StringBuffer("  Expected: ");
+				matches.scribe(message);
+				message.append("\n  but got: ").append(something).append('\n');
+
+				Logging.errorPrint(message.toString());
+				errors = errors + 1;				
+			}
+		}
+		else if (!matches.check(something))
+		{
+
 			StringBuffer message = new StringBuffer("\nExpected: ");
 			matches.scribe(message);
 			message.append("\nbut got: ").append(something).append('\n');
@@ -138,12 +171,34 @@ public abstract class PCGenTestCase extends TestCase
 
 	protected void is(Object something, TestChecker matches, String testCase)
 	{
-		if (!matches.check(something))
+		count = count + 1;
+
+		if (verbose)
 		{
+			if (matches.check(something))
+			{
+				Logging.errorPrint("OK - " + testCase);
+			}
+			else
+			{
+				Logging.errorPrint("\n!!! Not OK !!! - " + testCase);
+
+				StringBuffer message = new StringBuffer("  Expected: ");
+				matches.scribe(message);
+				message.append("\n  but got: ").append(something).append("\n");
+				
+				Logging.errorPrint(message.toString());
+				errors = errors + 1;				
+			}
+		}
+		else if (!matches.check(something))
+		{
+
 			StringBuffer message = new StringBuffer("\nExpected: ");
 			matches.scribe(message);
 			message.append("\nbut got: ").append(something);
 			message.append(" \nIn test ").append(testCase);
+
 			fail(message.toString());
 		}
 	}
