@@ -31,6 +31,6 @@ public class DotClearToken implements AddLstToken
 
 	public String getTokenName()
 	{
-		return "VFEAT";
+		return ".CLEAR";
 	}
 }
