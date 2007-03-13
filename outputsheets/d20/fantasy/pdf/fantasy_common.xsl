@@ -153,9 +153,7 @@
 		<fo:table table-layout="fixed" space-before.optimum="2mm">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column>
-			    <xsl:attribute name="column-width">
-			      <xsl:value-of select="concat(($pagePrintableWidth - 2) div 2, 'mm')" />
-			    </xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 2" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
@@ -196,14 +194,10 @@
 		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column>
-			    <xsl:attribute name="column-width">
-			      <xsl:value-of select="concat($col1width, 'mm')" />
-			    </xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="$col1width" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-column>
-			    <xsl:attribute name="column-width">
-			      <xsl:value-of select="concat($col2width, 'mm')" />
-			    </xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="$col2width" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
