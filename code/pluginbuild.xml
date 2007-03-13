@@ -2268,6 +2268,27 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-lst-add-plugins" depends="makeplugindirs" description="Build (Link) Auto Lst Token plugin jar files">
 		<!-- Add tokens-->
+		<jar jarfile="${lstplugins.dir}/AddLstToken-CLASSSKILLS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/ClassSkillsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-DOTCLEAR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/DotClearToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-EQUIP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/EquipToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/AddLstToken-FEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -2275,8 +2296,57 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-LANGUAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/LanguageToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-SA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/SAToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-SKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/SkillToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-SPELLCASTER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/SpellCasterToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-SPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/SpellLevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-TEMPLATE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/TemplateToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AddLstToken-VFEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/VFeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
-		
+
 	<target name="jar-lst-auto-plugins" depends="makeplugindirs" description="Build (Link) Auto Lst Token plugin jar files">
 		<!-- Auto tokens-->
 		<jar jarfile="${lstplugins.dir}/AutoLstToken-ARMORPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
@@ -5966,25 +6036,25 @@ Class-Path: ${manifest.extra.jars}
 
 	<target name="clean-plugins" depends="makeplugindirs" description="Clean all working files">
 		<delete>
-			<fileset dir="${plugins.dir}" includes="*.jar"/>
+			<fileset dir="${plugins.dir}" includes="*.jar" />
 		</delete>
 		<delete>
-			<fileset dir="${outputplugins.dir}" includes="*.jar"/>
+			<fileset dir="${outputplugins.dir}" includes="*.jar" />
 		</delete>
 		<delete>
-			<fileset dir="${bonusplugins.dir}" includes="*.jar"/>
+			<fileset dir="${bonusplugins.dir}" includes="*.jar" />
 		</delete>
 		<delete>
-			<fileset dir="${preplugins.dir}" includes="*.jar"/>
+			<fileset dir="${preplugins.dir}" includes="*.jar" />
 		</delete>
 		<delete>
-			<fileset dir="${lstplugins.dir}" includes="*.jar"/>
+			<fileset dir="${lstplugins.dir}" includes="*.jar" />
 		</delete>
 		<delete>
-			<fileset dir="${systemlstplugins.dir}" includes="*.jar"/>
+			<fileset dir="${systemlstplugins.dir}" includes="*.jar" />
 		</delete>
 		<delete>
-			<fileset dir="${jepplugins.dir}" includes="*.jar"/>
+			<fileset dir="${jepplugins.dir}" includes="*.jar" />
 		</delete>
 	</target>
 
