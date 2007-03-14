@@ -490,18 +490,21 @@
 
 
 		<p></p><a name="SKILLPOINTS"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> SKILLPOINTS.x</p>
+		<p class="indent0"><strong>Token Name:</strong> SKILLPOINTS.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
 		<ul class="indent2">
 			<li>TOTAL - Displays the total skill points the character has.</li>
 			<li>USED - Displays the number of skill points that have been assigned to skills.</li>
 			<li>UNUSED - Displays the number of skill points that remain unassigned.</li>
 		</ul>
+		<p class="indent1"><strong> Variables Used (y):</strong> (Optional) Number (The classes position in the character's complete class list - 0-based index)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays skill point information.Displays skill point information.</p>
+		<p class="indent2">Displays skill point information for either a single class or the character.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SKILLPOINTS.TOTAL</code></p>
 		<p class="indent3">Displays the total skill points the character has.</p>
+		<p class="indent2"><code>SKILLPOINTS.TOTAL.0</code></p>
+		<p class="indent3">Displays the total skill points the character received for its first class.</p>
 
 
 		<p></p><a name="SKILLSUBSET"></a><hr>

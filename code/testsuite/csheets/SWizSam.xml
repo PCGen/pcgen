@@ -284,9 +284,9 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>12.0</total>
-			<used>12.0</used>
-			<unused>0.0</unused>
+			<total>12</total>
+			<used>12</used>
+			<unused>0</unused>
 		</skillpoints>
 		<list_mods>Climb +4, Craft (Calligraphy) +5, Craft (Leatherworking) +5, Hide +5, Jump +2, Listen +3, Move Silently +3</list_mods>
 		<max_class_skill_level>4</max_class_skill_level>

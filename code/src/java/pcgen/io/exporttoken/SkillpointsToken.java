@@ -29,7 +29,10 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.io.ExportHandler;
+import pcgen.util.BigDecimalHelper;
+import pcgen.util.Logging;
 
+import java.math.BigDecimal;
 import java.util.StringTokenizer;
 
 /**
@@ -63,12 +66,27 @@ public class SkillpointsToken extends Token
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		String bString;
+		int classNum = -1; 
 
 		bString = aTok.nextToken();
 
 		if (aTok.hasMoreTokens())
 		{
 			bString = aTok.nextToken();
+		}
+
+		if (aTok.hasMoreTokens())
+		{
+			String pcclass = aTok.nextToken();
+			try
+			{
+				classNum = Integer.parseInt(pcclass);
+			}
+			catch (NumberFormatException e)
+			{
+				Logging.errorPrint("Expected class number in " + tokenSource
+					+ " but got " + pcclass + ".");
+			}
 		}
 
 		if (bString.startsWith("SKILLPOINTS"))
@@ -80,15 +98,29 @@ public class SkillpointsToken extends Token
 
 		if ("TOTAL".equals(bString) || "UNUSED".equals(bString))
 		{
-			aTotalSkillPoints += getUnusedSkillPoints(pc);
+			if (classNum >= 0)
+			{
+				aTotalSkillPoints += getUnusedSkillPoints(pc, classNum);
+			}
+			else
+			{
+				aTotalSkillPoints += getUnusedSkillPoints(pc);
+			}
 		}
 
 		if ("TOTAL".equals(bString) || "USED".equals(bString))
 		{
-			aTotalSkillPoints += getUsedSkillPoints(pc);
+			if (classNum >= 0)
+			{
+				aTotalSkillPoints += getUsedSkillPoints(pc, classNum);
+			}
+			else
+			{
+				aTotalSkillPoints += getUsedSkillPoints(pc);
+			}
 		}
 
-		return aTotalSkillPoints + "";
+		return BigDecimalHelper.trimZeros(new BigDecimal(aTotalSkillPoints));
 	}
 
 	/**
@@ -106,6 +138,28 @@ public class SkillpointsToken extends Token
 			{
 				usedPoints += pcClass.getSkillPool(pc);
 			}
+		}
+
+		return (int) usedPoints;
+	}
+
+	/**
+	 * Get unused skill points for the PC
+	 * @param pc
+	 * @return unused skill points for the PC
+	 */
+	public static int getUnusedSkillPoints(PlayerCharacter pc, int classNum)
+	{
+		float usedPoints = 0;
+
+		if (classNum < 0 || classNum >= pc.getClassList().size())
+		{
+			return 0;
+		}
+		PCClass pcClass = pc.getClassList().get(classNum);
+		if (pcClass.getSkillPool(pc) > 0)
+		{
+			usedPoints += pcClass.getSkillPool(pc);
 		}
 
 		return (int) usedPoints;
@@ -134,6 +188,43 @@ public class SkillpointsToken extends Token
 					PCClass pcClass = pc.getClassKeyed(className);
 
 					usedPoints += (ranks * aSkill.costForPCClass(pcClass, pc));
+				}
+			}
+		}
+
+		return (int) usedPoints;
+	}
+
+	/**
+	 * Get the used skill points for the PC
+	 * @param pc
+	 * @return the used skill points for the PC
+	 */
+	public static int getUsedSkillPoints(PlayerCharacter pc, int classNum)
+	{
+		if (classNum < 0 || classNum >= pc.getClassList().size())
+		{
+			return 0;
+		}
+		PCClass targetClass = pc.getClassList().get(classNum);
+		float usedPoints = 0;
+		for (Skill aSkill : pc.getSkillList())
+		{
+			if ((aSkill.getRank().doubleValue() > 0)
+				|| (aSkill.getOutputIndex() != 0))
+			{
+				for (String classRanks : aSkill.getRankList())
+				{
+					int index = classRanks.indexOf(':');
+					String className = classRanks.substring(0, index);
+					float ranks =
+							Float.valueOf(classRanks.substring(index + 1))
+								.floatValue();
+					PCClass pcClass = pc.getClassKeyed(className);
+					if (targetClass == pcClass)
+					{
+						usedPoints += (ranks * aSkill.costForPCClass(pcClass, pc));
+					}
 				}
 			}
 		}

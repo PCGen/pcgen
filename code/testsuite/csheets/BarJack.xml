@@ -303,9 +303,9 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>35.0</total>
-			<used>30.0</used>
-			<unused>5.0</unused>
+			<total>35</total>
+			<used>30</used>
+			<unused>5</unused>
 		</skillpoints>
 		<list_mods>Balance +1, Climb +0, Concentration +1, Craft (Carpentry) +6, Listen +9, Move Silently +1, Profession (Lumberjack) +4</list_mods>
 		<max_class_skill_level>7</max_class_skill_level>

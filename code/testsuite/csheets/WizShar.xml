@@ -284,9 +284,9 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>14.0</total>
-			<used>14.0</used>
-			<unused>0.0</unused>
+			<total>14</total>
+			<used>14</used>
+			<unused>0</unused>
 		</skillpoints>
 		<list_mods>Bluff +2, Craft (Carpentry) +5, Craft (Gemcutting) +5, Literacy +1</list_mods>
 		<max_class_skill_level>4</max_class_skill_level>

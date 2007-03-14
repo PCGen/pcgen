@@ -393,9 +393,9 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>60.0</total>
-			<used>50.0</used>
-			<unused>10.0</unused>
+			<total>60</total>
+			<used>50</used>
+			<unused>10</unused>
 		</skillpoints>
 		<list_mods>Climb +27, Diplomacy +5, Intimidate +11, Jump +28, Listen +15, Perform (String Instruments) +2, Sense Motive +9, Spot +15</list_mods>
 		<max_class_skill_level>20</max_class_skill_level>
