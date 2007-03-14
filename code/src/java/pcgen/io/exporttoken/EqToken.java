@@ -804,6 +804,32 @@ public class EqToken extends Token
 	}
 
 	/**
+	 * Get CHECKBOXES Token
+	 * @param eq
+	 * @return CHECKBOXES Token
+	 */
+	public static double getCheckboxesDoubleToken(Equipment eq)
+	{
+		if (SettingsHandler.getShowSingleBoxPerBundle())
+		{
+			return getQtyDoubleToken(eq);
+		}
+
+		return getQtyDoubleToken(eq) * eq.getBaseQty();
+	}
+
+	/**
+	 * Get CHECKBOXES Token
+	 * @param eq
+	 * @return CHECKBOXES Token
+	 */
+	public static String getCheckboxesToken(Equipment eq)
+	{
+		return BigDecimalHelper.trimZeros(Double
+			.toString(getCheckboxesDoubleToken(eq)));
+	}
+
+	/**
 	 * Get Range Token
 	 * @param eq
 	 * @param pc
@@ -1047,6 +1073,10 @@ public class EqToken extends Token
 		else if ("ISTYPE".equals(token))
 		{
 			retString = getIsTypeToken(eq, tokenizer.nextToken());
+		}
+		else if ("CHECKBOXES".equals(token))
+		{
+			retString = getCheckboxesToken(eq);
 		}
 		else if ("CONTENTWEIGHT".equals(token))
 		{

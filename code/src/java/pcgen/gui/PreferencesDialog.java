@@ -266,6 +266,8 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_showImagePreview");
 	private static String in_showSkillModifierBreakdown =
 			PropertyFactory.getString("in_Prefs_showSkillModifierBreakdown");
+	private static String in_showSingleBoxPerBundle =
+		PropertyFactory.getString("in_Prefs_showSingleBoxPerBundle");
 	private static String in_sourceDisplay =
 			PropertyFactory.getString("in_Prefs_sourceDisplay");
 	private static String in_tabs = PropertyFactory.getString("in_Prefs_tabs");
@@ -473,7 +475,8 @@ final class PreferencesDialog extends JDialog
 	private JTextField invalidToHitText;
 	private JTextField invalidDmgText;
 	private JCheckBox alwaysOverwrite;
-
+	private JCheckBox showSingleBoxPerBundle;
+	
 	// Listeners
 	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 	private PurchaseModeFrame pmsFrame = null;
@@ -1023,6 +1026,13 @@ final class PreferencesDialog extends JDialog
 			|| alwaysOverwrite.isSelected())
 		{
 			SettingsHandler.setAlwaysOverwrite(alwaysOverwrite.isSelected());
+		}
+
+		if (SettingsHandler.getShowSingleBoxPerBundle()
+			|| showSingleBoxPerBundle.isSelected())
+		{
+			SettingsHandler.setShowSingleBoxPerBundle(showSingleBoxPerBundle
+				.isSelected());
 		}
 
 		// added 10 April 2000 by sage_sam
@@ -3109,6 +3119,13 @@ final class PreferencesDialog extends JDialog
 					.getAlwaysOverwrite());
 		gridbag.setConstraints(alwaysOverwrite, c);
 		outputPanel.add(alwaysOverwrite);
+
+		Utility.buildConstraints(c, 0, 15, 3, 1, 0, 0);
+		showSingleBoxPerBundle =
+				new JCheckBox(in_showSingleBoxPerBundle, SettingsHandler
+					.getShowSingleBoxPerBundle());
+		gridbag.setConstraints(showSingleBoxPerBundle, c);
+		outputPanel.add(showSingleBoxPerBundle);
 
 		Utility.buildConstraints(c, 0, 20, 3, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;

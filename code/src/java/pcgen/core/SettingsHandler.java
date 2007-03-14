@@ -225,6 +225,7 @@ public final class SettingsHandler
 	private static boolean showImagePreview = true;
 	private static boolean showTipOfTheDay = true;
 	private static boolean isGMGen = false;
+	private static boolean showSingleBoxPerBundle = false;
 
 	//
 	// Hide this tab from general consumption, until I get it working.
@@ -1244,6 +1245,7 @@ public final class SettingsHandler
 		setShowHPDialogAtLevelUp(getPCGenOption("showHPDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowMemoryArea(getPCGenOption("showMemoryArea", false)); //$NON-NLS-1$
 		setShowImagePreview(getPCGenOption("showImagePreview", true)); //$NON-NLS-1$
+		setShowSingleBoxPerBundle(getPCGenOption("showSingleBoxPerBundle", false)); //$NON-NLS-1$
 		setShowStatDialogAtLevelUp(getPCGenOption("showStatDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowTipOfTheDay(getPCGenOption("showTipOfTheDay", true)); //$NON-NLS-1$
 		setShowToolBar(getPCGenOption("showToolBar", true)); //$NON-NLS-1$
@@ -1581,6 +1583,7 @@ public final class SettingsHandler
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
 		setPCGenOption("showToolBar", isShowToolBar()); //$NON-NLS-1$
 		setPCGenOption("showSkillModifier", getShowSkillModifier()); //$NON-NLS-1$
+		setPCGenOption("showSingleBoxPerBundle", getShowSingleBoxPerBundle()); //$NON-NLS-1$
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
 		setPCGenOption("SkillsTab.availableListMode", getSkillsTab_AvailableListMode()); //$NON-NLS-1$
 		setPCGenOption("SkillsTab.selectedListMode", getSkillsTab_SelectedListMode()); //$NON-NLS-1$
@@ -3340,5 +3343,23 @@ public final class SettingsHandler
 	public static void setShowImagePreview(final boolean showImagePreview)
 	{
 		SettingsHandler.showImagePreview = showImagePreview;
+	}
+
+	/**
+	 * @return The showSingleBoxPerBundle value.
+	 */
+	public static boolean getShowSingleBoxPerBundle()
+	{
+		return showSingleBoxPerBundle;
+	}
+
+	/**
+	 * Set the showSingleBoxPerBundle value.
+	 * 
+	 * @param b The new showSingleBoxPerBundle value.
+	 */
+	public static void setShowSingleBoxPerBundle(boolean b)
+	{
+		showSingleBoxPerBundle = b;
 	}
 }

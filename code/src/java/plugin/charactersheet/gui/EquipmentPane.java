@@ -546,7 +546,7 @@ public class EquipmentPane extends JPanel
 		//TODO (DJ) remove ammo and potion from this when the data is up to date
 		if (eq.isType(AMMO) || eq.isType(POTION) || eq.isType(CONSUMABLE))
 		{
-			num = (int) EqToken.getQtyDoubleToken(eq);
+			num = (int) EqToken.getCheckboxesDoubleToken(eq);
 		}
 		else if (eq.getRemainingCharges() > 0)
 		{
