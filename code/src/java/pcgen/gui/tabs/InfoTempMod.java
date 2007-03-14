@@ -83,6 +83,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -2443,7 +2444,27 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						}
 					}
 				}
-
+				
+				// Do all the pc's innate spells.
+				final List<CharacterSpell> innateSpells= pc.getRace().
+					getSpellSupport().getCharacterSpell(null,Globals.INNATE_SPELL_BOOK_NAME,-1);
+				for (CharacterSpell aCharacterSpell : innateSpells) {
+					if (aCharacterSpell == null)
+					{
+						continue;
+					}
+					for (BonusObj aBonus : aCharacterSpell.getSpell().getBonusList())
+					{
+						if (aBonus.isTempBonus())
+						{
+							PObjectNode aFN = new PObjectNode(aCharacterSpell.getSpell());
+							aFN.setParent(pNode[1]);
+							pNode[1].addChild(aFN, true);
+							pNode[1].setParent(avaRoot);
+						}
+					}
+				}
+				
 				//
 				// Next do all spells to get PREAPPLY:ANYPC
 				for (Iterator<?> fI = Globals.getSpellMap().values().iterator(); fI
