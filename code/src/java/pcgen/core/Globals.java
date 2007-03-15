@@ -2493,11 +2493,6 @@ public final class Globals
 	 */
 	public static Load loadTypeForLoadScore(int loadScoreValue, final Float weight, final PlayerCharacter aPC)
 	{
-		if (loadScoreValue < 0)
-		{
-			loadScoreValue = 0;
-		}
-
 		final double dbl = weight.doubleValue() / maxLoadForLoadScore(loadScoreValue, aPC).doubleValue();
 
 		if (SystemCollections.getLoadInfo().getLoadMultiplier("LIGHT") != null &&

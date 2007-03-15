@@ -25,10 +25,10 @@
  */
 package pcgen.core.system;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 /**
  * <code>LoadInfo</code> describes the data associated with a loads and encumbrance
@@ -37,8 +37,9 @@ import java.util.Map;
  * @version $Revision$
  */
 public class LoadInfo {
-	private List<Float> loadScoreList = new ArrayList<Float>();
+	private SortedMap<Integer, Float> loadScoreList = new TreeMap<Integer, Float>();
 	private Float loadScoreMultiplier = new Float(0);
+	private int loadMultStep = 10;
 	private Map<String, Float> sizeAdjustmentMap = new HashMap<String, Float>();
 	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<String, LoadInfo.LoadMapEntry>();
 	private int minScore = 0;
@@ -61,12 +62,12 @@ public class LoadInfo {
 	 */
 	public void addLoadScoreValue(int score, Float value)
 	{
-		loadScoreList.add(score, value);
+		loadScoreList.put(score, value);
 		if (score > maxScore)
 		{
 			maxScore = score;
 		}
-		if (score < maxScore)
+		if (score < minScore)
 		{
 			minScore = score;
 		}
@@ -89,13 +90,22 @@ public class LoadInfo {
 			{
 				return getLoadScoreValue(minScore);
 			}
-			return new Float(loadScoreMultiplier.doubleValue() * getLoadScoreValue(score - 10).doubleValue());
+			return new Float(loadScoreMultiplier.doubleValue() * getLoadScoreValue(score - loadMultStep).doubleValue());
 		}
-		else if (loadScoreList.get(score) == null)
+		else
 		{
-			return getLoadScoreValue(score - 1);
+			Float loadScore = loadScoreList.get(score);
+			if (loadScore == null)
+			{
+				SortedMap<Integer, Float> headMap = loadScoreList.headMap(score);
+				/*
+				 * Assume headMap is populated, since minScore is tested, above
+				 *  - thpr Mar 14, 2007
+				 */
+				return loadScoreList.get(headMap.lastKey());
+			}
+			return loadScore;
 		}
-		return loadScoreList.get(score);
 	}
 
 	/**
@@ -249,6 +259,11 @@ public class LoadInfo {
 		{
 			return checkPenalty.intValue();
 		}
+	}
+	
+	public void setLoadMultStep(int step)
+	{
+		loadMultStep = step;
 	}
 
 }

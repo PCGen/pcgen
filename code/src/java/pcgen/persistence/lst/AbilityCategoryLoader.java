@@ -93,7 +93,7 @@ public class AbilityCategoryLoader
 			if (key.equals("ABILITYCATEGORY")) //$NON-NLS-1$
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				cat = aGameMode.getAbilityCategory(value);
+				cat = aGameMode.silentlyGetAbilityCategory(value);
 
 				if (cat == null)
 				{

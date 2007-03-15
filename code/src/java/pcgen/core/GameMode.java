@@ -94,7 +94,7 @@ public final class GameMode implements Comparable<Object>
 	private String displayVariable3Text = "";
 	private String displayVariableName = "";
 	private String displayVariableText = "";
-	private String folderName = "";;
+	private String folderName = "";
 	private String hpAbbrev = "";
 	private String hpName = "";
 	private String levelUpMessage = "";
@@ -3152,6 +3152,17 @@ public final class GameMode implements Comparable<Object>
 	 * category is not found in this game mode.
 	 */
 	public AbilityCategory getAbilityCategory(final String aKey)
+	{
+		AbilityCategory ac = silentlyGetAbilityCategory(aKey);
+		if (ac == null)
+		{
+			Logging.errorPrint("Attempt to fetch AbilityCategory: " + aKey
+				+ "... but it does not exist");
+		}
+		return ac;
+	}
+	
+	public AbilityCategory silentlyGetAbilityCategory(final String aKey)
 	{
 		for ( final AbilityCategory cat : getAllAbilityCategories() )
 		{
