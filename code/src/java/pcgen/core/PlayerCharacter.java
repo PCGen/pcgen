@@ -15900,6 +15900,35 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return new ArrayList<Ability>(featList);
 	}
 
+	public HashMap<Ability.Nature, Set<Ability>> getAbilitiesSet()
+	{
+
+		final Set<AbilityCategory> abCats = theAbilities.getKeySet();
+		
+		HashMap<Ability.Nature, Set<Ability>> st = new HashMap<Ability.Nature, Set<Ability>>();
+
+		st.put(Ability.Nature.AUTOMATIC, new HashSet<Ability>());
+		st.put(Ability.Nature.NORMAL, new HashSet<Ability>());
+		st.put(Ability.Nature.VIRTUAL, new HashSet<Ability>());
+		st.put(Ability.Nature.ANY, new HashSet<Ability>());
+
+		if (abCats == null)
+		{
+			return st;
+		}
+		
+		st.get(Ability.Nature.VIRTUAL).addAll(getVirtualFeatList());
+		st.get(Ability.Nature.AUTOMATIC).addAll(featAutoList());
+		st.get(Ability.Nature.NORMAL).addAll(getRealFeatList());
+
+		st.get(Ability.Nature.ANY).addAll(st.get(Ability.Nature.NORMAL));
+		st.get(Ability.Nature.ANY).addAll(st.get(Ability.Nature.AUTOMATIC));
+		st.get(Ability.Nature.ANY).addAll(st.get(Ability.Nature.VIRTUAL));
+
+		return st;
+	}
+
+	
 	public List<Ability> getRealAbilitiesList(final AbilityCategory aCategory)
 	{
 		if (aCategory == AbilityCategory.FEAT)
@@ -17443,7 +17472,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (String key : pobj.getAbilityKeys(this, AbilityCategory.FEAT, Nature.AUTOMATIC))
 			{
-				Logging.errorPrint("Got ability key " + key + " from " + pobj + ".");
+				//Logging.errorPrint("Got ability key " + key + " from " + pobj + ".");
 				Ability added =
 						AbilityUtilities
 							.addCloneOfGlobalAbilityToListWithChoices(
