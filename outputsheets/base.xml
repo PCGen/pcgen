@@ -1118,6 +1118,7 @@
 			<maxcharges>|EQ.MERGELOC.%equip.MAXCHARGES|</maxcharges>
 			<note>|EQ.MERGELOC.%equip.NOTE|</note>
 			<quantity>|EQ.MERGELOC.%equip.QTY|</quantity>
+			<checkbox>|EQ.MERGELOC.%equip.CHECKBOXES|</checkbox>
 			<size>
 				<long>|EQ.MERGELOC.%equip.SIZELONG|</long>
 				<short>|EQ.MERGELOC.%equip.SIZE|</short>
@@ -1171,6 +1172,7 @@
 					<maxcharges>|EQ.MERGELOC.%equip.MAXCHARGES|</maxcharges>
 					<note>|EQ.MERGELOC.%equip.NOTE|</note>
 					<quantity>|EQ.MERGELOC.%equip.QTY|</quantity>
+					<checkbox>|EQ.MERGELOC.%equip.CHECKBOXES|</checkbox>
 					<size>
 						<long>|EQ.MERGELOC.%equip.SIZELONG|</long>
 						<short>|EQ.MERGELOC.%equip.SIZE|</short>

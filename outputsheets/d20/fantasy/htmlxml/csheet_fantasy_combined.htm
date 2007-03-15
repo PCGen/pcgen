@@ -3247,17 +3247,17 @@ function RemoveStat (attribute) {
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |IIF(EQ.%equip1.TYPE:Consumable)|
-|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+|FOR,%consumable,1,EQ.%equip1.CHECKBOXES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |ELSE|
 |IIF(EQ.%equip1.TYPE:Potion)|
-|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+|FOR,%consumable,1,EQ.%equip1.CHECKBOXES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |ELSE|
 |IIF(EQ.%equip1.TYPE:Ammunition)|
-|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+|FOR,%consumable,1,EQ.%equip1.CHECKBOXES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |ELSE|
@@ -3295,17 +3295,17 @@ function RemoveStat (attribute) {
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |IIF(EQ.%equip2.TYPE:Consumable)|
-|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+|FOR,%consumable,1,EQ.%equip2.CHECKBOXES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |ELSE|
 |IIF(EQ.%equip2.TYPE:Potion)|
-|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+|FOR,%consumable,1,EQ.%equip2.CHECKBOXES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |ELSE|
 |IIF(EQ.%equip2.TYPE:Ammunition)|
-|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+|FOR,%consumable,1,EQ.%equip2.CHECKBOXES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |ELSE|
