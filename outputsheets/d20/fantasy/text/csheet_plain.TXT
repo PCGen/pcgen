@@ -1,6 +1,6 @@
 Name:       |NAME|
 Race:       |RACE|
-Player:     |PLAYER| 
+Player:     |PLAYERNAME| 
 Classes:    |CLASSLIST|
 |IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
 Hit Points: |HP|
