@@ -81,7 +81,9 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.tree.TreePath;
@@ -171,6 +173,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	//table model modes
 	private static final int MODEL_AVAIL = 0;
 	private static final int MODEL_SELECT = 1;
+	// +/- button column indexes
+	private static final int COL_INC = 7;
+	private static final int COL_DEC = 8;
 	/** The Number of costs to display - CSkill, CCSkill and x */
 	public static final int nCosts = 3;
 	private final JLabel avaLabel =
@@ -212,6 +217,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private JTreeTable selectedTable;
 	private JTreeTableSorter availableSort;
 	private JTreeTableSorter selectedSort;
+	private RendererEditor plusMinusRenderer = new RendererEditor();
 
 	//keep track of which skill was selected last from either table
 	private Skill lastSkill;
@@ -717,6 +723,102 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 	}
 
+	private void availTableMouseClicked(MouseEvent evt)
+	{
+		final int selectedSkill = availableTable.getSelectedRow();
+		Object temp =
+				availableTable.getTree().getPathForRow(selectedSkill)
+					.getLastPathComponent();
+
+		if (temp == null)
+		{
+			lastSkill = null;
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_iskErr_message_02"), Constants.s_APPNAME,
+				MessageType.ERROR); //$NON-NLS-1$
+
+			return;
+		}
+
+		Skill aSkill = null;
+
+		if (temp instanceof PObjectNode)
+		{
+			temp = ((PObjectNode) temp).getItem();
+
+			if (temp instanceof SkillWrapper)
+			{
+				aSkill = ((SkillWrapper) temp).getSkWrapSkill();
+			}
+		}
+
+		addButton.setEnabled(aSkill != null);
+		setInfoLabelText(aSkill);
+
+		int column = availableTable.columnAtPoint(evt.getPoint());
+		column = availableTable.convertColumnIndexToModel(column);
+		skillTableMouseClicked(evt, column);
+	}
+
+	private void selectedTableMouseClicked(MouseEvent evt)
+	{
+		final int selectedSkill = selectedTable.getSelectedRow();
+		TreePath path = selectedTable.getTree().getPathForRow(selectedSkill);
+		Object temp = (path == null ? null : path.getLastPathComponent());
+
+		if (temp == null)
+		{
+			lastSkill = null;
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_iskErr_message_02"), Constants.s_APPNAME,
+				MessageType.ERROR); //$NON-NLS-1$
+
+			return;
+		}
+
+		Skill aSkill = null;
+
+		if (temp instanceof PObjectNode)
+		{
+			temp = ((PObjectNode) temp).getItem();
+
+			if (temp instanceof SkillWrapper)
+			{
+				aSkill = ((SkillWrapper) temp).getSkWrapSkill();
+			}
+		}
+
+		removeButton.setEnabled(aSkill != null);
+		setInfoLabelText(aSkill);
+		int column = selectedTable.columnAtPoint(evt.getPoint());
+		column = selectedTable.convertColumnIndexToModel(column);
+		skillTableMouseClicked(evt, column);
+	}
+	
+	/**
+	 * This method is invoked when the mouse is clicked on the stat table
+	 * If the requested change is valid based on the rules mode selected,
+	 * it performs the update on the character stat and forces the rest of
+	 * the connected items to update.
+	 * @param evt The MouseEvent we are processing
+	 **/
+	private void skillTableMouseClicked(MouseEvent evt, int column)
+	{
+		switch (column)
+		{
+			case COL_INC:
+				addSkill(1);
+				break;
+
+			case COL_DEC:
+				addSkill(-1);
+				break;
+
+			default:
+				break;
+		}
+	}
+
 	private final void createTreeTables()
 	{
 		availableTable = new JTreeTable(availableModel);
@@ -778,6 +880,14 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		availableTable.addMouseListener(new JTreeTableMouseAdapter(
 			availableTable, new AvailableClickHandler(), false));
 
+		availableTable.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent evt)
+			{
+				availTableMouseClicked(evt);
+			}
+		});
+
 		//
 		// now do the selectedTable
 		//
@@ -834,6 +944,14 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			});
 		selectedTable.addMouseListener(new JTreeTableMouseAdapter(
 			selectedTable, new SelectedClickHandler(), false));
+
+		selectedTable.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent evt)
+			{
+				selectedTableMouseClicked(evt);
+			}
+		});
 
 		hookupPopupMenu(availableTable);
 		hookupPopupMenu(selectedTable);
@@ -1052,7 +1170,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			for (int i = 0; i < selectedTable.getColumnCount(); ++i)
 			{
 				TableColumn sCol = selectedTableColumnModel.getColumn(i);
-				width = Globals.getCustColumnWidth("InfoSel", i); //$NON-NLS-1$
+				int colIndex = sCol.getModelIndex();
+				width = Globals.getCustColumnWidth("InfoSel", colIndex); //$NON-NLS-1$
 
 				if (width != 0)
 				{
@@ -1062,12 +1181,16 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				sCol.addPropertyChangeListener(new ResizeColumnListener(
 					selectedTable, "InfoSel", i)); //$NON-NLS-1$
 
-				if (i == 5)
+				if (colIndex == 6)
 				{
 					sCol.setCellEditor(new OutputOrderEditor(new String[]{
 						PropertyFactory.getString("in_iskFirst"),
 						PropertyFactory.getString("in_iskLast"),
 						PropertyFactory.getString("in_iskHidden")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				}
+				else if (colIndex == COL_INC || colIndex == COL_DEC)
+				{
+					sCol.setCellRenderer(plusMinusRenderer);
 				}
 			}
 
@@ -1077,7 +1200,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				final TableColumnModel availableTableColumnModel =
 						availableTable.getColumnModel();
 				TableColumn sCol = availableTableColumnModel.getColumn(i);
-				width = Globals.getCustColumnWidth("InfoAva", i); //$NON-NLS-1$
+				int colIndex = sCol.getModelIndex();
+				width = Globals.getCustColumnWidth("InfoAva", colIndex); //$NON-NLS-1$
 
 				if (width != 0)
 				{
@@ -1085,7 +1209,19 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				sCol.addPropertyChangeListener(new ResizeColumnListener(
-					availableTable, "InfoAva", i)); //$NON-NLS-1$
+					availableTable, "InfoAva", sCol.getModelIndex())); //$NON-NLS-1$
+
+				if (colIndex == 6)
+				{
+					sCol.setCellEditor(new OutputOrderEditor(new String[]{
+						PropertyFactory.getString("in_iskFirst"),
+						PropertyFactory.getString("in_iskLast"),
+						PropertyFactory.getString("in_iskHidden")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				}
+				else if (colIndex == COL_INC || colIndex == COL_DEC)
+				{
+					sCol.setCellRenderer(plusMinusRenderer);
+				}
 			}
 		}
 
@@ -2576,8 +2712,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		private String[] names =
 				{"Skill", "Modifier", "Ranks", "Total", "Cost", "Source",
-					"Order"};
-		private int[] widths = {100, 100, 100, 100, 100, 100, 100};
+					"Order", "+", "-"};
+		private int[] widths = {100, 100, 100, 100, 100, 100, 100, 30, 30};
 
 		private List<Boolean> displayList;
 
@@ -2616,6 +2752,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					+ "." + names[i++], true))); // Source
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], false))); // Order
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Inc
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Dec
 			}
 			else
 			{
@@ -2631,6 +2771,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					+ "." + names[i++], false))); // Source
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], true))); // Order
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Inc
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Dec
 			}
 		}
 
@@ -2684,6 +2828,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 				case COL_INDEX: //display index
 					return Integer.class;
+
+				case COL_INC: //increment
+				case COL_DEC: //decrement
+					return String.class;
 
 				case COL_SRC:
 					break;
@@ -2913,6 +3061,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 				case COL_INDEX: // Output index
 					return outputIndex;
+
+				case COL_INC:
+					return "+"; //$NON-NLS-1$
+
+				case COL_DEC:
+					return "-"; //$NON-NLS-1$
 
 				case -1:
 					return fn.getItem();
@@ -3319,8 +3473,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		public void resetMColumn(int col, TableColumn column)
 		{
-			// TODO Auto-generated method stub
-			switch (col)
+			int colNum = column.getModelIndex();
+			switch (colNum)
 			{
 				case COL_MOD:
 				case COL_RANK:
@@ -3330,6 +3484,18 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					column
 						.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(
 							SwingConstants.CENTER));
+					break;
+
+				case COL_INDEX:
+					column.setCellEditor(new OutputOrderEditor(new String[]{
+						PropertyFactory.getString("in_iskFirst"), //$NON-NLS-1$
+						PropertyFactory.getString("in_iskLast"), //$NON-NLS-1$
+						PropertyFactory.getString("in_iskHidden")})); //$NON-NLS-1$
+					break;
+
+				case COL_INC:
+				case COL_DEC:
+					column.setCellRenderer(plusMinusRenderer);
 					break;
 
 				default:
@@ -4171,6 +4337,45 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			return true;
 		}
 		return false;
+	}
+
+	private final class RendererEditor implements TableCellRenderer
+	{
+		private DefaultTableCellRenderer def = new DefaultTableCellRenderer();
+		private JButton plusButton = new JButton("+"); //$NON-NLS-1$
+
+		private RendererEditor()
+		{
+			def.setBackground(InfoSkills.this.getBackground());
+			def.setAlignmentX(Component.CENTER_ALIGNMENT);
+			def.setHorizontalAlignment(SwingConstants.CENTER);
+			plusButton.setPreferredSize(new Dimension(30, 24));
+			plusButton.setMinimumSize(new Dimension(30, 24));
+			plusButton.setMaximumSize(new Dimension(30, 24));
+		}
+
+		public Component getTableCellRendererComponent(JTable table,
+			Object value, boolean isSelected, boolean hasFocus, int row,
+			int column)
+		{
+			int colNum = table.convertColumnIndexToModel(column);
+			if (colNum == COL_INC)
+			{
+				def.setText("+"); //$NON-NLS-1$
+				def.setBorder(BorderFactory.createEtchedBorder());
+
+				return def;
+			}
+			else if (colNum == COL_DEC)
+			{
+				def.setText("-"); //$NON-NLS-1$
+				def.setBorder(BorderFactory.createEtchedBorder());
+
+				return def;
+			}
+
+			return null;
+		}
 	}
 
 	/*
