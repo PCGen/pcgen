@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE character PUBLIC "-//rpgprofiler.net//DTD 3EProfiler 1.0//EN"
+  "http://www.rpgprofiler.net/2003/3EProfiler.dtd">
+<character xmlns="http://www.rpgprofiler.net/2003/3EProfiler">
+  <source>PCGen |EXPORT.VERSION|</source>
+  <cname>|NAME|</cname>
+  <template>d20 3.5 DnD</template>
+  <data>
+    <node name="firstload">false</node>
+    <node name="PicURL">|PORTRAIT|</node>
+    <node name="LastSaveDate">|EXPORT.DATE|</node>
+    <node name="Name">|NAME|</node>
+    <node name="Player">|PLAYERNAME|</node>
+    <node name="XPCurrent">|EXP.CURRENT|</node>
+    <node name="XPNext">|EXP.NEXT|</node>
+    <node name="Class">|MANUALWHITESPACE||FOR.0,1,1,\CLASS.%\ \CLASS.%.LEVEL\,,,||FOR.1,COUNT[CLASSES],1, \CLASS.%\ \CLASS.%.LEVEL\,/,,||ENDMANUALWHITESPACE|</node>
+    <node name="Race">|RACE|</node>
+    <node name="Alignment">|ALIGNMENT|</node>
+    <node name="Deity">|DEITY|</node>
+    <node name="Level">|VAR.TL.INTVAL|</node>
+    <node name="Size">|SIZELONG|</node>
+    <node name="Age">|AGE|</node>
+    <node name="Gender">|GENDER|</node>
+    <node name="Height">|HEIGHT|</node>
+    <node name="Weight">|WEIGHT|</node>
+    <node name="Eyes">|COLOR.EYE|</node>
+    <node name="Hair">|COLOR.HAIR|</node>
+    <node name="Str">|STAT.0|</node>
+    <node name="StrMod">|STAT.0.MOD|</node>
+    <node name="Dex">|STAT.1|</node>
+    <node name="DexMod">|STAT.1.MOD|</node>
+    <node name="Con">|STAT.2|</node>
+    <node name="ConMod">|STAT.2.MOD|</node>
+    <node name="Int">|STAT.3|</node>
+    <node name="IntMod">|STAT.3.MOD|</node>
+    <node name="Wis">|STAT.4|</node>
+    <node name="WisMod">|STAT.4.MOD|</node>
+    <node name="Cha">|STAT.5|</node>
+    <node name="ChaMod">|STAT.5.MOD|</node>
+    <node name="AP"></node>
+    <node name="HP">|HP|</node>
+    <node name="DamageRed">|DR|</node>
+    <node name="AC">|AC.Total|</node>
+    <node name="ACArmor">|AC.Armor|</node>
+    <node name="ACShield">|AC.Shield|</node>
+    <node name="ACDex">|STAT.1.MOD|</node>
+    <node name="ACSize">|AC.Size|</node>
+    <node name="ACNat">|AC.NaturalArmor|</node>
+    <node name="ACMisc">|AC.Misc|</node>
+    <node name="TouchAC">|AC.Touch|</node>
+    <node name="FFAC">|AC.Flatfooted|</node>
+    <node name="Init">|INITIATIVEMOD|</node>
+    <node name="InitDex">|STAT.1.MOD|</node>
+    <node name="InitMisc">|INITIATIVEBONUS|</node>
+    <node name="BaseAttack">|ATTACK.MELEE|</node>
+    <node name="Speed">|MOVEMENT|</node>
+    <node name="Armor">|ARMOR.EQUIPPED.0.TYPE|</node>
+    <node name="TotalWeight">|TOTAL.WEIGHT|</node>
+    <node name="LightLoad">|WEIGHT.LIGHT|</node>
+    <node name="MediumLoad">|WEIGHT.MEDIUM|</node>
+    <node name="HeavyLoad">|WEIGHT.HEAVY|</node>
+    <node name="LiftOverHead">|WEIGHT.HEAVY|</node>
+    <node name="LiftOffGround">|WEIGHT.HEAVY*2.INTVAL|</node>
+    <node name="LiftPushDrag">|WEIGHT.HEAVY*5.INTVAL|</node>
+    <node name="Fort">|CHECK.FORTITUDE.TOTAL|</node>
+    <node name="FortBase">|CHECK.FORTITUDE.BASE|</node>
+    <node name="FortAbility">|CHECK.FORTITUDE.STATMOD|</node>
+    <node name="FortMagic">|CHECK.FORTITUDE.MAGIC|</node>
+    <node name="FortMisc">|CHECK.FORTITUDE.MISC.NOMAGIC.NOSTAT|</node>
+    <node name="FortTemp"></node>
+    <node name="Reflex">|CHECK.REFLEX.TOTAL|</node>
+    <node name="ReflexBase">|CHECK.REFLEX.BASE|</node>
+    <node name="ReflexAbility">|CHECK.REFLEX.STATMOD|</node>
+    <node name="ReflexMagic">|CHECK.REFLEX.MAGIC|</node>
+    <node name="ReflexMisc">|CHECK.REFLEX.MISC.NOMAGIC.NOSTAT|</node>
+    <node name="ReflexTemp"></node>
+    <node name="Will">|CHECK.WILL.TOTAL|</node>
+    <node name="WillBase">|CHECK.WILL.BASE|</node>
+    <node name="WillAbility">|CHECK.WILL.STATMOD|</node>
+    <node name="WillMagic">|CHECK.WILL.MAGIC|</node>
+    <node name="WillMisc">|CHECK.WILL.MISC.NOMAGIC.NOSTAT|</node>
+    <node name="WillTemp"></node>
+    <node name="MBAB">|ATTACK.MELEE.TOTAL|</node>
+    <node name="MABBase">|ATTACK.MELEE|</node>
+    <node name="MABStr">|ATTACK.MELEE.STAT|</node>
+    <node name="MABSize">|ATTACK.MELEE.SIZE|</node>
+    <node name="MABMisc">|ATTACK.MELEE.MISC+ATTACK.MELEE.EPIC.INTVAL.SIGN|</node>
+    <node name="MABTemp"></node>
+    <node name="GBAB">|ATTACK.GRAPPLE.TOTAL|</node>
+    <node name="GABBase">|ATTACK.GRAPPLE|</node>
+    <node name="GABStr">|ATTACK.GRAPPLE.STAT|</node>
+    <node name="GABSize">|ATTACK.GRAPPLE.SIZE|</node>
+    <node name="GABMisc">|ATTACK.GRAPPLE.MISC+ATTACK.GRAPPLE.EPIC.INTVAL.SIGN|</node>
+    <node name="GABTemp"></node>
+|IIF(var("SR")>0)|
+    <node name="SpellResist">|SR|</node>
+|ENDIF|
+    <node name="RBAB">|ATTACK.RANGED.TOTAL|</node>
+    <node name="RABBase">|ATTACK.RANGED|</node>
+    <node name="RABDex">|ATTACK.RANGED.STAT|</node>
+    <node name="RABSize">|ATTACK.RANGED.SIZE|</node>
+    <node name="RABMisc">|ATTACK.RANGED.MISC+ATTACK.RANGED.EPIC.INTVAL.SIGN|</node>
+    <node name="RABTemp"></node>
+|IIF(var("COUNT[EQTYPE.Weapon]")>=1)|
+    <node name="Wep1Disp">on</node>
+|ENDIF|
+|IIF(var("COUNT[EQTYPE.Weapon]")>=2)|
+    <node name="Wep2Disp">on</node>
+|ENDIF|
+|IIF(var("COUNT[EQTYPE.Weapon]")>=3)|
+    <node name="Wep3Disp">on</node>
+|ENDIF|
+|IIF(var("COUNT[EQTYPE.Weapon]")>=4)|
+    <node name="Wep4Disp">on</node>
+|ENDIF|
+|IIF(var("AC.Armor")>0)|
+    <node name="Arm1Disp">on</node>
+|ENDIF|
+|IIF(var("AC.Shield")>0)|
+    <node name="Arm2Disp">on</node>
+|ENDIF|
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
+    <node name="Weapon|%weap+1.INTVAL|">|WEAPON.%weap.NAME|</node>
+    <node name="Weapon|%weap+1.INTVAL|Wielded">on</node>
+    <node name="Weapon|%weap+1.INTVAL|Carried">on</node>
+    <node name="Weapon|%weap+1.INTVAL|AB">|WEAPON.%weap.BASEHIT|</node>
+    <node name="Weapon|%weap+1.INTVAL|Damage">|WEAPON.%weap.BASICDAMAGE|</node>
+    <node name="Weapon1|%weap+1.INTVAL|Crit">|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|</node>
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+    <node name="Weapon|%weap+1.INTVAL|Range">|WEAPON.%weap.RANGE|</node>
+|ELSE|
+    <node name="Weapon|%weap+1.INTVAL|Range">|WEAPON.%weap.REACH|ft. Reach</node>
+|ENDIF|
+    <node name="Weapon|%weap+1.INTVAL|Special">|WEAPON.%weap.SPROP|</node>
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+|IIF(WEAPON.%weap.CONTENTS:0)|
+|ELSE|
+|FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
+    <node name="Weapon|%weap+1.INTVAL|Ammo">|WEAPON.%weap.CONTENTS.%ammo|</node>
+|ENDFOR|
+|ENDIF|
+|ENDIF|
+    <node name="Weapon|%weap+1.INTVAL|Weight">|EQ.IS.Weapon.%weap.WT|</node>
+    <node name="Weapon|%weap+1.INTVAL|Size">|WEAPON.%weap.SIZE|</node>
+    <node name="Weapon|%weap+1.INTVAL|Type">|WEAPON.%weap.TYPE|</node>
+|ENDFOR|
+    <node name="Armor1Name">|ARMOR.EQUIPPED.0.NAME.NOSTAR|</node>
+    <node name="Armor1Worn">on</node>
+    <node name="Armor1Carried">on</node>
+    <node name="Armor1Type">|ARMOR.EQUIPPED.0.TYPE|</node>
+    <node name="Armor1Bonus">|ARMOR.EQUIPPED.0.ACBONUS|</node>
+    <node name="Armor1Check">|ARMOR.EQUIPPED.0.ACCHECK|</node>
+    <node name="Armor1Weight">|ARMOR.EQUIPPED.0.WT|</node>
+    <node name="Armor1Speed">|ARMOR.EQUIPPED.0.MOVE|</node>
+    <node name="Armor1Spell">|ARMOR.EQUIPPED.0.SPELLFAIL|</node>
+    <node name="Armor1Dex">|ARMOR.EQUIPPED.0.MAXDEX|</node>
+    <node name="Armor2Name">|ARMOR.SHIELD.EQUIPPED.0.NAME.NOSTAR|</node>
+    <node name="Armor2Worn">on</node>
+    <node name="Armor2Carried">on</node>
+    <node name="Armor2Type">|ARMOR.SHIELD.EQUIPPED.0.TYPE|</node>
+    <node name="Armor2Bonus">|ARMOR.SHIELD.EQUIPPED.0.ACBONUS|</node>
+    <node name="Armor2Check">|ARMOR.SHIELD.EQUIPPED.0.ACCHECK|</node>
+    <node name="Armor2Weight">|ARMOR.SHIELD.EQUIPPED.0.WT|</node>
+    <node name="Armor2Spell">|ARMOR.SHIELD.EQUIPPED.0.SPELLFAIL|</node>
+    <node name="MaxRank">|MAXSKILLLEVEL|</node>
+    <node name="MaxRankCC">|MAXCCSKILLLEVEL|</node>
+|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|IIF(%skill<9)|
+    <node name="Skill0|%skill+1.INTVAL|">|SKILL.%skill|</node>
+    <node name="Skill0|%skill+1.INTVAL|Ab">|SKILL.%skill.ABILITY|</node>
+    <node name="Skill0|%skill+1.INTVAL|Mod">|SKILL.%skill.TOTAL|</node>
+    <node name="Skill0|%skill+1.INTVAL|AbMod">|SKILL.%skill.ABMOD|</node>
+    <node name="Skill0|%skill+1.INTVAL|Rank">|SKILL.%skill.RANK|</node>
+    <node name="Skill0|%skill+1.INTVAL|MiscMod">|SKILL.%skill.MISC|</node>
+    <node name="Skill0|%skill+1.INTVAL|CheckPen"></node>
+|ELSE|
+    <node name="Skill|%skill+1.INTVAL|">|SKILL.%skill|</node>
+    <node name="Skill|%skill+1.INTVAL|Ab">|SKILL.%skill.ABILITY|</node>
+    <node name="Skill|%skill+1.INTVAL|Mod">|SKILL.%skill.TOTAL|</node>
+    <node name="Skill|%skill+1.INTVAL|AbMod">|SKILL.%skill.ABMOD|</node>
+    <node name="Skill|%skill+1.INTVAL|Rank">|SKILL.%skill.RANK|</node>
+    <node name="Skill|%skill+1.INTVAL|MiscMod">|SKILL.%skill.MISC|</node>
+    <node name="Skill|%skill+1.INTVAL|CheckPen"></node>
+|ENDIF|
+|ENDFOR|
+|FOR,%feat,0,COUNT[FEATSALL]-1,1,0|
+|IIF(%feat<9)|
+    <node name="Feat0|%feat+1.INTVAL|">|FEATALL.VISIBLE.%feat|</node>
+|ELSE|
+    <node name="Feat|%feat+1.INTVAL|">|FEATALL.VISIBLE.%feat|</node>
+|ENDIF|
+|ENDFOR|
+|FOR,%equip,0,COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1,1,0|
+|IIF(%equip<9)|
+    <node name="Gear0|%equip+1.INTVAL|">|EQ.Not.Coin.NOT.Gem.%equip.NAME|</node>
+    <node name="Gear0|%equip+1.INTVAL|W">|EQ.Not.Coin.NOT.Gem.%equip.WT|</node>
+    <node name="Gear0|%equip+1.INTVAL|Loc">|EQ.Not.Coin.NOT.Gem.%equip.LOCATION|</node>
+|ELSE|
+    <node name="Gear|%equip+1.INTVAL|">|EQ.Not.Coin.NOT.Gem.%equip.NAME|</node>
+    <node name="Gear|%equip+1.INTVAL|W">|EQ.Not.Coin.NOT.Gem.%equip.WT|</node>
+    <node name="Gear|%equip+1.INTVAL|Loc">|EQ.Not.Coin.NOT.Gem.%equip.LOCATION|</node>
+|ENDIF|
+|ENDFOR|
+|FOR,%coins,0,COUNT[EQUIPMENT.Coin]-1,1,0|
+|IIF(EQ.IS.Coin.%coins.NAME:Coin (Platinum))|
+    <node name="CashPP">|EQ.IS.Coin.%coins.QTY|</node>
+|ENDIF|
+|IIF(EQ.IS.Coin.%coins.NAME:Coin (Gold))|
+    <node name="CashGP">|EQ.IS.Coin.%coins.QTY|</node>
+|ENDIF|
+|IIF(EQ.IS.Coin.%coins.NAME:Coin (Silver))|
+    <node name="CashSP">|EQ.IS.Coin.%coins.QTY|</node>
+|ENDIF|
+|IIF(EQ.IS.Coin.%coins.NAME:Coin (Copper))|
+    <node name="CashCP">|EQ.IS.Coin.%coins.QTY|</node>
+|ENDIF|
+|ENDFOR|
+|FOR,%language,0,COUNT[LANGUAGES]-1,1,0|
+    <node name="Lang|%language+1.INTVAL|">|LANGUAGES.%language|</node>
+|ENDFOR|
+    <node name="NotesDisp">on</node>
+    <node name="Notes">Special Abilities: |SPECIALLIST|
+|%DOMAIN.1|
+------------------------------------------------------------
+Deity: |DEITY|; Domains: |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\;, ,NONE,1|
+|%SPELLLISTBOOK.0.0.1|
+------------------------------------------------------------
+Innate Spells: |FOR.0,COUNT[SPELLSINBOOK.0.1.0],1,\SPELLMEM.0.1.0.%.NAME\ (\SPELLMEM.0.1.0.%.TIMES\/day DC \SPELLMEM.0.1.0.%.DC\); ,,,|
+|FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,0|
+|%SPELLLISTCLASS.%class|
+------------------------------------------------------------
+|SPELLLISTCLASS.%class| Spells (Casterlevel: |SPELLLISTCLASS.%class.LEVEL|, DC |SPELLLISTDC.%class.0| + Spell level)
+|FOR,%sbook,0,COUNT[SPELLBOOKS]-1,1,1|
+|%SPELLLISTBOOK.%class.1.%sbook|
+|SPELLBOOKNAME.%sbook|
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+|%||%SPELLLISTBOOK.%class.%level.%sbook|
+|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| Level: |FOR.0,COUNT[SPELLSINBOOK.%class.%sbook.%level]-1,1,\SPELLMEM.%class.%sbook.%level.%.NAME\; ,,,|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+|%|
+    </node>
+  </data>
+</character>
