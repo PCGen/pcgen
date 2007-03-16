@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Thu Mar 15 18:56:24 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we
+# Original Entry by: Paul W. King, Jan 2007
+
+###Block:Melee
+# Equipment Name	Required Proficiency	Type						Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Source Page
+Fang Sword		PROFICIENCY:Fang Sword	TYPE:Weapon.Melee.Exotic.Slashing	COST:100	WT:12		CRITMULT:x2			CRITRANGE:3			DAMAGE:2d6	SOURCEPAGE:p.40
+
+###Block:Ranged
+# Equipment Name	Required Proficiency	Type						Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page
+Knights Bow		PROFICIENCY:Knights Bow	TYPE:Weapon.Ranged.Exotic.Piercing	COST:200	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:110	SOURCEPAGE:p.40

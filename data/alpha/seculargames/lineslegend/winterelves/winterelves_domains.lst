@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Thu Jan 18 22:33:46 2007 -- reformated by prettylst.pl v1.35 (build 1495)
+SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we
+
+#CREATED BY: Paul W. King, Jan 2007
+#EDITED BY: Paul W. King, Jan 2007
+
+# Domain Name	Class Skill		Feat Auto			Modify VAR			Source Page		List of Domain Spells by Level
+Treachery					FEATAUTO:Sneak Attack	BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.30	SPELLLEVEL:DOMAIN|Treachery=1|Disguise Self|Treachery=2|Mirror Image|Treachery=3|Displacement|Treachery=4|Phantasmal Killer|Treachery=5|Mirage Arcana|Treachery=6|Mislead|Treachery=7|Project Image|Treachery=8|Screen|Treachery=9|Weird
+Hate														SOURCEPAGE:p.30	SPELLLEVEL:DOMAIN|Hate=1|Cause Fear|Hate=2|Scare|Hate=3|Ray of Exhaustion|Hate=4|Fear|Hate=5|Symbol of Pain|Hate=6|Repulsion|Hate=7|Insanity|Hate=8|Shout (Greater)|Hate=9|Power Word Kill
+Devil			CSKILL:Intimidate									SOURCEPAGE:p.31	SPELLLEVEL:DOMAIN|Devil=1|Hypnotism|Devil=2|Hold Person|Devil=3|Slow|Devil=4|Crushing Despair|Devil=5|Baleful Polymorph|Devil=6|Eyebite|Devil=7|Shadow Evocation|Devil=8|Demand|Devil=9|Imprisonment
