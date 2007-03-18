@@ -16,6 +16,9 @@
       <action dev="eddyanthony" type="add" issue="1266021">New DMG2 style statblock Output Sheet.</action>
       <action dev="eddyanthony" type="fix" issue="1679456">Output Sheets: Use BASEQTY in calculation for checkboxes for items.</action>
       <action dev="tir-gwaith" type="add" issue="1669676" due-to="Paul W. King (kingpaul)">New Source [Secular Games] Winter Elves.</action>
+      <action dev="thpr" type="fix" issue="1681781">Subclasses break CLASSLIST token</action>
+      <action dev="thpr" type="fix" issue="1683180">LEVEL:6:FEAT:Foo prompts at Level 7</action>
+      <action dev="thpr" type="fix" issue="1683181">LEVEL:6:Feat:Type.Fighter won't stop prompting</action>
     </release>
     <release version="5.11.9" date="2007-03-06" description="Alpha release">
       <action dev="jdempsey" type="add" issue="1411073">OS Token IFF() to accept any JEP Boolean functions</action>
