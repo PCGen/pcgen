@@ -1814,7 +1814,7 @@ public final class PCTemplate extends PObject implements HasCost
 						{
 							featKe = featList.get(0);
 
-							continue;
+							break;
 						}
 					}
 
@@ -1952,7 +1952,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (theLevelAbilities != null)
 		{
-			for (int lvl = 0; lvl < level; lvl++)
+			for (int lvl = 0; lvl <= level; lvl++)
 			{
 				// Check for an already selected value
 				final String lvlKey = "L" + String.valueOf(lvl);
