@@ -863,7 +863,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		GameMode gm = SettingsHandler.getGame();
 		AbilityCategory ac = gm.getAbilityCategory("FEAT");
-		Logging.errorPrint("Real abilities: " + pc.getRealAbilityList(ac).size());
+		Logging.errorPrint("Real abilities: " + pc.getRealAbilitiesList(ac).size());
 	
 	}
 }

@@ -2186,7 +2186,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			if (arg.startsWith("TYPE."))
 			{
 				final String theType = arg.substring(5);
-				for (Ability aFeat : aPC.getRealFeatList())
+				for (Ability aFeat : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
 				{
 					if (aFeat.isType(theType) && !theFeatList.contains(aFeat))
 						theFeatList.add(aFeat);
@@ -2213,7 +2213,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			}
 			else if (arg.equals("CHOICE"))
 			{
-				for (Ability aFeat : aPC.getRealFeatList())
+				for (Ability aFeat : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
 				{
 					theFeatList.add(aFeat);
 				}

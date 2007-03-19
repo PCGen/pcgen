@@ -460,7 +460,7 @@ public class AbilityUtilities
 			{
 				int listSize = ability.getAssociatedCount();
 
-				for (Ability myAbility : aPC.getRealFeatList())
+				for (Ability myAbility : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
 				{
 					if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
 					{
