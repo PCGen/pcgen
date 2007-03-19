@@ -703,7 +703,7 @@ public final class Deity extends PObject
 				}
 				else if (domainKey.startsWith(".CLEAR."))
 				{
-					//TODO: (DJ) this looks like it doesn't clear if it starts with .CLEAR. Is this right?
+					// Remove single entry
 					domainKey = domainKey.substring(7);
 					add = false;
 				}
