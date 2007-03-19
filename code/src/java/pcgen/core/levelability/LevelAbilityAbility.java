@@ -671,15 +671,15 @@ public class LevelAbilityAbility extends LevelAbility
 				if ((ab != null) && ab.getChoiceString().startsWith("SPELLLEVEL"))
 				{
 					spellLevelProcess = true;
-					//TODO - This split [] needs to be reviewed??
-					final List<String> bonuses = Arrays.asList(ab.getChoiceString().split("[]"));
+					
+					final StringTokenizer sTok =
+							new StringTokenizer(ab.getChoiceString(), "[]",
+								false);
+					sTok.nextToken(); //COnsume CHOOSE (get to Bonuses)
 
-					Iterator<String> bonusIt = bonuses.iterator();
-					bonusIt.next();
-
-					while (bonusIt.hasNext())
+					while (sTok.hasMoreTokens())
 					{
-						aBonusList.add(bonusIt.next());
+						aBonusList.add(sTok.nextToken());
 					}
 				}
 				AbilityUtilities.modAbility(aPC, pcLevelInfo, ab, choice, true, AbilityCategory.FEAT);
