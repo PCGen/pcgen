@@ -554,7 +554,7 @@ final class EquipmentChoice
 			this.setMaxSelectFromString(choiceType);
 			choiceType = aTok.nextToken();
 		}
-		else if (choiceType.equals("ABILITY"))
+		if (choiceType.equals("ABILITY"))
 		{
 			category = aTok.nextToken();
 		}
