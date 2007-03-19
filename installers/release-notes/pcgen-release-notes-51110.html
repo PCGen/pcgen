@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.11.10
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.11.10</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.11.10</a></li>
+	<li><a href="#GMGenIssue">GMGen known issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.11.10</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.11.10</a></h2>
+<p>
+PCGen v5.11.10 is an alpha release from our development branch to allow experimentation and testing of our latest 
+work. This is one of the last alphas of the 5.11 cycle. Very shortly we will be entering the beta phase where we 
+consolidate and polish the product until it is ready for production release as version 5.12. 
+Some notable new changes are:
+</p>
+<ul>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+ADD:SKILL(x,x)y not working with a skill that uses parens
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1675324" class="externalLink" title="External Link">1675324</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+PCC Main Body Tags fail with http LST
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1667368" class="externalLink" title="External Link">1667368</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Enhance skillpoints export tag to allow breakdown by class.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1680391" class="externalLink" title="External Link">1680391</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+CHECKBOXES token.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1680228" class="externalLink" title="External Link">1680228</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Temp bonuses should work with Spell-like abilities.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1673304" class="externalLink" title="External Link">1673304</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#vandaelek">vandaelek</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Skills Tab - Add +/- buttons for adding and removing skills.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1681235" class="externalLink" title="External Link">1681235</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+New Output Sheet for rpgwebprofiler.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1538443" class="externalLink" title="External Link">1538443</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#eddyanthony">eddyanthony</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+New DMG2 style statblock Output Sheet.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1266021" class="externalLink" title="External Link">1266021</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#eddyanthony">eddyanthony</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+Output Sheets: Use BASEQTY in calculation for checkboxes for items.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1679456" class="externalLink" title="External Link">1679456</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#eddyanthony">eddyanthony</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+New Source [Secular Games
+]
+Winter Elves.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1669676" class="externalLink" title="External Link">1669676</a>.
+Thanks to Paul W. King (kingpaul).
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#tir-gwaith">tir-gwaith</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+Subclasses break CLASSLIST token
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1681781" class="externalLink" title="External Link">1681781</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+LEVEL:6:FEAT:Foo prompts at Level 7
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1683180" class="externalLink" title="External Link">1683180</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+LEVEL:6:Feat:Type.Fighter won't stop prompting
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1683181" class="externalLink" title="External Link">1683181</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+</ul>
+<p>
+For full details of the changes, see the <a href="#ChangeLog">Change Log</a>
+.
+</p>
+<p>James Dempsey for the PCGEN Team -- March 19, 2007.</p>
+
+
+<h2><a name="GMGenIssue">GMGen known issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative 
+  Tab when running a combat when you select any character other than the one whose 
+  turn it is and click the Damage or Heal buttons the character whose turn it 
+  is becomes selected and the damage is applied to him instead of the character 
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around. 
+  The problem will only manifest when using the System Look and Feel, you can 
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and 
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.11.10 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51110_full.zip?download">pcgen51110_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51110_full.zip.asc?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51110_partial.zip?download">pcgen51110_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51110_partial.zip.asc?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51110_win_install.exe?download">pcgen51110_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51110_win_install.exe.asc?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51110_mac_install.dmg?download">pcgen51110_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51110_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.11.10</a></h2>
+
+<h3>Code FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1674879">1674879</a> ] Deprecate Template COST Token
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1680391">1680391</a> ] Enhance skillpoints export tag to allow breakdown by class
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1681235">1681235</a> ] Skills Tab - Add +/- buttons for adding and removing skills
+</ul>
+
+<h3>Data FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1675385">1675385</a> ]  [RSRD] Bardic Music Duration tracking
+</ul>
+
+<h3>New Data Source Development
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1669676">1669676</a> ] [Secular Games] Winter Elves
+</ul>
+
+<h3>Doc FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1668056">1668056</a> ] Updated PREDOMAIN
+</ul>
+
+<h3>OS FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1266021">1266021</a> ]	DMG2 style stat block
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411520">1411520</a> ]	OS Tags -- IIF statements to parse variables
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1538443">1538443</a> ]	Output Sheet for rpgwebprofiler
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1677641">1677641</a> ]	Troubleshooting sheet for bonus/object details
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1679456">1679456</a> ]	Use BASEQTY in calculation of checkboxes for items
+</ul>
+
+<h3>Plugin FREQs
+</h3><ul>
+</ul>
+
+<h3>Code Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1613234">1613234</a> ]	Processing > and < characters in PDF wrong
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1665685">1665685</a> ]	SKILLLISTMODS doesn't report negative mods correctly
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1667368">1667368</a> ]	PCC Main Body Tags fail with http LST
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1669300">1669300</a> ]	Fix OS tokens so that they return new line if given no txt
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1674606">1674606</a> ]	Hangs During "New Character"
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1675324">1675324</a> ]	ADD:SKILL(x,x)y not working with a skill that uses parens
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1676284">1676284</a> ]	|CHECK.x.NAME| OS token broke
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1677153">1677153</a> ]	PAPERINFO outputs nothing
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1677868">1677868</a> ]	MOVECLONE not handling division
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1677869">1677869</a> ]	Issue with MOVECLONE and preview
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1681781">1681781</a> ]	Subclasses break CLASSLIST token
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1682457">1682457</a> ]	Inventory Bug
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1683180">1683180</a> ]	LEVEL:6:FEAT:Foo prompts at Level 7
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1683181">1683181</a> ]	LEVEL:6:Feat:Type.Fighter won't stop prompting
+</ul>
+
+<h3>Plugin Bugs
+</h3><ul>
+</ul>
+
+<h3>Data Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1674232">1674232</a> ]  Paladin lack TurnDamagePlusBase
+</ul>
+
+<h3>Output Sheet Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1385649">1385649</a> ]	[PDF] Preserve spacing between paragraphs
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1385665">1385665</a> ]	[RSRD]Monks Flurry of Blows Off-Hand penalty?
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1675007">1675007</a> ]	OS - Update use of MISC token
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1675944">1675944</a> ]	Text sheet uses DESCRIPTION should use DESC
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1676257">1676257</a> ]	BIO,<text> syntax should not be used for formatting code
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1678675">1678675</a> ]	[PDF] Generate OS according to parer type in preferences
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1681541">1681541</a> ]	Text Export errors
+</ul>
+
+<h3>Doc Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1673700">1673700</a> ] SPELLLEVEL is not a Spell Token
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1602530">1602530</a> ] Review "Frequently Asked Questions" section
+
+</ul>
+
+</body>
+</html>
