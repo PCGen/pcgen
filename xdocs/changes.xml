@@ -5,7 +5,7 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
-    <release version="5.11.10" date="In SVN" description="Alpha release">
+    <release version="5.11.10" date="2007-03-20" description="Alpha release">
       <action dev="thpr" type="fix" issue="1675324">ADD:SKILL(x,x)y not working with a skill that uses parens</action>
       <action dev="thpr" type="fix" issue="1667368">PCC Main Body Tags fail with http LST</action>
       <action dev="jdempsey" type="update" issue="1680391">Enhance skillpoints export tag to allow breakdown by class.</action>
