@@ -1,9 +1,7 @@
 # CVS $Revision$ $Author$ -- Thu Jan 18 22:58:57 2007 -- reformated by prettylst.pl v1.35 (build 1495)
 SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we
+# Original Entry by: Paul W. King, Jan 2007
 
-#CREATED BY: Paul W. King, Jan 2007
-#EDITED BY: Paul W. King, Jan 2007
-
-# Weapon Name	Type
+# Weapon Name	Type		Nb Hands
 Fang Sword		TYPE:Exotic
-Knights Bow		TYPE:Exotic
+Knights Bow		TYPE:Exotic	HANDS:2
