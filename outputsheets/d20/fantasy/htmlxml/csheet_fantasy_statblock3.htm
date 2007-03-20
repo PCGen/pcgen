@@ -90,7 +90,18 @@ Ranged
 ) or
 |ENDFOR|
 ;
-SA |SPECIALLIST|; SQ: |VISION|; AL: |ALIGNMENT.SHORT|;
+SA 
+|FOR,%DRtest,STRLEN[DR],STRLEN[DR],1,0|
+|IIF(%DRtest:0)|
+|ELSE|
+Damage Reduction |DR|, 
+|ENDIF|
+|ENDFOR|
+|IIF(SR:0)|
+|ELSE|
+Spell Resistance |SR|, 
+|ENDIF|
+ |SPECIALLIST|; SQ: |VISION|; AL: |ALIGNMENT.SHORT|;
 SV 
 |FOR,%checks,0,COUNT[CHECKS]-2,1,0|
 |IIF(CHECK.%checks.NAME:Fortitude)|

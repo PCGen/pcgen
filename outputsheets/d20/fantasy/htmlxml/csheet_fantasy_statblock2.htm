@@ -71,7 +71,18 @@ Init |INITIATIVEMOD|
 |FOR,%weap,COUNT[EQTYPE.WEAPON]-1,COUNT[EQTYPE.WEAPON]-1,1,1|
 |WEAPON.%weap.NAME| |WEAPON.%weap.BASEHIT| |WEAPON.%weap.RANGE|/|WEAPON.%weap.TYPE| (|WEAPON.%weap.DAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|); 
 |ENDFOR|
-SA: |SPECIALLIST|; Vision: |VISION| AL: |ALIGNMENT.SHORT|; Sv: 
+SA: 
+|FOR,%DRtest,STRLEN[DR],STRLEN[DR],1,0|
+|IIF(%DRtest:0)|
+|ELSE|
+Damage Reduction |DR|, 
+|ENDIF|
+|ENDFOR|
+|IIF(SR:0)|
+|ELSE|
+Spell Resistance |SR|, 
+|ENDIF|
+ |SPECIALLIST|; Vision: |VISION| AL: |ALIGNMENT.SHORT|; Sv: 
 |FOR,%checks,0,COUNT[CHECKS]-2,1,0|
 |IIF(CHECK.%checks.NAME:Fortitude)|
 Fort 
@@ -123,10 +134,56 @@ Will
 |ENDFOR|
 <br />
 |%DOMAIN.1|
-Deity: |DEITY| <i>Domains</i>:&nbsp;
-|FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\(\DOMAIN.%.POWER\), ,NONE,0|
+<i>Deity:</i> |DEITY| <i>Domains:</i> |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\ (\DOMAIN.%.POWER\), ,NONE,2|
 <br />
 |%|
+<!-- Prepared Spells -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.NUMPAGES:0)|
+<i>|SPELLBOOKNAME.%spellbook|: </i>
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-2,1,1|
+|IIF(SPELLLISTMEMORIZE.%class:false)|
+|ELSE|
+|SPELLLISTCLASS.%class| (CL |SPELLLISTCLASS.%class.LEVEL|): 
+|FOR,%level,0,9,1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+<!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
+|ELSE|
+|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| -
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+, 
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDFOR|
+<br>
+<!-- End Prepared Spells -->
 |%SPELLLISTBOOK.0.0.1|
 <b>Innate:</b>
 |FOR,%spell,0,COUNT[SPELLSINBOOK.0.1.0]-2,1,1|
@@ -138,9 +195,10 @@ Deity: |DEITY| <i>Domains</i>:&nbsp;
 <br />
 |%|
 |FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
-|%SPELLLISTCLASS.%class|
-Spells per Day: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level)<br />
-<b>|SPELLLISTCLASS.%class| - Known: </b><br />
+|%SPELLLISTCLASS.%class| 
+<b>|SPELLLISTCLASS.%class| Spells</b>
+<i>Spells per Day</i>: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level) 
+<i>Known: </i><br />
 |FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
 |%SPELLLISTBOOK.%class.%level.0|
 <b>Level |%level|:</b>
