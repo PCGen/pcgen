@@ -342,6 +342,7 @@
 						<xsl:apply-templates select="weight_allowance"/>
 						<xsl:call-template name="money"/>
 						<xsl:apply-templates select="misc/magics"/>
+						<xsl:apply-templates select="misc/companions"/>
 						<xsl:apply-templates select="special_abilities"/>
 						<xsl:apply-templates select="leadership"/>
 						<xsl:apply-templates select="feats"/>
@@ -4201,6 +4202,48 @@
 							<fo:block font-size="7pt">
 								<xsl:call-template name="paragraghlist">
 									<xsl:with-param name="tag" select="'magic'"/>
+								</xsl:call-template>
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+				</fo:table-body>
+			</fo:table>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Other Companions
+====================================
+====================================-->
+	<xsl:template match="companions">
+		<xsl:if test="count(companion) &gt; 0">
+			<fo:table table-layout="fixed" space-before.optimum="2mm">
+				<xsl:call-template name="attrib">
+					<xsl:with-param name="attribute" select="'magic.border'"/>
+				</xsl:call-template>
+				<fo:table-column>
+				    <xsl:attribute name="column-width"><xsl:value-of select="0.5 * ($pagePrintableWidth - 2)" />mm</xsl:attribute>
+				</fo:table-column>
+				<fo:table-header>
+					<fo:table-row keep-with-next.within-column="always">
+						<fo:table-cell padding-top="1pt">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'magic.title'"/>
+							</xsl:call-template>
+							<fo:block font-size="9pt">OTHER COMPANIONS</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+				</fo:table-header>
+				<fo:table-body>
+					<fo:table-row keep-with-next.within-column="always">
+						<fo:table-cell>
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'magic.lightline'"/>
+							</xsl:call-template>
+							<fo:block font-size="7pt">
+								<xsl:call-template name="paragraghlist">
+									<xsl:with-param name="tag" select="'companion'"/>
 								</xsl:call-template>
 							</fo:block>
 						</fo:table-cell>
