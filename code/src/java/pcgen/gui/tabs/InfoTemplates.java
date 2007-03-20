@@ -1078,9 +1078,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 					return String.class;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_irIREr4")
-						+ " " + column + " "
-						+ PropertyFactory.getString("in_irIREr2"));
+					Logging.errorPrintLocalised("in_irIREr4",column);
 
 					break;
 			}
@@ -1211,9 +1209,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_irIREr1")
-						+ " " + mode + " "
-						+ PropertyFactory.getString("in_irIREr2"));
+					Logging.errorPrintLocalised("in_irIREr1",mode);
 
 					break;
 			}
