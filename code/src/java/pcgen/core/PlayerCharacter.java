@@ -16334,7 +16334,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		double iCount = 0;
 
-		for (Ability aFeat : realAbilities.get(AbilityCategory.FEAT))
+		List<Ability> abilities = realAbilities.get(AbilityCategory.FEAT);
+		if (abilities == null)
+		{
+			return 0;
+		}
+		for (Ability aFeat : abilities)
 		{
 			//
 			// Don't increment the count for
