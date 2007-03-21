@@ -15881,7 +15881,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			Ability.Nature.NORMAL);
 		if (abilities != null)
 		{
-			return Collections.unmodifiableList(abilities);
+			return new ArrayList<Ability>(abilities);
 		}
 		// If the list is null it means it needs to be recalculated.
 
