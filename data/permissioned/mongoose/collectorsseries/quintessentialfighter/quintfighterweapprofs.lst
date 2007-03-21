@@ -7,7 +7,7 @@ Chakram			TYPE:Exotic
 Crossbow (Siege)		TYPE:Exotic
 Sword (Crescent)		TYPE:Exotic
 Dagger (Double Bladed)	TYPE:Exotic
-Foot Bow			TYPE:Exotic		HANDS:2	BONUS:WEAPON|DAMAGE|STRMIN0
+Foot Bow			TYPE:Exotic		HANDS:2	BONUS:WEAPON|DAMAGE|min(STR,0)
 Iron Breaker		TYPE:Exotic		HANDS:1
 Mancatcher			TYPE:Exotic		HANDS:2
 Sword-Breaker		TYPE:Exotic
@@ -17,7 +17,7 @@ Angle Knife			TYPE:Martial
 Ankus				TYPE:Martial
 Axe (Carpenter's)		TYPE:Simple
 Bec de Corbin		TYPE:Martial	HANDS:2
-Bladed Bow			TYPE:Martial	HANDS:2	BONUS:WEAPON|DAMAGE|STRMIN0
+Bladed Bow			TYPE:Martial	HANDS:2	BONUS:WEAPON|DAMAGE|min(STR,0)
 Flamberge			TYPE:Martial
 Flametongue			TYPE:Martial
 Flax				TYPE:Martial
@@ -28,9 +28,9 @@ Khopesh			TYPE:Martial
 Pike				TYPE:Martial	HANDS:2
 Pilum				TYPE:Martial
 Spider Throwing Knife	TYPE:Martial
-Staff Sling			TYPE:Martial	HANDS:2	BONUS:WEAPON|DAMAGE|STRMIN0
+Staff Sling			TYPE:Martial	HANDS:2	BONUS:WEAPON|DAMAGE|min(STR,0)
 Sword (Cane)		TYPE:Martial
-Sword (Guantlet)		TYPE:Martial
+Sword (Gauntlet)		TYPE:Martial
 Sword-Pike			TYPE:Martial	HANDS:2
 Sword (Tulwar)		TYPE:Martial
 War Rake			TYPE:Martial	HANDS:2
