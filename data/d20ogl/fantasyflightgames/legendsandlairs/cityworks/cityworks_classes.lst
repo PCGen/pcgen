@@ -3,29 +3,31 @@ SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www
 # Original Entry by: Eddy Anthony
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus								Bonus to skill
-CLASS:Acrobat	HD:8		TYPE:Base.PC	ABB:Acr		SOURCEPAGE:p.15	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:COMBAT|AC|CL+2/3|TYPE=Dodge	BONUS:SKILL|Balance,Jump,Tumble|2|TYPE=Circumstance|PREEQUIP:1,Quarterstaff
+CLASS:Acrobat	HD:8		TYPE:Base.PC	ABB:Acr		SOURCEPAGE:p.15	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:COMBAT|AC|CL+2/3|TYPE=Dodge
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Acrobat	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Hide|Jump|Move Silently|Perform|TYPE.Profession|Swim|Tumble|Use Rope
 1	AUTO:WEAPONPROF|TYPE.Simple	FEATAUTO:Armor Proficiency (Light)|Simple Weapon Proficiency
 ###Block: Improved Speed and Whirling Strike
 1	SA:Improved Speed (% ft.)|AcrobatSpeed	BONUS:VAR|AcrobatSpeed|(floor((CL+9)/3))*10|PRESIZEGTEQ:M	BONUS:VAR|AcrobatSpeed|(floor((CL+12)/3)*5)+(floor((CL+3)/9)*5)|PRESIZELTEQ:S	DEFINE:AcrobatSpeed|0
 1	SA:Whirling Strike +%|WhirlingStrikeLVL	BONUS:VAR|WhirlingStrikeLVL|(CL+5)/4																	DEFINE:WhirlingStrikeLVL|0
+###Block: Quarterstaff Affinity
+1	SA:Quarterstaff Affinity	BONUS:SKILL|Balance,Jump,Tumble|2|TYPE=Circumstance|PREEQUIP:1,TYPE=Quarterstaff	VFEAT:Ambidexterity|Two Weapon Fighting|PREEQUIPTWOWEAPON:1,TYPE=Quarterstaff
 ###Block: Normal progression
-1	SA:Quarterstaff Affinity	SA:Agile Charge
-2									BONUS:VAR|ImprovedUncannyDodge|2																																					FEATAUTO:Uncanny Dodge
-4																																																VFEAT:Evasion
+1	SA:Agile Charge
+2							BONUS:VAR|ImprovedUncannyDodge|2																																					FEATAUTO:Uncanny Dodge
+4																																														VFEAT:Evasion
 5	SA:Rapid Climb
-6																				ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run)1
+6																		ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run)1
 7	SA:Superior Charge
 8	SA:Power Leap
 9	SA:Tumbling Strike
-10									BONUS:VAR|UncannyDodge|1	BONUS:VAR|ImprovedUncannyDodge|-1
-12																				ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run)1
+10							BONUS:VAR|UncannyDodge|1	BONUS:VAR|ImprovedUncannyDodge|-1
+12																		ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run)1
 13	SA:Agile Landing
-14																				ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run)1
+14																		ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run)1
 16	SA:Uncanny Dodge (trap evasion)
 17	SA:Death From Above
-18																				ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run)1
+18																		ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run)1
 20	SA:Supreme Agility
 
 
