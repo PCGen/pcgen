@@ -22,7 +22,24 @@ $Date$
 <span class="header">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</span>
 <p>
 <b>|NAME|<br />
-|SIZELONG|-size |GENDER.LONG| |TEMPLATELIST| |RACE|<br />
+|GENDER.LONG| |RACE|; |SIZELONG|
+|IIF(RACETYPE:None)|
+|TEXT.TITLE.TYPE|
+|ELSE|
+|RACETYPE|
+|ENDIF|
+|IIF(VAR.IF(var("COUNT[RACESUBTYPES]")==0;1;0):1)|
+|ELSE|
+ (
+|FOR,%subtype,0,COUNT[RACESUBTYPES]-2,1,1|
+|RACESUBTYPE.%subtype|, 
+|ENDFOR|
+|FOR,%subtype,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,1|
+|RACESUBTYPE.%subtype|
+|ENDFOR|
+) 
+|ENDIF|
+<br />
 |CLASSLIST|</b></p>
 <table width="75%" border="0" cellspacing="0" cellpadding="0" summary="Character Info Table">
   <tr valign="top">
@@ -59,7 +76,7 @@ $Date$
   <tr valign="top">
     <td width="25%"><b>Attacks: </b></td>
     <td width="75%">
-|FOR,%weap,0,COUNT[EQTYPE.Weapon],1,0|
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 |WEAPON.%weap.NAME|
 |IIF(WEAPON.%weap.TOTALHIT:N/A)|
 (two handed) |WEAPON.%weap.THHIT|;
@@ -72,7 +89,7 @@ $Date$
   <tr valign="top">
     <td width="25%"><b>Damage: </b></td>
     <td width="75%">
-|FOR,%weap,0,COUNT[EQTYPE.Weapon],1,0|
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 |WEAPON.%weap.NAME|
 |IIF(WEAPON.%weap.TOTALHIT:N/A)|
 (two handed) |WEAPON.%weap.THDAMAGE|;
@@ -130,7 +147,7 @@ Spell Resistance |SR|,
   </tr>
   <tr valign="top">
     <td width="25%"><b>Skills: </b></td>
-    <td width="75%">|FOR.0,COUNT[SKILLS]-1,100,\SKILL.%.NAME\ \SKILL.%.TOTAL\;       , , ,0| </td>
+    <td width="75%">|FOR.0,COUNT[SKILLS]-1,100,\SKILL.%.NAME\: \SKILL.%.TOTAL\;       , , ,0| </td>
   </tr>
   <tr valign="top">
     <td width="25%"><b>Feats: </b></td>
