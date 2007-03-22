@@ -719,7 +719,6 @@ public class InfoResources extends FilterAdapterPanel implements
 		}
 
 		TreePath selCPath = selectedTable.getTree().getSelectionPath();
-		String target;
 
 		if (selCPath == null)
 		{
@@ -729,7 +728,16 @@ public class InfoResources extends FilterAdapterPanel implements
 
 			return;
 		}
-		target = selCPath.getPathComponent(1).toString();
+		SelectedFollowerModel.FollowerType target =
+			(SelectedFollowerModel.FollowerType) ((PObjectNode) selCPath
+				.getPathComponent(1)).getItem();
+		if (target.getNumRemaining() == 0)
+		{
+			ShowMessageDelegate
+				.showMessageDialog(
+					PropertyFactory.getString("InfoResources.NoMoreFollowers"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+			return;
+		}
 
 		String aType;
 
@@ -772,7 +780,7 @@ public class InfoResources extends FilterAdapterPanel implements
 				return;
 			}
 		}
-		aType = target;
+		aType = target.getType();
 
 		Follower newMaster =
 				new Follower(oldPC.getFileName(), oldPC.getName(), aType);

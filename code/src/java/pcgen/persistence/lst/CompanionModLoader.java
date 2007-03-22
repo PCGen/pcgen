@@ -74,8 +74,7 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 		final StringTokenizer colToken = new StringTokenizer(inputLine,
 				SystemLoader.TAB_DELIM);
 		
-		String name = colToken.nextToken();
-		cmpMod.setName(name);
+		String name = null;
 		cmpMod.setSourceCampaign(source.getCampaign());
 		cmpMod.setSourceURI(source.getURI());
 
@@ -84,6 +83,12 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 		while (colToken.hasMoreTokens()) {
 			String colString = colToken.nextToken().trim();
 
+			// Companion mods don't have a name, but instead start straight into the first token
+			if (name == null)
+			{
+				name = colString;
+				cmpMod.setName(name);
+			}
 			final int idxColon = colString.indexOf(':');
 			String key = "";
 			try
