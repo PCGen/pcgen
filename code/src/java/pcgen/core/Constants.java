@@ -228,6 +228,8 @@ public interface Constants
 	int HP_STANDARD   = 0;
 	/** 4 */
 	int HP_USERROLLED = 4;
+	/** 5 */
+	int HP_AVERAGE_ROUNDED_UP = 5;
 	/** 9999 */
 	int INVALID_LEVEL = 9999;
 

@@ -431,6 +431,8 @@ final class PreferencesDialog extends JDialog
 			new JRadioButton(PropertyFactory.getString("in_Prefs_hpStandard"));
 	private JRadioButton hpUserRolled =
 			new JRadioButton(PropertyFactory.getString("in_Prefs_hpUserRolled"));
+	private JRadioButton hpAverageRoundedUp =
+			new JRadioButton(PropertyFactory.getString("in_Prefs_hpAverageRoundedUp"));
 
 	// Language
 	private JRadioButton langEng;
@@ -670,6 +672,10 @@ final class PreferencesDialog extends JDialog
 		else if (hpUserRolled.isSelected())
 		{
 			SettingsHandler.setHPRollMethod(Constants.HP_USERROLLED);
+		}
+		else if (hpAverageRoundedUp.isSelected())
+		{
+			SettingsHandler.setHPRollMethod(Constants.HP_AVERAGE_ROUNDED_UP);
 		}
 
 		SettingsHandler.setHPPct(hpPct.getValue());
@@ -1207,6 +1213,11 @@ final class PreferencesDialog extends JDialog
 
 			case Constants.HP_USERROLLED:
 				hpUserRolled.setSelected(true);
+
+				break;
+
+			case Constants.HP_AVERAGE_ROUNDED_UP:
+				hpAverageRoundedUp.setSelected(true);
 
 				break;
 
@@ -2034,6 +2045,11 @@ final class PreferencesDialog extends JDialog
 		Utility.buildConstraints(c, 2, iRow++, 1, 1, 0, 0);
 		gridbag.setConstraints(hpPct, c);
 		hitPointsPanel.add(hpPct);
+
+		Utility.buildConstraints(c, 1, iRow++, 2, 1, 0, 0);
+		gridbag.setConstraints(hpAverageRoundedUp, c);
+		hitPointsPanel.add(hpAverageRoundedUp);
+		exclusiveGroup.add(hpAverageRoundedUp);
 
 		Utility.buildConstraints(c, 0, iRow, 2, 1, 0, 0);
 		label =

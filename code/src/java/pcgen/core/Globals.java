@@ -2599,6 +2599,11 @@ public final class Globals
 
 				break;
 
+			case Constants.HP_AVERAGE_ROUNDED_UP:
+				roll = (int)Math.ceil((min + max)/2.0);
+
+				break;
+
 			case Constants.HP_STANDARD:default:
 				roll = Math.abs(Globals.getRandomInt(max - min + 1)) + min;
 
