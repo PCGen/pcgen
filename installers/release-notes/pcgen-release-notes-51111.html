@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.11.11
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.11.11</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's New For v5.11.11</a></li>
+	<li><a href="#GMGenIssue">GMGen Known Issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.11.11</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.11.11</a></h2>
+<p>
+PCGen v5.11.11 is an alpha release from our development branch to allow experimentation and testing of our latest 
+work. This is a quick bug fix release to correct the two major issues listed below:
+</p>
+<ul>
+
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+Can't save Monk.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1685359" class="externalLink" title="External Link">1685359</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+Familiar give no bonuses and gets no bonuses.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1673585" class="externalLink" title="External Link">1673585</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+
+</ul>
+<p>
+For full details of the changes, see the <a href="#ChangeLog">Change Log</a>
+.
+</p>
+<p>James Dempsey for the PCGEN Team -- March 24, 2007.</p>
+
+
+<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative 
+  Tab when running a combat when you select any character other than the one whose 
+  turn it is and click the Damage or Heal buttons the character whose turn it 
+  is becomes selected and the damage is applied to him instead of the character 
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around. 
+  The problem will only manifest when using the System Look and Feel, you can 
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and 
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+<h2><a name="PCGenIssue">PCGen Known Issue</a></h2>
+<p>There is a known issue with PCGen that is affecting familiars and animal 
+  companions. The effect is that they are not gaining any bonuses from their masters 
+  and are not giving bonuses to their masters. See 
+  <a href="https://sourceforge.net/tracker/index.php?func=detail&aid=1673585&group_id=25576&atid=384719">Bug 
+  #1673585 - Familiar gives no bonuses and gets no bonuses</a>
+  for further details. We expect to have this issue corrected in the next release of PCGen.</p>
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.11.11 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51111_full.zip?download">pcgen51111_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51111_full.zip.asc?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51111_partial.zip?download">pcgen51111_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51111_partial.zip.asc?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51111_win_install.exe?download">pcgen51111_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51111_win_install.exe.asc?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51111_mac_install.dmg?download">pcgen51111_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51111_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.11.11</a></h2>
+
+<h3>Code FREQs
+</h3><ul>
+</ul>
+
+<h3>Data FREQs
+</h3><ul>
+</ul>
+
+<h3>New Data Source Development
+</h3><ul>
+</ul>
+
+<h3>Doc FREQs
+</h3><ul>
+</ul>
+
+<h3>OS FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1353252">1353252</a> ]	Creature Type and Subtype support
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411515">1411515</a> ]	DR, SR, EnrgyResist & Preped Spells on statblock
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1677374">1677374</a> ]	Output all the default notes to the standard sheets
+</ul>
+
+<h3>Plugin FREQs
+</h3><ul>
+</ul>
+
+<h3>Code Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1673585">1673585</a> ]	Familiar gives no bonuses and gets no bonuses
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1685359">1685359</a> ] Can't save Monk
+</ul>
+
+<h3>Plugin Bugs
+</h3><ul>
+</ul>
+
+<h3>Data Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1681856">1681856</a> ]	[Secular Games] Winter Elves initial bugs
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1685368">1685368</a> ]	quintfighterweaponprofs.lst typo
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1685369">1685369</a> ]	quitrogueequipweapmeleespecific.lst omissions
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1685371">1685371</a> ]	cityworks_classes.lst enhancements
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1685378">1685378</a> ]	completeeldritch_templates.lst typo
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1686201">1686201</a> ]	[Xcrawl - SellOut] Born Athlete syntax
+</ul>
+
+<h3>Output Sheet Bugs 
+</h3><ul>
+</ul>
+
+<h3>Doc Bugs
+</h3><ul>
+
+</ul>
+
+</body>
+</html>
