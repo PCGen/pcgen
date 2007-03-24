@@ -5,7 +5,7 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
-    <release version="5.11.11" date="In SVN" description="Alpha release">
+    <release version="5.11.11" date="2007-03-24" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1685359">Can't save Monk.</action>
       <action dev="jdempsey" type="fix" issue="1673585">Familiar give no bonuses and gets no bonuses.</action>
     </release>
