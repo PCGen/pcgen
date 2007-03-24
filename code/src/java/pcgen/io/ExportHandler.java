@@ -2531,8 +2531,12 @@ public final class ExportHandler
 				if (manualWhitespace)
 				{
 					aString = aString.replaceAll("[ \\t]", "");
+					if (len > 0)
+					{
+						FileAccess.write(output, aString);
+					}
 				}
-				if (len > 0)
+				else
 				{
 					FileAccess.write(output, aString);
 				}

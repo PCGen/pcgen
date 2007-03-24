@@ -265,6 +265,17 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 //			"|OIF(max(0,2)==2)|\ntrue\n|ELSE|\nfalse\n|ENDIF|", character));
 	}
 	
+	public void testFor() throws IOException
+	{
+		PlayerCharacter pc = getCharacter();
+		assertEquals("Test for evaluates correctly", "----------------",
+			evaluateToken(
+				"FOR.1,((24-STRLEN[SKILL.0])).INTVAL,24,-,NONE,NONE,1", pc));
+		assertEquals("Test for evaluates correctly", "                ",
+			evaluateToken(
+				"FOR.1,((24-STRLEN[SKILL.0])).INTVAL,24, ,NONE,NONE,1", pc));
+	}
+	
 	public void testExpressionOutput() throws IOException
 	{
 		Ability dummyFeat = new Ability();
