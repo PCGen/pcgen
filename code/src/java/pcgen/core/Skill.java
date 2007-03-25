@@ -151,30 +151,7 @@ public final class Skill extends PObject
 		return aCheck;
 	}
 
-    /**
-     * Get a list of choices
-     * @return list of choices
-     */
-	public ArrayList<String> getChoiceStringList()
-	{
-		String choiceString = getChoiceString();
-		if (choiceString.length() == 0)
-		{
-			return null;
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(choiceString, "|");
-		final ArrayList<String> aList = new ArrayList<String>();
-
-		while (aTok.hasMoreTokens())
-		{
-			aList.add(aTok.nextToken());
-		}
-
-		return aList;
-	}
-
-    /**
+	/**
      * Get a list of classes
      * @return classList
      */

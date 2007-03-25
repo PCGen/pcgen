@@ -2987,15 +2987,11 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_SKILL:
-				final Skill mySkill = (Skill) thisPObject;
-				final String choiceString = mySkill.getChoiceString();
+				final String choiceString = thisPObject.getChoiceString();
 
 				if ((choiceString != null) && (choiceString.length() > 0))
 				{
-					for (Iterator e = ((Skill) thisPObject).getChoiceStringList().iterator(); e.hasNext();)
-					{
-						selectedList.add("CHOOSE:" + e.next());
-					}
+					selectedList.add("CHOOSE:" + choiceString);
 				}
 
 				break;
