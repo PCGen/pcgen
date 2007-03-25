@@ -46,11 +46,9 @@ import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.DeityLstToken;
 import pcgen.persistence.lst.LstToken;
 import pcgen.persistence.lst.TokenStore;
-import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -224,14 +222,7 @@ final class DeityBasePanel extends BasePanel
 			final StringTokenizer tok = new StringTokenizer(desc, "\t");
 			while (tok.hasMoreTokens())
 			{
-				try
-				{
-					tokenParser.parse((Deity) thisPObject, tok.nextToken());
-				}
-				catch (PersistenceLayerException e)
-				{
-					Logging.errorPrint(e.getMessage() + " while parsing " + desc, e);
-				}
+				tokenParser.parse((Deity) thisPObject, tok.nextToken());
 			}
 		}
 	
