@@ -25,7 +25,9 @@ package pcgen.core.levelability;
 import pcgen.core.*;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
@@ -84,6 +86,7 @@ public class LevelAbilityAbility extends LevelAbility
 	private int       numFeats         = 0;
 	private List<Ability> previousChoices  = new ArrayList<Ability>();
 	private String    lastCategorySeen = "";
+	private Ability.Nature nature = Ability.Nature.NORMAL;
 
 	final HashMap<String, AbilityChoice> nameMap    = new HashMap<String, AbilityChoice>();
 	final HashMap<String, AbilityChoice> catMap     = new HashMap<String, AbilityChoice>();
@@ -145,9 +148,11 @@ public class LevelAbilityAbility extends LevelAbility
 			setNumberofChoices(chooser, aPC);
 			numFeats = chooser.getPool();
 
-			if (isVirtual)
+			if (nature != Ability.Nature.NORMAL)
 			{
-				chooser.setTitle("Virtual Feat Selection");
+				chooser.setTitle(nature.name().substring(0, 1).toUpperCase()
+					+ nature.name().substring(1).toLowerCase()
+					+ " Feat Selection");
 			}
 			else
 			{
@@ -244,7 +249,25 @@ public class LevelAbilityAbility extends LevelAbility
 		}
 		else if (aToken.startsWith("CATEGORY="))
 		{
+			if (!lastCategorySeen.equals(""))
+			{
+				Logging.errorPrint("Duplicate ability category string "
+					+ aToken.substring(9));
+				return;
+			}
 			lastCategorySeen = aToken.substring(9);
+		}
+		else if (aToken.startsWith("NATURE="))
+		{
+			String natureKey = aToken.substring(7);
+			final Ability.Nature nature = Ability.Nature.valueOf(natureKey);
+			if (nature == null)
+			{
+				Logging
+					.errorPrint("Invalid ability nature string " + natureKey);
+				return;
+			}
+			isVirtual = (nature.equals(Ability.Nature.VIRTUAL));
 		}
 
 		if (lastCategorySeen.equals(""))
@@ -618,7 +641,9 @@ public class LevelAbilityAbility extends LevelAbility
 
 				previousChoices.add(ab);
 
-				List<Ability> aList = aPC.getVirtualFeatList();
+				List<Ability> aList =
+						aPC.getVirtualAbilityList(SettingsHandler.getGame()
+							.getAbilityCategory(lastCategorySeen));
 				final Ability pcAbility = AbilityUtilities.addVirtualAbility(
 						ab,
 						choiceList,
@@ -682,7 +707,9 @@ public class LevelAbilityAbility extends LevelAbility
 						aBonusList.add(sTok.nextToken());
 					}
 				}
-				AbilityUtilities.modAbility(aPC, pcLevelInfo, ab, choice, true, AbilityCategory.FEAT);
+				AbilityUtilities.modAbility(aPC, pcLevelInfo, ab, choice, true,
+					SettingsHandler.getGame().getAbilityCategory(
+						lastCategorySeen));
 
 				if (spellLevelProcess && (ab != null))
 				{

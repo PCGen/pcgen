@@ -970,18 +970,6 @@ public final class ExportHandler
 	 */
 	private String mathMode(String aString, PlayerCharacter aPC)
 	{
-		//TODO: Check if this is a JEP formula If it is process that.
-//		Logging.setDebugMode(true);
-//		Float res =
-//				aPC.getVariableProcessor().getJepOnlyVariableValue(null,
-//					aString, "", 0);
-//		if (res != null)
-//		{
-//			Logging.setDebugMode(false);
-//			return NUM_FMT.format(res);
-//		}
-//		Logging.setDebugMode(false);
-
 		Float total = new Float(0.0);
 		while (aString.lastIndexOf('(') >= 0)
 		{
@@ -1119,40 +1107,55 @@ public final class ExportHandler
 						nextMode = DIVISION_MODE;
 					}
 
-					StringWriter sWriter = new StringWriter();
-					BufferedWriter aWriter = new BufferedWriter(sWriter);
-					replaceTokenSkipMath(aPC, valString, aWriter);
-					sWriter.flush();
+					//TODO: Check if this is a JEP formula If it is process that.
+//					Logging.setDebugMode(true);
+//					Float res =
+//							aPC.getVariableProcessor().getJepOnlyVariableValue(null,
+//								aString, "", 0);
+//					if (res != null)
+//					{
+//						Logging.setDebugMode(false);
+//						valString = NUM_FMT.format(res);
+//					}
+//					else
+//					{
+//						Logging.setDebugMode(false);
+	
+						StringWriter sWriter = new StringWriter();
+						BufferedWriter aWriter = new BufferedWriter(sWriter);
+						replaceTokenSkipMath(aPC, valString, aWriter);
+						sWriter.flush();
+	
+						try
+						{
+							aWriter.flush();
+						}
+						catch (IOException e)
+						{
+							//TODO: Really ignore this? If so, explain why in a comment here. XXX
+						}
+	
+						final String bString = sWriter.toString();
+						
+						try
+						{
+							// Float values
+							valString = String.valueOf(Float.parseFloat(bString));
+						}
+						catch (NumberFormatException e)
+						{
+							// String values
+							valString = bString;
+						}
 
-					try
-					{
-						aWriter.flush();
+						if ((!attackRoutine) && isAttackRoutine(valString))
+						{
+							attackRoutine = true;
+							attackData = valString;
+							valString = "";
+						}
 					}
-					catch (IOException e)
-					{
-						//TODO: Really ignore this? If so, explain why in a comment here. XXX
-					}
-
-					final String bString = sWriter.toString();
-
-					try
-					{
-						// Float values
-						valString = String.valueOf(Float.parseFloat(bString));
-					}
-					catch (NumberFormatException e)
-					{
-						// String values
-						valString = bString;
-					}
-
-					if ((!attackRoutine) && isAttackRoutine(valString))
-					{
-						attackRoutine = true;
-						attackData = valString;
-						valString = "";
-					}
-				}
+//				}
 
 				try
 				{

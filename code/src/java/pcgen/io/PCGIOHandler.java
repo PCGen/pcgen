@@ -416,7 +416,7 @@ public final class PCGIOHandler extends IOHandler
 			aPC.setFeats(baseFeatPool);
 		}
 
-		for (Ability aFeat : aPC.getRealFeatList())
+		for (Ability aFeat : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
 		{
 			if (aFeat.getChoiceString().startsWith("SALIST|"))
 			{

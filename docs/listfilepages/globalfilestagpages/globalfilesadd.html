@@ -78,6 +78,34 @@
 		<p class="indent3">This modification of the Gunslinger Class removes the benefits of level 2,3,6,8, and
 		9, replacing them with nothing.</p>
 
+
+		<p></p><a name="ABILITY"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> ADD:ABILITY|[w|]x|y|z[,z..]</p>
+		<p class="indent1"><strong>Variables Used (w):</strong> Number, Variable or Formula (Optional - Number of
+		choices granted)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Ability Category (The Ability Category this ability will be added to).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Ability Nature (The nature of the added ability: NORMAL, AUTOMATIC, or VIRTUAL)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Text (Key of the ability to select from)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> TYPE.AbilityType (Type of ability to select from)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>ABILITY will give the character a choice of one from the listed abilities.</li>
+			<li>Abilities listed are all &quot;,&quot; (comma) delimited</li>
+			<li>Valid TYPE's are TYPE=REGION, TYPE=SUBREGION, TYPE=ALLREGION, and TYPE=&lt;abilitytype&gt;
+				(i.e. the type of ability, not the word &quot;abilitytype&quot;.)</li>
+			<li>If the ability being added has a chooser ADD:ABILITY is the only tag which will activate it
+			(ABILITY will not).</li>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ADD:ABILITY|2|FEAT|NORMAL|Alertness,TYPE=Fighter,Electric Boogalo</code></p>
+		<p class="indent3">Add two feats from &quot;Alertness&quot;, any &quot;Fighter&quot; type feats
+		or &quot;Electric Boogalo&quot;.</p>
+		<p class="indent2"><code>ADD:ABILITY|FEAT|VIRTUAL|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation</code></p>
+		<p class="indent3">Add one virtual feat from &quot;General&quot;, any &quot;Metamagic&quot;,
+		any &quot;ItemCreation&quot; type feats .</p>
+
+
 		<p></p><a name="EQUIP"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:EQUIP(y,y)z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> EQUIP</p>

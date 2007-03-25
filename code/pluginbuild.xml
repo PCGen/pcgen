@@ -2268,6 +2268,13 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-lst-add-plugins" depends="makeplugindirs" description="Build (Link) Auto Lst Token plugin jar files">
 		<!-- Add tokens-->
+		<jar jarfile="${lstplugins.dir}/AddLstToken-ABILITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/add/AbilityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/AddLstToken-CLASSSKILLS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

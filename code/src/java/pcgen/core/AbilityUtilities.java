@@ -622,7 +622,7 @@ public class AbilityUtilities
 
 		if (aPC.isNotImporting()) {aPC.getSpellList();}
 
-		final List<Ability> realAbilities = aPC.getRealAbilityList(category);
+		final List<Ability> realAbilities = aPC.getRealAbilitiesList(category);
 		Ability pcAbility = getAbilityFromList(realAbilities, argAbility);
 
 		// (pcAbility == null) means we don't have this feat,
@@ -632,7 +632,7 @@ public class AbilityUtilities
 			// adding feat for first time
 			pcAbility = argAbility.clone();
 
-			aPC.addFeat(pcAbility, levelInfo);
+			aPC.addAbility(category, pcAbility, levelInfo);
 			pcAbility.getTemplates(aPC.isImporting(), aPC);
 		}
 
