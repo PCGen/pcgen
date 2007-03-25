@@ -255,37 +255,6 @@ public class PlayerCharacterOutput
 		return pc.getSize();
 	}
 
-	public String getSkillList()
-	{
-		StringBuffer sb = new StringBuffer();
-		boolean firstLine = true;
-
-		for (Skill skill : pc.getSkillListInOutputOrder())
-		{
-			int modSkill = -1;
-
-			if (skill.getKeyStat().compareToIgnoreCase(Constants.s_NONE) != 0)
-			{
-				modSkill = skill.modifier(pc).intValue() - pc.getStatList().getStatModFor(skill.getKeyStat());
-			}
-
-			if ((skill.getTotalRank(pc).intValue() > 0) || (modSkill > 0))
-			{
-				int temp = skill.modifier(pc).intValue() + skill.getTotalRank(pc).intValue();
-
-				if (!firstLine)
-				{
-					sb.append(", ");
-				}
-
-				firstLine = false;
-				sb.append(skill.getOutputName() + " +" + temp);
-			}
-		}
-
-		return sb.toString();
-	}
-
 	public String getSpecialAbilities()
 	{
 		return CoreUtility.join(pc.getSpecialAbilityTimesList(), ", ");
