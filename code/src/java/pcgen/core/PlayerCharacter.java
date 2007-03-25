@@ -50,10 +50,8 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-// import pcgen.core.bonus.TypedBonus;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSet;
@@ -1618,7 +1616,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		Logging.debugPrint("PCPOOL: " + pcpool); //$NON-NLS-1$
 		Logging.debugPrint("MPOOL:  " + mpool); //$NON-NLS-1$
 
-		double startAdjust = startLevel / rangeLevel;
+		double startAdjust = rangeLevel == 0 ? 0 : startLevel / rangeLevel;
 
 		pool += Math.floor((this.getTotalCharacterLevel() >= startLevel) ? 1.0d
 			+ pcpool - startAdjust + 0.0001 : pcpool + 0.0001);
@@ -2886,7 +2884,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final Skill bSkill = i.next();
 
-			if (bSkill.getOutputIndex() == -1)
+			Visibility skVis = bSkill.getVisibility();
+			if (bSkill.getOutputIndex() == -1
+				|| skVis.equals(Visibility.HIDDEN)
+				|| skVis.equals(Visibility.DISPLAY_ONLY))
 			{
 				i.remove();
 			}
