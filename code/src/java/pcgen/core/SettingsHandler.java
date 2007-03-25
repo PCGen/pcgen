@@ -131,7 +131,6 @@ public final class SettingsHandler
 	private static boolean loadCampaignsAtStart = false;
 	private static boolean loadCampaignsWithPC = true;
 	private static int looknFeel = 1; // default to Java L&F
-	private static boolean aaText = true; // default to anti-aliased text
 	private static boolean expertGUI = false; // default to System L&F
 	private static boolean optionAllowedInSources = true;
 	private static final SortedProperties options = new SortedProperties();
@@ -967,16 +966,6 @@ public final class SettingsHandler
 		return looknFeel;
 	}
 
-	public static boolean isAaText()
-	{
-		return aaText;
-	}
-
-	public static void setAaText(final boolean aBool)
-	{
-		aaText = aBool;
-	}
-
 	public static void setMaxPotionSpellLevel(final int anInt)
 	{
 		maxPotionSpellLevel = anInt;
@@ -1193,7 +1182,6 @@ public final class SettingsHandler
 		setLoadCampaignsAtStart(getPCGenOption("loadCampaignsAtStart", false)); //$NON-NLS-1$
 		setLoadCampaignsWithPC(getPCGenOption("loadCampaignsWithPC", true)); //$NON-NLS-1$
 		setLookAndFeel(getPCGenOption("looknFeel", 1)); //$NON-NLS-1$
-		setAaText(getPCGenOption("aaText", false)); //$NON-NLS-1$
 		setMaxPotionSpellLevel(getPCGenOption("maxPotionSpellLevel", 3)); //$NON-NLS-1$
 		setMaxWandSpellLevel(getPCGenOption("maxWandSpellLevel", 4)); //$NON-NLS-1$
 		setMetamagicAllowedInEqBuilder(getPCGenOption("allowMetamagicInCustomizer", false)); //$NON-NLS-1$
@@ -1554,7 +1542,6 @@ public final class SettingsHandler
 		setPCGenOption("loadMasterworkAndMagicFromLst", wantToLoadMasterworkAndMagic()); //$NON-NLS-1$
 		setPCGenOption("loadURLs", loadURLs); //$NON-NLS-1$
 		setPCGenOption("looknFeel", getLookAndFeel()); //$NON-NLS-1$
-		setPCGenOption("aaText", isAaText()); //$NON-NLS-1$
 		setPCGenOption("maxPotionSpellLevel", getMaxPotionSpellLevel()); //$NON-NLS-1$
 		setPCGenOption("maxWandSpellLevel", getMaxWandSpellLevel()); //$NON-NLS-1$
 		setPCGenOption("nameDisplayStyle", getNameDisplayStyle()); //$NON-NLS-1$

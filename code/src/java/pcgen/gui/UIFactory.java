@@ -20,8 +20,6 @@
  */
 package pcgen.gui;
 
-import com.l2fprod.common.swing.plaf.wrap.Wrapper;
-import com.l2fprod.common.swing.plaf.wrap.AntiAliasingBehavior;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
@@ -51,8 +49,6 @@ public final class UIFactory
 	private static final int crossPlatformIndex = 1;
 	private static final boolean windowsPlatform = System.getProperty("os.name").startsWith("Windows ");
 	private static final boolean macPlatform = System.getProperty("os.name").equals("Mac OS X");
-	private static final AntiAliasingBehavior aaBehavior
-			= new AntiAliasingBehavior();
 
 	static
 	{
@@ -130,34 +126,6 @@ public final class UIFactory
 
 					break;
 				}
-			}
-		}
-
-		// Magic to auto-enable text anti-aliasing even on JREs < 5.0
-		if (!isMacPlatform())
-		{
-			aaBehavior.setAntiAliasing(SettingsHandler.isAaText());
-			Wrapper.wrap(aaBehavior);
-		}
-	}
-
-	/**
-	 * Sets the anti-aliasing policy for font smoothing.  Permits the settings
-	 * to dynamically enable and disable smooth fonts.
-	 *
-	 * @param aaText {<code>true</code>} to enable font smoothing
-	 */
-	public static void setAaText(boolean aaText)
-	{
-		if (!isMacPlatform())
-		{
-			final boolean needsRefresh = aaBehavior.isAntiAliasing() == aaText;
-
-			aaBehavior.setAntiAliasing(aaText);
-
-			if (needsRefresh)
-			{
-				refreshFullUI();
 			}
 		}
 	}
@@ -326,22 +294,11 @@ public final class UIFactory
 			Logging.errorPrint("Exception in UIFactory::internalSetLookAndFeel", e);
 		}
 
-		// Rewrap the new LAF so font smoothing does not "stick" with the
-		// previous LAF.
-		if (!isMacPlatform())
-		{
-			Wrapper.wrap(aaBehavior);
-		}
 		refreshFullUI();
 	}
 
 	private static boolean isWindowsPlatform()
 	{
 		return windowsPlatform;
-	}
-
-	private static boolean isMacPlatform()
-	{
-		return macPlatform;
 	}
 }

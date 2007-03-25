@@ -26,7 +26,6 @@
 	<classpathentry kind="lib" path="lib/jep/RngPack-1.1a.jar"/>
 	<classpathentry kind="lib" path="lib/test/xmlunit1.0.jar"/>
 	<classpathentry kind="lib" path="lib/javacc.jar"/>
-	<classpathentry kind="lib" path="lib/lnf/wraplf.jar"/>
 	<classpathentry kind="lib" path="lib/jep/jep-2.3.1.jar"/>
 	<classpathentry kind="lib" path="lib/jep/djep-2.24.jar"/>
 	<classpathentry kind="output" path="code/build.eclipse"/>

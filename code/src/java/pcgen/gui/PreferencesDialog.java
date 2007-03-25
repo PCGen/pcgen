@@ -205,8 +205,6 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_location");
 	private static String in_lookAndFeel =
 			PropertyFactory.getString("in_Prefs_lookAndFeel");
-	private static String in_aaText =
-			PropertyFactory.getString("in_Prefs_aaText");
 	private static String in_levelUp =
 			PropertyFactory.getString("in_Prefs_levelUp");
 	private static String in_monsters =
@@ -446,7 +444,6 @@ final class PreferencesDialog extends JDialog
 	private JRadioButton pcgenFilesDirRadio;
 	private JRadioButton selectFilesDirRadio;
 	private JRadioButton skinnedLookFeel = new JRadioButton();
-	private JCheckBox aaText = new JCheckBox();
 	private JRadioButton usersFilesDirRadio;
 	private JScrollPane settingsScroll;
 
@@ -843,11 +840,6 @@ final class PreferencesDialog extends JDialog
 			.getSelectedIndex());
 		SettingsHandler.setUseFeatBenefits(!featDescriptionShown.isSelected());
 		SettingsHandler.setShowSkillModifier(showSkillModifier.isSelected());
-
-		// Also give the UI a chance to update is we change the setting.
-		// UIFactory keeps track of the current setting for us.
-		SettingsHandler.setAaText(aaText.isSelected());
-		UIFactory.setAaText(aaText.isSelected());
 
 		// Look and Feel
 		int sourceIndex = 500; // XXX - magic number?
@@ -1370,8 +1362,6 @@ final class PreferencesDialog extends JDialog
 		waitCursor.setSelected(SettingsHandler.getUseWaitCursor());
 
 		// Look and feel
-		aaText.setSelected(SettingsHandler.isAaText());
-
 		int crossIndex = UIFactory.indexOfCrossPlatformLookAndFeel();
 
 		if (SettingsHandler.getLookAndFeel() < laf.length)
@@ -2844,13 +2834,6 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(themepack, c);
 		lafPanel.add(themepack);
 		themepack.addActionListener(prefsButtonHandler);
-
-		aaText.setText(in_aaText);
-		//		aaText.setSelected(SettingsHandler.isAaText());
-		Utility.setDescription(aaText, PropertyFactory
-			.getString("in_Prefs_aaTextTooltip"));
-		aaText.setMnemonic(PropertyFactory.getMnemonic("in_mn_Prefs_aaText"));
-		lafPanel.add(aaText);
 
 		Utility.buildConstraints(c, 0, 20, 5, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
