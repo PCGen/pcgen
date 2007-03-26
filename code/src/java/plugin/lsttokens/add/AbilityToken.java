@@ -25,7 +25,6 @@
  */
 package plugin.lsttokens.add;
 
-import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.AddLstToken;
 import pcgen.util.Logging;
@@ -34,7 +33,7 @@ import pcgen.util.Logging;
  * <code>AbilityToken</code> parses ADD:ABILITY entries.
  * 
  * <p>
- * <b>Tag Name</b>: <code>ADD:ABILITY</code>|w|x|y|z|z<br />
+ * <b>Tag Name</b>: <code>ADD:ABILITY</code>|w|x|y|z,z<br />
  * <b>Variables Used (w)</b>: Count (Optional Number, Variable or Formula - Number of choices granted).<br />
  * <b>Variables Used (x)</b>: Ability Category (The Ability Category this ability will be added to).<br />
  * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability: 
