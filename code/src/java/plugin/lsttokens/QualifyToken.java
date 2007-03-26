@@ -45,7 +45,7 @@ public class QualifyToken implements GlobalLstToken
 		if (equalLoc == -1) {
 			if ("ABILITY".equals(key)) {
 				Logging.errorPrint("Invalid use of ABILITY in QUALIFY "
-						+ "(requires ABILITY=<vategory>): " + key);
+						+ "(requires ABILITY=<category>): " + key);
 				return false;
 			}
 			c = StringPClassUtil.getClassFor(key);
