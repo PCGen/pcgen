@@ -1009,18 +1009,19 @@ final class PCGVer2Creator implements IOConstants
 
 			String del = Constants.EMPTY_STRING;
 
-			for (Domain domain : aDeity.getDomainList())
+			for (QualifiedObject<Domain> qualDomain : aDeity.getDomainList())
 			{
 				buffer.append(del);
 				buffer.append(TAG_DOMAIN).append(':');
 
-				if (domain == null)
+				if (qualDomain == null || qualDomain.getObject(null) == null)
 				{
 					buffer.append(EntityEncoder.encode(Constants.s_NONE));
 				}
 				else
 				{
-					buffer.append(EntityEncoder.encode(domain.getKeyName()));
+					buffer.append(EntityEncoder.encode(qualDomain.getObject(
+						null).getKeyName()));
 				}
 
 				del = "|"; //$NON-NLS-1$

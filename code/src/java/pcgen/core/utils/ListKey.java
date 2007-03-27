@@ -29,6 +29,7 @@ import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
+import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -47,7 +48,7 @@ public final class ListKey<T> {
 	/** CROSS_CLASS_SKILLS - a ListKey */
 	public static final ListKey<String> CROSS_CLASS_SKILLS = new ListKey<String>();
 	/** DOMAIN - a ListKey */
-	public static final ListKey<Domain> DOMAIN = new ListKey<Domain>();
+	public static final ListKey<QualifiedObject<Domain>> DOMAIN = new ListKey<QualifiedObject<Domain>>();
 	/** FILE_BIO_SET - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_BIO_SET = new ListKey<CampaignSourceEntry>();
 	/** FILE_CLASS - a ListKey */

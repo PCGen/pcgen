@@ -27,6 +27,8 @@ import java.util.List;
 import pcgen.core.prereq.Prerequisite;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import java.util.Iterator;
 import pcgen.persistence.PersistenceLayerException;
@@ -41,6 +43,7 @@ import pcgen.core.prereq.PrereqHandler;
  */
 public class QualifiedObject<T>
 {
+
 	private T theObject = null;
 	private List<Prerequisite> thePrereqs = null;
 
@@ -74,19 +77,30 @@ public class QualifiedObject<T>
 	}
 
 	/**
-     * Get the qualifiying object 
-     * @param aPC
+     * Get the qualifiying object. Will always return the object 
+     * if no character is passed in.
+     * 
+     * @param aPC Character to be checked or null
      * @return qualifying object
 	 */
     public T getObject( final PlayerCharacter aPC )
 	{
-		if ( qualifies( aPC ) )
+		if (aPC == null || qualifies( aPC ) )
 		{
 			return theObject;
 		}
 		return null;
 	}
 
+    /**
+     * Get an unmodifiable copy of the list of prereqs.
+     * @return The prereqs.
+     */
+    public List<Prerequisite> getPrereqs()
+    {
+    	return Collections.unmodifiableList(thePrereqs);
+    }
+    
 	/**
      * Set qualifying object 
      * @param anObject
@@ -123,6 +137,23 @@ public class QualifiedObject<T>
 
 		return PrereqHandler.passesAll(thePrereqs, aPC, null);
 	}
+
+    /* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		StringBuffer result = new StringBuffer();
+		result.append("Object:");
+		result.append(theObject.toString());
+		result.append(", Prereq:");
+		result.append(thePrereqs.toString());
+		// TODO Auto-generated method stub
+		return result.toString();
+	}
+    
+    
 
 	/**
      * Create the qualified object 

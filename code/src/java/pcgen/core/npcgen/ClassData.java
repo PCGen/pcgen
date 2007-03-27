@@ -34,6 +34,7 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
+import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SubClass;
 import pcgen.core.spell.Spell;
@@ -259,10 +260,10 @@ public class ClassData
 			domains = new WeightedList<Domain>();
 			
 			final Deity deity = Globals.getDeityKeyed(aDeityKey);
-			final List<Domain> deityDomains = deity.getDomainList();
-			for ( final Domain domain : deityDomains )
+			final List<QualifiedObject<Domain>> deityDomains = deity.getDomainList();
+			for ( final QualifiedObject<Domain> qualDomain : deityDomains )
 			{
-				domains.add(1, domain);
+				domains.add(1, qualDomain.getObject(null));
 			}
 		}
 		return domains;

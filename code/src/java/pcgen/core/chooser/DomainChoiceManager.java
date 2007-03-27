@@ -29,6 +29,7 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.QualifiedObject;
 
 import java.util.Iterator;
 import java.util.List;
@@ -127,9 +128,10 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager<Domain> {
 				Deity deity = Globals.getDeityKeyed(deityName);
 				if (deity != null)
 				{
-					for ( Domain domain : deity.getDomainList() )
+					for (QualifiedObject<Domain> qualDomain : deity
+						.getDomainList())
 					{
-						availableList.add(domain);
+						availableList.add(qualDomain.getObject(null));
 					}
 				}
 				break;

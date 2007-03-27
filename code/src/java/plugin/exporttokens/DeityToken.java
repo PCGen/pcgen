@@ -28,6 +28,7 @@ package plugin.exporttokens;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
@@ -189,7 +190,7 @@ public class DeityToken extends Token
 		StringBuffer returnString = new StringBuffer();
 		boolean firstLine = true;
 
-		for (Domain domain : deity.getDomainList())
+		for (QualifiedObject<Domain> qualDomain : deity.getDomainList())
 		{
 			if (!firstLine)
 			{
@@ -198,7 +199,7 @@ public class DeityToken extends Token
 
 			firstLine = false;
 
-			returnString.append(domain.getDisplayName());
+			returnString.append(qualDomain.getObject(null).getDisplayName());
 		}
 
 		return returnString.toString();

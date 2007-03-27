@@ -635,9 +635,14 @@ public final class EditorMainForm extends JDialog
 				else
 				{
 					sel = pnlDomains.getSelectedList();
-					Domain[] domains = new Domain[sel.length];
-					System.arraycopy(sel, 0, domains, 0, sel.length);
-					deity.setDomainList( CoreUtility.arrayToList(domains) );
+					List<QualifiedObject<Domain>> qualDomains =
+						new ArrayList<QualifiedObject<Domain>>();
+					for (Object object : sel)
+					{
+						qualDomains.add(new QualifiedObject<Domain>(
+							(Domain) object));
+					}
+					deity.setDomainList(qualDomains);
 				}
 
 				//

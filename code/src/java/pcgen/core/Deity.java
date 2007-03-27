@@ -51,7 +51,7 @@ public final class Deity extends PObject
 	 */
 	public Deity()
 	{
-		buildDomainList(null);
+		buildDomainList(null, null);
 		listChar.initializeListFor(ListKey.PANTHEON);
 		listChar.initializeListFor(ListKey.RACEPANTHEON);
 		listChar.initializeListFor(ListKey.DOMAIN);
@@ -61,12 +61,14 @@ public final class Deity extends PObject
 	 * This method adds a single domain to the domains that this deity
 	 * allows.
 	 * @param domainName String name of the domain
+	 * @param prereqs The list of deity specific prerequisites for taking this domain.
 	 */
-	public void addDomain(final String domainName) {
+	public void addDomain(final String domainName, List<Prerequisite> prereqs) {
 		final Domain domain = Globals.getDomainKeyed( domainName );
 		if (domain != null)
 		{
-			listChar.addToListFor(ListKey.DOMAIN, domain);
+			listChar.addToListFor(ListKey.DOMAIN, new QualifiedObject<Domain>(
+				domain, prereqs));
 		}
 		else
 		{
@@ -169,7 +171,7 @@ public final class Deity extends PObject
 	/**
 	 * @return a List of the domains this deity has
 	 */
-	public List<Domain> getDomainList()
+	public List<QualifiedObject<Domain>> getDomainList()
 	{
 		return getListFor(ListKey.DOMAIN);
 	}
@@ -204,11 +206,12 @@ public final class Deity extends PObject
 					else
 					{
 						boolean started = false;
-
-						for ( Domain domain : getDomainList() )
+						
+						for ( QualifiedObject<Domain> qualDomain : getDomainList() )
 						{
-							if (domain != null)
+							if (qualDomain != null)
 							{
+								Domain domain = qualDomain.getObject(null);
 								if (started)
 								{
 									piString.append(',');
@@ -282,19 +285,41 @@ public final class Deity extends PObject
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(getDisplayName());
 
-		List<Domain> domainList = getListFor(ListKey.DOMAIN);
+		List<QualifiedObject<Domain>> domainList = getListFor(ListKey.DOMAIN);
 		if (domainList != null && domainList.size()!= 0)
 		{
 			txt.append("\tDOMAINS:");
-			final Iterator<Domain> iter = domainList.iterator();
+			List<Prerequisite> lastPreReqs = null;
+			boolean start = true;
+			final Iterator<QualifiedObject<Domain>> iter =
+					domainList.iterator();
 			while (iter.hasNext())
 			{
-				final Domain domain = iter.next();
-				txt.append(domain.getKeyName());
-				if (iter.hasNext())
+				final QualifiedObject<Domain> qualDomain = iter.next();
+				final Domain domain = qualDomain.getObject(null);
+				final List<Prerequisite> prereqs = qualDomain.getPrereqs();
+				if (lastPreReqs != null && !lastPreReqs.equals(prereqs))
+				{
+					txt.append(PrerequisiteUtilities.getPrerequisitePCCText(
+						lastPreReqs, "|"));
+					txt.append("\tDOMAINS:");
+					start = true;
+				}
+				else if (!start)
 				{
 					txt.append(",");
 				}
+				else
+				{
+					start = false;					
+				}
+				lastPreReqs = prereqs;
+				txt.append(domain.getKeyName());
+			}
+			if (lastPreReqs != null)
+			{
+				txt.append(PrerequisiteUtilities.getPrerequisitePCCText(
+					lastPreReqs, "|"));
 			}
 		}
 
@@ -367,7 +392,18 @@ public final class Deity extends PObject
 	 */
 	public boolean hasDomain(final Domain aDomain)
 	{
-		return d_allDomains || getDomainList().contains(aDomain);
+		if (d_allDomains)
+		{
+			return true;
+		}
+		for (QualifiedObject<Domain> qualDomain : getDomainList())
+		{
+			if (qualDomain.getObject(null).equals(aDomain))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -429,7 +465,13 @@ public final class Deity extends PObject
 		final Domain domain = Globals.getDomainKeyed( domainKey );
 		if (domain != null)
 		{
-			listChar.removeFromListFor(ListKey.DOMAIN, domain);
+			for (QualifiedObject<Domain> qualDomain : listChar.getListFor(ListKey.DOMAIN))
+			{
+				if (domain.equals(qualDomain.getObject(null)))
+				{
+					listChar.removeFromListFor(ListKey.DOMAIN, qualDomain);
+				}
+			}
 		}
 		else
 		{
@@ -462,7 +504,7 @@ public final class Deity extends PObject
 	 * This method should ONLY be called from I/O!
 	 * @param domainList String list of domains
 	 */
-	public void setDomainList(final List<Domain> domainList)
+	public void setDomainList(final List<QualifiedObject<Domain>> domainList)
 	{
 		listChar.removeListFor(ListKey.DOMAIN);
 		listChar.addAllToListFor(ListKey.DOMAIN, domainList);
@@ -475,11 +517,11 @@ public final class Deity extends PObject
 	 * This method should ONLY be called from I/O!
 	 * @param aDomainStringList String list of domains
 	 */
-	public void setDomainNameList(final List<String> aDomainStringList)
+	public void setDomainNameList(final List<String> aDomainStringList, final List<Prerequisite> prereqs)
 	{
 		stringChar.put(StringKey.DOMAIN_LIST_PI, null);
 		d_allDomains = false;
-		buildDomainList(aDomainStringList);
+		buildDomainList(aDomainStringList, prereqs);
 	}
 
 	/**
@@ -677,8 +719,9 @@ public final class Deity extends PObject
 	 * This method builds the contents of the domain list from the
 	 * domain list String.
 	 * @param stringList
+	 * @param prereqs The list of the deity's prerequisities for this set of domains.
 	 */
-	private void buildDomainList(final List<String> stringList)
+	private void buildDomainList(final List<String> stringList, final List<Prerequisite> prereqs)
 	{
 		if ((stringList == null) || (stringList.size() == 0))
 		{
@@ -688,7 +731,11 @@ public final class Deity extends PObject
 		{
 			// If it contains ALL or ANY we do not care what else it contains as
 			// it will automatically contain all domains.
-			listChar.addAllToListFor(ListKey.DOMAIN, Globals.getDomainList());
+			for (Domain domain : Globals.getDomainList())
+			{
+				listChar.addToListFor(ListKey.DOMAIN,
+					new QualifiedObject<Domain>(domain, prereqs));
+			}
 		}
 		else
 		{
@@ -710,7 +757,7 @@ public final class Deity extends PObject
 
 				if (add)
 				{
-					addDomain(domainKey);
+					addDomain(domainKey, prereqs);
 				}
 				else
 				{

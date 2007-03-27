@@ -21,6 +21,8 @@
  */
 package pcgen.core.prereq;
 
+import java.util.ArrayList;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
@@ -188,7 +190,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		deity.setName("Test Deity");
 		deity.setAlignment("NG");
 		deity.setFollowerAlignments("012345678");
-		deity.addDomain("Good");
-		deity.addDomain("Animal");
+		deity.addDomain("Good", new ArrayList<Prerequisite>());
+		deity.addDomain("Animal", new ArrayList<Prerequisite>());
 	}
 }

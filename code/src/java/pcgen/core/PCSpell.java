@@ -1,6 +1,7 @@
 package pcgen.core;
 
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
@@ -54,23 +55,8 @@ public class PCSpell extends PObject {
 
 		final List preReqs = getPreReqList();
 
-		if ((preReqs != null) && (preReqs.size() > 0)) {
-			final StringWriter writer = new StringWriter();
-			final PrerequisiteWriter preReqWriter = new PrerequisiteWriter();
-			for (Iterator preReqIter = preReqs.iterator(); preReqIter.hasNext();) {
-				final Prerequisite preReq = (Prerequisite) preReqIter.next();
-				try {
-					preReqWriter.write(writer, preReq);
-				} catch (PersistenceLayerException e) {
-					Logging.errorPrint("Failed to encode prereq: ", e);
-				}
-				if (preReqIter.hasNext()) {
-					writer.write("|");
-				}
-			}
-			sBuff.append('|');
-			sBuff.append(writer.toString());
-		}
+		sBuff
+			.append(PrerequisiteUtilities.getPrerequisitePCCText(preReqs, "|"));
 
 		return sBuff.toString();
 	}

@@ -26,6 +26,7 @@
 package pcgen.persistence.lst;
 
 import pcgen.core.Deity;
+import pcgen.persistence.PersistenceLayerException;
 
 /**
  * <code>DeityLstToken</code>
@@ -40,5 +41,5 @@ public interface DeityLstToken extends LstToken
 	 * @param value
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(Deity deity, String value);
+	public abstract boolean parse(Deity deity, String value) throws PersistenceLayerException;
 }

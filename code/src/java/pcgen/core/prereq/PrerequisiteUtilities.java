@@ -24,13 +24,18 @@
  */
 package pcgen.core.prereq;
 
+import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.util.Logging;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -140,4 +145,35 @@ public final class PrerequisiteUtilities
 
 		return pString.toString();
 	}
+
+
+	/**
+	 * Build the LST syntax to represent the list of prerequisites.
+	 * 
+	 * @param preReqs The list of prerequisites.
+	 * @param separator The character to separate each prereq from each other.
+	 */
+	public static String getPrerequisitePCCText(final List preReqs, final String separator)
+	{
+		final StringBuffer sBuff = new StringBuffer();
+		if ((preReqs != null) && (preReqs.size() > 0)) {
+			final StringWriter writer = new StringWriter();
+			final PrerequisiteWriter preReqWriter = new PrerequisiteWriter();
+			for (Iterator preReqIter = preReqs.iterator(); preReqIter.hasNext();) {
+				final Prerequisite preReq = (Prerequisite) preReqIter.next();
+				try {
+					preReqWriter.write(writer, preReq);
+				} catch (PersistenceLayerException e) {
+					Logging.errorPrint("Failed to encode prereq: ", e);
+				}
+				if (preReqIter.hasNext()) {
+					writer.write(separator);
+				}
+			}
+			sBuff.append(separator);
+			sBuff.append(writer.toString());
+		}
+		return sBuff.toString();
+	}
+	
 }
