@@ -124,10 +124,33 @@ public class PreSpellTypeParser extends AbstractPrerequisiteParser implements
 					+ "[,<name of spell type>=<minimum spell level>,...]");
 			if (aTok.countTokens() == 2)
 			{
-				prereq.setKey(aString);
-				prereq.setOperand(aTok.nextToken());
-				prereq.setSubKey(aTok.nextToken());
-				prereq.setOperator(PrerequisiteOperator.GTEQ);
+				String[] types = aString.split("\\|");
+				String operand = aTok.nextToken();
+				String subKey = aTok.nextToken();
+
+				if (types.length == 1)
+				{
+					prereq.setKey(aString);
+					prereq.setSubKey(subKey);
+					prereq.setOperator(PrerequisiteOperator.GTEQ);
+					prereq.setOperand(operand);
+				}
+				else
+				{
+					prereq.setKind(null);
+
+					for (int i = 0; i < types.length; i++)
+					{
+						Prerequisite subreq = new Prerequisite();
+						prereq.addPrerequisite(subreq);
+						subreq.setKind("spell.type");
+						subreq.setKey(types[i]);
+						subreq.setSubKey(subKey);
+						subreq.setOperator(PrerequisiteOperator.GTEQ);
+						subreq.setOperand(operand);
+					}
+				}
+				
 			}
 			else
 			{
