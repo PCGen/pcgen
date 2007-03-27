@@ -1,14 +1,10 @@
 package plugin.lsttokens.deity;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.core.Ability;
 import pcgen.core.Constants;
 import pcgen.core.Deity;
-import pcgen.core.PCClass;
-import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
@@ -22,11 +18,17 @@ import pcgen.util.PropertyFactory;
 public class DomainsToken implements DeityLstToken
 {
 
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.LstToken#getTokenName()
+	 */
 	public String getTokenName()
 	{
 		return "DOMAINS";
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.DeityLstToken#parse(pcgen.core.Deity, java.lang.String)
+	 */
 	public boolean parse(Deity deity, String value) throws PersistenceLayerException
 	{
 		if (value.length() == 0)
