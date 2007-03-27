@@ -748,6 +748,21 @@ public final class Skill extends PObject
 					reqType = choiceParts[1];
 				}
 			}
+			
+			String[][] reqTypeArray;
+			if (reqType == null)
+			{
+				reqTypeArray = null;
+			}
+			else
+			{
+				String[] rta = reqType.split(",");
+				reqTypeArray = new String[rta.length][];
+				for (int i = 0; i < rta.length; i++)
+				{
+					reqTypeArray[i] = rta[i].split("\\.");
+				}
+			}
 
 			languageSkill.addAssociatedTo(selectedLangNames);
 
@@ -755,18 +770,49 @@ public final class Skill extends PObject
 			{
 				final Language aLang = Globals.getLanguageKeyed(aString);
 
-				if (aLang != null && aLang.isType(reqType))
+				if (aLang == null)
 				{
+					continue;
+				}
+				if (reqTypeArray == null)
+				{
+					selected.add(aLang);
+					continue;
+				}
+				SELARRAY: for (String[] types : reqTypeArray)
+				{
+					for (String type : types)
+					{
+						if (!aLang.isType(type))
+						{
+							continue SELARRAY;
+						}
+					}
 					selected.add(aLang);
 				}
 			}
 
 			for ( Language lang : Globals.getLanguageList() )
 			{
-				if ((reqType == null || lang.isType(reqType))
-					&& PrereqHandler.passesAll(lang.getPreReqList(), aPC,
+				if (!PrereqHandler.passesAll(lang.getPreReqList(), aPC,
 						lang))
 				{
+					continue;
+				}
+				if (reqTypeArray == null)
+				{
+					available.add(lang);
+					continue;
+				}
+				AVARRAY: for (String[] types : reqTypeArray)
+				{
+					for (String type : types)
+					{
+						if (!lang.isType(type))
+						{
+							continue AVARRAY;
+						}
+					}
 					available.add(lang);
 				}
 			}
