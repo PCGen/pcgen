@@ -12,6 +12,7 @@ import javax.swing.tree.TreePath;
 import pcgen.core.Constants;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
+import pcgen.core.Movement;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -248,9 +249,10 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 				 * race null, return null That's inconsistent and should
 				 * probably be cleaned up...
 				 */
-				if (race.getMovement() != null)
+				List<Movement> movements = race.getMovements();
+				if (movements != null && !movements.isEmpty())
 				{
-					sRet = race.getMovement().toString();
+					sRet = movements.get(0).toString();
 				}
 
 				break;

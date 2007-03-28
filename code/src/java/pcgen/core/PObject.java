@@ -675,9 +675,13 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Get the movement for this object
 	 * @return the movement for this object
 	 */
-	public final Movement getMovement()
+	public List<Movement> getMovements()
 	{
-		return movement;
+		if (movement == null)
+		{
+			return Collections.emptyList();
+		}
+		return Collections.singletonList(movement);
 	}
 
 	/**
@@ -3770,7 +3774,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Set the movement
 	 * @param cm
 	 */
-	public void setMovement(Movement cm)
+	public void setMovement(Movement cm, int level)
 	{
 		movement = cm;
 	}

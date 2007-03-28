@@ -71,6 +71,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.core.Constants;
 import pcgen.core.Globals;
+import pcgen.core.Movement;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -1158,9 +1159,10 @@ public class InfoRaces extends BaseCharacterInfoTab
 			if (fn.getItem() instanceof Race)
 			{
 				Race race = (Race) fn.getItem();
-				if (race.getMovement() != null)
+				List<Movement> movements = race.getMovements();
+				if (movements != null && !movements.isEmpty())
 				{
-					return race.getMovement().toString();
+					return movements.get(0).toString();
 				}
 			}
 			return null;

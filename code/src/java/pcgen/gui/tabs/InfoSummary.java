@@ -76,6 +76,7 @@ import javax.swing.table.TableColumn;
 import pcgen.core.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.Movement;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -906,9 +907,10 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumSize1")).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			b.append(aRace.getSize());
 
-			if (aRace.getMovement() != null)
+			List<Movement> movements = aRace.getMovements();
+			if (movements != null && !movements.isEmpty())
 			{
-				final String movelabel = aRace.getMovement().toString();
+				final String movelabel = movements.get(0).toString();
 				if (movelabel.length() > 0)
 				{
 					b

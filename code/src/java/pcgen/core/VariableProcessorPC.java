@@ -607,7 +607,7 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("MOVEBASE".equals(valString))
 		{
-			valString = getPc().getRace().getMovement().getDoubleMovement().toString();
+			valString = getPc().getRace().getMovements().get(0).getDoubleMovement().toString();
 		}
 		else if (valString.startsWith("MOVE["))
 		{

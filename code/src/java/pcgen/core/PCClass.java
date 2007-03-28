@@ -73,6 +73,11 @@ public class PCClass extends PObject {
 	private List<LevelProperty<Domain>> domainList = null;
 
 	/*
+	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
+	 */
+	private List<LevelProperty<Movement>> movementList = null;
+	
+	/*
 	 * FUTURETYPESAFETY This is throwing around Feat names as Strings. :(
 	 * 
 	 * This requires a Chooser of some type to be able to be present in PCClass, as
@@ -6712,6 +6717,33 @@ public class PCClass extends PObject {
 			encumberedLoadMove = new ArrayList<LevelProperty<Load>>();
 		}
 		encumberedLoadMove.add(LevelProperty.getLevelProperty(lvl, load));
+	}
+
+	@Override
+	public void setMovement(Movement m, int level)
+	{
+		if (movementList == null) {
+			movementList = new ArrayList<LevelProperty<Movement>>();
+		}
+		movementList.add(LevelProperty.getLevelProperty(level, m));
+		
+	}
+	
+	@Override
+	public List<Movement> getMovements()
+	{
+		if (movementList == null) {
+			return Collections.emptyList();
+		}
+		List<Movement> returnList = new ArrayList<Movement>();
+		for (LevelProperty<Movement> prop : movementList)
+		{
+			if (prop.getLevel() <= level)
+			{
+				returnList.add(prop.getObject());
+			}
+		}
+		return returnList;
 	}
 	
 //	public void removeAutoAbilities(final AbilityCategory aCategory, final int aLevel)

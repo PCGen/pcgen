@@ -13,6 +13,7 @@
       <action dev="jdempsey" type="add" issue="1262317">Ability Object: Add ability tags.</action>
       <action dev="jdempsey" type="update" issue="1307101">DOMAINS tag to take PRExxx tags in Deity files.</action>
       <action dev="thpr" type="fix" issue="1683247">CHOOSE:Language does not allow multiple types</action>
+      <action dev="thpr" type="fix" issue="1272641">MOVE on Class level lines</action>
     </release>
     <release version="5.11.11" date="2007-03-24" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1685359">Can't save Monk.</action>

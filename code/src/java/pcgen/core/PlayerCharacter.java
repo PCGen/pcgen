@@ -8239,12 +8239,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		Movement movement = getRace().getMovement();
-		if (movement == null || (!movement.isInitialized()))
+		List<Movement> mms = getRace().getMovements();
+		if (mms == null || mms.isEmpty() || (!mms.get(0).isInitialized()))
 		{
 			return;
 		}
 
+		Movement movement = mms.get(0);
 		movements = movement.getMovements();
 		movementTypes = movement.getMovementTypes();
 		movementMult = movement.getMovementMult();
@@ -11549,18 +11550,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		for (PObject pObj : aList)
 		{
-			final Movement movement = pObj.getMovement();
-
-			if (movement == null || movement.getNumberOfMovements() < 1)
+			List<Movement> ml = pObj.getMovements();
+			if (ml == null || ml.isEmpty())
 			{
 				continue;
 			}
-
-			for (int i = 0; i < movement.getNumberOfMovements(); i++)
+			
+			for (Movement movement : ml)
 			{
-				setMyMoveRates(movement.getMovementType(i), movement
-					.getMovement(i).doubleValue(), movement.getMovementMult(i),
-					movement.getMovementMultOp(i), movement.getMoveRatesFlag());
+				if (movement == null || movement.getNumberOfMovements() < 1)
+				{
+					continue;
+				}
+
+				for (int i = 0; i < movement.getNumberOfMovements(); i++)
+				{
+					setMyMoveRates(movement.getMovementType(i), movement
+						.getMovement(i).doubleValue(), movement.getMovementMult(i),
+						movement.getMovementMultOp(i), movement.getMoveRatesFlag());
+				}
 			}
 		}
 		// setDirty(true);

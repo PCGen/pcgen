@@ -78,6 +78,7 @@ import pcgen.core.Equipment;
 import pcgen.core.FollowerOption;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.Movement;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -1204,9 +1205,10 @@ public class InfoResources extends FilterAdapterPanel implements
 				}
 			}
 
-			if (aRace.getMovement() != null)
+			List<Movement> movements = aRace.getMovements();
+			if (movements != null && !movements.isEmpty())
 			{
-				bString = aRace.getMovement().toString();
+				bString = movements.get(0).toString();
 			}
 
 			if (bString.length() > 0)

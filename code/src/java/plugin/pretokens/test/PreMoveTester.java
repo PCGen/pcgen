@@ -26,7 +26,11 @@
  */
 package plugin.pretokens.test;
 
+import java.util.List;
+
+import pcgen.core.Movement;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -103,14 +107,21 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 	 */
 	private boolean hasMovement(PlayerCharacter character)
 	{
-		if (character != null && character.getRace() != null
-			//CONSIDER Is this gate on null movement necessary (can you legally get a race w/ no movement?)
-			&& character.getRace().getMovement() != null
-			&& character.getRace().getMovement().getNumberOfMovementTypes() != 0)
+		if (character == null)
 		{
-			return true;
+			return false;
 		}
-		return false;
+		Race r = character.getRace();
+		if (r == null)
+		{
+			return false;
+		}
+		List<Movement> movements = r.getMovements();
+		if (movements == null || movements.isEmpty())
+		{
+			return false;
+		}
+		return movements.get(0).getNumberOfMovementTypes() != 0;
 	}
 
 }
