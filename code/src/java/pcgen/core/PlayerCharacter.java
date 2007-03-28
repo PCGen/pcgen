@@ -14027,7 +14027,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			if (aBonus.getDependsOn(newBonus.getBonusInfo()))
+			if (aBonus.getDependsOn(newBonus.getUnparsedBonusInfoList()))
 			{
 				aList.add(newBonus);
 			}

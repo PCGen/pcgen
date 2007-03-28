@@ -136,6 +136,21 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 	}
 
 	/**
+	 * Return a list of the unparsed (converted back to strings) 
+	 * bonus info entries.
+	 * @return The unparsed bonus info list
+	 */
+	public List<String> getUnparsedBonusInfoList()
+	{
+		List<String> list = new ArrayList<String>();
+		for (Object info : bonusInfo)
+		{
+			list.add(unparseToken(info));
+		}
+		return list;
+	}
+			
+	/**
 	 * get Bonus Info List
 	 * @return Bonus Info List
 	 */
@@ -179,6 +194,42 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 	public boolean getDependsOn(final String aString)
 	{
 		return dependMap.containsKey(aString);
+	}
+
+	/**
+	 * Get depends on given a set of keys
+	 * @param aList List of bonus keys
+	 * @return true if it any of the keys are depended on
+	 */
+	public boolean getDependsOn(final List<String> aList)
+	{
+		for (String key : aList)
+		{
+			if (dependMap.containsKey(key))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Report on the dependencies of the bonus.
+	 * @return String the dependancies
+	 */
+	public String listDependsMap()
+	{
+		StringBuffer buff = new StringBuffer("[");
+		for (String key : dependMap.keySet())
+		{
+			if (buff.length()> 1)
+			{
+				buff.append(", ");
+			}
+			buff.append(key);
+		}
+		buff.append("]");
+		return buff.toString();
 	}
 
 	/**
