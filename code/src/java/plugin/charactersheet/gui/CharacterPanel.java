@@ -690,6 +690,7 @@ public class CharacterPanel extends FlippingSplitPane
 				if (serial < pc.getSerial())
 				{
 					generateTabs(false);
+					page1.refresh();
 					notesPanel.refresh();
 					selectPanel.refresh();
 					serial = pc.getSerial();
