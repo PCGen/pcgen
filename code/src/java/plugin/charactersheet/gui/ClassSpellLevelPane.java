@@ -424,6 +424,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 			for (Component c : removeList)
 			{
 				remove(c);
+				jPanel4.remove(c);
 			}
 			removeList.clear();
 
