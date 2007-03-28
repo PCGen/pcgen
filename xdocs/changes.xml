@@ -12,6 +12,7 @@
       <action dev="thpr" type="fix" issue="1683259">Skill Editor mangles CHOOSE: Tokens</action>
       <action dev="jdempsey" type="add" issue="1262317">Ability Object: Add ability tags.</action>
       <action dev="jdempsey" type="update" issue="1307101">DOMAINS tag to take PRExxx tags in Deity files.</action>
+      <action dev="jdempsey" type="fix" issue="1686367">BONUS:VAR|&lt;Var Y>|&lt;Var X> not being evaluated.</action>
       <action dev="thpr" type="fix" issue="1683247">CHOOSE:Language does not allow multiple types</action>
       <action dev="thpr" type="fix" issue="1272641">MOVE on Class level lines</action>
     </release>
