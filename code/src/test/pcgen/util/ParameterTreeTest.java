@@ -120,7 +120,7 @@ public class ParameterTreeTest extends PCGenTestCase
 	@Test
 	public final void testMakeTree4()
 	{
-		String s = "TYPE=Foo||TYPE=Bar";
+		String s = "TYPE=Foo[or]TYPE=Bar";
 		Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
@@ -132,7 +132,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			fail("Threw a parse exception");
 		}
 		
-		is(t1.getContents(), strEq("||"),                      "New ParamterTree has correct contents");
+		is(t1.getContents(), strEq("[or]"),                      "New ParamterTree has correct contents");
 		is(t1.getLeftTree().getContents(),  strEq("TYPE=Foo"), "New ParamterTree has correct left tree contents");
 		is(t1.getLeftTree().getLeftTree(),  eqnull(), "New ParamterTree has correct left tree, left tree contents");
 		is(t1.getLeftTree().getRightTree(), eqnull(), "New ParamterTree has correct left tree, right tree contents");
@@ -146,7 +146,7 @@ public class ParameterTreeTest extends PCGenTestCase
 	@Test
 	public final void testMakeTree5()
 	{
-		String s = "(TYPE=Foo||TYPE=Bar)";
+		String s = "(TYPE=Foo[or]TYPE=Bar)";
 		Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
@@ -158,7 +158,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			fail("Threw a parse exception");
 		}
 		
-		is(t1.getContents(), strEq("||"),                      "New ParamterTree has correct contents");
+		is(t1.getContents(), strEq("[or]"),                      "New ParamterTree has correct contents");
 		is(t1.getLeftTree().getContents(),  strEq("TYPE=Foo"), "New ParamterTree has correct left tree contents");
 		is(t1.getLeftTree().getLeftTree(),  eqnull(), "New ParamterTree has correct left tree, left tree contents");
 		is(t1.getLeftTree().getRightTree(), eqnull(), "New ParamterTree has correct left tree, right tree contents");
@@ -171,7 +171,7 @@ public class ParameterTreeTest extends PCGenTestCase
 	@Test
 	public final void testMakeTree6()
 	{
-		String s = "(TYPE=Foo||TYPE=Bar&&String3)";
+		String s = "(TYPE=Foo[or]TYPE=Bar[and]String3)";
 		Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
@@ -189,8 +189,8 @@ public class ParameterTreeTest extends PCGenTestCase
 		ParameterTree tlr = tl.getRightTree();
 
 		// expected branch nodes
-		is(t.getContents(), strEq("&&"),   "t1 ParamterTree has correct contents");
-		is(tl.getContents(), strEq("||"),  "tl ParamterTree has correct contents");
+		is(t.getContents(), strEq("[and]"),   "t1 ParamterTree has correct contents");
+		is(tl.getContents(), strEq("[or]"),  "tl ParamterTree has correct contents");
 
 		// expected leaf nodes
 		is(tr.getContents(), strEq("String3"),  "tr ParamterTree has correct contents");
@@ -214,7 +214,7 @@ public class ParameterTreeTest extends PCGenTestCase
 //		verbose = true;
 //		Logging.errorPrint("\n\n --- Start Test Make tree 7 --- \n\n");
 
-		String s = "TYPE=Foo||(TYPE=Bar&&String3)";
+		String s = "TYPE=Foo[or](TYPE=Bar[and]String3)";
 		Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
@@ -235,8 +235,8 @@ public class ParameterTreeTest extends PCGenTestCase
 		is(t, not(eqnull()),   "t  not null");
 		is(tr, not(eqnull()),  "tr not null");
 
-		is(t.getContents(),  strEq("||"),  "t  has correct contents '||'");
-		is(tr.getContents(), strEq("&&"),  "tr has correct contents '&&'");
+		is(t.getContents(),  strEq("[or]"),  "t  has correct contents '[or]'");
+		is(tr.getContents(), strEq("[and]"),  "tr has correct contents '[and]'");
 
 		// expected leaf nodes
 		is(tl,  not(eqnull()), "tl  not null");
@@ -265,7 +265,7 @@ public class ParameterTreeTest extends PCGenTestCase
 //		verbose = true;
 //		Logging.errorPrint("\n\n --- Start Test Make tree 8 --- \n\n");
 
-		String s = "TYPE=Foo||((CATEGORY=FEAT||NATURE=AUTO)&&TYPE=Bar)";
+		String s = "TYPE=Foo[or]((CATEGORY=FEAT[or]NATURE=AUTO)[and]TYPE=Bar)";
 		Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
@@ -295,9 +295,9 @@ public class ParameterTreeTest extends PCGenTestCase
 		is(tr, not(eqnull()),  "tr not null");
 		is(trl, not(eqnull()), "trl not null");
 
-		is(t.getContents(),   strEq("||"),  "t  has correct contents '||'");
-		is(tr.getContents(),  strEq("&&"),  "tr has correct contents '&&'");
-		is(trl.getContents(), strEq("||"),  "trl has correct contents '||'");
+		is(t.getContents(),   strEq("[or]"),  "t  has correct contents '[or]'");
+		is(tr.getContents(),  strEq("[and]"),  "tr has correct contents '[and]'");
+		is(trl.getContents(), strEq("[or]"),  "trl has correct contents '[or]'");
 
 		// expected leaf nodes
 		is(tl,  not(eqnull()), "tl  not null");
@@ -332,7 +332,7 @@ public class ParameterTreeTest extends PCGenTestCase
 //		verbose = true;
 //		Logging.errorPrint("\n\n --- Start Test Make tree 9 --- \n\n");
 
-		String s = "TYPE=Foo||((CATEGORY=FEAT||NATURE=AUTO||CATEGORY=SA)&&TYPE=Bar)";
+		String s = "TYPE=Foo[or]((CATEGORY=FEAT[or]NATURE=AUTO[or]CATEGORY=SA)[and]TYPE=Bar)";
 		Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
@@ -366,10 +366,10 @@ public class ParameterTreeTest extends PCGenTestCase
 		is(trl, not(eqnull()),  "trl not null");
 		is(trll, not(eqnull()), "trll not null");
 
-		is(t.getContents(),    strEq("||"), "t    has correct contents '||'");
-		is(tr.getContents(),   strEq("&&"), "tr   has correct contents '&&'");
-		is(trl.getContents(),  strEq("||"), "trl  has correct contents '||'");
-		is(trll.getContents(), strEq("||"), "trll has correct contents '||'");
+		is(t.getContents(),    strEq("[or]"), "t    has correct contents '[or]'");
+		is(tr.getContents(),   strEq("[and]"), "tr   has correct contents '[and]'");
+		is(trl.getContents(),  strEq("[or]"), "trl  has correct contents '[or]'");
+		is(trll.getContents(), strEq("[or]"), "trll has correct contents '[or]'");
 		
 		// expected leaf nodes
 		is(tl,  not(eqnull()), "tl  not null");

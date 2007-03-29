@@ -15872,9 +15872,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return st;
 		}
 		
-		st.get(Ability.Nature.VIRTUAL).addAll(getVirtualFeatList());
-		st.get(Ability.Nature.AUTOMATIC).addAll(featAutoList());
-		st.get(Ability.Nature.NORMAL).addAll(getRealFeatList());
+		st.get(Ability.Nature.VIRTUAL)  .addAll(getAbilitySetByNature(Ability.Nature.VIRTUAL));
+		st.get(Ability.Nature.AUTOMATIC).addAll(getAbilitySetByNature(Ability.Nature.AUTOMATIC));
+		st.get(Ability.Nature.NORMAL)   .addAll(getAbilitySetByNature(Ability.Nature.NORMAL));
 
 		st.get(Ability.Nature.ANY).addAll(st.get(Ability.Nature.NORMAL));
 		st.get(Ability.Nature.ANY).addAll(st.get(Ability.Nature.AUTOMATIC));
@@ -16960,6 +16960,45 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setStableVirtualFeatList(vFeatList);
 
 		return vFeatList;
+	}
+
+	public Set<Ability> getAbilitySetByNature(Ability.Nature n)
+	{
+		GameMode gm = SettingsHandler.getGame();
+
+		Set<AbilityCategory> Sc = new HashSet<AbilityCategory>();
+		Sc.addAll(gm.getAllAbilityCategories());
+
+		Set<Ability> Sa = new HashSet<Ability>();
+		
+		switch (n)
+		{
+			case AUTOMATIC :
+				for (AbilityCategory Ac: Sc)
+				{
+					Sa.addAll(this.getAutomaticAbilityList(Ac));
+				}
+				break;
+
+			case NORMAL :
+				for (AbilityCategory Ac: Sc)
+				{
+					Sa.addAll(this.getRealAbilitiesList(Ac));
+				}
+				break;
+
+			case VIRTUAL :
+				for (AbilityCategory Ac: Sc)
+				{
+					Sa.addAll(this.getVirtualAbilityList(Ac));
+				}
+				break;
+
+			default:
+				Logging.errorPrint("Attempt to get abilities of Nature: " + n);
+		}
+		
+		return Sa;
 	}
 
 	public List<Ability> getVirtualAbilityList(final AbilityCategory aCategory)

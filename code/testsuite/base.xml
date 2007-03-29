@@ -923,7 +923,7 @@
 	  ====================================-->
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
-|FOR,%feat,0,count("ABILITIES","CATEGORY=FEAT","VISIBILITY=VISIBLE")-1,1,0|	
+|FOR,%feat,0,count("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|	
 		<feat>
 			<name>|ABILITY.FEAT.VISIBLE.%feat|</name>
 			<description>|ABILITY.FEAT.VISIBLE.%feat.DESC|</description>
@@ -937,7 +937,7 @@
 |ENDFOR|	
 
 		<!-- Auto feats -->
-|FOR,%feat,0,count("ABILITIES","CATEGORY=FEAT","VISIBILITY=VISIBLE","NATURE=AUTO")-1,1,0|	
+|FOR,%feat,0,count("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|	
 		<feat>
 			<name>|ABILITYAUTO.FEAT.VISIBLE.%feat|</name>
 			<description>|ABILITYAUTO.FEAT.VISIBLE.%feat.DESC|</description>

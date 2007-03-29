@@ -32,6 +32,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
+import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 
@@ -65,56 +66,39 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 
+		// Make some ability categories and add them to the game mode
+		AbilityCategory featCategory = 
+			SettingsHandler.getGame().getAbilityCategory("Feat");
+
+		if (featCategory == null)
+		{
+			featCategory = new AbilityCategory("Feat");
+			SettingsHandler.getGame().addAbilityCategory(featCategory);
+		}
+
+		AbilityCategory bardCategory = new AbilityCategory("BARDIC");
+		SettingsHandler.getGame().addAbilityCategory(bardCategory);
+
 		Ability ab1 =
-				TestHelper.makeAbility("Perform (Dance)", "FEAT",
+				TestHelper.makeAbility("Perform (Dance)", "Feat",
 					"General.Fighter");
 		ab1.setMultiples("NO");
 		ab1.setVisibility(Visibility.DEFAULT);
-		AbilityCategory aCategory =
-				SettingsHandler.getGame().getAbilityCategory(ab1.getCategory());
-		if (aCategory == null)
-		{
-			aCategory = new AbilityCategory(ab1.getCategory());
-			SettingsHandler.getGame().addAbilityCategory(aCategory);
-		}
-		character.addAbility(aCategory, ab1, null);
+		character.addAbility(featCategory, ab1, null);
 
-		Ability ab2 =
-				TestHelper.makeAbility("Perform (Dance)", "BARDIC",
+		Ability ab2 = TestHelper.makeAbility("Perform (Dance)", "BARDIC",
 					"General.Bardic");
 		ab2.setMultiples("NO");
-		aCategory =
-				SettingsHandler.getGame().getAbilityCategory(ab2.getCategory());
-		if (aCategory == null)
-		{
-			aCategory = new AbilityCategory(ab2.getCategory());
-			SettingsHandler.getGame().addAbilityCategory(aCategory);
-		}
-		character.addAbility(aCategory, ab2, null);
+		character.addAbility(bardCategory, ab2, null);
 
-		Ability ab3 =
-				TestHelper.makeAbility("Perform (Oratory)", "FEAT",
+		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", "FEAT",
 					"General.Fighter");
 		ab3.setMultiples("NO");
-		aCategory =
-				SettingsHandler.getGame().getAbilityCategory(ab3.getCategory());
-		if (aCategory == null)
-		{
-			aCategory = new AbilityCategory(ab3.getCategory());
-			SettingsHandler.getGame().addAbilityCategory(aCategory);
-		}
-		character.addAbility(aCategory, ab3, null);
+		character.addAbility(featCategory, ab3, null);
 
 		Ability ab4 = TestHelper.makeAbility("Silent Step", "FEAT", "General");
 		ab4.setMultiples("NO");
-		aCategory =
-				SettingsHandler.getGame().getAbilityCategory(ab4.getCategory());
-		if (aCategory == null)
-		{
-			aCategory = new AbilityCategory(ab4.getCategory());
-			SettingsHandler.getGame().addAbilityCategory(aCategory);
-		}
-		character.addAbility(aCategory, ab4, null);
+		character.addAbility(featCategory, ab4, null);
 	}
 
 	/**
@@ -126,14 +110,14 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("ABILITYLIST.FEAT",
-			"Perform (Dance), Perform (Oratory), Silent Step", tok.getToken(
-				"ABILITYLIST.FEAT", character, eh));
-		assertEquals("ABILITYLIST.FEAT.TYPE=Fighter",
-			"Perform (Dance), Perform (Oratory)", tok.getToken(
-				"ABILITYLIST.FEAT.TYPE=Fighter", character, eh));
-		assertEquals("ABILITYLIST.FEAT.!TYPE=Fighter", "Silent Step", tok
-			.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh));
+		is(tok.getToken("ABILITYLIST.FEAT", character, eh), 
+				strEq("Perform (Dance), Perform (Oratory), Silent Step"), "ABILITYLIST.FEAT");
+
+		is(tok.getToken("ABILITYLIST.FEAT.TYPE=Fighter", character, eh),
+				strEq("Perform (Dance), Perform (Oratory)"), "ABILITYLIST.FEAT.TYPE=Fighter");
+
+		is(tok.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh),
+				strEq("Silent Step"), "ABILITYLIST.FEAT.!TYPE=Fighter");
 	}
 
 	/**
@@ -145,8 +129,9 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("ABILITYLIST.BARDIC", "Perform (Dance)", tok.getToken(
-			"ABILITYLIST.BARDIC", character, eh));
+		is(tok.getToken("ABILITYLIST.BARDIC", character, eh),
+			strEq("Perform (Dance)"),
+			"ABILITYLIST.BARDIC");
 	}
 
 	/**
@@ -154,15 +139,46 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testCount()
 	{
+//		verbose = true;
 		PlayerCharacter character = getCharacter();
 
-		assertEquals(
-			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")",
-			3.0,
-			character
-				.getVariableValue(
-					"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")",
-					""), 0.01);
+		AbilityCategory featCategory = 
+			SettingsHandler.getGame().getAbilityCategory("Feat");
+
+		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)", "FEAT", "General");
+		ab5.setMultiples("NO");
+		ab5.setVisibility(Visibility.OUTPUT_ONLY);
+		character.addAbility(featCategory, ab5, null);
+
+		is(character
+			.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")",""),
+			eq(3.0, 0.1),
+			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")");
+
+		is(character
+				.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")",""),
+				eq(4.0, 0.1),
+				"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
+
+		is(character
+				.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT[and]TYPE=Fighter\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")",""),
+				eq(2.0, 0.1),
+				"count(\"ABILITIES\",\"CATEGORY=FEAT[and]TYPE=Fighter\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
+
+		is(character
+				.getVariableValue("count(\"ABILITIES\",\"NATURE=AUTOMATIC\")",""),
+				eq(0.0, 0.1),
+				"count(\"ABILITIES\",\"NATURE=AUTOMATIC\")");
+
+		is(character
+				.getVariableValue("count(\"ABILITIES\",\"NATURE=VIRTUAL\")",""),
+				eq(0.0, 0.1),
+				"count(\"ABILITIES\",\"NATURE=VIRTUAL\")");
+
+		is(character
+				.getVariableValue("count(\"ABILITIES\",\"NATURE=NORMAL\")",""),
+				eq(5.0, 0.1),
+				"count(\"ABILITIES\",\"NATURE=NORMAL\")");
 	}
 
 	/**

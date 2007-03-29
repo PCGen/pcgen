@@ -23,24 +23,26 @@
 
 package plugin.jepcommands;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.Stack;
 
 import org.nfunk.jep.ParseException;
 
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.VariableProcessor;
+import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
-import pcgen.util.enumeration.View;
+import pcgen.util.ParameterTree;
+import pcgen.util.enumeration.Visibility;
 
 
 /**
  * <code>CountCommand</code> deals with the count() JEP command.
- * The first parameter will be the type of objetc being counted 
+ * The first parameter will be the type of object being counted 
  * and further parameters will specify the criteria. 
  *
  * Last Editor: $Author:  $
@@ -52,10 +54,20 @@ import pcgen.util.enumeration.View;
 public class CountCommand extends PCGenCommand
 {
 
+	public enum JepAbilityCountEnum
+	{
+		CATEGORY,
+		NATURE,
+		TYPE,
+		VISIBILITY
+	}
+
 	public enum JepCountEnum
 	{
-		ABILITIES 
+		ABILITIES
 		{
+			public HashMap<Ability.Nature, Set<Ability>> abdata;
+
 			/**
 			 * Count a character's abiltiies.
 			 * 
@@ -72,82 +84,162 @@ public class CountCommand extends PCGenCommand
 						"Count of abilities had too few parameters.");
 				}
 
-				String visibility = "VISIBLE";
-				String category = null;
-				String nature = "NORMAL";
+				abdata = pc.getAbilitiesSet();
 
-				// Parse the parameters passed in
+				ParameterTree pt = null;
+
 				for (int i = 1; i < params.length; i++)
 				{
-					if (!(params[i] instanceof String))
+					try
 					{
-						throw new ParseException(
-							"Invalid parameter type for parameter #" + (i + 1) + " - "
-								+ String.valueOf(params[i]));
+						if (pt == null)
+						{
+							pt = ParameterTree.makeTree((String) params[i]);
+						}
+						else
+						{
+							ParameterTree npt = new ParameterTree(ParameterTree.andString);
+							npt.setLeftTree(pt);
+							pt  = npt;
+							npt = ParameterTree.makeTree((String) params[i]);
+							pt.setRightTree(npt);
+						}
 					}
+					catch (ParseException pe)
+					{
+						Logging.errorPrint("Malformed parameter to count(ABILITY) " + (String) params[i], pe);
+					}
+				}
 
-					String[] keyValue = ((String) params[i]).split("=");
-					if ("CATEGORY".equalsIgnoreCase(keyValue[0]))
+				Set<Ability> filtered = FilterAbilities(pt);
+				
+//				Logging.errorPrint("Number remaining: " + filtered.size());
+				
+				double accum = 0;
+				
+				for (Ability ab: filtered)
+				{
+					double ac = ab.getAssociatedCount();					
+					accum += (ac <= 1.01) ? 1 : ab.getAssociatedCount();
+				}
+				return Double.valueOf(accum);
+			}
+
+			//@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
+			public Set<Ability> FilterAbilities (ParameterTree pt)
+			{
+				String c = pt.getContents();
+//				System.err.println(c);
+				
+				if (c.equalsIgnoreCase(ParameterTree.orString) || c.equalsIgnoreCase(ParameterTree.andString))
+				{
+					Set<Ability> a = FilterAbilities(pt.getLeftTree());
+					Set<Ability> b = FilterAbilities(pt.getRightTree());
+					if (c.equalsIgnoreCase(ParameterTree.orString))
 					{
-						category = keyValue[1];
-					}
-					else if ("VISIBILITY".equalsIgnoreCase(keyValue[0]))
-					{
-						visibility = keyValue[1];
-					}
-					else if ("NATURE".equalsIgnoreCase(keyValue[0]))
-					{
-						nature = keyValue[1];
+						a.addAll(b);
 					}
 					else
 					{
-						throw new ParseException(
-							"Invalid parameter key for parameter #" + (i + 1) + " - "
-								+ String.valueOf(params[i]));
+						a.retainAll(b);
 					}
+					return a;
+				}
+				
+				String[] keyValue = c.split("=");
+
+				JepAbilityCountEnum en = JepAbilityCountEnum.valueOf(keyValue[0]);
+				Set<Ability> cs = null;
+				Ability a;
+
+				switch (en)
+				{
+					case CATEGORY:
+						String cat = keyValue[1];
+						cs = new HashSet<Ability>(abdata.get(Ability.Nature.ANY));
+						
+						Iterator It = cs.iterator();
+						
+						while (It.hasNext())
+						{
+							a = (Ability) It.next();
+							if (!a.getCategory().equalsIgnoreCase(cat))
+							{
+								It.remove();
+							}
+						}
+						break;
+						
+					case NATURE: ;
+						Ability.Nature n;
+						try
+						{
+							n  = Ability.Nature.valueOf(keyValue[1]);
+						}
+						catch (IllegalArgumentException ex)
+						{
+							Logging.errorPrint("Bad paramter to count(\"Ability\"), no such NATURE " + c);
+							n = Ability.Nature.ANY;
+						}
+						cs = new HashSet<Ability>(abdata.get(n));
+						break;
+
+					case TYPE: ;
+						String ty = keyValue[1];
+						cs = new HashSet<Ability>(abdata.get(Ability.Nature.ANY));
+
+						It = cs.iterator();
+
+						while (It.hasNext())
+						{
+							a = (Ability) It.next();
+							if (!a.isType(ty))
+							{
+								It.remove();
+							}
+						}
+						break;
+
+					case VISIBILITY :
+						Visibility vi;
+						cs = new HashSet<Ability>(abdata.get(Ability.Nature.ANY));
+
+						try
+						{
+							vi  = Visibility.valueOf(keyValue[1]);
+
+							It = cs.iterator();
+							
+							while(It.hasNext())
+							{
+								a = (Ability) It.next();
+								if (!a.getVisibility().equals(vi))
+								{
+									It.remove();
+								}
+							}
+						}
+						catch (IllegalArgumentException ex)
+						{
+							Logging.errorPrint("Bad paramter to count(\"Ability\"), no such Visibility " + keyValue[1]);
+						}
+
+
 				}
 
-				// Fetch the requested list of abilities
-				final AbilityCategory aCategory =
-						SettingsHandler.getGame().getAbilityCategory(category);
-				if (aCategory == null)
-				{
-					throw new ParseException("Invalid category specified "
-						+ String.valueOf(category));
-				}
-				final List<Ability> abilities = new ArrayList<Ability>();
-				if ("ALL".equals(nature))
-				{
-					abilities.addAll(pc.getRealAbilityList(aCategory));
-					abilities.addAll(pc.getAutomaticAbilityList(aCategory));
-					abilities.addAll(pc.getVirtualAbilityList(aCategory));
-				}
-				else if ("VIRTUAL".equals(nature))
-				{
-					abilities.addAll(pc.getVirtualAbilityList(aCategory));
-				}
-				else if ("AUTO".equals(nature))
-				{
-					abilities.addAll(pc.getAutomaticAbilityList(aCategory));
-				}
-				else
-				{
-					abilities.addAll(pc.getRealAbilityList(aCategory));
-				}
-
-				// Count those abilities that match the visibility level
-				View view = View.getViewFromName(visibility);
-				int count = 0;
-				for (Ability ability : abilities)
-				{
-					if (ability.getVisibility().isVisibileTo(view, true))
-					{
-						count++;
-					}
-				}
-
-				return new Double(count);
+//				System.err.println("--- start ---");
+//				System.err.println(keyValue[0]);
+//				System.err.println(keyValue[1]);
+//
+//				for (Ability ab : cs)
+//				{
+//					System.err.println(ab);
+//				}
+//				
+//				System.err.println("--- end ---");
+				return cs;
 			}
+
 		},
 		CLASSES
 		{

@@ -30,13 +30,20 @@ import org.nfunk.jep.ParseException;
 
 public class ParameterTree
 {
-	String         data;
-	ParameterTree  left;
-	ParameterTree  right;
-	static Pattern pat = Pattern.compile("(\\(|\\)|\\|\\||\\&\\&)");
+	String        data;
+	ParameterTree left;
+	ParameterTree right;
+	static public String orString  = "[or]";
+	static public String andString = "[and]";
+	static String orPatString  = "\\[or\\]";
+	static String andPatString = "\\[and\\]";
+	
+	static String patString = "(\\(|\\)|" + orPatString + "|" + andPatString + ")";
+		
+	static Pattern pat = Pattern.compile(patString);
 
 
-	static ParameterTree makeTree (final String source) throws ParseException
+	public static ParameterTree makeTree (final String source) throws ParseException
 	{
 		Matcher mat = ParameterTree.pat.matcher(source);
 	
