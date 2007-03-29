@@ -148,7 +148,26 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	@Override
 	protected Ability getObjectKeyed(String aKey)
 	{
-		return Globals.getAbilityKeyed(Constants.ALL_CATEGORIES, aKey);
+		if (aKey == null || aKey.length() == 0)
+		{
+			return null;
+		}
+		
+		String abilityCatName;
+		String abilityKey;
+		
+		String[] parts = aKey.split("\\|");
+		if (parts.length == 2 && parts[0].startsWith("CATEGORY="))
+		{
+			abilityCatName = parts[0].substring(9);
+			abilityKey = parts[1]; 
+		}
+		else
+		{
+			abilityCatName =  Constants.ALL_CATEGORIES;
+			abilityKey = aKey;
+		}
+		return Globals.getAbilityKeyed(abilityCatName, abilityKey);
 	}
 
 	/**
