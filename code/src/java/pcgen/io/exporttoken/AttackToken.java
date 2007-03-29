@@ -86,18 +86,20 @@ public class AttackToken extends Token
 		if (aTok.hasMoreTokens())
 		{
 			String attackType = aTok.nextToken();
-			String modifier = "";
-
-			try
-			{
-				modifier = aTok.nextToken();
-			}
-			catch (Exception e)
-			{
-				//TODO: Should this really be ignored?
-			}
+			String modifier = aTok.hasMoreTokens() ? aTok.nextToken() : "";
+			String format = aTok.hasMoreTokens() ? aTok.nextToken() : "";
 
 			retString = getParsedToken(pc, attackType, modifier);
+			
+			// SHORT means we only return the first attack bonus
+			if ("SHORT".equalsIgnoreCase(format))
+			{
+				int sepPos = retString.indexOf("/");
+				if (sepPos >= 0)
+				{
+					retString = retString.substring(0, sepPos);
+				}
+			}
 		}
 
 		return retString;
