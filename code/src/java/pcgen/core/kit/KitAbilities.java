@@ -23,11 +23,14 @@
 package pcgen.core.kit;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityInfo;
 import pcgen.core.AbilityStore;
 import pcgen.core.AbilityUtilities;
@@ -35,6 +38,7 @@ import pcgen.core.Categorisable;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 
 /**
  * <code>KitAbiltiies</code>.
@@ -152,6 +156,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 		final HashMap<String, AbilityInfo> nameMap    = new HashMap<String, AbilityInfo>();
 		final HashMap<String, AbilityInfo> catMap     = new HashMap<String, AbilityInfo>();
 		boolean useNameMap = true;
+		AbilityCategory abilityCat = AbilityCategory.FEAT;
 
 		for (Iterator<Categorisable> kAbInnerIt = getIterator(); kAbInnerIt.hasNext();)
 		{
@@ -166,6 +171,9 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 			{
 				AbilityInfo abI = nameMap.put(Info.toString(), Info);
 				catMap.put(Info.getCategory() + " " + Info.toString(), Info);
+				abilityCat =
+						SettingsHandler.getGame().getAbilityCategory(
+							Info.getCategory());
 
 				if (abI != null)
 				{
@@ -194,10 +202,14 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 
 		boolean tooManyAbilities = false;
 		int     abilitiesChosen  = 0;
-		// Don't allow choosing of more than allotted number of feats
-		if (!free && (numberOfChoices > ((int) aPC.getFeats() - abilitiesChosen)))
+		// Don't allow choosing of more than allotted number of abilities
+		if (!free
+			&& (numberOfChoices > (aPC.getAvailableAbilityPool(abilityCat)
+				.intValue() - abilitiesChosen)))
 		{
-			numberOfChoices  = (int) aPC.getFeats() - abilitiesChosen;
+			numberOfChoices =
+					aPC.getAvailableAbilityPool(abilityCat).intValue()
+						- abilitiesChosen;
 			tooManyAbilities = true;
 		}
 
@@ -247,12 +259,29 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 			{
 				abilitiesToAdd.add(ability);
 				++abilitiesChosen;
+				final AbilityCategory abilityCategory =
+						SettingsHandler.getGame().getAbilityCategory(
+							ability.getCategory());
 				if (free)
 				{
 					// Need to pay for it first
-					aPC.adjustFeats(1);
+					if (free)
+					{
+						aPC.adjustAbilities(abilityCategory, new BigDecimal(1));
+					}
 				}
-				AbilityUtilities.modFeat(aPC, null, ability.toString(), true, false);
+				Iterator<String> choicesIter = ability.getChoicesIterator();
+				String abChoice = "";
+				do
+				{
+					if (choicesIter.hasNext())
+					{
+						abChoice = choicesIter.next();
+					}
+					AbilityUtilities.modAbility(aPC, null,
+						ability.getAbility(), abChoice, true, abilityCategory);
+				}
+				while (choicesIter.hasNext());
 			}
 			else
 			{
@@ -273,11 +302,25 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 	{
 		for ( AbilityInfo ability : abilitiesToAdd )
 		{
-			AbilityUtilities.modFeat(aPC, null, ability.toString(), true, false);
+			final AbilityCategory abilityCategory =
+					SettingsHandler.getGame().getAbilityCategory(
+						ability.getCategory());
+			Iterator<String> choicesIter = ability.getChoicesIterator();
+			String choice = "";
+			do
+			{
+				if (choicesIter.hasNext())
+				{
+					choice = choicesIter.next();
+				}
+				AbilityUtilities.modAbility(aPC, null, ability.getAbility(),
+					choice, true, abilityCategory);
+			}
+			while (choicesIter.hasNext());
 
 			if (free)
 			{
-				aPC.adjustFeats(1);
+				aPC.adjustAbilities(abilityCategory, new BigDecimal(1));
 			}
 		}
 	}

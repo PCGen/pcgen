@@ -635,6 +635,12 @@ public class AbilityUtilities
 			aPC.addAbility(category, pcAbility, levelInfo);
 			pcAbility.getTemplates(aPC.isImporting(), aPC);
 		}
+		if (pcAbility == null)
+		{
+			Logging.errorPrint("Can't process ability " + argAbility + " not present in character.");
+			return create ? 1 : 0;
+		}
+		
 
 		return finaliseAbility(pcAbility, choice, aPC, create, true, category);
 	}
