@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  9 15:52:50 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Sun Apr  1 17:42:14 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -72,7 +72,7 @@ Rebuke Scalykind	TYPE:Special.Turning.TurnScalykind	VISIBLE:NO												SA:Reb
 
 
 ###Block: Spontaneous Casting abilities
-# Feat Name							Type			Visible	Special Ability		Source Page
+# Feat Name							Type			Visible	Special Ability											Source Page
 Spontaneous casting - Cure spells			TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting - Can spontaneously cast Cure spells				SOURCEPAGE:ClassesI.rtf
 Spontaneous casting - Inflict spells		TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting - Can spontaneously cast Inflict spells			SOURCEPAGE:ClassesI.rtf
 Spontaneous casting - Summon Nature's Ally	TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting - Can spontaneously cast Summon Nature's Ally spells	SOURCEPAGE:ClassesI.rtf

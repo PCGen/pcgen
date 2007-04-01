@@ -134,7 +134,7 @@ The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,
 Secret Knowledge of Avoidance	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,5		SA:Secret (Secret Knowledge of Avoidance)																																BONUS:CHECKS|BASE.Reflex|2														SOURCEPAGE:PrestigeClasses.rtf
 Weapon Trick			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,6		SA:Secret (Weapon Trick)																																							BONUS:COMBAT|BAB|1										SOURCEPAGE:PrestigeClasses.rtf
 Dodge Trick				TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,7		SA:Secret (Dodge Trick)																																								BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:PrestigeClasses.rtf
-Applicable Knowledge		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,8		SA:Secret (Applicable Knowledge)																							ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,TYPE=General)																			SOURCEPAGE:PrestigeClasses.rtf
+Applicable Knowledge		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,8		SA:Secret (Applicable Knowledge)																							ADD:FEAT|TYPE=Metamagic,TYPE=ItemCreation,TYPE=General																			SOURCEPAGE:PrestigeClasses.rtf
 Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SA:Secret (Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
 More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SA:Secret (More Newfound Arcana)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
 

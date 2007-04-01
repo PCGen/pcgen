@@ -28,9 +28,9 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	VFEAT:Illiteracy|PREVAREQ:TL,IlliteracyLVL
 ###Block: Level Progression
 1																				FEATAUTO:Barbarian Fast Movement
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|Uncanny Dodge,Improved Uncanny Dodge
 3	BONUS:VAR|TrapSense|CL/3															FEATAUTO:Trap Sense Ability
-5												ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+5												ADD:FEAT|Uncanny Dodge,Improved Uncanny Dodge
 7	BONUS:VAR|BarbarianDRLVL|CL															FEATAUTO:Barbarian DR
 14																				FEATAUTO:Indomitable Will
 
@@ -48,9 +48,9 @@ CLASS:Ex Barbarian	STARTSKILLPTS:4
 1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	VFEAT:Illiteracy|PREVAREQ:TL,IlliteracyLVL
 ###Block: Level progression
 1																				FEATAUTO:Barbarian Fast Movement
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|Uncanny Dodge,Improved Uncanny Dodge
 3	BONUS:VAR|TrapSense|CL/3															FEATAUTO:Trap Sense Ability
-5												ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+5												ADD:FEAT|Uncanny Dodge,Improved Uncanny Dodge
 7	BONUS:VAR|BarbarianDRLVL|CL															FEATAUTO:Barbarian DR
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page			Save checks bonus											Combat bonus
@@ -112,7 +112,7 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 #	both OS and data to include modifications for differences in Turning ability for Undead,
 #	Air, Fire, etc.
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning|Cleric Turning
+1	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ADD:FEAT|TYPE=TurnUndead	FEATAUTO:Basic Turning|Cleric Turning
 ###Block: Spontaneous casting
 1	VFEAT:Spontaneous casting - Cure spells|PREFEAT:1,Turn Undead
 1	VFEAT:Spontaneous casting - Inflict spells|PREFEAT:1,Rebuke Undead
@@ -217,17 +217,17 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|J
 1					FEATAUTO:Greater Weapon Focus Qualify
 1					FEATAUTO:Greater Weapon Specialization Qualify
 ###Block: Level progression
-1	ADD:FEAT(TYPE.Fighter)
-2	ADD:FEAT(TYPE.Fighter)
-4	ADD:FEAT(TYPE.Fighter)
-6	ADD:FEAT(TYPE.Fighter)
-8	ADD:FEAT(TYPE.Fighter)
-10	ADD:FEAT(TYPE.Fighter)
-12	ADD:FEAT(TYPE.Fighter)
-14	ADD:FEAT(TYPE.Fighter)
-16	ADD:FEAT(TYPE.Fighter)
-18	ADD:FEAT(TYPE.Fighter)
-20	ADD:FEAT(TYPE.Fighter)
+1	ADD:FEAT|TYPE.Fighter
+2	ADD:FEAT|TYPE.Fighter
+4	ADD:FEAT|TYPE.Fighter
+6	ADD:FEAT|TYPE.Fighter
+8	ADD:FEAT|TYPE.Fighter
+10	ADD:FEAT|TYPE.Fighter
+12	ADD:FEAT|TYPE.Fighter
+14	ADD:FEAT|TYPE.Fighter
+16	ADD:FEAT|TYPE.Fighter
+18	ADD:FEAT|TYPE.Fighter
+20	ADD:FEAT|TYPE.Fighter
 
 
 # UDAM numbers extrapolated from Equipmet.rtf,
@@ -256,12 +256,12 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 #	different progression rates, some that stack with Monk.
 4	BONUS:VAR|KiStrikeLVL|CL	FEATAUTO:Ki Strike|Monk Ki Strike Advancement
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2						ADD:VFEAT(Improved Grapple,Stunning Fist)1					FEATAUTO:Improved Unarmed Strike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6									ADD:VFEAT(Combat Reflexes,Deflect Arrows)1					FEATAUTO:Evasion
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2						ADD:VFEAT|1|Improved Grapple,Stunning Fist					FEATAUTO:Improved Unarmed Strike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6									ADD:VFEAT|1|Combat Reflexes,Deflect Arrows					FEATAUTO:Evasion
 3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																					FEATAUTO:Still Mind
 4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|SlowFallLVL|CL													FEATAUTO:Slow Fall
 5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																					FEATAUTO:Purity of Body
-6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6									ADD:VFEAT(Improved Disarm,Improved Trip)1
+6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6									ADD:VFEAT|1|Improved Disarm,Improved Trip
 7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|WholenessBodyLVL|CL													FEATAUTO:Wholeness of Body
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
 9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																					FEATAUTO:Improved Evasion
@@ -334,26 +334,26 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Combat Trees
 1	BONUS:VAR|RangerCombatTreeLVL|CL	FEATAUTO:Ranger Combat Tree
 ###Block: Level progression
-1				BONUS:VAR|WildEmpathy|CL		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatStyle)	FEATAUTO:Wild Empathy|Track
-2										ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatStyle)
-3										ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Endurance
-4	CAST:0,0		BONUS:VAR|RangerAnimalCompLVL|CL	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Animal Companion|Ranger Animal Companion
-5	CAST:0,0								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-6	CAST:0,1								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-7	CAST:0,1								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Woodland Stride
-8	CAST:0,1,0								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Swift Tracker
-9	CAST:0,1,0								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Evasion
-10	CAST:0,1,1								ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-11	CAST:0,1,1,0							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-12	CAST:0,1,1,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-13	CAST:0,1,1,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Camouflage
-14	CAST:0,2,1,1,0							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-15	CAST:0,2,1,1,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-16	CAST:0,2,2,1,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-17	CAST:0,2,2,2,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Hide in Plain Sight (Ranger)
-18	CAST:0,3,2,2,1							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-19	CAST:0,3,3,3,2							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
-20	CAST:0,3,3,3,3							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+1				BONUS:VAR|WildEmpathy|CL		ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus	ADD:FEAT|TYPE.RangerCombatStyle	FEATAUTO:Wild Empathy|Track
+2										ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus	ADD:FEAT|TYPE.RangerCombatStyle
+3										ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							FEATAUTO:Endurance
+4	CAST:0,0		BONUS:VAR|RangerAnimalCompLVL|CL	ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							FEATAUTO:Animal Companion|Ranger Animal Companion
+5	CAST:0,0								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+6	CAST:0,1								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+7	CAST:0,1								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							FEATAUTO:Woodland Stride
+8	CAST:0,1,0								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							FEATAUTO:Swift Tracker
+9	CAST:0,1,0								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							FEATAUTO:Evasion
+10	CAST:0,1,1								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+11	CAST:0,1,1,0							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+12	CAST:0,1,1,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+13	CAST:0,1,1,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							FEATAUTO:Camouflage
+14	CAST:0,2,1,1,0							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+15	CAST:0,2,1,1,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+16	CAST:0,2,2,1,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+17	CAST:0,2,2,2,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							FEATAUTO:Hide in Plain Sight (Ranger)
+18	CAST:0,3,2,2,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+19	CAST:0,3,3,3,2							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+20	CAST:0,3,3,3,3							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus												Combat bonus
 CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -366,12 +366,12 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Deci
 1	BONUS:VAR|RogueSneakAttackLVL|CL																			FEATAUTO:Trapfinding|Sneak Attack|Rogue Sneak Attack
 2																									FEATAUTO:Evasion
 3	BONUS:VAR|RogueTrapSenseLVL|CL																			FEATAUTO:Trap Sense Ability|Rogue Trap Sense
-4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-8												ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-10												ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
-13												ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
-16												ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
-19												ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|Uncanny Dodge,Improved Uncanny Dodge
+8												ADD:FEAT|Uncanny Dodge,Improved Uncanny Dodge
+10												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+13												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+16												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+19												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus											Combat bonus
 CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -438,19 +438,19 @@ SUBCLASSLEVEL:1	FEATAUTO:Transmuter Learning Bonus
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
-5	CAST:4,3,2,1			ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+5	CAST:4,3,2,1			ADD:FEAT|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
 9	CAST:4,4,4,3,2,1
-10	CAST:4,4,4,3,3,2			ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+10	CAST:4,4,4,3,3,2			ADD:FEAT|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
 11	CAST:4,4,4,4,3,2,1
 12	CAST:4,4,4,4,3,3,2
 13	CAST:4,4,4,4,4,3,2,1
 14	CAST:4,4,4,4,4,3,3,2
-15	CAST:4,4,4,4,4,4,3,2,1		ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+15	CAST:4,4,4,4,4,4,3,2,1		ADD:FEAT|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
 16	CAST:4,4,4,4,4,4,3,3,2
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
-20	CAST:4,4,4,4,4,4,4,4,4,4	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+20	CAST:4,4,4,4,4,4,4,4,4,4	ADD:FEAT|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
