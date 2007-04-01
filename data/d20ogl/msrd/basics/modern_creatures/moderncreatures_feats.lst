@@ -89,7 +89,7 @@ Fiend Immunity (Ballistic damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Ballistic
 Fiend Immunity (Bludgeoning damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Bludgeoning Immununity (Ex)							SOURCEPAGE:msrdcreatures.rtf
 Fiend Immunity (Piercing damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Piercing Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
 Fiend Immunity (Slashing damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Slashing Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity ( Choose two)			TYPE:CreatureImmunity	VISIBLE:NO							ADD:FEAT(TYPE=CreatureImmunity)2
+Fiend Immunity ( Choose two)			TYPE:CreatureImmunity	VISIBLE:NO							ADD:FEAT|2|TYPE=CreatureImmunity
 
 ###Block: Creature Resistance
 
@@ -105,7 +105,7 @@ Fiend Resistance (Electrical 20)		TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,
 Fiend Resistance (Fire 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Fire 20)			SA:Fire Resistance 10 (Ex)															SOURCEPAGE:msrdcreatures.rtf
 Fiend Resistance (Fire 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Fire 10)			SA:Fire Resistance 20 (Ex)															SOURCEPAGE:msrdcreatures.rtf
 Fiend Resistance ( None)			TYPE:CreatureResistance	VISIBLE:NO
-Fiend Resistance ( Choose two)		TYPE:CreatureResistance	VISIBLE:NO																	ADD:FEAT(TYPE=CreatureResistance)1	ADD:FEAT(TYPE=CreatureResistance)1
+Fiend Resistance ( Choose two)		TYPE:CreatureResistance	VISIBLE:NO																	ADD:FEAT|1|TYPE=CreatureResistance	ADD:FEAT|1|TYPE=CreatureResistance
 
 ###Block: Creature DR
 

@@ -51,11 +51,11 @@ Water?			VISIBLE:NO		TEMPLATE:CHOOSE:Water_Movement|No_Water_Movement		SOURCEPAG
 Climbing?			VISIBLE:NO		TEMPLATE:CHOOSE:Climbing_Movement|No_Climbing_Movement	SOURCEPAGE:msrdcreatures.rtf
 Earth?			VISIBLE:NO		TEMPLATE:CHOOSE:Earth_Movement|No_Earth_Movement		SOURCEPAGE:msrdcreatures.rtf
 Air?				VISIBLE:NO		TEMPLATE:CHOOSE:Air_Movement|No_Air_Movement			SOURCEPAGE:msrdcreatures.rtf
-Land_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT(TYPE=CreatureMoveLand)1
-Water_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT(TYPE=CreatureMoveWater)1							MOVE:Swim,0
-Climbing_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT(TYPE=CreatureMoveClimb)1							MOVE:Climb,0
-Earth_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT(TYPE=CreatureMoveEarth)1							MOVE:Burrow,0
-Air_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT(TYPE=CreatureMoveAir)1							MOVE:Fly,0
+Land_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT|1|TYPE=CreatureMoveLand
+Water_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT|1|TYPE=CreatureMoveWater							MOVE:Swim,0
+Climbing_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT|1|TYPE=CreatureMoveClimb							MOVE:Climb,0
+Earth_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT|1|TYPE=CreatureMoveEarth							MOVE:Burrow,0
+Air_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT|1|TYPE=CreatureMoveAir							MOVE:Fly,0
 No_Land_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
 No_Water_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
 No_Climbing_Movement	VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf

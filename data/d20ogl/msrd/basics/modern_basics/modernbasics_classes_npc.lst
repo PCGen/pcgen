@@ -20,7 +20,7 @@ CLASS:Aberration	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFE
 CLASS:Aberration	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
-1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+1	ADD:FEAT|Simple Weapons Proficiency,Archaic Weapons Proficiency
 
 # Class Name			Output Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					BONUS:FEAT										Modify VAR
 CLASS:Aberration (Basic)	OUTPUTNAME:Aberration	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)+floor((cl("Aberration (Basic)")-1)/4)	BONUS:VAR|MonsterLevel|CL
@@ -63,7 +63,7 @@ CLASS:Dragon (True)	OUTPUTNAME:Dragon	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreatur
 CLASS:Dragon (True)	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Dragon (True)	STARTSKILLPTS:6	MODTOSKILLS:YES
-13					ADD:SPELLCASTER(Mage)1
+13					ADD:SPELLCASTER|1|Mage
 16	REPEATLEVEL:3|0|40					BONUS:PCLEVEL|Mage|1
 
 # Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus					BONUS:FEAT									Modify VAR
@@ -86,7 +86,7 @@ CLASS:Fey		HD:6		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	BONUS:CHECKS|BASE
 CLASS:Fey		PRERACETYPE:Fey
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Fey		STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:3*INTSCORE
-1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+1	ADD:FEAT|Simple Weapons Proficiency,Archaic Weapons Proficiency
 
 # Class Name	Output Name		Hit Dice	Type			Source Page					Save checks bonus											Combat bonus		BONUS:FEAT								Modify VAR
 CLASS:Fey (Basic)	OUTPUTNAME:Fey	HD:6		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:FEAT|POOL|max(0,INT)+(cl("Fey (Basic)")-1)/4	BONUS:VAR|MonsterLevel|CL
@@ -101,7 +101,7 @@ CLASS:Giant		HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0
 CLASS:Giant		PRERACETYPE:Giant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Giant		STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+max(1,INT)
-1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+1	ADD:FEAT|Simple Weapons Proficiency,Archaic Weapons Proficiency
 
 # Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus					BONUS:FEAT						Modify VAR
 CLASS:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|(cl("Humanoid")-1)/4	BONUS:VAR|MonsterLevel|CL
@@ -109,7 +109,7 @@ CLASS:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT
 CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude),Humanoid (Will)=1	PRERACETYPE:Humanoid
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Humanoid	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT
-2	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))
+2	ADD:FEAT|Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light)
 
 # Class Name			Output Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus		BONUS:FEAT								Modify VAR
 CLASS:Humanoid (Fortitude)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:FEAT|POOL|(cl("Humanoid (Fortitude)")-1)/4	BONUS:VAR|MonsterLevel|CL
@@ -117,7 +117,7 @@ CLASS:Humanoid (Fortitude)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msr
 CLASS:Humanoid (Fortitude)	!PRECLASS:1,Humanoid,Humanoid (Will)=1	PRERACETYPE:Humanoid
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Humanoid (Fortitude)	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT
-2	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))
+2	ADD:FEAT|Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light)
 
 # Class Name		Output Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus		BONUS:FEAT							Modify VAR
 CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:FEAT|POOL|(cl("Humanoid (Will)")-1)/4	BONUS:VAR|MonsterLevel|CL
@@ -125,7 +125,7 @@ CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcrea
 CLASS:Humanoid (Will)	!PRECLASS:1,Humanoid,Humanoid (Fortitude)=1	PRERACETYPE:Humanoid
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Humanoid (Will)	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT
-2	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))
+2	ADD:FEAT|Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light)
 
 # Class Name		Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					BONUS:FEAT								Bonus to skill point for a level																											Modify VAR
 CLASS:Magical Beast	HD:10		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)+(cl("Magical Beast")-1)/4	BONUS:SKILLPOOL|CLASS=Magical Beast;LEVEL=1|6|PREMULT:2,[PRESTAT:1,INT=2],[!PRESTAT:1,INT=3]	BONUS:SKILLPOOL|CLASS=Magical Beast;LEVEL=1|8|PREMULT:2,[PRESTAT:1,INT=1],[!PRESTAT:1,INT=2]	BONUS:VAR|MonsterLevel|CL
@@ -141,7 +141,7 @@ CLASS:Monstrous Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEV
 CLASS:Monstrous Humanoid	PRERACETYPE:Monstrous Humanoid
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Monstrous Humanoid	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
-1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+1	ADD:FEAT|Simple Weapons Proficiency,Archaic Weapons Proficiency
 
 # Class Name				Output Name				Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					BONUS:FEAT										Modify VAR
 CLASS:Monstrous Humanoid (Basic)	OUTPUTNAME:Monstrous Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)+(cl("Monstrous Humanoid (Basic)")-1)/4	BONUS:VAR|MonsterLevel|CL
@@ -163,7 +163,7 @@ CLASS:Outsider	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT
 CLASS:Outsider	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Outsider	STARTSKILLPTS:8	MODTOSKILLS:YES
-1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+1	ADD:FEAT|Simple Weapons Proficiency,Archaic Weapons Proficiency
 
 # Class Name		Output Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus								Combat bonus					BONUS:FEAT							Modify VAR
 CLASS:Outsider (Basic)	OUTPUTNAME:Outsider	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:FEAT|POOL|(cl("Outsider (Basic)")-1)/4	BONUS:VAR|MonsterLevel|CL
@@ -185,7 +185,7 @@ CLASS:Undead	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:
 CLASS:Undead	!PRECLASS:1,Undead (unintelligent)	PRERACETYPE:Undead
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Undead	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:3*INTSCORE
-1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+1	ADD:FEAT|Simple Weapons Proficiency,Archaic Weapons Proficiency
 
 # Class Name		Output Name		Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					BONUS:FEAT							Modify VAR
 CLASS:Undead (Basic)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:FEAT|POOL|INT+(cl("Undead (Basic)")-1)/4	BONUS:VAR|MonsterLevel|CL

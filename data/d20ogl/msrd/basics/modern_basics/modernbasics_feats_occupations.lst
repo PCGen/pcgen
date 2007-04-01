@@ -1,28 +1,28 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 00:48:22 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Apr  2 00:09:47 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original entry by Barak & Tir Gwaith
 
-# Feat Name					Output Name		Type			Visible	Choose a Feat											Modify VAR							Source Page
-Occupation (Academic)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Academic_Skills)3								BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
-Occupation (Adventurer)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Adventurer_Skills)2	ADD:FEAT(TYPE=Adventurer)			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Occupation (Athlete)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Athlete_Skills)3	ADD:FEAT(TYPE=Athlete)				BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Occupation (Blue Collar)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Blue_Collar_Skills)3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
-Occupation (Celebrity)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Celebrity_Skills)								BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:Occupations.rtf
-Occupation (Creative)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Creative_Skills)3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
-Occupation (Criminal)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Criminal_Skills)2	ADD:FEAT(TYPE=Criminal)				BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Occupation (Dilettante)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Dilettante_Skills)								BONUS:VAR|WealthBonus|6					SOURCEPAGE:Occupations.rtf
-Occupation (Doctor)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Doctor_Skills)2									BONUS:VAR|WealthBonus|4					SOURCEPAGE:Occupations.rtf
-Occupation (Emergency Services)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Emergency_Services_Skills)2							BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
-Occupation (Entrepreneur)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Entrepreneur_Skills)2								BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:Occupations.rtf
-Occupation (Investigative)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Investigative_Skills)2	ADD:FEAT(TYPE=Investigative)		BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
-Occupation (Law Enforcement)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Law_Enforcement_Skills)2	ADD:FEAT(TYPE=Law_Enforcement)	BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Occupation (Military)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Military_Skills)2	ADD:FEAT(TYPE=Military)				BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Occupation (Religious)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Religious_Skills)3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
-Occupation (Rural)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Rural_Skills)2	ADD:FEAT(TYPE=Rural)					BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Occupation (Student)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Student_Skills)3								BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Occupation (Technician)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Technician_Skills)3								BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
-Occupation (White Collar)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=White_Collar_Skills)2								BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
-Occupation (None)				OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO																						SOURCEPAGE:Occupations.rtf
+# Feat Name					Output Name		Type			Visible	Choose a Feat										Modify VAR							Source Page
+Occupation (Academic)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Academic_Skills							BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
+Occupation (Adventurer)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Adventurer_Skills	ADD:FEAT|TYPE=Adventurer		BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Athlete)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Athlete_Skills	ADD:FEAT|TYPE=Athlete			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Blue Collar)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Blue_Collar_Skills							BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
+Occupation (Celebrity)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|TYPE=Celebrity_Skills							BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:Occupations.rtf
+Occupation (Creative)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Creative_Skills							BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
+Occupation (Criminal)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Criminal_Skills	ADD:FEAT|TYPE=Criminal			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Dilettante)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|TYPE=Dilettante_Skills							BONUS:VAR|WealthBonus|6					SOURCEPAGE:Occupations.rtf
+Occupation (Doctor)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Doctor_Skills								BONUS:VAR|WealthBonus|4					SOURCEPAGE:Occupations.rtf
+Occupation (Emergency Services)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Emergency_Services_Skills						BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
+Occupation (Entrepreneur)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Entrepreneur_Skills							BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:Occupations.rtf
+Occupation (Investigative)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Investigative_Skills	ADD:FEAT|TYPE=Investigative	BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
+Occupation (Law Enforcement)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Law_Enforcement_Skills	ADD:FEAT|TYPE=Law_Enforcement	BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Military)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Military_Skills	ADD:FEAT|TYPE=Military			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Religious)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Religious_Skills							BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
+Occupation (Rural)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Rural_Skills	ADD:FEAT|TYPE=Rural				BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Student)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Student_Skills							BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Technician)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Technician_Skills							BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
+Occupation (White Collar)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=White_Collar_Skills							BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
+Occupation (None)				OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO																					SOURCEPAGE:Occupations.rtf
 
 ###Block: The Skill choices
 # Feat Name								Type																														Visible	Required Class Skill					Prohibited Class SKill						Choose a Skill				Bonus to skill									Class Skill
@@ -183,7 +183,7 @@ Pilot(class skill)						TYPE:Occupation_Skill.Adventurer_Skills.Military_Skills	
 Pilot(+1 to skill)						TYPE:Occupation_Skill.Adventurer_Skills.Military_Skills																					VISIBLE:NO	PRECSKILL:1,Pilot																					BONUS:SKILL|Pilot|1|TYPE=Competance						CSKILL:Pilot
 
 Read/Write Language(class skill)				TYPE:Occupation_Skill.Academic_Skills																								VISIBLE:NO									!PRECSKILL:1,Read/Write Language																					CSKILL:Read/Write Language
-Read/Write Language(1 additional language)		TYPE:Occupation_Skill.Academic_Skills																								VISIBLE:NO	PRECSKILL:1,Read/Write Language												ADD:SKILL(Read/Write Language)1												CSKILL:Read/Write Language
+Read/Write Language(1 additional language)		TYPE:Occupation_Skill.Academic_Skills																								VISIBLE:NO	PRECSKILL:1,Read/Write Language												ADD:SKILL|1|Read/Write Language												CSKILL:Read/Write Language
 
 Repair(class skill)						TYPE:Occupation_Skill.Blue_Collar_Skills.Rural_Skills.Technician_Skills																			VISIBLE:NO									!PRECSKILL:1,Repair																							CSKILL:Repair
 Repair(+1 to skill)						TYPE:Occupation_Skill.Blue_Collar_Skills.Rural_Skills.Technician_Skills																			VISIBLE:NO	PRECSKILL:1,Repair																				BONUS:SKILL|Repair|1|TYPE=Competance					CSKILL:Repair
@@ -204,7 +204,7 @@ Sleight of Hand(class skill)					TYPE:Occupation_Skill.Criminal_Skills										
 Sleight of Hand(+1 to skill)					TYPE:Occupation_Skill.Criminal_Skills																								VISIBLE:NO	PRECSKILL:1,Sleight of Hand																			BONUS:SKILL|Sleight of Hand|1|TYPE=Competance				CSKILL:Sleight of Hand
 
 Speak Language(class skill)					TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills																					VISIBLE:NO									!PRECSKILL:1,Speak Language																						CSKILL:Speak Language
-Speak Language(1 additional language)			TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills																					VISIBLE:NO	PRECSKILL:1,Speak Language													ADD:SKILL(Speak Language)1													CSKILL:Speak Language
+Speak Language(1 additional language)			TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills																					VISIBLE:NO	PRECSKILL:1,Speak Language													ADD:SKILL|1|Speak Language													CSKILL:Speak Language
 
 Spot(class skill)							TYPE:Occupation_Skill.Adventurer_Skills.Creative_Skills																					VISIBLE:NO									!PRECSKILL:1,Spot																								CSKILL:Spot
 Spot(+1 to skill)							TYPE:Occupation_Skill.Adventurer_Skills.Creative_Skills																					VISIBLE:NO	PRECSKILL:1,Spot																					BONUS:SKILL|Spot|1|TYPE=Competance						CSKILL:Spot

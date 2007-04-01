@@ -10,13 +10,13 @@ CLASS:Shadow Slayer	PREATT:3	PREFEAT:1,Archaic Weapons Proficiency
 CLASS:Shadow Slayer	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Gather Information|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spot|Tumble
 1	SA:Detect Shadow (%/day)|ShadowSlayerLevel	BONUS:VAR|ShadowSlayerLevel|CL		DEFINE:ShadowSlayerLevel|0
 2	SA:Shadow Immunity (DR %)|ShadowSlayerHalfLevel	BONUS:VAR|ShadowSlayerHalfLevel|CL/2	DEFINE:ShadowSlayerHalfLevel|0
-3																						ADD:FEAT(TYPE=ShadowSlayer)
+3																						ADD:FEAT|TYPE=ShadowSlayer
 4	SA:Slayer Weapon (+%)|ShadowSlayerHalfLevel
-5																						ADD:FEAT(TYPE=ShadowEnemy)
-6																						ADD:FEAT(TYPE=ShadowSlayer)
-7																						ADD:FEAT(TYPE=ShadowEnemy)
+5																						ADD:FEAT|TYPE=ShadowEnemy
+6																						ADD:FEAT|TYPE=ShadowSlayer
+7																						ADD:FEAT|TYPE=ShadowEnemy
 8	SA:Fast Healing
-9																						ADD:FEAT(TYPE=ShadowSlayer)
+9																						ADD:FEAT|TYPE=ShadowSlayer
 10	SA:Word of Slaying
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus												Combat bonus					Modify VAR
@@ -29,13 +29,13 @@ CLASS:Occultist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Visual Art)|Craft (W
 CLASS:Occultist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:NO	BONUS:CASTERLEVEL|Occultist|CL
 1	SA:Spell Resistance (%)|OccultistRes	BONUS:VAR|OccultistRes|CL	DEFINE:OccultistRes|5
 2	SA:Arcane Research(Scrolls)
-3																	ADD:FEAT(TYPE=Occultist)
+3																	ADD:FEAT|TYPE=Occultist
 4	SA:Shadow Contact
 5	SA:Bind Shadow Creature
-6																	ADD:FEAT(TYPE=Occultist)
+6																	ADD:FEAT|TYPE=Occultist
 7	SA:Arcane Research(Items)
 8	SA:Bind Shadow Creature
-9																	ADD:FEAT(TYPE=Occultist)
+9																	ADD:FEAT|TYPE=Occultist
 10	SA:Banish
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
@@ -63,13 +63,13 @@ CLASS:Telepath	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Tel
 ###Block: Normal Level Progression
 1	KNOWN:3,1
 2	KNOWN:3,2		SA:Trigger Power (% powers|TelepathTriggerCount								DEFINE:TelepathTriggerCount|1
-3	KNOWN:3,3																						ADD:FEAT(TYPE=Telepath)
+3	KNOWN:3,3																						ADD:FEAT|TYPE=Telepath
 4	KNOWN:4,3,1		SA:Power crystal
 5	KNOWN:4,3,2											BONUS:VAR|TelepathTriggerCount|1
-6	KNOWN:4,3,2,1																					ADD:FEAT(TYPE=Telepath)
+6	KNOWN:4,3,2,1																					ADD:FEAT|TYPE=Telepath
 7	KNOWN:5,4,3,2	SA:+4 to Concentation while manifesting defensively
 8	KNOWN:5,4,3,2,1										BONUS:VAR|TelepathTriggerCount|1
-9	KNOWN:5,4,3,3,2																					ADD:FEAT(TYPE=Telepath)
+9	KNOWN:5,4,3,3,2																					ADD:FEAT|TYPE=Telepath
 10	KNOWN:6,4,3,3,2,1	SA:Maximize Power
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus						Modify VAR
@@ -91,13 +91,13 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVE
 ###Block: Normal Level Progression
 1	KNOWN:2
 2	KNOWN:3		SA:Imprint Tattoo												AUTO:EQUIP|PsiBLade|!PRECLASS:1,Battle Mind=3
-3	KNOWN:3,1											ADD:FEAT(TYPE=Battlemind)	AUTO:EQUIP|PsiBLade+1|!PRECLASS:1,Battle Mind=5
+3	KNOWN:3,1											ADD:FEAT|TYPE=Battlemind	AUTO:EQUIP|PsiBLade+1|!PRECLASS:1,Battle Mind=5
 4	KNOWN:3,2																AUTO:EQUIP|PsiShield|!PRECLASS:1,Battle Mind=8
 5	KNOWN:3,3,1		SA:+4 to Concentation while manifesting defensively						AUTO:EQUIP|PsiBLade+2|!PRECLASS:1,Battle Mind=7
-6	KNOWN:3,3,2											ADD:FEAT(TYPE=Battlemind)
+6	KNOWN:3,3,2											ADD:FEAT|TYPE=Battlemind
 7	KNOWN:3,3,2,1															AUTO:EQUIP|PsiBLade+3|!PRECLASS:1,Battle Mind=9
 8	KNOWN:3,3,3,1															AUTO:EQUIP|PsiShield, Improved
-9	KNOWN:3,3,3,2										ADD:FEAT(TYPE=Battlemind)	AUTO:EQUIP|PsiBLade+4|!PRECLASS:1,Battle Mind=10
+9	KNOWN:3,3,3,2										ADD:FEAT|TYPE=Battlemind	AUTO:EQUIP|PsiBLade+4|!PRECLASS:1,Battle Mind=10
 10	KNOWN:3,3,3,2,1															AUTO:EQUIP|Ultimate PsiBlade
 
 
@@ -111,13 +111,13 @@ CLASS:Mage		STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|C
 CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|CL
 1	CAST:3,1														FEATAUTO:Summon Familiar
 2	CAST:4,2														FEATAUTO:Scribe Scroll
-3	CAST:4,2,1										ADD:FEAT(TYPE=Mage)	FEATAUTO:Brew Potion
+3	CAST:4,2,1										ADD:FEAT|TYPE=Mage	FEATAUTO:Brew Potion
 4	CAST:4,3,2														FEATAUTO:Scribe Tattoo
-5	CAST:4,3,2,1									ADD:FEAT(Spell Mastery)
-6	CAST:4,3,3,2									ADD:FEAT(TYPE=Mage)
+5	CAST:4,3,2,1									ADD:FEAT|Spell Mastery
+6	CAST:4,3,3,2									ADD:FEAT|TYPE=Mage
 7	CAST:4,4,3,2,1	SA:+4 to Concentation while casting defensively
-8	CAST:4,4,3,3,2									ADD:FEAT(Spell Mastery)
-9	CAST:4,4,4,3,2,1									ADD:FEAT(TYPE=Mage)
+8	CAST:4,4,3,3,2									ADD:FEAT|Spell Mastery
+9	CAST:4,4,4,3,2,1									ADD:FEAT|TYPE=Mage
 10	CAST:4,4,4,3,3,2													FEATAUTO:Maximize Spell
 
 
@@ -137,12 +137,12 @@ CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 ###Block: Standard block
 1	CAST:3,1
 2	CAST:4,2		SA:Turn or Rebuke Undead (Su)
-3	CAST:4,2,1										ADD:FEAT(TYPE=Acolyte)
+3	CAST:4,2,1										ADD:FEAT|TYPE=Acolyte
 4	CAST:5,3,2		SA:Spontaneous Casting
 5	CAST:5,3,2,1	SA:+4 to Concentation while casting defensively
-6	CAST:5,3,3,2									ADD:FEAT(TYPE=Acolyte)
+6	CAST:5,3,3,2									ADD:FEAT|TYPE=Acolyte
 7	CAST:6,4,3,2,1	SA:Turn or Rebuke Magical Beasts (Su)
 8	CAST:6,4,3,3,2	SA:Turn or Rebuke Outsiders (Su)
-9	CAST:6,4,4,3,2,1									ADD:FEAT(TYPE=Acolyte)
+9	CAST:6,4,4,3,2,1									ADD:FEAT|TYPE=Acolyte
 10	CAST:6,4,4,3,3,2													FEATAUTO:Maximize Spell
 
