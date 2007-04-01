@@ -21,7 +21,7 @@ CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 7																							DEFINE:DragonAge|2
 10																							DEFINE:DragonAge|3
 13																							DEFINE:DragonAge|4	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Darkness,12+CHA
-16	ADD:SPELLCASTER(Sorcerer)1	SR:17	DR:5/Magic															DEFINE:DragonAge|5
+16	ADD:SPELLCASTER|1|Sorcerer	SR:17	DR:5/Magic															DEFINE:DragonAge|5
 18																		BONUS:PCLEVEL|Sorcerer|1
 19						SR:18			SA:Corrupt Water (Sp) 1/day (DC %)|FrightfulPresDC	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|6
 21																		BONUS:PCLEVEL|Sorcerer|1
@@ -56,7 +56,7 @@ CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 1									SA:Create/Destroy Water (Sp) 3/day								DEFINE:DragonAge|1
 9																						DEFINE:DragonAge|2
 12																						DEFINE:DragonAge|3
-15	ADD:SPELLCASTER(Sorcerer)1				SA:Sound Imitation (Ex) DC %|FrightfulPresDC						DEFINE:DragonAge|4
+15	ADD:SPELLCASTER|1|Sorcerer				SA:Sound Imitation (Ex) DC %|FrightfulPresDC						DEFINE:DragonAge|4
 17																	BONUS:PCLEVEL|Sorcerer|1
 18						SR:19	DR:5/Magic									BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|5
 20																	BONUS:PCLEVEL|Sorcerer|1
@@ -93,7 +93,7 @@ CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 1									SA:Water Breathing (Ex)								DEFINE:DragonAge|1
 8																				DEFINE:DragonAge|2
 11																				DEFINE:DragonAge|3
-14	ADD:SPELLCASTER(Sorcerer)1															DEFINE:DragonAge|4
+14	ADD:SPELLCASTER|1|Sorcerer															DEFINE:DragonAge|4
 16															BONUS:PCLEVEL|Sorcerer|1
 17						SR:19	DR:5/Magic							BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|5
 19															BONUS:PCLEVEL|Sorcerer|1
@@ -130,7 +130,7 @@ CLASS:Red Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Con
 ###Block: Normal Progression
 1																				DEFINE:DragonAge|1
 10																				DEFINE:DragonAge|2
-13	ADD:SPELLCASTER(Sorcerer)1															DEFINE:DragonAge|3
+13	ADD:SPELLCASTER|1|Sorcerer															DEFINE:DragonAge|3
 15															BONUS:PCLEVEL|Sorcerer|1
 16															BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4	SPELLS:Innate|TIMES=DragonAge|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Locate Object,12+CHA
 18															BONUS:PCLEVEL|Sorcerer|1
@@ -171,7 +171,7 @@ CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 9																				DEFINE:DragonAge|3
 12																				DEFINE:DragonAge|4	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Fog Cloud,12+CHA
 15						SR:16	DR:5/Magic												DEFINE:DragonAge|5
-18	ADD:SPELLCASTER(Sorcerer)1	SR:18														DEFINE:DragonAge|6	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Gust of Wind,12+CHA
+18	ADD:SPELLCASTER|1|Sorcerer	SR:18														DEFINE:DragonAge|6	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Gust of Wind,12+CHA
 20															BONUS:PCLEVEL|Sorcerer|1
 21						SR:20	DR:10/Magic	SA:Crush (Ex) DC %|BreathWeaponDC	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|7
 23															BONUS:PCLEVEL|Sorcerer|1
@@ -204,7 +204,7 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 ###Block: Normal Progression
 1																					DEFINE:DragonAge|1						SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,11+CHA
 7																					DEFINE:DragonAge|2
-10	ADD:SPELLCASTER(Sorcerer)1																DEFINE:DragonAge|3
+10	ADD:SPELLCASTER|1|Sorcerer																DEFINE:DragonAge|3
 12																BONUS:PCLEVEL|Sorcerer|1
 13																BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4						SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Endure Elements,11+CHA
 15																BONUS:PCLEVEL|Sorcerer|1
@@ -243,7 +243,7 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 ###Block: Normal Progression
 1									SA:Water Breathing (Ex)								DEFINE:DragonAge|1	SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,11+CHA
 9																				DEFINE:DragonAge|2
-12	ADD:SPELLCASTER(Sorcerer)1				SA:Alternate Form (Su) 3/day							DEFINE:DragonAge|3
+12	ADD:SPELLCASTER|1|Sorcerer				SA:Alternate Form (Su) 3/day							DEFINE:DragonAge|3
 14															BONUS:PCLEVEL|Sorcerer|1
 15															BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4
 17															BONUS:PCLEVEL|Sorcerer|1
@@ -282,7 +282,7 @@ CLASS:Copper Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 ###Block: Normal Progression
 1									SA:Spider Climb (Ex)								DEFINE:DragonAge|1
 8																				DEFINE:DragonAge|2
-11	ADD:SPELLCASTER(Sorcerer)1															DEFINE:DragonAge|3
+11	ADD:SPELLCASTER|1|Sorcerer															DEFINE:DragonAge|3
 13															BONUS:PCLEVEL|Sorcerer|1
 14															BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4
 16															BONUS:PCLEVEL|Sorcerer|1
@@ -323,7 +323,7 @@ CLASS:Gold Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 ###Block: Normal Progression
 1									SA:Alternate Form (Su) 3/day							DEFINE:DragonAge|1
 11																				DEFINE:DragonAge|2
-14	ADD:SPELLCASTER(Sorcerer)1															DEFINE:DragonAge|3
+14	ADD:SPELLCASTER|1|Sorcerer															DEFINE:DragonAge|3
 16															BONUS:PCLEVEL|Sorcerer|1
 17															BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Bless,11+CHA
 19															BONUS:PCLEVEL|Sorcerer|1
@@ -365,7 +365,7 @@ CLASS:Silver Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 ###Block: Normal Progression
 1									SA:Alternate Form (Su) 3/day							DEFINE:DragonAge|1
 10																				DEFINE:DragonAge|2
-13	ADD:SPELLCASTER(Sorcerer)1															DEFINE:DragonAge|3
+13	ADD:SPELLCASTER|1|Sorcerer															DEFINE:DragonAge|3
 15															BONUS:PCLEVEL|Sorcerer|1
 16															BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4	SPELLS:Innate|TIMES=2|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Feather Fall,11+CHA
 18															BONUS:PCLEVEL|Sorcerer|1

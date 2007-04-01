@@ -86,9 +86,9 @@ Zombie		HITDIE:12											TEMPLATE:Undead	TEMPLATE:CHOOSE:Slam (Fine)|Slam (Di
 
 ###Block: Ghost Abilities - Ghosts get 1d3 extra abilities
 # Template Name			Visible	Source Page				Choose a Feat
-Ghost (1 Special Attack)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	ADD:FEAT(TYPE=GhostAbility)1
-Ghost (2 Special Attacks)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	ADD:FEAT(TYPE=GhostAbility)2
-Ghost (3 Special Attacks)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	ADD:FEAT(TYPE=GhostAbility)3
+Ghost (1 Special Attack)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	ADD:FEAT|1|TYPE=GhostAbility
+Ghost (2 Special Attacks)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	ADD:FEAT|2|TYPE=GhostAbility
+Ghost (3 Special Attacks)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	ADD:FEAT|3|TYPE=GhostAbility
 
 ###Block: builder templates
 # Template Name			Visible	Required Size	Required var. value	Stat bonus		Natural Attacks
