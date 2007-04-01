@@ -4,14 +4,14 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # Class Name	Max Level
 CLASS:Psion.MOD	MAXLEVEL:100
-23	REPEATLEVEL:3	ADD:FEAT(TYPE=Epic,TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation)
+23	REPEATLEVEL:3	ADD:FEAT|TYPE=Epic,TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
 
 
 # Class Name			Max Level
 CLASS:Psychic Warrior.MOD	MAXLEVEL:100
-21	REPEATLEVEL:3	ADD:FEAT(TYPE=Fighter,TYPE=Epic,TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation)
+21	REPEATLEVEL:3	ADD:FEAT|TYPE=Fighter,TYPE=Epic,TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
 
 
 # Class Name		Max Level
 CLASS:Soulknife.MOD	MAXLEVEL:100
-23	REPEATLEVEL:3	ADD:FEAT(TYPE=Epic,TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation)
+23	REPEATLEVEL:3	ADD:FEAT|TYPE=Epic,TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation

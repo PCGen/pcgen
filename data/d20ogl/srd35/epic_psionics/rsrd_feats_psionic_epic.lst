@@ -10,8 +10,8 @@ Automatic Quicken Power			TYPE:Epic							PREFEAT:1,Quicken Power			PRELEVEL:21	
 Efficient Psionic Item Creation	TYPE:Epic							PREFEAT:1,TYPE.ItemCreation		PRELEVEL:21		PRESKILL:2,Knowledge (Psionics),Psicraft=24																								DESC:See Efficient Item Creation										STACK:NO	MULT:YES	CHOOSE:FEATLIST|TYPE=ItemCreation																									SOURCEPAGE:EpicFeats.rtf
 Epic Manifestation			TYPE:Epic													PRELEVEL:21		PRESKILL:2,Knowledge (Psionics),Psicraft=24	PRESPELLTYPE:1,Psionic=9				SA:Can manifest % epic powers per day.|EpicPowerManifest	DEFINE:EpicPowerManifest|0	DESC:See Epic Spellcasting																																	BONUS:VAR|EpicPowerManifest|var("SKILLTOTAL=Knowledge {Psionics}")	SOURCEPAGE:EpicFeats.rtf
 Improved Combat Manifestation		TYPE:Epic							PREFEAT:1,Combat Manifestation	PRELEVEL:21		PRESKILL:1,Concentration=25																											DESC:See Improved Combat Casting																																												SOURCEPAGE:EpicFeats.rtf
-Improved Manifestation			TYPE:Epic													PRELEVEL:21																																	DESC:See Text													STACK:YES	MULT:YES	CHOOSE:NOCHOICE				ADD:FEAT(Improved Manifestation Power Points)																	SOURCEPAGE:EpicFeats.rtf
-Improved Power Resistance		TYPE:Epic													PRELEVEL:21															PRESRGTEQ:1																	DESC:See Improved Spell Resistance										STACK:YES	MULT:YES	CHOOSE:NOCHOICE				ADD:FEAT(Add 2 Power Resistance)1																			SOURCEPAGE:EpicFeats.rtf
+Improved Manifestation			TYPE:Epic													PRELEVEL:21																																	DESC:See Text													STACK:YES	MULT:YES	CHOOSE:NOCHOICE				ADD:FEAT|Improved Manifestation Power Points																	SOURCEPAGE:EpicFeats.rtf
+Improved Power Resistance		TYPE:Epic													PRELEVEL:21															PRESRGTEQ:1																	DESC:See Improved Spell Resistance										STACK:YES	MULT:YES	CHOOSE:NOCHOICE				ADD:FEAT|1|Add 2 Power Resistance																			SOURCEPAGE:EpicFeats.rtf
 Manifestation Harrier			TYPE:Epic							PREFEAT:1,Combat Reflexes		PRELEVEL:21																																	DESC:See Spellcasting Harrier																																													SOURCEPAGE:EpicFeats.rtf
 Master Dorje				TYPE:Epic							PREFEAT:1,Craft Dorje			PRELEVEL:21		PRESKILL:1,Psicraft=15																												DESC:See Master Wand																																														SOURCEPAGE:EpicFeats.rtf
 Master Psicrown				TYPE:Epic							PREFEAT:1,Craft Psicrown		PRELEVEL:21		PRESKILL:1,Psicraft=15																												DESC:See Master Staff																																														SOURCEPAGE:EpicFeats.rtf
@@ -24,9 +24,9 @@ Tenacious Psionics			TYPE:Epic													PRELEVEL:21		PRESKILL:1,Psicraft=15		
 ###BLOCK: Psionic Feats
 # Feat Name			Type			Required Feat				Required Lvl	Required Skill		Required Template		Description									Stackable?	Multiple?	Choose		Choose a Feat			Source Page
 Epic Psionic Endowment	TYPE:Epic.Psionic	PREFEAT:1,Greater Psionic Endowment	PRELEVEL:21						PRETEMPLATE:Psionic	DESC:See Epic Spell Focus, Greater Psionic Endowment														SOURCEPAGE:EpicFeats.rtf
-Epic Psionic Focus	TYPE:Epic.Psionic							PRELEVEL:21						PRETEMPLATE:Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT(Add Psionic Focus)	SOURCEPAGE:EpicFeats.rtf
+Epic Psionic Focus	TYPE:Epic.Psionic							PRELEVEL:21						PRETEMPLATE:Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|Add Psionic Focus	SOURCEPAGE:EpicFeats.rtf
 Epic Power Penetration	TYPE:Epic.Psionic	PREFEAT:1,Greater Power Penetration	PRELEVEL:21						PRETEMPLATE:Psionic	DESC:See Epic Spell Penetration, Greater Power Penetration													SOURCEPAGE:EpicFeats.rtf
-Improved Metapsionics	TYPE:Epic.Psionic	PREFEAT:4,TYPE.Metapsionic		PRELEVEL:21		PRESKILL:1,Psicraft=30	PRETEMPLATE:Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT(ImpMetapsionics)	SOURCEPAGE:EpicFeats.rtf
+Improved Metapsionics	TYPE:Epic.Psionic	PREFEAT:4,TYPE.Metapsionic		PRELEVEL:21		PRESKILL:1,Psicraft=30	PRETEMPLATE:Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|ImpMetapsionics	SOURCEPAGE:EpicFeats.rtf
 
 ###BLOCK: Metapsionics
 # Feat Name		Type				Required Feat					Required Lvl	Required Skill		Required Template		Description								Source Page
