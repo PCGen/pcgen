@@ -57,8 +57,8 @@ Rage		TYPE:Special	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|RageTimes|Rage
 
 ###Block: Vivilor swap table
 # Feat Name	Type			Visible	Multiple?	Choose			Choose a Feat
-Vivilor 2 A	TYPE:VivSwap1	VISIBLE:NO	MULT:YES	CHOOSE:2 from Vivilor A	ADD:FEAT(TYPE=VivA)2
-Vivilor 1 B	TYPE:VivSwap1	VISIBLE:NO	MULT:YES	CHOOSE:2 from Vivilor B	ADD:FEAT(TYPE=VivB)
+Vivilor 2 A	TYPE:VivSwap1	VISIBLE:NO	MULT:YES	CHOOSE:2 from Vivilor A	ADD:FEAT|2|TYPE=VivA
+Vivilor 1 B	TYPE:VivSwap1	VISIBLE:NO	MULT:YES	CHOOSE:2 from Vivilor B	ADD:FEAT|TYPE=VivB
 
 ###Block: Vivilor A
 # Feat Name						Type		Visible	Prohibited Feat							Special Ability					Move			Combat bonus					Add to base move			Stat bonus

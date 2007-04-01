@@ -20,11 +20,11 @@ CLASS:Artificer	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClass
 CLASS:Artificer	PRESKILL:2,Knowledge (Arcane Lore),Spellcraft=9	PRESKILL:1,TYPE.Craft=9	PRESPELLTYPE:Arcane,1,2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Artificer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Structural)|Decipher Script|Disable Device|Drive|Forgery|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Repair|Research|Search|Speak Language
-1	ADD:FEAT(TYPE=CraftArtifice)
-2	ADD:FEAT(TYPE=Artificer)	ADD:FEAT(TYPE=CraftArtifice)
-3	ADD:FEAT(TYPE=CraftArtifice)
-4	ADD:FEAT(TYPE=Artificer)	ADD:FEAT(TYPE=CraftArtifice)
-5	ADD:FEAT(TYPE=CraftArtifice)
+1	ADD:FEAT|TYPE=CraftArtifice
+2	ADD:FEAT|TYPE=Artificer	ADD:FEAT|TYPE=CraftArtifice
+3	ADD:FEAT|TYPE=CraftArtifice
+4	ADD:FEAT|TYPE=Artificer	ADD:FEAT|TYPE=CraftArtifice
+5	ADD:FEAT|TYPE=CraftArtifice
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
 CLASS:Ecclesiarch	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
