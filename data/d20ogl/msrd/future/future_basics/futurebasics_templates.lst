@@ -32,7 +32,7 @@ Extraterrestial Poisonous Bite (paralysis)			VISIBLE:DISPLAY				SOURCEPAGE:Futur
 Extraterrestial Power Resistance					VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Power Resistance % (Ex)|TL																		PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
 Extraterrestial Scent							VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Scent (Ex)																				PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
 
-Space Creature							CR:1	VISIBLE:YES					SOURCEPAGE:FutureXenobiology.rtf	SA:Cold Resistance 20 (Ex)	SA:Fire Resistance 20 (Ex)	SA:Radiation Resistance (Ex)	SA:Vacuum Survival (Ex)																																																		BONUS:STAT|STR|-2	BONUS:STAT|CON|2				ADD:FEAT(Zero G Training)	MOVECLONE:Walk,0,Fly,*1	VISION:Darkvision (120)
+Space Creature							CR:1	VISIBLE:YES					SOURCEPAGE:FutureXenobiology.rtf	SA:Cold Resistance 20 (Ex)	SA:Fire Resistance 20 (Ex)	SA:Radiation Resistance (Ex)	SA:Vacuum Survival (Ex)																																																		BONUS:STAT|STR|-2	BONUS:STAT|CON|2				ADD:FEAT|Zero G Training	MOVECLONE:Walk,0,Fly,*1	VISION:Darkvision (120)
 
 ###Block: Extraterrestial Psionics Support
 
@@ -80,10 +80,10 @@ Psi-Ability (Vigor)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=T
 ###Block: Scientific Engineering
 
 # Template Name	Visible	Source Page							Special Ability						Save checks bonus				Bonus to skill						Modify VAR				Choose a Feat		Vision
-Aquan			VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	SA:Amphibious (Ex)	SA:Blindsight (Ex)																				ADD:FEAT(Athletic)	VISION:Low-light
+Aquan			VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	SA:Amphibious (Ex)	SA:Blindsight (Ex)																				ADD:FEAT|Athletic		VISION:Low-light
 Healer		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	SA:Fast Healing 3 (Ex)																			BONUS:VAR|DamageThreshold|-3
 Morphean		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	SA:Hibernate (Ex)	SA:Sleepless (Ex)			BONUS:CHECKS|Will|2|TYPE=Species
-Nocturnal		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	SA:Light Sensitivity (Ex)										BONUS:SKILL|Listen,Move Silently|2|TYPE=Species						ADD:FEAT(Blind-Fight)	VISION:Darkvision (60)
+Nocturnal		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	SA:Light Sensitivity (Ex)										BONUS:SKILL|Listen,Move Silently|2|TYPE=Species						ADD:FEAT|Blind-Fight	VISION:Darkvision (60)
 
 #
 # End
