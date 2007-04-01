@@ -34,9 +34,9 @@ Interaction Specialist	TYPE:SpecialistTraining	VISIBLE:NO	PRECLASS:1,Epic Infilt
 ###Block: Epic Spellcasting Support
 
 # Feat Name						Type			Visible	ADD:SPELLCASTER					Bonus to spell cast/day
-Epic Spellcaster (Arcane/INT Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Arcane/INT))	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/INT);LEVEL=10|EpicSpellsPerDay
-Epic Spellcaster (Arcane/WIS Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Arcane/WIS))	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/WIS);LEVEL=10|EpicSpellsPerDay
-Epic Spellcaster (Arcane/CHA Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Arcane/CHA))	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/CHA);LEVEL=10|EpicSpellsPerDay
-Epic Spellcaster (Divine/INT Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Divine/INT))	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/INT);LEVEL=10|EpicSpellsPerDay
-Epic Spellcaster (Divine/WIS Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Divine/WIS))	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/WIS);LEVEL=10|EpicSpellsPerDay
-Epic Spellcaster (Divine/CHA Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Divine/CHA))	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/CHA);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Arcane/INT Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER|Epic Spells (Arcane/INT)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/INT);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Arcane/WIS Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER|Epic Spells (Arcane/WIS)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/WIS);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Arcane/CHA Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER|Epic Spells (Arcane/CHA)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/CHA);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Divine/INT Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER|Epic Spells (Divine/INT)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/INT);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Divine/WIS Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER|Epic Spells (Divine/WIS)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/WIS);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Divine/CHA Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER|Epic Spells (Divine/CHA)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/CHA);LEVEL=10|EpicSpellsPerDay

@@ -7,7 +7,7 @@ CLASS:Force Dragon	HD:12		TYPE:Monster	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:CH
 CLASS:Force Dragon	PRERACE:1,Dragon (Force%
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Force Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
-19	ADD:SPELLCASTER(Sorcerer)
+19	ADD:SPELLCASTER|Sorcerer
 20						BONUS:PCLEVEL|Sorcerer|(((CL-15)/5)*3)-1
 
 # Class Name		Hit Dice	Type			Source Page					Save checks bonus								Combat bonus
@@ -16,7 +16,7 @@ CLASS:Prismatic Dragon	HD:12		TYPE:Monster	SOURCEPAGE:EpicMonsters(A-E).rtf	BONU
 CLASS:Prismatic Dragon	PRERACE:1,Dragon (Prismatic%
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Prismatic Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
-22	ADD:SPELLCASTER(Sorcerer)
+22	ADD:SPELLCASTER|Sorcerer
 23						BONUS:PCLEVEL|Sorcerer|4
 28						BONUS:PCLEVEL|Sorcerer|3
 33						BONUS:PCLEVEL|Sorcerer|3
