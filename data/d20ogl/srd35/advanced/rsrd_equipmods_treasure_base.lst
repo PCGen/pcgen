@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Sun Apr  1 17:57:53 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-# Modifier Name	Naming Option	Unique Key	Type		Cost		Visible		Required Type	Modify the item cost			Choose
-Gem Value		NAMEOPT:NOTHING	KEY:GEM	TYPE:Gem	COST:0	VISIBLE:QUALIFY	PRETYPE:Gem		BONUS:ITEMCOST|TYPE.Gem|%CHOICE	CHOOSE:Gem Value|MIN=1|MAX=8000
-Art Value		NAMEOPT:NOTHING	KEY:ART	TYPE:Art	COST:0	VISIBLE:QUALIFY	PRETYPE:Art		BONUS:ITEMCOST|TYPE.Art|%CHOICE	CHOOSE:Art Value|MIN=10|MAX=12000
+# Modifier Name	Unique Key	Naming Option	Type		Cost		Visible		Required Type	Modify the item cost			Choose
+Gem Value		KEY:GEM	NAMEOPT:NOTHING	TYPE:Gem	COST:0	VISIBLE:QUALIFY	PRETYPE:Gem		BONUS:ITEMCOST|TYPE.Gem|%CHOICE	CHOOSE:Gem Value|MIN=1|MAX=8000
+Art Value		KEY:ART	NAMEOPT:NOTHING	TYPE:Art	COST:0	VISIBLE:QUALIFY	PRETYPE:Art		BONUS:ITEMCOST|TYPE.Art|%CHOICE	CHOOSE:Art Value|MIN=10|MAX=12000
