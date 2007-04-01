@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 16:24:43 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Sun Apr  1 18:42:41 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #Updates: TaluronIscandar
@@ -74,13 +74,13 @@ Vanishing			KEY:VANISH		TYPE:Armor.Shield		PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:P
 Wall				KEY:WALL		TYPE:Shield					COST:20160	VISIBLE:QUALIFY	SOURCEPAGE:PsionicItems.rtf											PRETYPE:Enhancement,Shield																																								SPROP:use shield to create ectoplasmic wall (12 10'squares or a 12'radius sphere or hemisphere) for up to 7 minutes
 
 ###Block: Power effects
-# Modifier Name							Naming Option	Unique Key		Type					Cost								Visible		Type granted	Source Page				Required Type				Prohibited Type	Choose					Nb of Charges
-|Power Effect (50 Charges/Power Trigger)			NAMEOPT:SPELL	KEY:PWR_DRJ		TYPE:Dorje				COST:(15*(%SPELLLEVEL)*%CASTERLEVEL)*%CHARGES	VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:Dorje							CHOOSE:EQBUILDER.SPELL|Psionic|1|9	CHARGES:1|50
-|Power Effect (Single Use/Use Activated/Personal)	NAMEOPT:SPELL	KEY:PWR_PT_P	TYPE:PsionicTattoo		COST:(50*((%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:PsionicTattoo			!PRETYPE:Crawling	CHOOSE:EQBUILDER.SPELL|Psionic|1|3
-|Power Effect (Single Use/Use Activated)			NAMEOPT:SPELL	KEY:PWR_PT		TYPE:PsionicTattoo		COST:(25*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:PsionicTattoo			!PRETYPE:Crawling	CHOOSE:EQBUILDER.SPELL|Psionic|1|3
-|Power Effect (Single Use/Use Activated)			NAMEOPT:SPELL	KEY:PWR_CRWL	TYPE:PsionicTattoo.Crawling	COST:(75*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:PsionicTattoo.Crawling				CHOOSE:EQBUILDER.SPELL|Psionic|1|3
-|Power Effect (Single Use/Completion)			NAMEOPT:SPELL	KEY:PWR_PS		TYPE:PowerStone			COST:(12.5*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:PowerStone						CHOOSE:EQBUILDER.SPELL|Psionic|1|9
-|Power Effect (Power Trigger/1st Power)			NAMEOPT:SPELL	KEY:PWR_PCWN_1	TYPE:Psicrown			COST:(375*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:Psicrown							CHOOSE:EQBUILDER.SPELL|Psionic|1|9
-|Power Effect (Power Trigger/2nd Power)			NAMEOPT:SPELL	KEY:PWR_PCWN_2	TYPE:Psicrown			COST:(281.25*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:Psicrown							CHOOSE:EQBUILDER.SPELL|Psionic|1|9
-|Power Effect (Power Trigger/3+ Power)			NAMEOPT:SPELL	KEY:PWR_PCWN_3	TYPE:Psicrown			COST:(187.5*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:Psicrown							CHOOSE:EQBUILDER.SPELL|Psionic|1|9
+# Modifier Name							Unique Key		Naming Option	Type					Cost								Visible		Type granted	Source Page				Required Type				Prohibited Type	Choose					Nb of Charges
+|Power Effect (50 Charges/Power Trigger)			KEY:PWR_DRJ		NAMEOPT:SPELL	TYPE:Dorje				COST:(15*(%SPELLLEVEL)*%CASTERLEVEL)*%CHARGES	VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:Dorje							CHOOSE:EQBUILDER.SPELL|Psionic|1|9	CHARGES:1|50
+|Power Effect (Single Use/Use Activated/Personal)	KEY:PWR_PT_P	NAMEOPT:SPELL	TYPE:PsionicTattoo		COST:(50*((%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:PsionicTattoo			!PRETYPE:Crawling	CHOOSE:EQBUILDER.SPELL|Psionic|1|3
+|Power Effect (Single Use/Use Activated)			KEY:PWR_PT		NAMEOPT:SPELL	TYPE:PsionicTattoo		COST:(25*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:PsionicTattoo			!PRETYPE:Crawling	CHOOSE:EQBUILDER.SPELL|Psionic|1|3
+|Power Effect (Single Use/Use Activated)			KEY:PWR_CRWL	NAMEOPT:SPELL	TYPE:PsionicTattoo.Crawling	COST:(75*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:PsionicTattoo.Crawling				CHOOSE:EQBUILDER.SPELL|Psionic|1|3
+|Power Effect (Single Use/Completion)			KEY:PWR_PS		NAMEOPT:SPELL	TYPE:PowerStone			COST:(12.5*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:PowerStone						CHOOSE:EQBUILDER.SPELL|Psionic|1|9
+|Power Effect (Power Trigger/1st Power)			KEY:PWR_PCWN_1	NAMEOPT:SPELL	TYPE:Psicrown			COST:(375*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:Psicrown							CHOOSE:EQBUILDER.SPELL|Psionic|1|9
+|Power Effect (Power Trigger/2nd Power)			KEY:PWR_PCWN_2	NAMEOPT:SPELL	TYPE:Psicrown			COST:(281.25*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:Psicrown							CHOOSE:EQBUILDER.SPELL|Psionic|1|9
+|Power Effect (Power Trigger/3+ Power)			KEY:PWR_PCWN_3	NAMEOPT:SPELL	TYPE:Psicrown			COST:(187.5*(%SPELLLEVEL)*%CASTERLEVEL)		VISIBLE:QUALIFY	ITYPE:Psionic	SOURCEPAGE:PsionicItems.rtf	PRETYPE:Psicrown							CHOOSE:EQBUILDER.SPELL|Psionic|1|9
 

@@ -8,7 +8,7 @@ CLASS:Unbodied	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Monstr
 CLASS:Unbodied	PRERACETYPE:Monstrous humanoid
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Unbodied	STARTSKILLPTS:2	MODTOSKILLS:YES
-1	ADD:SPELLCASTER(Psion)1	BONUS:PCLEVEL|Psion|1
+1	ADD:SPELLCASTER|1|Psion	BONUS:PCLEVEL|Psion|1
 2					BONUS:PCLEVEL|Psion|1
 3					BONUS:PCLEVEL|Psion|1
 4					BONUS:PCLEVEL|Psion|1
