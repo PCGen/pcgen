@@ -77,7 +77,7 @@ CLASS:Demolitions Expert	STARTSKILLPTS:4	CSKILL:Climb|Craft (Tinker)|Disable Dev
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Force Master	HD:8		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Feat		Required Race											Required Skill			Required Template
-CLASS:Force Master	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Iron Will	PRERACE:1st Generation Mutant,2nd Generation Mutant,3rd Generation Mutant	PRESKILL:1,Concentration=8	PRETEMPLATE:Ritual Preservationist|Visionary Reinventor
+CLASS:Force Master	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Iron Will	PRERACE:1,1st Generation Mutant,2nd Generation Mutant,3rd Generation Mutant	PRESKILL:1,Concentration=8	PRETEMPLATE:Ritual Preservationist|Visionary Reinventor
 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Focus Master	STARTSKILLPTS:2	CSKILL:Animal Empathy|Decipher Script|Heal|Knowledge (Ancient Lore)|Perform|Sense Motive|Speak Language

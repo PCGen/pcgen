@@ -6,6 +6,6 @@ SOURCELONG:Mongoose Publishing - Slayer's Guide to Centaurs	SOURCESHORT:SGtCenta
 # Class Name	Hit Dice	Type			Max Level	Levels per Feat	Save checks bonus															Combat bonus
 CLASS:Centaur	HD:8		TYPE:Monster	MAXLEVEL:3	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Race			Reg. Race Type
-CLASS:Centaur	PRERACE:Centaur (Mongoose)	PRERACETYPE:Humanoid
+CLASS:Centaur	PRERACE:1,Centaur (Mongoose)	PRERACETYPE:Humanoid
 # Class Name	Skill Pts/Lvl
 CLASS:Centaur	STARTSKILLPTS:0

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Apr  2 02:50:04 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -13,8 +13,8 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(Divine)							ADD:FEAT(TYPE=RangerFavored)
-2	ADD:SPELLCASTER(Divine)												ADD:Language(Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Gnome,Goblin,Giant,Gnoll,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)3
+1	ADD:SPELLCASTER(Divine)																																	ADD:FEAT(TYPE=RangerFavored)
+2	ADD:SPELLCASTER(Divine)							ADD:Language(Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Gnome,Goblin,Giant,Gnoll,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)3
 3	ADD:SPELLCASTER(Divine)
 4	ADD:SPELLCASTER(Divine)	SA:Find the Path
 5	ADD:SPELLCASTER(Divine)
@@ -49,7 +49,7 @@ CLASS:Demolitionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Demolitioni
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shock Trooper	HD:10		TYPE:PC.Prestige	ABB:ae3		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat					Required Race
-CLASS:Shock Trooper	PREATT:5	PREFEAT:3,Power Attack,Quick Draw,Run	PRERACE:Dwarf%,Gnome%
+CLASS:Shock Trooper	PREATT:5	PREFEAT:3,Power Attack,Quick Draw,Run	PRERACE:1,Dwarf%,Gnome%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shock Trooper	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Intuit Direction|Jump|Listen|Tumble
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
