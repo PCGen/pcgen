@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr  1 17:42:14 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Tue Apr  3 00:11:03 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Masterwork
@@ -11,9 +11,30 @@ Masterwork		KEY:MWORKT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Too
 
 ###Block: Base Materials
 
-# Modifier Name	Unique Key	Naming Option	Type														Cost		Visible		Type granted	Source Page				Prohibited Type						Apply to both heads
-Wood			KEY:WOOD	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Metal	ASSIGNTOALL:YES
-Steel			KEY:STEEL	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Wooden
+# Modifier Name	Unique Key		Naming Option	Type														Cost		Visible		Type granted	Source Page							Prohibited Type							Apply to both heads
+Wood			KEY:WOOD		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	SOURCEPAGE:RSRD Equipment.rtf				!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Metal		ASSIGNTOALL:YES
+Steel			KEY:STEEL		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:RSRD Equipment.rtf				!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Wooden
+Clay			KEY:CLAY		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Cloth			KEY:CLOTH		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Glass			KEY:GLASS		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Hide			KEY:HIDE		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Ice			KEY:ICE		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Iron			KEY:IRON		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+Leather		KEY:LEATHER		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Paper			KEY:PAPER		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Parchment		KEY:PARCHMENT	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Rope			KEY:ROPE		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Stone			KEY:STONE		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Wax			KEY:WAX		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD CarryingandExploration.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+#The following are not explicitely mentioned in the SRD but are derived from existing equipment like a ring or a gong
+Bone			KEY:BONE		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD Equipment.rtf				!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden,Metal
+Brass			KEY:BRASS		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:RSRD Equipment.rtf				!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+Bronze		KEY:BRONZE		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:RSRD Equipment.rtf				!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+Gold			KEY:GOLD		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:RSRD Equipment.rtf				!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+Silk			KEY:SILK		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:RSRD Equipment.rtf				!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Silver		KEY:SILVER		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:RSRD Equipment.rtf				!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+#I didn't include mention of hp and hardness since I wouldn't want to see that printed as property for every normal equipmment,
+#leaving that until we have equipment variables -- Frank
 
 ###Block: Strength Bow
 
