@@ -53,7 +53,6 @@ SPELL:@/d20ogl/srd/basics/srd_spells.lst
 
 TEMPLATE:@/d20ogl/srd/basics/srd_templates_types.lst
 
-WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs_natural.lst
 WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs.lst
 
 # Hiding internal types
