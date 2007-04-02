@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb 10 02:05:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Mon Apr  2 04:37:37 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -15,8 +15,8 @@ CLASS:Agent		STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Gather Information|Inn
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Bodyguard	HD:12		TYPE:PC.Prestige	ABB:Bdg		MAXLEVEL:5	SOURCEPAGE:74	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2	BONUS:COMBAT|BAB|CL/2+1|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Feat						Multiple Requirements																												Required Skill
-CLASS:Bodyguard	PREATT:6	PREFEAT:2,Alertness,Improved Unarmed Strike	PREMULT:1,[PREMULT:2,[PRERACE:Half-Orc],[PRESTAT:1,STR=18]],[PREMULT:2,[PRERACE:Human,Dwarf%,Half-Elf,Elf%],[PRESTAT:1,STR=16]],[PREMULT:2,[PRERACE:Gnome%,Halfling%],[PRESTAT:1,STR=14]]	PRESKILL:2,Sense Motive,Spot=8	PRESKILL:1,Drive=4
+# Class Name	Req. Att.	Required Feat						Multiple Requirements																													Required Skill
+CLASS:Bodyguard	PREATT:6	PREFEAT:2,Alertness,Improved Unarmed Strike	PREMULT:1,[PREMULT:2,[PRERACE:1,Half-Orc],[PRESTAT:1,STR=18]],[PREMULT:2,[PRERACE:1,Human,Dwarf%,Half-Elf,Elf%],[PRESTAT:1,STR=16]],[PREMULT:2,[PRERACE:1,Gnome%,Halfling%],[PRESTAT:1,STR=14]]	PRESKILL:2,Sense Motive,Spot=8	PRESKILL:1,Drive=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Drive|Intimidate|Jump|Listen|Profession (Bodyguard)|Search|Sense Motive|Spot
 1	SA:Protect the Client														BONUS:SKILL|Drive|4

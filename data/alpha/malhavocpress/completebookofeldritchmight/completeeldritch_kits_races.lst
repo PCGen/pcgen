@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 
-STARTPACK:Default Valiance	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Valiance]
-RACE:Valiance	!PRERACE:%
+STARTPACK:Default Valiance	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Valiance]
+RACE:Valiance	!PRERACE:1,%
 NAME:Valiance
 ALIGN:LG|NG|CG
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
@@ -22,8 +22,8 @@ FEAT:Alertness
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Default Thaerestian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thaerestian]
-RACE:Thaerestian	!PRERACE:%
+STARTPACK:Default Thaerestian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thaerestian]
+RACE:Thaerestian	!PRERACE:1,%
 NAME:Thaerestian
 ALIGN:LN
 STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
@@ -46,8 +46,8 @@ FEAT:Iron Will
 FEAT:Improved Initiative
 FEAT:Spell Penetration
 
-STARTPACK:Default Demon (D'Stradi Abductor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (D'Stradi Abductor)]
-RACE:Demon (D'Stradi Abductor)	!PRERACE:%
+STARTPACK:Default Demon (D'Stradi Abductor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (D'Stradi Abductor)]
+RACE:Demon (D'Stradi Abductor)	!PRERACE:1,%
 NAME:Demon (D'Stradi Abductor)
 ALIGN:CE
 STAT:DEX=11|INT=11|WIS=11|CHA=11|STR=10|CON=10
@@ -63,8 +63,8 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Dodge
 
-STARTPACK:Default Demon (D'Stradi Dancer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (D'Stradi Dancer)]
-RACE:Demon (D'Stradi Dancer)	!PRERACE:%
+STARTPACK:Default Demon (D'Stradi Dancer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (D'Stradi Dancer)]
+RACE:Demon (D'Stradi Dancer)	!PRERACE:1,%
 NAME:Demon (D'Stradi Dancer)
 ALIGN:CE
 STAT:CON=11|INT=11|WIS=11|STR=10|DEX=10|CHA=10
@@ -82,8 +82,8 @@ FEAT:Combat Expertise
 FEAT:Combat Reflexes
 FEAT:Two Weapon Fighting
 
-STARTPACK:Default Demon (D'Stradi Annihilator)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (D'Stradi Annihilator)]
-RACE:Demon (D'Stradi Annihilator)	!PRERACE:%
+STARTPACK:Default Demon (D'Stradi Annihilator)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (D'Stradi Annihilator)]
+RACE:Demon (D'Stradi Annihilator)	!PRERACE:1,%
 NAME:Demon (D'Stradi Annihilator)
 ALIGN:CE
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
@@ -101,8 +101,8 @@ FEAT:Iron Will
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Eye Golem	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eye Golem]
-RACE:Eye Golem	!PRERACE:%
+STARTPACK:Default Eye Golem	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eye Golem]
+RACE:Eye Golem	!PRERACE:1,%
 NAME:Eye Golem
 ALIGN:TN
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
@@ -111,8 +111,8 @@ SKILL:Spot		RANK:10
 FEAT:Alertness
 FEAT:Lightning Reflexes
 
-STARTPACK:Default Kallendine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Kallendine]
-RACE:Kallendine	!PRERACE:%
+STARTPACK:Default Kallendine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kallendine]
+RACE:Kallendine	!PRERACE:1,%
 NAME:Kallendine
 STAT:DEX=11|CON=11|INT=11|WIS=11|STR=10|CHA=10
 SKILL:Listen	RANK:11
@@ -124,8 +124,8 @@ FEAT:Iron Will
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Sohr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sohr]
-RACE:Sohr	!PRERACE:%
+STARTPACK:Default Sohr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sohr]
+RACE:Sohr	!PRERACE:1,%
 NAME:Sohr
 ALIGN:TN
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
@@ -137,8 +137,8 @@ FEAT:Flyby Attack
 FEAT:Hover
 FEAT:Power Attack
 
-STARTPACK:Default Battle Sohr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Battle Sohr]
-RACE:Battle Sohr	!PRERACE:%
+STARTPACK:Default Battle Sohr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Battle Sohr]
+RACE:Battle Sohr	!PRERACE:1,%
 NAME:Battle Sohr
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -149,8 +149,8 @@ FEAT:Flyby Attack
 FEAT:Hover
 FEAT:Power Attack
 
-STARTPACK:Default T'Kraam (the Thunderkin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:T'Kraam (the Thunderkin)]
-RACE:T'Kraam (the Thunderkin)	!PRERACE:%
+STARTPACK:Default T'Kraam (the Thunderkin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,T'Kraam (the Thunderkin)]
+RACE:T'Kraam (the Thunderkin)	!PRERACE:1,%
 NAME:T'Kraam (the Thunderkin)
 ALIGN:NE
 STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
@@ -162,8 +162,8 @@ FEAT:Alertness
 FEAT:Great Fortitude
 FEAT:Multiattack
 
-STARTPACK:Default Unholy Riven	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Unholy Riven]
-RACE:Unholy Riven	!PRERACE:%
+STARTPACK:Default Unholy Riven	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unholy Riven]
+RACE:Unholy Riven	!PRERACE:1,%
 NAME:Unholy Riven
 ALIGN:NE
 STAT:DEX=11|INT=11|WIS=11|CHA=11|STR=10|CON=10

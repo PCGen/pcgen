@@ -218,7 +218,7 @@ CLASS:Song Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Scr
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Starlight Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat				Required Race	Required Skill										Req. Known Spell
-CLASS:Starlight Mage	PREFEAT:2,Alertness,Spell Focus	PRERACE:Elf%	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (Astronomy)=8	PRESPELL:3,Dancing Lights,Glitterdust,Temporal Venom
+CLASS:Starlight Mage	PREFEAT:2,Alertness,Spell Focus	PRERACE:1,Elf%	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (Astronomy)=8	PRESPELL:3,Dancing Lights,Glitterdust,Temporal Venom
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Starlight Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|TYPE.Knowledge|Search|Spellcraft|Spot
 1	ADD:SPELLCASTER(ANY)	SA:Spell Appearance Change	SA:Handle Starlight (Ex)	SA:Radiance (Su)

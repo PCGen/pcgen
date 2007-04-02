@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 21:20:17 2007 -- reformated by prettylst.pl v1.35 (build 1881)
+# CVS $Revision$ $Author$ -- Mon Apr  2 04:37:37 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -85,7 +85,7 @@ CLASS:Bane of Legates	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concen
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Elven Raider	HD:8		TYPE:PC.Prestige	ABB:ERd		MAXLEVEL:10	SOURCEPAGE:p. 50	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat											Required Race	Required Skill
-CLASS:Elven Raider	PREATT:5	PREFEAT:1,Weapon Focus (Longbow)	PREFEAT:2,Point Blank Shot,Rapid Shot	PRERACE:Elf		PRESKILL:3,Hide,Move Silently,Wilderness Lore=8
+CLASS:Elven Raider	PREATT:5	PREFEAT:1,Weapon Focus (Longbow)	PREFEAT:2,Point Blank Shot,Rapid Shot	PRERACE:1,Elf	PRESKILL:3,Hide,Move Silently,Wilderness Lore=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elven Raider	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 1										FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies	FEATAUTO:Armor Proficiency (Light)
@@ -133,7 +133,7 @@ CLASS:Herbalist	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Intuit Direction|Ju
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Sarcosan Knight	HD:10		TYPE:PC.Prestige	ABB:SarKn		MAXLEVEL:10	SOURCEPAGE:p. 56	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat								Required Race						Required Skill
-CLASS:Sarcosan Knight	PREATT:6	PREFEAT:3,Mounted Combat,Ride-By Attack,Spirited Charge	PRERACE:Human (Sarcosan),Human (Erenlander)	PRESKILL:1,Ride=8	PRESKILL:2,Handle Animal,Intimidate=4
+CLASS:Sarcosan Knight	PREATT:6	PREFEAT:3,Mounted Combat,Ride-By Attack,Spirited Charge	PRERACE:1,Human (Sarcosan),Human (Erenlander)	PRESKILL:1,Ride=8	PRESKILL:2,Handle Animal,Intimidate=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sarcosan Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Jump|TYPE.Profession|Ride|Spot|Swim
 1																																																			FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
@@ -181,7 +181,7 @@ CLASS:Warrior Arcanist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Int
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Whisper Adept	HD:8		TYPE:PC.Prestige	ABB:whs		MAXLEVEL:10	SOURCEPAGE:p. 63	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
 # Class Name		Required Feat								Required Race	Required Skill												Required Stat
-CLASS:Whisper Adept	PREFEAT:1,TYPE.Magecraft	PREFEAT:1,TYPE.Spellcasting	PRERACE:Elf		PRESKILL:1,Knowledge (Nature)=8	PRESKILL:1,Scry=5	PRESKILL:1,Wilderness Lore=6	PRESTAT:1,WIS=15
+CLASS:Whisper Adept	PREFEAT:1,TYPE.Magecraft	PREFEAT:1,TYPE.Spellcasting	PRERACE:1,Elf	PRESKILL:1,Knowledge (Nature)=8	PRESKILL:1,Scry=5	PRESKILL:1,Wilderness Lore=6	PRESTAT:1,WIS=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Whisper Adept	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Sense Motive|Spellcraft|Wilderness Lore
 1				BONUS:VAR|CommandNature|CL
@@ -197,7 +197,7 @@ CLASS:Whisper Adept	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concentr
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Wogren Rider	HD:8		TYPE:PC.Prestige	ABB:wgr		MAXLEVEL:10	SOURCEPAGE:p. 65	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Feat					Required Race			Required Skill
-CLASS:Wogren Rider	PREFEAT:2,Mounted Archery,Mounted Combat	PRERACE:Halfling (Midnight)	PRESKILL:2,Intuit Direction,Wilderness Lore=4	PRESKILL:1,Ride=8
+CLASS:Wogren Rider	PREFEAT:2,Mounted Archery,Mounted Combat	PRERACE:1,Halfling (Midnight)	PRESKILL:2,Intuit Direction,Wilderness Lore=4	PRESKILL:1,Ride=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wogren Rider	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 1																																										FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies

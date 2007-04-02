@@ -31,7 +31,7 @@ CLASS:Bretheren of the Missionary	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentra
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Dancer of the Elements	HD:8		TYPE:PC.Prestige	ABB:DoE		MAXLEVEL:5	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Feat															Required Race	Required Skill
-CLASS:Dancer of the Elements	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:7,Evasion,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PRERACE:Elorii	PRESKILL:3,Perform,Jump,Tumble=4
+CLASS:Dancer of the Elements	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:7,Evasion,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PRERACE:1,Elorii	PRESKILL:3,Perform,Jump,Tumble=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Dancer of the Elements	STARTSKILLPTS:2	CSKILL:Balance|Hide|Jump|Move Silently|Perform|Tumble
 1																																										AUTO:WEAPONPROF|TYPE.Martial
@@ -191,17 +191,17 @@ CLASS:Rogue.MOD	AUTO:WEAPONPROF|Gladius
 # Class Name		Source Page
 CLASS:Sorcerer.MOD	SOURCEPAGE:p.163
 # Class Name		Prohibited Race
-CLASS:Sorcerer.MOD	!PRERACE:Human
+CLASS:Sorcerer.MOD	!PRERACE:1,Human
 
 # Class Name	Source Page
 CLASS:Psion.MOD	SOURCEPAGE:p.162
 # Class Name	Required Race
-CLASS:Psion.MOD	PRERACE:Val
+CLASS:Psion.MOD	PRERACE:1,Val
 
 # Class Name			Source Page
 CLASS:Psychic Warrior.MOD	SOURCEPAGE:p.162
 # Class Name			Required Race
-CLASS:Psychic Warrior.MOD	PRERACE:Val
+CLASS:Psychic Warrior.MOD	PRERACE:1,Val
 
 # Class Name	Source Page
 CLASS:Fighter.MOD	SOURCEPAGE:p.165

@@ -10,8 +10,8 @@ GEAR:Blastpowder (20)
 STARTPACK:Shining Patrol Service	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 GEAR:Scimitar				SIZE:PC
 GEAR:Outfit (Traveler's)		SIZE:PC
-GEAR:Altherian Flintlock (Rifle)	PREMULT:1,[PREREGION:Altheria],[PRERACE:Val],[PREFEAT:1,Gentry]
-GEAR:Blastpowder (20)			PREMULT:1,[PREREGION:Altheria],[PRERACE:Val],[PREFEAT:1,Gentry]
+GEAR:Altherian Flintlock (Rifle)	PREMULT:1,[PREREGION:Altheria],[PRERACE:1,Val],[PREFEAT:1,Gentry]
+GEAR:Blastpowder (20)			PREMULT:1,[PREREGION:Altheria],[PRERACE:1,Val],[PREFEAT:1,Gentry]
 
 
 STARTPACK:Soldier of Retribution	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0

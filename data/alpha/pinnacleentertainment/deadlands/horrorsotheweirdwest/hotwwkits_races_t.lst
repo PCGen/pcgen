@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Tarnished Phantasy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tarnished Phantasy]
-RACE:Tarnished Phantasy	!PRERACE:%
+STARTPACK:Default Tarnished Phantasy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tarnished Phantasy]
+RACE:Tarnished Phantasy	!PRERACE:1,%
 NAME:Tarnished Phantasy
 ALIGN:CE
 SKILL:Hide			RANK:9
@@ -14,8 +14,8 @@ SKILL:Move Silently	RANK:10
 FEAT:Blind-Fight
 FEAT:Improved Initiative
 
-STARTPACK:Default Terrantula	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Terrantula]
-RACE:Terrantula	!PRERACE:%
+STARTPACK:Default Terrantula	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Terrantula]
+RACE:Terrantula	!PRERACE:1,%
 NAME:Terrantula
 ALIGN:TN
 SKILL:Climb			RANK:11
@@ -25,8 +25,8 @@ SKILL:Spot			RANK:4
 SKILL:Move Silently	RANK:2
 SKILL:Wilderness Lore	RANK:5
 
-STARTPACK:Default Texas Skeeter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Texas Skeeter]
-RACE:Texas Skeeter	!PRERACE:%
+STARTPACK:Default Texas Skeeter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Texas Skeeter]
+RACE:Texas Skeeter	!PRERACE:1,%
 NAME:Texas Skeeter
 ALIGN:TN
 SKILL:Climb			RANK:9
@@ -35,8 +35,8 @@ SKILL:Listen		RANK:3
 SKILL:Spot			RANK:3
 SKILL:Move Silently	RANK:2
 
-STARTPACK:Default The Thing Under the Bed	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:The Thing Under the Bed]
-RACE:The Thing Under the Bed	!PRERACE:%
+STARTPACK:Default The Thing Under the Bed	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,The Thing Under the Bed]
+RACE:The Thing Under the Bed	!PRERACE:1,%
 NAME:The Thing Under the Bed
 ALIGN:CE
 SKILL:Climb			RANK:4
@@ -49,8 +49,8 @@ SKILL:Listen		RANK:5
 SKILL:Spot			RANK:5
 FEAT:Power Attack
 
-STARTPACK:Default Tommyknocker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tommyknocker]
-RACE:Tommyknocker	!PRERACE:%
+STARTPACK:Default Tommyknocker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tommyknocker]
+RACE:Tommyknocker	!PRERACE:1,%
 NAME:Tommyknocker
 ALIGN:NE
 SKILL:Climb				RANK:5
@@ -63,8 +63,8 @@ SKILL:Hide				RANK:7
 FEAT:Power Attack
 FEAT:Track
 
-STARTPACK:Default Tunnel Critter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tunnel Critter]
-RACE:Tunnel Critter	!PRERACE:%
+STARTPACK:Default Tunnel Critter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tunnel Critter]
+RACE:Tunnel Critter	!PRERACE:1,%
 NAME:Tunnel Critter
 ALIGN:TN
 SKILL:Climb			RANK:9
@@ -74,8 +74,8 @@ SKILL:Spot			RANK:4
 SKILL:Wilderness Lore	RANK:4
 SKILL:Move Silently	RANK:3
 
-STARTPACK:Default Two-Faces	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Two-Faces]
-RACE:Two-Faces	!PRERACE:%
+STARTPACK:Default Two-Faces	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Two-Faces]
+RACE:Two-Faces	!PRERACE:1,%
 NAME:Two-Faces
 ALIGN:CE
 SKILL:Climb				RANK:5

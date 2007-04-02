@@ -140,7 +140,7 @@ CLASS:Druid (Midnight)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus
 CLASS:Freerider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Race	Required Skill						Required Text
-CLASS:Freerider	PREFEAT:2,Mounted Combat,Track	PRERACE:Human%	PRESKILL:1,Ride=8	PRESKILL:1,Wilderness Lore=4	PRETEXT:The character must be human from Eredane and must be decended from either a noble or one who followed a freerider.
+CLASS:Freerider	PREFEAT:2,Mounted Combat,Track	PRERACE:1,Human%	PRESKILL:1,Ride=8	PRESKILL:1,Wilderness Lore=4	PRETEXT:The character must be human from Eredane and must be decended from either a noble or one who followed a freerider.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Freerider	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intuit Direction|Jump|Listen|TYPE.Profession|Ride|Spot|Swim|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies

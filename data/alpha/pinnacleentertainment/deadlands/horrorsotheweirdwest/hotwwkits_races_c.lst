@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Canker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Canker]
-RACE:Canker	!PRERACE:%
+STARTPACK:Default Canker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Canker]
+RACE:Canker	!PRERACE:1,%
 NAME:Canker
 ALIGN:CE
 SKILL:Climb			RANK:1
@@ -12,8 +12,8 @@ SKILL:Hide			RANK:8
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:7
 
-STARTPACK:Default Carcajou	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Carcajou]
-RACE:Carcajou	!PRERACE:%
+STARTPACK:Default Carcajou	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Carcajou]
+RACE:Carcajou	!PRERACE:1,%
 NAME:Carcajou
 ALIGN:TN
 SKILL:Balance		RANK:0
@@ -26,8 +26,8 @@ SKILL:Listen		RANK:5
 SKILL:Spot			RANK:5
 SKILL:Tumble		RANK:1
 
-STARTPACK:Default Catamount	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Catamount]
-RACE:Catamount	!PRERACE:%
+STARTPACK:Default Catamount	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Catamount]
+RACE:Catamount	!PRERACE:1,%
 NAME:Catamount
 ALIGN:TN
 SKILL:Hide			RANK:6
@@ -42,8 +42,8 @@ SKILL:Swim			RANK:0
 SKILL:Listen		RANK:5
 SKILL:Spot			RANK:5
 
-STARTPACK:Default Cemetary Wolf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cemetary Wolf]
-RACE:Cemetary Wolf	!PRERACE:%
+STARTPACK:Default Cemetary Wolf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cemetary Wolf]
+RACE:Cemetary Wolf	!PRERACE:1,%
 NAME:Cemetary Wolf
 ALIGN:TN
 SKILL:Climb			RANK:4
@@ -54,8 +54,8 @@ SKILL:Spot			RANK:5
 SKILL:Wilderness Lore	RANK:5
 SKILL:Move Silently	RANK:3
 
-STARTPACK:Default Chinook	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chinook]
-RACE:Chinook	!PRERACE:%
+STARTPACK:Default Chinook	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chinook]
+RACE:Chinook	!PRERACE:1,%
 NAME:Chinook
 ALIGN:TN
 SKILL:Climb			RANK:4
@@ -69,8 +69,8 @@ FEAT:Cleave
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Chupakabara	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chupakabara]
-RACE:Chupakabara	!PRERACE:%
+STARTPACK:Default Chupakabara	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chupakabara]
+RACE:Chupakabara	!PRERACE:1,%
 NAME:Chupakabara
 ALIGN:CE
 SKILL:Climb			RANK:4
@@ -81,7 +81,7 @@ SKILL:Wilderness Lore	RANK:6
 SKILL:Listen		RANK:8
 FEAT:Multiattack
 
-STARTPACK:Default Clockwork Tarantula	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clockwork Tarantula]
-RACE:Clockwork Tarantula	!PRERACE:%
+STARTPACK:Default Clockwork Tarantula	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Clockwork Tarantula]
+RACE:Clockwork Tarantula	!PRERACE:1,%
 NAME:Clockwork Tarantula
 ALIGN:LN

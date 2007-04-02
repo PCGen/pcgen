@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Apr  2 04:37:37 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 # Original Entry by: Ratheof Blithwyn and Tir-Gwaith
 
@@ -14,7 +14,7 @@ SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Diamond Guardsman	HD:12		TYPE:PC.Prestige	ABB:DGu		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL			Req. Att.	Required Feat			Required Race		Required Text
-CLASS:Diamond Guardsman	PREALIGN:LG,LN,NG,TN	PREATT:6	PREFEAT:2,Endurance,Diehard	PRERACE:Dwarf (DF)	PRETEXT:The character must be accepted for membership by the Diamond Guard of Aradath.
+CLASS:Diamond Guardsman	PREALIGN:LG,LN,NG,TN	PREATT:6	PREFEAT:2,Endurance,Diehard	PRERACE:1,Dwarf (DF)	PRETEXT:The character must be accepted for membership by the Diamond Guard of Aradath.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Diamond Guardsman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Concentration|Diplomacy|Jump|Listen|TYPE.Profession|Sense Motive|Spot|Swim
 1																																			AUTO:WEAPONPROF|Mürblade|Urgrosh (Dwarven)|Waraxe (Dwarven)|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
@@ -29,7 +29,7 @@ CLASS:Diamond Guardsman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Concentration|Di
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Forge Magus	HD:4		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat			Required Race		Required Skill																		Req. Spell Type
-CLASS:Forge Magus	PREFEAT:3,TYPE.ItemCreation	PRERACE:Dwarf (DF)	PRESKILL:4,Craft (Armorsmithing),Craft (Weaponsmithing),Craft (Sculpting),Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:Arcane,1,5
+CLASS:Forge Magus	PREFEAT:3,TYPE.ItemCreation	PRERACE:1,Dwarf (DF)	PRESKILL:4,Craft (Armorsmithing),Craft (Weaponsmithing),Craft (Sculpting),Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:Arcane,1,5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Forge Magus	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Spellcraft|Use Magic Device
 1	ADD:SPELLCASTER(Arcane)	SA:Essence Drain (max %)|EssenceDrain	SA:Guild Membership	BONUS:VAR|EssenceDrain|75	DEFINE:EssenceDrain|0
@@ -52,7 +52,7 @@ CLASS:Forge Magus	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Decip
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Warden of the Watch	HD:8		TYPE:PC.Prestige	ABB:WWa		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Race								Required Skill																																								Req. Spell Type		Required Text	Req. Weapond Prof.
-CLASS:Warden of the Watch	PREATT:4	PRERACE:Elf (Dawn),Elf (Ghost),Elf (Moon),Elf (Wood)(DF)	PRESKILL:1,Knowledge (History)=5	PRESKILL:3,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=5	PRESKILL:2,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=8	PRESPELLTYPE:Arcane,1,2	PRETEXT:See Text.	PREWEAPONPROF:1,TYPE.Sword	PREWEAPONPROF:1,TYPE.Shortbow,TYPE.Longbow
+CLASS:Warden of the Watch	PREATT:4	PRERACE:1,Elf (Dawn),Elf (Ghost),Elf (Moon),Elf (Wood)(DF)	PRESKILL:1,Knowledge (History)=5	PRESKILL:3,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=5	PRESKILL:2,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=8	PRESPELLTYPE:Arcane,1,2	PRETEXT:See Text.	PREWEAPONPROF:1,TYPE.Sword	PREWEAPONPROF:1,TYPE.Shortbow,TYPE.Longbow
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Warden of the Watch	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Handle Animal|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local Sildanyr)|Knowledge (Local Valhedar Dominion)|Listen|TYPE.Profession|Ride|Sense Motive|Spellcraft|Spot|Swim
 1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)
@@ -72,7 +72,7 @@ CLASS:Warden of the Watch	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Night Hunter	HD:8		TYPE:PC.Prestige	ABB:NHu		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL			Req. Att.	Required Feat			Required Race		Required Text
-CLASS:Night Hunter	PREALIGN:LN,NG,TN,NE,CN	PREATT:6	PREFEAT:2,Alertness,Stealthy	PRERACE:Elf (Night)	PRETEXT:See Text.
+CLASS:Night Hunter	PREALIGN:LN,NG,TN,NE,CN	PREATT:6	PREFEAT:2,Alertness,Stealthy	PRERACE:1,Elf (Night)	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Survival|Swim|Tumble|Use Rope
 1																AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
@@ -87,7 +87,7 @@ CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Handle 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Fey Traveler	HD:4		TYPE:PC.Prestige	ABB:FTr		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat						Required Language	Required Race		Required Skill										Req. Spell Type		Required Text
-CLASS:Fey Traveler	PREFEAT:2,Improved Fading,Color of the Wind	PRELANG:1,Sylvan	PRERACE:Gnome (DF)	PRESKILL:1,Knowledge (Nature)=8	PRESKILL:1,Knowledge (The Planes)=6	PRESPELLTYPE:Any,1,2	PRETEXT:See Text.
+CLASS:Fey Traveler	PREFEAT:2,Improved Fading,Color of the Wind	PRELANG:1,Sylvan	PRERACE:1,Gnome (DF)	PRESKILL:1,Knowledge (Nature)=8	PRESKILL:1,Knowledge (The Planes)=6	PRESPELLTYPE:Any,1,2	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fey Traveler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Knowledge (The Planes)|Sense Motive|Sleight of Hand|Spellcraft
 1	ADD:SPELLCASTER(ANY)	SA:Traveler's Gift (%/day)|TravelersGift	BONUS:VAR|TravelersGift|(CL+1)/2	DEFINE:TravelersGift|0
@@ -180,7 +180,7 @@ CLASS:Disciple of Mystery	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Lone Walker	HD:12		TYPE:PC.Prestige	ABB:LWa		MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat						Required Race		Required Skill
-CLASS:Lone Walker	PREATT:6	PREFEAT:3,Endurance,Great Fortitude,Iron Will	PRERACE:Minotaur (DF)	PRESKILL:1,Knowledge (History)=4	PRESKILL:1,Survival=8
+CLASS:Lone Walker	PREATT:6	PREFEAT:3,Endurance,Great Fortitude,Iron Will	PRERACE:1,Minotaur (DF)	PRESKILL:1,Knowledge (History)=4	PRESKILL:1,Survival=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lone Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Intimidate|Jump|Knowledge (History)|Listen|TYPE.Profession|Search|Spot|Survival|Swim|Tumble
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
@@ -197,7 +197,7 @@ CLASS:Lone Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Intimidate|Jum
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Bound Ambassador	HD:6		TYPE:PC.Prestige	ABB:BAm		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat		Required Race					Required Skill											Required Text
-CLASS:Bound Ambassador	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:4	PREFEAT:1,Negotiator	PRERACE:Ogre (Stormfells),Ogre (wild)	PRESKILL:2,Bluff,Diplomacy=8	PRESKILL:2,Gather Information,Sense Motive=6	PRETEXT:See Text.
+CLASS:Bound Ambassador	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:4	PREFEAT:1,Negotiator	PRERACE:1,Ogre (Stormfells),Ogre (wild)	PRESKILL:2,Bluff,Diplomacy=8	PRESKILL:2,Gather Information,Sense Motive=6	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bound Ambassador	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Gather Information|Hide|Intimidate|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Speak Language|Spellcraft|Spot
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
@@ -220,8 +220,8 @@ CLASS:Bound Ambassador	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLE
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Orc Adapter	HD:8		TYPE:PC.Prestige	ABB:OAd		MAXLEVEL:10	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required AL		Required Race	Required Skill																Required Text
-CLASS:Orc Adapter	PREALIGN:LG,LN,LE	PRERACE:Orc (DF)	PRESKILL:2,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=8	PRETEXT:The character must have contact with at least one non-orc culture.
+# Class Name	Required AL		Required Race		Required Skill																Required Text
+CLASS:Orc Adapter	PREALIGN:LG,LN,LE	PRERACE:1,Orc (DF)	PRESKILL:2,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=8	PRETEXT:The character must have contact with at least one non-orc culture.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Orc Adapter	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Decipher Script|Disable Device|Diplomacy|Gather Information|Heal|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Survival|Use Rope
 1						ADD:FEAT(Orc Adapter Cultural Study)
@@ -241,7 +241,7 @@ CLASS:Orc Adapter	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Circle Walker	HD:8		TYPE:PC.Prestige	ABB:CWa		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Race			Required Text
-CLASS:Circle Walker	PREATT:4	PRERACE:Doppelganger (DF)	PRETEXT:See Text.
+CLASS:Circle Walker	PREATT:4	PRERACE:1,Doppelganger (DF)	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Circle Walker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Gather Information|Hide|Intimidate|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Speak Language|Spellcraft|Spot
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level

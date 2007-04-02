@@ -14,7 +14,7 @@ Improvised Weapon			TYPE:General	PREATT:4																	DESC:You are adept at 
 Maximize Spell			TYPE:Elemental																																						SOURCEPAGE:p.
 Pinpoint Accuracy			TYPE:General			PREFEAT:2,Point Blank Shot,Precise Shot							PRESTAT:1,DEX=13	DESC:You can take your time aiming to make sure you hit your target.								SOURCEPAGE:p.
 Quicken Spell			TYPE:Elemental																																						SOURCEPAGE:p.
-Recognize Omen			TYPE:General										PRERACE:Ork					PRESTAT:1,WIS=13	DESC:You can see tidings of good and evil in the events that happen around you.						SOURCEPAGE:p.
+Recognize Omen			TYPE:General										PRERACE:1,Ork				PRESTAT:1,WIS=13	DESC:You can see tidings of good and evil in the events that happen around you.						SOURCEPAGE:p.
 Second Wind				TYPE:General																			DESC:You can control and focus your body to shake off fatigue.									SOURCEPAGE:p.
 Set Spear				TYPE:General																			DESC:You know how to effectively use polearms against mounted charges.								SOURCEPAGE:p.
 Shared Spellcasting		TYPE:Elemental																																						SOURCEPAGE:p.

@@ -1,48 +1,48 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Animal Man (Bear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Bear)]
-RACE:Animal Man (Bear)	!PRERACE:%
+STARTPACK:Default Animal Man (Bear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animal Man (Bear)]
+RACE:Animal Man (Bear)	!PRERACE:1,%
 NAME:Animal Man (Bear)
 ALIGN:LN
 SKILL:Intimidate		RANK:3
 SKILL:Wilderness Lore	RANK:4
 FEAT:Power Attack
 
-STARTPACK:Default Animal Man (Dog)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Dog)]
-RACE:Animal Man (Dog)	!PRERACE:%
+STARTPACK:Default Animal Man (Dog)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animal Man (Dog)]
+RACE:Animal Man (Dog)	!PRERACE:1,%
 NAME:Animal Man (Dog)
 ALIGN:LN
 SKILL:Spot			RANK:4
 SKILL:Wilderness Lore	RANK:4
 FEAT:Track
 
-STARTPACK:Default Animal Man (Pig)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Pig)]
-RACE:Animal Man (Pig)	!PRERACE:%
+STARTPACK:Default Animal Man (Pig)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animal Man (Pig)]
+RACE:Animal Man (Pig)	!PRERACE:1,%
 NAME:Animal Man (Pig)
 ALIGN:LN
 SKILL:Ridicule		RANK:4
 SKILL:Wilderness Lore	RANK:4
 FEAT:Track
 
-STARTPACK:Default Animal Man (Puma)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Puma)]
-RACE:Animal Man (Puma)	!PRERACE:%
+STARTPACK:Default Animal Man (Puma)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animal Man (Puma)]
+RACE:Animal Man (Puma)	!PRERACE:1,%
 NAME:Animal Man (Puma)
 ALIGN:LN
 SKILL:Hide			RANK:4
 SKILL:Move Silently	RANK:4
 FEAT:Brave
 
-STARTPACK:Default Animal Man (Rabbit)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Rabbit)]
-RACE:Animal Man (Rabbit)	!PRERACE:%
+STARTPACK:Default Animal Man (Rabbit)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animal Man (Rabbit)]
+RACE:Animal Man (Rabbit)	!PRERACE:1,%
 NAME:Animal Man (Rabbit)
 ALIGN:LN
 SKILL:Hide			RANK:4
 SKILL:Sense Motive	RANK:4
 FEAT:Run
 
-STARTPACK:Default Animal Man (Raccoon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Raccoon)]
-RACE:Animal Man (Raccoon)	!PRERACE:%
+STARTPACK:Default Animal Man (Raccoon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animal Man (Raccoon)]
+RACE:Animal Man (Raccoon)	!PRERACE:1,%
 NAME:Animal Man (Raccoon)
 ALIGN:LN
 SKILL:Disable Device	RANK:2
@@ -50,8 +50,8 @@ SKILL:Open Lock		RANK:2
 SKILL:Pick Pocket		RANK:2
 FEAT:Ambidexterity
 
-STARTPACK:Default Appalachian Witch	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Appalachian Witch]
-RACE:Appalachian Witch	!PRERACE:%
+STARTPACK:Default Appalachian Witch	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Appalachian Witch]
+RACE:Appalachian Witch	!PRERACE:1,%
 NAME:Appalachian Witch
 ALIGN:CE
 SKILL:Diplomacy		RANK:5
@@ -66,7 +66,7 @@ FEAT:Dodge
 FEAT:Enlarge Spell
 FEAT:Extend Spell
 
-STARTPACK:Default Automaton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Automaton]
-RACE:Automaton	!PRERACE:%
+STARTPACK:Default Automaton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Automaton]
+RACE:Automaton	!PRERACE:1,%
 NAME:Automaton
 ALIGN:LN

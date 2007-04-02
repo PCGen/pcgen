@@ -4,12 +4,12 @@ SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:
 ###Block: Occupations
 
 # Feat Name					Output Name		Type			Visible	Required Feat			Prohibited Race						Choose a Feat																			Modify VAR							Source Page
-Occupation (Asteroid Prospector)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Asteroid_Prospector_Skills)2														BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
-Occupation (Corporate Employee)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Corporate_Employee_Skills)															BONUS:VAR|WealthBonus|3					SOURCEPAGE:p.12
-Occupation (Gambler)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Gambler_Skills)2	ADD:FEAT(Action Boost)												BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
-Occupation (Hauler)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(Salvage,Spacer,Starship Operation(Light))	ADD:FEAT(TYPE=Hauler_Skills)2								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
-Occupation (Pirate)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(Salvage,Starship Operation(Ultralight),Starship Operation(Light),Zero G Training)	ADD:FEAT(TYPE=Pirate_Skills)	BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.13
-Occupation (Psychic)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PREFEAT:1,TYPE=BasePsionic	!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Psychic_Skills)2	ADD:FEAT(TYPE=EuroPreferredOccupation)									BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.13
+Occupation (Asteroid Prospector)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Asteroid_Prospector_Skills)2														BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
+Occupation (Corporate Employee)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Corporate_Employee_Skills)															BONUS:VAR|WealthBonus|3					SOURCEPAGE:p.12
+Occupation (Gambler)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Gambler_Skills)2	ADD:FEAT(Action Boost)												BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
+Occupation (Hauler)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(Salvage,Spacer,Starship Operation(Light))	ADD:FEAT(TYPE=Hauler_Skills)2								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
+Occupation (Pirate)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(Salvage,Starship Operation(Ultralight),Starship Operation(Light),Zero G Training)	ADD:FEAT(TYPE=Pirate_Skills)	BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.13
+Occupation (Psychic)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PREFEAT:1,TYPE=BasePsionic	!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Psychic_Skills)2	ADD:FEAT(TYPE=EuroPreferredOccupation)									BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.13
 
 ###Block: Occupation benefit MODs
 

@@ -1,19 +1,19 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
 
-STARTPACK:Default Kuresh	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Kuresh]
-RACE:Kuresh	!PRERACE:%
+STARTPACK:Default Kuresh	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kuresh]
+RACE:Kuresh	!PRERACE:1,%
 NAME:Kuresh
 
-STARTPACK:Default Duncharath	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Duncharath]
-RACE:Duncharath	!PRERACE:%
+STARTPACK:Default Duncharath	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Duncharath]
+RACE:Duncharath	!PRERACE:1,%
 NAME:Duncharath
 FEAT:Improved Initiative
 FEAT:Inertial Armor
 FEAT:Thought Shield
 
-STARTPACK:Default Mind Grub Collective	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mind Grub Collective]
-RACE:Mind Grub Collective	!PRERACE:%
+STARTPACK:Default Mind Grub Collective	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mind Grub Collective]
+RACE:Mind Grub Collective	!PRERACE:1,%
 NAME:Mind Grub Collective
 FEAT:Alertness
 FEAT:Iron Will

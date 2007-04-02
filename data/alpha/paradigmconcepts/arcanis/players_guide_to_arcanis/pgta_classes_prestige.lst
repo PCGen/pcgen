@@ -287,7 +287,7 @@ CLASS:Combat Style (Sword that Believes)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Di
 # Class Name				Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Emerald Society Archaeologist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:ESArc		MAXLEVEL:6	SOURCEPAGE:p.185	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name				Required Feat							Req. Special Ability	!PRESA			Required Skill																														Required Template
-CLASS:Emerald Society Archaeologist	PREFEAT:2,Diligent,Skill Focus(Knowledge (History))	PRESA:1,Trapfinding	!PRESA:1,Illiterate	PRESKILL:3,Appraise,Decipher Script,Knowledge (TYPE=Other)=3	PRESKILL:Knowledge (Geography)=5	PRESKILL:1,Knowledge (History)=8	PRESKILL:3,Disable Device,Gather Information,Search=4	PRETEMPLATE:Emerald Society
+CLASS:Emerald Society Archaeologist	PREFEAT:2,Diligent,Skill Focus(Knowledge (History))	PRESA:1,Trapfinding	!PRESA:1,Illiterate	PRESKILL:3,Appraise,Decipher Script,Knowledge (TYPE=Other)=3	PRESKILL:1,Knowledge (Geography)=5	PRESKILL:1,Knowledge (History)=8	PRESKILL:3,Disable Device,Gather Information,Search=4	PRETEMPLATE:Emerald Society
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Gather Information|Hide|TYPE.Knowledge|Listen|Open Locks|TYPE.Profession|Research|Ride|Search|Sense Motive|Survival|Swim|Use Magic Device|Use Rope
 1	SA:Ancient Lore (Ex)	SA:Subject Specialization (Ex)														ADD:FEAT(Emerald Proficiency)1	ADD:FEAT(Subject Specialization)1
@@ -385,7 +385,7 @@ CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Larissan Dancer	HD:6		TYPE:PC.Prestige	ABB:LDncr		MAXLEVEL:10	SOURCEPAGE:p.192	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL				Required Feat								Multiple Requirements																	Required Skill
-CLASS:Larissan Dancer	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:3,Acrobatic,Agile,Skill Focus(Perform (Dance))	PREMULT:1,[PREDEITY:Larissa],[PREMULT:3,[PREDEITY:Cadic],[PRECLASS:Bard=1],[PRESKILL:1,Knowledge (Religion:Larissa)]]	PRESKILL:2,Bluff,Diplomacy=6	PRESKILL:1,Perform (Dance)=10
+CLASS:Larissan Dancer	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:3,Acrobatic,Agile,Skill Focus(Perform (Dance))	PREMULT:1,[PREDEITY:Larissa],[PREMULT:3,[PREDEITY:Cadic],[PRECLASS:1,Bard=1],[PRESKILL:1,Knowledge (Religion:Larissa)]]	PRESKILL:2,Bluff,Diplomacy=6	PRESKILL:1,Perform (Dance)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Larissan Dancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|Diplomacy|Escape Artist|Gather Information|Hide|Knowledge (Arcana)|Knowledge (Art and Architecture)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Sense Motive|Sleight of Hand|Spellcraft|Tumble
 1	ADD:SPELLCASTER(ANY)	SA:Larissa's Dance (Ex)(%/day)|CL	SA:Dance of Steel (Ex)|PRESKILL:1,Perform (Dance)=10

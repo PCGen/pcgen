@@ -3,7 +3,7 @@ SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	S
 # Equipment Name	Required Proficiency		Type								Cost		Weight	Required Race	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
 Battleaxe							TYPE:Weapon.Martial.Melee.Slashing			COST:7	WT:7					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8					SIZE:M	SOURCEPAGE:p.
 Byrglaif							TYPE:Weapon.Exotic.Melee.Slashing.Masterwork	COST:500	WT:3					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					SIZE:S	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
-Byrglaif (Elven)	PROFICIENCY:Byrglaif		TYPE:Weapon.Martial.Melee.Slashing.Masterwork	COST:500	WT:3		PRERACE:Elf		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					SIZE:S	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
+Byrglaif (Elven)	PROFICIENCY:Byrglaif		TYPE:Weapon.Martial.Melee.Slashing.Masterwork	COST:500	WT:3		PRERACE:1,Elf	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					SIZE:S	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
 Dagger (Punching)	PROFICIENCY:Dagger		TYPE:Weapon.Simple.Melee.Piercing			COST:2	WT:1					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4					SIZE:T	SOURCEPAGE:p.
 Falchion							TYPE:Weapon.Martial.Melee.Slashing			COST:80	WT:16					CRITMULT:x2			CRITRANGE:3			DAMAGE:2d4					SIZE:L	SOURCEPAGE:p.
 Flail (Heavy)	PROFICIENCY:Flail			TYPE:Weapon.Martial.Melee.Bludgeoning		COST:14	WT:20					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10					SIZE:L	SOURCEPAGE:p.
@@ -16,7 +16,7 @@ Guisarme							TYPE:Weapon.Martial.Melee.Slashing			COST:10	WT:15					CRITMULT:x
 Halberd							TYPE:Weapon.Martial.Melee.Piercing.Slashing	COST:7	WT:15					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					SIZE:L	SOURCEPAGE:p.
 Handaxe							TYPE:Weapon.Martial.Melee.Slashing			COST:2	WT:5					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6					SIZE:S	SOURCEPAGE:p.
 Hirglaif							TYPE:Weapon.Exotic.Melee.Slashing.Masterwork	COST:500	WT:6					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10					SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
-Hirglaif (Elven)	PROFICIENCY:Hirglaif		TYPE:Weapon.Martial.Melee.Slashing.Masterwork	COST:500	WT:6		PRERACE:Elf		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10					SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
+Hirglaif (Elven)	PROFICIENCY:Hirglaif		TYPE:Weapon.Martial.Melee.Slashing.Masterwork	COST:500	WT:6		PRERACE:1,Elf	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10					SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
 Lance (Heavy)	PROFICIENCY:Lance			TYPE:Weapon.Martial.Melee.Piercing			COST:10	WT:10					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8					SIZE:M	SOURCEPAGE:p.
 Lance (Light)	PROFICIENCY:Lance			TYPE:Weapon.Martial.Melee.Piercing			COST:7	WT:5					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6					SIZE:S	SOURCEPAGE:p.
 Longspear							TYPE:Weapon.Martial.Melee.Piercing			COST:3	WT:9					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8					SIZE:L	SOURCEPAGE:p.

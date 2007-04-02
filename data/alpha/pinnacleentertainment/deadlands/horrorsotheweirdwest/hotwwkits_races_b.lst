@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Barranca Prowler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barranca Prowler]
-RACE:Barranca Prowler	!PRERACE:%
+STARTPACK:Default Barranca Prowler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barranca Prowler]
+RACE:Barranca Prowler	!PRERACE:1,%
 NAME:Barranca Prowler
 ALIGN:TN
 SKILL:Balance		RANK:5
@@ -15,8 +15,8 @@ SKILL:Listen		RANK:9
 SKILL:Spot			RANK:9
 SKILL:Wilderness Lore	RANK:9
 
-STARTPACK:Default Black Regiment	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Black Regiment]
-RACE:Black Regiment	!PRERACE:%
+STARTPACK:Default Black Regiment	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Black Regiment]
+RACE:Black Regiment	!PRERACE:1,%
 NAME:Black Regiment
 ALIGN:LE
 SKILL:Hide			RANK:5
@@ -24,13 +24,13 @@ SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
 FEAT:Exotic Weapon Proficiency (Rifle Bayonet)
 
-STARTPACK:Default Blob	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Blob]
-RACE:Blob	!PRERACE:%
+STARTPACK:Default Blob	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blob]
+RACE:Blob	!PRERACE:1,%
 NAME:Blob
 ALIGN:TN
 
-STARTPACK:Default Bloodwire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bloodwire]
-RACE:Bloodwire	!PRERACE:%
+STARTPACK:Default Bloodwire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bloodwire]
+RACE:Bloodwire	!PRERACE:1,%
 NAME:Bloodwire
 ALIGN:TN
 SKILL:Balance		RANK:3
@@ -41,8 +41,8 @@ SKILL:Hide			RANK:2
 SKILL:Jump			RANK:6
 SKILL:Wilderness Lore	RANK:6
 
-STARTPACK:Default Bogie Man	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bogie Man]
-RACE:Bogie Man	!PRERACE:%
+STARTPACK:Default Bogie Man	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bogie Man]
+RACE:Bogie Man	!PRERACE:1,%
 NAME:Bogie Man
 ALIGN:CE
 SKILL:Climb			RANK:5
@@ -58,8 +58,8 @@ SKILL:Move Silently	RANK:6
 FEAT:Dodge
 FEAT:Mobility
 
-STARTPACK:Default Bone Fiend	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bone Fiend]
-RACE:Bone Fiend	!PRERACE:%
+STARTPACK:Default Bone Fiend	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bone Fiend]
+RACE:Bone Fiend	!PRERACE:1,%
 NAME:Bone Fiend
 ALIGN:CE
 SKILL:Climb			RANK:6
@@ -73,8 +73,8 @@ SKILL:Hide			RANK:8
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Braincrawler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Braincrawler]
-RACE:Braincrawler	!PRERACE:%
+STARTPACK:Default Braincrawler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Braincrawler]
+RACE:Braincrawler	!PRERACE:1,%
 NAME:Braincrawler
 ALIGN:CE
 SKILL:Climb			RANK:10

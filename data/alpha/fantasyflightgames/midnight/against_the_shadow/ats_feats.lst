@@ -7,14 +7,14 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 Brew Herbal Concoctions							TYPE:General																	PRESKILL:1,Profession (Herbalist)=4																					DESC:Create near-miraculous conctions from natural ingredients																																																																																											SOURCEPAGE:p. 74
 Charm Lore									TYPE:General																													SA:Charm Lore [% Charms]|NumCharms	DEFINE:InitLevel|0	DEFINE:NumCharms|0	DESC:Knowledge of one charm per level.																																																		BONUS:VAR|InitLevel|TL|PREVAREQ:InitLevel,0	BONUS:VAR|NumCharms|(TL-InitLevel)+1																															SOURCEPAGE:p. 74
 Devastating Mounted Assault						TYPE:General				PREFEAT:1,Mounted Combat									PRESKILL:1,Ride=10																							DESC:Make a full attack when mounted even if move more than 5 ft.																																																																																											SOURCEPAGE:p. 74
-Friendly Agent								TYPE:Gnome.Human	PREALIGN:LG,NG,CG								PRERACE:Gnome,Human																													DESC:You have a sixth sense about the enemy and a trusting veneer to allies.
+Friendly Agent								TYPE:Gnome.Human	PREALIGN:LG,NG,CG								PRERACE:1,Gnome,Human																													DESC:You have a sixth sense about the enemy and a trusting veneer to allies.
 Giant Fighter			OUTPUTNAME:Giant-Fighter	TYPE:General				PREFEAT:1,Dodge	PREFEAT:1,Weapon Focus																																	DESC:You have studied with everyone you can find who knows how to doge giants' blows and hit them where it hurts.										BONUS:COMBAT|AC|4|TYPE=Dodge|PREAPPLY:PC																																					BONUS:WEAPONPROF=TYPE.Simple|CRITRANGEMULT|2|PREAPPLY:PC	BONUS:WEAPONPROF=TYPE.Martial|CRITRANGEMULT|2|PREAPPLY:PC	BONUS:WEAPONPROF=TYPE.Exotic|CRITRANGEMULT|2|PREAPPLY:PC	SOURCEPAGE:p. 75
 Green Thumb									TYPE:General																	PRESKILL:1,Profession (Herbalist)=3,Wilderness Lore=6																		DESC:See text																																								BONUS:SKILL|Profession (Herbalist),Wilderness Lore|4|TYPE=Competence|PREAPPLY:PC
 Herbal Savant								TYPE:General																	PRESKILL:1,Profession (Herbalist)=15																				DESC:Add one additional ingredient to an infused oil without increasing the DC.																																																																																								SOURCEPAGE:p. 75
 Improvised Weapon								TYPE:General																																											DESC:You have learned to attack enemies and defend yourself with whatever weapons are at hand.																																																																																						SOURCEPAGE:p. 75
 
 ### TODO: There doesn't seem to be a way to do this.
-Knife Thrower								TYPE:Elven												PRERACE:Elf (Snow),Elf (Jungle)																											DESC:You may use your racial fighting knife as a thrown weapon with a range increment of 20 ft.																																																																																						SOURCEPAGE:p. 75
+Knife Thrower								TYPE:Elven												PRERACE:1,Elf (Snow),Elf (Jungle)																											DESC:You may use your racial fighting knife as a thrown weapon with a range increment of 20 ft.																																																																																						SOURCEPAGE:p. 75
 
 ### TODO: This should do something.
 Lucky										TYPE:General																																											DESC:All numerical luck bonuses provided by charms are increased by one for you.																																																																																								SOURCEPAGE:p. 75
@@ -29,7 +29,7 @@ Orc Slayer				OUTPUTNAME:Orc-Slayer		TYPE:General																															
 Sense Nexus									TYPE:General																																											DESC:See text																																																																																																			SOURCEPAGE:p. 76
 
 ### TODO: Not really sure that Thick Skull (Dworg, Dwarf) is intended to mean that this feat is a Dworg and Dwarf feat.
-Thick Skull									TYPE:Dworg.Dwarf											PRERACE:Dwarf,Dworg												PRESTAT:1,CON=13															DESC:See text																																																																																																			SOURCEPAGE:p. 76
+Thick Skull									TYPE:Dworg.Dwarf											PRERACE:1,Dwarf,Dworg												PRESTAT:1,CON=13															DESC:See text																																																																																																			SOURCEPAGE:p. 76
 Whispering Awareness							TYPE:General																										PRESTAT:1,WIS=15															DESC:See text																																																																																																			SOURCEPAGE:p. 76
 
 #

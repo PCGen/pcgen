@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Vampire (Cinematic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire (Cinematic)]
-RACE:Vampire (Cinematic)	!PRERACE:%
+STARTPACK:Default Vampire (Cinematic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire (Cinematic)]
+RACE:Vampire (Cinematic)	!PRERACE:1,%
 NAME:Vampire (Cinematic)
 SKILL:Climb			RANK:6
 SKILL:Hide			RANK:6
@@ -14,8 +14,8 @@ SKILL:Spot			RANK:7
 FEAT:Dodge
 FEAT:Multiattack
 
-STARTPACK:Default Vampire (Nachtzehrer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire (Nachtzehrer)]
-RACE:Vampire (Nachtzehrer)	!PRERACE:%
+STARTPACK:Default Vampire (Nachtzehrer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire (Nachtzehrer)]
+RACE:Vampire (Nachtzehrer)	!PRERACE:1,%
 NAME:Vampire (Nachtzehrer)
 ALIGN:CE
 SKILL:Climb			RANK:4
@@ -27,8 +27,8 @@ SKILL:Spot			RANK:6
 FEAT:Brave
 FEAT:Multiattack
 
-STARTPACK:Default Vampire (Nosferatu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire (Nosferatu)]
-RACE:Vampire (Nosferatu)	!PRERACE:%
+STARTPACK:Default Vampire (Nosferatu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire (Nosferatu)]
+RACE:Vampire (Nosferatu)	!PRERACE:1,%
 NAME:Vampire (Nosferatu)
 ALIGN:CE
 SKILL:Climb			RANK:2
@@ -39,8 +39,8 @@ SKILL:Listen		RANK:6
 SKILL:Spot			RANK:6
 FEAT:Dodge
 
-STARTPACK:Default Vampire (Penanggalen)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire (Penanggalen)]
-RACE:Vampire (Penanggalen)	!PRERACE:%
+STARTPACK:Default Vampire (Penanggalen)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire (Penanggalen)]
+RACE:Vampire (Penanggalen)	!PRERACE:1,%
 NAME:Vampire (Penanggalen)
 ALIGN:CE
 SKILL:Hide			RANK:7
@@ -51,8 +51,8 @@ SKILL:Spot			RANK:9
 FEAT:Dodge
 FEAT:Power Attack
 
-STARTPACK:Default Vampire (Shtriga)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire (Shtriga)]
-RACE:Vampire (Shtriga)	!PRERACE:%
+STARTPACK:Default Vampire (Shtriga)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire (Shtriga)]
+RACE:Vampire (Shtriga)	!PRERACE:1,%
 NAME:Vampire (Shtriga)
 ALIGN:CE
 SKILL:Climb			RANK:5
@@ -67,8 +67,8 @@ FEAT:Brave
 FEAT:Dodge
 FEAT:Extend Spell
 
-STARTPACK:Default Vampire (Upir)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire (Upir)]
-RACE:Vampire (Upir)	!PRERACE:%
+STARTPACK:Default Vampire (Upir)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire (Upir)]
+RACE:Vampire (Upir)	!PRERACE:1,%
 NAME:Vampire (Upir)
 ALIGN:CE
 SKILL:Climb			RANK:0
@@ -81,8 +81,8 @@ SKILL:Move Silently	RANK:9
 FEAT:Dodge
 FEAT:Power Attack
 
-STARTPACK:Default Vampire (Ustrel)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire (Ustrel)]
-RACE:Vampire (Ustrel)	!PRERACE:%
+STARTPACK:Default Vampire (Ustrel)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire (Ustrel)]
+RACE:Vampire (Ustrel)	!PRERACE:1,%
 NAME:Vampire (Ustrel)
 ALIGN:CE
 SKILL:Climb			RANK:4
@@ -92,8 +92,8 @@ SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
 FEAT:Dodge
 
-STARTPACK:Default Vampire (Wampyr)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire (Wampyr)]
-RACE:Vampire (Wampyr)	!PRERACE:%
+STARTPACK:Default Vampire (Wampyr)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire (Wampyr)]
+RACE:Vampire (Wampyr)	!PRERACE:1,%
 NAME:Vampire (Wampyr)
 ALIGN:CE
 SKILL:Climb			RANK:4

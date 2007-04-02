@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Apr  2 04:37:37 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
-# Template Name		Template																																									Source Page				Required Class	Required Race	Removable?		Type
-Val Bloodlines		TEMPLATE:CHOOSE:Abebi|Assante|Borda|Dellenov|Inares|Ishi|Mehan|Mordane|Ossan|Sheem|Tensen|Virdan																																		PRERACE:Val		REMOVABLE:NO	TYPE:Val
-Elorii Subraces		TEMPLATE:CHOOSE:Marokene|Osalikene|Kelekene|Berokene|Ardakene																																								PRERACE:Elorii	REMOVABLE:NO
-Arcanis Regions		TEMPLATE:CHOOSE:Altheria|Milandir|Elonbe|Hinterlands|Canceri|Coryani Empire|League of Princes|Unden|Kion|Dwarven Enclave|Myrantia|Ymandragore|Entaris																													REMOVABLE:NO
-Secret Socities		TEMPLATE:CHOOSE:Orthodoxy|Azure Way|Emerald Society|Hawk|Shield|Mourners in Silence																																								REMOVABLE:YES
-Monastic Orders		TEMPLATE:CHOOSE:Order of the Iron Soul|Order of the Blade|Order of the Perfect Union|Brotherhood of Man|Order of the Bronze Sepulcer|Order of the Incandescent Path|Order of the Pearl Maidens|Contemplation of the Elements|Order of the Iridescent Scales	SOURCEPAGE:Codex Compendium	PRECLASS:1,Monk=1				REMOVABLE:YES
-Ss'ressen Clutches	TEMPLATE:CHOOSE:Black Talon|Barbed Tail|Flaming Tongue|Venomous Scale																																							PRERACE:Ss'ressen
+# Template Name		Template																																									Source Page				Required Class	Required Race		Removable?		Type
+Val Bloodlines		TEMPLATE:CHOOSE:Abebi|Assante|Borda|Dellenov|Inares|Ishi|Mehan|Mordane|Ossan|Sheem|Tensen|Virdan																																		PRERACE:1,Val		REMOVABLE:NO	TYPE:Val
+Elorii Subraces		TEMPLATE:CHOOSE:Marokene|Osalikene|Kelekene|Berokene|Ardakene																																								PRERACE:1,Elorii		REMOVABLE:NO
+Arcanis Regions		TEMPLATE:CHOOSE:Altheria|Milandir|Elonbe|Hinterlands|Canceri|Coryani Empire|League of Princes|Unden|Kion|Dwarven Enclave|Myrantia|Ymandragore|Entaris																														REMOVABLE:NO
+Secret Socities		TEMPLATE:CHOOSE:Orthodoxy|Azure Way|Emerald Society|Hawk|Shield|Mourners in Silence																																									REMOVABLE:YES
+Monastic Orders		TEMPLATE:CHOOSE:Order of the Iron Soul|Order of the Blade|Order of the Perfect Union|Brotherhood of Man|Order of the Bronze Sepulcer|Order of the Incandescent Path|Order of the Pearl Maidens|Contemplation of the Elements|Order of the Iridescent Scales	SOURCEPAGE:Codex Compendium	PRECLASS:1,Monk=1					REMOVABLE:YES
+Ss'ressen Clutches	TEMPLATE:CHOOSE:Black Talon|Barbed Tail|Flaming Tongue|Venomous Scale																																							PRERACE:1,Ss'ressen
 
 ###Block: Bloodlines
 # Template Name	Output Name			Visible		FAVOREDCLASS			Removable?		SUBRACE
@@ -28,7 +28,7 @@ Virdan		OUTPUTNAME:val'Virdan	VISIBLE:EXPORT	FAVOREDCLASS:Fighter		REMOVABLE:NO	
 ###Block: Regions
 # Template Name	Visible		Template											Required Race	Automatic Languages	REGION					SUBRACE
 Altheria		VISIBLE:EXPORT																LANGAUTO:Altherin		REGION:Altheria
-Elonbe		VISIBLE:EXPORT													PRERACE:Elorii					REGION:Elonbe
+Elonbe		VISIBLE:EXPORT													PRERACE:1,Elorii					REGION:Elonbe
 Hinterlands		VISIBLE:EXPORT																LANGAUTO:Yhing Hir	REGION:Hinterlands
 Milandir		VISIBLE:EXPORT																LANGAUTO:Milandisian	REGION:Milandir
 Canceri		VISIBLE:EXPORT																LANGAUTO:Cancerese	REGION:Canceri
@@ -39,13 +39,13 @@ League of Princes	VISIBLE:EXPORT																LANGAUTO:Low Coryani	REGION:Leag
 Myrantia		VISIBLE:EXPORT																LANGAUTO:Myrantian	REGION:Myrantia
 Ymandragore		VISIBLE:EXPORT																LANGAUTO:Ymandrake	REGION:Ymandragore
 Dwarven Enclave				TEMPLATE:CHOOSE:Generic Enclave|Solaros Mor|Encali|Tir Betoq|Entaris
-Generic Enclave	VISIBLE:EXPORT													PRERACE:Dwarf%					REGION:Dwarven Enclave
-Solanos Mor		VISIBLE:EXPORT													PRERACE:Dwarf%					REGION:Solanos Mor
-Encali		VISIBLE:EXPORT													PRERACE:Dwarf%					REGION:Encali
-Tir Betoq		VISIBLE:EXPORT													PRERACE:Dwarf%					REGION:Tir Betoq
+Generic Enclave	VISIBLE:EXPORT													PRERACE:1,Dwarf%					REGION:Dwarven Enclave
+Solanos Mor		VISIBLE:EXPORT													PRERACE:1,Dwarf%					REGION:Solanos Mor
+Encali		VISIBLE:EXPORT													PRERACE:1,Dwarf%					REGION:Encali
+Tir Betoq		VISIBLE:EXPORT													PRERACE:1,Dwarf%					REGION:Tir Betoq
 
 #Elorii Region
-Entaris		VISIBLE:EXPORT													PRERACE:Elorii					REGION:Entaris
+Entaris		VISIBLE:EXPORT													PRERACE:1,Elorii					REGION:Entaris
 
 ###Block: Elorii Subraces
 # Template Name	Visible	Source Page		Special Ability												Bonus to skill					Stat bonus														FAVOREDCLASS		Automatic Languages	Move			Removable?		SUBRACE

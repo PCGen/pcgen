@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Mon Apr  2 04:37:37 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 # Original entry by: Blithwyn
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
@@ -100,8 +100,8 @@ CLASS:Falconer	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Fa
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Halfling Clanwarden	HD:6		TYPE:PC.Prestige	ABB:Cla		MAXLEVEL:10	SOURCEPAGE:Chap.1, Halfling Clanwarden	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
-# Class Name			Required Race	Required Skill							Total Skill Points Req.
-CLASS:Halfling Clanwarden	PRERACE:Halfling%	PRESKILL:2,Climb,Hide,Jump,Listen,Move Silently=8	PRESKILLTOT:Climb,Hide,Jump,Listen,Move Silently=24
+# Class Name			Required Race		Required Skill							Total Skill Points Req.
+CLASS:Halfling Clanwarden	PRERACE:1,Halfling%	PRESKILL:2,Climb,Hide,Jump,Listen,Move Silently=8	PRESKILLTOT:Climb,Hide,Jump,Listen,Move Silently=24
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Halfling Clanwarden	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	FEATAUTO:Simple Weapon Proficiency|
@@ -228,7 +228,7 @@ CLASS:Packrat	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Dec
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus												Combat bonus
 CLASS:Psychic Interloper	HD:6		TYPE:PC.Prestige	ABB:PsIn		MAXLEVEL:10	SOURCEPAGE:Chap.1, Psychic Interloper	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required Check Base	Required Feat		Required Race				Required Skill
-CLASS:Psychic Interloper	PRECHECKBASE:1,Reflex=3	PREFEAT:1,Iron Will	PRERACE:Human,Half-Elf,Half-Orc	PRESKILL:2,Concentration,Knowledge (Psionics)=4
+CLASS:Psychic Interloper	PRECHECKBASE:1,Reflex=3	PREFEAT:1,Iron Will	PRERACE:1,Human,Half-Elf,Half-Orc	PRESKILL:2,Concentration,Knowledge (Psionics)=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Psychic Interloper	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentration|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Knowledge (Psionics)|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Psicraft|Read Lips|Search|Sense Motive|Spot|Stabilize Self|Swim|Tumble|Use Rope
 # Class Name			Spell Stat		Spell Type		Memorize
@@ -383,7 +383,7 @@ CLASS:Unblinking Eye	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Deciphe
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
 CLASS:White Rose	HD:8		TYPE:PC.Prestige	ABB:WRo		MAXLEVEL:10	SOURCEPAGE:Chap.1, White Rose	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Req. Att.	Required Feat									Required Race		Required Skill
-CLASS:White Rose	PREATT:6	PREFEAT:2,Dodge,Expertise	PREFEAT:1,Weapon Focus(TYPE=Sword)	PRERACE:Elf%,Half-Elf	PRESKILL:4,Balance,Hide,Jump,Move Silently=8
+CLASS:White Rose	PREATT:6	PREFEAT:2,Dodge,Expertise	PREFEAT:1,Weapon Focus(TYPE=Sword)	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Balance,Hide,Jump,Move Silently=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:White Rose	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble
 1	FEATAUTO:White Rose Weapon Proficiencies

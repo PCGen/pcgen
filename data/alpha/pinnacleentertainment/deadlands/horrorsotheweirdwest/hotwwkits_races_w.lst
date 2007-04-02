@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Walkin' Fossil	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Walkin' Fossil]
-RACE:Walkin' Fossil	!PRERACE:%
+STARTPACK:Default Walkin' Fossil	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Walkin' Fossil]
+RACE:Walkin' Fossil	!PRERACE:1,%
 NAME:Walkin' Fossil
 ALIGN:TN
 SKILL:Jump			RANK:6
@@ -13,8 +13,8 @@ SKILL:Move Silently	RANK:4
 FEAT:Power Attack
 FEAT:Track
 
-STARTPACK:Default Wave Shadow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wave Shadow]
-RACE:Wave Shadow	!PRERACE:%
+STARTPACK:Default Wave Shadow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wave Shadow]
+RACE:Wave Shadow	!PRERACE:1,%
 NAME:Wave Shadow
 ALIGN:LE
 SKILL:Hide			RANK:7
@@ -25,8 +25,8 @@ SKILL:Search		RANK:6
 SKILL:Swim			RANK:8
 FEAT:Endurance
 
-STARTPACK:Default Weeping Widow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Weeping Widow]
-RACE:Weeping Widow	!PRERACE:%
+STARTPACK:Default Weeping Widow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Weeping Widow]
+RACE:Weeping Widow	!PRERACE:1,%
 NAME:Weeping Widow
 ALIGN:CE
 SKILL:Climb			RANK:5
@@ -39,8 +39,8 @@ SKILL:Knowledge (Local)	RANK:8
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Default Were-Shark	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Were-Shark]
-RACE:Were-Shark	!PRERACE:%
+STARTPACK:Default Were-Shark	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Were-Shark]
+RACE:Were-Shark	!PRERACE:1,%
 NAME:Were-Shark
 SKILL:Climb			RANK:4
 SKILL:Hide			RANK:7
@@ -51,8 +51,8 @@ SKILL:Spot			RANK:8
 SKILL:Swim			RANK:8
 FEAT:Multiattack
 
-STARTPACK:Default Will-o'-the-Wisp	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Will-o'-the-Wisp]
-RACE:Will-o'-the-Wisp	!PRERACE:%
+STARTPACK:Default Will-o'-the-Wisp	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Will-o'-the-Wisp]
+RACE:Will-o'-the-Wisp	!PRERACE:1,%
 NAME:Will-o'-the-Wisp
 ALIGN:CE
 SKILL:Bluff			RANK:5

@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Nagual	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Nagual]
-RACE:Nagual	!PRERACE:%
+STARTPACK:Default Nagual	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nagual]
+RACE:Nagual	!PRERACE:1,%
 NAME:Nagual
 SKILL:Climb			RANK:8
 SKILL:Hide			RANK:3
@@ -13,8 +13,8 @@ SKILL:Spot			RANK:4
 SKILL:Wilderness Lore	RANK:4
 FEAT:Track
 
-STARTPACK:Default Nibbler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Nibbler]
-RACE:Nibbler	!PRERACE:%
+STARTPACK:Default Nibbler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nibbler]
+RACE:Nibbler	!PRERACE:1,%
 NAME:Nibbler
 ALIGN:TN
 SKILL:Hide			RANK:8
@@ -24,8 +24,8 @@ SKILL:Move Silently	RANK:2
 SKILL:Swim			RANK:9
 SKILL:Wilderness Lore	RANK:6
 
-STARTPACK:Default Night Raven	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Night Raven]
-RACE:Night Raven	!PRERACE:%
+STARTPACK:Default Night Raven	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Raven]
+RACE:Night Raven	!PRERACE:1,%
 NAME:Night Raven
 ALIGN:NE
 SKILL:Hide			RANK:7

@@ -284,7 +284,7 @@ CLASS:Knight of the Twelve Oaks	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL
 # Class Name				Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Order of the Inner Demon	HD:10		TYPE:Base.PC	ABB:HCSrs		SOURCEPAGE:pg. 106	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name				Required AL	Required Deity	Multiple Requirements
-CLASS:Order of the Inner Demon	PREALIGN:LG	PREDEITY:Sarish	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2[PRERACE:Dwarf],[PRETEMPLATE:Encalan]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
+CLASS:Order of the Inner Demon	PREALIGN:LG	PREDEITY:Sarish	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2[PRERACE:1,Dwarf],[PRETEMPLATE:Encalan]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Order of the Inner Demon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (The Planes)|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
 # Class Name				Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level

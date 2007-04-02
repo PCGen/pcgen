@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
-STARTPACK:Default California Acid Viper	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:California Acid Viper]
-RACE:California Acid Viper	!PRERACE:%
+STARTPACK:Default California Acid Viper	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,California Acid Viper]
+RACE:California Acid Viper	!PRERACE:1,%
 NAME:California Acid Viper
 ALIGN:TN
 SKILL:Climb			RANK:6
@@ -10,53 +10,53 @@ SKILL:Listen		RANK:5
 SKILL:Move silently	RANK:5
 SKILL:Wilderness Lore	RANK:5
 
-STARTPACK:Default Dark Retcher	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dark Retcher]
-RACE:Dark Retcher	!PRERACE:%
+STARTPACK:Default Dark Retcher	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dark Retcher]
+RACE:Dark Retcher	!PRERACE:1,%
 NAME:Dark Retcher
 ALIGN:NE
 SKILL:Wilderness Lore	RANK:15
 
-STARTPACK:Default Death Pinata	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Death Pinata]
-RACE:Death Pinata	!PRERACE:%
+STARTPACK:Default Death Pinata	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Death Pinata]
+RACE:Death Pinata	!PRERACE:1,%
 NAME:Death Pinata
 ALIGN:NE
 
-STARTPACK:Default Desperators	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Desperators]
-RACE:Desperators	!PRERACE:%
+STARTPACK:Default Desperators	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Desperators]
+RACE:Desperators	!PRERACE:1,%
 NAME:Desperators
 ALIGN:CE
 SKILL:Hide	RANK:9
 
-STARTPACK:Default Flenser	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Flenser]
-RACE:Flenser	!PRERACE:%
+STARTPACK:Default Flenser	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flenser]
+RACE:Flenser	!PRERACE:1,%
 NAME:Flenser
 ALIGN:CE
 SKILL:Listen		RANK:5
 SKILL:Spot			RANK:4
 SKILL:Wilderness Lore	RANK:2
 
-STARTPACK:Default Grimholds	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Grimholds]
-RACE:Grimholds	!PRERACE:%
+STARTPACK:Default Grimholds	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grimholds]
+RACE:Grimholds	!PRERACE:1,%
 NAME:Grimholds
 ALIGN:CE
 SKILL:Climb	RANK:1
 SKILL:Jump	RANK:1
 
-STARTPACK:Default Plasma Wench	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Plasma Wench]
-RACE:Plasma Wench	!PRERACE:%
+STARTPACK:Default Plasma Wench	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Plasma Wench]
+RACE:Plasma Wench	!PRERACE:1,%
 NAME:Plasma Wench
 ALIGN:TN
 
-STARTPACK:Default Retcheds	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Retcheds]
-RACE:Retcheds	!PRERACE:%
+STARTPACK:Default Retcheds	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Retcheds]
+RACE:Retcheds	!PRERACE:1,%
 NAME:Retcheds
 ALIGN:TN
 SKILL:Listen		RANK:4
 SKILL:Spot			RANK:4
 SKILL:Wilderness Lore	RANK:6
 
-STARTPACK:Default Whammies	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Whammies]
-RACE:Whammies	!PRERACE:%
+STARTPACK:Default Whammies	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whammies]
+RACE:Whammies	!PRERACE:1,%
 NAME:Whammies
 ALIGN:NE
 SKILL:Hide			RANK:3
