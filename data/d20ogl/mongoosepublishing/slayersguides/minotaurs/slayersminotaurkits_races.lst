@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs	SOURCESHORT:SGtM	SOURCEWEB:http://mongoosepublishing.com
 
-STARTPACK:Default Minotaur (Brown)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Minotaur (Brown)]
-RACE:Minotaur (Brown)	!PRERACE:%
+STARTPACK:Default Minotaur (Brown)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur (Brown)]
+RACE:Minotaur (Brown)	!PRERACE:1,%
 NAME:Minotaur (Brown)
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Intimidate	RANK:6
@@ -13,8 +13,8 @@ SKILL:Jump		RANK:4
 FEAT:Power Attack
 FEAT:Great Fortitude
 
-STARTPACK:Default Minotaur (Shaggy)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Minotaur (Shaggy)]
-RACE:Minotaur (Shaggy)	!PRERACE:%
+STARTPACK:Default Minotaur (Shaggy)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur (Shaggy)]
+RACE:Minotaur (Shaggy)	!PRERACE:1,%
 NAME:Minotaur (Shaggy)
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Intimidate	RANK:6
@@ -25,8 +25,8 @@ SKILL:Jump		RANK:4
 FEAT:Power Attack
 FEAT:Great Fortitude
 
-STARTPACK:Default Minotaur (Bearded)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Minotaur (Bearded)]
-RACE:Minotaur (Bearded)	!PRERACE:%
+STARTPACK:Default Minotaur (Bearded)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur (Bearded)]
+RACE:Minotaur (Bearded)	!PRERACE:1,%
 NAME:Minotaur (Bearded)
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Intimidate	RANK:6
@@ -37,8 +37,8 @@ SKILL:Jump		RANK:4
 FEAT:Power Attack
 FEAT:Great Fortitude
 
-STARTPACK:Default Minotaur (Noble)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Minotaur (Noble)]
-RACE:Minotaur (Noble)	!PRERACE:%
+STARTPACK:Default Minotaur (Noble)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur (Noble)]
+RACE:Minotaur (Noble)	!PRERACE:1,%
 NAME:Minotaur (Noble)
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Intimidate	RANK:6
