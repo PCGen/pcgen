@@ -1621,7 +1621,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		if (minCharges < 0)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"This item cannot hold charges.", Constants.s_APPNAME, //$NON-NLS-1$
+				"This item cannot hold charges.", Constants.s_APPNAME, 
 				MessageType.ERROR);
 
 			return;
@@ -2179,7 +2179,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		rightPane
 			.add(
 				buildDelPanel(removeButton,
-					"Click to remove the selected item from the Selected list of items"),
+					PropertyFactory.getString("in_igRemoveHelpMsg")), //$NON-NLS-1$
 				BorderLayout.SOUTH);
 
 		JButton columnButton2 = new JButton();
@@ -2198,13 +2198,13 @@ public final class InfoGear extends FilterAdapterPanel implements
 		rightPane.add(buildRemoveItemPanel(), BorderLayout.SOUTH);
 
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder("Equipment Info");
+				BorderFactory.createTitledBorder(PropertyFactory.getString("in_igEqInfo")); //$NON-NLS-1$
 		title1.setTitleJustification(TitledBorder.CENTER);
 		eqScroll.setBorder(title1);
 		infoLabel.setBackground(rightPane.getBackground());
 		eqScroll.setViewportView(infoLabel);
 		Utility.setDescription(eqScroll,
-			"Any requirements you don't meet are in italics.");
+			PropertyFactory.getString("in_igReqNotMet")); //$NON-NLS-1$
 
 		GridBagLayout gridbag2 = new GridBagLayout();
 		GridBagConstraints c2 = new GridBagConstraints();
@@ -2440,7 +2440,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		if (sellQty < 0.0f)
 		{
 			Object selectedValue =
-					JOptionPane.showInputDialog(null, "Enter Quantity",
+					JOptionPane.showInputDialog(null, PropertyFactory.getString("in_igRemoveEnterQuantity"), //$NON-NLS-1$
 						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
@@ -2451,7 +2451,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				}
 				catch (Exception e)
 				{
-					ShowMessageDelegate.showMessageDialog("Invalid number!",
+					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_igInvalidNumber"), //$NON-NLS-1$
 						Constants.s_APPNAME, MessageType.ERROR);
 
 					return 0;
@@ -2472,13 +2472,13 @@ public final class InfoGear extends FilterAdapterPanel implements
 			}
 			ShowMessageDelegate
 				.showMessageDialog(
-					"You cannot buy, own or carry non-integral numbers of containers\ni.e. Half a sack is nonsensical.",
+					PropertyFactory.getString("in_igRemoveNoIntegerMsg"), //$NON-NLS-1$
 					Constants.s_APPNAME, MessageType.ERROR);
 
 			return 0;
 		}
 		ShowMessageDelegate.showMessageDialog(
-			"Cannot remove container unless it is empty.", Constants.s_APPNAME,
+			PropertyFactory.getString("in_igRemoveNoRemoveFilledContainer"), Constants.s_APPNAME, //$NON-NLS-1$
 			MessageType.ERROR);
 		return 0;
 	}
@@ -2603,8 +2603,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 		InputInterface ii = InputFactory.getInputInstance();
 		Object input =
 				ii
-					.showInputDialog(this, "Enter sell price percentage:",
-						"Sell at Percent", MessageType.QUESTION, null,
+					.showInputDialog(this, PropertyFactory.getString("in_igSellPricePercMsg"), //$NON-NLS-1$
+						PropertyFactory.getString("Sell at Percent"), MessageType.QUESTION, null, //$NON-NLS-1$
 						defaultValue);
 
 		if (input != null)
@@ -2619,7 +2619,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 			catch (NumberFormatException nfe)
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"You must enter an integer value.", "Error",
+					PropertyFactory.getString("in_igSellPricePercNoIntegerMsg"), //$NON-NLS-1$
+					PropertyFactory.getString("in_igSellPricePercNoIntegerTitle"), //$NON-NLS-1$
 					MessageType.ERROR);
 			}
 		}
