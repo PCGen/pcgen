@@ -39,8 +39,6 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of special ability)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (List of items from type that can be selected)</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Number, Variable or Formula (Number of choices granted)</p>
-		<p class="indent0"><strong>Deprecated Tag Name:</strong></p>
-		<p class="indent1">Any ADD with just parenthesis is deprecated.</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This creates a popup choice for the users to select from of Special Abilities. The
 		text used (x) tells PCGen what the name of the Special Ability it is, and the choices contained within
@@ -315,17 +313,17 @@
 		<p class="indent1"><strong>Variables Used (z):</strong> (the choices; comma delimited)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
+			<li>The optional count has a pipe [y|] that is not needed, unless the count is used.</li>
 			<li>SA with no additional parameters will assign the first of the items.</li>
 			<li>SA with parameters will give the character a choice of one to the limit of count from
 			the items listed in the list.</li>
 			<li>SA listed are all &quot;,&quot; (comma) delimited</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ADD:SA|Brick Wall|[3|]Damage Reduction %/-|ToughDamageReduction,Concussion
-		Resistance,Remain Concious,Melee Smash,Extreme Effort</code></p>
+		<p class="indent2"><code>ADD:SA|Brick Wall|[3|]Damage Reduction,Concussion Resistance,Remain Concious,
+		Melee Smash,Extreme Effort</code></p>
 		<p class="indent3">Add three of special abilities listed.</p>
-		<p class="indent2"><code>ADD:SA|Shadow Slayer|Detect Shadow (%/day)|ShadowSlayerLevel,Shadow Immunity (DR %)|ShadowSlayerHalfLevel</code></p>
+		<p class="indent2"><code>ADD:SA|Shadow Slayer|Detect Shadow,Shadow Immunity</code></p>
 		<p class="indent3">Add one of the two special abilities.</p>
 
 
