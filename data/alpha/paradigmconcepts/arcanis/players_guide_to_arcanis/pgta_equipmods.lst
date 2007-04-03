@@ -1,9 +1,14 @@
-# CVS $Revision$ $Author$ -- Mon Apr  2 04:37:37 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Tue Apr  3 03:09:34 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
 # Modifier Name					Unique Key			Product Identity?	Output Name					Naming Option	Type					Plus		Cost		Visible		Type granted							Keys to replace					Source Page						Multiple Requirements										Required Type									Prohibited Type											Combat bonus					BONUS:EQM						BONUS:EQMARMOR						Modify the item cost																																				Weapon prop. bonus											Special Property										Apply to both heads
-Masterwork.MOD																																	ITYPE:Masterwork.Upgrade
+#Masterwork.MOD																																	ITYPE:Masterwork.Upgrade
+# Modifier Name					Unique Key			Product Identity?	Output Name					Naming Option	Type					Plus		Cost		Visible		Type granted							Keys to replace					Source Page						Multiple Requirements										Required Type									Prohibited Type											Combat bonus					BONUS:EQM						BONUS:EQMARMOR						Modify the item cost																																				Weapon prop. bonus											Special Property										Apply to both heads
+MWORKW.MOD																																		ITYPE:Masterwork.Upgrade
+MWORKA.MOD																																		ITYPE:Masterwork.Upgrade
+MWORKI.MOD																																		ITYPE:Masterwork.Upgrade
+MWORKT.MOD																																		ITYPE:Masterwork.Upgrade
 
 Greater Masterwork				KEY:GMWORKW												NAMEOPT:Normal	TYPE:Melee.Ammunition				COST:0	VISIBLE:QUALIFY	ITYPE:GreaterMasterwork.Upgrade																															PRETYPE:1,Melee,Ammunition							!PRETYPE:GreaterMasterwork|Masterwork|Mithral|Adamantine|Darkwood																									BONUS:ITEMCOST|TYPE=Ammunition|12	BONUS:ITEMCOST|TYPE=Melee|600																													BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	BONUS:WEAPON|DAMAGE|1|TYPE=Enhancement	SPROP:+1 Hardness and +5 hp.
 Greater Masterwork				KEY:GMWORKR												NAMEOPT:Normal	TYPE:Ranged						COST:600	VISIBLE:QUALIFY	ITYPE:GreaterMasterwork.Upgrade																															PRETYPE:1,Ranged									!PRETYPE:GreaterMasterwork|Masterwork|Mithral|Adamantine|Darkwood																																																																BONUS:WEAPON|TOHIT|2|TYPE=Enhancement								SPROP:+1 Hardness and +5 hp.

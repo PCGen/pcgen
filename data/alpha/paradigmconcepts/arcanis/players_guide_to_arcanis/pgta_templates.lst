@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Tue Apr  3 02:41:43 2007 -- reformated by prettylst.pl v1.38 (build 2621)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -12,10 +12,11 @@ Fair Sex		VISIBLE:NO											REMOVABLE:NO				GENDERLOCK:Female
 Bowman		VISIBLE:NO	QUALIFY:FEAT|Weapon Specialization					REMOVABLE:NO
 
 ###Block: Patrician Choices
-# Template Name				Visible	Choose					Feat
-Proficient with a Martial Weapon	VISIBLE:NO							FEAT:Martial Weapon Proficiency
-Proficient with Flintlock Pistol	VISIBLE:NO							FEAT:Exotic Weapon Proficiency (Altherian Flintlock (Pistol))
-Proficient with Deity's Weapon	VISIBLE:NO	CHOOSE:WEAPONPROF|1|DEITYWEAPON
+# Template Name				Visible	Template																		Choose					Feat
+Patrician Choices				VISIBLE:NO	TEMPLATE:CHOOSE:Proficient with a Martial Weapon|Proficient with Flintlock Pistol|Proficient with Deity's Weapon
+Proficient with a Martial Weapon	VISIBLE:NO																										FEAT:Martial Weapon Proficiency
+Proficient with Flintlock Pistol	VISIBLE:NO																										FEAT:Exotic Weapon Proficiency (Altherian Flintlock (Pistol))
+Proficient with Deity's Weapon	VISIBLE:NO																				CHOOSE:WEAPONPROF|1|DEITYWEAPON
 
 
 ###Block: Character Stuff

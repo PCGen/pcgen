@@ -52,7 +52,7 @@ CLASS:Elemental Path of Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Path of Stone	HD:10		TYPE:PC.Prestige	ABB:EPoS		MAXLEVEL:5	SOURCEPAGE:pg. 62	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Class	Required Feat														Multiple Requirements						Required Skill																	PRESUBCLASS
-CLASS:Elemental Path of Stone	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:4,Combat Expertise,Great Fortitude,Improved Unarmed Strike,Heightened Elorii Bloodline	PREMULT:2[PRERACE:1,Elorii],[PRETEMPLATE:Marokene]	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
+CLASS:Elemental Path of Stone	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:4,Combat Expertise,Great Fortitude,Improved Unarmed Strike,Heightened Elorii Bloodline	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Marokene]	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
 1	DR:1/-					BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL
@@ -64,7 +64,7 @@ CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Path of Water	HD:8		TYPE:PC.Prestige	ABB:EPoW		MAXLEVEL:5	SOURCEPAGE:pg. 62	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Class	Required Feat												Multiple Requirements						Required Skill																	PRESUBCLASS
-CLASS:Elemental Path of Water	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:5,Dodge,Evasion,Improved Unarmed Strike,Heightened Elorii Bloodline,Run	PREMULT:2[PRERACE:1,Elorii],[PRETEMPLATE:Berokene]	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
+CLASS:Elemental Path of Water	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:5,Dodge,Evasion,Improved Unarmed Strike,Heightened Elorii Bloodline,Run	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Berokene]	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Water	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
 1	SA:Skipping Stone (Ex)	BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL
@@ -76,7 +76,7 @@ CLASS:Elemental Path of Water	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Path of Wind	HD:6		TYPE:PC.Prestige	ABB:EPWnd		MAXLEVEL:5	SOURCEPAGE:pg. 62	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required AL		Req. Att.	Required Class	Required Feat														Multiple Requirements						Required Skill																	PRESUBCLASS
-CLASS:Elemental Path of Wind	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:4,Combat Relexes,Improved Unarmed Strike,Heightened Elorii Bloodline,Weapon Finesse	PREMULT:2[PRERACE:1,Elorii],[PRETEMPLATE:Osalikene]	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
+CLASS:Elemental Path of Wind	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:4,Combat Relexes,Improved Unarmed Strike,Heightened Elorii Bloodline,Weapon Finesse	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Osalikene]	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Wind	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
 1	SA:Earth to Sky (Ex)					BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL	BONUS:COMBAT|AC|1|TYPE=Dodge					ADD:VFEAT(Earth to Sky,Meet the Charge)2
