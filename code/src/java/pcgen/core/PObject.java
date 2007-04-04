@@ -1426,22 +1426,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		ChooserUtilities.getChoices(this, aChoice, availableList, selectedList, aPC);
 	}
 
-	/**
-	 * Get the choices for this PC
-	 * @param aChoice
-	 * @param availableList
-	 * @param selectedList
-	 * @param aPC
-	 */
-	final void getChoices(
-			final String          aChoice,
-			final List            availableList,
-			final List            selectedList,
-			final PlayerCharacter aPC)
-	{
-		ChooserUtilities.getChoices(this, aChoice, availableList, selectedList, aPC);
-	}
-
 	public void addDR(DamageReduction aDR)
 	{
 		drList.add(aDR);
