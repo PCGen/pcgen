@@ -21,9 +21,9 @@
 <head>
     <title>LST Tag Index</title>
     <script type="text/javascript" src="navtree/navtree.js"></script>
-    <link rel="stylesheet" type="text/css" href="pcgen.css" >
-    <link rel="stylesheet" type="text/css" href="navtree/navtree.css" >
-    <base href="." target="content" >
+    <link rel="stylesheet" type="text/css" href="pcgen.css" />
+    <link rel="stylesheet" type="text/css" href="navtree/navtree.css" />
+    <base target="content" >
 </head>
 <body class="navtree">
 
@@ -39,6 +39,7 @@
         <li>
             <a href="listfilepages/globalfilestagpages/globalfilesability.html"><strong>Ability File Tags</strong></a>
             <ul>
+                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#CATEGORY">ABILITY:CATEGORY=</a> <span class="note">(Starting Kit)</span></li>
 				<li><a href="listfilepages/globalfilestagpages/globalfilesbonus.html#ABILITYPOOL">BONUS:ABILITYPOOL</a> <span class="note">(Global BONUS)</span></li>
 				<li><a href="listfilepages/systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a> <span class="note">(Misc Info)</span></li>
 				<li><a href="listfilepages/systemfilestagpages/gamemodemiscinfolist.html#CATEGORY">CATEGORY</a> <span class="note">(Misc Info)</span></li>
@@ -331,10 +332,11 @@
 				</li>
                	<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html">Load File</a>
 					<ul>
-						<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html#SIZEMULT">SIZEMULT</a> <span class="note">(Load)</span></li>
+						<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html#ENCUMBRANCE">ENCUMBRANCE</a> <span class="note">(Load)</span></li>
 						<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html#LOAD">LOAD</a> <span class="note">(Load)</span></li>
 						<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html#LOADMULT">LOADMULT</a> <span class="note">(Load)</span></li>
-						<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html#ENCUMBRANCE">ENCUMBRANCE</a> <span class="note">(Load)</span></li>
+						<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html#LOADSTEPMULT">LOADSTEPMULT</a> <span class="note">(Load)</span></li>
+						<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html#SIZEMULT">SIZEMULT</a> <span class="note">(Load)</span></li>
 					</ul>
 				</li>
                	<li>
@@ -496,7 +498,7 @@
 						<li><a href="listfilepages/globalfilestagpages/globalfilesadd.html#FEAT(">ADD:FEAT(</a> <span class="deprecated">(Deprecated, use <a href="listfilepages/globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT|</a> tag instead.)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesadd.html#FEATX">ADD:FEAT</a> <span class="deprecated">(Deprecated, use <a href="listfilepages/globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT|</a> tag instead.)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT|</a> <span class="note">(Global Add)</span></li>
-						<li><a href="listfilepages/globalfilestagpages/globalfilesadd.html#LANGUAGE(">ADD:Language(</a> <span class="deprecated">(Deprecated, use <a href="listfilepages/globalfilestagpages/globalfilesadd.html#LANGUAGE">ADD:LANGUAGE|</a> tag instead.)</span></li>
+						<li><a href="listfilepages/globalfilestagpages/globalfilesadd.html#LANGUAGE(">ADD:Language(</a> <span class="deprecated">(Deprecated, use <a href="listfilepages/globalfilestagpages/globalfilesadd.html#LANGUAGE|">ADD:LANGUAGE|</a> tag instead.)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesadd.html#LANGUAGE|">ADD:LANGUAGE|</a> <span class="note">(Global Add)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesadd.html#LIST">ADD:LIST(</a> <span class="deprecated">(Deprecated.)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesadd.html#SA">ADD:SA</a> <span class="note">(Global Add)</span></li>
@@ -931,13 +933,13 @@
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#STATNOTEMPMOD">STAT.x.NOTEMPMOD</a> <span class="note">(Global Other)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#TEMPDESC">TEMPDESC</a> <span class="note">(Global Other)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#TEMPLATEADDCHOICE">TEMPLATE:ADDCHOICE</a> <span class="note">(Global Other)</span></span></li>
-						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#TEMPLATEREMOVE">TEMPLATE:x.REMOVE</a> <span class="deprecated">(deprecated)</span></li>
+						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#TEMPLATEREMOVE">TEMPLATE:x.REMOVE</a> <span class="deprecated">(Deprecated, use <a href="#TEMPLATECHANGE">(TEMPLATENAME).MOD or .COPY or .CLEAR</a> tag instead.)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#UDAM">UDAM</a> <span class="note">(Global Other)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#UMULT">UMULT</a> <span class="note">(Global Other)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#UNENCUMBEREDMOVE">UNENCUMBEREDMOVE</a> <span class="note">(Global Other)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#VFEAT">VFEAT</a> <span class="note">(Global Other)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#VISION">VISION</a> <span class="note">(Global Other)</span></li>
-						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#WEAPONAUTO">WEAPONAUTO</a> <span class="deprecated">(deprecated)</span></li>
+						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#WEAPONAUTO">WEAPONAUTO</a> <span class="deprecated">(Deprecated, use <a href="listfilepages/globalfilestagpages/globalfilesother.html#AUTOWEAPONPROF">AUTO:WEAPONPROF</a> tag instead.)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#MOD">.MOD</a> <span class="note">(Global Other)</span></span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#COPY">.COPY</a> <span class="note">(Global Other)</span></li>
 						<li><a href="listfilepages/globalfilestagpages/globalfilesother.html#CLEAR">.CLEAR</a> <span class="note">(Global Other)</span></li>
@@ -1185,11 +1187,7 @@
         <li>
             <a href="listfilepages/datafilestagpages/datafilesstartingkits.html"><strong>Starting Kit File Tags</strong></a>
             <ul>
-                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#REGION">REGION</a> <span class="note">(Starting Kit)</span></li>
-                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SOURCELONG">SOURCELONG</a> <span class="note">(Starting Kit)</span></li>
-                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SOURCESHORT">SOURCESHORT</a> <span class="note">(Starting Kit)</span></li>
-                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SOURCEWEB">SOURCEWEB</a> <span class="note">(Starting Kit)</span></li>
-                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#STARTPACK">STARTPACK</a> <span class="note">(Starting Kit)</span></li>
+                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#CATEGORY">ABILITY:CATEGORY=</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#ABILITY">ABILITY:PROMPT:FEAT</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#ALIGN">ALIGN</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#APPLY">APPLY</a> <span class="note">(Starting Kit)</span></li>
@@ -1210,20 +1208,25 @@
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#NAME">NAME</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#OPTION">OPTION</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#PROF">PROF</a> <span class="note">(Starting Kit)</span></li>
+               <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#QTY">QTY</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#RACE">RACE</a> <span class="note">(Starting Kit)</span></li>
+                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#RACIAL">RACIAL</a> <span class="note">(Starting Kit)</span></li>
+                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#RANK">RANK</a> <span class="note">(Starting Kit)</span></li>
+                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#REGION">REGION</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SELECT">SELECT</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SIZE">SIZE</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SKILLRANK">SKILL:x RANK:y</a> <span class="note">(Starting Kit)</span></li>
+                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SOURCELONG">SOURCELONG</a> <span class="note">(Starting Kit)</span></li>
+                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SOURCESHORT">SOURCESHORT</a> <span class="note">(Starting Kit)</span></li>
+                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SOURCEWEB">SOURCEWEB</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SPELLS">SPELLS</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SPELLSSPELLBOOK">SPELLS:SPELLBOOK</a> <span class="note">(Starting Kit)</span></li>
+                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#STARTPACK">STARTPACK</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#STAT">STAT</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SUBCLASS">SUBCLASS</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#SUBSTITUTIONCLASS">SUBSTITUTIONCLASS</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#TEMPLATE">TEMPLATE</a> <span class="note">(Starting Kit)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#VISIBLE">VISIBLE</a> <span class="note">(Starting Kit)</span></li>
-                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#RACIAL">RACIAL</a> <span class="note">(Starting Kit)</span></li>
-                <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#RANK">RANK</a> <span class="note">(Starting Kit)</span></li>
-               <li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#QTY">QTY</a> <span class="note">(Starting Kit)</span></li>
             </ul>
         </li>
 		<!-- TEMPLATE -->
@@ -1235,6 +1238,7 @@
                 <li><a href="listfilepages/datafilestagpages/datafilestemplates.html#BONUSSKILLPOINTS">BONUSSKILLPOINTS</a> <span class="note">(Template)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilestemplates.html#BONUSMONSKILLPTS">BONUS:MONSKILLPTS|LOCKNUMBER</a> <span class="note">(Template)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilestemplates.html#CHOOSELANGAUTO">CHOOSE:LANGAUTO</a> <span class="note">(Template)</span></li>
+                <li><a href="listfilepages/datafilestagpages/datafilestemplates.html#COST">COST</a> <span class="deprecated">(Deprecated)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilestemplates.html#CR">CR</a> <span class="note">(Template)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilestemplates.html#FAVOREDCLASS">FAVOREDCLASS</a> <span class="note">(Template)</span></li>
                 <li><a href="listfilepages/datafilestagpages/datafilestemplates.html#FACE">FACE</a> <span class="note">(Template)</span></li>
@@ -2272,6 +2276,7 @@
             <li><a href="listfilepages/datafilestagpages/datafilespcc.html#LICENSE">LICENSE</a> <span class="note">(PCC)</span></li>
 			<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html#LOAD">LOAD</a> <span class="note">(Load)</span></li>
 			<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html#LOADMULT">LOADMULT</a> <span class="note">(Load)</span></li>
+			<li><a href="listfilepages/systemfilestagpages/gamemodeloadlist.html#LOADSTEPMULT">LOADSTEPMULT</a> <span class="note">(Load)</span></li>
           	<li><a href="listfilepages/datafilestagpages/datafilesstartingkits.html#LOCATION">LOCATION</a> <span class="note">(Starting Kit)</span></li>
 			<li><a href="listfilepages/datafilestagpages/datafilesequipment.html#LONGNAME">LONGNAME</a> <span class="deprecated">(Deprecated, use <a href="listfilepages/globalfilestagpages/globalfilesother.html#OUTPUTNAME">OUTPUTNAME</a> tag instead.)</span></li>
             <li><a href="listfilepages/datafilestagpages/datafilespcc.html#LSTEXCLUDE">LSTEXCLUDE</a> <span class="note">(PCC)</span></li>

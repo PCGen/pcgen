@@ -83,6 +83,7 @@
 
 
 		<p></p><a name="ABILITY"></a><hr>
+		<p class="new">*** New 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:ABILITY|[w|]x|y|z[,z..]</p>
 		<p class="indent1"><strong>Variables Used (w):</strong> Number, Variable or Formula (Optional - Number of
 		choices granted)</p>
@@ -117,7 +118,8 @@
 		<p></p><a name="CLASSSKILLS|"></a><hr>
 		<p class="new">*** New 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:CLASSSKILLS|[x|]y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> (The optional count, defaults to 1)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>  Number, Variable or Formula (Optional - Number
+		of choices granted)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of item)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -160,7 +162,8 @@
 		<p></p><a name="EQUIP|"></a><hr>
 		<p class="new">*** New 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:EQUIP|[x|]y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> (The optional count, defaults to 1)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>  Number, Variable or Formula (Optional - Number
+		of choices granted)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of item)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -182,7 +185,7 @@
 		<p class="indent3">Add one of &quot;Sarishan Steel Dagger&quot;.</p>
 
 
-		<p></p><a name="FEAT|"></a><hr>
+		<p></p><a name="FEAT("></a><hr>
 		<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="FEAT|">ADD:FEAT|</a> tag instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:FEAT(y,y)z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> FEAT</p>
@@ -224,8 +227,9 @@
 		<p></p><a name="FEAT|"></a><hr>
 		<p class="new">*** New 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:FEAT|[x|]y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> the optional count, defaults to 1</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> the feats to be chosen from</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
+		of choices granted)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (the feats to be chosen from)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=<FeatType> (Type of feat)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE.<FeatType> (Type of feat)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> ALL (all feats)</p>
@@ -276,8 +280,9 @@
 		<p></p><a name="LANGUAGE|"></a><hr>
 		<p class="new">*** New 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:LANGUAGE|[x|]y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> the optional count, defaults to 1</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> the Language to be chosen from</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
+		of choices granted)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (the Language to be chosen from)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=<LanguageType> (Type of language - Spoken
 		or Written or Read)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE.<LanguageType> (Type of language - Spoken
@@ -308,9 +313,10 @@
 		<p></p><a name="SA"></a><hr>
 		<p class="new">*** New 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:SA|x|[y|]z,z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> (name of the Special Ability to be chosen)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> (the optional count, defaults to 1)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> (the choices; comma delimited)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (name of the Special Ability to be chosen)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number, Variable or Formula (Optional - Number
+		of choices granted)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Text (the choices; comma delimited)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>The optional count has a pipe [y|] that is not needed, unless the count is used.</li>
@@ -345,7 +351,8 @@
 		<p></p><a name="SKILL|"></a><hr>
 		<p class="new">*** New 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:SKILL|[x|]y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> (The optional count, defaults to 1)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
+		of choices granted)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of skill)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -420,9 +427,10 @@
 		<p></p><a name="SPELLCASTER|"></a><hr>
 		<p class="new">*** New 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:SPELLCASTER|[x|]y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> (The optional count, defaults to 1)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
+		of choices granted)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Class name)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Type (Spellcasting class type such as Arcane or
+		<p class="indent1"><strong>Variables Used (y):</strong> TYPE (Spellcasting class type such as Arcane or
 		Divine)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> ANY (Any spellcasting class the character has
 		levels in)</p>
@@ -488,7 +496,8 @@
 		<p></p><a name="TEMPLATE"></a><hr>
 		<p class="new">*** New 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:TEMPLATE|[x|]y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> (The optional count, defaults to 1)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
+		of choices granted)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of template)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -538,8 +547,9 @@
 		<p></p><a name="VFEAT|"></a><hr>
 		<p class="new">*** New 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:VFEAT|[x|]y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> the optional count, defaults to 1</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> the feats to be chosen from</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
+		of choices granted)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (the feats to be chosen from)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=<FeatType> (Type of feat)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE.<FeatType> (Type of feat)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> ALL (all feats)</p>

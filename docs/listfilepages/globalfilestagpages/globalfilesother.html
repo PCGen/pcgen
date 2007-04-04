@@ -825,7 +825,7 @@
 
 
 		<p></p><a name="TEMPLATEREMOVE"></a><hr>
-		<p class="new"> <span class="deprecated">(Deprecated, use <a href="#TEMPLATECHANGE">(TEMPLATENAME).MOD or .COPY or .CLEAR</a> tag instead.)</span></p>
+		<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#TEMPLATECHANGE">(TEMPLATENAME).MOD or .COPY or .CLEAR</a> tag instead.)</span></p>
 		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:x.REMOVE</p>
 
 
@@ -925,7 +925,7 @@
 
 
 		<p></p><a name="WEAPONAUTO"></a><hr>
-		<p class="new">*** Deprecated. Use <a href="#AUTOWEAPONPROF">AUTO:WEAPONPROF</a></p>
+		<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="AUTOWEAPONPROF">AUTO:WEAPONPROF</a> tag instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> WEAPONAUTO:x</p>
 
 		<p></p><hr>
@@ -934,6 +934,7 @@
 		<p>Warning: This section is nowhere near complete and will be expanded on as time progresses.</p>
 
 		<p></p><a name="MOD"></a>
+		<p class="new">*** Updated 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> &lt;name&gt;.MOD</p>
 		<p class="indent1"><strong>Variables Used: </strong>Text, First field of the item to be modified</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -946,6 +947,8 @@
 			<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
 			replace the tag in the original entry. If more than one tag is allowed (most notably BONUS
 			statements), then the new tag will be added to the other tags in the object.</li>
+			<li>Since names in abilities are not unique within different categories, a new syntax specifically
+			for the .MOD of abilities has been added.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>Human.MOD</code></p>
@@ -960,6 +963,9 @@
 		<p class="indent3">Adds a Saving Throw Temporary bonus function to the Resistance spell</p>
 		<p class="indent2"><code>Skill Focus.MOD</code></p>
 		<p class="indent3">Modifies the Skill Focus feat (in feat.lst)</p>
+		<p></p>
+		<p class="indent2"><code>CATEGORY=<foo>|<key>.MOD</code></p>
+		<p class="indent3">The new syntax to be used to .MOD an ability.</p>
 
 		<p></p><a name="COPY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> &lt;name&gt;.COPY=&lt;new name&gt;</p>
