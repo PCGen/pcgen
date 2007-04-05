@@ -2,20 +2,20 @@
 
 <html>
 	<!--
-		PCGen Documentation Project
+	PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilestemplates.html,v 1.13 2005/12/19 18:09:09 eddyanthony Exp $
-		$Author$
-		$Date$
-		$Revision$
+	$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilestemplates.html,v 1.13 2005/12/19 18:09:09 eddyanthony Exp $
+	$Author$
+	$Date$
+	$Revision$
 
-		Contributors:
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Eddy Anthony - eddybaATmindspringDOTcom
-		Terry FitzSimons - fitzsimonsATmintelDOTnet
+	Contributors:
+	Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+	Eddy Anthony - eddybaATmindspringDOTcom
+	Terry FitzSimons - fitzsimonsATmintelDOTnet
 
-		Description:
-		Provides information on the content of PCGen Template Files.
+	Description:
+	Provides information on the content of PCGen Template Files.
 	-->
 	<head>
 		<title>Template Files</title>
@@ -157,6 +157,7 @@
 		<p class="indent3">Template has four hands.</p>
 
 		<p></p><a name="HD"></a><hr>
+		<p class="new">*** Updated 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> HD:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Calculation (range or minimum natural Hit Dice)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -164,6 +165,7 @@
 			<li>The numeric values supplied are a range (1-3) or minimum (4+) hit dice the character must have
 				before an ability is granted to the character.</li>
 			<li>This is Natural Hit Dice, not character level.</li>
+			<li>The ability of these tags have been enhanced so that they can call any global tag.<br />
 			<li>The text may contain the following tags:<br />
 				<ul>
 					<li>CR - <a href="#CR">Challenge Rating</a></li>
@@ -175,19 +177,20 @@
 			</li>
 			<li>This may appear more than once in a template.</li>
 		</ul>
-   	<p class="indent1"><strong>Examples:</strong></p>
+ 	  	<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>HD:1-3:DR:5/1</code></p>
 		<p class="indent3">Grants Damage Reduction of 5/+1 if natural hit dice is between one and three.</p>
 		<p class="indent2"><code>HD:1+:SR:15</code></p>
 		<p class="indent3">Grants Spell Resistance of 15 if natural hit dice is greater than one.</p>
 		<p class="indent2"><code>HD:2-7:CR:2</code></p>
-		<p class="indent3">Grants an increase in Challenge Rating of two if natural hit dice is between two and seven.</p>
+		<p class="indent3">Grants an increase in Challenge Rating of two if natural hit dice is between two and
+		seven.</p>
 		<p class="indent2"><code>HD:15+:SA:Uncanny Dodge</code></p>
 		<p class="indent3">Grants the &quot;Uncanny Dodge&quot; special ability if natural hit
-		  dice is grater than fifteen.</p>
+		dice is grater than fifteen.</p>
 		<p class="indent2"><code>HD:10+:FEAT:Alertness</code></p>
 		<p class="indent3">Grants the &quot;Alertness&quot; feat if natural hit dice is greater
-		  than ten.</p>
+		than ten.</p>
 
 		<p></p><a name="HITDICESIZE"></a><hr>
 		<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#HITDIE">HITDIE</a></p>
@@ -278,6 +281,7 @@
 		<p class="indent3">Slime and ooze creatures/characters would have no legs!</p>
 
 		<p></p><a name="LEVEL"></a><hr>
+		<p class="new">*** Updated 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> LEVEL:x:y:z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level at which the benefit is granted)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> CR:z (Challenge Rating)</p>
@@ -290,6 +294,7 @@
 		<ul class="indent2">
 			<li>Grants the character an ability at the level specified.</li>
 			<li>This is the characters total character level.</li>
+			<li>The ability of these tags have been enhanced so that they can call any global tag.<br />
 			<li>The text may contain the following tags:<br />
 				<ul>
 					<li>CR - <a href="#CR">Challenge Rating</a></li>

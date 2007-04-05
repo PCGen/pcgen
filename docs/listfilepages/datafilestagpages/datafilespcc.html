@@ -2,20 +2,21 @@
 
 <html>
 	<!--
-		PCGen Documentation Project
+	PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilespcc.html,v 1.16 2006/02/18 15:02:00 eddyanthony Exp $
-		$Author$
-		$Date$
-		$Revision$
+	$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilespcc.html,v 1.16 2006/02/18 15:02:00 eddyanthony Exp $
+	$Author$
+	$Date$
+	$Revision$
 
-		Contributors:
-		Stephen Collins - tribATstephencollinsDOTorg
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Eddy Anthony - eddybaATmindspringDOTcom
+	Contributors:
+	Stephen Collins - tribATstephencollinsDOTorg
+	Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+	Eddy Anthony - eddybaATmindspringDOTcom
+	Terry FitzSimons - fitzsimonsATmintelDOTnet
 
-		Description:
-		Provides information on the content of PCGen Campaign Configuration (PCC) files.
+	Description:
+	Provides information on the content of PCGen Campaign Configuration (PCC) files.
 	-->
 	<head>
 		<title>PCC Files</title>
@@ -107,7 +108,25 @@
 
 		<p></p><a name="ISD20"></a><hr>
 		<p class="new">Deprecated 5.4</p>
+		<p class="new">*** Deprecated 5.4 - Remove 6.0 - Use <a href="#ISOGL">ISOGL</a> tag instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> ISD20:x</p>
+
+
+		<p></p><a name="ISMATURE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> ISMATURE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Boolean (YES or NO)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tag is so that we have the ability to include datasets based upon sources of a
+		more mature nature. If <code>ISMATURE:YES</code> then the following info gets inserted into a pop-up
+		window "This dataset contains content of a mature nature. User discretion is advised." This tag is
+		optional.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ISMATURE:YES</code></p>
+		<p class="indent2">Causes a pop-up to fire saying "This dataset contains content of a mature nature.
+		User discretion is advised."</p>
+		<p class="indent2"><code>ISMATURE:NO</code></p>
+		<p class="indent2">Does not cause a pop-up to fire saying "This dataset contains content of a mature
+		nature. User discretion is advised."</p>
 
 		<p></p><a name="ISOGL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ISOGL:x</p>
@@ -129,7 +148,7 @@
 		<p class="indent2"><code>ISLICENSED:NO</code></p>
 
 		<p></p><a name="GAME"></a><hr>
-		<p class="new">*** Deprecated - will be gone soon. Use GAMEMODE ***</p>
+		<p class="new">*** Deprecated <5.8.1 - Remove 6.0 - Use <a href="#GAMEMODE">GAMEMODE</a> tag instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> GAME:x</p>
 
 		<p></p><a name="GENRE"></a><hr>
@@ -275,19 +294,18 @@
 
 		<hr><a name="MAINBODYTAGS"></a><h2>Main Body Tags</h2>
 
-		<p>The function of all the main body tags is tell PCGen to load a specific file.
-  		There are three ways of doing this. The first and most common is by a relative
-  		file path. The path is relative to the .pcc file so if the file and the .pcc
-  		file that calls it are in the same directory then all that is needed is the
-  		name of the file. The second method is a special absolute path which is useful
-  		if you need to call a specific file from a known location in the data folder.
-  		by using an @ symbol and a file path PCGen will locate the file by looking in
-  		the data folder by the path specified. In the same way you can use the &amp;
-  		symbol to access a file path in the vendor data directory. The third method
-  		is by loading data files over the internet. To do this you must set
-  		<a href="../../menupages/settings/pcgen/pcgensources.html"> PCGens
-  		preferences</a> to allow this. You can then create a .pcc file which
-  		uses web address instead of file paths to load source files.</p>
+		<p>The function of all the main body tags is tell PCGen to load a specific file.  There are three ways
+		of doing this.</p>
+		<p>The first and most common is by a relative file path. The path is relative to the .pcc file so if
+		the file and the .pcc file that calls it are in the same directory then all that is needed is the name
+		of the file.</p>
+		<p>The second method is a special absolute path which is useful if you need to call a specific file
+		from a known location in the data folder. by using an @ symbol and a file path PCGen will locate the
+		file by looking in the data folder by the path specified. In the same way you can use the &amp; symbol
+		to access a file path in the vendor data directory.</p>
+		<p>The third method is by loading data files over the internet. To do this you must set
+		<a href="../../menupages/settings/pcgen/pcgensources.html"> PCGens preferences</a> to allow this. You
+		can then create a .pcc file which uses web address instead of file paths to load source files.</p>
 
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>CLASS:fhbclasses.lst</code></p>
@@ -300,17 +318,19 @@
 		<p class="indent3">Loads the source file from a web site.</p>
 
 		<p><span class="new">WARNING:</span> Do not use backslashes (\) for directory separators in file paths,
-		use only forward slashes (/). backslashes work correctly on Windows systems but cause problems on Unix flavored systems
-		such as Linux and Max OS X.</p>
+		use only forward slashes (/). backslashes work correctly on Windows systems but cause problems on Unix
+		flavored systems such as Linux and Max OS X.</p>
 
-		<p><span class="new">IMPORTANT NOTE:</span> The following tags can (and it is recommended for equipment) have multiple lines.
+		<p><span class="new">IMPORTANT NOTE:</span> The following tags can (and it is recommended for equipment)
+		have multiple lines.
 		The names of the list files in the example column are also only suggestions.
 		To include the same type of files from the same directory on the same line
 		you would separate each file to be loaded (of the appropriate type, i.e., <code>fhbarmorshields.lst|fhbequip|etc</code>).
 		Sometimes, not all of these tags are required by a source material.
 		If a tag is not required, it cannot be left blank, it must be commented out or deleted entirely.
 		These tags only tell PCGen where to go to get the information it needs, it points it to the right spot.
-		Each list file will be fully explained below, separated by the list file name, with a full list of the tags that can be used in each one.</p>
+		Each list file will be fully explained below, separated by the list file name, with a full list of the
+		tags that can be used in each one.</p>
 
 		<p></p>
 

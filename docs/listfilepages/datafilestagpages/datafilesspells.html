@@ -2,19 +2,20 @@
 
 <html>
 	<!--
-		PCGen Documentation Project
+	PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesspells.html,v 1.9 2005/03/30 14:30:25 eddyanthony Exp $
-		$Author$
-		$Date$
-		$Revision$
+	$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesspells.html,v 1.9 2005/03/30 14:30:25 eddyanthony Exp $
+	$Author$
+	$Date$
+	$Revision$
 
-		Contributors:
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Eddy Anthony - eddybaATmindspringDOTcom
+	Contributors:
+	Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+	Eddy Anthony - eddybaATmindspringDOTcom
+	Terry FitzSimons - fitzsimonsATmintelDOTnet
 
-		Description:
-		Provides information on the content of PCGen Spell Files.
+	Description:
+	Provides information on the content of PCGen Spell Files.
 	-->
 	<head>
 		<title>Spell Files</title>
@@ -81,7 +82,7 @@
 		<p class="indent3">This spell takes 1 round to cast.</p>
 
 		<p></p><a name="CLASSES"></a><hr>
-		<p class="new">*** Updated</p>
+		<p class="new">*** Updated 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> CLASSES:x,x=y|x,x=y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> ALL (Spell level is the same for all classes)</p>
@@ -89,9 +90,11 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This indicates that this spell is the indicated level for the named class.</p>
-		<p class="indent2">This tag can now be qualified with PRExxx statements.
-			Please note that you must enclose the PRExxx statement with [ ]
-			instead of the usual Pipe delineation.</p>
+		<p class="indent2">This tag can now be qualified with PRExxx statements.  Please note that you must
+		enclose the PRExxx statement with [ ] instead of the usual Pipe delineation.</p>
+		<p class="new">*** Deprecatee both DOMAINS:.CLEAR and CLASSES:.CLEAR, replaced by DOMAINS:.CLEARALL and
+		CLASSES:.CLEARALL.  This is done due to the past side-effects between the two tokens.  You may wish to
+		note that any single .CLEAR is equivalent to both .CLEARALLs due to this (old) interaction.</p><p></p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>CLASSES:Wizard=5|Enchanter=3|Druid=6</code></p>
 		<p class="indent3">Indicates this spell is 5th Lvl Wizard, 3rd Lvl Enchanter, and 6th Lvl Druid.</p>
@@ -102,13 +105,13 @@
 		<p class="indent2"><code>CLASSES:TYPE.Divine=3</code></p>
 		<p class="indent3">Indicates this spell is 3rd Lvl for divine classes.</p>
 		<p class="indent2"><code>CLASSES:ALL=4[PREDEITY:Java]</code></p>
-		<p class="indent3">Indicates this spell is 4th Lvl for all classes, but is only available for followers of Java.</p>
+		<p class="indent3">Indicates this spell is 4th Lvl for all classes, but is only available for followers
+		of Java.</p>
 		<p class="indent2"><code>CLASSES:Wizard,Sorcerer=5|Cleric=4[PRECLASS:Magician=1]</code></p>
-		<p class="indent3">Indicates this spell is 5th Lvl Wizard, 5th Lvl Sorcerer, but
-  			will only be added to the spell list of a character with one level of the Magician prestige
-  			class. This is especially useful if you need to create a spell lists for prestige
-  			classes that add castor levels to existing levels but does not otherwise have
-  			a spell progression.</p>
+		<p class="indent3">Indicates this spell is 5th Lvl Wizard, 5th Lvl Sorcerer, but will only be added to
+		the spell list of a character with one level of the Magician prestige class. This is especially useful
+		if you need to create a spell lists for prestige classes that add castor levels to existing levels but
+		does not otherwise have a spell progression.</p>
 		<p class="indent2"><code>Misdirection.MOD &lt;tab&gt; CLASSES:Circle Walker=2</code></p>
 		<p class="indent3">Indicates this spell is modified to 2nd Level for Circle Walker classes.</p>
 
@@ -197,26 +200,28 @@
 		  types.</p>
 
 		<p></p><a name="DOMAINS"></a><hr>
-		<p class="new">*** Updated</p>
+		<p class="new">*** Updated 5.11.11</p>
 		<p class="indent0"><strong>Tag Name:</strong> DOMAINS:x,x=y|x,x=y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain name)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This indicates that this spell is the indicated level for the named domain.</p>
-		<p class="indent2">This tag can now be qualified with PRExxx statements.
-			Please note that you must enclose the PRExxx statement with [ ]
-			instead of the usual Pipe delineation.</p>
+		<p class="indent2">This tag can now be qualified with PRExxx statements.  Please note that you must
+		enclose the PRExxx statement with [ ] instead of the usual Pipe delineation.</p>
+		<p class="new">*** Deprecatee both DOMAINS:.CLEAR and CLASSES:.CLEAR, replaced by DOMAINS:.CLEARALL and
+		CLASSES:.CLEARALL.  This is done due to the past side-effects between the two tokens.  You may wish to
+		note that any single .CLEAR is equivalent to both .CLEARALLs due to this (old) interaction.</p><p></p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>DOMAINS:Charm=2|Beauty=3</code></p>
-		<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain,
-			and 3rd level for the Beauty domain.</p>
-			<p class="indent2"><code>DOMAINS:Fire=3|Magic=4[PREALIGN:2,5,8]</code></p>
-		<p class="indent3">Indicates that this is a 3rd level spell for the Fire domain,
-			and 4th level for the Magic domain, but is only available to evil characters.</p>
+		<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain, and 3rd level for the
+		Beauty domain.</p>
+		<p class="indent2"><code>DOMAINS:Fire=3|Magic=4[PREALIGN:2,5,8]</code></p>
+		<p class="indent3">Indicates that this is a 3rd level spell for the Fire domain, and 4th level for the
+		Magic domain, but is only available to evil characters.</p>
 		<p class="indent2"><code>DOMAINS:Charm=2|Beauty=3[PRECLASS:Supermodel=1]</code></p>
-		<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain,
-			and 3rd level for the Beauty domain, but will only be added to the spell list
-			of a character with a level of the Supermodel prestige class.</p>
+		<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain, and 3rd level for the
+		Beauty domain, but will only be added to the spell list of a character with a level of the Supermodel
+		prestige class.</p>
 		<p class="indent2"><code>Binding.MOD &lt;tab&gt; DOMAINS:Fate=8</code></p>
 		<p class="indent3">Indicates that this is a 8th level spell for the Fate domain.</p>
 
@@ -242,7 +247,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> EFFECTS:x</p>
 
 		<p></p><a name="EFFECTTYPE"></a><hr>
-	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#TARGETAREA">TARGETAREA</a> tag instead.</p>
+		<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#TARGETAREA">TARGETAREA</a> tag instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> EFFECTTYPE:x</p>
 
 		<p></p><a name="ITEM"></a><hr>
