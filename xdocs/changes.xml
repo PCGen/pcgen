@@ -7,6 +7,7 @@
   <body>
     <release version="5.11.13" date="In SVN" description="Beta release">
       <action dev="thpr" type="fix" issue="1683314">Source Load Leaks Memory</action>
+      <action dev="jdempsey" type="fix" issue="1687934">Psionicist forces powers on character load.</action>
     </release>
     <release version="5.11.12" date="2007-04-04" description="Beta release">
       <action dev="thpr" type="fix" issue="1681152">BONUSFEATLEVELSTARTINTERVAL:1|0 doesn't work</action>

@@ -6307,7 +6307,7 @@ public class PCClass extends PObject {
 	 */
 	private void chooseClassSpellList() {
 		// if no entry or no choices, just return
-		if (classSpellChoices == null) {
+		if (classSpellChoices == null || (level < 1)) {
 			return;
 		}
 		
