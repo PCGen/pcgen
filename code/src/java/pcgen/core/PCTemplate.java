@@ -1895,7 +1895,20 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			featStrings = new ArrayList<String>();
 		}
-		featStrings.add(abilityString);
+
+		final StringTokenizer aTok = new StringTokenizer(abilityString, "|", false);
+
+		while (aTok.hasMoreTokens())
+		{
+			final String fs = aTok.nextToken();
+
+			if (featStrings == null)
+			{
+				featStrings = new ArrayList<String>();
+			}
+
+			featStrings.add(fs);
+		}
 	}
 
 	/**
