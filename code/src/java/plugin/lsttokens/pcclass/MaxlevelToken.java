@@ -16,6 +16,11 @@ public class MaxlevelToken implements PCClassLstToken
 
 	public boolean parse(PCClass pcclass, String value, int level)
 	{
+		if ("NOLIMIT".equalsIgnoreCase(value))
+		{
+			pcclass.setMaxLevel(PCClass.NO_LEVEL_LIMIT);
+			return true;
+		}
 		try
 		{
 			pcclass.setMaxLevel(Integer.parseInt(value));

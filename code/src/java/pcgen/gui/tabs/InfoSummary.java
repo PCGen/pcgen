@@ -1161,14 +1161,17 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			}
 		}
 		
-		if (!Globals.checkRule(RuleConstants.LEVELCAP) //$NON-NLS-1$
+		if (!Globals.checkRule(RuleConstants.LEVELCAP)
+			&& theClass.hasMaxLevel()
 			&& ((levels > theClass.getMaxLevel()) || ((aClass != null) && ((aClass
 				.getLevel() + levels) > aClass.getMaxLevel()))))
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getFormattedString("in_sumMaximumLevelIs",String.valueOf(theClass.getMaxLevel())), //$NON-NLS-1$
-				Constants.s_APPNAME, MessageType.INFORMATION);
+					PropertyFactory
+						.getFormattedString(
+							"in_sumMaximumLevelIs", String.valueOf(theClass.getMaxLevel())), //$NON-NLS-1$
+					Constants.s_APPNAME, MessageType.INFORMATION);
 
 			return;
 		}

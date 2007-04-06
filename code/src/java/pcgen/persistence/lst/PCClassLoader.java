@@ -326,7 +326,11 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		final int tokenCount = repeatToken.countTokens();
 		int lvlIncrement = 1000; // an arbitrarily large number...
 		int consecutive = 0; // 0 means don't skip any
-		int maxLevel = pcClass.getMaxLevel();
+		int maxLevel = 100; // an arbitrarily large number...
+		if (pcClass.hasMaxLevel())
+		{
+			maxLevel = pcClass.getMaxLevel();
+		}
 		if (tokenCount > 0)
 		{
 			try

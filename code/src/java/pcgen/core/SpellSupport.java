@@ -246,6 +246,25 @@ public class SpellSupport implements Cloneable
 	}
 
 	/**
+	 * @return The maximum level for which a spell list is available
+	 */
+	public final int getMaxSpellListLevel()
+	{
+		int max = 0;
+		if (spellMap != null)
+		{
+			for ( Integer key : spellMap.getKeySet() )
+			{
+				if (key > max)
+				{
+					max = key;
+				}
+			}
+		}
+		return max;
+	}
+	
+	/**
      * Clear the spell list by initialising a new one 
 	 */
     public final void clearSpellList()

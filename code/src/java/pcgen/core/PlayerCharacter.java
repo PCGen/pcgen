@@ -10914,7 +10914,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Will take destination class over maximum?
-		if ((toClass.getLevel() + iCount) > toClass.getMaxLevel())
+		if (toClass.hasMaxLevel()
+			&& (toClass.getLevel() + iCount) > toClass.getMaxLevel())
 		{
 			iCount = toClass.getMaxLevel() - toClass.getLevel();
 		}

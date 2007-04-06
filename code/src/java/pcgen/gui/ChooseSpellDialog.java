@@ -572,7 +572,7 @@ final class ChooseSpellDialog extends JDialog
 				cmbSpellVariant.setModel(new DefaultComboBoxModel(new ArrayList<String>().toArray()));
 			}
 
-			int maxClassLevel = 20; //TODO: This shouldn't be hardcoded, should it?
+			int maxClassLevel = 0;
 			PCClass aClass;
 
 			if (castingClass instanceof PCClass)
@@ -592,7 +592,10 @@ final class ChooseSpellDialog extends JDialog
 			if (aClass != null)
 			{
 				minLevel = aClass.getMinLevelForSpellLevel(baseSpellLevel + levelAdjust, true);
-				maxClassLevel = aClass.getMaxLevel();
+				if (aClass.hasMaxLevel())
+				{
+					maxClassLevel = aClass.getMaxLevel();
+				}
 			}
 			else
 			{
@@ -606,11 +609,14 @@ final class ChooseSpellDialog extends JDialog
 				casterLevel = minLevel;
 			}
 
-			if (!Globals.checkRule(RuleConstants.LEVELCAP) && (casterLevel != Constants.INVALID_LEVEL)
-				&& (casterLevel > maxClassLevel))
+			if (!Globals.checkRule(RuleConstants.LEVELCAP)
+				&& (casterLevel != Constants.INVALID_LEVEL)
+				&& (maxClassLevel > 0) && (casterLevel > maxClassLevel))
 			{
 				casterLevel = maxClassLevel;
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_csdEr4"), Constants.s_APPNAME, MessageType.INFORMATION);
+				ShowMessageDelegate.showMessageDialog(PropertyFactory
+					.getString("in_csdEr4"), Constants.s_APPNAME,
+					MessageType.INFORMATION);
 			}
 
 			if (getCasterLevel() != casterLevel)

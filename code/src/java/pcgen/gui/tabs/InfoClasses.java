@@ -577,13 +577,11 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			}
 		}
 		
-		// Fix this logic -- it looks like you might slip past
-		// the 20 cap with a monster PC?  XXX --bko
 		if ((levels < 0)
 			|| (aClass == null)
 			|| Globals.checkRule(RuleConstants.LEVELCAP)
-			|| (!Globals.checkRule(RuleConstants.LEVELCAP) && (aClass
-				.getLevel() < aClass.getMaxLevel())))
+			|| (!Globals.checkRule(RuleConstants.LEVELCAP) && (!aClass
+				.hasMaxLevel() || aClass.getLevel() < aClass.getMaxLevel())))
 		{
 			pc.incrementClassLevel(levels, theClass);
 		}

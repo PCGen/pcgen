@@ -67,6 +67,8 @@ import pcgen.util.enumeration.VisionType;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  */
 public class PCClass extends PObject {
+	public static final int NO_LEVEL_LIMIT = -1;
+
 	/*
 	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
 	 */
@@ -645,7 +647,7 @@ public class PCClass extends PObject {
 	 * Note: It is possibly useful to have a boolean isMaxLevel() available in a
 	 * PCClassLevel, but that is TBD
 	 */
-	private int maxLevel = 20;
+	private int maxLevel = NO_LEVEL_LIMIT;
 
 	/*
 	 * FORMULAREFACTOR This is currently processed elsewhere - should be
@@ -1550,6 +1552,16 @@ public class PCClass extends PObject {
 	 */
 	public final int getMaxLevel() {
 		return maxLevel;
+	}
+
+	/**
+	 * Identify if this class has a cap on the number of levels it is 
+	 * possible to take.
+	 * @return true if a cap on levels exists, false otherwise.
+	 */
+	public final boolean hasMaxLevel()
+	{
+		return maxLevel != NO_LEVEL_LIMIT;
 	}
 
 	/*
@@ -3328,7 +3340,7 @@ public class PCClass extends PObject {
 			pccTxt.append("\tLEVELSPERFEAT:").append(levelsPerFeat.intValue());
 		}
 
-		if (maxLevel != 20) {
+		if (maxLevel != 0) {
 			pccTxt.append("\tMAXLEVEL:").append(maxLevel);
 		}
 
@@ -3419,7 +3431,12 @@ public class PCClass extends PObject {
 		}
 
 		// Output the list of spells associated with the class.
-		for (int i = 0; i <= maxLevel; i++) {
+		int cap = getSpellSupport().getMaxSpellListLevel();
+		if (hasMaxLevel() && cap > maxLevel)
+		{
+			cap = maxLevel;
+		}
+		for (int i = 0; i <= cap; i++) {
 			final List<PCSpell> spellList = getSpellSupport()
 					.getSpellListForLevel(i);
 
@@ -4910,7 +4927,7 @@ public class PCClass extends PObject {
 			levelMax = false;
 		}
 
-		if ((newLevel > maxLevel) && levelMax) {
+		if (hasMaxLevel() && (newLevel > maxLevel) && levelMax) {
 			if (!bSilent) {
 				ShowMessageDelegate.showMessageDialog(
 						"This class cannot be raised above level "
@@ -5157,8 +5174,12 @@ public class PCClass extends PObject {
 					final int iLevel = aClass.getLevel();
 
 					if (iLevel >= iMinLevel) {
-						iMaxDonation = Math.min(Math.min(iMaxDonation, iLevel
-								- iLowest), getMaxLevel() - 1);
+						iMaxDonation = Math.min(iMaxDonation, iLevel - iLowest);
+						if (hasMaxLevel())
+						{
+							iMaxDonation =
+									Math.min(iMaxDonation, getMaxLevel() - 1);
+						}
 
 						if (iMaxDonation > 0) {
 							//

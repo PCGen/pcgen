@@ -221,7 +221,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		}
 
 		// Output the list of spells associated with the class.
-		for (int i=0;i<=obj.getMaxLevel();i++)
+		for (int i=0;i<=obj.getSpellSupport().getMaxSpellListLevel();i++)
 		{
 			final List spellList = obj.getSpellSupport().getSpellListForLevel(i);
 

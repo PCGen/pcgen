@@ -251,11 +251,12 @@
 
 		<p></p><a name="MAXLEVEL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> MAXLEVEL:x</p>
-		<p class="indent1"><strong>Variables Used:</strong> Number</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Maximum allowed level of this class)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> NOLIMIT (No upper limit to the number of levels in this class)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>This is maximum level a character can advance to in this class.</li>
-			<li>If no MAXLEVEL tag is supplied for a class, it defaults to 20.</li>
+			<li>This is maximum number of levels a character can take in this class.</li>
+			<li>If no MAXLEVEL tag is supplied for a class, no limit is imposed.</li>
 			<li>There is a checkbox in the Preferences|Character section of the menu to allow this to be overridden.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -263,6 +264,8 @@
 		<p class="indent3">The maximum class level is 10.</p>
 		<p class="indent2"><code>CLASS:Barbarian.MOD &lt;tab&gt; MAXLEVEL:100</code></p>
 		<p class="indent3">The maximum class level is modified to 100.</p>
+		<p class="indent2"><code>CLASS:Barbarian.MOD &lt;tab&gt; MAXLEVEL:NOLIMIT</code></p>
+		<p class="indent3">Remove the previously specified maximum class level for barbarian.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Class Line.</p>
 
