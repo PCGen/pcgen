@@ -606,7 +606,7 @@ public class XMLCombatant extends Combatant
 		{
 			return "+" + bonus;
 		}
-		return "-" + bonus;
+		return String.valueOf(bonus);
 	}
 
 	/**
@@ -688,11 +688,14 @@ public class XMLCombatant extends Combatant
 			statBuf.append("<br>");
 
 			statBuf
-				.append("<font class='type'>Init</font> <font class='highlight'>+");
+				.append("<font class='type'>Init</font> <font class='highlight'>");
+			statBuf.append(init.getCurrentInitiative() >= 0 ? "+" : "");
 			statBuf.append(init.getCurrentInitiative());
-			statBuf.append("</font> (+");
+			statBuf.append("</font> (");
+			statBuf.append(init.getAttribute().getModifier() >= 0 ? "+" : "");
 			statBuf.append(init.getAttribute().getModifier());
-			statBuf.append(" Dex, +");
+			statBuf.append(" Dex, ");
+			statBuf.append(init.getBonus() >= 0 ? "+" : "");
 			statBuf.append(init.getBonus());
 			statBuf.append(" Misc) ");
 
@@ -700,22 +703,31 @@ public class XMLCombatant extends Combatant
 
 			statBuf
 				.append("<font class='type'>Saves:</font> Fort <font class='highlight'>");
-			statBuf.append("<a href='save:FORTITUDE\\+");
-			statBuf.append(getSave("Fortitude"));
-			statBuf.append("' class='highlight'>+");
-			statBuf.append(getSave("Fortitude"));
+			statBuf.append("<a href='save:FORTITUDE\\");
+			final int fortitudeSave = getSave("Fortitude");
+			statBuf.append(fortitudeSave >= 0 ? "+" : "");
+			statBuf.append(fortitudeSave);
+			statBuf.append("' class='highlight'>");
+			statBuf.append(fortitudeSave >= 0 ? "+" : "");
+			statBuf.append(fortitudeSave);
 			statBuf.append("</a>");
 			statBuf.append("</font>, Ref <font class='highlight'>");
-			statBuf.append("<a href='save:REFLEX\\+");
-			statBuf.append(getSave("Reflex"));
-			statBuf.append("' class='highlight'>+");
-			statBuf.append(getSave("Reflex"));
+			statBuf.append("<a href='save:REFLEX\\");
+			final int reflexSave = getSave("Reflex");
+			statBuf.append(reflexSave >= 0 ? "+" : "");
+			statBuf.append(reflexSave);
+			statBuf.append("' class='highlight'>");
+			statBuf.append(reflexSave >= 0 ? "+" : "");
+			statBuf.append(reflexSave);
 			statBuf.append("</a>");
 			statBuf.append("</font>, Will <font class='highlight'>");
-			statBuf.append("<a href='save:WILL\\+");
-			statBuf.append(getSave("Will"));
-			statBuf.append("' class='highlight'>+");
-			statBuf.append(getSave("Will"));
+			statBuf.append("<a href='save:WILL\\");
+			final int willSave = getSave("Will");
+			statBuf.append(willSave >= 0 ? "+" : "");
+			statBuf.append(willSave);
+			statBuf.append("' class='highlight'>");
+			statBuf.append(willSave >= 0 ? "+" : "");
+			statBuf.append(willSave);
 			statBuf.append("</a>");
 			statBuf.append("</font> ");
 
@@ -740,10 +752,13 @@ public class XMLCombatant extends Combatant
 				statBuf.append("&nbsp;(");
 				statBuf.append("<a href='check:");
 				statBuf.append(stat.getName());
-				statBuf.append("\\1d20+");
-				statBuf.append(stat.getModifier());
-				statBuf.append("' class='dialog'>+");
-				statBuf.append(stat.getModifier());
+				statBuf.append("\\1d20");
+				final int statModifier = stat.getModifier();
+				statBuf.append(statModifier >= 0 ? "+" : "");
+				statBuf.append(statModifier);
+				statBuf.append("' class='dialog'>");
+				statBuf.append(statModifier >= 0 ? "+" : "");
+				statBuf.append(statModifier);
 				statBuf.append("</a>) ");
 			}
 
