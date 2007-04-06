@@ -178,9 +178,24 @@ public final class CharacterInfo extends JPanel {
 	 * @return index of Tab
 	 */
 	public int indexOfTab(String aString) {
-		return characterInfoTabbedPane.indexOfTab(aString);
+		int index = characterInfoTabbedPane.indexOfTab(aString);
+		return index;
 	}
 
+	/**
+	 * Refresh the names of the character tabs - they may be changed when 
+	 * the game mode is changed. 
+	 */
+	public void refreshCharInfoTabs()
+	{
+		for (int i = 0; i < characterInfoTabbedPane.getTabCount(); i++)
+		{
+			CharacterInfoTab tab =
+					(CharacterInfoTab) characterInfoTabbedPane
+						.getComponentAt(i);
+			characterInfoTabbedPane.setTitleAt(i, tab.getTabName());
+		}
+	}
 	/**
 	 * Get the info description
 	 * @return info description

@@ -15742,7 +15742,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// Clear all the categories
 				for (final AbilityCategory cat : theAbilities.getKeySet())
 				{
-					setAggregateAbilitiesStable(cat, stable);
+					// Avoid an infinite loop if there is a faulty entry in the key set
+					if (cat == null)
+					{
+						Logging.errorPrint("Null category entry in character's abilities key set " + String.valueOf(theAbilities.getKeySet()));
+					}
+					else
+					{
+						setAggregateAbilitiesStable(cat, stable);
+					}
 				}
 			}
 			setAggregateFeatsStable(stable);

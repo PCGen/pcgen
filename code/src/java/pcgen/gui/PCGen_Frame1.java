@@ -3561,4 +3561,16 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		pcgenMenuBar.handleAbout();
 	}
+
+	/**
+	 * Refresh the names of the character tabs - they may be changed when 
+	 * the game mode is changed. 
+	 */
+	public void refreshCharInfoTabs()
+	{
+		if (characterPane != null)
+		{
+			characterPane.refreshCharInfoTabs();
+		}
+	}
 }

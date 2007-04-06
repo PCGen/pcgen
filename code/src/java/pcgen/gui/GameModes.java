@@ -276,6 +276,7 @@ final class GameModes extends JMenu
 		if (Globals.getRootFrame() != null)
 		{
 			PCGen_Frame1.getInst().setGameModeTitle();
+			PCGen_Frame1.getInst().refreshCharInfoTabs();
 		}
 	}
 
