@@ -231,6 +231,32 @@ public class NPCGenerator
 				if (pcRanks + ranks > maxRanks)
 				{
 					Logging.debugPrint("NPCGenerator: Skill already at max."); //$NON-NLS-1$
+					// Check that there are some skills we can advance in
+					boolean ranksLeft = false;
+					for (SkillChoice skillChoice : skillList)
+					{
+						Skill chkSkill = skillChoice.getSkill();
+						if (chkSkill != null)
+						{
+							Skill chkPcSkill = aPC.getSkillKeyed(chkSkill.getKeyName());
+							if (chkPcSkill == null)
+							{
+								ranksLeft = true;
+								break;
+							}
+							if (chkPcSkill.getRank().doubleValue() < aPC.getMaxRank(chkPcSkill.getKeyName(), aClass).
+									doubleValue())
+							{
+								ranksLeft = true;
+								break;
+							}
+						}
+					}
+					if (!ranksLeft)
+					{
+						Logging.errorPrint("Unable to spend all skill points.");
+						break;
+					}
 					continue;
 				}
 			}
@@ -251,6 +277,10 @@ public class NPCGenerator
 
 	private int getAlignment(final AlignGeneratorOption option)
 	{
+		if (option == null)
+		{
+			return -1;
+		}
 		final WeightedList<PCAlignment> options = option.getList();
 		int val = Globals.getRandomInt(options.size());
 		return SettingsHandler.getGame().getIndexOfAlignment(options.get(val).getKeyName());
@@ -508,8 +538,10 @@ public class NPCGenerator
 	private void selectSubClass( final PlayerCharacter aPC, final PCClass aClass )
 	{
 		WeightedList<String> subClasses = theConfiguration.getSubClassWeights( aClass.getKeyName() );
-		// TODO - Probably should do some checking here.
-		aClass.setSubClassKey( subClasses.get( Globals.getRandomInt(subClasses.size()) ) );
+		if (subClasses != null && subClasses.size() > 0)
+		{
+			aClass.setSubClassKey( subClasses.get( Globals.getRandomInt(subClasses.size()) ) );
+		}
 	}
 	
 	/**
@@ -551,9 +583,13 @@ public class NPCGenerator
 			for ( int i = 0; i < MAX_RETRIES; i++ )
 			{
 				final int randAlign = getAlignment( align );
-				Logging.debugPrint( "NPCGenerator: Selected " + randAlign + " for alignment " + align );  //$NON-NLS-1$//$NON-NLS-2$
-				aPC.setAlignment(randAlign, false);
-
+				if (randAlign > 0)
+				{
+					Logging
+						.debugPrint("NPCGenerator: Selected " + randAlign + " for alignment " + align); //$NON-NLS-1$//$NON-NLS-2$
+					aPC.setAlignment(randAlign, false);
+				}
+				
 				final Race r = getRace(aRace);
 				if (r == null)
 				{
@@ -610,6 +646,8 @@ public class NPCGenerator
 							break;
 						}
 						// TODO Remove a failed class from the list.
+						aClass = null;
+						break;
 					}
 				}
 				if (aClass == null)

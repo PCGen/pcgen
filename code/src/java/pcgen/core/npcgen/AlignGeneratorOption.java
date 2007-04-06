@@ -64,7 +64,10 @@ public class AlignGeneratorOption extends GeneratorOption
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.AlignNotFound", aValue); //$NON-NLS-1$
 		}
-		theChoices.add(aWeight, align);
+		else
+		{
+			theChoices.add(aWeight, align);
+		}
 	}
 
 	/**

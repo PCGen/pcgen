@@ -75,7 +75,10 @@ public class ClassGeneratorOption extends GeneratorOption
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.ClassNotFound", aValue); //$NON-NLS-1$
 		}
-		theChoices.add(aWeight, pcClass);
+		else
+		{
+			theChoices.add(aWeight, pcClass);
+		}
 	}
 
 	/**

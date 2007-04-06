@@ -461,6 +461,12 @@ class ClassDataHandler extends DefaultHandler
 	@Override
 	public void endElement(final String uri, final String localName, final String qName)
     {
+		// If we aren't in a nested state, ignore the end tag as the 
+		// start tag was obviously ignored.
+		if ( theState == ParserState.INIT )
+		{
+			return;
+		}
 		if ( "skills".equals(qName) && theState == ParserState.SKILLDATA ) //$NON-NLS-1$
 		{
 			if (remainingWeight > 0)
@@ -507,16 +513,16 @@ class ClassDataHandler extends DefaultHandler
 			theCurrentCategory = null;
 			theState = ParserState.CLASSDATA;
 		}
-		else if ( "class".equals(qName) ) //$NON-NLS-1$
+		else if ( "class".equals(qName) && theState != ParserState.INIT  ) //$NON-NLS-1$
 		{
 			theList.add(theCurrentData);
 			theState = ParserState.INIT;
 		}
-		else if ( "stats".equals(qName) ) //$NON-NLS-1$
+		else if ( "stats".equals(qName)) //$NON-NLS-1$
 		{
 			theState = ParserState.CLASSDATA;
 		}
-		else if ( "level".equals(qName) ) //$NON-NLS-1$
+		else if ( "level".equals(qName)) //$NON-NLS-1$
 		{
 			if ( remainingWeight > 0 )
 			{

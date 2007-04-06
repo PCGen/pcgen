@@ -385,10 +385,13 @@ public class ClassData
 		if ( theSubClassWeights == null )
 		{
 			final PCClass pcClass = Globals.getClassKeyed( theClassKey );
-			final List<SubClass> subClasses = pcClass.getSubClassList();
-			for ( final SubClass subClass : subClasses )
+			if (pcClass != null)
 			{
-				addSubClass( subClass.getKeyName(), 1 );
+				final List<SubClass> subClasses = pcClass.getSubClassList();
+				for ( final SubClass subClass : subClasses )
+				{
+					addSubClass( subClass.getKeyName(), 1 );
+				}
 			}
 		}
 		return theSubClassWeights;

@@ -76,7 +76,10 @@ public class RaceGeneratorOption extends GeneratorOption
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.RaceNotFound", aValue); //$NON-NLS-1$
 		}
-		theChoices.add(aWeight, race);
+		else
+		{
+			theChoices.add(aWeight, race);
+		}
 	}
 
 	/**

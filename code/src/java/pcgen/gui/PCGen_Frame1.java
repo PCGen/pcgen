@@ -659,6 +659,12 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		toolBar.newItem.setEnabled(itemState);
 		mainPopupMenu.newItem.setEnabled(itemState);
 		pcPopupMenu.getNewItem().setEnabled(itemState);
+
+		// New Random NPC
+		pcgenMenuBar.newNPCItem.setEnabled(itemState);
+		toolBar.newNPCItem.setEnabled(itemState);
+		mainPopupMenu.newNPCItem.setEnabled(itemState);
+		pcPopupMenu.getNewNPCItem().setEnabled(itemState);
 	}
 
 	/**
@@ -669,12 +675,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		pcgenMenuBar.openItem.setEnabled(itemState);
 		toolBar.openItem.setEnabled(itemState);
-
-		// TODO WIP please leave boomer70
-		pcgenMenuBar.newNPCItem.setEnabled(itemState);
-		toolBar.newNPCItem.setEnabled(itemState);
-		mainPopupMenu.newNPCItem.setEnabled(itemState);
-		pcPopupMenu.getNewNPCItem().setEnabled(itemState);
 	}
 
 	/**
@@ -1381,6 +1381,13 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 // WIP please leave boomer70
 	void doNewNPC()
 	{
+		if (!Globals.displayListsHappy())
+		{
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_newCharNoSources"), Constants.s_APPNAME, MessageType.ERROR);
+
+			return;
+		}
+
 		final PlayerCharacter pc = new PlayerCharacter();
 		
 		final NPCGeneratorDlg genDlg = new NPCGeneratorDlg();

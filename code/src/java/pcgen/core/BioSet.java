@@ -763,7 +763,7 @@ public final class BioSet extends PObject
 			.getRace().getKeyName().trim());
 		final String rv;
 
-		if (line != null)
+		if (line != null && line.length() > 0)
 		{
 			final StringTokenizer aTok = new StringTokenizer(line, "|");
 			final List<String> aList = new ArrayList<String>();
