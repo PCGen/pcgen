@@ -132,6 +132,16 @@ public abstract class LstFileLoader extends Observable
 				final char[] b = new char[512];
 				int n;
 
+				n = ir.read(b, 0, 1);
+				/*
+				 * Take out the optional BOM: This is a pre-Java 1.6 workaround
+				 * for Sun B-U-G 4508058, see:
+				 * http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4508058
+				 */
+				if (n == 1 && b[0] != '\uFEFF')
+				{
+					dataBuffer.append(b, 0, 1);
+				}
 				while ((n = ir.read(b)) > 0)
 				{
 					dataBuffer.append(b, 0, n);
