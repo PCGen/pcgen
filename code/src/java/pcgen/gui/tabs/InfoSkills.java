@@ -2703,15 +2703,15 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	{
 
 		private static final int COL_NAME = 0;
-		private static final int COL_MOD = 1;
-		private static final int COL_RANK = 2;
-		private static final int COL_TOTAL = 3;
+		private static final int COL_TOTAL = 1;
+		private static final int COL_MOD = 2;
+		private static final int COL_RANK = 3;
 		private static final int COL_COST = 4;
 		private static final int COL_SRC = 5;
 		private static final int COL_INDEX = 6;
 
 		private String[] names =
-				{"Skill", "Modifier", "Ranks", "Total", "Cost", "Source",
+				{"Skill", "Total", "Modifier", "Ranks", "Cost", "Source",
 					"Order", "+", "-"};
 		private int[] widths = {100, 100, 100, 100, 100, 100, 100, 30, 30};
 
@@ -2741,11 +2741,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			if (available)
 			{
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false))); // Total
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], false))); // Modifier
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], false))); // Rank
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], false))); // Total
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], true))); // Cost
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
@@ -2760,11 +2760,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			else
 			{
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Total
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], true))); // Modifier
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], true))); // Rank
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
-					+ "." + names[i++], true))); // Total
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], true))); // Cost
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
