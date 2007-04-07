@@ -22,25 +22,61 @@
  */
 package pcgen.gui;
 
-import pcgen.core.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListCellRenderer;
+import javax.swing.ListSelectionModel;
+import javax.swing.UIManager;
+import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.core.Ability;
+import pcgen.core.Campaign;
+import pcgen.core.Constants;
+import pcgen.core.CustomData;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Globals;
+import pcgen.core.Language;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.Race;
+import pcgen.core.Skill;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.editor.EditorConstants;
 import pcgen.gui.editor.EditorMainForm;
 import pcgen.gui.utils.IconUtilitities;
+import pcgen.persistence.lst.PCClassLstToken;
+import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * <code>LstEditorMain</code>
@@ -199,17 +235,7 @@ public final class LstEditorMain extends JFrame
 					{
 						newItem.setName(newName);
 
-						if (lstItem instanceof Race)
-						{
-							String region = lstItem.getRegionString();
-
-							if (region == null)
-							{
-								region = Constants.s_NONE;
-							}
-
-							Globals.getBioSet().copyRaceTags(region, lstItem.getKeyName(), region, newItem.getKeyName());
-						}
+						prepareCopy(lstItem, newItem);
 
 						editIt(newItem);
 
@@ -221,6 +247,37 @@ public final class LstEditorMain extends JFrame
 			{
 				//TODO: If we really should ignore this, add a note explaining why. XXX
 			}
+		}
+	}
+
+	/**
+	 * Update the copy with any object specific changes before it is editted for the 
+	 * first time. This includes such things as copying the bio set for a race or 
+	 * linking to the original class' spell list.
+	 *  
+	 * @param originalItem The PObject being copied.
+	 * @param copyItem The copy of the original
+	 */
+	private void prepareCopy(final PObject originalItem, final PObject copyItem)
+	{
+		if (originalItem instanceof Race)
+		{
+			String region = originalItem.getRegionString();
+
+			if (region == null)
+			{
+				region = Constants.s_NONE;
+			}
+
+			Globals.getBioSet().copyRaceTags(region, originalItem.getKeyName(), region, copyItem.getKeyName());
+		}
+		else if (originalItem instanceof PCClass)
+		{
+			PCClass copyClass = (PCClass) copyItem;
+			PCClassLstToken token =
+					(PCClassLstToken) TokenStore.inst().getTokenMap(
+						PCClassLstToken.class).get("SPELLLIST");
+			token.parse(copyClass, "1|" + originalItem.getKeyName(), -9);
 		}
 	}
 
