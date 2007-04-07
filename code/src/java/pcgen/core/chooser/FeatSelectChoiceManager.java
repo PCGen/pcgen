@@ -146,7 +146,7 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager<String
 
 						final List<String> xavailableList = new ArrayList<String>(); // available list of choices
 						final List<String> xselectedList = new ArrayList<String>(); // selected list of choices
-						theAbility.modChoices(xavailableList, xselectedList, false, aPc, true);
+						theAbility.modChoices(xavailableList, xselectedList, false, aPc, true, null);
 
 						//
 						// Remove any that don't match

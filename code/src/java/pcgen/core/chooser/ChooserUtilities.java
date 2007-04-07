@@ -32,6 +32,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -219,6 +220,7 @@ public class ChooserUtilities
 	 * @param process
 	 * @param aPC
 	 * @param addIt
+     * @param category The AbilityCategory whose pool will be charged for the ability (if any). May be null.
 	 *
 	 * @return true if aPObject was modified
 	 */
@@ -228,7 +230,8 @@ public class ChooserUtilities
 			final List            selectedList,
 			final boolean         process,
 			final PlayerCharacter aPC,
-			final boolean         addIt)
+			final boolean         addIt,
+			final AbilityCategory category)
 	{
 		availableList.clear();
 		selectedList.clear();
@@ -237,6 +240,10 @@ public class ChooserUtilities
 
 		if (aMan == null) {return false;}
 
+		if (category != null && aMan instanceof AbstractComplexChoiceManager)
+		{
+			((AbstractComplexChoiceManager) aMan).setPoolAbilityCat(category);
+		}
 		aMan.getChoices(aPC, availableList, selectedList);
 
 		if (!process) {return false;}

@@ -569,10 +569,11 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 *
 	 * @param   aPC    The Player Character that we're opening the chooser for.
 	 * @param   addIt  Whether to add or remove a choice from this Ability.
+     * @param   category The ability category whose pool is to be charged for the ability.
 	 *
 	 * @return  true if the Ability was modified, false otherwise
 	 */
-	public boolean modChoices(final PlayerCharacter aPC, final boolean addIt)
+	public boolean modChoices(final PlayerCharacter aPC, final boolean addIt, AbilityCategory category)
 	{
 		final List availableList = new ArrayList(); // available list of choices
 		final List selectedList  = new ArrayList(); // selected list of choices
@@ -582,7 +583,8 @@ public final class Ability extends PObject implements HasCost, Categorisable
 				selectedList,
 				true,
 				aPC,
-				addIt);
+				addIt,
+				category);
 	}
 
 	/**
@@ -597,6 +599,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * @param process
 	 * @param aPC
 	 * @param addIt
+     * @param category The ability category whose pool is to be charged for the ability.
 	 *
 	 * @return true if we processed the list of choices, false if we used the routine to
 	 * build the list of choices without processing them.
@@ -606,7 +609,8 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		final List            selectedList,
 		final boolean         process,
 		final PlayerCharacter aPC,
-		final boolean         addIt)
+		final boolean         addIt,
+		final AbilityCategory category)
 	{
 		return ChooserUtilities.modChoices(
 				this,
@@ -614,7 +618,8 @@ public final class Ability extends PObject implements HasCost, Categorisable
 				selectedList,
 				process,
 				aPC,
-				addIt);
+				addIt,
+				category);
 	}
 
 	/**
@@ -821,12 +826,8 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		}
 
 		// build a list of available choices and choices already made.
-		anAbility.modChoices(
-				abilityList,
-				selectedList,
-				false,
-				aPC,
-				true);
+		anAbility.modChoices(abilityList, selectedList, false, aPC, true,
+			SettingsHandler.getGame().getAbilityCategory(this.getCategory()));
 
 		final int currentSelections = selectedList.size();
 

@@ -393,7 +393,7 @@ public class AbilityUtilities
 			if ("".equals(choice) || choice == null)
 			{
 				// Get modChoices to adjust the associated list and Feat Pool
-				adjustedAbilityPool = ability.modChoices(aPC, addIt);
+				adjustedAbilityPool = ability.modChoices(aPC, addIt, category);
 			}
 			else if (addIt)
 			{

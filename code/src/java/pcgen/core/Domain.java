@@ -171,7 +171,8 @@ public final class Domain extends PObject
 					new ArrayList(),
 					true,
 					aPC,
-					true);
+					true,
+					null);
 			}
 
 			if (!aPC.isImporting())

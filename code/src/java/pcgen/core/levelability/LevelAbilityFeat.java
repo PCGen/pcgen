@@ -197,7 +197,7 @@ class LevelAbilityFeat extends LevelAbility
 					{
 						final double x = aPC.getRawFeats(false);
 						aPC.setFeats(1); // temporarily assume 1 choice
-						aFeat.modChoices(aPC, true);
+						aFeat.modChoices(aPC, true, AbilityCategory.FEAT);
 						aPC.setFeats(x); // reset to original count
 					}
 
@@ -607,7 +607,8 @@ class LevelAbilityFeat extends LevelAbility
 				tempSelList,
 				false,
 				aPC,
-				true);
+				true,
+				AbilityCategory.FEAT);
 			// Mod choices may have sent us back weaponprofs, abilities or strings, 
 			// so we have to do a conversion here
 			for (Iterator iter = tempAvailList.iterator(); iter.hasNext();)

@@ -57,6 +57,7 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 	protected boolean remove              = false;
 	protected boolean infiniteAvail       = false;
 	protected int preChooserChoices = 0;
+	protected AbilityCategory poolAbilityCat = null;
 
 	/**
 	 * Creates a new ChoiceManager object.
@@ -154,10 +155,17 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 		double pool = 0;
 		if (pobject instanceof Ability)
 		{
-			pool =
-					pc.getAvailableAbilityPool(
-						SettingsHandler.getGame().getAbilityCategory(
-							((Ability) pobject).getCategory())).doubleValue();
+			AbilityCategory cat;
+			if (poolAbilityCat != null)
+			{
+				cat = poolAbilityCat;
+			}
+			else
+			{
+				cat = SettingsHandler.getGame().getAbilityCategory(
+					((Ability) pobject).getCategory());
+			}
+			pool = pc.getAvailableAbilityPool(cat).doubleValue();
 		}
 		else
 		{
@@ -467,6 +475,23 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 		}
 
 		aPC.adjustFeats(featCount - aPC.getFeats());
+	}
+
+	/**
+	 * @return the poolAbilityCat
+	 */
+	public AbilityCategory getPoolAbilityCat()
+	{
+		return poolAbilityCat;
+	}
+
+	/**
+	 * @param poolAbilityCat the poolAbilityCat to set
+	 */
+	public void setPoolAbilityCat(AbilityCategory poolAbilityCat)
+	{
+		this.poolAbilityCat = poolAbilityCat;
+		calcPool(pc);
 	}
 
 }

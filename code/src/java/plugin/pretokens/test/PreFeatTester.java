@@ -109,7 +109,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements
 						final String aChoiceString = aFeat.getChoiceString();
 
 						aFeat.modChoices(availableList, selectedList, false,
-							character, true);
+							character, true, AbilityCategory.FEAT);
 						availableList.clear();
 
 						if (subKeyIsType) // TYPE syntax

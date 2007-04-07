@@ -22,16 +22,27 @@
  */
 package pcgen.core.levelability;
 
-import pcgen.core.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.Constants;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-
-import java.util.*;
 
 /**
  * A class to deal with adding Ability Objects as a LevelAbility
@@ -385,7 +396,8 @@ public class LevelAbilityAbility extends LevelAbility
 				tempSelList,
 				false,
 				aPC,
-				true);
+				true,
+				null);
 			// Mod choices may have sent us back weaponprofs, abilities or strings, 
 			// so we have to do a conversion here
 			for (Iterator iter = tempAvailList.iterator(); iter.hasNext();)
@@ -658,7 +670,8 @@ public class LevelAbilityAbility extends LevelAbility
 					{
 						final double x = aPC.getRawFeats(false);
 						aPC.setFeats(1); // temporarily assume 1 choice
-						pcAbility.modChoices(aPC, true);
+						pcAbility.modChoices(aPC, true, SettingsHandler.getGame()
+							.getAbilityCategory(lastCategorySeen));
 						aPC.setFeats(x); // reset to original count
 					}
 
