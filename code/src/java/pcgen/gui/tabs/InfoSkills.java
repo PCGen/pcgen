@@ -3496,6 +3496,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				case COL_INC:
 				case COL_DEC:
 					column.setCellRenderer(plusMinusRenderer);
+					column.setMaxWidth(30);
+					column.setMinWidth(30);
 					break;
 
 				default:
