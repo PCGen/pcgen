@@ -1,13 +1,15 @@
-package plugin.lsttokens.template;
+package plugin.lsttokens.deprecated;
 
 import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.PCTemplateLstToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with LEVELSPERFEAT Token
  */
-public class LevelsperfeatToken implements PCTemplateLstToken
+public class LevelsperfeatToken implements PCTemplateLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -38,5 +40,10 @@ public class LevelsperfeatToken implements PCTemplateLstToken
 			return false;
 		}
 		return true;
+	}
+
+	public String getMessage(PObject obj, String value)
+	{
+		return "Use BONUS with a Formula instead";
 	}
 }
