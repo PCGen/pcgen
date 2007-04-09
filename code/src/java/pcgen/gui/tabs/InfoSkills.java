@@ -2339,6 +2339,19 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			}
 
+			if (SettingsHandler.getShowSkillRanks())
+			{
+				final Skill pcSkill = pc.getSkillKeyed(aSkill.getKeyName());
+				if (pcSkill != null)
+				{
+					bString = pcSkill.getRanksExplanation();
+					if (bString.length() != 0)
+					{
+						b.append("<br><b>PC Ranks</b>: ").append(bString);
+					}
+				}
+			}
+
 			b.append("</html>"); //$NON-NLS-1$
 			infoLabel.setText(b.toString());
 		}

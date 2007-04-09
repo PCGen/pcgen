@@ -178,6 +178,7 @@ public final class SettingsHandler
 	private static boolean showStatDialogAtLevelUp = true;
 	private static boolean showToolBar = true;
 	private static boolean showSkillModifier = false;
+	private static boolean showSkillRanks = false;
 	private static boolean showWarningAtFirstLevelUp = true;
 	private static String skinLFThemePack = null;
 	private static boolean summaryTabShown = false;
@@ -1238,6 +1239,7 @@ public final class SettingsHandler
 		setShowTipOfTheDay(getPCGenOption("showTipOfTheDay", true)); //$NON-NLS-1$
 		setShowToolBar(getPCGenOption("showToolBar", true)); //$NON-NLS-1$
 		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
+		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
 		setSingleChoicePreference(getPCGenOption("ChooserSingleChoiceMethod", Constants.CHOOSER_SINGLECHOICEMETHOD_NONE)); //$NON-NLS-1$
 		setSkillsTab_AvailableListMode(getPCGenOption("SkillsTab.availableListMode", //$NON-NLS-1$
@@ -1570,6 +1572,7 @@ public final class SettingsHandler
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
 		setPCGenOption("showToolBar", isShowToolBar()); //$NON-NLS-1$
 		setPCGenOption("showSkillModifier", getShowSkillModifier()); //$NON-NLS-1$
+		setPCGenOption("showSkillRanks", getShowSkillRanks()); //$NON-NLS-1$
 		setPCGenOption("showSingleBoxPerBundle", getShowSingleBoxPerBundle()); //$NON-NLS-1$
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
 		setPCGenOption("SkillsTab.availableListMode", getSkillsTab_AvailableListMode()); //$NON-NLS-1$
@@ -3013,6 +3016,16 @@ public final class SettingsHandler
 	public static boolean getShowSkillModifier()
 	{
 		return showSkillModifier;
+	}
+
+	public static void setShowSkillRanks(final boolean argShowSkillRanks)
+	{
+		showSkillRanks = argShowSkillRanks;
+	}
+
+	public static boolean getShowSkillRanks()
+	{
+		return showSkillRanks;
 	}
 
 	private static void setSpellMarketPriceAdjusted(final boolean aBool)

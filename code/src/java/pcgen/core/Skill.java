@@ -1695,6 +1695,22 @@ public final class Skill extends PObject
 		return bonusDetails.toString();
 	}
 
+	public String getRanksExplanation()
+	{
+		final StringBuffer ranksDetails = new StringBuffer();
+
+		for ( int i = 0; i < getRankList().size(); i++ )
+		{
+			ranksDetails.append(getRankList().get(i));
+			if (i + 1 < getRankList().size())
+			{
+				ranksDetails.append(", ");
+			}
+		}
+	
+		return ranksDetails.toString();
+	}
+
 	/**
 	 * Append a description of the bonus to the supplied buffer if
 	 * the bonus value is not 0.

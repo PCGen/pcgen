@@ -263,7 +263,9 @@ final class PreferencesDialog extends JDialog
 	private static String in_showImagePreview =
 			PropertyFactory.getString("in_Prefs_showImagePreview");
 	private static String in_showSkillModifierBreakdown =
-			PropertyFactory.getString("in_Prefs_showSkillModifierBreakdown");
+		PropertyFactory.getString("in_Prefs_showSkillModifierBreakdown");
+	private static String in_showSkillRanksBreakdown =
+		PropertyFactory.getString("in_Prefs_showSkillRanksBreakdown");
 	private static String in_showSingleBoxPerBundle =
 		PropertyFactory.getString("in_Prefs_showSingleBoxPerBundle");
 	private static String in_sourceDisplay =
@@ -378,6 +380,7 @@ final class PreferencesDialog extends JDialog
 	private JCheckBox showSponsors = new JCheckBox();
 	private JCheckBox statDialogShownAtLevelUp = new JCheckBox();
 	private JCheckBox showSkillModifier = new JCheckBox();
+	private JCheckBox showSkillRanks = new JCheckBox();
 	private JCheckBox enforceSpendingBeforeLevelUp = new JCheckBox();
 	private JCheckBox allowOverride = new JCheckBox();
 
@@ -840,6 +843,7 @@ final class PreferencesDialog extends JDialog
 			.getSelectedIndex());
 		SettingsHandler.setUseFeatBenefits(!featDescriptionShown.isSelected());
 		SettingsHandler.setShowSkillModifier(showSkillModifier.isSelected());
+		SettingsHandler.setShowSkillRanks(showSkillRanks.isSelected());
 
 		// Look and Feel
 		int sourceIndex = 500; // XXX - magic number?
@@ -1353,6 +1357,7 @@ final class PreferencesDialog extends JDialog
 		showMemory.setSelected(SettingsHandler.isShowMemoryArea());
 		showImagePreview.setSelected(SettingsHandler.isShowImagePreview());
 		showSkillModifier.setSelected(SettingsHandler.getShowSkillModifier());
+		showSkillRanks.setSelected(SettingsHandler.getShowSkillRanks());
 		showToolbar.setSelected(SettingsHandler.isToolBarShown());
 		toolTipTextShown.setSelected(SettingsHandler.isToolTipTextShown());
 		useOutputNamesEquipment.setSelected(SettingsHandler
@@ -1768,6 +1773,7 @@ final class PreferencesDialog extends JDialog
 		options.put(in_showMemory, showMemory);
 		options.put(in_showImagePreview, showImagePreview);
 		options.put(in_showSkillModifierBreakdown, showSkillModifier);
+		options.put(in_showSkillRanksBreakdown, showSkillRanks);
 		options.put(in_showToolBar, showToolbar);
 		options.put(in_showToolTips, toolTipTextShown);
 		options.put(in_singleChoiceOption, cmbChoiceMethods);
