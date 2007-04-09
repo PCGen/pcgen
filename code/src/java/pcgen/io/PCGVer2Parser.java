@@ -4240,7 +4240,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		//		thePC.setAutomaticFeatsStable(false);
 		thePC.setAutomaticAbilitiesStable(null, false);
-		thePC.featAutoList(); // populate profs array with automatic profs
 
 		for (final Iterator<String> it = weaponprofs.iterator(); it.hasNext();)
 		{
