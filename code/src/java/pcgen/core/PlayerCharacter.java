@@ -2996,6 +2996,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
+			List<SpecialAbility> al = new ArrayList<SpecialAbility>();
 			if (aPObj instanceof PCTemplate)
 			{
 				final PCTemplate bTemplate = Globals.getTemplateKeyed(aPObj
@@ -3006,12 +3007,29 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					continue;
 				}
 
-				aList = bTemplate.addSpecialAbilitiesToList(aList, atl, thd);
+				al = bTemplate.addSpecialAbilitiesToList(al, atl, thd);
 			}
 			else
 			{
-				aList = aPObj.addSpecialAbilitiesToList(aList, this);
+				al = aPObj.addSpecialAbilitiesToList(al, this);
 			}
+			ArrayList<SpecialAbility> masterList = new ArrayList<SpecialAbility>(al);
+			for (SpecialAbility sa : masterList)
+			{
+				if (sa.getKeyName().startsWith(".CLEAR."))
+				{
+					al.remove(sa);
+					String key = sa.getKeyName().substring(7);
+					for (Iterator<SpecialAbility> it = al.iterator() ; it.hasNext();)
+					{
+						if (it.next().getKeyName().equals(key))
+						{
+							it.remove();
+						}
+					}
+				}
+			}
+			aList.addAll(al);
 		}
 
 		Collections.sort(aList);
