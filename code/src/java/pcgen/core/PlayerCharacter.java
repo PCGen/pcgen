@@ -10229,7 +10229,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				found = true;
 				replacement = fVal.intValue() + "";
 			}
-			else if (inCalc.toUpperCase().indexOf("MIN(") >= 0 || inCalc.toUpperCase().indexOf("MIN(") >= 0)
+			else if (inCalc.toUpperCase().indexOf("MIN(") >= 0
+				|| inCalc.toUpperCase().indexOf("MAX(") >= 0)
 			{
 				found = true;
 				replacement = fVal.intValue() + "";
