@@ -47,6 +47,7 @@ import java.awt.GridBagLayout;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -306,9 +307,15 @@ public final class AdvancedPanel extends JPanel
 			"SPELLLEVEL",
 			"SPELLS",
 			"SR",
-			"UMDAM",
+			"UDAM",
 			"UMULT",
 			"VISION" };
+
+	private static final List<String> singleFireTags =
+		Arrays.asList(new String[] {
+			"CHOOSE",
+			"KEY",
+			"SR" });
 
 	private JButton btnAddAdvanced;
 	private JButton btnHelpAdvanced;
@@ -683,7 +690,31 @@ public final class AdvancedPanel extends JPanel
 	//
 	private void txtAdvancedTagValueKeyReleased()
 	{
-		btnAddAdvanced.setEnabled(txtAdvancedTagValue.getText().trim().length() != 0);
+		boolean hasValue = txtAdvancedTagValue.getText().trim().length() != 0;
+		Object selectedTag = cmbAdvancedTag.getSelectedItem();
+		boolean multProhibited = singleFireTags.contains(selectedTag);
+		boolean enable = hasValue;
+		if (multProhibited)
+		{
+			final JListModel lms = (JListModel) lstAdvancedSelected.getModel();
+
+			for (Object entry : lms.getElements())
+			{
+				String en = entry.toString();
+				final int idx = en.indexOf(':');
+
+				if (idx >= 0)
+				{
+					final String tag = en.substring(0, idx);
+					if (selectedTag.equals(tag))
+					{
+						enable = false;
+						break;
+					}
+				}
+			}
+		}
+		btnAddAdvanced.setEnabled(enable);
 	}
 
 
