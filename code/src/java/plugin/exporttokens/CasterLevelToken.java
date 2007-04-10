@@ -29,6 +29,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.util.Logging;
 
 import java.util.StringTokenizer;
 
@@ -58,7 +59,12 @@ public class CasterLevelToken extends Token
 		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken(); // burn off CASTERLEVEL
+		String tag = aTok.nextToken(); // burn off CASTERLEVEL
+		if (!"CASTERLEVEL".equals(tag))
+		{
+			Logging.errorPrint("Invalid CASTERLEVEL token:" + tokenSource, new Throwable());
+			return "";
+		}
 
 		String varName = "";
 		int i = 0;
