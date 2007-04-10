@@ -7,6 +7,7 @@ package plugin.lsttokens;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
+import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -30,6 +31,11 @@ public class SaLst implements GlobalLstToken
 
 	public boolean parse(PObject obj, String value, int anInt)
 	{
+		if (obj instanceof Skill)
+		{
+			Logging.errorPrint("SA not supported in Skills");
+			return false;
+		}
 		parseSpecialAbility(obj, value, anInt);
 		return true;
 	}
