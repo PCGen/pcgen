@@ -15,7 +15,7 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #
 #####1st Example
 
-#FOLLOWER:FMLevel=1	TYPE:Familiar		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2	USEMASTERSKILL:YES	SA:Empathic Link	SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	SWITCHRACE:Animal|Magical beast
+#FOLLOWER:FMLevel=1	TYPE:Familiar		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2	USEMASTERSKILL:YES	SA:Empathic Link	SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical beast
 
 #####
 #
@@ -46,7 +46,7 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #The BONUS tags are a group of similar tags, that grant some form of Bonus to another already existing tag. To read a description
 #of them, look in the List File Tag Index under the topic "Bonus tags".
 #
-#The SWITCHRACE tag changes a regular animal to an "enhanced companion" type.
+#The RACETYPE tag changes a regular animal to an "enhanced companion" type.
 #
 #The MASTERBONUSRACE tag is used if you need to define the advantages that the master gains when having that particular races
 #as the given type. (here: Familiar). The following tags are then granted to the master.
