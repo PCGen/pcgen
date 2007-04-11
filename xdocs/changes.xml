@@ -11,8 +11,8 @@
       <action dev="thpr" type="fix" issue="1695386">UTF-8 files do not properly filter BOM</action>
       <action dev="jdempsey" type="fix" issue="1691217">MAXLEVEL for classes defaults to 20.</action>
       <action dev="jdempsey" type="fix" issue="1693551">Ability Object: Proficiency warning on character load.</action>
-      <action dev="jdempsey" type="fix" issue="1693551">Ability Object: Proficiency warning on character load.</action>
-      <action dev="jdempsey" type="fix" issue="1696862">Show skill rank breakdown on Skills Tab</action>
+      <action dev="zaister" type="fix" issue="1696862">Show skill rank breakdown on Skills Tab</action>
+      <action dev="jdempsey" type="fix" issue="1663749">KNOWNSPELLS not working on class level line</action>
     </release>
     <release version="5.11.12" date="2007-04-04" description="Beta release">
       <action dev="thpr" type="fix" issue="1681152">BONUSFEATLEVELSTARTINTERVAL:1|0 doesn't work</action>

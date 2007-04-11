@@ -11028,6 +11028,30 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
+	 * Returns true if this PlayerCharacter contains a Domain with a key that
+	 * matches the given Domain
+	 * 
+	 * @param aClassKey The key of the class granting the domain.
+	 * @param aDomainKey The key of the domain.
+	 * @return true if the doain is present. 
+	 */
+	public boolean containsCharacterDomain(String aClassKey, String aDomainKey)
+	{
+		for (CharacterDomain cd : characterDomainList)
+		{
+			if (cd.isFromPCClass(aClassKey))
+			{
+				Domain d = cd.getDomain();
+				if (d.getKeyName().equalsIgnoreCase(aDomainKey))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * return the index of CharacterDomain matching domainName else return -1
 	 * 
 	 * @param domainName
