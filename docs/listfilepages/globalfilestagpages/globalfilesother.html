@@ -904,6 +904,8 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This tag is &quot;|&quot; pipe delimited. This grants the specified vision to the
 		character and formulas can be used to determine the distance.</p>
+		<p class="indent2">Think of VISION tag like the DEFINE tag - the highest value from a VISION tag wins,
+		and then BONUS tags are added to that.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>VISION:Low-light</code></p>
 		<p class="indent3">This gives the &quot;Low-Light&quot; vision mode to the PC.</p>
@@ -922,7 +924,8 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VISION:.CLEAR.Low-light</code></p>
 		<p class="indent3">Removes the Low-light vision from the character</p>
-
+		<p class="indent2"><code>VISION:Darkvision (0')|BONUS:VISION|Darkvision|30</code></p>
+		<p class="indent3">If the character does not have Darkvision, receives it at 30.</p>
 
 		<p></p><a name="WEAPONAUTO"></a><hr>
 		<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="AUTOWEAPONPROF">AUTO:WEAPONPROF</a> tag instead.</p>
