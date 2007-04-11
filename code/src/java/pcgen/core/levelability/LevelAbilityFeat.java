@@ -193,14 +193,6 @@ class LevelAbilityFeat extends LevelAbility
 
 				if (aFeat != null)
 				{
-					if (aFeat.isMultiples())
-					{
-						final double x = aPC.getRawFeats(false);
-						aPC.setFeats(1); // temporarily assume 1 choice
-						aFeat.modChoices(aPC, true, AbilityCategory.FEAT);
-						aPC.setFeats(x); // reset to original count
-					}
-
 					aFeat.setNeedsSaving(true);
 				}
 				else
