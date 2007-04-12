@@ -4378,7 +4378,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			final BonusObj aBonus = ab.next();
 			aBonus.setApplied(false);
 
-			if ( aBonus.qualifies(aPC) )
+			if (aBonus.qualifies(aPC)
+				&& aBonus.getPCLevel() <= aPC.getTotalLevels())
 			{
 				aBonus.setApplied(true);
 			}
