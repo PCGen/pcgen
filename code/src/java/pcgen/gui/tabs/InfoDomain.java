@@ -110,8 +110,6 @@ import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.TableSorter;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
@@ -512,7 +510,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 						prestigeDomain = prestigeDomain.clone();
 					}
 					QualifiedObject<Domain> qualDomain =
-						new QualifiedObject<Domain>(prestigeDomain);
+						new QualifiedObject<Domain>(prestigeDomain.clone());
 
 					if (!isDomainInList(availDomainList, qualDomain.getObject(null)))
 					{
@@ -1199,7 +1197,19 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				// Get the selected domain
 				final Domain aCDDomain = aCD.getDomain();
 
-				if (!availDomainList.contains(aCDDomain))
+				boolean found = false;
+				for (QualifiedObject<Domain> availDomain : availDomainList)
+				{
+					found =
+							availDomain.getObject(null).getKeyName().equals(
+								aCDDomain.getKeyName());
+					if (found)
+					{
+						break;
+					}
+
+				}
+				if (!found)
 				{
 					availDomainList.add(new QualifiedObject<Domain>(aCDDomain));
 				}
