@@ -134,13 +134,14 @@
 		<p class="indent1"><strong>Variables Used (v):</strong> :Text (SCHOOL)</p>
 		<p class="indent1"><strong>Variables Used (w):</strong> :Text (SUBSCHOOL)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> :Text (DESCRIPTOR)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> :Number (Minimum Level)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> :Number (Maximum Level)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> :Number (Minimum Level, default 0)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> :Number (Maximum Level, default 9)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Used in conjunction with CHOOSE: it allows magic/psionic items with a specific
-				TYPE/SCHOOL/SUBSCHOOL/DESCRIPTOR filtering. Minimum and maximum level of spell may be
-				set by using the y|z options, but are optional. If there is no numbers then y = 0 and z = MAX_LEVEL.
-				If there is one number present, y = number and z = MAX_LEVEL. if there are two numbers, y = number1 and z = number2.</p>
+		TYPE/SCHOOL/SUBSCHOOL/DESCRIPTOR filtering. Minimum and maximum level of spell may be set by using the
+		y|z options, but are optional. If there is no numbers then y = 0 and z = MAX_LEVEL.  If there is one
+		number present, y = number and z = MAX_LEVEL. if there are two numbers, y = number1 and z = number2.</p>
+		<p class="indent2">May be joined with , for AND and | for OR.</p>
   		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|SCHOOL.Enchantment;SUBSCHOOL.Compulsion</code></p>
 		<p class="indent3">Show all spells that are Evocation AND Compulsion.</p>
@@ -152,7 +153,8 @@
 		<p class="indent3">Allows the user to quickly generate a minor wand with only evocation spells</p>
 		<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|Psionics|0|3</code></p>
 		<p class="indent3">Allows a minor powerstone</p>
-
+		<p class="indent2"><code>SCHOOL.Illusion,DESCRIPTOR.Fear|SCHOOL.Abjuration</code></p>
+		<p class="indent3">indicates Spells which are:  (School Illusion AND Descriptor Fear) OR School Abjuration</p>
 
 		<p></p><a name="EQUIPCHANGE"></a><hr>
 		<p class="new">*** New 5.11.4</p>
