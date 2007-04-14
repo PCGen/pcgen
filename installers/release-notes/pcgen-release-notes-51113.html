@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.11.13 Beta
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.11.13 Beta</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's New For v5.11.13</a></li>
+	<li><a href="#GMGenIssue">GMGen Known Issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.11.13</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.11.13</a></h2>
+<p>
+PCGen v5.11.13 is the second beta release from our development branch, 
+incorporating many bug fixes 
+and documentation improvements. The beta releases show case the 
+features we will have in our next production release and allow testing, 
+refinement and bug fixing of this work. The highlights of the changes in this 
+release are listed below:
+</p>
+<ul>
+
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+Source Load Leaks Memory
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1683314" class="externalLink" title="External Link">1683314</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+Psionicist forces powers on character load.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1687934" class="externalLink" title="External Link">1687934</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+UTF-8 files do not properly filter BOM
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1695386" class="externalLink" title="External Link">1695386</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+MAXLEVEL for classes defaults to 20.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1691217" class="externalLink" title="External Link">1691217</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+Ability Object: Proficiency warning on character load.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1693551" class="externalLink" title="External Link">1693551</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+Show skill rank breakdown on Skills Tab
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1696862" class="externalLink" title="External Link">1696862</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#zaister">zaister</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+KNOWNSPELLS not working on class level line
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1663749" class="externalLink" title="External Link">1663749</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+
+</ul>
+<p>
+For full details of the changes, see the <a href="#ChangeLog">Change Log</a>
+.
+</p>
+<p>James Dempsey for the PCGEN Team -- April 15, 2007.</p>
+
+
+<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative 
+  Tab when running a combat when you select any character other than the one whose 
+  turn it is and click the Damage or Heal buttons the character whose turn it 
+  is becomes selected and the damage is applied to him instead of the character 
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around. 
+  The problem will only manifest when using the System Look and Feel, you can 
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and 
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.11.13 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51113_full.zip?download">pcgen51113_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51113_full.zip.asc?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51113_partial.zip?download">pcgen51113_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51113_partial.zip.asc?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51113_win_install.exe?download">pcgen51113_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51113_win_install.exe.asc?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51113_mac_install.dmg?download">pcgen51113_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51113_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.11.13</a></h2>
+
+<h3>Code FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696648">1696648</a> ]	Deprecate Race LST LANGNUM
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696650">1696650</a> ]	Deprecate Template LEVELSPERFEAT
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696862">1696862</a> ]	Show skill rank breakdown on Skills Tab
+</ul>
+
+<h3>Data FREQs
+</h3><ul>
+</ul>
+
+<h3>New Data Source Development
+</h3><ul>
+</ul>
+
+<h3>Doc FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1673308">1673308</a> ]	Document new PCC tag: ISMATURE
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1673311">1673311</a> ]	Update LEVEL & HD tag entries
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1673709">1673709</a> ]	Document changes to Spell LST: DOMAINS and CLASSES
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1678630">1678630</a> ]	Tempalte\'s COST Token is deprecated
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1681733">1681733</a> ]	LOADSTEPMULT game mode token
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1690715">1690715</a> ]	Update .MOD information
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1691721">1691721</a> ]	Document New Kit Tag: Ability
+</ul>
+
+<h3>OS FREQs
+</h3><ul>
+</ul>
+
+<h3>Plugin FREQs
+</h3><ul>
+</ul>
+
+<h3>Code Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1660885">1660885</a> ]	VFEAT and specific Weapon Focus
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1663749">1663749</a> ]	KNOWNSPELLS not working on class level line
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1683260">1683260</a> ]	Skill Editor allows multiple CHOOSE tokens
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1683313">1683313</a> ]	Use of SA: in Skill LST grants SA without Warning
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1683314">1683314</a> ]	Source Load Leaks Memory
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1686280">1686280</a> ]	GMGen negative initiative
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1687934">1687934</a> ]	Psionicist forces powers on character load
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1690352">1690352</a> ]	Ability Selection taking from incorrect Category Pool
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1691217">1691217</a> ]	MAXLEVEL for classes defaults to 20
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1693551">1693551</a> ]	Ability Object: Proficiency warning on character load
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1694361">1694361</a> ]	No spell list on copied class
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1694371">1694371</a> ]	Error message not displaying gamemode
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1694373">1694373</a> ]	Create new NPC accessible without sources loaded
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1694376">1694376</a> ]	ArrayIndexOutOfBoundsException after switching gamemodes
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1694765">1694765</a> ]	Psion Test Character and Psicrystal
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1695307">1695307</a> ]	Template feat token fails when multiple feats added
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1695386">1695386</a> ]	UTF-8 files do not properly filter BOM
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696232">1696232</a> ]	Move Skill Total Column to be immediately after skill name
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696892">1696892</a> ]	Domains tab - Selected Domains listed twice
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696897">1696897</a> ]	StackOverflow - CASTERLEVEL
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1698599">1698599</a> ]	LEVEL tag doesn't wait for levels in Template
+</ul>
+
+<h3>Plugin Bugs
+</h3><ul>
+</ul>
+
+<h3>Data Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1687232">1687232</a> ]	Some Campaign Sets missing Default Animal kits
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1698051">1698051</a> ]	[RSRD] Animal Companion list missing aquatic animals
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1698056">1698056</a> ]	[RSRD] Remove Alternative Animal Companion Master template
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1698089">1698089</a> ]	Switch SWITCHRACE function to RACETYPE tag
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1700009">1700009</a> ] [RSRD] Minotaur should have Jump as Monster Class Skill
+</ul>
+
+<h3>Output Sheet Bugs 
+</h3><ul>
+</ul>
+
+<h3>Doc Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1683321">1683321</a> ]	CHOOSE:EQBUILDER.SPELL Undocumented
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1693944">1693944</a> ]	Docs links broke in 5.11.11 & SVN
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696510">1696510</a> ]	Enhance Global Vision Tag
+</ul>
+
+</body>
+</html>
