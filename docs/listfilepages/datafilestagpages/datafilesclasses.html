@@ -581,11 +581,15 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> ALIGNMENT</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> DESCRIPTOR</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> SCHOOL</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> SUBSCHOOL</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> SPELL</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Prohibits characters from using certain spells. This tag can be qualified with
 		PRExxx statements. Alignment restrictions imposed by this tag can be turned off by the PROHIBITSPELLS
 		house rule preference.</p>
+		<p class="indent2">SUBSCHOOL works just like SCHOOL syntax-wise.</p>
+		<p class="indent2">SPELL allows individual spells... these MUST BE COMMA DELIMITED (NOT DOT DELIMITED)</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PROHIBITSPELL:ALIGNMENT.Evil</code></p>
 		<p class="indent3">Prohibits the character from taking spells with the 'Evil' descriptor.</p>
@@ -609,6 +613,8 @@
 		spells if alignment is 0,1,2; taking Good spells if Deity alignment is LE,NE,CE; taking
 		evil spells if Deity alignment is LG,NG,CG; taking Lawful spells if Deity alignment is CG,CN,CE;
 		taking Chaotic spells if Deity alignment is LG,LN,LE.</p>
+		<p class="indent2"><code>PROHIBITSPELL:SPELL|Fireball,Lightning Bolt</code></p>
+		<p class="indent3">Prohibits the character from taking spells from this list.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Class Line.</p>
 
