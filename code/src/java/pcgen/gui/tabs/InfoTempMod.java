@@ -532,7 +532,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (bString.length() > 0)
 			{
-				b.appendLineBreak().appendElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
+				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
 			infoLabel.setText(b.toString());
@@ -554,7 +554,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (bString.length() > 0)
 			{
-				b.appendLineBreak().appendElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
+				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
 			infoLabel.setText(b.toString());
@@ -583,7 +583,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (bString.length() > 0)
 			{
-				b.appendElement("in_itmInfoLabelTextWT" , bString); //$NON-NLS-1$
+				b.appendI18nElement("in_itmInfoLabelTextWT" , bString); //$NON-NLS-1$
 			}
 
 			Integer a = eqI.getACBonus(pc);
@@ -672,7 +672,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (bString.length() > 0)
 			{
-				b.appendLineBreak().appendElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
+				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
 			infoLabel.setText(b.toString());
@@ -681,10 +681,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aSpell.piSubString());
 			
-			b.appendElement("in_itmInfoLabelTextDuration", aSpell.getDuration()); //$NON-NLS-1$
-			b.appendElement("in_itmInfoLabelTextRange",aSpell.getRange()); //$NON-NLS-1$
-			b.appendElement("in_itmInfoLabelTextTarget",aSpell.getTarget()); //$NON-NLS-1$
-			b.appendElement("in_itmInfoLabelTextSpellDescription",aSpell.piDescSubString(pc)); //$NON-NLS-1$
+			b.appendI18nElement("in_itmInfoLabelTextDuration", aSpell.getDuration()); //$NON-NLS-1
+			b.appendI18nElement("in_itmInfoLabelTextRange",aSpell.getRange()); //$NON-NLS-1$
+			b.appendI18nElement("in_itmInfoLabelTextTarget",aSpell.getTarget()); //$NON-NLS-1$
+			b.appendI18nElement("in_itmInfoLabelTextSpellDescription",aSpell.piDescSubString(pc)); //$NON-NLS-1$
 
 			String spellSource = aSpell.getDefaultSourceString();
 
@@ -697,7 +697,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (bString.length() > 0)
 			{
-				b.appendLineBreak().appendElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
+				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
 			infoLabel.setText(b.toString());
@@ -717,7 +717,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (bString.length() > 0)
 			{
-				b.appendLineBreak().appendElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
+				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
 			infoLabel.setText(b.toString());
