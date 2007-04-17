@@ -25,8 +25,35 @@
 	<body>
 		<h1>Spell Files</h1>
 
-		<p>The first field is the name of the spell.</p>
+		<p class="indent1">The first field is the name of the spell.</p>
 
+		<p>Initial Comment:<br /></p>
+		<p class="indent1">In all four versions of KEY (Spell - Potion) or KEY (Spell - Scroll) or KEY (Spell -
+		Spell) orKEY (Spell - Staff, Wand & Ring) ), there is something like:<br /></p>
+
+		<p class="indent1">"Potions modifier's will work without a KEY but work much better using the KEY than
+		the name."<br /></p>
+
+		<p class="indent1">First of all, most of these items are NOT RELEVANT to Spell LST, KEY is a global
+		token... I don't know if it's valuable to state it's part of Spell (but we should be consistent with
+		Type, which the docs also make unique to each LST file for some reason)<br /></p>
+
+		<p class="indent1">Second, it should be made clear that the KEY is an optional Token, BUT when used,
+		the user MUST ALWAYS use the Key to refer to the item, the name WILL NOT WORK.<br /></p>
+
+		<p class="indent1">Thus in Spell LST:<br /></p>
+		<ul>
+			<li>...</li><br />
+			<li>Whiz Bangy &lt;tab&gt; KEY:Foo<br /></li>
+			<li>...</li><br />
+		</ul>
+		<p class="indent1">In another file:</li>
+		<ul>
+			<li>PRESPELL:1,Whiz Bangy</li>
+			<li>WILL NOT WORK<br /></li>
+			<li>Requires:</li>
+			<li>PRESPELL:1,Foo.<br /></li>
+		</ul>
 
 		<p></p><a name="BONUSPPCOST"></a><hr>
 		<p class="new">*** NEW 5.10.1</p>
@@ -50,8 +77,9 @@
 							for a total of 7 PP. The maximum extra PP is 7 for this example getting
 							the maximum of 10d6 damage.</p>
 
+
 		<p></p><a name="CASTERLEVEL"></a><hr>
-		<p class="new">*** New 5.4</p>
+		<p class="new">*** New 5.4 - Updated 5.11.12</p>
 		<p class="indent0"><strong>Tag Name:</strong> CASTERLEVEL (Spell Variable)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">CASTERLEVEL (Spell Variable) is a special variable for use within <a href="#DESC">
@@ -122,7 +150,7 @@
 
 
 		<p></p><a name="COMPS"></a><hr>
-
+		<p class="new">*** Updated 5.11.12</p>
 		<p class="indent0"><strong>Tag Name:</strong> COMPS:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (V, S, M, DF)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -161,7 +189,7 @@
 		<p class="indent3">This spell takes 41+ points to cast.</p>
 
 		<p></p><a name="DESC"></a><hr>
-		<p class="new">*** New</p>
+		<p class="new">*** Deprecated 5.11.13 - Remove 6.0 - Remove 6.0 - Use <a href="#DESCRIPTOR">DESCRIPTOR</a> tag instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> DESC:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell description)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -186,7 +214,7 @@
 
 
 		<p></p><a name="DESCISPI"></a><hr>
-		<p class="new">*** New</p>
+		<p class="new">*** Deprecated 5.11.13 - Remove 6.0 - Use <a href="../globalfilestagpages/globalfilesother.html#DESCISPI">DESCISPI</a> tag instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> DESCISPI:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -199,15 +227,19 @@
 		<p class="indent3">Description is closed content.</p>
 
 		<p></p><a name="DESCRIPTOR"></a><hr>
+		<p class="new">*** Updated 5.11.13</p>
 		<p class="indent0"><strong>Tag Name:</strong> DESCRIPTOR:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Reports what types the spell is and is used for specialist wizards
 			to determine their favored schools bonus spells.</p>
+		<p class="indent2">.CLEAR - this CAN be chained, e.g. DESCRIPTOR:.CLEAR|x|x|.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DESCRIPTOR:Sonic|Acid|Evil</code></p>
 		<p class="indent3">This spell is of the &quot;Sonic&quot;, &quot;Acid&quot; &amp; &quot;Evil&quot;
 		  types.</p>
+		<p class="indent2"><code>DESCRIPTOR:.CLEAR|Fire</code></p>
+		<p class="indent3">This clears the spell list and replaces with &quot;Fire&quot; types.</p>
 
 		<p></p><a name="DOMAINS"></a><hr>
 		<p class="new">*** Updated 5.11.11</p>
@@ -307,12 +339,13 @@
 		<p class="indent3">A successful Will save will negate the spell effects.</p>
 
 		<p></p><a name="SCHOOL"></a><hr>
-		<p class="new">*** Updated 5.7.3*** Updated 5.11.4</p>
+		<p class="new">*** Updated 5.7.3*** Updated 5.11.4*** Updated 5.11.13</p>
 		<p class="indent0"><strong>Tag Name:</strong> SCHOOL:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell School Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This is a | (pipe) delimited list of Schools the spell belongs to and is used for specialist
 			wizards to determine their favored schools bonus spells.</p>
+		<p class="indent2">.CLEAR - this CAN be chained, e.g. SCHOOL:.CLEAR|x|x|.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SCHOOL:Divination</code></p>
 		<p class="indent3">This spell belongs to the &quot;Divination&quot; school.</p>
@@ -320,14 +353,18 @@
 		<p class="indent3">This spell belongs to the &quot;Enchantment&quot; and &quot;Illusion&quot; schools.</p>
 		<p class="indent2"><code>Summon Monster VII.MOD &lt;tab&gt; CLASSES:Channeler=7 &lt;tab&gt; SCHOOL:.CLEAR &lt;tab&gt; SCHOOL:Greater Conjuration</code></p>
 		<p class="indent3">For the Class Channeler of level 7 the spell Summon Monster VII is modified, moving it from whatever schools it was in to just &quot;Greater Conjuration&quot;.</p>
+		<p class="indent2"><code>SCHOOL:.CLEAR|Illusion</code></p>
+		<p class="indent3">This clears the schools list and replaces with &quot;Illusion&quot; schools.</p>
+
 
 		<p></p><a name="SUBSCHOOL"></a><hr>
-		<p class="new">*** Updated 5.7.3</p>
+		<p class="new">*** Updated 5.7.3*** Updated 5.11.13</p>
 		<p class="indent0"><strong>Tag Name:</strong> SUBSCHOOL:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell Sub-School Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This is a | (pipe) delimited list of Sub-Schools the spell belongs to and is used for specialist
 			wizards to determine their favored schools bonus spells.</p>
+		<p class="indent2">.CLEAR - this CAN be chained, e.g. SUBSCHOOL:.CLEAR|x|x|.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SUBSCHOOL:Charm</code></p>
 		<p class="indent3">This spell belongs to the &quot;Charm&quot; sub-school.</p>
@@ -335,7 +372,8 @@
 		<p class="indent3">This spell belongs to the &quot;Creation&quot; and &quot;Calling&quot; subschools.</p>
 		<p class="indent2"><code>Wall of Force.MOD &lt;tab&gt; SUBSCHOOL:Force</code></p>
 		<p class="indent3">This spell belongs to the &quot;Force&quot; sub-school.</p>
-
+		<p class="indent2"><code>SUBSCHOOL:.CLEAR|Charm</code></p>
+		<p class="indent3">This clears the subschools list and replaces with &quot;Charm&quot; sub-school.</p>
 
 		<p></p><a name="SPELLCHANGE"></a><hr>
 		<p class="new">*** New 5.11.4</p>
@@ -350,21 +388,30 @@
 		<p class="indent3">Forget the spell &quot;Holy Aura&quot;.</p>
 
 		<p></p><a name="SPELLLEVEL"></a><hr>
-		<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="listfilepages/globalfilesother/globalfilesother.html#SPELLLEVEL">SPELLLEVEL</a> tag instead</p>
+		<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="../globalfilesother/globalfilesother.html#SPELLLEVEL">SPELLLEVEL</a> tag instead</p>
+		<p class="indent0"><strong>Tag Name:</strong> SPELLLEVEL:CLASS|x|DOMAIN|x</p>
 
 		<p></p><a name="SPELLLEVELCLASS"></a><hr>
 		<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#CLASSES">CLASSES</a> or <a href="#DOMAINS">DOMAINS</a> tags instead</p>
 		<p class="indent0"><strong>Tag Name:</strong> SPELLLEVEL:CLASS|x|DOMAIN|x</p>
 
 		<p></p><a name="SPELLRES"></a><hr>
+		<p class="new">*** Updated 5.11.13</p>
 		<p class="indent0"><strong>Tag Name:</strong> SPELLRES:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Yes or No)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Yes, No or free-form text)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Indicates whether the character can try to resist the spell based on
-			their Spell Resistance number.</p>
+		their Spell Resistance number.</p>
+		<p class="indent2">There is NO JOINING IN THIS TOKEN... the following are NOT LEGAL (or you won't get
+		what you expect):  SPELLRES:For Good Creatures|Limited or SPELLRES:.CLEAR|No</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLRES:Yes</code></p>
 		<p class="indent3">This spell is susceptible to spell resistance.</p>
+		<p class="indent2"><code>SPELLRES:For Good Creatures</code></p>
+		<p class="indent3">This spell is susceptible to Good Creatures.</p>
+		<p class="indent2"><code>SPELLRES:.CLEAR</code></p>
+		<p class="indent3">This clears the Spell resistance setting.</p>
+
 
 		<p></p><a name="TARGETAREA"></a><hr>
 		<p class="new">*** New</p>
@@ -374,7 +421,8 @@
 		<ul class="indent2">
 			<li>Reports the Target, Area, or Effects that the spell has.</li>
 			<li>This replaces the deprecated EFFECTTYPE tag.</li>
-			<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and formulas within parentheses.</li>
+			<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and
+			formulas within parentheses.</li>
 			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for this purpose,
 				is commonly used though other variables can be used as well.</li>
 			<li>Because anything within parentheses is assumed to be a formula to be parsed,
@@ -408,7 +456,8 @@
 		<ul class="indent2">
   		<li>This is a | (pipe) delimited list of the names of variations of the spell.</li>
   		<li>Optional Tag. Not all spells have variants.</li>
- 	 	<li>Used when creating custom magic items (such as scrolls and wands). User must select one of the variants when creating such an item.</li></ul>
+ 	 	<li>Used when creating custom magic items (such as scrolls and wands). User must select one of the
+ 	 	variants when creating such an item.</li></ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VARIANTS:Blast|Spell</code></p>
 		<p class="indent3">Names the two variations of the spell.</p>
@@ -419,7 +468,8 @@
 		<p class="indent0"><strong>Tag Name:</strong> XPCOST:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Spell XP Cost)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Denotes how much the spell costs to cast, used for determining potion, wand, etc costs.</p>
+		<p class="indent2">Denotes how much the spell costs to cast, used for determining potion, wand, etc
+		costs.</p>
 		<p class="indent2">XPCOST must be an integer >= 0</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>XPCOST:1250</code></p>
