@@ -103,6 +103,17 @@ public class SaLst implements GlobalLstToken
 
 		sa.setName(saName.toString());
 
+		if (level >= 0)
+		{
+			try
+			{
+				sa.addPreReq(PreParserFactory.createLevelPrereq(obj, level));
+			}
+			catch (PersistenceLayerException notUsed)
+			{
+				Logging.errorPrint("Failed to assign level prerequisite.", notUsed);
+			}
+		}
 		if (obj instanceof PCClass)
 		{
 			sa.setSASource("PCCLASS=" + obj.getKeyName() + "|" + level);

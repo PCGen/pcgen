@@ -131,13 +131,13 @@ public final class SpecialAbility extends TextProperty
 
 	public boolean pcQualifiesFor(final PlayerCharacter aPC)
 	{
-		if ("".equals(saSource) || saSource.endsWith("|0"))
-		{
-			return true;
-		}
 		if (!PrereqHandler.passesAll(getPreReqList(), aPC, null))
 		{
 			return false;
+		}
+		if ("".equals(saSource) || saSource.endsWith("|0"))
+		{
+			return true;
 		}
 
 		// currently source is either empty or

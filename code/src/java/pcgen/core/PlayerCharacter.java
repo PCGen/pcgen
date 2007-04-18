@@ -3016,7 +3016,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			ArrayList<SpecialAbility> masterList = new ArrayList<SpecialAbility>(al);
 			for (SpecialAbility sa : masterList)
 			{
-				if (sa.getKeyName().startsWith(".CLEAR."))
+				if (sa.getKeyName().startsWith(".CLEAR.") && sa.qualifies(this))
 				{
 					al.remove(sa);
 					String key = sa.getKeyName().substring(7);
