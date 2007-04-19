@@ -1355,7 +1355,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Power Attack</name>
-			<description>On your action, before making attack rolls for a round, you may choose to subtract up to 5 from all melee attack rolls and add the same number to all melee damage rolls.</description>
+			<description>On your action, before making attack rolls for a round, you may choose to subtract up to 12 from all melee attack rolls and add the same number to all melee damage rolls.</description>
 			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
