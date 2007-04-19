@@ -1,4 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Dec 12 20:26:52 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original Entry by: Tir Gwaith
 
 #
@@ -10,8 +11,13 @@
 #
 #
 
+###Block: Dynamic Feat Descriptions
+# Feat Name		Define						Clear Description	Description
+Expertise.MOD	DEFINE:CombatExpertiseMax|min(BAB,5)	DESC:.CLEAR		DESC:When the character uses the attack action or full attack action in melee, the character can take a penalty of as much as -%1 on the character's attack and add the same number to the character's Armor Class.|CombatExpertiseMax
+Power Attack.MOD	DEFINE:PowerAttackMax|max(BAB,0)		DESC:.CLEAR		DESC:On the character's action, before making attack rolls for a round, the character may choose to subtract up to %1 from all melee attack rolls and add the same number to all melee damage rolls.|PowerAttackMax
 
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+###Block: Static Feat Descriptions
 # Feat Name					Clear Description	Description
 Alertness.MOD				DESC:.CLEAR		DESC:The character gets a +2 bonus on all Listen checks and Spot checks.
 Ambidexterity.MOD				DESC:.CLEAR		DESC:The character ignores all penalties for using an off hand. The character is neither left-handed nor right-handed.
@@ -34,7 +40,6 @@ Empower Spell.MOD				DESC:.CLEAR		DESC:All variable, numeric effects of an empow
 Endurance.MOD				DESC:.CLEAR		DESC:Whenever the character makes a check for performing a physical action that extends over a period of time (running, swimming, holding the character's breath, and so on), the character gets a +4 bonus to the check.
 Enlarge Spell.MOD				DESC:.CLEAR		DESC:An enlarged spell has its range doubled.
 Exotic Weapon Proficiency.MOD		DESC:.CLEAR		DESC:The character makes attack rolls with the weapon normally.
-Expertise.MOD				DESC:.CLEAR		DESC:When the character uses the attack action or full attack action in melee, the character can take a penalty of as much as -5 on the character's attack and add the same number (up to +5) to the character's Armor Class.
 Extend Spell.MOD				DESC:.CLEAR		DESC:An extended spell lasts twice as long as normal.
 Extra Turning.MOD				DESC:.CLEAR		DESC:Allows a character to turn undead four more times per day than normal.
 Far Shot.MOD				DESC:.CLEAR		DESC:When the character uses a projectile weapon, such as a bow, its range increment increases by one-half (multiply by 1.5). When the character uses a thrown weapon, its range increment is doubled.
@@ -61,7 +66,6 @@ Multiattack.MOD				DESC:.CLEAR		DESC:The creature's secondary attacks with natur
 Multidexterity.MOD			DESC:.CLEAR		DESC:The creature ignores all penalties for using an off hand.
 Multiweapon Fighting.MOD		DESC:.CLEAR		DESC:Penalties for fighting with multiple weapons are reduced by 2.
 Point Blank Shot.MOD			DESC:.CLEAR		DESC:The character gets a +1 bonus to attack and damage rolls with ranged weapons at ranges of up to 30 feet.
-Power Attack.MOD				DESC:.CLEAR		DESC:On the character's action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls.
 Precise Shot.MOD				DESC:.CLEAR		DESC:The character can shoot or throw ranged weapons at an opponent engaged in melee without suffering the standard -4 penalty.
 Quick Draw.MOD				DESC:.CLEAR		DESC:The character can draw a weapon as a free action instead of as a move-equivalent action.
 Quicken Spell.MOD				DESC:.CLEAR		DESC:Casting a quickened spell is a free action.

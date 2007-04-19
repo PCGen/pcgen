@@ -135,7 +135,7 @@ Widen Spell											TYPE:Metamagic																																												
 ###Block: Dynamic Feat Descriptions
 # Feat Name			Define						Clear Description	Description
 Combat Expertise.MOD	DEFINE:CombatExpertiseMax|min(BAB,5)	DESC:.CLEAR		DESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as %1 on your attack roll and add the same number as a dodge bonus to your Armor Class.|CombatExpertiseMax
-Power Attack.MOD		DEFINE:PowerAttackMax|min(BAB,5)		DESC:.CLEAR		DESC:On your action, before making attack rolls for a round, you may choose to subtract up to %1 from all melee attack rolls and add the same number to all melee damage rolls.|PowerAttackMax
+Power Attack.MOD		DEFINE:PowerAttackMax|max(BAB,0)		DESC:.CLEAR		DESC:On your action, before making attack rolls for a round, you may choose to subtract up to %1 from all melee attack rolls and add the same number to all melee damage rolls.|PowerAttackMax
 
 
 ###Block: Static Feat Descriptions
