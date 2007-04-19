@@ -6,7 +6,7 @@
   </properties>
   <body>
     <release version="5.11.14" date="In SVN" description="Beta release">
-      <action dev="tir-gwaith" type="add" issue="1703302">Dynamic DESC for Combat Expertise and Power Attack</action>
+      <action dev="tir-gwaith" type="add" issue="1703302">[SRD/RSRD]Dynamic DESC for Combat Expertise and Power Attack</action>
     </release>
     <release version="5.11.13" date="2007-04-16" description="Beta release">
       <action dev="thpr" type="fix" issue="1683314">Source Load Leaks Memory</action>
