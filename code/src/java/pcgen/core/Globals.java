@@ -3607,7 +3607,7 @@ public final class Globals
 	
 	public static boolean removeRaceKeyed(final String aKey)
 	{
-		return raceMap.remove(aKey) != null;
+		return raceMap.remove(aKey.toLowerCase()) != null;
 	}
 	
 }
