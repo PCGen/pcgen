@@ -6,6 +6,8 @@
   </properties>
   <body>
     <release version="5.11.13" date="2007-04-16" description="Beta release">
+      <action dev="tir-gwaith" type="add" issue="1703302">Dynamic DESC for Combat Expertise and Power Attack</action>
+    <release version="5.11.13" date="2007-04-16" description="Beta release">
       <action dev="thpr" type="fix" issue="1683314">Source Load Leaks Memory</action>
       <action dev="jdempsey" type="fix" issue="1687934">Psionicist forces powers on character load.</action>
       <action dev="thpr" type="fix" issue="1695386">UTF-8 files do not properly filter BOM</action>
