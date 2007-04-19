@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Wed Apr 18 19:21:35 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Drew Bernat (abernat@zathras.net)
 # Uses the following variables defined elsewhere:
@@ -132,7 +132,13 @@ Widen Spell											TYPE:Metamagic																																												
 #
 #
 
-###Block: Feat Descriptions
+###Block: Dynamic Feat Descriptions
+# Feat Name			Define						Clear Description	Description
+Combat Expertise.MOD	DEFINE:CombatExpertiseMax|min(BAB,5)	DESC:.CLEAR		DESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as %1 on your attack roll and add the same number as a dodge bonus to your Armor Class.|CombatExpertiseMax
+Power Attack.MOD		DEFINE:PowerAttackMax|min(BAB,5)		DESC:.CLEAR		DESC:On your action, before making attack rolls for a round, you may choose to subtract up to %1 from all melee attack rolls and add the same number to all melee damage rolls.|PowerAttackMax
+
+
+###Block: Static Feat Descriptions
 # Feat Name					Clear Description	Description
 Acrobatic.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Jump checks and Tumble checks.
 Agile.MOD					DESC:.CLEAR		DESC:You get a +2 bonus on all Balance checks and Escape Artist checks.
@@ -147,7 +153,6 @@ Blind Fight.MOD				DESC:.CLEAR		DESC:In melee, every time you miss because of co
 Brew Potion.MOD				DESC:.CLEAR		DESC:You can create a potion of any 3rd-level or lower spell that you know and that targets one or more creatures.
 Cleave.MOD					DESC:.CLEAR		DESC:If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.
 Combat Casting.MOD			DESC:.CLEAR		DESC:You get a +4 bonus on Concentration checks made to cast a spell or use a spell-like ability while on the defensive or while you are grappling or pinned.
-Combat Expertise.MOD			DESC:.CLEAR		DESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number as a dodge bonus to your Armor Class.
 Combat Reflexes.MOD			DESC:.CLEAR		DESC:You may make a number of additional attacks of opportunity equal to your Dexterity bonus.
 Craft Magic Arms and Armor.MOD	DESC:.CLEAR		DESC:You can create any magic weapon, armor, or shield whose prerequisites you meet.
 Craft Rod.MOD				DESC:.CLEAR		DESC:You can create any rod whose prerequisites you meet.
@@ -209,7 +214,6 @@ Negotiator.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Diplomacy checks a
 Nimble Fingers.MOD			DESC:.CLEAR		DESC:You get a +2 bonus on all Disable Device checks and Open Lock checks.
 Persuasive.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Bluff checks and Intimidate checks.
 Point Blank Shot.MOD			DESC:.CLEAR		DESC:You get a +1 bonus on attack and damage rolls with ranged weapons at ranges of up to 30 feet.
-Power Attack.MOD				DESC:.CLEAR		DESC:On your action, before making attack rolls for a round, you may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed your base attack bonus.
 Precise Shot.MOD				DESC:.CLEAR		DESC:You can shoot or throw ranged weapons at an opponent engaged in melee without taking the standard -4 penalty on your attack roll.
 Quick Draw.MOD				DESC:.CLEAR		DESC:You can draw a weapon as a free action instead of as a move action. You can draw a hidden weapon as a move action. A character who has selected this feat may throw weapons at his full normal rate of attacks (much like a character with a bow).
 Quicken Spell.MOD				DESC:.CLEAR		DESC:Casting a quickened spell is a free action.
