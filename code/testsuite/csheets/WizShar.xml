@@ -1006,7 +1006,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Expertise</name>
-			<description>When the character uses the attack action or full attack action in melee, the character can take a penalty of as much as -5 on the character&#39;s attack and add the same number (up to +5) to the character&#39;s Armor Class.</description>
+			<description>When the character uses the attack action or full attack action in melee, the character can take a penalty of as much as -0 on the character&#39;s attack and add the same number to the character&#39;s Armor Class.</description>
 			<type>GENERAL.FIGHTER</type>
 			<associated></associated>
 			<count>0</count>
