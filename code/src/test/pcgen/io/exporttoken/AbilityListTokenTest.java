@@ -67,20 +67,24 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
-		AbilityCategory featCategory = 
-			SettingsHandler.getGame().getAbilityCategory("Feat");
-
+		AbilityCategory featCategory =
+				SettingsHandler.getGame().getAbilityCategory("FEAT");
 		if (featCategory == null)
 		{
-			featCategory = new AbilityCategory("Feat");
+			featCategory = new AbilityCategory("FEAT");
 			SettingsHandler.getGame().addAbilityCategory(featCategory);
 		}
 
-		AbilityCategory bardCategory = new AbilityCategory("BARDIC");
-		SettingsHandler.getGame().addAbilityCategory(bardCategory);
+		AbilityCategory bardCategory =
+				SettingsHandler.getGame().getAbilityCategory("BARDIC");
+		if (bardCategory == null)
+		{
+			bardCategory = new AbilityCategory("BARDIC");
+			SettingsHandler.getGame().addAbilityCategory(bardCategory);
+		}
 
 		Ability ab1 =
-				TestHelper.makeAbility("Perform (Dance)", "Feat",
+				TestHelper.makeAbility("Perform (Dance)", "FEAT",
 					"General.Fighter");
 		ab1.setMultiples("NO");
 		ab1.setVisibility(Visibility.DEFAULT);

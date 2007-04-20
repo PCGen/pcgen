@@ -15979,6 +15979,30 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return new ArrayList<Ability>(abilities);
 	}
 
+	
+	/**
+	 * Get a list of real abiltiies of a particualr AbilityCategory
+	 * no matter which AbilityCategory list they reside in.
+	 * 
+	 * @param aCategory The AbilityCategory of the desired abilities.
+	 * @return List of abilities
+	 */
+	public List<Ability> getRealAbilitiesListAnyCat(final AbilityCategory aCategory)
+	{
+		List<Ability> abilities = new ArrayList<Ability>();
+		for (AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
+		{
+			for (Ability ability : getRealAbilitiesList(cat))
+			{
+				if (aCategory.getKeyName().equals(ability.getCategory()))
+				{
+					abilities.add(ability);
+				}
+			}
+		}
+		return abilities;
+	}
+
 	/**
 	 * Get an iterator over all the feats "Real" feats For Example, not virtual
 	 * or auto
@@ -16813,28 +16837,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public List<Ability> aggregateVisibleFeatList()
 	{
-		final List<Ability> tempFeatList = new ArrayList<Ability>();
-
-		for (Ability feat : aggregateFeatList())
-		{
-			if ((feat.getVisibility() == Visibility.DEFAULT)
-				|| (feat.getVisibility() == Visibility.OUTPUT_ONLY))
-			{
-				tempFeatList.add(feat);
-			}
-		}
-
-		return tempFeatList;
+		return getAggregateVisibleAbilityList(AbilityCategory.FEAT);
 	}
 
 	public List<Ability> getAggregateVisibleAbilityList(
 		final AbilityCategory aCategory)
 	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return aggregateVisibleFeatList();
-		}
-		final List<Ability> abilities = getAggregateAbilityList(aCategory);
+		final List<Ability> abilities = new ArrayList<Ability>();
+		abilities.addAll(getRealAbilitiesListAnyCat(AbilityCategory.FEAT));
+		abilities.addAll(getAutomaticAbilityList(AbilityCategory.FEAT));
+		abilities.addAll(getVirtualAbilityList(AbilityCategory.FEAT));
 		final List<Ability> ret = new ArrayList<Ability>(abilities.size());
 		for (final Ability ability : abilities)
 		{

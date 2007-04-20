@@ -167,7 +167,7 @@ public class AbilityListToken extends Token
 		AbilityCategory aCategory)
 	{
 		List<Ability> listOfAbilities = new ArrayList<Ability>();
-		for (Ability ability : pc.getRealAbilityList(aCategory))
+		for (Ability ability : pc.getRealAbilitiesListAnyCat(aCategory))
 		{
 			listOfAbilities.add(ability);
 		}

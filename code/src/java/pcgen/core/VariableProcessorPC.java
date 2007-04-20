@@ -659,15 +659,15 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("COUNT[FEATS.ALL]".equals(valString))
 		{
-			valString = Integer.toString(getPc().getNumberOfRealAbilities(AbilityCategory.FEAT));
+			valString = Integer.toString(getPc().getRealAbilitiesListAnyCat(AbilityCategory.FEAT).size());
 		}
 		else if ("COUNT[FEATS.HIDDEN]".equals(valString))
 		{
-			valString = Integer.toString(countVisibleFeats(getPc().getRealAbilitiesList(AbilityCategory.FEAT), false, true));
+			valString = Integer.toString(countVisibleFeats(getPc().getRealAbilitiesListAnyCat(AbilityCategory.FEAT), false, true));
 		}
 		else if ("COUNT[FEATS]".equals(valString) || "COUNT[FEATS.VISIBLE]".equals(valString))
 		{
-			valString = Integer.toString(countVisibleFeats(getPc().getRealAbilitiesList(AbilityCategory.FEAT), true, false));
+			valString = Integer.toString(countVisibleFeats(getPc().getRealAbilitiesListAnyCat(AbilityCategory.FEAT), true, false));
 		}
 		else if ("COUNT[VFEATS.ALL]".equals(valString))
 		{

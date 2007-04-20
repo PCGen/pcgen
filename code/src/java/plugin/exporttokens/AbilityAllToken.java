@@ -71,7 +71,7 @@ public class AbilityAllToken extends AbilityToken
 		final AbilityCategory aCategory)
 	{
 		List<Ability> ret = new ArrayList<Ability>();
-		ret.addAll(pc.getRealAbilityList(aCategory));
+		ret.addAll(pc.getRealAbilitiesListAnyCat(aCategory));
 		ret.addAll(pc.getAutomaticAbilityList(aCategory));
 		ret.addAll(pc.getVirtualAbilityList(aCategory));
 		return ret;

@@ -18,7 +18,7 @@
  *
  * Created on 23/11/2006
  *
- * $Id: $
+ * $Id$
  */
 
 package plugin.jepcommands;
@@ -45,11 +45,11 @@ import pcgen.util.enumeration.Visibility;
  * The first parameter will be the type of object being counted 
  * and further parameters will specify the criteria. 
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
 public class CountCommand extends PCGenCommand
 {
