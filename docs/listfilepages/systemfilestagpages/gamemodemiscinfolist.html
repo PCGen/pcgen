@@ -961,9 +961,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The cost of one skill rank for a class skill)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Specifies the cost of one rank of a class skill.</p>
+		<p class="indent2">It cannot be chained with a PRExxx Token.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SKILLCOST_CLASS:1</code></p>
 		<p class="indent3">Sets the cost of one rank of a class skill to one skill point.</p>
+		<p class="indent2"><code>SKILLCOST_CROSSCLASS:1|PREFEAT:1,Fast Learner</code></p>
+		<p class="indent3">Does not work due to the chaining of the PREFEAT.</p>
 
 		<p></p><a name="SKILLCOST_CROSSCLASS"></a><hr>
 		<p class="new">*** New 5.8.0</p>

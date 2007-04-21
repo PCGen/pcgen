@@ -506,10 +506,14 @@
 			the next variable listed after another &quot;|&quot; (pipe). The count starts at 0 and counts up.</li>
 			<li>Each variable needs to be defined (via the global DEFINE tag.)</li>
 			<li>The SA will NOT be displayed if the last variable or formula equals 0.</li>
-			<li><code>SA:.CLEAR</code> will only clear a previous SA in the same object
-				(class, template, etc.). It will not clear them across objects.</li>
+			<li><code>SA:.CLEAR</code> will only clear a previous SA in the same object (class, template, 
+				etc.). It will not clear them across objects.</li>
+			<li><code>SA:.CLEAR.Text to be removed</code> will only clear a SA that has that exact text in the
+				same object (class, template, etc.). It will not clear them across objects. The CLEAR and Replace
+				TAGs should be at the end of the line, so the new and old tags are not</li>
 			<li>SA tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
-				SA tags qualified with PRExxx tags will not display unless the character meets the prerequisites.</li>
+				SA tags qualified with PRExxx tags will not display unless the character meets the
+				prerequisites.</li>
 			<li>SA tags can be used with %CHOICE tags to display the result of a CHOOSE tag result.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -595,7 +599,7 @@
 
 
 		<p></p><a name="SPELL"></a><hr>
-		<p class="new">*** Deprecated, use <a href="#SPELLS">SPELLS</a></p>
+		<p class="new">*** *** Deprecated 5.x.x - Remove 6.0 -use <a href="#SPELLS">SPELLS</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> SPELL:x|y|z|x|y|z</p>
 		<p><strong> Variables Used (x):</strong>Text (name of spell)</p>
 		<p><strong> Variables Used (y):</strong>Number (number of times per day)</p>
@@ -633,7 +637,7 @@
 
 		<a name="SPELLLEVEL"></a><hr>
 		<p class="new">*** Updated 5.11.4</p><p></p>
-		<p class="indent2"><code>SPELLLEVEL:x|y|z|y|z|y|z|y|z|y|z</code></p>
+		<p class="indent0"><strong>Tag Name:</strong>SPELLLEVEL:x|y|z|y|z|y|z|y|z|y|z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (DOMAIN or CLASS Tag only)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (DOMAIN or CLASS Name Only)</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Text (DOMAIN or CLASS Spells Only)</p>

@@ -41,6 +41,9 @@
 		the result inverted (meaning you CAN NOT have the things listed
 		in this tag) when determining whether the prerequisite is passed or not.</p>
 
+		<p>There is a PRE:.CLEAR tag. Please be aware that it will clear all PRExxx tags from an
+		object. You'll need to re-enter those you want to keep.</p>
+
 		<p><strong>USAGE:</strong> PRExxx tags are used in two different manners. A PRExxx
   		tag can be used is as a standalone tag to qualify an entire line. Thus if a
 		character does not meet the prerequisites of a standalone PRExxx tag he will
@@ -435,7 +438,7 @@
 		<p class="indent3">Character must have 1 of the two listed domains.</p>
 		<p class="indent2"><code>PREDOMAIN:2,ANY</code></p>
 		<p class="indent3">Character must have 2 domains of any type.</p>
-		
+
 		<p></p><a name="PREDR"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong>PREDR:x,y=z,y=z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the DR conditions that must be met).</p>

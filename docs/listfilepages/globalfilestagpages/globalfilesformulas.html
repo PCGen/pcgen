@@ -37,8 +37,13 @@
 		<p>The library we are using to parse math expressions defines the syntax they want to test for string
 		equality.  If you are curious you can check out the JEP library at http://www.singularsys.com/jep/</p>
 
-		<p><b><i>PCGen *does* round each tag down rather than add the tags together and then round down.  See example
-		before 'Operators'></i></b></p>
+		<p>To reverse the sign (go from positive number to negative) use -1*().
+		EXAMPLE:<br>
+		BONUS:CHECKS|BASE.Will|CL/3 is a positive 1 at 3rd level and<br>
+		BONUS:CHECKS|BASE.Will|-1*(CL/3) is a -1 at 3rd level.<br></p><br />
+
+		<p><b><i>PCGen *does* round each tag down rather than add the tags together and then round down.  See
+		example before 'Operators'</i></b></p>
 
 		<p class="indent1"><strong>Using variables within JEP expressions</strong></p><br />
 
@@ -68,10 +73,10 @@
 		<p class="indent3">Would become 2+(15+2)/2 (3*5 replaced)<br /></p>
 		<p class="indent3">then 2+17/2 (15+2 replaced)<br /></p>
 		<p class="indent3">then 19/2 (2+17 replaced)<br /></p>
-		<p class="indent3">then 9 (result of 19/2, the .5 is dropped, see below.).<br /></p>
+		<p class="indent3">then 9 (result of 19/2, the .5 is dropped, see below.).</p><br />
 		<p class="indent2"><strong>PCGen truncates (or rounds down to the nearest integer) the results of each
 		formula,</strong> so 4/3 will return a 1 and 7/3 will return a 2 etc. If you need to truncate within the
-		formula you can use the min(x,y) or max(x,y) and floor(a) or ceil(a) tags.<br/></p>
+		formula you can use the min(x,y) or max(x,y) and floor(a) or ceil(a) tags.</p><br/>
 
 		<hr><a name="Operators"></a>
 		<p class="indent1"><strong>Operators<br></strong></p><br />

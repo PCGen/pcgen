@@ -357,24 +357,6 @@
 		<p class="indent3">This clears the schools list and replaces with &quot;Illusion&quot; schools.</p>
 
 
-		<p></p><a name="SUBSCHOOL"></a><hr>
-		<p class="new">*** Updated 5.7.3*** Updated 5.11.13</p>
-		<p class="indent0"><strong>Tag Name:</strong> SUBSCHOOL:x|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell Sub-School Name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a | (pipe) delimited list of Sub-Schools the spell belongs to and is used for specialist
-			wizards to determine their favored schools bonus spells.</p>
-		<p class="indent2">.CLEAR - this CAN be chained, e.g. SUBSCHOOL:.CLEAR|x|x|.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SUBSCHOOL:Charm</code></p>
-		<p class="indent3">This spell belongs to the &quot;Charm&quot; sub-school.</p>
-		<p class="indent2"><code>SUBSCHOOL:Creation|Calling</code></p>
-		<p class="indent3">This spell belongs to the &quot;Creation&quot; and &quot;Calling&quot; subschools.</p>
-		<p class="indent2"><code>Wall of Force.MOD &lt;tab&gt; SUBSCHOOL:Force</code></p>
-		<p class="indent3">This spell belongs to the &quot;Force&quot; sub-school.</p>
-		<p class="indent2"><code>SUBSCHOOL:.CLEAR|Charm</code></p>
-		<p class="indent3">This clears the subschools list and replaces with &quot;Charm&quot; sub-school.</p>
-
 		<p></p><a name="SPELLCHANGE"></a><hr>
 		<p class="new">*** New 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> (SPELLNAME).MOD or .COPY or .CLEAR</p>
@@ -413,6 +395,25 @@
 		<p class="indent3">This clears the Spell resistance setting.</p>
 
 
+		<p></p><a name="SUBSCHOOL"></a><hr>
+		<p class="new">*** Updated 5.7.3*** Updated 5.11.13</p>
+		<p class="indent0"><strong>Tag Name:</strong> SUBSCHOOL:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell Sub-School Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of Sub-Schools the spell belongs to and is used for specialist
+			wizards to determine their favored schools bonus spells.</p>
+		<p class="indent2">.CLEAR - this CAN be chained, e.g. SUBSCHOOL:.CLEAR|x|x|.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SUBSCHOOL:Charm</code></p>
+		<p class="indent3">This spell belongs to the &quot;Charm&quot; sub-school.</p>
+		<p class="indent2"><code>SUBSCHOOL:Creation|Calling</code></p>
+		<p class="indent3">This spell belongs to the &quot;Creation&quot; and &quot;Calling&quot; subschools.</p>
+		<p class="indent2"><code>Wall of Force.MOD &lt;tab&gt; SUBSCHOOL:Force</code></p>
+		<p class="indent3">This spell belongs to the &quot;Force&quot; sub-school.</p>
+		<p class="indent2"><code>SUBSCHOOL:.CLEAR|Charm</code></p>
+		<p class="indent3">This clears the subschools list and replaces with &quot;Charm&quot; sub-school.</p>
+
+
 		<p></p><a name="TARGETAREA"></a><hr>
 		<p class="new">*** New</p>
 		<p class="indent0"><strong>Tag Name:</strong> TARGETAREA:x</p>
@@ -449,7 +450,7 @@
 		<p class="indent3">Spell is both &quot;Arcane&quot; and &quot;Divine&quot;.</p>
 
 		<p></p><a name="VARIANTS"></a><hr>
-		<p class="new">*** New</p>
+		<p class="new">*** New	*** Updated 5.11.13</p>
 		<p class="indent0"><strong>Tag Name:</strong> VARIANTS:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell Variant)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -458,11 +459,16 @@
   		<li>Optional Tag. Not all spells have variants.</li>
  	 	<li>Used when creating custom magic items (such as scrolls and wands). User must select one of the
  	 	variants when creating such an item.</li></ul>
+		<p class="indent2">.CLEAR - this CAN be chained, e.g. TAG:.CLEAR|x|x|.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VARIANTS:Blast|Spell</code></p>
 		<p class="indent3">Names the two variations of the spell.</p>
 		<p class="indent2"><code>VARIANTS:Acorn Grenades|Holly Berry Bombs</code></p>
 		<p class="indent3">Names the two variants of the spell Fire seeds.</p>
+		<p class="indent2"><code>VARIANTS:.CLEAR</code></p>
+		<p class="indent3">Removes all variants of the spell.</p>
+		<p class="indent2"><code>VARIANTS:.CLEAR|Acorn Grenades|Holly Berry Bombs</code></p>
+		<p class="indent3">Removes all variants of the spell Fire seeds.</p>
 
 		<p></p><a name="XPCOST"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> XPCOST:x</p>

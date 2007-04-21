@@ -47,7 +47,7 @@
 
 		<p></p><a name="BONUSFEATS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUSFEATS:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of bonus feats)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of bonus feats >0)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This is for granting additional feats.</p>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -56,7 +56,7 @@
 
 		<p></p><a name="BONUSSKILLPOINTS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUSSKILLPOINTS:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of bonus skill points)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of bonus skill point >0)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This numeric value provided will be * (multiplied) by 4 at 1st level and
 			granted each level after that.</p>
@@ -93,7 +93,7 @@
 
 		<p></p><a name="CR"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> CR:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Challenge rating adjustment)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Challenge rating adjustment >0)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This is the amount the characters CR is increased by this template.</p>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -102,8 +102,8 @@
 
 		<p></p><a name="FACE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> FACE:x,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Space the creature occupies)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (Optional, side space)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Space the creature occupies >= 0)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Optional, side space >= 0)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Describes how much space the creature takes up. For 3.0 rules this tag is used for
 		the Face statistic. For 3.5 rules this tag is used for the Space statistic. If only one number is used
@@ -148,7 +148,7 @@
 
 		<p></p><a name="HANDS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> HANDS:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Hands)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Hands >= 0)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Determines the Number of Hands the creature has for purposes of
 			Multiattack and Multidexterity.</p>
@@ -270,7 +270,7 @@
 
 		<p></p><a name="LEGS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> LEGS:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Legs)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Legs >=0)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Used to determine encumbrance and carrying capacity for creatures/characters
 			with a nonstandard amount of legs. (i.e. more than/less than 2).</p>
@@ -377,10 +377,10 @@
 
 		<p></p><a name="NONPP"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> NONPP:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Non proficiency penalty)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Non proficiency penalty <= 0)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets he character's penalty for non proficiency in a weapon to the specified numeric value
-			(This can only be a negative number or zero).</p>
+		<p class="indent2">Sets he character's penalty for non proficiency in a weapon to the specified numeric
+		value (This can only be a negative number or zero).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>NONPP:-2</code></p>
 		<p class="indent3">The non proficiency penalty is minus two.</p>
@@ -427,7 +427,7 @@
 
 		<p></p><a name="REACH"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> REACH:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Reach in Feet)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Reach in Feet >= 0)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Determines the reach of the template.</p>
 		<p class="indent1"><strong>Example:</strong></p>
