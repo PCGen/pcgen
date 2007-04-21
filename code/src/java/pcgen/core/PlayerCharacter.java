@@ -6571,9 +6571,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addSpells(pcClass);
 		}
 
-		for (Ability feat : aggregateFeatList())
+		for (Ability ability : getFullAbilitySet())
 		{
-			addSpells(feat);
+			addSpells(ability);
 		}
 
 		for (Skill skill : getSkillList())
@@ -17071,6 +17071,26 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return Sa;
 	}
 
+	/**
+	 * Return a set of all abilities no matter what category or 
+	 * nature that the PC has. 
+	 * @return Set of all abilities.
+	 */
+	private Set<Ability> getFullAbilitySet()
+	{
+		GameMode gm = SettingsHandler.getGame();
+		Set<AbilityCategory> catSet = new HashSet<AbilityCategory>();
+		catSet.addAll(gm.getAllAbilityCategories());
+		Set<Ability> abilitySet = new HashSet<Ability>();
+
+		for (AbilityCategory cat: catSet)
+		{
+			abilitySet.addAll(this.getAggregateAbilityList(cat));
+		}
+
+		return abilitySet;
+	}
+	
 	public List<Ability> getVirtualAbilityList(final AbilityCategory aCategory)
 	{
 		if (aCategory == AbilityCategory.FEAT)
