@@ -1826,13 +1826,6 @@ public final class PCTemplate extends PObject implements HasCost
 			break;
 		}
 
-		final LevelAbility la = LevelAbility.createAbility(this, lvl, "FEAT("
-			+ featString + ")");
-
-		aPC.setAllowFeatPoolAdjustment(false);
-		la.process(null, aPC, null);
-		aPC.setAllowFeatPoolAdjustment(true);
-
 		addChosenFeat(aKey, featKe);
 	}
 
