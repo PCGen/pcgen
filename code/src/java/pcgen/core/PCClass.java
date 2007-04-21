@@ -5301,10 +5301,11 @@ public class PCClass extends PObject {
 				if (sa.getSASource().length() != 0)
 				// if (sa.getSource().length() != 0)
 				{
+					removeSpecialAbility(sa);
 					sa = new SpecialAbility(sa.getKeyName(), sa.getSASource(),
 							sa.getSADesc());
 					sa.setQualificationClass(oldClass, newClass);
-					specialAbilityList.set(idx, sa);
+					addSpecialAbilityToList(sa);
 				}
 			}
 		}
