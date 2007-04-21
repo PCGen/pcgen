@@ -3022,9 +3022,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					String key = sa.getKeyName().substring(7);
 					for (Iterator<SpecialAbility> it = al.iterator() ; it.hasNext();)
 					{
-						if (it.next().getKeyName().equals(key))
+						String saKey = it.next().getKeyName();
+						if (saKey.startsWith(key))
 						{
-							it.remove();
+							int baseLength = key.length();
+							int thisLength = saKey.length();
+							if (thisLength == baseLength)
+							{
+								it.remove();
+							}
+							else if (thisLength > baseLength)
+							{
+								if (saKey.charAt(baseLength + 1) == '('
+									|| thisLength + 1 > baseLength
+									&& saKey.charAt(baseLength + 1) == ' '
+									&& saKey.charAt(baseLength + 2) == '(')
+								{
+									it.remove();
+								}
+							}
 						}
 					}
 				}
