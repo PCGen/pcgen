@@ -248,7 +248,7 @@ public class EquipmentPane extends JPanel
 			bold = 1;
 		}
 		item.setFont(new java.awt.Font(DIALOG, bold, 11));
-		item.setText(EqToken.getLongNameToken(eq));
+		item.setText(EqToken.getNameToken(eq, pc));
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = gridY;
 		gridBagConstraints.gridheight = 2;
