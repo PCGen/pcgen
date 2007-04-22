@@ -2622,7 +2622,7 @@ public class WeaponToken extends Token
 			 */
 
 			iMod +=
-					(int) pc.getTotalBonusTo("WEAPONPROF=KEY_Unarmed Strike",
+					(int) pc.getTotalBonusTo("WEAPONPROF=Unarmed Strike",
 						"DAMAGESIZE");
 			iMod += (int) pc.getTotalBonusTo("COMBAT", "DAMAGESIZE");
 
