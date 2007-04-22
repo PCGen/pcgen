@@ -27,6 +27,20 @@
 
 		<h2>Defining Statistics</h2>
 
+		<p></p><a name="ABILITYADDSPELLLEVEL"></a><hr>
+		<p class="new">*** New 5.11.13</p>
+		<p class="indent0"><strong>Tag Name:</strong> ABILITY:ADDSPELLLEVEL|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (with + or -)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Set the increase in spell level that this metamagic feat costs to apply.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ABILITY:ADDSPELLLEVEL|1</code></p>
+		<p class="indent3">Adds 1 to the spell level.</p>
+		<p class="indent2"><code>ABILITY:ADDSPELLLEVEL|+2</code></p>
+		<p class="indent3">Adds 2 to the spell level.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">STATNAME Line.</p>
+
 		<p></p><a name="STATNAME"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> STATNAME:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The full name of the stat).</p>
@@ -94,6 +108,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Determines the maximum level of spell/ability you can use based on
 			the referenced stat.</p>
+		<p class="indent2">The only known hardcode VAR with a = in it.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DEFINE:MAXLEVELSTAT:WIS|WISSCORE-10</code></p>
 		<p class="indent3">Maximum spell level is Wisdom -10 (&lt;ABB&gt;SCORE is the variable name for the stat value).</p>
@@ -210,9 +225,7 @@
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">BONUSSPELLLEVEL Line.</p>
 
-		<p></p>
-<a name="STATRANGE2" id="STATRANGE2"></a>
-<hr>
+		<p></p><a name="STATRANGE2" id="STATRANGE2"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> STATRANGE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The increment in the score
 			necessary to get another bonus spell slot of the indicated level).</p>
@@ -224,8 +237,6 @@
 		<p class="indent3">Base stat score +8 is required before another spell is given.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">BONUSSPELLLEVEL Line.</p>
-
-		<p></p>
 		<p class="indent1"><strong>Complete Line Example:</strong></p>
 		<p class="indent2"><code>BONUSSPELLLEVEL:1 BASESTATSCORE:12 STATRANGE:8</code></p>
 

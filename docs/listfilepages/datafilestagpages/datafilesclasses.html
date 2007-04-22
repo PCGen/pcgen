@@ -12,6 +12,8 @@
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
+		Terry FitzSimons - fitzsimonsATmintelDOTnet
+
 
 		Description:
 		Provides information on the content of PCGen Class files.
@@ -54,8 +56,9 @@
 
 		<p></p><ul class="indent2">
 			<p></p><li><strong>Your CLASS(A) entry should look like one of three:</strong></li>
-			<li><strong>CLASS:</strong></li>
-			<li>CLASS:Druid &lt;tab&gt; HASSUBCLASS:YES</li>
+			<li><strong>CLASS:Druid...</strong></li>
+			<li><strong>CLASS:Druid...</strong></li>
+			<li><strong>CLASS:Druid</strong> &lt;tab&gt; HASSUBCLASS:YES</li>
 			<li>SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt; CHOICE:Abjuration &lt;tab&gt; KNOWNSPELLSFROMSPECIALTY:1</li>
 			<li>SUBCLASSLEVEL:1 &lt;tab&gt; FEATAUTO:Abjurer Learning Bonus</li>
 			<li>SUBCLASSLEVEL:10 &lt;tab&gt; SA:Immune to Acid (You can jump from SUBCLASSLEVEL: to SUBCLASSLEVEL: don't list them all.)</li>
@@ -68,8 +71,9 @@
 
 		<p></p><ul class="indent2">
 			<p></p><li><strong>Or your CLASS(B) entry should look like this:</strong></li>
-			<li><strong>CLASS:</strong></li>
-			<li>CLASS:Druid &lt;tab&gt; HASSUBSTITUTIONLEVEL::YES</li>
+			<li><strong>CLASS:Druid...</strong></li>
+			<li><strong>CLASS:Druid...</strong></li>
+			<li><strong>CLASS:Druid</strong> &lt;tab&gt; HASSUBSTITUTIONLEVEL::YES</li>
 			<li>SUBSTITUTIONCLASS:Orc Ranger &lt;tab&gt; COST:2 &lt;tab&gt; CHOICE:Abjuration &lt;tab&gt; KNOWNSPELLSFROMSPECIALTY:1</li>
 			<li>SUBSTITUTIONLEVEL:4 &lt;tab&gt; SA:Goblin Slave (Ex)</li>
 			<li>SUBSTITUTIONLEVEL:10 &lt;tab&gt; SA:Immune to Acid (You can jump from SUBSTITUTIONLEVEL to SUBSTITUTIONLEVEL don't list them all.)</li>
@@ -82,7 +86,9 @@
 
 		<p></p><ul class="indent2">
 			<p></p><li><strong>Or your CLASS(C) entry should look like this:</strong></p>
-			<li><strong>CLASS:</strong></li>
+			<li><strong>CLASS:...</strong></li>
+			<li><strong>CLASS:...</strong></li>
+			<li><strong>CLASS:...</strong></li>
 			<li>1.</li>
 			<li>2.</li>
 			<li>... (Must list all Class Level Line even if empty)</li>
@@ -1082,28 +1088,28 @@
 
 		<p></p><a name="REPEATLEVEL"></a><hr>
 		<p class="new">*** New 5.8</p>
-		<p class="indent0"><strong>Tag Name:</strong> REPEATLEVEL:x|y|z:<level>:<level assigned item></p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (level interval)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of intervals before skipping one
+		<p class="indent0"><strong>Tag Name:</strong> REPEATLEVEL:v|w|x:y:z</p>
+		<p class="indent1"><strong>Variables Used (v):</strong> Number (level interval)</p>
+		<p class="indent1"><strong>Variables Used (w):</strong> Number (Number of intervals before skipping one
 		interval, use 0 for no skip, Optional)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number (Maximum level, Optional)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Maximum level)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Start interval)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of intervals before skipping one
+		interval, use 0 for no skip, Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>When encountered on a class level line all the tags included in the line
-			will be applied again at later levels at intervals specified by the tag.</li>
-			<li>The progression begins at the level the REPEATLEVEL tag is encountered in.</li>
+			<li>* v specifies the interval that the line will be repeated, so if you specified 3 at level one 
+			the line would repeat again at level 4, 7, 10, etc...</li>
+			<li>* w specifies the interval with the first interval where it will skip one interval, to continue 
+			the above example if you specified 3 (variable x) at level one and 2 for variable y the line would 
+			repeat again at level 4, 10, 13, 19, 22, 28, etc...</li>
 			<li>Variable x specifies the interval that the line will be repeated, so if you specified 3 at
 			level one the line would repeat again at level 4, 7, 10, etc...</li>
-			<li>Variable y specifies the interval with the first interval where it will skip one interval,
-				to continue the above example if you specified 3 (variable x) at level one and 2 for variable y
-				the line would repeat again at level 4, 10, 13, 19, 22, 28, etc...</li>
-			<li>Variable z specifies the level at which the progression ends.</li>
-			<li>Variables y and z are optional but if you use z you must also use y which can be set to 0 if it
-			is not otherwise used.</li>
-			<li>Any valid class tags may be used on the line to be repeated.</li>
+			<li>* x specifies the level at which the progression ends.</li>
+			<li>* y specifies the level at which the progression starts</li>
+			<li>* z specifies the token (may have its own syntax) - the benefit provided by the REPEATLEVEL.  
+			The following tags may be used on the line (as z): SR, SA, DR, CR, FEAT</li>
 		</ul>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">On Class Level Lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>5 &lt;tab&gt; REPEATLEVEL:5 &lt;tab&gt;  ADD:FEAT(ABonusFeat)</code></p>
 		<p class="indent3">would add at levels 5,10,15,20,... up to the MAXLEVEL defined by class.</p>
@@ -1112,7 +1118,8 @@
 		class.</p>
 		<p class="indent2"><code>2 &lt;tab&gt; REPEATLEVEL:2|0|20 &lt;tab&gt; ADD:FEAT(ABonusFeat)</code></p>
 		<p class="indent3">would add at levels 2,4,6,8,... up to level 20.</p>
-
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">On Class Level Lines.</p>
 
 		<p></p><a name="SASPECIALS"></a><hr>
 		<p class="new">*** Deprecated - Use <a href="../globalfilestagpages/globalfilesother.html#SA">SA</a></p>
