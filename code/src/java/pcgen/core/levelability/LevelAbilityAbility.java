@@ -22,6 +22,7 @@
  */
 package pcgen.core.levelability;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -32,6 +33,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Constants;
 import pcgen.core.PCTemplate;
@@ -639,6 +641,8 @@ public class LevelAbilityAbility extends LevelAbility
 	{
 		Map<String, AbilityChoice> translation = (useNameMap) ? nameMap : catMap;
 
+		AbilityCategory abilityCat =
+				SettingsHandler.getGame().getAbilityCategory(lastCategorySeen);
 		if (isVirtual)
 		{
 			Iterator<String> it = selectedList.iterator();
@@ -653,9 +657,7 @@ public class LevelAbilityAbility extends LevelAbility
 
 				previousChoices.add(ab);
 
-				List<Ability> aList =
-						aPC.getVirtualAbilityList(SettingsHandler.getGame()
-							.getAbilityCategory(lastCategorySeen));
+				List<Ability> aList = aPC.getVirtualAbilityList(abilityCat);
 				final Ability pcAbility = AbilityUtilities.addVirtualAbility(
 						ab,
 						choiceList,
@@ -670,8 +672,7 @@ public class LevelAbilityAbility extends LevelAbility
 					{
 						final double x = aPC.getRawFeats(false);
 						aPC.setFeats(1); // temporarily assume 1 choice
-						pcAbility.modChoices(aPC, true, SettingsHandler.getGame()
-							.getAbilityCategory(lastCategorySeen));
+						pcAbility.modChoices(aPC, true, abilityCat);
 						aPC.setFeats(x); // reset to original count
 					}
 
@@ -689,9 +690,12 @@ public class LevelAbilityAbility extends LevelAbility
 		{
 			// If automatically choosing all abilities in a list, then set the
 			// number allowed to the number available
-			if (numFeats == Integer.MIN_VALUE) {numFeats = selectedList.size();}
+			if (numFeats == Integer.MIN_VALUE)
+			{
+				numFeats = selectedList.size();
+			}
 
-			aPC.adjustFeats(numFeats);
+			aPC.adjustAbilities(abilityCat, new BigDecimal(numFeats));
 
 			Iterator<String> it = selectedList.iterator();
 
@@ -721,8 +725,7 @@ public class LevelAbilityAbility extends LevelAbility
 					}
 				}
 				AbilityUtilities.modAbility(aPC, pcLevelInfo, ab, choice, true,
-					SettingsHandler.getGame().getAbilityCategory(
-						lastCategorySeen));
+					abilityCat);
 
 				if (spellLevelProcess && (ab != null))
 				{
