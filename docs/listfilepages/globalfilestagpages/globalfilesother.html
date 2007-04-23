@@ -410,6 +410,41 @@
 		<p class="indent3">The name is the Product Identity</p>
 
 
+		<p></p><a name="NATURALATTACKS"></a><hr>
+		<p class="new">*** New 5.11.13</p>
+		<p class="indent0"><strong>Tag Name:</strong> NATURALATTACKS:w,x.x,y,z|w,x.x,y,z</p>
+		<p class="indent1"><strong>Variables Used (w):</strong> Text (Natural weapon name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Natural weapon type)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of attacks)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Text (Natural weapon damage)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tag is used to define non-equipment attacks a race may possess.</p>
+		<p class="indent2">This is a , (comma) and | (pipe) delimited list of the natural attacks a creature has.
+		If the creature has multiple attacks pipes are used to separate the entries. Commas are used to delimit
+		variables within a single attack listing. All four variables separated by three commas must be present or PCGen
+		will hang when attempting to load the .pcc file.</p>
+		<p class="indent2">The first variable (w) is the name of the natural weapon.</p>
+		<p class="indent2">The second set of variables (x) are the natural weapon types.
+  		Types should be delimited with periods (.). This must always start with &quot;Weapon&quot;
+  		and &quot;Natural&quot; and must be followed by either &quot;Melee&quot; or &quot;Ranged&quot;.
+  		After that the weapons damage types are listed which can be &quot;Bludgeoning&quot;,
+  		&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</p>
+		<p class="indent2">The third variable (y) is the number of attacks of this type
+  		that the creature possesses. If the is an asterisk in front of the number it indicates
+  		that the number of attacks is non-iterative, that is it is not based on the
+  		creatures attack progression but rather how many of the natural weapons it possesses.</p>
+		<p class="indent2">The final variable is the damage the natural weapon does. This
+  		is entered in the standard dice notation such as &quot;1d8&quot; and &quot;4d10&quot;.</p>
+		<p class="indent2">The NATURALATTACKS tag creates a proficiency for the its attacks on the fly
+		which allows the use of the BONUS:WEAPONPROF tag to effect it. For example, if you used the
+		NATURALATTACKS tag to create a Bite attack you could then use
+		<code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code> to add 2 to the attack and damage rolls.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,
+			1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>
+		<p class="indent3">Race has 2 Claw attacks and a Bite attack.</p>
+
+
 		<p></p><a name="OUTPUTNAME"></a><hr>
 		<p class="new">*** Updated 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> OUTPUTNAME:x</p>
@@ -491,6 +526,33 @@
 		<p class="indent3">The PC is from the &quot;Timbuktu&quot; region.</p>
 
 
+		<p></p><a name="REMOVE"></a><hr>
+		<p class="new">*** New 5.11.13</p>
+		<p class="indent0"><strong>Tag Name:</strong> REMOVE:FEAT(x,x)y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of feat)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Name of feat type)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> CLASS.Text (Name of feat type)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> CHOICE (pops a chooser box)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of feats to remove, Optional)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> ALL (Removes all indicated feats without prompting)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Provides options for removing feats, this works with hidden feats as well as standard feats
+			but not on those applied with the VFEAT or MFEAT tags. The (y) variable is optional,
+			if not present the tag simply removes whatever feats are specified in variable (x).</p>
+		<p class="indent1"><strong>Where it can be used:</strong></p>
+		<p class="indent2">Works in class and template files.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>REMOVE:FEAT(Alertness)</code></p>
+		<p class="indent3">Removes the Alertness feat, no choice is presented, the feat is simply removed.</p>
+		<p class="indent2"><code>REMOVE:FEAT(TYPE.Fighter)3</code></p>
+		<p class="indent3">Presents a list of Fighter type feats and allows the removal of up to 3.</p>
+		<p class="indent2"><code>REMOVE:FEAT(CHOICE)2</code></p>
+		<p class="indent3">Presents a list of all feats the character has and allow removal of 2 of them.
+			If a feat has a COST:# associated with it, it returns that # back to the feat pool.</p>
+		<p class="indent2"><code>REMOVE:FEAT(CLASS.Paladin)ALL</code></p>
+		<p class="indent3">Removes all feats that have been granted/taken by the Paladin Class.</p>
+
+
 		<p></p><a name="SA"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> SA:x</p>
 		<p><strong> Variables Used (x):</strong>Text (Special Ability Name)</p>
@@ -506,7 +568,7 @@
 			the next variable listed after another &quot;|&quot; (pipe). The count starts at 0 and counts up.</li>
 			<li>Each variable needs to be defined (via the global DEFINE tag.)</li>
 			<li>The SA will NOT be displayed if the last variable or formula equals 0.</li>
-			<li><code>SA:.CLEAR</code> will only clear a previous SA in the same object (class, template, 
+			<li><code>SA:.CLEAR</code> will only clear a previous SA in the same object (class, template,
 				etc.). It will not clear them across objects.</li>
 			<li><code>SA:.CLEAR.Text to be removed</code> will only clear a SA that has that exact text in the
 				same object (class, template, etc.). It will not clear them across objects. The CLEAR and Replace

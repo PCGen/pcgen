@@ -138,10 +138,12 @@
 		<p class="indent3">Gives the &quot;Blind-Fight&quot; &amp; &quot;Alertness&quot; bonus feats.</p>
 
 		<p></p><a name="GENDERLOCK"></a><hr>
+		<p class="new">*** Updated 5.11.13
 		<p class="indent0"><strong>Tag Name:</strong> GENDERLOCK:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Male, Female, Neuter)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets the character's Gender and disables the ability to change it.</p>
+		<p class="indent2">Available settings (Male, Female, Neuter) are in Game Mode File > Bio Settings > SEX TAG.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>GENDERLOCK:Female</code></p>
 		<p class="indent3">The characters gender is set to and locked as &quot;Female&quot;.</p>
@@ -343,6 +345,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> MOVEA:x,y</p>
 
 		<p></p><a name="NATURALATTACKS"></a><hr>
+		<p class="new">*** Deprecated 5.11.13 - Remove 6.0 - Use <a href="../globalfilestagpages/globalfilesother.html#NATURALATTACKS">NATURALATTACKS</a> tag instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> NATURALATTACKS:w,x.x,y,z|w,x.x,y,z</p>
 		<p class="indent1"><strong>Variables Used (w):</strong> Text (Natural weapon name)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Natural weapon type)</p>
@@ -458,7 +461,7 @@
 		<p class="indent3">The template may not be removed if taken.</p>
 
 		<p></p><a name="REMOVE"></a><hr>
-		<p class="new">*** New 5.8</p>
+		<p class="new">*** Deprecated 5.11.13 - Remove 6.0 - Use <a href="../globalfilestagpages/globalfilesother.html#REMOVE">REMOVE:FEAT</a> tag instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> REMOVE:FEAT(x,x)y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of feat)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Name of feat type)</p>
@@ -485,49 +488,41 @@
 
 
 		<p></p><a name="REPEATLEVEL"></a><hr>
-		<p class="new">*** New 5.11.4</p>
-		<p class="indent0"><strong>Tag Name:</strong> REPEATLEVEL:x|y|z:<level>:<level assigned item></p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (level interval)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of intervals before skipping one
-		interval, use 0 for no skip, Optional)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number (Maximum level, Optional)</p>
+		<p class="new">*** New 5.11.4*** Updated 5.11.13</p>
+		<p class="indent0"><strong>Tag Name:</strong> REPEATLEVEL:v|w|x:y:z</p>
+		<p class="indent1"><strong>Variables Used (v):</strong> Number (level interval)</p>
+		<p class="indent1"><strong>Variables Used (w):</strong> Number (Number of intervals before skipping one
+		interval, use 0 for no skip)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Maximum level interval)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Minimum level interval)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> TAGS:Bonus (The following tags may be used on
+		the line (as z): SR, SA, DR, CR, FEAT)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>When encountered on a class level line all the tags included in the line will be applied again
-			at later levels at intervals specified by the tag.</li>
-			<li>The progression begins at the level the REPEATLEVEL tag is encountered in.</li>
-			<li>Variable x specifies the interval that the line will be repeated, so if you specified 3 at level
-			one the line would repeat again at level 4, 7, 10, etc...</li>
-			<li>Variable y specifies the interval with the first interval where it will skip one interval, to
+			<li>* v specifies the interval that the line will be repeated, so if you specified 3 at level one
+			the line would repeat again at level 4, 7, 10, etc...</li>
+			<li>* w specifies the interval with the first interval where it will skip one interval, to
 			continue the above example if you specified 3 (variable x) at level one and 2 for variable y the
 			line would repeat again at level 4, 10, 13, 19, 22, 28, etc...</li>
-			<li>Variable z specifies the level at which the progression ends.</li>
-			<li>Variables y and z are optional but if you use z you must also use y which can be set to 0 if it
-			is not otherwise used.</li>
-			<li>Any valid class tags may be used on the line to be repeated.</li>
+			<li>* x specifies the level at which the progression ends.</li>
+			<li>* y specifies the level at which the progression starts</li>
+			<li>* z specifies the token (may have its own syntax) - the benefit provided by the REPEATLEVEL.
+			</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code> &gt;Template Name&lt; &lt;tab&gt; REPEATLEVEL:5:ADD:FEAT(ABonusFeat)</code></p>
+		<p class="indent2"><code> &gt;Template Name&lt; &lt;tab&gt; REPEATLEVEL:5|4|20|1|ADD:FEAT(ABonusFeat)</code></p>
 		<p class="indent3">would add at levels 5,10,15,20,... up to the MAXLEVEL defined by class.</p>
-		<p class="indent2"><code>&gt;Template Name&lt;  &lt;tab&gt; REPEATLEVEL:1|4:1:ADD:FEAT(ABonusFeat)</code></p>
+		<p class="indent2"><code>&gt;Template Name&lt; &lt;tab&gt; REPEATLEVEL:1|0|20|1|ADD:FEAT(ABonusFeat)</code></p>
 		<p class="indent3">would add at levels 1,2,3,5,6,7,9,10,11,13,14,... up to the MAXLEVEL defined by class.</p>
-		<p class="indent2"><code>&gt;Template Name&lt;  &lt;tab&gt; REPEATLEVEL:2|0|20:2:ADD:FEAT(ABonusFeat)</code></p>
+		<p class="indent2"><code>&gt;Template Name&lt; &lt;tab&gt; REPEATLEVEL:2|1|20|2|ADD:FEAT(ABonusFeat)</code></p>
 		<p class="indent3">would add at levels 2,4,6,8,... up to level 20.</p>
-		<p class="indent2"><code>Drow Male &lt;tab&gt; REPEATLEVEL:1|4:1:ADD:FEAT(AWizardFeat) &lt;tab&gt; PRERACE:Elf (Drow) &lt;tab&gt; SUBRACE:Male &lt;tab&gt; GENDERLOCK:Male</code></p>
+		<p class="indent2"><code>Template Name&lt; Drow Male &lt;tab&gt; REPEATLEVEL:1|0|1|1|ADD:FEAT(AWizardFeat) &lt;tab&gt; PRERACE:Elf (Drow) &lt;tab&gt; SUBRACE:Male &lt;tab&gt; GENDERLOCK:Male</code></p>
 		<p class="indent3">would add at levels 1,2,3,5,6,7,9,10,11,13,14,... up to the MAXLEVEL defined by class.</p>
-		<p class="indent2"><code>Drow Male.MOD &lt;tab&gt; DESC:Dirty little buggers</code></p>
-		<p class="indent3">would modify the previous line by adding a descrition to it.</p>
-		<p class="indent2"><code>Drow Male.COPY=Drippy Drow Male</code></p>
-		<p class="indent3">would make a new Race called Dripy Drow Male.</p>
-		<p class="indent2"><code>Drippy Drow Male.CLEAR</code></p>
-		<p class="indent3">would clear all of the Drippy Drow Male TAGS.</p>
-		<p class="indent2"><code>Drippy Drow Male.FORGET</code></p>
-		<p class="indent3">would clear all of the Drippy Drow Male Race.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">On Template Lines.</p>
 
 		<p></p><a name="SIZE"></a><hr>
-		<p class="new">*** Updated 5.9.7</p>
+		<p class="new">*** Updated 5.9.7*** Updated 5.11.13</p>
 		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Numeric value of the size value)</p>
@@ -537,6 +532,7 @@
 			The following are the numeric values that are legal to set:
 			(0=Fine, 1=Diminutive, 2=Tiny, 3=Small, 4=Medium, 5=Large, 6=Huge, 7=Gargantuan, 8=Colossal).
 			Note that if a value outside this range is used the result is undefined.</p>
+		<p class="indent2">Available settings are in Game Mode File > Size Adjustment > SIZENAME TAG.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SIZE:M</code></p>
 		<p class="indent3">Character is &quot;Medium&quot; size.</p>
