@@ -585,6 +585,32 @@ public final class EditorMainForm extends JDialog
 
 		thisPObject.setName(aString);
 
+		try
+		{
+			copyDataToObject();
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to save custom object due to ", e);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_demSaveFailed"), Constants.s_APPNAME,
+				MessageType.ERROR);
+			return;
+		}
+
+		thisPObject.setTypeInfo(Constants.s_CUSTOM);
+
+		wasCancelled = false;
+		closeDialog();
+	}
+
+	/**
+	 * 
+	 */
+	private void copyDataToObject()
+	{
+		String aString;
+		Object[] sel;
 		//
 		// Save source info
 		//
@@ -1173,11 +1199,6 @@ public final class EditorMainForm extends JDialog
 				((Deity) thisPObject).addPantheon(aString.substring(9));
 			}
 		}
-
-		thisPObject.setTypeInfo(Constants.s_CUSTOM);
-
-		wasCancelled = false;
-		closeDialog();
 	}
 
 	//TODO: I'm in the process of breaking this method up (and removing a lot of duplicated code.) 1122 lines is just TOO LONG. Heck, it's long for a class, never mind a method... JK070110
