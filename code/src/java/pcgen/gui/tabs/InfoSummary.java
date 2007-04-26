@@ -1196,6 +1196,22 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					return;
 				}
 			}
+			else if (allAbilitiesAreZero())
+			{
+				int proceed =
+						JOptionPane
+							.showConfirmDialog(
+								this,
+								PropertyFactory.getString("in_sumAbilitiesZeroWarning"),
+								PropertyFactory
+									.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
+								JOptionPane.WARNING_MESSAGE);
+
+				if (proceed != JOptionPane.YES_OPTION)
+				{
+					return;
+				}
+			}
 			else if (SettingsHandler.isShowWarningAtFirstLevelUp())
 			{
 				final JCheckBox shouldDisplay =
@@ -1261,6 +1277,24 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		}
 
 		forceRefresh();
+	}
+
+	/**
+	 * Determine if all of the characters stats are still set to 0.
+	 * 
+	 * @return True if they are all zero, false if any are non-zero.
+	 */
+	private boolean allAbilitiesAreZero()
+	{
+		for (PCStat stat : pc.getStatList())
+		{
+			if (stat.getBaseScore() != 0)
+			{
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	/**
