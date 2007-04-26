@@ -16872,7 +16872,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				ret.add(ability);
 			}
 		}
-		return Collections.unmodifiableList(ret);
+		return ret;
 	}
 
 	boolean isAutomaticAbilitiesStable(final AbilityCategory aCategory)
