@@ -26,10 +26,13 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.TestHelper;
 
 /**
  * <code>PreWeaponProfTest</code> tests that the PREWEAPONPROF tag is
@@ -125,21 +128,134 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		
 	}
 	
+	/**
+	 * Test a preweaponprof that checks for a number of profs of a certain type
+	 * @throws Exception
+	 */
+	public void testType() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		Prerequisite prereq;
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		prereq = factory.parse("PREWEAPONPROF:1,TYPE.Martial");
+
+		assertFalse("Character has no proficiencies", PrereqHandler.passes(
+			prereq, character, null));
+		
+		character.addWeaponProf("Longsword");
+		
+		assertTrue("Character has one Martial Weapon Proficiency", 
+				PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PREWEAPONPROF:2,TYPE.Martial");
+
+		assertFalse("Character only has one proficiency", PrereqHandler.passes(
+			prereq, character, null));
+		
+		character.addWeaponProf("Longbow");
+		
+		assertTrue("Character has two Martial Weapon Proficiencies", 
+				PrereqHandler.passes(prereq, character, null));
 	
+	}
+	
+	/**
+	 * Test with negation
+	 * @throws Exception
+	 */
+	public void testInverse() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		Prerequisite prereq;
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		prereq = factory.parse("!PREWEAPONPROF:1,Longsword");
+
+		assertTrue("Character has no proficiencies", PrereqHandler.passes(
+			prereq, character, null));
+
+		character.addWeaponProf("Longsword");
+		character.addWeaponProf("Dagger");
+
+		assertFalse("Character has the Longsword proficiency.", 
+					PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("!PREWEAPONPROF:1,Longbow");
+		
+		assertTrue("Character does not have the Longbow proficiency", 
+				PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("!PREWEAPONPROF:1,Dagger");
+		
+		assertFalse("Character has the Dagger proficiency.", 
+				PrereqHandler.passes(prereq, character, null));
+		
+	}
+	
+	/**
+	 * Test the preweaponprof with weaponprofs added by a AUTO:WEAPONPROF tag
+	 * This is probably more an integration test than a unit test
+	 * @throws Exception
+	 */
+	public void testWeaponProfAddedWithAutoWeaponProf() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		Prerequisite prereq;
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		prereq = factory.parse("PREWEAPONPROF:1,Longsword");
+
+		assertFalse("Character has no proficiencies", PrereqHandler.passes(
+			prereq, character, null));
+		
+		final Ability martialProf = 
+			TestHelper.makeAbility("Weapon Proficiency (Martial)", "FEAT", "General");
+		martialProf.addAutoArray("WEAPONPROF", "TYPE.Martial");
+		
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Weapon Proficiency (Martial)", true, false);
+
+		assertTrue("Character has the Longsword proficiency.", 
+					PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PREWEAPONPROF:1,Longbow");
+		assertTrue("Character has the Longbow proficiency.",
+					PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PREWEAPONPROF:1,Dagger");
+		assertFalse("Character does not have the Dagger proficiency.",
+					PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PREWEAPONPROF:1,TYPE.Martial");
+		assertTrue("Character has martial weaponprofs.",
+					PrereqHandler.passes(prereq, character, null));
+		
+	}
+	
+	/* (non-Javadoc)
+	 * @see pcgen.AbstractCharacterTestCase#setUp()
+	 */
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 
 		WeaponProf Longsword = new WeaponProf();
 		Longsword.setName("Longsword");
+		Longsword.setTypeInfo("Martial");
 		Globals.addWeaponProf(Longsword);
 
 		WeaponProf Longbow = new WeaponProf();
 		Longbow.setName("Longbow");
+		Longbow.setTypeInfo("Martial");
 		Globals.addWeaponProf(Longbow);
 
 		WeaponProf Dagger = new WeaponProf();
 		Dagger.setName("Dagger");
+		Dagger.setTypeInfo("Simple");
 		Globals.addWeaponProf(Dagger);
 
 	}
