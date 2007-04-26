@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/installationpages/installationjava.html,v 1.2 2004/08/11 02:59:06 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -23,8 +22,10 @@
 	<body>
 		<h1>Installing Java</h1>
 
-		<p>PCGen 5.10.2 and higher requires Java version 1.5.x. Previous versions (5.10.1 and below) will run
-		under Java 1.4.x.</p>
+		<p>
+			PCGen 5.10.2 and higher requires Java version 1.5.0_x or higher. 
+			Previous versions (5.10.1 and below) will run under Java 1.4.x.
+		</p>
 
 		<h2>On Windows Operating Systems</h2>
 
@@ -38,12 +39,9 @@
 
 		<p>You need to see the following or something similar:</p>
 
-		<p class="indent1"><code>java version &quot;1.5.0_01&quot;<br />
-		Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_01-b03)<br />
-		Java HotSpot(TM) Client VM (build 1.5.0_01-b03, mixed mode)</code></p>
-
-		<p>PCGen 5.10.2 and higher requires Java version 1.5.x. Previous versions (5.10.1 and below) will run
-		under Java 1.4.x.</p>
+		<p class="indent1"><code>java version &quot;1.5.0_11&quot;<br />
+		Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_11-b03)<br />
+		Java HotSpot(TM) Client VM (build 1.5.0_11-b03, mixed mode)</code></p>
 
 		<p>If you see a correct version of java, close the MS-DOS window and you should be able to run PCGen.</p>
 
@@ -53,26 +51,37 @@
 
 		<ol>
 			<li>Click &quot;Download Now&quot;</li>
-			<li>Verify the version offered is suitable for your system, if not, click on &quot;Download other Java software versions&quot; </li>
+			<li>Verify the version offered is suitable for your system, if not, click 
+				on &quot;Download other Java software versions&quot; </li>
 			<li>Click &quot;Begin Download&quot;</li>
 			<li>Follow the instructions to install Java</li>
 		</ol>
 
 		<h2>On Macintosh/Apple Operating Systems</h2>
 
-		<p>The Java Runtime Environment is only available on Mac OS X. Mac 8 &amp; 9 users will have to use Virtual PC
-		and install Java for Windows by following the <strong>Windows</strong> steps in the section above.
-		Mac OS X 10.2.8 runs Java version 1.4.1. Mac OS X 10.3.3 runs Java version 1.4.2.</p>
+		<p>
+			The Java Runtime Environment is only available on Mac OS X. Mac 8 &amp; 9 users will have to use Virtual PC
+			and install Java for Windows by following the <strong>Windows</strong> steps in the section above.  For PCGen 
+			PCGen 5.10.2 (and higher) you'll want to use Java 1.5.0_x.  This means that you'll need Mac OS 10.4.x to run 
+			the latest version of PCGen, e.g.
+			<ul>
+				<li>Mac OS X 10.2.8 runs Java version 1.4.1_x.</li>
+				<li>Mac OS X 10.3.3 runs Java version 1.4.2_x.</li>
+				<li>Mac OS 10.4.x runs Java version 1.5.0_x.</li>
+			</ul>
+		</p>
 
-		<p>Mac OS X users should be able to open a command line and type &quot;java -version&quot; (without the quotes).
-		If you see java version 1.4 of some variety then you are good to go,
-		though there have been some issues exporting to PDF under java 1.4.1 on Mac OS 10.2.</p>
+		<p>
+			Mac OS X users should be able to open a command line and type &quot;java -version&quot; 
+			(without the quotes).  If you see java version 1.5.0_x (or higher) then you are good to go,
+			though there have been some issues exporting to PDF under java 1.4.1 on Mac OS 10.2.
+		</p>
 
 		<p>If you don't have the right version, then visit
-		<a href="http://www.apple.com/downloads/macosx/apple/java131.html">http://www.apple.com/downloads/macosx/apple/java131.html</a> and
-		download java, which should be around 20MB, and install it. Then you should be ready to launch PCGen.</p>
+		<a href="http://www.apple.com/downloads/macosx/apple">http://www.apple.com/downloads/macosx/apple/</a> and
+		download Java for Mac OS X and install it. Then you should be ready to launch PCGen.</p>
 
-		<h2>On *Nix Variety Operating Systems</h2>
+		<h2>On UNIX and Linux Operating Systems</h2>
 
 		<ol>
 			<li>Open a command prompt</li>
@@ -80,15 +89,20 @@
 		</ol>
 
 		<p>You need to see the following or something similar:</p>
-		<p class="indent1"><code>java version &quot;1.5.0_01&quot;<br />
-		Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_01-b03)<br />
-		Java HotSpot(TM) Client VM (build 1.5.0_01-b03, mixed mode)</code></p>
+		<p class="indent1"><code>java version &quot;1.5.0_11&quot;<br />
+		Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_11-b03)<br />
+		Java HotSpot(TM) Client VM (build 1.5.0_11-b03, mixed mode)</code></p>
 
-		<p>	If you see the correct version of java, close the command prompt window and you should be able to run PCGen.</p>
+		<p>
+			If you see the correct version of java, close the command prompt window and you should 
+			be able to run PCGen.
+		</p>
 
-		<p>	If you do not see the correct version, close the command prompt window and go to <a href="http://java.com/">
-		http://java.com/</a> and download the latest non-beta
-		version (currently 1.6.0_01)</p>
+		<p>
+			If you do not see the correct version, close the command prompt window and 
+			go to <a href="http://java.com/">http://java.com/</a> and download the latest 
+			non-beta version (currently 1.6.0_01)
+		</p>
 
 		<ol>
 			<li>Click &quot;Download Now&quot;</li>
@@ -99,7 +113,6 @@
 
 		<p>Now you should be ready to launch PCGen.</p>
 
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/installationpages/installationjava.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
 	</body>
 
 </html>
