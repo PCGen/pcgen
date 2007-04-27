@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Mon Apr  2 02:50:04 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:ae1		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat			Required Skill				Req. Spell Type
-CLASS:Crusader	PREATT:5	PREFEAT:1,Weapon Focus (%)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:Divine,1,1
+CLASS:Crusader	PREATT:5	PREFEAT:1,Weapon Focus (%)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Subterranean Cultures)|Knowledge (Religion)|Scry|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level
@@ -13,21 +13,21 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(Divine)																																	ADD:FEAT(TYPE=RangerFavored)
-2	ADD:SPELLCASTER(Divine)							ADD:Language(Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Gnome,Goblin,Giant,Gnoll,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)3
-3	ADD:SPELLCASTER(Divine)
-4	ADD:SPELLCASTER(Divine)	SA:Find the Path
-5	ADD:SPELLCASTER(Divine)
-6	ADD:SPELLCASTER(Divine)	SA:Improved Spontaneous Casting
-7	ADD:SPELLCASTER(Divine)
-8	ADD:SPELLCASTER(Divine)	SA:Spells
-9	ADD:SPELLCASTER(Divine)
-10	ADD:SPELLCASTER(Divine)	SA:Turn Chosen Enemy
+1							ADD:SPELLCASTER|1|Divine	ADD:FEAT|1|TYPE=RangerFavored
+2							ADD:SPELLCASTER|1|Divine	ADD:Language|3|Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Gnome,Goblin,Giant,Gnoll,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
+3							ADD:SPELLCASTER|1|Divine
+4	SA:Find the Path				ADD:SPELLCASTER|1|Divine
+5							ADD:SPELLCASTER|1|Divine
+6	SA:Improved Spontaneous Casting	ADD:SPELLCASTER|1|Divine
+7							ADD:SPELLCASTER|1|Divine
+8	SA:Spells					ADD:SPELLCASTER|1|Divine
+9							ADD:SPELLCASTER|1|Divine
+10	SA:Turn Chosen Enemy			ADD:SPELLCASTER|1|Divine
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Demolitionist	HD:4		TYPE:PC.Prestige	ABB:ae2		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat			Required Skill												Req. Spell Type
-CLASS:Demolitionist	PREFEAT:1,Craft Wondrous Item	PRESKILL:1,Alchemy=8	PRESKILL:1,Craft (Blacksmithing),Craft (Metalworking)=8	PRESPELLTYPE:Arcane,1,3
+CLASS:Demolitionist	PREFEAT:1,Craft Wondrous Item	PRESKILL:1,Alchemy=8	PRESKILL:1,Craft (Blacksmithing),Craft (Metalworking)=8	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Demolitionist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession
 # Class Name		Spell Stat		Spell Type		Caster level
@@ -35,16 +35,16 @@ CLASS:Demolitionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Demolitioni
 1	FEATAUTO:Wizard Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(Arcane)	SA:Produce Explosives(%d6)|ProduceExplosive	BONUS:VAR|ProduceExplosive|(CL+2)/3+1	DEFINE:ProduceExplosive|0
-2	ADD:SPELLCASTER(Arcane)	SA:Time Delay Explosives
-3	ADD:SPELLCASTER(Arcane)	SA:Craft Flash Bombs
-4	ADD:SPELLCASTER(Arcane)
-5	ADD:SPELLCASTER(Arcane)	SA:Craft Musket
-6	ADD:SPELLCASTER(Arcane)																					FEATAUTO:Exotic Weapon Proficiency(Pistol)|Exotic Weapon Proficiency(Musket)
-7	ADD:SPELLCASTER(Arcane)
-8	ADD:SPELLCASTER(Arcane)	SA:Master of Destruction
-9	ADD:SPELLCASTER(Arcane)																					FEATAUTO:Uncanny Dodge
-10	ADD:SPELLCASTER(Arcane)
+1	SA:Produce Explosives(%d6)|ProduceExplosive	BONUS:VAR|ProduceExplosive|(CL+2)/3+1	DEFINE:ProduceExplosive|0														ADD:SPELLCASTER|1|Arcane
+2	SA:Time Delay Explosives																													ADD:SPELLCASTER|1|Arcane
+3	SA:Craft Flash Bombs																														ADD:SPELLCASTER|1|Arcane
+4																																		ADD:SPELLCASTER|1|Arcane
+5	SA:Craft Musket																															ADD:SPELLCASTER|1|Arcane
+6																					FEATAUTO:Exotic Weapon Proficiency(Pistol)|Exotic Weapon Proficiency(Musket)	ADD:SPELLCASTER|1|Arcane
+7																																		ADD:SPELLCASTER|1|Arcane
+8	SA:Master of Destruction																													ADD:SPELLCASTER|1|Arcane
+9																					FEATAUTO:Uncanny Dodge										ADD:SPELLCASTER|1|Arcane
+10																																		ADD:SPELLCASTER|1|Arcane
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shock Trooper	HD:10		TYPE:PC.Prestige	ABB:ae3		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
