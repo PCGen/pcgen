@@ -1,26 +1,26 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 17:40:41 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
 # Original Entry by: Eddy Anthony
 
 #Moonlighter feat second occupations from MSRD
-# Feat Name						Type				Visible		Required Feat				Prohibited Feat						Choose a Feat					Modify VAR							Source Page
-Second Occupation (Academic)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Academic)			ADD:FEAT(TYPE=Academic_Skills)3		BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
-Second Occupation (Adventurer)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Adventurer		!PREFEAT:1,Occupation (Adventurer)			ADD:FEAT(TYPE=Adventurer_Skills)2		BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Second Occupation (Athlete)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Athlete			!PREFEAT:1,Occupation (Athlete)			ADD:FEAT(TYPE=Athlete_Skills)3		BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Second Occupation (Blue Collar)		TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Blue Collar)			ADD:FEAT(TYPE=Blue_Collar_Skills)3		BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
-Second Occupation (Celebrity)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Celebrity)			ADD:FEAT(TYPE=Celebrity_Skills)		BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:Occupations.rtf
-Second Occupation (Creative)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Creative)			ADD:FEAT(TYPE=Creative_Skills)3		BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
-Second Occupation (Criminal)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Criminal			!PREFEAT:1,Occupation (Criminal)			ADD:FEAT(TYPE=Criminal_Skills)2		BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Second Occupation (Dilettante)		TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Dilettante)			ADD:FEAT(TYPE=Dilettante_Skills)		BONUS:VAR|WealthBonus|6					SOURCEPAGE:Occupations.rtf
-Second Occupation (Doctor)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Doctor)			ADD:FEAT(TYPE=Doctor_Skills)2			BONUS:VAR|WealthBonus|4					SOURCEPAGE:Occupations.rtf
-Second Occupation (Emergency Services)	TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Emergency Services)	ADD:FEAT(TYPE=Emergency_Services_Skills)2	BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
-Second Occupation (Entrepreneur)		TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Entrepreneur)		ADD:FEAT(TYPE=Entrepreneur_Skills)2		BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:Occupations.rtf
-Second Occupation (Investigative)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Investigative		!PREFEAT:1,Occupation (Investigative)		ADD:FEAT(TYPE=Investigative_Skills)2	BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
-Second Occupation (Law Enforcement)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Law_Enforcement	!PREFEAT:1,Occupation (Law Enforcement)		ADD:FEAT(TYPE=Law_Enforcement_Skills)2	BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Second Occupation (Military)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Military			!PREFEAT:1,Occupation (Military)			ADD:FEAT(TYPE=Military_Skills)2		BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Second Occupation (Religious)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Religious)			ADD:FEAT(TYPE=Religious_Skills)3		BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
-Second Occupation (Rural)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Rural			!PREFEAT:1,Occupation (Rural)				ADD:FEAT(TYPE=Rural_Skills)2			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Second Occupation (Student)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Student)			ADD:FEAT(TYPE=Student_Skills)3		BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
-Second Occupation (Technician)		TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Technician)			ADD:FEAT(TYPE=Technician_Skills)3		BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
-Second Occupation (White Collar)		TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (White Collar)		ADD:FEAT(TYPE=White_Collar_Skills)2		BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
+# Feat Name						Type				Visible		Required Feat				Prohibited Feat						Modify VAR							Source Page				ADD:
+Second Occupation (Academic)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Academic)			BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf	ADD:FEAT|3|TYPE=Academic_Skills
+Second Occupation (Adventurer)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Adventurer		!PREFEAT:1,Occupation (Adventurer)			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf	ADD:FEAT|2|TYPE=Adventurer_Skills
+Second Occupation (Athlete)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Athlete			!PREFEAT:1,Occupation (Athlete)			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf	ADD:FEAT|3|TYPE=Athlete_Skills
+Second Occupation (Blue Collar)		TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Blue Collar)			BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf	ADD:FEAT|3|TYPE=Blue_Collar_Skills
+Second Occupation (Celebrity)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Celebrity)			BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:Occupations.rtf	ADD:FEAT|1|TYPE=Celebrity_Skills
+Second Occupation (Creative)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Creative)			BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf	ADD:FEAT|3|TYPE=Creative_Skills
+Second Occupation (Criminal)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Criminal			!PREFEAT:1,Occupation (Criminal)			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf	ADD:FEAT|2|TYPE=Criminal_Skills
+Second Occupation (Dilettante)		TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Dilettante)			BONUS:VAR|WealthBonus|6					SOURCEPAGE:Occupations.rtf	ADD:FEAT|1|TYPE=Dilettante_Skills
+Second Occupation (Doctor)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Doctor)			BONUS:VAR|WealthBonus|4					SOURCEPAGE:Occupations.rtf	ADD:FEAT|2|TYPE=Doctor_Skills
+Second Occupation (Emergency Services)	TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Emergency Services)	BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf	ADD:FEAT|2|TYPE=Emergency_Services_Skills
+Second Occupation (Entrepreneur)		TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Entrepreneur)		BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:Occupations.rtf	ADD:FEAT|2|TYPE=Entrepreneur_Skills
+Second Occupation (Investigative)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Investigative		!PREFEAT:1,Occupation (Investigative)		BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf	ADD:FEAT|2|TYPE=Investigative_Skills
+Second Occupation (Law Enforcement)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Law_Enforcement	!PREFEAT:1,Occupation (Law Enforcement)		BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf	ADD:FEAT|2|TYPE=Law_Enforcement_Skills
+Second Occupation (Military)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Military			!PREFEAT:1,Occupation (Military)			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf	ADD:FEAT|2|TYPE=Military_Skills
+Second Occupation (Religious)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Religious)			BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf	ADD:FEAT|3|TYPE=Religious_Skills
+Second Occupation (Rural)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Rural			!PREFEAT:1,Occupation (Rural)				BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf	ADD:FEAT|2|TYPE=Rural_Skills
+Second Occupation (Student)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Student)			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf	ADD:FEAT|3|TYPE=Student_Skills
+Second Occupation (Technician)		TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Technician)			BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf	ADD:FEAT|3|TYPE=Technician_Skills
+Second Occupation (White Collar)		TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (White Collar)		BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf	ADD:FEAT|2|TYPE=White_Collar_Skills
 

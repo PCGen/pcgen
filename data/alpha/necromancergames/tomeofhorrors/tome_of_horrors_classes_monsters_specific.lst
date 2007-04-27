@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 17:28:25 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -8,6 +8,6 @@ CLASS:The Oinodaemon	HD:8		TYPE:Monster	MAXLEVEL:49	SOURCEPAGE:p. 83	BONUS:CHECK
 CLASS:The Oinodaemon	PRERACE:Daemon (The Oinodaemon)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:The Oinodaemon	STARTSKILLPTS:8	MODTOSKILLS:YES
-1	ADD:SPELLCASTER(Cleric)1
-49						BONUS:PCLEVEL|Cleric|19
+1					ADD:SPELLCASTER|1|Cleric
+49	BONUS:PCLEVEL|Cleric|19
 

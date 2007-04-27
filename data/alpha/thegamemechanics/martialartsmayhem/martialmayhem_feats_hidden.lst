@@ -1,31 +1,31 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 23:37:32 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegamemechanics.com
 #Original Entry by: Frank Kliewe
 
 ###Block:Gunslinger Levels for Level Substitution
-# Feat Name						Type			Visible	Special Ability		Choose a Feat
+# Feat Name						Type			Visible	Special Ability		ADD:
 1st Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Close Combat Shot
-2nd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(Weapon Focus)
-3rd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(TYPE.Gunslinger)
+2nd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Weapon Focus
+3rd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Gunslinger
 4th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Defensive Position
 5th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Lightning Shot
-6th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(TYPE.Gunslinger)
+6th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Gunslinger
 7th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Sharp Shooting
-8th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(Weapon Focus,Greater Weapon Focus)
-9th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(TYPE.Gunslinger)
+8th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Weapon Focus,Greater Weapon Focus
+9th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Gunslinger
 10th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Bullseye
 
 ###Block:Soldier Levels for Level Substitution
-# Feat Name					Type			Visible	Special Ability		Choose a Feat					Combat bonus						Modify VAR
-1st Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(Weapon Focus)
-2nd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(Weapon Specialization)										BONUS:VAR|WeapSpecQualify|1
-3rd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(TYPE.Soldier)												BONUS:VAR|WeapSpecQualify|-1
+# Feat Name					Type			Visible	Special Ability		Combat bonus						Modify VAR				ADD:
+1st Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO																		ADD:FEAT|1|Weapon Focus
+2nd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO													BONUS:VAR|WeapSpecQualify|1	ADD:FEAT|1|Weapon Specialization
+3rd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO													BONUS:VAR|WeapSpecQualify|-1	ADD:FEAT|1|TYPE.Soldier
 4th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Tactical Aid
-5th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(Improved Critical)
-6th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(TYPE.Soldier)
-7th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Improved Reaction								BONUS:COMBAT|INITIATIVE|2|TYPE=Competence.STACK
-8th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(Greater Weapon Specialization)
-9th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT(TYPE.Soldier)
+5th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO																		ADD:FEAT|1|Improved Critical
+6th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO																		ADD:FEAT|1|TYPE.Soldier
+7th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Improved Reaction	BONUS:COMBAT|INITIATIVE|2|TYPE=Competence.STACK
+8th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO																		ADD:FEAT|1|Greater Weapon Specialization
+9th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO																		ADD:FEAT|1|TYPE.Soldier
 10th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Critical Strike
 
 ###Block:Workarounds for Schools

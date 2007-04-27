@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 02:10:11 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Modify VAR
@@ -15,12 +15,12 @@ CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Dip
 ###Block: Standard block
 1	SA:Turn Undead
 2	SA:Lay on Hands %d8|LayOnHands				BONUS:VAR|LayOnHands|CL/5+1	DEFINE:LayOnHands|0
-3																			ADD:FEAT(TYPE=SacredRitual)
+3																			ADD:FEAT|1|TYPE=SacredRitual
 4	SA:Lay on Hands (Blindness and Disease)
-6	SA:Spiritual Fortitude (Doubt)													ADD:FEAT(TYPE=SacredRitual)
+6	SA:Spiritual Fortitude (Doubt)													ADD:FEAT|1|TYPE=SacredRitual
 7	SA:Immune to Poison	SA:Lay on Hands (Poison)
 8	SA:Turn Fiends
-9	SA:Spiritual Fortitude (All)														ADD:FEAT(TYPE=SacredRitual)
+9	SA:Spiritual Fortitude (All)														ADD:FEAT|1|TYPE=SacredRitual
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Cultist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -35,13 +35,13 @@ CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writi
 1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Standard block
 1					SA:Control Undead	SA:True Magic
-2											ADD:FEAT(TYPE=Cultist,TYPE=ProfaneRitual)
+2											ADD:FEAT|1|TYPE=Cultist,TYPE=ProfaneRitual
 3					SA:Dark Initiate
-4											ADD:FEAT(TYPE=Cultist,TYPE=ProfaneRitual)
+4											ADD:FEAT|1|TYPE=Cultist,TYPE=ProfaneRitual
 5	VISION:Darkvision (60')	SA:Darkness' Embrace
-6											ADD:FEAT(TYPE=Cultist,TYPE=ProfaneRitual)
+6											ADD:FEAT|1|TYPE=Cultist,TYPE=ProfaneRitual
 7					SA:Dark Familiar
-8											ADD:FEAT(TYPE=Cultist,TYPE=ProfaneRitual)
+8											ADD:FEAT|1|TYPE=Cultist,TYPE=ProfaneRitual
 9					SA:Dark Longevity
 10					SA:Perdition's Legion
 
@@ -52,11 +52,11 @@ CLASS:Dark Warrior	PREATT:2	PREFEAT:2,Conviction (Dark Power),Toughness	PRESKILL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dark Warrior	STARTSKILLPTS:2	CSKILL:Climb|Demolitions|Drive|Gamble|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Streetwise)|Knowledge (Tactics)|Survival|Swim|Treat Injury
 1	SA:Hatred %/day|Hatred								BONUS:VAR|Hatred|CL/6+1						DEFINE:Hatred|0
-2																														ADD:FEAT(TYPE=DarkWarrior)
+2																														ADD:FEAT|1|TYPE=DarkWarrior
 3	SA:Willing Manifestation (Contortions)
-4																														ADD:FEAT(TYPE=DarkWarrior)
+4																														ADD:FEAT|1|TYPE=DarkWarrior
 5	SA:Blood Bond %/day for % minutes|BloodBondTime|BloodBondDuration	BONUS:VAR|BloodBondDuration|CL*10				DEFINE:BloodBondDuration|0	DEFINE:BloodBondTime|1
-7																														ADD:FEAT(TYPE=DarkWarrior)
+7																														ADD:FEAT|1|TYPE=DarkWarrior
 8	SA:Blood Oath									BONUS:VAR|BloodBondTime|1		BONUS:STAT|STR|2
 9	SA:Willing Manifestation (Poltergeist)
 10	SA:Legion																BONUS:STAT|CON|2
@@ -82,11 +82,11 @@ CLASS:Monitor	PREATT:2	PREFEAT:2,Archaic Weapons Proficiency,Conviction (Higher 
 CLASS:Monitor	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Listen|Ride|Sense Motive|Spot
 1	SA:Monitor's Wrath +%|MonitorsWrath	BONUS:VAR|MonitorsWrath|(CL+2)/3	DEFINE:MonitorsWrath|0
 2	SA:Divine Health
-3																	ADD:FEAT(TYPE=Monitor)
+3																	ADD:FEAT|1|TYPE=Monitor
 5	SA:Aura of Courage
-6																	ADD:FEAT(TYPE=Monitor)
+6																	ADD:FEAT|1|TYPE=Monitor
 8	SA:Immortal
-9																	ADD:FEAT(TYPE=Monitor)
+9																	ADD:FEAT|1|TYPE=Monitor
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus					Modify VAR
 CLASS:Relic Seeker	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -99,9 +99,9 @@ CLASS:Relic Seeker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Decipher Script|Disable 
 3	SA:Uncanny Dodge (Dex bonus to AC)
 4	SA:Improvised Weapons
 5	SA:Uncanny Dodge (can't be flanked)
-6											ADD:FEAT(TYPE=RelicSeeker)
+6											ADD:FEAT|1|TYPE=RelicSeeker
 7	SA:Uncanny Dodge (+1 vs traps)
-8											ADD:FEAT(TYPE=RelicSeeker)
+8											ADD:FEAT|1|TYPE=RelicSeeker
 9	SA:Uncanny Dodge (+2 vs traps)	SA:Miraculous Escape
 10	SA:Improved Evasion
 

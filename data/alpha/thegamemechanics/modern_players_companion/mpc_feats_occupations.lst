@@ -1,25 +1,25 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 17:40:41 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
 # Original Entry by: Frank Kliewe
 
-# Feat Name				Output Name		Type			Visible	Choose a Feat									Modify VAR							Source Page
-Occupation (Bohemian)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Bohemian_Skills)4						BONUS:VAR|Reputation|1					SOURCEPAGE:p.7
-Occupation (Bureaucrat)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Bureaucrat_Skills)2	ADD:FEAT(TYPE=Bureaucrat)	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
-Occupation (Craftsperson)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Craftsperson_Skills)2	ADD:FEAT(TYPE=Craftsperson)	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
-Occupation (Domestic)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Domestic_Skills)3						BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.7
-Occupation (Educator)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Educator_Skills)2	ADD:FEAT(TYPE=Educator)		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
-Occupation (Politico)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Politico_Skills)2	ADD:FEAT(TYPE=Politico)		BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.8
-Occupation (Tribal)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Tribal_Skills)3	ADD:FEAT(TYPE=Tribal)			BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.8
+# Feat Name				Output Name		Type			Visible	Modify VAR							Source Page		ADD:
+Occupation (Bohemian)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|Reputation|1					SOURCEPAGE:p.7	ADD:FEAT|4|TYPE=Bohemian_Skills
+Occupation (Bureaucrat)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7	ADD:FEAT|2|TYPE=Bureaucrat_Skills	ADD:FEAT|1|TYPE=Bureaucrat
+Occupation (Craftsperson)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7	ADD:FEAT|2|TYPE=Craftsperson_Skills	ADD:FEAT|1|TYPE=Craftsperson
+Occupation (Domestic)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.7	ADD:FEAT|3|TYPE=Domestic_Skills
+Occupation (Educator)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7	ADD:FEAT|2|TYPE=Educator_Skills	ADD:FEAT|1|TYPE=Educator
+Occupation (Politico)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.8	ADD:FEAT|2|TYPE=Politico_Skills	ADD:FEAT|1|TYPE=Politico
+Occupation (Tribal)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.8	ADD:FEAT|3|TYPE=Tribal_Skills	ADD:FEAT|1|TYPE=Tribal
 
 ###BLOCK:Moonlighter Feat Second Occupation MPC
-# Feat Name					Type				Visible		Required Feat			Prohibited Feat					Choose a Feat				Modify VAR							Source Page
-Second Occupation (Bohemian)		TYPE:SecondOccupation	VISIBLE:EXPORT						!PREFEAT:1,Occupation (Bohemian)		ADD:FEAT(TYPE=Bohemian_Skills)4	BONUS:VAR|Reputation|1					SOURCEPAGE:p.7
-Second Occupation (Bureaucrat)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Bureaucrat	!PREFEAT:1,Occupation (Bureaucrat)		ADD:FEAT(TYPE=Bureaucrat_Skills)2	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
-Second Occupation (Craftsperson)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Craftsperson	!PREFEAT:1,Occupation (Craftsperson)	ADD:FEAT(TYPE=Craftsperson_Skills)2	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
-Second Occupation (Domestic)		TYPE:SecondOccupation	VISIBLE:EXPORT						!PREFEAT:1,Occupation (Domestic)		ADD:FEAT(TYPE=Domestic_Skills)3	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.7
-Second Occupation (Educator)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Educator		!PREFEAT:1,Occupation (Educator)		ADD:FEAT(TYPE=Educator_Skills)2	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
-Second Occupation (Politico)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Politico		!PREFEAT:1,Occupation (Politico)		ADD:FEAT(TYPE=Politico_Skills)2	BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.8
-Second Occupation (Tribal)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Tribal		!PREFEAT:1,Occupation (Tribal)		ADD:FEAT(TYPE=Tribal_Skills)3		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.8
+# Feat Name					Type				Visible		Required Feat			Prohibited Feat					Modify VAR							Source Page		ADD:
+Second Occupation (Bohemian)		TYPE:SecondOccupation	VISIBLE:EXPORT						!PREFEAT:1,Occupation (Bohemian)		BONUS:VAR|Reputation|1					SOURCEPAGE:p.7	ADD:FEAT|4|TYPE=Bohemian_Skills
+Second Occupation (Bureaucrat)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Bureaucrat	!PREFEAT:1,Occupation (Bureaucrat)		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7	ADD:FEAT|2|TYPE=Bureaucrat_Skills
+Second Occupation (Craftsperson)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Craftsperson	!PREFEAT:1,Occupation (Craftsperson)	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7	ADD:FEAT|2|TYPE=Craftsperson_Skills
+Second Occupation (Domestic)		TYPE:SecondOccupation	VISIBLE:EXPORT						!PREFEAT:1,Occupation (Domestic)		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.7	ADD:FEAT|3|TYPE=Domestic_Skills
+Second Occupation (Educator)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Educator		!PREFEAT:1,Occupation (Educator)		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7	ADD:FEAT|2|TYPE=Educator_Skills
+Second Occupation (Politico)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Politico		!PREFEAT:1,Occupation (Politico)		BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.8	ADD:FEAT|2|TYPE=Politico_Skills
+Second Occupation (Tribal)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Tribal		!PREFEAT:1,Occupation (Tribal)		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.8	ADD:FEAT|3|TYPE=Tribal_Skills
 
 ###Block: skill choices
 # Feat Name								Type

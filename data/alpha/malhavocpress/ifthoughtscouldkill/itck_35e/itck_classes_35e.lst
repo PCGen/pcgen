@@ -1,23 +1,23 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 10:04:07 2006 -- reformated by prettylst.pl v1.35 (build 555)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
 
 # Class Name		Product Identity?	Hit Dice	Type					Abbreviation	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Colorless Adept	NAMEISPI:YES	HD:4		TYPE:PC.Psionic.Prestige	ABB:CoA		SOURCEPAGE:p.47	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required Feat										Required Skill				Req. Spell Type
-CLASS:Colorless Adept	PREFEAT:1,Sequester Power	PREFEAT:2,TYPE=Psionic,TYPE=Metapsionic	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:Psionic,1,2
+CLASS:Colorless Adept	PREFEAT:1,Sequester Power	PREFEAT:2,TYPE=Psionic,TYPE=Metapsionic	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|TYPE.Profession|Psicraft|Spot
 ###Block: Level progression
-1	ADD:SPELLCASTER(Psionic)	SA:Power Sharing I
-2	ADD:SPELLCASTER(Psionic)
-3	ADD:SPELLCASTER(Psionic)
-4	ADD:SPELLCASTER(Psionic)	SA:Power Sharing II
-5						SA:Colorless Fire DC%, % times/day (Psi-like)|ColorlessFireDC|ColorlessFireTimes	BONUS:VAR|ColorlessFireDC|(17+INT)	BONUS:VAR|ColorlessFireTimes|(cl("Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0	ADD:FEAT(TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation)
-6	ADD:SPELLCASTER(Psionic)
-7	ADD:SPELLCASTER(Psionic)	SA:Power Sharing III
-8	ADD:SPELLCASTER(Psionic)
-9	ADD:SPELLCASTER(Psionic)
-10						SA:Colorless Rain DC%, % times/day (Psi-like)|ColorlessRainDC|ColorlessRainTimes	BONUS:VAR|ColorlessRainDC|(23+INT)	BONUS:VAR|ColorlessRainTimes|(cl("Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0	ADD:FEAT(TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation)
+1	SA:Power Sharing I																																					ADD:SPELLCASTER|1|Psionic
+2																																									ADD:SPELLCASTER|1|Psionic
+3																																									ADD:SPELLCASTER|1|Psionic
+4	SA:Power Sharing II																																					ADD:SPELLCASTER|1|Psionic
+5	SA:Colorless Fire DC%, % times/day (Psi-like)|ColorlessFireDC|ColorlessFireTimes	BONUS:VAR|ColorlessFireDC|(17+INT)	BONUS:VAR|ColorlessFireTimes|(cl("Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
+6																																									ADD:SPELLCASTER|1|Psionic
+7	SA:Power Sharing III																																					ADD:SPELLCASTER|1|Psionic
+8																																									ADD:SPELLCASTER|1|Psionic
+9																																									ADD:SPELLCASTER|1|Psionic
+10	SA:Colorless Rain DC%, % times/day (Psi-like)|ColorlessRainDC|ColorlessRainTimes	BONUS:VAR|ColorlessRainDC|(23+INT)	BONUS:VAR|ColorlessRainTimes|(cl("Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
 
 ###Block: variant prestige classes
 
@@ -26,7 +26,7 @@ CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Cra
 # Class Name		Output Name			Hit Dice	Type					Abbreviation	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Metamind ITCK	OUTPUTNAME:Metamind	HD:4		TYPE:PC.Psionic.Prestige	ABB:MMd		SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required Feat			Required Skill								Req. Spell Type
-CLASS:Metamind ITCK	PREFEAT:1,Psicrystal Affinity	PRESKILL:1,Psicraft=4	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:Psionic,1,2
+CLASS:Metamind ITCK	PREFEAT:1,Psicrystal Affinity	PRESKILL:1,Psicraft=4	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft
 ###Block: Psicrystal info
@@ -34,16 +34,16 @@ CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft
 ###Block: sequestration
 1	SA:Sequestration %|SequesVar	BONUS:VAR|SequesVar|cl("Metamind ITCK")	DEFINE:SequesVar|1
 ###Block: Level progression
-1	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)	ADD:FEAT(Power Sequestration)
-2	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
-3	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
-4	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
-5	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
-6	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
-7	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
-8	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
-9	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
-10	ADD:SPELLCASTER(Psionic)	SA:Font of Power ~ one minute/day (Ps)	ADD:FEAT(Power Sequestration)
+1								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration	ADD:FEAT|1|Power Sequestration
+2								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
+3								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
+4								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
+5								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
+6								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
+7								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
+8								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
+9								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
+10	SA:Font of Power ~ one minute/day (Ps)	ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
 
 
 # Class Name		Hit Dice	Type					Source Page		Save checks bonus												Combat bonus					Modify VAR
@@ -81,10 +81,10 @@ CLASS:Mind Grub Collective	HD:8		TYPE:Monster	MAXLEVEL:8	SOURCEPAGE:p.40	BONUS:C
 CLASS:Mind Grub Collective	PRERACE:1,Mind Grub Collective	PRERACETYPE:Aberration
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Mind Grub Collective	STARTSKILLPTS:2	MODTOSKILLS:YES
-1	ADD:SPELLCASTER(Psion)1
-2					BONUS:PCLEVEL|Psion|1
-3					BONUS:PCLEVEL|Psion|1
-4					BONUS:PCLEVEL|Psion|1
-5					BONUS:PCLEVEL|Psion|1
-7					BONUS:PCLEVEL|Psion|1
-8					BONUS:PCLEVEL|Psion|1	BONUS:PCLEVEL|Psion|1
+1									ADD:SPELLCASTER|1|Psion
+2	BONUS:PCLEVEL|Psion|1
+3	BONUS:PCLEVEL|Psion|1
+4	BONUS:PCLEVEL|Psion|1
+5	BONUS:PCLEVEL|Psion|1
+7	BONUS:PCLEVEL|Psion|1
+8	BONUS:PCLEVEL|Psion|1	BONUS:PCLEVEL|Psion|1

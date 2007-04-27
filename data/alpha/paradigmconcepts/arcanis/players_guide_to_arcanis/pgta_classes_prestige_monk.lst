@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 29 20:35:51 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -10,11 +10,11 @@ CLASS:Blade of Hurrian	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:2,We
 CLASS:Blade of Hurrian	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Tactics and Warfare)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
 1									SA:Ki Blade (Ex) (+% defending)|KiBladeBonus	SA:Lightning Leap (Ex)			BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL	BONUS:VAR|KiBladeBonus|2	BONUS:SKILL|Jump|10	DEFINE:KiBladeBonus|0
 2									SA:Lightning Surges Through the Clouds (Ex)
-3									SA:Clash of Thunder (Ex)																																ADD:VFEAT(Deflect Arrows)
+3									SA:Clash of Thunder (Ex)																																ADD:VFEAT|1|Deflect Arrows
 4	SA:.CLEAR.Ki Blade (Ex) (+% defending)		SA:Lighning Sword (Su)	SA:Ki Blade (Ex) (+% defending/shocking)|KiBladeBonus
 5																							BONUS:VAR|KiBladeBonus|2
 6									SA:Clouds Cover the Sun (Ex)
-7									SA:Hurricane Blow (Ex)																																	ADD:VFEAT(Weapon Specialization (Longsword))
+7									SA:Hurricane Blow (Ex)																																	ADD:VFEAT|1|Weapon Specialization (Longsword)
 8	SA:.CLEAR.Ki Blade (Ex) (+% defending/shocking)	SA:Storm Bringer (Su)	SA:Ki Blade (Ex) (+% defending/shocking burst)|KiBladeBonus
 9									SA:Tornado Rush (Sp)
 10									SA:The Perfect Storm (Su) (Duration % rounds)|StormDuration					BONUS:VAR|StormDuration|3+CON	BONUS:VAR|KiBladeBonus|2									DEFINE:StormDuration|0
@@ -69,7 +69,7 @@ CLASS:Elemental Path of Water	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFE
 CLASS:Elemental Path of Water	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
 1	SA:Skipping Stone (Ex)	BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL
 2														BONUS:COMBAT|AC|1|TYPE=Dodge
-3	SA:Misleading Step (Ex)															ADD:VFEAT(Improved Feint)
+3	SA:Misleading Step (Ex)															ADD:VFEAT|1|Improved Feint
 4														BONUS:COMBAT|AC|1|TYPE=Dodge
 5	SA:Shallow Water (Su)
 
@@ -79,10 +79,10 @@ CLASS:Elemental Path of Wind	HD:6		TYPE:PC.Prestige	ABB:EPWnd		MAXLEVEL:5	SOURCE
 CLASS:Elemental Path of Wind	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:4,Combat Relexes,Improved Unarmed Strike,Heightened Elorii Bloodline,Weapon Finesse	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Osalikene]	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Wind	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-1	SA:Earth to Sky (Ex)					BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL	BONUS:COMBAT|AC|1|TYPE=Dodge					ADD:VFEAT(Earth to Sky,Meet the Charge)2
+1	SA:Earth to Sky (Ex)					BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL	BONUS:COMBAT|AC|1|TYPE=Dodge					ADD:VFEAT|2|Earth to Sky,Meet the Charge
 2	SA:Defensive Throw (Ex)	SA:Wind's Grace
 3	SA:Stunning Throw (Ex) (Fort DC %)|StunThrowDC	BONUS:VAR|StunThrowDC|10+WIS+CL				BONUS:COMBAT|AC|1|TYPE=Dodge	DEFINE:StunThrowDC|0
-4																											ADD:VFEAT(Tumbling Strike)
+4																											ADD:VFEAT|1|Tumbling Strike
 5	SA:Throw Mastery (Ex)														BONUS:COMBAT|AC|1|TYPE=Dodge
 
 #

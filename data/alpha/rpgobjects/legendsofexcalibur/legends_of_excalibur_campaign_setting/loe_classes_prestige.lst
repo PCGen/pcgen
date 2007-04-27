@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jan 14 01:05:09 2007 -- reformated by prettylst.pl v1.35 (build 1881)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # due to .MOD issues of CAST and KNOWN, Assassin copy here
@@ -14,11 +14,11 @@ CLASS:Assassin ~ LoE	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVE
 1	AUTO:WEAPONPROF|TYPE.Crossbow|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Sword (Short)
 1															FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,2,12		KNOWN:0,2,1		SA:Poison Use	SA:Death Attack (DC %)|DeathAttack	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	DEFINE:DeathAttack|10+INT									VFEAT:Power Source(Hedge Mage)	FEATAUTO:Sneak Attack
-2	CAST:0,1,8		KNOWN:0,2,1		SA:+% save against poisons|AssassinPoisonSave		BONUS:VAR|AssassinPoisonSave|CL/2																	DEFINE:AssassinPoisonSave|0	ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+1	CAST:0,2,12		KNOWN:0,2,1		SA:Poison Use	SA:Death Attack (DC %)|DeathAttack	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	DEFINE:DeathAttack|10+INT	VFEAT:Power Source(Hedge Mage)	FEATAUTO:Sneak Attack
+2	CAST:0,1,8		KNOWN:0,2,1		SA:+% save against poisons|AssassinPoisonSave		BONUS:VAR|AssassinPoisonSave|CL/2																	DEFINE:AssassinPoisonSave|0											ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
 3	CAST:0,1,4,15	KNOWN:0,3,2,1
 4	CAST:0,1,3,10	KNOWN:0,3,2,1
-5	CAST:0,1,2,5,18	KNOWN:0,4,3,2,1																																					ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+5	CAST:0,1,2,5,18	KNOWN:0,4,3,2,1																																															ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
 6	CAST:0,1,2,4,12	KNOWN:0,4,3,2,1
 7	CAST:0,1,2,3,6	KNOWN:0,5,3,3,2
 8	CAST:0,1,2,3,5	KNOWN:0,5,3,3,2	SA:Hide in Plain Sight (Su)
@@ -36,16 +36,16 @@ CLASS:Alchemist	PREFEAT:1,Brew Potion	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRES
 CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Disable Device|Knowledge (Arcana)|Open Lock|TYPE.Profession|Spellcraft
 1	AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Quarterstaff
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(Any)	SA:Master Alchemist (Ex)							BONUS:SKILL|Craft (Alchemy)|CL
-2	ADD:SPELLCASTER(Any)	SA:Mixologist +% (Su)|CL/2
-3	ADD:SPELLCASTER(Any)	SA:Chemical Resistance +% (Ex)|CL/2+1	SA:Taste Test (Ex)
-4	ADD:SPELLCASTER(Any)
-5	ADD:SPELLCASTER(Any)
-6	ADD:SPELLCASTER(Any)
-7	ADD:SPELLCASTER(Any)
-8	ADD:SPELLCASTER(Any)
-9	ADD:SPELLCASTER(Any)
-10	ADD:SPELLCASTER(Any)
+1	SA:Master Alchemist (Ex)							BONUS:SKILL|Craft (Alchemy)|CL	ADD:SPELLCASTER|1|Any
+2	SA:Mixologist +% (Su)|CL/2													ADD:SPELLCASTER|1|Any
+3	SA:Chemical Resistance +% (Ex)|CL/2+1	SA:Taste Test (Ex)							ADD:SPELLCASTER|1|Any
+4																		ADD:SPELLCASTER|1|Any
+5																		ADD:SPELLCASTER|1|Any
+6																		ADD:SPELLCASTER|1|Any
+7																		ADD:SPELLCASTER|1|Any
+8																		ADD:SPELLCASTER|1|Any
+9																		ADD:SPELLCASTER|1|Any
+10																		ADD:SPELLCASTER|1|Any
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Berserker	HD:12		TYPE:PC.Prestige	ABB:Ber		MAXLEVEL:10	SOURCEPAGE:36	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -87,16 +87,16 @@ CLASS:Court Mage	HD:4		TYPE:PC.Prestige	ABB:CtM		MAXLEVEL:10	SOURCEPAGE:38	BONUS
 CLASS:Court Mage	PRESA:1,Lesser Prophecy	PRESKILL:2,Prophecy,Diplomacy=10	PRESTAT:1,NOB=50
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Court Mage	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|Knowledge (Arcana)|Listen|TYPE.Profession|Prophecy|Sense Motive|Spellcraft
-1	ADD:SPELLCASTER(Any)	SA:Word is Your Bond (Ex)	SA:Aura of Wisdom (Ex)	BONUS:VAR|BONUSPOWERPOINTS|NOB	BONUS:SKILL|TYPE=Charisma|NOB/2	BONUS:SKILL|Intimidate|(-1)*(NOB/2)
-2	ADD:SPELLCASTER(Any)	SA:Quest +% (Ex)|Qust						BONUS:VAR|Qust|(CL+1)/3															DEFINE:Qust|0
-3	ADD:SPELLCASTER(Any)																															ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
-4	ADD:SPELLCASTER(Any)
-5	ADD:SPELLCASTER(Any)
-6	ADD:SPELLCASTER(Any)	SA:August Personage (Ex)											BONUS:SKILL|Intimidate|NOB
-7	ADD:SPELLCASTER(Any)	SA:August Personage (Officer of the Court) (Ex)
-8	ADD:SPELLCASTER(Any)																															ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
-9	ADD:SPELLCASTER(Any)	SA:August Personage (Diplomatic Immunity) (Ex)
-10	ADD:SPELLCASTER(Any)																															ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
+1	SA:Word is Your Bond (Ex)	SA:Aura of Wisdom (Ex)	BONUS:VAR|BONUSPOWERPOINTS|NOB	BONUS:SKILL|TYPE=Charisma|NOB/2	BONUS:SKILL|Intimidate|(-1)*(NOB/2)				ADD:SPELLCASTER|1|Any
+2	SA:Quest +% (Ex)|Qust						BONUS:VAR|Qust|(CL+1)/3															DEFINE:Qust|0	ADD:SPELLCASTER|1|Any
+3																															ADD:SPELLCASTER|1|Any	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation
+4																															ADD:SPELLCASTER|1|Any
+5																															ADD:SPELLCASTER|1|Any
+6	SA:August Personage (Ex)											BONUS:SKILL|Intimidate|NOB											ADD:SPELLCASTER|1|Any
+7	SA:August Personage (Officer of the Court) (Ex)																							ADD:SPELLCASTER|1|Any
+8																															ADD:SPELLCASTER|1|Any	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation
+9	SA:August Personage (Diplomatic Immunity) (Ex)																							ADD:SPELLCASTER|1|Any
+10																															ADD:SPELLCASTER|1|Any	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus											Combat bonus
 CLASS:Crusader	HD:10		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:39	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -110,10 +110,10 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
-1												BONUS:VAR|SmiteInfidel|CL/5+1												DEFINE:SmiteInfidel|0						VFEAT:Power Source(Crusader)
-2				SA:Lay on Hands (Su) % hp/day|LayOnHands		BONUS:VAR|LayOnHands|max(CHA,0)*CL											DEFINE:LayOnHands|0	ADD:FEAT(Mounted Combat)
+1												BONUS:VAR|SmiteInfidel|CL/5+1												DEFINE:SmiteInfidel|0	VFEAT:Power Source(Crusader)
+2				SA:Lay on Hands (Su) % hp/day|LayOnHands		BONUS:VAR|LayOnHands|max(CHA,0)*CL											DEFINE:LayOnHands|0											ADD:FEAT|1|Mounted Combat
 3	CAST:1,2,12		SA:Aura of Piety (Ex)	SA:Crusade +%|Crus	BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS+NOB	BONUS:VAR|Crus|CL/3		DEFINE:Crus|0
-4	CAST:1,1,8		SA:Mounted Combat +% (Ex)|MountedCombat		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4+1	BONUS:VAR|KnightLevel|CL-3	DEFINE:MountedCombat|0											FEATAUTO:Knight's Warhorse
+4	CAST:1,1,8		SA:Mounted Combat +% (Ex)|MountedCombat		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4+1	BONUS:VAR|KnightLevel|CL-3	DEFINE:MountedCombat|0						FEATAUTO:Knight's Warhorse
 5	CAST:1,1,4,15									BONUS:VAR|BASEPOWERPOINTS|2
 6	CAST:1,1,3,10									BONUS:VAR|BASEPOWERPOINTS|3
 7	CAST:0,1,2,5,18									BONUS:VAR|BASEPOWERPOINTS|3
@@ -124,21 +124,21 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Enchantress	HD:4		TYPE:PC.Prestige	ABB:Enc		SOURCEPAGE:41	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill			Req. Spell Type		Required Stat
-CLASS:Enchantress	PREFEAT:1,Spell Focus (Enchantment)	PRESKILL:2,Bluff,Diplomacy=8	PRESPELLTYPE:Arcane,1,1	PRESTAT:1,CHA=13
+CLASS:Enchantress	PREFEAT:1,Spell Focus (Enchantment)	PRESKILL:2,Bluff,Diplomacy=8	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Enchantress	STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (Local)|TYPE.Profession|Sense Motive|Sleight of Hand|Spellcraft
 1	FEATAUTO:Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(Arcane)	SA:Enchantress	BONUS:SKILL|TYPE=Charisma|CL	BONUS:SKILL|Intimidate|(-1)*CL
-2	ADD:SPELLCASTER(Arcane)
-3	ADD:SPELLCASTER(Arcane)
-4	ADD:SPELLCASTER(Arcane)
-5	ADD:SPELLCASTER(Arcane)
-6	ADD:SPELLCASTER(Arcane)
-7	ADD:SPELLCASTER(Arcane)
-8	ADD:SPELLCASTER(Arcane)
-9	ADD:SPELLCASTER(Arcane)
-10	ADD:SPELLCASTER(Arcane)
+1	SA:Enchantress	BONUS:SKILL|TYPE=Charisma|CL	BONUS:SKILL|Intimidate|(-1)*CL	ADD:SPELLCASTER|1|Arcane
+2															ADD:SPELLCASTER|1|Arcane
+3															ADD:SPELLCASTER|1|Arcane
+4															ADD:SPELLCASTER|1|Arcane
+5															ADD:SPELLCASTER|1|Arcane
+6															ADD:SPELLCASTER|1|Arcane
+7															ADD:SPELLCASTER|1|Arcane
+8															ADD:SPELLCASTER|1|Arcane
+9															ADD:SPELLCASTER|1|Arcane
+10															ADD:SPELLCASTER|1|Arcane
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Lady of the Lake	HD:8		TYPE:PC.Prestige	ABB:LoL		MAXLEVEL:5	SOURCEPAGE:42	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/3*4|TYPE=Base.Replace
@@ -149,11 +149,11 @@ CLASS:Lady of the Lake	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Handle Ani
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block:Normal Level Progression
-1	ADD:SPELLCASTER(Any)	SA:Breathe Water (Su)	SPELLS:Lady of the Lake|TIMES=-1|CASTERLEVEL=CL|Water Breathing,13+CHA
-2	ADD:SPELLCASTER(Any)
-3	ADD:SPELLCASTER(Any)	SA:Walk on Water (Su)	SPELLS:Lady of the Lake|TIMES=-1|CASTERLEVEL=CL|Water Walk,13+CHA
-4	ADD:SPELLCASTER(Any)
-5	ADD:SPELLCASTER(Any)	SA:Tap Water (Ex)
+1	SA:Breathe Water (Su)	SPELLS:Lady of the Lake|TIMES=-1|CASTERLEVEL=CL|Water Breathing,13+CHA	ADD:SPELLCASTER|1|Any
+2																	ADD:SPELLCASTER|1|Any
+3	SA:Walk on Water (Su)	SPELLS:Lady of the Lake|TIMES=-1|CASTERLEVEL=CL|Water Walk,13+CHA		ADD:SPELLCASTER|1|Any
+4																	ADD:SPELLCASTER|1|Any
+5	SA:Tap Water (Ex)														ADD:SPELLCASTER|1|Any
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Quest Knight	HD:12		TYPE:PC.Prestige	ABB:QKn		MAXLEVEL:10	SOURCEPAGE:43	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -182,16 +182,16 @@ CLASS:Saint		HD:6		TYPE:PC.Prestige	ABB:St		MAXLEVEL:10	SOURCEPAGE:44	BONUS:CHEC
 CLASS:Saint		PREFEAT:2,Faith,Piety	PRELANG:1,Literacy	PRESA:3,Ordination,Turn the other cheek,Aura of Piety	PRESKILL:1,Knowledge (Religion)=10	PRESKILL:1,Diplomacy=8	PRESTAT:1,NOB=65	PRETEXT:Before taking a level in this prestige class, a character must take a vow of poverty and chastity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Saint		STARTSKILLPTS:6	CSKILL:Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|Heal|Knowledge (Local)|Knowledge (History)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE.Profession|Prophecy|Ride|Sense Motive|Spellcraft
-1	ADD:SPELLCASTER(Hermit,Priest)	SA:Aura of Sanctity (Ex)	BONUS:VAR|BONUSPOWERPOINTS|NOB	BONUS:SKILL|TYPE.Charisma|NOB/2	BONUS:SKILL|Intimidate|(-1)*NOB/2
-2	ADD:SPELLCASTER(Hermit,Priest)	SA:Litany %/day (Su)|Litany	BONUS:VAR|Litany|CL/2															DEFINE:Litany|0
-3	ADD:SPELLCASTER(Hermit,Priest)	SA:Proselytize (Ex)
-4	ADD:SPELLCASTER(Hermit,Priest)
-5	ADD:SPELLCASTER(Hermit,Priest)	SA:Papal Intercession (Ex)
-6	ADD:SPELLCASTER(Hermit,Priest)
-7	ADD:SPELLCASTER(Hermit,Priest)	SA:Beatification (Su)
-8	ADD:SPELLCASTER(Hermit,Priest)
-9	ADD:SPELLCASTER(Hermit,Priest)	SA:Clean Slate (Su)
-10	ADD:SPELLCASTER(Hermit,Priest)	SA:Divine Intercession (Su)
+1	SA:Aura of Sanctity (Ex)	BONUS:VAR|BONUSPOWERPOINTS|NOB	BONUS:SKILL|TYPE.Charisma|NOB/2	BONUS:SKILL|Intimidate|(-1)*NOB/2				ADD:SPELLCASTER|1|Hermit,Priest
+2	SA:Litany %/day (Su)|Litany	BONUS:VAR|Litany|CL/2															DEFINE:Litany|0	ADD:SPELLCASTER|1|Hermit,Priest
+3	SA:Proselytize (Ex)																							ADD:SPELLCASTER|1|Hermit,Priest
+4																											ADD:SPELLCASTER|1|Hermit,Priest
+5	SA:Papal Intercession (Ex)																						ADD:SPELLCASTER|1|Hermit,Priest
+6																											ADD:SPELLCASTER|1|Hermit,Priest
+7	SA:Beatification (Su)																							ADD:SPELLCASTER|1|Hermit,Priest
+8																											ADD:SPELLCASTER|1|Hermit,Priest
+9	SA:Clean Slate (Su)																							ADD:SPELLCASTER|1|Hermit,Priest
+10	SA:Divine Intercession (Su)																						ADD:SPELLCASTER|1|Hermit,Priest
 # Spectral Knight block
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -206,8 +206,8 @@ CLASS:Black Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimid
 ###Block: Normal Level Progression
 1	SA:Black Knight (Ex)																			BONUS:SKILL|Intimidate|CL
 2	SA:Black Heart +%d6 %/day (Ex)|BlackHeartDamage|BlackHeartTimes	BONUS:VAR|BlackHeartDamage|CL/2	BONUS:VAR|BlackHeartTimes|1						DEFINE:BlackHeartDamage|0	DEFINE:BlackHeartTimes|0
-3	SA:Mounted Combat +% (Ex)|MountedCombat					BONUS:VAR|KnightLevel|CL-3	BONUS:VAR|MountedCombat|CL/3							DEFINE:MountedCombat|0											FEATAUTO:Knight's Warhorse	FEATAUTO:Mounted Combat
-5																																						ADD:FEAT(TYPE=Fighter)
+3	SA:Mounted Combat +% (Ex)|MountedCombat					BONUS:VAR|KnightLevel|CL-3	BONUS:VAR|MountedCombat|CL/3							DEFINE:MountedCombat|0							FEATAUTO:Knight's Warhorse	FEATAUTO:Mounted Combat
+5																																															ADD:FEAT|1|TYPE=Fighter
 7	SA:Black Shield (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus											Combat bonus
@@ -222,15 +222,15 @@ CLASS:Blue Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1				SA:Breathe Water (Su)																				SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Breathing,13+CHA
-2								BONUS:VAR|KnightLevel|CL																																FEATAUTO:Knight's Warhorse
-3	CAST:1,2,12						BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS																				VFEAT:Power Source(Druid/Minstrel)
+1				SA:Breathe Water (Su)																SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Breathing,13+CHA
+2								BONUS:VAR|KnightLevel|CL																												FEATAUTO:Knight's Warhorse
+3	CAST:1,2,12						BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS																VFEAT:Power Source(Druid/Minstrel)
 4	CAST:1,1,8						BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4		DEFINE:MountedCombat|0
-5	CAST:1,1,4,15	SA:Walk on Water (Su)	BONUS:VAR|BASEPOWERPOINTS|2															SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Walk,13+CHA
-6	CAST:1,1,3,10					BONUS:VAR|BASEPOWERPOINTS|3											ADD:FEAT(TYPE=Fighter)
+5	CAST:1,1,4,15	SA:Walk on Water (Su)	BONUS:VAR|BASEPOWERPOINTS|2											SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Walk,13+CHA
+6	CAST:1,1,3,10					BONUS:VAR|BASEPOWERPOINTS|3																																	ADD:FEAT|1|TYPE=Fighter
 7	CAST:0,1,2,5,18	SA:Blue Armor (Ex)	BONUS:VAR|BASEPOWERPOINTS|3
 8	CAST:0,1,2,4,12					BONUS:VAR|BASEPOWERPOINTS|5
-9	CAST:0,1,2,3,6,21					BONUS:VAR|BASEPOWERPOINTS|5											ADD:FEAT(TYPE=Fighter)
+9	CAST:0,1,2,3,6,21					BONUS:VAR|BASEPOWERPOINTS|5																																	ADD:FEAT|1|TYPE=Fighter
 10	CAST:0,1,2,3,5,14	SA:Tap Water (Ex)		BONUS:VAR|BASEPOWERPOINTS|7
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -243,13 +243,13 @@ CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Handle 
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1										BONUS:VAR|RageTimes|CL/5+1	BONUS:VAR|KnightLevel|CL	DEFINE:RageTimes|0					FEATAUTO:Knight's Warhorse	FEATAUTO:Rage
+1										BONUS:VAR|RageTimes|CL/5+1	BONUS:VAR|KnightLevel|CL	DEFINE:RageTimes|0	FEATAUTO:Knight's Warhorse	FEATAUTO:Rage
 2	SA:Wild Empathy (Ex)
 3	SA:Woodland Stride (Ex)
 4	SA:Trackless Step (Ex)
-6																								ADD:FEAT(TYPE=Fighter)
+6																																ADD:FEAT|1|TYPE=Fighter
 7	SA:Resist Nature's (Ex) Lure	SA:Green Armor (Ex)
-8																								ADD:FEAT(TYPE=Fighter)
+8																																ADD:FEAT|1|TYPE=Fighter
 9	SA:Venom Immunity (Ex)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -278,15 +278,15 @@ CLASS:Red Knight	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Re
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1							SA:Mounted Combat +%|MountedCombat	BONUS:VAR|MountedCombat|CL/5+1						DEFINE:MountedCombat|0	ADD:FEAT(Mounted Combat)
+1							SA:Mounted Combat +%|MountedCombat	BONUS:VAR|MountedCombat|CL/5+1						DEFINE:MountedCombat|0							ADD:FEAT|1|Mounted Combat
 2													BONUS:VAR|SneakAttack|CL/2
-3	CAST:1,2,12		KNOWN:4,2,1								BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|CHA										VFEAT:Power Source(Hedge Mage)
+3	CAST:1,2,12		KNOWN:4,2,1								BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|CHA					VFEAT:Power Source(Hedge Mage)
 4	CAST:1,1,8		KNOWN:5,2,1								BONUS:VAR|BASEPOWERPOINTS|1
 5	CAST:1,1,4,15	KNOWN:5,3,2,1							BONUS:VAR|BASEPOWERPOINTS|2
 6	CAST:1,1,3,10	KNOWN:6,3,2,1							BONUS:VAR|BASEPOWERPOINTS|3
-7	CAST:0,1,2,5,18	KNOWN:6,4,3,2,1	SA:Red Armor (Ex)				BONUS:VAR|BASEPOWERPOINTS|3											ADD:FEAT(TYPE=RobberBaron)
+7	CAST:0,1,2,5,18	KNOWN:6,4,3,2,1	SA:Red Armor (Ex)				BONUS:VAR|BASEPOWERPOINTS|3																	ADD:FEAT|1|TYPE=RobberBaron
 8	CAST:0,1,2,4,12	KNOWN:7,4,3,2,1							BONUS:VAR|BASEPOWERPOINTS|5
-9	CAST:0,1,2,3,6,21	KNOWN:7,5,3,3,2							BONUS:VAR|BASEPOWERPOINTS|5											ADD:FEAT(TYPE=RobberBaron)
+9	CAST:0,1,2,3,6,21	KNOWN:7,5,3,3,2							BONUS:VAR|BASEPOWERPOINTS|5																	ADD:FEAT|1|TYPE=RobberBaron
 10	CAST:0,1,2,3,5,14	KNOWN:8,5,3,3,2,1							BONUS:VAR|BASEPOWERPOINTS|7
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus											Combat bonus

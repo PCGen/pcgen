@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sun Apr  2 01:16:25 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe
 
-# Feat Name						Output Name		Type			Visible	Choose a Feat										Source Page
-Slasher Occupation (Disorganized Killer)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Disorganized_Killer_Skills)3	ADD:FEAT(Stealthy)	SOURCEPAGE:p.44
-Slasher Occupation (Mental Patient)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Mental_Patient_Skills)2	ADD:FEAT(Brawl,Stealthy)	SOURCEPAGE:p.44
-Slasher Occupation (Organized Killer)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Organized_Killer_Skills)3	ADD:FEAT(Deceptive)		SOURCEPAGE:p.45
+# Feat Name						Output Name		Type			Visible	Source Page		ADD:
+Slasher Occupation (Disorganized Killer)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	SOURCEPAGE:p.44	ADD:FEAT|3|TYPE=Disorganized_Killer_Skills	ADD:FEAT|1|Stealthy
+Slasher Occupation (Mental Patient)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	SOURCEPAGE:p.44	ADD:FEAT|2|TYPE=Mental_Patient_Skills	ADD:FEAT|1|Brawl,Stealthy
+Slasher Occupation (Organized Killer)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	SOURCEPAGE:p.45	ADD:FEAT|3|TYPE=Organized_Killer_Skills	ADD:FEAT|1|Deceptive
 
 ###Block:The Skill Choices
 # Feat Name								Type

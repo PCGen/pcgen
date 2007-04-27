@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Apr  2 04:37:37 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://www.parentsbasementgames.com
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -28,10 +28,10 @@ CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|D
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Poison Use																					ADD:FEAT(Homefront Guardian Skill Bonus)1
-2	SA:+% Save vs. Poison|HomefrontPoisonSave	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2	DEFINE:HomefrontPoisonSave|0								FEATAUTO:Sneak Attack
-3	SA:Homeblood use																					ADD:FEAT(Homefront Guardian Skill Bonus)1
-5	SA:Homeblood Immunity (Ex)																			ADD:FEAT(Homefront Guardian Skill Bonus)1
+1	SA:Poison Use																									ADD:FEAT|1|Homefront Guardian Skill Bonus
+2	SA:+% Save vs. Poison|HomefrontPoisonSave	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2	DEFINE:HomefrontPoisonSave|0	FEATAUTO:Sneak Attack
+3	SA:Homeblood use																									ADD:FEAT|1|Homefront Guardian Skill Bonus
+5	SA:Homeblood Immunity (Ex)																							ADD:FEAT|1|Homefront Guardian Skill Bonus
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
@@ -58,18 +58,18 @@ CLASS:Knight of Pure Heart	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCE
 CLASS:Knight of Pure Heart	PREATT:5	PRESKILL:2,Diplomacy,Ride=5	PRETEXT:You must be considered to be of "noble worth" by the Calisian royal court.	PREWEAPONPROF:1,Longsword
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of Pure Heart	STARTSKILLPTS:2	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|Knowledge (Local/Calisia)|TYPE.Perform|Ride|Speak Language
-1	SA:Nobility	ADD:FEAT(TYPE.Passion)1
-3			ADD:FEAT(TYPE.PureHeart)1
-5			ADD:FEAT(TYPE.Passion)1
-6			ADD:FEAT(TYPE.PureHeart)1
-9			ADD:FEAT(TYPE.PureHeart)1
-10			ADD:FEAT(TYPE.Passion)1
+1	SA:Nobility	ADD:FEAT|1|TYPE.Passion
+3			ADD:FEAT|1|TYPE.PureHeart
+5			ADD:FEAT|1|TYPE.Passion
+6			ADD:FEAT|1|TYPE.PureHeart
+9			ADD:FEAT|1|TYPE.PureHeart
+10			ADD:FEAT|1|TYPE.Passion
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Orc Skin Artist	HD:6		TYPE:PC.Prestige	ABB:SnArt		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL-1|TYPE=Base.REPLACE
 # Class Name		Required Feat		Required Race					Required Skill					Req. Spell Type
-CLASS:Orc Skin Artist	PREFEAT:1,Scribe Scroll	PRERACE:1,Half-Orc,Orc (Gadohig),Orc%	PRESKILL:1,Profession (Skin Art/Tattoo)=8	PRESPELLTYPE:Arcane|Divine,1,1
+CLASS:Orc Skin Artist	PREFEAT:1,Scribe Scroll	PRERACE:1,Half-Orc,Orc (Gadohig),Orc%	PRESKILL:1,Profession (Skin Art/Tattoo)=8	PRESPELLTYPE:1,Arcane=1Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Orc Skin Artist	STARTSKILLPTS:3	CSKILL:Concentration|TYPE.Craft|Handle Animal|Heal|TYPE.Profession|Spellcraft|Use Magic Device
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -106,7 +106,7 @@ CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus											Combat bonus
 CLASS:Stargazer	HD:6		TYPE:PC.Prestige	ABB:Star		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Race					Required Skill												Req. Spell Type
-CLASS:Stargazer	PRERACE:1,Elf%,Half-Elf,Halfling%,Human	PRESKILL:3,Concentration,Knowledge (Astronomy),Spellcraft=7	PRESKILL:1,Survival=4	PRESPELLTYPE:Divine,1,3
+CLASS:Stargazer	PRERACE:1,Elf%,Half-Elf,Halfling%,Human	PRESKILL:3,Concentration,Knowledge (Astronomy),Spellcraft=7	PRESKILL:1,Survival=4	PRESPELLTYPE:1,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stargazer	STARTSKILLPTS:3	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Heal|Knowledge (Astronomy)|TYPE.Perform|TYPE.Profession|Speak Language|Spellcraft
 SUBCLASS:Stargazer (Bonfire)			COST:0
@@ -129,15 +129,15 @@ SUBCLASSLEVEL:1	SA:Opposing Sign - The Blacksmith	SA:May not cast Spells from th
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Level Progression
-1	ADD:SPELLCASTER(ANY)	SA:Navigation
-2	ADD:SPELLCASTER(ANY)
-3	ADD:SPELLCASTER(ANY)
-4	ADD:SPELLCASTER(ANY)	SA:Fortune Telling (Su)
-5									ADD:FEAT(TYPE.StarSign)1
-6	ADD:SPELLCASTER(ANY)
-7	ADD:SPELLCASTER(ANY)
-9	ADD:SPELLCASTER(ANY)
-10	ADD:SPELLCASTER(ANY)					ADD:FEAT(TYPE.StarSign)1
+1	SA:Navigation		ADD:SPELLCASTER|1|ANY
+2					ADD:SPELLCASTER|1|ANY
+3					ADD:SPELLCASTER|1|ANY
+4	SA:Fortune Telling (Su)	ADD:SPELLCASTER|1|ANY
+5					ADD:FEAT|1|TYPE.StarSign
+6					ADD:SPELLCASTER|1|ANY
+7					ADD:SPELLCASTER|1|ANY
+9					ADD:SPELLCASTER|1|ANY
+10					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.StarSign
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -175,12 +175,12 @@ CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE.Craft|Disable Device|TYPE.Knowle
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1																																					FEATAUTO:Alertness
-2																																	ADD:FEAT(TYPE.Gunnery)1
+1																																	FEATAUTO:Alertness
+2																																					ADD:FEAT|1|TYPE.Gunnery
 4						SA:Magical Alertness (Ex) +%|MagicalAlertnessBonus							BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0
-5																																	ADD:FEAT(TYPE.Gunnery)1
+5																																					ADD:FEAT|1|TYPE.Gunnery
 7						SA:Fear of Flame (Ex) +2 saving throw bonus versus any fire related attack or incident
-8																																	ADD:FEAT(TYPE.Gunnery)1
+8																																					ADD:FEAT|1|TYPE.Gunnery
 10	SA:.CLEAR.Magical Alertness	SA:Improved Magical Alertness (Ex) +%|MagicalAlertnessBonus						BONUS:VAR|MagicalAlertnessBonus|4
 
 
@@ -190,11 +190,11 @@ CLASS:Shadowtamer	HD:6		TYPE:PC.Prestige	ABB:ShTmr		MAXLEVEL:5	SOURCEPAGE:p.37	B
 CLASS:Shadowtamer	PREATT:3	PREFEAT:1,Shintai	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=8	PRESKILL:1,Knowledge (Nature)=4	PRESKILL:1,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:Necromancy,1,3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowtamer	STARTSKILLPTS:3	CSKILL:Concentration|TYPE.Craft|Gather Information|TYPE.Knowledge|TYPE.Profession|Speak Language|Spellcraft
-1	ADD:SPELLCASTER(ANY)	SA:Lure of the Dammed	BONUS:VAR|ShadowBeast|CL													FEATAUTO:Summon Shadow Beast
-2	ADD:SPELLCASTER(ANY)
-3	ADD:SPELLCASTER(ANY)
-4	ADD:SPELLCASTER(ANY)
-5	ADD:SPELLCASTER(ANY)	SA:Damned								BONUS:COMBAT|AC|2	BONUS:STAT|STR|2	TEMPLATE:Damned Spell Resistance
+1	SA:Lure of the Dammed	BONUS:VAR|ShadowBeast|CL													FEATAUTO:Summon Shadow Beast	ADD:SPELLCASTER|1|ANY
+2																											ADD:SPELLCASTER|1|ANY
+3																											ADD:SPELLCASTER|1|ANY
+4																											ADD:SPELLCASTER|1|ANY
+5	SA:Damned								BONUS:COMBAT|AC|2	BONUS:STAT|STR|2	TEMPLATE:Damned Spell Resistance						ADD:SPELLCASTER|1|ANY
 
 #
 # End

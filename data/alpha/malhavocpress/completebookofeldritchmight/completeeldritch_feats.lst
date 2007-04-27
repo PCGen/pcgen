@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 21:28:15 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 # Original Entry by: Felipe Diniz
 
@@ -6,7 +6,7 @@ SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEM
 
 # Feat Name					Type			Required Class			Required Feat			Required Language		Required Skill				Req. Spell Type		Required Stat				Var. Min. Value		Description																										Stackable?	Multiple?	Choose																																				Add Spell Lvl	Bonus to skill						Source Page
 Accompaniment				TYPE:General																															PREVARGTEQ:Spellsong,1	DESC:You increase your spellsongs' resistance to silence by also playing an instrument.															MULT:NO																																																	SOURCEPAGE:p.19
-Aid Spellcasting				TYPE:Eldritch																					PRESPELLTYPE:Arcane,1,1	PRESTAT:1,CHA=15	PRESTAT:1,INT=15					DESC:You add your knowledge and power to the casting of an allied arcanist's spell.																MULT:NO																																																	SOURCEPAGE:p.19
+Aid Spellcasting				TYPE:Eldritch																					PRESPELLTYPE:1,Arcane=1	PRESTAT:1,CHA=15	PRESTAT:1,INT=15					DESC:You add your knowledge and power to the casting of an allied arcanist's spell.																MULT:NO																																																	SOURCEPAGE:p.19
 Amplify Song (Forte)			TYPE:General.Song																															PREVARGTEQ:Spellsong,1	DESC:You increase your spellsong's range with your skill in music.																		MULT:NO																																																	SOURCEPAGE:p.19
 Battle Touch				TYPE:General																									PRESTAT:1,DEX=15								DESC:Your touch attack spells last longer, giving them more use in combat.																	MULT:NO																																																	SOURCEPAGE:p.19
 Conjure Mastery				TYPE:Eldritch	PRECLASS:1,Spellcaster=7																				PRESTAT:1,CHA=17								DESC:You learn how to get more powerful creatures when you cast summoning spells.																MULT:NO																																																	SOURCEPAGE:p.19

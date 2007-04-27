@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 19 02:26:03 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 
 # Class Name	Class Skill
@@ -18,11 +18,11 @@ CLASS:Archer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Literacy|Sp
 1	FEATAUTO:Simple Weapon Proficiency|Archer Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Primary Weapon +%|PrimaryWeap					DEFINE:PrimaryWeap|2	ADD:WEAPONBONUS(TOHIT|2+((CL=Archer)/5)|Crossbow (Heavy)|Crossbow (Light)|Shortbow|Longbow|)	FEATAUTO:Point Blank Shot
+1	SA:Primary Weapon +%|PrimaryWeap					DEFINE:PrimaryWeap|2	FEATAUTO:Point Blank Shot	ADD:WEAPONBONUS|1|TOHIT|2+((CL=Archer)/5)|Crossbow (Heavy)|Crossbow (Light)|Shortbow|Longbow|
 2	SA:Extra Shot
-4																															FEATAUTO:Pinpoint Accuracy
+4															FEATAUTO:Pinpoint Accuracy
 5							BONUS:VAR|PrimaryWeap|1
-6																															FEATAUTO:Dead Shot
+6															FEATAUTO:Dead Shot
 10	SA:Improved Point Blank Shot		BONUS:VAR|PrimaryWeap|1
 14	SA:Long Distance Accuracy
 15							BONUS:VAR|PrimaryWeap|1
@@ -63,7 +63,7 @@ CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 ###Block: Normal Level Progression
 1	SA:Deceptive Melee								BONUS:COMBAT|AC|max(CHA,0)				BONUS:SKILL|Bluff,Innuendo,Sense Motive|2
 2	SA:Monthly Funds %|MonthlyFunds																					DEFINE:MonthlyFunds|25
-6																																ADD:FEAT(Leadership)
+6																																ADD:FEAT|1|Leadership
 8							BONUS:VAR|MonthlyFunds|25	BONUS:COMBAT|AC|max(CHA,0)|PRETYPE:ARMOR,LIGHT
 10	SA:Leadership +%|NobleLeadership																					DEFINE:NobleLeadership|1
 11							BONUS:VAR|MonthlyFunds|50
@@ -80,26 +80,26 @@ CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledg
 1	FEATAUTO:Simple Weapon Proficiency|Sailor Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1															BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2	ADD:WEAPONBONUS(TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|)
-2											BONUS:CHECKS|Reflex|-1																																				FEATAUTO::Improvised Weapon
-3											BONUS:CHECKS|Reflex|1																																VFEAT:Evasion
+1															BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2										ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
+2											BONUS:CHECKS|Reflex|-1															FEATAUTO::Improvised Weapon
+3											BONUS:CHECKS|Reflex|1											VFEAT:Evasion
 4											BONUS:CHECKS|Reflex|-1
-5	SA:Extraordinary Tolerance						BONUS:CHECKS|Reflex|1											ADD:WEAPONBONUS(TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|)
+5	SA:Extraordinary Tolerance						BONUS:CHECKS|Reflex|1																				ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
 6											BONUS:CHECKS|Reflex|-1
 7	SA:Dirty Blow +%d4|1							BONUS:CHECKS|Reflex|1
 8											BONUS:CHECKS|Reflex|-1
-9						BONUS:VAR|UncannyDodge|1	BONUS:CHECKS|Reflex|1																																				FEATAUTO:Uncanny Dodge
-10	SA:Dirty Blow +%d4|1							BONUS:CHECKS|Reflex|-1											ADD:WEAPONBONUS(TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|)
+9						BONUS:VAR|UncannyDodge|1	BONUS:CHECKS|Reflex|1															FEATAUTO:Uncanny Dodge
+10	SA:Dirty Blow +%d4|1							BONUS:CHECKS|Reflex|-1																				ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
 11	SA:Superior Improvised Weapon						BONUS:CHECKS|Reflex|1
 12											BONUS:CHECKS|Reflex|-1
 13	SA:Dirty Blow +%d4|1		BONUS:VAR|UncannyDodge|1	BONUS:CHECKS|Reflex|1
 14											BONUS:CHECKS|Reflex|-1
-15	SA:Follow Up Strike							BONUS:CHECKS|Reflex|1											ADD:WEAPONBONUS(TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|)
+15	SA:Follow Up Strike							BONUS:CHECKS|Reflex|1																				ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
 16	SA:Dirty Blow +%d4|1							BONUS:CHECKS|Reflex|-1
 17	SA:Extraordinary Balance						BONUS:CHECKS|Reflex|1
 18											BONUS:CHECKS|Reflex|-1
 19	SA:Dirty Blow +%d4|1							BONUS:CHECKS|Reflex|1
-20											BONUS:CHECKS|Reflex|-1											ADD:WEAPONBONUS(TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|)	VFEAT:Improved Evasion
+20											BONUS:CHECKS|Reflex|-1											VFEAT:Improved Evasion						ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Soldier	HD:8		TYPE:Base.PC	ABB:sv5		SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -140,11 +140,11 @@ CLASS:Stalker	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Gather
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1																BONUS:SKILL|Hide,Move Silently|2					ADD:FEAT(Track,Shadow)
-2																														FEATAUTO:Improved Unarmed Strike
-5																														FEATAUTO:Subduing Strike
+1																BONUS:SKILL|Hide,Move Silently|2											ADD:FEAT|1|Track,Shadow
+2																										FEATAUTO:Improved Unarmed Strike
+5																										FEATAUTO:Subduing Strike
 8	SA:Skilled Disarm +% |SkilledDisarm	BONUS:VAR|SkilledDisarm|2											DEFINE:SkilledDisarm|0
-11							BONUS:VAR|SkilledDisarm|1	BONUS:VAR|SneakAttack|1															FEATAUTO:Sneak Attack
+11							BONUS:VAR|SkilledDisarm|1	BONUS:VAR|SneakAttack|1											FEATAUTO:Sneak Attack
 14	SA:Blinding Attack			BONUS:VAR|SkilledDisarm|1	BONUS:VAR|SneakAttack|1
 17	SA:Incapacitating Attack		BONUS:VAR|SkilledDisarm|1	BONUS:VAR|SneakAttack|1
 20	SA:Finishing Attack			BONUS:VAR|SkilledDisarm|1	BONUS:VAR|SneakAttack|1

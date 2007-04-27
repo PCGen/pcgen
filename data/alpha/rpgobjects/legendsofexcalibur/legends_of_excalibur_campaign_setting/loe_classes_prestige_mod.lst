@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # Class Name			Clear Prereq.	Required Skill														Req. Known Spell		Req. Spell Type		Var. Min. Value
-CLASS:Arcane Trickster.MOD	PRE:.CLEAR		PRESKILL:3,Decipher Script,Disable Device,Escape Artist=7	PRESKILL:1,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:Arcane,1,3	PREVARGTEQ:SneakAttack,2
+CLASS:Arcane Trickster.MOD	PRE:.CLEAR		PRESKILL:3,Decipher Script,Disable Device,Escape Artist=7	PRESKILL:1,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttack,2

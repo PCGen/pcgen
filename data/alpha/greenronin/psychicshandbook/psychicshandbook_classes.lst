@@ -1,27 +1,27 @@
-# CVS $Revision$ $Author$ -- Sat Oct 21 21:09:46 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:The Psychic's Handbook	SOURCESHORT:psychicshandbook	SOURCEWEB:http://www.greenronin.com
 
 # Class Name	Output Name			Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Psychic	OUTPUTNAME:Psychic	HD:6		TYPE:Base.PC	ABB:Psy		SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Psychic	STARTSKILLPTS:6	CSKILL:Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|Knowledge (Psionics)|Listen|Perform|TYPE.Profession|Search|Sense Motive|Spot
-1	ADD:FEAT(TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation)1	FEATAUTO:Psychic Ability
-2	ADD:FEAT(TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation)1
+1	FEATAUTO:Psychic Ability	ADD:FEAT|1|TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation
+2						ADD:FEAT|1|TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation
 3
-4	ADD:FEAT(TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation)1
+4						ADD:FEAT|1|TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation
 5
 6
-7	ADD:FEAT(TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation)1
+7						ADD:FEAT|1|TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation
 8
 9
-10	ADD:FEAT(TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation)1
+10						ADD:FEAT|1|TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation
 11
 12
-13	ADD:FEAT(TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation)1
+13						ADD:FEAT|1|TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation
 14
 15
 16
-17	ADD:FEAT(TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation)1
+17						ADD:FEAT|1|TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation
 18
 19
-20	ADD:FEAT(TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation)1
+20						ADD:FEAT|1|TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic,TYPE=ItemCreation

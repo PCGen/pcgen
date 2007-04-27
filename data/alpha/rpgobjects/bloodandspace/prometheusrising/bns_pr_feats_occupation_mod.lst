@@ -1,31 +1,31 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
-# Feat Name					Prohibited Race						Choose a Feat
-Occupation (Academic).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=AstronomerPreferredOccupation)	ADD:FEAT(TYPE=MenomePreferredOccupation)
+# Feat Name					Prohibited Race						ADD:
+Occupation (Academic).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=AstronomerPreferredOccupation	ADD:FEAT|1|TYPE=MenomePreferredOccupation
 Occupation (Adventurer).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)
 Occupation (Athlete).MOD		!PRERACE:1,Android (Pilot)
 Occupation (Blue Collar).MOD		!PRERACE:1,Android (Pilot)
-Occupation (Celebrity).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=EartherPreferredOccupation)
+Occupation (Celebrity).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=EartherPreferredOccupation
 Occupation (Creative).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)
-Occupation (Criminal).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=HopperPreferredOccupation)
-Occupation (Dilettante).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=EartherPreferredOccupation)
-Occupation (Doctor).MOD			!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=AstronomerPreferredOccupation)	ADD:FEAT(TYPE=EuroPreferredOccupation)
+Occupation (Criminal).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=HopperPreferredOccupation
+Occupation (Dilettante).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=EartherPreferredOccupation
+Occupation (Doctor).MOD			!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=AstronomerPreferredOccupation	ADD:FEAT|1|TYPE=EuroPreferredOccupation
 Occupation (Emergency Services).MOD	!PRERACE:1,Android (Laborer),Android (Pilot)
 Occupation (Entrepreneur).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)
 Occupation (Investigative).MOD	!PRERACE:1,Android (Laborer),Android (Pilot)
 Occupation (Law Enforcement).MOD	!PRERACE:1,Android (Laborer),Android (Pilot)
-Occupation (Military).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=MaulerPreferredOccupation)	ADD:FEAT(TYPE=MenomePreferredOccupation)
-Occupation (Religious).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=EuroPreferredOccupation)
+Occupation (Military).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=MaulerPreferredOccupation	ADD:FEAT|1|TYPE=MenomePreferredOccupation
+Occupation (Religious).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=EuroPreferredOccupation
 Occupation (Rural).MOD			!PRERACE:1,Android (Pilot)
 Occupation (Student).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)
-Occupation (Technician).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=AstronomerPreferredOccupation)	ADD:FEAT(TYPE=MenomePreferredOccupation)
-Occupation (White Collar).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=EartherPreferredOccupation)
+Occupation (Technician).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=AstronomerPreferredOccupation	ADD:FEAT|1|TYPE=MenomePreferredOccupation
+Occupation (White Collar).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=EartherPreferredOccupation
 
 Occupation (Astronaut Trainee).MOD	!PRERACE:1,Android (Laborer)
-Occupation (Colonist).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=HopperPreferredOccupation)
+Occupation (Colonist).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=HopperPreferredOccupation
 Occupation (Drifter).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)
-Occupation (Gladiator).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=HopperPreferredOccupation)	ADD:FEAT(TYPE=MaulerPreferredOccupation)
+Occupation (Gladiator).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)	ADD:FEAT|1|TYPE=HopperPreferredOccupation	ADD:FEAT|1|TYPE=MaulerPreferredOccupation
 Occupation (Heir).MOD			!PRERACE:1,Android (Laborer),Android (Pilot)
 Occupation (Outcast).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)
 Occupation (Scavenger).MOD		!PRERACE:1,Android (Laborer),Android (Pilot)

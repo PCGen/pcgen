@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 02:08:50 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 # Original Entry by: Felipe Diniz
 
@@ -83,16 +83,16 @@ CLASS:Diplomancer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECK
 CLASS:Diplomancer	PREFEAT:2,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:1,Diplomacy=10	PRESKILL:1,Sense Motive=8	PRESPELLSCHOOL:Enchantment,5,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|TYPE.Knowledge|Listen|Search|Sense Motive|Spellcraft|Spot
-1	ADD:SPELLCASTER(ANY)	SA:Charm																																												SPELLS:ClassAbility|TIMES=1|Charm
-2					SA:Enchantment Affinity +% (Ex)|EnchantAffinity								BONUS:CASTERLEVEL|SCHOOL.Enchantment|EnchantAffinity	BONUS:DC|SCHOOL.Enchantment|EnchantAffinity|TYPE=Competence							DEFINE:EnchantAffinity|1
-3	ADD:SPELLCASTER(ANY)	SA:Magical Seduction/Attractiveness (Su)
-4					SA:Protection from Evocations +%|ProtectionEvocations																																DEFINE:ProtectionEvocations|1
-5	ADD:SPELLCASTER(ANY)	SA:Insight into Secrets (Sp)
-6														BONUS:VAR|EnchantAffinity|1
-7	ADD:SPELLCASTER(ANY)	SA:Charisma Gift (Su)																															BONUS:STAT|CHA|1|TYPE=Inherent
-8														BONUS:VAR|ProtectionEvocations|1
-9	ADD:SPELLCASTER(ANY)	SA:Word Cunning (Su)
-10	ADD:SPELLCASTER(ANY)										BONUS:VAR|EnchantAffinity|1
+1	SA:Charm																																												SPELLS:ClassAbility|TIMES=1|Charm	ADD:SPELLCASTER|1|ANY
+2	SA:Enchantment Affinity +% (Ex)|EnchantAffinity								BONUS:CASTERLEVEL|SCHOOL.Enchantment|EnchantAffinity	BONUS:DC|SCHOOL.Enchantment|EnchantAffinity|TYPE=Competence							DEFINE:EnchantAffinity|1
+3	SA:Magical Seduction/Attractiveness (Su)																																													ADD:SPELLCASTER|1|ANY
+4	SA:Protection from Evocations +%|ProtectionEvocations																																DEFINE:ProtectionEvocations|1
+5	SA:Insight into Secrets (Sp)																																															ADD:SPELLCASTER|1|ANY
+6										BONUS:VAR|EnchantAffinity|1
+7	SA:Charisma Gift (Su)																															BONUS:STAT|CHA|1|TYPE=Inherent												ADD:SPELLCASTER|1|ANY
+8										BONUS:VAR|ProtectionEvocations|1
+9	SA:Word Cunning (Su)																																																ADD:SPELLCASTER|1|ANY
+10										BONUS:VAR|EnchantAffinity|1																																						ADD:SPELLCASTER|1|ANY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -104,51 +104,51 @@ CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Hid
 1						FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1						FEATAUTO:Shield Proficiency
 ###Block: Normal Progression
-1					ADD:FEAT(TYPE=RitualofPotency)
-2	SA:Enrune Armor (Su)	ADD:FEAT(Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Combat Expertise,Improved Disarm,Improved Feint,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Improved Overrun,Improved Sunder,Great Cleave,Quick Draw,Two Weapon Fighting,Two Weapon Defense,Improved Two Weapon Fighting,Greater Two Weapon Fighting,Weapon Finesse,Weapon Focus,Greater Weapon Focus)
+1					ADD:FEAT|1|TYPE=RitualofPotency
+2	SA:Enrune Armor (Su)	ADD:FEAT|1|Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Combat Expertise,Improved Disarm,Improved Feint,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Improved Overrun,Improved Sunder,Great Cleave,Quick Draw,Two Weapon Fighting,Two Weapon Defense,Improved Two Weapon Fighting,Greater Two Weapon Fighting,Weapon Finesse,Weapon Focus,Greater Weapon Focus
 3	SA:Infuse with Power
-4					ADD:FEAT(TYPE=RitualofPotency)
+4					ADD:FEAT|1|TYPE=RitualofPotency
 5	SA:Enrune Weapon (Su)
-6					ADD:FEAT(Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Combat Expertise,Improved Disarm,Improved Feint,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Improved Overrun,Improved Sunder,Great Cleave,Quick Draw,Two Weapon Fighting,Two Weapon Defense,Improved Two Weapon Fighting,Greater Two Weapon Fighting,Weapon Finesse,Weapon Focus,Greater Weapon Focus)
-7					ADD:FEAT(TYPE=RitualofPotency)
+6					ADD:FEAT|1|Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Combat Expertise,Improved Disarm,Improved Feint,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Improved Overrun,Improved Sunder,Great Cleave,Quick Draw,Two Weapon Fighting,Two Weapon Defense,Improved Two Weapon Fighting,Greater Two Weapon Fighting,Weapon Finesse,Weapon Focus,Greater Weapon Focus
+7					ADD:FEAT|1|TYPE=RitualofPotency
 8	SA:Enrune Flesh (Su)
-9					ADD:FEAT(Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Combat Expertise,Improved Disarm,Improved Feint,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Improved Overrun,Improved Sunder,Great Cleave,Quick Draw,Two Weapon Fighting,Two Weapon Defense,Improved Two Weapon Fighting,Greater Two Weapon Fighting,Weapon Finesse,Weapon Focus,Greater Weapon Focus)
-10					ADD:FEAT(TYPE=RitualofPotency)
+9					ADD:FEAT|1|Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Combat Expertise,Improved Disarm,Improved Feint,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Improved Overrun,Improved Sunder,Great Cleave,Quick Draw,Two Weapon Fighting,Two Weapon Defense,Improved Two Weapon Fighting,Greater Two Weapon Fighting,Weapon Finesse,Weapon Focus,Greater Weapon Focus
+10					ADD:FEAT|1|TYPE=RitualofPotency
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Embermage	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat									Required Skill				Req. Spell Descriptor		Req. Spell Type		!PRESPELLDESCRIPTOR
-CLASS:Embermage	PREFEAT:3,Endurance,Spell Focus(Evocation),Spell Penetration	PRESKILL:1,Knowledge (Arcana)=10	PRESPELLDESCRIPTOR:Fire,5,1	PRESPELLTYPE:Arcane,3,1	!PRESPELLDESCRIPTOR:Cold,1,1
+CLASS:Embermage	PREFEAT:3,Endurance,Spell Focus(Evocation),Spell Penetration	PRESKILL:1,Knowledge (Arcana)=10	PRESPELLDESCRIPTOR:Fire,5,1	PRESPELLTYPE:3,Arcane=1	!PRESPELLDESCRIPTOR:Cold,1,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Embermage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft
-1	ADD:SPELLCASTER(ANY)	SA:Burning Touch (Sp)
-2					SA:Burning Blood (Sp)
-3	ADD:SPELLCASTER(ANY)
-4					SA:Fingers of Fire (Sp)
-5	ADD:SPELLCASTER(ANY)
-6					SA:Burning Blood Backlash (Sp)
-7	ADD:SPELLCASTER(ANY)
-8					SA:Tongue of Fire (Sp)
-9	ADD:SPELLCASTER(ANY)	SA:Eyes of Fire (Sp)
-10					SA:Internal Explosion (Sp)
+1	SA:Burning Touch (Sp)			ADD:SPELLCASTER|1|ANY
+2	SA:Burning Blood (Sp)
+3							ADD:SPELLCASTER|1|ANY
+4	SA:Fingers of Fire (Sp)
+5							ADD:SPELLCASTER|1|ANY
+6	SA:Burning Blood Backlash (Sp)
+7							ADD:SPELLCASTER|1|ANY
+8	SA:Tongue of Fire (Sp)
+9	SA:Eyes of Fire (Sp)			ADD:SPELLCASTER|1|ANY
+10	SA:Internal Explosion (Sp)
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Graven One	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat									Required Language					Required Skill								Req. Known Spell							Req. Spell Type
-CLASS:Graven One	PREFEAT:4,Etch Object Rune,Item Image,Scribe Scroll,Toughness	PRELANG:3,Celestial,Draconic,Infernal	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=7	PRESPELL:3,Erase,Explosive Runes,Sepia Snake Sigil	PRESPELLTYPE:Arcane,1,4
+CLASS:Graven One	PREFEAT:4,Etch Object Rune,Item Image,Scribe Scroll,Toughness	PRELANG:3,Celestial,Draconic,Infernal	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=7	PRESPELL:3,Erase,Explosive Runes,Sepia Snake Sigil	PRESPELLTYPE:1,Arcane=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Graven One	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Search|Spellcraft
-1																	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:HP|CURRENTMAX|-4
-1	ADD:SPELLCASTER(ANY)	SA:Flesh Rune (Sp)
-2																															ADD:FEAT(TYPE=TattooofPower)
-3	ADD:SPELLCASTER(ANY)																											ADD:FEAT(TYPE=TattooofPower)
-4					SA:Graven Image (Sp) %HD|GravenImageHD	BONUS:VAR|GravenImageHD|5											DEFINE:GravenImageHD|0
-5	ADD:SPELLCASTER(ANY)																											ADD:FEAT(TYPE=TattooofPower)
-6												BONUS:VAR|GravenImageHD|5
-7	ADD:SPELLCASTER(ANY)																											ADD:FEAT(TYPE=TattooofPower)
-8												BONUS:VAR|GravenImageHD|5
-9	ADD:SPELLCASTER(ANY)																											ADD:FEAT(TYPE=TattooofPower)
-10												BONUS:VAR|GravenImageHD|5
+1													BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:HP|CURRENTMAX|-4
+1	SA:Flesh Rune (Sp)																							ADD:SPELLCASTER|1|ANY
+2																											ADD:FEAT|1|TYPE=TattooofPower
+3																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=TattooofPower
+4	SA:Graven Image (Sp) %HD|GravenImageHD	BONUS:VAR|GravenImageHD|5											DEFINE:GravenImageHD|0
+5																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=TattooofPower
+6								BONUS:VAR|GravenImageHD|5
+7																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=TattooofPower
+8								BONUS:VAR|GravenImageHD|5
+9																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=TattooofPower
+10								BONUS:VAR|GravenImageHD|5
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Chord	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -160,21 +160,21 @@ CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.
 1						FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1						FEATAUTO:Shield Proficiency
 ###Block: Normal Progression
-1										SA:Armor Song (Medium)		BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARGTEQ:5,KotCArmorCheckPenalty	DEFINE:KotCArmorCheckPenalty|-ACCHECK	DEFINE:KotCSpellFailure|SPELLFAILURE
-2	ADD:SPELLCASTER(ANY)																																						ADD:FEAT(TYPE=ImbueVibration)
-3										SA:Battle Dance (Su)
-4	ADD:SPELLCASTER(ANY)																																						ADD:FEAT(TYPE=ImbueVibration)
-5					SA:.CLEAR.Armor Song (Medium)	SA:Armor Song (Heavy)		BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARLTEQ:KotCArmorCheckPenalty,7
-6	ADD:SPELLCASTER(ANY)																																						ADD:FEAT(TYPE=ImbueVibration)
-7										SA:Singblade
-8	ADD:SPELLCASTER(ANY)																																						ADD:FEAT(TYPE=ImbueVibration)
-9										SA:Sonic Protection (Su)
-10	ADD:SPELLCASTER(ANY)						SA:Song of Smiting (Sp)
+1						SA:Armor Song (Medium)		BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARGTEQ:5,KotCArmorCheckPenalty	DEFINE:KotCArmorCheckPenalty|-ACCHECK	DEFINE:KotCSpellFailure|SPELLFAILURE
+2																																						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
+3						SA:Battle Dance (Su)
+4																																						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
+5	SA:.CLEAR.Armor Song (Medium)	SA:Armor Song (Heavy)		BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARLTEQ:KotCArmorCheckPenalty,7
+6																																						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
+7						SA:Singblade
+8																																						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
+9						SA:Sonic Protection (Su)
+10						SA:Song of Smiting (Sp)																													ADD:SPELLCASTER|1|ANY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mirror Master	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat						Required Skill										Req. Spell Type
-CLASS:Mirror Master	PREFEAT:2,Craft Wondrous Item,Mirror Sight	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Craft (Glassmaking)=5	PRESPELLTYPE:Arcane,1,3
+CLASS:Mirror Master	PREFEAT:2,Craft Wondrous Item,Mirror Sight	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Craft (Glassmaking)=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (The Planes)|TYPE.Profession|Search|Sense Motive|Spellcraft|Spot|Survival
 ###Block: Spells
@@ -186,16 +186,16 @@ CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Knowledge (A
 8	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=6|Eyebite,Mirror Calling (Greater),Mirror Truth
 10	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=7|Mirror Portal,Simulacrum,Spell Turning
 ###Block: Normal Progression
-1	ADD:SPELLCASTER(ANY)	SA:Mirror Thoughts (Sp)																		SPELLS:Class Ability|TIMES=1|Detect Thoughts
-2					SA:Mirrored Eyes (Su)	SA:Bonus Spells (1st and 2nd)
-3	ADD:SPELLCASTER(ANY)
-4					SA:Piercing Gaze (Ex)	SA:Bonus Spells (3rd and 4th)		BONUS:SKILL|Spot,Search,Intimidate,Sense Motive|2|TYPE=Competence
-5	ADD:SPELLCASTER(ANY)
-6					SA:Mirror Step (Dimension Door)(Sp)	SA:Bonus Spells (5th)
-7	ADD:SPELLCASTER(ANY)
-8					SA:Mirror Step (Teleport)(Sp)	SA:Bonus Spells (6th)
-9	ADD:SPELLCASTER(ANY)
-10					SA:Mirror Step (Plane Shift)(Sp)	SA:Bonus Spells (7th)
+1	SA:Mirror Thoughts (Sp)																		SPELLS:Class Ability|TIMES=1|Detect Thoughts	ADD:SPELLCASTER|1|ANY
+2	SA:Mirrored Eyes (Su)	SA:Bonus Spells (1st and 2nd)
+3																														ADD:SPELLCASTER|1|ANY
+4	SA:Piercing Gaze (Ex)	SA:Bonus Spells (3rd and 4th)		BONUS:SKILL|Spot,Search,Intimidate,Sense Motive|2|TYPE=Competence
+5																														ADD:SPELLCASTER|1|ANY
+6	SA:Mirror Step (Dimension Door)(Sp)	SA:Bonus Spells (5th)
+7																														ADD:SPELLCASTER|1|ANY
+8	SA:Mirror Step (Teleport)(Sp)	SA:Bonus Spells (6th)
+9																														ADD:SPELLCASTER|1|ANY
+10	SA:Mirror Step (Plane Shift)(Sp)	SA:Bonus Spells (7th)
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Song Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -203,16 +203,16 @@ CLASS:Song Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:CHECKS|
 CLASS:Song Mage	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Magical Talent	PREFEAT:1,TYPE.Song	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Perform (Sing)=8	PREVARGTEQ:Spellsong,2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Song Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|TYPE.Knowledge|Listen|TYPE.Perform|Speak Language|Spellcraft|Spot|Use Magic Device
-1	ADD:SPELLCASTER(ANY)	SA:Song Magic (%/day)|SongMagic	BONUS:VAR|SongMagic|1										DEFINE:SongMagic|0
-2	ADD:SPELLCASTER(ANY)	SA:Song as Sustenance (Su)
-3	ADD:SPELLCASTER(ANY)	SA:Songshield (Sp)
-4	ADD:SPELLCASTER(ANY)	SA:Divine Music (Sp)
-5	ADD:SPELLCASTER(ANY)	SA:Songburst (Su)
-6	ADD:SPELLCASTER(ANY)	SA:Noble Music				BONUS:VAR|SongMagic|1	BONUS:SKILL|Bluff,Diplomacy,Gather Information|2
-7	ADD:SPELLCASTER(ANY)	SA:Sonic Protection (Su)
-8	ADD:SPELLCASTER(ANY)	SA:Forbid the Silence (Sp)
-9	ADD:SPELLCASTER(ANY)	SA:Wings of Song (Sp)			BONUS:VAR|SongMagic|1
-10	ADD:SPELLCASTER(ANY)	SA:Clarity of Music (Sp)
+1	SA:Song Magic (%/day)|SongMagic	BONUS:VAR|SongMagic|1										DEFINE:SongMagic|0	ADD:SPELLCASTER|1|ANY
+2	SA:Song as Sustenance (Su)																			ADD:SPELLCASTER|1|ANY
+3	SA:Songshield (Sp)																				ADD:SPELLCASTER|1|ANY
+4	SA:Divine Music (Sp)																				ADD:SPELLCASTER|1|ANY
+5	SA:Songburst (Su)																					ADD:SPELLCASTER|1|ANY
+6	SA:Noble Music				BONUS:VAR|SongMagic|1	BONUS:SKILL|Bluff,Diplomacy,Gather Information|2					ADD:SPELLCASTER|1|ANY
+7	SA:Sonic Protection (Su)																			ADD:SPELLCASTER|1|ANY
+8	SA:Forbid the Silence (Sp)																			ADD:SPELLCASTER|1|ANY
+9	SA:Wings of Song (Sp)			BONUS:VAR|SongMagic|1														ADD:SPELLCASTER|1|ANY
+10	SA:Clarity of Music (Sp)																			ADD:SPELLCASTER|1|ANY
 
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
@@ -221,14 +221,14 @@ CLASS:Starlight Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40	BONUS:CH
 CLASS:Starlight Mage	PREFEAT:2,Alertness,Spell Focus	PRERACE:1,Elf%	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (Astronomy)=8	PRESPELL:3,Dancing Lights,Glitterdust,Temporal Venom
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Starlight Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|TYPE.Knowledge|Search|Spellcraft|Spot
-1	ADD:SPELLCASTER(ANY)	SA:Spell Appearance Change	SA:Handle Starlight (Ex)	SA:Radiance (Su)
-2					SA:Summon Starlight (Sp) %/day|SummonStarlight						BONUS:VAR|SummonStarlight|CL	DEFINE:SummonStarlight|0
-3	ADD:SPELLCASTER(ANY)	SA:Nightscrying (Su)	SA:Starlight Shield (Sp)
-4					SA:Starlight Weapon (Sp)
-5	ADD:SPELLCASTER(ANY)	SA:Starlight Weaving (Sp)
-6					SA:Starlight Beam (Sp)
-7	ADD:SPELLCASTER(ANY)	SA:Age of the Stars (Su)
-8					SA:Stardust (Sp)	SA:Starskin (Sp)
-9	ADD:SPELLCASTER(ANY)	SA:Starlight Elixir (Sp)
-10	ADD:SPELLCASTER(ANY)	SA:Temporal Womb (Sp)
+1	SA:Spell Appearance Change	SA:Handle Starlight (Ex)	SA:Radiance (Su)											ADD:SPELLCASTER|1|ANY
+2	SA:Summon Starlight (Sp) %/day|SummonStarlight						BONUS:VAR|SummonStarlight|CL	DEFINE:SummonStarlight|0
+3	SA:Nightscrying (Su)	SA:Starlight Shield (Sp)															ADD:SPELLCASTER|1|ANY
+4	SA:Starlight Weapon (Sp)
+5	SA:Starlight Weaving (Sp)																			ADD:SPELLCASTER|1|ANY
+6	SA:Starlight Beam (Sp)
+7	SA:Age of the Stars (Su)																			ADD:SPELLCASTER|1|ANY
+8	SA:Stardust (Sp)	SA:Starskin (Sp)
+9	SA:Starlight Elixir (Sp)																			ADD:SPELLCASTER|1|ANY
+10	SA:Temporal Womb (Sp)																				ADD:SPELLCASTER|1|ANY
 

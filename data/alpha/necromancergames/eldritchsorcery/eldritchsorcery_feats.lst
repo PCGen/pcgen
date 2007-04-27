@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/
 # Original Entry by: Tir Gwaith
 
@@ -23,7 +23,7 @@ Herbalist				TYPE:General																																											DESC:You eas
 Lunar Magic				TYPE:General	PRECLASS:1,SPELLCASTER.Arcane=1,SPELLCASTER.Divine=1																																		DESC:Your magic is enhanced during one phase of the moon											MULT:YES	CHOOSE:NUMCHOICES=1|New|First Quarter|Full|Last Quarter|1																																		SOURCEPAGE:p.9
 Maximize Undead Creation	TYPE:General													PREFEAT:1,Spell Focus(Necromancy)																									DESC:Your animated or created undead have maximum hit points.																																																							SOURCEPAGE:p.9
 Power Turning			TYPE:General													PREFEAT:1,Turn Undead							PRESTAT:1,CHA=13																		DESC:You can make exceptionally powerful turning checks.																																																								SOURCEPAGE:p.9
-Scorn of the Death God		TYPE:General													PREFEAT:1,Turn Undead,Rebuke Undead	PRESPELLTYPE:Divine,1,4	PRESTAT:1,CHA=13	PRETEXT:Worshipper of the god of death											DESC:You can channel energy to turn or rebuke creatures that have cheated death.																																																				SOURCEPAGE:p.9
+Scorn of the Death God		TYPE:General													PREFEAT:1,Turn Undead,Rebuke Undead	PRESPELLTYPE:1,Divine=4	PRESTAT:1,CHA=13	PRETEXT:Worshipper of the god of death											DESC:You can channel energy to turn or rebuke creatures that have cheated death.																																																				SOURCEPAGE:p.9
 Seasonal Magic			TYPE:General	PRECLASS:1,SPELLCASTER.Arcane=1,SPELLCASTER.Divine=1																																		DESC:Your magic is enhanced during one season of the year											MULT:YES	CHOOSE:NUMCHOICES=1|Spring|Summer|Fall|Winter|1																																				SOURCEPAGE:p.9
 Seductive Magic			TYPE:General													PREFEAT:1,Spell Focus(Enchantment)					PRESTAT:1,CHA=15																		DESC:You use your charming ways to make your compulsion spells harder to resist																			BONUS:CASTERLEVEL|SUBSCHOOL.Compulsion|2																											SOURCEPAGE:p.9
 Shape Master			TYPE:General													PREFEAT:1,Natural Spell																				PREVARGTEQ:WildShapeElementalTimes,1	DESC:Your training allows you to wild shape faster than usual																																																							SOURCEPAGE:p.9
@@ -32,11 +32,11 @@ Shape Master			TYPE:General													PREFEAT:1,Natural Spell																	
 # Feat Name			Type			Required Class							Required Feat				Required Skill			Req. Spell Type				Required Stat		Description																											Source Page
 Craft Magic Candle	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																						DESC:You can create magic candles that hold spells until triggered [by burning out on their own or being snuffed out].  Magic candles function similar to potions.	SOURCEPAGE:p.10
 Craft Magic Talisman	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																						DESC:You can create magic fetishes [also called charms] that hold spells until triggered.  A talisman is a single use magic item and functions like a scroll.		SOURCEPAGE:p.10
-Master Alchemist		TYPE:ItemCreation										PREFEAT:2,Brew Potion,Herbalist	PRESKILL:1,Craft (Alchemy)=15	PRESPELLTYPE:Arcane|Divine,1,4	PRESTAT:1,INT=15,CHA=15	DESC:You can easily identify and collect the herbs and materials necessary for your potions.													SOURCEPAGE:p.10
+Master Alchemist		TYPE:ItemCreation										PREFEAT:2,Brew Potion,Herbalist	PRESKILL:1,Craft (Alchemy)=15	PRESPELLTYPE:1,Arcane=4Divine=4	PRESTAT:1,INT=15,CHA=15	DESC:You can easily identify and collect the herbs and materials necessary for your potions.													SOURCEPAGE:p.10
 
 ###Block: Metamagic Feats
 # Feat Name		Required Class							Req. Casting Type		Required Spell School		Req. Spell Type		Required Stat	Description													Add Spell Lvl	Source Page
 Anchored Spell										PRESPELLCAST:MEMORIZE=Y													DESC:You can cast spells without material components by scribing them on your body.	ADDSPELLLEVEL:1	SOURCEPAGE:p.10
 Colorize Spell														PRESPELLSCHOOL:Illusion,1,1					PRESTAT:1,INT=13	DESC:You can add color to or change the colors of any visible spell effect.		ADDSPELLLEVEL:0	SOURCEPAGE:p.10
-Sacramental Magic																			PRESPELLTYPE:Divine,1,1				DESC:You imbue your damaging spells with divine essence.					ADDSPELLLEVEL:1	SOURCEPAGE:p.11
+Sacramental Magic																			PRESPELLTYPE:1,Divine=1				DESC:You imbue your damaging spells with divine essence.					ADDSPELLLEVEL:1	SOURCEPAGE:p.11
 Sympathetic Magic	PRECLASS:1,SPELLCASTER.Arcane=1,SPELLCASTER.Divine=1																	DESC:Your spells are harder to resist if you have a bit of the target's substance.	ADDSPELLLEVEL:0	SOURCEPAGE:p.11

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -184,8 +184,8 @@ Coach (Ornamental)						OUTPUTNAME:Coach, [NAME]				TYPE:Goods.Transportation.Co
 Coach (War)								OUTPUTNAME:Coach, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:3120|Any=-1						COST:1500	WT:1000	SOURCEPAGE:pg. 247
 
 ###Block: Misc. Items -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Equipment Name		Type					Cost		Weight	Choose a Feat
-White Sash of Purity	TYPE:Special.Cert.Station	COST:0	WT:0		ADD:FEAT(TYPE=Gentry)1
+# Equipment Name		Type					Cost		Weight	ADD:
+White Sash of Purity	TYPE:Special.Cert.Station	COST:0	WT:0		ADD:FEAT|1|TYPE=Gentry
 
 #
 # End

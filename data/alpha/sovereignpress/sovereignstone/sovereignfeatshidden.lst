@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 
 ###Block: Hidden Racial Feats
-# Feat Name		Type			Visible	Maximum Level	Required Race			Var. Min. Value			Multiple?	Choose								ADD:FAVOREDCLASS		Bonus to skill		Cost		Source Page
+# Feat Name		Type			Visible	Maximum Level	Required Race			Var. Min. Value			Multiple?	Choose								Add				Bonus to skill		Cost		Source Page
 Dunkargan Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:1,Human (Dunkargan)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Fighter|Rogue				ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
 Karnuan Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:1,Human (Karnuan)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Mounted Warrior|Soldier		ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
 Nimorean Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:1,Human (Nimorean)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Sailor|Elemental Mage (Earth)	ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.

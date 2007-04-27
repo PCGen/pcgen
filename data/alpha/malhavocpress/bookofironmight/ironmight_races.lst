@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM
 
-# Race Name		Favored Class	Size		Move			Face/Space	Reach		Stat bonus		Type			Template													Source Page		Choose a Feat
-Ironborn ~ Small	FAVCLASS:ANY	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5				TYPE:Ironborn	TEMPLATE:Ironborn Trait	TEMPLATE:CHOOSE:Secondary Ability|No Secondary Ability	SOURCEPAGE:p.25
-Ironborn ~ Medum	FAVCLASS:ANY	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5				TYPE:Ironborn	TEMPLATE:Ironborn Trait											SOURCEPAGE:p.25	ADD:FEAT(TYPE=IronbornSecondaryAbility)
-Ironborn ~ Large	FAVCLASS:ANY	SIZE:L	MOVE:Walk,30	FACE:10	REACH:10	BONUS:STAT|DEX|-2	TYPE:Ironborn	TEMPLATE:Ironborn Trait											SOURCEPAGE:p.25
+# Race Name		Favored Class	Size		Move			Face/Space	Reach		Stat bonus		Main Race Type	Template													Source Page		ADD:
+Ironborn ~ Small	FAVCLASS:ANY	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5				RACETYPE:Ironborn	TEMPLATE:Ironborn Trait	TEMPLATE:CHOOSE:Secondary Ability|No Secondary Ability	SOURCEPAGE:p.25
+Ironborn ~ Medum	FAVCLASS:ANY	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5				RACETYPE:Ironborn	TEMPLATE:Ironborn Trait											SOURCEPAGE:p.25	ADD:FEAT|1|TYPE=IronbornSecondaryAbility
+Ironborn ~ Large	FAVCLASS:ANY	SIZE:L	MOVE:Walk,30	FACE:10	REACH:10	BONUS:STAT|DEX|-2	RACETYPE:Ironborn	TEMPLATE:Ironborn Trait											SOURCEPAGE:p.25

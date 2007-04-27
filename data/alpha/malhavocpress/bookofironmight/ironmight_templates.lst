@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM
 
 ###Block: arcane battle mastery
 # Template Name				Source Page		Req. Att.	Required Class Skill							Req. Spell Type		Required Stat	Feat
-Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PREATT:1	PRECSKILL:3,Concentration,Knowledge (Arcana),Spellcraft	PRESPELLTYPE:Arcane,1,1	PRESTAT:1,INT=13	FEAT:Arcane Battle Mastery
+Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PREATT:1	PRECSKILL:3,Concentration,Knowledge (Arcana),Spellcraft	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,INT=13	FEAT:Arcane Battle Mastery
 
 ###Block: ironborn
 # Template Name	Visible	Template																																																																							Special Ability				Combat bonus				Bonus to skill
@@ -27,17 +27,17 @@ Ironborn Plus Wis				VISIBLE:NO																																									BONUS:ST
 Ironborn Plus Cha				VISIBLE:NO																																									BONUS:STAT|CHA|2
 
 ###Block: Ironborn Packages
-# Template Name					Visible	Choose a Feat
-Ironborn Acrobat Ability Package		VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
-Ironborn Centurion Ability Package		VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
-Ironborn Divine Mark Ability Package	VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
-Ironborn Iron Heart Ability Package		VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
-Ironborn Shadow Friend Ability Package	VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
-Ironborn Slayer Ability Package		VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
-Ironborn Spellmaster Ability Package	VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
-Ironborn Trailblazer Ability Package	VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
+# Template Name					Visible	ADD:
+Ironborn Acrobat Ability Package		VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
+Ironborn Centurion Ability Package		VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
+Ironborn Divine Mark Ability Package	VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
+Ironborn Iron Heart Ability Package		VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
+Ironborn Shadow Friend Ability Package	VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
+Ironborn Slayer Ability Package		VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
+Ironborn Spellmaster Ability Package	VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
+Ironborn Trailblazer Ability Package	VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
 
 ###Block: Ironborn Secondary Ability (Small Ironborn)
-# Template Name			Visible	Stat bonus		Choose a Feat
-Ironborn Secondary Ability	VISIBLE:NO	BONUS:STAT|STR|-2	ADD:FEAT(TYPE=IronbornSecondaryAbility)
+# Template Name			Visible	Stat bonus		ADD:
+Ironborn Secondary Ability	VISIBLE:NO	BONUS:STAT|STR|-2	ADD:FEAT|1|TYPE=IronbornSecondaryAbility
 Ironborn No Secondary Ability	VISIBLE:NO
