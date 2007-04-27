@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 02:05:57 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
@@ -28,16 +28,16 @@ CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	ABB:Nv
 CLASS:Navigator Wizard	PREFEAT:1,Spell Mastery	PRESKILL:1,Profession (Navigator)=6	PRESPELLSCHOOL:Divination,1,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gather Information|TYPE.Knowledge|Profession (Navigator)|Scry|Spellcraft
-1	ADD:SPELLCASTER(ANY)	SA:Infallible Direction			BONUS:SKILL|Profession (Navigation)|2
-2	ADD:SPELLCASTER(ANY)	SA:Fast Pursuit
-3	ADD:SPELLCASTER(ANY)	SA:Intuitive Seamanship %|IntuitSea	BONUS:SKILL|Knowledge (Seamanship)|IntuitSea	DEFINE:IntuitSea|floor(CL/3)*2
-4	ADD:SPELLCASTER(ANY)	SA:Catch the Wind
-5	ADD:SPELLCASTER(ANY)	SA:True Voyage
-6	ADD:SPELLCASTER(ANY)
-7	ADD:SPELLCASTER(ANY)	SA:Weather Prediction
-8	ADD:SPELLCASTER(ANY)	SA:Ride the Wind
-9	ADD:SPELLCASTER(ANY)
-10	ADD:SPELLCASTER(ANY)	SA:Control Winds
+1	SA:Infallible Direction			BONUS:SKILL|Profession (Navigation)|2								ADD:SPELLCASTER|1|ANY
+2	SA:Fast Pursuit																		ADD:SPELLCASTER|1|ANY
+3	SA:Intuitive Seamanship %|IntuitSea	BONUS:SKILL|Knowledge (Seamanship)|IntuitSea	DEFINE:IntuitSea|floor(CL/3)*2	ADD:SPELLCASTER|1|ANY
+4	SA:Catch the Wind																		ADD:SPELLCASTER|1|ANY
+5	SA:True Voyage																		ADD:SPELLCASTER|1|ANY
+6																					ADD:SPELLCASTER|1|ANY
+7	SA:Weather Prediction																	ADD:SPELLCASTER|1|ANY
+8	SA:Ride the Wind																		ADD:SPELLCASTER|1|ANY
+9																					ADD:SPELLCASTER|1|ANY
+10	SA:Control Winds																		ADD:SPELLCASTER|1|ANY
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Reaver	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -52,10 +52,10 @@ CLASS:Reaver	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Hide|Intimidate|Jump|Kn
 ###Block: Normal Progression
 1	SA:Armour Expertise (%)|		BONUS:VAR|ArmourExp|(CL+3)/4		DEFINE:ArmourExp|0
 2	SA:Inspire Crew (+%)|InspireCrew	BONUS:VAR|InspireCrew|(CL+2)/4	DEFINE:InspireCrew|0
-3																	ADD:FEAT(Ambidexterity,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Quick Draw,Weapon Finesse,Weapon Focus)
+3																	ADD:FEAT|1|Ambidexterity,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Quick Draw,Weapon Finesse,Weapon Focus
 4	SA:Instill Fear
 7	SA:Skilled Boarder
-8																	ADD:FEAT(Ambidexterity,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Quick Draw,Weapon Finesse,Weapon Focus)
+8																	ADD:FEAT|1|Ambidexterity,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Quick Draw,Weapon Finesse,Weapon Focus
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Sailor	HD:8		TYPE:NPC	ABB:Slr		MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/4	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
