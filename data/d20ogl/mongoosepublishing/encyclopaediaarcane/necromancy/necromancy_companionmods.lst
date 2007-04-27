@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com
 
-# Class of the Master		Type				Spell Res.	Special Ability														Define						Combat bonus
+# Class of the Master		Type				Spell Res.	Special Ability														Define						Combat bonus						Main Race Type
 FOLLOWER:Sorcerer,Wizard=1	TYPE:Demonic Familiar			SA:Improved Evasion (Ex)	SA:Empathic Link	SA:Share Spells	SA:Immune to Fire and Poison	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Demonic Beast
 FOLLOWER:Sorcerer,Wizard=3	TYPE:Demonic Familiar			SA:Touch	SA:See in Darkness (Including Magical)								DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:Sorcerer,Wizard=5	TYPE:Demonic Familiar			SA:Speak with master	SA:Invisibility 1/day									DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE

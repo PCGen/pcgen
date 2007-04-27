@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology	SOURCESHORT:Demonology	SOURCEWEB:http://www.mongoosepublishing.com
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -7,33 +7,33 @@ CLASS:Demonologist	HD:4		TYPE:PC.Prestige	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p.8-9	
 CLASS:Demonologist	PREFEAT:1,Spell Mastery	PRELANG:1,Draconic
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Demonologist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
-1	ADD:SPELLCASTER(Arcane)
-2	ADD:SPELLCASTER(Arcane)	SA:Siphon Demonic Energy
-3	ADD:SPELLCASTER(Arcane)	SA:Extended Instruction
-4	ADD:SPELLCASTER(Arcane)	SA:Lesser Control
-5	ADD:SPELLCASTER(Arcane)	SA:Multiple Summoning
-6	ADD:SPELLCASTER(Arcane)	SA:Demonic Vulnerability
-7	ADD:SPELLCASTER(Arcane)
-8	ADD:SPELLCASTER(Arcane)	SA:Full Instruction
-9	ADD:SPELLCASTER(Arcane)
-10	ADD:SPELLCASTER(Arcane)	SA:Greater Control
+1						ADD:SPELLCASTER|1|Arcane
+2	SA:Siphon Demonic Energy	ADD:SPELLCASTER|1|Arcane
+3	SA:Extended Instruction		ADD:SPELLCASTER|1|Arcane
+4	SA:Lesser Control			ADD:SPELLCASTER|1|Arcane
+5	SA:Multiple Summoning		ADD:SPELLCASTER|1|Arcane
+6	SA:Demonic Vulnerability	ADD:SPELLCASTER|1|Arcane
+7						ADD:SPELLCASTER|1|Arcane
+8	SA:Full Instruction		ADD:SPELLCASTER|1|Arcane
+9						ADD:SPELLCASTER|1|Arcane
+10	SA:Greater Control		ADD:SPELLCASTER|1|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Binder	HD:4		TYPE:PC.Prestige	ABB:Bnd		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat								Required Skill				Req. Spell Type
-CLASS:Binder	PREFEAT:2,Craft Magic Arms and Armor,Craft Wondrous Item	PRESKILL:1,Knowledge (Demonology)=8	PRESPELLTYPE:Arcane,1,1
+CLASS:Binder	PREFEAT:2,Craft Magic Arms and Armor,Craft Wondrous Item	PRESKILL:1,Knowledge (Demonology)=8	PRESPELLTYPE:1,Arcane=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Binder	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
-1	ADD:SPELLCASTER(Arcane)
-2	ADD:SPELLCASTER(Arcane)
-3	ADD:SPELLCASTER(Arcane)
-4	ADD:SPELLCASTER(Arcane)
-5	ADD:SPELLCASTER(Arcane)
-6	ADD:SPELLCASTER(Arcane)
-7	ADD:SPELLCASTER(Arcane)
-8	ADD:SPELLCASTER(Arcane)
-9	ADD:SPELLCASTER(Arcane)
-10	ADD:SPELLCASTER(Arcane)
+1	ADD:SPELLCASTER|1|Arcane
+2	ADD:SPELLCASTER|1|Arcane
+3	ADD:SPELLCASTER|1|Arcane
+4	ADD:SPELLCASTER|1|Arcane
+5	ADD:SPELLCASTER|1|Arcane
+6	ADD:SPELLCASTER|1|Arcane
+7	ADD:SPELLCASTER|1|Arcane
+8	ADD:SPELLCASTER|1|Arcane
+9	ADD:SPELLCASTER|1|Arcane
+10	ADD:SPELLCASTER|1|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Possessed	HD:4		TYPE:PC.Prestige	ABB:Pos		MAXLEVEL:10	SOURCEPAGE:p.11-12	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
