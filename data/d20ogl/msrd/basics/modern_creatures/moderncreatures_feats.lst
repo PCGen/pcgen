@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 00:48:22 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Apr 27 00:39:14 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System Reference Document - Creatures	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Multiattack for monsters
@@ -77,7 +77,7 @@ Fiend Movement (Burrow 60)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.
 
 ###Block: Fiend Immunity
 
-# Feat Name						Type				Visible	Special Ability				Choose a Feat				Source Page
+# Feat Name						Type				Visible	Special Ability				Add						Source Page
 Fiend Immunity (Acid damage)			TYPE:CreatureImmunity	VISIBLE:NO	SA:Acid Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
 Fiend Immunity (Cold damage)			TYPE:CreatureImmunity	VISIBLE:NO	SA:Cold Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
 Fiend Immunity (Sonic/Concussion damage)	TYPE:CreatureImmunity	VISIBLE:NO	SA:Sonic/Concussion Immununity (Ex)							SOURCEPAGE:msrdcreatures.rtf
@@ -93,7 +93,7 @@ Fiend Immunity ( Choose two)			TYPE:CreatureImmunity	VISIBLE:NO							ADD:FEAT|2
 
 ###Block: Creature Resistance
 
-# Feat Name						Type				Visible	Prohibited Feat							Special Ability					Choose a Feat										Source Page
+# Feat Name						Type				Visible	Prohibited Feat							Special Ability					Add												Source Page
 Fiend Resistance (Acid 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Acid 20)			SA:Acid Resistance 10 (Ex)															SOURCEPAGE:msrdcreatures.rtf
 Fiend Resistance (Acid 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Acid 10)			SA:Acid Resistance 20 (Ex)															SOURCEPAGE:msrdcreatures.rtf
 Fiend Resistance (Cold 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Cold 20)			SA:Cold Resistance 10 (Ex)															SOURCEPAGE:msrdcreatures.rtf

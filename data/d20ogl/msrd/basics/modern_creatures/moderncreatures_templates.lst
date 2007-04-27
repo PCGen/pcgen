@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 00:48:22 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Apr 27 00:39:14 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System Reference Document - Creatures	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Doug McMillan
 
@@ -39,31 +39,31 @@ Web Spinning	VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Cast Web(Ex) 8/day maxim
 
 ###Block: Animated Object templates don't do anything yet.
 
-# Template Name		Visible		Template									Source Page				Required Template		Prohibited Template				Choose a Feat				Automaticaly Gained Weapon Prof.	Move			Removable?
-Bipedal			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Treads|Quadraped|Wheels																REMOVABLE:YES
-Quadruped			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Treads|Bipedal|Wheels																	REMOVABLE:YES
-Treads			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Bipdeal|Quadraped|Wheels																REMOVABLE:YES
-Wheels			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Treads|Bipedal|Quadraped																REMOVABLE:YES
+# Template Name		Visible		Template									Source Page				Required Template		Prohibited Template				Automaticaly Gained Weapon Prof.	Move			Removable?		Add
+Bipedal			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Treads|Quadraped|Wheels										REMOVABLE:YES
+Quadruped			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Treads|Bipedal|Wheels											REMOVABLE:YES
+Treads			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Bipdeal|Quadraped|Wheels										REMOVABLE:YES
+Wheels			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Treads|Bipedal|Quadraped										REMOVABLE:YES
 
-# Template Name		Visible		Template									Source Page				Required Template		Prohibited Template				Choose a Feat				Automaticaly Gained Weapon Prof.	Move			Removable?
+# Template Name		Visible		Template									Source Page				Required Template		Prohibited Template				Automaticaly Gained Weapon Prof.	Move			Removable?		Add
 Land?				VISIBLE:NO		TEMPLATE:CHOOSE:Land_Movement|No_Land_Movement			SOURCEPAGE:msrdcreatures.rtf
 Water?			VISIBLE:NO		TEMPLATE:CHOOSE:Water_Movement|No_Water_Movement		SOURCEPAGE:msrdcreatures.rtf
 Climbing?			VISIBLE:NO		TEMPLATE:CHOOSE:Climbing_Movement|No_Climbing_Movement	SOURCEPAGE:msrdcreatures.rtf
 Earth?			VISIBLE:NO		TEMPLATE:CHOOSE:Earth_Movement|No_Earth_Movement		SOURCEPAGE:msrdcreatures.rtf
 Air?				VISIBLE:NO		TEMPLATE:CHOOSE:Air_Movement|No_Air_Movement			SOURCEPAGE:msrdcreatures.rtf
-Land_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT|1|TYPE=CreatureMoveLand
-Water_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT|1|TYPE=CreatureMoveWater							MOVE:Swim,0
-Climbing_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT|1|TYPE=CreatureMoveClimb							MOVE:Climb,0
-Earth_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT|1|TYPE=CreatureMoveEarth							MOVE:Burrow,0
-Air_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT|1|TYPE=CreatureMoveAir							MOVE:Fly,0
+Land_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf																								ADD:FEAT|1|TYPE=CreatureMoveLand
+Water_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf																		MOVE:Swim,0					ADD:FEAT|1|TYPE=CreatureMoveWater
+Climbing_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf																		MOVE:Climb,0				ADD:FEAT|1|TYPE=CreatureMoveClimb
+Earth_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf																		MOVE:Burrow,0				ADD:FEAT|1|TYPE=CreatureMoveEarth
+Air_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf																		MOVE:Fly,0					ADD:FEAT|1|TYPE=CreatureMoveAir
 No_Land_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
 No_Water_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
 No_Climbing_Movement	VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
 No_Earth_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
 No_Air_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
 Weapon_Question		VISIBLE:NO		TEMPLATE:CHOOSE:Archaic_Weapons|Simple Weapons			SOURCEPAGE:msrdcreatures.rtf
-Archaic_Weapons		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf																		AUTO:WEAPONPROF|TYPE=Archaic
-Simple Weapons		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf																		AUTO:WEAPONPROF|TYPE=Simple
+Archaic_Weapons		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												AUTO:WEAPONPROF|TYPE=Archaic
+Simple Weapons		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												AUTO:WEAPONPROF|TYPE=Simple
 
 ###Block: Fiend Hit Die Adjustments
 
