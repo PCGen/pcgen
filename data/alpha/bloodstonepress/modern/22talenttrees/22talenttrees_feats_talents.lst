@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 17 19:38:00 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:22 Talent Trees	SOURCESHORT:22TT	SOURCEWEB:http://www.bloodstone-press.com/22tt.html
 # Original Entry by: Paul W. King
 
@@ -50,10 +50,10 @@ Improved Fancy Footwork	TYPE:Talent.FastTalent.Elusive	VISIBLE:NO	PREFEAT:1,Fanc
 Celeritous Skulking	TYPE:Talent.FastTalent.Elusive	VISIBLE:NO	PREFEAT:2,Slippery,Fancy Footwork	SA:Celeitous Skulking																SOURCEPAGE:p.5
 
 ###Block: Finesse Tree
-# Feat Name			Type						Visible	Required Feat						Prohibited Feat			Special Ability		Choose a Feat			Combat bonus												Source Page
-Weapon Finesse Talent	TYPE:Talent.FastTalent.Finesse	VISIBLE:NO									!PREFEAT:1,Weapon Finesse	SA:Weapon Finesse		ADD:FEAT(Weapon Finesse)															SOURCEPAGE:p.5
-Masterful Finesse		TYPE:Talent.FastTalent.Finesse	VISIBLE:NO	PREFEAT:1,Weapon Finesse,Weapon Finesse Talent						SA:Masterful Finesse						BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged	SOURCEPAGE:p.5
-Rapid Precision		TYPE:Talent.FastTalent.Finesse	VISIBLE:NO	PREFEAT:1,Masterful Finesse									SA:Rapid Precision						BONUS:COMBAT|DAMAGE.Finesseable|DEX									SOURCEPAGE:p.5
+# Feat Name			Type						Visible	Required Feat						Prohibited Feat			Special Ability		Combat bonus												Source Page		ADD:
+Weapon Finesse Talent	TYPE:Talent.FastTalent.Finesse	VISIBLE:NO									!PREFEAT:1,Weapon Finesse	SA:Weapon Finesse																SOURCEPAGE:p.5	ADD:FEAT|1|Weapon Finesse
+Masterful Finesse		TYPE:Talent.FastTalent.Finesse	VISIBLE:NO	PREFEAT:1,Weapon Finesse,Weapon Finesse Talent						SA:Masterful Finesse	BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged	SOURCEPAGE:p.5
+Rapid Precision		TYPE:Talent.FastTalent.Finesse	VISIBLE:NO	PREFEAT:1,Masterful Finesse									SA:Rapid Precision	BONUS:COMBAT|DAMAGE.Finesseable|DEX									SOURCEPAGE:p.5
 
 ###Block: Need for Speed Tree
 # Feat Name		Type						Visible	Required Feat				Required Skill		Special Ability		Bonus to skill					Source Page

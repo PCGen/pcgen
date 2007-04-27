@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -9,7 +9,7 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 #FOLLOWER:SarSMLevel=6		BONUS:VAR|TricksQty|1
 #FOLLOWER:SarSMLevel=8		BONUS:VAR|TricksQty|1
 #FOLLOWER:SarSMLevel=8		BONUS:VAR|TricksQty|1
-# Class of the Master		Type				Hit Dice	Virtual Feat		Special Ability		Combat bonus						Add to base move			Stat bonus					Modify VAR			Change Racetype
+# Class of the Master		Type				Hit Dice	Virtual Feat		Special Ability		Combat bonus						Add to base move			Stat bonus					Modify VAR			Main Race Type
 FOLLOWER:SarSMLevel=1		TYPE:Special Mount							SA:Devotion (Ex)															BONUS:STAT|STR|2				BONUS:VAR|TricksQty|2
 FOLLOWER:SarSMLevel=3		TYPE:Special Mount	HD:2										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1	RACETYPE:Magical Beast
 FOLLOWER:SarSMLevel=6		TYPE:Special Mount	HD:2						SA:Evasion (Ex)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1

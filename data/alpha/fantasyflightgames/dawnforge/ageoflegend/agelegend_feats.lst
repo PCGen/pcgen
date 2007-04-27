@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Apr  2 04:37:37 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -17,9 +17,9 @@ Mountain Charge		TYPE:Cultural																				PRETEMPLATE:Region (Stormfells
 # Feat Name				Type			Visible		Required Feat			Multiple Requirements							Required Race				Req. Special Ability	Req. Known Spell				Req. Spell Type		Required Stat	Required Template								Special Ability			Define		Description																		Stackable?	Multiple?	Choose		Modify VAR		Source Page
 Fey Racer				TYPE:Cultural	VISIBLE:DISPLAY	PREFEAT:1,Fey Rider												PRERACE:1,Elf,Gnome (DF)																PRESTAT:1,CHA=13	PRETEMPLATE:Region (Central Sildanyr)				SA:Fey Racer (%/day)|FeyRacer	DEFINE:FeyRacer|0	DESC:You know how to extend a bit of fey power to your mount.									STACK:YES	MULT:YES	CHOOSE:FeyRacer	BONUS:VAR|LIST|1	SOURCEPAGE:p.17
 Fey Rider				TYPE:Cultural																			PRERACE:1,Elf,Gnome (DF)																PRESTAT:1,CHA=13	PRETEMPLATE:Region (Central Sildanyr)												DESC:The magic in your spirit reaches out to support your mount.																			SOURCEPAGE:p.17
-Song of Stream and Stone	TYPE:Cultural									PREMULT:1,[PRESPELLTYPE:Any,1,1],[PREFEAT:1,Bardic Music]																								PRETEMPLATE:Region (Deep Sildanyr)													DESC:Given enough time, your voice can shape mountains.																				SOURCEPAGE:p.17
+Song of Stream and Stone	TYPE:Cultural									PREMULT:1,[PRESPELLTYPE:1,Any=1],[PREFEAT:1,Bardic Music]																								PRETEMPLATE:Region (Deep Sildanyr)													DESC:Given enough time, your voice can shape mountains.																				SOURCEPAGE:p.17
 Rites of the Hours		TYPE:Cultural																																							PRESTAT:1,CON=13	PRETEMPLATE:Region (Central Sildanyr)												DESC:You keep the oldest fey rites and rituals.																						SOURCEPAGE:p.17
-Whisper to the Trees		TYPE:Cultural									PREMULT:1,[PRESPELLTYPE:Any,1,1],[PREFEAT:1,Bardic Music]																								PRETEMPLATE:Region (Deep Sildanyr)													DESC:Given enough time, your can shape a forest into a city.																			SOURCEPAGE:p.17
+Whisper to the Trees		TYPE:Cultural									PREMULT:1,[PRESPELLTYPE:1,Any=1],[PREFEAT:1,Bardic Music]																								PRETEMPLATE:Region (Deep Sildanyr)													DESC:Given enough time, your can shape a forest into a city.																			SOURCEPAGE:p.17
 The Endless Dance			TYPE:Cultural																																										PRETEMPLATE:Region (Deep Sildanyr)													DESC:You can dance the measure of creation.																						SOURCEPAGE:p.17
 By Moonlight Vision		TYPE:Cultural																			PRERACE:1,Elf (Moon),Gnome (DF)																		PRETEMPLATE:Region (Deep Sildanyr)													DESC:You know how to look for the telltale signs of secrets revealed by moon and starlight.														SOURCEPAGE:p.17
 By Old Loyalties Bound		TYPE:Cultural																			PRERACE:1,Elf,Gnome (DF)																			PRETEMPLATE:Region (Deep Sildanyr)													DESC:You participate in the intricate ties of obligation that bind all of the fey folk together.													SOURCEPAGE:p.18
@@ -28,7 +28,7 @@ Song of the Seasons		TYPE:Cultural																									PRESA:1,Wild Empathy	
 Dance of Blood			TYPE:Cultural				PREFEAT:1,Dance of Blades																															PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You know how to use momentum to your advantage in a fight.																			SOURCEPAGE:p.18
 Dance of the Pine Needle	TYPE:Cultural				PREFEAT:1,Dance of Blades																															PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You use the unpredictable path of a falling needle as a model for your movement in combat.														SOURCEPAGE:p.18
 Dance of Blades			TYPE:Cultural																																							PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You have incorporated the sliding steps of elven dance into your fighting style.															SOURCEPAGE:p.18
-Display of Power			TYPE:Cultural																																			PRESPELLTYPE:Any,1,1				PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You know how to use magic to intimidate others.																					SOURCEPAGE:p.18
+Display of Power			TYPE:Cultural																																			PRESPELLTYPE:1,Any=1				PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You know how to use magic to intimidate others.																					SOURCEPAGE:p.18
 Songs of Blood and War		TYPE:Cultural				PREFEAT:1,Bardic Music																																			PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You have modified the old elven songs to become a dirge of war.																		SOURCEPAGE:p.18
 Dance of Fury			TYPE:Cultural																																							PRESTAT:1,DEX=13	PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You have broken the traditional beauty of elven reed dances to fit your fighting style.														SOURCEPAGE:p.19
 Dance of Hate			TYPE:Cultural																																							PRESTAT:1,DEX=13	PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You have adapted dance steps into your fighting style to mock your hated enemy.															SOURCEPAGE:p.19
@@ -47,7 +47,7 @@ Traveler's Step					TYPE:Cultural									PRESTAT:1,STR=13	PRETEMPLATE:Region (A
 Able Bodied		OUTPUTNAME:Able-bodied	TYPE:Cultural												PRETEMPLATE:Region (Dreaming Isles)					DESC:Long hours in the rigging have given you remarkable physical fitness.						BONUS:CHECKS|Reflex,Fortitude|1						SOURCEPAGE:p.40
 Bilge Rat						TYPE:Cultural												PRETEMPLATE:Region (Dreaming Isles)					DESC:You have worked the worst job in the fleet. What you saw there toughened your nerves and stomach.												SOURCEPAGE:p.40
 Explorer						TYPE:Cultural												PRETEMPLATE:Region (Dreaming Isles)					DESC:Years of privation at sea allow you to go for long periods of time without food or water.														SOURCEPAGE:p.40
-Seer							TYPE:Cultural					PRESPELLTYPE:Any,1,1				PRETEMPLATE:Region (Dreaming Isles)					DESC:The blood of a powerful dreamer and diviner courses through your veins.																	SOURCEPAGE:p.41
+Seer							TYPE:Cultural					PRESPELLTYPE:1,Any=1				PRETEMPLATE:Region (Dreaming Isles)					DESC:The blood of a powerful dreamer and diviner courses through your veins.																	SOURCEPAGE:p.41
 Tale Spinner					TYPE:Cultural												PRETEMPLATE:Region (Dreaming Isles)					DESC:You may not have seen everything there is to be seen, but you can convince others that you have.								CSKILL:Perform (Oratory)	SOURCEPAGE:p.41
 Far Runner						TYPE:Cultural	PREFEAT:1,Endurance								PRETEMPLATE:Region (Durning Highlands)				DESC:You have run the Horn Race.																								SOURCEPAGE:p.41
 Honorable Duelist					TYPE:Cultural									PRESTAT:1,DEX=13	PRETEMPLATE:Region (Durning Highlands)				DESC:See Text.																											SOURCEPAGE:p.42
@@ -89,7 +89,7 @@ Boundless Depths		TYPE:Cultural	PREFEAT:1,Great Fortitude										PRETEMPLATE:R
 Eyes on the Horizon	TYPE:Cultural	PREFEAT:1,Alertness											PRETEMPLATE:Region (Sunset Reach)		DESC:Your eyes naturally scan the horizon for any signs of life.																		SOURCEPAGE:p.76
 Touch of the Reach	TYPE:Cultural															PRETEMPLATE:Region (Sunset Reach)		DESC:You can keep your crew alive on the longest voyages.																			SOURCEPAGE:p.76
 Under the Stars		TYPE:Cultural															PRETEMPLATE:Region (Sunset Reach)		DESC:You know the arts of deep-sea navigation.															BONUS:SKILL|Profession (Sailor)|4	SOURCEPAGE:p.76
-Windweaver			TYPE:Cultural											PRESPELLTYPE:Divine,1,0	PRETEMPLATE:Region (Sunset Reach)		DESC:You know the simple magic that calls the wind.																				SOURCEPAGE:p.76
+Windweaver			TYPE:Cultural											PRESPELLTYPE:1,Divine=0	PRETEMPLATE:Region (Sunset Reach)		DESC:You know the simple magic that calls the wind.																				SOURCEPAGE:p.76
 Grim Resignation		TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You long ago let go of the illusions others cling to so tenaciously.																SOURCEPAGE:p.76
 Strength of Illusion	TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You cling tightly to the rudiments of civilization.																			SOURCEPAGE:p.77
 True Name			TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:Living in the borders between civilization and savagery has taught you the meaning of your own name.	BONUS:CHECKS|Will|1							SOURCEPAGE:p.77

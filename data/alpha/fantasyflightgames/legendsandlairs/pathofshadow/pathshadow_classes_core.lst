@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 # Original entry by: Blithwyn
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
@@ -23,7 +23,7 @@ CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,
 1																											FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal progression
 1	CAST:2
-2	CAST:3,0																									VFEAT:Evasion
+2	CAST:3,0							VFEAT:Evasion
 3	CAST:3,1
 4	CAST:3,2,0
 5	CAST:3,3,1
@@ -31,15 +31,15 @@ CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,
 7	CAST:3,3,2,0
 8	CAST:3,3,3,1
 9	CAST:3,3,3,2
-10	CAST:3,3,3,2,0						ADD:FEAT(Defensive Roll,Skill Mastery,Slippery Mind,Traps,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+10	CAST:3,3,3,2,0									ADD:FEAT|1|Defensive Roll,Skill Mastery,Slippery Mind,Traps,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 11	CAST:3,3,3,3,1
 12	CAST:3,3,3,3,2
 13	CAST:3,3,3,3,2,0		SA:Hidden Thoughts
-14	CAST:4,3,3,3,3,1						ADD:FEAT(Defensive Roll,Skill Mastery,Slippery Mind,Traps,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+14	CAST:4,3,3,3,3,1									ADD:FEAT|1|Defensive Roll,Skill Mastery,Slippery Mind,Traps,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 15	CAST:4,4,3,3,3,2
 16	CAST:4,4,4,3,3,2,0
 17	CAST:4,4,4,4,3,3,1
-18	CAST:4,4,4,4,4,3,2					ADD:FEAT(TYPE=ChameleonSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+18	CAST:4,4,4,4,4,3,2								ADD:FEAT|1|TYPE=ChameleonSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 19	CAST:4,4,4,4,4,4,3
 20	CAST:4,4,4,4,4,4,4
 
@@ -59,11 +59,11 @@ CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Dip
 1	SA:Deceptive Oration (%/day)|DeceptiveOration	SA:Second Attempt	BONUS:VAR|DeceptiveOration|CL															DEFINE:DeceptiveOration|0
 3	SA:Assess Mark (gullibility)
 6	SA:Assess Mark (desires)
-10																																				ADD:FEAT(Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+10																																				ADD:FEAT|1|Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 11																	BONUS:SKILL|Bluff,Diplomacy,Gather Information|floor((CL-8)/3)*2|TYPE=Circumstance
-13																																				ADD:FEAT(Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
-16																																				ADD:FEAT(Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
-19																																				ADD:FEAT(Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+13																																				ADD:FEAT|1|Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+16																																				ADD:FEAT|1|Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+19																																				ADD:FEAT|1|Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 
 
 
@@ -75,18 +75,18 @@ CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Cr
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal progression
-1	SA:Delver Notebook	SA:Traps						ADD:FEAT(Martial Weapon Proficiency,Exotic Weapon Proficiency)
-2																																																		VFEAT:Evasion
-3							BONUS:VAR|UncannyDodge|1																																										FEATAUTO:Uncanny Dodge
-7												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus)
+1	SA:Delver Notebook	SA:Traps													ADD:FEAT|1|Martial Weapon Proficiency,Exotic Weapon Proficiency
+2												VFEAT:Evasion
+3							BONUS:VAR|UncannyDodge|1				FEATAUTO:Uncanny Dodge
+7																			ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
 6							BONUS:VAR|UncannyDodge|1
-10												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus)
+10																			ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
 11							BONUS:VAR|UncannyDodge|1
-13												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus)
+13																			ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
 14							BONUS:VAR|UncannyDodge|1
-16												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus)
+16																			ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
 17							BONUS:VAR|UncannyDodge|1
-19												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus)
+19																			ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
 20							BONUS:VAR|UncannyDodge|1
 
 
@@ -118,24 +118,24 @@ CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 ###Block: Psychic Thief Powers
 1	SA:Psychic Thief 0 level powers (% free / day)|PsyThfFreePowers	DEFINE:PsyThfFreePowers|CL+2
 ###Block: normal progression
-1	KNOWN:2					BONUS:VAR|BASEPOWERPOINTS|2						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)2
-2	KNOWN:3					BONUS:VAR|BASEPOWERPOINTS|1																																						FEATAUTO:Evasion
-3	KNOWN:3,1					BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|UncannyDodge|1	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)																							FEATAUTO:Uncanny Dodge
+1	KNOWN:2					BONUS:VAR|BASEPOWERPOINTS|2										ADD:FEAT|2|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+2	KNOWN:3					BONUS:VAR|BASEPOWERPOINTS|1						FEATAUTO:Evasion
+3	KNOWN:3,1					BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|UncannyDodge|1	FEATAUTO:Uncanny Dodge	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 4	KNOWN:3,2					BONUS:VAR|BASEPOWERPOINTS|1
 5	KNOWN:3,3,1					BONUS:VAR|BASEPOWERPOINTS|3
 6	KNOWN:3,3,2			SA:Traps	BONUS:VAR|BASEPOWERPOINTS|3
-7	KNOWN:3,3,2,1				BONUS:VAR|BASEPOWERPOINTS|5						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+7	KNOWN:3,3,2,1				BONUS:VAR|BASEPOWERPOINTS|5										ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 8	KNOWN:3,3,3,1				BONUS:VAR|BASEPOWERPOINTS|5	BONUS:VAR|UncannyDodge|1
-9	KNOWN:3,3,3,2				BONUS:VAR|BASEPOWERPOINTS|5						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
-10	KNOWN:3,3,3,2,1				BONUS:VAR|BASEPOWERPOINTS|7						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+9	KNOWN:3,3,3,2				BONUS:VAR|BASEPOWERPOINTS|5										ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+10	KNOWN:3,3,3,2,1				BONUS:VAR|BASEPOWERPOINTS|7										ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 11	KNOWN:3,3,3,3,1				BONUS:VAR|BASEPOWERPOINTS|7
-12	KNOWN:3,3,3,3,2				BONUS:VAR|BASEPOWERPOINTS|7						ADD:FEAT(Defensive Roll,Opportunist,Skill Mastery,Slippery Mind,TYPE=General,TYPE=Metapsionic,TYPE=Psionic,TYPE=Psion-ItemCreation)	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
-13	KNOWN:3,3,3,3,2,1				BONUS:VAR|BASEPOWERPOINTS|9	BONUS:VAR|UncannyDodge|1	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+12	KNOWN:3,3,3,3,2				BONUS:VAR|BASEPOWERPOINTS|7										ADD:FEAT|1|Defensive Roll,Opportunist,Skill Mastery,Slippery Mind,TYPE=General,TYPE=Metapsionic,TYPE=Psionic,TYPE=Psion-ItemCreation	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+13	KNOWN:3,3,3,3,2,1				BONUS:VAR|BASEPOWERPOINTS|9	BONUS:VAR|UncannyDodge|1					ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 14	KNOWN:3,3,3,3,3,1				BONUS:VAR|BASEPOWERPOINTS|9
-15	KNOWN:3,3,3,3,3,2				BONUS:VAR|BASEPOWERPOINTS|9						ADD:FEAT(Defensive Roll,Opportunist,Skill Mastery,Slippery Mind,TYPE=General,TYPE=Metapsionic,TYPE=Psionic,TYPE=Psion-ItemCreation)	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
-16	KNOWN:3,3,3,3,3,2,1			BONUS:VAR|BASEPOWERPOINTS|11	BONUS:VAR|UncannyDodge|1	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+15	KNOWN:3,3,3,3,3,2				BONUS:VAR|BASEPOWERPOINTS|9										ADD:FEAT|1|Defensive Roll,Opportunist,Skill Mastery,Slippery Mind,TYPE=General,TYPE=Metapsionic,TYPE=Psionic,TYPE=Psion-ItemCreation	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+16	KNOWN:3,3,3,3,3,2,1			BONUS:VAR|BASEPOWERPOINTS|11	BONUS:VAR|UncannyDodge|1					ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 17	KNOWN:3,3,3,3,3,3,1			BONUS:VAR|BASEPOWERPOINTS|11
-18	KNOWN:3,3,3,3,3,3,2			BONUS:VAR|BASEPOWERPOINTS|11						ADD:FEAT(Defensive Roll,Opportunist,Skill Mastery,Slippery Mind,TYPE=General,TYPE=Metapsionic,TYPE=Psionic,TYPE=Psion-ItemCreation)
+18	KNOWN:3,3,3,3,3,3,2			BONUS:VAR|BASEPOWERPOINTS|11										ADD:FEAT|1|Defensive Roll,Opportunist,Skill Mastery,Slippery Mind,TYPE=General,TYPE=Metapsionic,TYPE=Psionic,TYPE=Psion-ItemCreation
 19	KNOWN:3,4,3,3,3,3,2			BONUS:VAR|BASEPOWERPOINTS|11	BONUS:VAR|UncannyDodge|1
 20	KNOWN:3,4,3,3,3,3,3			BONUS:VAR|BASEPOWERPOINTS|11
 

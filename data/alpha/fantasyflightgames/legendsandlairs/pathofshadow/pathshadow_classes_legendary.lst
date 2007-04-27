@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Original entry by: Blithwyn
 
@@ -8,11 +8,11 @@ CLASS:Abyssal Infiltrator	HD:6		TYPE:PC.Legendary	ABB:Aby		MAXLEVEL:5	SOURCEPAGE
 CLASS:Abyssal Infiltrator	PREALIGN:LE,NE,CE	PREATT:8	PRESA:1,Death Attack	PRESKILL:1,Knowledge (Arcana)=7	PRESKILL:1,Intimidate=10	PRESKILL:3,Hide,Move Silently,Open Lock=15
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Abyssal Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	ADD:FEAT(TYPE=AbyssalInfiltratorLAPL1,Enhanced Dexterity I,Enhanced Strength I)
-2	ADD:FEAT(TYPE=AbyssalInfiltratorLAPL2,Enhanced Dexterity II,Enhanced Strength II)
-3	ADD:FEAT(TYPE=AbyssalInfiltratorLAPL3,Enhanced Dexterity III,Enhanced Strength III)
-4	ADD:FEAT(TYPE=AbyssalInfiltratorLAPL4,Enhanced Dexterity IV,Enhanced Strength IV)
-5	ADD:FEAT(TYPE=AbyssalInfiltratorLAPL5,Enhanced Dexterity V,Enhanced Strength V)
+1	ADD:FEAT|1|TYPE=AbyssalInfiltratorLAPL1,Enhanced Dexterity I,Enhanced Strength I
+2	ADD:FEAT|1|TYPE=AbyssalInfiltratorLAPL2,Enhanced Dexterity II,Enhanced Strength II
+3	ADD:FEAT|1|TYPE=AbyssalInfiltratorLAPL3,Enhanced Dexterity III,Enhanced Strength III
+4	ADD:FEAT|1|TYPE=AbyssalInfiltratorLAPL4,Enhanced Dexterity IV,Enhanced Strength IV
+5	ADD:FEAT|1|TYPE=AbyssalInfiltratorLAPL5,Enhanced Dexterity V,Enhanced Strength V
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Blood Thief	HD:6		TYPE:PC.Legendary	ABB:Blo		MAXLEVEL:5	SOURCEPAGE:Chap.2, Blood Thief	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
@@ -23,11 +23,11 @@ CLASS:Blood Thief	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentrat
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ADD:FEAT(TYPE=BloodThiefLAPL1)
-2	ADD:FEAT(TYPE=BloodThiefLAPL2)
-3	ADD:FEAT(TYPE=BloodThiefLAPL3)
-4	ADD:FEAT(TYPE=BloodThiefLAPL4)
-5	ADD:FEAT(TYPE=BloodThiefLAPL5)
+1	ADD:FEAT|1|TYPE=BloodThiefLAPL1
+2	ADD:FEAT|1|TYPE=BloodThiefLAPL2
+3	ADD:FEAT|1|TYPE=BloodThiefLAPL3
+4	ADD:FEAT|1|TYPE=BloodThiefLAPL4
+5	ADD:FEAT|1|TYPE=BloodThiefLAPL5
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
@@ -39,11 +39,11 @@ CLASS:Fortune's Fool	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cr
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ADD:FEAT(TYPE=FortuneFoolLAPL1)
-2	ADD:FEAT(TYPE=FortuneFoolLAPL2)
-3	ADD:FEAT(TYPE=FortuneFoolLAPL3)
-4	ADD:FEAT(TYPE=FortuneFoolLAPL4)
-5	ADD:FEAT(TYPE=FortuneFoolLAPL5)
+1	ADD:FEAT|1|TYPE=FortuneFoolLAPL1
+2	ADD:FEAT|1|TYPE=FortuneFoolLAPL2
+3	ADD:FEAT|1|TYPE=FortuneFoolLAPL3
+4	ADD:FEAT|1|TYPE=FortuneFoolLAPL4
+5	ADD:FEAT|1|TYPE=FortuneFoolLAPL5
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
 CLASS:Grey Hand	HD:6		TYPE:PC.Legendary	ABB:GrHa		MAXLEVEL:5	SOURCEPAGE:Chap.2, Grey Hand	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
@@ -54,11 +54,11 @@ CLASS:Grey Hand	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher S
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	ADD:FEAT(TYPE=GreyHandLAPL1)
-2	ADD:FEAT(TYPE=GreyHandLAPL2)
-3	ADD:FEAT(TYPE=GreyHandLAPL3)
-4	ADD:FEAT(TYPE=GreyHandLAPL4)
-5	ADD:FEAT(TYPE=GreyHandLAPL5)
+1	ADD:FEAT|1|TYPE=GreyHandLAPL1
+2	ADD:FEAT|1|TYPE=GreyHandLAPL2
+3	ADD:FEAT|1|TYPE=GreyHandLAPL3
+4	ADD:FEAT|1|TYPE=GreyHandLAPL4
+5	ADD:FEAT|1|TYPE=GreyHandLAPL5
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus												Combat bonus
 CLASS:Hand of the Reaper	HD:6		TYPE:PC.Legendary	ABB:HaRe		MAXLEVEL:5	SOURCEPAGE:Chap.2, Hand of the Reaper	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
@@ -70,11 +70,11 @@ CLASS:Hand of the Reaper	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYP
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1	ADD:FEAT(TYPE=HandReaperLAPL1,Enhanced Dexterity I,Enhanced Intelligence I)
-2	ADD:FEAT(TYPE=HandReaperLAPL2,Enhanced Dexterity II,Enhanced Intelligence II)
-3	ADD:FEAT(TYPE=HandReaperLAPL3,Enhanced Dexterity III,Enhanced Intelligence III)
-4	ADD:FEAT(TYPE=HandReaperLAPL4,Enhanced Dexterity IV,Enhanced Intelligence IV)
-5	ADD:FEAT(TYPE=HandReaperLAPL5,Enhanced Dexterity V,Enhanced Intelligence V)
+1	ADD:FEAT|1|TYPE=HandReaperLAPL1,Enhanced Dexterity I,Enhanced Intelligence I
+2	ADD:FEAT|1|TYPE=HandReaperLAPL2,Enhanced Dexterity II,Enhanced Intelligence II
+3	ADD:FEAT|1|TYPE=HandReaperLAPL3,Enhanced Dexterity III,Enhanced Intelligence III
+4	ADD:FEAT|1|TYPE=HandReaperLAPL4,Enhanced Dexterity IV,Enhanced Intelligence IV
+5	ADD:FEAT|1|TYPE=HandReaperLAPL5,Enhanced Dexterity V,Enhanced Intelligence V
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus											Combat bonus
@@ -86,11 +86,11 @@ CLASS:Incantator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Concentration|Cli
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ADD:FEAT(TYPE=IncantatorLAPL1)
-2	ADD:FEAT(TYPE=IncantatorLAPL2)
-3	ADD:FEAT(TYPE=IncantatorLAPL3)
-4	ADD:FEAT(TYPE=IncantatorLAPL4)
-5	ADD:FEAT(TYPE=IncantatorLAPL5)
+1	ADD:FEAT|1|TYPE=IncantatorLAPL1
+2	ADD:FEAT|1|TYPE=IncantatorLAPL2
+3	ADD:FEAT|1|TYPE=IncantatorLAPL3
+4	ADD:FEAT|1|TYPE=IncantatorLAPL4
+5	ADD:FEAT|1|TYPE=IncantatorLAPL5
 # _IF_ the Incantator picks Steal Magic as legendary ability he gets the following spell slots to place stolen spells
 # (I currently don't see a way to code this.)
 # 1	CAST:4,3,2,1
@@ -109,11 +109,11 @@ CLASS:Jack of Knives	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cr
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	ADD:FEAT(TYPE=JackKnivesLAPL1)
-2	ADD:FEAT(TYPE=JackKnivesLAPL2)
-3	ADD:FEAT(TYPE=JackKnivesLAPL3)
-4	ADD:FEAT(TYPE=JackKnivesLAPL4)
-5	ADD:FEAT(TYPE=JackKnivesLAPL5)
+1	ADD:FEAT|1|TYPE=JackKnivesLAPL1
+2	ADD:FEAT|1|TYPE=JackKnivesLAPL2
+3	ADD:FEAT|1|TYPE=JackKnivesLAPL3
+4	ADD:FEAT|1|TYPE=JackKnivesLAPL4
+5	ADD:FEAT|1|TYPE=JackKnivesLAPL5
 
 # additional prereq "any feat of the DM's choice"
 
@@ -126,11 +126,11 @@ CLASS:Jack o' the Green	STARTSKILLPTS:8	CSKILL:Animal Empathy|Appraise|Balance|B
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ADD:FEAT(TYPE=JackGreenLAPL1)
-2	ADD:FEAT(TYPE=JackGreenLAPL2)
-3	ADD:FEAT(TYPE=JackGreenLAPL3)
-4	ADD:FEAT(TYPE=JackGreenLAPL4)
-5	ADD:FEAT(TYPE=JackGreenLAPL5)
+1	ADD:FEAT|1|TYPE=JackGreenLAPL1
+2	ADD:FEAT|1|TYPE=JackGreenLAPL2
+3	ADD:FEAT|1|TYPE=JackGreenLAPL3
+4	ADD:FEAT|1|TYPE=JackGreenLAPL4
+5	ADD:FEAT|1|TYPE=JackGreenLAPL5
 
 
 # additional prereq "The character must be a rogue. She may be multiclassed, but she must have gained more class levels as rogue than any other classes"
@@ -142,11 +142,11 @@ CLASS:Master Burglar	HD:6		TYPE:PC.Legendary	ABB:MaBu		MAXLEVEL:5	SOURCEPAGE:Cha
 CLASS:Master Burglar	PREFEAT:3,Alertness,Dodge,Improved Initiative	PRESKILL:1,Climb=10	PRESKILL:4,Hide,Move Silently,Open Lock,Tumble=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	ADD:FEAT(TYPE=MasterBurglarLAPL1,Enhanced Dexterity I,Enhanced Wisdom I)
-2	ADD:FEAT(TYPE=MasterBurglarLAPL2,Enhanced Dexterity II,Enhanced Wisdom II)
-3	ADD:FEAT(TYPE=MasterBurglarLAPL3,Enhanced Dexterity III,Enhanced Wisdom III)
-4	ADD:FEAT(TYPE=MasterBurglarLAPL4,Enhanced Dexterity IV,Enhanced Wisdom IV)
-5	ADD:FEAT(TYPE=MasterBurglarLAPL5,Enhanced Dexterity V,Enhanced Wisdom V)
+1	ADD:FEAT|1|TYPE=MasterBurglarLAPL1,Enhanced Dexterity I,Enhanced Wisdom I
+2	ADD:FEAT|1|TYPE=MasterBurglarLAPL2,Enhanced Dexterity II,Enhanced Wisdom II
+3	ADD:FEAT|1|TYPE=MasterBurglarLAPL3,Enhanced Dexterity III,Enhanced Wisdom III
+4	ADD:FEAT|1|TYPE=MasterBurglarLAPL4,Enhanced Dexterity IV,Enhanced Wisdom IV
+5	ADD:FEAT|1|TYPE=MasterBurglarLAPL5,Enhanced Dexterity V,Enhanced Wisdom V
 
 
 # additional prereq "and one feat of the DM's choice"
@@ -157,11 +157,11 @@ CLASS:Queen of Shadows	HD:6		TYPE:PC.Legendary	ABB:QSh		MAXLEVEL:5	SOURCEPAGE:Ch
 CLASS:Queen of Shadows	PREATT:8	PRECLASS:1,Shadowdancer=1	PREFEAT:3,Dodge,Mobility,Spring Attack	PRESKILL:1,Perform=10	PRESKILL:2,Hide,Move Silently=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Queen of Shadows	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	ADD:FEAT(TYPE=QueenShadowsLAPL1,Enhanced Dexterity I,Enhanced Charisma I)
-2	ADD:FEAT(TYPE=QueenShadowsLAPL2,Enhanced Dexterity II,Enhanced Charisma II)
-3	ADD:FEAT(TYPE=QueenShadowsLAPL3,Enhanced Dexterity III,Enhanced Charisma III)
-4	ADD:FEAT(TYPE=QueenShadowsLAPL4,Enhanced Dexterity IV,Enhanced Charisma IV)
-5	ADD:FEAT(TYPE=QueenShadowsLAPL5,Enhanced Dexterity V,Enhanced Charisma V)
+1	ADD:FEAT|1|TYPE=QueenShadowsLAPL1,Enhanced Dexterity I,Enhanced Charisma I
+2	ADD:FEAT|1|TYPE=QueenShadowsLAPL2,Enhanced Dexterity II,Enhanced Charisma II
+3	ADD:FEAT|1|TYPE=QueenShadowsLAPL3,Enhanced Dexterity III,Enhanced Charisma III
+4	ADD:FEAT|1|TYPE=QueenShadowsLAPL4,Enhanced Dexterity IV,Enhanced Charisma IV
+5	ADD:FEAT|1|TYPE=QueenShadowsLAPL5,Enhanced Dexterity V,Enhanced Charisma V
 
 
 # additional prereq "The character must be a rogue. She may be multiclassed, but she must have gained more class levels as rogue than any other classes"
@@ -173,11 +173,11 @@ CLASS:Rogue Prince	HD:6		TYPE:PC.Legendary	ABB:RoPr		MAXLEVEL:5	SOURCEPAGE:Chap.
 CLASS:Rogue Prince	PREATT:8	PREFEAT:2,Expertise,Improved Disarm	PRESKILL:1,Search=10	PRESKILL:3,Bluff,Pick Pocket,Tumble=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rogue Prince	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	ADD:FEAT(TYPE=RoguePrinceLAPL1,Enhanced Dexterity I,Enhanced Charisma I)
-2	ADD:FEAT(TYPE=RoguePrinceLAPL2,Enhanced Dexterity II,Enhanced Charisma II)
-3	ADD:FEAT(TYPE=RoguePrinceLAPL3,Enhanced Dexterity III,Enhanced Charisma III)
-4	ADD:FEAT(TYPE=RoguePrinceLAPL4,Enhanced Dexterity IV,Enhanced Charisma IV)
-5	ADD:FEAT(TYPE=RoguePrinceLAPL5,Enhanced Dexterity V,Enhanced Charisma V)
+1	ADD:FEAT|1|TYPE=RoguePrinceLAPL1,Enhanced Dexterity I,Enhanced Charisma I
+2	ADD:FEAT|1|TYPE=RoguePrinceLAPL2,Enhanced Dexterity II,Enhanced Charisma II
+3	ADD:FEAT|1|TYPE=RoguePrinceLAPL3,Enhanced Dexterity III,Enhanced Charisma III
+4	ADD:FEAT|1|TYPE=RoguePrinceLAPL4,Enhanced Dexterity IV,Enhanced Charisma IV
+5	ADD:FEAT|1|TYPE=RoguePrinceLAPL5,Enhanced Dexterity V,Enhanced Charisma V
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Savant	HD:6		TYPE:PC.Legendary	ABB:Sav		MAXLEVEL:5	SOURCEPAGE:Chap.2, Savant	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
@@ -188,11 +188,11 @@ CLASS:Savant	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Cr
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	DEFINE:VeiledLore|0	ADD:FEAT(TYPE=SavantLAPL1)
-2					ADD:FEAT(TYPE=SavantLAPL2)
-3					ADD:FEAT(TYPE=SavantLAPL3)
-4					ADD:FEAT(TYPE=SavantLAPL4)
-5					ADD:FEAT(TYPE=SavantLAPL5)
+1	DEFINE:VeiledLore|0	ADD:FEAT|1|TYPE=SavantLAPL1
+2					ADD:FEAT|1|TYPE=SavantLAPL2
+3					ADD:FEAT|1|TYPE=SavantLAPL3
+4					ADD:FEAT|1|TYPE=SavantLAPL4
+5					ADD:FEAT|1|TYPE=SavantLAPL5
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus											Combat bonus
@@ -204,9 +204,9 @@ CLASS:Silver-Tongued Devil	STARTSKILLPTS:8	CSKILL:Animal Empathy|Appraise|Balanc
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ADD:FEAT(TYPE=SilverDevilLAPL1)
-2	ADD:FEAT(TYPE=SilverDevilLAPL2)
-3	ADD:FEAT(TYPE=SilverDevilLAPL3)
-4	ADD:FEAT(TYPE=SilverDevilLAPL4)
-5	ADD:FEAT(TYPE=SilverDevilLAPL5)
+1	ADD:FEAT|1|TYPE=SilverDevilLAPL1
+2	ADD:FEAT|1|TYPE=SilverDevilLAPL2
+3	ADD:FEAT|1|TYPE=SilverDevilLAPL3
+4	ADD:FEAT|1|TYPE=SilverDevilLAPL4
+5	ADD:FEAT|1|TYPE=SilverDevilLAPL5
 

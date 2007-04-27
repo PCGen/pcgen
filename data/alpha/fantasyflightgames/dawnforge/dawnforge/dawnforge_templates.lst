@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn
 
 
 
-# Template Name			Visible		Source Page		Define																															Required Lvl	Required Template					Prohibited Template				Choose a Feat			Removable?
-Legendary Path 1st Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85	DEFINE:LegendaryPathMighty|0	DEFINE:LegendaryPathSwift|0	DEFINE:LegendaryPathUnyielding|0	DEFINE:LegendaryPathLearned|0	DEFINE:LegendaryPathWise|0	DEFINE:LegendaryPathPersuasive|0	PRELEVEL:5									!PRETEMPLATE:Legendary Path 1st Circle	ADD:FEAT(TYPE=LegendaryPath)	REMOVABLE:NO
-Legendary Path 2nd Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																																	PRELEVEL:7		PRETEMPLATE:Legendary Path 1st Circle	!PRETEMPLATE:Legendary Path 2nd Circle	ADD:FEAT(TYPE=LegendaryPath)	REMOVABLE:NO
-Legendary Path 3rd Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																																	PRELEVEL:9		PRETEMPLATE:Legendary Path 2nd Circle	!PRETEMPLATE:Legendary Path 3rd Circle	ADD:FEAT(TYPE=LegendaryPath)	REMOVABLE:NO
-Legendary Path 4th Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																																	PRELEVEL:11		PRETEMPLATE:Legendary Path 3rd Circle	!PRETEMPLATE:Legendary Path 4th Circle	ADD:FEAT(TYPE=LegendaryPath)	REMOVABLE:NO
-Legendary Path 5th Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																																	PRELEVEL:13		PRETEMPLATE:Legendary Path 4th Circle	!PRETEMPLATE:Legendary Path 5th Circle	ADD:FEAT(TYPE=LegendaryPath)	REMOVABLE:NO
+# Template Name			Visible		Source Page		Define																															Required Lvl	Required Template					Prohibited Template				Removable?		ADD:
+Legendary Path 1st Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85	DEFINE:LegendaryPathMighty|0	DEFINE:LegendaryPathSwift|0	DEFINE:LegendaryPathUnyielding|0	DEFINE:LegendaryPathLearned|0	DEFINE:LegendaryPathWise|0	DEFINE:LegendaryPathPersuasive|0	PRELEVEL:5									!PRETEMPLATE:Legendary Path 1st Circle	REMOVABLE:NO	ADD:FEAT|1|TYPE=LegendaryPath
+Legendary Path 2nd Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																																	PRELEVEL:7		PRETEMPLATE:Legendary Path 1st Circle	!PRETEMPLATE:Legendary Path 2nd Circle	REMOVABLE:NO	ADD:FEAT|1|TYPE=LegendaryPath
+Legendary Path 3rd Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																																	PRELEVEL:9		PRETEMPLATE:Legendary Path 2nd Circle	!PRETEMPLATE:Legendary Path 3rd Circle	REMOVABLE:NO	ADD:FEAT|1|TYPE=LegendaryPath
+Legendary Path 4th Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																																	PRELEVEL:11		PRETEMPLATE:Legendary Path 3rd Circle	!PRETEMPLATE:Legendary Path 4th Circle	REMOVABLE:NO	ADD:FEAT|1|TYPE=LegendaryPath
+Legendary Path 5th Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																																	PRELEVEL:13		PRETEMPLATE:Legendary Path 4th Circle	!PRETEMPLATE:Legendary Path 5th Circle	REMOVABLE:NO	ADD:FEAT|1|TYPE=LegendaryPath
 

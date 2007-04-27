@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -104,11 +104,11 @@ Guild of Alchemists - Rank 3 - Alchemist					VISIBLE:YES		SOURCEPAGE:p.139						
 Guild of Alchemists - Rank 4 - Master Alchemist				VISIBLE:YES		SOURCEPAGE:p.139																									PRESKILL:1,Knowledge (Arcana)=7	PRESKILL:1,Alchemy=9												PRETEMPLATE:Guild of Alchemists - Rank 3 - Alchemist																													REMOVABLE:YES
 Guild of Alchemists - Rank 5 - Philosopher				VISIBLE:YES		SOURCEPAGE:p.139																									PRESKILL:1,Knowledge (Arcana)=9	PRESKILL:1,Alchemy=11												PRETEMPLATE:Guild of Alchemists - Rank 4 - Master Alchemist																												REMOVABLE:YES
 
-Royal Society of Singers and Storytellers - Rank 1 - Journeyman	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=3											PRESPELLTYPE:Arcane,1,0																	PRETEXT:See Text.																						REMOVABLE:YES
-Royal Society of Singers and Storytellers - Rank 2 - Balladeer	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=5											PRESPELLTYPE:Arcane,1,1				PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 1 - Journeyman																									REMOVABLE:YES
+Royal Society of Singers and Storytellers - Rank 1 - Journeyman	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=3											PRESPELLTYPE:1,Arcane=0																	PRETEXT:See Text.																						REMOVABLE:YES
+Royal Society of Singers and Storytellers - Rank 2 - Balladeer	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=5											PRESPELLTYPE:1,Arcane=1				PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 1 - Journeyman																									REMOVABLE:YES
 Royal Society of Singers and Storytellers - Rank 3 - Tale Singer	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=7																		PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 2 - Balladeer				PREVARGTEQ:BardicMusic,1																	REMOVABLE:YES
-Royal Society of Singers and Storytellers - Rank 4 - Weaver		VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=9											PRESPELLTYPE:Arcane,1,2				PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 3 - Tale Singer																									REMOVABLE:YES
-Royal Society of Singers and Storytellers - Rank 5 - Maestro	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=11											PRESPELLTYPE:Arcane,1,3				PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 4 - Weaver																										REMOVABLE:YES
+Royal Society of Singers and Storytellers - Rank 4 - Weaver		VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=9											PRESPELLTYPE:1,Arcane=2				PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 3 - Tale Singer																									REMOVABLE:YES
+Royal Society of Singers and Storytellers - Rank 5 - Maestro	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=11											PRESPELLTYPE:1,Arcane=3				PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 4 - Weaver																										REMOVABLE:YES
 
 Sanguine Society - Rank 1 - Blood Brother					VISIBLE:YES		SOURCEPAGE:p.141																					PRELANG:1,Draconic																																																											REMOVABLE:YES
 Sanguine Society - Rank 2 - Thaumaturge					VISIBLE:YES		SOURCEPAGE:p.141																									PRESKILL:1,Spellcraft=3																		PRETEMPLATE:Sanguine Society - Rank 1 - Blood Brother																													REMOVABLE:YES
@@ -118,12 +118,12 @@ Sanguine Society - Rank 5 - Blood Lord					VISIBLE:YES		SOURCEPAGE:p.141								
 #Todo: prereq Ability to cast 1st-level sorcerer spellszzzzzzzz
 
 Wayfarer - Rank 1 - Cousin							VISIBLE:YES		SOURCEPAGE:p.143																									PRESKILL:1,Bluff,Perform,Pick Pocket=3																												PRETEXT:See Text.																						REMOVABLE:YES
-Wayfarer - Rank 2 - Sister							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:F						PRESKILL:2,Bluff,Perform,Pick Pocket=3								PRESPELLTYPE:Arcane,1,1				PRETEMPLATE:Wayfarer - Rank 1 - Cousin																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=0|1	REMOVABLE:YES
-Wayfarer - Rank 2 - Brother							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:M						PRESKILL:2,Bluff,Perform,Pick Pocket=3								PRESPELLTYPE:Arcane,1,1				PRETEMPLATE:Wayfarer - Rank 1 - Cousin																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=0|1	REMOVABLE:YES
+Wayfarer - Rank 2 - Sister							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:F						PRESKILL:2,Bluff,Perform,Pick Pocket=3								PRESPELLTYPE:1,Arcane=1				PRETEMPLATE:Wayfarer - Rank 1 - Cousin																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=0|1	REMOVABLE:YES
+Wayfarer - Rank 2 - Brother							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:M						PRESKILL:2,Bluff,Perform,Pick Pocket=3								PRESPELLTYPE:1,Arcane=1				PRETEMPLATE:Wayfarer - Rank 1 - Cousin																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=0|1	REMOVABLE:YES
 Wayfarer - Rank 3 - Aunt							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:F						PRESKILL:3,Bluff,Perform,Pick Pocket=3															PRETEMPLATE:Wayfarer - Rank 2 - Sister															BONUS:SKILL|Bluff|1|TYPE=Competence											REMOVABLE:YES
 Wayfarer - Rank 3 - Uncle							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:M						PRESKILL:3,Bluff,Perform,Pick Pocket=3															PRETEMPLATE:Wayfarer - Rank 2 - Brother															BONUS:SKILL|Bluff|1|TYPE=Competence											REMOVABLE:YES
-Wayfarer - Rank 4 - Mother							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:F						PRESKILL:1,Perform=8											PRESPELLTYPE:Arcane,1,2				PRETEMPLATE:Wayfarer - Rank 3 - Aunt																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1	REMOVABLE:YES
-Wayfarer - Rank 4 - Father							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:M						PRESKILL:1,Perform=8											PRESPELLTYPE:Arcane,1,2				PRETEMPLATE:Wayfarer - Rank 3 - Uncle																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1	REMOVABLE:YES
+Wayfarer - Rank 4 - Mother							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:F						PRESKILL:1,Perform=8											PRESPELLTYPE:1,Arcane=2				PRETEMPLATE:Wayfarer - Rank 3 - Aunt																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1	REMOVABLE:YES
+Wayfarer - Rank 4 - Father							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:M						PRESKILL:1,Perform=8											PRESPELLTYPE:1,Arcane=2				PRETEMPLATE:Wayfarer - Rank 3 - Uncle																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1	REMOVABLE:YES
 Wayfarer - Rank 5 - Mistress							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:F						PRESKILL:1,Perform=11	PRESKILL:2,Bluff,Pick Pocket=5												PRETEMPLATE:Wayfarer - Rank 4 - Mother															BONUS:SKILL|Bluff|2|TYPE=Competence											REMOVABLE:YES
 Wayfarer - Rank 5 - Master							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:M						PRESKILL:1,Perform=11	PRESKILL:2,Bluff,Pick Pocket=5												PRETEMPLATE:Wayfarer - Rank 4 - Father															BONUS:SKILL|Bluff|2|TYPE=Competence											REMOVABLE:YES
 #bonus language Wayfarer's Cant

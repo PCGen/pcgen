@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug 10 11:30:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
@@ -9,9 +9,9 @@ CLASS:Air Runner	PREFEAT:1,Aircraft Operation	PRESKILL:2,Navigate,Survival=4	PRE
 CLASS:Air Runner	STARTSKILLPTS:4	CSKILL:Barter|Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Drive|Knowledge (Local)|Navigate|Pilot|Repair|Search|Sense Motive|Speak Language|Spot|Survival
 1				SA:Any Place-Any Time	SA:Push It!
 2				SA:She'll Make It
-3	REPEATLEVEL:3							ADD:FEAT(TYPE=AirRunner)
+3	REPEATLEVEL:3							ADD:FEAT|1|TYPE=AirRunner
 4				SA:Brace For Impact
-5	REPEATLEVEL:3							ADD:FEAT(Region Familiarity)
+5	REPEATLEVEL:3							ADD:FEAT|1|Region Familiarity
 7				SA:Steady Hand
 10				SA:Old Reliable
 
@@ -21,14 +21,14 @@ CLASS:Barter Jack	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECK
 CLASS:Barter Jack	PRESKILL:1,Barter=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Barter Jack	STARTSKILLPTS:8	CSKILL:Barter|Bluff|TYPE.Craft|Diplomacy|Disable Device|Drive|Forgery|Gamble|Handle Animal|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Listen|Navigate|Pilot|Profession|Repair|Ride|Search|Sense Motive|Sleight of Hand|Speak Language|Survival
-1	REPEATLEVEL:7											ADD:FEAT(Region Familiarity)
-1									BONUS:VAR|BigMoney|CL							FEATAUTO:Big Money
-2				SA:License Permit			BONUS:VAR|HagglingKing|CL/2						FEATAUTO:Haggling King
-3	REPEATLEVEL:3											ADD:FEAT(TYPE=BarterKing)
-4				SA:Find the Goods													FEATAUTO:Deliveryman
+1	REPEATLEVEL:7															ADD:FEAT|1|Region Familiarity
+1									BONUS:VAR|BigMoney|CL		FEATAUTO:Big Money
+2				SA:License Permit			BONUS:VAR|HagglingKing|CL/2	FEATAUTO:Haggling King
+3	REPEATLEVEL:3															ADD:FEAT|1|TYPE=BarterKing
+4				SA:Find the Goods								FEATAUTO:Deliveryman
 5				SA:Black Marketer	SA:Hardy
 7				SA:Restricted Permit
-7	REPEATLEVEL:3											ADD:FEAT(Windfall)
+7	REPEATLEVEL:3															ADD:FEAT|1|Windfall
 10				SA:Military Permit
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
@@ -37,14 +37,14 @@ CLASS:Colonial Leader	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:C
 CLASS:Colonial Leader	PREFEAT:3,Coordinate,Empathy,Improved Aid Another	PRESKILL:3,Diplomacy,Intimidate,Sense Motive=4	PRETEXT:The Colonial Leader must pledge his primary allegiance to a group that has interests in helping the colonies of Eos survive
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Colonial Leader	STARTSKILLPTS:6	CSKILL:Barter|Bluff|Computer Use|TYPE.Craft|Diplomacy|Drive|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Pilot|Profession|Repair|Ride|Search|Sense Motive|Spot|Survival|Treat Injury
-1				SA:Organization		ADD:FEAT(TYPE=ForceLaw)
+1				SA:Organization		ADD:FEAT|1|TYPE=ForceLaw
 2				SA:Aide the Workers
-3	REPEATLEVEL:3					ADD:FEAT(TYPE=ColonialLeader)
+3	REPEATLEVEL:3					ADD:FEAT|1|TYPE=ColonialLeader
 4				SA:Attache
 5				SA:Security Team
 7				SA:Community Leader
 8				SA:Prosperity
-10								ADD:FEAT(TYPE=WordLaw)
+10								ADD:FEAT|1|TYPE=WordLaw
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Gunhand	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
@@ -52,11 +52,11 @@ CLASS:Gunhand	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BA
 CLASS:Gunhand	PREATT:3	PREFEAT:1,Weapon Focus(TYPE=Firearm)	PRESKILL:1,Intimidate=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunhand	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Mechanical)|Drive|Gamble|Gather Information|Intimidate|Knowledge (Local)|Knowledge (Streetwise)|Listen|Ride|Sense Motive|Spot|Survival|Treat Injury
-1				SA:Tough as Nails																FEATAUTO:Quick Draw
-2																						FEATAUTO:Weapon Specialization
-3	REPEATLEVEL:3										ADD:FEAT(TYPE=Gunhand)
-4							BONUS:VAR|SignatureWeapon|CL/4										FEATAUTO:Signature Weapon
-5																	VFEAT:Frightful Presence
+1				SA:Tough as Nails												FEATAUTO:Quick Draw
+2																		FEATAUTO:Weapon Specialization
+3	REPEATLEVEL:3																					ADD:FEAT|1|TYPE=Gunhand
+4							BONUS:VAR|SignatureWeapon|CL/4						FEATAUTO:Signature Weapon
+5													VFEAT:Frightful Presence
 7				SA:Speed Draw
 10				SA:Danger Sense
 
@@ -66,14 +66,14 @@ CLASS:Lawman	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BAS
 CLASS:Lawman	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=4	PRESKILL:1,Knowledge (Civics),Knowledge (Streetwise)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lawman	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Streetwise)|Listen|Pilot|Research|Ride|Search|Sense Motive|Spot|Survival|Treat Injury
-1						ADD:FEAT(TYPE=ForceLaw)	ADD:FEAT(Weapon Focus)
-2														FEATAUTO:Legwork
-3	REPEATLEVEL:3			ADD:FEAT(TYPE=Lawman)
-4						ADD:FEAT(Weapon Specialization)
-5														FEATAUTO:Grit Your Teeth
+1											ADD:FEAT|1|TYPE=ForceLaw	ADD:FEAT|1|Weapon Focus
+2						FEATAUTO:Legwork
+3	REPEATLEVEL:3								ADD:FEAT|1|TYPE=Lawman
+4											ADD:FEAT|1|Weapon Specialization
+5						FEATAUTO:Grit Your Teeth
 7				SA:Deputy
-8						ADD:FEAT(TYPE=WordLaw)
-10														FEATAUTO:Improved Reaction
+8											ADD:FEAT|1|TYPE=WordLaw
+10						FEATAUTO:Improved Reaction
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
 CLASS:Rancher	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/4
@@ -82,9 +82,9 @@ CLASS:Rancher	PREATT:3	PREFEAT:2,Mounted Combat,Personal Firearms Proficiency	PR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rancher	STARTSKILLPTS:4	CSKILL:Barter|Climb|Drive|Gamble|Handle Animal|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Listen|Move Silently|Pilot|Ride|Search|Spot|Survival|Swim|Treat Injury
 1				SA:Special Mount	SA:Riding Mastery	BONUS:VAR|RancherLevel|CL	DEFINE:RancherLevel|0
-2	REPEATLEVEL:5																ADD:FEAT(Region Familiarity)
-3	REPEATLEVEL:3																ADD:FEAT(TYPE=Rancher)
-4										BONUS:VAR|WildEmpathy|CL										ADD:VFEAT(Wild Empathy)
+2	REPEATLEVEL:5																ADD:FEAT|1|Region Familiarity
+3	REPEATLEVEL:3																ADD:FEAT|1|TYPE=Rancher
+4										BONUS:VAR|WildEmpathy|CL					ADD:VFEAT|1|Wild Empathy
 5				SA:Improved Mounted Combat
 8				SA:Survival Mastery
 10				SA:Weather Resistant
@@ -95,13 +95,13 @@ CLASS:Rebuilder	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|
 CLASS:Rebuilder	PREFEAT:1,Dawning Star Familiarity	PRESKILL:1,Repair=6	PRESKILL:1,Craft (Structural)=4	PRETEXT:Dawning Star Republic allegiance
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rebuilder	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Concentration|TYPE.Craft|Demolitions|Disable Device|Drive|Investigate|Jump|Knowledge (Current Events)|Knowledge (Local)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair|Research|Search|Spot|Swim
-1										BONUS:VAR|DawningStarSystemsExpert|CL							FEATAUTO:Blind-Fight|Dawning Star Systems Expert|Government Issue
+1										BONUS:VAR|DawningStarSystemsExpert|CL	FEATAUTO:Blind-Fight|Dawning Star Systems Expert|Government Issue
 2				SA:Tool Weapons
-3	REPEATLEVEL:3														ADD:FEAT(TYPE=Rebuilder)
-4																							FEATAUTO:Improved Dawning Star Familiarity
+3	REPEATLEVEL:3																									ADD:FEAT|1|TYPE=Rebuilder
+4																	FEATAUTO:Improved Dawning Star Familiarity
 5				SA:Quick Fix	SA:Unflustered
-7				SA:Skilled Searcher			BONUS:VAR|SurpriseSense|((CL-4)/3)*2							FEATAUTO:Surprise Sense
-8																	ADD:FEAT(TYPE=RebuilderSwornEnemy)
+7				SA:Skilled Searcher			BONUS:VAR|SurpriseSense|((CL-4)/3)*2	FEATAUTO:Surprise Sense
+8																												ADD:FEAT|1|TYPE=RebuilderSwornEnemy
 10				SA:Disease and Poison Resistance
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
@@ -110,11 +110,11 @@ CLASS:Velin Guardian	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:CH
 CLASS:Velin Guardian	PREATT:3	PREMULT:1,[PRERACE:1,Velin],[PREFEAT:1,Velin Tribal Guest]	PRESKILL:2,Hide,Move Silently=4	PRESKILL:1,Survival=6	PRETEXT:Velin Tribe or Velin Tribal Council allegiance
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Velin Guardian	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Craft (Tribal)|Handle Animal|Hide|Intimidate|Jump|Knowledge (Local)|Knowledge (Local)|Listen|Move Silently|Navigate|Ride|Spot|Survival|Swim|Treat Injury
-1				SA:Guardian Reputation								FEATAUTO:Oathbound
-2								ADD:FEAT(Region Familiarity)
-3	REPEATLEVEL:3					ADD:FEAT(TYPE=VelinGuardian)
-4								ADD:FEAT(Weapon Focus)
+1				SA:Guardian Reputation	FEATAUTO:Oathbound
+2												ADD:FEAT|1|Region Familiarity
+3	REPEATLEVEL:3									ADD:FEAT|1|TYPE=VelinGuardian
+4												ADD:FEAT|1|Weapon Focus
 5				SA:Wilderness Camoflage
-7								ADD:FEAT(Weapon Specialization)
-8								ADD:FEAT(TYPE=VelinGuardianSwornEnemy)
-10								ADD:FEAT(Greater Weapon Specialization)
+7												ADD:FEAT|1|Weapon Specialization
+8												ADD:FEAT|1|TYPE=VelinGuardianSwornEnemy
+10												ADD:FEAT|1|Greater Weapon Specialization

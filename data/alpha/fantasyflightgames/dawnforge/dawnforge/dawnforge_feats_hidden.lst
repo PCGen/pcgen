@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -29,12 +29,12 @@ Elemental Form	TYPE:ShamanElementalForm	VISIBLE:NO	SA:Elemental Form (%CHOICE)	S
 
 
 ###Block: Shapers Divine focuses
-# Feat Name			Type				Visible	Special Ability																		Innate Spells																	Virtual Feat			Choose a Feat					Combat bonus								Bonus to skill
+# Feat Name			Type				Visible	Special Ability																		Innate Spells																	Virtual Feat			Combat bonus								Bonus to skill					ADD:
 Divine Focus Alignment	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Alignment (Domains:Chaos, Good, Evil, Lawful)	SA:Damage reduction 1/opposed alignment|PRECLASS:1,Shaper=10	SPELLS:Innate|TIMES=-1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Undetectable Alignment,12+CHA
-Divine Focus Defense	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Defense (Domains:Protection, Sun, Travel)																																												BONUS:COMBAT|AC|1	BONUS:COMBAT|AC|1|PRECLASS:1,Shaper=10
+Divine Focus Defense	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Defense (Domains:Protection, Sun, Travel)																																					BONUS:COMBAT|AC|1	BONUS:COMBAT|AC|1|PRECLASS:1,Shaper=10
 Divine Focus Elemental	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Elemental (Domains:Air, Earth, Fire, Water)	SA:Elemental resistance 10
-Divine Focus Nature	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Nature (Domains:Animal, Healing, Plant)	SA:Animals and plants cannot attack you|PRECLASS:1,Shaper=10																																											BONUS:SKILL|Handle Animal,Heal,Survival|2
-Divine Focus Power	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Power (Domains:Destruction, Strength, War)													SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Harm,16+CHA|PRECLASS:1,Shaper=10								ADD:FEAT(Martial Weapon Proficiency)
+Divine Focus Nature	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Nature (Domains:Animal, Healing, Plant)	SA:Animals and plants cannot attack you|PRECLASS:1,Shaper=10																																				BONUS:SKILL|Handle Animal,Heal,Survival|2
+Divine Focus Power	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Power (Domains:Destruction, Strength, War)													SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Harm,16+CHA|PRECLASS:1,Shaper=10																									ADD:FEAT|1|Martial Weapon Proficiency
 Divine Focus Shadow	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Shadow (Domains:Luck, Magic, Trickery)	SA:You can choose to re-roll any dice roll once per day.				SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Spell Immunity,14+CHA|PRECLASS:1,Shaper=10
 Divine Focus Vitality	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Vitality (Domains:Death, Life, Knowledge)													SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Divine Power,14+CHA|PRECLASS:1,Shaper=10	VFEAT:Endurance|Toughness
 #TODO: elemental resistance chooser

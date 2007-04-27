@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -147,36 +147,36 @@ Whispers and Lies V		TYPE:LegendaryWhispersLies.InfiltratorLAPL5		VISIBLE:NO	PRE
 
 
 ###Block:Landwalker legendary abilities
-# Feat Name				Type								Visible	Required Class		Prohibited Feat					Special Ability							Define				Innate Spells						Choose a Feat				Modify VAR				Source Page
-Dire Familiar I			TYPE:LegendaryDireFamiliar.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (3HD)																														SOURCEPAGE:p50
-Dire Familiar II			TYPE:LegendaryDireFamiliar.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (6HD)																														SOURCEPAGE:p50
-Dire Familiar III			TYPE:LegendaryDireFamiliar.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (9HD)																														SOURCEPAGE:p50
-Dire Familiar IV			TYPE:LegendaryDireFamiliar.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (12HD)																														SOURCEPAGE:p50
-Dire Familiar V			TYPE:LegendaryDireFamiliar.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (15HD)																														SOURCEPAGE:p50
+# Feat Name				Type								Visible	Required Class		Prohibited Feat					Special Ability							Define				Innate Spells						Modify VAR				Source Page		ADD:
+Dire Familiar I			TYPE:LegendaryDireFamiliar.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (3HD)																								SOURCEPAGE:p50
+Dire Familiar II			TYPE:LegendaryDireFamiliar.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (6HD)																								SOURCEPAGE:p50
+Dire Familiar III			TYPE:LegendaryDireFamiliar.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (9HD)																								SOURCEPAGE:p50
+Dire Familiar IV			TYPE:LegendaryDireFamiliar.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (12HD)																								SOURCEPAGE:p50
+Dire Familiar V			TYPE:LegendaryDireFamiliar.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (15HD)																								SOURCEPAGE:p50
 
-Healing Earth I			TYPE:LegendaryHealingEarth.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (1/day)																													SOURCEPAGE:p50
-Healing Earth II			TYPE:LegendaryHealingEarth.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (2/day)																													SOURCEPAGE:p50
-Healing Earth III			TYPE:LegendaryHealingEarth.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (3/day)																													SOURCEPAGE:p50
-Healing Earth IV			TYPE:LegendaryHealingEarth.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (4/day)																													SOURCEPAGE:p50
-Healing Earth V			TYPE:LegendaryHealingEarth.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (5/day)																													SOURCEPAGE:p50
+Healing Earth I			TYPE:LegendaryHealingEarth.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (1/day)																							SOURCEPAGE:p50
+Healing Earth II			TYPE:LegendaryHealingEarth.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (2/day)																							SOURCEPAGE:p50
+Healing Earth III			TYPE:LegendaryHealingEarth.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (3/day)																							SOURCEPAGE:p50
+Healing Earth IV			TYPE:LegendaryHealingEarth.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (4/day)																							SOURCEPAGE:p50
+Healing Earth V			TYPE:LegendaryHealingEarth.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (5/day)																							SOURCEPAGE:p50
 
-Nature's Song I			TYPE:LegendaryNatureSong.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (1/day)																		ADD:FEAT(TYPE=NatureSongSpell)						SOURCEPAGE:p50
-Nature's Song II			TYPE:LegendaryNatureSong.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (2/day)																		ADD:FEAT(TYPE=NatureSongSpell)2						SOURCEPAGE:p50
-Nature's Song III			TYPE:LegendaryNatureSong.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (3/day)																		ADD:FEAT(TYPE=NatureSongSpell)3						SOURCEPAGE:p50
-Nature's Song IV			TYPE:LegendaryNatureSong.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (4/day)																		ADD:FEAT(TYPE=NatureSongSpell)4						SOURCEPAGE:p50
-Nature's Song V			TYPE:LegendaryNatureSong.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (5/day)																		ADD:FEAT(TYPE=NatureSongSpell)5						SOURCEPAGE:p50
+Nature's Song I			TYPE:LegendaryNatureSong.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (1/day)																							SOURCEPAGE:p50	ADD:FEAT|1|TYPE=NatureSongSpell
+Nature's Song II			TYPE:LegendaryNatureSong.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (2/day)																							SOURCEPAGE:p50	ADD:FEAT|2|TYPE=NatureSongSpell
+Nature's Song III			TYPE:LegendaryNatureSong.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (3/day)																							SOURCEPAGE:p50	ADD:FEAT|3|TYPE=NatureSongSpell
+Nature's Song IV			TYPE:LegendaryNatureSong.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (4/day)																							SOURCEPAGE:p50	ADD:FEAT|4|TYPE=NatureSongSpell
+Nature's Song V			TYPE:LegendaryNatureSong.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (5/day)																							SOURCEPAGE:p50	ADD:FEAT|5|TYPE=NatureSongSpell
 
-Friends All Around I		TYPE:LegendaryFriendsAround.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			ADD:FEAT(TYPE=TurnPlantsAnimals)	BONUS:VAR|TurnPlantsAnimals|1	SOURCEPAGE:p50
-Friends All Around II		TYPE:LegendaryFriendsAround.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			ADD:FEAT(TYPE=TurnPlantsAnimals)	BONUS:VAR|TurnPlantsAnimals|2	SOURCEPAGE:p50
-Friends All Around III		TYPE:LegendaryFriendsAround.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			ADD:FEAT(TYPE=TurnPlantsAnimals)	BONUS:VAR|TurnPlantsAnimals|3	SOURCEPAGE:p50
-Friends All Around IV		TYPE:LegendaryFriendsAround.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			ADD:FEAT(TYPE=TurnPlantsAnimals)	BONUS:VAR|TurnPlantsAnimals|4	SOURCEPAGE:p50
-Friends All Around V		TYPE:LegendaryFriendsAround.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			ADD:FEAT(TYPE=TurnPlantsAnimals)	BONUS:VAR|TurnPlantsAnimals|5	SOURCEPAGE:p50
+Friends All Around I		TYPE:LegendaryFriendsAround.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			BONUS:VAR|TurnPlantsAnimals|1	SOURCEPAGE:p50	ADD:FEAT|1|TYPE=TurnPlantsAnimals
+Friends All Around II		TYPE:LegendaryFriendsAround.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			BONUS:VAR|TurnPlantsAnimals|2	SOURCEPAGE:p50	ADD:FEAT|1|TYPE=TurnPlantsAnimals
+Friends All Around III		TYPE:LegendaryFriendsAround.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			BONUS:VAR|TurnPlantsAnimals|3	SOURCEPAGE:p50	ADD:FEAT|1|TYPE=TurnPlantsAnimals
+Friends All Around IV		TYPE:LegendaryFriendsAround.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			BONUS:VAR|TurnPlantsAnimals|4	SOURCEPAGE:p50	ADD:FEAT|1|TYPE=TurnPlantsAnimals
+Friends All Around V		TYPE:LegendaryFriendsAround.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			BONUS:VAR|TurnPlantsAnimals|5	SOURCEPAGE:p50	ADD:FEAT|1|TYPE=TurnPlantsAnimals
 
-The Power of the Land I		TYPE:LegendaryPowerLand.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (2 spell levels/day)																										SOURCEPAGE:p50
-The Power of the Land II	TYPE:LegendaryPowerLand.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (4 spell levels/day)																										SOURCEPAGE:p50
-The Power of the Land III	TYPE:LegendaryPowerLand.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (6 spell levels/day)																										SOURCEPAGE:p50
-The Power of the Land IV	TYPE:LegendaryPowerLand.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (8 spell levels/day)																										SOURCEPAGE:p50
-The Power of the Land V		TYPE:LegendaryPowerLand.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (10 spell levels/day)																										SOURCEPAGE:p50
+The Power of the Land I		TYPE:LegendaryPowerLand.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (2 spell levels/day)																				SOURCEPAGE:p50
+The Power of the Land II	TYPE:LegendaryPowerLand.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (4 spell levels/day)																				SOURCEPAGE:p50
+The Power of the Land III	TYPE:LegendaryPowerLand.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (6 spell levels/day)																				SOURCEPAGE:p50
+The Power of the Land IV	TYPE:LegendaryPowerLand.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (8 spell levels/day)																				SOURCEPAGE:p50
+The Power of the Land V		TYPE:LegendaryPowerLand.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (10 spell levels/day)																				SOURCEPAGE:p50
 
 
 
@@ -187,8 +187,8 @@ Nature's Song Diminish Plants	TYPE:NatureSongSpell					VISIBLE:NO															
 Nature's Song Move Earth	TYPE:NatureSongSpell					VISIBLE:NO																										SPELLS:Nature's Song|TIMES=1|Move Earth
 #Should be castable 1/day per power level but I mention that in the SA instead...
 
-Turn Plants and Animals		TYPE:TurnPlantsAnimals					VISIBLE:NO												SA:Turn Plants and Animals %/day|TurnPlantsAnimals	DEFINE:TurnPlantsAnimals|0																				SOURCEPAGE:p50
-Rebuke Plants and Animals	TYPE:TurnPlantsAnimals					VISIBLE:NO												SA:Rebuke Plants and Animals %/day|TurnPlantsAnimals	DEFINE:TurnPlantsAnimals|0																				SOURCEPAGE:p50
+Turn Plants and Animals		TYPE:TurnPlantsAnimals					VISIBLE:NO												SA:Turn Plants and Animals %/day|TurnPlantsAnimals	DEFINE:TurnPlantsAnimals|0														SOURCEPAGE:p50
+Rebuke Plants and Animals	TYPE:TurnPlantsAnimals					VISIBLE:NO												SA:Rebuke Plants and Animals %/day|TurnPlantsAnimals	DEFINE:TurnPlantsAnimals|0														SOURCEPAGE:p50
 
 ###Block:Maestro legendary abilities
 # Feat Name				Type								Visible	Required Class		Prohibited Feat						Special Ability			Bonus to skill					Source Page
@@ -358,47 +358,47 @@ Planar Wrenching V	TYPE:LegendaryPlanarWrenching.TravelerLAPL5	VISIBLE:NO	PRECLA
 
 
 ###Block:Wizard King legendary abilities
-# Feat Name					Type									Visible	Required Class			Prohibited Feat						Special Ability			Choose a Feat				Bonus to DC					Bonus to skill								Source Page
-Increased Spell Power I			TYPE:LegendaryIncSpellPower.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power	ADD:FEAT(TYPE=IncSpellPowerSchool)																	SOURCEPAGE:p62
-Increased Spell Power II		TYPE:LegendaryIncSpellPower.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power	ADD:FEAT(TYPE=IncSpellPowerSchool)2																	SOURCEPAGE:p62
-Increased Spell Power III		TYPE:LegendaryIncSpellPower.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power	ADD:FEAT(TYPE=IncSpellPowerSchool)3																	SOURCEPAGE:p62
-Increased Spell Power IV		TYPE:LegendaryIncSpellPower.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power	ADD:FEAT(TYPE=IncSpellPowerSchool)4																	SOURCEPAGE:p62
-Increased Spell Power V			TYPE:LegendaryIncSpellPower.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power	ADD:FEAT(TYPE=IncSpellPowerSchool)5																	SOURCEPAGE:p62
+# Feat Name					Type									Visible	Required Class			Prohibited Feat						Special Ability			Bonus to DC					Bonus to skill								Source Page		ADD:
+Increased Spell Power I			TYPE:LegendaryIncSpellPower.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power																	SOURCEPAGE:p62	ADD:FEAT|1|TYPE=IncSpellPowerSchool
+Increased Spell Power II		TYPE:LegendaryIncSpellPower.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power																	SOURCEPAGE:p62	ADD:FEAT|2|TYPE=IncSpellPowerSchool
+Increased Spell Power III		TYPE:LegendaryIncSpellPower.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power																	SOURCEPAGE:p62	ADD:FEAT|3|TYPE=IncSpellPowerSchool
+Increased Spell Power IV		TYPE:LegendaryIncSpellPower.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power																	SOURCEPAGE:p62	ADD:FEAT|4|TYPE=IncSpellPowerSchool
+Increased Spell Power V			TYPE:LegendaryIncSpellPower.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power																	SOURCEPAGE:p62	ADD:FEAT|5|TYPE=IncSpellPowerSchool
 
-Mastered Spells I				TYPE:LegendaryMasteredSpells.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (1)																								SOURCEPAGE:p62
-Mastered Spells II			TYPE:LegendaryMasteredSpells.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (2)																								SOURCEPAGE:p62
-Mastered Spells III			TYPE:LegendaryMasteredSpells.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (3)																								SOURCEPAGE:p62
-Mastered Spells IV			TYPE:LegendaryMasteredSpells.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (4)																								SOURCEPAGE:p62
-Mastered Spells V				TYPE:LegendaryMasteredSpells.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (5)																								SOURCEPAGE:p62
+Mastered Spells I				TYPE:LegendaryMasteredSpells.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (1)																		SOURCEPAGE:p62
+Mastered Spells II			TYPE:LegendaryMasteredSpells.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (2)																		SOURCEPAGE:p62
+Mastered Spells III			TYPE:LegendaryMasteredSpells.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (3)																		SOURCEPAGE:p62
+Mastered Spells IV			TYPE:LegendaryMasteredSpells.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (4)																		SOURCEPAGE:p62
+Mastered Spells V				TYPE:LegendaryMasteredSpells.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (5)																		SOURCEPAGE:p62
 # Can't really see a way to do more here. Gimme, gimme, gimme, Chooser for spells....and then add to a separate spell list...
 
-Unearthly Penetration I			TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL1	VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +1																							SOURCEPAGE:p62
-Unearthly Penetration II		TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL2	VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +2																							SOURCEPAGE:p62
-Unearthly Penetration III		TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL3	VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +3																							SOURCEPAGE:p62
-Unearthly Penetration IV		TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL4	VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +4																							SOURCEPAGE:p62
-Unearthly Penetration V			TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL5	VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +5																							SOURCEPAGE:p62
+Unearthly Penetration I			TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL1	VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +1																	SOURCEPAGE:p62
+Unearthly Penetration II		TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL2	VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +2																	SOURCEPAGE:p62
+Unearthly Penetration III		TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL3	VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +3																	SOURCEPAGE:p62
+Unearthly Penetration IV		TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL4	VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +4																	SOURCEPAGE:p62
+Unearthly Penetration V			TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL5	VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +5																	SOURCEPAGE:p62
 
-Arcane Resistance I			TYPE:LegendaryArcaneResistance.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +1																								SOURCEPAGE:p62
-Arcane Resistance II			TYPE:LegendaryArcaneResistance.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +2																								SOURCEPAGE:p62
-Arcane Resistance III			TYPE:LegendaryArcaneResistance.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +3																								SOURCEPAGE:p62
-Arcane Resistance IV			TYPE:LegendaryArcaneResistance.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +4																								SOURCEPAGE:p62
-Arcane Resistance V			TYPE:LegendaryArcaneResistance.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +5																								SOURCEPAGE:p62
+Arcane Resistance I			TYPE:LegendaryArcaneResistance.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +1																		SOURCEPAGE:p62
+Arcane Resistance II			TYPE:LegendaryArcaneResistance.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +2																		SOURCEPAGE:p62
+Arcane Resistance III			TYPE:LegendaryArcaneResistance.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +3																		SOURCEPAGE:p62
+Arcane Resistance IV			TYPE:LegendaryArcaneResistance.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +4																		SOURCEPAGE:p62
+Arcane Resistance V			TYPE:LegendaryArcaneResistance.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +5																		SOURCEPAGE:p62
 
-Master of the Mundane Arts I		TYPE:LegendaryMundaneArts.WizardKingLAPL1			VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|5	SOURCEPAGE:p62
-Master of the Mundane Arts II		TYPE:LegendaryMundaneArts.WizardKingLAPL2			VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|10	SOURCEPAGE:p62
-Master of the Mundane Arts III	TYPE:LegendaryMundaneArts.WizardKingLAPL3			VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|15	SOURCEPAGE:p62
-Master of the Mundane Arts IV		TYPE:LegendaryMundaneArts.WizardKingLAPL4			VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|20	SOURCEPAGE:p62
-Master of the Mundane Arts V		TYPE:LegendaryMundaneArts.WizardKingLAPL5			VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|25	SOURCEPAGE:p62
+Master of the Mundane Arts I		TYPE:LegendaryMundaneArts.WizardKingLAPL1			VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts							BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|5	SOURCEPAGE:p62
+Master of the Mundane Arts II		TYPE:LegendaryMundaneArts.WizardKingLAPL2			VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts							BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|10	SOURCEPAGE:p62
+Master of the Mundane Arts III	TYPE:LegendaryMundaneArts.WizardKingLAPL3			VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts							BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|15	SOURCEPAGE:p62
+Master of the Mundane Arts IV		TYPE:LegendaryMundaneArts.WizardKingLAPL4			VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts							BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|20	SOURCEPAGE:p62
+Master of the Mundane Arts V		TYPE:LegendaryMundaneArts.WizardKingLAPL5			VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts							BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|25	SOURCEPAGE:p62
 
 
-Increase Abjuration Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Abjuration|2												SOURCEPAGE:p62
-Increase Conjuration Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Conjuration|2												SOURCEPAGE:p62
-Increase Divination Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Divination|2												SOURCEPAGE:p62
-Increase Enchantment Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Enchantment|2												SOURCEPAGE:p62
-Increase Evocation Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Evocation|2												SOURCEPAGE:p62
-Increase Illusion Spell Power		TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Illusion|2												SOURCEPAGE:p62
-Increase Necromancy Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Necromancy|2												SOURCEPAGE:p62
-Increase Transmutation Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Transmutation|2											SOURCEPAGE:p62
+Increase Abjuration Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1														BONUS:DC|SCHOOL.Abjuration|2												SOURCEPAGE:p62
+Increase Conjuration Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1														BONUS:DC|SCHOOL.Conjuration|2												SOURCEPAGE:p62
+Increase Divination Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1														BONUS:DC|SCHOOL.Divination|2												SOURCEPAGE:p62
+Increase Enchantment Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1														BONUS:DC|SCHOOL.Enchantment|2												SOURCEPAGE:p62
+Increase Evocation Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1														BONUS:DC|SCHOOL.Evocation|2												SOURCEPAGE:p62
+Increase Illusion Spell Power		TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1														BONUS:DC|SCHOOL.Illusion|2												SOURCEPAGE:p62
+Increase Necromancy Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1														BONUS:DC|SCHOOL.Necromancy|2												SOURCEPAGE:p62
+Increase Transmutation Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1														BONUS:DC|SCHOOL.Transmutation|2											SOURCEPAGE:p62
 # I have a feeling this can be done with chooser directly, but with the poor documentation of it I'm not going to try.
 
 

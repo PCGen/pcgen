@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Apr  2 04:37:37 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -9,17 +9,17 @@ CLASS:Ancestral Bladebearer	HD:10		TYPE:PC.Prestige	ABB:AnBld		MAXLEVEL:10	SOURC
 CLASS:Ancestral Bladebearer	PREATT:6	PREFEAT:1,Weapon Focus	PREFEAT:1,Weapon Specialization	PRETEXT:Weapon Focus and Weapon Specialization must be with ancestral blade.  Must have used ancestral blade exclusively for at least one level.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ancestral Bladebearer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|TYPE.Profession|Ride|Swim
-1								FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-1								FEATAUTO:Unbreakable Blade
-2								FEATAUTO:Advance Ancestral Blade
-3								FEATAUTO:Ancestral Watcher
-3	REPEATLEVEL:3	ADD:FEAT(TYPE=Fighter)
-4								FEATAUTO:Immovable Blade
-5								FEATAUTO:Ancestral Advisor
-7								FEATAUTO:Ancestral Guide
-8								FEATAUTO:Unwavering Blade
-9								FEATAUTO:Ancestral Protector
-10								FEATAUTO:Awaken Ancestral Blade
+1				FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+1				FEATAUTO:Unbreakable Blade
+2				FEATAUTO:Advance Ancestral Blade
+3				FEATAUTO:Ancestral Watcher
+3	REPEATLEVEL:3																																								ADD:FEAT|1|TYPE=Fighter
+4				FEATAUTO:Immovable Blade
+5				FEATAUTO:Ancestral Advisor
+7				FEATAUTO:Ancestral Guide
+8				FEATAUTO:Unwavering Blade
+9				FEATAUTO:Ancestral Protector
+10				FEATAUTO:Awaken Ancestral Blade
 
 ### TODO: Closed Mind does not appear on the list of abilities.  Assuming 1st level.
 ### TODO: There are many special abilities in the level progression chart that are not described in the text.
@@ -71,16 +71,16 @@ CLASS:Bane of Legates	HD:6		TYPE:PC.Prestige	ABB:blgt		MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Bane of Legates	PREFEAT:2,TYPE.Magecraft,Iron Will	PRESKILL:2,Knowledge (Arcana),Spellcraft=10	PRESKILL:1,Knowledge (Religion)=6	PREVARGTEQ:SpellEnergy,10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bane of Legates	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Sense Motive|Spellcraft|Wilderness Lore
-1	REPEATLEVEL:1						ADD:FEAT(Improved Spellcasting)
+1	REPEATLEVEL:1												ADD:FEAT|1|Improved Spellcasting
 1				BONUS:VAR|SpellEnergy|CL
-1				BONUS:VAR|IzradorSR|10+CL									FEATAUTO:Resist Izrador's Will
-2	REPEATLEVEL:5						ADD:FEAT(TYPE=ItemCreation,TYPE=Metamagic)
-3																	FEATAUTO:See Astirax
-4																	FEATAUTO:Counter Izrador's Will
-5	REPEATLEVEL:4						ADD:FEAT(TYPE=Spellcasting)
-6																	FEATAUTO:Bind Astirax
-8																	FEATAUTO:Conceal Magic
-10																	FEATAUTO:Sundered Spirit
+1				BONUS:VAR|IzradorSR|10+CL	FEATAUTO:Resist Izrador's Will
+2	REPEATLEVEL:5												ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic
+3									FEATAUTO:See Astirax
+4									FEATAUTO:Counter Izrador's Will
+5	REPEATLEVEL:4												ADD:FEAT|1|TYPE=Spellcasting
+6									FEATAUTO:Bind Astirax
+8									FEATAUTO:Conceal Magic
+10									FEATAUTO:Sundered Spirit
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Elven Raider	HD:8		TYPE:PC.Prestige	ABB:ERd		MAXLEVEL:10	SOURCEPAGE:p. 50	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -104,15 +104,15 @@ CLASS:Haunted One	HD:6		TYPE:PC.Prestige	ABB:Haunt		MAXLEVEL:10	SOURCEPAGE:p. 52
 CLASS:Haunted One	PREFEAT:2,Spellcasting (Divination),Spellcasting (Necromancy)	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Scry=5	PRESKILL:1,Knowledge (Nature)=3	PRESTAT:1,WIS=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Haunted One	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Sense Motive|Spellcraft|Wilderness Lore
-1	REPEATLEVEL:1																ADD:FEAT(Improved Spellcasting)
+1	REPEATLEVEL:1																						ADD:FEAT|1|Improved Spellcasting
 1														BONUS:CASTERLEVEL|Channeler|1
 1				BONUS:VAR|SpellEnergy|CL
-1				BONUS:VAR|SeanceLvl|CL	BONUS:VAR|SeanceTimes|(CL+2)/3												FEATAUTO:Seance
-2	REPEATLEVEL:2																ADD:FEAT(Spirit Manipulation)
-3																									FEATAUTO:Ghost Sight
-5																									FEATAUTO:Spell Focus (Divination)
-9																									FEATAUTO:Spell Focus (Necromancy)
-10																									FEATAUTO:Spirit Mastery
+1				BONUS:VAR|SeanceLvl|CL	BONUS:VAR|SeanceTimes|(CL+2)/3						FEATAUTO:Seance
+2	REPEATLEVEL:2																						ADD:FEAT|1|Spirit Manipulation
+3																			FEATAUTO:Ghost Sight
+5																			FEATAUTO:Spell Focus (Divination)
+9																			FEATAUTO:Spell Focus (Necromancy)
+10																			FEATAUTO:Spirit Mastery
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Herbalist	HD:6		TYPE:PC.Prestige	ABB:Herb		MAXLEVEL:10	SOURCEPAGE:p. 52	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
@@ -120,15 +120,15 @@ CLASS:Herbalist	HD:6		TYPE:PC.Prestige	ABB:Herb		MAXLEVEL:10	SOURCEPAGE:p. 52	BO
 CLASS:Herbalist	PREFEAT:2,Brew Herbal Concoctions,Green Thumb	PRESKILL:2,Profession (Herbalist),Wilderness Lore=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Herbalist	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Intuit Direction|Jump|Knowledge (Herbalism)|Listen|TYPE.Profession|Search|Spot|Swim|Use Rope|Wilderness Lore
-1									FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Shield Proficiency
-1									FEATAUTO:Extended Concoction
-2	REPEATLEVEL:3	ADD:FEAT(Concoction Mastery)
-3									FEATAUTO:Efficient Harvest
-4									FEATAUTO:Enhanced Concoction
-6									FEATAUTO:Pure Harvest
-7									FEATAUTO:Doubled Concoction
-9									FEATAUTO:Constant Harvest
-10									FEATAUTO:Spontaneous Concoction|Master Herbalist
+1				FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Shield Proficiency
+1				FEATAUTO:Extended Concoction
+2	REPEATLEVEL:3																					ADD:FEAT|1|Concoction Mastery
+3				FEATAUTO:Efficient Harvest
+4				FEATAUTO:Enhanced Concoction
+6				FEATAUTO:Pure Harvest
+7				FEATAUTO:Doubled Concoction
+9				FEATAUTO:Constant Harvest
+10				FEATAUTO:Spontaneous Concoction|Master Herbalist
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Sarcosan Knight	HD:10		TYPE:PC.Prestige	ABB:SarKn		MAXLEVEL:10	SOURCEPAGE:p. 56	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -136,14 +136,14 @@ CLASS:Sarcosan Knight	HD:10		TYPE:PC.Prestige	ABB:SarKn		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Sarcosan Knight	PREATT:6	PREFEAT:3,Mounted Combat,Ride-By Attack,Spirited Charge	PRERACE:1,Human (Sarcosan),Human (Erenlander)	PRESKILL:1,Ride=8	PRESKILL:2,Handle Animal,Intimidate=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sarcosan Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Jump|TYPE.Profession|Ride|Spot|Swim
-1																																																			FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-1				BONUS:VAR|HorseLordLvl|CL																																											FEATAUTO:Horse Lord
-1				BONUS:VAR|SarSMLevel|CL																																												FEATAUTO:Sarcosan Mount
-2	REPEATLEVEL:3						ADD:FEAT(Mounted Maneuver)
-3	REPEATLEVEL:3						ADD:FEAT(Mounted Archery,Sarcosan Pureblood,Skill Focus (Ride),Trample,Weapon Focus (Ceduku),Weapon Focus (TYPE.Shortbow),Weapon Focus (Scimitar),Weapon Specialization (Ceduku),Weapon Specialization (TYPE.Shortbow),Weapon Specialization (Scimitar))
-4																																																			FEATAUTO:Spur On
-7									ADD:FEAT(Devastating Attack)
-10																																																			FEATAUTO:Sweeping Strike
+1									FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+1				BONUS:VAR|HorseLordLvl|CL	FEATAUTO:Horse Lord
+1				BONUS:VAR|SarSMLevel|CL		FEATAUTO:Sarcosan Mount
+2	REPEATLEVEL:3																																											ADD:FEAT|1|Mounted Maneuver
+3	REPEATLEVEL:3																																											ADD:FEAT|1|Mounted Archery,Sarcosan Pureblood,Skill Focus (Ride),Trample,Weapon Focus (Ceduku),Weapon Focus (TYPE.Shortbow),Weapon Focus (Scimitar),Weapon Specialization (Ceduku),Weapon Specialization (TYPE.Shortbow),Weapon Specialization (Scimitar)
+4									FEATAUTO:Spur On
+7																																														ADD:FEAT|1|Devastating Attack
+10									FEATAUTO:Sweeping Strike
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Smuggler	HD:6		TYPE:PC.Prestige	ABB:Smg		MAXLEVEL:10	SOURCEPAGE:p. 59	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
@@ -162,21 +162,21 @@ CLASS:Smuggler	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|De
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Warrior Arcanist	HD:8		TYPE:PC.Prestige	ABB:warc		MAXLEVEL:10	SOURCEPAGE:p. 61	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat														Required Skill		Req. Spell Type		Req. Weapond Prof.
-CLASS:Warrior Arcanist	PREATT:4	PREFEAT:1,TYPE.Magecraft	PREFEAT:1,Armor Proficiency (Medium)	PREFEAT:1,Weapon Focus	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:Arcane,3,2	PREWEAPONPROF:1,TYPE.Martial
+CLASS:Warrior Arcanist	PREATT:4	PREFEAT:1,TYPE.Magecraft	PREFEAT:1,Armor Proficiency (Medium)	PREFEAT:1,Weapon Focus	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:3,Arcane=2	PREWEAPONPROF:1,TYPE.Martial
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warrior Arcanist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Intimidate|Jump|TYPE.Knowledge|TYPE.Profession|Ride|Spellcraft|Swim
-1	REPEATLEVEL:2																	ADD:FEAT(Improved Spellcasting)
+1	REPEATLEVEL:2																						ADD:FEAT|1|Improved Spellcasting
 1															BONUS:CASTERLEVEL|Channeler|1
 1				BONUS:VAR|SpellEnergy|CL
-1				BONUS:VAR|MaxSpellChanneling|1																	FEATAUTO:Magical Power
-2																										FEATAUTO:Magical Accuracy
-3				BONUS:VAR|IgnoreArmorBonus|10																		FEATAUTO:Ignore Armor
-3				BONUS:VAR|MeleeSpellcastingLvl|CL																	FEATAUTO:Melee Spellcasting
-4																										FEATAUTO:Magical Defense
-5																										FEATAUTO:Regenerative Strike
+1				BONUS:VAR|MaxSpellChanneling|1											FEATAUTO:Magical Power
+2																				FEATAUTO:Magical Accuracy
+3				BONUS:VAR|IgnoreArmorBonus|10												FEATAUTO:Ignore Armor
+3				BONUS:VAR|MeleeSpellcastingLvl|CL											FEATAUTO:Melee Spellcasting
+4																				FEATAUTO:Magical Defense
+5																				FEATAUTO:Regenerative Strike
 6				BONUS:VAR|IgnoreArmorBonus|10	BONUS:VAR|MaxSpellChanneling|1
 8				BONUS:VAR|IgnoreArmorBonus|10
-9																				ADD:FEAT(TYPE=Fighter)
+9																									ADD:FEAT|1|TYPE=Fighter
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Whisper Adept	HD:8		TYPE:PC.Prestige	ABB:whs		MAXLEVEL:10	SOURCEPAGE:p. 63	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
@@ -185,14 +185,14 @@ CLASS:Whisper Adept	PREFEAT:1,TYPE.Magecraft	PREFEAT:1,TYPE.Spellcasting	PRERACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Whisper Adept	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Sense Motive|Spellcraft|Wilderness Lore
 1				BONUS:VAR|CommandNature|CL
-1	REPEATLEVEL:1												ADD:FEAT(Improved Spellcasting)
+1	REPEATLEVEL:1																	ADD:FEAT|1|Improved Spellcasting
 1				BONUS:VAR|MaxSpellChanneling|CL	BONUS:CASTERLEVEL|Channeler|1
 1				BONUS:VAR|SpellEnergy|CL
-1				BONUS:VAR|WhisperSenseLvl|CL													FEATAUTO:Whisper Sense
-3																					FEATAUTO:Fell Touch
-5				BONUS:VAR|TreeMeldLvl|CL													FEATAUTO:Tree Meld
-7																					FEATAUTO:Strength of the Wood
-10																					FEATAUTO:Tree Stride
+1				BONUS:VAR|WhisperSenseLvl|CL							FEATAUTO:Whisper Sense
+3															FEATAUTO:Fell Touch
+5				BONUS:VAR|TreeMeldLvl|CL							FEATAUTO:Tree Meld
+7															FEATAUTO:Strength of the Wood
+10															FEATAUTO:Tree Stride
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Wogren Rider	HD:8		TYPE:PC.Prestige	ABB:wgr		MAXLEVEL:10	SOURCEPAGE:p. 65	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -200,15 +200,15 @@ CLASS:Wogren Rider	HD:8		TYPE:PC.Prestige	ABB:wgr		MAXLEVEL:10	SOURCEPAGE:p. 65	
 CLASS:Wogren Rider	PREFEAT:2,Mounted Archery,Mounted Combat	PRERACE:1,Halfling (Midnight)	PRESKILL:2,Intuit Direction,Wilderness Lore=4	PRESKILL:1,Ride=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wogren Rider	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
-1																																										FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1																																										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1				BONUS:VAR|WogrenRiderLvl|CL																																		FEATAUTO:Wogren Mount
-1																																										FEATAUTO:Coordinated Attack
-2	REPEATLEVEL:2						ADD:FEAT(Ride By Attack,Improved Ride By Attack,Mounted Archery,Improved Mounted Archery,Mounted Combat,Improved Mounted Combat,Spirited Charge,Improved Spirited Charge,Trample,Improved Trample)
-3																																										FEATAUTO:Speed Mount
-5																																										FEATAUTO:Mounted Hide
-7																																										FEATAUTO:Wogren Dodge
-9																																										FEATAUTO:Wogren's Sight
+1									FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1									FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1				BONUS:VAR|WogrenRiderLvl|CL	FEATAUTO:Wogren Mount
+1									FEATAUTO:Coordinated Attack
+2	REPEATLEVEL:2																											ADD:FEAT|1|Ride By Attack,Improved Ride By Attack,Mounted Archery,Improved Mounted Archery,Mounted Combat,Improved Mounted Combat,Spirited Charge,Improved Spirited Charge,Trample,Improved Trample
+3									FEATAUTO:Speed Mount
+5									FEATAUTO:Mounted Hide
+7									FEATAUTO:Wogren Dodge
+9									FEATAUTO:Wogren's Sight
 
 #
 # End

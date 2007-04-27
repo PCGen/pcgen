@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 # CVS
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn
@@ -16,11 +16,11 @@ CLASS:Dawn Archer	HD:10		TYPE:PC.Prestige	ABB:DaA		MAXLEVEL:5	SOURCEPAGE:p.75	BO
 CLASS:Dawn Archer	PREFEAT:3,Improved Precise Shot,Far Shot,Rapid Shot	PREFEAT:1,Weapon Focus(Shortbow),Weapon Focus(Longbow)	PREFEAT:1,Path of the Swift 5th Circle	PRESKILL:2,Listen,Move Silently=5	PRESKILL:2,Hide,Spot=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dawn Archer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Hide|Jump|Listen|Move Silently|TYPE.Profession|Spot|Swim
-1	ADD:FEAT(TYPE=DawnArcherLPL1,Enhanced Dexterity I,Enhanced Wisdom I)		AUTO:SHIELDPROF|TYPE.Buckler	AUTO:WEAPONPROF|Shortbow|Longbow	FEATAUTO:Simple Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-2	ADD:FEAT(TYPE=DawnArcherLPL2,Enhanced Dexterity II,Enhanced Wisdom II)
-3	ADD:FEAT(TYPE=DawnArcherLPL3,Enhanced Dexterity III,Enhanced Wisdom III)
-4	ADD:FEAT(TYPE=DawnArcherLPL4,Enhanced Dexterity IV,Enhanced Wisdom IV)
-5	ADD:FEAT(TYPE=DawnArcherLPL5,Enhanced Dexterity V,Enhanced Wisdom V)
+1	AUTO:SHIELDPROF|TYPE.Buckler	AUTO:WEAPONPROF|Shortbow|Longbow	FEATAUTO:Simple Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)	ADD:FEAT|1|TYPE=DawnArcherLPL1,Enhanced Dexterity I,Enhanced Wisdom I
+2																													ADD:FEAT|1|TYPE=DawnArcherLPL2,Enhanced Dexterity II,Enhanced Wisdom II
+3																													ADD:FEAT|1|TYPE=DawnArcherLPL3,Enhanced Dexterity III,Enhanced Wisdom III
+4																													ADD:FEAT|1|TYPE=DawnArcherLPL4,Enhanced Dexterity IV,Enhanced Wisdom IV
+5																													ADD:FEAT|1|TYPE=DawnArcherLPL5,Enhanced Dexterity V,Enhanced Wisdom V
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Fleetwind	HD:8		TYPE:PC.Prestige	ABB:Fle		MAXLEVEL:5	SOURCEPAGE:p.77	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -28,11 +28,11 @@ CLASS:Fleetwind	HD:8		TYPE:PC.Prestige	ABB:Fle		MAXLEVEL:5	SOURCEPAGE:p.77	BONUS
 CLASS:Fleetwind	PREFEAT:2,Endurance,Run	PREFEAT:1,Path of the Swift 5th Circle	PRESKILL:1,Balance=4	PRESKILL:2,Climb,Jump=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fleetwind	STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE.Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	ADD:FEAT(TYPE=FleetwindLPL1,Enhanced Dexterity I,Enhanced Constitution I)	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency	FEATAUTO:Simple Weapon Proficiency
-2	ADD:FEAT(TYPE=FleetwindLPL2,Enhanced Dexterity II,Enhanced Constitution II)
-3	ADD:FEAT(TYPE=FleetwindLPL3,Enhanced Dexterity III,Enhanced Constitution III)
-4	ADD:FEAT(TYPE=FleetwindLPL4,Enhanced Dexterity IV,Enhanced Constitution IV)
-5	ADD:FEAT(TYPE=FleetwindLPL5,Enhanced Dexterity V,Enhanced Constitution V)
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency	FEATAUTO:Simple Weapon Proficiency	ADD:FEAT|1|TYPE=FleetwindLPL1,Enhanced Dexterity I,Enhanced Constitution I
+2																					ADD:FEAT|1|TYPE=FleetwindLPL2,Enhanced Dexterity II,Enhanced Constitution II
+3																					ADD:FEAT|1|TYPE=FleetwindLPL3,Enhanced Dexterity III,Enhanced Constitution III
+4																					ADD:FEAT|1|TYPE=FleetwindLPL4,Enhanced Dexterity IV,Enhanced Constitution IV
+5																					ADD:FEAT|1|TYPE=FleetwindLPL5,Enhanced Dexterity V,Enhanced Constitution V
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Epic General	HD:10		TYPE:PC.Prestige	ABB:EpG		MAXLEVEL:5	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -40,11 +40,11 @@ CLASS:Epic General	HD:10		TYPE:PC.Prestige	ABB:EpG		MAXLEVEL:5	SOURCEPAGE:p.78	B
 CLASS:Epic General	PREFEAT:3,Improved Initiative,Leadership,Weapon Specialization	PREFEAT:2,Path of the Persuasive 3rd Circle,Path of the Mighty 1st Circle	PRESKILL:1,Diplomacy=8	PRESKILL:1,Intimidate=12	PRESKILL:1,Knowledge (War)=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Epic General	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|Knowledge (War)|Listen|Ride|Spot|Swim
-1	ADD:FEAT(TYPE=EpicGeneralLPL1,Enhanced Charisma I,Enhanced Strength I)		AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
-2	ADD:FEAT(TYPE=EpicGeneralLPL2,Enhanced Charisma II,Enhanced Strength II)
-3	ADD:FEAT(TYPE=EpicGeneralLPL3,Enhanced Charisma III,Enhanced Strength III)
-4	ADD:FEAT(TYPE=EpicGeneralLPL4,Enhanced Charisma IV,Enhanced Strength IV)
-5	ADD:FEAT(TYPE=EpicGeneralLPL5,Enhanced Charisma V,Enhanced Strength V)
+1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency	ADD:FEAT|1|TYPE=EpicGeneralLPL1,Enhanced Charisma I,Enhanced Strength I
+2																																									ADD:FEAT|1|TYPE=EpicGeneralLPL2,Enhanced Charisma II,Enhanced Strength II
+3																																									ADD:FEAT|1|TYPE=EpicGeneralLPL3,Enhanced Charisma III,Enhanced Strength III
+4																																									ADD:FEAT|1|TYPE=EpicGeneralLPL4,Enhanced Charisma IV,Enhanced Strength IV
+5																																									ADD:FEAT|1|TYPE=EpicGeneralLPL5,Enhanced Charisma V,Enhanced Strength V
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Icon		HD:8		TYPE:PC.Prestige	ABB:Ico		MAXLEVEL:5	SOURCEPAGE:p.80	BONUS:CHECKS|BASE.Reflex,BASE.Will|2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -52,11 +52,11 @@ CLASS:Icon		HD:8		TYPE:PC.Prestige	ABB:Ico		MAXLEVEL:5	SOURCEPAGE:p.80	BONUS:CHE
 CLASS:Icon		PREFEAT:2,Leadership,Persuasive	PREFEAT:1,Path of the Persuasive 5th Circle	PRESKILL:1,Diplomacy=10	PRESKILL:2,Intimidate,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Icon		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disguise|Gather Information|TYPE.Knowledge|Listen|TYPE.Perform|TYPE.Profession|Sense Motive|Speak Language|Spellcraft|Swim|Use Magic Device
-1	ADD:FEAT(TYPE=IconLPL1,Enhanced Charisma I,Enhanced Intelligence I)	FEATAUTO:Armor Proficiency (Light)	FEATAUTO:Simple Weapon Proficiency
-2	ADD:FEAT(TYPE=IconLPL2,Enhanced Charisma II,Enhanced Intelligence II)
-3	ADD:FEAT(TYPE=IconLPL3,Enhanced Charisma III,Enhanced Intelligence III)
-4	ADD:FEAT(TYPE=IconLPL4,Enhanced Charisma IV,Enhanced Intelligence IV)
-5	ADD:FEAT(TYPE=IconLPL5,Enhanced Charisma V,Enhanced Intelligence V)
+1	FEATAUTO:Armor Proficiency (Light)	FEATAUTO:Simple Weapon Proficiency	ADD:FEAT|1|TYPE=IconLPL1,Enhanced Charisma I,Enhanced Intelligence I
+2													ADD:FEAT|1|TYPE=IconLPL2,Enhanced Charisma II,Enhanced Intelligence II
+3													ADD:FEAT|1|TYPE=IconLPL3,Enhanced Charisma III,Enhanced Intelligence III
+4													ADD:FEAT|1|TYPE=IconLPL4,Enhanced Charisma IV,Enhanced Intelligence IV
+5													ADD:FEAT|1|TYPE=IconLPL5,Enhanced Charisma V,Enhanced Intelligence V
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Master Arcanist	HD:6		TYPE:PC.Prestige	ABB:MaA		MAXLEVEL:5	SOURCEPAGE:p.81	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -64,11 +64,11 @@ CLASS:Master Arcanist	HD:6		TYPE:PC.Prestige	ABB:MaA		MAXLEVEL:5	SOURCEPAGE:p.81
 CLASS:Master Arcanist	PREFEAT:2,Improved Counterspell,Skill Focus(Knowledge (Arcana))	PREFEAT:1,Path of the Learned 5th Circle	PRESKILL:2,Knowledge (Arcana),Spellcraft=15	PRETEXT:The character must have bonded to an arcane aspect
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Arcanist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
-1	ADD:SPELLCASTER(Arcane)	ADD:FEAT(TYPE=MasterArcanistLPL1,Enhanced Intelligence I,Enhanced Wisdom I)		AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
-2					ADD:FEAT(TYPE=MasterArcanistLPL2,Enhanced Intelligence II,Enhanced Wisdom II)
-3	ADD:SPELLCASTER(Arcane)	ADD:FEAT(TYPE=MasterArcanistLPL3,Enhanced Intelligence III,Enhanced Wisdom III)
-4					ADD:FEAT(TYPE=MasterArcanistLPL4,Enhanced Intelligence IV,Enhanced Wisdom IV)
-5	ADD:SPELLCASTER(Arcane)	ADD:FEAT(TYPE=MasterArcanistLPL5,Enhanced Intelligence V,Enhanced Wisdom V)
+1	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=MasterArcanistLPL1,Enhanced Intelligence I,Enhanced Wisdom I
+2														ADD:FEAT|1|TYPE=MasterArcanistLPL2,Enhanced Intelligence II,Enhanced Wisdom II
+3														ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=MasterArcanistLPL3,Enhanced Intelligence III,Enhanced Wisdom III
+4														ADD:FEAT|1|TYPE=MasterArcanistLPL4,Enhanced Intelligence IV,Enhanced Wisdom IV
+5														ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=MasterArcanistLPL5,Enhanced Intelligence V,Enhanced Wisdom V
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Unsuffering	HD:12		TYPE:PC.Prestige	ABB:Uns		MAXLEVEL:5	SOURCEPAGE:p.82	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -76,11 +76,11 @@ CLASS:Unsuffering	HD:12		TYPE:PC.Prestige	ABB:Uns		MAXLEVEL:5	SOURCEPAGE:p.82	BO
 CLASS:Unsuffering	PREFEAT:2,Diehard,Toughness	PREFEAT:1,Path of the Unyielding 5th Circle	PRESKILL:1,Concentration=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Unsuffering	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Ride|Swim
-1	ADD:FEAT(TYPE=UnsufferingLPL1,Enhanced Constitution I,Enhanced Wisdom I)	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)	FEATAUTO:Shield Proficiency
-2	ADD:FEAT(TYPE=UnsufferingLPL2,Enhanced Constitution II,Enhanced Wisdom II)
-3	ADD:FEAT(TYPE=UnsufferingLPL3,Enhanced Constitution III,Enhanced Wisdom III)
-4	ADD:FEAT(TYPE=UnsufferingLPL4,Enhanced Constitution IV,Enhanced Wisdom IV)
-5	ADD:FEAT(TYPE=UnsufferingLPL5,Enhanced Constitution V,Enhanced Wisdom V)
+1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)	FEATAUTO:Shield Proficiency	ADD:FEAT|1|TYPE=UnsufferingLPL1,Enhanced Constitution I,Enhanced Wisdom I
+2																																	ADD:FEAT|1|TYPE=UnsufferingLPL2,Enhanced Constitution II,Enhanced Wisdom II
+3																																	ADD:FEAT|1|TYPE=UnsufferingLPL3,Enhanced Constitution III,Enhanced Wisdom III
+4																																	ADD:FEAT|1|TYPE=UnsufferingLPL4,Enhanced Constitution IV,Enhanced Wisdom IV
+5																																	ADD:FEAT|1|TYPE=UnsufferingLPL5,Enhanced Constitution V,Enhanced Wisdom V
 
 
 

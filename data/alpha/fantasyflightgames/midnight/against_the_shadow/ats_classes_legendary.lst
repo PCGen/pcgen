@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 19:32:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -10,7 +10,7 @@ CLASS:Avatar of the Witch Queen	HD:10		TYPE:PC.Legendary	ABB:AotWQ		MAXLEVEL:5	S
 CLASS:Avatar of the Witch Queen	PRECHECKBASE:1,Will=6	PREFEAT:1,TYPE.Magecraft	PRESKILL:3,TYPE.Strength,TYPE.Intelligence,TYPE.Wisdom,TYPE.Dexterity,TYPE.Constitution,TYPE.Charisma=15	PRESTAT:1,WIS=15	PRETEXT:Any 1 feat of the DM's choice, Must be judged a loyal follower of the Witch Queen and must have done many services for the elves and against the Night Kings.
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Avatar of the Witch Queen	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Intuit Direction|Jump|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Wilderness Lore
-1	REPEATLEVEL:1	ADD:FEAT(TYPE.AvatarOfTheWitchQueenAbility)
+1	REPEATLEVEL:1	ADD:FEAT|1|TYPE.AvatarOfTheWitchQueenAbility
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Bleak Knight	HD:10		TYPE:PC.Legendary	ABB:BlKn		MAXLEVEL:5	SOURCEPAGE:p. 70	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -18,9 +18,9 @@ CLASS:Bleak Knight	HD:10		TYPE:PC.Legendary	ABB:BlKn		MAXLEVEL:5	SOURCEPAGE:p. 7
 CLASS:Bleak Knight	PREATT:12	PREFEAT:3,Great Fortitude,Iron Will,Improved Critical	PRESKILL:2,Intimidate,Wilderness Lore=5	PRETEXT:1 feat of DM's choice, Must have lost a loved one or home to the agents of Izrador and have witnessed it occuring
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bleak Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Listen|TYPE.Profession|Ride|Swim|Wilderness Lore
-1										FEATAUTO:Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-1	REPEATLEVEL:1	ADD:FEAT(TYPE.BleakKnightAbility)
+1				FEATAUTO:Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1				FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+1	REPEATLEVEL:1																			ADD:FEAT|1|TYPE.BleakKnightAbility
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Living Nexus	HD:8		TYPE:PC.Legendary	ABB:LvNx		MAXLEVEL:5	SOURCEPAGE:p. 72	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|(CL*3)/4|TYPE=Base.REPLACE
@@ -28,7 +28,7 @@ CLASS:Living Nexus	HD:8		TYPE:PC.Legendary	ABB:LvNx		MAXLEVEL:5	SOURCEPAGE:p. 72
 CLASS:Living Nexus	PREFEAT:1,Sense Nexus	PREFEAT:4,TYPE.ItemCreation	PRESKILL:2,Knowledge (Arcana),Spellcraft=15	PRETEXT:1 feat of DM's choice, Scribe Scroll and Brew Potion do not count towards Item Creation feat requirments
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Living Nexus	STARTSKILLPTS:6	CSKILL:Alchemy|Animal Empathy|Bluff|Concentration|TYPE.Craft|Handle Animal|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Sense Motive|Spellcraft|Wilderness Lore
-1	REPEATLEVEL:1	ADD:FEAT(TYPE.LivingNexusAbility)
+1	REPEATLEVEL:1	ADD:FEAT|1|TYPE.LivingNexusAbility
 
 #
 # End
