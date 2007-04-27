@@ -11,20 +11,25 @@ import pcgen.util.enumeration.Visibility;
 public class VisibleToken implements PCTemplateLstToken
 {
 
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.LstToken#getTokenName()
+	 */
 	public String getTokenName()
 	{
 		return "VISIBLE";
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.PCTemplateLstToken#parse(pcgen.core.PCTemplate, java.lang.String)
+	 */
 	public boolean parse(PCTemplate template, String value)
 	{
 		if (value.startsWith("DISPLAY"))
 		{
 			if (!value.equals("DISPLAY"))
 			{
-				Logging.errorPrint("In " + getTokenName() + " Use of '" + value
-					+ "' is not valid, please use DISPLAY "
-					+ "(exact String, upper case)");
+				Logging.errorPrint(getErrorMsgPrefix(template, value)
+					+ "DISPLAY (exact String, upper case)");
 			}
 			template.setVisibility(Visibility.DISPLAY_ONLY);
 		}
@@ -32,9 +37,8 @@ public class VisibleToken implements PCTemplateLstToken
 		{
 			if (!value.equals("EXPORT"))
 			{
-				Logging.errorPrint("In " + getTokenName() + " Use of '" + value
-					+ "' is not valid, please use EXPORT "
-					+ "(exact String, upper case)");
+				Logging.errorPrint(getErrorMsgPrefix(template, value)
+					+ "EXPORT (exact String, upper case)");
 			}
 			template.setVisibility(Visibility.OUTPUT_ONLY);
 		}
@@ -42,9 +46,8 @@ public class VisibleToken implements PCTemplateLstToken
 		{
 			if (!value.equals("NO"))
 			{
-				Logging.errorPrint("In " + getTokenName() + " Use of '" + value
-					+ "' is not valid, please use NO "
-					+ "(exact String, upper case)");
+				Logging.errorPrint(getErrorMsgPrefix(template, value)
+					+ "NO (exact String, upper case)");
 			}
 			template.setVisibility(Visibility.HIDDEN);
 		}
@@ -52,12 +55,33 @@ public class VisibleToken implements PCTemplateLstToken
 		{
 			if (!value.equals("ALWAYS") && !value.equals("YES"))
 			{
-				Logging.errorPrint("In " + getTokenName() + " Use of '" + value
-					+ "' is not valid, please use YES or ALWAYS "
+				Logging.errorPrint(getErrorMsgPrefix(template, value)
+					+ "DISPLAY, EXPORT, NO, YES or ALWAYS "
 					+ "(exact String, upper case)");
 			}
 			template.setVisibility(Visibility.DEFAULT);
 		}
 		return true;
+	}
+	
+	/**
+	 * Produce the standard start of an error message for an invalid
+	 * visible tag.
+	 * 
+	 * @param template The template the tag is for.
+	 * @param value The value of the visible tag.
+	 * @return The error message prefix
+	 */
+	private String getErrorMsgPrefix(PCTemplate template, String value) 
+	{
+		StringBuffer buff = new StringBuffer();
+		buff.append("In template ");
+		buff.append(template.getDisplayName());
+		buff.append(", token ");
+		buff.append(getTokenName());
+		buff.append(", use of '");
+		buff.append(value);
+		buff.append("' is not valid, please use ");
+		return buff.toString();
 	}
 }
