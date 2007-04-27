@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
@@ -25,15 +25,15 @@ CLASS:Bargainer	PREALIGN:LE,NE,CE	PREATT:4	PREFEAT:2,Infernal Pact,Iron Will	PRE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bargainer	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Spellcraft|Use Magic Device
 1	SA:Agent of Evil		BONUS:STAT|CHA|1
-2								ADD:FEAT(TYPE=Infernal)
+2													ADD:FEAT|1|TYPE=Infernal
 3	SA:Devil's Advocate
-4								ADD:FEAT(TYPE=Infernal)
+4													ADD:FEAT|1|TYPE=Infernal
 5	SA:Infernal Will
-6								ADD:FEAT(TYPE=Infernal)
-7												VFEAT:Craft Wondrous Item
-8								ADD:FEAT(TYPE=Infernal)
+6													ADD:FEAT|1|TYPE=Infernal
+7								VFEAT:Craft Wondrous Item
+8													ADD:FEAT|1|TYPE=Infernal
 9	SA:Wild Shape
-10								ADD:FEAT(TYPE=Infernal)
+10													ADD:FEAT|1|TYPE=Infernal
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Blood Archer	HD:10		TYPE:PC.Prestige	ABB:BlA		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

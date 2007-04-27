@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
@@ -22,6 +22,6 @@ CLASS:Questing Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:C
 CLASS:Questing Knight	PREATT:5	PREFEAT:1,Quest	PRESKILL:2,Knowledge (Local),Knowledge (Nobility and Royalty)=2	PRETEXT:Bound by an Oath
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Questing Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowledge (Local)|Knowledge (Nobility and Royalty)|Sense Motive
-1				SA:Fearless (Ex)		BONUS:VAR|KnowledgeLocal|((CL+1)/2)*2				FEATAUTO:Knowledge Local
-2	REPEATLEVEL:2												ADD:FEAT(Quest)
+1				SA:Fearless (Ex)		BONUS:VAR|KnowledgeLocal|((CL+1)/2)*2	FEATAUTO:Knowledge Local
+2	REPEATLEVEL:2																	ADD:FEAT|1|Quest
 4				SA:Honorable Surge (Su)
