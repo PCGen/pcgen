@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr  2 07:42:21 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
@@ -18,7 +18,7 @@ CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TY
 1	DEFINE:DemPowerUse|(CL+1)/2
 1	DEFINE:DemPowerDC|10+floor(CL/2)+CHA
 ###Block: Normal Level Progression
-1	SA:Sway (Ex)																											ADD:CLASSSKILLS(TYPE=Knowledge)2
+1	SA:Sway (Ex)																											ADD:CLASSSKILLS|2|TYPE=Knowledge
 2	SA:Taunt (Ex) %/day (DC%)|DemPowerUse|DemPowerDC	SA:Threaten (Ex)				BONUS:SKILL|Intimidate|4|TYPE=Competence
 3	SA:Pacify (Ex) %/day (DC%)|DemPowerUse|DemPowerDC
 4	SA:Outrage (Ex) %/day (DC% % hours)|DemPowerUse|DemPowerDC|DemPowerDur	SA:Convey (Sp)
@@ -44,9 +44,9 @@ CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jum
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Precision Strike +% (Ex)|PrecisionStrikeBonus	SA:Improved Defense +% (Ex)|ImprovedDefenseBonus	ADD:FEAT(Weapon of Choice)
+1	SA:Precision Strike +% (Ex)|PrecisionStrikeBonus	SA:Improved Defense +% (Ex)|ImprovedDefenseBonus	ADD:FEAT|1|Weapon of Choice
 2	SA:Fell Blow +% (Ex)|FellBlowBonus	SA:Skilled Stunt +% (Ex)|SkilledStuntBonus
-10																			ADD:FEAT(Extended Critical)
+10																			ADD:FEAT|1|Extended Critical
 
 
 # Divine Protection bonus type depends on alignment. Advice on implementing required.
@@ -62,16 +62,16 @@ CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE.Craft|Diplo
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1					SA:Smite the Heathen (Ex)
-2	ADD:SPELLCASTER(Divine)	SA:Divine Protection (Ex)							BONUS:CHECKS|Fortitude,Reflex,Will|CHA
-3	ADD:SPELLCASTER(Divine)	SA:Convert the Unbeliever (Su) %/day (DC%)|ConvertUse|ConvertDC														DEFINE:ConvertDC|CL+CHA+10	DEFINE:ConvertUse|CL+CHA
-4	ADD:SPELLCASTER(Divine)
-5	ADD:SPELLCASTER(Divine)	SA:Empower Congregation  (Ex) %/day|EmpowerUse																	DEFINE:EmpowerUse|CHA
-6					SA:Divine Knowledge (Su)							BONUS:CHECKS|Reflex|2|TYPE=Insight		BONUS:COMBAT|AC|2|TYPE=Insight
-7	ADD:SPELLCASTER(Divine)	SA:Foster Martyr (Sp) (DC%)|FosterMartyrDC																	DEFINE:FosterMartyrDC|CL+CHA+10
-8	ADD:SPELLCASTER(Divine)
-9	ADD:SPELLCASTER(Divine)	SA:Enrapture (Ex) %/day|EmpowerUse
-10	ADD:SPELLCASTER(Divine)	SA:Convert the Masses (Su)
+1	SA:Smite the Heathen (Ex)
+2	SA:Divine Protection (Ex)							BONUS:CHECKS|Fortitude,Reflex,Will|CHA																	ADD:SPELLCASTER|1|Divine
+3	SA:Convert the Unbeliever (Su) %/day (DC%)|ConvertUse|ConvertDC														DEFINE:ConvertDC|CL+CHA+10	DEFINE:ConvertUse|CL+CHA	ADD:SPELLCASTER|1|Divine
+4																																			ADD:SPELLCASTER|1|Divine
+5	SA:Empower Congregation  (Ex) %/day|EmpowerUse																	DEFINE:EmpowerUse|CHA							ADD:SPELLCASTER|1|Divine
+6	SA:Divine Knowledge (Su)							BONUS:CHECKS|Reflex|2|TYPE=Insight		BONUS:COMBAT|AC|2|TYPE=Insight
+7	SA:Foster Martyr (Sp) (DC%)|FosterMartyrDC																	DEFINE:FosterMartyrDC|CL+CHA+10					ADD:SPELLCASTER|1|Divine
+8																																			ADD:SPELLCASTER|1|Divine
+9	SA:Enrapture (Ex) %/day|EmpowerUse																													ADD:SPELLCASTER|1|Divine
+10	SA:Convert the Masses (Su)																														ADD:SPELLCASTER|1|Divine
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Rafter	HD:8		TYPE:PC.Prestige	ABB:Raf		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
