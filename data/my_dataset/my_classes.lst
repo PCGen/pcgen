@@ -23,12 +23,12 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #1	SA:Trapfinding
 #2																												FEATAUTO:Evasion
 #3				BONUS:VAR|TrapSense|CL/3																				FEATAUTO:Trap Sense Ability
-#4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-#8															ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-#10															ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
-#13															ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
-#16															ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
-#19															ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+#4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
+#8															ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
+#10															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+#13															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+#16															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+#19															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 
 #####
 #Class files are where each class is listed, given it's important information for the correct output and functioning of the

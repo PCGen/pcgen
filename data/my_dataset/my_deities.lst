@@ -15,17 +15,14 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #
 #####Example
 
-#Mosat		DOMAINS:Chaos,Knowledge,Animal		FOLLOWERALIGN:013467	DESC:The CONTENTed One		SYMBOL:a Kitten on a keyboard		DEITYWEAP:Tiger claws		ALIGN:CG	PANTHEON:BoD	SOURCEPAGE:not recorded yet
+#Mosat		DOMAINS:Chaos,Knowledge,Animal|PREALIGN:LG,LN,NG,TN,CG,CN		FOLLOWERALIGN:013467	DESC:The CONTENTed One		SYMBOL:a Kitten on a keyboard		DEITYWEAP:Tiger claws		ALIGN:CG	PANTHEON:BoD	SOURCEPAGE:not recorded yet
 
 #####
 #The first field is the Deity Name, this is a required field and does not have a tag.
 #
 #The DOMAINS tag is a list of domains that the deity grants to it's divine spell casting followings. The domain name MUST
 #match the domain names listed in the domain list file.
-#
-#The FOLLOWERALIGN tag sets the alignments that the follower must be to choose this deity. (0 = Lawful Good;
-#1 = Lawful Neutral; 2 = Lawful Evil; 3 = Neutral Good; 4 = True Neutral; 5 = Neutral Evil; 6 = Chaotic Good;
-#7 = Chaotic Neutral; 8 = Chaotic Evil)
+#To limit alignments allowed for classes (such as cleric) to gain domains, use PREALIGN on the DOMAINS tag.
 #
 #The DESC tag is used for a quick description of the deity.
 #
