@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 18:27:36 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
-# Feat Name		Type			Visible	Maximum Level	Required Race			Var. Min. Value			Multiple?	Choose							ADD:FAVOREDCLASS		Bonus to skill		Source Page
+# Feat Name		Type			Visible	Maximum Level	Required Race			Var. Min. Value			Multiple?	Choose							Add				Bonus to skill		Source Page
 Racial Craft	TYPE:Special	VISIBLE:NO				PRERACE:1,Coivald,Rhoode	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Craft%|1						BONUS:SKILL|LIST|2	SOURCEPAGE:p.
 Artistic Craft	TYPE:Special	VISIBLE:NO									PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Art|1					BONUS:SKILL|LIST|2	SOURCEPAGE:p.
 Coivald Classes	TYPE:Special	VISIBLE:NO	PRELEVELMAX:1	PRERACE:1,Coivald			PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Cleric|Druid			ADD:FAVOREDCLASS|LIST					SOURCEPAGE:p.

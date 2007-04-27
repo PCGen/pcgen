@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 02:03:37 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
 # Original entry by: Ratheof Blithwyn
 
@@ -19,7 +19,7 @@ Illusion Library Terror			TYPE:General																	PREMULT:1,[PRESUBCLASS:1,
 Illusion Library True Illusion	TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																					DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
 Infuse Reality				TYPE:Metamagic																														PRESPELLSCHOOL:Illusion,1,1																DESC:You can add shadow energy to your illusion spells to make them partially real.												SOURCEPAGE:p.25
 Infuse Truth				TYPE:Metamagic																														PRESPELLSCHOOL:Illusion,1,1																DESC:You can cause your illusion spells to affect undead and other creatures normally immune to them.									SOURCEPAGE:p.25
-Opposed Spell				TYPE:General																																								PRESPELLTYPE:Arcane,1,1							DESC:You can cast a spell from a school of magic normally not available to you.												SOURCEPAGE:p.25
+Opposed Spell				TYPE:General																																								PRESPELLTYPE:1,Arcane=1							DESC:You can cast a spell from a school of magic normally not available to you.												SOURCEPAGE:p.25
 Shadow Familiar				TYPE:General												PREFEAT:1,Summon Familiar																			PRESPELLSCHOOLSUB:Shadow,3,1											DESC:Your familiar has been infused with energy from the Plane of Shadow.													SOURCEPAGE:p.25
 # The descriptions of Opposed Spell and Shadow Familiar is messed up in the source.
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 02:36:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
@@ -7,29 +7,29 @@ SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:ht
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Arcane Airman	HD:6		TYPE:PC.Prestige	ABB:ArA		MAXLEVEL:10	SOURCEPAGE:p.47	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat	Required Skill					Req. Spell Type
-CLASS:Arcane Airman	PREFEAT:1,Pilot	PRESKILL:2,Knowledge (Steamcraft),Drive=8	PRESPELLTYPE:Arcane,1,1
+CLASS:Arcane Airman	PREFEAT:1,Pilot	PRESKILL:2,Knowledge (Steamcraft),Drive=8	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|TYPE.Craft|Drive|Intuit Direction|Jump|TYPE.Knowledge|Listen|TYPE.Profession|Ride|Search|Spellcraft|Spot|Use Rope|Use Steamcraft Device
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(Arcane)	SA:Operations Expert (Ex)
-2	ADD:SPELLCASTER(Arcane)	SA:Makeshift Repairs (Ex)
-3	ADD:SPELLCASTER(Arcane)	SA:Expert Aviator +% (Ex)|ExpertAviator	BONUS:VAR|ExpertAviator|2	BONUS:SKILL|Drive,ExpertAviator|TYPE=Competence	DEFINE:ExpertAviator|0
-4	ADD:SPELLCASTER(Arcane)	SA:Freefall (Sp)
-5	ADD:SPELLCASTER(Arcane)	SA:Pinpoint Accuracy (Ex)
-6	ADD:SPELLCASTER(Arcane)								BONUS:VAR|ExpertAviator|2
-7	ADD:SPELLCASTER(Arcane)	SA:Safe Flying (Ex)
-8	ADD:SPELLCASTER(Arcane)	SA:Push the Limit (Ex)
-9	ADD:SPELLCASTER(Arcane)								BONUS:VAR|ExpertAviator|2
-10	ADD:SPELLCASTER(Arcane)	SA:Sky Captain (Ex)
+1	SA:Operations Expert (Ex)																				ADD:SPELLCASTER|1|Arcane
+2	SA:Makeshift Repairs (Ex)																				ADD:SPELLCASTER|1|Arcane
+3	SA:Expert Aviator +% (Ex)|ExpertAviator	BONUS:VAR|ExpertAviator|2	BONUS:SKILL|Drive,ExpertAviator|TYPE=Competence	DEFINE:ExpertAviator|0	ADD:SPELLCASTER|1|Arcane
+4	SA:Freefall (Sp)																						ADD:SPELLCASTER|1|Arcane
+5	SA:Pinpoint Accuracy (Ex)																				ADD:SPELLCASTER|1|Arcane
+6								BONUS:VAR|ExpertAviator|2													ADD:SPELLCASTER|1|Arcane
+7	SA:Safe Flying (Ex)																					ADD:SPELLCASTER|1|Arcane
+8	SA:Push the Limit (Ex)																					ADD:SPELLCASTER|1|Arcane
+9								BONUS:VAR|ExpertAviator|2													ADD:SPELLCASTER|1|Arcane
+10	SA:Sky Captain (Ex)																					ADD:SPELLCASTER|1|Arcane
 
 # Arcane Performer ----------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Arcane Performer	HD:6		TYPE:PC.Prestige	ABB:ArP		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat		Required Skill																						Req. Known Spell		Req. Spell Type		Required Text
-CLASS:Arcane Performer	PREFEAT:1,Child Prodigy	PRESKILL:3,Bluff,Perform,Spellcraft=8	PRESKILL:1,Craft (Carpentry),Craft (Woodworking),Craft (Metalworking),Craft (Musical Instrument)=5	PRESPELL:1,Enthrall	PRESPELLTYPE:Arcane,1,2	PRETEXT:Must create a new intrument
+CLASS:Arcane Performer	PREFEAT:1,Child Prodigy	PRESKILL:3,Bluff,Perform,Spellcraft=8	PRESKILL:1,Craft (Carpentry),Craft (Woodworking),Craft (Metalworking),Craft (Musical Instrument)=5	PRESPELL:1,Enthrall	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must create a new intrument
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE.Profession|Scry|Sense Motive|Spellcraft|Swim|Tumble|Use Magic Device|Use Steamcraft Device
 1	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip	FEATAUTO:Simple Weapon Proficiency
@@ -38,16 +38,16 @@ CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Cli
 ###Block: Musical Prodigy
 1	SA:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC	DEFINE:MusicalProdigyDC|1	FEATAUTO:Musical Prodigy
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(ANY)															ADD:FEAT(Song Power I)
-2	ADD:SPELLCASTER(ANY)	SA:Masterful Performance (Ex)
-3	ADD:SPELLCASTER(ANY)	SA:Tools of the Trade (Ex)
-4	ADD:SPELLCASTER(ANY)															ADD:FEAT(Song Power II)
-5	ADD:SPELLCASTER(ANY)
-6	ADD:SPELLCASTER(ANY)															ADD:FEAT(Song Power III)
-7	ADD:SPELLCASTER(ANY)
-8	ADD:SPELLCASTER(ANY)															ADD:FEAT(Song Power IV)
-9	ADD:SPELLCASTER(ANY)	SA:Musical Genius (Ex)		BONUS:VAR|MusicalProdigyDC|2	BONUS:SKILL|Perform|5
-10	ADD:SPELLCASTER(ANY)	SA:Song Power Master (Ex)										ADD:FEAT(Song Power V)
+1															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power I
+2	SA:Masterful Performance (Ex)										ADD:SPELLCASTER|1|ANY
+3	SA:Tools of the Trade (Ex)										ADD:SPELLCASTER|1|ANY
+4															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power II
+5															ADD:SPELLCASTER|1|ANY
+6															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power III
+7															ADD:SPELLCASTER|1|ANY
+8															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power IV
+9	SA:Musical Genius (Ex)		BONUS:VAR|MusicalProdigyDC|2	BONUS:SKILL|Perform|5	ADD:SPELLCASTER|1|ANY
+10	SA:Song Power Master (Ex)										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power V
 ###Block: Bard Spells Known
 10	BONUS:DC|CLASS.Bard|2	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1|PRESTAT:1,CHA=24
 10					BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1|PRESTAT:1,CHA=14	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1|PRESTAT:1,CHA=26
@@ -68,15 +68,15 @@ CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimi
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Stubborn Resolve (Ex)
-2						ADD:FEAT(TYPE.Brawler)1
+2						ADD:FEAT|1|TYPE.Brawler
 3	SA:Feinting Maneuver (Ex)
-4						ADD:FEAT(TYPE.Brawler)1
+4						ADD:FEAT|1|TYPE.Brawler
 5	SA:Grappler (Ex)
-6						ADD:FEAT(TYPE.Brawler)1
+6						ADD:FEAT|1|TYPE.Brawler
 7	SA:Defensive Stand (Ex)
-8						ADD:FEAT(TYPE.Brawler)1
+8						ADD:FEAT|1|TYPE.Brawler
 9	SA:Eyes of the Champion (Ex)
-10	SA:Final Attack (Ex)		ADD:FEAT(TYPE.Brawler)1
+10	SA:Final Attack (Ex)		ADD:FEAT|1|TYPE.Brawler
 
 # Demolitionist -------------------------------------------------------------------------------
 
@@ -109,16 +109,16 @@ CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher S
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1																										ADD:FEAT(Reference Material)
+1																										ADD:FEAT|1|Reference Material
 2	SA:Eye for Clues (Ex)										BONUS:SKILL|Spot|4|TYPE=Competence
 3	SA:Second Thought %/day (Ex)|SecondThought														DEFINE:SecondThought|1
-4																										ADD:FEAT(Reference Material)
+4																										ADD:FEAT|1|Reference Material
 5	SA:Experienced Detective (Ex)									BONUS:SKILL|Sense Motive,Spot|2|TYPE=Competence
 6									BONUS:VAR|SecondThought|1
-7																										ADD:FEAT(Reference Material)
+7																										ADD:FEAT|1|Reference Material
 8	SA:Understanding the Criminal Mind (Ex)
 9									BONUS:VAR|SecondThought|1
-10	SA:Master Detective (Ex)																					ADD:FEAT(Reference Material)
+10	SA:Master Detective (Ex)																					ADD:FEAT|1|Reference Material
 
 # Game Hunter ---------------------------------------------------------------------------------
 
@@ -131,35 +131,35 @@ CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle 
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1																														ADD:FEAT(TYPE.GameHunterFavored)
+1																														ADD:FEAT|1|TYPE.GameHunterFavored
 2	SA:Scentless
 3	SA:Steady Aim +% (Ex)|SteadyAim	SA:Ranged Sneak Attack (%d6)(Ex)|SteadyAim												DEFINE:SteadyAim|CL/3
 4	SA:Survivor (Ex)												BONUS:SKILL|Intuit Direction,Wilderness Lore|2|TYPE=Competence
-5																														ADD:FEAT(TYPE.GameHunterFavored)
+5																														ADD:FEAT|1|TYPE.GameHunterFavored
 7	SA:Silent Hunter (Ex)											BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence
 8	SA:Outdoorsman (Ex)											BONUS:SKILL|Climb,Swim|2|TYPE=Competence
-10	SA:Death Attack (Ex)																										ADD:FEAT(TYPE.GameHunterFavored)
+10	SA:Death Attack (Ex)																										ADD:FEAT|1|TYPE.GameHunterFavored
 
 # Gun Glyph ----------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Gun Glyph	HD:6		TYPE:PC.Prestige	ABB:GGl		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat																																																				Required Skill											Req. Spell Type		Required Text													Req. Weapond Prof.
-CLASS:Gun Glyph	PREFEAT:1,Weapon Focus(Flintlock Pistol),Weapon Focus(Matchlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Flintlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Dwarven Tunnel Gun),Weapon Focus(Flintlock Musket),Weapon Focus(Blunderbuss),Weapon Focus(Percussion Cap Musket),Weapon Focus(Ogre Gun)	PRESKILL:2,Alchemy,Craft (Gunsmithing)=8	PRESKILL:1,Knowledge (Steamcraft)=5	PRESPELLTYPE:Arcane,1,3	PRETEXT:The Gun Glyph must construct his own firearm to walk the path of the Gun Glyph	PREWEAPONPROF:TYPE=Firearms
+CLASS:Gun Glyph	PREFEAT:1,Weapon Focus(Flintlock Pistol),Weapon Focus(Matchlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Flintlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Dwarven Tunnel Gun),Weapon Focus(Flintlock Musket),Weapon Focus(Blunderbuss),Weapon Focus(Percussion Cap Musket),Weapon Focus(Ogre Gun)	PRESKILL:2,Alchemy,Craft (Gunsmithing)=8	PRESKILL:1,Knowledge (Steamcraft)=5	PRESPELLTYPE:1,Arcane=3	PRETEXT:The Gun Glyph must construct his own firearm to walk the path of the Gun Glyph	PREWEAPONPROF:TYPE=Firearms
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Steamcraft)|Munitions|TYPE.Profession|Ride|Search|Spellcraft
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(Arcane)							SA:Armor Adaptation (Ex)			BONUS:VAR|ArmorAdaptation|-2						BONUS:MISC|SPELLFAILURE|ArmorAdaptation	DEFINE:ArmorAdaptation|0
-2											SA:Arcane Bond I (Sp)
-3	ADD:SPELLCASTER(Arcane)							SA:Marksman +% (Ex)|GunGlyphMarksman																		DEFINE:GunGlyphMarksman|CL/3
-4																		BONUS:VAR|ArmorAdaptation|-2
-5	ADD:SPELLCASTER(Arcane)	SA:.CLEAR.Arcane Bond I (Sp)		SA:Arcane Bond II (Sp)
-7	ADD:SPELLCASTER(Arcane)														BONUS:VAR|ArmorAdaptation|-4
-8					SA:.CLEAR.Arcane Bond II (Sp)		SA:Arcane Bond III (Sp)
-9	ADD:SPELLCASTER(Arcane)
-10					SA:.CLEAR.Arcane Bond III (Sp)	SA:Gun Master	SA:Arcane Bond IV (Sp)	BONUS:VAR|ArmorAdaptation|-2	BONUS:VAR|GunGlyphMarksman|1
+1							SA:Armor Adaptation (Ex)			BONUS:VAR|ArmorAdaptation|-2						BONUS:MISC|SPELLFAILURE|ArmorAdaptation	DEFINE:ArmorAdaptation|0	ADD:SPELLCASTER|1|Arcane
+2							SA:Arcane Bond I (Sp)
+3							SA:Marksman +% (Ex)|GunGlyphMarksman																		DEFINE:GunGlyphMarksman|CL/3	ADD:SPELLCASTER|1|Arcane
+4														BONUS:VAR|ArmorAdaptation|-2
+5	SA:.CLEAR.Arcane Bond I (Sp)		SA:Arcane Bond II (Sp)																										ADD:SPELLCASTER|1|Arcane
+7														BONUS:VAR|ArmorAdaptation|-4																		ADD:SPELLCASTER|1|Arcane
+8	SA:.CLEAR.Arcane Bond II (Sp)		SA:Arcane Bond III (Sp)
+9																																				ADD:SPELLCASTER|1|Arcane
+10	SA:.CLEAR.Arcane Bond III (Sp)	SA:Gun Master	SA:Arcane Bond IV (Sp)	BONUS:VAR|ArmorAdaptation|-2	BONUS:VAR|GunGlyphMarksman|1
 
 # Hypnotist -----------------------------------------------------------------------------------
 
@@ -171,17 +171,17 @@ CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:2,Bluff,Concentration=5	PRESKILL:1,
 CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Sense Motive|Spellcraft
 1	FEATAUTO:Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(ANY)																								ADD:FEAT(Spell Focus(Enchantment),Hypnotist DC Bonus)1
-2					SA:Focused Mind +% (Ex)|FocusedMind				BONUS:CHECKS|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2
+1																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Spell Focus(Enchantment),Hypnotist DC Bonus
+2	SA:Focused Mind +% (Ex)|FocusedMind				BONUS:CHECKS|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2
 #2	FEATAUTO:Master Hypnotist	Not sure but I would think they left this out
-3	ADD:SPELLCASTER(ANY)																								ADD:FEAT(Master of Enchantment I)
-4																																						FEATAUTO:Ultimate Hypnotist
-5	ADD:SPELLCASTER(ANY)																								ADD:FEAT(Master of Enchantment II)
+3																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment I
+4																								FEATAUTO:Ultimate Hypnotist
+5																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment II
 6
-7	ADD:SPELLCASTER(ANY)																								ADD:FEAT(Master of Enchantment III)
+7																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment III
 8
-9	ADD:SPELLCASTER(ANY)																								ADD:FEAT(Master of Enchantment IV)
-10					SA:Master of Domination %/day (Sp)|MasterofDomination									DEFINE:MasterofDomination|INT/2
+9																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment IV
+10	SA:Master of Domination %/day (Sp)|MasterofDomination									DEFINE:MasterofDomination|INT/2
 
 # Noble Bodyguard ----------------------------------------------------------------------------
 
@@ -266,21 +266,21 @@ CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE.Craft|Disable
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Steamcraft Mage	HD:4		TYPE:PC.Prestige	ABB:StM		MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat							Required Skill														Req. Spell Type
-CLASS:Steamcraft Mage	PREFEAT:2,Mechanical Aptitude,Industrial Upbringing	PRESKILL:3,Knowledge (Clockworks),Knowledge (Steamcraft),Spellcraft=8	PRESKILL:1,TYPE.Craft=5	PRESPELLTYPE:Arcane,1,3
+CLASS:Steamcraft Mage	PREFEAT:2,Mechanical Aptitude,Industrial Upbringing	PRESKILL:3,Knowledge (Clockworks),Knowledge (Steamcraft),Spellcraft=8	PRESKILL:1,TYPE.Craft=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steamcraft Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft|Use Steamcraft Device
 1	FEATAUTO:Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(Arcane)	SA:Advanced Craftsman (Ex)
-2	ADD:SPELLCASTER(Arcane)						ADD:FEAT(Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation)1
-3	ADD:SPELLCASTER(Arcane)	SA:Spell Infusion I (Su)
-4	ADD:SPELLCASTER(Arcane)
-5	ADD:SPELLCASTER(Arcane)	SA:Expert Craftsman (Ex)
-6	ADD:SPELLCASTER(Arcane)	SA:Spell Infusion II (Su)	ADD:FEAT(Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation)1
-7	ADD:SPELLCASTER(Arcane)
-8	ADD:SPELLCASTER(Arcane)	SA:Machine Mind (Su)
-9	ADD:SPELLCASTER(Arcane)	SA:Spell Infusion III (Su)
-10	ADD:SPELLCASTER(Arcane)	SA:Master Craftsman (Ex)	ADD:FEAT(Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation)1
+1	SA:Advanced Craftsman (Ex)	ADD:SPELLCASTER|1|Arcane
+2						ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation
+3	SA:Spell Infusion I (Su)	ADD:SPELLCASTER|1|Arcane
+4						ADD:SPELLCASTER|1|Arcane
+5	SA:Expert Craftsman (Ex)	ADD:SPELLCASTER|1|Arcane
+6	SA:Spell Infusion II (Su)	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation
+7						ADD:SPELLCASTER|1|Arcane
+8	SA:Machine Mind (Su)		ADD:SPELLCASTER|1|Arcane
+9	SA:Spell Infusion III (Su)	ADD:SPELLCASTER|1|Arcane
+10	SA:Master Craftsman (Ex)	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation
 
 # Street Runner ----------------------------------------------------------------------------
 
@@ -312,13 +312,13 @@ CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle 
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1																										FEATAUTO:Weapon Focus(Club)
+1																					FEATAUTO:Weapon Focus(Club)
 2	SA:Crowd Control (Ex)
 4	SA:Mounted Watchman (Ex)										BONUS:SKILL|Ride|4|TYPE=Competence
-5																					ADD:FEAT(TYPE.Watchman)1
+5																										ADD:FEAT|1|TYPE.Watchman
 6	SA:Renewed Vitality (Ex)	BONUS:CHECKS|Fortitude|1	BONUS:HP|CURRENTMAX|5
-8	SA:Presence of Authority (Ex)																					FEATAUTO:Leadership
-10	SA:Veteran Watchman (Ex)																ADD:FEAT(TYPE.Watchman)1
+8	SA:Presence of Authority (Ex)																FEATAUTO:Leadership
+10	SA:Veteran Watchman (Ex)																					ADD:FEAT|1|TYPE.Watchman
 
 #
 # end

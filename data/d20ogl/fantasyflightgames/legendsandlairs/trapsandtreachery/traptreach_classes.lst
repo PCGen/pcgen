@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 # Applied errata from http://www.fantasyflightgames.com/lltterrata.html (Roofrunner) - Byngl
@@ -9,10 +9,10 @@ CLASS:Discreet Companion	HD:4		TYPE:PC.Prestige	ABB:DCO		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Discreet Companion	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:2,Alertness,Skill Focus(Gather Information)	PRESKILL:1,Bluff=6	PRESKILL:1,Diplomacy=8	PRESKILL:1,Gather Information=10	PRESKILL:1,Profession (Escort),Profession (Courtesan),Profession (Prostitute)=5	PRESKILL:2,Innuendo,Perform=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Discreet Companion	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Gather Information|Innuendo|Intimidate|Listen|Mimic Voice|Perform|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Urban Lore
-1	SA:Secret %|Secret	BONUS:VAR|Secret|(CL+2)/3	DEFINE:Secret|0	ADD:FEAT(TYPE=DiscreetCompanionAbility)
+1	SA:Secret %|Secret	BONUS:VAR|Secret|(CL+2)/3	DEFINE:Secret|0	ADD:FEAT|1|TYPE=DiscreetCompanionAbility
 2	SA:Resist Charm
-5													ADD:FEAT(TYPE=DiscreetCompanionAbility)
-10	SA:Charmtouch										ADD:FEAT(TYPE=DiscreetCompanionAbility)
+5													ADD:FEAT|1|TYPE=DiscreetCompanionAbility
+10	SA:Charmtouch										ADD:FEAT|1|TYPE=DiscreetCompanionAbility
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Guildmaster	HD:6		TYPE:PC.Prestige	ABB:fg2		MAXLEVEL:10	SOURCEPAGE:p.23-26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -24,7 +24,7 @@ CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Dis
 1	FEATAUTO:Guildmaster Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Favor %|Favor	SA:Guild Hall	BONUS:VAR|Favor|CL/5+1		DEFINE:Favor|0		ADD:CLASSSKILLS(TYPE=Knowledge)2
+1	SA:Favor %|Favor	SA:Guild Hall	BONUS:VAR|Favor|CL/5+1		DEFINE:Favor|0		ADD:CLASSSKILLS|2|TYPE=Knowledge
 2	SA:Reputation +%|Reputation		BONUS:VAR|Reputation|CL/2	DEFINE:Reputation|0
 3	SA:Respectable Citizen
 4							BONUS:VAR|SneakAttack|CL/4
@@ -82,15 +82,15 @@ CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Disgu
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Backstab +%d%|BackstabDice|BackstabDieSize	BONUS:VAR|BackstabDice|CL/5+1	DEFINE:BackstabDieSize|4	DEFINE:BackstabDice|0
-10																							ADD:FEAT(TYPE=Fighter)
-15																							ADD:FEAT(Crippling Strike,Defensive Roll,Opportunist)
-20																							ADD:FEAT(TYPE=Fighter)
+10																							ADD:FEAT|1|TYPE=Fighter
+15																							ADD:FEAT|1|Crippling Strike,Defensive Roll,Opportunist
+20																							ADD:FEAT|1|TYPE=Fighter
 
 # Modified classes
 
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:Urban Lore
-1	ADD:FEAT(Track,Shadow (TT))	FEATAUTO:.CLEAR.Track	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+1	FEATAUTO:.CLEAR.Track	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	ADD:FEAT|1|Track,Shadow (TT)
 
 # Class Name				Class Skill
 CLASS:Ranger (Monte Cook's).MOD	CSKILL:Urban Lore

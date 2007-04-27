@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 02:04:12 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
@@ -94,24 +94,24 @@ CLASS:Urban Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 ###Block: Level progression
-1				ADD:FEAT(TYPE=RangerFavored)	VFEAT:Ambidexterity|Two-Weapon Fighting	FEATAUTO:Track
+1				VFEAT:Ambidexterity|Two-Weapon Fighting	FEATAUTO:Track	ADD:FEAT|1|TYPE=RangerFavored
 4	CAST:0,0
-5	CAST:0,0		ADD:FEAT(TYPE=RangerFavored)
+5	CAST:0,0												ADD:FEAT|1|TYPE=RangerFavored
 6	CAST:0,1
 7	CAST:0,1
 8	CAST:0,1,0
 9	CAST:0,1,0
-10	CAST:0,1,1		ADD:FEAT(TYPE=RangerFavored)
+10	CAST:0,1,1												ADD:FEAT|1|TYPE=RangerFavored
 11	CAST:0,1,1,0
 12	CAST:0,1,1,1
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0
-15	CAST:0,2,1,1,1	ADD:FEAT(TYPE=RangerFavored)
+15	CAST:0,2,1,1,1											ADD:FEAT|1|TYPE=RangerFavored
 16	CAST:0,2,2,1,1
 17	CAST:0,2,2,2,1
 18	CAST:0,3,2,2,1
 19	CAST:0,3,3,3,2
-20	CAST:0,3,3,3,3	ADD:FEAT(TYPE=RangerFavored)
+20	CAST:0,3,3,3,3											ADD:FEAT|1|TYPE=RangerFavored
 
 #
 # end

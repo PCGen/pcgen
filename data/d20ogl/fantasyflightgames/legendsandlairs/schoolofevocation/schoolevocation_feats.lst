@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
 # Original entry by: Ratheof Blithwyn
 
@@ -16,7 +16,7 @@ Evocation Library Fire			TYPE:General											PREMULT:1,[PRESUBCLASS:1,Evoker]
 Evocation Library Force			TYPE:General											PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																	DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
 Evocation Library Light			TYPE:General											PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																	DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
 Evocation Library Sound			TYPE:General											PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																	DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
-Opposed Spell				TYPE:General																																		PRESPELLTYPE:Arcane,1,1	DESC:You can cast a spell from a school of magic normally not available to you.											SOURCEPAGE:p.23
+Opposed Spell				TYPE:General																																		PRESPELLTYPE:1,Arcane=1	DESC:You can cast a spell from a school of magic normally not available to you.											SOURCEPAGE:p.23
 
 # Haven't found a way to code Opposed Spell
 # Enhanced Resistance ???how is energy resistances coded???

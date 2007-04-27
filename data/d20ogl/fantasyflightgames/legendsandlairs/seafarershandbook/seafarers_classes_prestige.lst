@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
 # Original Entry by: Eddy Anthony
 
@@ -11,13 +11,13 @@ CLASS:Reef Warrior	PREALIGN:LN,NG,TN	PREATT:5	PREFEAT:1,Skill Focus(Swim)	PRERAC
 CLASS:Reef Warrior	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Hide|Intimidate|Listen|Scry|Search|Spot|Swim
 1	SA:Reef Bonding
 2	SA:Coral Skin +%|CoralSkin			BONUS:VAR|CoralSkin|CL/2	BONUS:COMBAT|AC|CoralSkin|TYPE=NaturalArmor						DEFINE:CoralSkin|0
-3	SA:Sustenance (Ex)																										ADD:FEAT(TYPE.Fighter)
+3	SA:Sustenance (Ex)																										ADD:FEAT|1|TYPE.Fighter
 4	SA:Alien Presence % (Ex)|AlienPresence	BONUS:VAR|AlienPresence|-1									BONUS:STAT|CHA|AlienPresence	DEFINE:AlienPresence|0
 5	SA:Meld (Su)	SA:Reef Attunement (Su)
-6								BONUS:VAR|AlienPresence|-1																		ADD:FEAT(TYPE.Fighter)
+6								BONUS:VAR|AlienPresence|-1																		ADD:FEAT|1|TYPE.Fighter
 7	SA:Spikes (Su)
 8								BONUS:VAR|AlienPresence|-1
-9																														ADD:FEAT(TYPE.Fighter)
+9																														ADD:FEAT|1|TYPE.Fighter
 10	SA:Reefwalking (Sp)				BONUS:VAR|AlienPresence|-1
 
 #
