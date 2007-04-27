@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 15 04:49:51 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224
 
 #Original entry by Paul W. King
@@ -10,7 +10,7 @@ CLASS:The Watcher	PREFEAT:1,Occupation (Celestial)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:The Watcher	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Visual Art)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Spot|Treat Injury
 1	BONUS:VAR|WatcherLevel|CL	BONUS:COMBAT|AC|(CL/2)+1|TYPE=NaturalArmor.REPLACE	DEFINE:WatcherLevel|0
-2																			ADD:FEAT(TYPE=Watcher)	ADD:FEAT(TYPE=WatcherResistance)
+2																			ADD:FEAT|1|TYPE=Watcher	ADD:FEAT|1|TYPE=WatcherResistance
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus																Combat bonus		Modify VAR
 CLASS:Nephilim	HD:6		TYPE:Advanced.PC	MAXLEVEL:5	BONUS:CHECKS|BASE.Fortitude|(CL+1)*7/10	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+3)/2	BONUS:VAR|Action|6*CL
@@ -19,6 +19,6 @@ CLASS:Nephilim	PRECLASS:1,The Watcher=3	PREFEAT:3,Occupation (Celestial),Tongue 
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Nephilim	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Perform (Act)|Perform (Dance)|Perform (Sing)|Pilot|Profession|Read/Write Language|Sense Motive|Speak Language|Spot|Treat Injury
 1				SA:Divine Presence
-2	REPEATLEVEL:2					ADD:FEAT(TYPE=Nephilim)
-3								ADD:FEAT(TYPE=NephilimStatAdd)
+2	REPEATLEVEL:2					ADD:FEAT|1|TYPE=Nephilim
+3								ADD:FEAT|1|TYPE=NephilimStatAdd
 5				SA:Beguile
