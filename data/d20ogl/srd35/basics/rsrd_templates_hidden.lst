@@ -1,4 +1,4 @@
-# CVS $Revision: 400 $ $Author: eddyanthony $ -- Sun Apr  1 17:42:14 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision: 400 $ $Author: eddyanthony $ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -44,8 +44,8 @@ Total Defense			VISIBLE:NO	SOURCEPAGE:CombatI.rtf																								BONUS:V
 Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats.rtf	BONUS:COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary|PREAPPLY:PC	BONUS:COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary|PREAPPLY:PC																																									CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.
 
 ###Block: Awakened Animal
-# Template Name	Required Race					ADD:LANGUAGE			Apply Kit			Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL
-Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:LANGUAGE|1|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2
+# Template Name	Required Race					Apply Kit			Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL		Add
+Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2	ADD:LANGUAGE|1|TYPE=Spoken
 
 ###Block: Righteous Might spell workaround
 # Template Name	Visible	Special Ability										Define

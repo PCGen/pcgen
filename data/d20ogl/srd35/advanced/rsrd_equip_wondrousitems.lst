@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr  1 17:57:53 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas tjannes@vub.ac.be based on srdequipwondrous
 
@@ -180,7 +180,7 @@ Golem Manual (Iron)											OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.Wondrous
 Golem Manual (Stone)											OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.Wondrous.Book.Consumable										COST:22000	WT:5										SOURCEPAGE:MagicItemsV.rtf
 Golem Manual (Greater Stone)										OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.Wondrous.Book.Consumable										COST:44000	WT:5										SOURCEPAGE:MagicItemsV.rtf
 ###Block: H's
-# Equipment Name						Unique Key								Type						Contains		Cost		Weight	Source Page				Virtual Feat	Innate Spells											Save checks bonus							Combat bonus					Bonus to nb of slots	Bonus to skill																			Bonus to skill point/L		Stat bonus					Modify VAR						Special Property						ADD:SPELLCASTER
+# Equipment Name						Unique Key								Type						Contains		Cost		Weight	Source Page				Virtual Feat	Innate Spells											Save checks bonus							Combat bonus					Bonus to nb of slots	Bonus to skill																			Bonus to skill point/L		Stat bonus					Modify VAR						Special Property						Add
 Hand of Glory															TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2		SOURCEPAGE:MagicItemsV.rtf				SPELLS:Hand of Glory|TIMES=1|CASTERLEVEL=9|Daylight,13|See Invisibility,13																	BONUS:SLOTS|RING|1
 Hand of the Mage															TYPE:Magic.Wondrous.Amulet					COST:900	WT:2		SOURCEPAGE:MagicItemsV.rtf				SPELLS:Hand of the Mage|TIMES=-1|CASTERLEVEL=3|Mage Hand,10
 Handy Haversack															TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5		SOURCEPAGE:MagicItemsV.rtf

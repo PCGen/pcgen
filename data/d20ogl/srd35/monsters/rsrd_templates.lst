@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor (andargor@yahoo.com)
 # Corrections/update: Barak (barak@voyager.net)
@@ -85,7 +85,7 @@ Vampire		HITDIE:12		CR:2	DR:10/Silver and Magic		LEVELADJUSTMENT:8	TEMPLATE:Unde
 Zombie		HITDIE:12											TEMPLATE:Undead	TEMPLATE:CHOOSE:Slam (Fine)|Slam (Diminutive)|Slam (Tiny)|Slam (Small)|Slam (Medium)|Slam (Large)|Slam (Huge)|Slam (Gargantuan)|Slam (Colossal)	SOURCEPAGE:MonstersT-Z.rtf	SA:Single Actions Only (Ex)																																																DEFINE:LOCK.INT|10	DEFINE:LOCK.WIS|10	DEFINE:LOCK.CHA|1	PREALIGN:NE		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|HD/3	BONUS:CHECKS|BASE.Will|HD/2+2	BONUS:COMBAT|AC|1|PRESIZEEQ:S	BONUS:COMBAT|AC|2|PRESIZEEQ:M	BONUS:COMBAT|AC|3|PRESIZEEQ:L	BONUS:COMBAT|AC|4|PRESIZEEQ:H	BONUS:COMBAT|AC|7|PRESIZEEQ:G	BONUS:COMBAT|AC|11|PRESIZEEQ:C															BONUS:STAT|STR|2	BONUS:STAT|DEX|-2																																TYPE:Undead	HD:4-5:CR:1	HD:6-7:CR:2	HD:8-10:CR:3	HD:11-14:CR:4	HD:15-16:CR:5	HD:18-20:CR:6
 
 ###Block: Ghost Abilities - Ghosts get 1d3 extra abilities
-# Template Name			Visible	Source Page				Choose a Feat
+# Template Name			Visible	Source Page				Add
 Ghost (1 Special Attack)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	ADD:FEAT|1|TYPE=GhostAbility
 Ghost (2 Special Attacks)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	ADD:FEAT|2|TYPE=GhostAbility
 Ghost (3 Special Attacks)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	ADD:FEAT|3|TYPE=GhostAbility

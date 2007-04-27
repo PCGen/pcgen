@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: TaluronIscandar
 #     These are epic psionic feats derived from epic magic feats as allowed in the epic feat section
 
 ###BLOCK: General Feats
-# Feat Name					Type		Required Class				Required Feat				Required Lvl	Required Skill						Req. Spell Type			SR Min. Value	Special Ability								Define				Description														Stackable?	Multiple?	Choose					Choose a Feat						Bonus to nb of slots	Modify VAR											Source Page
+# Feat Name					Type		Required Class				Required Feat				Required Lvl	Required Skill						Req. Spell Type			SR Min. Value	Special Ability								Define				Description														Stackable?	Multiple?	Choose					Add								Bonus to nb of slots	Modify VAR											Source Page
 Additional Psionic Item Space		TYPE:Epic													PRELEVEL:21																																	DESC:See Additional Magic Item Slot										STACK:YES	MULT:YES	CHOOSE:TATTOO												BONUS:SLOTS|LIST|1													SOURCEPAGE:EpicFeats.rtf
 Automatic Quicken Power			TYPE:Epic							PREFEAT:1,Quicken Power			PRELEVEL:21		PRESKILL:1,Psicraft=30					PRESPELLTYPE:1,Psionic=9																			DESC:See Automatic Quicken Spell										STACK:YES	MULT:YES	CHOOSE:NOCHOICE																												SOURCEPAGE:EpicFeats.rtf
 Efficient Psionic Item Creation	TYPE:Epic							PREFEAT:1,TYPE.ItemCreation		PRELEVEL:21		PRESKILL:2,Knowledge (Psionics),Psicraft=24																								DESC:See Efficient Item Creation										STACK:NO	MULT:YES	CHOOSE:FEATLIST|TYPE=ItemCreation																									SOURCEPAGE:EpicFeats.rtf
@@ -22,7 +22,7 @@ Suppress Power Displays			TYPE:Epic													PRELEVEL:21		PRESKILL:1,Psicraft
 Tenacious Psionics			TYPE:Epic													PRELEVEL:21		PRESKILL:1,Psicraft=15																												DESC:See Tenacious Magic											STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|1																									SOURCEPAGE:EpicFeats.rtf
 
 ###BLOCK: Psionic Feats
-# Feat Name			Type			Required Feat				Required Lvl	Required Skill		Required Template		Description									Stackable?	Multiple?	Choose		Choose a Feat			Source Page
+# Feat Name			Type			Required Feat				Required Lvl	Required Skill		Required Template		Description									Stackable?	Multiple?	Choose		Add					Source Page
 Epic Psionic Endowment	TYPE:Epic.Psionic	PREFEAT:1,Greater Psionic Endowment	PRELEVEL:21						PRETEMPLATE:Psionic	DESC:See Epic Spell Focus, Greater Psionic Endowment														SOURCEPAGE:EpicFeats.rtf
 Epic Psionic Focus	TYPE:Epic.Psionic							PRELEVEL:21						PRETEMPLATE:Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|Add Psionic Focus	SOURCEPAGE:EpicFeats.rtf
 Epic Power Penetration	TYPE:Epic.Psionic	PREFEAT:1,Greater Power Penetration	PRELEVEL:21						PRETEMPLATE:Psionic	DESC:See Epic Spell Penetration, Greater Power Penetration													SOURCEPAGE:EpicFeats.rtf

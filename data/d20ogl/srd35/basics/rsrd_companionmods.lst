@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Apr  1 17:42:14 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # RSRD Entry by: jaymecox
 
 ###Block:Special Mount
-# Class of the Master	Type				Hit Dice	Spell Res.	Automaticaly Gained Armor Prof.	Special Ability													Define						Combat bonus						Add to base move																																					Stat bonus		Change Racetype
+# Class of the Master	Type				Hit Dice	Spell Res.	Automaticaly Gained Armor Prof.	Special Ability													Define						Combat bonus						Add to base move																																					Stat bonus		Main Race Type
 FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				AUTO:ARMORPROF|TYPE.Barding		SA:Share saving throws	SA:Empathic Link	SA:Share spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
 FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2										SA:Improved Speed (Ex)												DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
 FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2										SA:Command creatures of its kind										DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
@@ -38,7 +38,7 @@ FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Skeleton (Human Wa
 FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Zombie (Human Commoner)	KIT:1|Default Zombie (Human Commoner)
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special Ability						Define						Combat bonus						Change Racetype
+# Class of the Master	Type			Spell Res.	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special Ability						Define						Combat bonus						Main Race Type
 FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	SA:Empathic Link
 FOLLOWER:FMLevel=1	TYPE:Familiar																				SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical Beast
 FOLLOWER:FMLevel=3	TYPE:Familiar																				SA:Deliver touch spells					DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
@@ -57,7 +57,7 @@ FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																											DEFINE:LOCK.IN
 FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 
 ###Block: Specific Familiars
-# Class of the Master	Type			Required Race			Apply Kit					Special Ability		ADD:LANGUAGE
+# Class of the Master	Type			Required Race			Apply Kit					Special Ability		Add
 FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Raven									SA:Speak one language	ADD:LANGUAGE|1|TYPE=Spoken
 FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Bat			KIT:1|Default Bat
 FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Cat			KIT:1|Default Cat

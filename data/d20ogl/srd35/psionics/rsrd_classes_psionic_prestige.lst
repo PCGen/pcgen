@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr  1 18:42:41 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -34,16 +34,16 @@ CLASS:Elocator	PREATT:3	PREFEAT:2,Mobility,Spring Attack	PRESKILL:1,Concentratio
 CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE.Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 ###Block: Psionic Variables
 ###Block: Class Info
-1	ADD:SPELLCASTER|Psionic	SA:Scorn Earth (Su)	SA:Sidestep Charge (Ex)																																				FEATAUTO:Sidestep Charge
-2					SA:Opportunistic Strike (+%)(Ex)|OpportunisticStrike							BONUS:VAR|OpportunisticStrike|2	DEFINE:OpportunisticStrike|0
-3	ADD:SPELLCASTER|Psionic	SA:Dimension Step (Su)																												SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
-4	ADD:SPELLCASTER|Psionic	SA:Flanker (designate adjacent square to be determination for flanking)(Ex)
-5																				BONUS:VAR|OpportunisticStrike|2
-6	ADD:SPELLCASTER|Psionic																											ADD:FEAT|Elocator Transporter
-7	ADD:SPELLCASTER|Psionic	SA:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)
-8																				BONUS:VAR|OpportunisticStrike|2
-9	ADD:SPELLCASTER|Psionic	SA:Dimension Spring Attack (Su)(1x/day)
-10	ADD:SPELLCASTER|Psionic	SA:Accelerated Action (Su)
+1	SA:Scorn Earth (Su)	SA:Sidestep Charge (Ex)																			ADD:SPELLCASTER|Psionic																		FEATAUTO:Sidestep Charge
+2	SA:Opportunistic Strike (+%)(Ex)|OpportunisticStrike							BONUS:VAR|OpportunisticStrike|2	DEFINE:OpportunisticStrike|0
+3	SA:Dimension Step (Su)																							ADD:SPELLCASTER|Psionic						SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
+4	SA:Flanker (designate adjacent square to be determination for flanking)(Ex)														ADD:SPELLCASTER|Psionic
+5																BONUS:VAR|OpportunisticStrike|2
+6																											ADD:SPELLCASTER|Psionic	ADD:FEAT|Elocator Transporter
+7	SA:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)												ADD:SPELLCASTER|Psionic
+8																BONUS:VAR|OpportunisticStrike|2
+9	SA:Dimension Spring Attack (Su)(1x/day)																				ADD:SPELLCASTER|Psionic
+10	SA:Accelerated Action (Su)																						ADD:SPELLCASTER|Psionic
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
@@ -86,16 +86,16 @@ CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Class Info
-1					SA:Favored Enemy (Specific Psionic Creature)(+%) (Ex)|SlayerFavoredEnemy	SA:Sense Favored Enemy (60')(Su)	BONUS:VAR|SlayerFavoredEnemy|2	DEFINE:SlayerFavoredEnemy|0
-2	ADD:SPELLCASTER|Psionic	SA:Brain Nausea (Will Save DC:%)(Su)|BrainNausea											BONUS:VAR|BrainNausea|15+CL		DEFINE:BrainNausea|0
-3	ADD:SPELLCASTER|Psionic	SA:Lucid Buffer (+4 Save vs. Compulsions, Mind-affecting effects)(Ex)
-4	ADD:SPELLCASTER|Psionic																				BONUS:VAR|SlayerFavoredEnemy|2
-5	ADD:SPELLCASTER|Psionic
-6	ADD:SPELLCASTER|Psionic	SA:Cerebral Blind (Su) (Protection from location detection as long as psionically focused)
-7	ADD:SPELLCASTER|Psionic																				BONUS:VAR|SlayerFavoredEnemy|2
-8	ADD:SPELLCASTER|Psionic	SA:Breech Power Resistance (Su)
-9	ADD:SPELLCASTER|Psionic	SA:Cerebral Immunity (Su) (Immune to mind influencing effects as long as psionically focused)
-10	ADD:SPELLCASTER|Psionic	SA:Blast Feedback (Su)																BONUS:VAR|SlayerFavoredEnemy|2
+1	SA:Favored Enemy (Specific Psionic Creature)(+%) (Ex)|SlayerFavoredEnemy	SA:Sense Favored Enemy (60')(Su)	BONUS:VAR|SlayerFavoredEnemy|2	DEFINE:SlayerFavoredEnemy|0
+2	SA:Brain Nausea (Will Save DC:%)(Su)|BrainNausea											BONUS:VAR|BrainNausea|15+CL		DEFINE:BrainNausea|0		ADD:SPELLCASTER|Psionic
+3	SA:Lucid Buffer (+4 Save vs. Compulsions, Mind-affecting effects)(Ex)																			ADD:SPELLCASTER|Psionic
+4																				BONUS:VAR|SlayerFavoredEnemy|2						ADD:SPELLCASTER|Psionic
+5																															ADD:SPELLCASTER|Psionic
+6	SA:Cerebral Blind (Su) (Protection from location detection as long as psionically focused)															ADD:SPELLCASTER|Psionic
+7																				BONUS:VAR|SlayerFavoredEnemy|2						ADD:SPELLCASTER|Psionic
+8	SA:Breech Power Resistance (Su)																									ADD:SPELLCASTER|Psionic
+9	SA:Cerebral Immunity (Su) (Immune to mind influencing effects as long as psionically focused)															ADD:SPELLCASTER|Psionic
+10	SA:Blast Feedback (Su)																BONUS:VAR|SlayerFavoredEnemy|2						ADD:SPELLCASTER|Psionic
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Metamind	HD:4		TYPE:PC.Prestige.Psionic	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
@@ -104,16 +104,16 @@ CLASS:Metamind	PRECLASS:1,SPELLCASTER.Psionic=4	PREFEAT:1,Psicrystal Affinity	PR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info
-1					SA:Free Manifesting - 1st Level Powers (3x/day)
-2	ADD:SPELLCASTER|Psionic	SA:Cognizance Psicrystal (% points)|CogPsiCrystal	BONUS:VAR|CogPsiCrystal|5	DEFINE:CogPsiCrystal|0
-3					SA:Free Manifesting - 2nd Level Powers (3x/day)
-4	ADD:SPELLCASTER|Psionic										BONUS:VAR|CogPsiCrystal|2
-5					SA:Free Manifesting - 3rd Level Powers (1x/day)
-6	ADD:SPELLCASTER|Psionic										BONUS:VAR|CogPsiCrystal|2
-7					SA:Free Manifesting - 4th Level Powers (1x/day)
-8	ADD:SPELLCASTER|Psionic										BONUS:VAR|CogPsiCrystal|2
-9					SA:Free Manifesting - 5th Level Powers (1x/day)
-10	ADD:SPELLCASTER|Psionic	SA:Font of Power
+1	SA:Free Manifesting - 1st Level Powers (3x/day)
+2	SA:Cognizance Psicrystal (% points)|CogPsiCrystal	BONUS:VAR|CogPsiCrystal|5	DEFINE:CogPsiCrystal|0	ADD:SPELLCASTER|Psionic
+3	SA:Free Manifesting - 2nd Level Powers (3x/day)
+4										BONUS:VAR|CogPsiCrystal|2					ADD:SPELLCASTER|Psionic
+5	SA:Free Manifesting - 3rd Level Powers (1x/day)
+6										BONUS:VAR|CogPsiCrystal|2					ADD:SPELLCASTER|Psionic
+7	SA:Free Manifesting - 4th Level Powers (1x/day)
+8										BONUS:VAR|CogPsiCrystal|2					ADD:SPELLCASTER|Psionic
+9	SA:Free Manifesting - 5th Level Powers (1x/day)
+10	SA:Font of Power																ADD:SPELLCASTER|Psionic
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psion Uncarnate	HD:4		TYPE:PC.Prestige.Psionic	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
@@ -122,16 +122,16 @@ CLASS:Psion Uncarnate	PREFEAT:1,Psionic Body	PRESKILL:2,Knowledge (Psionics)=8,P
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info
-1					SA:Uncarnate Armor (Su)	SA:Incorporeal Touch %d6 (3x/day) (Su)|IncorporealTouch			BONUS:VAR|IncorporealTouch|1				DEFINE:IncorporealTouch|0
-2	ADD:SPELLCASTER|Psionic	SA:Shed Body (Su) (%x/day)|ShedBody											BONUS:VAR|ShedBody|1					DEFINE:ShedBody|0
-3	ADD:SPELLCASTER|Psionic	SA:Assume Equipment (Su)
-4					SA:Assume Likeness (Su)
-5	ADD:SPELLCASTER|Psionic																	BONUS:VAR|IncorporealTouch|1
-6	ADD:SPELLCASTER|Psionic																	BONUS:VAR|ShedBody|1
-7					SA:Telekinetic Force (Su) (DC:%) (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC	BONUS:VAR|TelekineticForceDC|(14+SPELLSTATMOD)	DEFINE:TelekineticForceDC|0
-8	ADD:SPELLCASTER|Psionic	SA:Uncarnate Bridge (Su)
-9	ADD:SPELLCASTER|Psionic																	BONUS:VAR|IncorporealTouch|1
-10					SA:Uncarnate (Ex)																											TEMPLATE:Incorporeal
+1	SA:Uncarnate Armor (Su)	SA:Incorporeal Touch %d6 (3x/day) (Su)|IncorporealTouch			BONUS:VAR|IncorporealTouch|1				DEFINE:IncorporealTouch|0
+2	SA:Shed Body (Su) (%x/day)|ShedBody											BONUS:VAR|ShedBody|1					DEFINE:ShedBody|0			ADD:SPELLCASTER|Psionic
+3	SA:Assume Equipment (Su)																									ADD:SPELLCASTER|Psionic
+4	SA:Assume Likeness (Su)
+5																	BONUS:VAR|IncorporealTouch|1									ADD:SPELLCASTER|Psionic
+6																	BONUS:VAR|ShedBody|1										ADD:SPELLCASTER|Psionic
+7	SA:Telekinetic Force (Su) (DC:%) (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC	BONUS:VAR|TelekineticForceDC|(14+SPELLSTATMOD)	DEFINE:TelekineticForceDC|0
+8	SA:Uncarnate Bridge (Su)																									ADD:SPELLCASTER|Psionic
+9																	BONUS:VAR|IncorporealTouch|1									ADD:SPELLCASTER|Psionic
+10	SA:Uncarnate (Ex)																															TEMPLATE:Incorporeal
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
@@ -159,16 +159,16 @@ CLASS:Thrallherd	PRECLASS:1,SPELLCASTER.Psionic=1	PREFEAT:1,Inquisitor	PRESKILL:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Diplomacy|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info
-1					SA:Thrallherd (Ex) (Leadership score: %)|ThrallherdScore	BONUS:VAR|ThrallherdScore|(TL+CHA+CL)	DEFINE:ThrallherdScore|0
-2	ADD:SPELLCASTER|Psionic
-3	ADD:SPELLCASTER|Psionic																							ADD:FEAT|Thrallherd Charm
-4	ADD:SPELLCASTER|Psionic
-5	ADD:SPELLCASTER|Psionic																							ADD:FEAT|Thrallherd Dominate
-6	ADD:SPELLCASTER|Psionic
-7	ADD:SPELLCASTER|Psionic	SA:Greater Dominate (Ex)
-8	ADD:SPELLCASTER|Psionic
-9	ADD:SPELLCASTER|Psionic	SA:Superior Dominate (Ex)
-10					SA:Twofold Master (Ex)
+1	SA:Thrallherd (Ex) (Leadership score: %)|ThrallherdScore	BONUS:VAR|ThrallherdScore|(TL+CHA+CL)	DEFINE:ThrallherdScore|0
+2																							ADD:SPELLCASTER|Psionic
+3																							ADD:SPELLCASTER|Psionic	ADD:FEAT|Thrallherd Charm
+4																							ADD:SPELLCASTER|Psionic
+5																							ADD:SPELLCASTER|Psionic	ADD:FEAT|Thrallherd Dominate
+6																							ADD:SPELLCASTER|Psionic
+7	SA:Greater Dominate (Ex)																		ADD:SPELLCASTER|Psionic
+8																							ADD:SPELLCASTER|Psionic
+9	SA:Superior Dominate (Ex)																		ADD:SPELLCASTER|Psionic
+10	SA:Twofold Master (Ex)
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
