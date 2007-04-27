@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Fri Apr 27 00:28:38 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 #
@@ -73,8 +73,8 @@ Fighting Defensively	VISIBLE:NO	SOURCEPAGE:SRDCombatActions.rtf	BONUS:COMBAT|TOH
 Total Defense		VISIBLE:NO	SOURCEPAGE:SRDCombatActions.rtf								BONUS:VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC					TEMPDESC:You are defending yourself as a standard action
 
 ###Block: Awakened Animal
-# Template Name	Required Race					ADD:Language			Apply Kit			Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL
-Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:Language(TYPE=Spoken)1	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2
+# Template Name	Required Race					Apply Kit			Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL		Add
+Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2	ADD:LANGUAGE|1|TYPE=Spoken
 
 #
 # End

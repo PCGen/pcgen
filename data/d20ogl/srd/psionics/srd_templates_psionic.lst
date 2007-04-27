@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb  8 03:15:43 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Apr 27 00:28:38 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original entry for Astral Contruct templates by: Ian
 
@@ -11,56 +11,56 @@ Fighter Favored		VISIBLE:NO												FAVOREDCLASS:Fighter
 Psychic Warrior Favored	VISIBLE:NO												FAVOREDCLASS:Psychic Warrior
 
 ###Block: Astral Construct menu choices, groups are all possible combinations of A/B/C choices given any set in the group.
-# Template Name				Visible	Template																																																																																					Source Page					Choose a Feat
-Astral Construct Feats (1 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)1
+# Template Name				Visible	Template																																																																																					Source Page					Add
+Astral Construct Feats (1 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuA
 
-Astral Construct Feats (2 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)2
-Astral Construct Feats (0 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuB)1
+Astral Construct Feats (2 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA
+Astral Construct Feats (0 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuB
 
-Astral Construct Feats (3 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)3
-Astral Construct Feats (1 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)1	ADD:FEAT(TYPE=AstralConstructMenuB)1
+Astral Construct Feats (3 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|3|TYPE=AstralConstructMenuA
+Astral Construct Feats (1 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB
 
-Astral Construct Feats (4 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)4
-Astral Construct Feats (2 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)2	ADD:FEAT(TYPE=AstralConstructMenuB)1
-Astral Construct Feats (0 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuB)2
-Astral Construct Feats (0 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuC)1
+Astral Construct Feats (4 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA
+Astral Construct Feats (2 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB
+Astral Construct Feats (0 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuB
+Astral Construct Feats (0 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuC
 
-Astral Construct Feats (6 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)6
-Astral Construct Feats (4 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)4	ADD:FEAT(TYPE=AstralConstructMenuB)1
-Astral Construct Feats (2 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)2	ADD:FEAT(TYPE=AstralConstructMenuB)2
-Astral Construct Feats (2 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)2	ADD:FEAT(TYPE=AstralConstructMenuC)1
-Astral Construct Feats (0 3 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)1	ADD:FEAT(TYPE=AstralConstructMenuB)3
-Astral Construct Feats (0 1 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)1	ADD:FEAT(TYPE=AstralConstructMenuB)1	ADD:FEAT(TYPE=AstralConstructMenuC)1
+Astral Construct Feats (6 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|6|TYPE=AstralConstructMenuA
+Astral Construct Feats (4 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB
+Astral Construct Feats (2 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|2|TYPE=AstralConstructMenuB
+Astral Construct Feats (2 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (0 3 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuA	ADD:FEAT|3|TYPE=AstralConstructMenuB
+Astral Construct Feats (0 1 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
 
-Astral Construct Feats (8 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)8
-Astral Construct Feats (6 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)6	ADD:FEAT(TYPE=AstralConstructMenuB)1
-Astral Construct Feats (4 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)4	ADD:FEAT(TYPE=AstralConstructMenuB)2
-Astral Construct Feats (4 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)4	ADD:FEAT(TYPE=AstralConstructMenuC)1
-Astral Construct Feats (2 3 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)2	ADD:FEAT(TYPE=AstralConstructMenuB)3
-Astral Construct Feats (2 1 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)2	ADD:FEAT(TYPE=AstralConstructMenuB)1	ADD:FEAT(TYPE=AstralConstructMenuC)1
-Astral Construct Feats (0 4 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuB)4
-Astral Construct Feats (0 2 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuB)2	ADD:FEAT(TYPE=AstralConstructMenuC)1
-Astral Construct Feats (0 0 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuC)2
+Astral Construct Feats (8 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|8|TYPE=AstralConstructMenuA
+Astral Construct Feats (6 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|6|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB
+Astral Construct Feats (4 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|2|TYPE=AstralConstructMenuB
+Astral Construct Feats (4 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (2 3 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|3|TYPE=AstralConstructMenuB
+Astral Construct Feats (2 1 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (0 4 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuB
+Astral Construct Feats (0 2 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (0 0 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuC
 
-Astral Construct Feats (12 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)12
-Astral Construct Feats (10 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)10	ADD:FEAT(TYPE=AstralConstructMenuB)1
-Astral Construct Feats (8 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)8	ADD:FEAT(TYPE=AstralConstructMenuB)2
-Astral Construct Feats (8 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)8	ADD:FEAT(TYPE=AstralConstructMenuC)1
-Astral Construct Feats (6 3 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)6	ADD:FEAT(TYPE=AstralConstructMenuB)3
-Astral Construct Feats (6 1 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)6	ADD:FEAT(TYPE=AstralConstructMenuB)1	ADD:FEAT(TYPE=AstralConstructMenuC)1
-Astral Construct Feats (4 4 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)4	ADD:FEAT(TYPE=AstralConstructMenuB)4
-Astral Construct Feats (4 2 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)4	ADD:FEAT(TYPE=AstralConstructMenuB)2	ADD:FEAT(TYPE=AstralConstructMenuC)1
-Astral Construct Feats (4 0 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)4	ADD:FEAT(TYPE=AstralConstructMenuC)2
-Astral Construct Feats (2 5 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)2	ADD:FEAT(TYPE=AstralConstructMenuB)5
-Astral Construct Feats (2 3 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)2	ADD:FEAT(TYPE=AstralConstructMenuB)3	ADD:FEAT(TYPE=AstralConstructMenuC)1
-Astral Construct Feats (2 1 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuA)2	ADD:FEAT(TYPE=AstralConstructMenuB)1	ADD:FEAT(TYPE=AstralConstructMenuC)2
-Astral Construct Feats (0 6 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuB)6
-Astral Construct Feats (0 4 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuB)4	ADD:FEAT(TYPE=AstralConstructMenuC)1
-Astral Construct Feats (0 2 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuB)2	ADD:FEAT(TYPE=AstralConstructMenuC)2
-Astral Construct Feats (0 0 3)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT(TYPE=AstralConstructMenuC)3
+Astral Construct Feats (12 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|12|TYPE=AstralConstructMenuA
+Astral Construct Feats (10 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|10|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB
+Astral Construct Feats (8 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|8|TYPE=AstralConstructMenuA	ADD:FEAT|2|TYPE=AstralConstructMenuB
+Astral Construct Feats (8 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|8|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (6 3 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|6|TYPE=AstralConstructMenuA	ADD:FEAT|3|TYPE=AstralConstructMenuB
+Astral Construct Feats (6 1 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|6|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (4 4 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|4|TYPE=AstralConstructMenuB
+Astral Construct Feats (4 2 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|2|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (4 0 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|2|TYPE=AstralConstructMenuC
+Astral Construct Feats (2 5 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|5|TYPE=AstralConstructMenuB
+Astral Construct Feats (2 3 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|3|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (2 1 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB	ADD:FEAT|2|TYPE=AstralConstructMenuC
+Astral Construct Feats (0 6 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|6|TYPE=AstralConstructMenuB
+Astral Construct Feats (0 4 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (0 2 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuB	ADD:FEAT|2|TYPE=AstralConstructMenuC
+Astral Construct Feats (0 0 3)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|3|TYPE=AstralConstructMenuC
 
 # Astral Construct menu choices (per level)
-# Template Name				Visible	Template																																																																																					Source Page					Choose a Feat
+# Template Name				Visible	Template																																																																																					Source Page					Add
 Astral Construct Feats (1st Level)	VISIBLE:NO	TEMPLATE:CHOOSE:Astral Construct Feats (1 0 0)																																																																															SOURCEPAGE:srdpsioniccreatures.rtf
 Astral Construct Feats (2nd Level)	VISIBLE:NO	TEMPLATE:CHOOSE:Astral Construct Feats (2 0 0)|Astral Construct Feats (0 1 0)																																																																										SOURCEPAGE:srdpsioniccreatures.rtf
 Astral Construct Feats (3rd Level)	VISIBLE:NO	TEMPLATE:CHOOSE:Astral Construct Feats (3 0 0)|Astral Construct Feats (1 1 0)																																																																										SOURCEPAGE:srdpsioniccreatures.rtf

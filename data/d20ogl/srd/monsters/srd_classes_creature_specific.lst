@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb  5 01:51:09 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Apr 27 00:28:38 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 #
@@ -11,9 +11,9 @@ CLASS:Aranea	HD:8		TYPE:Monster	MAXLEVEL:3	SOURCEPAGE:srdmonstersa.rtf	LEVELSPER
 CLASS:Aranea	PRERACE:1,Aranea	PRERACETYPE:Shapechanger
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Aranea	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	ADD:SPELLCASTER(Sorcerer)
-2						BONUS:PCLEVEL|Sorcerer|1
-3						BONUS:PCLEVEL|Sorcerer|1
+1						ADD:SPELLCASTER|1|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Drider Cleric	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -21,12 +21,12 @@ CLASS:Drider Cleric	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LE
 CLASS:Drider Cleric	PRERACE:1,Drider (Cleric)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	ADD:SPELLCASTER(Cleric)	SA:Spontaneous casting	BONUS:VAR|TurnLevelBase|CL					ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
-2														BONUS:PCLEVEL|Cleric|1
-3														BONUS:PCLEVEL|Cleric|1
-4														BONUS:PCLEVEL|Cleric|1
-5														BONUS:PCLEVEL|Cleric|1
-6														BONUS:PCLEVEL|Cleric|1
+1	SA:Spontaneous casting	BONUS:VAR|TurnLevelBase|CL					ADD:SPELLCASTER|1|Cleric	ADD:FEAT|1|TYPE=TurnUndead	FEATAUTO:Basic Turning
+2										BONUS:PCLEVEL|Cleric|1
+3										BONUS:PCLEVEL|Cleric|1
+4										BONUS:PCLEVEL|Cleric|1
+5										BONUS:PCLEVEL|Cleric|1
+6										BONUS:PCLEVEL|Cleric|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Drider Sorcerer	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -34,12 +34,12 @@ CLASS:Drider Sorcerer	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	
 CLASS:Drider Sorcerer	PRERACE:1,Drider (Sorcerer)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Drider Sorcerer	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	ADD:SPELLCASTER(Sorcerer)	BONUS:VAR|FMLevel|CL						FEATAUTO:Summon Familiar
-2										BONUS:PCLEVEL|Sorcerer|1
-3										BONUS:PCLEVEL|Sorcerer|1
-4										BONUS:PCLEVEL|Sorcerer|1
-5										BONUS:PCLEVEL|Sorcerer|1
-6										BONUS:PCLEVEL|Sorcerer|1
+1	BONUS:VAR|FMLevel|CL						ADD:SPELLCASTER|1|Sorcerer	FEATAUTO:Summon Familiar
+2					BONUS:PCLEVEL|Sorcerer|1
+3					BONUS:PCLEVEL|Sorcerer|1
+4					BONUS:PCLEVEL|Sorcerer|1
+5					BONUS:PCLEVEL|Sorcerer|1
+6					BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Drider Wizard	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -47,12 +47,12 @@ CLASS:Drider Wizard	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LE
 CLASS:Drider Wizard	PRERACE:1,Drider (Wizard)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Drider Wizard	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	ADD:SPELLCASTER(Wizard)	BONUS:VAR|FMLevel|CL					FEATAUTO:Scribe Scroll|Summon Familiar
-2									BONUS:PCLEVEL|Wizard|1
-3									BONUS:PCLEVEL|Wizard|1
-4									BONUS:PCLEVEL|Wizard|1
-5									BONUS:PCLEVEL|Wizard|1
-6									BONUS:PCLEVEL|Wizard|1
+1	BONUS:VAR|FMLevel|CL					ADD:SPELLCASTER|1|Wizard	FEATAUTO:Scribe Scroll|Summon Familiar
+2					BONUS:PCLEVEL|Wizard|1
+3					BONUS:PCLEVEL|Wizard|1
+4					BONUS:PCLEVEL|Wizard|1
+5					BONUS:PCLEVEL|Wizard|1
+6					BONUS:PCLEVEL|Wizard|1
 
 # Class Name		Hit Dice	Type			Source Page				Levels per Feat	Save checks bonus								Combat bonus
 CLASS:Formian Queen	HD:8		TYPE:Monster	SOURCEPAGE:srdmonstersfg.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -60,26 +60,26 @@ CLASS:Formian Queen	HD:8		TYPE:Monster	SOURCEPAGE:srdmonstersfg.rtf	LEVELSPERFEA
 CLASS:Formian Queen	PRERACE:1,Formian (Queen)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Formian Queen	STARTSKILLPTS:8	MODTOSKILLS:YES
-2	ADD:SPELLCASTER(Sorcerer)
-3						BONUS:PCLEVEL|Sorcerer|1
-4						BONUS:PCLEVEL|Sorcerer|1
-5						BONUS:PCLEVEL|Sorcerer|1
-6						BONUS:PCLEVEL|Sorcerer|1
-7						BONUS:PCLEVEL|Sorcerer|1
-9						BONUS:PCLEVEL|Sorcerer|1
-10						BONUS:PCLEVEL|Sorcerer|1
-11						BONUS:PCLEVEL|Sorcerer|1
-12						BONUS:PCLEVEL|Sorcerer|1
-13						BONUS:PCLEVEL|Sorcerer|1
-14						BONUS:PCLEVEL|Sorcerer|1
-16						BONUS:PCLEVEL|Sorcerer|1
-17						BONUS:PCLEVEL|Sorcerer|1
-18						BONUS:PCLEVEL|Sorcerer|1
-19						BONUS:PCLEVEL|Sorcerer|1
-20						BONUS:PCLEVEL|Sorcerer|1
-21						BONUS:PCLEVEL|Sorcerer|1
-22						BONUS:PCLEVEL|Sorcerer|1
-23						BONUS:PCLEVEL|Sorcerer|1
+2						ADD:SPELLCASTER|1|Sorcerer
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+10	BONUS:PCLEVEL|Sorcerer|1
+11	BONUS:PCLEVEL|Sorcerer|1
+12	BONUS:PCLEVEL|Sorcerer|1
+13	BONUS:PCLEVEL|Sorcerer|1
+14	BONUS:PCLEVEL|Sorcerer|1
+16	BONUS:PCLEVEL|Sorcerer|1
+17	BONUS:PCLEVEL|Sorcerer|1
+18	BONUS:PCLEVEL|Sorcerer|1
+19	BONUS:PCLEVEL|Sorcerer|1
+20	BONUS:PCLEVEL|Sorcerer|1
+21	BONUS:PCLEVEL|Sorcerer|1
+22	BONUS:PCLEVEL|Sorcerer|1
+23	BONUS:PCLEVEL|Sorcerer|1
 
 # Cloud and Storm Giants gain skills as if they were large creatures.
 
@@ -105,13 +105,13 @@ CLASS:Lammasu	HD:10		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonstersl.rtf	LEVELS
 CLASS:Lammasu	PRERACE:1,Lammasu	PRERACETYPE:Magical Beast
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Lammasu	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	ADD:SPELLCASTER(Cleric)
-2					BONUS:PCLEVEL|Cleric|1
-3					BONUS:PCLEVEL|Cleric|1
-4					BONUS:PCLEVEL|Cleric|1
-5					BONUS:PCLEVEL|Cleric|1
-6					BONUS:PCLEVEL|Cleric|1
-7					BONUS:PCLEVEL|Cleric|1
+1					ADD:SPELLCASTER|1|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus								Combat bonus
 CLASS:Lillend	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonstersl.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -119,12 +119,12 @@ CLASS:Lillend	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonstersl.rtf	LEVELSP
 CLASS:Lillend	PRERACE:1,Lillend	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Lillend	STARTSKILLPTS:8	MODTOSKILLS:YES
-1	ADD:SPELLCASTER(Bard)	SA:Bardic music %/day|BardicMusic	BONUS:VAR|BardicMusic|0	BONUS:VAR|BardicMusic|CL					DEFINE:BardicMusic|0
-2																				BONUS:PCLEVEL|Bard|1
-3																				BONUS:PCLEVEL|Bard|1
-4																				BONUS:PCLEVEL|Bard|1
-5																				BONUS:PCLEVEL|Bard|1
-6																				BONUS:PCLEVEL|Bard|1
+1	SA:Bardic music %/day|BardicMusic	BONUS:VAR|BardicMusic|0	BONUS:VAR|BardicMusic|CL					DEFINE:BardicMusic|0	ADD:SPELLCASTER|1|Bard
+2																BONUS:PCLEVEL|Bard|1
+3																BONUS:PCLEVEL|Bard|1
+4																BONUS:PCLEVEL|Bard|1
+5																BONUS:PCLEVEL|Bard|1
+6																BONUS:PCLEVEL|Bard|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Naga		HD:8		TYPE:Monster	MAXLEVEL:27	SOURCEPAGE:srdmonstersnop.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -132,13 +132,13 @@ CLASS:Naga		HD:8		TYPE:Monster	MAXLEVEL:27	SOURCEPAGE:srdmonstersnop.rtf	LEVELSP
 CLASS:Naga		PRERACE:1,Naga%	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Naga		STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	ADD:SPELLCASTER(Sorcerer)
-2						BONUS:PCLEVEL|Sorcerer|1
-3						BONUS:PCLEVEL|Sorcerer|1
-4						BONUS:PCLEVEL|Sorcerer|1
-5						BONUS:PCLEVEL|Sorcerer|1
-6						BONUS:PCLEVEL|Sorcerer|1
-7						BONUS:PCLEVEL|Sorcerer|1
+1						ADD:SPELLCASTER|1|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Guardian Naga	HD:8		TYPE:Monster	MAXLEVEL:33	SOURCEPAGE:srdmonstersnop.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -146,15 +146,15 @@ CLASS:Guardian Naga	HD:8		TYPE:Monster	MAXLEVEL:33	SOURCEPAGE:srdmonstersnop.rtf
 CLASS:Guardian Naga	PRERACE:1,Naga (Guardian)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Guardian Naga	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	ADD:SPELLCASTER(Sorcerer)
-2						BONUS:PCLEVEL|Sorcerer|1
-3						BONUS:PCLEVEL|Sorcerer|1
-4						BONUS:PCLEVEL|Sorcerer|1
-5						BONUS:PCLEVEL|Sorcerer|1
-6						BONUS:PCLEVEL|Sorcerer|1
-7						BONUS:PCLEVEL|Sorcerer|1
-8						BONUS:PCLEVEL|Sorcerer|1
-9						BONUS:PCLEVEL|Sorcerer|1
+1						ADD:SPELLCASTER|1|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Nymph		HD:6		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:srdmonstersnop.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -162,9 +162,9 @@ CLASS:Nymph		HD:6		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:srdmonstersnop.rtf	LEVELSP
 CLASS:Nymph		PRERACE:1,Nymph	PRERACETYPE:Fey
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Nymph		STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:3*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	ADD:SPELLCASTER(Druid)
-2					BONUS:PCLEVEL|Druid|3
-3					BONUS:PCLEVEL|Druid|3
+1					ADD:SPELLCASTER|1|Druid
+2	BONUS:PCLEVEL|Druid|3
+3	BONUS:PCLEVEL|Druid|3
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus								Combat bonus
 CLASS:Rakshasa	HD:8		TYPE:Monster	MAXLEVEL:14	SOURCEPAGE:srdmonstersr.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -172,13 +172,13 @@ CLASS:Rakshasa	HD:8		TYPE:Monster	MAXLEVEL:14	SOURCEPAGE:srdmonstersr.rtf	LEVELS
 CLASS:Rakshasa	PRERACE:1,Rakshasa	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Rakshasa	STARTSKILLPTS:8	MODTOSKILLS:YES
-1	ADD:SPELLCASTER(Sorcerer)
-2						BONUS:PCLEVEL|Sorcerer|1
-3						BONUS:PCLEVEL|Sorcerer|1
-4						BONUS:PCLEVEL|Sorcerer|1
-5						BONUS:PCLEVEL|Sorcerer|1
-6						BONUS:PCLEVEL|Sorcerer|1
-7						BONUS:PCLEVEL|Sorcerer|1
+1						ADD:SPELLCASTER|1|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Androsphinx	HD:10		TYPE:Monster	MAXLEVEL:36	SOURCEPAGE:srdmonsterss.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -186,12 +186,12 @@ CLASS:Androsphinx	HD:10		TYPE:Monster	MAXLEVEL:36	SOURCEPAGE:srdmonsterss.rtf	LE
 CLASS:Androsphinx	PRERACE:1,Sphinx (Androsphinx)	PRERACETYPE:Magical Beast
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Androsphinx	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	ADD:SPELLCASTER(Cleric)
-3					BONUS:PCLEVEL|Cleric|1
-5					BONUS:PCLEVEL|Cleric|1
-7					BONUS:PCLEVEL|Cleric|1
-9					BONUS:PCLEVEL|Cleric|1
-11					BONUS:PCLEVEL|Cleric|1
+1					ADD:SPELLCASTER|1|Cleric
+3	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+11	BONUS:PCLEVEL|Cleric|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus								Combat bonus
 CLASS:Titan		HD:8		TYPE:Monster	MAXLEVEL:60	SOURCEPAGE:srdmonsterst.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -199,26 +199,26 @@ CLASS:Titan		HD:8		TYPE:Monster	MAXLEVEL:60	SOURCEPAGE:srdmonsterst.rtf	LEVELSPE
 CLASS:Titan		PRERACE:1,Titan	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Titan		STARTSKILLPTS:8	MODTOSKILLS:YES
-1	ADD:SPELLCASTER(Cleric)	ADD:SPELLCASTER(Wizard)
-2									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-3									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-4									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-5									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-6									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-7									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-8									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-9									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-10									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-11									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-12									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-13									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-14									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-15									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-16									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-17									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-18									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-19									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
-20									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+1									ADD:SPELLCASTER|1|Cleric	ADD:SPELLCASTER|1|Wizard
+2	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+3	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+4	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+5	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+6	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+7	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+8	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+9	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+10	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+11	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+12	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+13	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+14	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+15	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+16	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+17	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+18	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+19	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+20	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Treant	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonsterst.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Non-errata'd
 #	Scroll (Stinking Cloud) cost should be 375 as it is a 3rd level spell (not 2nd)
@@ -8,7 +8,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 
 ###Block: Arcane Scrolls
 
-# Equipment Name						Output Name							Unique Key			Type						Cost		Weight	Modifier		Source Page
+# Equipment Name						Unique Key			Output Name							Type						Cost		Weight	Modifier		Source Page
 Scroll (Magic Missile)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Burning Hands)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Change Self)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
@@ -24,12 +24,12 @@ Scroll (Grease)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:
 Scroll (Identify)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Jump)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Mage Armor)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Magic Weapon/Arcane)				OUTPUTNAME:Scroll (Magic Weapon)							TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Magic Weapon/Arcane)								OUTPUTNAME:Scroll (Magic Weapon)			TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Mount)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Protection from Chaos/Arcane)		OUTPUTNAME:Scroll (Protection from Chaos)						TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Protection from Evil/Arcane)		OUTPUTNAME:Scroll (Protection from Evil)						TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Protection from Good/Arcane)		OUTPUTNAME:Scroll (Protection from Good)						TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Protection from Law/Arcane)			OUTPUTNAME:Scroll (Protection from Law)						TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Protection from Chaos/Arcane)						OUTPUTNAME:Scroll (Protection from Chaos)		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Protection from Evil/Arcane)						OUTPUTNAME:Scroll (Protection from Evil)		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Protection from Good/Arcane)						OUTPUTNAME:Scroll (Protection from Good)		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Protection from Law/Arcane)							OUTPUTNAME:Scroll (Protection from Law)		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Ray of Enfeeblement)																TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Reduce)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Shield)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
@@ -37,22 +37,22 @@ Scroll (Shocking Grasp)																	TYPE:Magic.Scroll.Arcane.Consumable	COST
 Scroll (Silent Image)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Sleep)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Spider Climb)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Summon Monster I/Arcane)			OUTPUTNAME:Scroll (Summon Monster I)						TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Monster I/Arcane)							OUTPUTNAME:Scroll (Summon Monster I)		TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Floating Disk)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Unseen Servant)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Ventriloquism)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Arcane Lock)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:175	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Blindness/Deafness)																TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Blur)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Bull's Strength/Arcane)			OUTPUTNAME:Scroll (Bull's Strength)							TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Bull's Strength/Arcane)							OUTPUTNAME:Scroll (Bull's Strength)			TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Cat's Grace)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Darkvision)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Detect Thoughts)																TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Flaming Sphere/Arcane)			OUTPUTNAME:Scroll (Flaming Sphere)							TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Flaming Sphere/Arcane)							OUTPUTNAME:Scroll (Flaming Sphere)			TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Invisibility)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Knock)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Levitate)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Locate Object/Arcane)				OUTPUTNAME:Scroll (Locate Object)							TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Locate Object/Arcane)								OUTPUTNAME:Scroll (Locate Object)			TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Acid Arrow)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Minor Image)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Mirror Image)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
@@ -61,33 +61,33 @@ Scroll (Protection from Arrows)															TYPE:Magic.Scroll.Arcane.Consumabl
 Scroll (See Invisibility)																TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Spectral Hand)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Stinking Cloud)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Summon Monster II/Arcane)			OUTPUTNAME:Scroll (Summon Monster II)						TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Summon Swarm/Arcane)				OUTPUTNAME:Scroll (Summon Swarm)							TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Monster II/Arcane)							OUTPUTNAME:Scroll (Summon Monster II)		TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Swarm/Arcane)								OUTPUTNAME:Scroll (Summon Swarm)			TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Web)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Blink)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Clairaudience/Clairvoyance)															TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Dispel Magic/Arcane)				OUTPUTNAME:Scroll (Dispel Magic)							TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Dispel Magic/Arcane)								OUTPUTNAME:Scroll (Dispel Magic)			TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Displacement)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Fireball)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Flame Arrow)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Fly)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Gaseous Form)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Greater Magic Weapon/Arcane)		OUTPUTNAME:Scroll (Greater Magic Weapon)						TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Greater Magic Weapon/Arcane)						OUTPUTNAME:Scroll (Greater Magic Weapon)		TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Halt Undead)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Haste)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Invisiblity Sphere)																TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Lightning Bolt)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Magic Circle Against Chaos/Arcane)	OUTPUTNAME:Scroll (Magic Circle Against Chaos)					TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Magic Circle Against Evil/Arcane)		OUTPUTNAME:Scroll (Magic Circle Against Evil)					TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Magic Circle Against Good/Arcane)		OUTPUTNAME:Scroll (Magic Circle Against Good)					TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Magic Circle Against Law/Arcane)		OUTPUTNAME:Scroll (Magic Circle Against Law)					TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Magic Circle Against Chaos/Arcane)					OUTPUTNAME:Scroll (Magic Circle Against Chaos)	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Magic Circle Against Evil/Arcane)						OUTPUTNAME:Scroll (Magic Circle Against Evil)	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Magic Circle Against Good/Arcane)						OUTPUTNAME:Scroll (Magic Circle Against Good)	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Magic Circle Against Law/Arcane)						OUTPUTNAME:Scroll (Magic Circle Against Law)	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Nondetection)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:425	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Slow)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Suggestion)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Summon Monster III/Arcane)			OUTPUTNAME:Scroll (Summon Monster III)						TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Tongues/Arcane)					OUTPUTNAME:Scroll (Tongues)								TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Monster III/Arcane)							OUTPUTNAME:Scroll (Summon Monster III)		TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Tongues/Arcane)									OUTPUTNAME:Scroll (Tongues)				TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Vampiric Touch)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Water Breathing/Arcane)			OUTPUTNAME:Scroll (Water Breathing)							TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Water Breathing/Arcane)							OUTPUTNAME:Scroll (Water Breathing)			TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Charm Monster)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Confusion)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Contagion)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
@@ -98,18 +98,18 @@ Scroll (Enervation)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:700
 Scroll (Black Tentacles)																TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Fear)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Fire Shield)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Ice Storm/Arcane)				OUTPUTNAME:Scroll (Ice Storm)				KEY:Scroll (Ice Storm)	TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Ice Storm/Arcane)				KEY:Scroll (Ice Storm)	OUTPUTNAME:Scroll (Ice Storm)				TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Improved Invisibility)															TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Lesser Geas)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Minor Globe of Invulnerability)														TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Phantasmal Killer)																TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Polymorph Other)																TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Polymorph Self)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Remove Curse/Arcane)				OUTPUTNAME:Scroll (Remove Curse)							TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Remove Curse/Arcane)								OUTPUTNAME:Scroll (Remove Curse)			TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Shadow Conjuration)																TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Stoneskin)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:950	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Summon Monster IV/Arcane)			OUTPUTNAME:Scroll (Summon Monster IV)						TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Wall of Fire/Arcane)				OUTPUTNAME:Scroll (Wall of Fire)							TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Monster IV/Arcane)							OUTPUTNAME:Scroll (Summon Monster IV)		TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Wall of Fire/Arcane)								OUTPUTNAME:Scroll (Wall of Fire)			TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Wall of Ice)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Interposing Hand)																TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Cloudkill)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
@@ -124,22 +124,22 @@ Scroll (Mind Fog)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:1125
 Scroll (Passwall)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Persistent Image)																TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Shadow Evocation)																TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Stone Shape/Arcane)				OUTPUTNAME:Scroll (Stone Shape)							TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Summon Monster V/Arcane)			OUTPUTNAME:Scroll (Summon Monster V)						TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Stone Shape/Arcane)								OUTPUTNAME:Scroll (Stone Shape)			TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Monster V/Arcane)							OUTPUTNAME:Scroll (Summon Monster V)		TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Telekinesis)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Teleport)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Transmute Mud to Rock)															TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Transmute Rock to Mud/Arcane)		OUTPUTNAME:Scroll (Transmute Rock to Mud)						TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Transmute Rock to Mud/Arcane)						OUTPUTNAME:Scroll (Transmute Rock to Mud)		TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Wall of Force)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Wall of Iron)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:1175	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Wall of Stone/Arcane)				OUTPUTNAME:Scroll (Wall of Stone)							TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Wall of Stone/Arcane)								OUTPUTNAME:Scroll (Wall of Stone)			TYPE:Magic.Scroll.Arcane.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Acid Fog)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Analyze Dweomer)																TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Antimagic Field/Arcane)			OUTPUTNAME:Scroll (Antimagic Field)							TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Antimagic Field/Arcane)							OUTPUTNAME:Scroll (Antimagic Field)			TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Forceful Hand)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Chain Lightning)																TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Circle of Death)																TYPE:Magic.Scroll.Arcane.Consumable	COST:2150	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Control Water/Arcane)				OUTPUTNAME:Scroll (Control Water)							TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Control Water/Arcane)								OUTPUTNAME:Scroll (Control Water)			TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Disintegrate)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Eyebite)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Flesh to Stone)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
@@ -151,26 +151,26 @@ Scroll (Move Earth)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:165
 Scroll (Freezing Sphere)																TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Programmed Image)																TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Project Image)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Repulsion/Arcane)				OUTPUTNAME:Scroll (Repulsion)								TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Repulsion/Arcane)								OUTPUTNAME:Scroll (Repulsion)				TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Shades)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Stone to Flesh)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Summon Monster VI/Arcane)			OUTPUTNAME:Scroll (Summon Monster VI)						TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (True Seeing/Arcane)				OUTPUTNAME:Scroll (True Seeing)							TYPE:Magic.Scroll.Arcane.Consumable	COST:1900	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Monster VI/Arcane)							OUTPUTNAME:Scroll (Summon Monster VI)		TYPE:Magic.Scroll.Arcane.Consumable	COST:1650	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (True Seeing/Arcane)								OUTPUTNAME:Scroll (True Seeing)			TYPE:Magic.Scroll.Arcane.Consumable	COST:1900	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Grasping Hand)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Control Undead)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Delayed Blast Fireball)															TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Ethereal Jaunt)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Finger of Death/Arcane)			OUTPUTNAME:Scroll (Finger of Death)							TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Finger of Death/Arcane)							OUTPUTNAME:Scroll (Finger of Death)			TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Forcecage)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:3775	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Limited Wish)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:3775	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Mass Invisibility)																TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Sword)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Power Word Stun)																TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Prismatic Spray)																TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Reverse Gravity/Arcane)			OUTPUTNAME:Scroll (Reverse Gravity)							TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Reverse Gravity/Arcane)							OUTPUTNAME:Scroll (Reverse Gravity)			TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Sequester)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Spell Turning)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Summon Monster VII/Arcane)			OUTPUTNAME:Scroll (Summon Monster VII)						TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Monster VII/Arcane)							OUTPUTNAME:Scroll (Summon Monster VII)		TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Teleport without Error)															TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Vanish)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:2275	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Vision)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:3025	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
@@ -190,17 +190,17 @@ Scroll (Power word Blind)																TYPE:Magic.Scroll.Arcane.Consumable	COS
 Scroll (Prismatic Wall)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:3000	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Protection from Spells)															TYPE:Magic.Scroll.Arcane.Consumable	COST:3500	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Screen)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:3000	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Summon Monster VIII/Arcane)			OUTPUTNAME:Scroll (Summon Monster VIII)						TYPE:Magic.Scroll.Arcane.Consumable	COST:3000	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Sunburst/Arcane)				OUTPUTNAME:Scroll (Sunburst)								TYPE:Magic.Scroll.Arcane.Consumable	COST:3000	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Monster VIII/Arcane)							OUTPUTNAME:Scroll (Summon Monster VIII)		TYPE:Magic.Scroll.Arcane.Consumable	COST:3000	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Sunburst/Arcane)								OUTPUTNAME:Scroll (Sunburst)				TYPE:Magic.Scroll.Arcane.Consumable	COST:3000	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Sympathy)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:4500	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Crushing Hand)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Energy Drain/Arcane)				OUTPUTNAME:Scroll (Energy Drain)							TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Energy Drain/Arcane)								OUTPUTNAME:Scroll (Energy Drain)			TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Imprisonment)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Meteor Swarm)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Disjunction)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Prismatic Sphere)																TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Shapechange/Arcane)				OUTPUTNAME:Scroll (Shapechange)							TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Summon Monster IX/Arcane)			OUTPUTNAME:Scroll (Summon Monster IX)						TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Shapechange/Arcane)								OUTPUTNAME:Scroll (Shapechange)			TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Summon Monster IX/Arcane)							OUTPUTNAME:Scroll (Summon Monster IX)		TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Time Stop)																	TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Wail of the Banshee)																TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Weird)																		TYPE:Magic.Scroll.Arcane.Consumable	COST:3825	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
