@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Apr 27 00:39:14 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Occupations
-# Feat Name				Output Name		Type			Visible		Required Stat		Description																																																							Choose a Feat										Modify VAR			Source Page
+# Feat Name				Output Name		Type			Visible		Required Stat		Description																																																							Add												Modify VAR			Source Page
 Occupation (Apothecary)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:EXPORT					DESC:Apothecaries are people who study the science of mixing chemicals, elements, and naturally occurring materials together for predictable results. They often go on to be research scientists, inventors, pharmacists, or alchemists.																		ADD:FEAT|TYPE=Apothecary	ADD:FEAT|3|TYPE=Apothecary_Skills		BONUS:VAR|WealthBonus|3	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
 Occupation (Hedge Wizard)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:EXPORT	PRESTAT:1,INT=10		DESC:A hedge wizard is someone who has spent a great deal of time studying the arcane arts without the benefit of having any formal training or mentoring.																															ADD:FEAT|TYPE=HedgeWizard	ADD:FEAT|3|TYPE=Hedge_Wizard_Skills		BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
 Occupation (Novitiate)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:EXPORT	PRESTAT:1,WIS=10		DESC:Novitiates draw quiet strength from their belief in a greater power. They do not necessarily have ties to a specific religion or denomination—their faith is enough. Some novitiates are lay clergy, counselors, motivational speakers, social workers, or any other position involved with helping people who have lost hope and faith.	ADD:FEAT|TYPE=Novitiate	ADD:FEAT|3|TYPE=Novitiate_Skills			BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
