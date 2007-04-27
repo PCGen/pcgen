@@ -1,22 +1,22 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern Principles	SOURCESHORT:MP	SOURCEWEB:http://swordsedgepublishing.ca/SEP4200.pdf
 # Created by Paul King, August 2006
 
-# Skill Name				Key Stat	Untrained?		Type					Bonus to skill						Source Page		Unique Key
-Craft (Mechanical)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft										SOURCEPAGE:p.9
-Craft (Medicine)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		BONUS:SKILL|Craft (Medicine)|-4			SOURCEPAGE:p.4
-Craft (Music)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft										SOURCEPAGE:p.4
-Craft (Structural)			KEYSTAT:INT				TYPE:Intelligence.Craft										SOURCEPAGE:p.9
-Craft (Visual Art)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft										SOURCEPAGE:p.4
-Craft (Writing)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft										SOURCEPAGE:p.5
-Disable Device				KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Dexterity											SOURCEPAGE:p.5	KEY:SKL_DISABLE_DEVICE_MP
-Gamble					KEYSTAT:WIS				TYPE:Wisdom				BONUS:SKILL|Gamble|2|PRESKILL:1,Bluff=5		SOURCEPAGE:p.5
-Knowledge (Art)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge									SOURCEPAGE:p.6
-Knowledge (Civics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge									SOURCEPAGE:p.6
-Knowledge (Science and Philosophy)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge									SOURCEPAGE:p.6
-Knowledge (Streetwise)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge									SOURCEPAGE:p.6
-Knowledge (Tactics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge									SOURCEPAGE:p.6
-Navigate					KEYSTAT:INT				TYPE:Intelligence			BONUS:SKILL|Navigate|2|PRESKILL:1,Survival=5	SOURCEPAGE:p.7
-Perform (Harangue)			KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma.Perform										SOURCEPAGE:p.9
-Research					KEYSTAT:INT				TYPE:Intelligence											SOURCEPAGE:p.7
-Treat Injury				KEYSTAT:WIS				TYPE:Wisdom												SOURCEPAGE:p.7
+# Skill Name				Unique Key				Key Stat	Untrained?		Type					Bonus to skill						Source Page
+Craft (Mechanical)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft										SOURCEPAGE:p.9
+Craft (Medicine)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		BONUS:SKILL|Craft (Medicine)|-4			SOURCEPAGE:p.4
+Craft (Music)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft										SOURCEPAGE:p.4
+Craft (Structural)								KEYSTAT:INT				TYPE:Intelligence.Craft										SOURCEPAGE:p.9
+Craft (Visual Art)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft										SOURCEPAGE:p.4
+Craft (Writing)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft										SOURCEPAGE:p.5
+Disable Device				KEY:SKL_DISABLE_DEVICE_MP	KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Dexterity											SOURCEPAGE:p.5
+Gamble										KEYSTAT:WIS				TYPE:Wisdom				BONUS:SKILL|Gamble|2|PRESKILL:1,Bluff=5		SOURCEPAGE:p.5
+Knowledge (Art)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge									SOURCEPAGE:p.6
+Knowledge (Civics)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge									SOURCEPAGE:p.6
+Knowledge (Science and Philosophy)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge									SOURCEPAGE:p.6
+Knowledge (Streetwise)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge									SOURCEPAGE:p.6
+Knowledge (Tactics)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge									SOURCEPAGE:p.6
+Navigate										KEYSTAT:INT				TYPE:Intelligence			BONUS:SKILL|Navigate|2|PRESKILL:1,Survival=5	SOURCEPAGE:p.7
+Perform (Harangue)								KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma.Perform										SOURCEPAGE:p.9
+Research										KEYSTAT:INT				TYPE:Intelligence											SOURCEPAGE:p.7
+Treat Injury									KEYSTAT:WIS				TYPE:Wisdom												SOURCEPAGE:p.7

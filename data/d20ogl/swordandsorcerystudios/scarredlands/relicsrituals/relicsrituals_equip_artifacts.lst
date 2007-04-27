@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 ###Block: Relics - These have multiple powers, some are able to be done in the data file - Mynex 12/10/02
@@ -19,23 +19,23 @@ Armor of Grace			NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0							
 Black Book of Belsameth		NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0								SOURCEPAGE:p.203
 Clotstone				NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0								SOURCEPAGE:p.203
 ###Block: Divine Tokens
-# Equipment Name			Product Identity?	Type					Cost		Weight	Define			Source Page			ADD:DOMAIN		Virtual Feat		Spell Res.	Innate Spells																																																			Save checks bonus						Combat bonus				Bonus to skill									Stat bonus								Modify VAR							Special Ability				Class Skill
-Divine Tokens (Belsameth)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204	ADD:DOMAIN(Magic)	VFEAT:Negative Levels																																																																																										BONUS:VAR|NegLevels|1|PREALIGN:0,3,6
-Divine Tokens (Chardun)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204				VFEAT:Negative Levels																																																																						BONUS:SKILL|Intimidation|STR																BONUS:VAR|NegLevels|1|PREALIGN:0,3,6		SA:Smite Good %/day|SmiteGood
-Divine Tokens (Corean)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204																																																															BONUS:CHECKS|Fortitude|2|PREALIGN:0,1,2,3,6																																			SA:Defensive Stance %/day|DefStance
-Divine Tokens (Drendari)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0		DEFINE:ShadowJump|0	SOURCEPAGE:p.203-204																																																																																																	BONUS:VAR|ShadowJump|10*CHA				SA:Shadow Jump (% ft.)|ShadowJump	CSKILL:Hide|Move Silently
-Divine Tokens (Hedrada)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204										SPELLS:Artifact Power|TIMES=3|CASTERLEVEL=7|Discern Lies,16|PREDEITY:Hedrada																																																							BONUS:SKILL|Appraise,Intimidate,Sense Motive|4|TYPE=Competence	BONUS:STAT|CON|4|PREDEITY:Hedrada|TYPE=Enhancement
+# Equipment Name			Product Identity?	Type					Cost		Weight	Define			Source Page			Virtual Feat		Spell Res.	Innate Spells																																																			Save checks bonus						Combat bonus				Bonus to skill									Stat bonus								Modify VAR							Special Ability				Class Skill				ADD:
+Divine Tokens (Belsameth)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204	VFEAT:Negative Levels																																																																																										BONUS:VAR|NegLevels|1|PREALIGN:0,3,6													ADD:DOMAIN|1|Magic
+Divine Tokens (Chardun)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204	VFEAT:Negative Levels																																																																						BONUS:SKILL|Intimidation|STR																BONUS:VAR|NegLevels|1|PREALIGN:0,3,6		SA:Smite Good %/day|SmiteGood
+Divine Tokens (Corean)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204																																																												BONUS:CHECKS|Fortitude|2|PREALIGN:0,1,2,3,6																																			SA:Defensive Stance %/day|DefStance
+Divine Tokens (Drendari)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0		DEFINE:ShadowJump|0	SOURCEPAGE:p.203-204																																																																																														BONUS:VAR|ShadowJump|10*CHA				SA:Shadow Jump (% ft.)|ShadowJump	CSKILL:Hide|Move Silently
+Divine Tokens (Hedrada)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204							SPELLS:Artifact Power|TIMES=3|CASTERLEVEL=7|Discern Lies,16|PREDEITY:Hedrada																																																							BONUS:SKILL|Appraise,Intimidate,Sense Motive|4|TYPE=Competence	BONUS:STAT|CON|4|PREDEITY:Hedrada|TYPE=Enhancement
 Divine Tokens (Madriel)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204
 Divine Tokens (Tanil)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204
-Divine Tokens (Vangal)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204				VFEAT:Negative Levels																																																																																										BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7
+Divine Tokens (Vangal)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204	VFEAT:Negative Levels																																																																																										BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7
 
 Dweomer Crystal			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.204
 Fist of the Forsaken		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.204-205
 Mask of Whispers			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.205
-Master's Brush			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.205																																																																														BONUS:SKILL|Craft (Painting)|5
+Master's Brush			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.205																																																																											BONUS:SKILL|Craft (Painting)|5
 Natural Order			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.205-206
 Roaring Wand			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.206
-Robe of the Earth Mother	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.206									SR:10		SPELLS:Artifact Power|TIMES=-1|CASTERLEVEL=13|Detect Snares and Pits,11|Freedom of Movement,16|Meld into Stone,14|Protection from Elements,14|Tree Shape,13|Water Breathing,14	SPELLS:Artifact Power|TIMES=1|CASTERLEVEL=13|Call Lightning,14|Control Weather,20|Insect Plague,17|Sleet Storm,16|Transport via Plants,19									BONUS:COMBAT|AC|3|TYPE=Deflection
+Robe of the Earth Mother	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.206						SR:10		SPELLS:Artifact Power|TIMES=-1|CASTERLEVEL=13|Detect Snares and Pits,11|Freedom of Movement,16|Meld into Stone,14|Protection from Elements,14|Tree Shape,13|Water Breathing,14	SPELLS:Artifact Power|TIMES=1|CASTERLEVEL=13|Call Lightning,14|Control Weather,20|Insect Plague,17|Sleet Storm,16|Transport via Plants,19									BONUS:COMBAT|AC|3|TYPE=Deflection
 Shard of the Forsaken		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.206-207
 Slarecian Memory Sphere		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.207
 Sunray Spear			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.207
