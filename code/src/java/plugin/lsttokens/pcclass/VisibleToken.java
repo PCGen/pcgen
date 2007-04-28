@@ -35,14 +35,17 @@ public class VisibleToken implements PCClassLstToken
 		}
 		else
 		{
-			Logging.errorPrint("Unexpected value used in " + getTokenName()
-				+ " in Class");
-			Logging.errorPrint(" " + visType + " is not a valid value for "
-				+ getTokenName());
-			Logging.errorPrint(" Valid values in Class are NO and YES");
-			Logging
-				.errorPrint(" assuming you meant NO, please use NO (exact String, upper case) in the LST file");
-			pcclass.setVisibility(Visibility.HIDDEN);
+			if (!"NO".equals(visType))
+			{
+				Logging.errorPrint("Unexpected value used in " + getTokenName()
+					+ " in Class");
+				Logging.errorPrint(" " + visType + " is not a valid value for "
+					+ getTokenName());
+				Logging.errorPrint(" Valid values in Class are NO and YES");
+				Logging
+					.errorPrint(" assuming you meant NO, please use NO (exact String, upper case) in the LST file");
+				pcclass.setVisibility(Visibility.HIDDEN);
+			}
 		}
 		return true;
 	}
