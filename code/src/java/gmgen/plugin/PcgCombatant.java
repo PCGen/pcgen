@@ -419,7 +419,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append("; ");
 
 			statBuf.append("<font class='type'>Type</font> ");
-			statBuf.append(pcOut.getCritterType()); //|TYPE|
+			statBuf.append(pcOut.getRaceType()); //|TYPE|
 			statBuf.append("; ");
 
 			statBuf.append("<font class='type'>HD</font> ");

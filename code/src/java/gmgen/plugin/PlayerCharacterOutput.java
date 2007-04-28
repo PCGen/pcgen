@@ -69,11 +69,11 @@ public class PlayerCharacterOutput
 	}
 
 	/**
-	 * @deprecated since pc.getCritterType is deprecated
+	 * Retrieve the type of race the character is.
 	 */
-	public String getCritterType()
+	public String getRaceType()
 	{
-		return pc.getCritterType();
+		return pc.getRaceType();
 	}
 
 	public String getDeity()

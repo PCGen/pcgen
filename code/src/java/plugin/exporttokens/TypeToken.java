@@ -61,6 +61,6 @@ public class TypeToken extends Token
 	 */
 	public static String getTypeToken(PlayerCharacter pc)
 	{
-		return pc.getCritterType();
+		return pc.getRaceType();
 	}
 }
