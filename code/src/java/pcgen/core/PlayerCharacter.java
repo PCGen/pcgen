@@ -8621,12 +8621,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return ret;
 	}
 
+	/*
+	 * These are designed to catch a re-entrant bonus loop, which can occur
+	 * when a BONUS contains a level limited item in a Formula, such as BAB
+	 */
+	private int cablInt = 1;
+	private int lastCablInt = 0;
+	
 	private void calcActiveBonusLoop()
 	{
+		if (cablInt == lastCablInt)
+		{
+			return;
+		}
+		lastCablInt = cablInt;
 		final List<BonusObj> bonuses = getAllActiveBonuses();
 		activeBonusList = bonuses;
 		// buildBonusMap(bonuses);
 		buildActiveBonusMap();
+		cablInt++;
 	}
 
 	/**
