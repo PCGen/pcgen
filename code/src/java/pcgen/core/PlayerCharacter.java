@@ -2113,6 +2113,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
+		List<CompanionMod> oldCompanionMods = new ArrayList<CompanionMod>(companionModList);
+		List<CompanionMod> newCompanionMods = new ArrayList<CompanionMod>();
+		
 		// Clear the companionModList so we can add everything to it
 		clearCompanionMods();
 
@@ -2135,8 +2138,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					if (PrereqHandler.passesAll(cMod.getPreReqList(), this,
 						cMod))
-					// if (!companionModList.contains(aComp))
 					{
+						if (!oldCompanionMods.contains(cMod))
+						{
+							newCompanionMods.add(cMod);
+						}
 						addCompanionMod(cMod);
 						addHD += cMod.getHitDie();
 					}
@@ -2152,8 +2158,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					if (PrereqHandler.passesAll(cMod.getPreReqList(), this,
 						cMod))
-					// if (!companionModList.contains(aComp))
 					{
+						if (!oldCompanionMods.contains(cMod))
+						{
+							newCompanionMods.add(cMod);
+						}
 						addCompanionMod(cMod);
 						addHD += cMod.getHitDie();
 					}
@@ -2242,7 +2251,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				getSkillList().add(newSkill);
 			}
 		}
-		for (CompanionMod cMod : companionModList)
+		
+		oldCompanionMods.removeAll(companionModList);
+		for (CompanionMod cMod : oldCompanionMods)
+		{
+			cMod.subAddsForLevel(-9, this);
+		}
+		
+		for (CompanionMod cMod : newCompanionMods)
 		{
 			cMod.addAddsForLevel(-9, this, null);
 
