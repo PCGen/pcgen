@@ -77,15 +77,18 @@ public class VisibleToken implements AbilityLstToken
 		}
 		else
 		{
-			Logging.errorPrint("Unexpected value used in " + getTokenName()
-				+ " in Ability");
-			Logging.errorPrint(" " + visType + " is not a valid value for "
-				+ getTokenName());
-			Logging
-				.errorPrint(" Valid values in Ability are EXPORT, NO, DISPLAY, and YES");
-			Logging
-				.errorPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
-			ability.setVisibility(Visibility.DEFAULT);
+			if (!"YES".equalsIgnoreCase(visType))
+			{
+				Logging.errorPrint("Unexpected value used in " + getTokenName()
+					+ " in Ability");
+				Logging.errorPrint(" " + visType + " is not a valid value for "
+					+ getTokenName());
+				Logging
+					.errorPrint(" Valid values in Ability are EXPORT, NO, DISPLAY, and YES");
+				Logging
+					.errorPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
+				ability.setVisibility(Visibility.DEFAULT);
+			}
 		}
 		return true;
 	}
