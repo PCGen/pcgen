@@ -2196,12 +2196,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			final String abilityKey = EntityEncoder.decode(element.getText());
 			ability = Globals.getAbilityKeyed(abilityCat, abilityKey);
-			if (ability != null)
+			if (ability == null)
+			{
+				warnings.add("Unable to Find Ability: " + abilityKey);
+				return;
+			}
+			else
 			{
 				ability = ability.clone();
 			}
 		}
-
+		
 		while (it.hasNext())
 		{
 			final PCGElement element = it.next();
