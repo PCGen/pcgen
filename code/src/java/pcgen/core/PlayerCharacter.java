@@ -12710,8 +12710,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		// Feat (virtual feats, auto feats)
-		results.addAll(aggregateFeatList());
+		// Feats and abilities (virtual feats, auto feats)
+		Set<Ability> abilities = getFullAbilitySet();
+		results.addAll(abilities);
 
 		// Race
 		if (getRace() != null)
