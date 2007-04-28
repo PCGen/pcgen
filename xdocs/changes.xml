@@ -11,6 +11,7 @@
       <action dev="thpr" type="fix" issue="1631977">.COPY does not correct Contextual SA Prereqs</action>
       <action dev="thpr" type="fix" issue="1709325">PCGen parses saved characters on "Save As..." and Crashes</action>
       <action dev="thpr" type="fix" issue="1612976">Raven Familiar gets New Language each Update from Master</action>
+      <action dev="thpr" type="fix" issue="1660906">BAB can't be in formula in > lvl 20 char. (Infinite Loop)</action>
     </release>
     <release version="5.11.13" date="2007-04-16" description="Beta release">
       <action dev="thpr" type="fix" issue="1683314">Source Load Leaks Memory</action>
