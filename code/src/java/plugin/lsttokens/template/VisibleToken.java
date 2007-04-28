@@ -11,7 +11,9 @@ import pcgen.util.enumeration.Visibility;
 public class VisibleToken implements PCTemplateLstToken
 {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
 	public String getTokenName()
@@ -19,8 +21,11 @@ public class VisibleToken implements PCTemplateLstToken
 		return "VISIBLE";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.PCTemplateLstToken#parse(pcgen.core.PCTemplate, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.persistence.lst.PCTemplateLstToken#parse(pcgen.core.PCTemplate,
+	 *      java.lang.String)
 	 */
 	public boolean parse(PCTemplate template, String value)
 	{
@@ -63,16 +68,18 @@ public class VisibleToken implements PCTemplateLstToken
 		}
 		return true;
 	}
-	
+
 	/**
-	 * Produce the standard start of an error message for an invalid
-	 * visible tag.
+	 * Produce the standard start of an error message for an invalid visible
+	 * tag.
 	 * 
-	 * @param template The template the tag is for.
-	 * @param value The value of the visible tag.
+	 * @param template
+	 *            The template the tag is for.
+	 * @param value
+	 *            The value of the visible tag.
 	 * @return The error message prefix
 	 */
-	private String getErrorMsgPrefix(PCTemplate template, String value) 
+	private String getErrorMsgPrefix(PCTemplate template, String value)
 	{
 		StringBuffer buff = new StringBuffer();
 		buff.append("In template ");
