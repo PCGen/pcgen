@@ -696,10 +696,11 @@ public final class SettingsHandler
 		{
 			game = newMode;
 		}
+		String key = convertStringToKey(g);
 		// new key for game mode specific options are pcgen.options.gameMode.X.optionName
 		// but offer downward compatible support to read in old version for unitSet from 5.8.0
-		String unitSetName = getOptions().getProperty("pcgen.options.gameMode." + g + ".unitSetName",
-				getOptions().getProperty("pcgen.options.unitSetName." + g, game.getDefaultUnitSet()));
+		String unitSetName = getOptions().getProperty("pcgen.options.gameMode." + key + ".unitSetName",
+				getOptions().getProperty("pcgen.options.unitSetName." + key, game.getDefaultUnitSet()));
 		if  (!game.selectUnitSet(unitSetName))
 		{
 			if  (!game.selectDefaultUnitSet())
@@ -707,10 +708,24 @@ public final class SettingsHandler
 				game.selectUnitSet(Constants.s_STANDARD_UNITSET_NAME);
 			}
 		}
-		game.setRollMethodExpressionByName(getPCGenOption("gameMode." + g + ".rollMethodExpression", ""));
-		game.setPurchaseMethodName(getPCGenOption("gameMode." + g + ".purchaseMethodName", "")); //$NON-NLS-1$ //$NON-NLS-2$
-		game.setAllStatsValue(getPCGenOption("gameMode." + g + ".allStatsValue", 10));
-		game.setRollMethod(getPCGenOption("gameMode." + g + ".rollMethod", 0)); //$NON-NLS-1$
+		game.setRollMethodExpressionByName(getPCGenOption("gameMode." + key + ".rollMethodExpression", ""));
+		game.setPurchaseMethodName(getPCGenOption("gameMode." + key + ".purchaseMethodName", "")); //$NON-NLS-1$ //$NON-NLS-2$
+		game.setAllStatsValue(getPCGenOption("gameMode." + key + ".allStatsValue", 10));
+		game.setRollMethod(getPCGenOption("gameMode." + key + ".rollMethod", 0)); //$NON-NLS-1$
+	}
+
+	/**
+	 * Convert the supplied string into a property key, escaping any 
+	 * terminator characters within the string.  
+	 * @param rawKey The text to be converted
+	 * @return The valid properties key
+	 */
+	private static String convertStringToKey(String rawKey)
+	{
+		String key = rawKey.replaceAll(" ", "\\\\ ");
+		key = key.replaceAll(":", "\\\\:");
+		key = key.replaceAll("=", "\\\\=");
+		return key;
 	}
 
 	public static GameMode getGame()
@@ -1475,14 +1490,15 @@ public final class SettingsHandler
 		for (int idx = 0; idx < SystemCollections.getUnmodifiableGameModeList().size(); idx++)
 		{
 			final GameMode gameMode = SystemCollections.getUnmodifiableGameModeList().get(idx);
+			String gameModeKey = convertStringToKey(gameMode.getName());
 			if (gameMode.getUnitSet() != null && gameMode.getUnitSet().getName() != null)
 			{
-				setPCGenOption("gameMode." + gameMode.getName() + ".unitSetName", gameMode.getUnitSet().getName());
+				setPCGenOption("gameMode." + gameModeKey + ".unitSetName", gameMode.getUnitSet().getName());
 			}
-			setPCGenOption("gameMode." + gameMode.getName() + ".purchaseMethodName", gameMode.getPurchaseModeMethodName()); //$NON-NLS-1$
-			setPCGenOption("gameMode." + gameMode.getName() + ".rollMethod", gameMode.getRollMethod()); //$NON-NLS-1$
-			setPCGenOption("gameMode." + gameMode.getName() + ".rollMethodExpression", gameMode.getRollMethodExpressionName()); //$NON-NLS-1$
-			setPCGenOption("gameMode." + gameMode.getName() + ".allStatsValue", gameMode.getAllStatsValue());
+			setPCGenOption("gameMode." + gameModeKey + ".purchaseMethodName", gameMode.getPurchaseModeMethodName()); //$NON-NLS-1$
+			setPCGenOption("gameMode." + gameModeKey + ".rollMethod", gameMode.getRollMethod()); //$NON-NLS-1$
+			setPCGenOption("gameMode." + gameModeKey + ".rollMethodExpression", gameMode.getRollMethodExpressionName()); //$NON-NLS-1$
+			setPCGenOption("gameMode." + gameModeKey + ".allStatsValue", gameMode.getAllStatsValue());
 		}
 
 		setRuleChecksInOptions("ruleChecks"); //$NON-NLS-1$
