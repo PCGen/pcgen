@@ -106,7 +106,7 @@ BIO
 			<short>M</short>
 		</size>
 		<speechtendency></speechtendency>
-		<type>HUMANOID</type>
+		<type>Humanoid</type>
 		<vision></vision>
 		<wealth>0</wealth>
 		<weight>

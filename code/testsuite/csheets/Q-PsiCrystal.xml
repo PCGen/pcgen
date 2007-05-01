@@ -98,7 +98,7 @@ BIO
 			<short>D</short>
 		</size>
 		<speechtendency></speechtendency>
-		<type>CONSTRUCT</type>
+		<type>Construct</type>
 		<vision>Sighted</vision>
 		<wealth>0</wealth>
 		<weight>

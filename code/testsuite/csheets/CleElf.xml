@@ -41,7 +41,7 @@ BIO
 			<description>None</description>
 			<domainlist>Air, Animal, Chaos, Death, Destruction, Earth, Evil, Fire, Good, Healing, Knowledge, Law, Luck, Magic, Plant, Protection, Strength, Sun, Travel, Trickery, War, Water</domainlist>
 			<favoredweapon></favoredweapon>
-			<followeralignment>LG, LN, LE, NG, TN, NE, CG, CN, CE</followeralignment>
+			<followeralignment></followeralignment>
 			<holyitem>None</holyitem>
 			<pantheonlist></pantheonlist>
 			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi.rtf</source>
@@ -109,7 +109,7 @@ BIO
 			<short>M</short>
 		</size>
 		<speechtendency></speechtendency>
-		<type>HUMANOID</type>
+		<type>Humanoid</type>
 		<vision>Low-light</vision>
 		<wealth>0</wealth>
 		<weight>

@@ -113,7 +113,7 @@ BIO
 			<short>M</short>
 		</size>
 		<speechtendency></speechtendency>
-		<type>MONSTROUS HUMANOID|DRAGON</type>
+		<type>Dragon</type>
 		<vision>Darkvision (60&#39;), Low-light</vision>
 		<wealth>0</wealth>
 		<weight>

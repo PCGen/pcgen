@@ -108,7 +108,7 @@ BIO
 			<short>M</short>
 		</size>
 		<speechtendency></speechtendency>
-		<type>HUMANOID</type>
+		<type>Humanoid</type>
 		<vision>Darkvision (60&#39;)</vision>
 		<wealth>0</wealth>
 		<weight>
