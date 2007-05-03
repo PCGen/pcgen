@@ -22,17 +22,25 @@
 package pcgen.core.prereq;
 
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.Campaign;
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+import pcgen.util.UnreachableError;
 
 /**
  * <code>PreWeaponProfTest</code> tests that the PREWEAPONPROF tag is
@@ -198,6 +206,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	/**
 	 * Test the preweaponprof with weaponprofs added by a AUTO:WEAPONPROF tag
 	 * This is probably more an integration test than a unit test
+	 * This test was written to help find the source of bug 1699779
 	 * @throws Exception
 	 */
 	public void testWeaponProfAddedWithAutoWeaponProf() throws Exception
@@ -235,6 +244,62 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 					PrereqHandler.passes(prereq, character, null));
 		
 	}
+	
+	/**
+	 * Test Preweaponprof with a feat that has a bonus tag
+	 * This test was written to help find the source of bug 1699779
+	 * @throws Exception
+	 */
+	/*
+	public void testWithFeatThatGrantsBonus() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		
+		CampaignSourceEntry cse;
+		try
+		{
+			cse = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
+		
+		Ability foo = new Ability();
+		final String fooStr =
+			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREWEAPONPROF:1,Longsword";
+		final FeatLoader featLoader = new FeatLoader();
+		featLoader.parseLine(foo, fooStr, cse);
+		character.addFeat(foo, null);
+		
+		int baseHp = character.hitPoints();
+		
+		Ability bar = new Ability();
+		final String barStr =
+			"Bar	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50";
+		featLoader.parseLine(bar, barStr, cse);
+		character.addFeat(bar, null);
+		
+		assertEquals("Character should have 50 bonus hp added.",
+					baseHp+50,
+					character.hitPoints()
+					);
+		
+		assertEquals("Character doesn't have the longsword proficiency.",
+					baseHp+50,
+					character.hitPoints()
+					);
+
+		character.addWeaponProf("Longsword");
+		
+		assertEquals("Character has the longsword proficiency so the bonus should be added",
+					baseHp+50+50,
+					character.hitPoints()
+					);
+	
+	}
+	*/
 	
 	/* (non-Javadoc)
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
