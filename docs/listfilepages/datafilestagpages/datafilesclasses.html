@@ -203,7 +203,7 @@
 		<p></p><a name="ATTACKCYCLE"></a><hr>
 
 		<p class="new">*** New 4.3.8*** Updated 5.11.6</span></p>
-		<strong>Tag Name:</strong> ATTACKCYCLE:x</p>
+		<p class="indent0"><strong>Tag Name:</strong> ATTACKCYCLE:x</p>
 		<p class="indent1"><strong>Variables Used:</strong> BAB, RAB, or UAB</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -327,18 +327,23 @@
 		<p class="indent1"><strong>Variables Used:</strong> Text</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>This grants additional domain choices to the character, it is a . (decimal) delimited list of
+			<li>This grants additional domain choices to the character, it is a decimal (.) delimited list of
 			names.</li>
 			<li>It does not add them to the character's domains, but merely adds them to the list they can
 			choose from.</li>
 			<li>If the character gets a choice for a bonus domain, it may need to be paired with a
 			BONUS:DOMAIN|NUMBER|x tag.</li>
+			<li>It can contain PRExxx tags, in brackets ([PRExxx]), immediately after
+					the domain name.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>ADDDOMAINS:Sun</code></p>
 		<p class="indent3">The class gets the Sun domain as a choice regardless of the deity selected.</p>
 		<p class="indent2"><code>ADDDOMAINS:Sun.Law</code></p>
 		<p class="indent3">The class gets the Sun &amp; Law domains as a choice regardless
+			of the deity selected.</p>
+		<p class="indent2"><code>ADDDOMAINS:Sun[PREDIETY:Ra].Law</code></p>
+		<p class="indent3">The class gets a to choose between the Sun domain, if the character follows the diety Ra &amp; the Law domain regardless
 			of the deity selected.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Class Level Line.</p>
@@ -444,8 +449,8 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This grants additional domains, as listed, directly to the character.</li>
-			<li>It is a | (pipe) delimited list of names and can contain PRExxx tags within it immediately after
-					the domain name in [] (brackets).</li>
+			<li>It is a | (pipe) delimited list of names and can contain PRExxx tags, in brackets ([PRExxx]), within it immediately after
+					the domain name.</li>
 			<li>This forces choices - ie. it forces one or more of the users choices to the listed domain(s).</li>
 			<li>If a domain is added on top of the characters other normal domains, it will need to be paired
 					with a BONUS:DOMAIN|NUMBER|x.</li>
@@ -663,7 +668,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> SPELLLIST:x|y|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (number of choices)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Class Name)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text(Domain) (Domain Name)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Domain Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Optional.</li>
@@ -1027,8 +1032,12 @@
 		<p></p><a name="LANGBONUS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> LANGBONUS:x,x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Languages)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Language Type)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text ('Any')</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a , (comma) delimited list of the languages a character can choose from based upon their Intelligence stat.</p>
+		<p class="indent2">This is a comma (,) delimited list of the languages a character can choose from based upon their Intelligence stat.</p>
+		<p class="indent2">When using 'Any', no other language designation is necessary.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>LANGBONUS:Draconic</code></p>
 		<p class="indent3">The class can choose &quot;Draconic&quot; as one of thier languages.</p>
@@ -1042,6 +1051,9 @@
 		<p class="indent2"><code>LANGBONUS:TYPE=Spoken,Draconic</code></p>
 		<p class="indent3">The class can choose any written language or &quot;Draconic&quot;
 							as one of thier languages.</p>
+		<p class="indent2"><code>LANGBONUS:.CLEAR,Dwarven,Gnomish,Orcish</code></p>
+		<p class="indent3">The class has all bonus languages cleared then can choose &quot;Dwarvish&quot;, 
+			&quot;Gnomish&quot; or &quot;Orcish&quot; as one of thier languages.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Class Level Line.</p>
 
