@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri May  4 15:42:26 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Fri May  4 15:55:16 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 
 ###Block: Hidden Racial Feats
@@ -36,3 +36,11 @@ Combat-ready Mount	TYPE:ClassAbility	VISIBLE:NO	SA:Combat-ready Mount	SOURCEPAGE
 Lightning Charge		TYPE:ClassAbility	VISIBLE:NO	SA:Lightning Charge	SOURCEPAGE:p.
 Moving Target		TYPE:ClassAbility	VISIBLE:NO	SA:Moving Target		SOURCEPAGE:p.
 Devastating Trample	TYPE:ClassAbility	VISIBLE:NO	SA:Devastating Trample	SOURCEPAGE:p.
+
+###Block: Sailor class abilities
+# Feat Name				Type			Visible	Special Ability			Define			Source Page
+Dirty Blow				TYPE:ClassAbility	VISIBLE:NO	SA:Dirty Blow +%d4|DirtyBlow	DEFINE:DirtyBlow|0	SOURCEPAGE:p.
+Extraordinary Tolerance		TYPE:ClassAbility	VISIBLE:NO	SA:Extraordinary Tolerance					SOURCEPAGE:p.
+Superior Improvised Weapon	TYPE:ClassAbility	VISIBLE:NO	SA:Superior Improvised Weapon					SOURCEPAGE:p.
+Follow Up Strike			TYPE:ClassAbility	VISIBLE:NO	SA:Follow Up Strike						SOURCEPAGE:p.
+Extraordinary Balance		TYPE:ClassAbility	VISIBLE:NO	SA:Extraordinary Balance					SOURCEPAGE:p.

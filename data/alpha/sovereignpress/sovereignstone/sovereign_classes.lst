@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri May  4 15:42:57 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Fri May  4 15:56:43 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 
 # Class Name	Class Skill
@@ -78,26 +78,18 @@ CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledg
 1	FEATAUTO:Simple Weapon Proficiency|Sailor Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1											BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2	ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
-2																																															FEATAUTO::Improvised Weapon
-3																																											VFEAT:Evasion
-4
-5	SA:Extraordinary Tolerance																ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
-6
-7	SA:Dirty Blow +%d4|1
-8
-9						BONUS:VAR|UncannyDodge|1																																					FEATAUTO:Uncanny Dodge
-10	SA:Dirty Blow +%d4|1																	ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
-11	SA:Superior Improvised Weapon
-12
-13	SA:Dirty Blow +%d4|1		BONUS:VAR|UncannyDodge|1
-14
-15	SA:Follow Up Strike																	ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
-16	SA:Dirty Blow +%d4|1
-17	SA:Extraordinary Balance
-18
-19	SA:Dirty Blow +%d4|1
-20																					ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|	VFEAT:Improved Evasion
+1						BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2	ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
+2																																										FEATAUTO::Improvised Weapon
+3																																						VFEAT:Evasion
+5																ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|					FEATAUTO:Extraordinary Tolerance
+7	BONUS:VAR|DirtyBlow|(CL-4)/3																																					FEATAUTO:Dirty Blow
+9	BONUS:VAR|UncannyDodge|1																																					FEATAUTO:Uncanny Dodge
+10																ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
+11																																										FEATAUTO:Superior Improvised Weapon
+13	BONUS:VAR|UncannyDodge|1
+15																ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|					FEATAUTO:Follow Up Strike
+17																																										FEATAUTO:Extraordinary Balance
+20																ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|	VFEAT:Improved Evasion
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Soldier	HD:8		TYPE:Base.PC	ABB:sv5		SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
