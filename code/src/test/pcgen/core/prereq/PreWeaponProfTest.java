@@ -250,10 +250,11 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 * This test was written to help find the source of bug 1699779
 	 * @throws Exception
 	 */
-	/*
 	public void testWithFeatThatGrantsBonus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		
+		final FeatLoader featLoader = new FeatLoader();
 		
 		CampaignSourceEntry cse;
 		try
@@ -265,13 +266,6 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		
-		Ability foo = new Ability();
-		final String fooStr =
-			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREWEAPONPROF:1,Longsword";
-		final FeatLoader featLoader = new FeatLoader();
-		featLoader.parseLine(foo, fooStr, cse);
-		character.addFeat(foo, null);
 		
 		int baseHp = character.hitPoints();
 		
@@ -286,12 +280,13 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 					character.hitPoints()
 					);
 		
-		assertEquals("Character doesn't have the longsword proficiency.",
-					baseHp+50,
-					character.hitPoints()
-					);
-
 		character.addWeaponProf("Longsword");
+		
+		Ability foo = new Ability();
+		final String fooStr =
+			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREWEAPONPROF:1,Longsword";
+		featLoader.parseLine(foo, fooStr, cse);
+		character.addFeat(foo, null);
 		
 		assertEquals("Character has the longsword proficiency so the bonus should be added",
 					baseHp+50+50,
@@ -299,7 +294,6 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 					);
 	
 	}
-	*/
 	
 	/* (non-Javadoc)
 	 * @see pcgen.AbstractCharacterTestCase#setUp()

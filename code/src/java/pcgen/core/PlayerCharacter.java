@@ -4194,20 +4194,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean hasWeaponProfKeyed(final String aKey)
 	{
-		// for ( WeaponProf wp : getWeaponProfList() )
-		// {
-		// if (aKey.equalsIgnoreCase(wp.getKeyName()))
-		// {
-		// return true;
-		// }
-		// }
-		//
-		// return false;
 		if (cachedWeaponProfs == null)
 		{
 			cachedWeaponProfs = buildWeaponProfCache();
 		}
-		return cachedWeaponProfs.get(aKey) != null;
+		for (WeaponProf wp : cachedWeaponProfs.values() ) {
+			if (wp != null && wp.getKeyName().equalsIgnoreCase(aKey) ) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean hasWeaponProf(final WeaponProf wp)
