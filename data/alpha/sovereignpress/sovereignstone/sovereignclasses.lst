@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri May  4 15:31:38 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 
 # Class Name	Class Skill
@@ -18,16 +18,14 @@ CLASS:Archer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Literacy|Sp
 1	FEATAUTO:Simple Weapon Proficiency|Archer Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Primary Weapon +%|PrimaryWeap					DEFINE:PrimaryWeap|2	FEATAUTO:Point Blank Shot	ADD:WEAPONBONUS|1|TOHIT|2+((CL=Archer)/5)|Crossbow (Heavy)|Crossbow (Light)|Shortbow|Longbow|
-2	SA:Extra Shot
-4															FEATAUTO:Pinpoint Accuracy
-5							BONUS:VAR|PrimaryWeap|1
-6															FEATAUTO:Dead Shot
-10	SA:Improved Point Blank Shot		BONUS:VAR|PrimaryWeap|1
-14	SA:Long Distance Accuracy
-15							BONUS:VAR|PrimaryWeap|1
-18	SA:Ranged Disarm
-20	SA:Extended Range				BONUS:VAR|PrimaryWeap|1
+1	BONUS:VAR|PrimaryWeap|CL/5+2	ADD:FEAT|1|Primary Weapon	FEATAUTO:Point Blank Shot
+2											FEATAUTO:Extra Shot
+4											FEATAUTO:Pinpoint Accuracy
+6											FEATAUTO:Dead Shot
+10											FEATAUTO:Improved Point Blank Shot
+14											FEATAUTO:Long Distance Accuracy
+18											FEATAUTO:Ranged Disarm
+20											FEATAUTO:Extended Range
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Mounted Warrior	HD:8		TYPE:Base.PC	ABB:MtW		SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -72,34 +70,34 @@ CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 17							BONUS:VAR|MonthlyFunds|100	BONUS:COMBAT|AC|max(CHA,0)|PRETYPE:ARMOR,MEDIUM
 20							BONUS:VAR|NobleLeadership|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
-CLASS:Sailor	HD:6		TYPE:Base.PC	ABB:sv4		SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus															Combat bonus
+CLASS:Sailor	HD:6		TYPE:Base.PC	ABB:sv4		SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL-1)/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledge (Nature)|Literacy|Profession (Sailor)|Speak Language|Spot|Swim|Tumble|Use Rope
 ###Block:Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency|Sailor Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1															BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2										ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
-2											BONUS:CHECKS|Reflex|-1															FEATAUTO::Improvised Weapon
-3											BONUS:CHECKS|Reflex|1											VFEAT:Evasion
-4											BONUS:CHECKS|Reflex|-1
-5	SA:Extraordinary Tolerance						BONUS:CHECKS|Reflex|1																				ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
-6											BONUS:CHECKS|Reflex|-1
-7	SA:Dirty Blow +%d4|1							BONUS:CHECKS|Reflex|1
-8											BONUS:CHECKS|Reflex|-1
-9						BONUS:VAR|UncannyDodge|1	BONUS:CHECKS|Reflex|1															FEATAUTO:Uncanny Dodge
-10	SA:Dirty Blow +%d4|1							BONUS:CHECKS|Reflex|-1																				ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
-11	SA:Superior Improvised Weapon						BONUS:CHECKS|Reflex|1
-12											BONUS:CHECKS|Reflex|-1
-13	SA:Dirty Blow +%d4|1		BONUS:VAR|UncannyDodge|1	BONUS:CHECKS|Reflex|1
-14											BONUS:CHECKS|Reflex|-1
-15	SA:Follow Up Strike							BONUS:CHECKS|Reflex|1																				ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
-16	SA:Dirty Blow +%d4|1							BONUS:CHECKS|Reflex|-1
-17	SA:Extraordinary Balance						BONUS:CHECKS|Reflex|1
-18											BONUS:CHECKS|Reflex|-1
-19	SA:Dirty Blow +%d4|1							BONUS:CHECKS|Reflex|1
-20											BONUS:CHECKS|Reflex|-1											VFEAT:Improved Evasion						ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
+1											BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2	ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
+2																																															FEATAUTO::Improvised Weapon
+3																																											VFEAT:Evasion
+4
+5	SA:Extraordinary Tolerance																ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
+6
+7	SA:Dirty Blow +%d4|1
+8
+9						BONUS:VAR|UncannyDodge|1																																					FEATAUTO:Uncanny Dodge
+10	SA:Dirty Blow +%d4|1																	ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
+11	SA:Superior Improvised Weapon
+12
+13	SA:Dirty Blow +%d4|1		BONUS:VAR|UncannyDodge|1
+14
+15	SA:Follow Up Strike																	ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
+16	SA:Dirty Blow +%d4|1
+17	SA:Extraordinary Balance
+18
+19	SA:Dirty Blow +%d4|1
+20																					ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|	VFEAT:Improved Evasion
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Soldier	HD:8		TYPE:Base.PC	ABB:sv5		SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -140,11 +138,11 @@ CLASS:Stalker	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Gather
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1																BONUS:SKILL|Hide,Move Silently|2											ADD:FEAT|1|Track,Shadow
-2																										FEATAUTO:Improved Unarmed Strike
-5																										FEATAUTO:Subduing Strike
+1																BONUS:SKILL|Hide,Move Silently|2					ADD:FEAT|1|Track,Shadow
+2																														FEATAUTO:Improved Unarmed Strike
+5																														FEATAUTO:Subduing Strike
 8	SA:Skilled Disarm +% |SkilledDisarm	BONUS:VAR|SkilledDisarm|2											DEFINE:SkilledDisarm|0
-11							BONUS:VAR|SkilledDisarm|1	BONUS:VAR|SneakAttack|1											FEATAUTO:Sneak Attack
+11							BONUS:VAR|SkilledDisarm|1	BONUS:VAR|SneakAttack|1															FEATAUTO:Sneak Attack
 14	SA:Blinding Attack			BONUS:VAR|SkilledDisarm|1	BONUS:VAR|SneakAttack|1
 17	SA:Incapacitating Attack		BONUS:VAR|SkilledDisarm|1	BONUS:VAR|SneakAttack|1
 20	SA:Finishing Attack			BONUS:VAR|SkilledDisarm|1	BONUS:VAR|SneakAttack|1

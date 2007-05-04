@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri May  4 15:31:06 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 
 ###Block: Hidden Racial Feats
@@ -8,9 +8,20 @@ Karnuan Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:1,Human (Karnuan)	
 Nimorean Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:1,Human (Nimorean)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Sailor|Elemental Mage (Earth)	ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
 Nimran Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:1,Human (Nimran)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Sailor|Elemental Mage (Earth)	ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
 Trevenici Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:1,Human (Trevenici)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Barbarian|Fighter			ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
-Unhorsed Dwarf	TYPE:General	VISIBLE:NO				PRERACE:1,Dwarf (Unhorsed)	PREVARGTEQ:nullandvoid,2			CHOOSE:SKILLSNAMED|Craft%|Profession%|1							BONUS:SKILL|LIST|2	COST:.5	SOURCEPAGE:p.
+Unhorsed Dwarf	TYPE:General	VISIBLE:NO				PRERACE:1,Dwarf (Unhorsed)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:SKILLSNAMED|Craft%|Profession%|1							BONUS:SKILL|LIST|2	COST:.5	SOURCEPAGE:p.
 
 ###Block: Proficiencies
 # Feat Name				Type			Visible	Automaticaly Gained Weapon Prof.
 Archer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Shortbow|Shortbow (Composite)|Longbow|Longbow (Composite)|Sword (Short)|Handaxe
 Sailor Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Rapier|Net|Scimitar|Trident
+
+###Block: Archer Primary Weapon bonus stuff
+# Feat Name				Type			Visible	Special Ability				Define			Stackable?	Multiple?	Choose											Weapon prof. bonus				Source Page
+Primary Weapon			TYPE:ClassAbility	VISIBLE:NO	SA:Primary Weapon +%|PrimaryWeap	DEFINE:PrimaryWeap|0	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|Crossbow (Heavy)|Crossbow (Light)|Shortbow|Longbow	BONUS:WEAPONPROF=LIST|TOHIT|PrimaryWeap	SOURCEPAGE:p.
+Extra Shot				TYPE:ClassAbility	VISIBLE:NO	SA:Extra Shot																															SOURCEPAGE:p.
+Improved Point Blank Shot	TYPE:ClassAbility	VISIBLE:NO	SA:Improved Point Blank Shot																													SOURCEPAGE:p.
+Long Distance Accuracy		TYPE:ClassAbility	VISIBLE:NO	SA:Long Distance Accuracy																													SOURCEPAGE:p.
+Ranged Disarm			TYPE:ClassAbility	VISIBLE:NO	SA:Ranged Disarm																															SOURCEPAGE:p.
+Extended Range			TYPE:ClassAbility	VISIBLE:NO	SA:Extended Range																															SOURCEPAGE:p.
+
+
