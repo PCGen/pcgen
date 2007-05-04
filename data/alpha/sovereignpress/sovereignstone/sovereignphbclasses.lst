@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri May  4 15:47:29 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 # Players Handbook Classes modified for use in Sovereign Stone d20.
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 # This NEEDS to be changed to .MODs.  -- Tir Gwaith
@@ -66,15 +66,15 @@ CLASS:Rogue		STARTSKILLPTS:8
 1	FEATAUTO:Rogue Weapon Proficiencies|All Automatic Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Level progression
-1	BONUS:VAR|SneakAttack|(CL+1)/2				FEATAUTO:Sneak Attack
-2							VFEAT:Evasion
-3	BONUS:VAR|UncannyDodge|1					FEATAUTO:Uncanny Dodge
+1	BONUS:VAR|SneakAttack|(CL+1)/2																		FEATAUTO:Sneak Attack
+2																					VFEAT:Evasion
+3	BONUS:VAR|UncannyDodge|1																			FEATAUTO:Uncanny Dodge
 6	BONUS:VAR|UncannyDodge|1
-10														ADD:SPECIAL|1|Crippling Strike,Defensive Roll,Improved Evasion,Opportunist,Skill Mastery,Slippery Mind,Free Feat
+10							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 11	BONUS:VAR|UncannyDodge|1
-13														ADD:SPECIAL|1|Crippling Strike,Defensive Roll,Improved Evasion,Opportunist,Skill Mastery,Slippery Mind,Free Feat
+13							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 14	BONUS:VAR|UncannyDodge|1
-16														ADD:SPECIAL|1|Crippling Strike,Defensive Roll,Improved Evasion,Opportunist,Skill Mastery,Slippery Mind,Free Feat
+16							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 17	BONUS:VAR|UncannyDodge|1
-19														ADD:SPECIAL|1|Crippling Strike,Defensive Roll,Improved Evasion,Opportunist,Skill Mastery,Slippery Mind,Free Feat
+19							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 20	BONUS:VAR|UncannyDodge|1
