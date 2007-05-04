@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri May  4 15:31:06 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Fri May  4 15:42:26 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 
 ###Block: Hidden Racial Feats
@@ -15,7 +15,7 @@ Unhorsed Dwarf	TYPE:General	VISIBLE:NO				PRERACE:1,Dwarf (Unhorsed)	PREVARGTEQ:
 Archer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Shortbow|Shortbow (Composite)|Longbow|Longbow (Composite)|Sword (Short)|Handaxe
 Sailor Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Rapier|Net|Scimitar|Trident
 
-###Block: Archer Primary Weapon bonus stuff
+###Block: Archer Class abilities
 # Feat Name				Type			Visible	Special Ability				Define			Stackable?	Multiple?	Choose											Weapon prof. bonus				Source Page
 Primary Weapon			TYPE:ClassAbility	VISIBLE:NO	SA:Primary Weapon +%|PrimaryWeap	DEFINE:PrimaryWeap|0	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|Crossbow (Heavy)|Crossbow (Light)|Shortbow|Longbow	BONUS:WEAPONPROF=LIST|TOHIT|PrimaryWeap	SOURCEPAGE:p.
 Extra Shot				TYPE:ClassAbility	VISIBLE:NO	SA:Extra Shot																															SOURCEPAGE:p.
@@ -25,3 +25,14 @@ Ranged Disarm			TYPE:ClassAbility	VISIBLE:NO	SA:Ranged Disarm																			
 Extended Range			TYPE:ClassAbility	VISIBLE:NO	SA:Extended Range																															SOURCEPAGE:p.
 
 
+###Block: Mounted Warrior class abilities
+# Feat Name			Type			Visible	Special Ability		Source Page
+Mounted Attack		TYPE:ClassAbility	VISIBLE:NO	SA:Mounted Attack		SOURCEPAGE:p.
+Guide Mount			TYPE:ClassAbility	VISIBLE:NO	SA:Guide Mount		SOURCEPAGE:p.
+Remain in Saddle		TYPE:ClassAbility	VISIBLE:NO	SA:Remain in Saddle	SOURCEPAGE:p.
+Direct Mount		TYPE:ClassAbility	VISIBLE:NO	SA:Direct Mount		SOURCEPAGE:p.
+Defensive Riding		TYPE:ClassAbility	VISIBLE:NO	SA:Defensive Riding	SOURCEPAGE:p.
+Combat-ready Mount	TYPE:ClassAbility	VISIBLE:NO	SA:Combat-ready Mount	SOURCEPAGE:p.
+Lightning Charge		TYPE:ClassAbility	VISIBLE:NO	SA:Lightning Charge	SOURCEPAGE:p.
+Moving Target		TYPE:ClassAbility	VISIBLE:NO	SA:Moving Target		SOURCEPAGE:p.
+Devastating Trample	TYPE:ClassAbility	VISIBLE:NO	SA:Devastating Trample	SOURCEPAGE:p.
