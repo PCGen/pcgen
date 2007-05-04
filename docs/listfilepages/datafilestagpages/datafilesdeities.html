@@ -88,16 +88,18 @@
 
 		<p></p><a name="DOMAINS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> DOMAINS:x,x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain Name or
-		  &quot;ALL&quot;)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain Name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text ('ALL')</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR.Text (Domain Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This is a comma-delimited list of domains that the deity grants to
-				it's divine spell casting followings.</li>
+				it's divine spell casting followers.</li>
 			<li>The domain name MUST match the domain names listed in the domain list file.</li>
 			<li>A domain entry of .CLEAR will remove all previously listed domains for the deity.</li>
 			<li>A domain entry of .CLEAR.name will remove the domain called "name" from the deity's domain list.</li>
-			<li>A domain entry of ALL will provide access to all domains for the deity.</li>
+			<li>A domain entry of ALL will provide access to all domains for the deity and makes additional domain designations uncessecary.</li>
 			<li>Multiple DOMAINS tags may be present for a deity. They will all add to the list of the deity's domains.</li>
         	<li>PRExxx tags can be added at the end of DOMAINS tags, PRExxx tags are checked against
         	the divine caster to determine if they are allowed to select the domain.</li>
@@ -188,15 +190,13 @@
 
 		<p></p><a name="RACE"></a><hr>
 		<p class="new">*** New 5.11.8</p>
-		<p class="indent0"><strong>Tag Name:</strong> RACE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (The typical worshippers of the Deity)</p>
+		<p class="indent0"><strong>Tag Name:</strong> RACE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Race of typical Worshippers)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used for the typical worshippers of a Deity.</p>
+		<p class="indent2">This is used to identify the race of the typical worshippers of a Deity.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>RACE:Fighters and Monks</code></p>
-		<p class="indent3">The deity's typical worshippers are Fighters and Monks.</p>
-		<p class="indent2"><code>RACE:Gnomes, Gemcutters and Bards</code></p>
-		<p class="indent3">The deity's typical worshippers are Gnomes, Gemcutters and Bards.</p>
+		<p class="indent2"><code>RACE:Dwarf|Gnome</code></p>
+		<p class="indent3">The deity's typical worshippers are Dwarves and Gnomes.</p>
 
 
 		<p></p><a name="SYMBOL"></a><hr>
