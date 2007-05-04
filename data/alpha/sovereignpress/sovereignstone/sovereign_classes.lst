@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri May  4 15:56:43 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Fri May  4 17:44:41 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 
 # Class Name	Class Skill
@@ -78,18 +78,23 @@ CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledg
 1	FEATAUTO:Simple Weapon Proficiency|Sailor Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1						BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2	ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
-2																																										FEATAUTO::Improvised Weapon
-3																																						VFEAT:Evasion
-5																ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|					FEATAUTO:Extraordinary Tolerance
-7	BONUS:VAR|DirtyBlow|(CL-4)/3																																					FEATAUTO:Dirty Blow
-9	BONUS:VAR|UncannyDodge|1																																					FEATAUTO:Uncanny Dodge
-10																ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|
-11																																										FEATAUTO:Superior Improvised Weapon
+1						BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2	ADD:FEAT|1|Sailor Weapon Bonus
+2																										FEATAUTO::Improvised Weapon
+3																						VFEAT:Evasion
+5																ADD:FEAT|1|Sailor Weapon Bonus					FEATAUTO:Extraordinary Tolerance
+7	BONUS:VAR|DirtyBlow|(CL-4)/3																					FEATAUTO:Dirty Blow
+9	BONUS:VAR|UncannyDodge|1																					FEATAUTO:Uncanny Dodge
+10																ADD:FEAT|1|Sailor Weapon Bonus
+11																										FEATAUTO:Superior Improvised Weapon
 13	BONUS:VAR|UncannyDodge|1
-15																ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|					FEATAUTO:Follow Up Strike
-17																																										FEATAUTO:Extraordinary Balance
-20																ADD:WEAPONBONUS|1|TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|	VFEAT:Improved Evasion
+15																ADD:FEAT|1|Sailor Weapon Bonus					FEATAUTO:Follow Up Strike
+17																										FEATAUTO:Extraordinary Balance
+20																ADD:FEAT|1|Sailor Weapon Bonus	VFEAT:Improved Evasion
+
+
+#	ADD:WEAPONBONUS(TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|)
+
+
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Soldier	HD:8		TYPE:Base.PC	ABB:sv5		SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
