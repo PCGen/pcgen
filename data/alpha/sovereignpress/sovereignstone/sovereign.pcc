@@ -22,7 +22,7 @@ COPYRIGHT:PCGen dataset conversion for Sovereign Stone Core Rules Copyright 2003
 #EXTRAFILE:OGL.txt
 
 BIOSET:sovereignbiosettings.lst
-CLASS:sovereignclasses.lst
+CLASS:sovereign_classes.lst
 CLASS:sovereignphbclasses.lst
 CLASS:sovereignmageclasses.lst
 EQUIPMENT:sovereignequiparmorshields.lst
