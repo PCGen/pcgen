@@ -15,8 +15,8 @@ CLASS:Barbarian	STARTSKILLPTS:4
 #	MightyRage		For if a class grants Mighty Rage at a particular level (doesn't consider Barbarian levels or not)
 #	RageTimes		For if a class has it's own Rage / day progression.  This is a straight 'Rage / day' variable.
 ###Block: Rage variables
-1	BONUS:VAR|BarbRageTimesLVL|CL=Barbarian				DEFINE:BarbRageTimesLVL|0
-1	BONUS:VAR|BarbRagePowerLVL|CL=Barbarian				DEFINE:BarbRagePowerLVL|0
+1	BONUS:VAR|BarbRageTimesLVL|CL						DEFINE:BarbRageTimesLVL|0
+1	BONUS:VAR|BarbRagePowerLVL|CL						DEFINE:BarbRagePowerLVL|0
 1	BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL|15	DEFINE:GreaterRage|0
 1	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL|20	DEFINE:TirelessRage|0
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1			DEFINE:RageTimes|0
