@@ -58,15 +58,6 @@
 		<p class="indent2"><code>BASEQTY:20</code></p>
 		<p class="indent3">20 items in a bundle (e.g. Arrows).</p>
 
-		<p></p><a name="COST"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (gold coin cost)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The cost of the item.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>COST:5</code></p>
-		<p class="indent3">Item costs 5 gold pieces.</p>
-
 		<p></p><a name="CONTAINS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> CONTAINS:x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (quantity held)</p>
@@ -108,6 +99,15 @@
 		<p class="indent3">Holds 100 things, no matter what the weight.</p>
 		<p class="indent2"><code>CONTAINS:-1|Total=10|Paper=10|Scroll=10</code></p>
 		<p class="indent3">Holds 10 papers or 10 scrolls, or any combination of these up to 10, no matter what the weight.</p>
+
+		<p></p><a name="COST"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (gold coin cost)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">The cost of the item.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>COST:5</code></p>
+		<p class="indent3">Item costs 5 gold pieces.</p>
 
 		<p></p><a name="DESC"></a><hr>
 		<p class="new">*** New 5.7.15</p>
@@ -389,10 +389,13 @@
 		<ul class="indent2">
 			<li>The secondary attack's critical multiplier as outputted to the character sheet.</li>
 			<li>This is used for double weapons only.</li>
+			<li>The special character (-) is used to indicate no criticle multiplier for the secondary attack.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ALTCRITMULT:x3</code></p>
 		<p class="indent3">2nd head has a critical modifier of x3.</p>
+		<p class="indent2"><code>ALTCRITMULT:-</code></p>
+		<p class="indent3">2nd head has no critical modifier.</p>
 
 
 		<p></p><a name="ALTCRITRANGE"></a><hr>
@@ -461,10 +464,15 @@
 		<p class="indent0"><strong>Tag Name:</strong> CRITMULT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Critical Modifier)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is the weapons critical multiplier as outputted to the character sheet.</p>
+		<ul class="indent2">
+			<li>This is the weapons critical multiplier as outputted to the character sheet.</li>
+			<li>The special character (-) is used to indicate no critical multiplier for the equipment.</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CRITMULT:x2</code></p>
 		<p class="indent3">Item has a critical modifier of x2.</p>
+		<p class="indent2"><code>CRITMULT:-</code></p>
+		<p class="indent3">Item has no critical modifier.</p>
 
 		<p></p><a name="CRITRANGE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> CRITRANGE:x</p>
