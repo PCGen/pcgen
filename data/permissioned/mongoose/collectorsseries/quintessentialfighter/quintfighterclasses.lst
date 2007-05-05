@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri May  4 21:05:37 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
 
 # Removed the (TYPE=Slashing) to the Living blade... I can't get it to
@@ -143,11 +143,11 @@ CLASS:Peasant Hero	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Gather Information|Ha
 ###Block: Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	SA:Peasant Hero gains +1 competancy bonus with chosen weapon							ADD:WEAPONBONUS|TOHIT|1|Axe |1|Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short
-2	SA:Inspire Commoners	SA:Peasant Hero gains +1 competancy bonus with chosen weapon			ADD:WEAPONBONUS|TOHIT|1|Axe |1|Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short
-3	SA:Harmless Bluff	SA:Peasant Hero gains +1 competancy bonus with chosen weapon				ADD:WEAPONBONUS|TOHIT|1|Axe |1|Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short
-4	SA:Improvise Weapon	SA:Peasant Hero gains +1 competancy bonus with chosen weapon			ADD:WEAPONBONUS|TOHIT|1|Axe |1|Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short
-5	SA:Unconventional Skill	SA:Peasant Hero gains +2 circumstance bonus with any of his chosen weapons	ADD:WEAPONBONUS|TOHIT|2|Axe |1|Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short
+1	ADD:FEAT|1|Peasant Hero Weapon Competence Bonus
+2	ADD:FEAT|1|Peasant Hero Weapon Competence Bonus		FEATAUTO:Inspire Commoners
+3	ADD:FEAT|1|Peasant Hero Weapon Competence Bonus		FEATAUTO:Harmless Bluff
+4	ADD:FEAT|1|Peasant Hero Weapon Competence Bonus		FEATAUTO:Improvise Weapon
+5	ADD:FEAT|1|Peasant Hero 5th level Weapon Competence	FEATAUTO:Unconventional Skill
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Swashbuckler	HD:10		TYPE:PC.Prestige	ABB:Swa		MAXLEVEL:5	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

@@ -1,0 +1,14 @@
+# CVS $Revision: 2793 $ $Author: tir-gwaith $ -- Fri May  4 22:05:44 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
+# Original Entry by: Tir Gwaith
+
+
+###Block: Peasant Hero
+# Feat Name						Type			Visible	Special Ability		Stackable?	Multiple?	Choose																Weapon prof. bonus							Source Page
+Peasant Hero Weapon Competence Bonus	TYPE:ClassAbility	VISIBLE:NO					STACK:YES	MULT:YES	CHOOSE:PROFICIENCY|PC|Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake	BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
+Peasant Hero 5th level Weapon Competence	TYPE:ClassAbility	VISIBLE:NO					STACK:YES	MULT:YES	CHOOSE:PROFICIENCY|PC|Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake	BONUS:WEAPONPROF=%LIST|TOHIT|2|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
+Inspire Commoners					TYPE:ClassAbility	VISIBLE:NO	SA:Inspire Commoners																																SOURCEPAGE:p.24
+Harmless Bluff					TYPE:ClassAbility	VISIBLE:NO	SA:Harmless Bluff																																	SOURCEPAGE:p.24
+Improvise Weapon					TYPE:ClassAbility	VISIBLE:NO	SA:Improvise Weapon																																SOURCEPAGE:p.24
+Unconventional Skill				TYPE:ClassAbility	VISIBLE:NO	SA:Unconventional Skill																																SOURCEPAGE:p.24
+

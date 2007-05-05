@@ -31,6 +31,7 @@ EQUIPMENT:quintfighterequip.lst
 EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst|(INCLUDE:Ballista|Catapult (Heavy)|Catapult (Light))
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
 FEAT:quintfighterfeats.lst
+FEAT:quintfighter_feats_hidden.lst
 SKILL:quintfighterskills.lst
 WEAPONPROF:quintfighterweapprofs.lst
 
