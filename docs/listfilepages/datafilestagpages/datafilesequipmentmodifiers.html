@@ -38,8 +38,8 @@
 
 		<p></p><a name="ARMORTYPE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ARMORTYPE:x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (what the armor proficiency currently is)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text (type is what it will become)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Current armor TYPE)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (New armor TYPE)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This will change the armor type and is | (pipe) delimited.</p>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -369,7 +369,7 @@
 		<p></p><a name="TYPE"></a><hr>
 		<p class="new">*** Updated 4.3.8</p>
 		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Type Name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 		  <li>This is a list of the TYPE's of items that the modifiers can be applied to.</li>
@@ -394,6 +394,7 @@
 			<li>No - This will never show the modifier in the customizer window.</li>
 			<li>Qualify - This will always show the modifier in the customizer window
 			if the item meets the requirements to obtain this modifier.</li>
+			<li>The default for this tag is 'YES'.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VISIBLE:Yes</code></p>
