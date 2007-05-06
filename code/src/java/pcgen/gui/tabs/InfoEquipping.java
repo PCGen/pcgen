@@ -2745,8 +2745,18 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 
 		br.close();
+		
+		//Suffix is required because the Patterns to be used for export filtering
+		//are based on file suffix - thpr  May 6, 07
+		String suffix = template;
+		final int idx = suffix.lastIndexOf('.');
 
-		File reParse = File.createTempFile("eqTTemp_", ".tmp");
+		if (idx >= 0)
+		{
+			suffix = template.substring(idx + 1);
+		}
+
+		File reParse = File.createTempFile("eqTTemp_", ".tmp." + suffix);
 		String reparseName = reParse.getPath();
 		BufferedWriter rpW =
 				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
@@ -2763,7 +2773,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// Once we have done this, we need to pass the entire reParse
 		// to ExportHandler.write() one last time to parse the rest of
 		// the (non-equipset) tags.
-		File temp = File.createTempFile("eqTemp_", ".tmp");
+
+		File temp = File.createTempFile("eqTemp_", ".tmp." + suffix);
 
 		while (tests[0] < length)
 		{
