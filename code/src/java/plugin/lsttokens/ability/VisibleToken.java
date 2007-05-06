@@ -87,8 +87,8 @@ public class VisibleToken implements AbilityLstToken
 					.errorPrint(" Valid values in Ability are EXPORT, NO, DISPLAY, and YES");
 				Logging
 					.errorPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
-				ability.setVisibility(Visibility.DEFAULT);
 			}
+			ability.setVisibility(Visibility.DEFAULT);
 		}
 		return true;
 	}

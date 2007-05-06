@@ -44,8 +44,8 @@ public class VisibleToken implements PCClassLstToken
 				Logging.errorPrint(" Valid values in Class are NO and YES");
 				Logging
 					.errorPrint(" assuming you meant NO, please use NO (exact String, upper case) in the LST file");
-				pcclass.setVisibility(Visibility.HIDDEN);
 			}
+			pcclass.setVisibility(Visibility.HIDDEN);
 		}
 		return true;
 	}
