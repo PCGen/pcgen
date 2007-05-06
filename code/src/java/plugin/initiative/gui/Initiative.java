@@ -2445,7 +2445,17 @@ public class Initiative extends javax.swing.JPanel
 
 	private void editTable(int row, int column)
 	{
-		InitHolder iH = initList.get(row);
+		int activeRow = 0;
+		for (int i = 0; i < initList.size(); i++)
+		{
+			InitHolder c = initList.get(i);
+			if ((!c.getStatus().equals("Dead") || showDead.isSelected())
+				&& (!(c instanceof Event) || showEvents.isSelected()))
+			{
+				activeRow++;
+			}
+		}
+		InitHolder iH = initList.get(activeRow);
 		Object data = combatantTable.getValueAt(row, column);
 		boolean atTop = (currentInit == initList.getMaxInit());
 		iH.editRow(columnList, column, data);
