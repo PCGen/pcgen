@@ -7164,7 +7164,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			tStr = "SCHOOL." + school;
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 			tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-			if (tBonus > 0)
+			if (tBonus != 0) // Allow negative bonus to casterlevel
 			{
 				tType = getSpellBonusType("CASTERLEVEL", tStr);
 				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
@@ -7373,9 +7373,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			result += resultBonus.getBonus();
 		}
 
-		if (result == 0)
+		if (result <= 0) 
 		{
-			result = 1;
+			result = 1; // Casterlevel must be at least 1
 		}
 
 		return (result);
