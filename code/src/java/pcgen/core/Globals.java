@@ -2440,25 +2440,33 @@ public final class Globals
 	 */
 	public static void executePostExportCommand(final String fileName, String postExportCommand)
 	{
-		int x = 100;
-
-		while (postExportCommand.indexOf("%") >= 0)
+		ArrayList<String> aList = new ArrayList<String>();
+		StringTokenizer aTok = new StringTokenizer(postExportCommand, " ");
+		while (aTok.hasMoreTokens())
 		{
-			final String beforeString = postExportCommand.substring(0, postExportCommand.indexOf("%"));
-			final String afterString = postExportCommand.substring(postExportCommand.indexOf("%") + 1);
-			postExportCommand = beforeString + fileName + afterString;
-
-			if (--x <= 0)
+			aList.add(aTok.nextToken());
+		}
+		String[] cmdArray = new String[aList.size()];
+		for (int idx = 0; idx < aList.size(); idx++)
+		{
+			final String s = aList.get(idx);
+			if (s.indexOf("%") > -1)
 			{
-				break;
+				final String beforeString = s.substring(0, s.indexOf("%"));
+				final String afterString = s.substring(s.indexOf("%") + 1);
+				cmdArray[idx] = beforeString + fileName + afterString;
+			}
+			else
+			{
+				cmdArray[idx] = s;
 			}
 		}
 
-		if (!"".equals(postExportCommand))
+		if (cmdArray.length > 0)
 		{
 			try
 			{
-				Runtime.getRuntime().exec(postExportCommand);
+				Runtime.getRuntime().exec(cmdArray);
 			}
 			catch (IOException ex)
 			{
