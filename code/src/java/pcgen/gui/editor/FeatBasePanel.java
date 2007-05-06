@@ -44,10 +44,12 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.WholeNumberField;
-import pcgen.persistence.lst.AbilityLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.LstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.util.DecimalNumberField;
+import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
 
@@ -241,14 +243,23 @@ public class FeatBasePanel extends BasePanel
 		Ability thisFeat = (Ability) thisPObject;
 		final String desc = getDescriptionText();
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-			AbilityLstToken.class);
-		AbilityLstToken tokenParser = (AbilityLstToken) tokenMap.get("DESC");
+			GlobalLstToken.class);
+		GlobalLstToken tokenParser = (GlobalLstToken) tokenMap.get("DESC");
 		if (tokenParser != null)
 		{
 			final StringTokenizer tok = new StringTokenizer(desc, "\t");
 			while (tok.hasMoreTokens())
 			{
-				tokenParser.parse(thisFeat, tok.nextToken());
+				try
+				{
+					tokenParser.parse(thisFeat, tok.nextToken(), -9);
+				}
+				catch (PersistenceLayerException e)
+				{
+					Logging.errorPrint("Invalid Description: " + desc);
+					Logging.errorPrint("  Token Parse Failed: "
+						+ e.getLocalizedMessage());
+				}
 			}
 		}
 

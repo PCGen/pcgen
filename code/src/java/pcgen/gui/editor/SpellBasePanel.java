@@ -56,10 +56,12 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.WholeNumberField;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.SpellLstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.util.DecimalNumberField;
+import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -122,14 +124,23 @@ public class SpellBasePanel extends BasePanel
 
 		final String desc = pnlDescription.getText();
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-			SpellLstToken.class);
-		SpellLstToken tokenParser = (SpellLstToken) tokenMap.get("DESC");
+			GlobalLstToken.class);
+		GlobalLstToken tokenParser = (GlobalLstToken) tokenMap.get("DESC");
 		if (tokenParser != null)
 		{
 			final StringTokenizer tok = new StringTokenizer(desc, "\t");
 			while (tok.hasMoreTokens())
 			{
-				tokenParser.parse(s, tok.nextToken());
+				try
+				{
+					tokenParser.parse(s, tok.nextToken(), -9);
+				}
+				catch (PersistenceLayerException e)
+				{
+					Logging.errorPrint("Invalid Description: " + desc);
+					Logging.errorPrint("  Token Parse Failed: "
+						+ e.getLocalizedMessage());
+				}
 			}
 		}
 		s.setDescIsPI(pnlDescription.getDescIsPI());

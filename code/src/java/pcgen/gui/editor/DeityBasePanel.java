@@ -47,7 +47,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.DeityLstToken;
+import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.LstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
@@ -217,8 +217,8 @@ final class DeityBasePanel extends BasePanel
 
 		final String desc = getDescriptionText();
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-			DeityLstToken.class);
-		DeityLstToken tokenParser = (DeityLstToken) tokenMap.get("DESC");
+			GlobalLstToken.class);
+		GlobalLstToken tokenParser = (GlobalLstToken) tokenMap.get("DESC");
 		if (tokenParser != null)
 		{
 			final StringTokenizer tok = new StringTokenizer(desc, "\t");
@@ -226,11 +226,13 @@ final class DeityBasePanel extends BasePanel
 			{
 				try
 				{
-					tokenParser.parse((Deity) thisPObject, tok.nextToken());
+					tokenParser.parse(thisPObject, tok.nextToken(), -9);
 				}
 				catch (PersistenceLayerException e)
 				{
-					Logging.errorPrint(e.getMessage() + " while parsing " + desc, e);
+					Logging.errorPrint("Invalid Description: " + desc);
+					Logging.errorPrint("  Token Parse Failed: "
+						+ e.getLocalizedMessage());
 				}
 			}
 		}

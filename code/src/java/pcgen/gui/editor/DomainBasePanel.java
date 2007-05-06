@@ -28,11 +28,12 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Description;
-import pcgen.core.Domain;
 import pcgen.core.PObject;
-import pcgen.persistence.lst.DomainLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.LstToken;
 import pcgen.persistence.lst.TokenStore;
+import pcgen.util.Logging;
 
 /**
  * <code>DomainBasePanel</code>
@@ -90,14 +91,23 @@ public class DomainBasePanel extends BasePanel
 	{
 		final String desc = getDescriptionText();
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-			DomainLstToken.class);
-		DomainLstToken tokenParser = (DomainLstToken) tokenMap.get("DESC");
+			GlobalLstToken.class);
+		GlobalLstToken tokenParser = (GlobalLstToken) tokenMap.get("DESC");
 		if (tokenParser != null)
 		{
 			final StringTokenizer tok = new StringTokenizer(desc, "\t");
 			while (tok.hasMoreTokens())
 			{
-				tokenParser.parse((Domain) thisPObject, tok.nextToken());
+				try
+				{
+					tokenParser.parse(thisPObject, tok.nextToken(), -9);
+				}
+				catch (PersistenceLayerException e)
+				{
+					Logging.errorPrint("Invalid Description: " + desc);
+					Logging.errorPrint("  Token Parse Failed: "
+						+ e.getLocalizedMessage());
+				}
 			}
 		}
 		thisPObject.setDescIsPI(getDescIsPI());
