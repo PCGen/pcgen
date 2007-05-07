@@ -33,6 +33,18 @@
 			Fine, Diminutive, Tiny, Small, Medium, Large, Huge, Gargantuan and Colossal.</p>
 
 
+		<p></p><a name="ABB"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> ABB:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a 1 letter abbreviation of the size designation.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ABB:F</code></p>
+		<p class="indent3">The size abbreviation is &quot;F&quot; for &quot;Fine&quot;.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">sizeAdjustment.lst file.</p>
+
+
 		<p></p>
 		<p></p><a name="SIZENAME"></a><hr>
 		<p class="indent0"><span class="new">*** New 5.10.1 RC1</span><br />
@@ -49,15 +61,15 @@
 									SIZENAME:Large<br>
 									SIZENAME:Huge<br>
 									SIZENAME:Gargantuan<br>
-									SIZENAME:Colossal<br>
+									SIZENAME:Colossal<br></code>
 		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">SizeAdjustment.lst</p>
 		<p class="indent3">These six categories must be included in all Game Mode: sizeAdjustment.lst.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><strong>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
+		<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
 		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
-		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</strong></p>
+		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
 		<p class="indent3">Example of some of the entries.</p>
 
 		<p>Note: The following BONUS tags only function in this file.</p>
@@ -75,9 +87,9 @@
 		<p class="indent3">Reduces the AC by half for Armor and Shields</p>
 		<p class="indent2"><code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|2</code></p>
 		<p class="indent3">Increases the AC by double for Armor and Shields</p>
-		<p class="indent2"><strong>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
+		<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
 		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
-		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</strong></p>
+		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
 		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">SizeAdjustment.lst</p>
