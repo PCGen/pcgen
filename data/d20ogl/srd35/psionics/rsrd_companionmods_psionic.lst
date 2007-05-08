@@ -1,16 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Sun Apr 29 00:15:01 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 
 ###Block:Psicrystal
-# Class of the Master		Type			Spell Res.	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special Ability																	Define			Combat bonus						Misc bonus				Stat bonus
-FOLLOWER:PCrystalLevel=1	TYPE:Psicrystal			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	SA:Self Propulsion	SA:Telepathic Link	SA:Share Powers	SA:Improved Evasion (Ex)	SA:Sighted (40')	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|0|TYPE=NaturalArmor.REPLACE
+# Class of the Master		Type			Spell Res.	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special Ability																	Define			Combat bonus						Misc bonus				Stat bonus		Move
+FOLLOWER:PCrystalLevel=1	TYPE:Psicrystal			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	SA:Self Propulsion	SA:Telepathic Link	SA:Share Powers	SA:Improved Evasion (Ex)	SA:Hardness 8	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|0|TYPE=NaturalArmor.REPLACE
 FOLLOWER:PCrystalLevel=3	TYPE:Psicrystal																				SA:Deliver touch powers																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=5	TYPE:Psicrystal																				SA:Telepathic Speech																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=7	TYPE:Psicrystal																																											BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=9	TYPE:Psicrystal																				SA:Flight																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
-#	MOVE:Fly,50
-# Move not working in Companionmod.
+FOLLOWER:PCrystalLevel=9	TYPE:Psicrystal																				SA:Flight																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1	MOVE:Fly,50
 FOLLOWER:PCrystalLevel=11	TYPE:Psicrystal	SR:5																			SA:Power Resistance																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:MISC|SR|PCrystalLevel	BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=13	TYPE:Psicrystal																				SA:Sight Link																					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=15	TYPE:Psicrystal																				SA:Channel Power																					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
