@@ -8598,12 +8598,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// the equipment they belong to.
 			if (pobj != null && !(pobj instanceof EquipmentModifier))
 			{
-				pobj.activateBonuses(this);
-
-				// TODO - Class bonuses only get added if level is greater than
-				// zero. Is this check required? Should it be part of
-				// getPObjectList()?
-				ret.addAll(pobj.getActiveBonuses(this));
+				// Class bonuses are only included if the level is greater than 0
+				// This is because 0 levels of a class can be added to access spell casting etc
+				if (!(pobj instanceof PCClass)
+					|| ((PCClass) pobj).getLevel() > 0)
+				{
+					pobj.activateBonuses(this);
+	
+					ret.addAll(pobj.getActiveBonuses(this));
+				}
 			}
 		}
 
