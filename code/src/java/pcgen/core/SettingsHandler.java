@@ -696,7 +696,7 @@ public final class SettingsHandler
 		{
 			game = newMode;
 		}
-		String key = convertStringToKey(g);
+		String key = g;
 		// new key for game mode specific options are pcgen.options.gameMode.X.optionName
 		// but offer downward compatible support to read in old version for unitSet from 5.8.0
 		String unitSetName = getOptions().getProperty("pcgen.options.gameMode." + key + ".unitSetName",
@@ -712,20 +712,6 @@ public final class SettingsHandler
 		game.setPurchaseMethodName(getPCGenOption("gameMode." + key + ".purchaseMethodName", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		game.setAllStatsValue(getPCGenOption("gameMode." + key + ".allStatsValue", 10));
 		game.setRollMethod(getPCGenOption("gameMode." + key + ".rollMethod", 0)); //$NON-NLS-1$
-	}
-
-	/**
-	 * Convert the supplied string into a property key, escaping any 
-	 * terminator characters within the string.  
-	 * @param rawKey The text to be converted
-	 * @return The valid properties key
-	 */
-	private static String convertStringToKey(String rawKey)
-	{
-		String key = rawKey.replaceAll(" ", "\\\\ ");
-		key = key.replaceAll(":", "\\\\:");
-		key = key.replaceAll("=", "\\\\=");
-		return key;
 	}
 
 	public static GameMode getGame()
@@ -1490,7 +1476,7 @@ public final class SettingsHandler
 		for (int idx = 0; idx < SystemCollections.getUnmodifiableGameModeList().size(); idx++)
 		{
 			final GameMode gameMode = SystemCollections.getUnmodifiableGameModeList().get(idx);
-			String gameModeKey = convertStringToKey(gameMode.getName());
+			String gameModeKey = gameMode.getName();
 			if (gameMode.getUnitSet() != null && gameMode.getUnitSet().getName() != null)
 			{
 				setPCGenOption("gameMode." + gameModeKey + ".unitSetName", gameMode.getUnitSet().getName());

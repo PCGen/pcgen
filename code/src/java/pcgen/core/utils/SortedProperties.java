@@ -70,7 +70,7 @@ public class SortedProperties extends Properties
 				// The following characters must be escaped:
 				// #, !, = and :
 				final String aString = fixUp((String) entry.getValue());
-				bw.write(entry.getKey() + "=" + aString);
+				bw.write(convertStringToKey((String) entry.getKey()) + "=" + aString);
 				bw.newLine();
 			}
 
@@ -123,4 +123,19 @@ public class SortedProperties extends Properties
 
 		return ab.toString();
 	}
+
+	/**
+	 * Convert the supplied string into a property key, escaping any 
+	 * terminator characters within the string.  
+	 * @param rawKey The text to be converted
+	 * @return The valid properties key
+	 */
+	private static String convertStringToKey(String rawKey)
+	{
+		String key = rawKey.replaceAll(" ", "\\\\ ");
+		key = key.replaceAll(":", "\\\\:");
+		key = key.replaceAll("=", "\\\\=");
+		return key;
+	}
+	
 }
