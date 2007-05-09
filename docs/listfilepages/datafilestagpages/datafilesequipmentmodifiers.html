@@ -68,18 +68,23 @@
 
 		<p></p><a name="CHOOSEEQUIPMENT"></a><hr>
 		<p class="new">*** New 5.10.1 RC3</p>
-		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:EQUIPMENT|x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Type Name. Mandatory)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type Name. Optional)</p>
+		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:EQUIPMENT|x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Type Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Will present a list of equipement of types x and y.</p>
+		<ul class="indent2">
+			<li>Will present a list of equipement of types x.</li>
+			<li>At least one (1) equipment type must be designated for this tag to function properly.</li>
+			<li>There is no specific weapon chooser and each type must be given separately.</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Goods</code></p>
+		<p class="indent3">A list of all equipement of type 'Goods'.</p>
 		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Martial|TYPE=Finesseable</code></p>
-		<p class="indent3">A list of all equipement of types Martial and Finesseable.</p>
+		<p class="indent3">A list of all equipement of types 'Martial' and 'Finesseable'.</p>
 		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Natural|TYPE=Bludgeoning</code></p>
-		<p class="indent3">A list of all equipement of types Natural and Bludgeoning.</p>
+		<p class="indent3">A list of all equipement of types 'Natural' and 'Bludgeoning'.</p>
 		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Alchemical|TYPE=Consumable</code></p>
-		<p class="indent3">A list of all equipement of types Alchemical and Consumable.</p>
+		<p class="indent3">A list of all equipement of types 'Alchemical' and 'Consumable'.</p>
 
 		<p></p><a name="COST"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
