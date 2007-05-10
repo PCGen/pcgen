@@ -80,7 +80,7 @@ BIO
 		</languages>
 		<location></location>
 		<move>
-			<all>Walk 0 ft., Climb 0 ft.</all>
+			<all>Walk 30 ft., Climb 20 ft.</all>
 		</move>
 		<personality>
 			<trait></trait>
@@ -99,7 +99,7 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Construct</type>
-		<vision>Sighted</vision>
+		<vision>Sighted (40&#39;)</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>0 lbs.</weight_unit>
@@ -128,13 +128,13 @@ BIO
 				<long>Strength</long>
 				<short>STR</short>
 			</name>
-			<score>0</score>
+			<score>1</score>
 			<modifier>-5</modifier>
 			<base>10</base>
 			<basemod>+0</basemod>
-			<noequip>0</noequip>
+			<noequip>1</noequip>
 			<noequip_mod>-5</noequip_mod>
-			<no_temp_score>0</no_temp_score>
+			<no_temp_score>1</no_temp_score>
 			<no_temp_modifier>-5</no_temp_modifier>
 		</ability>
 		<ability>
@@ -142,13 +142,13 @@ BIO
 				<long>Dexterity</long>
 				<short>DEX</short>
 			</name>
-			<score>14</score>
+			<score>15</score>
 			<modifier>+2</modifier>
 			<base>10</base>
 			<basemod>+0</basemod>
-			<noequip>14</noequip>
+			<noequip>15</noequip>
 			<noequip_mod>+2</noequip_mod>
-			<no_temp_score>14</no_temp_score>
+			<no_temp_score>15</no_temp_score>
 			<no_temp_modifier>+2</no_temp_modifier>
 		</ability>
 		<ability>
@@ -231,21 +231,21 @@ BIO
 	  ====================================
 	  ====================================-->
 	<armor_class>
-		<total>14</total>
-		<listing>BASE +10, SIZE +4</listing>
+		<total>16</total>
+		<listing>ABILITY +2, BASE +10, SIZE +4</listing>
 		<flat>14</flat>
-		<touch>14</touch>
+		<touch>16</touch>
 		<base>10</base>
 		<armor_bonus>0</armor_bonus>
 		<shield_bonus>0</shield_bonus>
-		<stat_mod>0</stat_mod>
+		<stat_mod>2</stat_mod>
 		<size_mod>4</size_mod>
 		<natural>0</natural>
 		<class_bonus>0</class_bonus>
 		<dodge_bonus>0</dodge_bonus>
 		<misc>0</misc>
 		<miss_chance/>
-		<max_dex>+0</max_dex>
+		<max_dex></max_dex>
 		<spell_failure>0</spell_failure>
 		<check_penalty>+0</check_penalty>
 		<spell_resistance>0</spell_resistance>
@@ -273,7 +273,7 @@ BIO
 			<used>96</used>
 			<unused>0</unused>
 		</skillpoints>
-		<list_mods>Bluff +8, Climb -3, Concentration +8, Diplomacy +12, Gather Information +8, Hide +8, Intimidate +2, Listen +2, Psicraft +6, Sense Motive +8, Spot +2</list_mods>
+		<list_mods>Bluff +8, Climb +10, Concentration +8, Diplomacy +12, Gather Information +8, Hide +14, Intimidate +2, Listen +2, Psicraft +6, Sense Motive +8, Spot +2</list_mods>
 		<max_class_skill_level>0</max_class_skill_level>
 		<max_cross_class_skill_level>0</max_cross_class_skill_level>
 		<skill>
@@ -296,19 +296,19 @@ BIO
 		<skill>
 			<name>Balance</name>
 			<ranks>0.0</ranks>
-			<mod>-4<!-- Mods from abilities, equipment, etc -->
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>-4</skill_mod>
+			<skill_mod>2</skill_mod>
 			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>-6<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>DEX</ability>
 			<synergy>Balance</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>-4</trained_total>
-			<exclusive_total>-4</exclusive_total>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Bluff</name>
@@ -330,19 +330,19 @@ BIO
 		<skill>
 			<name>Climb</name>
 			<ranks>0.0</ranks>
-			<mod>-3<!-- Mods from abilities, equipment, etc -->
+			<mod>10<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>-3</skill_mod>
+			<skill_mod>10</skill_mod>
 			<ability_mod>-5<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>15<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>STR</ability>
 			<synergy>Climb</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>-3</trained_total>
-			<exclusive_total>-3</exclusive_total>
+			<trained_total>10</trained_total>
+			<exclusive_total>10</exclusive_total>
 		</skill>
 		<skill>
 			<name>Concentration</name>
@@ -415,19 +415,19 @@ BIO
 		<skill>
 			<name>Escape Artist</name>
 			<ranks>0.0</ranks>
-			<mod>-4<!-- Mods from abilities, equipment, etc -->
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>-4</skill_mod>
+			<skill_mod>2</skill_mod>
 			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>-6<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>DEX</ability>
 			<synergy>Escape Artist</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>-4</trained_total>
-			<exclusive_total>-4</exclusive_total>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Forgery</name>
@@ -483,19 +483,19 @@ BIO
 		<skill>
 			<name>Hide</name>
 			<ranks>0.0</ranks>
-			<mod>8<!-- Mods from abilities, equipment, etc -->
+			<mod>14<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>8</skill_mod>
+			<skill_mod>14</skill_mod>
 			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>6<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>12<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>DEX</ability>
 			<synergy>Hide</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>8</trained_total>
-			<exclusive_total>8</exclusive_total>
+			<trained_total>14</trained_total>
+			<exclusive_total>14</exclusive_total>
 		</skill>
 		<skill>
 			<name>Intimidate</name>
@@ -517,19 +517,19 @@ BIO
 		<skill>
 			<name>Jump</name>
 			<ranks>0.0</ranks>
-			<mod>-29<!-- Mods from abilities, equipment, etc -->
+			<mod>-5<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>-29</skill_mod>
+			<skill_mod>-5</skill_mod>
 			<ability_mod>-5<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>-24<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>STR</ability>
 			<synergy>Jump</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>-29</trained_total>
-			<exclusive_total>-29</exclusive_total>
+			<trained_total>-5</trained_total>
+			<exclusive_total>-5</exclusive_total>
 		</skill>
 		<skill>
 			<name>Listen</name>
@@ -551,19 +551,19 @@ BIO
 		<skill>
 			<name>Move Silently</name>
 			<ranks>0.0</ranks>
-			<mod>-4<!-- Mods from abilities, equipment, etc -->
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>-4</skill_mod>
+			<skill_mod>2</skill_mod>
 			<ability_mod>2<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>-6<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>DEX</ability>
 			<synergy>Move Silently</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>-4</trained_total>
-			<exclusive_total>-4</exclusive_total>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Psicraft</name>
@@ -670,19 +670,19 @@ BIO
 		<skill>
 			<name>Swim</name>
 			<ranks>0.0</ranks>
-			<mod>-17<!-- Mods from abilities, equipment, etc -->
+			<mod>-5<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>-17</skill_mod>
+			<skill_mod>-5</skill_mod>
 			<ability_mod>-5<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>-12<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>STR</ability>
 			<synergy>Swim</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>-17</trained_total>
-			<exclusive_total>-17</exclusive_total>
+			<trained_total>-5</trained_total>
+			<exclusive_total>-5</exclusive_total>
 		</skill>
 		<skill>
 			<name>Use Rope</name>
@@ -867,8 +867,8 @@ BIO
 		<total>
 			<weight>0 lbs.</weight>
 			<value>0 gp</value>
-			<load>Overload</load>
-			<capacity>0</capacity>
+			<load>Light</load>
+			<capacity>2.5</capacity>
 		</total>
 		<equipmentsets>
 
@@ -879,12 +879,12 @@ BIO
 	</equipment>
 	<weight_allowance>
 		<light>0</light>
-		<medium>0</medium>
-		<heavy>0</heavy>
-		<lift_over_head>0</lift_over_head>
-		<lift_off_ground>0</lift_off_ground>
+		<medium>1</medium>
+		<heavy>2</heavy>
+		<lift_over_head>2</lift_over_head>
+		<lift_off_ground>5</lift_off_ground>
 		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
-		<push_drag>0</push_drag>
+		<push_drag>12</push_drag>
 	</weight_allowance>
 	<!--
 	  ====================================
