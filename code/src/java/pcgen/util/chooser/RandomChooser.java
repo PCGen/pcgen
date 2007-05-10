@@ -184,7 +184,7 @@ public final class RandomChooser implements ChooserInterface
 	 */
 	public void setVisible(boolean b)
 	{
-		while (thePool > 0)
+		while (thePool > 0 && theAvailableList.size() > 0)
 		{
 			selectAvailable();
 		}

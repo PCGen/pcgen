@@ -36,6 +36,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -150,6 +151,26 @@ public class Configuration
 			if ( opt instanceof AlignGeneratorOption )
 			{
 				ret.add((AlignGeneratorOption)opt);
+			}
+		}
+		for (final PCAlignment align : SettingsHandler.getGame()
+			.getUnmodifiableAlignmentList())
+		{
+			boolean included = false;
+			for (AlignGeneratorOption option : ret)
+			{
+				if (option.getName().equals(align.getDisplayName()))
+				{
+					included = true;
+					break;
+				}
+			}
+			if (!align.getDisplayName().equals(Constants.s_NONE) && !included)
+			{
+				final AlignGeneratorOption opt = new AlignGeneratorOption();
+				opt.setName(align.getDisplayName());
+				opt.addChoice(1, align.getKeyName());
+				ret.add(opt);
 			}
 		}
 		return ret;
