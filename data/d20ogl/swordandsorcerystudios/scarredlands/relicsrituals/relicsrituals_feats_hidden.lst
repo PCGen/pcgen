@@ -1,6 +1,15 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
+###Block: Penumbral Lord class features
+Shadow Strength		VISIBLE:NO	TYPE:ClassAbility	SA:Shadow Strength						SOURCEPAGE:p.15
+Shadowcat Form		VISIBLE:NO	TYPE:ClassAbility	SA:Shadowcat Form							SOURCEPAGE:p.15
+Shadowcast			VISIBLE:NO	TYPE:ClassAbility	SA:Shadowcast %|Shadowcast	DEFINE:Shadowcast|0	SOURCEPAGE:p.15
+Improved Darkvision	VISIBLE:NO	TYPE:ClassAbility	SA:Improved Darkvision						SOURCEPAGE:p.15
+Shadowraven Form		VISIBLE:NO	TYPE:ClassAbility	SA:Shadowraven Form						SOURCEPAGE:p.15
+Shadowstep			VISIBLE:NO	TYPE:ClassAbility	SA:Shadowstep							SOURCEPAGE:p.15
+Shadow Home			VISIBLE:NO	TYPE:ClassAbility	SA:Shadow Home							SOURCEPAGE:p.15
+
 ###Block: Summoner class features
 # Feat Name							Type			Visible	Choose																						Source Page
 Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	CHOOSE:SPELLLEVEL|1|TYPE=%|MAXLEVEL|MAXLEVEL[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1] [BONUS:SPELLCAST|CLASS=MAXLEVEL;LEVEL=MAXLEVEL|1]		SOURCEPAGE:p.20

@@ -88,16 +88,16 @@ CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral 
 ###Block: Weapon and Armor Proficiencies
 1	FEATAUTO:Penumbral Lord Weapon Proficiencies
 ###Block: Normal Level Progression
-1	CAST:3,2,0				VISION:Darkvision (60')	SA:Shadow Strength
-2	CAST:4,2,1,0							SA:Shadowcat Form
-3	CAST:4,2,2,1,0							SA:Shadowcast %|Shadowcast	BONUS:VAR|Shadowcast|0	DEFINE:Shadowcast|(CL-1)/2
-4	CAST:4,3,2,1,0							SA:Improved Darkvision
-5	CAST:4,3,2,1,1,0
-6	CAST:4,4,2,2,2,1,0						SA:Shadowraven Form
-7	CAST:4,4,3,2,2,2,1,0
-8	CAST:5,5,3,3,2,2,2,1,0						SA:Shadowstep
-9	CAST:5,5,4,3,2,2,2,2,1,0
-10	CAST:5,5,4,4,2,2,2,2,1,1					SA:Shadow Home
+1	CAST:3,2				VISION:Darkvision (60')	FEATAUTO:Shadow Strength
+2	CAST:4,2,1								FEATAUTO:Shadowcat Form
+3	CAST:4,2,2,1							FEATAUTO:Shadowcast	BONUS:VAR|Shadowcast|(CL-1)/2
+4	CAST:4,3,2,1							FEATAUTO:Improved Darkvision
+5	CAST:4,3,2,1,1
+6	CAST:4,4,2,2,2,1							FEATAUTO:Shadowraven Form
+7	CAST:4,4,3,2,2,2,1
+8	CAST:5,5,3,3,2,2,2,1						FEATAUTO:Shadowstep
+9	CAST:5,5,4,3,2,2,2,2,1
+10	CAST:5,5,4,4,2,2,2,2,1,1					FEATAUTO:Shadow Home
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus											Combat bonus
 CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
