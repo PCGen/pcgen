@@ -1,7 +1,12 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
-#Vigilant Class Feats
+###Block: Summoner class features
+# Feat Name							Type			Visible	Choose																						Source Page
+Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	CHOOSE:SPELLLEVEL|1|TYPE=%|MAXLEVEL|MAXLEVEL[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1] [BONUS:SPELLCAST|CLASS=MAXLEVEL;LEVEL=MAXLEVEL|1]		SOURCEPAGE:p.20
+
+
+###Block: Vigilant Class Feats
 # Feat Name			Type			Visible	Required Class		Special Ability						Define					Multiple?	Choose																																										Source Page
 Vigilant Favored Enemy	TYPE:Special	VISIBLE:NO	PRECLASS:1,Vigilant=2	SA:favored enemy (%CHOICE) +%|VigilantFavored	DEFINE:VigilantFavored|(CL+2)/4	MULT:YES	CHOOSE:Favored Enemy|TYPE=Aberration|TYPE=Animal|TYPE=Beast|TYPE=Construct|TYPE=Dragon|TYPE=Elemental|TYPE=Fey|TYPE=Giant|TYPE=Humanoid|TYPE=Magical Beast|TYPE=Monstrous Humanoid|TYPE=Ooze|TYPE=Outsider|TYPE=Plant|TYPE=Shapechanger|TYPE=Undead|TYPE=Vermin	SOURCEPAGE:PCGen Internal
 
