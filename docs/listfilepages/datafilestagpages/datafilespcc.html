@@ -300,8 +300,8 @@
 		the file and the .pcc file that calls it are in the same directory then all that is needed is the name
 		of the file.</p>
 		<p>The second method is a special absolute path which is useful if you need to call a specific file
-		from a known location in the data folder. by using an @ symbol and a file path PCGen will locate the
-		file by looking in the data folder by the path specified. In the same way you can use the &amp; symbol
+		from a known location in the data folder. by using an '@' symbol and a file path PCGen will locate the
+		file by looking in the data folder by the path specified. In the same way you can use the '&amp;' symbol
 		to access a file path in the vendor data directory.</p>
 		<p>The third method is by loading data files over the internet. To do this you must set
 		<a href="../../menupages/settings/pcgen/pcgensources.html"> PCGens preferences</a> to allow this. You
@@ -311,8 +311,11 @@
 		<p class="indent2"><code>CLASS:fhbclasses.lst</code></p>
 		<p class="indent3">Loads the file fhbclasses.lst which is in the same directory as the .pcc file calling it.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>CLASS:@/foogames/sourcebooks/foo/core/fhandbook/fhbclasses.lst</code></p>
+		<p class="indent2"><code>SPELL:@/d20ogl/srd/srdspells.lst</code></p>
 		<p class="indent3">Loads the file from a path relative to the data folder.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>CLASS:&amp;/complete_monkey/complete_monkey_classes.lst</code></p>
+		<p class="indent3">Loads the file from a path relative to the vendor data folder.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>CLASS:http://www.foogames.com/fhandbook/fhbclasses.lst</code></p>
 		<p class="indent3">Loads the source file from a web site.</p>
