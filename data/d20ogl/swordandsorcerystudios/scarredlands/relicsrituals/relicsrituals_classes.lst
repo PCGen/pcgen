@@ -74,12 +74,17 @@ CLASS:Penumbral Lord	PREFEAT:1,Silent Spell	PRESKILL:1,Hide=5	PRESPELL:1,Shadow 
 CLASS:Penumbral Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Decipher Script|Hide|Knowledge (Arcana)|Move Silently|TYPE.Profession|Scry|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral Lord|CL
-###Block: Spell List (partial)
-1	SPELLLEVEL:CLASS|Penumbral Lord=0|Arcane Mark,Dancing Lights,Detect Magic,Prestidigitation,Read Magic
-1	SPELLLEVEL:CLASS|Penumbral Lord=4|Shadow Conjuration
-1	SPELLLEVEL:CLASS|Penumbral Lord=5|Shadow Evocation
-1	SPELLLEVEL:CLASS|Penumbral Lord=6|Shades
-1	SPELLLEVEL:CLASS|Penumbral Lord=7|Shadow Walk
+###Block: Spell List
+1	SPELLLEVEL:CLASS|Penumbral Lord=0|Arcane Mark,Dancing Lights,Detect Magic,Distort Shadow,Prestidigitation,Read Magic
+1	SPELLLEVEL:CLASS|Penumbral Lord=1|Gloom,Obscure Shadow,Penumbral Trap,Reshape Shadow,Shade's Light
+1	SPELLLEVEL:CLASS|Penumbral Lord=2|Animate Shadow,Banish Shadow,Dar'Tan's Shadow Bolt,Minor Shadow Conjuration,Shadow Images
+1	SPELLLEVEL:CLASS|Penumbral Lord=3|Control Light,Minor Shadow Evocation,Shadow Form of Lyrand,Shadow Strike,Shadow Touch
+1	SPELLLEVEL:CLASS|Penumbral Lord=4|Imbue Shadow,Shadow Conjuration,Shadow Shield
+1	SPELLLEVEL:CLASS|Penumbral Lord=5|Curtain of Darkness,Shadow Evocation,Shadow Weapon
+1	SPELLLEVEL:CLASS|Penumbral Lord=6|Shades,Shadow Smash,Tranmute Flesh to Shadow
+1	SPELLLEVEL:CLASS|Penumbral Lord=7|Shade Evocation,Shadow Storm,Shadow Walk
+1	SPELLLEVEL:CLASS|Penumbral Lord=8|Blackflame,Shadow Twin
+1	SPELLLEVEL:CLASS|Penumbral Lord=9|Eclipse
 ###Block: Weapon and Armor Proficiencies
 1	FEATAUTO:Penumbral Lord Weapon Proficiencies
 ###Block: Normal Level Progression

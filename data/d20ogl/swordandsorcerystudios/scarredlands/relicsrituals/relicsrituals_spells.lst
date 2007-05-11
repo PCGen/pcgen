@@ -2,6 +2,7 @@
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 #ITEM:Potion tag added by: Paul "Yes, that Paul" Grosse
 
+###Block: True Rituals
 # Spell Name			Product Identity?	Classes of caster	School			Type		Components			Casting Time			Range			Item						Target Area or Effect											Duration			Save Info							Spell Resistance		Required Skill			Description										Source Page
 Marriage				NAMEISPI:YES	CLASSES:Cleric=1	SCHOOL:True Ritual	TYPE:Divine	COMPS:V, S, M, DF, XP	CASTTIME:1 hour			RANGE:Close		ITEM:[Scroll]	ITEM:[Potion]	TARGETAREA:Individuals to be married to one another						DURATION:Instantaneous	SAVEINFO:Will Negates (Harmless)			SPELLRES:Yes (Harmless)	PRESKILL:1,Ritual Casting=1	DESC:Blesses a marriage								SOURCEPAGE:134
 Indoctrination			NAMEISPI:YES	CLASSES:Cleric=2	SCHOOL:True Ritual	TYPE:Divine	COMPS:V, S, M, DF, XP	CASTTIME:1 hour			RANGE:Close		ITEM:[Scroll]	ITEM:[Potion]	TARGETAREA:One Creature											DURATION:Instantaneous	SAVEINFO:None						SPELLRES:No			PRESKILL:1,Ritual Casting=2	DESC:Allows a character to become a cleric				SOURCEPAGE:134-135
