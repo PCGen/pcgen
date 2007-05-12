@@ -392,8 +392,8 @@ Powerful Build			OUTPUTNAME:Powerful Build (Ex)			TYPE:Special.Extraordinary	VIS
 Superior Two-Weapon Fighting	OUTPUTNAME:Superior Two-Weapon Fighting (Ex)	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Superior Two-Weapon Fighting (Ex)							BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
 
 ###Block: Leadership feat support
-# Feat Name		Type				Visible	Multiple?	Choose												Modify VAR							Temporary effect description
-Leadership Score	TYPE:SPECIAL.Internal	VISIBLE:NO	MULT:YES	CHOOSE:NUMCHOICES=1|NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
+# Feat Name		Type				Visible	Multiple?	Choose										Modify VAR							Temporary effect description
+Leadership Score	TYPE:SPECIAL.Internal	VISIBLE:NO	MULT:YES	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
 
 ###Block:Nightshade support
 # Feat Name		Output Name					Type					Visible	Special Ability			Save checks bonus										Combat bonus														Bonus to HP											Source Page				Temporary effect description
