@@ -1,6 +1,17 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
+###Block: Blood Witch class features
+Nature Magic	VISIBLE:NO	TYPE:ClassAbility	SA:Nature Magic			SOURCEPAGE:p.8
+Alter Self		VISIBLE:NO	TYPE:ClassAbility	SA:Alter Self 1/day		SOURCEPAGE:p.8	SPELLS:Blood Witch|TIMES=1|CASTERLEVEL=TL|Alter Self,12+INT
+Minor Sacrifice	VISIBLE:NO	TYPE:ClassAbility	SA:Minor Sacrifice|!PREFEAT:1,Major Sacrifice		SOURCEPAGE:p.8
+Wildshape		VISIBLE:NO	TYPE:ClassAbility	SA:Wildshape %/day|Wildshape	SOURCEPAGE:p.8	SPELLS:Class Ability|TIMES=1|CASTERLEVEL=TL|Polymorph Self,14+INT	DEFINE:Wildshape|0
+Major Sacrifice	VISIBLE:NO	TYPE:ClassAbility	SA:Major Sacrifice		SOURCEPAGE:p.8
+
+
+
+
+
 ###Block: Penumbral Lord class features
 Shadow Strength		VISIBLE:NO	TYPE:ClassAbility	SA:Shadow Strength						SOURCEPAGE:p.15
 Shadowcat Form		VISIBLE:NO	TYPE:ClassAbility	SA:Shadowcat Form							SOURCEPAGE:p.15
@@ -10,14 +21,23 @@ Shadowraven Form		VISIBLE:NO	TYPE:ClassAbility	SA:Shadowraven Form						SOURCEPA
 Shadowstep			VISIBLE:NO	TYPE:ClassAbility	SA:Shadowstep							SOURCEPAGE:p.15
 Shadow Home			VISIBLE:NO	TYPE:ClassAbility	SA:Shadow Home							SOURCEPAGE:p.15
 
+###Block: Sea Witch class features
+Bond with Boat/Ship		VISIBLE:NO	TYPE:ClassAbility	SA:Bond with Boat/Ship %|Bonding			DEFINE:Bonding|0		SOURCEPAGE:p.18
+Ignore Metamagic Penalty	VISIBLE:NO	TYPE:ClassAbility	SA:Ignore Metamagic Penalty % level|IMPenalty	DEFINE:IMPenalty|0	SOURCEPAGE:p.18
+Aquatic Wildshape			VISIBLE:NO	TYPE:ClassAbility	SA:Aquatic Wildshape %/day|Wildshape		DEFINE:Wildshape|0	SOURCEPAGE:p.18
+
 ###Block: Summoner class features
 # Feat Name							Type			Visible	Choose																						Source Page
 Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	CHOOSE:SPELLLEVEL|1|TYPE=%|MAXLEVEL|MAXLEVEL[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1] [BONUS:SPELLCAST|CLASS=MAXLEVEL;LEVEL=MAXLEVEL|1]		SOURCEPAGE:p.20
 
-
 ###Block: Vigilant Class Feats
 # Feat Name			Type			Visible	Required Class		Special Ability						Define					Multiple?	Choose																																										Source Page
-Vigilant Favored Enemy	TYPE:Special	VISIBLE:NO	PRECLASS:1,Vigilant=2	SA:favored enemy (%CHOICE) +%|VigilantFavored	DEFINE:VigilantFavored|(CL+2)/4	MULT:YES	CHOOSE:Favored Enemy|TYPE=Aberration|TYPE=Animal|TYPE=Beast|TYPE=Construct|TYPE=Dragon|TYPE=Elemental|TYPE=Fey|TYPE=Giant|TYPE=Humanoid|TYPE=Magical Beast|TYPE=Monstrous Humanoid|TYPE=Ooze|TYPE=Outsider|TYPE=Plant|TYPE=Shapechanger|TYPE=Undead|TYPE=Vermin	SOURCEPAGE:PCGen Internal
+Vigilant Favored Enemy	TYPE:ClassAbility	VISIBLE:NO	SA:Favored Enemy (%CHOICE) +%|VigilantFavored	DEFINE:VigilantFavored|(CL+2)/4	MULT:YES	CHOOSE:Favored Enemy|TYPE=Aberration|TYPE=Animal|TYPE=Beast|TYPE=Construct|TYPE=Dragon|TYPE=Elemental|TYPE=Fey|TYPE=Giant|TYPE=Humanoid|TYPE=Magical Beast|TYPE=Monstrous Humanoid|TYPE=Ooze|TYPE=Outsider|TYPE=Plant|TYPE=Shapechanger|TYPE=Undead|TYPE=Vermin	SOURCEPAGE:p.22
+Sprint			TYPE:ClassAbility	VISIBLE:NO	SA:Sprint																																																										SOURCEPAGE:p.22
+Tireless			TYPE:ClassAbility	VISIBLE:NO	SA:Tireless																																																										SOURCEPAGE:p.22
+Ferocity			TYPE:ClassAbility	VISIBLE:NO	SA:Ferocity																																																										SOURCEPAGE:p.22
+Resist Massive Damage	TYPE:ClassAbility	VISIBLE:NO	SA:Resist Massive Damage																																																							SOURCEPAGE:p.22
+Natural Healing		TYPE:ClassAbility	VISIBLE:NO	SA:Natural Healing																																																								SOURCEPAGE:p.22
 
 ###Block: Proficiencies
 # Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
