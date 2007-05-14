@@ -28,11 +28,95 @@
 
 		<p></p>
 		<p><strong>NOTE:</strong>
-		This page is broken into two sections.  The first is the tags located else where in the Documents.
-		These are not true Global tags as the others in this second section.  They are all being gathered
-		up in one area to make them easier to locate and understand.</p>
-		<p>The first section is the various tags restricted (or not) by area being used in.</p>
-		<p>The second section is the various new tags restricted (or not) by area being used in.</p>
+		This page is broken into two sections.  The first section, Global Ability Tags, lists the new global ability tags while the 
+		second section, other Ability Tags, lists the tags located else where in the Documents.</p>
+
+		<p></p><a name="GlobalAbilityTags"></a><hr>
+		<h1>Glodal Ability Tags</h1>
+
+		<p></p><a name="ADDSPELLLEVEL"></a><hr>
+		<p class="new">*** New</p>
+		<p class="indent0"><strong>Tag Name:</strong> ADDSPELLLEVEL:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Increase in spell slot level)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> This tag is used in metamagic abilities to denote how much higher the spell level slot requires.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ADDSPELLLEVEL:2</code></p>
+		<p class="indent3">A spell with this metamagic ability applied to it takes up a slot two levels higher than the normal spell.</p>
+
+		<p></p><a name="BENEFIT"></a><hr>
+		<p class="new">*** New</p>
+		<p class="indent0"><strong>Tag Name:</strong> BENEFIT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (benefit text)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is the benefit text of the ability from the source material.
+  			This text will be displayed in the ability description field if the
+			<a href="../../menupages/settings/appearance/appearancedisplay.html">&quot;Display Feat Description&quot;</a>
+			checkbox in the Appearance/Display Options Preference window is unchecked.
+			Otherwise the text from the <a href="#DESC">DESC</a> tag will be displayed.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BENEFIT:This is sample text for the example purposes</code></p>
+		<p class="indent3">Adds ability benefit.</p>
+
+		<p></p><a name="COST"></a><hr>
+		<p class="new">*** New</p>
+		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (ability point cost)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is how many ability points the ability costs. A decimal value,
+			as the example below, would mean that it only costs 1/2 an ability point.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>COST:1</code></p>
+		<p class="indent3">Ability costs one ability point.</p>
+		<p class="indent2"><code>COST:.5</code></p>
+		<p class="indent3">Ability costs half a ability point.</p>
+
+		<p></p><a name="MULT"></a><hr>
+		<p class="new">*** New</p>
+		<p class="indent0"><strong>Tag Name:</strong> MULT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean ('YES' or 'NO')</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This determines if an ability can be taken multiple times. If the
+			value is set to 'YES', then you <strong>MUST</strong> also use a 'CHOOSE' tag.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MULT:YES</code></p>
+		<p class="indent3">This Ability can be taken multiple times.</p>
+
+		<p></p><a name="STACK"></a><hr>
+		<p class="new">*** New</p>
+		<p class="indent0"><strong>Tag Name:</strong> STACK:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean ('YES' or 'NO')</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tells PCGen if the ability benefits may be stacked on one another.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>STACK:YES</code></p>
+		<p class="indent3">This Ability may be stack on it's self.</p>
+
+		<p></p><a name="VISIBLE"></a><hr>
+		<p class="new">*** New</p>
+		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> YES</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> NO</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> DISPLAY</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> EXPORT</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li><code>YES</code> - Shows the ability name in PCGen and on export to a character sheet.
+				(This is the default setting).</li>
+			<li><code>NO</code> - Hides the ability name in PCGen and on export to a character sheet.</li>
+			<li><code>DISPLAY</code> - Displays the ability name in PCGen but not on the character sheet.</li>
+			<li><code>EXPORT</code> - Hides the ability name from PCGen but displays it on the character sheet.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>VISIBLE:YES</code></p>
+		<p class="indent3">Shows the ability name in PCGen and on the Output sheet.</p>
+
+		<p></p>
+		<p></p><a name="OtherAbilityTags"></a><hr>
+		<h1>Other Ability Tags</h1>
+
+		<p>These are not true global tags as the tags in the first section are.  All tags are being listed
+		here to make them easier to locate and understand.</p>
 
 		<p></p><a name="BonusAbilityTags"></a><hr>
 		<h2>Bonus Ability Tags</h2>
