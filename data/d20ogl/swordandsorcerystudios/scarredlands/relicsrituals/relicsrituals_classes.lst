@@ -9,15 +9,15 @@ CLASS:Blood Witch	PREFEAT:1,Skill Focus(Concentration)	PREFEAT:2,TYPE=Metamagic	
 CLASS:Blood Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Blood Witch	SPELLSTAT:WIS	SPELLTYPE:Any	BONUS:CASTERLEVEL|Blood Witch|CL
-1												ADD:SPELLCASTER|1|ANY	ADD:Blood Enhancement|1|TYPE=Metamagic
+1												ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
 2	FEATAUTO:Nature Magic					SPELLLIST:1|Druid	ADD:SPELLCASTER|1|ANY
-3												ADD:SPELLCASTER|1|ANY	ADD:Blood Enhancement |1|Chain Spell,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell
+3												ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
 4	FEATAUTO:Alter Self								ADD:SPELLCASTER|1|ANY
-5												ADD:SPELLCASTER|1|ANY	ADD:Blood Enhancement |1|Chain Spell,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell
+5												ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
 6	FEATAUTO:Minor Sacrifice							ADD:SPELLCASTER|1|ANY
-7												ADD:SPELLCASTER|1|ANY	ADD:Blood Enhancement |1|Chain Spell,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell
+7												ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
 8	FEATAUTO:Wildshape	BONUS:VAR|Wildshape|1				ADD:SPELLCASTER|1|ANY
-9												ADD:SPELLCASTER|1|ANY	ADD:Blood Enhancement |1|Chain Spell,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell
+9												ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
 10	FEATAUTO:Major Sacrifice							ADD:SPELLCASTER|1|ANY
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus

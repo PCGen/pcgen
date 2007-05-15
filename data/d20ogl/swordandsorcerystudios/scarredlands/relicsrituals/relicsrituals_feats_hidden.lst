@@ -7,7 +7,7 @@ Alter Self		VISIBLE:NO	TYPE:ClassAbility	SA:Alter Self 1/day		SOURCEPAGE:p.8	SPE
 Minor Sacrifice	VISIBLE:NO	TYPE:ClassAbility	SA:Minor Sacrifice|!PREFEAT:1,Major Sacrifice		SOURCEPAGE:p.8
 Wildshape		VISIBLE:NO	TYPE:ClassAbility	SA:Wildshape %/day|Wildshape	SOURCEPAGE:p.8	SPELLS:Class Ability|TIMES=1|CASTERLEVEL=TL|Polymorph Self,14+INT	DEFINE:Wildshape|0
 Major Sacrifice	VISIBLE:NO	TYPE:ClassAbility	SA:Major Sacrifice		SOURCEPAGE:p.8
-
+Blood Enhancement	VISIBLE:NO	TYPE:ClassAbility	SA:Blood Enhancement (%CHOICE)	SOURCEPAGE:p.8	MULT:YES	STACK:NO	CHOOSE:FEATLIST|TYPE=Metamagic
 
 
 
