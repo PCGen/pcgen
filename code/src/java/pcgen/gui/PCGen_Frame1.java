@@ -1789,7 +1789,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			//TODO: DJ This is a memory leak
 			Component c = baseTabbedPane.getComponent(currentPanel);
 			FocusListener[] f = c.getFocusListeners();
-			for(int i = 0; i < f.length; i++) {
+			for (int i = 0; i < f.length; i++)
+			{
 				c.removeFocusListener(f[i]);
 			}
 			baseTabbedPane.setComponentAt(currentPanel, characterPane);
@@ -1903,17 +1904,23 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		int newIndex = ((index == (baseTabbedPane.getTabCount() - 1)) ? (index - 1) : index);
 
 		//This should dispose of the character objects.
+		ChangeListener[] cl = baseTabbedPane.getChangeListeners();
+		for (int i = 0; i < cl.length; i++)
+		{
+			baseTabbedPane.removeChangeListener(cl[i]);
+		}
 		baseTabbedPane.removeTabAt(index);
+		for (int i = cl.length-1; i>= 0; i--)
+		{
+			baseTabbedPane.addChangeListener(cl[i]);
+		}
 		Globals.getPCList().remove(index - FIRST_CHAR_TAB);
 
 		// Go to the source tab, not the dm tools, if no pc tabs
 		baseTabbedPane.setSelectedIndex((newIndex == (FIRST_CHAR_TAB - 1)) ? 0 : newIndex);
 
 		// Need to fire this manually
-		if (index == newIndex)
-		{
-			baseTabbedPane_changePanel();
-		}
+		baseTabbedPane_changePanel();
 
 		// This will free up resources, which are locked
 		//PlayerCharacter.dispose();
