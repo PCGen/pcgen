@@ -55,16 +55,16 @@ CLASS:Incarnate	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Incarnate|CL
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Reincarnate	SA:Fixed Alignment	BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
+1	FEATAUTO:Reincarnate|Fixed Alignment	BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
 2								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
 3								BONUS:PCLEVEL|Druid|1	ADD:Spontaneous Casting |1|Air,Animal,Earth,Healing,Plant,Strength,Sun,Water
 4								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
-5	SA:Venom immunity					BONUS:PCLEVEL|Druid|1	ADD:Baseform|1|TYPE=Animal,TYPE=Vermin
+5	FEATAUTO:Venom immunity				BONUS:PCLEVEL|Druid|1	ADD:Baseform|1|TYPE=Animal,TYPE=Vermin
 6								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
 7								BONUS:PCLEVEL|Druid|1	ADD:Spontaneous Casting |1|Air,Animal,Earth,Healing,Plant,Strength,Sun,Water
 8								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
-9	SA:Timeless Body					BONUS:PCLEVEL|Druid|1
-10	SA:Designate Life Form				BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
+9	FEATAUTO:Timeless Body				BONUS:PCLEVEL|Druid|1
+10	FEATAUTO:Designate Life Form			BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Penumbral Lord	HD:4		TYPE:PC.Prestige	ABB:PeL		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
