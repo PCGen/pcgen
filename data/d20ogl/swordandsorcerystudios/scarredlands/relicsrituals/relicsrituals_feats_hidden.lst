@@ -9,6 +9,16 @@ Wildshape		VISIBLE:NO	TYPE:ClassAbility	SA:Wildshape %/day|Wildshape	SOURCEPAGE:
 Major Sacrifice	VISIBLE:NO	TYPE:ClassAbility	SA:Major Sacrifice		SOURCEPAGE:p.8
 Blood Enhancement	VISIBLE:NO	TYPE:ClassAbility	SA:Blood Enhancement (%CHOICE)	SOURCEPAGE:p.8	MULT:YES	STACK:NO	CHOOSE:FEATLIST|TYPE=Metamagic
 
+###Block: Crypt Lord class features
+Extended Necromancy	SA:Extended Necromancy																		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
+Undead Appearance		SA:Undead Appearance																		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
+Undead Familiar		SA:Undead Familiar																		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
+Raise the Dead		SA:Raise the Dead																			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
+Create Undead		SA:Create Undead																			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
+Lichdom			SA:Lichdom																				VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10	TEMPLATE:Lich
+Energy Drain Resistance	SA:Energy Drain Resistance (+%)|EnergyDrainResistance|!PREFEAT:1,Endergy Drain Immunity	DEFINE:EnergyDrainResistance|0	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
+Energy Drain Immunity	SA:Energy Drain Immunity																	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
+
 
 
 

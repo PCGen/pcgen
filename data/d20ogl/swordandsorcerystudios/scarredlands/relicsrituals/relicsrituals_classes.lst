@@ -32,16 +32,16 @@ CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowled
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression
-1							SA:Extended Necromancy																													ADD:SPELLCASTER|1|ANY
-2							SA:Undead Appearance																													ADD:SPELLCASTER|1|ANY
-3							SA:Energy Drain Resistance (+%)|EnergyDrainResistance	BONUS:VAR|EnergyDrainResistance|5									DEFINE:EnergyDrainResistance|0				ADD:SPELLCASTER|1|ANY
-4							SA:Undead Familiar																													ADD:SPELLCASTER|1|ANY
-5																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										ADD:SPELLCASTER|1|ANY
-6							SA:Raise the Dead																														ADD:SPELLCASTER|1|ANY
-7																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										ADD:SPELLCASTER|1|ANY
-8							SA:Create Undead																														ADD:SPELLCASTER|1|ANY
-9	SA:.CLEAR.Energy Drain Resistance	SA:Energy Drain Immunity																												ADD:SPELLCASTER|1|ANY
-10							SA:Lichdom																												TEMPLATE:Lich	ADD:SPELLCASTER|1|ANY
+1		FEATAUTO:Extended Necromancy																ADD:SPELLCASTER|1|ANY
+2		FEATAUTO:Undead Appearance																ADD:SPELLCASTER|1|ANY
+3		FEATAUTO:Energy Drain Resistance	BONUS:VAR|EnergyDrainResistance|5									ADD:SPELLCASTER|1|ANY
+4		FEATAUTO:Undead Familiar																ADD:SPELLCASTER|1|ANY
+5														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	ADD:SPELLCASTER|1|ANY
+6		FEATAUTO:Raise the Dead																	ADD:SPELLCASTER|1|ANY
+7														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	ADD:SPELLCASTER|1|ANY
+8		FEATAUTO:Create Undead																	ADD:SPELLCASTER|1|ANY
+9		FEATAUTO:Energy Drain Immunity															ADD:SPELLCASTER|1|ANY
+10		FEATAUTO:Lichdom																		ADD:SPELLCASTER|1|ANY
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE
