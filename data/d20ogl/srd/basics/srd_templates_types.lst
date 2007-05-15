@@ -36,8 +36,8 @@ Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:20/+1		SOURCEPAGE:srdbasicch
 Familiar within arms reach	VISIBLE:NO	SOURCEPAGE:srdNPCsFamMntsComps.rtf	BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PRESA:1,Summon Familiar|PREAPPLY:ANYPC	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
 
 ###Block: Timeless Body For Druid and Monk
-# Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class			Multiple Requirements						Stat bonus
-Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable									PRECLASS:1,Druid=15,Monk=17										BONUS:STAT|INT|20|PREAGESET:Venerable
+# Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class
+Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable									PRECLASS:1,Druid=15,Monk=17
 
 Timeless Body ~ Adult		VISIBLE:NO																									!PREAGESET:Middle Age															BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:Venerable
 Timeless Body ~ Middle Age	VISIBLE:NO																																		PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:Venerable
