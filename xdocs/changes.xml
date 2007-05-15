@@ -10,6 +10,7 @@
       <action dev="thpr" type="fix" issue="1711707">Custom Feat Descriptions Not Saving</action>
       <action dev="thpr" type="fix" issue="1712559">Ex class with tab VISIBLE:NO are visible</action>
       <action dev="thpr" type="fix" issue="1565846">GMGen initiative bugs (partial fix)</action>
+      <action dev="jdempsey" type="fix" issue="1711578">[5.11.14] Closing Character with Companions under Java 1.6.</action>
     </release>
     <release version="5.11.14" date="2007-05-02" description="Beta release">
       <action dev="tir-gwaith" type="add" issue="1703302">[SRD/RSRD]Dynamic DESC for Combat Expertise and Power Attack</action>
