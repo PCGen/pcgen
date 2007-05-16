@@ -49,8 +49,6 @@ CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONU
 CLASS:Incarnate	PREALIGN:TN	PRECLASS:1,Druid=4	PREFEAT:1,Quicken Spell	PRESKILL:1,Knowledge (Nature)=7
 # Class Name	Skill Pts/Lvl	Use Class Skill List	Class Skill
 CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
-# Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Incarnate	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Incarnate|CL
 1	FEATAUTO:Incarnate Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
