@@ -1,54 +1,59 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed May 16 17:44:21 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 ###Block: Blood Witch class features
-Nature Magic	VISIBLE:NO	TYPE:ClassAbility	SA:Nature Magic			SOURCEPAGE:p.8
-Alter Self		VISIBLE:NO	TYPE:ClassAbility	SA:Alter Self 1/day		SOURCEPAGE:p.8	SPELLS:Blood Witch|TIMES=1|CASTERLEVEL=TL|Alter Self,12+INT
-Minor Sacrifice	VISIBLE:NO	TYPE:ClassAbility	SA:Minor Sacrifice|!PREFEAT:1,Major Sacrifice		SOURCEPAGE:p.8
-Wildshape		VISIBLE:NO	TYPE:ClassAbility	SA:Wildshape %/day|Wildshape	SOURCEPAGE:p.8	SPELLS:Class Ability|TIMES=1|CASTERLEVEL=TL|Polymorph Self,14+INT	DEFINE:Wildshape|0
-Major Sacrifice	VISIBLE:NO	TYPE:ClassAbility	SA:Major Sacrifice		SOURCEPAGE:p.8
-Blood Enhancement	VISIBLE:NO	TYPE:ClassAbility	SA:Blood Enhancement (%CHOICE)	SOURCEPAGE:p.8	MULT:YES	STACK:NO	CHOOSE:FEATLIST|TYPE=Metamagic
+# Feat Name		Type			Visible	Special Ability						Define			Innate Spells									Stackable?	Multiple?	Choose					Source Page
+Nature Magic	TYPE:ClassAbility	VISIBLE:NO	SA:Nature Magic																															SOURCEPAGE:p.8
+Alter Self		TYPE:ClassAbility	VISIBLE:NO	SA:Alter Self 1/day									SPELLS:Blood Witch|TIMES=1|CASTERLEVEL=TL|Alter Self,12+INT												SOURCEPAGE:p.8
+Minor Sacrifice	TYPE:ClassAbility	VISIBLE:NO	SA:Minor Sacrifice|!PREFEAT:1,Major Sacrifice																										SOURCEPAGE:p.8
+Wildshape		TYPE:ClassAbility	VISIBLE:NO	SA:Wildshape %/day|Wildshape				DEFINE:Wildshape|0	SPELLS:Class Ability|TIMES=1|CASTERLEVEL=TL|Polymorph Self,14+INT											SOURCEPAGE:p.8
+Major Sacrifice	TYPE:ClassAbility	VISIBLE:NO	SA:Major Sacrifice																														SOURCEPAGE:p.8
+Blood Enhancement	TYPE:ClassAbility	VISIBLE:NO	SA:Blood Enhancement (%CHOICE)																		STACK:NO	MULT:YES	CHOOSE:FEATLIST|TYPE=Metamagic	SOURCEPAGE:p.8
 
 ###Block: Crypt Lord class features
-Extended Necromancy	SA:Extended Necromancy																		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
-Undead Appearance		SA:Undead Appearance																		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
-Undead Familiar		SA:Undead Familiar																		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
-Raise the Dead		SA:Raise the Dead																			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
-Create Undead		SA:Create Undead																			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
-Lichdom			SA:Lichdom																				VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10	TEMPLATE:Lich
-Energy Drain Resistance	SA:Energy Drain Resistance (+%)|EnergyDrainResistance|!PREFEAT:1,Endergy Drain Immunity	DEFINE:EnergyDrainResistance|0	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
-Energy Drain Immunity	SA:Energy Drain Immunity																	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
+# Feat Name			Type			Visible	Special Ability													Define					Template		Source Page
+Extended Necromancy	TYPE:ClassAbility	VISIBLE:NO	SA:Extended Necromancy																					SOURCEPAGE:p.10
+Undead Appearance		TYPE:ClassAbility	VISIBLE:NO	SA:Undead Appearance																					SOURCEPAGE:p.10
+Undead Familiar		TYPE:ClassAbility	VISIBLE:NO	SA:Undead Familiar																					SOURCEPAGE:p.10
+Raise the Dead		TYPE:ClassAbility	VISIBLE:NO	SA:Raise the Dead																						SOURCEPAGE:p.10
+Create Undead		TYPE:ClassAbility	VISIBLE:NO	SA:Create Undead																						SOURCEPAGE:p.10
+Lichdom			TYPE:ClassAbility	VISIBLE:NO	SA:Lichdom																				TEMPLATE:Lich	SOURCEPAGE:p.10
+Energy Drain Resistance	TYPE:ClassAbility	VISIBLE:NO	SA:Energy Drain Resistance (+%)|EnergyDrainResistance|!PREFEAT:1,Endergy Drain Immunity	DEFINE:EnergyDrainResistance|0				SOURCEPAGE:p.10
+Energy Drain Immunity	TYPE:ClassAbility	VISIBLE:NO	SA:Energy Drain Immunity																				SOURCEPAGE:p.10
 
 ###Block: Incarnate class features
-Reincarnate			SA:Reincarnate			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
-Fixed Alignment		SA:Fixed Alignment		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
-Venom Imunity		SA:Venom Immunity			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
-Timeless Body		SA:Timeless Body			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12	TEMPLATE:Timeless Body ~ Adult
-Designate Life Form	SA:Designate Life Form		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
-Pastlife Form		SA:Pastlife Form (%CHOICE)	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12	MULT:YES	STACK:NO	CHOOSE:RACE|RACETYPE=Animal|RACETYPE=Vermin|RACETYPE=Beast|RACETYPE=Fey|RACETYPE=Humanoid
-Baseform			SA:Baseform (%CHOICE)		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12	MULT:YES	STACK:NO	CHOOSE:FEAT=Pastlife Form
-Incarnate Spontaneous Casting	SA:Spontaneous Casting (%CHOICE domain)	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12	MULT:YES	STACK:NO	CHOOSE:Air|Animal|Earth|Healing|Plant|Strength|Sun|Water		SPELLLEVEL:CLASS|Druid=1|Obscuring Mist|Druid=2|Wind Wall|Druid=3|Gaseous Form|Druid=4|Air Walk|Druid=5|Control Winds|Druid=6|Chain Lightning|Druid=7|Control Weather|Druid=8|Whirlwind|Druid=9|Elemental Swarm|PREFEAT:1,Incarnate Spontaneous Casting(Air)	SPELLLEVEL:CLASS|Druid=1|Calm Animals|Druid=2|Hold Animal|Druid=3|Dominate Animal|Druid=4|Repel Vermin|Druid=5|Commune with Nature|Druid=6|Antilife Shell|Druid=7|Animal Shapes|Druid=8|Creeping Doom|Druid=9|Shapechange|PREFEAT:1,Incarnate Spontaneous Casting(Animal)	SPELLLEVEL:CLASS|Druid=1|Magic Stone|Druid=2|Soften Earth and Stone|Druid=3|Stone Shape|Druid=4|Spike Stones|Druid=5|Wall of Stone|Druid=6|Stoneskin|Druid=7|Earthquake|Druid=8|Iron Body|Druid=9|Elemental Swarm|PREFEAT:1,Incarnate Spontaneous Casting(Earth)	SPELLLEVEL:CLASS|Druid=1|Cure Light Wounds|Druid=2|Cure Moderate Wounds|Druid=3|Cure Serious Wounds|Druid=4|Cure Critical Wounds|Druid=5|Healing Circle|Druid=6|Heal|Druid=7|Regenerate|Druid=8|Mass Heal|Druid=9|True Resurrection|PREFEAT:1,Incarnate Spontaneous Casting(Healing)	SPELLLEVEL:CLASS|Druid=1|Entangle|Druid=2|Barkskin|Druid=3|Plant Growth|Druid=4|Control Plants|Druid=5|Wall of Thorns|Druid=6|Repel Wood|Druid=7|Changestaff|Druid=8|Command Plants|Druid=9|Shambler|PREFEAT:1,Incarnate Spontaneous Casting(Plant)	SPELLLEVEL:CLASS|Druid=1|Endure Elements|Druid=2|Bull's Strength|Druid=3|Magic Vestment|Druid=4|Spell Immunity|Druid=5|Righteous Might|Druid=6|Stoneskin|Druid=7|Grasping Hand|Druid=8|Clenched Fist|Druid=9|Crushing Hand|PREFEAT:1,Incarnate Spontaneous Casting(Strength)	SPELLLEVEL:CLASS|Druid=1|Endure Elements|Druid=2|Heat Metal|Druid=3|Searing Light|Druid=4|Fire Shield|Druid=5|Flame Strike|Druid=6|Fire Seeds|Druid=7|Sunbeam|Druid=8|Sunburst|Druid=9|Prismatic Sphere|PREFEAT:1,Incarnate Spontaneous Casting(Sun)	SPELLLEVEL:CLASS|Druid=1|Obscuring Mist|Druid=2|Fog Cloud|Druid=3|Water Breathing|Druid=4|Control Water|Druid=5|Ice Storm|Druid=6|Cone of Cold|Druid=7|Acid Fog|Druid=8|Horrid Wilting|Druid=9|Elemental Swarm|PREFEAT:1,Incarnate Spontaneous Casting(Water)
+# Feat Name				Type			Visible	Special Ability					Stackable?	Multiple?	Choose														Template					Source Page		List of Class Spells by Level
+Reincarnate				TYPE:ClassAbility	VISIBLE:NO	SA:Reincarnate																														SOURCEPAGE:p.12
+Fixed Alignment			TYPE:ClassAbility	VISIBLE:NO	SA:Fixed Alignment																													SOURCEPAGE:p.12
+Venom Imunity			TYPE:ClassAbility	VISIBLE:NO	SA:Venom Immunity																														SOURCEPAGE:p.12
+Timeless Body			TYPE:ClassAbility	VISIBLE:NO	SA:Timeless Body																								TEMPLATE:Timeless Body ~ Adult	SOURCEPAGE:p.12
+Designate Life Form		TYPE:ClassAbility	VISIBLE:NO	SA:Designate Life Form																													SOURCEPAGE:p.12
+Pastlife Form			TYPE:ClassAbility	VISIBLE:NO	SA:Pastlife Form (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Animal|RACETYPE=Vermin|RACETYPE=Beast|RACETYPE=Fey|RACETYPE=Humanoid							SOURCEPAGE:p.12
+Baseform				TYPE:ClassAbility	VISIBLE:NO	SA:Baseform (%CHOICE)				STACK:NO	MULT:YES	CHOOSE:FEAT=Pastlife Form																	SOURCEPAGE:p.12
+Incarnate Spontaneous Casting	TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous Casting (%CHOICE domain)	STACK:NO	MULT:YES	CHOOSE:Air|Animal|Earth|Healing|Plant|Strength|Sun|Water												SOURCEPAGE:p.12	SPELLLEVEL:CLASS|Druid=1|Obscuring Mist|Druid=2|Wind Wall|Druid=3|Gaseous Form|Druid=4|Air Walk|Druid=5|Control Winds|Druid=6|Chain Lightning|Druid=7|Control Weather|Druid=8|Whirlwind|Druid=9|Elemental Swarm|PREFEAT:1,Incarnate Spontaneous Casting(Air)	SPELLLEVEL:CLASS|Druid=1|Calm Animals|Druid=2|Hold Animal|Druid=3|Dominate Animal|Druid=4|Repel Vermin|Druid=5|Commune with Nature|Druid=6|Antilife Shell|Druid=7|Animal Shapes|Druid=8|Creeping Doom|Druid=9|Shapechange|PREFEAT:1,Incarnate Spontaneous Casting(Animal)	SPELLLEVEL:CLASS|Druid=1|Magic Stone|Druid=2|Soften Earth and Stone|Druid=3|Stone Shape|Druid=4|Spike Stones|Druid=5|Wall of Stone|Druid=6|Stoneskin|Druid=7|Earthquake|Druid=8|Iron Body|Druid=9|Elemental Swarm|PREFEAT:1,Incarnate Spontaneous Casting(Earth)	SPELLLEVEL:CLASS|Druid=1|Cure Light Wounds|Druid=2|Cure Moderate Wounds|Druid=3|Cure Serious Wounds|Druid=4|Cure Critical Wounds|Druid=5|Healing Circle|Druid=6|Heal|Druid=7|Regenerate|Druid=8|Mass Heal|Druid=9|True Resurrection|PREFEAT:1,Incarnate Spontaneous Casting(Healing)	SPELLLEVEL:CLASS|Druid=1|Entangle|Druid=2|Barkskin|Druid=3|Plant Growth|Druid=4|Control Plants|Druid=5|Wall of Thorns|Druid=6|Repel Wood|Druid=7|Changestaff|Druid=8|Command Plants|Druid=9|Shambler|PREFEAT:1,Incarnate Spontaneous Casting(Plant)	SPELLLEVEL:CLASS|Druid=1|Endure Elements|Druid=2|Bull's Strength|Druid=3|Magic Vestment|Druid=4|Spell Immunity|Druid=5|Righteous Might|Druid=6|Stoneskin|Druid=7|Grasping Hand|Druid=8|Clenched Fist|Druid=9|Crushing Hand|PREFEAT:1,Incarnate Spontaneous Casting(Strength)	SPELLLEVEL:CLASS|Druid=1|Endure Elements|Druid=2|Heat Metal|Druid=3|Searing Light|Druid=4|Fire Shield|Druid=5|Flame Strike|Druid=6|Fire Seeds|Druid=7|Sunbeam|Druid=8|Sunburst|Druid=9|Prismatic Sphere|PREFEAT:1,Incarnate Spontaneous Casting(Sun)	SPELLLEVEL:CLASS|Druid=1|Obscuring Mist|Druid=2|Fog Cloud|Druid=3|Water Breathing|Druid=4|Control Water|Druid=5|Ice Storm|Druid=6|Cone of Cold|Druid=7|Acid Fog|Druid=8|Horrid Wilting|Druid=9|Elemental Swarm|PREFEAT:1,Incarnate Spontaneous Casting(Water)
 
 ###Block: Penumbral Lord class features
-Shadow Strength		VISIBLE:NO	TYPE:ClassAbility	SA:Shadow Strength						SOURCEPAGE:p.15
-Shadowcat Form		VISIBLE:NO	TYPE:ClassAbility	SA:Shadowcat Form							SOURCEPAGE:p.15
-Shadowcast			VISIBLE:NO	TYPE:ClassAbility	SA:Shadowcast %|Shadowcast	DEFINE:Shadowcast|0	SOURCEPAGE:p.15
-Improved Darkvision	VISIBLE:NO	TYPE:ClassAbility	SA:Improved Darkvision						SOURCEPAGE:p.15
-Shadowraven Form		VISIBLE:NO	TYPE:ClassAbility	SA:Shadowraven Form						SOURCEPAGE:p.15
-Shadowstep			VISIBLE:NO	TYPE:ClassAbility	SA:Shadowstep							SOURCEPAGE:p.15
-Shadow Home			VISIBLE:NO	TYPE:ClassAbility	SA:Shadow Home							SOURCEPAGE:p.15
+# Feat Name			Type			Visible	Special Ability			Define			Source Page
+Shadow Strength		TYPE:ClassAbility	VISIBLE:NO	SA:Shadow Strength						SOURCEPAGE:p.15
+Shadowcat Form		TYPE:ClassAbility	VISIBLE:NO	SA:Shadowcat Form							SOURCEPAGE:p.15
+Shadowcast			TYPE:ClassAbility	VISIBLE:NO	SA:Shadowcast %|Shadowcast	DEFINE:Shadowcast|0	SOURCEPAGE:p.15
+Improved Darkvision	TYPE:ClassAbility	VISIBLE:NO	SA:Improved Darkvision						SOURCEPAGE:p.15
+Shadowraven Form		TYPE:ClassAbility	VISIBLE:NO	SA:Shadowraven Form						SOURCEPAGE:p.15
+Shadowstep			TYPE:ClassAbility	VISIBLE:NO	SA:Shadowstep							SOURCEPAGE:p.15
+Shadow Home			TYPE:ClassAbility	VISIBLE:NO	SA:Shadow Home							SOURCEPAGE:p.15
 
 ###Block: Sea Witch class features
-Bond with Boat/Ship		VISIBLE:NO	TYPE:ClassAbility	SA:Bond with Boat/Ship %|Bonding			DEFINE:Bonding|0		SOURCEPAGE:p.18
-Ignore Metamagic Penalty	VISIBLE:NO	TYPE:ClassAbility	SA:Ignore Metamagic Penalty % level|IMPenalty	DEFINE:IMPenalty|0	SOURCEPAGE:p.18
-Aquatic Wildshape			VISIBLE:NO	TYPE:ClassAbility	SA:Aquatic Wildshape %/day|Wildshape		DEFINE:Wildshape|0	SOURCEPAGE:p.18
+# Feat Name				Type			Visible	Special Ability						Define			Source Page
+Bond with Boat/Ship		TYPE:ClassAbility	VISIBLE:NO	SA:Bond with Boat/Ship %|Bonding			DEFINE:Bonding|0		SOURCEPAGE:p.18
+Ignore Metamagic Penalty	TYPE:ClassAbility	VISIBLE:NO	SA:Ignore Metamagic Penalty % level|IMPenalty	DEFINE:IMPenalty|0	SOURCEPAGE:p.18
+Aquatic Wildshape			TYPE:ClassAbility	VISIBLE:NO	SA:Aquatic Wildshape %/day|Wildshape		DEFINE:Wildshape|0	SOURCEPAGE:p.18
 
 ###Block: Summoner class features
-# Feat Name							Type			Visible	Choose																						Source Page
-Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	CHOOSE:SPELLLEVEL|1|TYPE=%|MAXLEVEL|MAXLEVEL[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1] [BONUS:SPELLCAST|CLASS=MAXLEVEL;LEVEL=MAXLEVEL|1]		SOURCEPAGE:p.20
+# Feat Name							Type			Visible	Choose																					Source Page
+Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	CHOOSE:SPELLLEVEL|1|TYPE=%|MAXLEVEL|MAXLEVEL[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1] [BONUS:SPELLCAST|CLASS=MAXLEVEL;LEVEL=MAXLEVEL|1]	SOURCEPAGE:p.20
 
 ###Block: Vigilant Class Feats
-# Feat Name			Type			Visible	Required Class		Special Ability						Define					Multiple?	Choose																																										Source Page
+# Feat Name			Type			Visible	Special Ability						Define					Multiple?	Choose																																										Source Page
 Vigilant Favored Enemy	TYPE:ClassAbility	VISIBLE:NO	SA:Favored Enemy (%CHOICE) +%|VigilantFavored	DEFINE:VigilantFavored|(CL+2)/4	MULT:YES	CHOOSE:Favored Enemy|TYPE=Aberration|TYPE=Animal|TYPE=Beast|TYPE=Construct|TYPE=Dragon|TYPE=Elemental|TYPE=Fey|TYPE=Giant|TYPE=Humanoid|TYPE=Magical Beast|TYPE=Monstrous Humanoid|TYPE=Ooze|TYPE=Outsider|TYPE=Plant|TYPE=Shapechanger|TYPE=Undead|TYPE=Vermin	SOURCEPAGE:p.22
 Sprint			TYPE:ClassAbility	VISIBLE:NO	SA:Sprint																																																										SOURCEPAGE:p.22
 Tireless			TYPE:ClassAbility	VISIBLE:NO	SA:Tireless																																																										SOURCEPAGE:p.22
