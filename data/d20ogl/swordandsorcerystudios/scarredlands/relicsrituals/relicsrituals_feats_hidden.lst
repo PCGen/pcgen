@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed May 16 17:44:21 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Wed May 16 18:39:38 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 ###Block: Blood Witch class features
@@ -49,8 +49,8 @@ Ignore Metamagic Penalty	TYPE:ClassAbility	VISIBLE:NO	SA:Ignore Metamagic Penalt
 Aquatic Wildshape			TYPE:ClassAbility	VISIBLE:NO	SA:Aquatic Wildshape %/day|Wildshape		DEFINE:Wildshape|0	SOURCEPAGE:p.18
 
 ###Block: Summoner class features
-# Feat Name							Type			Visible	Choose																					Source Page
-Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	CHOOSE:SPELLLEVEL|1|TYPE=%|MAXLEVEL|MAXLEVEL[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1] [BONUS:SPELLCAST|CLASS=MAXLEVEL;LEVEL=MAXLEVEL|1]	SOURCEPAGE:p.20
+# Feat Name							Type			Visible	Multiple?	Choose																								Source Page
+Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|TYPE=Arcane|MAXLEVEL|MAXLEVEL|TYPE=Divine|MAXLEVEL|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1][BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.20
 
 ###Block: Vigilant Class Feats
 # Feat Name			Type			Visible	Special Ability						Define					Multiple?	Choose																																										Source Page
