@@ -523,12 +523,16 @@ public final class Spell extends PObject
 
 	public void clearLevelInfo(String type)
 	{
-		String typeBar = type + "|";
-		for (Iterator<String> it = levelInfo.keySet().iterator(); it.hasNext(); )
+		if (levelInfo != null)
 		{
-			if (it.next().startsWith(typeBar))
+			String typeBar = type + "|";
+			for (Iterator<String> it = levelInfo.keySet().iterator(); it
+				.hasNext();)
 			{
-				it.remove();
+				if (it.next().startsWith(typeBar))
+				{
+					it.remove();
+				}
 			}
 		}
 	}
@@ -1034,6 +1038,10 @@ public final class Spell extends PObject
 	 */
 	public boolean isLevel(final int aLevel, final PlayerCharacter aPC)
 	{
+		if (levelInfo == null)
+		{
+			return false;
+		}
 		final Integer levelKey = Integer.valueOf(aLevel);
 		for (PCClass cls : aPC.getClassList())
 		{
