@@ -20,21 +20,16 @@ Energy Drain Resistance	SA:Energy Drain Resistance (+%)|EnergyDrainResistance|!P
 Energy Drain Immunity	SA:Energy Drain Immunity																	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.10
 
 ###Block: Incarnate class features
-Reincarnate			SA:Reincarnate		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
-Fixed Alignment		SA:Fixed Alignment	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
-Venom Imunity		SA:Venom Immunity		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
-Timeless Body		SA:Timeless Body		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12	TEMPLATE:Timeless Body ~ Adult
-Designate Life Form	SA:Designate Life Form	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
-
-#	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
-#	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
+Reincarnate			SA:Reincarnate			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
+Fixed Alignment		SA:Fixed Alignment		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
+Venom Imunity		SA:Venom Immunity			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
+Timeless Body		SA:Timeless Body			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12	TEMPLATE:Timeless Body ~ Adult
+Designate Life Form	SA:Designate Life Form		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12
+Pastlife Form		SA:Pastlife Form (%CHOICE)	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12	MULT:YES	STACK:NO	CHOOSE:RACE|RACETYPE=Animal|RACETYPE=Vermin|RACETYPE=Beast|RACETYPE=Fey|RACETYPE=Humanoid
+Baseform			SA:Baseform (%CHOICE)		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12	MULT:YES	STACK:NO	CHOOSE:FEAT=Pastlife Form
+Incarnate Spontaneous Casting	SA:Spontaneous Casting (%CHOICE domain)	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.12	MULT:YES	STACK:NO	CHOOSE:
 #	ADD:Spontaneous Casting |1|Air,Animal,Earth,Healing,Plant,Strength,Sun,Water
-#	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
-#	ADD:Baseform|1|TYPE=Animal,TYPE=Vermin
-#	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
 #	ADD:Spontaneous Casting |1|Air,Animal,Earth,Healing,Plant,Strength,Sun,Water
-#	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
-#	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
 
 
 ###Block: Penumbral Lord class features

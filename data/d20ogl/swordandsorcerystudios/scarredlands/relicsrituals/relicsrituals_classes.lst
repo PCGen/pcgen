@@ -55,14 +55,14 @@ CLASS:Incarnate	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Incarnate|CL
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1	FEATAUTO:Reincarnate|Fixed Alignment	BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
-2								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
-3								BONUS:PCLEVEL|Druid|1	ADD:Spontaneous Casting |1|Air,Animal,Earth,Healing,Plant,Strength,Sun,Water
-4								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
-5	FEATAUTO:Venom immunity				BONUS:PCLEVEL|Druid|1	ADD:Baseform|1|TYPE=Animal,TYPE=Vermin
-6								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
+1	FEATAUTO:Reincarnate|Fixed Alignment	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
+2								BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
+3								BONUS:PCLEVEL|Druid|1	ADD:Spontaneous Casting |1|Air,Animal,Earth,Healing,Plant,Strength,Sun,Water		BONUS:DOMAIN|NUMBER|1
+4								BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
+5	FEATAUTO:Venom immunity				BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Baseform
+6								BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 7								BONUS:PCLEVEL|Druid|1	ADD:Spontaneous Casting |1|Air,Animal,Earth,Healing,Plant,Strength,Sun,Water
-8								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
+8								BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 9	FEATAUTO:Timeless Body				BONUS:PCLEVEL|Druid|1
 10	FEATAUTO:Designate Life Form			BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form|1|TYPE=Animal,TYPE=Vermin
 
