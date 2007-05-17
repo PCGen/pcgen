@@ -9,15 +9,12 @@ CLASS:Agency Operative	PREATT:5	PRESKILL:1,Knowledge (Law)=4	PRESKILL:1,Knowledg
 CLASS:Agency Operative	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Holdout|Innuendo|Knowledge (Law)|Knowledge (Occult)|Listen|Move Silently|Open Lock|Ridicule|Search|Sense Motive|TYPE.Language|Spot
 1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun|TYPE.Automatic	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Automatic Weapon Proficiency
 ###Block: Normal Progression
-1												BONUS:SKILLRANK|Knowledge (Occult)|1
-2	SA:Friends in High Places %|FriendsHigh	BONUS:VAR|FriendsHigh|2								DEFINE:FriendsHigh|0
-3																							ADD:FEAT|1|Skill Focus
-4								BONUS:VAR|FriendsHigh|2
-5	SA:Requisition Equipment
-6								BONUS:VAR|FriendsHigh|2												ADD:FEAT|1|Skill Focus
-8								BONUS:VAR|FriendsHigh|2
-9																							ADD:FEAT|1|Skill Focus
-10								BONUS:VAR|FriendsHigh|2
+1													BONUS:SKILLRANK|Knowledge (Occult)|1
+2	FEATAUTO:Friends in High Places	BONUS:VAR|FriendsHigh|2*floor(CL/2)
+3																			ADD:FEAT|1|Skill Focus
+5	FEATAUTO:Requisition Equipment
+6																			ADD:FEAT|1|Skill Focus
+9																			ADD:FEAT|1|Skill Focus
 
 # Class Name		Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus																		Combat bonus
 CLASS:Black Magician	HD:4		TYPE:NPC	ABB:Blm		SOURCEPAGE:p.124	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|1+floor(CL/5)+floor((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
