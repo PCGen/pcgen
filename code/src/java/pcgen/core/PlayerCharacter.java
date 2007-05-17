@@ -2889,8 +2889,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 				else
 				{
-					return skill1.getDisplayName().compareToIgnoreCase(
-						skill2.getDisplayName());
+					return skill1.getOutputName().compareToIgnoreCase(
+						skill2.getOutputName());
 				}
 			}
 		});

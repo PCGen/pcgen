@@ -1277,11 +1277,11 @@ public final class Skill extends PObject
 	{
 		if (getAssociatedCount() == 0)
 		{
-			return displayName;
+			return this.getOutputName();
 		}
 
 		final StringBuffer buffer = new StringBuffer(getAssociatedCount() * 20);
-		buffer.append(displayName).append("(");
+		buffer.append(this.getOutputName()).append("(");
 
 		for (int i = 0; i < getAssociatedCount(); i++)
 		{

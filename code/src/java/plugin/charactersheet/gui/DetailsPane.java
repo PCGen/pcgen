@@ -873,7 +873,7 @@ public class DetailsPane extends javax.swing.JPanel
 
 		if (pc.getDeity() != null)
 		{
-			deity.setText(pc.getDeity().getDisplayName() + ' ');
+			deity.setText(pc.getDeity().getOutputName() + ' ');
 		}
 		else
 		{
