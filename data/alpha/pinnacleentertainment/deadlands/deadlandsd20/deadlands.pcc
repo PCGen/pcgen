@@ -22,27 +22,29 @@ COPYRIGHT:PCGen dataset conversion for Deadlands D20 Copyright 2003-2005, PCGen 
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:DLMagicItemPrices.txt
 
-CLASS:deadlandsclasses.lst
-CLASS:deadlandsmonclasses.lst
-EQUIPMENT:deadlandsequiparmorshields.lst
-EQUIPMENT:deadlandsequip.lst
-EQUIPMENT:deadlandsequipcoins.lst
-EQUIPMENT:deadlandsequipwondrousitems.lst
-EQUIPMENT:deadlandsequipweapammo.lst
-EQUIPMENT:deadlandsequipweapmelee.lst
-EQUIPMENT:deadlandsequipweapranged.lst
-FEAT:deadlandsfeats.lst
-FEAT:deadlandsmonfeats.lst
-RACE:deadlandsraces.lst
-RACE:deadlandsmonraces.lst
-SKILL:deadlandsskills.lst
-SPELL:deadlandsspells.lst
-TEMPLATE:deadlandsmontemplates.lst
-TEMPLATE:deadlandstemplates.lst
-WEAPONPROF:deadlandsweapprofs.lst
-WEAPONPROF:deadlandsmonweapprofs.lst
-LANGUAGE:deadlandslanguages.lst
-EQUIPMOD:deadlandsequipmods.lst
+CLASS:deadlands_classes.lst
+EQUIPMENT:deadlands_equip_armorshields.lst
+EQUIPMENT:deadlands_equip.lst
+EQUIPMENT:deadlands_equip_coins.lst
+EQUIPMENT:deadlands_equip_wondrousitems.lst
+EQUIPMENT:deadlands_equip_weap_ammo.lst
+EQUIPMENT:deadlands_equip_weap_melee.lst
+EQUIPMENT:deadlands_equip_weap_ranged.lst
+FEAT:deadlands_feats.lst
+RACE:deadlands_races.lst
+SKILL:deadlands_skills.lst
+SPELL:deadlands_spells.lst
+TEMPLATE:deadlands_templates.lst
+WEAPONPROF:deadlands_weaponprofs.lst
+LANGUAGE:deadlands_languages.lst
+EQUIPMOD:deadlands_equipmods.lst
+
+CLASS:deadlands_mon_classes.lst
+FEAT:deadlands_mon_feats.lst
+RACE:deadlands_mon_races.lst
+TEMPLATE:deadlands_mon_templates.lst
+WEAPONPROF:deadlands_mon_weaponprofs.lst
+
 
 # For the Evasion and Improved Evasion pseudo-feats
 FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion|Uncanny Dodge)
