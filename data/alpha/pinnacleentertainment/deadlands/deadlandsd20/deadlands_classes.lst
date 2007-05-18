@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu May 17 19:22:24 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Thu May 17 19:33:36 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus
@@ -26,26 +26,26 @@ CLASS:Black Magician	STARTSKILLPTS:2	CSKILL:Alchemy|Black Magic|Concentration|TY
 CLASS:Black Magician	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Black Magician|CL
 1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
 ###Block: Normal Progression
-1	ADD:LIST(4 zero or 1st level spells [CHOOSE:SPELLLEVEL|4|CLASS=Black Magician|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-2	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-3	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-4	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-5	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
-6	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-7	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-8	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-9	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-10	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
-11	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-12	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-13	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-14	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-15	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
-16	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-17	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-18	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-19	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-20	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+1	BONUS:VAR|BlackMagicPoints|(CL*INT)+INTSCORE	ADD:FEAT|4|Black Magician up to 1st level Black Magic												FEATAUTO:Black Magician Black Magic Points
+2									ADD:FEAT|INT|Black Magician up to 1st level Black Magic
+3									ADD:FEAT|INT|Black Magician up to 2nd level Black Magic
+4									ADD:FEAT|INT|Black Magician up to 2nd level Black Magic
+5									ADD:FEAT|INT|Black Magician up to 3rd level Black Magic	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+6									ADD:FEAT|INT|Black Magician up to 3rd level Black Magic
+7									ADD:FEAT|INT|Black Magician up to 4th level Black Magic
+8									ADD:FEAT|INT|Black Magician up to 4th level Black Magic
+9									ADD:FEAT|INT|Black Magician up to 5th level Black Magic
+10									ADD:FEAT|INT|Black Magician up to 5th level Black Magic	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+11									ADD:FEAT|INT|Black Magician up to 6th level Black Magic
+12									ADD:FEAT|INT|Black Magician up to 6th level Black Magic
+13									ADD:FEAT|INT|Black Magician up to 7th level Black Magic
+14									ADD:FEAT|INT|Black Magician up to 7th level Black Magic
+15									ADD:FEAT|INT|Black Magician up to 8th level Black Magic	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+16									ADD:FEAT|INT|Black Magician up to 8th level Black Magic
+17									ADD:FEAT|INT|Black Magician up to 9th level Black Magic
+18									ADD:FEAT|INT|Black Magician up to 9th level Black Magic
+19									ADD:FEAT|INT|Black Magician up to 9th level Black Magic
+20									ADD:FEAT|INT|Black Magician up to 9th level Black Magic	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
 
 # Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus																		Combat bonus
 CLASS:Blessed	HD:6		TYPE:PC	ABB:Bls		SOURCEPAGE:p.24	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE

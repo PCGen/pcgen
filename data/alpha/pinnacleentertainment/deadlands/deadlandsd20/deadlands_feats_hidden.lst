@@ -1,82 +1,77 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu May 17 19:33:36 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 
 ###Block: Agency Operative class features
-Friends in High Places	SA:Friends in High Places %|FriendsHigh	DEFINE:FriendsHigh|0	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.90
-Requisition Equipment	SA:Requisition Equipment							VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.90
+# Feat Name			Type			Visible	Special Ability					Define			Source Page
+Friends in High Places	TYPE:ClassAbility	VISIBLE:NO	SA:Friends in High Places %|FriendsHigh	DEFINE:FriendsHigh|0	SOURCEPAGE:p.90
+Requisition Equipment	TYPE:ClassAbility	VISIBLE:NO	SA:Requisition Equipment							SOURCEPAGE:p.90
 
 ###Block: Black Magician class features
-#1	ADD:LIST(4 zero or 1st level spells [CHOOSE:SPELLLEVEL|4|CLASS=Black Magician|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#2	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|1[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+# Feat Name					Type			Visible	Special Ability									Define				Source Page
+Black Magician Black Magic Points	TYPE:Internal	VISIBLE:NO	SA:Black Magician max Black Magic Points (%)|BlackMagicPoints	DEFINE:BlackMagicPoints|0	SOURCEPAGE:p.124
 
-#3	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|2[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#4	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|2[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-
-#5	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#6	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-
-#7	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|4[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#8	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|4[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-
-#9	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|5[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#10	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|5[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-
-#11	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|6[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#12	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|6[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-
-#13	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|7[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#14	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|7[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-
-#15	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|8[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#16	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|8[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-
-#17	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#18	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#19	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#20	ADD:LIST(INT in spells [	CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+###Block: Black Magician spells known
+# Feat Name							Type			Visible	Multiple?	Choose													Source Page
+Black Magician up to 1st level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|1[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.124
+Black Magician up to 2nd level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|2[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.124
+Black Magician up to 3rd level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.124
+Black Magician up to 4th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|4[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.124
+Black Magician up to 5th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|5[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.124
+Black Magician up to 6th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|6[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.124
+Black Magician up to 7th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|7[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.124
+Black Magician up to 8th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|8[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.124
+Black Magician up to 9th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|9[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.124
 
 ###Block: Blessed class features
-Divine Intervention	VISIBLE:NO	TYPE:ClassAbility	SA:Divine Intervention %/week|DivineInterventionTimes		DEFINE:DivineInterventionTimes|0	SOURCEPAGE:p.24
-Blessed Miracle Points	VISIBLE:NO	TYPE:Internal	SA:Blessed max Miracle Points (%)|BlessedMiraclesPoints	DEFINE:BlessedMiraclesPoints|0	SOURCEPAGE:p.24
+# Feat Name			Type			Visible	Special Ability								Define					Source Page
+Divine Intervention	TYPE:ClassAbility	VISIBLE:NO	SA:Divine Intervention %/week|DivineInterventionTimes		DEFINE:DivineInterventionTimes|0	SOURCEPAGE:p.24
+Blessed Miracle Points	TYPE:Internal	VISIBLE:NO	SA:Blessed max Miracle Points (%)|BlessedMiraclesPoints	DEFINE:BlessedMiraclesPoints|0	SOURCEPAGE:p.24
 
 ###Block: Blessed spells known
-Blessed up to 1st level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|1[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-Blessed up to 2nd level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|2[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-Blessed up to 3rd level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-Blessed up to 4th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|4[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-Blessed up to 5th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|5[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-Blessed up to 6th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|6[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-Blessed up to 7th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|7[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-Blessed up to 8th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|8[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-Blessed up to 9th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|9[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+# Feat Name					Type			Visible	Multiple?	Choose											Source Page
+Blessed up to 1st level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|1[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.24
+Blessed up to 2nd level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|2[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.24
+Blessed up to 3rd level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.24
+Blessed up to 4th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|4[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.24
+Blessed up to 5th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|5[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.24
+Blessed up to 6th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|6[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.24
+Blessed up to 7th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|7[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.24
+Blessed up to 8th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|8[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.24
+Blessed up to 9th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|9[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.24
 
 
 ###Block: Brave class features
-War Cry		SA:War Cry %/day|WarCry	DEFINE:WarCry|0	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.26
-Greater War Cry	SA:Greater War Cry				VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.26
+# Feat Name		Type			Visible	Special Ability		Define		Source Page
+War Cry		TYPE:ClassAbility	VISIBLE:NO	SA:War Cry %/day|WarCry	DEFINE:WarCry|0	SOURCEPAGE:p.26
+Greater War Cry	TYPE:ClassAbility	VISIBLE:NO	SA:Greater War Cry				SOURCEPAGE:p.26
 
 ###Block: Gunslinger class abilities
-Greased Lightning	SA:Greased Lightnin' +%|GreaseLightning	DEFINE:GreaseLightning|0	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.28
+# Feat Name		Type			Visible	Special Ability					Define				Source Page
+Greased Lightning	TYPE:ClassAbility	VISIBLE:NO	SA:Greased Lightnin' +%|GreaseLightning	DEFINE:GreaseLightning|0	SOURCEPAGE:p.28
 
 ###Block: Huckster class features
-Old Hand		VISIBLE:NO	TYPE:ClassAbility	SA:Old Hand %|OldHand	DEFINE:OldHand|0	SOURCEPAGE:p.30
-Blood Magician	VISIBLE:NO	TYPE:ClassAbility	SA:Blood Magic					SOURCEPAGE:p.30
+# Feat Name		Type			Visible	Special Ability		Define		Source Page
+Old Hand		TYPE:ClassAbility	VISIBLE:NO	SA:Old Hand %|OldHand	DEFINE:OldHand|0	SOURCEPAGE:p.30
+Blood Magician	TYPE:ClassAbility	VISIBLE:NO	SA:Blood Magic					SOURCEPAGE:p.30
 
 ###Block: Mad Scientist class features
-Concoct Potion	SA:Concoct Potion		VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.32
-Starting Gadget	SA:Starting gadget	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.32
-Jury Rig		SA:Jury Rig %|JuryRig	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.32	DEFINE:JuryRig|0
-Jinx			SA:Jinx			VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.32
+# Feat Name		Type			Visible	Special Ability		Define		Source Page
+Concoct Potion	TYPE:ClassAbility	VISIBLE:NO	SA:Concoct Potion					SOURCEPAGE:p.32
+Starting Gadget	TYPE:ClassAbility	VISIBLE:NO	SA:Starting gadget				SOURCEPAGE:p.32
+Jury Rig		TYPE:ClassAbility	VISIBLE:NO	SA:Jury Rig %|JuryRig	DEFINE:JuryRig|0	SOURCEPAGE:p.32
+Jinx			TYPE:ClassAbility	VISIBLE:NO	SA:Jinx						SOURCEPAGE:p.32
 
 ###Block: Maverick class features
-Extraordinary Luck	SA:Extraordinary Luck	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.34
-Gambler's Luck		SA:Gambler's Luck										VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.34
-Maverick Sneak Attack													VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.34	BONUS:VAR|SneakAttack|1	VFEAT:Sneak Attack
+# Feat Name			Type			Visible	Special Ability		Virtual Feat		Save checks bonus						Modify VAR			Source Page
+Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SA:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)					SOURCEPAGE:p.34
+Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SA:Gambler's Luck																		SOURCEPAGE:p.34
+Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack									BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.34
 # Not sure on the Maverick Sneak Attack, but had to remove the ADD:SPECIAL. - Tir Gwaith
 
 ###Block: Rowdy class abilities
-Thick Skin		SA:Thick Skin	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.36
-Tough as Nails	SA:Tough as Nails %|ToughNails	DEFINE:ToughNails|0	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.36
+# Feat Name		Type			Visible	Special Ability				Define			Source Page
+Thick Skin		TYPE:ClassAbility	VISIBLE:NO	SA:Thick Skin								SOURCEPAGE:p.36
+Tough as Nails	TYPE:ClassAbility	VISIBLE:NO	SA:Tough as Nails %|ToughNails	DEFINE:ToughNails|0	SOURCEPAGE:p.36
 
 
 
