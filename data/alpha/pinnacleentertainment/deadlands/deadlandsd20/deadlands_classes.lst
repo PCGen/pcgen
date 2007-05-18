@@ -56,8 +56,11 @@ CLASS:Blessed	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Faith|He
 # Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Caster level
 CLASS:Blessed	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blessed|CL
 1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
-###Block: need to update this Turn Undead block
-1	DEFINE:TurnUndead|3+CHA	ADD:SPECIAL|1|Turn Undead<PREALIGN:0,3,6>
+###Block: Turn Undead stuff
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ADD:VFEAT|1|Turn Undead|PREALIGN:LG,NG,CG	FEATAUTO:Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal Level Progression
 1	BONUS:VAR|BlessedMiraclesPoints|(CL*WIS)+WISSCORE	ADD:FEAT|4|Blessed up to 1st level Miracles					FEATAUTO:Blessed Miracle Points
 2										ADD:FEAT|WIS|Blessed up to 1st level Miracles
