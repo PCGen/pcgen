@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Apr 27 00:28:38 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu May 17 21:39:23 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-# Class Name	Hit Dice	Type				Subclass?		Source Page					Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal
+# Class Name	Hit Dice	Type				Subclass?		Source Page					Save checks bonus											Combat bonus					Modify VAR
+CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -57,8 +57,8 @@ SUBCLASS:Telepath	CHOICE:Telepathy		SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Co
 19	KNOWN:7,4,4,4,3,3,3,2,1,1	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
 20	KNOWN:7,4,4,4,4,3,3,2,2,1	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
 
-# Class Name		Hit Dice	Type				Abbreviation	Source Page					Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	ABB:PsyWar		SOURCEPAGE:srdpsionicclasses.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type				Abbreviation	Source Page					Save checks bonus											Combat bonus
+CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	ABB:PsyWar		SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Jump|Stabilize Self|Swim|Tumble|Use Psionic Device
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level

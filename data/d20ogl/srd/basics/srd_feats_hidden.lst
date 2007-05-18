@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu May 17 21:39:23 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Class Pseudo Feats....
 # Original Entry by Tir Gwaith
@@ -13,6 +13,14 @@ Negative Levels	TYPE:NegativeLevels	VISIBLE:NO	SA:% negative level(s) (-% effect
 Evasion							VISIBLE:NO	SA:Evasion (Ex)|PHBFeatEvasion			DEFINE:PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Improved Evasion	TYPE:RogueSpecialAbilities	VISIBLE:NO	SA:Improved Evasion (Ex)															SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Sneak Attack	TYPE:Special			VISIBLE:NO	SA:Sneak Attack %d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6				SOURCEPAGE:srdbasiccharacterclassesii.rtf
+
+###Block: Barbarian class abilties
+# Feat Name	Type			Visible	Special Ability	Define			Source Page
+Illiteracy	TYPE:Special	VISIBLE:NO	SA:Illiteracy	DEFINE:IlliteracyLVL|0	SOURCEPAGE:ClassesI.rtf
+
+###Block: Barbarian Rage
+# Feat Name	Type			Visible	Special Ability																																																																														Define																										Save checks bonus							Combat bonus								Stat bonus																	Modify VAR
+Rage		TYPE:Special	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	SA:Rage (Ex) % times/day and no longer winded after (% rounds)|RageTimes|RageDuration|PREVARGTEQ:TirelessRage,1	SA:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:CHECKS|Will|RageMorale|TYPE=Rage|PREAPPLY:PC	BONUS:COMBAT|AC|-1*RageACPenalty|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|Enraged|1|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1
 
 ###Block: Bard abilities
 # Feat Name				Type			Visible	Special Ability																																																	Define																						Modify VAR
@@ -108,9 +116,6 @@ More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	
 Dragon Flight	TYPE:DragonFlight	VISIBLE:NO	PREBASESIZEGTEQ:Large	SA:Dragon Wings	MOVECLONE:Walk,0,Fly,0
 
 
-###Block: Barbarian Rage
-# Feat Name	Type			Visible	Special Ability																																																																														Define																										Save checks bonus							Combat bonus								Stat bonus																	Modify VAR
-Rage		TYPE:Special	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	SA:Rage (Ex) % times/day and no longer winded after (% rounds)|RageTimes|RageDuration|PREVARGTEQ:TirelessRage,1	SA:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:CHECKS|Will|RageMorale|TYPE=Rage|PREAPPLY:PC	BONUS:COMBAT|AC|-1*RageACPenalty|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|Enraged|1|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1
 
 ###Block: Ghost Abilities
 # Feat Name			Type			Visible	Special Ability

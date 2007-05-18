@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr 27 00:28:38 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu May 17 21:26:45 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 #
@@ -36,7 +36,7 @@ Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:20/+1		SOURCEPAGE:srdbasicch
 Familiar within arms reach	VISIBLE:NO	SOURCEPAGE:srdNPCsFamMntsComps.rtf	BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PRESA:1,Summon Familiar|PREAPPLY:ANYPC	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
 
 ###Block: Timeless Body For Druid and Monk
-# Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class
+# Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class			Multiple Requirements						Stat bonus
 Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable									PRECLASS:1,Druid=15,Monk=17
 
 Timeless Body ~ Adult		VISIBLE:NO																									!PREAGESET:Middle Age															BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:Venerable
