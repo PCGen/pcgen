@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu May 17 19:33:36 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Thu May 17 19:58:45 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 
 ###Block: Agency Operative class features
@@ -73,5 +73,33 @@ Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack							
 Thick Skin		TYPE:ClassAbility	VISIBLE:NO	SA:Thick Skin								SOURCEPAGE:p.36
 Tough as Nails	TYPE:ClassAbility	VISIBLE:NO	SA:Tough as Nails %|ToughNails	DEFINE:ToughNails|0	SOURCEPAGE:p.36
 
+###Block: Shaman class abilities
+# Feat Name			Type			Visible	Special Ability							Define				Source Page
+Nature Sense		TYPE:ClassAbility	VISIBLE:NO	SA:Nature Sense												SOURCEPAGE:p.40
+Vision Quest		TYPE:ClassAbility	VISIBLE:NO	SA:Vision Quest (Su)											SOURCEPAGE:p.40
+View Hunting Grounds	TYPE:ClassAbility	VISIBLE:NO	SA:View Hunting Grounds											SOURCEPAGE:p.40
+One with Nature		TYPE:ClassAbility	VISIBLE:NO	SA:One with Nature											SOURCEPAGE:p.40
+Open Portal			TYPE:ClassAbility	VISIBLE:NO	SA:Open Portal												SOURCEPAGE:p.40
+Shaman Favors Points	TYPE:Internal	VISIBLE:NO	SA:Shaman max Favor Points (%)|ShamanFavorPoints	DEFINE:ShamanFavorPoints|0	SOURCEPAGE:p.40
+
+###Block: Shaman spells known
+# Feat Name				Type			Visible	Multiple?	Choose												Source Page
+Shaman up to 1st level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|1[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.40
+Shaman up to 2nd level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|2[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.40
+Shaman up to 3rd level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.40
+Shaman up to 4th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|4[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.40
+Shaman up to 5th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|5[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.40
+Shaman up to 6th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|6[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.40
+Shaman up to 7th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|7[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.40
+Shaman up to 8th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|8[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.40
+Shaman up to 9th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|9[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.40
+
+###Block: Texas Ranger class abilities
+# Feat Name				Type			Visible	Special Ability					Define			Bonus to skill								Source Page
+National Law Enforcement	TYPE:ClassAbility	VISIBLE:NO	SA:National Law Enforcement																	SOURCEPAGE:p.92
+Ranger's Bible			TYPE:ClassAbility	VISIBLE:NO	SA:Ranger's Bible									BONUS:SKILL|Gather Information|2					SOURCEPAGE:p.92
+Ranger's Presence			TYPE:ClassAbility	VISIBLE:NO	SA:Presence +%|RangerPres			DEFINE:RangerPres|0	BONUS:SKILL|Bluff,Gather Information,Intimidate|RangerPres	SOURCEPAGE:p.92
+One Riot - One Ranger		TYPE:ClassAbility	VISIBLE:NO	SA:One Riot- One Ranger %|RiotRanger|1	DEFINE:RiotRanger|0											SOURCEPAGE:p.92
+Chapter 13				TYPE:ClassAbility	VISIBLE:NO	SA:Chapter 13									BONUS:SKILL|Knowledge (Occult)|4|TYPE=Competence		SOURCEPAGE:p.92
 
 
