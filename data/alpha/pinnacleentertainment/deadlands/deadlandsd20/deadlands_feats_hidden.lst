@@ -37,6 +37,19 @@ Requisition Equipment	SA:Requisition Equipment							VISIBLE:NO	TYPE:ClassAbilit
 
 ###Block: Blessed class features
 Divine Intervention	VISIBLE:NO	TYPE:ClassAbility	SA:Divine Intervention %/week|DivineInterventionTimes		DEFINE:DivineInterventionTimes|0	SOURCEPAGE:p.24
+Blessed Miracle Points	VISIBLE:NO	TYPE:Internal	SA:Blessed max Miracle Points (%)|BlessedMiraclesPoints	DEFINE:BlessedMiraclesPoints|0	SOURCEPAGE:p.24
+
+###Block: Blessed spells known
+Blessed up to 1st level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|1[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+Blessed up to 2nd level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|2[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+Blessed up to 3rd level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+Blessed up to 4th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|4[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+Blessed up to 5th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|5[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+Blessed up to 6th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|6[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+Blessed up to 7th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|7[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+Blessed up to 8th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|8[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+Blessed up to 9th level Miracles	VISIBLE:NO	SOURCEPAGE:p.24	TYPE:Internal	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|9[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+
 
 ###Block: Brave class features
 War Cry		SA:War Cry %/day|WarCry	DEFINE:WarCry|0	VISIBLE:NO	TYPE:ClassAbility	SOURCEPAGE:p.26

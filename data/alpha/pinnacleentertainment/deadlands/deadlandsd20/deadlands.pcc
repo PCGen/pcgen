@@ -31,6 +31,7 @@ EQUIPMENT:deadlands_equip_weap_ammo.lst
 EQUIPMENT:deadlands_equip_weap_melee.lst
 EQUIPMENT:deadlands_equip_weap_ranged.lst
 FEAT:deadlands_feats.lst
+FEAT:deadlands_feats_hidden.lst
 RACE:deadlands_races.lst
 SKILL:deadlands_skills.lst
 SPELL:deadlands_spells.lst
