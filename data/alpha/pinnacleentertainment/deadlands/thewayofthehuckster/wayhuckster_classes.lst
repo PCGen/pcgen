@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu May 17 21:11:45 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Huckster	SOURCESHORT:WotHuckster	SOURCEWEB:http://www.peginc.com/index.htm
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																						Combat bonus
@@ -7,18 +7,16 @@ CLASS:Diffusionist	HD:6		TYPE:PC.Prestige	ABB:Dif		MAXLEVEL:10	SOURCEPAGE:p.13	B
 CLASS:Diffusionist	PREATT:5	PRESKILL:1,Hexslingin'=6	PRESKILL:1,Knowledge (Anthropology),Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Meteorology),Knowledge (Physics)=3	PRESKILL:1,Knowledge (Occult)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Diffusionist	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Demolitions|Disable Device|Gamblin'|Gather Information|Hexslingin'|Knowledge (Anthropology)|Knowledge (Architecture and Engineering)|Knowledge (Biology)|Knowledge (Chemistry)|Knowledge (Engineering)|Knowledge (Geology)|Knowledge (Mathematics)|Knowledge (Meteorology)|Knowledge (Occult)|Knowledge (Physics)|Mad Science|TYPE.Profession|Sense Motive|Sleight o' Hand|Tinkerin'
-# Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Diffusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Diffusionist|CL
-1	SA:Mad Science	SA:S and R Catalog 1876 Edition	BONUS:SKILLRANK|Mad Science|1	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]	ADD:SPELLCASTER|1|Arcane
-2															ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]	ADD:SPELLCASTER|1|Arcane
-3															ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]	ADD:SPELLCASTER|1|Arcane
-4															ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]	ADD:SPELLCASTER|1|Arcane
-5	SA:Alchemy													ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]	ADD:SPELLCASTER|1|Arcane	ADD:CLASSSKILLS|1|ANY
-6															ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]	ADD:SPELLCASTER|1|Arcane
-7															ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]	ADD:SPELLCASTER|1|Arcane
-8															ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]	ADD:SPELLCASTER|1|Arcane
-9															ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]	ADD:SPELLCASTER|1|Arcane
-10															ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]	ADD:SPELLCASTER|1|Arcane
+1	BONUS:SKILLRANK|Mad Science|1	ADD:FEAT|INT|Diffusionist Spell increase	ADD:SPELLCASTER|1|Arcane					FEATAUTO:Mad Science|S and R Catalog 1876 Edition
+2						ADD:FEAT|INT|Diffusionist Spell increase	ADD:SPELLCASTER|1|Arcane
+3						ADD:FEAT|INT|Diffusionist Spell increase	ADD:SPELLCASTER|1|Arcane
+4						ADD:FEAT|INT|Diffusionist Spell increase	ADD:SPELLCASTER|1|Arcane
+5						ADD:FEAT|INT|Diffusionist Spell increase	ADD:SPELLCASTER|1|Arcane	ADD:CLASSSKILLS|1|ANY	FEATAUTO:Alchemy
+6						ADD:FEAT|INT|Diffusionist Spell increase	ADD:SPELLCASTER|1|Arcane
+7						ADD:FEAT|INT|Diffusionist Spell increase	ADD:SPELLCASTER|1|Arcane
+8						ADD:FEAT|INT|Diffusionist Spell increase	ADD:SPELLCASTER|1|Arcane
+9						ADD:FEAT|INT|Diffusionist Spell increase	ADD:SPELLCASTER|1|Arcane
+10						ADD:FEAT|INT|Diffusionist Spell increase	ADD:SPELLCASTER|1|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Tempest	HD:6		TYPE:PC.Prestige	ABB:Tem		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+1	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|floor(CL/3)+floor(CL/5)+floor(CL/8)|TYPE=Base.REPLACE

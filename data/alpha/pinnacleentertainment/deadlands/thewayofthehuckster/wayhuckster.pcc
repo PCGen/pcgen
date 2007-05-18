@@ -22,8 +22,9 @@ COPYRIGHT:PCGen dataset conversion for Way of the Huckster Copyright 2003-2005, 
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:WayoftheHucksterMagicItemPrices.txt
 
-CLASS:wayhucksterclasses.lst
-EQUIPMENT:wayhucksterequipweapranged.lst
-EQUIPMENT:wayhucksterequipwondrousitems.lst
-FEAT:wayhucksterfeats.lst
-SPELL:wayhucksterspells.lst
+CLASS:wayhuckster_classes.lst
+EQUIPMENT:wayhuckster_equip_weap_ranged.lst
+EQUIPMENT:wayhuckster_equip_wondrousitems.lst
+FEAT:wayhuckster_feats.lst
+FEAT:wayhuckster_feats_hidden.lst
+SPELL:wayhuckster_spells.lst
