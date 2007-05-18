@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu May 17 19:58:45 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Thu May 17 20:46:26 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus
@@ -118,64 +118,36 @@ CLASS:Gunslinger	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Demolitions|Gambl
 17	BONUS:VAR|GreaseLightning|1
 19											ADD:FEAT|1|Ambidexterity,Automatic Weapon Proficiency,Dodge,Exotic Weapon Proficiency,Improved Critical,Grim Servant o' Death,Improved Initiative,Level-Headed,Mounted Archery,Point Blank Shot,Fannin',Far Shot,Precise Shot,Quick Draw,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus,Fill Yer Hand,Mercy Shot,Slip Shot,Special Draw,Steady Shot
 
-# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Automatic Weapon Prof.				Save checks bonus																	Combat bonus
-#CLASS:Huckster	HD:6		TYPE:PC	ABB:Hck		SOURCEPAGE:p.30	LANGAUTO:Literacy		AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
-# Class Name	Skill Pts/Lvl	Class Skill
-#CLASS:Huckster	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Gamblin'|Gather Information|Hexslingin'|Knowledge (Local)|Knowledge (Occult)|Perform|TYPE.Profession|Ridicule|Sense Motive|Sleight o' Hand|TYPE.Language|Spellcraft
-# Class Name	Spell Stat		Spell Type		Caster level
-#CLASS:Huckster	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Huckster|CL
-#1				ADD:LIST(4 zero or 1st level spells [CHOOSE:SPELLLEVEL|4|CLASS=Huckster|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
-#2				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#3				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#4				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#5	SA:Old Hand %|2	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#6				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#7				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#8				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#9	SA:Blood Magic	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#10	SA:Old Hand %|2	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#11				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#12				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#13				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#14				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#15	SA:Old Hand %|2	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#16				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#17				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#18				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#19				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-#20	SA:Old Hand %|2	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
-
 # Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Huckster	HD:6		TYPE:PC	ABB:Hck		SOURCEPAGE:p.30	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Huckster	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Gamblin'|Gather Information|Hexslingin'|Knowledge (Local)|Knowledge (Occult)|Perform|TYPE.Profession|Ridicule|Sense Motive|Sleight o' Hand|TYPE.Language|Spellcraft
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Huckster	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Huckster|CL
+# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
+CLASS:Huckster	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Huckster|CL
 ###Block: Proficiencies
 1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
 #		SPELLLIST:1|Sorcerer
 ###Block: Normal Progression
-1	CAST:1,1				KNOWN:1,4
-2	CAST:1,1				KNOWN:1,4
-3	CAST:1,1,1				KNOWN:1,4
-4	CAST:1,1,1				KNOWN:1,4
-5	CAST:1,1,1,1			KNOWN:1,4	BONUS:VAR|OldHand|floor(CL/5)*2	FEATAUTO:Old Hand
-6	CAST:1,1,1,1			KNOWN:1,4
-7	CAST:1,1,1,1,1			KNOWN:1,4
-8	CAST:1,1,1,1,1			KNOWN:1,4
-9	CAST:1,1,1,1,1,1			KNOWN:1,4							FEATAUTO:Blood Magic
-10	CAST:1,1,1,1,1,1			KNOWN:1,4
-11	CAST:1,1,1,1,1,1,1		KNOWN:1,4
-12	CAST:1,1,1,1,1,1,1		KNOWN:1,4
-13	CAST:1,1,1,1,1,1,1,1		KNOWN:1,4
-14	CAST:1,1,1,1,1,1,1,1		KNOWN:1,4
-15	CAST:1,1,1,1,1,1,1,1,1		KNOWN:1,4
-16	CAST:1,1,1,1,1,1,1,1,1		KNOWN:1,4
-17	CAST:1,1,1,1,1,1,1,1,1,1	KNOWN:1,4
-18	CAST:1,1,1,1,1,1,1,1,1,1	KNOWN:1,4
-19	CAST:1,1,1,1,1,1,1,1,1,1,1	KNOWN:1,4
-20	CAST:1,1,1,1,1,1,1,1,1,1,1	KNOWN:1,4
-
+1	BONUS:VAR|HexPoints|(CL*INT)+INTSCORE	ADD:FEAT|4|Huckster up to 1st level Hexes		FEATAUTO:Huckster Hex Points
+2								ADD:FEAT|INT|Huckster up to 1st level Hexes
+3								ADD:FEAT|INT|Huckster up to 2nd level Hexes
+4								ADD:FEAT|INT|Huckster up to 2nd level Hexes
+5	BONUS:VAR|OldHand|floor(CL/5)*2		ADD:FEAT|INT|Huckster up to 3rd level Hexes	FEATAUTO:Old Hand
+6								ADD:FEAT|INT|Huckster up to 3rd level Hexes
+7								ADD:FEAT|INT|Huckster up to 4th level Hexes
+8								ADD:FEAT|INT|Huckster up to 4th level Hexes
+9								ADD:FEAT|INT|Huckster up to 5th level Hexes	FEATAUTO:Blood Magic
+10								ADD:FEAT|INT|Huckster up to 5th level Hexes
+11								ADD:FEAT|INT|Huckster up to 6th level Hexes
+12								ADD:FEAT|INT|Huckster up to 6th level Hexes
+13								ADD:FEAT|INT|Huckster up to 7th level Hexes
+14								ADD:FEAT|INT|Huckster up to 7th level Hexes
+15								ADD:FEAT|INT|Huckster up to 8th level Hexes
+16								ADD:FEAT|INT|Huckster up to 8th level Hexes
+17								ADD:FEAT|INT|Huckster up to 9th level Hexes
+18								ADD:FEAT|INT|Huckster up to 9th level Hexes
+19								ADD:FEAT|INT|Huckster up to 9th level Hexes
+20								ADD:FEAT|INT|Huckster up to 9th level Hexes
 
 # Class Name		Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Mad Scientist	HD:6		TYPE:PC	ABB:Mds		SOURCEPAGE:p.32	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -240,21 +212,17 @@ CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Gather Information|Handle A
 ###Block: Proficiencies
 1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
 ###Block: Normal Progression
-1						BONUS:SKILL|Language |4										FEATAUTO:Track
-2															ADD:FEAT|1|Alertness
-4	BONUS:VAR|SneakAttack|CL/4														FEATAUTO:Sneak Attack
-5						BONUS:SKILL|Language |2	BONUS:SKILL|Listen,Spot|1
-6															ADD:FEAT|1|Skill Focus
+1						BONUS:SKILL|Language |4							FEATAUTO:Track
+2						BONUS:SKILL|Listen,Spot|(CL-2)/3					FEATAUTO:Alertness
+4	BONUS:VAR|SneakAttack|CL/4											FEATAUTO:Sneak Attack
+5						BONUS:SKILL|Language |2
+6												ADD:FEAT|1|Skill Focus
 7						BONUS:SKILL|Language |2
-8						BONUS:SKILL|Listen,Spot|1
-9															ADD:FEAT|1|Skill Focus
+9												ADD:FEAT|1|Skill Focus
 10						BONUS:SKILL|Language |2
-11						BONUS:SKILL|Listen,Spot|1
-13															ADD:FEAT|1|Skill Focus
-14						BONUS:SKILL|Listen,Spot|1
+13												ADD:FEAT|1|Skill Focus
 15						BONUS:SKILL|Language |2
-17						BONUS:SKILL|Listen,Spot|1
-18															ADD:FEAT|1|Skill Focus
+18												ADD:FEAT|1|Skill Focus
 20						BONUS:SKILL|Language |2
 
 # Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus														Combat bonus

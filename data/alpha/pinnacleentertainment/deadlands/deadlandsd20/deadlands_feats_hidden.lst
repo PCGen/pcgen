@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu May 17 19:58:45 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Thu May 17 20:42:56 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 
 ###Block: Agency Operative class features
@@ -50,9 +50,22 @@ Greater War Cry	TYPE:ClassAbility	VISIBLE:NO	SA:Greater War Cry				SOURCEPAGE:p.
 Greased Lightning	TYPE:ClassAbility	VISIBLE:NO	SA:Greased Lightnin' +%|GreaseLightning	DEFINE:GreaseLightning|0	SOURCEPAGE:p.28
 
 ###Block: Huckster class features
-# Feat Name		Type			Visible	Special Ability		Define		Source Page
-Old Hand		TYPE:ClassAbility	VISIBLE:NO	SA:Old Hand %|OldHand	DEFINE:OldHand|0	SOURCEPAGE:p.30
-Blood Magician	TYPE:ClassAbility	VISIBLE:NO	SA:Blood Magic					SOURCEPAGE:p.30
+# Feat Name			Type			Visible	Special Ability					Define			Source Page
+Old Hand			TYPE:ClassAbility	VISIBLE:NO	SA:Old Hand %|OldHand				DEFINE:OldHand|0		SOURCEPAGE:p.30
+Blood Magician		TYPE:ClassAbility	VISIBLE:NO	SA:Blood Magic									SOURCEPAGE:p.30
+Huckster Hex Points	TYPE:Internal	VISIBLE:NO	SA:Huckster max Hex Points (%)|HexPoints	DEFINE:HexPoints|0	SOURCEPAGE:p.30
+
+###Block: Huckster spells known
+# Feat Name					Type			Visible	Multiple?	Choose												Source Page
+Huckster up to 1st level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|1[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.30
+Huckster up to 2nd level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|2[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.30
+Huckster up to 3rd level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.30
+Huckster up to 4th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|4[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.30
+Huckster up to 5th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|5[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.30
+Huckster up to 6th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|6[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.30
+Huckster up to 7th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|7[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.30
+Huckster up to 8th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|8[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.30
+Huckster up to 9th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|9[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.30
 
 ###Block: Mad Scientist class features
 # Feat Name		Type			Visible	Special Ability		Define		Source Page
@@ -74,13 +87,13 @@ Thick Skin		TYPE:ClassAbility	VISIBLE:NO	SA:Thick Skin								SOURCEPAGE:p.36
 Tough as Nails	TYPE:ClassAbility	VISIBLE:NO	SA:Tough as Nails %|ToughNails	DEFINE:ToughNails|0	SOURCEPAGE:p.36
 
 ###Block: Shaman class abilities
-# Feat Name			Type			Visible	Special Ability							Define				Source Page
-Nature Sense		TYPE:ClassAbility	VISIBLE:NO	SA:Nature Sense												SOURCEPAGE:p.40
-Vision Quest		TYPE:ClassAbility	VISIBLE:NO	SA:Vision Quest (Su)											SOURCEPAGE:p.40
-View Hunting Grounds	TYPE:ClassAbility	VISIBLE:NO	SA:View Hunting Grounds											SOURCEPAGE:p.40
-One with Nature		TYPE:ClassAbility	VISIBLE:NO	SA:One with Nature											SOURCEPAGE:p.40
-Open Portal			TYPE:ClassAbility	VISIBLE:NO	SA:Open Portal												SOURCEPAGE:p.40
-Shaman Favors Points	TYPE:Internal	VISIBLE:NO	SA:Shaman max Favor Points (%)|ShamanFavorPoints	DEFINE:ShamanFavorPoints|0	SOURCEPAGE:p.40
+# Feat Name			Type						Visible	Special Ability							Define				Source Page
+Nature Sense		TYPE:ClassAbility				VISIBLE:NO	SA:Nature Sense												SOURCEPAGE:p.40
+Vision Quest		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Vision Quest (Su)											SOURCEPAGE:p.40
+View Hunting Grounds	TYPE:ClassAbility				VISIBLE:NO	SA:View Hunting Grounds											SOURCEPAGE:p.40
+One with Nature		TYPE:ClassAbility				VISIBLE:NO	SA:One with Nature											SOURCEPAGE:p.40
+Open Portal			TYPE:ClassAbility				VISIBLE:NO	SA:Open Portal												SOURCEPAGE:p.40
+Shaman Favors Points	TYPE:Internal				VISIBLE:NO	SA:Shaman max Favor Points (%)|ShamanFavorPoints	DEFINE:ShamanFavorPoints|0	SOURCEPAGE:p.40
 
 ###Block: Shaman spells known
 # Feat Name				Type			Visible	Multiple?	Choose												Source Page
