@@ -71,6 +71,7 @@ final class MainAbout extends JPanel
 	private JLabel helperLabel;
 	private JLabel leaderLabel;
 	private JLabel versionLabel;
+	private JLabel javaVersionLabel;
 	private JLabel wwwLink;
 	private JScrollPane license;
 	private JTabbedPane mainPane;
@@ -80,6 +81,7 @@ final class MainAbout extends JPanel
 	private JTextField projectLead;
 	private JTextField releaseDate;
 	private JTextField version;
+	private JTextField javaVersion;
 
 	/** Creates new form MainAbout */
 	MainAbout() {
@@ -117,12 +119,14 @@ final class MainAbout extends JPanel
 
 		versionLabel = new JLabel();
 		dateLabel = new JLabel();
+		javaVersionLabel = new JLabel();
 		leaderLabel = new JLabel();
 		helperLabel = new JLabel();
 		wwwLink = new JLabel();
 		emailLabel = new JLabel();
 		version = new JTextField();
 		releaseDate = new JTextField();
+		javaVersion = new JTextField();
 		projectLead = new JTextField();
 		wwwSite = new JButton();
 		mailingList = new JButton();
@@ -144,20 +148,24 @@ final class MainAbout extends JPanel
 		gridBagConstraints1 = buildConstraints(0, 1, GridBagConstraints.WEST);
 		aCreditsPanel.add(dateLabel, gridBagConstraints1);
 
-		leaderLabel.setText(PropertyFactory.getString("in_abt_BD")); //$NON-NLS-1$
+		javaVersionLabel.setText(PropertyFactory.getString("in_abt_java_version")); //$NON-NLS-1$
 		gridBagConstraints1 = buildConstraints(0, 2, GridBagConstraints.WEST);
+		aCreditsPanel.add(javaVersionLabel, gridBagConstraints1);
+
+		leaderLabel.setText(PropertyFactory.getString("in_abt_BD")); //$NON-NLS-1$
+		gridBagConstraints1 = buildConstraints(0, 3, GridBagConstraints.WEST);
 		aCreditsPanel.add(leaderLabel, gridBagConstraints1);
 
 		wwwLink.setText(PropertyFactory.getString("in_abt_web")); //$NON-NLS-1$
-		gridBagConstraints1 = buildConstraints(0, 3, GridBagConstraints.WEST);
+		gridBagConstraints1 = buildConstraints(0, 4, GridBagConstraints.WEST);
 		aCreditsPanel.add(wwwLink, gridBagConstraints1);
 
 		emailLabel.setText(PropertyFactory.getString("in_abt_email")); //$NON-NLS-1$
-		gridBagConstraints1 = buildConstraints(0, 4, GridBagConstraints.WEST);
+		gridBagConstraints1 = buildConstraints(0, 5, GridBagConstraints.WEST);
 		aCreditsPanel.add(emailLabel, gridBagConstraints1);
 
 		helperLabel.setText(PropertyFactory.getString("in_abt_monkeys")); //$NON-NLS-1$
-		gridBagConstraints1 = buildConstraints(0, 5,
+		gridBagConstraints1 = buildConstraints(0, 6,
 			GridBagConstraints.NORTHWEST);
 		aCreditsPanel.add(helperLabel, gridBagConstraints1);
 
@@ -182,12 +190,21 @@ final class MainAbout extends JPanel
 		gridBagConstraints1.fill = GridBagConstraints.HORIZONTAL;
 		aCreditsPanel.add(releaseDate, gridBagConstraints1);
 
+		javaVersion.setEditable(false);
+		javaVersion.setText(System.getProperty("java.vm.version") + " (" + System.getProperty("java.vm.vendor")+")");
+		javaVersion.setBorder(new EmptyBorder(new Insets(1, 1, 1, 1)));
+		javaVersion.setOpaque(false);
+
+		gridBagConstraints1 = buildConstraints(1, 2, GridBagConstraints.WEST);
+		gridBagConstraints1.fill = GridBagConstraints.HORIZONTAL;
+		aCreditsPanel.add(javaVersion, gridBagConstraints1);
+
 		projectLead.setEditable(false);
 		projectLead.setText(PCGenProp.getHeadCodeMonkey());
 		projectLead.setBorder(new EmptyBorder(new Insets(1, 1, 1, 1)));
 		projectLead.setOpaque(false);
 
-		gridBagConstraints1 = buildConstraints(1, 2, GridBagConstraints.WEST);
+		gridBagConstraints1 = buildConstraints(1, 3, GridBagConstraints.WEST);
 		gridBagConstraints1.fill = GridBagConstraints.HORIZONTAL;
 		aCreditsPanel.add(projectLead, gridBagConstraints1);
 
@@ -208,7 +225,7 @@ final class MainAbout extends JPanel
 				}
 			}
 		});
-		gridBagConstraints1 = buildConstraints(1, 3, GridBagConstraints.WEST);
+		gridBagConstraints1 = buildConstraints(1, 4, GridBagConstraints.WEST);
 		aCreditsPanel.add(wwwSite, gridBagConstraints1);
 
 		// Mailing list button
@@ -228,11 +245,11 @@ final class MainAbout extends JPanel
 				}
 			}
 		});
-		gridBagConstraints1 = buildConstraints(1, 4, GridBagConstraints.WEST);
+		gridBagConstraints1 = buildConstraints(1, 5, GridBagConstraints.WEST);
 		aCreditsPanel.add(mailingList, gridBagConstraints1);
 
 		// Monkey tabbed pane
-		gridBagConstraints1 = buildConstraints(1, 5, GridBagConstraints.WEST);
+		gridBagConstraints1 = buildConstraints(1, 6, GridBagConstraints.WEST);
 		gridBagConstraints1.gridwidth = 2;
 		gridBagConstraints1.weighty = 1.0;
 		gridBagConstraints1.fill = GridBagConstraints.BOTH;
