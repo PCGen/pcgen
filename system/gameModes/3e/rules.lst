@@ -18,7 +18,7 @@
 #NAME:CraftItemPenalty			VAR:SYS_CIP			DEFAULT:Yes					DESC:Improper tools incure a -2 circumstance penalty
 NAME:LoadPenaltyToAcAndSkills		VAR:SYS_LDPACSK		DEFAULT:Yes					DESC:Apply Load Penalty to AC and Skills
 NAME:WeightPenaltyToSkill		VAR:SYS_WTPSK		DEFAULT:Yes					DESC:Apply Weight Penalty to Skills
-NAME:ClericDomainBonus			VAR:SYS_DOMAIN		DEFAULT:No					DESC:Apply Casterlevel Bonuses from Domains to Spells
+NAME:ClericDomainBonus			VAR:SYS_DOMAIN		DEFAULT:Yes					DESC:Apply Casterlevel Bonuses from Domains to Spells
 NAME:DruidWildShapeRacialBonus	VAR:SYS_DWS_RACIAL	DEFAULT:No					DESC:Apply Racial Skill Bonuses for Animal Wild Shapes
 NAME:DruidWildShapeExtraAbilities	VAR:SYS_DWS_EXTRA		DEFAULT:No					DESC:Apply Extraordinary Abilities for Animal Wild Shapes
 #
