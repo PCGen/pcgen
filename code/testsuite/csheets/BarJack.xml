@@ -1182,10 +1182,6 @@ BIO
 			<description></description>
 		</ability>
 		<ability>
-			<name>Illiteracy</name>
-			<description></description>
-		</ability>
-		<ability>
 			<name>Once per day a gnome can use Speak with Animals as a spell-like ability to speak with a burrowing mammal</name>
 			<description></description>
 		</ability>
@@ -1200,7 +1196,7 @@ BIO
 		<race>+2 racial bonus on saving throws against illusions, +1 racial bonus to attack rolls against kobolds and goblinoids, +4 dodge bonus against giants, Once per day a gnome can use Speak with Animals as a spell-like ability to speak with a burrowing mammal</race>
 		<class>
 			<class>Barbarian</class>
-			<ability>Illiteracy</ability>
+			<ability></ability>
 		</class>
 	</special_abilities>
 	<!--
