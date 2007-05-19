@@ -2511,7 +2511,7 @@ BIO
 						<components>V, S, M/DF</components>
 						<castingtime>1 action</castingtime>
 						<dc>12</dc>
-						<duration>2 minutes [D]</duration>
+						<duration>3 minutes [D]</duration>
 						<effect>+2 AC and saves, counter mind control, hedge out elementals and outsiders.</effect>
 						<target>Creature touched</target>
 						<saveinfo>Will negates (Harmless)</saveinfo>
@@ -2539,7 +2539,7 @@ BIO
 						<components>V, S, M/DF</components>
 						<castingtime>1 action</castingtime>
 						<dc>12</dc>
-						<duration>2 minutes [D]</duration>
+						<duration>3 minutes [D]</duration>
 						<effect>+2 AC and saves, counter mind control, hedge out elementals and outsiders.</effect>
 						<target>Creature touched</target>
 						<saveinfo>Will negates (Harmless)</saveinfo>
