@@ -98,8 +98,23 @@ public class AbilityToken implements AddLstToken
 		
 		// Category, nature, abilities
 		String category = tokens[index++];
+		if (category == null)
+		{
+			Logging.errorPrint("Malformed ADD Token: Missing Category: "
+					+ value);
+			return false;
+		}
 		String nature = tokens[index++];
+		if (nature == null) {
+			Logging.errorPrint("Malformed ADD Token: Missing Nature: " + value);
+			return false;
+		}
 		String abilities = tokens[index++];
+		if (abilities == null) {
+			Logging.errorPrint("Malformed ADD Token: Missing Abilities: "
+					+ value);
+			return false;
+		}
 		
 		StringBuffer addString = new StringBuffer();
 		addString.append(getTokenName());

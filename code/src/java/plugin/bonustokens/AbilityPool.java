@@ -26,6 +26,7 @@ package plugin.bonustokens;
 import pcgen.core.AbilityCategory;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.BonusObj;
+import pcgen.util.Logging;
 
 /**
  * Handles <code>BONUS:ABILITYPOOL|&lt;ability category&gt;|&lt;number&gt;
@@ -46,6 +47,10 @@ public final class AbilityPool extends BonusObj
 	@Override
 	protected boolean parseToken(final String token)
 	{
+		if (token == null)
+		{
+			Logging.errorPrint("Malformed BONUS:ABILITYPOOL Requires Ability Category");
+		}
 		final AbilityCategory cat =
 				SettingsHandler.getGame().getAbilityCategory(token);
 		if (cat != null)
