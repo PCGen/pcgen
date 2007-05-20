@@ -116,12 +116,13 @@ public class PreSpellTypeParser extends AbstractPrerequisiteParser implements
 			//
 			// Must be exactly 3 tokens. Old-style did not support multiple options
 			//
-			Logging.errorPrint("Deprecated use of PRESPELLTYPE found: "
-					+ formula);
-			Logging.errorPrint("The new format is "
-					+ "<number of spells required>,<name of spell type>"
-					+ "=<minimum spell level>"
-					+ "[,<name of spell type>=<minimum spell level>,...]");
+			// 514 deprecation removal
+//			Logging.errorPrint("Deprecated use of PRESPELLTYPE found: "
+//					+ formula);
+//			Logging.errorPrint("The new format is "
+//					+ "<number of spells required>,<name of spell type>"
+//					+ "=<minimum spell level>"
+//					+ "[,<name of spell type>=<minimum spell level>,...]");
 			if (aTok.countTokens() == 2)
 			{
 				String[] types = aString.split("\\|");

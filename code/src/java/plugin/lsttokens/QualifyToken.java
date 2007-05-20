@@ -60,10 +60,11 @@ public class QualifyToken implements GlobalLstToken
 		}
 		if (c == null) {
 			c = Object.class;
-			Logging.errorPrint(getTokenName() + " expecting a POBJECT Type, found: " + key);
-			Logging.errorPrint("  5.12 Format is: QualifyType|Key[|Key] value was: " + value);
-			Logging.errorPrint("  Valid QualifyTypes are: " + StringPClassUtil.getValidStrings());
-			Logging.errorPrint("  QUALIFY without a Type will fail after PCGen 5.12");
+			// 514 abbreviation cleanup
+//			Logging.errorPrint(getTokenName() + " expecting a POBJECT Type, found: " + key);
+//			Logging.errorPrint("  5.12 Format is: QualifyType|Key[|Key] value was: " + value);
+//			Logging.errorPrint("  Valid QualifyTypes are: " + StringPClassUtil.getValidStrings());
+//			Logging.errorPrint("  QUALIFY without a Type will fail after PCGen 5.12");
 		} else {
 			key = st.nextToken();
 		}

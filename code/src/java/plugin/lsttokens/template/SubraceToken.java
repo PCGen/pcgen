@@ -27,8 +27,9 @@ public class SubraceToken implements PCTemplateLstToken
 			}
 			else 
 			{
-				Logging.errorPrint("You should use 'YES' as the " + getTokenName());
-				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+				// 514 abbreviation cleanup
+//				Logging.errorPrint("You should use 'YES' as the " + getTokenName());
+//				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
 			}
 		}
 

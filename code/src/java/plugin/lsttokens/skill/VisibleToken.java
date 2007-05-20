@@ -22,34 +22,36 @@ public class VisibleToken implements SkillLstToken
 
 		if (visType.startsWith("YES"))
 		{
-			if (!value.equals("YES"))
-			{
-				Logging.errorPrint("Abbreviation used in " + getTokenName()
-					+ " in Skill");
-				Logging.errorPrint(" " + value + " is not a valid value for "
-					+ getTokenName());
-				Logging
-					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-				Logging
-					.errorPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
-				Logging.errorPrint(" This will break after PCGen 5.12");
-			}
+			// 514 abbreviation cleanup
+//			if (!value.equals("YES"))
+//			{
+//				Logging.errorPrint("Abbreviation used in " + getTokenName()
+//					+ " in Skill");
+//				Logging.errorPrint(" " + value + " is not a valid value for "
+//					+ getTokenName());
+//				Logging
+//					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
+//				Logging
+//					.errorPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
+//				Logging.errorPrint(" This will break after PCGen 5.12");
+//			}
 			skill.setVisibility(Visibility.DEFAULT);
 		}
 		else if (visType.startsWith("ALWAYS"))
 		{
-			if (!value.equals("ALWAYS"))
-			{
-				Logging.errorPrint("Abbreviation used in " + getTokenName()
-					+ " in Skill");
-				Logging.errorPrint(" " + value + " is not a valid value for "
-					+ getTokenName());
-				Logging
-					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-				Logging
-					.errorPrint(" assuming you meant ALWAYS, please use ALWAYS (exact String, upper case) in the LST file");
-				Logging.errorPrint(" This will break after PCGen 5.12");
-			}
+			// 514 abbreviation cleanup
+//			if (!value.equals("ALWAYS"))
+//			{
+//				Logging.errorPrint("Abbreviation used in " + getTokenName()
+//					+ " in Skill");
+//				Logging.errorPrint(" " + value + " is not a valid value for "
+//					+ getTokenName());
+//				Logging
+//					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
+//				Logging
+//					.errorPrint(" assuming you meant ALWAYS, please use ALWAYS (exact String, upper case) in the LST file");
+//				Logging.errorPrint(" This will break after PCGen 5.12");
+//			}
 			skill.setVisibility(Visibility.DEFAULT);
 		}
 		else if (value.equals("DISPLAY"))
@@ -58,62 +60,66 @@ public class VisibleToken implements SkillLstToken
 		}
 		else if (visType.startsWith("GUI"))
 		{
-			if (!value.equals("GUI"))
-			{
-				Logging.errorPrint("Abbreviation used in " + getTokenName()
-					+ " in Skill");
-				Logging.errorPrint(" " + value + " is not a valid value for "
-					+ getTokenName());
-				Logging
-					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-				Logging
-					.errorPrint(" assuming you meant GUI, please use GUI or DISPLAY (exact String, upper case) in the LST file");
-				Logging.errorPrint(" This will break after PCGen 5.12");
-			}
+			// 514 abbreviation cleanup
+//			if (!value.equals("GUI"))
+//			{
+//				Logging.errorPrint("Abbreviation used in " + getTokenName()
+//					+ " in Skill");
+//				Logging.errorPrint(" " + value + " is not a valid value for "
+//					+ getTokenName());
+//				Logging
+//					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
+//				Logging
+//					.errorPrint(" assuming you meant GUI, please use GUI or DISPLAY (exact String, upper case) in the LST file");
+//				Logging.errorPrint(" This will break after PCGen 5.12");
+//			}
 			skill.setVisibility(Visibility.DISPLAY_ONLY);
 		}
 		else if (visType.startsWith("EXPORT"))
 		{
-			if (!value.equals("EXPORT"))
-			{
-				Logging.errorPrint("Abbreviation used in " + getTokenName()
-					+ " in Skill");
-				Logging.errorPrint(" " + value + " is not a valid value for "
-					+ getTokenName());
-				Logging
-					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-				Logging
-					.errorPrint(" assuming you meant EXPORT, please use EXPORT or CSHEET (exact String, upper case) in the LST file");
-				Logging.errorPrint(" This will break after PCGen 5.12");
-			}
+			// 514 abbreviation cleanup
+//			if (!value.equals("EXPORT"))
+//			{
+//				Logging.errorPrint("Abbreviation used in " + getTokenName()
+//					+ " in Skill");
+//				Logging.errorPrint(" " + value + " is not a valid value for "
+//					+ getTokenName());
+//				Logging
+//					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
+//				Logging
+//					.errorPrint(" assuming you meant EXPORT, please use EXPORT or CSHEET (exact String, upper case) in the LST file");
+//				Logging.errorPrint(" This will break after PCGen 5.12");
+//			}
 			skill.setVisibility(Visibility.OUTPUT_ONLY);
 		}
 		else if (visType.startsWith("CSHEET"))
 		{
-			if (!value.equals("CSHEET"))
-			{
-				Logging.errorPrint("Abbreviation used in " + getTokenName()
-					+ " in Skill");
-				Logging.errorPrint(" " + value + " is not a valid value for "
-					+ getTokenName());
-				Logging
-					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-				Logging
-					.errorPrint(" assuming you meant CSHEET, please use EXPORT or CSHEET (exact String, upper case) in the LST file");
-				Logging.errorPrint(" This will break after PCGen 5.12");
-			}
+			// 514 abbreviation cleanup
+//			if (!value.equals("CSHEET"))
+//			{
+//				Logging.errorPrint("Abbreviation used in " + getTokenName()
+//					+ " in Skill");
+//				Logging.errorPrint(" " + value + " is not a valid value for "
+//					+ getTokenName());
+//				Logging
+//					.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
+//				Logging
+//					.errorPrint(" assuming you meant CSHEET, please use EXPORT or CSHEET (exact String, upper case) in the LST file");
+//				Logging.errorPrint(" This will break after PCGen 5.12");
+//			}
 			skill.setVisibility(Visibility.OUTPUT_ONLY);
 		}
 		else
 		{
-			Logging.errorPrint("Unexpected value used in " + getTokenName()
-				+ " in Skill");
-			Logging.errorPrint(" " + visType + " is not a valid value for "
-				+ getTokenName());
-			Logging
-				.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-			Logging
-				.errorPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
+			// 514 abbreviation cleanup
+//			Logging.errorPrint("Unexpected value used in " + getTokenName()
+//				+ " in Skill");
+//			Logging.errorPrint(" " + visType + " is not a valid value for "
+//				+ getTokenName());
+//			Logging
+//				.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
+//			Logging
+//				.errorPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
 			skill.setVisibility(Visibility.DEFAULT);
 			return false;
 		}

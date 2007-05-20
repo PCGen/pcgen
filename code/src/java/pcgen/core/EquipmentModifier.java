@@ -716,38 +716,41 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		if ((aString.length() > 0) && (aString.charAt(0) == 'Y'))
 		{
-			if (!aString.equals("YES")) {
-				Logging.errorPrint("Abbreviation used in VISIBLE in EQMod");
-				Logging.errorPrint(" " + aString + " is not a valid value for VISIBLE");
-				Logging.errorPrint(" Valid values in EqMod are NO, QUALIFY and YES");
-				Logging
-					.errorPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
-				Logging.errorPrint(" This will break after PCGen 5.12");
-			}
+			// 514 abbreviation cleanup
+//			if (!aString.equals("YES")) {
+//				Logging.errorPrint("Abbreviation used in VISIBLE in EQMod");
+//				Logging.errorPrint(" " + aString + " is not a valid value for VISIBLE");
+//				Logging.errorPrint(" Valid values in EqMod are NO, QUALIFY and YES");
+//				Logging
+//					.errorPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
+//				Logging.errorPrint(" This will break after PCGen 5.12");
+//			}
 			equipmentVisible = VISIBLE_YES;
 		}
 		else if ((aString.length() > 0) && (aString.charAt(0) == 'Q'))
 		{
-			if (!aString.equals("QUALIFY")) {
-				Logging.errorPrint("Abbreviation used in VISIBLE in EQMod");
-				Logging.errorPrint(" " + aString + " is not a valid value for VISIBLE");
-				Logging.errorPrint(" Valid values in EqMod are NO, QUALIFY and YES");
-				Logging
-					.errorPrint(" assuming you meant QUALIFY, please use QUALIFY (exact String, upper case) in the LST file");
-				Logging.errorPrint(" This will break after PCGen 5.12");
-			}
+			// 514 abbreviation cleanup
+//			if (!aString.equals("QUALIFY")) {
+//				Logging.errorPrint("Abbreviation used in VISIBLE in EQMod");
+//				Logging.errorPrint(" " + aString + " is not a valid value for VISIBLE");
+//				Logging.errorPrint(" Valid values in EqMod are NO, QUALIFY and YES");
+//				Logging
+//					.errorPrint(" assuming you meant QUALIFY, please use QUALIFY (exact String, upper case) in the LST file");
+//				Logging.errorPrint(" This will break after PCGen 5.12");
+//			}
 			equipmentVisible = VISIBLE_QUALIFIED;
 		}
 		else
 		{
-			if (!aString.equals("NO")) {
-				Logging.errorPrint("Abbreviation used in VISIBLE in EQMod");
-				Logging.errorPrint(" " + aString + " is not a valid value for VISIBLE");
-				Logging.errorPrint(" Valid values in EqMod are NO, QUALIFY and YES");
-				Logging
-					.errorPrint(" assuming you meant NO, please use NO (exact String, upper case) in the LST file");
-				Logging.errorPrint(" This will break after PCGen 5.12");
-			}
+			// 514 abbreviation cleanup
+//			if (!aString.equals("NO")) {
+//				Logging.errorPrint("Abbreviation used in VISIBLE in EQMod");
+//				Logging.errorPrint(" " + aString + " is not a valid value for VISIBLE");
+//				Logging.errorPrint(" Valid values in EqMod are NO, QUALIFY and YES");
+//				Logging
+//					.errorPrint(" assuming you meant NO, please use NO (exact String, upper case) in the LST file");
+//				Logging.errorPrint(" This will break after PCGen 5.12");
+//			}
 			equipmentVisible = VISIBLE_NO;
 		}
 	}

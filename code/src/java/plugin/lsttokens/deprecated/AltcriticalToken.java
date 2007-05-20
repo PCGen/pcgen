@@ -2,14 +2,14 @@ package plugin.lsttokens.deprecated;
 
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
-import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.EquipmentLstToken;
 import pcgen.util.PropertyFactory;
 
 /**
  * Deals with ALTCRITICAL token
  */
-public class AltcriticalToken implements EquipmentLstToken, DeprecatedToken
+//514 deprecation cleanup
+public class AltcriticalToken implements EquipmentLstToken //, DeprecatedToken
 {
 
 	public String getTokenName()
