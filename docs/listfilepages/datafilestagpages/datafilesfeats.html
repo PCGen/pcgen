@@ -182,6 +182,23 @@
 		<p class="indent2"><code>DESCISPI:YES</code></p>
 		<p class="indent3">The Feat description is closed content.</p>
 
+		<p></p><a name="MODIFYFEATCHOICE"></a><hr>
+		<p class="new">*** New 5.11.x</p>
+		<p class="indent0"><strong>Tag Name:</strong> MODIFYFEATCHOICE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (feat name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>TYPE=Text (feat type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This tag allows for a previous feat choice to be replaced by a new one.</li>
+			<li>The feat called must allow choices to be a valid ability.</li>
+			<li>This tag is not currently used in PCGen distributed datasets.
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MODIFYFEATCHOICE:TYPE=x</code></p>
+		<p class="indent3">A feat with this tag will allow the reselection of any feat of type x to replace a previous selection.</p>
+		<p class="indent2"><code>MODIFYFEATCHOICE:x</code></p>
+		<p class="indent3">Allows the reselection of any feat of the same category as x.</p>
+	
 		<p></p><a name="MULT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> MULT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES/NO)</p>
