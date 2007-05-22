@@ -13,6 +13,7 @@
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
+		Eric C Smith - mareduddATblackrootDOTcom
 
 		Description:
 		Provides information on the content of PCGen Feat Files.
@@ -191,13 +192,14 @@
 		<ul class="indent2">
 			<li>This tag allows for a previous feat choice to be replaced by a new one.</li>
 			<li>The feat called must allow choices to be a valid ability.</li>
-			<li>This tag is not currently used in PCGen distributed datasets.
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>MODIFYFEATCHOICE:TYPE=x</code></p>
-		<p class="indent3">A feat with this tag will allow the reselection of any feat of type x to replace a previous selection.</p>
-		<p class="indent2"><code>MODIFYFEATCHOICE:x</code></p>
-		<p class="indent3">Allows the reselection of any feat of the same category as x.</p>
+		<p class="indent2"><code>MODIFYFEATCHOICE:TYPE=NinjaMonkeySchool</code></p>
+		<p class="indent3">Allows the selection of a new school from a list of schools 
+		of type 'NinjaMonkeySchool' to replace a previously selected one.</p>
+		<p class="indent2"><code>MODIFYFEATCHOICE:Ninja Monkey Primary Weapon Reselection</code></p>
+		<p class="indent3">Allows a ninja monkey to select a new primary weapon, replacing 
+		an earlier selected primary weapon.</p>
 	
 		<p></p><a name="MULT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> MULT:x</p>
