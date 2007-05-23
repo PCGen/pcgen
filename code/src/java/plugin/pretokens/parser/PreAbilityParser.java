@@ -32,6 +32,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -106,6 +107,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		throws PersistenceLayerException
 	{
 		String categoryName = "";
+		boolean foundAny = false;
 		if (prereq.getPrerequisites().size() == 0)
 		{
 			String preKey = prereq.getKey();
@@ -113,7 +115,11 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 				|| preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
 			{
 				String tempCat = preKey.substring((CATEGORY.length()));
-				if (!tempCat.toUpperCase().trim().equals("ANY"))
+				if (tempCat.toUpperCase().trim().equals("ANY"))
+				{
+					foundAny = true;
+				}
+				else
 				{
 					categoryName = tempCat;
 				}
@@ -153,7 +159,11 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 								tempCat));
 					}
 					
-					if (!tempCat.toUpperCase().trim().equals("ANY"))
+					if (tempCat.toUpperCase().trim().equals("ANY"))
+					{
+						foundAny = true;
+					}
+					else
 					{
 						categoryName = tempCat;
 					}
@@ -167,6 +177,25 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 			{
 				p.setCategoryName(categoryName);
 			}
+		}
+		else if (!foundAny)
+		{
+			String preKey;
+			if (prereq.getPrerequisites().size() == 0)
+			{
+				preKey = prereq.getKey();
+			}
+			else
+			{
+				StringBuilder sb = new StringBuilder();
+				for (Prerequisite p : prereq.getPrerequisites())
+				{
+					sb.append(p.getKey()).append(',');
+				}
+				sb.setLength(sb.length() - 1);
+				preKey = sb.toString();
+			}
+			Logging.errorPrint("PREABILITY: found without CATEGORY: " + preKey);
 		}
 	}
 

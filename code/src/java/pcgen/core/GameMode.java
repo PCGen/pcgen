@@ -3154,7 +3154,10 @@ public final class GameMode implements Comparable<Object>
 	public AbilityCategory getAbilityCategory(final String aKey)
 	{
 		AbilityCategory ac = silentlyGetAbilityCategory(aKey);
-		if (ac == null)
+		// Empty aKey indicates return null because
+		// PreAbilityTester.buildAbilityList uses that as a global
+		// (all Category) getch
+		if (aKey == null || (ac == null && aKey.length() > 0))
 		{
 			Logging.errorPrint("Attempt to fetch AbilityCategory: " + aKey
 				+ "... but it does not exist");
