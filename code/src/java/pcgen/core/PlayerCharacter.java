@@ -3629,8 +3629,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		// Now check the feats to see if they modify the variable
-		for (Ability obj : aggregateFeatList())
+		// Now check Abilities to see if they modify the variable
+		for (Ability obj : getFullAbilitySet())
 		{
 			final String varInList = checkForVariableInList(obj,
 				variableString, isMax, Constants.EMPTY_STRING,
