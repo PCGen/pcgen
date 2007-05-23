@@ -25,6 +25,9 @@
  *
  */package plugin.pretokens.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -71,7 +74,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 
 		boolean foundMatch = false;
 		boolean foundSkill = false;
-		for (Skill aSkill : character.getSkillList())
+		List<Skill> skillList = new ArrayList<Skill>(character.getSkillList());
+		for (Skill aSkill : skillList)
 		{
 			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)
