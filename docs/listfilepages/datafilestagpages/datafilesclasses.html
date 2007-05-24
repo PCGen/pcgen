@@ -646,24 +646,6 @@
 		<p class="indent2">Class Level Line.</p>
 
 
-		<p></p><a name="SPELLSTAT"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> SPELLSTAT:x</p>
-		<p class="indent1"><strong>Variables Used:</strong> abbreviated name of stat (from statsandchecks.lst)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used to tell PCGen what attribute/stat to use for determining bonus spells and
-		maximum level the character can cast</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SPELLSTAT:INT</code></p>
-		<p class="indent3">The class uses Intelligence to determine bonus spells and maximum casting level.</p>
-		<p class="indent2"><code>SPELLSTAT:SPELL</code></p>
-		<p class="indent3">Tells the program to look for a SPELLSTAT:tag in the spells the class uses, and use
-		that for each spell.  For example used with psionic classes, where the spellstat depends on the powers
-		used and not on the class.</p>
-		<p class="indent2"><code>CLASS:Defender.MOD &lt;tab&gt; SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt; SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt; BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt; SPELLLIST:1|Channeler</code></p>
-		<p class="indent3">Modifying the class Defender changes all of these tags to determine bonus spells and maximum casting level.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Class Line.</p>
-
 		<p></p><a name="SPELLLIST"></a><hr>
 		<p class="new">*** Updated 5.7.15*** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> SPELLLIST:x|y|y</p>
@@ -698,6 +680,24 @@
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">CLASSES, CLASS Line, SUBCLASS line or SUBCLASSLEVEL line.</p>
 
+
+		<p></p><a name="SPELLSTAT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SPELLSTAT:x</p>
+		<p class="indent1"><strong>Variables Used:</strong> abbreviated name of stat (from statsandchecks.lst)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Used to tell PCGen what attribute/stat to use for determining bonus spells and
+		maximum level the character can cast</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SPELLSTAT:INT</code></p>
+		<p class="indent3">The class uses Intelligence to determine bonus spells and maximum casting level.</p>
+		<p class="indent2"><code>SPELLSTAT:SPELL</code></p>
+		<p class="indent3">Tells the program to look for a STAT:tag in the spells the class uses, and use
+		that for each spell.  For example used with psionic classes, where the spellstat depends on the powers
+		used and not on the class.</p>
+		<p class="indent2"><code>CLASS:Defender.MOD &lt;tab&gt; SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt; SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt; BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt; SPELLLIST:1|Channeler</code></p>
+		<p class="indent3">Modifying the class Defender changes all of these tags to determine bonus spells and maximum casting level.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Class Line.</p>
 
 		<p></p><a name="SPELLTYPE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> SPELLTYPE:x</p>
@@ -832,7 +832,7 @@
 		<p class="indent2"><code>SPELLSTAT:INT</code></p>
 		<p class="indent3">This subclass uses Intelligence to determine maximum level of spells.</p>
 		<p class="indent2"><code>SPELLSTAT:SPELL</code></p>
-		<p class="indent3">Tells the program to look for a SPELLSTAT:tag in the spells the class uses, and use
+		<p class="indent3">Tells the program to look for a STAT:tag in the spells the class uses, and use
 		that for each spell. For example used with psionic classes,where the spellstat depends on the powers
 		used and not on the class.</p>
 		<p class="indent2"><code>CLASS:Defender.MOD &lt;tab&gt; SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt; SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt; BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt; SPELLLIST:1|Channeler</code></p>
