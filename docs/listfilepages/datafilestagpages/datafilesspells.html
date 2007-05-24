@@ -188,30 +188,6 @@
 		<p class="indent2"><code>CT:41</code></p>
 		<p class="indent3">This spell takes 41+ points to cast.</p>
 
-		<p></p><a name="DESC"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> DESC:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell description)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>One line description of what the spell does.</li>
-			<li>Not necessarily Open Game Content.</li>
-			<li>If closed, and permission is granted, the DESCISPI tag is used to show that.</li>
-			<li>This replaces the Deprecated EFFECTS tag.</li>
-			<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and formulas within parentheses.</li>
-			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for this purpose,
-				is commonly used though other variables can be used as well.</li>
-			<li>Because anything within parentheses is assumed to be a formula to be parsed,
-				text containing parentheses must substitute brackets [ ] in place of parentheses.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>DESC:Toasts the monsters with fire</code></p>
-		<p class="indent3">What the spell does.</p>
-		<p class="indent2"><code>DESC:Target is prone for (CASTERLEVEL) rounds.</code></p>
-		<p class="indent3">If the value of CASTERLEVEL is equal to 3 then this would output: "Target is prone for 3 rounds.".</p>
-		<p class="indent2"><code>Maximize Power.MOD &lt;tab&gt; DESC:.CLEAR &lt;tab&gt; DESC:You can manifest powers to maximum effect.</code></p>
-		<p class="indent3">Replaces the standard spell DESC with the attached.".</p>
-
-
 		<p></p><a name="DESCISPI"></a><hr>
 		<p class="new">*** Deprecated 5.11.13 - Remove 6.0 - Use <a href="../globalfilestagpages/globalfilesother.html#DESCISPI">DESCISPI</a> tag instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> DESCISPI:x</p>
