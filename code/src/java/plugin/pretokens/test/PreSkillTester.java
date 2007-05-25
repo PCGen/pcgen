@@ -27,7 +27,6 @@
 
 import java.util.ArrayList;
 import java.util.List;
-
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -74,7 +73,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 
 		boolean foundMatch = false;
 		boolean foundSkill = false;
-		List<Skill> skillList = new ArrayList<Skill>(character.getSkillList());
+		final List<Skill> skillList = new ArrayList<Skill>(character.getSkillList());
 		for (Skill aSkill : skillList)
 		{
 			final String aSkillKey = aSkill.getKeyName().toUpperCase();
