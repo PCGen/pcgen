@@ -514,8 +514,9 @@ public final class InfoSpecialAbilities extends JPanel implements
 	{
 		SortedSet<Language> autoLangs = pc.getAutoLanguages();
 		Skill speakLanguage = null;
-
-		for (final Skill aSkill : pc.getSkillList())
+		
+		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
+		for (Skill aSkill : skillList)
 		{
 			if (aSkill.getChoiceString().indexOf(
 				PropertyFactory.getString("in_language")) >= 0)

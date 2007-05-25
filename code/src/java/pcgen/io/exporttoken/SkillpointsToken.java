@@ -33,6 +33,8 @@ import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -173,7 +175,8 @@ public class SkillpointsToken extends Token
 	public static int getUsedSkillPoints(PlayerCharacter pc)
 	{
 		float usedPoints = 0;
-		for (Skill aSkill : pc.getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
+		for (Skill aSkill : skillList)
 		{
 			if ((aSkill.getRank().doubleValue() > 0)
 				|| (aSkill.getOutputIndex() != 0))
@@ -208,7 +211,8 @@ public class SkillpointsToken extends Token
 		}
 		PCClass targetClass = pc.getClassList().get(classNum);
 		float usedPoints = 0;
-		for (Skill aSkill : pc.getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
+		for (Skill aSkill : skillList)
 		{
 			if ((aSkill.getRank().doubleValue() > 0)
 				|| (aSkill.getOutputIndex() != 0))

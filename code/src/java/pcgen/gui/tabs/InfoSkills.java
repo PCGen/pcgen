@@ -518,8 +518,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private int getHighestOutputIndex()
 	{
 		int maxOutputIndex = 0;
-
-		for (Skill bSkill : pc.getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
+		for (Skill bSkill : skillList)
 		{
 			if (bSkill.getOutputIndex() > maxOutputIndex)
 			{

@@ -243,7 +243,8 @@ public final class Skill extends PObject
 			}
 		}
 
-		for (Skill aSkill : aPC.getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
+		for (Skill aSkill : skillList)
 		{
 			if (aSkill.hasCSkill(keyName))
 			{
@@ -696,7 +697,8 @@ public final class Skill extends PObject
 	{
 		Skill languageSkill = null;
 
-		for (Skill aSkill : aPC.getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
+		for (Skill aSkill : skillList)
 		{
 			if (aSkill.getChoiceString().toLowerCase().indexOf("language") >= 0)
 			{
@@ -1435,9 +1437,10 @@ public final class Skill extends PObject
 			}
 		}
 
-		for ( Skill skill : aPC.getSkillList() )
+		final List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
+		for (Skill aSkill : skillList)
 		{
-			if (skill.hasCcSkill(keyName))
+			if (aSkill.hasCcSkill(keyName))
 			{
 				return true;
 			}

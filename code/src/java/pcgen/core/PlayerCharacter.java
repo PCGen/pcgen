@@ -2939,8 +2939,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			returnValue += li.getSkillPointsGained();
 		}
-
-		for (Skill aSkill : getSkillList())
+		
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
+		for (Skill aSkill : skillList)
 		{
 			for (String bSkill : aSkill.getRankList())
 			{
@@ -3644,7 +3645,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (Skill obj : getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
+		for (Skill obj : skillList)
 		{
 			final String varInList = checkForVariableInList(obj,
 				variableString, isMax, Constants.EMPTY_STRING,
@@ -6410,7 +6412,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public Skill getSkillKeyed(final String skillKey)
 	{
-		for (Skill skill : getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
+		for (Skill skill : skillList)
 		{
 			if (skill.getKeyName().equalsIgnoreCase(skillKey))
 			{
@@ -6604,7 +6607,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addSpells(ability);
 		}
 
-		for (Skill skill : getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
+		for (Skill skill : skillList)
 		{
 			addSpells(skill);
 		}
@@ -7646,7 +7650,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//
 		// First, check to see if skill is already in list
 		//
-		for (Skill skill : getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
+		for (Skill skill : skillList)
 		{
 			if (skill.getKeyName().equals(addSkill.getKeyName()))
 			{
@@ -8760,7 +8765,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			SR = Math.max(SR, aFeat.getSR(this));
 		}
 
-		for (Skill skill : getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
+		for (Skill skill : skillList)
 		{
 			SR = Math.max(SR, skill.getSR(this));
 		}
@@ -9519,8 +9525,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int languageNum(final boolean includeSpeakLanguage)
 	{
+		
 		int i = (int) getStatBonusTo("LANG", "BONUS");
 		final Race pcRace = getRace();
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 
 		if (i < 0)
 		{
@@ -9529,7 +9537,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (includeSpeakLanguage)
 		{
-			for (Skill skill : getSkillList())
+			for (Skill skill : skillList)
 			{
 				if (skill.getChoiceString().indexOf("Language") >= 0)
 				{
@@ -12817,6 +12825,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private void addNewSkills(final int level)
 	{
 		final List<Skill> addItems = new ArrayList<Skill>();
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 
 		for (Skill aSkill : Globals.getSkillList())
 		{
@@ -12826,7 +12835,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				 * Must do brute force search - no guarantee it's sorted
 				 */
 				boolean found = false;
-				for (Skill sk : getSkillList()) {
+				for (Skill sk : skillList) {
 					if (sk.getKeyName().equals(aSkill.getKeyName())) {
 						found = true;
 						break;
@@ -14847,7 +14856,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.primaryWeapons.addAll(getPrimaryWeapons());
 		aClone.secondaryWeapons.addAll(getSecondaryWeapons());
 		aClone.shieldProfList.addAll(getShieldProfList());
-		for (Skill skill : getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
+		for (Skill skill : skillList)
 		{
 			aClone.skillList.add((skill.clone()));
 		}
@@ -17018,7 +17028,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (Skill skill : getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
+		for (Skill skill : skillList)
 		{
 			final List<Ability> aList = skill.getVirtualFeatList();
 

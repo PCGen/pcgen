@@ -2603,7 +2603,8 @@ System.err.println(aMod.getChoiceString());
 
 				//
 				// Iterate through all the PC's Skills
-				for (Skill aSkill : pc.getSkillList())
+				List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
+				for (Skill aSkill : skillList)
 				{
 					for (BonusObj aBonus : aSkill.getBonusList())
 					{

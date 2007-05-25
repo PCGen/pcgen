@@ -39,6 +39,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
 
 import java.util.*;
+
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 
 /**
@@ -610,7 +611,8 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(LINE_SEP);
 		}
 
-		for (Skill skill : thePC.getSkillList())
+		final List<Skill> skillList = new ArrayList<Skill>(thePC.getSkillList());
+		for (Skill skill : skillList)
 		{
 			if (!skill.containsListFor(selectedArmorProfListKey))
 			{
@@ -1951,8 +1953,9 @@ final class PCGVer2Creator implements IOConstants
 		}
 
 		thePC.populateSkills(includeSkills);
-
-		for (Skill skill : thePC.getSkillList())
+		
+		final List<Skill> skillList = new ArrayList<Skill>(thePC.getSkillList());
+		for (Skill skill : skillList)
 		{
 			if ((skill.getRank().doubleValue() > 0)
 				|| (skill.getOutputIndex() != 0))
