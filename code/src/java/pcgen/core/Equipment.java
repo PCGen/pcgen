@@ -47,7 +47,6 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.IntegerKey;
-import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.StringKey;
@@ -173,8 +172,6 @@ public final class Equipment extends PObject implements Serializable,
 	private List<EquipmentModifier> eqModifierList = new ArrayList<EquipmentModifier>();
 
 	private List<SpecialProperty> specialPropertyList = new ArrayList<SpecialProperty>();
-
-	private List<String> vFeatList = null; // virtual feat list
 
 	private boolean modifiersAllowed = true;
 
@@ -2871,24 +2868,6 @@ public final class Equipment extends PObject implements Serializable,
 			addAltType(type);
 			typeListCachePrimary = null;
 			typeListCacheSecondary = null;
-		}
-	}
-
-	/**
-	 * Adds to the virtual feat list this item bestows upon its weilder.
-	 * 
-	 * @param vList
-	 *            a | delimited list of feats to add to the list
-	 */
-	public void addVFeatList(final String vList) {
-		final StringTokenizer aTok = new StringTokenizer(vList, "|");
-
-		while (aTok.hasMoreTokens()) {
-			if (vFeatList == null) {
-				vFeatList = new ArrayList<String>();
-			}
-
-			vFeatList.add(aTok.nextToken());
 		}
 	}
 
