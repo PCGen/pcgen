@@ -902,8 +902,6 @@ public final class InfoGear extends FilterAdapterPanel implements
 						if (autoSort.isSelected())
 						{
 							updatedItem.setOutputIndex(nextOutputIndex);
-							resortSelected(ResortComparator.RESORT_NAME,
-								ResortComparator.RESORT_ASCENDING);
 						}
 						else
 						{
@@ -911,6 +909,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 							{
 								updatedItem
 									.setOutputIndex(getHighestOutputIndex() + 1);
+								pc.cacheOutputIndex(updatedItem);
 							}
 						}
 
@@ -919,6 +918,11 @@ public final class InfoGear extends FilterAdapterPanel implements
 						updatedItem.setQty(qty);
 						updatedItem.setNumberCarried(qty);
 						pc.addEquipment(updatedItem);
+						if (autoSort.isSelected())
+						{
+							resortSelected(ResortComparator.RESORT_NAME,
+								ResortComparator.RESORT_ASCENDING);
+						}
 
 						// Update the selected table
 						selectedModel.addItemToModel(updatedItem, true);
@@ -2495,6 +2499,10 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (item.getOutputIndex() >= 0)
 			{
 				item.setOutputIndex(nextOutputIndex++);
+				if (item.isAutomatic())
+				{
+					pc.cacheOutputIndex(item);
+				}
 			}
 		}
 
@@ -3687,6 +3695,11 @@ public final class InfoGear extends FilterAdapterPanel implements
 					if (eq != null)
 					{
 						retVal = Integer.valueOf(eq.getOutputIndex());
+						if (eq.isAutomatic())
+						{
+							// Automatic equip is onstantly recreated, so grab the cached index
+							retVal = pc.getCachedOutputIndex(eq.getKeyName());
+						}
 					}
 					break;
 
@@ -3805,11 +3818,19 @@ public final class InfoGear extends FilterAdapterPanel implements
 				if ((item.getOutputIndex() > -1) && (item != eq))
 				{
 					item.setOutputIndex(workingIndex++);
+					if (item.isAutomatic())
+					{
+						pc.cacheOutputIndex(item);
+					}
 				}
 			}
 
 			selectedModel.updateTree();
 			selectedTable.updateUI();
+			if (eq.isAutomatic())
+			{
+				pc.cacheOutputIndex(eq);
+			}
 			pc.setDirty(true);
 		}
 

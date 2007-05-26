@@ -4477,6 +4477,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 
 				aEquip.setOutputIndex(index);
+				if (aEquip.isAutomatic())
+				{
+					thePC.cacheOutputIndex(aEquip);
+				}
 			}
 			else if (TAG_COST.equals(tag))
 			{

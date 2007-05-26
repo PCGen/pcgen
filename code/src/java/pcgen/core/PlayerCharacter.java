@@ -153,6 +153,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// List of Equipment
 	private List<Equipment> equipmentList = new ArrayList<Equipment>();
 	private List<Equipment> equipmentMasterList = new ArrayList<Equipment>();
+	private Map<String, Integer> autoEquipOutputOrderCache = new HashMap<String, Integer>();
 	private List<PCLevelInfo> pcLevelInfo = new ArrayList<PCLevelInfo>();
 	// TODO This probably should not be a member but should be passed around
 	private List<BonusObj> processedBonusList = new ArrayList<BonusObj>();
@@ -4058,6 +4059,43 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
+	/**
+	 * Cache the output index of an automatic equipment item.
+	 * @param key The key of the equipment item.
+	 * @param index The output index.
+	 */
+	public void cacheOutputIndex(String key, int index)
+	{
+		Logging.errorPrint("Caching " + key + " - " + index + " direct");
+		autoEquipOutputOrderCache.put(key, index);
+	}
+
+	/**
+	 * Cache the output index of an automatic equipment item.
+	 * @param item The equipment item.
+	 */
+	public void cacheOutputIndex(Equipment item)
+	{
+		if (item.isAutomatic())
+		{
+			Logging.errorPrint("Caching " + item.getKeyName() + " - " + item
+				.getOutputIndex() + " item");
+			autoEquipOutputOrderCache.put(item.getKeyName(), item
+				.getOutputIndex());
+		}
+	}
+	
+	/**
+	 * Retrieve the cached output idex of the automatic equipment item
+	 * @param key The key of the equipment item.
+	 * @return The output index.
+	 */
+	public int getCachedOutputIndex(String key)
+	{
+		Integer order = autoEquipOutputOrderCache.get(key);
+		return order != null ? order : -1;
+	}
+	
 	/**
 	 * Update the number of a particular equipment item the character possesses.
 	 * Mostly concerned with ensuring that the spellbook objects remain in sync

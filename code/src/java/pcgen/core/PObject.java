@@ -3213,7 +3213,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 					final Equipment newEq = aEq.clone();
 					newEq.setQty(1);
 					newEq.setAutomatic(true);
-					newEq.setOutputIndex(aList.size());
+					int index = aPC.getCachedOutputIndex(newEq.getKeyName());
+					newEq.setOutputIndex(index >= 0 ? index : aList.size()+1);
 					aList.add(newEq);
 				}
 			}
