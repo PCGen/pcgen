@@ -36,6 +36,8 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Constants;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -311,9 +313,14 @@ public class LevelAbilityAbility extends LevelAbility
 				{
 					addMultiplySelectableAbility(anArrayList, aPC, anAbility);
 				}
-				else
-				{
-					addToAvailableLists(anAbility, null);
+				else {
+					GameMode gm = SettingsHandler.getGame();
+					AbilityCategory cat = gm.getAbilityCategory(lastCategorySeen);
+					if (!aPC.hasRealAbility(cat, Globals.getAbilityKeyed(
+							lastCategorySeen, anAbility.getKeyName()))
+							&& !aPC.hasAutomaticAbility(cat, anAbility)) {
+						addToAvailableLists(anAbility, null);
+					}
 				}
 			}
 		}
