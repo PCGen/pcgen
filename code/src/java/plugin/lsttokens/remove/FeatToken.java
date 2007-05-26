@@ -1,0 +1,71 @@
+/*
+ * Copyright 2007 (C) Thomas Parker <thpr@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package plugin.lsttokens.remove;
+
+import pcgen.core.Constants;
+import pcgen.core.PObject;
+import pcgen.persistence.lst.RemoveLstToken;
+import pcgen.util.Logging;
+
+public class FeatToken implements RemoveLstToken
+{
+
+	public boolean parse(PObject target, String value, int level)
+	{
+		if (value.length() == 0)
+		{
+			Logging.errorPrint(getTokenName() + " may not have empty argument");
+			return false;
+		}
+		int pipeLoc = value.indexOf(Constants.PIPE);
+		String countString;
+		String items;
+		if (pipeLoc == -1)
+		{
+			countString = "1";
+			items = value;
+		}
+		else
+		{
+			if (pipeLoc != value.lastIndexOf(Constants.PIPE))
+			{
+				Logging.errorPrint("Syntax of REMOVE:" + getTokenName()
+					+ " only allows one | : " + value);
+				return false;
+			}
+			countString = value.substring(0, pipeLoc);
+			items = value.substring(pipeLoc + 1);
+		}
+		if (level > -9)
+		{
+			target.setRemoveString(level + "|" + getTokenName() + "(" + items
+				+ ")" + countString);
+		}
+		else
+		{
+			target.setRemoveString("0|" + getTokenName() + "(" + items + ")"
+				+ countString);
+		}
+		return true;
+	}
+
+	public String getTokenName()
+	{
+		return "FEAT";
+	}
+}
