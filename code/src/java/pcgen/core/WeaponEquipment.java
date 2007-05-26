@@ -6,6 +6,7 @@ import java.util.List;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Delta;
+import pcgen.util.Logging;
 
 /**
  * WeaponEquipment class handles all weapon related equipment details
@@ -177,7 +178,7 @@ public class WeaponEquipment implements Cloneable
 		}
 		catch (NumberFormatException ignore)
 		{
-			// ignore
+			Logging.errorPrint("Invalid Range in Equipment: " + aString);
 		}
 	}
 
