@@ -37,6 +37,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -140,11 +141,13 @@ public class AbilityLst implements GlobalLstToken
 				}
 			}
 			final List<String> abilityList = new ArrayList<String>();
+			boolean isPre = false;
 			while (tok.hasMoreTokens())
 			{
 				final String key = tok.nextToken();
 				if (PreParserFactory.isPreReqString(key))
 				{
+					isPre = true;
 					final PreParserFactory factory =
 							PreParserFactory.getInstance();
 					final Prerequisite r = factory.parse(key);
@@ -152,6 +155,12 @@ public class AbilityLst implements GlobalLstToken
 				}
 				else
 				{
+					if (isPre)
+					{
+						Logging.errorPrint("Invalid " + getTokenName() + ": " + aValue);
+						Logging.errorPrint("  PRExxx must be at the END of the Token");
+						isPre = false;
+					}
 					abilityList.add(key);
 				}
 			}

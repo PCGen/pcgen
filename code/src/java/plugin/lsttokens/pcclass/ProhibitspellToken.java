@@ -27,12 +27,14 @@ public class ProhibitspellToken implements PCClassLstToken
 
 		SpellProhibitor spellProb = new SpellProhibitor();
 
+		boolean isPre = false;
 		while (aTok.hasMoreTokens())
 		{
 			final String aString = aTok.nextToken().toUpperCase();
 
 			if (PreParserFactory.isPreReqString(aString))
 			{
+				isPre = true;
 				try
 				{
 					final PreParserFactory factory =
@@ -46,6 +48,11 @@ public class ProhibitspellToken implements PCClassLstToken
 			}
 			else
 			{
+				if (isPre)
+				{
+					Logging.errorPrint("Invalid " + getTokenName() + ": " + value);
+					Logging.errorPrint("  PRExxx must be at the END of the Token");
+				}
 				final StringTokenizer elements =
 						new StringTokenizer(aString, ".", false);
 				final String aType = elements.nextToken();

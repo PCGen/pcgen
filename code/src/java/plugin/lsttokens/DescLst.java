@@ -14,6 +14,7 @@ import pcgen.core.PObject;
 import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.Logging;
 
 /**
  * Handles DESC token processing
@@ -65,15 +66,24 @@ public class DescLst implements GlobalLstToken
 
 		final Description desc =
 				new Description(EntityEncoder.decode(tok.nextToken()));
+		
+		boolean isPre = false;
 		while (tok.hasMoreTokens())
 		{
 			final String token = tok.nextToken();
 			if (PreParserFactory.isPreReqString(token)) //$NON-NLS-1$
 			{
 				desc.addPrerequisites(token, '|');
+				isPre = true;
 			}
 			else
 			{
+				if (isPre)
+				{
+					Logging.errorPrint("Invalid " + getTokenName() + ": " + aDesc);
+					Logging.errorPrint("  PRExxx must be at the END of the Token");
+					isPre = false;
+				}
 				desc.addVariable(token);
 			}
 		}

@@ -51,7 +51,7 @@ public class SaLst implements GlobalLstToken
 	 * @param level
 	 *          int level at which the ability is gained
 	 */
-	public static void parseSpecialAbility(PObject obj, String aString,
+	public void parseSpecialAbility(PObject obj, String aString,
 		int level)
 	{
 		StringTokenizer aTok = new StringTokenizer(aString, "|", true);
@@ -66,6 +66,8 @@ public class SaLst implements GlobalLstToken
 
 		SpecialAbility sa = new SpecialAbility();
 
+		boolean isPre = false;
+		
 		while (aTok.hasMoreTokens())
 		{
 			String cString = aTok.nextToken();
@@ -73,6 +75,7 @@ public class SaLst implements GlobalLstToken
 			// Check to see if it's a PRExxx: tag
 			if (PreParserFactory.isPreReqString(cString))
 			{
+				isPre = true;
 				try
 				{
 					PreParserFactory factory = PreParserFactory.getInstance();
@@ -91,6 +94,12 @@ public class SaLst implements GlobalLstToken
 			}
 			else
 			{
+				if (isPre)
+				{
+					Logging.errorPrint("Invalid " + getTokenName() + ": " + aString);
+					Logging.errorPrint("  PRExxx must be at the END of the Token");
+					isPre = false;
+				}
 				saName.append(cString);
 			}
 
