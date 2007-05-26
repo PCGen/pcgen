@@ -32,7 +32,18 @@ public class KnownspellsToken implements PCClassLstToken
 				return true;
 			}
 
-			pipeTok = new StringTokenizer(value.substring(6), Constants.PIPE);
+			String rest;
+			if (value.startsWith(".CLEAR|"))
+			{
+				rest = value.substring(7);
+			}
+			else
+			{
+				Logging.errorPrint("Invalid KNOWNSPELLS Syntax using .CLEAR");
+				Logging.errorPrint("Please separate .CLEAR from the rest of the token with a |");
+				rest = value.substring(6);
+			}
+			pipeTok = new StringTokenizer(rest, Constants.PIPE);
 		}
 		else
 		{
