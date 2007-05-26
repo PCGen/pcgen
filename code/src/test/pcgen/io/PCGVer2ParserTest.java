@@ -20,6 +20,7 @@
  */
 package pcgen.io;
 
+import pcgen.gui.PCGenProp;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -154,5 +155,42 @@ public class PCGVer2ParserTest extends TestCase
 		{
 			assertEquals("Invalid PCGen version.", e.getMessage());
 		}
+	}
+
+	/**
+	 * Test parsing of version line for broken 5.12RC1 version number.
+	 * @throws PCGParseException
+	 */
+	public void test_1045596_8() throws PCGParseException
+	{
+		PCGVer2Parser parser = new PCGVer2Parser(null);
+
+		parser.parseVersionLine("VERSION:5.12 RC1");
+		
+		int[] version = parser.getPcgenVersion();
+		String suffix = parser.getPcgenVersionSuffix();
+
+		assertEquals(3, version.length);
+		assertEquals(5, version[0]);
+		assertEquals(12, version[1]);
+		assertEquals(0, version[2]);
+		assertEquals("RC1", suffix);
+	}
+
+
+	/**
+	 * Test that the currently specified version can be parsed.
+	 * @throws PCGParseException
+	 */
+	public void testCurrVersion() throws PCGParseException
+	{
+		PCGVer2Parser parser = new PCGVer2Parser(null);
+
+		parser.parseVersionLine("VERSION:" + PCGenProp.getVersionNumber());
+
+		int[] version = parser.getPcgenVersion();
+		String suffix = parser.getPcgenVersionSuffix();
+
+		assertEquals(3, version.length);
 	}
 }
