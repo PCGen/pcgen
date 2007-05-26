@@ -2441,7 +2441,7 @@ public final class Equipment extends PObject implements Serializable,
 		try {
 			weightInPounds = Double.parseDouble(aString);
 		} catch (NumberFormatException ignore) {
-			// ignore
+			Logging.errorPrint("Invalid Weight in Equipment: " + aString);
 		}
 	}
 
