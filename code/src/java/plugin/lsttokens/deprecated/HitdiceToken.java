@@ -1,4 +1,4 @@
-package plugin.lsttokens.race;
+package plugin.lsttokens.deprecated;
 
 import java.util.StringTokenizer;
 

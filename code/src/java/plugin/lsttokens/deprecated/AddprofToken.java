@@ -1,4 +1,4 @@
-package plugin.lsttokens.equipmentmodifier;
+package plugin.lsttokens.deprecated;
 
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.lst.EquipmentModifierLstToken;
