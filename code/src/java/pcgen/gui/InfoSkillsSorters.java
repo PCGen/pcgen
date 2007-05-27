@@ -249,6 +249,82 @@ public final class InfoSkillsSorters
 		{
 			return costsMatch(node, skill, tab);
 		}
+
+		public InfoSkillsSorter nextSorter()
+		{
+			return new CostSubtypeName_Final(tab);
+		}
+	}
+
+	/**
+	 * Concrete class to assist sorting skills by cost, subtype, name
+	 */
+	public static class CostSubtypeName_Final extends FinalSorter
+	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
+		public CostSubtypeName_Final(InfoSkills tab)
+		{
+			super(tab);
+		}
+
+		/**
+		 * Pass up singletons so that subtypes with only one
+		 * member get promoted to the secondary level.
+		 *
+		 * @param node the root node
+		 *
+		 * @return the root node, usually as <code>node</code>
+		 */
+		public PObjectNode finalPass(PObjectNode node)
+		{
+			// children
+			for (ListIterator it = node; it.hasNext();)
+			{
+				PObjectNode child = (PObjectNode) it.next();
+
+				// grandchildren
+				for (ListIterator jt = child; jt.hasNext();)
+				{
+					ListIterator<PObjectNode> gcIt = ((PObjectNode) jt.next());
+
+					// subtype level; use arrays
+					// instead of iterator to make
+					// replacement simple.  XXX
+					while (gcIt.hasNext())
+					{
+						gcIt.next();
+
+						if (node.getChildCount() == 1)
+						{
+							gcIt.set(node.getChild(0));
+						}
+					}
+				}
+			}
+
+			return node;
+		}
+
+		public boolean nodeGoHere(PObjectNode node, Skill skill)
+		{
+			String skillType;
+			for (Iterator it = skill.getSubtypeIterator(); it.hasNext();)
+			{
+				skillType = it.next().toString();
+				if (!Globals.isSkillTypeHidden(skillType))
+				{
+					if (costsMatch(node.getParent(), skill, tab) && node.toString().equals(skillType))
+					{
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
 	}
 
 	/**
