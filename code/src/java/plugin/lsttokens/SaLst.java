@@ -96,9 +96,14 @@ public class SaLst implements GlobalLstToken
 			{
 				if (isPre)
 				{
-					Logging.errorPrint("Invalid " + getTokenName() + ": " + aString);
-					Logging.errorPrint("  PRExxx must be at the END of the Token");
-					isPre = false;
+					if (!"|".equals(cString))
+					{
+						Logging.errorPrint("Invalid " + getTokenName() + ": "
+							+ aString);
+						Logging
+							.errorPrint("  PRExxx must be at the END of the Token");
+						isPre = false;
+					}
 				}
 				saName.append(cString);
 			}
