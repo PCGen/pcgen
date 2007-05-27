@@ -21,15 +21,15 @@ import pcgen.core.PObject;
 import pcgen.persistence.lst.ChooseLstToken;
 import pcgen.util.Logging;
 
-public class SkillListToken implements ChooseLstToken
+public class SkillsNamedToCCSkillToken implements ChooseLstToken
 {
 
 	public boolean parse(PObject po, String value)
 	{
-		if (value.indexOf('|') != -1)
+		if (value.indexOf(',') != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not contain | : " + value);
+				+ " arguments may not contain , : " + value);
 			return false;
 		}
 		if (value.indexOf('[') != -1)
@@ -38,22 +38,22 @@ public class SkillListToken implements ChooseLstToken
 				+ " arguments may not contain [] : " + value);
 			return false;
 		}
-		if (value.charAt(0) == ',')
+		if (value.charAt(0) == '|')
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not start with , : " + value);
+				+ " arguments may not start with | : " + value);
 			return false;
 		}
-		if (value.charAt(value.length() - 1) == ',')
+		if (value.charAt(value.length() - 1) == '|')
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not end with , : " + value);
+				+ " arguments may not end with | : " + value);
 			return false;
 		}
-		if (value.indexOf(",,") != -1)
+		if (value.indexOf("||") != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments uses double separator ,, : " + value);
+				+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		po.setChoiceString(value);
@@ -62,6 +62,6 @@ public class SkillListToken implements ChooseLstToken
 
 	public String getTokenName()
 	{
-		return "SKILLLIST";
+		return "SKILLSNAMEDTOCCSKILL";
 	}
 }

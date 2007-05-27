@@ -2740,14 +2740,13 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 -->
-<!--		<jar jarfile="${lstplugins.dir}/FeatAddToken-CHOOSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/FeatAddToken-CHOOSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/choose/FeatAddToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
--->
 		<jar jarfile="${lstplugins.dir}/FeatListToken-CHOOSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -2827,14 +2826,7 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/SkillListToken-CHOOSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/choose/SkillListToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-<!--		<jar jarfile="${lstplugins.dir}/SkillsNamedToCCSkillToken-CHOOSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/SkillsNamedToCCSkillToken-CHOOSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/choose/SkillsNamedToCCSkillToken.class" />
@@ -2848,7 +2840,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
--->
 		<jar jarfile="${lstplugins.dir}/SkillsNamedToken-CHOOSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -6305,6 +6296,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/deprecated/XppenaltyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillListToken-CHOOSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/SkillListToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
