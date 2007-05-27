@@ -54,16 +54,18 @@ public final class ChooseLoader
 			LstUtils.deprecationCheck(token, target, value);
 			if (!token.parse(target, value))
 			{
-				Logging
-					.errorPrint("Error parsing CHOOSE: " + key + ":" + value);
+				//514 deprecation changes
+//				Logging
+//					.errorPrint("Error parsing CHOOSE: " + key + ":" + value);
 				return false;
 			}
 			return true;
 		}
 		else
 		{
-			Logging
-				.errorPrint("Error parsing CHOOSE, invalid SubToken: " + key);
+			//514 deprecation changes
+//			Logging
+//				.errorPrint("Error parsing CHOOSE, invalid SubToken: " + key);
 			return false;
 		}
 	}
