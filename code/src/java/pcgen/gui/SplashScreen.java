@@ -55,7 +55,7 @@ final class SplashScreen extends JWindow
 		splash.setBorder(new CompoundBorder(new MatteBorder(1, 1, 1, 1, Color.black), new EmptyBorder(12, 12, 12, 12)));
 		splash.setBackground(Color.black);
 
-		URL url = getClass().getResource(IconUtilitities.RESOURCE_URL + "SplashPcgen_512.png");
+		URL url = getClass().getResource(IconUtilitities.RESOURCE_URL + "SplashPcgen-Alpha.png");
 
 		if (url != null)
 		{
