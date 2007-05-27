@@ -3387,6 +3387,22 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			return true;
 		}
 
+
+		if (ccSkillList.contains("LIST"))
+		{
+			String aString;
+
+			for (int e = 0; e < getAssociatedCount(); ++e)
+			{
+				aString = getAssociated(e);
+
+				if (aName.startsWith(aString) || aString.startsWith(aName))
+				{
+					return true;
+				}
+			}
+		}
+		
 		for (String aString : getCcSkillList())
 		{
 			if (aString.lastIndexOf('%') >= 0)
