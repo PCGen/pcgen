@@ -36,8 +36,16 @@ public class ChooseLst implements GlobalLstToken
 				int pipeLoc = val.indexOf(Constants.PIPE, activeLoc);
 				if (pipeLoc == -1)
 				{
-					key = val;
-					val = null;
+					if (val.startsWith("FEAT="))
+					{
+						key = "FEAT";
+						val = val.substring(5);
+					}
+					else
+					{
+						key = val;
+						val = null;
+					}
 				}
 				else
 				{
