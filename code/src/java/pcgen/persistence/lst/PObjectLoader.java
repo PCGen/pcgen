@@ -34,9 +34,7 @@ import pcgen.core.PObject;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.persistence.lst.utils.FeatParser;
 import pcgen.persistence.lst.utils.PObjectHelper;
-import pcgen.core.Ability;
 
 /**
  * @author David Rice <david-pcgen@jcuz.com>
@@ -153,10 +151,6 @@ public final class PObjectLoader
 					}
 				}
 			}
-			else if (aTag.startsWith("VFEAT:"))
-			{
-				featList.add(new PObjectHelper(obj, aTag.substring(6), anInt));
-			}
 			else
 			{
 				result = false;
@@ -164,16 +158,5 @@ public final class PObjectLoader
 		}
 
 		return result;
-	}
-
-	public static void finishFeatProcessing()
-	{
-		for (PObjectHelper p : featList)
-		{
-			List<Ability> vFeatList =
-					FeatParser.parseVirtualFeatList(p.getTag());
-			p.getObject().addVirtualFeats(vFeatList);
-		}
-		featList.clear();
 	}
 }
