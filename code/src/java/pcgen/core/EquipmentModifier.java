@@ -1628,7 +1628,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		double val = 0;
 
-		List<String> typesToGetBonusesFor = new ArrayList<String>();
+		Set<String> typesToGetBonusesFor = new HashSet<String>();
 
 		for ( BonusObj bonus : getBonusList() )
 		{
