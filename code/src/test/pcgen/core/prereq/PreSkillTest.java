@@ -35,6 +35,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 
 public class PreSkillTest extends AbstractCharacterTestCase
 {
@@ -299,4 +300,14 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
+
+	public void testLevelsTwoClasses() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		Prerequisite prereq = factory.parse("PRESKILL:2,Balance=4,Tumble=2");
+
+		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+	}
 }
