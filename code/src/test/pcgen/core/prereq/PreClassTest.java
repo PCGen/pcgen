@@ -35,6 +35,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import plugin.pretokens.parser.PreClassLevelMaxParser;
 import plugin.pretokens.test.PreClassTester;
 
@@ -181,6 +182,84 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(3, passes);
+	}
+
+	/**
+	 * Test to ensure that a character will fail a test
+	 * if it does not have the correct number of levels
+	 * in the class.
+	 * @throws Exception
+	 */
+	public void testFromParserCharWithMultipleSpellClasses() throws Exception
+	{
+		final PCClass pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellBaseStat("CHA");
+		pcClass.setSpellType("ARCANE");
+		pcClass.setCast(1, Arrays.asList("5,4".split(",")));
+
+		final PCClass pcClass2 = new PCClass();
+		pcClass2.setName("Other Class");
+		pcClass2.setAbbrev("OC");
+		pcClass.setSpellBaseStat("INT");
+		pcClass2.setSpellType("ARCANE");
+		pcClass2.setCast(1, Arrays.asList("5,4".split(",")));
+
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(2, pcClass2);
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+
+		final Prerequisite prereq = factory.parse("PRECLASS:1,SPELLCASTER.ARCANE=3");
+
+		final PreClassTester test = new PreClassTester();
+		int passes = test.passes(prereq, character);
+		// Doens't pass - levels not summed...
+		assertEquals(0, passes);
+		character.incrementClassLevel(1, pcClass2);
+		passes = test.passes(prereq, character);
+		assertEquals(1, passes);
+	}
+
+	/**
+	 * Test to ensure that a character will fail a test
+	 * if it does not have the correct number of levels
+	 * in the class.
+	 * @throws Exception
+	 */
+	public void testFromParserAny() throws Exception
+	{
+		final PCClass pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellBaseStat("CHA");
+		pcClass.setSpellType("ARCANE");
+		pcClass.setCast(1, Arrays.asList("5,4".split(",")));
+
+		final PCClass pcClass2 = new PCClass();
+		pcClass2.setName("Other Class");
+		pcClass2.setAbbrev("OC");
+		pcClass.setSpellBaseStat("INT");
+		pcClass2.setSpellType("ARCANE");
+		pcClass2.setCast(1, Arrays.asList("5,4".split(",")));
+
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(2, pcClass2);
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+
+		final Prerequisite prereq = factory.parse("PRECLASS:1,ANY=3");
+
+		final PreClassTester test = new PreClassTester();
+		int passes = test.passes(prereq, character);
+		// Doens't pass - levels not summed...
+		assertEquals(0, passes);
+		character.incrementClassLevel(1, pcClass2);
+		passes = test.passes(prereq, character);
+		assertEquals(1, passes);
 	}
 
 	/**
@@ -482,13 +561,16 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("class");
 		prereq.setKey("Any");
-		prereq.setOperand("3");
+		prereq.setOperand("2");
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		assertEquals(0, test.passes(prereq, character));
 
-		character.incrementClassLevel(2, pcClass2);
+		character.incrementClassLevel(1, pcClass2);
+		assertEquals(0, test.passes(prereq, character));
+
+		character.incrementClassLevel(1, pcClass2);
 		assertEquals(1, test.passes(prereq, character));
 	}
 }

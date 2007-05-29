@@ -68,7 +68,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 		{
 			for (PCClass cl : character.getClassList())
 			{
-				runningTotal += cl.getLevel();
+				runningTotal = Math.max(runningTotal, cl.getLevel());
 			}
 		}
 		else
