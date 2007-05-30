@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Thu May 17 21:39:23 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-# Class Name	Hit Dice	Type				Subclass?		Source Page					Save checks bonus											Combat bonus					Modify VAR
-CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal
+# Class Name	Hit Dice	Type				Max Level	Subclass?		Source Page					Save checks bonus											Combat bonus					Modify VAR
+CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -57,8 +57,8 @@ SUBCLASS:Telepath	CHOICE:Telepathy		SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Co
 19	KNOWN:7,4,4,4,3,3,3,2,1,1	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
 20	KNOWN:7,4,4,4,4,3,3,2,2,1	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
 
-# Class Name		Hit Dice	Type				Abbreviation	Source Page					Save checks bonus											Combat bonus
-CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	ABB:PsyWar		SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
+CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	ABB:PsyWar		MAXLEVEL:20	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Jump|Stabilize Self|Swim|Tumble|Use Psionic Device
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
@@ -99,8 +99,8 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 19	KNOWN:3,4,3,3,3,3,2
 20	KNOWN:3,4,3,3,3,3,3																						ADD:FEAT|1|TYPE=Fighter,TYPE=Psionic
 
-# Class Name	Hit Dice	Type					Subclass?		Source Page					Save checks bonus														Combat bonus					Modify VAR
-CLASS:Metamind	HD:4		TYPE:PC.Psionic.Prestige	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal
+# Class Name	Hit Dice	Type					Max Level	Subclass?		Source Page					Save checks bonus														Combat bonus					Modify VAR
+CLASS:Metamind	HD:4		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal
 # Class Name	Required Feat			Required Skill						Req. Spell Type
 CLASS:Metamind	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=2	PRESPELLTYPE:2,Psionic=0
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -137,8 +137,8 @@ SUBCLASS:Metamind(Cha)	CHOICE:Telepathy		SPELLSTAT:CHA	PREMULT:1,[PRESUBCLASS:Te
 9	KNOWN:3,3,3,2																	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode	ADD:FEAT|1|Trigger Power
 10	KNOWN:3,3,3,2,1	SA:Apotheosis														ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 
-# Class Name		Hit Dice	Type					Subclass?		Source Page					Save checks bonus														Combat bonus
-CLASS:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type					Max Level	Subclass?		Source Page					Save checks bonus														Combat bonus
+CLASS:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL		Required Skill					Req. Known Spell			Required Text											Var. Min. Value
 CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:2,Alchemy,Knowledge (Psionics)=1	PRESPELL:1,Control Flames	PRETEXT:Must have set fire to a structure of any size just to watch it burn	PREVARGTEQ:BasePowerPoints,10
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -175,8 +175,8 @@ SUBCLASS:Pyrokineticist(Cha)	CHOICE:Telepathy		SPELLSTAT:CHA	PREMULT:1,[PRESUBCL
 10	KNOWN:2,2,2,1	SA:Fire Lord							ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 
 
-# Class Name	Hit Dice	Type					Source Page					Save checks bonus														Combat bonus
-CLASS:Slayer	HD:10		TYPE:PC.Psionic.Prestige	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type					Max Level	Source Page					Save checks bonus														Combat bonus
+CLASS:Slayer	HD:10		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat	Required Skill											Required Text																		Var. Min. Value
 CLASS:Slayer	PREATT:3	PREFEAT:1,Track	PRESKILL:1,Knowledge (Mortal Enemy Lore)=1	PRESKILL:1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PREVARGTEQ:BasePowerPoints,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -210,8 +210,8 @@ CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sla
 9	KNOWN:2,2,2												ADD:FEAT|1|TYPE=General,TYPE=Psionic,TYPE=Metapsionic	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 10	KNOWN:2,2,2,1	SA:Blast Feedback								ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 
-# Class Name	Hit Dice	Type					Subclass?		Source Page					Save checks bonus															Combat bonus
-CLASS:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type					Max Level	Subclass?		Source Page					Save checks bonus															Combat bonus
+CLASS:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill						Var. Min. Value
 CLASS:Soulknife	PREATT:3	PRESKILL:2,Move Silently,Knowledge (Psionics)=3	PREVARGTEQ:BasePowerPoints,9
 # Class Name	Skill Pts/Lvl	Class Skill

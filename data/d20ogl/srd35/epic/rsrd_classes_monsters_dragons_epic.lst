@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-# Class Name		Hit Dice	Type			Source Page					Save checks bonus								Combat bonus
-CLASS:Force Dragon	HD:12		TYPE:Monster	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level		Source Page					Save checks bonus								Combat bonus
+CLASS:Force Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race
 CLASS:Force Dragon	PRERACE:1,Dragon (Force%
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
@@ -10,8 +10,8 @@ CLASS:Force Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
 19	ADD:SPELLCASTER|Sorcerer
 20						BONUS:PCLEVEL|Sorcerer|(((CL-15)/5)*3)-1
 
-# Class Name		Hit Dice	Type			Source Page					Save checks bonus								Combat bonus
-CLASS:Prismatic Dragon	HD:12		TYPE:Monster	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level		Source Page					Save checks bonus								Combat bonus
+CLASS:Prismatic Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race
 CLASS:Prismatic Dragon	PRERACE:1,Dragon (Prismatic%
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?

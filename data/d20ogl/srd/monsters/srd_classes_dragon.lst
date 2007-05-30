@@ -8,7 +8,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 #
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
-CLASS:Black Dragon	HD:12		TYPE:Monster	ABB:BkDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Black Dragon	HD:12		TYPE:Monster	ABB:BkDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Black Dragon	PRERACE:1,Dragon (Black%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -44,7 +44,7 @@ CLASS:Black Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 49																										BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
-CLASS:Blue Dragon	HD:12		TYPE:Monster	ABB:BlDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Blue Dragon	HD:12		TYPE:Monster	ABB:BlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -77,7 +77,7 @@ CLASS:Blue Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|
 44																										BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
-CLASS:Green Dragon	HD:12		TYPE:Monster	ABB:GnDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Green Dragon	HD:12		TYPE:Monster	ABB:GnDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Green Dragon	PRERACE:1,Dragon (Green%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -111,7 +111,7 @@ CLASS:Green Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 # Errata (3/18/02 applied) to (Red) Dragon
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
-CLASS:Red Dragon	HD:12		TYPE:Monster	ABB:RdDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Red Dragon	HD:12		TYPE:Monster	ABB:RdDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -143,7 +143,7 @@ CLASS:Red Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|D
 42																										BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
-CLASS:White Dragon	HD:12		TYPE:Monster	ABB:WhDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:White Dragon	HD:12		TYPE:Monster	ABB:WhDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:White Dragon	PRERACE:1,Dragon (White%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -180,7 +180,7 @@ CLASS:White Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 #
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
-CLASS:Brass Dragon	HD:12		TYPE:Monster	ABB:BsDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Brass Dragon	HD:12		TYPE:Monster	ABB:BsDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -213,7 +213,7 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 39																										BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
-CLASS:Bronze Dragon	HD:12		TYPE:Monster	ABB:BzDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Bronze Dragon	HD:12		TYPE:Monster	ABB:BzDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -246,7 +246,7 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentratio
 41																												BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
-CLASS:Copper Dragon	HD:12		TYPE:Monster	ABB:CuDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Copper Dragon	HD:12		TYPE:Monster	ABB:CuDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -278,7 +278,7 @@ CLASS:Copper Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentratio
 40																										BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
-CLASS:Gold Dragon	HD:12		TYPE:Monster	ABB:GlDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Gold Dragon	HD:12		TYPE:Monster	ABB:GlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -311,7 +311,7 @@ CLASS:Gold Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|
 43																																	BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
-CLASS:Silver Dragon	HD:12		TYPE:Monster	ABB:SlDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Silver Dragon	HD:12		TYPE:Monster	ABB:SlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill

@@ -54,8 +54,8 @@ CLASS:Drider Wizard	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNON
 5					BONUS:PCLEVEL|Wizard|1
 6					BONUS:PCLEVEL|Wizard|1
 
-# Class Name		Hit Dice	Type			Source Page				Levels per Feat	Save checks bonus								Combat bonus
-CLASS:Formian Queen	HD:8		TYPE:Monster	SOURCEPAGE:srdmonstersfg.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level		Source Page				Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Formian Queen	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersfg.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Formian Queen	PRERACE:1,Formian (Queen)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
@@ -83,15 +83,15 @@ CLASS:Formian Queen	STARTSKILLPTS:8	MODTOSKILLS:YES
 
 # Cloud and Storm Giants gain skills as if they were large creatures.
 
-# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus
-CLASS:Cloud Giant	HD:8		TYPE:Monster	SOURCEPAGE:srdcreatureoverview.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level		Source Page					Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Cloud Giant	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:srdcreatureoverview.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Cloud Giant	PRERACETYPE:Giant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Cloud Giant	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT			MONNONSKILLHD:2
 
-# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus
-CLASS:Storm Giant	HD:8		TYPE:Monster	SOURCEPAGE:srdcreatureoverview.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level		Source Page					Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Storm Giant	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:srdcreatureoverview.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Storm Giant	PRERACETYPE:Giant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
