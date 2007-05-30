@@ -17121,7 +17121,27 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
+		// Set this list now to avoid a loop when we ask for the object list
 		setStableVirtualFeatList(vFeatList);
+
+		// Add any virtual abilities with a category of FEAT
+		for (final PObject pobj : getPObjectList())
+		{
+			final List<String> abilityKeys =
+					pobj.getAbilityKeys(this, AbilityCategory.FEAT,
+						Ability.Nature.VIRTUAL);
+			for (final String key : abilityKeys)
+			{
+				final Ability added =
+						AbilityUtilities
+							.addCloneOfGlobalAbilityToListWithChoices(
+								vFeatList, AbilityCategory.FEAT, key);
+				if (added != null)
+				{
+					added.setFeatType(Ability.Nature.VIRTUAL);
+				}
+			}
+		}
 
 		return vFeatList;
 	}
