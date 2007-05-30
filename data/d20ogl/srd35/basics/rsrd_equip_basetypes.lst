@@ -14,7 +14,7 @@ Amulet		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicItemsI.rtf
 Brooch		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicItemsI.rtf
 Medallion		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicItemsI.rtf
 Necklace		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicItemsI.rtf
-Periapt		TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicItemsI.rtf
+Periapt		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicItemsI.rtf
 Scarab		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicItemsI.rtf
 Vest			TYPE:Shirt					COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicItemsI.rtf
 Vestment		TYPE:Shirt					COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicItemsI.rtf
