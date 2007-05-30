@@ -2,8 +2,8 @@
 SOURCELONG:Blood and Space - Starship Construction Manual	SOURCESHORT:BnS-SCM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=58
 #Original Entry By: Sean Silva-Miramon
 
-# Class Name		Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Starship Designer	HD:8		TYPE:PC.Advanced	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+6)*2/5-1	BONUS:VAR|Reputation|CL/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Starship Designer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+6)*2/5-1	BONUS:VAR|Reputation|CL/3
 # Class Name		Required Feat			Required Skill
 CLASS:Starship Designer	PREFEAT:1,Starship Operation	PRESKILL:4,Craft (Mechanical)=3,Craft (Structural)=6,Knowledge (Physical Sciences)=6,Pilot=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -16,8 +16,8 @@ CLASS:Starship Designer	STARTSKILLPTS:4	CSKILL:Computer Use|Craft (Electronic)|C
 9																				ADD:FEAT|1|TYPE.StarshipDesigner
 
 
-# Class Name			Hit Dice	Type			Source Page		Save checks bonus																Combat bonus		Modify VAR
-CLASS:Starship Test Pilot	HD:8		TYPE:PC.Advanced	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Starship Test Pilot	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name			Req. Att.	Required Feat			Required Skill
 CLASS:Starship Test Pilot	PREATT:2	PREFEAT:1,Starship Operation	PRESKILL:2,Pilot=6,Repair=3
 # Class Name			Skill Pts/Lvl	Class Skill

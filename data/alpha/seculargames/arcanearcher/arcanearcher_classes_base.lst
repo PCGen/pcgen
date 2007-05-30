@@ -2,8 +2,8 @@
 SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/informatica/poder/secular/site/products.html#aa
 #Originally done by Paul W. King
 
-# Class Name			Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Arcane Archer ~ Core	HD:8		TYPE:Base.PC.ArcaneArcher	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Arcane Archer ~ Core	HD:8		TYPE:Base.PC.ArcaneArcher	MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name			Multiple Requirements															Required Race
 CLASS:Arcane Archer ~ Core	PREMULT:1,[PRELEVELMAX:1],[PREMULT:1,[!PRECLASS:1,TYPE.ArcaneArcher=1],[PRECLASS:1,Arcane Archer ~ Core=1]	PRERACE:1,Elf%,Half-Elf
 # Class Name			Skill Pts/Lvl	Class Skill

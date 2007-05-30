@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Blood and Space - High Flyers and Ground Pounders	SOURCESHORT:BnS-HFnGP	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56
 
-# Class Name		Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Operations Expert	HD:6		TYPE:PC.Advanced	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Operations Expert	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Skill
 CLASS:Operations Expert	PRESKILL:4,Craft (Electronic),Craft (Mechanical),Craft (Structural),Repair
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -14,8 +14,8 @@ CLASS:Operations Expert	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|C
 7	SA:Reinforce Structural Integrity
 9																									ADD:FEAT|1|TYPE=OperationsExpert
 
-# Class Name		Hit Dice	Type			Source Page		Save checks bonus																Combat bonus		Modify VAR
-CLASS:Starship Gunner	HD:8		TYPE:PC.Advanced	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Starship Gunner	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name		Req. Att.	Required Feat				Required Skill
 CLASS:Starship Gunner	PREATT:3	PREFEAT:2,Starship Gunnery,Teamwork	PRESKILL:1,Knowledge (Tactics)=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -31,8 +31,8 @@ CLASS:Starship Gunner	STARTSKILLPTS:2	CSKILL:Computer Use|Demolitions|Disable De
 9																							ADD:FEAT|1|TYPE=StarshipGunner
 10	SA:Improved Weapon Specialization (all starship weapons)	BONUS:COMBAT|DAMAGE.Starship|2
 
-# Class Name		Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Starship Marine	HD:10		TYPE:PC.Advanced	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Starship Marine	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Req. Att.	Required Feat							Required Skill
 CLASS:Starship Marine	PREATT:2	PREFEAT:2,Personal Firearms Proficiency,Teamwork	PRESKILL:2,Intimidate,Survival=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -48,8 +48,8 @@ CLASS:Starship Marine	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolition
 9						BONUS:VAR|Beachhead|1											ADD:FEAT|1|TYPE=StarshipMarine,TYPE=AdvancedTraining
 10	SA:Semper Fi
 
-# Class Name			Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Starship Navigator	HD:8		TYPE:PC.Advanced	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Starship Navigator	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name			Required Feat				Required Skill
 CLASS:Starship Navigator	PREFEAT:2,Spacer,Improved Slingshot	PRESKILL:2,Computer Use,Navigate=6
 # Class Name			Skill Pts/Lvl	Class Skill

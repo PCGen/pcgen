@@ -10,8 +10,8 @@ CLASS:Druid.MOD	PREDEITY:Saluwe,Yarris,Belisarda,Fire Dragon
 # Class Name		Maximum Level
 CLASS:Aristocrat.MOD	PRELEVELMAX:1
 
-# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
-CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		HASSUBCLASS:YES	SOURCEPAGE:pg. 51	LANGAUTO:Literacy		LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
+CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:pg. 51	LANGAUTO:Literacy		LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
 # Class Name	Prohibited Template
 CLASS:Cleric	!PRETEMPLATE:Black Talon Male,Ashen Hide Male
 # Class Name	Skill Pts/Lvl
@@ -100,8 +100,8 @@ SUBCLASSLEVEL:3	SA:Wild Empathy (Ex) (Water Only)																															
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Examine Martial Technique|Handle Animal|Intimidate|Jump|Ride|Swim
 1	BONUS:VAR|WeapSpecQualify|CL	DEFINE:WeapSpecQualify|0	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency	ADD:FEAT|1|TYPE=Fighter
@@ -122,8 +122,8 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Examine Martial Technique|
 20																																																								ADD:FEAT|1|TYPE=Fighter
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page			Automatic Languages	Define			Save checks bonus								Combat bonus					Unarmed Damage Level bonus
-CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		HASSUBCLASS:YES	SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		DEFINE:FlurryOfBlows|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:UDAM|CLASS.Monk|var("CL=Blade of Hurrian")	BONUS:UDAM|CLASS.Monk|var("CL=Order of the Bronze Sepulcher Elite")	BONUS:UDAM|CLASS.Monk|var("CL=Elemental Path of Flame")	BONUS:UDAM|CLASS.Monk|var("CL=Elemental Path of Stone")	BONUS:UDAM|CLASS.Monk|var("CL=Elemental Path of Water")	BONUS:UDAM|CLASS.Monk|var("CL=Elemental Path of Wind")
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page			Automatic Languages	Define			Save checks bonus								Combat bonus					Unarmed Damage Level bonus
+CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		DEFINE:FlurryOfBlows|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:UDAM|CLASS.Monk|var("CL=Blade of Hurrian")	BONUS:UDAM|CLASS.Monk|var("CL=Order of the Bronze Sepulcher Elite")	BONUS:UDAM|CLASS.Monk|var("CL=Elemental Path of Flame")	BONUS:UDAM|CLASS.Monk|var("CL=Elemental Path of Stone")	BONUS:UDAM|CLASS.Monk|var("CL=Elemental Path of Water")	BONUS:UDAM|CLASS.Monk|var("CL=Elemental Path of Wind")
 # Class Name	Required AL
 CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl
@@ -199,8 +199,8 @@ SUBCLASSLEVEL:5	SA:Immune to all types of fear, and mind-affecting compulsions a
 SUBCLASSLEVEL:6																																																																																																							ADD:VFEAT|1|Improved Disarm,Improved Trip,Divinity's Purpose
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Ex Class			Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		HASSUBCLASS:YES	EXCLASS:Ex Paladin	SOURCEPAGE:pg. 66	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|SMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Ex Class			Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
+CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	HASSUBCLASS:YES	EXCLASS:Ex Paladin	SOURCEPAGE:pg. 66	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|SMLevel|CL
 # Class Name	Required AL
 CLASS:Paladin	PREALIGN:LG,NG,CG
 # Class Name	Skill Pts/Lvl
@@ -258,8 +258,8 @@ SUBCLASSLEVEL:5	SA:Turn Undead (Su) (Turn level %)|ChannelLevelFireDragon							
 20	CAST:0,3,3,3,3
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		SOURCEPAGE:pg. 69	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:pg. 69	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Black Market|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE.Local|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Research|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	SA:Trapfinding	BONUS:VAR|SneakAttack|(CL+1)/2						AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Saber|Sap|Shortbow|Sword (Short)	FEATAUTO:Armor Proficiency (Light)	FEATAUTO:Simple Weapon Proficiency
@@ -273,8 +273,8 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Black Market|Bluff|Climb|TY
 16																																							ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 19																																							ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		SOURCEPAGE:pg. 70	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
+CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:pg. 70	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name	Prohibited Race
 CLASS:Sorcerer	!PRERACE:1,Human
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -303,8 +303,8 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Urban Sentinel	HD:8		TYPE:Base.PC	ABB:USntl		SOURCEPAGE:pg. 69	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Urban Sentinel	HD:8		TYPE:Base.PC	ABB:USntl		MAXLEVEL:20	SOURCEPAGE:pg. 69	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Urban Sentinel	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level
@@ -344,8 +344,8 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page				Automatic Languages	Bonus Languages		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page				Automatic Languages	Bonus Languages		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Research|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level

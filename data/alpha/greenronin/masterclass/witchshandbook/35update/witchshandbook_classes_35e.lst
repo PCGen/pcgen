@@ -2,8 +2,8 @@
 #Orginal Entry: Beaver
 SOURCELONG:The Witch's Handbook	SOURCESHORT:witchhandbook	SOURCEWEB:http://www.greenronin.com
 
-# Class Name			Output Name		Hit Dice	Type			Abbreviation	Subclass?		Ex Class		Source Page		Automatic Languages	Bonus Languages			Save checks bonus											Combat bonus
-CLASS:Witch (Green Ronin)	OUTPUTNAME:Witch	HD:4		TYPE:Base.PC	ABB:GRWtch		HASSUBCLASS:NO	EXCLASS:Ex Witch	SOURCEPAGE:p.6	LANGAUTO:Literacy		LANGBONUS:Draconic,Giant	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Output Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Ex Class		Source Page		Automatic Languages	Bonus Languages			Save checks bonus											Combat bonus
+CLASS:Witch (Green Ronin)	OUTPUTNAME:Witch	HD:4		TYPE:Base.PC	ABB:GRWtch		MAXLEVEL:20	HASSUBCLASS:NO	EXCLASS:Ex Witch	SOURCEPAGE:p.6	LANGAUTO:Literacy		LANGBONUS:Draconic,Giant	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Witch (Green Ronin)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Sense Motive|Spellcraft|Swim|Survival
 # Class Name			Spell Stat		Spell Type		Spellbook		Caster level

@@ -8,8 +8,8 @@ SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/
 #
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Disciple	HD:8		TYPE:Base.PC	ABB:Dis		SOURCEPAGE:p.57	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Disciple	HD:8		TYPE:Base.PC	ABB:Dis		MAXLEVEL:20	SOURCEPAGE:p.57	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Text
 CLASS:Disciple	PRETEXT:A Disciple's alignment must be within one step of the immortal that grants him his spells.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -43,8 +43,8 @@ CLASS:Disciple	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 # new chooser + SPELL => Innate Spell.. (not going to delve into the current undocumented chooser)
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Bonus Languages	Save checks bonus											Combat bonus
-CLASS:Shaman	HD:8		TYPE:Base.PC	ABB:Sha		SOURCEPAGE:p.61	LANGAUTO:Literacy		LANGBONUS:Sylvan	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Bonus Languages	Save checks bonus											Combat bonus
+CLASS:Shaman	HD:8		TYPE:Base.PC	ABB:Sha		MAXLEVEL:20	SOURCEPAGE:p.61	LANGAUTO:Literacy		LANGBONUS:Sylvan	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level			Use Spell List
@@ -75,8 +75,8 @@ CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:6,5,5,5,5,5,4,4,3,4
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Shaper	HD:8		TYPE:Base.PC	ABB:Shp		SOURCEPAGE:p.65	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Shaper	HD:8		TYPE:Base.PC	ABB:Shp		MAXLEVEL:20	SOURCEPAGE:p.65	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shaper	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Gather Information|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Listen|TYPE.Profession|Search|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
@@ -107,8 +107,8 @@ CLASS:Shaper	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Shaper
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus								Combat bonus
-CLASS:Spirit Adept	HD:10		TYPE:Base.PC	ABB:SpA		SOURCEPAGE:p.70	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus								Combat bonus
+CLASS:Spirit Adept	HD:10		TYPE:Base.PC	ABB:SpA		MAXLEVEL:20	SOURCEPAGE:p.70	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
 1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
@@ -122,7 +122,7 @@ CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|
 5	SA:Feather Fall (Sp)																															ADD:FEAT|1|TYPE=SpiritAdeptPowers
 6	SA:Spirit Sense II							BONUS:VAR|SpiritStrength|5*min(var("CL=Spirit Adept")-5,5)
 7																																			ADD:FEAT|1|TYPE=SpiritAdeptPowers
-9																														FEATAUTO:Improved Evasion	ADD:FEAT|1|TYPE=SpiritAdeptPowers
+9																														ADD:FEAT|1|TYPE=SpiritAdeptPowers	FEATAUTO:Improved Evasion
 11	SA:Spirit Sense III							BONUS:VAR|SpiritStrength|10*min(var("CL=Spirit Adept")-10,10)														ADD:FEAT|1|TYPE=SpiritAdeptPowers
 13																																			ADD:FEAT|1|TYPE=SpiritAdeptPowers
 15																																			ADD:FEAT|1|TYPE=SpiritAdeptPowers
@@ -130,8 +130,8 @@ CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|
 19																																			ADD:FEAT|1|TYPE=SpiritAdeptPowers
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Sorcerer (DF)	HD:4		TYPE:Base.PC	ABB:Sor		HASSUBCLASS:YES	SOURCEPAGE:p.93	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
+CLASS:Sorcerer (DF)	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:p.93	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer (DF)	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
@@ -196,8 +196,8 @@ SUBCLASSLEVEL:20	SA:Quicken Spell (1/day)
 #TODO: Spell Focus granting +2 instead of +1 for available schools
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Bonus Languages		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Wizard (DF)	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:p.93	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Automatic Languages	Bonus Languages		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Wizard (DF)	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:p.93	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard (DF)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level				Use Spell List

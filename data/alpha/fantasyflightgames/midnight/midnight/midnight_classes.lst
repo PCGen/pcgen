@@ -2,8 +2,8 @@
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 # Original Entry by: Tir Gwaith
 
-# Class Name	Hit Dice	Type			Subclass?		Save checks bonus											Combat bonus					Modify VAR					Template
-CLASS:Channeler	HD:6		TYPE:PC.Base	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MaximumSpellLevelBonus|1	TEMPLATE:Maximum Spell Level
+# Class Name	Hit Dice	Type			Max Level	Subclass?		Save checks bonus											Combat bonus					Modify VAR					Template
+CLASS:Channeler	HD:6		TYPE:PC.Base	MAXLEVEL:20	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MaximumSpellLevelBonus|1	TEMPLATE:Maximum Spell Level
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Channeler	STARTSKILLPTS:6	CSKILL:Alchemy|Animal Empathy|Bluff|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Sense Motive|Spellcraft|Wilderness Lore
 # Class Name	Spell Type		Spellbook		Caster level
@@ -36,8 +36,8 @@ SUBCLASSLEVEL:1	SA:Force of Personality (+% up to % rounds)|ForcePersonality|Per
 19	CAST:1,1,1,1,1,1,1,1,1,1
 20	CAST:1,1,1,1,1,1,1,1,1,1										ADD:FEAT|1|TYPE=Spellcasting
 
-# Class Name	Hit Dice	Type			Save checks bonus												Combat bonus
-CLASS:Defender	HD:8		TYPE:PC.Base	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Save checks bonus												Combat bonus
+CLASS:Defender	HD:8		TYPE:PC.Base	MAXLEVEL:20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Defender	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Profession|Sense Motive|Swim|Tumble
 ###Block: Weapon and Armor Proficiencies
@@ -55,8 +55,8 @@ CLASS:Defender	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Escape Arti
 17																																																											ADD:FEAT|1|TYPE=DefenderAbility
 20																																																											ADD:FEAT|1|TYPE=DefenderAbility
 
-# Class Name	Hit Dice	Source Page		Define				Save checks bonus											Combat bonus					Add domain number		Modify VAR					Template
-CLASS:Legate	HD:8		SOURCEPAGE:p.42	DEFINE:UnlimitedSpells|1	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|MaximumSpellLevelBonus|1	TEMPLATE:Maximum Spell Level
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define				Save checks bonus											Combat bonus					Add domain number		Modify VAR					Template
+CLASS:Legate	HD:8		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.42	DEFINE:UnlimitedSpells|1	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|MaximumSpellLevelBonus|1	TEMPLATE:Maximum Spell Level
 # Class Name	Required AL
 CLASS:Legate	PREALIGN:LE,TN,NE,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -96,8 +96,8 @@ CLASS:Legate	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name	Hit Dice	Type			Save checks bonus											Combat bonus
-CLASS:Wildlander	HD:8		TYPE:PC.Base	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus
+CLASS:Wildlander	HD:8		TYPE:PC.Base	MAXLEVEL:20	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wildlander	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 # Need to do Danger Sense like Uncanny Dodge....

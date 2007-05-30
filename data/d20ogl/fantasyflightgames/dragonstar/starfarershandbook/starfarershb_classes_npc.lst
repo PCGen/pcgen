@@ -11,8 +11,8 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 #new NPC classes
 #################
 
-# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Thug		HD:6		TYPE:NPC	ABB:Thg		SOURCEPAGE:p.68	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Thug		HD:6		TYPE:NPC	ABB:Thg		MAXLEVEL:20	SOURCEPAGE:p.68	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Cryptography|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Device|Use Rope
 1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]

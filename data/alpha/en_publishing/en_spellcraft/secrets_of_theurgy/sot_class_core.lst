@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sat Jan 13 02:06:48 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:E.N. Publishing	SOURCESHORT:ENPub	SOURCEWEB:http://www.enworld.org/index.php?page=enpublishing
 
-# Class Name		Hit Dice	Type			Abbreviation	Ex Class				Source Page		Automatic Languages		Bonus Languages	Additional Devine Domain				Save checks bonus											Combat bonus					Add domain number		Modify VAR
-CLASS:Elemental Druid	HD:8		TYPE:Base.PC	ABB:EDrd		EXCLASS:Ex Elemental Druid	SOURCEPAGE:5	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	ADDDOMAINS:Air.Animal.Earth.Fire.Plant.Water	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|CompLevel|CL
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Ex Class				Source Page		Automatic Languages		Bonus Languages	Additional Devine Domain				Save checks bonus											Combat bonus					Add domain number		Modify VAR
+CLASS:Elemental Druid	HD:8		TYPE:Base.PC	ABB:EDrd		MAXLEVEL:20	EXCLASS:Ex Elemental Druid	SOURCEPAGE:5	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	ADDDOMAINS:Air.Animal.Earth.Fire.Plant.Water	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|CompLevel|CL
 # Class Name		Required AL
 CLASS:Elemental Druid	PREALIGN:LN,NG,TN,NE,CN
 # Class Name		Skill Pts/Lvl	Class Skill

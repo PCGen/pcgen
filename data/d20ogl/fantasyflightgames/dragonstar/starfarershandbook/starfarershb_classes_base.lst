@@ -11,8 +11,8 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 #New classes
 ##############
 
-# Class Name	Hit Dice	Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Pilot		HD:6		ABB:Plt		SOURCEPAGE:p.49	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Pilot		HD:6		TYPE:Base.PC	ABB:Plt		MAXLEVEL:20	SOURCEPAGE:p.49	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Freefall|Intuit Direction|Jump|Navigate|Pilot|TYPE.Profession|Repair|Spot|Swim|Use Device|Use Rope
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
@@ -29,8 +29,8 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Freefall|Intuit Direc
 13																					ADD:FEAT|1|TYPE.Pilot
 17																					ADD:FEAT|1|TYPE.Pilot
 
-# Class Name	Hit Dice	Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Mechanist	HD:6		ABB:Mech		SOURCEPAGE:p.52	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Mechanist	HD:6		TYPE:Base.PC	ABB:Mech		MAXLEVEL:20	SOURCEPAGE:p.52	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Craft|Cryptography|Demolitions|Disable Device|Freefall|TYPE.Knowledge|Open Lock|Pilot|TYPE.Profession|Repair|Research|Search|Use Device
 1	FEATAUTO:Technical Proficiency

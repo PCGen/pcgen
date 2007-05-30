@@ -9,8 +9,8 @@ CLASS:Arcane Archer.MOD	TYPE:ArcaneArcher
 CLASS:Arcane Archer.MOD	PRE:.CLEAR		PREMULT:1,[PRECLASS:1,Arcane Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:5,[PREATT:6],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Weapon Focus(Longbow),Weapon Focus(Shortbow)],[PRESPELLTYPE:1,Arcane=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf%,Half-Elf
 
 
-# Class Name			Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Arcane Crossbowman	HD:8		TYPE:PC.Prestige.ArcaneArcher	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude|CL/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Arcane Crossbowman	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude|CL/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Multiple Requirements																																														Required Race
 CLASS:Arcane Crossbowman	PREMULT:1,[PRECLASS:1,Arcane Crossbowman=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:5],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Rapid Reload],[PREFEAT:1,Weapon Focus(Crossbow (Hand))],[PRESKILL:1,Craft (Poison Making)=10],[PRESPELLTYPE:1,Arcane=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Drow),Half-Elf
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -26,8 +26,8 @@ CLASS:Arcane Crossbowman	STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Hide|Listen|Mov
 6					BONUS:VAR|SeekerBoltTimes|1		FEATAUTO:Seeker Bolt
 9					BONUS:VAR|PhaseBoltTimes|1		FEATAUTO:Phase Bolt
 
-# Class Name		Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Blizzard Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Blizzard Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Multiple Requirements																																													Required Race
 CLASS:Blizzard Archer	PREMULT:1,[PRECLASS:1,Blizzard Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:6],[PREFEAT:1,Endurance],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Weapon Focus(Longbow),Weapon Focus(Shortbow)],[PRESKILL:1,Survival=8],[PRESPELLTYPE:1,Arcane=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Winter),Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -46,8 +46,8 @@ CLASS:Blizzard Archer	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Listen|Move Silentl
 8						BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	FEATAUTO:Hail of Arrows
 10																	FEATAUTO:Arrow of Death
 
-# Class Name		Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Deepwood Guardian	HD:8		TYPE:PC.Prestige.ArcaneArcher	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Deepwood Guardian	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Multiple Requirements																																												Required Race
 CLASS:Deepwood Guardian	PREMULT:1,[PRECLASS:1,Deepwood Guardian=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:7,[PREATT:6],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Track],[PRESKILL:1,Hide=8],[PRESKILL:1,Move Silently=8],[PREFEAT:1,TYPE.ArcherySchool],[PRESPELLTYPE:1,Arcane=1]	PRERACE:1,Elf (Wood),Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -64,8 +64,8 @@ CLASS:Deepwood Guardian	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Listen|Move Silen
 8	SA:Arrow of Slow (Sp)
 10																			FEATAUTO:Arrow of Death
 
-# Class Name		Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Divine Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Divine Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Multiple Requirements																																																								Required Race
 CLASS:Divine Archer	PREMULT:1,[PRECLASS:1,Divine Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:8,[PREALIGN:LG,NG,CG],[PREATT:5],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Weapon Focus(Longbow),Weapon Focus(Shortbow)],[PRESKILL:1,Concentration=5],[PRESKILL:1,Knowledge (Religion)=10],[PRESPELLTYPE:1,Divine=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf%,Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -84,8 +84,8 @@ CLASS:Divine Archer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Ha
 8						BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	FEATAUTO:Hail of Arrows
 10																	FEATAUTO:Arrow of Death
 
-# Class Name		Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Eldritch Bow	HD:6		TYPE:PC.Prestige.ArcaneArcher	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Eldritch Bow	HD:6		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Multiple Requirements																																															Required Race
 CLASS:Eldritch Bow	PREMULT:1,[PRECLASS:1,Eldritch Bow=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:4],[PREFEAT:1,Cunning Archery],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Weapon Focus(Longbow),Weapon Focus(Shortbow)],[PRESKILL:1,Knowledge (Arcana)=8],[PRESPELLTYPE:1,Arcane=3],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Grey),Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -102,8 +102,8 @@ CLASS:Eldritch Bow	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Knowledge (Arcana)|Lis
 8															BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	FEATAUTO:Hail of Arrows	ADD:SPELLCASTER|1|Arcane
 10	SA:Arrow of Negation																										ADD:SPELLCASTER|1|Arcane
 
-# Class Name		Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Psychic Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Psychic Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Multiple Requirements																																																Required Race
 CLASS:Psychic Archer	PREMULT:1,[PRECLASS:1,Psychic Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:5],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Weapon Focus(Longbow),Weapon Focus(Shortbow)],[PRESKILL:1,Knowledge (Psionics)=10],[PRESPELLTYPE:1,Psionic=3],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf%,Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -119,8 +119,8 @@ CLASS:Psychic Archer	STARTSKILLPTS:4	CSKILL:Autohypnosis|TYPE.Craft|Hide|Knowled
 6	SA:Mind Burn (Su)
 10	SA:Arrow of Coma (Sp)
 
-# Class Name		Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Untamed Hunter	HD:10		TYPE:PC.Prestige.ArcaneArcher	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Untamed Hunter	HD:10		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Multiple Requirements																																													Required Race
 CLASS:Untamed Hunter	PREMULT:1,[PRECLASS:1,Untamed Hunter=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:6],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Rage],[PREFEAT:1,Weapon Focus(Longbow),Weapon Focus(Shortbow)],[PRESPELLTYPE:1,Arcane=1],[PRESPELLCAST:MEMORIZE=N],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Wild),Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill

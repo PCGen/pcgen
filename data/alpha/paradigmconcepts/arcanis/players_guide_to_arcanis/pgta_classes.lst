@@ -6,8 +6,8 @@ SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.parad
 CLASS:Druid.MOD	BONUS:VAR|WildEmpathy|-5|PRERACE:1,Dark-Kin
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Bearer of Woe	HD:8		TYPE:Base.PC	ABB:HCA		SOURCEPAGE:pg. 73	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Bearer of Woe	HD:8		TYPE:Base.PC	ABB:HCA		MAXLEVEL:20	SOURCEPAGE:pg. 73	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Deity	Prohibited Race
 CLASS:Bearer of Woe	PREALIGN:LG	PREDEITY:Anshar	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -43,8 +43,8 @@ CLASS:Bearer of Woe	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|L
 
 #############################################################################################################
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Beltinian Hospitaler	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HCBlt		SOURCEPAGE:pg. 79	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Beltinian Hospitaler	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HCBlt		MAXLEVEL:20	SOURCEPAGE:pg. 79	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL	Required Deity	Prohibited Race
 CLASS:Beltinian Hospitaler	PREALIGN:LN	PREDEITY:Beltine	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -84,8 +84,8 @@ CLASS:Beltinian Hospitaler	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LE
 
 ########################################################################################################
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Deathbringer	HD:10		TYPE:Base.PC	ABB:HCNrt		SOURCEPAGE:pg. 98	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Deathbringer	HD:10		TYPE:Base.PC	ABB:HCNrt		MAXLEVEL:20	SOURCEPAGE:pg. 98	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Deity	Prohibited Race
 CLASS:Deathbringer	PREALIGN:LG	PREDEITY:Neroth	!PRERACE:1,Elorii,Ss'ressen
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -121,8 +121,8 @@ CLASS:Deathbringer	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 
 #######################################################################################################3
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Fatespinner	HD:10		TYPE:Base.PC	ABB:HCL		SOURCEPAGE:pg. 95	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Fatespinner	HD:10		TYPE:Base.PC	ABB:HCL		MAXLEVEL:20	SOURCEPAGE:pg. 95	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Deity	Multiple Requirements
 CLASS:Fatespinner	PREALIGN:CG,CN,CE	PREDEITY:Larissa	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PRETEMPLATE:Tultipetan]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -160,8 +160,8 @@ CLASS:Fatespinner	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 #########################################################################################################
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Harbinger of the Dawn	HD:10		TYPE:Base.PC	ABB:HCIlr		SOURCEPAGE:pg. 93	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Harbinger of the Dawn	HD:10		TYPE:Base.PC	ABB:HCIlr		MAXLEVEL:20	SOURCEPAGE:pg. 93	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Deity	Multiple Requirements
 CLASS:Harbinger of the Dawn	PREALIGN:LG,LN,LE	PREDEITY:Saluwe	PREMULT:1,[PRERACE:1,Val,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PREREGION:Solanos Mor]]
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -203,8 +203,8 @@ CLASS:Harbinger of the Dawn	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|L
 #########################################################################################################
 
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Holy Judge of Nier	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:HCNr		SOURCEPAGE:pg. 101	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Holy Judge of Nier	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:HCNr		MAXLEVEL:20	SOURCEPAGE:pg. 101	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name			Required AL		Multiple Requirements
 CLASS:Holy Judge of Nier	PREALIGN:LG,LN,LE	PREMULT:1,[PRERACE:1,Human],[PRERACE:1,Val]
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -240,8 +240,8 @@ CLASS:Holy Judge of Nier	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 
 ############################################################################################################3
 
-# Class Name				Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Knight of the Twelve Oaks	HD:10		TYPE:Base.PC	ABB:HCBls		SOURCEPAGE:pg. 77	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Knight of the Twelve Oaks	HD:10		TYPE:Base.PC	ABB:HCBls		MAXLEVEL:20	SOURCEPAGE:pg. 77	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name				Required AL		Required Deity		Required Race
 CLASS:Knight of the Twelve Oaks	PREALIGN:LG,NG,CG	PREDEITY:Belisarda	PRERACE:1,Elorii
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -281,8 +281,8 @@ CLASS:Knight of the Twelve Oaks	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL
 
 ###############################################################################################################
 
-# Class Name				Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Order of the Inner Demon	HD:10		TYPE:Base.PC	ABB:HCSrs		SOURCEPAGE:pg. 106	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Order of the Inner Demon	HD:10		TYPE:Base.PC	ABB:HCSrs		MAXLEVEL:20	SOURCEPAGE:pg. 106	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name				Required AL	Required Deity	Multiple Requirements
 CLASS:Order of the Inner Demon	PREALIGN:LG	PREDEITY:Sarish	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PRETEMPLATE:Encalan]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -323,8 +323,8 @@ CLASS:Order of the Inner Demon	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=
 
 ################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Patrician	HD:6		TYPE:Base.PC	ABB:Pat		SOURCEPAGE:pg. 114	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Patrician	HD:6		TYPE:Base.PC	ABB:Pat		MAXLEVEL:20	SOURCEPAGE:pg. 114	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Patrician	STARTSKILLPTS:6	CSKILL:Appraise|Black Market|Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|Listen|TYPE.Perform|TYPE.Profession|Ride|Research|Sense Motive|Speak Language
 ###Block: Level Stuff
@@ -351,8 +351,8 @@ CLASS:Patrician	STARTSKILLPTS:6	CSKILL:Appraise|Black Market|Bluff|Concentration
 
 #####################################################################################################################
 
-# Class Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Philosophic Warrior	HD:8		TYPE:Base.PC	ABB:HCAlt		SOURCEPAGE:pg. 71	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Philosophic Warrior	HD:8		TYPE:Base.PC	ABB:HCAlt		MAXLEVEL:20	SOURCEPAGE:pg. 71	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Deity	Prohibited Race
 CLASS:Philosophic Warrior	PREALIGN:LG,LN,LE	PREDEITY:Althares	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -388,8 +388,8 @@ CLASS:Philosophic Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEV
 
 ###################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
-CLASS:Priest	HD:4		TYPE:Base.PC	ABB:Pst		HASSUBCLASS:YES	SOURCEPAGE:pg.117	LANGAUTO:Literacy		LANGBONUS:Altherin (Ancient Imperial)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
+CLASS:Priest	HD:4		TYPE:Base.PC	ABB:Pst		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:pg.117	LANGAUTO:Literacy		LANGBONUS:Altherin (Ancient Imperial)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Priest	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE.Local|TYPE.Religion|Knowledge (The Planes)|Perform (Oratory)|TYPE.Profession|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels
@@ -477,8 +477,8 @@ SUBCLASSLEVEL:3						SA:Wild Empathy (Ex) (Water Only)																										
 
 ###################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Sea Lord	HD:8		TYPE:Base.PC	ABB:HCY		SOURCEPAGE:pg. 111	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Sea Lord	HD:8		TYPE:Base.PC	ABB:HCY		MAXLEVEL:20	SOURCEPAGE:pg. 111	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Deity	Prohibited Race
 CLASS:Sea Lord	PREALIGN:LG,NG,CG	PREDEITY:Yarris	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -514,8 +514,8 @@ CLASS:Sea Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 
 ############################################################################################################
 
-# Class Name				Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Sentinel of the Blazing Wyrm	HD:10		TYPE:Base.PC	ABB:HCFD		SOURCEPAGE:pg. 86	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Sentinel of the Blazing Wyrm	HD:10		TYPE:Base.PC	ABB:HCFD		MAXLEVEL:20	SOURCEPAGE:pg. 86	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name				Required AL		Required Deity		Required Race
 CLASS:Sentinel of the Blazing Wyrm	PREALIGN:LG,LN	PREDEITY:Fire Dragon	PRERACE:1,Ss'ressen
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -551,8 +551,8 @@ CLASS:Sentinel of the Blazing Wyrm	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 
 ###################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Storm Lord	HD:10		TYPE:Base.PC	ABB:HCHrr		SOURCEPAGE:pg. 89	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Storm Lord	HD:10		TYPE:Base.PC	ABB:HCHrr		MAXLEVEL:20	SOURCEPAGE:pg. 89	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Deity	Multiple Requirements
 CLASS:Storm Lord	PREALIGN:LG,NG,CG	PREDEITY:Hurrian	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2[PRERACE:Dwarf],[PRETEMPLATE:Tir Betoqi]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -588,8 +588,8 @@ CLASS:Storm Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 
 ###############################################################################################################
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Twilight Warrior	HD:8		TYPE:Base.PC	ABB:HCCdc		SOURCEPAGE:pg. 83	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Twilight Warrior	HD:8		TYPE:Base.PC	ABB:HCCdc		MAXLEVEL:20	SOURCEPAGE:pg. 83	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Deity	Prohibited Race
 CLASS:Twilight Warrior	PREALIGN:LN	PREDEITY:Cadic	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -627,8 +627,8 @@ CLASS:Twilight Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 
 ############################################################################################################
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Verdant Champion	HD:10		TYPE:Base.PC	ABB:HCSlw		SOURCEPAGE:pg. 98	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Verdant Champion	HD:10		TYPE:Base.PC	ABB:HCSlw		MAXLEVEL:20	SOURCEPAGE:pg. 98	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Deity	Prohibited Race
 CLASS:Verdant Champion	PREALIGN:LN	PREDEITY:Saluwe	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name		Skill Pts/Lvl	Class Skill

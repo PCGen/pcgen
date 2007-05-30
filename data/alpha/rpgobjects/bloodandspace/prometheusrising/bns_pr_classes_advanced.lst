@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
-# Class Name		Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Human Computer	HD:6		TYPE:PC.Advanced	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Human Computer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name		Required Race	Required Skill
 CLASS:Human Computer	PRERACE:Menome	PRESKILL:3,Computer Use,Research,Knowledge (Tactics)=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -18,8 +18,8 @@ CLASS:Human Computer	STARTSKILLPTS:8	CSKILL:Bluff|Climb|Computer Use|Concentrati
 9																														ADD:FEAT|1|TYPE=HumanComputer
 10								BONUS:VAR|SkillDownload|5
 
-# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus		Modify VAR
-CLASS:Sensitive	HD:8		TYPE:PC.Advanced	SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
+CLASS:Sensitive	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat			Required Skill
 CLASS:Sensitive	PREFEAT:1,TYPE=BasePsionic	PRESKILL:2,Sense Motive,Knowledge (Behavioral Sciences)=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -32,8 +32,8 @@ CLASS:Sensitive	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Pharmaceutical)|Dipl
 7								ADD:FEAT|1|TYPE=SensitiveAwakening
 9								ADD:FEAT|1|TYPE=Sensitive,TYPE=PsionicPowerFeat,TYPE=BasePsionic
 
-# Class Name		Output Name				Hit Dice	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Xeno Archaelogist	OUTPUTNAME:Xeno-Archaelogist	HD:6		SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Output Name				Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Xeno Archaelogist	OUTPUTNAME:Xeno-Archaelogist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat				Required Skill
 CLASS:Xeno Archaelogist	PREFEAT:1,Alien Weapons Proficiency	PRESKILL:2,Knowledge (Technology),Decipher Script=6
 # Class Name		Skill Pts/Lvl	Class Skill

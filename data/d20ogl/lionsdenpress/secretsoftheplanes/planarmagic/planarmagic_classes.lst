@@ -4,8 +4,8 @@ SOURCELONG:Secretes of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEW
 
 # - This was one heck of a workaround with hidden classes. - Tir Gwaith
 
-# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
-CLASS:Planar Mage	HD:4		TYPE:Base.PC	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Planar Mage	HD:4		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Planar Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
@@ -50,8 +50,8 @@ CLASS:Planar Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:4,2,2,2,2,2,1,1,1,1					BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1									ADD:FEAT|1|TYPE.PlanarAttunement
 20	CAST:6,6,6,6,6,6,6,6,6,5	KNOWN:4,2,2,2,2,2,1,1,1,1					BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1									ADD:FEAT|1|Skill Focus(Knowledge %)
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Elemental Air	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Elemental Air	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental Air	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -89,8 +89,8 @@ CLASS:Elemental Air	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|L
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Elemental Earth	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Elemental Earth	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental Earth	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -127,8 +127,8 @@ CLASS:Elemental Earth	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Elemental Fire	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Elemental Fire	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental Fire	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -165,8 +165,8 @@ CLASS:Elemental Fire	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Elemental Water	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Elemental Water	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental Water	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -203,8 +203,8 @@ CLASS:Elemental Water	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name	Hit Dice	Type			Visible
-CLASS:Ethereal	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name	Hit Dice	Type			Max Level	Visible
+CLASS:Ethereal	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Ethereal	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -242,8 +242,8 @@ CLASS:Ethereal	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Negative Plane	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Negative Plane	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Negative Plane	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -280,8 +280,8 @@ CLASS:Negative Plane	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Positive Plane	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Positive Plane	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Positive Plane	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -318,8 +318,8 @@ CLASS:Positive Plane	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Plane of Shadow	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Plane of Shadow	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Plane of Shadow	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -356,8 +356,8 @@ CLASS:Plane of Shadow	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Lower Planes	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Lower Planes	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Lower Planes	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -394,8 +394,8 @@ CLASS:Lower Planes	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Planes of Discord	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Planes of Discord	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Planes of Discord	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -432,8 +432,8 @@ CLASS:Planes of Discord	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Planes of Order	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Planes of Order	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Planes of Order	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -470,8 +470,8 @@ CLASS:Planes of Order	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Visible
-CLASS:Upper Planes	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible
+CLASS:Upper Planes	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Upper Planes	STARTSKILLPTS:0	MODTOSKILLS:NO
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
