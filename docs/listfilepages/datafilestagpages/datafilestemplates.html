@@ -13,6 +13,7 @@
 	Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 	Eddy Anthony - eddybaATmindspringDOTcom
 	Terry FitzSimons - fitzsimonsATmintelDOTnet
+	Eric C Smith - mareduddATblackrootDOTorg
 
 	Description:
 	Provides information on the content of PCGen Template Files.
@@ -132,9 +133,12 @@
 		<p class="indent0"><strong>Tag Name:</strong> FEAT:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a | (pipe) delimited list of feats granted to a Race.</p>
+		<ul class="indent1">
+			<li>This is a pipe (|) delimited list of feats granted to a Race.</li>
+			<li>The hyphen (-) is used only in the OUTPUTNAME of feats and should NOT be used in the feat list for this tag. (See example below.)</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>FEAT:Blind-Fight|Alertness</code></p>
+		<p class="indent2"><code>FEAT:Blind Fight|Alertness</code></p>
 		<p class="indent3">Gives the &quot;Blind-Fight&quot; &amp; &quot;Alertness&quot; bonus feats.</p>
 
 		<p></p><a name="GENDERLOCK"></a><hr>

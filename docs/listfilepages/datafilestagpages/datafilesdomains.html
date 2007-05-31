@@ -12,6 +12,7 @@
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
+		Eric C Smith - mareduddATblackrootDOTorg
 		
 		Description:
 		Provides information on the content of PCGen Domain Files.
@@ -32,11 +33,13 @@
 		<p class="indent0"><strong>Tag Name:</strong> FEAT:x,x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a , (comma) delimited list of feat names that are granted by 
-			the domain to the character.</p>
+		<ul class="indent1">
+			<li>This is a comma (,) delimited list of feats granted to a Race.</li>
+			<li>The hyphen (-) is used only in the OUTPUTNAME of feats and should NOT be used in the feat list for this tag. (See example below.)</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>FEAT:Alertness</code></p>
-		<p class="indent3">The &quot;Alertness&quot; feat is granted to characters with this
+		<p class="indent2"><code>FEAT:Blind Fight,Alertness</code></p>
+		<p class="indent3">The &quot;Blind-Fight&quot; &amp; &quot;Alertness&quot; bonus feats are granted to clerics with this
 		  domain.</p>
 
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesdomains.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
