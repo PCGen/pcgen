@@ -20,15 +20,15 @@ Rhino Hide				TYPE:Armor.Medium.Suit.Specific.Nonmetal		COST:15	WT:25		ACCHECK:-
 
 ###Block: Specific Shields
 
-# Equipment Name		Type								Cost		Weight	Modifier							Source Page				Innate Spells							Combat bonus																					Special Property
-Absorbing Shield		TYPE:Enhancement.Shield.Heavy.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS1S.MAGIC_COST|49000	SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE																	SPROP:Allows the wearer to disintegrate an object on command as a touch attack once every 2 days
-Caster's Shield		TYPE:Enhancement.Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.MWORKA.PLUS1S.MAGIC_COST|2000		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE																	SPROP:It has a reusable back strip that allows the wearer to scribe a single spell as a scroll
-Darkwood Buckler		TYPE:Shield.Buckler.Specific.Nonmetal		COST:15	WT:4		EQMOD:DARK							SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
-Darkwood Shield		TYPE:Shield.Light.Specific.Nonmetal			COST:7	WT:10		EQMOD:DARK							SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
-Lion's Shield		TYPE:Enhancement.Shield.Heavy.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS2S.MAGIC_COST|5000		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE																	SPROP:It has a lion face that allows the wearer as a free action, to make a bite attack (wearer's BAB) and deals 2d6 damage, 3/day
+# Equipment Name		Type								Cost		Weight	Modifier							Source Page				Innate Spells							Combat bonus					Special Property
+Absorbing Shield		TYPE:Enhancement.Shield.Heavy.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS1S.MAGIC_COST|49000	SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to disintegrate an object on command as a touch attack once every 2 days
+Caster's Shield		TYPE:Enhancement.Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.MWORKA.PLUS1S.MAGIC_COST|2000		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	SPROP:It has a reusable back strip that allows the wearer to scribe a single spell as a scroll
+Darkwood Buckler		TYPE:Shield.Light.Specific.Nonmetal			COST:3	WT:5		EQMOD:DARK							SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+Darkwood Shield		TYPE:Shield.Heavy.Specific.Nonmetal			COST:7	WT:10		EQMOD:DARK							SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+Lion's Shield		TYPE:Enhancement.Shield.Heavy.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS2S.MAGIC_COST|5000		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:It has a lion face that allows the wearer as a free action, to make a bite attack (wearer's BAB) and deals 2d6 damage, 3/day
 Mithral Heavy Shield	TYPE:Shield.Heavy.Specific				COST:20	WT:15		EQMOD:MITHRAL_SHLD					SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
-Spined Shield		TYPE:Enhancement.Heavy.Shield.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS1S.MAGIC_COST|4410		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE																	SPROP:Allows the wearer to fire a spine (+1, range 120 ft., 1d10 dam, 19-20x2) 3/day
-Winged Shield		TYPE:Enhancement.Heavy.Shield.Specific.Nonmetal	COST:7	WT:10		EQMOD:WOOD.MWORKA.PLUS3S.MAGIC_COST|8100		SOURCEPAGE:MagicItemsII.rtf	SPELLS:Winged Shield|TIMES=1|CASTERLEVEL=5|Fly,14	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE																	SPROP:Allows the wearer to fly on command once per day
+Spined Shield		TYPE:Enhancement.Heavy.Shield.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS1S.MAGIC_COST|4410		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to fire a spine (+1, range 120 ft., 1d10 dam, 19-20x2) 3/day
+Winged Shield		TYPE:Enhancement.Heavy.Shield.Specific.Nonmetal	COST:7	WT:10		EQMOD:WOOD.MWORKA.PLUS3S.MAGIC_COST|8100		SOURCEPAGE:MagicItemsII.rtf	SPELLS:Winged Shield|TIMES=1|CASTERLEVEL=5|Fly,14	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to fly on command once per day
 
 ###Block: Virtual weapons
 
