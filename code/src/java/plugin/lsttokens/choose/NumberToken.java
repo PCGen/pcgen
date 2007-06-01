@@ -27,7 +27,7 @@ import pcgen.util.Logging;
 public class NumberToken implements ChooseLstToken
 {
 
-	public boolean parse(PObject po, String value)
+	public boolean parse(PObject po, String prefix, String value)
 	{
 		if (value.indexOf(',') != -1)
 		{
@@ -93,7 +93,13 @@ public class NumberToken implements ChooseLstToken
 				+ " third argument was not TITLE=");
 			return false;
 		}
-		po.setChoiceString(value);
+		StringBuilder sb = new StringBuilder();
+		if (prefix.length() > 0)
+		{
+			sb.append(prefix).append('|');
+		}
+		sb.append(getTokenName()).append('|').append(value);
+		po.setChoiceString(sb.toString());
 		return true;
 	}
 

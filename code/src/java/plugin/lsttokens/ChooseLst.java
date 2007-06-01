@@ -4,8 +4,12 @@
  */
 package plugin.lsttokens;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.Constants;
 import pcgen.core.PObject;
+import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.lst.ChooseLoader;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.util.Logging;
@@ -31,6 +35,7 @@ public class ChooseLst implements GlobalLstToken
 			int activeLoc = 0;
 			String count = null;
 			String maxCount = null;
+			List<String> prefixList = new ArrayList<String>(2);
 			while (true)
 			{
 				int pipeLoc = val.indexOf(Constants.PIPE, activeLoc);
@@ -61,6 +66,7 @@ public class ChooseLst implements GlobalLstToken
 								+ value);
 						return false;
 					}
+					prefixList.add(key);
 					count = key.substring(6);
 					if (count == null)
 					{
@@ -79,6 +85,7 @@ public class ChooseLst implements GlobalLstToken
 								+ value);
 						return false;
 					}
+					prefixList.add(key);
 					maxCount = key.substring(11);
 					if (maxCount == null || maxCount.length() == 0)
 					{
@@ -93,7 +100,8 @@ public class ChooseLst implements GlobalLstToken
 					break;
 				}
 			}
-			boolean parse = ChooseLoader.parseToken(obj, key, val, anInt);
+			String prefixString = CoreUtility.join(prefixList, "|");
+			boolean parse = ChooseLoader.parseToken(obj, prefixString, key, val, anInt);
 			if (!parse)
 			{
 				parseOld(obj, value, anInt);

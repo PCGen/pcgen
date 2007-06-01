@@ -25,7 +25,7 @@ import pcgen.util.Logging;
 public class WeaponFocusToken implements ChooseLstToken, DeprecatedToken
 {
 
-	public boolean parse(PObject po, String value)
+	public boolean parse(PObject po, String prefix, String value)
 	{
 		Logging.errorPrint("CHOOSE:WEAPONFOCUS is deprecated: " + value);
 		Logging.errorPrint("  Please use CHOOSE:FEAT=???");

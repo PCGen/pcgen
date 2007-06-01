@@ -25,7 +25,7 @@ import pcgen.util.Logging;
 public class SkillListToken implements ChooseLstToken, DeprecatedToken
 {
 
-	public boolean parse(PObject po, String value)
+	public boolean parse(PObject po, String prefix, String value)
 	{
 		Logging.errorPrint("CHOOSE:SKILLLIST (or CHOOSE:SKILLIST)"
 			+ "is non-functioning and deprecated: " + value);

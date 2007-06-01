@@ -24,7 +24,7 @@ import pcgen.util.Logging;
 public class FeatSelectToken implements ChooseLstToken
 {
 
-	public boolean parse(PObject po, String value)
+	public boolean parse(PObject po, String prefix, String value)
 	{
 		if (value.indexOf(',') != -1)
 		{
@@ -56,7 +56,13 @@ public class FeatSelectToken implements ChooseLstToken
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
-		po.setChoiceString(value);
+		StringBuilder sb = new StringBuilder();
+		if (prefix.length() > 0)
+		{
+			sb.append(prefix).append('|');
+		}
+		sb.append(getTokenName()).append('|').append(value);
+		po.setChoiceString(sb.toString());
 		return true;
 	}
 

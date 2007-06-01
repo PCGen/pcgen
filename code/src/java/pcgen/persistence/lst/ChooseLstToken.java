@@ -34,5 +34,5 @@ import pcgen.core.PObject;
  */
 public interface ChooseLstToken extends LstToken
 {
-	public abstract boolean parse(PObject po, String value);
+	public abstract boolean parse(PObject po, String prefix, String value);
 }

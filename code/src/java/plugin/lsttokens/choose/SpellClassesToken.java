@@ -24,12 +24,18 @@ import pcgen.util.Logging;
 public class SpellClassesToken implements ChooseLstToken
 {
 
-	public boolean parse(PObject po, String value)
+	public boolean parse(PObject po, String prefix, String value)
 	{
 		if (value == null)
 		{
 			// No args - legal
-			po.setChoiceString(value);
+			StringBuilder sb = new StringBuilder();
+			if (prefix.length() > 0)
+			{
+				sb.append(prefix).append('|');
+			}
+			sb.append(getTokenName());
+			po.setChoiceString(sb.toString());
 			return true;
 		}
 		Logging.errorPrint("CHOOSE:" + getTokenName()
