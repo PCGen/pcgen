@@ -815,18 +815,18 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		// c has cost of the item's modifications at the item's original size
 		//
-		double mult = 1.0;
-		final SizeAdjustment newSA = SettingsHandler.getGame()
-				.getSizeAdjustmentNamed(getSize());
-		final SizeAdjustment currSA = SettingsHandler.getGame()
-				.getSizeAdjustmentNamed(getBaseSize());
-
-		if ((newSA != null) && (currSA != null)) {
-			mult = newSA.getBonusTo(aPC, "ITEMCOST", typeList(), 1.0)
-					/ currSA.getBonusTo(aPC, "ITEMCOST", typeList(), 1.0);
-		}
-
-		c = c.multiply(new BigDecimal(mult));
+//		double mult = 1.0;
+//		final SizeAdjustment newSA = SettingsHandler.getGame()
+//				.getSizeAdjustmentNamed(getSize());
+//		final SizeAdjustment currSA = SettingsHandler.getGame()
+//				.getSizeAdjustmentNamed(getBaseSize());
+//
+//		if ((newSA != null) && (currSA != null)) {
+//			mult = newSA.getBonusTo(aPC, "ITEMCOST", typeList(), 1.0)
+//					/ currSA.getBonusTo(aPC, "ITEMCOST", typeList(), 1.0);
+//		}
+//
+//		c = c.multiply(new BigDecimal(mult));
 
 		BigDecimal itemCost = cost.add(c);
 
