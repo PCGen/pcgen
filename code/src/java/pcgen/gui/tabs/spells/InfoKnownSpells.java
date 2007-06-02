@@ -1079,12 +1079,10 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 								this,
 								PropertyFactory
 									.getFormattedString(
-										PropertyFactory
-											.getString("InfoSpells.confirm.overwrite"), outFile.getName()), //$NON-NLS-1$
+										"InfoSpells.confirm.overwrite", outFile.getName()), //$NON-NLS-1$
 								PropertyFactory
 									.getFormattedString(
-										PropertyFactory
-											.getString("InfoSpells.overwritnig"), outFile.getName()), JOptionPane.YES_NO_OPTION); //$NON-NLS-1$
+										"InfoSpells.overwriting", outFile.getName()), JOptionPane.YES_NO_OPTION); //$NON-NLS-1$
 
 				if (reallyClose != JOptionPane.YES_OPTION)
 				{
@@ -1107,35 +1105,70 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 							new FileOutputStream(tmpFile), "UTF-8")); //$NON-NLS-1$
 				Utility.printToWriter(w, template, pc);
 
-				FOPHandler fh = new FOPHandler();
-
-				// setting up pdf renderer
-				fh.setMode(FOPHandler.PDF_MODE);
-				fh.setInputFile(tmpFile);
-				fh.setOutputFile(outFile);
-
-				// render to awt
-				fh.run();
-
-				tmpFile.deleteOnExit();
-
-				String errMessage = fh.getErrorMessage();
-
-				if (errMessage.length() > 0)
-				{
-					ShowMessageDelegate.showMessageDialog(errMessage,
-						"PCGen", MessageType.ERROR); //$NON-NLS-1$
+				pdfExport(outFile, tmpFile, null);
+			}
+			else if (ext.equalsIgnoreCase(".xslt") || ext.equalsIgnoreCase(".xsl")) //$NON-NLS-1$ //$NON-NLS-2$
+			{
+				Logging.debugPrint("Printing using XML/XSLT");
+				File tmpFile = File.createTempFile("tempSpells_", ".xml"); //$NON-NLS-1$ //$NON-NLS-2$
+				BufferedWriter w =
+					new BufferedWriter(new OutputStreamWriter(
+						new FileOutputStream(tmpFile), "UTF-8")); //$NON-NLS-1$
+				File baseTemplate = new File(SettingsHandler.getPcgenSystemDir() + File.separator + "gameModes" + File.separator + SettingsHandler.getGame().getName() + File.separator + "base.xml");
+				if(!baseTemplate.exists()) {
+					baseTemplate = new File(SettingsHandler.getPcgenOutputSheetDir() + File.separator + "base.xml");
 				}
+				Utility.printToWriter(w, baseTemplate.getAbsolutePath(), pc);
+
+				File xsltFile = new File(template);
+				pdfExport(outFile, tmpFile, xsltFile);
 			}
 		}
-		catch (IOException ex)
+		catch (Exception ex)
 		{
+			Logging.errorPrint(PropertyFactory.getFormattedString(
+				"InfoSpells.export.failed", pc.getDisplayName()), ex); //$NON-NLS-1$
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
 				.getFormattedString("InfoSpells.export.failed.retry", //$NON-NLS-1$
 					pc.getDisplayName()), "PCGen", //$NON-NLS-1$
 				MessageType.ERROR);
-			Logging.errorPrint(PropertyFactory.getFormattedString(
-				"InfoSpells.export.failed", pc.getDisplayName()), ex); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * Export to PDF using the FOP PDF generator. 
+	 * 
+	 * @param outFile The file to place the output in.
+	 * @param tmpFile The file containing the definition of the character data. May be FO or XML. 
+	 * @param xsltFile An optional XSLT file for use when the tmpFile is in XML.
+	 */
+	private void pdfExport(final File outFile, File tmpFile, File xsltFile)
+	{
+		FOPHandler fh = new FOPHandler();
+
+		// setting up pdf renderer
+		fh.setMode(FOPHandler.PDF_MODE);
+		if (xsltFile != null)
+		{
+			fh.setInputFile(tmpFile, xsltFile);
+		}
+		else
+		{
+			fh.setInputFile(tmpFile);
+		}
+		fh.setOutputFile(outFile);
+
+		// render to awt
+		fh.run();
+
+		tmpFile.deleteOnExit();
+
+		String errMessage = fh.getErrorMessage();
+
+		if (errMessage.length() > 0)
+		{
+			ShowMessageDelegate.showMessageDialog(errMessage,
+				"PCGen", MessageType.ERROR); //$NON-NLS-1$
 		}
 	}
 

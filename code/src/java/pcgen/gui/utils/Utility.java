@@ -736,7 +736,8 @@ public final class Utility
 		BufferedWriter bw = new BufferedWriter(w);
 
 		if (fileName.startsWith(Constants.s_CHARACTER_TEMPLATE_START)
-			|| fileName.startsWith(Constants.s_EQSET_TEMPLATE_START))
+			|| fileName.startsWith(Constants.s_EQSET_TEMPLATE_START)
+			|| fileName.endsWith(".xml"))
 		{
 			(new ExportHandler(template)).write(aPC, bw);
 		}
