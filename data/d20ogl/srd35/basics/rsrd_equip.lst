@@ -189,7 +189,7 @@ Musical Instrument (Fiddle)		TYPE:Goods.Tools.Instrument.String.Resizable							
 Musical Instrument (Harp)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
 Musical Instrument (Lute)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
 Musical Instrument (Mandolin)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Flute)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtfp	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Flute)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
 Musical Instrument (Pan Pipes)	TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
 Musical Instrument (Recorder)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
 Musical Instrument (Shawm)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
