@@ -230,4 +230,9 @@ public class TextToken extends Token
 		}
 		return result;
 	}
+
+	@Override
+	public boolean isEncoded() {
+		return false;
+	}
 }
