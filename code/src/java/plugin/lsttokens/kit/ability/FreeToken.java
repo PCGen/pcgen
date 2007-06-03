@@ -52,8 +52,8 @@ public class FreeToken implements KitAbilityLstToken
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the " + getTokenName());
-				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+				Logging.deprecationPrint("You should use 'YES' or 'NO' as the " + getTokenName());
+				Logging.deprecationPrint("Abbreviations will fail after PCGen 5.14");
 			}
 			set = true;
 		}
@@ -62,9 +62,9 @@ public class FreeToken implements KitAbilityLstToken
 			if (firstChar != 'N' && firstChar != 'n'
 				&& !value.equalsIgnoreCase("NO"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				Logging.deprecationPrint("You should use 'YES' or 'NO' as the "
 						+ getTokenName());
-				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+				Logging.deprecationPrint("Abbreviations will fail after PCGen 5.14");
 			}
 			set = false;
 		}

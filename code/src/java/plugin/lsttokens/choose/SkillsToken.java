@@ -38,8 +38,8 @@ public class SkillsToken implements ChooseLstToken
 			po.setChoiceString(sb.toString());
 			return true;
 		}
-		Logging.errorPrint("CHOOSE:" + getTokenName()
-			+ " may not have arguments: " + value);
+		Logging.deprecationPrint("CHOOSE:" + getTokenName()
+			+ " will ignore arguments: " + value);
 		return false;
 	}
 

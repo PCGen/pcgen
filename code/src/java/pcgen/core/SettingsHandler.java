@@ -1236,6 +1236,7 @@ public final class SettingsHandler
 		setShowMemoryArea(getPCGenOption("showMemoryArea", false)); //$NON-NLS-1$
 		setShowImagePreview(getPCGenOption("showImagePreview", true)); //$NON-NLS-1$
 		setShowSingleBoxPerBundle(getPCGenOption("showSingleBoxPerBundle", false)); //$NON-NLS-1$
+		setOutputDeprecationMessages(getPCGenOption("outputDeprecationMessages", true));
 		setShowStatDialogAtLevelUp(getPCGenOption("showStatDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowTipOfTheDay(getPCGenOption("showTipOfTheDay", true)); //$NON-NLS-1$
 		setShowToolBar(getPCGenOption("showToolBar", true)); //$NON-NLS-1$
@@ -1592,6 +1593,7 @@ public final class SettingsHandler
 		setPCGenOption("validateBonuses", validateBonuses); //$NON-NLS-1$
 		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
 		setPCGenOption("debugFeats", debugFeats); //$NON-NLS-1$
+		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages());
 	}
 
 	public static void setPCGenOption(final String optionName, final int optionValue)
@@ -3363,5 +3365,17 @@ public final class SettingsHandler
 	public static void setShowSingleBoxPerBundle(boolean b)
 	{
 		showSingleBoxPerBundle = b;
+	}
+
+	private static boolean outputDeprecationMessages = true;
+	
+	public static boolean outputDeprecationMessages()
+	{
+		return outputDeprecationMessages;
+	}
+
+	public static void setOutputDeprecationMessages(boolean b)
+	{
+		outputDeprecationMessages = b;
 	}
 }

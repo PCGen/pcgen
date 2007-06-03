@@ -9,7 +9,7 @@ import pcgen.util.PropertyFactory;
 /**
  * Class deals with CASTAS Token
  * 
- * Deprecated prior to 5.11.1 Alpha (to be removed after 5.12 release)
+ * Deprecated prior to 5.11.1 Alpha (to be removed after 5.14 release)
  */
 public class CastasToken implements PCClassLstToken, DeprecatedToken
 {

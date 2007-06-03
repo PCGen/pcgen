@@ -2795,14 +2795,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-<!--		<jar jarfile="${lstplugins.dir}/ChooseToken-RACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/ChooseToken-RACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/choose/RaceToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
--->
 <!--		<jar jarfile="${lstplugins.dir}/ChooseToken-SALIST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -2860,14 +2859,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-<!--		<jar jarfile="${lstplugins.dir}/ChooseToken-SPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/ChooseToken-SPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/choose/SpellLevelToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
--->
 		<jar jarfile="${lstplugins.dir}/ChooseToken-SPELLLIST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

@@ -37,10 +37,9 @@ public class RemoveLst implements GlobalLstToken
 		int keyLength = key.length();
 		if (value.charAt(keyLength) == '(')
 		{
-			// 514 abbreviation cleanup
-			// Logging
-			// .errorPrint("REMOVE: syntax with parenthesis is deprecated.");
-			// Logging.errorPrint("Please use REMOVE:" + key + "|...");
+			Logging
+				.deprecationPrint("REMOVE: syntax with parenthesis is deprecated.");
+			Logging.deprecationPrint("Please use REMOVE:" + key + "|...");
 			if (anInt > -9)
 			{
 				obj.setRemoveString(anInt + "|" + value);

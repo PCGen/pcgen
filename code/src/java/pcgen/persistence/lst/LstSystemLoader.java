@@ -92,7 +92,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * Define the order in which the file types are ordered
 	 * so we don't have to keep renumbering them
 	 * 
-	 * This can be removed after 5.12
+	 * This can be removed after 5.14
 	 */
 	private static final int[] loadOrder =
 			{	LstConstants.CLASSSKILL_TYPE, LstConstants.CLASSSPELL_TYPE };
@@ -500,7 +500,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				if ((fileList != null) && (!fileList.isEmpty()))
 				{
 					Logging.errorPrint("*WARNING*: You are using a file type that has been deprecated");
-					Logging.errorPrint(" The following file types will not be supported after 5.12:");
+					Logging.errorPrint(" The following file types will not be supported after 5.14:");
 					Logging.errorPrint("  Class Skill LST file");
 					Logging.errorPrint("  Class Spell LST file");
 					Logging.errorPrint("  Required Skill LST file");

@@ -20,6 +20,7 @@ package plugin.lsttokens.add;
 import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.AddLstToken;
+import pcgen.util.Logging;
 
 public class SAToken implements AddLstToken
 {
@@ -29,10 +30,9 @@ public class SAToken implements AddLstToken
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			// 514 abbreviation cleanup
-//			Logging.errorPrint("Lack of a SUBTOKEN for ADD:SA "
-//				+ "is prohibited in new syntax.");
-//			Logging.errorPrint("Please use ADD:SA|name|[count|]X,X");
+			Logging.deprecationPrint("Lack of a SUBTOKEN for ADD:SA "
+				+ "is prohibited in new syntax.");
+			Logging.deprecationPrint("Please use ADD:SA|name|[count|]X,X");
 			return false;
 		}
 		String subToken = value.substring(0, pipeLoc);

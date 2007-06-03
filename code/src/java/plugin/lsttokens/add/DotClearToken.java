@@ -36,7 +36,7 @@ public class DotClearToken implements AddLstToken
 				.errorPrint("  Today, this performs a .CLEAR on the entire PCClass");
 			Logging
 				.errorPrint("  However, you are using undocumented behavior that is subject to change");
-			Logging.errorPrint("  Hint: It will change after PCGen 5.12");
+			Logging.errorPrint("  Hint: It will change after PCGen 5.14");
 			Logging
 				.errorPrint("  Please level limit the .CLEAR (e.g. .CLEAR.LEVEL2)");
 			Logging

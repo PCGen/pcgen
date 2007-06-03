@@ -23,6 +23,8 @@ package pcgen.util;
 import java.awt.Toolkit;
 import java.text.NumberFormat;
 
+import pcgen.core.SettingsHandler;
+
 /**
  * This contains logging functions. Should probably be handled via Log4J.
  * @author     Jonas Karlsson <jujutsunerd@sf.net>
@@ -163,6 +165,23 @@ public class Logging
 		System.err.println(msg);
 	}
 
+	/**
+	 * Beep and print error message if PCGen is debugging.
+	 *
+	 * @param s String error message
+	 */
+	public static void deprecationPrint(final String s)
+	{
+		if (isDebugMode())
+		{
+			s_TOOLKIT.beep();
+		}
+		if (SettingsHandler.outputDeprecationMessages())
+		{
+			System.err.println(s);
+		}
+	}
+	
 	/**
 	 * Beep and print error message if PCGen is debugging.
 	 *

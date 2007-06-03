@@ -10,7 +10,7 @@ import pcgen.util.Logging;
 
 /**
  * @author djones4
- *
+ * 
  */
 public class DescispiLst implements GlobalLstToken
 {
@@ -24,26 +24,27 @@ public class DescispiLst implements GlobalLstToken
 	{
 		boolean set;
 		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar =='Y')
+		if (firstChar == 'y' || firstChar == 'Y')
 		{
-			// 514 abbreviation cleanup
-//			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-//			{
-//				Logging.errorPrint("You should use 'YES' or 'NO' as the " + getTokenName());
-//				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
-//			}
+			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
+			{
+				Logging.deprecationPrint("You should use 'YES' or 'NO' as the "
+					+ getTokenName());
+				Logging
+					.deprecationPrint("Abbreviations will fail after PCGen 5.14");
+			}
 			set = true;
 		}
-		else 
+		else
 		{
-			// 514 abbreviation cleanup
-//			if (firstChar != 'N' && firstChar != 'n'
-//				&& !value.equalsIgnoreCase("NO"))
-//			{
-//				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-//						+ getTokenName());
-//				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
-//			}
+			if (firstChar != 'N' && firstChar != 'n'
+				&& !value.equalsIgnoreCase("NO"))
+			{
+				Logging.deprecationPrint("You should use 'YES' or 'NO' as the "
+					+ getTokenName());
+				Logging
+					.deprecationPrint("Abbreviations will fail after PCGen 5.14");
+			}
 			set = false;
 		}
 		obj.setDescIsPI(set);

@@ -26,7 +26,7 @@ public class EqBuilderToken implements ChooseLstToken
 
 	public boolean parse(PObject po, String prefix, String value)
 	{
-		if (value == null || "1".equals(value))
+		if (value == null)
 		{
 			// No args - legal
 			StringBuilder sb = new StringBuilder();
@@ -35,15 +35,11 @@ public class EqBuilderToken implements ChooseLstToken
 				sb.append(prefix).append('|');
 			}
 			sb.append(getTokenName());
-			if (value != null)
-			{
-				sb.append('|').append(value);
-			}
 			po.setChoiceString(sb.toString());
 			return true;
 		}
-		Logging.errorPrint("CHOOSE:" + getTokenName()
-			+ " may not have arguments: " + value);
+		Logging.deprecationPrint("CHOOSE:" + getTokenName()
+			+ " will ignore arguments: " + value);
 		return false;
 	}
 

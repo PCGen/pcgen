@@ -28,14 +28,14 @@
  */
 package plugin.pretokens.parser;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * @author wardc
@@ -116,13 +116,12 @@ public class PreSpellTypeParser extends AbstractPrerequisiteParser implements
 			//
 			// Must be exactly 3 tokens. Old-style did not support multiple options
 			//
-			// 514 deprecation removal
-//			Logging.errorPrint("Deprecated use of PRESPELLTYPE found: "
-//					+ formula);
-//			Logging.errorPrint("The new format is "
-//					+ "<number of spells required>,<name of spell type>"
-//					+ "=<minimum spell level>"
-//					+ "[,<name of spell type>=<minimum spell level>,...]");
+			Logging.deprecationPrint("Deprecated use of PRESPELLTYPE found: "
+					+ formula);
+			Logging.deprecationPrint("The new format is "
+					+ "<number of spells required>,<name of spell type>"
+					+ "=<minimum spell level>"
+					+ "[,<name of spell type>=<minimum spell level>,...]");
 			if (aTok.countTokens() == 2)
 			{
 				String[] types = aString.split("\\|");

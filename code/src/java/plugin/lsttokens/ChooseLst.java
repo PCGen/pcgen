@@ -113,11 +113,10 @@ public class ChooseLst implements GlobalLstToken
 
 	private void parseOld(PObject obj, String value, int anInt)
 	{
-		//514 deprecation changes
-//		Logging.errorPrint("CHOOSE: syntax you are using is deprecated: "
-//			+ value);
-//		Logging.errorPrint("  Please use CHOOSE:SUBKEY|choices");
-//		Logging.errorPrint("  ... see the PCGen docs");
+		Logging.deprecationPrint("CHOOSE: syntax you are using is deprecated: "
+			+ value);
+		Logging.deprecationPrint("  Please use CHOOSE:SUBKEY|choices");
+		Logging.deprecationPrint("  ... see the PCGen docs");
 		obj.setChoiceString(value);
 	}
 }

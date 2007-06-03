@@ -19,17 +19,18 @@ public class SubraceToken implements PCTemplateLstToken
 	{
 		String subrace = value;
 		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar =='Y')
+		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.equalsIgnoreCase("YES"))
 			{
 				subrace = template.getDisplayName();
 			}
-			else 
+			else
 			{
-				// 514 abbreviation cleanup
-//				Logging.errorPrint("You should use 'YES' as the " + getTokenName());
-//				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+				Logging.deprecationPrint("You should use 'YES' as the "
+					+ getTokenName());
+				Logging
+					.deprecationPrint("Abbreviations will fail after PCGen 5.14");
 			}
 		}
 

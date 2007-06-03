@@ -215,6 +215,10 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_noAutoEquip");
 	private static String in_output =
 			PropertyFactory.getString("in_Prefs_output");
+	private static String in_input =
+			PropertyFactory.getString("in_Prefs_input");
+	private static String in_printDeprecation =
+			PropertyFactory.getString("in_Prefs_printDeprecation");
 	private static String in_outputSheetEqSet =
 			PropertyFactory.getString("in_Prefs_templateEqSet");
 	private static String in_pcgen =
@@ -449,6 +453,9 @@ final class PreferencesDialog extends JDialog
 	private JRadioButton skinnedLookFeel = new JRadioButton();
 	private JRadioButton usersFilesDirRadio;
 	private JScrollPane settingsScroll;
+
+	// Input
+	private JCheckBox printDeprecationMessages = new JCheckBox();
 
 	// Location
 	private JTextField browserPath;
@@ -978,6 +985,10 @@ final class PreferencesDialog extends JDialog
 		SettingsHandler.getGame().selectUnitSet(
 			(String) unitSetType.getSelectedItem());
 
+		// Input
+		SettingsHandler.setOutputDeprecationMessages(printDeprecationMessages
+			.isSelected());
+		
 		// Location -- added 10 April 2000 by sage_sam
 		SettingsHandler.setBrowserPath(browserPath.getText());
 		SettingsHandler.setPcgPath(new File(pcgenCharacterDir.getText()));
@@ -1488,6 +1499,10 @@ final class PreferencesDialog extends JDialog
 		pcgenCreateBackupCharacter.setSelected(SettingsHandler
 			.getCreatePcgBackup());
 
+		// Input
+		printDeprecationMessages.setSelected(SettingsHandler
+			.outputDeprecationMessages());
+		
 		// Output
 		paperType.setSelectedIndex(Globals.getSelectedPaper());
 		weaponProfPrintout.setSelected(SettingsHandler.getWeaponProfPrintout());
@@ -2425,6 +2440,34 @@ final class PreferencesDialog extends JDialog
 		return levelUpPanel;
 	}
 
+	private JPanel buildInputPanel()
+	{
+		GridBagLayout gridbag = new GridBagLayout();
+		GridBagConstraints c = new GridBagConstraints();
+		Border etched = null;
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(etched, in_location);
+		JPanel inputPanel = new JPanel();
+
+		title1.setTitleJustification(TitledBorder.LEFT);
+		inputPanel.setBorder(title1);
+		gridbag = new GridBagLayout();
+		inputPanel.setLayout(gridbag);
+		c = new GridBagConstraints();
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.anchor = GridBagConstraints.WEST;
+		c.insets = new Insets(2, 2, 2, 2);
+
+		Utility.buildConstraints(c, 0, 14, 3, 1, 0, 0);
+		printDeprecationMessages =
+				new JCheckBox(in_printDeprecation, SettingsHandler
+					.outputDeprecationMessages());
+		gridbag.setConstraints(printDeprecationMessages, c);
+		inputPanel.add(printDeprecationMessages);
+		
+		return inputPanel;
+	}
+
 	private JPanel buildLocationPanel()
 	{
 		GridBagLayout gridbag = new GridBagLayout();
@@ -3193,6 +3236,8 @@ final class PreferencesDialog extends JDialog
 		settingsPanel.add(buildLanguagePanel(), in_language);
 		pcGenNode.add(new DefaultMutableTreeNode(in_location));
 		settingsPanel.add(buildLocationPanel(), in_location);
+		pcGenNode.add(new DefaultMutableTreeNode(in_input));
+		settingsPanel.add(buildInputPanel(), in_input);
 		pcGenNode.add(new DefaultMutableTreeNode(in_output));
 		settingsPanel.add(buildOutputPanel(), in_output);
 		pcGenNode.add(new DefaultMutableTreeNode(in_sources));

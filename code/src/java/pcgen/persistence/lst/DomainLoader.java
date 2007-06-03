@@ -117,7 +117,7 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 						domain.getSourceURI(),
 						colString,
 						"A DESC tag has been used instead, please update your LST code. "
-							+ "This default functionality will be removed in versions after 5.12");
+							+ "This default functionality will be removed in versions after 5.14");
 				token = (DomainLstToken) tokenMap.get("DESC");
 				if (token != null)
 				{

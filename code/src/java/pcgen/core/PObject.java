@@ -2405,7 +2405,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 					Logging.errorPrint("  A non-level limited .CLEAR was used in a Class Level line");
 					Logging.errorPrint("  Today, this performs a .CLEAR on the entire PCClass");
 					Logging.errorPrint("  However, you are using undocumented behavior that is subject to change");
-					Logging.errorPrint("  Hint: It will change after PCGen 5.12");
+					Logging.errorPrint("  Hint: It will change after PCGen 5.14");
 					Logging.errorPrint("  Please level limit the .CLEAR (e.g. .CLEAR.LEVEL2)");
 					Logging.errorPrint("  ... or put the ADD:.CLEAR on a non-level Class line");
 				}
