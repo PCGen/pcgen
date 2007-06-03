@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.choose;
 
+import java.util.StringTokenizer;
+
+import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.ChooseLstToken;
 import pcgen.util.Logging;
@@ -55,6 +58,19 @@ public class DomainToken implements ChooseLstToken
 			Logging.errorPrint("CHOOSE:" + getTokenName()
 				+ " arguments uses double separator ,, : " + value);
 			return false;
+		}
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		while (st.hasMoreTokens())
+		{
+			String tokString = st.nextToken();
+			int equalsLoc = tokString.indexOf("=");
+			if (equalsLoc == tokString.length() - 1)
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " arguments must have value after = : " + tokString);
+				Logging.errorPrint("  entire token was: " + value);
+				return false;
+			}
 		}
 		StringBuilder sb = new StringBuilder();
 		if (prefix.length() > 0)

@@ -24,7 +24,7 @@ import pcgen.core.PObject;
 import pcgen.persistence.lst.ChooseLstToken;
 import pcgen.util.Logging;
 
-public class ProficiencyToken implements ChooseLstToken
+public class SpellLevelToken implements ChooseLstToken
 {
 
 	public boolean parse(PObject po, String prefix, String value)
@@ -67,26 +67,10 @@ public class ProficiencyToken implements ChooseLstToken
 			return false;
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		if (tok.countTokens() < 3)
+		if (tok.countTokens() % 3 != 0)
 		{
 			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " requires at least three arguments: " + value);
-			return false;
-		}
-		String first = tok.nextToken();
-		if (!first.equals("ARMOR") && !first.equals("SHIELD")
-			&& !first.equals("WEAPON"))
-		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " first argument was not ARMOR, SHIELD, or WEAPON");
-			return false;
-		}
-		String second = tok.nextToken();
-		if (!second.equals("PC") && !second.equals("ALL")
-			&& !second.equals("UNIQUE"))
-		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " second argument was not PC, ALL, or UNIQUE");
+				+ " requires a multiple of three arguments: " + value);
 			return false;
 		}
 		while (tok.hasMoreTokens())
@@ -99,6 +83,41 @@ public class ProficiencyToken implements ChooseLstToken
 					+ " arguments must have value after = : " + tokString);
 				Logging.errorPrint("  entire token was: " + value);
 				return false;
+			}
+			if (!tokString.startsWith("CLASS=")
+				&& !tokString.startsWith("TYPE="))
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " argument must start with CLASS= or TYPE= : "
+					+ tokString);
+				Logging.errorPrint("  Entire Token was: " + value);
+				return false;
+			}
+			String second = tok.nextToken();
+			try
+			{
+				Integer.parseInt(second);
+			}
+			catch (NumberFormatException nfe)
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " second argument must be an Integer : " + value);
+				return false;
+			}
+			String third = tok.nextToken();
+			if (!third.equals("MAXLEVEL"))
+			{
+				try
+				{
+					Integer.parseInt(third);
+				}
+				catch (NumberFormatException nfe)
+				{
+					Logging.errorPrint("CHOOSE:" + getTokenName()
+						+ " third argument must be an Integer or 'MAXLEVEL': "
+						+ value);
+					return false;
+				}
 			}
 		}
 		StringBuilder sb = new StringBuilder();
@@ -113,6 +132,6 @@ public class ProficiencyToken implements ChooseLstToken
 
 	public String getTokenName()
 	{
-		return "PROFICIENCY";
+		return "SPELLLEVEL";
 	}
 }

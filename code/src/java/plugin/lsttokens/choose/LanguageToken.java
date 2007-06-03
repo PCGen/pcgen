@@ -24,7 +24,7 @@ import pcgen.core.PObject;
 import pcgen.persistence.lst.ChooseLstToken;
 import pcgen.util.Logging;
 
-public class ProficiencyToken implements ChooseLstToken
+public class LanguageToken implements ChooseLstToken
 {
 
 	public boolean parse(PObject po, String prefix, String value)
@@ -59,60 +59,40 @@ public class ProficiencyToken implements ChooseLstToken
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
-		int pipeLoc = value.indexOf("|");
-		if (pipeLoc == -1)
-		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " must have two or more | delimited arguments : " + value);
-			return false;
-		}
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		if (tok.countTokens() < 3)
-		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " requires at least three arguments: " + value);
-			return false;
-		}
-		String first = tok.nextToken();
-		if (!first.equals("ARMOR") && !first.equals("SHIELD")
-			&& !first.equals("WEAPON"))
-		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " first argument was not ARMOR, SHIELD, or WEAPON");
-			return false;
-		}
-		String second = tok.nextToken();
-		if (!second.equals("PC") && !second.equals("ALL")
-			&& !second.equals("UNIQUE"))
-		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " second argument was not PC, ALL, or UNIQUE");
-			return false;
-		}
-		while (tok.hasMoreTokens())
-		{
-			String tokString = tok.nextToken();
-			int equalsLoc = tokString.indexOf("=");
-			if (equalsLoc == tokString.length() - 1)
-			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
-					+ " arguments must have value after = : " + tokString);
-				Logging.errorPrint("  entire token was: " + value);
-				return false;
-			}
-		}
 		StringBuilder sb = new StringBuilder();
 		if (prefix.length() > 0)
 		{
 			sb.append(prefix).append('|');
 		}
-		sb.append(getTokenName()).append('|').append(value);
+		sb.append(getTokenName()).append('(');
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		boolean first = true;
+		while (st.hasMoreTokens())
+		{
+			if (!first)
+			{
+				sb.append(',');
+			}
+			first = false;
+			String tokString = st.nextToken();
+			if (tokString.indexOf('.') != tokString.lastIndexOf('.'))
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " arguments cannot have two . : " + tokString);
+				Logging.errorPrint("  format for argument must be X or X.Y");
+				Logging.errorPrint("  entire token was: " + value);
+				return false;
+			}
+			sb.append(tokString);
+		}
+		sb.append(')');
+
 		po.setChoiceString(sb.toString());
 		return true;
 	}
 
 	public String getTokenName()
 	{
-		return "PROFICIENCY";
+		return "LANGUAGE";
 	}
 }

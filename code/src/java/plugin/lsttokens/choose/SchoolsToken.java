@@ -26,7 +26,7 @@ public class SchoolsToken implements ChooseLstToken
 
 	public boolean parse(PObject po, String prefix, String value)
 	{
-		if (value == null || "1".equals(value))
+		if (value == null)
 		{
 			// No args - legal
 			StringBuilder sb = new StringBuilder();

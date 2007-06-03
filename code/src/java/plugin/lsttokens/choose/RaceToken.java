@@ -24,7 +24,7 @@ import pcgen.core.PObject;
 import pcgen.persistence.lst.ChooseLstToken;
 import pcgen.util.Logging;
 
-public class ProficiencyToken implements ChooseLstToken
+public class RaceToken implements ChooseLstToken
 {
 
 	public boolean parse(PObject po, String prefix, String value)
@@ -59,39 +59,10 @@ public class ProficiencyToken implements ChooseLstToken
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
-		int pipeLoc = value.indexOf("|");
-		if (pipeLoc == -1)
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		while (st.hasMoreTokens())
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " must have two or more | delimited arguments : " + value);
-			return false;
-		}
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		if (tok.countTokens() < 3)
-		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " requires at least three arguments: " + value);
-			return false;
-		}
-		String first = tok.nextToken();
-		if (!first.equals("ARMOR") && !first.equals("SHIELD")
-			&& !first.equals("WEAPON"))
-		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " first argument was not ARMOR, SHIELD, or WEAPON");
-			return false;
-		}
-		String second = tok.nextToken();
-		if (!second.equals("PC") && !second.equals("ALL")
-			&& !second.equals("UNIQUE"))
-		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " second argument was not PC, ALL, or UNIQUE");
-			return false;
-		}
-		while (tok.hasMoreTokens())
-		{
-			String tokString = tok.nextToken();
+			String tokString = st.nextToken();
 			int equalsLoc = tokString.indexOf("=");
 			if (equalsLoc == tokString.length() - 1)
 			{
@@ -113,6 +84,6 @@ public class ProficiencyToken implements ChooseLstToken
 
 	public String getTokenName()
 	{
-		return "PROFICIENCY";
+		return "RACE";
 	}
 }

@@ -63,6 +63,14 @@ public class SpellsToken implements ChooseLstToken
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
+			int equalsLoc = tokText.indexOf("=");
+			if (equalsLoc == tokText.length() - 1)
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " arguments must have value after = : " + tokText);
+				Logging.errorPrint("  entire token was: " + value);
+				return false;
+			}
 			if (!tokText.startsWith("CLASS=") && !tokText.startsWith("DOMAIN="))
 			{
 				Logging.errorPrint("CHOOSE:" + getTokenName()

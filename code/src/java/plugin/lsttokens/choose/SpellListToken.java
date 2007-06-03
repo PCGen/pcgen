@@ -59,7 +59,7 @@ public class SpellListToken implements ChooseLstToken
 		if (!value.equals("Y") && !value.equals("N") && !value.equals("1")
 			&& !value.equals("0"))
 		{
-			Logging.errorPrint("COUNT:" + getTokenName()
+			Logging.errorPrint("CHOOSE:" + getTokenName()
 				+ " argument was not Y or N");
 			return false;
 		}
