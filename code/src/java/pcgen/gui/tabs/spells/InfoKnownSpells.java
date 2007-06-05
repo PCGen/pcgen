@@ -248,11 +248,11 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		{
 			hasBeenSized = true;
 			divLocSplitPane =
-					SettingsHandler.getPCGenOption("InfoSpells.splitPane", //$NON-NLS-1$
-						(int) ((this.getSize().getWidth() * 2) / 10));
-			divLocVert = SettingsHandler.getPCGenOption("InfoSpells.bsplit", //$NON-NLS-1$
+					SettingsHandler.getPCGenOption("InfoKnownSpells.splitPane", //$NON-NLS-1$
+						(int) ((this.getSize().getWidth() * 3) / 10));
+			divLocVert = SettingsHandler.getPCGenOption("InfoKnownSpells.bsplit", //$NON-NLS-1$
 				(int) (this.getSize().getHeight() - 101));
-			divLocHoriz = SettingsHandler.getPCGenOption("InfoSpells.asplit", //$NON-NLS-1$
+			divLocHoriz = SettingsHandler.getPCGenOption("InfoKnownSpells.asplit", //$NON-NLS-1$
 				(int) (this.getSize().getWidth() - 408));
 
 			// set the prefered width on selectedTable
@@ -290,19 +290,19 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		{
 			splitPane.setDividerLocation(divLocSplitPane);
 			SettingsHandler.setPCGenOption(
-				"InfoSpells.splitPane", divLocSplitPane); //$NON-NLS-1$
+				"InfoKnownSpells.splitPane", divLocSplitPane); //$NON-NLS-1$
 		}
 
 		if (divLocVert > 0)
 		{
 			bsplit.setDividerLocation(divLocVert);
-			SettingsHandler.setPCGenOption("InfoSpells.bsplit", divLocVert); //$NON-NLS-1$
+			SettingsHandler.setPCGenOption("InfoKnownSpells.bsplit", divLocVert); //$NON-NLS-1$
 		}
 
 		if (divLocHoriz > 0)
 		{
 			asplit.setDividerLocation(divLocHoriz);
-			SettingsHandler.setPCGenOption("InfoSpells.asplit", divLocHoriz); //$NON-NLS-1$
+			SettingsHandler.setPCGenOption("InfoKnownSpells.asplit", divLocHoriz); //$NON-NLS-1$
 		}
 	}
 
@@ -326,21 +326,21 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 				if (s > 0)
 				{
-					SettingsHandler.setPCGenOption("InfoSpells.splitPane", s); //$NON-NLS-1$
+					SettingsHandler.setPCGenOption("InfoKnownSpells.splitPane", s); //$NON-NLS-1$
 				}
 
 				s = asplit.getDividerLocation();
 
 				if (s > 0)
 				{
-					SettingsHandler.setPCGenOption("InfoSpells.asplit", s); //$NON-NLS-1$
+					SettingsHandler.setPCGenOption("InfoKnownSpells.asplit", s); //$NON-NLS-1$
 				}
 
 				s = bsplit.getDividerLocation();
 
 				if (s > 0)
 				{
-					SettingsHandler.setPCGenOption("InfoSpells.bsplit", s); //$NON-NLS-1$
+					SettingsHandler.setPCGenOption("InfoKnownSpells.bsplit", s); //$NON-NLS-1$
 				}
 			}
 		});

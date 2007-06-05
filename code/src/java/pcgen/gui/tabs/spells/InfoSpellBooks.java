@@ -206,13 +206,13 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			hasBeenSized = true;
 			divLocSplitPane =
 					SettingsHandler.getPCGenOption("InfoSpellBooks.splitPane", //$NON-NLS-1$
-						(int) ((this.getSize().getWidth() * 2) / 10));
+						(int) ((this.getSize().getWidth() * 3) / 10));
 			divLocVert =
 					SettingsHandler.getPCGenOption("InfoSpellBooks.bsplit", //$NON-NLS-1$
-						(int) (this.getSize().getHeight() - 101));
+						(int) (this.getSize().getHeight() - 150));
 			divLocHoriz =
 					SettingsHandler.getPCGenOption("InfoSpellBooks.asplit", //$NON-NLS-1$
-						(int) (this.getSize().getWidth() - 300));
+						(int) (this.getSize().getWidth() - 400));
 
 			// set the prefered width on selectedTable
 			for (int i = 0; i < selectedTable.getColumnCount(); ++i)

@@ -1157,11 +1157,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			t =
 					SettingsHandler
 						.getPCGenOption(
-							"InfoSkills.bsplit", (int) (this.getSize().getHeight() - 101)); //$NON-NLS-1$
+							"InfoSkills.bsplit", (int) (this.getSize().getHeight() - 120)); //$NON-NLS-1$
 			u =
 					SettingsHandler
 						.getPCGenOption(
-							"InfoSkills.asplit", (int) (this.getSize().getWidth() - 408)); //$NON-NLS-1$
+							"InfoSkills.asplit", (int) (this.getSize().getWidth() - 500)); //$NON-NLS-1$
 
 			// set the prefered width on selectedTable
 			final TableColumnModel selectedTableColumnModel =

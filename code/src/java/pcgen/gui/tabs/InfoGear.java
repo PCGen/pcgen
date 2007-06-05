@@ -1692,6 +1692,14 @@ public final class InfoGear extends FilterAdapterPanel implements
 			.setMessageAreaTextWithoutSaving("Equipment character is not proficient with are in Red.");
 		refresh();
 
+		setDividerLocs();
+	}
+
+	/**
+	 * Set the pane divider locations.
+	 */
+	private void setDividerLocs()
+	{
 		int width;
 		int s = splitPane.getDividerLocation();
 		int t = bsplit.getDividerLocation();
@@ -1722,7 +1730,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 						(int) ((this.getSize().getWidth() * 6) / 10));
 			t =
 					SettingsHandler.getPCGenOption("InfoGear.bsplit",
-						(int) (this.getSize().getHeight() - 120));
+						(int) (this.getSize().getHeight() - 180));
 			u =
 					SettingsHandler.getPCGenOption("InfoGear.asplit",
 						(int) (this.getSize().getWidth() - 295));
@@ -1820,12 +1828,31 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			public void componentResized(ComponentEvent e)
 			{
-				bsplit.setDividerLocation((int) (InfoGear.this.getSize()
-					.getHeight() - 120));
-				asplit.setDividerLocation((int) (InfoGear.this.getSize()
-					.getWidth() - 295));
+				saveDividerLocs();
 			}
 		});
+		asplit.addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
+			{
+				saveDividerLocs();
+			}
+		});
+		bsplit.addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
+			{
+				saveDividerLocs();
+			}
+		});
+		splitPane.addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
+			{
+				saveDividerLocs();
+			}
+		});
+		
 		removeButton.addActionListener(sellOneListener);
 		addButton.addActionListener(buyOneListener);
 		viewComboBox.addActionListener(new ActionListener()
@@ -1926,6 +1953,31 @@ public final class InfoGear extends FilterAdapterPanel implements
 		});
 
 		FilterFactory.restoreFilterSettings(this);
+	}
+
+	/**
+	 * Save the locations of the pane dividers to pcgen options. 
+	 */
+	public void saveDividerLocs()
+	{
+		int s = splitPane.getDividerLocation();
+		if (s > 0)
+		{
+			SettingsHandler
+				.setPCGenOption("InfoGear.splitPane", s);
+		}
+
+		s = asplit.getDividerLocation();
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoGear.asplit", s);
+		}
+
+		s = bsplit.getDividerLocation();
+		if (s > 0)
+		{
+			SettingsHandler.setPCGenOption("InfoGear.bsplit", s);
+		}
 	}
 
 	/**
@@ -2407,6 +2459,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 				refresh();
 			}
 		});
+		
+		setDividerLocs();
 	}
 
 	private void openCustomizer(Equipment aEq)

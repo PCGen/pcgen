@@ -3124,10 +3124,10 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			Component c = getParent();
 			s =
 					SettingsHandler.getPCGenOption("InfoEquipping.splitPane",
-						((c.getWidth() * 7) / 10));
+						((c.getWidth() * 6) / 10));
 			t =
 					SettingsHandler.getPCGenOption("InfoEquipping.bsplit", (c
-						.getHeight() - 101));
+						.getHeight() - 160));
 			u =
 					SettingsHandler.getPCGenOption("InfoEquipping.asplit", (c
 						.getWidth() - 408));

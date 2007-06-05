@@ -238,6 +238,7 @@ public class pcGenGUI
 
 		if ((x < -10) || (y < -10) || (d.height == 0) || (d.width == 0))
 		{
+			frame.setSize(new Dimension(1020, 716));
 			Utility.centerFrame(frame, false);
 		}
 		else
