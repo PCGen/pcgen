@@ -8879,10 +8879,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		for (PCClass aClass : classList)
 		{
+			String classSpellType = aClass.getSpellType();
 			// Check for Constants.s_NONE just in case
 			// a programmer sends in a "" string
-			if (aClass.getSpellType().equalsIgnoreCase(spellType)
-				&& !aClass.getSpellType().equalsIgnoreCase(Constants.s_NONE))
+			if ("Any".equalsIgnoreCase(spellType)
+					|| classSpellType.equalsIgnoreCase(spellType)
+					&& !classSpellType.equalsIgnoreCase(Constants.s_NONE))
 			{
 				// Get the number of known spells for the level
 				int knownForLevel = aClass.getKnownForLevel(spellLevel, this);
