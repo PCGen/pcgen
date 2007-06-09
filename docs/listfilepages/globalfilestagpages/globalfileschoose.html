@@ -385,6 +385,7 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> CLASS (Displays all Class Skills)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> CROSSCLASS (Displays all Cross Class Skills)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> EXCLUSIVE (Displays all Exclusive Skills)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> RANKS=n (Displays all Skills the PC has at least n ranks in)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> NORANK (Displays all Skills the PC has no ranks in)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This will produce a list of named skills.  More than one can be used and if so the qualifying skills are combined.</p>
@@ -395,6 +396,8 @@
 		<p class="indent3">This will produce a list of skills starting with Knowledge from which the character can pick.</p>
 		<p class="indent2"><code>CHOOSE:SKILLSNAMED|CROSSCLASS|Craft%</code></p>
 		<p class="indent3">This will produce a list of all cross class skills as well as all Craft skills even if they are not cross class.</p>
+		<p class="indent2"><code>CHOOSE:SKILLSNAMED|RANKS=20</code></p>
+		<p class="indent3">This will produce a list of all skills the character has 20 ranks or more in.</p>
 		<p class="indent2"><code>CHOOSE:SKILLSNAMED|NORANK</code></p>
 		<p class="indent3">This will produce a list of all skills the character has 0 ranks in.</p>
 		<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|1 &lt;tab&gt; BONUS:SKILL|LIST|CL=Super Soldier|TYPE=Enhancement</code></p>

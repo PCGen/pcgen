@@ -137,6 +137,20 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager<Strin
 				}
 			}
 
+			if (token.startsWith("RANKS="))
+			{
+				Double ranks = new Double(token.substring(6));
+				for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
+				{
+					final Skill pcSkill = aPc.getSkillKeyed(skill.getKeyName());
+
+					if (pcSkill != null && Double.compare(pcSkill.getRank().doubleValue(), ranks) >= 0)
+					{
+						availableList.add(skill.getKeyName());
+					}
+				}
+			}
+
 			if (token.endsWith("%"))
 			{
 				startsWith = true;
