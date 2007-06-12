@@ -1057,14 +1057,6 @@ public class MainSource extends FilterAdapterPanel
 
 		Globals.sortCampaigns();
 
-		if ((getParent() != null) && Globals.displayListsHappy())
-		{
-			PCGen_Frame1 parent = PCGen_Frame1.getRealParentFrame(this);
-			parent.enableLstEditors(true);
-		}
-
-		updateModels();
-
 	}
 
 	private void loadCampaigns_actionPerformed()
@@ -1077,6 +1069,14 @@ public class MainSource extends FilterAdapterPanel
 			}
 
 			public void finished() {
+
+				if ((getParent() != null) && Globals.displayListsHappy())
+				{
+					PCGen_Frame1 parent = PCGen_Frame1.getRealParentFrame(MainSource.this);
+					parent.enableLstEditors(true);
+				}
+
+				updateModels();
 				showSourcesLoaded(oldStatus);
 			}
 
