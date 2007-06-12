@@ -26,18 +26,20 @@ import gmgen.pluginmgr.GMBComponent;
 import gmgen.pluginmgr.GMBMessage;
 import gmgen.pluginmgr.GMBus;
 import gmgen.pluginmgr.PluginLoader;
-import gmgen.pluginmgr.messages.*;
+import gmgen.pluginmgr.messages.ClipboardMessage;
+import gmgen.pluginmgr.messages.FetchOpenPCGRequestMessage;
+import gmgen.pluginmgr.messages.FileOpenMessage;
+import gmgen.pluginmgr.messages.LoadMessage;
+import gmgen.pluginmgr.messages.PCLoadedMessage;
+import gmgen.pluginmgr.messages.PreferencesPanelAddMessage;
+import gmgen.pluginmgr.messages.SaveMessage;
+import gmgen.pluginmgr.messages.StateChangedMessage;
+import gmgen.pluginmgr.messages.TabAddMessage;
+import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
+import gmgen.pluginmgr.messages.WindowClosedMessage;
 import gmgen.util.LogUtilities;
 import gmgen.util.MiscUtilities;
-import pcgen.core.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.util.Logging;
 
-import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.Image;
@@ -48,6 +50,21 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.lang.reflect.Method;
 import java.util.EventObject;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JSeparator;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
+
+import pcgen.core.Constants;
+import pcgen.core.SettingsHandler;
+import pcgen.util.Logging;
+import pcgen.util.SwingWorker;
 
 /**
  *  <code>GMGenSystem</code> is the main class of this application. This class
@@ -841,12 +858,18 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		dialog.setVisible(true);
 	}
 	
-	private class Renderer extends Thread
+	private class Renderer extends SwingWorker
 	{
-		public void run()
+
+		public Object construct()
+		{
+			return "";
+		}
+
+		public void finished()
 		{
 			GMGenSystem.this.initialize();
-			
 		}
 	}
+	
 }
