@@ -1,4 +1,4 @@
-# CVS $Revision: 400 $ $Author: eddyanthony $ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision: 400 $ $Author: eddyanthony $ -- Thu Jun 14 15:58:52 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -59,6 +59,21 @@ Timeless Body ~ Adult		VISIBLE:NO																									!PREAGESET:Middle Age	
 Timeless Body ~ Middle Age	VISIBLE:NO																																		PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:Venerable
 Timeless Body ~ Old		VISIBLE:NO																																		PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|3|PREAGESET:Venerable
 Timeless Body ~ Venerable	VISIBLE:NO																					PREAGESET:Venerable
+
+###Block: Diseases
+
+# Template Name					Visible	Source Page						Stat bonus							Choose								Temporary effect description
+Disease Damage (Blinding Sickness)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Stength Damage		TEMPDESC:Infection DC 16 (Ingested), Incubation 1d3 days, Damage 1d4 Str (Each time the victim takes 2 or more damage from the disease, he must make another Fortitude save or be permanently blinded), Apply this temporary bonus each day the victim takes damage.
+Disease Damage (Cackle fever)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|WIS|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Wisdom Damage		TEMPDESC:Infection DC 16 (Inhaled), Incubation 1 day, Damage 1d6 Wis, Apply this temporary bonus each day the victim takes damage.
+Disease Damage (Demon fever)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Constitution Damage	TEMPDESC:Infection DC 18 (Injury), Incubation 1 day, Damage 1d6 Con (When damaged, character must succeed on another saving throw or 1 point of damage is permanent drain instead), Apply this temporary bonus each day the victim takes damage.
+Disease Damage (Devil chills)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Stength Damage		TEMPDESC:Infection DC 14 (Injury), Incubation 1d4 days, Damage 1d4 Str (The victim must make three successful Fortitude saving throws in a row to recover from devil chills), Apply this temporary bonus each day the victim takes damage.
+Disease Damage (Filth fever/Dex Damage)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|DEX|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Dexterity Damage	TEMPDESC:Infection DC 12 (Injury), Incubation 1d3 days, Damage 1d3 Dex, 1d3 Con, Apply this temporary bonus for the dexterity damage each day the victim takes damage.
+Disease Damage (Filth fever/Con Damage)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|Con|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Constitution Damage	TEMPDESC:Infection DC 12 (Injury), Incubation 1d3 days, Damage 1d3 Dex, 1d3 Con, Apply this temporary bonus for the constitution damage each day the victim takes damage.
+Disease Damage (Mindfire)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|INT|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Intelligence Damage	TEMPDESC:Infection DC 12 (Inhaled), Incubation 1 day, Damage 1d4 Int, Apply this temporary bonus each day the victim takes damage.
+Disease Damage (Mummy rot)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Constitution Damage	TEMPDESC:Infection DC 20 (Contact), Incubation 1 day, Damage 1d6 Con (Successful saves do not allow the character to recover, Only magical healing can save the character), Apply this temporary bonus each day the victim takes damage.
+Disease Damage (Red ache)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Stength Damage		TEMPDESC:Infection DC 15 (Injury), Incubation 1d3 days, Damage 1d6 Str, Apply this temporary bonus each day the victim takes damage.
+Disease Damage (Shakes)				VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|DEX|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=8|TITLE=Dexterity Damage	TEMPDESC:Infection DC 13 (Contact), Incubation 1 day, Damage 1d8 Dex, Apply this temporary bonus each day the victim takes damage.
+Disease Damage (Slimy doom)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Constitution Damage	TEMPDESC:Infection DC 14 (Contact), Incubation 1 day, Damage 1d4 Con (When damaged, character must succeed on another saving throw or 1 point of damage is permanent drain instead), Apply this temporary bonus each day the victim takes damage.
 
 #
 # End
