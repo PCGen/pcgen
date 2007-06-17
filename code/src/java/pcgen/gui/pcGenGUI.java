@@ -431,13 +431,13 @@ public class pcGenGUI
 		{
 			final String sVersion = System.getProperty("java.version");
 
-			if (Double.valueOf(Globals.javaVersion.substring(0, 3)).doubleValue() < 1.3)
+			if (Double.valueOf(Globals.javaVersion.substring(0, 3)).doubleValue() < 1.5)
 			{
 				ShowMessageDelegate.showMessageDialog(new MessageWrapper(
-				    "PCGen requires Java 2 v1.3.\nYour version of java is currently " + sVersion + ".\n"
+				    "PCGen requires Java 2 v1.5 or higher.\nYour version of java is currently " + sVersion + ".\n"
 				    + "To be able to run PCGen properly you will need:\n"
-				    + " * The Java 2 v1.3 runtime environment available from\n"
-				    + "   http://java.sun.com/j2se/1.3/jre/\n\n"
+				    + " * The Java 2 runtime environment available from\n"
+				    + "   http://java.sun.com/javase/index.jsp\n\n"
 				    + "You'll need to pick the version of java appropriate for your\n"
 				    + "OS (the choices are Solaris/SPARC, Linux and Windows).", "PCGen", MessageType.INFORMATION));
 			}
