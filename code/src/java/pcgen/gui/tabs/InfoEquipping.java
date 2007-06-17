@@ -109,6 +109,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.character.WieldCategory;
+import pcgen.core.system.LoadInfo;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -136,6 +137,7 @@ import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.WeightToken;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.FOPHandler;
 import pcgen.util.InputFactory;
@@ -145,6 +147,7 @@ import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.chooser.ChooserRadio;
+import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -197,6 +200,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			new JLabel(PropertyFactory.getString("in_load") + ": ");
 	private final JLabel weightLabel =
 			new JLabel(PropertyFactory.getString("in_weight") + ": ");
+	private final JLabel loadLimitsLabel =
+			new JLabel(PropertyFactory.getString("in_loadlimits") + ": ");
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
 	private FlippingSplitPane splitPane;
@@ -213,6 +218,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JLabelPane infoLabel = new JLabelPane();
 	private final JTextField loadWeight = new JTextField();
+	private final JTextField loadLimits = new JTextField();
 	private final JTextField totalWeight = new JTextField();
 	private JMenuItem AddAllMenu;
 	private JMenuItem AddMenu;
@@ -3548,10 +3554,16 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		loadWeight.setOpaque(false);
 		loadWeight.setBorder(null);
 		loadWeight.setBackground(Color.lightGray);
+		loadLimits.setEditable(false);
+		loadLimits.setOpaque(false);
+		loadLimits.setBorder(null);
+		loadLimits.setBackground(Color.lightGray);
 		wPanel.add(weightLabel);
 		wPanel.add(totalWeight);
 		wPanel.add(loadLabel);
 		wPanel.add(loadWeight);
+		wPanel.add(loadLimitsLabel);
+		wPanel.add(loadLimits);
 
 		// create an equipment info scroll area
 		JScrollPane sScroll = new JScrollPane();
@@ -4049,8 +4061,22 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	}
 
 	/**
-	 * Calculate the weight carried for this EquipSet
+	 * updates "Load" and "Weight Limits" labels
 	 **/
+	private void updateTotalWeightLoadLimits()
+	{
+		List<String> tmp = new ArrayList<String>();
+		LoadInfo loadInfo = SystemCollections.getLoadInfo();
+		for(Load load : Load.values()) {
+			String loadstring = load.toString();
+			if (loadInfo.getLoadMultiplier(loadstring) != null) {
+				Double limit = WeightToken.getLoadToken(loadstring,pc);
+				tmp.add(loadstring + "<=" + limit);
+			}
+		}
+		loadLimits.setText(tmp.toString());
+	}
+
 	private void updateTotalWeight()
 	{
 		if (pc == null)
@@ -4070,6 +4096,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		loadWeight.setText(Globals.loadTypeForLoadScore(
 			pc.getVariableValue("LOADSCORE", "").intValue(), weight, pc)
 			.toString());
+
+		updateTotalWeightLoadLimits();
 	}
 
 	/**
