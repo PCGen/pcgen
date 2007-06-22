@@ -1077,10 +1077,16 @@ public final class EditorMainForm extends JDialog
 		{
 			thisPObject.clearAutoTag("WEAPONPROF");
 			sel = pnlWeapons.getSelectedList();
+			StringBuffer selList = new StringBuffer();
 			for (int i = 0; i < sel.length; i++)
 			{
-				thisPObject.addAutoArray("WEAPONPROF", (String) sel[i]);
+				if (i>0)
+				{
+					selList.append('|');
+				}
+				selList.append((String) sel[i]);
 			}
+			thisPObject.addAutoArray("WEAPONPROF", selList.toString());
 
 			sel = pnlWeapons.getSelectedList2();
 
