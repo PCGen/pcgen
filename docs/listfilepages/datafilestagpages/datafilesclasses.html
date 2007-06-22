@@ -13,6 +13,7 @@
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
+		Eric C. Smith - mareduddATblackroot.org
 
 
 		Description:
@@ -27,81 +28,134 @@
 
 		<h1>Class Files</h1>
 
-		<p>Class files are where each class is listed, given it's important information for
-		the correct output and functioning of the class.</p>
-
-		<p>There are many tags required to build the class successfully, but not all are required. The
-		tags below represent the choices that can be applied to each class. They
-		are broken into four categories:</p>
-
+		<p>Class files are where each class is listed, given it's important information
+		for	the correct output and functioning of the class.</p>
+		<p>This section consists of two major sections: <a href="#ClassBuilding">Class
+		Building 101</a> and the <a href="#TagList">Tag List</a>.</p>
+		<a name="ClassBuilding"></a>
+        <hr>		
+		<h2>Class Building 101</h2>
+		<p>Classes have three types of elements. These consist of the  Class
+    	and Class Level Lines, the Sub-Class and Sub-Class Level Lines,
+    	and the Subsitution Class and Substitution Level Lines.</p>
+    	<h3>Class and Class Level Lines</h3>
+		<p>The Class and Class	Level Lines are mandatory for all classes.</p>
+	    <p><strong>The Main Class Line</strong></p>
+	    <ul>
+			<li>Begins with the <code>CLASS:&lt;class name&gt;</code> tag.</li>
+		    <li>Multiple Class Lines may exist for each class being created.</li>
+		    <li>Only tags identified as Class Line tags should be used on this
+		    line.</li>
+		</ul>
+		<p><strong>The Class Level Line</strong></p>
 		<ul>
-			<li><a href="#Required">Needed for all classes.</a></li>
-
-			<li><a href="#SpellCastersTags">Spell casters.</a></li>
-			<li><a href="#SubclassTags">Subclass casters.</a></li>
-			<li><a href="#OtherOptionalTags">Other tags.</a></li>
-			<li><a href="#MonsterSpecificTags">Monster specific tags.</a></li>
+			<li>Begins with a numeric (i.e. 1, 2, 3, etc.) identifying the level that
+			the	line represents.</li>
+		    <li>Must include ALL levels up to the MAXLEVEL as identified in the
+		    Class Line,	even if	there are no tags on a line.</li>
+		   	<li>Only tags identified as  Class Level Line tags may be used on this
+		    line.</li>
 		</ul>
-
-		<p>Each class has 2 components to it:</p>
-
-		<p></p><ul class="indent2">
-			<li><strong>The main class line.</strong></li>
-			<li><strong>The class level line.</strong></li>
-			<li>The Class Level Line has many blocks that make it up.</li>
-			<li>If necessary first(A) is the HASSUBCLASS:YES/NO tag SUBCLASS:</li>
-			<li>If necessary first(B) is the HASSUBSTITUTIONLEVEL:YES/NO tag SUBSTITUTIONCLASS:</li>
-			<li>The second(C) is the necessary Class Level Line.</li>
+		<p><strong>A Basic Class Example</strong></p>	
+		<p class="indent1"><code>CLASS:Rogue . . .</code><br>
+        <il><code>CLASS:Rogue . . .</code></il><br>
+        <il><code>1 . . .</code></il><br>
+        <il><code>2 . . .</code></il><br>
+        <il><code>.</code></il><br>
+        <il><code>. </code>(All Class Level Lines <strong>MUST</strong> be
+        included even if they are empty.)</il><br>
+        <il><code>.</code><br>
+        <il><code>19 . . .</code></il><br>
+        <il><code>20 . . .</code></il></p>
+        
+		<h3>Sub-Class and Sub-Class Level Lines</h3>
+		<p>Sub-classes can	be	implemented	with	the	inclusion	of the <code><a href="#SUBCLASS">SUBCLASS</a></code> and <code><a href="#SUBCLASSLEVEL">SUBCLASSLEVEL</a> </code>tags.</p>
+		<p><strong>The Sub-Class Line</strong></p>
+		<ul>
+			<li><code>HASSUBCLASS:YES</code> must be present in the Class Line that this
+			line is associated with.</li>
+			<li>Begins with the <code>SUBCLASS:&lt;sub-class name&gt;</code> tag.</li>
+			<li>Placed between the Class Lines and the Sub-Class Level Lines that define 
+			the levels for the sub-class.</li>
+			<li>Only tags identified as Sub-Class Line or Class Line tags should be used
+			on this line.</li>
 		</ul>
-
-		<p></p><ul class="indent2">
-			<p></p><li><strong>Your CLASS(A) entry should look like one of three:</strong></li>
-			<li><strong>CLASS:Druid...</strong></li>
-			<li><strong>CLASS:Druid...</strong></li>
-			<li><strong>CLASS:Druid</strong> &lt;tab&gt; HASSUBCLASS:YES</li>
-			<li>SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt; CHOICE:Abjuration &lt;tab&gt; KNOWNSPELLSFROMSPECIALTY:1</li>
-			<li>SUBCLASSLEVEL:1 &lt;tab&gt; FEATAUTO:Abjurer Learning Bonus</li>
-			<li>SUBCLASSLEVEL:10 &lt;tab&gt; SA:Immune to Acid (You can jump from SUBCLASSLEVEL: to SUBCLASSLEVEL: don't list them all.)</li>
-			<li>1.</li>
-			<li>2.</li>
-			<li>... (Must list all Class Level Line even if empty)</li>
-			<li>19.</li>
-			<li>20.</li>
+		<p><strong>The Sub-Class Level Line</strong></p>
+		<ul>
+			<li>Begins with the <code>SUBCLASSLEVEL:&lt;level number&gt;</code> tag.</li>
+			<li>Placed after the Sub-Class Level Lines that define the associated sub-class.</li>
+			<li>Only the Sub-Class Level Lines that contain tags need to be included.</li>
+			<li>Only tags identified as Sub-Class Line or Class Line tags should be used
+			on this line.</li>
 		</ul>
-
-		<p></p><ul class="indent2">
-			<p></p><li><strong>Or your CLASS(B) entry should look like this:</strong></li>
-			<li><strong>CLASS:Druid...</strong></li>
-			<li><strong>CLASS:Druid...</strong></li>
-			<li><strong>CLASS:Druid</strong> &lt;tab&gt; HASSUBSTITUTIONLEVEL::YES</li>
-			<li>SUBSTITUTIONCLASS:Orc Ranger &lt;tab&gt; COST:2 &lt;tab&gt; CHOICE:Abjuration &lt;tab&gt; KNOWNSPELLSFROMSPECIALTY:1</li>
-			<li>SUBSTITUTIONLEVEL:4 &lt;tab&gt; SA:Goblin Slave (Ex)</li>
-			<li>SUBSTITUTIONLEVEL:10 &lt;tab&gt; SA:Immune to Acid (You can jump from SUBSTITUTIONLEVEL to SUBSTITUTIONLEVEL don't list them all.)</li>
-			<li>1.</li>
-			<li>2.</li>
-			<li>... (Must list all Class Level Line even if empty)</li>
-			<li>19.</li>
-			<li>20.</li>
+		<strong>A Sub-Class Example</strong>	
+		<p class="indent1"><code>CLASS:Rogue . . .</code><br>
+        <il><code>CLASS:Wizard . . .HASSUBCLASS:YES</code></il><br>
+        <il><code>CLASS:Wizard . . .</code></il><br>
+        <il><code>SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt; CHOICE:Abjuration &lt;tab&gt; KNOWNSPELLSFROMSPECIALTY:1</code></il><br>
+        <il><code>SUBCLASSLEVEL:1 &lt;tab&gt; FEATAUTO:Abjurer Learning Bonus</code></il><br>
+        <il><code>SUBCLASSLEVEL:10 &lt;tab&gt; SA:Immune to Acid</code></il><br>
+        <il><code>1 . . .</code></il><br>
+        <il><code>2 . . .</code></il><br>
+        <il><code>.</code></il><br>
+        <il><code>. </code>(All Class Level Lines <strong>MUST</strong> be included even if they are empty.)</il><br>
+        <il><code>.</code><br>
+        <il><code>19 . . .</code></il><br>
+        <il><code>20 . . .</code></il></p>
+        
+		<h3>Substitution Class and Substitution Level Lines</h3>
+		<p>Substitution levels can be implemented with the inclusion
+		of the <code><a href="#SUBSTITUTIONCLASS">SUBSTITUTIONCLASS</a></code> and <code><a href="#SUBSTITUTIONLEVEL">SUBSTITUTIONLEVEL</a></code> tags.</p>
+		<p><strong></strong><strong>The Substitution Class Line</strong></p>
+		<ul>
+			<li><code>HASSUBSTITUTIONLEVEL:YES</code> must be present in the Clss Lineaht t this line
+			is associated with.</li>
+			<li>Begins with the <code>SUBSTITUTIONCLASS:&lt;substitution class name&gt;</code> tag.</li>
+			<li>Placed between the Class Lines and the Substitution Level Lines
+			that define	the levels	for the substitution class.</li>
+			<li>Only tags identified as Substitution Class Line or Class Line tags should be used on this line.</li>
 		</ul>
-
-		<p></p><ul class="indent2">
-			<p></p><li><strong>Or your CLASS(C) entry should look like this:</strong></p>
-			<li><strong>CLASS:...</strong></li>
-			<li><strong>CLASS:...</strong></li>
-			<li><strong>CLASS:...</strong></li>
-			<li>1.</li>
-			<li>2.</li>
-			<li>... (Must list all Class Level Line even if empty)</li>
-			<li>19.</li>
-			<li>20.</li>
+		<p><strong>The Substitution Level Line</strong></p>
+		<ul>
+			<li>Begins with the <code>SUBSTITUTIONLEVEL:&lt;level number&gt;</code> tag.</li>
+			<li>Placed after the Substitution Class Lines that	define	the associated
+			substitution class.</li>
+			<li>Only the Substitution Level Lines that contain	tags need to
+			be included.</li>
+			<li>Only tags identified as Sub-Class Line or Class Line tags should be used
+			on this line.</li>
 		</ul>
-
-		<p>The class line begins with CLASS (Required) and the class level line begins with a level #
-		(0, 1, 2, etc - Required).</p>
+		<strong>A Substitution Level Examples</strong>
+	    <p class="indent1"><code>CLASS:Ranger . . .</code><br>
+        <il><code>CLASS:Ranger &lt;tab&gt; HASSUBSTITUTIONLEVEL:YES</code></il><br>
+        <il><code>SUBSTITUTIONCLASS:Orc Ranger</code></il><br>
+        <il><code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt; SA:Goblin Slave
+        (Ex)</code></il><br>
+        <il><code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code></il><br>
+        <il><code>1 . . .</code></il><br>
+        <il><code>2 . . .</code></il><br>
+        <il><code>.</code></il><br>
+        <il><code>. </code>(All Class Level Lines <strong>MUST</strong> be
+        included even if they are empty.)</il><br>
+        <il><code>.</code><br>
+        <il><code>19 . . .</code></il><br>
+        <il><code>20 . . .</code></p>
+        <p></p>
+		<a name="TagList"></a><hr>
+		<h2>Tag List</h2>
+		<p> The tag list  is  broken down into six parts:</p>
+		<ul>
+			<li><a href="#Required">Tags Required for all Classes</a></li>
+			<li><a href="#SpellcasterTags">Spellcaster Tags</a></li>
+			<li><a href="#SubClassTags">Sub-Class Tags</a></li>
+			<li><a href="#SubstitutionLevelTags">Substitution Level Tags</a></li>
+			<li><a href="#OtherOptionalTags">Other Optional Tags</a></li>
+			<li><a href="#MonsterSpecificTags">Monster Specific Tags.</a></li>
+		</ul><p></p>
 
 		<a name="Required"></a><hr>
 
-		<h2>Tags Required for all Classes</h2>
+		<h3>Tags Required for all Classes</h3>
 
 		<p></p><a name="ABB"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ABB:x</p>
@@ -183,8 +237,6 @@
 				number of free ranks into that skill. (as if there was
 				a BONUS:SKILLRANK|&lt;SkillName&gt;|&lt;x&gt; tag for that skill).</li>
 		</ul>
-		<p class="indent1"><strong>Where it can be used:</strong></p>
-		<p class="indent2"><strong>ADD:CLASSSKILLS is only valid in class lines.</strong></p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>ADD:CLASSSKILLS|2|Bluff,Listen,Move Silently</code></p>
 		<p class="indent3">Add any two of &quot;Bluff&quot;, &quot;Listen&quot; or &quot;Move Silently&quot;.</p>
@@ -198,6 +250,8 @@
 		<p class="indent2"><code>ADD:CLASSSKILLS|2|TYPE=Knowledge</code></p>
 		<p class="indent3">This would give the char two bonus ranks to the TYPE of &quot;Knowledge&quot;
 		type skill selected.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Class Lines.</p>
 
 
 		<p></p><a name="ATTACKCYCLE"></a><hr>
@@ -318,7 +372,7 @@
 		<p class="indent2">Class Line.</p>
 
 
-		<p></p><a name="SpellCastersTags"></a><hr>
+		<p></p><a name="SpellcasterTags"></a><hr>
 		<h2>Spell Casters Tags</h2>
 
 
@@ -509,7 +563,7 @@
 		<p></p><a name="KNOWN"></a><hr>
 		<p class="new">*** Updated 5.8</p>
 		<p class="indent0"><strong>Tag Name:</strong> KNOWN:x</p>
-		<p class="indent1"><strong>Variables Used:</strong> Number</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Tells PCGen how many spell known the caster has (displayed on the Spells Tab).</li>
@@ -519,20 +573,20 @@
 			    formula requires a comma use a DEFINE to set a variable and use the variable in the
 			    KNOWN progression.</li>
 		</ul>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Class Level Line.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>KNOWN:6,4,3</code></p>
 		<p class="indent3">The class knows 6 0th level spells, 4 1st level spells and 3 2nd level spells.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DEFINE:KnownLvl0|min(9,4+(CL/2)) &lt;tab&gt; KNOWN:KnownLvl0</code></p>
 		<p class="indent3">Sets the known progression to the value of the variable <code>KnownLvl0</code> for 0 level spells.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Class Level Line.</p>
 
 
 		<p></p><a name="KNOWNSPELLS"></a><hr>
 		<p class="new">*** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> KNOWNSPELLS:x</p>
-		<p class="indent1"><strong>Variables Used:</strong> Text and/or Number</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text and/or Number</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Used to automatically give spells, by name or level, to the spell caster.</li>
@@ -731,8 +785,8 @@
 		<p class="indent2"> Class Level Line.</p>
 
 
-		<p></p><a name="SubclassTags"></a><hr>
-		<h2>Subclass Tags</h2>
+		<p></p><a name="SubClassTags"></a><hr>
+		<h3>Sub-Class Tags</h3>
 
 
 		<p></p><a name="CHOICE"></a><hr>
@@ -844,13 +898,16 @@
 		<p class="indent0"><strong>Tag Name:</strong> SUBCLASS:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (name of subclass or specialty)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Defines a subclass or specialty choice.</p>
+		<ul class="indent1">
+			<li>Defines a subclass or specialty choice.</li>
+			<li>First tag of a line between the Class Lines and the level definition lines for the 
+			class which can choose these subclasses or specialties.</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SUBCLASS:Illusionist</code></p>
 		<p class="indent3">The class has Illusionist as a subclass.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Subclass Line. Can only be found as the FIRST TAG of a line between the CLASS: lines
-		and the level definition lines for the class which can choose these subclasses or specialties.</p>
+		<p class="indent2">Subclass Line.</p>
 
 
 		<p></p><a name="SUBCLASSLEVEL"></a><hr>
@@ -862,16 +919,17 @@
 			<li>Defines a subclass level at which a particular Special Ability is granted.</li>
 			<li>This tag should MUST be the first tag on a line, and will define a Subclass level dependent
 			ability for the SUBCLASS immediately above it. </li>
+			<li>Located before the Class Level Lines.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SUBCLASSLEVEL:3 &lt;tab&gt; SA:Angelfire</code></p>
 		<p class="indent3">would add SA:Angelfire at level 3</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Subclass Line (This should be before the Level lines of the class).</p>
+		<p class="indent2">Subclass Line.</p>
 
 
-		<p></p><a name="Substitution Level Tags"></a><hr>
-		<h2>Substitution Level Tags</h2>
+		<p></p><a name="SubstitutionLevelTags"></a><hr>
+		<h3>Substitution Level Tags</h3>
 
 
 		<p></p><a name="HASSUBSTITUTIONLEVEL"></a><hr>
@@ -892,13 +950,16 @@
 		<p class="indent0"><strong>Tag Name:</strong> SUBSTITUTIONCLASS:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (name of substitution levels)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Defines a group of substitution levels.</p>
+		<ul class="indent2">
+			<li>Defines a group of substitution levels.</li>
+			<li>First tag of a line between the	Class Lines and the level definition lines for the class 
+			which can choose these substitution levels.</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SUBSTITUTIONCLASS:Orc Ranger</code></p>
 		<p class="indent3">The class has Orc Ranger substitution levels.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Substitutionclass Line. Can only be found as the FIRST TAG of a line between the
-		CLASS: lines and the level definition lines for the class which can choose these substitution levels.</p>
+		<p class="indent2">Substitutionclass Line.</p>
 
 
 		<p></p><a name="SUBSTITUTIONLEVEL"></a><hr>
@@ -909,18 +970,19 @@
 		<ul class="indent2">
 			<li>Defines a substitution level at which a particular Special Ability is granted.</li>
 			<li>This tag should MUST be the first tag on a line, and will define a substitution level dependent
-			ability for the SUBSTITUTIONCLASS immediately above it. </li>
+			ability for the SUBSTITUTIONCLASS immediately above it.</li>
+			<li>Located before the Class Level Lines.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; SA:Goblin Slave (Ex)</code></p>
 		<p class="indent3">would add SA:Goblin Slave (Ex) at level 4 instead of the standard level 4 class
 		abilities.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Substitutionclass Line (This should be before the Level lines of the class).</p>
+		<p class="indent2">Substitutionclass Line.</p>
 
 
 		<p></p><a name="OtherOptionalTags"></a><hr>
-		<h2>Other Optional Tags</h2>
+		<h3>Other Optional Tags</h3>
 
 
 		<p></p><a name="EXCLASS"></a><hr>
@@ -951,7 +1013,8 @@
 		<p class="indent2"><code>EXCHANGELEVEL:Ex Paladin|11|10|1</code></p>
 		<p class="indent3">Up to 10 levels of Ex Paladin can be exchanged as long as there were at least 11
 		levels of Ex Paladin available.</p>
-		<p><strong>Where it is used:</strong> Class Line.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Class Line.</p>
 
 
 		<p></p><a name="FEATAUTO"></a><hr>
@@ -992,18 +1055,20 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> %HupNumber (Amount Hit Dice size is stepped up by)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> %HdownNumber (Amount Hit Dice size is stepped down by)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This tag can be used on a level line to specify a hit dice size which will be applied
-		only that level.</p>
-		<p class="indent2">When using the step up function (%upNumber) the steps are d4,d6,d8,d10 and stops at
-		d12.</p>
-		<p class="indent2">When using the step down function (%downNumber) the steps are d12,d10,d8,d6 and
-		stops at d4.</p>
-		<p class="indent2">Regardless of the number it will never allow a hit die below 1.</p>
-		<p class="indent2">This tag can be used on a level line to specify a hit dice size which will be applied
-		only that level.</p>
-		<p class="indent2">When using the step up function (%Hup) the steps are d1-d1000.</p>
-		<p class="indent2">When using the step down function (%Hdown) the steps are d1-d1000.</p>
-		<p class="indent2">Regardless of the number it will never allow a hit die below 1.</p>
+		<ul class="indent2">
+			<li>This tag can be used on a level line to specify a hit dice size which will 
+			be applied only that level.</li>
+			<li>When using the step up function (%upNumber) the steps are d4,d6,d8,d10 and 
+			stops at d12.</li>
+			<li>When using the step down function (%downNumber) the steps are d12,d10,d8,d6 
+			and stops at d4.</li>
+			<li>Regardless of the number it will never allow a hit die below 1.</li>
+			<li>This tag can be used on a level line to specify a hit dice size which will 
+			be applied only that level.</li>
+			<li>When using the step up function (%Hup) the steps are d1-d1000.</li>
+			<li>When using the step down function (%Hdown) the steps are d1-d1000.</li>
+			<li>Regardless of the number it will never allow a hit die below 1.</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>HITDIE:12</code></p>
 		<p class="indent3">The character now has a Hit Dice of 12.</p>
@@ -1027,6 +1092,8 @@
 		<p class="indent2"><code>HITDIE:%Hdown3</code></p>
 		<p class="indent3">Steps down the Hit Dice size by three step. If the class has a Hit Die of d6 it will
 		be stepped down to d3.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Class Level Line.</p>
 
 
 		<p></p><a name="LANGBONUS"></a><hr>
@@ -1085,8 +1152,6 @@
 		<p class="indent2">Provides options for removing feats, this works with hidden feats as well as standard feats
 			but not on those applied with the VFEAT or MFEAT tags. The (y) variable is optional,
 			if not present the tag simply removes whatever feats are specified in variable (x).</p>
-		<p class="indent1"><strong>Where it can be used:</strong></p>
-		<p class="indent2">Works in class and template files.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>REMOVE:FEAT(Alertness)</code></p>
 		<p class="indent3">Removes the Alertness feat, no choice is presented, the feat is simply removed.</p>
@@ -1097,6 +1162,8 @@
 			If a feat has a COST:# associated with it, it returns that # back to the feat pool.</p>
 		<p class="indent2"><code>REMOVE:FEAT(CLASS.Paladin)ALL</code></p>
 		<p class="indent3">Removes all feats that have been granted/taken by the Paladin Class.</p>
+		<p class="indent1"><strong>Where it can be used:</strong></p>
+		<p class="indent2">Works in class and template files.</p>
 
 
 		<p></p><a name="REPEATLEVEL"></a><hr>
@@ -1121,8 +1188,6 @@
 			is not otherwise used.</li>
 			<li>Any valid class tags may be used on the line to be repeated.</li>
 		</ul>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">On Class Level Lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>5 &lt;tab&gt; REPEATLEVEL:5 &lt;tab&gt;  ADD:FEAT(ABonusFeat)</code></p>
 		<p class="indent3">would add at levels 5,10,15,20,... up to the MAXLEVEL defined by class.</p>
@@ -1131,6 +1196,8 @@
 		class.</p>
 		<p class="indent2"><code>2 &lt;tab&gt; REPEATLEVEL:2|0|20 &lt;tab&gt; ADD:FEAT(ABonusFeat)</code></p>
 		<p class="indent3">would add at levels 2,4,6,8,... up to level 20.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Class Level Lines.</p>
 
 
 		<p></p><a name="SASPECIALS"></a><hr>
@@ -1254,7 +1321,7 @@
 
 
 		<p></p><a name="MonsterSpecificTags"></a><hr>
-		<h2>Monster Specific Tags</h2>
+		<h3>Monster Specific Tags</h3>
 
 
 		<p></p><a name="LEVELSPERFEAT"></a><hr>
