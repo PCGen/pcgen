@@ -31,6 +31,7 @@ public class EqBuilderSpellToken implements ChooseLstToken
 	{
 		if (value == null)
 		{
+			po.setChoiceString(getTokenName());
 			return true;
 		}
 		if (value.indexOf(',') != -1)
