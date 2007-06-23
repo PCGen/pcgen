@@ -99,6 +99,27 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 				}
 			}
 		}
+		else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
+		{
+			String typeString = aString.substring(5);
+			for (PCClass cl : character.getClassList())
+			{
+				if (cl.isType(typeString))
+				{
+					if (prereq.isCountMultiples())
+					{
+						if (cl.getLevel() >= preClass)
+						{
+							countedTotal++;
+						}
+					}
+					else
+					{
+						runningTotal = Math.max(runningTotal, cl.getLevel());
+					}
+				}
+			}
+		}
 		else
 		{
 			final PCClass aClass = character.getClassKeyed(aString);
