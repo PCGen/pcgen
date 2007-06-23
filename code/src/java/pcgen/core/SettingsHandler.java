@@ -1726,6 +1726,34 @@ public final class SettingsHandler
 	{
 		return pcgenFilesDir;
 	}
+	
+	/**
+	 * Return a handle to the directory in which the PCGen config 
+	 * is stored. Takes into account the FilePaths setting as well 
+	 * as the PcgenFilesDir setting.
+	 *  
+	 * @return The directory in which the PCGen config is stored.
+	 */
+	public static File getDecodedPCGenFilesDir()
+	{
+		String fType = SettingsHandler.getFilePaths();
+		if ((fType == null) || (fType.length() < 1))
+		{
+			// make sure we have a default
+			fType = "pcgen";
+		}
+
+		if (fType.equals("pcgen"))
+		{
+			return new File(System.getProperty("user.dir"));
+		}
+		else if (fType.equals("user"))
+		{
+			return new File(System.getProperty("user.home")
+				+ File.separator + ".pcgen");
+		}
+		return getPcgenFilesDir();
+	}
 
 	public static void setPcgenOutputSheetDir(final File aFile)
 	{
