@@ -35,11 +35,37 @@ public class WeaponProfToken implements ChooseLstToken
 				+ " arguments may not contain , : " + value);
 			return false;
 		}
-		if (value.indexOf('[') != -1)
+		String suffix = "";
+		int bracketLoc;
+		while ((bracketLoc = value.lastIndexOf('[')) != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value);
-			return false;
+			int closeLoc = value.indexOf("]", bracketLoc);
+			if (closeLoc != value.length() - 1)
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " arguments does not contain matching brackets: "
+					+ value);
+				return false;
+			}
+			String bracketString = value.substring(bracketLoc + 1, closeLoc);
+			if ("WEAPONPROF".equals(bracketString))
+			{
+				//This is okay.
+				suffix = "[WEAPONPROF]" + suffix;
+			}
+			else if (bracketString.startsWith("FEAT="))
+			{
+				// This is okay.
+				suffix = "[" + bracketString + "]" + suffix;
+			}
+			else
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " arguments may not contain [" + bracketString + "] : "
+					+ value);
+				return false;
+			}
+			value = value.substring(0, bracketLoc);
 		}
 		if (value.charAt(0) == '|')
 		{
@@ -95,7 +121,7 @@ public class WeaponProfToken implements ChooseLstToken
 		{
 			sb.append(prefix).append('|');
 		}
-		sb.append(getTokenName()).append('|').append(value);
+		sb.append(getTokenName()).append('|').append(value).append(suffix);
 		po.setChoiceString(sb.toString());
 		return true;
 	}

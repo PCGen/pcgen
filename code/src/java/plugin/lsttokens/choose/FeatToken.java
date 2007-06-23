@@ -56,6 +56,12 @@ public class FeatToken implements ChooseLstToken
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
+		if (value.indexOf('|') != -1)
+		{
+			Logging.deprecationPrint("CHOOSE:" + getTokenName()
+				+ " will ignore arguments: "
+				+ value.substring(value.indexOf('|') + 1));
+		}
 		StringBuilder sb = new StringBuilder();
 		if (prefix.length() > 0)
 		{

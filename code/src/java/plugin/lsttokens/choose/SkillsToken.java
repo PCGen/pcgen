@@ -26,21 +26,20 @@ public class SkillsToken implements ChooseLstToken
 
 	public boolean parse(PObject po, String prefix, String value)
 	{
-		if (value == null)
+		if (value != null)
 		{
-			// No args - legal
-			StringBuilder sb = new StringBuilder();
-			if (prefix.length() > 0)
-			{
-				sb.append(prefix).append('|');
-			}
-			sb.append(getTokenName());
-			po.setChoiceString(sb.toString());
-			return true;
+			Logging.deprecationPrint("CHOOSE:" + getTokenName()
+				+ " will ignore arguments: " + value);
 		}
-		Logging.deprecationPrint("CHOOSE:" + getTokenName()
-			+ " will ignore arguments: " + value);
-		return false;
+		// No args - legal
+		StringBuilder sb = new StringBuilder();
+		if (prefix.length() > 0)
+		{
+			sb.append(prefix).append('|');
+		}
+		sb.append(getTokenName());
+		po.setChoiceString(sb.toString());
+		return true;
 	}
 
 	public String getTokenName()

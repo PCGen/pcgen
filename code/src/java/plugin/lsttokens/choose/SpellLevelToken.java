@@ -35,11 +35,32 @@ public class SpellLevelToken implements ChooseLstToken
 				+ " arguments may not contain , : " + value);
 			return false;
 		}
-		if (value.indexOf('[') != -1)
+		String suffix = "";
+		int bracketLoc;
+		while ((bracketLoc = value.lastIndexOf('[')) != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value);
-			return false;
+			int closeLoc = value.indexOf("]", bracketLoc);
+			if (closeLoc != value.length() - 1)
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " arguments does not contain matching brackets: "
+					+ value);
+				return false;
+			}
+			String bracketString = value.substring(bracketLoc + 1, closeLoc);
+			if (bracketString.startsWith("BONUS:"))
+			{
+				//This is okay.
+				suffix = "[" + bracketString + "]" + suffix;
+			}
+			else
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " arguments may not contain [" + bracketString + "] : "
+					+ value);
+				return false;
+			}
+			value = value.substring(0, bracketLoc);
 		}
 		if (value.charAt(0) == '|')
 		{
@@ -66,7 +87,20 @@ public class SpellLevelToken implements ChooseLstToken
 				+ " must have two or more | delimited arguments : " + value);
 			return false;
 		}
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+		String start = value.substring(0, pipeLoc);
+		try
+		{
+			Integer.parseInt(start);
+		}
+		catch (NumberFormatException nfe)
+		{
+			Logging.errorPrint("CHOOSE:" + getTokenName()
+				+ " first argument must be an Integer : " + value);
+			return false;
+		}
+		StringTokenizer tok =
+				new StringTokenizer(value.substring(pipeLoc + 1),
+					Constants.PIPE);
 		if (tok.countTokens() % 3 != 0)
 		{
 			Logging.errorPrint("COUNT:" + getTokenName()
@@ -104,28 +138,15 @@ public class SpellLevelToken implements ChooseLstToken
 					+ " second argument must be an Integer : " + value);
 				return false;
 			}
-			String third = tok.nextToken();
-			if (!third.equals("MAXLEVEL"))
-			{
-				try
-				{
-					Integer.parseInt(third);
-				}
-				catch (NumberFormatException nfe)
-				{
-					Logging.errorPrint("CHOOSE:" + getTokenName()
-						+ " third argument must be an Integer or 'MAXLEVEL': "
-						+ value);
-					return false;
-				}
-			}
+			//No validation can be performed because third is a formula :P
+			tok.nextToken();
 		}
 		StringBuilder sb = new StringBuilder();
 		if (prefix.length() > 0)
 		{
 			sb.append(prefix).append('|');
 		}
-		sb.append(getTokenName()).append('|').append(value);
+		sb.append(getTokenName()).append('|').append(value).append(suffix);
 		po.setChoiceString(sb.toString());
 		return true;
 	}

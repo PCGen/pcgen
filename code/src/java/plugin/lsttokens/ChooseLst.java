@@ -39,18 +39,15 @@ public class ChooseLst implements GlobalLstToken
 			while (true)
 			{
 				int pipeLoc = val.indexOf(Constants.PIPE, activeLoc);
-				if (pipeLoc == -1)
+				if (val.startsWith("FEAT="))
 				{
-					if (val.startsWith("FEAT="))
-					{
-						key = "FEAT";
-						val = val.substring(5);
-					}
-					else
-					{
-						key = val;
-						val = null;
-					}
+					key = "FEAT";
+					val = val.substring(5);
+				}
+				else if (pipeLoc == -1)
+				{
+					key = val;
+					val = null;
 				}
 				else
 				{
@@ -101,7 +98,8 @@ public class ChooseLst implements GlobalLstToken
 				}
 			}
 			String prefixString = CoreUtility.join(prefixList, "|");
-			boolean parse = ChooseLoader.parseToken(obj, prefixString, key, val, anInt);
+			boolean parse =
+					ChooseLoader.parseToken(obj, prefixString, key, val, anInt);
 			if (!parse)
 			{
 				parseOld(obj, value, anInt);

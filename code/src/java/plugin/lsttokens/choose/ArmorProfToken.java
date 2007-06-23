@@ -77,7 +77,9 @@ public class ArmorProfToken implements ChooseLstToken
 				+ " first argument must be an Integer : " + value);
 			return false;
 		}
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		StringTokenizer st =
+				new StringTokenizer(value.substring(pipeLoc + 1),
+					Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
 			String tokString = st.nextToken();
