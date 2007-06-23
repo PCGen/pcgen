@@ -105,12 +105,25 @@ public class AbilityModel extends AbstractTreeTableModel implements
 
 		theCategory = aCategory;
 
+		setPanelSpecificDefaults();
 		for (final Column column : Column.values())
 		{
 			column.setVisible(SettingsHandler.getPCGenOption(theOptionsRoot
 				+ ".viewcol." + column.toString(), column.isVisible())); //$NON-NLS-1$
 		}
 		resetModel(thePC, viewMode, false);
+	}
+
+	/**
+	 * Set any defaults for the specific panel the model is tied to. 
+	 */
+	private void setPanelSpecificDefaults()
+	{
+		Logging.debugPrint("setPanelSpecificDefaults for " + theOptionsRoot);
+		if (theOptionsRoot.indexOf("selected") >= 0)
+		{
+			Column.CHOICES.setVisible(true);			
+		}
 	}
 
 	private void buildDefaultRoots()
