@@ -449,7 +449,8 @@
 
 
 		<p></p><a name="SPELLLEVEL"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLEVEL|x|y|z|x|y|z</p>
+		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLEVEL|w|x|y|z|x|y|z</p>
+		<p class="indent1"><strong>Variables Used (w):</strong> Number (Number of Choices)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (CLASS=&lt;Spellcaster
 		  class&gt; or TYPE=&lt;Spell type&gt;)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (Minimum Level)</p>
@@ -464,9 +465,12 @@
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CHOOSE:SPELLLEVEL|2|CLASS=Wizard|0|MAXLEVEL|TYPE=Divine|1|3</code></p>
-		<p class="indent3">would present a list of the character's castable Wizard levels of spells (e.g.
+		<p class="indent3">Would present a list of the character's castable Wizard levels of spells (e.g.
 		Wizard 0 Wizard 1 Wizard 2 for a 5th level Wizard) and Cleric 1 Cleric 2 Cleric 3 if the character
-		had Cleric as a class.</p>
+		had Cleric as a class and allow two to be chosen.</p>
+		<p class="indent2"><code>CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]</code></p>
+		<p class="indent3">Would present a list of the character's castable Arcane spells and allow one to be chosen 
+		as a bonus spell per day.</p>
 
 
 		<p></p><a name="SPELLLIST"></a><hr>
