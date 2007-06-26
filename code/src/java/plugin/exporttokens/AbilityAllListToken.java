@@ -52,7 +52,7 @@ public class AbilityAllListToken extends AbilityListToken
 	@Override
 	public String getTokenName()
 	{
-		return "ABILITYALLLIST";
+		return "ABILITYALLLIST"; //$NON-NLS-1$
 	}
 
 	/**

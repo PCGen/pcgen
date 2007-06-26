@@ -25,19 +25,65 @@
  */
 package pcgen.io;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.text.NumberFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
 
-import pcgen.core.*;
+import pcgen.core.Constants;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.Follower;
 import pcgen.core.utils.CoreUtility;
-import pcgen.io.exporttoken.*;
+import pcgen.io.exporttoken.ACCheckToken;
+import pcgen.io.exporttoken.AbilityListToken;
+import pcgen.io.exporttoken.AbilityToken;
+import pcgen.io.exporttoken.AlignmentToken;
+import pcgen.io.exporttoken.AttackToken;
+import pcgen.io.exporttoken.BonusToken;
+import pcgen.io.exporttoken.CheckToken;
+import pcgen.io.exporttoken.DRToken;
+import pcgen.io.exporttoken.DomainToken;
+import pcgen.io.exporttoken.EqToken;
+import pcgen.io.exporttoken.EqTypeToken;
+import pcgen.io.exporttoken.GameModeToken;
+import pcgen.io.exporttoken.HPToken;
+import pcgen.io.exporttoken.HeightToken;
+import pcgen.io.exporttoken.InitiativeMiscToken;
+import pcgen.io.exporttoken.MovementToken;
+import pcgen.io.exporttoken.ReachToken;
+import pcgen.io.exporttoken.SRToken;
+import pcgen.io.exporttoken.SizeLongToken;
+import pcgen.io.exporttoken.SkillToken;
+import pcgen.io.exporttoken.SkillpointsToken;
+import pcgen.io.exporttoken.SpellFailureToken;
+import pcgen.io.exporttoken.StatToken;
+import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.TotalToken;
+import pcgen.io.exporttoken.VarToken;
+import pcgen.io.exporttoken.WeaponToken;
+import pcgen.io.exporttoken.WeaponhToken;
+import pcgen.io.exporttoken.WeightToken;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
-import pcgen.io.exporttoken.SkillToken;
 
 /**
  * <code>ExportHandler</code>.
@@ -84,7 +130,8 @@ public final class ExportHandler
 	}
 
 	/**
-	 * Replace the token, but skip the maths
+	 * Replace the token, but skip the math
+	 * 
 	 * @param aPC
 	 * @param aString
 	 * @param output
@@ -668,7 +715,7 @@ public final class ExportHandler
 		{
 			return res.equals(JEP_TRUE);
 		}
-		
+
 		// Before returning false, let's see if this is a valid token, like this:
 		//
 		// |IIF(WEAPON%weap.CATEGORY:Ranged)|
@@ -1108,54 +1155,54 @@ public final class ExportHandler
 					}
 
 					//TODO: Check if this is a JEP formula If it is process that.
-//					Logging.setDebugMode(true);
-//					Float res =
-//							aPC.getVariableProcessor().getJepOnlyVariableValue(null,
-//								aString, "", 0);
-//					if (res != null)
-//					{
-//						Logging.setDebugMode(false);
-//						valString = NUM_FMT.format(res);
-//					}
-//					else
-//					{
-//						Logging.setDebugMode(false);
-	
-						StringWriter sWriter = new StringWriter();
-						BufferedWriter aWriter = new BufferedWriter(sWriter);
-						replaceTokenSkipMath(aPC, valString, aWriter);
-						sWriter.flush();
-	
-						try
-						{
-							aWriter.flush();
-						}
-						catch (IOException e)
-						{
-							//TODO: Really ignore this? If so, explain why in a comment here. XXX
-						}
-	
-						final String bString = sWriter.toString();
-						
-						try
-						{
-							// Float values
-							valString = String.valueOf(Float.parseFloat(bString));
-						}
-						catch (NumberFormatException e)
-						{
-							// String values
-							valString = bString;
-						}
+					//					Logging.setDebugMode(true);
+					//					Float res =
+					//							aPC.getVariableProcessor().getJepOnlyVariableValue(null,
+					//								aString, "", 0);
+					//					if (res != null)
+					//					{
+					//						Logging.setDebugMode(false);
+					//						valString = NUM_FMT.format(res);
+					//					}
+					//					else
+					//					{
+					//						Logging.setDebugMode(false);
 
-						if ((!attackRoutine) && isAttackRoutine(valString))
-						{
-							attackRoutine = true;
-							attackData = valString;
-							valString = "";
-						}
+					StringWriter sWriter = new StringWriter();
+					BufferedWriter aWriter = new BufferedWriter(sWriter);
+					replaceTokenSkipMath(aPC, valString, aWriter);
+					sWriter.flush();
+
+					try
+					{
+						aWriter.flush();
 					}
-//				}
+					catch (IOException e)
+					{
+						//TODO: Really ignore this? If so, explain why in a comment here. XXX
+					}
+
+					final String bString = sWriter.toString();
+
+					try
+					{
+						// Float values
+						valString = String.valueOf(Float.parseFloat(bString));
+					}
+					catch (NumberFormatException e)
+					{
+						// String values
+						valString = bString;
+					}
+
+					if ((!attackRoutine) && isAttackRoutine(valString))
+					{
+						attackRoutine = true;
+						attackData = valString;
+						valString = "";
+					}
+				}
+				//				}
 
 				try
 				{

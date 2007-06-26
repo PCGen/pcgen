@@ -39,60 +39,49 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * Deal with tokens below
- * CLASS.x
- * CLASS.x.LEVEL
- * CLASS.x.SALIST
+ * Deal with tokens below CLASS.x CLASS.x.LEVEL CLASS.x.SALIST
  */
-public class ClassToken extends Token
-{
+public class ClassToken extends Token {
 	/** Token name */
 	public static final String TOKENNAME = "CLASS";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
-	public String getTokenName()
-	{
+	@Override
+	public String getTokenName() {
 		return TOKENNAME;
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String,
+	 *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
-	{
+			ExportHandler eh) {
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
 
 		int i = 0;
 
-		if (aTok.hasMoreTokens())
-		{
+		if (aTok.hasMoreTokens()) {
 			i = Integer.parseInt(aTok.nextToken());
 		}
 
-		if (aTok.hasMoreTokens())
-		{
+		if (aTok.hasMoreTokens()) {
 			String subToken = aTok.nextToken();
 
-			if ("LEVEL".equals(subToken))
-			{
+			if ("LEVEL".equals(subToken)) {
 				int level = getLevelToken(pc, i);
 
-				if (level > 0)
-				{
+				if (level > 0) {
 					return Integer.toString(level);
 				}
 				return "";
-			}
-			else if ("SALIST".equals(subToken))
-			{
+			} else if ("SALIST".equals(subToken)) {
 				return getSAListToken(pc, i);
-			}
-			else if ("TYPE".equals(subToken))
-			{
+			} else if ("TYPE".equals(subToken)) {
 				return getClassType(pc, i);
 			}
 		}
@@ -102,29 +91,24 @@ public class ClassToken extends Token
 
 	/**
 	 * Get the token
+	 * 
 	 * @param pc
 	 * @param classNumber
 	 * @return token
 	 */
-	public static String getClassToken(PlayerCharacter pc, int classNumber)
-	{
+	public static String getClassToken(PlayerCharacter pc, int classNumber) {
 		String retString = "";
 
-		if (pc.getClassList().size() > classNumber)
-		{
+		if (pc.getClassList().size() > classNumber) {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 
 			if (Constants.s_NONE.equals(pcClass.getSubClassKey())
-				|| "".equals(pcClass.getSubClassKey()))
-			{
-				//FileAccess.encodeWrite(output, aClass.getName());
+					|| "".equals(pcClass.getSubClassKey())) {
+				// FileAccess.encodeWrite(output, aClass.getName());
 				retString = pcClass.getOutputName();
-			}
-			else
-			{
-				retString =
-						pcClass.getSubClassKeyed(pcClass.getSubClassKey())
-							.getDisplayName();
+			} else {
+				retString = pcClass.getSubClassKeyed(pcClass.getSubClassKey())
+						.getDisplayName();
 			}
 		}
 
@@ -133,14 +117,13 @@ public class ClassToken extends Token
 
 	/**
 	 * Get Level part of the class token
+	 * 
 	 * @param pc
 	 * @param classNumber
 	 * @return level token
 	 */
-	public static int getLevelToken(PlayerCharacter pc, int classNumber)
-	{
-		if (pc.getClassList().size() > classNumber)
-		{
+	public static int getLevelToken(PlayerCharacter pc, int classNumber) {
+		if (pc.getClassList().size() > classNumber) {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 
 			return pcClass.getLevel();
@@ -151,14 +134,13 @@ public class ClassToken extends Token
 
 	/**
 	 * Get Level part of the class token
+	 * 
 	 * @param pc
 	 * @param classNumber
 	 * @return level token
 	 */
-	public static String getSAListToken(PlayerCharacter pc, int classNumber)
-	{
-		if (pc.getClassList().size() > classNumber)
-		{
+	public static String getSAListToken(PlayerCharacter pc, int classNumber) {
+		if (pc.getClassList().size() > classNumber) {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 			List<String> saList = getClassSpecialAbilityList(pcClass, pc);
 			return CoreUtility.join(saList, ", ");
@@ -167,59 +149,60 @@ public class ClassToken extends Token
 		return "";
 	}
 
+	/**
+	 * Get the list of Special Abilities for a class that the PC is eligible
+	 * for.
+	 * 
+	 * @param pcclass
+	 *            The class to get the special abilities for
+	 * @param aPC
+	 *            The PC
+	 * @return List of special abilities
+	 */
 	public static List<String> getClassSpecialAbilityList(PCClass pcclass,
-		final PlayerCharacter aPC)
-	{
+			final PlayerCharacter aPC) {
 		final List<String> aList = new ArrayList<String>();
 		final List<String> formattedList = new ArrayList<String>();
-		final List<SpecialAbility> abilityList =
-				pcclass.getListFor(ListKey.SPECIAL_ABILITY);
+		final List<SpecialAbility> abilityList = pcclass
+				.getListFor(ListKey.SPECIAL_ABILITY);
 
-		//
 		// Determine the list of abilities from this class
-		// that the character is eligable for
-		//
-		if (abilityList == null || abilityList.isEmpty())
-		{
+		// that the character is eligible for
+		if (abilityList == null || abilityList.isEmpty()) {
 			return aList;
 		}
 
-		for (SpecialAbility saAbility : abilityList)
-		{
+		for (SpecialAbility saAbility : abilityList) {
 			final String aString = saAbility.toString();
 
-			if (aList.contains(aString))
-			{
+			// If we've already added the special ability, don't add it again
+			if (aList.contains(aString)) {
 				break;
 			}
 
-			if (saAbility.pcQualifiesFor(aPC))
-			{
+			// If the PC qualifies for the special ability, then add it
+			if (saAbility.pcQualifiesFor(aPC)) {
 				aList.add(aString);
 			}
 		}
 
 		// From the list of allowed SAs, format the output strings
 		// to include all of the variables
-		for (String str : aList)
-		{
+		for (String str : aList) {
 			StringTokenizer varTok = new StringTokenizer(str, Constants.PIPE);
 			final String aString = varTok.nextToken();
 
 			int[] varValue = null;
 			int varCount = varTok.countTokens();
 
-			if (varCount != 0)
-			{
+			if (varCount != 0) {
 				varValue = new int[varCount];
 
-				for (int j = 0; j < varCount; ++j)
-				{
+				for (int j = 0; j < varCount; ++j) {
 					// Get the value for each variable
 					final String vString = varTok.nextToken();
-					varValue[j] =
-							aPC.getVariable(vString, true, true, "", "", 0)
-								.intValue();
+					varValue[j] = aPC.getVariable(vString, true, true, "", "",
+							0).intValue();
 				}
 			}
 
@@ -230,41 +213,32 @@ public class ClassToken extends Token
 			boolean isZero = false;
 
 			// Fill in each % with the value of the appropriate token
-			while (varTok.hasMoreTokens())
-			{
+			while (varTok.hasMoreTokens()) {
 				final String nextTok = varTok.nextToken();
 
-				if ("%".equals(nextTok))
-				{
-					if (varCount == 0)
-					{
+				if ("%".equals(nextTok)) {
+					if (varCount == 0) {
 						// If this is the first token, then set the count of
-						// successfull token replacements to 0
+						// successful token replacements to 0
 						isZero = true;
 					}
 
-					if ((varValue != null) && (varCount < varValue.length))
-					{
+					if ((varValue != null) && (varCount < varValue.length)) {
 						final int thisVar = varValue[varCount++];
 
 						// Update isZero if this token has a value of anything
 						// other than 0
 						isZero &= (thisVar == 0);
 						newAbility.append(thisVar);
-					}
-					else
-					{
+					} else {
 						newAbility.append('%');
 					}
-				}
-				else
-				{
+				} else {
 					newAbility.append(nextTok);
 				}
 			}
 
-			if (!isZero)
-			{
+			if (!isZero) {
 				// If all of the tokens for this ability were 0 then we do not
 				// show it,
 				// otherwise we add it to the return list.
@@ -280,10 +254,8 @@ public class ClassToken extends Token
 	 * @param classNumber
 	 * @return class Type
 	 */
-	public static String getClassType(PlayerCharacter pc, int classNumber)
-	{
-		if (pc.getClassList().size() > classNumber)
-		{
+	public static String getClassType(PlayerCharacter pc, int classNumber) {
+		if (pc.getClassList().size() > classNumber) {
 			return pc.getClassList().get(classNumber).getType();
 		}
 		return "";

@@ -20,7 +20,7 @@ public class FeatAllListToken extends AbilityAllListToken
 	@Override
 	public String getTokenName()
 	{
-		return "FEATALLLIST";
+		return "FEATALLLIST"; //$NON-NLS-1$
 	}
 
 	/**

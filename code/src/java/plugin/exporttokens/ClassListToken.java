@@ -37,11 +37,12 @@ import pcgen.io.exporttoken.Token;
 public class ClassListToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "CLASSLIST";
+	public static final String TOKENNAME = "CLASSLIST"; //$NON-NLS-1$
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -50,6 +51,7 @@ public class ClassListToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
@@ -78,7 +80,7 @@ public class ClassListToken extends Token
 			firstLine = false;
 
 			if (Constants.s_NONE.equals(pcClass.getSubClassKey())
-				|| "".equals(pcClass.getSubClassKey()))
+				|| "".equals(pcClass.getSubClassKey())) //$NON-NLS-1$
 			{
 				returnString.append(pcClass.getOutputName());
 			}

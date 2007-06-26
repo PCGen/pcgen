@@ -33,7 +33,7 @@ import pcgen.io.exporttoken.AbilityListToken;
  * <code>VAbilityListToken</code> handles the output of a comma separated 
  * list of virtual ability information.
  * 
- * The format is ABILITYALLLIST.y.z where
+ * The format is VABILITYALLLIST.y.z where
  * y is the category (FEAT, FIGHTER etc, or ALL)
  * z is an option list of TYPE=<type> - type filter - may be negated
  *
@@ -49,9 +49,10 @@ public class VAbilityListToken extends AbilityListToken
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
-		return "VABILITYLIST";
+		return "VABILITYLIST"; //$NON-NLS-1$
 	}
 
 	/**
