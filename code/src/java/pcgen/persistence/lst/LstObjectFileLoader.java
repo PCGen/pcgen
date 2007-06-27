@@ -478,7 +478,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	 * @param copyName String name of the target object
 	 * @throws PersistenceLayerException 
 	 */
-	private void performCopy(CampaignSourceEntry source, String baseKey, String copyName)
+	private T performCopy(String baseKey, String copyName)
 		throws PersistenceLayerException
 	{
 		T object = getObjectKeyed(baseKey);
@@ -491,13 +491,13 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 					"Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
 					baseKey));
 
-				return;
+				return null;
 			}
 
-			PObject clone = object.clone();
+			T clone = (T) object.clone();
 			clone.setName(copyName);
 			clone.setKeyName(copyName);
-			completeObject(source, clone);
+			return clone;
 		}
 		catch (CloneNotSupportedException e)
 		{
@@ -505,6 +505,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 				"Errors.LstFileLoader.CopyNotSupported", //$NON-NLS-1$
 				object.getClass().getName(), baseKey, copyName));
 		}
+		return null;
 	}
 
 	/**
@@ -517,10 +518,29 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	private void performCopy(ModEntry me) throws PersistenceLayerException
 	{
 		String lstLine = me.getLstLine();
-		final int nameEnd = lstLine.indexOf(COPY_SUFFIX);
-		final String baseName = lstLine.substring(0, nameEnd);
-		final String copyName = lstLine.substring(nameEnd + 6);
-		performCopy(me.getSource(), baseName, copyName);
+		int sepLoc = lstLine.indexOf(FIELD_SEPARATOR);
+		String name;
+		if (sepLoc != -1)
+		{
+			name = lstLine.substring(0, sepLoc);
+		}
+		else
+		{
+			name = lstLine;
+		}
+		final int nameEnd = name.indexOf(COPY_SUFFIX);
+		final String baseName = name.substring(0, nameEnd);
+		final String copyName = name.substring(nameEnd + 6);
+		T copy = performCopy(baseName, copyName);
+		if (copy != null)
+		{
+			if (sepLoc != -1)
+			{
+				String restOfLine = me.getLstLine().substring(nameEnd + 6);
+				parseLine(copy, restOfLine, me.getSource());
+			}
+			completeObject(me.getSource(), copy);
+		}
 	}
 
 	/**
