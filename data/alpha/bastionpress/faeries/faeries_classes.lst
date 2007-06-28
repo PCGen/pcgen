@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Jun 27 19:28:34 2007 -- reformated by prettylst.pl v1.38 (build 2949)
 SOURCELONG:Bastion Press - Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://www.bastionpress.com
 #
 
@@ -85,14 +85,14 @@ CLASS:Fey Guardian	HD:4		TYPE:PC.Prestige	ABB:FGd		MAXLEVEL:10	SOURCEPAGE:p.26	B
 CLASS:Fey Guardian	PREFEAT:3,Fey Magic,TYPE.Metamagic,TYPE.Metamagic	PRESKILL:1,Knowledge (Religion)=5	PRESKILL:2,Knowledge (Arcana),Knowledge (Fey)=12	PRESPELLTYPE:1,Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fey Guardian	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Fey)|Knowledge (Nature)|Spellcraft
-1	SA:Luck of the Fey (Ex)	SA:Will of the Fey (Ex)										ADD:SPELLCASTER|1|ANY
+1	SA:Luck of the Fey (Ex)	SA:Will of the Fey (Ex)	ADD:SPELLCASTER|1|ANY
 2									ADD:SPELLCASTER|1|ANY	SPELLS:ClassAbility|TIMES=3|Polymorph Other
-3	SA:Mote Form (Su)															ADD:SPELLCASTER|1|ANY
-4	SA:Transfer (Sp)															ADD:SPELLCASTER|1|ANY
+3	SA:Mote Form (Su)						ADD:SPELLCASTER|1|ANY
+4	SA:Transfer (Sp)						ADD:SPELLCASTER|1|ANY
 5									ADD:SPELLCASTER|1|ANY	SPELLS:ClassAbility|TIMES=1|Permanency
-6																		ADD:SPELLCASTER|1|ANY
+6									ADD:SPELLCASTER|1|ANY
 7									ADD:SPELLCASTER|1|ANY	SPELLS:ClassAbility|TIMES=1|Limited Wish
-8																		ADD:SPELLCASTER|1|ANY
+8									ADD:SPELLCASTER|1|ANY
 9									ADD:SPELLCASTER|1|ANY	SPELLS:ClassAbility|TIMES=3|Polymorph Any Object
 10									ADD:SPELLCASTER|1|ANY	SPELLS:ClassAbility|TIMES=1|Wish
 
