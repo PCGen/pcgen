@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Jun 28 18:32:17 2007 -- reformated by prettylst.pl v1.38 (build 2949)
 #Orginal Entry: Ratheof Blithwyn
 SOURCELONG:The Witch's Handbook	SOURCESHORT:witchhandbook	SOURCEWEB:http://www.greenronin.com
 
@@ -8,16 +8,16 @@ CLASS:Infernal Witch	HD:4		TYPE:PC.Prestige	ABB:InW		MAXLEVEL:10	SOURCEPAGE:p.12
 CLASS:Infernal Witch	PREALIGN:LE,NE,CE	PRESPELLTYPE:1,Arcane=3	PRETEXT:The infernal witch must forge a pact with a powerful evil outsider.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Infernal Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|Knowledge (Arcana)|Knowledge (Fiends)|Move Silently|Scry|Sense Motive|Spellcraft|Spot
-1	SA:SoulBound (Ex)	SA:Fiendish Familiar	SA:Poison Use									ADD:SPELLCASTER|1|Any
-2	SA:Undetectable Alignment (Su)													ADD:SPELLCASTER|1|Any
-3	SA:Dark Blessing (Ex)															ADD:SPELLCASTER|1|Any
-4																			ADD:SPELLCASTER|1|Any
-5	SA:Forbidden Knowledge (Ex)														ADD:SPELLCASTER|1|Any	ADD:FEAT|1|TYPE=Metamagic
-6																			ADD:SPELLCASTER|1|Any
-7																			ADD:SPELLCASTER|1|Any	ADD:FEAT|1|TYPE=Metamagic
-8																			ADD:SPELLCASTER|1|Any
-9	SA:Fiendish Visage (Ex)							SPELLS:Innate|TIMES=3|Cause Fear|Charm Person	ADD:SPELLCASTER|1|Any
-10																			ADD:SPELLCASTER|1|Any
+1	SA:SoulBound (Ex)	SA:Fiendish Familiar	SA:Poison Use	ADD:SPELLCASTER|1|Any
+2	SA:Undetectable Alignment (Su)					ADD:SPELLCASTER|1|Any
+3	SA:Dark Blessing (Ex)							ADD:SPELLCASTER|1|Any
+4											ADD:SPELLCASTER|1|Any
+5	SA:Forbidden Knowledge (Ex)						ADD:SPELLCASTER|1|Any	ADD:FEAT|1|TYPE=Metamagic
+6											ADD:SPELLCASTER|1|Any
+7											ADD:SPELLCASTER|1|Any	ADD:FEAT|1|TYPE=Metamagic
+8											ADD:SPELLCASTER|1|Any
+9	SA:Fiendish Visage (Ex)							ADD:SPELLCASTER|1|Any						SPELLS:Innate|TIMES=3|Cause Fear|Charm Person
+10											ADD:SPELLCASTER|1|Any
 #TODO: Bonus spell..
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -26,16 +26,16 @@ CLASS:Shaper	HD:4		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:C
 CLASS:Shaper	PREFEAT:1,Spell Focus(Transmutation)	PRESKILL:2,Knowledge (Nature),Spellcraft=8	PRESPELLTYPE:1,Any=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shaper	STARTSKILLPTS:2	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Handle Animal|Heal|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
-1	SA:Detect Shapechangers (Su)	SA:Familiar Advancement															ADD:SPELLCASTER|1|Any
-2																	SPELLS:Innate|TIMES=1|Polymorph Other	ADD:SPELLCASTER|1|Any
-3	SA:Arcance Resistance (Transmutation)																	ADD:SPELLCASTER|1|Any
-4																	SPELLS:Innate|TIMES=1|Break Enchantment	ADD:SPELLCASTER|1|Any
-5	SA:Charm Transformed (1/day)	SA:Improved Spell Focus (Ex)	BONUS:DC|SCHOOL.Transmutation|1								ADD:SPELLCASTER|1|Any
-6	SA:Inflict Lycanthropy (Su)																			ADD:SPELLCASTER|1|Any
-7	SA:Shapechanger Type																				ADD:SPELLCASTER|1|Any
-8																	SPELLS:Innate|TIMES=1|Animal Shapes		ADD:SPELLCASTER|1|Any
-9																	SPELLS:Innate|TIMES=1|Polymorh Any Object	ADD:SPELLCASTER|1|Any
-10	SA:Dominate Transformed (1/day)																		ADD:SPELLCASTER|1|Any
+1	SA:Detect Shapechangers (Su)	SA:Familiar Advancement								ADD:SPELLCASTER|1|Any
+2																	ADD:SPELLCASTER|1|Any	SPELLS:Innate|TIMES=1|Polymorph Other
+3	SA:Arcance Resistance (Transmutation)										ADD:SPELLCASTER|1|Any
+4																	ADD:SPELLCASTER|1|Any	SPELLS:Innate|TIMES=1|Break Enchantment
+5	SA:Charm Transformed (1/day)	SA:Improved Spell Focus (Ex)	BONUS:DC|SCHOOL.Transmutation|1	ADD:SPELLCASTER|1|Any
+6	SA:Inflict Lycanthropy (Su)												ADD:SPELLCASTER|1|Any
+7	SA:Shapechanger Type													ADD:SPELLCASTER|1|Any
+8																	ADD:SPELLCASTER|1|Any	SPELLS:Innate|TIMES=1|Animal Shapes
+9																	ADD:SPELLCASTER|1|Any	SPELLS:Innate|TIMES=1|Polymorh Any Object
+10	SA:Dominate Transformed (1/day)											ADD:SPELLCASTER|1|Any
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Witch Hag	HD:6		TYPE:PC.Prestige	ABB:WiH		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
