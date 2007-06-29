@@ -85,8 +85,7 @@ BIO
 		<languages>
 			<language>Common</language>
 			<language>Draconic</language>
-			<language>Literacy</language>
-			<all>Common, Draconic, Literacy</all>
+			<all>Common, Draconic</all>
 		</languages>
 		<location></location>
 		<move>
@@ -1041,7 +1040,7 @@ BIO
  
 	<!-- Domains -->
 	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Halfspear, Javelin, Mace, Mace (Heavy), Morningstar, Quarterstaff, Ray, Shortspear, Sickle, Sling, Unarmed Strike</weapon_proficiencies>
-	<languages>Common, Draconic, Literacy</languages>
+	<languages>Common, Draconic</languages>
 
 	<templates>
 		<list>Drakeling</list>

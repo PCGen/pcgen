@@ -85,9 +85,8 @@ BIO
 		<languages>
 			<language>Common</language>
 			<language>Elven</language>
-			<language>Literacy</language>
 			<language>Orc</language>
-			<all>Common, Elven, Literacy, Orc</all>
+			<all>Common, Elven, Orc</all>
 		</languages>
 		<location></location>
 		<move>
@@ -1512,7 +1511,7 @@ BIO
 	</domains>
 	<!-- Domains -->
 	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Halfspear, Javelin, Longbow, Longbow (Composite), Longsword, Mace, Mace (Heavy), Morningstar, Quarterstaff, Ray, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Unarmed Strike</weapon_proficiencies>
-	<languages>Common, Elven, Literacy, Orc</languages>
+	<languages>Common, Elven, Orc</languages>
 
  
 
