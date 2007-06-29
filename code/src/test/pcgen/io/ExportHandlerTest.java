@@ -61,6 +61,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	private Skill tumble = null;
 	private Equipment weapon = null;
 	private Equipment gem = null;
+	private Equipment armor = null;
 
 	/**
 	 * Quick test suite creation - adds all methods beginning with "test"
@@ -166,6 +167,11 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		gem.setName("TestGem");
 		gem.setTypeInfo("gem");
 		gem.setQty(1);
+		
+		armor = new Equipment();
+		armor.setName("TestArmorSuit");
+		armor.setTypeInfo("armor.suit");
+		
 	}
 
 	/**
@@ -274,6 +280,23 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		assertEquals("Test for evaluates correctly", "                ",
 			evaluateToken(
 				"FOR.1,((24-STRLEN[SKILL.0])).INTVAL,24, ,NONE,NONE,1", pc));
+	}
+	
+	public void testForNoMoreItems() throws IOException
+	{
+		PlayerCharacter pc = getCharacter();
+		assertEquals("Test for evaluates correctly", "SF",
+			evaluateToken(
+				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc));
+
+		// Now assign a gem
+		pc.addEquipment(armor);
+		EquipSet es = new EquipSet("1", "Default", "", armor);
+		pc.addEquipSet(es);
+		assertEquals("Test for evaluates correctly", "STestArmorSuitFSF",
+			evaluateToken(
+				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc));
+		
 	}
 	
 	public void testExpressionOutput() throws IOException
