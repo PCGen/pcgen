@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Jun 29 09:28:27 2007 -- reformated by prettylst.pl v1.38 (build 2949)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -8,25 +8,33 @@ CLASS:Blade of Hurrian	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BldHr		MAXLEVEL:1
 CLASS:Blade of Hurrian	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:2,Weapon Focus(Longsword),Martial Technique(Longsword)	PRESKILL:1,Balance=5	PRESKILL:1,Jump=6	PRESKILL:3,Knowledge (Religion:Hurrian),Sense Motive,Spot=4	PRESKILL:1,TYPE.Perform=2	PRESUBCLASS:1,Order of the Blade
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blade of Hurrian	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Tactics and Warfare)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-1									SA:Ki Blade (Ex) (+% defending)|KiBladeBonus	SA:Lightning Leap (Ex)			BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL	BONUS:VAR|KiBladeBonus|2	BONUS:SKILL|Jump|10	DEFINE:KiBladeBonus|0
+###Block: Monk stacking stuff
+1	BONUS:VAR|MonkACLvl|CL		BONUS:UDAM|CLASS.Monk|CL
+1	BONUS:VAR|MonkMoveLvl|CL
+###Block: Normal progression
+1									SA:Ki Blade (Ex) (+% defending)|KiBladeBonus	SA:Lightning Leap (Ex)			BONUS:VAR|KiBladeBonus|2						BONUS:SKILL|Jump|10	DEFINE:KiBladeBonus|0
 2									SA:Lightning Surges Through the Clouds (Ex)
-3									SA:Clash of Thunder (Ex)																																ADD:VFEAT|1|Deflect Arrows
+3									SA:Clash of Thunder (Ex)																												ADD:VFEAT|1|Deflect Arrows
 4	SA:.CLEAR.Ki Blade (Ex) (+% defending)		SA:Lighning Sword (Su)	SA:Ki Blade (Ex) (+% defending/shocking)|KiBladeBonus
 5																							BONUS:VAR|KiBladeBonus|2
 6									SA:Clouds Cover the Sun (Ex)
-7									SA:Hurricane Blow (Ex)																																	ADD:VFEAT|1|Weapon Specialization (Longsword)
+7									SA:Hurricane Blow (Ex)																													ADD:VFEAT|1|Weapon Specialization(Longsword)
 8	SA:.CLEAR.Ki Blade (Ex) (+% defending/shocking)	SA:Storm Bringer (Su)	SA:Ki Blade (Ex) (+% defending/shocking burst)|KiBladeBonus
 9									SA:Tornado Rush (Sp)
-10									SA:The Perfect Storm (Su) (Duration % rounds)|StormDuration					BONUS:VAR|StormDuration|3+CON	BONUS:VAR|KiBladeBonus|2									DEFINE:StormDuration|0
+10									SA:The Perfect Storm (Su) (Duration % rounds)|StormDuration					BONUS:VAR|StormDuration|3+CON	BONUS:VAR|KiBladeBonus|2					DEFINE:StormDuration|0
 
 # Class Name					Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Order of the Bronze Speulcher Elite	HD:8		TYPE:PC.Prestige	ABB:OotBS		MAXLEVEL:10	SOURCEPAGE:pg. 59	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Order of the Bronze Sepulcher Elite	HD:8		TYPE:PC.Prestige	ABB:OotBS		MAXLEVEL:10	SOURCEPAGE:pg. 59	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name					Required AL		Req. Att.	Required Class	Required Feat					Required Skill																									PRESUBCLASS
-CLASS:Order of the Bronze Speulcher Elite	PREALIGN:LG,LN,LE	PREATT:7	PRECLASS:1,Monk=8	PREFEAT:3,Dodge,Mobility,Improved Grapple	PRESKILL:2,Concentration,Listen=5	PRESKILL:1,Tumble=4	PRESKILL:1,Knowledge (Religion:Neroth),Knowledge (Religion:Tzizhet)=4	PRESKILL:1,TYPE.Perform=3	PRESUBCLASS:1,Order of the Bronze Sepulcher
+CLASS:Order of the Bronze Sepulcher Elite	PREALIGN:LG,LN,LE	PREATT:7	PRECLASS:1,Monk=8	PREFEAT:3,Dodge,Mobility,Improved Grapple	PRESKILL:2,Concentration,Listen=5	PRESKILL:1,Tumble=4	PRESKILL:1,Knowledge (Religion:Neroth),Knowledge (Religion:Tzizhet)=4	PRESKILL:1,TYPE.Perform=3	PRESUBCLASS:1,Order of the Bronze Sepulcher
 # Class Name					Skill Pts/Lvl	Class Skill
-CLASS:Order of the Bronze Speulcher Elite	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Heal|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Neroth)|Knowledge (Religion:Tzizhet)|Listen|Move Silently|TYPE.Perform|Spot|Tumble
-1	SA:Eagle Claw (Ex)													BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL	BONUS:COMBAT|TOHIT.GRAPPLE|4
-2	SA:Supreme Stunning Fist (Ex)												BONUS:VAR|InvisTimes|1											DEFINE:InvisTimes|0	SPELLS:ClassAbility|TIMES=InvisTimes|CASTERLEVEL=10|Invisibility
+CLASS:Order of the Bronze Sepulcher Elite	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Heal|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Neroth)|Knowledge (Religion:Tzizhet)|Listen|Move Silently|TYPE.Perform|Spot|Tumble
+###Block: Monk stacking stuff
+1	BONUS:VAR|MonkACLvl|CL		BONUS:UDAM|CLASS.Monk|CL
+1	BONUS:VAR|MonkMoveLvl|CL
+###Block: Normal progression
+1	SA:Eagle Claw (Ex)																	BONUS:COMBAT|TOHIT.GRAPPLE|4
+2	SA:Supreme Stunning Fist (Ex)												BONUS:VAR|InvisTimes|1						DEFINE:InvisTimes|0	SPELLS:ClassAbility|TIMES=InvisTimes|CASTERLEVEL=10|Invisibility
 3	SA:Ghost Touch (Ex)
 4																	BONUS:VAR|InvisTimes|1
 5	SA:Chill of the Grave (Ex)
@@ -43,7 +51,11 @@ CLASS:Elemental Path of Flame	HD:8		TYPE:PC.Prestige	ABB:EPoF		MAXLEVEL:5	SOURCE
 CLASS:Elemental Path of Flame	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:4,Improved Initiative,Improved Unarmed Strike,Heightened Elorii Bloodline,Weapon Finesse	PRERACE:1, Elorii (Kelekene)	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-1						SA:Fire Resistance % (Su)|ElementResist	SA:Rapid Strike	BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL	BONUS:VAR|ElementResist|3*CL	DEFINE:ElementResist|0
+###Block: Monk stacking stuff
+1	BONUS:VAR|MonkACLvl|CL		BONUS:UDAM|CLASS.Monk|CL
+1	BONUS:VAR|MonkMoveLvl|CL
+###Block: Normal progression
+1						SA:Fire Resistance % (Su)|ElementResist	SA:Rapid Strike	BONUS:VAR|ElementResist|3*CL	DEFINE:ElementResist|0
 2						SA:Immolation 1/day
 3						SA:Flaming Fists (Su)
 4	SA:.CLEAR.Immolation 1/day	SA:Immolation 2/day
@@ -55,11 +67,15 @@ CLASS:Elemental Path of Stone	HD:10		TYPE:PC.Prestige	ABB:EPoS		MAXLEVEL:5	SOURC
 CLASS:Elemental Path of Stone	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:4,Combat Expertise,Great Fortitude,Improved Unarmed Strike,Heightened Elorii Bloodline	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Marokene]	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-1	DR:1/-					BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL
-2			SA:Hands of Stone (Ex)										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-3																								BONUS:DR|-|1
-4			SA:Absorb Blow (Ex)										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-5			SA:Iron Skin (Ex)																			BONUS:DR|-|1
+###Block: Monk stacking stuff
+1	BONUS:VAR|MonkACLvl|CL		BONUS:UDAM|CLASS.Monk|CL
+1	BONUS:VAR|MonkMoveLvl|CL
+###Block: Normal progression
+1	DR:1/-
+2			SA:Hands of Stone (Ex)	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+3															BONUS:DR|-|1
+4			SA:Absorb Blow (Ex)	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+5			SA:Iron Skin (Ex)										BONUS:DR|-|1
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Path of Water	HD:8		TYPE:PC.Prestige	ABB:EPoW		MAXLEVEL:5	SOURCEPAGE:pg. 62	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -67,10 +83,14 @@ CLASS:Elemental Path of Water	HD:8		TYPE:PC.Prestige	ABB:EPoW		MAXLEVEL:5	SOURCE
 CLASS:Elemental Path of Water	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:5,Dodge,Evasion,Improved Unarmed Strike,Heightened Elorii Bloodline,Run	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Berokene]	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Water	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-1	SA:Skipping Stone (Ex)	BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL
-2														BONUS:COMBAT|AC|1|TYPE=Dodge
-3	SA:Misleading Step (Ex)															ADD:VFEAT|1|Improved Feint
-4														BONUS:COMBAT|AC|1|TYPE=Dodge
+###Block: Monk stacking stuff
+1	BONUS:VAR|MonkACLvl|CL		BONUS:UDAM|CLASS.Monk|CL
+1	BONUS:VAR|MonkMoveLvl|CL
+###Block: Normal progression
+1	SA:Skipping Stone (Ex)
+2					BONUS:COMBAT|AC|1|TYPE=Dodge
+3	SA:Misleading Step (Ex)						ADD:VFEAT|1|Improved Feint
+4					BONUS:COMBAT|AC|1|TYPE=Dodge
 5	SA:Shallow Water (Su)
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -79,11 +99,15 @@ CLASS:Elemental Path of Wind	HD:6		TYPE:PC.Prestige	ABB:EPWnd		MAXLEVEL:5	SOURCE
 CLASS:Elemental Path of Wind	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:4,Combat Relexes,Improved Unarmed Strike,Heightened Elorii Bloodline,Weapon Finesse	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Osalikene]	PRESKILL:2,Balance,Jump=5	PRESKILL:1,Knowledge (Religion:Belisarda),Knowledge (Religion:Elemental lords)=4	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Wind	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-1	SA:Earth to Sky (Ex)					BONUS:VAR|MonkACLvl|CL	BONUS:VAR|MonkMoveLvl|CL	BONUS:COMBAT|AC|1|TYPE=Dodge					ADD:VFEAT|2|Earth to Sky,Meet the Charge
+###Block: Monk stacking stuff
+1	BONUS:VAR|MonkACLvl|CL		BONUS:UDAM|CLASS.Monk|CL
+1	BONUS:VAR|MonkMoveLvl|CL
+###Block: Normal progression
+1	SA:Earth to Sky (Ex)											BONUS:COMBAT|AC|1|TYPE=Dodge					ADD:VFEAT|2|Earth to Sky,Meet the Charge
 2	SA:Defensive Throw (Ex)	SA:Wind's Grace
-3	SA:Stunning Throw (Ex) (Fort DC %)|StunThrowDC	BONUS:VAR|StunThrowDC|10+WIS+CL				BONUS:COMBAT|AC|1|TYPE=Dodge	DEFINE:StunThrowDC|0
-4																											ADD:VFEAT|1|Tumbling Strike
-5	SA:Throw Mastery (Ex)														BONUS:COMBAT|AC|1|TYPE=Dodge
+3	SA:Stunning Throw (Ex) (Fort DC %)|StunThrowDC	BONUS:VAR|StunThrowDC|10+WIS+CL	BONUS:COMBAT|AC|1|TYPE=Dodge	DEFINE:StunThrowDC|0
+4																								ADD:VFEAT|1|Tumbling Strike
+5	SA:Throw Mastery (Ex)											BONUS:COMBAT|AC|1|TYPE=Dodge
 
 #
 # End
