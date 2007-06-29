@@ -18,8 +18,39 @@
 |ENDIF|
 |ENDFOR|
           <type>|RACETYPE|</type>
+          <fullType>
+|ALIGNMENT.SHORT| |SIZELONG| 
+|IIF(RACETYPE:None)|
+|TEXT.LOWER.TYPE|
+|ELSE|
+|TEXT.LOWER.RACETYPE|
+|ENDIF|
+|IIF(VAR.IF(var("COUNT[RACESUBTYPES]")==0;1;0):1)|
+|ELSE|
+ (
+|FOR,%subtype,0,COUNT[RACESUBTYPES]-2,1,1|
+|TEXT.LOWER.RACESUBTYPE.%subtype|, 
+|ENDFOR|
+|FOR,%subtype,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,1|
+|TEXT.LOWER.RACESUBTYPE.%subtype|
+|ENDFOR|
+)
+|ENDIF|
+	    </fullType>
+          <raceClass>
+|RACE|; 
+|FOR,%class,0,COUNT[CLASSES]-1,1,1|
+|IIF(%class:0)|
+|ELSE|
+/
+|ENDIF|
+|TEXT.LOWER.CLASS.%class| |CLASS.%class.LEVEL|
+|ENDFOR|
+          </raceClass>
           <descriptor>|RACESUBTYPE|</descriptor>
           <levels>|FOR.0,COUNT[CLASSES],1,\CLASS.%.LEVEL\ \TEXT.NUMSUFFIX.CLASS.%.LEVEL\ lvl \CLASS.%\; ,,,|</levels>
+          <senses>|VISION|, Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|</senses>
+          <languages>|LANGUAGES|</languages>
           <hitDice>|HITDICE|  (|HP| hp)</hitDice>
           <hitPoints>|HP|</hitPoints>
           <currentHitPoints>|HP|</currentHitPoints>
@@ -28,19 +59,24 @@
           <ac>|AC.Total|</ac>
           <touchAc>|AC.Touch|</touchAc>
           <flatFootedAc>|AC.Flatfooted|</flatFootedAc>
+          <fullArmorClass>|AC.Total|, touch: |AC.Touch|, flat-footed: |AC.Flatfooted|</fullArmorClass>
           <baseAttack>|VAR.BAB.INTVAL.SIGN|</baseAttack>
           <grapple>|VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN|</grapple>
+          <baseAttackGrapple>|VAR.BAB.INTVAL.SIGN|; Grp |VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN|</baseAttackGrapple>
           <space>|FACE|</space>
           <reach>|REACH|</reach>
+          <faceReach>|FACE| Reach: |REACH|</faceReach>
           <fortSave>|CHECK.FORTITUDE.TOTAL|</fortSave>
           <reflexSave>|CHECK.REFLEX.TOTAL|</reflexSave>
           <willSave>|CHECK.WILL.TOTAL|</willSave>
+          <fullSaves>Fort: |CHECK.FORTITUDE.TOTAL|, Ref: |CHECK.REFLEX.TOTAL|, Will: |CHECK.WILL.TOTAL|</fullSaves>
           <str>|STAT.0| [|STAT.0.MOD|]</str>
           <dex>|STAT.1| [|STAT.1.MOD|]</dex>
           <con>|STAT.2| [|STAT.2.MOD|]</con>
           <int>|STAT.3| [|STAT.3.MOD|]</int>
           <wis>|STAT.4| [|STAT.4.MOD|]</wis>
           <cha>|STAT.5| [|STAT.5.MOD|]</cha>
+          <fullAbilities>Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.0|</fullAbilities>
           <challengeRating>|CR|</challengeRating>
           <attack>
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
@@ -85,16 +121,45 @@ melee
 |ENDIF|
 |ENDFOR|
           </attack>
-          <specialQualitities>|SPECIALLIST|</specialQualitities>
+          <specialQualities>|SPECIALLIST|</specialQualities>
           <skills>
 |FOR,%skill,0,COUNT[SKILLS]-1,1,0|
 |SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|; 
 |ENDFOR|
           </skills>
           <feats>|FEATALLLIST|</feats>
-          <languages>|LANGUAGES|</languages>
           <levalAdjustment>|VAR.ECL-TL.INTVAL|</levalAdjustment>
           <alignment>|ALIGNMENT|</alignment>
+          <possessions>
+|FOR,%equip,0,COUNT[EQUIPMENT.Not.Contained.NOT.Container]-1,1,1|
+|IIF(EQ.NOT.CONTAINED.NOT.Container.%equip.QTY.INTVAL:1)|
+|EQ.NOT.CONTAINED.NOT.Container.%equip.NAME|; 
+|ELSE|
+|EQ.NOT.CONTAINED.NOT.Container.%equip.NAME| (x|EQ.NOT.Contained.NOT.CONTAINER.%equip.QTY.INTVAL|); 
+|ENDIF|
+|ENDFOR|
+
+|FOR,%container,0,COUNT[CONTAINERS]-1,1,1|
+|EQ.IS.Container.%container.NAME|
+|IIF(EQ.IS.Container.%container.CONTENTSNUM.QTY.INTVAL:0)|
+|ELSE|
+[
+|ENDIF|
+|FOR,%equip,0,EQ.IS.Container.%container.CONTENTSNUM-1,1,1|
+|IIF(EQ.IS.Container.%container.CONTENTS.%equip.QTY.INTVAL:1)|
+|EQ.IS.Container.%container.CONTENTS.%equip.NAME|;
+|ELSE|
+|EQ.IS.Container.%container.CONTENTS.%equip.NAME| (x|EQ.IS.Container.%container.CONTENTS.%equip.QTY.INTVAL|);
+|ENDIF|
+|ENDFOR|
+|IIF(EQ.IS.Container.%container.CONTENTSNUM.QTY.INTVAL:0)|
+;
+|ELSE|
+];
+|ENDIF|
+|ENDFOR|
+          </possessions>
+
         </combatant>
       </combatants>
     </group>
