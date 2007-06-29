@@ -57,7 +57,8 @@ Knowledge (The Planes)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.K
 Knowledge (Undead)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																															SOURCEPAGE:srdskillsii.rtf
 Knowledge (Underdark)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																															SOURCEPAGE:srdskillsii.rtf
 Listen						KEYSTAT:WIS											TYPE:Wisdom																																		SOURCEPAGE:srdskillsii.rtf
-Literacy								USEUNTRAINED:NO								TYPE:None.Language																																SOURCEPAGE:srdskillsii.rtf	BONUS:VAR|IlliteracyLVL|-1|PRESKILL:1,Literacy=1Move Silently					KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity																																	SOURCEPAGE:srdskillsii.rtf
+Literacy								USEUNTRAINED:NO								TYPE:None.Language																																SOURCEPAGE:srdskillsii.rtf	BONUS:VAR|IlliteracyLVL|-1|PRESKILL:1,Literacy=1
+Move Silently					KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity																																	SOURCEPAGE:srdskillsii.rtf
 Open Lock						KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity						BONUS:SKILL|Open Lock|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC														SOURCEPAGE:srdskillsii.rtf					TEMPDESC:Attempting an Open Lock check without a set of thieves' tools imposes a -2 circumstance penalty on the check
 Perform						KEYSTAT:CHA											TYPE:Charisma																																	SOURCEPAGE:srdskillsii.rtf
 Pick Pocket						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES						TYPE:Dexterity						BONUS:SKILL|Pick Pocket|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK															SOURCEPAGE:srdskillsii.rtf
