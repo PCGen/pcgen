@@ -2755,7 +2755,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				final String message =	"No longer speaks language: " + element.getText();  //$NON-NLS-1$
 				warnings.add(message);
-				return;
+				continue;
 			}
 			thePC.addLanguage(aLang);
 		}
