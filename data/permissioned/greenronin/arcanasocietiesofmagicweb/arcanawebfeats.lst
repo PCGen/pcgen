@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic Web Enhancement	SOURCESHORT:ArcanaWeb	SOURCEWEB:http://www.greenronin.com
-
-# Feat Name						Type				Req. Att.	Required Feat				Required Stat	Description										Source URI
-Double Shot						TYPE:General.Fighter			PREFEAT:2,Precise Shot,Rapid Shot				DESC:You can nock and fire two arrows at once				SOURCEWEB:http://www.greenronin.com/files/arcana_web.pdf
-Exotic Weapon Proficiency (Arrow/Bolt)	TYPE:General		PREATT:3										DESC:You can wield an arrow or a bolt in melee				SOURCEWEB:http://www.greenronin.com/files/arcana_web.pdf
-Ranged Cleave					TYPE:General				PREFEAT:1,Point Blank Shot		PRESTAT:1,STR=13	DESC:You are renowned as one of the mightiest shots in the land	SOURCEWEB:http://www.greenronin.com/files/arcana_web.pdf

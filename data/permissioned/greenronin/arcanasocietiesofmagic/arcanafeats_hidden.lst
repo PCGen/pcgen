@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Sun Nov  5 00:56:30 2006 -- reformated by prettylst.pl v1.35 (build 1495)
-SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic	SOURCESHORT:ArcanaSoM	SOURCEWEB:http://www.greenronin.com
-
-# Feat Name					Type				Visible	Special Ability	Stackable?	Multiple?	Choose																	Source Page
-Drakeling Resistance Selection	TYPE:RacialSelection	VISIBLE:NO	SA:%CHOICE		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|Acid Resistance 10|Cold Resistance 10|Electricity Resistance 10|Fire Resistance 10	SOURCEPAGE:p.22
