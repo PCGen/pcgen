@@ -23,6 +23,7 @@
  */
 package pcgen.core.chooser;
 
+import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
@@ -366,10 +367,14 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 				}
 			}
 		}
-
-		for ( WeaponProf wp : selectedList )
+		
+		// Add the proficiencies already linked to the object to the selected list
+		for (AssociatedChoice<String> assocChoice : pobject.getAssociatedList())
 		{
-			pobject.addAssociated( wp. getKeyName() );
+			for (String choice : assocChoice.getChoices())
+			{
+				selectedList.add(Globals.getWeaponProfKeyed(choice));
+			}
 		}
 	}
 }
