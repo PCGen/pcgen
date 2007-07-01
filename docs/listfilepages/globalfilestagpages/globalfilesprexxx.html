@@ -762,6 +762,8 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum level).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Requires that a character have a maximum number of character (non-monster) levels.</p>
+		<p class="indent2">-- Do NOT mix PRELEVELMAX and BONUS:SKILLPOINTS|NUMBER, since it results in double
+		negative and some very bad exceptions in the code.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRELEVELMAX:10</code></p>
 		<p class="indent3">Character cannot be over level 10.</p>
