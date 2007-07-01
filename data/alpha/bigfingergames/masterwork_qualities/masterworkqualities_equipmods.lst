@@ -11,7 +11,7 @@ Hook			KEY:HOOK		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2													
 Multipart		KEY:MULTIPART	TYPE:Weapon	COST:40	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																												ASSIGNTOALL:YES
 Perfect Balance	KEY:PERF_BAL	TYPE:Weapon	COST:15	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee		BONUS:COMBAT|INITIATIVE|1																						ASSIGNTOALL:NO
 Perfect Edge	KEY:PERF_EDGE	TYPE:Weapon	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee,Slashing																BONUS:WEAPON|TOHIT|1								ASSIGNTOALL:NO
-Reinforced		KEY:REINFORCED	TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																												ASSIGNTOALL:NO
+Reinforced		KEY:REINFRCD_WEAP	TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																												ASSIGNTOALL:NO
 Serrated		KEY:SERRATED	TYPE:Weapon	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee,Slashing						BONUS:EQMWEAPON|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit												ASSIGNTOALL:NO
 Tassel		KEY:TASSLE		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																					SPROP:+1 to Bluff when feinting in combat	ASSIGNTOALL:NO
 Trap			KEY:TRAP		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																					SPROP:+1 to disarm				ASSIGNTOALL:NO
@@ -25,7 +25,7 @@ Dire			KEY:DIRE		TYPE:Ammunition	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:M
 
 ###Block: Armor qualities
 # Modifier Name	Unique Key		Type		Cost		Visible		Source Page		Required Type					BONUS:EQMARMOR		Special Property
-Reinforced		KEY:REINFORCED	TYPE:Armor	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Armor
+Reinforced		KEY:REINFRCD_ARMR	TYPE:Armor	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Armor
 Articulated		KEY:ARTICULATED	TYPE:Armor	COST:30	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Armor,Heavy		BONUS:EQMARMOR|MAXDEX|1
 Fortified		KEY:FORTIFIED	TYPE:Armor	COST:15	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterowrk,Armor,Medium|Heavy
 Insulated		KEY:INSULATED	TYPE:Armor	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Armor							SPROP:Cold resistance 2
