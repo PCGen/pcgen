@@ -15,7 +15,7 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #
 #####Example
 
-#Mosat		DOMAINS:Chaos,Knowledge,Animal|PREALIGN:LG,LN,NG,TN,CG,CN		FOLLOWERALIGN:013467	DESC:The CONTENTed One		SYMBOL:a Kitten on a keyboard		DEITYWEAP:Tiger claws		ALIGN:CG	PANTHEON:BoD	SOURCEPAGE:not recorded yet
+#Mosat		DOMAINS:Chaos,Knowledge,Animal|PREALIGN:LG,LN,NG,TN,CG,CN		DESC:The CONTENTed One		SYMBOL:a Kitten on a keyboard		DEITYWEAP:Tiger claws		ALIGN:CG	PANTHEON:BoD	SOURCEPAGE:not recorded yet
 
 #####
 #The first field is the Deity Name, this is a required field and does not have a tag.
