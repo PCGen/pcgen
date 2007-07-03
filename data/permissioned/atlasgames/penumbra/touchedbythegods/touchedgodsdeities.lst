@@ -11,4 +11,4 @@ The Legion of Ten Thousand Heroes	DOMAINS:Rage,Strength,War|PREALIGN:LG,LN,LE,NG
 The Divine Wolf				DOMAINS:Animal,Strength,Trickery|PREALIGN:LN,NG,TN,NE,CN		DESC:None								SYMBOL:Wolf paws																DEITYWEAP:None							ALIGN:TN	PANTHEON:Penumbra	SOURCEPAGE:p.116
 
 #Could not find entry for Ras'Tan in the book or index but the book is not organized to find things easily. Commenting out instead of deleting just in case I missed it.
-#Ras'Tan					DOMAINS:Sun,Time-p,Knowledge,Missionary	FOLLOWERALIGN:0346	DESC:The All-Knower					SYMBOL:The Temporal Crystal														DEITYWEAP:Scimitar						ALIGN:NG				SOURCEPAGE:p.?
+#Ras'Tan					DOMAINS:Sun,Time-p,Knowledge,Missionary|PREALIGN:LG,LN,TN,LE	DESC:The All-Knower					SYMBOL:The Temporal Crystal														DEITYWEAP:Scimitar						ALIGN:NG				SOURCEPAGE:p.?
