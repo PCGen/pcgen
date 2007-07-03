@@ -1253,6 +1253,8 @@ public final class SettingsHandler
 		setSpellsTab_SelectedListMode(getPCGenOption("SpellsTab.selectedListMode", GuiConstants.INFOSPELLS_VIEW_CLASS)); //$NON-NLS-1$
 		setSummaryTabShown(getPCGenOption("summaryTabShown", true)); //$NON-NLS-1$
 		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
+		setTemplateSelTab_ListMode(getPCGenOption("TemplateTab.selectedListMode", GuiConstants.INFOTEMPLATE_VIEW_NAME)); //$NON-NLS-1$
+		setTemplateTab_ListMode(getPCGenOption("TemplateTab.availableListMode", GuiConstants.INFOTEMPLATE_VIEW_NAME)); //$NON-NLS-1$
 		setToolTipTextShown(getPCGenOption("toolTipTextShown", true)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
 		setUseWaitCursor(getPCGenOption("useWaitCursor", true)); //$NON-NLS-1$
@@ -1586,6 +1588,8 @@ public final class SettingsHandler
 		setPCGenOption("SpellsTab.selectedListMode", getSpellsTab_SelectedListMode()); //$NON-NLS-1$
 		setPCGenOption("summaryTabShown", isSummaryTabShown()); //$NON-NLS-1$
 		setPCGenOption("tabPlacement", convertTabPlacementToString(tabPlacement)); //$NON-NLS-1$
+		setPCGenOption("TemplateTab.availableListMode", getTemplateTab_ListMode()); //$NON-NLS-1$
+		setPCGenOption("TemplateTab.selectedListMode", getTemplateSelTab_ListMode()); //$NON-NLS-1$
 		setPCGenOption("toolTipTextShown", isToolTipTextShown()); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
 		setPCGenOption("useMonsterDefault", isUseMonsterDefault()); //$NON-NLS-1$

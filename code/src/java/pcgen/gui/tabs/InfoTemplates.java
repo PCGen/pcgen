@@ -1,5 +1,5 @@
 /*
- * InfoRace.java
+ * InfoTemplate.java
  * Copyright 2002 (C) Bryan McRoberts
  *
  * This library is free software; you can redistribute it and/or
@@ -346,7 +346,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		// View List Sanity check
 		//
 		int iView = SettingsHandler.getTemplateTab_ListMode();
-		if (iView >= GuiConstants.INFOTEMPLATE_VIEW_NAME)
+		if (iView >= GuiConstants.INFOTEMPLATE_VIEW_NAME
+			&& iView <= GuiConstants.INFOTEMPLATE_VIEW_SOURCE_NAME)
 		{
 			viewMode = iView;
 		}
@@ -357,9 +358,10 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		viewComboBox.setSelectedIndex(viewMode);
 
 		iView = SettingsHandler.getTemplateSelTab_ListMode();
-		if (iView >= GuiConstants.INFOTEMPLATE_VIEW_NAME)
+		if (iView >= GuiConstants.INFOTEMPLATE_VIEW_NAME
+				&& iView <= GuiConstants.INFOTEMPLATE_VIEW_SOURCE_NAME)
 		{
-			viewMode = iView;
+			viewSelMode = iView;
 		}
 		SettingsHandler.setTemplateSelTab_ListMode(viewSelMode);
 		viewSelComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
@@ -1050,11 +1052,6 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			}
 			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
 				+ COL_NAMES[4], false)));
-		}
-
-		public boolean isCellEditable(Object node, int column)
-		{
-			return false;
 		}
 
 		/**

@@ -104,10 +104,22 @@ public final class LabelTreeCellRenderer extends JLabel implements
 
 		int bi = stringValue.indexOf("|");
 		int ei = stringValue.lastIndexOf("|");
+		Color tempColor = null;
 		if (bi > -1 && bi != ei)
 		{
 			final String aString = stringValue.substring(bi + 1, ei);
-			myColor = new Color(Integer.parseInt(aString));
+			try
+			{
+				tempColor = new Color(Integer.parseInt(aString));
+			}
+			catch (NumberFormatException e)
+			{
+				// Ignore - expected.
+			}
+		}
+		if (bi > -1 && bi != ei && tempColor != null)
+		{
+			myColor = tempColor;
 			stringValue =
 					stringValue.substring(0, bi)
 						+ stringValue.substring(ei + 1);
