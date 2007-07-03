@@ -5731,8 +5731,7 @@ public class PCClass extends PObject {
 				aPC.setPoolAmount(0);
 			}
 
-			spMod *= Math.min(Globals.getSkillMultiplierForLevel(total), aPC
-					.getRace().getInitialSkillMultiplier());
+			spMod *= aPC.getRace().getInitialSkillMultiplier();
 			Globals.getBioSet().randomize("AGE", aPC);
 		} else {
 			spMod *= Globals.getSkillMultiplierForLevel(total);

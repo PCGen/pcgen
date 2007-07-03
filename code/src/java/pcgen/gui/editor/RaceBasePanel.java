@@ -433,7 +433,14 @@ public class RaceBasePanel extends BasePanel
 		thisRace.setMonsterClassLevels(getMonsterLevel());
 		thisRace.setSize(getRaceSize());
 		thisRace.setReach(getReach());
-		thisRace.setInitialSkillMultiplier(getSkillMultiplier());
+		if (getSkillMultiplier() == Globals.getSkillMultiplierForLevel(1))
+		{
+			thisRace.setInitialSkillMultiplier(null);
+		}
+		else
+		{
+			thisRace.setInitialSkillMultiplier(getSkillMultiplier());
+		}
 		thisRace.setHitDice(getHitDiceNumber());
 		thisRace.setHitDiceSize(getHitDiceSize());
 

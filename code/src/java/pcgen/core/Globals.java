@@ -3073,7 +3073,7 @@ public final class Globals
 		return rand;
 	}
 
-	static int getSkillMultiplierForLevel(final int level)
+	public static int getSkillMultiplierForLevel(final int level)
 	{
 		final List<String> sml = SettingsHandler.getGame().getSkillMultiplierLevels();
 

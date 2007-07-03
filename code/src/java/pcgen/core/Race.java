@@ -76,7 +76,7 @@ public final class Race extends PObject
 	private int hands = 2;
 	private int hitDice = 0;
 	private int hitDiceSize = 0;
-	private int initialSkillMultiplier = 4;
+	private Integer initialSkillMultiplier = null;
 	private int langNum = 0;
 	private int legs = 2;
 	private int monsterClassLevels = 0;
@@ -332,13 +332,33 @@ public final class Race extends PObject
 		this.initMod = initMod;
 	}
 
-	public void setInitialSkillMultiplier(final int initialSkillMultiplier)
+	/**
+	 * Set the initial skill multiplier that should be used for this
+	 * race. Use null to 'unset' the race's value and make it default
+	 * to the game mode value.
+	 * 
+	 * @param initialSkillMultiplier The initialSkillMultiplier to set, null if none.
+	 */
+	public void setInitialSkillMultiplier(final Integer initialSkillMultiplier)
 	{
 		this.initialSkillMultiplier = initialSkillMultiplier;
 	}
 
+	/**
+	 * Returns the initial skill multiplier that should be used for this 
+	 * race. Unless this has been explicitly set in the Race definition, 
+	 * this will default to the skill multiplier for first level defined 
+	 * by the game mode. 
+	 * 
+	 * @return The skill multiplier to be used first level for this race.
+	 */
 	public int getInitialSkillMultiplier()
 	{
+		if (initialSkillMultiplier == null)
+		{
+			return Globals.getSkillMultiplierForLevel(1);
+		}
+
 		return initialSkillMultiplier;
 	}
 
@@ -692,7 +712,7 @@ public final class Race extends PObject
 			txt.append("\tNATURALATTACKS:").append(buffer.toString());
 		}
 
-		if (initialSkillMultiplier != 4)
+		if (initialSkillMultiplier != null)
 		{
 			txt.append("\tSKILLMULT:").append(initialSkillMultiplier);
 		}
