@@ -1327,7 +1327,7 @@ public final class EditorMainForm extends JDialog
 
 				for (Iterator<Categorisable> iter = ((Domain) thisPObject).getFeatIterator(); iter.hasNext();)
 				{
-					Ability ability = (Ability)iter.next();
+					AbilityInfo ability = (AbilityInfo)iter.next();
 					aString = ability.getKeyName();
 
 					if (!selecetdFeatList.contains(aString))

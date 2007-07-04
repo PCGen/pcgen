@@ -336,7 +336,7 @@ public final class Domain extends PObject
 		StringBuffer featString = new StringBuffer();
 		for (Iterator<Categorisable> iter = getFeatIterator(); iter.hasNext();)
 		{
-			Ability grantedFeat = (Ability)iter.next();
+			AbilityInfo grantedFeat = (AbilityInfo)iter.next();
 			if (featString.length() > 0)
 			{
 				featString.append("|");
