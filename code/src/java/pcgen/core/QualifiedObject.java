@@ -98,6 +98,10 @@ public class QualifiedObject<T>
      */
     public List<Prerequisite> getPrereqs()
     {
+		if ( thePrereqs == null )
+		{
+			return Collections.emptyList();
+		}
     	return Collections.unmodifiableList(thePrereqs);
     }
     
