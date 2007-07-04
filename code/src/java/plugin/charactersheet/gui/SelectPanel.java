@@ -141,6 +141,8 @@ public class SelectPanel extends JPanel implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		pc.setCalcEquipSetId(e.getActionCommand());
+		pc.setCalcEquipmentList(pc.getUseTempMods());
+		pc.calcActiveBonuses();
 		parent.refresh();
 	}
 
@@ -234,6 +236,12 @@ public class SelectPanel extends JPanel implements ActionListener
 		if (!oldValues.isEmpty())
 		{
 			removeEquipSets(oldValues);
+		}
+		
+		JRadioButton btn = eqSetWidgets.get(pc.getCalcEquipSetId());
+		if (btn != null)
+		{
+			btn.setSelected(true);
 		}
 	}
 

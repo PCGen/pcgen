@@ -2088,6 +2088,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				pc.setCalcEquipSetId(eqSetId);
 				pc.setCalcEquipmentList();
 				pc.setUseTempMods(eSet.getUseTempMods());
+				pc.calcActiveBonuses();
 				pc.setDirty(true);
 				updateTotalWeight();
 
