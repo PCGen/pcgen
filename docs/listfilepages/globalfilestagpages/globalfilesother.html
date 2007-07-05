@@ -320,16 +320,16 @@
 			</ul>
 			<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and formulas within parentheses.</li>
 			<ul>
-				<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for 
+				<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for
 				this purpose, is commonly used though other variables can be used as well.</li>
-				<li>Because anything within parentheses is assumed to be a formula to be parsed, 
+				<li>Because anything within parentheses is assumed to be a formula to be parsed,
 				text containing parentheses must substitute brackets [ ] in place of parentheses.</li>
-				<li>Java has a Regular Expression library built in that is very similar to Perl 
-				regular expressions. Basically it allows for pattern matching in strings. You can 
-				create fairly powerful match structures using things like character groups "[a-zA-Z]" 
-				match any alphabetic character or groupings "(bat|super)man" match batman or superman 
-				and many many more. So, for example, you could do a CLEARALL by doing DESC:.CLEAR..*, 
-				or clear all exceptional abilities by doing DESC:.CLEAR.\(Ex\), or clear everything 
+				<li>Java has a Regular Expression library built in that is very similar to Perl
+				regular expressions. Basically it allows for pattern matching in strings. You can
+				create fairly powerful match structures using things like character groups "[a-zA-Z]"
+				match any alphabetic character or groupings "(bat|super)man" match batman or superman
+				and many many more. So, for example, you could do a CLEARALL by doing DESC:.CLEAR..*,
+				or clear all exceptional abilities by doing DESC:.CLEAR.\(Ex\), or clear everything
 				that's non-numeric with <code>DESC:.CLEAR.[A-Za-z]</code>.</li>
 			</ul>
 		</ul>
@@ -500,31 +500,31 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent1">
 			<li>This tag is used to define non-equipment attacks a race may possess.</li>
-			<li>As a global tag, this rag is used in abilities, feats, races and templates, 
-			adding the natural attacks to the character when the object is assigned to the 
+			<li>As a global tag, this rag is used in abilities, feats, races and templates,
+			adding the natural attacks to the character when the object is assigned to the
 			character.</li>
-			<li>Though this tag is a global tag, it has no effect when applied in deities, 
+			<li>Though this tag is a global tag, it has no effect when applied in deities,
 			domains, equipment, skills or spells files.</li>
-			<li>This is a comma (,) and pipe (|) delimited list of the natural attacks a 
-			creature has. If the creature has multiple attacks pipes are used to separate 
-			the entries. Commas are used to delimit variables within a single attack listing. 
-			All four variables separated by three commas must be present or PCGen will hang 
+			<li>This is a comma (,) and pipe (|) delimited list of the natural attacks a
+			creature has. If the creature has multiple attacks pipes are used to separate
+			the entries. Commas are used to delimit variables within a single attack listing.
+			All four variables separated by three commas must be present or PCGen will hang
 			when attempting to load the .pcc file.</li>
-			<li>Natural weapon typesshould be delimited with periods (.). This must always 
-			start with &quot;Weapon&quot; and &quot;Natural&quot; and must be followed 
-			by either &quot;Melee&quot; or &quot;Ranged&quot;.	After that the weapons 
-			damage types are listed which can be &quot;Bludgeoning&quot;, 
+			<li>Natural weapon typesshould be delimited with periods (.). This must always
+			start with &quot;Weapon&quot; and &quot;Natural&quot; and must be followed
+			by either &quot;Melee&quot; or &quot;Ranged&quot;.	After that the weapons
+			damage types are listed which can be &quot;Bludgeoning&quot;,
 			&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</li>
-			<li>If the number of attacks (y) has an asterisk in front of the number it 
-			indicates that the number of attacks is non-iterative, that is it is not 
-			based on the creatures attack progression but rather how many of the 
+			<li>If the number of attacks (y) has an asterisk in front of the number it
+			indicates that the number of attacks is non-iterative, that is it is not
+			based on the creatures attack progression but rather how many of the
 			natural weapons it possesses.</li>
-			<li>The damage the natural weapon does is entered in the standard dice notation 
+			<li>The damage the natural weapon does is entered in the standard dice notation
 			such as &quot;1d8&quot; and &quot;4d10&quot;.</li>
-			<li>The NATURALATTACKS tag creates a proficiency for the its attacks on the 
-			fly which allows the use of the BONUS:WEAPONPROF tag to effect it. For example, 
-			if you used the NATURALATTACKS tag to create a Bite attack you could then use 
-			<code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code> to add 2 to the attack and 
+			<li>The NATURALATTACKS tag creates a proficiency for the its attacks on the
+			fly which allows the use of the BONUS:WEAPONPROF tag to effect it. For example,
+			if you used the NATURALATTACKS tag to create a Bite attack you could then use
+			<code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code> to add 2 to the attack and
 			damage rolls.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -1083,6 +1083,9 @@
 			statements), then the new tag will be added to the other tags in the object.</li>
 			<li>Since names in abilities are not unique within different categories, a new syntax specifically
 			for the .MOD of abilities has been added.</li>
+			<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
+			.pcc RANK tag. Given: 1.MOD 1.FORGET 2.COPY 2.Blank 2.MOD 3.MOD. The order of processing is:
+			2. Blank 2.COPY 1.MOD 2.MOD 3.MOD 1.FORGET </li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>Human.MOD</code></p>
@@ -1121,6 +1124,9 @@
 			<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
 			replace the tag in the original entry. If more than one tag is allowed (most notably BONUS
 			statements), then the new tag will be added to the other tags in the object.</li>
+			<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
+			.pcc RANK tag. Given: 1.MOD 1.FORGET 2.COPY 2.Blank 2.MOD 3.MOD. The order of processing is:
+			2. Blank 2.COPY 1.MOD 2.MOD 3.MOD 1.FORGET </li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>Human.COPY=Aboriginee</code></p>
@@ -1184,6 +1190,9 @@
 		<p class="indent2">Unlike .MOD, this tag has no other tags following it. .FORGET completely removes a
 		class from a listing. Since this is done last, you can not .FORGET the Ranger class, then load up your
 		own modified Ranger class.</p>
+		<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
+		.pcc RANK tag. Given: 1.MOD 1.FORGET 2.COPY 2.Blank 2.MOD 3.MOD. The order of processing is:
+		2. Blank 2.COPY 1.MOD 2.MOD 3.MOD 1.FORGET </li>
 		<p class="indent2"> .FORGET is ALWAYS done last. Use either .MOD or Ranger (New class).</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>Human.FORGET</code></p>
