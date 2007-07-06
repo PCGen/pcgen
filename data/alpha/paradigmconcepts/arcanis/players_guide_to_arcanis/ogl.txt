@@ -69,4 +69,4 @@ Slaves of the Moon, Copyright 2004, Paradigm Concepts, Inc.
 In the Shadow of the Devil, Copyright 2004, Paradigm Concepts, Inc
 The Player's Guide to Arcanis, Copyright 2004 Paradigm Concepts, Inc.
 
-PCGen dataset conversion for The Player's Guide to Arcanis Copyright 2006, PCGen Data team (Including, but not limited to Evan Miller, Eddy Anthony (MoSaT))
+PCGen dataset conversion for The Player's Guide to Arcanis Copyright 2006-2007, PCGen Data team (Including, but not limited to Evan Miller, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith))
