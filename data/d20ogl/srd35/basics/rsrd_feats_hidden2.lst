@@ -62,14 +62,14 @@ Bonus Spell Slot 7	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arc
 Dragon Wings		TYPE:DragonDisciple	VISIBLE:NO	PRECLASS:1,Dragon Disciple=9	SA:Wings (Ex)														MOVECLONE:Walk,0,Fly,*1
 
 ###Block: Duelist special abilities
-# Feat Name		Type						Visible	Special Ability							Define								Combat bonus																			Modify VAR												Source Page
-Canny Defense	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Canny Defense (Ex)															BONUS:COMBAT|AC|max(0,min(INT,CL))|TYPE=Ability.STACK|PREMULT:2,[!PREEQUIP:1,TYPE=Armor,TYPE=Shield],[PREEQUIP:1,TYPE=Melee]														SOURCEPAGE:PrestigeClasses.rtf
-Improved Reaction	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Improved Reaction +% (Ex)|ImprovedReaction		DEFINE:ImprovedReaction|0					BONUS:COMBAT|INITIATIVE|ImprovedReaction																												SOURCEPAGE:PrestigeClasses.rtf
-Enhanced Mobility	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Enhanced Mobility (Ex)																																																SOURCEPAGE:PrestigeClasses.rtf
-Grace			TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Grace (Ex)																																																		SOURCEPAGE:PrestigeClasses.rtf
-Precise Strike	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6																																			SOURCEPAGE:PrestigeClasses.rtf
-Acrobatic Charge	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Acrobatic Charge (Ex)																																																SOURCEPAGE:PrestigeClasses.rtf
-Elaborate Parry	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Elaborate Parry (Ex)						DEFINE:ElaborateParryLVL|0																										BONUS:VAR|FightingDefensivelyACBonus,TotalDefenseACBonus|ElaborateParryLVL	SOURCEPAGE:PrestigeClasses.rtf
+# Feat Name		Type						Visible	Special Ability							Define								Combat bonus																					Modify VAR												Source Page
+Canny Defense	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Canny Defense (Ex)						DEFINE:CannyDefenseLVL|0					BONUS:COMBAT|AC|max(0,min(INT,CannyDefenseLVL))|TYPE=Ability.STACK|PREMULT:2,[!PREEQUIP:1,TYPE=Armor,TYPE=Shield],[PREEQUIP:1,TYPE=Melee]														SOURCEPAGE:PrestigeClasses.rtf
+Improved Reaction	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Improved Reaction +% (Ex)|ImprovedReaction		DEFINE:ImprovedReaction|0					BONUS:COMBAT|INITIATIVE|ImprovedReaction																														SOURCEPAGE:PrestigeClasses.rtf
+Enhanced Mobility	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Enhanced Mobility (Ex)																																																		SOURCEPAGE:PrestigeClasses.rtf
+Grace			TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Grace (Ex)																																																				SOURCEPAGE:PrestigeClasses.rtf
+Precise Strike	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6																																					SOURCEPAGE:PrestigeClasses.rtf
+Acrobatic Charge	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Acrobatic Charge (Ex)																																																		SOURCEPAGE:PrestigeClasses.rtf
+Elaborate Parry	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Elaborate Parry (Ex)						DEFINE:ElaborateParryLVL|0																												BONUS:VAR|FightingDefensivelyACBonus,TotalDefenseACBonus|ElaborateParryLVL	SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Dwarven Defender special abilities
 # VAR -

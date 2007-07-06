@@ -171,7 +171,7 @@ CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:1,TYPE.P
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE.Perform|Sense Motive|Spot|Tumble
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
-1																										FEATAUTO:Canny Defense
+1	BONUS:VAR|CannyDefenseLVL|CL																					FEATAUTO:Canny Defense
 2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2																		FEATAUTO:Improved Reaction
 3																										FEATAUTO:Enhanced Mobility
 4																										FEATAUTO:Grace
