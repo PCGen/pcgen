@@ -139,7 +139,7 @@
 			17-32 it is Gargantuan, 33+ it is Colossal. 99 HD is the maximum
 			it can ever raise to.</p>
 		<p class="indent2"><code>HITDICEADVANCEMENT:4,6,*</code></p>
-		<p class="indent3">Race starts out as Tiny, with 4 Hit Dice. 5-6 it is Small, 7+ 
+		<p class="indent3">Race starts out as Tiny, with 4 Hit Dice. 5-6 it is Small, 7+
 			it is Medium. There is no limit to the creature's hit dice.</p>
 
 		<p></p><a name="HITDIE"></a><hr>
@@ -359,12 +359,20 @@
 		<p class="indent3">The race has a reach of ten feet.</p>
 
 		<p></p><a name="SIZE"></a><hr>
+		<p class="new">*** Updated 5.12 RC3</p>
 		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Determines the size of the Race. (F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal). Size is used in determining to-hit, AC, and affects some skills.</li>
-			<li>The size designations, including abbreviations, are dependant upon the gamemode used and may be redefined in the sizeadjustments.lst file.</li>
+			<li>Determines the size of the Race. (F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large,
+			H=Huge, G=Gargantuan, C=Colossal). Size is used in determining to-hit, AC, and affects some skills.</li>
+			<li>The size designations, including abbreviations, are dependant upon the gamemode used and may
+			be redefined in the sizeadjustments.lst file.</li>
+		</ul>
+		<p class="indent1"><strong>Special Sizes:</strong></p>
+		<ul class="indent2">
+			<li>SIZE:P - Mode: RSRD (35e) - Colossal+ - Restricted to only dragons.</li>
+			<li>SIZE:C - Mode: Spycraft 2 - Vast - .</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SIZE:M</code></p>
