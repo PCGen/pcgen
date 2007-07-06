@@ -196,8 +196,8 @@ Will of the Prophetess					TYPE:Elorii						PRECLASS:1,Cleric=1	PREDEITY:Belisar
 
 ###Block: Taint Feats
 # Feat Name			Type			Required Feat			Maximum Level	Req. Special Ability	Description																											Multiple?	Choose		Move		Add					Bonus to skill									Source Page
-Daemonic Appearance	TYPE:Tainted	PREFEAT:1,Infernal Taint				PRESA:Tainted		DESC:The blood of demons and devils flows in your veins. This infernal heritage is impossible to disguise, mutating you little by little into a copy of your ancestors.	MULT:YES	CHOOSE:NOCHOICE			ADD:FEAT|TYPE=DaemonicTaint												SOURCEPAGE:pg. 140
-Infernal Taint		TYPE:Tainted						PRELEVELMAX:1	PRESA:Tainted		DESC:The taint of your infernal is stronger than in most dark-kin, causing demonic features to develop in you as time goes by.							MULT:YES	CHOOSE:NOCHOICE			ADD:FEAT|TYPE=InfernalTaint												SOURCEPAGE:pg. 152
+Daemonic Appearance	TYPE:Tainted	PREFEAT:1,Infernal Taint				PRESA:1,Tainted		DESC:The blood of demons and devils flows in your veins. This infernal heritage is impossible to disguise, mutating you little by little into a copy of your ancestors.	MULT:YES	CHOOSE:NOCHOICE			ADD:FEAT|TYPE=DaemonicTaint												SOURCEPAGE:pg. 140
+Infernal Taint		TYPE:Tainted						PRELEVELMAX:1	PRESA:1,Tainted		DESC:The taint of your infernal is stronger than in most dark-kin, causing demonic features to develop in you as time goes by.							MULT:YES	CHOOSE:NOCHOICE			ADD:FEAT|TYPE=InfernalTaint												SOURCEPAGE:pg. 152
 Wings of the Fiend	TYPE:Tainted	PREFEAT:1,Daemonic Appearance								DESC:You have a pair of small bat like wings protruding from your back.																													BONUS:SKILL|Jump,Balance|5	BONUS:SKILL|Handle Animal,Ride|-1	SOURCEPAGE:pg. 162
 Wings of the Devil	TYPE:Tainted	PREFEAT:1,Wings of the Fiend								DESC:You have large bat-like wings.																												MOVE:Fly,60						BONUS:SKILL|Handle Animal,Ride|-2						SOURCEPAGE:pg. 162
 
