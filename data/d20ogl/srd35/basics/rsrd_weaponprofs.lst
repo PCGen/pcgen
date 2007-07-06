@@ -15,6 +15,7 @@ Unarmed Strike			TYPE:Simple
 #Spells(Energy Missile)		TYPE:Simple
 Spells(Ray)				TYPE:Simple
 #Spells(Touch)			TYPE:Simple
+Grapple				TYPE:Simple
 
 
 # -- light melee
