@@ -4095,7 +4095,26 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		abilities.add(anAbility);
 	}
 	
-	public List<String> getAbilityKeys(final PlayerCharacter aPC, final AbilityCategory aCategory, final Ability.Nature aNature)
+	public List<QualifiedObject<String>> getRawAbilityObjects(
+		final AbilityCategory aCategory, final Ability.Nature aNature)
+	{
+		List<QualifiedObject<String>> abilities = theAbilities.get(aCategory, aNature);
+		if ( abilities == null )
+		{
+			return Collections.emptyList();
+		}
+		return Collections.unmodifiableList(theAbilities.get(aCategory, aNature));
+	}
+	
+	public boolean removeAbility(final AbilityCategory aCategory,
+		final Ability.Nature aNature, QualifiedObject<String> qo)
+	{
+		List<QualifiedObject<String>> abilities = theAbilities.get(aCategory, aNature);
+		return abilities != null && abilities.remove(qo);
+	}
+	
+	public List<String> getAbilityKeys(final PlayerCharacter aPC,
+		final AbilityCategory aCategory, final Ability.Nature aNature)
 	{
 		final List<QualifiedObject<String>> abilities = theAbilities.get(aCategory, aNature);
 		if ( abilities == null )

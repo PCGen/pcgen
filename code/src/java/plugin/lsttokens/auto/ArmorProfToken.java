@@ -19,6 +19,7 @@ package plugin.lsttokens.auto;
 
 import pcgen.core.PObject;
 import pcgen.persistence.lst.AutoLstToken;
+import pcgen.util.Logging;
 
 public class ArmorProfToken implements AutoLstToken
 {
@@ -28,8 +29,14 @@ public class ArmorProfToken implements AutoLstToken
 		return "ARMORPROF";
 	}
 
-	public boolean parse(PObject target, String value)
+	public boolean parse(PObject target, String value, int level)
 	{
+		if (level > 1)
+		{
+			Logging.errorPrint("AUTO:" + getTokenName()
+				+ " is not supported on class level lines");
+			return false;
+		}
 		target.addAutoArray(getTokenName(), value);
 		return true;
 	}

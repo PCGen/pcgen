@@ -31,6 +31,6 @@ public class AutoLst implements GlobalLstToken
 			return false;
 		}
 		String subKey = value.substring(0, barLoc);
-		return AutoLoader.parseLine(obj, subKey, value);
+		return AutoLoader.parseLine(obj, subKey, value, anInt);
 	}
 }

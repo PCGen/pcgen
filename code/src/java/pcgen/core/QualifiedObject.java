@@ -205,4 +205,24 @@ public class QualifiedObject<T>
 		}
 		return new QualifiedObject<String>( obj, prereqs );
 	}
+    
+    public static class AutoQualifiedObject<AT> extends QualifiedObject<AT>
+    {
+    	//Just an identifier for 5.14
+    	
+		public AutoQualifiedObject()
+		{
+			super();
+		}
+
+		public AutoQualifiedObject(AT anObj, List<Prerequisite> aPrereqList)
+		{
+			super(anObj, aPrereqList);
+		}
+
+		public AutoQualifiedObject(AT anObj)
+		{
+			super(anObj);
+		}
+    }
 }
