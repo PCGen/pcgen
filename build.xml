@@ -356,12 +356,13 @@ pcgen.filepaths=user
 
 	<target name="build" depends="emma, compile, instrument, jar, jar-all-plugins, build-extra" description="Do an [incremental] build (compile, jar).">
 		<!-- fix for UNIXen; harmless on Windows -->
-		<chmod file="pcgendev.sh" perm="a+rx" />
 		<copy todir="${basedir}">
 			<fileset dir="${bin.dir}" includes="**/*.jar" />
 			<fileset dir="${bin.dir}" includes="**/*.bat" />
 			<fileset dir="${bin.dir}" includes="**/*.sh" />
 		</copy>
+		<chmod file="pcgen.sh" perm="a+rx" />
+		<chmod file="pcgendev.sh" perm="a+rx" />
 	</target>
 
 	<target name="build-plugins" depends="clean-plugins" description="Maven hook for building plugins.">
@@ -374,17 +375,19 @@ pcgen.filepaths=user
 	<target name="build13" depends="compile13, jar, build-extra" description="Do an [incremental] build (compile, jar).">
 		<!-- fix for UNIXen; harmless on Windows -->
 		<chmod file="pcgendev.sh" perm="a+rx" />
+		<chmod file="pcgen.sh" perm="a+rx" />
 		<echo>Run pcgendev.bat (or pcgendev.sh) to run build.</echo>
 	</target>
 
 	<target name="build-optimize" depends="compile-optimize, jar, jar-all-plugins, build-extra" description="Do an [incremental] build (compile, jar) with optimization on.">
 		<!-- fix for UNIXen; harmless on Windows -->
-		<chmod file="pcgendev.sh" perm="a+rx" />
 		<copy todir="${basedir}">
 			<fileset dir="${bin.dir}" includes="**/*.jar" />
 			<fileset dir="${bin.dir}" includes="**/*.bat" />
 			<fileset dir="${bin.dir}" includes="**/*.sh" />
 		</copy>
+		<chmod file="pcgen.sh" perm="a+rx" />
+		<chmod file="pcgendev.sh" perm="a+rx" />
 		<echo>Run pcgendev.bat (or pcgendev.sh) to run build.</echo>
 	</target>
 
