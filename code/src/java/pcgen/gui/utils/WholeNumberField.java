@@ -84,13 +84,18 @@ public final class WholeNumberField extends JTextField implements Serializable
 
 		try
 		{
-			retVal = integerFormatter.parse(getText()).intValue();
+			String text = getText();
+			if (text == null || text.trim().length()==0)
+			{
+				text = "0";
+			}
+			retVal = integerFormatter.parse(text).intValue();
 		}
 		catch (ParseException e)
 		{
 			// This should never happen because insertString allows
 			// only properly formatted data to get in the field.
-			Logging.errorPrint("", e);
+			Logging.errorPrint("Failed to parse WholeNumber value.", e);
 		}
 
 		return retVal;

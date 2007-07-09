@@ -96,7 +96,12 @@ public class DecimalNumberField extends JTextField
 
 		try
 		{
-			retVal = doubleFormatter.parse(getText()).doubleValue();
+			String text = getText();
+			if (text == null || text.trim().length()==0)
+			{
+				text = "0";
+			}
+			retVal = doubleFormatter.parse(text).doubleValue();
 			lastVal = retVal;
 		}
 		catch (ParseException e)
