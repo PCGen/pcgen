@@ -7804,6 +7804,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// }
 		// all the exists checks are done.
 
+		// don't allow adding spells which are not qualified for.
+		if (!PrereqHandler.passesAll(aSpell.getPreReqList(), this, aSpell))
+		{
+			return "You do not qualify for " + acs.getSpell().getDisplayName()
+				+ ".";
+		}
+		
 		// don't allow adding spells which are prohibited to known
 		// or prepared lists
 		// But if a spell is both prohibited and in a speciality

@@ -512,12 +512,12 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	 * @param fNode
 	 * @param bookName
 	 */
-	protected final void addSpellToTarget(PObjectNode fNode, String bookName)
+	protected final boolean addSpellToTarget(PObjectNode fNode, String bookName)
 	{
 		List<Object> aList = getInfoFromNode(fNode);
 		if (aList == null)
 		{
-			return;
+			return false;
 		}
 		CharacterSpell cs = (CharacterSpell) aList.get(0);
 		String className = (String) aList.get(1);
@@ -525,7 +525,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 		if (cs == null)
 		{
-			return;
+			return false;
 		}
 
 		List<Ability> featList = new ArrayList<Ability>();
@@ -538,8 +538,9 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate.showMessageDialog(aString, Constants.s_APPNAME,
 				MessageType.ERROR);
-			return;
+			return false;
 		}
+		return true;
 	}
 
 	protected final List<Object> getInfoFromNode(PObjectNode fNode)

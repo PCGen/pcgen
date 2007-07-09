@@ -909,8 +909,8 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 			Object aComp = avaCPaths[index].getLastPathComponent();
 			PObjectNode fNode = (PObjectNode) aComp;
 
-			addSpellToTarget(fNode, bookName);
-			if (!"".equals(pc.getSpellBookNameToAutoAddKnown())) //$NON-NLS-1$
+			boolean result = addSpellToTarget(fNode, bookName);
+			if (result && !"".equals(pc.getSpellBookNameToAutoAddKnown())) //$NON-NLS-1$
 			{
 				addSpellToTarget(fNode, pc.getSpellBookNameToAutoAddKnown());
 			}

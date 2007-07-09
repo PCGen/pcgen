@@ -4706,7 +4706,7 @@ public class PCClass extends PObject {
 	 * PlayerCharacter... (double dispatch)
 	 */
 	public boolean isProhibited(final Spell aSpell, final PlayerCharacter aPC) {
-		if (!PrereqHandler.passesAll(aSpell.getPreReqList(), aPC, this)) {
+		if (!PrereqHandler.passesAll(aSpell.getPreReqList(), aPC, aSpell)) {
 			return true;
 		}
 
