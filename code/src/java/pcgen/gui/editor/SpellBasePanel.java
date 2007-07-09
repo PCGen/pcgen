@@ -128,7 +128,7 @@ public class SpellBasePanel extends BasePanel
 		GlobalLstToken tokenParser = (GlobalLstToken) tokenMap.get("DESC");
 		if (tokenParser != null)
 		{
-			final StringTokenizer tok = new StringTokenizer(desc, "\t");
+			final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
 			while (tok.hasMoreTokens())
 			{
 				try
@@ -260,7 +260,7 @@ public class SpellBasePanel extends BasePanel
 		final StringBuffer buf = new StringBuffer();
 		for ( final Description desc : thisPObject.getDescriptionList() )
 		{
-			if ( buf.length() == 0 )
+			if ( buf.length() != 0 )
 			{
 				buf.append("\t");
 			}
