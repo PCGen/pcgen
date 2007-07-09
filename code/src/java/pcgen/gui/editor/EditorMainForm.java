@@ -1095,6 +1095,7 @@ public final class EditorMainForm extends JDialog
 				if (editType == EditorConstants.EDIT_CLASS
 				  || editType == EditorConstants.EDIT_RACE)
 				{
+					thisPObject.clearWeaponProfBonus();
 					for ( int i = 0; i < sel.length; i++ )
 					{
 						thisPObject.addWeaponProfBonus( (String)sel[i] );

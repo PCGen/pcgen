@@ -56,7 +56,6 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 	private JComboBoxEx spellStat = new JComboBoxEx();
 	private JComboBoxEx spellType = new JComboBoxEx();
 	private JTextField attackCycle = new JTextField();
-	private JTextField castAs = new JTextField();
 	private JTextField deity = new JTextField();
 	private JTextField extraFeats = new JTextField();
 	private JTextField hitDice = new JTextField();
@@ -122,13 +121,6 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		if (a.length() > 0)
 		{
 			obj.setLevelsPerFeat(Integer.valueOf(a));
-		}
-
-		a = castAs.getText().trim();
-
-		if (a.length() > 0)
-		{
-			obj.setCastAs(a);
 		}
 
 		a = knownSpells.getText().trim();
@@ -216,14 +208,13 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			attackCycle.setText(CoreUtility.join(mc, Constants.PIPE));
 		}
 		hitDice.setText(String.valueOf(obj.getBaseHitDie()));
-		deity.setText(CoreUtility.join(obj.getDeityList(), '|'));
+		deity.setText(CoreUtility.join(obj.getDeityList(), Constants.PIPE));
 		itemCreate.setText(obj.getItemCreationMultiplier());
 		extraFeats.setText(String.valueOf(obj.getInitialFeats()));
 		if (obj.getLevelsPerFeat()!=null)
 		{
 			levelsPerFeat.setText(obj.getLevelsPerFeat().toString());
 		}
-		castAs.setText(obj.getCastAs());
 
 		knownSpells.setText(CoreUtility.join(obj.getKnownSpellsList(), "|"));
 		memorize.setSelected(obj.getMemorizeSpells());
@@ -389,21 +380,6 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		add(spellStat, gridBagConstraints);
 
 
-		tempLabel = new JLabel("Cast As:");
-		gridBagConstraints = buildConstraints(gridBagConstraints, 0, 4, true);
-		add(tempLabel, gridBagConstraints);
-
-		gridBagConstraints = buildConstraints(gridBagConstraints, 1, 4, true);
-		add(castAs, gridBagConstraints);
-
-		tempLabel = new JLabel("Spell List:");
-		gridBagConstraints = buildConstraints(gridBagConstraints, 2, 4, true);
-		add(tempLabel, gridBagConstraints);
-
-		gridBagConstraints = buildConstraints(gridBagConstraints, 3, 4, true);
-		add(spellList, gridBagConstraints);
-
-
 		tempLabel = new JLabel("Uses Spell Book:");
 		gridBagConstraints = buildConstraints(gridBagConstraints, 0, 5, true);
 		add(tempLabel, gridBagConstraints);
@@ -427,6 +403,13 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		//gridBagConstraints = buildConstraints(gridBagConstraints, 1, 6, true);
 		//add(specialtyKnown, gridBagConstraints);
 
+		tempLabel = new JLabel("Spell List:");
+		gridBagConstraints = buildConstraints(gridBagConstraints, 0, 6, true);
+		add(tempLabel, gridBagConstraints);
+
+		gridBagConstraints = buildConstraints(gridBagConstraints, 1, 6, true);
+		add(spellList, gridBagConstraints);
+
 		tempLabel = new JLabel("Prohibited:");
 		gridBagConstraints = buildConstraints(gridBagConstraints, 2, 6, true);
 		add(tempLabel, gridBagConstraints);
@@ -443,5 +426,15 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		gridBagConstraints = buildConstraints(gridBagConstraints, 1, 7, true);
 		gridBagConstraints.gridwidth = 3;
 		add(knownSpells, gridBagConstraints);
+
+		
+		tempLabel = new JLabel("Deities:");
+		gridBagConstraints.gridwidth = 1;
+		gridBagConstraints = buildConstraints(gridBagConstraints, 0, 8, true);
+		add(tempLabel, gridBagConstraints);
+
+		gridBagConstraints = buildConstraints(gridBagConstraints, 1, 8, true);
+		gridBagConstraints.gridwidth = 3;
+		add(deity, gridBagConstraints);
 	}
 }
