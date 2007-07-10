@@ -90,14 +90,14 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVE
 1	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:BattlemindML,10
 ###Block: Normal Level Progression
 1	KNOWN:2
-2	KNOWN:3		SA:Imprint Tattoo												AUTO:EQUIP|PsiBLade|!PRECLASS:1,Battle Mind=3
-3	KNOWN:3,1											ADD:FEAT|TYPE=Battlemind	AUTO:EQUIP|PsiBLade+1|!PRECLASS:1,Battle Mind=5
-4	KNOWN:3,2																AUTO:EQUIP|PsiShield|!PRECLASS:1,Battle Mind=8
-5	KNOWN:3,3,1		SA:+4 to Concentation while manifesting defensively						AUTO:EQUIP|PsiBLade+2|!PRECLASS:1,Battle Mind=7
+2	KNOWN:3		SA:Imprint Tattoo												AUTO:EQUIP|PsiBlade[!PRECLASS:1,Battle Mind=3]
+3	KNOWN:3,1											ADD:FEAT|TYPE=Battlemind	AUTO:EQUIP|PsiBlade +1[!PRECLASS:1,Battle Mind=5]
+4	KNOWN:3,2																AUTO:EQUIP|PsiShield[!PRECLASS:1,Battle Mind=8]
+5	KNOWN:3,3,1		SA:+4 to Concentation while manifesting defensively						AUTO:EQUIP|PsiBlade +2[!PRECLASS:1,Battle Mind=7]
 6	KNOWN:3,3,2											ADD:FEAT|TYPE=Battlemind
-7	KNOWN:3,3,2,1															AUTO:EQUIP|PsiBLade+3|!PRECLASS:1,Battle Mind=9
-8	KNOWN:3,3,3,1															AUTO:EQUIP|PsiShield, Improved
-9	KNOWN:3,3,3,2										ADD:FEAT|TYPE=Battlemind	AUTO:EQUIP|PsiBLade+4|!PRECLASS:1,Battle Mind=10
+7	KNOWN:3,3,2,1															AUTO:EQUIP|PsiBlade +3[!PRECLASS:1,Battle Mind=9]
+8	KNOWN:3,3,3,1															AUTO:EQUIP|PsiShield (Improved)
+9	KNOWN:3,3,3,2										ADD:FEAT|TYPE=Battlemind	AUTO:EQUIP|PsiBlade +4[!PRECLASS:1,Battle Mind=10]
 10	KNOWN:3,3,3,2,1															AUTO:EQUIP|Ultimate PsiBlade
 
 

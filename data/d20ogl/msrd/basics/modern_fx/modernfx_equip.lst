@@ -10,7 +10,7 @@ PsiBlade +1		OUTPUTNAME:Psi-Blade +1			PROFICIENCY:Psi-Blade	TYPE:FX.Specific.We
 PsiBlade +2		OUTPUTNAME:Psi-Blade +2			PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS2W	SIZE:S	SOURCEPAGE:msrdfxitems.rtf
 PsiBlade +3		OUTPUTNAME:Psi-Blade +3			PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS3W	SIZE:S	SOURCEPAGE:msrdfxitems.rtf
 PsiBlade +4		OUTPUTNAME:Psi-Blade +4			PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS4W	SIZE:S	SOURCEPAGE:msrdfxitems.rtf
-ULtimate PsiBlade	OUTPUTNAME:Psi-Blade +4(Ultimate)	PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:PLUS4W	SIZE:S	SOURCEPAGE:msrdfxitems.rtf
+Ultimate PsiBlade	OUTPUTNAME:Psi-Blade +4 (Ultimate)	PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:PLUS4W	SIZE:S	SOURCEPAGE:msrdfxitems.rtf
 
 ###Block: Armor
 
