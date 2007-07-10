@@ -169,7 +169,7 @@ CLASS:Tracer	PREATT:2	PREFEAT:1,Track	PRESKILL:2,Investigate,Survival=6	PRESKILL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tracer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|Research|Search|Sense Motive|Spot|Survival|Swim
 1	SA:Target Species																		FEATAUTO:Urban Tracking
-2				BONUS:VAR|SwiftStrike|(CL-1)/3												FEATAUTO:Swift Strike
+2				BONUS:VAR|SwiftStrike|(CL+1)/3												FEATAUTO:Swift Strike
 3																	ADD:FEAT|TYPE=Tracer
 4											DEFINE:UncannyStealthChargeQual|0					FEATAUTO:Uncanny Stealth
 6																	ADD:FEAT|TYPE=Tracer
