@@ -47,6 +47,13 @@ Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)
 Spell Material Component Value	KEY:SPELLMATERIAL	NAMEOPT:NOTHING	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdmagicoverview.rtf	PRETYPE:MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:Material Component Value|MIN=0|MAX=50000
 Spell Focus Value				KEY:SPELLFOCUS	NAMEOPT:NOTHING	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdmagicoverview.rtf	PRETYPE:SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:Spell Focus Value|MIN=0|MAX=10000
 
+# CHARGED_ITEM_10 is used by the Healers Kit
+
+###Block: Charged items
+# Modifier Name	Unique Key			Cost							Visible	Choose			Nb of Charges
+Charges (10)	KEY:CHARGED_ITEM_10	COST:((BASECOST/10)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|10
+
+
 # Add Type		KEY:ADD_TYPE	TYPE:ALL			COST:0												NAMEOPT:NONAME		SOURCEPAGE:p.																																																																		CHOOSE:Select desired TYPE(s)|TYPE=ALL
 
 ###Block:EXCLUDEEQ: Any item with the properties listed will not be allowed to be edited
