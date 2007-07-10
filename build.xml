@@ -61,7 +61,6 @@ These files can be renamed and used for releases.
 	<property name="src.java.dir" value="${basedir}/code/src/java" />
 	<property name="src.test.java.dir" value="${basedir}/code/src/test" />
 	<property name="lib.dir" value="lib" />
-	<property name="lib.ncss" value="${basedir}/lib/javancss" />
 	<property name="src.data.dir" value="${basedir}/data" />
 	<property name="src.docs.dir" value="${basedir}/docs" />
 	<property name="src.outputsheets.dir" value="${basedir}/outputsheets" />
@@ -106,7 +105,7 @@ These files can be renamed and used for releases.
 	<property name="zip.autobuild.file" value="autobuild.zip" />
 
 	<path id="project.jars">
-		<fileset dir="${lib.dir}" includes="**/*.jar" excludes="**/test/**,javacc.jar,**/javancss/**,**/emma/**" />
+		<fileset dir="${lib.dir}" includes="**/*.jar" excludes="**/test/**,javacc.jar,**/emma/**" />
 	</path>
 
 	<path id="project.classpath">
@@ -165,12 +164,6 @@ These files can be renamed and used for releases.
 
 	<target name="compile" depends="compile-compile" description="Compile Java sources">
 		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="Yes" source="1.5" target="1.5" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
-			<classpath refid="project.classpath" />
-		</javac>
-	</target>
-
-	<target name="compile13" depends="compile-compile">
-		<javac debug="true" deprecation="true" destdir="${build.classes.dir}" srcdir="${src.java.dir}:${build.src.dir}" excludes="plugin/**,gmgen/**" memoryInitialSize="128m" memoryMaximumSize="512m">
 			<classpath refid="project.classpath" />
 		</javac>
 	</target>
@@ -322,13 +315,11 @@ pcgen.filepaths=user
 
 	<target name="rebuild" depends="clean, fetch-devel, build" description="Clean, refresh from CVS, and build the jar file." />
 
-	<target name="all" depends="clean, build, test, emma.report, javaNcss, docs, deploy" description="Everything except refetch from CVS." />
+	<target name="all" depends="clean, build, test, emma.report, docs, deploy" description="Everything except refetch from CVS." />
 
-	<target name="complete" depends="clean, fetch-devel, build, fetch-data, fetch-docs, fetch-sheets, test, emma.report, javaNcss, docs, deploy" description="Everything including developer refresh from CVS." />
+	<target name="complete" depends="clean, fetch-devel, build, fetch-data, fetch-docs, fetch-sheets, test, emma.report, docs, deploy" description="Everything including developer refresh from CVS." />
 
 	<target name="main" depends="build, test" description="[default] Do an (incremental) build." />
-
-	<target name="main13" depends="build13" description="Do an (incremental) build." />
 
 	<target name="docs" depends="compile-compile" description="Build Java API documentation">
 		<mkdir dir="${doc.dir}" />
@@ -371,27 +362,6 @@ pcgen.filepaths=user
 			<!-- param name="build.classes.dir" value="${basedir}/target/classes"/ -->
 		</antcall>
 	</target>
-
-	<target name="build13" depends="compile13, jar, build-extra" description="Do an [incremental] build (compile, jar).">
-		<!-- fix for UNIXen; harmless on Windows -->
-		<chmod file="pcgendev.sh" perm="a+rx" />
-		<chmod file="pcgen.sh" perm="a+rx" />
-		<echo>Run pcgendev.bat (or pcgendev.sh) to run build.</echo>
-	</target>
-
-	<target name="build-optimize" depends="compile-optimize, jar, jar-all-plugins, build-extra" description="Do an [incremental] build (compile, jar) with optimization on.">
-		<!-- fix for UNIXen; harmless on Windows -->
-		<copy todir="${basedir}">
-			<fileset dir="${bin.dir}" includes="**/*.jar" />
-			<fileset dir="${bin.dir}" includes="**/*.bat" />
-			<fileset dir="${bin.dir}" includes="**/*.sh" />
-		</copy>
-		<chmod file="pcgen.sh" perm="a+rx" />
-		<chmod file="pcgendev.sh" perm="a+rx" />
-		<echo>Run pcgendev.bat (or pcgendev.sh) to run build.</echo>
-	</target>
-
-	<!-- Packaging targets -->
 
 	<target name="deploy" depends="jar.src, zip.bins, zip.resources, zip.jars, zip.manual" description="Ship the jars, wars, whatever to the execution system.">
 	</target>
@@ -592,36 +562,6 @@ pcgen.filepaths=user
 		<delete file="filter.ini" />
 		<delete file="options.ini" />
 	</target>
-
-	<!-- ****************************************************** -->
-	<!-- Creates a report on pcgen source, comments, complexity -->
-	<!-- ****************************************************** -->
-	<target name="javaNcss" depends="init" description="Create JavaNCSS report">
-		<taskdef name="javancss" classname="javancss.JavancssAntTask">
-			<classpath>
-				<fileset dir="${lib.ncss}">
-					<include name="**/*.jar" />
-				</fileset>
-			</classpath>
-		</taskdef>
-
-		<property name="ncssLog" value="${build.rpt.dir}/javaNcssReport.xml" />
-		<property name="ncssHtml" value="${build.rpt.dir}/javaNcssReport.html" />
-
-		<echo message="Creating JavaNCSS report for ${ant.project.name}" />
-
-		<javancss srcdir="${src.java.dir}" includes="**/*.java" abortOnFail="false" ccnPerFuncMax="10" generateReport="true" outputfile="${ncssLog}" format="xml" />
-
-		<style in="${ncssLog}" out="${ncssHtml}" style="${lib.ncss}/javancss2html.xsl">
-			<classpath>
-				<fileset dir="${lib.dir}">
-					<include name="**/*.jar" />
-				</fileset>
-			</classpath>
-		</style>
-
-	</target>
-
 
 	<!-- EMMA
 
