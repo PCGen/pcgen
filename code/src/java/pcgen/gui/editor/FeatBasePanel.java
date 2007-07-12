@@ -38,6 +38,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import pcgen.core.Ability;
+import pcgen.core.Categorisable;
 import pcgen.core.Constants;
 import pcgen.core.Description;
 import pcgen.core.Globals;
@@ -247,7 +248,7 @@ public class FeatBasePanel extends BasePanel
 		GlobalLstToken tokenParser = (GlobalLstToken) tokenMap.get("DESC");
 		if (tokenParser != null)
 		{
-			final StringTokenizer tok = new StringTokenizer(desc, "\t");
+			final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
 			while (tok.hasMoreTokens())
 			{
 				try
@@ -281,14 +282,13 @@ public class FeatBasePanel extends BasePanel
 
 	public void updateView(PObject thisPObject)
 	{
-		String aString;
-		Iterator e;
+		Iterator<Categorisable> e;
 		Ability thisFeat = (Ability) thisPObject;
 
 		final StringBuffer buf = new StringBuffer();
 		for ( final Description desc : thisPObject.getDescriptionList() )
 		{
-			if ( buf.length() == 0 )
+			if ( buf.length() != 0 )
 			{
 				buf.append("\t");
 			}
