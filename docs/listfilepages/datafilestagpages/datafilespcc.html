@@ -183,11 +183,14 @@
 		<p class="indent2">When PCGen encounters certain objects with duplicate names from different sources
 			(such as Classes) the object in the source with the highest priority rank will be loaded
 			while the duplicate will generate an error message (and will not be loaded).</p>
+		<p class="indent2">It is recommended that all RANK numbers should be expressed a positive numbers as
+			negative numbers will load before the positive.</p>
 		<p class="indent2">Defaults to 9 if no RANK is set in the PCC file.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>RANK:1</code></p>
 		<p class="indent3">This pcc file is given first priority when loading.</p>
 		<p class="indent1"><strong>Officially sanctioned use of ranks:</strong></p>
+		<p class="indent2"> RANK:0 - Whatever has to be loaded before the Core</p>
 		<p class="indent2"> RANK:1 - Core rules</p>
 		<p class="indent2"> RANK:2 - Campaign settings</p>
 		<p class="indent2"> RANK:3 - Supplements</p>
