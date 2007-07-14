@@ -37,6 +37,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.SpellBook;
 import pcgen.core.spell.Spell;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
@@ -421,7 +422,10 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		{
 			metamagicFeatList = null;
 		}
-		pc.addSpellBook(aSpell.getBookName());
+		if (pc.getSpellBookByName(aSpell.getBookName()) == null)
+		{
+			pc.addSpellBook(aSpell.getBookName());
+		}
 
 		for (int numTimes = 0; numTimes < aSpell.getCopies(); numTimes++)
 		{

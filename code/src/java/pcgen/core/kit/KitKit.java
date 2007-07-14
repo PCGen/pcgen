@@ -93,6 +93,7 @@ public class KitKit extends BaseKit implements Serializable, Cloneable
 		return (KitKit) super.clone();
 	}
 
+	@Override
 	public String getObjectName()
 	{
 		return "Kit";
