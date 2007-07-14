@@ -36,6 +36,7 @@ import java.util.regex.Pattern;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.util.Logging;
 
 /**
  * <code>TextToken</code> produces the output for the output token TEXT.
@@ -73,6 +74,14 @@ public class TextToken extends Token
 		if (aTok.hasMoreElements())
 		{
 			action = aTok.nextToken();
+			if (action.startsWith("REPLACE"))
+			{
+				// Make sure that any "." in the token itself stay together
+				while (action.charAt(action.length()-1)!='}')
+				{
+					action += "." + aTok.nextToken();
+				}
+			}
 		}
 		if (aTok.hasMoreElements())
 		{
@@ -119,6 +128,50 @@ public class TextToken extends Token
 		else if (action.equalsIgnoreCase("NUMSUFFIX"))
 		{
 			retString = buildNumSuffix(retString);
+		}
+		else if (action.equalsIgnoreCase("LENGTH"))
+		{
+			retString = String.valueOf(retString.length());
+		}
+		// TEXT.REPLACEALL(regex,newtext) or
+		// TEXT.REPLACEFIRST(regex,newtext)
+		else if (action.startsWith("REPLACE"))
+		{
+			final String replaceType = action.substring(7,action.indexOf('{'));
+			String args = action.substring(action.indexOf('{')+1, action.length()-1);
+			int patternEnd = -1;
+			String temp = args;
+			for ( ; ; )
+			{
+				patternEnd = temp.indexOf(',');
+				if (patternEnd == -1)
+				{
+					break;
+				}
+				if (temp.charAt(patternEnd - 1) != '\\')
+				{
+					break;
+				}
+				else
+				{
+					temp = temp.substring(patternEnd+1);
+				}
+			}
+			if (patternEnd == -1)
+			{
+				Logging.errorPrint("Invalid REPLACE token");
+			}
+			String pattern = args.substring(0, patternEnd);
+			pattern = pattern.replaceAll("__LP__", "\\(").replaceAll("__RP__", "\\)").replaceAll("__PLUS__","+");
+			final String replacement = args.substring(patternEnd + 1).trim().replaceFirst("^\"", "").replaceFirst("\"$","");
+			if (replaceType.equalsIgnoreCase("ALL"))
+			{
+				retString = retString.replaceAll(pattern, replacement);
+			}
+			else if (replaceType.equalsIgnoreCase("FIRST"))
+			{
+				retString = retString.replaceAll(pattern, replacement);
+			}
 		}
 		return retString;
 	}
