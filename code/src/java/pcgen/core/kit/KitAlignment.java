@@ -137,9 +137,6 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 				if (sel.size() == 1)
 				{
 					align = sel.get(0);
-				}
-				else
-				{
 					break;
 				}
 			}
