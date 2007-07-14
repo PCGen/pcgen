@@ -33,7 +33,7 @@
 		<p>This section consists of two major sections: <a href="#ClassBuilding">Class
 		Building 101</a> and the <a href="#TagList">Tag List</a>.</p>
 		<a name="ClassBuilding"></a>
-        <hr>		
+        <hr>
 		<h2>Class Building 101</h2>
 		<p>Classes have three types of elements. These consist of the  Class
     	and Class Level Lines, the Sub-Class and Sub-Class Level Lines,
@@ -56,7 +56,7 @@
 		   	<li>Only tags identified as  Class Level Line tags may be used on this
 		    line.</li>
 		</ul>
-		<p><strong>A Basic Class Example</strong></p>	
+		<p><strong>A Basic Class Example</strong></p>
 		<p class="indent1"><code>CLASS:Rogue . . .</code><br>
         <il><code>CLASS:Rogue . . .</code></il><br>
         <il><code>1 . . .</code></il><br>
@@ -67,7 +67,7 @@
         <il><code>.</code><br>
         <il><code>19 . . .</code></il><br>
         <il><code>20 . . .</code></il></p>
-        
+
 		<h3>Sub-Class and Sub-Class Level Lines</h3>
 		<p>Sub-classes can	be	implemented	with	the	inclusion	of the <code><a href="#SUBCLASS">SUBCLASS</a></code> and <code><a href="#SUBCLASSLEVEL">SUBCLASSLEVEL</a> </code>tags.</p>
 		<p><strong>The Sub-Class Line</strong></p>
@@ -75,7 +75,7 @@
 			<li><code>HASSUBCLASS:YES</code> must be present in the Class Line that this
 			line is associated with.</li>
 			<li>Begins with the <code>SUBCLASS:&lt;sub-class name&gt;</code> tag.</li>
-			<li>Placed between the Class Lines and the Sub-Class Level Lines that define 
+			<li>Placed between the Class Lines and the Sub-Class Level Lines that define
 			the levels for the sub-class.</li>
 			<li>Only tags identified as Sub-Class Line or Class Line tags should be used
 			on this line.</li>
@@ -88,7 +88,7 @@
 			<li>Only tags identified as Sub-Class Line or Class Line tags should be used
 			on this line.</li>
 		</ul>
-		<strong>A Sub-Class Example</strong>	
+		<strong>A Sub-Class Example</strong>
 		<p class="indent1"><code>CLASS:Rogue . . .</code><br>
         <il><code>CLASS:Wizard . . .HASSUBCLASS:YES</code></il><br>
         <il><code>CLASS:Wizard . . .</code></il><br>
@@ -102,7 +102,7 @@
         <il><code>.</code><br>
         <il><code>19 . . .</code></il><br>
         <il><code>20 . . .</code></il></p>
-        
+
 		<h3>Substitution Class and Substitution Level Lines</h3>
 		<p>Substitution levels can be implemented with the inclusion
 		of the <code><a href="#SUBSTITUTIONCLASS">SUBSTITUTIONCLASS</a></code> and <code><a href="#SUBSTITUTIONLEVEL">SUBSTITUTIONLEVEL</a></code> tags.</p>
@@ -255,7 +255,6 @@
 
 
 		<p></p><a name="ATTACKCYCLE"></a><hr>
-
 		<p class="new">*** New 4.3.8*** Updated 5.11.6</span></p>
 		<p class="indent0"><strong>Tag Name:</strong> ATTACKCYCLE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> BAB, RAB, or UAB</p>
@@ -798,14 +797,14 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SUBCLASS:Illusionist &lt;tab&gt; CHOICE:Illusion</code></p>
 		<p class="indent3">For an Illusionist.</p>
-		<p class="indent2"><code>SUBCLASS:Abjure &lt;tab&gt; rCHOICE:Abjuration</code></p>
+		<p class="indent2"><code>SUBCLASS:Abjure &lt;tab&gt; CHOICE:Abjuration</code></p>
 		<p class="indent3">For an Abjurer.</p>
 		<p class="indent2"><code>SUBCLASS:Diviner &lt;tab&gt; CHOICE:Divination</code></p>
 		<p class="indent3">For a Diviner.</p>
 		<p class="indent2"><code>SUBCLASS:Savant &lt;tab&gt; CHOICE:Psychokinesis</code></p>
 		<p class="indent3">For a Psychokinesis.</p>
-		<p class="indent2"><code>SUBCLASS:Blue Dragon Disciple &lt;tab&gt; CHOICE:Black Dragon Disciple</code></p>
-		<p class="indent3">For a Black Dragon Disciple.</p>
+		<p class="indent2"><code>SUBCLASS:Blue Dragon Disciple &lt;tab&gt; CHOICE:Blue Dragon Disciple</code></p>
+		<p class="indent3">For a Blue Dragon Disciple.</p>
 		<p class="indent2"><code>SUBCLASS:Shaper &lt;tab&gt; CHOICE:Illusion.CLEAR</code></p>
 		<p class="indent3">Removes the coice for an Illusionist.</p>
 		<p class="indent2"><code>SUBCLASS:Nomad &lt;tab&gt; CHOICE:Abjuration.MOD  &lt;tab&gt; CHOICE:Divination</code></p>
@@ -900,7 +899,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent1">
 			<li>Defines a subclass or specialty choice.</li>
-			<li>First tag of a line between the Class Lines and the level definition lines for the 
+			<li>First tag of a line between the Class Lines and the level definition lines for the
 			class which can choose these subclasses or specialties.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -952,7 +951,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Defines a group of substitution levels.</li>
-			<li>First tag of a line between the	Class Lines and the level definition lines for the class 
+			<li>First tag of a line between the	Class Lines and the level definition lines for the class
 			which can choose these substitution levels.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -1056,14 +1055,14 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> %HdownNumber (Amount Hit Dice size is stepped down by)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>This tag can be used on a level line to specify a hit dice size which will 
+			<li>This tag can be used on a level line to specify a hit dice size which will
 			be applied only that level.</li>
-			<li>When using the step up function (%upNumber) the steps are d4,d6,d8,d10 and 
+			<li>When using the step up function (%upNumber) the steps are d4,d6,d8,d10 and
 			stops at d12.</li>
-			<li>When using the step down function (%downNumber) the steps are d12,d10,d8,d6 
+			<li>When using the step down function (%downNumber) the steps are d12,d10,d8,d6
 			and stops at d4.</li>
 			<li>Regardless of the number it will never allow a hit die below 1.</li>
-			<li>This tag can be used on a level line to specify a hit dice size which will 
+			<li>This tag can be used on a level line to specify a hit dice size which will
 			be applied only that level.</li>
 			<li>When using the step up function (%Hup) the steps are d1-d1000.</li>
 			<li>When using the step down function (%Hdown) the steps are d1-d1000.</li>
@@ -1119,7 +1118,7 @@
 		<p class="indent3">The class can choose any written language or &quot;Draconic&quot;
 							as one of thier languages.</p>
 		<p class="indent2"><code>LANGBONUS:.CLEAR,Dwarven,Gnomish,Orcish</code></p>
-		<p class="indent3">The class has all bonus languages cleared then can choose &quot;Dwarvish&quot;, 
+		<p class="indent3">The class has all bonus languages cleared then can choose &quot;Dwarvish&quot;,
 			&quot;Gnomish&quot; or &quot;Orcish&quot; as one of thier languages.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Class Level Line.</p>
