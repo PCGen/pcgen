@@ -20,7 +20,11 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.levelability.LevelAbility;
@@ -64,7 +68,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	// /////////////////////////////////////
 	// Fields - Associations
 
-	/* no associations */
+	private List<Description> theBenefits = null;
 
 	// /////////////////////////////////////
 	// Constructor
@@ -119,32 +123,105 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
-	 * Set the short text snippet that briefly describes what this ability does.
-	 *
-	 * @param  benefit  the abbreviated description
+	 * Adds a description for this object.  Multiple descriptions are allowed 
+	 * and will be concatonated on output.
+	 * 
+	 * <p>The format of the description tag 
+	 * @param aDesc
 	 */
-	public void setBenefit(final String benefit)
+	public void addBenefit( final Description aDesc )
 	{
-		stringChar.put(StringKey.BENEFIT, benefit);
+		if ( theBenefits == null )
+		{
+			theBenefits = new ArrayList<Description>();
+		}
+		aDesc.setOwner( this );
+		theBenefits.add( aDesc );
+	}
+	
+	/**
+	 * Clears all current benefits for the object.
+	 */
+	public void removeAllBenefits()
+	{
+		theBenefits.clear();
+		theBenefits = null;
+	}
+	
+	/**
+	 * Removes benefit <tt>Description</tt>s who's PCC Text matches the pattern
+	 * specified.
+	 *  
+	 * @param aDescPattern The regular expression to search for.
+	 */
+	public void removeBenefit( final String aDescPattern )
+	{
+		if ( theBenefits == null )
+		{
+			return;
+		}
+		final Pattern pattern = Pattern.compile(aDescPattern);
+
+		for ( final Iterator<Description> i = theBenefits.iterator(); i.hasNext(); )
+		{
+			final String descText = i.next().getPCCText();
+			final Matcher matcher = pattern.matcher(descText);
+			if ( matcher.find() )
+			{
+				i.remove();
+			}
+		}
+	}
+	
+	/**
+	 * Get the benefits of this object
+	 * 
+	 * @param aPC The PlayerCharacter this object is associated to.
+	 * @return the benefits of this ability
+	 */
+	public String getBenefits(final PlayerCharacter aPC)
+	{
+		if ( theBenefits == null )
+		{
+			return Constants.EMPTY_STRING;
+		}
+		final StringBuffer buf = new StringBuffer();
+		boolean wrote = false;
+		for ( final Description desc : theBenefits )
+		{
+			if ( wrote )
+			{
+				buf.append(Constants.COMMA);
+			}
+			final String str = desc.getDescription(aPC);
+			if ( str.length() > 0 )
+			{
+				buf.append(str);
+				wrote = true;
+			}
+			else
+			{
+				wrote = false;
+			}
+		}
+		return buf.toString();
 	}
 
-	/**
-	 * Get the short text snippet that briefly describes what this ability does.
-	 *
-	 * @return  a short String describing this ability
-	 */
-	public String getBenefit()
+	public List<Description> getBenefitList()
 	{
-		String characteristic = stringChar.get(StringKey.BENEFIT);
-		return characteristic == null ? "" : characteristic;
+		if ( theBenefits == null )
+		{
+			return Collections.emptyList();
+		}
+		return Collections.unmodifiableList(theBenefits);
 	}
 
 	// TODO - Remove this once a decision is made about descriptions.
 	public String getBenefitDescription()
 	{
-		if (SettingsHandler.useFeatBenefits() && getBenefit().length() > 1)
+		if (SettingsHandler.useFeatBenefits() && getBenefits(null).length() > 1)
 		{
-			return getBenefit();
+			return getBenefits(null);
 		}
 
 		return getDescription();
@@ -156,12 +233,12 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * @return  the benefit if it is set and they are turned on, otherwise
 	 *          return the description
 	 */
-
+	@Override
 	public String getDescription(final PlayerCharacter aPC)
 	{
-		if (SettingsHandler.useFeatBenefits() && getBenefit().length() > 1)
+		if (SettingsHandler.useFeatBenefits() && getBenefits(aPC).length() > 1)
 		{
-			return getBenefit();
+			return getBenefits(aPC);
 		}
 
 		return super.getDescription(aPC);
@@ -373,7 +450,19 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	{
 		try
 		{
-			return (Ability) super.clone();
+			final Ability ret = (Ability)super.clone();
+
+			if ( theBenefits != null )
+			{
+				ret.theBenefits = new ArrayList<Description>();
+				for ( final Description desc : theBenefits )
+				{
+					desc.setOwner(ret);
+					ret.theBenefits.add(desc);
+				}
+			}
+			
+			return ret;
 		}
 		catch (CloneNotSupportedException e)
 		{
@@ -466,6 +555,10 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		// don't do for Weapon Profs
 		final StringBuffer aStrBuf = new StringBuffer(getOutputName());
 
+		if (getOutputName().equalsIgnoreCase("[BASE]"))
+		{
+			return getOutputName();
+		}
 		if ((getAssociatedCount() > 0)
 				&& !getKeyName().startsWith("Armor Proficiency")
 				)

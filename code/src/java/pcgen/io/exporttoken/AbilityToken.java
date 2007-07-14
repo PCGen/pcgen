@@ -95,6 +95,7 @@ public class AbilityToken extends Token
 		final AbilityCategory aCategory =
 				SettingsHandler.getGame().getAbilityCategory(catString);
 
+		
 		return getTokenForCategory(tokenSource, pc, eh, aTok, tokenString,
 			aCategory);
 	}
@@ -316,6 +317,10 @@ public class AbilityToken extends Token
 			{
 				retString += aAbility.getDescription(pc);
 			}
+			else if (tokenSource.endsWith(".BENEFIT"))
+			{
+				retString += aAbility.getBenefits(pc);
+			}
 			else if (tokenSource.endsWith(".TYPE"))
 			{
 				retString += aAbility.getType();
@@ -343,6 +348,15 @@ public class AbilityToken extends Token
 			{
 				retString += aAbility.getDefaultSourceString();
 			}
+//			else if (tokenSource.indexOf(".IS=") != -1)
+//			{
+//				final String type = tokenSource.substring(tokenSource.indexOf(".IS=")+4);
+//				retString += aAbility.isType(type) == true ? "1" : "0";
+//			}
+//			else if (tokenSource.endsWith(".NATURE"))
+//			{
+//				retString += aAbility.getFeatType();
+//			}
 			else
 			{
 				retString += aAbility.qualifiedName();
