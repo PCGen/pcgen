@@ -2089,8 +2089,13 @@ public class WeaponToken extends Token
 			newAttack.append(attack).append("/");
 		}
 
-		if (eq.isAttacksProgress()
-			|| (eq.bonusTo(pc, "WEAPON", "ATTACKSPROGRESS", true) > 0))
+		boolean progress = eq.isAttacksProgress();
+		int bonusProgress = (int)eq.bonusTo(pc, "WEAPON", "ATTACKSPROGRESS", true);
+		if (bonusProgress != 0)
+		{
+			progress = bonusProgress > 0;
+		}
+		if (progress)
 		{
 
 			/* For normal weapons, we need to append the original
