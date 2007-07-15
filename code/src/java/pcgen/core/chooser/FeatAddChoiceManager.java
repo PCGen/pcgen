@@ -43,7 +43,6 @@ import pcgen.core.Categorisable;
  */
 public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 
-	Ability  anAbility = null;
 
 	/**
 	 * Make a Feat chooser.
@@ -78,7 +77,6 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
-		anAbility = null;
 		Iterator<String> choiceIt  = choices.iterator();
 
 		while (choiceIt.hasNext())
@@ -106,120 +104,143 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 			else
 			{
 				final StringTokenizer bTok = new StringTokenizer(aString, ",");
-				String featKey = bTok.nextToken().trim();
-				String subName = "";
-				anAbility = Globals.getAbilityKeyed("FEAT", featKey);
-
-				if (anAbility == null)
+				while (bTok.hasMoreElements())
 				{
-					Logging.errorPrint("Feat not found: " + featKey);
+					String tokString = (String) bTok.nextElement();
+					
+					addChoiceToAvailable(aPc, availableList, tokString.trim());
+				}
+			}
+		}
+	}
 
-					//return false;
+	/**
+	 * Add a single feat to the list of available feat names.
+	 * 
+	 * @param aPc The character being processed.
+	 * @param availableList The list of feats to be offered
+	 * @param tokString The key of the feat to be added.
+	 */
+	private void addChoiceToAvailable(final PlayerCharacter aPc,
+		final List<String> availableList, String featKey)
+	{
+		String subName = "";
+		Ability anAbility = Globals.getAbilityKeyed("FEAT", featKey);
+
+		if (anAbility == null)
+		{
+			Logging.errorPrint("Feat not found: " + featKey);
+			return;
+		}
+
+		if (!featKey.equalsIgnoreCase(anAbility.getKeyName()))
+		{
+			subName = featKey.substring(anAbility.getKeyName().length());
+			featKey = anAbility.getKeyName();
+
+			final int si = subName.indexOf('(');
+
+			if (si > -1)
+			{
+				subName = subName.substring(si + 1);
+			}
+		}
+
+		if (PrereqHandler.passesAll(anAbility.getPreReqList(), aPc, anAbility))
+		{
+			if (anAbility.isMultiples())
+			{
+				//
+				// If already have taken the feat, use it so we can remove
+				// any choices already selected
+				//
+				final Ability pcFeat = aPc.getFeatKeyed(featKey);
+
+				if (pcFeat != null)
+				{
+					anAbility = pcFeat;
 				}
 
-				if (!featKey.equalsIgnoreCase(anAbility.getKeyName()))
+				final int percIdx = subName.indexOf('%');
+
+				if (percIdx > -1)
 				{
-					subName = featKey.substring(anAbility.getKeyName().length());
-					featKey = anAbility.getKeyName();
+					subName = subName.substring(0, percIdx);
+				}
+				else if (subName.length() != 0)
+				{
+					final int idx = subName.lastIndexOf(')');
 
-					final int si = subName.indexOf('(');
-
-					if (si > -1)
+					if (idx > -1)
 					{
-						subName = subName.substring(si + 1);
+						subName = subName.substring(0, idx);
 					}
 				}
 
-				if (PrereqHandler.passesAll(anAbility.getPreReqList(), aPc, anAbility))
+				// Retrieve the choices offered by the ability
+				final List tempAvailList = new ArrayList();
+				final List tempSelList = new ArrayList();
+				anAbility.modChoices(tempAvailList, tempSelList, false, aPc,
+					true, null);
+				final List<String> aavailableList = new ArrayList<String>(); // available list of choices
+				final List<String> sselectedList = new ArrayList<String>(); // selected list of choices
+				ChooserUtilities.convertChoiceListToStringList(tempAvailList, aavailableList);
+				ChooserUtilities.convertChoiceListToStringList(tempSelList, sselectedList);
+				
+				//
+				// Remove any that don't match
+				//
+				if (subName.length() != 0)
 				{
-					if (anAbility.isMultiples())
+					for (int n = aavailableList.size() - 1; n >= 0; --n)
 					{
-						//
-						// If already have taken the feat, use it so we can remove
-						// any choices already selected
-						//
-						final Ability pcFeat = aPc.getFeatKeyed(featKey);
+						final String bString = aavailableList.get(n);
 
-						if (pcFeat != null)
+						if (!bString.startsWith(subName))
 						{
-							anAbility = pcFeat;
+							aavailableList.remove(n);
 						}
-
-						final int percIdx = subName.indexOf('%');
-
-						if (percIdx > -1)
-						{
-							subName = subName.substring(0, percIdx);
-						}
-						else if (subName.length() != 0)
-						{
-							final int idx = subName.lastIndexOf(')');
-
-							if (idx > -1)
-							{
-								subName = subName.substring(0, idx);
-							}
-						}
-
-						final List<String> aavailableList = new ArrayList<String>(); // available list of choices
-						final List<String> sselectedList = new ArrayList<String>(); // selected list of choices
-						anAbility.modChoices(aavailableList, sselectedList, false, aPc, true, null);
-
-						//
-						// Remove any that don't match
-						//
-						if (subName.length() != 0)
-						{
-							for (int n = aavailableList.size() - 1; n >= 0; --n)
-							{
-								final String bString = aavailableList.get(n);
-
-								if (!bString.startsWith(subName))
-								{
-									aavailableList.remove(n);
-								}
-							}
-
-							//
-							// Example: ADD:FEAT(Skill Focus(Craft (Basketweaving)))
-							// If you have no ranks in Craft (Basketweaving), the available list will be empty
-							//
-							// Make sure that the specified feat is available, even though it does not meet the prerequisite
-							//
-							if ((percIdx == -1) && (aavailableList.size() == 0))
-							{
-								aavailableList.add(subName);
-							}
-						}
-
-						//
-						// Remove any already selected
-						//
-						if (!anAbility.isStacks())
-						{
-							for (Iterator e = sselectedList.iterator(); e.hasNext();)
-							{
-								final int idx = aavailableList.indexOf(e.next().toString());
-
-								if (idx > -1)
-								{
-									aavailableList.remove(idx);
-								}
-							}
-						}
-
-						for (Iterator e = aavailableList.iterator(); e.hasNext();)
-						{
-							availableList.add(featKey + "(" + e.next() + ")");
-						}
-
-						//return false;
 					}
-					else if (!aPc.hasRealFeat(Globals.getAbilityKeyed("FEAT", featKey)) && !aPc.hasFeatAutomatic(featKey))
+
+					//
+					// Example: ADD:FEAT(Skill Focus(Craft (Basketweaving)))
+					// If you have no ranks in Craft (Basketweaving), the available list will be empty
+					//
+					// Make sure that the specified feat is available, even though it does not meet the prerequisite
+					//
+					if ((percIdx == -1) && (aavailableList.size() == 0))
 					{
-						availableList.add(aString);
+						aavailableList.add(subName);
 					}
 				}
+
+				//
+				// Remove any already selected
+				//
+				if (!anAbility.isStacks())
+				{
+					for (Iterator<String> e = sselectedList.iterator(); e
+						.hasNext();)
+					{
+						final int idx = aavailableList.indexOf(e.next());
+
+						if (idx > -1)
+						{
+							aavailableList.remove(idx);
+						}
+					}
+				}
+
+				for (Iterator<String> e = aavailableList.iterator(); e
+					.hasNext();)
+				{
+					availableList.add(featKey + "(" + e.next() + ")");
+				}
+			}
+			else if (!aPc.hasRealFeat(Globals.getAbilityKeyed("FEAT", featKey))
+				&& !aPc.hasFeatAutomatic(featKey))
+			{
+				availableList.add(featKey);
 			}
 		}
 	}
@@ -238,14 +259,15 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 	{
 		super.associateChoice(aPc, item, prefix);
 
-		if (anAbility != null)
+		boolean adjPool = !aPc.hasRealFeatNamed(item);
+		if (adjPool)
 		{
-			if (!aPc.hasRealFeatNamed(item))
-			{
-				aPc.adjustFeats(1);
-			}
+			aPc.adjustFeats(1);
+		}
 
-			AbilityUtilities.modFeat(aPc, null, item, true, false);
+		if (0 == AbilityUtilities.modFeat(aPc, null, item, true, false) && adjPool)
+		{
+			aPc.adjustFeats(-1);
 		}
 	}
 

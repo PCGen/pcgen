@@ -473,4 +473,22 @@ public class ChooserUtilities
 		}
 		return null;
 	}
+	
+
+	/**
+	 * Mod choices can send back weaponprofs, abilities or strings,
+	 * so we have to do a conversion here.
+	 * 
+	 * @param choiceList The list of choices provided by modChoices
+	 * @param stringList The list of strings representing the choices.
+	 */
+	public static void convertChoiceListToStringList(final List choiceList,
+		final List<String> stringList)
+	{
+		for (Iterator iter = choiceList.iterator(); iter.hasNext();)
+		{
+			stringList.add(String.valueOf(iter.next()));
+		}
+	}
+	
 }
