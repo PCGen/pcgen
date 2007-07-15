@@ -21,9 +21,9 @@ Power Pack (30)			OUTPUTNAME:Power Pack, 30 charges				TYPE:Ammunition.Standard.
 
 #Single Shot versions
 Bio-Agent				OUTPUTNAME:Ammunition, Bio-Agent, 1 bullet		TYPE:Ammunition.Standard.Bullet.Poison.PL6.Individual	COST:14	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:-1 to damage, poisonous bio-agent with effects identical to cyanogen gas, Mil(+3)
-Energy Charge			OUTPUTNAME:Power Pack Energy Charge				TYPE:Ammunition.Standard.Energy.PL6.Indiviudual		COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
-Deflecting Ammunition		OUTPUTNAME:Ammunition, deflecting, single shot		TYPE:Ammunition.Standard.Bullet.PL7.Indiviudual		COST:12	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:deflecting ammunition can be bounced around any barrier, Lic(+1)
-Plasma-Coated Ammunition	OUTPUTNAME:Ammunition, plasma-coated, single shot	TYPE:Ammunition.Standard.Bullet.PL7.Indiviudual		COST:13	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:reduces the Defense bonus provided by armor by 2, to a minimum of +1, half of the damage it deals is fire damage, and half of the damage is ballistic damage, Res(+2)
-Seeker Ammunition			OUTPUTNAME:Ammunition, Seeker, single shot		TYPE:Ammunition.Standard.Bullet.PL7.Indiviudual		COST:15	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:+1 bonus on all ranged attacks, Res(+2)
-Rail Gun Shard			OUTPUTNAME:Ammunition, rail gun shard, single shard	TYPE:Ammunition.Standard.Shard.PL7				COST:10	WT:0		SOURCEPAGE:FutureEquipment.rtf
-Phasing Ammunition		OUTPUTNAME:Ammunition, phasing, single shot		TYPE:Ammunition.Standard.Bullet.PL8.Indiviudual		COST:16	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:negates the benefits of cover, Res(+2)
+Energy Charge			OUTPUTNAME:Power Pack Energy Charge				TYPE:Ammunition.Standard.Energy.PL6.Individual		COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
+Deflecting Ammunition		OUTPUTNAME:Ammunition, deflecting, single shot		TYPE:Ammunition.Standard.Bullet.PL7.Individual		COST:12	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:deflecting ammunition can be bounced around any barrier, Lic(+1)
+Plasma-Coated Ammunition	OUTPUTNAME:Ammunition, plasma-coated, single shot	TYPE:Ammunition.Standard.Bullet.PL7.Individual		COST:13	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:reduces the Defense bonus provided by armor by 2, to a minimum of +1, half of the damage it deals is fire damage, and half of the damage is ballistic damage, Res(+2)
+Seeker Ammunition			OUTPUTNAME:Ammunition, Seeker, single shot		TYPE:Ammunition.Standard.Bullet.PL7.Individual		COST:15	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:+1 bonus on all ranged attacks, Res(+2)
+Rail Gun Shard			OUTPUTNAME:Ammunition, rail gun shard, single shard	TYPE:Ammunition.Standard.Shard.PL7.Individual		COST:10	WT:0		SOURCEPAGE:FutureEquipment.rtf
+Phasing Ammunition		OUTPUTNAME:Ammunition, phasing, single shot		TYPE:Ammunition.Standard.Bullet.PL8.Individual		COST:16	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:negates the benefits of cover, Res(+2)

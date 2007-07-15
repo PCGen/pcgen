@@ -30,8 +30,8 @@ Sword Cane			PROFICIENCY:Sword Cane			TYPE:Weapon.Archaic.Melee.Piercing.Standar
 
 #	Exotic Melee Weapons
 # Equipment Name		Required Proficiency			Type												Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Requires Modification?	Range		Reach Multiplier	Size		Source Page
-Chain				PROFICIENCY:Chain				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Metal.Finessable	ALTTYPE:Weapon.Melee.Bludgeoning	COST:5	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6											SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
-Chain - 1 handed		PROFICIENCY:Chain				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Metal.Finessable.Reach							COST:5	WT:5		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6											REACHMULT:2		SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Chain				PROFICIENCY:Chain				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Metal.Finesseable	ALTTYPE:Weapon.Melee.Bludgeoning	COST:5	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6											SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Chain - 1 handed		PROFICIENCY:Chain				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Metal.Finesseable.Reach							COST:5	WT:5		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6											REACHMULT:2		SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
 Chain Saw			PROFICIENCY:Chain Saw			TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal										COST:9	WT:10		CRITMULT:x2			CRITRANGE:1												DAMAGE:3d6														SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
 Kama				PROFICIENCY:Kama				TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal										COST:5	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6														SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
 Katana			PROFICIENCY:Katana			TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Katana									COST:12	WT:6		CRITMULT:x2			CRITRANGE:2												DAMAGE:2d6														SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
