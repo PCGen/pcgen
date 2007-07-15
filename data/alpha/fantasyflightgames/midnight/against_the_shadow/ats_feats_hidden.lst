@@ -29,11 +29,11 @@ Electricity Resistance		TYPE:EnergyResistance.ElementalResistance	VISIBLE:NO	SA:
 Fire Resistance			TYPE:EnergyResistance.ElementalResistance	VISIBLE:NO	SA:Resistance to fire % (Ex)|FireResistance|!PREFEAT:1,Energy Immunity (fire)					DEFINE:FireResistance|0
 Sonic Resistance			TYPE:EnergyResistance.ElementalResistance	VISIBLE:NO	SA:Resistance to sonic % (Ex)|SonicResistance|!PREFEAT:1,Energy Immunity (fire)				DEFINE:SonicResistance|0
 
-Energy Immunity (acid)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SA:Immune to acid (Ex)																				BONUS:VAR|AcidResistance|-(min(AcidResistance,100))			REMOVE:FEAT(Acid Resistance)
-Energy Immunity (cold)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SA:Immune to cold (Ex)																				BONUS:VAR|ColdResistance|-(min(ColdResistance,100))			REMOVE:FEAT(Cold Resistance)
-Energy Immunity (electricity)	TYPE:Special.EnergyImmunity			VISIBLE:NO	SA:Immune to electricity (Ex)																			BONUS:VAR|ElectricityResistance|-(min(ElectricityResistance,100))	REMOVE:FEAT(Electricity Resistance)
-Energy Immunity (fire)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SA:Immune to fire (Ex)																				BONUS:VAR|FireResistance|-(min(FireResistance,100))			REMOVE:FEAT(Fire Resistance)
-Energy Immunity (sonic)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SA:Immune to sonic (Ex)																				BONUS:VAR|SonicResistance|-(min(SonicResistance,100))			REMOVE:FEAT(Sonic Resistance)
+Energy Immunity (acid)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SA:Immune to acid (Ex)																				BONUS:VAR|AcidResistance|-(min(AcidResistance,100))			REMOVE:FEAT|Acid Resistance
+Energy Immunity (cold)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SA:Immune to cold (Ex)																				BONUS:VAR|ColdResistance|-(min(ColdResistance,100))			REMOVE:FEAT|Cold Resistance
+Energy Immunity (electricity)	TYPE:Special.EnergyImmunity			VISIBLE:NO	SA:Immune to electricity (Ex)																			BONUS:VAR|ElectricityResistance|-(min(ElectricityResistance,100))	REMOVE:FEAT|Electricity Resistance
+Energy Immunity (fire)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SA:Immune to fire (Ex)																				BONUS:VAR|FireResistance|-(min(FireResistance,100))			REMOVE:FEAT|Fire Resistance
+Energy Immunity (sonic)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SA:Immune to sonic (Ex)																				BONUS:VAR|SonicResistance|-(min(SonicResistance,100))			REMOVE:FEAT|Sonic Resistance
 
 ###Block: Special Qualities
 
