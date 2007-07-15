@@ -1,9 +1,10 @@
 # CVS $Revision$ $Author$ -- Thu Jan 18 15:16:03 2007 -- reformated by prettylst.pl v1.35 (build 1495)
-CAMPAIGN:Lines of Legend - Winter Elves
+CAMPAIGN:Secular Games - Lines of Legend - Winter Elves
 RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
-TYPE:Secular Games.Lines of Legend.Winter Elves
+TYPE:Alpha Datasets
+#TYPE:Secular Games.Lines of Legend.Winter Elves
 PUBNAMELONG:Secular Games
 PUBNAMESHORT:SecGame
 PUBNAMEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/index.html
