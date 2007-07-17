@@ -4,6 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 STARTPACK:Default Eagle (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle (Giant)]
 RACE:Eagle (Giant)	!PRERACE:1,%
 NAME:Eagle (Giant)
+ALIGN:TN
 SKILL:Survival			RANK:1
 SKILL:Spot				RANK:7
 SKILL:Knowledge (Nature)	RANK:2
@@ -324,6 +325,7 @@ STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
 STARTPACK:Default Ethereal Filcher	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Filcher]
 RACE:Ethereal Filcher	!PRERACE:1,%
 NAME:Ethereal Filcher
+ALIGN:TN
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 FEAT:Dodge
@@ -343,6 +345,7 @@ STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
 STARTPACK:Default Ettercap	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ettercap]
 RACE:Ettercap	!PRERACE:1,%
 NAME:Ettercap
+ALIGN:NE
 SKILL:Craft (Trapmaking)	RANK:2
 SKILL:Hide				RANK:2
 SKILL:Listen			RANK:2
@@ -354,6 +357,7 @@ STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
 STARTPACK:Default Ettin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ettin]
 RACE:Ettin	!PRERACE:1,%
 NAME:Ettin
+ALIGN:CE
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 SKILL:Search	RANK:1
@@ -422,7 +426,6 @@ SKILL:Intimidate		RANK:9
 SKILL:Listen		RANK:9
 SKILL:Sense Motive	RANK:9
 SKILL:Spot			RANK:9
-SKILL:Spot			RANK:5
 FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Multiattack
@@ -448,11 +451,13 @@ FEAT:Mobility
 FEAT:Multiattack
 FEAT:Spring Attack
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
+GEAR:Javelin	SIZE:PC	LOCATION:Carried
 
 STARTPACK:Default Formian (Queen)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Queen)]
 RACE:Formian (Queen)	!PRERACE:1,%
 NAME:Formian (Queen)
 ALIGN:LN
+GENDER:Female
 SKILL:Intimidate		RANK:23
 SKILL:Diplomacy		RANK:23
 SKILL:Appraise		RANK:23
@@ -477,6 +482,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash|Analyze Dweomer|Arcane 
 STARTPACK:Default Frost Worm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Worm]
 RACE:Frost Worm	!PRERACE:1,%
 NAME:Frost Worm
+ALIGN:TN
 SKILL:Hide		RANK:11
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
