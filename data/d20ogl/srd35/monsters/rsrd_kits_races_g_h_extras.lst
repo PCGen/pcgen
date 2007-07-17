@@ -4,7 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 STARTPACK:Frost Giant Jarl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
 RACE:Giant (Frost)	!PRERACE:1,%
 NAME:Frost Giant Jarl
-STAT:STR=14|DEX=14|CON=12|INT=10|WIS=8|CHA=18
+STAT:STR=14|DEX=14|CON=12|INT=10|WIS=8|CHA=16
 ALIGN:CE
 SKILL:Hide				RANK:5
 SKILL:Knowledge (Religion)	RANK:2
@@ -25,6 +25,9 @@ FEAT:Lightning Reflexes
 FEAT:Quick Draw
 GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.FROST_M
 GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
+GEAR:Ring (Energy Resistance/Fire/Minor)	LOCATION:Equipped
+GEAR:Cloak of Charisma +2	SIZE:PC	LOCATION:Equipped
+GEAR:Poison (Bloodroot)		QTY:2		LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Blackguard|Bull's Strength|Cause Fear|Doom|Magic Weapon
 
 STARTPACK:Harpy Archer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harpy]
@@ -58,3 +61,29 @@ GEAR:Potion (Cat's Grace)		SIZE:PC	LOCATION:Carried
 GEAR:Potion (Cure Moderate Wounds)	SIZE:PC	LOCATION:Carried
 GEAR:Cloak of Resistance +2		SIZE:PC	LOCATION:Equipped
 GEAR:Ring (Protection +1)		SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Nessian Warhound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hell Hound]
+RACE:Hell Hound	!PRERACE:1,%
+NAME:Nessian Warhound
+ALIGN:LE
+SKILL:Jump			RANK:7
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:7
+FEAT:Improved Initiative
+FEAT:Track
+CLASS:Outsider	LEVEL:8
+SKILL:Survival		RANK:7
+SKILL:Hide			RANK:8
+SKILL:Listen		RANK:8
+SKILL:Move Silently	RANK:8
+SKILL:Spot			RANK:8
+SKILL:Tumble		RANK:1
+FEAT:Alertness
+FEAT:Weapon Focus (Bite)
+FEAT:Improved Critical (Bite)
+FEAT:Armor Proficiency (Barding)	COST:0
+GEAR:Barding (Chain Shirt)	SIZE:PC	EQMOD:PLUS2A	LOCATION:Equipped
+STAT:STR=16|DEX=14|CON=14|INT=8|WIS=12|CHA=10
+
