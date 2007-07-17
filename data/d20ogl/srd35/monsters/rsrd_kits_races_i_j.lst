@@ -32,7 +32,6 @@ SKILL:Listen			RANK:9
 SKILL:Search			RANK:9
 SKILL:Sense Motive		RANK:9
 SKILL:Spot				RANK:9
-SKILL:Diplomacy			RANK:2
 FEAT:Ability Focus(Fists)
 FEAT:Awesome Blow
 FEAT:Combat Casting
@@ -59,6 +58,7 @@ GEAR:Barding (Full Plate)	SIZE:PC	LOCATION:Equipped
 STARTPACK:Default Invisible Stalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Invisible Stalker]
 RACE:Invisible Stalker	!PRERACE:1,%
 NAME:Invisible Stalker
+ALIGN:TN
 SKILL:Listen		RANK:11
 SKILL:Move Silently	RANK:11
 SKILL:Search		RANK:11
