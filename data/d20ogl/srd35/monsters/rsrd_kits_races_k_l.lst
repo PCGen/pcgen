@@ -19,6 +19,7 @@ GEAR:Sling		SIZE:PC	LOCATION:Carried
 STARTPACK:Default Kraken	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kraken]
 RACE:Kraken	!PRERACE:1,%
 NAME:Kraken
+ALIGN:NE
 SKILL:Intimidate			RANK:11
 SKILL:Knowledge (Nature)	RANK:11
 SKILL:Use Magic Device		RANK:11
@@ -41,9 +42,10 @@ STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
 STARTPACK:Default Krenshar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Krenshar]
 RACE:Krenshar	!PRERACE:1,%
 NAME:Krenshar
+ALIGN:TN
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:2
-SKILL:Jump		RANK:5
+SKILL:Jump		RANK:1
 FEAT:Multiattack
 FEAT:Track
 STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
@@ -51,12 +53,11 @@ STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 STARTPACK:Default Lamia	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lamia]
 RACE:Lamia	!PRERACE:1,%
 NAME:Lamia
+ALIGN:CE
 SKILL:Bluff			RANK:9
 SKILL:Concentration	RANK:9
 SKILL:Hide			RANK:9
 SKILL:Spot			RANK:9
-SKILL:Diplomacy		RANK:2
-SKILL:Intimidate		RANK:2
 FEAT:Dodge
 FEAT:Iron Will
 FEAT:Mobility
@@ -73,7 +74,6 @@ SKILL:Knowledge (Arcana)	RANK:10
 SKILL:Listen			RANK:10
 SKILL:Sense Motive		RANK:10
 SKILL:Spot				RANK:10
-SKILL:Diplomacy			RANK:2
 FEAT:Blind Fight
 FEAT:Iron Will
 FEAT:Lightning Reflexes
@@ -95,6 +95,7 @@ SKILL:Move Silently	RANK:15
 SKILL:Sense Motive	RANK:15
 SKILL:Spot			RANK:15
 SKILL:Survival		RANK:15
+SKILL:TYPE=Knowledge	RANK:15	COUNT:1
 FEAT:Ability Focus(Roar)
 FEAT:Dodge
 FEAT:Mobility
@@ -139,6 +140,7 @@ GEAR:Javelin			SIZE:PC	LOCATION:Carried
 STARTPACK:Default Locathah	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Locathah]
 RACE:Locathah	!PRERACE:1,%
 NAME:Locathah
+ALIGN:TN
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 SKILL:TYPE=Craft	RANK:5
@@ -213,10 +215,13 @@ STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 CLASS:Warrior	LEVEL:1
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
-TEMPLATE:Lycanthrope[TEMPLATE:Weretiger][TEMPLATE:Natural Lycanthrope]
+SKILL:Climb			RANK:4
 SKILL:Handle Animal	RANK:4
-SKILL:Listen		RANK:4
-SKILL:Spot			RANK:4
+SKILL:Listen		RANK:1
+SKILL:Spot			RANK:1
+TEMPLATE:Lycanthrope[TEMPLATE:Weretiger][TEMPLATE:Natural Lycanthrope]
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:3
 FEAT:Improved Natural Attack (Bite)
 FEAT:Improved Natural Attack (Claw)
 GEAR:Breastplate			SIZE:PC	LOCATION:Equipped
@@ -233,7 +238,7 @@ FEAT:Improved Initiative
 FEAT:Stealthy
 TEMPLATE:Lycanthrope[TEMPLATE:Werewolf][TEMPLATE:Natural Lycanthrope]
 SKILL:Hide			RANK:2
-SKILL:Move Silently	RANK:2
+SKILL:Move Silently	RANK:3
 SKILL:Listen		RANK:1
 SKILL:Spot			RANK:1
 SKILL:Handle Animal	RANK:2
