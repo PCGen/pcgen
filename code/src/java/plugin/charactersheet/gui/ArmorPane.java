@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -187,9 +188,13 @@ public class ArmorPane extends javax.swing.JPanel
 		PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 		final String armorType = typeName.getText();
 
-		for (int i = 0; i < fields.size(); i++)
+		// Karianna - Bug 1749754 - Changed to using an iterator
+		Iterator<Component> itor = fields.iterator();
+		Component component;
+		while (itor.hasNext())
 		{
-			remove(fields.get(i));
+			component = itor.next();
+			remove(component);
 		}
 		fields.clear();
 
