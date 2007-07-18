@@ -90,7 +90,7 @@ CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Know
 # Class Name			Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Legendary Dreadnought	HD:12		TYPE:Epic.PC	ABB:Dre		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name			Req. Att.	Required Feat											Required Lvl	Required Skill
-CLASS:Legendary Dreadnought	PREATT:23	PREFEAT:4,Combat Reflexes,Great Cleave,Improved Bull Rush,Improved Critical	PRELEVEL:20		PRESKILL:1,Intimidate=15
+CLASS:Legendary Dreadnought	PREVARGTEQ:BAB+var("BONUS.COMBAT.TOHIT.Epic"),23	PREFEAT:4,Combat Reflexes,Great Cleave,Improved Bull Rush,Improved Critical	PRELEVEL:20		PRESKILL:1,Intimidate=15
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Legendary Dreadnought	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim|TYPE.Craft
 1						SA:Unstoppable (Ex) %/day|LDUnstoppable	BONUS:VAR|LDUnstoppable|ceil(CL/5)													DEFINE:LDUnstoppable|0
