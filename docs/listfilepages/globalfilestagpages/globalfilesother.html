@@ -1104,7 +1104,11 @@
 		<p class="indent2"><code>CATEGORY=<foo>|<key>.MOD</code></p>
 		<p class="indent3">The new syntax to be used to .MOD an ability.</p>
 
-		<p></p><a name="COPY"></a><hr>
+		<p></p><hr>
+
+		<h2>The .COPY Tag</h2>
+
+		<p></p><a name="COPY"></a>
 		<p class="new">*** Updated 5.12 RC3</p>
 		<p class="indent0"><strong>Tag Name:</strong> &lt;name&gt;.COPY=&lt;new name&gt;</p>
 		<p class="indent1"><strong>Variables Used: </strong>Text, First field of the item to be copied</p>
@@ -1139,7 +1143,11 @@
 		<p class="indent2"><code>Skill Focus.COPY=Heighten Knowledge</code></p>
 		<p class="indent3">Creates a new feat called Heighten Knowledge based on the Skill Focus feat. (in feat.lst)</p>
 
-		<p></p><a name="CLEAR"></a><hr>
+		<p></p><hr>
+
+		<h2>The .CLEAR Tag</h2>
+
+		<p></p><a name="CLEAR"></a>
 		<p class="indent0"><strong>Tag Name:</strong> &lt;tag&gt;.CLEAR.&lt;variable&gt;</p>
 		<p class="indent1"><strong>Variables Used: </strong>Text, Last field is the item to be cleared</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -1160,6 +1168,13 @@
 			<font color="FF0000"><strong>Caution:</strong></font>
 			PCGen works in a sequential manor and if the two tags order is swapped
 			the new value will be cleared as well as the original values.<br></p>
+
+		<p class="indent1"><strong>Work Arounds:</strong></p>
+		<p class="indent2">What a curse that .CLEAR is not supported on CHOICE to make CHOICE to disappear from
+		the item.</p>
+		<p class="indent3">Two ways to do that.  a)  MULT:NO  - makes it a single feat, choice not supported.
+		b) CHOOSE:NOCHOICE  - no popup, but selectable multiple times. Tir Gwaith PCGen LST Chimp</p>
+
 		<p class="indent1"><strong><font color="FF0000">Deprecated syntax:</font></strong></p>
 		<p class="indent2"><code>TAG:.CLEAR.&lt;New values to be added&gt;</code></p>
 		<p class="indent3">This syntax clears ALL the values of the original object and then adds back any items which follow the .CLEAR.
@@ -1183,7 +1198,11 @@
 		<p class="indent3">Modifies the Acid Arrow spell by eliminating the original value of the SCHOOL tag
 		and then sets the new value with a second SCHOOL tag (in spell.lst)</p>
 
-		<p></p><a name="FORGET"></a><hr>
+		<p></p><hr>
+
+		<h2>The .FORGET Tag</h2>
+
+		<p></p><a name="FORGET"></a>
 		<p class="new">*** Updated 5.12 RC3</p>
 		<p class="indent0"><strong>Tag Name:</strong> &lt;name&gt;.FORGET</p>
 		<p class="indent1"><strong>Variables Used:</strong> Text, First field of the item to be removed</p>
@@ -1206,8 +1225,11 @@
 		<p class="indent2"><code>Skill Focus.FORGET</code></p>
 		<p class="indent3">Removes the Skill Focus feat (in feat.lst)</p>
 
+		<p></p><hr>
 
-		<p></p><a name="WILDCARD"></a><hr>
+		<h2>The WILDCARD Tag</h2>
+
+		<p></p><a name="WILDCARD"></a>
 		<p class="indent0"><strong>Tag Name:</strong> TAGNAME:% "Wildcard"</p>
 		<p class="indent1"><strong>Variables Used:</strong> Tagname</p>
 		<p class="indent1"><strong>Examples:</strong></p>
