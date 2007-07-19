@@ -9,7 +9,7 @@ RACE:Dromite	!PRERACE:1,%
 CLASS:Warrior	LEVEL:1
 SKILL:Climb	RANK:4
 SKILL:Spot	RANK:2
-FEAT:Weapon Focus (Longsword)
+FEAT:Weapon Focus(Longsword)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -28,7 +28,7 @@ RACE:Elan	!PRERACE:1,%
 CLASS:Warrior	LEVEL:1
 SKILL:Climb	RANK:4
 SKILL:Jump	RANK:4
-FEAT:Weapon Focus (Warhammer)
+FEAT:Weapon Focus(Warhammer)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Warhammer			SIZE:PC	LOCATION:Primary Hand
@@ -42,7 +42,7 @@ RACE:Half-Giant	!PRERACE:1,%
 CLASS:Warrior	LEVEL:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Weapon Focus (Greatsword)
+FEAT:Weapon Focus(Greatsword)
 GEAR:Scale Mail	SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword	SIZE:L	LOCATION:Both Hands
 GEAR:Javelin	SIZE:L	LOCATION:Carried
@@ -55,7 +55,7 @@ RACE:Maenad	!PRERACE:1,%
 CLASS:Warrior	LEVEL:1
 SKILL:Climb	RANK:4
 SKILL:Jump	RANK:4
-FEAT:Weapon Focus (Longsword)
+FEAT:Weapon Focus(Longsword)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
