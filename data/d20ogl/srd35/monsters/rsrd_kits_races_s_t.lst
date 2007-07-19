@@ -438,7 +438,12 @@ FEAT:Improved Bull Rush
 FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Power Attack
-FEAT:Toughness(6)
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
 
 STARTPACK:Default Tendriculos	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tendriculos]
 STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
