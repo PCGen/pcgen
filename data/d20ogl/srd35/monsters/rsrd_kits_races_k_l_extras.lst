@@ -24,7 +24,7 @@ SKILL:Survival			RANK:7	FREE:YES
 FEAT:Blind Fight
 FEAT:Iron Will
 FEAT:Lightning Reflexes
-FEAT:Weapon Focus (Claw)
+FEAT:Weapon Focus(Claw)
 GEAR:Bracers of Armor +2	SIZE:PC	LOCATION:Equipped
 GEAR:Ring (Protection +1)	SIZE:PC	LOCATION:Equipped
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Bear's Endurance|Bless=2|Bull's Strength|Daylight|Detect Evil|Detect Magic|Dismissal|Dispel Magic|Divine Favor=2|Entropic Shield|Guidance=2|Holy Smite|Light|Magic Circle against Evil|Neutralize Poison|Protection from Evil|Read Magic|Remove Curse|Resist Energy|Resistance|Restoration (Lesser)

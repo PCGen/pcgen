@@ -217,7 +217,7 @@ SKILL:Bluff			RANK:4
 SKILL:Hide			RANK:4
 SKILL:Move Silently	RANK:2
 SKILL:Sleight of Hand	RANK:2
-FEAT:Weapon Focus (Rapier)
+FEAT:Weapon Focus(Rapier)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Rapier				SIZE:PC	LOCATION:Primary Hand

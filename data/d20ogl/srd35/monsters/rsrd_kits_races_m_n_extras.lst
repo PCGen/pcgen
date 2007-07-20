@@ -17,8 +17,8 @@ DEITY:None	DOMAIN:Death|Protection
 SKILL:Knowledge (Religion)	RANK:5
 SKILL:Concentration		RANK:5
 FEAT:Combat Casting
-FEAT:Weapon Focus (Slam)
-FEAT:Improved Critical (Slam)
+FEAT:Weapon Focus(Slam)
+FEAT:Improved Critical(Slam)
 GEAR:Half-Plate					SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
 GEAR:Cloak of Resistance +2			LOCATION:Equipped
 GEAR:Ring (Energy Resistance/Fire/Minor)	LOCATION:Equipped

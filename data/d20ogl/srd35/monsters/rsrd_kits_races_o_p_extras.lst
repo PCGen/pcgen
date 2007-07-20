@@ -10,7 +10,7 @@ SKILL:Climb		RANK:2
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 FEAT:Toughness
-FEAT:Weapon Focus (Greatclub)
+FEAT:Weapon Focus(Greatclub)
 CLASS:Barbarian	LEVEL:4
 SKILL:Hide		RANK:1
 SKILL:Jump		RANK:1

@@ -222,8 +222,8 @@ SKILL:Spot			RANK:1
 TEMPLATE:Lycanthrope[TEMPLATE:Weretiger][TEMPLATE:Natural Lycanthrope]
 SKILL:Listen		RANK:3
 SKILL:Spot			RANK:3
-FEAT:Improved Natural Attack (Bite)
-FEAT:Improved Natural Attack (Claw)
+FEAT:Improved Natural Attack(Bite)
+FEAT:Improved Natural Attack(Claw)
 GEAR:Breastplate			SIZE:PC	LOCATION:Equipped
 GEAR:Glaive				SIZE:PC	LOCATION:Both Hands
 GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:BOWSTR|1
@@ -243,7 +243,7 @@ SKILL:Listen		RANK:1
 SKILL:Spot			RANK:1
 SKILL:Handle Animal	RANK:2
 SKILL:Survival		RANK:2
-FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus(Bite)
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -289,13 +289,13 @@ SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:10
 LEVELABILITY:Fighter=2	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Combat Reflexes
 FEAT:Stealthy
-LEVELABILITY:Fighter=4	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Specialization (Sword (Bastard))
+LEVELABILITY:Fighter=4	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Specialization(Sword (Bastard))
 FEAT:Improved Critical(Sword (Bastard))
 LEVELABILITY:Fighter=6	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Cleave
 LEVELABILITY:Fighter=8	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Critical(Bite)
 FEAT:Improved Natural Armor
-LEVELABILITY:Fighter=10	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Natural Attack (Bite)
-FEAT:Weapon Focus (Bite)				FREE:YES
+LEVELABILITY:Fighter=10	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Natural Attack(Bite)
+FEAT:Weapon Focus(Bite)				FREE:YES
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped	EQMOD:MITHRAL_ARMR_LT.PLUS2A
 GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3S
 GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS2W
