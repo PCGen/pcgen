@@ -29,7 +29,6 @@ EQUIPMENT:arcanabasics_equip_weap_melee.lst
 EQUIPMENT:arcanabasics_equip_weap_ranged.lst
 EQUIPMENT:arcanabasics_equip_weap_ammo.lst
 EQUIPMENT:arcanabasics_equip_fx.lst
-EQUIPMENT:arcanabasics_equip_magic.lst
 EQUIPMOD:arcanabasics_equipmods.lst
 EQUIPMOD:arcanabasics_equipmods_fx.lst
 EQUIPMOD:arcanabasics_equipmods_organizations.lst
@@ -51,6 +50,7 @@ TEMPLATE:arcanabasics_templates_incantations.lst
 # Stuff referenced from other MSRD sets
 EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst
 FEAT:@/d20ogl/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:Jack of All Trades)
+TEMPLATE:@/d20ogl/msrd/menaces/menaces_templates_hidden.lst|(INCLUDE:Incorporeal)
 
 #
 # End

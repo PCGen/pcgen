@@ -63,10 +63,6 @@ Sonic/Concussion Resistance 20	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Soni
 # Template Name	Damage Reduction	Template						Source Page					Special Ability						Type				Vision
 Demonic Auto	DR:20/+1		TEMPLATE:Construct	TEMPLATE:Outsider	SOURCEPAGE:ArcanaCreatures.rtf	SA:No limbs	SA:Trample (Ex)	SA:Repairable	TYPE:Construct.Outsider	VISION:Darkvision (120)
 
-###Block: borrowed from RSRD
-# Template Name	Visible	Source Page						Special Ability																																							Define			Combat bonus
-Incorporeal		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SA:50% chance to ignore any damage from a corporeal source	SA:Can pass through solid objects at will	SA:Attacks pass through armor	SA:Always moves silently	DEFINE:LOCK.STR|10	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT|DEX
-
 ###Block: Half-dragon
 # Template Name	Visible	Stat bonus		Move
 Wings			VISIBLE:NO				MOVE:Fly,30
