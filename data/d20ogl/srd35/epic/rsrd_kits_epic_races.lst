@@ -1260,8 +1260,12 @@ SKILL:Spot				RANK:73
 SKILL:Gather Information	RANK:73
 SKILL:Spellcraft			RANK:73
 SKILL:Intimidate			RANK:48
-FEAT:Automatic Silent Spell(3)
-FEAT:Automatic Still Spell(3)
+FEAT:Automatic Silent Spell
+FEAT:Automatic Silent Spell
+FEAT:Automatic Silent Spell
+FEAT:Automatic Still Spell
+FEAT:Automatic Still Spell
+FEAT:Automatic Still Spell
 FEAT:Blind Fight
 FEAT:Cleave
 FEAT:Combat Expertise

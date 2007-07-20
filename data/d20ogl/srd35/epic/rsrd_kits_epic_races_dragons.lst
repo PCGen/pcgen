@@ -482,15 +482,15 @@ FEAT:Combat Reflexes
 FEAT:Empower Spell Like Ability
 FEAT:Flyby Attack
 FEAT:Hover
-FEAT:Improved Critical (Bite)
-FEAT:Improved Critical (Claw)
-FEAT:Improved Critical (Wing)
-FEAT:Improved Critical (Tail Slap)
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claw)
+FEAT:Improved Critical(Wing)
+FEAT:Improved Critical(Tail Slap)
 FEAT:Improved Initiative
 FEAT:Improved Sunder
 FEAT:Maximize Spell Like Ability
 FEAT:Power Attack
-FEAT:Spell Knowledge (Sorcerer 5,Sorcerer 6)
+FEAT:Spell Knowledge(Sorcerer 5,Sorcerer 6)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Dancing Lights|Detect Magic|Flare|Ghost Sound|Light|Mending|Open/Close|Read Magic|Disguise Self|Comprehend Languages|Detect Secret Doors|Magic Missile|True Strike|Bull's Strength|Cat's Grace|Darkness|Locate Object|Mirror Image|Clairaudience/Clairvoyance|Fireball|Haste|Lightning Bolt|Charm Monster|Invisibility (Greater)|Scrying|Stoneskin|Contact Other Plane|Dream|Hold Monster|Teleport|Analyze Dweomer|Dispel Magic (Greater)|True Seeing|Forcecage|Spell Turning|Summon Monster VII|Polymorph Any Object|Protection from Spells|Time Stop
