@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Jul 19 23:38:26 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # RSRD Entry by: jaymecox
 
@@ -59,16 +59,23 @@ FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 ###Block: Specific Familiars
 # Class of the Master	Type			Required Race			Apply Kit					Special Ability		Add
 FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Raven									SA:Speak one language	ADD:LANGUAGE|1|TYPE=Spoken
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Bat			KIT:1|Default Bat
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Cat			KIT:1|Default Cat
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Hawk			KIT:1|Default Hawk
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Lizard			KIT:1|Default Lizard
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Owl			KIT:1|Default Owl
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Rat			KIT:1|Default Rat
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Raven			KIT:1|Default Raven
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Snake (Viper/Tiny)	KIT:1|Default Snake (Viper/Tiny)
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Toad			KIT:1|Default Toad
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Weasel			KIT:1|Default Weasel
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Bat			KIT:1|Bat Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Cat			KIT:1|Cat Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Hawk			KIT:1|Hawk Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Lizard			KIT:1|Lizard Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Owl			KIT:1|Owl Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Rat			KIT:1|Rat Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Raven			KIT:1|Raven Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Snake (Viper/Tiny)	KIT:1|Snake Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Toad			KIT:1|Toad Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Weasel			KIT:1|Weasel Familiar
+
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Shocker Lizard	KIT:1|Shocker Lizard Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Stirge			KIT:1|Stirge Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Formian (Worker)	KIT:1|Formian (Worker) Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Devil (Imp)		KIT:1|Devil (Imp) Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Pseudodragon		KIT:1|Pseudodragon Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Demon (Quasit)	KIT:1|Demon (Quasit) Familiar
 #
 
 ###Block:Familiar Bonuses to Master
@@ -86,41 +93,92 @@ MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Ale
 #
 
 ###Block:Animal Companion
-# Class of the Master	Type				Hit Dice	Virtual Feat				Special Ability					Define			Combat bonus						Adjust PC Size																																																																																																																																																																																																																																																											Stat bonus
+# Class of the Master	Type				Hit Dice	Virtual Feat				Special Ability					Define			Combat bonus						Stat bonus
 FOLLOWER:CompLevel=1	TYPE:Animal Companion									SA:Link (Ex)	SA:Share Spells (Ex)
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2								SA:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolverine|PREVARGT:TL,3|PREVARLT:TL,6	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Tiger|PREVARGT:TL,12|PREVARLT:TL,19	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2								SA:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																														BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SA:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																														BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=12	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																														BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=15	TYPE:Animal Companion	HD:2								SA:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																														BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=18	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																														BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2								SA:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2								SA:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SA:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=12	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=15	TYPE:Animal Companion	HD:2								SA:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=18	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 #
 
+###Block:Specific Animal Companions
+# Class of the Master	Type				Required Race					Apply Kit
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Ape					KIT:1|Ape Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Badger					KIT:1|Badger Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Bear (Black)				KIT:1|Bear (Black) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Bear (Brown)				KIT:1|Bear (Brown) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Bear (Polar)				KIT:1|Bear (Polar) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Bison					KIT:1|Bison Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Boar					KIT:1|Boar Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Camel					KIT:1|Camel Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Cheetah					KIT:1|Cheetah Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Crocodile				KIT:1|Crocodile Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Crocodile (Giant)			KIT:1|Crocodile (Giant) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Deinonychus)		KIT:1|Dinosaur (Deinonychus) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Megaraptor)		KIT:1|Dinosaur (Megaraptor) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Triceratops)		KIT:1|Dinosaur (Triceratops) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Tyrannosaurus)		KIT:1|Dinosaur (Tyrannosaurus) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Ape)		KIT:1|Dire Animal (Dire Ape) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Badger)		KIT:1|Dire Animal (Dire Badger) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Bat)		KIT:1|Dire Animal (Dire Bat) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Bear)		KIT:1|Dire Animal (Dire Bear) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Boar)		KIT:1|Dire Animal (Dire Boar) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Lion)		KIT:1|Dire Animal (Dire Lion) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Rat)		KIT:1|Dire Animal (Dire Rat) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Tiger)		KIT:1|Dire Animal (Dire Tiger) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Weasel)		KIT:1|Dire Animal (Dire Weasel) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Wolf)		KIT:1|Dire Animal (Dire Wolf) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Wolverine)	KIT:1|Dire Animal (Dire Wolverine) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dog					KIT:1|Dog Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dog (Riding)				KIT:1|Dog (Riding) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Eagle					KIT:1|Eagle Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Elephant				KIT:1|Elephant Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Hawk					KIT:1|Hawk Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Horse (Heavy)				KIT:1|Horse (Heavy) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Horse (Light)				KIT:1|Horse (Light) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Leopard					KIT:1|Leopard Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Lion					KIT:1|Lion Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Lizard (Monitor)			KIT:1|Lizard (Monitor) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Owl					KIT:1|Owl Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Pony					KIT:1|Pony Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Porpoise				KIT:1|Porpoise Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Rhinoceros				KIT:1|Rhinoceros Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Shark (Medium)			KIT:1|Shark (Medium) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Snake (Constrictor)			KIT:1|Snake (Constrictor) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Snake (Constrictor/Giant)		KIT:1|Snake (Constrictor/Giant) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Snake (Viper/Huge)			KIT:1|Snake (Viper/Huge) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Snake (Viper/Large)			KIT:1|Snake (Viper/Large) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Snake (Viper/Medium)		KIT:1|Snake (Viper/Medium) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Snake (Viper/Small)			KIT:1|Snake (Viper/Small) Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Squid					KIT:1|Squid Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Tiger					KIT:1|Tiger Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Wolf					KIT:1|Wolf Companion
+FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Wolverine				KIT:1|Wolverine Companion
 
 ###Block:Animal Companion Size work-around
 #
 # These bonuses prevent the listed animals from increasing in size when they gain hit dice as a companion
 # This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
-# It was discovered that with version 5.9.5 and later multiple FOLLOWER lines do not get loaded
-# These bonuses have all been moved to the one FOLLOWER line so that the 5.10 companions come out with the correct numbers - Eddy
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolverine|PREVARGT:TL,3|PREVARLT:TL,6
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Tiger|PREVARGT:TL,12|PREVARLT:TL,19
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
-
+# Class of the Master	Type				Adjust PC Size
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolverine|PREVARGT:TL,3|PREVARLT:TL,6
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Tiger|PREVARGT:TL,12|PREVARLT:TL,19
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
 
 ###Block:Shadowdancer summoned Shadow
 # Class of the Master		Type				Hit Dice	Special Ability																		Modify VAR
