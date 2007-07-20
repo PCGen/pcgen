@@ -59,7 +59,7 @@ SKILL:Hide		RANK:1
 SKILL:Jump		RANK:2
 SKILL:Listen	RANK:2
 SKILL:Climb		RANK:2	FREE:YES
-FEAT:Weapon Focus (Longsword)
+FEAT:Weapon Focus(Longsword)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
