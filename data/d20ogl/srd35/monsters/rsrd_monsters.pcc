@@ -66,6 +66,8 @@ RACE:rsrd_races_w_x.lst
 RACE:rsrd_races_y_z.lst
 RACE:rsrd_races_y_z.lst
 
+SPELL:rsrd_spells_monster.lst
+
 TEMPLATE:rsrd_templates_monsters.lst
 TEMPLATE:rsrd_templates.lst
 
