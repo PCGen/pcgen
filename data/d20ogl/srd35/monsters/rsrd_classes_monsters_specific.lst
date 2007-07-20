@@ -142,23 +142,23 @@ CLASS:Formian Queen	HD:8		TYPE:Monster	MAXLEVEL:40	SOURCEPAGE:MonstersE-F.rtf	BO
 CLASS:Formian Queen	PRERACE:1,Formian (Queen)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Formian Queen	STARTSKILLPTS:8	MODTOSKILLS:YES
-1					ADD:SPELLCASTER|1|Cleric
-2	BONUS:PCLEVEL|Cleric|1
-3	BONUS:PCLEVEL|Cleric|1
-4	BONUS:PCLEVEL|Cleric|1
-5	BONUS:PCLEVEL|Cleric|1
-7	BONUS:PCLEVEL|Cleric|1
-8	BONUS:PCLEVEL|Cleric|1
-9	BONUS:PCLEVEL|Cleric|1
-10	BONUS:PCLEVEL|Cleric|1
-11	BONUS:PCLEVEL|Cleric|1
-13	BONUS:PCLEVEL|Cleric|1
-14	BONUS:PCLEVEL|Cleric|1
-15	BONUS:PCLEVEL|Cleric|1
-16	BONUS:PCLEVEL|Cleric|1
-17	BONUS:PCLEVEL|Cleric|1
-19	BONUS:PCLEVEL|Cleric|1
-20	BONUS:PCLEVEL|Cleric|1
+1					ADD:SPELLCASTER|1|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+10	BONUS:PCLEVEL|Sorcerer|1
+11	BONUS:PCLEVEL|Sorcerer|1
+13	BONUS:PCLEVEL|Sorcerer|1
+14	BONUS:PCLEVEL|Sorcerer|1
+15	BONUS:PCLEVEL|Sorcerer|1
+16	BONUS:PCLEVEL|Sorcerer|1
+17	BONUS:PCLEVEL|Sorcerer|1
+19	BONUS:PCLEVEL|Sorcerer|1
+20	BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Save checks bonus								Combat bonus
 CLASS:Ghaele	HD:8		TYPE:Monster	MAXLEVEL:30	SOURCEPAGE:MonstersG.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
@@ -170,6 +170,7 @@ CLASS:Ghaele	STARTSKILLPTS:8	MODTOSKILLS:YES
 1	SPELLLEVEL:CLASS|Cleric=1|Obscuring Mist|Cleric=2|Wind Wall|Cleric=3|Gaseous Form|Cleric=4|Air Walk|Cleric=5|Control Winds|Cleric=6|Chain Lightning|Cleric=7|Control Weather|Cleric=8|Whirlwind|Cleric=9|Elemental Swarm
 1	SPELLLEVEL:CLASS|Cleric=1|Calm Animals|Cleric=2|Hold Animal|Cleric=3|Dominate Animal|Cleric=4|Summon Nature's Ally IV|Cleric=5|Commune with Nature|Cleric=6|Antilife Shell|Cleric=7|Animal Shapes|Cleric=8|Summon Nature's Ally VIII|Cleric=9|Shapechange
 ###Block: Spellcasting progression
+1	BONUS:DOMAIN|NUMBER|2
 1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|1|Cleric
 2	BONUS:PCLEVEL|Cleric|1
 3	BONUS:PCLEVEL|Cleric|1
