@@ -4785,7 +4785,7 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${jepplugins.dir}/JepCommand-COUNT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/jepcommands/CountCommand.class" />
+					<include name="plugin/jepcommands/CountCommand*.class" />
 				</patternset>
 			</fileset>
 		</jar>
