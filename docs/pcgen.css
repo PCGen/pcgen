@@ -39,6 +39,9 @@ td {
 	cell-spacing: 5px;
 	padding: 1px 10px;
 }
+.alpha {
+	color: #FF0000;
+}
 .bolditalicunderline {
 	font-style: italic;
 	font-weight: bold;
