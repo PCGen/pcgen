@@ -423,6 +423,12 @@ final class MainPrint extends JPanel
 				Logging.errorPrint("Could not export " + pcName, ex);
 				ShowMessageDelegate.showMessageDialog("Could not export " + pcName + ". Try another filename.", "PCGen", MessageType.ERROR);
 			}
+			catch (Throwable ex)
+			{
+				unblock();
+				Logging.errorPrint("Could not export " + pcName, ex);
+				ShowMessageDelegate.showMessageDialog("Could not export " + pcName + ". See console for details.", "PCGen", MessageType.ERROR);
+			}
 		}
 	}
 
@@ -678,7 +684,7 @@ final class MainPrint extends JPanel
 
 //  				unblock();
 			}
-			catch (Exception ex)
+			catch (Throwable ex)
 			{
 				Logging.errorPrint("Could not print " + pcName, ex);
 				ShowMessageDelegate.showMessageDialog("Could not print " + pcName + ". Try again.", "PCGen", MessageType.ERROR);
