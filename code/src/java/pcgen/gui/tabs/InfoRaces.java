@@ -700,8 +700,6 @@ public class InfoRaces extends BaseCharacterInfoTab
 			lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(raceTable);
-		raceTable.setColAlign(3, SwingConstants.CENTER);
-		raceTable.setColAlign(7, SwingConstants.CENTER);
 		// add the sorter so that clicking on the TableHeader
 		// actualy does something
 		raceSort =
@@ -713,6 +711,18 @@ public class InfoRaces extends BaseCharacterInfoTab
 		columnButton.setText("^");
 		new TableColumnManager(raceTable, columnButton, raceModel);
 		mainPane.add(scrollPane, BorderLayout.CENTER);
+
+		// Centre the size and level adjustment columns
+		int index = raceTable.convertColumnIndexToView(3);
+		if (index > -1)
+		{
+			raceTable.setColAlign(index, SwingConstants.CENTER);
+		}
+		index = raceTable.convertColumnIndexToView(7);
+		if (index > -1)
+		{
+			raceTable.setColAlign(index, SwingConstants.CENTER);
+		}
 
 		JPanel bottomPanel =
 				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));

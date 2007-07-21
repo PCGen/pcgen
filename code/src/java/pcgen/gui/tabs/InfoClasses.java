@@ -1114,7 +1114,6 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		rightTopPanel.add(viewSelectComboBox);
 		rightPane.add(rightTopPanel, BorderLayout.NORTH);
 
-		selectedTable.setColAlign(1, SwingConstants.CENTER);
 		selectedTable.getColumnModel().getColumn(1).setPreferredWidth(15);
 		JScrollPane scrollPane2 =
 				new JScrollPane(selectedTable,
@@ -1126,6 +1125,13 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			columnButton2);
 		columnButton2.setText("^");
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
+
+		// Centre the level column
+		int index = selectedTable.convertColumnIndexToView(1);
+		if (index > -1)
+		{
+			selectedTable.setColAlign(index, SwingConstants.CENTER);
+		}
 
 		JPanel rightBottomPanel =
 				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));

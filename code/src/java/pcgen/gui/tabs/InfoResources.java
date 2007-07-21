@@ -903,11 +903,20 @@ public class InfoResources extends FilterAdapterPanel implements
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton);
 		columnButton.setText(PropertyFactory.getString("in_caretSymbol")); //$NON-NLS-1$
+
 		new TableColumnManager(availableTable, columnButton, availableModel);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
-
-		availableTable.setColAlign(1, SwingConstants.CENTER);
-		availableTable.setColAlign(4, SwingConstants.CENTER);
+		// Centre the size and alignment columns
+		int index = availableTable.convertColumnIndexToView(1);
+		if (index > -1)
+		{
+			availableTable.setColAlign(index, SwingConstants.CENTER);
+		}
+		index = availableTable.convertColumnIndexToView(4);
+		if (index > -1)
+		{
+			availableTable.setColAlign(index, SwingConstants.CENTER);
+		}
 
 		// build the left pane
 		// for the available table

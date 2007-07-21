@@ -2212,10 +2212,16 @@ public final class InfoGear extends FilterAdapterPanel implements
 			columnButton);
 		columnButton.setText("^");
 
-		availableTable.setColAlign(COL_COST, SwingConstants.RIGHT);
 		//		availableTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
 		//		availableTable.setColAlign(COL_SRC, SwingConstants.LEFT);
 		new TableColumnManager(availableTable, columnButton, availableModel);
+
+		// Right align the cost column
+		int index = availableTable.convertColumnIndexToView(COL_COST);
+		if (index > -1)
+		{
+			availableTable.setColAlign(index, SwingConstants.RIGHT);
+		}
 
 		// Right Pane - Selected
 		rightPane.setLayout(new BorderLayout());
