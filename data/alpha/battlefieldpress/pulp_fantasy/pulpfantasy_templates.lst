@@ -1,0 +1,13 @@
+# CVS $Revision: 181 $ $Author: tir $ -- Thu Jun  8 03:52:12 2006 -- reformated by prettylst.pl v1.35 (build 565)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
+#Original entry by: Frank Kliewe
+
+###Block:Tracker Templates
+# Template Name			Visible	Source Page		Modify VAR										Choose										Temporary effect description
+Infamy Reputation Modificator	VISIBLE:NO	SOURCEPAGE:p.109	BONUS:VAR|Reputation|%CHOICE|PREFEAT:1,Infamy|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Infamy Reputation modification	TEMPDESC:This can be used to change the Reputation because of Infamy relevant actions. If you have more than 10 this can be applied multiple times.
+
+
+###Block: Fractional Hit Die Adjustments for Monster classes
+# Template Name	Hit Dice Size			Visible
+Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
+

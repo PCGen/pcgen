@@ -1,0 +1,82 @@
+# CVS $Revision: 195 $ $Author: tir $ -- Fri Jul 13 18:59:47 2007 -- reformated by prettylst.pl v1.38 (build 2949)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
+#Original entry by: Frank Kliewe
+
+###Block:new skills
+# Skill Name			Output Name						Key Stat	Untrained?		Type					Bonus to skill																		Source Page
+Benchthumping										KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence			BONUS:SKILL|Benchthumping|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Benchthumping)						SOURCEPAGE:p.30
+Knowledge (Military Science)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Military Science)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Military Science))	SOURCEPAGE:p.38
+Knowledge (Weird Science)	OUTPUTNAME:Knowledge (Weird Science!)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Weird Science)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Weird Science))		SOURCEPAGE:p.39
+Knowledge (Hidden Lore)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Hidden Lore)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Hidden Lore))			SOURCEPAGE:p.97
+
+###Block:MSRD skills
+# Skill Name					Bonus to skill																				Source Page		Add
+Computer Use.FORGET
+Knowledge (Arcane Lore).FORGET
+Knowledge (Tactics).FORGET
+Balance.MOD						BONUS:SKILL|Balance|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Balance)
+Bluff.MOD						BONUS:SKILL|Bluff|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Bluff)
+Climb.MOD						BONUS:SKILL|Climb|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Climb)											SOURCEPAGE:p.30
+Concentration.MOD					BONUS:SKILL|Concentration|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Concentration)
+Craft (Chemical).MOD				BONUS:SKILL|Craft (Chemical)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Craft (Chemical))							SOURCEPAGE:p.33
+Craft (Electronic).MOD				BONUS:SKILL|Craft (Electronic)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Craft (Electronic))						SOURCEPAGE:p.34
+Craft (Mechanical).MOD				BONUS:SKILL|Craft (Mechanical)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Craft (Mechanical))						SOURCEPAGE:p.34
+Craft (Pharmaceutical).MOD			BONUS:SKILL|Craft (Pharmaceutical)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Craft (Pharmaceutical))					SOURCEPAGE:p.34
+Craft (Structural).MOD				BONUS:SKILL|Craft (Structural)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Craft (Structural))						SOURCEPAGE:p.34
+Craft (Visual Art).MOD				BONUS:SKILL|Craft (Visual Art)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Craft (Visual Art))						SOURCEPAGE:p.35
+Craft (Writing).MOD				BONUS:SKILL|Craft (Writing)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Craft (Writing))							SOURCEPAGE:p.35
+Decipher Script.MOD				BONUS:SKILL|Decipher Script|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Decipher Script)
+Demolitions.MOD					BONUS:SKILL|Demolitions|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Demolitions)
+Diplomacy.MOD					BONUS:SKILL|Diplomacy|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Diplomacy)
+Disable Device.MOD				BONUS:SKILL|Disable Device|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Disable Device)
+Disguise.MOD					BONUS:SKILL|Disguise|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Disguise)
+Drive.MOD						BONUS:SKILL|Drive|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Drive)
+Escape Artist.MOD					BONUS:SKILL|Escape Artist|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Escape Artist)								SOURCEPAGE:p.35
+Forgery.MOD						BONUS:SKILL|Forgery|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Forgery)
+Gamble.MOD						BONUS:SKILL|Gamble|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Gamble)
+Gather Information.MOD				BONUS:SKILL|Gather Information|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Gather Information)
+Handle Animal.MOD					BONUS:SKILL|Handle Animal|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Handle Animal)
+Hide.MOD						BONUS:SKILL|Hide|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Hide)
+Intimidate.MOD					BONUS:SKILL|Intimidate|-CHA+max(CHA,STR)	BONUS:SKILL|Intimidate|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Intimidate)		SOURCEPAGE:p.36
+Investigate.MOD					BONUS:SKILL|Investigate|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Investigate)
+Jump.MOD						BONUS:SKILL|Jump|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Jump)											SOURCEPAGE:p.36
+Knowledge (Art).MOD				BONUS:SKILL|Knowledge (Art)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Art))							SOURCEPAGE:p.38
+Knowledge (Behavioral Sciences).MOD		BONUS:SKILL|Knowledge (Behavioral Sciences)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Behavioral Sciences))		SOURCEPAGE:p.38
+Knowledge (Business).MOD			BONUS:SKILL|Knowledge (Business)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Business))						SOURCEPAGE:p.38
+Knowledge (Civics).MOD				BONUS:SKILL|Knowledge (Civics)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Civics))						SOURCEPAGE:p.38
+Knowledge (Current Events).MOD		BONUS:SKILL|Knowledge (Current Events)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Current Events))				SOURCEPAGE:p.38
+Knowledge (Earth and Life Sciences).MOD	BONUS:SKILL|Knowledge (Earth and Life Sciences)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Earth and Life Sciences))	SOURCEPAGE:p.38
+Knowledge (History).MOD				BONUS:SKILL|Knowledge (History)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (History))						SOURCEPAGE:p.38
+Knowledge (Physical Sciences).MOD		BONUS:SKILL|Knowledge (Physical Sciences)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Physical Sciences))			SOURCEPAGE:p.38
+Knowledge (Popular Culture).MOD		BONUS:SKILL|Knowledge (Popular Culture)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Popular Culture))			SOURCEPAGE:p.38
+Knowledge (Streetwise).MOD			BONUS:SKILL|Knowledge (Streetwise)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Streetwise))					SOURCEPAGE:p.38
+Knowledge (Technology).MOD			BONUS:SKILL|Knowledge (Technology)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Technology))					SOURCEPAGE:p.38
+Knowledge (Theology and Philosophy).MOD	BONUS:SKILL|Knowledge (Theology and Philosophy|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Theology and Philosophy))	SOURCEPAGE:p.38
+Listen.MOD						BONUS:SKILL|Listen|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Listen)
+Move Silently.MOD					BONUS:SKILL|Move Silently|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Move Silently)
+Navigate.MOD					BONUS:SKILL|Navigate|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Navigate)
+Perform (Act).MOD					BONUS:SKILL|Perform (Act)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Perform (Act))
+Perform (Dance).MOD				BONUS:SKILL|Perform (Dance)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Perform (Dance))
+Perform (Keyboards).MOD				BONUS:SKILL|Perform (Keyboards)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Perform (Keyboards))
+Perform (Percussion Instruments).MOD	BONUS:SKILL|Perform (Percussion Instruments)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Perform (Percussion Instruments))
+Perform (Sing).MOD				BONUS:SKILL|Perform (Sing)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Perform (Sing))
+Perform (Stand-Up).MOD				BONUS:SKILL|Perform (Stand-Up)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Perform (Stand-Up))
+Perform (Stringed Instruments).MOD		BONUS:SKILL|Perform (Stringed Instruments)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Perform (Stringed Instruments))
+Perform (Wind Instruments).MOD		BONUS:SKILL|Perform (Wind Instruments)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Perform (Wind Instruments))
+Pilot.MOD						BONUS:SKILL|Pilot|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Pilot)
+Profession.MOD					BONUS:SKILL|Profession|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Profession)
+Repair.MOD						BONUS:SKILL|Repair|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Repair)
+Research.MOD					BONUS:SKILL|Research|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Research)										SOURCEPAGE:p.39
+Ride.MOD						BONUS:SKILL|Ride|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Ride)											SOURCEPAGE:p.40
+Search.MOD						BONUS:SKILL|Search|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Search)
+Sense Motive.MOD					BONUS:SKILL|Sense Motive|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Sense Motive)
+Sleight of Hand.MOD				BONUS:SKILL|Sleight of Hand|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Sleight of Hand)
+Spot.MOD						BONUS:SKILL|Spot|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Spot)
+Survival.MOD					BONUS:SKILL|Survival|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Survival)
+Swim.MOD						BONUS:SKILL|Swim|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Swim)
+Treat Injury.MOD					BONUS:SKILL|Treat Injury|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Treat Injury)
+Tumble.MOD						BONUS:SKILL|Tumble|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Tumble)
+
+
+# Speak Language.MOD	ADD:LANGUAGE|var("COUNT[FEATNAME=Linguist_BP_PFF]")|TYPE.Spoken
+

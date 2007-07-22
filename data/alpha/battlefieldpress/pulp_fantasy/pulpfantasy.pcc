@@ -1,0 +1,85 @@
+# CVS $Revision: 189 $ $Author: tir $ -- Fri May  5 04:52:44 2006 -- reformated by prettylst.pl v1.35 (build 561)
+CAMPAIGN:Pulp Fantasy Roleplaying Game
+RANK:1
+GAMEMODE:Modern
+GENRE:Pulp
+BOOKTYPE:Campaign Setting
+SETTING:Pulp Fantasy
+TYPE:Alpha Datasets
+#TYPE:Battlefield Press.Pulp Fantasy
+PUBNAMELONG:Battlefield Press
+PUBNAMESHORT:Battlefield
+PUBNAMEWEB:http://battlefieldpress.com
+SOURCELONG:Pulp Fantasy Roleplaying Game
+SOURCESHORT:PulpFntasy
+SOURCEWEB:http://battlefieldpress.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek,Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Grim-n-Gritty Hit Point and Combat Rules Copyright 2001, Kenneth S. Hood
+COPYRIGHT:D20 Skills-n-Feats Martial Arts System Copyright 2001, Kenneth S. Hood
+COPYRIGHT:D20 Firearm Mechanics Copyright 2001, Kenneth S. Hood
+COPYRIGHT:D20 Skills-n-Feats Psionics System Copyright 2001 Kenneth S. Hood
+COPYRIGHT:Relics and Rituals Copyright 2000, Clark Peterson
+COPYRIGHT:Creature Collection Copyright 2000, Clark Peterson
+COPYRIGHT:Weird Wars, Weird Wars Two Copyright 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Deadlands d20 Copyright 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Magus Copyright 2001, Hector Hernandez
+COPYRIGHT:Swashbuckler Copyright 2001, Felix Lim, Jr.
+COPYRIGHT:Spycraft Copyright 2001, Alderac Entertainment Group, Inc
+COPYRIGHT:Forbidden Kingdoms, Copyright 2002, Otherworld Creations, Inc.
+COPYRIGHT:Sorcery & Steam Copyright 2003, Fantasy Flight Games, Inc.
+COPYRIGHT:OGL Steampunk Copyright 2004, Mongoose Publishing LTD.
+COPYRIGHT:Modern Player's Companion (Print), Copyright 2003, The Game Mechanics, Inc.; Author: Stan!
+COPYRIGHT:T20-The Traveller's Handbook, Copyright 2002, QuickLink Interactive, Inc.
+COPYRIGHT:Sidewinder: Wild West Adventure, Copyright 2002 by Citizen Games.
+COPYRIGHT:Sidewinder: Recoiled, Copyright 2003 by Dog House Rules.
+COPYRIGHT:Unearthed Aracna Copyright 2004, Wizards of the Coast; Author Andy Collins, Jesse Decker, David Noonan, Rich Redman.
+COPYRIGHT:Mutants & Masterminds RPG, Copyright 2002, Green Ronin Publishing; Author Steve Kenson
+COPYRIGHT:Thrilling Tales: Advanced Class: G-Man Copyright 2004, Adamant Entertainment. Author: Chris Welsh
+COPYRIGHT:Thrilling Tales, Advanced Class: Mad Scientist Copyright 2004, Adamant Entertainment. Author: Gareth-Michael Skarka
+COPYRIGHT:Pulp Villains; Nazis Copyright 2005, Adamant Entertainment. Author: Gareth-Michael Skarka
+COPYRIGHT:Swords of the Father Copyright 2003, The Game Mechanics
+COPYRIGHT:Spycraft Espionage Handbook Copyright 2002, Alderac Entertainment Group, Inc.
+COPYRIGHT:Shadowforce Archer Worldbook Copyright 2002, Alderac Entertainment Group, Inc.
+COPYRIGHT:Faceman/Snoop Class Guide Copyright 2003, Alderac Entertainment Group, Inc.
+COPYRIGHT:Modern: Occult Player's Companion Copyright 2004; James Maliszewski. Published by Ronin Arts. www.roninarts.com
+COPYRIGHT:22 Talent Trees Copyright 2003, Bloodstone Press.
+COPYRIGHT:The Versatile Hero Copyright 2004, Jeremy Forbing.
+COPYRIGHT:Pulp Fantasy Roleplaying Game Copyright 2006 Battlefield Press, Inc.; Authors Christopher Helton, Jonathan Nichols and Jonathan M. Thompson
+COPYRIGHT:PCGen dataset conversion for the Pulp Fantasy Roleplaying Game Copyright 2007, PCGen Data team including, but not limited to, Frank Kliewe, Andrew McDougall (Tir Gwaith).
+
+#EXTRAFILE:OGL.txt
+
+CLASS:pulpfantasy_classes_advanced.lst
+CLASS:pulpfantasy_classes_base.lst
+CLASS:pulpfantasy_classes_monster.lst
+EQUIPMENT:pulpfantasy_equip.lst
+EQUIPMENT:pulpfantasy_equip_armor.lst
+EQUIPMENT:pulpfantasy_equip_poisons.lst
+EQUIPMENT:pulpfantasy_equip_vehicles.lst
+EQUIPMENT:pulpfantasy_equip_weap.lst
+EQUIPMENT:pulpfantasy_equip_weap_ammo.lst
+EQUIPMENT:pulpfantasy_equip_weap_melee.lst
+EQUIPMENT:pulpfantasy_equip_weap_ranged.lst
+EQUIPMOD:pulpfantasy_equipmods.lst
+FEAT:pulpfantasy_feats.lst
+FEAT:pulpfantasy_feats_hidden.lst
+FEAT:pulpfantasy_feats_mod.lst
+FEAT:pulpfantasy_feats_occupations.lst
+KIT:pulpfantasy_kits_defaultmonsters.lst
+LANGUAGE:pulpfantasy_languages.lst
+RACE:pulpfantasy_races.lst
+SKILL:pulpfantasy_skills.lst
+TEMPLATE:pulpfantasy_templates.lst
+WEAPONPROF:pulpfantasy_weaponprofs.lst
+
+#Stuff imported from the MSRD
+EQUIPMENT:@\d20ogl\msrd\arcana\basics\arcanabasics_equip_armorshields.lst|(INCLUDE:Padded Armor|Studded Leather Armor|Scale Mail|Half Plate|Hide Armor|Banded Mail|Splint Mail)
+FEAT:@\d20ogl\msrd\future\future_basics\futurebasics_feats.lst|(INCLUDE:Charismatic Plus|Dedicated Plus|Fast Plus|Smart Plus|Strong Plus|Tough Plus)
+FEAT:@\d20ogl\msrd\arcana\basics\arcanabasics_feats.lst|(INCLUDE:Improved Grapple|Improved Overrun|Improved Natural Healing|Jack of all Trades|Precise Strike)
+RACE:@\d20ogl\msrd\arcana\creatures\arcanacreatures_races.lst|(INCLUDE:Lizard|Lizard (Giant)|Octopus|Octopus (Giant)|Octopus (Venemous)|Porpoise|Squid|Squid (Giant))
+RACE:@\d20ogl\msrd\basics\modern_creatures\moderncreatures_races.lst|(INCLUDE:Snake (Constrictor)|Snake (Tiny/Viper))
+RACE:@\d20ogl\msrd\menaces\menaces_races_a-i.lst|(INCLUDE:Boar (Wild Pig)|Chimpanzee)
+RACE:@\d20ogl\msrd\menaces\menaces_races_j-z.lst|(INCLUDE:Monitor Lizard|Scorpion|Shark (Huge)|Snake (Cobra)|Snake (Black Mamba)|Snake (Hoop)|Snake (Advanced Hoop))

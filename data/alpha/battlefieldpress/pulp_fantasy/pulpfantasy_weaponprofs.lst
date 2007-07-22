@@ -1,0 +1,38 @@
+# CVS $Revision: 181 $ $Author: tir $ -- Mon May 22 20:07:48 2006 -- reformated by prettylst.pl v1.35 (build 565)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
+#Original entry by: Frank Kliewe
+
+#Handguns
+# Weapon Name			Type				Nb Hands
+Beretta M1934			TYPE:PersonalFirearm
+Colt M1911A1			TYPE:PersonalFirearm
+Colt Peacemaker			TYPE:PersonalFirearm
+Double Derringer			TYPE:PersonalFirearm
+Luger P08 Pistol			TYPE:PersonalFirearm
+Mauser 'Broomhandle'		TYPE:PersonalFirearm
+Nagant Model 1895			TYPE:PersonalFirearm
+Pocket Revolver			TYPE:PersonalFirearm
+Tokarev Model TT33		TYPE:PersonalFirearm
+Tranter				TYPE:PersonalFirearm
+Walther Model PP			TYPE:PersonalFirearm
+
+#Longarms
+12-Gauge Repeating Shotgun	TYPE:PersonalFirearm	HANDS:2
+Beretta M1938A			TYPE:PersonalFirearm	HANDS:2
+M1 Garand				TYPE:PersonalFirearm	HANDS:2
+Mosin-Nagant M1930G		TYPE:PersonalFirearm	HANDS:2
+MPC Carbine M1891			TYPE:PersonalFirearm	HANDS:2
+Springfield M1903			TYPE:PersonalFirearm	HANDS:2
+Thompson M1921			TYPE:PersonalFirearm	HANDS:2
+
+#Heavy Weapons
+Breda Model 1030			TYPE:ExoticFirearms
+Browning M1917			TYPE:ExoticFirearms
+Browning M2HB			TYPE:ExoticFirearms
+Colt-Browning M1895		TYPE:ExoticFirearms
+Maxim Gun Mk 1			TYPE:ExoticFirearms
+MG 34					TYPE:ExoticFirearms
+Panzerfaust				TYPE:ExoticFirearms
+
+#other ranged Weapons
+Longbow				TYPE:Archaic		HANDS:2

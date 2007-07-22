@@ -1,0 +1,64 @@
+# CVS $Revision: 181 $ $Author: tir $ -- Sat Nov 25 04:27:46 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
+#Original entry by: Frank Kliewe
+
+# Feat Name				Type
+# Language			Type					Source Page
+Braille			TYPE:Written.Braille		SOURCEPAGE:p.39
+Caddo				TYPE:Spoken.Caddoan		SOURCEPAGE:p.39
+Caddo				TYPE:Written.Caddoan		SOURCEPAGE:p.39
+Pawnee			TYPE:Spoken.Caddoan		SOURCEPAGE:p.39
+Pawnee			TYPE:Written.Caddoan		SOURCEPAGE:p.39
+Wichita			TYPE:Spoken.Caddoan		SOURCEPAGE:p.39
+Wichita			TYPE:Written.Caddoan		SOURCEPAGE:p.39
+Cherokee			TYPE:Spoken.Iroquoian		SOURCEPAGE:p.39
+Cherokee			TYPE:Written.Iroquoian		SOURCEPAGE:p.39
+Iroquois			TYPE:Spoken.Iroquoian		SOURCEPAGE:p.39
+Iroquois			TYPE:Written.Iroquoian		SOURCEPAGE:p.39
+Tuscarora			TYPE:Spoken.Iroquoian		SOURCEPAGE:p.39
+Tuscarora			TYPE:Written.Iroquoian		SOURCEPAGE:p.39
+Alabama			TYPE:Spoken.Muskogean		SOURCEPAGE:p.39
+Alabama			TYPE:Written.Muskogean		SOURCEPAGE:p.39
+Chickasaw			TYPE:Spoken.Muskogean		SOURCEPAGE:p.39
+Chickasaw			TYPE:Written.Muskogean		SOURCEPAGE:p.39
+Chocktaw			TYPE:Spoken.Muskogean		SOURCEPAGE:p.39
+Chocktaw			TYPE:Written.Muskogean		SOURCEPAGE:p.39
+Creek				TYPE:Spoken.Muskogean		SOURCEPAGE:p.39
+Creek				TYPE:Written.Muskogean		SOURCEPAGE:p.39
+Seminole			TYPE:Spoken.Muskogean		SOURCEPAGE:p.39
+Seminole			TYPE:Written.Muskogean		SOURCEPAGE:p.39
+Nez Perce			TYPE:Spoken.Sahaptian		SOURCEPAGE:p.39
+Nez Perce			TYPE:Written.Sahaptian		SOURCEPAGE:p.39
+Sahaptin (Yakima)		TYPE:Spoken.Sahaptian		SOURCEPAGE:p.39
+Sahaptin (Yakima)		TYPE:Written.Sahaptian		SOURCEPAGE:p.39
+Sahaptin (Umatilla)	TYPE:Spoken.Sahaptian		SOURCEPAGE:p.39
+Sahaptin (Umatilla)	TYPE:Written.Sahaptian		SOURCEPAGE:p.39
+Morse Code			TYPE:Spoken.Signaling		SOURCEPAGE:p.39
+Morse Code			TYPE:Written.Signaling		SOURCEPAGE:p.39
+Semaphore			TYPE:Written.Signaling		SOURCEPAGE:p.39
+Sign Language		TYPE:Spoken.Signaling		SOURCEPAGE:p.39
+Smoke Signals		TYPE:Written.Signaling		SOURCEPAGE:p.39
+Crow				TYPE:Spoken.Siouian		SOURCEPAGE:p.39
+Crow				TYPE:Written.Siouian		SOURCEPAGE:p.39
+Dakota			TYPE:Spoken.Siouian		SOURCEPAGE:p.39
+Dakota			TYPE:Written.Siouian		SOURCEPAGE:p.39
+Ho-Chunk			TYPE:Spoken.Siouian		SOURCEPAGE:p.39
+Ho-Chunk			TYPE:Written.Siouian		SOURCEPAGE:p.39
+Iowa				TYPE:Spoken.Siouian		SOURCEPAGE:p.39
+Iowa				TYPE:Written.Siouian		SOURCEPAGE:p.39
+Lakota			TYPE:Spoken.Siouian		SOURCEPAGE:p.39
+Lakota			TYPE:Written.Siouian		SOURCEPAGE:p.39
+Mandan			TYPE:Spoken.Siouian		SOURCEPAGE:p.39
+Mandan			TYPE:Written.Siouian		SOURCEPAGE:p.39
+Nakota			TYPE:Spoken.Siouian		SOURCEPAGE:p.39
+Nakota			TYPE:Written.Siouian		SOURCEPAGE:p.39
+Osage				TYPE:Spoken.Siouian		SOURCEPAGE:p.39
+Osage				TYPE:Written.Siouian		SOURCEPAGE:p.39
+Comanche			TYPE:Spoken.Uto-Aztecan		SOURCEPAGE:p.39
+Comanche			TYPE:Written.Uto-Aztecan	SOURCEPAGE:p.39
+Kiowa				TYPE:Spoken.Uto-Aztecan		SOURCEPAGE:p.39
+Kiowa				TYPE:Written.Uto-Aztecan	SOURCEPAGE:p.39
+Shoshone			TYPE:Spoken.Uto-Aztecan		SOURCEPAGE:p.39
+Shoshone			TYPE:Written.Uto-Aztecan	SOURCEPAGE:p.39
+Ute				TYPE:Spoken.Uto-Aztecan		SOURCEPAGE:p.39
+Ute				TYPE:Written.Uto-Aztecan	SOURCEPAGE:p.39
