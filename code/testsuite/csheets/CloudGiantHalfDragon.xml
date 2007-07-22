@@ -1008,7 +1008,7 @@ BIO
 			</common>
 			<simple>
 				<to_hit>+30/+30</to_hit>
-				<damage>1d6+30</damage>
+				<damage>1d6+20</damage>
 				<range>0 ft.</range>
 			</simple>
 		</weapon>
@@ -1528,17 +1528,17 @@ BIO
 					<bonusspell></bonusspell>
 				</spell>
 			<spell>
-					<name>Levitate</name>
-					<outputname>Levitate</outputname>
+					<name>Levitate (self plus 2,000 pounds)</name>
+					<outputname>Levitate (self plus 2,000 pounds)</outputname>
 					<times_memorized>3</times_memorized>
-					<range>Personal or close</range>
+					<range>Personal</range>
 					<components>V, S, F</components>
 					<castingtime>1 standard action</castingtime>
 					<dc>13</dc>
 					<duration>15 minutes [D]</duration>
-					<effect>Subject moves up and down at your direction.</effect>
-					<target>You or one willing creature or one object, total weight up to 1500 lbs</target>
-					<saveinfo>None</saveinfo>
+					<effect>You move up and down at your direction.</effect>
+					<target>You and up to 2,000 pounds</target>
+					<saveinfo></saveinfo>
 					<school>
 						<school>Transmutation</school>
 						<subschool></subschool>
@@ -1546,13 +1546,13 @@ BIO
 						<fullschool>Transmutation</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Sor2, Wiz2</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsH-L.rtf</source>
 						<sourcepage>SpellsH-L.rtf</sourcepage>
 						<sourceshort>RSRD</sourceshort>
 					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Subject moves up and down at your direction.</description>
+					<spell_resistance></spell_resistance>
+					<description>You move up and down at your direction.</description>
 					<bonusspell></bonusspell>
 				</spell>
 			<spell>
@@ -1631,17 +1631,17 @@ BIO
 					<bonusspell></bonusspell>
 				</spell>
 			<spell>
-					<name>Levitate</name>
-					<outputname>Levitate</outputname>
+					<name>Levitate (self plus 2,000 pounds)</name>
+					<outputname>Levitate (self plus 2,000 pounds)</outputname>
 					<times_memorized>3</times_memorized>
-					<range>Personal or close</range>
+					<range>Personal</range>
 					<components>V, S, F</components>
 					<castingtime>1 standard action</castingtime>
 					<dc>13</dc>
 					<duration>15 minutes [D]</duration>
-					<effect>Subject moves up and down at your direction.</effect>
-					<target>You or one willing creature or one object, total weight up to 1500 lbs</target>
-					<saveinfo>None</saveinfo>
+					<effect>You move up and down at your direction.</effect>
+					<target>You and up to 2,000 pounds</target>
+					<saveinfo></saveinfo>
 					<school>
 						<school>Transmutation</school>
 						<subschool></subschool>
@@ -1649,13 +1649,13 @@ BIO
 						<fullschool>Transmutation</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Sor2, Wiz2</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsH-L.rtf</source>
 						<sourcepage>SpellsH-L.rtf</sourcepage>
 						<sourceshort>RSRD</sourceshort>
 					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Subject moves up and down at your direction.</description>
+					<spell_resistance></spell_resistance>
+					<description>You move up and down at your direction.</description>
 					<bonusspell></bonusspell>
 				</spell>
 			<spell>
