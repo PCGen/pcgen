@@ -717,7 +717,7 @@ pcgen.filepaths=user
 			<report format="frames" todir="${build.rpt.dir}/test-results" />
 		</junitreport>
 
-		<echo message="JUnit report output to ${basedir}/${build.rpt.dir}/test-results" />
+		<echo message="JUnit report output to ${build.rpt.dir}/test-results" />
 	</target>
 
 	<target name="failure.notice" if="junitfailure">
