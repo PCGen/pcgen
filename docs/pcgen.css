@@ -39,6 +39,9 @@ td {
 	cell-spacing: 5px;
 	padding: 1px 10px;
 }
+a img {
+	border-style: hidden;
+}
 .alpha {
 	color: #FF0000;
 }
