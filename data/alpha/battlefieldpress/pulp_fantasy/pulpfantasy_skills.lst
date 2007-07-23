@@ -3,11 +3,11 @@ SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http:/
 #Original entry by: Frank Kliewe
 
 ###Block:new skills
-# Skill Name			Output Name						Key Stat	Untrained?		Type					Bonus to skill																		Source Page
-Benchthumping										KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence			BONUS:SKILL|Benchthumping|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Benchthumping)						SOURCEPAGE:p.30
-Knowledge (Military Science)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Military Science)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Military Science))	SOURCEPAGE:p.38
-Knowledge (Weird Science)	OUTPUTNAME:Knowledge (Weird Science!)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Weird Science)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Weird Science))		SOURCEPAGE:p.39
-Knowledge (Hidden Lore)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Hidden Lore)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Hidden Lore))			SOURCEPAGE:p.97
+# Skill Name			Output Name						Key Stat	Untrained?		Type						Bonus to skill																		Source Page
+Benchthumping										KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence				BONUS:SKILL|Benchthumping|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Benchthumping)						SOURCEPAGE:p.30
+Knowledge (Military Science)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science	BONUS:SKILL|Knowledge (Military Science)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Military Science))	SOURCEPAGE:p.38
+Knowledge (Weird Science)	OUTPUTNAME:Knowledge (Weird Science!)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science	BONUS:SKILL|Knowledge (Weird Science)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Weird Science))		SOURCEPAGE:p.39
+Knowledge (Hidden Lore)									KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge		BONUS:SKILL|Knowledge (Hidden Lore)|max(0,Reputation-INT)|PREFEAT:1,Expert Advice(Knowledge (Hidden Lore))			SOURCEPAGE:p.97
 
 ###Block:MSRD skills
 # Skill Name					Bonus to skill																				Source Page		Add

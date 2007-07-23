@@ -83,3 +83,5 @@ RACE:@\d20ogl\msrd\arcana\creatures\arcanacreatures_races.lst|(INCLUDE:Lizard|Li
 RACE:@\d20ogl\msrd\basics\modern_creatures\moderncreatures_races.lst|(INCLUDE:Snake (Constrictor)|Snake (Tiny/Viper))
 RACE:@\d20ogl\msrd\menaces\menaces_races_a-i.lst|(INCLUDE:Boar (Wild Pig)|Chimpanzee)
 RACE:@\d20ogl\msrd\menaces\menaces_races_j-z.lst|(INCLUDE:Monitor Lizard|Scorpion|Shark (Huge)|Snake (Cobra)|Snake (Black Mamba)|Snake (Hoop)|Snake (Advanced Hoop))
+
+HIDETYPE:SKILL|Science
