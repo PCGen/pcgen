@@ -44,13 +44,13 @@ Investigate					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence												SOU
 Jump						KEYSTAT:STR				ACHECK:YES			TYPE:Strength												SOURCEPAGE:msrdskillsii.rtf
 Knowledge (Arcane Lore)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
 Knowledge (Art)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
-Knowledge (Behavioral Sciences)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Behavioral Sciences)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Science										SOURCEPAGE:msrdskillsii.rtf
 Knowledge (Business)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
 Knowledge (Civics)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
 Knowledge (Current Events)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
-Knowledge (Earth and Life Sciences)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Earth and Life Sciences)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Science										SOURCEPAGE:msrdskillsii.rtf
 Knowledge (History)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
-Knowledge (Physical Sciences)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Physical Sciences)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Science										SOURCEPAGE:msrdskillsii.rtf
 Knowledge (Popular Culture)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
 Knowledge (Streetwise)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
 Knowledge (Tactics)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge										SOURCEPAGE:msrdskillsii.rtf
