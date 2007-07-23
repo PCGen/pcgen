@@ -25,7 +25,41 @@
  */
 package pcgen.io;
 
-import pcgen.core.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+import java.util.StringTokenizer;
+
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Campaign;
+import pcgen.core.CharacterDomain;
+import pcgen.core.Constants;
+import pcgen.core.Deity;
+import pcgen.core.Description;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.FeatMultipleChoice;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.Kit;
+import pcgen.core.Language;
+import pcgen.core.NoteItem;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.QualifiedObject;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.SpecialAbility;
+import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
@@ -34,13 +68,11 @@ import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
-
-import java.util.*;
-
-import pcgen.core.pclevelinfo.PCLevelInfoStat;
+import pcgen.util.Logging;
 
 /**
  * <code>PCGVer2Creator</code><br>
@@ -86,7 +118,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	public String createPCGString()
 	{
-		//TODO:gorm - need to guestimate good starting size for this stringbuffer
+		// Guess that this should be about 1000
 		StringBuffer buffer = new StringBuffer(1000);
 
 		appendPCGVersionLine(buffer);
@@ -452,7 +484,6 @@ final class PCGVer2Creator implements IOConstants
 		{
 			buffer.append('N');
 		}
-		// TODO
 		buffer.append(LINE_SEP);
 	}
 
@@ -611,7 +642,8 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(LINE_SEP);
 		}
 
-		final List<Skill> skillList = new ArrayList<Skill>(thePC.getSkillList());
+		final List<Skill> skillList =
+				new ArrayList<Skill>(thePC.getSkillList());
 		for (Skill skill : skillList)
 		{
 			if (!skill.containsListFor(selectedArmorProfListKey))
@@ -855,7 +887,8 @@ final class PCGVer2Creator implements IOConstants
 					}
 					catch (NumberFormatException nfe)
 					{
-						// nothing we can do about it
+						Logging.errorPrint("Error parsing SA relevant level: " //$NON-NLS-1$
+							+ source.substring(source.lastIndexOf('|') + 1));
 					}
 
 					specials.put(pcClass.getKeyName() + TAG_SA
@@ -1085,7 +1118,8 @@ final class PCGVer2Creator implements IOConstants
 				continue;
 			}
 
-			// TODO :
+			// TODO is any of this commented out code any use anymore?:
+			//
 			//  			// improve here - performance and concept!!!!
 			//  			domainSpells.clear();
 			//  			for (Iterator it2 = Globals.getSpellMap().values().iterator(); it2.hasNext();)
@@ -1353,7 +1387,6 @@ final class PCGVer2Creator implements IOConstants
 					int it2 = 0;
 					if (ability.isMultiples())
 					{
-						// TODO - 
 						buffer.append(TAG_APPLIEDTO).append(TAG_END);
 						if (ability.getAssociatedObject(0) instanceof FeatMultipleChoice)
 						{
@@ -1361,8 +1394,7 @@ final class PCGVer2Creator implements IOConstants
 						}
 						for (; it2 < ability.getAssociatedCount(); ++it2)
 						{
-							if (it2 > 0
-								&& it2 < ability.getAssociatedCount())
+							if (it2 > 0 && it2 < ability.getAssociatedCount())
 							{
 								buffer.append(Constants.COMMA);
 							}
@@ -1404,8 +1436,11 @@ final class PCGVer2Creator implements IOConstants
 	/**
 	 * Build up a list of names of feat choices that will have been written
 	 * out in the class abilities section (i.e. Feats that were class abilities
-	 * such as fighter feats.) These should nto be written out again in the
-	 * feats section toherwise they can multiply...
+	 * such as fighter feats.) These should not be written out again in the
+	 * feats section other wise they can multiply...
+	 * 
+	 * TODO This method is never called, remove?
+	 * 
 	 * @return List of level ability feat choices as Strings
 	 */
 	private List<String> buildLevelAbilityFeatList()
@@ -1417,7 +1452,7 @@ final class PCGVer2Creator implements IOConstants
 			final int lvl = pcl.getLevel() - 1;
 			final PCClass aClass = thePC.getClassKeyed(classKeyName);
 			final List<LevelAbility> laList = aClass.getLevelAbilityList();
-			if (aClass != null && laList != null)
+			if (laList != null)
 			{
 				for (LevelAbility la : laList)
 				{
@@ -1443,6 +1478,8 @@ final class PCGVer2Creator implements IOConstants
 	 * ability list will have a matching entry removed. So on a true result
 	 * the laList will have been modified. This means the list must be
 	 * rebuilt if you want to check the full list of feats again.
+	 *
+	 * TODO This method is never called, remove?
 	 *
 	 * @param laList The list of chosen level abilities.
 	 * @param feat The feat to be checked.
@@ -1570,7 +1607,7 @@ final class PCGVer2Creator implements IOConstants
 	 * #Kits
 	 * KIT:KitType|Region|KitName
 	 *
-	 * TODO:
+	 * TODO: Do we need to support the below? 
 	 * KIT:KitName|TYPE:KitType|REGION:Region
 	 */
 	private void appendKitLines(StringBuffer buffer)
@@ -1778,6 +1815,9 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 	}
 
+	/**
+	 * @param buffer
+	 */
 	private void appendRaceLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_RACE).append(':');
@@ -1797,9 +1837,6 @@ final class PCGVer2Creator implements IOConstants
 		}
 
 		buffer.append(LINE_SEP);
-
-		// TODO
-		// don't we want to save more info here?
 	}
 
 	private void appendResidenceLine(StringBuffer buffer)
@@ -1953,8 +1990,9 @@ final class PCGVer2Creator implements IOConstants
 		}
 
 		thePC.populateSkills(includeSkills);
-		
-		final List<Skill> skillList = new ArrayList<Skill>(thePC.getSkillList());
+
+		final List<Skill> skillList =
+				new ArrayList<Skill>(thePC.getSkillList());
 		for (Skill skill : skillList)
 		{
 			if ((skill.getRank().doubleValue() > 0)
@@ -2212,11 +2250,11 @@ final class PCGVer2Creator implements IOConstants
 			}
 			trackList.add(outString);
 
-			// TODO Isn't this the same as outString?
+			// TODO Isn't this the same as outString?  Hmm, yes it is, why was it coded this way?
 			final String tarString = tempBonusName(creObj, tarObj);
 			buffer.append(tarString);
 
-			// TODO Why do we loop through the bonuses again?
+			// TODO Why do we loop through the bonuses again?  Are there sub bonuses for each bouns?
 			for (BonusObj subBonus : thePC.getTempBonusList())
 			{
 				final Object cObj = subBonus.getCreatorObject();
@@ -2273,9 +2311,6 @@ final class PCGVer2Creator implements IOConstants
 
 			buffer.append(']').append(LINE_SEP);
 		}
-
-		// TODO
-		// don't we want to save more info here?
 	}
 
 	private void appendUseTempModsLine(StringBuffer buffer)
@@ -2363,7 +2398,7 @@ final class PCGVer2Creator implements IOConstants
 		// Save any selected feat bonus weapons
 		//
 		for (final Ability feat : thePC
-			.getRealAbilityList(AbilityCategory.FEAT))
+			.getRealAbilitiesList(AbilityCategory.FEAT))
 		{
 			appendWeaponProficiencyLines(buffer, feat);
 		}
@@ -2383,8 +2418,9 @@ final class PCGVer2Creator implements IOConstants
 			return;
 		}
 
-		// TODO refactor this and the code above that calls it so share this
-		// as per Mynex's request do not write more than 10 weapons per line
+		// TODO refactor this section and the code above that calls it so share this
+
+		// As per Mynex's request do not write more than 10 weapons per line
 		final int step = 10;
 		final int times = (profs.size() / step) + 1;
 
@@ -2504,7 +2540,7 @@ final class PCGVer2Creator implements IOConstants
 	}
 
 	/**
-	 * creates a unqiue tuple based on the creator and target getName()
+	 * creates a unique tuple based on the creator and target getName()
 	 * @param creator
 	 * @param target
 	 * @return temp bonus name
