@@ -1,0 +1,37 @@
+# CVS $Revision$ $Author$ -- Wed Jul 18 17:41:07 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+CAMPAIGN:Rocket Rangers - King of the Rocket Men
+RANK:6
+GAMEMODE:Modern
+GENRE:Pulp
+BOOKTYPE:Supplement
+SETTING:Pulp Fantasy
+TYPE:Battlefield Press.Pulp Fantasy
+PUBNAMELONG:Battlefield Press
+PUBNAMESHORT:Battlefield
+PUBNAMEWEB:http://battlefieldpress.com
+SOURCELONG:Rocket Rangers - King of the Rocket Men
+SOURCESHORT:RocketRngr
+SOURCEWEB:http://battlefieldpress.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document, Copyright 2000, Wizards of the Coast, Inc., Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Modern System Reference Document Copyright 2002-2004, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, Eric Cagle, David Noonan, Stan!, Christopher Perkins, Rodney Thompson, and JD Wiker, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Rocket Rangers: King of the Rocket Men Copyright 2007, Battlefield Press, Inc.: Author: John Snead
+COPYRIGHT:PCGen dataset conversion for Rocket Rangers: King of the Rocket Men Copyright 2007, PCGen Data team including, but not limited to, Frank Kliewe, Andrew McDougall (Tir Gwaith).
+
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:rocketrangers_equip.lst
+EQUIPMENT:rocketrangers_equip_armor.lst
+EQUIPMENT:rocketrangers_equip_vehicles.lst
+EQUIPMENT:rocketrangers_equip_weap_ranged.lst
+KIT:rocketrangers_kits_defaultmonsters.lst
+RACE:rocketrangers_races.lst
+WEAPONPROF:rocketrangers_weaponprofs.lst
+
+#included creatures from MSRD
+KIT:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_kits_defaultmonsters.lst|(INCLUDE:Default Dinosaur (Deinonychus))
+KIT:@/d20ogl/msrd/menaces/menaces_kits_defaultmonsters_a-i.lst|(INCLUDE:Default Dinosaur (Tyrannosaur))
+RACE:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_races.lst|(INCLUDE:Dinosaur (Deinonychus))
+RACE:@/d20ogl/msrd/menaces/menaces_races_a-i.lst|(INCLUDE:Dinosaur (Tyrannosaur))
+EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst|(INCLUDE:AAVEHICLE)
