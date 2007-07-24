@@ -7982,6 +7982,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				aClass.getSpellSupport().addCharacterSpell(acs);
 			}
+			else if (isEmpty)
+			{
+				// Make sure that we are working on the same spell object, not just the same spell
+				for (CharacterSpell characterSpell : aClass.getSpellSupport()
+					.getCharacterSpellList())
+				{
+					if (characterSpell.equals(acs))
+					{
+						acs = characterSpell;
+					}
+				}
+			}
 			si = acs.addInfo(adjSpellLevel, 1, bookName, aFeatList);
 
 			//
