@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 			
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfileLSTwalkthrough.html,v 1.4 2005/10/07 11:05:20 zaister Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -18,7 +17,8 @@
 	-->
 	<head>
 		<title>PCC and LST Files Explained</title>
-		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" >
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 	
 	<body>
@@ -44,55 +44,50 @@
 		
 		<p>So this:</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="18%">
+		<table class=w20>
 			<tr>
-				<td width="33%">Bob</td>
-				<td width="33%">1</td>
-				<td width="34%">2</td>
+				<td class=w33>Bob</td>
+				<td class=w33>1</td>
+				<td class=w33>2</td>
 			</tr>
 			<tr>
-				<td width="33%">
-		Alice</td>
-				<td width="33%">3</td>
-				<td width="34%">4</td>
+				<td class=w33>Alice</td>
+				<td class=w33>3</td>
+				<td class=w33>4</td>
 			</tr>
 		</table>
 		
 		<p>Will be portrayed as:</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="13%">
+		<table class=w20>
 			<tr>
-				<td width="50%">Bob</td>
-				<td width="50%"></td>
+				<td class=w50>Bob</td>
+				<td class=w50></td>
 			</tr>
 			<tr>
-				<td width="50%"></td>
-				<td width="50%">1</td>
+				<td class=w50></td>
+				<td class=w50>1</td>
 			</tr>
 			<tr>
-				<td width="50%"></td>
-				<td width="50%">2</td>
-			</tr>
-		</table>
-		
-		<br />
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="13%">
-			<tr>
-				<td width="50%">Alice</td>
-				<td width="50%"></td>
-			</tr>
-			<tr>
-				<td width="50%"></td>
-				<td width="50%">3</td>
-			</tr>
-			<tr>
-				<td width="50%"></td>
-				<td width="50%">4</td>
+				<td class=w50></td>
+				<td class=w50>2</td>
 			</tr>
 		</table>
 		
-		<br />
+		<table class=w20>
+			<tr>
+				<td class=w50>Alice</td>
+				<td class=w50></td>
+			</tr>
+			<tr>
+				<td class=w50></td>
+				<td class=w50>3</td>
+			</tr>
+			<tr>
+				<td class=w50></td>
+				<td class=w50>4</td>
+			</tr>
+		</table>
 		
 		<h2>What is a PCC? Why are we discussing it first?</h2>
 		
@@ -129,56 +124,56 @@
 		help you if you make a mistake. For legal reasons, few of the header tags should ever be omitted.
 		See the <a href="datafilestagpages/datafilespcc.html">.pcc Files tags</a> documentation for a complete listing on <a href="datafilestagpages/datafilespcc.html#SOURCETAGS">Source and Header Information Tags</a>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<table>
 			<tr>
-				<td width="50%" valign="top"><code>CAMPAIGN:</code></td>
-				<td width="50%">Name of Campaign Displayed in data load window.</td>
+				<td class=w50 valign="top"><code>CAMPAIGN:</code></td>
+				<td class=w50>Name of Campaign Displayed in data load window.</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>RANK: 1</code></td>
-				<td width="50%">Rank indicates priority in sorting.</td>
+				<td class=w50 valign="top"><code>RANK: 1</code></td>
+				<td class=w50>Rank indicates priority in sorting.</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>GAMEMODE:3e</code></td>
-				<td width="50%">Designates the Game Mode.<br />
+				<td class=w50 valign="top"><code>GAMEMODE:3e</code></td>
+				<td class=w50>Designates the Game Mode.<br />
 												Default RPG is 3e.</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>GENRE:</code></td>
-				<td width="50%">This tells PCGen what genre this is,<br />
+				<td class=w50 valign="top"><code>GENRE:</code></td>
+				<td class=w50>This tells PCGen what genre this is,<br />
 												used to filter sources.</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>TYPE:Dominant Game Publisher.SRD</code></td>
-				<td width="50%">Type will be used for sorting.</td>
+				<td class=w50 valign="top"><code>TYPE:Dominant Game Publisher.SRD</code></td>
+				<td class=w50>Type will be used for sorting.</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>SOURCELONG:The Full Name of the Source</code></td>
-				<td width="50%">Long title (used in some displays).</td>
+				<td class=w50 valign="top"><code>SOURCELONG:The Full Name of the Source</code></td>
+				<td class=w50>Long title (used in some displays).</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>SOURCESHORT:Source</code></td>
-				<td width="50%">Short title (used in some displays).</td>
+				<td class=w50 valign="top"><code>SOURCESHORT:Source</code></td>
+				<td class=w50>Short title (used in some displays).</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>SOURCEWEB:http://www.mywebsite.com</code></td>
-				<td width="50%">Website for the source (typically the publisher's general site).</td>
+				<td class=w50 valign="top"><code>SOURCEWEB:http://www.mywebsite.com</code></td>
+				<td class=w50>Website for the source (typically the publisher's general site).</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>ISOGL:YES</code></td>
-				<td width="50%">If the source uses the open gaming license (OGL) See OGL FAQ.</td>
+				<td class=w50 valign="top"><code>ISOGL:YES</code></td>
+				<td class=w50>If the source uses the open gaming license (OGL) See OGL FAQ.</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>COPYRIGHT:Open Game License v 1.0a  Copyright 2000, Your Name</code></td>
-				<td width="50%">Copyright Terms.</td>
+				<td class=w50 valign="top"><code>COPYRIGHT:Open Game License v 1.0a  Copyright 2000, Your Name</code></td>
+				<td class=w50>Copyright Terms.</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>COPYRIGHT:The Full Name of the Source Copyright 2003, Company Name ; Authors Bob Writer</code></td>
-				<td width="50%">Copyright Owner.</td>
+				<td class=w50 valign="top"><code>COPYRIGHT:The Full Name of the Source Copyright 2003, Company Name ; Authors Bob Writer</code></td>
+				<td class=w50>Copyright Owner.</td>
 			</tr>
 			<tr>
-				<td width="50%" valign="top"><code>[LST Type]:[LST Name]</code></td>
-				<td width="50%">Call a LST file.</td>
+				<td class=w50 valign="top"><code>[LST Type]:[LST Name]</code></td>
+				<td class=w50>Call a LST file.</td>
 			</tr>
 		</table>
 		
@@ -312,25 +307,23 @@
 		
 		<p>And here are the two working tags:</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>Simian</code></td>
+				<td colspan="2"><code>Simian</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>TYPE:Spoken</code></td>
+				<td class=w10></td>
+				<td class=w90><code>TYPE:Spoken</code></td>
 			</tr>
 		</table>
 		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>Peel</code></td>
+				<td colspan="2"><code>Peel</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		<code>TYPE:Written</code></td>
 			</tr>
 		</table>
@@ -358,57 +351,57 @@
 		
 		<p>Here is what we end up with, separating each tag into a separate line</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>Sling (+1 Mighty)</code></td>
+				<td colspan="2"><code>Sling (+1 Mighty)</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		COST:0</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>WT:0</code></td>
+				<td class=w10></td>
+				<td class=w90><code>WT:0</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		PROFICIENCY:Sling</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		CRITMULT:x2</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		CRITRANGE:1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		DAMAGE:1d4</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		RANGE:50</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SIZE:S</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		BONUS:WEAPON|DAMAGE|STRMIN1</code></td>
 			</tr>
 		</table>
@@ -428,10 +421,10 @@
 		A mighty +2 sling would be identical except for
 		the tag</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:WEAPON|DAMAGE|STRMIN2</code></td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:WEAPON|DAMAGE|STRMIN2</code></td>
 			</tr>
 		</table>
 		
@@ -439,52 +432,52 @@
 		Dragon Armor will be plate +2 that provides fire resistance +5 and makes the
 		wearer immune to Red Dragon fear. We'll start by copying the plate armor from the srdequiparmorshields.lst file.</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>Full Plate</code></td>
+				<td colspan="2"><code>Full Plate</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		TYPE:Armor.Heavy.Suit.Standard.Metal</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		COST:1500</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		WT:50</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>ACCHECK:-6</code></td>
+				<td class=w10></td>
+				<td class=w90><code>ACCHECK:-6</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		MAXDEX:1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		MOVE:20,15</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SOURCEPAGE:Chap.7, Armor</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SPELLFAILURE:35</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE</code></td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE</code></td>
 			</tr>
 		</table>
 		
@@ -496,61 +489,61 @@
 		<p>For our custom version we'll be adding some other features. Other examples
 		can be pulled from the srdequiparmorsheildspecific.lst</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>Red Dragon Armor</code></td>
+				<td colspan="2"><code>Red Dragon Armor</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		PROFICIENCY:Full Plate</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		TYPE:Magic.Armor.Heavy.Standard.Suit.Specific</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		COST:16650</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		WT:50</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>ACCHECK:-5</code></td>
+				<td class=w10></td>
+				<td class=w90><code>ACCHECK:-5</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		MAXDEX:1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		MOVE:20,15</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SPELLFAILURE:35</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE</code></td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SA: Fire Resistance +5</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SA: Immune to Red Dragon Fear</code></td>
 			</tr>
 		</table>
@@ -596,31 +589,29 @@
 		
 		<p><code>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; SOURCEWEB:http://www.pcgen.org</code></p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>Sword (Bastard/Martial)</code></td>
+				<td colspan="2"><code>Sword (Bastard/Martial)</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		TYPE:Martial</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		HANDS:1IFLARGERTHANWEAPON</code></td>
 			</tr>
 		</table>
 		
-		<br />
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>Sword (Bastard/Exotic)</code></td>
+				<td colspan="2"><code>Sword (Bastard/Exotic)</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		TYPE:Exotic</code></td>
 			</tr>
 		</table>
@@ -642,28 +633,28 @@
 		<p>Feats are handy things. They have a lot of power, but are really fairly simple.
 		We'll start at the beginning of the srdfeats.lst and pull alertness.</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%" height="98">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2" height="18"><code>Alertness</code></td>
+				<td colspan="2"><code>Alertness</code></td>
 			</tr>
 			<tr>
-				<td width="10%" height="20"></td>
-				<td width="90%" height="20"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		TYPE:General</code></td>
 			</tr>
 			<tr>
-				<td width="10%" height="20"></td>
-				<td width="90%" height="20"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		DESC:See Text</code></td>
 			</tr>
 			<tr>
-				<td width="10%" height="20"></td>
-				<td width="90%" height="20"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		BONUS:SKILL|Listen,Spot|2</code></td>
 			</tr>
 			<tr>
-				<td width="10%" height="20"></td>
-				<td width="90%" height="20"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SOURCEPAGE:Chap.5, Feat Descriptions</code></td>
 			</tr>
 		</table>
@@ -675,50 +666,50 @@
 		
 		<p>We'll move on to something meatier.</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>Weapon Specialization</code></td>
+				<td colspan="2"><code>Weapon Specialization</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		TYPE:Special.Fighter</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		PREFEAT:1,Weapon Focus</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		PREVARGTEQ:WeapSpecQualify,1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		DESC:See Text</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		MULT:YES</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>CHOOSE:FEAT=Weapon Focus|1</code></td>
+				<td class=w10></td>
+				<td class=w90><code>CHOOSE:FEAT=Weapon Focus|1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged</code></td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:WEAPONPROF=%LIST|DAMAGE-SHORTRANGE|2</code></td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:WEAPONPROF=%LIST|DAMAGE-SHORTRANGE|2</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SOURCEPAGE:Chap.5, Feat Descriptions</code></td>
 			</tr>
 		</table>
@@ -737,97 +728,97 @@
 		of the most complex standard races, at least by PCGen standards, the Elf.
 		This, and other examples, can be found in the srdracesphb.lst file.</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>Elf</code></td>
+				<td colspan="2"><code>Elf</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		FAVCLASS:Wizard</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		STARTFEATS:1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SIZE:M</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		MOVE:Walk,30</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		REACH:5</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>VISION:Low-light</code></td>
+				<td class=w10></td>
+				<td class=w90><code>VISION:Low-light</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		LANGAUTO:Common,Elven</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		WEAPONAUTO:Shortbow|Longbow|Longbow (Composite)|Shortbow (Composite)</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		WEAPONBONUS:Rapier|Longsword</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		BONUS:SKILL|Listen,Search,Spot|2|TYPE=Racial</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		BONUS:STAT|DEX|2</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:STAT|CON|-2</code></td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:STAT|CON|-2</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SA:Immunity to magic sleep spells and effects</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SA:+2 racial saving throw bonus against Enchantment spells or effects&nbsp;</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SA:An elf who merely passes within 5 feet of a secret or concealed door is entitled 
 		to a Search check to notice it as if she were actively looking for the door</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		TYPE:Humanoid</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SOURCEPAGE:Chap.2, Elves</code></td>
 			</tr>
 		</table>
@@ -867,77 +858,77 @@
 <p><code>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; 
   SOURCEWEB:http://www.pcgen.org/</code></p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>Silverback</code></td>
+				<td colspan="2"><code>Silverback</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		FAVCLASS:Ranger</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		STARTFEATS:1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>SIZE:L</code></td>
+				<td class=w10></td>
+				<td class=w90><code>SIZE:L</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		MOVE:Walk,30</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>REACH:10</code></td>
+				<td class=w10></td>
+				<td class=w90><code>REACH:10</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		VISION:Darkvision (60')</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>LANGAUTO:Common,Simian</code></td>
+				<td class=w10></td>
+				<td class=w90><code>LANGAUTO:Common,Simian</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan,Elven</code></td>
+				<td class=w10></td>
+				<td class=w90><code>LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan,Elven</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		BONUS:SKILL|Handle Animal,Diplomacy,Sense Motive|2|TYPE=Racial</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		BONUS:STAT|STR|2</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		BONUS:STAT|INT|1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:STAT|DEX|-1</code></td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:STAT|DEX|-1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6</code></td>
+				<td class=w10></td>
+				<td class=w90><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SA:Immunity to charm</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		TYPE:Humanoid</code></td>
 			</tr>
 		</table>
@@ -974,78 +965,76 @@
 		the other examples, blank lines indicate a new line and the indentions list the
 		tags that fall on that line.</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>CLASS:Warrior</code></td>
+				<td colspan="2"><code>CLASS:Warrior</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>CLASS:Warrior</code></td>
+				<td class=w10></td>
+				<td class=w90><code>CLASS:Warrior</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		HD:8</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		TYPE:NPC</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		ABB:War</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		SOURCEPAGE:Chap.2, Classes, NPC Classes</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:CHECKS|BASE.Fortitude|CL/2+2</code></td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:CHECKS|BASE.Fortitude|CL/2+2</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3</code></td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		BONUS:COMBAT|BAB|CL</code></td>
 			</tr>
 		</table>
-		
-		<br />
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2"><code>
+				<td colspan="2"><code>
 		CLASS:Warrior</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		STARTSKILLPTS:2</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Swim</code></td>
 			</tr>
 			<tr>
-				<td width="10%"><code>1</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>1</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		WEAPONAUTO:SIMPLE|MARTIAL</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
+				<td class=w10></td>
+				<td class=w90><code>
 		FEATAUTO:Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency
 					(Heavy)|Shield Proficiency|Martial Weapon Proficiency</code></td>
 			</tr>
@@ -1068,227 +1057,135 @@
 		feats. Here is the level specific
 		block for the fighter from the srdbaseclasses.lst file:</p>
 		
-		<code>
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>1</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>1</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
-		WEAPONAUTO:SIMPLE|MARTIAL
-		FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor
-		Proficiency (Heavy)|Shield Proficiency|Simple Weapon Proficiency
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>WEAPONAUTO:SIMPLE|MARTIAL FEATAUTO:Armor Proficiency (Light)|Armor Proficiency<BR>
+				(Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Simple Weapon Proficiency</code></td>
 			</tr>
 		</table>
 		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>2</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>2</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
 			</tr>
 		</table>
 		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>4</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>4</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>DEFINE:WeapSpecQualify|1</code></td>
+				<td class=w10></td>
+				<td class=w90><code>DEFINE:WeapSpecQualify|1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
 			</tr>
 		</table>
 		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>6</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>6</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
 			</tr>
 		</table>
 		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>8</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>8</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
 			</tr>
 		</table>
 		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>10</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>10</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
 			</tr>
 		</table>
 		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>12</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>12</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
 			</tr>
 		</table>
 		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>14</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>14</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
+			</tr>
+		</table>
+
+		<table class=w67>
+			<tr>
+				<td class=w10><code>16</code></td>
+				<td class=w90></td>
+			</tr>
+			<tr>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
 			</tr>
 		</table>
 		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>16</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>18</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
 			</tr>
 		</table>
-		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>18</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>20</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ADD:FEAT(TYPE=Fighter)</code></td>
 			</tr>
 		</table>
-		
-		&nbsp;
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
-			<tr>
-				<td width="10%"><code>20</code></td>
-				<td width="90%"></td>
-			</tr>
-			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		ADD:FEAT(TYPE=Fighter)
-		</code>
-		
-				</td>
-			</tr>
-		</table>
-		
-		</code>
 		
 		<p>Pretty simple. Only the 4<sup>th</sup> level DEFINE statement should require
 		explanation. The DEFINE statement is used to initialize a variable, in this case WeapSpecQualify, and set it to 1.
@@ -1296,159 +1193,85 @@
 		
 		<p>Let's look at something more magical, like a bard.</p>
 		
-		<code>
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2">
-		
-		<code>
-		CLASS:Bard
-		</code>
-		
-				</td>
+				<td colspan="2"><code>CLASS:Bard</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
-		HD:6
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>HD:6</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
-		SPELLSTAT:CHA
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>SPELLSTAT:CHA</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
-		SPELLTYPE:Arcane
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>SPELLTYPE:Arcane</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
-		TYPE:Base.PC
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>TYPE:Base.PC</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
-		ABB:Brd
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>ABB:Brd</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
-		MEMORIZE:NO
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>MEMORIZE:NO</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
-		SOURCEPAGE:Chap.3, Bard
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>SOURCEPAGE:Chap.3, Bard</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>
-		LANGAUTO:Literacy
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>LANGAUTO:Literacy</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:CHECKS|BASE.Fortitude|CL/3
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:CHECKS|BASE.Fortitude|CL/3</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>BONUS:COMBAT|BAB|CL*3/4
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>BONUS:COMBAT|BAB|CL*3/4</code></td>
 			</tr>
 		</table>
 		
-		</code>
 		
 		<p>Standard combat definition block, but for the Bard it indicates the class can cast arcane spells using Charisma as the
 		prime stat without memorizing spells.</p>
 		
-		<code>
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2">
-		
-		<code>
-		CLASS:Bard
-		</code>
-		
-				</td>
+				<td colspan="2"><code>CLASS:Bard</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%"><code>PREALIGN:3,4,5,6,7,8</code></td>
+				<td class=w10></td>
+				<td class=w90><code>PREALIGN:3,4,5,6,7,8</code></td>
 			</tr>
 		</table>
-		
-		</code>
 		
 		<p>Bards have an alignment restriction of &quot;non-lawful&quot;. The numbers 0-9
 		correspond to the alignments with the omitted 1, 2, and 9 being lawful good,
 		lawful neutral and lawful evil respectively.</p>
 		
-		<code>
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="100%" colspan="2">
-		
-		<code>
-		CLASS:Bard
-		</code>
-		
-				</td>
+				<td colspan="2"><code>CLASS:Bard</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
-		
-		<code>
-		STARTSKILLPTS:4
-		</code>
-		
-				</td>
+				<td class=w10></td>
+				<td class=w90><code>STARTSKILLPTS:4</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|
@@ -1461,20 +1284,19 @@
 			</tr>
 		</table>
 		
-		</code>
 		
 		<p>Standard skill set. Nothing to see here, move along.</p>
 		
-		<code>
+
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%"><code>1</code></td>
-				<td width="90%"></td>
+				<td class=w10><code>1</code></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		CAST:2
@@ -1483,8 +1305,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		KNOWN:4
@@ -1493,8 +1315,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		SA:Bardic music %/day|BardicMusic
@@ -1503,8 +1325,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		SA:Bardic knowledge (+%)|BardicKnowledge
@@ -1513,8 +1335,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		BONUS:VAR|BardicMusic|CL=Bard
@@ -1523,8 +1345,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		BONUS:VAR|BardicKnowledge|CL=Bard+INT
@@ -1533,8 +1355,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		DEFINE:BardicKnowledge|0
@@ -1543,8 +1365,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		DEFINE:BardicMusic|0
@@ -1553,8 +1375,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		WEAPONAUTO:SIMPLE
@@ -1563,8 +1385,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		WEAPONBONUS:Longbow|Longbow(Composite)|Longsword|Rapier|Sap|Shortbow (Composite)|Sword
@@ -1574,8 +1396,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
@@ -1584,32 +1406,28 @@
 				</td>
 			</tr>
 		</table>
-		
-		</code>
-		
+				
 		<p>Now we see some new things other than the standard proficiencies and feats. A
 		first level Bard can cast 2 1<sup>st</sup> level spells and knows four of them.
 		He has the special ability to use Bardic Music a number of times equal to
 		his class level (CL) which is handled by an SA entry (with % being used to
 		display the value of the BardicMusic variable), a DEFINE and a BONUS to set the
 		variable to the Bard class level. The same is done with the Bardic Knowledge bonus.</p>
-		
-		<code>
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			
+		<table class=w67>
 			<tr>
-				<td width="10%">
+				<td class=w10>
 		
 		<code>
 		2
 		</code>
 		
 				</td>
-				<td width="90%"></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		CAST:3,0
@@ -1618,8 +1436,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		KNOWN:5,2
@@ -1628,94 +1446,87 @@
 				</td>
 			</tr>
 		</table>
-		
-		</code>
-		
+				
 		<p>Bards can now cast 2<sup>nd</sup> level spells (if they have any bonus spells from their spell-stat Charisma) and know 2
 		of them.</p>
-		
-		<code>
-		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			
+		<table class=w67>
 			<tr>
-				<td width="10%">
+				<td class=w10>
 		
 		<code>
 		3</code>
 		
 				</td>
-				<td width="90%"></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		CAST:3,1</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		KNOWN:6,3</code></td>
 			</tr>
 		</table>
 		
-		<br />
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%">
+				<td class=w10>
 		
 		<code>4
 		</code>
 		
 				</td>
-				<td width="90%"></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		CAST:3,2,0</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		KNOWN:6,3,2</code></td>
 			</tr>
 		</table>
 		
-		<br />
-		
 		<p>...</p>
 		<p>...</p>
 		
-		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+		<table class=w67>
 			<tr>
-				<td width="10%">
+				<td class=w10>
 		
 		<code>
 		20
 		</code>
 		
 				</td>
-				<td width="90%"></td>
+				<td class=w90></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		CAST:4,4,4,4,4,4,4</code></td>
 			</tr>
 			<tr>
-				<td width="10%"></td>
-				<td width="90%">
+				<td class=w10></td>
+				<td class=w90>
 		
 		<code>
 		KNOWN:6,5,5,5,5,5,4</code></td>
@@ -1724,9 +1535,14 @@
 		
 		
 <p>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; SOURCEWEB:http://www.pcgen.org</p>
-		</code>
+
+
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="http://www.w3.org/Icons/valid-html401"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
 		
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfileLSTwalkthrough.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-	</body>
+			</body>
 
 </html>
