@@ -40,7 +40,7 @@ td {
 	padding: 1px 10px;
 }
 a img {
-	border-style: hidden;
+	border-style: none;
 }
 .alpha {
 	color: #FF0000;
