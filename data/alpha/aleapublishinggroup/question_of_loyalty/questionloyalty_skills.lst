@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Wed Jul 25 20:21:46 2007 -- reformated by prettylst.pl v1.38 (build 2949)
+SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:GuideMO	SOURCEWEB:http://www.aleapublishing.com
+# Original Entry: Andrew Maitland
+
+# Skill Name	Untrained?		Type		Source Page
+Loan			USEUNTRAINED:NO	TYPE:None	SOURCEPAGE:p.7
