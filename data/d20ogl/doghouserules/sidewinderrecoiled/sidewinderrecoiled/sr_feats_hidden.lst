@@ -1,10 +1,20 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jul 27 02:45:58 2007 -- reformated by prettylst.pl v1.38 (build 2949)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 # Original Entry by: Lone Jedi (MSRD by Barak & Hugo & Tir Gwaith)
 
 ###Block: Class Features (pseudofeats)
 # Feat Name			Type			Visible	Special Ability				Description		Multiple?	Choose
 Terrain Specialization	TYPE:Special	VISIBLE:NO	SA:Terrain Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:NUMCHOICES=1|Chaparral|Desert|Grassland|Forest|Mountains|Swamp
+
+
+###Block: Professor abilities
+# Feat Name			Type			Visible	Special Ability				Multiple?	Choose																													Combat bonus					Bonus to skill			Source Page
+Smart Defense		TYPE:ClassAbility	VISIBLE:NO	SA:Smart Defense																																				BONUS:COMBAT|AC|INT|TYPE=ClassFeature						SOURCEPAGE:p.182
+Quick Wits			TYPE:ClassAbility	VISIBLE:NO	SA:Quick Wits																																																SOURCEPAGE:p.182
+Book Learnin'		TYPE:ClassAbility	VISIBLE:NO	SA:Book Learnin'																																											BONUS:SKILL|TYPE.Knowledge|4	SOURCEPAGE:p.182
+Scientific Breakthrough	TYPE:ClassAbility	VISIBLE:NO	SA:Academic Breakthrough (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)|1													SOURCEPAGE:p.182
+Smart Weapon		TYPE:ClassAbility	VISIBLE:NO	SA:Smart Weapon (%CHOICE)		MULT:YES	CHOOSE:WEAPONPROFS|LIST																																							SOURCEPAGE:p.182
+Real World Applications	TYPE:ClassAbility	VISIBLE:NO	SA:Real-World Applications																																														SOURCEPAGE:p.182
 
 #
 # End
