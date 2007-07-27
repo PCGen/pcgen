@@ -1,28 +1,28 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Jul 26 22:38:41 2007 -- reformated by prettylst.pl v1.38 (build 2949)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 # Original Entry by: Lone Jedi (MSRD by Barak & Tir Gwaith)
 
 
 ###Block: Sidewinder Occupations
 
-# Feat Name				Output Name		Type			Visible	Required Stat	Required Text	Modify VAR							Source Page		ADD:
-Occupation (Artisan)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,DEX=13				BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 44	ADD:FEAT|2|TYPE=Artisan_Skills	ADD:FEAT|1|Builder,Creative,Mechanical
-Occupation (Artist)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 44	ADD:FEAT|3|TYPE=Artist_Skills
-Occupation (Clergy)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 23	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 45	ADD:FEAT|3|TYPE=Clergy_Skills
-Occupation (Engineer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 23	BONUS:VAR|WealthBonus|3					SOURCEPAGE:p. 45	ADD:FEAT|3|TYPE=Engineer_Skills
-Occupation (Entertainer)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 45	ADD:FEAT|1|TYPE=Entertainer_Skills
-Occupation (Greenhorn)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 16	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 46	ADD:FEAT|2|TYPE=Greenhorn_Skills
-Occupation (Hunter)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 46	ADD:FEAT|2|TYPE=Hunter_Skills	ADD:FEAT|1|Far Shot,Personal Firearms Proficiency
-Occupation (Idle Rich)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 18	BONUS:VAR|WealthBonus|6	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 46	ADD:FEAT|1|TYPE=Idle_Rich_Skills
-Occupation (Laborer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 14	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 46	ADD:FEAT|3|TYPE=Laborer_Skills
-Occupation (Mariner)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 14	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 47	ADD:FEAT|2|TYPE=Mariner_Skills	ADD:FEAT|1|Acrobatic,Focused,Vehicle Proficiency (Sailing Ships),Vehicle Proficiency (Steamships)
-Occupation (Merchant)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 20	BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 47	ADD:FEAT|2|TYPE=Merchant_Skills
-Occupation (Outlaw)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 47	ADD:FEAT|2|TYPE=Outlaw_Skills	ADD:FEAT|1|Brawl,Personal Firearms Proficiency
-Occupation (Politician)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,CHA=13	PRETEXT:Age 21	BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 48	ADD:FEAT|2|TYPE=Politician_Skills	ADD:FEAT|1|Renown,Trustworthy,Windfall
-Occupation (Prospector)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48	ADD:FEAT|2|TYPE=Prospector_Skills	ADD:FEAT|1|Endurance,Personal Firearms Proficiency
-Occupation (Ranch Hand)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48	ADD:FEAT|2|TYPE=Ranch_Hand_Skills	ADD:FEAT|1|Animal Affinity,Exotic Ranged Weapon Proficiency(Lasso),Personal Firearms Proficiency
-Occupation (Sodbuster)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48	ADD:FEAT|2|TYPE=Sodbuster_Skills	ADD:FEAT|1|Home Ground,Personal Firearms Proficiency
-Occupation (Tribal)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 13	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 49	ADD:FEAT|3|TYPE=Tribal_Skills	ADD:FEAT|1|Archaic Weapons Proficiency,Athletic
+# Feat Name				Output Name		Type			Visible	Required Stat	Required Text	Add																							Modify VAR							Source Page
+Occupation (Artisan)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,DEX=13				ADD:FEAT|2|TYPE=Artisan_Skills	ADD:FEAT|1|Builder,Creative,Mechanical											BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 44
+Occupation (Artist)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT|3|TYPE=Artist_Skills																			BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 44
+Occupation (Clergy)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 23	ADD:FEAT|3|TYPE=Clergy_Skills																			BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 45
+Occupation (Engineer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 23	ADD:FEAT|3|TYPE=Engineer_Skills																		BONUS:VAR|WealthBonus|3					SOURCEPAGE:p. 45
+Occupation (Entertainer)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT|1|TYPE=Entertainer_Skills																		BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 45
+Occupation (Greenhorn)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 16	ADD:FEAT|2|TYPE=Greenhorn_Skills																		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 46
+Occupation (Hunter)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT|2|TYPE=Hunter_Skills	ADD:FEAT|1|Far Shot,Personal Firearms Proficiency										BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 46
+Occupation (Idle Rich)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 18	ADD:FEAT|1|TYPE=Idle_Rich_Skills																		BONUS:VAR|WealthBonus|6	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 46
+Occupation (Laborer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 14	ADD:FEAT|3|TYPE=Laborer_Skills																		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 46
+Occupation (Mariner)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 14	ADD:FEAT|2|TYPE=Mariner_Skills	ADD:FEAT|1|Acrobatic,Focused,Vehicle Proficiency (Sailing Ships),Vehicle Proficiency (Steamships)	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 47
+Occupation (Merchant)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 20	ADD:FEAT|2|TYPE=Merchant_Skills																		BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 47
+Occupation (Outlaw)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT|2|TYPE=Outlaw_Skills	ADD:FEAT|1|Brawl,Personal Firearms Proficiency											BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 47
+Occupation (Politician)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,CHA=13	PRETEXT:Age 21	ADD:FEAT|2|TYPE=Politician_Skills	ADD:FEAT|1|Renown,Trustworthy,Windfall											BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 48
+Occupation (Prospector)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT|2|TYPE=Prospector_Skills	ADD:FEAT|1|Endurance,Personal Firearms Proficiency									BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
+Occupation (Ranch Hand)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT|2|TYPE=Ranch_Hand_Skills	ADD:FEAT|1|Animal Affinity,Exotic Ranged Weapon Proficiency(Lasso),Personal Firearms Proficiency	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
+Occupation (Sodbuster)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT|2|TYPE=Sodbuster_Skills	ADD:FEAT|1|Home Ground,Personal Firearms Proficiency									BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
+Occupation (Tribal)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 13	ADD:FEAT|3|TYPE=Tribal_Skills	ADD:FEAT|1|Archaic Weapons Proficiency,Athletic											BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 49
 
 ###Block: MSRD Imported occupations
 
