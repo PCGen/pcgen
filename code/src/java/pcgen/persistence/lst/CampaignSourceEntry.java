@@ -158,21 +158,6 @@ public class CampaignSourceEntry
 	}
 
 	/**
-	 * @param arg0
-	 * @return -1 if file does not compare
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-	public int compareTo(CampaignSourceEntry arg0)
-	{
-		if (arg0 == null)
-		{
-			return -1;
-		}
-
-		return this.getURI().compareTo(arg0.getURI());
-	}
-
-	/**
 	 * @param arg0 
 	 * @return true if equals
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -180,12 +165,21 @@ public class CampaignSourceEntry
 	@Override
 	public boolean equals(Object arg0)
 	{
-		if (! (arg0 instanceof CampaignSourceEntry))
+		if (arg0 == this)
+		{
+			return true;
+		}
+		if (!(arg0 instanceof CampaignSourceEntry))
 		{
 			return false;
 		}
-
-		return getURI().equals(((CampaignSourceEntry)arg0).getURI());
+		CampaignSourceEntry other = (CampaignSourceEntry) arg0;
+		if (!getURI().equals(other.getURI()))
+		{
+			return false;
+		}
+		return excludeItems.equals(other.excludeItems)
+			&& includeItems.equals(other.includeItems);
 	}
 
 	/**
