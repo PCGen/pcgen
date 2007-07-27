@@ -29,12 +29,6 @@ public class NumberToken implements ChooseLstToken
 
 	public boolean parse(PObject po, String prefix, String value)
 	{
-		if (value.indexOf(',') != -1)
-		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value);
-			return false;
-		}
 		if (value.indexOf('[') != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
