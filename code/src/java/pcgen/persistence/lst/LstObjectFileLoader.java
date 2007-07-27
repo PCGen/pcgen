@@ -24,14 +24,14 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URI;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
-import java.util.TreeSet;
+import java.util.Set;
 
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
@@ -96,7 +96,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	public void loadLstFiles(List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		// Track which sources have been loaded already
-		TreeSet<URI> loadedFiles = new TreeSet<URI>();
+		Set<CampaignSourceEntry> loadedFiles = new HashSet<CampaignSourceEntry>();
 
 		// Load the files themselves as thoroughly as possible
 		for (CampaignSourceEntry sourceEntry : fileList)
@@ -106,13 +106,11 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 				continue;
 			}
 
-			// Check if the file has already been loaded before loading it
-			URI fileName = sourceEntry.getURI();
-
-			if (!loadedFiles.contains(fileName))
+			// Check if the CSE has already been loaded before loading it
+			if (!loadedFiles.contains(sourceEntry))
 			{
 				loadLstFile(sourceEntry);
-				loadedFiles.add(fileName);
+				loadedFiles.add(sourceEntry);
 			}
 		}
 
