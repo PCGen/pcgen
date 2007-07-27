@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.Observable;
 import java.util.TreeSet;
 
 import pcgen.core.PObject;
@@ -53,8 +53,7 @@ import pcgen.util.PropertyFactory;
  *
  * @author AD9C15
  */
-public abstract class LstObjectFileLoader<T extends PObject> extends
-		LstFileLoader
+public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 {
 	/** The String that separates fields in the file. */
 	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
@@ -335,28 +334,30 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 
 		try
 		{
-			dataBuffer = readFromURI(sourceEntry.getURI());
+			dataBuffer = LstFileLoader.readFromURI(sourceEntry.getURI());
 		}
 		catch (PersistenceLayerException ple)
 		{
-			logError(PropertyFactory.getFormattedString(
+			String message = PropertyFactory.getFormattedString(
 				"Errors.LstFileLoader.LoadError", //$NON-NLS-1$
-				sourceEntry.getURI(), ple.getMessage()));
+				sourceEntry.getURI(), ple.getMessage());
+			Logging.errorPrint(message);
+			setChanged();
+			notifyObservers(new Exception(message));
 			return;
 		}
 
 		final String aString = dataBuffer.toString();
-		final StringTokenizer fileLines =
-				new StringTokenizer(aString, LINE_SEPARATOR);
 		T target = null;
 		ArrayList<ModEntry> classModLines = null;
 
-		int currentLineNumber = 0;
-		while (fileLines.hasMoreTokens())
+		String[] fileLines = aString.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
+
+		for (int i = 0; i < fileLines.length; i++)
 		{
-			++currentLineNumber;
-			final String line = fileLines.nextToken().trim();
-			if (isComment(line))
+			String line = fileLines[i];
+			if ((line.length() == 0)
+				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;
 			}
@@ -383,26 +384,22 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 				else
 				{
 					// Add the line to the class mod and don't process it yet.
-					classModLines.add(new ModEntry(sourceEntry, line,
-						currentLineNumber, sourceMap));
+					classModLines.add(new ModEntry(sourceEntry, line, i + 1,
+						sourceMap));
 					continue;
 				}
 			}
 
-			// check for comments, copies, mods, and forgets
-			if (isComment(line))
-			{
-				continue;
-			}
+			// check for copies, mods, and forgets
 			// TODO - Figure out why we need to check SOURCE in this file
-			else if (line.startsWith("SOURCE")) //$NON-NLS-1$
+			if (line.startsWith("SOURCE")) //$NON-NLS-1$
 			{
 				sourceMap = SourceLoader.parseLine(line, sourceEntry.getURI());
 			}
 			else if (firstToken.indexOf(COPY_SUFFIX) > 0)
 			{
 				copyLineList.add(new ModEntry(sourceEntry, line,
-						currentLineNumber, sourceMap));
+					i + 1, sourceMap));
 			}
 			else if (firstToken.indexOf(MOD_SUFFIX) > 0)
 			{
@@ -412,14 +409,14 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 					// As CLASS:abc.MOD can be followed by level lines, we place the
 					// lines into a list for processing in a group afterwards
 					classModLines = new ArrayList<ModEntry>();
-					classModLines.add(new ModEntry(sourceEntry, line,
-						currentLineNumber, sourceMap));
+					classModLines.add(new ModEntry(sourceEntry, line, i + 1,
+						sourceMap));
 				}
 				else
 				{
 					List<ModEntry> modLines = new ArrayList<ModEntry>();
-					modLines.add(new ModEntry(sourceEntry, line,
-						currentLineNumber, sourceMap));
+					modLines.add(new ModEntry(sourceEntry, line, i + 1,
+						sourceMap));
 					modEntryList.add(modLines);
 				}
 			}
@@ -438,18 +435,24 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 				}
 				catch (PersistenceLayerException ple)
 				{
-					logError(PropertyFactory.getFormattedString(
-						"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-						sourceEntry.getURI(), currentLineNumber, ple
-							.getMessage()));
+					String message =
+							PropertyFactory.getFormattedString(
+								"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
+								sourceEntry.getURI(), i + 1, ple.getMessage());
+					Logging.errorPrint(message);
+					setChanged();
+					notifyObservers(new Exception(message));
 					Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
 				}
 				catch (Throwable t)
 				{
-					logError(PropertyFactory.getFormattedString(
-						"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-						sourceEntry.getURI(), currentLineNumber, t
-							.getMessage()));
+					String message =
+							PropertyFactory.getFormattedString(
+								"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
+								sourceEntry.getURI(), i + 1, t.getMessage());
+					Logging.errorPrint(message);
+					setChanged();
+					notifyObservers(new Exception(message));
 					Logging.errorPrint(PropertyFactory
 						.getString("Errors.LstFileLoader.Ignoring"), //$NON-NLS-1$
 						t);
@@ -487,9 +490,12 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 		{
 			if (object == null)
 			{
-				logError(PropertyFactory.getFormattedString(
+				String message = PropertyFactory.getFormattedString(
 					"Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
-					baseKey));
+					baseKey);
+				Logging.errorPrint(message);
+				setChanged();
+				notifyObservers(new Exception(message));
 
 				return null;
 			}
@@ -501,9 +507,12 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 		}
 		catch (CloneNotSupportedException e)
 		{
-			logError(PropertyFactory.getFormattedString(
+			String message = PropertyFactory.getFormattedString(
 				"Errors.LstFileLoader.CopyNotSupported", //$NON-NLS-1$
-				object.getClass().getName(), baseKey, copyName));
+				object.getClass().getName(), baseKey, copyName);
+			Logging.errorPrint(message);
+			setChanged();
+			notifyObservers(new Exception(message));
 		}
 		return null;
 	}
@@ -575,9 +584,12 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 
 		if (object == null)
 		{
-			logError(PropertyFactory.getFormattedString(
+			String message = PropertyFactory.getFormattedString(
 				"Errors.LstFileLoader.ModObjectNotFound", //$NON-NLS-1$
-				entry.getSource().getURI(), entry.getLineNumber(), key));
+				entry.getSource().getURI(), entry.getLineNumber(), key);
+			Logging.errorPrint(message);
+			setChanged();
+			notifyObservers(new Exception(message));
 			return;
 		}
 
@@ -617,20 +629,26 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 				}
 				catch (PersistenceLayerException ple)
 				{
-					logError(PropertyFactory.getFormattedString(
+					String message = PropertyFactory.getFormattedString(
 						"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
 						element.getSource().getURI(), element.getLineNumber(),
-						ple.getMessage()));
+						ple.getMessage());
+					Logging.errorPrint(message);
+					setChanged();
+					notifyObservers(new Exception(message));
 				}
 			}
 			completeObject(entry.getSource(), object);
 		}
 		catch (PersistenceLayerException ple)
 		{
-			logError(PropertyFactory.getFormattedString(
+			String message = PropertyFactory.getFormattedString(
 				"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
 				entry.getSource().getURI(), entry.getLineNumber(), ple
-					.getMessage()));
+					.getMessage());
+			Logging.errorPrint(message);
+			setChanged();
+			notifyObservers(new Exception(message));
 		}
 	}
 

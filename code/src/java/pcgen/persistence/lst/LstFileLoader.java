@@ -24,6 +24,13 @@
  */
 package pcgen.persistence.lst;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+
 import pcgen.core.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
@@ -31,12 +38,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
-
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
-import java.util.Observable;
 
 /**
  * This class is a base class for LST file loaders.
@@ -54,35 +55,18 @@ import java.util.Observable;
  * so any thread should only acccess a single loader (or group of loaders)
  * at a time.
  */
-public abstract class LstFileLoader extends Observable
+public final class LstFileLoader
 {
+	private LstFileLoader()
+	{
+		//Utility class
+	}
+	
 	/** The String that represents the start of a line comment. */
 	public static final char LINE_COMMENT_CHAR = '#'; //$NON-NLS-1$
 
-	/**
-	 * Logs an error that has occured during data loading.
-	 * This will not only log the message to the system error log,
-	 * but it will also notify all observers of the error.
-	 * @param message the error to notify listeners about
-	 */
-	public void logError(String message)
-	{
-		Logging.errorPrint(message);
-		setChanged();
-		notifyObservers(new Exception(message));
-	}
-
-	/**
-	 * This method is used to determine if a line in an LST file is
-	 * considered a comment or something to be parsed.
-	 *
-	 * @param line String to determine whether is a comment or not
-	 * @return boolean true if the line is a comment (or blank)
-	 */
-	protected final boolean isComment(String line)
-	{
-		return (line.length() == 0) || (line.charAt(0) == LINE_COMMENT_CHAR);
-	}
+	/** The String that separates individual objects */
+	public static final String LINE_SEPARATOR_REGEXP = "(\r|\n)"; //$NON-NLS-1$
 
 	/**
 	 * This method reads the given URL and stores its contents in the provided

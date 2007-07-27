@@ -1323,15 +1323,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			return;
 		}
 
-		final StringTokenizer fileLines =
-				new StringTokenizer(data, LstObjectFileLoader.LINE_SEPARATOR);
+		String[] fileLines = data.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
 
-		int lineNumber = 0;
-
-		while (fileLines.hasMoreTokens())
+		for (int i = 0; i < fileLines.length; i++)
 		{
-			lineNumber++;
-			String aLine = fileLines.nextToken().trim();
+			String aLine = fileLines[i];
 
 			// Ignore commented-out and empty lines
 			if (((aLine.length() > 0) && (aLine.charAt(0) == '#'))
@@ -1347,7 +1343,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			else if (aType.equals("level"))
 			{
 				final LevelInfo level = new LevelInfo();
-				LevelLoader.parseLine(level, aLine, lineNumber, uri);
+				LevelLoader.parseLine(level, aLine, i + 1, uri);
 				gameMode.addLevelInfo(level);
 			}
 			else if (aType.equals("rules"))
@@ -1373,15 +1369,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			return gameMode;
 		}
 
-		final StringTokenizer fileLines =
-				new StringTokenizer(data, LstObjectFileLoader.LINE_SEPARATOR);
+		String[] fileLines = data.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
 
-		int lineNumber = 0;
-
-		while (fileLines.hasMoreTokens())
+		for (int i = 0; i < fileLines.length; i++)
 		{
-			lineNumber++;
-			String aLine = fileLines.nextToken().trim();
+			String aLine = fileLines[i];
 
 				// Ignore commented-out and empty lines
 			if (((aLine.length() > 0) && (aLine.charAt(0) == '#'))
@@ -1396,8 +1388,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				SystemCollections.addToGameModeList(gameMode);
 			}
 
-			GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, uri,
-					lineNumber);
+			GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, uri, i + 1);
 		}
 		return gameMode;
 	}

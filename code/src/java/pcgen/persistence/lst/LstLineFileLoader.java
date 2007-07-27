@@ -24,11 +24,12 @@
  */
 package pcgen.persistence.lst;
 
-import pcgen.persistence.PersistenceLayerException;
-
 import java.net.URI;
 import java.util.List;
+import java.util.Observable;
 import java.util.StringTokenizer;
+
+import pcgen.persistence.PersistenceLayerException;
 
 /**
  * This class is an extension of the LstFileLoader that loads items
@@ -45,7 +46,7 @@ import java.util.StringTokenizer;
  *
  * @author sage_sam
  */
-public abstract class LstLineFileLoader extends LstFileLoader
+public abstract class LstLineFileLoader extends Observable
 {
 	/** 
 	 * Stores what game mode the objects loaded by this loader should be 
@@ -70,7 +71,7 @@ public abstract class LstLineFileLoader extends LstFileLoader
 	 */
 	public void loadLstFile(URI uri) throws PersistenceLayerException
 	{
-		StringBuilder dataBuffer = readFromURI(uri);
+		StringBuilder dataBuffer = LstFileLoader.readFromURI(uri);
 
 		final String newlinedelim = "\r\n";
 		final String aString = dataBuffer.toString();
@@ -82,7 +83,8 @@ public abstract class LstLineFileLoader extends LstFileLoader
 			String line = fileLines.nextToken().trim();
 
 			// check for comments and blank lines
-			if (isComment(line))
+			if ((line.length() == 0)
+				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;
 			}
