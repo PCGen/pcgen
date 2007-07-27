@@ -189,6 +189,10 @@ public class ClassToken extends Token {
 		// From the list of allowed SAs, format the output strings
 		// to include all of the variables
 		for (String str : aList) {
+			if (str == null || str.length() == 0)
+			{
+				continue;
+			}
 			StringTokenizer varTok = new StringTokenizer(str, Constants.PIPE);
 			final String aString = varTok.nextToken();
 
