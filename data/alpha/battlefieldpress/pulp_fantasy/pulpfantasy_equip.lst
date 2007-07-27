@@ -86,7 +86,7 @@ Tent (2-person)			OUTPUTNAME:[NAME] tent		TYPE:Goods.General	COST:11	WT:4							
 Tent (4-person)			OUTPUTNAME:[NAME] tent		TYPE:Goods.General	COST:12	WT:7								SIZE:M	SOURCEPAGE:p.75
 Tent (8-person)			OUTPUTNAME:[NAME] tent		TYPE:Goods.General	COST:13	WT:10								SIZE:L	SOURCEPAGE:p.75
 Tent (25-person)			OUTPUTNAME:[NAME] tent		TYPE:Goods.General	COST:15	WT:15								SIZE:L	SOURCEPAGE:p.75
-Trail Rations (12)							TYPE:Goods.General	COST:5	WT:1		EQMOD:CHARGED_ITEM_12||CHARGES[12]	SIZE:T	SOURCEPAGE:p.75
+Trail Rations (12)							TYPE:Goods.General	COST:5	WT:1		EQMOD:CHARGED_ITEM_12|CHARGES[12]	SIZE:T	SOURCEPAGE:p.75
 
 ###Block: Survival Gear .MODs
 # Equipment Name			Output Name			Size		Source Page
