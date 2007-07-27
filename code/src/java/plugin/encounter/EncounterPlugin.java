@@ -1058,16 +1058,16 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 
 		// make sure we can add item to that slot in this EquipSet
-		if (!canAddEquip(pc, eSet, locName, eqI))
+		if (!canAddEquip(pc, eSet, location, eqI))
 		{
 			JOptionPane.showMessageDialog(null, "Can not equip "
-				+ eqI.getName() + " to " + locName, "GMGen",
+				+ eqI.getName() + " to " + location, "GMGen",
 				JOptionPane.ERROR_MESSAGE);
 
 			return null;
 		}
 
-		return locName;
+		return location;
 	}
 
 	private static boolean canAddEquip(PlayerCharacter pc, EquipSet eSet,
