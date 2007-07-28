@@ -17,7 +17,14 @@ public class SpropToken implements EquipmentLstToken
 
 	public boolean parse(Equipment eq, String value)
 	{
-		eq.addSpecialProperty(SpecialProperty.createFromLst(value));
+		if (".CLEAR".equals(value))
+		{
+			eq.clearSpecialProperties();
+		}
+		else
+		{
+			eq.addSpecialProperty(SpecialProperty.createFromLst(value));
+		}
 		return true;
 	}
 }

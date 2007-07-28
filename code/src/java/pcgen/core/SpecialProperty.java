@@ -90,7 +90,9 @@ public final class SpecialProperty extends TextProperty
 
 			if (".CLEAR".equals(cString))
 			{
-				spName = "";
+				Logging.errorPrint("Invalid/Embedded .CLEAR found in SPROP: "
+					+ input);
+				return null;
 			}
 		}
 
