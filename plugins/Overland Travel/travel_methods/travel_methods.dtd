@@ -8,7 +8,7 @@
         DTD for a document holding travel methods and associated speeds
 -->
 
-<!ELEMENT table (method*)>
-<!ELEMENT method (name, speed)>
+<!ELEMENT table (item*)>
+<!ELEMENT item (name, speed)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT speed (#PCDATA)>

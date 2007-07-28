@@ -1106,7 +1106,7 @@ public class OverPanel extends javax.swing.JPanel
 		{
 			Element method = (Element) methodObj;
 
-			if (method.getName().equals("method"))
+			if (method.getName().equals("item"))
 			{
 				name = method.getChild("name").getTextTrim();
 				speedS = method.getChild("speed").getTextTrim();

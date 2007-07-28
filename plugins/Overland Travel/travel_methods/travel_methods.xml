@@ -9,24 +9,24 @@
 -->
 
 <table>
-    <method>
+    <item>
         <name>Walk (15')</name>
         <speed>12</speed>
-    </method>
-    <method>
+    </item>
+    <item>
         <name>Walk (20')</name>
         <speed>16</speed>
-    </method>
-    <method>
+    </item>
+    <item>
         <name>Walk (30')</name>
         <speed>24</speed>
-    </method>
-    <method>
+    </item>
+    <item>
         <name>Walk (40')</name>
         <speed>32</speed>
-    </method>
-    <method>
+    </item>
+    <item>
         <name>Cart or Wagon</name>
         <speed>16</speed>
-    </method>
+    </item>
 </table>
