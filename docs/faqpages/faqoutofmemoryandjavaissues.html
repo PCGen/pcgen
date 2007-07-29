@@ -44,7 +44,7 @@
 				<ul>
 					<li>First, launch a Terminal window. That gives you a command line. Yeah, I know... a Unix
 						command line on a Mac... it creeped me out the first time. ;-)</li>
-					
+
 					<li>From the command line, cd to the directory where your PCGen install lives.
 						Then launch java to run PCGen with the memory-adding parameters. It's the
 						same syntax as running it on a PC from the command line. Something like:<br><br>&#160&#160&#160&#160&#160&#160
@@ -68,7 +68,7 @@
 
 				<ul>
 					<li>Don't load sources that you don't need.</li>
-					
+
 					<li>In Preferences - Don't auto create equipment, use the provided equipment and custom
 					create equipment as needed. To custom create, right click on the basic equipement and add to
 					it.</li>
@@ -87,14 +87,14 @@
 				<p>"PCGen 5.6.1 and below needs Java 1.3.x"<br /></p>
 
 
-					
 
-		
-			
+
+
+
 				<p><span class="underline">How do I find my Java?</span></p>
 
 				<p>"Not good.  Im getting "Bad command or file name"<br /></p>
-					
+
 				<ul>
 					<li>Sounds like you don't have java installed then. Go to <a href="http://java.sun.com/">http://java.sun.com/</a>
 						and download and install the latest java 1.5.x JRE. You'll then be able to run PCGen.</li>
@@ -134,16 +134,46 @@
 
 				<ul>
 					<li>I can't run pcgen on fedora 7. It crashes just after the options directory selection.</li>
-			
+
 					<li>PCGen does not run under licgcj (GNU's Java library) because it is incomplete (it is
 					not a complete implementation of Java, especially with respect to Swing (the UI))</li>
-			
+
 					<li>You need to download a complete Java implementation, such as that from Sun
 					Microsystems (available at <a href="http://java.sun.com/">http://java.sun.com/</a>)</li>
 				</ul>
-
 			<p></p>
-		
+				<p>For Ubuntu Users:<br /></p>
+
+				<ul>
+					<li>The #1 issue for PCGen and Ubuntu is that you need to use the Sun Java implementation,
+					not the default that ships with Ubuntu. We have detailed instructions in one of the closed
+					support requests if you need those (just search for Ubuntu when in the support requests
+					list at PCGen's SF site at <a href="https://sourceforge.net/tracker/?group_id=25576">SourceForge.net PCGen An RPG Character Generator Tracker</a>).</li>
+					<br><br>
+					<li>You need to run sun java. You can check this with:
+					<br><br>
+					$ java -version
+					<br><br>
+					If not, you might need to install Sun JRE from the repositories (see the Ubuntu wiki for
+					help)
+					<br><br>
+					If Sun java is installed but not run, you need to update the default java by using:
+					<br><br>
+					$ sudo update-alternatives --config java
+					<br><br>
+					or
+					<br><br>
+					$ sudo update-alternatives --set \java /usr/lib/jvm/java-1.5.0-sun/jre/bin/java
+					<br><br>
+					I think both these command do the same thing (with the first command you get a list of
+					possible java's and are asked to choose).
+					<br><br>
+					Manually moving files and placing symbolic links might get the job done but is probably bad
+					for the long-term health of your system. I think things might break with an update.</li>
+					<br><br>
+					<li>You need to download a complete Java implementation, such as that from Sun
+					Microsystems (available at <a href="http://java.sun.com/">http://java.sun.com/</a>)</li>
+				</ul>
 
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
