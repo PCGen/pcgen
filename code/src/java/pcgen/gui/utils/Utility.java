@@ -307,7 +307,7 @@ public final class Utility
 		// encapsulated to accomodate this with a hack.
 		// TODO: remove the hack, once Java fixed this.
 		// final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		final Dimension screenSize = getScreenSize(Toolkit.getDefaultToolkit());
+		final Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().getBounds();
 
 		final Dimension dialogSize = dialog.getSize();
 
@@ -321,8 +321,8 @@ public final class Utility
 			dialogSize.width = screenSize.width;
 		}
 
-		dialog.setLocation((screenSize.width - dialogSize.width) / 2,
-			(screenSize.height - dialogSize.height) / 2);
+		dialog.setLocation(screenSize.x + (screenSize.width - dialogSize.width) / 2,
+				screenSize.y + (screenSize.height - dialogSize.height) / 2);
 	}
 
 	/**
