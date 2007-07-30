@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jul 20 03:06:40 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Mon Jul 30 06:11:18 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Frank Kliewe
 
@@ -6,7 +6,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #items. As PCGen doesn't work well with AUTO:EQUIPing the same item twice, I left those out in the duplicates and these need to be added
 #by hand.
 
-# Equipment Name	Type									Cost		Modifier																																																																						Size		Combat bonus							Modify VAR
+# Equipment Name	Output Name			Type									Cost		Modifier																																																																						Size		Combat bonus							Modify VAR
 Myrmidon						TYPE:Goods.Transportation.Mecha.Superstructure.PL6	COST:41	EQMOD:LRG_MCH.DURALLOY.DURALLOY_ARMR.COCKPIT_PILOT.CL2_SNSR_SYS.M9_BRRGE_CHAINGUN.AMMO_M9_BRRGE_CHAINGUN.LRG_PS15_PNTR_CLW.JETPACK.COMM_SYSTEM																																																SIZE:L	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK	BONUS:VAR|M_BaseSpeed|-10
 Scourge (Mecha)	OUTPUTNAME:Scourge	TYPE:Goods.Transportation.Mecha.Superstructure.PL6	COST:49	EQMOD:HGE_MCH.VANADIUM.DURALLOY_ARMR.COCKPIT_PILOT.CL2_SNSR_SYS.ENGM_SNSR_ST.TYPHN_240_LSR_CNN.M53_FRST_RCKTLNCH.AMMO_M53_FRST_RCKTLNCH.JETASSSTWNGS.LX10_ANTISHCK.JETPACK.COMM_SYSTEM																																									SIZE:H	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK	BONUS:VAR|M_BaseSpeed|-10
 Manticore						TYPE:Goods.Transportation.Mecha.Superstructure.PL7	COST:45	EQMOD:HGE_MCH.HGE_QUAD_MCH.NEOVLCNM.CRSTLCBN_ARMR.COCKPIT_PILOT.CL4_SNSR_SYS.T95_CVLCD_CHAINGN.AMMO_T95_CVLCD_CHAINGN.CHRSNTHMM_LSR_ARR.JETASSSTWNGS.JETPACK.COMM_SYSTEM																																											SIZE:H	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK
