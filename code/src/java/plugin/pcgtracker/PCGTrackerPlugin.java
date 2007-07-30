@@ -198,6 +198,8 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		{
 			if (isActive())
 			{
+				charToolsItem.setEnabled(false);
+				
 				try
 				{
 					GMGenSystem.inst.openFileItem.setEnabled(true);
@@ -206,6 +208,10 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 				{
 					// TODO Handle this?
 				}
+			}
+			else
+			{
+				charToolsItem.setEnabled(true);
 			}
 		}
 		else if (message instanceof WindowClosedMessage)
