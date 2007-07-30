@@ -1178,12 +1178,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					sCol.setPreferredWidth(width);
 				}
 
-				//	Fix for Tracker: 1753296 - Kevin F. 07/21/2007
-				//	Changed to use colIndex instead of "i" - was causing 
-				//	an exception in ResizeColumnListener when attempting to
-				//	lookup a column in the table
 				sCol.addPropertyChangeListener(new ResizeColumnListener(
-					selectedTable, "InfoSel", /*i*/colIndex)); //$NON-NLS-1$
+					selectedTable, "InfoSel", i)); //$NON-NLS-1$
 
 				if (colIndex == 6)
 				{
@@ -1213,7 +1209,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				sCol.addPropertyChangeListener(new ResizeColumnListener(
-					availableTable, "InfoAva", sCol.getModelIndex())); //$NON-NLS-1$
+					availableTable, "InfoAva", i)); //$NON-NLS-1$
 
 				if (colIndex == 6)
 				{
