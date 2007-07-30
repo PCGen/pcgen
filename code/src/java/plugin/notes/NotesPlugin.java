@@ -268,6 +268,7 @@ public class NotesPlugin extends GMBPlugin
 		}
 		else
 		{
+			notesToolsItem.setEnabled(true);
 			theView.refreshTree();
 		}
 	}
