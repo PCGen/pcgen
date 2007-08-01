@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesequipmentmodifiers.html,v 1.12 2005/09/07 00:52:48 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -16,410 +15,453 @@
 		Description:
 		Provides information on the content of PCGen Equipment Modification Files.
 	-->
-	<head>
-		<title>Equipment Modification Files</title>
-		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
-	</head>
+<head>
+	<title>Equipment Modification Files</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
 
-	<body>
-		<h1>Equipment Modification Files</h1>
+<body>
+	<h1>Equipment Modification Files</h1>
+	<p>The first field in the equipmods.lst files must be the name of the modifier,
+		after that, the tags do not need to be in any special order.</p>
+	<p></p>
 
-		<p>The first field in the equipmods.lst files must be the name of the modifier,
-			after that, the tags do not need to be in any special order.</p>
+<hr>
 
-		<p></p><a name="ADDPROF"></a><hr>
-		<p class="new">*** Deprecated 5.12 RC2 - Remove 6.0.</p>
-		<p class="indent0"><strong>Tag Name:</strong> ADDPROF:x.x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (proficiency name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This will take the base items required proficiency and assign it the type specified.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ADDPROF:Exotic.Heavy</code></p>
-		<p class="indent3">Item requires the &quot;Exotic&quot; and &quot;Heavy&quot; proficiencies.</p>
+	<p class="new">*** Deprecated 5.12 RC2 - Remove 6.0.</p>
+	<p class="indent0"><strong><a name="ADDPROF">Tag Name:</a></strong> ADDPROF:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (proficiency name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This will take the base items required proficiency and assign it the type specified.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ADDPROF:Exotic.Heavy</code></p>
+	<p class="indent3">Item requires the &quot;Exotic&quot; and &quot;Heavy&quot; proficiencies.</p>
+	<p></p>
 
-		<p></p><a name="ARMORTYPE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> ARMORTYPE:x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Current armor TYPE)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text (New armor TYPE)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This will change the armor type and is | (pipe) delimited.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ARMORTYPE:Medium|Heavy</code></p>
-		<p class="indent3">Changes the armor type from &quot;Medium&quot; to &quot;Heavy&quot;.</p>
+<hr>
 
-		<p></p><a name="ASSIGNTOALL"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> ASSIGNTOALL:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is for double weapons only. If this tag is present then the
-			modifiers will be applied to both heads.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ASSIGNTOALL:YES</code></p>
-		<p class="indent3">Assigns modifiers to both heads.</p>
+	<p class="indent0"><strong><a name="ARMORTYPE">Tag Name:</a></strong> ARMORTYPE:x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Current armor TYPE)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (New armor TYPE)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This will change the armor type and is | (pipe) delimited.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ARMORTYPE:Medium|Heavy</code></p>
+	<p class="indent3">Changes the armor type from &quot;Medium&quot; to &quot;Heavy&quot;.</p>
+	<p></p>
 
-		<p></p><a name="CHARGES"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> CHARGES:x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Minimum number of charges)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (Maximum number of charges)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the charges for a magic item.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CHARGES:1|50</code></p>
-		<p class="indent3">Sets the charges for a magic item at a minimum of 1 and maximum of 50.</p>
+<hr>
 
-		<p></p><a name="EQBUILDER"></a><hr>
-		<p class="new">*** New</p>
-		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:EQBUILDER.SPELL|w|x|y|z</p>
-		<p class="indent1"><strong>Variables Used (w):</strong> :Text (Spell Type, i.e. Arcane, Divine, Psionic, ANY)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> :SCHOOL.Text (School Name, optional)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> :SUBSCHOOL.Text (Sub-School Name, optional)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> :DESCRIPTOR.Text (Descriptor Text, optional)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> :Number (Minimum Level, optional, default 0)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> :Number (Maximum Level, optional, default MAX_LEVEL)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>Allows the selection of magic/psionic spells/powers by specific type, school, sub-school, descriptor, and level, and then adds the spell/power to the item being modified.</li>
-			<li>Filtering by multiple types may be done joining several types using a comma (,), logocal AND function, or a pipe (|), logical OR function.</li>
-			<li>Multiple schools, sub-schools, and descriptors may be logically joined by a comma (,), logocal AND function, or a pipe (|), logical OR function.</li>
-			<li>Minimum and maximum level of spell may be set by using y and z.</li>
+	<p class="indent0"><strong><a name="ASSIGNTOALL">Tag Name:</a></strong> ASSIGNTOALL:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is for double weapons only. If this tag is present then the
+		modifiers will be applied to both heads.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ASSIGNTOALL:YES</code></p>
+	<p class="indent3">Assigns modifiers to both heads.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="CHARGES">Tag Name:</a></strong> CHARGES:x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Minimum number of charges)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number (Maximum number of charges)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Sets the charges for a magic item.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHARGES:1|50</code></p>
+	<p class="indent3">Sets the charges for a magic item at a minimum of 1 and maximum of 50.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** New</p>
+	<p class="indent0"><strong><a name="EQBUILDER">Tag Name:</a></strong> CHOOSE:EQBUILDER.SPELL|w|x|y|z</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> :Text (Spell Type, i.e. Arcane, Divine, Psionic, ANY)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> :SCHOOL.Text (School Name, optional)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> :SUBSCHOOL.Text (Sub-School Name, optional)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> :DESCRIPTOR.Text (Descriptor Text, optional)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> :Number (Minimum Level, optional, default 0)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> :Number (Maximum Level, optional, default MAX_LEVEL)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Allows the selection of magic/psionic spells/powers by specific type, school, sub-school, descriptor, and level, and then adds the spell/power to the item being modified.</li>
+		<li>Filtering by multiple types may be done joining several types using a comma (,), logocal AND function, or a pipe (|), logical OR function.</li>
+		<li>Multiple schools, sub-schools, and descriptors may be logically joined by a comma (,), logocal AND function, or a pipe (|), logical OR function.</li>
+		<li>Minimum and maximum level of spell may be set by using y and z.</li>
+	</ul>
+  	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|SCHOOL.Enchantment;SUBSCHOOL.Compulsion</code></p>
+	<p class="indent3">Show all spells that are Evocation AND Compulsion.</p>
+	<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|SCHOOL.Enchantment|SCHOOL.Abjuration</code></p>
+	<p class="indent3">Show all spells that are Evocation OR Abjuration.</p>
+	<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|Arcane,Divine|0|3</code></p>
+	<p class="indent3">Allows the user to quickly generate a minor scroll</p>
+	<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|Arcane|SCHOOL.Evocation|0|3</code></p>
+	<p class="indent3">Allows the user to quickly generate a minor wand with only evocation spells</p>
+	<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|Psionics|0|3</code></p>
+	<p class="indent3">Allows a minor powerstone</p>
+	<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|Arcane|SCHOOL.Illusion,DESCRIPTOR.Fear|SCHOOL.Abjuration</code></p>
+	<p class="indent3">indicates Spells which are:  (School Illusion AND Descriptor Fear) OR School Abjuration</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** New 5.10.1 RC3</p>
+	<p class="indent0"><strong><a name="CHOOSEEQUIPMENT">Tag Name:</a></strong> CHOOSE:EQUIPMENT|x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Type Name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Will present a list of equipement of types x with each type being given separately.</li>
+		<li>At least one (1) equipment type must be designated for this tag to function properly.</li>
+		<li>There is no specific weapon chooser.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Goods</code></p>
+	<p class="indent3">A list of all equipement of type 'Goods'.</p>
+	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Martial|TYPE=Finesseable</code></p>
+	<p class="indent3">A list of all equipement of types 'Martial' and 'Finesseable'.</p>
+	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Natural|TYPE=Bludgeoning</code></p>
+	<p class="indent3">A list of all equipement of types 'Natural' and 'Bludgeoning'.</p>
+	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Alchemical|TYPE=Consumable</code></p>
+	<p class="indent3">A list of all equipement of types 'Alchemical' and 'Consumable'.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="COST">Tag Name:</a></strong> COST:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Cost or Formula)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>The cost applied to the item after resizing it.</li>
+		<li>Formulas can be used with this tag, and valid variables for the formulas are:
+		<ul>
+		  	<li>BASECOST - The unmodified cast value of the equipment.</li>
+			<li>CRITMULT - The critical multiplier of the weapon.</li>
+			<li>DMGDICE - The damage dice of the weapon.</li>
+			<li>DMGDIE - The damage die of the weapon.</li>
+			<li>RANGE - The range of the weapon.</li>
+			<li>SIZE - The size of the equipment.</li>
+			<li>WT - The weight of the equipment.</li>
+			<li>%CASTERLEVEL - The caster level of the spell being added by the modifier.</li>
+			<li>%CHARGES - The number of charges being added by the modifier.</li>
+			<li>%SPELLCOST - The spell cost of the spell being added by the modifier.</li>
+			<li>%SPELLLEVEL - The spell level of the spell being added by the modifier.</li>
+			<li>%SPELLXPCOST - The experience point cost of the spell being added by the modifier.</li>
 		</ul>
-  		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|SCHOOL.Enchantment;SUBSCHOOL.Compulsion</code></p>
-		<p class="indent3">Show all spells that are Evocation AND Compulsion.</p>
-		<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|SCHOOL.Enchantment|SCHOOL.Abjuration</code></p>
-		<p class="indent3">Show all spells that are Evocation OR Abjuration.</p>
-		<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|Arcane,Divine|0|3</code></p>
-		<p class="indent3">Allows the user to quickly generate a minor scroll</p>
-		<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|Arcane|SCHOOL.Evocation|0|3</code></p>
-		<p class="indent3">Allows the user to quickly generate a minor wand with only evocation spells</p>
-		<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|Psionics|0|3</code></p>
-		<p class="indent3">Allows a minor powerstone</p>
-		<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|Arcane|SCHOOL.Illusion,DESCRIPTOR.Fear|SCHOOL.Abjuration</code></p>
-		<p class="indent3">indicates Spells which are:  (School Illusion AND Descriptor Fear) OR School Abjuration</p>
-
-		<p></p><a name="CHOOSEEQUIPMENT"></a><hr>
-		<p class="new">*** New 5.10.1 RC3</p>
-		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:EQUIPMENT|x|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Type Name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>Will present a list of equipement of types x with each type being given separately.</li>
-			<li>At least one (1) equipment type must be designated for this tag to function properly.</li>
-			<li>There is no specific weapon chooser.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Goods</code></p>
-		<p class="indent3">A list of all equipement of type 'Goods'.</p>
-		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Martial|TYPE=Finesseable</code></p>
-		<p class="indent3">A list of all equipement of types 'Martial' and 'Finesseable'.</p>
-		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Natural|TYPE=Bludgeoning</code></p>
-		<p class="indent3">A list of all equipement of types 'Natural' and 'Bludgeoning'.</p>
-		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Alchemical|TYPE=Consumable</code></p>
-		<p class="indent3">A list of all equipement of types 'Alchemical' and 'Consumable'.</p>
-
-		<p></p><a name="COST"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Cost or Formula)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>The cost applied to the item after resizing it.</li>
-			<li>Formulas can be used with this tag, and valid variables for the formulas are:
-			  <ul>
-				  	<li>BASECOST - The unmodified cast value of the equipment.</li>
-					<li>CRITMULT - The critical multiplier of the weapon.</li>
-					<li>DMGDICE - The damage dice of the weapon.</li>
-					<li>DMGDIE - The damage die of the weapon.</li>
-					<li>RANGE - The range of the weapon.</li>
-					<li>SIZE - The size of the equipment.</li>
-					<li>WT - The weight of the equipment.</li>
-					<li>%CASTERLEVEL - The caster level of the spell being added by the modifier.</li>
-					<li>%CHARGES - The number of charges being added by the modifier.</li>
-					<li>%SPELLCOST - The spell cost of the spell being added by the modifier.</li>
-					<li>%SPELLLEVEL - The spell level of the spell being added by the modifier.</li>
-					<li>%SPELLXPCOST - The experience point cost of the spell being added by the modifier.</li>
-				</ul>
-			</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>COST:300</code></p>
-		<p class="indent3">Adds 300 gold to the equipments cost.</p>
-		<p class="indent2"><code>COST:BASECOST/2</code></p>
-		<p class="indent3">Adds half the base cost of the equipment to the cost.</p>
-		<p class="indent2"><code>COST:500*WT</code></p>
-		<p class="indent3">Adds 500 gold per lb. to the equipments cost.</p>
-		<p class="indent2"><code>COST:((BASECOST/50)*%CHARGES)-BASECOST</code></p>
-		<p class="indent3">Assuming this modifier adds 50 charges to the item, this formula makes the value of a charge
+		</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>COST:300</code></p>
+	<p class="indent3">Adds 300 gold to the equipments cost.</p>
+	<p class="indent2"><code>COST:BASECOST/2</code></p>
+	<p class="indent3">Adds half the base cost of the equipment to the cost.</p>
+	<p class="indent2"><code>COST:500*WT</code></p>
+	<p class="indent3">Adds 500 gold per lb. to the equipments cost.</p>
+	<p class="indent2"><code>COST:((BASECOST/50)*%CHARGES)-BASECOST</code></p>
+	<p class="indent3">Assuming this modifier adds 50 charges to the item, this formula makes the value of a charge
 		one fiftieth of the basecost making the cost of the equipment proportional to the number of charges left in it.</p>
-		<p class="indent2"><code>COST:(25*((%SPELLLEVEL)MAX(1/2))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)</code></p>
-		<p class="indent3">This is the cost formula from a scroll EQMOD.</p>
+	<p class="indent2"><code>COST:(25*((%SPELLLEVEL)MAX(1/2))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)</code></p>
+	<p class="indent3">This is the cost formula from a scroll EQMOD.</p>
+	<p></p>
 
+<hr>
 
-		<p></p><a name="COSTDOUBLE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> COSTDOUBLE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Boolian ('YES' or 'NO')</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This will double the BASECOST of an item being modified as long as it's TYPE is not 'MANTLE', 'POTION', 'SCROLL', 'STAFF', or 'WAND'.</li>
-			<li>Abbreviations for 'YES' and 'NO' are not allowed.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>COSTDOUBLE:YES</code></p>
-		<p class="indent3">Cost of item is doubled.</p>
+	<p class="indent0"><strong><a name="COSTDOUBLE">Tag Name:</a></strong> COSTDOUBLE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Boolian ('YES' or 'NO')</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will double the BASECOST of an item being modified as long as it's TYPE is not 'MANTLE', 'POTION', 'SCROLL', 'STAFF', or 'WAND'.</li>
+		<li>Abbreviations for 'YES' and 'NO' are not allowed.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>COSTDOUBLE:YES</code></p>
+	<p class="indent3">Cost of item is doubled.</p>
+	<p></p>
 
-		<p></p><a name="COSTPRE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> COSTPRE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Cost before resizing)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The cost applied to the equipment before resizing an item occurs.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>COSTPRE:100</code></p>
-		<p class="indent3">Item cost is 100 gold before resizing.</p>
+<hr>
 
-		<p></p><a name="EQUIPCHANGE"></a><hr>
-		<p class="new">*** New 5.11.4</p>
-		<p class="indent0"><strong>Tag Name:</strong> (EQUIPNAME).MOD or .COPY or .CLEAR</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (.MOD or .COPY or .CLEAR)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>Allows for changes to the defined Equipment in the Equipment Modification file.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>Light-Duty Vest.COPY=Vest (Concealable/w.Outershell)</code></p>
-		<p class="indent3">Copy the Equipment possesses the &quot;Light-Duty Vest&quot; identifyer to &quot;Vest (Concealable/w.Outershell)&quot; in all aspects.</p>
-		<p class="indent2"><code>Padded.MOD &lt;tab&gt; TYPE:Padded</code></p>
-		<p class="indent3">Modifies the equiment &quot;Padded&quot;.</p>
-		<p class="indent2"><code>Autofire.FORGET</code></p>
-		<p class="indent3">Forget the equiment &quot;Autofire&quot;.</p>
+	<p class="indent0"><strong><a name="COSTPRE">Tag Name:</a></strong> COSTPRE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Cost before resizing)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">The cost applied to the equipment before resizing an item occurs.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>COSTPRE:100</code></p>
+	<p class="indent3">Item cost is 100 gold before resizing.</p>
+	<p></p>
 
+<hr>
 
-		<p></p><a name="FORMATCAT"></a><hr>
-		<p class="new">*** New 5.11.0</p>
-		<p class="indent0"><strong>Tag Name:</strong> FORMATCAT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> FRONT</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> MIDDLE</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> PARENS</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Defines how the equipment modifier's name will be
+	<p class="new">*** New 5.11.4</p>
+	<p class="indent0"><strong><a name="EQUIPCHANGE">Tag Name:</a></strong> (EQUIPNAME).MOD or .COPY or .CLEAR</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (.MOD or .COPY or .CLEAR)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Allows for changes to the defined Equipment in the Equipment Modification file.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>Light-Duty Vest.COPY=Vest (Concealable/w.Outershell)</code></p>
+	<p class="indent3">Copy the Equipment possesses the &quot;Light-Duty Vest&quot; identifyer to &quot;Vest (Concealable/w.Outershell)&quot; in all aspects.</p>
+	<p class="indent2"><code>Padded.MOD &lt;tab&gt; TYPE:Padded</code></p>
+	<p class="indent3">Modifies the equiment &quot;Padded&quot;.</p>
+	<p class="indent2"><code>Autofire.FORGET</code></p>
+	<p class="indent3">Forget the equiment &quot;Autofire&quot;.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** New 5.11.0</p>
+	<p class="indent0"><strong><a name="FORMATCAT">Tag Name:</a></strong> FORMATCAT:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FRONT</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> MIDDLE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> PARENS</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Defines how the equipment modifier's name will be
 		displayed when an equipment item name is being automatically generated. The valid
-		values and their actions are listed below:</p><br>
-		<ul class="indent3">
-		  	<li>FORMATCAT:FRONT - The eqmod name appears before the base equipment item name.</li>
-			<li>FORMATCAT:MIDDLE - The eqmod name appears after the base equipment item name but before the parenthesis.</li>
-			<li>FORMATCAT:PARENS - (Default) The eqmod name appears in brackets after the base equipment item name.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>Masterwork[tab]FORMATCAT:PARENS[tab]NAMEOPT:TEXT=MW</code></p>
-		<p class="indent3">when applied to a battleaxe would give battleaxe (MW)</p>
-		<p class="indent2"><code>MAGIC_PLUS_1[tab]FORMATCAT:FRONT[tab]NAMEOPT:TEXT=+1</code></p>
-		<p class="indent3">when applied to a battleaxe would give +1 battleaxe</p>
-		<p class="indent2"><code>MAGIC_PLUS_1[tab]FORMATCAT:MIDDLE[tab]NAMEOPT:TEXT=+1</code></p>
-		<p class="indent3">when applied to a battleaxe would give battleaxe +1</p>
+		values and their actions are listed below:</p>
+	<ul class="indent3">
+		 <li>FORMATCAT:FRONT - The eqmod name appears before the base equipment item name.</li>
+		<li>FORMATCAT:MIDDLE - The eqmod name appears after the base equipment item name but before the parenthesis.</li>
+		<li>FORMATCAT:PARENS - (Default) The eqmod name appears in brackets after the base equipment item name.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>Masterwork[tab]FORMATCAT:PARENS[tab]NAMEOPT:TEXT=MW</code></p>
+	<p class="indent3">when applied to a battleaxe would give battleaxe (MW)</p>
+	<p class="indent2"><code>MAGIC_PLUS_1[tab]FORMATCAT:FRONT[tab]NAMEOPT:TEXT=+1</code></p>
+	<p class="indent3">when applied to a battleaxe would give +1 battleaxe</p>
+	<p class="indent2"><code>MAGIC_PLUS_1[tab]FORMATCAT:MIDDLE[tab]NAMEOPT:TEXT=+1</code></p>
+	<p class="indent3">when applied to a battleaxe would give battleaxe +1</p>
+	<p></p>
 
-		<p></p><a name="FUMBLERANGE"></a><hr>
-		<p class="new">*** New 5.7.15</p>
-		<p class="indent0"><strong>Tag Name:</strong> FUMBLERANGE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment fumble range)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is text which indicates the equipments fumble or error range.
-			This tag may also be used in Equipment lines. If an equipment item has EQMODs, the
- 			FUMBLERANGE text from the EQMOD supersedes the text from the item itself
-			(EQMODs applied to the primary weapon head trumps text in EQMODs applied to the secondary weapon head).</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>FUMBLERANGE:1-3</code></p>
-		<p class="indent3">Indicates and error range of 1-3.</p>
-		<p class="indent2"><code>FUMBLERANGE:Natural 1</code></p>
-		<p class="indent3">Indicates and error range of a natural 1.</p>
+<hr>
 
-		<p></p><a name="IGNORES"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> IGNORES:x,x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (List of Keys)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a comma (,) delimited list of Keys that the modifier will
-			ignore when making custom items.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>IGNORES:ARMRMW,WEAPWM</code></p>
-		<p class="indent3">The &quot;ARMRMW&quot; &amp; &quot;WEAPWM&quot; keys are ignored.</p>
+	<p class="new">*** New 5.7.15</p>
+	<p class="indent0"><strong><a name="FUMBLERANGE">Tag Name:</a></strong> FUMBLERANGE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment fumble range)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is text which indicates the equipments fumble or error range.
+		This tag may also be used in Equipment lines. If an equipment item has EQMODs, the
+ 		FUMBLERANGE text from the EQMOD supersedes the text from the item itself
+		(EQMODs applied to the primary weapon head trumps text in EQMODs applied to the secondary weapon head).</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>FUMBLERANGE:1-3</code></p>
+	<p class="indent3">Indicates and error range of 1-3.</p>
+	<p class="indent2"><code>FUMBLERANGE:Natural 1</code></p>
+	<p class="indent3">Indicates and error range of a natural 1.</p>
+	<p></p>
 
-		<p></p><a name="ITYPE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> ITYPE:x.x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a period (.) delimited list of types that will be granted,
-			in addition to any existing types, to the item being created.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ITYPE:Magic.Ranged.Thrown</code></p>
-		<p class="indent3">The item gains the types &quot;Magic&quot;, &quot;Ranged&quot; &amp; &quot;Thrown&quot;.</p>
+<hr>
 
-		<p></p><a name="NAMEOPT"></a><hr>
-		<p class="new">*** Updated 5.9.8</p>
-		<p class="indent0"><strong>Tag Name:</strong> NAMEOPT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> NOLIST</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> NONAME</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> NORMAL</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> NOTHING</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> SPELL</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> TEXT=&lt;text&gt;</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used to set the naming convention used when an EQMOD is added to an equipment item.
+	<p class="indent0"><strong><a name="IGNORES">Tag Name:</a></strong> IGNORES:x,x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (List of Keys)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is a comma (,) delimited list of Keys that the modifier will
+		ignore when making custom items.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>IGNORES:ARMRMW,WEAPWM</code></p>
+	<p class="indent3">The &quot;ARMRMW&quot; &amp; &quot;WEAPWM&quot; keys are ignored.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="ITYPE">Tag Name:</a></strong> ITYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is a period (.) delimited list of types that will be granted,
+		in addition to any existing types, to the item being created.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ITYPE:Magic.Ranged.Thrown</code></p>
+	<p class="indent3">The item gains the types &quot;Magic&quot;, &quot;Ranged&quot; &amp; &quot;Thrown&quot;.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Updated 5.9.8</p>
+	<p class="indent0"><strong><a name="NAMEOPT">Tag Name:</a></strong> NAMEOPT:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> NOLIST</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> NONAME</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> NORMAL</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> NOTHING</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELL</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TEXT=&lt;text&gt;</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is used to set the naming convention used when an EQMOD is added to an equipment item.
 		Without this tag the EQMOD name is added as is to the equipment name in parentheses after the original equipment name
 		and separated from other EQMOD names by slashes.
 		If an EQMOD has a CHOOSE in it normally the choice made will follow the name of the EQMOD in parentheses.
-		Available options work as follows:</p><br>
-		<ul class="indent3">
-		  	<li>NAMEOPT:NORMAL - Passes the name and choice to the equipment, same effect if the NAMEOPT tag is not present.</li>
-			<li>NAMEOPT:NOLIST - Passes the name of the EQMOD but not the choice (if any) to the equipment.</li>
-			<li>NAMEOPT:NONAME - Passes the choice made to the equipment but not the name of the EQMOD.</li>
-			<li>NAMEOPT:NOTHING - No text is added to the equipment name.</li>
-			<li>NAMEOPT:SPELL - If the EQMOD has a spell chooser this option passes the spell details to the equipment.
+		Available options work as follows:</p>
+	<ul class="indent3">
+	  	<li>NAMEOPT:NORMAL - Passes the name and choice to the equipment, same effect if the NAMEOPT tag is not present.</li>
+		<li>NAMEOPT:NOLIST - Passes the name of the EQMOD but not the choice (if any) to the equipment.</li>
+		<li>NAMEOPT:NONAME - Passes the choice made to the equipment but not the name of the EQMOD.</li>
+		<li>NAMEOPT:NOTHING - No text is added to the equipment name.</li>
+		<li>NAMEOPT:SPELL - If the EQMOD has a spell chooser this option passes the spell details to the equipment.
 			The details displayed are: SpellName/Metamagic feat applied/Class/Level.</li>
-			<li>NAMEOPT:TEXT=&lt;Text&gt; - Specified text is passed to the equipment.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>Craft[tab]CHOOSE:SKILL|TYPE=CRAFT[tab]BONUS:SKILL|%CHOICE|2[tab]</code></p>
-		<p class="indent3">selecting &quot;Craft (Armorsmithing)&quot; in the chooser with:</p>
-		<ul class="indent3">
-		  <li>NAMEOPT:NOLIST - generate &quot;Craft&quot; as the name.</li>
-			<li>NAMEOPT:NONAME - generate &quot;Craft (Armorsmithing)&quot; as the name.</li>
-			<li>NAMEOPT:NORMAL - generate &quot;Craft (Craft (Armorsmithing))&quot; as the name.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>NAMEOPT:SPELL</code></p>
-		<p class="indent3">Customizing boots with an invisibility spell might generate: Boots (Invisibility/Extend Spell/Wizard/5th).</p>
+		<li>NAMEOPT:TEXT=&lt;Text&gt; - Specified text is passed to the equipment.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>Craft[tab]CHOOSE:SKILL|TYPE=CRAFT[tab]BONUS:SKILL|%CHOICE|2[tab]</code></p>
+	<p class="indent3">selecting &quot;Craft (Armorsmithing)&quot; in the chooser with:</p>
+	<ul class="indent3">
+		<li>NAMEOPT:NOLIST - generate &quot;Craft&quot; as the name.</li>
+		<li>NAMEOPT:NONAME - generate &quot;Craft (Armorsmithing)&quot; as the name.</li>
+		<li>NAMEOPT:NORMAL - generate &quot;Craft (Craft (Armorsmithing))&quot; as the name.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>NAMEOPT:SPELL</code></p>
+	<p class="indent3">Customizing boots with an invisibility spell might generate: Boots (Invisibility/Extend Spell/Wizard/5th).</p>
+	<p></p>
 
-		<p></p><a name="PLUS"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> PLUS:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The numeric value supplied is the plus of the item.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>PLUS:1</code></p>
-		<p class="indent3">Item is treated as +1.</p>
+<hr>
 
-		<p></p><a name="PRETYPE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> PRETYPE:x,y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of types that must match the specified requirements).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text (Equipment type).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> EQMODTYPE=y (Equipment Modifier type).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> EQMOD=y (Equipment Modifier KEY).</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Make specific TYPES or Equipment Modifier a prerequisite.</p>
-		<ul class="indent2">
-		<li><font color="FF0000">Note</font>: PRETYPE has a different use outside of Equipment
+	<p class="indent0"><strong><a name="PLUS">Tag Name:</a></strong> PLUS:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">The numeric value supplied is the plus of the item.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>PLUS:1</code></p>
+	<p class="indent3">Item is treated as +1.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="PRETYPE">Tag Name:</a></strong> PRETYPE:x,y,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of types that must match the specified requirements).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Equipment type).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EQMODTYPE=y (Equipment Modifier type).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EQMOD=y (Equipment Modifier KEY).</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Make specific TYPES or Equipment Modifier a prerequisite.</p>
+	<ul class="indent2">
+		<li><span class=alpha>Note</span>: PRETYPE has a different use outside of Equipment
     	and Equipment Modifier files, it checks for race types.</li>
 		<li>See the <a href="../globalfilestagpages/globalfilesprexxx.html#PRETYPE">Global PRETYPE</a>
 		entry for usage outside of Equipment and Equipment Modifier files.</li>
 		<li>EQMODTYPE=&quot;type&quot; checks for TYPE in applied Equipment Modifiers not Equipment type.</li>
-		</ul>
-		<p class="indent1"><strong>Secondary syntax:</strong></p>
-		<p class="indent2">PRETYPE has a second older syntax which is still in use in the release files.</p>
-		<ul class="indent2">
+	</ul>
+	<p class="indent1"><strong>Secondary syntax:</strong></p>
+	<p class="indent2">PRETYPE has a second older syntax which is still in use in the release files.</p>
+	<ul class="indent2">
 		<li><strong>PRETYPE:y,y|y</strong></li>
 		<li>When comma (,) delineated PRETYPE requires all the types listed to pass.</li>
 		<li>When pipe (|) delineated PRETYPE requires only one of the types listed to pass.</li>
 		<li>Pipes and commas can be combined, for example <code>PRETYPE:Heavy,Armor|Shield</code>
     	translates to: Must have &quot;Heavy&quot; AND &quot;Armor&quot; OR &quot;Shield&quot; types.</li>
-		</ul>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>PRETYPE:1,Magic &lt;tab&gt; PRETYPE:1,Piercing,Slashing</code></p>
-		<p class="indent3">Type must be magic and piercing or slashing</p>
-		<p class="indent2"><code>PREMULT:2,[PRETYPE:1,Magic],[PRETYPE:1,Piercing,Slashing]</code></p>
-		<p class="indent3">This example, utilizing the PREMULT tag, accomplishes the same thing
-			as the example above it but as it is one statement it can be attached to a BONUS statement.</p>
-		<p class="indent2"><code>!PRETYPE:1,Heavy</code></p>
-		<p class="indent3">Type must NOT be Heavy</p>
-		<p class="indent2"><code>PRETYPE:1,EQMODTYPE=Mundane</code></p>
-		<p class="indent3">Use to test for any modifier with &quot;Mundane&quot; type.</p>
-		<p class="indent2"><code>PRETYPE:1,EQMOD=IRONWOOD</code></p>
-		<p class="indent3">Use to test for the &quot;Ironwood&quot; Equipment Modifier.</p>
-		<p class="indent1"><strong>Examples of secondary syntax:</strong></p>
-		<p class="indent2"><code>PRETYPE:Magic,Piercing,Slashing</code></p>
-		<p class="indent3">Type must be Magic, Piercing and Slashing.</p>
-		<p class="indent2"><code>PRETYPE:Magic,Armor|Shield,Piercing,Slashing</code></p>
-		<p class="indent3">Type must be Magic, Piercing, Slashing and (Armor OR Shield).</p>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>PRETYPE:1,Magic &lt;tab&gt; PRETYPE:1,Piercing,Slashing</code></p>
+	<p class="indent3">Type must be magic and piercing or slashing</p>
+	<p class="indent2"><code>PREMULT:2,[PRETYPE:1,Magic],[PRETYPE:1,Piercing,Slashing]</code></p>
+	<p class="indent3">This example, utilizing the PREMULT tag, accomplishes the same thing
+		as the example above it but as it is one statement it can be attached to a BONUS statement.</p>
+	<p class="indent2"><code>!PRETYPE:1,Heavy</code></p>
+	<p class="indent3">Type must NOT be Heavy</p>
+	<p class="indent2"><code>PRETYPE:1,EQMODTYPE=Mundane</code></p>
+	<p class="indent3">Use to test for any modifier with &quot;Mundane&quot; type.</p>
+	<p class="indent2"><code>PRETYPE:1,EQMOD=IRONWOOD</code></p>
+	<p class="indent3">Use to test for the &quot;Ironwood&quot; Equipment Modifier.</p>
+	<p class="indent1"><strong>Examples of secondary syntax:</strong></p>
+	<p class="indent2"><code>PRETYPE:Magic,Piercing,Slashing</code></p>
+	<p class="indent3">Type must be Magic, Piercing and Slashing.</p>
+	<p class="indent2"><code>PRETYPE:Magic,Armor|Shield,Piercing,Slashing</code></p>
+	<p class="indent3">Type must be Magic, Piercing, Slashing and (Armor OR Shield).</p>
+	<p></p>
 
-		<p></p><a name="REPLACES"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> REPLACES:x,x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Key Name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is the list of eqmod keys that are replaced in the existing item by
-			the specified eqmod keys in this tag.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>REPLACES:WEAP+1,WEAP+2,WEAP+3,WEAP+4,WEAP+5</code></p>
-		<p class="indent3">Replaces keys &quot;WEAP+1&quot;, &quot;WEAP+2&quot;,
-			&quot;WEAP+3&quot;, &quot;WEAP+4&quot; or &quot;WEAP+5&quot; with the keys
-			specified in this tag.</p>
+<hr>
 
-		<p></p><a name="SPROP"></a><hr>
-		<p class="new">*** Updated 5.7.7</p>
-		<p class="indent0"><strong>Tag Name:</strong> SPROP:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Special property)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>The special property is text that will appear on output sheets under the equipment it is assigned to.</li>
-			<li>Variable substitution can be used in the same manor as the
+	<p class="indent0"><strong><a name="REPLACES">Tag Name:</a></strong> REPLACES:x,x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Key Name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is the list of eqmod keys that are replaced in the existing item by
+		the specified eqmod keys in this tag.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>REPLACES:WEAP+1,WEAP+2,WEAP+3,WEAP+4,WEAP+5</code></p>
+	<p class="indent3">Replaces keys &quot;WEAP+1&quot;, &quot;WEAP+2&quot;,
+		&quot;WEAP+3&quot;, &quot;WEAP+4&quot; or &quot;WEAP+5&quot; with the keys
+		specified in this tag.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Updated 5.7.7</p>
+	<p class="indent0"><strong><a name="SPROP">Tag Name:</a></strong> SPROP:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Special property)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>The special property is text that will appear on output sheets under the equipment it is assigned to.</li>
+		<li>Variable substitution can be used in the same manor as the
 			<a href="../globalfilestagpages/globalfilesother.html#SA">SA</a> tag</li>
-			<li>The &quot;%&quot; symbol will fill in a number from a variable listed after a &quot;|&quot; (pipe).</li>
-			<li>This can be done numerous times, with each successive &quot;%&quot; relating to the
-				next variable listed after  another &quot;|&quot; (pipe).</li>
-			<li>Each variable needs to be defined (via the global
+		<li>The &quot;%&quot; symbol will fill in a number from a variable listed after a &quot;|&quot; (pipe).</li>
+		<li>This can be done numerous times, with each successive &quot;%&quot; relating to the
+			next variable listed after  another &quot;|&quot; (pipe).</li>
+		<li>Each variable needs to be defined (via the global
 			<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a> tag.)</li>
-			<li>SPROP tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
+		<li>SPROP tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
 				SPROP tags qualified with PRExxx tags will not display unless the character meets the prerequisites.</li>
-			<li>Variable substitution and PRExxx qualifying can be combined in one SPROP tag.</li>
-			<li>Support has been added for %CHOICE substitution so that the SPROP will pick up and display the selection from the CHOOSE.</li>
-		</ul>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>SPROP:Shines with an inner light</code></p>
-		<p class="indent3">Output sheet reads &quot;Shines with an inner light&quot; under the item.</p>
-		<p class="indent2"><code>SPROP:Squash code bugs % times per day|TL</code></p>
-		<p class="indent3">For a 5th level character the output sheet would read &quot;Squash code bugs 5 times per day&quot; under the item.</p>
-		<p class="indent2"><code>SPROP:+2 against undead|PRECLASS:Paladin=1</code></p>
-		<p class="indent3">Outputs the text if the character has at least 1 level of Paladin.</p>
-		<p class="indent2"><code>SPROP:+% vs. code bugs|ColaIntake|PRESKILL:1,Programming=10</code></p>
-		<p class="indent3">If the character has the Programming skill of at least 10
-			and the variable &quot;ColaIntake&quot; is defined as equal to 4 then
-			the output sheet reads &quot;+4 vs. code bugs&quot;.</p>
-		<p class="indent2"><code>SPROP:+2 against %CHOICE</code></p>
-		<p class="indent3">If one of the choices offered by the EQMOD were &quot;Dragons&quot; the SPROP might read &quot;+2 against Dragons&quot;.</p>
-		<p class="indent2"><code>SPROP:Unreliable (%CHOICE) &lt;tab&gt; CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%</code></p>
-		<p class="indent3">Chooser to select the level of unreliablty.</p>
+		<li>Variable substitution and PRExxx qualifying can be combined in one SPROP tag.</li>
+		<li>Support has been added for %CHOICE substitution so that the SPROP will pick up and display the selection from the CHOOSE.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>SPROP:Shines with an inner light</code></p>
+	<p class="indent3">Output sheet reads &quot;Shines with an inner light&quot; under the item.</p>
+	<p class="indent2"><code>SPROP:Squash code bugs % times per day|TL</code></p>
+	<p class="indent3">For a 5th level character the output sheet would read &quot;Squash code bugs 5 times per day&quot; under the item.</p>
+	<p class="indent2"><code>SPROP:+2 against undead|PRECLASS:Paladin=1</code></p>
+	<p class="indent3">Outputs the text if the character has at least 1 level of Paladin.</p>
+	<p class="indent2"><code>SPROP:+% vs. code bugs|ColaIntake|PRESKILL:1,Programming=10</code></p>
+	<p class="indent3">If the character has the Programming skill of at least 10
+		and the variable &quot;ColaIntake&quot; is defined as equal to 4 then
+		the output sheet reads &quot;+4 vs. code bugs&quot;.</p>
+	<p class="indent2"><code>SPROP:+2 against %CHOICE</code></p>
+	<p class="indent3">If one of the choices offered by the EQMOD were &quot;Dragons&quot; the SPROP might read &quot;+2 against Dragons&quot;.</p>
+	<p class="indent2"><code>SPROP:Unreliable (%CHOICE) &lt;tab&gt; CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%</code></p>
+	<p class="indent3">Chooser to select the level of unreliablty.</p>
+	<p></p>
 
+<hr>
 
-		<p></p><a name="TYPE"></a><hr>
-		<p class="new">*** Updated 4.3.8</p>
-		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-		  <li>This is a list of the TYPE's of items that the modifiers can be applied to.</li>
-			<li>The Special TYPE BaseMaterial is used by PCGen to denote what material the item is composed of.
-				Any equipment modifier with TYPE:BaseMaterial will replace any other equipment modifier
-				which also has TYPE:BaseMaterial, no REPLACES tag is needed.</li>
-			<li>Used in conjunction with PRETYPE and ITYPE.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>TYPE:Armor.Shield</code></p>
-		<p class="indent3">Item is of the &quot;Armor&quot; &amp; &quot;Shield&quot; types.</p>
-		<p class="indent2"><code>EDF Combat Armor.MOD &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; TYPE:Armor.Medium.Suit.Tactical.PL6</code></p>
-		<p class="indent3">Modifies the item is of the &quot;Armor&quot; &quot;Medium&quot; &quot;Suit&quot; &quot;Tactical&quot; &quot;PL6&quot; types.</p>
+	<p class="new">*** Updated 4.3.8</p>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This is a list of the TYPE's of items that the modifiers can be applied to.</li>
+		<li>The Special TYPE BaseMaterial is used by PCGen to denote what material the item is composed of.
+			Any equipment modifier with TYPE:BaseMaterial will replace any other equipment modifier
+			which also has TYPE:BaseMaterial, no REPLACES tag is needed.</li>
+		<li>Used in conjunction with PRETYPE and ITYPE.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Armor.Shield</code></p>
+	<p class="indent3">Item is of the &quot;Armor&quot; &amp; &quot;Shield&quot; types.</p>
+	<p class="indent2"><code>EDF Combat Armor.MOD &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; TYPE:Armor.Medium.Suit.Tactical.PL6</code></p>
+	<p class="indent3">Modifies the item is of the &quot;Armor&quot; &quot;Medium&quot; &quot;Suit&quot; &quot;Tactical&quot; &quot;PL6&quot; types.</p>
+	<p></p>
 
+<hr>
 
-		<p></p><a name="VISIBLE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Yes, No, or Qualify)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-		  <li>YES - This will always show the modifier in the customizer window.</li>
-			<li>No - This will never show the modifier in the customizer window.</li>
-			<li>Qualify - This will always show the modifier in the customizer window
+	<p class="indent0"><strong><a name="VISIBLE">Tag Name:</a></strong> VISIBLE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Yes, No, or Qualify)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>YES - This will always show the modifier in the customizer window.</li>
+		<li>No - This will never show the modifier in the customizer window.</li>
+		<li>Qualify - This will always show the modifier in the customizer window
 			if the item meets the requirements to obtain this modifier.</li>
-			<li>The default for this tag is 'YES'.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>VISIBLE:Yes</code></p>
-		<p class="indent3">This will always show the modifier in the customizer window.</p>
+		<li>The default for this tag is 'YES'.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>VISIBLE:Yes</code></p>
+	<p class="indent3">This will always show the modifier in the customizer window.</p>
 
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesequipmentmodifiers.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-	</body>
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="http://www.w3.org/Icons/valid-html401"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+
+</body>
 
 </html>

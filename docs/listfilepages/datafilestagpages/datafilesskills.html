@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesskills.html,v 1.5 2004/10/02 23:08:45 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -17,213 +16,238 @@
 		Description:
 		Provides information on the content of PCGen Skill Files.
 	-->
-	<head>
-		<title>Skill Files</title>
-		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
-	</head>
+<head>
+	<title>Skill Files</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
 
-	<body>
-		<h1>Skill Files</h1>
+<body>
 
-		<p></p>
-		<p class="indent1">When POINTPOOLNAME trigger tag is present in miscinfo file Summary Tab
-							Will display total points/points remaining (i.e. Development Points 160/135)
-							on the same line as the stat total and stat mod total</p>
-		<p></p>
-		<p class="indent1">Skills Tab - Instead of skill points by class/level requirement to spend
-							skill points, it's just a pool this is also populated by the classes
-							STARTSKILLPTS and miscinfo SKILLMULTIPLIER</p>
-		<p></p>
-		<p class="indent1">Feats Tab - Will show total point pool as reported on the skills tab</p>
+	<h1>Skill Files</h1>
+	<p></p>
+	<p class="indent1">When POINTPOOLNAME trigger tag is present in miscinfo file Summary Tab
+		Will display total points/points remaining (i.e. Development Points 160/135)
+		on the same line as the stat total and stat mod total</p>
+	<p></p>
+	<p class="indent1">Skills Tab - Instead of skill points by class/level requirement to spend
+		skill points, it's just a pool this is also populated by the classes
+		STARTSKILLPTS and miscinfo SKILLMULTIPLIER</p>
+	<p></p>
+	<p class="indent1">Feats Tab - Will show total point pool as reported on the skills tab</p>
+	<p>The name of the skill must be the first entry on each line.</p>
+	<p></p>
 
+<hr>
 
-		<p>The name of the skill must be the first entry on each line.</p>
+	<p class="indent0"><strong><a name="ACHECK"></a>Tag Name:</strong> ACHECK:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (YES, NO, PROFICIENT, DOUBLE, WEIGHT)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This tells PCGen whether any penalties from equipped armor are applied.</li>
+		<li>NO - Armor check penalty does not apply (Default).</li>
+		<li>YES - Armor check penalty applies to this skill.</li>
+		<li>PROFICIENT - Armor check penalty applies if the character is not proficient in it.</li>
+		<li>DOUBLE - Armor check penalty of double normal applies to this skill.</li>
+		<li>WEIGHT - Weight carried penalty applies to the skill check.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ACHECK:YES</code></p>
+	<p class="indent3">Armor check penalty applies to this skill.</p>
+	<p></p>
 
+<hr>
 
-		<p></p><a name="ACHECK"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> ACHECK:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (YES, NO, PROFICIENT, DOUBLE, WEIGHT)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This tells PCGen whether any penalties from equipped armor are applied.</li>
-			<li>NO - Armor check penalty does not apply (Default).</li>
-			<li>YES - Armor check penalty applies to this skill.</li>
-			<li>PROFICIENT - Armor check penalty applies if the character is not proficient in it.</li>
-			<li>DOUBLE - Armor check penalty of double normal applies to this skill.</li>
-			<li>WEIGHT - Weight carried penalty applies to the skill check.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ACHECK:YES</code></p>
-		<p class="indent3">Armor check penalty applies to this skill.</p>
-
-		<p></p><a name="CHOOSELanguage"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:Language(x.y,x.y)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language TYPE, i.e. Spoken, Written, or
+	<p class="indent0"><strong><a name="CHOOSELanguage">Tag Name:</a></strong> CHOOSE:Language(x.y,x.y)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Language TYPE, i.e. Spoken, Written, or
 		Read)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text (Language name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This provides the user with a list of languages that the character may speak.</li>
-			<li>The languages listed are determined by the TYPE tag used in the Languages List File.</li>
-			<li>If the text is listed as Spoken, Written, or Read, ONLY the languages with the matching
-				TYPE tag from the Languages List File are supplied as viable choices.</li>
-			<li>You can also specify multiple types by using a , (comma) delimited list.</li>
-			<li>You can also Specify specific language types using the . (period) delimiter.</li>
-			<li>And the final way you can give choices is from the PC's list of already known languages
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Language name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This provides the user with a list of languages that the character may speak.</li>
+		<li>The languages listed are determined by the TYPE tag used in the Languages List File.</li>
+		<li>If the text is listed as Spoken, Written, or Read, ONLY the languages with the matching
+			TYPE tag from the Languages List File are supplied as viable choices.</li>
+		<li>You can also specify multiple types by using a , (comma) delimited list.</li>
+		<li>You can also Specify specific language types using the . (period) delimiter.</li>
+		<li>And the final way you can give choices is from the PC's list of already known languages
 			(This way one can only allow a character to write languages that they can first speak,
 			or vice versa).</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CHOOSE:Language(Read.Draconic,Spoken)</code></p>
-		<p class="indent3">Choose between &quot;Spoken&quot; type languages or &quot;Read&quot; and
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:Language(Read.Draconic,Spoken)</code></p>
+	<p class="indent3">Choose between &quot;Spoken&quot; type languages or &quot;Read&quot; and
 		&quot;Draconic&quot; type languages.</p>
+	<p></p>
 
-		<p></p><a name="CLASSES"></a><hr>
-		<p class="new">*** New 5.3.3</p>
-		<p class="indent0"><strong>Tag Name:</strong> CLASSES:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class Name)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Makes the given skill a class skill for the listed classes.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CLASSES:Cleric|Paladin</code></p>
-		<p class="indent3">The listed skill is class skill for &quot;Cleric&quot; or &quot;Paladin&quot; characters.</p>
-		<p class="indent2"><code>CLASSES:ALL</code></p>
-		<p class="indent3">The listed skill is class skill for all classes.</p>
-		<p class="indent2"><code>CLASSES:ALL|!Wizard</code></p>
-		<p class="indent3">The listed skill is a class skill for all classes except for &quot;Wizard&quot; characters.</p>
+<hr>
 
-		<p></p><a name="COST"></a><hr>
-		<p class="new">*** Deprecated 5.11.11 - Remove 6.0</p>
-		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (skill point cost)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is how many skill points the skill costs. A decimal value, as the example below,
+	<p class="new">*** New 5.3.3</p>
+	<p class="indent0"><strong><a name="CLASSES">Tag Name:</a></strong> CLASSES:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class Name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Makes the given skill a class skill for the listed classes.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CLASSES:Cleric|Paladin</code></p>
+	<p class="indent3">The listed skill is class skill for &quot;Cleric&quot; or &quot;Paladin&quot; characters.</p>
+	<p class="indent2"><code>CLASSES:ALL</code></p>
+	<p class="indent3">The listed skill is class skill for all classes.</p>
+	<p class="indent2"><code>CLASSES:ALL|!Wizard</code></p>
+	<p class="indent3">The listed skill is a class skill for all classes except for &quot;Wizard&quot; characters.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Deprecated 5.11.11 - Remove 6.0</p>
+	<p class="indent0"><strong><a name="COST">Tag Name:</a></strong> COST:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (skill point cost)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is how many skill points the skill costs. A decimal value, as the example below,
 		would mean that it only costs 1/2 a skill point.</p>
-		<p class="indent2">Deduct from skills tab (see UI changes) point pool when the miscinfo trigger tag
+	<p class="indent2">Deduct from skills tab (see UI changes) point pool when the miscinfo trigger tag
 		POINTPOOLNAME (See new tag) is present.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>COST:1</code></p>
-		<p class="indent3">Skill costs one skill point.</p>
-		<p class="indent2"><code>COST:.5</code></p>
-		<p class="indent3">Skill costs half a skill point.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>COST:1</code></p>
+	<p class="indent3">Skill costs one skill point.</p>
+	<p class="indent2"><code>COST:.5</code></p>
+	<p class="indent3">Skill costs half a skill point.</p>
+	<p></p>
 
-		<p></p><a name="EXCLUSIVE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> EXCLUSIVE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This tells PCGen whether a skill is an exclusive skill or not.</li>
-			<li>If this is set to YES then ONLY classes that have this listed as a class skill can take it.</li>
-			<li>The Default is NO.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>EXCLUSIVE:YES</code></p>
-		<p class="indent3">This skill may only be taken if it is a class skill.</p>
+<hr>
 
-		<p></p><a name="KEYSTAT"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> KEYSTAT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Abbreviated name of stat from
+	<p class="indent0"><strong><a name="EXCLUSIVE">Tag Name:</a></strong> EXCLUSIVE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This tells PCGen whether a skill is an exclusive skill or not.</li>
+		<li>If this is set to YES then ONLY classes that have this listed as a class skill can take it.</li>
+		<li>The Default is NO.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>EXCLUSIVE:YES</code></p>
+	<p class="indent3">This skill may only be taken if it is a class skill.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="KEYSTAT">Tag Name:</a></strong> KEYSTAT:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Abbreviated name of stat from
 		statsandchecks.lst)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This is to set what stat (as defined by the Game Mode List File) the skill draw and bonuses from.</li>
-			<li>If the tag is left off, no Stat bonus will be automatically applied.</li>
-			<li>The Default is NO.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>KEYSTAT:INT</code></p>
-		<p class="indent3">Sets the Key stat for the skill to Intelligence.</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This is to set what stat (as defined by the Game Mode List File) the skill draw and bonuses from.</li>
+		<li>If the tag is left off, no Stat bonus will be automatically applied.</li>
+		<li>The Default is NO.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>KEYSTAT:INT</code></p>
+	<p class="indent3">Sets the Key stat for the skill to Intelligence.</p>
+	<p></p>
 
-		<p></p><a name="REQ"></a><hr>
-		<p class="new">*** Deprecated ***</p>
-		<p class="indent0"><strong>Tag Name:</strong> REQ:x</p>
+<hr>
 
-		<p></p><a name="SKILLCHANGE"></a><hr>
-		<p class="new">*** New 5.11.4</p>
-		<p class="indent0"><strong>Tag Name:</strong> (SKILLNAME).MOD or .COPY or .CLEAR</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (.MOD or .COPY or .CLEAR)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>Allows for changes to the defined Skill in the Skills file.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>Light-Duty Vest.COPY=Vest (Concealable/w.Outershell)</code></p>
-		<p class="indent3">Copy the Equipment possesses the &quot;Light-Duty Vest&quot; identifyer to &quot;Vest (Concealable/w.Outershell)&quot; in all aspects.</p>
-		<p class="indent2"><code>Climb(class skill).MOD &lt;tab&gt; TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Tribal_Leader_Skills</code></p>
-		<p class="indent3">Modifies the Skill &quot;Climb&quot;.</p>
-		<p class="indent2"><code>Demolitions.MOD &lt;tab&gt; PRE:.CLEAR</code></p>
-		<p class="indent3">Modifies the Skill &quot;Demolitions&quot; by getting rid of all PRE: tags.</p>
-		<p class="indent2"><code>Computer Use.FORGET</code></p>
-		<p class="indent3">Forget the Skill &quot;Computer Use&quot;.</p>
+	<p class="new">*** Deprecated ***</p>
+	<p class="indent0"><strong><a name="REQ">Tag Name:</a></strong> REQ:x</p>
+	<p></p>
 
+<hr>
 
-		<p></p><a name="SYNERGY"></a><hr>
-		<p class="new">*** Deprecated - Use <a href="../globalfilestagpages/globalfilesbonus.html#SKILL">BONUS:SKILL</a>|&lt;skillname&gt;|x|PRESKILL:1,&lt;synergyskillname&gt;=y</p>
-		<p class="indent0"><strong>Tag Name:</strong> SYNERGY:x=y=z</p>
+	<p class="new">*** New 5.11.4</p>
+	<p class="indent0"><strong><a name="SKILLCHANGE">Tag Name:</a></strong> (SKILLNAME).MOD or .COPY or .CLEAR</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (.MOD or .COPY or .CLEAR)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Allows for changes to the defined Skill in the Skills file.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>Light-Duty Vest.COPY=Vest (Concealable/w.Outershell)</code></p>
+	<p class="indent3">Copy the Equipment possesses the &quot;Light-Duty Vest&quot; identifyer to &quot;Vest (Concealable/w.Outershell)&quot; in all aspects.</p>
+	<p class="indent2"><code>Climb(class skill).MOD &lt;tab&gt; TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Tribal_Leader_Skills</code></p>
+	<p class="indent3">Modifies the Skill &quot;Climb&quot;.</p>
+	<p class="indent2"><code>Demolitions.MOD &lt;tab&gt; PRE:.CLEAR</code></p>
+	<p class="indent3">Modifies the Skill &quot;Demolitions&quot; by getting rid of all PRE: tags.</p>
+	<p class="indent2"><code>Computer Use.FORGET</code></p>
+	<p class="indent3">Forget the Skill &quot;Computer Use&quot;.</p>
+	<p></p>
 
-		<p></p><a name="TYPE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill type)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>ll Skill TYPE tags should use the skill's key attribute as
-				the first type (&quot;None&quot; is an acceptable option).</li>
-			<li>A Multiple types can be specified using the . (period) Delimiter.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>TYPE:Charisma.Perform</code></p>
-		<p class="indent3">This skill belongs to the &quot;Charisma&quot; and &quot;Perform&quot; types.</p>
-		<p class="indent2"><code>Craft (Electronic - class skill).MOD &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; TYPE:Scientist_Skills.Terraformer_Skills</code></p>
-		<p class="indent3">This skill is modified to be in the &quot;Scientist_Skills&quot; and &quot;Terraformer_Skills&quot; types.</p>
+<hr>
 
+	<p class="new">*** Deprecated - Use <a href="../globalfilestagpages/globalfilesbonus.html#SKILL">BONUS:SKILL</a>|&lt;skillname&gt;|x|PRESKILL:1,&lt;synergyskillname&gt;=y</p>
+	<p class="indent0"><strong><a name="SYNERGY">Tag Name:</a></strong> SYNERGY:x=y=z</p>
+	<p></p>
 
-		<p></p><a name="USEUNTRAINED"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> USEUNTRAINED:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>YES or NO are used to indicate if this skill can be used untrained by the character.</li>
-			<li>The default is YES.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>USEUNTRAINED:NO</code></p>
-		<p class="indent3">This skill may not be used if untrained.</p>
+<hr>
 
-		<p></p><a name="VISIBLE"></a><hr>
-		<p class="new">*** New 5.7.7</p>
-		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> YES</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> ALWAYS</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> DISPLAY</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> GUI</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> EXPORT</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> CSHEET</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Optional Property (READONLY)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>YES, ALWAYS - Shows the skill name in PCGen and on export to a character sheet.
-				(This is the default setting).</li>
-			<li>DISPLAY, GUI - Displays the skill name in PCGen but not on the character sheet.</li>
-			<li>EXPORT, CSHEET - Hides the skill name from PCGen but displays it on the character sheet.</li>
-			<li>READONLY - Optional. This will block the user from adding Ranks to the skill in the Skill Tab.
-				READONLY is not valid when VISIBLE is set to EXPORT or CSHEET.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>VISIBLE:YES</code></p>
-		<p class="indent3">Shows the skill name in PCGen and on the Output sheet.</p>
-		<p class="indent2"><code>VISIBLE:ALWAYS</code></p>
-		<p class="indent3">Shows the skill name in PCGen and on the Output sheet.</p>
-		<p class="indent2"><code>VISIBLE:DISPLAY</code></p>
-		<p class="indent3">Shows the skill name in PCGen but not on the Output sheet.</p>
-		<p class="indent2"><code>VISIBLE:GUI</code></p>
-		<p class="indent3">Shows the skill name in PCGen but not on the Output sheet.</p>
-		<p class="indent2"><code>VISIBLE:CSHEET</code></p>
-		<p class="indent3">Shows the skill name on the Output sheet but not in PCGen.</p>
-		<p class="indent2"><code>VISIBLE:ALWAYS|READONLY</code></p>
-		<p class="indent3">Shows the skill name in PCGen and on the Output sheet but prohibits the user from adding ranks to it.</p>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>ll Skill TYPE tags should use the skill's key attribute as
+			the first type (&quot;None&quot; is an acceptable option).</li>
+		<li>A Multiple types can be specified using the . (period) Delimiter.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Charisma.Perform</code></p>
+	<p class="indent3">This skill belongs to the &quot;Charisma&quot; and &quot;Perform&quot; types.</p>
+	<p class="indent2"><code>Craft (Electronic - class skill).MOD &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; TYPE:Scientist_Skills.Terraformer_Skills</code></p>
+	<p class="indent3">This skill is modified to be in the &quot;Scientist_Skills&quot; and &quot;Terraformer_Skills&quot; types.</p>
+	<p></p>
 
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesskills.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-	</body>
+<hr>
+
+	<p class="indent0"><strong><a name="USEUNTRAINED">Tag Name:</a></strong> USEUNTRAINED:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>YES or NO are used to indicate if this skill can be used untrained by the character.</li>
+		<li>The default is YES.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>USEUNTRAINED:NO</code></p>
+	<p class="indent3">This skill may not be used if untrained.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** New 5.7.7</p>
+	<p class="indent0"><strong><a name="VISIBLE">Tag Name:</a></strong> VISIBLE:x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> YES</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALWAYS</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DISPLAY</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> GUI</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> EXPORT</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CSHEET</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Optional Property (READONLY)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>YES, ALWAYS - Shows the skill name in PCGen and on export to a character sheet.
+			(This is the default setting).</li>
+		<li>DISPLAY, GUI - Displays the skill name in PCGen but not on the character sheet.</li>
+		<li>EXPORT, CSHEET - Hides the skill name from PCGen but displays it on the character sheet.</li>
+		<li>READONLY - Optional. This will block the user from adding Ranks to the skill in the Skill Tab.
+			READONLY is not valid when VISIBLE is set to EXPORT or CSHEET.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>VISIBLE:YES</code></p>
+	<p class="indent3">Shows the skill name in PCGen and on the Output sheet.</p>
+	<p class="indent2"><code>VISIBLE:ALWAYS</code></p>
+	<p class="indent3">Shows the skill name in PCGen and on the Output sheet.</p>
+	<p class="indent2"><code>VISIBLE:DISPLAY</code></p>
+	<p class="indent3">Shows the skill name in PCGen but not on the Output sheet.</p>
+	<p class="indent2"><code>VISIBLE:GUI</code></p>
+	<p class="indent3">Shows the skill name in PCGen but not on the Output sheet.</p>
+	<p class="indent2"><code>VISIBLE:CSHEET</code></p>
+	<p class="indent3">Shows the skill name on the Output sheet but not in PCGen.</p>
+	<p class="indent2"><code>VISIBLE:ALWAYS|READONLY</code></p>
+	<p class="indent3">Shows the skill name in PCGen and on the Output sheet but prohibits the user from adding ranks to it.</p>
+
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="http://www.w3.org/Icons/valid-html401"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+
+</body>
 
 </html>

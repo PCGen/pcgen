@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesweaponproficiencies.html,v 1.1 2003/12/09 00:16:37 letohnereg Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -16,64 +15,76 @@
 		Description:
 		Provides information on the content of PCGen Weapon Proficiency Files.
 	-->
-	<head>
-		<title>Weapon Proficiency Files</title>
-		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
-	</head>
+<head>
+	<title>Weapon Proficiency Files</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
 
-	<body>
-		<h1>Weapon Proficiency Files</h1>
+<body>
 
-		<p>The weapon proficiency list file is to set what each weapon category a weapon
+	<h1>Weapon Proficiency Files</h1>
+	<p>The weapon proficiency list file is to set what each weapon category a weapon
 		belongs to (Simple, Martial, Exotic, Natural) so that PCGen can determine whether
 		or not a character qualifies to use that weapon or not. The 1st field is the name
 		field, there is no tag for it, just the name of the weapon proficiency.</p>
+	<p></p>
 
-		<p></p><a name="HANDS"></a><hr>
-		<p class="new">*** Updated</p>
-		<p class="indent0"><strong>Tag Name:</strong> HANDS:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (minimum number of hands required to use the weapon)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>The minimum number of hands required to use the weapon.</li>
-			<li>Defaults to a value of 1.</li>
-			<li>#IFLARGERTHANWEAPON is a flag that checks if the characters size is larger than the character.
-				<ul>
-					<li>If true, the character is granted that prof.</li>
-					<li>If not, the proficiency does not apply.</li>
-				</ul>
-			</li>
-			<li>Used for Exotic 1-Hand weapons that are martial if wielded with both hands.</li>
+<hr>
+
+	<p class="new">*** Updated</p>
+	<p class="indent0"><strong><a name="HANDS">Tag Name:</a></strong> HANDS:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (minimum number of hands required to use the weapon)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>The minimum number of hands required to use the weapon.</li>
+		<li>Defaults to a value of 1.</li>
+		<li>#IFLARGERTHANWEAPON is a flag that checks if the characters size is larger than the character.
+		<ul>
+			<li>If true, the character is granted that prof.</li>
+			<li>If not, the proficiency does not apply.</li>
 		</ul>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>HANDS:2</code></p>
-		<p class="indent3">Weapon is wielded with two hands.</p>
-		<p class="indent2"><code>HANDS:1IFLARGERTHANWEAPON</code></p>
-		<p class="indent3">Weapon is wielded with one hand if the PC is larger than the weapon size.</p>
+		</li>
+		<li>Used for Exotic 1-Hand weapons that are martial if wielded with both hands.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>HANDS:2</code></p>
+	<p class="indent3">Weapon is wielded with two hands.</p>
+	<p class="indent2"><code>HANDS:1IFLARGERTHANWEAPON</code></p>
+	<p class="indent3">Weapon is wielded with one hand if the PC is larger than the weapon size.</p>
+	<p></p>
 
-		<p></p><a name="SIZE"></a><hr>
-		<p class="new">*** Removed - Weapon <a href="datafilesequipment.html#SIZE">SIZE</a> is now set in Equipment files</p>
-		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This determines if the weapon is light, one-handed or two-handed for
-			the character's race (F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge,
-			G=Gargantuan, C=Colossal).</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SIZE:M</code></p>
-		<p class="indent3">Weapon is &quot;Medium&quot; size.</p>
+<hr>
 
-		<p></p><a name="TYPE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This defines for PCGen what type of weapon proficiency it is for
-			characters to be able to use the weapon.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>TYPE:Simple</code></p>
-		<p class="indent3">Characters with &quot;Simple&quot; weapon proficiency can use this weapon.</p>
+	<p class="new">*** Removed - Weapon <a href="datafilesequipment.html#SIZE">SIZE</a> is now set in Equipment files</p>
+	<p class="indent0"><strong><a name="SIZE">Tag Name:</a></strong> SIZE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This determines if the weapon is light, one-handed or two-handed for
+		the character's race (F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge,
+		G=Gargantuan, C=Colossal).</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>SIZE:M</code></p>
+	<p class="indent3">Weapon is &quot;Medium&quot; size.</p>
+	<p></p>
 
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesweaponproficiencies.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-	</body>
+<hr>
+
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This defines for PCGen what type of weapon proficiency it is for
+		characters to be able to use the weapon.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Simple</code></p>
+	<p class="indent3">Characters with &quot;Simple&quot; weapon proficiency can use this weapon.</p>
+
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="http://www.w3.org/Icons/valid-html401"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+		
+</body>
 
 </html>

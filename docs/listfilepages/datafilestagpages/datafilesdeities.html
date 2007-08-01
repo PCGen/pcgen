@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesdeities.html,v 1.3 2004/09/07 23:21:41 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -16,222 +15,250 @@
 		Description:
 		Provides information on the content of PCGen Deity Files.
 	-->
-	<head>
-		<title>Deity Files</title>
-		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
-	</head>
+<head>
+	<title>Deity Files</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
 
-	<body>
-		<h1>Deity Files</h1>
+<body>
 
-		<p>The Deity files are used to specify deity pertinent information, such as the
+	<h1>Deity Files</h1>
+
+	<p>The Deity files are used to specify deity pertinent information, such as the
 		domains they grant, what alignments their clerics must be and chosen weapon if they
 		have the War domain.</p>
 
-		<p>The first field is the Deity Name, this is a required
+	<p>The first field is the Deity Name, this is a required
 		field and does not have a tag.</p>
+	<p></p>
 
-		<p></p><a name="ALIGN"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> ALIGN:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (LG, LN, LE, NG, TN, NE, CG, CN or CE)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is the two letter abbreviated alignment of the deity itself.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ALIGN:LG</code></p>
-		<p class="indent3">The deity's alignment is Lawful Good.</p>
+<hr>
 
-		<p></p><a name="APPEARANCE"></a><hr>
-		<p class="new">*** New 5.7.5</p>
-		<p class="indent0"><strong>Tag Name:</strong> APPEARANCE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Description of what the Deity looks like)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used for a description of what the deity looks like.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>APPEARANCE:Tall human with dark hair</code></p>
-		<p class="indent3">The deity's description of appearance.</p>
+	<p class="indent0"><strong><a name="ALIGN">Tag Name:</a></strong> ALIGN:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (LG, LN, LE, NG, TN, NE, CG, CN or CE)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is the two letter abbreviated alignment of the deity itself.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ALIGN:LG</code></p>
+	<p class="indent3">The deity's alignment is Lawful Good.</p>
+	<p></p>
 
-		<p></p><a name="DEITYWEAP"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> DEITYWEAP:x|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This is a | (pipe) delimited list of the deity's favored weapon(s).</li>
-			<li>If the deity has the War domain, then the weapon listed is granted to the character
-				as them being proficient with the weapon.</li>
-			<li>The Weapon name MUST match exactly what is listed in the weapon proficiencies list file.</li>
-		</ul>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>DEITYWEAP:Sword (Long)</code></p>
-		<p class="indent3">The deity's favored weapon is a &quot;Long Sword&quot;.</p>
-		<p class="indent2"><code>DEITYWEAP:Longspear|Shortspear|Halfspear</code></p>
-		<p class="indent3">The deity's favored weapon is either a &quot;Longspear&quot;, &quot;Shortspear&quot;
+<hr>
+
+	<p class="new">*** New 5.7.5</p>
+	<p class="indent0"><strong><a name="APPEARANCE">Tag Name:</a></strong> APPEARANCE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Description of what the Deity looks like</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is used for a description of what the deity looks like.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>APPEARANCE:Tall human with dark hair</code></p>
+	<p class="indent3">The deity's description of appearance.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="DEITYWEAP">Tag Name:</a></strong> DEITYWEAP:x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This is a | (pipe) delimited list of the deity's favored weapon(s).</li>
+		<li>If the deity has the War domain, then the weapon listed is granted to the character
+			as them being proficient with the weapon.</li>
+		<li>The Weapon name MUST match exactly what is listed in the weapon proficiencies list file.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>DEITYWEAP:Sword (Long)</code></p>
+	<p class="indent3">The deity's favored weapon is a &quot;Long Sword&quot;.</p>
+	<p class="indent2"><code>DEITYWEAP:Longspear|Shortspear|Halfspear</code></p>
+	<p class="indent3">The deity's favored weapon is either a &quot;Longspear&quot;, &quot;Shortspear&quot;
 		  or &quot;Halfspear&quot;.</p>
+	<p></p>
 
-		<p></p><a name="DESCISPI"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> DESCISPI:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES/NO)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used to show that the DESC field is closed content, or Product Identity.
+<hr>
+
+	<p class="indent0"><strong><a name="DESCISPI">Tag Name:</a></strong> DESCISPI:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES/NO)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is used to show that the DESC field is closed content, or Product Identity.
 		Permission must be gained from the publisher to release it into official files.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>DESCISPI:YES</code></p>
-		<p class="indent3">The DESC is closed content.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>DESCISPI:YES</code></p>
+	<p class="indent3">The DESC is closed content.</p>
+	<p></p>
 
-		<p></p><a name="DOMAINS"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> DOMAINS:x,x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain Name)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text ('ALL')</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR.Text (Domain Name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This is a comma-delimited list of domains that the deity grants to
-				it's divine spell casting followers.</li>
-			<li>The domain name MUST match the domain names listed in the domain list file.</li>
-			<li>A domain entry of .CLEAR will remove all previously listed domains for the deity.</li>
-			<li>A domain entry of .CLEAR.name will remove the domain called "name" from the deity's domain list.</li>
-			<li>A domain entry of ALL will provide access to all domains for the deity and makes additional domain designations uncessecary.</li>
-			<li>Multiple DOMAINS tags may be present for a deity. They will all add to the list of the deity's domains.</li>
+<hr>
+
+	<p class="indent0"><strong><a name="DOMAINS">Tag Name:</a></strong> DOMAINS:x,x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain Name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text ('ALL')</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR.Text (Domain Name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This is a comma-delimited list of domains that the deity grants to
+			it's divine spell casting followers.</li>
+		<li>The domain name MUST match the domain names listed in the domain list file.</li>
+		<li>A domain entry of .CLEAR will remove all previously listed domains for the deity.</li>
+		<li>A domain entry of .CLEAR.name will remove the domain called "name" from the deity's domain list.</li>
+		<li>A domain entry of ALL will provide access to all domains for the deity and makes additional domain designations uncessecary.</li>
+		<li>Multiple DOMAINS tags may be present for a deity. They will all add to the list of the deity's domains.</li>
         	<li>PRExxx tags can be added at the end of DOMAINS tags to apply restrictions on which divine casters are allowed to select the domain.</li>
-		</ul>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>DOMAINS:War,Law,Protection|PREALIGN:LG,NG,TN,CG</code></p>
-		<p class="indent3">The deity grants two of either the &quot;War&quot;, &quot;Law&quot; or &quot;Protection&quot;
-		  domains, but only if the cleric has one of the listed alignments.</p>
-		<p class="indent2"><code>DOMAINS:ALL</code></p>
-		<p class="indent3">The deity grants two of any domains.</p>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>DOMAINS:War,Law,Protection|PREALIGN:LG,NG,TN,CG</code></p>
+	<p class="indent3">The deity grants two of either the &quot;War&quot;, &quot;Law&quot; or &quot;Protection&quot;
+		domains, but only if the cleric has one of the listed alignments.</p>
+	<p class="indent2"><code>DOMAINS:ALL</code></p>
+	<p class="indent3">The deity grants two of any domains.</p>
+	<p></p>
 
-		<p></p><a name="FOLLOWERALIGN"></a><hr>
-		<p class="new">*** deprecated, use the <a href="../globalfilestagpages/globalfilesprexxx.html#PREALIGN">PREALIGN</a> 
-		tag, both alone and in conjunctions with the <a href="#DOMAINS">DOMAINS</a> tag, to apply the appropriate restrictions.</p>
-		<p class="indent0"><strong>Tag Name:</strong> FOLLOWERALIGN:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (012345678)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This sets the alignments that the follower must be to choose this deity.</li>
-			<li>0 = Lawful Good</li>
-			<li>1 = Lawful Neutral</li>
-			<li>2 = Lawful Evil</li>
-			<li>3 = Neutral Good</li>
-			<li>4 = True Neutral</li>
-			<li>5 = Neutral Evil</li>
-			<li>6 = Chaotic Good</li>
-			<li>7 = Chaotic Neutral</li>
-			<li>8 = Chaotic Evil</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>FOLLOWERALIGN:012</code></p>
-		<p class="indent3">All followers must be &quot;Lawful&quot;.</p>
+<hr>
 
-		<p></p><a name="PANTHEON"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> PANTHEON:x|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Pantheon Name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
+	<p class="new">*** deprecated, use the <a href="../globalfilestagpages/globalfilesprexxx.html#PREALIGN">PREALIGN</a> tag, both alone and in conjunctions with the <a href="#DOMAINS">DOMAINS</a> tag, to apply the appropriate restrictions.</p>
+	<p class="indent0"><strong><a name="FOLLOWERALIGN">Tag Name:</a></strong> FOLLOWERALIGN:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (012345678)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This sets the alignments that the follower must be to choose this deity.</li>
+		<li>0 = Lawful Good</li>
+		<li>1 = Lawful Neutral</li>
+		<li>2 = Lawful Evil</li>
+		<li>3 = Neutral Good</li>
+		<li>4 = True Neutral</li>
+		<li>5 = Neutral Evil</li>
+		<li>6 = Chaotic Good</li>
+		<li>7 = Chaotic Neutral</li>
+		<li>8 = Chaotic Evil</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>FOLLOWERALIGN:012</code></p>
+	<p class="indent3">All followers must be &quot;Lawful&quot;.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="PANTHEON">Tag Name:</a></strong> PANTHEON:x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Pantheon Name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
 		<li>To specify what pantheon the deity belongs to.</li>
 		<li>This is a | (pipe) delimited list</li>
 		<li>The deity belongs to all pantheons if this tag is not present.</li>
-		</ul>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>PANTHEON:Celtic</code></p>
-		<p class="indent3">The deity belongs to the &quot;Celtic&quot; pantheon.</p>
-		<p class="indent2"><code>PANTHEON:Celtic|Elf (Sun)</code></p>
-		<p class="indent3">The deity belongs to the &quot;Celtic&quot; or &quot;Sun Elf&quot;
-		  pantheon.</p>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>PANTHEON:Celtic</code></p>
+	<p class="indent3">The deity belongs to the &quot;Celtic&quot; pantheon.</p>
+	<p class="indent2"><code>PANTHEON:Celtic|Elf (Sun)</code></p>
+	<p class="indent3">The deity belongs to the &quot;Celtic&quot; or &quot;Sun Elf&quot; pantheon.</p>
+	<p></p>
 
+<hr>
 
-		<p></p><a name="PRERACE"></a><hr>
-		<p class="new">*** NEW 5.11.4</p>
-		<p class="indent0"><strong>Tag Name:</strong> PRERACE:y,RACETYPE= &gt;Text&lt;,RACESUBTYPE= &gt;Text&lt; </p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a race).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (The name of a race type defined by the race TYPE tag).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> RACETYPE=Text (The name of a race type defined by the race RACETYPE tag).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> RACESUBTYPE=Text (The name of a race subtype defined by the race RACESUBTYPE tag).</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The character must be one of the listed races or possess one of the racial properties.</p>
-		<p class="indent2">TYPE=&lt;Text&gt; can be used to check types set by the race TYPE tag.</p>
-		<p class="indent2">RACETYPE=&lt;Race Type&gt; can be used to check racial types such as Humanoid, Giant and Outsider.</p>
-		<p class="indent2">RACESUBTYPE=&lt;Race Subtype&gt; can be used to check racial subtypes such as Air, Evil and Extraplanar.</p>
-		<p class="indent2">The wildcard character (%) can be used to include any text, for example Elf% will include any race name which begins with Elf.
+	<p class="new">*** NEW 5.11.4</p>
+	<p class="indent0"><strong><a name="PRERACE">Tag Name:</a></strong> PRERACE:y,RACETYPE= &gt;Text&lt;,RACESUBTYPE= &gt;Text&lt; </p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a race).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (The name of a race type defined by the race TYPE tag).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> RACETYPE=Text (The name of a race type defined by the race RACETYPE tag).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> RACESUBTYPE=Text (The name of a race subtype defined by the race RACESUBTYPE tag).</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">The character must be one of the listed races or possess one of the racial properties.</p>
+	<p class="indent2">TYPE=&lt;Text&gt; can be used to check types set by the race TYPE tag.</p>
+	<p class="indent2">RACETYPE=&lt;Race Type&gt; can be used to check racial types such as Humanoid, Giant and Outsider.</p>
+	<p class="indent2">RACESUBTYPE=&lt;Race Subtype&gt; can be used to check racial subtypes such as Air, Evil and Extraplanar.</p>
+	<p class="indent2">The wildcard character (%) can be used to include any text, for example Elf% will include any race name which begins with Elf.
 		Without the wildcard character the race name must match exactly.</p>
-		<p class="indent2">Enclosing a selection in square brackets ([ ]) excludes a race. Brackets do not work for the TYPE, RACETYPE and RACESUBTYPE properties.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>Belisarda &lt;tab&gt; PRERACE:Elorii</code></p>
-		<p class="indent3">Character must be a &quot;Elorii&quot;.</p>
-		<p class="indent2"><code>Fire Drake &lt;tab&gt; !PRERACE:Ss'ressen</code></p>
-		<p class="indent3">Character must not be one of the &quot;Ss'ressen&quot;.</p>
-		<p class="indent2"><code>PRERACE:1,TYPE=Dire</code></p>
-		<p class="indent3">Characters race type must be &quot;Dire&quot;.</p>
-		<p class="indent2"><code>PRERACE:1,RACETYPE=Giant</code></p>
-		<p class="indent3">Characters race type must be &quot;Giant&quot;.</p>
-		<p class="indent2"><code>!PRERACE:1,RACETYPE=Outsider</code></p>
-		<p class="indent3">Characters race type must not be &quot;Outsider&quot;.</p>
-		<p class="indent2"><code>PRERACE:1,RACESUBTYPE=Incorporeal</code></p>
-		<p class="indent3">Character must have the &quot;Incorporeal&quot; subtype.</p>
-		<p class="indent2"><code>PRERACE:2,RACETYPE=Undead,RACESUBTYPE=Incorporeal</code></p>
-		<p class="indent3">Character must have both a race type of &quot;Undead&quot; and a subtype of
-		&quot;Incorporeal&quot;.</p>
+	<p class="indent2">Enclosing a selection in square brackets ([ ]) excludes a race. Brackets do not work for the TYPE, RACETYPE and RACESUBTYPE properties.</p>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>Belisarda &lt;tab&gt; PRERACE:Elorii</code></p>
+	<p class="indent3">Character must be a &quot;Elorii&quot;.</p>
+	<p class="indent2"><code>Fire Drake &lt;tab&gt; !PRERACE:Ss'ressen</code></p>
+	<p class="indent3">Character must not be one of the &quot;Ss'ressen&quot;.</p>
+	<p class="indent2"><code>PRERACE:1,TYPE=Dire</code></p>
+	<p class="indent3">Characters race type must be &quot;Dire&quot;.</p>
+	<p class="indent2"><code>PRERACE:1,RACETYPE=Giant</code></p>
+	<p class="indent3">Characters race type must be &quot;Giant&quot;.</p>
+	<p class="indent2"><code>!PRERACE:1,RACETYPE=Outsider</code></p>
+	<p class="indent3">Characters race type must not be &quot;Outsider&quot;.</p>
+	<p class="indent2"><code>PRERACE:1,RACESUBTYPE=Incorporeal</code></p>
+	<p class="indent3">Character must have the &quot;Incorporeal&quot; subtype.</p>
+	<p class="indent2"><code>PRERACE:2,RACETYPE=Undead,RACESUBTYPE=Incorporeal</code></p>
+	<p class="indent3">Character must have both a race type of &quot;Undead&quot; and a subtype of
+	&quot;Incorporeal&quot;.</p>
 		<p class="indent2"><code>PRERACE:1,%</code></p>
-		<p class="indent3">This will pass if any race has been chosen but will fail if no race has been selected.</p>
-		<p class="indent2"><code>!PRERACE:1,%</code></p>
-		<p class="indent3">This will pass if no race has been selected.</p>
-		<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; !PRERACE:Human</code></p>
-		<p class="indent3">This will pass if no Human race has been selected.</p>
+	<p class="indent3">This will pass if any race has been chosen but will fail if no race has been selected.</p>
+	<p class="indent2"><code>!PRERACE:1,%</code></p>
+	<p class="indent3">This will pass if no race has been selected.</p>
+	<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; !PRERACE:Human</code></p>
+	<p class="indent3">This will pass if no Human race has been selected.</p>
+	<p></p>
 
+<hr>
 
-		<p></p><a name="RACE"></a><hr>
-		<p class="new">*** New 5.11.8</p>
-		<p class="indent0"><strong>Tag Name:</strong> RACE:x|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Race of typical Worshippers)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used to identify the race of the typical worshippers of a Deity.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>RACE:Dwarf|Gnome</code></p>
-		<p class="indent3">The deity's typical worshippers are Dwarves and Gnomes.</p>
+	<p class="new">*** New 5.11.8</p>
+	<p class="indent0"><strong><a name="RACE">Tag Name:</a></strong> RACE:x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Race of typical Worshippers)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is used to identify the race of the typical worshippers of a Deity.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>RACE:Dwarf|Gnome</code></p>
+	<p class="indent3">The deity's typical worshippers are Dwarves and Gnomes.</p>
+	<p></p>
 
+<hr>
 
-		<p></p><a name="SYMBOL"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> SYMBOL:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Symbol Name)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used on the output sheet to display what the holy symbol is for this deity.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SYMBOL:A small wooden cross</code></p>
-		<p class="indent3">The deity's symbol is a small wooden cross.</p>
+	<p class="indent0"><strong><a name="SYMBOL">Tag Name:</a></strong> SYMBOL:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Symbol Name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Used on the output sheet to display what the holy symbol is for this deity.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>SYMBOL:A small wooden cross</code></p>
+	<p class="indent3">The deity's symbol is a small wooden cross.</p>
+	<p></p>
 
-		<p></p><a name="TITLE"></a><hr>
-		<p class="new">*** New 5.7.5</p>
-		<p class="indent0"><strong>Tag Name:</strong> TITLE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (The Deity's title)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used for a the deity's title.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>TITLE:Lord of the Morning</code></p>
-		<p class="indent3">The deity's title.</p>
+<hr>
 
-		<p></p><a name="TYPE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Deity Type)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a . (period) delimited list of the types the deity
-		  belongs to.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>TYPE:Good</code></p>
-		<p class="indent3">The deity belongs to the &quot;Good&quot; type.</p>
-		<p class="indent2"><code>TYPE:Good.Chaotic</code></p>
-		<p class="indent3">The deity belongs to the &quot;Good&quot; and &quot;Chaotic&quot; types.</p>
+	<p class="new">*** New 5.7.5</p>
+	<p class="indent0"><strong><a name="TITLE">Tag Name:</a></strong> TITLE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (The Deity's title)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is used for a the deity's title.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TITLE:Lord of the Morning</code></p>
+	<p class="indent3">The deity's title.</p>
+	<p></p>
 
-		<p></p><a name="WORSHIPPERS"></a><hr>
-		<p class="new">*** New 5.7.5</p>
-		<p class="indent0"><strong>Tag Name:</strong> WORSHIPPERS:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (The Deity's typical worshippers)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used for a the deity's typical worshippers.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>WORSHIPPERS:Fighters and Monks</code></p>
-		<p class="indent3">The deity's typical worshippers.</p>
+<hr>
 
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesdeities.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Deity Type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is a . (period) delimited list of the types the deity
+		belongs to.</p>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>TYPE:Good</code></p>
+	<p class="indent3">The deity belongs to the &quot;Good&quot; type.</p>
+	<p class="indent2"><code>TYPE:Good.Chaotic</code></p>
+	<p class="indent3">The deity belongs to the &quot;Good&quot; and &quot;Chaotic&quot; types.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** New 5.7.5</p>
+	<p class="indent0"><strong><a name="WORSHIPPERS">Tag Name:</a></strong> WORSHIPPERS:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (The Deity's typical worshippers)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is used for a the deity's typical worshippers.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>WORSHIPPERS:Fighters and Monks</code></p>
+	<p class="indent3">The deity's typical worshippers.</p>
+
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="http://www.w3.org/Icons/valid-html401"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>	
+		
 	</body>
 
 </html>
