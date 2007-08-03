@@ -115,20 +115,28 @@
 		<li>Only the Substitution Level Lines that contain tags need to	be included.</li>
 		<li>Only tags identified as Substitution Level Line or Class Level Line tags should be used on this 			line.</li>
 	</ul>
-	<p><strong>A Substitution Level Example</strong></p>
+	<p><strong>A Substitution Level Example: Part of a Base Class Entry</strong></p>
 	<blockquote>
 		<P><code>CLASS:Ranger . . .</code><br>
         	<code>CLASS:Ranger &lt;tab&gt; HASSUBSTITUTIONLEVEL:YES</code><br>
         	<code>SUBSTITUTIONCLASS:Orc Ranger</code><br>
         	<code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt; SA:Goblin Slave (Ex)</code><br>
         	<code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code><br>
-		<code>1 . . .</code><br>
+			<code>1 . . .</code><br>
         	<code>2 . . .</code><br>
         	<code>.</code><br>
         	<code>. </code>(All Class Level Lines <strong>MUST</strong> be included even if they are empty.)<br>
         	<code>.</code><br>
 	        <code>19 . . .</code><br>
  	       	<code>20 . . .</code></p>
+	</blockquote>
+        <p></p>
+	<p><strong>A Substitution Level Example: A .MODed Class Entry</strong></p>
+	<blockquote>
+		<P><code>CLASS:Ranger.MOD &lt;tab&gt; HASSUBSTITUTIONLEVEL:YES</code><br>
+        	<code>SUBSTITUTIONCLASS:Orc Ranger</code><br>
+        	<code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt; SA:Goblin Slave (Ex)</code><br>
+        	<code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code><br>
 	</blockquote>
         <p></p>
 
