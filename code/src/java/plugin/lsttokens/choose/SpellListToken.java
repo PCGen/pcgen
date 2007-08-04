@@ -29,44 +29,51 @@ public class SpellListToken implements ChooseLstToken
 		if (value == null)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " requires additional arguments");
+				+ " requires additional arguments in " + po.getDisplayName()
+				+ " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value);
+				+ " arguments may not contain , : " + value + " in "
+				+ po.getDisplayName() + " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value);
+				+ " arguments may not contain [] : " + value + " in "
+				+ po.getDisplayName() + " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value);
+				+ " arguments may not start with | : " + value + " in "
+				+ po.getDisplayName() + " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value);
+				+ " arguments may not end with | : " + value + " in "
+				+ po.getDisplayName() + " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value);
+				+ " arguments uses double separator || : " + value + "  in "
+				+ po.getDisplayName() + " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (!value.equals("Y") && !value.equals("N") && !value.equals("1")
 			&& !value.equals("0"))
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " argument was not Y or N");
+				+ " argument was not Y or N in " + po.getDisplayName() + " at "
+				+ po.getDefaultSourceString());
 			return false;
 		}
 		StringBuilder sb = new StringBuilder();
