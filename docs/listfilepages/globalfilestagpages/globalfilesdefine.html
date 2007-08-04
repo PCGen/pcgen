@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/globalfilestagpages/globalfilesdefine.html,v 1.15 2005/12/21 18:31:49 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -16,383 +15,328 @@
 		Description:
 		Provides information on the use of PCGen Define Tags.
 	-->
-	<head>
-			<title>The Define Tag</title>
-			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
-	</head>
+<head>
+	<title>The Define Tag</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
 
-	<body>
-		<h1>The Define Tag</h1>
+<body>
 
-		<p>The DEFINE tag is used to create new variables and set their initial values.
-  		In addition to the entry for the tag itself this page will go into the details
+	<h1>The Define Tag</h1>
+
+	<p>The DEFINE tag is used to create new variables and set their initial values.
+ 		In addition to the entry for the tag itself this page will go into the details
   		of using variables, formulas and math operators.</p>
-
-		<p class="indent0"><strong>Tag Name:</strong> DEFINE:x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of variable)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number or Formula (Can be a formula
-			involving pre-defined variables, numbers, operators and user-defined-variables.)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>Creates a new variable with the name specified and sets its initial value to the number or formula given.</li>
-
-			<li>Many classes use PREVAR tags, which are pre-requisites based upon variable values.</li>
-
-			<li>These values are calculated by getting the value of the variable with the highest
+	<p class="indent0"><strong>Tag Name:</strong> DEFINE:x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of variable)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number or Formula (Can be a formula
+		involving pre-defined variables, numbers, operators and user-defined-variables.)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Creates a new variable with the name specified and sets its initial value to the number
+			 or formula given.</li>
+		<li>Many classes use PREVAR tags, which are pre-requisites based upon variable values.</li>
+		<li>These values are calculated by getting the value of the variable with the highest
 			DEFINE value, and then adding any BONUS: tags which apply to it.</li>
-
-			<li>For example, if a class had PREVARGT:Hopscotch,3 would mean that the character
+		<li>For example, if a class had PREVARGT:Hopscotch,3 would mean that the character
 			only qualifies for the class if they have a Hopscotch value higher than 3
 			(GT = Greater Than).</li>
-
-			<li>PCGen scans the characters race, templates, classes, feats, skills, deity, domains
+		<li>PCGen scans the characters race, templates, classes, feats, skills, deity, domains
 			and equipped items for DEFINE: tags that match this variable name.</li>
-
-			<li>If it finds more than one, it keeps the one with the higher value.</li>
-
-			<li>PCGen then scans the same list of items and looks for those with BONUS:VAR|Hopscotch
+		<li>If it finds more than one, it keeps the one with the higher value.</li>
+		<li>PCGen then scans the same list of items and looks for those with BONUS:VAR|Hopscotch
 			tags and after figuring out which ones stack, adds those to the highest define value.</li>
-
-			<li>The resulting value is then compared to the PREVARGT's requirement, which is 3 in
+		<li>The resulting value is then compared to the PREVARGT's requirement, which is 3 in
 			this case, and PCGen then indicates if the character meets this requirement or not.</li>
-
-			<li>BONUS:VAR tags which reference variables which have not been DEFINEd have no effect
+		<li>BONUS:VAR tags which reference variables which have not been DEFINEd have no effect
 			and the value of that variable will effectively remain at 0.</li>
-
-			<li>The standard use of DEFINE in PCGen release files is to use only one DEFINE per variable
+		<li>The standard use of DEFINE in PCGen release files is to use only one DEFINE per variable
 			and to initially set the value at 0 and adjust it with BONUS:VAR tags as needed.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>DEFINE:MonkeyChop|2</code></p>
-		<p class="indent3">Creates a new variable named MonkeyChop and sets the initial value to 2.</p>
-		<p class="indent2"><code>DEFINE:MonkeySwing|TL/2</code></p>
-		<p class="indent3">Creates a new variable named MonkeySwing and sets the initial value to half the characters total level.</p>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>DEFINE:MonkeyChop|2</code></p>
+	<p class="indent3">Creates a new variable named MonkeyChop and sets the initial value to 2.</p>
+	<p class="indent2"><code>DEFINE:MonkeySwing|TL/2</code></p>
+	<p class="indent3">Creates a new variable named MonkeySwing and sets the initial value to half the characters total level.</p>
 
 
-		<a name="variables"></a><h2>Variables</h2>
+	<h2><a name="variables">Variables</a></h2>
 
-		<p>For those unfamiliar with computer programming or higher math a variable is a symbol which represents a quantity
-		that is not fixed. Most peoples first introduction to variables is in algebra where you might be given a problem
-		such as x+y=z. This is a formula, the x,y and z are variables. PCGen uses variables and formulas for a wide variety
-		of purposes through out the program, some are created in LST files while others are pre-defined, that is they are
-		hard coded and can be used in any formula in any LST file in any game mode. Pre-defined variables and a subset of
-		User-defined variables (that have been created by PCGen Data Monkeys) are listed below.</p>
-
-		<p class="indent1"><strong>Variable Names:</strong></p>
-		<ul class="indent2">
-			<li>You can create variable names any way you like - but we recommend using no spaces and a name that is both descriptive
-			and unlikely to conflict with a variable name used in another source for a different purpose. Capitalizing the first letter
-			of each word used in the variable name makes it more readable and more easily identified as a variable. Using all caps to
-			name a variable should be reserved for pre-defined variables that are hard-coded.</li>
-			<li>Sometimes the same variable name will be used in different sources if they work
+	<p>For those unfamiliar with computer programming or higher math a variable is a symbol which represents a
+		quantity that is not fixed. Most peoples first introduction to variables is in algebra where you
+		might be given a problem such as x+y=z. This is a formula, the x,y and z are variables. PCGen uses
+		variables and formulas for a wide variety of purposes through out the program, some are created in
+		LST files while others are pre-defined, that is they are hard coded and can be used in any formula
+		in any LST file in any game mode. Pre-defined variables and a subset of User-defined variables
+		(that have been created by PCGen Data Monkeys) are listed below.</p>
+	<p class="indent1"><strong>Variable Names:</strong></p>
+	<ul class="indent2">
+		<li>You can create variable names any way you like - but we recommend using no spaces and a name
+			that is both descriptive and unlikely to conflict with a variable name used in another
+			source for a different purpose. Capitalizing the first letter	of each word used in the
+			variable name makes it more readable and more easily identified as a variable. Using all
+			caps to name a variable should be reserved for pre-defined variables that are hard-coded.</li>
+		<li>Sometimes the same variable name will be used in different sources if they work
 			together (this happens when one class is based on a class from a different source).</li>
-			<li>Certain variables are pre-defined, be careful not to use any of those names when creating your variables.</li>
-		</ul>
-		<br />
+		<li>Certain variables are pre-defined, be careful not to use any of those names when creating
+			your variables.</li>
+	</ul>
+	<p></p>
 
-		<a name="PreDefinedVariables"></a><h2>Pre-defined Variables</h2>
+	<h2><a name="PreDefinedVariables">Pre-defined Variables</a></h2>
+		
+	<p class="indent2"><code><a name="ACCHECK">ACCHECK</a></code></p>
+	<p class="indent3">This is the total AC Check penalty from armor and shield.</p>
+	<p></p>
+	<p class="indent2"><code><a name="ARMORACCHECK">ARMORACCHECK</a></code></p>
+	<p class="indent3">This is the total AC Check penalty from armor.</p>
+	<p></p>
+	
+	<p class="indent2"><code><a name="BAB">BAB</a></code></p>
+	<p class="indent3">For classes which have O (for Other) as their BAB progression, you can use a
+		formula for their BAB progression. e.g. DEFINE:BAB|2*CL would be +2 per
+		class-level.</p>
+	<p></p>
+	<p class="indent2"><code><a name="BASESPELLSTAT">BASESPELLSTAT</a></code></p>
+	<p class="indent3">This is the mod for the class's base spell stat.</p>
+	<p></p>
 
-		<a name="ACCHECK"></a>
-		<p class="indent2"><code>ACCHECK</code></p>
-		<p class="indent3">This is the total AC Check penalty from armor and shield.</p><br />
-
-		<a name="ARMORACCHECK"></a>
-		<p class="indent2"><code>ARMORACCHECK</code></p>
-		<p class="indent3">This is the total AC Check penalty from armor.</p><br />
-
-		<a name="BAB"></a>
-		<p class="indent2"><code>BAB</code></p>
-		<p class="indent3">For classes which have O (for Other) as their BAB progression, you can use a
-			formula for their BAB progression. e.g. DEFINE:BAB|2*CL would be +2 per
-			class-level.</p><br />
-
-		<a name="BASESPELLSTAT"></a>
-		<p class="indent2"><code>BASESPELLSTAT</code></p>
-		<p class="indent3">This is the mod for the class's base spell stat.</p><br />
-
-		<a name="BL"></a>
-		<p class="indent2"><code>BL=name</code></p>
-		<p class="indent3">This will return the Bonus Spellcaster Levels to the class specified, which usually come from Prestige classes.
-		 For example, lets say you have 2 levels Mystic Theurge which add to both your Cleric and Wizard levels,
-		 3 levels of Archmage which add to your Wizard level,
-		 and 1 level of Loremaster which adds to your Cleric level.
-		 BL=Wizard would return 5 and BL=Cleric would return 3.
-		 Replace { with ( and } with ). e.g. BL=Cleric {Special} would return the bonus levels of Cleric (Special)
-		 since ( and ) have other meanings in DEFINE variables.
-		 If used within a JEP formula you will need to enclose it in a variable function
-		 e.g. var(&quot;BL=Cleric {Special}&quot;)</p><br />
-
-		<a name="CASTERLEVEL"></a>
-		<p class="indent2"><code>CASTERLEVEL</code></p>
-		<p class="indent3">CASTERLEVEL is a special variable for use within some Spell tags.
-			See the <a href="../datafilestagpages/datafilesspells.html#CASTERLEVEL">CASTERLEVEL</a>
-  			tag entry on the Spell tag page.</p><br />
-
-		<a name="CHA"></a>
-		<p class="indent2"><code>CHA</code></p>
-		<p class="indent3">This is the character's CHA modifier.</p><br />
-
-		<a name="CHASCORE"></a>
-		<p class="indent2"><code>CHASCORE</code></p>
-		<p class="indent3">This is the character's actual Charisma score.</p><br />
-
-		<a name="CL"></a>
-		<p class="indent2"><code>CL</code></p>
-		<p class="indent3">Class Level of this class.</p><br />
-
-		<a name="CLname"></a>
-		<p class="indent2"><code>CL=name</code></p>
-		<p class="indent3">Class Level of the named class.</p>
-		<p class="indent3"><font color="#FF0000"><strong>Update:</strong></font></p>
-		<p class="indent3">This can now be done with the <a href="globalfilesformulas.html#ClassLevel">cl()</a> JEP function.</p><br />
-
-		<a name="CLASSname"></a>
-		<p class="indent2"><code>CLASS=name</code></p>
-		<p class="indent3">Returns a 1 if the character has the named class, otherwise 0.
-			Replace { with ( and } with ). e.g.
-		CLASS=Ranger {Special} would check for Ranger (Special) since ( and ) have other meanings in DEFINE variables.
+	<p class="indent2"><code><a name="BL">BL=name</a></code></p>
+	<p class="indent3">This will return the Bonus Spellcaster Levels to the class specified, which usually
+		come from Prestige classes. For example, lets say you have 2 levels Mystic Theurge which add to
+		both your Cleric and Wizard levels, 3 levels of Archmage which add to your Wizard level, and 1
+		level of Loremaster which adds to your Cleric level. BL=Wizard would return 5 and BL=Cleric would
+		return 3. Replace { with ( and } with ). e.g. BL=Cleric {Special} would return the bonus levels
+		of Cleric (Special) since ( and ) have other meanings in DEFINE variables. If used within a JEP
+		formula you will need to enclose it in a variable function e.g. var(&quot;BL=Cleric {Special}&quot;)		</p>
+	<p></p>
+	<p class="indent2"><code><a name="CASTERLEVEL">CASTERLEVEL</a></code></p>
+	<p class="indent3">CASTERLEVEL is a special variable for use within some Spell tags.
+		See the <a href="../datafilestagpages/datafilesspells.html#CASTERLEVEL">CASTERLEVEL</a>
+  		tag entry on the Spell tag page.</p>
+	<p></p>
+	<p class="indent2"><code><a name="CHA">CHA</a></code></p>
+	<p class="indent3">This is the character's CHA modifier.</p>
+	<p></p>
+	<p class="indent2"><code><a name="CHASCORE">CHASCORE</a></code></p>
+	<p class="indent3">This is the character's actual Charisma score.</p>
+	<p></p>
+	<p class="indent2"><code><a name="CL">CL</a></code></p>
+	<p class="indent3">Class Level of this class.</p>
+	<p></p>
+	<p class="indent2"><code><a name="CLname">CL=name</a></code></p>
+	<p class="indent3">Class Level of the named class.</p>
+	<p class="indent3"><span class=new><strong>Update:</strong></span></p>
+	<p class="indent3">This can now be done with the <a href="globalfilesformulas.html#ClassLevel">cl()</a>
+		JEP function.</p>
+	<p></p>
+	<p class="indent2"><code><a name="CLASSname">CLASS=name</a></code></p>
+	<p class="indent3">Returns a 1 if the character has the named class, otherwise 0.
+		Replace { with ( and } with ). e.g. CLASS=Ranger {Special} would check for Ranger (Special)
+		since ( and ) have other meanings in DEFINE variables.
 		If used within a JEP formula you will need to enclose it in a variable function
-		 e.g. var(&quot;CLASS=Ranger {Special}&quot;)</p><br />
-
-		<a name="CLASSLEVELname"></a>
-		<p class="indent2"><code>CLASSLEVEL=name</code></p>
-		<p class="indent3">Class Level of the named class, replacing ( with { and ) with }. e.g.
+		e.g. var(&quot;CLASS=Ranger {Special}&quot;)</p>
+	<p></p>
+	<p class="indent2"><code><a name="CLASSLEVELname">CLASSLEVEL=name</a></code></p>
+	<p class="indent3">Class Level of the named class, replacing ( with { and ) with }. e.g.
 		CLASSLEVEL=Warrior {Ruby} would return the level of Warrior (Ruby)
 		since ( and ) have other meanings in DEFINE variables.
 		If used within a JEP formula you will need to enclose it in a variable function
-		 e.g. var(&quot;CLASSLEVEL=Warrior {Ruby}&quot;)</p><br />
-
-		<a name="CON"></a>
-		<p class="indent2"><code>CON</code></p>
-		<p class="indent3">This is the character's CON modifier.</p><br />
-
-		<a name="CONSCORE"></a>
-		<p class="indent2"><code>CONSCORE</code></p>
-		<p class="indent3">This is the character's actual Constitution score.</p><br />
-
-		<a name="COUNTCLASSES"></a>
-		<p class="indent2"><code>COUNT[CLASSES]</code></p>
-		<p class="indent3">This is the character's number of classes.</p><br />
-
-		<a name="COUNTDOMAINS"></a>
-		<p class="indent2"><code>COUNT[DOMAINS]</code></p>
-		<p class="indent3">This is the character's number of domains.</p><br />
-
-		<a name="COUNTFEATNAME"></a>
-		<p class="indent2"><code>COUNT[FEATNAME=name]</code></p>
-		<p class="indent3">This is the number of feats of the given name. Great for multiple
-		feats that grant bonuses based on the number of times taken.</p><br />
-
-		<a name="COUNTFEATS"></a>
-		<p class="indent2"><code>COUNT[FEATS]</code></p>
-		<p class="indent3">This is the character's number of optionally chosen feats (not automatic or
-		virtual).</p><br />
-
-		<a name="COUNTFEATSALL"></a>
-		<p class="indent2"><code>COUNT[FEATSALL]</code></p>
-		<p class="indent3">This is the character's total number of feats (includes automatic and virtual).</p><br />
-
-		<a name="COUNTFEATTYPE"></a>
-		<p class="indent2"><code>COUNT[FEATTYPE=type]</code></p>
-		<p class="indent3">This is the character's number of feats matching specified type.</p><br />
-
-		<a name="COUNTFOLLOWERS"></a>
-		<p class="indent2"><code>COUNT[FOLLOWERS]</code></p>
-		<p class="indent3">This is the character's number of Followers.</p><br />
-
-		<a name="COUNTLANGUAGES"></a>
-		<p class="indent2"><code>COUNT[LANGUAGES]</code></p>
-		<p class="indent3">This is the character's number of languages.</p><br />
-
-		<a name="COUNTSA"></a>
-		<p class="indent2"><code>COUNT[SA]</code></p>
-		<p class="indent3">This is the character's number of unique special abilities.</p><br />
-
-		<a name="COUNTSKILLS"></a>
-		<p class="indent2"><code>COUNT[SKILLS]</code></p>
-		<p class="indent3">This is the character's number of skills.</p><br />
-
-		<a name="COUNTSPELLCLASSES"></a>
-		<p class="indent2"><code>COUNT[SPELLCLASSES]</code></p>
-		<p class="indent3">This is the character's number of spellcasting classes.</p><br />
-
-		<a name="COUNTSTATS"></a>
-		<p class="indent2"><code>COUNT[STATS]</code></p>
-		<p class="indent3">This is the number of defined stats.</p><br />
-
-		<a name="CR"></a>
-		<p class="indent2"><code>CR</code></p>
-		<p class="indent3">This is the character's Challenge Rating.</p><br />
-
-		<a name="DEX"></a>
-		<p class="indent2"><code>DEX</code></p>
-		<p class="indent3">This is the character's DEX modifier.</p><br />
-
-		<a name="DEXSCORE"></a>
-		<p class="indent2"><code>DEXSCORE</code></p>
-		<p class="indent3">This is the character's actual Dexterity score.</p><br />
-
-		<a name="ECL"></a>
-		<p class="indent2"><code>ECL</code></p>
-		<p class="indent3">This is the character's Effective Character Level.
-		It is the sum of all class levels plus any level adjustment the character might have.</p><br />
-
-		<a name="ENCUMBERANCE"></a>
-		<p class="indent2"><code>ENCUMBERANCE</code></p>
-		<p class="indent3">This is a value representing the character's current encumbrance level
-		(0=Light, 1=Medium 2=Heavy, 3=Over-Loaded).</p><br />
-
-		<p class="new">*** Updated 5.11.4</p><p></p>
-
-		<a name="HASDEITY"></a>
-		<p class="indent2"><code>HASDEITY:</code></p>
-		<p class="indent3">This returns 1 if the character has the named deity, otherwise 0.</p><br />
-
-		<a name="HASFEAT"></a>
-		<p class="indent2"><code>HASFEAT:</code></p>
-		<p class="indent3">This returns 1 if the character has	the named feat, otherwise 0.</p><br />
-
-		<a name="HD"></a>
-		<p class="indent2"><code>HD</code></p>
-		<p class="indent3">This is the character's HD (Starting HD or Monster HD. Not HD from classes).</p><br />
-
-		<a name="HP"></a>
-		<p class="indent2"><code>HP</code></p>
-		<p class="indent3">This is the character's maximum total hit points.</p><br />
-
-		<a name="INITIATIVEMISC"></a>
-		<p class="indent2"><code>INITIATIVEMISC</code></p>
-		<p class="indent3">This is the character's adjustment to initiative excluding any dexterity modifier.</p><br />
-
-		<a name="INITIATIVEMOD"></a>
-		<p class="indent2"><code>INITIATIVEMOD</code></p>
-		<p class="indent3">This is the character's adjustment to initiative
-		(including dexterity modifier and +4 if you have the Improved Initiative feat).</p><br />
-
-		<a name="INT"></a>
-		<p class="indent2"><code>INT</code></p>
-		<p class="indent3">This is the character's INT modifier.</p><br />
-
-		<a name="INTSCORE"></a>
-		<p class="indent2"><code>INTSCORE</code></p>
-		<p class="indent3">This is the character's actual Intelligence score.</p><br />
-
-		<a name="MOVEBASE"></a>
-		<p class="indent2"><code>MOVEBASE</code></p>
-		<p class="indent3">This is the character's racial-based movement.</p><br />
-
-		<a name="SHIELDACCHECK"></a>
-		<p class="indent2"><code>SHIELDACCHECK</code></p>
-		<p class="indent3">This is the total AC Check penalty from shields.</p><br />
-
-		<a name="SIZE"></a>
-		<p class="indent2"><code>SIZE</code></p>
-		<p class="indent3">This is a value representing the character's current size.
-		Fine=0, Diminutive=1, Tiny=2, Small=3, Medium=4, Large=5, Huge=6, Gargantuan=7, Colossal=8. The size designations, including abbreviations, are dependant upon the gamemode used and may be redefined in the sizeadjustments.lst file.</p><br />
-
-		<a name="SKILLRANK"></a>
-		<p class="indent2"><code>SKILLRANK=name</code></p>
-		<p class="indent3">This is the character's Ranks in the named skill replacing ( with { and ) with }. e.g.
+		 e.g. var(&quot;CLASSLEVEL=Warrior {Ruby}&quot;)</p>
+	<p></p>
+	<p class="indent2"><code><a name="CON">CON</a></code></p>
+	<p class="indent3">This is the character's CON modifier.</p>
+	<p></p>
+	<p class="indent2"><code<a name="CONSCORE">>CONSCORE</a></code></p>
+	<p class="indent3">This is the character's actual Constitution score.</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTCLASSES">COUNT[CLASSES]</a></code></p>
+	<p class="indent3">This is the character's number of classes.</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTDOMAINS">COUNT[DOMAINS]</a></code></p>
+	<p class="indent3">This is the character's number of domains.</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTFEATNAME">COUNT[FEATNAME=name]</a></code></p>
+	<p class="indent3">This is the number of feats of the given name. Great for multiple
+		feats that grant bonuses based on the number of times taken.</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTFEATS">COUNT[FEATS]</a></code></p>
+	<p class="indent3">This is the character's number of optionally chosen feats (not automatic or
+		virtual).</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTFEATSALL">COUNT[FEATSALL]</a></code></p>
+	<p class="indent3">This is the character's total number of feats (includes automatic and virtual).</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTFEATTYPE">COUNT[FEATTYPE=type]</a></code></p>
+	<p class="indent3">This is the character's number of feats matching specified type.</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTFOLLOWERS">COUNT[FOLLOWERS]</a></code></p>
+	<p class="indent3">This is the character's number of Followers.</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTLANGUAGES">COUNT[LANGUAGES]</a></code></p>
+	<p class="indent3">This is the character's number of languages.</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTSA">COUNT[SA]</a></code></p>
+	<p class="indent3">This is the character's number of unique special abilities.</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTSKILLS">COUNT[SKILLS]</a></code></p>
+	<p class="indent3">This is the character's number of skills.</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTSPELLCLASSES">COUNT[SPELLCLASSES]</a></code></p>
+	<p class="indent3">This is the character's number of spellcasting classes.</p>
+	<p></p>
+	<p class="indent2"><code><a name="COUNTSTATS">COUNT[STATS]</a></code></p>
+	<p class="indent3">This is the number of defined stats.</p>
+	<p></p>
+	<p class="indent2"><code><a name="CR">CR</a></code></p>
+	<p class="indent3">This is the character's Challenge Rating.</p>
+	<p></p>
+	<p class="indent2"><code><a name="DEX">DEX</a></code></p>
+	<p class="indent3">This is the character's DEX modifier.</p>
+	<p></p>
+	<p class="indent2"><code><a name="DEXSCORE">DEXSCORE</a></code></p>
+	<p class="indent3">This is the character's actual Dexterity score.</p>
+	<p></p>
+	<p class="indent2"><code><a name="ECL">ECL</a></code></p>
+	<p class="indent3">This is the character's Effective Character Level.
+		It is the sum of all class levels plus any level adjustment the character might have.</p>
+	<p></p>
+	<p class="indent2"><code><a name="ENCUMBERANCE">ENCUMBERANCE</a></code></p>
+	<p class="indent3">This is a value representing the character's current encumbrance level
+		(0=Light, 1=Medium 2=Heavy, 3=Over-Loaded).</p>
+	<p></p>
+	<p class="new">*** Updated 5.11.4</p><p></p>
+	<p class="indent2"><code><a name="HASDEITY">HASDEITY:</a></code></p>
+	<p class="indent3">This returns 1 if the character has the named deity, otherwise 0.</p>
+	<p></p>	
+	<p class="indent2"><code><a name="HASFEAT">HASFEAT:</a></code></p>
+	<p class="indent3">This returns 1 if the character has	the named feat, otherwise 0.</p>
+	<p></p>
+	<p class="indent2"><code><a name="HD">HD</a></code></p>
+	<p class="indent3">This is the character's HD (Starting HD or Monster HD. Not HD from classes).</p>
+	<p></p>
+	<p class="indent2"><code><a name="HP">HP</a></code></p>
+	<p class="indent3">This is the character's maximum total hit points.</p>
+	<p></p>
+	<p class="indent2"><code><a name="INITIATIVEMISC">INITIATIVEMISC</a></code></p>
+	<p class="indent3">This is the character's adjustment to initiative excluding any dexterity modifier.</p>
+	<p></p>
+	<p class="indent2"><code><a name="INITIATIVEMOD">INITIATIVEMOD</a></code></p>
+	<p class="indent3">This is the character's adjustment to initiative
+		(including dexterity modifier and +4 if you have the Improved Initiative feat).</p>
+	<p></p>
+	<p class="indent2"><code><a name="INT">INT</a></code></p>
+	<p class="indent3">This is the character's INT modifier.</p>
+	<p></p>
+	<p class="indent2"><code><a name="INTSCORE">INTSCORE</a></code></p>
+	<p class="indent3">This is the character's actual Intelligence score.</p>
+	<p></p>
+	<p class="indent2"><code><a name="MOVEBASE">MOVEBASE</a></code></p>
+	<p class="indent3">This is the character's racial-based movement.</p>
+	<p></p>
+	<p class="indent2"><code><a name="SHIELDACCHECK">SHIELDACCHECK</a></code></p>
+	<p class="indent3">This is the total AC Check penalty from shields.</p>
+	<p></p>
+	<p class="indent2"><code><a name="SIZE">SIZE</a></code></p>
+	<p class="indent3">This is a value representing the character's current size. Fine=0, Diminutive=1, Tiny=2,
+		Small=3, Medium=4, Large=5, Huge=6, Gargantuan=7, Colossal=8. The size designations, including
+		abbreviations, are dependant upon the gamemode used and may be redefined in the sizeadjustments.lst
+		file.</p>
+	<p></p>
+	<p class="indent2"><code><a name="SKILLRANK">SKILLRANK=name</a></code></p>
+	<p class="indent3">This is the character's Ranks in the named skill replacing ( with { and ) with }. e.g.
 		SKILLRANK=Craft {Woodworking} would return the ranks of Craft (Woodworking)
 		since ( and ) have other meanings in DEFINE variables.
 		If used within a JEP formula you will need to enclose it in a variable function
-		 e.g. var(&quot;SKILLRANK=Craft {Woodworking}&quot;)</p><br />
-		 <p class="indent3"><font color="#FF0000"><strong>Update:</strong></font></p>
-		 <p class="indent3">This can now be done with the <a href="globalfilesformulas.html#SkillInfo">skillinfo()</a> JEP function.</p><br />
-
-		<a name="SKILLTOTAL"></a>
-		<p class="indent2"><code>SKILLTOTAL=name</code></p>
-		<p class="indent3">This is the character's total in the named skill replacing ( with { and ) with }. e.g.
+		 e.g. var(&quot;SKILLRANK=Craft {Woodworking}&quot;)</p>
+	<p></p>
+	<p class="indent3"><span class=new><strong>Update:</strong></span></p>
+	<p class="indent3">This can now be done with the <a href="globalfilesformulas.html#SkillInfo">skillinfo()</a>
+		JEP function.</p>
+	<p></p>
+	<p class="indent2"><code><a name="SKILLTOTAL">SKILLTOTAL=name</a></code></p>
+	<p class="indent3">This is the character's total in the named skill replacing ( with { and ) with }. e.g.
 		SKILLTOTAL=Craft {Woodworking} would return the total of Craft (Woodworking)
 		since ( and ) have other meanings in DEFINE variables.
 		If used within a JEP formula you will need to enclose it in a variable function
-		 e.g. var(&quot;SKILLTOTAL=Craft {Woodworking}&quot;)</p><br />
-		<p class="indent3"><font color="#FF0000"><strong>Update:</strong></font></p>
-		<p class="indent3">This can now be done with the <a href="globalfilesformulas.html#SkillInfo">skillinfo()</a> JEP function.</p><br />
+		 e.g. var(&quot;SKILLTOTAL=Craft {Woodworking}&quot;)</p>
+	<p></p>
+	<p class="indent3"><span class=new><strong>Update:</strong></span></p>
+	<p class="indent3">This can now be done with the <a href="globalfilesformulas.html#SkillInfo">skillinfo()</a>
+		JEP function.</p>
+	<p></p>
+	<p class="indent2"><code><a name="SPELLFAILURE">SPELLFAILURE</a></code></p>
+	<p class="indent3">This is the character's spell failure percentage for all equipped armor.</p>
+	<p></p>
+	<p class="indent2"><code><a name="SR">SR</a></code></p>
+	<p class="indent3">This is the character's spell resistance.</p>
+	<p></p>
+	<p class="indent2"><code><a name="STR">STR</a></code></p>
+	<p class="indent3">This is the character's STR modifier.</p>
+	<p></p>
+	<p class="indent2"><code><a name="STRSCORE">STRSCORE</a></code></p>
+	<p class="indent3">This is the character's actual Strength score.</p>
+	<p></p>
+	<p class="indent2"><code><a name="TL">TL</a></code></p>
+	<p class="indent3">Total Level of character, this includes all PC, NPC and Monster class levels.
+		It does not include any level adjustments the character may have</p>
+	<p></p>
+	<p class="indent2"><code><a name="VARDEFINED">VARDEFINED:</a></code></p>
+	<p class="indent3">This returns 1 if the character has the named variable, otherwise 0.</p>
+	<p></p>
+	<p class="indent2"><code><a name="WEIGHTCARRIED">WEIGHT.CARRIED</a></code></p>
+	<p class="indent3">is the weight of all carried equipment.</p>
+	<p></p>
+	<p class="indent2"><code><a name="WEIGHTEQUIPPED">WEIGHT.EQUIPPED</a></code></p>
+	<p class="indent3">is the weight of all equipped items.</p>
+	<p></p>
+	<p class="indent2"><code><a name="WEIGHTPC">WEIGHT.PC</a></code></p>
+	<p class="indent3">is the weight of the PC.</p>
+	<p></p>
+	<p class="indent2"><code><a name="WEIGHTTOTAL">WEIGHT.TOTAL</a></code></p>
+	<p class="indent3">is the weight of all carried items and PC.</p>
+	<p></p>
+	<p class="indent2"><code><a name="WIS">WIS</a></code></p>
+	<p class="indent3">This is the character's WIS modifier.</p>
+	<p></p>
+	<p class="indent2"><code><a name="WISSCORE">WISSCORE</a></code></p>
+	<p class="indent3">This is the character's actual Wisdom score.</p>
+	<p></p>
+	<p></p>
 
-		<a name="SPELLFAILURE"></a>
-		<p class="indent2"><code>SPELLFAILURE</code></p>
-		<p class="indent3">This is the character's spell failure percentage for all equipped armor.</p><br />
+	<h2><a name="UserDefinedVariables">User-defined Variables in PCGen datasets</a></h2>
 
-		<a name="SR"></a>
-		<p class="indent2"><code>SR</code></p>
-		<p class="indent3">This is the character's spell resistance.</p><br />
-
-		<a name="STR"></a>
-		<p class="indent2"><code>STR</code></p>
-		<p class="indent3">This is the character's STR modifier.</p><br />
-
-		<a name="STRSCORE"></a>
-		<p class="indent2"><code>STRSCORE</code></p>
-		<p class="indent3">This is the character's actual Strength score.</p><br />
-
-		<a name="TL"></a>
-		<p class="indent2"><code>TL</code></p>
-		<p class="indent3">Total Level of character, this includes all PC, NPC and Monster class levels.
-		It does not include any level adjustments the character may have</p><br />
-
-		<a name="VARDEFINED"></a>
-		<p class="indent2"><code>VARDEFINED:</code></p>
-		<p class="indent3">This returns 1 if the character has the named variable, otherwise 0.</p><br />
-
-		<a name="WEIGHTCARRIED"></a>
-		<p class="indent2"><code>WEIGHT.CARRIED</code></p>
-		<p class="indent3">is the weight of all carried equipment.</p><br />
-
-		<a name="WEIGHTEQUIPPED"></a>
-		<p class="indent2"><code>WEIGHT.EQUIPPED</code></p>
-		<p class="indent3">is the weight of all equipped items.</p><br />
-
-		<a name="WEIGHTPC"></a>
-		<p class="indent2"><code>WEIGHT.PC</code></p>
-		<p class="indent3">is the weight of the PC.</p><br />
-
-		<a name="WEIGHTTOTAL"></a>
-		<p class="indent2"><code>WEIGHT.TOTAL</code></p>
-		<p class="indent3">is the weight of all carried items and PC.</p><br />
-
-		<a name="WIS"></a>
-		<p class="indent2"><code>WIS</code></p>
-		<p class="indent3">This is the character's WIS modifier.</p><br />
-
-		<a name="WISSCORE"></a>
-		<p class="indent2"><code>WISSCORE</code></p>
-		<p class="indent3">This is the character's actual Wisdom score.</p><br />
-
-		<p class="indent1">&nbsp;</p>
-
-		<a name="UserDefinedVariables"></a><h2>User-defined Variables in PCGen datasets</h2>
-
-		<p><strong>Note:</strong> This is not a definitive list, but a subset showing some of
+	<p><strong>Note:</strong> This is not a definitive list, but a subset showing some of
 		the common user defined variables that PCGen uses.</p>
+	<p class="indent2"><code><a name="AllowExtraTurning">AllowExtraTurning</a></code></p>
+	<p class="indent3">Ability to take Extra Turning if >= 1</p>
+	<p></p>
+	<p class="indent2"><code><a name="AllowHolyAvenger">AllowHolyAvenger</a></code></p>
+	<p class="indent3">Ability to use a Holy Avenger as a Paladin if >= 1</p>
+	<p></p>
+	<p class="indent2"><code><a name="BardicKnowledge">BardicKnowledge</a></code></p>
+	<p class="indent3">Ability to use Bardic Knowledge if >= 1</p>
+	<p></p>
+	<p class="indent2"><code><a name="BardicMusic">BardicMusic</a></code></p>
+	<p class="indent3">Ability to use Bardic Music if >= 1</p>
+	<p></p>
+	<p class="indent2"><code><a name="TurnUndead">TurnUndead</a></code></p>
+	<p class="indent3">Ability to Turn Undead if >= 1</p>
+	<p></p>
 
-		<a name="AllowExtraTurning"></a>
-		<p class="indent2"><code>AllowExtraTurning</code></p>
-		<p class="indent3">Ability to take Extra Turning if >= 1</p><br />
+	<h2>Math Operators and Formulas</h2>
 
-		<a name="AllowHolyAvenger"></a>
-		<p class="indent2"><code>AllowHolyAvenger</code></p>
-		<p class="indent3">Ability to use a Holy Avenger as a Paladin if >= 1</p><br />
-
-		<a name="BardicKnowledge"></a>
-		<p class="indent2"><code>BardicKnowledge</code></p>
-		<p class="indent3">Ability to use Bardic Knowledge if >= 1</p><br />
-
-		<a name="BardicMusic"></a>
-		<p class="indent2"><code>BardicMusic</code></p>
-		<p class="indent3">Ability to use Bardic Music if >= 1</p><br />
-
-		<a name="TurnUndead"></a>
-		<p class="indent2"><code>TurnUndead</code></p>
-		<p class="indent3">Ability to Turn Undead if >= 1</p><br />
-
-		<h2>Math Operators and Formulas</h2>
-
-		<p><strong>Note:</strong> This information has been moved to the <a href="globalfilesformulas.html">
+	<p><strong>Note:</strong> This information has been moved to the <a href="globalfilesformulas.html">
 		Math Operators and Formulas</a> page.</p>
 
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/globalfilestagpages/globalfilesdefine.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-	</body>
+
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="http://www.w3.org/Icons/valid-html401"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+
+</body>
 
 </html>

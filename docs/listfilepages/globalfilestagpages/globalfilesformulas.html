@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/globalfilestagpages/globalfilesformulas.html,v 1.7 2005/12/21 21:41:43 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -16,38 +15,34 @@
 		Description:
 		Provides information on the use of PCGen Define Tags.
 	-->
-	<head>
-			<title>Math Operators and Formulas</title>
-			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
-	</head>
+<head>
+	<title>Math Operators and Formulas</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
+<body>
 
-	<body>
-		<h1>Math Operators and Formulas</h1>
+	<h1>Math Operators and Formulas</h1>
 
-		<p><strong>Important:</strong> Starting with version 5.7.1 PCGen has incorporated the
-		<a href="http://www.singularsys.com/jep/" target="_blank">JEP (Java Mathematical Expression Parser)
+	<p><strong>Important:</strong> Starting with version 5.7.1 PCGen has incorporated the
+		<a href="http://www.singularsys.com/jep/">JEP (Java Mathematical Expression Parser)
 		library</a>. This was done because the original code which has evolved over time is problematic due
 		to its complexity and lack of documentation. The JEP library has a clearly defined grammar which is
 		available on the web site. JEP supports user defined variables, constants, and functions. A number
 		of common mathematical functions and constants are included. As a fall back, if the JEP parser fails
 		to parse the function then the old code is called. At some point in the future the old code support
-		will be dropped and all formulas must be in JEP syntax. </p>
-
-		<p>The library we are using to parse math expressions defines the syntax they want to test for string
+		will be dropped and all formulas must be in JEP syntax.</p>
+	<p>The library we are using to parse math expressions defines the syntax they want to test for string
 		equality.  If you are curious you can check out the JEP library at http://www.singularsys.com/jep/</p>
-
-		<p>To reverse the sign (go from positive number to negative) use -1*().
+	<p>To reverse the sign (go from positive number to negative) use -1*().
 		EXAMPLE:<br>
 		BONUS:CHECKS|BASE.Will|CL/3 is a positive 1 at 3rd level and<br>
-		BONUS:CHECKS|BASE.Will|-1*(CL/3) is a -1 at 3rd level.<br></p><br />
-
-		<p><b><i>PCGen *does* round each tag down rather than add the tags together and then round down.  See
+		BONUS:CHECKS|BASE.Will|-1*(CL/3) is a -1 at 3rd level.<br></p>
+	<p></p>
+	<p><b><i>PCGen *does* round each tag down rather than add the tags together and then round down.  See
 		example before 'Operators'</i></b></p>
-
-		<p class="indent1"><strong>Using variables within JEP expressions</strong></p><br />
-
-		<p class="indent2">In most cases variables can be used directly in an expression,
+	<p class="indent1"><strong>Using variables within JEP expressions</strong></p>
+	<p></p>
+	<p class="indent2">In most cases variables can be used directly in an expression,
   		however there are some cases when you must use the var() function. This is
   		because some variables can contain characters which are not valid JEP variables.
   		For example the variable CL can be used in a formula without a problem but the
@@ -56,321 +51,355 @@
   		correctly. The formal description of a JEP variable is &quot;a letter followed
   		by one or more letters and digits&quot; where a letter is defined as: '$', '_',
   		a-z and A-Z.<br><br></p>
-
-		<p class="indent2">Examples of variables that may be used alone:</p>
-		<p class="indent3"><code>CL, TL, ARMORACCHECK, BardicKnowledgeLevel, TirelessRage.</code><br /></p>
-
-		<p class="indent2">Examples of variables that must be called with the getvar() function:</p>
-		<p class="indent3"><code>var(&quot;CL=Fighter&quot;), var(&quot;COUNT[FEATS]&quot;),
-		var(&quot;COUNT[FEATTYPE=type]&quot;).</code><br /></p>
-
-		<p class="indent2">Consult the <a href="globalfilesdefine.html">DEFINE</a> page
+	<p class="indent2">Examples of variables that may be used alone:</p>
+	<p class="indent3"><code>CL, TL, ARMORACCHECK, BardicKnowledgeLevel, TirelessRage.</code>,</p>
+	<p></p>
+	<p class="indent2">Examples of variables that must be called with the getvar() function:</p>
+	<p class="indent3"><code>var(&quot;CL=Fighter&quot;), var(&quot;COUNT[FEATS]&quot;),
+		var(&quot;COUNT[FEATTYPE=type]&quot;).</code></p>
+	<p></p>
+	<p class="indent2">Consult the <a href="globalfilesdefine.html">DEFINE</a> page
 			for the list of hard coded variables available for use in formulas.</p>
-
-		<p class="indent1"><strong>Operator order of processing:</strong></p><br />
-		<p class="indent2">Anything within ()'s are done first, and processing is done left-to-right.<br /></p>
-		<p class="indent2"><code>2+(3*5+2)/2</code></p>
-		<p class="indent3">Would become 2+(15+2)/2 (3*5 replaced)<br /></p>
-		<p class="indent3">then 2+17/2 (15+2 replaced)<br /></p>
-		<p class="indent3">then 19/2 (2+17 replaced)<br /></p>
-		<p class="indent3">then 9 (result of 19/2, the .5 is dropped, see below.).</p><br />
-		<p class="indent2"><strong>PCGen truncates (or rounds down to the nearest integer) the results of each
+	<p class="indent1"><strong>Operator order of processing:</strong></p>
+	<p></p>
+	<p class="indent2">Anything within ()'s are done first, and processing is done left-to-right.</p>
+	<p></p>
+	<p class="indent2"><code>2+(3*5+2)/2</code></p>
+	<p class="indent3">Would become 2+(15+2)/2 (3*5 replaced)</p>
+	<p></p>
+	<p class="indent3">then 2+17/2 (15+2 replaced)</p>
+	<p></p>
+	<p class="indent3">then 19/2 (2+17 replaced)</p>
+	<p></p>
+	<p class="indent3">then 9 (result of 19/2, the .5 is dropped, see below.).</p>
+	<p></p>
+	<p class="indent2"><strong>PCGen truncates (or rounds down to the nearest integer) the results of each
 		formula,</strong> so 4/3 will return a 1 and 7/3 will return a 2 etc. If you need to truncate within the
-		formula you can use the min(x,y) or max(x,y) and floor(a) or ceil(a) tags.</p><br/>
+		formula you can use the min(x,y) or max(x,y) and floor(a) or ceil(a) tags.</p>
+	<p></p>
 
-		<hr><a name="Operators"></a>
-		<p class="indent1"><strong>Operators<br></strong></p><br />
+<hr>
 
-		<p class="indent2"><code>2+1</code></p>
-		<p class="indent3">Addition (+).<br /></p>
+	<p class="indent1"><strong><a name="Operators">Operators</a><br></strong></p>
+	<p></p>
+	<p class="indent2"><code>2+1</code></p>
+	<p class="indent3">Addition (+).</p>
+	<p></p>
+	<p class="indent2"><code>CL-1</code></p>
+	<p class="indent3">Subtraction (-) - would minus one from the Class Level.</p>
+	<p></p>
+	<p class="indent2"><code>CL/2</code></p>
+	<p class="indent3">Division (/) - would divide the Class Level by two.</p>
+	<p></p>
+	<p class="indent2"><code>CL*3</code></p>
+	<p class="indent3">Multiplication (*) - would multiply the Class Level by three.</p>
+	<p></p>
+	<p class="indent2"><code>((CL+1)+(3*TL)/2)/4</code></p>
+	<p class="indent3">Parenthesis () nesting - the result of three multiplied
+		by Total Level divided by two, plus Class Level + 1 is divided by four.</p>
+	<p></p>
 
-		<p class="indent2"><code>CL-1</code></p>
-		<p class="indent3">Subtraction (-) - would minus one from the Class Level.<br /></p>
+<hr>
 
-		<p class="indent2"><code>CL/2</code></p>
-		<p class="indent3">Division (/) - would divide the Class Level by two.<br /></p>
+	<p class="indent2"><code><a name="modulus/remainder">CL%3</a></code></p>
+	<p></p>
+	<p class="indent2">The % performs a modulus... or is the remainder operator.</p>
+	<p class="indent3"><code>would determine the remainder after performing an integer divide on the Class Level by three. If the class level was
+		7, the remainder is 1 ( 7 / 3 = 2 remainder 1  ... or alternately 2 * 3 + 1 = 7)</code></p>
+	<p></p>
 
-		<p class="indent2"><code>CL*3</code></p>
-		<p class="indent3">Multiplication (*) - would multiply the Class Level by three.<br /></p>
+<hr>
 
-		<p class="indent2"><code>((CL+1)+(3*TL)/2)/4</code></p>
-		<p class="indent3">Parenthesis () nesting - the result of three multiplied
-		by Total Level divided by two, plus Class Level + 1 is divided by four.<br /></p>
+	<p class="indent1"><strong><a name="MinMax">Minimums and maximums</a><br></strong></p>
+	<p></p>
+	<p class="indent2">The min and max functions support 2 or more arguments, so you can compare 2, 3, 4 or more numbers or variables.<br></p>
+	<p class="indent2"><code>min(a,b,c)</code></p>
+	<p class="indent3">Returns the lowest of 'a', 'b' or 'c'.</p>
+	<p></p>
+	<p class="indent2"><code>max(a,b,c)</code></p>
+	<p class="indent3">Returns the highest of 'a', 'b' or 'c'.</p>
+	<p></p>
 
-		<hr><a name="modulus/remainder"></a>
-		<p class="indent2"><code>CL%3</code><br /></p>
-		<p class="indent2">The % performs a modulus... or is the remainder operator.</p>
-		<p class="indent3"><code>would determine the remainder after performing an integer divide on the Class Level by three. If the class level was
-		7, the remainder is 1 ( 7 / 3 = 2 remainder 1  ... or alternately 2 * 3 + 1 = 7)</code><br /></p>
+<hr>
 
-		<hr><a name="MinMax"></a>
-		<p class="indent1"><strong>Minimums and maximums<br></strong></p><br />
+	<p class="indent1"><strong><a name="Truncation">Truncation, rounding up and down.</a><br></strong></p>
+	<p></p>
+	<p class="indent2"><code>floor(a)</code></p>
+	<p class="indent3">Returns the highest integer that is less than 'a'.</p>
+	<p></p>
+	<p class="indent2"><code>ceil(a)</code></p>
+	<p class="indent3">Returns the lowest integer that is greater than 'a'.</p>
+	<p></p>
 
-		<p class="indent2">The min and max functions support 2 or more arguments, so you can compare 2, 3, 4 or more numbers or variables.<br></p>
+<hr>
 
-		<p class="indent2"><code>min(a,b,c)</code></p>
-		<p class="indent3">Returns the lowest of 'a', 'b' or 'c'.<br /></p>
+	<p class="indent1"><strong><a name="Boolean">Boolean operators</a></strong></p>
+	<p></p>
+	<p class="indent2">Boolean operators are also fully supported.
+		Boolean expressions are evaluated to be either 1 or 0 (true or false respectively).<br></p>
+	<p></p>
+	<p class="indent2"><code>CL==1</code></p>
+	<p class="indent3">Equal (==). Asks if Class Level is equal to 1.</p>
+	<p></p>
+	<p class="indent2"><code>CL!=1</code></p>
+	<p class="indent3">Not Equal (!=). Asks if Class Level is not equal to 1.</p>
+	<p></p>
+	<p class="indent2"><code>CL&gt;1</code></p>
+	<p class="indent3">Greater than (&gt;). Asks if Class Level is greater than 1.</p>
+	<p></p>
+	<p class="indent2"><code>CL&lt;1</code></p>
+	<p class="indent3">Less than (&lt;). Asks if Class Level is less than 1.</p>
+	<p></p>
+	<p class="indent2"><code>CL&gt;=1</code></p>
+	<p class="indent3">Greater than or Equal (&gt;=). Asks if Class Level is greater than or equal to 1.</p>
+	<p></p>
+	<p class="indent2"><code>CL&lt;=1</code></p>
+	<p class="indent3">Less than or Equal (&lt;=). Asks if Class Level is less than or equal to 1.</p>
+	<p></p>
+	<p class="indent2"><code>(CL&gt;5)&amp;&amp;(TL&gt;5)</code></p>
+	<p class="indent3">Boolean And (&amp;&amp;). Asks if Class Level <strong>and</strong> Total Level are greater than 5.</p>
+	<p></p>
+	<p class="indent2"><code>(CL&gt;5)||(TL&gt;5)</code></p>
+	<p class="indent3">Boolean Or (||). Asks if Class Level <strong>or</strong> Total Level is greater than 5.</p>
+	<p></p>
 
-		<p class="indent2"><code>max(a,b,c)</code></p>
-		<p class="indent3">Returns the highest of 'a', 'b' or 'c'.<br /></p>
+<hr>
 
-		<hr><a name="Truncation"></a>
-		<p class="indent1"><strong>Truncation, rounding up and down.<br></strong></p><br />
+	<p class="indent1"><strong><a name="BooleanIf">Boolean If operator</a></strong><br></p>
+	<p></p>
+	<p class="indent2"><code>if(x,y,z)</code><br></p>
+	<p></p>
+	<p class="indent3">The boolean if operator will return one of two results after evaluating a boolean.
+		The variable x is a boolean result, 0 is false and anything not 0 is true. The variable y is 
+		the result returned if x is true, z is	the result returned if x is false. Put another way, 
+		if x is true (not 0) then the result is y, if x is false (0) then the result is z.<br></p>
+	<p class="indent2">Examples:</p>
+	<p></p>
+	<p class="indent3"><code>if(CL&lt;10,1,2)</code></p>
+	<p class="indent4">Asks if Class Level is less than 10 then returns 1 or else returns 2.</p>
+	<p></p>
+	<p class="indent3"><code>if(CL>=4,10,0)</code></p>
+	<p class="indent4">Asks if Class Level is greater than or equal to 4 then returns 10 or else returns 0.</p>
+	<p></p>
+	<p class="indent3"><code>if((CL&gt;5)||(TL&gt;5),2,-4)</code></p>
+	<p class="indent4">Asks if Class Level <strong>or</strong> Total Level is greater than 5 then returns 2 or else returns -4.</p>
+	<p></p>
+	<p class="indent3"><code>if(STR,5,0)</code></p>
+	<p class="indent4">Asks if Strength modifier is greater than or less than 0 then returns 5 or else returns 0.</p>
+	<p></p>
 
-		<p class="indent2"><code>floor(a)</code></p>
-		<p class="indent3">Returns the highest integer that is less than 'a'.<br /></p>
+<hr>
 
-		<p class="indent2"><code>ceil(a)</code></p>
-		<p class="indent3">Returns the lowest integer that is greater than 'a'.<br /></p>
-
-		<hr><a name="Boolean"></a>
-		<p class="indent1"><strong>Boolean operators</strong></p><br />
-
-		<p class="indent2">Boolean operators are also fully supported.
-		Boolean expressions are evaluated to be either 1 or 0 (true or false respectively).<br></p><br />
-
-
-		<p class="indent2"><code>CL==1</code></p>
-		<p class="indent3">Equal (==). Asks if Class Level is equal to 1.<br /></p>
-
-		<p class="indent2"><code>CL!=1</code></p>
-		<p class="indent3">Not Equal (!=). Asks if Class Level is not equal to 1.<br /></p>
-
-		<p class="indent2"><code>CL&gt;1</code></p>
-		<p class="indent3">Greater than (&gt;). Asks if Class Level is greater than 1.<br /></p>
-
-		<p class="indent2"><code>CL&lt;1</code></p>
-		<p class="indent3">Less than (&lt;). Asks if Class Level is less than 1.<br /></p>
-
-		<p class="indent2"><code>CL&gt;=1</code></p>
-		<p class="indent3">Greater than or Equal (&gt;=). Asks if Class Level is greater than or equal to 1.<br /></p>
-
-		<p class="indent2"><code>CL&lt;=1</code></p>
-		<p class="indent3">Less than or Equal (&lt;=). Asks if Class Level is less than or equal to 1.<br /></p>
-
-		<p class="indent2"><code>(CL&gt;5)&amp;&amp;(TL&gt;5)</code></p>
-		<p class="indent3">Boolean And (&amp;&amp;). Asks if Class Level <strong>and</strong> Total Level are greater than 5.<br /></p>
-
-		<p class="indent2"><code>(CL&gt;5)||(TL&gt;5)</code></p>
-		<p class="indent3">Boolean Or (||). Asks if Class Level <strong>or</strong> Total Level is greater than 5.<br /></p>
-
-		<hr><a name="BooleanIf"></a>
-		<p class="indent1"><strong>Boolean If operator</strong><br></p><br />
-
-		<p class="indent2"><code>if(x,y,z)</code><br></p><br />
-
-		<p class="indent3">The boolean if operator will return one of two results after evaluating a boolean. The variable x is a boolean
-		result, 0 is false and anything not 0 is true. The variable y is the result returned if x is true, z is the result returned if x is false.
-		Put another way, if x is true (not 0) then the result is y, if x is false (0) then the result is z.<br></p>
-
-		<p class="indent2">Examples:</p><br>
-
-		<p class="indent3"><code>if(CL&lt;10,1,2)</code></p>
-		<p class="indent4">Asks if Class Level is less than 10 then returns 1 or else returns 2.<br /></p>
-
-		<p class="indent3"><code>if(CL>=4,10,0)</code></p>
-		<p class="indent4">Asks if Class Level is greater than or equal to 4 then returns 10 or else returns 0.<br /></p>
-
-		<p class="indent3"><code>if((CL&gt;5)||(TL&gt;5),2,-4)</code></p>
-		<p class="indent4">Asks if Class Level <strong>or</strong> Total Level is greater than 5 then returns 2 or else returns -4.<br /></p>
-
-		<p class="indent3"><code>if(STR,5,0)</code></p>
-		<p class="indent4">Asks if Strength modifier is greater than or less than 0 then returns 5 or else returns 0.<br /></p>
-
-		<hr><a name="RandomNumbers"></a>
-		<p class="indent1"><strong>Random Number Generation</strong></p><br>
-
-		<p class="indent2"><code>roll("x")</code></p><br />
-
-		<p class="indent2"><strong>Variables Used (x):</strong> Formula</p></b>
-
-		<p class="indent3">The formula used within the roll("x") function can use all the standard JEP operators and in addition
-		it can take a dice expression in the form of xdx, for example 2d6, 1d20 and 3d4.</p><br />
-
-		<p class="indent3"><font color="#FF0000"><strong>Warning:</strong></font> although the JEP function roll("x") can generate a
-		random number in any formula that takes JEP there are few places in the program where this is actually useful.
-		This is because the roll function will generate a new random number every time the formula is evaluated which happens
-		many times while you use the program. So if you were to use roll("2d6") in a base attack bonus it would appear to add
+	<p class="indent1"><strong><a name="RandomNumbers">Random Number Generation</a></strong></p>
+	<p></p>
+	<p class="indent2"><code>roll("x")</code></p>
+	<p></p>
+	<p class="indent2"><strong>Variables Used (x):</strong> Formula</p>
+	<p class="indent3">The formula used within the roll("x") function can use all the standard JEP operators 
+		and in addition	it can take a dice expression in the form of xdx, for example 2d6, 1d20 and 3d4.</p>
+	<p></p>
+	<p class="indent3"><span class=new><strong>Warning:</strong></span> although the JEP function roll("x") can 
+		generate a random number in any formula that takes JEP there are few places in the program where 
+		this is actually useful. This is because the roll function will generate a new random number every 
+		time the formula is evaluated which happens many times while you use the program. So if you were to 
+		use roll("2d6") in a base attack bonus it would appear to add
 		a number between 2 and 12 which would change frequently. Currently the QTY tag used
 		<a href="../datafilestagpages/datafilesstartingkits.html#FUNDS">FUNDS</a>
-  		lines in Kit files is one of the few places this JEP operator functions in a useful way.</p><br />
+  		lines in Kit files is one of the few places this JEP operator functions in a useful way.</p>
+	<p></p>
+	<p class="indent2">Examples:</p>
+	<p class="indent3"><code>roll(&quot;3d6&quot;)</code></p>
+	<p class="indent4">Simulates rolling 3 six-sided dice.</p>
+	<p></p>
+	<p class="indent3"><code>roll(&quot;1d20+10&quot;)</code></p>
+	<p class="indent4">Simulates rolling a twenty-sided die and adds 10.</p>
+	<p></p>
+	<p class="indent2">The following functions are also supported within the roll function:</p>
+	<p class="indent3"><code>min(v1,v2)</code></p>
+	<p class="indent4">e.g. min(4,7)</p>
+	<p></p>
+	<p class="indent3"><code>max(v1,v2)</code></p>
+	<p class="indent4">e.g. min(4,7)</p>
+	<p></p>
+	<p class="indent3"><code>pow(base, exponent)</code></p>
+	<p class="indent4">e.g. pow(10,2) = 100</p>
+	<p></p>
+	<p class="indent3"><code>roll(times, sides)</code></p>
+	<p class="indent4">e.g. roll(3,6)</p>
+	<p></p>
+	<p class="indent3"><code>roll(times, sides, [keep])</code></p>
+	<p class="indent4">e.g. roll(4,6,[2,3,4]), rolls 4 six-sided dice and keeps the 3 highest rolls<br></p>
+	<p class="indent3"><code>roll(times, [sides])</code></p>
+	<p class="indent4">e.g. roll(1,[3,5,7,9]), rolls one 3, 5, 7 or 9 sided die, randomly selected</p>
+	<p></p>
+	<p class="indent3"><code>roll(times, [sides], [keep])</code></p>
+	<p class="indent4">e.g. roll(3,[2,3,4,5,6],[2,3]), rolls three 2, 3, 4, 5, or 6 sided dice, randomly selected and keeps the highest 2</p>
+	<p></p>
+	<p class="indent3">These are defined in pcgen/util/DiceExpressionFunctions.java.
+  		In order to use these with JEP they must be encapsulated in a roll(&quot;x&quot;) call.</p>
+	<p></p>
+	<p class="indent4">e.g. <code>roll(&quot;roll(4,6,[2,3,4])&quot;)</code></p>
+	<p></p>
 
-		<p class="indent2">Examples:</p>
+<hr>
 
-		<p class="indent3"><code>roll(&quot;3d6&quot;)</code></p>
-		<p class="indent4">Simulates rolling 3 six-sided dice.<br /></p>
+	<p class="indent1"><strong><a name="ClassLevel">Class Level</a></strong></p>
+	<p></p>
+	<p class="indent2"><code>cl("x")</code></p>
+	<p></p>
+	<p class="indent2"><strong>Variables Used (x):</strong> Text (Class Name)</p>
+	<p></p>
+	<p class="indent3">This function returns the number of level the PC has in the specified class.
+		This replaces the old variable <code>CL=class name</code>.</p>
+	<p></p>
+	<p class="indent2">Examples:</p>
+	<p class="indent3"><code>cl(&quot;Bard&quot;)</code></p>
+	<p class="indent4">Returns the number of levels of Bard.</p>
+	<p></p>
 
-		<p class="indent3"><code>roll(&quot;1d20+10&quot;)</code></p>
-		<p class="indent4">Simulates rolling a twenty-sided die and adds 10.</p><br />
+<hr>
 
-		<p class="indent2">The following functions are also supported within the roll function:</p>
+	<p class="indent1"><strong><a name="SkillInfo">Skill Information</a></strong></p>
+	<p></p>
+	<p class="indent2"><code>skillinfo("x", "y")</code></p>
+	<p></p>
+	<p class="indent2"><strong>Variables Used (x):</strong> RANK (Property)</p>
+	<p class="indent2"><strong>Variables Used (x):</strong> TOTALRANK (Property)</p>
+	<p class="indent2"><strong>Variables Used (x):</strong> MODIFIER (Property)</p>
+	<p class="indent2"><strong>Variables Used (x):</strong> TOTAL (Property)</p>
+	<p class="indent2"><strong>Variables Used (y):</strong> Text (Skill name)</p>
+	<p></p>
+	<p class="indent3">This function returns information about the skill specified.</p><p></p>
+	<p class="indent4">RANK returns the number of ranks the PC has in the skill not including those gained from BONUS:SKILLRANK tags.</p>
+	<p class="indent4">TOTALRANK returns the number of ranks the PC has in the skill including those gained from BONUS:SKILLRANK tags.</p>
+	<p class="indent4">MODIFIER returns the total bonuses the PC has in the skill.</p>
+	<p class="indent4">TOTAL returns the grand total in the skill from all ranks and bonuses.</p>
+	<p class="indent2">Examples:</p>
+	<p class="indent3"><code>skillinfo(&quot;RANK&quot;, &quot;Hide&quot;)</code></p>
+	<p class="indent4">Returns the number of base ranks in Hide.</p>
+	<p></p>
+	<p class="indent3"><code>skillinfo(&quot;TOTALRANK&quot;, &quot;Climb&quot;)</code></p>
+	<p class="indent4">Returns the number ranks in Climb including those gained from BONUS:SKILLRANK tags.</p>
+	<p></p>
+	<p class="indent3"><code>skillinfo(&quot;MODIFIER&quot;, &quot;Bluff&quot;)</code></p>
+	<p class="indent4">Returns the total number of bonuses in Bluff.</p>
+	<p></p>
+	<p class="indent3"><code>skillinfo(&quot;TOTAL&quot;, &quot;Spellcraft&quot;)</code></p>
+	<p class="indent4">Returns the grand total in Spellcraft.</p>
+	<p></p>
 
-		<p class="indent3"><code>min(v1,v2)</code></p>
-		<p class="indent4">e.g. min(4,7)<br /></p>
+<hr>
 
-		<p class="indent3"><code>max(v1,v2)</code></p>
-		<p class="indent4">e.g. min(4,7)<br /></p>
-
-		<p class="indent3"><code>pow(base, exponent)</code></p>
-		<p class="indent4">e.g. pow(10,2) = 100<br /></p>
-
-		<p class="indent3"><code>roll(times, sides)</code></p>
-		<p class="indent4">e.g. roll(3,6)<br /></p>
-
-		<p class="indent3"><code>roll(times, sides, [keep])</code></p>
-		<p class="indent4">e.g. roll(4,6,[2,3,4]), rolls 4 six-sided dice and keeps the 3 highest rolls<br /></p>
-
-		<p class="indent3"><code>roll(times, [sides])</code></p>
-		<p class="indent4">e.g. roll(1,[3,5,7,9]), rolls one 3, 5, 7 or 9 sided die, randomly selected<br /></p>
-
-		<p class="indent3"><code>roll(times, [sides], [keep])</code></p>
-		<p class="indent4">e.g. roll(3,[2,3,4,5,6],[2,3]), rolls three 2, 3, 4, 5, or 6 sided dice, randomly selected and keeps the highest 2</p><br />
-
-		<p class="indent3">These are defined in pcgen/util/DiceExpressionFunctions.java.
-  		In order to use these with JEP they must be encapsulated in a roll(&quot;x&quot;) call.</p><br />
-		<p class="indent4">e.g. <code>roll(&quot;roll(4,6,[2,3,4])&quot;)</code><br /></p>
-
-		<hr><a name="ClassLevel"></a>
-		<p class="indent1"><strong>Class Level</strong></p><br>
-		<p class="indent2"><code>cl("x")</code></p><br />
-		<p class="indent2"><strong>Variables Used (x):</strong> Text (Class Name)</p></b><br />
-		<p class="indent3">This function returns the number of level the PC has in the specified class.
-			This replaces the old variable <code>CL=class name</code>.</p><br />
-		<p class="indent2">Examples:</p>
-		<p class="indent3"><code>cl(&quot;Bard&quot;)</code></p>
-		<p class="indent4">Returns the number of levels of Bard.<br /></p>
-
-		<hr><a name="SkillInfo"></a>
-		<p class="indent1"><strong>Skill Information</strong></p><br>
-		<p class="indent2"><code>skillinfo("x", "y")</code></p><br />
-		<p class="indent2"><strong>Variables Used (x):</strong> RANK (Property)</p></b>
-		<p class="indent2"><strong>Variables Used (x):</strong> TOTALRANK (Property)</p></b>
-		<p class="indent2"><strong>Variables Used (x):</strong> MODIFIER (Property)</p></b>
-		<p class="indent2"><strong>Variables Used (x):</strong> TOTAL (Property)</p></b>
-		<p class="indent2"><strong>Variables Used (y):</strong> Text (Skill name)</p></b><br />
-		<p class="indent3">This function returns information about the skill specified.</p><br />
-		<p class="indent4">RANK returns the number of ranks the PC has in the skill not including those gained from BONUS:SKILLRANK tags.</p>
-		<p class="indent4">TOTALRANK returns the number of ranks the PC has in the skill including those gained from BONUS:SKILLRANK tags.</p>
-		<p class="indent4">MODIFIER returns the total bonuses the PC has in the skill.</p>
-		<p class="indent4">TOTAL returns the grand total in the skill from all ranks and bonuses.</p>
-		<p class="indent2">Examples:</p>
-		<p class="indent3"><code>skillinfo(&quot;RANK&quot;, &quot;Hide&quot;)</code></p>
-		<p class="indent4">Returns the number of base ranks in Hide.<br /></p>
-		<p class="indent3"><code>skillinfo(&quot;TOTALRANK&quot;, &quot;Climb&quot;)</code></p>
-		<p class="indent4">Returns the number ranks in Climb including those gained from BONUS:SKILLRANK tags.<br /></p>
-		<p class="indent3"><code>skillinfo(&quot;MODIFIER&quot;, &quot;Bluff&quot;)</code></p>
-		<p class="indent4">Returns the total number of bonuses in Bluff.<br /></p>
-		<p class="indent3"><code>skillinfo(&quot;TOTAL&quot;, &quot;Spellcraft&quot;)</code></p>
-		<p class="indent4">Returns the grand total in Spellcraft.<br /></p>
-
-		<hr><a name="charbonusto"></a>
-		<p class="indent1"><strong>Character Bonus Information</strong></p><br>
-		<p class="indent2"><code>charbonusto("parameter 1", "parameter 2")</code></p><br />
-		<p class="indent3">This function returns the value of a call to PlayerCharacter.getTotalBonusTo(p1, p2).
+	<p class="indent1"><strong><a name="charbonusto">Character Bonus Information</a></strong></p>
+	<p></p>
+	<p class="indent2"><code>charbonusto("parameter 1", "parameter 2")</code></p>
+	<p></p>
+	<p class="indent3">This function returns the value of a call to PlayerCharacter.getTotalBonusTo(p1, p2).
 		These values reflect bonuses applied to the parameter not the full value of that parameter.
-		Thus <code>charbonusto("CHECKS", "REFLEX")</code> will return Reflex bonuses from a high Dexterity and other bonuses
-		but not the full reflex save value.</p><br />
-		<p class="indent3">parameter 1 is optional. If not present, will default to "PCLEVEL".</p><br />
-
-		<p class="indent3">e.g. these two are equivalent:<br>
+		Thus <code>charbonusto("CHECKS", "REFLEX")</code> will return Reflex bonuses from a high Dexterity 
+		and other bonuses but not the full reflex save value.</p>
+	<p></p>
+	<p class="indent3">parameter 1 is optional. If not present, will default to "PCLEVEL".</p>
+	<p></p>
+	<p class="indent3">e.g. these two are equivalent:<br>
 							charbonusto("PCLEVEL", "Cleric")<br>
-							charbonusto("Cleric")</p><br />
-		<p class="indent2"><code>charbonusto("PCLEVEL", "&lt;class name&gt;")</code> <em><strong>or</strong></em>
+							charbonusto("Cleric")</p>
+	<p></p>
+	<p class="indent2"><code>charbonusto("PCLEVEL", "&lt;class name&gt;")</code> <em><strong>or</strong></em>
 		<code>charbonusto("&lt;class name&gt;")</code></p>
-		<p class="indent3">Returns the number of bonus Spellcaster Levels to the class specified, which usually come from Prestige classes.</p><br />
-		<p class="indent2">Other parameters include:</p><br />
-		<p class="indent3"><code>charbonusto("STAT", "BASESPELLSTAT")</code></p>
-		<p class="indent3"><code>charbonusto("STAT", "BASESPELLSTAT;CLASS.Wizard")</code></p>
-		<p class="indent3"><code>charbonusto("STAT", "CAST.Arcane")</code></p>
-		<p class="indent3"><code>charbonusto("FEAT", "POOL")</code></p>
-		<p class="indent3"><code>charbonusto("VAR", "marshmellow")</code></p>
-		<p class="indent3"><code>charbonusto("CHECKS", "WILL")</code></p>
-		<p class="indent3"><code>charbonusto("TOHIT", "TOHIT")</code></p>
-		<p class="indent3"><code>charbonusto("DOMAIN", "NUMBER")</code></p>
-		<p class="indent3"><code>charbonusto("CASTERLEVEL", "Wizard")</code></p>
-		<p class="indent3"><code>charbonusto("HP", "ALTHP")</code></p>
-		<p class="indent3"><code>charbonusto("COMBAT", "BAB")</code></p>
-		<p class="indent3"><code>charbonusto("WEAPONPROF=Dagger", "PCSIZE")</code></p>
-		<p class="indent3"><code>charbonusto("WEAPONPROF=TYPE.Martial", "PCSIZE")</code></p><br />
+	<p class="indent3">Returns the number of bonus Spellcaster Levels to the class specified, which usually come from Prestige classes.</p><p></p>
+	<p class="indent2">Other parameters include:</p><p></p>
+	<p class="indent3"><code>charbonusto("STAT", "BASESPELLSTAT")</code></p>
+	<p class="indent3"><code>charbonusto("STAT", "BASESPELLSTAT;CLASS.Wizard")</code></p>
+	<p class="indent3"><code>charbonusto("STAT", "CAST.Arcane")</code></p>
+	<p class="indent3"><code>charbonusto("FEAT", "POOL")</code></p>
+	<p class="indent3"><code>charbonusto("VAR", "marshmellow")</code></p>
+	<p class="indent3"><code>charbonusto("CHECKS", "WILL")</code></p>
+	<p class="indent3"><code>charbonusto("TOHIT", "TOHIT")</code></p>
+	<p class="indent3"><code>charbonusto("DOMAIN", "NUMBER")</code></p>
+	<p class="indent3"><code>charbonusto("CASTERLEVEL", "Wizard")</code></p>
+	<p class="indent3"><code>charbonusto("HP", "ALTHP")</code></p>
+	<p class="indent3"><code>charbonusto("COMBAT", "BAB")</code></p>
+	<p class="indent3"><code>charbonusto("WEAPONPROF=Dagger", "PCSIZE")</code></p>
+	<p class="indent3"><code>charbonusto("WEAPONPROF=TYPE.Martial", "PCSIZE")</code></p><p></p>
 
-		<hr><a name="count"></a>
-		<p class="indent1"><strong>Count Information</strong></p><br>
-		<p class="indent2"><code>count("parameter 1", "parameter 2", ...)</code></p><br />
-		<p class="indent3">This function returns the number of objects of the requested type. It is commonly
-		used in output sheet FOR loops as the maximum value.</p><br />
-		<p class="indent3">parameter 1 is required. It is the type of object to be counted. Different types of objects will require different
-							numbers of following parameters</p><br />
+<hr>
 
-		<p class="indent2"><code>count("ABILITIES", "&lt;param=value&gt;")</code></p>
-		<p class="indent3">Returns the number of abiltiies meeting the critieria. Allowed parameters are CATEGORY (the name of the category of abilities to be listed), VISIBILITY (ALL, HIDDEN, VISIBILE) and NATURE (ALL, VIRTUAL, AUTO or NORMAL)</p><br />
-		<p class="indent3">Examples:</p>
-		<p class="indent3"><code>count("ABILITIES","CATEGORY=FEAT","VISIBILITY=VISIBLE")</code> List all visible feat abilities.</p>
-		<br />
+	<p class="indent1"><strong><a name="count">Count Information</a></strong></p>
+	<p></p>
+	<p class="indent2"><code>count("parameter 1", "parameter 2", ...)</code></p>
+	<p></p>
+	<p class="indent3">This function returns the number of objects of the requested type. It is commonly
+		used in output sheet FOR loops as the maximum value.</p>
+	<p></p>
+	<p class="indent3">parameter 1 is required. It is the type of object to be counted. Different types of objects will require different numbers of following parameters</p>
+	<p></p>
+	<p class="indent2"><code>count("ABILITIES", "&lt;param=value&gt;")</code></p>
+	<p class="indent3">Returns the number of abiltiies meeting the critieria. Allowed parameters are CATEGORY (the name of the category of abilities to be listed), VISIBILITY (ALL, HIDDEN, VISIBILE) and NATURE (ALL, VIRTUAL, AUTO or NORMAL)</p><p></p>
+	<p class="indent3">Examples:</p>
+	<p class="indent3"><code>count("ABILITIES","CATEGORY=FEAT","VISIBILITY=VISIBLE")</code> List all visible feat abilities.</p>
+	<p></p>
+	<p class="new">*** New 5.11.X</p>
 
-
-		<p class="new">*** New 5.11.X</p>
-		<hr><a name="SymbolsOpers"></a>
-		<hr><p class="indent1"><strong>Symbols Operators</strong></font></p>
-		<p class="indent2">The following symbol operators are explained below.<br></p>
-
-
-		<a name="%CHOICE"></a>
-		<p class="indent1"><code>%CHOICE</code></p>
-		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent2">The %CHOICE will put the input from a CHOOSE tag into its place, can be used in math computations.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SPROP:Unreliable (%CHOICE) &lt;tab&gt; CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%</code></p>
-		<p class="indent3">Chooser to select the level of unreliablty.</p>
+<hr>
 
 
-		<a name="%LIST"></a>
-		<p class="indent1"><code>%LIST</code></p>
-		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent2">The %LIST will put the input from a CHOOSE tag into its place, can not be used in math computations.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL &lt;tab&gt; BONUS:CHECKS|%LIST|1</code></p>
-		<p class="indent3"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL, of which the selection is put into BONUS:CHECKS|%LIST|1</code></p>
+<hr>
+
+	<p class="indent1"><strong><a name="SymbolsOpers">Symbols Operators</a></strong></p>
+	<p class="indent2">The following symbol operators are explained below.<br></p>
+	<p class="indent1"><code><a name="%CHOICE">%CHOICE</a></code></p>
+	<p class="indent2"><strong>What it does:</strong></p>
+	<p class="indent2">The %CHOICE will put the input from a CHOOSE tag into its place, can be used in math computations.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>SPROP:Unreliable (%CHOICE) &lt;tab&gt; CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%</code></p>
+	<p class="indent3">Chooser to select the level of unreliablty.</p>
+	<p class="indent1"><code><a name="%LIST">%LIST</a></code></p>
+	<p class="indent2"><strong>What it does:</strong></p>
+	<p class="indent2">The %LIST will put the input from a CHOOSE tag into its place, can not be used in math computations.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL &lt;tab&gt; BONUS:CHECKS|%LIST|1</code></p>
+	<p class="indent3"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL, of which the selection is put into BONUS:CHECKS|%LIST|1</code></p>
+	<p class="indent1"><code><a name="!">! (Not)</a></code></p>
+	<p class="indent2"><strong>What it does:</strong></p>
+	<p class="indent2">The NOT operator.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:SKILL|Swim|1|!PRESKILL:1,Swim=1.</code></p>
+	<p class="indent3"><code>If the character has swim, add 1 to it, if not add 1 to swim.</code></p>
+	<p class="indent1"><code><a name="%">% (Replacement/Substitution)</a></code></p>
+	<p class="indent2"><strong>What it does:</strong></p>
+	<p class="indent2">The Replacement/Substitution Operator, used in the SA: tag.</p>
+	<p class="indent2">See the <a href="globalfilesother.html#SA">SA:</a>tag for more information.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:Acid|Cold|Electricity|Fire &lt;tab&gt; SA:Resistance to % 5|LIST</code></p>
+	<p class="indent3"><code>CHOOSE:Acid|Cold|Electricity|Fire, of which the selection is put into SA:Resistance to % 5|LIST</code></p>
+
+<hr>
 
 
-		<a name="!"></a>
-		<p class="indent1"><code>! (Not)</code></p>
-		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent2">The NOT operator.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>BONUS:SKILL|Swim|1|!PRESKILL:1,Swim=1.</code></p>
-		<p class="indent3"><code>If the character has swim, add 1 to it, if not add 1 to swim.</code></p>
+<hr>
 
-
-		<a name="%"></a>
-		<p class="indent1"><code>% (Replacement/Substitution)</code></p>
-		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent2">The Replacement/Substitution Operator, used in the SA: tag.</p>
-		<p class="indent2">See the <a href="globalfilesother.html#SA">SA:</a>tag for more information.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CHOOSE:Acid|Cold|Electricity|Fire &lt;tab&gt; SA:Resistance to % 5|LIST</code></p>
-		<p class="indent3"><code>CHOOSE:Acid|Cold|Electricity|Fire, of which the selection is put into SA:Resistance to % 5|LIST</code></p>
-
-
-		<hr><a name="DeprecatedOper"></a>
-		<hr><p class="indent1"><font color="#FF0000"><strong>Deprecated operators</strong></font></p>
-		<p class="indent2">The following operators are deprecated as of version 5.7.1. The syntax will be replaced with JEP syntax.<br></p>
-
-		<p class="indent2"><code>((TL/3).TRUNC)*2</code></p>
-		<p class="indent3">Truncation - would divide TL by 3, truncate (or round down) and then multiply by 2.</p>
-		<p class="indent3">Deprecated, use floor(a).<br /></p>
-
-		<p class="indent2"><code>2MIN4</code></p>
-		<p class="indent3">Minimum - would return 2 since it's taking the minimum of the two values
+	<p class="indent1"><span class=new><strong><a name="DeprecatedOper">Deprecated operators</a></strong></span></p>
+	<p class="indent2">The following operators are deprecated as of version 5.7.1. The syntax will be replaced with JEP syntax.<br></p>
+	<p class="indent2"><code>((TL/3).TRUNC)*2</code></p>
+	<p class="indent3">Truncation - would divide TL by 3, truncate (or round down) and then multiply by 2.</p>
+	<p class="indent3">Deprecated, use floor(a).</p><p></p>
+	<p class="indent2"><code>2MIN4</code></p>
+	<p class="indent3">Minimum - would return 2 since it's taking the minimum of the two values
 		(MIN is always between the values).</p>
-		<p class="indent3">Deprecated, use min(a,b).<br /></p>
-
-		<p class="indent2"><code>2MAX4</code></p>
-		<p class="indent3">Maximum - would return 4 since it's the max of the two values
+	<p class="indent3">Deprecated, use min(a,b).</p><p></p>
+	<p class="indent2"><code>2MAX4</code></p>
+	<p class="indent3">Maximum - would return 4 since it's the max of the two values
 		(MAX is always between the values).</p>
-		<p class="indent3">Deprecated, use max(a,b).<br /></p>
+	<p class="indent3">Deprecated, use max(a,b).</p><p></p>
 
 
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/globalfilestagpages/globalfilesformulas.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-	</body>
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="http://www.w3.org/Icons/valid-html401"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+
+</body>
 
 </html>
