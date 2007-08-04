@@ -1400,7 +1400,7 @@ public final class ExportHandler
 
 	private FORNode parseFORs(StringTokenizer tokens)
 	{
-		final FORNode root = new FORNode(null, "0", "0", "1", true);
+		final FORNode root = new FORNode(null, "0", "0", "1", false);
 		String line;
 
 		while (tokens.hasMoreTokens())
