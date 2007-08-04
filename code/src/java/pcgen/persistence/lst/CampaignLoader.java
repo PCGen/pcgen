@@ -215,7 +215,7 @@ public class CampaignLoader extends LstLineFileLoader
 		// Add all sub-files to the main campaign, regardless of exclusions
 		for (URI fName : baseCampaign.getPccFiles())
 		{
-			if (PCGFile.isPCGenCampaignFile(new File(fName)))
+			if (PCGFile.isPCGenCampaignFile(fName))
 			{
 				Campaign globalSubCampaign =
 						Globals.getCampaignByURI(fName, false);

@@ -3,6 +3,7 @@ package pcgen.io;
 import pcgen.core.Constants;
 
 import java.io.File;
+import java.net.URI;
 
 /**
  * Common I/O methods specific to files.
@@ -70,6 +71,27 @@ public final class PCGFile
 
 		return getWindowsSafeFilename(file).endsWith(
 			Constants.s_PCGEN_CAMPAIGN_EXTENSION);
+	}
+
+	/**
+	 * Checks if the given <var>uri</var> is a PCGen campaign file based on the
+	 * file extension.
+	 *
+	 * @param uri the uri to test
+	 * @return {<code>true</code>} if a PCGen campaign file
+	 *
+	 * @see Constants#s_PCGEN_CAMPAIGN_EXTENSION
+	 */
+	public static boolean isPCGenCampaignFile(final URI uri)
+	{
+		if ("file".equals(uri.getScheme()))
+		{
+			return isPCGenCampaignFile(new File(uri));
+		}
+
+		return uri.getPath() != null
+			&& uri.getPath().toLowerCase().endsWith(
+				Constants.s_PCGEN_CAMPAIGN_EXTENSION);
 	}
 
 	/**
