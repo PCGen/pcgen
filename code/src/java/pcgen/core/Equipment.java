@@ -2437,11 +2437,17 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aString
 	 *            The new weight value
 	 */
-	public void setWeight(final String aString) {
-		try {
+	public void setWeight(final String aString)
+	{
+		try
+		{
 			weightInPounds = Double.parseDouble(aString);
-		} catch (NumberFormatException ignore) {
-			Logging.errorPrint("Invalid Weight in Equipment: " + aString);
+		}
+		catch (NumberFormatException ignore)
+		{
+			Logging.errorPrint("Invalid Weight in Equipment: " + aString
+				+ " item was " + getDisplayName() + " from "
+				+ getDefaultSourceString());
 		}
 	}
 
