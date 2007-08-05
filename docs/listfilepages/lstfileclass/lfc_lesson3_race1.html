@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 			
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/lstfileclass/lfc_lesson3_race1.html,v 1.3 2006/02/23 02:34:06 boomer70 Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -16,22 +15,22 @@
 		Description:
 		Provides information on List files.
 	-->
-	<head>
-		<title>LST File Class</title>
-		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
-	</head>
+<head>
+	<title>LST File Class</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
 	
-	<body>
-		<h1>Lesson #3: .lst - Races (Part 1)</h1>
+<body>
 
-		<p>By Professor Chris Chandler (Barak).<br/>
-		Updated by Aaron Divinsky (boomer70).
-		</p>
+	<h1>Lesson #3: .lst - Races (Part 1)</h1>
+
+	<p>By Professor Chris Chandler (Barak).<br/>
+	Updated by Aaron Divinsky (boomer70).</p>
 		
-		<p class="indent0"><strong>File(s) Covered:</strong> *races.lst</p>
-		<p class="indent0"><strong>Tags used:</strong></p>
-		
-		<p class="indent1"><code>
+	<p class="indent0"><strong>File(s) Covered:</strong> *races.lst</p>
+	<p class="indent0"><strong>Tags used:</strong></p>
+	<p class="indent1"><code>
 		<a href="../datafilestagpages/datafilesraces.html">OUTPUTNAME</a>, 
 		<a href="../datafilestagpages/datafilesraces.html#SIZE">SIZE</a>, 
 		<a href="../datafilestagpages/datafilesraces.html#RACETYPE">RACETYPE</a>, 
@@ -40,76 +39,121 @@
 		<a href="../datafilestagpages/datafilesraces.html#MONSTERCLASS">MONSTERCLASS</a>, 
 		<a href="../datafilestagpages/datafilesraces.html#HITDICE">HITDICE</a>, 
   		<a href="../datafilestagpages/datafilesraces.html#MOVE">MOVE</a>
-		</code></p>
+	</code></p>
 
-		<hr>
-<p>This is the beginning of several lessons that will be necessary to cover the 
-  creation of a race file.&nbsp; There&nbsp; are many tags, and some of them will 
-  take some seriously long explanations, so get some munchies and a drink,&nbsp; 
-  get comfortable and we'll get started.</p>
-<p>Since the race lines can get exceedingly long, and yahoo will wrap my lessons, 
-  I'll also post a file that may&nbsp; be perused as you're reading this.&nbsp; 
-  (Be sure to turn off word-wrap on your text file reader!)</p>
-<p>I'm going to develop a file that contains two races. One will be from the System 
-  Reference Document (SRD) so you can see how&nbsp; to do an already existing race and the other 
-  I'm going to make up on the fly and use to demonstrate every tag I can remember.&nbsp; 
-  :p</p>
-<p>One thing to note is that these will be considered &quot;monster&quot; races. 
-  Towards the end of the lesson i'll go back through and create a player 
-  character only race.</p>
-<p>We'll do a Solar and, ummm, I know!&nbsp; Ninja Monkeys!&nbsp; :)  The lessons will
-follow the format of a standard monster write up. A sample monster write up for our Ninja Monkey
-race is presented below so you can follow along (in RSRD format)</p>
-<hr/>
-<table border="0" cols="2" width="75%" cellpadding="0" cellspacing="0">
-<tr colspan="2"><strong>Ninja Monkey</strong></tr>
-<tr colspan="2">Medium Monstrous Humanoid</tr>
-<tr valign="top"><td width="30%" align="left"><strong>Hit Dice:</strong></td>
-<td align="left">4d8+8 (26 hp)</td></tr>
-<tr valign="top"><td width="30%"><strong>Initiative:</strong></td>
-<td>+8</td></tr>
-<tr valign="top"><td width="30%"><strong>Speed:</strong></td>
-<td>30 ft. (6 squares), climb 20 ft.</td></tr>
-<tr valign="top"><td width="30%"><strong>Armor Class:</strong></td>
-<td>20 (+4 Dex, +2 Natural, +2 Divine, +2 Leather armor), touch 14, flat-footed 16</td></tr>
-<tr valign="top"><td width="30%"><strong>Base Attack/Grapple:</strong></td>
-<td>+4/+7</td></tr>
-<tr valign="top"><td width="30%"><strong>Attack:</strong></td>
-<td>Claw +7 melee (1d4+3) or dagger +7 melee (1d4+3)</td></tr>
-<tr valign="top"><td width="30%"><strong>Full Attack:</strong></td>
-<td>2 claws +7 melee (1d4+3) and bite +2 melee (1d8+1) or dagger +7 melee (1d4+3)</td></tr>
-<tr valign="top"><td width="30%"><strong>Space/Reach:</strong></td>
-<td>5 ft./5 ft.</td></tr>
-<tr valign="top"><td width="30%"><strong>Special Attacks:</strong></td>
-<td>&mdash;</td></tr>
-<tr valign="top"><td width="30%"><strong>Special Qualities:</strong></td>
-<td>Darkvision (60’), DR 3/-, immunity to poison</td></tr>
-<tr valign="top"><td width="30%"><strong>Saves:</strong></td>
-<td>Fort +3, Ref +8, Will +6</td></tr>
-<tr valign="top"><td width="30%"><strong>Abilities:</strong></td>
-<td>Str 17, Dex 18, Con 14, Int 11, Wis 15, Cha 10</td></tr>
-<tr valign="top"><td width="30%"><strong>Skills:</strong></td>
-<td>Balance +8, Hide +8, Jump +7, Listen +7, Move Silently +8, Spot +7</td>
-<tr valign="top"><td width="30%"><strong>Feats:</strong></td>
-<td>Alertness, Improved Initiative</td></tr>
-<tr valign="top"><td width="30%"><strong>Environment:</strong></td>
-<td>Forests</td></tr>
-<tr valign="top"><td width="30%"><strong>Organization:</strong></td>
-<td>Solitary or Gang (2-4)</td></tr>
-<tr valign="top"><td width="30%"><strong>Challenge Rating:</strong></td>
-<td>2</td></tr>
-<tr valign="top"><td width="30%"><strong>Treasure:</strong></td>
-<td>Standard (double bananas)</td></tr>
-<tr valign="top"><td width="30%"><strong>Alignment:</strong></td>
-<td>Usually Chaotic Good</td></tr>
-<tr valign="top"><td width="30%"><strong>Advancement:</strong></td>
-<td>By character class</td></tr>
-<tr valign="top"><td width="30%"><strong>Level Adjustment:</strong></td>
-<td>+2</td></tr>
+<hr>
+
+	<p>This is the beginning of several lessons that will be necessary to cover the creation of a race file. 
+		There are many tags, and some of them will take some seriously long explanations, so get some 
+		munchies and a drink, get comfortable and we'll get started.</p>
+	<p>Since the race lines can get exceedingly long, and yahoo will wrap my lessons, I'll also post a file that 
+		may be perused as you're reading this. (Be sure to turn off word-wrap on your text file reader!)</p>
+	<p>I'm going to develop a file that contains two races. One will be from the System Reference Document (SRD) 
+		so you can see how&nbsp; to do an already existing race and the other I'm going to make up on the 
+		fly and use to demonstrate every tag I can remember. :p</p>
+	<p>One thing to note is that these will be considered &quot;monster&quot; races. Towards the end of the 
+		lesson i'll go back through and create a player character only race.</p>
+	<p>We'll do a Solar and, ummm, I know! Ninja Monkeys! :) The lessons will follow the format of a standard 
+		monster write up. A sample monster write up for our Ninja Monkey race is presented below so you 
+		can follow along (in RSRD format)</p>
+
+<hr>
+
+<table class=w67>
+	<tr valign="top">
+		<td colspan="2"><strong>Ninja Monkey</strong></td>
+	</tr>
+	<tr valign="top">
+		<td colspan="2">Medium Monstrous Humanoid</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Hit Dice:</strong></td>
+		<td align="left">4d8+8 (26 hp)</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Initiative:</strong></td>
+		<td>+8</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Speed:</strong></td>
+		<td>30 ft. (6 squares), climb 20 ft.</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Armor Class:</strong></td>
+		<td>20 (+4 Dex, +2 Natural, +2 Divine, +2 Leather armor), touch 14, flat-footed 16</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Base Attack/Grapple:</strong></td>
+		<td>+4/+7</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Attack:</strong></td>
+		<td>Claw +7 melee (1d4+3) or dagger +7 melee (1d4+3)</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Full Attack:</strong></td>
+		<td>2 claws +7 melee (1d4+3) and bite +2 melee (1d8+1) or dagger +7 melee (1d4+3)</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Space/Reach:</strong></td>
+		<td>5 ft./5 ft.</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Special Attacks:</strong></td>
+		<td>&mdash;</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Special Qualities:</strong></td>
+		<td>Darkvision (60'), DR 3/-, immunity to poison</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Saves:</strong></td>
+		<td>Fort +3, Ref +8, Will +6</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Abilities:</strong></td>
+		<td>Str 17, Dex 18, Con 14, Int 11, Wis 15, Cha 10</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Skills:</strong></td>
+		<td>Balance +8, Hide +8, Jump +7, Listen +7, Move Silently +8, Spot +7</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Feats:</strong></td>
+		<td>Alertness, Improved Initiative</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Environment:</strong></td>
+		<td>Forests</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Organization:</strong></td>
+		<td>Solitary or Gang (2-4)</td></tr>
+	<tr valign="top">
+		<td class=w33><strong>Challenge Rating:</strong></td>
+		<td>2</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Treasure:</strong></td>
+		<td>Standard (double bananas)</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Alignment:</strong></td>
+		<td>Usually Chaotic Good</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Advancement:</strong></td>
+		<td>By character class</td>
+	</tr>
+	<tr valign="top">
+		<td class=w33><strong>Level Adjustment:</strong></td>
+		<td>+2</td>
+	</tr>
 </table>
-<p>Skills: Ninja monkeys have a +4 racial bonus to Balance and Jump checks.  
-Ninja monkeys have a +2 racial bonus in forested environments.</p>
-<p><font size="larger">Ninja Monkey Characters</font><br/>
+
+	<p>Skills: Ninja monkeys have a +4 racial bonus to Balance and Jump checks. Ninja monkeys have a +2 racial 
+		bonus in forested environments.</p>
+	<p><font size="larger">Ninja Monkey Characters</font><br/>
 &mdash; Automatic Languages: Common and Monkey, Bonus Languages: Elven, Goblin, Sylvan.<br/>
 &mdash; Favored Class: Monk</p>
 <hr/>
