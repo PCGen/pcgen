@@ -85,6 +85,12 @@ a img {
 	margin-bottom: 0px;
 	margin-left: 100px;
 }
+.tindent4 {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-indent: 100px;
+}
 .new {
 	color: #FF0000;
 	font-weight: bold;
