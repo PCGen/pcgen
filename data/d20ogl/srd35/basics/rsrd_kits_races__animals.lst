@@ -909,6 +909,18 @@ FEAT:Run
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
+STARTPACK:Dinosaur (Elasmosaurus) Companion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Elasmosaurus)]
+RACE:Dinosaur (Elasmosaurus)	!PRERACE:1,%
+ALIGN:TN
+SKILL:Spot		RANK:8
+SKILL:Listen	RANK:3
+SKILL:Hide		RANK:2
+FEAT:Dodge
+FEAT:Great Fortitude
+FEAT:Toughness
+FEAT:Toughness
+STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
+
 STARTPACK:Dinosaur (Megaraptor) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Megaraptor)]
 RACE:Dinosaur (Megaraptor)	!PRERACE:1,%
 ALIGN:TN
@@ -1020,6 +1032,19 @@ SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
 FEAT:Alertness
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Dire Animal (Dire Shark) Companion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Shark)]
+RACE:Dire Animal (Dire Shark)	!PRERACE:1,%
+ALIGN:TN
+SKILL:Listen	RANK:11
+SKILL:Spot		RANK:10
+FEAT:Improved Natural Attack(Bite)
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 STARTPACK:Dire Animal (Dire Tiger) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Tiger)]
 RACE:Dire Animal (Dire Tiger)	!PRERACE:1,%
@@ -1159,6 +1184,17 @@ FEAT:Alertness
 FEAT:Great Fortitude
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
+STARTPACK:Octopus (Giant) Companion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Octopus (Giant)]
+RACE:Octopus (Giant)	!PRERACE:1,%
+ALIGN:TN
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:3
+SKILL:Hide		RANK:10
+FEAT:Alertness
+FEAT:Skill Focus(Hide)
+FEAT:Toughness
+STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
+
 STARTPACK:Owl Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Owl]
 RACE:Owl	!PRERACE:1,%
 ALIGN:TN
@@ -1191,6 +1227,27 @@ FEAT:Alertness
 FEAT:Endurance
 FEAT:Improved Natural Attack(Gore)
 STAT:CON=11|WIS=11|STR=10|DEX=10|INT=10|CHA=10
+
+STARTPACK:Shark (Huge) Companion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Huge)]
+RACE:Shark (Huge)	!PRERACE:1,%
+ALIGN:TN
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Iron Will
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Shark (Large) Companion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Large)]
+RACE:Shark (Large)	!PRERACE:1,%
+ALIGN:TN
+SKILL:Spot		RANK:4
+SKILL:Listen	RANK:5
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 STARTPACK:Shark (Medium) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Medium)]
 RACE:Shark (Medium)	!PRERACE:1,%
@@ -1269,6 +1326,18 @@ FEAT:Alertness
 FEAT:Endurance
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
+STARTPACK:Squid (Giant) Companion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Squid (Giant)]
+RACE:Squid (Giant)	!PRERACE:1,%
+ALIGN:TN
+SKILL:Spot		RANK:8
+SKILL:Listen	RANK:8
+FEAT:Alertness
+FEAT:Diehard
+FEAT:Endurance
+FEAT:Toughness
+FEAT:Toughness
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
 STARTPACK:Tiger Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tiger]
 RACE:Tiger	!PRERACE:1,%
 ALIGN:TN
@@ -1278,6 +1347,17 @@ SKILL:Swim			RANK:5
 FEAT:Improved Natural Attack(Claw)
 FEAT:Improved Natural Attack(Bite)
 FEAT:Alertness
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Whale (Orca) Companion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whale (Orca)]
+RACE:Whale (Orca)	!PRERACE:1,%
+ALIGN:TN
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Alertness
+FEAT:Endurance
+FEAT:Run
+FEAT:Toughness
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 STARTPACK:Wolf Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf]
