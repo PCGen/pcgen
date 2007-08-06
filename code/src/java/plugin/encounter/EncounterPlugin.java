@@ -358,6 +358,10 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 				theList.add(new PcgCombatant(aPC, "Enemy"));
 			}
 
+			JOptionPane.showMessageDialog(null, "You will now be returned to PCGen so that you can finalise your selected combatants.\nOnce they are finalised, return to the GMGen Initiative tab to begin the combat!",
+					"Combatant Setup Complete",
+					JOptionPane.INFORMATION_MESSAGE);
+			
 			GMBus.send(new InitHolderListSendMessage(this, theList));
 			removeAll();
 		}
