@@ -1,0 +1,43 @@
+# CVS $Revision$ $Author$ -- Mon Aug  6 06:10:25 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+
+# CVS $Revision$ $Author$ -- Mon Aug  6 04:51:30 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
+###Original Entry: Andrew Maitland
+###COMMENT: Knowledge (Anatomy) Referenced but uncertain if this is a 3e or new skill. No Skill found in Source pg.56 references the CLASS requiring it. -AM
+
+# Skill Name			Key Stat	Untrained?		Type					Source Page
+Knowledge (Anatomy)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.56
+Knowledge (Outsider Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.43
+
+
+###Block: HEARTH MAGIC SECTION ###
+# Skill Name			Product Identity?	Untrained?		Classes	Type			!PRESKILL							Source Page		ABILITY
+Clarity				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Clarity=5					SOURCEPAGE:p.65	ABILITY:FEAT|VIRTUAL|HearthMagicClarity|PRESKILL:1,Clarity=5
+Dedication				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Dedication=10				SOURCEPAGE:p.66	ABILITY:FEAT|VIRTUAL|HearthMagicDedication|PRESKILL:1,Dedication=10
+Ease Birth				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ease Birth=1				SOURCEPAGE:p.66	ABILITY:FEAT|VIRTUAL|HearthMagicEaseBirth|PRESKILL:1,Ease Birth=1
+Focus					NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Dedication=6				SOURCEPAGE:p.66	ABILITY:FEAT|VIRTUAL|HearthMagicFocus|PRESKILL:1,Focus=6
+Healing Rest			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Healing Rest=3				SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicHealingRest|PRESKILL:1,Healing Rest=3
+Lucky Break				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Lucky Break=5				SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicLuckyBreak|PRESKILL:1,Lucky Break=5
+Mending				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Mending=2					SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicMending|PRESKILL:1,Mending=2
+Prosperity				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Prosperity=4				SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicProsperity|PRESKILL:1,Prosperity=4
+Reduce Fever			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Reduce Fever=1				SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicReduceFever|PRESKILL:1,Reduce Fever=1
+Ritual Cleansing			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ritual Cleansing=3			SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicRitualCleansing|PRESKILL:1,Ritual Cleansing=3
+Soul Binding			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Soul Binding=7				SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|HearthMagicSoulBinding|PRESKILL:1,Soul Binding=7
+Ward Against Domestic Discord	NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Domestic Discord=1	SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|HearthMagicWardAgainstDomesticDiscord|PRESKILL:1,Ward Against Domestic Discord=1
+Ward Against Magic		NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Magic=6			SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|HearthMagicWardAgainstMagic|PRESKILL:1,Ward Against Magic=6
+Ward Against Possession		NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Possession=6		SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|HearthMagicWardAgainstPossession|PRESKILL:1,Ward Against Possession=6
+Ward Against Undead		NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Undead=2			SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|HearthMagicWardAgainstUndead|PRESKILL:1,Ward Against Undead=2
+Ward to Protect Innocence	NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward to Protect Innocence=4		SOURCEPAGE:p.69	ABILITY:FEAT|VIRTUAL|HearthMagicWardToProtectInnocence|PRESKILL:1,Ward to Protect Innocence=4
+
+###Block: Optional TO keep things Cleaner on the SKILLS Sheet:
+###COMMENT: Will discuss about whether this should be used or not. It will keep the sheet neater. -AM
+#Clarity.MOD			OUTPUTNAME:.HM (Clarity)
+#Dedication.MOD			OUTPUTNAME:.HM (Dedication)
+#Ease Birth.MOD			OUTPUTNAME:.HM (Ease Birth)
+#Focus.MOD				OUTPUTNAME:.HM (Focus)
+#etc.
+#.MOD	OUTPUTNAME:HM (
+
+#
+## EOF
+#

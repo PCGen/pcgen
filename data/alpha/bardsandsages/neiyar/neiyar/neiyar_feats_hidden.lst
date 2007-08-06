@@ -1,0 +1,77 @@
+# CVS $Revision$ $Author$ -- Tue Jul 31 03:24:20 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
+###Original Entry: Andrew Maitland
+
+###Block:FEATS
+# Feat Name			Visible	Special Ability						Define				Modify VAR
+Abyssal Smiting_1st	VISIBLE:NO	SA:Abyssal Smiting (Su): +%|AbyssalSmitingLevel	DEFINE:AbyssalSmitingLevel|0	BONUS:VAR|AbyssalSmitingLevel|1
+Abyssal Smiting_2nd	VISIBLE:NO														BONUS:VAR|AbyssalSmitingLevel|1
+Abyssal Smiting_3rd	VISIBLE:NO														BONUS:VAR|AbyssalSmitingLevel|1
+
+###Block: Special Abilities: Shalraeku & Zarakku
+# Feat Name				Type				Visible	Required Template		Special Ability				Vision			Damage Reduction
+Immunity to natural poisons	TYPE:ShalraekuZarakku	VISIBLE:NO					SA:Immunity to natural poisons
+Darkvision 60 ft			TYPE:ShalraekuZarakku	VISIBLE:NO											VISION:Darkvision (60')
+DR 5 Fire				TYPE:ShalraekuZarakku	VISIBLE:NO															DR:5/Fire
+DR 5 Electrical			TYPE:ShalraekuZarakku	VISIBLE:NO															DR:5/Electrical
+DR 5 Cold				TYPE:ShalraekuZarakku	VISIBLE:NO															DR:5/Cold
+Levitate				TYPE:ShalraekuZarakku	VISIBLE:NO					SA:Levitate
+Saving Throw +1			TYPE:ShalraekuZarakku	VISIBLE:NO					SA:Saving Throw +1
+Dimension Door			TYPE:ShalraekuZarakku	VISIBLE:NO					SA:Dimension Door
+AC Bonus				TYPE:ShalraekuZarakku	VISIBLE:NO					SA:AC Bonus
+Spell Resistance (Shalraeku)	TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Shalraeku	SA:Spell Resistance
+Spell Resistance (Zarakku)	TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Zarakku	SA:Spell Resistance
+Cure Light Wounds			TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Shalraeku	SA:Cure Light Wounds
+Inflict Light Wounds		TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Zarakku	SA:Inflict Light Wounds
+
+###Block:Flaw Modifications:
+# Feat Name			Prohibited Template
+Iron Will.MOD		!PRETEMPLATE:Weak willed
+Investigator.MOD		!PRETEMPLATE:Gullible
+Leadership.MOD		!PRETEMPLATE:Creepy
+Lightning Reflexes.MOD	!PRETEMPLATE:Skittish
+Combat Reflexes.MOD	!PRETEMPLATE:Skittish
+Toughness.MOD		!PRETEMPLATE:Easily Bruised
+#Improved Toughness.MOD	!PRETEMPLATE:Easily Bruised
+###Improved Toughness feat doesn't exist in RSRD files
+
+###Block:Trapper Class Abilities
+# Feat Name		Type			Visible	Special Ability			Weapon prof. bonus
+Trapmaking		TYPE:Class.Hidden	VISIBLE:NO	SA:Trapmaking
+DetectDisarmTraps	TYPE:Class.Hidden	VISIBLE:NO	SA:Detect/Disarm Traps
+NetUse		TYPE:Class.Hidden	VISIBLE:NO	SA:Net Use				BONUS:WEAPONPROF=Net|TOHIT|2
+DetectSecretDoors	TYPE:Class.Hidden	VISIBLE:NO	SA:Detect Secret/Hidden Doors
+TrappedWeapons	TYPE:Class.Hidden	VISIBLE:NO	SA:Trapped Weapons
+TrapPotency		TYPE:Class.Hidden	VISIBLE:NO	SA:Trap Potency
+DamageReduction	TYPE:Class.Hidden	VISIBLE:NO	SA:Damage Reduction vs traps
+MasterTrapMaker	TYPE:Class.Hidden	VISIBLE:NO	SA:Master Trapmaker
+RevealTraps		TYPE:Class.Hidden	VISIBLE:NO	SA:Reveal Traps
+
+###Block:HEARTH MAGIC HIDDEN FEATS:
+# Feat Name						Product Identity?	Type			Visible	Special Ability							Source Page
+HearthMagicClarity				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Clarity					SOURCEPAGE:p.65
+HearthMagicDedication				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Dedication					SOURCEPAGE:p.66
+HearthMagicEaseBirth				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Ease Birth					SOURCEPAGE:p.66
+HearthMagicFocus					NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Dedication					SOURCEPAGE:p.66
+HearthMagicHealingRest				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Healing Rest					SOURCEPAGE:p.67
+HearthMagicLuckyBreak				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Lucky Break					SOURCEPAGE:p.67
+HearthMagicMending				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Mending					SOURCEPAGE:p.67
+HearthMagicProsperity				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Prosperity					SOURCEPAGE:p.67
+HearthMagicReduceFever				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Reduce Fever					SOURCEPAGE:p.67
+HearthMagicRitualCleansing			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Ritual Cleansing				SOURCEPAGE:p.67
+HearthMagicSoulBinding				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Soul Binding	SA:Share the Pain (Su)	SOURCEPAGE:p.68
+HearthMagicWardAgainstDomesticDiscord	NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Ward Against Domestic Discord		SOURCEPAGE:p.68
+HearthMagicWardAgainstMagic			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Ward Against Magic				SOURCEPAGE:p.68
+HearthMagicWardAgainstPossession		NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Ward Against Possession			SOURCEPAGE:p.68
+HearthMagicWardAgainstUndead			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Ward Against Undead			SOURCEPAGE:p.68
+HearthMagicWardToProtectInnocence		NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SA:Hearth Magic: Ward to Protect Innocence		SOURCEPAGE:p.69
+
+###Block: Monster Template - Feats
+# Feat Name			Type				Visible	Special Ability
+Alignment Shift		TYPE:BenevolentSpirit	VISIBLE:NO	SA:Alignment Shift (Su)
+Healing Touch		TYPE:BenevolentSpirit	VISIBLE:NO	SA:Healing Touch (Su)
+Glare of Reckoning	TYPE:BenevolentSpirit	VISIBLE:NO	SA:Glare of Reckoning (Su)
+Hand of Destiny		TYPE:BenevolentSpirit	VISIBLE:NO	SA:Hand of Destiny (Su)
+Answer Prayers		TYPE:BenevolentSpirit	VISIBLE:NO	SA:Answer Prayers
+Blessings			TYPE:BenevolentSpirit	VISIBLE:NO	SA:Blessings
+Miracle			TYPE:BenevolentSpirit	VISIBLE:NO	SA:Miracle

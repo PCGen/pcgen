@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Mon Aug  6 06:10:25 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
+###Original Entry: Andrew Maitland
+
+# Deity Name		Product Identity?	Domains										Desc is PI?		Holy Item							Deity Weapon		ALIGN		PANTHEON		Deity Title							Source Page		Required Race
+Sophia Mater		NAMEISPI:YES	DOMAINS:Good,Law,Knowledge,Protection,Healing|PREALIGN:LG,NG,LN	DESCISPI:YES	SYMBOL:A pair of hands around an island		DEITYWEAP:Quarter Staff	ALIGN:LG	PANTHEON:Neiyar	TITLE:The Great Mother					SOURCEPAGE:12
+Sophia Groa			NAMEISPI:YES	DOMAINS:Good,Chaos,Earth,Plant,Trickery|PREALIGN:NG,CG,CN		DESCISPI:YES	SYMBOL:Groa Rose						DEITYWEAP:Short Sword	ALIGN:CG	PANTHEON:Neiyar	TITLE:Rose of Sophia, Lady of the Flowers		SOURCEPAGE:13
+Sophia Kalla		NAMEISPI:YES	DOMAINS:Chaos,War,Destruction,Death|PREALIGN:CN,CG,CE,TN		DESCISPI:YES	SYMBOL:A Black circle					DEITYWEAP:Scimitar	ALIGN:CN	PANTHEON:Neiyar	TITLE:The Dark Mother, Lady Death			SOURCEPAGE:14
+Adrienne			NAMEISPI:YES	DOMAINS:Magic,Luck,Knowledge,Sun|PREALIGN:CN,CG,CE,TN			DESCISPI:YES	SYMBOL:Pale Pink Pearl					DEITYWEAP:Dagger		ALIGN:NG	PANTHEON:Neiyar	TITLE:Mistress of Magics, Pearl of Heaven		SOURCEPAGE:15
+Franscisca Mahault	NAMEISPI:YES	DOMAINS:Law,War,Strength,Protection|PREALIGN:CN,CG,CE,TN		DESCISPI:YES	SYMBOL:Capalaquen (Great Sword)			DEITYWEAP:Greatsword	ALIGN:LN	PANTHEON:Neiyar	TITLE:Mistress of the Tigers, Queen of Warriors	SOURCEPAGE:15
+Roarth			NAMEISPI:YES	DOMAINS:Animal,Chaos,Fire|PREALIGN:CN,CG,CE,TN				DESCISPI:YES	SYMBOL:Crossed arrow and sculpting knife		DEITYWEAP:Long Bow	ALIGN:TN	PANTHEON:Neiyar	TITLE:Master of Beasts, The Master Scupltor	SOURCEPAGE:16
+Agri				NAMEISPI:YES	DOMAINS:Plant,Sun,Water,Healing|PREALIGN:CN,CG,CE,TN			DESCISPI:YES	SYMBOL:A scythe with a vine wrapped around it	DEITYWEAP:Scythe		ALIGN:TN	PANTHEON:Neiyar	TITLE:Lord of the Fields, Father of Medicine	SOURCEPAGE:16
+Nuvak'china			NAMEISPI:YES	DOMAINS:Water,Protection|PREALIGN:CN,CG,CE,TN				DESCISPI:YES	SYMBOL:Rain cloud						DEITYWEAP:Lighting Bolt	ALIGN:TN	PANTHEON:Neiyar	TITLE:Rain Princess, Lady Storm			SOURCEPAGE:17
+Swan Princess		NAMEISPI:YES	DOMAINS:Chaos,Air,Animal|PREALIGN:CN,CG,CE,TN				DESCISPI:YES	SYMBOL:A swan						DEITYWEAP:Dagger		ALIGN:CG	PANTHEON:Neiyar									SOURCEPAGE:18
+Tiger Lord			NAMEISPI:YES	DOMAINS:Animal,Fire,Strength|PREALIGN:CN,CG,CE,TN			DESCISPI:YES	SYMBOL:Tiger						DEITYWEAP:Great Axe	ALIGN:TN	PANTHEON:Neiyar									SOURCEPAGE:18
+Nephar			NAMEISPI:YES	DOMAINS:Evil,Chaos|PREALIGN:CN,CG,CE,TN					DESCISPI:YES	SYMBOL:Clenched demon fist				DEITYWEAP:Long Sword	ALIGN:CN	PANTHEON:Neiyar	TITLE:Evil Father, He that Waits Below		SOURCEPAGE:19
+
+### Other Deities:
+Doldanda			NAMEISPI:YES	DOMAINS:Water,Plant,Trickery|PREALIGN:CN,CG,CE,TN			DESCISPI:YES	SYMBOL:A giant egg									ALIGN:CE	PANTHEON:Neiyar	TITLE:The Great Egg					SOURCEPAGE:19	PRERACE:1,Amphikin
+#COMMENT: RACE: - Not accepting as a legit tag? - Ask Tir - AM
+Sequedoroc			NAMEISPI:YES	DOMAINS:War,Protection,Strength|PREALIGN:CN,CG,CE,TN			DESCISPI:YES	SYMBOL:A male dragon									ALIGN:LN	PANTHEON:Neiyar	TITLE:The First Dragon					SOURCEPAGE:20
+Zedo				NAMEISPI:YES	DOMAINS:Chaos,Protection,Luck|PREALIGN:CN,CG,CE,TN			DESCISPI:YES	SYMBOL:Swirling lights					DEITYWEAP:Dagger		ALIGN:CN	PANTHEON:Neiyar	TITLE:The Mad One, The Lost One			SOURCEPAGE:20
+
+#
+## EOF
+#

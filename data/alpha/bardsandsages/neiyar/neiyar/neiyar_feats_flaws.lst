@@ -1,0 +1,37 @@
+# CVS $Revision$ $Author$ -- Mon Aug  6 05:31:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
+
+###
+#FLAWS - Templates? Add a bonus feat when each is taken. Need a mechanic to prevent certain feats from being taken
+# changed to feats -- Frank
+
+# Feat Name			Unique Key		Output Name			Type		Visible	Prohibited Feat						Prohibited Template	Special Ability			Cost		Source Page
+Achilles' Heel									TYPE:Flaw	VISIBLE:YES													SA:FLAW:Achilles' Heel		COST:-1	SOURCEPAGE:p.46
+Animal Magnetism									TYPE:Flaw	VISIBLE:YES													SA:FLAW:Animal Magnetism	COST:-1	SOURCEPAGE:p.46
+Creepy										TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Eccentric Personality,Leadership	!PRETEMPLATE:Shalraeku	SA:FLAW:Creepy			COST:-1	SOURCEPAGE:p.46
+#!PRETEMPLATE:Shalraeku	!PREFEAT:1,Eccentric Personality,Leadership
+
+Demonic Persecution								TYPE:Flaw	VISIBLE:YES													SA:FLAW:Demonic Persecution	COST:-1	SOURCEPAGE:p.46
+Easily Bruised									TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Toughness,Improved Toughness						SA:FLAW:Easily Bruised		COST:-1	SOURCEPAGE:p.47
+###Comments: Not allowed to take feats that improve HP.
+#!PREFEAT:1,Toughness,Improved Toughness
+
+Gullible										TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Investigator,Investigator ~ Neiyar					SA:FLAW:Gullible			COST:-1	SOURCEPAGE:p.47
+#!PREFEAT:1,Investigator,Investigator ~ Neiyar
+
+Haunted										TYPE:Flaw	VISIBLE:YES													SA:FLAW:Haunted			COST:-1	SOURCEPAGE:p.47
+Imperfect Spellcaster								TYPE:Flaw	VISIBLE:YES													SA:FLAW:Imperfect Spellcaster	COST:-1	SOURCEPAGE:p.47
+Phobia										TYPE:Flaw	VISIBLE:YES													SA:FLAW:Phobia			COST:-1	SOURCEPAGE:p.47
+Rage				KEY:RAGE_FLAW					TYPE:Flaw	VISIBLE:YES													SA:FLAW:Rage			COST:-1	SOURCEPAGE:p.47
+Skittish										TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Lightning Reflexes,Combat Reflexes					SA:FLAW:Skittish			COST:-1	SOURCEPAGE:p.47
+#!PREFEAT:1,Lightning Reflexes,Combat Reflexes
+
+Tainted Aura									TYPE:Flaw	VISIBLE:YES									!PRETEMPLATE:Shalraeku	SA:FLAW:Tainted Aura		COST:-1	SOURCEPAGE:p.47
+#!PRETEMPLATE:Shalraeku
+
+Traveling Circus									TYPE:Flaw	VISIBLE:YES													SA:FLAW:Traveling Circus	COST:-1	SOURCEPAGE:p.47
+Vulnerability									TYPE:Flaw	VISIBLE:YES													SA:FLAW:Vulnerability		COST:-1	SOURCEPAGE:p.47
+Weak willed						OUTPUTNAME:Weak-willed	TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Iron Will									SA:FLAW:Weak-willed		COST:-1	SOURCEPAGE:p.48
+### COMMENT: Need to Prevent IRON WILL from being taken if Weak willed is selected - .MOD IRON WILL
+
+# End Flaws
