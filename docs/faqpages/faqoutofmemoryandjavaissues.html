@@ -33,29 +33,44 @@
 				<p>For Windows Users:<br /></p>
 
 				<ul>
-					<li>Try edit the pcgen.bat file and assign more memory to pcgen, this means changing the <code>-Xmx</code> option:<br>&#160&#160&#160&#160&#160&#160
-					<code>java -jar pcgen.jar <strong>-Xmx512m</strong></code>
+					<li>Try edit the pcgen.bat file and assign more memory to pcgen, this means changing the
+					<code>-Xmx</code> option:<br>&#160&#160&#160&#160&#160&#160
 					<br><br>
-					This assigns 512Mb of RAM and should be enough memory for pcgen to run with lots of sources loaded.</li>
+					from <code>java -Dswing.aatext=true -Xms128m -Xmx256m -jar pcgen.jar</code>
+					<br><br>
+					to <code>java -Dswing.aatext=true <strong>-Xms256m -Xmx512m</strong> -jar pcgen.jar</code>
+					<br><br>
+					-Xms - This assigns starting of 256Mb of RAM and should be enough memory for pcgen to run
+					with lots of sources loaded.</li>
+					<br><br>
+					-Xmx - This assigns maximum of 512Mb of RAM and should be enough memory for pcgen to run
+					with lots more sources and characters loaded.</li>
 				</ul>
 
 				<p>For Mac Users:<br /></p>
 
 				<ul>
-					<li>First, launch a Terminal window. That gives you a command line. Yeah, I know... a Unix
-						command line on a Mac... it creeped me out the first time. ;-)</li>
-
-					<li>From the command line, cd to the directory where your PCGen install lives.
-						Then launch java to run PCGen with the memory-adding parameters. It's the
-						same syntax as running it on a PC from the command line. Something like:<br><br>&#160&#160&#160&#160&#160&#160
-					<code># java -Xms 128M -Xmx 512M -jar pcgen.jar</code>
+					<li>You increase the memory allotment by editing the info.plist file, which can be found in
+					the 'Contents' folder inside of the PCGen 5.10.1 app package.
 					<br><br>
-					(That may not be quite right, but something like that. You might have a
-						machine handy where you can verify the syntax.)
+					1) Right-click, or commend-click, on the PCGen app and select 'Show Package Contents'.
 					<br><br>
-					It has the added benefit that you get to see any error messages which are
-					directed to the console (stdout or stderr), which can be a big help in
-					debugging LST files.</li>
+					2) Double click on the 'Contents' folder. (If in Columns view, single click on the Contents
+					folder.)
+					<br><br>
+					3) Right-click, or command-click, on 'info.plist', selecting 'Open with' and then the
+					application you wish to use t edit the file.  Text Editor will work but if you have
+					Property List Editor, things will work out better.
+					<br><br>
+					4) Look for the following text: -Xms128m -Xmx256m
+					<br><br>
+					4.1) If you have 512MB of ram, you can change the text to the following: -Xms256m
+					-Xmx512m
+					<br><br>
+					4.2) If you have 1GB of ram, you can change the text to the following: -Xms512m
+					-Xmx1024m
+					<br><br>
+					5) Save the file and relaunch PCGen.</li>
 				</ul>
 
 				<p>For Unix Users:<br /></p>
