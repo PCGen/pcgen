@@ -260,7 +260,7 @@ CLASS:Swan Bard	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:WildWalker	HD:10		TYPE:PC.Prestige	ABB:WW		MAXLEVEL:6	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|CL/2	BONUS:COMBAT|BAB|(CL+2)/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Deity		Required Race			Required Skill		Required Stat
-CLASS:WildWalker	PREALIGN:CG,CN,CE	PREATT:6	PREDEITY:Sophia Kalla	PRERACE:1,Human (Neiyar)	PRESKILL:1,Survival=12	PRESTAT:2,STR=14,CON=12
+CLASS:WildWalker	PREALIGN:CG,CN,CE	PREATT:6	PREDEITY:Sophia Kalla	PRERACE:1,Neiyar	PRESKILL:1,Survival=12	PRESTAT:2,STR=14,CON=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:WildWalker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (Geography)|Move Silently|Ride|Swim|Survival|Use Rope
 ###Block: Special Abilities:
