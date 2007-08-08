@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Aug  9 00:27:35 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
 # Original Entry by: Frank Kliewe
 
@@ -80,31 +80,31 @@ Misdirect		TYPE:Talent.CharismaticTalent.Charm	VISIBLE:NO	PREFEAT:2,Charm,Favor	
 Greater Charm	TYPE:Talent.CharismaticTalent.Charm	VISIBLE:NO	PREFEAT:4,Charm,Favor,Captivate,Misdirect	SA:Greater Charm													SOURCEPAGE:p.7
 
 ###Block: Advanced Class Abilities
-# Feat Name					Type								Visible	Required Feat			Prohibited Feat			Special Ability						Define				Stackable?	Multiple?	Choose																															Virtual Feat		BONUS:FEAT		Misc bonus		Bonus to skill				Stat bonus			Modify VAR											Weapon prof. bonus											Source Page			ADD:
-Class Ability Magic Defense		TYPE:ArcaneScholarAbility.DarkSageAbility		VISIBLE:NO						!PREFEAT:1,Magic Defense	SA:Magic Defense											STACK:NO	MULT:NO																																								BONUS:MISC|SR|5																																					SOURCEPAGE:p.21+p44
-Master of Incantations			TYPE:ArcaneScholarAbility.DarkSageAbility		VISIBLE:NO											SA:Master of Incantations (+%)|Mstr_of_Incnttn	DEFINE:Mstr_of_Incnttn|0																																																									BONUS:VAR|Mstr_of_Incnttn|var("CL=Arcane Scholar")+var("CL=Dark Sage")															SOURCEPAGE:p.20+p.44
-Sharp Eye					TYPE:BountyHunterAbility.CriminologistAbility	VISIBLE:NO											SA:Sharp Eye (%CHOICE)										STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILLSNAMED|Investigate|Knowledge (Physical Sciences)|Knowledge (Technology)|Research|Sense Motive|Search|Spot																					BONUS:SKILL|LIST|2|TYPE=Competence																															SOURCEPAGE:p.22
-Dead Shot Weapon Focus			TYPE:DeadShotAbility					VISIBLE:NO											SA:Dead Shot Weapon Focus (%CHOICE)								STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|AKM/AK-47|Barrett Light Fifty|Beretta M3P|Browning BPS|HK G3|HK MP5|HK MP5K|HK PSG1|M16A2|M4 Carbine|Mossberg|Remington 700|Sawed-Off Shotgun|Steyr AUG|Uzi|Winchester 94																																	BONUS:WEAPONPROF=%LIST|TOHIT|1									SOURCEPAGE:p.27
-Staggering Shot				TYPE:DeadShotAbility					VISIBLE:NO											SA:Staggering Shot (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:FEAT=Dead Shot Weapon Focus|1																																																																								SOURCEPAGE:p.27
-Dead Shot Greater Weapon Focus	TYPE:DeadShotAbility					VISIBLE:NO											SA:Dead Shot Greater Weapon Focus (%CHOICE)						STACK:NO	MULT:YES	CHOOSE:FEAT=Staggering Shot|1																																																												BONUS:WEAPONPROF=%LIST|TOHIT|1									SOURCEPAGE:p.27
-Unarmed Weapon Finesse			TYPE:GentleWarriorAbility				VISIBLE:NO											SA:Unarmed Weapon Finesse																																																																													BONUS:WEAPONPROF=Unarmed Strike|TOHIT|(STRMAXDEX+SHIELDACCHECK)-STR|TYPE=NotRanged	SOURCEPAGE:p.32
-Uncanny Dodge X1				TYPE:GentleWarriorAbility				VISIBLE:NO						!PREFEAT:1,Uncanny Dodge I																																																		VFEAT:Uncanny Dodge I																																											SOURCEPAGE:p.32
-Uncanny Dodge X2				TYPE:GentleWarriorAbility				VISIBLE:NO	PREFEAT:1,Uncanny Dodge I																																																							VFEAT:Uncanny Dodge II																																											SOURCEPAGE:p.32
-Hacker Abilities				TYPE:HackerAbility					VISIBLE:NO											SA:Hacker Abilities (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|Careful Progress|Electronic Empathy|False Trail|Install Backdoor|Instant Upgrade|Overclock|Passfirewall|Personal Database																																																							SOURCEPAGE:p.34
-Naturalist					TYPE:SurvivalistAbility					VISIBLE:NO											SA:Naturalist (%CHOICE)										STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Arctic|Desert|Deciduous Forest|Jungle|Mountain [high altitude]|Mountain [low altitude]|Plains [temperate grasslands]|Rainforest|Savanna|Sea Coast|Swamp|Volcanic Plain																																															SOURCEPAGE:p.40
-Advanced Techniques			TYPE:MartialArtsMasterAbility				VISIBLE:NO											SA:Advanced Techniques (%CHOICE)								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|Crane Kick|Hands Without Shadow|Improvised Weapon Proficiency|Mat Techniques|Three Conflicts Stance																																																											SOURCEPAGE:p.46
-Trigger Power				TYPE:MentalistAbility					VISIBLE:NO											SA:Trigger Power (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|LIST																																																																									SOURCEPAGE:p.50
+# Feat Name					Type								Visible	Required Feat			Prohibited Feat			Special Ability						Define				Stackable?	Multiple?	Choose																															Virtual Feat		Add					BONUS:FEAT		Misc bonus		Bonus to skill				Stat bonus			Modify VAR											Weapon prof. bonus											Source Page
+Class Ability Magic Defense		TYPE:ArcaneScholarAbility.DarkSageAbility		VISIBLE:NO						!PREFEAT:1,Magic Defense	SA:Magic Defense											STACK:NO	MULT:NO																																													BONUS:MISC|SR|5																																					SOURCEPAGE:p.21+p44
+Master of Incantations			TYPE:ArcaneScholarAbility.DarkSageAbility		VISIBLE:NO											SA:Master of Incantations (+%)|Mstr_of_Incnttn	DEFINE:Mstr_of_Incnttn|0																																																														BONUS:VAR|Mstr_of_Incnttn|var("CL=Arcane Scholar")+var("CL=Dark Sage")															SOURCEPAGE:p.20+p.44
+Sharp Eye					TYPE:BountyHunterAbility.CriminologistAbility	VISIBLE:NO											SA:Sharp Eye (%CHOICE)										STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILLSNAMED|Investigate|Knowledge (Physical Sciences)|Knowledge (Technology)|Research|Sense Motive|Search|Spot																										BONUS:SKILL|LIST|2|TYPE=Competence																															SOURCEPAGE:p.22
+Dead Shot Weapon Focus			TYPE:DeadShotAbility					VISIBLE:NO											SA:Dead Shot Weapon Focus (%CHOICE)								STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|AKM/AK-47|Barrett Light Fifty|Beretta M3P|Browning BPS|HK G3|HK MP5|HK MP5K|HK PSG1|M16A2|M4 Carbine|Mossberg|Remington 700|Sawed-Off Shotgun|Steyr AUG|Uzi|Winchester 94																																						BONUS:WEAPONPROF=%LIST|TOHIT|1									SOURCEPAGE:p.27
+Staggering Shot				TYPE:DeadShotAbility					VISIBLE:NO											SA:Staggering Shot (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:FEAT=Dead Shot Weapon Focus|1																																																																													SOURCEPAGE:p.27
+Dead Shot Greater Weapon Focus	TYPE:DeadShotAbility					VISIBLE:NO											SA:Dead Shot Greater Weapon Focus (%CHOICE)						STACK:NO	MULT:YES	CHOOSE:FEAT=Staggering Shot|1																																																																	BONUS:WEAPONPROF=%LIST|TOHIT|1									SOURCEPAGE:p.27
+Unarmed Weapon Finesse			TYPE:GentleWarriorAbility				VISIBLE:NO											SA:Unarmed Weapon Finesse																																																																																		BONUS:WEAPONPROF=Unarmed Strike|TOHIT|(STRMAXDEX+SHIELDACCHECK)-STR|TYPE=NotRanged	SOURCEPAGE:p.32
+Uncanny Dodge X1				TYPE:GentleWarriorAbility				VISIBLE:NO						!PREFEAT:1,Uncanny Dodge I																																																		VFEAT:Uncanny Dodge I																																																SOURCEPAGE:p.32
+Uncanny Dodge X2				TYPE:GentleWarriorAbility				VISIBLE:NO	PREFEAT:1,Uncanny Dodge I																																																							VFEAT:Uncanny Dodge II																																																SOURCEPAGE:p.32
+Hacker Abilities				TYPE:HackerAbility					VISIBLE:NO											SA:Hacker Abilities (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|Careful Progress|Electronic Empathy|False Trail|Install Backdoor|Instant Upgrade|Overclock|Passfirewall|Personal Database																																																												SOURCEPAGE:p.34
+Naturalist					TYPE:SurvivalistAbility					VISIBLE:NO											SA:Naturalist (%CHOICE)										STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Arctic|Desert|Deciduous Forest|Jungle|Mountain [high altitude]|Mountain [low altitude]|Plains [temperate grasslands]|Rainforest|Savanna|Sea Coast|Swamp|Volcanic Plain																																																				SOURCEPAGE:p.40
+Advanced Techniques			TYPE:MartialArtsMasterAbility				VISIBLE:NO											SA:Advanced Techniques (%CHOICE)								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|Crane Kick|Hands Without Shadow|Improvised Weapon Proficiency|Mat Techniques|Three Conflicts Stance																																																																SOURCEPAGE:p.46
+Trigger Power				TYPE:MentalistAbility					VISIBLE:NO											SA:Trigger Power (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|LIST																																																																														SOURCEPAGE:p.50
 
 #Cross Training Sub-Entries
-Raise Abilities				TYPE:X-Training						VISIBLE:NO											SA:Cross Training (+1 to %CHOICE)								STACK:NO	MULT:YES	CHOOSE:COUNT=2|STAT																																													BONUS:STAT|%LIST|1																											SOURCEPAGE:p.55
-Lower Ability				TYPE:X-Training						VISIBLE:NO											SA:Cross Training (-2 to %CHOICE)								STACK:NO	MULT:YES	CHOOSE:COUNT=1|STAT																																	BONUS:FEAT|POOL|1										BONUS:STAT|%LIST|-2																											SOURCEPAGE:p.55
+Raise Abilities				TYPE:X-Training						VISIBLE:NO											SA:Cross Training (+1 to %CHOICE)								STACK:NO	MULT:YES	CHOOSE:COUNT=2|STAT																																																		BONUS:STAT|%LIST|1																											SOURCEPAGE:p.55
+Lower Ability				TYPE:X-Training						VISIBLE:NO											SA:Cross Training (-2 to %CHOICE)								STACK:NO	MULT:YES	CHOOSE:COUNT=1|STAT																																						BONUS:FEAT|POOL|1										BONUS:STAT|%LIST|-2																											SOURCEPAGE:p.55
 
 #Multilingual Choices
-Spoken Language				TYPE:Multilingual						VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																																																												SOURCEPAGE:p.58		ADD:Language|1|TYPE=Spoken
-Written Language				TYPE:Multilingual						VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																																																												SOURCEPAGE:P.58		ADD:Language|1|TYPE=Written
+Spoken Language				TYPE:Multilingual						VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																		ADD:Language|1|TYPE=Spoken																																											SOURCEPAGE:p.58
+Written Language				TYPE:Multilingual						VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																		ADD:Language|1|TYPE=Written																																											SOURCEPAGE:P.58
 
 ###Block: Signature Skills Choices
-# Feat Name									Type			Visible	Required Class				ADD:
+# Feat Name									Type			Visible	Required Class				Add
 Two Untrained Signature Skills (Strong Hero)			TYPE:SigSkill	VISIBLE:NO	PRECLASS:1,Strong=1			ADD:FEAT|2|Climb(Signature Skill),Craft (Structural - Signature Skill),Jump(Signature Skill),Profession(Signature Skill),Swim(Signature Skill)
 One Trained Only Signature Skill (Strong Hero)			TYPE:SigSkill	VISIBLE:NO	PRECLASS:1,Strong=1			ADD:FEAT|1|Handle Animal(Signature Skill),Knowledge (Current Events - Signature Skill),Knowledge (Popular Culture - Signature Skill),Knowledge (Streetwise - Signature Skill),Knowledge (Tactics - Signature Skill),Read/Write Language(Signature Skill),Repair(Signature Skill),Speak Language(Signature Skill)
 Two Untrained Signature Skills (Fast Hero)			TYPE:SigSkill	VISIBLE:NO	PRECLASS:1,Fast=1				ADD:FEAT|2|Balance(Signature Skill),Drive(Signature Skill),Escape Artist(Signature Skill),Hide(Signature Skill),Move Silently(Signature Skill),Profession(Signature Skill),Ride(Signature Skill)
@@ -257,87 +257,81 @@ One Trained Only Signature Skill (Silent Intruder)		TYPE:SigSkill	VISIBLE:NO	PRE
 # - Frank Kliewe
 
 ###Block: Signature Skills
-# Feat Name								Type				Visible	Prohibited Feat									Class Skill			ADD:
-Autohypnosis(Signature Skill)					TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Autohypnosis(class skill)									ADD:VFEAT|1|Autohypnosis(class skill)
-Balance(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Balance(class skill)										ADD:VFEAT|1|Balance(class skill)
-Bluff(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Bluff(class skill)											ADD:VFEAT|1|Bluff(class skill)
-Climb(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Climb(class skill)											ADD:VFEAT|1|Climb(class skill
-Computer Use(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Computer Use(class skill)									ADD:VFEAT|1|Computer Use(class skill)
-Concentration(Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Concentration(class skill)									ADD:VFEAT|1|Concentration(class skill)
-Craft (Chemical - Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Chemical - class skill)									ADD:VFEAT|1|Craft (Chemical - class skill)
-Craft (Electronic - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Electronic - class skill)								ADD:VFEAT|1|Craft (Electronic - class skill)
-Craft (Mechanical - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Mechanical - class skill)								ADD:VFEAT|1|Craft (Mechanical - class skill)
-Craft (Pharmaceutical - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Pharmaceutical - class skill)								ADD:VFEAT|1|Craft (Pharmaceutical - class skill)
-Craft (Structural - Signature Skill)			TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Structural - class skill)								ADD:VFEAT|1|Craft (Structural - class skill)
-Craft (Visual Art - Signature Skill)			TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Visual Art - class skill)								ADD:VFEAT|1|Craft (Visual Art - class skill)
-Craft (Writing - Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Writing - class skill)									ADD:VFEAT|1|Craft (Writing - class skill)
-Decipher Script(Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Decipher Script(class skill)									ADD:VFEAT|1|Decipher Script(class skill)
-Demolitions(Signature Skill)					TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Demolitions(class skill)										ADD:VFEAT|1|Demolitions(class skill)
-Diplomacy(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Diplomacy(class skill)										ADD:VFEAT|1|Diplomacy(class skill)
-Disable Device(Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Disable Device(class skill)									ADD:VFEAT|1|Disable Device(class skill)
-Disguise(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO																ADD:VFEAT|1|Disguise(class skill)
-Drive(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Drive(class skill)											ADD:VFEAT|1|Drive(class skill)
-Escape Artist(Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Escape Artist(class skill)									ADD:VFEAT|1|Escape Artist(class skill)
-Forgery(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Forgery(class skill)										ADD:VFEAT|1|Forgery(class skill)
-Gamble(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Gamble(class skill)										ADD:VFEAT|1|Gamble(class skill)
-Gather Information(Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Gather Information(class skill)								ADD:VFEAT|1|Gather Information(class skill)
-Handle Animal(Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Handle Animal(class skill)									ADD:VFEAT|1|Handle Animal(class skill)
-Hide(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Hide(class skill)											ADD:VFEAT|1|Hide(class skill)
-Intimidate(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Intimidate(class skill)										ADD:VFEAT|1|Intimidate(class skill)
-Investigate(Signature Skill)					TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Investigate(class skill)										ADD:VFEAT|1|Investigate(class skill)
-Jump(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Jump(class skill)											ADD:VFEAT|1|Jump(class skill)
-Knowledge (Arcane Lore - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Arcane Lore - class skill)							ADD:VFEAT|1|Knowledge (Arcane Lore - class skill)
-Knowledge (Art - Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Art - class skill)									ADD:VFEAT|1|Knowledge (Art - class skill)
-Knowledge (Behavioral Sciences - Signature Skill)	TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Behavioral Sciences - class skill)						ADD:VFEAT|1|Knowledge (Behavioral Sciences - class skill)
-Knowledge (Business - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Business - class skill)								ADD:VFEAT|1|Knowledge (Business - class skill)
-Knowledge (Civics - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Civics - class skill)								ADD:VFEAT|1|Knowledge (Civics - class skill)
-Knowledge (Current Events - Signature Skill)		TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Current Events - class skill)							ADD:VFEAT|1|Knowledge (Current Events - class skill)
-Knowledge (Earth and Life Sciences - Signature Skill)	TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Earth and Life Sciences - class skill)					ADD:VFEAT|1|Knowledge (Earth and Life Sciences - class skill)
-Knowledge (History - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (History - class skill)								ADD:VFEAT|1|Knowledge (History - class skill)
-Knowledge (Physical Sciences - Signature Skill)		TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Physical Sciences - class skill)						ADD:VFEAT|1|Knowledge (Physical Sciences - class skill)
-Knowledge (Popular Culture - Signature Skill)		TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Popular Culture - class skill)							ADD:VFEAT|1|Knowledge (Popular Culture - class skill)
-Knowledge (Streetwise - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Streetwise - class skill)								ADD:VFEAT|1|Knowledge (Streetwise - class skill)
-Knowledge (Tactics - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Tactics - class skill)								ADD:VFEAT|1|Knowledge (Tactics - class skill)
-Knowledge (Technology - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Technology - class skill)								ADD:VFEAT|1|Knowledge (Technology - class skill)
-Knowledge (Theology and Philosophy - Signature Skill)	TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Theology and Philosophy - class skill)					ADD:VFEAT|1|Knowledge (Theology and Philosophy - class skill)
-Listen(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Listen(class skill)										ADD:VFEAT|1|Listen(class skill)
-Move Silently(Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Move Silently(class skill)									ADD:VFEAT|1|Move Silently(class skill)
-Navigate(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Navigate(class skill)										ADD:VFEAT|1|Navigate(class skill)
-Perform (Act - Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Act - class skill)									ADD:VFEAT|1|Perform (Act - class skill)
-Perform (Dance - Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Dance - class skill)									ADD:VFEAT|1|Perform (Dance - class skill)
-Perform (Keyboards - Signature Skill)			TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Keyboards - class skill)								ADD:VFEAT|1|Perform (Keyboards - class skill)
-Perform (Percussion Instruments - Signature Skill)	TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Percussion Instruments - class skill)						ADD:VFEAT|1|Perform (Percussion Instruments - class skill)
-Perform (Sing - Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Sing - class skill)									ADD:VFEAT|1|Perform (Sing - class skill)
-Perform (Stand-Up - Signature Skill)			TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Stand-Up - class skill)								ADD:VFEAT|1|Perform (Stand-Up - class skill)
-Perform (Stringed Instruments - Signature Skill)	TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Stringed Instruments - class skill)						ADD:VFEAT|1|Perform (Stringed Instruments - class skill)
-Perform (Wind Instruments - Signature Skill)		TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Wind Instruments - class skill)							ADD:VFEAT|1|Perform (Wind Instruments - class skill)
-Pilot(Signature Skill)						TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Pilot(class skill)											ADD:VFEAT|1|Pilot(class skill)
-Profession(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Profession(class skill)										ADD:VFEAT|1|Profession(class skill)
-Psicraft(Signature Skill)					TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Psicraft(class skill)										ADD:VFEAT|1|Psicraft(class skill)
-Read/Write Language(Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Read/Write Language(class skill)								ADD:VFEAT|1|Read/Write Language(class skill)
-Repair(Signature Skill)						TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Repair(class skill)										ADD:VFEAT|1|Repair(class skill)
-Research(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Research(class skill)										ADD:VFEAT|1|Research(class skill)
-Ride(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Ride(class skill)											ADD:VFEAT|1|Ride(class skill)
-Search(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Search(class skill)										ADD:VFEAT|1|Search(class skill)
-Sense Motive(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Sense Motive(class skill)									ADD:VFEAT|1|Sense Motive(class skill)
-Sleight of Hand(Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Sleight of Hand(class skill)									ADD:VFEAT|1|Sleight of Hand(class skill)
-Speak Language(Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Speak Language(class skill)									ADD:VFEAT|1|Speak Language(class skill)
-Spellcraft(Signature Skill)					TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Spellcraft(class skill)										ADD:VFEAT|1|Spellcraft(class skill)
-Spot(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Spot(class skill)											ADD:VFEAT|1|Spot(class skill)
-Survival(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Survival(class skill)										ADD:VFEAT|1|Survival(class skill)
-Swim(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Swim(class skill)											ADD:VFEAT|1|Swim(class skill)
-Treat Injury(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Treat Injury(class skill)									ADD:VFEAT|1|Treat Injury(class skill)
-Tumble(Signature Skill)						TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Tumble(class skill)										ADD:VFEAT|1|Tumble(class skill)
-Use Magic Device (Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Use Magic Device(class skill)									ADD:VFEAT|1|Use Magic Device(class skill)
-
-#These ones don't exist yet
-Autohypnosis(class skill)					TYPE:Class_Skills		VISIBLE:NO												CSKILL:Autohypnosis
-Psicraft(class skill)						TYPE:Class_Skills		VISIBLE:NO												CSKILL:Psicraft
-Spellcraft(class skill)						TYPE:Class_Skills		VISIBLE:NO												CSKILL:Spellcraft
-Use Magic Device(class skill)					TYPE:Class_Skills		VISIBLE:NO												CSKILL:Use Magic Device
+# Feat Name								Type				Visible	Prohibited Feat									Add
+Autohypnosis(Signature Skill)					TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Autohypnosis(class skill)					ADD:VFEAT|1|Autohypnosis(class skill)
+Balance(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Balance(class skill)						ADD:VFEAT|1|Balance(class skill)
+Bluff(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Bluff(class skill)							ADD:VFEAT|1|Bluff(class skill)
+Climb(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Climb(class skill)							ADD:VFEAT|1|Climb(class skill
+Computer Use(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Computer Use(class skill)					ADD:VFEAT|1|Computer Use(class skill)
+Concentration(Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Concentration(class skill)					ADD:VFEAT|1|Concentration(class skill)
+Craft (Chemical - Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Chemical - class skill)					ADD:VFEAT|1|Craft (Chemical - class skill)
+Craft (Electronic - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Electronic - class skill)				ADD:VFEAT|1|Craft (Electronic - class skill)
+Craft (Mechanical - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Mechanical - class skill)				ADD:VFEAT|1|Craft (Mechanical - class skill)
+Craft (Pharmaceutical - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Pharmaceutical - class skill)				ADD:VFEAT|1|Craft (Pharmaceutical - class skill)
+Craft (Structural - Signature Skill)			TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Structural - class skill)				ADD:VFEAT|1|Craft (Structural - class skill)
+Craft (Visual Art - Signature Skill)			TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Visual Art - class skill)				ADD:VFEAT|1|Craft (Visual Art - class skill)
+Craft (Writing - Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Craft (Writing - class skill)					ADD:VFEAT|1|Craft (Writing - class skill)
+Decipher Script(Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Decipher Script(class skill)					ADD:VFEAT|1|Decipher Script(class skill)
+Demolitions(Signature Skill)					TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Demolitions(class skill)						ADD:VFEAT|1|Demolitions(class skill)
+Diplomacy(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Diplomacy(class skill)						ADD:VFEAT|1|Diplomacy(class skill)
+Disable Device(Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Disable Device(class skill)					ADD:VFEAT|1|Disable Device(class skill)
+Disguise(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO												ADD:VFEAT|1|Disguise(class skill)
+Drive(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Drive(class skill)							ADD:VFEAT|1|Drive(class skill)
+Escape Artist(Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Escape Artist(class skill)					ADD:VFEAT|1|Escape Artist(class skill)
+Forgery(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Forgery(class skill)						ADD:VFEAT|1|Forgery(class skill)
+Gamble(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Gamble(class skill)						ADD:VFEAT|1|Gamble(class skill)
+Gather Information(Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Gather Information(class skill)				ADD:VFEAT|1|Gather Information(class skill)
+Handle Animal(Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Handle Animal(class skill)					ADD:VFEAT|1|Handle Animal(class skill)
+Hide(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Hide(class skill)							ADD:VFEAT|1|Hide(class skill)
+Intimidate(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Intimidate(class skill)						ADD:VFEAT|1|Intimidate(class skill)
+Investigate(Signature Skill)					TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Investigate(class skill)						ADD:VFEAT|1|Investigate(class skill)
+Jump(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Jump(class skill)							ADD:VFEAT|1|Jump(class skill)
+Knowledge (Arcane Lore - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Arcane Lore - class skill)			ADD:VFEAT|1|Knowledge (Arcane Lore - class skill)
+Knowledge (Art - Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Art - class skill)					ADD:VFEAT|1|Knowledge (Art - class skill)
+Knowledge (Behavioral Sciences - Signature Skill)	TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Behavioral Sciences - class skill)		ADD:VFEAT|1|Knowledge (Behavioral Sciences - class skill)
+Knowledge (Business - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Business - class skill)				ADD:VFEAT|1|Knowledge (Business - class skill)
+Knowledge (Civics - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Civics - class skill)				ADD:VFEAT|1|Knowledge (Civics - class skill)
+Knowledge (Current Events - Signature Skill)		TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Current Events - class skill)			ADD:VFEAT|1|Knowledge (Current Events - class skill)
+Knowledge (Earth and Life Sciences - Signature Skill)	TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Earth and Life Sciences - class skill)	ADD:VFEAT|1|Knowledge (Earth and Life Sciences - class skill)
+Knowledge (History - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (History - class skill)				ADD:VFEAT|1|Knowledge (History - class skill)
+Knowledge (Physical Sciences - Signature Skill)		TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Physical Sciences - class skill)		ADD:VFEAT|1|Knowledge (Physical Sciences - class skill)
+Knowledge (Popular Culture - Signature Skill)		TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Popular Culture - class skill)			ADD:VFEAT|1|Knowledge (Popular Culture - class skill)
+Knowledge (Streetwise - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Streetwise - class skill)				ADD:VFEAT|1|Knowledge (Streetwise - class skill)
+Knowledge (Tactics - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Tactics - class skill)				ADD:VFEAT|1|Knowledge (Tactics - class skill)
+Knowledge (Technology - Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Technology - class skill)				ADD:VFEAT|1|Knowledge (Technology - class skill)
+Knowledge (Theology and Philosophy - Signature Skill)	TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Knowledge (Theology and Philosophy - class skill)	ADD:VFEAT|1|Knowledge (Theology and Philosophy - class skill)
+Listen(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Listen(class skill)						ADD:VFEAT|1|Listen(class skill)
+Move Silently(Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Move Silently(class skill)					ADD:VFEAT|1|Move Silently(class skill)
+Navigate(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Navigate(class skill)						ADD:VFEAT|1|Navigate(class skill)
+Perform (Act - Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Act - class skill)					ADD:VFEAT|1|Perform (Act - class skill)
+Perform (Dance - Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Dance - class skill)					ADD:VFEAT|1|Perform (Dance - class skill)
+Perform (Keyboards - Signature Skill)			TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Keyboards - class skill)				ADD:VFEAT|1|Perform (Keyboards - class skill)
+Perform (Percussion Instruments - Signature Skill)	TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Percussion Instruments - class skill)		ADD:VFEAT|1|Perform (Percussion Instruments - class skill)
+Perform (Sing - Signature Skill)				TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Sing - class skill)					ADD:VFEAT|1|Perform (Sing - class skill)
+Perform (Stand-Up - Signature Skill)			TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Stand-Up - class skill)				ADD:VFEAT|1|Perform (Stand-Up - class skill)
+Perform (Stringed Instruments - Signature Skill)	TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Stringed Instruments - class skill)		ADD:VFEAT|1|Perform (Stringed Instruments - class skill)
+Perform (Wind Instruments - Signature Skill)		TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Perform (Wind Instruments - class skill)			ADD:VFEAT|1|Perform (Wind Instruments - class skill)
+Pilot(Signature Skill)						TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Pilot(class skill)							ADD:VFEAT|1|Pilot(class skill)
+Profession(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Profession(class skill)						ADD:VFEAT|1|Profession(class skill)
+Psicraft(Signature Skill)					TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Psicraft(class skill)						ADD:VFEAT|1|Psicraft(class skill)
+Read/Write Language(Signature Skill)			TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Read/Write Language(class skill)				ADD:VFEAT|1|Read/Write Language(class skill)
+Repair(Signature Skill)						TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Repair(class skill)						ADD:VFEAT|1|Repair(class skill)
+Research(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Research(class skill)						ADD:VFEAT|1|Research(class skill)
+Ride(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Ride(class skill)							ADD:VFEAT|1|Ride(class skill)
+Search(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Search(class skill)						ADD:VFEAT|1|Search(class skill)
+Sense Motive(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Sense Motive(class skill)					ADD:VFEAT|1|Sense Motive(class skill)
+Sleight of Hand(Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Sleight of Hand(class skill)					ADD:VFEAT|1|Sleight of Hand(class skill)
+Speak Language(Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Speak Language(class skill)					ADD:VFEAT|1|Speak Language(class skill)
+Spellcraft(Signature Skill)					TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Spellcraft(class skill)						ADD:VFEAT|1|Spellcraft(class skill)
+Spot(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Spot(class skill)							ADD:VFEAT|1|Spot(class skill)
+Survival(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Survival(class skill)						ADD:VFEAT|1|Survival(class skill)
+Swim(Signature Skill)						TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Swim(class skill)							ADD:VFEAT|1|Swim(class skill)
+Treat Injury(Signature Skill)					TYPE:UntrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Treat Injury(class skill)					ADD:VFEAT|1|Treat Injury(class skill)
+Tumble(Signature Skill)						TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Tumble(class skill)						ADD:VFEAT|1|Tumble(class skill)
+Use Magic Device (Signature Skill)				TYPE:TrainedSigSkill	VISIBLE:NO	!PREFEAT:1,Use Magic Device(class skill)					ADD:VFEAT|1|Use Magic Device(class skill)
 
 ###Block: Star Employee Skill Choices
-# Feat Name								Type			Visible	Required Feat																																																																																																																																						Prohibited Feat									ADD:
+# Feat Name								Type			Visible	Required Feat																																																																																																																																						Prohibited Feat									Add
 Balance(Star employee)						TYPE:StarSkill	VISIBLE:NO	PREFEAT:1,Occupation (Athlete),Second Occupation (Athlete),Occupation (Emergency Services),Second Occupation (Emergency Services),Occupation (Rural),Second Occupation (Rural),Occupation (Gladiator),Second Occupation (Gladiator),Occupation (Squire),Second Occupation (Squire),Occupation (Tribal),Second Occupation (Tribal)																																																																																			!PREFEAT:1,Balance(class skill)						ADD:VFEAT|1|Balance(class skill)
 Bluff(Star employee)						TYPE:StarSkill	VISIBLE:NO	PREFEAT:1,Occupation (Adventurer),Second Occupation (Adventurer),Occupation (Celebrity),Second Occupation (Celebrity),Occupation (Creative),Second Occupation (Creative),Occupation (Entrepreneur),Second Occupation (Entrepreneur),Occupation (Drifter),Second Occupation (Drifter),Occupation (Psychic),Second Occupation (Psychic),Occupation (Bohemian),Second Occupation (Bohemian),Occupation (Bureaucrat),Second Occupation (Bureaucrat),Occupation (Domestic),Second Occupation (Domestic),Occupation (Politico),Second Occupation (Politico)																																																!PREFEAT:1,Bluff(class skill)							ADD:VFEAT|1|Bluff(class skill)
 Climb(Star employee)						TYPE:StarSkill	VISIBLE:NO	PREFEAT:1,Occupation (Adventurer),Second Occupation (Adventurer),Occupation (Athlete),Second Occupation (Athlete),Occupation (Blue Collar),Second Occupation (Blue Collar),Occupation (Emergency Services),Second Occupation (Emergency Services),Occupation (Military),Second Occupation (Military),Occupation (Rural),Second Occupation (Rural),Occupation (Squire),Second Occupation (Squire),Occupation (Bohemian),Second Occupation (Bohemian)																																																																!PREFEAT:1,Climb(class skill)							ADD:VFEAT|1|Climb(class skill

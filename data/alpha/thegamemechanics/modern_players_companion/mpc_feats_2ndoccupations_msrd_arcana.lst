@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Aug  9 00:27:35 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
 # Original Entry by: Frank Kliewe
 
 #Moonlighter feat second occupations from MSRD Arcana
-# Feat Name					Type				Visible		Required Feat			Prohibited Feat					Required Stat		Modify VAR			Source Page						ADD:
-Second Occupation (Apothecary)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Apothecary	!PREFEAT:1,Occupation (Apothecary)						BONUS:VAR|WealthBonus|3	SOURCEPAGE:ArcanaOccupationsandFeats.rtf	ADD:FEAT|3|TYPE=Apothecary_Skills
-Second Occupation (Hedge Wizard)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.HedgeWizard	!PREFEAT:1,Occupation (Hedge Wizard)	PRESTAT:1,INT=10		BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf	ADD:FEAT|3|TYPE=Hedge_Wizard_Skills
-Second Occupation (Novitiate)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Novitiate	!PREFEAT:1,Occupation (Novitiate)		PRESTAT:1,WIS=10		BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf	ADD:FEAT|3|TYPE=Novitiate_Skills
-Second Occupation (Psychic)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Psychic		!PREFEAT:1,Occupation (Psychic)						BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf	ADD:FEAT|2|TYPE=Psychic_Skills
-Second Occupation (Shadow Scholar)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.ShadowScholar	!PREFEAT:1,Occupation (Shadow Scholar)					BONUS:VAR|WealthBonus|1	SOURCEPAGE:ArcanaOccupationsandFeats.rtf	ADD:FEAT|3|TYPE=Shadow_Scholar_Skills
-Second Occupation (Squire)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Squire		!PREFEAT:1,Occupation (Squire)		PRESTAT:1,STR=13,DEX=13	BONUS:VAR|WealthBonus|1	SOURCEPAGE:ArcanaOccupationsandFeats.rtf	ADD:FEAT|3|TYPE=Squire_Skills
+# Feat Name					Type				Visible		Required Feat			Prohibited Feat					Required Stat		Add							Modify VAR			Source Page
+Second Occupation (Apothecary)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Apothecary	!PREFEAT:1,Occupation (Apothecary)						ADD:FEAT|3|TYPE=Apothecary_Skills		BONUS:VAR|WealthBonus|3	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Second Occupation (Hedge Wizard)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.HedgeWizard	!PREFEAT:1,Occupation (Hedge Wizard)	PRESTAT:1,INT=10		ADD:FEAT|3|TYPE=Hedge_Wizard_Skills		BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Second Occupation (Novitiate)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Novitiate	!PREFEAT:1,Occupation (Novitiate)		PRESTAT:1,WIS=10		ADD:FEAT|3|TYPE=Novitiate_Skills		BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Second Occupation (Psychic)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Psychic		!PREFEAT:1,Occupation (Psychic)						ADD:FEAT|2|TYPE=Psychic_Skills		BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Second Occupation (Shadow Scholar)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.ShadowScholar	!PREFEAT:1,Occupation (Shadow Scholar)					ADD:FEAT|3|TYPE=Shadow_Scholar_Skills	BONUS:VAR|WealthBonus|1	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Second Occupation (Squire)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Squire		!PREFEAT:1,Occupation (Squire)		PRESTAT:1,STR=13,DEX=13	ADD:FEAT|3|TYPE=Squire_Skills			BONUS:VAR|WealthBonus|1	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
 
