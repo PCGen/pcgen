@@ -5,7 +5,9 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
-    <release version="5.11.15" date="In SVN" description="Beta release">
+    <release version="5.13.0" date="In SVN" description="Alpha release">
+    </release>
+    <release version="5.12.0 RC1" date="2007-5-20" description="Beta release">
       <action dev="thpr" type="fix" issue="1677623">Equipping tab print preview bypasses filters</action>
       <action dev="thpr" type="fix" issue="1711707">Custom Feat Descriptions Not Saving</action>
       <action dev="thpr" type="fix" issue="1712559">Ex class with tab VISIBLE:NO are visible</action>
