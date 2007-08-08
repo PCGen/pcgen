@@ -172,6 +172,26 @@
       <name>Edwin C Holley</name>
       <id>glasswalker</id>
     </developer>
+    <developer>
+      <name>Dave Cheever</name>
+      <id>takeyabue</id>
+    </developer>
+    <developer>
+      <name>Andrew Maitland</name>
+      <id>amaitland</id>
+    </developer>
+    <developer>
+      <name>Kevin Fernandes</name>
+      <id>darkstorm999</id>
+    </developer>
+    <developer>
+      <name>tistur</name>
+      <id>tistur</id>
+    </developer>
+    <developer>
+      <name>Peter Barker</name>
+      <id>pjdb</id>
+    </developer>
   </developers>
   <dependencies>
     <!-- Compiling -->
