@@ -1,0 +1,43 @@
+# CVS $Revision$ $Author$ -- Fri Jan 12 00:15:52 2007 -- reformated by prettylst.pl v1.35 (build 1495)
+SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp
+
+#CREATED BY:Paul W. King, Jan 2007
+#UPDATED BY:Paul W. King, Jan 2007
+
+# Feat Name					Type
+Advanced Firearms Proficiency.MOD	TYPE:Thaumaturgical.MagicGrunt
+Alertness.MOD				TYPE:MagicGrunt
+Archaic Weapons Proficiency.MOD	TYPE:MagicGrunt
+Armor Proficiency (Light).MOD		TYPE:MagicGrunt
+Armor Proficiency (Medium).MOD	TYPE:MagicGrunt
+Athletic.MOD				TYPE:MagicGrunt
+Attentive.MOD				TYPE:Thaumaturgical
+Burst Fire.MOD				TYPE:MagicGrunt
+Combat Expertise.MOD			TYPE:Thaumaturgical.MagicGrunt
+Combat Reflexes.MOD			TYPE:MagicGrunt
+Double Tap.MOD				TYPE:Thaumaturgical
+Empower Spell.MOD				TYPE:ArcaneSpecOp
+Endurance.MOD				TYPE:MagicGrunt
+Enlarge Spell.MOD				TYPE:ArcaneSpecOp
+Eschew Materials.MOD			TYPE:ArcaneSpecOp
+Extend Spell.MOD				TYPE:ArcaneSpecOp
+Frightful Presence.MOD			TYPE:MagicGrunt
+#Greater Magic Defense.MOD		TYPE:Thaumaturgical
+Greater Spell Focus.MOD			TYPE:ArcaneSpecOp.Thaumaturgical
+Heighten Spell.MOD			TYPE:ArcaneSpecOp
+#Improved Autofire.MOD			TYPE:MagicGrunt
+#Improved Magic Defense.MOD		TYPE:Thaumaturgical
+Low Profile.MOD				TYPE:Thaumaturgical
+Magical Affinity.MOD			TYPE:Thaumaturgical
+Nonlethal Spell.MOD			TYPE:ArcaneSpecOp
+Point Blank Shot.MOD			TYPE:Thaumaturgical.MagicGrunt
+Precise Shot.MOD				TYPE:Thaumaturgical
+Reach Spell.MOD				TYPE:ArcaneSpecOp
+Shadowbane Spell.MOD			TYPE:ArcaneSpecOp
+Signature Spell.MOD			TYPE:ArcaneSpecOp.Thaumaturgical
+Silent Spell.MOD				TYPE:ArcaneSpecOp
+Spell Focus.MOD				TYPE:ArcaneSpecOp.Thaumaturgical
+Spellslinger.MOD				TYPE:ArcaneSpecOp
+Still Spell.MOD				TYPE:ArcaneSpecOp
+Strafe.MOD					TYPE:MagicGrunt
+Studious.MOD				TYPE:Thaumaturgical.MagicGrunt

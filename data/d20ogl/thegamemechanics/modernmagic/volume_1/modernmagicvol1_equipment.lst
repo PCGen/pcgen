@@ -1,0 +1,50 @@
+# CVS $Revision$ $Author$ -- Wed Aug  8 05:54:07 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp
+
+#CREATED BY:Paul W. King, Jan 2007
+#UPDATED BY:Paul W. King, Jan 2007
+
+# Equipment Name				Required Proficiency	Type															Cost		Weight	Choose							Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Innate Spells											Save checks bonus										Combat bonus		BONUS:EQMWEAPON			Bonus to skill
+Alchemical Light Sticks - Yellow					TYPE:Equipment.Goods.FX												COST:29	WT:1																						SOURCEPAGE:p.35	SPELLS:Yellow Alchemical Stick|TIMES=1|CASTERLEVEL=3|Detect Magical Aura,10
+Alchemical Light Sticks - Blue					TYPE:Equipment.Goods.FX												COST:29	WT:1																						SOURCEPAGE:p.35	SPELLS:Blue Alchemical Stick|TIMES=1|CASTERLEVEL=3|Blur,13
+Alchemical Light Sticks - Green					TYPE:Equipment.Goods.FX												COST:29	WT:1																						SOURCEPAGE:p.35	SPELLS:Green Alchemical Stick|TIMES=1|CASTERLEVEL=3|Silence,13
+Alchemical Light Sticks - Red						TYPE:Equipment.Goods.FX												COST:29	WT:1																						SOURCEPAGE:p.35	SPELLS:Red Alchemical Stick|TIMES=1|CASTERLEVEL=3|Cause Fear,11
+Alchemical Light Sticks - Purple					TYPE:Equipment.Goods.FX												COST:29	WT:1																						SOURCEPAGE:p.35	SPELLS:Purple Alchemical Stick|TIMES=1|CASTERLEVEL=3|Machine Invisibility,13
+All Weather Helmet Cover						TYPE:Equipment.Goods.FX												COST:31	WT:0																						SOURCEPAGE:p.31
+Balloon of Air Elemental Summoning					TYPE:Equipment.Goods.FX												COST:32	WT:0																						SOURCEPAGE:p.35
+Boonie Hat of Hiding							TYPE:Equipment.Goods.FX.Headgear										COST:31	WT:0																						SOURCEPAGE:p.33																																			BONUS:SKILL|Hide|10|TYPE=Equipment|PREAPPLY:ANYPC
+Bottomless Magazine							TYPE:Equipment.Goods.FX												COST:43	WT:1																						SOURCEPAGE:p.34
+Breath Mints of Smooth Talking					TYPE:Equipment.Goods.FX												COST:27	WT:0																						SOURCEPAGE:p.35																																			BONUS:SKILL|Bluff,Diplomacy|5|TYPE=Equipment|PREAPPLY:ANYPC
+Carry All Vest								TYPE:Equipment.Goods.FX.Shirt											COST:31	WT:0																						SOURCEPAGE:p.33
+Collar of Animal Form							TYPE:Equipment.Goods.FX												COST:28	WT:1																						SOURCEPAGE:p.35
+Cosmetics of Charisma							TYPE:Equipment.Goods.FX												COST:27	WT:0																						SOURCEPAGE:p.35																																			BONUS:SKILL|Bluff,Diplomacy,Gather Information|10|TYPE=Equipment|PREAPPLY:ANYPC
+Demolition Gum								TYPE:Equipment.Goods.FX												COST:31	WT:0																						SOURCEPAGE:p.35
+Door Hanger of Privacy							TYPE:Equipment.Goods.FX												COST:31	WT:0																						SOURCEPAGE:p.36	SPELLS:Door Hanger of Privacy|TIMES=1|CASTERLEVEL=3|Silence,13
+Eavesdropping Tumbler							TYPE:Equipment.Goods.FX												COST:29	WT:1																						SOURCEPAGE:p.36																																			BONUS:SKILL|Listen|5|TYPE=Equipment|PREAPPLY:ANYPC
+Eye Drops of Darkvision							TYPE:Equipment.Goods.FX												COST:29	WT:0																						SOURCEPAGE:p.36
+Fastcash Bank Card							TYPE:Equipment.Goods.FX												COST:26	WT:0																						SOURCEPAGE:p.36
+Fireproof Decal								TYPE:Equipment.Goods.FX												COST:29	WT:0																						SOURCEPAGE:p.36
+Half Shelter Hilton							TYPE:Equipment.Goods.FX												COST:33	WT:10																						SOURCEPAGE:p.34
+Hand Buzzer of Voltage							TYPE:Equipment.Goods.FX												COST:28	WT:0																						SOURCEPAGE:p.36
+Hood Ornament of Accuracy						TYPE:Equipment.Goods.FX												COST:24	WT:1																						SOURCEPAGE:p.36
+Leather Personnel Carriers						TYPE:Equipment.Goods.FX.Boot											COST:31	WT:2																						SOURCEPAGE:p.34
+Light Bulb of True Seeing						TYPE:Equipment.Goods.FX												COST:37	WT:0																						SOURCEPAGE:p.36	SPELLS:Light Bulb of True Seeing|TIMES=1|CASTERLEVEL=9|True Seeing,17
+Lucky Saltshaker								TYPE:Equipment.Goods.FX												COST:27	WT:0.5	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Choose bonus													SOURCEPAGE:p.36														BONUS:CHECKS|Fortitude,Reflex,Will|%CHOICE|TYPE=Luck|PREAPPLY:ANYPC										BONUS:SKILL|ALL|%CHOICE|TYPE=Luck|PREAPPLY:ANYPC
+Madam Zuzus Advice Column						TYPE:Equipment.Goods.FX												COST:25	WT:0																						SOURCEPAGE:p.36
+Marksmans Bullet								TYPE:Equipment.Goods.FX.Ammunition.Bullet.Standard.Metal						COST:35	WT:0																						SOURCEPAGE:p.34																										BONUS:COMBAT|TOHIT|4	BONUS:EQMWEAPON|RANGEMULT|2
+Nosferatu Fangs								TYPE:Equipment.Goods.FX												COST:31	WT:0																						SOURCEPAGE:p.37
+Piggy Bank of Savings							TYPE:Equipment.Goods.FX												COST:30	WT:5																						SOURCEPAGE:p.37
+Police Whistle of Back Up						TYPE:Equipment.Goods.FX												COST:32	WT:0																						SOURCEPAGE:p.37
+Postcards of Travel							TYPE:Equipment.Goods.FX												COST:34	WT:0																						SOURCEPAGE:p.37
+Power Tie of Schmoozing							TYPE:Equipment.Goods.FX												COST:29	WT:0																						SOURCEPAGE:p.38																																			BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|5|TYPE=Circumstance|PREAPPLY:ANYPC
+Rucksack of Holding							TYPE:Equipment.Goods.FX												COST:38	WT:5																						SOURCEPAGE:p.33
+Sawbuck of Distraction							TYPE:Equipment.Goods.FX												COST:26	WT:0																						SOURCEPAGE:p.38
+Smiley Face Pin								TYPE:Equipment.Goods.FX												COST:29	WT:0																						SOURCEPAGE:p.38																																			BONUS:SKILL|TYPE.Charisma|2|TYPE=Equipment|PREAPPLY:ANYPC
+Spray Paint of Warding							TYPE:Equipment.Goods.FX												COST:31	WT:1																						SOURCEPAGE:p.38
+Sunlike Floodlight							TYPE:Equipment.Goods.FX												COST:29	WT:2																						SOURCEPAGE:p.38	SPELLS:Sunlike Floodlight|TIMES=6|CASTERLEVEL=3|Daylight,13
+Sword Belt - Longsword			PROFICIENCY:Longsword	TYPE:Equipment.Goods.FX.Weapon.Archaic.Melee.Standard.Slashing.Metal.Sword			COST:29	WT:1										CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	SIZE:M	SOURCEPAGE:p.39
+Sword Belt - Rapier			PROFICIENCY:Rapier	TYPE:Equipment.Goods.FX.Weapon.Archaic.Melee.Standard.Piercing.Metal.Finesseable.Sword	COST:29	WT:1										CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6	SIZE:M	SOURCEPAGE:p.39
+Trailer Hitch of Trolling						TYPE:Equipment.Goods.FX												COST:35	WT:10																						SOURCEPAGE:p.39
+Uniform of Service							TYPE:Equipment.Goods.FX												COST:27	WT:2																						SOURCEPAGE:p.39																																			BONUS:SKILL|Disguise|5|TYPE=EQuipment|PREAPPLY:ANYPC
+Vanity Mirror of Disguises						TYPE:Equipment.Goods.FX												COST:27	WT:20																						SOURCEPAGE:p.39	SPELLS:Vanity Mirror of Disguises|TIMES=1|CASTERLEVEL=1|Change Self,11
+Voodoo Doll									TYPE:Equipment.Goods.FX												COST:31	WT:1																						SOURCEPAGE:p.39

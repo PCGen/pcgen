@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Wed Aug  8 05:24:19 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp
+
+STARTPACK:Default Air Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Air Elemental]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Air Elemental	!PRERACE:1,%
+NAME:Air Elemental
+SKILL:Hide			RANK:8
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:9
+SKILL:Spot			RANK:6
+FEAT:Improved Initiative
+
+STARTPACK:Default Earth Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Earth Elemental]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+RACE:Earth Elemental	!PRERACE:1,%
+NAME:Earth Elemental
+SKILL:Climb		RANK:7
+SKILL:Intimidate	RANK:8
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:5
+FEAT:Power Attack
+
