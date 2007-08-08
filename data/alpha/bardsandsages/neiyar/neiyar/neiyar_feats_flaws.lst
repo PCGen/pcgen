@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Aug  6 05:31:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug  7 19:49:07 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
 
 ###
@@ -12,7 +12,7 @@ Creepy										TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Eccentric Personality,Leadershi
 #!PRETEMPLATE:Shalraeku	!PREFEAT:1,Eccentric Personality,Leadership
 
 Demonic Persecution								TYPE:Flaw	VISIBLE:YES													SA:FLAW:Demonic Persecution	COST:-1	SOURCEPAGE:p.46
-Easily Bruised									TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Toughness,Improved Toughness						SA:FLAW:Easily Bruised		COST:-1	SOURCEPAGE:p.47
+Easily Bruised									TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Toughness									SA:FLAW:Easily Bruised		COST:-1	SOURCEPAGE:p.47
 ###Comments: Not allowed to take feats that improve HP.
 #!PREFEAT:1,Toughness,Improved Toughness
 

@@ -1,13 +1,17 @@
-# CVS $Revision$ $Author$ -- Mon Aug  6 06:10:25 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-
-# CVS $Revision$ $Author$ -- Mon Aug  6 04:51:30 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug  7 19:49:07 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
 ###Original Entry: Andrew Maitland
-###COMMENT: Knowledge (Anatomy) Referenced but uncertain if this is a 3e or new skill. No Skill found in Source pg.56 references the CLASS requiring it. -AM
 
 # Skill Name			Key Stat	Untrained?		Type					Source Page
-Knowledge (Anatomy)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.56
-Knowledge (Outsider Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.43
+Knowledge (Anatomy)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:pg.56
+Knowledge (Outsider Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:pg.43
+
+###COMMENT: Not in the book or listed in SRD: Publisher says these are new skills.
+###COMMENT: Referenced by Class Requirements
+Craft (Trapmaking)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:pg.49
+Knowledge (Traps)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:pg.58
+Profession (Doctor)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:pg.56
+Profession (Trapmaker)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:pg.49
 
 
 ###Block: HEARTH MAGIC SECTION ###
@@ -15,7 +19,7 @@ Knowledge (Outsider Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Know
 Clarity				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Clarity=5					SOURCEPAGE:p.65	ABILITY:FEAT|VIRTUAL|HearthMagicClarity|PRESKILL:1,Clarity=5
 Dedication				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Dedication=10				SOURCEPAGE:p.66	ABILITY:FEAT|VIRTUAL|HearthMagicDedication|PRESKILL:1,Dedication=10
 Ease Birth				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ease Birth=1				SOURCEPAGE:p.66	ABILITY:FEAT|VIRTUAL|HearthMagicEaseBirth|PRESKILL:1,Ease Birth=1
-Focus					NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Dedication=6				SOURCEPAGE:p.66	ABILITY:FEAT|VIRTUAL|HearthMagicFocus|PRESKILL:1,Focus=6
+Focus					NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Focus=6					SOURCEPAGE:p.66	ABILITY:FEAT|VIRTUAL|HearthMagicFocus|PRESKILL:1,Focus=6
 Healing Rest			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Healing Rest=3				SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicHealingRest|PRESKILL:1,Healing Rest=3
 Lucky Break				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Lucky Break=5				SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicLuckyBreak|PRESKILL:1,Lucky Break=5
 Mending				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Mending=2					SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicMending|PRESKILL:1,Mending=2
