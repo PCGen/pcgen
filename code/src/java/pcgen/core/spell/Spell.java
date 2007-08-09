@@ -959,34 +959,21 @@ public final class Spell extends PObject
 		try
 		{
 			aSpell = (Spell) super.clone();
-			aSpell.school = school;
-			aSpell.subschool = subschool;
-			aSpell.componentList = componentList;
-			aSpell.castingTime = castingTime;
-			aSpell.range = range;
-			aSpell.target = target;
-			aSpell.duration = duration;
-			aSpell.saveInfo = saveInfo;
-			aSpell.spellResistance = spellResistance;
-			aSpell.descriptorList = new ArrayList<String>();
-			aSpell.descriptorList.addAll(descriptorList);
-			aSpell.setCastingThreshold(castingThreshold);
+			aSpell.school = new TreeSet<String>(school);
+			aSpell.subschool = new TreeSet<String>(subschool);
+			aSpell.componentList = new TreeSet<String>(componentList);
+			aSpell.castingTime = new TreeSet<String>(castingTime);
+			aSpell.range = new TreeSet<String>(range);
+			aSpell.duration = new TreeSet<String>(duration);
+			aSpell.saveInfo = new TreeSet<String>(saveInfo);
+			aSpell.spellResistance = new TreeSet<String>(spellResistance);
+			aSpell.descriptorList = new ArrayList<String>(descriptorList);
 
-			//aSpell.setMinLVL(minLVL);
-			//aSpell.setMaxLVL(maxLVL);
-			aSpell.creatableItem = creatableItem;
-			aSpell.cost = cost;
-			aSpell.xpCost = xpCost;
-			if (variantList == null)
-			{
-				aSpell.variantList = null;
-			}
-			else
+			if (variantList != null)
 			{
 				aSpell.variantList = new ArrayList<String>();
 				aSpell.variantList.addAll(variantList);
 			}
-			aSpell.ppCost = ppCost;
 
 			if (levelInfo != null)
 			{
