@@ -10,6 +10,9 @@
       <action dev="tir-gwaith" type="fix" issue="1768097">[RSRD] Animal Companion List missing some entries</action>
       <action dev="frank_kliewe" type="add" issue="1753599" due-to="amaitland">[Bards and Sages] Neiyar Land of Heaven and the Abyss</action>
       <action dev="frank_kliewe" type="add" issue="1633758" due-to="kingpaul">[TGM] Modern Magic Vol.1</action>
+      <action dev="darkstorm999" type="fix" issue="1472565">[GMGen] Can not generate generic encounters</action>
+      <action dev="darkstorm999" type="fix" issue="1761877">[GMGen] Overland Travel tab</action>
+      <action dev="thpr" type="update" issue="1613771">Deprecate Default Monster Mode Tags</action>
     </release>
     <release version="5.12.0 RC1" date="2007-5-20" description="Beta release">
       <action dev="thpr" type="fix" issue="1677623">Equipping tab print preview bypasses filters</action>
