@@ -912,11 +912,6 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			availableTable.setColAlign(index, SwingConstants.CENTER);
 		}
-		index = availableTable.convertColumnIndexToView(4);
-		if (index > -1)
-		{
-			availableTable.setColAlign(index, SwingConstants.CENTER);
-		}
 
 		// build the left pane
 		// for the available table
