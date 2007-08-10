@@ -6,6 +6,10 @@
   </properties>
   <body>
     <release version="5.13.0" date="In SVN" description="Alpha release">
+      <action dev="takeyabue" type="fix">W3C Validation of a large part of the documentation</action>
+      <action dev="tir-gwaith" type="fix" issue="1768097">[RSRD] Animal Companion List missing some entries</action>
+      <action dev="frank_kliewe" type="add" issue="1753599" due-to="amaitland">[Bards and Sages] Neiyar Land of Heaven and the Abyss</action>
+      <action dev="frank_kliewe" type="add" issue="1633758" due-to="kingpaul">[TGM] Modern Magic Vol.1</action>
     </release>
     <release version="5.12.0 RC1" date="2007-5-20" description="Beta release">
       <action dev="thpr" type="fix" issue="1677623">Equipping tab print preview bypasses filters</action>
