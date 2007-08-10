@@ -4,3 +4,8 @@ SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http
 
 # Weapon Name		Type
 Scimitar (Krakodon)	TYPE:Exotic
+
+Choke Wire			TYPE:Simple
+Auronne Flute		TYPE:Simple
+Auronne Tambourine	TYPE:Exotic
+###COMMENT: Bards and Auronnes don't require EXOTIC WP FEAT to use. How do we code that?

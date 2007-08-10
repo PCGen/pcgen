@@ -1,8 +1,6 @@
-# CVS $Revision$ $Author$ -- Tue Aug  7 19:49:07 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Aug 10 04:25:34 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
 ###Original Entry: Andrew Maitland
-
-# CVS $Revision$ $Author$ -- Sat Jul 14 22:20:12 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 
 ###Block: Alchemical Items
 # Equipment Name		Type						Cost		Weight	Source Page
@@ -25,11 +23,6 @@ Potion (Complex Thought)					OUTPUTNAME:Potion of [NAME]									TYPE:Magic.Poti
 ### Armor & Shields:
 Demonbane Shield																				TYPE:Enhancement.Shield.Heavy.Specific					COST:25000	WT:15																					EQMOD:STEEL.MWORKA.PLUS1S										SOURCEPAGE:pg.79																				BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
 Ghost Armor																					TYPE:Armor.Light.Suit.Specific.Nonmetal					COST:36000	WT:15				ACCHECK:0																EQMOD:PLUS1A.GHOST_A						MAXDEX:6				SOURCEPAGE:pg.79	SPELLFAILURE:5																	BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
-
-### Weapons
-#Blade of Kalla				NAMEISPI:YES													PROFICIENCY:Longsword			TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword					COST:4315	WT:4										CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL								WIELD:OneHanded							SIZE:M	SOURCEPAGE:MagicItemsII.rtf																																					BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	BONUS:WEAPON|DAMAGE,TOHIT|4|PREFEAT:1,Improved Sunder|TYPE=Enhancement	SPROP:Wielder with Improved Sunder could damage +4 and lower weapons
-###Not an actual weapon but combo of Special Abilities - Make an EQMOD?
-### Grants: +2 Keen mighty cleaving, all pre-existing eqmods.
 
 #Charm Arrows									TYPE:Enhancement.Ammunition.SpecificArrow.Individual							COST:250	WT:0																				EQMOD:STEEL.WOOD																				SOURCEPAGE:pg.80
 Charm Arrow (Sleep)						OUTPUTNAME:Charm Arrow of [NAME]								TYPE:Enhancement.Ammunition.SpecificArrow.Individual			COST:250	WT:0																					EQMOD:STEEL.WOOD												SOURCEPAGE:pg.80
@@ -96,56 +89,43 @@ Voklod'hapthuk's Armor			NAMEISPI:YES						TYPE:Magic.Artifact.Armor.Light.Suit.
 Obar's Scepter				NAMEISPI:YES	PROFICIENCY:Mace (Light)	TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Simple.Specific.Bludgeoning.Mace	WT:12					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL.PLUS4W.BANE_M			WIELD:Light					SIZE:M	SOURCEPAGE:pg.85																																						BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement
 ###COMMENT: +4 bane light mace
 Doldanda's Shell Armor			NAMEISPI:YES						TYPE:Magic.Artifact.Armor.Medium.Suit.Specific						WT:15		ACCHECK:-1												EQMOD:STEEL									MAXDEX:5				SOURCEPAGE:pg.86	SPELLFAILURE:5		BONUS:CHECKS|ALL|4|PRERACE:1,Amphikin	BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE	BONUS:COMBAT|AC|3|TYPE=Divine|!PRERACE:1,Amphikin	BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE|PRERACE:1,Amphikin
+###CLARIFY:+10 more to Armor for total of +14 or total of +10? -- Andrew
 
 ###Block: Appendix Items pg 139 - 143:
-# Equipment Name			Product Identity?	Output Name					Required Proficiency			Type															Contains			Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage			Modifier	Nb Hands	Wield Category	Range		Reach		Size		Source Page		% of Spell Failure	Combat bonus																					Bonus to skill
-Amphikin Trapbuilder's Kit	NAMEISPI:YES													TYPE:Goods																		COST:100																																	SOURCEPAGE:pg.139
-Ankle Braces																		TYPE:Goods																		COST:1																																	SOURCEPAGE:pg.139
-Auronne Flute			NAMEISPI:YES													TYPE:Goods.Tools.Instrument.Wind.Resizable												COST:300																																	SOURCEPAGE:pg.139
-Auronne Tambourine		NAMEISPI:YES													TYPE:Goods.Tools.Instrument.Percussion.Resizable											COST:150																																	SOURCEPAGE:pg.140
-Bicycle																			TYPE:Goods																		COST:10	WT:20																																SOURCEPAGE:pg.140
-Blue Kelp																			TYPE:Goods																		COST:.5																																	SOURCEPAGE:pg.140
-Buckler (Clockwork Beetle)										PROFICIENCY:Buckler			TYPE:Shield.Buckler.Standard															COST:350	WT:5				ACCHECK:0														EQMOD:STEEL	HANDS:0										SOURCEPAGE:pg.140	SPELLFAILURE:3		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
-Celetrine Moss																		TYPE:Goods																		COST:.01																																	SOURCEPAGE:pg.140
-Chicle (Chewing Gum)																	TYPE:Goods.Food																	COST:.03																																	SOURCEPAGE:pg.140
-Choke Wire																			TYPE:Goods																		COST:1																																	SOURCEPAGE:pg.140
-Claw Dagger													PROFICIENCY:Dagger			TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger					COST:10	WT:1							CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4			EQMOD:STEEL			WIELD:Light		RANGE:10			SIZE:M	SOURCEPAGE:pg.140					BONUS:COMBAT|DAMAGE|2
-False Bottom Mandolin					OUTPUTNAME:False-Bottom Mandolin							TYPE:Goods.Container												CONTAINS:30|Any=-1	COST:150																																	SOURCEPAGE:pg.140
-Field Doctor's Kit																	TYPE:Goods																		COST:200																																	SOURCEPAGE:pg.141
-Gespurn Moss																		TYPE:Goods																		COST:10																																	SOURCEPAGE:pg.141
-Groa Rose Oil			NAMEISPI:YES													TYPE:Goods																		COST:10																																	SOURCEPAGE:pg.141
-Insect Repellent																		TYPE:Goods																		COST:.10																																	SOURCEPAGE:pg.141
-Scimitar (Krakodon)		NAMEISPI:YES	OUTPUTNAME:Krakodonian Scimitar	PROFICIENCY:Scimitar (Krakodon)	TYPE:Weapon.Exotic.Melee.Standard.Slashing.Sword											COST:1000	WT:4							CRITMULT:x2			CRITRANGE:3			DAMAGE:2d6			EQMOD:STEEL			WIELD:OneHanded					SIZE:L	SOURCEPAGE:pg.141
-Krakodonian War Shield		NAMEISPI:YES							PROFICIENCY:Shield (Heavy)		TYPE:Shield.Heavy.Standard															COST:100	WT:0				ACCHECK:-2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			EQMOD:STEEL			WIELD:OneHanded					SIZE:M	SOURCEPAGE:pg.141	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
-Masterwork Field Doctor's Kit																TYPE:Goods																		COST:500	WT:0																																SOURCEPAGE:pg.142
-Mahaulta Bone Whip		NAMEISPI:YES							PROFICIENCY:Whip				TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Subdual.Slashing										COST:3	WT:0							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4			EQMOD:BONE			WIELD:OneHanded			REACH:15	SIZE:M	SOURCEPAGE:pg.141
-Mahaulta Monster Lure		NAMEISPI:YES													TYPE:Goods																		COST:200	WT:0																																SOURCEPAGE:pg.142
-Mud Squid Ink																		TYPE:Goods																		COST:20	WT:0																																SOURCEPAGE:pg.142
-Neiyar Field Guide		NAMEISPI:YES													TYPE:Goods.Book																	COST:35	WT:0																																SOURCEPAGE:pg.142
-Plateau Cacti Oil																		TYPE:Goods.Poison																	COST:200	WT:0																																SOURCEPAGE:pg.142
-Hook Launcher																		TYPE:Goods																		COST:100	WT:5																																SOURCEPAGE:pg.142
-Razor Net																			TYPE:Goods																		COST:5	WT:0																																SOURCEPAGE:pg.142
-Rubber Ball																			TYPE:Goods																		COST:.02	WT:0																																SOURCEPAGE:pg.142
-Rubber Chew Toy																		TYPE:Goods																		COST:.05	WT:0																																SOURCEPAGE:pg.142
-Rubber Soled Boots					OUTPUTNAME:Rubber-soled Boots								TYPE:Goods																		COST:5	WT:0																																SOURCEPAGE:pg.142
-Sleeper Bat Venom																		TYPE:Goods.Poison																	COST:200	WT:0																																SOURCEPAGE:pg.142
-Trick Sword													PROFICIENCY:Sword (Short)		TYPE:Weapon.Melee.Finesseable.Martial.Standard.Piercing.Sword									COST:25	WT:0							CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6			EQMOD:STEEL			WIELD:Light						SIZE:M	SOURCEPAGE:pg.143
-Wrist Wraps																			TYPE:Goods.Glove																	COST:.20	WT:0		SLOTS:0																													SOURCEPAGE:pg.143																												BONUS:SKILL|Climb,TYPE.Craft,Disable Device,Open Locks,Rope Use|1|TYPE=Circumstance
+# Equipment Name			Product Identity?	Output Name					Required Proficiency			Type															Alternative Type				Contains			Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Nb Hands	Wield Category	Range		Reach		Size		Source Page		% of Spell Failure	Combat bonus																					Bonus to skill
+Amphikin Trapbuilder's Kit	NAMEISPI:YES													TYPE:Goods																								COST:100																																												SOURCEPAGE:pg.139
+Ankle Braces																		TYPE:Goods.Boot																							COST:1			SLOTS:0																																								SOURCEPAGE:pg.139																												BONUS:SKILL|Balance,Jump,Tumble,Perform (Dancing)|1|TYPE=Circumstantial
+Auronne Flute			NAMEISPI:YES							PROFICIENCY:Auronne Flute		TYPE:Goods.Tools.Instrument.Wind.Resizable.Weapon.Melee.Simple.Bashing				ALTTYPE:Weapon.Ranged.Piercing					COST:300								CRITMULT:x2			CRITRANGE:2			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d3		EQMOD:STEEL	HANDS:1	WIELD:Light		RANGE:20					SOURCEPAGE:pg.139
+Auronne Tambourine		NAMEISPI:YES							PROFICIENCY:Auronne Tambourine	TYPE:Goods.Tools.Instrument.Percussion.Resizable.Weapon.Melee.Exotic.Slashing													COST:150								CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL	HANDS:1	WIELD:Light								SOURCEPAGE:pg.140
+Bicycle																			TYPE:Goods																								COST:10	WT:20																																											SOURCEPAGE:pg.140
+Blue Kelp																			TYPE:Goods																								COST:.5																																												SOURCEPAGE:pg.140
+Buckler (Clockwork Beetle)										PROFICIENCY:Buckler			TYPE:Shield.Buckler.Standard																					COST:350	WT:5				ACCHECK:0																									EQMOD:STEEL	HANDS:0										SOURCEPAGE:pg.140	SPELLFAILURE:3		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
+Celetrine Moss																		TYPE:Goods																								COST:.01																																												SOURCEPAGE:pg.140
+Chicle (Chewing Gum)																	TYPE:Goods.Food																							COST:.03																																												SOURCEPAGE:pg.140
+Choke Wire																			TYPE:Goods.Weapon.Melee																						COST:1																									DAMAGE:1d4					EQMOD:STEEL			WIELD:Light								SOURCEPAGE:pg.140
+Claw Dagger													PROFICIENCY:Dagger			TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger											COST:10	WT:1							CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:STEEL			WIELD:Light		RANGE:10			SIZE:M	SOURCEPAGE:pg.140					BONUS:COMBAT|DAMAGE|2
+False Bottom Mandolin					OUTPUTNAME:False-Bottom Mandolin							TYPE:Goods.Container																		CONTAINS:30|Any=-1	COST:150																																												SOURCEPAGE:pg.140
+Field Doctor's Kit																	TYPE:Goods																								COST:200																																												SOURCEPAGE:pg.141
+Gespurn Moss																		TYPE:Goods																								COST:10																																												SOURCEPAGE:pg.141
+Groa Rose Oil			NAMEISPI:YES													TYPE:Goods																								COST:10																																												SOURCEPAGE:pg.141
+Insect Repellent																		TYPE:Goods																								COST:.10																																												SOURCEPAGE:pg.141
+Scimitar (Krakodon)		NAMEISPI:YES	OUTPUTNAME:Krakodonian Scimitar	PROFICIENCY:Scimitar (Krakodon)	TYPE:Weapon.Exotic.Melee.Standard.Slashing.Sword																	COST:1000	WT:4							CRITMULT:x2			CRITRANGE:3												DAMAGE:2d6					EQMOD:STEEL			WIELD:OneHanded					SIZE:L	SOURCEPAGE:pg.141
+Krakodonian War Shield		NAMEISPI:YES							PROFICIENCY:Shield (Heavy)		TYPE:Shield.Heavy.Standard																					COST:100	WT:0				ACCHECK:-2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL			WIELD:OneHanded					SIZE:M	SOURCEPAGE:pg.141	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+Masterwork Field Doctor's Kit																TYPE:Goods.Tools.SurgeryTools																					COST:500	WT:0																																											SOURCEPAGE:pg.142
+Mahaulta Bone Whip		NAMEISPI:YES							PROFICIENCY:Whip				TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Subdual.Slashing																COST:3	WT:0							CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:BONE			WIELD:OneHanded			REACH:15	SIZE:M	SOURCEPAGE:pg.141
+Mahaulta Monster Lure		NAMEISPI:YES													TYPE:Goods																								COST:200	WT:0																																											SOURCEPAGE:pg.142
+Mud Squid Ink																		TYPE:Goods																								COST:20	WT:0																																											SOURCEPAGE:pg.142
+Neiyar Field Guide		NAMEISPI:YES													TYPE:Goods.Book																							COST:35	WT:0																																											SOURCEPAGE:pg.142
+Plateau Cacti Oil																		TYPE:Goods.Poison																							COST:200	WT:0																																											SOURCEPAGE:pg.142
+Hook Launcher																		TYPE:Goods																								COST:100	WT:5																																											SOURCEPAGE:pg.142
+Razor Net													PROFICIENCY:Net				TYPE:Weapon.Exotic.Ranged.Standard.Thrown																			COST:5	WT:6																														EQMOD:ROPE						RANGE:10					SOURCEPAGE:pg.142
+Rubber Ball																			TYPE:Goods																								COST:.02	WT:0																																											SOURCEPAGE:pg.142
+Rubber Chew Toy																		TYPE:Goods																								COST:.05	WT:0																																											SOURCEPAGE:pg.142
+Rubber Soled Boots					OUTPUTNAME:Rubber-soled Boots								TYPE:Goods																								COST:5	WT:0																																											SOURCEPAGE:pg.142
+Sleeper Bat Venom																		TYPE:Goods.Poison																							COST:200	WT:0																																											SOURCEPAGE:pg.142
+Trick Sword													PROFICIENCY:Sword (Short)		TYPE:Weapon.Melee.Finesseable.Martial.Standard.Piercing.Sword															COST:25	WT:0							CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL			WIELD:Light						SIZE:M	SOURCEPAGE:pg.143
+Wrist Wraps																			TYPE:Goods.Glove																							COST:.20	WT:0		SLOTS:0																																								SOURCEPAGE:pg.143																												BONUS:SKILL|Climb,TYPE.Craft,Disable Device,Open Locks,Rope Use|1|TYPE=Circumstance
 
-
-#TYPES:
-#Goods.Tools.Artisan
-#.Masterwork.Resizable.Consumable
-#.DivineFocus
-#.Instrument.Percussion.Resizable
-#.String
-#.Wind
-#.Trade
-
-##.Container	CONTAINS:300000|Any=-1
-#Service.Transportation
-#.Transportation.Mount.Container
-#.General.Writing.Documents
-#.Liquid.Vial
-#.Poison
-
+#
+## EOF
+#

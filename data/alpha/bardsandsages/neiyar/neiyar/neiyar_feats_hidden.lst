@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug  7 19:49:07 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Aug 10 04:25:34 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
 ###Original Entry: Andrew Maitland
 
@@ -9,13 +9,13 @@ Abyssal Smiting_2nd	VISIBLE:NO														BONUS:VAR|AbyssalSmitingLevel|1
 Abyssal Smiting_3rd	VISIBLE:NO														BONUS:VAR|AbyssalSmitingLevel|1
 
 ###Block: Special Abilities: Shalraeku & Zarakku
-# Feat Name				Output Name				Type				Visible	Required Template		Special Ability				Innate Spells											Save checks bonus		Combat bonus				Vision			Spell Res.	Damage Reduction
+# Feat Name				Output Name				Type				Visible	Required Template		Special Ability				Innate Spells											Save checks bonus		Combat bonus				Vision			Spell Res.
 Immunity to natural poisons						TYPE:ShalraekuZarakku	VISIBLE:NO					SA:Immunity to natural poisons
 Darkvision 60 ft								TYPE:ShalraekuZarakku	VISIBLE:NO																																		VISION:Darkvision (60')
 ###CLARIFY: Although in the Sourcebook Listed as Damage Reduction, I believe the intent is actually a RESISTANCE
-DR 5 Fire									TYPE:ShalraekuZarakku	VISIBLE:NO																																								DR:5/Fire
-DR 5 Electrical								TYPE:ShalraekuZarakku	VISIBLE:NO																																								DR:5/Electrical
-DR 5 Cold									TYPE:ShalraekuZarakku	VISIBLE:NO																																								DR:5/Cold
+#DR 5 Fire									TYPE:ShalraekuZarakku	VISIBLE:NO																																								DR:5/Fire
+#DR 5 Electrical								TYPE:ShalraekuZarakku	VISIBLE:NO																																								DR:5/Electrical
+#DR 5 Cold									TYPE:ShalraekuZarakku	VISIBLE:NO																																								DR:5/Cold
 Resistance to Fire 5							TYPE:ShalraekuZarakku	VISIBLE:NO					SA:Resistance to Fire 5
 Resistance to Electrical 5						TYPE:ShalraekuZarakku	VISIBLE:NO					SA:Resistance to Electrical 5
 Resistance to Cold 5							TYPE:ShalraekuZarakku	VISIBLE:NO					SA:Resistance to Cold 5
@@ -30,15 +30,15 @@ Cure Light Wounds								TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Shalraeku	
 Inflict Light Wounds							TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Zarakku	SA:Inflict Light Wounds			SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cause Light Wounds,11+WIS
 
 ###Block:Flaw Modifications:
-# Feat Name			Prohibited Template
-Iron Will.MOD		!PRETEMPLATE:Weak willed
-Investigator.MOD		!PRETEMPLATE:Gullible
-Leadership.MOD		!PRETEMPLATE:Creepy
-Lightning Reflexes.MOD	!PRETEMPLATE:Skittish
-Combat Reflexes.MOD	!PRETEMPLATE:Skittish
-Toughness.MOD		!PRETEMPLATE:Easily Bruised
-#Improved Toughness.MOD	!PRETEMPLATE:Easily Bruised
-###Improved Toughness feat doesn't exist in RSRD files
+# Feat Name			Prohibited Feat
+Iron Will.MOD		!PREFEAT:Weak willed
+Investigator.MOD		!PREFEAT:Gullible
+Leadership.MOD		!PREFEAT:Creepy
+Lightning Reflexes.MOD	!PREFEAT:Skittish
+Combat Reflexes.MOD	!PREFEAT:Skittish
+Toughness.MOD		!PREFEAT:Easily Bruised
+###Flaws changed to Feats, redid the PRExxx -- Andrew
+
 
 ###Block:Trapper Class Abilities
 # Feat Name		Type			Visible	Special Ability			Weapon prof. bonus
@@ -80,3 +80,6 @@ Hand of Destiny		TYPE:BenevolentSpirit	VISIBLE:NO	SA:Hand of Destiny (Su)
 Answer Prayers		TYPE:BenevolentSpirit	VISIBLE:NO	SA:Answer Prayers
 Blessings			TYPE:BenevolentSpirit	VISIBLE:NO	SA:Blessings
 Miracle			TYPE:BenevolentSpirit	VISIBLE:NO	SA:Miracle
+
+
+###Block: Mod section:

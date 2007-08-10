@@ -43,7 +43,7 @@ TEMPLATE:neiyar_templates.lst
 WEAPONPROF:neiyar_weaponprof.lst
 
 ### IN-PROGRESS:
-#KIT:neiyar_kits_monster.lst
+KIT:neiyar_kits_monster.lst
 #
 # DONE
 #
