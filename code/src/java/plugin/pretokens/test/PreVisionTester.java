@@ -53,6 +53,7 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements
 		VisionType requiredVisionType =
 				VisionType.getVisionType(prereq.getKey());
 
+		boolean found = false;
 		for (Vision charVision : character.getVisionList())
 		{
 			if (charVision.getType().equals(requiredVisionType))
@@ -61,8 +62,13 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements
 				runningTotal +=
 						prereq.getOperator()
 							.compare(visionRange, requiredRange);
+				found = true;
 				break;
 			}
+		}
+		if (!found)
+		{
+			runningTotal += prereq.getOperator().compare(0, requiredRange);
 		}
 		return countedTotal(prereq, runningTotal);
 	}
