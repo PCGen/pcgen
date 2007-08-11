@@ -18,6 +18,7 @@
 	<li><a href="#NewSources">New sources for v5.13.0</a></li>
 	<li><a href="#GMGenIssue">GMGen known issue</a></li>
 	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#CustomDataSets">Custom Data Sets</a></li>
 	<li><a href="#WantToHelp">Want to Help?</a></li>
 	<li><a href="#links">Useful Links</a></li>
 	<li><a href="#ChangeLog">Change Log for 5.13.0</a></li>
@@ -76,10 +77,10 @@ Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1613771" class="ex
 
 <h2><a name="NewSources">New sources for v5.13.0</a></h2>
 <ul>
-	<li>Neiyar Land of Heaven and the Abyss. Thanks to amaitland.
+	<li>[Bards and Sages] Neiyar Land of Heaven and the Abyss.
 </li>
-	<li>
-		Modern Magic Vol.1. Thanks to kingpaul.
+	<li>[TGM]
+		Modern Magic Vol.1.
 	</li>
 </ul>
 <h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
@@ -99,6 +100,11 @@ Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1613771" class="ex
 <p>Java 5. PCGEN 5.13.0 is not compatible with Java
 1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
 <a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Important Warning</h3>
+<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+very important that you read the <a href="#CustomDataSets">Custom Data Sets</a> section below before 
+installing your new version of PCGen.</p>
 
 <h3>Windows Users</h3>
 <p>We recommend that you use the Windows installer.</p>
@@ -144,6 +150,52 @@ the full package bundle with Connor's nifty installer for Mac (distributed as a 
 
 <p />&nbsp;&nbsp;
 
+<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+Editors and the starter data set <em>my_dataset</em>. Both of these need some 
+attention when upgrading PCGen.
+</P>
+<h3>Migrating Data Created in the LST Editor</h3>
+<p>
+If, as is recommended, you install PCGen into a new directory each time you upgrade, 
+you will need to copy over the data created using the LST Editors. To do this follow
+these steps.</p>
+<OL>
+<LI> Stop PCGen, if it is currently running. PCGen must not be 
+running when you copy the files, as PCGen writes a new copy of these files on exit.</LI>
+<LI>Copy the data/customsources folder and all of it contents from your old PCGen install 
+directory to the new install directory.</LI>
+<LI>Start the new version of PCGen and verify that your custom data is present.</LI>
+
+</OL>
+<p>
+If you install PCGen in the same directory as your previous install, your LST 
+editor data will still be present in the new version.</p> 
+
+<h3>Migrating Data Created using the my_dataset files</h3>
+<p>
+PCGen ships with an example set of data files ready to go to create you own data. This 
+is in the data/my_dataset folder. As the example files ship with PCGen, it is very important
+to note that these can be overwritten by a new PCGen install if you have not renamed the 
+data set and install the new version of PCGen in the same location as the old one.
+</p>
+<p>
+As a result we strongly recommend that when using the my_dataset example files you create a 
+copy in a new folder and work with that copy, rather than editing the example files directly.
+</p>
+<p> 
+If you install PCGen into a new directory each time you upgrade, 
+you may need to copy over the data you have created. If you cannot see your custom data, simply copy 
+over the folder with your custom data to the same location in the new PCGen install. The data should 
+then be visible when you restart PCGen. </p>
+<p>
+If you are installing PCGen into the same directory, backup your custom data first, then make sure it 
+does not use the default my_dataset folder name. Once you are sure you data is safe, then proceed with 
+the upgrade of PCGen.  
+
+</p>
+
 <h2><a name="WantToHelp">Want to Help?</a></h2>
 
 <p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
@@ -161,13 +213,15 @@ the gods have mercy on your soul :-).</p>
 <li>The project <b>home page</b>:<br />
 <a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
 <li>The project <b>Wiki</b>:<br />
-<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+
 <li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
 <a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
 <li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
 <a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
 <li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
-<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+
+<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?foru<nobr>m<wbr></nobr>_name=pcgen-devel</a>
 <li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
 <a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
 </ul>
