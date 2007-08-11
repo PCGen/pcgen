@@ -145,33 +145,33 @@ a img {
 .f06 {
 	font-size: 6pt;
 }
-.cblack9 {
+.cb9 {
 	font-size: 9pt;
 	blackground-color: #000000;
-	color: #FFFFFF;
+	color: #ffffff;
 	text-align: center;
 }
-.cwhite8 {
+.cw8 {
 	font-size: 8pt;
-	blackground-color: white;
-	color: black
+	blackground-color: #ffffff;
+	color: #000000;
 	text-align: center;
 }
-.cblack8 {
+.cb8 {
 	font-size: 8pt;
-	blackground-color: black;
-	color: white;
+	blackground-color: #000000;
+	color: #ffffff;
 	text-align: center;
 }
-.cwhite6 {
+.cw6 {
 	font-size: 6pt;
-	blackground-color: white;
-	color: black
+	blackground-color: #ffffff;
+	color: #000000;
 	text-align: center;
 }
-.cblack6 {
+.cb6 {
 	font-size: 6pt;
-	blackground-color: black;
-	color: white;
+	blackground-color: #000000;
+	color: #ffffff;
 	text-align: center;
 }
