@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.13.0
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.13.0</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.13.0</a></li>
+	<li><a href="#GMGenIssue">GMGen known issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.13.0</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.13.0</a></h2>
+PCGen v5.13.0 is an alpha release from our development branch to allow experimentation and testing of our latest work. Some notable new changes are:
+<ul>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+W3C Validation of a large part of the documentation
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#takeyabue">takeyabue</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+[RSRD
+]
+Animal Companion List missing some entries
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1768097" class="externalLink" title="External Link">1768097</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#tir-gwaith">tir-gwaith</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+[Bards and Sages
+]
+Neiyar Land of Heaven and the Abyss
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1753599" class="externalLink" title="External Link">1753599</a>.
+Thanks to amaitland.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#frank_kliewe">frank_kliewe</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+[TGM
+]
+Modern Magic Vol.1
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1633758" class="externalLink" title="External Link">1633758</a>.
+Thanks to kingpaul.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#frank_kliewe">frank_kliewe</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+[GMGen
+]
+Can not generate generic encounters
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1472565" class="externalLink" title="External Link">1472565</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#darkstorm999">darkstorm999</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+[GMGen
+]
+Overland Travel tab
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1761877" class="externalLink" title="External Link">1761877</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#darkstorm999">darkstorm999</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Deprecate Default Monster Mode Tags
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1613771" class="externalLink" title="External Link">1613771</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+</ul>
+
+<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+  Tab when running a combat when you select any character other than the one whose
+  turn it is and click the Damage or Heal buttons the character whose turn it
+  is becomes selected and the damage is applied to him instead of the character
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around.
+  The problem will only manifest when using the System Look and Feel, you can
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.13.0 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5130_full.zip?download">pcgen5130_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5130_full.zip.asc?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5130_partial.zip?download">pcgen5130_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5130_partial.zip.asc?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5130_win_install.exe?download">pcgen5130_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5130_win_install.exe.asc?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5130_mac_install.dmg?download">pcgen5130_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5130_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.13.0</a></h2>
+<h3>Bugs
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1762837">1762837</a> ]	Some dialogs not correctly centered with dual screen
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1762538">1762538</a> ]	Clear SPROP
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1761565">1761565</a> ]	LST file loading line counting incorrect
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1761564">1761564</a> ]	CHOOSE:NUMBER false positive error
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1761563">1761563</a> ]	CHOOSE:WEAPONPROF throws NPE rather than error message
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1761561">1761561</a> ]	Logging specificity lost due to convenience method
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754378">1754378</a> ]	WEAPONO always using first off hand attack
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754377">1754377</a> ]	KIT not processing PRE properly
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754372">1754372</a> ]	BONUS:ATTACKSPROGRESS fix
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754369">1754369</a> ]	Adding same spell book twice breaks KIT
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754367">1754367</a> ]	alignment in kit causing infinite loop
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1750793">1750793</a> ]	CLASS.0.SALIST broken
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1750149">1750149</a> ]	Spells Editor - Material Comp Cost Doesn't Remove Old Value
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1749909">1749909</a> ]	ant build.xml improvements and fixes
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1749753">1749753</a> ]	Properties not written to disk every time with Linux Java 6
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1746873">1746873</a> ]	String out of Bounds error with incomplete SUBSTITUTIONLEVEL
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1743527">1743527</a> ]	Changing Equip Set does not recalculate AC properly
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1740281">1740281</a> ]	Race SKILLMULT interation with game mode SKILLMULTIPLIER
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1734820">1734820</a> ]	Template sorting requires double click to open sub tree
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1728855">1728855</a> ]	Cannot create custom wand
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1727049">1727049</a> ]	PRECLASS: does not support TYPE. (but docs say it does)
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1726088">1726088</a> ]	Spelling errors in properties file
+</ul>
+
+<h3>Data Bugs
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1762979">1762979</a> ]	[RSRD] Race refers to non-existant Spell
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1757527">1757527</a> ] 	Fixes for races K and L
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1757525">1757525</a> ] 	Fixes for races I and J
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1757522">1757522</a> ]	Fixes for races G and H
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1757521">1757521</a> ]	Fixes for races E and F
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1757519">1757519</a> ]	Fixes for races C and D
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1755305">1755305</a> ]	[RSRD] \'A/B\' Data fixes
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1755304">1755304</a> ]	[RSRD] \'K/L\' Data fixes
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1755303">1755303</a> ]	[RSRD] \'I/M\' Data fixes
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1755301">1755301</a> ]	[RSRD] Giant Data fixes
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1755300">1755300</a> ]	[RSRD] \'G/H\' Data fixes
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1755298">1755298</a> ]	[RSRD] \'E/F\' Data fixes
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1755296">1755296</a> ]	[RSRD] \'D\' Data fixes
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1749968">1749968</a> ]	[SRD] bad EXCLASS reference
+</ul>
+
+<h3>Data Freqs
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1736958">1736958</a> ]	Support diseases on Temp bonuses tab
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1734029">1734029</a> ]	Epic Skill Focus Support
+</ul>
+
+<h3>Development Specs
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1742590">1742590</a> ]	FEATAUTO to AUTO:FEAT
+</ul>
+
+<h3>Doc Bugs
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1756453">1756453</a> ]	Doc the max to PREATT
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1756449">1756449</a> ]	Add Fedora information in faqoutofmemoryandjavaissues.html
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754341">1754341</a> ]	Document work around for CHOICE in .CLEAR
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754068">1754068</a> ]	Corrections for SUBCLASS:
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1748831">1748831</a> ]	Adding SIZE data and updating tags information
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1748735">1748735</a> ]	Add Default data to RANK and Order of Ops to copy, mod, forg
+</ul>
+
+<h3>Doc FREQS
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+</ul>
+
+<h3>Feature Requests
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754379">1754379</a> ]	Add LENGTH, REPLACE and REPLACEALL to TEXT
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754370">1754370</a> ]	Add .CLEAR support to RACESUBTYPE.
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754363">1754363</a> ]	Add a new variable %FEAT to the Description tag
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754356">1754356</a> ]	Add DESC functionality to BENEFIT tag for Abilities
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1748116">1748116</a> ]	Global AUTO:FEAT
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1735603">1735603</a> ]	Display load limits in equipping tab
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1726422">1726422</a> ]	Deprecate CHOOSE:SKILLIST
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1726271">1726271</a> ]	CCSKILL to support LIST
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1708215">1708215</a> ]	VFEAT not a Token - needs to be extracted from PObjectLoader
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696679">1696679</a> ]	Deprecate Race LST INIT
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696652">1696652</a> ]	Class LST XPPENALTY to be Deprecated
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1689591">1689591</a> ]	Deprecate MOVEA
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1683322">1683322</a> ]	Deprecate CHOOSE:WEAPONFOCUS
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1613771">1613771</a> ]	Deprecate Default Monster Mode Tags
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=626503">626503</a> ]	Commons Logging or Log4j - Error/Exception handling
+</ul>
+
+<h3>New Datasource Development
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+</ul>
+
+<h3>OS Bugs
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+</ul>
+
+<h3>OS FREQs
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+</ul>
+
+<h3>Plugin Bugs
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1763296">1763296</a> ]	Character Tracker Tools menu entry does not deactivate
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1763292">1763292</a> ]	Notes entry in Tools Menu remains disabled after visited
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1744542">1744542</a> ]	Adding an ape to encounter generates error
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1472565">1472565</a> ]	can not generate generic encounters
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1761877">1761877</a> ]	[GMGen] Overland Travel tab
+</ul>
+
+<h3>Plugin FREQs
+</h3><ul>
+</ul>
+
+<h3>Link	Title	Status
+</h3><ul>
+</ul>
+
+<h3>PrettyLst</h3><ul>
+
+</ul>
+
+
+</body>
+</html>
