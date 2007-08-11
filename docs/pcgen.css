@@ -145,6 +145,13 @@ a img {
 .f06 {
 	font-size: 6pt;
 }
+
+.cblack9 {
+	font-size: 9pt;
+	blackground-color: black;
+	color: white;
+	text-align: center;
+}
 .cwhite8 {
 	font-size: 8pt;
 	blackground-color: white;
