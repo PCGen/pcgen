@@ -145,11 +145,10 @@ a img {
 .f06 {
 	font-size: 6pt;
 }
-
 .cblack9 {
 	font-size: 9pt;
-	blackground-color: black;
-	color: white;
+	blackground-color: #000000;
+	color: #FFFFFF;
 	text-align: center;
 }
 .cwhite8 {
