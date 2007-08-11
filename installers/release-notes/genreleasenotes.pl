@@ -30,6 +30,12 @@ while (<ROADMAP>) {
         	s/\s*Closed *$//i;
         	print CHANGELOG $_;
         }
+        elsif ( /^Link	Title	Status$/){
+        	# do nothing
+        }
+        elsif ( /^PrettyLst$/){
+        	# do nothing
+        }
         elsif ( /^[a-z]/oi ) {
         	if (!$firstTime) {
         		print CHANGELOG "</ul>\n\n";
