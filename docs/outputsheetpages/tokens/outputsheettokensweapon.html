@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 		
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensweapon.html,v 1.6 2005/12/01 11:57:08 karianna Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -19,8 +18,8 @@
 	-->
 	<head>
 		<title>Weapon Output Sheet Tokens</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css">
+  		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 
 	<body>
@@ -28,8 +27,8 @@
 
 		<p>The below Tokens control how weapon and weapon proficency information is presented in Output Sheets (OS).</p>
 
-		<p></p><a name="WEAPON"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> WEAPON.[q.][r.]s.z</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="WEAPON">Token Name:</a></strong> WEAPON.[q.][r.]s.z</p>
 		<p class="indent1"><strong> Variables Used (q):</strong> Text (Merge Type - Optional).</p>
 		<ul class="indent2">
 			<li>MERGEALL - Causes all weapons with the same name to be merged - default behavior.</li>
@@ -91,7 +90,7 @@
 			<li>WT - Weight of weapon in lbs.</li>
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays various information about a character¥s weapons.  Note:  Use 
+		<p class="indent2">Displays various information about a character's weapons.  Note:  Use 
 		the WEAPON token with the RANGELIST option (see below) if you want ammunition bonuses 
 		included.</p>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -99,8 +98,8 @@
 		<p class="indent3">Displays the size of the first weapon.</p>
 		
 		
-		<p></p><a name="WEAPON_RANGELIST"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> WEAPON.[q.][r.]s.RANGELIST.n.u</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="WEAPON_RANGELIST">Token Name:</a></strong> WEAPON.[q.][r.]s.RANGELIST.n.u</p>
 		<p class="indent1"><strong> Variables Used (q):</strong> Text (Merge Type - Optional).</p>
 		<ul class="indent2">
 			<li>MERGEALL - Causes all weapons with the same name to be merged - default behavior.</li>
@@ -175,8 +174,8 @@
 		<p class="indent3">Would display the damage for the the 1st range increment for the 1st weapon.</p>
 		
 		
-		<p></p><a name="WEAPON_AMMUNITION"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> WEAPON.[q.][r.]s.RANGELIST.n.u.AMMUNITION.v.w</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="WEAPON_AMMUNITION">Token Name:</a></strong> WEAPON.[q.][r.]s.RANGELIST.n.u.AMMUNITION.v.w</p>
 		<p class="indent0"><strong>Suntoken Name:</strong> AMMUNITION (Can only be used with RANGELIST)</p>
 		<p class="indent1"><strong> Variables Used (v):</strong> Number (Displays the properties of the v-th ammunition that will fit the s-th 
 																		selected weapon at the n-th range increment, 0-based index).</p>
@@ -195,8 +194,8 @@
 		<p class="indent3">Displays the damage from the 1st type of compatible ammunition at point blank range for the 1st weapon.</p>
 		
 		
-		<p></p><a name="WEAPON_CONTENTS"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> WEAPON.[q.][r.]s.CONTENTS.v.w</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="WEAPON_CONTENTS">Token Name:</a></strong> WEAPON.[q.][r.]s.CONTENTS.v.w</p>
 		<p class="indent0"><strong>Suntoken Name:</strong> CONTENTS</p>
 		<p class="indent1"><strong> Variables Used (v):</strong> Number (Displays the properties of the v-th ammunition contained by the s-th selected weapon, 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (w):</strong> Text (Weapon Property).</p>
@@ -211,8 +210,8 @@
 		<p class="indent3">Displays the name of the 1st type of contained ammunition.</p>
 		
 		
-		<p></p><a name="WEAPON_RANGELIST_CONTENTS"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> WEAPON.[q.][r.]s.RANGELIST.n.u.CONTENTS.v.w</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="WEAPON_RANGELIST_CONTENTS">Token Name:</a></strong> WEAPON.[q.][r.]s.RANGELIST.n.u.CONTENTS.v.w</p>
 		<p class="indent0"><strong>Suntoken Name:</strong> CONTENTS</p>
 		<p class="indent1"><strong> Variables Used (v):</strong> Number (Displays the properties of the v-th ammunition contained by the s-th selected weapon at the n-th range increment, 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (w):</strong> Text (Weapon Property).</p>
@@ -229,34 +228,38 @@
 		<p class="indent2"><code>WEAPON.0.RANGELIST.0.CONTENTS.0.DAMAGE</code></p>
 		<p class="indent3">Displays the damage from the 1st type of contained ammunition at point blank range fired by the 1st weapon.</p>
 		
-		<p></p><a name="WEAPONH"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> WEAPONH.[q.][r.]s.z</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="WEAPONH">Token Name:</a></strong> WEAPONH.[q.][r.]s.z</p>
 		<p class="indent1"><strong> Variables Used:</strong> The same options available to the <a href="#WEAPON">WEAPON</a> token.</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays information about the &quot;Unarmed&quot; Weapon.</p>
 		
 		
-		<p></p><a name="WEAPONO"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> WEAPONO.[q.][r.]s.z</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="WEAPONO">Token Name:</a></strong> WEAPONO.[q.][r.]s.z</p>
 		<p class="indent1"><strong> Variables Used:</strong> The same options available to the <a href="#WEAPON">WEAPON</a> token.</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays information about the Weapon equipped to the off-hand.</p>
 		
-		<p></p><a name="WEAPONP"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> WEAPONP.[q.][r.]s.z</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="WEAPONP">Token Name:</a></strong> WEAPONP.[q.][r.]s.z</p>
 		<p class="indent1"><strong> Variables Used:</strong> The same options available to the <a href="#WEAPON">WEAPON</a> token.</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays information about the Weapon equipped to the primary hand.</p>
 		
-		<p></p><a name=WEAPONPROFS></a><hr>
-		<p class=indent0><strong>Token Name:</strong> WEAPONPROFS</p>
+		<p></p><hr>
+		<p class=indent0><strong><a name=WEAPONPROFS>Token Name:</a></strong> WEAPONPROFS</p>
 		<p class=indent1><strong>What it does:</strong></p>
 		<p class=indent2>Displays the characters weapon proficiencies.</p>
 		<p class=indent1><strong>Example:</strong></p>
 		<p class=indent2><code>WEAPONPROFS</code></p>
 		<p class=indent3>Displays the characters weapon proficiencies.</p>
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="../../images/system/valid-html401.png"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
 
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensweapon.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-	</body>
+</body>
 
 </html>

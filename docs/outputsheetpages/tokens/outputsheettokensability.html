@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 		
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensability.html,v 1.7 2004/09/18 13:36:23 chuckpint Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -17,16 +16,17 @@
 		Provides information on the use of Output Sheet Tokens: Ability Related.
 	-->
 	<head>
-			<title>Ability Related Output Sheet Tokens</title>
-			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+		<title>Ability Related Output Sheet Tokens</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css">
+  		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 	
 	<body>
 		<h1>Ability Related Output Sheet Tokens</h1>
 		
-		<p></p><a name="AC"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> AC.x</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Text (ACTYPE value defined in gamemode´s miscinfo.lst file.).</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="AC">Token Name:</a></strong> AC.x</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (ACTYPE value defined in gamemode's miscinfo.lst file.).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This token will display the ACTYPE formula defined in miscinfo.lst and calculate the AC.</p>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -34,16 +34,16 @@
 		<p class="indent3">Will get the Flatfooted ACTYPE formula from miscinfo.lst.
 		</p>
 
-		<p></p><a name="ACCHECK"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> ACCHECK</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="ACCHECK">Token Name:</a></strong> ACCHECK</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays the sum for Armour Check Penalty for all equiped armor.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ACCHECK</code></p>
 		<p class="indent3">Displays Armour Check Penalty for all equiped armor.</p>
 		
-		<p></p><a name="ARMOR"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> ARMOR.x.y.z</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="ARMOR">Token Name:</a></strong> ARMOR.x.y.z</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Property (Merge Code).</p>
 		<ul class="indent2">
 			<li>MERGEALL - Causes all armors with the same name to be merged (default behavior).</li>
@@ -196,8 +196,8 @@
 		<p class="indent3">Would display the name of the xth equipped mithral item, which is neither suit,
 			shirt, nor shield, but bestows a bonus to AC.</p>
 
-		<p></p><a name="BONUS"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> BONUS.w.x.[!]y.[!]y.[!]TYPE=z.[!]TYPE=z</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="BONUS">Token Name:</a></strong> BONUS.w.x.[!]y.[!]y.[!]TYPE=z.[!]TYPE=z</p>
 		<p class="indent1"><strong> Variables Used (w):</strong> Text (Type of bonus - e.g. COMBAT).</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Name of bonus - e.g. AC).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (The bonus
@@ -228,25 +228,25 @@
 		<p class="indent2"><code>BONUS.COMBAT.AC.TYPE=Shield</code></p>
 		<p class="indent3">Would display the armor bonus granted by an equipped shield.</p>
 
-		<p></p><a name="MAXDEX"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> MAXDEX</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="MAXDEX">Token Name:</a></strong> MAXDEX</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays the maximum Dexterity bonus from all armor.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>MAXDEX</code></p>
 		<p class="indent3">Displays max Dex bonus for all equiped armor.</p>
 
-		<p></p><a name="SPELLFAILURE"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> SPELLFAILURE</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="SPELLFAILURE">Token Name:</a></strong> SPELLFAILURE</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays the Arcane spell failure from all armor.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLFAILURE</code></p>
 		<p class="indent3">Displays spell failure for all equiped armor.</p>
 
-		<p></p><a name="STAT"></a><hr>
+		<p></p><hr>
 		
-<p class="indent0"><strong>Token Name:</strong> STAT.w.x</p>
+<p class="indent0"><strong><a name="STAT">Token Name:</a></strong> STAT.w.x</p>
 		<p class="indent1"><strong> Variables Used (w):</strong> Number as set by the statsandchecks.lst file in the gamemode (0=STR, 1=DEX, 2=CON, 3=INT, 4=WIS, 5=CHA).</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Property (Stat Property).</p>
 		<ul class="indent2">
@@ -279,7 +279,12 @@
 		<p class="indent2"><code>STAT.2.LEVEL.4.NOPOST.NOEQUIP</code></p>
 		<p class="indent3">The Constitution at Level 4 with no user modification and without equipment bonuses.</p>
 
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensability.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="../../images/system/valid-html401.png"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+
 	</body>
 
 </html>

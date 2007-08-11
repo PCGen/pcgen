@@ -4,7 +4,6 @@
 	<!--
 		PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensspell.html,v 1.8 2004/12/21 05:02:29 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -18,25 +17,26 @@
 		Provides information on the use of Output Sheet Tokens: Spell Related.
 	-->
 	<head>
-			<title>Spell Related Output Sheet Tokens</title>
-			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+		<title>Spell Related Output Sheet Tokens</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css">
+  		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 
 	<body>
 		<h1>Spell Related Output Sheet Tokens</h1>
 
-		<p></p><a name="BASEPPCOST"></a><hr>
+		<p></p><hr>
 		<p class="new">*** NEW 5.10.1</p>
-		<p class="indent0"><strong>Token Name:</strong> BASEPPCOST</p>
+		<p class="indent0"><strong><a name="BASEPPCOST">Token Name:</a></strong> BASEPPCOST</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Reports the PPCOST from a spell .</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BASEPPCOST</code></p>
 		<p class="indent3">Undocumentated.</p>
 
-		<p></p><a name="MAXSPELLLEVEL"></a><hr>
+		<p></p><hr>
 		<p class="new">*** new 5.7.12</p>
-		<p class="indent0"><strong>Token Name:</strong> MAXSPELLLEVEL.x</p>
+		<p class="indent0"><strong><a name="MAXSPELLLEVEL">Token Name:</a></strong> MAXSPELLLEVEL.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The class number).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">The value returned is an integer containing the highest spell level that the class
@@ -44,9 +44,9 @@
 							Rangers etc)).</p>
 
 
-		<p></p><a name="SPELLBOOK"></a><hr>
+		<p></p><hr>
 		<p class="new">*** new 5.10.1</p>
-		<p class="indent0"><strong>Token Name:</strong> SPELLBOOK.x.y</p>
+		<p class="indent0"><strong><a name="SPELLBOOK">Token Name:</a></strong> SPELLBOOK.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The Spell book Number of the spell book
 									you wish to display).</p>
 		<p class="indent2">* The known spell book is spell book number 0.</p>
@@ -66,13 +66,13 @@
 		<p class="indent2">* TYPE - Display the type (e.g. Known Spells, Prepared List) of the spell book or
 									list.</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays information about the character's spell book or spell list.</li>
+		<p class="indent2">Displays information about the character's spell book or spell list.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLBOOK.0.NAME</code></p>
 		<p class="indent3">Displays the name of the 1st spell book for the character.</p>
 		
-		<p></p><a name="SPELLBOOKNAME"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> SPELLBOOKNAME.x</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="SPELLBOOKNAME">Token Name:</a></strong> SPELLBOOKNAME.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The book number of the spellbook title you wish to display).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -87,9 +87,9 @@
 		<p class="indent2"><code>SPELLBOOKNAME.0</code></p>
 		<p class="indent3">Display Spell Book 0 (the default spellbook).</p>
 
-		<p></p><a name="SPELLLIST"></a><hr>
+		<p></p><hr>
 		<p class="new">*** updated 5.7.9</p>
-		<p class="indent0"><strong>Token Name:</strong> SPELLLISTx.y.z</p>
+		<p class="indent0"><strong><a name="SPELLLIST">Token Name:</a></strong> SPELLLISTx.y.z</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (The spellbook option you wish to display).</p>
 		<ul class="indent2">
 			<li>BOOK.y.z.w - Gives a comma delimited list of spells known to spellcaster class number y for level z (if any) of book w.</li>
@@ -117,8 +117,8 @@
 		<p class="indent2"><code>SPELLLISTTYPE.0.1</code></p>
 		<p class="indent3">Displays the spell list type of the 1<sup>st</sup> spellcaster class the character has.</p>
 
-		<p></p><a name="SPELLMEM"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> SPELLMEM.v.w.x.y.z</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="SPELLMEM">Token Name:</a></strong> SPELLMEM.v.w.x.y.z</p>
 		<p class="indent1"><strong> Variables Used (v):</strong> Number (The class number of the spell you wish to display).</p>
 		<p class="indent1"><strong> Variables Used (w):</strong> Number (The Spellbook Number of the spell you wish to display).</p>
 		<ul class="indent2">
@@ -167,24 +167,29 @@
 		<p class="indent3">Displays the Name of the 1<sup>st</sup> 0<sup>th</sup> level spell in the 1<sup>st</sup>
 			spellbook for the 1<sup>st</sup> character class.</p>
 
-		<p></p><a name="SPELLPOINTS"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> SPELLPOINTS</p>
+		<p></p><hr>
+		<p class="indent0"><strong><a name="SPELLPOINTS">Token Name:</a></strong> SPELLPOINTS</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Use only for Deadlands. Gives the number of Spellpoints the character has.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLPOINTS</code></p>
 		<p class="indent3">Gives the number of Spellpoints the character has.</p>
 
-		<p></p><a name="BASEPPCOST"></a><hr>
+		<p></p><hr>
 		<p class="new">*** NEW 5.10.1</p>
-		<p class="indent0"><strong>Token Name:</strong> BASEPPCOST</p>
+		<p class="indent0"><strong><a name="BASEPPCOST">Token Name:</a></strong> BASEPPCOST</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Reports the PPCOST from a spell .</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BASEPPCOST</code></p>
 		<p class="indent3">Undocumentated.</p>
+		
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="../../images/system/valid-html401.png"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
 
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensspell.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-	</body>
+</body>
 
 </html>
