@@ -442,5 +442,10 @@
       <name>5.12.0RC2</name>
       <tag>release-5.12.0RC2</tag>
     </version>
+    <version>
+      <id>5.13.0</id>
+      <name>5.13.0</name>
+      <tag>release-5.13.0</tag>
+    </version>
   </versions>
 </project>
