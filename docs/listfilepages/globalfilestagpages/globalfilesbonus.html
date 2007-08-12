@@ -1590,6 +1590,24 @@
 
 <hr>
 
+	<p class="new">*** New 5.5.5</p>
+	<p class="indent0"><strong><a name="VISION">Tag Name:</a></strong> BONUS:VISION|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Vision type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number or formula to adjust vision range by)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Adds the vision type specified if you don't already have it, otherwise it increases the range of the vision type by the number specified.</li>
+		<li>Vision types include (but are not limited to): Blindsense, Darkvision, Low-Light.</li>
+		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:VISION|Darkvision|30</code></p>
+	<p class="indent3">Adds DarkVision (30') if you don't have Darkvision, otherwise it increases your darkvision range by 30'.</p>
+	<p class="indent2"><code>BONUS:VISION|Darkvision|((CL/4).TRUNC+1)*10</code></p>
+	<p class="indent3">Increases a characters Darkvision by 10 feet every four levels starting at 1st level.</p>
+	<p class="indent2"><code>BONUS:VISION|Darkvision|60|PRERACE:1,TYPE=Robot</code></p>
+	<p class="indent3">Adds Darkvision (60') if you don't have Darkvision, otherwise it increases your darkvision range by 60', if you are a robot.</p>
+
 <hr>
 
 	<p class="new">*** Updated 5.5.2</p>
