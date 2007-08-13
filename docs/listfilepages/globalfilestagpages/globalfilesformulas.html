@@ -346,29 +346,33 @@
 
 <hr>
 
-	<p class="indent1"><strong><a name="SymbolsOpers">Symbols Operators</a></strong></p>
+	<p class="indent1"><strong><a name="SYMBOLOPERATORS">Symbol Operators</a></strong></p>
 	<p class="indent2">The following symbol operators are explained below.<br></p>
-	<p class="indent1"><code><a name="%CHOICE">%CHOICE</a></code></p>
+	<p class="indent1"><code><a name="%PERCENTCHOICE">%CHOICE</a></code></p>
 	<p class="indent2"><strong>What it does:</strong></p>
-	<p class="indent2">The %CHOICE will put the input from a CHOOSE tag into its place, can be used in math computations.</p>
+	<p class="indent3">The %CHOICE will put the input from a CHOOSE tag into its place.</p>
+	<p class="indent2"><strong>Where it is used:</strong></p>
+	<p class="indent3">In conjunction with the CHOOSE, including within math computations.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SPROP:Unreliable (%CHOICE) &lt;tab&gt; CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%</code></p>
 	<p class="indent3">Chooser to select the level of unreliablty.</p>
-	<p class="indent1"><code><a name="%LIST">%LIST</a></code></p>
+	<p class="indent1"><code><a name="PERCENTLIST">%LIST</a></code></p>
 	<p class="indent2"><strong>What it does:</strong></p>
-	<p class="indent2">The %LIST will put the input from a CHOOSE tag into its place, can not be used in math computations.</p>
+	<p class="indent3">The %LIST will put the input from a CHOOSE tag into its place.</p>
+	<p class="indent2"><strong>Where it is used:</strong></p>
+	<p class="indent3">In conjunction with the CHOOSE tag but not within math computations.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL &lt;tab&gt; BONUS:CHECKS|%LIST|1</code></p>
 	<p class="indent3"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL, of which the selection is put into BONUS:CHECKS|%LIST|1</code></p>
-	<p class="indent1"><code><a name="!">! (Not)</a></code></p>
+	<p class="indent1"><code><a name="EXCLAMATION">!</a></code> (Not)</p>
 	<p class="indent2"><strong>What it does:</strong></p>
-	<p class="indent2">The NOT operator.</p>
+	<p class="indent3">The NOT operator.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SKILL|Swim|1|!PRESKILL:1,Swim=1.</code></p>
 	<p class="indent3"><code>If the character has swim, add 1 to it, if not add 1 to swim.</code></p>
-	<p class="indent1"><code><a name="%">% (Replacement/Substitution)</a></code></p>
+	<p class="indent1"><code><a name="PERCENT">% (Replacement/Substitution)</a></code></p>
 	<p class="indent2"><strong>What it does:</strong></p>
-	<p class="indent2">The Replacement/Substitution Operator, used in the SA: tag.</p>
+	<p class="indent3">The Replacement/Substitution Operator, used in the SA: tag.</p>
 	<p class="indent2">See the <a href="globalfilesother.html#SA">SA:</a>tag for more information.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:Acid|Cold|Electricity|Fire &lt;tab&gt; SA:Resistance to % 5|LIST</code></p>
