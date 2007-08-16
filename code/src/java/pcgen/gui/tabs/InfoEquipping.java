@@ -3817,8 +3817,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 						JOptionPane
 							.showConfirmDialog(
 								this,
-								PropertyFactory.getFormattedString("in_ieExportEqOverwriteFileConfirmDesc",outFile.getName()),
-								PropertyFactory.getFormattedString("in_ieExportEqOverwriteFileConfirmTitle", outFile.getName()),
+								PropertyFactory.getFormattedString("in_ieExportEqSetOverwriteFileConfirmDesc",outFile.getName()),
+								PropertyFactory.getFormattedString("in_ieExportEqSetOverwriteFileConfirmTitle", outFile.getName()),
 								JOptionPane.YES_NO_OPTION);
 
 				if (reallyClose != JOptionPane.YES_OPTION)
