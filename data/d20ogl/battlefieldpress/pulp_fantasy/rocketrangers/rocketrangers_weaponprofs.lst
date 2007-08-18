@@ -7,4 +7,4 @@ SOURCELONG:Rocket Rangers - King of the Rocket Men	SOURCESHORT:RocketRngr	SOURCE
 #Handguns
 # Weapon Name	Output Name				Type
 Electro weapons	OUTPUTNAME:Electro-Weapons	TYPE:ExoticFirearms
-Electro cannon	OUTPUTNAME:Electro-Weapons	TYPE:ExoticFirearms
+Electro cannon	OUTPUTNAME:Electro-Cannon	TYPE:ExoticFirearms
