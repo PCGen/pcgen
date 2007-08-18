@@ -41,6 +41,8 @@ Lance				TYPE:Martial
 Longbow			TYPE:Martial		HANDS:2
 Longbow (Composite)	TYPE:Martial		HANDS:2
 Longspear			TYPE:Martial
+Mace				TYPE:Simple
+###COMMENT:Mace should be Light or Heavy, leaving this in until all 3.0 sources are corrected. -AM
 Mace (Light)		TYPE:Simple
 Mace (Heavy)		TYPE:Simple
 Morningstar			TYPE:Simple
