@@ -80,7 +80,7 @@ Dagger (Punching)		OUTPUTNAME:Dagger, [NAME]	PROFICIENCY:Dagger (Punching)		TYPE
 Gauntlet (Spiked)		OUTPUTNAME:Gauntlet, [NAME]	PROFICIENCY:Gauntlet (Spiked)		TYPE:Weapon.Unarmed.Simple.Melee.Piercing.Standard.Gauntlet									COST:5	WT:2									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL																SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
 
 #SMALL ----------------------------------------------------------------------------------------------------------
-Mace (Light)		OUTPUTNAME:Mace, Light		PROFICIENCY:Mace				TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Mace										COST:5	WT:6									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL																SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Mace (Light)		OUTPUTNAME:Mace, [NAME]		PROFICIENCY:Mace (Light)		TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Mace										COST:5	WT:6									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL																SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
 Sickle								PROFICIENCY:Sickle			TYPE:Weapon.Simple.Melee.Slashing.Standard											COST:6	WT:3									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL																SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
 
 #MEDIUM ----------------------------------------------------------------------------------------------------------
