@@ -41,8 +41,8 @@ CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jum
 1	DEFINE:SkilledStuntBonus|(CL+1)/3
 1	DEFINE:ImprovedDefenseBonus|(CL+2)/3
 ###Block: Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SA:Precision Strike +% (Ex)|PrecisionStrikeBonus	SA:Improved Defense +% (Ex)|ImprovedDefenseBonus	ADD:FEAT|1|Weapon of Choice
 2	SA:Fell Blow +% (Ex)|FellBlowBonus	SA:Skilled Stunt +% (Ex)|SkilledStuntBonus
@@ -58,9 +58,9 @@ CLASS:Inquisitor	PREFEAT:1,Skill Focus(Knowledge (Religion))	PRELEVEL:5		PRESKIL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE.Craft|Diplomacy|Gather Information|Handle Animal|Heal|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Read Lips|Ride|Scry|Search|Sense Motive|Speak Language|Spellcraft|Spot|Wilderness Lore
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SA:Smite the Heathen (Ex)
 2	SA:Divine Protection (Ex)							BONUS:CHECKS|Fortitude,Reflex,Will|CHA																	ADD:SPELLCASTER|1|Divine
@@ -80,8 +80,8 @@ CLASS:Rafter	PREFEAT:1,Blind-Fight	PRELEVEL:5		PRESKILL:1,Appraise=2	PRESKILL:3,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE.Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Research (Ex)
 2	SA:Escape (Ex)	SA:Depth Perception (Ex)
@@ -101,8 +101,8 @@ CLASS:Stalker	PREFEAT:1,Track	PRELEVEL:5		PRESKILL:3,Balance,City Lore,Disguise=
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Stalker Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency|Stalker Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Shadow (Ex)	SA:Shadow Penalty %|ShadowBonus	DEFINE:ShadowBonus|(10-CL)
 2	SA:Roofwalk (Ex)
@@ -122,12 +122,12 @@ CLASS:Vigilante	PREATT:5	PREFEAT:3,Alertness,Combat Reflexes,Dodge	PRELEVEL:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Balance|Bluff|City Lore|Climb|Concentration|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1		SA:Sense Attack (Ex)	SA:Reflexive Awarness (Ex)
-2											BONUS:VAR|UncannyDodge|CL/5+1							FEATAUTO:Uncanny Dodge
+2											BONUS:VAR|UncannyDodge|CL/5+1							AUTO:FEAT|Uncanny Dodge
 3	SR:15
 4		SA:Heal Self (Su)(% hp)|HealSelfCap										DEFINE:HealSelfCap|CL*CON
 5

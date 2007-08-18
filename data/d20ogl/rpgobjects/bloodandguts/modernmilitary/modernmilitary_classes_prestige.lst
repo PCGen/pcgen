@@ -23,7 +23,7 @@ CLASS:Air Force Combat Controllers	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Cl
 10	ADD:FEAT|1|TYPE=MOS,TYPE=CombatControllers
 ###Block: Rest of progression
 3	SA:Grace Under Pressure (Combat Controllers) %/day|GraceUnderPressureCombatContoller	BONUS:VAR|GraceUnderPressureCombatContoller|1	DEFINE:GraceUnderPressureCombatContoller|0
-5																BONUS:VAR|HastyConstruction|-(CL*2)											FEATAUTO:Hasty Construction
+5																BONUS:VAR|HastyConstruction|-(CL*2)											AUTO:FEAT|Hasty Construction
 7																BONUS:VAR|GraceUnderPressureCombatContoller|1
 9																BONUS:VAR|GraceUnderPressureCombatContoller|1
 
@@ -83,7 +83,7 @@ CLASS:Army 160th SOAR	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Climb|Communica
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Normal progression
-1						BONUS:VAR|Strafing|CL/4+1					FEATAUTO:Strafing
+1						BONUS:VAR|Strafing|CL/4+1					AUTO:FEAT|Strafing
 2	SA:Air Support +%|AirSupport	BONUS:VAR|AirSupport|(CL+7)/3	DEFINE:AirSupport|0
 3																		ADD:FEAT|1|TYPE=SOAR
 
@@ -107,7 +107,7 @@ CLASS:Army Delta Force	STARTSKILLPTS:6	CSKILL:Climb|Decipher Script|Demolitions|
 10	ADD:FEAT|1|TYPE=DeltaForce,TYPE=MOS
 ###Block: Rest of progression
 1	SA:Counter Terrorist +%|CounterTerrorist	BONUS:VAR|CounterTerrorist|(CL+1)/2	DEFINE:CounterTerrorist|0
-2								BONUS:VAR|HostageRescue|CL		DEFINE:HostageRescue|0		FEATAUTO:Hostage Rescue
+2								BONUS:VAR|HostageRescue|CL		DEFINE:HostageRescue|0		AUTO:FEAT|Hostage Rescue
 
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
@@ -244,7 +244,7 @@ CLASS:Special Forces Engineering Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Craft (Me
 2	SA:Indigenous Training (Engineering)
 3	SA:Cross Training
 5	SA:Grace Under Pressure (Engineering Sergeant) %/day|GraceUnderPressureEngineeringSergeant	BONUS:VAR|GraceUnderPressureEngineeringSergeant|CL/5	DEFINE:GraceUnderPressureEngineeringSergeant|0
-5																	BONUS:VAR|HastyConstruction|-(CL*2)												FEATAUTO:Hasty Construction
+5																	BONUS:VAR|HastyConstruction|-(CL*2)												AUTO:FEAT|Hasty Construction
 
 # Class Name						Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Special Forces Intelligence Specialist	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -353,8 +353,8 @@ CLASS:Top Gun	STARTSKILLPTS:4	CSKILL:Air Traffic Control|Communication Operation
 1							BONUS:VAR|SpecOpsLVL|CL			DEFINE:SpecOpsLVL|0
 ###Normal Progression
 1	SA:The Right Stuff %/day|RightStuff	BONUS:VAR|RightStuff|1			DEFINE:RightStuff|0
-2							BONUS:VAR|AirSuperiority|(CL+1)/3					FEATAUTO:Air Superiority
-3	SA:Dogfighting				BONUS:VAR|Strafing|1							FEATAUTO:Strafing
+2							BONUS:VAR|AirSuperiority|(CL+1)/3					AUTO:FEAT|Air Superiority
+3	SA:Dogfighting				BONUS:VAR|Strafing|1							AUTO:FEAT|Strafing
 4							BONUS:VAR|RightStuff|1
 6							BONUS:VAR|RightStuff|1
 7							BONUS:VAR|Strafing|1

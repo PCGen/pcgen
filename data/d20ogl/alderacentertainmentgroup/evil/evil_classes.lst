@@ -41,7 +41,7 @@ CLASS:Blood Archer	HD:10		TYPE:PC.Prestige	ABB:BlA		MAXLEVEL:10	SOURCEPAGE:p.69	
 CLASS:Blood Archer	PREALIGN:LE	PREATT:6	PREFEAT:4,Endurance,Point Blank Shot,Track,Weapon Specialization(Longbow)	PRESKILL:1,Craft (Bowyer/Fletcher)=6	PRESKILL:1,Hide=4	PRESKILL:1,Wilderness Lore=7
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blood Archer	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Climb|Craft (Bowyer/Fletcher)|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Ride|Search|Swim|Tumble|Wilderness Lore
-1									SA:Poison Blood	SA:Title - Initiate of the Path																	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1									SA:Poison Blood	SA:Title - Initiate of the Path																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
 2	SA:.CLEAR.Title - Initiate of the Path		SA:Acid Blood	SA:Title - Initiate of the 1st Fletching
 3									SA:Blood Bow +%|BloodBow													DEFINE:BloodBow|CL/3
 4	SA:.CLEAR.Title - Initiate of the 1st Fletching	SA:Regeneration (1 hp/hour)	SA:Title - Initiate of the 2nd Fletching

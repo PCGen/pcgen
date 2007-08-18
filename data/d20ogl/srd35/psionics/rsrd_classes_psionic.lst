@@ -23,7 +23,7 @@ SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	CHOICE:Metacreativity	SPELLLIST:2|Shaper|
 SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	CHOICE:Telepathy		SPELLLIST:2|Telepath|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
 
 ###Block:Proficiencies
-1	FEATAUTO:Psion Weapon Proficiencies
+1	AUTO:FEAT|Psion Weapon Proficiencies
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 # TEMPLATE:Psionic qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
@@ -70,9 +70,9 @@ CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TY
 CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
 
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|PsychicWarriorML|CL	BONUS:VAR|PsychicWarriorML|var("BL=Psychic Warrior")																											DEFINE:PsychicWarriorML|0	TEMPLATE:Psionic
@@ -111,9 +111,9 @@ CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasse
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE.Profession|Spot|Tumble
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:FEAT|Shield Proficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	ADD:FEAT|Wild Talent
@@ -133,9 +133,9 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Cra
 1											VFEAT:MindBlade Multiple Throw|PREVARGTEQ:MindBladeECL,17
 
 ###Block: Class Info
-1	FEATAUTO:Weapon Focus(Mind Blade)
-6	FEATAUTO:Speed of Thought
-9	FEATAUTO:Greater Weapon Focus(Mind Blade)
+1	AUTO:FEAT|Weapon Focus(Mind Blade)
+6	AUTO:FEAT|Speed of Thought
+9	AUTO:FEAT|Greater Weapon Focus(Mind Blade)
 
 # Class Name	Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Wilder	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
@@ -144,9 +144,9 @@ CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentrati
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:FEAT|Shield Proficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|WilderML|CL	BONUS:VAR|WilderML|var("BL=Wilder")																											DEFINE:WilderML|0	TEMPLATE:Psionic

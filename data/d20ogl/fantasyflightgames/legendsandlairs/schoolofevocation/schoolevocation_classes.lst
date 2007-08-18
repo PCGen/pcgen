@@ -15,7 +15,7 @@ CLASS:Devoted Evoker	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYP
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Spell Scoll Prohibited													Caster level				Use Spell List
 CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Illusion,Necromancy,Transmutation	BONUS:CASTERLEVEL|Devoted Evoker|CL	SPELLLIST:1|Wizard
 ###Block: Proficiencies
-1	FEATAUTO:Devoded Evoker Weapon Proficiencies
+1	AUTO:FEAT|Devoded Evoker Weapon Proficiencies
 ###Block: Evocation DC bonus
 1	BONUS:DC|SCHOOL.Evocation|EvocationFocus	DEFINE:EvocationFocus|0
 ###Block: Normal Level Progression
@@ -123,7 +123,7 @@ CLASS:Order of Akmon	HD:4		TYPE:PC.Prestige	ABB:Akm		MAXLEVEL:10	SOURCEPAGE:p.15
 CLASS:Order of Akmon	PREFEAT:3,Combat Casting,Spell Focus(Evocation),Still Spell	PRESKILL:2,Concentration,Knowledge (Arcana)=8	PRESKILL:1,Intimidate=4	PRESPELL:1,Wind Wall	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Order of Akmon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Scry|Speak Language|Spellcraft
-1	FEATAUTO:Simple Weapon Proficiency|Order of Akmon Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Order of Akmon Weapon Proficiencies
 ###Block: Normal Level Progression
 1						SA:Hammer of Force (0-level and 1st level)											ADD:SPELLCASTER|1|ANY
 2						SA:Irresistible Force (+%)|IrresistibleForce	BONUS:VAR|IrresistibleForce|1	DEFINE:IrresistibleForce|0	ADD:SPELLCASTER|1|ANY

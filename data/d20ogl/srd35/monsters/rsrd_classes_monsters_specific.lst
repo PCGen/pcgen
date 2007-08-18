@@ -103,7 +103,7 @@ CLASS:Drider Cleric	OUTPUTNAME:Drider	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:M
 CLASS:Drider Cleric	PRERACE:1,Drider (Cleric)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:YES
-1	SA:Spontaneous casting	BONUS:VAR|TurnLevelBase|CL					ADD:SPELLCASTER|1|Cleric	ADD:FEAT|TYPE.TurnUndead	FEATAUTO:Basic Turning
+1	SA:Spontaneous casting	BONUS:VAR|TurnLevelBase|CL					ADD:SPELLCASTER|1|Cleric	ADD:FEAT|TYPE.TurnUndead	AUTO:FEAT|Basic Turning
 2										BONUS:PCLEVEL|Cleric|1
 3										BONUS:PCLEVEL|Cleric|1
 4										BONUS:PCLEVEL|Cleric|1

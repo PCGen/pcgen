@@ -161,16 +161,16 @@ CLASS:Professor	HD:6		TYPE:PC.Prestige	ABB:Pro		MAXLEVEL:10	SOURCEPAGE:p.182	BON
 CLASS:Professor	PREFEAT:1,Educated	PRESKILL:1,Research=6	PRESKILL:1,Craft (Chemical),Craft (Electric),Craft (Mechanical),Craft (Writing)=6	PRESKILL:1,Knowledge (Behavioral Sciences),Knowledge (Earth and Life Sciences),Knowledge (History),Knowledge (Physical Sciences),Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Professor	STARTSKILLPTS:8	CSKILL:Craft (Chemical)|Craft (Electric)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Navigate|Operate Vehicle (Aircraft)|Operate Vehicle (Ground Vehicles)|Operate Vehicle (Watercraft)|Profession|Read/Write Language|Repair|Research|Search|Speak Language
-1							FEATAUTO:Smart Defense
-2							FEATAUTO:Quick Wits
+1							AUTO:FEAT|Smart Defense
+2							AUTO:FEAT|Quick Wits
 3	ADD:FEAT|1|TYPE.Professor
 4	ADD:FEAT|1|Skill Mastery
-5							FEATAUTO:Book Learnin'
+5							AUTO:FEAT|Book Learnin'
 6	ADD:FEAT|1|TYPE.Professor
 7	ADD:FEAT|1|Academic Breakthrough
 8	ADD:FEAT|1|Smart Weapon
 9	ADD:FEAT|1|TYPE=Professor
-10							FEATAUTO:Real World Applications
+10							AUTO:FEAT|Real World Applications
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
 CLASS:Pugilist	HD:10		TYPE:PC.Prestige	ABB:Pug		MAXLEVEL:10	SOURCEPAGE:p.183	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+6)*2/5-1	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ClassDefense|(CL+1)*2/3

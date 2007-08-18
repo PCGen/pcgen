@@ -46,13 +46,13 @@ CLASS:Telepath	PREFEAT:1,Wild Talent	PRESKILL:3,Bluff,Diplomacy,Gather Informati
 CLASS:Telepath	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Profession|Psicraft|Read/Write Language|Sense Motive|Speak Language
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Telepath	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Telepath|CL
-# FEATAUTO:PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
+# AUTO:FEAT|PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
 # variables that need to be set or modified by PrC's to calculate correct points, it's all done here.
 # Use ADD:SPELLCASTER(Telepath) in PrC's that add to manifester level.
 # Code those that have KNOWN tags similar to this but change the VAR names, i.e. TelepathML becomes BattlemindML,
 # TelepathBonusPP becomes BattlemindBonusPP, etc
-1	BONUS:VAR|TelepathML|var("CL=Telepath")	BONUS:VAR|TelepathML|var("BL=Telepath")					DEFINE:TelepathML|0	FEATAUTO:PsionicClass
+1	BONUS:VAR|TelepathML|var("CL=Telepath")	BONUS:VAR|TelepathML|var("BL=Telepath")					DEFINE:TelepathML|0	AUTO:FEAT|PsionicClass
 1	BONUS:VAR|BasePowerPoints|2
 1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:TelepathML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:TelepathML,3
 1	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:TelepathML,4	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:TelepathML,5
@@ -81,7 +81,7 @@ CLASS:Battle Mind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentratio
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Battle Mind|CL
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1	BONUS:VAR|BattlemindML|var("CL=Battle Mind")	BONUS:VAR|BattlemindML|var("BL=Battle Mind")			DEFINE:BattlemindML|0	FEATAUTO:PsionicClass
+1	BONUS:VAR|BattlemindML|var("CL=Battle Mind")	BONUS:VAR|BattlemindML|var("BL=Battle Mind")			DEFINE:BattlemindML|0	AUTO:FEAT|PsionicClass
 1	BONUS:VAR|BasePowerPoints|2
 1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BattlemindML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BattlemindML,3
 1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BattlemindML,4	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:BattlemindML,5
@@ -109,16 +109,16 @@ CLASS:Mage		PRESKILL:4,Craft (Chemical),Decipher Script,Knowledge (Arcane Lore),
 CLASS:Mage		STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
 CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|CL
-1	CAST:3,1														FEATAUTO:Summon Familiar
-2	CAST:4,2														FEATAUTO:Scribe Scroll
-3	CAST:4,2,1										ADD:FEAT|TYPE=Mage	FEATAUTO:Brew Potion
-4	CAST:4,3,2														FEATAUTO:Scribe Tattoo
+1	CAST:3,1														AUTO:FEAT|Summon Familiar
+2	CAST:4,2														AUTO:FEAT|Scribe Scroll
+3	CAST:4,2,1										ADD:FEAT|TYPE=Mage	AUTO:FEAT|Brew Potion
+4	CAST:4,3,2														AUTO:FEAT|Scribe Tattoo
 5	CAST:4,3,2,1									ADD:FEAT|Spell Mastery
 6	CAST:4,3,3,2									ADD:FEAT|TYPE=Mage
 7	CAST:4,4,3,2,1	SA:+4 to Concentation while casting defensively
 8	CAST:4,4,3,3,2									ADD:FEAT|Spell Mastery
 9	CAST:4,4,4,3,2,1									ADD:FEAT|TYPE=Mage
-10	CAST:4,4,4,3,3,2													FEATAUTO:Maximize Spell
+10	CAST:4,4,4,3,3,2													AUTO:FEAT|Maximize Spell
 
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus						Modify VAR
@@ -130,7 +130,7 @@ CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Vis
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
 CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Acolyte|CL
 ###Block: Turning
-2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Undead
+2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Undead
 2	BONUS:VAR|TurnLevel|var("CL=Acolyte")		DEFINE:ExtraTurningQual|1
 2	BONUS:VAR|TurnDamagePlus|var("CL=Acolyte")
 2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
@@ -144,5 +144,5 @@ CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 7	CAST:6,4,3,2,1	SA:Turn or Rebuke Magical Beasts (Su)
 8	CAST:6,4,3,3,2	SA:Turn or Rebuke Outsiders (Su)
 9	CAST:6,4,4,3,2,1									ADD:FEAT|TYPE=Acolyte
-10	CAST:6,4,4,3,3,2													FEATAUTO:Maximize Spell
+10	CAST:6,4,4,3,3,2													AUTO:FEAT|Maximize Spell
 

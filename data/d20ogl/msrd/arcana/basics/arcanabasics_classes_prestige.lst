@@ -47,7 +47,7 @@ CLASS:Holy Unholy Knight	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Handle Animal|In
 # Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level
 CLASS:Holy Unholy Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Holy Unholy Knight|CL
 ###Block: Turning
-5	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat				DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Undead
+5	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat				DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Undead
 5	BONUS:VAR|TurnLevel|var("CL=Holy Unholy Knight")	DEFINE:ExtraTurningQual|1
 5	BONUS:VAR|TurnDamagePlus|var("CL=Holy Unholy Knight")
 5	BONUS:VAR|TurnCheck|CHA|TYPE=Stat

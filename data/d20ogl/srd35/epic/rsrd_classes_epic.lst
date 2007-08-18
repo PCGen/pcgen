@@ -49,7 +49,7 @@ CLASS:Epic Infiltrator	HD:6		TYPE:Prestige.Epic.PC	ABB:Ein		MAXLEVEL:NOLIMIT	SOU
 CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:2,Alertness,Polyglot	PRELEVEL:20		PRESKILL:2,Diplomacy,Spot=10	PRESKILL:2,Bluff,Disguise=24
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Sense Motive|Sleight of Hand|Spot|TYPE.Craft|TYPE.Profession
-1				SA:Improved Cover Identity (Ex/Su) %/day|EICover		BONUS:VAR|EICover|(2+ceil(CL/4))	BONUS:VAR|SneakAttack|ceil(CL/3)	DEFINE:EICover|0																													FEATAUTO:Sneak Attack
+1				SA:Improved Cover Identity (Ex/Su) %/day|EICover		BONUS:VAR|EICover|(2+ceil(CL/4))	BONUS:VAR|SneakAttack|ceil(CL/3)	DEFINE:EICover|0																													AUTO:FEAT|Sneak Attack
 2	REPEATLEVEL:3																															ADD:FEAT|TYPE=SpecialistTraining
 3				SA:Read Thoughts (Su) %/day|EIReadThoughts			BONUS:VAR|EIReadThoughts|((CL+1)/4)							DEFINE:EIReadThoughts|0											SPELLS:Epic Infiltrator|CASTERLEVEL=15|TIMES=((var("CL=Epic Infiltrator")+5)/8)|Mind Blank,18+INT
 4				SA:Far Senses (Su) %/day % ft|EIFarSenses|FarSensesRange	BONUS:VAR|EIFarSenses|((CL+1)/4)	BONUS:VAR|FarSensesRange|20*(CL+1)	DEFINE:EIFarSenses|0	DEFINE:FarSensesRange|0

@@ -23,9 +23,9 @@ CLASS:US Marshals Special Operations Group	PREATT:5	PREFEAT:3,Alertness,Personal
 # Class Name						Skill Pts/Lvl	Class Skill
 CLASS:US Marshals Special Operations Group	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Diplomacy|Disguise|Drive|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Research|Search|Sense Motive|Spot
 1	SA:Federal Jurisdiction
-2																			FEATAUTO:Police Combat Training
+2																			AUTO:FEAT|Police Combat Training
 3	SA:Hard Target Search +%|HardTargetSearch	BONUS:VAR|HardTargetSearch|(CL-2)/3	DEFINE:HardTargetSearch|0
 4	SA:Harm's Way
-5								BONUS:VAR|DefensivePosition|CL/4						FEATAUTO:Defensive Position
+5								BONUS:VAR|DefensivePosition|CL/4						AUTO:FEAT|Defensive Position
 7	SA:Sentinel
 10	SA:Counter Attack

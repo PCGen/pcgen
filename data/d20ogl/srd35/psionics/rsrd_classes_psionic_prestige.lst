@@ -34,7 +34,7 @@ CLASS:Elocator	PREATT:3	PREFEAT:2,Mobility,Spring Attack	PRESKILL:1,Concentratio
 CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE.Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 ###Block: Psionic Variables
 ###Block: Class Info
-1	SA:Scorn Earth (Su)	SA:Sidestep Charge (Ex)																			ADD:SPELLCASTER|Psionic																		FEATAUTO:Sidestep Charge
+1	SA:Scorn Earth (Su)	SA:Sidestep Charge (Ex)																			ADD:SPELLCASTER|Psionic																		AUTO:FEAT|Sidestep Charge
 2	SA:Opportunistic Strike (+%)(Ex)|OpportunisticStrike							BONUS:VAR|OpportunisticStrike|2	DEFINE:OpportunisticStrike|0
 3	SA:Dimension Step (Su)																							ADD:SPELLCASTER|Psionic						SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
 4	SA:Flanker (designate adjacent square to be determination for flanking)(Ex)														ADD:SPELLCASTER|Psionic
@@ -61,8 +61,8 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsionicFistML)/2|TYPE=PsionicFistBonusPP
 
 ###Block:Monk Abilities
-1	BONUS:VAR|MonkACLvl|CL							FEATAUTO:Monk AC
-1	BONUS:VAR|MonkMoveLvl|CL						FEATAUTO:Monk Movement
+1	BONUS:VAR|MonkACLvl|CL							AUTO:FEAT|Monk AC
+1	BONUS:VAR|MonkMoveLvl|CL						AUTO:FEAT|Monk Movement
 1						BONUS:UDAM|CLASS.Monk|CL
 ###Block: Class Info
 1	KNOWN:0,1		SA:Monk Abilities
@@ -83,8 +83,8 @@ CLASS:Slayer	PREATT:4	PREFEAT:1,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Class Info
 1	SA:Favored Enemy (Specific Psionic Creature)(+%) (Ex)|SlayerFavoredEnemy	SA:Sense Favored Enemy (60')(Su)	BONUS:VAR|SlayerFavoredEnemy|2	DEFINE:SlayerFavoredEnemy|0
 2	SA:Brain Nausea (Will Save DC:%)(Su)|BrainNausea											BONUS:VAR|BrainNausea|15+CL		DEFINE:BrainNausea|0		ADD:SPELLCASTER|Psionic

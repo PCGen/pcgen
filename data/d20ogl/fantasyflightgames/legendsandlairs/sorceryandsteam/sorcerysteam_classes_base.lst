@@ -7,7 +7,7 @@ CLASS:Animal Lord	HD:10		TYPE:Base.PC	ABB:AnL		MAXLEVEL:20	SOURCEPAGE:p.37	BONUS
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft|Escape Artist|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Swim|Wilderness Lore
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Animal Lord Skill....
 1	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill1,1	DEFINE:AnimalLordSkill1|0	ADD:FEAT|1|TYPE.HomeEnvironment
 1										DEFINE:ALSkillBonus|CL
@@ -20,19 +20,19 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft
 13	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill13,1
 17	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill17,1
 ###Block: Animal Companion & Master of the Wild
-1										BONUS:VAR|CompLevel|CL								FEATAUTO:Animal Companion
+1										BONUS:VAR|CompLevel|CL								AUTO:FEAT|Animal Companion
 1	SA:Master of the Wild (%/day)(Ex)|MasteroftheWild	BONUS:VAR|MasterOfTheWild|(CL+5)/6	DEFINE:MasterOfTheWild|0
 ###Block: Normal Level Progression
-1						FEATAUTO:Feral Child		ADD:FEAT|1|TYPE.AnimalLordAbility	ADD:FEAT|1|TYPE.AnimalLordTotem
-2						FEATAUTO:Track
-3						FEATAUTO:Uncanny Dodge
-4						FEATAUTO:Feral Athleticism
+1						AUTO:FEAT|Feral Child		ADD:FEAT|1|TYPE.AnimalLordAbility	ADD:FEAT|1|TYPE.AnimalLordTotem
+2						AUTO:FEAT|Track
+3						AUTO:FEAT|Uncanny Dodge
+4						AUTO:FEAT|Feral Athleticism
 5											ADD:FEAT|1|TYPE.AnimalLordAbility
 6	BONUS:VAR|UncannyDodge|1
-8						FEATAUTO:Feral Voice
+8						AUTO:FEAT|Feral Voice
 9											ADD:FEAT|1|TYPE.AnimalLordAbility
 11	BONUS:VAR|UncannyDodge|1
-12						FEATAUTO:Feral Senses
+12						AUTO:FEAT|Feral Senses
 13											ADD:FEAT|1|TYPE.AnimalLordAbility
 16	BONUS:VAR|UncannyDodge|1
 17											ADD:FEAT|1|TYPE.AnimalLordAbility
@@ -43,10 +43,10 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft
 CLASS:Artificer	HD:6		TYPE:Base.PC	ABB:Art		MAXLEVEL:20	SOURCEPAGE:p.41	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomacy|Disable Device|Drive|Heal|Intimidate|Listen|Munitions|Open Lock|TYPE.Profession|Ride|Search|TYPE.Tech|Use Rope|Use Steamcraft Device
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Sabotage (Ex)	SA:Steamcraft Creations (Ex)							FEATAUTO:Feral Child
+1	SA:Sabotage (Ex)	SA:Steamcraft Creations (Ex)							AUTO:FEAT|Feral Child
 2																			ADD:FEAT|1|Artificer Skill Focus
 5	SA:Master Craftsman +%|MasterCraftsman		DEFINE:MasterCraftsman|(CL-2)/3					ADD:FEAT|1|Artificer Steamcraft Focus
 8																			ADD:FEAT|1|Artificer Skill Focus
@@ -60,11 +60,11 @@ CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomac
 CLASS:Musketeer	HD:8		TYPE:Base.PC	ABB:Msk		MAXLEVEL:20	SOURCEPAGE:p.44	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Musketeer	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble|Use Rope|Use Steamcraft Device
-1	FEATAUTO:Musketeer Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Musketeer Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1																	FEATAUTO:Combat Reload|Rapid Reload (Firearms)
-2																	FEATAUTO:Reload on the Run
+1																	AUTO:FEAT|Combat Reload|Rapid Reload (Firearms)
+2																	AUTO:FEAT|Reload on the Run
 3	SA:Avoid Fire +% (Ex)|AvoidFire							DEFINE:AvoidFire|1
 4	SA: Move and I'll Shoot (Ex)
 5																									ADD:FEAT|1|TYPE.Musketeer

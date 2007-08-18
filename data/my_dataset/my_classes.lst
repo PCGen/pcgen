@@ -17,12 +17,12 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 
 #CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog	MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 #CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
-#1	FEATAUTO:Simple Weapon Proficiency|Rogue Weapon Proficiencies|All Automatic Proficiencies
-#1	FEATAUTO:Armor Proficiency (Light)
-#1	BONUS:VAR|SneakAttack|(CL+1)/2	FEATAUTO:Sneak Attack
+#1	AUTO:FEAT|Simple Weapon Proficiency|Rogue Weapon Proficiencies|All Automatic Proficiencies
+#1	AUTO:FEAT|Armor Proficiency (Light)
+#1	BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
 #1	SA:Trapfinding
-#2																												FEATAUTO:Evasion
-#3				BONUS:VAR|TrapSense|CL/3																				FEATAUTO:Trap Sense Ability
+#2																												AUTO:FEAT|Evasion
+#3				BONUS:VAR|TrapSense|CL/3																				AUTO:FEAT|Trap Sense Ability
 #4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
 #8															ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
 #10															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation

@@ -10,15 +10,15 @@ CLASS:Blood Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|K
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Blood Witch	SPELLSTAT:WIS	SPELLTYPE:Any	BONUS:CASTERLEVEL|Blood Witch|CL
 1					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-2					ADD:SPELLCASTER|1|ANY						FEATAUTO:Nature Magic		SPELLLIST:1|Druid
+2					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Nature Magic		SPELLLIST:1|Druid
 3					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-4					ADD:SPELLCASTER|1|ANY						FEATAUTO:Alter Self
+4					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Alter Self
 5					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-6					ADD:SPELLCASTER|1|ANY						FEATAUTO:Minor Sacrifice
+6					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Minor Sacrifice
 7					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-8	BONUS:VAR|Wildshape|1	ADD:SPELLCASTER|1|ANY						FEATAUTO:Wildshape
+8	BONUS:VAR|Wildshape|1	ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Wildshape
 9					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-10					ADD:SPELLCASTER|1|ANY						FEATAUTO:Major Sacrifice
+10					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Major Sacrifice
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Crypt Lord	HD:4		TYPE:PC.Prestige	ABB:CrL		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -27,21 +27,21 @@ CLASS:Crypt Lord	PREALIGN:LE,NE,CE	PREFEAT:1,Spell Focus(Necromancy)	PRESKILL:1,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (Undead)|TYPE.Profession|Scry|Spellcraft
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|1+CHA|TYPE=NoStack						ADD:FEAT|1|Rebuke Undead	FEATAUTO:Basic Turning
+1	BONUS:VAR|TurnTimesBase|1+CHA|TYPE=NoStack						ADD:FEAT|1|Rebuke Undead	AUTO:FEAT|Basic Turning
 1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression
-1															ADD:SPELLCASTER|1|ANY	FEATAUTO:Extended Necromancy
-2															ADD:SPELLCASTER|1|ANY	FEATAUTO:Undead Appearance
-3	BONUS:VAR|EnergyDrainResistance|5									ADD:SPELLCASTER|1|ANY	FEATAUTO:Energy Drain Resistance
-4															ADD:SPELLCASTER|1|ANY	FEATAUTO:Undead Familiar
+1															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Extended Necromancy
+2															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Undead Appearance
+3	BONUS:VAR|EnergyDrainResistance|5									ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Energy Drain Resistance
+4															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Undead Familiar
 5							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	ADD:SPELLCASTER|1|ANY
-6															ADD:SPELLCASTER|1|ANY	FEATAUTO:Raise the Dead
+6															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Raise the Dead
 7							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	ADD:SPELLCASTER|1|ANY
-8															ADD:SPELLCASTER|1|ANY	FEATAUTO:Create Undead
-9															ADD:SPELLCASTER|1|ANY	FEATAUTO:Energy Drain Immunity
-10															ADD:SPELLCASTER|1|ANY	FEATAUTO:Lichdom
+8															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Create Undead
+9															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Energy Drain Immunity
+10															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Lichdom
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE
@@ -49,20 +49,20 @@ CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONU
 CLASS:Incarnate	PREALIGN:TN	PRECLASS:1,Druid=4	PREFEAT:1,Quicken Spell	PRESKILL:1,Knowledge (Nature)=7
 # Class Name	Skill Pts/Lvl	Use Class Skill List	Class Skill
 CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
-1	FEATAUTO:Incarnate Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Incarnate Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form			FEATAUTO:Reincarnate|Fixed Alignment
+1	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form			AUTO:FEAT|Reincarnate|Fixed Alignment
 2	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 3	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
 4	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
-5	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Baseform				FEATAUTO:Venom immunity
+5	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Baseform				AUTO:FEAT|Venom immunity
 6	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 7	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
 8	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
-9	BONUS:PCLEVEL|Druid|1								FEATAUTO:Timeless Body
-10	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form			FEATAUTO:Designate Life Form
+9	BONUS:PCLEVEL|Druid|1								AUTO:FEAT|Timeless Body
+10	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form			AUTO:FEAT|Designate Life Form
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Penumbral Lord	HD:4		TYPE:PC.Prestige	ABB:PeL		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -84,18 +84,18 @@ CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral 
 1	SPELLLEVEL:CLASS|Penumbral Lord=8|Blackflame,Shadow Twin
 1	SPELLLEVEL:CLASS|Penumbral Lord=9|Eclipse
 ###Block: Weapon and Armor Proficiencies
-1	FEATAUTO:Penumbral Lord Weapon Proficiencies
+1	AUTO:FEAT|Penumbral Lord Weapon Proficiencies
 ###Block: Normal Level Progression
-1	CAST:3,2				VISION:Darkvision (60')						FEATAUTO:Shadow Strength
-2	CAST:4,2,1													FEATAUTO:Shadowcat Form
-3	CAST:4,2,2,1							BONUS:VAR|Shadowcast|(CL-1)/2	FEATAUTO:Shadowcast
-4	CAST:4,3,2,1												FEATAUTO:Improved Darkvision
+1	CAST:3,2				VISION:Darkvision (60')						AUTO:FEAT|Shadow Strength
+2	CAST:4,2,1													AUTO:FEAT|Shadowcat Form
+3	CAST:4,2,2,1							BONUS:VAR|Shadowcast|(CL-1)/2	AUTO:FEAT|Shadowcast
+4	CAST:4,3,2,1												AUTO:FEAT|Improved Darkvision
 5	CAST:4,3,2,1,1
-6	CAST:4,4,2,2,2,1												FEATAUTO:Shadowraven Form
+6	CAST:4,4,2,2,2,1												AUTO:FEAT|Shadowraven Form
 7	CAST:4,4,3,2,2,2,1
-8	CAST:5,5,3,3,2,2,2,1											FEATAUTO:Shadowstep
+8	CAST:5,5,3,3,2,2,2,1											AUTO:FEAT|Shadowstep
 9	CAST:5,5,4,3,2,2,2,2,1
-10	CAST:5,5,4,4,2,2,2,2,1,1										FEATAUTO:Shadow Home
+10	CAST:5,5,4,4,2,2,2,2,1,1										AUTO:FEAT|Shadow Home
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus											Combat bonus
 CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -115,13 +115,13 @@ SUBCLASS:Charisma Base		COST:0	SPELLSTAT:CHA	SPELLTYPE:Arcane
 1	SPELLLEVEL:CLASS|Sea Witch=4|Air Walk,Control Water,Control Winds,Detect Scrying,Diminish Plants,Freedom of Movement,Improved Invisibility,Repel Vermin,Solid Fog
 1	SPELLLEVEL:CLASS|Sea Witch=5|Animal Growth,Awaken,Cloudkill,Control Weather,Fabricate,Find the Path,Ice Storm,Ironwood,Mislead,Sending,Veil
 ###Block: Weapon and Armor Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	CAST:0,1		BONUS:VAR|Bonding|(CL-1)/3+1	FEATAUTO:Bond with Boat/Ship
-2	CAST:0,2		BONUS:VAR|IMPenalty|(CL+1)/3	FEATAUTO:Ignore Metamagic Penalty
-3	CAST:0,3,1		BONUS:VAR|Wildshape|CL/3	FEATAUTO:Aquatic Wildshape
+1	CAST:0,1		BONUS:VAR|Bonding|(CL-1)/3+1	AUTO:FEAT|Bond with Boat/Ship
+2	CAST:0,2		BONUS:VAR|IMPenalty|(CL+1)/3	AUTO:FEAT|Ignore Metamagic Penalty
+3	CAST:0,3,1		BONUS:VAR|Wildshape|CL/3	AUTO:FEAT|Aquatic Wildshape
 4	CAST:0,4,2
 5	CAST:0,4,2,1
 6	CAST:0,4,3,2
@@ -165,18 +165,18 @@ CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1	SPELLLEVEL:CLASS|Vigilant=3|Endurance,Neutralize Poison,Remove Disease,Water Walk,Spike Growth
 1	SPELLLEVEL:CLASS|Vigilant=4|Freedom of Movement,Repel Vermin,Spike Stones,Wind Wall
 ###Block: Weapon and Armor Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	CAST:0,0																FEATAUTO:Sprint
-2	CAST:0,0										ADD:FEAT|1|Vigilant Favored Enemy	FEATAUTO:Tireless
-3	CAST:0,1																FEATAUTO:Ferocity|Toughness
-4	CAST:0,1,0																FEATAUTO:Great Fortitude
-5	CAST:0,1,1																FEATAUTO:Iron Will
-6	CAST:0,1,1,0															FEATAUTO:Lightning Reflexes
-7	CAST:0,1,1,1															FEATAUTO:Toughness
-8	CAST:0,1,1,1,0															FEATAUTO:Resist Massive Damage
+1	CAST:0,0																AUTO:FEAT|Sprint
+2	CAST:0,0										ADD:FEAT|1|Vigilant Favored Enemy	AUTO:FEAT|Tireless
+3	CAST:0,1																AUTO:FEAT|Ferocity|Toughness
+4	CAST:0,1,0																AUTO:FEAT|Great Fortitude
+5	CAST:0,1,1																AUTO:FEAT|Iron Will
+6	CAST:0,1,1,0															AUTO:FEAT|Lightning Reflexes
+7	CAST:0,1,1,1															AUTO:FEAT|Toughness
+8	CAST:0,1,1,1,0															AUTO:FEAT|Resist Massive Damage
 9	CAST:0,2,1,1,1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
-10	CAST:0,2,2,1,1															FEATAUTO:Natural Healing
+10	CAST:0,2,2,1,1															AUTO:FEAT|Natural Healing
 

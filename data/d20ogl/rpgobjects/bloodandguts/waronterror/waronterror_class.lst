@@ -91,7 +91,7 @@ CLASS:Terrorist	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Elect
 1	SA:Suicidal Attack
 ### will need help on figuring out how to deal with Fanaticism
 2	SA:Fanaticism													ADD:FEAT|1|TYPE=Terrorist
-3						BONUS:VAR|SneakAttack|(CL-1)/2	FEATAUTO:Sneak Attack
+3						BONUS:VAR|SneakAttack|(CL-1)/2	AUTO:FEAT|Sneak Attack
 4																ADD:FEAT|1|TYPE=Terrorist
 5	SA:Improved Suicidal Attack
 6																ADD:FEAT|1|TYPE=Terrorist
@@ -109,7 +109,7 @@ CLASS:US Secret Service Protective Detail	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy
 1	SA:Harms Way
 2	SA:Human Shield +%|HumanShield	BONUS:VAR|HumanShield|CL/5+1	DEFINE:HumanShield|0
 3	SA:Sentinel
-4							BONUS:VAR|DefensivePosition|1					FEATAUTO:Defensive Position
+4							BONUS:VAR|DefensivePosition|1					AUTO:FEAT|Defensive Position
 6							BONUS:VAR|DefensivePosition|1
 7	SA:Counter Attack
 8							BONUS:VAR|DefensivePosition|1
@@ -125,7 +125,7 @@ CLASS:Y12 SRT	STARTSKILLPTS:6	CSKILL:Climb|Demolitions|Diplomacy|Disable Device|
 2																														ADD:FEAT|1|TYPE=Y12SRT,TYPE=PoliceTraining
 3	SA:Grace Under Pressure (Y12 SRT) +%|GraceUnderPressureY12SRT	BONUS:VAR|GraceUnderPressureY12SRT|CL/3	DEFINE:GraceUnderPressureY12SRT|0
 4																														ADD:FEAT|1|TYPE=Y12SRT,TYPE=PoliceTraining
-5												BONUS:VAR|DefensivePosition|1									FEATAUTO:Defensive Position
+5												BONUS:VAR|DefensivePosition|1									AUTO:FEAT|Defensive Position
 6																														ADD:FEAT|1|TYPE=Y12SRT,TYPE=PoliceTraining
 7												BONUS:VAR|DefensivePosition|1
 8																														ADD:FEAT|1|TYPE=Y12SRT,TYPE=PoliceTraining

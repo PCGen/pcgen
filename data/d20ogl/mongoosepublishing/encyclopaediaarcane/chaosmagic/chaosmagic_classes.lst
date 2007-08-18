@@ -10,7 +10,7 @@ CLASS:Chaos Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|K
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Chaos Mage	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Chaos Mage|CL
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|All Automatic Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Weapon Proficiencies
 ###Block: Normal Level Progression
 1	SA:Chaos Magic Casting +%|ChaosCasting	BONUS:VAR|ChaosCasting|CL	BONUS:VAR|ChaosCasting|CHA	DEFINE:ChaosCasting|0
 4	SA:Chaos Familiar

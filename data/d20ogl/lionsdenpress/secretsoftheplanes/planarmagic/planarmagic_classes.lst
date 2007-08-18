@@ -11,7 +11,7 @@ CLASS:Planar Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Scrip
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
 CLASS:Planar Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|Planar Mage|CL
 ###Block: Proficiencies
-1	FEATAUTO:Wizard Weapon Proficiencies
+1	AUTO:FEAT|Wizard Weapon Proficiencies
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Planar Mage=0|Arcane Mark,Detect Magic,Ghost Sound,Mending,Prestidigitation,Read Magic
 1	SPELLLEVEL:CLASS|Planar Mage=1|Comprehend Languages,Expeditious Retreat,Grease,Identify,Sleep,Summon Monster I,Unseen Servant
@@ -24,12 +24,12 @@ CLASS:Planar Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|
 1	SPELLLEVEL:CLASS|Planar Mage=8|Binding,Dimensional Lock,Maze,Planar Binding (Greater),Summon Monster VIII
 1	SPELLLEVEL:CLASS|Planar Mage=9|Astral Projection,Gate,Mage's Disjunction,Summon Monster IX,Teleportation Circle
 ###Block: Planar Turning stuff stuff
-4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			FEATAUTO:Basic Turning|Planar Turning
+4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			AUTO:FEAT|Basic Turning|Planar Turning
 4	BONUS:VAR|TurnLevelBase|CL/2|TYPE=Level.REPLACE
 4	BONUS:VAR|TurnDamagePlusBase|CL/2|TYPE=Level.REPLACE
 4	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal Level Progression
-1	CAST:5,3				KNOWN:2,1				SA:Well Learned (Ex)																																	ADD:FEAT|2|TYPE.PlanarAttunement							FEATAUTO:Skill Focus(Knowledge (The Planes))
+1	CAST:5,3				KNOWN:2,1				SA:Well Learned (Ex)																																	ADD:FEAT|2|TYPE.PlanarAttunement							AUTO:FEAT|Skill Focus(Knowledge (The Planes))
 2	CAST:6,4				KNOWN:2,1								BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
 3	CAST:6,5				KNOWN:2,1								BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
 4	CAST:6,6,3				KNOWN:3,1								BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT|1|TYPE.PlanarAttunement

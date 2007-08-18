@@ -10,8 +10,8 @@ CLASS:Arcane Airman	HD:6		TYPE:PC.Prestige	ABB:ArA		MAXLEVEL:10	SOURCEPAGE:p.47	
 CLASS:Arcane Airman	PREFEAT:1,Pilot	PRESKILL:2,Knowledge (Steamcraft),Drive=8	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|TYPE.Craft|Drive|Intuit Direction|Jump|TYPE.Knowledge|Listen|TYPE.Profession|Ride|Search|Spellcraft|Spot|Use Rope|Use Steamcraft Device
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Operations Expert (Ex)																				ADD:SPELLCASTER|1|Arcane
 2	SA:Makeshift Repairs (Ex)																				ADD:SPELLCASTER|1|Arcane
@@ -32,11 +32,11 @@ CLASS:Arcane Performer	HD:6		TYPE:PC.Prestige	ABB:ArP		MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Arcane Performer	PREFEAT:1,Child Prodigy	PRESKILL:3,Bluff,Perform,Spellcraft=8	PRESKILL:1,Craft (Carpentry),Craft (Woodworking),Craft (Metalworking),Craft (Musical Instrument)=5	PRESPELL:1,Enthrall	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must create a new intrument
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE.Profession|Scry|Sense Motive|Spellcraft|Swim|Tumble|Use Magic Device|Use Steamcraft Device
-1	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip	FEATAUTO:Simple Weapon Proficiency
-1																				FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																				FEATAUTO:Shield Proficiency
+1	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip	AUTO:FEAT|Simple Weapon Proficiency
+1																				AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																				AUTO:FEAT|Shield Proficiency
 ###Block: Musical Prodigy
-1	SA:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC	DEFINE:MusicalProdigyDC|1	FEATAUTO:Musical Prodigy
+1	SA:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC	DEFINE:MusicalProdigyDC|1	AUTO:FEAT|Musical Prodigy
 ###Block: Normal Level Progression
 1															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power I
 2	SA:Masterful Performance (Ex)										ADD:SPELLCASTER|1|ANY
@@ -64,8 +64,8 @@ CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Bra		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS
 CLASS:Brawler	PREATT:5	PREFEAT:2,Improved Unarmed Strike,Great Fortitude	PRESKILL:1,Intimidate=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|TYPE.Profession|Ride|Tumble
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Stubborn Resolve (Ex)
 2						ADD:FEAT|1|TYPE.Brawler
@@ -86,8 +86,8 @@ CLASS:Demolitionist	HD:8		TYPE:PC.Prestige	ABB:Dmo		MAXLEVEL:10	SOURCEPAGE:p.56	
 CLASS:Demolitionist	PREFEAT:1,Skill Focus(Munitions)	PRESKILL:3,Alchemy,Craft (Explosives),Munitions=8	PRESKILL:2,Concentration,Disable Device=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Demolitionist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Disable Device|Knowledge (Steamcraft)|Listen|Move Silently|Munitions|Open Lock|TYPE.Profession|Search|Spot|Use Steamcraft Device
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Precise Touch (Ex)								BONUS:VAR|PreciseTouch|1		BONUS:SKILL|Disable Device,Open Lock,Munitions,Use Steamcraft Device|PreciseTouch	DEFINE:PreciseTouch|0
 2	SA:Explosive Knowledge (Ex) (%d6 bonus Damage)|ExplosiveKnowledge	BONUS:VAR|ExplosiveKnowledge|1															DEFINE:ExplosiveKnowledge|0
@@ -106,8 +106,8 @@ CLASS:Detective	HD:6		TYPE:PC.Prestige	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.59	BONU
 CLASS:Detective	PREFEAT:2,Skill Focus(Search),Skill Focus(Sense Motive)	PRESKILL:3,Diplomacy,Knowledge (Local),Profession (Detective)=5	PRESKILL:3,Gather Information,Search,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Drive|Gather Information|Forgery|TYPE.Knowledge|Listen|Munitions|TYPE.Profession|Read Lips|Search|Sense Motive|Spot
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1																										ADD:FEAT|1|Reference Material
 2	SA:Eye for Clues (Ex)										BONUS:SKILL|Spot|4|TYPE=Competence
@@ -128,8 +128,8 @@ CLASS:Game Hunter	HD:8		TYPE:PC.Prestige	ABB:GmH		MAXLEVEL:10	SOURCEPAGE:p.62	BO
 CLASS:Game Hunter	PREATT:5	PREFEAT:2,Track,Point Blank Shot	PRESKILL:4,Hide,Knowledge (Nature),Move Silently,Wilderness Lore=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Munitions|TYPE.Profession|Ride|Spot|Swim|Use Rope|Wilderness Lore
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1																														ADD:FEAT|1|TYPE.GameHunterFavored
 2	SA:Scentless
@@ -148,8 +148,8 @@ CLASS:Gun Glyph	HD:6		TYPE:PC.Prestige	ABB:GGl		MAXLEVEL:10	SOURCEPAGE:p.66	BONU
 CLASS:Gun Glyph	PREFEAT:1,Weapon Focus(Flintlock Pistol),Weapon Focus(Matchlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Flintlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Dwarven Tunnel Gun),Weapon Focus(Flintlock Musket),Weapon Focus(Blunderbuss),Weapon Focus(Percussion Cap Musket),Weapon Focus(Ogre Gun)	PRESKILL:2,Alchemy,Craft (Gunsmithing)=8	PRESKILL:1,Knowledge (Steamcraft)=5	PRESPELLTYPE:1,Arcane=3	PRETEXT:The Gun Glyph must construct his own firearm to walk the path of the Gun Glyph	PREWEAPONPROF:TYPE=Firearms
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Steamcraft)|Munitions|TYPE.Profession|Ride|Search|Spellcraft
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1							SA:Armor Adaptation (Ex)			BONUS:VAR|ArmorAdaptation|-2						BONUS:MISC|SPELLFAILURE|ArmorAdaptation	DEFINE:ArmorAdaptation|0	ADD:SPELLCASTER|1|Arcane
 2							SA:Arcane Bond I (Sp)
@@ -169,13 +169,13 @@ CLASS:Hypnotist	HD:4		TYPE:PC.Prestige	ABB:Hyp		MAXLEVEL:10	SOURCEPAGE:p.69	BONU
 CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:2,Bluff,Concentration=5	PRESKILL:1,Spellcraft=8	PRESPELLSCHOOL:Enchantment,1,3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Sense Motive|Spellcraft
-1	FEATAUTO:Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Spell Focus(Enchantment),Hypnotist DC Bonus
 2	SA:Focused Mind +% (Ex)|FocusedMind				BONUS:CHECKS|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2
-#2	FEATAUTO:Master Hypnotist	Not sure but I would think they left this out
+#2	AUTO:FEAT|Master Hypnotist	Not sure but I would think they left this out
 3																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment I
-4																								FEATAUTO:Ultimate Hypnotist
+4																								AUTO:FEAT|Ultimate Hypnotist
 5																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment II
 6
 7																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment III
@@ -191,13 +191,13 @@ CLASS:Noble Bodyguard	HD:12		TYPE:PC.Prestige	ABB:NoB		MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Noble Bodyguard	PREATT:5	PREFEAT:1,Improved Initiative	PRESKILL:2,Intimidate,Sense Motive=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Handle Animal|Intimidate|Jump|Listen|Munitions|TYPE.Profession|Sense Motive|Spot
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1			SA:Human Shield (Ex)
 3			SA:Improved Defense +% (Ex)|ImprovedDefense	BONUS:COMBAT|AC|ImprovedDefense|TYPE=Dodge	DEFINE:ImprovedDefense|(CL-1)/2
-6																									FEATAUTO:Uncanny Dodge
+6																									AUTO:FEAT|Uncanny Dodge
 9			SA:Defensive Reflexes (Ex)				BONUS:COMBAT|INITIATIVE|4|TYPE=Insight
 10	DR:2/-	SA:Bastion of Protection (Ex)
 
@@ -209,8 +209,8 @@ CLASS:Physician	HD:6		TYPE:PC.Prestige	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.75	BONU
 CLASS:Physician	PREFEAT:1,Physician	PRESKILL:2,Alchemy,Heal=8	PRESKILL:1,Profession (Surgeon),Profession (Doctor)=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Physician	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Hide|Intuit Direction|Listen|Move Silently|Ride|Spot|Use Rope|Wilderness Lore
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Survey the Damage
 2	SA:Healing Hand	SA:Medicinal Knowledge I (Ex)															BONUS:SKILL|Heal|4|TYPE=Competence
@@ -228,8 +228,8 @@ CLASS:Pilot		HD:8		TYPE:PC.Prestige	ABB:Pil		MAXLEVEL:10	SOURCEPAGE:p.79	BONUS:C
 CLASS:Pilot		PREFEAT:2,Skill Focus(Drive),Pilot	PRESKILL:1,Drive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Disable Device|Drive|Intuit Direction|Jump|Knowledge (Steamcraft)|Munitions|TYPE.Profession|Spot|Swim|Use Rope|Use Steamcraft Device
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SA:Skilled Pilot +% (Ex)|SkilledPilot	SA:Combat Ace +% (Ex)|CombatAce						BONUS:SKILL|Drive,SkilledPilot|TYPE=Competence	DEFINE:SkilledPilot|(((CL/5)*2)+2)	DEFINE:CombatAce|(CL+3)/4
 2	SA:Vehicle Evasion (Ex)
@@ -247,8 +247,8 @@ CLASS:Rocket Ace	HD:8		TYPE:PC.Prestige	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.82	BON
 CLASS:Rocket Ace	PREFEAT:2,Pilot,Mechanical Aptitude	PRESKILL:1,Jump=5	PRESKILL:2,Drive,Craft (Steamcraft)=8	PRETEXT:To become a Rocket Ace a character must construct his own rocket pack
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE.Craft|Disable Device|Drive|Intuit Direction|Jump|Listen|Munitions|TYPE.Profession|Spot|Swim|Tumble|Use Steamcraft Device
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Roll (Ex)
 2	SA:Rocket Mechanic (Ex)
@@ -269,7 +269,7 @@ CLASS:Steamcraft Mage	HD:4		TYPE:PC.Prestige	ABB:StM		MAXLEVEL:10	SOURCEPAGE:p.8
 CLASS:Steamcraft Mage	PREFEAT:2,Mechanical Aptitude,Industrial Upbringing	PRESKILL:3,Knowledge (Clockworks),Knowledge (Steamcraft),Spellcraft=8	PRESKILL:1,TYPE.Craft=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steamcraft Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft|Use Steamcraft Device
-1	FEATAUTO:Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	SA:Advanced Craftsman (Ex)	ADD:SPELLCASTER|1|Arcane
 2						ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation
@@ -290,10 +290,10 @@ CLASS:Street Runner	HD:6		TYPE:PC.Prestige	ABB:SRn		MAXLEVEL:10	SOURCEPAGE:p.89	
 CLASS:Street Runner	PREATT:4	PREFEAT:1,Run	PRESKILL:5,Balance,Hide,Intuit Direction,Move Silently,Pick Pocket=5	PRESKILL:3,Climb,Jump,Tumble=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Runner	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Munitions|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
-1	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)	FEATAUTO:Street Runner Weapon Proficiencies
-1									FEATAUTO:Armor Proficiency (Light)
+1	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)	AUTO:FEAT|Street Runner Weapon Proficiencies
+1									AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1					BONUS:VAR|SneakAttack|(CL+1)/2	FEATAUTO:Sneak Attack
+1					BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
 2	SA:Gossip Hound (Ex)
 4	SA:Quick Lift (Ex)
 5	SA:Street Master (Ex)
@@ -308,16 +308,16 @@ CLASS:Watchman	HD:10		TYPE:PC.Prestige	ABB:Wat		MAXLEVEL:10	SOURCEPAGE:p.93	BONU
 CLASS:Watchman	PREATT:5	PRESKILL:2,Intimidate,Sense Motive=3	PRESKILL:1,Knowledge (Law),Knowledge (Crime and Criminals)=3	PRETEXT:Must be a member of the city guard
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle Animal|Intimidate|Intuit Direction|Knowledge (Local)|Knowledge (Law)|Knowledge (Crime and Criminals)|Listen|Munitions|TYPE.Profession|Ride|Sense Motive|Spot
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1																					FEATAUTO:Weapon Focus(Club)
+1																					AUTO:FEAT|Weapon Focus(Club)
 2	SA:Crowd Control (Ex)
 4	SA:Mounted Watchman (Ex)										BONUS:SKILL|Ride|4|TYPE=Competence
 5																										ADD:FEAT|1|TYPE.Watchman
 6	SA:Renewed Vitality (Ex)	BONUS:CHECKS|Fortitude|1	BONUS:HP|CURRENTMAX|5
-8	SA:Presence of Authority (Ex)																FEATAUTO:Leadership
+8	SA:Presence of Authority (Ex)																AUTO:FEAT|Leadership
 10	SA:Veteran Watchman (Ex)																					ADD:FEAT|1|TYPE.Watchman
 
 #

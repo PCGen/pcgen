@@ -8,8 +8,8 @@ CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:CHECKS|BAS
 CLASS:Hitman	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Spot
-1				BONUS:VAR|BloodMoney|floor((CL+4)/4)*2	FEATAUTO:Blood Money
-2				BONUS:VAR|DirtyDeeds|(CL+5)/5			FEATAUTO:Dirty Deeds
+1				BONUS:VAR|BloodMoney|floor((CL+4)/4)*2	AUTO:FEAT|Blood Money
+2				BONUS:VAR|DirtyDeeds|(CL+5)/5			AUTO:FEAT|Dirty Deeds
 3															ADD:FEAT|1|TYPE.Hitman
 6															ADD:FEAT|1|TYPE.Hitman
 7	SA:Calling Card
@@ -22,7 +22,7 @@ CLASS:Vigilante	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Know
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Climb|Craft (Chemical)|Craft (Structural)|Demolitions|Disguise|Drive|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Sense Motive
 1														ADD:FEAT|1|Weapon Focus
-2					BONUS:VAR|VigilanteBonus|CL/2	FEATAUTO:Vigilante
+2					BONUS:VAR|VigilanteBonus|CL/2	AUTO:FEAT|Vigilante
 3														ADD:FEAT|1|TYPE.Vigilante
 5	SA:Hunter and Hunted
 6														ADD:FEAT|1|TYPE.Vigilante

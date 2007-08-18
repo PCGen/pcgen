@@ -7,7 +7,7 @@ CLASS:Mecha Jockey	HD:10		TYPE:PC.Advanced	SOURCEPAGE:FutureMecha.rtf	BONUS:CHEC
 CLASS:Mecha Jockey	PREFEAT:1,Mecha Operation	PRESKILL:1,Drive=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mecha Jockey	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Sleight of Hand|Speak Language|Spot
-1																						FEATAUTO:Mecha Weapon Proficiency
+1																						AUTO:FEAT|Mecha Weapon Proficiency
 2	SA:Luv My Mecha +%|LuvMyMecha	BONUS:VAR|LuvMyMecha|(CL+1)/3	DEFINE:LuvMyMecha|0
 3															ADD:FEAT|TYPE=MechaJockey,TYPE=Mecha
 4	SA:Mecha Feint

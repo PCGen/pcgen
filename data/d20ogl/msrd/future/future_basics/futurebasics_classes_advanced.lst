@@ -40,7 +40,7 @@ CLASS:Dreadnought	PREFEAT:1,Improved Damage Threshold	PREFEAT:2,TYPE=DamageReduc
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dreadnought	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Jump|Profession|Survival|Swim|Tumble
 1	SA:Fearless	SA:Stability	SA:Unhindered														BONUS:MISC|ACHECK|2
-2	SA:Steamroller						BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL																			FEATAUTO:Ability Surge
+2	SA:Steamroller						BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL																			AUTO:FEAT|Ability Surge
 3																																			ADD:FEAT|TYPE=Dreadnought
 4	SA:Master Defender +%|MasterDefender		BONUS:VAR|MasterDefender|((CL-1)/3)*2																DEFINE:MasterDefender|0
 5	SA:Knockdown
@@ -71,10 +71,10 @@ CLASS:Explorer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClass
 CLASS:Explorer	PRESKILL:2,Knowledge (Earth and Life Sciences),Survival=6	PRESKILL:1,Search=4	PRESKILL:1,Knowledge (History),Knowledge (Physical Sciences),Knowledge (Theology and Philosophy)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Decipher Script|Disable Device|Drive|Gather Information|Handle Animal|Investigate|Jump|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Pilot|Read/Write Language|Research|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
-1	SA:Explorer Lore +%|ExplorerLore	SA:Survivalist	BONUS:VAR|ExplorerLore|CL+INT	DEFINE:ExplorerLore|0					FEATAUTO:Guide|Track
+1	SA:Explorer Lore +%|ExplorerLore	SA:Survivalist	BONUS:VAR|ExplorerLore|CL+INT	DEFINE:ExplorerLore|0					AUTO:FEAT|Guide|Track
 2	SA:Resolve	SA:Skilled Researcher
 3																			ADD:FEAT|TYPE=Explorer
-4										BONUS:VAR|TrapSense|(CL-1)/3									FEATAUTO:Trap Sense
+4										BONUS:VAR|TrapSense|(CL-1)/3									AUTO:FEAT|Trap Sense
 5	SA:Extra Step
 6																			ADD:FEAT|TYPE=Explorer
 8	SA:Explorer's Evasion
@@ -151,7 +151,7 @@ CLASS:Technosavant	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedC
 CLASS:Technosavant	PRESKILL:3,Computer Use,Disable Device,Knowledge (Technology)=6	PRESKILL:1,Craft (Electronic),Craft (Mechanical)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Technosavant	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Research|Speak Language|Spot
-1	SA:Technocrat																												FEATAUTO:Salvage
+1	SA:Technocrat																												AUTO:FEAT|Salvage
 2	SA:Robomancer	SA:Technophile
 3																										ADD:FEAT|TYPE=Technosavant
 4	SA:Cybermancer	SA:Skilled Salvager
@@ -168,10 +168,10 @@ CLASS:Tracer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses
 CLASS:Tracer	PREATT:2	PREFEAT:1,Track	PRESKILL:2,Investigate,Survival=6	PRESKILL:1,Knowledge (Behavioral Sciences),Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tracer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|Research|Search|Sense Motive|Spot|Survival|Swim
-1	SA:Target Species																		FEATAUTO:Urban Tracking
-2				BONUS:VAR|SwiftStrike|(CL+1)/3												FEATAUTO:Swift Strike
+1	SA:Target Species																		AUTO:FEAT|Urban Tracking
+2				BONUS:VAR|SwiftStrike|(CL+1)/3												AUTO:FEAT|Swift Strike
 3																	ADD:FEAT|TYPE=Tracer
-4											DEFINE:UncannyStealthChargeQual|0					FEATAUTO:Uncanny Stealth
+4											DEFINE:UncannyStealthChargeQual|0					AUTO:FEAT|Uncanny Stealth
 6																	ADD:FEAT|TYPE=Tracer
 7				BONUS:VAR|UncannyStealthChargeQual|1
 9																	ADD:FEAT|TYPE=Tracer
@@ -183,7 +183,7 @@ CLASS:Xenophile	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClas
 CLASS:Xenophile	PREFEAT:1,Linguist,Exploit Weakness	PRESKILL:2,Knowledge (Earth and Life Sciences),Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Xenophile	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Speak Language|Treat Injury
-1	SA:Xenolore														ADD:FEAT|TYPE=Xenotype						FEATAUTO:Base Xenotype
+1	SA:Xenolore														ADD:FEAT|TYPE=Xenotype						AUTO:FEAT|Base Xenotype
 2	SA:Xenoresistance +%|Xenoresist	BONUS:VAR|Xenoresist|(CL+1)/3	DEFINE:Xenoresist|0
 3																ADD:FEAT|TYPE=Xenophile
 4																ADD:FEAT|TYPE=Xenotype	ADD:FEAT|TYPE=XenotypeBonus

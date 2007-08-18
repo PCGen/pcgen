@@ -8,13 +8,13 @@ CLASS:Wing Jockey	HD:8		TYPE:PC.Prestige	ABB:WgJky		MAXLEVEL:5	SOURCEPAGE:p.20	B
 CLASS:Wing Jockey	PREFEAT:1,Mounted Combat	PRESKILL:2,Ride,Handle Animal=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wing Jockey	STARTSKILLPTS:6	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Jump|Knowledge (Geography)|Listen|TYPE.Profession|Ride|Spot|Use Rope
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Level Progression
-1	SA:Mount Affinity (Ex)	SA:Empathic Bonding (Ex) +%|EmpathicBonding	BONUS:VAR|EmpathicBonding|CL	DEFINE:EmpathicBonding|CHA	FEATAUTO:Wing Jockey (Mount Affinity)
-2	SA:Mounted Defense I (Ex)													DEFINE:MountedDefenseAC|1	FEATAUTO:Wing Jockey (Mounted Defense)
-3	SA:Mounted Evasion (Ex)	SA:Riding Style (Ex)															FEATAUTO:Wing Jockey (Riding Style/Rider)
-4	SA:Mounted Defense II (Ex)																		FEATAUTO:Wing Jockey (Mounted Defense II)
-5	SA:Riding Style Mastery (Ex)																		FEATAUTO:Wing Jockey (Riding Style Mastery/Rider)
+1	SA:Mount Affinity (Ex)	SA:Empathic Bonding (Ex) +%|EmpathicBonding	BONUS:VAR|EmpathicBonding|CL	DEFINE:EmpathicBonding|CHA	AUTO:FEAT|Wing Jockey (Mount Affinity)
+2	SA:Mounted Defense I (Ex)													DEFINE:MountedDefenseAC|1	AUTO:FEAT|Wing Jockey (Mounted Defense)
+3	SA:Mounted Evasion (Ex)	SA:Riding Style (Ex)															AUTO:FEAT|Wing Jockey (Riding Style/Rider)
+4	SA:Mounted Defense II (Ex)																		AUTO:FEAT|Wing Jockey (Mounted Defense II)
+5	SA:Riding Style Mastery (Ex)																		AUTO:FEAT|Wing Jockey (Riding Style Mastery/Rider)
 #
 # End
 #

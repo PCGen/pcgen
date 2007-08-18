@@ -25,7 +25,7 @@ CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:Arcan
 CLASS:Archaic Weaponsmaster	PREATT:3	PREFEAT:2,Archaic Weapons Proficiency,Weapon Focus
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Handle Animal|Jump|Knowledge (Art)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Research|Ride|Swim
-1							BONUS:VAR|WeapSpecQualify|1		DEFINE:WeapSpecQualify|0							FEATAUTO:Weapon Specialization
+1							BONUS:VAR|WeapSpecQualify|1		DEFINE:WeapSpecQualify|0							AUTO:FEAT|Weapon Specialization
 2	SA:Imbue Weapon +%|ImbueWeapon	BONUS:VAR|ImbueWeapon|(CL+4)/6	DEFINE:ImbueWeapon|0
 3																		ADD:FEAT|TYPE=ArchaicWeaponmaster
 4	SA:Quick Weapon Draw
@@ -33,7 +33,7 @@ CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craf
 6																		ADD:FEAT|TYPE=ArchaicWeaponmaster
 7	SA:Weapon Stun
 9																		ADD:FEAT|TYPE=ArchaicWeaponmaster
-10																								FEATAUTO:Increased Weapon Critical
+10																								AUTO:FEAT|Increased Weapon Critical
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Glamourist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -61,7 +61,7 @@ CLASS:Mystic	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharma
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Mystic	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic|CL
 ###Block: Turning
-2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Undead
+2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Undead
 2	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
 2	BONUS:VAR|TurnDamagePlus|CL
 2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
@@ -73,16 +73,16 @@ CLASS:Mystic	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic
 1	SPELLLEVEL:CLASS|Mystic=4|Discern Lies,Faith's Fury,Freedom of Movement,Greater Magic Weapon,Neutralize Poison,Restoration,Tongues
 1	SPELLLEVEL:CLASS|Mystic=5|Break Enchantment,Flaming Wrath,Greater Command,Insect Plague,True Seeing,Wall of Stone
 ###Block: Standard block
-1	CAST:3,2		KNOWN:4,2											FEATAUTO:Arcane Skills
+1	CAST:3,2		KNOWN:4,2											AUTO:FEAT|Arcane Skills
 2	CAST:4,3		KNOWN:5,2
 3	CAST:4,3,2		KNOWN:5,3,1					ADD:FEAT|TYPE=Mystic,TYPE=Metamagic
 4	CAST:5,4,3		KNOWN:6,3,2		SA:Combat Casting
-5	CAST:5,4,3,2	KNOWN:6,4,2,1										FEATAUTO:Brew Potion
+5	CAST:5,4,3,2	KNOWN:6,4,2,1										AUTO:FEAT|Brew Potion
 6	CAST:5,4,4,3	KNOWN:7,4,3,2				ADD:FEAT|TYPE=Mystic,TYPE=Metamagic
 7	CAST:6,5,4,3,2	KNOWN:7,5,3,2,1	SA:Discern Lie
-8	CAST:6,5,4,4,3	KNOWN:8,5,4,3,2										FEATAUTO:Turn/Rebuke Humans
+8	CAST:6,5,4,4,3	KNOWN:8,5,4,3,2										AUTO:FEAT|Turn/Rebuke Humans
 9	CAST:6,5,5,4,3,2	KNOWN:8,5,4,3,2,1				ADD:FEAT|TYPE=Mystic,TYPE=Metamagic
-10	CAST:6,5,5,4,4,3	KNOWN:9,5,5,4,3,2										FEATAUTO:Empower Spell
+10	CAST:6,5,5,4,4,3	KNOWN:9,5,5,4,3,2										AUTO:FEAT|Empower Spell
 
 # Psionic Agent moved to psionics subfolder set folder
 
@@ -163,7 +163,7 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Jump|
 2	SA:Quick Weapon Draw
 3										ADD:FEAT|TYPE=Swashbuckler
 4					BONUS:VAR|WeapSpecQualify|1	ADD:FEAT|Weapon Specialization
-5	SA:Find the Mark														FEATAUTO:Find the Mark
+5	SA:Find the Mark														AUTO:FEAT|Find the Mark
 6										ADD:FEAT|TYPE=Swashbuckler
 7										ADD:FEAT|Greater Weapon Specialization
 8	SA:Deflect Missiles
@@ -187,10 +187,10 @@ CLASS:Techno Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 4	CAST:4,3,2		SA:Create Homunculus
 5	CAST:4,3,2,1	SA:Arcane Spontaneous casting																																																																	CHOOSE:SPELLLIST|INT
 6	CAST:4,3,3,2																																																															ADD:FEAT|TYPE=TechnoMage,TYPE=Metamagic
-7	CAST:4,4,3,2,1																																																																										FEATAUTO:Spell Focus
+7	CAST:4,4,3,2,1																																																																										AUTO:FEAT|Spell Focus
 8	CAST:4,4,3,3,2	SA:Online Casting
 9	CAST:4,4,4,3,2,1																																																															ADD:FEAT|TYPE=TechnoMage,TYPE=Metamagic
-10	CAST:4,4,4,3,3,2																																																																										FEATAUTO:Quicken Spell
+10	CAST:4,4,4,3,3,2																																																																										AUTO:FEAT|Quicken Spell
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
 CLASS:Thrasher	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
@@ -214,14 +214,14 @@ CLASS:Wildlord	PREATT:2	PRESKILL:2,Handle Animal,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wildlord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Drive|Diplomacy|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
 ###Block: Turning
-8	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Animals
+8	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Animals
 8	BONUS:VAR|TurnLevel|var("CL=Wildlord")		DEFINE:ExtraTurningQual|1
 8	BONUS:VAR|TurnDamagePlus|var("CL=Wildlord")
 8	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
-10														FEATAUTO:Turn/Rebuke Magical Beasts
+10														AUTO:FEAT|Turn/Rebuke Magical Beasts
 ###Block: Standard
 1	SA:Animal Empathy
-2	SA:Animal Companion									FEATAUTO:Track
+2	SA:Animal Companion									AUTO:FEAT|Track
 3	SA:Fast Climb				ADD:FEAT|TYPE=Wildlord
 4	SA:Resist Venom	SA:Call Companion
 5	SA:Skill Mastery				ADD:FEAT|Wildlord Skill Mastery

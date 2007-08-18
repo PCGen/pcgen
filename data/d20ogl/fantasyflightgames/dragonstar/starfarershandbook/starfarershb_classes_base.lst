@@ -15,10 +15,10 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 CLASS:Pilot		HD:6		TYPE:Base.PC	ABB:Plt		MAXLEVEL:20	SOURCEPAGE:p.49	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Freefall|Intuit Direction|Jump|Navigate|Pilot|TYPE.Profession|Repair|Spot|Swim|Use Device|Use Rope
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	FEATAUTO:Technical Proficiency
-1	FEATAUTO:HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (HighTechLight)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Technical Proficiency
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)
 ###Block: Normal Level Progression
 1	SA:Speed Demon																		ADD:FEAT|1|TYPE.Pilot
 2	SA:Dogfighter +%|Dogfighter					BONUS:VAR|Dogfighter|(CL+5)/7		DEFINE:Dogfighter|0
@@ -33,9 +33,9 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Freefall|Intuit Direc
 CLASS:Mechanist	HD:6		TYPE:Base.PC	ABB:Mech		MAXLEVEL:20	SOURCEPAGE:p.52	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Craft|Cryptography|Demolitions|Disable Device|Freefall|TYPE.Knowledge|Open Lock|Pilot|TYPE.Profession|Repair|Research|Search|Use Device
-1	FEATAUTO:Technical Proficiency
-1	FEATAUTO:HighTechSimple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (HighTechLight)
+1	AUTO:FEAT|Technical Proficiency
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)
 ###Block: Normal Level Progression
 1	SA:Jury-rig	SA:Guerilla Repair	SA:Minor Upgrade	SA:Traps	ADD:FEAT|1|TYPE.Mechanist
 2	SA:Sabotage										ADD:FEAT|1|TYPE.MechTech

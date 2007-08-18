@@ -7,8 +7,8 @@ CLASS:Airman	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.1	BONUS:CHECKS|BASE
 CLASS:Airman	PREATT:2	PREFEAT:1,Aircraft Operation	PREFEAT:1,Fixed Wing Vehicle Weapons,Helicopter Vehicle Weapons	PRESKILL:1,Pilot=6	PRETEXT:Active or Reserve Duty (any one branch of service)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Airman	STARTSKILLPTS:4	CSKILL:Air Traffic Control|Communication Operations|Concentration|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Tactics)|Knowledge (Technology)|Navigate|Paradrop|Pilot|Repair|Spot
-1						BONUS:VAR|AirSuperiority|1					FEATAUTO:Air Superiority
-2						BONUS:VAR|Strafing|(CL+3)/5					FEATAUTO:Strafing
+1						BONUS:VAR|AirSuperiority|1					AUTO:FEAT|Air Superiority
+2						BONUS:VAR|Strafing|(CL+3)/5					AUTO:FEAT|Strafing
 3																				ADD:FEAT|1|TYPE=Airman
 4	SA:Air Support +%|AirSupport	BONUS:VAR|AirSupport|(CL/4)+2	DEFINE:AirSupport|0
 5						BONUS:VAR|AirSuperiority|1
@@ -45,7 +45,7 @@ CLASS:Leatherneck	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Dr
 7						BONUS:VAR|FirstWave|1
 8																											ADD:FEAT|1|TYPE=LeatherneckTerrain
 9																											ADD:FEAT|1|TYPE=Leatherneck
-10																							FEATAUTO:Semper Fi
+10																							AUTO:FEAT|Semper Fi
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
 CLASS:Specialist	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6

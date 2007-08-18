@@ -15,7 +15,7 @@ CLASS:Devoted Illusionist	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYP
 # Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Spell Scoll Prohibited													Caster level					Use Spell List
 CLASS:Devoted Illusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy,Transmutation	BONUS:CASTERLEVEL|Devoted Illusionist|CL	SPELLLIST:1|Wizard
 ###Block: Proficiencies
-1	FEATAUTO:Devoted Illusionist Weapon Proficiencies|All Automatic Weapon Proficiencies
+1	AUTO:FEAT|Devoted Illusionist Weapon Proficiencies|All Automatic Weapon Proficiencies
 ###Block: Illusion DC bonus
 1	BONUS:DC|SCHOOL.Illusion|IllusionFocus	DEFINE:IllusionFocus|0
 ###Block: Normal Level Progression
@@ -51,7 +51,7 @@ CLASS:Arcane Herald	HD:4		TYPE:PC.Prestige	ABB:Her		MAXLEVEL:10	SOURCEPAGE:p.7	B
 CLASS:Arcane Herald	PREFEAT:1,Scribe Scroll	PRESKILL:1,Knowledge (Heraldry)=8	PRESPELL:1,Stolen Sight	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Herald	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|Innuendo|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Ride|Scry|Sense Motive|Spellcraft
-1	SA:Grand Words			BONUS:VAR|FMLevel|CL	FEATAUTO:Summon Familiar	ADD:SPELLCASTER|1|ANY
+1	SA:Grand Words			BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar	ADD:SPELLCASTER|1|ANY
 2	SA:Craft Ink												ADD:SPELLCASTER|1|ANY
 3	SA:Clever Wit												ADD:SPELLCASTER|1|ANY
 4	SA:Elegant Hand (messages)										ADD:SPELLCASTER|1|ANY

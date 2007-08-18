@@ -21,8 +21,8 @@ CLASS:Guildmaster	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:3	PREFEAT:2,Leadership,Skill
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Urban Lore|Use Rope
 ###Block: Proficiencies
-1	FEATAUTO:Guildmaster Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Guildmaster Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Favor %|Favor	SA:Guild Hall	BONUS:VAR|Favor|CL/5+1		DEFINE:Favor|0		ADD:CLASSSKILLS|2|TYPE=Knowledge
 2	SA:Reputation +%|Reputation		BONUS:VAR|Reputation|CL/2	DEFINE:Reputation|0
@@ -37,8 +37,8 @@ CLASS:Roofrunner	PRESKILL:1,Knowledge (Home City)=5	PRESKILL:1,Urban Lore=8	PRES
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Roofrunner	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Swim|Tumble|Urban Lore|Use Rope
 ###Block: Proficiencies
-1	FEATAUTO:Guildmaster Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Guildmaster Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Roofrunning	SA:Never Lost
 2	SA:Find the Way %/day|FindTheWay	SA:Home Turf +%|HomeTurf	BONUS:VAR|FindTheWay|(CL+2)/4	BONUS:VAR|HomeTurf|CL/2	DEFINE:FindTheWay|0	DEFINE:HomeTurf|0
@@ -59,10 +59,10 @@ CLASS:Trapmaster	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Trapmaster|CL
 1	SPELLLEVEL:CLASS|Trapmaster=2|Cat's Grace,Darkvision,Daylight,Invisibility,Knock,Protection from Arrows
 1	SPELLLEVEL:CLASS|Trapmaster=3|Dispel Magic,Fly,Gaseous Form,Haste,Water Breathing,Wind Wall
 ###Block: Proficiencies
-1	FEATAUTO:Rogue Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Rogue Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1								SA:Trapsmithing					BONUS:VAR|SneakAttack|(CL+2)/3					FEATAUTO:Sneak Attack
+1								SA:Trapsmithing					BONUS:VAR|SneakAttack|(CL+2)/3					AUTO:FEAT|Sneak Attack
 2								SA:Trap Resistance +%|TrapResistance	BONUS:VAR|TrapResistance|CL/2		DEFINE:TrapResistance|0
 3	CAST:0,0		KNOWNSPELLS:LEVEL=1	SA:Trap Sense
 4	CAST:0,1
@@ -78,8 +78,8 @@ CLASS:Thug		HD:6		TYPE:Base.NPC	ABB:THG		MAXLEVEL:20	SOURCEPAGE:p.31-33	BONUS:CH
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Urban Lore
 ###Block: Proficiencies
-1	FEATAUTO:Rogue Weapon Proficiencies|All Automatic Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Rogue Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Backstab +%d%|BackstabDice|BackstabDieSize	BONUS:VAR|BackstabDice|CL/5+1	DEFINE:BackstabDieSize|4	DEFINE:BackstabDice|0
 10																							ADD:FEAT|1|TYPE=Fighter
@@ -90,7 +90,7 @@ CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Disgu
 
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:Urban Lore
-1	FEATAUTO:.CLEAR.Track	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	ADD:FEAT|1|Track,Shadow (TT)
+1	AUTO:FEAT|.CLEAR.Track	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	ADD:FEAT|1|Track,Shadow (TT)
 
 # Class Name				Class Skill
 CLASS:Ranger (Monte Cook's).MOD	CSKILL:Urban Lore

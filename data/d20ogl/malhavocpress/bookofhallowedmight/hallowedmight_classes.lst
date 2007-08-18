@@ -17,17 +17,17 @@ CLASS:Paladin (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 1	SPELLLEVEL:CLASS|Paladin (BoHM)=3|Cure Moderate Wounds,Discern Lies,Dispel Magic,Greater Magic Weapon,Heal Mount,Magic Circle against Evil,Prayer
 1	SPELLLEVEL:CLASS|Paladin (BoHM)=4|Cure Serious Wounds,Death Ward,Dispel Evil,Freedom of Movement,Holy Sword,Neutralize Poison,Remove Blindness/Deafness
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Turn Undead stuff
-3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	FEATAUTO:Turn Undead|Basic Turning
+3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	AUTO:FEAT|Turn Undead|Basic Turning
 3	BONUS:VAR|TurnLevelBase|CL-2|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
 3	BONUS:VAR|TurnDamagePlusBase|CL-2|TYPE=Level.REPLACE
 3	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal level progression
 1				SA:Detect Evil	SA:Divine Grace	SA:Divine Health	SA:Lay on Hands % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0	DEFINE:AllowHolyAvenger|1
-2				SA:Aura of Courage																																			FEATAUTO:Smite Evil
+2				SA:Aura of Courage																																			AUTO:FEAT|Smite Evil
 3				SA:Remove Disease %/week|RemoveDisease									BONUS:VAR|RemoveDisease|CL/3										DEFINE:RemoveDisease|0
 4	CAST:0,0
 5	CAST:0,0		SA:Special Mount
@@ -54,16 +54,16 @@ CLASS:Ranger (BoHM)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TY
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level
 CLASS:Ranger (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Ranger (BoHM)|CL
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Ranger (BoHM)=1|Alarm,Animal Friendship,Burning Brand,Delay Poison,Detect Animals or Plants,Detect Snares and Pits,Entangle,Magic Fang,Pass without Trace,Read Magic,Resist Elements,Speak with Animals,Summon Nature's Ally I
 1	SPELLLEVEL:CLASS|Ranger (BoHM)=2|Animal Messenger,Blight Enemy,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Hold Animal,Protection from Elements,Sleep,Snare,Speak with Plants,Summon Nature's Ally II,Wild Stealth
 1	SPELLLEVEL:CLASS|Ranger (BoHM)=3|Control Plants,Cure Moderate Wounds,Diminish Plants,Greater Magic Fang,Neutralize Poison,Plant Growth,Remove Disease,Summon Nature's Ally III,Tree Shape,Water Walk
 1	SPELLLEVEL:CLASS|Ranger (BoHM)=4|Aeonian Lantern,Cure Serious Wounds,Freedom of Movement,Nondetection,Polymorph Self,Summon Nature's Ally IV,Tree Stride,Unite Allies,Wind Wall
 ###Block: Normal level progression
-1				FEATAUTO:Track	ADD:FEAT|1|TYPE=RangerFavored
+1				AUTO:FEAT|Track	ADD:FEAT|1|TYPE=RangerFavored
 4	CAST:0,0					ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
 5	CAST:0,0					ADD:FEAT|1|TYPE=RangerFavored
 6	CAST:0,1
@@ -133,9 +133,9 @@ CLASS:Knight of the Pale	PREALIGN:LG,LN,NG,TN	PREATT:7	PREFEAT:1,Devout Faith	PR
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Pale	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Knowledge (Arcana)|Knowledge (Religion)|Listen|TYPE.Profession|Sense Motive|Spot
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SA:Suite of St Chausle
 3	SA:Suite of St Gustav

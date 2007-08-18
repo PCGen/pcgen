@@ -7,10 +7,10 @@ CLASS:G Man		HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|BASE
 CLASS:G Man		PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Investigate=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:G Man		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Search|Sense Motive|Spot
-1												FEATAUTO:Weapon Focus(Tommy Gun)
+1												AUTO:FEAT|Weapon Focus(Tommy Gun)
 2				SA:Witness Protect
 3	REPEATLEVEL:3															ADD:FEAT|1|TYPE=GMan
-4								BONUS:VAR|StillBuster|1	FEATAUTO:Still Buster
+4								BONUS:VAR|StillBuster|1	AUTO:FEAT|Still Buster
 5				SA:Dead or Alive
 7				SA:Untouchable
 8								BONUS:VAR|StillBuster|1
@@ -22,8 +22,8 @@ CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BAS
 CLASS:Hitman	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Spot
-1							BONUS:VAR|BloodMoney|((CL+4)/4)*2	FEATAUTO:Blood Money
-2							BONUS:VAR|DirtyDeeds|(CL+5)/5		FEATAUTO:Dirty Deeds
+1							BONUS:VAR|BloodMoney|((CL+4)/4)*2	AUTO:FEAT|Blood Money
+2							BONUS:VAR|DirtyDeeds|(CL+5)/5		AUTO:FEAT|Dirty Deeds
 3	REPEATLEVEL:3														ADD:FEAT|1|TYPE=Hitman
 7				SA:Calling Card
 
@@ -33,8 +33,8 @@ CLASS:Intrepid Reporter	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:
 CLASS:Intrepid Reporter	PREFEAT:1,Trustworthy	PRESKILL:2,Gather Information,Knowledge (Current Events)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Intrepid Reporter	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Diplomacy|Drive|Forgery|Gather Information|Investigate|Knowledge (Current Events)|Knowledge (Popular Culture)|Listen|Research|Search|Sense Motive|Spot
-1							BONUS:VAR|ReliableSources|CL	FEATAUTO:Reliable Sources
-2							BONUS:VAR|HumanPolygraph|CL	FEATAUTO:Human Polygraph
+1							BONUS:VAR|ReliableSources|CL	AUTO:FEAT|Reliable Sources
+2							BONUS:VAR|HumanPolygraph|CL	AUTO:FEAT|Human Polygraph
 3	REPEATLEVEL:3														ADD:FEAT|1|TYPE=IntrepidReporter
 4				SA:Newshound
 7				SA:Hunch
@@ -46,8 +46,8 @@ CLASS:Mob Boss	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BA
 CLASS:Mob Boss	PREFEAT:1,Henchmen	PRESKILL:2,Bluff,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mob Boss	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Sense Motive
-1							BONUS:VAR|UndueInfluence|CL	FEATAUTO:Undue Influence
-2												FEATAUTO:Contraband
+1							BONUS:VAR|UndueInfluence|CL	AUTO:FEAT|Undue Influence
+2												AUTO:FEAT|Contraband
 3	REPEATLEVEL:3														ADD:FEAT|1|TYPE=MobBoss
 3				SA:Captain
 5				SA:Vendetta
@@ -60,7 +60,7 @@ CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS
 CLASS:Mystery Man	PREATT:2	PREFEAT:1,Secret Identity	PRESKILL:2,Intimidate,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mystery Man	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Sense Motive|Spot|Tumble
-1								BONUS:VAR|Persona|CL	FEATAUTO:Persona
+1								BONUS:VAR|Persona|CL	AUTO:FEAT|Persona
 2				SA:Cloak of Secrecy
 3	REPEATLEVEL:3												ADD:FEAT|1|TYPE=MysteryMan
 4				SA:Cloak of Fear

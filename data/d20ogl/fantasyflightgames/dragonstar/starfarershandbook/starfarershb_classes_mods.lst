@@ -13,23 +13,23 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 
 # Class Name
 CLASS:Barbarian.MOD
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]
 
 
 # Class Name	Class Skill
 CLASS:Bard.MOD	CSKILL:Navigate|Research|Urban Lore|Use Device
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
 
 
 # Class Name	Class Skill
 CLASS:Cleric.MOD	CSKILL:Research
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]
 
 # Class Name	Subclass?
 CLASS:Druid.MOD	HASSUBCLASS:YES
@@ -37,21 +37,21 @@ CLASS:Druid.MOD	HASSUBCLASS:YES
 CLASS:Druid.MOD	CSKILL:Freefall|TYPE.Science|Navigate
 # Druid Subclasses
 SUBCLASS:Traditional Druid	COST:0	CHOICE:Traditional
-SUBCLASSLEVEL:1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]							ADD:SPELLCASTER|1|Druid
+SUBCLASSLEVEL:1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]							ADD:SPELLCASTER|1|Druid
 SUBCLASS:Liberal Druid		COST:0	CHOICE:Liberal
-SUBCLASSLEVEL:1	FEATAUTO:Technical Proficiency|HighTechSimple Weapon Proficiency|Armor Proficiency (HighTechLight)
+SUBCLASSLEVEL:1	AUTO:FEAT|Technical Proficiency|HighTechSimple Weapon Proficiency|Armor Proficiency (HighTechLight)
 
 # Class Name	Removed Class Skill			Class Skill									Cross-class Skill
 CLASS:Fighter.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Climb|TYPE.Craft|Jump|Swim|Demolition|Freefall|Pilot	CCSKILL:Handle Animal|Ride
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
 
 # Class Name
 CLASS:Monk.MOD
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
 
 ###Block: Normal Level Progression
 #1	AUTO:WEAPONPROF|TYPE=Simple	AUTO:ARMORPROF|TYPE=Light|PREFEAT:1,Technical Proficiency
@@ -60,18 +60,18 @@ CLASS:Monk.MOD
 
 # Class Name	Removed Class Skill			Class Skill																					Cross-class Skill
 CLASS:Paladin.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE.Profession|Climb|Freefall|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
 
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:Freefall|Navigate|Pilot
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
 ###Block: Normal Level Progression
 2	ADD:FEAT|1|TYPE=RangerTerrain
 4	ADD:FEAT|1|TYPE=RangerTerrain
@@ -82,19 +82,19 @@ CLASS:Ranger.MOD	CSKILL:Freefall|Navigate|Pilot
 
 # Class Name	Class Skill
 CLASS:Rogue.MOD	CSKILL:Cryptography|Demolitions|Freefall|Navigate|Pilot|Urban Lore|Use Device
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:WeaponThiefSmall[PREFEAT:1,Technical Proficiency]|WeaponThiefMedium[PREMULT:2,[PREFEAT:1,Technical Proficiency],[PREBASESIZEGTEQ:Medium]]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|WeaponThiefSmall[PREFEAT:1,Technical Proficiency]|WeaponThiefMedium[PREMULT:2,[PREFEAT:1,Technical Proficiency],[PREBASESIZEGTEQ:Medium]]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
 
 # Class Name
 CLASS:Sorcerer.MOD
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
 
 # Class Name	Class Skill
 CLASS:Wizard.MOD	CSKILL:Navigate|Research
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
 
 
 #
@@ -109,42 +109,42 @@ CLASS:Wizard.MOD	CSKILL:Navigate|Research
 
 # Class Name
 CLASS:Arcane Archer.MOD
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]
 
 
 # Class Name		Class Skill
 CLASS:Assassin.MOD	CSKILL:Demolitions|Freefall
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
 
 
 # Class Name		Skill Pts/Lvl	Removed Class Skill			Class Skill																					Cross-class Skill
 CLASS:Blackguard.MOD	STARTSKILLPTS:2	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
 0	BONUS:VAR|LayOnHands|CL*max(CHA,0)|PRECLASS:1,Ex Paladin=3	DEFINE:SmiteGood|0	DEFINE:LayOnHands|0
 ###Block: Proficiencies
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
 
 # Class Name			Class Skill
 CLASS:Dwarven Defender.MOD	CSKILL:Demolitions|Freefall
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
 
 
 # Class Name		Class Skill
 CLASS:Loremaster.MOD	CSKILL:Cryptography|Research|Use Device
-1	BONUS:SKILL|Research|CL|TYPE=Competance|PREFEAT:1,Technical Proficiency	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	BONUS:SKILL|Research|CL|TYPE=Competance|PREFEAT:1,Technical Proficiency	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
 
 # Class Name		Class Skill
 CLASS:Shadowdancer.MOD	CSKILL:Demolitions|Freefall
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (HighTechLight)
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)
 
 #
 #
@@ -160,22 +160,22 @@ CLASS:Shadowdancer.MOD	CSKILL:Demolitions|Freefall
 
 # Class Name		Class Skill
 CLASS:Aristocrat.MOD	CSKILL:Pilot|Urban Lore
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
 
 # Class Name		Removed Class Skill			Class Skill											Cross-class Skill
 CLASS:Commoner.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Climb|TYPE.Craft|Jump|Listen|TYPE.Profession|Spot|Swim|Use Rope	CCSKILL:Handle Animal|Ride
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
 
 # Class Name
 CLASS:Expert.MOD
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
 
 # Class Name	Class Skill
 CLASS:Warrior.MOD	CSKILL:Demolitions|Freefall|Pilot
-1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
