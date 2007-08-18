@@ -55,7 +55,6 @@
     <node name="BaseAttack">|ATTACK.MELEE|</node>
     <node name="Speed">|MOVEMENT|</node>
     <node name="Armor">|ARMOR.EQUIPPED.0.TYPE|</node>
-    <node name="TotalWeight">|TOTAL.WEIGHT|</node>
     <node name="LightLoad">|WEIGHT.LIGHT|</node>
     <node name="MediumLoad">|WEIGHT.MEDIUM|</node>
     <node name="HeavyLoad">|WEIGHT.HEAVY|</node>
@@ -123,8 +122,13 @@
     <node name="Weapon|%weap+1.INTVAL|">|WEAPON.%weap.NAME|</node>
     <node name="Weapon|%weap+1.INTVAL|Wielded">on</node>
     <node name="Weapon|%weap+1.INTVAL|Carried">on</node>
+|IIF(WEAPON.%weap.BASEHIT:N/A)|
+    <node name="Weapon|%weap+1.INTVAL|AB">|WEAPON.%weap.THHIT|</node>
+    <node name="Weapon|%weap+1.INTVAL|Damage">|WEAPON.%weap.THDAMAGE|</node>
+|ELSE|
     <node name="Weapon|%weap+1.INTVAL|AB">|WEAPON.%weap.BASEHIT|</node>
     <node name="Weapon|%weap+1.INTVAL|Damage">|WEAPON.%weap.BASICDAMAGE|</node>
+|ENDIF|
     <node name="Weapon1|%weap+1.INTVAL|Crit">|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|</node>
 |IIF(WEAPON.%weap.CATEGORY:Ranged)|
     <node name="Weapon|%weap+1.INTVAL|Range">|WEAPON.%weap.RANGE|</node>
@@ -190,15 +194,15 @@
     <node name="Feat|%feat+1.INTVAL|">|FEATALL.VISIBLE.%feat|</node>
 |ENDIF|
 |ENDFOR|
-|FOR,%equip,0,COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1,1,0|
+|FOR,%equip,0,COUNT[EQUIPMENT.Not.Coin.NOT.Gem.NOT.Weapon.NOT.Armor]-1,1,0|
 |IIF(%equip<9)|
-    <node name="Gear0|%equip+1.INTVAL|">|EQ.Not.Coin.NOT.Gem.%equip.NAME|</node>
-    <node name="Gear0|%equip+1.INTVAL|W">|EQ.Not.Coin.NOT.Gem.%equip.WT|</node>
-    <node name="Gear0|%equip+1.INTVAL|Loc">|EQ.Not.Coin.NOT.Gem.%equip.LOCATION|</node>
+    <node name="Gear0|%equip+1.INTVAL|">|EQ.Not.Coin.NOT.Gem.NOT.Weapon.NOT.Armor.%equip.NAME|</node>
+    <node name="Gear0|%equip+1.INTVAL|W">|EQ.Not.Coin.NOT.Gem.NOT.Weapon.NOT.Armor.%equip.WT|</node>
+    <node name="Gear0|%equip+1.INTVAL|Loc">|EQ.Not.Coin.NOT.Gem.NOT.Weapon.NOT.Armor.%equip.LOCATION|</node>
 |ELSE|
-    <node name="Gear|%equip+1.INTVAL|">|EQ.Not.Coin.NOT.Gem.%equip.NAME|</node>
-    <node name="Gear|%equip+1.INTVAL|W">|EQ.Not.Coin.NOT.Gem.%equip.WT|</node>
-    <node name="Gear|%equip+1.INTVAL|Loc">|EQ.Not.Coin.NOT.Gem.%equip.LOCATION|</node>
+    <node name="Gear|%equip+1.INTVAL|">|EQ.Not.Coin.NOT.Gem.NOT.Weapon.NOT.Armor.%equip.NAME|</node>
+    <node name="Gear|%equip+1.INTVAL|W">|EQ.Not.Coin.NOT.Gem.NOT.Weapon.NOT.Armor.%equip.WT|</node>
+    <node name="Gear|%equip+1.INTVAL|Loc">|EQ.Not.Coin.NOT.Gem.NOT.Weapon.NOT.Armor.%equip.LOCATION|</node>
 |ENDIF|
 |ENDFOR|
 |FOR,%coins,0,COUNT[EQUIPMENT.Coin]-1,1,0|
