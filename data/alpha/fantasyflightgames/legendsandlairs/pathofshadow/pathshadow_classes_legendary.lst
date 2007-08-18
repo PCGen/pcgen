@@ -20,8 +20,8 @@ CLASS:Blood Thief	HD:6		TYPE:PC.Legendary	ABB:Blo		MAXLEVEL:5	SOURCEPAGE:Chap.2,
 CLASS:Blood Thief	!PREALIGN:LG,NG,CG	PREFEAT:4,Improved Critical(TYPE=Slashing),Endurance,Toughness,Track	PRESA:1,Crippling Strike	PRESKILL:3,Concentration,Heal,Wilderness Lore=7	PRESKILL:1,Intimidate=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Thief	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Wilderness Lore
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=BloodThiefLAPL1
 2	ADD:FEAT|1|TYPE=BloodThiefLAPL2
@@ -36,8 +36,8 @@ CLASS:Fortune's Fool	HD:6		TYPE:PC.Legendary	ABB:FoF		MAXLEVEL:5	SOURCEPAGE:Chap
 CLASS:Fortune's Fool	!PREALIGN:LG,LN,LE	PREFEAT:5,Alertness,Combat Reflexes,Dodge,Improved Initiative,Quick Draw	PRESKILL:1,Tumble=8	PRESKILL:3,Balance,Escape Artist,Spot=10	PRESKILL:2,Diplomacy,Sense Motive=12	PRESKILL:1,Bluff=15	!PRESTAT:1,WIS=14
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fortune's Fool	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope|Wilderness Lore
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=FortuneFoolLAPL1
 2	ADD:FEAT|1|TYPE=FortuneFoolLAPL2
@@ -51,8 +51,8 @@ CLASS:Grey Hand	HD:6		TYPE:PC.Legendary	ABB:GrHa		MAXLEVEL:5	SOURCEPAGE:Chap.2, 
 CLASS:Grey Hand	PREATT:9	PREFEAT:3,Improved Critical,Weapon Focus,Skill Focus	PRESA:1,Death Attack	PRESKILL:2,Disguise,Intimidate=10	PRESKILL:2,Hide,Move Silently=15	PREVARGTEQ:SneakAttack,5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grey Hand	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=GreyHandLAPL1
 2	ADD:FEAT|1|TYPE=GreyHandLAPL2
@@ -66,9 +66,9 @@ CLASS:Hand of the Reaper	HD:6		TYPE:PC.Legendary	ABB:HaRe		MAXLEVEL:5	SOURCEPAGE
 CLASS:Hand of the Reaper	!PREALIGN:LG,NG,CG	PREATT:8	PRESA:1,Death Attack	PRESKILL:4,Bluff,Diplomacy,Forgery,Gather Information=5	PRESKILL:2,Intimidate,Open Lock=10	PRESKILL:2,Hide,Move Silently=15
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Hand of the Reaper	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=HandReaperLAPL1,Enhanced Dexterity I,Enhanced Intelligence I
 2	ADD:FEAT|1|TYPE=HandReaperLAPL2,Enhanced Dexterity II,Enhanced Intelligence II
@@ -83,8 +83,8 @@ CLASS:Incantator	HD:6		TYPE:PC.Legendary	ABB:Inc		MAXLEVEL:5	SOURCEPAGE:Chap.2, 
 CLASS:Incantator	PREFEAT:4,Iron Will,Skill Focus(Concentration),Skill Focus(Knowledge (Arcana)),Skill Focus(Spellcraft)	PRESKILL:3,Concentration,Knowledge (Arcana),Spellcraft=8	PRESKILL:2,Hide,Move Silently=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Incantator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Concentration|Climb|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Arcana)|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Magic Device
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=IncantatorLAPL1
 2	ADD:FEAT|1|TYPE=IncantatorLAPL2
@@ -106,8 +106,8 @@ CLASS:Jack of Knives	OUTPUTNAME:Jack-of-Knives	HD:6		TYPE:PC.Legendary	ABB:JaKn	
 CLASS:Jack of Knives	PREFEAT:5,Dodge,Mobility,Point Blank Shot,Two-Weapon Fighting,Weapon Focus(Dagger)	PRESKILL:3,Balance,Jump,Tumble=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Jack of Knives	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=JackKnivesLAPL1
 2	ADD:FEAT|1|TYPE=JackKnivesLAPL2
@@ -123,8 +123,8 @@ CLASS:Jack o' the Green	HD:6		TYPE:PC.Legendary	ABB:JaGr		MAXLEVEL:5	SOURCEPAGE:
 CLASS:Jack o' the Green	PREALIGN:NG,TN,CG,CN	PREFEAT:2,Track,Lightning Reflexes	PRESKILL:3,Gather Information,Knowledge (Local),Wilderness Lore=8	PRESKILL:2,Hide,Move Silently=15	PRESTAT:1,WIS=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Jack o' the Green	STARTSKILLPTS:8	CSKILL:Animal Empathy|Appraise|Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|Pick Pocket|Sense Motive|Spot|Swim|Tumble|Use Rope|Wilderness Lore
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=JackGreenLAPL1
 2	ADD:FEAT|1|TYPE=JackGreenLAPL2
@@ -185,8 +185,8 @@ CLASS:Savant	HD:6		TYPE:PC.Legendary	ABB:Sav		MAXLEVEL:5	SOURCEPAGE:Chap.2, Sava
 CLASS:Savant	PREFEAT:2,Alertness,Skill Focus(Decipher Script,Diplomacy,Disguise,Gather Information,Bluff,Search,Spot,Innuendo,Sense Motive)	PREFEAT:2,Skill Mastery(Decipher Script,Diplomacy,Disguise,Gather Information,Bluff,Search,Spot,Innuendo,Sense Motive)|CHECKMULT	PRESA:1,Slippery Mind	PRESKILL:4,Decipher Script,Diplomacy,Disguise,Gather Information=8	PRESKILL:3,Bluff,Search,Spot=10	PRESKILL:2,Innuendo,Sense Motive=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Savant	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|TYPE.Knowledge|Listen|Mimic Voice|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Scry|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Urban Lore|Use Magic Device|Use Rope
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	DEFINE:VeiledLore|0	ADD:FEAT|1|TYPE=SavantLAPL1
 2					ADD:FEAT|1|TYPE=SavantLAPL2
@@ -201,8 +201,8 @@ CLASS:Silver-Tongued Devil	HD:6		TYPE:PC.Legendary	ABB:SDev		MAXLEVEL:5	SOURCEPA
 CLASS:Silver-Tongued Devil	PREFEAT:3,Alertness,Skill Focus(Bluff),Skill Focus(Sense Motive)	PRESKILL:1,Concentration=7	PRESKILL:5,Bluff,Diplomacy,Listen,Sense Motive,Spot=15	PRESTAT:1,CHA=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Silver-Tongued Devil	STARTSKILLPTS:8	CSKILL:Animal Empathy|Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=SilverDevilLAPL1
 2	ADD:FEAT|1|TYPE=SilverDevilLAPL2

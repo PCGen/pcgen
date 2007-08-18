@@ -34,16 +34,16 @@ CLASS:Arcane Archer ~ Core	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CA
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3
 ###Block: Proficiencies
-1					FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1					FEATAUTO:Armor Proficiency (Light)
+1					AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1					AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:SHIELDPROF|Buckler
 ###Block: Standard
 1																	VFEAT:Point Blank Shot
 2																	VFEAT:Weapon Focus
 3																	VFEAT:Precise Shot
-4	BONUS:VAR|ArrowEnhancement|min((CL-1)/3,5)													FEATAUTO:Enhance Arrow
-5																					FEATAUTO:Imbue Arrow
-6	BONUS:VAR|SeekerArrowTimes|CL/6															FEATAUTO:Seeker Arrow
-9	BONUS:VAR|PhaseArrowTimes|(CL+1)/10															FEATAUTO:Phase Arrow
-14	BONUS:VAR|HailArrowsTargets|CL/2	BONUS:VAR|HailArrowsTimes|1										FEATAUTO:Hail of Arrows
-15	BONUS:VAR|ArrowDeathLevel|CL							DEFINE:ArrowDeathLevel|0					FEATAUTO:Arrow of Death
+4	BONUS:VAR|ArrowEnhancement|min((CL-1)/3,5)													AUTO:FEAT|Enhance Arrow
+5																					AUTO:FEAT|Imbue Arrow
+6	BONUS:VAR|SeekerArrowTimes|CL/6															AUTO:FEAT|Seeker Arrow
+9	BONUS:VAR|PhaseArrowTimes|(CL+1)/10															AUTO:FEAT|Phase Arrow
+14	BONUS:VAR|HailArrowsTargets|CL/2	BONUS:VAR|HailArrowsTimes|1										AUTO:FEAT|Hail of Arrows
+15	BONUS:VAR|ArrowDeathLevel|CL							DEFINE:ArrowDeathLevel|0					AUTO:FEAT|Arrow of Death

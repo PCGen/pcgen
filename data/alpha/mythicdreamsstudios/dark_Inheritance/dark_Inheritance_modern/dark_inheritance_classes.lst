@@ -155,7 +155,7 @@ CLASS:Two Fisted God of Guns	OUTPUTNAME:Two-Fisted God of Guns	HD:8		TYPE:Advanc
 CLASS:Two Fisted God of Guns	PREATT:5	PREFEAT:5,Advanced Firearms Proficiency,Dodge,Personal Firearms Proficiency,Precise Shot,Two-Weapon Fighting	PRESKILL:2,Sleight of Hand,Tumble=10	PRETEXT:You must possess the ability to make ranged attacks with a Medium-size or smaller firearm while in a threatened area without provoking an attack of opportunity.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Two Fisted God of Guns	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Demolitions|Drive|Gamble|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Scrounge|Sense Motive|Speak Language
-1	SA:Gun-Fu		FEATAUTO:Blind Shot
+1	SA:Gun-Fu		AUTO:FEAT|Blind Shot
 2	SA:Backfire
 3	SA:Deadeye
 4	SA:Dodge Fire

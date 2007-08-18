@@ -8,7 +8,7 @@ CLASS:Believer	PREFEAT:2,Conviction (Higher Power),Faith's Protection	PRESKILL:1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Treat Injury
 ###Block: Turning
-1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Undead
+1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Undead
 1	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
 1	BONUS:VAR|TurnDamagePlus|CL
 1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
@@ -29,7 +29,7 @@ CLASS:Cultist	PREFEAT:2,Conviction (Dark Power),Educated	PRESKILL:1,Knowledge (A
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Read/Write Language|Speak Language|Research
 ###Block: Turning
-1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Undead
+1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Undead
 1	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
 1	BONUS:VAR|TurnDamagePlus|CL
 1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
@@ -111,10 +111,10 @@ CLASS:Witch		HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BAS
 CLASS:Witch		PREFEAT:1,Iron Will	PRESKILL:2,Craft (Chemical),Knowledge (Arcane Lore)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|Sense Motive|Spot|Survival|Treat Injury
-1													BONUS:VAR|FMLevel|CL						FEATAUTO:Summon Familiar
+1													BONUS:VAR|FMLevel|CL						AUTO:FEAT|Summon Familiar
 2				SA:Herbal Lore
 3				SA:Darkshape %/day|Darkshape					BONUS:VAR|Darkshape|CL/3	DEFINE:Darkshape|0
-4																						FEATAUTO:Brew Potion
+4																						AUTO:FEAT|Brew Potion
 5	VISION:Low-light	SA:Creature of the Night - heals 1 hp/hour at night
 7				SA:Witch's Brew
 8				SA:Witch's Delight

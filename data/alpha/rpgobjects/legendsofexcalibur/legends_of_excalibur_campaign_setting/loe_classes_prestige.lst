@@ -12,9 +12,9 @@ CLASS:Assassin ~ LoE	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decip
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Assassin ~ LoE	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CLASS=Assassin ~ LoE|CL
 1	AUTO:WEAPONPROF|TYPE.Crossbow|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Sword (Short)
-1															FEATAUTO:Armor Proficiency (Light)
+1															AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,2,12		KNOWN:0,2,1		SA:Poison Use	SA:Death Attack (DC %)|DeathAttack	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	DEFINE:DeathAttack|10+INT	VFEAT:Power Source(Hedge Mage)	FEATAUTO:Sneak Attack
+1	CAST:0,2,12		KNOWN:0,2,1		SA:Poison Use	SA:Death Attack (DC %)|DeathAttack	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	DEFINE:DeathAttack|10+INT	VFEAT:Power Source(Hedge Mage)	AUTO:FEAT|Sneak Attack
 2	CAST:0,1,8		KNOWN:0,2,1		SA:+% save against poisons|AssassinPoisonSave		BONUS:VAR|AssassinPoisonSave|CL/2																	DEFINE:AssassinPoisonSave|0											ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
 3	CAST:0,1,4,15	KNOWN:0,3,2,1
 4	CAST:0,1,3,10	KNOWN:0,3,2,1
@@ -54,8 +54,8 @@ CLASS:Berserker	PREATT:10	PREFEAT:4,Power Attack,Cleave,Great Cleave,Rage	PRETEX
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Berserker	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
-1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1									BONUS:VAR|RageTimes|CL/3+1	BONUS:VAR|GreaterRage|1
 2	SA:Bloody Slaughter +%d6 (Ex)|BloodySlaughter	BONUS:VAR|BloodySlaughter|CL/2				DEFINE:BloodySlaughter|0
@@ -70,7 +70,7 @@ CLASS:Changeling	HD:10		TYPE:PC.Prestige	ABB:Chg		MAXLEVEL:10	SOURCEPAGE:37	BONU
 CLASS:Changeling	PREATT:7	PREFEAT:2,Animal Affinity,Self Sufficient	PRESA:1,Wild shape	PRESKILL:1,Concentration=5	PRESKILL:2,Knowledge (Nature),Survival=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Changeling	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
-1	AUTO:WEAPONPROF|TYPE=Natural	FEATAUTO:Simple Weapon Proficiency
+1	AUTO:WEAPONPROF|TYPE=Natural	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	SA:Bestial Rage %/day (Ex)|BestialRage	SA:Wild Empathy (Ex)	SA:Bestial Lore (Ex)	BONUS:VAR|BestialRage|CL/3+1	DEFINE:BestialRage|0
 2	SA:Animal Magnetism (Su)	SA:Wildshape %/day|Wildshape	SA:Wildshape (Large)		BONUS:VAR|Wildshape|CL/2	DEFINE:Wildshape|0
@@ -107,13 +107,13 @@ CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Handle Animal|Hea
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level
 CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Crusader|CL-2|PRECLASS:1,Crusader=3
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
-1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1										AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1												BONUS:VAR|SmiteInfidel|CL/5+1												DEFINE:SmiteInfidel|0	VFEAT:Power Source(Crusader)
 2				SA:Lay on Hands (Su) % hp/day|LayOnHands		BONUS:VAR|LayOnHands|max(CHA,0)*CL											DEFINE:LayOnHands|0											ADD:FEAT|1|Mounted Combat
 3	CAST:1,2,12		SA:Aura of Piety (Ex)	SA:Crusade +%|Crus	BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS+NOB	BONUS:VAR|Crus|CL/3		DEFINE:Crus|0
-4	CAST:1,1,8		SA:Mounted Combat +% (Ex)|MountedCombat		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4+1	BONUS:VAR|KnightLevel|CL-3	DEFINE:MountedCombat|0						FEATAUTO:Knight's Warhorse
+4	CAST:1,1,8		SA:Mounted Combat +% (Ex)|MountedCombat		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4+1	BONUS:VAR|KnightLevel|CL-3	DEFINE:MountedCombat|0						AUTO:FEAT|Knight's Warhorse
 5	CAST:1,1,4,15									BONUS:VAR|BASEPOWERPOINTS|2
 6	CAST:1,1,3,10									BONUS:VAR|BASEPOWERPOINTS|3
 7	CAST:0,1,2,5,18									BONUS:VAR|BASEPOWERPOINTS|3
@@ -127,7 +127,7 @@ CLASS:Enchantress	HD:4		TYPE:PC.Prestige	ABB:Enc		SOURCEPAGE:41	BONUS:CHECKS|BAS
 CLASS:Enchantress	PREFEAT:1,Spell Focus (Enchantment)	PRESKILL:2,Bluff,Diplomacy=8	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Enchantress	STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (Local)|TYPE.Profession|Sense Motive|Sleight of Hand|Spellcraft
-1	FEATAUTO:Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	SA:Enchantress	BONUS:SKILL|TYPE=Charisma|CL	BONUS:SKILL|Intimidate|(-1)*CL	ADD:SPELLCASTER|1|Arcane
 2															ADD:SPELLCASTER|1|Arcane
@@ -146,8 +146,8 @@ CLASS:Lady of the Lake	HD:8		TYPE:PC.Prestige	ABB:LoL		MAXLEVEL:5	SOURCEPAGE:42	
 CLASS:Lady of the Lake	PREGENDER:F		PRESA:1,Wildshape		PRESKILL:2,Knowledge (Nature),Swim=8	PRESTAT:1,NOB=51
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Lady of the Lake	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (History)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Listen|Ride|Sense Motive|Spellcraft|Spot|Survival|Swim
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block:Normal Level Progression
 1	SA:Breathe Water (Su)	SPELLS:Lady of the Lake|TIMES=-1|CASTERLEVEL=CL|Water Breathing,13+CHA	ADD:SPELLCASTER|1|Any
 2																	ADD:SPELLCASTER|1|Any
@@ -161,11 +161,11 @@ CLASS:Quest Knight	HD:12		TYPE:PC.Prestige	ABB:QKn		MAXLEVEL:10	SOURCEPAGE:43	BO
 CLASS:Quest Knight	PREATT:10	PREFEAT:3,Faith,Piety,Mounted Combat	PRESA:1,Code of Chivalry	PRESKILL:2,Knowledge (Nobility and Royalty),Ride=10	PRESTAT:1,NOB=71
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Quest Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (Nobility and Royalty)|Ride|Survival
-1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1										AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1							BONUS:VAR|KnightLevel|CL																		FEATAUTO:Aura of Knighthood|Knight's Warhorse
+1							BONUS:VAR|KnightLevel|CL																		AUTO:FEAT|Aura of Knighthood|Knight's Warhorse
 2	SA:Divine Grace (Su)								BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
 3	SA:Perseverence (Ex)
 4	SA:Quest Knight (Attacks) (Ex)
@@ -200,13 +200,13 @@ CLASS:Black Knight	HD:12		TYPE:PC.Prestige	ABB:BkKn		MAXLEVEL:10	SOURCEPAGE:46	B
 CLASS:Black Knight	PREATT:7	PRESKILL:2,Ride,Intimidate=10	PRESKILL:1,Knowledge (Nobility and Royalty)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|TYPE.Profession|Ride|Swim
-1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1										AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
 1	SA:Black Knight (Ex)																			BONUS:SKILL|Intimidate|CL
 2	SA:Black Heart +%d6 %/day (Ex)|BlackHeartDamage|BlackHeartTimes	BONUS:VAR|BlackHeartDamage|CL/2	BONUS:VAR|BlackHeartTimes|1						DEFINE:BlackHeartDamage|0	DEFINE:BlackHeartTimes|0
-3	SA:Mounted Combat +% (Ex)|MountedCombat					BONUS:VAR|KnightLevel|CL-3	BONUS:VAR|MountedCombat|CL/3							DEFINE:MountedCombat|0							FEATAUTO:Knight's Warhorse	FEATAUTO:Mounted Combat
+3	SA:Mounted Combat +% (Ex)|MountedCombat					BONUS:VAR|KnightLevel|CL-3	BONUS:VAR|MountedCombat|CL/3							DEFINE:MountedCombat|0							AUTO:FEAT|Knight's Warhorse	AUTO:FEAT|Mounted Combat
 5																																															ADD:FEAT|1|TYPE=Fighter
 7	SA:Black Shield (Ex)
 
@@ -218,12 +218,12 @@ CLASS:Blue Knight	PREATT:7	PREFEAT:2,Faith,Piety	PRESA:1,Code of Chivalry	PRESKI
 CLASS:Blue Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level
 CLASS:Blue Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Blue Knight|CL-2|PRECLASS:1,Blue Knight=3
-1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1										AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
 1				SA:Breathe Water (Su)																SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Breathing,13+CHA
-2								BONUS:VAR|KnightLevel|CL																												FEATAUTO:Knight's Warhorse
+2								BONUS:VAR|KnightLevel|CL																												AUTO:FEAT|Knight's Warhorse
 3	CAST:1,2,12						BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS																VFEAT:Power Source(Druid/Minstrel)
 4	CAST:1,1,8						BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4		DEFINE:MountedCombat|0
 5	CAST:1,1,4,15	SA:Walk on Water (Su)	BONUS:VAR|BASEPOWERPOINTS|2											SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Walk,13+CHA
@@ -239,11 +239,11 @@ CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GrKn		MAXLEVEL:10	SOURCEPAGE:48	B
 CLASS:Green Knight	PREATT:7	PREFEAT:3,Alertness,Animal Affinity,Track
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Spot|Survival|Swim
-1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1										AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1										BONUS:VAR|RageTimes|CL/5+1	BONUS:VAR|KnightLevel|CL	DEFINE:RageTimes|0	FEATAUTO:Knight's Warhorse	FEATAUTO:Rage
+1										BONUS:VAR|RageTimes|CL/5+1	BONUS:VAR|KnightLevel|CL	DEFINE:RageTimes|0	AUTO:FEAT|Knight's Warhorse	AUTO:FEAT|Rage
 2	SA:Wild Empathy (Ex)
 3	SA:Woodland Stride (Ex)
 4	SA:Trackless Step (Ex)
@@ -258,11 +258,11 @@ CLASS:Purple Knight	HD:10		TYPE:PC.Prestige	ABB:PKn		MAXLEVEL:10	SOURCEPAGE:49	B
 CLASS:Purple Knight	PREATT:5	PRESKILL:1,Diplomacy=5	PRESKILL:2,Ride,Handle Animal=10	PRESTAT:1,NOB=50
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Purple Knight	STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|TYPE.Profession|Ride|Sense Motive
-1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1										AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1	SA:Diplomatic Immunity	SA:Mounted Combat +%|MountedCombat	BONUS:VAR|KnightLevel|CL	BONUS:VAR|MountedCombat|CL/4+1	DEFINE:MountedCombat|0	FEATAUTO:Knight's Warhorse
+1	SA:Diplomatic Immunity	SA:Mounted Combat +%|MountedCombat	BONUS:VAR|KnightLevel|CL	BONUS:VAR|MountedCombat|CL/4+1	DEFINE:MountedCombat|0	AUTO:FEAT|Knight's Warhorse
 2	SA:Horse Whisperer	SA:Burst of Speed +%'|BurstOfSpeed	BONUS:VAR|BurstOfSpeed|floor(CL/2)*10					DEFINE:BurstOfSpeed|0
 3	SA:Like the Wind +%|LikeTheWind					BONUS:VAR|LikeTheWind|min(CL/2-1,0)						DEFINE:LikeTheWind|0
 
@@ -274,8 +274,8 @@ CLASS:Red Knight	PREATT:5	PRESKILL:3,Hide,Bluff,Ride=5	PREVARGTEQ:SneakAttack,2
 CLASS:Red Knight	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Disguise|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|Move Silently|TYPE.Profession|Ride|Sleight of Hand
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Red Knight	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Red Knight|CL-2|PRECLASS:1,Red Knight=3
-1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1										AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
 1							SA:Mounted Combat +%|MountedCombat	BONUS:VAR|MountedCombat|CL/5+1						DEFINE:MountedCombat|0							ADD:FEAT|1|Mounted Combat
@@ -297,8 +297,8 @@ CLASS:White Knight	PREATT:7	PREFEAT:2,Faith,Piety	PRESA:1,Code of Chivalry	PRESK
 CLASS:White Knight	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE.Profession|Prophecy|Ride|Sense Motive
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level
 CLASS:White Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|White Knight|CL-2|PRECLASS:1,White Knight=3
-1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1										AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
 1				SA:Lay on Hands % hp/day (Su)|LayOnHands	SA:Aura of Grace (Ex)	BONUS:VAR|LayOnHands|max(CHA,0)*CL											BONUS:SKILL|Prophecy|NOB	DEFINE:LayOnHands|0

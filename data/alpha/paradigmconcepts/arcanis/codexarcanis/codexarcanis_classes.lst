@@ -35,7 +35,7 @@ CLASS:Dancer of the Elements	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:7,Evasion,Dodge,
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Dancer of the Elements	STARTSKILLPTS:2	CSKILL:Balance|Hide|Jump|Move Silently|Perform|Tumble
 1																																										AUTO:WEAPONPROF|TYPE.Martial
-1	SA:The First Steps	BONUS:COMBAT|AC|INTMAX0|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0	BONUS:COMBAT|AC|1|TYPE=DancerElements																						FEATAUTO:Armor Proficiency (Light)
+1	SA:The First Steps	BONUS:COMBAT|AC|INTMAX0|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0	BONUS:COMBAT|AC|1|TYPE=DancerElements																						AUTO:FEAT|Armor Proficiency (Light)
 2	SA:Dance of Air
 3	SA:Dance of Fire																								BONUS:DAMAGE|TYPE.Melee|CHAMAX0|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0
 4	SA:Dance of Water		BONUS:COMBAT|INITIATIVE|WISMAX0|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0	BONUS:COMBAT|AC|1|TYPE=DancerElements
@@ -48,7 +48,7 @@ CLASS:Blight Bearer	HD:8		TYPE:PC.Prestige	ABB:BlB		MAXLEVEL:4	SOURCEPAGE:p.167	
 CLASS:Blight Bearer	PREALIGN:LE,NE,CE	PREDEITY:Neroth	PREDOMAIN:1,Disease	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:2,Knowledge (Religion),Heal=5	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blight Bearer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
-1																														AUTO:WEAPONPROF|TYPE.Simple|Scythe	FEATAUTO:Armor Proficiency (Light)
+1																														AUTO:WEAPONPROF|TYPE.Simple|Scythe	AUTO:FEAT|Armor Proficiency (Light)
 1	SA:Touch of Disease I	SA:Tainted Appearance %|TaintedAppearance	BONUS:VAR|TaintedAppearance|15	BONUS:SKILLRANK|Knowledge (Disease)|1	DEFINE:TaintedAppearance|0													ADD:SPELLCASTER|1|Divine
 2	SA:Touch of Disease II								BONUS:VAR|TaintedAppearance|15																									ADD:SPELLCASTER|1|Divine
 3	SA:Touch of Disease III	SA:Improved Touch I				BONUS:VAR|TaintedAppearance|15																									ADD:SPELLCASTER|1|Divine
@@ -84,7 +84,7 @@ CLASS:Order of the Emerald Flame	HD:4		TYPE:PC.Prestige	ABB:OEF		MAXLEVEL:10	SOU
 CLASS:Order of the Emerald Flame	PREALIGN:NG,TN,NE,CG,CN,CE	PRECHECKBASE:1,Fortitude=8	PREFEAT:2,Spell Focus (Evocation),Toughness	PRESKILL:1,Concentration=8	PRESKILL:2,Knowledge (Arcana),Spellcraft=4	PRESPELLTYPE:1,Arcane=4
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Order of the Emerald Flame	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Ride|Scry|Spellcraft
-1																										AUTO:WEAPONPROF|TYPE.Simple	FEATAUTO:Armor Proficiency (Light)
+1																										AUTO:WEAPONPROF|TYPE.Simple	AUTO:FEAT|Armor Proficiency (Light)
 1	SA:Kin of Flame (Su)	SA:For Every Gift There Is A Price (Ex)							BONUS:STAT|CHA|-4																	ADD:SPELLCASTER|1|Arcane
 2	SA:Elemental Savant (Air)																																ADD:SPELLCASTER|1|Arcane
 3	SA:Strength of Flame +%d6 (Su)|StrengthOfFlame				BONUS:VAR|StrengthOfFlame|(CL-1)/2				DEFINE:StrengthOfFlame|0												ADD:SPELLCASTER|1|Arcane
@@ -136,7 +136,7 @@ CLASS:Warriors of the Eternal Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concent
 # Class Name				Spell Stat		Spell Type		Memorize		Caster level
 CLASS:Warriors of the Eternal Flame	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:YES	BONUS:CASTERLEVEL|Warriors of the Eternal Flame|CL
 1													AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial
-1																				FEATAUTO:Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																				AUTO:FEAT|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	CAST:0,0		KNOWN:0,0		SA:Child of Nier
 2	CAST:0,0		KNOWN:0,1
 3	CAST:0,1		KNOWN:0,1		SA:Summon Minor Fire Elemental
@@ -158,7 +158,7 @@ CLASS:Ehtzara	STARTSKILLPTS:3	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.C
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Ehtzara	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Ehtzara|CL
 1																																												AUTO:WEAPONPROF|TYPE.Simple
-1	CAST:5,3,0			KNOWN:4,2,1			SA:Spot Bonus +%|EhtzaraSpotBonus	SA:Craft Fetish	SA:Frightful Presence	BONUS:VAR|FMLevel|CL	BONUS:VAR|EhtzaraSpotBonus|CL	BONUS:SKILL|Spot|EhtzaraSpotBonus	DEFINE:EhtzaraSpotBonus|0								FEATAUTO:Summon Familiar
+1	CAST:5,3,0			KNOWN:4,2,1			SA:Spot Bonus +%|EhtzaraSpotBonus	SA:Craft Fetish	SA:Frightful Presence	BONUS:VAR|FMLevel|CL	BONUS:VAR|EhtzaraSpotBonus|CL	BONUS:SKILL|Spot|EhtzaraSpotBonus	DEFINE:EhtzaraSpotBonus|0								AUTO:FEAT|Summon Familiar
 2	CAST:6,4,3			KNOWN:5,3,2			SA:Healing Touch SA:Speak with Animals %/day|SpeakWithAnimals			BONUS:VAR|SpeakWithAnimals|CL/2										DEFINE:SpeakWithAnimals|0
 3	CAST:6,5,3,0		KNOWN:5,4,2,1		SA:Imbue Fetish +%|Fetish	SA:Speak With Dead %/day|SpeakWithDead		BONUS:VAR|Fetish|1	BONUS:VAR|SpeakWithDead|CL/3							DEFINE:Fetish|0	DEFINE:SpeakWithDead|0
 4	CAST:6,6,4,3		KNOWN:6,5,3,2		SA:Undead Awareness	SA:See Invisible

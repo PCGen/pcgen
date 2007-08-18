@@ -10,7 +10,7 @@ CLASS:Elemental Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
 CLASS:Elemental Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Druid|CL
 ###Block: Basic Turning, to allow Elemental Druid access to turning/rebuking elementals
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	FEATAUTO:Basic Turning
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	AUTO:FEAT|Basic Turning
 1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
@@ -27,10 +27,10 @@ CLASS:Elemental Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 1	SPELLLEVEL:CLASS|Elemental Druid=9|Antipathy,Cure Critical Wounds (Mass),Elemental Swarm,Foresight,Regenerate,Shambler,Shapechange,Storm of Vengeance,Summon Nature's Ally IX,Sympathy
 ###Block: Proficiencies
 1	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Spear
-1																	FEATAUTO:Shield Proficiency
-1																	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	AUTO:FEAT|Shield Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
-1	CAST:3,1				SA:Nature Sense (Ex)	SA:Wild Empathy (Ex)									BONUS:SKILL|Knowledge (Nature),Survival|2					FEATAUTO:Animal Companion
+1	CAST:3,1				SA:Nature Sense (Ex)	SA:Wild Empathy (Ex)									BONUS:SKILL|Knowledge (Nature),Survival|2					AUTO:FEAT|Animal Companion
 2	CAST:4,2				SA:Woodland Stride (Ex)
 3	CAST:4,2,1				SA:Trackless Step (Ex)
 4	CAST:5,3,2				SA:Resist Nature's Lure (Ex)
@@ -56,6 +56,6 @@ CLASS:Ex Elemental Druid	HD:8		TYPE:Base.PC	ABB:XEDrd		SOURCEPAGE:5	LANGAUTO:Dru
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ex Elemental Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
 1	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Longspear
-1																		FEATAUTO:Shield Proficiency
-1																		FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																		AUTO:FEAT|Shield Proficiency
+1																		AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 

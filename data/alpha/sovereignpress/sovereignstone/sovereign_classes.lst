@@ -16,17 +16,17 @@ CLASS:Archer	HD:8		TYPE:Base.PC	ABB:Acr		MAXLEVEL:20	SOURCEPAGE:p.	BONUS:CHECKS|
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Literacy|Spot|Swim
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Archer Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency|Archer Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	BONUS:VAR|PrimaryWeap|CL/5+2	ADD:FEAT|1|Primary Weapon	FEATAUTO:Point Blank Shot
-2											FEATAUTO:Extra Shot
-4											FEATAUTO:Pinpoint Accuracy
-6											FEATAUTO:Dead Shot
-10											FEATAUTO:Improved Point Blank Shot
-14											FEATAUTO:Long Distance Accuracy
-18											FEATAUTO:Ranged Disarm
-20											FEATAUTO:Extended Range
+1	BONUS:VAR|PrimaryWeap|CL/5+2	ADD:FEAT|1|Primary Weapon	AUTO:FEAT|Point Blank Shot
+2											AUTO:FEAT|Extra Shot
+4											AUTO:FEAT|Pinpoint Accuracy
+6											AUTO:FEAT|Dead Shot
+10											AUTO:FEAT|Improved Point Blank Shot
+14											AUTO:FEAT|Long Distance Accuracy
+18											AUTO:FEAT|Ranged Disarm
+20											AUTO:FEAT|Extended Range
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -34,21 +34,21 @@ CLASS:Mounted Warrior	HD:8		TYPE:Base.PC	ABB:MtW		MAXLEVEL:20	SOURCEPAGE:p.41	BO
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mounted Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|Handle Animal|Intimidate|Jump|Literacy|Ride|Speak Language|Swim
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:SKILL|Animal Empathy,Handle Animal,Ride|2	FEATAUTO:Mounted Attack|Mounted Combat
-2									FEATAUTO:Ride-By Attack
-4									FEATAUTO:Guide Mount
-6									FEATAUTO:Remain in Saddle
-8									FEATAUTO:Improved Mounted Combat
-10									FEATAUTO:Direct Mount
-12									FEATAUTO:Defensive Riding
-14									FEATAUTO:Combat-ready Mount
-16									FEATAUTO:Lightning Charge
-18									FEATAUTO:Moving Target
-20									FEATAUTO:Devastating Trample
+1	BONUS:SKILL|Animal Empathy,Handle Animal,Ride|2	AUTO:FEAT|Mounted Attack|Mounted Combat
+2									AUTO:FEAT|Ride-By Attack
+4									AUTO:FEAT|Guide Mount
+6									AUTO:FEAT|Remain in Saddle
+8									AUTO:FEAT|Improved Mounted Combat
+10									AUTO:FEAT|Direct Mount
+12									AUTO:FEAT|Defensive Riding
+14									AUTO:FEAT|Combat-ready Mount
+16									AUTO:FEAT|Lightning Charge
+18									AUTO:FEAT|Moving Target
+20									AUTO:FEAT|Devastating Trample
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -58,9 +58,9 @@ CLASS:Noble		PREMULT:1,[PRECLASS:1,Noble=1],[!PRECLASS:1,Any]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Urban Lore|Handle Animal|Innuendo|Intimidate|TYPE.Knowledge|Listen|Literacy|Perform|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SA:Deceptive Melee								BONUS:COMBAT|AC|max(CHA,0)				BONUS:SKILL|Bluff,Innuendo,Sense Motive|2
 2	SA:Monthly Funds %|MonthlyFunds																					DEFINE:MonthlyFunds|25
@@ -79,20 +79,20 @@ CLASS:Sailor	HD:6		TYPE:Base.PC	ABB:sv4		MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:CHECK
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledge (Nature)|Literacy|Profession (Sailor)|Speak Language|Spot|Swim|Tumble|Use Rope
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Sailor Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency|Sailor Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1						BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2	ADD:FEAT|1|Sailor Weapon Bonus
-2																										FEATAUTO::Improvised Weapon
+2																										AUTO:FEAT|:Improvised Weapon
 3																						VFEAT:Evasion
-5																ADD:FEAT|1|Sailor Weapon Bonus					FEATAUTO:Extraordinary Tolerance
-7	BONUS:VAR|DirtyBlow|(CL-4)/3																					FEATAUTO:Dirty Blow
-9	BONUS:VAR|UncannyDodge|1																					FEATAUTO:Uncanny Dodge
+5																ADD:FEAT|1|Sailor Weapon Bonus					AUTO:FEAT|Extraordinary Tolerance
+7	BONUS:VAR|DirtyBlow|(CL-4)/3																					AUTO:FEAT|Dirty Blow
+9	BONUS:VAR|UncannyDodge|1																					AUTO:FEAT|Uncanny Dodge
 10																ADD:FEAT|1|Sailor Weapon Bonus
-11																										FEATAUTO:Superior Improvised Weapon
+11																										AUTO:FEAT|Superior Improvised Weapon
 13	BONUS:VAR|UncannyDodge|1
-15																ADD:FEAT|1|Sailor Weapon Bonus					FEATAUTO:Follow Up Strike
-17																										FEATAUTO:Extraordinary Balance
+15																ADD:FEAT|1|Sailor Weapon Bonus					AUTO:FEAT|Follow Up Strike
+17																										AUTO:FEAT|Extraordinary Balance
 20																ADD:FEAT|1|Sailor Weapon Bonus	VFEAT:Improved Evasion
 
 
@@ -101,40 +101,40 @@ CLASS:Soldier	HD:8		TYPE:Base.PC	ABB:sv5		MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:CHEC
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Literacy|Swim
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1					FEATAUTO:Close-Order Fighting
-2					FEATAUTO:Combat Reflexes|Set Spear
-4	BONUS:VAR|QuickAction|1	FEATAUTO:QuickAction
-6					FEATAUTO:Superior Bull Rush
-8					FEATAUTO:Coordinated Strikes
+1					AUTO:FEAT|Close-Order Fighting
+2					AUTO:FEAT|Combat Reflexes|Set Spear
+4	BONUS:VAR|QuickAction|1	AUTO:FEAT|QuickAction
+6					AUTO:FEAT|Superior Bull Rush
+8					AUTO:FEAT|Coordinated Strikes
 9	BONUS:VAR|QuickAction|1
-10					FEATAUTO:Superior Trip
-12					FEATAUTO:Improved Close order Fighting
+10					AUTO:FEAT|Superior Trip
+12					AUTO:FEAT|Improved Close order Fighting
 13	BONUS:VAR|QuickAction|1
-14					FEATAUTO:Lightning Reaction
-16	BONUS:VAR|QuickAction|1	FEATAUTO:Maximize Cover
-18					FEATAUTO:Killing Strike
+14					AUTO:FEAT|Lightning Reaction
+16	BONUS:VAR|QuickAction|1	AUTO:FEAT|Maximize Cover
+18					AUTO:FEAT|Killing Strike
 19	BONUS:VAR|QuickAction|1
-20					FEATAUTO:Reflexive Strike
+20					AUTO:FEAT|Reflexive Strike
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
 CLASS:Stalker	HD:8		TYPE:Base.PC	ABB:sv6		MAXLEVEL:20	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Gather Information|Urban Lore|Hide|Intimidate|Intuit Direction|Jump|Listen|Literacy|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1							BONUS:SKILL|Hide,Move Silently|2	ADD:FEAT|1|Track,Shadow
-2																	FEATAUTO:Improved Unarmed Strike
-5																	FEATAUTO:Subduing Strike
-8	BONUS:VAR|SkilledDisarm|(CL-2)/3											FEATAUTO:Skilled Disarm
-11	BONUS:VAR|SneakAttack|(CL-8)/3											FEATAUTO:Sneak Attack
-14																	FEATAUTO:Blinding Attack
-17																	FEATAUTO:Incapacitating Attack
-20																	FEATAUTO:Finishing Attack
+2																	AUTO:FEAT|Improved Unarmed Strike
+5																	AUTO:FEAT|Subduing Strike
+8	BONUS:VAR|SkilledDisarm|(CL-2)/3											AUTO:FEAT|Skilled Disarm
+11	BONUS:VAR|SneakAttack|(CL-8)/3											AUTO:FEAT|Sneak Attack
+14																	AUTO:FEAT|Blinding Attack
+17																	AUTO:FEAT|Incapacitating Attack
+20																	AUTO:FEAT|Finishing Attack
 

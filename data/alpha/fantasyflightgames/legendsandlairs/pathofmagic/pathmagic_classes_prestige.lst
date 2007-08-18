@@ -33,8 +33,8 @@ CLASS:Chanter	HD:6		TYPE:PC.Prestige	ABB:Cha		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:
 CLASS:Chanter	PREFEAT:1,Great Fortitude	PRESKILL:2,Concentration,Perform=8	PRESTAT:1,CON=13	PREVARGTEQ:BardicMusic,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chanter	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Escape Artist|Gather Information|Intuit Direction|Jump|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Sense Motive|Spellcraft|Tumble|Use Magic Device
-1	WEAPONBONUS:Greatclub|Flail (Heavy)|Flail (Light)|Hammer (Light)|Warhammer	FEATAUTO:Simple Weapon Proficiency
-1														FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	WEAPONBONUS:Greatclub|Flail (Heavy)|Flail (Light)|Hammer (Light)|Warhammer	AUTO:FEAT|Simple Weapon Proficiency
+1														AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SA:Timing Chant										VFEAT:Endurance	ADD:SPELLCASTER|1|ANY
 2	SA:Soothing Chant (1/day)											ADD:SPELLCASTER|1|ANY
@@ -91,8 +91,8 @@ CLASS:Jester	HD:6		TYPE:PC.Prestige	ABB:Jes		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:C
 CLASS:Jester	PREALIGN:CG,CN,CE	PREFEAT:1,Improved Initiative	PRESKILL:2,Escape Artist,Jump=4	PRESKILL:1,Perform (Juggling/Wit)=8	PRESKILL:1,Tumble=4	PREVARGTEQ:BardicMusic,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Jester	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spellcraft|Tumble|Use Magic Device
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Comedic Dialogue																																ADD:SPELLCASTER|1|ANY
 2	SA:Street Talk																																	ADD:SPELLCASTER|1|ANY
@@ -102,7 +102,7 @@ CLASS:Jester	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|T
 6	SA:Fast Reaction													BONUS:COMBAT|INITIATIVE|2																ADD:SPELLCASTER|1|ANY
 7	SA:A Bit Cracked																																	ADD:SPELLCASTER|1|ANY
 8	SA:Deflect Arrows																									VFEAT:Deflect Arrows					ADD:SPELLCASTER|1|ANY
-9					BONUS:VAR|UncannyDodge|1																							FEATAUTO:Uncanny Dodge	ADD:SPELLCASTER|1|ANY
+9					BONUS:VAR|UncannyDodge|1																							AUTO:FEAT|Uncanny Dodge	ADD:SPELLCASTER|1|ANY
 10																																				ADD:SPELLCASTER|1|ANY
 # no description of spellcasting: ANY or Arcane?
 
@@ -132,7 +132,7 @@ CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.30	BO
 CLASS:Spellbinder	PREFEAT:2,Spell Focus(Enchantment),Spell Penetration	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Perform=5	PRETEXT:Ability to cast arcane Enchantment spells as a bard or sorcerer.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellbinder	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|Perform|TYPE.Profession|Scry|Spellcraft
-1	FEATAUTO:Wizard Weapon Proficiencies
+1	AUTO:FEAT|Wizard Weapon Proficiencies
 ###Block: Normal Level Progression
 1	SA:Extra Spell (%)|ExtraSpell	SA:Specialty	BONUS:VAR|ExtraSpell|(CL+1)/2						DEFINE:ExtraSpell|0	ADD:SPELLCASTER|1|ANY
 2	SA:Enchantment feats										BONUS:DC|SCHOOL.Enchantment|2					ADD:SPELLCASTER|1|ANY
@@ -154,7 +154,7 @@ CLASS:Summoner	HD:4		TYPE:PC.Prestige	ABB:Sum		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS
 CLASS:Summoner	PREFEAT:2,Spell Focus(Conjuration),Heighten Spell	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (Outsiders)=6	PRESPELLSCHOOL:Conjuration,1,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
-1	FEATAUTO:Wizard Weapon Proficiencies
+1	AUTO:FEAT|Wizard Weapon Proficiencies
 ###Block: Normal Level Progression
 1	SA:Extra Spell (%)|ExtraSpell					BONUS:VAR|ExtraSpell|(CL+1)/2	DEFINE:ExtraSpell|0	ADD:SPELLCASTER|1|ANY
 2	SA:Improved Summoning															ADD:SPELLCASTER|1|ANY
@@ -175,7 +175,7 @@ CLASS:Swamp Witch	HD:4		TYPE:PC.Prestige	ABB:Sww		MAXLEVEL:10	SOURCEPAGE:p.33	BO
 CLASS:Swamp Witch	PREFEAT:1,Brew Potion	PRESKILL:1,Scry=10	PRESKILL:1,Wilderness Lore=6	PRESPELLSCHOOL:Divination,7,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swamp Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
-1	FEATAUTO:Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1								SA:Divination Focus																															ADD:SPELLCASTER|1|ANY
 2								SA:Swamp Brewing																																ADD:SPELLCASTER|1|ANY

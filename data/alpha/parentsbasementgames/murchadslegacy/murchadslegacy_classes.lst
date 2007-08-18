@@ -14,7 +14,7 @@ CLASS:Chain Dancer	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Jump|Listen|Mov
 2	SA:Master Enthrall (Ex) - %d4 creatures effected for % rounds|EnthralledCreatures|EnthrallDuration|PREVARGTEQ:EnthralledCreatures,4	BONUS:VAR|EnthrallDuration|CL		DEFINE:EnthrallDuration|0
 4																							BONUS:VAR|EnthrallDuration|CL
 ###Block: Normal Level Progression
-1	SA:Chain Parry (Ex) +%|ChainParryAC			BONUS:VAR|ChainParryAC|CL	BONUS:COMBAT|AC|ChainParryAC|TYPE=Temporary|PREAPPLY:PC	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	FEATAUTO:Weapon Specialization(Chain (Spiked))
+1	SA:Chain Parry (Ex) +%|ChainParryAC			BONUS:VAR|ChainParryAC|CL	BONUS:COMBAT|AC|ChainParryAC|TYPE=Temporary|PREAPPLY:PC	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	AUTO:FEAT|Weapon Specialization(Chain (Spiked))
 3	SA:Weapon Use (Elongated Spiked Chain)
 5	SA:Weapon Proficiency (Elongated Spiked Chain)
 
@@ -25,11 +25,11 @@ CLASS:Homefront Guardian	HD:6		TYPE:PC.Prestige	ABB:HfG		MAXLEVEL:5	SOURCEPAGE:p
 CLASS:Homefront Guardian	PREFEAT:1,Home	PRESKILL:3,Bluff,Hide,Move Silently=8	PRETEXT:Must have slain one person with the Remarian cultural feat.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Poison Use																									ADD:FEAT|1|Homefront Guardian Skill Bonus
-2	SA:+% Save vs. Poison|HomefrontPoisonSave	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2	DEFINE:HomefrontPoisonSave|0	FEATAUTO:Sneak Attack
+2	SA:+% Save vs. Poison|HomefrontPoisonSave	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2	DEFINE:HomefrontPoisonSave|0	AUTO:FEAT|Sneak Attack
 3	SA:Homeblood use																									ADD:FEAT|1|Homefront Guardian Skill Bonus
 5	SA:Homeblood Immunity (Ex)																							ADD:FEAT|1|Homefront Guardian Skill Bonus
 
@@ -40,8 +40,8 @@ CLASS:Imperial Legionnaire	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCE
 CLASS:Imperial Legionnaire	PREATT:6	PREFEAT:1,Remarian	PRESKILL:1,Knowledge (Local/Remaria)=8	PRESKILL:1,Knowledge (History),Knowledge (War)=5	PRESTAT:6,STR=8,DEX=8,CON=8,INT=8,CHA=8,WIS=8	PRETEXT:You must swear an oath to serve in the Army. When taking this prestige class, the character must advance to level 4 before being eligible to advance in any other class.	PREWEAPONPROF:1,Longsword
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim|Use Rope
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Normal Progression
 1	SA:Aid Soul (Su) +%|AidSoulHitPoints	SA:Soulbind (Su)		BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))																							BONUS:HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary|PREAPPLY:PC	TEMPDESC:At first level the Legionnaire gains 2 hit points per other Legionnaire that he is currently bound with, this benefit increases at higher levels. This temporary bonus will add these hit points.	DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires
 2	SA:Enhanced Defense (Ex) +%|EnhancedDefenseAC				BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1													BONUS:COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense|PREAPPLY:PC													TEMPDESC:The Legionnaire is more aware of the area around him, granting him a bonus to Armor Class, but it is dependent on being near the other members of the octus and being soulbound.				DEFINE:EnhancedDefenseAC|0
@@ -82,8 +82,8 @@ CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 1	SPELLLEVEL:CLASS|Orc Skin Artist=4|Cure Critical Wounds,Minor Creation,Polymorph,Restoration,Stoneskin,Wall of Fire
 #1	SPELLLEVEL:CLASS|Orc Skin Artist=5|Baleful Polymorph,Break Enchantment,Commune,Heal,Major Creation,Raise Dead,True Seeing,Wall of Stone
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Skin Art
 1	SA:Skin Art (Cantrips)|PREVAREQ:SkinArtProgression,1			BONUS:VAR|SkinArtProgression|(CL+1)/2	DEFINE:SkinArtProgression|0
 1	SA:Skin Art (Level 1 Spells)|PREVAREQ:SkinArtProgression,2
@@ -110,24 +110,24 @@ CLASS:Stargazer	PRERACE:1,Elf%,Half-Elf,Halfling%,Human	PRESKILL:3,Concentration
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stargazer	STARTSKILLPTS:3	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Heal|Knowledge (Astronomy)|TYPE.Perform|TYPE.Profession|Speak Language|Spellcraft
 SUBCLASS:Stargazer (Bonfire)			COST:0
-SUBCLASSLEVEL:1	SA:Opposing Sign - Polaris	SA:May not cast Spells from the School of Necromancy			BONUS:VAR|SSBonfireLvl|1		FEATAUTO:Star Sign (Bonfire)
+SUBCLASSLEVEL:1	SA:Opposing Sign - Polaris	SA:May not cast Spells from the School of Necromancy			BONUS:VAR|SSBonfireLvl|1		AUTO:FEAT|Star Sign (Bonfire)
 SUBCLASS:Stargazer (Rainbow Dragon)		COST:0
-SUBCLASSLEVEL:1	SA:Opposing Sign - Forgotten Child	SA:May not cast Spells from the School of Enchantment		BONUS:VAR|SSRainbowDragonLvl|1	FEATAUTO:Star Sign (Rainbow Dragon)
+SUBCLASSLEVEL:1	SA:Opposing Sign - Forgotten Child	SA:May not cast Spells from the School of Enchantment		BONUS:VAR|SSRainbowDragonLvl|1	AUTO:FEAT|Star Sign (Rainbow Dragon)
 SUBCLASS:Stargazer (The Faceless)		COST:0
-SUBCLASSLEVEL:1	SA:Opposing Sign - The Guide	SA:May not cast Spells from the School of Divination			BONUS:VAR|SSFacelessLvl|1		FEATAUTO:Star Sign (The Faceless)
+SUBCLASSLEVEL:1	SA:Opposing Sign - The Guide	SA:May not cast Spells from the School of Divination			BONUS:VAR|SSFacelessLvl|1		AUTO:FEAT|Star Sign (The Faceless)
 SUBCLASS:Stargazer (The Guide)		COST:0
-SUBCLASSLEVEL:1	SA:Opposing Sign - The Faceless	SA:May not cast Spells from the School of Illusion		BONUS:VAR|SSGuideLvl|1			FEATAUTO:Star Sign (The Guide)
+SUBCLASSLEVEL:1	SA:Opposing Sign - The Faceless	SA:May not cast Spells from the School of Illusion		BONUS:VAR|SSGuideLvl|1			AUTO:FEAT|Star Sign (The Guide)
 SUBCLASS:Stargazer (The Blacksmith)		COST:0
-SUBCLASSLEVEL:1	SA:Opposing Sign - Imaginos the Grand	SA:May not cast Spells from the School of Evocation	BONUS:VAR|SSBlacksmithLvl|1		FEATAUTO:Star Sign (The Blacksmith)
+SUBCLASSLEVEL:1	SA:Opposing Sign - Imaginos the Grand	SA:May not cast Spells from the School of Evocation	BONUS:VAR|SSBlacksmithLvl|1		AUTO:FEAT|Star Sign (The Blacksmith)
 SUBCLASS:Stargazer (Forgotten Child)	COST:0
-SUBCLASSLEVEL:1	SA:Opposing Sign - Rainbow Dragon	SA:May not cast Spells from the School of Conjuration		BONUS:VAR|SSForgottenLvl|1		FEATAUTO:Star Sign (Forgotten Child)
+SUBCLASSLEVEL:1	SA:Opposing Sign - Rainbow Dragon	SA:May not cast Spells from the School of Conjuration		BONUS:VAR|SSForgottenLvl|1		AUTO:FEAT|Star Sign (Forgotten Child)
 SUBCLASS:Stargazer (Polaris)			COST:0
-SUBCLASSLEVEL:1	SA:Opposing Sign - Bonfire	SA:May not cast Spells from the School of Abjuration			BONUS:VAR|SSPolarisLvl|1		FEATAUTO:Star Sign (Polaris)
+SUBCLASSLEVEL:1	SA:Opposing Sign - Bonfire	SA:May not cast Spells from the School of Abjuration			BONUS:VAR|SSPolarisLvl|1		AUTO:FEAT|Star Sign (Polaris)
 SUBCLASS:Stargazer (Imaginos the Grand)	COST:0
-SUBCLASSLEVEL:1	SA:Opposing Sign - The Blacksmith	SA:May not cast Spells from the School of Transmutation	BONUS:VAR|SSImaginosLvl|1		FEATAUTO:Star Sign (Imaginos the Grand)
+SUBCLASSLEVEL:1	SA:Opposing Sign - The Blacksmith	SA:May not cast Spells from the School of Transmutation	BONUS:VAR|SSImaginosLvl|1		AUTO:FEAT|Star Sign (Imaginos the Grand)
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level Progression
 1	SA:Navigation		ADD:SPELLCASTER|1|ANY
 2					ADD:SPELLCASTER|1|ANY
@@ -149,17 +149,17 @@ CLASS:Steadfast Knight	STARTSKILLPTS:4	CSKILL:Handle Animal|Climb|Heal|Knowledge
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level					Use Spell List
 CLASS:Steadfast Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Steadfast Knight|CL	SPELLLIST:1|Ranger
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: level progression
-1	CAST:0,0		SA:Launhym Nobility	SA:Oath (Su)	BONUS:VAR|SteadfastHitPoints|CL	FEATAUTO:Oath (Active)|Oath (Direct Action)
+1	CAST:0,0		SA:Launhym Nobility	SA:Oath (Su)	BONUS:VAR|SteadfastHitPoints|CL	AUTO:FEAT|Oath (Active)|Oath (Direct Action)
 2	CAST:0,1
 3	CAST:0,1,1
 4	CAST:0,1,1		SA:Nobility
 5	CAST:0,1,1,0
 6	CAST:0,1,1,1
-7	CAST:0,2,1,1,0	SA:Blood Oath (Su)										FEATAUTO:Blood Oath (Active)|Blood Oath (Direct Action)
+7	CAST:0,2,1,1,0	SA:Blood Oath (Su)										AUTO:FEAT|Blood Oath (Active)|Blood Oath (Direct Action)
 8	CAST:0,2,1,1,1
 9	CAST:0,2,2,1,1
 10	CAST:0,2,2,2,1
@@ -172,10 +172,10 @@ CLASS:Steel Dragons	PREATT:3	PREFEAT:1,Galkarnan	PRESKILL:1,Craft (Alchemy)=8	PR
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE.Craft|Disable Device|TYPE.Knowledge|Listen|Spellcraft|Spot|Tumble
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1																																	FEATAUTO:Alertness
+1																																	AUTO:FEAT|Alertness
 2																																					ADD:FEAT|1|TYPE.Gunnery
 4						SA:Magical Alertness (Ex) +%|MagicalAlertnessBonus							BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0
 5																																					ADD:FEAT|1|TYPE.Gunnery
@@ -190,7 +190,7 @@ CLASS:Shadowtamer	HD:6		TYPE:PC.Prestige	ABB:ShTmr		MAXLEVEL:5	SOURCEPAGE:p.37	B
 CLASS:Shadowtamer	PREATT:3	PREFEAT:1,Shintai	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=8	PRESKILL:1,Knowledge (Nature)=4	PRESKILL:1,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:Necromancy,1,3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowtamer	STARTSKILLPTS:3	CSKILL:Concentration|TYPE.Craft|Gather Information|TYPE.Knowledge|TYPE.Profession|Speak Language|Spellcraft
-1	SA:Lure of the Dammed	BONUS:VAR|ShadowBeast|CL													FEATAUTO:Summon Shadow Beast	ADD:SPELLCASTER|1|ANY
+1	SA:Lure of the Dammed	BONUS:VAR|ShadowBeast|CL													AUTO:FEAT|Summon Shadow Beast	ADD:SPELLCASTER|1|ANY
 2																											ADD:SPELLCASTER|1|ANY
 3																											ADD:SPELLCASTER|1|ANY
 4																											ADD:SPELLCASTER|1|ANY

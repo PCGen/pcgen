@@ -34,10 +34,10 @@ CLASS:Altherian Sharpshooter	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:ASh		MAXLEV
 CLASS:Altherian Sharpshooter	PREATT:5	PREFEAT:5,Exotic Weapon Proficiency (Altherian Flintlock (Rifle)),Hawk Eyed,Point Blank Shot,Precise Shot,Weapon Focus(Altherian Flintlock (Rifle))	PRESKILL:2,Concentration,Craft (Flintlocks)=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Altherian Sharpshooter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Hide|Jump|Move Silently|TYPE.Profession|Ride|Swim|Tumble
-1	SA:Ranged Sneak Attack +%d6 - Range: 20 - % ft.|RangedSneakAttackDice|RangedSneakAttackMaxRange	BONUS:VAR|RangedSneakAttackDice|1	BONUS:VAR|RangedSneakAttackMaxRange|30	DEFINE:RangedSneakAttackDice|0	DEFINE:RangedSneakAttackMaxRange|0								FEATAUTO:Simple Weapon Proficiency|Armor Proficiency (Light)
-2																	BONUS:VAR|RangedSneakAttackMaxRange|30																										FEATAUTO:Quick Reload
+1	SA:Ranged Sneak Attack +%d6 - Range: 20 - % ft.|RangedSneakAttackDice|RangedSneakAttackMaxRange	BONUS:VAR|RangedSneakAttackDice|1	BONUS:VAR|RangedSneakAttackMaxRange|30	DEFINE:RangedSneakAttackDice|0	DEFINE:RangedSneakAttackMaxRange|0								AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
+2																	BONUS:VAR|RangedSneakAttackMaxRange|30																										AUTO:FEAT|Quick Reload
 3																	BONUS:VAR|RangedSneakAttackMaxRange|30	BONUS:VAR|RangedSneakAttackDice|1
-4	SA:Steady Hands																																							VFEAT:Shot on the Run	VFEAT:Deadly Aim	FEATAUTO:Weapon Specialization (Altherian Flintlock (Rifle))
+4	SA:Steady Hands																																							VFEAT:Shot on the Run	VFEAT:Deadly Aim	AUTO:FEAT|Weapon Specialization (Altherian Flintlock (Rifle))
 5	SA:Dead Eye (Ex)														BONUS:VAR|RangedSneakAttackMaxRange|20	BONUS:VAR|RangedSneakAttackDice|1
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -81,7 +81,7 @@ CLASS:Battlemage of the Coryani Legions	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:
 CLASS:Battlemage of the Coryani Legions	PREALIGN:LG,LN,LE	PREFEAT:1,Legionnaire,Armored Caster,Combat Casting	PREMULT:1,[PREFEAT:1,Spell Mastery],[PRESPELLCAST:MEMORIZE=N]	PREREGION:Coryan	PRESKILL:1,Concentration,Spellcraft=10	PRESKILL:1,Knowledge (History)=5
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Battlemage of the Coryani Legions	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Profession|Ride|Spellcraft
-1	SA:Hunted																FEATAUTO:Endurance	FEATAUTO:Strength of the Coryani Heart
+1	SA:Hunted																AUTO:FEAT|Endurance	AUTO:FEAT|Strength of the Coryani Heart
 2	SA:Battle Magic (Su)																									ADD:SPELLCASTER|1|Arcane
 3																													ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Spell Mastery
 4	SA:Improved Armored Casting (Ex)																							ADD:SPELLCASTER|1|Arcane
@@ -127,10 +127,10 @@ CLASS:Bowman	HD:8		TYPE:PC.Prestige	ABB:Bow		MAXLEVEL:10	SOURCEPAGE:p.175	BONUS:
 CLASS:Bowman	PREATT:5	PREFEAT:4,Iron Will,Precise Shot,Point Blank Shot,Rapid Shot	PREFEAT:1,Weapon Focus(Shortbow),Weapon Focus(Longbow)	PRESKILL:2,Balance,Spot=4	PRESKILL:1,Craft (Fletcher),Craft (Bowmaking)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bowman	STARTSKILLPTS:2	CSKILL:Climb|Craft (Bowmaking)|Craft (Fletcher)|Jump|Listen|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
-1	SA:Arrow Stab (Ex)	SA:Warrior's Path	SA:Lightning Draw (Ex)	BONUS:VAR|WeapSpecQualify|CL							AUTO:WEAPONPROF|TYPE=Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency	ADD:FEAT|1|TYPE=Bowman
+1	SA:Arrow Stab (Ex)	SA:Warrior's Path	SA:Lightning Draw (Ex)	BONUS:VAR|WeapSpecQualify|CL							AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency	ADD:FEAT|1|TYPE=Bowman
 2	SA:Ranged Sneak Attack +%d6|BowmanSneak					BONUS:VAR|BowmanSneak|1+(CL>=5)+(CL>=8)	DEFINE:BowmanSneak|0
-3																												FEATAUTO:Combat Firing																				ADD:FEAT|1|Weapon Specialization (Longbow),Weapon Specialization (Shortbow)
-4																												FEATAUTO:Improved Precise Shot
+3																												AUTO:FEAT|Combat Firing																				ADD:FEAT|1|Weapon Specialization (Longbow),Weapon Specialization (Shortbow)
+4																												AUTO:FEAT|Improved Precise Shot
 6	SA:Hold the Line (Ex)
 7	SA:Inner Focus (Ex)
 9	SA:Hail of Arrows (Sp)
@@ -170,7 +170,7 @@ CLASS:Centurion	HD:10		TYPE:PC.Prestige	ABB:Cent		MAXLEVEL:10	SOURCEPAGE:p.179	B
 CLASS:Centurion	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:5	PREFEAT:2,Leadership,Legionnaire	PREREGION:Coryan	PRESKILL:1,Concentration=2	PRESKILL:2,Intimidate,Knowledge (History)=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Centurion	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (History)|TYPE.Profession|Ride|Sense Motive|Spot|Swim
-1																																							FEATAUTO:Strength of the Coryani Heart
+1																																							AUTO:FEAT|Strength of the Coryani Heart
 2			SA:Aura of Courage (Ex)
 3																																														ADD:FEAT|1|TYPE=Fighter
 4	DR:1/-
@@ -204,7 +204,7 @@ CLASS:Combat Style (Steel Wall)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|E
 2	SA:Impeccable Expertise (Ex)
 3	SA:Passing the Charge (Ex)
 4	SA:Defensive Perfection (Ex)
-5	SA:Riposte (Ex)																										FEATAUTO:Riposte
+5	SA:Riposte (Ex)																										AUTO:FEAT|Riposte
 
 
 # Class Name				Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -240,7 +240,7 @@ CLASS:Combat Style (Haven's Blade)	PREATT:5	PREFEAT:5,Cleave,Combat Expertise,Gr
 CLASS:Combat Style (Haven's Blade)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Examine Martial Technique|Intimidate|Jump|Swim|Tumble
 1	SA:Advantages and Limitations (Ex)	SA:Impeccable Defense (Ex)
 2	SA:To Meet the Charge (Ex)
-3	SA:Flowing Sand (Ex)								FEATAUTO:Flowing Sand
+3	SA:Flowing Sand (Ex)								AUTO:FEAT|Flowing Sand
 4	SA:Mighty Swing (Ex)
 5	SA:Might Cleave (Ex)
 
@@ -266,9 +266,9 @@ CLASS:Combat Style (Hand Blade and Mind)	PREATT:5	PREFEAT:3,Combat Expertise,Wea
 CLASS:Combat Style (Hand Blade and Mind)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Examine Martial Technique|Intimidate|Jump|Swim|Tumble
 1	SA:Advantages and Limitations (Ex)	SA:Canny Defense (Ex)	BONUS:COMBAT|AC|min(max(INT,0),CL)|TYPE=Insight|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
 2	SA:Parry (Ex)
-3	SA:Pressing Attack (Ex)																									FEATAUTO:Improved Quick Draw
+3	SA:Pressing Attack (Ex)																									AUTO:FEAT|Improved Quick Draw
 4	SA:A Thousand Cuts (Ex)
-5																													FEATAUTO:Flowing Sand
+5																													AUTO:FEAT|Flowing Sand
 
 
 # Class Name					Output Name						Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -277,11 +277,11 @@ CLASS:Combat Style (Sword that Believes)	OUTPUTNAME:Sword That Believes Style	HD
 CLASS:Combat Style (Sword that Believes)	PREATT:5	PREFEAT:5,Combat Expertise,Improved Quick Draw,Quick Draw,Pureblood Kio,Weapon Focus(Sword (Kio))	PREITEM:1,Sword (Kio)	PRESKILL:1,Balance=5	PRETEXT:Must be accepted as a member of the school	PREWEAPONPROF:1,Sword (Kio)
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Combat Style (Sword that Believes)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Examine Martial Technique|Intimidate|Jump|Swim|Tumble
-1	SA:Advantages and Limitations (Ex)				FEATAUTO:Blind Fight
+1	SA:Advantages and Limitations (Ex)				AUTO:FEAT|Blind Fight
 2	SA:Impeccable Expertise (Ex)
 3	SA:A Thousand Cuts (Ex)	SA:Instinctual Defense (Ex)
 4	SA:Strike Without Thought (Ex)
-5	SA:Mighty Swing (Ex)						FEATAUTO:Flowing Sand
+5	SA:Mighty Swing (Ex)						AUTO:FEAT|Flowing Sand
 
 
 # Class Name				Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -291,8 +291,8 @@ CLASS:Emerald Society Archaeologist	PREFEAT:2,Diligent,Skill Focus(Knowledge (Hi
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Gather Information|Hide|TYPE.Knowledge|Listen|Open Locks|TYPE.Profession|Research|Ride|Search|Sense Motive|Survival|Swim|Use Magic Device|Use Rope
 1	SA:Ancient Lore (Ex)	SA:Subject Specialization (Ex)																		ADD:FEAT|1|Emerald Proficiency	ADD:FEAT|1|Subject Specialization
-2																								FEATAUTO:Investigator
-3	SA:Find the Past (Ex)							BONUS:VAR|TrapSense|CL/3									FEATAUTO:Trap Sense	ADD:FEAT|1|Subject Specialization
+2																								AUTO:FEAT|Investigator
+3	SA:Find the Past (Ex)							BONUS:VAR|TrapSense|CL/3									AUTO:FEAT|Trap Sense	ADD:FEAT|1|Subject Specialization
 4	SA:Knowledge Mastery (Ex)
 5	SA:Researcher (Ex)												BONUS:SKILL|TYPE.Knowledge,Gather Information|2					ADD:FEAT|1|Subject Specialization
 6	SA:Great Lore (Ex)
@@ -306,31 +306,31 @@ CLASS:Gladiator	PREATT:3	PREFEAT:2,Combat Expertise,Dodge
 CLASS:Gladiator	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Diplomacy|Escape Artist|Examine Martial Technique|Intimidate|Jump|Listen|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble
 #
 SUBCLASS:Samnite		COST:0
-SUBCLASSLEVEL:1	SA:You lose the benefits of this class style when wearing Heavy Armor																									FEATAUTO:Weapon Focus(Sword (Short))	FEATAUTO:Weapon Focus(Shortspear)
+SUBCLASSLEVEL:1	SA:You lose the benefits of this class style when wearing Heavy Armor																									AUTO:FEAT|Weapon Focus(Sword (Short))	AUTO:FEAT|Weapon Focus(Shortspear)
 SUBCLASSLEVEL:4	SA:Armor Optimization +1										BONUS:COMBAT|AC|1|PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0
-SUBCLASSLEVEL:8																																					FEATAUTO:Weapon Specialization(Sword (Short))	FEATAUTO:Weapon Specialization(Shortspear)
+SUBCLASSLEVEL:8																																					AUTO:FEAT|Weapon Specialization(Sword (Short))	AUTO:FEAT|Weapon Specialization(Shortspear)
 SUBCLASS:Thracian		COST:0
-SUBCLASSLEVEL:1	SA:You lose the benefits of this class style when you wear medium or heavy armor																							FEATAUTO:Weapon Focus(Sword (Short))
+SUBCLASSLEVEL:1	SA:You lose the benefits of this class style when you wear medium or heavy armor																							AUTO:FEAT|Weapon Focus(Sword (Short))
 SUBCLASSLEVEL:4	SA:Armor Optimization +1										BONUS:COMBAT|AC|1|PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0
-SUBCLASSLEVEL:8																																					FEATAUTO:Weapon Specialization(Sword (Short))
+SUBCLASSLEVEL:8																																					AUTO:FEAT|Weapon Specialization(Sword (Short))
 SUBCLASS:Murmillo		COST:0
 SUBCLASSLEVEL:1	SA:You lose the benefits of this class style when you wear medium or heavy armor																																							ADD:FEAT|1|Weapon Focus(TYPE=Sword),Weapon Focus(Shortspear)
 SUBCLASSLEVEL:4	SA:Armor Optimization +2										BONUS:COMBAT|AC|2|PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0
 SUBCLASSLEVEL:8																																																					ADD:FEAT|1|Weapon Specialization(TYPE=Sword),Weapon Specialization(Shortspear)
 SUBCLASS:Retiarius	COST:0
-SUBCLASSLEVEL:1	SA:You lose the benefits of this class style when you wear medium or heavy armor																			AUTO:WEAPONPROF|Net	FEATAUTO:Weapon Focus(Trident)
-SUBCLASSLEVEL:4	SA:Canny Defense (Ex)											BONUS:COMBAT|AC|min(max(INT,0),CL)|TYPE=Insight|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0					FEATAUTO:Improved Trip
-SUBCLASSLEVEL:8																																					FEATAUTO:Weapon Focus(Net)	FEATAUTO:Weapon Specialization(Trident)
+SUBCLASSLEVEL:1	SA:You lose the benefits of this class style when you wear medium or heavy armor																			AUTO:WEAPONPROF|Net	AUTO:FEAT|Weapon Focus(Trident)
+SUBCLASSLEVEL:4	SA:Canny Defense (Ex)											BONUS:COMBAT|AC|min(max(INT,0),CL)|TYPE=Insight|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0					AUTO:FEAT|Improved Trip
+SUBCLASSLEVEL:8																																					AUTO:FEAT|Weapon Focus(Net)	AUTO:FEAT|Weapon Specialization(Trident)
 SUBCLASS:Sefacci		COST:0
-SUBCLASSLEVEL:1	SA:You lose the benefits of this class style when you wear medium or heavy armor																							FEATAUTO:Two Weapon Fighting
-SUBCLASSLEVEL:4																																					FEATAUTO:Two Weapon Defense
-SUBCLASSLEVEL:8																																					FEATAUTO:Improved Two Weapon Fighting
-1																						AUTO:WEAPONPROF|TYPE=Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+SUBCLASSLEVEL:1	SA:You lose the benefits of this class style when you wear medium or heavy armor																							AUTO:FEAT|Two Weapon Fighting
+SUBCLASSLEVEL:4																																					AUTO:FEAT|Two Weapon Defense
+SUBCLASSLEVEL:8																																					AUTO:FEAT|Improved Two Weapon Fighting
+1																						AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
 2											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																																					ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-3																											FEATAUTO:Endurance
+3																											AUTO:FEAT|Endurance
 5	SA:Idolized by the Mob (Ex)	SA:Signature Weapon (Ex)
 6	SA:Amazing Fortitude (Ex)																																																					ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-7	SA:Defensive Roll (Ex)																							FEATAUTO:Diehard
+7	SA:Defensive Roll (Ex)																							AUTO:FEAT|Diehard
 9	SA:Legendary Fortitude (Ex)
 10	SA:As if They Were Gods (Ex)
 
@@ -341,14 +341,14 @@ CLASS:Gladiator (Andabatae)	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10	HASSUB
 CLASS:Gladiator (Andabatae)	PREATT:3	PREFEAT:2,Combat Expertise,Dodge
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Gladiator (Andabatae)	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Diplomacy|Escape Artist|Examine Martial Technique|Intimidate|Jump|Listen|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2	SA:You lose the benefits of this class style when you wear medium or heavy armor												AUTO:WEAPONPROF|TYPE=Martial	FEATAUTO:Improved Unarmed Strike	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2	SA:You lose the benefits of this class style when you wear medium or heavy armor												AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Improved Unarmed Strike	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
 2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																																											ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																	FEATAUTO:Endurance
-4	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																	FEATAUTO:Blind Fight	FEATAUTO:Weapon Focus(Unarmed Strike)
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																	AUTO:FEAT|Endurance
+4	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																	AUTO:FEAT|Blind Fight	AUTO:FEAT|Weapon Focus(Unarmed Strike)
 5	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SA:Idolized by the Mob (Ex)	SA:Signature Weapon (Ex)
 6	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SA:Amazing Fortitude (Ex)																																																															ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-7	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SA:Defensive Roll (Ex)																											FEATAUTO:Diehard
-8	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																	FEATAUTO:Improved Grapple	FEATAUTO:Weapon Specialization(Unarmed Strike)
+7	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SA:Defensive Roll (Ex)																											AUTO:FEAT|Diehard
+8	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																	AUTO:FEAT|Improved Grapple	AUTO:FEAT|Weapon Specialization(Unarmed Strike)
 9	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SA:Legendary Fortitude (Ex)
 10	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			SA:As if They Were Gods (Ex)
 
@@ -359,10 +359,10 @@ CLASS:Grand Master	PREATT:10	PREFEAT:6,Combat Expertise,Improved Disarm,Power At
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Grand Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Craft (Weaponsmithing)|Examine Martial Technique|Intimidate|Jump|Knowledge (History)|Knowledge (Nobility and Royalty)|Profession (Educator)|Ride|Sense Motive|Spot|Tumble
 1	SA:Master's Edge +% (Ex)|MasterEdgeBonus	SA:Master's Reputation (Ex)	BONUS:VAR|MasterEdgeBonus|1+(CL>=3)+(CL>=5)+(CL>=7)	DEFINE:MasterEdgeBonus|0
-2	SA:Master's Intuition (Ex)	SA:The Perfect Cut %/Day (Ex)|CutTimes	BONUS:VAR|CutTimes|CL/2						DEFINE:CutTimes|0			FEATAUTO:Style Convergence
+2	SA:Master's Intuition (Ex)	SA:The Perfect Cut %/Day (Ex)|CutTimes	BONUS:VAR|CutTimes|CL/2						DEFINE:CutTimes|0			AUTO:FEAT|Style Convergence
 3																																ADD:VFEAT|1|Weapon Master(TYPE=Weapon)
 4	SA:Strike of the Placid Mind %/Day (Ex)|PlacidTimes				BONUS:VAR|PlacidTimes|1+(CL>=6)+(CL>=8)			DEFINE:PlacidTimes|0
-6																											FEATAUTO:Parry			ADD:FEAT|1|Weapon Grand Master(TYPE=Weapon)
+6																											AUTO:FEAT|Parry			ADD:FEAT|1|Weapon Grand Master(TYPE=Weapon)
 8	SA:Quicken Strike 4/Day (Ex)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -371,7 +371,7 @@ CLASS:Hurrianic Aegis	HD:10		TYPE:PC.Prestige	ABB:HAegs		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Hurrianic Aegis	PREALIGN:LG,LN,NG,TN,CG,CN	PRECHECKBASE:1,Fortitude=5	PREDEITY:Hurrian	PREDOMAIN:2,Refuge,Protection	PREFEAT:3,Diehard,Endurance,Domain Focus(Refuge)	PRESKILL:2,Concentration,Knowledge (Religion:Hurrian)=6	PRESKILL:1,Spellcraft=4	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion:Hurrian)|Knowledge (Nature)|TYPE.Profession|Sense Motive|Spellcraft|Survival
-1			SA:Hurrian's Shield (Su)						BONUS:VAR|HurrianAC|1+(CL>=3)+(CL>=5)+(CL>=7)+(CL>=9)	BONUS:COMBAT|AC|HurrianAC|TYPE=Deflection	DEFINE:HurrianAC|0	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+1			SA:Hurrian's Shield (Su)						BONUS:VAR|HurrianAC|1+(CL>=3)+(CL>=5)+(CL>=7)+(CL>=9)	BONUS:COMBAT|AC|HurrianAC|TYPE=Deflection	DEFINE:HurrianAC|0	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
 2																																																							ADD:SPELLCASTER|1|Divine	ADD:FEAT|1|Toughness	ADD:FEAT|1|Greater Domain Focus(Refuge)
 3			SA:Spontaneous Shield Other (Sp)
 4			SA:Hurrian's Wall %/Day (Su)|WallTimes				BONUS:VAR|WallTimes|3+CON												DEFINE:WallTimes|0																							ADD:SPELLCASTER|1|Divine
@@ -395,7 +395,7 @@ CLASS:Larissan Dancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|Diploma
 5	SA:Bardic Dancer (Su)																ADD:SPELLCASTER|1|ANY
 6	SA:Dance of Portent (Sp)|PRESKILL:1,Perform (Dance)=13										ADD:SPELLCASTER|1|ANY
 7	SA:Dance of the Stone Heart (Sp)|PRESKILL:1,Perform (Dance)=15									ADD:SPELLCASTER|1|ANY
-8	SA:Acclaim of the Masses (Ex)											FEATAUTO:Leadership	ADD:SPELLCASTER|1|ANY
+8	SA:Acclaim of the Masses (Ex)											AUTO:FEAT|Leadership	ADD:SPELLCASTER|1|ANY
 9																				ADD:SPELLCASTER|1|ANY
 10	SA:Dance of the Stolen Heart (Sp)|PRESKILL:1,Perform (Dance)=20									ADD:SPELLCASTER|1|ANY
 
@@ -405,7 +405,7 @@ CLASS:Man-at-Arms	HD:10		TYPE:PC.Prestige	ABB:MAtA		MAXLEVEL:10	SOURCEPAGE:p.195
 CLASS:Man-at-Arms	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:2,Alertness,Lightning Reflexes	PRESKILL:1,Profession (Soldier)=6	PRESKILL:1,Knowledge (History),Knowledge (Nobility and Royalty)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Man-at-Arms	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Jump|Handle Animal|Intimidate|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Listen|TYPE.Profession|Ride|Sense Motive|Spot|Swim
-1	SA:Respected Authority																			AUTO:WEAPONPROF|TYPE=Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+1	SA:Respected Authority																			AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
 2	SA:Organize (Ex)
 3	SA:Faithful Bodyguard (Ex)																																																						ADD:FEAT|1|TYPE=Fighter
 4	SA:Steady (Ex)
@@ -440,7 +440,7 @@ CLASS:Milandisian Canton	PREATT:2	PREFEAT:1,Conscript	PREREGION:Milandir	PRESKIL
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Milandisian Canton	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Diplomacy|Heal|Jump|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE.Profession|Survival|Swim
 1	SA:Defensive Line (Ex)(+% AC)|LineBonus	BONUS:VAR|LineBonus|1+(CL/4)	DEFINE:LineBonus|0						ADD:FEAT|1|TYPE=Military,TYPE=Canton,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
-2																	FEATAUTO:Meet the Charge
+2																	AUTO:FEAT|Meet the Charge
 3	SA:Line Defense (Ex)
 4																						ADD:FEAT|1|TYPE=Military,TYPE=Canton,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
 6	SA:Counter Charge (Ex)
@@ -454,8 +454,8 @@ CLASS:Myrmidon	HD:10		TYPE:PC.Prestige	ABB:Myr		MAXLEVEL:10	SOURCEPAGE:p.200	BON
 CLASS:Myrmidon	PREATT:5	PREFEAT:5,Armor Proficiency (Medium),Cleave,Dodge,Iron Will,Power Attack,Weapon Focus(TYPE=Melee)	PREWEAPONPROF:10,TYPE.Martial
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Myrmidon	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Examine Martial Technique|Handle Animal|Heal|Intimidate|Jump|Listen|Ride|Swim
-1																																												FEATAUTO:Great Cleave	FEATAUTO:Simplae Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-2																																												FEATAUTO:Aggressive Negotiations|Heedless Assault
+1																																												AUTO:FEAT|Great Cleave	AUTO:FEAT|Simplae Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+2																																												AUTO:FEAT|Aggressive Negotiations|Heedless Assault
 3			SA:Dedicated Training (Ex)(+%/+%)|MindAffectBonus|FearEffectBonus	BONUS:VAR|MindAffectBonus|CL/3	BONUS:VAR|FearEffectBonus|(CL/3)+1									DEFINE:MindAffectBonus|0	DEFINE:FearEffectBonus|0
 4	DR:1/-
 5			SA:True Cleaving (Ex)
@@ -470,11 +470,11 @@ CLASS:Obsidian Sniper	HD:6		ABB:ObSnp		MAXLEVEL:10	SOURCEPAGE:201	BONUS:CHECKS|B
 CLASS:Obsidian Sniper	PREFEAT:3,Far Shot,Point Blank Shot,Precise Shot	PRESKILL:3,Hide,Move Silently,Spot=8	PREVARGTEQ:SneakAttack,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Obsidian Sniper	STARTSKILLPTS:4	CSKILL:Balance|Black Market|Bluff|Climb|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE.Perform|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	SA:Deadly Accuracy %' (Ex)|DeadAccRange	BONUS:VAR|DeadAccRange|min(CL,9)*10+30	BONUS:VAR|RangedSneakAttack|1+(CL>=4)+(CL>=7)+(CL>=10)	DEFINE:DeadAccRange|0	FEATAUTO:Ranged Sneak Attack
+1	SA:Deadly Accuracy %' (Ex)|DeadAccRange	BONUS:VAR|DeadAccRange|min(CL,9)*10+30	BONUS:VAR|RangedSneakAttack|1+(CL>=4)+(CL>=7)+(CL>=10)	DEFINE:DeadAccRange|0	AUTO:FEAT|Ranged Sneak Attack
 2	SA:Cadic's Strike (Sp)(%/day)|CadicStrike	BONUS:VAR|CadicStrike|CL/2													DEFINE:CadicStrike|0
 3	SA:Poison Use (Ex)
 6	SA:Quick Aim (Ex)
-9																													FEATAUTO:Improved Critical(Shortbow)	FEATAUTO:Superior Critical(Shortbow)
+9																													AUTO:FEAT|Improved Critical(Shortbow)	AUTO:FEAT|Superior Critical(Shortbow)
 10	SA:Deadly Aim (Ex)
 
 
@@ -486,7 +486,7 @@ CLASS:Onaran Templar	PREATT:5	PREFEAT:2,Iron Will,Church Education	PRESKILL:1,TY
 CLASS:Onaran Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Jump|Knowledge (History)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Spellcraft|Swim
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels																																											Caster level
 CLASS:Onaran Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Bless|Bless Weapon|Cure Light Wounds|Divine Favor|Restoration (Lesser)|Magic Weapon|Aid|Bull's Strength|Bear's Endurance|Cat's Grace|Cure Moderate Wounds|Dispel Magic|Magic Weapon (Greater)|Prayer|Beltine's Blessed Strike|Death Ward|Divine Smite|Restoration|Sword of Faith	BONUS:CASTERLEVEL|Onaran Templar|CL
-1	CAST:0,1		DR:1/-			SA:Aura of Faith (Ex)																																													AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+1	CAST:0,1		DR:1/-			SA:Aura of Faith (Ex)																																													AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
 2	CAST:0,1,0						SA:Religious Fury (Ex) (%/day, +2 STR, +2 CON for % rounds)|ReligiousFuryTimes|ReligiousFuryDuration	BONUS:VAR|ReligiousFuryTimes|1	BONUS:VAR|ReligiousFuryDuration|3+CHA								DEFINE:ReligiousFuryTimes|0	DEFINE:ReligiousFuryDuration|0
 3	CAST:0,1,1						SA:Strength of the Spirit (Ex)
 4	CAST:0,1,1,0			DOMAIN:War	SA:Unshakable Dogma (Ex)																										BONUS:DOMAIN|NUMBER|1
@@ -494,7 +494,7 @@ CLASS:Onaran Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Bless|Bless Weap
 6	CAST:0,2,2,1,0																						BONUS:VAR|ReligiousFuryTimes|1															DEFINE:OnaranTemplarQualify|0
 7	CAST:0,3,2,1,1																						BONUS:VAR|OnaranTemplarQualify|1																																																														ADD:FEAT|1|Weapon Specialization
 8	CAST:0,3,3,2,2																						BONUS:VAR|OnaranTemplarQualify|-1
-9	CAST:0,4,3,2,2					SA:Fast Healing 1																																																			FEATAUTO:Diehard
+9	CAST:0,4,3,2,2					SA:Fast Healing 1																																																			AUTO:FEAT|Diehard
 10	CAST:0,4,4,2,2					SA:Voice of the Gods (Sp)
 
 ### Order of the till Heart is commented out until errata comes out to fix it.
@@ -535,8 +535,8 @@ CLASS:Pistoleer	HD:8		TYPE:PC.Prestige	ABB:Pstlr		MAXLEVEL:5	SOURCEPAGE:p.206	BO
 CLASS:Pistoleer	PREATT:4	PREFEAT:3,Point Blank Shot,Two Weapon Fighting,Weapon Focus(Altherian Flintlock (Pistol))	PRESKILL:2,Concentration,Craft (Flintlock)=5	PREWEAPONPROF:1,Altherian Flintlock (Pistol)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pistoleer	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Flintlocks)|Intimidate|Jump|Listen|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble
-1	SA:Two-Handed Quick Draw (Ex)				AUTO:WEAPONPROF|TYPE=Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-2	SA:Focused Training (Ex)									FEATAUTO:Weapon Specialization(Altherian Flintlock (Pistol))|Combat Firing
+1	SA:Two-Handed Quick Draw (Ex)				AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+2	SA:Focused Training (Ex)									AUTO:FEAT|Weapon Specialization(Altherian Flintlock (Pistol))|Combat Firing
 3	SA:Steady Hands (Ex)	SA:Lightning Hands (Ex)
 4	SA:Dead Shot (Ex)
 5	SA:Fire Reflexively (Ex)
@@ -547,11 +547,11 @@ CLASS:Royal Marine of Milandir	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:RMoM		MA
 CLASS:Royal Marine of Milandir	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Armor Proficiency (Heavy),Improved Bull Rush,Iron Will	PREREGION:Milandir	PRESKILL:1,Diplomacy=4	PRESKILL:1,Swim=8	PRETEXT:Must be an Officer in the Royal Navy.	PREWEAPONPROF:1,Trident
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Royal Marine of Milandir	STARTSKILLPTS:2	CSKILL:Balance|Climb|Diplomacy|Jump|TYPE.Local|Knowledge (Geography)|TYPE.Profession|Swim|Use Rope
-1	SA:Distinction (Ex) +%|DistinctionLevel	BONUS:VAR|DistinctionLevel|2+(CL>=4)	DEFINE:DistinctionLevel|0				AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency	FEATAUTO:Weapon Focus(Trident)
+1	SA:Distinction (Ex) +%|DistinctionLevel	BONUS:VAR|DistinctionLevel|2+(CL>=4)	DEFINE:DistinctionLevel|0				AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency	AUTO:FEAT|Weapon Focus(Trident)
 2	SA:Shake Off Armor (Ex)
 3	SA:Superior Bull Rush (Ex)
 4	SA:Pillar of Courage (Su)
-5	SA:Martyr's Heart (Ex)																VFEAT:Diehard						FEATAUTO:Weapon Specialization(Trident)
+5	SA:Martyr's Heart (Ex)																VFEAT:Diehard						AUTO:FEAT|Weapon Specialization(Trident)
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Sarishan Binder	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SBndr		MAXLEVEL:10	SOURCEPAGE:p.209	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -559,12 +559,12 @@ CLASS:Sarishan Binder	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SBndr		MAXLEVEL:10
 CLASS:Sarishan Binder	PREALIGN:LG,LN,LE	PREDEITY:Sarish	PREFEAT:2,Alien Understanding,Greater Spell Focus(Conjuration)	PRESKILL:2,Knowledge (Religion),Knowledge (The Planes)=13	PRESPELL:1,Dismissal
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sarishan Binder	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|TYPE.Local|Knowledge (The Planes)|Knowledge (Religion)|TYPE.Profession|Spellcraft
-1	DOMAIN:Binding	SA:Focused Turning (Su)								DEFINE:FocusTurn|1	FEATAUTO:Basic Channeling|Channeling|Turn Infernal|Rebuke Infernal
+1	DOMAIN:Binding	SA:Focused Turning (Su)								DEFINE:FocusTurn|1	AUTO:FEAT|Basic Channeling|Channeling|Turn Infernal|Rebuke Infernal
 2				SA:The Sigil of Sarish (Su)																							ADD:SPELLCASTER|1|ANY
 3				SA:Sigil of My Brother (Su)	SA:Presense of the Infernal (Sp)																	ADD:SPELLCASTER|1|ANY
 4				SA:Infernal Guide (Ex)																								ADD:SPELLCASTER|1|ANY
 5				SA:Reknown (Ex)	SA:Take What is now Mine (Sp)																				ADD:SPELLCASTER|1|ANY
-6				SA:Sarishan Focus (Ex)												FEATAUTO:Domain Focus(Binding)|Domain Focus(Daemonology)			ADD:SPELLCASTER|1|ANY
+6				SA:Sarishan Focus (Ex)												AUTO:FEAT|Domain Focus(Binding)|Domain Focus(Daemonology)			ADD:SPELLCASTER|1|ANY
 7				SA:Thaumaturgic Circle (Su)																							ADD:SPELLCASTER|1|ANY
 8				SA:Spontaneous Dismissal (Sp)																							ADD:SPELLCASTER|1|ANY
 9				SA:Word of Sarish (Sp)																								ADD:SPELLCASTER|1|ANY
@@ -576,15 +576,15 @@ CLASS:Sensate of Savona	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SoS		MAXLEVEL:10
 CLASS:Sensate of Savona	!PREALIGN:LG,LN,LE	PREATT:5	PREDEITY:Larissa	PREFEAT:4,Dodge,Endurance,Improved Unarmed Strike,Weapon Focus(Unarmed Strike)	PRESKILL:2,Knowledge (Religion),Tumble=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sensate of Savona	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-1								SA:A Toast to Larissa (Sp) %/day|ToastTimes	SA:The Life of the Party (Ex)	BONUS:VAR|ToastTimes|1+(CL>=3)+(CL>=5)+(CL>=7)+(CL>=9)							DEFINE:ToastTimes|0	SPELLS:ClassAbility|TIMES=ToastTimes|CASTERLEVEL=CL|Bear's Endurance|Bull's Strength|Cat's Grace|Cure Moderate Wounds	FEATAUTO:Alertness
+1								SA:A Toast to Larissa (Sp) %/day|ToastTimes	SA:The Life of the Party (Ex)	BONUS:VAR|ToastTimes|1+(CL>=3)+(CL>=5)+(CL>=7)+(CL>=9)							DEFINE:ToastTimes|0	SPELLS:ClassAbility|TIMES=ToastTimes|CASTERLEVEL=CL|Bear's Endurance|Bull's Strength|Cat's Grace|Cure Moderate Wounds	AUTO:FEAT|Alertness
 2	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6	SA:Stumble (Ex)	SA:Tolerance (Ex)																		BONUS:COMBAT|AC|1|TYPE=Dodge.STACK
 3	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																																																										ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6	SA:Barroom Brawler (Ex)																																																		FEATAUTO:Mobility
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6	SA:Barroom Brawler (Ex)																																																		AUTO:FEAT|Mobility
 5	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-6	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8	SA:Lurch (Ex)	SA:That's the Good Stuff (Sp) 1/day																									SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Haste|Freedom of Movement|Cure Critical Wounds						FEATAUTO:Improved Feint
+6	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8	SA:Lurch (Ex)	SA:That's the Good Stuff (Sp) 1/day																									SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Haste|Freedom of Movement|Cure Critical Wounds						AUTO:FEAT|Improved Feint
 7	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																																																										ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-8	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																																																						FEATAUTO:Spring Attack
-9	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																																																						FEATAUTO:Avoidance
+8	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																																																						AUTO:FEAT|Spring Attack
+9	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																																																						AUTO:FEAT|Avoidance
 10	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6	SA:Blindsence (Su) 30' radius																													SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Transformation
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -593,7 +593,7 @@ CLASS:Sky Knight	HD:10		TYPE:PC.Prestige	ABB:SkKn		MAXLEVEL:5	SOURCEPAGE:p.214	B
 CLASS:Sky Knight	PREATT:5	PREFEAT:3,Mounted Combat,Lightning Reflexes,Ride By Attack	PREMULT:1,[PREMULT:3,[PREGENDER:F],[PREREGION:Milandir],[PREMULT:1,[PREFEAT:1,TYPE=Gentry],[PRECLASS:1,Aristocrat=1,Patrician=1]]],[PREFEAT:1,Pureblood Kio]	PRESKILL:2,Ride,Handle Animal=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sky Knight	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Handle Animal|Knowledge (Nature)|TYPE.Profession|Ride|Spot|Tumble
-1	SA:Bonded Companion (Ex)				AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
+1	SA:Bonded Companion (Ex)				AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
 2	SA:Flyby Attack
 3	SA:Masterful Rider (Ex)	SA:Gifted Mount (Ex)
 4	SA:Falcon's Grace (Ex)
@@ -624,7 +624,7 @@ CLASS:Tal Kanath	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:TalK		MAXLEVEL:5	SOURCE
 CLASS:Tal Kanath	PREALIGN:LG,LN,LE	PREFEAT:5,Combat Expertise,Dodge,Mobility,Spring Attack,Whirlwind Attack	PREFEAT:1,Weapon Focus(TYPE=Sword)	PRERACE:1,Elorii	PRESKILL:3,Jump,Tumble,Perform (Dance)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tal Kanath	STARTSKILLPTS:2	CSKILL:Balance|Jump|Hide|Listen|Move Silently|TYPE.Perform|Spot|Tumble
-1	SA:The First Steps (Ex)																	BONUS:COMBAT|AC|1+(CL>=3)+(CL>=5)|TYPE=Shield|PREMULT:2,[PREVAREQ:ENCUMBERANCE,0],[PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	BONUS:COMBAT|AC|min(max(INT,0),CL)|TYPE=Insight|PREMULT:4,[PREEQUIP:1,TYPE=Melee],[!PREEQUIP:1,TYPE=Shield],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy],[PREVAREQ:ENCUMBERANCE,0]																									AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Martial Weapon Proficiency|Armor Proficiency (Light)
+1	SA:The First Steps (Ex)																	BONUS:COMBAT|AC|1+(CL>=3)+(CL>=5)|TYPE=Shield|PREMULT:2,[PREVAREQ:ENCUMBERANCE,0],[PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	BONUS:COMBAT|AC|min(max(INT,0),CL)|TYPE=Insight|PREMULT:4,[PREEQUIP:1,TYPE=Melee],[!PREEQUIP:1,TYPE=Shield],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy],[PREVAREQ:ENCUMBERANCE,0]																									AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Martial Weapon Proficiency|Armor Proficiency (Light)
 2	SA:Dance of Air (Ex)|PREMULT:2,[PREVAREQ:ENCUMBERANCE,0],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy,TYPE=Shield]
 3	SA:Dance of Fire (Ex)|PREMULT:2,[PREVAREQ:ENCUMBERANCE,0],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy,TYPE=Shield]																																																						BONUS:WEAPONPROF=TYPE.Melee|DAMAGE|max(CHA,0)|PREMULT:2,[PREVAREQ:ENCUMBERANCE,0],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy,TYPE=Shield]
 4	SA:Dance of Water (Ex)|PREMULT:2,[PREVAREQ:ENCUMBERANCE,0],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy,TYPE=Shield]	BONUS:COMBAT|INITIATIVE|max(WIS,0)|PREMULT:2,[PREVAREQ:ENCUMBERANCE,0],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy,TYPE=Shield]
@@ -636,8 +636,8 @@ CLASS:Talon of the Hawk	HD:6		TYPE:PC.Prestige	ABB:TotHk		MAXLEVEL:10	SOURCEPAGE
 CLASS:Talon of the Hawk	PREATT:5	PREFEAT:2,Spell Penetration,Improved Counterspell	PREFEAT:1,Favored Enemy (Ymandrakes)	PRESKILL:1,Concentration=8	PRESKILL:2,Knowledge (Arcana),Spellcraft=5	PRESKILL:1,Survival=4	PRETEMPLATE:Hawk
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Talon of the Hawk	STARTSKILLPTS:4	CSKILL:Balance|Climb|Craft|Diplomacy|Examine Martial Technique|Gather Information|Hide|Intimidate|Jump|Knowledge (Arcana)|Knowledge (History)|Listen|Move Silently|TYPE.Profession|Ride|Sense Motive|Survival|Spot|Swim|Tumble|Use Magic Device
-1	SA:Dispel Focus +%|DispelFocus			BONUS:VAR|SneakAttack|1+(CL>=4)+(CL>=7)+(CL>=10)	BONUS:VAR|DispelFocus|2+(2*(CL>=8))	DEFINE:DispelFocus|0	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency|Sneak Attack
-2																																	FEATAUTO:Armored Caster																	ADD:SPELLCASTER|1|Arcane
+1	SA:Dispel Focus +%|DispelFocus			BONUS:VAR|SneakAttack|1+(CL>=4)+(CL>=7)+(CL>=10)	BONUS:VAR|DispelFocus|2+(2*(CL>=8))	DEFINE:DispelFocus|0	AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency|Sneak Attack
+2																																	AUTO:FEAT|Armored Caster																	ADD:SPELLCASTER|1|Arcane
 3									BONUS:VAR|FavoredYmandrakes|2
 4																																																					ADD:SPELLCASTER|1|Arcane
 5	SA:Arcane Savant (Dispel Magic) (Sp)
@@ -655,7 +655,7 @@ CLASS:Ulfian Ranger	PREATT:4	PREFEAT:2,Endurance,Track	PREMULT:1,[PREDEITY:Hurri
 CLASS:Ulfian Ranger	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels
 CLASS:Ulfian Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Alarm|Detect Animals or Plants|Detect Snares and Pits|Feather Fall|Jump|Pass Without Trace|Resist Elements|Shillelagh|Cure Light Wounds|Delay Poison|Heat Metal|Protection from Energy|Shocking Grasp|Spider Climb|Call Lightning|Commune with Nature|Gust of Wind
-1	CAST:0,1					SA:Homeland Advantage (Ex)	SA:Wind Staff Mastery (Ex)									FEATAUTO:Simple Weapon Proficiency|
+1	CAST:0,1					SA:Homeland Advantage (Ex)	SA:Wind Staff Mastery (Ex)									AUTO:FEAT|Simple Weapon Proficiency|
 2	CAST:0,1					SA:Hurrian's Might (Sp) %/day|MightTimes				BONUS:VAR|MightTimes|CL	DEFINE:MightTimes|0
 3	CAST:0,2,1
 4	CAST:0,2,1		DOMAIN:Storm
@@ -667,7 +667,7 @@ CLASS:Val'Mehan Emissary	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:VME		MAXLEVEL:5
 CLASS:Val'Mehan Emissary	PREALIGN:LG,LN,LE	PREFEAT:2,Judge of Character,Honey Tongued	PRESKILL:1,Bluff=4	PRESKILL:3,Diplomacy,Knowledge (Nobility & Royalty),Sense Motive=8	PRESTAT:1,CHA=16	PRETEMPLATE:Mehan
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Disguise|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Speak Language|Spellcraft|Spot|Swim
-1	SA:Silver Tongue (Ex)	SA:Heart of Stone (Ex)	BONUS:SKILL|Bluff,Sense Motive,Diplomacy|2	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
+1	SA:Silver Tongue (Ex)	SA:Heart of Stone (Ex)	BONUS:SKILL|Bluff,Sense Motive,Diplomacy|2	AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 2	SA:Irresistible Aura (Ex)				BONUS:SKILL|TYPE.Charisma|2
 3	SA:Confidante (Ex)
 4	SA:Uncanny Judgement (Ex)
@@ -679,7 +679,7 @@ CLASS:Warped Ones	HD:12		TYPE:PC.Prestige	ABB:WrpO		MAXLEVEL:10	SOURCEPAGE:p.222
 CLASS:Warped Ones	PREALIGN:CG,CN,CE	PREATT:6	PREFEAT:3,Iron Will,Endurance,Rage	PREREGION:Hinterlands
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warped Ones	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Intimidate|Jump|Listen|Spot|Survival|Swim
-1	SA:Path of Rage (Ex)			BONUS:VAR|RageTimes|1+(CL>=5)+(CL>=10)				AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency	ADD:FEAT|1|Twisted Form
+1	SA:Path of Rage (Ex)			BONUS:VAR|RageTimes|1+(CL>=5)+(CL>=10)				AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency	ADD:FEAT|1|Twisted Form
 2	SA:Unnatural Endurance (Ex)
 4																																													ADD:FEAT|1|Burst of Strength
 5	SA:Twisted Visage (Su)
@@ -695,7 +695,7 @@ CLASS:Warrior of the Eternal Flame	PREALIGN:LG,LN,LE	PREATT:7	PREDEITY:Nier	PREF
 CLASS:Warrior of the Eternal Flame	STARTSKILLPTS:2	CSKILL:Concentraation|TYPE.Craft|Diplomacy|Examine Martial Technique|Handle Animal|Heal|Knwoledge (Nobility & Royalty)|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft
 # Class Name				Spell Stat		Spell Type		Memorize
 CLASS:Warrior of the Eternal Flame	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO
-1																								SA:Blessing of the First Flame|PREVARLT:WotEFBlessing,4	SA:Blessing of the Second Flame Flame|PREVARLT:WotEFBlessing,6	SA:Blessing of the Third Flame|PREVARLT:WotEFBlessing,8	SA:Blessing of the Fourth Flame|PREVARLT:WotEFBlessing,10	SA:Blessing of the Final Flame|PREVAREQ:WotEFBlessing,10	SA:Child of Nier (Su)	BONUS:VAR|WotEFBlessing|CL						DEFINE:WotEFBlessing|0																								FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+1																								SA:Blessing of the First Flame|PREVARLT:WotEFBlessing,4	SA:Blessing of the Second Flame Flame|PREVARLT:WotEFBlessing,6	SA:Blessing of the Third Flame|PREVARLT:WotEFBlessing,8	SA:Blessing of the Fourth Flame|PREVARLT:WotEFBlessing,10	SA:Blessing of the Final Flame|PREVAREQ:WotEFBlessing,10	SA:Child of Nier (Su)	BONUS:VAR|WotEFBlessing|CL						DEFINE:WotEFBlessing|0																								AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
 2	CAST:0,0		KNOWN:0,1
 3	CAST:0,1		KNOWN:0,1																			SA:Call Forth His Servants (Sp) (Medium)|PREVARLT:WotEFBlessing,5	SA:Call Forth His Servants (Sp) (Large)|PREVARLT:WotEFBlessing,8	SA:Call Forth His Servants (Sp) (Greater)|PREVARGTEQ:WotEFBlessing,8
 4	CAST:0,1,0		KNOWN:0,2,1		KNOWNSPELLS:Burning Hands|Produce Flame|Wall of Fire|Resist Energy		DOMAIN:Fire
@@ -712,7 +712,7 @@ CLASS:Weapon Savant	HD:8		TYPE:PC.Prestige	ABB:WpnSv		MAXLEVEL:5	SOURCEPAGE:p.22
 CLASS:Weapon Savant	PREATT:6	PREFEAT:7,Combat Expertise,Combat Reflexes,Improved Disarm,Exotic Weapon Proficiency(TYPE=Weapon),Exotic Weapon Proficiency(TYPE=Ranged),Exotic Weapon Proficiency(TYPE=Melee)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Weapon Savant	STARTSKILLPTS:4	CSKILL:Balance|Bluff\Climb|TYPE.Craft|Examine Martial Technique|Jump|Knowledge (History)|Listen|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble
-1	SA:Total Weapon Proficiency (Ex)	SA:Deflect Attack (Ex)|PREMULT:3,[PREEQUIP:1,TYPE.Melee,TYPE.Shield],[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE.Armor.Heavy]	BONUS:COMBAT|AC|1+(CL>=3)+(CL>=5)|TYPE=Shield.STACK|PREMULT:3,[PREEQUIP:1,TYPE.Melee,TYPE.Shield],[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE.Armor.Heavy]	AUTO:WEAPONPROF|TYPE.Weapon	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+1	SA:Total Weapon Proficiency (Ex)	SA:Deflect Attack (Ex)|PREMULT:3,[PREEQUIP:1,TYPE.Melee,TYPE.Shield],[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE.Armor.Heavy]	BONUS:COMBAT|AC|1+(CL>=3)+(CL>=5)|TYPE=Shield.STACK|PREMULT:3,[PREEQUIP:1,TYPE.Melee,TYPE.Shield],[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE.Armor.Heavy]	AUTO:WEAPONPROF|TYPE.Weapon	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
 2	SA:Total Finesse (Ex)	SA:Improvised Weapons (Ex)																			BONUS:COMBAT|TOHIT.Melee|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged
 3	SA:Expert Strike (Ex)																								BONUS:COMBAT|DAMAGE.Weapon|1
 4	SA:Close Combat Fighting (Ex)

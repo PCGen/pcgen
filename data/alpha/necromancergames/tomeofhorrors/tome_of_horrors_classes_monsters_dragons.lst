@@ -10,10 +10,10 @@ CLASS:Cloud Dragon	PRERACE:Dragon (Cloud%	PRERACETYPE:Dragon
 CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
 1	VISION:Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1	BONUS:VAR|BreathWeaponRange|max(15,(SIZE-1)*10)	BONUS:VAR|BreathWeaponDice|DragonAge*2	BONUS:VAR|BreathWeaponDieSize|6	BONUS:VAR|BreathWeaponDC|CON	FEATAUTO:Breath Weapon (Cone/Cold Air)
-1																											FEATAUTO:Immune to Sleep Effects	FEATAUTO:Immune to Paralysis	FEATAUTO:Immune to Electricity
+1	BONUS:VAR|BreathWeaponRange|max(15,(SIZE-1)*10)	BONUS:VAR|BreathWeaponDice|DragonAge*2	BONUS:VAR|BreathWeaponDieSize|6	BONUS:VAR|BreathWeaponDC|CON	AUTO:FEAT|Breath Weapon (Cone/Cold Air)
+1																											AUTO:FEAT|Immune to Sleep Effects	AUTO:FEAT|Immune to Paralysis	AUTO:FEAT|Immune to Electricity
 ###Block: Frightful Presence
-17	BONUS:VAR|FrightfulPresenceRange|30*DragonAge	BONUS:VAR|FrightfulPresenceDC|CHA	FEATAUTO:Frightful Presence
+17	BONUS:VAR|FrightfulPresenceRange|30*DragonAge	BONUS:VAR|FrightfulPresenceDC|CHA	AUTO:FEAT|Frightful Presence
 ###Block: Stats
 8					BONUS:STAT|STR|4	BONUS:STAT|CON|2	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2
 11					BONUS:STAT|STR|4

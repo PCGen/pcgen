@@ -10,11 +10,11 @@ CLASS:Bard (Monte Cook's)	PREALIGN:NG,TN,NE,CG,CN,CE
 CLASS:Bard (Monte Cook's)	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Survival|Swim|Tumble|Use Magic Device
 # Class Name			Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (Monte Cook's)|CL
-1										FEATAUTO:Simple Weapon Proficiency
+1										AUTO:FEAT|Simple Weapon Proficiency
 1	BONUS:VAR|Spellsong|1		DEFINE:Spellsong|0
-1	BONUS:VAR|BardicKnowledge|CL					FEATAUTO:Bardic Knowledge
+1	BONUS:VAR|BardicKnowledge|CL					AUTO:FEAT|Bardic Knowledge
 ###Block: Normal progression
-1	CAST:0,3		KNOWN:0,2			SA:May wear light armor without incurring the normal arcane spell failure chance.					FEATAUTO:Shield Proficiency	FEATAUTO:Armor Proficiency (Light)
+1	CAST:0,3		KNOWN:0,2			SA:May wear light armor without incurring the normal arcane spell failure chance.					AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)
 2	CAST:0,4		KNOWN:0,2
 3	CAST:0,5		KNOWN:0,3
 4	CAST:0,6		KNOWN:0,3
@@ -22,7 +22,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTE
 6	CAST:0,8,0,0	KNOWN:0,4,0,1																BONUS:VAR|Spellsong|1
 7	CAST:0,8,0,1	KNOWN:0,5,0,2
 8	CAST:0,8,0,2	KNOWN:0,5,0,2
-9	CAST:0,9,0,3	KNOWN:0,6,0,3																				FEATAUTO:Evasion
+9	CAST:0,9,0,3	KNOWN:0,6,0,3																				AUTO:FEAT|Evasion
 10	CAST:0,9,0,4	KNOWN:0,6,0,3
 11	CAST:0,9,0,5	KNOWN:0,7,0,4
 12	CAST:0,10,0,6	KNOWN:0,7,0,4		SA:Weave Chords
@@ -30,7 +30,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTE
 14	CAST:0,10,0,7,0,1	KNOWN:0,8,0,5,0,2
 15	CAST:0,11,0,7,0,2	KNOWN:0,9,0,6,0,2
 16	CAST:0,11,0,8,0,3	KNOWN:0,9,0,6,0,3
-17	CAST:0,11,0,8,0,4	KNOWN:0,10,0,7,0,3																			FEATAUTO:Improved Evasion
+17	CAST:0,11,0,8,0,4	KNOWN:0,10,0,7,0,3																			AUTO:FEAT|Improved Evasion
 18	CAST:0,12,0,8,0,5	KNOWN:0,10,0,7,0,4
 19	CAST:0,12,0,9,0,6	KNOWN:0,11,0,8,0,4
 20	CAST:0,12,0,9,0,7	KNOWN:0,11,0,8,0,5	SA:Weave Melodies
@@ -41,9 +41,9 @@ CLASS:Sorcerer (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Sor(MC)		MAXLEVEL:20	SOURCE
 CLASS:Sorcerer (Monte Cook's)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Gather Information|Knowledge (Arcana)|TYPE.Profession|Spellcraft
 # Class Name			Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Sorcerer (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (Monte Cook's)|CL
-1	FEATAUTO:Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Familiar
-1	BONUS:VAR|FMLevel|CL	FEATAUTO:Summon Familiar
+1	BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Sorcerer (Monte Cook's)=0|Dancing Lights,Daze,Detect Magic,Disrupt Undead,Flare,Ghost Sound,Light,Mage Hand,Mending,Open/Close,Prestidigitation,Ray of Frost,Read Magic,Resistance
 1	SPELLLEVEL:CLASS|Sorcerer (Monte Cook's)=1|Animate Rope,Burning Hands,Cause Fear,Charm Person,Chill Touch,Color Spray,Comprehend Languages,Disguise Self,Endure Elements,Expeditious Retreat,Floating Disk,Grease,Hypnotism,Jump,Mage Armor,Magic Missile,Message,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Ray of Enfeeblement,Shocking Grasp,Silent Image,Sleep,Spider Climb,Summon Monster I,True Strike,Unseen Servant,Ventriloquism
@@ -100,9 +100,9 @@ CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:
 CLASS:Eldritch Warrior	PREATT:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:1,Craft (Alchemy)=3	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Spellcraft=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|Ride|Spellcraft
-1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
-1						FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1						FEATAUTO:Shield Proficiency
+1	AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1						AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1						AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1					ADD:FEAT|1|TYPE=RitualofPotency
 2	SA:Enrune Armor (Su)	ADD:FEAT|1|Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Combat Expertise,Improved Disarm,Improved Feint,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Improved Overrun,Improved Sunder,Great Cleave,Quick Draw,Two Weapon Fighting,Two Weapon Defense,Improved Two Weapon Fighting,Greater Two Weapon Fighting,Weapon Finesse,Weapon Focus,Greater Weapon Focus
@@ -156,9 +156,9 @@ CLASS:Knight of the Chord	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33	BO
 CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PREMULT:1,[PREVARGTEQ:Spellsong,2],[PRESPELL:1,Sculpt Sound]	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Perform (Sing)=9
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|Ride|Sense Motive|Speak Language|Spellcraft|Use Magic Device
-1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
-1						FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1						FEATAUTO:Shield Proficiency
+1	AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1						AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1						AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1						SA:Armor Song (Medium)		BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARGTEQ:5,KotCArmorCheckPenalty	DEFINE:KotCArmorCheckPenalty|-ACCHECK	DEFINE:KotCSpellFailure|SPELLFAILURE
 2																																						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration

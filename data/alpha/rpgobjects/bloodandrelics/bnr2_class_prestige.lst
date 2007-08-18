@@ -8,7 +8,7 @@ CLASS:Inquisitor	PREATT:2	PREFEAT:3,Conviction (Higher Power),Faith's Protection
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (History)|Knowledge (Theology and Philosophy)|Research|Search|Sense Motive
 1	SA:Detect Allegiances
-2					BONUS:VAR|InflictWounds|(CL+11)/5	FEATAUTO:Inflict Wounds
+2					BONUS:VAR|InflictWounds|(CL+11)/5	AUTO:FEAT|Inflict Wounds
 3															ADD:FEAT|1|TYPE=Inquisitor
 4	SA:Detect Lies
 5	SA:Torturer's Art
@@ -37,10 +37,10 @@ CLASS:Omega Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:CHE
 CLASS:Omega Knight	PREATT:5	PREFEAT:2,Track,Secret Society (Isayeret Omega/6)	PRESKILL:1,Knowledge (Arcane Lore)=5	PRESKILL:1,Knowledge (Tactics)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Omega Knight	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Hide|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Move Silently|Spot|Survival|Swim
-1																			FEATAUTO:Weapon Focus
+1																			AUTO:FEAT|Weapon Focus
 2	SA:Omega Knight +%|OmegaKnight		BONUS:VAR|OmegaKnight|(CL+1)/3	DEFINE:OmegaKnight|0
 3																									ADD:FEAT|1|TYPE=OmegaKnight
-4														DEFINE:WeapSpecQualify|1	FEATAUTO:Weapon Specialization
+4														DEFINE:WeapSpecQualify|1	AUTO:FEAT|Weapon Specialization
 6																									ADD:FEAT|1|TYPE=OmegaKnight
 7	SA:Forbidden Lore (Damage Reduction)
 9																									ADD:FEAT|1|TYPE=OmegaKnight
@@ -100,8 +100,8 @@ CLASS:Black Knight	PREFEAT:3,Conviction (Dark Power),Profane Ritual,Secret Socie
 CLASS:Black Knight	STARTSKILLPTS:4	CSKILL:Climb|Decipher Script|Disable Device|Forgery|Hide|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Move Silently|Research|Search|Sense Motive
 1	SA:Dark Calling
 2	SA:Immune to Disease
-3							BONUS:VAR|InflictWounds|(CL+3)/3					FEATAUTO:Inflict Wounds
+3							BONUS:VAR|InflictWounds|(CL+3)/3					AUTO:FEAT|Inflict Wounds
 4	SA:Contagious Touch
 5	SA:Vermin Swarm %/day|VerminSwarm	BONUS:VAR|VerminSwarm|CL/5		DEFINE:VerminSwarm|0
 7	SA:Vermin Shape
-8							BONUS:VAR|SneakAttack|((CL-6)/2)*2					FEATAUTO:Sneak Attack
+8							BONUS:VAR|SneakAttack|((CL-6)/2)*2					AUTO:FEAT|Sneak Attack

@@ -307,7 +307,7 @@ CLASS:Mentalist	PRESKILL:2,Autohypnosis,Concentration=14	PRESPELLTYPE:1,Psionic=
 CLASS:Mentalist	STARTSKILLPTS:7	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Profession|Psicraft|Read/Write Language|Search|Sense Motive|Speak Language
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Mentalist	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Mentalist|CL	SPELLLIST:2|Telepath|Psionic Agent
-1																																																						FEATAUTO:PsionicClass
+1																																																						AUTO:FEAT|PsionicClass
 1													BONUS:VAR|MentalistML|CL	BONUS:VAR|MentalistML|var("BL=Mentalist")																					DEFINE:MentalistML|0
 1													BONUS:VAR|BasePowerPoints|7	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:MentalistML,2	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:MentalistML,3	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:MentalistML,4
 1													BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:MentalistML,5
@@ -327,7 +327,7 @@ CLASS:Psionic Assassin	PRESKILL:2,Autohypnosis,Concentration=14	PRESPELLTYPE:1,P
 CLASS:Psionic Assassin	STARTSKILLPTS:5	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Speak Language|Spot|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
 CLASS:Psionic Assassin	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Assassin|CL	SPELLLIST:2|Battle Mind|Psionic Agent
-1																																																											FEATAUTO:PsionicClass
+1																																																											AUTO:FEAT|PsionicClass
 1													BONUS:VAR|PsionicAssassinML|CL	BONUS:VAR|PsionicAssassinML|var("BL=Psionic Assassin")																				DEFINE:PsionicAssassinML|0
 1													BONUS:VAR|BasePowerPoints|5	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionicAssassinML,2	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:PsionicAssassinML,3	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionicAssassinML,4
 1													BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:PsionicAssassinML,5

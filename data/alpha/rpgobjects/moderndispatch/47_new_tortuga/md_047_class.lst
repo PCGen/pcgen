@@ -7,7 +7,7 @@ CLASS:Psychic Healer	HD:4		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHEC
 CLASS:Psychic Healer	PREFEAT:2,Surgery,Telepathy	PRESKILL:2,Concentration,Treat Injury=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Healer	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Pharmaceutical)|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Sense Motive|Spot|Treat Injury
-1	SA:Natural Endorphins	BONUS:VAR|EmpathicSurgery|(CL+1)/2	FEATAUTO:Empathic Surgery
+1	SA:Natural Endorphins	BONUS:VAR|EmpathicSurgery|(CL+1)/2	AUTO:FEAT|Empathic Surgery
 2					BONUS:VAR|Psyche|CL/2
 3	SA:Natural Stim Dose
 5	SA:Mind Heals the Body

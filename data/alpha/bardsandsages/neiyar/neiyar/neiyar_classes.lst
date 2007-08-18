@@ -37,8 +37,8 @@ CLASS:Tiger Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 17	BONUS:CHECKS|BASE.Will|1
 19	BONUS:CHECKS|BASE.Will|1
 ###Block:Proficiencies
-1	FEATAUTO:Wizard Weapon Proficiencies|All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Wizard Weapon Proficiencies|All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Special Abilities:
 5	SA:Tiger Form
 9	SA:Dire Tiger Form
@@ -75,17 +75,17 @@ CLASS:Trapper	PREALIGN:NG,TN,NE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapper	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Trapmaking)|Decipher Script|Disable Device|Gather Information|Hide|Listen|Move Silently|Profession (Trapmaker)|Use Rope|Search|Spot|Tumble
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Class Progression
-1	FEATAUTO:Trapmaking|DetectDisarmTraps
-3	FEATAUTO:NetUse
-5	FEATAUTO:DetectSecretDoors
-7	FEATAUTO:TrappedWeapons
-9	FEATAUTO:TrapPotency
-12	FEATAUTO:DamageReduction
-15	FEATAUTO:MasterTrapMaker
-20	FEATAUTO:RevealTraps
+1	AUTO:FEAT|Trapmaking|DetectDisarmTraps
+3	AUTO:FEAT|NetUse
+5	AUTO:FEAT|DetectSecretDoors
+7	AUTO:FEAT|TrappedWeapons
+9	AUTO:FEAT|TrapPotency
+12	AUTO:FEAT|DamageReduction
+15	AUTO:FEAT|MasterTrapMaker
+20	AUTO:FEAT|RevealTraps
 
 ##
 ### Prestige Classes ###
@@ -211,7 +211,7 @@ CLASS:Shadowblade	!PREALIGN:CG,LG,NG	PREATT:6	PREFEAT:3,Skill Focus,Weapon Fines
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowblade	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Disable Device|Forgery|Gather Information|Hide|Listen|Move Silently|Search|Spot
 ###Block: Special Abilities:
-1					BONUS:VAR|SneakAttack|1	FEATAUTO:Sneak Attack
+1					BONUS:VAR|SneakAttack|1	AUTO:FEAT|Sneak Attack
 2	SA:Shadow Movement
 3	SA:Vampiric Blade 1/day
 4					BONUS:VAR|SneakAttack|1

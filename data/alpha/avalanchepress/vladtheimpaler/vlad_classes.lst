@@ -17,9 +17,9 @@ CLASS:Boyar		HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BA
 CLASS:Boyar		PRESKILL:1,Intimidate=8	PRESTAT:1,CHA=13	PRETEXT:Must own a Castle
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Boyar		STARTSKILLPTS:2	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Handle Animal|Intimidate|Ride|Sense Motive|TYPE.Craft
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1												DEFINE:BoyarIncome|1
 1	SA:Income %|BoyarIncome
@@ -40,9 +40,9 @@ CLASS:Black Hussar	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHE
 CLASS:Black Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Nobility
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Hussar	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|Intuit Direction
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1																			ADD:FEAT|1|Ride-By Attack
 2	SA:Courser's Fury %|HussarCoursersFury
@@ -63,8 +63,8 @@ CLASS:Red Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Common
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|TYPE.Craft
 1	AUTO:WEAPONPROF|Lance (Light)|Lance (Heavy)|Scimitar
-1										FEATAUTO:Armor Proficiency (Light)
-1										FEATAUTO:Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Light)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1																				ADD:FEAT|1|Ride-By Attack
 2	SA:Courser's Fury %|HussarCoursersFury	BONUS:VAR|HussarCoursersFury|(CL+2)/4	DEFINE:HussarCoursersFury|0
@@ -97,7 +97,7 @@ CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gath
 CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device
-2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	FEATAUTO:Basic Turning	ADD:FEAT|1|TYPE=TurnUndead
+2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	AUTO:FEAT|Basic Turning	ADD:FEAT|1|TYPE=TurnUndead
 # Should these be referencing Cleric or Lautar???? - converting from cl("Cleric") to CL. - Tir Gwaith
 2	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE
 2	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
@@ -114,5 +114,5 @@ CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Cr
 14	SA:Create Talisman (Reliable)
 16																							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
 17	SA:Create Talisman (Dependable)
-19																	FEATAUTO:Craft Magic Arms and Armor
+19																	AUTO:FEAT|Craft Magic Arms and Armor
 20																							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry

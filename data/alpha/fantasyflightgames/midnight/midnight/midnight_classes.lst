@@ -10,13 +10,13 @@ CLASS:Channeler	STARTSKILLPTS:6	CSKILL:Alchemy|Animal Empathy|Bluff|Concentratio
 CLASS:Channeler	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Channeler|CL
 
 SUBCLASS:Hermetic Channeler		COST:0	SPELLSTAT:INT
-SUBCLASSLEVEL:1	SA:Lorebook +% (% pages)|LorebookCheck|LorebookPages						BONUS:VAR|LorebookCheck|CL+INT	BONUS:VAR|LorebookPages|max(INT,0)*5*(CL)	DEFINE:LorebookCheck|0	DEFINE:LorebookPages|0			FEATAUTO:Magecraft (Hermetic)
+SUBCLASSLEVEL:1	SA:Lorebook +% (% pages)|LorebookCheck|LorebookPages						BONUS:VAR|LorebookCheck|CL+INT	BONUS:VAR|LorebookPages|max(INT,0)*5*(CL)	DEFINE:LorebookCheck|0	DEFINE:LorebookPages|0			AUTO:FEAT|Magecraft (Hermetic)
 SUBCLASS:Spiritual Channeler		COST:0	SPELLSTAT:WIS
-SUBCLASSLEVEL:1																																						FEATAUTO:Magecraft (Spiritual)
+SUBCLASSLEVEL:1																																						AUTO:FEAT|Magecraft (Spiritual)
 SUBCLASS:Charismatic Channeler	COST:0	SPELLSTAT:CHA
-SUBCLASSLEVEL:1	SA:Force of Personality (+% up to % rounds)|ForcePersonality|PersonalityRounds	BONUS:VAR|ForcePersonality|CL+CHA	BONUS:VAR|PersonalityRounds|CL+3		DEFINE:PersonalityRounds|0	DEFINE:ForcePersonality|0	FEATAUTO:Magecraft (Charismatic)
+SUBCLASSLEVEL:1	SA:Force of Personality (+% up to % rounds)|ForcePersonality|PersonalityRounds	BONUS:VAR|ForcePersonality|CL+CHA	BONUS:VAR|PersonalityRounds|CL+3		DEFINE:PersonalityRounds|0	DEFINE:ForcePersonality|0	AUTO:FEAT|Magecraft (Charismatic)
 1	CAST:1,1													ADD:FEAT|1|Spellcasting (Transmutation)	ADD:FEAT|1|TYPE=Spellcasting
-2	CAST:1,1				BONUS:VAR|FMLevel|CL	FEATAUTO:Summon Familiar
+2	CAST:1,1				BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
 3	CAST:1,1,1
 4	CAST:1,1,1													ADD:FEAT|1|TYPE=Spellcasting
 5	CAST:1,1,1,1
@@ -41,9 +41,9 @@ CLASS:Defender	HD:8		TYPE:PC.Base	MAXLEVEL:20	BONUS:CHECKS|BASE.Fortitude,BASE.W
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Defender	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Profession|Sense Motive|Swim|Tumble
 ###Block: Weapon and Armor Proficiencies
-1	AUTO:WEAPONPROF|Club|Dagger|Hammer (Light)|Pick (Light)|Quarterstaff|Sickle|Axe (Throwing)|Sling|Sling (Great)	FEATAUTO:Improved Unarmed Strike
+1	AUTO:WEAPONPROF|Club|Dagger|Hammer (Light)|Pick (Light)|Quarterstaff|Sickle|Axe (Throwing)|Sling|Sling (Great)	AUTO:FEAT|Improved Unarmed Strike
 ###Block: Normal Level Progression
-1														BONUS:COMBAT|AC|(CL+1)/2|TYPE=Defender|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0																											FEATAUTO:Stunning Attack
+1														BONUS:COMBAT|AC|(CL+1)/2|TYPE=Defender|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0																											AUTO:FEAT|Stunning Attack
 2																																																											ADD:FEAT|1|TYPE=DefenderAbility
 4																												BONUS:MOVEADD|TYPE=Walk|floor((CL+2)/6)*10|PREVARLTEQ:ENCUMBERANCE,1,COUNT[EQTYPE.ARMOR.EQUIPPED],0|TYPE=FastMovement.REPLACE
 5																																																											ADD:FEAT|1|TYPE=DefenderAbility
@@ -66,14 +66,14 @@ CLASS:Legate	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	FEATAUTO:Basic Turning|Rebuke Undead
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	AUTO:FEAT|Basic Turning|Rebuke Undead
 1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Weapon and Armor Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|All Automatic Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Progression
 1	CAST:3,1				SA:Spontaneous Casting		TEMPLATE:Maximum Spell Level
 2	CAST:4,2				SA:Astirax Companion (Ex)
@@ -105,9 +105,9 @@ CLASS:Wildlander	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle A
 # Smite as hidden feat, possibly with PREAPPLY:PC or something.. :)
 # - Tir Gwaith
 ###Block: Weapon and Armor Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1																													ADD:FEAT|1|TYPE.WildlanderTrait
 2																													ADD:FEAT|1|TYPE.WildlanderTrait
@@ -144,11 +144,11 @@ CLASS:Freerider	PREFEAT:2,Mounted Combat,Track	PRERACE:1,Human%	PRESKILL:1,Ride=
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Freerider	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intuit Direction|Jump|Listen|TYPE.Profession|Ride|Spot|Swim|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1						SA:Horse Lord																	FEATAUTO:Leadership
+1						SA:Horse Lord																	AUTO:FEAT|Leadership
 2						SA:Loyal Companions
 3																													ADD:FEAT|1|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance)
 4						SA:Inspiring Leader (Su) +%|InspiringLeader	BONUS:VAR|InspiringLeader|CL/4	DEFINE:InspiringLeader|0
@@ -165,12 +165,12 @@ CLASS:Insurgent Spy	PREFEAT:1,Inconspicuous	PRESKILL:2,Bluff,Gather Information=
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Insurgent Spy	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Weapon and Armor Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Conceal Magic (Su) (% items)|ConcealMagic	SA:Shadow Contact (minor)	BONUS:VAR|ConcealMagic|CL		DEFINE:ConcealMagic|0
 2	SA:Shadow Speak (+%)|ShadowSpeak								BONUS:VAR|ShadowSpeak|CL/2		DEFINE:ShadowSpeak|0
-3	SA:Shadow Contact (major)									BONUS:VAR|SneakAttack|(CL-1)/2					FEATAUTO:Sneak Attack
+3	SA:Shadow Contact (major)									BONUS:VAR|SneakAttack|(CL-1)/2					AUTO:FEAT|Sneak Attack
 5	SA:Shadow Contact (incredible)
 
 # Class Name		Output Name		Hit Dice	Type			Max Level	Save checks bonus											Combat bonus

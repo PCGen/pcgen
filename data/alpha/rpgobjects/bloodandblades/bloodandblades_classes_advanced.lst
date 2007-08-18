@@ -11,7 +11,7 @@ CLASS:Bounty Hunter (BNB)	OUTPUTNAME:Bounty Hunter	HD:6		TYPE:PC.Advanced	MAXLEV
 CLASS:Bounty Hunter (BNB)	PREATT:2	PRESKILL:3,Investigate,Listen,Sense Motive=6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter (BNB)	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spot
-1									FEATAUTO:Track
+1									AUTO:FEAT|Track
 2	SA:Low-level Contact(Ex)
 3												ADD:FEAT|1|TYPE.BountyHunterBNB
 4	SA:Nonlethal Force(Ex)
@@ -112,7 +112,7 @@ CLASS:Psychogene	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|Diploma
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psychogene	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychogene|CL
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1	BONUS:VAR|PsychogeneML|cl("Psychogene")	BONUS:VAR|PsychogeneML|var("BL=Psychogene")				DEFINE:PsychogeneML|0	FEATAUTO:PsionicClass
+1	BONUS:VAR|PsychogeneML|cl("Psychogene")	BONUS:VAR|PsychogeneML|var("BL=Psychogene")				DEFINE:PsychogeneML|0	AUTO:FEAT|PsionicClass
 1	BONUS:VAR|BasePowerPoints|2
 1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychogeneML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychogeneML,3
 1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychogeneML,4	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:PsychogeneML,5
@@ -143,7 +143,7 @@ CLASS:Stalker	HD:8		TYPE:PC:Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:C
 CLASS:Stalker	PREATT:2	PRESKILL:2,Hide,Move Silently=6	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Investigate|Jump|Listen|Move Silently|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
-1					SA:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	FEATAUTO:Sneak Attack	ADD:FEAT|1|Weapon Focus
+1					SA:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	AUTO:FEAT|Sneak Attack	ADD:FEAT|1|Weapon Focus
 2																					ADD:FEAT|1|Weapon Specialization
 3	VISION:Darkvision (60')									BONUS:VAR|SneakAttack|1
 4					SA:Right Behind You (Su)												ADD:FEAT|1|TYPE.Stalker

@@ -15,12 +15,12 @@ CLASS:Chameleon	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentratio
 # Class Name	Spell Stat		Spell Type		Spell Scoll Prohibited							Caster level				Use Spell List
 CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,Necromancy,Transmutation	BONUS:CASTERLEVEL|Chameleon|CL	SPELLLIST:1|Wizard
 ###Block: Sneak Attack
-1								BONUS:VAR|SneakAttack|(CL+1)/4													FEATAUTO:Sneak Attack
+1								BONUS:VAR|SneakAttack|(CL+1)/4													AUTO:FEAT|Sneak Attack
 ##Block: Quick Change
 1	SA:Quick Change (% disguises)|Disguises	BONUS:VAR|Disguises|(CL+10)/5		BONUS:SKILL|Disguise|(CL+1)/2|TYPE=Competence	DEFINE:Disguises|0
 ###Block: Weapon and Armor proficiencies
 1	AUTO:WEAPONPROF|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
-1																											FEATAUTO:Armor Proficiency (Light)
+1																											AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal progression
 1	CAST:2
 2	CAST:3,0							VFEAT:Evasion
@@ -53,8 +53,8 @@ CLASS:Con Artist	HD:6		TYPE:Base.PC	ABB:Con		MAXLEVEL:20	SOURCEPAGE:Chap.3, Con 
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Use Magic Device
 ###Block: Weapon and Armor proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal progression
 1	SA:Deceptive Oration (%/day)|DeceptiveOration	SA:Second Attempt	BONUS:VAR|DeceptiveOration|CL															DEFINE:DeceptiveOration|0
 3	SA:Assess Mark (gullibility)
@@ -72,12 +72,12 @@ CLASS:Delver	HD:6		TYPE:Base.PC	ABB:Delv		MAXLEVEL:20	SOURCEPAGE:Chap.3, Delver	
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Weapon and Armor proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal progression
 1	SA:Delver Notebook	SA:Traps													ADD:FEAT|1|Martial Weapon Proficiency,Exotic Weapon Proficiency
 2												VFEAT:Evasion
-3							BONUS:VAR|UncannyDodge|1				FEATAUTO:Uncanny Dodge
+3							BONUS:VAR|UncannyDodge|1				AUTO:FEAT|Uncanny Dodge
 7																			ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
 6							BONUS:VAR|UncannyDodge|1
 10																			ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
@@ -107,9 +107,9 @@ CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1	SPELLLEVEL:CLASS|Psychic Thief=5|Adapt Body,Clairtangency,Mind Probe,Sending,Sense Psionics,Teleport
 1	SPELLLEVEL:CLASS|Psychic Thief=6|Aura Alteration,Ethereal Jaunt,Retrieve,Suspend Life,True Seeing
 ###Block: Weapon and Armor Proficiencies
-1	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: sneak attack
-1	BONUS:VAR|SneakAttack|(CL+3)/4	FEATAUTO:Sneak Attack
+1	BONUS:VAR|SneakAttack|(CL+3)/4	AUTO:FEAT|Sneak Attack
 ###Block: Manifester stuff
 1	BONUS:VAR|Manifester|CL	DEFINE:Manifester|0	DEFINE:PSIONLEVEL|CL
 1					DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0
@@ -119,8 +119,8 @@ CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1	SA:Psychic Thief 0 level powers (% free / day)|PsyThfFreePowers	DEFINE:PsyThfFreePowers|CL+2
 ###Block: normal progression
 1	KNOWN:2					BONUS:VAR|BASEPOWERPOINTS|2										ADD:FEAT|2|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-2	KNOWN:3					BONUS:VAR|BASEPOWERPOINTS|1						FEATAUTO:Evasion
-3	KNOWN:3,1					BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|UncannyDodge|1	FEATAUTO:Uncanny Dodge	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+2	KNOWN:3					BONUS:VAR|BASEPOWERPOINTS|1						AUTO:FEAT|Evasion
+3	KNOWN:3,1					BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|UncannyDodge|1	AUTO:FEAT|Uncanny Dodge	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 4	KNOWN:3,2					BONUS:VAR|BASEPOWERPOINTS|1
 5	KNOWN:3,3,1					BONUS:VAR|BASEPOWERPOINTS|3
 6	KNOWN:3,3,2			SA:Traps	BONUS:VAR|BASEPOWERPOINTS|3

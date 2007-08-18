@@ -13,10 +13,10 @@ CLASS:Arcane Engineer	HD:6		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	LA
 CLASS:Arcane Engineer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|TYPE.Knowledge|TYPE.Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
 CLASS:Arcane Engineer	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Arcane Engineer|CL
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:3,1														BONUS:VAR|FMLevel|CL	FEATAUTO:Summon Familiar
+1	CAST:3,1														BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
 2	CAST:4,2
 3	CAST:4,2,1				SA:Magitech Modification|PREFEAT:1,Craft Wondrous Item
 4	CAST:4,3,2
@@ -44,11 +44,11 @@ CLASS:Arsenalist	HD:4		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	LANGAUT
 CLASS:Arsenalist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|Listen|TYPE.Profession|Search|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
 CLASS:Arsenalist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Arsenalist|CL
-1	FEATAUTO:Simple Weapon Proficiency|Arsenalist Weapon Proficieincies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency|Arsenalist Weapon Proficieincies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	CAST:3,1				SA:Secret of Gunpowder
-2	CAST:4,2								BONUS:VAR|FMLevel|CL					FEATAUTO:Summon Familiar
+2	CAST:4,2								BONUS:VAR|FMLevel|CL					AUTO:FEAT|Summon Familiar
 3	CAST:4,2,1
 4	CAST:4,3,2
 5	CAST:4,3,2,1																				ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation
@@ -76,11 +76,11 @@ CLASS:Mind Weaver	HD:6		TYPE:Base.PC	ABB:MiW		MAXLEVEL:20	SOURCEPAGE:p.68	LANGAU
 CLASS:Mind Weaver	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Search|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Mind Weaver	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Mind Weaver|CL
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	CAST:5,3				KNOWN:4,2				SA:Spell Powers																ADD:FEAT|1|Spell Focus,TYPE=Metamagic
-2	CAST:6,4				KNOWN:5,2								BONUS:VAR|FMLevel|CL						FEATAUTO:Summon Familiar
+2	CAST:6,4				KNOWN:5,2								BONUS:VAR|FMLevel|CL						AUTO:FEAT|Summon Familiar
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1				SA:Armor Adaptation					BONUS:MISC|SPELLFAILURE|-5
 5	CAST:6,6,4				KNOWN:6,4,2
@@ -107,10 +107,10 @@ CLASS:Sun Mage	HD:4		TYPE:Base.PC	ABB:SuM		MAXLEVEL:20	SOURCEPAGE:p.72	LANGAUTO:
 CLASS:Sun Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Sun Mage	SPELLSTAT:CON	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sun Mage|CL
-1	FEATAUTO:Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	CAST:5,3				KNOWN:4,2				SA:Solar Spellcasting
-2	CAST:6,4				KNOWN:5,2									BONUS:VAR|FMLevel|CL							FEATAUTO:Summon Familiar
+2	CAST:6,4				KNOWN:5,2									BONUS:VAR|FMLevel|CL							AUTO:FEAT|Summon Familiar
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
 5	CAST:6,6,4				KNOWN:6,4,2				SA:Spell Power +%|SpellPower	BONUS:VAR|SpellPower|(CL+5)/10	DEFINE:SpellPower|0

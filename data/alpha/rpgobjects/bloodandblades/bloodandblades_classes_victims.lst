@@ -60,7 +60,7 @@ CLASS:Outcast	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|B
 CLASS:Outcast	PREMULT:1,[PRELEVELMAX:1],[PRECLASS:1,Outcast=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Outcast	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Hide|Spot|Move Silently|TYPE.Perform|Sleight of Hand|Survival
-1																	SA:You MUST continue to advance in the Outcast class until you have reached 5th level	SA:Forgettable(Ex)	SA:Quick	BONUS:VAR|SneakAttack|CL/2+1														BONUS:STAT|DEX|4	TEMPLATE:Starting Sanity	FEATAUTO:Sneak Attack	ADD:FEAT|1|Combat Expertise,Dodge
+1																	SA:You MUST continue to advance in the Outcast class until you have reached 5th level	SA:Forgettable(Ex)	SA:Quick	BONUS:VAR|SneakAttack|CL/2+1														BONUS:STAT|DEX|4	TEMPLATE:Starting Sanity	AUTO:FEAT|Sneak Attack	ADD:FEAT|1|Combat Expertise,Dodge
 2																	SA:Deceptive(Ex)																								BONUS:SKILL|Bluff|INT-CHA|!PRESKILL:1,Bluff=1	BONUS:SKILL|Move Silently|DEX
 4																	SA:Improved Uncanny Dodge(Ex)
 5	SA:.CLEAR.You MUST continue to advance in the Outcast class until you have reached 5th level	SA:Hide in Plain Sight(Ex)

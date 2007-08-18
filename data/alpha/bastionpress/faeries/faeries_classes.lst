@@ -32,7 +32,7 @@ CLASS:Faerie Hunter	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PREFEAT:3,Mite Fighter,P
 CLASS:Faerie Hunter	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Heal|Hide|Intuit Direction|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Speak Language|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Faerie Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Faerie Hunter|CL
-1	CAST:0,0		SA:Fey Wary +% (Su)|FeyWary									BONUS:VAR|SneakAttack|1						DEFINE:FeyWary|1						FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+1	CAST:0,0		SA:Fey Wary +% (Su)|FeyWary									BONUS:VAR|SneakAttack|1						DEFINE:FeyWary|1						AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 2	CAST:0,1		SA:FaerieFighter +% (Ex)|FaerieFighter	SA:Fey Hunter +% (Ex)|FeyHunter										DEFINE:FaerieFighter|1	DEFINE:FeyHunter|1
 3	CAST:0,1,0		SA:Smite Fey (Su) 1/day
 4	CAST:0,1,1															BONUS:VAR|FeyHunter|1	BONUS:VAR|FeyWary|1
@@ -110,8 +110,8 @@ CLASS:Fey Prankster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	SPELLLEVEL:CLASS|Fey Prankster=3|Bestow Curse,Blink,Charm Monster,Displacement,Fey Mask,Inflict Serious Wounds,Luck of the Fey,Suggestion
 1	SPELLLEVEL:CLASS|Fey Prankster=4|Cure Serious Wounds,Discern Route,Dismiss Fey,Fitful Sleep,Laughing Gas,Nondetection
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
 1	CAST:0,1								SPELLS:ClassAbility|TIMES=3|Prestidigitation
 2	CAST:0,2,0								SPELLS:ClassAbility|TIMES=(CL+1)/3|Fey Mask
@@ -132,7 +132,7 @@ CLASS:Fey-Touched	HD:6		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BO
 CLASS:Fey-Touched	PREATT:4	PREFEAT:2,Alertness,Dodge	PRESKILL:1,Knowledge (Fey)=5	!PRETYPE:Fey
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Information|Hide|Innuendo|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Sense Motive|Spellcraft|Spot
-1	VISION:Low-light	SA:Fey Sense (Su)												FEATAUTO:Simple Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+1	VISION:Low-light	SA:Fey Sense (Su)												AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 2										SPELLS:ClassAbility|TIMES=3|Prestidigitation
 3				SA:Luck of the Fey (Ex) 1/day
 4				SA:Fey Friend (Ex)
@@ -150,9 +150,9 @@ CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:5,Armor Proficienc
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Fey)|Knowledge (Nobility and Royalty)|Ride|Spot
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Progression
 1	SA:Shining Beacon																					ADD:FEAT|1|Blind Fight
 2	SA:Lucky Hit +% damage %/day|LuckyHitDamage|LuckyHitTimes	BONUS:VAR|LuckyHitDamage|CL	DEFINE:LuckyHitDamage|0	DEFINE:LuckyHitTimes|1
@@ -191,10 +191,10 @@ CLASS:Mortal Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Heal|I
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Mortal Slayer	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Mortal Slayer|CL
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Favored Enemies setup
-1	BONUS:VAR|SlayerFavoredEnemyLVL|CL				DEFINE:SlayerFavoredEnemyLVL|0	FEATAUTO:Basic Favored Enemy
+1	BONUS:VAR|SlayerFavoredEnemyLVL|CL				DEFINE:SlayerFavoredEnemyLVL|0	AUTO:FEAT|Basic Favored Enemy
 1	BONUS:VAR|SlayerEnemies|SlayerFavoredEnemyLVL/5+1	DEFINE:SlayerEnemies|0
 1	BONUS:VAR|SlayerEBonuses|SlayerFavoredEnemyLVL/5	DEFINE:SlayerEBonuses|0
 ###Block: Normal Progression
