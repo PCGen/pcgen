@@ -9,10 +9,10 @@ CLASS:Assassin (Mong)	PREALIGN:LN,LE,TN,NE,CN,CE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Assassin (Mong)	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Craft|Disable Device|Disguise|Gather Information|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Assassination/Sneak Attack
-1	SA:Assassination +%d%|Assassination|AssassinationDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|Assassination|floor((CL+1)/2)*2	DEFINE:Assassination|0	DEFINE:AssassinationDie|6	FEATAUTO:Sneak Attack
+1	SA:Assassination +%d%|Assassination|AssassinationDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|Assassination|floor((CL+1)/2)*2	DEFINE:Assassination|0	DEFINE:AssassinationDie|6	AUTO:FEAT|Sneak Attack
 ###Block: Proficiencies
-1	FEATAUTO:Assassin (Mong) Weapon Proficiencies|Simple Weapon Proficiency|All Automatic Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Assassin (Mong) Weapon Proficiencies|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 2					SA:Poison Use
 4					SA:Meticulous Planning (+%)|MeticulousPlanning	BONUS:VAR|MeticulousPlanning|(CL+2)/6	DEFINE:MeticulousPlanning|0

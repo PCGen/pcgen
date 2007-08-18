@@ -18,13 +18,13 @@ CLASS:Brethren Follower	PREALIGN:CG,CN,CE	PREATT:3	PREFEAT:1,Great Fortitude	PRE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Brethren Follower	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Hide|Knowledge (Nature)|Move Silently|Wilderness Lore
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Rage
 1	BONUS:VAR|RageTimes|CL/4+1	DEFINE:RageTimes|0	VFEAT:Rage
 ###Block: Normal level progression
-1	SA:Experience Bonus																												FEATAUTO:Improved Unarmed Strike
+1	SA:Experience Bonus																												AUTO:FEAT|Improved Unarmed Strike
 2	SA:Trap-Making %d6 (DC%)|TrapMaking|TrapMakingDC	BONUS:VAR|TrapMaking|(CL-1)/4+1	BONUS:VAR|TrapMakingDC|floor((CL-1)/4)*3+16	DEFINE:TrapMaking|0	DEFINE:TrapMakingDC|0
 4																								DEFINE:WeapSpecQualify|1										ADD:FEAT|1|Weapon Specialization
 
@@ -36,15 +36,15 @@ CLASS:Cartel Trade Master	PREALIGN:LN,NG,TN,NE,CN	PRELANG:1,Trade	PRESA:1,Spit P
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Cartel Trade Master	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|Innuendo|Intimidate|Sense Motive|Speak Language
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1																FEATAUTO:Skill Focus(Diplomacy)
+1																AUTO:FEAT|Skill Focus(Diplomacy)
 2	SA:Make a Deal
 3	SA:Wise Man Speaks
 4	SA:Peacemaker		BONUS:SKILL|Bluff,Diplomacy,Innuendo,Intimidate,Sense Motive|8
-5																FEATAUTO:Sandwalker
+5																AUTO:FEAT|Sandwalker
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Champion	HD:12		TYPE:PC.Prestige	ABB:Cha		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -53,9 +53,9 @@ CLASS:Champion	PREATT:10	PREFEAT:1,Toughness	PRESKILL:1,Intimidate=5	!PRETEMPLAT
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Champion	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Listen|Ride|Sense Motive|Spot|Tumble
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SA:Rallying Cry
 3	SA:Study Foe
@@ -68,7 +68,7 @@ CLASS:Demolitions Expert	PREFEAT:1,Skill Focus(Craft (Tinker))	PRESKILL:2,Craft 
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Demolitions Expert	STARTSKILLPTS:4	CSKILL:Climb|Craft (Tinker)|Disable Device|Hide|Listen|Move Silently|Search|Tumble
 ###Block: Proficiencies
-1	FEATAUTO:Exotic Weapon Proficiency|All Exotic Weapon Proficiencies
+1	AUTO:FEAT|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies
 ###Block: Normal Level Progression
 1	SA:Eye for Safety	SA:Keen Eye	SA:Trap Making (DC %)|DETrapMakingDC	BONUS:VAR|DETrapMakingDC|floor((CL-1)/3)*3+16	DEFINE:DETrapMakingDC|0
 2	SA:Grenadier +%|Grenadier								BONUS:VAR|Grenadier|(CL+1)/3				DEFINE:Grenadier|0
@@ -95,8 +95,8 @@ CLASS:Foundationist Paladin	HD:10		TYPE:PC.Prestige	ABB:FPa		MAXLEVEL:10	SOURCEP
 CLASS:Foundationist Paladin	PREALIGN:LG,LN,LE	PREATT:5	PRESKILL:1,Knowledge (Ancient Lore)=8	PRESTAT:1,INT=15	PRETEMPLATE:Advanced|Guardian|Resurrector|Ritual Preservationist|Visionary Reinventor
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Foundationist Paladin	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Knowledge (Ancient Lore)|Knowledge (Vehicle Operations)|Ride
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Martial Weapon Proficiencies|All Exotic Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Martial Weapon Proficiencies|All Exotic Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1	SA:Ancient Lore									ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
 3	SA:Command %|Command	BONUS:VAR|Command|3	DEFINE:Command|0
@@ -144,8 +144,8 @@ CLASS:Ranger (DW)	HD:10		TYPE:PC.Prestige	ABB:RDW		MAXLEVEL:5	SOURCEPAGE:p.33	BO
 CLASS:Ranger (DW)	PREALIGN:LG,LN	PREATT:7	PREFEAT:2,Iron Will,Toughness	PRESTAT:1,CON=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger (DW)	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Gather Information|Handle Animal|Heal|Intimidate|Intuit Direction|Listen|Move Silently|Ride|Sense Motive|Speak Language|Spot|Use Rope|Wilderness Lore
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1	SA:Rigorous Training
 2	SA:Wanderer's Reputation +%|WanderersReputation	BONUS:VAR|WanderersReputation|2	BONUS:SKILL|Diplomacy,Intimidate|CL)	DEFINE:WanderersReputation|CL
@@ -159,7 +159,7 @@ CLASS:Road Warrior	HD:8		TYPE:PC.Prestige	ABB:RWa		MAXLEVEL:5	SOURCEPAGE:p.35	BO
 CLASS:Road Warrior	PREATT:5	PREFEAT:1,Road Warrior	PREITEM:1,TYPE=Vehicle	PRESKILL:2,Craft (Mechanics),Knowledge (Vehicle Operations)=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Road Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Mechanics)|Disable Device|Escape Artist|Intuit Direction|Jump|Knowledge (Vehicle Operations)|Spot
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
 1	SA:Boarding Party	SA:Offensive Driving
 2	SA:Defensive Driving
@@ -173,9 +173,9 @@ CLASS:Sister of the Desert	HD:8		TYPE:PC.Prestige	ABB:SoD		MAXLEVEL:5	SOURCEPAGE
 CLASS:Sister of the Desert	PREATT:5	PREFEAT:2,Concubine,Endurance
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Sister of the Desert	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE.Craft|Escape Artist|Handle Animal|Hide|Move Silently|Ride|Sense Motive|Tumble|Wilderness Lore
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SA:Fascinate
 2	SA:Natural Healing

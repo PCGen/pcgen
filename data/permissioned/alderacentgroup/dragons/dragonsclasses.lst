@@ -7,7 +7,7 @@ CLASS:Air Lord	NAMEISPI:NO		HD:10		XTRAFEATS:1		ABB:AL		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Air Lord	PREFEAT:1,Mounted Combat	PRESKILL:1,Balance=4	PRESKILL:1,Ride=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Air Lord	STARTSKILLPTS:2	CSKILL:Balance|TYPE.Climb|TYPE.Craft|Handle Animal|Intuit Direction|TYPE.Jump|Ride|Spot|Swim
-1	SA:Improved Aerial Rider									FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1	SA:Improved Aerial Rider									AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2	SA:Aerial mount
 3	SA:Swoop attack
 4	SA:Feather fall
@@ -24,7 +24,7 @@ CLASS:Dragon Slayer	NAMEISPI:NO		HD:10		ABB:DS		MAXLEVEL:10	SOURCEPAGE:p.35-37	B
 CLASS:Dragon Slayer	PREATT:5	PREFEAT:1,Iron Will	PREFEAT:1,Power Attack
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|TYPE.Jump|Listen|Ride|Spot|Swim
-1	SA:Improved Power Attack		FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+1	SA:Improved Power Attack		AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
 2	SA:Latch Attack
 3	SA:Fearless (+4 saves)
 4	SA:Penetrating Blow

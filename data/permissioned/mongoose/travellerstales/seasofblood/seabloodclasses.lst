@@ -8,8 +8,8 @@ CLASS:Buccaneer	PREATT:3	PRESKILL:3,Balance,Swim,Tumble=6	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Buccaneer	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Knowledge (Seamanship)|Move Silently|Sense Motive|Swim|Tumble|Use Rope
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SA:Shipboard Climbing
 2	SA:Up Close and Personal
@@ -46,9 +46,9 @@ CLASS:Reaver	PREATT:4	PREFEAT:2,Power Attack,Two-Weapon Fighting	PRESKILL:1,Swim
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Reaver	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Hide|Intimidate|Jump|Knowledge (Seamanship)|Swim|Use Rope
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1	SA:Armour Expertise (%)|		BONUS:VAR|ArmourExp|(CL+3)/4		DEFINE:ArmourExp|0
 2	SA:Inspire Crew (+%)|InspireCrew	BONUS:VAR|InspireCrew|(CL+2)/4	DEFINE:InspireCrew|0
@@ -61,8 +61,8 @@ CLASS:Reaver	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Hide|Intimidate|Jump|Kn
 CLASS:Sailor	HD:8		TYPE:NPC	ABB:Slr		MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/4	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Knowledge (Seamanship)|Swim|Use Rope
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages		Bonus Languages	Save checks bonus											Combat bonus
 CLASS:Sea Druid	HD:8		TYPE:Base.PC	ABB:Drd		SOURCEPAGE:p.33	LANGAUTO:Druidic,Literacy	LANGBONUS:Aquan	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -73,11 +73,11 @@ CLASS:Sea Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|D
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level				Use Spell List
 CLASS:Sea Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Sea Druid|CL	SPELLLIST:1|Druid
 ###Block: Proficiencies
-1	FEATAUTO:Druid Weapon Proficiencies|All Automatic Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Druid Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	CAST:3,1				SA:Nature Sense												BONUS:VAR|CompLevel|CL									FEATAUTO:Animal Companion
+1	CAST:3,1				SA:Nature Sense												BONUS:VAR|CompLevel|CL									AUTO:FEAT|Animal Companion
 2	CAST:4,2				SA:Speed of the Fish	SA:Predict the Weather % days in advance|PredictWeather	BONUS:VAR|PredictWeather|CL/2				DEFINE:PredictWeather|0
 3	CAST:4,2,1				SA:Salt Synthesis
 4	CAST:5,3,2				SA:Resist Nature's Lure

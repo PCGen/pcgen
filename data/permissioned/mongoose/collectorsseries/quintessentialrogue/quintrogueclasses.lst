@@ -27,9 +27,9 @@ CLASS:Commando	PREATT:4	PREFEAT:2,Point Blank Shot,Far Shot	PRESKILL:1,Hide=8	PR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen|Move Silently|Spot|Wilderness Lore
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SA:Live off the Land	SA:Silent Strike
 2								BONUS:VAR|SneakAttack|CL/2
@@ -59,11 +59,11 @@ CLASS:Deep Tracker	PREFEAT:3,Alertness,Endurance,Track	PRESKILL:1,Wilderness Lor
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Deep Tracker	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Escape Artist|Hide|Intuit Direction|Jump|Knowledge (Underearth)|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Swim|Wilderness Lore
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Monster Knowledge	SA:Underneath Explorer
-2	SA:Pathfinder						BONUS:VAR|SneakAttack|CL/2	FEATAUTO:Sneak Attack
+2	SA:Pathfinder						BONUS:VAR|SneakAttack|CL/2	AUTO:FEAT|Sneak Attack
 3	SA:Emissary
 4	SA:Maze Sense
 5	SA:Dark Sense
@@ -75,11 +75,11 @@ CLASS:Executioner	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:7	PREFEAT:3,Cleave,Power Att
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|Heal
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Executioner's Strike +%d%|ExecutionersStrike|ExecutionersStrikeDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	DEFINE:ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	FEATAUTO:Sneak Attack
+1	SA:Executioner's Strike +%d%|ExecutionersStrike|ExecutionersStrikeDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	DEFINE:ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	AUTO:FEAT|Sneak Attack
 2	SA:Cold Blooded Killer
 4	SA:Executioner's Song
 
@@ -91,11 +91,11 @@ CLASS:Shadowy Avenger	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Im
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE.Craft|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Eye for Detail	SA:Urban Ranger						BONUS:SKILL|Sense Motive|2|TYPE=Competence
-2	SA:Scrounger				BONUS:VAR|SneakAttack|CL/2												FEATAUTO:Sneak Attack
+2	SA:Scrounger				BONUS:VAR|SneakAttack|CL/2												AUTO:FEAT|Sneak Attack
 3	SA:Punish the Guilty 1/day
 5	SA:Fearsome Reputation								BONUS:SKILL|Intimidate|2|TYPE=Competence
 7	SA:Alchemical Genius																VFEAT:Brew Potion
@@ -111,8 +111,8 @@ CLASS:Tomb Raider	PREFEAT:4,Dodge,Lightning Reflexes,Mobility,Skill Focus (TYPE.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tomb Raider	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Climb|TYPE.Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Move Silently|Open Lock|TYPE.Profession|Ride|Search|Spellcraft|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Recognize Trap Design	SA:Superior Knowledge
 2	SA:Mystic Knowledge	SA:Trap Sense			BONUS:SKILL|Use Magic Device|2|TYPE=Competence

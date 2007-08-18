@@ -9,9 +9,9 @@ CLASS:Crusader	PREATT:5	PREFEAT:1,Weapon Focus (%)	PRESKILL:1,Knowledge (Religio
 CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Subterranean Cultures)|Knowledge (Religion)|Scry|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1							ADD:SPELLCASTER|1|Divine	ADD:FEAT|1|TYPE=RangerFavored
 2							ADD:SPELLCASTER|1|Divine	ADD:Language|3|Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Gnome,Goblin,Giant,Gnoll,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
@@ -32,18 +32,18 @@ CLASS:Demolitionist	PREFEAT:1,Craft Wondrous Item	PRESKILL:1,Alchemy=8	PRESKILL:
 CLASS:Demolitionist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Demolitionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Demolitionist|CL
-1	FEATAUTO:Wizard Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Wizard Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Produce Explosives(%d6)|ProduceExplosive	BONUS:VAR|ProduceExplosive|(CL+2)/3+1	DEFINE:ProduceExplosive|0														ADD:SPELLCASTER|1|Arcane
 2	SA:Time Delay Explosives																													ADD:SPELLCASTER|1|Arcane
 3	SA:Craft Flash Bombs																														ADD:SPELLCASTER|1|Arcane
 4																																		ADD:SPELLCASTER|1|Arcane
 5	SA:Craft Musket																															ADD:SPELLCASTER|1|Arcane
-6																					FEATAUTO:Exotic Weapon Proficiency(Pistol)|Exotic Weapon Proficiency(Musket)	ADD:SPELLCASTER|1|Arcane
+6																					AUTO:FEAT|Exotic Weapon Proficiency(Pistol)|Exotic Weapon Proficiency(Musket)	ADD:SPELLCASTER|1|Arcane
 7																																		ADD:SPELLCASTER|1|Arcane
 8	SA:Master of Destruction																													ADD:SPELLCASTER|1|Arcane
-9																					FEATAUTO:Uncanny Dodge										ADD:SPELLCASTER|1|Arcane
+9																					AUTO:FEAT|Uncanny Dodge										ADD:SPELLCASTER|1|Arcane
 10																																		ADD:SPELLCASTER|1|Arcane
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -52,9 +52,9 @@ CLASS:Shock Trooper	HD:10		TYPE:PC.Prestige	ABB:ae3		MAXLEVEL:10	SOURCEPAGE:p.91
 CLASS:Shock Trooper	PREATT:5	PREFEAT:3,Power Attack,Quick Draw,Run	PRERACE:1,Dwarf%,Gnome%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shock Trooper	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Intuit Direction|Jump|Listen|Tumble
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1																	BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1|TYPE=FastMovement
 2	SA:Bonus Damage (%d6) vs. large or bigger creatures|LargeAttack																						DEFINE:LargeAttack|1
@@ -73,8 +73,8 @@ CLASS:Treasure Hunter	HD:6		TYPE:PC.Prestige	ABB:ae4		MAXLEVEL:10	SOURCEPAGE:p.9
 CLASS:Treasure Hunter	PREFEAT:1,Lightning Reflexes	PRESKILL:1,Knowledge (Ancient History)=4	PRESKILL:2,Disable Device,Search=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Treasure Hunter	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|Decipher Script|Disable Device|Escape Artist|Hide|Jump|Knowledge (Ancient History)|Listen|Move Silently|Open Lock|Search|Spot|Tumble|Use Magic Device|Use Rope
-1	FEATAUTO:Rogue Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Rogue Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1					SA:Danger Sense (+%)|DangerSense	SA:Treasure Lore										BONUS:SKILL|Appraise|2	DEFINE:DangerSense|1
 2					SA:+% Reflex save vs. Traps and +% dodge AC bonus vs. trap attacks|TrapSave	BONUS:VAR|TrapSave|(CL+1)/3					DEFINE:TrapSave|0

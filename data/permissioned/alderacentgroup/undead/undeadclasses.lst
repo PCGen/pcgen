@@ -8,9 +8,9 @@ CLASS:Champion of the Dead	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOUR
 CLASS:Champion of the Dead	PREALIGN:LE,NE,CE	PREATT:5	PRESKILL:1,Knowledge (Arcana)=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Ride|Swim
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SA:Leader of the Dead (Sp)
 2						ADD:FEAT|1|TYPE=Fighter
@@ -45,7 +45,7 @@ CLASS:The Dying	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.34
 # Class Name	Skill Pts/Lvl
 CLASS:The Dying	STARTSKILLPTS:2
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								FEATAUTO:Basic Turning	ADD:FEAT|1|TYPE=TurnUndead
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								AUTO:FEAT|Basic Turning	ADD:FEAT|1|TYPE=TurnUndead
 1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
@@ -68,13 +68,13 @@ CLASS:Exorcist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Extra Turning	PRESKILL:1,Kno
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Knowledge (Arcana)|Knowledge (Religion)|Search|Sense Motive|Spellcraft
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								FEATAUTO:Turn Undead|Basic Turning
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								AUTO:FEAT|Turn Undead|Basic Turning
 1	BONUS:VAR|TurnLevelBase|CL*3/2|TYPE=Level.REPLACE	DEFINE:AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
 1	SA:Branding (Sp)	SA:Unearthly Protection (Sp)
 2	SA:Tear the Evil from the Flesh			ADD:SPELLCASTER|1|Divine
@@ -93,8 +93,8 @@ CLASS:Faith Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Faith Hunter	PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	PREFEAT:1,Iron Will	PRESKILL:1,Heal=4	PRESKILL:1,Knowledge (Arcana)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Faith Hunter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Escape Artist|Gather Information|Heal|Knowledge (Arcana)|Knowledge (Religion)|Listen|TYPE.Profession|Search|Sense Motive|Spellcraft|Spot
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Indominable Will	SA:Cure Infection
 2	SA:Stake Attack +%d6|StakeAttack						BONUS:VAR|StakeAttack|CL/2	DEFINE:StakeAttack|0
@@ -147,9 +147,9 @@ CLASS:Paladin of the Pale	PRECLASS:1,Paladin=5	PRESKILL:2,Knowledge (Religion),H
 CLASS:Paladin of the Pale	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|TYPE.Knowledge|TYPE.Profession|Ride
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Paladin of the Pale	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin of the Pale|CL
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1					SA:Atonement
 2												BONUS:VAR|TurnLevelBase|max(CL-1,0)|TYPE=Level.REPLACE	BONUS:PCLEVEL|Paladin|1
@@ -237,9 +237,9 @@ CLASS:Unbeating Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE
 CLASS:Unbeating Heart	PREALIGN:LE,NE,CE	PREATT:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Knowledge (Religion)|Spellcraft
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 # Should this have a Rebuke Undead call here, or just modify the VAR?  Leaving as just modifying the VAR, since htat is how it was. - Tir Gwaith
 1																BONUS:VAR|TurnLevel|(CL+1)/2				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Martial Weapon Proficiency
@@ -260,7 +260,7 @@ CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:1,Knowl
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						FEATAUTO:Rebuke Undead|Basic Turning
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						AUTO:FEAT|Rebuke Undead|Basic Turning
 1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack

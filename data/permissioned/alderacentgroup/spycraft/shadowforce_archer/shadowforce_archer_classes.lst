@@ -14,7 +14,7 @@ CLASS:Cat Burglar	PREFEAT:2,Acrobatic,Master Fence	PRELEVEL:5		PRESKILL:2,Climb,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cat Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Boating|Climb|Concentration|TYPE.Craft|Driver|Electronics|Escape Artist|Hide|TYPE.Hobby|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|Pilot|TYPE.Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
 
-1							SA:Case (scout)							BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0		FEATAUTO:Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)	ADD:FEAT|1|Cat Burglar Core Ability
+1							SA:Case (scout)							BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0		AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)	ADD:FEAT|1|Cat Burglar Core Ability
 2							SA:Honor Among Thieves +%|HonorAmongThieves								DEFINE:HonorAmongThieves|((CL-1)/6)+1
 3																																														ADD:FEAT|1|TYPE.Covert,TYPE.BasicSkill,TYPE.AdvancedSkill
 4							SA:Go to ground (hiding)	SA:Improvised Tools
@@ -32,7 +32,7 @@ CLASS:Counter Terrorist	OUTPUTNAME:Counter-Terrorist	HD:10		TYPE:Prestige.PC	ABB
 CLASS:Counter Terrorist	PREATT:5	PREFEAT:1,Precise Shot	PRESKILL:1,Spot=8	PRESKILL:1,Sense Motive=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Counter Terrorist	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Demolitions|Diplomacy|Driver|First Aid|TYPE.Hobby|Intimidate|Jump|TYPE.Knowledge|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Surveillance|Swim|Use Rope
-1								SA:Special Tactics (locate)						BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)	ADD:FEAT|1|Counter Terrorist Core Ability	ADD:FEAT|1|Counter Terrorist Core Ability
+1								SA:Special Tactics (locate)						BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)	ADD:FEAT|1|Counter Terrorist Core Ability	ADD:FEAT|1|Counter Terrorist Core Ability
 2								SA:Precision Takedown (-25% cover)
 3																																																																				ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
 4								SA:Safe Attack	SA:Crowd control (% level)|CrowdControl							DEFINE:CrowdControl|CL/4
@@ -68,15 +68,15 @@ CLASS:Sniper	HD:10		TYPE:Prestige.PC	ABB:Snpr		MAXLEVEL:10	SOURCEPAGE:p.170	LANG
 CLASS:Sniper	PREFEAT:2,Far Shot,Marksman	PRELEVEL:5		PRESKILL:2,Hide,Surveillance=6	PRESTAT:1,DEX=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sniper	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Disguise|Driver|Hide|TYPE.Hobby|Intimidate|Jump|Move Silently|Open Lock|TYPE.Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
-1								BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	FEATAUTO:Armor Proficiency (Light)|Weapon Group Proficiency (Rifle)|Run	ADD:FEAT|1|Sniper Core Ability
+1								BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Rifle)|Run	ADD:FEAT|1|Sniper Core Ability
 2	SA:Magic Touch (+%)|MagicTouch								DEFINE:MagicTouch|1+(CL>=7)
 3																																ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert
 4	SA:One Shot	SA:Deadly Aim (%d6)|DeadlyAim							DEFINE:DeadlyAim|CL/4
-5																				FEATAUTO:Mobility										ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert
+5																				AUTO:FEAT|Mobility										ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert
 6	SA:Surprise Shot
 7																																ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert
 8	SA:Disappear
-9																				FEATAUTO:Increased Speed								ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert
+9																				AUTO:FEAT|Increased Speed								ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert
 10	SA:Million Dollar Skill
 
 
@@ -88,7 +88,7 @@ CLASS:Shadespeaker	HD:10		TYPE:Prestige.PC	ABB:ShSpk		MAXLEVEL:10	SOURCEPAGE:p.2
 CLASS:Shadespeaker	PREFEAT:1,Sixth Sense	PRELEVEL:5		PRESTAT:1,WIS=13	PRETEMPLATE:Chamber - Guardians of the Whispering Knife
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE.Craft|First Aid|Gather Information|Handle Animal|TYPE.Hobby|Jump|TYPE.Knowledge|Languages|Listen|Sense Motive|Spot|Survival|Tumble
-1							SA:The Call (Questions)					BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	FEATAUTO:Armor Proficiency (Light)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Hurled)	ADD:FEAT|1|Shadespeaker Core Ability
+1							SA:The Call (Questions)					BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Hurled)	ADD:FEAT|1|Shadespeaker Core Ability
 2							SA:Deathwatch (Corpse Sense)
 3																																												ADD:FEAT|1|TYPE.MeleeCombat,TYPE.Mystic
 4							SA:The Sleep	SA:Washaif Blade (Marking)
@@ -106,7 +106,7 @@ CLASS:Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE.Craft|First
 CLASS:Mentalist	HD:8		TYPE:Base.PC	ABB:Men		MAXLEVEL:20	SOURCEPAGE:p.179	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|((CL+2)/2)-(CL==4)-(CL==6)-(CL>=8)-(CL>=14)	BONUS:CHECKS|BASE.Will|(CL+4)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mentalist	STARTSKILLPTS:8	CSKILL:Computers|Concentration|TYPE.Craft|Cryptography|Electronics|TYPE.Hobby|TYPE.Knowledge|Mechanics|TYPE.Profession|Sense Motive
-1								BONUS:VAR|PSIONLEVEL|CL															FEATAUTO:Armor Proficiency (Light)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)	ADD:FEAT|1|TYPE.MentalPsion,TYPE.Gear	ADD:FEAT|1|Mentalist Core Ability
+1								BONUS:VAR|PSIONLEVEL|CL															AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)	ADD:FEAT|1|TYPE.MentalPsion,TYPE.Gear	ADD:FEAT|1|Mentalist Core Ability
 2	SA:Mental Leap (%/session)|MentalLeap												DEFINE:MentalLeap|1+(CL>=11)+(CL>=19)
 3																																												ADD:FEAT|1|Mentalist Psi Mastery
 4																																												ADD:FEAT|1|TYPE.MentalPsion,TYPE.Gear
@@ -131,7 +131,7 @@ CLASS:Mentalist	STARTSKILLPTS:8	CSKILL:Computers|Concentration|TYPE.Craft|Crypto
 CLASS:Physical Adept	HD:10		TYPE:Base.PC	ABB:Phy		MAXLEVEL:20	SOURCEPAGE:p.189	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+4)/2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Physical Adept	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Driver|Handle Animal|TYPE.Hobby|Intimidate|Jump|TYPE.Knowledge|Move Silently|TYPE.Profession|Sense Motive|TYPE.Sport|Swim
-1									BONUS:VAR|PSIONLEVEL|CL								FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Exotic/Archaic)	ADD:FEAT|1|TYPE.PhysicalPsion,TYPE.BasicCombat	ADD:FEAT|1|Physical Adept Core Ability
+1									BONUS:VAR|PSIONLEVEL|CL								AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Exotic/Archaic)	ADD:FEAT|1|TYPE.PhysicalPsion,TYPE.BasicCombat	ADD:FEAT|1|Physical Adept Core Ability
 2	SA:Superhuman (%/session)|PhySuperhuman						DEFINE:PhySuperhuman|1+(CL>=11)+(CL>=19)
 3																																																							ADD:FEAT|1|Physical Adept Psi Mastery
 4																																																							ADD:FEAT|1|TYPE.PhysicalPsion,TYPE.BasicCombat
@@ -156,7 +156,7 @@ CLASS:Physical Adept	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE.Cra
 CLASS:Telepath	HD:10		TYPE:Base.PC	ABB:Tel		MAXLEVEL:20	SOURCEPAGE:p.196	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:CHECKS|BASE.Will|((CL+2)/2)-(CL==4)-(CL==6)-(CL>=8)-(CL>=14)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Telepath	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Driver|Electronics|Gather Information|Handle Animal|TYPE.Hobby|Intimidate|TYPE.Knowledge|Languages|TYPE.Profession|Sense Motive|TYPE.Sport
-1								BONUS:VAR|PSIONLEVEL|CL														FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)	ADD:FEAT|1|TYPE.TelepathicPsion,TYPE.BasicCombat	ADD:FEAT|1|Telepath Core Ability
+1								BONUS:VAR|PSIONLEVEL|CL														AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)	ADD:FEAT|1|TYPE.TelepathicPsion,TYPE.BasicCombat	ADD:FEAT|1|Telepath Core Ability
 2	SA:Force of Will (%/session)|ForceOfWill											DEFINE:ForceOfWill|1+(CL>=11)+(CL>=19)
 3																																															ADD:FEAT|1|Telepath Psi Mastery
 4																																															ADD:FEAT|1|TYPE.TelepathicPsion,TYPE.BasicCombat

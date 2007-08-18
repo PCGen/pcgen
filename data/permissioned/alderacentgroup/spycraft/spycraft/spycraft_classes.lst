@@ -12,7 +12,7 @@ CLASS:Faceman	HD:10		TYPE:Base.PC	ABB:Fac		MAXLEVEL:20	SOURCEPAGE:p.22	LANGAUTO:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Cultures|Diplomacy|Disguise|Driver|Forgery|Gather Information|TYPE.Hobby|Innuendo|TYPE.Knowledge|Languages|TYPE.Language|Open Lock|Perform|TYPE.Profession|Read Lips|Search|Sense Motive|Sleight of Hand|Spot
 
-1																	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
 1	SA:Linguist +%|FaceLinguist							DEFINE:FaceLinguist|(CL/4)+2																																		ADD:Language|2|TYPE=Spoken	ADD:FEAT|1|Faceman Core Ability
 2	SA:Cold Read (%/session)|ColdRead						DEFINE:ColdRead|1
 3	SA:Quick Change (%/session)|QuickChange					DEFINE:QuickChange|(CL-1)/2
@@ -34,10 +34,10 @@ CLASS:Fixer		HD:8		TYPE:Base.PC	ABB:Fix		MAXLEVEL:20	SOURCEPAGE:p.24	LANGAUTO:Li
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE.Craft|Demolitions|Driver|Electronics|Escape Artist|Forgery|Hide|TYPE.Hobby|Innuendo|Jump|TYPE.Knowledge|Languages|TYPE.Language|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sleight of Hand|Spot|Tumble
 
-1	SA:Procure																																	FEATAUTO:Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)	ADD:FEAT|1|Fixer Core Ability
-2																	BONUS:VAR|EvasionFactor|1+(CL>=11)+(CL>=19)											FEATAUTO:Evasion
-3																	BONUS:VAR|SneakAttack|(CL-1)/2													FEATAUTO:Sneak Attack
-4																	BONUS:VAR|UncannyDodge|CL/4														FEATAUTO:Uncanny Dodge
+1	SA:Procure																																	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)	ADD:FEAT|1|Fixer Core Ability
+2																	BONUS:VAR|EvasionFactor|1+(CL>=11)+(CL>=19)											AUTO:FEAT|Evasion
+3																	BONUS:VAR|SneakAttack|(CL-1)/2													AUTO:FEAT|Sneak Attack
+4																	BONUS:VAR|UncannyDodge|CL/4														AUTO:FEAT|Uncanny Dodge
 5	SA:Improvisation (%/session)|FixerImprovisation	SA:Master Thief (%/session)|FixerMasterThief									DEFINE:FixerImprovisation|0	DEFINE:FixerMasterThief|0
 6																																																																ADD:FEAT|1|TYPE=FixerSpecialAbility,TYPE=Gear,TYPE=Covert
 9																																																																ADD:FEAT|1|TYPE=FixerSpecialAbility,TYPE=Gear,TYPE=Covert
@@ -54,7 +54,7 @@ CLASS:Pointman	HD:10		TYPE:Base.PC	ABB:Ptm		MAXLEVEL:20	SOURCEPAGE:p.26	LANGAUTO
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE.Craft|Diplomacy|Driver|First Aid|TYPE.Knowledge|TYPE.Profession|Sense Motive|TYPE.Sport
 
-1																										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+1																										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
 1																																																						ADD:FEAT|1|Pointman Core Ability	ADD:FEAT|1|Versatility	ADD:FEAT|1|Versatility	ADD:FEAT|1|Versatility	ADD:FEAT|1|Versatility	ADD:FEAT|1|Versatility	ADD:FEAT|1|Versatility
 2	SA:Assistance (1/% time)|Assistance											DEFINE:Assistance|2
 3	SA:Lead (%/session)|PointmanLead											DEFINE:PointmanLead|(CL-1)/2																																	ADD:FEAT|1|Versatility
@@ -83,7 +83,7 @@ CLASS:Snoop		HD:8		TYPE:Base.PC	ABB:Snp		MAXLEVEL:20	SOURCEPAGE:p.28	LANGAUTO:Li
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration|TYPE.Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|First Aid|Gather Information|Hide|TYPE.Hobby|TYPE.Knowledge|Languages|TYPE.Language|Listen|Mechanics|Move Silently|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Surveillance
 
-1	SA:Flawless Search														FEATAUTO:Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)	ADD:FEAT|1|Snoop Core Ability
+1	SA:Flawless Search														AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)	ADD:FEAT|1|Snoop Core Ability
 2	SA:Intuition (%/session)|Intuition							DEFINE:Intuition|1
 3	SA:Jury-rig (+%)|Juryrig								DEFINE:Juryrig|(CL+1)/2
 4	SA:Back Door (% systems)|BackDoor							DEFINE:BackDoor|CL/4
@@ -112,7 +112,7 @@ CLASS:Soldier	HD:12		TYPE:Base.PC	ABB:Sol		MAXLEVEL:20	SOURCEPAGE:p.30	LANGAUTO:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE.Profession|TYPE.Sport|Spot|Survival|Swim|Tumble|Use Rope
 
-1																																								FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+1																																								AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
 1																																																																																				ADD:FEAT|1|Soldier Core Ability	ADD:FEAT|1|TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat
 2	DR:1/-
 3																																																																																				ADD:FEAT|1|TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat
@@ -141,7 +141,7 @@ CLASS:Wheelman	HD:12		TYPE:Base.PC	ABB:Whl		MAXLEVEL:20	SOURCEPAGE:p.32	LANGAUTO
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE.Craft|Demolitions|Disguise|Driver|Escape Artist|Handle Animal|Intimidate|Jump|Mechanics|Open Lock|Perform|Pilot|TYPE.Profession|TYPE.Sport|Spot|Surveillance|Survival|Swim
 
-1																			FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+1																			AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
 1	SA:Daredevil																																																		ADD:FEAT|1|Wheelman Core Ability
 2	SA:Kick Start (%/session)|KickStart						DEFINE:KickStart|1
 3																																																					ADD:FEAT|1|Speed Demon,TYPE.Chase
@@ -170,7 +170,7 @@ CLASS:Minion	HD:4		TYPE:Base.NPC	ABB:Min		MAXLEVEL:20	SOURCEPAGE:p.244	LANGAUTO:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Minion	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE.Profession|TYPE.Sport|Spot|Survival|Swim|Tumble|Use Rope
 
-1	BONUS:HD|MAX|MinionVitalityDice	DEFINE:MinionVitalityDice|0	AUTO:WEAPONPROF|TYPE=Melee|TYPE=Hurled|TYPE=Handgun|TYPE=Rifle|TYPE=Archaic|TYPE=Martial Arts|TYPE=Tactical	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	ADD:FEAT|1|TYPE.MinionVitality
+1	BONUS:HD|MAX|MinionVitalityDice	DEFINE:MinionVitalityDice|0	AUTO:WEAPONPROF|TYPE=Melee|TYPE=Hurled|TYPE=Handgun|TYPE=Rifle|TYPE=Archaic|TYPE=Martial Arts|TYPE=Tactical	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	ADD:FEAT|1|TYPE.MinionVitality
 
 #
 # End
