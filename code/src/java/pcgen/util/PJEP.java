@@ -189,7 +189,7 @@ public final class PJEP extends JEP
 		public void run(Stack inStack) throws ParseException
 		{
 			LstUtils
-				.deprecationWarning("Jep function cl deprecated, use classlvl instead");
+				.deprecationWarning("Jep function cl deprecated, use classlevel instead");
 
 			// check the stack
 			checkStack(inStack);
