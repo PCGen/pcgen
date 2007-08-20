@@ -199,6 +199,9 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		if (includeObject(source, pObj))
 		{
 			finishObject(pObj);
+			/*
+			 * FIXME This is a problem for Categorized Objects, see 
+			 */
 			final T currentObj = getObjectKeyed(pObj.getKeyName());
 
 			if (currentObj == null || !pObj.equals(currentObj))

@@ -38,8 +38,8 @@ import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
 /**
- *
- * @author  David Rice <david-pcgen@jcuz.com>
+ * 
+ * @author David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
 public class AbilityLoader extends LstObjectFileLoader<Ability>
@@ -51,7 +51,8 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject,
+	 *      java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
 	public Ability parseLine(Ability ability, String lstLine,
@@ -103,11 +104,9 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 				LstUtils.deprecationCheck(token, anAbility, value);
 				if (!token.parse(anAbility, value))
 				{
-					Logging
-						.errorPrintLocalised(
-							"Errors.AbilityLoader.ParsingError", //$NON-NLS-1$
-							anAbility.getDisplayName(), source.getURI(),
-							colString);
+					Logging.errorPrintLocalised(
+						"Errors.AbilityLoader.ParsingError", //$NON-NLS-1$
+						anAbility.getDisplayName(), source.getURI(), colString);
 				}
 			}
 			//
@@ -118,9 +117,9 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			{
 				continue;
 			}
-			/****************
-			 * TODO: The ADD: tag is parsed in PObjectLoader. This code never gets processed.
-			 ****************
+			/*******************************************************************
+			 * TODO: The ADD: tag is parsed in PObjectLoader. This code never
+			 * gets processed. ***************
 			 */
 			else if (colString.startsWith("ADD:"))
 			{
@@ -135,8 +134,8 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			++col;
 		}
 
-		//setChanged();
-		//notifyObservers(anAbility);
+		// setChanged();
+		// notifyObservers(anAbility);
 
 		completeObject(source, anAbility);
 		return null;
@@ -152,20 +151,22 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		{
 			return null;
 		}
-		
+
 		String abilityCatName;
 		String abilityKey;
-		
+
 		String[] parts = aKey.split("\\|");
 		if (parts.length == 2 && parts[0].startsWith("CATEGORY="))
 		{
 			abilityCatName = parts[0].substring(9);
-			abilityKey = parts[1]; 
+			abilityKey = parts[1];
 		}
 		else
 		{
-			abilityCatName =  Constants.ALL_CATEGORIES;
-			abilityKey = aKey;
+			Logging.errorPrint("Attempt to Modify/Copy/Forget an Ability ("
+				+ aKey + ") without a CATEGORY=\n"
+				+ "  Proper format is CATEGORY=cat|abilityKey");
+			return null;
 		}
 		return Globals.getAbilityKeyed(abilityCatName, abilityKey);
 	}
