@@ -84,7 +84,6 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 			if (col == 0) // First column is name, without a tag
 			{
 				prof.setName(colString);
-				prof.setKeyName(colString);
 				prof.setSourceCampaign(source.getCampaign());
 				prof.setSourceURI(source.getURI());
 			}
