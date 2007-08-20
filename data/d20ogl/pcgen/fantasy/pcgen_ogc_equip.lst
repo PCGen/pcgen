@@ -7,6 +7,7 @@ SOURCELONG:PCGen Open Gaming Content	SOURCESHORT:PCGen OGC	SOURCEWEB:../../../..
 
 # Equipment Name	Type				Contains						Cost		Weight	Source Page
 Quiver		TYPE:Goods.Container	CONTAINS:UNLIM|Total=20|Arrow=20|Bolt=20	COST:.1	WT:.5		SOURCEPAGE:PCGen Docs - PCGen OGC
+Sheath		TYPE:Goods.Container	CONTAINS:UNLIM|Weapon=1				COST:.1	WT:.5		SOURCEPAGE:PCGen Docs - PCGen OGC
 
 ###Block: Armor Accessories
 
