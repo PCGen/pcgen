@@ -6,7 +6,7 @@ SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahea
 Advanced Climbing Kit	TYPE:Goods.AdventuringGear						COST:125	WT:6		SOURCEPAGE:95
 Armored Potion Breakers	TYPE:Goods.AdventuringGear						COST:20	WT:1		SOURCEPAGE:95
 Chimical Irritant Spray	TYPE:Goods.AdventuringGear						COST:15	WT:1		SOURCEPAGE:95
-Combat Soaker Backpack	TYPE:Goods.AdventuringGear	CONTAINS:-1|Holy Water=50	COST:225	WT:45		SOURCEPAGE:95
+Combat Soaker Backpack	TYPE:Goods.AdventuringGear	CONTAINS:UNLIM|Holy Water=50	COST:225	WT:45		SOURCEPAGE:95
 Eyeblack			TYPE:Goods.AdventuringGear						COST:3	WT:0		SOURCEPAGE:95
 Lockpick Gun		TYPE:Goods.AdventuringGear						COST:275	WT:1		SOURCEPAGE:95
 Mirror Polish		TYPE:Goods.AdventuringGear						COST:30	WT:1		SOURCEPAGE:95

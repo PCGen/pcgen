@@ -4,8 +4,8 @@ SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegameme
 
 ###Block:Ranged Weapons (Archaic Weapons Feat)
 # Equipment Name	Required Proficiency	Type											Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Range		Size		Source Page		Weapon prop. bonus	Special Property			Rate of Fire
-Hankyu		PROFICIENCY:Hankyu	TYPE:Weapon.Ranged.Archaic.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1	COST:7	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:CLOTHYRD_SHAFT	RANGE:20	SIZE:M	SOURCEPAGE:p.40	BONUS:WEAPON|DAMAGE|STR	SPROP:1 Arrow			RATEOFFIRE:1
-Tabiumi		PROFICIENCY:Tabiumi	TYPE:Weapon.Ranged.Archaic.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1	COST:7	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:CLOTHYRD_SHAFT	RANGE:20	SIZE:M	SOURCEPAGE:p.40	BONUS:WEAPON|DAMAGE|STR	SPROP:1 Arrow, collapsible	RATEOFFIRE:1
+Hankyu		PROFICIENCY:Hankyu	TYPE:Weapon.Ranged.Archaic.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1	COST:7	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:CLOTHYRD_SHAFT	RANGE:20	SIZE:M	SOURCEPAGE:p.40	BONUS:WEAPON|DAMAGE|STR	SPROP:1 Arrow			RATEOFFIRE:1
+Tabiumi		PROFICIENCY:Tabiumi	TYPE:Weapon.Ranged.Archaic.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1	COST:7	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:CLOTHYRD_SHAFT	RANGE:20	SIZE:M	SOURCEPAGE:p.40	BONUS:WEAPON|DAMAGE|STR	SPROP:1 Arrow, collapsible	RATEOFFIRE:1
 
 ###Block:Ranged Weapons (Exotic Melee Weapons Feat)
 # Equipment Name	Required Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property	Rate of Fire

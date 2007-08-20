@@ -4,11 +4,11 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 # Equipment Name			Type							Contains			Cost		Weight	Source Page		Special Property
 Harvesting sickle and spade	TYPE:Goods.Tools									COST:500	WT:5		SOURCEPAGE:p. 87
 
-Charm Buckle			TYPE:Goods.Clothing.Resizable.Container	CONTAINS:-1|Charm=4	COST:350	WT:.25	SOURCEPAGE:p. 86	SPROP:Search check (DC 25) to discover.
+Charm Buckle			TYPE:Goods.Clothing.Resizable.Container	CONTAINS:UNLIM|Charm=4	COST:350	WT:.25	SOURCEPAGE:p. 86	SPROP:Search check (DC 25) to discover.
 ### TODO: This should hold a "light" weapon
-Drop Sheath				TYPE:Goods.Container.General			CONTAINS:-1|Weapon=1	COST:200	WT:2		SOURCEPAGE:p. 86	SPROP:Quickdraw with that weapon.
+Drop Sheath				TYPE:Goods.Container.General			CONTAINS:UNLIM|Weapon=1	COST:200	WT:2		SOURCEPAGE:p. 86	SPROP:Quickdraw with that weapon.
 ### TODO: There is a editing error in the cost table which list the Orcbane instead of Poison stone.
-Poison Stone			TYPE:Goods.Container.General			CONTAINS:-1|Poison=10	COST:420	WT:1		SOURCEPAGE:p. 87
+Poison Stone			TYPE:Goods.Container.General			CONTAINS:UNLIM|Poison=10	COST:420	WT:1		SOURCEPAGE:p. 87
 
 ###Block:Alchemical Stuff and Liquids
 

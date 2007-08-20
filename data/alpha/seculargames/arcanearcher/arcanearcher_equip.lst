@@ -30,4 +30,4 @@ The Silver Guardian	PROFICIENCY:Shield (Heavy)	TYPE:Shield.Heavy.Standard	COST:1
 ###BLOCK: Wondrous
 # Equipment Name			Type					Contains							Cost		Modifier				Source Page		Weapon prof. bonus
 Bracers of Deadly Strike	TYPE:Magic.Wondrous.Bracer									COST:50000						SOURCEPAGE:p.33	BONUS:WEAPONPROF=TYPE.Bow|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit	BONUS:WEAPONPROF=TYPE.Bow|CRITMULTADD|2
-Quiver of Wanted Arrows		TYPE:Magic.Wondrous.Container	CONTAINS:*-1|Ammunition=60|Thrown=18|Weapon=6	COST:5000	EQMOD:SPL_CHRG|CHARGES[50]	SOURCEPAGE:p.34
+Quiver of Wanted Arrows		TYPE:Magic.Wondrous.Container	CONTAINS:*UNLIM|Ammunition=60|Thrown=18|Weapon=6	COST:5000	EQMOD:SPL_CHRG|CHARGES[50]	SOURCEPAGE:p.34

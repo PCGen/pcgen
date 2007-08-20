@@ -46,7 +46,7 @@ Panzerfaust				PROFICIENCY:Panzerfaust			TYPE:Weapon.Ranged.Standard.Firearm.Hea
 
 ###Block:Other ranged Weapons
 # Equipment Name	Required Proficiency	Type											Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Weapon prop. bonus	Special Property	Rate of Fire
-Longbow		PROFICIENCY:Longbow	TYPE:Weapons.Ranged.Standard.Archaic.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1	COST:10	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:50	SIZE:L	SOURCEPAGE:p.63	BONUS:WEAPON|DAMAGE|STR	SPROP:1 Arrow	RATEOFFIRE:1
+Longbow		PROFICIENCY:Longbow	TYPE:Weapons.Ranged.Standard.Archaic.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1	COST:10	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:50	SIZE:L	SOURCEPAGE:p.63	BONUS:WEAPON|DAMAGE|STR	SPROP:1 Arrow	RATEOFFIRE:1
 Compound Bow.MOD																																						SOURCEPAGE:p.63
 Crossbow.MOD																																						SOURCEPAGE:p.63
 Flamethrower.MOD																																						SOURCEPAGE:p.63

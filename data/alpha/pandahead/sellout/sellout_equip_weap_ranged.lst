@@ -4,5 +4,5 @@ SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahea
 
 #MEDIUM ----------------------------------------------------------------------------------------------------------
 # Equipment Name		Required Proficiency		Type							Contains				Cost		Weight	Critical Hit Multiplier		Critical Hit Range		Damage			Range		Size		Source Page
-Combat Soaker		PROFICIENCY:Combat Soaker	TYPE:Weapon.Simple.Ranged.Special.Splash	CONTAINS:-1|Holy Water=6	COST:120	WT:5		CRITMULT:See Description	CRITRANGE:See Description	DAMAGE:See Description	RANGE:5	SIZE:M	SOURCEPAGE:94
-Combat Soaker (powered)	PROFICIENCY:Combat Soaker	TYPE:Weapon.Simple.Ranged.Special.Splash	CONTAINS:-1|Holy Water=6	COST:220	WT:5		CRITMULT:See Description	CRITRANGE:See Description	DAMAGE:See Description	RANGE:10	SIZE:M	SOURCEPAGE:94
+Combat Soaker		PROFICIENCY:Combat Soaker	TYPE:Weapon.Simple.Ranged.Special.Splash	CONTAINS:UNLIM|Holy Water=6	COST:120	WT:5		CRITMULT:See Description	CRITRANGE:See Description	DAMAGE:See Description	RANGE:5	SIZE:M	SOURCEPAGE:94
+Combat Soaker (powered)	PROFICIENCY:Combat Soaker	TYPE:Weapon.Simple.Ranged.Special.Splash	CONTAINS:UNLIM|Holy Water=6	COST:220	WT:5		CRITMULT:See Description	CRITRANGE:See Description	DAMAGE:See Description	RANGE:10	SIZE:M	SOURCEPAGE:94

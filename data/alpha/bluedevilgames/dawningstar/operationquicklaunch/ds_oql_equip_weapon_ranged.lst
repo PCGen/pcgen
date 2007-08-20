@@ -47,9 +47,9 @@ Missile Launcher			PROFICIENCY:Rocket Launcher			TYPE:Weapon.Ranged.Standard.Fir
 ###BLOCK: Other ranged
 # Equipment Name		Required Proficiency			Type										Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Rate of Fire
 Tantas Frontier HO	PROFICIENCY:Tantas Frontier HO	TYPE:Weapon.Ranged.Standard.Firearm.Personal.PL4.Ballistic					COST:0	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	EQMOD:MASTERCRAFT_WEAP_HIT_1	RANGE:20	SIZE:T	SOURCEPAGE:p.89	RATEOFFIRE:Single
-Velin Hunting Bow		PROFICIENCY:Velin Hunting Bow		TYPE:Weapon.Ranged.Standard.PL2.Piercing.Archaic.Container	CONTAINS:-1|Arrow=1	COST:10	WT:4		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8						RANGE:60	SIZE:L	SOURCEPAGE:p.89	RATEOFFIRE:Single
+Velin Hunting Bow		PROFICIENCY:Velin Hunting Bow		TYPE:Weapon.Ranged.Standard.PL2.Piercing.Archaic.Container	CONTAINS:UNLIM|Arrow=1	COST:10	WT:4		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8						RANGE:60	SIZE:L	SOURCEPAGE:p.89	RATEOFFIRE:Single
 Velin Throwing Blade	PROFICIENCY:Velin Throwing Blade	TYPE:Weapon.Ranged.PL2.Piercing.Archaic.Thrown.Standard					COST:6	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6						RANGE:10	SIZE:S	SOURCEPAGE:p.89	RATEOFFIRE:Single
-Velin War Bow		PROFICIENCY:Velin War Bow		TYPE:Weapon.Ranged.Standard.PL2.Piercing.WarBow.Container	CONTAINS:-1|Arrow=1	COST:11	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8						RANGE:50	SIZE:L	SOURCEPAGE:p.89	RATEOFFIRE:Single
+Velin War Bow		PROFICIENCY:Velin War Bow		TYPE:Weapon.Ranged.Standard.PL2.Piercing.WarBow.Container	CONTAINS:UNLIM|Arrow=1	COST:11	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8						RANGE:50	SIZE:L	SOURCEPAGE:p.89	RATEOFFIRE:Single
 
 ###BLOCK: Vehicle
 # Equipment Name		Required Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire

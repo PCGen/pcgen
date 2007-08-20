@@ -8,8 +8,8 @@ Homeblood (pure)			TYPE:Goods.Liquid.Poison.Consumable						COST:4500	WT:.0625	S
 
 Powder Horn				TYPE:Goods.GunPowder								COST:7	WT:3		SOURCEPAGE:p.20
 Powder Keg				TYPE:Goods.GunPowder								COST:43	WT:20		SOURCEPAGE:p.20
-Barge					TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any=-1	COST:400	WT:40000	SOURCEPAGE:p.22
-Hoakyn				TYPE:Goods.Transportation.Container		CONTAINS:3120|Any=-1	COST:35	WT:400	SOURCEPAGE:p.22
+Barge					TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any=UNLIM	COST:400	WT:40000	SOURCEPAGE:p.22
+Hoakyn				TYPE:Goods.Transportation.Container		CONTAINS:3120|Any=UNLIM	COST:35	WT:400	SOURCEPAGE:p.22
 
 ###Block: Special Armor
 

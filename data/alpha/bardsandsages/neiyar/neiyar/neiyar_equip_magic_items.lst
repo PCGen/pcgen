@@ -104,7 +104,7 @@ Celetrine Moss																		TYPE:Goods																								COST:.01						
 Chicle (Chewing Gum)																	TYPE:Goods.Food																							COST:.03																																												SOURCEPAGE:pg.140
 Choke Wire																			TYPE:Goods.Weapon.Melee																						COST:1																									DAMAGE:1d4					EQMOD:STEEL			WIELD:Light								SOURCEPAGE:pg.140
 Claw Dagger													PROFICIENCY:Dagger			TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger											COST:10	WT:1							CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:STEEL			WIELD:Light		RANGE:10			SIZE:M	SOURCEPAGE:pg.140					BONUS:COMBAT|DAMAGE|2
-False Bottom Mandolin					OUTPUTNAME:False-Bottom Mandolin							TYPE:Goods.Container																		CONTAINS:30|Any=-1	COST:150																																												SOURCEPAGE:pg.140
+False Bottom Mandolin					OUTPUTNAME:False-Bottom Mandolin							TYPE:Goods.Container																		CONTAINS:30|Any=UNLIM	COST:150																																												SOURCEPAGE:pg.140
 Field Doctor's Kit																	TYPE:Goods																								COST:200																																												SOURCEPAGE:pg.141
 Gespurn Moss																		TYPE:Goods																								COST:10																																												SOURCEPAGE:pg.141
 Groa Rose Oil			NAMEISPI:YES													TYPE:Goods																								COST:10																																												SOURCEPAGE:pg.141
