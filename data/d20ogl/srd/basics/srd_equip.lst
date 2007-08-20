@@ -116,7 +116,7 @@ Saddle (Military/Exotic)	TYPE:Goods.Mount.Resizable.Saddle						COST:60	WT:40		E
 Saddle (Pack/Exotic)		TYPE:Goods.Mount.Resizable							COST:15	WT:20		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
 Saddle (Riding/Exotic)		TYPE:Goods.Mount.Resizable.Saddle						COST:30	WT:30		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
 Stabling (Per Day)		TYPE:Goods.Mount									COST:.5						SOURCEPAGE:SRDEquipmentII.rtf
-Saddlebags				TYPE:Goods.Container.Mount.Resizable	CONTAINS:-1|Any=-1	COST:4	WT:8		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
+Saddlebags				TYPE:Goods.Container.Mount.Resizable	CONTAINS:UNLIM|Any=UNLIM	COST:4	WT:8		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
 
 ###Block:Tools
 # Equipment Name				Type									Number of Pages	Page Usage				Cost		Weight	Modifier					Source Page				Bonus to skill																					Special Property
@@ -196,53 +196,53 @@ Wheat (Per Lb.)		TYPE:Goods.Trade	COST:.01	WT:1					SOURCEPAGE:SRDEquipmentI.rtf
 
 ###Block:Mundane Container Name
 # Equipment Name		Type							Contains							Cost		Weight	Modifier		Source Page
-Backpack			TYPE:Goods.Container.General.Resizable	CONTAINS:-1|Any=-1					COST:2	WT:2					SOURCEPAGE:SRDEquipmentII.rtf
-Barrel			TYPE:Goods.Container.General			CONTAINS:-1|Any=-1					COST:2	WT:30					SOURCEPAGE:SRDEquipmentII.rtf
+Backpack			TYPE:Goods.Container.General.Resizable	CONTAINS:UNLIM|Any=UNLIM					COST:2	WT:2					SOURCEPAGE:SRDEquipmentII.rtf
+Barrel			TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM					COST:2	WT:30					SOURCEPAGE:SRDEquipmentII.rtf
 Basket			TYPE:Goods.Container.General			CONTAINS:25|Any=20					COST:.4	WT:1					SOURCEPAGE:SRDEquipmentII.rtf
 Bottle (Glass/Wine)	TYPE:Goods.Container.General.Consumable	CONTAINS:1.5|Liquid=3|SpellComponent=1		COST:2	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
-Bucket			TYPE:Goods.Container.General			CONTAINS:-1|Any=-1					COST:.5	WT:2					SOURCEPAGE:SRDEquipmentII.rtf
+Bucket			TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM					COST:.5	WT:2					SOURCEPAGE:SRDEquipmentII.rtf
 Case (Map or Scroll)	TYPE:Goods.Container.General			CONTAINS:3|Total=6|Scroll=6|Documents=6|Paper=6	COST:1	WT:.5					SOURCEPAGE:SRDEquipmentII.rtf
-Chest				TYPE:Goods.Container.General			CONTAINS:-1|Any=-1					COST:2	WT:25					SOURCEPAGE:SRDEquipmentII.rtf
+Chest				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM					COST:2	WT:25					SOURCEPAGE:SRDEquipmentII.rtf
 Flask (Empty)		TYPE:Goods.Container.General.Flask		CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1	COST:.03	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
-Jug (Clay)			TYPE:Goods.Container.General			CONTAINS:8|Liquid=-1|SpellComponent=1		COST:.03	WT:1					SOURCEPAGE:SRDEquipmentII.rtf
-Mug or Tankard (Clay)	TYPE:Goods.Container.General			CONTAINS:1|Liquid=-1|SpellComponent=1		COST:.02	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
-Pitcher (Clay)		TYPE:Goods.Container.General			CONTAINS:4|Liquid=-1|SpellComponent=1		COST:.02	WT:1		EQMOD:CLAY		SOURCEPAGE:SRDEquipmentII.rtf
-Pot (Iron)			TYPE:Goods.Container.General			CONTAINS:-1|Any=1						COST:.5	WT:10		EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf
-Pouch (Belt)		TYPE:Goods.Container.General.Resizable	CONTAINS:-1|Any=5|Gem=50|Coin=50|Total=50		COST:1	WT:.5					SOURCEPAGE:SRDEquipmentII.rtf
+Jug (Clay)			TYPE:Goods.Container.General			CONTAINS:8|Liquid=UNLIM|SpellComponent=1		COST:.03	WT:1					SOURCEPAGE:SRDEquipmentII.rtf
+Mug or Tankard (Clay)	TYPE:Goods.Container.General			CONTAINS:1|Liquid=UNLIM|SpellComponent=1		COST:.02	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
+Pitcher (Clay)		TYPE:Goods.Container.General			CONTAINS:4|Liquid=UNLIM|SpellComponent=1		COST:.02	WT:1		EQMOD:CLAY		SOURCEPAGE:SRDEquipmentII.rtf
+Pot (Iron)			TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=1						COST:.5	WT:10		EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf
+Pouch (Belt)		TYPE:Goods.Container.General.Resizable	CONTAINS:UNLIM|Any=5|Gem=50|Coin=50|Total=50		COST:1	WT:.5					SOURCEPAGE:SRDEquipmentII.rtf
 Pouch (Spell Component)	TYPE:Goods.Container.Tools.Resizable	CONTAINS:3|SpellComponent=10|Gem=10			COST:5	WT:3					SOURCEPAGE:SRDEquipmentII.rtf
-Sack				TYPE:Goods.Container.General			CONTAINS:-1|Any=50					COST:.1	WT:.5		EQMOD:HEMP		SOURCEPAGE:SRDEquipmentII.rtf
+Sack				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=50					COST:.1	WT:.5		EQMOD:HEMP		SOURCEPAGE:SRDEquipmentII.rtf
 Vial				TYPE:Goods.Container.General.Vial		CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1	COST:1						SOURCEPAGE:SRDEquipmentII.rtf
 Waterskin			TYPE:Goods.Container.General.Resizable	CONTAINS:4|Liquid=4					COST:1	WT:0		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
 Waterskin (Filled)	TYPE:Goods.General.Resizable											COST:1	WT:4		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
 
 ###Block:Mounts
 # Equipment Name	Type							Contains			Cost		Weight	Size		Source Page
-Dog (Riding)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:300|Any=-1	COST:150	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
-Donkey		TYPE:Goods.Transportation.Mount.Container	CONTAINS:150|Any=-1	COST:8	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
-Horse (Heavy)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:600|Any=-1	COST:200	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
-Horse (Light)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:450|Any=-1	COST:75	WT:0		SIZE:L	SOURCEPAGE:SRDEquipmentII.rtf
-Horse (Heavy War)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=-1	COST:400	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
-Horse (Light War)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:690|Any=-1	COST:150	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
-Mule			TYPE:Goods.Transportation.Mount.Container	CONTAINS:690|Any=-1	COST:8	WT:0		SIZE:L	SOURCEPAGE:SRDEquipmentII.rtf
-Pony			TYPE:Goods.Transportation.Mount.Container	CONTAINS:225|Any=-1	COST:30	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
-Pony (War)		TYPE:Goods.Transportation.Mount.Container	CONTAINS:300|Any=-1	COST:100	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
+Dog (Riding)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:300|Any=UNLIM	COST:150	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
+Donkey		TYPE:Goods.Transportation.Mount.Container	CONTAINS:150|Any=UNLIM	COST:8	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
+Horse (Heavy)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:600|Any=UNLIM	COST:200	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
+Horse (Light)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:450|Any=UNLIM	COST:75	WT:0		SIZE:L	SOURCEPAGE:SRDEquipmentII.rtf
+Horse (Heavy War)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=UNLIM	COST:400	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
+Horse (Light War)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:690|Any=UNLIM	COST:150	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
+Mule			TYPE:Goods.Transportation.Mount.Container	CONTAINS:690|Any=UNLIM	COST:8	WT:0		SIZE:L	SOURCEPAGE:SRDEquipmentII.rtf
+Pony			TYPE:Goods.Transportation.Mount.Container	CONTAINS:225|Any=UNLIM	COST:30	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
+Pony (War)		TYPE:Goods.Transportation.Mount.Container	CONTAINS:300|Any=UNLIM	COST:100	WT:0		SIZE:M	SOURCEPAGE:SRDEquipmentII.rtf
 
-Camel			TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=-1			WT:0		SIZE:L	SOURCEPAGE:srdmonstersanimals.rtf
-Elephant		TYPE:Goods.Transportation.Mount.Container	CONTAINS:6400|Any=-1			WT:0		SIZE:H	SOURCEPAGE:srdmonstersanimals.rtf
-Giant Eagle		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=-1	COST:5000	WT:0		SIZE:L	SOURCEPAGE:srdmonstersanimals.rtf
-Giant Owl		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=-1	COST:5000	WT:0		SIZE:L	SOURCEPAGE:srdmonstersanimals.rtf
-Griffon		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=-1	COST:8500	WT:0		SIZE:L	SOURCEPAGE:srdmonstersfg.rtf
-Hippogriff		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=-1	COST:4000	WT:0		SIZE:L	SOURCEPAGE:srdmonstersh.rtf
-Nightmare		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=-1			WT:0		SIZE:L	SOURCEPAGE:srdmonstersnop.rtf
-Pegasus		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=-1	COST:4000	WT:0		SIZE:L	SOURCEPAGE:srdmonstersnop.rtf
-Spider Eater	TYPE:Goods.Transportation.Mount.Container	CONTAINS:1840|Any=-1	COST:6000	WT:0		SIZE:H	SOURCEPAGE:srdmonsterss.rtf
-Worg			TYPE:Goods.Transportation.Mount.Container	CONTAINS:260|Any=-1			WT:0		SIZE:M	SOURCEPAGE:srdmonstersuvw.rtf
+Camel			TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=UNLIM			WT:0		SIZE:L	SOURCEPAGE:srdmonstersanimals.rtf
+Elephant		TYPE:Goods.Transportation.Mount.Container	CONTAINS:6400|Any=UNLIM			WT:0		SIZE:H	SOURCEPAGE:srdmonstersanimals.rtf
+Giant Eagle		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=UNLIM	COST:5000	WT:0		SIZE:L	SOURCEPAGE:srdmonstersanimals.rtf
+Giant Owl		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=UNLIM	COST:5000	WT:0		SIZE:L	SOURCEPAGE:srdmonstersanimals.rtf
+Griffon		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=UNLIM	COST:8500	WT:0		SIZE:L	SOURCEPAGE:srdmonstersfg.rtf
+Hippogriff		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=UNLIM	COST:4000	WT:0		SIZE:L	SOURCEPAGE:srdmonstersh.rtf
+Nightmare		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=UNLIM			WT:0		SIZE:L	SOURCEPAGE:srdmonstersnop.rtf
+Pegasus		TYPE:Goods.Transportation.Mount.Container	CONTAINS:900|Any=UNLIM	COST:4000	WT:0		SIZE:L	SOURCEPAGE:srdmonstersnop.rtf
+Spider Eater	TYPE:Goods.Transportation.Mount.Container	CONTAINS:1840|Any=UNLIM	COST:6000	WT:0		SIZE:H	SOURCEPAGE:srdmonsterss.rtf
+Worg			TYPE:Goods.Transportation.Mount.Container	CONTAINS:260|Any=UNLIM			WT:0		SIZE:M	SOURCEPAGE:srdmonstersuvw.rtf
 
 ###Block: Transportation
 # Equipment Name			Type							Contains			Cost		Weight	Modifier	Source Page
-Cart					TYPE:Goods.Transportation.Container		CONTAINS:3120|Any=-1	COST:15	WT:200	EQMOD:WOOD	SOURCEPAGE:SRDEquipmentII.rtf
-Wagon					TYPE:Goods.Transportation.Container		CONTAINS:4000|Any=-1	COST:35	WT:400	EQMOD:WOOD	SOURCEPAGE:SRDEquipmentII.rtf
-Sled					TYPE:Goods.Transportation.Container		CONTAINS:2000|Any=-1	COST:20	WT:300	EQMOD:WOOD	SOURCEPAGE:SRDEquipmentII.rtf
+Cart					TYPE:Goods.Transportation.Container		CONTAINS:3120|Any=UNLIM	COST:15	WT:200	EQMOD:WOOD	SOURCEPAGE:SRDEquipmentII.rtf
+Wagon					TYPE:Goods.Transportation.Container		CONTAINS:4000|Any=UNLIM	COST:35	WT:400	EQMOD:WOOD	SOURCEPAGE:SRDEquipmentII.rtf
+Sled					TYPE:Goods.Transportation.Container		CONTAINS:2000|Any=UNLIM	COST:20	WT:300	EQMOD:WOOD	SOURCEPAGE:SRDEquipmentII.rtf
 
 
 Ship's Passage (Per Mile)	TYPE:Goods.Transportation							COST:.1					SOURCEPAGE:SRDEquipmentII.rtf

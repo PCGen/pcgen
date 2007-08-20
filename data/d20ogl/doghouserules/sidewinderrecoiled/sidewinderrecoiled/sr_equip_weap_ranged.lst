@@ -56,12 +56,12 @@ Winchester Lever-Action										TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Bal
 Gatling Gun (HMG)				PROFICIENCY:Heavy Machine Gun			TYPE:Weapon.Exotic.Ranged.Standard.Firearm.Ballistic.HMG							COST:1500	WT:90		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12	RANGE:70	SIZE:H	SOURCEPAGE:p. 143
 
 #Simple Ranged Weapons ------------------------------------------------------------------------------------------
-Crossbow												TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:-1|Bolt=1	COST:4	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	RANGE:40	SIZE:M	SOURCEPAGE:p. 144
+Crossbow												TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:UNLIM|Bolt=1	COST:4	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	RANGE:40	SIZE:M	SOURCEPAGE:p. 144
 Javelin												TYPE:Weapon.Simple.Ranged.Standard.Thrown.Piercing.Wooden							COST:1	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:30	SIZE:M	SOURCEPAGE:p. 144
 Whip													TYPE:Weapon.Simple.Ranged.Slashing.Standard									COST:1	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	RANGE:15	SIZE:S	SOURCEPAGE:p. 144	BONUS:WEAPON|TOHIT|1|PREFEAT:1,Point Blank Shot
 
 #Archaic Ranged Weapons -----------------------------------------------------------------------------------------
-Bow													TYPE:Weapon.Archaic.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:-1|Arrow=1	COST:4	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:40	SIZE:L	SOURCEPAGE:p. 144
+Bow													TYPE:Weapon.Archaic.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:UNLIM|Arrow=1	COST:4	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:40	SIZE:L	SOURCEPAGE:p. 144
 Shuriken												TYPE:Weapon.Archaic.Ranged.Piercing.Thrown.Standard.Metal							COST:.5	WT:.5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1	RANGE:10	SIZE:T	SOURCEPAGE:p. 144
 
 #Exotic Ranged Weapons ------------------------------------------------------------------------------------------

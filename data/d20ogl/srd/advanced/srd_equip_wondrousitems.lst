@@ -96,7 +96,7 @@ Dust of Disappearance																	TYPE:Magic.Wondrous.Consumable												
 Dust of Dryness																		TYPE:Magic.Wondrous.Consumable																				COST:850	WT:0																							SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Dust of Illusion																		TYPE:Magic.Wondrous.Consumable																				COST:500	WT:0																							SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Dust of Tracelessness																	TYPE:Magic.Wondrous.Consumable																				COST:250	WT:0																							SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Efficient Quiver																		TYPE:Magic.Wondrous.Container								CONTAINS:*-1|Ammunition=60|Thrown=18|Weapon=6						COST:1800	WT:0																							SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Efficient Quiver																		TYPE:Magic.Wondrous.Container								CONTAINS:*UNLIM|Ammunition=60|Thrown=18|Weapon=6						COST:1800	WT:0																							SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Efreeti Bottle																		TYPE:Magic.Wondrous																						COST:150000	WT:1																							SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Everburning Torch																		TYPE:Magic.Wondrous																						COST:90	WT:1														EQMOD:WOOD								SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Eversmoking Bottle																	TYPE:Magic.Wondrous																						COST:5200	WT:0																							SOURCEPAGE:srdmagicitemswondrousitems.rtf
@@ -238,7 +238,7 @@ Pipes of Haunting																		TYPE:Magic.Wondrous																						COST
 Pipes of Pain																		TYPE:Magic.Wondrous																						COST:12000	WT:3																							SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Pipes of the Sewers																	TYPE:Magic.Wondrous																						COST:1150	WT:3														EQMOD:WOOD								SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Pipes of Sounding																		TYPE:Magic.Wondrous																						COST:1800	WT:3																							SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Portable Hole																		TYPE:Magic.Wondrous.Container								CONTAINS:*-1|Any=500										COST:14000	WT:0														EQMOD:CLOTH								SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Portable Hole																		TYPE:Magic.Wondrous.Container								CONTAINS:*UNLIM|Any=500										COST:14000	WT:0														EQMOD:CLOTH								SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Restorative Ointment																	TYPE:Magic.Wondrous.Vial																					COST:4000	WT:0.5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Ring Gates																			TYPE:Magic.Wondrous																						COST:40000	WT:1														EQMOD:IRON								SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Robe of the Archmagi (Black)																TYPE:Magic.Wondrous.Robe																					COST:75000	WT:1																							SOURCEPAGE:srdmagicitemswondrousitems.rtf	VFEAT:Spell Penetration|Negative Levels													SR:17															BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance	BONUS:COMBAT|AC|5|TYPE=Armor																																																																					BONUS:VAR|NegLevels|3|PREALIGN:0,3,6	BONUS:VAR|NegLevels|2|PREALIGN:1,4,7																																																																																																																																																																																																																				SPROP:good wearers gain three negative levels, neutral two

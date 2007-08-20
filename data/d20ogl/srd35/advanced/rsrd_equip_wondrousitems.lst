@@ -129,7 +129,7 @@ Dust of Illusion												TYPE:Magic.Wondrous.Consumable	COST:1200	WT:0							
 Dust of Tracelessness											TYPE:Magic.Wondrous.Consumable	COST:250	WT:0								SOURCEPAGE:MagicItemsV.rtf
 ###Block:E's
 # Equipment Name						Unique Key					Output Name					Type							Contains							Cost		Weight	Slot Needed	Modifier					Source Page				Virtual Feat		Vision			Bonus to skill					Stat bonus
-Efficient Quiver																		TYPE:Magic.Wondrous.Container			CONTAINS:*-1|Ammunition=60|Thrown=18|Weapon=6	COST:1800	WT:2										SOURCEPAGE:MagicItemsV.rtf
+Efficient Quiver																		TYPE:Magic.Wondrous.Container			CONTAINS:*UNLIM|Ammunition=60|Thrown=18|Weapon=6	COST:1800	WT:2										SOURCEPAGE:MagicItemsV.rtf
 Efreeti Bottle																		TYPE:Magic.Wondrous												COST:145000	WT:1										SOURCEPAGE:MagicItemsV.rtf
 Elemental Gem (Transparent)																TYPE:Magic.Wondrous.Consumable										COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Elemental Gem (Light Brown)																TYPE:Magic.Wondrous.Consumable										COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
@@ -290,7 +290,7 @@ Pipes of Haunting				TYPE:Magic.Wondrous						COST:6000	WT:3								SOURCEPAGE:M
 Pipes of Pain				TYPE:Magic.Wondrous						COST:12000	WT:3								SOURCEPAGE:MagicItemsV.rtf
 Pipes of the Sewers			TYPE:Magic.Wondrous						COST:1150	WT:3								SOURCEPAGE:MagicItemsV.rtf
 Pipes of Sounding				TYPE:Magic.Wondrous						COST:1800	WT:3								SOURCEPAGE:MagicItemsV.rtf
-Portable Hole				TYPE:Magic.Wondrous.Container	CONTAINS:*-1|Any=-1	COST:20000	WT:0								SOURCEPAGE:MagicItemsV.rtf
+Portable Hole				TYPE:Magic.Wondrous.Container	CONTAINS:*UNLIM|Any=UNLIM	COST:20000	WT:0								SOURCEPAGE:MagicItemsV.rtf
 Restorative Ointment			TYPE:Magic.Wondrous.Vial					COST:4000	WT:0.5	EQMOD:CHARGED_ITEM_5|CHARGES[5]	SOURCEPAGE:MagicItemsV.rtf
 Ring Gates					TYPE:Magic.Wondrous						COST:40000	WT:1								SOURCEPAGE:MagicItemsV.rtf
 Robe of the Archmagi (Black)		TYPE:Magic.Wondrous.Robe					COST:75000	WT:1								SOURCEPAGE:MagicItemsV.rtf	VFEAT:Negative Levels													SR:18		BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance	BONUS:COMBAT|AC|5|TYPE=Armor															BONUS:VAR|NegLevels|3|PREALIGN:0,3,6	BONUS:VAR|NegLevels|2|PREALIGN:1,4,7	SPROP:good wearers gain three negative levels, neutral two; +2 enhancement bonus on caster level checks made to overcome spell resistance

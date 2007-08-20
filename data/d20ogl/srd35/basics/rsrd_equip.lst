@@ -59,22 +59,22 @@ Water (Pint)		TYPE:Goods.Liquid.Food.Resizable		COST:0	WT:1.00	SOURCEPAGE:Equipm
 
 ###Block:Goods
 # Equipment Name			Type								Contains								Cost		Weight	Source Page				Bonus to skill
-Backpack				TYPE:Goods.Container.General.Resizable		CONTAINS:-1|Any=-1						COST:2	WT:2		SOURCEPAGE:Equipment.rtf
-Barrel				TYPE:Goods.Container.General				CONTAINS:-1|Any=-1						COST:2	WT:30		SOURCEPAGE:Equipment.rtf
-Basket				TYPE:Goods.Container.General				CONTAINS:-1|Any=-1						COST:.4	WT:1		SOURCEPAGE:Equipment.rtf
+Backpack				TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any=UNLIM						COST:2	WT:2		SOURCEPAGE:Equipment.rtf
+Barrel				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:2	WT:30		SOURCEPAGE:Equipment.rtf
+Basket				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:.4	WT:1		SOURCEPAGE:Equipment.rtf
 Bedroll				TYPE:Goods.General.Resizable													COST:.1	WT:5		SOURCEPAGE:Equipment.rtf
 Bell					TYPE:Goods.General														COST:1	WT:0		SOURCEPAGE:Equipment.rtf
 Blanket (Winter)			TYPE:Goods.General.Resizable													COST:.5	WT:3		SOURCEPAGE:Equipment.rtf
 Block and Tackle			TYPE:Goods.General														COST:5	WT:5		SOURCEPAGE:Equipment.rtf
 Bottle (Glass/Wine)		TYPE:Goods.Container.General.Resizable		CONTAINS:1.5|Liquid=3						COST:2	WT:0		SOURCEPAGE:Equipment.rtf
-Bucket				TYPE:Goods.Container.General				CONTAINS:-1|Any=-1						COST:.5	WT:2		SOURCEPAGE:Equipment.rtf
+Bucket				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:.5	WT:2		SOURCEPAGE:Equipment.rtf
 Caltrops				TYPE:Goods.General														COST:1	WT:2		SOURCEPAGE:Equipment.rtf
 Candle				TYPE:Goods.General.Consumable													COST:.01	WT:0		SOURCEPAGE:Equipment.rtf
 Canvas (Sq. Yd.)			TYPE:Goods.General														COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
-Case (Map or Scroll)		TYPE:Goods.Container.General				CONTAINS:-1|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:.5		SOURCEPAGE:Equipment.rtf
+Case (Map or Scroll)		TYPE:Goods.Container.General				CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:.5		SOURCEPAGE:Equipment.rtf
 Chain (10 Ft.)			TYPE:Goods.General														COST:30	WT:2		SOURCEPAGE:Equipment.rtf
 Chalk (1 piece)			TYPE:Goods.General														COST:.01	WT:0		SOURCEPAGE:Equipment.rtf
-Chest					TYPE:Goods.Container.General				CONTAINS:-1|Any=-1						COST:2	WT:25		SOURCEPAGE:Equipment.rtf
+Chest					TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:2	WT:25		SOURCEPAGE:Equipment.rtf
 Crowbar				TYPE:Goods.General														COST:2	WT:5		SOURCEPAGE:Equipment.rtf
 Firewood (Per Day)		TYPE:Goods.General														COST:.01	WT:20		SOURCEPAGE:Equipment.rtf
 Fishhook				TYPE:Goods.General														COST:.1	WT:0		SOURCEPAGE:Equipment.rtf
@@ -85,7 +85,7 @@ Grappling Hook			TYPE:Goods.General														COST:1	WT:4		SOURCEPAGE:Equipme
 Hammer				TYPE:Goods.General														COST:.5	WT:2		SOURCEPAGE:Equipment.rtf
 Ink (1 Oz. Vial)			TYPE:Goods.General.Writing.Liquid.Vial											COST:8	WT:0		SOURCEPAGE:Equipment.rtf
 Inkpen				TYPE:Goods.General.Writing													COST:.1	WT:0		SOURCEPAGE:Equipment.rtf
-Jug (Clay)				TYPE:Goods.Container.General				CONTAINS:8|Liquid=-1|SpellComponent=1			COST:.03	WT:9		SOURCEPAGE:Equipment.rtf
+Jug (Clay)				TYPE:Goods.Container.General				CONTAINS:8|Liquid=UNLIM|SpellComponent=1			COST:.03	WT:9		SOURCEPAGE:Equipment.rtf
 Ladder (10 Ft.)			TYPE:Goods.General														COST:.05	WT:20		SOURCEPAGE:Equipment.rtf
 Lamp (Common)			TYPE:Goods.General														COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
 Lantern (Bullseye)		TYPE:Goods.General														COST:12	WT:3		SOURCEPAGE:Equipment.rtf
@@ -103,21 +103,21 @@ Manacles (Masterwork/Medium)	TYPE:Goods.General.Masterwork													COST:50	W
 Manacles (Masterwork/Large)	TYPE:Goods.General.Masterwork													COST:500	WT:8		SOURCEPAGE:Equipment.rtf
 Manacles (Masterwork/Huge)	TYPE:Goods.General.Masterwork													COST:5000	WT:32		SOURCEPAGE:Equipment.rtf
 Mirror (Small/Steel)		TYPE:Goods.General														COST:10	WT:.5		SOURCEPAGE:Equipment.rtf
-Mug or Tankard (Clay)		TYPE:Goods.Container.General				CONTAINS:1|Liquid=-1						COST:.02	WT:1		SOURCEPAGE:Equipment.rtf
+Mug or Tankard (Clay)		TYPE:Goods.Container.General				CONTAINS:1|Liquid=UNLIM						COST:.02	WT:1		SOURCEPAGE:Equipment.rtf
 Oil (1 Pt. Flask)			TYPE:Goods.General.Liquid.Flask.Consumable										COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
 Paper (Sheet)			TYPE:Goods.General.Writing.Documents											COST:.4	WT:0		SOURCEPAGE:Equipment.rtf
 Parchment (Sheet)			TYPE:Goods.General.Writing.Documents											COST:.2	WT:0		SOURCEPAGE:Equipment.rtf
 Pick (Miner's)			TYPE:Goods.General														COST:3	WT:10		SOURCEPAGE:Equipment.rtf
-Pitcher (Clay)			TYPE:Goods.Container.General				CONTAINS:4|Liquid=-1						COST:.02	WT:5		SOURCEPAGE:Equipment.rtf
+Pitcher (Clay)			TYPE:Goods.Container.General				CONTAINS:4|Liquid=UNLIM						COST:.02	WT:5		SOURCEPAGE:Equipment.rtf
 Piton					TYPE:Goods.General														COST:.1	WT:.5		SOURCEPAGE:Equipment.rtf
 Pole (10 Ft.)			TYPE:Goods.General														COST:.2	WT:8		SOURCEPAGE:Equipment.rtf
-Pot (Iron)				TYPE:Goods.Container.General				CONTAINS:-1|Any=-1						COST:.5	WT:10		SOURCEPAGE:Equipment.rtf
-Pouch (Belt)			TYPE:Goods.Container.General.Resizable		CONTAINS:-1|Any=-1						COST:1	WT:.5		SOURCEPAGE:Equipment.rtf
+Pot (Iron)				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:.5	WT:10		SOURCEPAGE:Equipment.rtf
+Pouch (Belt)			TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any=UNLIM						COST:1	WT:.5		SOURCEPAGE:Equipment.rtf
 Ram (Portable)			TYPE:Goods.General														COST:10	WT:20		SOURCEPAGE:Equipment.rtf
 Rations (Trail/Per Day)		TYPE:Goods.Food.Resizable.Consumable											COST:.5	WT:1		SOURCEPAGE:Equipment.rtf
 Rope (Hempen/50 Ft.)		TYPE:Goods.General														COST:1	WT:10		SOURCEPAGE:Equipment.rtf
 Rope (Silk/50 Ft.)		TYPE:Goods.General														COST:10	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Use Rope|2|TYPE=Circumstance
-Sack					TYPE:Goods.Container.General.Resizable		CONTAINS:-1|Any=-1						COST:.1	WT:.5		SOURCEPAGE:Equipment.rtf
+Sack					TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any=UNLIM						COST:.1	WT:.5		SOURCEPAGE:Equipment.rtf
 Sealing Wax				TYPE:Goods.General.Writing													COST:1	WT:1		SOURCEPAGE:Equipment.rtf
 Sewing Needle			TYPE:Goods.General														COST:.5			SOURCEPAGE:Equipment.rtf
 Signal Whistle			TYPE:Goods.General														COST:.8			SOURCEPAGE:Equipment.rtf
@@ -138,23 +138,23 @@ Whetstone				TYPE:Goods.General														COST:.02	WT:1		SOURCEPAGE:Equipment
 # Equipment Name			Type								Contains			Cost		Weight	Size		Source Page				Special Property
 Bit and Bridle			TYPE:Goods.Mount.Resizable								COST:2	WT:1				SOURCEPAGE:Equipment.rtf
 Dog (Guard)				TYPE:Goods.Mount										COST:25	WT:0				SOURCEPAGE:Equipment.rtf
-Dog (Riding)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any=-1	COST:150	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
-Donkey				TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=-1	COST:8	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
-Mule					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=-1	COST:8	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
+Dog (Riding)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any=UNLIM	COST:150	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
+Donkey				TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=UNLIM	COST:8	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
+Mule					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=UNLIM	COST:8	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
 Feed (Per Day)			TYPE:Goods.Mount.Consumable								COST:.05	WT:10				SOURCEPAGE:Equipment.rtf
-Horse (Heavy)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*600|Any=-1	COST:200	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
-Horse (Light)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*450|Any=-1	COST:75	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
-Warhorse (Heavy)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*900|Any=-1	COST:400	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
-Warhorse (Light)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=-1	COST:150	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
-Pony					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*225|Any=-1	COST:30	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
-Warpony				TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any=-1	COST:100	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
+Horse (Heavy)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*600|Any=UNLIM	COST:200	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
+Horse (Light)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*450|Any=UNLIM	COST:75	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
+Warhorse (Heavy)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*900|Any=UNLIM	COST:400	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
+Warhorse (Light)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=UNLIM	COST:150	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
+Pony					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*225|Any=UNLIM	COST:30	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
+Warpony				TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any=UNLIM	COST:100	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
 Saddle (Military)			TYPE:Goods.Mount.Saddle.Military.Resizable					COST:20	WT:30				SOURCEPAGE:Equipment.rtf	SPROP:+2 circumstance bonus on Ride checks related to staying in the saddle
 Saddle (Pack)			TYPE:Goods.Mount.Saddle.Resizable							COST:5	WT:15				SOURCEPAGE:Equipment.rtf
 Saddle (Riding)			TYPE:Goods.Mount.Saddle.Resizable							COST:10	WT:25				SOURCEPAGE:Equipment.rtf
 Saddle (Exotic Military)	TYPE:Goods.Mount.Saddle.Military.Resizable					COST:60	WT:40				SOURCEPAGE:Equipment.rtf	SPROP:+2 circumstance bonus on Ride checks related to staying in the saddle
 Saddle (Exotic Pack)		TYPE:Goods.Mount.Saddle.Resizable							COST:15	WT:20				SOURCEPAGE:Equipment.rtf
 Saddle (Exotic Riding)		TYPE:Goods.Mount.Saddle.Resizable							COST:30	WT:30				SOURCEPAGE:Equipment.rtf
-Saddlebags				TYPE:Goods.Container.Mount.Resizable		CONTAINS:-1|Any=-1	COST:4	WT:8				SOURCEPAGE:Equipment.rtf
+Saddlebags				TYPE:Goods.Container.Mount.Resizable		CONTAINS:UNLIM|Any=UNLIM	COST:4	WT:8				SOURCEPAGE:Equipment.rtf
 Stabling (Per Day)		TYPE:Goods.Mount										COST:.5	WT:0				SOURCEPAGE:Equipment.rtf
 
 ###Block:Tools
@@ -229,17 +229,17 @@ Platinum (Per Lb.)	TYPE:Goods.Trade	COST:500	WT:1		SOURCEPAGE:Equipment.rtf
 
 ###Block: Transportation
 # Equipment Name	Type							Contains			Cost		Weight	Source Page
-Carriage		TYPE:Goods.Transportation.Container		CONTAINS:3120|Any=-1	COST:100	WT:600	SOURCEPAGE:Equipment.rtf
-Cart			TYPE:Goods.Transportation.Container		CONTAINS:3120|Any=-1	COST:15	WT:200	SOURCEPAGE:Equipment.rtf
-Galley		TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any=-1	COST:30000	WT:0		SOURCEPAGE:Equipment.rtf
-Keelboat		TYPE:Goods.Transportation.Ships.Container	CONTAINS:100000|Any=-1	COST:3000	WT:0		SOURCEPAGE:Equipment.rtf
-Longship		TYPE:Goods.Transportation.Ships.Container	CONTAINS:100000|Any=-1	COST:10000	WT:0		SOURCEPAGE:Equipment.rtf
-Rowboat		TYPE:Goods.Transportation.Ships.Container	CONTAINS:600|Any=-1	COST:50	WT:100	SOURCEPAGE:Equipment.rtf
+Carriage		TYPE:Goods.Transportation.Container		CONTAINS:3120|Any=UNLIM	COST:100	WT:600	SOURCEPAGE:Equipment.rtf
+Cart			TYPE:Goods.Transportation.Container		CONTAINS:3120|Any=UNLIM	COST:15	WT:200	SOURCEPAGE:Equipment.rtf
+Galley		TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any=UNLIM	COST:30000	WT:0		SOURCEPAGE:Equipment.rtf
+Keelboat		TYPE:Goods.Transportation.Ships.Container	CONTAINS:100000|Any=UNLIM	COST:3000	WT:0		SOURCEPAGE:Equipment.rtf
+Longship		TYPE:Goods.Transportation.Ships.Container	CONTAINS:100000|Any=UNLIM	COST:10000	WT:0		SOURCEPAGE:Equipment.rtf
+Rowboat		TYPE:Goods.Transportation.Ships.Container	CONTAINS:600|Any=UNLIM	COST:50	WT:100	SOURCEPAGE:Equipment.rtf
 Oar			TYPE:Goods.Transportation.Ships.Extra					COST:2	WT:10		SOURCEPAGE:Equipment.rtf
-Sailing Ship	TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any=-1	COST:10000	WT:0		SOURCEPAGE:Equipment.rtf
-Sled			TYPE:Goods.Transportation.Container		CONTAINS:2000|Any=-1	COST:20	WT:300	SOURCEPAGE:Equipment.rtf
-Wagon			TYPE:Goods.Transportation.Container		CONTAINS:4000|Any=-1	COST:35	WT:400	SOURCEPAGE:Equipment.rtf
-Warship		TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any=-1	COST:25000	WT:0		SOURCEPAGE:Equipment.rtf
+Sailing Ship	TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any=UNLIM	COST:10000	WT:0		SOURCEPAGE:Equipment.rtf
+Sled			TYPE:Goods.Transportation.Container		CONTAINS:2000|Any=UNLIM	COST:20	WT:300	SOURCEPAGE:Equipment.rtf
+Wagon			TYPE:Goods.Transportation.Container		CONTAINS:4000|Any=UNLIM	COST:35	WT:400	SOURCEPAGE:Equipment.rtf
+Warship		TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any=UNLIM	COST:25000	WT:0		SOURCEPAGE:Equipment.rtf
 
 
 ###Block: Spellcasting and services
