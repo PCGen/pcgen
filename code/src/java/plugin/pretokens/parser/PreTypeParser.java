@@ -52,7 +52,9 @@ public class PreTypeParser extends AbstractPrerequisiteParser implements
 		{
 			// First token was not a number,
 			// must be old style syntax.
-			return parseOldPreType(kind, formula, invertResult);
+			Prerequisite oldPre = parseOldPreType(kind, formula, invertResult);
+			oldPre.setDeprecated();
+			return oldPre;
 		}
 
 		// Parse new style syntax
@@ -86,6 +88,7 @@ public class PreTypeParser extends AbstractPrerequisiteParser implements
 		{
 			prereq.setOperator(prereq.getOperator().invert());
 		}
+		prereq.setDeprecated();
 		return prereq;
 	}
 

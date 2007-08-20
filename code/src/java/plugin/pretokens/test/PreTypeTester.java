@@ -33,6 +33,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -95,12 +96,18 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 	public int passes(final Prerequisite prereq, final PlayerCharacter aPC)
 	{
 
+		Logging
+			.errorPrint("PRETYPE has been deprecated for non-Equipment Prerequisites."
+				+ "\n  Please use PRERACE as an alternative");
 		if (aPC == null)
 		{
 			return 0;
 		}
-
+		
 		final String requiredType = prereq.getKey();
+		
+		Logging.errorPrint("  PRETYPE value was: " + requiredType + "\n");
+		
 		final int numRequired = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
 

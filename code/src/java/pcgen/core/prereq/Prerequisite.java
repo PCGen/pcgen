@@ -476,4 +476,16 @@ public class Prerequisite implements Cloneable
 		this.categoryName = categoryName;
 	}
 
+	boolean deprecated = false;
+	
+	public void setDeprecated()
+	{
+		deprecated = true;
+	}
+	
+	public boolean isDeprecated()
+	{
+		return deprecated;
+	}
+
 }

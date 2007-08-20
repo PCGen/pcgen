@@ -28,6 +28,8 @@
  */
 package plugin.lsttokens.deprecated;
 
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteSimpleParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
@@ -46,4 +48,17 @@ public class PreDefaultMonsterParser extends AbstractPrerequisiteSimpleParser
 	{
 		return new String[]{"DEFAULTMONSTER"};
 	}
+
+	@Override
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
+	{
+		Prerequisite pre =
+				super.parse(kind, formula, invertResult, overrideQualify);
+		pre.setDeprecated();
+		return pre;
+	}
+	
+	
 }
