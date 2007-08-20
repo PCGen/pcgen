@@ -21,7 +21,7 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #
 #####2nd Example
 
-#Saddlebags		TYPE:Goods.Container.Mount.Resizable		CONTAINS:-1|Any=-1	COST:4	WT:8		SOURCEPAGE:Equipment.rtf
+#Saddlebags		TYPE:Goods.Container.Mount.Resizable		CONTAINS:UNLIM|Any=UNLIM	COST:4	WT:8		SOURCEPAGE:Equipment.rtf
 
 #####
 #The Dagger is an Example of a weapon, while the Saddlebags is an item that is set up to be used as a container for other
