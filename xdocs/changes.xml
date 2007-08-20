@@ -5,6 +5,14 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
+    <release version="5.13.1" date="In SVN" description="Alpha release">
+      <action dev="thpr" type="add" issue="1707366">Resolve MOVE related tag order of operations</action>
+      <action dev="thpr" type="add" issue="1777052">Formal MOVECLONE change request</action>
+      <action dev="thpr" type="add" issue="1754529">Deprecate PRETYPE for PlayerCharacter</action>
+      <action dev="thpr" type="add" issue="1777050">Class CHOICE: Token change</action>
+      <action dev="thpr" type="add" issue="1777047">CONTAINS Magical Value Elimination</action>
+      <action dev="thpr" type="fix" issue="1776390">.MOD with weapon Profs renames the Proficiency</action>
+    </release>
     <release version="5.13.0" date="2007-08-12" description="Alpha release">
       <action dev="takeyabue" type="fix">W3C Validation of documentation (228/295 files done already)</action>
       <action dev="tir-gwaith" type="fix" issue="1768097">[RSRD] Animal Companion List missing some entries</action>
@@ -12,6 +20,7 @@
       <action dev="frank_kliewe" type="add" issue="1633758" due-to="kingpaul">[TGM] Modern Magic Vol.1</action>
       <action dev="darkstorm999" type="fix" issue="1472565">[GMGen] Can not generate generic encounters</action>
       <action dev="darkstorm999" type="fix" issue="1761877">[GMGen] Overland Travel tab</action>
+      <action dev="thpr" type="add" issue="1748116">Global AUTO:FEAT</action>
       <action dev="thpr" type="update" issue="1613771">Deprecate Default Monster Mode Tags</action>
       <action dev="thpr" type="fix" issue="1771278">Spell Characteristics are not properly cloned</action>
       <action dev="thpr" type="fix" issue="1771873">!PREVISION fails if tested for presence</action>
