@@ -105,7 +105,7 @@ public class Movement
 	 * @param i
 	 *            The length of the movement arrays to be assigned.
 	 */
-	private Movement(int i)
+	public Movement(int i)
 	{
 		if (i < 0)
 		{
@@ -299,6 +299,7 @@ public class Movement
 	 * display to a user.
 	 * @return String
 	 */
+	@Override
 	public String toString()
 	{
 		final StringBuffer movelabel = new StringBuffer();
@@ -401,114 +402,21 @@ public class Movement
 					"Null initialization String illegal");
 		}
 		final StringTokenizer moves = new StringTokenizer(moveparse, ",");
-		String tok;
 		Movement cm;
 
 		if (moves.countTokens() == 1)
 		{
-			tok = moves.nextToken();
-
 			cm = new Movement(1);
-			if ((tok.length() > 0)
-					&& ((tok.charAt(0) == '*') || (tok.charAt(0) == '/')))
-			{
-				cm.movements[0] = Double.valueOf(0.0);
-				cm.movement = Double.valueOf(0.0);
-				try
-				{
-					double multValue = Double.parseDouble(tok.substring(1));
-					if (multValue <= 0)
-					{
-						Logging.errorPrint("Illegal movement multiplier: "
-								+ multValue + " in movement string " + tok);
-					}
-					cm.movementMult[0] = Double.valueOf(multValue);
-					cm.movementMultOp[0] = tok.substring(0, 1);
-				}
-				catch (NumberFormatException e)
-				{
-					Logging.errorPrint("Badly formed MOVE token: " + tok);
-					cm.movementMult[0] = Double.valueOf(0.0);
-					cm.movementMultOp[0] = "";
-				}
-			}
-			else if (tok.length() > 0)
-			{
-				try
-				{
-					cm.movement = new Double(tok);
-					cm.movements[0] = cm.movement;
-				}
-				catch (NumberFormatException e)
-				{
-					Logging.errorPrint("Badly formed movement string: " + tok);
-					cm.movements[0] = Double.valueOf(0.0);
-				}
-
-				cm.movementMult[0] = Double.valueOf(0.0);
-				cm.movementMultOp[0] = "";
-			}
-
-			cm.movementTypes[0] = "Walk";
+			cm.assignMovement(0, "Walk", moves.nextToken());
 		}
 		else
 		{
 			cm = new Movement(moves.countTokens() / 2);
 
 			int x = 0;
-
 			while (moves.countTokens() > 1)
 			{
-				cm.movementTypes[x] = moves.nextToken(); // e.g. "Walk"
-				cm.movementMult[x] = Double.valueOf(0.0);
-				cm.movementMultOp[x] = "";
-
-				tok = moves.nextToken();
-
-				if ((tok.length() > 0)
-						&& ((tok.charAt(0) == '*') || (tok.charAt(0) == '/')))
-				{
-					cm.movements[x] = Double.valueOf(0.0);
-					try
-					{
-						double multValue = Double.parseDouble(tok.substring(1));
-						if (multValue <= 0)
-						{
-							Logging.errorPrint("Illegal movement multiplier: "
-									+ multValue + " in movement string " + tok);
-						}
-						cm.movementMult[x] = Double.valueOf(multValue);
-						cm.movementMultOp[x] = tok.substring(0, 1);
-					}
-					catch (NumberFormatException e)
-					{
-						Logging.errorPrint("Badly formed MOVE token: " + tok);
-						cm.movementMult[x] = Double.valueOf(0.0);
-						cm.movementMultOp[x] = "";
-					}
-				}
-				else if (tok.length() > 0)
-				{
-					cm.movementMult[x] = Double.valueOf(0.0);
-					cm.movementMultOp[x] = "";
-
-					try
-					{
-						cm.movements[x] = new Double(tok);
-					}
-					catch (NumberFormatException e)
-					{
-						Logging.errorPrint("Badly formed MOVE token: " + tok);
-						cm.movements[x] = Double.valueOf(0.0);
-					}
-
-					if ("Walk".equals(cm.movementTypes[x]))
-					{
-						cm.movement = cm.movements[x];
-					}
-				}
-
-				x++;
+				cm.assignMovement(x++, moves.nextToken(), moves.nextToken());
 			}
 			if (moves.countTokens() != 0)
 			{
@@ -517,5 +425,55 @@ public class Movement
 			}
 		}
 		return cm;
+	}
+
+	public void assignMovement(int x, String type, String mod)
+	{
+		movementTypes[x] = type; // e.g. "Walk"
+		movementMult[x] = Double.valueOf(0.0);
+		movementMultOp[x] = "";
+
+		if ((mod.length() > 0)
+			&& ((mod.charAt(0) == '*') || (mod.charAt(0) == '/')))
+		{
+			movements[x] = Double.valueOf(0.0);
+			try
+			{
+				double multValue = Double.parseDouble(mod.substring(1));
+				if (multValue <= 0)
+				{
+					Logging.errorPrint("Illegal movement multiplier: "
+						+ multValue + " in movement string " + mod);
+				}
+				movementMult[x] = Double.valueOf(multValue);
+				movementMultOp[x] = mod.substring(0, 1);
+			}
+			catch (NumberFormatException e)
+			{
+				Logging.errorPrint("Badly formed MOVE token: " + mod);
+				movementMult[x] = Double.valueOf(0.0);
+				movementMultOp[x] = "";
+			}
+		}
+		else if (mod.length() > 0)
+		{
+			movementMult[x] = Double.valueOf(0.0);
+			movementMultOp[x] = "";
+
+			try
+			{
+				movements[x] = new Double(mod);
+			}
+			catch (NumberFormatException e)
+			{
+				Logging.errorPrint("Badly formed MOVE token: " + mod);
+				movements[x] = Double.valueOf(0.0);
+			}
+
+			if ("Walk".equals(movementTypes[x]))
+			{
+				movement = movements[x];
+			}
+		}
 	}
 }
