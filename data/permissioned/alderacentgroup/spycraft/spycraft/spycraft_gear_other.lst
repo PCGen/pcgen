@@ -26,9 +26,9 @@ Tactical radio (encrypted)			TYPE:Gear.Standard.Communication						COST:8	WT:1		
 
 # Computers -----------------------------------------------------------------------------------------------------------
 
-Desktop						TYPE:Gear.Standard.Container.Computer	CONTAINS:1|Software=-1	COST:5	WT:25		MODS:REQUIRED		SOURCEPAGE:p.128
-Laptop						TYPE:Gear.Standard.Container.Computer	CONTAINS:1|Software=-1	COST:7	WT:5		MODS:REQUIRED		SOURCEPAGE:p.128
-PDA							TYPE:Gear.Standard.Container.Computer	CONTAINS:1|Software=-1	COST:3	WT:.5						SOURCEPAGE:p.128
+Desktop						TYPE:Gear.Standard.Container.Computer	CONTAINS:1|Software=UNLIM	COST:5	WT:25		MODS:REQUIRED		SOURCEPAGE:p.128
+Laptop						TYPE:Gear.Standard.Container.Computer	CONTAINS:1|Software=UNLIM	COST:7	WT:5		MODS:REQUIRED		SOURCEPAGE:p.128
+PDA							TYPE:Gear.Standard.Container.Computer	CONTAINS:1|Software=UNLIM	COST:3	WT:.5						SOURCEPAGE:p.128
 
 # Drugs and Poisons --------------------------------------------------------------------------------------------------
 

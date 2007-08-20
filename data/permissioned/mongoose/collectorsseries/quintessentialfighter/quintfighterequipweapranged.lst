@@ -10,6 +10,6 @@ Foot Bow		PROFICIENCY:Foot Bow		TYPE:Weapon.Exotic.Ranged.Piercing.Wooden							
 Iron-Breaker	PROFICIENCY:Iron-Breaker	TYPE:Weapon.Exotic.Ranged.Thrown.Bludgeoning.Metal														COST:35	WT:6		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d10					RANGE:100	SIZE:M	SOURCEPAGE:p.44
 
 #Martial ----------------------------------------------------------------------------------------------------------
-Bladed Bow		PROFICIENCY:Bladed Bow		TYPE:Weapon.Martial.Ranged.Piercing.Wooden.Container	ALTTYPE:Weapon.Martial.Melee.Slashing.Metal	CONTAINS:-1|Arrow=1		COST:95	WT:4		CRITMULT:x3			CRITRANGE:1			ALTCRITMULT:x2		DAMAGE:1d6	ALTDAMAGE:1d4		RANGE:60	SIZE:L	SOURCEPAGE:p.43
+Bladed Bow		PROFICIENCY:Bladed Bow		TYPE:Weapon.Martial.Ranged.Piercing.Wooden.Container	ALTTYPE:Weapon.Martial.Melee.Slashing.Metal	CONTAINS:UNLIM|Arrow=1		COST:95	WT:4		CRITMULT:x3			CRITRANGE:1			ALTCRITMULT:x2		DAMAGE:1d6	ALTDAMAGE:1d4		RANGE:60	SIZE:L	SOURCEPAGE:p.43
 Pilum			PROFICIENCY:Pilum			TYPE:Weapon.Martial.Ranged.Thrown.Piercing.Metal														COST:5	WT:5		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d6					RANGE:20	SIZE:M	SOURCEPAGE:p.45
-Staff Sling		PROFICIENCY:Staff Sling		TYPE:Weapon.Martial.Ranged.Piercing.Wooden.Container									CONTAINS:-1|SlingStone=1	COST:3	WT:5		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					RANGE:100	SIZE:L	SOURCEPAGE:p.46
+Staff Sling		PROFICIENCY:Staff Sling		TYPE:Weapon.Martial.Ranged.Piercing.Wooden.Container									CONTAINS:UNLIM|SlingStone=1	COST:3	WT:5		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					RANGE:100	SIZE:L	SOURCEPAGE:p.46

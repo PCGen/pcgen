@@ -133,8 +133,8 @@ Umbrella gun (Submachinegun .45 ACP)		NAMEISPI:YES	PROFICIENCY:Submachinegun	TYP
 
 Personalized fighting knife				NAMEISPI:YES	PROFICIENCY:Knife			TYPE:Gadget.Standard.Weapon.Melee.Ranged.Piercing.Thrown							COST:1	WT:1		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d4						RANGE:5	SIZE:S	SOURCEPAGE:p.146	BONUS:COMBAT|TOHIT|1	BONUS:COMBAT|DAMAGE.Melee|1
 
-Spring-loaded weapon holster				NAMEISPI:YES						TYPE:Gadget.Standard.Bracer.Container					CONTAINS:-1|Handgun=1		COST:1	WT:-																		SIZE:D	SOURCEPAGE:p.146
-Knife launcher						NAMEISPI:YES						TYPE:Gadget.Standard.Bracer.Container					CONTAINS:-1|Throwing knife=1	COST:1	WT:-																		SIZE:D	SOURCEPAGE:p.146
+Spring-loaded weapon holster				NAMEISPI:YES						TYPE:Gadget.Standard.Bracer.Container					CONTAINS:UNLIM|Handgun=1		COST:1	WT:-																		SIZE:D	SOURCEPAGE:p.146
+Knife launcher						NAMEISPI:YES						TYPE:Gadget.Standard.Bracer.Container					CONTAINS:UNLIM|Throwing knife=1	COST:1	WT:-																		SIZE:D	SOURCEPAGE:p.146
 Remote-operated gun mount				NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																		SIZE:M	SOURCEPAGE:p.146
 
 #
