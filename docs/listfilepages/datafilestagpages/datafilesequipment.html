@@ -65,10 +65,12 @@
 
 <hr>
 
+	<p class="indent0 alpha"><span class="new">*** Updated 5.14.0</span></p>
 	<p class="indent0"><strong><a name="CONTAINS">Tag Name:</a></strong> CONTAINS:x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (quantity held)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Type=&lt;itemtype&gt;)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Total=&lt;number&gt;)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> UNLIM</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This tag is | (pipe) delimited and is used to define how much and what a container can hold.</li>
@@ -78,7 +80,7 @@
 			(e.g. a Bag of Holding).</li>
 		<li>A number followed by a percentage (%) symbol before the quantity will reduce
 			the total encumbrance weight of items in the container by the percentage specified.</li>
-		<li>A -1 means that the container has an unlimited weight allowance.</li>
+		<li>A 'UNLIM' means that the container has an unlimited weight allowance.</li>
 		<li>The name of the weight unit is defined in the game mode system files in the miscinfo.lst file
 			with the tag WEIGHTUNITABBREV. In most fantasy settings this is lbs.</li>
 		<li>After the weight you can specify what types of Items the container may hold.</li>
@@ -95,15 +97,15 @@
 	<p class="indent3">500 units of weight can fit in this container and this is not added to the PCs carried weight.</p>
 	<p class="indent2"><code> CONTAINS:50%50|Any=25</code></p>
 	<p class="indent3">Holds up to 25 items of up to 50 units of weight, but the total weight contained is reduced 50%.</p>
-	<p class="indent2"><code> CONTAINS:25%-1|Any=100</code></p>
+	<p class="indent2"><code> CONTAINS:25%UNLIM|Any=100</code></p>
 	<p class="indent3"> Holds up to 100 items no matter the weight, but total weight contained is reduced 25%.</p>
 	<p class="indent2"><code>CONTAINS:500|Potions=100</code></p>
 	<p class="indent3">500 units of weight can fit in this container, but only 100 potions fit.</p>
-	<p class="indent2"><code>CONTAINS:-1</code></p>
+	<p class="indent2"><code>CONTAINS:UNLIM</code></p>
 	<p class="indent3">This container has an unlimited weight allowance.</p>
-	<p class="indent2"><code>CONTAINS:-1|Any=100</code></p>
+	<p class="indent2"><code>CONTAINS:UNLIM|Any=100</code></p>
 	<p class="indent3">Holds 100 things, no matter what the weight.</p>
-	<p class="indent2"><code>CONTAINS:-1|Total=10|Paper=10|Scroll=10</code></p>
+	<p class="indent2"><code>CONTAINS:UNLIM|Total=10|Paper=10|Scroll=10</code></p>
 	<p class="indent3">Holds 10 papers or 10 scrolls, or any combination of these up to 10, no matter what the weight.</p>
 	<p></p>
 

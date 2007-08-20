@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+
+  <title>LST File Class</title>
+
+
+  <link rel="stylesheet" type="text/css" href="../../pcgen.css">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <style type="text/css">
+<!--
+.style1 {font-family: "Courier New", Courier, mono}
+-->
+  </style>
+</head>
+
+	
+	<body>
+
+<h1>Lesson #17: .lst - Skills buying abilities</h1>
+
+<p>By Andrew A. Maitland (LegacyKing) and Chris Chandler (Barak) for providing the basis for the text. </p>
+
+<p class="indent0"><strong>File(s) Covered:</strong>
+ *_abilities.lst, *_skills.lst, miscinfo.lst, statsandchecks.lst</p>
+
+<p class="indent0"><strong>Tags used:</strong></p>
+
+<p class="indent1"> <code><a href="../systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a>, <a href="../systemfilestagpages/globalfilesability#CATEGORY2">CATEGORY,</a> <a href="../systemfilestagpages/gamemodemiscinfolist.html#PLURAL">PLURAL</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITABLE">EDITABLE</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITPOOL">EDITPOOL</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#FRACTIONALPOOL">FRACTIONALPOOL</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#POOL">POOL</a>, 
+<a href="../systemfilestagpages/globalfilesability.html#VISIBLE">VISIBLE,</a><br>
+<a href="../systemfilestagpages/globalfilesdefine.html">DEFINE</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#TYPE">TYPE</a>, <a href="../globalfilestagpages/globalfilesprexxx.html">PREABILITY, 
+PRESKILL, 
+PREVARLT,</a> <a href="../globalfilesother.html#DESC">DESC</a>, 
+<a href="../globalfilesbonus.html#VAR">BONUS:VAR</a></code></p>
+
+<p></p>
+
+<hr>
+<p>This is a lesson to assist users in setting up things such as  buying abilities via Skill Ranks or known as Skill Tricks. Each section represents a different file and what tags you'll need. Provided with the included tags is a sample in each section. So if you copy these examples verbatim you'll have a good start. Above is referenced the actual tags for the full capabilities. The TOP header <strong>bolded</strong> text is the file where these tags need to be placed. Each new line should be considered a TAB in the actual file.</p>
+<p>So,</p>
+<p> ABILITYCATEGORY:ST<br>
+  CATEGORY:ST</p>
+<p>Becomes:</p>
+<p>ABILITYCATEGORY:ST &lt;tab&gt; CATEGORY:ST</p>
+<hr>
+<p><strong>Miscinfo.lst file:</strong> (Found in the gamemode folder) </p>
+<p class="indent1 style1">ABILITYCATEGORY:ST <br>
+  CATEGORY:ST <br>
+  PLURAL:STs <br>
+  EDITABLE:YES <br>
+  EDITPOOL:NO <br>
+  FRACTIONALPOOL:NO <br>
+  POOL:STPool <br>
+  VISIBLE:YES </p>
+<p></p>
+
+<hr>
+<p><strong>Statsandchecks.lst file</strong>: (Found in the gamemode folder) </p>
+<p>(added to the line defining intelligence stat): </p>
+<p class="indent1 style1">DEFINE:STMax|TL/2 </p>
+<p class="indent1 style1">&nbsp;</p>
+<hr>
+<p><strong>Skills.lst file:</strong> </p>
+<p class="indent1 style1">  ST Skill <br>
+  TYPE:NoStat <br>
+  VISIBLE:Display <br>
+  BONUS:ABILITYPOOL|ST|SKILL.ST Skill.RANK </p>
+<p class="style1"></p>
+<hr>
+<p><strong>Ability.lst file</strong>: (showing one ST specifically, adjust PRExxx to be appropriate...) </p>
+
+<p>Note the “!PREABILITY:1,CATEGORY=ST,Ac Ba”... this keeps the ability from showing up for choosing after you have already taken it. This is a temporary workaround as there is currently a bug with the ability object not respecting the default of MULT:NO): </p>
+<p class="indent1 style1">Ac Ba <br>
+  CATEGORY:ST <br>
+  TYPE:ST.Movement <br>
+  VISIBLE:YES <br>
+  !PREABILITY:1,CATEGORY=ST,Ac Ba <br>
+  PRESKILL:1,Tumble=12 <br>
+  PREVARLT:STCount,STMax <br>
+  DEFINE:STCount|0 <br>
+  DESC:&lt;appropriate description&gt; <br>
+  BONUS:VAR|STCount|1 </p>
+<hr>
+<p>Using this, you merely dump skill points into the ST Skill and then flip to the feats tab and the STs sub-tab and choose the ones you want. Hope that helps. </p>
+<p>Remember, miscinfo.lst and statsandchecks.lst are gamemode files. They do not get referenced in the .pcc file directly. There are entries about them in the docs if you want to read up on them. Anyway, to make a long story somewhat shorter, what you want to do is go to the “pcgen/system/gamemodes/35e” directory, open the miscinfo.lst file there and add the information I gave you in the post (right below the Salient Divine Abilities entry would work :p). Then open up the statasandchecks.lst file and add the VAR definition as I described before. To call the ability file it's (as you guessed) “ABILITY:ability.lst” in the .pcc file. Basically pretend that an ability.lst is a feat file as far as what tags you can use in it and you'll be ok (fair warning though, there may be exceptions to that rule of thumb). </p>
+<p></p>
+
+<hr>
+<p>Andrew</p>
+<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="../../images/system/valid-html401.png"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+
+</body>
+</html>
