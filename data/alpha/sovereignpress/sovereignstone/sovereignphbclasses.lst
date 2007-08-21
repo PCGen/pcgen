@@ -21,12 +21,12 @@ CLASS:Barbarian	STARTSKILLPTS:4
 1	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL|20	DEFINE:TirelessRage|0
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1			DEFINE:RageTimes|0
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
 1								BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2|TYPE=FastMovement
-2			BONUS:VAR|UncannyDodge|1													FEATAUTO:Uncanny Dodge
+2			BONUS:VAR|UncannyDodge|1													AUTO:FEAT|Uncanny Dodge
 5			BONUS:VAR|UncannyDodge|1
 10			BONUS:VAR|UncannyDodge|1
 11	DR:1/-
@@ -42,9 +42,9 @@ CLASS:Fighter	HD:10		ABB:Ftr		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude|C
 # Class Name	Skill Pts/Lvl
 CLASS:Fighter	STARTSKILLPTS:2
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	FEATAUTO:Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
 1						ADD:FEAT|1|TYPE=Fighter
 2						ADD:FEAT|1|TYPE=Fighter
@@ -63,12 +63,12 @@ CLASS:Rogue		HD:6		ABB:Rog		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude,BAS
 # Class Name	Skill Pts/Lvl
 CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies
-1	FEATAUTO:Rogue Weapon Proficiencies|All Automatic Proficiencies
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Rogue Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1	BONUS:VAR|SneakAttack|(CL+1)/2																		FEATAUTO:Sneak Attack
+1	BONUS:VAR|SneakAttack|(CL+1)/2																		AUTO:FEAT|Sneak Attack
 2																					VFEAT:Evasion
-3	BONUS:VAR|UncannyDodge|1																			FEATAUTO:Uncanny Dodge
+3	BONUS:VAR|UncannyDodge|1																			AUTO:FEAT|Uncanny Dodge
 6	BONUS:VAR|UncannyDodge|1
 10							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 11	BONUS:VAR|UncannyDodge|1
