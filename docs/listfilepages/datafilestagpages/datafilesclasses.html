@@ -22,6 +22,11 @@
 	<title>Class Files</title>
 	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+<!--
+.style1 {font-family: Arial, Helvetica, sans-serif}
+-->
+    </style>
 </head>
 
 <body>
@@ -88,7 +93,7 @@
 		<p><code>CLASS:Wizard . . .</code><br>
         	<code>CLASS:Wizard . . .HASSUBCLASS:YES</code><br>
         	<code>CLASS:Wizard . . .</code><br>
-        	<code>SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt; CHOICE:Abjuration &lt;tab&gt; 			KNOWNSPELLSFROMSPECIALTY:1</code><br>
+        	<code>SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt; CHOICE:SCHOOL|Abjuration &lt;tab&gt; 			KNOWNSPELLSFROMSPECIALTY:1</code><br>
         	<code>SUBCLASSLEVEL:1 &lt;tab&gt; FEATAUTO:Abjurer Learning Bonus</code><br>
         	<code>SUBCLASSLEVEL:10 &lt;tab&gt; SA:Immune to Acid</code><br>
         	<code>1 . . .</code><br>
@@ -815,28 +820,36 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="CHOICE">Tag Name:</a></strong> CHOICE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Specialty Name)</p>
+	<p class="new">*** Updated 5.14.0</p>
+	<p class="indent0"><strong><a name="CHOICE">Tag Name:</a></strong> CHOICE:x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE (SCHOOL, DESCRIPTOR, SUBSCHOOL)</p>
+	<p align="left"><strong class="indent1">Variables Used (y):</strong> Schools (Abjuration, Conjuration, Divination,  Enchantment, Evocation, Illusion, Necromancy, Transmutation<span class="style1">, Psychokinesis, etc </span>)
+	</p>
+	<p class="indent1"><strong><strong>Variables Used (y):</strong> </strong>Descriptors (Mind-Affecting, Fire, Water, Earth, Air, Lawful, Chaotic, Good, Evil, etc.)</p>
+	<p class="indent1"><strong><strong>Variables Used (y): </strong></strong>Subschools (Summoning, Creation, Healing, etc.) </p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Indicates the specialty (name of school, sub-school or descriptor) of this
-		subclass/specialty.</p>
+	<p class="indent2">Indicates the specialty (By TYPE using the name of school, sub-school or descriptor and then the corresponding CHOICE applicable to the TYPE selected) of this
+		subclass/specialty. Any used SCHOOL, DESCRIPTOR or SUBSCHOOL is a valid choice. </p>
 	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>SUBCLASS:Illusionist &lt;tab&gt; CHOICE:Illusion</code></p>
+	<p class="indent2"><code>SUBCLASS:Illusionist &lt;tab&gt; CHOICE:SCHOOL|Illusion</code></p>
 	<p class="indent3">For an Illusionist.</p>
-	<p class="indent2"><code>SUBCLASS:Abjure &lt;tab&gt; CHOICE:Abjuration</code></p>
+	<p class="indent2"><code>SUBCLASS:Abjure &lt;tab&gt; CHOICE:SCHOOL|Abjuration</code></p>
 	<p class="indent3">For an Abjurer.</p>
-	<p class="indent2"><code>SUBCLASS:Diviner &lt;tab&gt; CHOICE:Divination</code></p>
+	<p class="indent2"><code>SUBCLASS:Diviner &lt;tab&gt; CHOICE:SCHOOL|Divination</code></p>
 	<p class="indent3">For a Diviner.</p>
-	<p class="indent2"><code>SUBCLASS:Savant &lt;tab&gt; CHOICE:Psychokinesis</code></p>
+	<p class="indent2"><code>SUBCLASS:Savant &lt;tab&gt; CHOICE:<code>SCHOOL|</code>Psychokinesis</code></p>
 	<p class="indent3">For a Psychokinesis.</p>
 	<p class="indent2"><code>SUBCLASS:Blue Dragon Disciple &lt;tab&gt; CHOICE:Blue Dragon Disciple</code></p>
 	<p class="indent3">For a Blue Dragon Disciple.</p>
-	<p class="indent2"><code>SUBCLASS:Shaper &lt;tab&gt; CHOICE:Illusion.CLEAR</code></p>
+	<p class="indent2"><code>SUBCLASS:Shaper &lt;tab&gt; CHOICE:<code>SCHOOL|</code>Illusion.CLEAR</code></p>
 	<p class="indent3">Removes the coice for an Illusionist.</p>
-	<p class="indent2"><code>SUBCLASS:Nomad &lt;tab&gt; CHOICE:Abjuration.MOD  &lt;tab&gt; CHOICE:Divination</code></p>
+	<p class="indent2"><code>SUBCLASS:Nomad &lt;tab&gt; CHOICE:<code>SCHOOL|</code>Abjuration.MOD  &lt;tab&gt; CHOICE:<code>SCHOOL|</code>Divination</code></p>
 	<p class="indent3">Replaces the choice for an Abjurer with Diviner.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Subclass Line.</p>
+	<p class="indent2">&nbsp;</p>
+	<p class="indent1"><strong>NOTE:</strong></p>
+	<p class="indent2">Due to the diversity of the various publishers we cannot list each and every school, subschool and descriptor. All used in existing lst files are valid choices.	</p>
 	<p></p>
 
 <hr>
@@ -1459,6 +1472,6 @@
        	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
 	</p>
 	
-	</body>
+</body>
 
 </html>
