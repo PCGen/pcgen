@@ -15,12 +15,12 @@ CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
 
-SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	CHOICE:Psychometabolism	SPELLLIST:2|Egoist|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Autohypnosis|Balance|Heal
-SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	CHOICE:Psychokinesis	SPELLLIST:2|Kineticist|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
-SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	CHOICE:Psychoportation	SPELLLIST:2|Nomad|Psion		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Climb|Jump|Ride|Survival|Swim
-SUBCLASS:Seer		COST:0	PROHIBITCOST:0	CHOICE:Clairsentience	SPELLLIST:2|Seer|Psion		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Gather Information|Listen|Spot
-SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	CHOICE:Metacreativity	SPELLLIST:2|Shaper|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Bluff|Disguise|Use Psionic Device
-SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	CHOICE:Telepathy		SPELLLIST:2|Telepath|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
+SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Psychometabolism	SPELLLIST:2|Egoist|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Autohypnosis|Balance|Heal
+SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Psychokinesis	SPELLLIST:2|Kineticist|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
+SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Psychoportation	SPELLLIST:2|Nomad|Psion		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Climb|Jump|Ride|Survival|Swim
+SUBCLASS:Seer		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Clairsentience	SPELLLIST:2|Seer|Psion		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Gather Information|Listen|Spot
+SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Metacreativity	SPELLLIST:2|Shaper|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Bluff|Disguise|Use Psionic Device
+SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Telepathy		SPELLLIST:2|Telepath|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
 
 ###Block:Proficiencies
 1	AUTO:FEAT|Psion Weapon Proficiencies
