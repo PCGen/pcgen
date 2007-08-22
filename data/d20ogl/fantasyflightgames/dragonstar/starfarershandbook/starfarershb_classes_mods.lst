@@ -36,9 +36,11 @@ CLASS:Druid.MOD	HASSUBCLASS:YES
 # Class Name	Class Skill
 CLASS:Druid.MOD	CSKILL:Freefall|TYPE.Science|Navigate
 # Druid Subclasses
-SUBCLASS:Traditional Druid	COST:0	CHOICE:Traditional
+#SUBCLASS:Traditional Druid	COST:0	CHOICE:Traditional
+SUBCLASS:Traditional Druid	COST:0
 SUBCLASSLEVEL:1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]							ADD:SPELLCASTER|1|Druid
-SUBCLASS:Liberal Druid		COST:0	CHOICE:Liberal
+#SUBCLASS:Liberal Druid		COST:0	CHOICE:Liberal
+SUBCLASS:Liberal Druid		COST:0
 SUBCLASSLEVEL:1	AUTO:FEAT|Technical Proficiency|HighTechSimple Weapon Proficiency|Armor Proficiency (HighTechLight)
 
 # Class Name	Removed Class Skill			Class Skill									Cross-class Skill

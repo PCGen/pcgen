@@ -121,34 +121,45 @@ CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	ABB:DrD		MAXLEVEL:10	HASSUBCLASS:Y
 CLASS:Dragon Disciple	PRELANG:1,Draconic	!PRERACE:1,TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=NO	PRESPELLCAST:TYPE.Arcane	!PRETEMPLATE:Half Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Escape Artist|Gather Information|TYPE.Knowledge|Listen|TYPE.Profession|Search|Speak Language|Spellcraft|Spot
-SUBCLASS:Black Dragon Disciple	CHOICE:Black Dragon Disciple
+###COMMENT: CHOICE is invalid without COST tag, and as these aren't specializing in a Spell SCHOOL isn't required. Commented out and replaced with COST tag. - AM
+#SUBCLASS:Black Dragon Disciple	CHOICE:Black Dragon Disciple
+SUBCLASS:Black Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	SA:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SA:Immune to Acid
-SUBCLASS:Blue Dragon Disciple		CHOICE:Blue Dragon Disciple
+#SUBCLASS:Blue Dragon Disciple	CHOICE:Blue Dragon Disciple
+SUBCLASS:Blue Dragon Disciple		COST:0
 SUBCLASSLEVEL:3	SA:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SA:Immune to Electricity
-SUBCLASS:Green Dragon Disciple	CHOICE:Green Dragon Disciple
+#SUBCLASS:Green Dragon Disciple	CHOICE:Green Dragon Disciple
+SUBCLASS:Green Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	SA:Cone of Gas (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SA:Immune to Acid
-SUBCLASS:Red Dragon Disciple		CHOICE:Red Dragon Disciple
+#SUBCLASS:Red Dragon Disciple		CHOICE:Red Dragon Disciple
+SUBCLASS:Red Dragon Disciple		COST:0
 SUBCLASSLEVEL:3	SA:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SA:Immune to Fire
-SUBCLASS:White Dragon Disciple	CHOICE:White Dragon Disciple
+#SUBCLASS:White Dragon Disciple	CHOICE:White Dragon Disciple
+SUBCLASS:White Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	SA:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SA:Immune to Cold
-SUBCLASS:Brass Dragon Disciple	CHOICE:Brass Dragon Disciple
+#SUBCLASS:Brass Dragon Disciple	CHOICE:Brass Dragon Disciple
+SUBCLASS:Brass Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	SA:Line of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SA:Immune to Fire
-SUBCLASS:Bronze Dragon Disciple	CHOICE:Bronze Dragon Disciple
+#SUBCLASS:Bronze Dragon Disciple	CHOICE:Bronze Dragon Disciple
+SUBCLASS:Bronze Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	SA:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SA:Immune to Electricity
-SUBCLASS:Copper Dragon Disciple	CHOICE:Copper Dragon Disciple
+#SUBCLASS:Copper Dragon Disciple	CHOICE:Copper Dragon Disciple
+SUBCLASS:Copper Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	SA:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SA:Immune to Acid
-SUBCLASS:Gold Dragon Disciple		CHOICE:Gold Dragon Disciple
+#SUBCLASS:Gold Dragon Disciple		CHOICE:Gold Dragon Disciple
+SUBCLASS:Gold Dragon Disciple		COST:0
 SUBCLASSLEVEL:3	SA:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SA:Immune to Fire
-SUBCLASS:Silver Dragon Disciple	CHOICE:Silver Dragon Disciple
+#SUBCLASS:Silver Dragon Disciple	CHOICE:Silver Dragon Disciple
+SUBCLASS:Silver Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	SA:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SA:Immune to Cold
 1																		BONUS:VAR|BreathWeaponDC|10+CL+CON	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							DEFINE:BreathWeaponDC|0		ADD:FEAT|Bonus Spell Slot 1
