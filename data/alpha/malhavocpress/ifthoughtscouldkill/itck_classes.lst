@@ -26,18 +26,26 @@ CLASS:Psion ITCK	OUTPUTNAME:Psion	HD:4		TYPE:PC.Base	HASSUBCLASS:YES	SOURCEPAGE:
 CLASS:Psion ITCK	STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psion ITCK	SPELLSTAT:OTHER	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion ITCK|CL
-SUBCLASS:Seer	CHOICE:SCHOOL|Clairsentience	SPELLSTAT:WIS	CSKILL:Concentration|Gather Information|Intuit Direction|Knowledge (Psionics)|Listen|Psicraft|Remote View|Sense Motive|Spot
+###COMMENT: CHOICE is invalid, COST:0 replaced CHOICE tag. Commented out the CHOICE tag. - AM
+SUBCLASS:Seer	COST:0	SPELLSTAT:WIS	CSKILL:Concentration|Gather Information|Intuit Direction|Knowledge (Psionics)|Listen|Psicraft|Remote View|Sense Motive|Spot
+#SUBCLASS:Seer	CHOICE:SCHOOL|Clairsentience
 SUBCLASSLEVEL:1	ADD:FEAT|2|Psychometabolism Subdiscipline,Psychokinesis Subdiscipline,Psychoportation Subdiscipline,Metacreativity Subdiscipline,Telepathy Subdiscipline
-SUBCLASS:Shaper	CHOICE:SCHOOL|Metacreativity	SPELLSTAT:INT	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Disguise|Knowledge (Psionics)|Perform|Psicraft|Remote View
+SUBCLASS:Shaper	COST:0	SPELLSTAT:INT	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Disguise|Knowledge (Psionics)|Perform|Psicraft|Remote View
+#SUBCLASS:Shaper	CHOICE:SCHOOL|Metacreativity
 SUBCLASSLEVEL:1	ADD:FEAT|2|Psychometabolism Subdiscipline,Psychokinesis Subdiscipline,Psychoportation Subdiscipline,Clairsentience Subdiscipline,Telepathy Subdiscipline
-SUBCLASS:Savant	CHOICE:SCHOOL|Psychokinesis	SPELLSTAT:CON	CSKILL:Autohypnosis|Concentration|Disable Device|Knowledge (Psionics)|Open Lock|Pick Pocket|Psicraft|Remote View|Search
+SUBCLASS:Savant	COST:0	SPELLSTAT:CON	CSKILL:Autohypnosis|Concentration|Disable Device|Knowledge (Psionics)|Open Lock|Pick Pocket|Psicraft|Remote View|Search
+#SUBCLASS:Savant	CHOICE:SCHOOL|Psychokinesis
 SUBCLASSLEVEL:1	ADD:FEAT|2|Psychometabolism Subdiscipline,Psychoportation Subdiscipline,Metacreativity Subdiscipline,Clairsentience Subdiscipline,Telepathy Subdiscipline
-SUBCLASS:Egoist	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	CSKILL:Autohypnosis|Balance|Climb|Concentration|Jump|Knowledge (Psionics)|Psicraft|Stabilize Self|Swim
+SUBCLASS:Egoist	COST:0	SPELLSTAT:STR	CSKILL:Autohypnosis|Balance|Climb|Concentration|Jump|Knowledge (Psionics)|Psicraft|Stabilize Self|Swim
+#SUBCLASS:Egoist	CHOICE:SCHOOL|Psychometabolism
 SUBCLASSLEVEL:1	ADD:FEAT|2|Psychokinesis Subdiscipline,Psychoportation Subdiscipline,Metacreativity Subdiscipline,Clairsentience Subdiscipline,Telepathy Subdiscipline
-SUBCLASS:Nomad	CHOICE:SCHOOL|Psychoportation	SPELLSTAT:DEX	CSKILL:Climb|Concentration|Escape Artist|Intuit Direction|Jump|Knowledge (Psionics)|Psicraft|Remote View|Ride|Swim|Use Rope
+SUBCLASS:Nomad	COST:0	SPELLSTAT:DEX	CSKILL:Climb|Concentration|Escape Artist|Intuit Direction|Jump|Knowledge (Psionics)|Psicraft|Remote View|Ride|Swim|Use Rope
+#SUBCLASS:Nomad	CHOICE:SCHOOL|Psychoportation
 SUBCLASSLEVEL:1	ADD:FEAT|2|Psychometabolism Subdiscipline,Psychokinesis Subdiscipline,Metacreativity Subdiscipline,Clairsentience Subdiscipline,Telepathy Subdiscipline
-SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy		SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Psionics)|Psicraft|Remote View|Sense Motive
+SUBCLASS:Telepath	COST:0	SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Psionics)|Psicraft|Remote View|Sense Motive
+#SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
 SUBCLASSLEVEL:1	ADD:FEAT|2|Psychometabolism Subdiscipline,Psychokinesis Subdiscipline,Psychoportation Subdiscipline,Metacreativity Subdiscipline,Clairsentience Subdiscipline
+
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 # AUTO:FEAT|PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no

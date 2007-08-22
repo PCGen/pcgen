@@ -7,12 +7,18 @@ CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:s
 CLASS:Psion		STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psion		SPELLSTAT:OTHER	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
-SUBCLASS:Seer	CHOICE:SCHOOL|Clairsentience	SPELLSTAT:WIS	CSKILL:Concentration|Gather Information|Intuit Direction|Knowledge (Psionics)|Listen|Psicraft|Remote View|Sense Motive|Spot
-SUBCLASS:Shaper	CHOICE:SCHOOL|Metacreativity	SPELLSTAT:INT	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Disguise|Knowledge (Psionics)|Perform|Psicraft|Remote View
-SUBCLASS:Savant	CHOICE:SCHOOL|Psychokinesis	SPELLSTAT:CON	CSKILL:Autohypnosis|Concentration|Disable Device|Knowledge (Psionics)|Open Lock|Pick Pocket|Psicraft|Remote View|Search
-SUBCLASS:Egoist	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	CSKILL:Autohypnosis|Balance|Climb|Concentration|Jump|Knowledge (Psionics)|Psicraft|Stabilize Self|Swim
-SUBCLASS:Nomad	CHOICE:SCHOOL|Psychoportation	SPELLSTAT:DEX	CSKILL:Climb|Concentration|Escape Artist|Intuit Direction|Jump|Knowledge (Psionics)|Psicraft|Remote View|Ride|Swim|Use Rope
-SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy		SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Psionics)|Psicraft|Remote View|Sense Motive
+SUBCLASS:Seer	COST:0	SPELLSTAT:WIS	CSKILL:Concentration|Gather Information|Intuit Direction|Knowledge (Psionics)|Listen|Psicraft|Remote View|Sense Motive|Spot
+#SUBCLASS:Seer	CHOICE:SCHOOL|Clairsentience
+SUBCLASS:Shaper	COST:0	SPELLSTAT:INT	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Disguise|Knowledge (Psionics)|Perform|Psicraft|Remote View
+#SUBCLASS:Shaper	CHOICE:SCHOOL|Metacreativity
+SUBCLASS:Savant	COST:0	SPELLSTAT:CON	CSKILL:Autohypnosis|Concentration|Disable Device|Knowledge (Psionics)|Open Lock|Pick Pocket|Psicraft|Remote View|Search
+#SUBCLASS:Savant	CHOICE:SCHOOL|Psychokinesis
+SUBCLASS:Egoist	COST:0	SPELLSTAT:STR	CSKILL:Autohypnosis|Balance|Climb|Concentration|Jump|Knowledge (Psionics)|Psicraft|Stabilize Self|Swim
+#SUBCLASS:Egoist	CHOICE:SCHOOL|Psychometabolism
+SUBCLASS:Nomad	COST:0	SPELLSTAT:DEX	CSKILL:Climb|Concentration|Escape Artist|Intuit Direction|Jump|Knowledge (Psionics)|Psicraft|Remote View|Ride|Swim|Use Rope
+#SUBCLASS:Nomad	CHOICE:SCHOOL|Psychoportation
+SUBCLASS:Telepath	COST:0	SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Psionics)|Psicraft|Remote View|Sense Motive
+#SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 # AUTO:FEAT|PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
