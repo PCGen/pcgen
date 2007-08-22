@@ -25,6 +25,7 @@ EQUIPMENT:rocketrangers_equip.lst
 EQUIPMENT:rocketrangers_equip_armor.lst
 EQUIPMENT:rocketrangers_equip_vehicles.lst
 EQUIPMENT:rocketrangers_equip_weap_ranged.lst
+EQUIPMOD:rocketrangers_equipmods.lst
 KIT:rocketrangers_kits_defaultmonsters.lst
 RACE:rocketrangers_races.lst
 WEAPONPROF:rocketrangers_weaponprofs.lst
