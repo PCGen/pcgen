@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu May 17 21:26:45 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Uncanny Dodge should be moved to Feats/Feat with SAs...
@@ -80,10 +80,10 @@ CLASS:Bard		STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentr
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block:Proficiencies
-1	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow (Composite)|Sword (Short)|Shortbow|Whip
-1																				AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
-1																				AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																				AUTO:FEAT|Shield Proficiency
+1												WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow (Composite)|Sword (Short)|Shortbow|Whip
+1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Bardic abilities level definitions.
 1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl	AUTO:FEAT|Bardic Knowledge
 1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL					AUTO:FEAT|Bardic Music
@@ -416,13 +416,13 @@ CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowle
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
 SUBCLASS:Wizard		COST:0
-SUBCLASS:Abjurer		COST:2	CHOICE:SCHOOL|Abjuration		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASS:Abjurer		COST:2	CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Conjurer		COST:4	CHOICE:SCHOOL|Conjuration	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASS:Diviner		COST:1	CHOICE:SCHOOL|Divination		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASS:Diviner		COST:1	CHOICE:SCHOOL|Divination	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Enchanter	COST:2	CHOICE:SCHOOL|Enchantment	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Evoker		COST:4	CHOICE:SCHOOL|Evocation		KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Illusionist	COST:2	CHOICE:SCHOOL|Illusion		KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASS:Necromancer	COST:1	CHOICE:SCHOOL|Necromancy		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASS:Necromancer	COST:1	CHOICE:SCHOOL|Necromancy	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:1
 ###Block:Proficiencies
 1	AUTO:FEAT|Wizard Weapon Proficiencies|All Automatic Proficiencies

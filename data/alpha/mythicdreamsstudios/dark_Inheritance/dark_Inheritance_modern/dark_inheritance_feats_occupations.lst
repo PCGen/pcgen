@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 #Original Entry by: Frank Kliewe
 
-# Feat Name				Output Name		Type			Visible	Modify VAR			Source Page		ADD:
-Occupation (Caregiver)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.88	ADD:FEAT|3|TYPE=Caregiver_Skills
-Occupation (Child)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO					SOURCEPAGE:p.88	ADD:FEAT|3|TYPE=Child_Skills	ADD:FEAT|1|TYPE=Child
-Occupation (Cultist)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.88	ADD:FEAT|2|TYPE=Cultist_Skills	ADD:FEAT|1|TYPE=Cultist
-Occupation (Gambler)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.89	ADD:FEAT|3|TYPE=Gambler_Skills
-Occupation (Mystic)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.89	ADD:FEAT|2|TYPE=Mystic_Skills	ADD:FEAT|1|TYPE=Mystic_Occupation
-Occupation (Streetperson)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO					SOURCEPAGE:p.89	ADD:FEAT|3|TYPE=Streetperson_Skills
-Occupation (Tribal) [DI]	OUTPUTNAME:Tribal	TYPE:Occupation	VISIBLE:NO					SOURCEPAGE:P.89	ADD:FEAT|3|TYPE=Tribal_DI_Skills	ADD:FEAT|1|TYPE=Tribal_DI
+# Feat Name				Output Name		Type			Visible	Add											Modify VAR			Source Page
+Occupation (Caregiver)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Caregiver_Skills						BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.88
+Occupation (Child)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Child_Skills	ADD:FEAT|1|TYPE=Child							SOURCEPAGE:p.88
+Occupation (Cultist)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Cultist_Skills	ADD:FEAT|1|TYPE=Cultist		BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.88
+Occupation (Gambler)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Gambler_Skills						BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.89
+Occupation (Mystic)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|2|TYPE=Mystic_Skills	ADD:FEAT|1|TYPE=Mystic_Occupation	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.89
+Occupation (Streetperson)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Streetperson_Skills										SOURCEPAGE:p.89
+Occupation (Tribal) [DI]	OUTPUTNAME:Tribal	TYPE:Occupation	VISIBLE:NO	ADD:FEAT|3|TYPE=Tribal_DI_Skills	ADD:FEAT|1|TYPE=Tribal_DI					SOURCEPAGE:P.89
 
 ###Block: The Skill choices
 # Feat Name								Type

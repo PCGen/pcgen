@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we
 # Original Entry by: Paul W. King, Jan 2007
 
@@ -13,16 +13,16 @@ CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Scr
 6																										BONUS:DOMAIN|NUMBER|1	ADD:FEAT|1|TYPE=BalykDomain
 9																										BONUS:DOMAIN|NUMBER|1	ADD:FEAT|1|TYPE=BalykDomain
 ###Block: Normal Level Progression
-1														ADD:SPELLCASTER|1|Divine
-1	BONUS:VAR|HeirBalyk|CL					AUTO:FEAT|Power of Deception
-2									AUTO:FEAT|Dark Blessing		ADD:SPELLCASTER|1|Divine
-3														ADD:SPELLCASTER|1|Divine
-4														ADD:FEAT|1|Leadership,Heir of Balyk Leadership
-5														ADD:SPELLCASTER|1|Divine
-6					BONUS:DOMAIN|NUMBER|1						ADD:SPELLCASTER|1|Divine
-8														ADD:SPELLCASTER|1|Divine
-9					BONUS:DOMAIN|NUMBER|1						ADD:SPELLCASTER|1|Divine
-10									AUTO:FEAT|Extra Domain Spell
+1									ADD:SPELLCASTER|1|Divine
+1	BONUS:VAR|HeirBalyk|CL													AUTO:FEAT|Power of Deception
+2									ADD:SPELLCASTER|1|Divine				AUTO:FEAT|Dark Blessing
+3									ADD:SPELLCASTER|1|Divine
+4									ADD:FEAT|1|Leadership,Heir of Balyk Leadership
+5									ADD:SPELLCASTER|1|Divine
+6					BONUS:DOMAIN|NUMBER|1	ADD:SPELLCASTER|1|Divine
+8									ADD:SPELLCASTER|1|Divine
+9					BONUS:DOMAIN|NUMBER|1	ADD:SPELLCASTER|1|Divine
+10																	AUTO:FEAT|Extra Domain Spell
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
@@ -30,15 +30,15 @@ CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS
 CLASS:Keeper of the Ice	PRECLASS:1,SPELLCASTER.Arcane=1	PREFEAT:2,Spell Focus(Evocation),Endurance	PREFEAT:2,TYPE.Metamagic	PRERACE:1,Elf (Winter)	PRESKILL:1,Knowledge (Arcana)=10	PRESKILL:1,Survival=4	PRESPELL:1,Ice Storm
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Keeper of the Ice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft|Survival
-1	AUTO:FEAT|Cold Spell Mastery		ADD:SPELLCASTER|1|Arcane
-2							ADD:SPELLCASTER|1|Arcane
-3	AUTO:FEAT|Cold Damage Specialization
-4							ADD:SPELLCASTER|1|Arcane
-5	AUTO:FEAT|Cold Spell Conversion	ADD:SPELLCASTER|1|Arcane
-6	AUTO:FEAT|Icy Familiar
-7							ADD:SPELLCASTER|1|Arcane
-8	AUTO:FEAT|Cold Spell Empowerment	ADD:SPELLCASTER|1|Arcane
-10	AUTO:FEAT|Supreme Cold Mastery		ADD:SPELLCASTER|1|Arcane
+1	ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Cold Spell Mastery
+2	ADD:SPELLCASTER|1|Arcane
+3						AUTO:FEAT|Cold Damage Specialization
+4	ADD:SPELLCASTER|1|Arcane
+5	ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Cold Spell Conversion
+6						AUTO:FEAT|Icy Familiar
+7	ADD:SPELLCASTER|1|Arcane
+8	ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Cold Spell Empowerment
+10	ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Supreme Cold Mastery
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Frostfang	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
@@ -61,13 +61,13 @@ CLASS:Thrall of Gaulgardos	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BO
 CLASS:Thrall of Gaulgardos	PREALIGN:LE,NE,CE	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=10	PRESPELL:1,Summon Monster IV	PRESPELLSCHOOL:Conjuration,2,3	PRESPELLSCHOOL:Conjuration,3,2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Gaulgardos	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
-1								AUTO:FEAT|Bloodbond|Demon Ally I
-2	BONUS:VAR|FiendishCall|floor((CL+3)/5)*2	AUTO:FEAT|Fiendish Call			ADD:SPELLCASTER|1|Divine
-3	BONUS:VAR|ThrallGaul|CL				AUTO:FEAT|Strength of the Chosen
-4														ADD:SPELLCASTER|1|Divine
-6														ADD:SPELLCASTER|1|Divine
-8														ADD:SPELLCASTER|1|Divine
-10														ADD:SPELLCASTER|1|Divine
+1													AUTO:FEAT|Bloodbond|Demon Ally I
+2	BONUS:VAR|FiendishCall|floor((CL+3)/5)*2	ADD:SPELLCASTER|1|Divine	AUTO:FEAT|Fiendish Call
+3	BONUS:VAR|ThrallGaul|CL									AUTO:FEAT|Strength of the Chosen
+4								ADD:SPELLCASTER|1|Divine
+6								ADD:SPELLCASTER|1|Divine
+8								ADD:SPELLCASTER|1|Divine
+10								ADD:SPELLCASTER|1|Divine
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Wayjik Demon Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL

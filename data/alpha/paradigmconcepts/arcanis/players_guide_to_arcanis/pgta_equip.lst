@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -143,48 +143,48 @@ Andrean Plate				NAMEISPI:YES							TYPE:Armor.Heavy.Suit.Standard.ExoticArmor		
 Andrean Plate (Proficient)		NAMEISPI:YES	OUTPUTNAME:Andrean Plate		TYPE:Armor.Heavy.Suit.Standard.ExoticArmor		COST:7500	WT:65		PREFEAT:1,Exotic Armor Proficiency(Andrean Plate)		ACCHECK:-4		EQMOD:STEEL	MAXDEX:1		SPELLFAILURE:30		BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE
 
 ###Block: Goods -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Equipment Name				Product Identity?	Output Name							Type								Contains								Cost		Weight	Source Page			Special Property
-Altherian Powder Horn			NAMEISPI:YES									TYPE:Goods.General.Container				CONTAINS:20|Blastpowder=20					COST:5	WT:.5		SOURCEPAGE:pg. 245	SPROP:10 hardness and fire resistance 10.
-Altherian Compass				NAMEISPI:YES									TYPE:Goods.General														COST:2000	WT:90		SOURCEPAGE:pg. 245
-Altherian Sextant				NAMEISPI:YES									TYPE:Goods.General														COST:1000	WT:5		SOURCEPAGE:pg. 245	SPROP:Must have at least 1 rank in Survival and 3 ranks in Profession (cartographer, or Navigator) or Knowledge (Geography). Auto succeed to find position on map.
-Altherian Shot Bandolier		NAMEISPI:YES									TYPE:Goods.General.Container				CONTAINS:20|Blastpowder=20					COST:100	WT:1.5	SOURCEPAGE:pg. 245
-Altherian Shot Belt Pouch		NAMEISPI:YES									TYPE:Goods.General.Container				CONTAINS:20|Blastpowder=20					COST:150	WT:.5		SOURCEPAGE:pg. 245	SPROP:Standard action to open or close. Protects shot from water or fire for 6 rounds.
+# Equipment Name				Product Identity?	Output Name							Type								Contains									Cost		Weight	Source Page			Special Property
+Altherian Powder Horn			NAMEISPI:YES									TYPE:Goods.General.Container				CONTAINS:20|Blastpowder=20						COST:5	WT:.5		SOURCEPAGE:pg. 245	SPROP:10 hardness and fire resistance 10.
+Altherian Compass				NAMEISPI:YES									TYPE:Goods.General															COST:2000	WT:90		SOURCEPAGE:pg. 245
+Altherian Sextant				NAMEISPI:YES									TYPE:Goods.General															COST:1000	WT:5		SOURCEPAGE:pg. 245	SPROP:Must have at least 1 rank in Survival and 3 ranks in Profession (cartographer, or Navigator) or Knowledge (Geography). Auto succeed to find position on map.
+Altherian Shot Bandolier		NAMEISPI:YES									TYPE:Goods.General.Container				CONTAINS:20|Blastpowder=20						COST:100	WT:1.5	SOURCEPAGE:pg. 245
+Altherian Shot Belt Pouch		NAMEISPI:YES									TYPE:Goods.General.Container				CONTAINS:20|Blastpowder=20						COST:150	WT:.5		SOURCEPAGE:pg. 245	SPROP:Standard action to open or close. Protects shot from water or fire for 6 rounds.
 Flintlock Pistol Bandolier													TYPE:Goods.General.Container				CONTAINS:UNLIM|Pistol=4|Blastpowder=8				COST:10	WT:3		SOURCEPAGE:pg. 247	SPROP:Protects items from water and fire for 1 round.
-Mess Cooking Kit							OUTPUTNAME:Mess/Cooking Kit				TYPE:Goods.General														COST:5	WT:2		SOURCEPAGE:pg. 247
-Potion Scroll Belt						OUTPUTNAME:Potion/Scroll Belt				TYPE:Goods.General.Container				CONTAINS:UNLIM|Total=5|Scroll=5|Vial=5|Potion=5		COST:50	WT:1		SOURCEPAGE:pg. 247
-Potion Scroll Bandolier						OUTPUTNAME:Potion/Scroll Bandolier			TYPE:Goods.General.Container				CONTAINS:UNLIM|Total=5|Scroll=5|Vial=5|Potion=5		COST:50	WT:1		SOURCEPAGE:pg. 247
+Mess Cooking Kit							OUTPUTNAME:Mess/Cooking Kit				TYPE:Goods.General															COST:5	WT:2		SOURCEPAGE:pg. 247
+Potion Scroll Belt						OUTPUTNAME:Potion/Scroll Belt				TYPE:Goods.General.Container				CONTAINS:UNLIM|Total=5|Scroll=5|Vial=5|Potion=5			COST:50	WT:1		SOURCEPAGE:pg. 247
+Potion Scroll Bandolier						OUTPUTNAME:Potion/Scroll Bandolier			TYPE:Goods.General.Container				CONTAINS:UNLIM|Total=5|Scroll=5|Vial=5|Potion=5			COST:50	WT:1		SOURCEPAGE:pg. 247
 Spellcaster's Bandolier														TYPE:Goods.General.Container				CONTAINS:UNLIM|Total=10|Wand=4|Scroll=4|Potion=2|Vial=2	COST:60	WT:2		SOURCEPAGE:pg. 248
-Waterproof Flintlock Case (Pistol)												TYPE:Goods.General.Container				CONTAINS:UNLIM|Pistol=1						COST:30	WT:.5		SOURCEPAGE:pg. 248
-Waterproof Flintlock Case (Rifle)												TYPE:Goods.General.Container				CONTAINS:UNLIM|Rifle=1						COST:40	WT:1		SOURCEPAGE:pg. 248
+Waterproof Flintlock Case (Pistol)												TYPE:Goods.General.Container				CONTAINS:UNLIM|Pistol=1							COST:30	WT:.5		SOURCEPAGE:pg. 248
+Waterproof Flintlock Case (Rifle)												TYPE:Goods.General.Container				CONTAINS:UNLIM|Rifle=1							COST:40	WT:1		SOURCEPAGE:pg. 248
 Wrist Holder															TYPE:Goods.General.Container				CONTAINS:UNLIM|Any=1							COST:10	WT:.5		SOURCEPAGE:pg. 248
 Wrist Holder (Masterwork)					OUTPUTNAME:Wrist Holder, Masterwork			TYPE:Goods.General.Container.Masterwork		CONTAINS:UNLIM|Any=1							COST:50	WT:0		SOURCEPAGE:pg. 248
 
-Altherian Signal Rocket (Flare)	NAMEISPI:YES									TYPE:Goods.Alchemical														COST:100	WT:1		SOURCEPAGE:pg.
-Altherian Signal Rocket (Flash)	NAMEISPI:YES									TYPE:Goods.Alchemical														COST:50	WT:1		SOURCEPAGE:pg. 246
-Altherian Signal Rocket (Whistle)	NAMEISPI:YES									TYPE:Goods.Alchemical														COST:40	WT:1		SOURCEPAGE:pg. 246
+Altherian Signal Rocket (Flare)	NAMEISPI:YES									TYPE:Goods.Alchemical															COST:100	WT:1		SOURCEPAGE:pg.
+Altherian Signal Rocket (Flash)	NAMEISPI:YES									TYPE:Goods.Alchemical															COST:50	WT:1		SOURCEPAGE:pg. 246
+Altherian Signal Rocket (Whistle)	NAMEISPI:YES									TYPE:Goods.Alchemical															COST:40	WT:1		SOURCEPAGE:pg. 246
 
-Flintlock Toolkit (Pistol)													TYPE:Goods.Tools															COST:10	WT:1		SOURCEPAGE:pg. 247
-Flintlock Toolkit (Rifle)													TYPE:Goods.Tools															COST:20	WT:2		SOURCEPAGE:pg. 247
-Map Making Kit															TYPE:Goods.Tools.Artisan.CartographerTools										COST:150	WT:5		SOURCEPAGE:pg. 247
+Flintlock Toolkit (Pistol)													TYPE:Goods.Tools																COST:10	WT:1		SOURCEPAGE:pg. 247
+Flintlock Toolkit (Rifle)													TYPE:Goods.Tools																COST:20	WT:2		SOURCEPAGE:pg. 247
+Map Making Kit															TYPE:Goods.Tools.Artisan.CartographerTools											COST:150	WT:5		SOURCEPAGE:pg. 247
 
-Book (Blank/Papyrus)														TYPE:Goods.General.Writing.Documents											COST:10	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
-Book (Blank/Parchment)														TYPE:Goods.General.Writing.Documents											COST:12	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
-Book (Blank/Paper)														TYPE:Goods.General.Writing.Documents											COST:13	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
-Book (Blank/Vellum)														TYPE:Goods.General.Writing.Documents											COST:15	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
-Ink (Writing/Black/5 oz.)					OUTPUTNAME:Ink, Writing, Black, 5 oz.		TYPE:Goods.General.Writing													COST:10	WT:0		SOURCEPAGE:pg. 247
-Ink (Writing/Assorted Colors/2 oz.)				OUTPUTNAME:Ink, Writing, Assorted Colors, 2 oz.	TYPE:Goods.General.Writing													COST:32	WT:0		SOURCEPAGE:pg. 247
+Book (Blank/Papyrus)														TYPE:Goods.General.Writing.Documents												COST:10	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
+Book (Blank/Parchment)														TYPE:Goods.General.Writing.Documents												COST:12	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
+Book (Blank/Paper)														TYPE:Goods.General.Writing.Documents												COST:13	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
+Book (Blank/Vellum)														TYPE:Goods.General.Writing.Documents												COST:15	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
+Ink (Writing/Black/5 oz.)					OUTPUTNAME:Ink, Writing, Black, 5 oz.		TYPE:Goods.General.Writing														COST:10	WT:0		SOURCEPAGE:pg. 247
+Ink (Writing/Assorted Colors/2 oz.)				OUTPUTNAME:Ink, Writing, Assorted Colors, 2 oz.	TYPE:Goods.General.Writing														COST:32	WT:0		SOURCEPAGE:pg. 247
 
-Boat (Collapsable)						OUTPUTNAME:Boat, Collapsable				TYPE:Goods.Transportation.Container.Ships		CONTAINS:600|Any=UNLIM						COST:600	WT:50		SOURCEPAGE:pg. 246
-Chariot (Riding)							OUTPUTNAME:Chariot, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:600|Any=UNLIM						COST:75	WT:250	SOURCEPAGE:pg. 247
-Chariot (Riding/Fine)						OUTPUTNAME:Chariot, Riding, Fine			TYPE:Goods.Transportation.Container			CONTAINS:600|Any=UNLIM						COST:200	WT:275	SOURCEPAGE:pg. 247
-Chariot (Riding/Elaborate)					OUTPUTNAME:Chariot, Riding, Elaborate		TYPE:Goods.Transportation.Container			CONTAINS:600|Any=UNLIM						COST:400	WT:300	SOURCEPAGE:pg. 247
-Chariot (War)							OUTPUTNAME:Chariot, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:1200|Any=UNLIM						COST:150	WT:350	SOURCEPAGE:pg. 247
-Chariot (War/Commanders)					OUTPUTNAME:Chariot, War, Commanders			TYPE:Goods.Transportation.Container			CONTAINS:1200|Any=UNLIM						COST:300	WT:375	SOURCEPAGE:pg. 247
-Coach (Ornamental)						OUTPUTNAME:Coach, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:3120|Any=UNLIM						COST:7000	WT:750	SOURCEPAGE:pg. 247
-Coach (War)								OUTPUTNAME:Coach, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:3120|Any=UNLIM						COST:1500	WT:1000	SOURCEPAGE:pg. 247
+Boat (Collapsable)						OUTPUTNAME:Boat, Collapsable				TYPE:Goods.Transportation.Container.Ships		CONTAINS:600|Any=UNLIM							COST:600	WT:50		SOURCEPAGE:pg. 246
+Chariot (Riding)							OUTPUTNAME:Chariot, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:600|Any=UNLIM							COST:75	WT:250	SOURCEPAGE:pg. 247
+Chariot (Riding/Fine)						OUTPUTNAME:Chariot, Riding, Fine			TYPE:Goods.Transportation.Container			CONTAINS:600|Any=UNLIM							COST:200	WT:275	SOURCEPAGE:pg. 247
+Chariot (Riding/Elaborate)					OUTPUTNAME:Chariot, Riding, Elaborate		TYPE:Goods.Transportation.Container			CONTAINS:600|Any=UNLIM							COST:400	WT:300	SOURCEPAGE:pg. 247
+Chariot (War)							OUTPUTNAME:Chariot, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:1200|Any=UNLIM							COST:150	WT:350	SOURCEPAGE:pg. 247
+Chariot (War/Commanders)					OUTPUTNAME:Chariot, War, Commanders			TYPE:Goods.Transportation.Container			CONTAINS:1200|Any=UNLIM							COST:300	WT:375	SOURCEPAGE:pg. 247
+Coach (Ornamental)						OUTPUTNAME:Coach, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:3120|Any=UNLIM							COST:7000	WT:750	SOURCEPAGE:pg. 247
+Coach (War)								OUTPUTNAME:Coach, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:3120|Any=UNLIM							COST:1500	WT:1000	SOURCEPAGE:pg. 247
 
 ###Block: Misc. Items -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Equipment Name		Type					Cost		Weight	ADD:
+# Equipment Name		Type					Cost		Weight	Add
 White Sash of Purity	TYPE:Special.Cert.Station	COST:0	WT:0		ADD:FEAT|1|TYPE=Gentry
 
 #

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Nov  5 06:31:57 2006 -- reformated by prettylst.pl v1.35 (build 1544)
-SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/informatica/poder/secular/site/products.html#aa
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa
 #Originally done by Paul W. King
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
@@ -34,9 +34,9 @@ CLASS:Arcane Archer ~ Core	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CA
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3
 ###Block: Proficiencies
-1					AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1					AUTO:FEAT|Armor Proficiency (Light)
-1	AUTO:SHIELDPROF|Buckler
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+1																						AUTO:SHIELDPROF|Buckler
 ###Block: Standard
 1																	VFEAT:Point Blank Shot
 2																	VFEAT:Weapon Focus

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 #Original Author: kingpaul, Updated by Beaver and Tir Gwaith
 
 SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
@@ -63,24 +63,24 @@ CLASS:Ranger (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|L
 1	SPELLLEVEL:CLASS|Ranger (BoHM)=3|Control Plants,Cure Moderate Wounds,Diminish Plants,Greater Magic Fang,Neutralize Poison,Plant Growth,Remove Disease,Summon Nature's Ally III,Tree Shape,Water Walk
 1	SPELLLEVEL:CLASS|Ranger (BoHM)=4|Aeonian Lantern,Cure Serious Wounds,Freedom of Movement,Nondetection,Polymorph Self,Summon Nature's Ally IV,Tree Stride,Unite Allies,Wind Wall
 ###Block: Normal level progression
-1				AUTO:FEAT|Track	ADD:FEAT|1|TYPE=RangerFavored
-4	CAST:0,0					ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
-5	CAST:0,0					ADD:FEAT|1|TYPE=RangerFavored
+1				ADD:FEAT|1|TYPE=RangerFavored																																																																		AUTO:FEAT|Track
+4	CAST:0,0		ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
+5	CAST:0,0		ADD:FEAT|1|TYPE=RangerFavored
 6	CAST:0,1
 7	CAST:0,1,0
-8	CAST:0,1,0					ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
+8	CAST:0,1,0		ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
 9	CAST:0,1,1
-10	CAST:0,1,1,0				ADD:FEAT|1|TYPE=RangerFavored
+10	CAST:0,1,1,0	ADD:FEAT|1|TYPE=RangerFavored
 11	CAST:0,2,1,0
-12	CAST:0,2,1,1				ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
+12	CAST:0,2,1,1	ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
 13	CAST:0,2,1,1,0
 14	CAST:0,2,2,1,0
-15	CAST:0,2,2,1,1				ADD:FEAT|1|TYPE=RangerFavored
-16	CAST:0,3,2,2,1				ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
+15	CAST:0,2,2,1,1	ADD:FEAT|1|TYPE=RangerFavored
+16	CAST:0,3,2,2,1	ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
 17	CAST:0,3,3,2,1
 18	CAST:0,3,3,2,2
 19	CAST:0,3,3,3,2
-20	CAST:0,4,3,3,3				ADD:FEAT|1|TYPE=RangerFavored	ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
+20	CAST:0,4,3,3,3	ADD:FEAT|1|TYPE=RangerFavored	ADD:FEAT|1|Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Blessed Prelate	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BPr		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4

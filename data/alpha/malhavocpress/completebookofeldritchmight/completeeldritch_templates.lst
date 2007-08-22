@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 # Original Entry by: Felipe Diniz
 
@@ -6,7 +6,7 @@ SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEM
 # Miss a PREHITDICESIZE for the Magical Construct
 
 #Name
-# Template Name			Product Identity?	Hit Dice Size	CR	Visible	Damage Reduction	Level Adjustment	Template															Source Page		Special Ability																																																Define																						Required AL			Combat bonus									Bonus to HP											Multiply base move													Bonus to skill						Stat bonus												Move		Removable?		Type			Vision					Hit Dice					ADD:
+# Template Name			Product Identity?	Hit Dice Size	CR	Visible	Damage Reduction	Level Adjustment	Template															Source Page		Special Ability																																																Define																						Required AL			Combat bonus									Bonus to HP											Multiply base move													Bonus to skill						Stat bonus												Move		Removable?		Type			Vision					Hit Dice					Add
 Arcane Angel										VISIBLE:NO																							SOURCEPAGE:p.189	SA:Summon Celestial Monsters (Sp)																																																																																																																																						REMOVABLE:NO
 Celestial Qualities									VISIBLE:NO																							SOURCEPAGE:p.190	SA:Aura of Menace (Su)	SA:Protective Aura (Su)	SA:Teleport (Su)	SA:Tongues (Su)	SA:Immunities (Ex)	SA:Resistances (Ex)	SA:Keen Vision (Ex)																																																																																																																		REMOVABLE:NO				VISION:Low-light|Darkvision (60')
 Extraplanar											VISIBLE:YES																							SOURCEPAGE:p.189	SA:Not native to the material plane																																																																																																																																						REMOVABLE:NO

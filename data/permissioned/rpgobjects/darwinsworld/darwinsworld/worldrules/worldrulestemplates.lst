@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
 # Original entry by wizofice2001
 
@@ -16,7 +16,7 @@ SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCE
 # RITUAL PRESERVATIONIST - May use his starting money to buy from the Junk Items, Arcanum, Gizmos, and Advanced Weapons categories
 # VISIONARY REINVENTOR - May use his starting money to buy from the Good Juju, Arcanum, Gizmos, and Advanced Weapons categories
 
-# Template Name		Product Identity?	Level Adjustment					Source Page			Required Race													Prohibited Template																				Bonus to skill											Stat bonus											Class Skill			FAVOREDCLASS			Feat																									Automatic Languages	Bonus Languages			Removable?		SUBRACE	Optionnal Weapon Prof.						ADD:
+# Template Name		Product Identity?	Level Adjustment					Source Page			Required Race													Prohibited Template																				Bonus to skill											Stat bonus											Class Skill			FAVOREDCLASS			Feat																									Automatic Languages	Bonus Languages			Removable?		SUBRACE	Optionnal Weapon Prof.						Add
 Advanced			NAMEISPI:YES	LEVELADJUSTMENT:RacialAdjust+2		SOURCEPAGE:p.16		PRERACE:1,3rd Generation Mutant,Human (DW)								!PRETEMPLATE:Degenerate|Feral|Guardian|Hedonist|Primitive|Radical|Resentful|Resurrector|Ritual Preservationist|Visionary Reinventor															BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-4				CSKILL:TYPE.Knowledge	FAVOREDCLASS:Thinker		FEAT:Martial Weapon Proficiency|Exotic Weapon Proficiency|All Martial Weapon Proficiencies|All Exotic Weapon Proficiencies					LANGAUTO:Ancient		LANGBONUS:Computer		REMOVABLE:NO	SUBRACE:Yes
 Degenerate			NAMEISPI:YES	LEVELADJUSTMENT:RacialAdjust			SOURCEPAGE:p.14		PRERACE:1,1st Generation Mutant,Human (DW)								!PRETEMPLATE:Advanced|Feral|Guardian|Hedonist|Primitive|Radical|Resentful|Resurrector|Ritual Preservationist|Visionary Reinventor															BONUS:STAT|INT|1	BONUS:STAT|CHA|-1											FAVOREDCLASS:Guardian		FEAT:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies										LANGAUTO:Gutter Talk	LANGBONUS:Ancient,Computer	REMOVABLE:NO	SUBRACE:Yes
 Feral				NAMEISPI:YES	LEVELADJUSTMENT:(RacialAdjust-2)MAX0	SOURCEPAGE:p.12		PRERACE:1,1st Generation Mutant,Human (DW)								!PRETEMPLATE:Advanced|Degenerate|Guardian|Hedonist|Primitive|Radical|Resentful|Resurrector|Ritual Preservationist|Visionary Reinventor	BONUS:SKILL|Handle Animal,Hide,Wilderness Lore|2|TYPE=Racial			BONUS:STAT|STR|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-1	BONUS:STAT|CHA|-2	CSKILL:Animal Empathy	FAVOREDCLASS:Scav			FEAT:Simple Weapon Proficiency																								LANGBONUS:Unislang		REMOVABLE:NO	SUBRACE:Yes

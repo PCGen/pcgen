@@ -1,4 +1,4 @@
-# CVS $Revision: 314 $ $Author: tir-gwaith $ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision: 314 $ $Author: tir-gwaith $ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
@@ -38,10 +38,10 @@ CLASS:Druid.MOD	CSKILL:Freefall|TYPE.Science|Navigate
 # Druid Subclasses
 #SUBCLASS:Traditional Druid	COST:0	CHOICE:Traditional
 SUBCLASS:Traditional Druid	COST:0
-SUBCLASSLEVEL:1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]							ADD:SPELLCASTER|1|Druid
+SUBCLASSLEVEL:1	ADD:SPELLCASTER|1|Druid	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
 #SUBCLASS:Liberal Druid		COST:0	CHOICE:Liberal
 SUBCLASS:Liberal Druid		COST:0
-SUBCLASSLEVEL:1	AUTO:FEAT|Technical Proficiency|HighTechSimple Weapon Proficiency|Armor Proficiency (HighTechLight)
+SUBCLASSLEVEL:1					AUTO:FEAT|Technical Proficiency|HighTechSimple Weapon Proficiency|Armor Proficiency (HighTechLight)
 
 # Class Name	Removed Class Skill			Class Skill									Cross-class Skill
 CLASS:Fighter.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Climb|TYPE.Craft|Jump|Swim|Demolition|Freefall|Pilot	CCSKILL:Handle Animal|Ride

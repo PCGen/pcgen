@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 19:54:05 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -33,7 +33,7 @@ Interaction Specialist	TYPE:SpecialistTraining	VISIBLE:NO	PRECLASS:1,Epic Infilt
 
 ###Block: Epic Spellcasting Support
 
-# Feat Name						Type			Visible	ADD:SPELLCASTER					Bonus to spell cast/day
+# Feat Name						Type			Visible	Add							Bonus to spell cast/day
 Epic Spellcaster (Arcane/INT Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER|Epic Spells (Arcane/INT)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/INT);LEVEL=10|EpicSpellsPerDay
 Epic Spellcaster (Arcane/WIS Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER|Epic Spells (Arcane/WIS)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/WIS);LEVEL=10|EpicSpellsPerDay
 Epic Spellcaster (Arcane/CHA Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER|Epic Spells (Arcane/CHA)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/CHA);LEVEL=10|EpicSpellsPerDay

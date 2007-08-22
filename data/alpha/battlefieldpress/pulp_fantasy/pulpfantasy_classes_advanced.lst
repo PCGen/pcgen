@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jul 13 12:32:04 2007 -- reformated by prettylst.pl v1.38 (build 2949)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
@@ -81,16 +81,16 @@ CLASS:Driver	HD:8		TYPE:Advanced.PC	ABB:Drv		MAXLEVEL:10	SOURCEPAGE:p.99	BONUS:C
 CLASS:Driver	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Driver	STARTSKILLPTS:5	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|Speak Language|Tumble
-1	ADD:FEAT|1|Uncanny Dodge I,Uncanny Dodge II	QUALIFY:FEAT|Uncanny Dodge I|Uncanny Dodge II
-2																	AUTO:FEAT|Hit the weak Spot
-3	ADD:FEAT|1|TYPE.Driver													AUTO:FEAT|Vehicle Empathy
-4																	AUTO:FEAT|Need for Speed
-5																	AUTO:FEAT|Nursing the Turns
-6	ADD:FEAT|1|TYPE.Driver													AUTO:FEAT|Commandeer
-7																	AUTO:FEAT|Leadfoot
-8																	AUTO:FEAT|Redlining the Needle
-9	ADD:FEAT|1|TYPE.Driver													AUTO:FEAT|Restore Vehicle
-10																	AUTO:FEAT|One with the Vehicle
+1	ADD:FEAT|1|Uncanny Dodge I,Uncanny Dodge II							QUALIFY:FEAT|Uncanny Dodge I|Uncanny Dodge II
+2									AUTO:FEAT|Hit the weak Spot
+3	ADD:FEAT|1|TYPE.Driver					AUTO:FEAT|Vehicle Empathy
+4									AUTO:FEAT|Need for Speed
+5									AUTO:FEAT|Nursing the Turns
+6	ADD:FEAT|1|TYPE.Driver					AUTO:FEAT|Commandeer
+7									AUTO:FEAT|Leadfoot
+8									AUTO:FEAT|Redlining the Needle
+9	ADD:FEAT|1|TYPE.Driver					AUTO:FEAT|Restore Vehicle
+10									AUTO:FEAT|One with the Vehicle
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus		Modify VAR
 CLASS:Explorer	HD:8		TYPE:Advanced.PC	ABB:Expl		MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6

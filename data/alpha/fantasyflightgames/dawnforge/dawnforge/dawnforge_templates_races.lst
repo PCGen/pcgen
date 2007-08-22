@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn and Tir Gwaith
 
@@ -10,7 +10,7 @@ SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/
 
 
 #These templates are all added from the race.
-# Template Name				Visible	Source Page		Define				Stat bonus																			Modify VAR					Removable?		ADD:
+# Template Name				Visible	Source Page		Define				Stat bonus																			Modify VAR					Removable?		Add
 Racial Progression Doppelganger	VISIBLE:NO	SOURCEPAGE:p.20	DEFINE:AlternateFormChoices|0	BONUS:STAT|DEX|2|PRELEVEL:3	BONUS:STAT|CHA|2|PRELEVEL:5	BONUS:STAT|INT|2|PRELEVEL:7	BONUS:STAT|CON|2|PRELEVEL:9	BONUS:VAR|AlternateFormChoices|1	REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelBaseAltForm
 Racial Progression Dwarf		VISIBLE:NO	SOURCEPAGE:p.23						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|STR|2|PRELEVEL:5	BONUS:STAT|CON|2|PRELEVEL:7	BONUS:STAT|WIS|2|PRELEVEL:9							REMOVABLE:NO
 Racial Progression Dawn Elf		VISIBLE:NO	SOURCEPAGE:p.26						BONUS:STAT|INT|2|PRELEVEL:3	BONUS:STAT|DEX|2|PRELEVEL:5	BONUS:STAT|CHA|2|PRELEVEL:7	BONUS:STAT|DEX|2|PRELEVEL:9							REMOVABLE:NO
@@ -29,7 +29,7 @@ Racial Progression Tiefling		VISIBLE:NO	SOURCEPAGE:p.53						BONUS:STAT|CON|2|PR
 Racial Progression Thinblood		VISIBLE:NO	SOURCEPAGE:p.56						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|WIS|2|PRELEVEL:5	BONUS:STAT|INT|2|PRELEVEL:7	BONUS:STAT|CHA|2|PRELEVEL:9							REMOVABLE:NO
 
 ###Block: The progression blocks
-# Template Name				Visible	Source Page		Required Lvl	Required Race					Removable?		ADD:
+# Template Name				Visible	Source Page		Required Lvl	Required Race					Removable?		Add
 Doppelganger Progression level 01	VISIBLE:YES	SOURCEPAGE:p.20				PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent1
 Doppelganger Progression level 02	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:2		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation2
 Doppelganger Progression level 03	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:3		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent3
@@ -41,7 +41,7 @@ Doppelganger Progression level 08	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:8		PRERAC
 Doppelganger Progression level 09	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:9		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent9
 Doppelganger Progression level 10	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:10		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation10
 
-# Template Name				Visible	Source Page		Required Lvl	Required Race					Removable?		ADD:
+# Template Name				Visible	Source Page		Required Lvl	Required Race					Removable?		Add
 Dwarf Progression level 01		VISIBLE:YES	SOURCEPAGE:p.23				PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent1
 Dwarf Progression level 02		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:2		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation2
 Dwarf Progression level 03		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:3		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent3

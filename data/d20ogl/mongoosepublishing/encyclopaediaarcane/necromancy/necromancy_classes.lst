@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 #Official Errata from Mongoose on Necrophage - The Table is incorrect about Spellcasting levels - The Class Features:Spells per Day section is correct
 
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com
@@ -10,16 +10,16 @@ CLASS:Spectral Loremaster	HD:4		TYPE:PC.Prestige	ABB:SpL		MAXLEVEL:10	SOURCEPAGE
 CLASS:Spectral Loremaster	PREFEAT:1,Spell Focus	PRESKILL:2,Knowledge (Arcana),Knowledge (Necrology)=7	PRESPELLSCHOOL:Necromancy,1,1	!PRESPELLSCHOOLSUB:Divination,1,1	PRESPELLTYPE:1,Arcane=1
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Spectral Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|Gather Information|TYPE.Knowledge|Scry|Spellcraft
-1	SA:Speak with Dead %/Day|SpeakDead	DEFINE:SpeakDead|1																		SPELLS:Special Ability|TIMES=1|Speak with Dead	ADD:SPELLCASTER|1|Arcane
-2	SA:Spectral Investigation																															ADD:SPELLCASTER|1|Arcane
-3	SA:Divination																									SPELLS:Special Ability|TIMES=1|Divination		ADD:SPELLCASTER|1|Arcane
-4	SA:Lost Arcane Lore																																ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic,TYPE=Supernatural
-5	SA:Commune																																		ADD:SPELLCASTER|1|Arcane
-6	SA:Contact Other Plane																																ADD:SPELLCASTER|1|Arcane
-7	SA:Lessons from the Grave						CSKILL:TYPE.Wisdom|TYPE.Intelligence|TYPE.Strength|TYPE.Constitution|TYPE.Dexterity|TYPE.Charisma									ADD:SPELLCASTER|1|Arcane
-8	SA:Spectral Lore																																	ADD:SPELLCASTER|1|Arcane
-9	SA:Lost Arcane Lore																																ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic,TYPE=Supernatural
-10	SA:The Veil Parted																																ADD:SPELLCASTER|1|Arcane
+1	SA:Speak with Dead %/Day|SpeakDead	DEFINE:SpeakDead|1																		ADD:SPELLCASTER|1|Arcane												SPELLS:Special Ability|TIMES=1|Speak with Dead
+2	SA:Spectral Investigation																							ADD:SPELLCASTER|1|Arcane
+3	SA:Divination																									ADD:SPELLCASTER|1|Arcane												SPELLS:Special Ability|TIMES=1|Divination
+4	SA:Lost Arcane Lore																								ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic,TYPE=Supernatural
+5	SA:Commune																										ADD:SPELLCASTER|1|Arcane
+6	SA:Contact Other Plane																								ADD:SPELLCASTER|1|Arcane
+7	SA:Lessons from the Grave						CSKILL:TYPE.Wisdom|TYPE.Intelligence|TYPE.Strength|TYPE.Constitution|TYPE.Dexterity|TYPE.Charisma	ADD:SPELLCASTER|1|Arcane
+8	SA:Spectral Lore																									ADD:SPELLCASTER|1|Arcane
+9	SA:Lost Arcane Lore																								ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic,TYPE=Supernatural
+10	SA:The Veil Parted																								ADD:SPELLCASTER|1|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
 CLASS:Deathseeker	HD:4		TYPE:PC.Prestige	ABB:DSR		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

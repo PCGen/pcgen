@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -19,16 +19,16 @@ CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLB
 ###Block: Evocation DC bonus
 1	BONUS:DC|SCHOOL.Evocation|EvocationFocus	DEFINE:EvocationFocus|0
 ###Block: Normal Level Progression
-1	CAST:4,2				SA:Devotion																						ADD:FEAT|1|TYPE=EvocationMastery
+1	CAST:4,2				SA:Devotion																			ADD:FEAT|1|TYPE=EvocationMastery
 2	CAST:5,3				SA:Augment evocation (% levels)|AugmentEvocation	BONUS:VAR|AugmentEvocation|CL/4+1	DEFINE:AugmentEvocation|0
 3	CAST:5,3,2				SA:Evocation focus (+%)|EvocationFocus			BONUS:VAR|EvocationFocus|CL/6+1
 4	CAST:5,4,3
-5	CAST:5,4,3,2																							VFEAT:Evasion
+5	CAST:5,4,3,2																													VFEAT:Evasion
 6	CAST:5,4,4,3
 7	CAST:5,5,4,3,2
 8	CAST:5,5,4,4,3
 9	CAST:5,5,5,4,3,2
-10	CAST:5,5,5,4,4,3																										ADD:FEAT|1|TYPE=EvocationMastery
+10	CAST:5,5,5,4,4,3																							ADD:FEAT|1|TYPE=EvocationMastery
 11	CAST:5,5,5,5,4,3,2
 12	CAST:5,5,5,5,4,4,3
 13	CAST:5,5,5,5,5,4,3,2
@@ -38,7 +38,7 @@ CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLB
 17	CAST:5,5,5,5,5,5,5,4,3,2
 18	CAST:5,5,5,5,5,5,5,4,4,3
 19	CAST:5,5,5,5,5,5,5,5,4,4
-20	CAST:5,5,5,5,5,5,5,5,5,5																								ADD:FEAT|1|TYPE=EvocationMastery
+20	CAST:5,5,5,5,5,5,5,5,5,5																					ADD:FEAT|1|TYPE=EvocationMastery
 
 
 #

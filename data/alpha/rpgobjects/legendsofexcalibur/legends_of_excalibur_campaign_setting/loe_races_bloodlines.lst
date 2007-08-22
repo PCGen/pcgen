@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # These bloodlines impact a character's starting nobility, which isn't treated like the standard stats.
 #   Not sure how to code that atm.
 # Also, bloodline determines what you're starting gold is, which I also don't know ow to code.
 
-# Race Name			Favored Class		Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Automatic Languages		Bonus to skill							Stat bonus					Special Ability								Main Race Type	Source Page		ADD:
+# Race Name			Favored Class		Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Automatic Languages		Bonus to skill							Stat bonus					Special Ability								Main Race Type	Source Page		Add
 Base/Criminal		FAVCLASS:Rogue						STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English			BONUS:SKILL|Search,Spot,Survival|2|TYPE=Bloodline	BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2	SA:Illiterate	SA:Survivor (Ex)					RACETYPE:Humanoid	SOURCEPAGE:p5	ADD:FEAT|1|TYPE=BaseCriminal
 # starting nobility is 10+1d10
 # starting gold is 2d6 * nobility

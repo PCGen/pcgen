@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
 
 ###Block: Occupations
-# Feat Name					Output Name			Type			Visible	Prohibited Race		Modify VAR							Source Page		ADD:
-Occupation (Explorer)			OUTPUTNAME:[NAME]		TYPE:Occupation	VISIBLE:NO	!PRERACE:1,TYPE=Robot	BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.2	ADD:FEAT|2|TYPE=Explorer_Skills
-Occupation (Primitive)			OUTPUTNAME:[NAME]		TYPE:Occupation	VISIBLE:NO	!PRERACE:1,TYPE=Robot									SOURCEPAGE:p.2	ADD:FEAT|3|TYPE=Primitive_Skills	ADD:FEAT|1|TYPE=Primitive_Feat
-Occupation (Psychic - Roaring 20s)	OUTPUTNAME:Psychic	TYPE:Occupation	VISIBLE:NO	!PRERACE:1,TYPE=Robot	BONUS:VAR|Reputation|1					SOURCEPAGE:p.2	ADD:FEAT|2|TYPE=Psychic_Roaring_Skills	ADD:FEAT|1|TYPE=Psychic_Roaring_Feat
+# Feat Name					Output Name			Type			Visible	Prohibited Race		Add														Modify VAR							Source Page
+Occupation (Explorer)			OUTPUTNAME:[NAME]		TYPE:Occupation	VISIBLE:NO	!PRERACE:1,TYPE=Robot	ADD:FEAT|2|TYPE=Explorer_Skills									BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.2
+Occupation (Primitive)			OUTPUTNAME:[NAME]		TYPE:Occupation	VISIBLE:NO	!PRERACE:1,TYPE=Robot	ADD:FEAT|3|TYPE=Primitive_Skills	ADD:FEAT|1|TYPE=Primitive_Feat											SOURCEPAGE:p.2
+Occupation (Psychic - Roaring 20s)	OUTPUTNAME:Psychic	TYPE:Occupation	VISIBLE:NO	!PRERACE:1,TYPE=Robot	ADD:FEAT|2|TYPE=Psychic_Roaring_Skills	ADD:FEAT|1|TYPE=Psychic_Roaring_Feat	BONUS:VAR|Reputation|1					SOURCEPAGE:p.2
 
 ###Block: Skill feat mods
 # Feat Name								Type

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -51,16 +51,16 @@ CLASS:Arcane Herald	HD:4		TYPE:PC.Prestige	ABB:Her		MAXLEVEL:10	SOURCEPAGE:p.7	B
 CLASS:Arcane Herald	PREFEAT:1,Scribe Scroll	PRESKILL:1,Knowledge (Heraldry)=8	PRESPELL:1,Stolen Sight	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Herald	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|Innuendo|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Ride|Scry|Sense Motive|Spellcraft
-1	SA:Grand Words			BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar	ADD:SPELLCASTER|1|ANY
-2	SA:Craft Ink												ADD:SPELLCASTER|1|ANY
-3	SA:Clever Wit												ADD:SPELLCASTER|1|ANY
-4	SA:Elegant Hand (messages)										ADD:SPELLCASTER|1|ANY
-5	SA:Showy Gestures												ADD:SPELLCASTER|1|ANY
-6	SA:Tidings													ADD:SPELLCASTER|1|ANY
-7	SA:Meaningful Glances											ADD:SPELLCASTER|1|ANY
-8	SA:Elegant Hand (illusions)										ADD:SPELLCASTER|1|ANY
-9	SA:Renowned Prowess											ADD:SPELLCASTER|1|ANY
-10	SA:The Messenger												ADD:SPELLCASTER|1|ANY
+1	SA:Grand Words			BONUS:VAR|FMLevel|CL	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Summon Familiar
+2	SA:Craft Ink							ADD:SPELLCASTER|1|ANY
+3	SA:Clever Wit							ADD:SPELLCASTER|1|ANY
+4	SA:Elegant Hand (messages)					ADD:SPELLCASTER|1|ANY
+5	SA:Showy Gestures							ADD:SPELLCASTER|1|ANY
+6	SA:Tidings								ADD:SPELLCASTER|1|ANY
+7	SA:Meaningful Glances						ADD:SPELLCASTER|1|ANY
+8	SA:Elegant Hand (illusions)					ADD:SPELLCASTER|1|ANY
+9	SA:Renowned Prowess						ADD:SPELLCASTER|1|ANY
+10	SA:The Messenger							ADD:SPELLCASTER|1|ANY
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
@@ -177,16 +177,16 @@ CLASS:Shadowmancer	HD:4		TYPE:PC.Prestige	ABB:Sha		MAXLEVEL:10	SOURCEPAGE:p.21	B
 CLASS:Shadowmancer	PREFEAT:2,Silent Spell,Still Spell	PRESKILL:2,Hide,Move Silently=8	PRESPELL:1,Deeper Darkness	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowmancer	STARTSKILLPTS:2	CSKILL:Concentration|Hide|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|TYPE.Profession|Spellcraft
-1						SA:Dark Research								AUTO:ARMORPROF|TYPE=Light	ADD:SPELLCASTER|1|ANY
-2						SA:Shadow Channel													ADD:SPELLCASTER|1|ANY
-3						SA:Summmon Shadow (1st shadow)										ADD:SPELLCASTER|1|ANY
-4																					ADD:SPELLCASTER|1|ANY
-5	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st shadow,+1 HD)									ADD:SPELLCASTER|1|ANY
-6																					ADD:SPELLCASTER|1|ANY
-7	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st shadow,+2 HD)									ADD:SPELLCASTER|1|ANY
-8																					ADD:SPELLCASTER|1|ANY
-9	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st shadow,+2 HD,strength funneling)						ADD:SPELLCASTER|1|ANY
-10	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st&2nd shadow,+2 HD,strength funneling)						ADD:SPELLCASTER|1|ANY
+1						SA:Dark Research								ADD:SPELLCASTER|1|ANY	AUTO:ARMORPROF|TYPE=Light
+2						SA:Shadow Channel								ADD:SPELLCASTER|1|ANY
+3						SA:Summmon Shadow (1st shadow)					ADD:SPELLCASTER|1|ANY
+4																ADD:SPELLCASTER|1|ANY
+5	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st shadow,+1 HD)				ADD:SPELLCASTER|1|ANY
+6																ADD:SPELLCASTER|1|ANY
+7	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st shadow,+2 HD)				ADD:SPELLCASTER|1|ANY
+8																ADD:SPELLCASTER|1|ANY
+9	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st shadow,+2 HD,strength funneling)	ADD:SPELLCASTER|1|ANY
+10	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st&2nd shadow,+2 HD,strength funneling)	ADD:SPELLCASTER|1|ANY
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus
@@ -138,15 +138,15 @@ CLASS:Knight Chaplain	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	BONUS:CASTERLE
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Protection
-1	CAST:3,1						AUTO:FEAT|Combat Casting|Skill Focus(Concentration)
+1	CAST:3,1										AUTO:FEAT|Combat Casting|Skill Focus(Concentration)
 2	CAST:4,2		SA:Healing Focus
-3	CAST:4,2,1															ADD:FEAT|1|TYPE=Fighter
+3	CAST:4,2,1						ADD:FEAT|1|TYPE=Fighter
 4	CAST:5,3,2		SA:Field Medic
 5	CAST:5,3,2,1	SA:Healing Under Fire
-6	CAST:5,3,3,2														ADD:FEAT|1|TYPE=Fighter
+6	CAST:5,3,3,2					ADD:FEAT|1|TYPE=Fighter
 7	CAST:6,4,3,2,1	SA:Healing Touch
 8	CAST:6,4,3,3,2	SA:Last Rites (Su)
-9	CAST:6,4,4,3,2,1														ADD:FEAT|1|TYPE=Fighter
+9	CAST:6,4,4,3,2,1					ADD:FEAT|1|TYPE=Fighter
 10	CAST:6,4,4,3,3,2	SA:Combat Healing
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -198,13 +198,13 @@ CLASS:Rake		STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Gather Information|Innuen
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1											BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
+1											BONUS:VAR|SneakAttack|(CL+1)/2					AUTO:FEAT|Sneak Attack
 2				SA:Taunt (Intimidate)
-3																					ADD:FEAT|1|TYPE=Fighter
+3																	ADD:FEAT|1|TYPE=Fighter
 4	SA:.CLEAR.Taunt	SA:Taunt (Intimidate/Enrage)
-6				SA:Humiliating Strike														ADD:FEAT|1|TYPE=Fighter
+6				SA:Humiliating Strike										ADD:FEAT|1|TYPE=Fighter
 8	SA:.CLEAR.Taunt	SA:Taunt (Intimidate/Enrage/Stun)
-9																					ADD:FEAT|1|TYPE=Fighter
+9																	ADD:FEAT|1|TYPE=Fighter
 10	SA:.CLEAR.Taunt	SA:Taunt (Intimidate/Enrage/Stun/Rally)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -272,13 +272,13 @@ CLASS:Wandering Squire	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Diplomacy|Gather 
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Staff Expert											AUTO:FEAT|Expertise
+1	SA:Staff Expert															AUTO:FEAT|Expertise
 2	SA:Stunning Attack %/day|Stun	BONUS:COMBAT|AC|1|TYPE=Dodge	DEFINE:Stun|1
-3																		ADD:FEAT|1|TYPE=Fighter
+3														ADD:FEAT|1|TYPE=Fighter
 4	SA:Deflect Arrows
 5						BONUS:COMBAT|AC|1|TYPE=Dodge
 6	SA:Defensive Stance
-7																		ADD:FEAT|1|TYPE=Fighter
+7														ADD:FEAT|1|TYPE=Fighter
 8						BONUS:COMBAT|AC|1|TYPE=Dodge
 9	SA:Warding Attack
 10	SA:Staff Mastery			BONUS:COMBAT|AC|1|TYPE=Dodge

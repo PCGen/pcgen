@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74
 # Original Entry by: Paul W. King
 
 ###Block: feat
-# Feat Name		Type			Description														Modify VAR			Source Page		ADD:
-Criminal Record	TYPE:General	DESC:You have had numerous brushes with the law and many of your friends are criminals.	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.5	ADD:FEAT|2|TYPE=CriminalRecord
+# Feat Name		Type			Description														Add						Modify VAR			Source Page
+Criminal Record	TYPE:General	DESC:You have had numerous brushes with the law and many of your friends are criminals.	ADD:FEAT|2|TYPE=CriminalRecord	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.5
 
 ###Block: advanced occupations
 # Feat Name	Type						Required Feat						Required Skill				Description																																													Stackable?	Multiple?	Choose					Bonus to skill										Source Page

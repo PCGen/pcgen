@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 02:06:48 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:E.N. Publishing	SOURCESHORT:ENPub	SOURCEWEB:http://www.enworld.org/index.php?page=enpublishing
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Ex Class				Source Page		Automatic Languages		Bonus Languages	Additional Devine Domain				Save checks bonus											Combat bonus					Add domain number		Modify VAR
@@ -26,9 +26,9 @@ CLASS:Elemental Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 1	SPELLLEVEL:CLASS|Elemental Druid=8|Animal Shapes,Control Plants,Cure Serious Wounds (Mass),Earthquake,Finger of Death,Repel Metal or Stone,Reverse Gravity,Summon Nature's Ally VIII,Sunburst,Whirlwind,Word of Recall
 1	SPELLLEVEL:CLASS|Elemental Druid=9|Antipathy,Cure Critical Wounds (Mass),Elemental Swarm,Foresight,Regenerate,Shambler,Shapechange,Storm of Vengeance,Summon Nature's Ally IX,Sympathy
 ###Block: Proficiencies
-1	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Spear
-1																	AUTO:FEAT|Shield Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1												AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Spear
+1	AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
 1	CAST:3,1				SA:Nature Sense (Ex)	SA:Wild Empathy (Ex)									BONUS:SKILL|Knowledge (Nature),Survival|2					AUTO:FEAT|Animal Companion
 2	CAST:4,2				SA:Woodland Stride (Ex)
@@ -55,7 +55,7 @@ CLASS:Elemental Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 CLASS:Ex Elemental Druid	HD:8		TYPE:Base.PC	ABB:XEDrd		SOURCEPAGE:5	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ex Elemental Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
-1	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Longspear
-1																		AUTO:FEAT|Shield Proficiency
-1																		AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1												AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Longspear
+1	AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 

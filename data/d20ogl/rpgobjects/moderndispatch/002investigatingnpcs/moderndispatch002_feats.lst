@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern Dispatch #2 - Investigating NPCs	SOURCESHORT:MD02-INPCs	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3987
 #Original Entry by: Frank Kliewe
 
-# Feat Name			Output Name				Type			Special Ability							Define				Description				Source Page		ADD:
-Secret Identity (RPGO)	OUTPUTNAME:Secret Identity	TYPE:General	SA:Reputation: % (Secret Identity)|SecretReputation	DEFINE:SecretReputation|0	DESC:You lead a double life	SOURCEPAGE:p.3	ADD:FEAT|1|TYPE=MoveReputation
+# Feat Name			Output Name				Type			Special Ability							Define				Description				Add						Source Page
+Secret Identity (RPGO)	OUTPUTNAME:Secret Identity	TYPE:General	SA:Reputation: % (Secret Identity)|SecretReputation	DEFINE:SecretReputation|0	DESC:You lead a double life	ADD:FEAT|1|TYPE=MoveReputation	SOURCEPAGE:p.3
 
 ###Block:Move Reputation
 # Feat Name							Type				Visible	Var. Min. Value			Modify VAR

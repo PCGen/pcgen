@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jun 29 09:28:27 2007 -- reformated by prettylst.pl v1.38 (build 2949)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -20,43 +20,43 @@ CLASS:Cleric	STARTSKILLPTS:2
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 #
 SUBCLASS:Cleric of Althares		PREDEITY:Althares		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1	SA:Right to Carry																																																																													ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))																							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+SUBCLASSLEVEL:1	SA:Right to Carry																																																																													ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 SUBCLASSLEVEL:5																											BONUS:VAR|AgesKnowledgeLevel|floor(CL/2)|PREDEITY:Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT|1|Knowledge of the Ages
 SUBCLASS:Cleric of Anshar		PREDEITY:Anshar		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Improved Unarmed Strike																													AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Improved Unarmed Strike							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
 SUBCLASSLEVEL:3																																																																																																VFEAT:Endurance
 SUBCLASSLEVEL:9																																																																																																VFEAT:Dieheard
 SUBCLASS:Cleric of Belisarda		PREDEITY:Belisarda	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Knowledge (Geography)|Knowledge (Nature)|Survival
-SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead																																													AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
 SUBCLASS:Cleric of Beltine		PREDEITY:Beltine		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																																						AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
 SUBCLASS:Cleric of Cadic		PREDEITY:Cadic		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble
-SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnCadicGood							VFEAT:Martial Weapon Proficiency(Crossbow (Hand))			AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow															AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnCadicGood							VFEAT:Martial Weapon Proficiency(Crossbow (Hand))			AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)														AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
 SUBCLASSLEVEL:5																											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																																											ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
 SUBCLASS:Cleric of Hurrian		PREDEITY:Hurrian		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Survival
-SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead																							AUTO:WEAPONPROF|Longsword																		AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Longsword
 SUBCLASS:Cleric of Illir		PREDEITY:Illir		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnIllirGood							VFEAT:Gladius Exotic Weapon Proficiency																											AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnIllirGood							VFEAT:Gladius Exotic Weapon Proficiency					AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 SUBCLASSLEVEL:5	SA:Fearless (Ex)
 SUBCLASS:Cleric of the Fire Dragon	PREDEITY:Fire Dragon	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Survival
-SUBCLASSLEVEL:1	SA:Ignore detrimental effects from natural heat between 80-150 degrees F.																																																																			ADD:FEAT|1|TYPE=TurnUndead																							AUTO:WEAPONPROF|Flail (Heavy)																		AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+SUBCLASSLEVEL:1	SA:Ignore detrimental effects from natural heat between 80-150 degrees F.																																																																			ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Flail (Heavy)
 SUBCLASS:Cleric of Larissa		PREDEITY:Larissa		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|TYPE.Perform|Tumble
-SUBCLASSLEVEL:1																																																														BONUS:DOMAIN|NUMBER|1															ADD:FEAT|1|TYPE=TurnUndead																							AUTO:WEAPONPROF|Rapier|TYPE.Whip																	AUTO:FEAT|Simple Weapon Proficiency
+SUBCLASSLEVEL:1																																																														BONUS:DOMAIN|NUMBER|1															ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency																						AUTO:WEAPONPROF|Rapier|TYPE.Whip
 SUBCLASSLEVEL:3																																																BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
 SUBCLASS:Cleric of Neroth		PREDEITY:Neroth		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:WEAPONPROF|Scythe																			AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Scythe
 SUBCLASS:Cleric of Nier			PREDEITY:Nier		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1	SA:+1 per die of damage on spells cast with the fire descriptor.	SA:When turning undead, the Cleric of Nier must destroy the undead or nothing happens.																																																						ADD:FEAT|1|TYPE=TurnUndead																							AUTO:WEAPONPROF|Greatsword																		AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+SUBCLASSLEVEL:1	SA:+1 per die of damage on spells cast with the fire descriptor.	SA:When turning undead, the Cleric of Nier must destroy the undead or nothing happens.																																																						ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Greatsword
 SUBCLASS:Cleric of Saluwe		PREDEITY:Saluwe		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead																							AUTO:WEAPONPROF|Club|Dagger|Dart|Khopesh|Longbow|Quarterstaff|Scimitar|Sickle|Shortbow|Shortspear|Sling|Terbutje|Halfspear|Spear	AUTO:FEAT|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
-SUBCLASSLEVEL:3	SA:Wild Empathy (Ex)																																																																																																																													AUTO:FEAT|Track
-SUBCLASSLEVEL:4																											BONUS:VAR|CompLevel|CL																																																																																																			AUTO:FEAT|Animal Companion
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)														AUTO:WEAPONPROF|Club|Dagger|Dart|Khopesh|Longbow|Quarterstaff|Scimitar|Sickle|Shortbow|Shortspear|Sling|Terbutje|Halfspear|Spear
+SUBCLASSLEVEL:3	SA:Wild Empathy (Ex)																																																																																																							AUTO:FEAT|Track
+SUBCLASSLEVEL:4																											BONUS:VAR|CompLevel|CL																																																																													AUTO:FEAT|Animal Companion
 SUBCLASS:Cleric of Sarish		PREDEITY:Sarish		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																																																ADD:Language|1|TYPE=Infernal	ADD:FEAT|1|TYPE=TurnUndead	ADD:EQUIP|1|Dagger (Sarishan Steel)																																		AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Rebuke Undead
-SUBCLASSLEVEL:3																																																																																																																																	AUTO:FEAT|Magical Aptitude
+SUBCLASSLEVEL:1																																																																																ADD:Language|1|TYPE=Infernal	ADD:FEAT|1|TYPE=TurnUndead	ADD:EQUIP|1|Dagger (Sarishan Steel)												AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Rebuke Undead
+SUBCLASSLEVEL:3																																																																																																											AUTO:FEAT|Magical Aptitude
 SUBCLASSLEVEL:10	SA:Mark of My Brother
 SUBCLASS:Cleric of Yarris		PREDEITY:Yarris		CSKILL:Knowledge (Nature)|Survival|Swim
-SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnYarrisGood																	AUTO:WEAPONPROF|Trident																			AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnYarrisGood																	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)														AUTO:WEAPONPROF|Trident
 SUBCLASSLEVEL:2	SA:Effected by Endure Elements when within 1 mile of any large body of water.
 SUBCLASSLEVEL:3	SA:Wild Empathy (Ex) (Water Only)																																																												BONUS:SKILL|Profession (Navigator),Survival,Swim|2
 ###Block: Basic Turn Undead
@@ -129,27 +129,27 @@ CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl
 CLASS:Monk		STARTSKILLPTS:4
 SUBCLASS:Monk					COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-SUBCLASSLEVEL:1																																																		ADD:VFEAT|1|Improved Grapple,Stunning Fist													AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:1																																																		ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip
 SUBCLASS:Order of Althares			COST:0																					PREREGION:Altheria	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-SUBCLASSLEVEL:1	SA:May multiclass with Transmuter.																																												ADD:VFEAT|1|Improved Grapple,Stunning Fist													AUTO:WEAPONPROF|Dagger|Handaxe|Javelin|Quarterstaff															AUTO:FEAT|Exotic Weapon Proficiency(Altherian Flintlock (Pistol))|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))|Martial Weapon Proficiency(Warhammer)
+SUBCLASSLEVEL:1	SA:May multiclass with Transmuter.																																												ADD:VFEAT|1|Improved Grapple,Stunning Fist													AUTO:FEAT|Exotic Weapon Proficiency(Altherian Flintlock (Pistol))|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))|Martial Weapon Proficiency(Warhammer)	AUTO:WEAPONPROF|Dagger|Handaxe|Javelin|Quarterstaff
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Combat Firing
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Martial Weapon Technique (Warhammer)
 SUBCLASS:Order of the Blade			COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1	SA:May multiclass with Fighter.																																												ADD:VFEAT|1|Weapon Focus (Longsword),Stunning Fist												AUTO:WEAPONPROF|Longsword
+SUBCLASSLEVEL:1	SA:May multiclass with Fighter.																																												ADD:VFEAT|1|Weapon Focus (Longsword),Stunning Fist																																							AUTO:WEAPONPROF|Longsword
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Greater Weapon Focus (Longsword)
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Martial Weapon Technique (Longsword)
 SUBCLASS:Order of the Bronze Sepulcher	COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1	SA:+2 on saves vs. ability score loss, energy drain, and fear effects caused by undead.	SA:-5 on Diplomacy checks except with Myrantians, members of the order, or undead.	SA:May multiclass with Necromancer.															ADD:VFEAT|1|Improved Grapple,Stunning Fist													AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:1	SA:+2 on saves vs. ability score loss, energy drain, and fear effects caused by undead.	SA:-5 on Diplomacy checks except with Myrantians, members of the order, or undead.	SA:May multiclass with Necromancer.															ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip
 SUBCLASS:Contemplation of the Elements	COST:0																		PRERACE:1,Elorii					CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1	SA:May multiclass with Wizard.	SA:You must take the Elorii bloodline feats in order to qualify for them.  If you don't take the feat at first level, you can take the beginning feat at the next opportunity.														ADD:VFEAT|1|Elorii Bloodline,Stunning Fist													AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:1	SA:May multiclass with Wizard.	SA:You must take the Elorii bloodline feats in order to qualify for them.  If you don't take the feat at first level, you can take the beginning feat at the next opportunity.														ADD:VFEAT|1|Elorii Bloodline,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Elorii Bloodline,Improved Elorii Bloodline,Combat Reflexes
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Elorii Bloodline,Improved Elorii Bloodline,Heightened Elorii Bloodline,Improved Trip
 SUBCLASS:Order of the Incandescent Path	COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1	SA:May multiplass with Fighter.																																												ADD:VFEAT|1|Improved Grapple,Stunning Fist													AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:1	SA:May multiplass with Fighter.																																												ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
 SUBCLASSLEVEL:3																																																		ADD:VFEAT|1|Iron Skin
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip
@@ -158,16 +158,16 @@ SUBCLASSLEVEL:1	SA:May Multiclass with Ranger.	SA:+2 Dodge bonus to AC against a
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Tail Attack
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Avalanche,Improved Trip
 SUBCLASS:Order of the Iron Soul		COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1																																					BONUS:CHECKS|Will|2	BONUS:CHECKS|Reflex|-2						ADD:VFEAT|1|Improved Grapple,Stunning Fist													AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:1																																					BONUS:CHECKS|Will|2	BONUS:CHECKS|Reflex|-2						ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip
 SUBCLASS:Order of the Pearl Maidens		COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1	SA:May multiclass with Ranger.																																												ADD:FEAT|1|Skill Focus (Profession (Sailor))	ADD:VFEAT|1|Dodge,Stunning Fist				TEMPLATE:Fair Sex	AUTO:WEAPONPROF|Club|Dagger|Handaxe|Javelin|Kama|Longbow|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:1	SA:May multiclass with Ranger.																																												ADD:FEAT|1|Skill Focus (Profession (Sailor))	ADD:VFEAT|1|Dodge,Stunning Fist				TEMPLATE:Fair Sex																												AUTO:WEAPONPROF|Club|Dagger|Handaxe|Javelin|Kama|Longbow|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Deflect Arrows,Mobility
 SUBCLASSLEVEL:3																																																		ADD:VFEAT|1|Master of the Tops
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Hero's Heart,Improved Disarm
 SUBCLASS:Order of the Perfect Union		COST:0	PREDEITY:Illir																						CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1																																																		ADD:VFEAT|1|Unfazed,Stunning Fist															AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:1																																																		ADD:VFEAT|1|Unfazed,Stunning Fist																																										AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Callous,Combat Reflexes
 SUBCLASSLEVEL:5	SA:Immune to all types of fear, and mind-affecting compulsions and spells or spell-like abilities of third level or less.	SA:Suffer an extra +1d6 damage when struck by an Abomination or Undead.
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip,Divinity's Purpose
@@ -236,7 +236,7 @@ SUBCLASSLEVEL:5	SA:Turn Undead (Su) (Turn level %)|ChannelLevelFireDragon							
 4	BONUS:VAR|ChannelDamagePlusBase|CL-3
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression
-1				SA:Smite Evil (Su) %/day|SmiteEvil	SA:Aura of Faith (Ex)		BONUS:VAR|SmiteEvil|(CL/5)+1										DEFINE:SmiteEvil|0	DEFINE:AllowHolyAvenger|1	SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil	AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1				SA:Smite Evil (Su) %/day|SmiteEvil	SA:Aura of Faith (Ex)		BONUS:VAR|SmiteEvil|(CL/5)+1										DEFINE:SmiteEvil|0	DEFINE:AllowHolyAvenger|1	SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2				SA:Divine Grace (Su)	SA:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
 3				SA:Aura of Courage (Su)	SA:Divine Health (Ex)
 4	CAST:0,0
@@ -262,10 +262,10 @@ SUBCLASSLEVEL:5	SA:Turn Undead (Su) (Turn level %)|ChannelLevelFireDragon							
 CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:pg. 69	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Black Market|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE.Local|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Research|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	SA:Trapfinding	BONUS:VAR|SneakAttack|(CL+1)/2																			AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Saber|Sap|Shortbow|Sword (Short)	AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Simple Weapon Proficiency
-1																																								AUTO:FEAT|Sneak Attack
+1	SA:Trapfinding	BONUS:VAR|SneakAttack|(CL+1)/2																			AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Saber|Sap|Shortbow|Sword (Short)
+1																												AUTO:FEAT|Sneak Attack
 2															ADD:FEAT|1|Evasion,Improved Evasion
-3				BONUS:VAR|TrapSense|CL/3																																AUTO:FEAT|Trap Sense Ability
+3				BONUS:VAR|TrapSense|CL/3																				AUTO:FEAT|Trap Sense Ability
 4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
 8															ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
 10															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
@@ -310,7 +310,7 @@ CLASS:Urban Sentinel	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Handl
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level
 CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Urban Sentinel|CL/2|PRECLASS:1,Urban Sentinel=4
 ###Block:Proficiencies
-1	AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 ###Block: Favored Enemy level stacking
 1	BONUS:VAR|RangerFavoredEnemyLVL|CL				DEFINE:RangerFavoredEnemyLVL|0	AUTO:FEAT|Basic Favored Enemy
 1	BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1
@@ -352,11 +352,11 @@ CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYP
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
 #
 SUBCLASS:Wizard		COST:0
-SUBCLASS:Abjurer		COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Abjuration		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASS:Abjurer		COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Abjuration
 SUBCLASS:Conjurer		COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Conjuration	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Conjuration
-SUBCLASS:Diviner		COST:1	PROHIBITCOST:0	CHOICE:SCHOOL|Divination		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASS:Diviner		COST:1	PROHIBITCOST:0	CHOICE:SCHOOL|Divination	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Divination
 SUBCLASS:Enchanter	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Enchantment	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Enchantment
@@ -364,7 +364,7 @@ SUBCLASS:Evoker		COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Evocation		KNOWNSPELLSFROMS
 SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Evocation
 SUBCLASS:Illusionist	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Illusion		KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Illusion
-SUBCLASS:Necromancer	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Necromancy		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASS:Necromancer	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Necromancy	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Necromancy
 SUBCLASS:Transmuter	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Transmutation

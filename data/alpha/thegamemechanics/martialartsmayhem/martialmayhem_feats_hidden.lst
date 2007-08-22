@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegamemechanics.com
 #Original Entry by: Frank Kliewe
 
 ###Block:Gunslinger Levels for Level Substitution
-# Feat Name						Type			Visible	Special Ability		ADD:
+# Feat Name						Type			Visible	Special Ability		Add
 1st Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Close Combat Shot
 2nd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Weapon Focus
 3rd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Gunslinger
@@ -16,16 +16,16 @@ SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegameme
 10th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Bullseye
 
 ###Block:Soldier Levels for Level Substitution
-# Feat Name					Type			Visible	Special Ability		Combat bonus						Modify VAR				ADD:
-1st Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO																		ADD:FEAT|1|Weapon Focus
-2nd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO													BONUS:VAR|WeapSpecQualify|1	ADD:FEAT|1|Weapon Specialization
-3rd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO													BONUS:VAR|WeapSpecQualify|-1	ADD:FEAT|1|TYPE.Soldier
+# Feat Name					Type			Visible	Special Ability		Add							Combat bonus						Modify VAR
+1st Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Weapon Focus
+2nd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Weapon Specialization										BONUS:VAR|WeapSpecQualify|1
+3rd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Soldier												BONUS:VAR|WeapSpecQualify|-1
 4th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Tactical Aid
-5th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO																		ADD:FEAT|1|Improved Critical
-6th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO																		ADD:FEAT|1|TYPE.Soldier
-7th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Improved Reaction	BONUS:COMBAT|INITIATIVE|2|TYPE=Competence.STACK
-8th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO																		ADD:FEAT|1|Greater Weapon Specialization
-9th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO																		ADD:FEAT|1|TYPE.Soldier
+5th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Improved Critical
+6th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Soldier
+7th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Improved Reaction								BONUS:COMBAT|INITIATIVE|2|TYPE=Competence.STACK
+8th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Greater Weapon Specialization
+9th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Soldier
 10th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Critical Strike
 
 ###Block:Workarounds for Schools

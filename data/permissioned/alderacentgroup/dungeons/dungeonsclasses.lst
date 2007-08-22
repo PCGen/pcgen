@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -35,16 +35,16 @@ CLASS:Demolitionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Demolitioni
 1	AUTO:FEAT|Wizard Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Produce Explosives(%d6)|ProduceExplosive	BONUS:VAR|ProduceExplosive|(CL+2)/3+1	DEFINE:ProduceExplosive|0														ADD:SPELLCASTER|1|Arcane
-2	SA:Time Delay Explosives																													ADD:SPELLCASTER|1|Arcane
-3	SA:Craft Flash Bombs																														ADD:SPELLCASTER|1|Arcane
-4																																		ADD:SPELLCASTER|1|Arcane
-5	SA:Craft Musket																															ADD:SPELLCASTER|1|Arcane
-6																					AUTO:FEAT|Exotic Weapon Proficiency(Pistol)|Exotic Weapon Proficiency(Musket)	ADD:SPELLCASTER|1|Arcane
-7																																		ADD:SPELLCASTER|1|Arcane
-8	SA:Master of Destruction																													ADD:SPELLCASTER|1|Arcane
-9																					AUTO:FEAT|Uncanny Dodge										ADD:SPELLCASTER|1|Arcane
-10																																		ADD:SPELLCASTER|1|Arcane
+1	SA:Produce Explosives(%d6)|ProduceExplosive	BONUS:VAR|ProduceExplosive|(CL+2)/3+1	DEFINE:ProduceExplosive|0	ADD:SPELLCASTER|1|Arcane
+2	SA:Time Delay Explosives																ADD:SPELLCASTER|1|Arcane
+3	SA:Craft Flash Bombs																	ADD:SPELLCASTER|1|Arcane
+4																					ADD:SPELLCASTER|1|Arcane
+5	SA:Craft Musket																		ADD:SPELLCASTER|1|Arcane
+6																					ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Exotic Weapon Proficiency(Pistol)|Exotic Weapon Proficiency(Musket)
+7																					ADD:SPELLCASTER|1|Arcane
+8	SA:Master of Destruction																ADD:SPELLCASTER|1|Arcane
+9																					ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Uncanny Dodge
+10																					ADD:SPELLCASTER|1|Arcane
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shock Trooper	HD:10		TYPE:PC.Prestige	ABB:ae3		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

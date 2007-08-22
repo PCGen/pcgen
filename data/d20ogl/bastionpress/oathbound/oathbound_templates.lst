@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
 
 ###Block:Gifts, both Arrival and Earned
-# Template Name						Visible	Damage Reduction	Source Page		Special Ability									Define												Required Feat		Save checks bonus				Combat bonus						Bonus to skill											Stat bonus								Choose																										ADD:
+# Template Name						Visible	Damage Reduction	Source Page		Special Ability									Define												Required Feat		Save checks bonus				Combat bonus						Bonus to skill											Stat bonus								Choose																										Add
 Arrival Gift (Ability Boost - Strength)		VISIBLE:YES				SOURCEPAGE:p.20																																																								BONUS:STAT|STR|2
 Arrival Gift (Ability Boost - Dexterity)		VISIBLE:YES				SOURCEPAGE:p.20																																																								BONUS:STAT|DEX|2
 Arrival Gift (Ability Boost - Constitution)	VISIBLE:YES				SOURCEPAGE:p.20																																																								BONUS:STAT|CON|2

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -161,7 +161,7 @@ HolrynVirdan	NAMEISPI:YES	FAVOREDCLASS:Fighter		SUBRACE:Holryn
 
 
 ###Block: Bloodrank Levels
-# Template Name	Visible		Special Ability			Define										Required Race	Required Template			Modify VAR																Removable?		ADD:
+# Template Name	Visible		Special Ability			Define										Required Race	Required Template			Modify VAR																Removable?		Add
 First Bloodrank	VISIBLE:DISPLAY	SA:Val Bloorank %|ValBlood	DEFINE:ValBlood|0	DEFINE:BloodBonus|0	DEFINE:BloodTotal|0	PRERACE:1,Val						BONUS:VAR|ValBlood|1	BONUS:VAR|BloodTotal|ValBlood+BloodBonus	BONUS:VAR|BonusPowerPoints|ValBlood	REMOVABLE:NO	ADD:FEAT|1|TYPE=BloodRankOne
 Second Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:First Bloodrank	BONUS:VAR|ValBlood|1														REMOVABLE:NO	ADD:FEAT|1|TYPE=BloodRankOne
 Third Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:Second Bloodrank	BONUS:VAR|ValBlood|1														REMOVABLE:NO	ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo

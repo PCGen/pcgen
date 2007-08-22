@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu May 17 21:39:23 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Things that Don't work in Monster TYPE classes:
@@ -7,7 +7,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 #		erros, so this file is MUCH larger than it needs be. (Esp. with TYPEs)
 #
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Black Dragon	HD:12		TYPE:Monster	ABB:BkDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Black Dragon	PRERACE:1,Dragon (Black%	PRERACETYPE:Dragon
@@ -43,7 +43,7 @@ CLASS:Black Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 48																										BONUS:PCLEVEL|Sorcerer|1
 49																										BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Blue Dragon	HD:12		TYPE:Monster	ABB:BlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
@@ -76,7 +76,7 @@ CLASS:Blue Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|
 42																										BONUS:PCLEVEL|Sorcerer|1
 44																										BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Green Dragon	HD:12		TYPE:Monster	ABB:GnDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Green Dragon	PRERACE:1,Dragon (Green%	PRERACETYPE:Dragon
@@ -110,7 +110,7 @@ CLASS:Green Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 
 # Errata (3/18/02 applied) to (Red) Dragon
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Red Dragon	HD:12		TYPE:Monster	ABB:RdDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
@@ -142,7 +142,7 @@ CLASS:Red Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|D
 40	SR:32												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12													SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Discern Location,18+CHA
 42																										BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:White Dragon	HD:12		TYPE:Monster	ABB:WhDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:White Dragon	PRERACE:1,Dragon (White%	PRERACETYPE:Dragon
@@ -179,7 +179,7 @@ CLASS:White Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 # Metalic Dragons
 #
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Brass Dragon	HD:12		TYPE:Monster	ABB:BsDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
@@ -212,7 +212,7 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 37	SR:30												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12												SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Summon Djinni,17+CHA
 39																										BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Bronze Dragon	HD:12		TYPE:Monster	ABB:BzDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
@@ -245,7 +245,7 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentratio
 39	SR:31												BONUS:VAR|BreathWeaponDC|1											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12													SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
 41																												BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Copper Dragon	HD:12		TYPE:Monster	ABB:CuDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
@@ -277,7 +277,7 @@ CLASS:Copper Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentratio
 38	SR:31												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12												SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Move Earth,16+CHA
 40																										BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Gold Dragon	HD:12		TYPE:Monster	ABB:GlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
@@ -310,7 +310,7 @@ CLASS:Gold Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|
 41	SR:33																			BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12						SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Foresight,19+CHA
 43																																	BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Silver Dragon	HD:12		TYPE:Monster	ABB:SlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon

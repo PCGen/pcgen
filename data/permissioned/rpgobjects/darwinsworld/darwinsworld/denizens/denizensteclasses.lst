@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 #Orginal entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth	SOURCESHORT:DenizensTE	SOURCEWEB:http://www.darwinrpg.com
 
@@ -24,9 +24,9 @@ CLASS:Brethren Follower	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Hide|Knowledge
 ###Block: Rage
 1	BONUS:VAR|RageTimes|CL/4+1	DEFINE:RageTimes|0	VFEAT:Rage
 ###Block: Normal level progression
-1	SA:Experience Bonus																												AUTO:FEAT|Improved Unarmed Strike
+1	SA:Experience Bonus																																		AUTO:FEAT|Improved Unarmed Strike
 2	SA:Trap-Making %d6 (DC%)|TrapMaking|TrapMakingDC	BONUS:VAR|TrapMaking|(CL-1)/4+1	BONUS:VAR|TrapMakingDC|floor((CL-1)/4)*3+16	DEFINE:TrapMaking|0	DEFINE:TrapMakingDC|0
-4																								DEFINE:WeapSpecQualify|1										ADD:FEAT|1|Weapon Specialization
+4																								DEFINE:WeapSpecQualify|1				ADD:FEAT|1|Weapon Specialization
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus

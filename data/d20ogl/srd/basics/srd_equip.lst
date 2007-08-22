@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 12 20:26:52 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 ###Block:Alchemical Stuff and Liquids
@@ -106,16 +106,16 @@ Torch					TYPE:Goods.General.Resizable.Consumable				COST:.01	WT:1		EQMOD:WOOD		
 Whetstone				TYPE:Goods.General.Resizable						COST:.02	WT:1		EQMOD:STONE		SOURCEPAGE:SRDEquipmentII.rtf
 
 ###Block:Goods for Mounts
-# Equipment Name			Type							Contains			Cost		Weight	Modifier		Source Page				Bonus to skill
-Bit and Bridle			TYPE:Goods.Mount.Resizable							COST:2	WT:1		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
-Feed (Per Day)			TYPE:Goods.Mount.Consumable							COST:.02	WT:10					SOURCEPAGE:SRDEquipmentII.rtf
-Saddle (Military)			TYPE:Goods.Mount.Resizable.Saddle						COST:20	WT:30		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Ride|2
-Saddle (Pack)			TYPE:Goods.Mount.Resizable							COST:5	WT:15		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
-Saddle (Riding)			TYPE:Goods.Mount.Resizable.Saddle						COST:10	WT:25		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
-Saddle (Military/Exotic)	TYPE:Goods.Mount.Resizable.Saddle						COST:60	WT:40		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Ride|2
-Saddle (Pack/Exotic)		TYPE:Goods.Mount.Resizable							COST:15	WT:20		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
-Saddle (Riding/Exotic)		TYPE:Goods.Mount.Resizable.Saddle						COST:30	WT:30		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
-Stabling (Per Day)		TYPE:Goods.Mount									COST:.5						SOURCEPAGE:SRDEquipmentII.rtf
+# Equipment Name			Type							Contains				Cost		Weight	Modifier		Source Page				Bonus to skill
+Bit and Bridle			TYPE:Goods.Mount.Resizable								COST:2	WT:1		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
+Feed (Per Day)			TYPE:Goods.Mount.Consumable								COST:.02	WT:10					SOURCEPAGE:SRDEquipmentII.rtf
+Saddle (Military)			TYPE:Goods.Mount.Resizable.Saddle							COST:20	WT:30		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Ride|2
+Saddle (Pack)			TYPE:Goods.Mount.Resizable								COST:5	WT:15		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
+Saddle (Riding)			TYPE:Goods.Mount.Resizable.Saddle							COST:10	WT:25		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
+Saddle (Military/Exotic)	TYPE:Goods.Mount.Resizable.Saddle							COST:60	WT:40		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Ride|2
+Saddle (Pack/Exotic)		TYPE:Goods.Mount.Resizable								COST:15	WT:20		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
+Saddle (Riding/Exotic)		TYPE:Goods.Mount.Resizable.Saddle							COST:30	WT:30		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
+Stabling (Per Day)		TYPE:Goods.Mount										COST:.5						SOURCEPAGE:SRDEquipmentII.rtf
 Saddlebags				TYPE:Goods.Container.Mount.Resizable	CONTAINS:UNLIM|Any=UNLIM	COST:4	WT:8		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
 
 ###Block:Tools
@@ -196,19 +196,19 @@ Wheat (Per Lb.)		TYPE:Goods.Trade	COST:.01	WT:1					SOURCEPAGE:SRDEquipmentI.rtf
 
 ###Block:Mundane Container Name
 # Equipment Name		Type							Contains							Cost		Weight	Modifier		Source Page
-Backpack			TYPE:Goods.Container.General.Resizable	CONTAINS:UNLIM|Any=UNLIM					COST:2	WT:2					SOURCEPAGE:SRDEquipmentII.rtf
-Barrel			TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM					COST:2	WT:30					SOURCEPAGE:SRDEquipmentII.rtf
+Backpack			TYPE:Goods.Container.General.Resizable	CONTAINS:UNLIM|Any=UNLIM				COST:2	WT:2					SOURCEPAGE:SRDEquipmentII.rtf
+Barrel			TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM				COST:2	WT:30					SOURCEPAGE:SRDEquipmentII.rtf
 Basket			TYPE:Goods.Container.General			CONTAINS:25|Any=20					COST:.4	WT:1					SOURCEPAGE:SRDEquipmentII.rtf
 Bottle (Glass/Wine)	TYPE:Goods.Container.General.Consumable	CONTAINS:1.5|Liquid=3|SpellComponent=1		COST:2	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
-Bucket			TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM					COST:.5	WT:2					SOURCEPAGE:SRDEquipmentII.rtf
+Bucket			TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM				COST:.5	WT:2					SOURCEPAGE:SRDEquipmentII.rtf
 Case (Map or Scroll)	TYPE:Goods.Container.General			CONTAINS:3|Total=6|Scroll=6|Documents=6|Paper=6	COST:1	WT:.5					SOURCEPAGE:SRDEquipmentII.rtf
-Chest				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM					COST:2	WT:25					SOURCEPAGE:SRDEquipmentII.rtf
+Chest				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM				COST:2	WT:25					SOURCEPAGE:SRDEquipmentII.rtf
 Flask (Empty)		TYPE:Goods.Container.General.Flask		CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1	COST:.03	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
 Jug (Clay)			TYPE:Goods.Container.General			CONTAINS:8|Liquid=UNLIM|SpellComponent=1		COST:.03	WT:1					SOURCEPAGE:SRDEquipmentII.rtf
 Mug or Tankard (Clay)	TYPE:Goods.Container.General			CONTAINS:1|Liquid=UNLIM|SpellComponent=1		COST:.02	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
 Pitcher (Clay)		TYPE:Goods.Container.General			CONTAINS:4|Liquid=UNLIM|SpellComponent=1		COST:.02	WT:1		EQMOD:CLAY		SOURCEPAGE:SRDEquipmentII.rtf
-Pot (Iron)			TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=1						COST:.5	WT:10		EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf
-Pouch (Belt)		TYPE:Goods.Container.General.Resizable	CONTAINS:UNLIM|Any=5|Gem=50|Coin=50|Total=50		COST:1	WT:.5					SOURCEPAGE:SRDEquipmentII.rtf
+Pot (Iron)			TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=1					COST:.5	WT:10		EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf
+Pouch (Belt)		TYPE:Goods.Container.General.Resizable	CONTAINS:UNLIM|Any=5|Gem=50|Coin=50|Total=50	COST:1	WT:.5					SOURCEPAGE:SRDEquipmentII.rtf
 Pouch (Spell Component)	TYPE:Goods.Container.Tools.Resizable	CONTAINS:3|SpellComponent=10|Gem=10			COST:5	WT:3					SOURCEPAGE:SRDEquipmentII.rtf
 Sack				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=50					COST:.1	WT:.5		EQMOD:HEMP		SOURCEPAGE:SRDEquipmentII.rtf
 Vial				TYPE:Goods.Container.General.Vial		CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1	COST:1						SOURCEPAGE:SRDEquipmentII.rtf

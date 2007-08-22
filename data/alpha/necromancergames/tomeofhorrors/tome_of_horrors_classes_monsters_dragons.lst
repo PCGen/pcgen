@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -30,15 +30,15 @@ CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 8																						BONUS:MOVEADD|TYPE.Fly|50
 23																						BONUS:MOVEADD|TYPE.Fly|50
 1																																DEFINE:DragonAge|1
-8				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE																					SPELLS:Innate|TIMES=2|CASTERLEVEL=2|Solid Fog,10+(HD/2)+CHA
-11				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|10|TYPE=NaturalArmor.REPLACE																					SPELLS:Innate|TIMES=2|CASTERLEVEL=3|Stinking Cloud,10+(HD/2)+CHA
-14				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|13|TYPE=NaturalArmor.REPLACE																					SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Create Water,10+(HD/2)+CHA	ADD:SPELLCASTER|1|Sorcerer
+8				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE																										SPELLS:Innate|TIMES=2|CASTERLEVEL=2|Solid Fog,10+(HD/2)+CHA
+11				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|10|TYPE=NaturalArmor.REPLACE																										SPELLS:Innate|TIMES=2|CASTERLEVEL=3|Stinking Cloud,10+(HD/2)+CHA
+14				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|13|TYPE=NaturalArmor.REPLACE																					ADD:SPELLCASTER|1|Sorcerer	SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Create Water,10+(HD/2)+CHA
 17	SR:19	DR:5/magic	BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|16|TYPE=NaturalArmor.REPLACE												BONUS:PCLEVEL|Sorcerer|2
-20				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|19|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|1						BONUS:PCLEVEL|Sorcerer|2					SPELLS:Innate|TIMES=3|CASTERLEVEL=var("CL=Sorcerer")|Obscuring Mist,10+(HD/2)+CHA
-23				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|22|TYPE=NaturalArmor.REPLACE	BONUS:DR|magic|5	BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2					SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Call Lightning,10+(HD/2)+CHA
+20				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|19|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|1						BONUS:PCLEVEL|Sorcerer|2										SPELLS:Innate|TIMES=3|CASTERLEVEL=var("CL=Sorcerer")|Obscuring Mist,10+(HD/2)+CHA
+23				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|22|TYPE=NaturalArmor.REPLACE	BONUS:DR|magic|5	BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2										SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Call Lightning,10+(HD/2)+CHA
 26				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|24|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2
-29				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|28|TYPE=NaturalArmor.REPLACE	BONUS:DR|magic|5	BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2					SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Control Weather,10+(HD/2)+CHA
-32				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|31|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|3					SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Control Winds,10+(HD/2)+CHA
+29				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|28|TYPE=NaturalArmor.REPLACE	BONUS:DR|magic|5	BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2										SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Control Weather,10+(HD/2)+CHA
+32				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|31|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|3										SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Control Winds,10+(HD/2)+CHA
 35				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|34|TYPE=NaturalArmor.REPLACE	BONUS:DR|magic|5	BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|1
 38				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|37|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2
 

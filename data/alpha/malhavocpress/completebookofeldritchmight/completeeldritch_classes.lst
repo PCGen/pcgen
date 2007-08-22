@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 # Original Entry by: Felipe Diniz
 
@@ -83,16 +83,16 @@ CLASS:Diplomancer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECK
 CLASS:Diplomancer	PREFEAT:2,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:1,Diplomacy=10	PRESKILL:1,Sense Motive=8	PRESPELLSCHOOL:Enchantment,5,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|TYPE.Knowledge|Listen|Search|Sense Motive|Spellcraft|Spot
-1	SA:Charm																																												SPELLS:ClassAbility|TIMES=1|Charm	ADD:SPELLCASTER|1|ANY
+1	SA:Charm																																												ADD:SPELLCASTER|1|ANY	SPELLS:ClassAbility|TIMES=1|Charm
 2	SA:Enchantment Affinity +% (Ex)|EnchantAffinity								BONUS:CASTERLEVEL|SCHOOL.Enchantment|EnchantAffinity	BONUS:DC|SCHOOL.Enchantment|EnchantAffinity|TYPE=Competence							DEFINE:EnchantAffinity|1
-3	SA:Magical Seduction/Attractiveness (Su)																																													ADD:SPELLCASTER|1|ANY
+3	SA:Magical Seduction/Attractiveness (Su)																																							ADD:SPELLCASTER|1|ANY
 4	SA:Protection from Evocations +%|ProtectionEvocations																																DEFINE:ProtectionEvocations|1
-5	SA:Insight into Secrets (Sp)																																															ADD:SPELLCASTER|1|ANY
+5	SA:Insight into Secrets (Sp)																																									ADD:SPELLCASTER|1|ANY
 6										BONUS:VAR|EnchantAffinity|1
-7	SA:Charisma Gift (Su)																															BONUS:STAT|CHA|1|TYPE=Inherent												ADD:SPELLCASTER|1|ANY
+7	SA:Charisma Gift (Su)																															BONUS:STAT|CHA|1|TYPE=Inherent						ADD:SPELLCASTER|1|ANY
 8										BONUS:VAR|ProtectionEvocations|1
-9	SA:Word Cunning (Su)																																																ADD:SPELLCASTER|1|ANY
-10										BONUS:VAR|EnchantAffinity|1																																						ADD:SPELLCASTER|1|ANY
+9	SA:Word Cunning (Su)																																										ADD:SPELLCASTER|1|ANY
+10										BONUS:VAR|EnchantAffinity|1																																ADD:SPELLCASTER|1|ANY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -100,9 +100,9 @@ CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:
 CLASS:Eldritch Warrior	PREATT:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:1,Craft (Alchemy)=3	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Spellcraft=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|Ride|Spellcraft
-1	AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1						AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1						AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency					AUTO:WEAPONPROF|TYPE.Martial
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1					ADD:FEAT|1|TYPE=RitualofPotency
 2	SA:Enrune Armor (Su)	ADD:FEAT|1|Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Combat Expertise,Improved Disarm,Improved Feint,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Improved Overrun,Improved Sunder,Great Cleave,Quick Draw,Two Weapon Fighting,Two Weapon Defense,Improved Two Weapon Fighting,Greater Two Weapon Fighting,Weapon Finesse,Weapon Focus,Greater Weapon Focus
@@ -156,9 +156,9 @@ CLASS:Knight of the Chord	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33	BO
 CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PREMULT:1,[PREVARGTEQ:Spellsong,2],[PRESPELL:1,Sculpt Sound]	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Perform (Sing)=9
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|Ride|Sense Motive|Speak Language|Spellcraft|Use Magic Device
-1	AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1						AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1						AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency					AUTO:WEAPONPROF|TYPE.Martial
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1						SA:Armor Song (Medium)		BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARGTEQ:5,KotCArmorCheckPenalty	DEFINE:KotCArmorCheckPenalty|-ACCHECK	DEFINE:KotCSpellFailure|SPELLFAILURE
 2																																						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
@@ -186,15 +186,15 @@ CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Knowledge (A
 8	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=6|Eyebite,Mirror Calling (Greater),Mirror Truth
 10	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=7|Mirror Portal,Simulacrum,Spell Turning
 ###Block: Normal Progression
-1	SA:Mirror Thoughts (Sp)																		SPELLS:Class Ability|TIMES=1|Detect Thoughts	ADD:SPELLCASTER|1|ANY
+1	SA:Mirror Thoughts (Sp)																		ADD:SPELLCASTER|1|ANY	SPELLS:Class Ability|TIMES=1|Detect Thoughts
 2	SA:Mirrored Eyes (Su)	SA:Bonus Spells (1st and 2nd)
-3																														ADD:SPELLCASTER|1|ANY
+3																						ADD:SPELLCASTER|1|ANY
 4	SA:Piercing Gaze (Ex)	SA:Bonus Spells (3rd and 4th)		BONUS:SKILL|Spot,Search,Intimidate,Sense Motive|2|TYPE=Competence
-5																														ADD:SPELLCASTER|1|ANY
+5																						ADD:SPELLCASTER|1|ANY
 6	SA:Mirror Step (Dimension Door)(Sp)	SA:Bonus Spells (5th)
-7																														ADD:SPELLCASTER|1|ANY
+7																						ADD:SPELLCASTER|1|ANY
 8	SA:Mirror Step (Teleport)(Sp)	SA:Bonus Spells (6th)
-9																														ADD:SPELLCASTER|1|ANY
+9																						ADD:SPELLCASTER|1|ANY
 10	SA:Mirror Step (Plane Shift)(Sp)	SA:Bonus Spells (7th)
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus

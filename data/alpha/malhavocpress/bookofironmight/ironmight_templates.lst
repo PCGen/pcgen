@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM
 
 ###Block: arcane battle mastery
@@ -27,7 +27,7 @@ Ironborn Plus Wis				VISIBLE:NO																																									BONUS:ST
 Ironborn Plus Cha				VISIBLE:NO																																									BONUS:STAT|CHA|2
 
 ###Block: Ironborn Packages
-# Template Name					Visible	ADD:
+# Template Name					Visible	Add
 Ironborn Acrobat Ability Package		VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
 Ironborn Centurion Ability Package		VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
 Ironborn Divine Mark Ability Package	VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
@@ -38,6 +38,6 @@ Ironborn Spellmaster Ability Package	VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryA
 Ironborn Trailblazer Ability Package	VISIBLE:NO	ADD:FEAT|1|TYPE=IronbornPrimaryAbility
 
 ###Block: Ironborn Secondary Ability (Small Ironborn)
-# Template Name			Visible	Stat bonus		ADD:
+# Template Name			Visible	Stat bonus		Add
 Ironborn Secondary Ability	VISIBLE:NO	BONUS:STAT|STR|-2	ADD:FEAT|1|TYPE=IronbornSecondaryAbility
 Ironborn No Secondary Ability	VISIBLE:NO

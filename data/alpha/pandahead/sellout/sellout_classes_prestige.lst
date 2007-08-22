@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -31,7 +31,7 @@ CLASS:Coach		HD:8		TYPE:PC.Prestige	ABB:Cch		MAXLEVEL:5	SOURCEPAGE:76	BONUS:CHEC
 CLASS:Coach		PREATT:2	PREFEAT:1,Leadership	PRESKILL:3,Intimidate,Profession (Coach),Sense Motive=8	PRESKILL:2,Heal,Perform=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Coach		STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Heal|Intimidate|Jump|Knowledge (Sports)|Knowledge (Tactics)|Knowledge (XCrawl)|Perform|Profession (Coach)|Read Lips|Sense Motive|Spot|Swim
-1	AUTO:WEAPONPROF|TYPE.Sport|TYPE.Boffer	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Sport|TYPE.Boffer
 ###Block: Normal Level Progression
 1	SA:Motivation %|Motivation	SA:Maximum Team Size (XCrawl/non-lethal) %/%|MaxTeamSize|2*MaxTeamSize	SA:Fundamentals (Athlete)	BONUS:VAR|Motivation|min((CL*2)-1,2)	BONUS:VAR|MaxTeamSize|5+CL+CHA	DEFINE:Motivation|0	DEFINE:MaxTeamSize|0
 2	SA:Fundamentals (Fighter)

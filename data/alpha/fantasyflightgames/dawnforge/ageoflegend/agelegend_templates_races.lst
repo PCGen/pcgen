@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -15,7 +15,7 @@ Racial Progression Forest Wight	VISIBLE:NO	SOURCEPAGE:p.72	BONUS:STAT|DEX|2|PREL
 ###Block: The progression blocks
 # Template Name				Visible	Source Page		Required Lvl	Required Race			ADD:FEAT														Removable?
 # Ghost Elf Racial progressions
-# Template Name				Visible	Source Page		Required Lvl	Required Race			Removable?		ADD:
+# Template Name				Visible	Source Page		Required Lvl	Required Race			Removable?		Add
 Ghost Elf Progression level 01	VISIBLE:YES	SOURCEPAGE:p.24				PRERACE:1,Elf (Ghost)		REMOVABLE:NO	ADD:FEAT|1|TYPE=GhostElfRacialTalent,TYPE=GhostElfRacialTalent1
 Ghost Elf Progression level 02	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:2		PRERACE:1,Elf (Ghost)		REMOVABLE:NO	ADD:FEAT|1|TYPE=GhostElfRacialTransformation,TYPE=GhostElfRacialTransformation2
 Ghost Elf Progression level 03	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:3		PRERACE:1,Elf (Ghost)		REMOVABLE:NO	ADD:FEAT|1|TYPE=GhostElfRacialTalent,TYPE=GhostElfRacialTalent3

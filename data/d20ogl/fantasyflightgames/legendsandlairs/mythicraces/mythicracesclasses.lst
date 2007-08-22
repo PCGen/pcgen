@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
@@ -187,11 +187,11 @@ CLASS:Luminous Lightbringer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Dipl
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SA:Heart of Valor						ADD:SPELLCASTER|1|Divine
-2	SA:Weapon of Justice					ADD:SPELLCASTER|1|Divine
-3	SA:Bane of Evil						ADD:SPELLCASTER|1|Divine
-4									ADD:SPELLCASTER|1|Divine
-5	SA:Brilliant Radiance	TEMPLATE:Celestial	ADD:SPELLCASTER|1|Divine
+1	SA:Heart of Valor		ADD:SPELLCASTER|1|Divine
+2	SA:Weapon of Justice	ADD:SPELLCASTER|1|Divine
+3	SA:Bane of Evil		ADD:SPELLCASTER|1|Divine
+4					ADD:SPELLCASTER|1|Divine
+5	SA:Brilliant Radiance	ADD:SPELLCASTER|1|Divine	TEMPLATE:Celestial
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Claw of the Hunt	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -203,14 +203,14 @@ CLASS:Claw of the Hunt	STARTSKILLPTS:4	CSKILL:Balance|Climb|Control Shape|Hide|I
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1							BONUS:VAR|SneakAttack|1																									AUTO:FEAT|Sneak Attack	ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
+1							BONUS:VAR|SneakAttack|1																									ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir	AUTO:FEAT|Sneak Attack
 2	SA:Hunter's Claws +%|HunterClaw					BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement	DEFINE:HunterClaw|CL/2
 3	SA:Defensive Shift
-4																																							ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
+4																																			ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
 5							BONUS:VAR|SneakAttack|1
-7																																							ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
+7																																			ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
 9							BONUS:VAR|SneakAttack|1
-10																																							ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
+10																																			ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Niomus Windweaver	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -281,12 +281,12 @@ CLASS:Rezurbek Buerin	STARTSKILLPTS:2	CSKILL:Animal Empathy|Control Shape|TYPE.C
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Control Shape +%|BuerinControl	BONUS:SKILLRANK|Control Shape|BuerinControl1	DEFINE:BuerinControl|(CL+1)/2	TEMPLATE:Buerin	ADD:FEAT|1|Improved Control Shape (MR)
-2																							ADD:SPELLCASTER|1|Divine
-4																							ADD:SPELLCASTER|1|Divine
-6																							ADD:SPELLCASTER|1|Divine
-8																							ADD:SPELLCASTER|1|Divine
-10																							ADD:SPELLCASTER|1|Divine
+1	SA:Control Shape +%|BuerinControl	BONUS:SKILLRANK|Control Shape|BuerinControl1	DEFINE:BuerinControl|(CL+1)/2	ADD:FEAT|1|Improved Control Shape (MR)	TEMPLATE:Buerin
+2																				ADD:SPELLCASTER|1|Divine
+4																				ADD:SPELLCASTER|1|Divine
+6																				ADD:SPELLCASTER|1|Divine
+8																				ADD:SPELLCASTER|1|Divine
+10																				ADD:SPELLCASTER|1|Divine
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
 CLASS:Rhonian Emissary	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.112	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+5)/3	BONUS:COMBAT|BAB|(CL+2)/3|TYPE=Base.REPLACE

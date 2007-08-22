@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 # Class Name	Removed Class Skill	Class Skill
@@ -38,7 +38,7 @@ CLASS:Athlete	HD:10		TYPE:Base.PC	ABB:Ath		SOURCEPAGE:p.135	LANGAUTO:Literacy		B
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Intimidate|Jump|Knowledge (Dungeon Crawl)|Knowledge (Sports)|Perform|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble
 ###Block: Proficiencies
-1	AUTO:WEAPONPROF|TYPE.Sport	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Weapon Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Weapon Proficiencies|All Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE.Sport
 ###Block: Normal Level Progression
 1	SA:Constant Training	SA:% Favored Sports|FavSports	BONUS:VAR|FavSports|CL/5+1	DEFINE:FavSports|0	ADD:FEAT|1|TYPE=Athlete
 4																			ADD:FEAT|1|TYPE=Athlete
@@ -55,7 +55,7 @@ CLASS:Master Celebrity	PRESKILL:2,Perform,Sense Motive=10	PRESKILL:1,Bluff=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Celebrity	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Disguise|Innuendo|Intimidate|Perform|TYPE.Profession|Sense Motive
 ###Block: Proficiencies
-1	AUTO:WEAPONPROF|TYPE.Dagger|TYPE.Pistol	AUTO:FEAT|All Automatic Weapon Proficiencies
+1	AUTO:FEAT|All Automatic Weapon Proficiencies	AUTO:WEAPONPROF|TYPE.Dagger|TYPE.Pistol
 ###Block: Normal Level Progression
 1	SA:Make It Look Natural	SA:Eminence
 2	SA:Work the Media
@@ -70,7 +70,7 @@ CLASS:Trapper	PREATT:6	PREFEAT:1,Track	PRESKILL:1,Handle Animal=6	PRESKILL:1,Kno
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hide|Intuit Direction|Knowledge (Monster Lore)|Listen|Move Silently|Search|Sense Motive|Spot|Use Rope|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:WEAPONPROF|Net|Tranquilizer Rifle	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Weapon Proficiencies	AUTO:WEAPONPROF|Net|Tranquilizer Rifle
 ###Block: Normal Level Progression
 1	SA:Subdual Specialist	SA:Favored Prey
 2	SA:Scent	SA:Exotic Weapon %|EW					DEFINE:EW|1	ADD:FEAT|1|Exotic Weapon Proficiency

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/informatica/poder/secular/site/products.html#aa
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa
 
 #Originally done by Paul W. King
 
@@ -95,12 +95,12 @@ CLASS:Eldritch Bow	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Knowledge (Arcana)|Lis
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: standard
-1	SA:May wear light armor without incurring the normal arcane spell failure chance.	BONUS:VAR|ArrowEnhancement|(CL+3)/4						AUTO:FEAT|Enhance Arrow
-2																										AUTO:FEAT|Imbue Arrow	ADD:SPELLCASTER|1|Arcane
-4															BONUS:VAR|SeekerArrowTimes|1							AUTO:FEAT|Seeker Arrow	ADD:SPELLCASTER|1|Arcane
-6															BONUS:VAR|PhaseArrowTimes|1							AUTO:FEAT|Phase Arrow	ADD:SPELLCASTER|1|Arcane
-8															BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	AUTO:FEAT|Hail of Arrows	ADD:SPELLCASTER|1|Arcane
-10	SA:Arrow of Negation																										ADD:SPELLCASTER|1|Arcane
+1	SA:May wear light armor without incurring the normal arcane spell failure chance.	BONUS:VAR|ArrowEnhancement|(CL+3)/4											AUTO:FEAT|Enhance Arrow
+2																										ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Imbue Arrow
+4															BONUS:VAR|SeekerArrowTimes|1							ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Seeker Arrow
+6															BONUS:VAR|PhaseArrowTimes|1							ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Phase Arrow
+8															BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Hail of Arrows
+10	SA:Arrow of Negation																						ADD:SPELLCASTER|1|Arcane
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Psychic Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL

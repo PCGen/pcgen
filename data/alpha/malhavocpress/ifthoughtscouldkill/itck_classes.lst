@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
 # Remove Veiwing in Colorless Adept changed to "Remote View" to match srd skill.
 
@@ -69,18 +69,18 @@ SUBCLASSLEVEL:1	ADD:FEAT|2|Psychometabolism Subdiscipline,Psychokinesis Subdisci
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
 ###Block: Level progression
-1												SA:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|CL+var("BL=Psion ITCK")+3	AUTO:FEAT|Psicrystal
-1	KNOWN:3,1				SPECIALTYKNOWN:1,1																										ADD:FEAT|5|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+1												SA:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|CL+var("BL=Psion ITCK")+3											AUTO:FEAT|Psicrystal
+1	KNOWN:3,1				SPECIALTYKNOWN:1,1																						ADD:FEAT|5|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 2	KNOWN:4,1				SPECIALTYKNOWN:1,1
-3	KNOWN:4,2				SPECIALTYKNOWN:1,1																										ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+3	KNOWN:4,2				SPECIALTYKNOWN:1,1																						ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 4	KNOWN:5,2,0				SPECIALTYKNOWN:1,1,1
-5	KNOWN:5,3,1				SPECIALTYKNOWN:1,1,1																										ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+5	KNOWN:5,3,1				SPECIALTYKNOWN:1,1,1																						ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 6	KNOWN:6,3,1,0			SPECIALTYKNOWN:1,1,1,1
-7	KNOWN:6,4,2,1			SPECIALTYKNOWN:1,1,1,1																										ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+7	KNOWN:6,4,2,1			SPECIALTYKNOWN:1,1,1,1																						ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 8	KNOWN:7,4,2,1,0			SPECIALTYKNOWN:1,1,1,1,1
-9	KNOWN:7,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1																									ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+9	KNOWN:7,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1																					ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 10	KNOWN:8,4,3,2,1,0			SPECIALTYKNOWN:1,1,1,1,1,1
-11	KNOWN:8,4,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1,1																									ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+11	KNOWN:8,4,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1,1																					ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 12	KNOWN:8,4,4,3,3,1,0		SPECIALTYKNOWN:1,1,1,1,1,1,1
 13	KNOWN:8,4,4,3,3,2,1		SPECIALTYKNOWN:1,1,1,1,1,1,1
 14	KNOWN:8,4,4,3,3,2,1,0		SPECIALTYKNOWN:1,1,1,1,1,1,1,1
@@ -100,17 +100,17 @@ CLASS:Metamind ITCK	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft,Knowledge (Psio
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft|Remote View
 ###Block: Level progression
-1																										AUTO:FEAT|Psicrystal
+1																															AUTO:FEAT|Psicrystal
 1																					DEFINE:PowerPsicrystal|5
-1	SA:Power Psicrystal %|PowerPsicrystal	BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal															ADD:SPELLCASTER|1|Psionic
-2	SA:Freely Manifest 1st ~ 3/day		BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal															ADD:SPELLCASTER|1|Psionic
-3								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2										ADD:SPELLCASTER|1|Psionic
-4	SA:Freely Manifest 2nd ~ 3/day		BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal															ADD:SPELLCASTER|1|Psionic
-5								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2										ADD:SPELLCASTER|1|Psionic
+1	SA:Power Psicrystal %|PowerPsicrystal	BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal											ADD:SPELLCASTER|1|Psionic
+2	SA:Freely Manifest 1st ~ 3/day		BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal											ADD:SPELLCASTER|1|Psionic
+3								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|1|Psionic
+4	SA:Freely Manifest 2nd ~ 3/day		BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal											ADD:SPELLCASTER|1|Psionic
+5								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|1|Psionic
 6	SA:Freely Manifest 3rd ~ 3/day
-7								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2										ADD:SPELLCASTER|1|Psionic
+7								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|1|Psionic
 8	SA:Freely Manifest 4th ~ 3/day
-9								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2										ADD:SPELLCASTER|1|Psionic
+9								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|1|Psionic
 10	SA:Apotheosis ~ one hour/day
 
 # Class Name			Output Name				Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus

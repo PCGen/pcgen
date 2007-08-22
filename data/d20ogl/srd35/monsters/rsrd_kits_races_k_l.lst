@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr  7 13:33:12 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Default Kobold	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kobold]
@@ -295,7 +295,7 @@ LEVELABILITY:Fighter=6	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Cleave
 LEVELABILITY:Fighter=8	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Critical(Bite)
 FEAT:Improved Natural Armor
 LEVELABILITY:Fighter=10	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Natural Attack(Bite)
-FEAT:Weapon Focus(Bite)				FREE:YES
+FEAT:Weapon Focus(Bite)					FREE:YES
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped	EQMOD:MITHRAL_ARMR_LT.PLUS2A
 GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3S
 GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS2W

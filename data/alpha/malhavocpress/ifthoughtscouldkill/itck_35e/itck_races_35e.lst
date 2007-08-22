@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
 # adjusted for update 3.
 
 ###Block: character races
-# Race Name	Product Identity?	Favored Class	Starting Feats	Size		Move			Face/Space	Reach		Vision		Automatic Languages	Bonus Languages	Save checks bonus						Bonus to skill							Modify VAR				Nb Legs	Special Ability																						Main Race Type	Template		CR		Source Page		ADD:
+# Race Name	Product Identity?	Favored Class	Starting Feats	Size		Move			Face/Space	Reach		Vision		Automatic Languages	Bonus Languages	Save checks bonus						Bonus to skill							Modify VAR				Nb Legs	Special Ability																						Main Race Type	Template		CR		Source Page		Add
 Kuresh	NAMEISPI:YES	FAVCLASS:Psion	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Low-light	LANGAUTO:Common		LANGBONUS:ALL	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Luck	BONUS:SKILL|Spot,Search,Sense Motive|2|TYPE=Racial	BONUS:VAR|BonusPowerPoints|1	LEGS:2	SA:+2 racial bonus on saves against any mind-affecting psionic power (but not arcane or divine spells)	SA:Naturally Psionic (+1 BonusPP)	RACETYPE:Humanoid	TEMPLATE:Psionic	CR:1/2	SOURCEPAGE:p.39	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic
 
 ###Block: monsters

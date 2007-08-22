@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
-# Domain Name	Class Skill		Bonus to skill					Description																										ADD:
+# Domain Name	Class Skill		Bonus to skill					Description																										Add
 Art			CSKILL:Appraise	BONUS:SKILL|TYPE.Craft|4|TYPE=Confidence	DESC:Appraisal is a class skill. All craft skills receive a +4 confidence bonus
 Decision												DESC:You cast divinations at +2 caster leverls
 Fate													DESC:Once per day, you can manipulate fate and cause an opponent to rerol one die roll that they have just made. The new result must be taken in every situation.

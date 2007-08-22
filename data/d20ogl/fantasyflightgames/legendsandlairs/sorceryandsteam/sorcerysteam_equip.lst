@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
@@ -104,16 +104,16 @@ Canister Shot (Heavy)	TYPE:Goods.Siege Engines.Ammunition	COST:30	WT:24		DAMAGE:
 Grape Shot (Heavy)	TYPE:Goods.Siege Engines.Ammunition	COST:30	WT:24		DAMAGE:7d6			SOURCEPAGE:p.151	SPROP:Blast Radius-80 ft,Reflex Save DC-22
 
 ###Block: Vehicles
-# Equipment Name		Type							Contains			Cost		Source Page
-Autogyro			TYPE:Goods.Transportation.Container		CONTAINS:50|Any=UNLIM	COST:12000	SOURCEPAGE:p.165
-Ironclad			TYPE:Goods.Transportation.Container.Ships	CONTAINS:6000|Any=UNLIM	COST:100000	SOURCEPAGE:p.165
-Steam Bike			TYPE:Goods.Transportation.Container		CONTAINS:50|Any=UNLIM	COST:6000	SOURCEPAGE:p.165
-Steam Carriage		TYPE:Goods.Transportation.Container		CONTAINS:200|Any=UNLIM	COST:10000	SOURCEPAGE:p.165
-Steam Leviathan		TYPE:Goods.Transportation.Container		CONTAINS:2000|Any=UNLIM	COST:75000	SOURCEPAGE:p.166
-Steam Locomotive		TYPE:Goods.Transportation							COST:100000	SOURCEPAGE:p.166
+# Equipment Name		Type							Contains				Cost		Source Page
+Autogyro			TYPE:Goods.Transportation.Container		CONTAINS:50|Any=UNLIM		COST:12000	SOURCEPAGE:p.165
+Ironclad			TYPE:Goods.Transportation.Container.Ships	CONTAINS:6000|Any=UNLIM		COST:100000	SOURCEPAGE:p.165
+Steam Bike			TYPE:Goods.Transportation.Container		CONTAINS:50|Any=UNLIM		COST:6000	SOURCEPAGE:p.165
+Steam Carriage		TYPE:Goods.Transportation.Container		CONTAINS:200|Any=UNLIM		COST:10000	SOURCEPAGE:p.165
+Steam Leviathan		TYPE:Goods.Transportation.Container		CONTAINS:2000|Any=UNLIM		COST:75000	SOURCEPAGE:p.166
+Steam Locomotive		TYPE:Goods.Transportation								COST:100000	SOURCEPAGE:p.166
 Steam Locomotive Car	TYPE:Goods.Transportation.Container		CONTAINS:10000|Any=UNLIM	COST:20000	SOURCEPAGE:p.166
-Steam Submarine		TYPE:Goods.Transportation.Container.Ships	CONTAINS:4000|Any=UNLIM	COST:60000	SOURCEPAGE:p.167
-Steam Wagon			TYPE:Goods.Transportation.Container		CONTAINS:4000|Any=UNLIM	COST:24000	SOURCEPAGE:p.167
+Steam Submarine		TYPE:Goods.Transportation.Container.Ships	CONTAINS:4000|Any=UNLIM		COST:60000	SOURCEPAGE:p.167
+Steam Wagon			TYPE:Goods.Transportation.Container		CONTAINS:4000|Any=UNLIM		COST:24000	SOURCEPAGE:p.167
 Zeppelin (Cargo)		TYPE:Goods.Transportation.Container.Ships	CONTAINS:70000|Any=UNLIM	COST:150000	SOURCEPAGE:p.167
 Zeppelin (Passenger)	TYPE:Goods.Transportation.Container.Ships	CONTAINS:50000|Any=UNLIM	COST:125000	SOURCEPAGE:p.167
 Zeppelin (Warship)	TYPE:Goods.Transportation.Container.Ships	CONTAINS:60000|Any=UNLIM	COST:200000	SOURCEPAGE:p.167

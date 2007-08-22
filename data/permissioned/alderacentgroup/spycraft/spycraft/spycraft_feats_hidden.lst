@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.spycraftrpg.com/
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -27,63 +27,63 @@ Wheelman Core Ability	TYPE:CoreAbility	VISIBLE:NO	PREVARLTEQ:TL,1	SA:Lucky	SA:Cu
 
 ###Block:  Fixer Abilities
 
-# Feat Name			Type					Visible	Special Ability																																			Define											Stackable?	Multiple?	Choose				Add to base move													Modify VAR					ADD:
+# Feat Name			Type					Visible	Special Ability																																			Define											Stackable?	Multiple?	Choose				Add					Add to base move													Modify VAR
 Sneak Attack		TYPE:Special			VISIBLE:NO	SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie																														DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6
 Uncanny Dodge		TYPE:Special			VISIBLE:NO	SA:Uncanny Dodge (Dex bonus to Defense)|PREVAREQ:UncannyDodge,1	SA:Uncanny Dodge (can't be flanked)|PREVAREQ:UncannyDodge,2	SA:Uncanny Dodge (can't be flanked, +% against traps)|UncannyTraps|PREVARGTEQ:UncannyDodge,3	DEFINE:UncannyDodge|0	DEFINE:UncannyTraps|max((UncannyDodge-2),0)
 Evasion			TYPE:Special			VISIBLE:NO	SA:Evasion (no damage on save)|PREVAREQ:EvasionFactor,1	SA:Evasion (fail saves for half)|PREVAREQ:EvasionFactor,2	SA:Evasion (fail saves for quarter)|PREVARGTEQ:EvasionFactor,3							DEFINE:EvasionFactor|0
 
-Fast Movement		TYPE:FixerSpecialAbility	VISIBLE:NO																																																											BONUS:MOVEADD|TYPE.Walk|10|PREMULT:2,[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE=Heavy]
-Improvisation		TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:VAR|FixerImprovisation|1
-Master Thief		TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:VAR|FixerMasterThief|1
-Fixer Skill Mastery	TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:NO	MULT:YES	CHOOSE:NOCHOICE																								ADD:FEAT|3|Skill Mastery
+Fast Movement		TYPE:FixerSpecialAbility	VISIBLE:NO																																																																BONUS:MOVEADD|TYPE.Walk|10|PREMULT:2,[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE=Heavy]
+Improvisation		TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:VAR|FixerImprovisation|1
+Master Thief		TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:VAR|FixerMasterThief|1
+Fixer Skill Mastery	TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:NO	MULT:YES	CHOOSE:NOCHOICE			ADD:FEAT|3|Skill Mastery
 Skill Mastery		TYPE:SpecialAbility		VISIBLE:NO	SA:Skill Mastery (%CHOICE)																																													STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL|1
 Stash It			TYPE:FixerSpecialAbility	VISIBLE:NO	SA:Stash It
 
 ###Block:  Pointman Abilities
 
-# Feat Name						Type					Visible	Required Feat				Special Ability						Define				Stackable?	Multiple?	Choose					Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction	ADD:
-Versatility						TYPE:PointmanSpecialAbility	VISIBLE:NO																				STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS|1																						CSKILL:LIST
+# Feat Name						Type					Visible	Required Feat				Special Ability						Define				Stackable?	Multiple?	Choose					Add														Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
+Versatility						TYPE:PointmanSpecialAbility	VISIBLE:NO																				STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS|1																																				CSKILL:LIST
 
-Faceman Linguist					TYPE:CrossClassAbility		VISIBLE:NO																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE																														ADD:Language|1|TYPE=Spoken
+Faceman Linguist					TYPE:CrossClassAbility		VISIBLE:NO																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				ADD:Language|1|TYPE=Spoken
 Faceman Cold Read					TYPE:CrossClassAbility		VISIBLE:NO							SA:Cold Read (1/session)									STACK:NO	MULT:NO
 Faceman Quick Change				TYPE:CrossClassAbility		VISIBLE:NO							SA:Quick Change (%/session)|PointmanQuickChange	DEFINE:PointmanQuickChange|1	STACK:NO	MULT:NO
-Faceman Quick Change (additional session)	TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Faceman Quick Change														STACK:NO	MULT:NO																						BONUS:VAR|PointmanQuickChange|1
+Faceman Quick Change (additional session)	TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Faceman Quick Change														STACK:NO	MULT:NO																																				BONUS:VAR|PointmanQuickChange|1
 Faceman Backup					TYPE:CrossClassAbility		VISIBLE:NO							SA:Backup (1/session)										STACK:NO	MULT:NO
 
 Fixer Procure					TYPE:CrossClassAbility		VISIBLE:NO							SA:Procure												STACK:NO	MULT:NO
 Fixer Evasion					TYPE:CrossClassAbility		VISIBLE:NO							SA:Evasion (no damage on save)								STACK:NO	MULT:NO
 Fixer Uncanny Dodge				TYPE:CrossClassAbility		VISIBLE:NO							SA:Uncanny Dodge (Dex bonus to Defense)							STACK:NO	MULT:NO
 Fixer Sneak Attack				TYPE:CrossClassAbility		VISIBLE:NO							SA:Sneak Attack %d6|PMSneakAttack			DEFINE:PMSneakAttack|1		STACK:NO	MULT:NO
-Fixer Sneak Attack (Additional Attack)	TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Fixer Sneak Attack															STACK:NO	MULT:NO																						BONUS:VAR|PMSneakAttack|1
+Fixer Sneak Attack (Additional Attack)	TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Fixer Sneak Attack															STACK:NO	MULT:NO																																				BONUS:VAR|PMSneakAttack|1
 
 Snoop Flawless search				TYPE:CrossClassAbility		VISIBLE:NO							SA:Flawless search										STACK:NO	MULT:NO
 Snoop Intuition					TYPE:CrossClassAbility		VISIBLE:NO							SA:Intuition (1/session)									STACK:NO	MULT:NO
 Snoop Back Door					TYPE:CrossClassAbility		VISIBLE:NO							SA:Back Door (1 system)										STACK:NO	MULT:NO
 Snoop Jury-rig					TYPE:CrossClassAbility		VISIBLE:NO							SA:Jury-rig +%|PointmanJuryrig			DEFINE:PointmanJuryrig|2	STACK:NO	MULT:NO
-Snoop Jury-rig +1					TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Snoop Jury-rig															STACK:NO	MULT:NO																						BONUS:VAR|PointmanJuryrig|1
+Snoop Jury-rig +1					TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Snoop Jury-rig															STACK:NO	MULT:NO																																				BONUS:VAR|PointmanJuryrig|1
 
-Soldier Bonus Feat x1				TYPE:CrossClassAbility		VISIBLE:NO																				STACK:NO	MULT:NO																																	ADD:FEAT|1|TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat
-Soldier Bonus Feat x2				TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Soldier Bonus Feat x1														STACK:NO	MULT:NO																																	ADD:FEAT|1|TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat
-Soldier Damage Reduction			TYPE:CrossClassAbility		VISIBLE:NO																				STACK:NO	MULT:NO																														DR:1/-
-Soldier Armor Use					TYPE:CrossClassAbility		VISIBLE:NO																				STACK:NO	MULT:NO							BONUS:COMBAT|AC|1|PREEQUIP:1,TYPE=Armor	BONUS:MISC|ACCCHECK|-1|PREEQUIP:1,TYPE=Armor
+Soldier Bonus Feat x1				TYPE:CrossClassAbility		VISIBLE:NO																				STACK:NO	MULT:NO							ADD:FEAT|1|TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat
+Soldier Bonus Feat x2				TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Soldier Bonus Feat x1														STACK:NO	MULT:NO							ADD:FEAT|1|TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat
+Soldier Damage Reduction			TYPE:CrossClassAbility		VISIBLE:NO																				STACK:NO	MULT:NO																																												DR:1/-
+Soldier Armor Use					TYPE:CrossClassAbility		VISIBLE:NO																				STACK:NO	MULT:NO																					BONUS:COMBAT|AC|1|PREEQUIP:1,TYPE=Armor	BONUS:MISC|ACCCHECK|-1|PREEQUIP:1,TYPE=Armor
 
 Wheelman Daredevil				TYPE:CrossClassAbility		VISIBLE:NO							SA:Daredevil											STACK:NO	MULT:NO
 Wheelman Kick Start				TYPE:CrossClassAbility		VISIBLE:NO							SA:Kick Start (1/session)									STACK:NO	MULT:NO
 Wheelman Familiarity +1				TYPE:CrossClassAbility		VISIBLE:NO							SA:Familiarity +%|PointmanFamiliarity		DEFINE:PointmanFamiliarity|1	STACK:NO	MULT:NO
-Wheelman Familiarity +2				TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Wheelman Familiarity +1														STACK:NO	MULT:NO																						BONUS:VAR|PointmanFamiliarity|1
+Wheelman Familiarity +2				TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Wheelman Familiarity +1														STACK:NO	MULT:NO																																				BONUS:VAR|PointmanFamiliarity|1
 
 ###Block:  Snoop Abilities
 
-# Feat Name							Type			Visible	Required Feat				Special Ability									Define					Stackable?	Multiple?	Choose		Modify VAR					ADD:
+# Feat Name							Type			Visible	Required Feat				Special Ability									Define					Stackable?	Multiple?	Choose		Add					Modify VAR
 Comb the Streets						TYPE:SnoopAbility	VISIBLE:NO							SA:Comb the Streets (%/session)|CombtheStreets				DEFINE:CombtheStreets|1			STACK:NO	MULT:NO
-Comb the Streets (additional sessions)		TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Comb the Streets																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|CombtheStreets|1
+Comb the Streets (additional sessions)		TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Comb the Streets																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|CombtheStreets|1
 
 Intercept Communication					TYPE:SnoopAbility	VISIBLE:NO							SA:Intercept Communication (%/session)|InterceptCommunication	DEFINE:InterceptCommunication|1	STACK:NO	MULT:NO
-Intercept Communication (additional sessions)	TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Intercept Communication																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|InterceptCommunication|1
+Intercept Communication (additional sessions)	TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Intercept Communication																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|InterceptCommunication|1
 
 Intelligence Analysis					TYPE:SnoopAbility	VISIBLE:NO							SA:Intelligence Analysis													STACK:NO	MULT:NO
 Electronics Familiarity					TYPE:SnoopAbility	VISIBLE:NO							SA:Electronics Familiarity													STACK:NO	MULT:NO
-Snoop Skill Mastery					TYPE:SnoopAbility	VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:NOCHOICE							ADD:FEAT|3|Skill Mastery
+Snoop Skill Mastery					TYPE:SnoopAbility	VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|3|Skill Mastery
 
 ###Block:  Soldier Abilities
 

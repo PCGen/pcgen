@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -7,7 +7,7 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.spycraftrpg.co
 
 ###Block: Hidden Universal Template--------------------------------------------------
 
-# Template Name	Visible	Removable?		ADD:
+# Template Name	Visible	Removable?		Add
 Agent			VISIBLE:NO	REMOVABLE:NO	ADD:FEAT|1|TYPE=StartingNationality
 
 #Agent					VISIBLE:NO		REMOVABLE:NO	SA:Action Dice - %, Action Die Type - d%, Personal Budget % bp, Mission Budget % bp, Gadget Points %|ACTIONDICE|ACTIONDIETYPE|BUDGETPOINTS|MISSIONBUDGET|GADGETPOINTS

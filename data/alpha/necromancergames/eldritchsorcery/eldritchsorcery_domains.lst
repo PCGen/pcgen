@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/
 # Original Entry by: Tir Gwaith
 
@@ -12,7 +12,7 @@ SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancerg
 # Entropy spell "Random Action" is "Confusion, Lesser" in 3.5
 # Time spell "Mass Haste" isn't in 3.5, no direct equivalent.
 
-# Domain Name	Class Skill					Vision			Feat		Virtual Feat					Special Ability	Define									Add to vision			Modify VAR						Source Page		Description																																																																							List of Domain Spells by Level																																																						ADD:
+# Domain Name	Class Skill					Vision			Feat		Virtual Feat					Special Ability	Define									Add to vision			Modify VAR						Source Page		Description																																																																							List of Domain Spells by Level																																																						Add
 Beast																						SA:Scent (Ex)																							SOURCEPAGE:p.16	DESC:You gain Scent as an extraordinary ability.																																																																SPELLLEVEL:DOMAIN|Beast=1|Claws of the Beast|Beast=2|Bull's Strength|Beast=3|Magic Fang (Greater)|Beast=4|Rage|Beast=5|Summon Animals|Beast=6|Hold Monster|Beast=7|Claws of Digging|Beast=8|Animal Shapes|Beast=9|Shapechange
 Charm																																															SOURCEPAGE:p.17	DESC:You cast all compulsion spells at +1 caster level.																																																															SPELLLEVEL:DOMAIN|Charm=1|Charm Person|Charm=2|Enthrall|Charm=3|Geas (Lesser)|Charm=4|Suggestion|Charm=5|Charm Monster|Charm=6|Dominate Person|Charm=7|Suggestion (Mass)|Charm=8|Dominate Monster|Charm=9|Demand
 Cold															VFEAT:Turn Fire|Rebuke Cold|Basic Turning																										SOURCEPAGE:p.17	DESC:Turn or destroy fire creatures as a good cleric turns undead.  Rebuke, command, or bolster cold creatures as an evil cleric rebukes undead.  Use these abilities a total number of times per day equal to 3 + your Charisma modifier.  This granted power is a supernatural ability.																										SPELLLEVEL:DOMAIN|Cold=1|Frostfire|Cold=2|Chill Metal|Cold=3|Resist Energy|Cold=4|Ice Storm|Cold=5|Cone of Cold|Cold=6|Wall of Ice|Cold=7|Cold Fog|Cold=8|Polar Ray|Cold=9|Elemental Swarm

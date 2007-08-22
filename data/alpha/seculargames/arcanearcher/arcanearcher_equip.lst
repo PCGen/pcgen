@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
-SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/informatica/poder/secular/site/products.html#aa
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa
 
 #Originally done by Paul W. King
 
@@ -28,6 +28,6 @@ Rod (Hunter Might)	OUTPUTNAME:Rod of [NAME]	PROFICIENCY:Longbow	TYPE:Magic.Rod.W
 The Silver Guardian	PROFICIENCY:Shield (Heavy)	TYPE:Shield.Heavy.Standard	COST:18770	WT:15		ACCHECK:-2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:STEEL.MITHRAL_SHLD.PLUS2S.ANMATD	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3x	SPELLFAILURE:15		SPELLS:The Silver Guardian|TIMES=1|CASTERLEVEL=5|Lightning Bolt,14	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
 
 ###BLOCK: Wondrous
-# Equipment Name			Type					Contains							Cost		Modifier				Source Page		Weapon prof. bonus
-Bracers of Deadly Strike	TYPE:Magic.Wondrous.Bracer									COST:50000						SOURCEPAGE:p.33	BONUS:WEAPONPROF=TYPE.Bow|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit	BONUS:WEAPONPROF=TYPE.Bow|CRITMULTADD|2
+# Equipment Name			Type					Contains								Cost		Modifier				Source Page		Weapon prof. bonus
+Bracers of Deadly Strike	TYPE:Magic.Wondrous.Bracer										COST:50000						SOURCEPAGE:p.33	BONUS:WEAPONPROF=TYPE.Bow|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit	BONUS:WEAPONPROF=TYPE.Bow|CRITMULTADD|2
 Quiver of Wanted Arrows		TYPE:Magic.Wondrous.Container	CONTAINS:*UNLIM|Ammunition=60|Thrown=18|Weapon=6	COST:5000	EQMOD:SPL_CHRG|CHARGES[50]	SOURCEPAGE:p.34

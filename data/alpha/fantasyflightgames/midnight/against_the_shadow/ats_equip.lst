@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 19:32:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 
-# Equipment Name			Type							Contains			Cost		Weight	Source Page		Special Property
-Harvesting sickle and spade	TYPE:Goods.Tools									COST:500	WT:5		SOURCEPAGE:p. 87
+# Equipment Name			Type							Contains				Cost		Weight	Source Page		Special Property
+Harvesting sickle and spade	TYPE:Goods.Tools										COST:500	WT:5		SOURCEPAGE:p. 87
 
-Charm Buckle			TYPE:Goods.Clothing.Resizable.Container	CONTAINS:UNLIM|Charm=4	COST:350	WT:.25	SOURCEPAGE:p. 86	SPROP:Search check (DC 25) to discover.
+Charm Buckle			TYPE:Goods.Clothing.Resizable.Container	CONTAINS:UNLIM|Charm=4		COST:350	WT:.25	SOURCEPAGE:p. 86	SPROP:Search check (DC 25) to discover.
 ### TODO: This should hold a "light" weapon
-Drop Sheath				TYPE:Goods.Container.General			CONTAINS:UNLIM|Weapon=1	COST:200	WT:2		SOURCEPAGE:p. 86	SPROP:Quickdraw with that weapon.
+Drop Sheath				TYPE:Goods.Container.General			CONTAINS:UNLIM|Weapon=1		COST:200	WT:2		SOURCEPAGE:p. 86	SPROP:Quickdraw with that weapon.
 ### TODO: There is a editing error in the cost table which list the Orcbane instead of Poison stone.
 Poison Stone			TYPE:Goods.Container.General			CONTAINS:UNLIM|Poison=10	COST:420	WT:1		SOURCEPAGE:p. 87
 

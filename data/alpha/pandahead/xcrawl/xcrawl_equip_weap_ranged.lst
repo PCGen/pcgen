@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 ##Block:Simple weapons-ranged
@@ -18,8 +18,8 @@ Bowling ball								PROFICIENCY:Bowling ball		TYPE:Weapon.Sport.Ranged.Standard.
 Arrow (tranquilizer)	OUTPUTNAME:Arrow, tranquilizer	PROFICIENCY:Arrow (tranquilizer)	TYPE:Weapon.Exotic.Ranged.STandard.Piercing								COST:15	WT:0.25				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:50	SIZE:S
 
 ##Block:Martial weapons-firearms
-.25 pistol									PROFICIENCY:.25 pistol			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:UNLIM|Bullet=10		COST:300	WT:2		PRESTAT:1,STR=9	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d8	RANGE:50	SIZE:S
-.35 pistol									PROFICIENCY:.35 pistol			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:UNLIM|Bullet=10		COST:400	WT:2		PRESTAT:1,STR=12	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d10	RANGE:50	SIZE:S
+.25 pistol									PROFICIENCY:.25 pistol			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:UNLIM|Bullet=10	COST:300	WT:2		PRESTAT:1,STR=9	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d8	RANGE:50	SIZE:S
+.35 pistol									PROFICIENCY:.35 pistol			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:UNLIM|Bullet=10	COST:400	WT:2		PRESTAT:1,STR=12	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d10	RANGE:50	SIZE:S
 .45 pistol									PROFICIENCY:.45 pistol			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:UNLIM|Bullet=8		COST:600	WT:4		PRESTAT:1,STR=14	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d12	RANGE:50	SIZE:S
 .55 pistol									PROFICIENCY:.55 pistol			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:UNLIM|Bullet=5		COST:1000	WT:6		PRESTAT:1,STR=16	CRITMULT:X3			CRITRANGE:1			DAMAGE:2d8	RANGE:50	SIZE:S
 .25 rifle									PROFICIENCY:.25 rifle			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:UNLIM|Bullet=5		COST:300	WT:5		PRESTAT:1,STR=9	CRITMULT:X3			CRITRANGE:1			DAMAGE:2d4	RANGE:90	SIZE:M

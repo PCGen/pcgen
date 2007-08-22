@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Legends of the Ancients - Macedon	SOURCESHORT:Macedon	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137
 
 
@@ -7,9 +7,9 @@ CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.F
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Tactics)|Ride|Spot|Survival
 ###Block: proficiencies
-1	AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1						AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1						AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: standard
 1	SA:Mounted Combat +%|MountedCombat				BONUS:VAR|MountedCombat|(CL/4)+1		DEFINE:MountedCombat|0	VFEAT:Mounted Combat
 2	SA:Mounted Mobility	SA:Saddle Leap

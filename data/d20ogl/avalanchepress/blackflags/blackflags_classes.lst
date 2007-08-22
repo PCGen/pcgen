@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean	SOURCESHORT:BlackFlags	SOURCEWEB:http://www.avalanchepress.com
 
 # Several classes have odd skill point progressions where first level has a different base number of
@@ -83,7 +83,7 @@ CLASS:Sailor	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Slr		MAXLEVEL:20	SOURCEPAGE:p.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Disable Device|Heal|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Navigation|Piloting|TYPE.Profession|Search|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:WEAPONPROF|Cutlass	AUTO:FEAT|Firearms Proficiency|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Firearms Proficiency|Simple Weapon Proficiency|All Automatic Proficiencies	AUTO:WEAPONPROF|Cutlass
 ###Block: Normal Level Progression
 1	SA:Sea Legs (Ex)					BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=8	BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=6
 2																												AUTO:FEAT|Great Fortitude
@@ -140,7 +140,7 @@ CLASS:Cook		!PRECLASS:1,Priest=1	PRELEVEL:1
 CLASS:Officer	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Off		MAXLEVEL:1	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Will|2
 # Class Name	Required Lvl
 CLASS:Officer	PRELEVEL:1
-1	SA:Forage (Ex)	BONUS:SKILL|Balance,Intimidate,Navigation,Piloting|2|TYPE=Class	AUTO:FEAT|Weapon Finesse(Rapier)	ADD:FEAT|1|TYPE=Panache
+1	SA:Forage (Ex)	BONUS:SKILL|Balance,Intimidate,Navigation,Piloting|2|TYPE=Class	ADD:FEAT|1|TYPE=Panache	AUTO:FEAT|Weapon Finesse(Rapier)
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Captain	NAMEISPI:NO		HD:10		TYPE:Prestige.PC	ABB:Cap		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

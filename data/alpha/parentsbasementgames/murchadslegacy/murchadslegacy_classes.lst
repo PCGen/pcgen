@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://www.parentsbasementgames.com
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -28,10 +28,10 @@ CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|D
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Poison Use																									ADD:FEAT|1|Homefront Guardian Skill Bonus
-2	SA:+% Save vs. Poison|HomefrontPoisonSave	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2	DEFINE:HomefrontPoisonSave|0	AUTO:FEAT|Sneak Attack
-3	SA:Homeblood use																									ADD:FEAT|1|Homefront Guardian Skill Bonus
-5	SA:Homeblood Immunity (Ex)																							ADD:FEAT|1|Homefront Guardian Skill Bonus
+1	SA:Poison Use																					ADD:FEAT|1|Homefront Guardian Skill Bonus
+2	SA:+% Save vs. Poison|HomefrontPoisonSave	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2	DEFINE:HomefrontPoisonSave|0								AUTO:FEAT|Sneak Attack
+3	SA:Homeblood use																					ADD:FEAT|1|Homefront Guardian Skill Bonus
+5	SA:Homeblood Immunity (Ex)																			ADD:FEAT|1|Homefront Guardian Skill Bonus
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
@@ -175,12 +175,12 @@ CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE.Craft|Disable Device|TYPE.Knowle
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1																																	AUTO:FEAT|Alertness
-2																																					ADD:FEAT|1|TYPE.Gunnery
+1																																					AUTO:FEAT|Alertness
+2																																	ADD:FEAT|1|TYPE.Gunnery
 4						SA:Magical Alertness (Ex) +%|MagicalAlertnessBonus							BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0
-5																																					ADD:FEAT|1|TYPE.Gunnery
+5																																	ADD:FEAT|1|TYPE.Gunnery
 7						SA:Fear of Flame (Ex) +2 saving throw bonus versus any fire related attack or incident
-8																																					ADD:FEAT|1|TYPE.Gunnery
+8																																	ADD:FEAT|1|TYPE.Gunnery
 10	SA:.CLEAR.Magical Alertness	SA:Improved Magical Alertness (Ex) +%|MagicalAlertnessBonus						BONUS:VAR|MagicalAlertnessBonus|4
 
 
@@ -190,11 +190,11 @@ CLASS:Shadowtamer	HD:6		TYPE:PC.Prestige	ABB:ShTmr		MAXLEVEL:5	SOURCEPAGE:p.37	B
 CLASS:Shadowtamer	PREATT:3	PREFEAT:1,Shintai	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=8	PRESKILL:1,Knowledge (Nature)=4	PRESKILL:1,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:Necromancy,1,3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowtamer	STARTSKILLPTS:3	CSKILL:Concentration|TYPE.Craft|Gather Information|TYPE.Knowledge|TYPE.Profession|Speak Language|Spellcraft
-1	SA:Lure of the Dammed	BONUS:VAR|ShadowBeast|CL													AUTO:FEAT|Summon Shadow Beast	ADD:SPELLCASTER|1|ANY
-2																											ADD:SPELLCASTER|1|ANY
-3																											ADD:SPELLCASTER|1|ANY
-4																											ADD:SPELLCASTER|1|ANY
-5	SA:Damned								BONUS:COMBAT|AC|2	BONUS:STAT|STR|2	TEMPLATE:Damned Spell Resistance						ADD:SPELLCASTER|1|ANY
+1	SA:Lure of the Dammed	BONUS:VAR|ShadowBeast|CL							ADD:SPELLCASTER|1|ANY							AUTO:FEAT|Summon Shadow Beast
+2																ADD:SPELLCASTER|1|ANY
+3																ADD:SPELLCASTER|1|ANY
+4																ADD:SPELLCASTER|1|ANY
+5	SA:Damned								BONUS:COMBAT|AC|2	BONUS:STAT|STR|2	ADD:SPELLCASTER|1|ANY	TEMPLATE:Damned Spell Resistance
 
 #
 # End

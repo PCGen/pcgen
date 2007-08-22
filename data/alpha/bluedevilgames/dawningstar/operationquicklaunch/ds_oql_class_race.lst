@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus									Combat bonus		Modify VAR
@@ -7,8 +7,8 @@ CLASS:Human Survivor	HD:8		TYPE:PC.Race	MAXLEVEL:3	SOURCEPAGE:p.48	BONUS:CHECKS|
 CLASS:Human Survivor	PRELEVEL:2		PRERACE:1,Human
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Human Survivor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Drive|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Local)|Knowledge (Popular Culture)|Listen|Profession|Search|Speak Language|Spot|Survival|Swim|Treat Injury
-1	SA:Adaptable		BONUS:VAR|SurvivalInstinct|CL	BONUS:STAT|CON|1	AUTO:FEAT|Survival Instinct
-2										BONUS:STAT|WIS|1						ADD:FEAT|1|TYPE=HumanSurvivor
+1	SA:Adaptable		BONUS:VAR|SurvivalInstinct|CL	BONUS:STAT|CON|1						AUTO:FEAT|Survival Instinct
+2										BONUS:STAT|WIS|1	ADD:FEAT|1|TYPE=HumanSurvivor
 3	SA:Last Man Standing						BONUS:STAT|CHA|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
@@ -17,6 +17,6 @@ CLASS:Velin Hunter	HD:8		TYPE:PC.Race	MAXLEVEL:3	SOURCEPAGE:p.49	BONUS:CHECKS|BA
 CLASS:Velin Hunter	PRELEVEL:2		PRERACE:1,Velin
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Velin Hunter	STARTSKILLPTS:2	CSKILL:Climb|Craft (Tribal)|Handle Animal|Hide|Jump|Knowledge (Local)|Listen|Move Silently|Navigate|Perform (Dance)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Wind Instruments)|Ride|Spot|Survival|Swim
-1						BONUS:VAR|WildernessTraining|CL	BONUS:STAT|WIS|1	AUTO:FEAT|Wilderness Training
-2												BONUS:STAT|CON|1							ADD:FEAT|1|TYPE=VelinHunter
-3	SA:Tribal Collective Memory							BONUS:STAT|STR|1	AUTO:FEAT|Improved Detect Vaasi
+1						BONUS:VAR|WildernessTraining|CL	BONUS:STAT|WIS|1						AUTO:FEAT|Wilderness Training
+2												BONUS:STAT|CON|1	ADD:FEAT|1|TYPE=VelinHunter
+3	SA:Tribal Collective Memory							BONUS:STAT|STR|1						AUTO:FEAT|Improved Detect Vaasi

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
@@ -23,19 +23,19 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft
 1										BONUS:VAR|CompLevel|CL								AUTO:FEAT|Animal Companion
 1	SA:Master of the Wild (%/day)(Ex)|MasteroftheWild	BONUS:VAR|MasterOfTheWild|(CL+5)/6	DEFINE:MasterOfTheWild|0
 ###Block: Normal Level Progression
-1						AUTO:FEAT|Feral Child		ADD:FEAT|1|TYPE.AnimalLordAbility	ADD:FEAT|1|TYPE.AnimalLordTotem
-2						AUTO:FEAT|Track
-3						AUTO:FEAT|Uncanny Dodge
-4						AUTO:FEAT|Feral Athleticism
-5											ADD:FEAT|1|TYPE.AnimalLordAbility
+1						ADD:FEAT|1|TYPE.AnimalLordAbility	ADD:FEAT|1|TYPE.AnimalLordTotem	AUTO:FEAT|Feral Child
+2																		AUTO:FEAT|Track
+3																		AUTO:FEAT|Uncanny Dodge
+4																		AUTO:FEAT|Feral Athleticism
+5						ADD:FEAT|1|TYPE.AnimalLordAbility
 6	BONUS:VAR|UncannyDodge|1
-8						AUTO:FEAT|Feral Voice
-9											ADD:FEAT|1|TYPE.AnimalLordAbility
+8																		AUTO:FEAT|Feral Voice
+9						ADD:FEAT|1|TYPE.AnimalLordAbility
 11	BONUS:VAR|UncannyDodge|1
-12						AUTO:FEAT|Feral Senses
-13											ADD:FEAT|1|TYPE.AnimalLordAbility
+12																		AUTO:FEAT|Feral Senses
+13						ADD:FEAT|1|TYPE.AnimalLordAbility
 16	BONUS:VAR|UncannyDodge|1
-17											ADD:FEAT|1|TYPE.AnimalLordAbility
+17						ADD:FEAT|1|TYPE.AnimalLordAbility
 20	BONUS:VAR|UncannyDodge|1
 
 
@@ -46,14 +46,14 @@ CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomac
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Sabotage (Ex)	SA:Steamcraft Creations (Ex)							AUTO:FEAT|Feral Child
-2																			ADD:FEAT|1|Artificer Skill Focus
-5	SA:Master Craftsman +%|MasterCraftsman		DEFINE:MasterCraftsman|(CL-2)/3					ADD:FEAT|1|Artificer Steamcraft Focus
-8																			ADD:FEAT|1|Artificer Skill Focus
-12																			ADD:FEAT|1|Artificer Steamcraft Focus
-14																			ADD:FEAT|1|Artificer Skill Focus
-19																			ADD:FEAT|1|Artificer Steamcraft Focus
-20																			ADD:FEAT|1|Artificer Skill Focus
+1	SA:Sabotage (Ex)	SA:Steamcraft Creations (Ex)														AUTO:FEAT|Feral Child
+2															ADD:FEAT|1|Artificer Skill Focus
+5	SA:Master Craftsman +%|MasterCraftsman		DEFINE:MasterCraftsman|(CL-2)/3	ADD:FEAT|1|Artificer Steamcraft Focus
+8															ADD:FEAT|1|Artificer Skill Focus
+12															ADD:FEAT|1|Artificer Steamcraft Focus
+14															ADD:FEAT|1|Artificer Skill Focus
+19															ADD:FEAT|1|Artificer Steamcraft Focus
+20															ADD:FEAT|1|Artificer Skill Focus
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus
@@ -63,23 +63,23 @@ CLASS:Musketeer	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Cr
 1	AUTO:FEAT|Musketeer Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1																	AUTO:FEAT|Combat Reload|Rapid Reload (Firearms)
-2																	AUTO:FEAT|Reload on the Run
+1																						AUTO:FEAT|Combat Reload|Rapid Reload (Firearms)
+2																						AUTO:FEAT|Reload on the Run
 3	SA:Avoid Fire +% (Ex)|AvoidFire							DEFINE:AvoidFire|1
 4	SA: Move and I'll Shoot (Ex)
-5																									ADD:FEAT|1|TYPE.Musketeer
+5																	ADD:FEAT|1|TYPE.Musketeer
 6									BONUS:VAR|AvoidFire|1
 7	SA:Take Cover (Ex)
-8																									ADD:FEAT|1|TYPE.Musketeer
+8																	ADD:FEAT|1|TYPE.Musketeer
 10	SA:Crack Shot (Ex)					BONUS:VAR|AvoidFire|1
-11																									ADD:FEAT|1|TYPE.Musketeer
+11																	ADD:FEAT|1|TYPE.Musketeer
 13	SA:Deadly Aim (%d6 Bonus Damage)(Ex)|DeadlyAim					DEFINE:DeadlyAim|1
-14																									ADD:FEAT|1|TYPE.Musketeer
+14																	ADD:FEAT|1|TYPE.Musketeer
 15									BONUS:VAR|AvoidFire|1
 16									BONUS:VAR|DeadlyAim|1
-17																									ADD:FEAT|1|TYPE.Musketeer
+17																	ADD:FEAT|1|TYPE.Musketeer
 19									BONUS:VAR|DeadlyAim|1
-20																									ADD:FEAT|1|TYPE.Musketeer
+20																	ADD:FEAT|1|TYPE.Musketeer
 
 #
 # end

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
@@ -32,9 +32,9 @@ CLASS:Arcane Performer	HD:6		TYPE:PC.Prestige	ABB:ArP		MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Arcane Performer	PREFEAT:1,Child Prodigy	PRESKILL:3,Bluff,Perform,Spellcraft=8	PRESKILL:1,Craft (Carpentry),Craft (Woodworking),Craft (Metalworking),Craft (Musical Instrument)=5	PRESPELL:1,Enthrall	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must create a new intrument
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE.Profession|Scry|Sense Motive|Spellcraft|Swim|Tumble|Use Magic Device|Use Steamcraft Device
-1	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip	AUTO:FEAT|Simple Weapon Proficiency
-1																				AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																				AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency						WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Musical Prodigy
 1	SA:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC	DEFINE:MusicalProdigyDC|1	AUTO:FEAT|Musical Prodigy
 ###Block: Normal Level Progression
@@ -171,16 +171,16 @@ CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:2,Bluff,Concentration=5	PRESKILL:1,
 CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Sense Motive|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Spell Focus(Enchantment),Hypnotist DC Bonus
+1																								ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Spell Focus(Enchantment),Hypnotist DC Bonus
 2	SA:Focused Mind +% (Ex)|FocusedMind				BONUS:CHECKS|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2
 #2	AUTO:FEAT|Master Hypnotist	Not sure but I would think they left this out
-3																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment I
-4																								AUTO:FEAT|Ultimate Hypnotist
-5																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment II
+3																								ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment I
+4																																						AUTO:FEAT|Ultimate Hypnotist
+5																								ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment II
 6
-7																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment III
+7																								ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment III
 8
-9																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment IV
+9																								ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment IV
 10	SA:Master of Domination %/day (Sp)|MasterofDomination									DEFINE:MasterofDomination|INT/2
 
 # Noble Bodyguard ----------------------------------------------------------------------------
@@ -290,8 +290,8 @@ CLASS:Street Runner	HD:6		TYPE:PC.Prestige	ABB:SRn		MAXLEVEL:10	SOURCEPAGE:p.89	
 CLASS:Street Runner	PREATT:4	PREFEAT:1,Run	PRESKILL:5,Balance,Hide,Intuit Direction,Move Silently,Pick Pocket=5	PRESKILL:3,Climb,Jump,Tumble=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Runner	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Munitions|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
-1	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)	AUTO:FEAT|Street Runner Weapon Proficiencies
-1									AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:FEAT|Street Runner Weapon Proficiencies	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1					BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
 2	SA:Gossip Hound (Ex)
@@ -312,13 +312,13 @@ CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle 
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1																					AUTO:FEAT|Weapon Focus(Club)
+1																										AUTO:FEAT|Weapon Focus(Club)
 2	SA:Crowd Control (Ex)
 4	SA:Mounted Watchman (Ex)										BONUS:SKILL|Ride|4|TYPE=Competence
-5																										ADD:FEAT|1|TYPE.Watchman
+5																					ADD:FEAT|1|TYPE.Watchman
 6	SA:Renewed Vitality (Ex)	BONUS:CHECKS|Fortitude|1	BONUS:HP|CURRENTMAX|5
-8	SA:Presence of Authority (Ex)																AUTO:FEAT|Leadership
-10	SA:Veteran Watchman (Ex)																					ADD:FEAT|1|TYPE.Watchman
+8	SA:Presence of Authority (Ex)																					AUTO:FEAT|Leadership
+10	SA:Veteran Watchman (Ex)																ADD:FEAT|1|TYPE.Watchman
 
 #
 # end

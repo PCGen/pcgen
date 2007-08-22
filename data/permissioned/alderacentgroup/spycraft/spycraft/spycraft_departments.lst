@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
 
 SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.spycraftrpg.com/
 
-# Race Name			Product Identity?	Skills/Level		Starting Feats	Size		Move			Reach		Automatic Languages	Bonus Languages	Save checks bonus						Combat bonus							Bonus to HP								Bonus to skill								Stat bonus					Modify VAR																Class Skill			Special Ability										Main Race Type		Template									CR		Source Page		ADD:
+# Race Name			Product Identity?	Skills/Level		Starting Feats	Size		Move			Reach		Automatic Languages	Bonus Languages	Save checks bonus						Combat bonus							Bonus to HP								Bonus to skill								Stat bonus					Modify VAR																Class Skill			Special Ability										Main Race Type		Template									CR		Source Page		Add
 D-0 Home Office		NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																																											BONUS:VAR|ACTIONDIEBONUS|(TL/4)+1												CSKILL:TYPE.Background	SA:+% to all Action Dice Rolls|ACTIONDIEBONUS					RACETYPE:Department	TEMPLATE:Agent	TEMPLATE:D-0 Home Office Template		CR:1/2	SOURCEPAGE:p.17	ADD:FEAT|1|TYPE.Covert,TYPE.Chase
 D-1 Power Broker		NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																											BONUS:SKILL|Diplomacy,Intimidate|(TL/4)+1|TYPE=Department	BONUS:STAT|CHA|2	BONUS:STAT|STR|-2	BONUS:VAR|GADGETPOINTS|(TL/4)+1	BONUS:VAR|MISSIONBUDGET|(TL/2)+2	BONUS:VAR|BUDGETPOINTS|5	CSKILL:TYPE.Background													RACETYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.18	ADD:FEAT|1|TYPE.Style
 D-2 Military Operations	NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL	BONUS:CHECKS|Fortitude|(TL/4)+1|TYPE=Department																																																				CSKILL:TYPE.Background													RACETYPE:Department	TEMPLATE:Agent	TEMPLATE:D-2 Military Operations Template	CR:1/2	SOURCEPAGE:p.18	ADD:FEAT|1|D-2 Stat Bonus	ADD:FEAT|1|D-2 Stat Penalty	ADD:FEAT|1|TYPE.BasicCombat

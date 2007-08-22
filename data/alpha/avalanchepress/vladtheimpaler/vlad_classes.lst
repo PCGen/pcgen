@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
 # Original Entry by: Jerril
 
@@ -62,9 +62,9 @@ CLASS:Red Hussar	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECK
 CLASS:Red Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Common
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|TYPE.Craft
-1	AUTO:WEAPONPROF|Lance (Light)|Lance (Heavy)|Scimitar
-1										AUTO:FEAT|Armor Proficiency (Light)
-1										AUTO:FEAT|Shield Proficiency
+1							AUTO:WEAPONPROF|Lance (Light)|Lance (Heavy)|Scimitar
+1	AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1																				ADD:FEAT|1|Ride-By Attack
 2	SA:Courser's Fury %|HussarCoursersFury	BONUS:VAR|HussarCoursersFury|(CL+2)/4	DEFINE:HussarCoursersFury|0
@@ -80,39 +80,39 @@ CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Int
 CLASS:Herbalist	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Nature)|Profession (Apothecary)|Search|Spellcraft|Spot|Use Magic Device|Wilderness Lore|TYPE.Craft
-1																							SPELLS:Herbalist|TIMES=var("CL=Herbalist")|Cure Minor Wounds	ADD:Minour Poultice|1|Blessing,Cure Light Wounds,Curse,Prowess
-2	SA:Minor Poultice %/day|HerbalistMinorPoultices		BONUS:VAR|HerbalistMinorPoultices|CL	DEFINE:HerbalistMinorPoultices|0												ADD:Minour Poultice|1|Blessing,Cure Light Wounds,Curse,Prowess
-4																																		ADD:Minour Poultice|1|Blessing,Cure Light Wounds,Curse,Prowess
-5	SA:Moderate Poultice %/day|HerbalistModeratePoultices	BONUS:VAR|HerbalistModeratePoultices|CL/2	DEFINE:HerbalistModeratePoultices|0												ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
-7																																		ADD:Minour Poultice|1|Blessing,Cure Light Wounds,Curse,Prowess
-8																																		ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
-10																																		ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
-11	SA:Major Poultice %/day|HerbalistMajorPoultices		BONUS:VAR|HerbalistMajorPoultices|CL/5	DEFINE:HerbalistMajorPoultices|0												ADD:Major Poultice|1|Cure Serious Wounds,Repel Major Undead
-13																																		ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
-14																																		ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
-16																																		ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
-19																																		ADD:Major Poultice|1|Cure Serious Wounds,Repel Major Undead
+1																							ADD:Minour Poultice|1|Blessing,Cure Light Wounds,Curse,Prowess									SPELLS:Herbalist|TIMES=var("CL=Herbalist")|Cure Minor Wounds
+2	SA:Minor Poultice %/day|HerbalistMinorPoultices		BONUS:VAR|HerbalistMinorPoultices|CL	DEFINE:HerbalistMinorPoultices|0	ADD:Minour Poultice|1|Blessing,Cure Light Wounds,Curse,Prowess
+4																							ADD:Minour Poultice|1|Blessing,Cure Light Wounds,Curse,Prowess
+5	SA:Moderate Poultice %/day|HerbalistModeratePoultices	BONUS:VAR|HerbalistModeratePoultices|CL/2	DEFINE:HerbalistModeratePoultices|0	ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
+7																							ADD:Minour Poultice|1|Blessing,Cure Light Wounds,Curse,Prowess
+8																							ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
+10																							ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
+11	SA:Major Poultice %/day|HerbalistMajorPoultices		BONUS:VAR|HerbalistMajorPoultices|CL/5	DEFINE:HerbalistMajorPoultices|0	ADD:Major Poultice|1|Cure Serious Wounds,Repel Major Undead
+13																							ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
+14																							ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
+16																							ADD:Moderate Poultice|1|Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead
+19																							ADD:Major Poultice|1|Cure Serious Wounds,Repel Major Undead
 
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device
-2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	AUTO:FEAT|Basic Turning	ADD:FEAT|1|TYPE=TurnUndead
+2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	ADD:FEAT|1|TYPE=TurnUndead	AUTO:FEAT|Basic Turning
 # Should these be referencing Cleric or Lautar???? - converting from cl("Cleric") to CL. - Tir Gwaith
 2	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE
 2	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 2	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal Progression
-1							SPELLS:Lautar|TIMES=cl("Lautar")/3+1|Protection from Evil
-4																							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
-5																							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
-7																							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
-8																							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
-10																							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
+1																										SPELLS:Lautar|TIMES=cl("Lautar")/3+1|Protection from Evil
+4							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
+5							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
+7							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
+8							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
+10							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
 11	SA:Create Talisman (Standard)
-13																							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
+13							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
 14	SA:Create Talisman (Reliable)
-16																							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
+16							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
 17	SA:Create Talisman (Dependable)
-19																	AUTO:FEAT|Craft Magic Arms and Armor
-20																							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
+19																																				AUTO:FEAT|Craft Magic Arms and Armor
+20							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry

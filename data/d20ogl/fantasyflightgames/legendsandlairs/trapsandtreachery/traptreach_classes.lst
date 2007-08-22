@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 # Applied errata from http://www.fantasyflightgames.com/lltterrata.html (Roofrunner) - Byngl
@@ -90,7 +90,7 @@ CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Disgu
 
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:Urban Lore
-1	AUTO:FEAT|.CLEAR.Track	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	ADD:FEAT|1|Track,Shadow (TT)
+1	ADD:FEAT|1|Track,Shadow (TT)	AUTO:FEAT|.CLEAR.Track	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 
 # Class Name				Class Skill
 CLASS:Ranger (Monte Cook's).MOD	CSKILL:Urban Lore

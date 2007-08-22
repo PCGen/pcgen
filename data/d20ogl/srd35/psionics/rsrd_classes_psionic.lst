@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -18,15 +18,15 @@ CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion
 SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Autohypnosis|Balance|Heal
 #SUBCLASS:Egoist		CHOICE:SCHOOL|Psychometabolism
 SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
-#SUBCLASS:Kineticist	CHOICE:SCHOOL|Psychokinesis	
+#SUBCLASS:Kineticist	CHOICE:SCHOOL|Psychokinesis
 SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Climb|Jump|Ride|Survival|Swim
-#SUBCLASS:Nomad		CHOICE:SCHOOL|Psychoportation	
+#SUBCLASS:Nomad		CHOICE:SCHOOL|Psychoportation
 SUBCLASS:Seer		COST:0	PROHIBITCOST:0	SPELLLIST:2|Seer|Psion		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Gather Information|Listen|Spot
-#SUBCLASS:Seer		CHOICE:SCHOOL|Clairsentience	
+#SUBCLASS:Seer		CHOICE:SCHOOL|Clairsentience
 SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:2|Shaper|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Bluff|Disguise|Use Psionic Device
-#SUBCLASS:Shaper		CHOICE:SCHOOL|Metacreativity	
+#SUBCLASS:Shaper		CHOICE:SCHOOL|Metacreativity
 SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Telepath|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
-#SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy		
+#SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
 ###Block:Proficiencies
 1	AUTO:FEAT|Psion Weapon Proficiencies
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints

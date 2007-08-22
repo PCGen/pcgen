@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 # This is specific classes for monsters with advancements requiring
@@ -142,7 +142,7 @@ CLASS:Formian Queen	HD:8		TYPE:Monster	MAXLEVEL:40	SOURCEPAGE:MonstersE-F.rtf	BO
 CLASS:Formian Queen	PRERACE:1,Formian (Queen)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Formian Queen	STARTSKILLPTS:8	MODTOSKILLS:YES
-1					ADD:SPELLCASTER|1|Sorcerer
+1						ADD:SPELLCASTER|1|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -171,16 +171,16 @@ CLASS:Ghaele	STARTSKILLPTS:8	MODTOSKILLS:YES
 1	SPELLLEVEL:CLASS|Cleric=1|Calm Animals|Cleric=2|Hold Animal|Cleric=3|Dominate Animal|Cleric=4|Summon Nature's Ally IV|Cleric=5|Commune with Nature|Cleric=6|Antilife Shell|Cleric=7|Animal Shapes|Cleric=8|Summon Nature's Ally VIII|Cleric=9|Shapechange
 ###Block: Spellcasting progression
 1	BONUS:DOMAIN|NUMBER|2
-1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|1|Cleric
-2	BONUS:PCLEVEL|Cleric|1
-3	BONUS:PCLEVEL|Cleric|1
-4	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
-5	BONUS:PCLEVEL|Cleric|1
-6	BONUS:PCLEVEL|Cleric|1
-7	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
-8	BONUS:PCLEVEL|Cleric|1
-9	BONUS:PCLEVEL|Cleric|1
-10	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+1					BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|1|Cleric
+2					BONUS:PCLEVEL|Cleric|1
+3					BONUS:PCLEVEL|Cleric|1
+4					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+5					BONUS:PCLEVEL|Cleric|1
+6					BONUS:PCLEVEL|Cleric|1
+7					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+8					BONUS:PCLEVEL|Cleric|1
+9					BONUS:PCLEVEL|Cleric|1
+10					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Lammasu	HD:10		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:MonstersK-L.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL

@@ -1,21 +1,21 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
 
 ###BLOCK: occupation
-# Feat Name				Output Name		Type			Visible	Required Stat	Modify VAR							Source Page		ADD:
-Occupation (Bureaucrat)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				BONUS:VAR|Wealth|2					SOURCEPAGE:p.36	ADD:FEAT|2|TYPE=Bureaucrat_Skills	ADD:FEAT|1|TYPE=Bureaucrat
-Occupation (Courtier)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,CHA=13	BONUS:VAR|Wealth|4					SOURCEPAGE:p.36	ADD:FEAT|3|TYPE=Courtier_Skills
-Occupation (Dissident)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				BONUS:VAR|Wealth|1					SOURCEPAGE:p.36	ADD:FEAT|3|TYPE=Dissident_Skills	ADD:FEAT|1|TYPE=Dissident
-Occupation (Explorer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				BONUS:VAR|Wealth|1					SOURCEPAGE:p.37	ADD:FEAT|3|TYPE=Explorer_Skills	ADD:FEAT|1|TYPE=ExplorerOccupation
-Occupation (Hunter)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO												SOURCEPAGE:p.37	ADD:FEAT|3|TYPE=Hunter_Skills	ADD:FEAT|1|TYPE=Hunter
-Occupation (Nomad)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				BONUS:VAR|Wealth|1					SOURCEPAGE:p.37	ADD:FEAT|3|TYPE=Nomad_Skills	ADD:FEAT|1|TYPE=Nomad
-Occupation (Pilot)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				BONUS:VAR|Wealth|1					SOURCEPAGE:p.37	ADD:FEAT|2|TYPE=Pilot_Skills	ADD:FEAT|1|TYPE=Pilot
-Occupation (Ranch Hand)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				BONUS:VAR|Wealth|1					SOURCEPAGE:p.38	ADD:FEAT|3|TYPE=Ranch_Hand_Skills	ADD:FEAT|1|TYPE=RanchHand
-Occupation (Scientist)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				BONUS:VAR|Wealth|3					SOURCEPAGE:p.38	ADD:FEAT|1|TYPE=Scientist_Skills	ADD:FEAT|1|TYPE=Scientist
-Occupation (Spacer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				BONUS:VAR|Wealth|2					SOURCEPAGE:p.38	ADD:FEAT|2|TYPE=Spacer_Skills	ADD:FEAT|1|TYPE=Spacer
-Occupation (Terraformer)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				BONUS:VAR|Wealth|3					SOURCEPAGE:p.38	ADD:FEAT|2|TYPE=Terraformer_Skills	ADD:FEAT|1|TYPE=Terraformer
-Occupation (Tribal Leader)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,WIS=13	BONUS:VAR|Wealth|2	BONUS:VAR|Reputation|1	SOURCEPAGE:p.39	ADD:FEAT|2|TYPE=Tribal_Leader_Skills	ADD:FEAT|1|TYPE=TribalLeader
-Occupation (Xeno Expert)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,INT=13	BONUS:VAR|Wealth|3					SOURCEPAGE:p.39	ADD:FEAT|2|TYPE=Xeno_Expert_Skills	ADD:FEAT|1|TYPE=XenoExpert
+# Feat Name				Output Name		Type			Visible	Required Stat	Add												Modify VAR							Source Page
+Occupation (Bureaucrat)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT|2|TYPE=Bureaucrat_Skills	ADD:FEAT|1|TYPE=Bureaucrat		BONUS:VAR|Wealth|2					SOURCEPAGE:p.36
+Occupation (Courtier)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,CHA=13	ADD:FEAT|3|TYPE=Courtier_Skills							BONUS:VAR|Wealth|4					SOURCEPAGE:p.36
+Occupation (Dissident)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT|3|TYPE=Dissident_Skills	ADD:FEAT|1|TYPE=Dissident		BONUS:VAR|Wealth|1					SOURCEPAGE:p.36
+Occupation (Explorer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT|3|TYPE=Explorer_Skills	ADD:FEAT|1|TYPE=ExplorerOccupation	BONUS:VAR|Wealth|1					SOURCEPAGE:p.37
+Occupation (Hunter)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT|3|TYPE=Hunter_Skills	ADD:FEAT|1|TYPE=Hunter												SOURCEPAGE:p.37
+Occupation (Nomad)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT|3|TYPE=Nomad_Skills	ADD:FEAT|1|TYPE=Nomad				BONUS:VAR|Wealth|1					SOURCEPAGE:p.37
+Occupation (Pilot)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT|2|TYPE=Pilot_Skills	ADD:FEAT|1|TYPE=Pilot				BONUS:VAR|Wealth|1					SOURCEPAGE:p.37
+Occupation (Ranch Hand)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT|3|TYPE=Ranch_Hand_Skills	ADD:FEAT|1|TYPE=RanchHand		BONUS:VAR|Wealth|1					SOURCEPAGE:p.38
+Occupation (Scientist)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT|1|TYPE=Scientist_Skills	ADD:FEAT|1|TYPE=Scientist		BONUS:VAR|Wealth|3					SOURCEPAGE:p.38
+Occupation (Spacer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT|2|TYPE=Spacer_Skills	ADD:FEAT|1|TYPE=Spacer				BONUS:VAR|Wealth|2					SOURCEPAGE:p.38
+Occupation (Terraformer)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT|2|TYPE=Terraformer_Skills	ADD:FEAT|1|TYPE=Terraformer		BONUS:VAR|Wealth|3					SOURCEPAGE:p.38
+Occupation (Tribal Leader)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,WIS=13	ADD:FEAT|2|TYPE=Tribal_Leader_Skills	ADD:FEAT|1|TYPE=TribalLeader	BONUS:VAR|Wealth|2	BONUS:VAR|Reputation|1	SOURCEPAGE:p.39
+Occupation (Xeno Expert)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,INT=13	ADD:FEAT|2|TYPE=Xeno_Expert_Skills	ADD:FEAT|1|TYPE=XenoExpert		BONUS:VAR|Wealth|3					SOURCEPAGE:p.39
 
 ###BLOCK: new occupation skills
 # Feat Name					Type																										Visible	Required Class Skill			Prohibited Class SKill			Bonus to skill							Class Skill
