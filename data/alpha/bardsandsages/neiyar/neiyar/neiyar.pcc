@@ -35,6 +35,7 @@ FEAT:neiyar_feats_flaws.lst
 FEAT:neiyar_feats_hidden.lst
 LANGUAGE:neiyar_languages.lst
 EQUIPMENT:neiyar_equip_magic_items.lst
+EQUIPMOD:neiyar_eqmods.lst
 RACE:neiyar_races_base.lst
 RACE:neiyar_races_monster.lst
 SKILL:neiyar_skills.lst
@@ -42,7 +43,6 @@ SPELL:neiyar_spells.lst
 TEMPLATE:neiyar_templates.lst
 WEAPONPROF:neiyar_weaponprof.lst
 
-### IN-PROGRESS:
 KIT:neiyar_kits_monster.lst
 #
 # DONE
