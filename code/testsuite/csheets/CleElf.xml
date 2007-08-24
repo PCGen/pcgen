@@ -1510,7 +1510,7 @@ BIO
 		</domain>
 	</domains>
 	<!-- Domains -->
-	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Halfspear, Javelin, Longbow, Longbow (Composite), Longsword, Mace, Mace (Heavy), Morningstar, Quarterstaff, Ray, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Halfspear, Javelin, Longbow, Longbow (Composite), Longsword, Mace, Mace (Heavy), Mace (Light), Morningstar, Quarterstaff, Ray, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Elven, Orc</languages>
 
  
