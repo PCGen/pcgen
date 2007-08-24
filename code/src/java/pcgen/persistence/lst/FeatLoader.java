@@ -28,6 +28,7 @@ package pcgen.persistence.lst;
 import pcgen.core.Ability;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
+import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
@@ -121,4 +122,11 @@ public final class FeatLoader extends AbilityLoader
 	{
 		return Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, aKey);
 	}
+	
+	@Override
+	protected Ability getMatchingObject(PObject aKey)
+	{
+		return getObjectKeyed(aKey.getKeyName());
+	}
+	
 }

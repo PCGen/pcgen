@@ -199,10 +199,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		if (includeObject(source, pObj))
 		{
 			finishObject(pObj);
-			/*
-			 * FIXME This is a problem for Categorized Objects, see 
-			 */
-			final T currentObj = getObjectKeyed(pObj.getKeyName());
+			final T currentObj = getMatchingObject(pObj);
 
 			if (currentObj == null || !pObj.equals(currentObj))
 			{
@@ -319,6 +316,19 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 */
 	protected abstract T getObjectKeyed(String aKey);
 
+	/**
+	 * This method retrieves a PObject from globals, attempting to match (by key
+	 * and category, if necessary), the given object. This is used to avoid
+	 * duplicate loads
+	 * 
+	 * @param aKey The PObject to retrieve
+	 * @return PObject from Globals
+	 */
+	protected T getMatchingObject(PObject aKey)
+	{
+		return getObjectKeyed(aKey.getKeyName());
+	}
+	
 	/**
 	 * This method loads a single LST formatted file.
 	 * @param sourceEntry CampaignSourceEntry containing the absolute file path

@@ -194,4 +194,11 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	{
 		Globals.addAbility((Ability) pObj);
 	}
+	
+	@Override
+	protected Ability getMatchingObject(PObject aKey)
+	{
+		return Globals.getAbilityKeyed(((Ability) aKey).getCategory(), aKey
+			.getKeyName());
+	}
 }
