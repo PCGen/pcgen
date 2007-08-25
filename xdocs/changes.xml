@@ -12,6 +12,10 @@
       <action dev="thpr" type="add" issue="1777050">Class CHOICE: Token change</action>
       <action dev="thpr" type="add" issue="1777047">CONTAINS Magical Value Elimination</action>
       <action dev="thpr" type="fix" issue="1776390">.MOD with weapon Profs renames the Proficiency</action>
+      <action dev="amaitland" type="add" issue="1750552">Add Sheath to PCGen OGC</action>
+      <action dev="amaitland" type="fix" issue="1763382">[SRD] Mace (Light) / (Heavy) proficiency issues</action>
+      <action dev="tir-gwaith" type="fix" issue="1772816">[RSRD] Derro and Babau don't use Sneak Attack mechanic right</action>
+      <action dev="eddyanthony" type="fix" issue="1776713">rpgwebprofiler adds weapon weight twice</action>
     </release>
     <release version="5.13.0" date="2007-08-12" description="Alpha release">
       <action dev="takeyabue" type="fix">W3C Validation of documentation (228/295 files done already)</action>
