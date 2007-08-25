@@ -4,6 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # Changes: Commented out everything not _explicitly_ in the RSRD (flask-less liquids, etc.)
 # Any item without a superscript 1 (rules for resizing for small) is assumed to not be resizable.
+# New 5.14 'QUALITY:Bright Illumination|x ft.' and 'QUALITY:Shadowy Illumination|x ft.' and 'QUALITY:Duration|x' for light sources. -AM
 
 ###Block:Alchemical Stuff and Liquids
 #Acid					TYPE:Goods.Alchemical.Liquid	COST:9.97	WT:1.00		SOURCEPAGE:Equipment.rtf
@@ -14,11 +15,11 @@ Alchemist's Fire (Flask)	TYPE:Goods.Alchemical.Flask.Consumable	COST:20	WT:1.00	
 #Antitoxin				TYPE:Goods.Liquid.Poison	COST:48.97	WT:.0625	SOURCEPAGE:Equipment.rtf
 #Antitoxin (Flask)			TYPE:Goods.Liquid.Poison.Vial	COST:49		WT:.0625	SOURCEPAGE:Equipment.rtf
 Antitoxin (Vial)			TYPE:Goods.Alchemical.Vial.Consumable	COST:50	WT:0		SOURCEPAGE:Equipment.rtf
-Everburning Torch			TYPE:Goods.Magic					COST:110	WT:1		SOURCEPAGE:Equipment.rtf
+Everburning Torch			TYPE:Goods.Magic					COST:110	WT:1		SOURCEPAGE:Equipment.rtf	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
 #Holy Water				TYPE:Goods.Liquid		COST:24.97	WT:1.00		SOURCEPAGE:Equipment.rtf
 Holy Water (Flask)		TYPE:Goods.Flask.Consumable			COST:25	WT:1		SOURCEPAGE:Equipment.rtf
 Smokestick				TYPE:Goods.Alchemical.Consumable		COST:20	WT:0.5	SOURCEPAGE:Equipment.rtf
-Sunrod				TYPE:Goods.Alchemical.Consumable		COST:2	WT:1		SOURCEPAGE:Equipment.rtf
+Sunrod				TYPE:Goods.Alchemical.Consumable		COST:2	WT:1		SOURCEPAGE:Equipment.rtf	QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr.
 Tanglefoot Bag			TYPE:Goods.Alchemical.Consumable		COST:50	WT:4		SOURCEPAGE:Equipment.rtf
 Thunderstone			TYPE:Goods.Alchemical.Consumable		COST:30	WT:1		SOURCEPAGE:Equipment.rtf
 Tindertwig				TYPE:Goods.Alchemical.Consumable		COST:1	WT:0		SOURCEPAGE:Equipment.rtf
@@ -69,7 +70,7 @@ Block and Tackle			TYPE:Goods.General															COST:5	WT:5		SOURCEPAGE:Equi
 Bottle (Glass/Wine)		TYPE:Goods.Container.General.Resizable		CONTAINS:1.5|Liquid=3							COST:2	WT:0		SOURCEPAGE:Equipment.rtf
 Bucket				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:.5	WT:2		SOURCEPAGE:Equipment.rtf
 Caltrops				TYPE:Goods.General															COST:1	WT:2		SOURCEPAGE:Equipment.rtf
-Candle				TYPE:Goods.General.Consumable														COST:.01	WT:0		SOURCEPAGE:Equipment.rtf
+Candle				TYPE:Goods.General.Consumable														COST:.01	WT:0		SOURCEPAGE:Equipment.rtf	QUALITY:Shadowy Illumination|5 ft.	QUALITY:Duration|1 hr.
 Canvas (Sq. Yd.)			TYPE:Goods.General															COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
 Case (Map or Scroll)		TYPE:Goods.Container.General				CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:.5		SOURCEPAGE:Equipment.rtf
 Chain (10 Ft.)			TYPE:Goods.General															COST:30	WT:2		SOURCEPAGE:Equipment.rtf
@@ -87,9 +88,9 @@ Ink (1 Oz. Vial)			TYPE:Goods.General.Writing.Liquid.Vial												COST:8	WT:0
 Inkpen				TYPE:Goods.General.Writing														COST:.1	WT:0		SOURCEPAGE:Equipment.rtf
 Jug (Clay)				TYPE:Goods.Container.General				CONTAINS:8|Liquid=UNLIM|SpellComponent=1				COST:.03	WT:9		SOURCEPAGE:Equipment.rtf
 Ladder (10 Ft.)			TYPE:Goods.General															COST:.05	WT:20		SOURCEPAGE:Equipment.rtf
-Lamp (Common)			TYPE:Goods.General															COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
-Lantern (Bullseye)		TYPE:Goods.General															COST:12	WT:3		SOURCEPAGE:Equipment.rtf
-Lantern (Hooded)			TYPE:Goods.General															COST:7	WT:2		SOURCEPAGE:Equipment.rtf
+Lamp (Common)			TYPE:Goods.General															COST:.1	WT:1		SOURCEPAGE:Equipment.rtf	QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint
+Lantern (Bullseye)		TYPE:Goods.General															COST:12	WT:3		SOURCEPAGE:Equipment.rtf	QUALITY:Bright Illumination|60 ft. cone	QUALITY:Shadowy Illumination|120 ft. cone	QUALITY:Duration|6 hr./pint
+Lantern (Hooded)			TYPE:Goods.General															COST:7	WT:2		SOURCEPAGE:Equipment.rtf	QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint
 Lock (Very Simple)		TYPE:Goods.General															COST:20	WT:1		SOURCEPAGE:Equipment.rtf
 Lock (Average)			TYPE:Goods.General															COST:40	WT:1		SOURCEPAGE:Equipment.rtf
 Lock (Good)				TYPE:Goods.General															COST:80	WT:1		SOURCEPAGE:Equipment.rtf
@@ -127,7 +128,7 @@ Soap (Per Lb.)			TYPE:Goods.General															COST:.5	WT:1		SOURCEPAGE:Equip
 Spade or Shovel			TYPE:Goods.General															COST:2	WT:8		SOURCEPAGE:Equipment.rtf
 Spyglass				TYPE:Goods.General															COST:1000	WT:1		SOURCEPAGE:Equipment.rtf
 Tent					TYPE:Goods.General.Resizable														COST:10	WT:20		SOURCEPAGE:Equipment.rtf
-Torch					TYPE:Goods.General.Consumable														COST:.01	WT:1		SOURCEPAGE:Equipment.rtf
+Torch					TYPE:Goods.General.Consumable														COST:.01	WT:1		SOURCEPAGE:Equipment.rtf	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|1 hr.
 Vial					TYPE:Goods.Container.General.Vial			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:1	WT:.1		SOURCEPAGE:Equipment.rtf
 Waterskin				TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:1	WT:0		SOURCEPAGE:Equipment.rtf
 Waterskin (Filled)		TYPE:Goods.General.Resizable														COST:1	WT:4		SOURCEPAGE:Equipment.rtf

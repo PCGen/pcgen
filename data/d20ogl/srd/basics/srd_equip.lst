@@ -1,6 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
+# New 5.14 'QUALITY:Light|x ft.' and 'QUALITY:DURATION|x hr.' for light sources
 ###Block:Alchemical Stuff and Liquids
 # Equipment Name			Type							Cost		Weight	Modifier		Source Page
 Acid					TYPE:Goods.Alchemical.Liquid			COST:9.97	WT:1.00				SOURCEPAGE:SRDEquipmentII.rtf
@@ -13,7 +14,7 @@ Antitoxin (Vial)			TYPE:Goods.Alchemical.Vial.Consumable	COST:50	WT:.0625				SOU
 Holy Water				TYPE:Goods.Liquid					COST:24.97	WT:1.00				SOURCEPAGE:SRDEquipmentII.rtf
 Holy Water (Flask)		TYPE:Goods.Flask.Consumable			COST:25	WT:1.25				SOURCEPAGE:SRDEquipmentII.rtf
 Smokestick				TYPE:Goods.Alchemical.Consumable		COST:20			EQMOD:WOOD		SOURCEPAGE:SRDEquipmentII.rtf
-Sunrod				TYPE:Goods.Alchemical.Consumable		COST:2			EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf
+Sunrod				TYPE:Goods.Alchemical.Consumable		COST:2			EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf	QUALITY:Light|30 ft.	QUALITY:DURATION|6 hr.
 Tanglefoot Bag			TYPE:Goods.Alchemical.Consumable		COST:50	WT:4		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
 Thunderstone			TYPE:Goods.Alchemical.Consumable		COST:30	WT:1		EQMOD:STONE		SOURCEPAGE:SRDEquipmentII.rtf
 Tindertwig				TYPE:Goods.Alchemical.Consumable		COST:1			EQMOD:WOOD		SOURCEPAGE:SRDEquipmentII.rtf
@@ -60,7 +61,7 @@ Bell					TYPE:Goods.General							COST:1	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
 Blanket (Winter)			TYPE:Goods.General.Resizable						COST:.5	WT:3		EQMOD:CLOTH		SOURCEPAGE:SRDEquipmentII.rtf
 Block and Tackle			TYPE:Goods.General.Resizable						COST:5	WT:5		EQMOD:WOOD		SOURCEPAGE:SRDEquipmentII.rtf
 Caltrops				TYPE:Goods.General							COST:1	WT:2		EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf
-Candle				TYPE:Goods.General.Resizable.Consumable				COST:.01	WT:0		EQMOD:WAX		SOURCEPAGE:SRDEquipmentII.rtf
+Candle				TYPE:Goods.General.Resizable.Consumable				COST:.01	WT:0		EQMOD:WAX		SOURCEPAGE:SRDEquipmentII.rtf		QUALITY:Light|5 ft.	QUALITY:DURATION|1 hr.
 Canvas (Sq. Yd.)			TYPE:Goods.General							COST:.1	WT:1		EQMOD:CLOTH		SOURCEPAGE:SRDEquipmentII.rtf
 Chain (10 Ft.)			TYPE:Goods.General							COST:30	WT:2		EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf
 Chalk (1 piece)			TYPE:Goods.General.Consumable						COST:.01	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
@@ -73,9 +74,9 @@ Grappling Hook			TYPE:Goods.General.Resizable						COST:1	WT:4					SOURCEPAGE:SR
 Hammer				TYPE:Goods.General.Resizable						COST:.5	WT:2					SOURCEPAGE:SRDEquipmentII.rtf
 Ink (1 Oz. Vial)			TYPE:Goods.General.Writing.Liquid.Vial				COST:8	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
 Ladder (10 Ft.)			TYPE:Goods.General							COST:.05	WT:20					SOURCEPAGE:SRDEquipmentII.rtf
-Lamp (Common)			TYPE:Goods.General.Resizable						COST:.1	WT:1					SOURCEPAGE:SRDEquipmentII.rtf
-Lantern (Bullseye)		TYPE:Goods.General.Resizable						COST:12	WT:3		EQMOD:IRON.GLASS	SOURCEPAGE:SRDEquipmentII.rtf
-Lantern (Hooded)			TYPE:Goods.General.Resizable						COST:7	WT:2		EQMOD:IRON.GLASS	SOURCEPAGE:SRDEquipmentII.rtf
+Lamp (Common)			TYPE:Goods.General.Resizable						COST:.1	WT:1					SOURCEPAGE:SRDEquipmentII.rtf		QUALITY:Light|15 ft.	QUALITY:DURATION|6 hr./pint
+Lantern (Bullseye)		TYPE:Goods.General.Resizable						COST:12	WT:3		EQMOD:IRON.GLASS	SOURCEPAGE:SRDEquipmentII.rtf		QUALITY:Light|60 ft. cone	QUALITY:DURATION|6 hr./pint
+Lantern (Hooded)			TYPE:Goods.General.Resizable						COST:7	WT:2		EQMOD:IRON.GLASS	SOURCEPAGE:SRDEquipmentII.rtf		QUALITY:Light|30 ft.	QUALITY:DURATION|6 hr./pint
 Lock (Very Simple)		TYPE:Goods.General.Resizable						COST:20	WT:1		EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf
 Lock (Average)			TYPE:Goods.General.Resizable						COST:40	WT:1		EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf
 Lock (Good)				TYPE:Goods.General.Resizable						COST:80	WT:1		EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf
@@ -102,7 +103,7 @@ Soap (Per Lb.)			TYPE:Goods.General							COST:.5	WT:1					SOURCEPAGE:SRDEquipme
 Spade or Shovel			TYPE:Goods.General.Resizable						COST:2	WT:8					SOURCEPAGE:SRDEquipmentII.rtf
 Spyglass				TYPE:Goods.General.Resizable						COST:1000	WT:1		EQMOD:GLASS		SOURCEPAGE:SRDEquipmentII.rtf
 Tent					TYPE:Goods.General.Resizable						COST:10	WT:20					SOURCEPAGE:SRDEquipmentII.rtf
-Torch					TYPE:Goods.General.Resizable.Consumable				COST:.01	WT:1		EQMOD:WOOD		SOURCEPAGE:SRDEquipmentII.rtf
+Torch					TYPE:Goods.General.Resizable.Consumable				COST:.01	WT:1		EQMOD:WOOD		SOURCEPAGE:SRDEquipmentII.rtf		QUALITY:Light|20 ft.	QUALITY:DURATION|1 hr.
 Whetstone				TYPE:Goods.General.Resizable						COST:.02	WT:1		EQMOD:STONE		SOURCEPAGE:SRDEquipmentII.rtf
 
 ###Block:Goods for Mounts
