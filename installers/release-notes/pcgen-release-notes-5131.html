@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.13.1
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.13.1</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.13.1</a></li>
+	<li><a href="#GMGenIssue">GMGen known issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.13.1</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.13.1</a></h2>
+<p>PCGen v5.13.1 is an alpha release from our development branch to allow 
+experimentation and testing of our latest work. Some notable new changes are:</p>
+<ul>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Resolve MOVE related tag order of operations
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1707366" class="externalLink" title="External Link">1707366</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Formal MOVECLONE change request
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1777052" class="externalLink" title="External Link">1777052</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Deprecate PRETYPE for PlayerCharacter
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1754529" class="externalLink" title="External Link">1754529</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Class CHOICE: Token change
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1777050" class="externalLink" title="External Link">1777050</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+CONTAINS Magical Value Elimination
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1777049" class="externalLink" title="External Link">1777049</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+.MOD with weapon Profs renames the Proficiency
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1776390" class="externalLink" title="External Link">1776390</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Add Sheath to PCGen OGC
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1750552" class="externalLink" title="External Link">1750552</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#amaitland">amaitland</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+[SRD
+]
+Mace (Light) / (Heavy) proficiency issues
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1763382" class="externalLink" title="External Link">1763382</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#amaitland">amaitland</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+[RSRD
+]
+Derro and Babau don't use Sneak Attack mechanic right
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1772816" class="externalLink" title="External Link">1772816</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#tir-gwaith">tir-gwaith</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+rpgwebprofiler adds weapon weight twice
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1776713" class="externalLink" title="External Link">1776713</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#eddyanthony">eddyanthony</a>
+
+</ul>
+
+<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+  Tab when running a combat when you select any character other than the one whose
+  turn it is and click the Damage or Heal buttons the character whose turn it
+  is becomes selected and the damage is applied to him instead of the character
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around.
+  The problem will only manifest when using the System Look and Feel, you can
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.13.1 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Important Warning</h3>
+<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+very important that you read the <a href="#CustomDataSets">Custom Data Sets</a> section below before 
+installing your new version of PCGen.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5131_full.zip?download">pcgen5131_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5131_full.zip.asc?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5131_partial.zip?download">pcgen5131_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5131_partial.zip.asc?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5131_win_install.exe?download">pcgen5131_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5131_win_install.exe.asc?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5131_mac_install.dmg?download">pcgen5131_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5131_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+Editors and the starter data set <em>my_dataset</em>. Both of these need some 
+attention when upgrading PCGen.
+</P>
+<h3>Migrating Data Created in the LST Editor</h3>
+<p>
+If, as is recommended, you install PCGen into a new directory each time you upgrade, 
+you will need to copy over the data created using the LST Editors. To do this follow
+these steps.</p>
+<OL>
+<LI> Stop PCGen, if it is currently running. PCGen must not be 
+running when you copy the files, as PCGen writes a new copy of these files on exit.</LI>
+<LI>Copy the data/customsources folder and all of its contents from your old PCGen install 
+directory to the new install directory.</LI>
+<LI>Start the new version of PCGen and verify that your custom data is present.</LI>
+
+</OL>
+<p>
+If you install PCGen in the same directory as your previous install, your LST 
+editor data will still be present in the new version.</p> 
+
+<h3>Migrating Data Created using the my_dataset files</h3>
+<p>
+PCGen ships with an example set of data files ready to go to create you own data. This 
+is in the data/my_dataset folder. As the example files ship with PCGen, it is very important
+to note that these can be overwritten by a new PCGen install if you have not renamed the 
+data set and install the new version of PCGen in the same location as the old one.
+</p>
+<p>
+As a result we strongly recommend that when using the my_dataset example files you create a 
+copy in a new folder and work with that copy, rather than editing the example files directly.
+</p>
+<p> 
+If you install PCGen into a new directory each time you upgrade, 
+you may need to copy over the data you have created. If you cannot see your custom data, simply copy 
+over the folder with your custom data to the same location in the new PCGen install. The data should 
+then be visible when you restart PCGen. </p>
+<p>
+If you are installing PCGen into the same directory, backup your custom data first, then make sure it 
+does not use the default my_dataset folder name. Once you are sure you data is safe, then proceed with 
+the upgrade of PCGen.  
+
+</p>
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+
+<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?foru<nobr>m<wbr></nobr>_name=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.13.1</a></h2>
+<h3>Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1778126">1778126</a> ] 	Categorized Objects (Abilities) unconditionally overwrite
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1776390">1776390</a> ] 	.MOD with weapon Profs renames the Proficiency
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1774440">1774440</a> ] 	cl() deprecation message error
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1773969">1773969</a> ] 	in_ieExportEqOverwriteFileConfirmDesc not defined
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1771873">1771873</a> ] 	!PREVISION fails if tested for presence
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1771278">1771278</a> ] 	Spell Characteristics are not properly cloned
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1766857">1766857</a> ] 	red italic text overlaps when resiznig column
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1752485">1752485</a> ] 	Better Error message for incorrect Ability .MOD
+</ul>
+
+<h3>Data Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1779163">1779163</a> ] 	[Battlefield Press] Pulp Fantasy - Rocket Rangers miss file
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1779151">1779151</a> ] 	Neiyar - Missing link to EQMOD in .pcc
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777008">1777008</a> ] 	[Battlefieldpress] Incorrect use of '-' in Proficiency name
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1772816">1772816</a> ] 	[RSRD] Derro and Babau don't use Sneak Attack mechanic right
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1769790">1769790</a> ] 	[Modern Players Companion] Duplicate Objects
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1765802">1765802</a> ] 	[MSRD] Backpack and Mesh Vest should bonus Loadscore
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1764124">1764124</a> ] 	[RSRD] Feat uses CHOOSE:WEAPONPROFS incorrectly
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1763382">1763382</a> ] 	[SRD] Mace (Light) / (Heavy) proficiency issues
+</ul>
+
+<h3>Data Freqs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777355">1777355</a> ] 	Convert CHOICE to have type
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777281">1777281</a> ] 	CONTAINS Unlimited Weight is UNLIM, not -1
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1768634">1768634</a> ] 	[Neiyar] Add missing parts
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1750552">1750552</a> ] 	Add Sheath to PCGen OGC
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1749677">1749677</a> ] 	[5.13] Convert FEATAUTO: to AUTO:FEAT
+</ul>
+
+<h3>Doc Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1773137">1773137</a> ] 	MODS tag default is YES
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1772486">1772486</a> ] 	Add BONUS:VISION back to the Trunk Docs
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1769461">1769461</a> ] 	TYPE (feat) example wrong
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1764850">1764850</a> ] 	CHOOSE:SKILLLIST|LIST does not work
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1762786">1762786</a> ] 	SPROP text examples span page
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1762286">1762286</a> ] 	CHOOSE:SPELLLEVEL should specificy character's spell
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1762283">1762283</a> ] 	ADD:FEAT(y,y)z broken link
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1759097">1759097</a> ] 	Weapon Prof File, 1IFLARGERTHANWEAPON typo
+</ul>
+
+<h3>Doc FREQS
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777280">1777280</a> ] 	CONTAINS Unlimited Weight is UNLIM, not -1
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1764858">1764858</a> ] 	Please define LIST and %LIST usage.
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754371">1754371</a> ] 	Added .CLEAR support to RACESUBTYPE.
+</ul>
+
+<h3>Feature Requests
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777052">1777052</a> ] 	Please Implement - Formal MOVECLONE change request
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777050">1777050</a> ] 	Please Implement - Class CHOICE: Token
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777049">1777049</a> ] 	Please Implement - CONTAINS Magical Value Elimination
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754529">1754529</a> ] 	Deprecate PRETYPE for PlayerCharacter
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1707366">1707366</a> ] 	Resolve MOVE related tag order of operations
+</ul>
+
+<h3>New Datasource Development
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1753599">1753599</a> ] 	[Bards and Sages] Neiyar, Land of Heaven and the Abyss
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1633758">1633758</a> ] 	[TGM] Modern Magic Vol 1
+</ul>
+
+<h3>OS Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1776713">1776713</a> ] 	rpgwebprofiler adds weapon weight twice
+</ul>
+
+<h3>OS FREQs
+</h3><ul>
+</ul>
+
+<h3>Plugin Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777337">1777337</a> ] 	Encounter Tab NullPointerException with encounter gen
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777078">1777078</a> ] 	Encounter tab encounter list not cleared when sources change
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777073">1777073</a> ] 	Encounter tab race selection lost after clicking Add
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1744173">1744173</a> ] 	Begin Combat button does nothing
+</ul>
+
+<h3>Plugin FREQs
+</h3><ul>
+
+</ul>
+
+</body>
+</html>
