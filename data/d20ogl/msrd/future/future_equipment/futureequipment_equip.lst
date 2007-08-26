@@ -20,7 +20,7 @@ Spray LCD												TYPE:Goods.Tools.Consumable			COST:8	WT:0.5	SIZE:T	SOURCEPA
 
 #Survival Equipment
 Portable Environment Generator								TYPE:Goods.Tools					COST:13	WT:5		SIZE:M	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:30' sphere of custom environment
-Portable Glow Lamp										TYPE:Goods.General				COST:4	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf
+Portable Glow Lamp										TYPE:Goods.General				COST:4	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf	QUALITY:Light|50 ft.
 Puritizer												TYPE:Goods.Tools					COST:9	WT:2		SIZE:S	SOURCEPAGE:FutureEquipment.rtf
 Soother Pulse											TYPE:Goods.Tools					COST:14	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:+6 equipment bonus on all Handle Animal checks when dealing with an animal identified in the soother pulse's database
 
