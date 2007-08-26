@@ -22,19 +22,31 @@ use IO::Handle;
 
 # search through the roadmap file only keeping heading and closed trackers
 my $firstTime = (1 == 1);
+my $discardingSectionState = 0; # States are 0=not discarding, 1=discard line regardless, 2=stop discard at next blank line
 open ROADMAP, "work/roadmap.txt";
 open CHANGELOG, ">work/changelog.txt";
 while (<ROADMAP>) {
-        if (/^[0-9].*Closed *$/oi) {
+		if ($discardingSectionState == 1) {
+			# Drop first line regardless - may be a blank line
+			$discardingSectionState = 2;
+		}
+		elsif ($discardingSectionState == 2) {
+			# Discard line and stop discard mode if a blank line (end of section)
+			if (/^[ \t]*$/) {
+				$discardingSectionState = 0;
+			}
+		}
+        elsif (/^[0-9].*Closed *$/oi) {
         	s/^([0-9]+)/<LI>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$1\"\>$1<\/a> \]/;
         	s/\s*Closed *$//i;
         	print CHANGELOG $_;
         }
-        elsif ( /^Link	Title	Status$/){
+        elsif ( /^Link[ \t]+Title[ \t]+Status$/){
         	# do nothing
         }
-        elsif ( /^PrettyLst$/){
-        	# do nothing
+        elsif ( /^PrettyLst$/ || /^Development Specs$/){
+        	# Discard the section
+			$discardingSectionState = 1;
         }
         elsif ( /^[a-z]/oi ) {
         	if (!$firstTime) {
