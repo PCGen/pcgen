@@ -32,6 +32,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
+import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -120,6 +121,66 @@ public class FeatParser
 				{
 					Logging.errorPrint(ple.getMessage(), ple);
 				}
+			}
+		}
+
+		return aList;
+	}
+
+	/**
+	 * Parse a virtual feat list definition. Must be of the form:
+	 * Feat1|Feat2|PRExx:abx
+	 * or
+	 * Feat1|Feat2|PREMULT:[PRExxx:abc],[PRExxx:xyz]
+	 * @param aString
+	 * @return List of Feat names and their prereqs
+	 */
+	public static List<QualifiedObject<String>> parseVirtualFeatListToQualObj(String aString)
+	{
+		String preString = "";
+		final List<String> abilityList = new ArrayList<String>();
+
+		StringTokenizer aTok = new StringTokenizer(aString, "|");
+
+		while (aTok.hasMoreTokens())
+		{
+			String aPart = aTok.nextToken();
+
+			if (aPart.length() <= 0)
+			{
+				continue;
+			}
+
+			if (PreParserFactory.isPreReqString(aPart))
+			{
+				// We have a PRExxx tag!
+				preString = aPart;
+			}
+			else
+			{
+				abilityList.add(aPart);
+			}
+		}
+
+		List<QualifiedObject<String>> aList =
+				new ArrayList<QualifiedObject<String>>();
+		for (String ability : abilityList)
+		{
+			try
+			{
+				List<Prerequisite> prereqList =
+					new ArrayList<Prerequisite>();
+				if (preString.length() > 0)
+				{
+					PreParserFactory factory = PreParserFactory.getInstance();
+					Prerequisite prereq = factory.parse(preString);
+					prereqList.add(prereq);
+				}
+				aList.add(new QualifiedObject<String>(ability, prereqList));
+			}
+			catch (PersistenceLayerException ple)
+			{
+				Logging.errorPrint(ple.getMessage(), ple);
 			}
 		}
 

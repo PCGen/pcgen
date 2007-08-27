@@ -115,6 +115,19 @@ public class QualifiedObject<T>
 	}
 
 	/**
+	 * Adds the supplied PreReq to the list of prerequisites. 
+	 * @param prereq The prerequisite to be added.
+	 */
+	public void addPrerequisite(final Prerequisite prereq)
+	{
+		if (thePrereqs == null)
+		{
+			thePrereqs = new ArrayList<Prerequisite>(1);
+		}
+		thePrereqs.add(prereq);
+	}
+
+	/**
      * Add PreReqs 
      * @param prereqs
 	 */
