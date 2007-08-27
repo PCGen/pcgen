@@ -178,8 +178,10 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 5	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
+###Block: Animal Companion - Remove these if Animal Companions are not desired
+1	BONUS:VAR|CompLevel|CL	AUTO:FEAT|Animal Companion
 ###Block: Level progression
-1	CAST:3,1				SA:Nature Sense						AUTO:FEAT|Animal Companion|Druid Tracker - Animal Companion
+1	CAST:3,1				SA:Nature Sense
 2	CAST:4,2				SA:Woodland Stride
 3	CAST:4,2,1				SA:Trackless Step
 4	CAST:5,3,2				SA:Resist Nature's Lure
@@ -297,12 +299,14 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 3	BONUS:VAR|TurnLevelBase|CL-2|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
 3	BONUS:VAR|TurnDamagePlusBase|CL-2|TYPE=Level.REPLACE
 3	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+###Block:Special Mount  Remove these via .MOD if Mount is not desired
+5	AUTO:FEAT|Special Mount	BONUS:VAR|BONUS:VAR|SMLevel|CL
 ###Block: Level progression
 1				SA:Detect Evil	SA:Divine Grace	SA:Divine Health	SA:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0	DEFINE:AllowHolyAvenger|1
 2				SA:Aura of Courage													BONUS:VAR|SmiteEvil|1																				AUTO:FEAT|Smite Evil
 3				SA:Remove Disease %/week|RemoveDisease										BONUS:VAR|RemoveDisease|CL/3										DEFINE:RemoveDisease|0
 4	CAST:0,0
-5	CAST:0,0																																									AUTO:FEAT|Special Mount|Paladin Tracker - Special Mount
+5	CAST:0,0
 6	CAST:0,1
 7	CAST:0,1
 8	CAST:0,1,0
@@ -387,8 +391,10 @@ CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+###Block: Familiar - remove these via .MOD if Familiars aren't desired
+1	AUTO:FEAT|Summon Familiar	BONUS:VAR|FMLevel|CL
 ###Block: Level progression
-1	CAST:5,3				KNOWN:4,2				AUTO:FEAT|Summon Familiar|Sorcerer Tracker - Summon Familiar
+1	CAST:5,3				KNOWN:4,2
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
@@ -426,8 +432,10 @@ SUBCLASS:Necromancer	COST:1	CHOICE:SCHOOL|Necromancy	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:1
 ###Block:Proficiencies
 1	AUTO:FEAT|Wizard Weapon Proficiencies|All Automatic Proficiencies
+###Block: Familiar - remove these via .MOD if Familiars aren't desired
+1	AUTO:FEAT|Summon Familiar	BONUS:VAR|FMLevel|CL
 ###Block: Level progression
-1	CAST:3,1														AUTO:FEAT|Scribe Scroll|Summon Familiar|Wizard Tracker - Summon Familiar
+1	CAST:3,1														AUTO:FEAT|Scribe Scroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2

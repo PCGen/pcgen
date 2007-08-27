@@ -148,13 +148,6 @@ Animal Companion	TYPE:Extraordinary	VISIBLE:NO	SA:Animal Companion (Ex)	DEFINE:C
 Special Mount	TYPE:SpellLike		VISIBLE:NO	SA:Special Mount (Sp)		DEFINE:SMLevel|0		FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|ANY																																																																																																																																																SOURCEPAGE:ClassesII.rtf
 Summon Familiar	TYPE:Special		VISIBLE:NO	SA:Summon Familiar		DEFINE:FMLevel|0		FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Tiny Viper),Toad,Weasel
 
-###Block: Companion Trackers
-# Feat Name					Visible	Virtual Feat		Modify VAR						Source Page
-Druid Tracker - Animal Companion	VISIBLE:NO	VFEAT:Animal Companion	BONUS:VAR|CompLevel|var("CL=Druid")		SOURCEPAGE:ClassesI.rtf
-Sorcerer Tracker - Summon Familiar	VISIBLE:NO	VFEAT:Summon Familiar	BONUS:VAR|FMLevel|var("CL=Sorcerer")	SOURCEPAGE:CLASSESII.rtf
-Wizard Tracker - Summon Familiar	VISIBLE:NO	VFEAT:Summon Familiar	BONUS:VAR|FMLevel|var("CL=Wizard")		SOURCEPAGE:CLASSESII.rtf
-Paladin Tracker - Special Mount	VISIBLE:NO	VFEAT:Special Mount	BONUS:VAR|SMLevel|var("CL=Paladin")		SOURCEPAGE:CLASSESII.rtf
-
 #
 # End
 #
