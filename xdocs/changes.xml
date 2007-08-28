@@ -5,7 +5,7 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
-    <release version="5.13.1" date="In SVN" description="Alpha release">
+    <release version="5.13.1" date="2007-08-28" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1782465">VFEAT tags ignored.</action>
       <action dev="thpr" type="add" issue="1707366">Resolve MOVE related tag order of operations</action>
       <action dev="thpr" type="add" issue="1777052">Formal MOVECLONE change request</action>
