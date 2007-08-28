@@ -1,0 +1,10 @@
+Abjuration
+Lesser Conjuration
+Greater Conjuration
+Divination
+Enchantment
+Lesser Evocation
+Greater Evocation
+Illusion
+Necromancy
+Transmutation
