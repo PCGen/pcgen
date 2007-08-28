@@ -123,7 +123,7 @@ Animal Friendship			TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:NO							
 Advanced Animal Friendship	TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:NO	PREFEAT:3,Animal Affinity,Wild Empathy,Animal Friendship	SA:Advanced Animal Friendship									SOURCEPAGE:p.9
 Summon Animal			TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:NO	PREFEAT:2,Animal Affinity,Animal Friendship			SA:Summon Animal											SOURCEPAGE:p.9
 Summon Greater Animal		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:NO	PREFEAT:3,Animal Affinity,Animal Friendship,Summon Animal	SA:Summon Greater Animal									SOURCEPAGE:p.9
-Animal Companion			TYPE:Talent.DedicatedTalent.Animal Friendship	VISIBLE:NO											SA:Animal Companion										SOURCEPAGE:p.9
+Animal Companion			TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:NO											SA:Animal Companion										SOURCEPAGE:p.9
 
 ###Block: Oracle Tree
 # Feat Name		Type						Visible	Required Feat				Special Ability		Source Page
