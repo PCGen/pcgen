@@ -1038,16 +1038,6 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Wizard Tracker - Summon Familiar</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
 			<name>Wizard Weapon Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
