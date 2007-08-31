@@ -193,6 +193,7 @@ CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYP
 
 # Used DR:1/- in level line 6 to initialize Damage reduction, DR:0/- doesnt allow BONUS:DR to function
 # Not sure if I added the Dodge AC bonus correctly in level line 1
+# Changed DwarvenDefender DR to VAR Formula - removed DR:1/- to remove stacking issues. - AM 2007-08-31
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -207,7 +208,7 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3						AUTO:FEAT|Defensive Stance|Dwarven Defender AC Bonus
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE										ADD:FEAT|TYPE=UncannyDodge
 4	BONUS:VAR|TrapSense|CL/4																					AUTO:FEAT|Trap Sense Ability
-6	BONUS:VAR|DwarvenDefenderDRLVL|CL															ADD:FEAT|TYPE=UncannyDodge	AUTO:FEAT|Dwarven Defender DR
+6	BONUS:VAR|DwarvenDefenderDRLVL|CL		BONUS:VAR|DwarvenDefenderDR|3*floor(((DwarvenDefenderDRLVL-2)/4))			ADD:FEAT|TYPE=UncannyDodge	AUTO:FEAT|Dwarven Defender DR
 8																										AUTO:FEAT|Dwarven Defender Mobile Defense
 
 
