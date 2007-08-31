@@ -79,9 +79,8 @@ Elaborate Parry	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Elaborate Parry (E
 # Feat Name					Output Name				Type						Visible	Special Ability																			Define										Save checks bonus						Combat bonus							Stat bonus									Modify VAR															Damage Reduction		Source Page
 Dwarven Defender AC Bonus							TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:AC Bonus (Ex)																			DEFINE:DwarvenDefenderACBonus|0														BONUS:COMBAT|AC|DwarvenDefenderACBonus|TYPE=Dodge																															SOURCEPAGE:PrestigeClasses.rtf
 Defensive Stance									TYPE:ClassAbility				VISIBLE:NO	SA:Defensive Stance % times/day (% rounds)|DefensiveStanceTimes|DefensiveStanceDuration|PREVARGTEQ:DefensiveStanceTimes,1	DEFINE:DefensiveStanceTimes|0	DEFINE:DefensiveStanceDuration|0	BONUS:CHECKS|ALL|2|TYPE=Resistance|PREAPPLY:PC	BONUS:COMBAT|AC|4|TYPE=Dodge|PREAPPLY:PC			BONUS:STAT|STR|2|PREAPPLY:PC	BONUS:STAT|CON|4|PREAPPLY:PC	BONUS:VAR|DefensiveStanceDuration|CON	BONUS:VAR|DefensiveStanceDuration|-2|PREAPPLY:PC					SOURCEPAGE:PrestigeClasses.rtf
-Dwarven Defender DR								TYPE:ClassAbility.Extraordinary	VISIBLE:NO																						DEFINE:DwarvenDefenderDRLVL|0	DEFINE:DwarvenDefenderDR|0																																													DR:DwarvenDefenderDR/-	SOURCEPAGE:PrestigeClasses.rtf
+Dwarven Defender DR								TYPE:ClassAbility.Extraordinary	VISIBLE:NO																						DEFINE:DwarvenDefenderDRLVL|0																																		BONUS:VAR|DwarvenDefenderDR|3*floor(((DwarvenDefenderDRLVL-2)/4))						DR:DwarvenDefenderDR/-	SOURCEPAGE:PrestigeClasses.rtf
 Dwarven Defender Mobile Defense	OUTPUTNAME:Mobile Defense	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Mobile Defense (Ex)																																																																												SOURCEPAGE:PrestigeClasses.rtf
-
 
 ###Block: Hierophant Abilities
 # Feat Name				Type			Visible	Required AL		Required Class		Special Ability				Define			Multiple?	Choose				Caster level											Modify VAR									Source Page

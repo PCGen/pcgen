@@ -208,7 +208,7 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3						AUTO:FEAT|Defensive Stance|Dwarven Defender AC Bonus
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE										ADD:FEAT|TYPE=UncannyDodge
 4	BONUS:VAR|TrapSense|CL/4																					AUTO:FEAT|Trap Sense Ability
-6	BONUS:VAR|DwarvenDefenderDRLVL|CL		BONUS:VAR|DwarvenDefenderDR|3*floor(((DwarvenDefenderDRLVL-2)/4))			ADD:FEAT|TYPE=UncannyDodge	AUTO:FEAT|Dwarven Defender DR
+6	BONUS:VAR|DwarvenDefenderDRLVL|CL															ADD:FEAT|TYPE=UncannyDodge	AUTO:FEAT|Dwarven Defender DR
 8																										AUTO:FEAT|Dwarven Defender Mobile Defense
 
 
