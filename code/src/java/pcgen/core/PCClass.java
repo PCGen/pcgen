@@ -2790,67 +2790,79 @@ public class PCClass extends PObject {
 
 		if (level == 1) {
 			if (level > curLevel || aPC.isImporting()) {
-				try
-				{
-					PreParserFactory factory = PreParserFactory.getInstance();
+				final String          aString = Globals.getBonusFeatString();
+				final StringTokenizer aTok    = new StringTokenizer(aString, "|", false);
+				final int rangeLevel = Integer.parseInt(aTok.nextToken());
 
-					      StringBuffer    formula;
-					final String          aString = Globals.getBonusFeatString();
-					final StringTokenizer aTok    = new StringTokenizer(aString, "|", false);
-					final int startLevel = Integer.parseInt(aTok.nextToken());
-					final int rangeLevel = Integer.parseInt(aTok.nextToken());
-					      int divisor    = 1;
-					      
-					
-					if (aPC.getRace().getMonsterClass(aPC,false) != null &&
-							aPC.getRace().getMonsterClass(aPC,false).equalsIgnoreCase(this.getKeyName()))
-					{
-						int monLev = aPC.getRace().getMonsterClassLevels(aPC, false);
-
-						Integer mLevPerFeat = getLevelsPerFeat();
-						divisor = (mLevPerFeat != null && mLevPerFeat >= 1) ? mLevPerFeat : rangeLevel;
-						formula = new StringBuffer("max(0,floor((CL-");
-						formula.append(monLev);
-						formula.append(")/");
-						formula.append(divisor);
-						formula.append("))");
-
-						StringBuffer aBuf = new StringBuffer("0|FEAT|MONSTERPOOL|");
-						aBuf.append(formula);
-						BonusObj bon = Bonus.newBonus(aBuf.toString());
-						bon.setCreatorObject(this);
-						Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:Y");
-						bon.addPreReq(prereq);
-						addBonusList(bon);
-
-					}
-					else
-					{
-						divisor = rangeLevel;
-						formula = new StringBuffer("CL/");
-						formula.append(divisor);
-
-						StringBuffer aBuf = new StringBuffer("0|FEAT|MONSTERPOOL|");
-						aBuf.append(formula);
-						BonusObj bon = Bonus.newBonus(aBuf.toString());
-						bon.setCreatorObject(this);
-						Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:Y");
-						bon.addPreReq(prereq);
-						addBonusList(bon);
-					}
-					StringBuffer aBuf = new StringBuffer("0|FEAT|PCPOOL|CL/");
-					aBuf.append(rangeLevel);
-					BonusObj bon = Bonus.newBonus(aBuf.toString());
-					bon.setCreatorObject(this);
-					Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:N");
-					bon.addPreReq(prereq);
-					addBonusList(bon);
-				}
-
-				catch (PersistenceLayerException e)
-				{
-					Logging.errorPrint("Caught " + e);
-				}
+				StringBuffer aBuf = new StringBuffer("0|FEAT|PCPOOL|CL/");
+				aBuf.append(rangeLevel);
+				BonusObj bon = Bonus.newBonus(aBuf.toString());
+				bon.setCreatorObject(this);
+				addBonusList(bon);
+				
+// PREDEFAULTMONSTER is deprecated, so anything with PREDEFAULTMONSTER:Y can be removed.
+// On the other hand anything with PREDEFAULTMONSTER:N stay, but the PRE tag gets removed.
+//
+//				try
+//				{
+//					PreParserFactory factory = PreParserFactory.getInstance();
+//
+//					      StringBuffer    formula;
+//					final String          aString = Globals.getBonusFeatString();
+//					final StringTokenizer aTok    = new StringTokenizer(aString, "|", false);
+//					final int startLevel = Integer.parseInt(aTok.nextToken());
+//					final int rangeLevel = Integer.parseInt(aTok.nextToken());
+//					      int divisor    = 1;
+//					      
+//					if (aPC.getRace().getMonsterClass(aPC,false) != null &&
+//							aPC.getRace().getMonsterClass(aPC,false).equalsIgnoreCase(this.getKeyName()))
+//					{
+//						int monLev = aPC.getRace().getMonsterClassLevels(aPC, false);
+//
+//						Integer mLevPerFeat = getLevelsPerFeat();
+//						divisor = (mLevPerFeat != null && mLevPerFeat >= 1) ? mLevPerFeat : rangeLevel;
+//						formula = new StringBuffer("max(0,floor((CL-");
+//						formula.append(monLev);
+//						formula.append(")/");
+//						formula.append(divisor);
+//						formula.append("))");
+//
+//						StringBuffer aBuf = new StringBuffer("0|FEAT|MONSTERPOOL|");
+//						aBuf.append(formula);
+//						BonusObj bon = Bonus.newBonus(aBuf.toString());
+//						bon.setCreatorObject(this);
+//						Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:Y");
+//						bon.addPreReq(prereq);
+//						addBonusList(bon);
+//
+//					}
+//					else
+//					{
+//						divisor = rangeLevel;
+//						formula = new StringBuffer("CL/");
+//						formula.append(divisor);
+//
+//						StringBuffer aBuf = new StringBuffer("0|FEAT|MONSTERPOOL|");
+//						aBuf.append(formula);
+//						BonusObj bon = Bonus.newBonus(aBuf.toString());
+//						bon.setCreatorObject(this);
+//						Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:Y");
+//						bon.addPreReq(prereq);
+//						addBonusList(bon);
+//					}
+//					StringBuffer aBuf = new StringBuffer("0|FEAT|PCPOOL|CL/");
+//					aBuf.append(rangeLevel);
+//					BonusObj bon = Bonus.newBonus(aBuf.toString());
+//					bon.setCreatorObject(this);
+//					Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:N");
+//					bon.addPreReq(prereq);
+//					addBonusList(bon);
+//				}
+//
+//				catch (PersistenceLayerException e)
+//				{
+//					Logging.errorPrint("Caught " + e);
+//				}
 			}
 			
 			chooseClassSkillList();
