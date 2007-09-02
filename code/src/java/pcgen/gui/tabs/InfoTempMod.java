@@ -1106,8 +1106,6 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						// dirty when the other case doesn't?
 						pc.setDirty(true);
 					}
-System.err.println(aMod.getKeyName());
-System.err.println(aMod.getChoiceString());
 					if (aMod.getChoiceString().length() > 0)
 					{
 						repeatValue =
