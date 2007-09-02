@@ -156,13 +156,7 @@ final class EquipmentChoice
 	{
 		return availableList;
 	}
-	/**
-	 * @param availableList The availableList to set.
-	 */
-	final void setAvailableList(final List<String> availableList)
-	{
-		this.availableList = availableList;
-	}
+
 	/**
 	 * @return Returns the allowDuplicates.
 	 */
