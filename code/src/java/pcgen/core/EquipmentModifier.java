@@ -72,7 +72,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	private List<String>                itemType            = new ArrayList<String>();
 	private List<String>                replaces            = new ArrayList<String>();
 	private List<SpecialProperty>                specialPropertyList = new ArrayList<SpecialProperty>();
-	private List<String>                vFeatList           = null; // virtual feat list
 	private List<String>                armorType           = new ArrayList<String>();
 	private String              cost                = "0";
 	private String              preCost             = "0";
@@ -769,26 +768,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * Adds to the virtual feat list this item bestows upon its weilder
-	 *
-	 * @param  vList  a | delimited list of feats to add to the list
-	 */
-	public void addVFeatList(final String vList)
-	{
-		final StringTokenizer aTok = new StringTokenizer(vList, "|", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			if (vFeatList == null)
-			{
-				vFeatList = new ArrayList<String>();
-			}
-
-			vFeatList.add(aTok.nextToken());
-		}
-	}
-
-	/**
 	 * Add bonus to
 	 * @param aPC
 	 * @param aType
@@ -879,16 +858,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		}
 
 		return aObj;
-	}
-
-	/**
-	 * Does this object bestows virtual feats
-	 *
-	 * @return  Whether this object bestows virtual feats
-	 */
-	public boolean hasVFeats()
-	{
-		return (vFeatList != null) && (vFeatList.size() > 0);
 	}
 
 	/**
@@ -1466,45 +1435,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	int getUsedCharges()
 	{
 		return maxCharges - getRemainingCharges();
-	}
-
-	/**
-	 * Returns the list of virtual feats this item bestows upon its weilder
-	 *
-	 * @return  List of Feat objects
-	 */
-	List<String> getVFeatList()
-	{
-		if (vFeatList != null)
-		{
-			String choiceString = getChoiceString();
-
-			if (choiceString.startsWith("FEAT") || (choiceString.indexOf("|FEAT") >= 0))
-			{
-				final List<String> vFeats = new ArrayList<String>();
-
-				for (Iterator<String> e = vFeatList.iterator(); e.hasNext();)
-				{
-					final String aString = e.next();
-
-					if (aString.equals("%CHOICE"))
-					{
-						for (int i = 0; i < getAssociatedCount(); i++)
-						{
-							vFeats.add(getAssociated(i));
-						}
-					}
-					else
-					{
-						vFeats.add(aString);
-					}
-				}
-
-				return vFeats;
-			}
-		}
-
-		return vFeatList;
 	}
 
 	int getVisible()
