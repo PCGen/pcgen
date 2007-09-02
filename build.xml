@@ -7,11 +7,7 @@ $Id$
 STANDARD TARGETS
 ================
 
-fetch-devel - update from CVS read-write
-fetch-anon - update from CVS read-only
-fetch-data - export data files from PCGen:DM CVS read-only
-fetch-docs - export doc files from PCGenDocs CVS read-only
-fetch-sheets - export outputsheets files from PCGenDocs CVS read-only
+svnupdate - update from SVN read-only
 all - clean, [fetch-anon/devel], build, test, docs, deploy
 main - the default build process (build)
 clean - clean out the output directories
@@ -23,7 +19,7 @@ run - Run PCGen
 docs - do the API documenation (targets pcgen/doc/api)
 deploy - ship the jars, wars, whatever to the execution system
 
-complete - runs clean fetch-data fetch-docs fetch-sheets fetch-devel all; for testing complete cycle
+complete - runs clean fetch-data fetch-docs fetch-sheets all; for testing complete cycle
 
 BUILD
 =====
@@ -46,7 +42,6 @@ These files can be renamed and used for releases.
 <project name="pcgen" default="main" basedir=".">
 	<import file="code/pluginbuild.xml" />
 
-
 	<property name="bin.dir" value="${basedir}/code/bin" />
 	<property name="build.dir" value="${basedir}/code/build" />
 	<property name="build.classes.dir" value="${build.dir}/classes" />
@@ -67,10 +62,6 @@ These files can be renamed and used for releases.
 	<property name="docs.manual.dir" value="${basedir}/doc/" />
 	<property name="docs.overview" value="${src.java.dir}/pcgen/overview.html" />
 	<property name="src.xml.dir" value="${basedir}/xml" />
-
-	<!-- For anonymous CVS -->
-	<property name="fetch.passfile" value="anon-cvs.passfile" />
-	<property name="fetch.cvsroot" value=":pserver:anonymous@cvs.sourceforge.net/cvsroot" />
 
 	<!-- Choose compiler. Values are "classic", "modern", "jikes", "jvc"-->
 	<property name="build.compiler" value="modern" />
@@ -119,7 +110,6 @@ These files can be renamed and used for releases.
 		<pathelement location="${bin.dir}/${jar.bin.file}" />
 		<path refid="project.jars" />
 	</path>
-
 
 	<!-- For testing -->
 	<property name="test.jar.file" value="pcgen-tests.jar" />
@@ -313,11 +303,11 @@ pcgen.filepaths=user
 		all, main
 -->
 
-	<target name="rebuild" depends="clean, fetch-devel, build" description="Clean, refresh from CVS, and build the jar file." />
+	<target name="rebuild" depends="clean, svnupdate, build" description="Clean, update from SVN, and build the jar file." />
 
-	<target name="all" depends="clean, build, test, emma.report, docs, deploy" description="Everything except refetch from CVS." />
+	<target name="all" depends="clean, build, test, emma.report, docs, deploy" description="Everything except update from SVN." />
 
-	<target name="complete" depends="clean, fetch-devel, build, fetch-data, fetch-docs, fetch-sheets, test, emma.report, docs, deploy" description="Everything including developer refresh from CVS." />
+	<target name="complete" depends="clean, svnupdate, build, test, emma.report, docs, deploy" description="Everything including update from SVN." />
 
 	<target name="main" depends="build, test" description="[default] Do an (incremental) build." />
 
@@ -510,47 +500,22 @@ pcgen.filepaths=user
 
 	<target name="real-clean" depends="clean, clean-data, clean-docs, clean-sheets, clean-inifiles" description="Clean everything back to initial checkout" />
 
-
-	<!-- CVS targets -->
-
-	<target name="fetch-devel" description="Get the latest source from the CVS tree as a developer; this gives read-write access to the sources.">
-		<cvs command="-qz3 update -PRd ." />
+	<!-- SVN targets -->
+	
+	<target name="svnupdate">
+		<exec executable="svn">
+			<arg line="up" />
+		</exec>
 	</target>
 
-	<target name="fetch-anon" description="Get the latest source anonymously from the CVS tree; this gives read-only access to the sources.">
-		<echo file="${fetch.passfile}">/1 ${fetch.cvsroot}/pcgen A
-</echo>
-		<cvs cvsRoot="${fetch.cvsroot}/pcgen" passfile="${fetch.passfile}" command="-qz3 update -PRd ." />
-		<delete file="${fetch.passfile}" />
-	</target>
-
-	<target name="fetch-data" depends="clean-data" description="Get the latest data files anonymously from the PCGen:DM CVS tree; this gives read-only access to the data files.">
-		<echo file="${fetch.passfile}">/1 ${fetch.cvsroot}/pcgendm A
-</echo>
-		<cvs cvsRoot="${fetch.cvsroot}/pcgendm" passfile="${fetch.passfile}" command="export -d ${src.data.dir} -D now pcgendm/development/data" />
-		<delete file="${fetch.passfile}" />
-	</target>
+	<!-- Cleanup targets -->
 
 	<target name="clean-data" description="Remove data directory">
 		<delete dir="${src.data.dir}" />
 	</target>
 
-	<target name="fetch-docs" depends="clean-docs" description="Get the latest doc files anonymously from the PCGenDocs CVS tree; this gives read-only access to the doc files.">
-		<echo file="${fetch.passfile}">/1 ${fetch.cvsroot}/pcgendocs/pcgendocs A
-</echo>
-		<cvs cvsRoot="${fetch.cvsroot}/pcgendocs" passfile="${fetch.passfile}" command="export -d ${src.docs.dir} -D now pcgendocs/docs" />
-		<delete file="${fetch.passfile}" />
-	</target>
-
 	<target name="clean-docs" description="Remove docs directory">
 		<delete dir="${src.docs.dir}" />
-	</target>
-
-	<target name="fetch-sheets" depends="clean-sheets" description="Get the latest output sheet files anonymously from the PCGenDocs CVS tree; this gives read-only access to the sheet files.">
-		<echo file="${fetch.passfile}">/1 ${fetch.cvsroot}/pcgendocs/pcgendocs A
-</echo>
-		<cvs cvsRoot="${fetch.cvsroot}/pcgendocs" passfile="${fetch.passfile}" command="export -d ${src.outputsheets.dir} -D now pcgendocs/outputsheets" />
-		<delete file="${fetch.passfile}" />
 	</target>
 
 	<target name="clean-sheets" description="Remove outputsheets directory">
