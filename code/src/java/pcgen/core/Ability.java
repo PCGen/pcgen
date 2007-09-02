@@ -1028,14 +1028,4 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	public boolean isSameBaseAbility(Ability that) {
 		return AbilityUtilities.areSameAbility(this, that);
 	}
-
-	/**
-     * This method returns an empty String 
-     * @return empty String
-	 */
-    public String getDisplayNameWithChoices()
-	{
-		StringBuffer buf = new StringBuffer();
-		return buf.toString();
-	}
 }
