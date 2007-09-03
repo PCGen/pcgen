@@ -61,7 +61,7 @@ Extraplanar		VISIBLE:YES	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Fire			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to fire/ vulnerable to cold
 Goblinoid		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																																									LANGAUTO:Goblin
 Good			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the good subtype overcomes damage reduction as if its natural weapons and any weapons it wields were good-aligned
-Incorporeal		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SA:50% chance to ignore any damage from a corporeal source	SA:Can pass through solid objects at will	SA:Attacks pass through armor	SA:Always moves silently									DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1				BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT|DEX
+Incorporeal		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SA:50% chance to ignore any damage from a corporeal source	SA:Can pass through solid objects at will	SA:Attacks pass through armor	SA:Always moves silently									DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1				BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
 Lawful		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the lawful subtype overcomes damage reduction as if its natural weapons and any weapons it wields were lawful-aligned
 Native		VISIBLE:YES	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Outsider native to Material Plane																																																			PRETYPE:Outsider
 Reptilian		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
