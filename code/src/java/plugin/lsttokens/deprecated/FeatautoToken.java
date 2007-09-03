@@ -4,12 +4,14 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Constants;
 import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.PCClassLstToken;
 
 /**
  * Class deals with FEATAUTO Token
  */
-public class FeatautoToken implements PCClassLstToken
+public class FeatautoToken implements PCClassLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -42,5 +44,11 @@ public class FeatautoToken implements PCClassLstToken
 			}
 		}
 		return true;
+	}
+
+	public String getMessage(PObject obj, String value)
+	{
+		return getTokenName()
+			+ " has been deprecated, please use AUTO:FEAT|...";
 	}
 }

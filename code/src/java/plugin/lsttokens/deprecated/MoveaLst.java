@@ -6,13 +6,14 @@ package plugin.lsttokens.deprecated;
 
 import pcgen.core.Movement;
 import pcgen.core.PObject;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.GlobalLstToken;
 
 /**
  * @author djones4
- *
+ * 
  */
-public class MoveaLst implements GlobalLstToken
+public class MoveaLst implements GlobalLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -26,5 +27,11 @@ public class MoveaLst implements GlobalLstToken
 		cm.setMoveRatesFlag(1);
 		obj.setMovement(cm, anInt);
 		return true;
+	}
+
+	public String getMessage(PObject obj, String value)
+	{
+		return getTokenName()
+			+ " is deprecated.  Please use BONUS|MOVEADD or BONUS|POSTMOVEADD";
 	}
 }

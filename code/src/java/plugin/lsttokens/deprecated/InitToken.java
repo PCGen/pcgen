@@ -1,12 +1,14 @@
 package plugin.lsttokens.deprecated;
 
+import pcgen.core.PObject;
 import pcgen.core.Race;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.RaceLstToken;
 
 /**
  * Class deals with INIT Token
  */
-public class InitToken implements RaceLstToken
+public class InitToken implements RaceLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -25,5 +27,11 @@ public class InitToken implements RaceLstToken
 		{
 			return false;
 		}
+	}
+
+	public String getMessage(PObject obj, String value)
+	{
+		return getTokenName()
+			+ " is deprecated, because it does not function (value is never read)";
 	}
 }

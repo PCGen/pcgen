@@ -2,14 +2,14 @@ package plugin.lsttokens.deprecated;
 
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.EquipmentLstToken;
-import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
  * Deals with ALTCRITICAL token
  */
-public class AltcriticalToken implements EquipmentLstToken //, DeprecatedToken
+public class AltcriticalToken implements EquipmentLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -19,8 +19,6 @@ public class AltcriticalToken implements EquipmentLstToken //, DeprecatedToken
 
 	public boolean parse(Equipment eq, String value)
 	{
-		Logging.deprecationPrint(getTokenName()
-			+ " has been deprecated, please use ALTCRITMULT");
 		if ((value.length() > 0) && (value.charAt(0) == 'x'))
 		{
 			try
@@ -42,13 +40,15 @@ public class AltcriticalToken implements EquipmentLstToken //, DeprecatedToken
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject, java.lang.String)
+	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject,
+	 *      java.lang.String)
 	 */
 	public String getMessage(@SuppressWarnings("unused")
 	PObject anObj, @SuppressWarnings("unused")
 	String anValue)
 	{
-		return PropertyFactory.getString("Use ALTCRITMULT instead of ALTCRITICAL"); //$NON-NLS-1$
+		return PropertyFactory
+			.getString("Use ALTCRITMULT instead of ALTCRITICAL"); //$NON-NLS-1$
 	}
 
 }

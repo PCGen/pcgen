@@ -2,13 +2,15 @@ package plugin.lsttokens.deprecated;
 
 import java.util.StringTokenizer;
 
+import pcgen.core.PObject;
 import pcgen.core.Race;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.RaceLstToken;
 
 /**
  * Class deals with HITDICE Token
  */
-public class HitdiceToken implements RaceLstToken
+public class HitdiceToken implements RaceLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -34,5 +36,11 @@ public class HitdiceToken implements RaceLstToken
 		{
 			return false;
 		}
+	}
+
+	public String getMessage(PObject obj, String value)
+	{
+		return getTokenName()
+			+ " is deprecated, because Default Monster Mode is deprecated";
 	}
 }
