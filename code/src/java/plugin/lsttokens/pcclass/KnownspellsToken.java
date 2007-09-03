@@ -29,18 +29,26 @@ public class KnownspellsToken implements PCClassLstToken
 
 			if (".CLEAR".equals(value))
 			{
+				Logging.errorPrint(getTokenName()
+					+ " uses deprecated syntax.  "
+					+ "Use .CLEARALL (not .CLEAR) to clear the values");
+				return true;
+			}
+			else if (".CLEARALL".equals(value))
+			{
 				return true;
 			}
 
 			String rest;
-			if (value.startsWith(".CLEAR|"))
+			if (value.startsWith(".CLEARALL|"))
 			{
 				rest = value.substring(7);
 			}
 			else
 			{
 				Logging.errorPrint("Invalid KNOWNSPELLS Syntax using .CLEAR");
-				Logging.errorPrint("Please separate .CLEAR from the rest of the token with a |");
+				Logging
+					.errorPrint("Please separate .CLEARALL from the rest of the token with a |");
 				rest = value.substring(6);
 			}
 			pipeTok = new StringTokenizer(rest, Constants.PIPE);
@@ -67,12 +75,14 @@ public class KnownspellsToken implements PCClassLstToken
 				 */
 				if (filterString.startsWith("LEVEL."))
 				{
-					//					Logging.errorPrint("LEVEL. format deprecated in KNOWNSPELLS.  Please use LEVEL=");
+					// Logging.errorPrint("LEVEL. format deprecated in
+					// KNOWNSPELLS. Please use LEVEL=");
 					filterString = "LEVEL=" + filterString.substring(6);
 				}
 				if (filterString.startsWith("TYPE."))
 				{
-					//					Logging.errorPrint("TYPE. format deprecated in KNOWNSPELLS.  Please use TYPE=");
+					// Logging.errorPrint("TYPE. format deprecated in
+					// KNOWNSPELLS. Please use TYPE=");
 					filterString = "TYPE=" + filterString.substring(5);
 				}
 
