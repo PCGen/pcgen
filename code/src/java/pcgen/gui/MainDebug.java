@@ -20,13 +20,6 @@
  */
 package pcgen.gui;
 
-import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.util.Logging;
-
-import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -37,13 +30,31 @@ import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.util.Logging;
 
 /**
  * Provide a panel with most of the rule configuration options for a campaign.
  * This lots of unrelated entries.
- *
+ * 
  * @author Bryan McRoberts <merton_monk@yahoo.com>
  * @version $Revision$
  */
@@ -64,6 +75,9 @@ final class MainDebug extends JPanel
 	MainDebug()
 	{
 		initComponents();
+		ConsoleHandler ch = new ConsoleHandler();
+		Logger.getLogger("pcgen").addHandler(ch);
+		Logger.getLogger("plugin").addHandler(ch);
 		System.setOut(new DebugStream(System.out));
 		System.setErr(System.out);
 
@@ -76,31 +90,36 @@ final class MainDebug extends JPanel
 
 			if (Globals.javaVersionMajor <= 1 && Globals.javaVersionMinor < 4)
 			{
-				ShowMessageDelegate.showMessageDialog("You do not have java 1.4.x installed. Go to"
-				+ " http://www.java.com to get the latest java.",
+				ShowMessageDelegate.showMessageDialog(
+					"You do not have java 1.4.x installed. Go to"
+						+ " http://www.java.com to get the latest java.",
 					"PCGen", MessageType.ERROR);
 			}
 
 			try
 			{
-				ResourceBundle d_properties = ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp");
-				Logging.debugPrint("PCGen version:", d_properties.getString("VersionNumber"));
+				ResourceBundle d_properties =
+						ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp");
+				Logging.debugPrint("PCGen version:", d_properties
+					.getString("VersionNumber"));
 			}
 			catch (MissingResourceException mre)
 			{
-				//TODO: Should we really ignore this?
+				// TODO: Should we really ignore this?
 			}
 
 			if (!(new File("options.ini").exists()))
 			{
-				ShowMessageDelegate.showMessageDialog("If you experience any difficulties, look in the"
-                + " Debug tab and post its contents at http://groups.yahoo.com/group/pcgen",
-				    "PCGen", MessageType.INFORMATION);
+				ShowMessageDelegate
+					.showMessageDialog(
+						"If you experience any difficulties, look in the"
+							+ " Debug tab and post its contents at http://groups.yahoo.com/group/pcgen",
+						"PCGen", MessageType.INFORMATION);
 			}
 		}
 		catch (Exception e)
 		{
-			//TODO: Should we really ignore this?
+			// TODO: Should we really ignore this?
 		}
 	}
 
@@ -136,7 +155,7 @@ final class MainDebug extends JPanel
 			pcgen.core.VariableProcessor vp = aPC.getVariableProcessor();
 			vp.pauseCache();
 			txtAreaDebug.append(aPC.getDisplayName() + ":" + keyWord + " = "
-			    + aPC.getVariable(keyWord, true, true, "", "", 0));
+				+ aPC.getVariable(keyWord, true, true, "", "", 0));
 			vp.restartCache();
 		}
 		else
@@ -155,8 +174,10 @@ final class MainDebug extends JPanel
 		txtAreaDebug.setDoubleBuffered(true);
 		txtAreaDebug.setMinimumSize(new Dimension(426, 17));
 		txtAreaDebug.setEditable(false);
-		debugCenter.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		debugCenter.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		debugCenter
+			.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		debugCenter
+			.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		debugCenter.setDoubleBuffered(true);
 		debugCenter.setPreferredSize(new Dimension(446, 37));
 		txtDebugField.setPreferredSize(new Dimension(200, 21));
@@ -166,44 +187,47 @@ final class MainDebug extends JPanel
 		lblDebugSouth.setText("Variable : ");
 		btnDebugGo.setText("Get");
 		btnDebugGo.addActionListener(new ActionListener()
+		{
+			/**
+			 * Anonymous event handler
+			 * 
+			 * @param e
+			 *            The ActionEvent
+			 */
+			public void actionPerformed(ActionEvent e)
 			{
-				/**
-				 * Anonymous event handler
-				 *
-				 * @param e The ActionEvent
-				 */
-				public void actionPerformed(ActionEvent e)
-				{
-					btnDebugGo_actionPerformed();
-				}
-			});
+				btnDebugGo_actionPerformed();
+			}
+		});
 		btnDebugClear.setText("Clear");
 		btnDebugClear.addActionListener(new ActionListener()
+		{
+			/**
+			 * Anonymous event handler
+			 * 
+			 * @param e
+			 *            The ActionEvent
+			 */
+			public void actionPerformed(ActionEvent e)
 			{
-				/**
-				 * Anonymous event handler
-				 *
-				 * @param e The ActionEvent
-				 */
-				public void actionPerformed(ActionEvent e)
-				{
-					btnDebugClear_actionPerformed();
-				}
-			});
+				btnDebugClear_actionPerformed();
+			}
+		});
 
 		btnMemory.setText("Memory");
 		btnMemory.addActionListener(new ActionListener()
+		{
+			/**
+			 * Anonymous event handler
+			 * 
+			 * @param e
+			 *            The ActionEvent
+			 */
+			public void actionPerformed(ActionEvent e)
 			{
-				/**
-				 * Anonymous event handler
-				 *
-				 * @param e The ActionEvent
-				 */
-				public void actionPerformed(ActionEvent e)
-				{
-					btnMemory_actionPerformed();
-				}
-			});
+				btnMemory_actionPerformed();
+			}
+		});
 
 		this.add(debugCenter, BorderLayout.CENTER);
 		debugCenter.getViewport().add(txtAreaDebug, null);
@@ -217,18 +241,18 @@ final class MainDebug extends JPanel
 		btnDebugClear.setMnemonic('l');
 
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
-				{
-					// run when the panel becomes visible
-					requestFocus();
-				}
-			});
+				// run when the panel becomes visible
+				requestFocus();
+			}
+		});
 	}
 
 	private final class DebugStream extends PrintStream
 	{
-		private char[] newline = { '\n' };
+		private char[] newline = {'\n'};
 
 		private DebugStream(OutputStream os)
 		{
@@ -249,5 +273,29 @@ final class MainDebug extends JPanel
 		{
 			txtAreaDebug.append(Integer.toString(x));
 		}
+	}
+
+	private final class ConsoleHandler extends Handler
+	{
+
+		@Override
+		public void close() throws SecurityException
+		{
+			// Nothing to do
+		}
+
+		@Override
+		public void flush()
+		{
+			// Nothing to do
+		}
+
+		@Override
+		public void publish(LogRecord arg0)
+		{
+			txtAreaDebug.append(arg0.getLevel() + " " + arg0.getLoggerName()
+				+ " " + arg0.getMessage() + "\n");
+		}
+
 	}
 }
