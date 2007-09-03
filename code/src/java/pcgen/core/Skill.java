@@ -1596,16 +1596,18 @@ public final class Skill extends PObject
 	 *
 	 * @param aPC The character associated with this skill.
 	 * @param shortForm True if the abbreviated form should be used.
-	 * @return The explaination fo the misc modifier's make-up.
+	 * @return The explanation of the misc modifier's make-up.
 	 */
 	public String getModifierExplanation(final PlayerCharacter aPC, final boolean shortForm)
 	{
 		double bonusObjTotal = 0.0;
 		final StringBuffer bonusDetails = new StringBuffer();
-		for ( BonusObj bonus : getBonusList() )
+		for ( BonusObj bonus : aPC.getActiveBonusList() )
 		{
 			final double bonusVal = bonus.getCalculatedValue(aPC);
-			if (bonus.isApplied() && !CoreUtility.doublesEqual(bonusVal,0.0) && !"VAR".equals(bonus.getBonusName()))
+			if (bonus.isApplied() && !CoreUtility.doublesEqual(bonusVal, 0.0)
+				&& "SKILL".equals(bonus.getBonusName())
+				&& bonus.getBonusInfoList().contains(getKeyName().toUpperCase()))
 			{
 				if (bonusDetails.length() > 0)
 				{

@@ -677,7 +677,7 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 		//
 		if (bEmpty)
 		{
-			sb.append(getTypeOfBonus());
+			sb.append(String.valueOf(getCreatorObject()));
 		}
 		sb.append(']');
 
