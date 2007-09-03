@@ -25,26 +25,26 @@ package pcgen.core;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 /**
  * This class represents the generally unchanging information about the source
  * of an objcet.
  * 
- * <p>This includes information about the name and date of the source material
- * the object came from.  Page information is not included since that is likely
- * to be different for each object.
+ * <p>
+ * This includes information about the name and date of the source material the
+ * object came from. Page information is not included since that is likely to be
+ * different for each object.
  * 
- * <p>The class caches a list of sources used since most of the objects from
- * a single source will have the same source parameters.
+ * <p>
+ * The class caches a list of sources used since most of the objects from a
+ * single source will have the same source parameters.
  * 
  * @author boomer70 <boomer70@yahoo.com>
  * 
  * @since 5.11
- *
+ * 
  */
 public class Source
 {
@@ -54,8 +54,8 @@ public class Source
 	private String theWebsite = null;
 	private Date theDate = null;
 
-	private static List<Source> theSources = null;
-	
+	// private static List<Source> theSources = null;
+
 	/**
 	 * Default constructor.
 	 */
@@ -63,114 +63,132 @@ public class Source
 	{
 		// Nothing to do.
 	}
-	
-	/**
-	 * Returns a the cached version of a source corrisponding to the
-	 * <tt>Source</tt> passed in.
-	 * 
-	 * @param aSource The source to find
-	 * 
-	 * @return The global source object or <tt>null</tt> if no source yet exists
-	 */
-	private static Source getSource( final Source aSource )
-	{
-		if ( theSources == null )
-		{
-			return null;
-		}
-		for ( final Source source : theSources )
-		{
-			if ( source.equals( aSource ) )
-			{
-				return source;
-			}
-		}
-		return null;
-	}
+
+	// /**
+	// * Returns a the cached version of a source corrisponding to the
+	// * <tt>Source</tt> passed in.
+	// *
+	// * @param aSource The source to find
+	// *
+	// * @return The global source object or <tt>null</tt> if no source yet
+	// exists
+	// */
+	// private static Source getSource( final Source aSource )
+	// {
+	// if ( theSources == null )
+	// {
+	// return null;
+	// }
+	// for ( final Source source : theSources )
+	// {
+	// if ( source.equals( aSource ) )
+	// {
+	// return source;
+	// }
+	// }
+	// return null;
+	// }
 
 	/**
-	 * Construct a <tt>Source</tt> object from a <tt>Map</tt> of source entries
-	 * passed in.
+	 * Construct a <tt>Source</tt> object from a <tt>Map</tt> of source
+	 * entries passed in.
 	 * 
-	 * @param aSourceMap The map of source entries to use.
+	 * @param aSourceMap
+	 *            The map of source entries to use.
 	 * 
 	 * @return A <tt>Source</tt> object corresponding to the Map.
 	 * 
-	 * @throws ParseException If an invalid date is found.
+	 * @throws ParseException
+	 *             If an invalid date is found.
 	 */
-	public static Source getSource( final Map<String, String> aSourceMap ) 
+	public static Source getSource(final Map<String, String> aSourceMap)
 		throws ParseException
 	{
-		if ( aSourceMap == null )
+		if (aSourceMap == null)
 		{
 			return null;
 		}
 		final Source testSource = new Source();
-		
-		testSource.theLongName = aSourceMap.get(SourceEntry.SourceFormat.LONG.toString());
-		testSource.theShortName = aSourceMap.get(SourceEntry.SourceFormat.SHORT.toString());
-		testSource.theWebsite = aSourceMap.get(SourceEntry.SourceFormat.WEB.toString());
-		testSource.setDate( aSourceMap.get(SourceEntry.SourceFormat.DATE.toString()) );
-		
-		Source globalSource = getSource( testSource );
-		if ( globalSource == null )
-		{
-			if ( theSources == null )
-			{
-				theSources = new ArrayList<Source>();
-			}
-			theSources.add( testSource );
-			globalSource = testSource;
-		}
-		return globalSource;
+
+		testSource.theLongName =
+				aSourceMap.get(SourceEntry.SourceFormat.LONG.toString());
+		testSource.theShortName =
+				aSourceMap.get(SourceEntry.SourceFormat.SHORT.toString());
+		testSource.theWebsite =
+				aSourceMap.get(SourceEntry.SourceFormat.WEB.toString());
+		testSource.setDate(aSourceMap.get(SourceEntry.SourceFormat.DATE
+			.toString()));
+
+		/*
+		 * TODO This cache (globalSource) is extremely dangerous, because it's
+		 * unifying multiple references to a master object that can later be
+		 * modified, thus corrupting ALL of the items where the modification is
+		 * not valid. Basically, this uses a universal, modifyable object in a
+		 * reference semantic situation, which is not good design (and
+		 * demonstrably bad, based on Tracker 1785709 - thpr 03 Sep 2007
+		 */
+		// Source globalSource = getSource( testSource );
+		// if ( globalSource == null )
+		// {
+		// if ( theSources == null )
+		// {
+		// theSources = new ArrayList<Source>();
+		// }
+		// theSources.add( testSource );
+		// globalSource = testSource;
+		// }
+		// return globalSource;
+		return testSource;
 	}
 
-	/**
-	 * Tests if a <tt>Source</tt> object corrisponding to the passed in one
-	 * exists in the cache.
-	 * 
-	 * @param aSource The Source to test for.
-	 * 
-	 * @return <tt>true</tt> if the source exists.
-	 */
-	public static boolean hasSource( final Source aSource )
-	{
-		return theSources.contains( aSource );
-	}
-	
-	/**
-	 * Adds the specified Source to the cache if it is not already present.
-	 *  
-	 * @param aSource The <tt>Source</tt> to add.
-	 */
-	public static void addSource( final Source aSource )
-	{
-		if ( !theSources.contains(aSource) )
-		{
-			theSources.add( aSource );
-		}
-	}
+	// /**
+	// * Tests if a <tt>Source</tt> object corrisponding to the passed in one
+	// * exists in the cache.
+	// *
+	// * @param aSource The Source to test for.
+	// *
+	// * @return <tt>true</tt> if the source exists.
+	// */
+	// public static boolean hasSource( final Source aSource )
+	// {
+	// return theSources.contains( aSource );
+	// }
+	//	
+	// /**
+	// * Adds the specified Source to the cache if it is not already present.
+	// *
+	// * @param aSource The <tt>Source</tt> to add.
+	// */
+	// public static void addSource( final Source aSource )
+	// {
+	// if ( !theSources.contains(aSource) )
+	// {
+	// theSources.add( aSource );
+	// }
+	// }
 
 	/**
 	 * Returns the SOURCESHORT parameter for the source.
 	 * 
-	 * <p>A parameter can be specified to force the name to be a maximum of the
+	 * <p>
+	 * A parameter can be specified to force the name to be a maximum of the
 	 * specified number of characters.
 	 * 
-	 * @param aMaxLen Max characters to return in the name
+	 * @param aMaxLen
+	 *            Max characters to return in the name
 	 * 
 	 * @return The Short source name or an empty String.
 	 */
-	public String getShortName( final int aMaxLen )
+	public String getShortName(final int aMaxLen)
 	{
-		if ( theShortName != null )
+		if (theShortName != null)
 		{
-			final int maxLen = Math.min( aMaxLen, theShortName.length() );
-			return theShortName.substring( 0, maxLen );
+			final int maxLen = Math.min(aMaxLen, theShortName.length());
+			return theShortName.substring(0, maxLen);
 		}
 		return Constants.EMPTY_STRING;
 	}
-	
+
 	/**
 	 * Gets the <tt>Campaign</tt> this source information came from.
 	 * 
@@ -180,17 +198,18 @@ public class Source
 	{
 		return theCampaign;
 	}
-	
+
 	/**
 	 * Sets the <tt>Campaign</tt> this source information came from.
 	 * 
-	 * @param aCampaign The <tt>Campaign</tt> to set.
+	 * @param aCampaign
+	 *            The <tt>Campaign</tt> to set.
 	 */
-	public void setCampaign( final Campaign aCampaign )
+	public void setCampaign(final Campaign aCampaign)
 	{
 		theCampaign = aCampaign;
 	}
-	
+
 	/**
 	 * @return the date
 	 */
@@ -198,24 +217,28 @@ public class Source
 	{
 		return theDate;
 	}
-	
+
 	/**
 	 * Sets the date the source was published.
 	 * 
-	 * <p>This information is used by the system to determine if the object
-	 * should be replaced by an object with the same key.  Objects can be
-	 * replaced by objects in a newer source.
+	 * <p>
+	 * This information is used by the system to determine if the object should
+	 * be replaced by an object with the same key. Objects can be replaced by
+	 * objects in a newer source.
 	 * 
-	 * <p>This method uses <tt.DateFormat</tt> to parse the date. See that
-	 * class for a description of legal date strings.
+	 * <p>
+	 * This method uses <tt.DateFormat</tt> to parse the date. See that class
+	 * for a description of legal date strings.
 	 * 
-	 * @param aDateStr the date to set
+	 * @param aDateStr
+	 *            the date to set
 	 * 
-	 * @throws ParseException If the date is not valid.
+	 * @throws ParseException
+	 *             If the date is not valid.
 	 */
 	public void setDate(final String aDateStr) throws ParseException
 	{
-		if ( aDateStr == null )
+		if (aDateStr == null)
 		{
 			return;
 		}
@@ -230,7 +253,7 @@ public class Source
 			theDate = df.parse(aDateStr);
 		}
 	}
-	
+
 	/**
 	 * @return the longName
 	 */
@@ -238,15 +261,16 @@ public class Source
 	{
 		return theLongName;
 	}
-	
+
 	/**
-	 * @param aLongName the longName to set
+	 * @param aLongName
+	 *            the longName to set
 	 */
 	public void setLongName(final String aLongName)
 	{
 		theLongName = aLongName;
 	}
-	
+
 	/**
 	 * @return the shortName
 	 */
@@ -254,15 +278,16 @@ public class Source
 	{
 		return theShortName;
 	}
-	
+
 	/**
-	 * @param aShortName the shortName to set
+	 * @param aShortName
+	 *            the shortName to set
 	 */
 	public void setShortName(String aShortName)
 	{
 		theShortName = aShortName;
 	}
-	
+
 	/**
 	 * @return the website
 	 */
@@ -270,9 +295,10 @@ public class Source
 	{
 		return theWebsite;
 	}
-	
+
 	/**
-	 * @param aWebsite the website to set
+	 * @param aWebsite
+	 *            the website to set
 	 */
 	public void setWebsite(final String aWebsite)
 	{
@@ -288,20 +314,26 @@ public class Source
 		final int PRIME = 31;
 		int result = 1;
 		result = PRIME * result + ((theDate == null) ? 0 : theDate.hashCode());
-		result = PRIME * result + ((theLongName == null) ? 0 : theLongName.hashCode());
-		result = PRIME * result + ((theShortName == null) ? 0 : theShortName.hashCode());
-		result = PRIME * result + ((theWebsite == null) ? 0 : theWebsite.hashCode());
+		result =
+				PRIME * result
+					+ ((theLongName == null) ? 0 : theLongName.hashCode());
+		result =
+				PRIME * result
+					+ ((theShortName == null) ? 0 : theShortName.hashCode());
+		result =
+				PRIME * result
+					+ ((theWebsite == null) ? 0 : theWebsite.hashCode());
 		return result;
 	}
 
 	/**
-	 * This method checks for strict equality of this object.  All the fields
-	 * for the Source must match for the objects to be considered equal.
+	 * This method checks for strict equality of this object. All the fields for
+	 * the Source must match for the objects to be considered equal.
 	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals( final Object obj )
+	public boolean equals(final Object obj)
 	{
 		if (this == obj)
 		{
