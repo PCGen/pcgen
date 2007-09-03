@@ -239,15 +239,6 @@ Ranger Animal Companion	TYPE:Internal	VISIBLE:NO	DEFINE:RangerAnimalCompLVL|0			
 Ranger Combat Tree	TYPE:Internal	VISIBLE:NO	DEFINE:RangerCombatTreeLVL|0	DEFINE:RangerCombatTree|0	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11	SOURCEPAGE:ClassesII.rtf
 Ranger Favored Enemy	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0					BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5																SOURCEPAGE:ClassesII.rtf
 
-
-
-
-
-
-
-
-
-
 ###Block: Rogue Abilities
 # Feat Name	Type			Visible	Special Ability	Source Page
 Trapfinding	TYPE:Special	VISIBLE:NO	SA:Trapfinding	SOURCEPAGE:p.ClassesII.rtf
@@ -386,9 +377,9 @@ Undead Traits			TYPE:Special	VISIBLE:NO	SA:Undead Traits|!PRERULE:DISPLAYTYPETRA
 Vermin Traits			TYPE:Special	VISIBLE:NO	SA:Vermin Traits|!PRERULE:DISPLAYTYPETRAITS	SA:Vermin eat/sleep/breathe|PRERULE:DISPLAYTYPETRAITS	SA:Mindless - Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:Mindless|PRERULE:DISPLAYTYPETRAITS																																																																																																																																																																				VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Special Abilities
-# Feat Name				Output Name							Type					Visible	Special Ability					Multiple?	Choose			Combat bonus									Weapon prof. bonus																		Source Page
+# Feat Name				Output Name							Type					Visible	Special Ability					Multiple?	Choose			Combat bonus									Weapon prof. bonus																									Source Page
 Oversized Weapon			OUTPUTNAME:Oversized Weapon (Ex)			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Oversized Weapon (Ex)			MULT:YES	CHOOSE:WEAPONPROFS|LIST												BONUS:WEAPONPROF=%LIST|PCSIZE|1
-Powerful Build			OUTPUTNAME:Powerful Build (Ex)			TYPE:Special.Extraordinary	VISIBLE:NO																									BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1	SOURCEPAGE:PsionicMonsters.rtf
+Powerful Build			OUTPUTNAME:Powerful Build (Ex)			TYPE:Special.Extraordinary	VISIBLE:NO																									BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1	BONUS:COMBAT|TOHIT.GRAPPLE|4|PRESIZELT:C	SOURCEPAGE:PsionicMonsters.rtf
 Superior Two-Weapon Fighting	OUTPUTNAME:Superior Two-Weapon Fighting (Ex)	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Superior Two-Weapon Fighting (Ex)							BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
 
 ###Block: Leadership feat support
