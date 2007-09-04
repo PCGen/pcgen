@@ -9,16 +9,16 @@ CLASS:Strong	STARTSKILLPTS:2	CSKILL:Climb|Craft (Structural)|Handle Animal|Jump|
 SUBCLASS:Strong Ordinary	COST:0
 SUBCLASSLEVEL:1																								TEMPLATE:Ordinary CR	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASS:Strong Hero		COST:0
-SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	ADD:FEAT|TYPE=StrongTalent					AUTO:FEAT|All Automatic Proficiencies
-SUBCLASSLEVEL:2																			ADD:FEAT|TYPE=Strong
-SUBCLASSLEVEL:3																			ADD:FEAT|TYPE=StrongTalent
-SUBCLASSLEVEL:4																			ADD:FEAT|TYPE=Strong
-SUBCLASSLEVEL:5																			ADD:FEAT|TYPE=StrongTalent
-SUBCLASSLEVEL:6																			ADD:FEAT|TYPE=Strong
-SUBCLASSLEVEL:7																			ADD:FEAT|TYPE=StrongTalent
-SUBCLASSLEVEL:8																			ADD:FEAT|TYPE=Strong
-SUBCLASSLEVEL:9																			ADD:FEAT|TYPE=StrongTalent
-SUBCLASSLEVEL:10																			ADD:FEAT|TYPE=Strong
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|StrongTalentPool|1					AUTO:FEAT|All Automatic Proficiencies
+SUBCLASSLEVEL:2																			ADD:ABILITY|FEAT|NORMAL|TYPE=Strong
+SUBCLASSLEVEL:3																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|StrongTalentPool|1
+SUBCLASSLEVEL:4																			ADD:ABILITY|FEAT|NORMAL|TYPE=Strong
+SUBCLASSLEVEL:5																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|StrongTalentPool|1
+SUBCLASSLEVEL:6																			ADD:ABILITY|FEAT|NORMAL|TYPE=Strong
+SUBCLASSLEVEL:7																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|StrongTalentPool|1
+SUBCLASSLEVEL:8																			ADD:ABILITY|FEAT|NORMAL|TYPE=Strong
+SUBCLASSLEVEL:9																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|StrongTalentPool|1
+SUBCLASSLEVEL:10																			ADD:ABILITY|FEAT|NORMAL|TYPE=Strong
 #
 1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	AUTO:FEAT|Simple Weapons Proficiency	AUTO:FEAT|Starting Wealth
 
@@ -30,16 +30,16 @@ CLASS:Fast		STARTSKILLPTS:4	CSKILL:Balance|Craft (Mechanical)|Drive|Escape Artis
 SUBCLASS:Fast Ordinary	COST:0
 SUBCLASSLEVEL:1																								TEMPLATE:Ordinary CR	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASS:Fast Hero	COST:0
-SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	ADD:FEAT|TYPE=FastTalent					AUTO:FEAT|All Automatic Proficiencies
-SUBCLASSLEVEL:2																			ADD:FEAT|TYPE=Fast
-SUBCLASSLEVEL:3																			ADD:FEAT|TYPE=FastTalent
-SUBCLASSLEVEL:4																			ADD:FEAT|TYPE=Fast
-SUBCLASSLEVEL:5																			ADD:FEAT|TYPE=FastTalent
-SUBCLASSLEVEL:6																			ADD:FEAT|TYPE=Fast
-SUBCLASSLEVEL:7																			ADD:FEAT|TYPE=FastTalent
-SUBCLASSLEVEL:8																			ADD:FEAT|TYPE=Fast
-SUBCLASSLEVEL:9																			ADD:FEAT|TYPE=FastTalent
-SUBCLASSLEVEL:10																			ADD:FEAT|TYPE=Fast
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|FastTalentPool|1					AUTO:FEAT|All Automatic Proficiencies
+SUBCLASSLEVEL:2																			ADD:ABILITY|FEAT|NORMAL|TYPE=Fast
+SUBCLASSLEVEL:3																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|FastTalentPool|1
+SUBCLASSLEVEL:4																			ADD:ABILITY|FEAT|NORMAL|TYPE=Fast
+SUBCLASSLEVEL:5																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|FastTalentPool|1
+SUBCLASSLEVEL:6																			ADD:ABILITY|FEAT|NORMAL|TYPE=Fast
+SUBCLASSLEVEL:7																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|FastTalentPool|1
+SUBCLASSLEVEL:8																			ADD:ABILITY|FEAT|NORMAL|TYPE=Fast
+SUBCLASSLEVEL:9																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|FastTalentPool|1
+SUBCLASSLEVEL:10																			ADD:ABILITY|FEAT|NORMAL|TYPE=Fast
 #
 1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	AUTO:FEAT|Simple Weapons Proficiency	AUTO:FEAT|Starting Wealth
 
@@ -51,16 +51,16 @@ CLASS:Tough		STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Mechanical)|Craft
 SUBCLASS:Tough Ordinary	COST:0
 SUBCLASSLEVEL:1																								TEMPLATE:Ordinary CR	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASS:Tough Hero	COST:0
-SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	ADD:FEAT|TYPE=ToughTalent					AUTO:FEAT|All Automatic Proficiencies
-SUBCLASSLEVEL:2																			ADD:FEAT|TYPE=Tough
-SUBCLASSLEVEL:3																			ADD:FEAT|TYPE=ToughTalent
-SUBCLASSLEVEL:4																			ADD:FEAT|TYPE=Tough
-SUBCLASSLEVEL:5																			ADD:FEAT|TYPE=ToughTalent
-SUBCLASSLEVEL:6																			ADD:FEAT|TYPE=Tough
-SUBCLASSLEVEL:7																			ADD:FEAT|TYPE=ToughTalent
-SUBCLASSLEVEL:8																			ADD:FEAT|TYPE=Tough
-SUBCLASSLEVEL:9																			ADD:FEAT|TYPE=ToughTalent
-SUBCLASSLEVEL:10																			ADD:FEAT|TYPE=Tough
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|ToughTalentPool|1					AUTO:FEAT|All Automatic Proficiencies
+SUBCLASSLEVEL:2																			ADD:ABILITY|FEAT|NORMAL|TYPE=Tough
+SUBCLASSLEVEL:3																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|ToughTalentPool|1
+SUBCLASSLEVEL:4																			ADD:ABILITY|FEAT|NORMAL|TYPE=Tough
+SUBCLASSLEVEL:5																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|ToughTalentPool|1
+SUBCLASSLEVEL:6																			ADD:ABILITY|FEAT|NORMAL|TYPE=Tough
+SUBCLASSLEVEL:7																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|ToughTalentPool|1
+SUBCLASSLEVEL:8																			ADD:ABILITY|FEAT|NORMAL|TYPE=Tough
+SUBCLASSLEVEL:9																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|ToughTalentPool|1
+SUBCLASSLEVEL:10																			ADD:ABILITY|FEAT|NORMAL|TYPE=Tough
 #
 1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	AUTO:FEAT|Simple Weapons Proficiency	AUTO:FEAT|Starting Wealth
 
@@ -72,16 +72,16 @@ CLASS:Smart		STARTSKILLPTS:8	CSKILL:Computer Use|Craft (Chemical)|Craft (Electro
 SUBCLASS:Smart Ordinary	COST:0
 SUBCLASSLEVEL:1																								TEMPLATE:Ordinary CR	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASS:Smart Hero	COST:0
-SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	ADD:FEAT|TYPE=SmartTalent					AUTO:FEAT|All Automatic Proficiencies
-SUBCLASSLEVEL:2																			ADD:FEAT|TYPE=Smart
-SUBCLASSLEVEL:3																			ADD:FEAT|TYPE=SmartTalent
-SUBCLASSLEVEL:4																			ADD:FEAT|TYPE=Smart
-SUBCLASSLEVEL:5																			ADD:FEAT|TYPE=SmartTalent
-SUBCLASSLEVEL:6																			ADD:FEAT|TYPE=Smart
-SUBCLASSLEVEL:7																			ADD:FEAT|TYPE=SmartTalent
-SUBCLASSLEVEL:8																			ADD:FEAT|TYPE=Smart
-SUBCLASSLEVEL:9																			ADD:FEAT|TYPE=SmartTalent
-SUBCLASSLEVEL:10																			ADD:FEAT|TYPE=Smart
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|SmartTalentPool|1					AUTO:FEAT|All Automatic Proficiencies
+SUBCLASSLEVEL:2																			ADD:ABILITY|FEAT|NORMAL|TYPE=Smart
+SUBCLASSLEVEL:3																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|SmartTalentPool|1
+SUBCLASSLEVEL:4																			ADD:ABILITY|FEAT|NORMAL|TYPE=Smart
+SUBCLASSLEVEL:5																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|SmartTalentPool|1
+SUBCLASSLEVEL:6																			ADD:ABILITY|FEAT|NORMAL|TYPE=Smart
+SUBCLASSLEVEL:7																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|SmartTalentPool|1
+SUBCLASSLEVEL:8																			ADD:ABILITY|FEAT|NORMAL|TYPE=Smart
+SUBCLASSLEVEL:9																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|SmartTalentPool|1
+SUBCLASSLEVEL:10																			ADD:ABILITY|FEAT|NORMAL|TYPE=Smart
 #
 1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	AUTO:FEAT|Simple Weapons Proficiency	AUTO:FEAT|Starting Wealth
 
@@ -93,16 +93,16 @@ CLASS:Dedicated	STARTSKILLPTS:4	CSKILL:Craft (Pharmaceutical)|Craft (Visual Art)
 SUBCLASS:Dedicated Ordinary	COST:0
 SUBCLASSLEVEL:1																								TEMPLATE:Ordinary CR	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASS:Dedicated Hero		COST:0
-SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	ADD:FEAT|TYPE=DedicatedTalent					AUTO:FEAT|All Automatic Proficiencies
-SUBCLASSLEVEL:2																			ADD:FEAT|TYPE=Dedicated
-SUBCLASSLEVEL:3																			ADD:FEAT|TYPE=DedicatedTalent
-SUBCLASSLEVEL:4																			ADD:FEAT|TYPE=Dedicated
-SUBCLASSLEVEL:5																			ADD:FEAT|TYPE=DedicatedTalent
-SUBCLASSLEVEL:6																			ADD:FEAT|TYPE=Dedicated
-SUBCLASSLEVEL:7																			ADD:FEAT|TYPE=DedicatedTalent
-SUBCLASSLEVEL:8																			ADD:FEAT|TYPE=Dedicated
-SUBCLASSLEVEL:9																			ADD:FEAT|TYPE=DedicatedTalent
-SUBCLASSLEVEL:10																			ADD:FEAT|TYPE=Dedicated
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|DedicatedTalentPool|1					AUTO:FEAT|All Automatic Proficiencies
+SUBCLASSLEVEL:2																			ADD:ABILITY|FEAT|NORMAL|TYPE=Dedicated
+SUBCLASSLEVEL:3																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|DedicatedTalentPool|1
+SUBCLASSLEVEL:4																			ADD:ABILITY|FEAT|NORMAL|TYPE=Dedicated
+SUBCLASSLEVEL:5																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|DedicatedTalentPool|1
+SUBCLASSLEVEL:6																			ADD:ABILITY|FEAT|NORMAL|TYPE=Dedicated
+SUBCLASSLEVEL:7																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|DedicatedTalentPool|1
+SUBCLASSLEVEL:8																			ADD:ABILITY|FEAT|NORMAL|TYPE=Dedicated
+SUBCLASSLEVEL:9																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|DedicatedTalentPool|1
+SUBCLASSLEVEL:10																			ADD:ABILITY|FEAT|NORMAL|TYPE=Dedicated
 #
 1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	AUTO:FEAT|Simple Weapons Proficiency	AUTO:FEAT|Starting Wealth
 
@@ -114,15 +114,15 @@ CLASS:Charismatic	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing
 SUBCLASS:Charismatic Ordinary	COST:0
 SUBCLASSLEVEL:1																									TEMPLATE:Ordinary CR	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASS:Charismatic Hero	COST:0
-SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	ADD:FEAT|TYPE=CharismaticTalent					AUTO:FEAT|All Automatic Proficiencies
-SUBCLASSLEVEL:2																			ADD:FEAT|TYPE=Charismatic
-SUBCLASSLEVEL:3																			ADD:FEAT|TYPE=CharismaticTalent
-SUBCLASSLEVEL:4																			ADD:FEAT|TYPE=Charismatic
-SUBCLASSLEVEL:5																			ADD:FEAT|TYPE=CharismaticTalent
-SUBCLASSLEVEL:6																			ADD:FEAT|TYPE=Charismatic
-SUBCLASSLEVEL:7																			ADD:FEAT|TYPE=CharismaticTalent
-SUBCLASSLEVEL:8																			ADD:FEAT|TYPE=Charismatic
-SUBCLASSLEVEL:9																			ADD:FEAT|TYPE=CharismaticTalent
-SUBCLASSLEVEL:10																			ADD:FEAT|TYPE=Charismatic
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|CharismaticTalentPool|1					AUTO:FEAT|All Automatic Proficiencies
+SUBCLASSLEVEL:2																			ADD:ABILITY|FEAT|NORMAL|TYPE=Charismatic
+SUBCLASSLEVEL:3																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|CharismaticTalentPool|1
+SUBCLASSLEVEL:4																			ADD:ABILITY|FEAT|NORMAL|TYPE=Charismatic
+SUBCLASSLEVEL:5																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|CharismaticTalentPool|1
+SUBCLASSLEVEL:6																			ADD:ABILITY|FEAT|NORMAL|TYPE=Charismatic
+SUBCLASSLEVEL:7																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|CharismaticTalentPool|1
+SUBCLASSLEVEL:8																			ADD:ABILITY|FEAT|NORMAL|TYPE=Charismatic
+SUBCLASSLEVEL:9																			BONUS:ABILITYPOOL|Talent|1	BONUS:VAR|CharismaticTalentPool|1
+SUBCLASSLEVEL:10																			ADD:ABILITY|FEAT|NORMAL|TYPE=Charismatic
 #
 1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	AUTO:FEAT|Simple Weapons Proficiency	AUTO:FEAT|Starting Wealth

@@ -23,6 +23,8 @@ INFOTEXT:This set loads the Robot options from the Future section of the MSRD.
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:Building_Robots.txt
 
+#ABILITY:futurerobots_abilities_occupations_mod.lst
+
 RACE:futurerobots_races.lst
 CLASS:futurerobots_classes.lst
 KIT:futurerobots_kits.lst

@@ -20,12 +20,17 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 
 INFOTEXT:This set loads the Basic options from the Future section of the MSRD including Classes, Feats, Skills, Occupations and Settings.
 
+#ABILITY:futurebasics_abilities_occupations.lst
+ABILITY:futurebasics_abilities_talents_mod.lst
+
 
 CLASS:futurebasics_classes_advanced.lst
 FEAT:futurebasics_feats.lst
 FEAT:futurebasics_feats_hidden.lst
 FEAT:futurebasics_feats_hidden_mod.lst
-FEAT:futurebasics_feats_mod.lst
-FEAT:futurebasics_feats_occupations.lst
+
+#FEAT:futurebasics_feats_mod.lst
+#FEAT:futurebasics_feats_occupations.lst
+
 TEMPLATE:futurebasics_templates.lst
 TEMPLATE:futurebasics_templates_environments.lst

@@ -14,28 +14,6 @@ Amorphous Form			TYPE:RobotTraits	VISIBLE:NO	SA:Amorphous Form (Ex)													
 Robot Fast Healing		TYPE:RobotTraits	VISIBLE:NO	SA:Fast Healing 10 (Ex)
 Fire Vulnerability		TYPE:RobotTraits	VISIBLE:NO	SA:Fire Vulnerability
 
-###Block: Occupation MODs
-
-# Feat Name					Prohibited Race
-Occupation (Academic).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Adventurer).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Athlete).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Blue Collar).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Celebrity).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Creative).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Criminal).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Dilettante).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Doctor).MOD			!PRERACE:1,TYPE=Robot
-Occupation (Emergency Services).MOD	!PRERACE:1,TYPE=Robot
-Occupation (Entrepreneur).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Investigative).MOD	!PRERACE:1,TYPE=Robot
-Occupation (Law Enforcement).MOD	!PRERACE:1,TYPE=Robot
-Occupation (Military).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Religious).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Rural).MOD			!PRERACE:1,TYPE=Robot
-Occupation (Student).MOD		!PRERACE:1,TYPE=Robot
-Occupation (Technician).MOD		!PRERACE:1,TYPE=Robot
-Occupation (White Collar).MOD		!PRERACE:1,TYPE=Robot
 
 #
 # End
