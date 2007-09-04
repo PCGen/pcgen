@@ -20,7 +20,7 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 
 INFOTEXT:This will load the basic options of the MSRD without FX, Menace or races other than Human
 
-ABILITY:modernbasics_abilities_occupations.lst
+#ABILITY:modernbasics_abilities_occupations.lst
 ABILITY:modernbasics_abilities_talents.lst
 
 
@@ -41,7 +41,7 @@ EQUIPMOD:modernbasics_equipmods.lst
 
 FEAT:modernbasics_feats.lst
 FEAT:modernbasics_feats_hidden.lst
-#FEAT:modernbasics_feats_occupations.lst
+FEAT:modernbasics_feats_occupations.lst
 
 KIT:modernbasics_kits_defaultmonsters_animals.lst
 LANGUAGE:modernbasics_languages.lst
