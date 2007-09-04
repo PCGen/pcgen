@@ -30,6 +30,7 @@ INFOTEXT:Modern Player's Companion requires at least the MSRD - Basics and MSRD 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:mpc_abilities.lst
 CLASS:mpc_classes.lst
 EQUIPMENT:mpc_equip.lst
 EQUIPMENT:mpc_equip_FX.lst
