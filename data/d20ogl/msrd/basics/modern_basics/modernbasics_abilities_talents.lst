@@ -1,8 +1,15 @@
 # CVS $Revision: $ $Author: $ -- Mon Sep  3 19:28:03 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 ###Block: Talents
 ### TODO: SAs become DESC in abilities once the OS is updated. -AM
+### CATEGORY enhancements - 
+#Strong Talents		-	PREVARGT:StrongTalentPool,StrongTalentUsed
+#Fast Talents		-	PREVARGT:FastTalentPool,FastTalentUsed
+#Tough Talents		-	PREVARGT:ToughTalentPool,ToughTalentUsed
+#Smart Talents		-	PREVARGT:SmartTalentPool,SmartTalentUsed
+#Dedicated Talents	-	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed
+#Charismatic Talents	-	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed
+
 # Strong Talents
-# Feat Name				Category		Type							Visible		Required Feat																Total Skill Points Req.						Special Ability						Define				Stackable?	Multiple?	Choose																									Combat bonus			Damage reduction				Bonus to HP				Add to base move							Bonus to skill			Modify VAR					Damage Reduction	Source Page
 # Ability Name			Category of Ability	Type							Visible	Required Ability																			Total Skill Points Req.						Var. Must Be Grater						Special Ability						Define				Stackable?	Multiple?	Choose																									Combat bonus			Damage reduction				Bonus to HP				Add to base move							Bonus to skill			Modify VAR										Damage Reduction	Source Page					PREBILITY
 Extreme Effort			CATEGORY:Talent		TYPE:Talent.StrongTalent.ExtremeEffort	VISIBLE:YES																															PREVARGT:StrongTalentPool,StrongTalentUsed		SA:Extreme Effort																																																																							BONUS:VAR|StrongTalentUsed|1										SOURCEPAGE:msrdbasicclasses.rtf
 Improved Extreme Effort		CATEGORY:Talent		TYPE:Talent.StrongTalent.ExtremeEffort	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Extreme Effort																							PREVARGT:StrongTalentPool,StrongTalentUsed		SA:Improved Extreme Effort																																																																					BONUS:VAR|StrongTalentUsed|1										SOURCEPAGE:msrdbasicclasses.rtf
