@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  9 02:06:38 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Mon Sep  3 19:28:03 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Phantom of Krankor
 # 5.14 added 'QUALITY:Light|x ft.' and 'QUALITY:DURATION|x hr.'
@@ -100,20 +100,20 @@ Spike Strip											TYPE:Goods.General		COST:13	WT:22		SOURCEPAGE:msrdequipmen
 Surgery Kit											TYPE:Goods.Tools			COST:16	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf
 
 ###Block: Survival Gear
-# Equipment Name			Output Name				Type					Contains			Cost		Weight	Source Page					Bonus to skill								Modify VAR
+# Equipment Name			Output Name				Type					Contains			Cost		Weight	Source Page					Bonus to skill								Modify VAR						Quality and value
 Backpack									TYPE:Goods.General.Container	CONTAINS:60|Any=60	COST:10	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf											BONUS:VAR|LOADSCORE|1|TYPE=Equipment
 Binoculars (Standard)		OUTPUTNAME:Binoculars, [NAME]	TYPE:Goods.General						COST:7	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
 Binoculars (Rangefinding)	OUTPUTNAME:Binoculars, [NAME]	TYPE:Goods.General						COST:15	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
 Binoculars (Electro-Optical)	OUTPUTNAME:Binoculars, [NAME]	TYPE:Goods.General						COST:16	WT:4		SOURCEPAGE:msrdequipmentgeneral.rtf
-Chemical Light Stick							TYPE:Goods.General.Consumable							WT:.2		SOURCEPAGE:msrdequipmentgeneral.rtf														QUALITY:Light|5 ft.	QUALITY:DURATION|6 hr.
+Chemical Light Stick							TYPE:Goods.General.Consumable							WT:.2		SOURCEPAGE:msrdequipmentgeneral.rtf																		QUALITY:Light|5 ft.	QUALITY:DURATION|6 hr.
 Chemical Light Sticks (5)						TYPE:Goods.General.Consumable					COST:2	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Climbing Gear								TYPE:Goods.General.Tools					COST:11	WT:10		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Climb|CircumstanceAdjustment|TYPE=Circumstance
 Compass									TYPE:Goods.General						COST:5	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Navigate|2|TYPE=Equipment
 Fire Extinguisher								TYPE:Goods.General.Consumable					COST:8	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
 Flash Goggles								TYPE:Goods.General.Eyegear					COST:15	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
-Flashlight (Penlight)		OUTPUTNAME:[NAME]			TYPE:Goods.General						COST:3	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf															QUALITY:Light|10 ft. x 5 ft.	
-Flashlight (Standard)		OUTPUTNAME:Flashlight, [NAME]	TYPE:Goods.General						COST:4	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf															QUALITY:Light|30 ft. x 15 ft.	
-Flashlight (Battery Flood)	OUTPUTNAME:Flashlight, [NAME]	TYPE:Goods.General						COST:6	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf															QUALITY:Light|100 ft. x 50 ft.	
+Flashlight (Penlight)		OUTPUTNAME:[NAME]			TYPE:Goods.General						COST:3	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf																		QUALITY:Light|10 ft. x 5 ft.
+Flashlight (Standard)		OUTPUTNAME:Flashlight, [NAME]	TYPE:Goods.General						COST:4	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf																		QUALITY:Light|30 ft. x 15 ft.
+Flashlight (Battery Flood)	OUTPUTNAME:Flashlight, [NAME]	TYPE:Goods.General						COST:6	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf																		QUALITY:Light|100 ft. x 50 ft.
 Gas Mask									TYPE:Goods.General.Consumable					COST:13	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf
 GPS Receiver								TYPE:Goods.General						COST:15	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Map (Road Atlas)			OUTPUTNAME:Map, [NAME]		TYPE:Goods.General						COST:4	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
