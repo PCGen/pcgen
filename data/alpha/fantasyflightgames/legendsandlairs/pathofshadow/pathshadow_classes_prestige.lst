@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Sep  5 14:33:08 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 # Original entry by: Blithwyn
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
@@ -213,12 +213,12 @@ CLASS:Packrat	PREFEAT:1,Lightning Reflexes	PRESKILL:1,Bluff=5	PRESKILL:2,Escape 
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Packrat	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 #1	BONUS:VAR|SneakAttack|(COUNT[FEATNAME=PackratRogueIncrease]+1-PackratRogueLevelOdd)/2	DEFINE:PackratRogueLevelOdd|((CL=Rogue/2)-(CL=Rogue/2.TRUNC))*2
-1							BONUS:VAR|SneakAttack|((cl("Rogue")+1+COUNT[FEATNAME=PackratRogueIncrease.ALL])/2-floor((cl("Rogue")+1)/2))
-1	SA:Packrat (Ex)																						ADD:FEAT|1|TYPE=PackratLevelIncrease
+1							BONUS:VAR|SneakAttack|((var("CL=Rogue")+1+COUNT[FEATNAME=PackratRogueIncrease.ALL])/2-floor((var("CL=Rogue")+1)/2))
+1	SA:Packrat (Ex)																								ADD:FEAT|1|TYPE=PackratLevelIncrease
 2	SA:Right Tool for the Job (Ex)
-3	SA:Quicker than the Eye (Ex)																				ADD:FEAT|1|TYPE=PackratLevelIncrease
+3	SA:Quicker than the Eye (Ex)																						ADD:FEAT|1|TYPE=PackratLevelIncrease
 4	SA:Hard to Hold (Ex)
-5																									ADD:FEAT|1|TYPE=PackratLevelIncrease
+5																											ADD:FEAT|1|TYPE=PackratLevelIncrease
 
 
 # zzz Psychic Interloper
