@@ -12,7 +12,7 @@ Acidic Secretions		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:I
 Skin of Stone		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Earth Elemental Taint]							SA:Skin of Stone (Ex)																							BONUS:COMBAT|AC|1|TYPE=NaturalArmor
 Fiery Metabolism		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Fire Elemental Taint]							SA:Fiery Metabolism (Ex)
 Heat Body			TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Fire Elemental Taint]							SA:Heat Body %/day (Su)|HeatBodyTimes			DEFINE:HeatBodyTimes|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|HeatBodyTimes|1
-Water Adaptation		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Water Elemental Taint]							SA:Water Adaptation (Ex)																	MOVECLONE:Walk,0,Swim,/2
+Water Adaptation		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Water Elemental Taint]							SA:Water Adaptation (Ex)																	MOVECLONE:Walk,Swim,/2
 Aquatic Form		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Water Elemental Taint]							SA:Aquatic Form (Ex)																							BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Swim|4
 
 Air Elemental Cohort	TYPE:ElementalCohort	VISIBLE:YES																				PRETEMPLATE:Air Elemental Taint	SA:Air Elemental cohort % HD|ElementalCohortHD		DEFINE:ElementalCohortHD|0

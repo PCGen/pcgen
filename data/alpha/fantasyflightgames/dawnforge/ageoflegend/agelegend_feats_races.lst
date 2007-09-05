@@ -414,7 +414,7 @@ Body to Mind				TYPE:OgreRacialTransformation				VISIBLE:NO														SA:Body
 Body to Will				TYPE:OgreRacialTransformation				VISIBLE:NO														SA:Body to Will (Ex)										MULT:NO																		SOURCEPAGE:p.66
 Body to Spirit				TYPE:OgreRacialTransformation				VISIBLE:NO														SA:Body to Spirit (Ex)										MULT:NO																		SOURCEPAGE:p.66
 Flight					TYPE:OgreRacialTransformation				VISIBLE:NO				PREFEAT:4,CHECKMULT,TYPE=AwakeningMagic				SA:Flight (Su)											MULT:NO	MOVE:Fly,40																SOURCEPAGE:p.66
-Swimmer					TYPE:OgreRacialTransformation				VISIBLE:NO														SA:Swimmer (Ex)											MULT:NO			MOVECLONE:Walk,0,Swim,0												SOURCEPAGE:p.66
+Swimmer					TYPE:OgreRacialTransformation				VISIBLE:NO														SA:Swimmer (Ex)											MULT:NO			MOVECLONE:Walk,Swim,0												SOURCEPAGE:p.66
 Unbound Spirit				TYPE:OgreRacialTransformation				VISIBLE:NO	PREALIGN:CG,CN,CE											SA:Unbound Spirit (Ex) (immune to compulsion effects)					MULT:NO																		SOURCEPAGE:p.66
 #TODO: Awakening Magic.., Body to ...
 
