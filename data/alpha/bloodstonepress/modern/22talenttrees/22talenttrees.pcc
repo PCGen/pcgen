@@ -25,4 +25,4 @@ COPYRIGHT:PCGen dataset conversion for 22 Talent Trees Copyright 2006, PCGen Dat
 #EXTRAFILE:OGL.txt
 
 FEAT:22talenttrees_feats.lst
-FEAT:22talenttrees_feats_talents.lst
+ABILITY:22talenttrees_abilities_talents.lst
