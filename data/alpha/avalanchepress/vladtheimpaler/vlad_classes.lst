@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Sep  5 14:30:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
 # Original Entry by: Jerril
 
@@ -98,12 +98,12 @@ CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/2+2	B
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device
 2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	ADD:FEAT|1|TYPE=TurnUndead	AUTO:FEAT|Basic Turning
-# Should these be referencing Cleric or Lautar???? - converting from cl("Cleric") to CL. - Tir Gwaith
+# Should these be referencing Cleric or Lautar???? - converting from var("CL=Cleric") to CL. - Tir Gwaith
 2	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE
 2	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 2	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal Progression
-1																										SPELLS:Lautar|TIMES=cl("Lautar")/3+1|Protection from Evil
+1																										SPELLS:Lautar|TIMES=var("CL=Lautar")/3+1|Protection from Evil
 4							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
 5							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
 7							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
@@ -114,5 +114,5 @@ CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Cr
 14	SA:Create Talisman (Reliable)
 16							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
 17	SA:Create Talisman (Dependable)
-19																																				AUTO:FEAT|Craft Magic Arms and Armor
+19																																					AUTO:FEAT|Craft Magic Arms and Armor
 20							ADD:Song of Power|1|Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry
