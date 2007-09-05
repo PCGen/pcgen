@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jul 13 11:41:00 2007 -- reformated by prettylst.pl v1.38 (build 2949)
+# CVS $Revision$ $Author$ -- Wed Sep  5 14:31:30 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
@@ -23,7 +23,7 @@ SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http:/
 Improved Grapple Talent	TYPE:Talent.StrongTalent.Brawler	VISIBLE:NO												SA:Improved Grapple (Strong Talent)										SOURCEPAGE:p.18
 Tackle			TYPE:Talent.StrongTalent.Brawler	VISIBLE:NO												SA:Tackle														SOURCEPAGE:p.18
 Improved Tackle		TYPE:Talent.StrongTalent.Brawler	VISIBLE:NO	PREFEAT:1,Tackle									SA:Improved Tackle												SOURCEPAGE:p.18
-Mighty Grapple		TYPE:Talent.StrongTalent.Brawler	VISIBLE:NO	PREFEAT:1,Improved Grapple Talent						SA:Mighty Grapple				BONUS:COMBAT|TOHIT.GRAPPLE|max(1,cl("Strong")/2)	SOURCEPAGE:p.18
+Mighty Grapple		TYPE:Talent.StrongTalent.Brawler	VISIBLE:NO	PREFEAT:1,Improved Grapple Talent						SA:Mighty Grapple				BONUS:COMBAT|TOHIT.GRAPPLE|max(1,var("CL=Strong")/2)	SOURCEPAGE:p.18
 Grip of Iron		TYPE:Talent.StrongTalent.Brawler	VISIBLE:NO	PREFEAT:1,Improved Grapple Talent						SA:Grip of Iron													SOURCEPAGE:p.18
 Punishing Grapple		TYPE:Talent.StrongTalent.Brawler	VISIBLE:NO	PREFEAT:2,Improved Grapple Talent,Grip of Iron				SA:Punishing Grapple												SOURCEPAGE:p.18
 Disable			TYPE:Talent.StrongTalent.Brawler	VISIBLE:NO												SA:Disable														SOURCEPAGE:p.18
@@ -69,7 +69,7 @@ Indomitable Will				TYPE:Talent.ToughTalent.Rage		VISIBLE:NO	PREFEAT:1,Rage 4/da
 Harsh Weather Endurance			TYPE:Talent.ToughTalent.Survivalist	VISIBLE:NO															SA:Harsh Weather Endurance																																																																																																																																																															SOURCEPAGE:p.21
 Improved Harsh Weather Endurance	TYPE:Talent.ToughTalent.Survivalist	VISIBLE:NO	PREFEAT:1,Harsh Weather Endurance									SA:Improved Harsh Weather Endurance																																																																																																																																																														SOURCEPAGE:p.21
 Outdoor Skills				TYPE:Talent.ToughTalent.Survivalist	VISIBLE:NO															SA:Outdoor Skills																																																																																									BONUS:SKILL|Climb,Swim,Navigate|CON|PREAPPLY:PC																																																																	SOURCEPAGE:p.21
-Master Survivalist			TYPE:Talent.ToughTalent.Survivalist	VISIBLE:NO															SA:Master Survivalist																																																																																								BONUS:SKILL|Survival|cl("Tough")																																																																			SOURCEPAGE:p.21
+Master Survivalist			TYPE:Talent.ToughTalent.Survivalist	VISIBLE:NO															SA:Master Survivalist																																																																																								BONUS:SKILL|Survival|var("CL=Tough")																																																																		SOURCEPAGE:p.21
 Fast						TYPE:Talent.ToughTalent.Survivalist	VISIBLE:NO										PRESKILL:1,Concentration=4	SA:Fast																																																																																																																																																																		SOURCEPAGE:p.21
 Camel's Endurance				TYPE:Talent.ToughTalent.Survivalist	VISIBLE:NO	PREFEAT:1,Fast							PRESKILL:1,Concentration=4	SA:Camel's Endurance																																																																																																																																																																SOURCEPAGE:p.21
 
@@ -77,7 +77,7 @@ Camel's Endurance				TYPE:Talent.ToughTalent.Survivalist	VISIBLE:NO	PREFEAT:1,Fa
 # Feat Name			Type								Visible	Required Feat					Maximum Level	Multiple Requirements																																																																																																																																																																																																																																Required Skill							Required Stat	Special Ability								Define					Stackable?	Multiple?	Choose																																																														Add						Combat bonus										Bonus to skill						Modify VAR									Source Page
 Bare-Knuckled Genius	TYPE:Talent.SmartTalent.BrainsOverBrawn		VISIBLE:NO																																																																																																																																																																																																																																																										SA:Bare-Knuckled Genius																																																																																						BONUS:COMBAT|TOHIT.GRAPPLE|INT																									SOURCEPAGE:p.21
 Expert Tactician		TYPE:Talent.SmartTalent.BrainsOverBrawn		VISIBLE:NO																																																																																																																																																																																																																																																										SA:Expert Tactician																																																																																																		BONUS:SKILL|Knowledge (Military Science)|3											SOURCEPAGE:p.21
-Brilliant Tactician	TYPE:Talent.SmartTalent.BrainsOverBrawn		VISIBLE:NO	PREFEAT:1,Expert Tactician																																																																																																																																																																																																																																									PRESKILL:1,Knowledge (Military Science)=4						SA:Brilliant Tactician (% rounds)|BrilliantTacticianRounds	DEFINE:BrilliantTacticianRounds|0																																																																																														BONUS:VAR|BrilliantTacticianRounds|3+cl("Smart")		SOURCEPAGE:p.21
+Brilliant Tactician	TYPE:Talent.SmartTalent.BrainsOverBrawn		VISIBLE:NO	PREFEAT:1,Expert Tactician																																																																																																																																																																																																																																									PRESKILL:1,Knowledge (Military Science)=4						SA:Brilliant Tactician (% rounds)|BrilliantTacticianRounds	DEFINE:BrilliantTacticianRounds|0																																																																																														BONUS:VAR|BrilliantTacticianRounds|3+var("CL=Smart")		SOURCEPAGE:p.21
 Knowledge is Power	TYPE:Talent.SmartTalent.BrainsOverBrawn		VISIBLE:NO																																																																																																																																																																																																																																														PRESKILL:1,Research,Investigate,Gather Information=4				SA:Knowledge is Power																																																																																																																				SOURCEPAGE:p.22
 Defensive Fighting	TYPE:Talent.SmartTalent.BrainsOverBrawn		VISIBLE:NO	PREFEAT:1,Brilliant Tactician																																																																																																																																																																																																																																																					SA:Defensive Fighting																																																																																						BONUS:COMBAT|AC|INT|PREAPPLY:PC	BONUS:COMBAT|TOHIT|-2|PREAPPLY:PC																			SOURCEPAGE:p.22
 Logical			TYPE:Talent.SmartTalent.Deduction			VISIBLE:NO											PREMULT:1,[PREMULT:2,[PRESKILL:1,Knowledge (Hidden Lore)=4],[!PREFEAT:1,Category[Hidden lore]]],[PREMULT:2,[PRESKILL:1,Knowledge (Art)=4],[!PREFEAT:1,Category[Art]]],[PREMULT:2,[PRESKILL:1,Knowledge (Behavioral Sciences)=4],[!PREFEAT:1,Category[Behavioral sciences]]],[PREMULT:2,[PRESKILL:1,Knowledge (Business)=4],[!PREFEAT:1,Category[Business]]],[PREMULT:2,[PRESKILL:1,Knowledge (Civics)=4],[!PREFEAT:1,Category[Civics]]],[PREMULT:2,[PRESKILL:1,Knowledge (Current Events)=4],[!PREFEAT:1,Category[Current events]]],[PREMULT:2,[PRESKILL:1,Knowledge (Earth and Life Sciences)=4],[!PREFEAT:1,Category[Earth and life sciences]]],[PREMULT:2,[PRESKILL:1,Knowledge (History)=4],[!PREFEAT:1,Category[History]]],[PREMULT:2,[PRESKILL:1,Knowledge (Physical Sciences)=4],[!PREFEAT:1,Category[Physical sciences]]],[PREMULT:2,[PRESKILL:1,Knowledge (Popular Culture)=4],[!PREFEAT:1,Category[Popular culture]]],[PREMULT:2,[PRESKILL:1,Knowledge (Streetwise)=4],[!PREFEAT:1,Category[Streetwise]]],[PREMULT:2,[PRESKILL:1,Knowledge (Military Science)=4],[!PREFEAT:1,Category[Military Science]]],[PREMULT:2,[PRESKILL:1,Knowledge (Technology)=4],[!PREFEAT:1,Category[Technology]]],[PREMULT:2,[PRESKILL:1,Knowledge (Theology and Philosophy)=4],[!PREFEAT:1,Category[Theology and philosophy]]],[PREMULT:2,[PRESKILL:1,Knowledge (Weird Science)=4],[!PREFEAT:1,Category[Weird Science]]]																													STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|FEATADD|Category[Hidden Lore]|Category[Art]|Category[Behavioral sciences]|Category[Business]|Category[Civics]|Category[Current events]|Category[Earth and life sciences]|Category[History]|Category[Physical Sciences]|Category[Popular Culture]|Category[Streetwise]|Category[Military Science]|Category[Technology]|Category[Theology and philosophy]																																							SOURCEPAGE:p.22
@@ -311,13 +311,13 @@ Reputation (Public ID -19 / 3rd Secret ID +19)	TYPE:MoveReputationThree	VISIBLE:
 Reputation (Public ID -20 / 3rd Secret ID +20)	TYPE:MoveReputationThree	VISIBLE:NO	PREVARGTEQ:Reputation,20	BONUS:VAR|Reputation|-20	BONUS:VAR|SecretReputationThree|20
 
 ###Block:Ambassador Class Abilities
-# Feat Name			Type				Visible	Special Ability					Define			Multiple?	Choose		Bonus to skill					Modify VAR								Source Page
-Diplomatic Immunity	TYPE:AmbassadorAbility	VISIBLE:NO	SA:Diplomatic Immunity																													SOURCEPAGE:p.92
-Open Arms			TYPE:AmbassadorAbility	VISIBLE:NO	SA:Open Arms														BONUS:SKILL|Diplomacy|cl("Ambassador")/2										SOURCEPAGE:p.93
-Information Access	TYPE:AmbassadorAbility	VISIBLE:NO	SA:Information Access																													SOURCEPAGE:p.93
-Stipend			TYPE:AmbassadorAbility	VISIBLE:NO	SA:Stipend x%|StipendCount			DEFINE:StipendCount|0	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|StipendCount|var("COUNT[FEATNAME=Stipend]")	SOURCEPAGE:p.93
-Restricted Access		TYPE:AmbassadorAbility	VISIBLE:NO	SA:Restricted Access													BONUS:SKILL|Gather Information,Research|5										SOURCEPAGE:p.93
-Select Consuls		TYPE:AmbassadorAbility	VISIBLE:NO	SA:Select Consuls (up to %)|SelectConsuls	DEFINE:SelectConsuls|0													BONUS:VAR|SelectConsuls|Reputation				SOURCEPAGE:p.93
+# Feat Name			Type				Visible	Special Ability					Define			Multiple?	Choose		Bonus to skill						Modify VAR								Source Page
+Diplomatic Immunity	TYPE:AmbassadorAbility	VISIBLE:NO	SA:Diplomatic Immunity																														SOURCEPAGE:p.92
+Open Arms			TYPE:AmbassadorAbility	VISIBLE:NO	SA:Open Arms														BONUS:SKILL|Diplomacy|var("CL=Ambassador")/2										SOURCEPAGE:p.93
+Information Access	TYPE:AmbassadorAbility	VISIBLE:NO	SA:Information Access																														SOURCEPAGE:p.93
+Stipend			TYPE:AmbassadorAbility	VISIBLE:NO	SA:Stipend x%|StipendCount			DEFINE:StipendCount|0	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|StipendCount|var("COUNT[FEATNAME=Stipend]")	SOURCEPAGE:p.93
+Restricted Access		TYPE:AmbassadorAbility	VISIBLE:NO	SA:Restricted Access													BONUS:SKILL|Gather Information,Research|5											SOURCEPAGE:p.93
+Select Consuls		TYPE:AmbassadorAbility	VISIBLE:NO	SA:Select Consuls (up to %)|SelectConsuls	DEFINE:SelectConsuls|0														BONUS:VAR|SelectConsuls|Reputation				SOURCEPAGE:p.93
 
 ###Block:Brawler Class Abilities
 # Feat Name				Type							Visible	Special Ability			Define			Modify VAR						Source Page
@@ -336,14 +336,14 @@ To the Max			TYPE:CombatAceAbility	VISIBLE:NO	SA:To the Max!																				
 Keep it Together		TYPE:CombatAceAbility	VISIBLE:NO	SA:Keep it Together																									SOURCEPAGE:p.96
 
 ###Block:Detective Class Abilities
-# Feat Name			Type				Visible	Special Ability																													Define				Stackable?	Multiple?	Choose					Bonus to skill					Modify VAR								Source Page
-Profile			TYPE:DetectiveAbility	VISIBLE:NO	SA:Profile																																																													SOURCEPAGE:p.98
-Reference Material	TYPE:DetectiveAbility	VISIBLE:NO	SA:Reference Material (%CHOICE)																															STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Knowledge	BONUS:SKILL|LIST|2|TYPE=Circumstance										SOURCEPAGE:p.99
-Contact - Detective	TYPE:DetectiveAbility	VISIBLE:NO	SA:Contact (low level)	SA:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective"),2	SA:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective"),3						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																		SOURCEPAGE:p.98
-Eye for Clues		TYPE:DetectiveAbility	VISIBLE:NO	SA:Eye for Clues																																																												SOURCEPAGE:p.98
-Second Thought		TYPE:DetectiveAbility	VISIBLE:NO	SA:Second Thought (x%)|SecondThoughtNum																									DEFINE:SecondThoughtNum|0			MULT:YES	CHOOSE:NOCHOICE											BONUS:VAR|SecondThoughtNum|floor(cl("Detective")/3)	SOURCEPAGE:p.99
-Discern Lie			TYPE:DetectiveAbility	VISIBLE:NO	SA:Discern Lie																																																												SOURCEPAGE:p.99
-Sixth Sense			TYPE:DetectiveAbility	VISIBLE:NO	SA:Sixth Sense																																																												SOURCEPAGE:p.99
+# Feat Name			Type				Visible	Special Ability																													Define				Stackable?	Multiple?	Choose					Bonus to skill					Modify VAR									Source Page
+Profile			TYPE:DetectiveAbility	VISIBLE:NO	SA:Profile																																																														SOURCEPAGE:p.98
+Reference Material	TYPE:DetectiveAbility	VISIBLE:NO	SA:Reference Material (%CHOICE)																															STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Knowledge	BONUS:SKILL|LIST|2|TYPE=Circumstance											SOURCEPAGE:p.99
+Contact - Detective	TYPE:DetectiveAbility	VISIBLE:NO	SA:Contact (low level)	SA:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective"),2	SA:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective"),3						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																			SOURCEPAGE:p.98
+Eye for Clues		TYPE:DetectiveAbility	VISIBLE:NO	SA:Eye for Clues																																																													SOURCEPAGE:p.98
+Second Thought		TYPE:DetectiveAbility	VISIBLE:NO	SA:Second Thought (x%)|SecondThoughtNum																									DEFINE:SecondThoughtNum|0			MULT:YES	CHOOSE:NOCHOICE											BONUS:VAR|SecondThoughtNum|floor(var("CL=Detective")/3)	SOURCEPAGE:p.99
+Discern Lie			TYPE:DetectiveAbility	VISIBLE:NO	SA:Discern Lie																																																													SOURCEPAGE:p.99
+Sixth Sense			TYPE:DetectiveAbility	VISIBLE:NO	SA:Sixth Sense																																																													SOURCEPAGE:p.99
 
 ###Block:Driver Class Abilities
 # Feat Name			Type				Visible	Special Ability		Define			Modify VAR					Source Page
@@ -358,13 +358,13 @@ Restore Vehicle		TYPE:DriverAbility	VISIBLE:NO	SA:Restore Vehicle											SOUR
 One with the Vehicle	TYPE:DriverAbility	VISIBLE:NO	SA:One with the Vehicle					BONUS:VAR|vdefense|ClassDefense	SOURCEPAGE:p.101
 
 ###Block:Explorer Class Abilities
-# Feat Name		Type				Visible	Required Feat	Special Ability																			Define				Stackable?	Multiple?	Choose		Modify VAR							Source Page
-Explorer Lore	TYPE:ExplorerAbility	VISIBLE:NO				SA:Explorer Lore																																							SOURCEPAGE:p.106
-Resolve		TYPE:ExplorerAbility	VISIBLE:NO				SA:Resolve																																								SOURCEPAGE:p.106
-Skilled Searcher	TYPE:ExplorerAbility	VISIBLE:NO				SA:Skilled Searcher (+%)|SkilledSearcherBonus														DEFINE:SkilledSearcherBonus|0								BONUS:VAR|SkilledSearcherBonus|cl("Explorer")/2	SOURCEPAGE:p.106
-Trap Sense		TYPE:ExplorerAbility	VISIBLE:NO				SA:Trap Sense (+%)|TrapSense																	DEFINE:TrapSense|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|TrapSense|1					SOURCEPAGE:p.106
-Extra Step		TYPE:ExplorerAbility	VISIBLE:NO				SA:Extra Step|PREVAREQ:var("COUNT[FEATNAME=Extra Step]"),1	SA:Extra Step (Free)|PREVARGT:var("COUNT[FEATNAME=Extra Step]"),1								MULT:YES	CHOOSE:NOCHOICE									SOURCEPAGE:p.106
-Improved Evasion	TYPE:ExplorerAbility	VISIBLE:NO	PREFEAT:1,Evasion	SA:Improved Evasion																																						SOURCEPAGE:p.106
+# Feat Name		Type				Visible	Required Feat	Special Ability																			Define				Stackable?	Multiple?	Choose		Modify VAR								Source Page
+Explorer Lore	TYPE:ExplorerAbility	VISIBLE:NO				SA:Explorer Lore																																								SOURCEPAGE:p.106
+Resolve		TYPE:ExplorerAbility	VISIBLE:NO				SA:Resolve																																									SOURCEPAGE:p.106
+Skilled Searcher	TYPE:ExplorerAbility	VISIBLE:NO				SA:Skilled Searcher (+%)|SkilledSearcherBonus														DEFINE:SkilledSearcherBonus|0								BONUS:VAR|SkilledSearcherBonus|var("CL=Explorer")/2	SOURCEPAGE:p.106
+Trap Sense		TYPE:ExplorerAbility	VISIBLE:NO				SA:Trap Sense (+%)|TrapSense																	DEFINE:TrapSense|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|TrapSense|1						SOURCEPAGE:p.106
+Extra Step		TYPE:ExplorerAbility	VISIBLE:NO				SA:Extra Step|PREVAREQ:var("COUNT[FEATNAME=Extra Step]"),1	SA:Extra Step (Free)|PREVARGT:var("COUNT[FEATNAME=Extra Step]"),1								MULT:YES	CHOOSE:NOCHOICE										SOURCEPAGE:p.106
+Improved Evasion	TYPE:ExplorerAbility	VISIBLE:NO	PREFEAT:1,Evasion	SA:Improved Evasion																																							SOURCEPAGE:p.106
 
 ###Block:G-man Class Abilities
 # Feat Name				Type				Visible	Special Ability						Multiple?	Choose								Add																										Source Page
@@ -393,7 +393,7 @@ Two Fisted Action			TYPE:MysteryManAbility	VISIBLE:NO	SA:Two Fisted Action Chose
 Over Sight				TYPE:MysteryManAbility	VISIBLE:NO	SA:Over Sight																																																																																																																																						SOURCEPAGE:p.106
 Art of Evasion			TYPE:MysteryManAbility	VISIBLE:NO	SA:Art of Evasion																																																																																																																																						SOURCEPAGE:p.106
 Improved Investigation		TYPE:MysteryManAbility	VISIBLE:NO	SA:Improved Investigation																																																																																																																																				SOURCEPAGE:p.107
-Esoteric Knowledge		TYPE:MysteryManAbility	VISIBLE:NO	SA:Esoteric Knowledge +%|EsotericKnowledgeValue																									DEFINE:EsotericKnowledgeValue|0																																																																																									BONUS:VAR|EsotericKnowledgeValue|cl("Mystery Man")+INT	SOURCEPAGE:p.107
+Esoteric Knowledge		TYPE:MysteryManAbility	VISIBLE:NO	SA:Esoteric Knowledge +%|EsotericKnowledgeValue																									DEFINE:EsotericKnowledgeValue|0																																																																																									BONUS:VAR|EsotericKnowledgeValue|var("CL=Mystery Man")+INT	SOURCEPAGE:p.107
 Contact - Mystery Man		TYPE:MysteryManAbility	VISIBLE:NO	SA:Contact (low level)	SA:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Mystery Man"),2	SA:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Mystery Man"),3							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																																																																																										SOURCEPAGE:p.107
 Action Boost - Mystery Man	TYPE:MysteryManAbility	VISIBLE:NO	SA:Action Boost (Mystery Man Ability)																																																																																																																																		SOURCEPAGE:p.107
 Secret Headquarters		TYPE:MysteryManAbility	VISIBLE:NO	SA:Secret Headquarters																																																																																																																																					SOURCEPAGE:p.107
@@ -414,7 +414,7 @@ Language Training			TYPE:NewsHoundAbility	VISIBLE:NO	SA:Language Training (x%)|L
 Ally					TYPE:NewsHoundAbility	VISIBLE:NO	SA:Ally (x%)|AllyNum																																DEFINE:AllyNum|0			STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE																		BONUS:VAR|AllyNum|1			SOURCEPAGE:p.110
 Danger Sense			TYPE:NewsHoundAbility	VISIBLE:NO	SA:Danger Sense																																																																						SOURCEPAGE:p.110
 Nerves of Steel			TYPE:NewsHoundAbility	VISIBLE:NO	SA:Nerves of Steel																																														BONUS:SKILL|Concentration|4																			SOURCEPAGE:p.111
-Journalistic Sense		TYPE:NewsHoundAbility	VISIBLE:NO	SA:Journalistic Sense																																														BONUS:SKILL|Sense Motive|cl("News Hound")/2																SOURCEPAGE:p.110
+Journalistic Sense		TYPE:NewsHoundAbility	VISIBLE:NO	SA:Journalistic Sense																																														BONUS:SKILL|Sense Motive|var("CL=News Hound")/2																SOURCEPAGE:p.110
 News Hound Sex Appeal		TYPE:NewsHoundAbility	VISIBLE:NO	SA:Sex Appeal (News Hound Class Ability)																																																																		SOURCEPAGE:p.110
 News Hound Intuition		TYPE:NewsHoundAbility	VISIBLE:NO	SA:Intuition (News Hound Class Ability)																																																																		SOURCEPAGE:p.110
 Memory For Facts			TYPE:NewsHoundAbility	VISIBLE:NO	SA:Memory For Facts																																																																					SOURCEPAGE:p.111
@@ -460,17 +460,17 @@ Quick Change	TYPE:ShadowyAvengerAbility	VISIBLE:NO	SA:Quick Change														
 Improved Critical.MOD	TYPE:Special.Hunter.Operator
 
 ###Block:Spy Class Abilities
-# Feat Name		Type			Visible	Special Ability						Define				Stackable?	Multiple?	Choose		Modify VAR																			Source Page
-Assumed Identity	TYPE:SpyAbility	VISIBLE:NO	SA:Assume Identity (+%)|AssumeIdentityNum		DEFINE:AssumeIdentityNum|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|AssumeIdentityNum|1																SOURCEPAGE:p.121
-Extend Cover	TYPE:SpyAbility	VISIBLE:NO	SA:Extend Cover|ExtendCoverNum			DEFINE:ExtendCoverNum|0		STACK:NO	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ExtendCoverNum|cl("Spy")/2-1|PREVARGTEQ:var("COUNT[FEATNAME=Extend Cover]"),2	BONUS:VAR|ExtendCoverNum|1	SOURCEPAGE:p.122
-License to Kill	TYPE:SpyAbility	VISIBLE:NO	SA:License to Kill																																					SOURCEPAGE:p.122
-Bald Faced Liar	TYPE:SpyAbility	VISIBLE:NO	SA:Bald Faced Liar (%/day)|BaldFacedLiarNum	DEFINE:BaldFacedLiarNum|0	STACK:NO	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|BaldFacedLiarNum|WIS+1	BONUS:VAR|BaldFacedLiarNum|2|PREVARGTEQ:var("COUNT[FEATNAME=Bald Faced Liar]"),2	SOURCEPAGE:p.122
-Self Deception	TYPE:SpyAbility	VISIBLE:NO	SA:Self Deception																																						SOURCEPAGE:p.122
+# Feat Name		Type			Visible	Special Ability						Define				Stackable?	Multiple?	Choose		Modify VAR																				Source Page
+Assumed Identity	TYPE:SpyAbility	VISIBLE:NO	SA:Assume Identity (+%)|AssumeIdentityNum		DEFINE:AssumeIdentityNum|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|AssumeIdentityNum|1																	SOURCEPAGE:p.121
+Extend Cover	TYPE:SpyAbility	VISIBLE:NO	SA:Extend Cover|ExtendCoverNum			DEFINE:ExtendCoverNum|0		STACK:NO	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ExtendCoverNum|var("CL=Spy")/2-1|PREVARGTEQ:var("COUNT[FEATNAME=Extend Cover]"),2	BONUS:VAR|ExtendCoverNum|1	SOURCEPAGE:p.122
+License to Kill	TYPE:SpyAbility	VISIBLE:NO	SA:License to Kill																																						SOURCEPAGE:p.122
+Bald Faced Liar	TYPE:SpyAbility	VISIBLE:NO	SA:Bald Faced Liar (%/day)|BaldFacedLiarNum	DEFINE:BaldFacedLiarNum|0	STACK:NO	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|BaldFacedLiarNum|WIS+1	BONUS:VAR|BaldFacedLiarNum|2|PREVARGTEQ:var("COUNT[FEATNAME=Bald Faced Liar]"),2		SOURCEPAGE:p.122
+Self Deception	TYPE:SpyAbility	VISIBLE:NO	SA:Self Deception																																							SOURCEPAGE:p.122
 
 ###Block:Weird Inventor Class Abilities
 # Feat Name						Type					Visible	Special Ability										Define				Stackable?	Multiple?	Choose		Add				Bonus to skill			Modify VAR											Source Page
 Jury Rig						TYPE:WeirdInventorAbility	VISIBLE:NO	SA:Jury Rig +%|JuryRigValue								DEFINE:JuryRigValue|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|JuryRigValue|2								SOURCEPAGE:p.123
-Weird Scientist Gadget Creation		TYPE:WeirdInventorAbility	VISIBLE:NO	SA:Weird Science Gadget Creation (% Invention Levels)|InventionLevels	DEFINE:InventionLevels|0																	BONUS:VAR|InventionLevels|cl("Weird Inventor")+2+max(0,INTSCORE-12)	SOURCEPAGE:p.123
+Weird Scientist Gadget Creation		TYPE:WeirdInventorAbility	VISIBLE:NO	SA:Weird Science Gadget Creation (% Invention Levels)|InventionLevels	DEFINE:InventionLevels|0																	BONUS:VAR|InventionLevels|var("CL=Weird Inventor")+2+max(0,INTSCORE-12)	SOURCEPAGE:p.123
 Academic Mastery					TYPE:WeirdInventorAbility	VISIBLE:NO	SA:Academic Mastery x%|var("COUNT[FEATNAME=Academic Mastery]")							STACK:NO	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|Skill Focus																		SOURCEPAGE:p.123
 Improve Craft - Weird Inventor		TYPE:WeirdInventorAbility	VISIBLE:NO	SA:Improve Craft																										BONUS:SKILL|TYPE.Craft|INT													SOURCEPAGE:p.123
 Material Substitution				TYPE:WeirdInventorAbility	VISIBLE:NO	SA:Material Substitution																																									SOURCEPAGE:p.123
