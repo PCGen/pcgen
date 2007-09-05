@@ -12,12 +12,12 @@ CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Cra
 2																																									ADD:SPELLCASTER|1|Psionic
 3																																									ADD:SPELLCASTER|1|Psionic
 4	SA:Power Sharing II																																					ADD:SPELLCASTER|1|Psionic
-5	SA:Colorless Fire DC%, % times/day (Psi-like)|ColorlessFireDC|ColorlessFireTimes	BONUS:VAR|ColorlessFireDC|(17+INT)	BONUS:VAR|ColorlessFireTimes|(cl("Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
+5	SA:Colorless Fire DC%, % times/day (Psi-like)|ColorlessFireDC|ColorlessFireTimes	BONUS:VAR|ColorlessFireDC|(17+INT)	BONUS:VAR|ColorlessFireTimes|(var("CL=Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
 6																																									ADD:SPELLCASTER|1|Psionic
 7	SA:Power Sharing III																																					ADD:SPELLCASTER|1|Psionic
 8																																									ADD:SPELLCASTER|1|Psionic
 9																																									ADD:SPELLCASTER|1|Psionic
-10	SA:Colorless Rain DC%, % times/day (Psi-like)|ColorlessRainDC|ColorlessRainTimes	BONUS:VAR|ColorlessRainDC|(23+INT)	BONUS:VAR|ColorlessRainTimes|(cl("Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
+10	SA:Colorless Rain DC%, % times/day (Psi-like)|ColorlessRainDC|ColorlessRainTimes	BONUS:VAR|ColorlessRainDC|(23+INT)	BONUS:VAR|ColorlessRainTimes|(var("CL=Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
 
 ###Block: variant prestige classes
 
@@ -30,9 +30,9 @@ CLASS:Metamind ITCK	PREFEAT:1,Psicrystal Affinity	PRESKILL:1,Psicraft=4	PRESKILL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft
 ###Block: Psicrystal info
-1	SA:Cognizance Psicrystal %|PowerPsicrystal	BONUS:VAR|PowerPsicrystal|2*floor(((cl("Metamind ITCK")-1)/2))	DEFINE:PowerPsicrystal|5
+1	SA:Cognizance Psicrystal %|PowerPsicrystal	BONUS:VAR|PowerPsicrystal|2*floor(((var("CL=Metamind ITCK")-1)/2))	DEFINE:PowerPsicrystal|5
 ###Block: sequestration
-1	SA:Sequestration %|SequesVar	BONUS:VAR|SequesVar|cl("Metamind ITCK")	DEFINE:SequesVar|1
+1	SA:Sequestration %|SequesVar	BONUS:VAR|SequesVar|var("CL=Metamind ITCK")	DEFINE:SequesVar|1
 ###Block: Level progression
 1								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration	ADD:FEAT|1|Power Sequestration
 2								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
@@ -63,15 +63,15 @@ CLASS:Blade Manifester	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERL
 
 ###Block: Level progression
 1	KNOWN:0,1
-2	KNOWN:0,2		BONUS:VAR|MindBladeECL|cl("Blade Manifester")
-3	KNOWN:0,3		BONUS:VAR|MindBladeECL|cl("Blade Manifester")
+2	KNOWN:0,2		BONUS:VAR|MindBladeECL|var("CL=Blade Manifester")
+3	KNOWN:0,3		BONUS:VAR|MindBladeECL|var("CL=Blade Manifester")
 4	KNOWN:0,3,1
-5	KNOWN:0,3,2		BONUS:VAR|MindBladeECL|cl("Blade Manifester")
-6	KNOWN:0,3,3		BONUS:VAR|MindBladeECL|cl("Blade Manifester")
+5	KNOWN:0,3,2		BONUS:VAR|MindBladeECL|var("CL=Blade Manifester")
+6	KNOWN:0,3,3		BONUS:VAR|MindBladeECL|var("CL=Blade Manifester")
 7	KNOWN:0,3,3,1
-8	KNOWN:0,3,3,2	BONUS:VAR|MindBladeECL|cl("Blade Manifester")
-9	KNOWN:0,3,3,3	BONUS:VAR|MindBladeECL|cl("Blade Manifester")
-10	KNOWN:0,3,3,3,1	BONUS:VAR|MindBladeECL|cl("Blade Manifester")
+8	KNOWN:0,3,3,2	BONUS:VAR|MindBladeECL|var("CL=Blade Manifester")
+9	KNOWN:0,3,3,3	BONUS:VAR|MindBladeECL|var("CL=Blade Manifester")
+10	KNOWN:0,3,3,3,1	BONUS:VAR|MindBladeECL|var("CL=Blade Manifester")
 
 ###Block: Monster class for Mind Grub Collective
 
