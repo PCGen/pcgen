@@ -59,7 +59,7 @@ Bonus Spell Slot 4	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arc
 Bonus Spell Slot 5	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
 Bonus Spell Slot 6	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
 Bonus Spell Slot 7	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Dragon Wings		TYPE:DragonDisciple	VISIBLE:NO	PRECLASS:1,Dragon Disciple=9	SA:Wings (Ex)														MOVECLONE:Walk,0,Fly,*1
+Dragon Wings		TYPE:DragonDisciple	VISIBLE:NO	PRECLASS:1,Dragon Disciple=9	SA:Wings (Ex)														MOVECLONE:Walk,Fly,*1
 
 ###Block: Duelist special abilities
 # Feat Name		Type						Visible	Special Ability							Define								Combat bonus																					Modify VAR												Source Page
