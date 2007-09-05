@@ -13,7 +13,7 @@ Tailed		VISIBLE:EXPORT	SOURCEPAGE:p.8				PRERACE:1,Half-Merrow			BONUS:MOVEADD|T
 Non-Tailed		VISIBLE:EXPORT	SOURCEPAGE:p.8	SA:Amphibious	PRERACE:1,Half-Merrow													BONUS:SKILL|Swim|6|TYPE=Racial																		REMOVABLE:NO	SUBRACE:Non-Tailed
 
 # Aquatic Template
-Aquatic					SOURCEPAGE:p.94	SA:Waterbreathing																	BONUS:SKILL|Swim|8|TYPE=Racial													MOVECLONE:Walk,0,Swim,*1				SUBRACE:Aquatic
+Aquatic					SOURCEPAGE:p.94	SA:Waterbreathing																	BONUS:SKILL|Swim|8|TYPE=Racial													MOVECLONE:Walk,Swim,*1				SUBRACE:Aquatic
 
 # Aquatic template needs work on swim speed.
 # Template gives PC a Swim speed equal to the Fly speed if there is one

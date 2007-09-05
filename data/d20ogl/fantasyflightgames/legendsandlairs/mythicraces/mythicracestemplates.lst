@@ -53,7 +53,7 @@ Verminous Trait (Survivor)		VISIBLE:NO	SOURCEPAGE:p.167	SA:Survivor													
 Verminous Trait (Poison)		VISIBLE:NO	SOURCEPAGE:p.167	SA:Spit Poison up to 10ft 1/day (DC % for 1d4+%/1d4+% CON Damage)|10+(TL/2)+CON|TL/4|TL/4
 Verminous Trait (Extreme Revulsion)	VISIBLE:NO	SOURCEPAGE:p.167	SA:Extreme Revulsion
 Verminous Trait (Web)			VISIBLE:NO	SOURCEPAGE:p.167	SA:Web																																						SPELLS:Vermen|TIMES=1|CASTERLEVEL=min(TL,8)|Web,12+INT
-Verminous Trait (Wallcrawler)		VISIBLE:NO	SOURCEPAGE:p.167	SA:Wallcrawler																										BONUS:SKILL|Climb|8|TYPE=Racial	MOVECLONE:Walk,0,Climb,/2
+Verminous Trait (Wallcrawler)		VISIBLE:NO	SOURCEPAGE:p.167	SA:Wallcrawler																										BONUS:SKILL|Climb|8|TYPE=Racial	MOVECLONE:Walk,Climb,/2
 Verminous Trait (Hard to Kill)	VISIBLE:NO	SOURCEPAGE:p.167	SA:Hard to Kill
 
 #
