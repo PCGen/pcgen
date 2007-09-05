@@ -32,7 +32,7 @@ Extraterrestial Poisonous Bite (paralysis)			VISIBLE:DISPLAY				SOURCEPAGE:Futur
 Extraterrestial Power Resistance					VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Power Resistance % (Ex)|TL																		PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
 Extraterrestial Scent							VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Scent (Ex)																				PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
 
-Space Creature							CR:1	VISIBLE:YES					SOURCEPAGE:FutureXenobiology.rtf	SA:Cold Resistance 20 (Ex)	SA:Fire Resistance 20 (Ex)	SA:Radiation Resistance (Ex)	SA:Vacuum Survival (Ex)																																																		BONUS:STAT|STR|-2	BONUS:STAT|CON|2				MOVECLONE:Walk,0,Fly,*1	VISION:Darkvision (120)	ADD:FEAT|Zero G Training
+Space Creature							CR:1	VISIBLE:YES					SOURCEPAGE:FutureXenobiology.rtf	SA:Cold Resistance 20 (Ex)	SA:Fire Resistance 20 (Ex)	SA:Radiation Resistance (Ex)	SA:Vacuum Survival (Ex)																																																		BONUS:STAT|STR|-2	BONUS:STAT|CON|2				MOVECLONE:Walk,Fly,*1	VISION:Darkvision (120)	ADD:FEAT|Zero G Training
 
 ###Block: Extraterrestial Psionics Support
 

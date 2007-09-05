@@ -18,7 +18,7 @@ Ghoul Colossal	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.
 ###Block: Half-Fiend wings
 # Template Name		CR	Visible	MOVECLONE
 Half-Fiend (no wings)	CR:2	VISIBLE:NO
-Half-Fiend (wings)	CR:3	VISIBLE:NO	MOVECLONE:Walk,0,Fly,*1
+Half-Fiend (wings)	CR:3	VISIBLE:NO	MOVECLONE:Walk,Fly,*1
 
 ###Block: Half-Fiend natural attacks
 # Template Name		Visible	Required Size	Natural Attacks

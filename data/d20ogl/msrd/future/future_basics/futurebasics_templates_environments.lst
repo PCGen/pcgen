@@ -5,8 +5,8 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 Environment - High Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	BONUS:COMBAT|TOHIT|-2|TYPE=HighG|PREAPPLY:ANYPC	BONUS:MOVEADD|TYPE.Walk|-5|TYPE=HighG|PREAPPLY:ANYPC	BONUS:SKILL|TYPE.Strength|-10|TYPE=HighG|PREAPPLY:ANYPC					TEMPDESC:Apply this if you are in a High Gravity Environment.
 Environment - Low Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf									BONUS:MOVEADD|TYPE.Walk|5|TYPE=LowG|PREAPPLY:ANYPC	BONUS:SKILL|TYPE.Strength|10|TYPE=LowG|PREAPPLY:ANYPC						TEMPDESC:Apply this if you are in a Low Gravity Environment.
 Environment - Low Gravity - No Zero G Training	VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	BONUS:COMBAT|TOHIT|-2|TYPE=LowG|PREAPPLY:ANYPC	BONUS:MOVEADD|TYPE.Walk|5|TYPE=LowG|PREAPPLY:ANYPC	BONUS:SKILL|TYPE.Strength|10|TYPE=LowG|PREAPPLY:ANYPC						TEMPDESC:Apply this if you are in a Low Gravity Environment and do not have Zero G Training.
-Environment - Zero Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf																		BONUS:SKILL|TYPE.Strength|20|TYPE=ZeroG|PREAPPLY:ANYPC	MOVECLONE:Walk,0,Fly,*1	TEMPDESC:Apply this if you are in a Zero Gravity Environment.
-Environment - Zero Gravity - No Zero G Training	VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	BONUS:COMBAT|TOHIT|-4|TYPE=ZeroG|PREAPPLY:ANYPC										BONUS:SKILL|TYPE.Strength|20|TYPE=ZeroG|PREAPPLY:ANYPC	MOVECLONE:Walk,0,Fly,*1	TEMPDESC:Apply this if you are in a Zero Gravity Environment and do not have Zero G Training.
+Environment - Zero Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf																		BONUS:SKILL|TYPE.Strength|20|TYPE=ZeroG|PREAPPLY:ANYPC	MOVECLONE:Walk,Fly,*1	TEMPDESC:Apply this if you are in a Zero Gravity Environment.
+Environment - Zero Gravity - No Zero G Training	VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	BONUS:COMBAT|TOHIT|-4|TYPE=ZeroG|PREAPPLY:ANYPC										BONUS:SKILL|TYPE.Strength|20|TYPE=ZeroG|PREAPPLY:ANYPC	MOVECLONE:Walk,Fly,*1	TEMPDESC:Apply this if you are in a Zero Gravity Environment and do not have Zero G Training.
 
 #
 # End
