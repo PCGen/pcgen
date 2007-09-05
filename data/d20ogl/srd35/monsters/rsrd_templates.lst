@@ -37,7 +37,7 @@ Half Dragon (Gold)								VISIBLE:YES				TEMPLATE:Half Dragon																			
 Half Dragon (Silver)								VISIBLE:YES				TEMPLATE:Half Dragon																																						SOURCEPAGE:MonstersG-H.rtf	SA:Immunity to Cold (Ex)	SA:Breath Weapon (Ex) 30' Cone of Cold 1/day 6d8 (DC%)|HalfDragonBreathDC								PREALIGN:LG
 
 # TODO: Movement issue: This template should grant a fly speed of double Walk speed but not greater than 120, as of 5.7.12 the MOVECLONE tag cannot do this as it will only accept integers not variables or formulas. there is a code FReq to get this changed - [ 1090486 ] MOVECLONE to accept JEP formulas, once completed this template can be revised
-Half Dragon Wings									VISIBLE:NO																																																		SA:Half-Dragon Wings																								PRESIZEGTEQ:L																															MOVECLONE:Walk,0,Fly,*2
+Half Dragon Wings									VISIBLE:NO																																																		SA:Half-Dragon Wings																								PRESIZEGTEQ:L																															MOVECLONE:Walk,Fly,*2
 
 ###Block: Lycanthropes
 # Template Name						Output Name						CR	Size		Visible	Damage Reduction	Level Adjustment	Template																																																																			Source Page				Special Ability																Define			Required Template				Prohibited Template																	Required Type			Var. Must Be Grater		Var. Must Be Lower		Var. Max. Value			Save checks bonus																	Combat bonus						Bonus to skill							Stat bonus								Modify VAR				Feat									Move				Vision		Natural Attacks
