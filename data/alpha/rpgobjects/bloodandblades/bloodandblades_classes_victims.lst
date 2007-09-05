@@ -20,7 +20,7 @@ CLASS:Cheerleader	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Disable Device|Hide|Move Sil
 1																		SA:You MUST continue to advance in the Cheerleader class until you have reached 5th level	SA:Cheerleader(Ex) +%|CL/2+1	SA:Tight Shirt(Su)	SA:Fit	SA:Popular						BONUS:STAT|CHA|4	ADD:FEAT|1|Endurance,Run	TEMPLATE:Starting Sanity
 2																		SA:Charming(Ex)																										BONUS:SKILL|Diplomacy|CHA
 4																		SA:My Boyfriend(Ex)
-5	SA:.CLEAR.You MUST continue to advance in the Cheerleader class until you have reached 5th level	SA:Pretty Please?(Ex) (Will Save DC %)|10+cl(Cheerleader)+CHA
+5	SA:.CLEAR.You MUST continue to advance in the Cheerleader class until you have reached 5th level	SA:Pretty Please?(Ex) (Will Save DC %)|10+var("CL=Cheerleader")+CHA
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Jock		HD:6		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+2)/4+3	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP

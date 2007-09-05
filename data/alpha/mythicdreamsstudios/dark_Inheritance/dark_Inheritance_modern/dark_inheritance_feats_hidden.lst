@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Sep  5 14:44:12 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 #Original Entry by: Frank Kliewe
 
@@ -44,10 +44,10 @@ Driven						TYPE:CrusadingAdvocateAbility	VISIBLE:NO	SA:Driven																		
 Crusading Advocate Skill Mastery		TYPE:CrusadingAdvocateAbility	VISIBLE:NO	SA:Skill Mastery (%CHOICE)																					STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=INT+CHA|SKILLS|INT+CHA																																																																															SOURCEPAGE:p.129
 Minor Success Reputation Bonus		TYPE:MinorSuccess			VISIBLE:NO	SA:Minor Success (+1 bonus to Reputation)																																																																																																								BONUS:VAR|Reputation|1	SOURCEPAGE:p.129
 Minor Success Wealth BONUS			TYPE:MinorSuccess			VISIBLE:NO	SA:Minor Success (+2 bonus to Wealth)																																																																																																								BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.129
-Minor Success mid level contact		TYPE:MinorSuccess			VISIBLE:NO	SA:Minor Success (mid-level contact, max.level %)|max(cl(CrusadingAdvocate)/2,8)																																																																																																					SOURCEPAGE:p.129
+Minor Success mid level contact		TYPE:MinorSuccess			VISIBLE:NO	SA:Minor Success (mid-level contact, max.level %)|max(var("CL=CrusadingAdvocate")/2,8)																																																																																																				SOURCEPAGE:p.129
 Major Success Reputation Bonus		TYPE:MajorSuccess			VISIBLE:NO	SA:Major Success (+2 bonus to Reputation)																																																																																																								BONUS:VAR|Reputation|2	SOURCEPAGE:p.130
 Major Success Wealth BONUS			TYPE:MajorSuccess			VISIBLE:NO	SA:Major Success (+3 bonus to Wealth)																																																																																																								BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.130
-Major Success high level contact		TYPE:MajorSuccess			VISIBLE:NO	SA:Major Success (high-level contact, max.level %)|max(cl(CrusadingAdvocate)/2,12)																																																																																																					SOURCEPAGE:p.130
+Major Success high level contact		TYPE:MajorSuccess			VISIBLE:NO	SA:Major Success (high-level contact, max.level %)|max(var("CL=CrusadingAdvocate")/2,12)																																																																																																				SOURCEPAGE:p.130
 
 ###Block: Subchoices of Class Abilities
 # Feat Name					Type			Visible	Special Ability	Vision
