@@ -65,7 +65,7 @@ Wild Shape	TYPE:ClassFeature.Supernatural	VISIBLE:NO	SA:Wild Shape - %/day|WildS
 # Feat Name			Type			Visible	Special Ability							Define												Combat bonus											Add to base move																																																Add to magical move																																																										Modify VAR																				Source Page
 Stunning Attack		TYPE:Special	VISIBLE:NO	SA:Stunning Attack %/day (DC %)|StunningAttack|StunDC	DEFINE:StunningAttack|0	DEFINE:StunDC|10+WIS	DEFINE:MonkStunningLVL|0																																																																																																																													BONUS:VAR|StunningAttack|MonkStunningLVL|TYPE=NoStack.REPLACE	BONUS:VAR|StunDC|MonkStunningLVL/2|TYPE=NoStack.REPLACE	SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Monk AC			TYPE:Special	VISIBLE:NO										DEFINE:MonkACCheck|MonkAC+WIS	DEFINE:MonkACLVL|0	DEFINE:MonkAC|0		BONUS:COMBAT|AC|MonkAC|PREVARGTEQ:MonkACCheck,0	BONUS:COMBAT|AC|max(WIS,0)																																																																																																																BONUS:VAR|MonkAC|MonkACLVL/5																	SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Monk Fast Movement	TYPE:Special	VISIBLE:NO										DEFINE:MonkSpeedLVL|0																							BONUS:MOVEADD|TYPE=Walk|5|PREVARGTEQ:MonkSpeedLVL,3|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0|TYPE=Normal.REPLACE	BONUS:MOVEADD|TYPE=Walk|min(floor(MonkSpeedLVL/3)*10,20)|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|TYPE=Normal.REPLACE	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*5,20)+floor(max(MonkSpeedLVL/15,0))*5|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|TYPE=Magic.REPLACE	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*10,40)|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|TYPE=Magic.REPLACE																						SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Monk Fast Movement	TYPE:Special	VISIBLE:NO										DEFINE:MonkSpeedLVL|0																							BONUS:MOVEADD|TYPE.Walk|5|PREVARGTEQ:MonkSpeedLVL,3|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0|TYPE=Normal.REPLACE	BONUS:MOVEADD|TYPE.Walk|min(floor(MonkSpeedLVL/3)*10,20)|TYPE=Enhancement|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|TYPE=Normal.REPLACE	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*5,20)+floor(max(MonkSpeedLVL/15,0))*5|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|TYPE=Magic.REPLACE	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*10,40)|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|TYPE=Magic.REPLACE																						SOURCEPAGE:srdbasiccharacterclassesi.rtf
 
 ###Block:Rogue special abilities
 # Feat Name		Type					Visible		Special Ability		Description				Stackable?	Multiple?	Choose						Source Page
@@ -97,6 +97,10 @@ Favored Enemy V	TYPE:RangerFavored	VISIBLE:NO	PRECLASS:1,Ranger=20	PREFEAT:4,Fav
 Uncanny Dodge		VISIBLE:NO	SA:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	SA:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	SA:Uncanny Dodge (+% against traps)|UncannyTraps				DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
 Defensive Awareness	VISIBLE:NO	SA:Defensive Awareness (Dex bonus to AC)|UncannyDodge	SA:Defensive Awareness (can't be flanked)|ImprovedUncannyDodge	SA:Defensive Awareness (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
 
+###Comment: Low priority but start of bring srd closer to rsrd. -AM
+###Block: Dwarven Defender
+#Dwarven Defender DR								TYPE:ClassAbility.Extraordinary	VISIBLE:NO																						DEFINE:DwarvenDefenderDRLVL|0																																		BONUS:VAR|DwarvenDefenderDR|3*floor(((DwarvenDefenderDRLVL-2)/4))						DR:DwarvenDefenderDR/-	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+
 
 ###Block: Loremaster secrets
 # Feat Name				Type				Visible	Var. Min. Value			Special Ability							Stackable?	Multiple?	Choose																Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
@@ -113,7 +117,7 @@ More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	
 
 ###Block: 1/2 dragon template flight capability
 # Feat Name		Type			Visible	Minimum Size		Special Ability	MOVECLONE
-Dragon Flight	TYPE:DragonFlight	VISIBLE:NO	PREBASESIZEGTEQ:Large	SA:Dragon Wings	MOVECLONE:Walk,0,Fly,0
+Dragon Flight	TYPE:DragonFlight	VISIBLE:NO	PREBASESIZEGTEQ:Large	SA:Dragon Wings	MOVECLONE:Walk,Fly,0
 
 
 
