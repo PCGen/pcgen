@@ -17,10 +17,10 @@ Dragon(Silver)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:19-
 #
 ###Block: Animated Objects
 # Template Name	Visible		Source Page				Special Ability				Required Race			Prohibited Template							MOVEA			MOVECLONE				Removable?
-Float			VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Float		PRERACE:1,Animated Object%														MOVECLONE:Walk,0,Swim,/2	REMOVABLE:YES
+Float			VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Float		PRERACE:1,Animated Object%														MOVECLONE:Walk,Swim,/2	REMOVABLE:YES
 Multiple Legs	VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Multiple Legs	PRERACE:1,Animated Object%	!PRETEMPLATE:Two Legs|Wheeled|Sheet-like				MOVEA:Walk,20						REMOVABLE:YES
-Sheet-like		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Sheet-like	PRERACE:1,Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Multiple Legs|Sinuous					MOVECLONE:Walk,0,Fly,/2		REMOVABLE:YES
-Sinuous		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Sinuous		PRERACE:1,Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Sheet-like							MOVECLONE:Walk,0,Climb,/2	REMOVABLE:YES
+Sheet-like		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Sheet-like	PRERACE:1,Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Multiple Legs|Sinuous					MOVECLONE:Walk,Fly,/2		REMOVABLE:YES
+Sinuous		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Sinuous		PRERACE:1,Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Sheet-like							MOVECLONE:Walk,Climb,/2	REMOVABLE:YES
 Two Legs		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Two Legs	PRERACE:1,Animated Object%	!PRETEMPLATE:Multiple Legs|Wheeled|Sinuous|Sheet-like		MOVEA:Walk,10						REMOVABLE:YES
 Wheeled		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Wheeled		PRERACE:1,Animated Object%	!PRETEMPLATE:Two Legs|Multiple Legs|Sinuous|Sheet-like	MOVEA:Walk,40						REMOVABLE:YES
 #
