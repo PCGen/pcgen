@@ -1,13 +1,15 @@
 # CVS $Revision: $ $Author: $ -- Mon Sep  3 19:28:03 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 ###Block: Talents
 ### TODO: SAs become DESC in abilities once the OS is updated. -AM
-### CATEGORY enhancements - 
-#Strong Talents		-	PREVARGT:StrongTalentPool,StrongTalentUsed
-#Fast Talents		-	PREVARGT:FastTalentPool,FastTalentUsed
-#Tough Talents		-	PREVARGT:ToughTalentPool,ToughTalentUsed
-#Smart Talents		-	PREVARGT:SmartTalentPool,SmartTalentUsed
-#Dedicated Talents	-	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed
-#Charismatic Talents	-	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed
+
+### CATEGORY enhancements - You need these to be compatible with the new setup - Define tag is found in 'statsandchecks.lst' - If making a new talent group follow this setup.-AM
+#Strong Talents		-	PREVARGT:StrongTalentPool,StrongTalentUsed	BONUS:VAR|StrongTalentUsed|1
+#Fast Talents		-	PREVARGT:FastTalentPool,FastTalentUsed		BONUS:VAR|FastTalentUsed|1
+#Tough Talents		-	PREVARGT:ToughTalentPool,ToughTalentUsed		BONUS:VAR|ToughTalentUsed|1
+#Smart Talents		-	PREVARGT:SmartTalentPool,SmartTalentUsed			BONUS:VAR|SmartTalentUsed|1	
+#Dedicated Talents	-	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	BONUS:VAR|DedicatedTalentUsed|1
+#Charismatic Talents	-	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	BONUS:VAR|CharismaticTalentUsed|1
+#####
 
 # Strong Talents
 # Ability Name			Category of Ability	Type							Visible	Required Ability																			Total Skill Points Req.						Var. Must Be Grater						Special Ability						Define				Stackable?	Multiple?	Choose																									Combat bonus			Damage reduction				Bonus to HP				Add to base move							Bonus to skill			Modify VAR										Damage Reduction	Source Page					PREBILITY
