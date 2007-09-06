@@ -824,7 +824,7 @@ public final class Race extends PObject
 
 		if (!Constants.s_NONE.equals(displayName))
 		{
-			txt.append("\tRACENAME:").append(displayName);
+			txt.append("\tOUTPUTNAME:").append(displayName);
 		}
 
 		if ((bonusSkillList != null) && (bonusSkillList.length() > 0))
