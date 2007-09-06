@@ -53,17 +53,27 @@ public class AbilityCategory implements KeyedObject
 	private Set<String> theAbilityTypes = null;
 	private String thePoolFormula = "0"; //$NON-NLS-1$
 	
-	private boolean theVisibleFlag = true;
+	private String theDisplayLocation;
+	
+	private int theVisibleFlag = VISIBLE_YES;
 	private boolean theEditableFlag = true;
 	private boolean theModPoolFlag = true;
 	private boolean theAllowFractionalPoolFlag = false;
 
 	/** A constant used to refer to the &quot;Feat&quot; category. */
 	public static final AbilityCategory FEAT = new AbilityCategory("FEAT", "in_feat"); //$NON-NLS-1$ //$NON-NLS-2$
+
+	/** Value to indicate the modifier should not be visible. */
+	public static final int VISIBLE_NO        = 0;
+	/** Value to indicate the modifier should be visible. */
+	public static final int VISIBLE_YES       = 1;
+	/** Value to indicate the modifier should not be visible unless it is qualified for. */
+	public static final int VISIBLE_QUALIFIED = 2;
 	
 	static
 	{
 		FEAT.thePluralName = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
+		FEAT.theDisplayLocation = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
 	}
 	/**
 	 * Constructs a new <tt>AbilityCategory</tt> with the specified key.
@@ -80,6 +90,7 @@ public class AbilityCategory implements KeyedObject
 		thePluralName = aKeyName;
 		
 		theAbilityCategory = aKeyName;
+		theDisplayLocation = aKeyName;
 	}
 	
 	/**
@@ -210,13 +221,43 @@ public class AbilityCategory implements KeyedObject
 	}
 	
 	/**
+	 * Returns the name of the subtab on which the ability category 
+	 * should be displayed. Note: If this starts with in_ it is a 
+	 * reference to an internationalized string. 
+	 * 
+	 * @return The display location name.
+	 */
+	public String getDisplayLocation()
+	{
+		return theDisplayLocation;
+	}
+
+	/**
+	 * Sets the name of the subtab on which the ability category 
+	 * should be displayed.
+	 * 
+	 * @param displayLocation The new displayLocation
+	 */
+	public void setDisplayLocation(String aName)
+	{
+		if (aName.startsWith("in_"))
+		{
+			theDisplayLocation = PropertyFactory.getString(aName);
+		}
+		else
+		{
+			theDisplayLocation = aName;
+		}
+	}
+
+	/**
 	 * Sets if abilities of this category should be displayed in the UI.
 	 * 
 	 * @param yesNo <tt>true</tt> if these abilities should be displayed.
 	 */
-	public void setVisible(final boolean yesNo)
+	public void setVisible(final int visible)
 	{
-		theVisibleFlag = yesNo;
+		theVisibleFlag = visible;
 	}
 	
 	/**
@@ -226,7 +267,27 @@ public class AbilityCategory implements KeyedObject
 	 */
 	public boolean isVisible()
 	{
-		return theVisibleFlag;
+		return isVisible(null);
+	}
+	
+	/**
+	 * Checks if this category of ability should be displayed in the 
+	 * UI for this PC.
+	 * 
+	 * @param pc The character to be tested.
+	 * @return <tt>true</tt> if these abilities should be displayed.
+	 */
+	public boolean isVisible(PlayerCharacter pc)
+	{
+		if (theVisibleFlag ==  VISIBLE_NO)
+		{
+			return false;
+		}
+		if (theVisibleFlag == VISIBLE_QUALIFIED && pc != null)
+		{
+			return (pc.getTotalAbilityPool(this).floatValue() != 0.0);
+		}
+		return true;
 	}
 	
 	/**
