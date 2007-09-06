@@ -44,7 +44,7 @@ BIO
 			<followeralignment></followeralignment>
 			<holyitem>None</holyitem>
 			<pantheonlist></pantheonlist>
-			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi.rtf</source>
+			<source>System Reference Document, srdbasiccharacterclassesi.rtf</source>
 			<special_abilities></special_abilities>
 		</deity>
 		<description>
@@ -1568,7 +1568,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp0, Clr0, Drd0, Pal1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
+							<source>System Reference Document, srdspellsc.rtf</source>
 							<sourcepage>srdspellsc.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1596,7 +1596,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp0, Clr0, Drd0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
+							<source>System Reference Document, srdspellsc.rtf</source>
 							<sourcepage>srdspellsc.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1624,7 +1624,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp0, Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+							<source>System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1652,7 +1652,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Asn1, Clr0, Drd0, Pal1, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+							<source>System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1680,7 +1680,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp0, Clr0, Drd0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsg.rtf</source>
+							<source>System Reference Document, srdspellsg.rtf</source>
 							<sourcepage>srdspellsg.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1708,7 +1708,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsi.rtf</source>
+							<source>System Reference Document, srdspellsi.rtf</source>
 							<sourcepage>srdspellsi.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1736,7 +1736,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp0, Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsjkl.rtf</source>
+							<source>System Reference Document, srdspellsjkl.rtf</source>
 							<sourcepage>srdspellsjkl.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1764,7 +1764,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp0, Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
+							<source>System Reference Document, srdspellsm.rtf</source>
 							<sourcepage>srdspellsm.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1792,7 +1792,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp0, Clr0, Drd0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
+							<source>System Reference Document, srdspellsp.rtf</source>
 							<sourcepage>srdspellsp.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1820,7 +1820,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp0, Brd0, Clr0, Drd0, Pal1, Rgr1, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
+							<source>System Reference Document, srdspellsqr.rtf</source>
 							<sourcepage>srdspellsqr.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1848,7 +1848,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd0, Clr0, Drd0, Pal1, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
+							<source>System Reference Document, srdspellsqr.rtf</source>
 							<sourcepage>srdspellsqr.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1876,7 +1876,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0, Drd0, Pal1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsuvwxyz.rtf</source>
+							<source>System Reference Document, srdspellsuvwxyz.rtf</source>
 							<sourcepage>srdspellsuvwxyz.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1906,7 +1906,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsb.rtf</source>
+							<source>System Reference Document, srdspellsb.rtf</source>
 							<sourcepage>srdspellsb.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1934,7 +1934,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Pal1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsb.rtf</source>
+							<source>System Reference Document, srdspellsb.rtf</source>
 							<sourcepage>srdspellsb.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1962,7 +1962,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Pal1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsb.rtf</source>
+							<source>System Reference Document, srdspellsb.rtf</source>
 							<sourcepage>srdspellsb.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -1990,7 +1990,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Bgd1, Brd1, Clr1, Death1, Sor1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
+							<source>System Reference Document, srdspellsc.rtf</source>
 							<sourcepage>srdspellsc.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2018,7 +2018,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
+							<source>System Reference Document, srdspellsc.rtf</source>
 							<sourcepage>srdspellsc.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2046,7 +2046,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Clr1, Sor1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
+							<source>System Reference Document, srdspellsc.rtf</source>
 							<sourcepage>srdspellsc.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2074,7 +2074,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Bgd1, Brd1, Clr1, Drd1, Healing1, Pal1, Rgr2</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
+							<source>System Reference Document, srdspellsc.rtf</source>
 							<sourcepage>srdspellsc.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2102,7 +2102,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+							<source>System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2130,7 +2130,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Clr1, Rgr2</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+							<source>System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2158,7 +2158,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Clr1, Rgr2</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+							<source>System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2186,7 +2186,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Clr1, Rgr2</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+							<source>System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2214,7 +2214,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Clr1, Rgr2</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+							<source>System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2242,7 +2242,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Pal1, Sor1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+							<source>System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2270,7 +2270,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Pal1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+							<source>System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2298,7 +2298,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Bgd1, Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+							<source>System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2326,7 +2326,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Clr1, Drd1, Pal1, Sor1, Strength1, Sun1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellse.rtf</source>
+							<source>System Reference Document, srdspellse.rtf</source>
 							<sourcepage>srdspellse.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2354,7 +2354,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Luck1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellse.rtf</source>
+							<source>System Reference Document, srdspellse.rtf</source>
 							<sourcepage>srdspellse.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2382,7 +2382,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Bgd1, Clr1, Destruction1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsi.rtf</source>
+							<source>System Reference Document, srdspellsi.rtf</source>
 							<sourcepage>srdspellsi.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2410,7 +2410,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsi.rtf</source>
+							<source>System Reference Document, srdspellsi.rtf</source>
 							<sourcepage>srdspellsi.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2438,7 +2438,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Earth1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
+							<source>System Reference Document, srdspellsm.rtf</source>
 							<sourcepage>srdspellsm.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2466,7 +2466,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Bgd1, Brd1, Clr1, Pal1, Sor1, War1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
+							<source>System Reference Document, srdspellsm.rtf</source>
 							<sourcepage>srdspellsm.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2494,7 +2494,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Air1, Asn1, Clr1, Drd1, Sor1, Water1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsno.rtf</source>
+							<source>System Reference Document, srdspellsno.rtf</source>
 							<sourcepage>srdspellsno.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2522,7 +2522,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Brd1, Clr1, Law1, Sor1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
+							<source>System Reference Document, srdspellsp.rtf</source>
 							<sourcepage>srdspellsp.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2550,7 +2550,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Brd1, Clr1, Law1, Sor1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
+							<source>System Reference Document, srdspellsp.rtf</source>
 							<sourcepage>srdspellsp.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2578,7 +2578,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Brd1, Clr1, Good1, Pal1, Sor1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
+							<source>System Reference Document, srdspellsp.rtf</source>
 							<sourcepage>srdspellsp.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2606,7 +2606,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
+							<source>System Reference Document, srdspellsqr.rtf</source>
 							<sourcepage>srdspellsqr.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2634,7 +2634,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
+							<source>System Reference Document, srdspellsqr.rtf</source>
 							<sourcepage>srdspellsqr.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2662,7 +2662,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Protection1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
+							<source>System Reference Document, srdspellss.rtf</source>
 							<sourcepage>srdspellss.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2690,7 +2690,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Protection1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
+							<source>System Reference Document, srdspellss.rtf</source>
 							<sourcepage>srdspellss.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2718,7 +2718,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
+							<source>System Reference Document, srdspellss.rtf</source>
 							<sourcepage>srdspellss.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
@@ -2746,7 +2746,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Bgd1, Brd1, Clr1, Sor1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
+							<source>System Reference Document, srdspellss.rtf</source>
 							<sourcepage>srdspellss.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
