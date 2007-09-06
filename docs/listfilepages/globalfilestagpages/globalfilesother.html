@@ -13,6 +13,7 @@
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Andrew McDougall - thoronDASHtirDASHgwaithATlycosDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
+		Eric C. Smith - mareduddATblackrootDOTorg
 
 		Description:
 		Provides information on the use of PCGen Other Global Tags.
@@ -197,39 +198,38 @@
   			it grants the class skills only to the class it is actually in. When used in
   			a domains.lst, it grants the class skills only to the classes that grant the
   			domain. When used anywhere else it grants the class skills to all classes the character possesses.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>CSKILL:Listen|Spot</code></p>
-		<p class="indent3">The &quot;Listen&quot; and &quot;Spot&quot; skills are made class skills.</p>
-		<p class="indent2"><code>CSKILL:Search|TYPE.Knowledge</code></p>
-		<p class="indent3">The &quot;Search&quot; and &quot;Knowledge&quot; type skills are made class skills.</p>
-		<p class="indent2"><code>CSKILL:ALL</code></p>
-		<p class="indent3">All skills are made class skills.</p>
-		<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; CSKILL:.CLEAR.Scry &lt;tab&gt; CSKILL:Drive|TYPE.Knowledge|Perform</code></p>
-		<p class="indent3">Modifies the Class Sorcerer, droping the class skill Scry and adding Drive, Perform and all TYPE.Knowledge skills.</p>
-		<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
-		<p class="indent3">Modified Class that changes all of these Tags from their starting values.</p>
-		<p></p>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>CSKILL:Listen|Spot</code></p>
+	<p class="indent3">The &quot;Listen&quot; and &quot;Spot&quot; skills are made class skills.</p>
+	<p class="indent2"><code>CSKILL:Search|TYPE.Knowledge</code></p>
+	<p class="indent3">The &quot;Search&quot; and &quot;Knowledge&quot; type skills are made class skills.</p>
+	<p class="indent2"><code>CSKILL:ALL</code></p>
+	<p class="indent3">All skills are made class skills.</p>
+	<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; CSKILL:.CLEAR.Scry &lt;tab&gt; CSKILL:Drive|TYPE.Knowledge|Perform</code></p>
+	<p class="indent3">Modifies the Class Sorcerer, droping the class skill Scry and adding Drive, Perform and all TYPE.Knowledge skills.</p>
+	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
+	<p class="indent3">Modified Class that changes all of these Tags from their starting values.</p>
+	<p></p>
 
 <hr>
 
-		<p class="indent0"><strong><a name="CCSKILL">Tag Name:</a></strong> CCSKILL:x|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type.&lt;Skill Type&gt;)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Grants the listed exclusive skills as cross class skills.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>CCSKILL:Listen|Spot</code></p>
-		<p class="indent3">The &quot;Listen&quot; and &quot;Spot&quot; skills are made cross class skills.</p>
-		<p class="indent2"><code>CCSKILL:Search|TYPE.Knowledge</code></p>
-		<p class="indent3">The &quot;Search&quot; and &quot;Knowledge&quot; type skills are made cross class skills.</p>
-		<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
-		<p class="indent3">Modified Class that changes all of these Tags from their starting values..</p>
-		<p></p>
+	<p class="indent0"><strong><a name="CCSKILL">Tag Name:</a></strong> CCSKILL:x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type.&lt;Skill Type&gt;)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Grants the listed exclusive skills as cross class skills.</p>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>CCSKILL:Listen|Spot</code></p>
+	<p class="indent3">The &quot;Listen&quot; and &quot;Spot&quot; skills are made cross class skills.</p>
+	<p class="indent2"><code>CCSKILL:Search|TYPE.Knowledge</code></p>
+	<p class="indent3">The &quot;Search&quot; and &quot;Knowledge&quot; type skills are made cross class skills.</p>
+	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
+	<p class="indent3">Modified Class that changes all of these Tags from their starting values..</p>
+	<p></p>
 <hr>
 
 	<p class="new">*** New 5.3.13</p>
-	<p class="indent0"><strong>
-<a name="CHANGEPROF">Tag Name:</a></strong> CHANGEPROF:x,x=y|x,x=y</p>
+	<p class="indent0"><strong><a name="CHANGEPROF">Tag Name:</a></strong> CHANGEPROF:x,x=y|x,x=y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of weapon)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (weapon type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Category of Proficiency to change to)</p>
@@ -1139,6 +1139,7 @@
 		<li>Please note that the name must match EXACTLY (case sensitive, and the classes need the beginning
 			CLASS: tag, see examples).</li>
 		<li>If you want to .MOD the name, you need to include the NAME: designator (see examples).</li>
+		<li>If you want to .MOD an eqmod, you do not use the KEY: designator (see examples).</li> 
 		<li>Any tags that are listed are added to the list of tags already in the object.</li>
 		<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
 			replace the tag in the original entry. If more than one tag is allowed (most notably BONUS
@@ -1162,6 +1163,8 @@
 	<p class="indent3">Adds a Saving Throw Temporary bonus function to the Resistance spell</p>
 	<p class="indent2"><code>Skill Focus.MOD</code></p>
 	<p class="indent3">Modifies the Skill Focus feat (in feat.lst)</p>
+	<p class="indent2"><code>BOWSTR.MOD</code></p>
+	<p class="indent3">Modifies the BOWSTR eqmod (in eqmod.lst)</p>
 	<p></p>
 	<p class="indent2"><code>CATEGORY=(foo)|(key).MOD</code></p>
 	<p class="indent3">The new syntax to be used to .MOD an ability.</p>
