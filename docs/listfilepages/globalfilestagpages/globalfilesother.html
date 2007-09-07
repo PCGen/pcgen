@@ -326,77 +326,72 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (feat description)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (spell description)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<blockquote>
-		<p><strong>Ability File:</strong> Provides the flavor text of the ability from the source material.<br>
-		<strong>Deity File:</strong> Provides a quick description of the deity.<br>
-		<strong>Domain File:</strong> Provides a simple explanation of the domains granted powers.<br>
-		<strong>Equipment File:</strong> Provides a brief description of the item.<br>
-		<strong>Feat File:</strong> Provides the flavor text of the feat from the source material.<br>
-		<strong>Spell File:</strong> Provides a one line description of what the spell does.<br>
-		Multiple DESC tags are now supported.<br>
-		DESC tags now take PRExxx tags.<br>
-		All qualifying DESC tags will be concatonated for output separated by commas (,).<br>
-		<code>DESC:.CLEAR</code> will clear all DESC tags.<br><br>
-		<code>DESC:.CLEAR.(regular expression match)</code> will clear specific instances.<br>
-		DESC tags now take variable substitution.<br></p>
-		<blockquote>
-			<p>Within the text a % followed by a number will substitute the #th variable from the 
+	<ul class="indent1">
+		<li>The DESC tags provides a description appropriate for the object it is attached to, i.e. ability, deity, domain, equipment, feat, or spell.</li>
+		<li>PRExxx tags can be used with the DESC tag.</li>
+		<li>Multiple DESC tags per line are allowed with all qualifying DESC tags being concatonated for output and separated by commas (,).</li>
+		<li><code>.CLEAR</code> will clear all DESC tags.</li>
+		<li><code>.CLEAR.(regular expression match)</code> will clear specific instances.</li>
+		<li>DESC tags now take variable substitution.<br></li>
+		<ul>
+			<li>Within the text a % followed by a number will substitute the #th variable from the 
 				variable list associated with the DESC. For example, %1 will substitute the first 
-				variable into that position in the DESC<br>
-			Variables are specified after the descriptive text and are pipe (|) separated.<br>
-			The special parameter %% will insert an actual % character into the text.<br>
-			If the parameter needs to be next to a number the parameter number should be surrounded 
-				in curly brackets { }. For example, %{1000}gp.</p>
-		</blockquote>
-		<p>The following special variables are allowed within the variable list:</p>
-		<blockquote>
-			<p><code>%NAME</code> - The name of the object this DESC tag is in.<br>
-			<code>%CHOICE</code> - Will replace the first associated choice in the object.<br>
-			<code>%LIST</code> - Will substitute all choices comma separated into that parameter.</p>
-		</blockquote>
-		<p>Formulas can be parsed and the results replaced in the output by enclosing the variables and 
-			formulas within parentheses.</p>
-			<blockquote>
-				<p><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for
-				this purpose, is commonly used though other variables can be used as well.<br>
-				Because anything within parentheses is assumed to be a formula to be parsed,
-				text containing parentheses must substitute brackets [ ] in place of parentheses.<br>
-				Java has a Regular Expression library built in that is very similar to Perl
+				variable into that position in the DESC</li>
+			<li>Variables are specified after the descriptive text and are pipe-delimited (|).</li>
+			<li>The special parameter %% will insert an actual % character into the text.</li>
+			<li>If the parameter needs to be next to a number the parameter number should be surrounded 
+				in curly brackets { }. For example, %{1000}gp.</li>
+		</ul>
+		<li>The following special variables are allowed within the variable list:</li>
+		<ul>
+			<li><code>%NAME</code> - The name of the object this DESC tag is in.</li>
+			<li><code>%FEAT</code> - Will substitute the descriptions of feats within the object that match the associated preqrequisites.</li>
+			<li><code>%CHOICE</code> - Will replace the first associated choice in the object.</li>
+			<li><code>%LIST</code> - Will substitute all choices comma separated into that parameter.</li>
+		</ul>
+		<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and 
+			formulas within parentheses.</li>
+		<ul>
+			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for
+				this purpose, is commonly used though other variables can be used as well.</li>
+			<li>Because anything within parentheses is assumed to be a formula to be parsed,
+				text containing parentheses must substitute brackets [ ] in place of parentheses.</li>
+			<li>Java has a Regular Expression library built in that is very similar to Perl
 				regular expressions. Basically it allows for pattern matching in strings. You can
 				create fairly powerful match structures using things like character groups "[a-zA-Z]"
 				match any alphabetic character or groupings "(bat|super)man" match batman or superman
 				and many many more. So, for example, you could do a CLEARALL by doing DESC:.CLEAR..*,
 				or clear all exceptional abilities by doing DESC:.CLEAR.\(Ex\), or clear everything
-				that's non-numeric with <code>DESC:.CLEAR.[A-Za-z]</code>.<br>
-			</blockquote>
-		</blockquote>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>DESC:This domain grants the turn code monkey speech into english</code></p>
-		<p class="indent3">The domain description.</p>
-		<p class="indent2"><code>DESC:This is a description of the item.</code></p>
-		<p class="indent3">Adds a description for the equipment.</p>
-		<p class="indent2"><code>DESC:This is sample text for the example purposes</code></p>
-		<p class="indent3">Adds feat description.</p>
-		<p class="indent2"><code>DESC:Kick Butt (level 3)|PRELEVEL:3</code></p>
-		<p class="indent3">Adds feat description only if the PC is level 3 or higher.</p>
-		<p class="indent2"><code>DESC:Assembly ~ 1 table|PREVAREQ:AssemblyTables,1
+				that's non-numeric with <code>DESC:.CLEAR.[A-Za-z]</code>.</li>
+		</ul>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>DESC:This domain grants the turn code monkey speech into english</code></p>
+	<p class="indent3">The domain description.</p>
+	<p class="indent2"><code>DESC:This is a description of the item.</code></p>
+	<p class="indent3">Adds a description for the equipment.</p>
+	<p class="indent2"><code>DESC:This is sample text for the example purposes</code></p>
+	<p class="indent3">Adds feat description.</p>
+	<p class="indent2"><code>DESC:Kick Butt (level 3)|PRELEVEL:3</code></p>
+	<p class="indent3">Adds feat description only if the PC is level 3 or higher.</p>
+	<p class="indent2"><code>DESC:Assembly ~ 1 table|PREVAREQ:AssemblyTables,1
 			<br>DESC:Assembly ~ %1 tables|AssemblyTables|PREVARGTEQ:AssemblyTables,2</code></p>
-		<p class="indent3">Adds a feat description which is dependent upon the value of the variable AssemblyTables.</p>
-		<p class="indent2"><code>DESC:You get a +2 bonus on all %1 saving throws|%CHOICE</code></p>
-		<p class="indent3">Adds feat description and replaces %1 with the first choice made.</p>
-		<p class="indent2"><code>DESC:You get a +3 bonus on all checks involving %1|%LIST.</code></p>
-		<p class="indent3">Adds feat description replaces %LIST with all choices made. </p>
-		<p class="indent2"><code>DESC:%3 Sneak Attacks per day for +%1d%2 damage|SneakAttack|SneakAttackDie|SneakAttackTimes</code></p>
-		<p class="indent3">Adds feat description substituting the variables from the positions specified.</p>
-		<p class="indent2"><code>Advanced Combat Martial Arts.MOD &lt;tab&gt; DESC:.CLEAR &lt;tab&gt; DESC:When the character scores a critical hit on an opponent with an unarmed strike, the character deals triple damage</code></p>
-		<p class="indent3">Changes the feat description, substituting the specified.</p>
-		<p class="indent2"><code>DESC:Toasts the monsters with fire</code></p>
-		<p class="indent3">What the spell does.</p>
-		<p class="indent2"><code>DESC:Target is prone for (CASTERLEVEL) rounds.</code></p>
-		<p class="indent3">If the value of CASTERLEVEL is equal to 3 then this would output: "Target is prone for 3 rounds.".</p>
-		<p class="indent2"><code>Maximize Power.MOD &lt;tab&gt; DESC:.CLEAR &lt;tab&gt; DESC:You can manifest powers to maximum effect.</code></p>
-		<p class="indent3">Replaces the standard spell DESC with the attached.".</p>
-		<p></p>
+	<p class="indent3">Adds a feat description which is dependent upon the value of the variable AssemblyTables.</p>
+	<p class="indent2"><code>DESC:You get a +2 bonus on all %1 saving throws|%CHOICE</code></p>
+	<p class="indent3">Adds feat description and replaces %1 with the first choice made.</p>
+	<p class="indent2"><code>DESC:You get a +3 bonus on all checks involving %1|%LIST.</code></p>
+	<p class="indent3">Adds feat description replaces %LIST with all choices made. </p>
+	<p class="indent2"><code>DESC:%3 Sneak Attacks per day for +%1d%2 damage|SneakAttack|SneakAttackDie|SneakAttackTimes</code></p>
+	<p class="indent3">Adds feat description substituting the variables from the positions specified.</p>
+	<p class="indent2"><code>Advanced Combat Martial Arts.MOD &lt;tab&gt; DESC:.CLEAR &lt;tab&gt; DESC:When the character scores a critical hit on an opponent with an unarmed strike, the character deals triple damage</code></p>
+	<p class="indent3">Changes the feat description, substituting the specified.</p>
+	<p class="indent2"><code>DESC:Toasts the monsters with fire</code></p>
+	<p class="indent3">What the spell does.</p>
+	<p class="indent2"><code>DESC:Target is prone for (CASTERLEVEL) rounds.</code></p>
+	<p class="indent3">If the value of CASTERLEVEL is equal to 3 then this would output: "Target is prone for 3 rounds.".</p>
+	<p class="indent2"><code>Maximize Power.MOD &lt;tab&gt; DESC:.CLEAR &lt;tab&gt; DESC:You can manifest powers to maximum effect.</code></p>
+	<p class="indent3">Replaces the standard spell DESC with the attached.</p>
+	<p></p>
 
 <hr>
 
