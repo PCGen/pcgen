@@ -60,31 +60,6 @@
 
 <hr>
 
-	<p class="new">*** New 5.4</p>
-	<p class="indent0"><strong><a name="AUTOEQUIP">Tag Name:</a></strong> AUTO:EQUIP|x|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Equipment Name&gt;)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This is a | (pipe) delimited list of equipment that is granted to the character for free.</li>
-			<li>The equipment added is marked on the GUI just as AUTO:FEATs are (yellow) and can't be removed.</li>
-			<li>The equipment must be added to the Equipment Set just as any other Equipment the PC has to come out on the OS.</li>
-			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must enclose the PRExxx statement with brackets [ ].</li>
-			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
-			<li>CAUTION: Some trouble has been found when attempting to add two of the same item.</li>
-			<li>CAUTION: You should not use items which have math operators (such as + and -) in their names.</li>
-			<li>AUTO:EQUIP won't take (%)LIST or (%)CHOICE for substitution. See futureequipment_equipmods_gadgets.lst.</li>
-		</ul>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PRECLASS:1,Monk=1]</code></p>
-		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the
-		character has a level of Monk.</p>
-		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]]</code></p>
-		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the
-		character has a level of Monk and a DEX score of 15 or better.</p>
-		<p></p>
-
-<hr>
-
 		<p class="new">*** Updated 5.7.7</p>
 		<p class="indent0"><strong><a name="AUTOARMORPROF">Tag Name:</a></strong> AUTO:ARMORPROF|x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Armor Name&gt;)</p>
@@ -110,6 +85,52 @@
 		<p class="indent2"><code>AUTO:ARMORPROF|TYPE=Light|TYPE=Medium</code></p>
 		<p class="indent3">Light and Medium Armor is given as a free armor proficiency.</p>
 	<p></p>
+
+<hr>
+
+	<p class="new">*** New 5.4</p>
+	<p class="indent0"><strong><a name="AUTOEQUIP">Tag Name:</a></strong> AUTO:EQUIP|x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Equipment Name&gt;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This is a | (pipe) delimited list of equipment that is granted to the character for free.</li>
+			<li>The equipment added is marked on the GUI just as AUTO:FEATs are (yellow) and can't be removed.</li>
+			<li>The equipment must be added to the Equipment Set just as any other Equipment the PC has to come out on the OS.</li>
+			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must enclose the PRExxx statement with brackets [ ].</li>
+			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
+			<li>CAUTION: Some trouble has been found when attempting to add two of the same item.</li>
+			<li>CAUTION: You should not use items which have math operators (such as + and -) in their names.</li>
+			<li>AUTO:EQUIP won't take (%)LIST or (%)CHOICE for substitution. See futureequipment_equipmods_gadgets.lst.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PRECLASS:1,Monk=1]</code></p>
+		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the
+		character has a level of Monk.</p>
+		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]]</code></p>
+		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the
+		character has a level of Monk and a DEX score of 15 or better.</p>
+		<p></p>
+
+<hr>
+
+	<p class="new">*** New 5.13.0 - Replaces FEATAUTO:x|x</p>
+	<p class="indent0"><strong><a name="AUTOFEAT">Tag Name:</a></strong> AUTO:FEAT|x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Feat Name&gt;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This is a pipe-delimited (|) list of feats that are granted to the character as automatic feats and are marked in yello on the GUI.</li>
+			<li>The feats added added by this tag cannot be removed.</li>
+			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must enclose the PRExxx statement with brackets [ ].</li>
+			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>AUTO:FEAT|Flurry of Blows[PRECLASS:1,Monk=1]</code></p>
+		<p class="indent3">The feat &quot;Flurry of Blows&quot; is granted as an automatic feat if the
+		character has a level of Monk.</p>
+		<p class="indent2"><code>AUTO:FEAT|Flurry of Blows[PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]]</code></p>
+		<p class="indent3">The feat &quot;Flurry of Blows&quot; is granted as an automatic feat if the
+		character has a level of Monk and a DEX score of 15 or better.</p>
+		<p></p>
 
 <hr>
 
