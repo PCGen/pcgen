@@ -706,9 +706,9 @@
 		<li>The SA will NOT be displayed if the last variable or formula equals 0.</li>
 		<li><code>SA:.CLEAR</code> will only clear a previous SA in the same object (class, template,
 			etc.). It will not clear them across objects.</li>
-		<li><code>SA:.CLEAR.Text to be removed</code> will only clear a SA that has that exact text in the
-			same object (class, template, etc.). It will not clear them across objects. The CLEAR and Replace
-			TAGs should be at the end of the line, so the new and old tags are not</li>
+		<li><code>SA:.CLEAR.Text to be removed</code> must include the exact text of the SA to be removed but 
+			only the exact text up to the first &quot;(&quot;. The CLEAR and Replace tags should be at the end 
+			of the line, so the new and old tags are not</li>
 		<li>SA tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
 			SA tags qualified with PRExxx tags will not display unless the character meets the
 			prerequisites.</li>
@@ -1136,8 +1136,11 @@
 		<li>If you want to .MOD an eqmod, you do not use the KEY: designator (see examples).</li> 
 		<li>Any tags that are listed are added to the list of tags already in the object.</li>
 		<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
-			replace the tag in the original entry. If more than one tag is allowed (most notably BONUS
-			statements), then the new tag will be added to the other tags in the object.</li>
+			replace the tag in the original entry.</li>
+		<li>If more than one tag is allowed (most notably BONUS statements), then the new tag will be added 
+			to the other tags in the object.</li>
+		<li>When .MODing an object to remove or replace a numerical BONUS, you must duplicate the original 
+			BONUS with the number or formula used for the numerical bonus multiplied by &quot;-1&quot;.</li>
 		<li>Since names in abilities are not unique within different categories, a new syntax specifically
 			for the .MOD of abilities has been added.</li>
 		<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
@@ -1155,11 +1158,12 @@
 	<p class="indent3">Renames the Acid Arrow spell to My Acid Arrow(in a spells.lst file)</p>
 	<p class="indent2"><code>Resistance.MOD &lt;tab&gt; BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance|PREAPPLY:ANYPC</code></p>
 	<p class="indent3">Adds a Saving Throw Temporary bonus function to the Resistance spell</p>
+	<p class="indent2"><code>CLASS:Arcane Archer.MOD &lt;tab&gt; BONUS:CHECKS|BASE.Will|-1*(CL/3) &lt;tab&gt; BONUS:CHECKS|BASE.Will|CL/2+2</code></p>
+	<p class="indent3">Modifies the Arcane Archer by first removing the original &quot;Will&quot; bonus and then adding the new bonus.</p>
 	<p class="indent2"><code>Skill Focus.MOD</code></p>
 	<p class="indent3">Modifies the Skill Focus feat (in feat.lst)</p>
 	<p class="indent2"><code>BOWSTR.MOD</code></p>
 	<p class="indent3">Modifies the BOWSTR eqmod (in eqmod.lst)</p>
-	<p></p>
 	<p class="indent2"><code>CATEGORY=(foo)|(key).MOD</code></p>
 	<p class="indent3">The new syntax to be used to .MOD an ability.</p>
 	<p></p>
