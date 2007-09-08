@@ -1118,7 +1118,7 @@
 	<h2>The .MOD Tag</h2>
 	<p>Warning: This section is nowhere near complete and will be expanded on as time progresses.</p>
 	<p></p>
-	<p class="new">*** Updated 5.11.11 - 5.12 RC3</p>
+	<p class="new">*** Updated 5.11.11 - 5.13</p>
 	<p class="indent0"><strong><a name="MOD">Tag Name:</a></strong> &lt;name&gt;.MOD</p>
 	<p class="indent1"><strong>Variables Used: </strong>Text, First field of the item to be modified</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -1127,7 +1127,7 @@
 		<li>Please note that the name must match EXACTLY (case sensitive, and the classes need the beginning
 			CLASS: tag, see examples).</li>
 		<li>If you want to .MOD the name, you need to include the NAME: designator (see examples).</li>
-		<li>If you want to .MOD an eqmod, you do not use the KEY: designator (see examples).</li> 
+		<li>If you want to .MOD an eqmod, you use the KEY but not the KEY: designator (see examples).</li> 
 		<li>Any tags that are listed are added to the list of tags already in the object.</li>
 		<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
 			replace the tag in the original entry.</li>
@@ -1135,8 +1135,7 @@
 			to the other tags in the object.</li>
 		<li>When .MODing an object to remove or replace a numerical BONUS, you must duplicate the original 
 			BONUS with the number or formula used for the numerical bonus multiplied by &quot;-1&quot;.</li>
-		<li>Since names in abilities are not unique within different categories, a new syntax specifically
-			for the .MOD of abilities has been added.</li>
+		<li>When .MODing abilities you reference the ability by its CATEGORY, i.e. CATEGORY=&lt;category&gt;, and its KEY.(see example below.)</li>
 		<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
 			.pcc RANK tag. Given: 1.MOD 1.FORGET 2.COPY 2.Blank 2.MOD 3.MOD. The order of processing is:
 			2. Blank 2.COPY 1.MOD 2.MOD 3.MOD 1.FORGET </li>
@@ -1157,7 +1156,7 @@
 	<p class="indent2"><code>Skill Focus.MOD</code></p>
 	<p class="indent3">Modifies the Skill Focus feat (in feat.lst)</p>
 	<p class="indent2"><code>BOWSTR.MOD</code></p>
-	<p class="indent3">Modifies the BOWSTR eqmod (in eqmod.lst)</p>
+	<p class="indent3">Modifies the &quot;BOWSTR&quot; eqmod (in eqmod.lst)</p>
 	<p class="indent2"><code>CATEGORY=(foo)|(key).MOD</code></p>
 	<p class="indent3">The new syntax to be used to .MOD an ability.</p>
 	<p></p>
@@ -1167,7 +1166,7 @@
 	<h2>The .COPY Tag</h2>
 	<p></p>
 
-	<p class="new">*** Updated 5.12 RC3</p>
+	<p class="new">*** Updated 5.13</p>
 	<p class="indent0"><strong><a name="COPY">Tag Name:</a></strong> &lt;name&gt;.COPY=&lt;new name&gt;</p>
 	<p class="indent1"><strong>Variables Used: </strong>Text, First field of the item to be copied</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -1185,8 +1184,10 @@
 			and other special abilities.</li>
 		<li>Any tags that are listed are added to the list of tags already in the object.</li>
 		<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
-			replace the tag in the original entry. If more than one tag is allowed (most notably BONUS
-			statements), then the new tag will be added to the other tags in the object.</li>
+			replace the tag in the original entry.</li>
+		<li>If more than one tag is allowed (most notably BONUS statements), then the new tag will be added 
+			to the other tags in the object.</li>
+		<li>When .COPYing abilities you reference the ability by its CATEGORY, i.e. CATEGORY=&lt;category&gt;, and its KEY.(see example below.)</li>
 		<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
 			.pcc RANK tag. Given: 1.MOD 1.FORGET 2.COPY 2.Blank 2.MOD 3.MOD. The order of processing is:
 			2. Blank 2.COPY 1.MOD 2.MOD 3.MOD 1.FORGET </li>
@@ -1200,6 +1201,8 @@
 	<p class="indent3">Creates a new class called the Woodsman based on the Ranger class. (in class.lst, see warning above)</p>
 	<p class="indent2"><code>Skill Focus.COPY=Heighten Knowledge</code></p>
 	<p class="indent3">Creates a new feat called Heighten Knowledge based on the Skill Focus feat. (in feat.lst)</p>
+	<p class="indent2"><code>CATEGORY=(foo)|(key).COPY</code></p>
+	<p class="indent3">The new syntax to be used to .COPY an ability.</p>
 	<p></p>
 
 <hr>
@@ -1260,20 +1263,19 @@
 
 	<h2>The .FORGET Tag</h2>
 	<p></p>
-	<p class="new">*** Updated 5.12 RC3</p>
+	<p class="new">*** Updated 5.13</p>
 	<p class="indent0"><strong><a name="FORGET">Tag Name:</a></strong> &lt;name&gt;.FORGET</p>
 	<p class="indent1"><strong>Variables Used:</strong> Text, First field of the item to be removed</p>
 	<p class="indent1"><strong>What it does:</strong> </p>
-	<p class="indent2"> This is a variation of .MOD.</p>
-	<p class="indent2">Unlike .MOD, this tag has no other tags following it. .FORGET completely removes a
-		class from a listing. Since this is done last, you can not .FORGET the Ranger class, then load up your
-		own modified Ranger class.</p>
-		<ul>
-			<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
+	<ul class="indent2">
+		<li>.FORGET completely removes a LST object from the loaded dataset.</li>
+		<li>.FORGET is ALWAYS done last so you can not .FORGET a LST object and then load a modified version.</li>
+		<li>This tag has no other tags following it.</li>
+		<li>When .FORGETing abilities you reference the ability by its CATEGORY, i.e. CATEGORY=&lt;category&gt;, and its KEY.(see example below.)</li>
+		<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
 			.pcc RANK tag. Given: 1.MOD 1.FORGET 2.COPY 2.Blank 2.MOD 3.MOD. The order of processing is:
 			2. Blank 2.COPY 1.MOD 2.MOD 3.MOD 1.FORGET </li>
-		</ul>
-	<p class="indent2"> .FORGET is ALWAYS done last. Use either .MOD or Ranger (New class).</p>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>Human.FORGET</code></p>
 	<p class="indent3">Removes the Human race (in a race.lst file)</p>
@@ -1283,6 +1285,8 @@
 	<p class="indent3">Removes the Ranger class (in class.lst)</p>
 	<p class="indent2"><code>Skill Focus.FORGET</code></p>
 	<p class="indent3">Removes the Skill Focus feat (in feat.lst)</p>
+	<p class="indent2"><code>CATEGORY=(foo)|(key).FORGET</code></p>
+	<p class="indent3">The new syntax to be used to .FORGET an ability.</p>
 	<p></p>
 
 <hr>
