@@ -14,6 +14,7 @@
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
+		Eric C Smith - mareduddATblackrootDOTorg
 
 		Description:
 		Provides information on the use of PCGen global BONUS Tag.
@@ -28,23 +29,134 @@
 
 <body>
 
-	<h1>The BONUS Tag</h1>
+	<h1>The Global BONUS Tags</h1>
 
-	<p>All of the below Tags are used in Conjunction with the BONUS tag. The BONUS tag tells PCGen that the
-		following information is to be added to a character, in the appropriate places.</p>
+	<p>The BONUS tag tells PCGen that the following information is to be added to a character, in the appropriate places.</p>
 	<p>Bonus tags are done in this format:</p>
 	<p><code>BONUS:&lt;category&gt;|&lt;group&gt;|&lt;formula&gt;</code></p>
-	<p>This can be followed by | delimitated PRExxx or TYPE= tags.</p>
+	<p>This can be followed by pipe-delimitated PRExxx or TYPE= tags.</p>
 	<p>Each of the &quot;Tag Names&quot; in this page go in the &lt;category&gt; field,
 		and the &quot;Variables Used&quot; go in the &lt;group&gt; field.</p>
 	<p>For the Formula syntax, see the <a href="globalfilesformulas.html">Math Operators and Formulas</a> page.</p>
     	<p>LIST is a special case in feats.lst It can be placed in most &lt;group&gt; categories. LIST
 		will be replaced by the choice from the CHOOSE tag in the feat.</p>
+ 	<p></p>
+
+<hr>
+
+	<h2><a name="BONUSTYPES">Notes on BONUS Types</a></h2>
+
     	<p>Noted by Eddy Anthony - BONUSes with negative numbers have been found to stack even when they have
-	    	matching TYPEs. This needs to be mentioned in the section which explains TYPE stacking and possibly at
-    		the top of the BONUS page as well. An explanation as to why this is would be good as well but I don't
-    		know what this might be.</p>
+    	matching TYPEs. This needs to be mentioned in the section which explains TYPE stacking and possibly at
+    	the top of the BONUS page as well. An explanation as to why this is would be good as well but I don't
+    	know what this might be.</p>
+	<p>Each bonus comes in four different types.</p>
+	<ol>
+		<li>The <strong>Typeless</strong> bonus with no type</li>
+		<li>The <strong>Standard</strong> bonus with type (TYPE=name)</li>
+		<li>The <strong>.REPLACE</strong> bonus type (TYPE=name.REPLACE)</li>
+		<li>The <strong>.STACK</strong> bonus type (TYPE=name.STACK)</li>
+	</ol>
 	<p></p>
+	<p class="indent0"><strong>Bonus Type:</strong> Typeless</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>These have no TYPE= statement, and are always added into the final result.</li>
+		<li>Because it is typeless, it can not be tracked in the OS sheets in a breakdown by bonus type.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>BONUS:HP|CURRENTMAX|3</code></p>
+	<p class="indent3">This bonus would grant the character an additional three hit points.<br /></p>
+	<p class="indent2"><code>BONUS:SKILL|Bluff,Listen|4</code></p>
+	<p class="indent3">This bonus would grant the character a bonus to the listed skills of four.<br /></p>
+	<p class="indent2"><code>BONUS:SKILL|STAT=DEX|1</code></p>
+	<p class="indent3">This would grant the character a bonus of one to all skills based on DEX.</p>
+ 	<p></p>
+	<p class="indent0"><strong>Bonus Type:</strong> Standard</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>These have a TYPE=name and are used for stacking purposes.</li>
+		<li>There is a special system file called system\bonusstacks.lst.</li>
+		<li>If a TYPE is listed in that file, then these TYPEs behave just like a typeless bonus.</li>
+		<li>Otherwise, only the highest value of the same type is used in the final result.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>
+		BONUS:HP|CURRENTMAX|2|TYPE=Luck<br />
+		BONUS:HP|CURRENTMAX|3|TYPE=Luck</code></p>
+	<p class="indent3">So long as the 'Luck' type is not listed in bonusstacks.lst, these two would result
+		in a final value of 3, since 3 is the largest 'Luck' type.<br /></p>
+	<p class="indent2"><code>
+		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck<br />
+		BONUS:SKILL|Bluff,Listen|4|TYPE=Divine</code></p>
+	<p class="indent3">These would return a 3 from Luck, and a 4 from Divine, for a total of 7. They are
+		different Types.<br /></p>
+	<p class="indent2"><code>
+		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck<br />
+		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck<br />
+		BONUS:SKILL|Bluff,Listen|4|TYPE=Divine</code></p>
+	<p class="indent3">This would also return a value of 7, since 3 is the highest Luck bonus, and 4 is
+		the highest Divine bonus.</p>
+ 	<p></p>
+	<p class="indent0"><strong>Bonus Type:</strong> .REPLACE</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This is subtype of the TYPE= standard type.</li>
+		<li>.REPLACE items are counted together to determine the final value of a particular TYPE.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>
+		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE<br />
+		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck.REPLACE<br />
+		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck<br />
+		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck</code></p>
+	<p class="indent3">This would take the 2 and 3 with the .REPLACE (total 5) and compares it
+		to the standards, which are 2 and 4, and takes the highest value, for 5.<br /></p>
+	<p class="indent2"><code>
+		BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE<br />
+		BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE<br />
+		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck.REPLACE<br />
+		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck<br />
+		BONUS:SKILL|Bluff,Listen|6|TYPE=Luck</code></p>
+	<p class="indent3">This would take the values from the .REPLACE (total 4), and compares it to the
+		standards, which are 2 and 6, and takes the highest value, for 6.</p>
+ 	<p></p>
+	<p class="indent0"><strong>Bonus Type:</strong> .STACK</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This is subtype of the TYPE= standard type.</li>
+		<li>.STACK items are counted in addition to the normal and .REPLACE to determine the
+			final value of a particular TYPE.</li>
+		<li>.STACK stacks together with itself like .REPLACE, but is also added to normal types.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>
+		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck<br />
+		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck.STACK</code></p>
+	<p class="indent3">This would take the 4 of TYPE Luck, and then add 2 more from the Stack, on top of it.<br /></p>
+	<p class="indent2"><code>
+		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck.REPLACE<br />
+		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck.STACK</code></p>
+	<p class="indent3">This would take the 4 of TYPE Luck, and then add 4 more from the Stack, on top of it.<br /></p>
+	<p class="indent2"><code>
+		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck<br />
+		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE<br />
+		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE<br />
+		BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.STACK</code></p>
+	<p class="indent3">This would take the 4 normal, compare to the .REPLACE (6) and give the higher
+		value, then add in the .STACK, for a final value of 7.<br /></p>
+	<p class="indent2"><code>
+		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck<br />
+		BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE<br />
+		BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE<br />
+		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.STACK<br />
+		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.STACK</code></p>
+	<p class="indent3">This would take the normal (4), compare it to the total .REPLACE (2), give the higher
+		value, then add in the .STACK (6) for a final value of 10.</p>
+		
+<hr>
+
+	<h2><a name="TAGLIST">BONUS Tag List</a></h2>
 
 <hr>
 
@@ -1733,118 +1845,6 @@
 	<p class="indent3">Allows a character to use smaller 'Light' and 'OneHanded' weapons
 		than would normally be allowed.</p>
 
-<hr>
-
-	<h2><a name="Notes">Miscellaneous Notes on BONUS's</a></h2>
-
-    	<p>Noted by Eddy Anthony - BONUSes with negative numbers have been found to stack even when they have
-    	matching TYPEs. This needs to be mentioned in the section which explains TYPE stacking and possibly at
-    	the top of the BONUS page as well. An explanation as to why this is would be good as well but I don't
-    	know what this might be.</p>
-	<p>Each bonus comes in four different types.</p>
-	<ol>
-		<li>The <strong>Typeless</strong> bonus with no type</li>
-		<li>The <strong>Standard</strong> bonus with type (TYPE=name)</li>
-		<li>The <strong>.REPLACE</strong> bonus type (TYPE=name.REPLACE)</li>
-		<li>The <strong>.STACK</strong> bonus type (TYPE=name.STACK)</li>
-	</ol>
-	<p></p>
-	<p class="indent0"><strong>Bonus Type:</strong> Typeless</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>These have no TYPE= statement, and are always added into the final result.</li>
-		<li>Because it is typeless, it can not be tracked in the OS sheets in a breakdown by bonus type.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>BONUS:HP|CURRENTMAX|3</code></p>
-	<p class="indent3">This bonus would grant the character an additional three hit points.<br /></p>
-	<p class="indent2"><code>BONUS:SKILL|Bluff,Listen|4</code></p>
-	<p class="indent3">This bonus would grant the character a bonus to the listed skills of four.<br /></p>
-	<p class="indent2"><code>BONUS:SKILL|STAT=DEX|1</code></p>
-	<p class="indent3">This would grant the character a bonus of one to all skills based on DEX.</p>
- 	<p></p>
-	<p class="indent0"><strong>Bonus Type:</strong> Standard</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>These have a TYPE=name and are used for stacking purposes.</li>
-		<li>There is a special system file called system\bonusstacks.lst.</li>
-		<li>If a TYPE is listed in that file, then these TYPEs behave just like a typeless bonus.</li>
-		<li>Otherwise, only the highest value of the same type is used in the final result.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>
-		BONUS:HP|CURRENTMAX|2|TYPE=Luck<br />
-		BONUS:HP|CURRENTMAX|3|TYPE=Luck</code></p>
-	<p class="indent3">So long as the 'Luck' type is not listed in bonusstacks.lst, these two would result
-		in a final value of 3, since 3 is the largest 'Luck' type.<br /></p>
-	<p class="indent2"><code>
-		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck<br />
-		BONUS:SKILL|Bluff,Listen|4|TYPE=Divine</code></p>
-	<p class="indent3">These would return a 3 from Luck, and a 4 from Divine, for a total of 7. They are
-		different Types.<br /></p>
-	<p class="indent2"><code>
-		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck<br />
-		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck<br />
-		BONUS:SKILL|Bluff,Listen|4|TYPE=Divine</code></p>
-	<p class="indent3">This would also return a value of 7, since 3 is the highest Luck bonus, and 4 is
-		the highest Divine bonus.</p>
- 	<p></p>
-	<p class="indent0"><strong>Bonus Type:</strong> .REPLACE</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This is subtype of the TYPE= standard type.</li>
-		<li>.REPLACE items are counted together to determine the final value of a particular TYPE.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>
-		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE<br />
-		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck.REPLACE<br />
-		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck<br />
-		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck</code></p>
-	<p class="indent3">This would take the 2 and 3 with the .REPLACE (total 5) and compares it
-		to the standards, which are 2 and 4, and takes the highest value, for 5.<br /></p>
-	<p class="indent2"><code>
-		BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE<br />
-		BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE<br />
-		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck.REPLACE<br />
-		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck<br />
-		BONUS:SKILL|Bluff,Listen|6|TYPE=Luck</code></p>
-	<p class="indent3">This would take the values from the .REPLACE (total 4), and compares it to the
-		standards, which are 2 and 6, and takes the highest value, for 6.</p>
- 	<p></p>
-	<p class="indent0"><strong>Bonus Type:</strong> .STACK</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This is subtype of the TYPE= standard type.</li>
-		<li>.STACK items are counted in addition to the normal and .REPLACE to determine the
-			final value of a particular TYPE.</li>
-		<li>.STACK stacks together with itself like .REPLACE, but is also added to normal types.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>
-		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck<br />
-		BONUS:SKILL|Bluff,Listen|2|TYPE=Luck.STACK</code></p>
-	<p class="indent3">This would take the 4 of TYPE Luck, and then add 2 more from the Stack, on top of it.<br /></p>
-	<p class="indent2"><code>
-		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck.REPLACE<br />
-		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck.STACK</code></p>
-	<p class="indent3">This would take the 4 of TYPE Luck, and then add 4 more from the Stack, on top of it.<br /></p>
-	<p class="indent2"><code>
-		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck<br />
-		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE<br />
-		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE<br />
-		BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.STACK</code></p>
-	<p class="indent3">This would take the 4 normal, compare to the .REPLACE (6) and give the higher
-		value, then add in the .STACK, for a final value of 7.<br /></p>
-	<p class="indent2"><code>
-		BONUS:SKILL|Bluff,Listen|4|TYPE=Luck<br />
-		BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE<br />
-		BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE<br />
-		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.STACK<br />
-		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.STACK</code></p>
-	<p class="indent3">This would take the normal (4), compare it to the total .REPLACE (2), give the higher
-		value, then add in the .STACK (6) for a final value of 10.</p>
-		
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
        	src="../../images/system/valid-html401.png"
