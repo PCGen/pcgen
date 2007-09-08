@@ -493,27 +493,21 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="MOVECLONE">Tag Name:</a></strong> MOVECLONE:w,x,y,z</p>
-	<p class="indent1"><strong>Variables Used (w):</strong> Text (Movement Mode)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Correction to 1st Mode Movement Rate per
-		round)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (2nd Movement Mode)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Mathematical (Calculation for 2nd Mode Movement
-		Rate per round)</p>
+	<p class="indent0"><strong><a name="MOVECLONE">Tag Name:</a></strong> MOVECLONE:x,y,z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (1st movement mode)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (2nd movement mode)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Formula (Calculation for 2nd mode movement rate)</p>
 	<p class="indent1"><strong>What it does:</strong> </p>
 	<ul class="indent2">
 		<li>Creates a new type of movement based on another type.</li>
-		<li>&quot;z&quot; is applied to the original movement rate, then it is copied to the new movement
-			type and the second modifier is applied. </li>
+		<li>&quot;z&quot; is applied to the original movement rate, then it is copied to the new movement type.</li>
 		<li>If no symbol is in the mathematical expression then addition is assumed</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>MOVECLONE:Walk,0,Fly,*2</code></p>
-	<p class="indent3">Do nothing to &quot;Walk&quot;, create the &quot;Fly&quot; movement type and set it
-		equal to &quot;Walk&quot; multiplied by 2.</p>
-	<p class="indent2"><code>MOVECLONE:Walk,10,Tunnel,/3</code></p>
-	<p class="indent3">Add 10 to &quot;Walk&quot;, create &quot;Tunnel&quot; movement type and set it equal
-		to 1/3 of the new &quot;Walk&quot; movement rate.</p>
+	<p class="indent2"><code>MOVECLONE:Walk,Fly,*2</code></p>
+	<p class="indent3">Create the &quot;Fly&quot; movement type and set it equal to &quot;Walk&quot; multiplied by 2.</p>
+	<p class="indent2"><code>MOVECLONE:Walk,Tunnel,/3</code></p>
+	<p class="indent3">Create &quot;Tunnel&quot; movement type and set it equal to 1/3 of the &quot;Walk&quot; movement rate.</p>
 	<p></p>
 
 <hr>
