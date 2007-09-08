@@ -1,0 +1,1178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>|NAME|, |GENDER.LONG| |RACE|</title>
+<style type="text/css">
+	body  { font-family:ScalaSans; font-size:10pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px; padding: 0px; }
+	.header { display:block; font-size:7pt; text-align:center; }
+	.indented { left-margin:20pt; }
+</style>
+<script language="javascript" type="text/javascript">
+var spellsPerDay = new Array();
+function setSpellsCast(aLevel, aNumber) {
+	spellsPerDay[aLevel] = aNumber;
+}
+
+var spellsByLevel = new Array();
+for (i=0; i<9;i++) { spellsByLevel[i] = null; }
+function addSpell(SpellName,SpellLevel,DC,Times,isBonus) {
+	if (spellsByLevel[SpellLevel] == null) {
+		spellsByLevel[SpellLevel] = new Array();
+	}
+	var spellList = spellsByLevel[SpellLevel];
+	var spellText = "<i>"+SpellName+"</i>"; 
+	if (isBonus.indexOf("*")!=-1) {
+		spellText += "<sup> D</sup>";
+	}
+	if (DC != "-1") {
+		spellText += " (DC " + fixNumbers(DC) + ")";
+	}
+	if (Times != "1") {
+		spellText += " (" + fixNumbers(Times) + ")";
+	}
+	spellList[spellList.length] = spellText;
+}
+function printSpells() {
+	var writtenOne = 0;
+	for (i=9;i>=0;i--) {
+		if (spellsByLevel[i] != null) {
+			if (writtenOne == 0) {
+				writtenOne = 1;
+			} else {
+				document.write("<br />");
+			}
+			document.write("&nbsp; &nbsp; ");
+			document.write(fixNumbers(getNumberWithPostfix(i+""))); 
+			if (spellsPerDay[i] != null) {
+				document.write(" (" + fixNumbers(spellsPerDay[i]) + "/day)");
+			}
+			document.write("&mdash;");
+			var spellList = spellsByLevel[i];
+			for (j=0;j<spellList.length;j++) {
+				if (j != 0) {
+					document.write(", ");
+				}
+				document.write(spellList[j]);
+			}
+		}
+	}
+}
+function AddSpellLikeAbility(SpellName,DC,Times,CL,racialCL) {
+	if (spellsByTimes[Times] == null) {
+		spellsByTimes[Times] = new Array();
+	}
+	var spellList = spellsByTimes[Times];
+	var baseSpellName = SpellName;
+	var parenName = "";
+	if (SpellName.indexOf("(")!=-1) {
+		baseSpellName = SpellName.substring(0,SpellName.indexOf("(")-1);
+		parenName = SpellName.substring(SpellName.indexOf("("), SpellName.length-1);
+	}
+	var spellText = "<i>"+baseSpellName+"</i>";
+	if (parenName=="") {
+		if (DC != "-1") {
+			spellText = spellText + " (";
+		} else if (CL != racialCL) {
+			spellText = spellText + " (";
+		}
+	} else {
+		spellText = spellText + " ";
+	}
+
+	spellText = spellText + parenName;
+	if (DC != "-1") {
+		if (parenName!="") {
+			spellText += "; ";
+		}
+		spellText += "DC " + fixNumbers(DC);
+	}
+	if (CL!=racialCL) {
+		if (parenName!="") {
+			spellText += "; ";
+		} else if (spellText.indexOf("DC")!=-1) {
+			spellText += "; ";
+		}
+		spellText += "CL " + fixNumbers(CL+"");
+	}
+	if (spellText.indexOf("(")!=-1) {
+		spellText += ")";
+	}
+	spellList[spellList.length] = spellText;
+} 
+function sortSpells(one,two) {
+	if (one.indexOf("At Will")!=-1) {
+		//alert("One is At Will ---" +one);
+		return -1;
+	} 
+	if (two.indexOf("At Will")!=-1) {
+		//alert("Two is At Will ---"+two);
+		return 1;
+	}
+	if (one.indexOf("/hour")!=-1) {
+		if (two.indexOf("At Will")==-1) {
+			return -1;
+		}
+		return 1;
+	}
+	if (one.indexOf("/day")!=-1) {
+		if (two.indexOf("/hour")!=-1) {
+			return 1;
+		}
+		if (two.indexOf("/day")==-1) {
+			//alert("-1");
+			return -1;
+		}
+		var timesOne = one.substring(0,one.indexOf("/day"));
+		timesOne = timesOne.substring(timesOne.indexOf("\">")+2);
+		timesOne = timesOne.substring(0,timesOne.indexOf("<"));
+		var timesTwo = two.substring(0,two.indexOf("/day"));
+		timesTwo = timesTwo.substring(timesTwo.indexOf("\">")+2);
+		timesTwo = timesTwo.substring(0,timesTwo.indexOf("<"));
+		//alert("/day --- one: " + one + " two: " + two );
+		return timesTwo-timesOne;
+	}
+	if (two.indexOf("/day")!=-1) {
+		if (one.indexOf("/day")==-1) {
+			//alert("1");
+			return 1;
+		}
+		//alert("/day two--- one: " + one + " two: " + two );
+	}
+	//alert("one: " + one + " two: " + two);
+	return 0;
+}
+function PrintSpellLikeAbilities(title, racialCL) {
+	var writtenOne = 0;
+	var spellLines = new Array();
+	//spellsByTimes.sort(sortSpells);
+	for (var times in spellsByTimes) {
+		if (spellsByTimes[times] != null) {
+			var line = "";
+			if (writtenOne == 0) {
+				document.write("<br />");
+				document.write("<b>"+title+"</b>");
+				if (racialCL != 0) {
+					document.write(" (CL ");
+					outputNumberWithPostfix(racialCL);
+					document.write(")");
+				}
+				document.write(": <br />");
+				writtenOne = 1;
+			} else {
+				//document.write("<br />");
+				//line = line + "<br />";
+			}
+			line = line + "&nbsp; &nbsp; ";
+			line = line + fixNumbers(times)+"&mdash;";
+			var spellList = spellsByTimes[times];
+			for (j=0;j<spellList.length;j++) {
+				if (j != 0) {
+					line = line + ", ";
+				}
+				line = line + fixNumbers(spellList[j].replace(/&#39;/g,"'"));
+			}
+			spellLines[spellLines.length] = line;
+		}
+	}
+	spellLines.sort(sortSpells);
+	for (i=0; i<spellLines.length;i++) {
+		document.write(spellLines[i]+"<br/>");
+	}
+	//spellsByTimes = null;
+}
+
+function AttackObject(aMelee,aName,anAttacks,aCategory,aCrit,aDamage,aMult,aNumAttacks,aTHDamage,aHit,aType,aHand,rangedDamage,bonusDamageType,bonusDamageDice,bonusDamageDieSize, aTouchFlag) {
+	this.meleeType = aMelee;
+	this.weapon = aName;
+	this.attack = anAttacks;
+	this.category = aCategory;
+	this.crit = aCrit;
+	if (rangedDamage != "") {
+		this.damage = rangedDamage;
+	} else {
+		this.damage = aDamage;
+	}
+	this.critMult = aMult;
+	this.numAttacks = aNumAttacks;
+	this.thDamage = aTHDamage;
+	this.totalHit = aHit;
+	this.attackType = aType;
+	this.hand = aHand;
+	this.bonusDamageType = bonusDamageType;
+	this.bonusDamageDice = bonusDamageDice;
+	this.bonusDamageDieSize = bonusDamageDieSize;
+	this.touchFlag = aTouchFlag;
+}
+var meleeAttacks = new Array();
+var rangedAttacks = new Array();
+
+function registerAttack(aMelee,aName,anAttacks,aCategory,aCrit,aDamage,aMult,aNumAttacks,aTHDamage,aHit,aType,aHand,rangedDamage, bonusDamageType,bonusDamageDice, bonusDamageDieSize, aTouchFlag) {
+	if (aName=="") {
+		return;
+	}
+	var attackObj = new AttackObject(aMelee,aName,anAttacks,aCategory,aCrit,aDamage,aMult,aNumAttacks,aTHDamage,aHit,aType,aHand,rangedDamage, bonusDamageType, bonusDamageDice, bonusDamageDieSize, aTouchFlag);
+	if (aMelee=="Melee") {
+		meleeAttacks[meleeAttacks.length] = attackObj;
+	} else if (aMelee=="Ranged") {
+		rangedAttacks[rangedAttacks.length] = attackObj;
+	}
+}
+
+function printSingleAttack(attObj) {
+	document.write(fixNumbers(attObj.weapon) + " ");
+	if (attObj.weapon!="Swarm") {
+		document.write(fixNumbers(attObj.totalHit));
+	}
+	if (attObj.touchFlag=="TRUE") {
+		document.write(" touch");
+	}
+	document.write(" (");
+	if (attObj.damage.indexOf("d0")==-1) {
+		document.write(fixNumbers(attObj.damage));
+	}
+	var testOr = 0;
+	if (attObj.crit != "20") {
+		testOr = 1;
+	}
+	if (attObj.critMult != "2") {
+		testOr += 2;
+	}
+	if (testOr > 0) {
+		document.write("/");
+		if (attObj.crit != "20") {
+			document.write(fixNumbers(attObj.crit));
+		}
+		if (attObj.critMult != "2") {
+			if (attObj.crit != "20") {
+				document.write("/");
+			}
+			document.write("x" + fixNumbers(attObj.critMult));
+		}
+	}
+	if (attObj.bonusDamageType.length != 0) {
+		for (b=0;b<attObj.bonusDamageType.length;b++) {
+			if (b==0) {
+				var isBludgeoning = attObj.attackType.indexOf("B")!=-1;
+				var isPiercing = attObj.attackType.indexOf("P")!=-1;
+				var isSlashing = attObj.attackType.indexOf("S")!=-1&&attObj.attackType.indexOf("So")==-1;
+				var specialDamage = !isBludgeoning&&!isPiercing&&!isSlashing;
+				if (attObj.damage.indexOf("d0")==-1 && !specialDamage) {
+					document.write(" plus ");
+				}
+				if (attObj.bonusDamageDice!="0") {
+					document.write(fixNumbers(attObj.bonusDamageDice));
+					document.write("d");
+					document.write(fixNumbers(attObj.bonusDamageDieSize));
+					document.write(" ");
+				}
+				if (specialDamage && attObj.damage.indexOf("d0")==-1) {
+					document.write(" ");
+				}
+				document.write(attObj.bonusDamageType[b]);
+			} else {
+				document.write(" plus ");
+				document.write(attObj.bonusDamageType[b]);
+			}
+		}
+	}
+	document.write(")");
+}
+
+function printAttacks() {
+	for (i=0;i<meleeAttacks.length;i++) {
+		var attObj = meleeAttacks[i];
+		if (i==0) {
+			document.write("<b>Melee</b> ");
+		} else {
+			if (attObj.hand=="Off-hand") {
+				document.write(" and ");
+			} else {
+				document.write(" or <br /><b>Melee</b> ");
+			}
+		}
+		printSingleAttack(attObj);
+		if (i==meleeAttacks.length-1&&rangedAttacks.length>0) {
+			document.write(" or ");
+		}
+	}
+	for (i=0;i<rangedAttacks.length;i++) {
+		if (i==0) {
+			if (meleeAttacks.length>0) {
+				document.write("<br />");
+			}
+			document.write("<b>Ranged</b> ");
+		} else {
+			document.write(" or ");
+		}
+		var attObj = rangedAttacks[i];
+		printSingleAttack(attObj);
+	}
+}
+
+var classes = new Array();
+function addClass(aClass,aLevel) {
+
+	classes[classes.length] = aClass+"<font face=\"ScalaSans Caps\">" + aLevel + "</font>";
+}
+function printClasses() {
+	for (i=0;i<classes.length;i++) {
+		if (i != 0) {
+			document.write("/");
+		}
+		document.write(classes[i]);
+	}
+}
+
+function getNumberWithPostfix(aString) {
+	var num = aString.charAt(aString.length-1);
+	var val = "";
+	if (num == "1" && aString != "11") {
+		val = "st";
+	} else if (num == "2" && aString != "12") {
+		val = "nd";
+	} else if (num == "3" && aString != "13") {
+		val = "rd";
+	} else {
+		val = "th";
+	}
+	aString += val;
+	return aString;
+}
+function outputNumberWithPostfix(aString) {
+	document.write(fixNumbers(getNumberWithPostfix(aString)));
+}
+
+function fixNumbers(aString) {
+	return aString.replace(/(\d+)/g,"<font face=\"ScalaSans Caps\">$1</font>");
+}
+function printSpaceReach(aSpace,aReach) {
+	if (aSpace==1.0 && aReach=="5 ft.") {
+	} else {
+		document.write("<br /><b>Space</b> " + fixNumbers(aSpace*5+" ft."));
+		document.write("; <b>Reach</b> " + fixNumbers(aReach));
+	}
+}
+
+</script>
+</head>
+<body>
+
+<font face="ScalaSans">
+<span class="header">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</span>
+<p>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" summary="Name Field">
+	<tr valign="top">
+		<td width="75%"><b><font face="ScalaSans Caps" size="+1">|NAME|</font></b></td>
+		<td width="25%"><b><font face="ScalaSans Caps" size="+1">CR |CR|</font></b></td>
+	</tr>
+</table>
+|GENDER.LONG| |RACE| 
+|FOR,%class,0,COUNT[CLASSES]-1,1,1|
+|IIF(CLASS.%class.TYPE:Monster)|
+|ELSE|
+|IIF(TEXT.LENGTH.CLASS.%class.LEVEL:0)|
+|ELSE|
+<script language="javascript" text="text/javascript">addClass("|CLASS.%class|", "|CLASS.%class.LEVEL|");</script>
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+<script language="javascript" text="text/javascript">printClasses();</script>
+<br />
+|ALIGNMENT.SHORT| |SIZELONG| |RACETYPE|
+<!-- Silly for loop to allow us to test against the number of subtypes -->
+|MANUALWHITESPACE|
+|FOR,%numsubtypes,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,0|
+|FOR,%subtype,0,COUNT[RACESUBTYPES]-1,1,0|
+|IIF(%subtype:0)|
+(
+|ELSE|
+,&#x0020;
+|ENDIF|
+|RACESUBTYPE.%subtype|
+|IIF(%subtype:%numsubtypes)|
+)
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<br />
+<!--|SOURCELONG| |SOURCEPAGE| -->
+<b>Init</b> <font face="ScalaSans Caps">|INITIATIVEMOD|</font>; <b>Senses</b> 
+|MANUALWHITESPACE|
+|IIF(VISION:Normal.AND.TEXT.LENGTH.VISION:6)|
+|ELSE|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.TEXT.REPLACEFIRST{\__LP__,""}.TEXT.REPLACEFIRST{\__RP__,""}.TEXT.REPLACEFIRST{&#39;," ft."}.TEXT.REPLACEFIRST{Normal$,""}.TEXT.REPLACEFIRST{Normal\,,""}.VISION|
+|ENDIF|
+|FOR,%feat,0,COUNT[FEATTYPE=Senses.ALL]-1,1,0|
+,&#x0020;|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=Senses.DESC|
+|ENDFOR|
+;&#x0020;
+|ENDMANUALWHITESPACE|
+|FOR,%skill,0,COUNT[SKILLS]-1,1,1|
+|IIF(SKILL.%skill:Listen)|
+|SKILL.%skill| <font face="ScalaSans Caps">|SKILL.%skill.TOTAL.SIGN|</font>, 
+|ENDIF|
+|IIF(SKILL.%skill:Spot)|
+|SKILL.%skill| <font face="ScalaSans Caps">|SKILL.%skill.TOTAL.SIGN|</font>
+|ENDIF|
+|ENDFOR|
+<!-- Aura -->
+|FOR,%feat,0,COUNT[FEATTYPE=Aura.ALL]-1,1,0|
+|IIF(%feat:0)|
+<br/><b>Aura</b>
+|ELSE|
+, 
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=Aura.DESC|
+|ENDFOR|
+<!-- Languages -->
+<br /><b>Languages</b> |MANUALWHITESPACE||LANGUAGES| 
+|FOR,%numfeats,COUNT[FEATTYPE=Language.ALL]-1,COUNT[FEATTYPE=Language.ALL]-1,1,0|
+|IIF(%numfeats:-1.AND.TEXT.LENGTH.LANGUAGES:0)|
+&mdash;
+|ENDIF|
+|FOR,%feat,0,COUNT[FEATTYPE=Language.ALL]-1,1,1|
+|IIF(%feat:0)|
+|IIF(TEXT.LENGTH.LANGUAGES:0)|
+|ELSE|
+,&#x0020;
+|ENDIF|
+|ELSE|
+,&#x0020;
+|ENDIF|
+|FEATALL.ALL.%feat.TYPE=Language.DESC|
+|ENDFOR|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<hr />
+|MANUALWHITESPACE|
+<b>AC</b>&#x0020;|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.AC.Total|,&#x0020;touch&#x0020;|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.AC.Touch|,&#x0020;flat-footed&#x0020;|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.AC.Flatfooted|
+|FOR,%feat,0,COUNT[FEATTYPE=ModifyAC.ALL]-1,1,0|
+|IIF(%feat:0)|
+;&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=ModifyAC.DESC|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<br />
+<!-- AC Breakdown -->
+|MANUALWHITESPACE|
+|IIF(AC.Size:0)|
+|ELSE|
+&nbsp;&#x0020;&nbsp;&#x0020;(|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Size.SIGN|</font>&#x0020;size
+|ENDIF|
+|IIF(AC.Ability:0)|
+|ELSE|
+|IIF(AC.Size:0)|
+&nbsp;&#x0020;&nbsp;&#x0020;(
+|ELSE|
+,&#x0020;
+|ENDIF|
+|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Ability.SIGN|</font>&#x0020;Dex
+|ENDIF|
+|IIF(AC.NaturalArmor:0)|
+|ELSE|
+|IIF(AC.Size:0.AND.AC.Ability:0)|
+&nbsp;&#x0020;&nbsp;&#x0020;(
+|ELSE|
+,&#x0020;
+|ENDIF|
+|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.NaturalArmor.SIGN|</font>&#x0020;natural
+|ENDIF|
+|IIF(AC.Misc:0)|
+|ELSE|
+|IIF(AC.Size:0.AND.AC.Ability:0.AND.AC.NaturalArmor:0)|
+&nbsp;&#x0020;&nbsp;&#x0020;(
+|ELSE|
+,&#x0020;
+|ENDIF|
+|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Misc.SIGN|</font>&#x0020;misc
+|ENDIF|
+|IIF(AC.Armor:0)|
+|ELSE|
+|IIF(AC.Size:0.AND.AC.Ability:0.AND.AC.NaturalArmor:0.AND.AC.Misc:0)|
+&nbsp;&#x0020;&nbsp;&#x0020;(
+|ELSE|
+,&#x0020;
+|ENDIF|
+|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Armor.SIGN|&#x0020;</font>|EQ.IS.ARMOR.0.NAME|
+|ENDIF|
+|IIF(AC.Shield:0)|
+|ELSE|
+|IIF(AC.Size:0.AND.AC.Ability:0.AND.AC.NaturalArmor:0.AND.AC.Misc:0.AND.AC.Armor:0)|
+&nbsp;&#x0020;&nbsp;&#x0020;(
+|ELSE|
+,&#x0020;|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Shield.SIGN|</font>
+|ENDIF|
+|IIF(EQ.IS.SHIELD.0.TYPE:HEAVY)|
+&#x0020;Heavy&#x0020;Shield
+|ENDIF|
+|IIF(EQ.IS.SHIELD.0.TYPE:LIGHT)|
+&#x0020;Light&#x0020;Shield
+|ENDIF|
+|IIF(EQ.IS.SHIELD.0.TYPE:BUCKLER)|
+&#x0020;Buckler
+|ENDIF|
+|IIF(EQ.IS.SHIELD.0.TYPE:TOWER)|
+&#x0020;Tower&#x0020;Shield
+|ENDIF|
+|ENDIF|
+|IIF(AC.Size:0.AND.AC.Ability:0.AND.AC.NaturalArmor:0.AND.AC.Misc:0.AND.AC.Armor:0.AND.AC.Shield:0)|
+|ELSE|
+)
+|ENDIF|
+|ENDMANUALWHITESPACE|
+<br />
+<b>hp</b> <font face="ScalaSans Caps">|HP|</font> (<font face="ScalaSans Caps">|HITDICE.SHORT|</font> |MANUALWHITESPACE|HD)
+|FOR,%feat,0,COUNT[FEATTYPE=HP.ALL]-1,1,1|
+|IIF(%feat:0)|
+;&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=HP.DESC|
+|ENDFOR|
+|IIF(TEXT.LENGTH.DR:0)|
+|ELSE|
+;&#x0020;<b>DR</b>&#x0020;|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.DR|
+|ENDIF|
+|ENDMANUALWHITESPACE|
+<!-- Miss Chance -->
+|MANUALWHITESPACE|
+|FOR,%feat,0,COUNT[FEATTYPE=Miss.ALL]-1,1,0|
+|IIF(%feat:0)|
+<br/><b>Miss&#x0020;Chance</b>&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=Miss.DESC|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<!-- Immunities -->
+|MANUALWHITESPACE|
+|FOR,%feat,0,COUNT[FEATTYPE=Immunity.ALL]-1,1,0|
+|IIF(%feat:0)|
+<br/><b>Immune</b>&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=Immunity.DESC|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<!-- Resist -->
+|MANUALWHITESPACE|
+|FOR,%numfeats,COUNT[FEATTYPE=Resistance.ALL]-1,COUNT[FEATTYPE=Resistance.ALL]-1,1,0|
+|FOR,%feat,0,COUNT[FEATTYPE=Resistance.ALL]-1,1,0|
+|IIF(%feat:0)|
+<br/><b>Resist</b>&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=Resistance.DESC|
+|ENDFOR|
+|IIF(TEXT.LENGTH.SR:0.OR.SR:0)|
+|ELSE|
+|IIF(%numfeats:-1)|
+<br />
+|ELSE|
+;&#x0020;
+|ENDIF|
+<b>SR</b>|ENDMANUALWHITESPACE| <font face="ScalaSans Caps">|SR|</font>
+|ENDIF|
+|ENDFOR|
+<!-- Saves -->
+|ENDMANUALWHITESPACE|
+<br /><b>Fort</b> <font face="ScalaSans Caps">|MANUALWHITESPACE||CHECK.FORTITUDE.TOTAL|</font>
+|FOR,%feat,0,COUNT[FEATTYPE=FortSaves.ALL]-1,1,0|
+&#x0020;|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=FortSaves.DESC|
+|ENDFOR|
+,
+|ENDMANUALWHITESPACE|
+ <b>Ref</b> <font face="ScalaSans Caps">|MANUALWHITESPACE||CHECK.REFLEX.TOTAL|</font>
+|FOR,%feat,0,COUNT[FEATTYPE=RefSaves.ALL]-1,1,0|
+&#x0020;|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=RefSaves.DESC|
+|ENDFOR|
+,
+|ENDMANUALWHITESPACE|
+ <b>Will</b> <font face="ScalaSans Caps">|MANUALWHITESPACE||CHECK.WILL.TOTAL|</font>
+|FOR,%feat,0,COUNT[FEATTYPE=WillSaves.ALL]-1,1,0|
+&#x0020;|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=WillSaves.DESC|
+|ENDFOR|
+|FOR,%feat,0,COUNT[FEATTYPE=AllSaves.ALL]-1,1,0|
+&#x0020;|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=AllSaves.DESC|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+|MANUALWHITESPACE|
+|FOR,%feat,0,COUNT[FEATTYPE=Resist.ALL]-1,1,0|
+|IIF(%feat:0)|
+;&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=Resist.DESC|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<!-- Weakness -->
+|MANUALWHITESPACE|
+|FOR,%feat,0,COUNT[FEATTYPE=Weakness.ALL]-1,1,0|
+|IIF(%feat:0)|
+<br/><b>Weakness</b>&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=Weakness.DESC|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<hr />
+<b>Speed</b>&#x0020;
+|MANUALWHITESPACE|
+|FOR,%move,0,COUNT[MOVE]-2,1,1|
+|IIF(MOVE.%move.NAME:Walk)|
+|ELSE|
+|TEXT.LOWER.MOVE.%move.NAME|&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.MOVE.%move.RATE|
+|IIF(MOVE.%move.NAME:Fly)|
+|IIF(VAR.FlyManeuverability.INTVAL:1)|
+&#x0020;(clumsy)
+|ELSE|
+|IIF(VAR.FlyManeuverability.INTVAL:2)|
+&#x0020;(poor)
+|ELSE|
+|IIF(VAR.FlyManeuverability.INTVAL:3)|
+&#x0020;(average)
+|ELSE|
+|IIF(VAR.FlyManeuverability.INTVAL:4)|
+&#x0020;(good)
+|ELSE|
+&#x0020;(perfect)
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|IIF(%move:0)|
+&#x0020;(|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.MOVE.%move.SQUARES|&#x0020;
+|IIF(MOVE.%move.SQUARES:1)|
+square)
+|ELSE|
+squares)
+|ENDIF|
+|ENDIF|
+,&#x0020;
+|ENDFOR|
+|FOR,%move,COUNT[MOVE]-1,COUNT[MOVE]-1,1,1|
+|IIF(MOVE.%move.NAME:Walk)|
+|ELSE|
+|TEXT.LOWER.MOVE.%move.NAME|&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.MOVE.%move.RATE|
+|IIF(MOVE.%move.NAME:Fly)|
+|IIF(VAR.FlyManeuverability.INTVAL:1)|
+&#x0020;(clumsy)
+|ELSE|
+|IIF(VAR.FlyManeuverability.INTVAL:2)|
+&#x0020;(poor)
+|ELSE|
+|IIF(VAR.FlyManeuverability.INTVAL:3)|
+&#x0020;(average)
+|ELSE|
+|IIF(VAR.FlyManeuverability.INTVAL:4)|
+&#x0020;(good)
+|ELSE|
+&#x0020;(perfect)
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|IIF(%move:0)|
+&#x0020;(|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.MOVE.%move.SQUARES|&#x0020;
+|IIF(MOVE.%move.SQUARES:1)|
+square)
+|ELSE|
+squares)
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+|FOR,%feat,0,COUNT[FEATTYPE=Movement.ALL]-1,1,0|
+|IIF(%feat:0)|
+;&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=Movement.DESC|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<br />
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
+<script language="javascript" type="text/javascript">
+var bonusDamageType = new Array();
+</script>
+|IIF(WEAPON.%weap.ISTYPE.Acid)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="acid";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Attach)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="attach";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Blindness)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="blindness";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Cold)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="cold";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Constitution)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="Constitution drain";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.CorporealInstability)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="corporeal instability";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.CursedWound)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="cursed wound";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Disease)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="disease";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Drag)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="drag";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Electricity)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="electricity";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.EnergyDrain)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="energy drain";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Entangle)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="entangle";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Fear)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="fear";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Fire)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="fire";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Combustion)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="combustion";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.InfernalWound)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="infernal wound";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.MagicDrain)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="magic drain";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.MummyRot)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="mummy rot";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Paralysis)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="paralysis";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Petrification)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="petrification";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Poison)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="poison";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.PositiveEnergy)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="positive energy";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Rust)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="rust";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Sleep)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="sleep";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Slime)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="slime";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Slow)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="slow";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Sonic)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="sonic";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Spores)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="spores";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Strength)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="Str";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Stun)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="stun";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Wisdom)|
+<script language="javascript" type="text/javascript">bonusDamageType[bonusDamageType.length]="Wisdom drain";</script>
+|ENDIF|
+|IIF(WEAPON.%weap.ISTYPE.Melee)|
+<script language="javascript" type="text/javascript">registerAttack("Melee","|WEAPON.%weap.NAME.NOSTAR|","|WEAPON.%weap.ATTACKS|","|WEAPON.%weap.CATEGORY|","|WEAPON.%weap.CRIT|","|WEAPON.%weap.DAMAGE|","|WEAPON.%weap.MULT|","|WEAPON.%weap.NUMATTACKS|","|WEAPON.%weap.THDAMAGE|","|WEAPON.%weap.TOTALHIT|","|WEAPON.%weap.TYPE|","|WEAPON.%weap.HAND|","",bonusDamageType,"|VAR.BonusDamageDice.INTVAL|","|VAR.BonusDamageDieSize.INTVAL|","|WEAPON.%weap.ISTYPE.Touch|");</script>
+|IIF(WEAPON.%weap.ISTYPE.FreeAction)|
+<!-- Add an extra copy of the weapon as an 'off-hand' weapon -->
+<script language="javascript" type="text/javascript">registerAttack("Melee","|WEAPON.%weap.NAME.NOSTAR|","|WEAPON.%weap.ATTACKS|","|WEAPON.%weap.CATEGORY|","|WEAPON.%weap.CRIT|","|WEAPON.%weap.DAMAGE|","|WEAPON.%weap.MULT|","|WEAPON.%weap.NUMATTACKS|","|WEAPON.%weap.THDAMAGE|","|WEAPON.%weap.TOTALHIT|","|WEAPON.%weap.TYPE|","Off-hand","",bonusDamageType,"|VAR.BonusDamageDice.INTVAL|","|VAR.BonusDamageDieSize.INTVAL|","|WEAPON.%weap.ISTYPE.Touch|");</script>
+|ENDIF|
+|ELSE|
+<script language="javascript" type="text/javascript">registerAttack("Ranged","|WEAPON.%weap.NAME.NOSTAR|","|WEAPON.%weap.ATTACKS|","|WEAPON.%weap.CATEGORY|","|WEAPON.%weap.CRIT|","|WEAPON.%weap.DAMAGE|","|WEAPON.%weap.MULT|","|WEAPON.%weap.NUMATTACKS|","|WEAPON.%weap.THDAMAGE|","|WEAPON.%weap.TOTALHIT|","|WEAPON.%weap.TYPE|","|WEAPON.%weap.HAND|","|WEAPON.%weap.RANGELIST.4.DAMAGE|",bonusDamageType, "|VAR.BonusDamageDice.INTVAL|","|VAR.BonusDamageDieSize.INTVAL|","|WEAPON.%weap.ISTYPE.Touch|");</script>
+|IIF(WEAPON.%weap.ISTYPE.FreeAction)|
+<script language="javascript" type="text/javascript">registerAttack("Ranged","|WEAPON.%weap.NAME.NOSTAR|","|WEAPON.%weap.ATTACKS|","|WEAPON.%weap.CATEGORY|","|WEAPON.%weap.CRIT|","|WEAPON.%weap.DAMAGE|","|WEAPON.%weap.MULT|","|WEAPON.%weap.NUMATTACKS|","|WEAPON.%weap.THDAMAGE|","|WEAPON.%weap.TOTALHIT|","|WEAPON.%weap.TYPE|","Off-hand","|WEAPON.%weap.RANGELIST.4.DAMAGE|",bonusDamageType, "|VAR.BonusDamageDice.INTVAL|","|VAR.BonusDamageDieSize.INTVAL|","|WEAPON.%weap.ISTYPE.Touch|");</script>
+|ENDIF|
+|ENDIF| <!-- Melee -->
+|ENDFOR|
+|FOR,%weap,0,10,1,0|
+|%WEAPONO.%weap|
+|IIF(WEAPONO.%weap.ISTYPE.Melee)|
+<script language="javascript" type="text/javascript">registerAttack("Melee","|WEAPONO.%weap.NAME.NOSTAR|","|WEAPONO.%weap.ATTACKS|","|WEAPONO.%weap.CATEGORY|","|WEAPONO.%weap.CRIT|","|WEAPONO.%weap.DAMAGE|","|WEAPONO.%weap.MULT|","|WEAPONO.%weap.NUMATTACKS|","|WEAPONO.%weap.THDAMAGE|","|WEAPONO.%weap.TOTALHIT|","|WEAPONO.%weap.TYPE|","|WEAPONO.%weap.HAND|","","","","","|WEAPONO.%weap.ISTYPE.Touch|");</script>
+|ELSE|
+<script language="javascript" type="text/javascript">registerAttack("Ranged","|WEAPONO.%weap.NAME.NOSTAR|","|WEAPONO.%weap.ATTACKS|","|WEAPONO.%weap.CATEGORY|","|WEAPONO.%weap.CRIT|","|WEAPONO.%weap.DAMAGE|","|WEAPONO.%weap.MULT|","|WEAPONO.%weap.NUMATTACKS|","|WEAPONO.%weap.THDAMAGE|","|WEAPONO.%weap.TOTALHIT|","|WEAPONO.%weap.TYPE|","|WEAPONO.%weap.HAND|","|WEAPONO.%weap.RANGELIST.4.DAMAGE|","", "","","|WEAPONO.%weap.ISTYPE.Touch|");</script>
+|ENDIF| <!-- Melee -->
+|%|
+|ENDFOR|
+
+<script language="javascript" type="text/javascript">printAttacks();</script>
+<!-- Space/Reach -->
+|IIF(FACE.SQUARES:1.AND.REACH.SQUARES:1)|
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
+|IIF(WEAPON.%weap.ISTYPE.Reach)|
+<br/><b>Reach</b> |TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.REACH|
+|IIF(WEAPON.%weap.ISTYPE.2Reach)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|*2;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.3Reach)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|*3;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.4Reach)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|*4;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.5Reach)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|*5;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.5ReachAdd)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|+5;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.10ReachAdd)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|+10;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+(<script language="javascript" type="text/javascript">document.write(fixNumbers("|WEAPON.%weap.REACH|"));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+|ELSE|
+<script language="javascript" type="text/javascript">printSpaceReach(|FACE.SQUARES|,"|REACH|");</script>
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
+|IIF(WEAPON.%weap.ISTYPE.Reach)|
+|IIF(WEAPON.%weap.ISTYPE.2Reach)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|*2;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.3Reach)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|*3;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.4Reach)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|*4;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.5Reach)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|*5;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.5ReachAdd)|
+(<script language="javascript" type="text/javascript">var reachAmt = |WEAPON.%weap.REACH|+5;document.write(fixNumbers(reachAmt+""));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ELSE|
+(<script language="javascript" type="text/javascript">document.write(fixNumbers("|WEAPON.%weap.REACH|"));</script> ft. with |WEAPON.%weap.NAME.NOSTAR|)
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ELSE|
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+<br />
+<b>Base Atk</b> <font face="ScalaSans Caps">|ATTACK.MELEE.BASE|</font>; <b>Grp</b> 
+|FOR,%numsubtypes,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,0|
+|FOR,%subtype,0,COUNT[RACESUBTYPES]-1,1,0|
+|IIF(RACESUBTYPE.%subtype:Incorporeal.OR.RACESUBTYPE.%subtype:Swarm)|
+&mdash;
+|BREAK|
+|ELSE|
+<!-- |VAR.%subtype| |VAR.%numsubtypes| -->
+|IIF(%subtype:%numsubtypes)|
+<font face="ScalaSans Caps">|ATTACK.GRAPPLE.BASE.SIGN+ATTACK.GRAPPLE.SIZE.SIGN+ATTACK.GRAPPLE.STAT.SIGN+ATTACK.GRAPPLE.MISC.INTVAL.SIGN|</font>
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+|IIF(%numsubtypes:-1)|
+<font face="ScalaSans Caps">|ATTACK.GRAPPLE.BASE.SIGN+ATTACK.GRAPPLE.SIZE.SIGN+ATTACK.GRAPPLE.STAT.SIGN+ATTACK.GRAPPLE.MISC.INTVAL.SIGN|</font>
+|ENDIF|
+|ENDFOR|
+
+<!-- Special Attacks (This is not part of the WotC format) -->
+|FOR,%feat,0,COUNT[FEATTYPE=SpecialAtk.ALL]-1,1,0|
+|IIF(%feat:0)|
+<br/><b>Special Atk</b>
+|ELSE|
+, 
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=SpecialAtk.DESC|
+|ENDFOR|
+<!-- Attack Options -->
+|MANUALWHITESPACE|
+|FOR,%feat,0,COUNT[FEATTYPE=AttackOption.ALL]-1,1,1|
+|IIF(%feat:0)|
+<br/><b>Atk&#x0020;Options</b>&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.TEXT.REPLACEALL{1d1[^0],"1"}.FEATALL.ALL.%feat.TYPE=AttackOption.DESC|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<!-- Special Actions -->
+|MANUALWHITESPACE|
+|FOR,%feat,0,COUNT[FEATTYPE=SpecialAction.ALL]-1,1,0|
+|IIF(%feat:0)|
+<br/><b>Special&#x0020;Actions</b>&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__ITAL__,"<i>"}.TEXT.REPLACEALL{__ENDITAL__,"</i>"}.TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=SpecialAction.DESC|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<!-- Combat Gear -->
+|FOR,%equip,0,(COUNT[EQUIPMENT.IS.COMBATGEAR]-1),1,1|
+|IIF(%equip:0)|
+<br/><b>Combat Gear</b> 
+|ELSE|
+, 
+|ENDIF|
+|IIF(EQ.IS.CombatGear.%equip.TYPE:Enhancement.OR.EQ.IS.CombatGear.%equip.TYPE:Potion.OR.EQ.IS.CombatGear.%equip.TYPE:Magic)|
+<i>
+|ENDIF|
+|EQ.IS.CombatGear.%equip.NAME|
+|IIF(EQ.IS.CombatGear.%equip.TYPE:Enhancement.OR.EQ.IS.CombatGear.%equip.TYPE:Potion.OR.EQ.IS.CombatGear.%equip.TYPE:Magic)|
+</i>
+|ENDIF|
+|IIF(EQ.IS.CombatGear.%equip.QTY.INTVAL:1)|
+|ELSE|
+ (<font face="ScalaSans Caps">|EQ.IS.CombatGear.%equip.QTY.INTVAL|</font>)
+|ENDIF|
+|ENDFOR|
+<!-- Spells Prepared -->
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+|%SPELLLISTCLASS.%class|
+|IIF(SPELLLISTMEMORIZE.%class)|
+<br/>
+<b>|SPELLLISTCLASS.%class| Spells Prepared</b> (CL <script language="javascript" type="text/javascript">outputNumberWithPostfix("|SPELLLISTCLASS.%class.LEVEL|");</script>)<br/>
+|ENDIF|
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Prepared Spell List)|
+|FOR,%level,0,9,1,1|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,1|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:Fort.OR.SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:Ref.OR.SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:Will.OR.SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:See)|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:harmless)|
+<script language="javascript" type="text/javascript">addSpell("|SPELLMEM.%class.%spellbook.%level.%spell.NAME|","%level","-1","|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|","|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|")</script>
+|ELSE|
+<script language="javascript" type="text/javascript">addSpell("|SPELLMEM.%class.%spellbook.%level.%spell.NAME|","%level","|SPELLMEM.%class.%spellbook.%level.%spell.DC|","|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|","|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|")</script>
+|ENDIF|
+|ELSE|
+<script language="javascript" type="text/javascript">addSpell("|SPELLMEM.%class.%spellbook.%level.%spell.NAME|","%level","-1","|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|","|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|")</script>
+|ENDIF|
+|ENDFOR| <!-- spells -->
+|ENDFOR| <!-- spell level -->
+|ENDIF|
+|ENDFOR|
+<script language="javascript" type="text/javascript">printSpells();</script>
+|%| <!-- SPELLLISTCLASS -->
+|ENDFOR| <!-- spell classes -->
+
+<!-- Domain list -->
+|%DOMAIN.1|<br />
+&nbsp; &nbsp; D: Domain spell. Deity: |DEITY|.
+Domains: 
+|FOR,%domain,1,COUNT[DOMAINS]-1,1,1|
+|DOMAIN.%domain|, 
+|ENDFOR|
+|FOR,%domain,COUNT[DOMAINS],COUNT[DOMAINS],1,1|
+|DOMAIN.%domain|
+|ENDFOR|
+<br />
+|%|
+
+<!-- End Domain list -->
+
+<!-- Spells Known -->
+|FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
+|%SPELLLISTCLASS.%class|
+|IIF(SPELLLISTMEMORIZE.%class)|
+|ELSE|
+<br/>
+|IIF(SPELLLISTMEMORIZE.%class)|
+|ELSE|
+<b>|SPELLLISTCLASS.%class| Spells Known</b> (CL <script language="javascript" type="text/javascript">outputNumberWithPostfix("|SPELLLISTCLASS.%class.LEVEL|");</script>)<br/>
+|ENDIF|
+|FOR,%level,0,9,1,1|
+<script language="javascript" type="text/javascript">setSpellsCast("%level","|SPELLLISTCAST.%class.%level|");</script>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,1|
+|IIF(SPELLMEM.%class.0.%level.%spell.SAVEINFO:Fort.OR.SPELLMEM.%class.0.%level.%spell.SAVEINFO:Ref.OR.SPELLMEM.%class.0.%level.%spell.SAVEINFO:Will.OR.SPELLMEM.%class.0.%level.%spell.SAVEINFO:See)|
+|IIF(SPELLMEM.%class.0.%level.%spell.SAVEINFO:harmless)|
+<script language="javascript" type="text/javascript">addSpell("|SPELLMEM.%class.0.%level.%spell.NAME|","%level","-1","|SPELLMEM.%class.0.%level.%spell.TIMES|","|SPELLMEM.%class.0.%level.%spell.BONUSSPELL|")</script>
+|ELSE|
+<script language="javascript" type="text/javascript">addSpell("|SPELLMEM.%class.0.%level.%spell.NAME|","%level","|SPELLMEM.%class.0.%level.%spell.DC|","|SPELLMEM.%class.0.%level.%spell.TIMES|","|SPELLMEM.%class.0.%level.%spell.BONUSSPELL|")</script>
+|ENDIF|
+|ELSE|
+<script language="javascript" type="text/javascript">addSpell("|SPELLMEM.%class.0.%level.%spell.NAME|","%level","-1","|SPELLMEM.%class.0.%level.%spell.TIMES|","|SPELLMEM.%class.0.%level.%spell.BONUSSPELL|")</script>
+|ENDIF|
+|ENDFOR| <!-- spells -->
+|ENDFOR| <!-- spell level -->
+<script language="javascript" type="text/javascript">printSpells();</script>
+|ENDIF|
+|%| <!-- SPELLLISTCLASS -->
+|ENDFOR| <!-- spell classes -->
+
+<!-- Spell-Like Abilities -->
+<script language="javascript" type="text/javascript">var spellsByTimes = new Object();</script>
+|FOR,%sla,0,COUNT[SPELLLIKEABILITIES.Innate]-1,1,1|
+|IIF(SPELLLIKEABILITY.Innate.%sla.SPELL.SAVEINFO:negates.OR.SPELLLIKEABILITY.Innate.%sla.SPELL.SAVEINFO:half.OR.SPELLLIKEABILITY.Innate.%sla.SPELL.SAVEINFO:partial.OR.SPELLLIKEABILITY.Innate.%sla.SPELL.SAVEINFO:disbelief.OR.SPELLLIKEABILITY.Innate.%sla.SPELL.SAVEINFO:See text)|
+|IIF(SPELLLIKEABILITY.Innate.%sla.SPELL.SAVEINFO:harmless)|
+<script language="javascript" type="text/javascript">AddSpellLikeAbility("|SPELLLIKEABILITY.Innate.%sla.NAME|","-1","|SPELLLIKEABILITY.Innate.%sla.TIMES|",|SPELLLIKEABILITY.Innate.%sla.CASTERLEVEL|, |VAR.RacialCL.INTVAL|)</script>
+|ELSE|
+<script language="javascript" type="text/javascript">AddSpellLikeAbility("|SPELLLIKEABILITY.Innate.%sla.NAME|","|SPELLLIKEABILITY.Innate.%sla.DC|","|SPELLLIKEABILITY.Innate.%sla.TIMES|",|SPELLLIKEABILITY.Innate.%sla.CASTERLEVEL|, |VAR.RacialCL.INTVAL|)</script>
+|ENDIF|
+|ELSE|
+<script language="javascript" type="text/javascript">AddSpellLikeAbility("|SPELLLIKEABILITY.Innate.%sla.NAME|","-1","|SPELLLIKEABILITY.Innate.%sla.TIMES|",|SPELLLIKEABILITY.Innate.%sla.CASTERLEVEL|, |VAR.RacialCL.INTVAL|)</script>
+|ENDIF|
+|ENDFOR|
+<span class="indented">
+<script language="javascript" type="text/javascript">PrintSpellLikeAbilities("Spell-Like Abilities","|VAR.RacialCL.INTVAL|")</script>
+</span>
+
+<!-- Quasi-Psi-Like Abilities -->
+<script language="javascript" type="text/javascript">var spellsByTimes = new Object();</script>
+|FOR,%sla,0,COUNT[SPELLLIKEABILITIES.Psionic]-1,1,1|
+|IIF(SPELLLIKEABILITY.Psionic.%sla.SPELL.SAVEINFO:negates.OR.SPELLLIKEABILITY.Psionic.%sla.SPELL.SAVEINFO:half.OR.SPELLLIKEABILITY.Psionic.%sla.SPELL.SAVEINFO:partial.OR.SPELLLIKEABILITY.Psionic.%sla.SPELL.SAVEINFO:disbelief)|
+|IIF(SPELLLIKEABILITY.Psionic.%sla.SPELL.SAVEINFO:harmless)|
+<script language="javascript" type="text/javascript">AddSpellLikeAbility("|SPELLLIKEABILITY.Psionic.%sla.NAME|","-1","|SPELLLIKEABILITY.Psionic.%sla.TIMES|",|SPELLLIKEABILITY.Psionic.%sla.CASTERLEVEL|, |VAR.PsionicsCL.INTVAL|)</script>
+|ELSE|
+<script language="javascript" type="text/javascript">AddSpellLikeAbility("|SPELLLIKEABILITY.Psionic.%sla.NAME|","|SPELLLIKEABILITY.Psionic.%sla.DC|","|SPELLLIKEABILITY.Psionic.%sla.TIMES|",|SPELLLIKEABILITY.Psionic.%sla.CASTERLEVEL|, |VAR.PsionicsCL.INTVAL|)</script>
+|ENDIF|
+|ELSE|
+<script language="javascript" type="text/javascript">AddSpellLikeAbility("|SPELLLIKEABILITY.Psionic.%sla.NAME|","-1","|SPELLLIKEABILITY.Psionic.%sla.TIMES|",|SPELLLIKEABILITY.Psionic.%sla.CASTERLEVEL|, |VAR.PsionicsCL.INTVAL|)</script>
+|ENDIF|
+|ENDFOR|
+<span class="indented">
+<script language="javascript" type="text/javascript">PrintSpellLikeAbilities("Psionics","|VAR.PsionicsCL.INTVAL|")</script>
+</span>
+
+<hr />
+<b>Abilities</b> 
+|FOR,%stat,0,COUNT[STATS]-2,1,1|
+|IIF(STAT.%stat:*)|
+|STAT.%stat.NAME|&nbsp;&mdash;,
+|ELSE|
+|STAT.%stat.NAME|&nbsp;<font face="ScalaSans Caps">|STAT.%stat|</font>, 
+|ENDIF|
+|ENDFOR|
+|FOR,%stat,COUNT[STATS]-1,COUNT[STATS]-1,1,1|
+|IIF(STAT.%stat:*)|
+|STAT.%stat.NAME|&nbsp;&mdash;
+|ELSE|
+|STAT.%stat.NAME|&nbsp;<font face="ScalaSans Caps">|STAT.%stat|</font>
+|ENDIF|
+|ENDFOR|
+<!-- SQ -->
+|MANUALWHITESPACE|
+|FOR,%feat,0,COUNT[FEATTYPE=SQ.ALL]-1,1,1|
+|IIF(%feat:0)|
+<br/><b>SQ</b>&#x0020;
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.ALL.%feat.TYPE=SQ.DESC|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<!-- User Feats -->
+<br /><b>Feats</b> 
+|MANUALWHITESPACE|
+|FOR,%numfeats,COUNT[FEATSNOTAUTO.VISIBLE]-1,COUNT[FEATSNOTAUTO.VISIBLE]-1,1,0|
+<!-- |VAR.%numfeats| -->
+|IIF(%numfeats:-1)|
+&mdash;
+|ENDIF|
+|ENDFOR|
+|FOR,%feat,0,COUNT[FEATSNOTAUTO.VISIBLE]-1,1,0|
+|IIF(%feat:0)|
+|ELSE|
+,&#x0020;
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATNOTAUTO.VISIBLE.%feat.NAME|
+|IIF(FEATNOTAUTO.VISIBLE.%feat.NATURE:VIRTUAL)|
+<sup>B</sup>
+|ENDIF|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<!-- Skills -->
+<br /><b>Skills</b> 
+|IIF(TEXT.LENGTH.SKILLLISTMODS:0)|
+&mdash;
+|ELSE|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.SKILLLISTMODS|
+|ENDIF|
+<!-- Possessions -->
+|MANUALWHITESPACE|
+|FOR,%equip,0,(COUNT[EQUIPMENT.NOT.NATURAL.NOT.COMBATGEAR]-1),1,1|
+|IIF(%equip:0)|
+<br /><b>Possessions&#x0020;</b> 
+|FOR,%silly,0,COUNT[EQUIPMENT.IS.COMBATGEAR]-1,1,0|
+|IIF(%silly:0)|
+combat&#x0020;gear&#x0020;plus&#x0020;
+|ENDIF|
+|ENDFOR|
+|ELSE|
+,&#x0020;
+|ENDIF|
+|IIF(EQ.NOT.Natural.NOT.COMBATGEAR.%equip.TYPE:Enhancement.OR.EQ.NOT.Natural.NOT.COMBATGEAR.%equip.TYPE:Potion.OR.EQ.NOT.Natural.NOT.COMBATGEAR.%equip.TYPE:Magic)|
+<i>
+|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.EQ.NOT.Natural.NOT.COMBATGEAR.%equip.NAME|
+|IIF(EQ.NOT.Natural.NOT.COMBATGEAR.%equip.TYPE:Enhancement.OR.EQ.NOT.Natural.NOT.COMBATGEAR.%equip.TYPE:Potion.OR.EQ.NOT.Natural.NOT.COMBATGEAR.%equip.TYPE:Magic)|
+</i>
+|ENDIF|
+|IIF(EQ.NOT.Natural.NOT.COMBATGEAR.%equip.QTY.INTVAL:1)|
+|ELSE|
+ (<font face="ScalaSans Caps">|EQ.NOT.Natural.NOT.COMBATGEAR.%equip.QTY.INTVAL|</font>)
+|ENDIF|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<!-- Spellbook -->
+<!--
+<script language="javascript" type="text/javascript">printFeatsOfType("Any","Trick","<br /><b>Tricks</b> ", "<br/>");</script>
+-->
+<hr>
+<!-- Explaination of abilities -->
+|MANUALWHITESPACE|
+|FOR,%feat,0,COUNT[FEATSALL.HIDDEN]-1,1,1|
+|IIF(TEXT.LENGTH.FEATALL.HIDDEN.%feat.BENEFIT:0)|
+|ELSE|
+<b>|FEATALL.HIDDEN.%feat.OUTPUTNAME| 
+|IIF(FEATALL.HIDDEN.%feat.IS=EXTRAORDINARY:1)|
+&#x00020;(Ex)
+|ELSE|
+|IIF(FEATALL.HIDDEN.%feat.IS=SUPERNATURAL:1)|
+&#x0020;(Su)
+|ELSE|
+|IIF(FEATALL.HIDDEN.%feat.IS=SPELLLIKE:1)|
+&#x0020;(Sp)
+|ENDIF|
+|ENDIF|
+|ENDIF|
+</b>
+</i>
+&#x0020;|TEXT.REPLACEALL{\.\,,". "}.TEXT.REPLACEALL{__ITAL__,"<i>"}.TEXT.REPLACEALL{__ENDITAL__,"</i>"}.TEXT.REPLACEALL{__NL__,"<br/>"}.TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.TEXT.REPLACEALL{&#39;,"'"}.FEATALL.HIDDEN.%feat.BENEFIT|<br/>
+|ENDIF|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+</font>
+</body>
+</html>

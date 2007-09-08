@@ -58,7 +58,7 @@ public abstract class BaseCharacterInfoTab extends FilterAdapterPanel implements
 	public BaseCharacterInfoTab(final PlayerCharacter aPC)
 	{
 		thePC = aPC;
-		setName(getTab().toString());
+		setName(getTab().label());
 	}
 
 	/**

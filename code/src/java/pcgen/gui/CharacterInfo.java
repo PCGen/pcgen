@@ -374,6 +374,7 @@ public final class CharacterInfo extends JPanel {
 		addTab(infoSpells());
 		addTab(infoInventory());
 		addTab(infoDesc());
+		addTab(new InfoCharacterSheet(pc));
 		for (int i = 0; i < tempTabList.size(); i++) {
 			CharacterInfoTab tab = (CharacterInfoTab) tempTabList.get(i);
 			addTab(tab);

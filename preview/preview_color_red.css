@@ -1,0 +1,19 @@
+/* Colored Elements */
+.color_header {
+	background: #bb9999;
+}
+.color_hilite {
+	background: #ffeeee;
+}
+.bor_col_dark {
+	border-color:#885555;
+}
+.bor_col_light {
+	border-color:#cccccc;
+}
+.odd {
+	background: white;
+}
+.even {
+	background: #ffeeee;
+}

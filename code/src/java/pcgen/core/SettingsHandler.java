@@ -159,7 +159,7 @@ public final class SettingsHandler
 	private static int prereqQualifyColor = 0x000000; // 0 = black, 0xFF0000 = red, 0xFFFFFF = white
 	private static int prereqFailColor = 0xFF0000; // 0 = black, 0xFF0000 = red, 0xFFFFFF = white
 	private static boolean previewTabShown = false;
-
+	private static File pcgenPreviewDir = new File(Globals.getDefaultPath() + File.separator + "preview");
 
 /////////////////////////////////////////////////
 	private static boolean ranStartingWizard = false;
@@ -1203,6 +1203,8 @@ public final class SettingsHandler
 						System.getProperty("user.dir") + File.separator + "lib" + File.separator + "themes")))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		setPcgenOutputSheetDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenOutputSheetDir", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "outputsheets")))); //$NON-NLS-1$ //$NON-NLS-2$
+		setPcgenPreviewDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenPreviewDir", //$NON-NLS-1$
+				System.getProperty("user.dir") + File.separator + "preview")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setGmgenPluginDir(new File(expandRelativePath(getOptions().getProperty("gmgen.files.gmgenPluginDir", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "plugins")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setPcgPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.characters", //$NON-NLS-1$
@@ -1371,6 +1373,15 @@ public final class SettingsHandler
 		else
 		{
 			getOptions().setProperty("pcgen.files.pcgenOutputSheetDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+
+		if (getPcgenPreviewDir() != null)
+		{
+			getOptions().setProperty("pcgen.files.pcgenPreviewDir", retractRelativePath(getPcgenPreviewDir().getAbsolutePath()));
+		}
+		else
+		{
+			getOptions().setProperty("pcgen.files.pcgenPreviewDir", Constants.EMPTY_STRING);
 		}
 
 		if (getGmgenPluginDir() != null)
@@ -1784,6 +1795,16 @@ public final class SettingsHandler
 		return pcgenThemePackDir;
 	}
 
+	public static void setPcgenPreviewDir(final File aFile)
+	{
+		pcgenPreviewDir = aFile;
+	}
+	
+	public static File getPcgenPreviewDir()
+	{
+		return pcgenPreviewDir;
+	}
+	
 	/**
 	 * Sets the path to the portrait files.
 	 *

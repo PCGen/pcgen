@@ -173,6 +173,9 @@ public final class GameMode implements Comparable<Object>
 
 	private List<AbilityCategory> theAbilityCategories = new ArrayList<AbilityCategory>(5);
 
+	private String thePreviewDir;
+	private String theDefaultPreviewSheet;
+	
 	/**
 	 * Creates a new instance of GameMode.
 	 *
@@ -182,6 +185,8 @@ public final class GameMode implements Comparable<Object>
 	{
 		name = modeName;
 		folderName = modeName;
+		thePreviewDir = modeName;
+		theDefaultPreviewSheet = "preview.html"; //$NON-NLS-1$
 
 		for (Tab aTab : Tab.values())
 		{
@@ -3190,6 +3195,26 @@ public final class GameMode implements Comparable<Object>
 			theAbilityCategories.add(0, AbilityCategory.FEAT);
 		}
 		return Collections.unmodifiableCollection(theAbilityCategories);
+	}
+
+	public void setPreviewDir(final String aDir)
+	{
+		thePreviewDir = aDir;
+	}
+	
+	public String getPreviewDir()
+	{
+		return thePreviewDir;
+	}
+	
+	public void setDefaultPreviewSheet(final String aSheet)
+	{
+		theDefaultPreviewSheet = aSheet;
+	}
+	
+	public String getDefaultPreviewSheet()
+	{
+		return theDefaultPreviewSheet;
 	}
 }
 

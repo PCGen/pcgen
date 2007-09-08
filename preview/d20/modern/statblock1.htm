@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>|NAME|, |GENDER.LONG| |RACE|</title>
+<!--
+	*** This is csheet_fantasy_statblock1 with modern additions - Frank Kliewe ***
+
+
+$Revision$
+$Author: frank_kliewe $
+$Date$
+
+-->
+<style type="text/css">
+	body  { font-family:arial; font-size:10pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px; padding: 0px; }
+	.header { display:block; font-size:7pt; text-align:center; }
+</style>
+</head>
+<body>
+<span class="header">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</span>
+<p>
+<b>|NAME|<br />
+|SIZELONG|-size |GENDER.LONG| |TEMPLATELIST| |RACE|<br />
+|CLASSLIST|</b></p>
+<table width="75%" border="0" cellspacing="0" cellpadding="0" summary="Character Info Table">
+|%VAR.ACTIONREMAIN.GT.0|
+  <tr valign="top">
+    <td width="25%"><b>Action Points: </b></td>
+    <td width="75%">|VAR.ACTIONREMAIN.INTVAL| </td>
+  </tr>
+|%|
+  <tr valign="top">
+    <td width="25%"><b>Hit Dice: </b></td>
+    <td width="75%">|HITDICE| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Hit Points: </b></td>
+    <td width="75%">|HP| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Initiative: </b></td>
+    <td width="75%">|INITIATIVEMOD| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Speed: </b></td>
+    <td width="75%">|MOVEMENT| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Defense: </b></td>
+    <td width="75%">|AC.Total| (flatfooted |AC.Flatfooted|, touch |AC.Touch|)</td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Attacks: </b></td>
+    <td width="75%">
+|FOR,%weap,0,COUNT[EQTYPE.Weapon],1,0|
+|WEAPON.%weap.NAME|
+|IIF(WEAPON.%weap.TOTALHIT:N/A)|
+(two handed) |WEAPON.%weap.THHIT|;
+|ELSE|
+|WEAPON.%weap.TOTALHIT|;
+|ENDIF|
+|ENDFOR|
+    </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Damage: </b></td>
+    <td width="75%">
+|FOR,%weap,0,COUNT[EQTYPE.Weapon],1,0|
+|WEAPON.%weap.NAME|
+|IIF(WEAPON.%weap.TOTALHIT:N/A)|
+(two handed) |WEAPON.%weap.THDAMAGE|;
+|ELSE|
+|WEAPON.%weap.DAMAGE|;
+|ENDIF|
+|ENDFOR|
+    </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Vision: </b></td>
+    <td width="75%">|VISION| </td>
+  </tr>
+
+  <tr valign="top">
+    <td width="25%"><b>Face / Reach: </b></td>
+    <td width="75%">|FACE| / |REACH| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Special Qualities & Talents: </b></td>
+    <td width="75%">|SPECIALLIST| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Saves: </b></td>
+    <td width="75%">
+|FOR,%checks,0,COUNT[CHECKS]-2,1,0|
+|CHECK.%checks.NAME|: |CHECK.%checks.TOTAL|,
+|ENDFOR|
+|FOR,%checks,COUNT[CHECKS]-1,COUNT[CHECKS]-1,1,0|
+|CHECK.%checks.NAME|: |CHECK.%checks.TOTAL|
+|ENDFOR|
+    </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Abilities: </b></td>
+    <td width="75%">
+|FOR,%stat,0,COUNT[STATS]-2,1,1|
+|STAT.%stat.NAME|&nbsp;|STAT.%stat|&nbsp;(|STAT.%stat.MOD|),
+|ENDFOR|
+|FOR,%stat,COUNT[STATS]-1,COUNT[STATS]-1,1,1|
+|STAT.%stat.NAME|&nbsp;|STAT.%stat|&nbsp;(|STAT.%stat.MOD|)
+|ENDFOR|
+     </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Skills: </b></td>
+    <td width="75%">|FOR.0,COUNT[SKILLS]-1,100,\SKILL.%.NAME\ \SKILL.%.TOTAL\;       , , ,0| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Feats: </b></td>
+    <td width="75%">|FEATALLLIST| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Challenge Rating: </b></td>
+    <td width="75%">|CR| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%">&nbsp;</td>
+    <td width="75%">&nbsp; </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Starting Occupation:</b></td>
+    <td width="75%">|FEATALL.HIDDEN.0.TYPE=Occupation|</td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Reputation:</b></td>
+    <td width="75%">|VAR.REPUTATION.INTVAL|</td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Wealth Bonus:</b></td>
+    <td width="75%">|VAR.WEALTH.INTVAL|</td>
+  </tr>
+</table>
+<p><b>Possessions: </b>
+|FOR,%equip,0,COUNT[EQUIPMENT]-2,1,1|
+|IIF(EQ.%equip.TYPE:VIRTUAL)|
+|ELSE|
+|EQ.%equip.NAME|,
+|ENDIF|
+|ENDFOR|
+|FOR,%equip,COUNT[EQUIPMENT]-1,COUNT[EQUIPMENT]-1,1,1|
+|IIF(EQ.%equip.TYPE:VIRTUAL)|
+|ELSE|
+|EQ.%equip.NAME|
+|ENDIF|
+;
+|ENDFOR|
+</p>
+|%REGION|<p> Region: |REGION| </p>|%|
+|%DOMAIN.1|
+Deity: |DEITY| <i>Domains</i>: |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\(\DOMAIN.%.POWER\), ,NONE,2|
+<br />
+|%|
+|%SPELLLISTCLASS.0|
+<i>Spells:</i><br />
+|%|
+
+|%SPELLLISTBOOK.0.0.1|
+<b>Innate:</b>
+|FOR,%spell,0,COUNT[SPELLSINBOOK0.1.0]-2,1,1|
+|SPELLMEM.0.1.0.%spell.NAME|,
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK0.1.0]-1,COUNT[SPELLSINBOOK0.1.0]-1,1,1|
+|SPELLMEM.0.1.0.%spell.NAME|
+|ENDFOR|
+<br />
+|%|
+|FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
+|%SPELLLISTCLASS.%class|
+Spells per Day: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level)<br />
+<b>|SPELLLISTCLASS.%class| - Known: </b><br />
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+|%SPELLLISTBOOK.%class.%level.0|
+<b>Level |%level|:</b>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-2,1,1|
+|SPELLMEM.%class.0.%level.%spell.NAME|,
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.0.%level]-1,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,1|
+|SPELLMEM.%class.0.%level.%spell.NAME|
+|ENDFOR|
+<br />
+|%|
+|ENDFOR|
+|ENDFOR|
+
+|%|
+
+</body>
+</html>
+

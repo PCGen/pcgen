@@ -1,0 +1,721 @@
+<html>
+<!--
+PCGen Character Sheet Template
+==============================
+
+Author: Richard O'Doherty-Gregg
+Email: OdGregg@bigpond.com
+Modifications by: arcady
+Email: arcady0@yahoo.com
+Revisions: Barak
+Email: barak@voyager.net
+
+Revisions: Chuck Pint 07/16/04 Fixed improperly formed SPELLLIST tags
+
+
+$Revision$
+$Date$
+
+-->
+<head>
+<title>|NAME| [|POOL.COST| Points]</title>
+<style TYPE="text/css">
+	.h { font-family: Arial; font-size:8pt; vertical-align: bottom; }
+	.hs { font-family: Arial; font-size:6pt; border-top-width:1px; border-top: 1pt solid black; vertical-align:top; background: #CCCCCC; }
+	.ah { font-family: Arial; font-size:4pt; text-align:center; }
+	.ab { font-family: Arial; font-size:10pt; text-align:center; color:white; background:black; }
+	.sc { font-family: Arial; font-size: 5pt }
+	.scr { font-family: Arial; font-size: 5pt; text-align:right }
+	.scbr { font-family: Arial; font-size: 5pt;	border-right-width:1px; border-right: 1pt solid black; text-align:right}
+	.hph { font-family: Arial; font-size: 7pt;	text-align:center; vertical-align:bottom;}
+	.ach { font-family: Arial; font-size: 7pt;	text-align:center; vertical-align:middle;}
+ 	.acb { font-family: Arial; font-size: 9pt; font-weight:bold; text-align:center; vertical-align:middle; border: 1px solid black;}
+ 	.hphs { font-family: Arial; font-size: 5pt;	text-align:center; vertical-align:bottom;}
+	.hpb { font-family: Arial; font-size: 9pt; font-weight:bold; text-align:center; vertical-align:middle; border: 1px solid black;}
+	.hpbb { font-family: Arial; font-size: 9pt; font-weight:bold; color:white; background:black; text-align:center; vertical-align:middle; border: 1px solid black;}
+	.abb { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 1px solid black;}
+	.abt { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 5px solid lightgray;}
+	.sptab { font-family: Arial; vertical-align:top;border: 1px solid black; text-align:center;font-size:8pt;}
+	.spname { font-family: Arial; vertical-align:top;border: 1px solid black; text-align:left;font-size:8pt;}
+	.sptop { font-family: Arial; vertical-align:top;border: 1px solid black; text-align:center;font-size:8pt; color:white;}
+	.splevel {  font-family: Arial; background:black; text-align:center;font-size:9pt; color:white;}
+	.sphead {  font-family: Arial; background:black; text-align:center;font-size:12pt; color:white;}
+	.spcomp { font-family: Arial; vertical-align:top; text-align:left;font-size:6pt;}
+	.spch { font-family:Wingdings; vertical-align:top; text-align:right;font-size:7pt;}
+	.spch2 { font-family:Wingdings; vertical-align:top; text-align:right;font-size:5pt;}
+	.spcomp2 { font-family: Arial; vertical-align:top; text-align:left;font-size:5pt;}
+	.spch3 { font-family:Wingdings; vertical-align:top; text-align:right;font-size:9pt;}
+	.spcomp3 { font-family: Arial; vertical-align:top; text-align:left;font-size:9pt;}
+	.biodata { font-family: Arial; vertical-align:bottom; text-align:left;font-size:9pt;}
+	.topline {
+		border-top-width:1px;
+		border-top: 1pt solid black;
+		font-size:6pt;
+	}
+	.border {
+		border: 1px solid black;
+	}
+	.tempborder {
+		border: 5px solid lightgray;
+	}
+	.borderbottom {
+		border-bottom-width:1px;
+		border-bottom: 1pt solid black;
+	}
+	.c, .wbc {
+		text-align: center;
+	}
+	td {
+		font-family: Arial
+	}
+	span.notes p {margin-top:0; margin-bottom:0;}
+</style>
+</head>
+
+<body>
+<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br>
+<font style="font-size:6pt">
+<table cellpadding="0" cellspacing="4" border="0" width="100%">
+<tr>
+<td colspan="2" class="h">|NAME|</td>
+<td colspan="2" class="h">|PLAYERNAME|</td>
+<td colspan="1" class="h">|ALIGNMENT|</td>
+<td colspan="1" class="h">|DEITY|</td>
+<td class="h">|POOL.COST|</td>
+<td rowspan="6" align="center" width="1%" class="border"><font style="font-size:10pt"><A HREF="#Bio"><IMG SRC="|NAME|.jpg" height="100" ALT="Click for Bio" BORDER="0"></A><br /></font></td>
+</tr>
+<tr>
+<td colspan="2" class="topline">CHARACTER NAME</td>
+<td colspan="2" class="topline">PLAYER</td>
+<td colspan="1" class="topline">ALIGNMENT</td>
+<td colspan="1" class="topline">DEITY</td>
+<td class="topline">POINTS</td>
+</tr>
+<tr>
+<td colspan="1" class="h">|CLASSLIST|</td>
+<td colspan="1" class="h">|EXP.CURRENT|</td>
+<td colspan="1" class="h">|RACE|</td>
+<td class="h">|SIZE|</td>
+<td class="h">|HEIGHT|</td>
+<td class="h">|WEIGHT|</td>
+<td colspan="1" class="h">|VISION|</td>
+</tr>
+<tr>
+<td colspan="1" class="topline">CLASS</td>
+<td colspan="1" class="topline">EXPERIENCE</td>
+<td colspan="1" class="topline">RACE</td>
+<td class="topline">SIZE</td>
+<td class="topline">HEIGHT</td>
+<td class="topline">WEIGHT</td>
+<td colspan="1" class="topline">VISION</td>
+</tr>
+<tr>
+<td class="h">|TOTALLEVELS|</td>
+<td class="h">|EXP.NEXT|</td>
+<td class="h">|AGE|</td>
+<td class="h">|GENDER|</td>
+<td class="h">|COLOR.EYE|</td>
+<td colspan="2" class="h">|COLOR.HAIR|, |LENGTH.HAIR|</td>
+</tr>
+<tr>
+<td class="topline">LEVEL</td>
+<td class="topline">NEXT LEVEL</td>
+<td class="topline">AGE</td>
+<td class="topline">GENDER</td>
+<td class="topline">EYES</td>
+<td colspan="2" class="topline">HAIR</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td rowspan="2" valign="top">
+<table>
+<tr>
+<td align="center" width="20%"><font style="font-size: 4pt">ABILITY<br />NAME</font></td>
+<td align="center" width="20%"><font style="font-size: 4pt">ABILITY<br />SCORE</font></td>
+<td align="center" width="20%"><font style="font-size: 4pt">ABILITY<br />MODIFIER</font></td>
+<td align="center" width="20%"><font style="font-size: 4pt">TEMPORARY<br />SCORE</font></td>
+<td align="center" width="20%"><font style="font-size: 4pt">TEMPORARY<br />MODIFIER</font></td>
+</tr>
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>Str</b></font><font style="font-size:5pt" color="white"><br />Strength</font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.0|</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.0.MOD|</b></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+</tr>
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>Dex</b></font><font style="font-size:5pt" color="white"><br />Dexterity</font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.1|</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.1.MOD|</b></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+</tr>
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>Con</b></font><font style="font-size:5pt" color="white"><br />Constitution</font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.2|</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.2.MOD|</b></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+</tr>
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>Int</b></font><font style="font-size:5pt" color="white"><br />Intelligence</font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.3|</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.3.MOD|</b></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+</tr>
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>Wis</b></font><font style="font-size:5pt" color="white"><br />Wisdom</font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.4|</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.4.MOD|</b></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+</tr>
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>Cha</b></font><font style="font-size:5pt" color="white"><br />Charisma</font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.5|</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.5.MOD|</b></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+</tr>
+</table>
+</td>
+<td colspan="2" valign="top">
+<table>
+<tr>
+<td align="center" width="50"><font style="font-size: 7pt"></font></td>
+<td align="center" width="25" valign="bottom"><font style="font-size: 7pt"> </font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="119"><font style="font-size: 5pt"><br />WOUNDS/CURRENT HP</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="119"><font style="font-size: 5pt"><br />SUBDUAL DAMAGE</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="60"><font style="font-size: 5pt"><br />DAMAGE<br />REDUCTION</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="60"><font style="font-size: 5pt"><br />SPEED</font></td>
+</tr>
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HP</b></font><font style="font-size:5pt" color="white"><br />Hit Points</font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|HP|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b><br /></b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b><br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b><br /></b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b><br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b><br /></b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b><br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b><br /></b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|MOVEMENT|<br /></b></font></td>
+</tr>
+</table>
+<table>
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>AC</b></font><font style="font-size:5pt" color="white"><br />Armour Class</font></td>
+<!-- Thomas Behr 13-02-02: replaced old tokens with new ones -->
+<td align="center" class="border"><font style="font-size: 9pt"><b>|BONUS.COMBAT.AC.TOTAL|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>:</b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|BONUS.COMBAT.AC.TOTAL.!Ability.!PRESA:1,Uncanny Dodge.MIN=0|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>:</b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|BONUS.COMBAT.AC.TOTAL.!Armor.!NaturalArmor|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>=</b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|BONUS.COMBAT.AC.BASE|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|BONUS.COMBAT.AC.Armor|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|BONUS.COMBAT.AC.Ability|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|BONUS.COMBAT.AC.SIZE|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|BONUS.COMBAT.AC.NaturalArmor|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|BONUS.COMBAT.AC.TOTAL.!BASE.!Armor.!Ability.!SIZE.!NaturalArmor|</b></font></td>
+<td align="center" width="5"><font style="font-size: 7pt"><b>
+</b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b><br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|SPELLFAILURE|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|ACCHECK|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b>|MAXDEX|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" class="border"><font style="font-size: 9pt"><b><br /></b></font></td>
+</tr>
+<tr>
+<td align="center" width="50"><font style="font-size: 6pt"></font></td>
+<td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOTAL</b></font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>FLAT</b></font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOUCH</b></font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">BASE</font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">ARMOR<br />BONUS</font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">STAT<br />BONUS</font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">SIZE<br />BONUS</font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">NATURAL<br />ARMOR</font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">MISC<br />BONUS</font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">MISS<br />CHANCE</font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">ARCANE<br />FAILURE</font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">ARMOR<br />CHECK</font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">MAX<br />DEX</font></td>
+<td align="center"><font style="font-size: 6pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">SPELL<br />RESIST.</font></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<table width="100%">
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>INITIATIVE</b></font><font style="font-size:5pt" color="white"><br />Modifier</font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|INITIATIVEMOD|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>=</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|STAT.1.MOD|
+</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|INITIATIVEBONUS|</b></font></td>
+</tr>
+<tr>
+<td align="center" width="50"><font style="font-size: 7pt"></font></td>
+<td align="center" width="25" valign="top"><font style="font-size: 7pt">TOTAL</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 5pt">DEX<br />MODIFIER</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 5pt">MISC<br />MODIFIER</font></td>
+</tr>
+</table>
+<table width="100%">
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>BASE ATTACK</b></font><font style="font-size:5pt" color="white"><br />Bonus</font></td>
+<td align="center" width="94" class="border"><font style="font-size: 10pt"><b>|ATTACK.MELEE|<br /></b></font></td>
+</tr>
+</table>
+</td>
+<td rowspan="2" valign="top" width="50%"><table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="10" bgcolor="black" align="center"><font style="font-size: 9pt" color="white"><b>SKILLS</b></font>
+</td>
+</tr>
+<tr>
+<td align="center" width="40%" class="border"><font style="font-size: 4pt">SKILL NAME</font></td>
+<td align="center" width="5%" class="border"><font style="font-size: 4pt">ABILITY</font></td>
+<td align="center" width="15%" colspan="1" class="border"><font style="font-size: 4pt">SKILL<br />MODIFIER</font></td>
+<td align="center" width="15%" colspan="2" class="border"><font style="font-size: 4pt">ABILITY<br />MODIFIER</font></td>
+<td align="center" width="15%" colspan="2" class="border"><font style="font-size: 4pt">RANKS</font></td>
+<td align="center" width="15%" colspan="2" class="border"><font style="font-size: 4pt">MISC<br />MODIFIER</font></td>
+</tr>
+|FOR.0,COUNT[SKILLS],1,<td align="left" width="40%"><font face="Arial" style="font-size: 8pt">\SKILL%\</font></td><td align="center" width="5%"><font face="Arial" style="font-size: 8pt">\SKILL%.ABILITY\</font></td><td align="center" class="borderbottom" width="15%" valign="bottom"><font style="font-size: 8pt">\SKILL%.TOTAL\</font></td><td align="center" valign="bottom" width="2%"><font style="font-size: 8pt"><b>=</b></font></td><td align="center" class="borderbottom" width="13%" valign="bottom"><font style="font-size: 8pt"><b>\SKILL%.ABMOD\</b><br /></font></td><td align="center" valign="bottom" width="2%"><font style="font-size: 8pt"><b>+</b></font></td><td align="center" class="borderbottom" width="13%" valign="bottom"><font style="font-size: 8pt"><b>\SKILL%.RANK\</b><br /></font></td><td align="center" valign="bottom" width="2%"><font style="font-size: 9pt"><b>+</b></font></td><td align="center" class="borderbottom" width="13%" valign="bottom"><font style="font-size: 8pt"><b>\SKILL%.MISC\</b><br /></font></td>,<tr>,</tr>,1|
+</table>
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top">
+<table width="100%">
+<tr>
+<td align="center"><font style="font-size: 4pt">SAVING THROWS</font></td>
+<td align="center" width="25"><font style="font-size: 4pt">TOTAL</font></td>
+<td align="center"><font style="font-size: 4pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">BASE<br />SAVE</font></td>
+<td align="center"><font style="font-size: 5pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">ABILITY<br />MODIFIER</font></td>
+<td align="center"><font style="font-size: 5pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">MAGIC<br />MODIFIER</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">RACE<br />MODIFIER</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">TEMPORARY<br />MODIFIER</font></td>
+<td align="left" valign="top" width="63" rowspan="4" class="border"><font style="font-size: 4pt">CONDITIONAL<br />MODIFIERS</font></td>
+</tr>
+
+|FOR,%checks,0,COUNT[CHECKS]-1,1,0|
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>|CHECK.%checks.NAME|</b></font><font style="font-size:5pt" color="white"><br />
+|IIF(CHECK.%checks.NAME:Fortitude)|
+Constitution
+|ELSE|
+|ENDIF|
+|IIF(CHECK.%checks.NAME:Reflex)|
+Dexterity
+|ELSE|
+|ENDIF|
+|IIF(CHECK.%checks.NAME:Will)|
+Wisdom
+|ELSE|
+|ENDIF|
+</font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|CHECK.%checks.TOTAL|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>=</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|CHECK.%checks.BASE|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|CHECK.%checks.STATMOD|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|CHECK.%checks.MAGIC|<br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|CHECK.%checks.RACE|<br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+</tr>
+|ENDFOR|
+</table>
+<table width="100%">
+<tr>
+<td align="center"><font style="font-size: 4pt"></font></td>
+<td align="center" width="60"><font style="font-size: 4pt">TOTAL</font></td>
+<td align="center"><font style="font-size: 4pt"><b></b></font></td>
+<td align="center" width="60"><font style="font-size: 4pt">BASE ATTACK BONUS</font></td>
+<td align="center"><font style="font-size: 5pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">STR<br />MODIFIER</font></td>
+<td align="center"><font style="font-size: 5pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">SIZE<br />MODIFIER</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">MISC<br />MODIFIER</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">TEMPORARY<br />MODIFIER</font></td>
+</tr>
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>MELEE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|ATTACK.MELEE.TOTAL|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>=</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|ATTACK.MELEE|<br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|ATTACK.MELEE.STAT|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|ATTACK.MELEE.SIZE|<br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|ATTACK.MELEE.MISC|<br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+</tr>
+<tr>
+<td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>RANGED</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|ATTACK.RANGED.TOTAL|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>=</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|ATTACK.RANGED|<br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|ATTACK.RANGED.STAT|</b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|ATTACK.RANGED.SIZE|<br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="border"><font style="font-size: 10pt"><b>|ATTACK.RANGED.MISC|<br /></b></font></td>
+<td align="center"><font style="font-size: 7pt"><b>+</b></font></td>
+<td align="center" class="tempborder"><font style="font-size: 5pt"><br /></font></td>
+</tr>
+<tr>
+<td align="center"><font style="font-size: 4pt"></font></td>
+<td align="center" width="60"><font style="font-size: 4pt">TOTAL</font></td>
+<td align="center"><font style="font-size: 4pt"><b></b></font></td>
+<td align="center" width="60"><font style="font-size: 4pt">BASE ATTACK BONUS</font></td>
+<td align="center"><font style="font-size: 5pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">DEX<br />MODIFIER</font></td>
+<td align="center"><font style="font-size: 5pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">SIZE<br />MODIFIER</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">MISC<br />MODIFIER</font></td>
+<td align="center"><font style="font-size: 7pt"><b></b></font></td>
+<td align="center" width="25"><font style="font-size: 4pt">TEMPORARY<br />MODIFIER</font></td>
+</tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td align="center" height="25" bgcolor="black" rowspan="2" width="125"><font style="font-size:10pt" color="white"><b>UNARMED</b></font></td><td align="center" bgcolor="black" width="110" height="15"><font style="font-size:6pt" color="white"><b>TOTAL ATTACK BONUS</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:6pt" color="white"><b>DAMAGE</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td></tr><tr><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>|ATTACK.UNARMED.TOTAL|<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>|DAMAGE.UNARMED|<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>20/x2<br /></b></font></td></tr></table>
+
+|FOR.0,3,1,<tr><td align="center" height="25" bgcolor="black" rowspan="2" width="125"><font style="font-size:10pt" color="white"><b>\WEAPON.%.NAME\<br /></b></font></td><td align="center" bgcolor="black" width="110" height="15"><font style="font-size:6pt" color="white"><b>TOTAL ATTACK BONUS</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:6pt" color="white"><b>DAMAGE</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td></tr><tr><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.TOTALHIT\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.DAMAGE\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.CRIT\/x\WEAPON.%.MULT\<br /></b></font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td align="center" height="15" bgcolor="black" width="50"><font style="font-size:6pt" color="white"><b>HAND</b></font></td><td align="center" height="15" bgcolor="black" width="40"><font style="font-size:6pt" color="white"><b>RANGE</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td><td align="center" bgcolor="black" width="40" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td><td align="center" bgcolor="black" width="167" height="15"><font style="font-size:6pt" color="white"><b>SPECIAL PROPERTIES</b></font></td></tr><tr><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.HAND\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.RANGE\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.TYPE\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.SIZE\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.SPROP\<br /></b></font></td></tr>,<br /><table cellpadding="0" width="100%" cellspacing="0" border="0">,</table>,1|
+
+|FOR.0,2,1,<tr><td align="center" height="20" bgcolor="black" rowspan="2" width="125"><font style="font-size:10pt" color="white"><b>\ARMOR%.NAME\<br /></b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td><td align="center" bgcolor="black" width="85" height="15"><font style="font-size:6pt" color="white"><b>ARMOR BONUS</b></font></td><td align="center" bgcolor="black" width="85" height="15"><font style="font-size:6pt" color="white"><b>MAX DEX BONUS</b></font></td></tr><tr><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\ARMOR%.TYPE\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\ARMOR%.TOTALAC\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\ARMOR%.MAXDEX\<br /></b></font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td align="center" height="15" bgcolor="black" width="60"><font style="font-size:5pt" color="white"><b>CHECK PENALTY</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:5pt" color="white"><b>SPELL FAILURE</b></font></td><td align="center" bgcolor="black" width="237" height="15"><font style="font-size:6pt" color="white"><b>SPECIAL PROPERTIES</b></font></td></tr><tr><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\ARMOR%.ACCHECK\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\ARMOR%.SPELLFAIL\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\ARMOR%.SPROP\<br /></b></font></td></tr>,<br /><table cellpadding="0" cellspacing="0" width="100%" border="0">,</table>,1|
+<font style="font-size:8pt"><center><b>AMMUNITION</b></center></font>
+<table width="100%">
+<tr>
+<td width="100" class="borderbottom"><font style="font-size: 7pt">|EQTYPE.Ammunition.0.NAME|<br /></font></td>
+<td valign="bottom"><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+<td width="100" class="borderbottom"><font style="font-size: 7pt">|EQTYPE.Ammunition.1.NAME|<br /></font></td>
+<td valign="bottom"><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+</tr>
+<tr>
+<td width="100" class="borderbottom"><font style="font-size: 7pt">|EQTYPE.Ammunition.2.NAME|<br /></font></td>
+<td valign="bottom"><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+<td width="100" class="borderbottom"><font style="font-size: 7pt">|EQTYPE.Ammunition.3.NAME|<br /></font></td>
+<td valign="bottom"><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+</tr>
+</table>
+
+
+</table>
+
+<br /><hr /><center><font style="font-size: 7pt">PCGen (<a href="http://pcgen.sourceforge.net/">pcgen.sf.net</a>) template by Richard O'Doherty-Gregg with help from Arcady. If you have any suggestions please send them to OdGregg@bigpond.com</font></center>
+
+
+<!-- ================================================================ -->
+
+
+<br style="page-break-after: always" />
+<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br>
+
+<table width="100%" border=0>
+<tr>
+	<td colspan=2 width="100%" valign="top">
+		<table width="100%" cellspacing="0" cellpadding="2" border=0>
+			<tr>
+				<td bgcolor="black" align="center" colspan="10"><font color="white" style="font-size: 9pt"><b>EQUIPMENT</b></font></td>
+			</tr>
+			<tr>
+				<td valign="top" width="38%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+				<td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt"><b>EQUIPPED</b></font></td>
+				<td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+				<td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+				<td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+				<td valign="top" width="38%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+				<td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt"><b>EQUIPPED</b></font></td>
+				<td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+				<td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+				<td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+			</tr>
+|DFOR.0,(COUNT[EQUIPMENT]+1)/2,1,COUNT[EQUIPMENT],(COUNT[EQUIPMENT]+1)/2,<td valign="top" width="38%" class="border"><font style="font-size: 8pt">\EQ.%.LONGNAME\</font><font style="font-size: 5pt"><br />\EQ.%.SPROP\</font></td><td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt">\EQ.%.EQUIPPED\<br /></font></td><td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt">\EQ.%.QTY\<br /></font></td><td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt">\EQ.%.WT\<br /></font></td><td valign="top" width="3%" class="border" align="center"><font style="font-size: 8pt">\EQ.%.COST\<br /></font></td>,<tr>,</tr>,0|
+			<tr>
+
+				<td valign="top" width="41%" class="border" align="right" colspan="1"><font style="font-size: 8pt">TOTAL WEIGHT CARRIED/VALUE</font></td>
+
+				<td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP><font style="font-size: 8pt">|TOTAL.WEIGHT|</font></td>
+
+				<td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP><font style="font-size: 8pt">|TOTAL.VALUE|</font></td>
+
+			</tr>
+		</table>
+	</td>
+</tr><tr>
+<td width="50%" valign="top">
+<table width="100%" cellspacing="0" cellpadding="3">
+<tr>
+<td bgcolor="black" align="center" colspan="6"><font color="white" style="font-size: 9pt"><b>WEIGHT ALLOWANCE</b></font></td>
+</tr>
+<tr>
+<td valign="top" class="border" align="right"><font style="font-size: 8pt"><B>Light</B></font></td>
+<td valign="top" class="border"><font style="font-size: 8pt">|WEIGHT.LIGHT|</font></td>
+<td valign="top" class="border" align="right"><font style="font-size: 8pt"><B>Medium</B></font></td>
+<td valign="top" class="border"><font style="font-size: 8pt">|WEIGHT.MEDIUM|</font></td>
+<td valign="top" class="border" align="right"><font style="font-size: 8pt"><B>Heavy</B></font></td>
+<td valign="top" class="border"><font style="font-size: 8pt">|WEIGHT.HEAVY|</font></td>
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="3">
+<tr>
+          <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>DINERO</b></font></td>
+</tr>
+<tr>
+<td valign="top" width="70%" class="border"><font style="font-size: 8pt"><span class="notes">|MISC.FUNDS|</span></font></td>
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="3">
+<tr>
+<td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>COMPANIONS</b></font></td>
+</tr>
+<tr>
+<td valign="top" width="70%" class="border"><font style="font-size: 8pt"><span class="notes">|MISC.COMPANIONS|</span></font></td>
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="3">
+<tr>
+          <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>SPELLPOINTS</b></font></td>
+</tr>
+<tr>
+          <td valign="top" width="70%" class="border"><font style="font-size: 8pt">|SPELLPOINTS|<br />
+            </font></td>
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="3">
+<tr>
+<td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>PROFICIENCIES</b></font></td>
+</tr>
+<tr>
+<td valign="top" width="100%" class="border"><font style="font-size: 8pt">|WEAPONPROFS|<br /></font></td>
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="3">
+<tr>
+<td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>PROHIBITED</b></font></td>
+</tr>
+<tr>
+<td valign="top" width="100%" class="border"><font style="font-size: 8pt">|PROHIBITEDLIST|<br /></font></td>
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="3">
+<tr>
+<td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>LANGUAGES</b></font></td>
+</tr>
+<tr>
+<td valign="top" width="100%" class="border"><font style="font-size: 8pt">|LANGUAGES|<br /></font></td>
+</tr>
+</table>
+|%DOMAIN1|
+<table width="100%" cellspacing="0" cellpadding="3">
+<tr>
+<td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>Cleric of |DEITY|</b></font></td>
+</tr>
+<tr>
+<td valign="top" class="border"><font style="font-size: 8pt"><b>Domain</b><br /></font></td>
+<td valign="top" class="border"><font style="font-size: 8pt"><b>Granted Power</b><br /></font></td>
+</tr>
+<!--Björn Ehlert: The use of COUNT[DOMAINS]+1 doesn't result in empty TDs at the end of the TABLE-->
+|FOR.1,COUNT[DOMAINS]+1,1,<tr><td valign="top" class="border"><font style="font-size: 7pt">\DOMAIN%\<br /></font></td><td valign="top" class="border"><font style="font-size: 7pt">\DOMAIN%.POWER\<br /></font></td></tr>, , ,2|
+</table>
+|%|
+</td>
+<td width="50%" valign="top">
+<table width="100%" cellspacing="0" cellpadding="2">
+<tr>
+<td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>SPECIAL ABILITIES</b></font></td>
+</tr>
+<tr><td valign="top" width="100%" class="border"><font style="font-size: 8pt">|SPECIALLIST|</font></td></tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="2">
+<tr>
+<td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>FEATS</b></font></td>
+</tr>
+<tr>
+<td valign="top" width="20%" class="border"><font style="font-size: 8pt"><b>NAME</b></font></td>
+<td valign="top" width="80%" class="border" align="left"><font style="font-size: 8pt"><b>DESCRIPTION</b></font></td>
+</tr>
+|FOR.0,100,1,<td valign="top" width="20%" class="border"><font style="font-size: 8pt">\FEATALL%\</font></td><td valign="top" width="80%" class="border" align="left"><font style="font-size: 8pt">\FEATALL%.DESC\</font></td>,<tr>,</tr>,2|
+</table>
+|FOR.3,100,1,<tr><td align="center" height="25" bgcolor="black" rowspan="2" width="125"><font style="font-size:10pt" color="white"><b>\WEAPON.%.NAME\<br /></b></font></td><td align="center" bgcolor="black" width="110" height="15"><font style="font-size:6pt" color="white"><b>TOTAL ATTACK BONUS</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:6pt" color="white"><b>DAMAGE</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td></tr><tr><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.TOTALHIT\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.DAMAGE\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.CRIT\/x\WEAPON.%.MULT\<br /></b></font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td align="center" height="15" bgcolor="black" width="50"><font style="font-size:6pt" color="white"><b>HAND</b></font></td><td align="center" height="15" bgcolor="black" width="40"><font style="font-size:6pt" color="white"><b>RANGE</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td><td align="center" bgcolor="black" width="40" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td><td align="center" bgcolor="black" width="167" height="15"><font style="font-size:6pt" color="white"><b>SPECIAL PROPERTIES</b></font></td></tr><tr><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.HAND\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.RANGE\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.TYPE\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.SIZE\<br /></b></font></td><td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>\WEAPON.%.SPROP\<br /></b></font></td></tr>,<br /><table cellpadding="0" width="100%" cellspacing="0" border="0">,</table>,1|
+
+
+</table>
+
+<br /><hr /><center><font style="font-size: 7pt">PCGen (<a href="http://pcgen.sourceforge.net/">pcgen.sf.net</a>) template by Richard O'Doherty-Gregg with help from Arcady. If you have any suggestions please send them to OdGregg@bigpond.com</font></center>
+
+
+<!-- ================================================================ -->
+
+
+
+|FOR,%class,0,9,1,1|
+
+|%SPELLLISTCLASS.%class|
+<br style="page-break-after: always" />
+<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br>
+
+</font><table width="100%" cellspacing="0" cellpadding="2"><font style="font-size:6pt">
+<tr>
+<td colspan="11" class="sphead"><b>|SPELLLISTCLASS.%class| Spells</b></td></tr></font>
+
+<tr>
+<td bgcolor="black" class="sptop"><b>LEVEL</b></td>
+|FOR,%level,0,9,1,1|
+<td bgcolor="black" class="sptop"><b>%level</b></td>
+|ENDFOR|
+</tr>
+<tr>
+<td class="sptab"><b>KNOWN</b></td>
+|FOR,%level,0,9,1,1|
+<td class="sptab"><b>|SPELLLISTKNOWN.%class.%level|</b></td>
+|ENDFOR|
+</tr>
+<tr>
+<td class="sptab"><b>PER DAY</b></td>
+|FOR,%level,0,9,1,1|
+<td class="sptab"><b>|SPELLLISTCAST.%class.%level|</b></td>
+|ENDFOR|
+</tr>
+<tr>
+<td class="sptab"><b>SPELL DC</b></td>
+|FOR,%level,0,9,1,1|
+<td class="sptab"><b>|SPELLLISTDC.%class.%level|</b></td>
+|ENDFOR|
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="2" class="breakhere">
+<tr>
+<td class="spname"><b>NAME</b></td>
+<td class="sptab"><b>SCHOOL</b></td>
+<td class="sptab"><b>EFFECT</b></td>
+<td class="sptab"><b>RANGE</b></td>
+<td class="sptab"><b>CASTING TIME</b></td>
+<td class="sptab"><b>DURATION</b></td>
+<td class="sptab"><b>COMPs</b></td>
+<td class="sptab"><b>SAVE</b></td>
+<td class="sptab"><b>SR</b></td>
+</tr>
+|%|
+
+|FOR,%level,0,9,1,1|
+
+|%SPELLLISTBOOK.%class.%level|
+<tr>
+<td colspan="9" class="splevel"><b>LEVEL %level</b></td>
+</tr>
+|FOR.0,100,1,<td class="spname">\SPELLMEM.%class.-1.%level.%.BONUSSPELL\\SPELLMEM.%class.-1.%level.%.NAME\<br /></td><td class="sptab">\SPELLMEM.%class.-1.%level.%.SCHOOL\<br /></td><td class="sptab">\SPELLMEM.%class.-1.%level.%.EFFECT\<br /></td><td class="sptab">\SPELLMEM.%class.-1.%level.%.RANGE\<br /></td><td class="sptab">\SPELLMEM.%class.-1.%level.%.CASTINGTIME\<br /></td><td class="sptab">\SPELLMEM.%class.-1.%level.%.DURATION\<br /></td><td class="sptab">\SPELLMEM.%class.-1.%level.%.COMPONENTS\<br /></td><td class="sptab">\SPELLMEM.%class.-1.%level.%.SAVEINFO\<br /></td><td class="sptab">\SPELLMEM.%class.-1.%level.%.SR\<br /></td>,<tr>,</tr>,2|
+|%|
+
+|ENDFOR|
+
+|%SPELLLISTCLASS.%class|
+</table>
+&nbsp;
+
+<br /><hr /><center><font style="font-size: 7pt">PCGen (<a href="http://pcgen.sourceforge.net/">pcgen.sf.net</a>) template by Richard O'Doherty-Gregg with help from Arcady. If you have any suggestions please send them to OdGregg@bigpond.com</font></center>
+|%|
+
+|ENDFOR|
+
+
+<!-- ================================================================ -->
+
+
+<br style="page-break-after: always" />
+<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br>
+
+<A NAME="Bio"></A><TABLE width="100%" cellspacing="0" cellpadding="2">
+<TR><TD colspan="2"><font style="font-size: 14pt">|NAME|</font></td></tr>
+<TR><TD CLASS="border" HEIGHT="400" width="1%"><IMG SRC="|NAME|_Full.jpg" HEIGHT="400" alt="|NAME|'s portrait"
+></TD><TD valign="top" width="99%">
+<TABLE width="100%" cellspacing="0" cellpadding="2">
+<TR><TD class="biodata">|RACE|<br/></td></tr>
+<TR><TD class="topline">RACE</td></tr>
+<TR><TD class="biodata">|AGE|<br/></td></tr>
+<TR><TD class="topline">AGE</td></tr>
+<TR><TD class="biodata">|HEIGHT|<br/></td></tr>
+<TR><TD class="topline">HEIGHT</td></tr>
+<TR><TD class="biodata">|WEIGHT|<br/></td></tr>
+<TR><TD class="topline">WEIGHT</td></tr>
+<TR><TD class="biodata">|COLOR.EYE|<br/></td></tr>
+<TR><TD class="topline">EYE COLOR</td></tr>
+<TR><TD class="biodata">|COLOR.SKIN|<br/></td></tr>
+<TR><TD class="topline">SKIN COLOR</td></tr>
+<TR><TD class="biodata">|COLOR.HAIR|<br/></td></tr>
+<TR><TD class="topline">HAIR COLOR</td></tr>
+<TR><TD class="biodata">|LENGTH.HAIR|<br/></td></tr>
+<TR><TD class="topline">HAIR LENGTH</td></tr>
+<TR><TD class="biodata">|PHOBIAS|<br/></td></tr>
+<TR><TD class="topline">PHOBIAS</td></tr>
+<TR><TD class="biodata">|PERSONALITY1| |PERSONALITY2|<br/></td></tr>
+<TR><TD class="topline">PERSONALITY TRAITS</td></tr>
+<TR><TD class="biodata">|INTERESTS|<br/></td></tr>
+<TR><TD class="topline">INTERESTS</td></tr>
+<TR><TD class="biodata">|SPEECHTENDENCY|, |CATCHPHRASE|<br/></td></tr>
+<TR><TD class="topline">SPOKEN STYLE</td></tr>
+</TABLE>
+
+
+</TD></TR>
+<TR><TD CLASS="borderbottom" colspan="2"><font style="font-size: 14pt">Description</font></td></tr>
+<TR><TD colspan="2"><font style="font-size: 9pt"><span class="notes">|DESC|</span></font></td></tr>
+<TR><TD CLASS="borderbottom" colspan="2"><font style="font-size: 14pt">Home</font></td></tr>
+<TR><TD colspan="2"><font style="font-size: 9pt">|%REGION| From |REGION|. |%||RESIDENCE|, |LOCATION|<br/></font></td></tr>
+<TR><TD CLASS="borderbottom" colspan="2"><font style="font-size: 14pt">Biography</font></td></tr>
+<TR><TD colspan="2"><font style="font-size: 9pt"><span class="notes">|BIO|</span></font></td></tr>
+</TABLE>
+
+<br /><hr /><center><font style="font-size: 7pt">PCGen (<a href="http://pcgen.sourceforge.net/">pcgen.sf.net</a>) template by Richard O'Doherty-Gregg with help from Arcady. If you have any suggestions please send them to OdGregg@bigpond.com</font></center>
+
+</body>
+</html>
