@@ -147,65 +147,6 @@
 		<p></p><hr>
 		<p class="indent0"><strong><a name="COUNT">Token Name:</a></strong> COUNT[x]</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Count Type).</p>
-		<ul class="indent2">
-			<li>CHECKS - The number of checks defined in the gameMode.</li>
-			<li>CLASSES - The number of classes a character has.</li>
-			<li>CONTAINERS - The number of containers a character has.</li>
-			<li>DOMAINS - The number of domains a character has.</li>
-			<li>EQTYPE.&lt;type1&gt;.ADD.&lt;type2&gt;.ADD.&lt;typen&gt; - The number of items of the type specified
-				a character has. (All types present in equipment .lst files can be used here).</li>
-			<li>EQTYPE.WEAPON - The number of weapons a character has.</li>
-			<li>EQTYPE.ACITEM - The number of armor a character has.</li>
-			<li>EQUIPMENT - The number of items a character has (one arrow in bow, 19 carried and 40 in backpack will return 1).</li>
-			<li>EQUIPMENT.MERGELOC - The number of items a character has, including items split between locations (one arrow in bow, 19 carried and 40 in backpack will return 3).</li>
-			<li>FEATNAME=&lt;featname&gt; - Some feats can be taken more than
-			  once. This will tell you how many times a particular feat has been taken. (If &lt;featname&gt; is VISIBLE:YES)</li>
-			<li>FEATNAME=&lt;featname&gt;.ALL - Some feats can be taken more than
-			  once. This will tell you how many times a particular feat has been taken. (If &lt;featname&gt; is VISIBLE:NO)</li>
-			<li>FEATS - This has been deprecated, use FEATS.VISIBLE instead.</li>
-			<li>FEATS.ALL - The total number of visible and hidden feats a character has excluding automatic feats.</li>
-			<li>FEATS.HIDDEN - The number of hidden feats a character has excluding automatic feats.</li>
-			<li>FEATS.VISIBLE - The number of visible feats a character has excluding automatic feats.</li>
-			<li>FEATSALL - This has been deprecated, use FEATSALL.VISIBLE instead.</li>
-			<li>FEATSALL.ALL - The number of both visible and hidden feats a character has including automatic feats.</li>
-			<li>FEATSALL.HIDDEN - The number of hidden feats a character has including automatic feats.</li>
-			<li>FEATSALL.VISIBLE - The number of visible feats a character has including automatic feats.</li>
-			<li>FEATSAUTO - This has been deprecated, use FEATAUTO.VISIBLE instead.</li>
-			<li>FEATSAUTO.ALL - The number of both visible and hidden automatic feats a character has.</li>
-			<li>FEATSAUTO.HIDDEN - The number of hidden automatic feats a character has.</li>
-			<li>FEATSAUTO.VISIBLE - The number of visible automatic feats a character has.</li>
-			<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt; - This has been deprecated, use
-				FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE instead.</li>
-			<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.ALL - The
-				number of both visible and hidden feats of the type specified a character has.</li>
-			<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.HIDDEN - The
-				number of hidden feats of the type specified a character has.</li>
-			<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE - The
-				number of visible feats of the type specified a character has.</li>
-			<li>FOLLOWERTYPE.&lt;followertype&gt; - The number of followers of
-			  the type specified a character has.</li>
-			<li>LANGUAGES - The number of languages the character knows.</li>
-			<li>MOVE - The number of movement types the character has.</li>
-			<li>NOTES - The items notes entered when creating a custom item.</li>
-			<li>RACESUBTYPES - The number of racial subtypes the character has.</li>
-			<li>SA - The number of special abilities a character has.</li>
-			<li>SKILLS - The number of skills the character knows.</li>
-			<li>SPELLBOOKS - The number of spellbooks a character has.</li>
-			<li>SPELLRACE - Returns 1 if the character has any innate spells, 0 if the character has no innate spells.</li>
-			<li>SPELLSKNOWN - The number of spells the character knows.</li>
-			<li>SPELLSINBOOK%class.%book.%level - The number of spells of a particular class, in a particular spell book and of a
-				particular level that the character has (Note: The Known Spellbook is number 0, The Innate Spellbook
-				is number 1 and the -1 Spellbook should not be used anymore).</li>
-			<li>SPELLTIMES%class.%book.%level.%spell - The number of times the referenced spell has been memorized.</li>
-			<li>STATS - The number of stats a character has.</li>
-			<li>TEMPBONUSNAMES - The number of Temporary Bonus Tab items a character has.</li>
-			<li>TEMPLATES - The number of templates a character has.</li>
-			<li>VFEATS - This has been deprecated, use VFEATS.VISIBLE instead.</li>
-			<li>VFEATS.ALL - The number of both visible and hidden virtual feats a character has.</li>
-			<li>VFEATS.HIDDEN - The number of hidden virtual feats a character has.</li>
-			<li>VFEATS.VISIBLE - The number of visible virtual feats a character has.</li>
-			<li>VISION - The number of vision types a character has.</li>
-		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Used to count objects and insert the result in other places.</li>
@@ -214,6 +155,66 @@
 				Zero, not One.</li>
 			<li>Also if you are still having problems, then you might have a Base 1 list, where the start
 				is at One not Zero. Different programmers, different styles.</li>
+			<li>The following are the tags that can be used as the &lt;Count Type&gt;:</li>
+			<ul class="indent0">
+				<li>CHECKS - The number of checks defined in the gameMode.</li>
+				<li>CLASSES - The number of classes a character has.</li>
+				<li>CONTAINERS - The number of containers a character has.</li>
+				<li>DOMAINS - The number of domains a character has.</li>
+				<li>EQTYPE.&lt;type1&gt;.ADD.&lt;type2&gt;.ADD.&lt;typen&gt; - The number of items of the type specified
+					a character has. (All types present in equipment .lst files can be used here).</li>
+				<li>EQTYPE.WEAPON - The number of weapons a character has.</li>
+				<li>EQTYPE.ACITEM - The number of armor a character has.</li>
+				<li>EQUIPMENT - The number of items a character has (one arrow in bow, 19 carried and 40 in backpack will return 1).</li>
+				<li>EQUIPMENT.MERGELOC - The number of items a character has, including items split between locations (one arrow in bow, 19 carried and 40 in backpack will return 3).</li>
+				<li>FEATNAME=&lt;featname&gt; - Some feats can be taken more than
+					once. This will tell you how many times a particular feat has been taken. (If &lt;featname&gt; is VISIBLE:YES)</li>
+				<li>FEATNAME=&lt;featname&gt;.ALL - Some feats can be taken more than
+					once. This will tell you how many times a particular feat has been taken. (If &lt;featname&gt; is VISIBLE:NO)</li>
+				<li>FEATS - This has been deprecated, use FEATS.VISIBLE instead.</li>
+				<li>FEATS.ALL - The total number of visible and hidden feats a character has excluding automatic feats.</li>
+				<li>FEATS.HIDDEN - The number of hidden feats a character has excluding automatic feats.</li>
+				<li>FEATS.VISIBLE - The number of visible feats a character has excluding automatic feats.</li>
+				<li>FEATSALL - This has been deprecated, use FEATSALL.VISIBLE instead.</li>
+				<li>FEATSALL.ALL - The number of both visible and hidden feats a character has including automatic feats.</li>
+				<li>FEATSALL.HIDDEN - The number of hidden feats a character has including automatic feats.</li>
+				<li>FEATSALL.VISIBLE - The number of visible feats a character has including automatic feats.</li>
+				<li>FEATSAUTO - This has been deprecated, use FEATAUTO.VISIBLE instead.</li>
+				<li>FEATSAUTO.ALL - The number of both visible and hidden automatic feats a character has.</li>
+				<li>FEATSAUTO.HIDDEN - The number of hidden automatic feats a character has.</li>
+				<li>FEATSAUTO.VISIBLE - The number of visible automatic feats a character has.</li>
+				<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt; - This has been deprecated, use
+					FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE instead.</li>
+				<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.ALL - The
+					number of both visible and hidden feats of the type specified a character has.</li>
+				<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.HIDDEN - The
+					number of hidden feats of the type specified a character has.</li>
+				<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE - The
+					number of visible feats of the type specified a character has.</li>
+				<li>FOLLOWERTYPE.&lt;followertype&gt; - The number of followers of
+				the type specified a character has.</li>
+				<li>LANGUAGES - The number of languages the character knows.</li>
+				<li>MOVE - The number of movement types the character has.</li>
+				<li>NOTES - The items notes entered when creating a custom item.</li>
+				<li>RACESUBTYPES - The number of racial subtypes the character has.</li>
+				<li>SA - The number of special abilities a character has.</li>
+				<li>SKILLS - The number of skills the character knows.</li>
+				<li>SPELLBOOKS - The number of spellbooks a character has.</li>
+				<li>SPELLRACE - Returns 1 if the character has any innate spells, 0 if the character has no innate spells.</li>
+				<li>SPELLSKNOWN - The number of spells the character knows.</li>
+				<li>SPELLSINBOOK%class.%book.%level - The number of spells of a particular class, in a particular spell book and of a
+					particular level that the character has (Note: The Known Spellbook is number 0, The Innate Spellbook
+					is number 1 and the -1 Spellbook should not be used anymore).</li>
+				<li>SPELLTIMES%class.%book.%level.%spell - The number of times the referenced spell has been memorized.</li>
+				<li>STATS - The number of stats a character has.</li>
+				<li>TEMPBONUSNAMES - The number of Temporary Bonus Tab items a character has.</li>
+				<li>TEMPLATES - The number of templates a character has.</li>
+				<li>VFEATS - This has been deprecated, use VFEATS.VISIBLE instead.</li>
+				<li>VFEATS.ALL - The number of both visible and hidden virtual feats a character has.</li>
+				<li>VFEATS.HIDDEN - The number of hidden virtual feats a character has.</li>
+				<li>VFEATS.VISIBLE - The number of visible virtual feats a character has.</li>
+				<li>VISION - The number of vision types a character has.</li>
+			</ul>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:HP|CURRENTMAX|3*COUNT[FEATNAME=Toughness]</code></p>
@@ -228,6 +229,50 @@
 		<p class="indent3">The {statements} would be processed for each of the 0<sup>th</sup> level spells in
 			the 1<sup>st</sup> classes 1<sup>st</sup> spellbook (known) that the character has.</p>
 
+	<!--
+		<p></p><hr>
+		<p class="indent0"><strong><a name="JEPCOUNT">Token Name:</a></strong> count()</p>
+		<p class="indent1"><strong> Variables Used:</strong> See <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">jep count ()</a> function in the Global Formulas page.</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Used to count objects and insert the result in other places.</li>
+			<li>Can be used in any of the FOR loops in place of max.</li>
+			<li>If you are having problems, try remembering this is a base 0 list. The first item is number
+				Zero, not One.</li>
+			<li>Also if you are still having problems, then you might have a Base 1 list, where the start
+				is at One not Zero. Different programmers, different styles.</li>
+			<li>The following are the tags that can be used as the &lt;Count Type&gt;:</li>
+			<ul>
+				<li>ABILITIES - CATEGORY= NATURE= TYPE= VISIBILITY=</li>
+				<li>CLASSES - The number of classes a character has.</li>
+				<li>DOMAINS - The number of domains a character has.</li>
+				<li>EQUIPMENT - The number of items a character has (one arrow in bow, 19 carried and 40 in backpack will return 1).</li>
+				<li>FOLLOWERS - The number of followers of the type specified a character has.</li>
+				<li>LANGUAGES - The number of languages the character knows.</li>
+				<li>RACESUBTYPES - The number of racial subtypes the character has.</li>
+				<li>SPELLBOOKS - The number of spellbooks a character has.</li>
+				<li>SPELLS - The number of spells a character has.</li>
+				<li>SPELLSKNOWN - The number of spells the character knows.</li>
+				<li>SPELLSINBOOK - The number of spells of a particular class, in a particular spell book and of a
+					particular level that the character has (Note: The Known Spellbook is number 0, The Innate Spellbook
+					is number 1 and the -1 Spellbook should not be used anymore).</li>
+				<li>TEMPLATES - The number of templates a character has.</li>
+			</ul>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:HP|CURRENTMAX|3*COUNT[FEATNAME=Toughness]</code></p>
+		<p class="indent3">The count token is used in this example to calculate the total bonus.</p>
+		<p class="indent2"><code>	FOR,%num,0,COUNT[SKILLS],1,1<br />
+															{Statements}<br />
+															ENDFOR</code></p>
+		<p class="indent3">The {statements} would be processed for each of the skills the character has.</p>
+		<p class="indent2"><code>	FOR,%spell,0,COUNT[SPELLSINBOOK0.0.0],1,1<br />
+															{Statements}<br />
+															ENDFOR</code></p>
+		<p class="indent3">The {statements} would be processed for each of the 0<sup>th</sup> level spells in
+			the 1<sup>st</sup> classes 1<sup>st</sup> spellbook (known) that the character has.</p>
+	-->
+	
 		<p></p><hr>
 		<p class="indent0"><strong><a name="CSHEETTAG2">Token Name:</a></strong> CSHEETTAG2.x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Symbol (Replacement
