@@ -3,7 +3,11 @@
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/build/src"/>
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/src/java"/>
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/src/test"/>
-	<classpathentry kind="var" path="JRE_LIB" sourcepath="JRE_SRC"/>
+	<classpathentry kind="var" path="JRE_LIB" sourcepath="/JRE_SRC">
+		<attributes>
+			<attribute name="javadoc_location" value="http://java.sun.com/j2se/1.5.0/docs/api/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/fop/avalon-framework-cvs-20020806.jar"/>
 	<classpathentry kind="lib" path="lib/fop/batik.jar"/>
 	<classpathentry kind="lib" path="lib/fop/fop.jar"/>
@@ -26,7 +30,13 @@
 	<classpathentry kind="lib" path="lib/jep/RngPack-1.1a.jar"/>
 	<classpathentry kind="lib" path="lib/test/xmlunit1.0.jar"/>
 	<classpathentry kind="lib" path="lib/javacc.jar"/>
-	<classpathentry kind="lib" path="lib/jep/jep-2.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/jep/jep-2.3.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://www.singularsys.com/jep/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/jep/djep-2.24.jar"/>
+	<classpathentry kind="lib" path="lib/cobra/cobra.jar"/>
+	<classpathentry kind="lib" path="lib/cobra/js.jar"/>
 	<classpathentry kind="output" path="code/build.eclipse"/>
 </classpath>
