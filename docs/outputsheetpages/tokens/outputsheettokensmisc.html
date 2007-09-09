@@ -24,8 +24,10 @@
 
 	<body>
 		<h1>Miscellaneous Output Sheet Tokens</h1>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="MATH">Token Name:</a></strong> x&lt;Mathematical Operator&gt;x </p>
 		<p class="indent1"><strong> Variables Used (x):</strong>  Number (Operand - can both be either numbers
 			or valid numeric tokens.).</p>
@@ -59,8 +61,10 @@
 		<p class="indent2"><code>(VAR.RangeMod-2).INTVAL.SIGN</code></p>
 		<p class="indent3">Displays the integer portion preceded with a sign (+ or -) for the result of the Range
 			Modifier minus 2.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="%">Token Name:</a></strong> |%x|</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Filter Option).</p>
 		<ul class="indent2">
@@ -118,8 +122,10 @@
 		<p class="indent2"><code>|%WEAPON.3|</code></p>
 		<p class="indent3">The filter will stop all output (until this filter is
 			ended or the next filter started) unless the character has at least 3 weapons.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="BONUSLIST">Token Name:</a></strong> BONUSLIST.w,x,y,z</p>
 		<p class="indent1"><strong> Variables Used (w):</strong> Text (The type of bonus to be displayed).</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (The subtype of bonus to be displayed).</p>
@@ -132,8 +138,10 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUSLIST.COMBAT.AC</code></p>
 		<p class="indent3">Would list all COMBAT.AC bonuses as a comma-space delimited list.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="BR">Token Name:</a></strong> BR</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds a carriage return to the output. Normally only used on text output
@@ -141,10 +149,11 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>2|BR|3</code></p>
 		<p class="indent3">Then the output would look like:<br/>
+			<code>2<br/>3</code></p>
+		<p></p>
 
-<code>2<br/>3</code></p>
-
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="COUNT">Token Name:</a></strong> COUNT[x]</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Count Type).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -230,7 +239,10 @@
 			the 1<sup>st</sup> classes 1<sup>st</sup> spellbook (known) that the character has.</p>
 
 	<!--
-		<p></p><hr>
+		<p></p>
+
+<hr>
+		
 		<p class="indent0"><strong><a name="JEPCOUNT">Token Name:</a></strong> count()</p>
 		<p class="indent1"><strong> Variables Used:</strong> See <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">jep count ()</a> function in the Global Formulas page.</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -272,8 +284,10 @@
 		<p class="indent3">The {statements} would be processed for each of the 0<sup>th</sup> level spells in
 			the 1<sup>st</sup> classes 1<sup>st</sup> spellbook (known) that the character has.</p>
 	-->
-	
-		<p></p><hr>
+		<p></p>
+
+<hr>
+		
 		<p class="indent0"><strong><a name="CSHEETTAG2">Token Name:</a></strong> CSHEETTAG2.x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Symbol (Replacement
 		  symbol for the default &quot;\&quot;).</p>
@@ -289,8 +303,10 @@
 		<p class="indent3">This would change the field delimiter from the default &quot;\&quot; character for
 			&quot;~&quot;. This allows the FOR/DFOR loop to be used in RTF output which does not allow the
 			&quot;\&quot; character to be used</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="DFOR">Token Name:</a></strong> DFOR.r,s,t,u,v,w,x,y,z</p>
 		<p class="indent1"><strong> Variables Used (r):</strong> Number (The initial value).</p>
 		<p class="indent1"><strong> Variables Used (s):</strong> Number (Limit for new line progression).</p>
@@ -332,8 +348,10 @@
 															&lt;td&gt;\SKILL%.ABILITY\&lt;/td&gt;&lt;td&gt;\SKILL%.MOD\,&lt;tr
 																align=&quot;center&quot;&gt;,&lt;/tr&gt;,0</code></p>
 		<p class="indent3">Produces a 2 column row table of all skills.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="DIR">Token Name:</a></strong> DIR.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Directory Option).</p>
 		<ul class="indent2">
@@ -360,8 +378,10 @@
 		  in &quot;<code>D:\RPG\PCGen</code>&quot;.</p>
 		<p class="indent2"><code>DIR.TEMP</code></p>
 		<p class="indent3">Would display &quot;<code>C:\Temp</code>&quot; if that was the Operating System's temp directory.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="EXPORT">Token Name:</a></strong> EXPORT.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Export Option).</p>
 		<ul class="indent2">
@@ -374,8 +394,10 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>EXPORT.DATE</code></p>
 		<p class="indent3">Displays the date of export.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="FOR">Token Name:</a></strong> FOR.%v,w,x,y,z</p>
 		<p class="indent1"><code>FOR.%v,w,x,y,z<br />{Statements}<br />ENDFOR</code></p>
 		<p class="indent1"><strong> Variables Used (v):</strong> Text (Variable Name).</p>
@@ -400,8 +422,10 @@
 															{Statements}<br />
 															ENDFOR</code></p>
 		<p class="indent3">Counts from 0 to 20 minus the sting length of the skill name.</p>
-
 		<p></p>
+
+<hr>
+		
 		<p class="indent0"><strong>Token Name:</strong> FOR.t,u,v,w,x,y,z</p>
 		<p class="indent1"><strong> Variables Used (t):</strong> Number (The initial value).</p>
 		<p class="indent1"><strong> Variables Used (u):</strong> Number (Limit for new line progression).</p>
@@ -433,8 +457,10 @@
 														 |FOR.0,10,1,[td]\\%.FOR.0,100,1,\SKILL%\,(,),2\\,&lt;tr&gt;,&lt;/tr&gt;,1|<br />
 														 &lt;/table&gt;</code></p>
 		<p class="indent3">Produces a list of all the party member's skills.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="IIF">Token Name:</a></strong> IIF(x.y.x)</p>
 		<p class="indent1"><code>IIF Conditional Statement<br />{True Statements}<br />ELSE<br />{False Statements}<br />ENDIF</code></p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Condition to be evaluated).</p>
@@ -587,8 +613,10 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>IIF(COMBAT.AC.TOTAL:20)</code></p>
 		<p class="indent3">Would be true if the combat AC total was 20.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="MANUALWHITESPACE">Token Name:</a></strong> MANUALWHITESPACE</p>
 		<p class="indent1"><code>MANUALWHITESPACE<br />{Statements}<br />ENDMANUALWHITESPACE<br /></code></p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -612,8 +640,10 @@
 look like:<br/>
 
 <code>1&amp;nbsp;Chuck Pint23&lt;br&gt;4</code></p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="OIF">Token Name:</a></strong> OIF(x,y,z)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Condition to be evaluated).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Value returned if True).</p>
@@ -627,24 +657,30 @@ look like:<br/>
 		<p class="indent2"><code>OIF(HASFEAT:Armor Proficiency (Light),YES,NO)</code></p>
 		<p class="indent3">If the character has the Light Armor proficiency, then returns
 		  &quot;YES&quot;. Otherwise it returns &quot;NO&quot;.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="PIPE">Token Name:</a></strong> PIPE</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Inserts a pipe (&quot;|&quot;) character.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>Pipe|PIPE|Example</code></p>
 		<p class="indent3">Would display &quot;Pipe|Example&quot;.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="SUB">Token Name:</a></strong> SUB#.</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Limits the length of the string written to the output sheet to no more than # characters. For it to work it as to be the first subtoken.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SUB10.SPELLMEM.0.0.0.0.COMPONENTS</code></p>
 		<p class="indent3">Would limit the output from the above tag to no more than 10 characters.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="TEXT">Token Name:</a></strong> TEXT.x.</p>
 		<p class="indent1"><strong> Variables Used (x):</strong>LOWER, LOWERCASE, SENTENCE, SENTENCECASE, TITLE, TITLECASE, UPPER, UPPERCASE or NUMSUFFIX</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -663,8 +699,10 @@ look like:<br/>
 		<p class="indent3">Would output the name for the spell in lower case.</p>
 		<p class="indent2"><code>TEXT.NUMSUFFIX.22</code></p>
 		<p class="indent3">Would output a suffix of nd rather than the value 22.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+		
 		<p class="indent0"><strong><a name="VAR">Token Name:</a></strong> VAR.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any defined variable name).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
