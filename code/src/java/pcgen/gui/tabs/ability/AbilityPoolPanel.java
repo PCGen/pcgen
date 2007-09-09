@@ -23,9 +23,13 @@
 package pcgen.gui.tabs.ability;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.util.Collection;
 
 import javax.swing.InputVerifier;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -33,6 +37,7 @@ import javax.swing.JTextField;
 
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.gui.tabs.InfoAbility;
 import pcgen.gui.utils.Utility;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.PropertyFactory;
@@ -46,25 +51,36 @@ public class AbilityPoolPanel extends JPanel
 {
 	private PlayerCharacter thePC;
 	private AbilityCategory theCategory;
+	private InfoAbility theParent;
+
+	private JComboBox theCategoryField = new JComboBox();
 	private JTextField theNumAbilitiesField = new JTextField();
 
 	/**
 	 * Construct the panel and add all the components.
 	 * 
 	 * @param aPC The PC
-	 * @param aCategory The <tt>AbilityCategory</tt> this panel represents.
+	 * @param aCategoryList The <tt>AbilityCategory</tt> this panel represents.
 	 */
-	public AbilityPoolPanel(final PlayerCharacter aPC,
-		final AbilityCategory aCategory)
+	public AbilityPoolPanel(final PlayerCharacter aPC, 
+		final Collection<AbilityCategory> aCategoryList,
+		final InfoAbility parent)
 	{
 		super();
 		thePC = aPC;
-		theCategory = aCategory;
+		theParent = parent;
 
 		setLayout(new FlowLayout());
+		for (AbilityCategory abilityCategory : aCategoryList)
+		{
+			theCategoryField.addItem(abilityCategory);
+		}
+		add(theCategoryField);
+		theCategory = (AbilityCategory) theCategoryField.getSelectedItem();
+		
 		final JLabel abilitiesRemainingLabel = new JLabel();
 		abilitiesRemainingLabel.setText(PropertyFactory.getFormattedString(
-			"InfoAbility.Remaining.Label", theCategory)); //$NON-NLS-1$
+			"InfoAbility.Remaining.Label", "")); //$NON-NLS-1$
 		add(abilitiesRemainingLabel);
 
 		theNumAbilitiesField.setInputVerifier(new InputVerifier()
@@ -120,15 +136,43 @@ public class AbilityPoolPanel extends JPanel
 				return valueOk;
 			}
 		});
+		
+		theCategoryField.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
+			{
+				categoryFieldActionPerformed();
+			}
+		});
 
 		showRemainingAbilityPoints();
 		theNumAbilitiesField.setColumns(3);
-		theNumAbilitiesField.setEditable(aCategory.allowPoolMod());
+		theNumAbilitiesField.setEditable(theCategory.allowPoolMod());
 		Utility.setDescription(theNumAbilitiesField, PropertyFactory
 			.getFormattedString("InfoAbility.Pool.Description", //$NON-NLS-1$
 				theCategory.getDisplayName()));
 
 		add(theNumAbilitiesField);
+	}
+
+	/**
+	 * Update the panel based on a change to the  selected ability 
+	 * category.
+	 */
+	private void categoryFieldActionPerformed()
+	{
+		// Set the selected category
+		theCategory = (AbilityCategory) theCategoryField.getSelectedItem();
+		
+		// Adjust the ability points display
+		showRemainingAbilityPoints();
+		theNumAbilitiesField.setEditable(theCategory.allowPoolMod());
+		Utility.setDescription(theNumAbilitiesField, PropertyFactory
+			.getFormattedString("InfoAbility.Pool.Description", //$NON-NLS-1$
+				theCategory.getDisplayName()));
+		
+		// Tell our parent about the change
+		theParent.setCurrentActivityCategory(theCategory);
 	}
 
 	/**
@@ -146,7 +190,6 @@ public class AbilityPoolPanel extends JPanel
 	 */
 	public void showRemainingAbilityPoints()
 	{
-		//		theNumAbilitiesField.setText(BigDecimalHelper.trimBigDecimal(new BigDecimal(thePC.getFeats())).toString());
 		theNumAbilitiesField.setText(BigDecimalHelper.trimBigDecimal(
 			thePC.getAvailableAbilityPool(theCategory)).toString());
 	}

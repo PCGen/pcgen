@@ -16437,6 +16437,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public BigDecimal getTotalAbilityPool(final AbilityCategory aCategory)
 	{
+		if (aCategory == AbilityCategory.FEAT)
+		{
+			BigDecimal spent = getAbilityPoolSpent(aCategory);
+			return spent.add(new BigDecimal(getFeats()));
+		}
 		Float basePool = this.getVariableValue(aCategory.getPoolFormula(),
 			getClass().toString());
 		if (!aCategory.allowFractionalPool())

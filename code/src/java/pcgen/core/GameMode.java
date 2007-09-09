@@ -3196,6 +3196,34 @@ public final class GameMode implements Comparable<Object>
 		}
 		return Collections.unmodifiableCollection(theAbilityCategories);
 	}
+	
+	/**
+	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects 
+	 * defined by this game mode that match the display location.
+	 * 
+	 * @param displayLoc The display location to filter for.
+	 * @return A <tt>Collection</tt> of <tt>AbilityCategory</tt> objects.
+	 */
+	public Collection<AbilityCategory> getAllAbilityCatsForDisplayLoc(String displayLoc)
+	{
+		if (displayLoc == null)
+		{
+			return Collections.emptyList();
+		}
+		List<AbilityCategory> catList = new ArrayList<AbilityCategory>();
+		if ( !theAbilityCategories.contains(AbilityCategory.FEAT) )
+		{
+			theAbilityCategories.add(0, AbilityCategory.FEAT);
+		}
+		for (AbilityCategory cat : theAbilityCategories)
+		{
+			if (displayLoc.equals(cat.getDisplayLocation()))
+			{
+				catList.add(cat);
+			}
+		}
+		return Collections.unmodifiableCollection(catList);
+	}
 
 	public void setPreviewDir(final String aDir)
 	{

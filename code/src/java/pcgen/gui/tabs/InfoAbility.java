@@ -36,6 +36,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.swing.JCheckBox;
@@ -116,6 +117,9 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 
 	private String theOptionKey = "InfoAbility."; //$NON-NLS-1$
 
+	private String theDisplayLocation;
+	private List<AbilityCategory> categoryList;
+
 	/**
 	 * Constructor
 	 * 
@@ -126,9 +130,10 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 	{
 		super(pc);
 		theCategory = aCategory;
-		theOptionKey += theCategory.getKeyName();
+		theDisplayLocation = theCategory.getDisplayLocation();
+		theOptionKey += theDisplayLocation;
 
-		setName(theCategory.getPluralName());
+		setName(theDisplayLocation);
 
 		SwingUtilities.invokeLater(new Runnable()
 		{
@@ -389,23 +394,36 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 			//			FEAT_FULL_MESSAGE  = "You do not have enough remaining " + Globals.getGameModePointPoolName() + " to select this " + getSingularTabName() + ".";
 		}
 
+		Collection<AbilityCategory> categoryCol =
+				SettingsHandler.getGame().getAllAbilityCatsForDisplayLoc(
+					theDisplayLocation);
+		categoryList = new ArrayList<AbilityCategory>(categoryCol);
+		boolean editable = false;
+		for (AbilityCategory cat : categoryList)
+		{
+			if (cat.isEditable())
+			{
+				editable = true;
+				break;
+			}
+		}
 		final JPanel topPane = new JPanel();
 		topPane.setLayout(new BorderLayout());
 
 		//-------------------------------------------------------------
 		// Top Pane - Left Available, Right Selected
 		//
-		if (theCategory.isEditable())
+		if (editable)
 		{
 			theAvailablePane = new AvailableAbilityPanel(getPc(), theCategory);
 			theAvailablePane.addAbilitySelectionListener(this);
 			theAvailablePane.addFilterer(this);
 		}
-		theSelectedPane = new SelectedAbilityPanel(getPc(), theCategory);
+		theSelectedPane = new SelectedAbilityPanel(getPc(), categoryList);
 		theSelectedPane.addAbilitySelectionListener(this);
 		theSelectedPane.addFilterer(this);
 
-		if (theCategory.isEditable())
+		if (editable)
 		{
 			splitTopLeftRight =
 					new FlippingSplitPane(splitOrientation, theAvailablePane,
@@ -443,37 +461,37 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 				new AbilityInfoPanel(getPc(), PropertyFactory
 					.getFormattedString(
 						"InfoAbility.Title", theCategory.getDisplayName())); //$NON-NLS-1$
-		if (theCategory.isEditable())
-		{
-			thePoolPanel = new AbilityPoolPanel(getPc(), theCategory);
 
-			splitBotLeftRight =
-					new FlippingSplitPane(splitOrientation, theInfoPanel,
-						thePoolPanel);
+		// Pool panel
+		thePoolPanel = new AbilityPoolPanel(getPc(), categoryList, this);
 
-			splitBotLeftRight.setOneTouchExpandable(true);
+		splitBotLeftRight =
+				new FlippingSplitPane(splitOrientation, theInfoPanel,
+					thePoolPanel);
 
-			splitBotLeftRight.setDividerSize(10);
-			// Register a listener so that we can save the location each time it
-			// changes.
-			splitBotLeftRight.addPropertyChangeListener(
-				JSplitPane.DIVIDER_LOCATION_PROPERTY,
-				new PropertyChangeListener()
+		splitBotLeftRight.setOneTouchExpandable(true);
+
+		splitBotLeftRight.setDividerSize(10);
+		// Register a listener so that we can save the location each time it
+		// changes.
+		splitBotLeftRight.addPropertyChangeListener(
+			JSplitPane.DIVIDER_LOCATION_PROPERTY,
+			new PropertyChangeListener()
+			{
+				public void propertyChange(PropertyChangeEvent anEvt)
 				{
-					public void propertyChange(PropertyChangeEvent anEvt)
-					{
-						SettingsHandler.setPCGenOption(theOptionKey
-							+ ".splitBotLeftRight", //$NON-NLS-1$ 
-							anEvt.getNewValue().toString());
-					}
-				});
+					SettingsHandler.setPCGenOption(theOptionKey
+						+ ".splitBotLeftRight", //$NON-NLS-1$ 
+						anEvt.getNewValue().toString());
+				}
+			});
 
-			botPane.add(splitBotLeftRight, BorderLayout.CENTER);
-		}
-		else
-		{
-			botPane.add(theInfoPanel, BorderLayout.CENTER);
-		}
+		botPane.add(splitBotLeftRight, BorderLayout.CENTER);
+//		}
+//		else
+//		{
+//			botPane.add(theInfoPanel, BorderLayout.CENTER);
+//		}
 
 		//----------------------------------------------------------------------
 		// Split Top and Bottom
@@ -514,6 +532,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		if (theAvailablePane != null)
 		{
 			theAvailablePane.setPC(getPc());
+			theAvailablePane.setCategory(theCategory);
 			theAvailablePane.update();
 		}
 	}
@@ -588,7 +607,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 	@Override
 	public String getTabName()
 	{
-		return theCategory.getPluralName();
+		return theCategory.getDisplayLocation();
 	}
 
 	/**
@@ -736,5 +755,11 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		// TODO - Make sure this is handled by the removal
 		//		setRemoveEnabled(false);
 		return true;
+	}
+	
+	public void setCurrentActivityCategory(AbilityCategory cat)
+	{
+		theCategory = cat;
+		forceRefresh();
 	}
 }

@@ -29,6 +29,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.swing.JMenuItem;
@@ -40,6 +41,8 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.gui.tabs.ability.AbilitySelectionPanel.ViewMode;
 import pcgen.gui.tabs.components.FilterPanel;
 import pcgen.gui.tabs.components.RemoveItemPanel;
 import pcgen.gui.utils.ClickHandler;
@@ -79,9 +82,9 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel
 	 */
 	public SelectedAbilityPanel(final PlayerCharacter aPC,
-		final AbilityCategory aCategory)
+		final List<AbilityCategory> aCategoryList)
 	{
-		super(aPC, aCategory);
+		super(aPC, aCategoryList);
 
 		setLayout(new BorderLayout());
 
@@ -184,6 +187,19 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	public ViewMode getDefaultViewMode()
 	{
 		return ViewMode.NAMEONLY;
+	}
+
+	/**
+	 * @see pcgen.gui.tabs.IFilterableView#getViewChoices()
+	 */
+	public List<String> getViewChoices()
+	{
+		final List<String> viewChoices = new ArrayList<String>(4);
+		viewChoices.add(PropertyFactory.getString("in_catTypeName")); //$NON-NLS-1$
+		viewChoices.add(PropertyFactory.getString("in_catNameLabel")); //$NON-NLS-1$
+		viewChoices.add(PropertyFactory.getString("in_catPreReqTree")); //$NON-NLS-1$
+		viewChoices.add(PropertyFactory.getString("in_catSourceName")); //$NON-NLS-1$
+		return viewChoices;
 	}
 
 	/**
@@ -372,4 +388,14 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 			setRemoveEnabled(false);
 		}
 	}
+	
+	/* (non-Javadoc)
+	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#getSplitByCategory()
+	 */
+	@Override
+	protected boolean getSplitByCategory()
+	{
+		return true;
+	}
+	
 }
