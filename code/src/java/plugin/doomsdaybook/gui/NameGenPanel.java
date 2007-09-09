@@ -250,6 +250,7 @@ public class NameGenPanel extends JPanel
 
 	private void cbCategoryActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbCategoryActionPerformed
+		this.loadGenderDD();
 		loadCatalogDD();
 		loadStructureDD();
 	}
@@ -558,7 +559,7 @@ public class NameGenPanel extends JPanel
 			String sexKey = (String) cbSex.getSelectedItem();
 			RuleSet oldRS = (RuleSet) cbCatalog.getSelectedItem();
 			String catalogKey = "";
-
+			
 			if (oldRS != null)
 			{
 				catalogKey = oldRS.getTitle();
@@ -602,6 +603,72 @@ public class NameGenPanel extends JPanel
 		{
 			Logging.errorPrint(e.getMessage(), e);
 		}
+	}
+	
+	//	Get a list of all the gender categories in the category map
+	private Vector<String> getGenderCategoryNames()
+	{
+		Vector<String> genders = new java.util.Vector<String>();
+		Set<String> keySet = categories.keySet();
+		Iterator<String> itr = keySet.iterator();
+
+		//	Loop through the keys in the categories
+		while (itr.hasNext())
+		{
+			String key = itr.next();
+
+			//	if the key starts with "Sex" then save it
+			if (key.startsWith("Sex:"))
+			{
+				genders.add(key.substring(5));
+			}
+		}
+		
+		//	Return all the found gender types
+		return genders;
+	}
+	
+	//	Load the gender drop dowd
+	private void loadGenderDD()
+	{
+		Vector<String> genders = getGenderCategoryNames();
+		Vector<String> selectable = new Vector<String>();
+		
+		//	Get the selected category name
+		String category = (String) cbCategory.getSelectedItem();
+		
+		//	Get the set of rules for selected category
+		List<RuleSet> categoryRules = categories.get(category);
+		
+		//	we need to determine if the selected category is supported by the 
+		//	available genders
+		//	loop through the available genders
+		for( int i = 0; i < genders.size(); ++i )
+		{
+			String gender = genders.get(i);
+			
+			//	Get the list of rules for the current gender
+			List<RuleSet> genderRules = categories.get("Sex: " + gender);
+			
+			//	now loop through all the rules from the selected category
+			for( int j = 0; j < categoryRules.size(); ++j )
+			{
+				//	if the category rule is in the list of gender rules
+				//	add the current gender to the selectable gender list
+				//	we can stop processing the list once we find a match
+				if( genderRules.contains(categoryRules.get(j)))
+				{
+					selectable.add(gender);
+					break;
+				}
+			}
+		}
+		
+		//	Sort the genders
+		Collections.sort(selectable);
+		
+		//	Create a new model for the combobox and set it
+		cbSex.setModel(new DefaultComboBoxModel(selectable));
 	}
 
 	private void loadCategory(Element category, RuleSet rs)
@@ -661,10 +728,10 @@ public class NameGenPanel extends JPanel
 		}
 	}
 
-	private void loadDropdowns()
+	//	Get a list of category names from the categories map
+	private Vector<String> getCategoryNames()
 	{
 		Vector<String> cats = new java.util.Vector<String>();
-		Vector<String> sexes = new java.util.Vector<String>();
 		Set<String> keySet = categories.keySet();
 		Iterator<String> itr = keySet.iterator();
 
@@ -672,25 +739,30 @@ public class NameGenPanel extends JPanel
 		{
 			String key = itr.next();
 
+			//	Ignore any category that starts with this
 			if (key.startsWith("Sex:"))
 			{
-				sexes.add(key.substring(5));
+				continue;
 			}
-			else
-			{
-				cats.add(key);
-			}
+
+			cats.add(key);
 		}
 
+		//	Sor the selected categories before returning it
 		Collections.sort(cats);
-		Collections.sort(sexes);
-
-		DefaultComboBoxModel catModel = new DefaultComboBoxModel(cats);
-		DefaultComboBoxModel sexModel = new DefaultComboBoxModel(sexes);
-		cbCategory.setModel(catModel);
-		cbSex.setModel(sexModel);
-
-		loadCatalogDD();
+		
+		return cats;
+	}
+	
+	private void loadDropdowns()
+	{
+		//	This method now just loads the category dropdown from the list of 
+		//	category names
+		Vector<String> cats = this.getCategoryNames();
+		cbCategory.setModel(new DefaultComboBoxModel(cats));
+		
+		this.loadGenderDD();
+		this.loadCatalogDD();
 	}
 
 	private void loadFromDocument(Document nameSet)
