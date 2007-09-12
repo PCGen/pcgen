@@ -24,8 +24,11 @@ import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
@@ -50,8 +53,14 @@ public class Logging
 	/** Log level for LST error output. */
 	public static final Level LST_ERROR = PCGenLogLevel.LST_ERROR;
 
+	/** Logging level for code warnings. */
+	public static final Level WARNING = Level.WARNING;
+
 	/** Logging level for LST warnings such as deprectaed syntax use. */
 	public static final Level LST_WARNING = PCGenLogLevel.LST_WARNING;
+
+	/** Logging level for code info. */
+	public static final Level INFO = Level.INFO;
 
 	/** Logging level for LST information such as references to missing items in PRE or CHOOSE tags. */
 	public static final Level LST_INFO = PCGenLogLevel.LST_INFO;
@@ -79,8 +88,9 @@ public class Logging
 		{
 			p.put("java.util.logging.config.file", propsFile.getAbsolutePath());
 		}
-
-		// Get Java Loggign to read in the config. 
+		//System.out.println("Using log settings from " + propsFile.getAbsolutePath());
+		
+		// Get Java Logging to read in the config. 
     	try
 		{
 			LogManager.getLogManager().readConfiguration();
@@ -405,5 +415,50 @@ public class Logging
 		System.out.println("==== Thread listing ====");
 		System.out.println(b);
 		System.out.println("===== end listing  =====");
+	}
+
+	/**
+	 * Register a new log handler.
+	 * @param handler The handler to be registered.
+	 */
+	public static void registerHandler(Handler handler)
+	{
+		Logger.getLogger("").addHandler(handler);
+	}
+	
+	/**
+	 * Return a list of the supported logging levels in 
+	 * descending order of rank.
+	 * @return List of logging levels.
+	 */
+	public static List<Level> getLoggingLevels()
+	{
+		List<Level> levels = new ArrayList<Level>();
+		levels.add(ERROR);
+		levels.add(LST_ERROR);
+		levels.add(WARNING);
+		levels.add(LST_WARNING);
+		levels.add(INFO);
+		levels.add(LST_INFO);
+		levels.add(DEBUG);
+		return levels;
+	}
+	
+	/**
+	 * @return The current logging level for the main program.
+	 */
+	public static Level getCurrentLoggingLevel()
+	{
+		return Logger.getLogger("pcgen").getLevel();
+	}
+	
+	/**
+	 * Set the current logging level for the main program.
+	 * @param level The new level
+	 */
+	public static void setCurrentLoggingLevel(Level level)
+	{
+		Logger.getLogger("pcgen").setLevel(level);
+		Logger.getLogger("plugin").setLevel(level);
 	}
 }

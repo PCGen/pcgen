@@ -2659,6 +2659,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		JMenuItem treasureItem;
 		JOpenRecentMenu openRecentPCMenu;
 		JOpenRecentMenu openRecentPartyMenu;
+		private LoggingLevelMenu loggingMenu;
 
 		/** Instantiated popup frame {@link PrintFrame}. */
 		PrintFrame printFrame = null;
@@ -2985,6 +2986,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			//Debug Menu
 			JMenu debugMenu = Utility.createMenu("mnuDebug", null, true);
 
+			loggingMenu = new LoggingLevelMenu();
 			debugMode = new JCheckBoxMenuItem();
 			debugMode.setText(PropertyFactory.getString("in_mnuDebugMode"));
 			debugMode.setMnemonic(PropertyFactory.getMnemonic("in_mn_mnuDebugMode"));
@@ -2995,6 +2997,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 					public void actionPerformed(ActionEvent e)
 					{
 						Logging.setDebugMode(debugMode.isSelected());
+						loggingMenu.updateMenu();
 
 						if (exportPopup != null)
 						{
@@ -3004,6 +3007,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 				});
 			debugMenu.add(debugMode);
 
+			// Logging Level menu
+			debugMenu.add(loggingMenu);
+			
 			JMenuItem consoleMenuItem = Utility.createMenuItem("mnuDebugConsole",
 					new ActionListener()
 					{
@@ -3464,9 +3470,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			}
 			catch(Exception e)
 			{
-				e.getMessage();
-				e.printStackTrace();
-				System.out.println(event.toString());
+				//Logging.reportAllThreads();
+				Logging.errorPrint("Uncaught error - ignoring", e);
 			}
 			finally
 			{

@@ -34,6 +34,7 @@ import java.util.Arrays;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.logging.Handler;
+import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
@@ -75,9 +76,8 @@ final class MainDebug extends JPanel
 	MainDebug()
 	{
 		initComponents();
-		ConsoleHandler ch = new ConsoleHandler();
-		Logger.getLogger("pcgen").addHandler(ch);
-		Logger.getLogger("plugin").addHandler(ch);
+		DebugHandler ch = new DebugHandler();
+		Logging.registerHandler(ch);
 		System.setOut(new DebugStream(System.out));
 		System.setErr(System.out);
 
@@ -275,9 +275,15 @@ final class MainDebug extends JPanel
 		}
 	}
 
-	private final class ConsoleHandler extends Handler
+	public final class DebugHandler extends Handler
 	{
 
+		DebugHandler()
+		{
+			super();
+			setLevel(Level.FINER);
+		}
+		
 		@Override
 		public void close() throws SecurityException
 		{
