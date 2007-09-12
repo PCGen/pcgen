@@ -239,11 +239,11 @@
 			the 1<sup>st</sup> classes 1<sup>st</sup> spellbook (known) that the character has.</p>
 		<p></p>
 
-	<!--
 <hr>
 		
-		<p class="indent0"><strong><a name="JEPCOUNT">Token Name:</a></strong> count(x.x) - See <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">jep count ()</a> function in the Global Formulas page.</p>
-		<p class="indent1"><strong> Variables Used:</strong> Text (Counted Object)</p>
+		<p class="indent0"><strong><a name="JEPCOUNT">Token Name:</a></strong> count(x.y.y) - See <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">jep count ()</a> function in the Global Formulas page.</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Object to be counted)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Object parameters)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Used to count objects and insert the result in other places.</li>
@@ -252,37 +252,32 @@
 				Zero, not One.</li>
 			<li>Also if you are still having problems, then you might have a Base 1 list, where the start
 				is at One not Zero. Different programmers, different styles.</li>
-			<li>The following are the tags that can be used as the &lt;Counted Object&gt;:</li>
+			<li>The following are the tags are the valid &lt;Objects to be counted&gt; and the associated &lt;Objects parameters&gt;:</li>
 			<ul>
 				<li>ABILITIES - </li>
 				<ul>
-					<li>CATEGORY= </li>
-					<li>NATURE= </li>
-					<li>TYPE= </li>
-					<li>VISIBILITY=</li>
+					<li>&quot;CATEGORY=&lt;text&gt;&quot; - The ability category as defined in the gamemode/miscinfo.lst file.</li>
+					<li>&quot;NATURE=&lt;text&gt;&quot; -  </li>
+					<li>&quot;TYPE=&lt;text&gt;&quot; -  </li>
+					<li>&quot;VISIBILITY=&lt;text&gt;&quot; -  </li>
 				</ul>
-				<li>CLASSES - The number of classes a character has.</li>
-				<li>DOMAINS - The number of domains a character has.</li>
-				<li>EQUIPMENT - The number of items a character has (one arrow in bow, 19 carried and 40 in backpack will return 1).</li>
-				<li>FOLLOWERS - The number of followers of the type specified a character has.</li>
-				<li>LANGUAGES - The number of languages the character knows.</li>
-				<li>RACESUBTYPES - The number of racial subtypes the character has.</li>
-				<li>SPELLBOOKS - The number of spellbooks a character has.</li>
-				<li>SPELLS - The number of spells a character has.</li>
-				<li>SPELLSKNOWN - The number of spells the character knows.</li>
-				<li>SPELLSINBOOK - The number of spells of a particular class, in a particular spell book and of a
-					particular level that the character has (Note: The Known Spellbook is number 0, The Innate Spellbook
-					is number 1 and the -1 Spellbook should not be used anymore).</li>
-				<li>TEMPLATES - The number of templates a character has.</li>
+				<li>CLASSES - Not yet implemented.</li>
+				<li>DOMAINS - Not yet implemented.</li>
+				<li>EQUIPMENT - Not yet implemented..</li>
+				<li>FOLLOWERS - Not yet implemented..</li>
+				<li>LANGUAGES - Not yet implemented.</li>
+				<li>RACESUBTYPES - Not yet implemented.</li>
+				<li>SPELLBOOKS - Not yet implemented.</li>
+				<li>SPELLS - Not yet implemented.</li>
+				<li>SPELLSKNOWN - Not yet implemented.</li>
+				<li>SPELLSINBOOK - Not yet implemented.</li>
+				<li>TEMPLATES - Not yet implemented.</li>
 			</ul>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>	FOR,%num,0,count(ABILITIES.CATEGORY=FEAT.TYPE=Metamagic),1,1<br />
-															{Statements}<br />
-															ENDFOR</code></p>
-		<p class="indent3">The {statements} would be processed for each metamagic feat the character has.</p>
+		<p class="indent2"><code>count(ABILITIES.CATEGORY=FEAT.TYPE=Metamagic)</code></p>
+		<p class="indent3">This tag returns the number of metamagic feats the character has.</p>
 		<p></p>
-	-->
 
 <hr>
 		
