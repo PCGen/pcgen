@@ -241,25 +241,23 @@
 
 <hr>
 		
-		<p class="indent0"><strong><a name="JEPCOUNT">Token Name:</a></strong> count(x.y.y) - See <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">jep count ()</a> function in the Global Formulas page.</p>
+		<p class="indent0"><strong><a name="JEPCOUNT">Token Name:</a></strong> count(x.y) - See <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">jep count ()</a> function in the Global Formulas page.</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Object to be counted)</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Object parameters)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Used to count objects and insert the result in other places.</li>
-			<li>Can be used in any of the FOR loops in place of max.</li>
-			<li>If you are having problems, try remembering this is a base 0 list. The first item is number
-				Zero, not One.</li>
-			<li>Also if you are still having problems, then you might have a Base 1 list, where the start
-				is at One not Zero. Different programmers, different styles.</li>
-			<li>The following are the tags are the valid &lt;Objects to be counted&gt; and the associated &lt;Objects parameters&gt;:</li>
+			<li>This token is used to count objects and insert the result in other places.</li>
+			<li>This may be either a base 0 list, first item is number Zero, or a base 1 list, first item is number One.</li>
+			<li>This token can be used in any of the FOR loops in place of max.</li>
+			<li>The object parameters are a comma-delimited (,) list of quotated parameters assiciated with the &quot;Object&quot; being counted.</li>
+			<li>The following tokens are the valid &lt;Objects to be counted&gt; (x) and the associated &lt;Object parameters&gt; (y):</li>
 			<ul>
-				<li>ABILITIES - </li>
+				<li>ABILITIES - Will count the abilities that satisfy the included &quot;CATEGORY&quot;, &quot;NATURE&quot;, &quot;TYPE&quot;, and &quot;VISIBILITY&quot; parameters.</li>
 				<ul>
-					<li>&quot;CATEGORY=&lt;text&gt;&quot; - The ability category as defined in the gamemode/miscinfo.lst file.</li>
-					<li>&quot;NATURE=&lt;text&gt;&quot; -  </li>
-					<li>&quot;TYPE=&lt;text&gt;&quot; -  </li>
-					<li>&quot;VISIBILITY=&lt;text&gt;&quot; -  </li>
+					<li><code>&quot;CATEGORY=&lt;text&gt;&quot;</code> - The ability category as defined in the gamemode/miscinfo.lst file.</li>
+					<li><code>&quot;NATURE=&lt;text&gt;&quot;</code> -  &quot;NORMAL&quot;, &quot;VIRTUAL&quot;, or &quot;AUTOMATIC&quot;.</li>
+					<li><code>&quot;TYPE=&lt;text&gt;&quot;</code> -  The ability type as defined in the ability.lst file. (i.e. &quot;General&quot;, &quot;Fighter&quot;, &quot;Metamagic&quot;, etc.)</li>
+					<li><code>&quot;VISIBILITY=&lt;text&gt;&quot;</code> -  </li>
 				</ul>
 				<li>CLASSES - Not yet implemented.</li>
 				<li>DOMAINS - Not yet implemented.</li>
@@ -275,8 +273,8 @@
 			</ul>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>count(ABILITIES.CATEGORY=FEAT.TYPE=Metamagic)</code></p>
-		<p class="indent3">This tag returns the number of metamagic feats the character has.</p>
+		<p class="indent2"><code>count(&quot;ABILITIES&quot;,&quot;CATEGORY=FEAT&quot;,&quot;TYPE=Metamagic&quot;)</code></p>
+		<p class="indent3">This token returns the number of metamagic feats the character has.</p>
 		<p></p>
 
 <hr>
