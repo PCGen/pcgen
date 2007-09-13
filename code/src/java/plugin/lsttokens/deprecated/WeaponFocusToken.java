@@ -27,8 +27,8 @@ public class WeaponFocusToken implements ChooseLstToken, DeprecatedToken
 
 	public boolean parse(PObject po, String prefix, String value)
 	{
-		Logging.errorPrint("CHOOSE:WEAPONFOCUS is deprecated: " + value);
-		Logging.errorPrint("  Please use CHOOSE:FEAT=???");
+		Logging.deprecationPrint("CHOOSE:WEAPONFOCUS is deprecated: " + value);
+		Logging.deprecationPrint("  Please use CHOOSE:FEAT=???");
 		return false;
 	}
 

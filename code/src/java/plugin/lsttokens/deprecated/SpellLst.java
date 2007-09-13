@@ -101,8 +101,8 @@ public class SpellLst implements GlobalLstToken, DeprecatedToken
 			if (sourceLine.charAt(j - 1) == ']')
 			{
 				Logging
-					.errorPrint("The SPELL: tag with [PRExxx] syntax with mulitiple [] characters is no longer supported.");
-				Logging.errorPrint("Please change: " + sourceLine);
+					.deprecationPrint("The SPELL: tag with [PRExxx] syntax with mulitiple [] characters is no longer supported.");
+				Logging.deprecationPrint("Please change: " + sourceLine);
 			}
 
 			if (j < i)
@@ -116,8 +116,8 @@ public class SpellLst implements GlobalLstToken, DeprecatedToken
 			// In the future the "[]" notation to delimite PRExxx
 			// tags for the SPELL tag should not be used
 			Logging
-				.errorPrint("The SPELL: tag with [PRExxx] syntax has been deprecated.");
-			Logging.errorPrint("Please change: " + sourceLine);
+				.deprecationPrint("The SPELL: tag with [PRExxx] syntax has been deprecated.");
+			Logging.deprecationPrint("Please change: " + sourceLine);
 		}
 
 		final StringTokenizer aTok = new StringTokenizer(spellSrc, "|");

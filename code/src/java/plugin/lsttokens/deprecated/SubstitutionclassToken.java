@@ -20,7 +20,7 @@ public class SubstitutionclassToken implements PCClassLstToken, DeprecatedToken
 	public boolean parse(PCClass pcclass, String value, int level)
 	{
 		Logging
-			.errorPrint("You have used a Tag (SUBSTITUTIONCLASS) which was never processed in PCGen - it has been removed");
+			.deprecationPrint("You have used a Tag (SUBSTITUTIONCLASS) which was never processed in PCGen - it has been removed");
 		return false;
 	}
 
