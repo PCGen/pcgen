@@ -101,6 +101,6 @@ public class LstUtils
 	 */
 	public static void deprecationWarning(String warning)
 	{
-		Logging.errorPrint(warning);
+		Logging.deprecationPrint(warning);
 	}
 }
