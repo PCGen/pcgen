@@ -77,6 +77,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	private List<Ability> theAbilityList;
 	//private AbilityCategory theCategory;
 	private List<AbilityCategory> theCategoryList;
+	private AbilityCategory currAbilityCat;
 	private boolean useCategoryRoot;
 
 	private IAbilityListFilter theFilter = null;
@@ -110,6 +111,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 
 		theCategoryList = new ArrayList<AbilityCategory>();
 		theCategoryList.add(aCategory);
+		currAbilityCat = aCategory;
 		useCategoryRoot = false;
 
 		setPanelSpecificDefaults();
@@ -146,6 +148,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 
 		theCategoryList = aCategoryList;
 		useCategoryRoot = splitByCategory;
+		currAbilityCat = theCategoryList.get(0);
 
 		setPanelSpecificDefaults();
 		for (final Column column : Column.values())
@@ -181,8 +184,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		sourceRoot = new PObjectNode();
 
 		// We will use the global lists for this
-		addTypeNodes(typeRoot, Globals.getAbilityList(theCategoryList.get(0)));
-		addSourceNodes(sourceRoot, Globals.getAbilityList(theCategoryList.get(0)));
+		addTypeNodes(typeRoot, Globals.getAbilityList(currAbilityCat));
+		addSourceNodes(sourceRoot, Globals.getAbilityList(currAbilityCat));
 	}
 
 	/**
@@ -852,6 +855,13 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		return 0; // not here
 	}
 
+	public void setCurrentAbilityCategory(AbilityCategory newCat)
+	{
+		currAbilityCat = newCat;
+		typeRoot = null;
+		sourceRoot = null;
+	}
+	
 	/**
 	 * Sets the ability list to use.
 	 * 

@@ -29,7 +29,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.swing.JMenuItem;
@@ -41,8 +40,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.gui.tabs.ability.AbilitySelectionPanel.ViewMode;
 import pcgen.gui.tabs.components.FilterPanel;
 import pcgen.gui.tabs.components.RemoveItemPanel;
 import pcgen.gui.utils.ClickHandler;
@@ -234,8 +231,12 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	 */
 	private List<Ability> buildPCAbilityList()
 	{
-		final List<Ability> abilityList =
-				getPC().getAggregateAbilityList(getCategory());
+		final List<AbilityCategory> catList = getCategoryList();
+		final List<Ability> abilityList = new ArrayList<Ability>();
+		for (AbilityCategory abilityCategory : catList)
+		{
+			abilityList.addAll(getPC().getAggregateAbilityList(abilityCategory));
+		}
 		final List<Ability> returnValue =
 				new ArrayList<Ability>(abilityList.size());
 

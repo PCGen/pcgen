@@ -199,7 +199,16 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 	 */
 	public AbilityCategory getCategory()
 	{
-		return theCategoryList.get(0);
+		return  theCategoryList.get(0);
+	}
+
+	/**
+	 * Return the <tt>AbilityCategories</tt> that are being displayed.
+	 * @return The List of ability categories
+	 */
+	public List<AbilityCategory> getCategoryList()
+	{
+		return  Collections.unmodifiableList(theCategoryList);
 	}
 
 	/**
@@ -598,5 +607,9 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 	{
 		theCategoryList = new ArrayList<AbilityCategory>();
 		theCategoryList.add(aCategory);
+		if (theModel != null)
+		{
+			theModel.setCurrentAbilityCategory(aCategory);
+		}
 	}
 }
