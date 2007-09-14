@@ -3,19 +3,19 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 STARTPACK:Default Giant Ant (Worker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant Ant (Worker)]
 RACE:Giant Ant (Worker)	!PRERACE:1,%
-NAME:Giant Ant (Worker)
+NAME:Giant Worker Ant
 ALIGN:TN
 STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
 
 STARTPACK:Default Giant Ant (Soldier)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant Ant (Soldier)]
 RACE:Giant Ant (Soldier)	!PRERACE:1,%
-NAME:Giant Ant (Soldier)
+NAME:Giant Soldier Ant
 ALIGN:TN
 STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
 
 STARTPACK:Default Giant Ant (Queen)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant Ant (Queen)]
 RACE:Giant Ant (Queen)	!PRERACE:1,%
-NAME:Giant Ant (Queen)
+NAME:Giant Ant Queen
 ALIGN:TN
 STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
 
@@ -57,132 +57,126 @@ STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
 
 STARTPACK:Default Monstrous Centipede (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Centipede (Tiny)]
 RACE:Monstrous Centipede (Tiny)	!PRERACE:1,%
-NAME:Monstrous Centipede (Tiny)
+NAME:Tiny Monstrous Centipede
 ALIGN:TN
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Centipede (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Centipede (Small)]
 RACE:Monstrous Centipede (Small)	!PRERACE:1,%
-NAME:Monstrous Centipede (Small)
+NAME:Small Monstrous Centipede
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Centipede (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Centipede (Medium)]
 RACE:Monstrous Centipede (Medium)	!PRERACE:1,%
-NAME:Monstrous Centipede (Medium)
+NAME:Medium Monstrous Centipede
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Centipede (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Centipede (Large)]
 RACE:Monstrous Centipede (Large)	!PRERACE:1,%
-NAME:Monstrous Centipede (Large)
+NAME:Large Monstrous Centipede
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Centipede (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Centipede (Huge)]
 RACE:Monstrous Centipede (Huge)	!PRERACE:1,%
-NAME:Monstrous Centipede (Huge)
+NAME:Huge Monstrous Centipede
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Centipede (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Centipede (Colossal)]
 RACE:Monstrous Centipede (Colossal)	!PRERACE:1,%
-NAME:Monstrous Centipede (Colossal)
+NAME:Colossal Monstrous Centipede
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Centipede (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Centipede (Gargantuan)]
 RACE:Monstrous Centipede (Gargantuan)	!PRERACE:1,%
-NAME:Monstrous Centipede (Gargantuan)
+NAME:Gargantuan Monstrous Centipede
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Scorpion (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Scorpion (Tiny)]
 RACE:Monstrous Scorpion (Tiny)	!PRERACE:1,%
-NAME:Monstrous Scorpion (Tiny)
+NAME:Tiny Monstrous Scorpion
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Scorpion (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Scorpion (Small)]
 RACE:Monstrous Scorpion (Small)	!PRERACE:1,%
-NAME:Monstrous Scorpion (Small)
+NAME:Small Monstrous Scorpion
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Scorpion (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Scorpion (Medium)]
 RACE:Monstrous Scorpion (Medium)	!PRERACE:1,%
-NAME:Monstrous Scorpion (Medium)
+NAME:Medium Monstrous Scorpion
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Scorpion (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Scorpion (Large)]
 RACE:Monstrous Scorpion (Large)	!PRERACE:1,%
-NAME:Monstrous Scorpion (Large)
+NAME:Large Monstrous Scorpion
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Scorpion (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Scorpion (Huge)]
 RACE:Monstrous Scorpion (Huge)	!PRERACE:1,%
-NAME:Monstrous Scorpion (Huge)
+NAME:Huge Monstrous Scorpion
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Scorpion (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Scorpion (Colossal)]
 RACE:Monstrous Scorpion (Colossal)	!PRERACE:1,%
-NAME:Monstrous Scorpion (Colossal)
+NAME:Colossal Monstrous Scorpion
 ALIGN:TN
-SKILL:Hide	RANK:1
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Scorpion (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Scorpion (Gargantuan)]
 RACE:Monstrous Scorpion (Gargantuan)	!PRERACE:1,%
-NAME:Monstrous Scorpion (Gargantuan)
+NAME:Gargantuan Monstrous Scorpion
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Spider (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Tiny)]
 RACE:Monstrous Spider (Tiny)	!PRERACE:1,%
-NAME:Monstrous Spider (Tiny)
+NAME:Tiny Monstrous Spider
 ALIGN:TN
-SKILL:Climb	RANK:6
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Spider (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Small)]
 RACE:Monstrous Spider (Small)	!PRERACE:1,%
-NAME:Monstrous Spider (Small)
+NAME:Small Monstrous Spider
 ALIGN:TN
-SKILL:Climb	RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Spider (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Medium)]
 RACE:Monstrous Spider (Medium)	!PRERACE:1,%
-NAME:Monstrous Spider (Medium)
+NAME:Medium Monstrous Spider
 ALIGN:TN
-SKILL:Climb	RANK:3
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Spider (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Large)]
 RACE:Monstrous Spider (Large)	!PRERACE:1,%
-NAME:Monstrous Spider (Large)
+NAME:Large Monstrous Spider
 ALIGN:TN
-SKILL:Climb	RANK:1
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Spider (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Huge)]
 RACE:Monstrous Spider (Huge)	!PRERACE:1,%
-NAME:Monstrous Spider (Huge)
+NAME:Huge Monstrous Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Spider (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Colossal)]
 RACE:Monstrous Spider (Colossal)	!PRERACE:1,%
-NAME:Monstrous Spider (Colossal)
+NAME:Colossal Monstrous Spider
 ALIGN:TN
-SKILL:Spot	RANK:3
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Monstrous Spider (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Gargantuan)]
 RACE:Monstrous Spider (Gargantuan)	!PRERACE:1,%
-NAME:Monstrous Spider (Gargantuan)
+NAME:Gargantuan Monstrous Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
