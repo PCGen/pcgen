@@ -7650,7 +7650,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (Equipment eq : weapons)
 			{
-				addEquipToTarget(eSet, null, "", eq, null);
+				EquipSet es = addEquipToTarget(eSet, null, "", eq, null);
+				if (es == null)
+				{
+					addEquipToTarget(eSet, null, Constants.S_CARRIED, eq, null);
+				}
 			}
 		}
 		setDirty(true);
