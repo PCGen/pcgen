@@ -189,19 +189,15 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		boolean wrote = false;
 		for ( final Description desc : theBenefits )
 		{
-			if ( wrote )
-			{
-				buf.append(Constants.COMMA);
-			}
 			final String str = desc.getDescription(aPC);
 			if ( str.length() > 0 )
 			{
+				if ( wrote )
+				{
+					buf.append(Constants.COMMA);
+				}
 				buf.append(str);
 				wrote = true;
-			}
-			else
-			{
-				wrote = false;
 			}
 		}
 		return buf.toString();
@@ -557,7 +553,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 
 		if (getOutputName().equalsIgnoreCase("[BASE]"))
 		{
-			return getOutputName();
+			return getDisplayName();
 		}
 		if ((getAssociatedCount() > 0)
 				&& !getKeyName().startsWith("Armor Proficiency")

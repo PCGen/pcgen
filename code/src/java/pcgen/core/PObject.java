@@ -478,13 +478,13 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		boolean wrote = false;
 		for ( final Description desc : theDescriptions )
 		{
-			if ( wrote )
-			{
-				buf.append(Constants.COMMA);
-			}
 			final String str = desc.getDescription(aPC);
 			if ( str.length() > 0 )
 			{
+				if ( wrote )
+				{
+					buf.append(Constants.COMMA + ' ');
+				}
 				buf.append(str);
 				wrote = true;
 			}
@@ -1563,7 +1563,11 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			return displayName;
 		}
-
+		else if (outputName.equalsIgnoreCase("[BASE]") && displayName.indexOf('(') != -1)
+		{
+			outputName = this.displayName.substring(0, displayName.indexOf('(')).trim();
+		}
+		
 		return outputName;
 	}
 
