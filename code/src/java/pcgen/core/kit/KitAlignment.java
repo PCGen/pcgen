@@ -62,7 +62,7 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 	 */
 	public void apply(PlayerCharacter aPC)
 	{
-		aPC.setAlignment(alignInd, false);
+		aPC.setAlignment(alignInd, false, true);
 	}
 
 	/**
@@ -113,6 +113,7 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 			}
 			return false;
 		}
+		final String[] longAlignArray = SettingsHandler.getGame().getAlignmentListStrings(true);
 		if (alignChoices.size() == 1)
 		{
 			Integer intAlign = alignChoices.get(0);
@@ -121,7 +122,6 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 		else
 		{
 			// Build the string list.
-			final String[] longAlignArray = SettingsHandler.getGame().getAlignmentListStrings(true);
 			List<String> choices = new ArrayList<String>(alignChoices.size());
 
 			for ( int choice : alignChoices )
@@ -151,7 +151,14 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 			}
 		}
 
-		aPC.setAlignment(alignInd, false);
+		try
+		{
+			aPC.setAlignment(alignInd, false);
+		}
+		catch (IllegalArgumentException ex)
+		{
+			warnings.add("Character not allowed to select alignment " + longAlignArray[alignInd]);
+		}		
 
 		return true;
 	}
