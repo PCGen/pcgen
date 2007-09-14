@@ -1689,7 +1689,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			}
 			else
 			{
-				Logging.errorPrintLocalised("Warnings.PCGenParser.EquipmentNotFound");
+				Logging.errorPrintLocalised("Warnings.PCGenParser.EquipmentNotFound", eqI);
 
 				return;
 			}
