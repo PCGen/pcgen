@@ -14,7 +14,7 @@ Web Spinning	VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf	SA:Web(Ex) 8/day maximum r
 
 ###Block: Pixie Special Ability
 # Template Name				Visible	Level Adjustment	Source Page				Required Race			Innate Spells
-Pixie Ability (Irresistible Dance)	VISIBLE:YES	LEVELADJUSTMENT:2	SOURCEPAGE:MonstersS.rtf	PRERACE:1,Sprite (Pixie)	SPELLS:Innate|TIMES=1|CASTERLEVEL=8|Irresistible Dance,18+CHA
+Pixie Ability (Irresistible Dance)	VISIBLE:YES	LEVELADJUSTMENT:2	CR:1	SOURCEPAGE:MonstersS.rtf	PRERACE:1,Sprite (Pixie)	SPELLS:Innate|TIMES=1|CASTERLEVEL=8|Irresistible Dance,18+CHA
 Unable to use Irresistible Dance	VISIBLE:NO
 
 
@@ -29,6 +29,8 @@ Default Tiefling			VISIBLE:NO							CSKILL:Bluff|Hide|Move Silently|Sleight of H
 Default Roper			VISIBLE:NO	BONUS:WEAPONPROF=Strand|TOHIT|2
 Default Cauchemar Nightmare	VISIBLE:NO							CSKILL:Bluff|Knowledge (Arcana)
 
+Male Only		VISIBLE:NO	GENDERLOCK:Male
+Female Only		VISIBLE:NO	GENDERLOCK:Female
 #
 # End
 #
