@@ -73,7 +73,7 @@ public class DescLst implements GlobalLstToken
 			final String token = tok.nextToken();
 			if (PreParserFactory.isPreReqString(token)) //$NON-NLS-1$
 			{
-				desc.addPrerequisites(token, '|');
+				desc.addPrerequisites(token, '<');
 				isPre = true;
 			}
 			else
