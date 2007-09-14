@@ -139,25 +139,23 @@ public class TextToken extends Token
 		{
 			final String replaceType = action.substring(7,action.indexOf('{'));
 			String args = action.substring(action.indexOf('{')+1, action.length()-1);
-			int patternEnd = -1;
-			String temp = args;
+			int patternEnd = 0;
+
 			for ( ; ; )
 			{
-				patternEnd = temp.indexOf(',');
-				if (patternEnd == -1)
+				patternEnd = args.indexOf(',', patternEnd);
+				if (patternEnd <= 0)
 				{
 					break;
 				}
-				if (temp.charAt(patternEnd - 1) != '\\')
+				if (args.charAt(patternEnd - 1) != '\\')
 				{
 					break;
 				}
-				else
-				{
-					temp = temp.substring(patternEnd+1);
-				}
+				String temp = args.substring(0, patternEnd - 1);
+				args = temp + args.substring(patternEnd, args.length());
 			}
-			if (patternEnd == -1)
+			if (patternEnd <= 0)
 			{
 				Logging.errorPrint("Invalid REPLACE token");
 			}
@@ -213,6 +211,7 @@ public class TextToken extends Token
 				res.append(sentence[i]);
 			}
 		}
+		res.append('.');
 		return res.toString();
 	}
 
