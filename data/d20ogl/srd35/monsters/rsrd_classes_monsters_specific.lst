@@ -300,7 +300,7 @@ CLASS:Androsphinx	HD:10		TYPE:Monster	MAXLEVEL:36	SOURCEPAGE:MonstersS.rtf	BONUS
 CLASS:Androsphinx	PRERACE:1,Sphinx (Androsphinx)	PRERACETYPE:Magical Beast
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Androsphinx	STARTSKILLPTS:2	MODTOSKILLS:YES
-1					ADD:SPELLCASTER|1|Cleric
+1	BONUS:DOMAIN|NUMBER|2		ADD:SPELLCASTER|1|Cleric
 2	BONUS:PCLEVEL|Cleric|1
 4	BONUS:PCLEVEL|Cleric|1
 6	BONUS:PCLEVEL|Cleric|1
