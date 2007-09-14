@@ -47,7 +47,7 @@ FEAT:Lightning Reflexes
 STARTPACK:Default Angel (Astral Deva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Astral Deva)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Angel (Astral Deva)	!PRERACE:1,%
-NAME:Angel, Astral Deva
+NAME:Astral Deva
 ALIGN:LG|NG|CG
 SKILL:Diplomacy				RANK:15
 SKILL:Listen				RANK:15
@@ -69,7 +69,7 @@ GEAR:Mace (Heavy)	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W.DISRPT
 STARTPACK:Default Angel (Planetar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Planetar)]
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 RACE:Angel (Planetar)	!PRERACE:1,%
-NAME:Angel, Planetar
+NAME:Planetar
 ALIGN:LG|NG|CG
 SKILL:Diplomacy				RANK:17
 SKILL:Concentration			RANK:17
@@ -95,7 +95,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Align Weapon|Banishment|Bear's
 STARTPACK:Default Angel (Solar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Solar)]
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 RACE:Angel (Solar)	!PRERACE:1,%
-NAME:Angel, Solar
+NAME:Solar
 ALIGN:LG|NG|CG
 SKILL:Diplomacy				RANK:23
 SKILL:Concentration			RANK:25
@@ -124,43 +124,43 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon|Banishment|Bear's End
 STARTPACK:Default Animated Object (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Tiny)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Tiny)	!PRERACE:1,%
-NAME:Animated Object, Tiny
+NAME:Tiny Animated Object
 ALIGN:TN
 
 STARTPACK:Default Animated Object (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Small)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Small)	!PRERACE:1,%
-NAME:Animated Object, Small
+NAME:Small Animated Object
 ALIGN:TN
 
 STARTPACK:Default Animated Object (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Medium)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Medium)	!PRERACE:1,%
-NAME:Animated Object, Medium
+NAME:Medium Animated Object
 ALIGN:TN
 
 STARTPACK:Default Animated Object (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Large)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Large)	!PRERACE:1,%
-NAME:Animated Object, Large
+NAME:Large Animated Object
 ALIGN:TN
 
 STARTPACK:Default Animated Object (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Huge)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Huge)	!PRERACE:1,%
-NAME:Animated Object, Huge
+NAME:Huge Animated Object
 ALIGN:TN
 
 STARTPACK:Default Animated Object (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Gargantuan)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Gargantuan)	!PRERACE:1,%
-NAME:Animated Object, Gargantuan
+NAME:Gargantuan Animated Object
 ALIGN:TN
 
 STARTPACK:Default Animated Object (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Colossal)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Colossal)	!PRERACE:1,%
-NAME:Animated Object, Colossal
+NAME:Colossal Animated Object
 ALIGN:TN
 
 STARTPACK:Default Ankheg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ankheg]

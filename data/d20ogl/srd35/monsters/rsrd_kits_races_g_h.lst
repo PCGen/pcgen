@@ -19,7 +19,7 @@ NAME:Kapoacinth
 
 STARTPACK:Default Genie (Djinni)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Djinni)]
 RACE:Genie (Djinni)	!PRERACE:1,%
-NAME:Genie (Djinni)
+NAME:Djinni
 ALIGN:CG
 SKILL:Appraise		RANK:10
 SKILL:Concentration	RANK:10
@@ -38,7 +38,7 @@ STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
 STARTPACK:Default Genie (Efreeti)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Efreeti)]
 RACE:Genie (Efreeti)	!PRERACE:1,%
-NAME:Genie (Efreeti)
+NAME:Efreeti
 ALIGN:LE
 SKILL:Bluff			RANK:13
 SKILL:Concentration	RANK:13
@@ -57,7 +57,7 @@ STAT:STR=11|DEX=11|WIS=11|CHA=11|CON=10|INT=10
 
 STARTPACK:Default Genie (Janni)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Janni)]
 RACE:Genie (Janni)	!PRERACE:1,%
-NAME:Genie (Janni)
+NAME:Janni
 ALIGN:TN
 SKILL:Escape Artist	RANK:9
 SKILL:Move Silently	RANK:9
@@ -74,7 +74,7 @@ FEAT:Mobility
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 GEAR:Chainmail	SIZE:PC	LOCATION:Equipped
 GEAR:Longbow	SIZE:PC	LOCATION:Carried
-GEAR:Scimitar	SIZE:PC	LOCATION:Primary Hand
+GEAR:Scimitar	SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Default Ghaele	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghaele]
 RACE:Ghaele	!PRERACE:1,%
@@ -120,7 +120,7 @@ NAME:Lacedon
 
 STARTPACK:Default Ghoul (Ghast)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghoul (Ghast)]
 RACE:Ghoul (Ghast)	!PRERACE:1,%
-NAME:Ghoul (Ghast)
+NAME:Ghast
 ALIGN:CE
 SKILL:Climb			RANK:6
 SKILL:Jump			RANK:6
@@ -134,7 +134,7 @@ STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 
 STARTPACK:Default Giant (Cloud)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Cloud)]
 RACE:Giant (Cloud)	!PRERACE:1,%
-NAME:Giant (Cloud)
+NAME:Cloud Giant
 ALIGN:NE|NG
 SKILL:Sense Motive			RANK:6
 SKILL:Perform (String Instruments)	RANK:1
@@ -155,7 +155,7 @@ GEAR:Morningstar	SIZE:G	LOCATION:Both Hands
 
 STARTPACK:Default Giant (Fire)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Fire)]
 RACE:Giant (Fire)	!PRERACE:1,%
-NAME:Giant (Fire)
+NAME:Fire Giant
 ALIGN:LE
 SKILL:Climb		RANK:6
 SKILL:Intimidate	RANK:6
@@ -174,7 +174,7 @@ GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Default Giant (Frost)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
 RACE:Giant (Frost)	!PRERACE:1,%
-NAME:Giant (Frost)
+NAME:Frost Giant
 ALIGN:CE
 SKILL:Jump		RANK:6
 SKILL:Intimidate	RANK:6
@@ -193,7 +193,7 @@ GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped
 STARTPACK:Default Giant (Hill)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Hill)]
 STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 RACE:Giant (Hill)	!PRERACE:1,%
-NAME:Giant (Hill)
+NAME:Hill Giant
 ALIGN:CE
 SKILL:Climb		RANK:3
 SKILL:Jump		RANK:3
@@ -209,7 +209,7 @@ GEAR:Hide		SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Default Giant (Stone)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Stone)]
 RACE:Giant (Stone)	!PRERACE:1,%
-NAME:Giant (Stone)
+NAME:Stone Giant
 ALIGN:TN
 SKILL:Hide	RANK:11
 SKILL:Spot	RANK:11
@@ -226,7 +226,7 @@ GEAR:Hide		SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Default Giant (Storm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Storm)]
 RACE:Giant (Storm)	!PRERACE:1,%
-NAME:Giant (Storm)
+NAME:Storm Giant
 ALIGN:CG
 SKILL:Swim			RANK:4
 SKILL:Climb			RANK:10
@@ -405,7 +405,7 @@ GEAR:Javelin			SIZE:PC	LOCATION:Carried
 
 STARTPACK:Default Hag (Annis)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Annis)]
 RACE:Hag (Annis)	!PRERACE:1,%
-NAME:Hag (Annis)
+NAME:Annis Hag
 ALIGN:CE
 SKILL:Bluff		RANK:8
 SKILL:Hide		RANK:8
@@ -418,7 +418,7 @@ STAT:STR=11|INT=11|WIS=11|DEX=10|CON=10|CHA=10
 
 STARTPACK:Default Hag (Green)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Green)]
 RACE:Hag (Green)	!PRERACE:1,%
-NAME:Hag (Green)
+NAME:Green Hag
 ALIGN:CE
 SKILL:Hide					RANK:8
 SKILL:Listen				RANK:8
@@ -433,7 +433,7 @@ STAT:STR=11|INT=11|WIS=11|DEX=10|CON=10|CHA=10
 
 STARTPACK:Default Hag (Sea)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Sea)]
 RACE:Hag (Sea)	!PRERACE:1,%
-NAME:Hag (Sea)
+NAME:Sea Hag
 ALIGN:CE
 SKILL:Hide					RANK:3
 SKILL:Listen				RANK:3
@@ -525,7 +525,7 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Hydra (Eight Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Headed)]
 RACE:Hydra (Eight Headed)	!PRERACE:1,%
-NAME:Hydra (Eight Headed)
+NAME:Eight Headed Hydra
 ALIGN:TN
 SKILL:Spot		RANK:6
 SKILL:Listen	RANK:5
@@ -536,7 +536,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Eleven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Headed)]
 RACE:Hydra (Eleven Headed)	!PRERACE:1,%
-NAME:Hydra (Eleven Headed)
+NAME:Eleven Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:7
@@ -548,7 +548,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Five Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Headed)]
 RACE:Hydra (Five Headed)	!PRERACE:1,%
-NAME:Hydra (Five Headed)
+NAME:Five Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
@@ -558,7 +558,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Nine Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Headed)]
 RACE:Hydra (Nine Headed)	!PRERACE:1,%
-NAME:Hydra (Nine Headed)
+NAME:Nine Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
@@ -570,7 +570,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Seven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Headed)]
 RACE:Hydra (Seven Headed)	!PRERACE:1,%
-NAME:Hydra (Seven Headed)
+NAME:Seven Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
@@ -581,7 +581,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Six Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Headed)]
 RACE:Hydra (Six Headed)	!PRERACE:1,%
-NAME:Hydra (Six Headed)
+NAME:Six Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
@@ -592,7 +592,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Ten Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Headed)]
 RACE:Hydra (Ten Headed)	!PRERACE:1,%
-NAME:Hydra (Ten Headed)
+NAME:Ten Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:7
@@ -604,7 +604,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Twelve Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Headed)]
 RACE:Hydra (Twelve Headed)	!PRERACE:1,%
-NAME:Hydra (Twelve Headed)
+NAME:Twelve Headed Hydra
 ALIGN:TN
 SKILL:Spot		RANK:8
 SKILL:Listen	RANK:7
@@ -617,7 +617,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Pyrohydra/Eight Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Eight Headed)]
 RACE:Hydra (Pyrohydra/Eight Headed)	!PRERACE:1,%
-NAME:Pyrohydra (Eight Headed)
+NAME:Eight Headed Pyrohydra 
 ALIGN:TN
 SKILL:Spot		RANK:6
 SKILL:Listen	RANK:5
@@ -628,7 +628,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Pyrohydra/Eleven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Eleven Headed)]
 RACE:Hydra (Pyrohydra/Eleven Headed)	!PRERACE:1,%
-NAME:Pyrohydra (Eleven Headed)
+NAME:Eleven Headed Pyrohydra
 ALIGN:TN
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:7
@@ -640,7 +640,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Pyrohydra/Five Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Five Headed)]
 RACE:Hydra (Pyrohydra/Five Headed)	!PRERACE:1,%
-NAME:Pyrohydra (Five Headed)
+NAME:Five Headed Pyrohydra
 ALIGN:TN
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
@@ -650,7 +650,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Pyrohydra/Nine Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Nine Headed)]
 RACE:Hydra (Pyrohydra/Nine Headed)	!PRERACE:1,%
-NAME:Pyrohydra (Nine Headed)
+NAME:Nine Headed Pyrohydra
 ALIGN:TN
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
@@ -662,7 +662,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Pyrohydra/Seven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Seven Headed)]
 RACE:Hydra (Pyrohydra/Seven Headed)	!PRERACE:1,%
-NAME:Pyrohydra (Seven Headed)
+NAME:Seven Headed Pyrohydra
 ALIGN:TN
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
@@ -673,7 +673,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Pyrohydra/Six Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Six Headed)]
 RACE:Hydra (Pyrohydra/Six Headed)	!PRERACE:1,%
-NAME:Pyrohydra (Six Headed)
+NAME:Six Headed Pyrohydra
 ALIGN:TN
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
@@ -684,7 +684,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Pyrohydra/Ten Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Ten Headed)]
 RACE:Hydra (Pyrohydra/Ten Headed)	!PRERACE:1,%
-NAME:Pyrohydra (Ten Headed)
+NAME:Ten Headed Pyrohydra
 ALIGN:TN
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:7
@@ -696,7 +696,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Pyrohydra/Twelve Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Twelve Headed)]
 RACE:Hydra (Pyrohydra/Twelve Headed)	!PRERACE:1,%
-NAME:Pyrohydra (Twelve Headed)
+NAME:Twelve Headed Pyrohydra
 ALIGN:TN
 SKILL:Spot		RANK:8
 SKILL:Listen	RANK:7
@@ -709,7 +709,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Cryohydra/Eight Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Eight Headed)]
 RACE:Hydra (Cryohydra/Eight Headed)	!PRERACE:1,%
-NAME:Cryohydra (Eight Headed)
+NAME:Eight Headed Cryohydra
 ALIGN:TN
 SKILL:Spot		RANK:6
 SKILL:Listen	RANK:5
@@ -720,7 +720,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Cryohydra/Eleven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Eleven Headed)]
 RACE:Hydra (Cryohydra/Eleven Headed)	!PRERACE:1,%
-NAME:Cryohydra (Eleven Headed)
+NAME:Eleven Headed Cryohydra
 ALIGN:TN
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:7
@@ -732,7 +732,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Cryohydra/Five Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Five Headed)]
 RACE:Hydra (Cryohydra/Five Headed)	!PRERACE:1,%
-NAME:Cryohydra (Five Headed)
+NAME:Five Headed Cryohydra
 ALIGN:TN
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
@@ -742,7 +742,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Cryohydra/Nine Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Nine Headed)]
 RACE:Hydra (Cryohydra/Nine Headed)	!PRERACE:1,%
-NAME:Cryohydra (Nine Headed)
+NAME:Nine Headed Cryohydra
 ALIGN:TN
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
@@ -754,7 +754,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Cryohydra/Seven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Seven Headed)]
 RACE:Hydra (Cryohydra/Seven Headed)	!PRERACE:1,%
-NAME:Cryohydra (Seven Headed)
+NAME:Seven Headed Cryohydra
 ALIGN:TN
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
@@ -765,7 +765,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Cryohydra/Six Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Six Headed)]
 RACE:Hydra (Cryohydra/Six Headed)	!PRERACE:1,%
-NAME:Cryohydra (Six Headed)
+NAME:Six Headed Cryohydra
 ALIGN:TN
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
@@ -776,7 +776,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Cryohydra/Ten Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Ten Headed)]
 RACE:Hydra (Cryohydra/Ten Headed)	!PRERACE:1,%
-NAME:Cryohydra (Ten Headed)
+NAME:Ten Headed Cryohydra
 ALIGN:TN
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:7
@@ -788,7 +788,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Cryohydra/Twelve Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Twelve Headed)]
 RACE:Hydra (Cryohydra/Twelve Headed)	!PRERACE:1,%
-NAME:Cryohydra (Twelve Headed)
+NAME:Twelve Headed Cryohydra
 ALIGN:TN
 SKILL:Spot		RANK:8
 SKILL:Listen	RANK:7

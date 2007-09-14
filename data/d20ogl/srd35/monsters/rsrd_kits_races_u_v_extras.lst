@@ -29,5 +29,5 @@ FEAT:Combat Casting
 FEAT:Extra Turning
 FEAT:Improved Turning
 GEAR:Bracers of Armor +5	LOCATION:Equipped
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic|Detect Poison=2|Light|Virtue=2|Bless=2|Calm Animals|Obscuring Mist|Remove Fear|Sanctuary|Shield of Faith|Aid=2|Animal Messenger|Restoration (Lesser)|Remove Paralysis|Shield Other|Prayer|Protection from Energy|Remove Curse|Searing Light=2|Air Walk|Divine Power|Holy Smite|Restoration
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic|Detect Poison=2|Light|Virtue=2|Bless=2|Calm Animals|Obscuring Mist|Remove Fear|Sanctuary|Shield of Faith|Aid|Aid|Restoration (Lesser)|Remove Paralysis|Shield Other|Prayer|Protection from Energy|Remove Curse|Searing Light=2|Air Walk|Divine Power|Holy Smite|Restoration
 

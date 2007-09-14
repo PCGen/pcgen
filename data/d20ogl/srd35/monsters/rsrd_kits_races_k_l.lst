@@ -234,14 +234,15 @@ ALIGN:CE
 RACE:Human	!PRERACE:1,%
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 CLASS:Warrior	LEVEL:1
+SKILL:Handle Animal	RANK:2
+SKILL:Listen		RANK:1
+SKILL:Spot			RANK:1
+SKILL:Hide			RANK:1
+SKILL:Move Silently	RANK:3
 FEAT:Improved Initiative
 FEAT:Stealthy
 TEMPLATE:Lycanthrope[TEMPLATE:Werewolf][TEMPLATE:Natural Lycanthrope]
-SKILL:Hide			RANK:2
-SKILL:Move Silently	RANK:3
-SKILL:Listen		RANK:1
-SKILL:Spot			RANK:1
-SKILL:Handle Animal	RANK:2
+SKILL:Hide			RANK:1
 SKILL:Survival		RANK:2
 FEAT:Weapon Focus(Bite)
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped

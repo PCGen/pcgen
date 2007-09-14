@@ -8,7 +8,7 @@ ALIGN:CG
 SKILL:Listen		RANK:4
 SKILL:Spot			RANK:4
 SKILL:Jump			RANK:4
-SKILL:Move Silently	RANK:4
+SKILL:Move Silently	RANK:2
 FEAT:Alertness
 FEAT:Skill Focus(Survival)
 STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
@@ -24,7 +24,8 @@ SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:4
 SKILL:Search		RANK:3
 SKILL:Climb			RANK:5
-SKILL:Jump			RANK:7
+SKILL:TYPE=Craft|TYPE=Profession	RANK:4
+SKILL:Jump			RANK:5
 FEAT:Toughness
 FEAT:Skill Focus
 STAT:INT=11|WIS=11|STR=10|DEX=10|CON=10|CHA=10
