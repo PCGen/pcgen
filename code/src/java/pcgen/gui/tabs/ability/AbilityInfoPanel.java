@@ -164,6 +164,16 @@ public class AbilityInfoPanel extends JPanel
 		sb.append(END_BOLD);
 		sb.append(theAbility.piDescSubString(thePC));
 
+		final String bene = theAbility.getBenefits(thePC);
+		if (bene != null && bene.length() > 0)
+		{
+			sb.append(TWO_SPACES);
+			sb.append(BOLD);
+			sb.append("Benefit:");
+			sb.append(END_BOLD);
+			sb.append(theAbility.getBenefits(thePC));
+		}
+		
 		sb.append(TWO_SPACES);
 		sb.append(BOLD);
 		sb.append(PropertyFactory.getString("in_sourceLabel")).append(':'); //$NON-NLS-1$
