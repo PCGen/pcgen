@@ -134,6 +134,7 @@ public class InfoCharacterSheet extends BaseCharacterInfoTab
 			}
 			catch (Exception e)
 			{
+				Logging.errorPrint("Could not select PC ", e);
 				// Yuck but not sure what else to do.
 			}
 		}
@@ -193,6 +194,7 @@ public class InfoCharacterSheet extends BaseCharacterInfoTab
 			{
 				ex.printStackTrace();
 			}
+			Logging.errorPrint("Unable to process sheet: ", e);
 		}
 	}
 	
