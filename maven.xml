@@ -78,6 +78,7 @@
 				<include name="outputsheets/**"/>
 				<include name="docs/**"/>
 				<include name="system/**"/>
+				<include name="preview/**"/>
 			</fileset>
 		</ant:zip> 
 
