@@ -1,0 +1,982 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+
+		$Author: fitzs $
+		$Date: 16 Sept 2007$
+		$Revision: $
+
+		Contributors:
+		Terry FitzSimons - fitzsimonsATmintelDOTnet
+		Description:
+		Provides a list of the various TYPE varibles used in PcGen.
+	-->
+<head>
+	<title>The Variables</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+	<h1>The TYPE Variables</h1>
+
+	<p>This is a list in progress.  Just because the TYPE variable that you want to use is not listed does not
+	mean that you cannot use it, just that it has not been listed yet</p>
+
+	<h1>The Standards</h1>
+
+	<p><li>The preferred version of multiple word TYPE variables is OneTwoThree, AKA HeavyGyroJetLauncher.</li>
+		<li>The use of Heavy_GyroJet_Launcher is also permitted.</li>
+		<li>The use of Heavy GyroJet Launcher will cause indexing problems and is not permitted.</li></p>
+
+	<p class="indent0"><strong><a name="classes">Group Name:</a></strong> -- classes.lst</p>
+	<ul class="indent2">
+		<li>Base</li>
+		<li>Monster</li>
+		<li>NPC</li>
+		<li>PC</li>
+		<li>Prestige</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="classes_advanced">Group Name:</a></strong> -- classes_advanced.lst</p>
+	<ul class="indent2">
+		<li>Advanced</li>
+		<li>Monster</li>
+		<li>PC</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="class_core">Group Name:</a></strong> -- class_core.lst</p>
+	<ul class="indent2">
+		<li>Base</li>
+		<li>PC</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="classes_legendary">Group Name:</a></strong> -- classes_legendary.lst</p>
+	<ul class="indent2">
+		<li>PC</li>
+		<li>Prestige</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="class_prestige">Group Name:</a></strong> -- class_prestige.lst</p>
+	<ul class="indent2">
+		<li>Advanced</li>
+		<li>PC</li>
+		<li>Prestige</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="class_race">Group Name:</a></strong> -- class_race.lst</p>
+	<ul class="indent2">
+		<li>PC</li>
+		<li>Race</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="companionmod">Group Name:</a></strong> -- companionmod.lst</p>
+	<ul class="indent2">
+		<li>SpecialMount</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="eqmods">Group Name:</a></strong> -- eqmods.lst</p>
+	<ul class="indent2">
+		<li>Ammunition</li>
+		<li>Armor</li>
+		<li>Gadget</li>
+		<li>Melee</li>
+		<li>Shield</li>
+		<li>Slashing</li>
+		<li>Weapon</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_Ammunition">Group Name:</a></strong> -- equip.lst TYPE:Ammunition</p>
+	<ul class="indent2">
+		<li>Bullet</li>
+		<li>Energy</li>
+		<li>Gyrojet</li>
+		<li>Missile</li>
+		<li>Standard</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_Goods">Group Name:</a></strong> -- equip.lst TYPE:Goods</p>
+	<ul class="indent2">
+		<li>Alchemical</li>
+		<li>Belt</li>
+		<li>Boot</li>
+		<li>Clothing</li>
+		<li>Consumable</li>
+		<li>Container</li>
+		<li>Cybernetics</li>
+		<li>Fire</li>
+		<li>Flask</li>
+		<li>General</li>
+		<li>Headgear</li>
+		<li>Laser</li>
+		<li>Piercing</li>
+		<li>PL6</li>
+		<li>Ranged</li>
+		<li>Trade</li>
+		<li>Weapon</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_Goods_Tools">Group Name:</a></strong> -- equip.lst TYPE:Goods.Tools</p>
+	<ul class="indent2">
+		<li>Consumable</li>
+		<li>Consumer</li>
+		<li>Electronic</li>
+		<li>Gadget</li>
+		<li>General</li>
+		<li>Masterwork</li>
+		<li>Medical</li>
+		<li>Photo</li>
+		<li>PL2</li>
+		<li>PL5</li>
+		<li>PL6</li>
+		<li>Resizable</li>
+		<li>Tools</li>
+		<li>WeaponAccessory</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_Goods_Transportaiton_Mecha">Group Name:</a></strong> -- equip.lst TYPE:Goods.Transportaiton.Mecha</p>
+	<ul class="indent2">
+		<li>Superstructure</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_Goods_Transportation_Starship">Group Name:</a></strong> -- equip.lst TYPE:Goods.Transportation.Starship</p>
+	<ul class="indent2">
+		<li>AtmosphericShuttle</li>
+		<li>EvacuationShip</li>
+		<li>Frigate</li>
+		<li>HeavyDestroyer</li>
+		<li>Light</li>
+		<li>Mediumweight</li>
+		<li>Scout</li>
+		<li>Spacestation</li>
+		<li>Superheavy</li>
+		<li>Ultralight</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_weap">Group Name:</a></strong> -- equip_weap.lst TYPE:Weapon.Exotic</p>
+	<ul class="indent2">
+		<li>Piercing</li>
+		<li>Projectile</li>
+		<li>(Race Type)</li>
+		<li>Ranged</li>
+		<li>Slashing</li>
+		<li>Standard</li>
+		<li>Thrown</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_armor">Group Name:</a></strong> -- equip_armor.lst TYPE:Armor</p>
+	<ul class="indent2">
+		<li>Heavy</li>
+		<li>Light</li>
+		<li>Medium</li>
+		<li>Nonmetal</li>
+		<li>Specific</li>
+		<li>Suit</li>
+		<li>Tactical</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_armorshield">Group Name:</a></strong> -- equip_armorshield.lst TYPE:Armor</p>
+	<ul class="indent2">
+		<li>Archaic</li>
+		<li>Heavy</li>
+		<li>Light</li>
+		<li>Medium</li>
+		<li>PL3</li>
+		<li>PL4</li>
+		<li>PL5</li>
+		<li>PL6</li>
+		<li>Powered</li>
+		<li>Shield</li>
+		<li>Suit</li>
+		<li>Tactical</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Armor">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Armor</p>
+	<ul class="indent2">
+		<li>Light</li>
+		<li>Nonmetal</li>
+		<li>Specific</li>
+		<li>Suit</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Goods">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Goods</p>
+	<ul class="indent2">
+		<li>Alchemical</li>
+		<li>Consumable</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Enhancement_Ammunition">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Enhancement.Ammunition</p>
+	<ul class="indent2">
+		<li>Individual</li>
+		<li>SpecificArrow</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Enhancement_Shield">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Enhancement.Shield</p>
+	<ul class="indent2">
+		<li>Heavy</li>
+		<li>Specific</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Enhancement.Weapon">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Enhancement.Weapon</p>
+	<ul class="indent2">
+		<li>Bashing</li>
+		<li>Mace</li>
+		<li>Martial</li>
+		<li>Melee</li>
+		<li>Slashing</li>
+		<li>Specific</li>
+		<li>Sword</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Goods">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Goods</p>
+	<ul class="indent2">
+		<li>Book</li>
+		<li>Boot</li>
+		<li>Container</li>
+		<li>Food</li>
+		<li>Glove</li>
+		<li>Melee</li>
+		<li>Poison</li>
+		<li>Weapon</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Goods_Tools">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Goods.Tools</p>
+	<ul class="indent2">
+		<li>Bashing</li>
+		<li>Exotic</li>
+		<li>Instrument</li>
+		<li>Melee</li>
+		<li>Percussion</li>
+		<li>Resizable</li>
+		<li>Simple</li>
+		<li>Slashing</li>
+		<li>SurgeryTools</li>
+		<li>Weapon</li>
+		<li>Wind</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Magic_Artifact">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Magic.Artifact</p>
+	<ul class="indent2">
+		<li>Armor</li>
+		<li>Bludgeoning</li>
+		<li>Consumable</li>
+		<li>Container</li>
+		<li>Enhancement</li>
+		<li>Heavy</li>
+		<li>Light</li>
+		<li>Mace</li>
+		<li>Martial</li>
+		<li>Medium</li>
+		<li>Melee</li>
+		<li>Nonmetal</li>
+		<li>Potion</li>
+		<li>Ring</li>
+		<li>Shield</li>
+		<li>Slashing</li>
+		<li>Specific</li>
+		<li>Staff</li>
+		<li>Suit</li>
+		<li>Sword</li>
+		<li>Wand</li>
+		<li>Weapon</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Magic_Wondrous">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Magic.Wondrous</p>
+	<ul class="indent2">
+		<li>Amulet</li>
+		<li>Boot</li>
+		<li>Bracelet</li>
+		<li>Headgear</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Shield">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Shield</p>
+	<ul class="indent2">
+		<li>Buckler</li>
+		<li>Heavy</li>
+		<li>Standard</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Weapon_Exotic">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Weapon.Exotic</p>
+	<ul class="indent2">
+		<li>Melee</li>
+		<li>Ranged</li>
+		<li>Standard</li>
+		<li>Slashing</li>
+		<li>Sword</li>
+		<li>Thrown</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_magic_items_Weapon_Melee">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Weapon.Melee</p>
+	<ul class="indent2">
+		<li>Dagger</li>
+		<li>Exotic</li>
+		<li>Finesseable</li>
+		<li>Martial</li>
+		<li>Piercing</li>
+		<li>Standard</li>
+		<li>Ranged</li>
+		<li>Reach</li>
+		<li>Sword</li>
+		<li>Simple</li>
+		<li>Slashing</li>
+		<li>Standard</li>
+		<li>Subdual</li>
+		<li>Thrown</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_poisons_Goods">Group Name:</a></strong> -- equip_poisons.lst TYPE:Goods</p>
+	<ul class="indent2">
+		<li>Consumable</li>
+		<li>Poison</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_shields_Shield">Group Name:</a></strong> -- -- equip_shields.lst TYPE:Shield</p>
+	<ul class="indent2">
+		<li>Heavy</li>
+		<li>Exotic</li>
+		<li>Standard</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equipment_staves">Group Name:</a></strong> -- equipment_staves.lst</p>
+	<ul class="indent2">
+		<li>Bludgeoning</li>
+		<li>Double</li>
+		<li>Magic</li>
+		<li>Melee</li>
+		<li>Quarterstaff</li>
+		<li>Simple</li>
+		<li>Staff</li>
+		<li>Standard</li>
+		<li>TwoHanded</li>
+		<li>Weapon</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_vehicles_Goods_Transportation_Civilian">Group Name:</a></strong> -- equip_vehicles.lst TYPE:Goods.Transportation.Civilian</p>
+	<ul class="indent2">
+		<li>Aircraft</li>
+		<li>Car</li>
+		<li>Hovervehicle</li>
+		<li>Motorcycle</li>
+		<li>Truck</li>
+		<li>Wheel</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_vehicles_Goods_Transportation_Military">Group Name:</a></strong> -- equip_vehicles.lst TYPE:Goods.Transportation.Military</p>
+	<ul class="indent2">
+		<li>Aircraft</li>
+		<li>Armored</li>
+		<li>Track</li>
+		<li>Tracked</li>
+		<li>U-boat</li>
+		<li>Wheel</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_weap_Explosive">Group Name:</a></strong> -- equip_weap.lst TYPE:Explosive</p>
+	<ul class="indent2">
+		<li>Slashing</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_weap_ammo_Ammunition">Group Name:</a></strong> -- equip_weap_ammo.lst TYPE:Ammunition</p>
+	<ul class="indent2">
+		<li>Bullet</li>
+		<li>Individual</li>
+		<li>Metal</li>
+		<li>Standard</li>
+	</ul>
+
+
+	<p class="indent0"><strong><a name="equip_weap_melee_Weapon_Melee">Group Name:</a></strong> -- equip_weap_melee.lst TYPE:Weapon.Melee</p>
+	<ul class="indent2">
+		<li>Bladestaff</li>
+		<li>Bludgeoning</li>
+		<li>Chainball</li>
+		<li>Club</li>
+		<li>Dagger</li>
+		<li>Double</li>
+		<li>Electricity</li>
+		<li>Exotic</li>
+		<li>Finesseable</li>
+		<li>Fire</li>
+		<li>Gore</li>
+		<li>Hookchain</li>
+		<li>Martial</li>
+		<li>Melee</li>
+		<li>Metal</li>
+		<li>Piercing</li>
+		<li>PL2</li>
+		<li>PL5</li>
+		<li>PL6</li>
+		<li>PL7</li>
+		<li>(Race Type)</li>
+		<li>Ranged</li>
+		<li>Reach</li>
+		<li>Simple</li>
+		<li>Slashing</li>
+		<li>Specific</li>
+		<li>Standard</li>
+		<li>Sword</li>
+		<li>Thrown</li>
+		<li>Weapon</li>
+		<li>Wristblade</li>
+		<li>Wooden</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_weap_melee_Weapon_Natural">Group Name:</a></strong> -- equip_weap_melee.lst TYPE:Weapon.Natural</p>
+	<ul class="indent2">
+		<li>Bludgeoning</li>
+		<li>Finesseable</li>
+		<li>Melee</li>
+		<li>Mystic</li>
+		<li>Simple</li>
+		<li>Unarmed</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="equip_weap_ranged_Weapon_Ranged_Standard_Firearm">Group Name:</a></strong> -- equip_weap_ranged.lst TYPE:Weapon.Ranged.Standard.Firearm</p>
+	<ul class="indent2">
+		<li>Archaic</li>
+		<li>Automatic</li>
+		<li>Ballistic</li>
+		<li>Cannon</li>
+		<li>Concussion</li>
+		<li>Container</li>
+		<li>Disintegration</li>
+		<li>Exotic</li>
+		<li>Fire</li>
+		<li>GrenadeLauncher</li>
+		<li>Heavy</li>
+		<li>HeavyGyroJetLauncher</li>
+		<li>HMG</li>
+		<li>Laser</li>
+		<li>LMG</li>
+		<li>Longarm</li>
+		<li>Plasma</li>
+		<li>Personal</li>
+		<li>Pistol</li>
+		<li>PlasmaCannon</li>
+		<li>PL2</li>
+		<li>PL4</li>
+		<li>PL5</li>
+		<li>PL6</li>
+		<li>PL7</li>
+		<li>PL8</li>
+		<li>PL9</li>
+		<li>Piercing</li>
+		<li>Precision</li>
+		<li>Projectile</li>
+		<li>Pistol</li>
+		<li>Radiation</li>
+		<li>RocketLauncher</li>
+		<li>Semiauto</li>
+		<li>Standard</li>
+		<li>Vehicle</li>
+		<li>WarBow</li>
+		<li>Wooden</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="feats">Group Name:</a></strong> -- feats.lst</p>
+	<ul class="indent2">
+		<li>Ambassador</li>
+		<li>Charismatic</li>
+		<li>CharismaticPreferred</li>
+		<li>Clerical</li>
+		<li>Cultural</li>
+		<li>Dedicated</li>
+		<li>DedicatedFavored</li>
+		<li>Driver</li>
+		<li>Explorer</li>
+		<li>Fast</li>
+		<li>FastPreferred</li>
+		<li>Fey</li>
+		<li>Fighter</li>
+		<li>General</li>
+		<li>ItemCreation</li>
+		<li>Metamagic</li>
+		<li>Mystery_Man</li>
+		<li>Operator</li>
+		<li>Order</li>
+		<li>Smart</li>
+		<li>SmartPreferred</li>
+		<li>Special</li>
+		<li>Spellcaster</li>
+		<li>Theurgic</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="feats_aspects">Group Name:</a></strong> -- feats_aspects.lst</p>
+	<ul class="indent2">
+		<li>AspectOfNature</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="feats_flaws">Group Name:</a></strong> -- feats_flaws.lst</p>
+	<ul class="indent2">
+		<li>Flaw</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="feats_hidden">Group Name:</a></strong> -- feats_hidden.lst</p>
+	<ul class="indent2">
+		<li>AddTalent</li>
+		<li>AddWealth</li>
+		<li>AmbassadorAbility</li>
+		<li>AncientHealing</li>
+		<li>BenevolentSpirit</li>
+		<li>BrawlerAbility</li>
+		<li>CharismaticPlus</li>
+		<li>Class</li>
+		<li>ClassAbility</li>
+		<li>CombatAceAbility</li>
+		<li>CrossTraining</li>
+		<li>DedicatedPlus</li>
+		<li>DetectiveAbility</li>
+		<li>DriverAbility</li>
+		<li>EclecticSelections</li>
+		<li>ExplorerAbility</li>
+		<li>Extraordinary</li>
+		<li>FaerieRacialTrait</li>
+		<li>FastLearnerLevel</li>
+		<li>FeyArts</li>
+		<li>ForceLaw</li>
+		<li>GangsterAbility</li>
+		<li>GManAbility</li>
+		<li>HearthMagic</li>
+		<li>HeirWorkaround</li>
+		<li>Hidden</li>
+		<li>HTA1</li>
+		<li>HAT2</li>
+		<li>HTA3</li>
+		<li>Hunter</li>
+		<li>Internal</li>
+		<li>MoveReputationOne</li>
+		<li>MoveReputationTwo</li>
+		<li>MoveReputationThree</li>
+		<li>MysteryManAbility</li>
+		<li>MysticAbility</li>
+		<li>NewsHoundAbility</li>
+		<li>Operator</li>
+		<li>OperatorAbility</li>
+		<li>RaceAbility</li>
+		<li>RacialTraitCost</li>
+		<li>RadiantEnlightenment</li>
+		<li>RelicHunterAbility</li>
+		<li>ScientistAbility</li>
+		<li>SecretEnlightenment</li>
+		<li>ShalraekuZarakku</li>
+		<li>ShadowyAvengerAbility</li>
+		<li>SidekickBonus</li>
+		<li>SignatureKitChoice</li>
+		<li>Special</li>
+		<li>SpecialAttack</li>
+		<li>SpecialQuality</li>
+		<li>SpyAbility</li>
+		<li>Supernatural</li>
+		<li>TeutonicKnightCombat</li>
+		<li>TLS</li>
+		<li>UncannyDodge</li>
+		<li>VelinGuardianSwornEnemy</li>
+		<li>WeirdInventorAbility</li>
+		<li>WordLaw</li>
+		<li>X-Training</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="feats_hidden">Group Name:</a></strong> -- feats_hidden.lst</p>
+	<ul class="indent2">
+		<li>Attentive</li>
+		<li>Authority</li>
+		<li>BrainsOverBrawn</li>
+		<li>Brawler</li>
+		<li>ByGraceOfFortune</li>
+		<li>CharismaticTalent</li>
+		<li>CircleWalkerChoice</li>
+		<li>DedicatedTalent</li>
+		<li>Deduction</li>
+		<li>DiscipleMysteryDiscipline</li>
+		<li>DoppelAltForm</li>
+		<li>Elusive</li>
+		<li>EnergyResistances</li>
+		<li>FastLearner</li>
+		<li>FastTalent</li>
+		<li>FeyTravelerChoice</li>
+		<li>HTrueStaunchBonus</li>
+		<li>InstinctiveResponse</li>
+		<li>LowlanderStatPenalty</li>
+		<li>LowlanderStatBonus</li>
+		<li>MechanicalAptitude</li>
+		<li>NeedForSpeed</li>
+		<li>NightHunterGift</li>
+		<li>Precision</li>
+		<li>Prodigy</li>
+		<li>Rage</li>
+		<li>Research</li>
+		<li>ShamanElementalForm</li>
+		<li>ShaperDivineFocus</li>
+		<li>ShaperSpecialty</li>
+		<li>SmartTalent</li>
+		<li>StrongTalent</li>
+		<li>Soldiery</li>
+		<li>Special</li>
+		<li>SpiritAdeptPowers</li>
+		<li>Survivalist</li>
+		<li>ToughTalent</li>
+		<li>UnbrokenResistance</li>
+		<li>WildernessGuideGift</li>
+	</ul>
+
+-- .lst
+
+
+
+	<p class="indent0"><strong><a name="feats_mod">Group Name:</a></strong> -- feats_mod.lst</p>
+	<ul class="indent2">
+		<li>Adventurer</li>
+		<li>AirRunner</li>
+		<li>Ambassador</li>
+		<li>Antiques_Dealer</li>
+		<li>Athlete</li>
+		<li>BarterJack</li>
+		<li>BarterKing</li>
+		<li>Brawler</li>
+		<li>Bureaucrat</li>
+		<li>Circus_Performer</li>
+		<li>ColonialLeader</li>
+		<li>CombatAce</li>
+		<li>Craftsperson</li>
+		<li>Criminal</li>
+		<li>Daredevil</li>
+		<li>Detective</li>
+		<li>Dissident</li>
+		<li>Driver</li>
+		<li>Fortuneteller</li>
+		<li>Explorer</li>
+		<li>Escape_Artist</li>
+		<li>G_Man</li>
+		<li>Gangster</li>
+		<li>General</li>
+		<li>Gunhand</li>
+		<li>HumanSurvivor</li>
+		<li>Hunter</li>
+		<li>Investigative</li>
+		<li>Law_Enforcement</li>
+		<li>Lawman</li>
+		<li>Military</li>
+		<li>Mystery_Man</li>
+		<li>Mystic_PF</li>
+		<li>Nomad</li>
+		<li>Operator</li>
+		<li>Pilot</li>
+		<li>Politician</li>
+		<li>Rancher</li>
+		<li>RanchHand</li>
+		<li>Rebuilder</li>
+		<li>Relic_Hunter</li>
+		<li>Rural</li>
+		<li>Scientist</li>
+		<li>Shadowy_Avenger</li>
+		<li>Soldier</li>
+		<li>Spacer</li>
+		<li>Stage_Magician</li>
+		<li>Terraformer</li>
+		<li>TribalLeader</li>
+		<li>VelinChief</li>
+		<li>VelinGuardian</li>
+		<li>VelinHunter</li>
+		<li>World_Traveller</li>
+		<li>XenoExpert</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="feats_occupations">Group Name:</a></strong> -- feats_occupations.lst</p>
+	<ul class="indent2">
+		<li>Academic_Skills</li>
+		<li>Adventurer_Skills</li>
+		<li>Antiques_Dealer_Skills</li>
+		<li>Artist_Skills</li>
+		<li>Bureaucrat_Skills</li>
+		<li>Circus_Performer_Skills</li>
+		<li>Craftsperson_Skills</li>
+		<li>Courtier_Skills</li>
+		<li>Dissident_Skills</li>
+		<li>Domestic_Skills</li>
+		<li>Engineer_Skills</li>
+		<li>Escape_Artist_Skills</li>
+		<li>Explorer_Skills</li>
+		<li>Fortuneteller_Skills</li>
+		<li>Heir_Skills</li>
+		<li>Hunter_Skills</li>
+		<li>Laborer_Skills</li>
+		<li>Nomad_Skills</li>
+		<li>Occupation</li>
+		<li>Occupation_Skill</li>
+		<li>Outcast_Skills</li>
+		<li>Pilot_Skills</li>
+		<li>Politician_Skills</li>
+		<li>Ranch_Hand_Skills</li>
+		<li>Scientst_Skills</li>
+		<li>Spacer_Skills</li>
+		<li>Stage_Magician_Skills</li>
+		<li>Terraformer_Skills</li>
+		<li>Tribal_Leader_Skills</li>
+		<li>World_Traveller_Skills</li>
+		<li>Xeno_Expert_Skills</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="feats_races">Group Name:</a></strong> -- feats_races.lst</p>
+	<ul class="indent2">
+
+		<li>AwakeningMagic</li>
+		<li>DawnElfRacialTransformation</li>
+		<li>DoppelRacialTalent</li>
+		<li>DoppelRacialTransformation</li>
+		<li>DwarfRacialTalent</li>
+		<li>DwarfRacialTransformation2</li>
+		<li>DwarfRacialTransformation4</li>
+		<li>DwarfRacialTransformation6</li>
+		<li>DwarfRacialTransformation8</li>
+		<li>DwarfRacialTransformation10</li>
+		<li>ForestWightRacialTalent</li>
+		<li>ForestWightRacialTalent1</li>
+		<li>ForestWightRacialTalent3</li>
+		<li>ForestWightRacialTalent5</li>
+		<li>ForestWightRacialTalent7</li>
+		<li>ForestWightRacialTalent9</li>
+		<li>ForestWightRacialTransformation</li>
+		<li>ForestWightRacialTransformation2</li>
+		<li>ForestWightRacialTransformation4</li>
+		<li>ForestWightRacialTransformation6</li>
+		<li>ForestWightRacialTransformation8</li>
+		<li>ForestWightRacialTransformation10</li>
+		<li>ForestWightTalentSkill</li>
+		<li>GhostElfRacialTalent</li>
+		<li>GhostElfRacialTalent1</li>
+		<li>GhostElfRacialTalent3</li>
+		<li>GhostElfRacialTalent5</li>
+		<li>GhostElfRacialTalent7</li>
+		<li>GhostElfRacialTalent9</li>
+		<li>GhostElfRacialTransformation</li>
+		<li>GhostElfRacialTransformation2</li>
+		<li>GhostElfRacialTransformation4</li>
+		<li>GhostElfRacialTransformation6</li>
+		<li>GhostElfRacialTransformation8</li>
+		<li>GhostElfRacialTransformation10</li>
+		<li>GhostElfTalentSkill</li>
+		<li>GnomeRacialTalent</li>
+		<li>GnomeRacialTransformation</li>
+		<li>HalflingRacialTalent</li>
+		<li>HHighlRacialTalent</li>
+		<li>HHighlRacialTalent1</li>
+		<li>HHighlRacialTalent3</li>
+		<li>HHighlRacialTalent5</li>
+		<li>HHighlRacialTalent7</li>
+		<li>HHighlRacialTalent9</li>
+		<li>HHighlRacialTransformation</li>
+		<li>HLowlRacialTalent</li>
+		<li>HLowlRacialTransformation</li>
+		<li>HSaltRacialTransformation</li>
+		<li>HTrueRacialTalent</li>
+		<li>HTrueRacialTransformation</li>
+		<li>LizardRacialTalent</li>
+		<li>LizardRacialTransformation</li>
+		<li>MinotaurRacialTalent</li>
+		<li>MinotaurRacialTransformation</li>
+		<li>MoonElfRacialTalent</li>
+		<li>MoonElfRacialTalent1</li>
+		<li>MoonElfRacialTalent3</li>
+		<li>MoonElfRacialTalent5</li>
+		<li>MoonElfRacialTalent7</li>
+		<li>MoonElfRacialTalent9</li>
+		<li>MoonElfRacialTransformation</li>
+		<li>MoonElfRacialTransformation2</li>
+		<li>MoonElfRacialTransformation4</li>
+		<li>MoonElfRacialTransformation6</li>
+		<li>MoonElfRacialTransformation8</li>
+		<li>MoonElfRacialTransformation10</li>
+		<li>NightElfRacialTalent</li>
+		<li>NightElfRacialTransformation</li>
+		<li>OgreRacialTransformation</li>
+		<li>OrcRacialTalent</li>
+		<li>OrcRacialTalent1</li>
+		<li>OrcRacialTalent3</li>
+		<li>OrcRacialTalent5</li>
+		<li>OrcRacialTalent7</li>
+		<li>OrcRacialTalent9</li>
+		<li>OrcRacialTransformation</li>
+		<li>Special</li>
+		<li>TalentSkill</li>
+		<li>TransfSkill</li>
+		<li>ThinbloodRacialTalent</li>
+		<li>TieflingRacialTalent</li>
+		<li>TieflingRacialTalent1</li>
+		<li>TieflingRacialTalent3</li>
+		<li>TieflingRacialTalent5</li>
+		<li>TieflingRacialTalent7</li>
+		<li>TieflingRacialTalent9</li>
+		<li>TieflingRacialTransformation</li>
+		<li>WoodElfRacialTalent</li>
+		<li>WoodElfRacialTalent1</li>
+		<li>WoodElfRacialTalent3</li>
+		<li>WoodElfRacialTalent5</li>
+		<li>WoodElfRacialTalent7</li>
+		<li>WoodElfRacialTalent9</li>
+		<li>WoodElfRacialTransformation</li>
+		<li>WoodElfRacialTransformation2</li>
+		<li>WoodElfRacialTransformation4</li>
+		<li>WoodElfRacialTransformation6</li>
+		<li>WoodElfRacialTransformation8</li>
+		<li>WoodElfRacialTransformation10</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="feats_talents">Group Name:</a></strong> -- feats_talents.lst</p>
+	<ul class="indent2">
+		<li>AnimalAffinity</li>
+		<li>AnimalFriendship</li>
+		<li>AnimalHusbandry</li>
+		<li>Brute</li>
+		<li>CharismaticPlus</li>
+		<li>CharismaticTalent</li>
+		<li>Command</li>
+		<li>DedicatedPlus</li>
+		<li>DedicatedTalent</li>
+		<li>Diplomatic</li>
+		<li>Efficacious</li>
+		<li>Elusive</li>
+		<li>Facetious</li>
+		<li>FastLearner</li>
+		<li>FastTalent</li>
+		<li>FastPlus</li>
+		<li>Footwork</li>
+		<li>Finesse</li>
+		<li>FXResistance</li>
+		<li>HeavyGravityResistance</li>
+		<li>HeavyLoad</li>
+		<li>Hurling</li>
+		<li>Intimidating</li>
+		<li>Investigation</li>
+		<li>LikeRock</li>
+		<li>Mercantile</li>
+		<li>Might</li>
+		<li>Navigation</li>
+		<li>NeedSpeed</li>
+		<li>Oracle</li>
+		<li>Pulchritudinous</li>
+		<li>QuickerThanEye</li>
+		<li>QuickThinking</li>
+		<li>RadiationResistnace</li>
+		<li>RebuilderSwornEnemy</li>
+		<li>Selfless</li>
+		<li>Scholar</li>
+		<li>Sharpshooter</li>
+		<li>SmartPlus</li>
+		<li>SmartTalent</li>
+		<li>StrongPlus</li>
+		<li>StrongRage</li>
+		<li>StrongTalent</li>
+		<li>StunResistance</li>
+		<li>Survival</li>
+		<li>SwornEnemy</li>
+		<li>Tactician</li>
+		<li>Talent</li>
+		<li>ThrowingArm</li>
+		<li>ToughPlus</li>
+		<li>ToughRage</li>
+		<li>ToughTalent</li>
+		<li>ToxinResistance</li>
+		<li>Virtue</li>
+		<li>Xenotech</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="languages">Group Name:</a></strong> -- languages.lst</p>
+	<ul class="indent2">
+		<li>Braille</li>
+		<li>Caddoan</li>
+		<li>Iroquoian</li>
+		<li>Muskogean</li>
+		<li>Read</li>
+		<li>Sahaptian</li>
+		<li>Signaling</li>
+		<li>Siouian</li>
+		<li>Spoken</li>
+		<li>Uto-Aztecan</li>
+		<li>Written</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="races">Group Name:</a></strong> -- races.lst</p>
+	<ul class="indent2">
+		<li>Aberration</li>
+		<li>Animal</li>
+		<li>Humanoid</li>
+		<li>Magical Beast</li>
+		<li>Monstrous Humanoid</li>
+		<li>Plant</li>
+		<li>Vermin</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="races_base">Group Name:</a></strong> -- races_base.lst</p>
+	<ul class="indent2">
+		<li>Humanoid</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="races_monsters">Group Name:</a></strong> -- races_monsters.lst</p>
+	<ul class="indent2">
+		<li>Animal</li>
+		<li>Humanoid</li>
+		<li>Plant</li>
+		<li>Undead</li>
+		<li>Vermin</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="skills">Group Name:</a></strong> -- skills.lst</p>
+	<ul class="indent2">
+		<li>Arcane</li>
+		<li>Charisma</li>
+		<li>Craft</li>
+		<li>HearthMagic</li>
+		<li>Intelligence</li>
+		<li>Knowledge</li>
+		<li>None</li>
+		<li>Perform</li>
+		<li>Profession</li>
+		<li>Science</li>
+		<li>Wisdom</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="spells">Group Name:</a></strong> -- spells.lst</p>
+	<ul class="indent2">
+		<li>Arcane</li>
+		<li>Divine</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="templates">Group Name:</a></strong> -- templates.lst</p>
+	<ul class="indent2">
+		<li>KnighthoodAPG</li>
+		<li>Magical Beast</li>
+		<li>Undead</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="templates_focus">Group Name:</a></strong> -- templates_focus.lst</p>
+	<ul class="indent2">
+		<li>Fey</li>
+		<li>Giant</li>
+		<li>Humanoid</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="weapons">Group Name:</a></strong> -- weapons.lst</p>
+	<ul class="indent2">
+		<li>Arquebus</li>
+		<li>Cannon</li>
+		<li>Ranged</li>
+		<li>Projectile</li>
+		<li>Weapon</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="weaponprofs">Group Name:</a></strong> -- weaponprofs.lst</p>
+	<ul class="indent2">
+		<li>Archaic</li>
+		<li>Arquebus</li>
+		<li>Cannon</li>
+		<li>Exotic</li>
+		<li>ExoticFirearms</li>
+		<li>PersonalFirearm</li>
+		<li>Simple</li>
+	</ul>
+
+</body>
+
+</html>
