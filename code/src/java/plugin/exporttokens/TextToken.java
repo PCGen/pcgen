@@ -211,7 +211,6 @@ public class TextToken extends Token
 				res.append(sentence[i]);
 			}
 		}
-		res.append('.');
 		return res.toString();
 	}
 
