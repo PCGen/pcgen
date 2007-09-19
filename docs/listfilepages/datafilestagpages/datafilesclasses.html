@@ -39,7 +39,7 @@
 		 and the <a href="#TagList">Tag List</a>.</p>
 <hr>
 	<h2><a name="ClassBuilding">Class Building 101</a></h2>
-	
+
 	<p>Classes have three types of elements. These consist of the Class and Class Level Lines, the
 		Sub-Class and Sub-Class Level Lines, and the Subsitution Class and Substitution Level Lines.</p>
     	<h3>Class and Class Level Lines</h3>
@@ -274,7 +274,7 @@
 	<p></p>
 
 <hr>
-	
+
 	<p class="indent0"><strong><a name="CLASS">Tag Name:</a></strong> CLASS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -341,9 +341,14 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This is how many skill points a character gains per level.</p>
+	<p class="indent2">Formulas can be used as well.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>STARTSKILLPTS:4</code></p>
 	<p class="indent3">Class gets 4 skill points per level, before any modifiers.</p>
+	<p class="indent2"><code>STARTSKILLPTS:4+INT</code></p>
+	<p class="indent3">Class gets 4 skill points per level plus the INT Bonus points, before any modifiers.</p>
+	<p class="indent2"><code>STARTSKILLPTS:4/CHA</code></p>
+	<p class="indent3">Class gets 4 skill points per level divided by the CHA Bonus points, before any modifiers.</p>
 	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle 		Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)		|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
 	<p class="indent3">Modified Class that changes all of these Tags from their starting values..</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
@@ -932,7 +937,7 @@
 	<p></p>
 
 <hr>
-	
+
 	<p class="indent0"><strong><a name="SUBCLASS">Tag Name:</a></strong> SUBCLASS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (name of subclass or specialty)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -1404,7 +1409,7 @@
 	<p></p>
 
 <hr>
-	
+
 	<p class="new">*** New 5.7.9</p>
 	<p class="indent0"><strong><a name="MONNONSKILLHD">Tag Name:</a></strong> MONNONSKILLHD:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of hit dice)</p>
@@ -1466,7 +1471,7 @@
        	src="../../images/system/valid-html401.png"
        	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
 	</p>
-	
+
 </body>
 
 </html>
