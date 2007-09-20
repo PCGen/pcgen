@@ -73,10 +73,11 @@ public class AbilityPoolPanel extends JPanel
 		setLayout(new FlowLayout());
 		for (AbilityCategory abilityCategory : aCategoryList)
 		{
-			theCategoryField.addItem(abilityCategory);
+			theCategoryField.addItem(new AbilityCatDisplay(abilityCategory));
 		}
 		add(theCategoryField);
-		theCategory = (AbilityCategory) theCategoryField.getSelectedItem();
+		theCategory =
+				((AbilityCatDisplay) theCategoryField.getSelectedItem()).abilityCat;
 		
 		final JLabel abilitiesRemainingLabel = new JLabel();
 		abilitiesRemainingLabel.setText(PropertyFactory.getFormattedString(
@@ -162,7 +163,8 @@ public class AbilityPoolPanel extends JPanel
 	private void categoryFieldActionPerformed()
 	{
 		// Set the selected category
-		theCategory = (AbilityCategory) theCategoryField.getSelectedItem();
+		theCategory =
+			((AbilityCatDisplay) theCategoryField.getSelectedItem()).abilityCat;
 		
 		// Adjust the ability points display
 		showRemainingAbilityPoints();
@@ -192,5 +194,29 @@ public class AbilityPoolPanel extends JPanel
 	{
 		theNumAbilitiesField.setText(BigDecimalHelper.trimBigDecimal(
 			thePC.getAvailableAbilityPool(theCategory)).toString());
+	}
+	
+	/**
+	 * <code>AbilityCatDisplay</code> encapsulates an ability category so that 
+	 * its plural name can be used for display.
+	 *
+	 */
+	private class AbilityCatDisplay
+	{
+		public final AbilityCategory abilityCat;
+		
+		public AbilityCatDisplay(AbilityCategory abilityCat)
+		{
+			this.abilityCat = abilityCat;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString()
+		{
+			return abilityCat.getPluralName();
+		}
 	}
 }
