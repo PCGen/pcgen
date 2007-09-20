@@ -74,7 +74,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			AbilitySelectionPanel.ViewMode.TYPENAME;
 
 	private PlayerCharacter thePC = null;
-	private List<Ability> theAbilityList;
+	private Map<AbilityCategory,List<Ability>> theAbilityList;
 	//private AbilityCategory theCategory;
 	private List<AbilityCategory> theCategoryList;
 	private AbilityCategory currAbilityCat;
@@ -103,7 +103,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	{
 		super(null);
 		thePC = aPC;
-		theAbilityList = aList;
+		theAbilityList = new HashMap<AbilityCategory,List<Ability>>();
+		theAbilityList.put(aCategory, aList);
 
 		theOptionsRoot = anOptionRoot;
 
@@ -127,20 +128,20 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	 * Creates an AbilityModel.
 	 * 
 	 * @param aPC The PlayerCharacter this model is for.
-	 * @param aList The list of <tt>Ability</tt> objects to manage
+	 * @param aMap The lists of <tt>Ability</tt> objects by category to manage
 	 * @param aCategory The <tt>AbilityCategory</tt> this list comes from.
 	 * @param viewMode
 	 * @param anOptionRoot The key to store options under.
 	 * @param splitByCategory Should the list be split by category
 	 */
-	public AbilityModel(final PlayerCharacter aPC, final List<Ability> aList,
+	public AbilityModel(final PlayerCharacter aPC, final Map<AbilityCategory,List<Ability>> aMap,
 		final List<AbilityCategory> aCategoryList,
 		final AbilitySelectionPanel.ViewMode viewMode, final String anOptionRoot,
 		final boolean splitByCategory)
 	{
 		super(null);
 		thePC = aPC;
-		theAbilityList = aList;
+		theAbilityList = aMap;
 
 		theOptionsRoot = anOptionRoot;
 
@@ -452,7 +453,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	private void buildTreeNameOnly(final boolean showAll)
 	{
 		super.setRoot(new PObjectNode());
-		buildSubTreeNameOnly(showAll, (PObjectNode) super.getRoot(), theAbilityList);
+		buildSubTreeNameOnly(showAll, (PObjectNode) super.getRoot(),
+			theAbilityList.get(currAbilityCat));
 	}
 
 	private void buildSubTreeNameOnly(final boolean showAll,
@@ -505,7 +507,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	{
 		setRoot(new PObjectNode());
 
-		buildSubTreePrereqTree(showAll, (PObjectNode) super.getRoot(), theAbilityList);
+		buildSubTreePrereqTree(showAll, (PObjectNode) super.getRoot(),
+			theAbilityList.get(currAbilityCat));
 	}
 
 	private void buildSubTreePrereqTree(final boolean showAll,
@@ -670,7 +673,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			return;
 		}
 
-		buildSubTreeTypeName(showAll, rootAsPObjectNode, theAbilityList);
+		buildSubTreeTypeName(showAll, rootAsPObjectNode, theAbilityList
+			.get(currAbilityCat));
 	}
 
 	private void buildSubTreeTypeName(final boolean showAll,
@@ -739,7 +743,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			return;
 		}
 
-		buildSubTreeSourceName(showAll, rootAsPObjectNode, theAbilityList);
+		buildSubTreeSourceName(showAll, rootAsPObjectNode, theAbilityList
+			.get(currAbilityCat));
 	}
 
 	private void buildSubTreeSourceName(final boolean showAll,
@@ -867,7 +872,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	 * 
 	 * @param aList A list of Abilities to manage.
 	 */
-	public void setAbilityList(final List<Ability> aList, PlayerCharacter aPc)
+	public void setAbilityList(final Map<AbilityCategory,List<Ability>> aList, PlayerCharacter aPc)
 	{
 		theAbilityList = aList;
 		resetModel(aPc, theViewMode, false);
@@ -949,25 +954,11 @@ public class AbilityModel extends AbstractTreeTableModel implements
 
 		final PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
 
-		// Split the passed in abilities by category
-		Map<String, List<Ability>> abilityMap = new HashMap<String, List<Ability>>();
-		for (Ability ability : theAbilityList)
-		{
-			List<Ability> aList = abilityMap.get(ability.getCategory());
-			if (aList == null)
-			{
-				aList = new ArrayList<Ability>();
-				abilityMap.put(ability.getCategory(), aList);
-			}
-			aList.add(ability);
-		}
-
 		// Loop over the category nodes, adding content to each
 		for (final PObjectNode catNode : rootAsPObjectNode.getChildren())
 		{
 			PCAbilityCategory pcCat = (PCAbilityCategory) catNode.getItem();
-			List<Ability> abilities =
-					abilityMap.get(pcCat.getCategory().getAbilityCategory());
+			List<Ability> abilities = theAbilityList.get(pcCat.getCategory());
 			if (abilities == null)
 			{
 				abilities = new ArrayList<Ability>();

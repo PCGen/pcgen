@@ -27,7 +27,9 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
@@ -347,9 +349,11 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#getAbilityList()
 	 */
 	@Override
-	protected List<Ability> getAbilityList()
+	protected Map<AbilityCategory,List<Ability>> getAbilityList()
 	{
-		return Globals.getAbilityList(getCategory());
+		Map<AbilityCategory,List<Ability>> abilities = new HashMap<AbilityCategory,List<Ability>>();
+		abilities.put(getCategory(), Globals.getAbilityList(getCategory()));
+		return abilities;
 	}
 
 	/**

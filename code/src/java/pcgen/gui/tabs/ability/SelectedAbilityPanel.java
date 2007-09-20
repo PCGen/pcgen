@@ -29,7 +29,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
@@ -40,6 +42,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.gui.tabs.components.FilterPanel;
 import pcgen.gui.tabs.components.RemoveItemPanel;
 import pcgen.gui.utils.ClickHandler;
@@ -163,7 +166,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#getAbilityList()
 	 */
 	@Override
-	protected List<Ability> getAbilityList()
+	protected Map<AbilityCategory,List<Ability>> getAbilityList()
 	{
 		return buildPCAbilityList();
 	}
@@ -229,54 +232,24 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	 * 
 	 * @return A list of the current PCs feats.
 	 */
-	private List<Ability> buildPCAbilityList()
+	private Map<AbilityCategory,List<Ability>> buildPCAbilityList()
 	{
 		final List<AbilityCategory> catList = getCategoryList();
-		final List<Ability> abilityList = new ArrayList<Ability>();
+		final Map<AbilityCategory, List<Ability>> abilityList =
+				new HashMap<AbilityCategory, List<Ability>>();
 		for (AbilityCategory abilityCategory : catList)
 		{
-			abilityList.addAll(getPC().getAggregateAbilityList(abilityCategory));
+			abilityList.put(abilityCategory, getPC().getAggregateAbilityList(
+				abilityCategory));
 		}
-		final List<Ability> returnValue =
-				new ArrayList<Ability>(abilityList.size());
 
-		for (final Ability ability : abilityList)
+		// Need to sort each list.
+		for (AbilityCategory abilityCategory : catList)
 		{
-			if (ability.isMultiples())
-			{
-				final String abilityKey = ability.getKeyName();
-
-				Ability pcAbility =
-						getPC().getRealAbilityKeyed(getCategory(), abilityKey);
-				if (pcAbility != null)
-				{
-					returnValue.add(pcAbility);
-				}
-
-				pcAbility =
-						getPC().getAutomaticAbilityKeyed(getCategory(),
-							abilityKey);
-				if (pcAbility != null)
-				{
-					returnValue.add(pcAbility);
-				}
-
-				pcAbility =
-						getPC().getVirtualAbilityKeyed(getCategory(),
-							abilityKey);
-				if (pcAbility != null)
-				{
-					returnValue.add(pcAbility);
-				}
-			}
-			else
-			{
-				returnValue.add(ability);
-			}
+			Globals.sortPObjectListByName(abilityList.get(abilityCategory));
 		}
 
-		// Need to sort the list.
-		return Globals.sortPObjectListByName(returnValue);
+		return abilityList;
 	}
 
 	private void setRemoveEnabled(final boolean enabled)
