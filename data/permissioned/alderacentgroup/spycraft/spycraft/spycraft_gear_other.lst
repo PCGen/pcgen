@@ -13,7 +13,7 @@ Clothing (Average)				TYPE:Gear.Standard.Clothing								COST:1	WT:4						SOURCE
 Fatigues						TYPE:Gear.Standard.Clothing								COST:5	WT:5						SOURCEPAGE:p.128
 Clothing (Trendy)					TYPE:Gear.Standard.Clothing								COST:5	WT:5						SOURCEPAGE:p.128
 Clothing (Designer)				TYPE:Gear.Standard.Clothing								COST:10	WT:3						SOURCEPAGE:p.128
-Sunglasses (mirrored)				TYPE:Gear.Standard.Eyegear								COST:1	WT:-						SOURCEPAGE:p.128
+Sunglasses (mirrored)				TYPE:Gear.Standard.Eyegear								COST:1	WT:0						SOURCEPAGE:p.128
 
 # Communication gear -------------------------------------------------------------------------------------------------
 
@@ -32,37 +32,37 @@ PDA							TYPE:Gear.Standard.Container.Computer	CONTAINS:1|Software=UNLIM	COST:3
 
 # Drugs and Poisons --------------------------------------------------------------------------------------------------
 
-Contact poison					TYPE:Gear.Standard.Drug.Consumable							COST:3	WT:-						SOURCEPAGE:p.128
-Knockout drug					TYPE:Gear.Standard.Drug.Consumable							COST:3	WT:-						SOURCEPAGE:p.128
-Lethal poison I					TYPE:Gear.Standard.Drug.Consumable							COST:7	WT:-						SOURCEPAGE:p.128
-Lethal poison II					TYPE:Gear.Standard.Drug.Consumable							COST:10	WT:-						SOURCEPAGE:p.128
-Nerve drug						TYPE:Gear.Standard.Drug.Consumable							COST:5	WT:-						SOURCEPAGE:p.128
-Paralytic poison					TYPE:Gear.Standard.Drug.Consumable							COST:3	WT:-						SOURCEPAGE:p.128
-Sodium pentothal (truth serum)		TYPE:Gear.Standard.Drug.Consumable							COST:3	WT:-						SOURCEPAGE:p.128
-Weakening poison					TYPE:Gear.Standard.Drug.Consumable							COST:2	WT:-						SOURCEPAGE:p.128
+Contact poison					TYPE:Gear.Standard.Drug.Consumable							COST:3	WT:0						SOURCEPAGE:p.128
+Knockout drug					TYPE:Gear.Standard.Drug.Consumable							COST:3	WT:0						SOURCEPAGE:p.128
+Lethal poison I					TYPE:Gear.Standard.Drug.Consumable							COST:7	WT:0						SOURCEPAGE:p.128
+Lethal poison II					TYPE:Gear.Standard.Drug.Consumable							COST:10	WT:0						SOURCEPAGE:p.128
+Nerve drug						TYPE:Gear.Standard.Drug.Consumable							COST:5	WT:0						SOURCEPAGE:p.128
+Paralytic poison					TYPE:Gear.Standard.Drug.Consumable							COST:3	WT:0						SOURCEPAGE:p.128
+Sodium pentothal (truth serum)		TYPE:Gear.Standard.Drug.Consumable							COST:3	WT:0						SOURCEPAGE:p.128
+Weakening poison					TYPE:Gear.Standard.Drug.Consumable							COST:2	WT:0						SOURCEPAGE:p.128
 
 # Food and Lodging ---------------------------------------------------------------------------------------------------
 
-Hotel room (One Star/1 night)			TYPE:Gear.Standard.Lodging								COST:-	WT:-						SOURCEPAGE:p.128
-Hotel room (Two Star/1 night)			TYPE:Gear.Standard.Lodging								COST:-	WT:-						SOURCEPAGE:p.128
-Hotel room (Three Star/1 night)		TYPE:Gear.Standard.Lodging								COST:2	WT:-						SOURCEPAGE:p.128
-Hotel room (Four Star/1 night)		TYPE:Gear.Standard.Lodging								COST:5	WT:-						SOURCEPAGE:p.128
-Hotel room (Five Star/1 night)		TYPE:Gear.Standard.Lodging								COST:10	WT:-						SOURCEPAGE:p.128
+Hotel room (One Star/1 night)			TYPE:Gear.Standard.Lodging								COST:-	WT:0						SOURCEPAGE:p.128
+Hotel room (Two Star/1 night)			TYPE:Gear.Standard.Lodging								COST:-	WT:0						SOURCEPAGE:p.128
+Hotel room (Three Star/1 night)		TYPE:Gear.Standard.Lodging								COST:2	WT:0						SOURCEPAGE:p.128
+Hotel room (Four Star/1 night)		TYPE:Gear.Standard.Lodging								COST:5	WT:0						SOURCEPAGE:p.128
+Hotel room (Five Star/1 night)		TYPE:Gear.Standard.Lodging								COST:10	WT:0						SOURCEPAGE:p.128
 Martini (Shaken)					TYPE:Gear.Standard.Food									COST:-	WT:.1						SOURCEPAGE:p.128
-Meal (Fast food)					TYPE:Gear.Standard.Food									COST:-	WT:-						SOURCEPAGE:p.128
-Meal (Restaurant/dive)				TYPE:Gear.Standard.Food									COST:-	WT:-						SOURCEPAGE:p.128
-Meal (military rations)				TYPE:Gear.Standard.Food									COST:1	WT:-						SOURCEPAGE:p.128
-Meal (Restaurant/upscale)			TYPE:Gear.Standard.Food									COST:-	WT:-						SOURCEPAGE:p.128
-Meal (Restaurant/gourmet)			TYPE:Gear.Standard.Food									COST:2	WT:-						SOURCEPAGE:p.128
+Meal (Fast food)					TYPE:Gear.Standard.Food									COST:-	WT:0						SOURCEPAGE:p.128
+Meal (Restaurant/dive)				TYPE:Gear.Standard.Food									COST:-	WT:0						SOURCEPAGE:p.128
+Meal (military rations)				TYPE:Gear.Standard.Food									COST:1	WT:0						SOURCEPAGE:p.128
+Meal (Restaurant/upscale)			TYPE:Gear.Standard.Food									COST:-	WT:0						SOURCEPAGE:p.128
+Meal (Restaurant/gourmet)			TYPE:Gear.Standard.Food									COST:2	WT:0						SOURCEPAGE:p.128
 
 # Hazardous terrain gear ---------------------------------------------------------------------------------------------
 
 Bomb sniffer					TYPE:Gear.Standard.Tool									COST:3	WT:1						SOURCEPAGE:p.129
 Chemical analyzer					TYPE:Gear.Standard.Tool									COST:3	WT:1						SOURCEPAGE:p.129
-Digging/entrenching tool			TYPE:Gear.Standard.Tool									COST:1	WT:-						SOURCEPAGE:p.129
+Digging/entrenching tool			TYPE:Gear.Standard.Tool									COST:1	WT:0						SOURCEPAGE:p.129
 Geiger counter					TYPE:Gear.Standard.Tool									COST:3	WT:1						SOURCEPAGE:p.129
 GPS receiver					TYPE:Gear.Standard.Tool									COST:5	WT:1						SOURCEPAGE:p.129
-Magnetic compass					TYPE:Gear.Standard.Tool									COST:1	WT:-						SOURCEPAGE:p.129
+Magnetic compass					TYPE:Gear.Standard.Tool									COST:1	WT:0						SOURCEPAGE:p.129
 Metal detector					TYPE:Gear.Standard.Tool									COST:3	WT:1						SOURCEPAGE:p.129
 Parachute						TYPE:Gear.Standard.Tool									COST:5	WT:5						SOURCEPAGE:p.129
 
@@ -118,16 +118,16 @@ Bug (Voice activated)				TYPE:Gear.Standard.Surveillance.Bug							COST:3	WT:.1	
 Camera (Standard)					TYPE:Gear.Standard.Surveillance.Camera						COST:2	WT:1						SOURCEPAGE:p.130
 Camera (Digital)					TYPE:Gear.Standard.Surveillance.Camera						COST:6	WT:1						SOURCEPAGE:p.130
 Camera (Disposable)				TYPE:Gear.Standard.Surveillance							COST:1	WT:.5						SOURCEPAGE:p.130
-Camera (Miniature)				TYPE:Gear.Standard.Surveillance.Camera						COST:4	WT:-						SOURCEPAGE:p.130
+Camera (Miniature)				TYPE:Gear.Standard.Surveillance.Camera						COST:4	WT:0						SOURCEPAGE:p.130
 Camera (Professional)				TYPE:Gear.Standard.Surveillance.Camera						COST:8	WT:3						SOURCEPAGE:p.130
 Camera (Video/Standard)				TYPE:Gear.Standard.Surveillance							COST:10	WT:5						SOURCEPAGE:p.130
 Camera (Video/Professional)			TYPE:Gear.Standard.Surveillance							COST:40	WT:20						SOURCEPAGE:p.130
 IR filter lens					TYPE:Gear.Standard.Surveillance							COST:3	WT:1						SOURCEPAGE:p.130
 Super telephoto lens				TYPE:Gear.Standard.Surveillance							COST:5	WT:1						SOURCEPAGE:p.130
 Tripod (Camera)					TYPE:Gear.Standard.Surveillance							COST:2	WT:5						SOURCEPAGE:p.130
-Film (Commercial grade)				TYPE:Gear.Standard.Surveillance							COST:1	WT:-						SOURCEPAGE:p.130
-Film (Professional grade)			TYPE:Gear.Standard.Surveillance							COST:2	WT:-						SOURCEPAGE:p.130
-Film (Intelligence grade)			TYPE:Gear.Standard.Surveillance							COST:5	WT:-						SOURCEPAGE:p.130
+Film (Commercial grade)				TYPE:Gear.Standard.Surveillance							COST:1	WT:0						SOURCEPAGE:p.130
+Film (Professional grade)			TYPE:Gear.Standard.Surveillance							COST:2	WT:0						SOURCEPAGE:p.130
+Film (Intelligence grade)			TYPE:Gear.Standard.Surveillance							COST:5	WT:0						SOURCEPAGE:p.130
 Snoop spray						TYPE:Gear.Standard.Surveillance							COST:2	WT:1						SOURCEPAGE:p.130
 
 # Weapon accessories -------------------------------------------------------------------------------------------------

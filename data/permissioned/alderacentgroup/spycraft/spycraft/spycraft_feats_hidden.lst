@@ -44,7 +44,7 @@ Stash It			TYPE:FixerSpecialAbility	VISIBLE:NO	SA:Stash It
 # Feat Name						Type					Visible	Required Feat				Special Ability						Define				Stackable?	Multiple?	Choose					Add														Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
 Versatility						TYPE:PointmanSpecialAbility	VISIBLE:NO																				STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS|1																																				CSKILL:LIST
 
-Faceman Linguist					TYPE:CrossClassAbility		VISIBLE:NO																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				ADD:Language|1|TYPE=Spoken
+Faceman Linguist					TYPE:CrossClassAbility		VISIBLE:NO																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				ADD:LANGUAGE|1|TYPE=Spoken
 Faceman Cold Read					TYPE:CrossClassAbility		VISIBLE:NO							SA:Cold Read (1/session)									STACK:NO	MULT:NO
 Faceman Quick Change				TYPE:CrossClassAbility		VISIBLE:NO							SA:Quick Change (%/session)|PointmanQuickChange	DEFINE:PointmanQuickChange|1	STACK:NO	MULT:NO
 Faceman Quick Change (additional session)	TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Faceman Quick Change														STACK:NO	MULT:NO																																				BONUS:VAR|PointmanQuickChange|1

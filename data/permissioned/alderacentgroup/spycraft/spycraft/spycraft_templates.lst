@@ -56,8 +56,11 @@ D-2 Military Operations Template	VISIBLE:NO	LEVEL:1:FEAT:D-2 Skill Bonus	LEVEL:4
 # Template Name			Visible		Define			Var. Max. Value			Modify VAR				REGION			Removable?
 Nationality - American		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:American		REMOVABLE:YES
 Nationality - Assyrian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Assyrian		REMOVABLE:YES
+Nationality - Australian	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Australian		REMOVABLE:YES
+Nationality - Austrian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Austrian		REMOVABLE:YES
 Nationality - Bosnian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Bosnian		REMOVABLE:YES
 Nationality - Bantu		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Bantu		REMOVABLE:YES
+Nationality - Brazilian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Brazilian		REMOVABLE:YES
 Nationality - British		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:British		REMOVABLE:YES
 Nationality - Canadian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Canadian		REMOVABLE:YES
 Nationality - Chinese		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Chinese		REMOVABLE:YES
@@ -79,6 +82,7 @@ Nationality - Isreali		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNu
 Nationality - Italian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Italian		REMOVABLE:YES
 Nationality - Japanese		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Japanese		REMOVABLE:YES
 Nationality - Mexican		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Mexican		REMOVABLE:YES
+Nationality - New Zealand	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:New Zealand	REMOVABLE:YES
 Nationality - North Korean	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:North Korean	REMOVABLE:YES
 Nationality - Norwegian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Norwegian		REMOVABLE:YES
 Nationality - Polish		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Polish		REMOVABLE:YES
@@ -94,6 +98,7 @@ Nationality - Thai		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumbe
 Nationality - Turkish		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Turkish		REMOVABLE:YES
 Nationality - Ukranian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Ukranian		REMOVABLE:YES
 Nationality - Vietnamese	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Vietnamese		REMOVABLE:YES
+
 
 ###Block: Temporary Bonus Templates
 

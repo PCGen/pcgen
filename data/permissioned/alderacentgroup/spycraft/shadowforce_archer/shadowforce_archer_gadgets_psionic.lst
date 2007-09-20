@@ -9,8 +9,8 @@ SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://ww
 
 # Equipment Name			Product Identity?	Type							Contains		Cost		Weight	Size		Source Page		Modify VAR
 Anti-Psi Grenade			NAMEISPI:YES	TYPE:Gadget									COST:1	WT:.5		SIZE:S	SOURCEPAGE:p.204
-Safety Field			NAMEISPI:YES	TYPE:Gadget									COST:1	WT:-		SIZE:S	SOURCEPAGE:p.204
-Sappers				NAMEISPI:YES	TYPE:Gadget									COST:1	WT:-		SIZE:S	SOURCEPAGE:p.204
+Safety Field			NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0		SIZE:S	SOURCEPAGE:p.204
+Sappers				NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0		SIZE:S	SOURCEPAGE:p.204
 
 #### Cell Phone Models
 
@@ -18,24 +18,24 @@ Cell Phone (Standard)		NAMEISPI:YES	TYPE:Gadget.CellPhone							COST:0	WT:0		SIZ
 
 #### New Clothing Options
 
-Chameleon Bodysuit		NAMEISPI:YES	TYPE:Gadget.Suit								COST:8	WT:-		SIZE:S	SOURCEPAGE:p.205
-Disguise Enhancer			NAMEISPI:YES	TYPE:Gadget									COST:5	WT:-		SIZE:S	SOURCEPAGE:p.205
-Void Pocket				NAMEISPI:YES	TYPE:Gadget									COST:2	WT:-		SIZE:S	SOURCEPAGE:p.205
+Chameleon Bodysuit		NAMEISPI:YES	TYPE:Gadget.Suit								COST:8	WT:0		SIZE:S	SOURCEPAGE:p.205
+Disguise Enhancer			NAMEISPI:YES	TYPE:Gadget									COST:5	WT:0		SIZE:S	SOURCEPAGE:p.205
+Void Pocket				NAMEISPI:YES	TYPE:Gadget									COST:2	WT:0		SIZE:S	SOURCEPAGE:p.205
 
 #### Diving Equipment
 
 Diving Suit (Standard)		NAMEISPI:YES	TYPE:Gadget.DivingSuit.Suit						COST:1	WT:20		SIZE:S	SOURCEPAGE:p.205
-Oxygenated Chewing Gum		NAMEISPI:YES	TYPE:Gadget									COST:1	WT:-		SIZE:S	SOURCEPAGE:p.206
+Oxygenated Chewing Gum		NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0		SIZE:S	SOURCEPAGE:p.206
 
 #### New Evidence Analysis Items
 
 Sniffer (Dedicated Unit)	NAMEISPI:YES	TYPE:Gadget									COST:1	WT:2		SIZE:S	SOURCEPAGE:p.206
 Sniffer (External Unit)		NAMEISPI:YES	TYPE:Gadget									COST:3	WT:2		SIZE:S	SOURCEPAGE:p.206
-Sniffer (Nasal Implant)		NAMEISPI:YES	TYPE:Gadget									COST:6	WT:-		SIZE:S	SOURCEPAGE:p.206
+Sniffer (Nasal Implant)		NAMEISPI:YES	TYPE:Gadget									COST:6	WT:0		SIZE:S	SOURCEPAGE:p.206
 
 #### Ear Implants
 
-Ear Implant (Standard)		NAMEISPI:YES	TYPE:Gadget.EarImplant							COST:4	WT:-		SIZE:S	SOURCEPAGE:p.206
+Ear Implant (Standard)		NAMEISPI:YES	TYPE:Gadget.EarImplant							COST:4	WT:0		SIZE:S	SOURCEPAGE:p.206
 
 ####
 
@@ -43,20 +43,20 @@ Icon ProStar 7			NAMEISPI:YES	TYPE:Gadget									COST:4	WT:.5		SIZE:S	SOURCEPAG
 
 #### OmnID Cards
 
-OmnID Card (Standard)		NAMEISPI:YES	TYPE:Gadget.IDCard							COST:1	WT:-		SIZE:S	SOURCEPAGE:p.206
+OmnID Card (Standard)		NAMEISPI:YES	TYPE:Gadget.IDCard							COST:1	WT:0		SIZE:S	SOURCEPAGE:p.206
 
 #### P a t c h e s
 
-Patch (Adrenaline)		NAMEISPI:YES	TYPE:Gadget									COST:1	WT:-		SIZE:S	SOURCEPAGE:p.208
-Patch (Brainscanner)		NAMEISPI:YES	TYPE:Gadget									COST:.33	WT:-		SIZE:S	SOURCEPAGE:p.209
-Patch (Caffeine Boost)		NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:-		SIZE:S	SOURCEPAGE:p.209
-Patch (Calm Emitter)		NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:-		SIZE:S	SOURCEPAGE:p.209
-Patch (Coagulant)			NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:-		SIZE:S	SOURCEPAGE:p.209
-Patch (Deepsleep)			NAMEISPI:YES	TYPE:Gadget									COST:2	WT:-		SIZE:S	SOURCEPAGE:p.209
-Patch (Endorphin)			NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:-		SIZE:S	SOURCEPAGE:p.209
-Patch (Psitector)			NAMEISPI:YES	TYPE:Gadget									COST:1	WT:-		SIZE:S	SOURCEPAGE:p.209
-Patch (Panic Emitter)		NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:-		SIZE:S	SOURCEPAGE:p.209
-Patch (Telestatic Emitter)	NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:-		SIZE:S	SOURCEPAGE:p.209
+Patch (Adrenaline)		NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0		SIZE:S	SOURCEPAGE:p.208
+Patch (Brainscanner)		NAMEISPI:YES	TYPE:Gadget									COST:.33	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Caffeine Boost)		NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Calm Emitter)		NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Coagulant)			NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Deepsleep)			NAMEISPI:YES	TYPE:Gadget									COST:2	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Endorphin)			NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Psitector)			NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Panic Emitter)		NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Telestatic Emitter)	NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
 
 #### SUPERLUMINAL Patches
 
@@ -66,9 +66,9 @@ Patch (Hyperion Mechanics)	NAMEISPI:YES	TYPE:Gadget									COST:0	WT:0		SIZE:S	
 
 #### Prosthetics
 
-Prosthetic (Standard)		NAMEISPI:YES	TYPE:Gadget									COST:4	WT:-		SIZE:S	SOURCEPAGE:p.210
-Prosthetic (Strongman Limb)	NAMEISPI:YES	TYPE:Gadget									COST:4	WT:-		SIZE:S	SOURCEPAGE:p.210
-Prosthetic (Weapons Limbs)	NAMEISPI:YES	TYPE:Gadget									COST:5	WT:-		SIZE:S	SOURCEPAGE:p.210
+Prosthetic (Standard)		NAMEISPI:YES	TYPE:Gadget									COST:4	WT:0		SIZE:S	SOURCEPAGE:p.210
+Prosthetic (Strongman Limb)	NAMEISPI:YES	TYPE:Gadget									COST:4	WT:0		SIZE:S	SOURCEPAGE:p.210
+Prosthetic (Weapons Limbs)	NAMEISPI:YES	TYPE:Gadget									COST:5	WT:0		SIZE:S	SOURCEPAGE:p.210
 
 #### Rings
 
@@ -84,8 +84,8 @@ Bug (Roache)			NAMEISPI:YES	TYPE:Gadget									COST:1					SOURCEPAGE:p.211
 
 #### Grafters
 
-Memory Flesh			NAMEISPI:YES	TYPE:Gadget									COST:2	WT:-		SIZE:S	SOURCEPAGE:p.211
-Smart-Skin				NAMEISPI:YES	TYPE:Gadget									COST:2	WT:-		SIZE:S	SOURCEPAGE:p.211
+Memory Flesh			NAMEISPI:YES	TYPE:Gadget									COST:2	WT:0		SIZE:S	SOURCEPAGE:p.211
+Smart-Skin				NAMEISPI:YES	TYPE:Gadget									COST:2	WT:0		SIZE:S	SOURCEPAGE:p.211
 
 #### New Vehicles
 

@@ -13,19 +13,19 @@ CLASS:Faceman	HD:10		TYPE:Base.PC	ABB:Fac		MAXLEVEL:20	SOURCEPAGE:p.22	LANGAUTO:
 CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Cultures|Diplomacy|Disguise|Driver|Forgery|Gather Information|TYPE.Hobby|Innuendo|TYPE.Knowledge|Languages|TYPE.Language|Open Lock|Perform|TYPE.Profession|Read Lips|Search|Sense Motive|Sleight of Hand|Spot
 
 1																												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
-1	SA:Linguist +%|FaceLinguist							DEFINE:FaceLinguist|(CL/4)+2	ADD:Language|2|TYPE=Spoken	ADD:FEAT|1|Faceman Core Ability
+1	SA:Linguist +%|FaceLinguist							DEFINE:FaceLinguist|(CL/4)+2	ADD:LANGUAGE|2|TYPE=Spoken	ADD:FEAT|1|Faceman Core Ability
 2	SA:Cold Read (%/session)|ColdRead						DEFINE:ColdRead|1
 3	SA:Quick Change (%/session)|QuickChange					DEFINE:QuickChange|(CL-1)/2
-4	SA:Backup (%/session)|Backup							DEFINE:Backup|CL/4		ADD:Language|1|TYPE=Spoken
+4	SA:Backup (%/session)|Backup							DEFINE:Backup|CL/4		ADD:LANGUAGE|1|TYPE=Spoken
 6	SA:Fake it (%/session)|Fakeit							DEFINE:Fakeit|(CL-3)/3
-8																	ADD:Language|1|TYPE=Spoken
+8																	ADD:LANGUAGE|1|TYPE=Spoken
 10	SA:1,000 Faces (%/session)|ThousandFaces					DEFINE:ThousandFaces|CL/10
 11								BONUS:VAR|ColdRead|1
-12																	ADD:Language|1|TYPE=Spoken
+12																	ADD:LANGUAGE|1|TYPE=Spoken
 14	SA:Bald-Faced Lie (1/session)
-16																	ADD:Language|1|TYPE=Spoken
+16																	ADD:LANGUAGE|1|TYPE=Spoken
 19								BONUS:VAR|ColdRead|1
-20																	ADD:Language|1|TYPE=Spoken
+20																	ADD:LANGUAGE|1|TYPE=Spoken
 
 ### Fixer ---------------------------------------------------------------------------------------------------------------
 
