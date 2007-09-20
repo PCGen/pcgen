@@ -39,6 +39,7 @@ $pub{'aleapublishinggroup'} = 'Alea Publishing Group';
 $pub{'atlasgames'} = 'Atlas Games';
 $pub{'aurand20'} = 'Auran d20';
 $pub{'avalanchepress'} = 'Avalanche Press';
+$pub{'bardsandsages'} = 'Bards and Sages';
 $pub{'bastionpress'} = 'Bastion Press';
 $pub{'battlefieldpress'} = 'Battlefield Press';
 $pub{'behemoth3'} = 'Behemoth3';
