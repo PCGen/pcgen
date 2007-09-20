@@ -30,7 +30,6 @@ import java.util.Map;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
 /**

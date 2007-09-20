@@ -30,16 +30,13 @@ import java.util.List;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.Skill;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 import plugin.lsttokens.AddLst;
 
 /**

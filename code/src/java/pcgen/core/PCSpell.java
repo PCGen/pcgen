@@ -1,13 +1,7 @@
 package pcgen.core;
 
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-import pcgen.util.Logging;
 
-import java.io.StringWriter;
-import java.util.Iterator;
 import java.util.List;
 
 /**

@@ -37,7 +37,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
-import pcgen.core.character.SpellBook;
 import pcgen.core.spell.Spell;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;

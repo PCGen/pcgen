@@ -28,7 +28,6 @@
  */
 package pcgen.persistence.lst;
 
-import java.io.File;
 import java.net.URI;
 import java.util.List;
 import junit.framework.Test;

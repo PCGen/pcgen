@@ -27,7 +27,6 @@ import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
 import java.net.URI;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;

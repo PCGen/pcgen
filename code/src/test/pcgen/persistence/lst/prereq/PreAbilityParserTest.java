@@ -33,7 +33,6 @@ import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.util.Logging;
 import plugin.pretokens.parser.PreAbilityParser;
 
 /**

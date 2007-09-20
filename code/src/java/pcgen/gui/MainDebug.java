@@ -30,13 +30,11 @@ import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.util.Arrays;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
-import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;

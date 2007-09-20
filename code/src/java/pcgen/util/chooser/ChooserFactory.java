@@ -19,8 +19,6 @@
  */
 package pcgen.util.chooser;
 
-import pcgen.core.chooser.ChooserUtilities;
-
 /**
  * This factory class returns a Chooser of the appropriate type. This is intended
  * to reduce the core/gui interdependence. Much more work is needed on this...

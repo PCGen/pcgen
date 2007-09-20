@@ -32,7 +32,6 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
-import pcgen.core.utils.ListKey;
 import pcgen.util.Logging;
 import java.util.ArrayList;
 

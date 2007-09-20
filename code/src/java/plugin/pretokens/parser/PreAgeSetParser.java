@@ -24,7 +24,6 @@
  */
 package plugin.pretokens.parser;
 
-import pcgen.core.Globals;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;

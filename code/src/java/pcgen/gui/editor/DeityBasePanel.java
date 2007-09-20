@@ -37,7 +37,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import pcgen.core.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Description;
 import pcgen.core.Globals;

@@ -25,7 +25,6 @@
  */
 package pcgen.persistence.lst;
 
-import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;

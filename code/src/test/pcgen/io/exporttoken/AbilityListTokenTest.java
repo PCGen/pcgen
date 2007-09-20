@@ -32,7 +32,6 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
-import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 

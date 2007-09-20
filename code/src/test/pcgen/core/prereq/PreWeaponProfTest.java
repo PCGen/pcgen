@@ -32,7 +32,6 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Campaign;
-import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;

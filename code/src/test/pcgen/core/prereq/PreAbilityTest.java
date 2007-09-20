@@ -27,7 +27,6 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;

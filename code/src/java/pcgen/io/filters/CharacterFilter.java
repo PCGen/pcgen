@@ -1,6 +1,5 @@
 package pcgen.io.filters;
 
-import pcgen.core.Globals;
 import pcgen.core.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
