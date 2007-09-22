@@ -264,9 +264,9 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements
 		final List<Ability> abilityList = new ArrayList<Ability>();
 		if (character != null)
 		{
+			Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
 			if (categoryName == null)
 			{
-				Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
 				for (AbilityCategory aCat : allCats)
 				{
 					abilityList.addAll(character.getAggregateAbilityList(aCat));
@@ -274,7 +274,13 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements
 			}
 			else
 			{
-				abilityList.addAll(character.getAggregateAbilityList(category));
+				for (AbilityCategory aCat : allCats)
+				{
+					if (aCat.getAbilityCategory().equals(category.getKeyName()))
+					{
+						abilityList.addAll(character.getAggregateAbilityList(aCat));
+					}
+				}
 			}
 		}
 		return abilityList;
