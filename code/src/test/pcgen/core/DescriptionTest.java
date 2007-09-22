@@ -202,17 +202,18 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description("%1 test %3 %2");
 		desc.addVariable("TestVar");
 		desc.setOwner(dummy);
-		assertTrue(desc.getDescription(getCharacter()).equals("0 test  "));
+		assertEquals("0 test  ", desc.getDescription(getCharacter()));
 
 		getCharacter().setRace(dummy);
-		assertTrue(desc.getDescription(getCharacter()).equals("2 test  "));
+		assertEquals("2 test  ", desc.getDescription(getCharacter()));
 
 		desc.addVariable("%CHOICE");
-		assertTrue(desc.getDescription(getCharacter()).equals(
-			"2 test  Associated 1"));
+		assertEquals("2 test  Associated 1", desc
+			.getDescription(getCharacter()));
 
 		desc.addVariable("%LIST");
-		assertTrue(desc.getDescription(getCharacter()).equals(
-			"2 test Associated 1,Associated 2 Associated 1"));
+		assertEquals("Replacement of %LIST failed",
+			"2 test Associated 1 and Associated 2 Associated 1", desc
+				.getDescription(getCharacter()));
 	}
 }
