@@ -303,7 +303,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		final Description desc2 = new Description("Description 2");
 		pobj.addDescription(desc2);
 
-		assertEquals("Description should match", "Description 1,Description 2",
+		assertEquals("Description should match", "Description 1, Description 2",
 			pobj.getDescription(getCharacter()));
 
 		final Description desc3 = new Description("Description %1");
@@ -311,11 +311,11 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pobj.addDescription(desc3);
 
 		assertEquals("Description should match",
-			"Description 1,Description 2,Description 3", pobj
+			"Description 1, Description 2, Description 3", pobj
 				.getDescription(getCharacter()));
 
 		pobj.removeDescription("Description 2");
-		assertEquals("Description should match", "Description 1,Description 3",
+		assertEquals("Description should match", "Description 1, Description 3",
 			pobj.getDescription(getCharacter()));
 
 		pobj.removeDescription("Description %");
