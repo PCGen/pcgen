@@ -1280,7 +1280,7 @@ BIO
 		<!-- Visible standard feats (not including the auto feats) -->
 		<feat>
 			<name>Psicrystal Affinity</name>
-			<description>See Text,You have created a psicrystal.</description>
+			<description>See Text, You have created a psicrystal.</description>
 			<type>PSIONIC</type>
 			<associated></associated>
 			<count>0</count>
@@ -1290,7 +1290,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Psicrystal Containment</name>
-			<description>See Text,Your psicrystal has advanced enough that it can hold a psionic focus that you store within it.</description>
+			<description>See Text, Your psicrystal has advanced enough that it can hold a psionic focus that you store within it.</description>
 			<type>PSIONIC</type>
 			<associated></associated>
 			<count>0</count>
@@ -1300,7 +1300,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Speed of Thought</name>
-			<description>See Text,The energy of your mind energizes the alacrity of your body.</description>
+			<description>See Text, The energy of your mind energizes the alacrity of your body.</description>
 			<type>PSIONIC</type>
 			<associated></associated>
 			<count>0</count>
@@ -1310,7 +1310,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Twin Power</name>
-			<description>See Text,You can manifest a power simultaneously with another power just like it.</description>
+			<description>See Text, You can manifest a power simultaneously with another power just like it.</description>
 			<type>METAPSIONIC</type>
 			<associated></associated>
 			<count>0</count>
