@@ -163,9 +163,10 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		}
 		else
 		{
-			Logging.errorPrint("Attempt to Modify/Copy/Forget an Ability ("
+			String message = "Attempt to Modify/Copy/Forget an Ability ("
 				+ aKey + ") without a CATEGORY=\n"
-				+ "  Proper format is CATEGORY=cat|abilityKey");
+				+ "  Proper format is CATEGORY=cat|abilityKey";
+			Logging.log(Logging.LST_ERROR, message);
 			return null;
 		}
 		return Globals.getAbilityKeyed(abilityCatName, abilityKey);

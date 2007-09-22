@@ -179,7 +179,7 @@ public class PreParserFactory
 			}
 			if (prereq.isDeprecated())
 			{
-				Logging.errorPrint("Encountered Deprecated PRExxx Token: "
+				Logging.deprecationPrint("Encountered Deprecated PRExxx Token: "
 					+ prereqStr);
 			}
 			return prereq;

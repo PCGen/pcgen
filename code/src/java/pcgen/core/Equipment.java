@@ -2447,8 +2447,8 @@ public final class Equipment extends PObject implements Serializable,
 		}
 		catch (NumberFormatException ignore)
 		{
-			Logging.errorPrint("Invalid Weight in Equipment: " + aString
-				+ " item was " + getDisplayName() + " from "
+			Logging.log(Logging.LST_ERROR, "Invalid Weight in Equipment: "
+				+ aString + " item was " + getDisplayName() + " from "
 				+ getDefaultSourceString());
 		}
 	}
@@ -6633,14 +6633,14 @@ public final class Equipment extends PObject implements Serializable,
 				containerWeightCapacity = new Float(bString);
 				if (containerWeightCapacity < 0)
 				{
-					Logging.errorPrint(getKeyName()
+					Logging.deprecationPrint(getKeyName()
 						+ " Weight Capacity must be >= 0: " + bString
 						+ "\n  use 'UNLIM' (not -1) for unlimited Capacity");
 				}
 			} catch (NumberFormatException ex) {
 				if (!"UNLIM".equals(bString))
 				{
-					Logging.errorPrint("Error in CONTAINS line: " + aString
+					Logging.log(Logging.LST_ERROR, "Error in CONTAINS line: " + aString
 						+ "\n" + "  " + bString
 						+ " was not a number or 'UNLIM'");
 				}

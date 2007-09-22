@@ -307,6 +307,39 @@ public class Logging
 	}
 
 	/**
+ 	 * Log a message, if logging is enabled at the
+ 	 * supplied level of detail. 
+ 	 * 
+	 * @param lvl The detail level of the message
+	 * @param msg String message
+	 */
+	public static void log(final Level lvl, final String msg)
+	{
+		Logger l = getLogger();
+		if (l.isLoggable(lvl))
+		{
+			l.log(lvl, msg);
+		}
+	}
+
+	/**
+ 	 * Log a message with a stack trace, if logging is enabled at the
+ 	 * supplied level of detail. 
+ 	 * 
+	 * @param lvl The detail level of the message
+	 * @param msg String message
+	 * @param thr Throwable stack frame
+	 */
+	public static void log(final Level lvl, final String msg, final Throwable thr)
+	{
+		Logger l = getLogger();
+		if (l.isLoggable(lvl))
+		{
+			l.log(lvl, msg, thr);
+		}
+	}
+
+	/**
 	 * Print error message with a stack trace if PCGen is
 	 * debugging.
 	 *
