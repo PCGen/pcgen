@@ -42,6 +42,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 import java.io.*;
 import java.util.ArrayList;
@@ -723,7 +724,7 @@ final class LstConverter extends JFrame
 	{
 		JScrollPane lstScrollPane = new JScrollPane();
 
-		final JTable lstTable = new JTable();
+		final JTable lstTable = new LstTable();
 		LstTableModel lstTableModel = new LstTableModel();
 		sorter.setModel(lstTableModel);
 		sorter.addMouseListenerToHeaderInTable(lstTable);
@@ -740,6 +741,7 @@ final class LstConverter extends JFrame
 		lstTable.getColumnModel().getColumn(3).setCellEditor(new OkEditor(okTypes));
 		lstTable.getColumnModel().getColumn(4).setCellRenderer(new DoneRenderer(okTypes));
 		lstTable.getColumnModel().getColumn(4).setCellEditor(new DoneEditor(okTypes));
+		lstTable.setRowHeight(new OkRenderer(okTypes).getMinimumSize().height);
 
 		lstTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		lstTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -996,6 +998,25 @@ final class LstConverter extends JFrame
 		}
 	}
 
+	private final class LstTable extends JTable
+	{
+		public String getToolTipText(MouseEvent e)
+		{
+			String tip = null;
+			java.awt.Point p = e.getPoint();
+			int rowIndex = rowAtPoint(p);
+			int colIndex = columnAtPoint(p);
+			int realColumnIndex = convertColumnIndexToModel(colIndex);
+
+			if (realColumnIndex <= 2)
+			{
+				return String.valueOf(getValueAt(rowIndex, colIndex));
+			}
+			
+			return super.getToolTipText(e);
+		}
+	}
+	
 	private final class LstTableModel extends AbstractTableModel
 	{
 		private LstTableModel()
