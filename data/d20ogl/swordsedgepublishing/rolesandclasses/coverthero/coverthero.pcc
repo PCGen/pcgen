@@ -23,8 +23,8 @@ COPYRIGHT:PCGen dataset conversion for Covert Hero Copyright 2005-2006, PCgen Da
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:coverthero_feats_hidden.lst
 CLASS:coverthero_class.lst
-FEAT:coverthero_feats_hidden.lst
 FEAT:coverthero_feats_mods.lst
 
 SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst|(INCLUDE:Appraise)

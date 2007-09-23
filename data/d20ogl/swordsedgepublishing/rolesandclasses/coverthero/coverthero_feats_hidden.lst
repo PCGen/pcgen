@@ -1,23 +1,26 @@
-# CVS $Revision$ $Author: $ -- Sat Mar 18 10:04:01 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author: $ -- Sun Sep 23 07:50:11 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Roles and Classes - Covert Hero	SOURCESHORT:CovertHero	SOURCEWEB:http://swordsedgepublishing.ca/Products.html
 
 ###Block: Defensive Talent Tree
-# Feat Name			Type
-Evasion.MOD			TYPE:CovertHeroTalent.DefensiveTalent
-Uncanny Dodge I.MOD	TYPE:CovertHeroTalent.DefensiveTalent
-Uncanny Dodge II.MOD	TYPE:CovertHeroTalent.DefensiveTalent
+# Feat Name						Type
+# Ability Name					Type
+CATEGORY=Talent|Evasion.MOD			TYPE:CovertHeroTalent.DefensiveTalent
+CATEGORY=Talent|Uncanny Dodge I.MOD		TYPE:CovertHeroTalent.DefensiveTalent
+CATEGORY=Talent|Uncanny Dodge II.MOD	TYPE:CovertHeroTalent.DefensiveTalent
 
 ###Block: Offensive Talent Tree
-# Feat Name		Type							Visible	Required Feat		Special Ability						Define							Description				Stackable?	Multiple?	Choose		Modify VAR			Source Page
-Crippling Strike	TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:NO	PREFEAT:1,Sneak Attack	SA:Crippling Strike (Ex)												DESC:Class Special Ability												SOURCEPAGE:p.3
-Opportunist.MOD	TYPE:CovertHeroTalent.OffensiveTalent
-Sneak Attack	TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:NO					SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0	DESC:Class Special Ability	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.4
+# Feat Name					Type							Visible	Required Feat		Special Ability						Define							Description				Stackable?	Multiple?	Choose		Modify VAR			Source Page
+# Ability Name				Type							Visible	Required Feat		Special Ability						Define							Description				Stackable?	Multiple?	Choose		Modify VAR			Source Page
+Crippling Strike				TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:YES	PREFEAT:1,Sneak Attack	SA:Crippling Strike (Ex)												DESC:Class Special Ability												SOURCEPAGE:p.3
+CATEGORY=Talent|Opportunist.MOD	TYPE:CovertHeroTalent.OffensiveTalent
+Sneak Attack				TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:YES					SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0	DESC:Class Special Ability	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.4
 
 ###Block: Scout Talent Tree
 # Feat Name		Type						Visible		Required Feat		Special Ability					Define			Description				Stackable?	Multiple?	Choose						Modify VAR			Source Page
-Skill Mastery	TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:EXPORT					SA:Skill Mastery (Take 10 on %CHOICE)					DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLS|LIST|3+INT					SOURCEPAGE:p.3
-Trap Finding	TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:NO						SA:Trap Finding
-Trap Sense		TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:NO		PREFEAT:1,Trap Finding	SA:Trap Sense (Ex) +%|TrapSense		DEFINE:TrapSense|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|TrapSense|1
+# Ability Name	Type						Visible	Required Feat		Special Ability					Define			Description				Stackable?	Multiple?	Choose						Modify VAR			Source Page
+Skill Mastery	TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES					SA:Skill Mastery (Take 10 on %CHOICE)					DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLS|LIST|3+INT					SOURCEPAGE:p.3
+Trap Finding	TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES					SA:Trap Finding
+Trap Sense		TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES	PREFEAT:1,Trap Finding	SA:Trap Sense (Ex) +%|TrapSense		DEFINE:TrapSense|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|TrapSense|1
 
 #
 # End
