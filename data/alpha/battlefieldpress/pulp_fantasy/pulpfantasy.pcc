@@ -52,6 +52,7 @@ COPYRIGHT:PCGen dataset conversion for the Pulp Fantasy Roleplaying Game Copyrig
 
 #EXTRAFILE:OGL.txt
 
+ABILITY:pulpfantasy_abilities.lst
 CLASS:pulpfantasy_classes_advanced.lst
 CLASS:pulpfantasy_classes_base.lst
 CLASS:pulpfantasy_classes_monster.lst

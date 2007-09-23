@@ -73,7 +73,6 @@ Precise Shot.MOD				TYPE:Operator
 Precise Strike.MOD																																																																																																													SOURCEPAGE:p.56
 Quick Draw.MOD				TYPE:Gangster.Operator
 Renown.MOD					TYPE:Bureaucrat.Fortuneteller.Politician.World_Traveller.Ambassador.Driver.Explorer.Gangster.Relic_Hunter.Scientist
-Second Wind.MOD																																																																																																														SOURCEPAGE:p.56
 Shot on the Run.MOD			TYPE:Operator																						PRE:.CLEAR				PREFEAT:2,Point Blank Shot,Mobility	PREFEAT:1,Dodge,Fancy Footwork				PRESTAT:1,DEX=13
 Smart Plus.MOD																																																																					DESC:Your drive to excel enables you to progress faster toward becoming a truly intelligent hero																									SOURCEPAGE:p.58
 Spring Attack.MOD				TYPE:Daredevil.Shadowy_Avenger.Operator																		PRE:.CLEAR		PREATT:4	PREFEAT:1,Mobility	PREFEAT:1,Dodge,Fancy Footwork						PRESTAT:1,DEX=13
