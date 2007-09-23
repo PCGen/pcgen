@@ -16561,10 +16561,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// hidden feats so the number
 			// displayed matches this number
 			//
-			// if (aFeat.getVisibility() == Visibility.HIDDEN)
-			// {
-			// continue;
-			// }
+			if (aFeat.getVisibility() == Visibility.HIDDEN
+				|| aFeat.getVisibility() == Visibility.OUTPUT_ONLY)
+			{
+				continue;
+			}
 			final int subfeatCount = aFeat.getAssociatedCount();
 
 			if (subfeatCount > 1)
