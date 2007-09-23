@@ -227,6 +227,8 @@ ABILITYCATEGORY:Charismatic Talent	CATEGORY:Talent	TYPE:CharismaticTalent	PLURAL
 ### These need to be moved to the proper PCC files when tracker is completed for adding CATEGORY via pcc is completed. -AM
 ABILITYCATEGORY:Combat Hero Talent	CATEGORY:Talent	TYPE:CombatHeroTalent	PLURAL:Combat Hero Talents		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	POOL:0	VISIBLE:QUALIFY	DISPLAYLOCATION:Talents
 ABILITYCATEGORY:Covert Hero Talent	CATEGORY:Talent	TYPE:CovertHeroTalent	PLURAL:Covert Hero Talents		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	POOL:0	VISIBLE:QUALIFY	DISPLAYLOCATION:Talents
+
+PREVIEWDIR:d20/modern
 PREVIEWSHEET:Standard.htm
 
 
