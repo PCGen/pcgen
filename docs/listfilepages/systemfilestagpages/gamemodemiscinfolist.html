@@ -853,6 +853,33 @@
         <p class="indent3">The pool starts with a value of half the character's level.</p>
 
 		<p></p><hr>
+		<p class="new">*** New 5.13.2</p>
+		<p class="indent0"><strong><a name="PREVIEWDIR">Tag Name:</a></strong>PREVIEWDIR:x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Text (Path to specified directory)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Sets the directory from which the 
+			<a href="../../tabpages/players/tabcharactersheet.html">Character Sheet Tab</a> 
+			populates the selection menu for this gameMode. 
+			The root of this path is the preview directory in the pcgen directory</p>
+        <p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>PREVIEWDIR:d20/fantasy</code></p>
+        <p class="indent3">Sets &quot;pcgen/preview/d20/fantasy&quot; at the directory of character sheets for this gameMode.</p>
+
+		<p></p><hr>
+		<p class="new">*** New 5.13.2</p>
+		<p class="indent0"><strong><a name="PREVIEWSHEET">Tag Name:</a></strong>PREVIEWSHEET:x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Text (Path to specified directory)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Sets the default sheet used by the 
+			<a href="../../tabpages/players/tabcharactersheet.html">Character Sheet Tab</a> for this gameMode. 
+			The sheet specified must exist in the directory set by 
+			the gameModes <a href="#PREVIEWDIR">PREVIEWDIR</a> tag.</p>
+        <p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>PREVIEWSHEET:preview.html</code></p>
+        <p class="indent3">Sets the &quot;preview.html&quot; file as the default sheet displayed 
+			when the Character Sheet Tab is selected.</p>
+
+		<p></p><hr>
 		<p class="new">*** New 5.8.0</p>
 		<p class="indent0"><strong><a name="RANKMODFORMULA">Tag Name:</a></strong> RANKMODFORMULA:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Formula (Formula to calculate skill bonus)</p>
