@@ -55,3 +55,5 @@ WEAPONPROF:modernbasics_weaponprofs.lst
 #Hiding Equipment Types that control EQMODS
 HIDETYPE:EQUIP|SpecialSuppressor
 HIDETYPE:SKILL|Science
+HIDETYPE:ABILITY|Leadership
+HIDETYPE:FEAT|Leadership
