@@ -162,8 +162,8 @@ if ($CREATE_ZIP) {
     }
 }
 
-# Creation of the distination folders (mkpath created the entire path is one shot)
-for my $dir_name qw( characters data docs lib outputsheets plugins system ) {
+# Creation of the destination folders (mkpath created the entire path is one shot)
+for my $dir_name qw( characters data docs lib outputsheets plugins preview system ) {
     mkpath("$DEST_FULL_FOLDER/$dir_name");
     mkpath("$DEST_PARTIAL_FOLDER/$dir_name");
     mkpath("$DEST_NSIS_BASE_FOLDER/$dir_name");
@@ -432,6 +432,26 @@ else {
             {   destination         => "$DEST_NSIS_OPTION_FOLDER/plugin/pdf/outputsheets",
                 files_to_keep_ref   => [ qr{ [/] pdf [/] }xmsi ],
             },
+        ],
+    });
+
+    print "[$copied_file_for{full}, $copied_file_for{partial} and "
+        . "$copied_file_for{other} files copied]\n";
+}
+
+# Copy the preview files
+{
+    print "pcgen/preview... ";
+
+    my %copied_file_for = copy_distro_files({
+        source                      => "$SRC_PCGEN/preview",
+
+        full_destination            => "$DEST_FULL_FOLDER/preview",
+
+        partial_destination         => "$DEST_PARTIAL_FOLDER/preview",
+
+        other_copies_ref => [
+            {   destination         => "$DEST_NSIS_BASE_FOLDER/preview", },
         ],
     });
 

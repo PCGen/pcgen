@@ -401,6 +401,7 @@ Section Uninstall
 	RMDir /r "$$INSTDIR\$${APPDIR}\Local"
 	RMDir /r "$$INSTDIR\$${APPDIR}\outputsheets"
 	RMDir /r "$$INSTDIR\$${APPDIR}\plugins"
+	RMDir /r "$$INSTDIR\$${APPDIR}\preview"
 	RMDir /r "$$INSTDIR\$${APPDIR}\system"
 	;Ed- below would be the removal of all files in the PCGen root directory, on a file by file basis.
 	;Delete /REBOOTOK "pcgen.jar"
