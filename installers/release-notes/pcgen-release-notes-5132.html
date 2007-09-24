@@ -34,6 +34,12 @@ Handling Fighter bonus feats and other feat pools.
 Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1676983" class="externalLink" title="External Link">1676983</a>.
 <a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
 
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Programmable Preview Tab.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1783488" class="externalLink" title="External Link">1783488</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#boomer70">boomer70</a>
+
 </ul>
 
 
@@ -45,10 +51,29 @@ The following new sources were added in 5.13.2
 </ul>
 
 <h2><a name="MSRDChars">MSRD Character Changes</a></h2>
-<p>When loading MSRD characters from previous versions of PCGen, you will 
-see a number of error messages. This is because the way talents are treated is now 
-being handled differently (the new arrangement can be seen on the Abilities tab).</p>
-<p>Migration instructions will be added here before the release.</p>
+<p>When a pre-generated modern character is loaded, it will not recognize
+the selected Talents anymore. For that reason one or more error
+messages will be displayed at character load, which read: "Warning:
+Unable to Find Ability: xxx", where xxx is the name of a Talent that
+the character had previously selected.
+</p><p>
+To fix this problem, you can take the following steps:
+</p>
+<OL>
+<LI>Write down the Talents that are mentioned in those error messages somewhere.
+
+<LI>Go to the Feats tab and select the new "Talents" subtab
+
+<LI>In the lower right corner of the Talents tab you see a drop down
+menus which reads "Talents". Select a class that one of the talents
+you have noted was taken from. The "remaining" field should now show a
+positive number.
+
+<LI>In the upper left field only Talents that belong to that class will
+be displayed. Select your Talent(s) for that class there.
+
+<LI>Repeat for any Talents that were taken from another class.
+</OL>
 
 <h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
 <p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
@@ -269,6 +294,7 @@ the gods have mercy on your soul :-).</p>
 <h3>Feature Requests
 </h3><ul>
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786942">1786942</a> ] 	Syntax cleanup - KNOWNSPELLS:.CLEAR.
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783488">1783488</a> ] 	Programmable Preview Tab
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1676983">1676983</a> ] 	Handling Fighter bonus feats and other feat pools
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1631983">1631983</a> ] 	Deprecate CHOOSE (weapon)
 </ul>
