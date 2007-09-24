@@ -17,6 +17,7 @@ COPYRIGHT:My Campaign, Copyright 2005 by me
 
 #INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
 
+#ABILITY:my_abilities.lst
 #BIOSET:my_biosettings.lst
 #CLASS:my_classes.lst
 #COMPANIONMOD:my_companionmods.lst
@@ -32,6 +33,11 @@ COPYRIGHT:My Campaign, Copyright 2005 by me
 #SPELL:my_spells.lst
 #TEMPLATE:my_templates.lst
 #WEAPONPROF:my_weaponprofs.lst
+
+### You can hide TYPEs in the GUI - TYPEs are handy for organization, but some are only used for internal functions.
+#HIDETYPE:EQUIP|SpecialSuppressor
+#HIDETYPE:SKILL|Science
+#HIDETYPE:FEAT|Leadership
 
 #Remove the '#' in front of those lines referring to files that you actually want to load
 #Remember to set the GAMEMODE to the one you really want. Options are 3e, 35e, Modern, Deadlands, Sidewinder, Spycraft, or Xcrawl.
