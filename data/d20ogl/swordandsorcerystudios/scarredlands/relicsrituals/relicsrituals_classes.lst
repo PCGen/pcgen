@@ -1,6 +1,10 @@
 # CVS $Revision$ $Author$ -- Wed May 16 17:44:21 2007 -- reformated by prettylst.pl v1.38 (build 2829)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
+#CHANGES 9/24 - ADDED Ritual Casting to all the spell casting classes in this data set.
+#.MOD the base class for the SRD to have CSKILL:Ritual Casting or Paladin/Rangers to have CCSKILL:Ritual Casting
+
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Blood Witch	HD:4		TYPE:PC.Prestige	ABB:BlW		MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat										Required Skill
@@ -180,3 +184,21 @@ CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 9	CAST:0,2,1,1,1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
 10	CAST:0,2,2,1,1															AUTO:FEAT|Natural Healing
 
+###Block: SRD CLASS .MOD SECTION
+CLASS:Bard.MOD		CSKILL:Ritual Casting
+CLASS:Cleric.MOD		CSKILL:Ritual Casting
+CLASS:Druid.MOD		CSKILL:Ritual Casting
+CLASS:Sorcerer.MOD	CSKILL:Ritual Casting
+CLASS:Wizard.MOD		CSKILL:Ritual Casting
+#
+CLASS:Paladin.MOD						CCSKILL:Ritual Casting
+CLASS:Ranger.MOD						CCSKILL:Ritual Casting
+###
+###This File -
+CLASS:Blood Witch		CSKILL:Ritual Casting
+CLASS:Crypt Lord		CSKILL:Ritual Casting
+CLASS:Incarnate		CSKILL:Ritual Casting
+CLASS:Penumbral Lord	CSKILL:Ritual Casting
+CLASS:Summoner		CSKILL:Ritual Casting
+CLASS:Vigilant		CSKILL:Ritual Casting
+CLASS:Sea Witch		CSKILL:Ritual Casting
