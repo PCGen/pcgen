@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+			
+		$Author: takeyabue $
+		$Date: 2007-08-09 02:39:39 -0400 (Thu, 09 Aug 2007) $
+		$Revision: 3701 $
+		
+		Contributors:
+		Eric C. Smith - mareduddATblackrootDOTorg
+		
+		Description:
+		Provides information on specific rules implamentation in the LST files.
+	-->
+<head>
+	<title>Game Rules Guide</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+	
+<body>
+
+	<h2>Multiple Priesthoods per Deity</h2>
+		
+	<p class="indent0"><strong>Rule Description:</strong> Deities may have more than one &quot;Priesthood&quot;, each with theri own class abilities.</p>
+	<p class="indent0"><strong>PCGen Version:</strong> 5.12.x to Current.</p>
+	<p class="indent0"><strong>File(s) Covered:</strong> class.lst, feat.lst, and deity.lst</p>
+	<p class="indent0"><strong>Tags used:</strong></p>
+	<p class="indent1"><code><a href="../globalfilestagpages/globalfilesother.html#MOD">.MOD</a>, 
+  		<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a>,
+  		<a href="../">VISIBLE<a>, 
+  		<a href="../">TYPE</a>,
+  		<a href="../">PREVAREQ</a>, 
+  		<a href="../">BONUS:VAR</a>,
+  		<a href="../">DOMAINS</a>, 
+  		<a href="../">ADD:FEAT</a></code></p>
+
+<hr>
+
+	<h3>Implementation Discussion</h3>
+
+<hr>
+
+	<h3>Tag Discussion</h3>
+
+<hr>
+
+	<h3>LST File Entry Examples</h3>
+
+	<p>These examples .</p>
+	<p class="indent1">Class File: &quot;Cleric&quot;Modification</p>
+	<p class="indent2"><code>
+		<il>Cleric.MOD</il><br>
+		<il>DEFINE:Priesthood|0</il>
+	</code></p>
+	
+	<p class="indent1">Feat File: Priesthoods of the &quot;Code&quot;, &quot;Data&quot;, and &quot;Doc&quot; Monkeys</p>
+	<p class="indent2"><code>
+		<il>Priesthood of the Code Monkey</il><br>
+		<il>VISIBLE:NO</il><br>
+		<il>TYPE:Priesthood</il><br>
+		<il>PREVAREQ:Priesthood,0</il><br>
+		<il>BONUS:VAR|Priesthood|1</il><br>
+	</code></p>
+	<p></p>
+	<p class="indent2"><code>
+		<il>Priesthood of the Data Monkey</il><br>
+		<il>VISIBLE:NO</il><br>
+		<il>TYPE:Priesthood</il><br>
+		<il>PREVAREQ:Priesthood,0</il><br>
+		<il>BONUS:VAR|Priesthood|2</il><br>
+	</code></p>
+	<p></p>
+	<p class="indent2"><code>
+		<il>Priesthood of the Doc Monkey</il><br>
+		<il>VISIBLE:NO</il><br>
+		<il>TYPE:Priesthood</il><br>
+		<il>PREVAREQ:Priesthood,0</il><br>
+		<il>BONUS:VAR|Priesthood|3</il><br>
+	</code></p>
+
+	<p class="indent1">Deity File: &quot;Monkey God&quot;</p>
+	<p class="indent2"><code>
+		<il>Monkey God</il><br>
+		<il>ALIGN:TN</il><br>
+		<il>PREALIGN:NG,LN,TN,CN,NE</il><br>
+		<il>DEITYWEAPON:Pile of Poo</il><br>
+		<il>DOMAINS:Knowledge,Madness</il><br>
+		<il>DOMAINS:Creation|PREMULT:1,[PREVAREQ:Priesthood|1],[PREVAREQ:Priesthood|2]</il><br>
+		<il>DOMAINS:Artifice|PREMULT:1,[PREVAREQ:Priesthood|2],[PREVAREQ:Priesthood|3]</il><br>
+		<il>DOMAINS:Magic|PREMULT:1,[PREVAREQ:Priesthood|1],[PREVAREQ:Priesthood|3]</il><br>
+		<il>ADD:FEAT|TYPE=Priesthood</il><br></code>
+		<il>etc.</il><br>
+	</p>
+
+
+<hr>
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="../../images/system/valid-html401.png"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+
+</body>
+
+</html>
