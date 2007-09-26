@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+			
+		$Author: takeyabue $
+		$Date: 2007-08-09 02:39:39 -0400 (Thu, 09 Aug 2007) $
+		$Revision: 3701 $
+		
+		Contributors:
+		Eric C. Smith - mareduddATblackrootDOTorg
+		
+		Description:
+		Provides information on specific rules implamentation in the LST files.
+	-->
+<head>
+	<title>Game Rules Guide</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+	
+<body>
+
+	<h1>Equipment Granting Negative Levels</h1>
+		
+	<p class="indent0"><strong>Rule Description:</strong> Items can now grant &quot;Negative Levels&quot;.</p>
+	<p class="indent0"><strong>PCGen Version:</strong> 5.8.x to current.</p>
+	<p class="indent0"><strong>File(s) Covered:</strong> equipment.lst and feat.lst</p>
+	<p class="indent0"><strong>Tags used:</strong></p>
+	<p class="indent1"><code><a href="../globalfilestagpages/globalfilesother.html#VFEAT">VFEAT</a>, 
+  		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a>,
+  		<a href="../globalfilestagpages/globalfilesprexxx.html">PRExxx</a>,
+  		<a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
+  		<a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE</a>,
+ 		<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a>,
+  		<a href="../globalfilestagpages/globalfilesbonus.html#CHECKS">BONUS:CHECKS</a>,
+ 		<a href="../globalfilestagpages/globalfilesbonus.html#COMBAT">BONUS:COMBAT</a>,
+  		<a href="../globalfilestagpages/globalfilesbonus.html#SKILL">BONUS:SKILL</a></code></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="VFEAT">Tag Name:</a></strong> VFEAT:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (&quot;Negative Levels&quot;)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Activates the ability of items to bestow negative levels.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>VFEAT:Negative Levels</code></p>
+	<p class="indent3">Use &quot;Negative Levels&quot; virtual feat</p>
+
+	<p>Secondly, create the item as normal and append to it a special BONUS tag.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="BONUSVAR">Tag Name:</a></strong> BONUS:VAR|NegLevels|x|PREy</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (number of negative levels.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (PRE condition for bestowing negative levels)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>&quot;NegLevels&quot; is a special predefined variable made specifically for
+		  this purpose.</li>
+		<li>Use '2', not -2, to bestow 2 negative levels.</li>
+		<li>If the NegLevels Variable is 0 (no negative levels applied), then nothing will show,
+				and it will be as if the Negative Levels feat was not even there. :)</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7</code></p>
+	<p class="indent3">Demon Armor bestows 1 negative level to all non-evil characters.</p>
+	<p></p>
+
+<hr>
+
+	<h3>LST File Entry Examples</h3>
+
+	<p>These examples come from the RSRD.</p>
+	<p class="indent1">Feat File: &quot;Negative Levels&quot; feat</p>
+	<p class="indent2"><code>
+		<il>Negative Levels</il><br>
+		<il>TYPE:Special</il><br>
+		<il>VISIBLE:NO</il><br>
+		<il>SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels</il><br>
+		<il>DEFINE:NegLevels|0</il><br>
+		<il>BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)</il><br>
+		<il>BONUS:COMBAT|TOHIT|-1*(NegLevels)</il><br>
+		<il>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</il>
+	</code></p>
+	
+	<p class="indent1">Equipment File: &quot;Sun Blas (Short)&quot;</p>
+	<p class="indent2"><code>
+		<il>Sun Blade (Short)</il><br>
+		<il>.</il><br>
+		<il>.</il><br>
+		<il>.</il><br>
+		<il>VFEAT:Negative Levels</il><br>
+	</code></p>
+
+
+<hr>
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="../../images/system/valid-html401.png"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+
+</body>
+
+</html>
