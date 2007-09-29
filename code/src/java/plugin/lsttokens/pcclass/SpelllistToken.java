@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.util.Logging;
@@ -42,10 +43,33 @@ public class SpelllistToken implements PCClassLstToken
 
 		while (aTok.hasMoreTokens())
 		{
-			spellChoices.add(aTok.nextToken());
+			String className = aTok.nextToken();
+			if (Globals.getDomainKeyed(className) != null)
+			{
+				Logging.deprecationPrint(getTokenName()
+					+ " now requires a DOMAIN. prefix "
+					+ "when used with a DOMAIN rather than a Class");
+			}
+			if (className.startsWith("DOMAIN."))
+			{
+				String domainName = className.substring(7);
+				if (Globals.getDomainKeyed(domainName) != null)
+				{
+					Logging.errorPrint(getTokenName()
+						+ " could not find Domain: " + domainName);
+					return false;
+				}
+				// This is safe in 5.x since the class & domain names can't
+				// conflict
+				spellChoices.add(domainName);
+			}
+			else
+			{
+				spellChoices.add(className);
+			}
 		}
 
-		//Protection against a "" value parameter
+		// Protection against a "" value parameter
 		if (spellChoices.size() > 0)
 		{
 			pcclass.setClassSpellChoices(spellCount, spellChoices);
