@@ -25,9 +25,9 @@
 package pcgen.util;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -62,7 +62,7 @@ import java.util.Set;
  * method and is not appropriate for use in Java 1.5 (Typed Collections are
  * probably more appropriate).
  */
-public class HashMapToList<K, V>
+public class HashMapToList<K, V> implements MapToList<K, V>
 {
 
 	/*
@@ -164,7 +164,7 @@ public class HashMapToList<K, V>
 	 *            A List containing the items to be added to the List for the
 	 *            given key.
 	 */
-	public void addAllToListFor(K key, List<V> list)
+	public void addAllToListFor(K key, Collection<V> list)
 	{
 		if (list == null)
 		{
@@ -183,9 +183,8 @@ public class HashMapToList<K, V>
 
 	/**
 	 * Adds all of the Lists in the given MapToList to this MapToList. The
-	 * resulting lists are independent (protecting the internal structure of
-	 * HashMapToList), however, since MapToList is reference-semantic, the List
-	 * keys and values in each list are identical.
+	 * resulting lists are independent, however, since MapToList is
+	 * reference-semantic, the List keys and values in each list are identical.
 	 * 
 	 * This method is reference-semantic and this MapToList will maintain a
 	 * strong reference to all key objects and objects in each list of the given
@@ -194,17 +193,17 @@ public class HashMapToList<K, V>
 	 * @param mtl
 	 *            The MapToList from which all of the Lists should be imported
 	 */
-	public void addAllLists(HashMapToList<K, V> mtl)
+	public void addAllLists(MapToList<K, V> mtl)
 	{
-		for (Iterator<K> it = mtl.getKeySet().iterator(); it.hasNext();)
+		for (K key : mtl.getKeySet())
 		{
-			K key = it.next();
 			/*
-			 * Note, this reference-semantic grab of the list for the key (from
-			 * the mtl's MapToList) is safe, as addAllToListFor is committed to
-			 * be value-semantic and not keep or modify the received list.
+			 * Note, this grab of the list for the key is safe regardless of
+			 * whether mtl's getListFor is reference or value-semantic, as
+			 * addAllToListFor is committed to be value-semantic and not keep or
+			 * modify the received list.
 			 */
-			addAllToListFor(key, mtl.mapToList.get(key));
+			addAllToListFor(key, mtl.getListFor(key));
 		}
 	}
 
@@ -429,5 +428,13 @@ public class HashMapToList<K, V>
 	{
 		List<V> list = mapToList.get(key);
 		return list == null ? null : list.get(i);
+	}
+
+	/**
+	 * Clears this HashMapToList (removes all keys/list combiantions)
+	 */
+	public void clear()
+	{
+		mapToList.clear();
 	}
 }
