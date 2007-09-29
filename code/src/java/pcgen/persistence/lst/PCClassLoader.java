@@ -229,7 +229,18 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			{
 				try
 				{
-					iLevel = Integer.parseInt(colString);
+					String thisLevel;
+					int rlLoc = colString.indexOf(":REPEATLEVEL:");
+					if (rlLoc == -1)
+					{
+						thisLevel = colString;
+					}
+					else
+					{
+						thisLevel = colString.substring(0, rlLoc);
+						repeatTag = colString.substring(rlLoc + 13);
+					}
+					iLevel = Integer.parseInt(thisLevel);
 				}
 				catch (NumberFormatException nfe)
 				{
@@ -273,6 +284,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else if (colString.startsWith("REPEATLEVEL:"))
 			{
+				Logging.deprecationPrint("REPEATLEVEL: should be attached to the level identifier\n Floating REPEATLEVEL: syntax has been deprecated");
 				if (!bRepeating)
 				{
 					repeatTag = colString.substring(12);
@@ -344,23 +356,65 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					+ colString + "' in " + source.getURI(), nfe);
 			}
 		}
+		boolean oldSyntax = false;
 		if (tokenCount > 1)
 		{
-			try
+			boolean consumed = false;
+			String tokenTwo = repeatToken.nextToken();
+			if (tokenTwo.startsWith("SKIP="))
 			{
-				consecutive = Integer.parseInt(repeatToken.nextToken());
+				tokenTwo = tokenTwo.substring(5);
 			}
-			catch (NumberFormatException nfe)
+			else if (tokenTwo.startsWith("MAX="))
 			{
-				Logging.errorPrint("Non-Numeric Consecutive Level info '"
-					+ colString + "' in " + source.getURI(), nfe);
+				if (tokenCount > 2)
+				{
+					Logging.errorPrint("MAX= cannot be followed by another item in REPEATLEVEL.  SKIP= must appear before MAX=");
+				}
+				String maxString = tokenTwo.substring(4);
+				try
+				{
+					maxLevel = Integer.parseInt(maxString);
+				}
+				catch (NumberFormatException nfe)
+				{
+					Logging.errorPrint("Non-Numeric Max Level info MAX='" + maxLevel
+						+ "' in " + source.getURI(), nfe);
+				}
+				consumed = true;
+			}
+			else
+			{
+				oldSyntax = true;
+			}
+			if (!consumed)
+			{
+				try
+				{
+					consecutive = Integer.parseInt(tokenTwo);
+				}
+				catch (NumberFormatException nfe)
+				{
+					Logging.errorPrint("Non-Numeric Consecutive Level info '"
+						+ colString + "' in " + source.getURI(), nfe);
+				}
 			}
 		}
 		if (tokenCount > 2)
 		{
+			String tokenThree = repeatToken.nextToken();
+			String maxString;
+			if (!oldSyntax && tokenThree.startsWith("MAX="))
+			{
+				maxString = tokenThree.substring(4);
+			}
+			else
+			{
+				maxString = tokenThree;
+			}
 			try
 			{
-				maxLevel = Integer.parseInt(repeatToken.nextToken());
+				maxLevel = Integer.parseInt(maxString);
 			}
 			catch (NumberFormatException nfe)
 			{
