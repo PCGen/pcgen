@@ -108,7 +108,14 @@ final class LevelAbilityLanguage extends LevelAbility
 			final List<String>            anArrayList,
 			final PlayerCharacter aPC)
 	{
-		if (aToken.startsWith("TYPE=") || aToken.startsWith("TYPE."))
+		if ("ALL".equalsIgnoreCase(aToken))
+		{
+			for ( Language lang : Globals.getLanguageList() )
+			{
+				anArrayList.add(lang.getKeyName());
+			}
+		}
+		else if (aToken.startsWith("TYPE=") || aToken.startsWith("TYPE."))
 		{
 			aToken = aToken.substring(5);
 
