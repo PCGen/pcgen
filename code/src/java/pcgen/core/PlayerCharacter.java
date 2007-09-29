@@ -11222,23 +11222,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	boolean hasSpecialAbility(final SpecialAbility sa)
-	{
-		final String saKey = sa.getKeyName();
-		final String saDesc = sa.getSADesc();
-
-		for (SpecialAbility saFromList : getSpecialAbilityList())
-		{
-			if (saFromList.getKeyName().equalsIgnoreCase(saKey)
-				&& saFromList.getSADesc().equalsIgnoreCase(saDesc))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
 	boolean removeFavoredClass(final String aString)
 	{
 		if (favoredClasses.contains(aString))
