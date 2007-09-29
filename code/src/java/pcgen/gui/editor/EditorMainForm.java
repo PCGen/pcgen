@@ -641,6 +641,7 @@ public final class EditorMainForm extends JDialog
 		thisPObject.clearDR();
 		thisPObject.clearPreReq();
 		thisPObject.clearSpecialAbilityList();
+		thisPObject.clearAllSABLists();
 		thisPObject.clearSRList();
 		thisPObject.getSpellSupport().clearSpellList();
 		thisPObject.clearAutoMap();
@@ -3102,14 +3103,13 @@ public final class EditorMainForm extends JDialog
 			}
 		}
 
-		final List<SpecialAbility> saList = thisPObject.getListFor(ListKey.SPECIAL_ABILITY);
+		List<SpecialAbility> saList = thisPObject.getListFor(ListKey.SPECIAL_ABILITY);
 
 		if ((saList != null) && (saList.size() != 0) && (anEditType != EditorConstants.EDIT_CLASS))
 		{
 			for (Iterator<SpecialAbility> e = saList.iterator(); e.hasNext();)
 			{
 				SpecialAbility specialAbility = e.next();
-//				String saSource = ((SpecialAbility) specialAbility).getSource();
 				String saSource = specialAbility.getSASource();
 				String saLevel = saSource.substring(saSource.indexOf("|") + 1);
 				String saTxt = specialAbility.toString();
@@ -3121,8 +3121,27 @@ public final class EditorMainForm extends JDialog
 
 				selectedList.add("SA:" + saLevel + saTxt);
 			}
+		}
 
-			saList.clear(); // or else it will get doubled on a save!
+		saList = new ArrayList<SpecialAbility>();
+		thisPObject.addSABToList(saList, null);
+
+		if ((saList.size() != 0) && (anEditType != EditorConstants.EDIT_CLASS))
+		{
+			for (Iterator<SpecialAbility> e = saList.iterator(); e.hasNext();)
+			{
+				SpecialAbility specialAbility = e.next();
+				String saSource = specialAbility.getSASource();
+				String saLevel = saSource.substring(saSource.indexOf("|") + 1);
+				String saTxt = specialAbility.toString();
+
+				if (saLevel.length() > 0)
+				{
+					saLevel += "|";
+				}
+
+				selectedList.add("SAB:" + saLevel + saTxt);
+			}
 		}
 
 

@@ -25,18 +25,17 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * Deal with tokens below CLASS.x CLASS.x.LEVEL CLASS.x.SALIST
@@ -161,34 +160,21 @@ public class ClassToken extends Token {
 	 */
 	public static List<String> getClassSpecialAbilityList(PCClass pcclass,
 			final PlayerCharacter aPC) {
-		final List<String> aList = new ArrayList<String>();
 		final List<String> formattedList = new ArrayList<String>();
-		final List<SpecialAbility> abilityList = pcclass
-				.getListFor(ListKey.SPECIAL_ABILITY);
+		
+		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		pcclass.addSpecialAbilitiesToList(saList, aPC);
+		pcclass.addSABToList(saList, aPC);
 
-		// Determine the list of abilities from this class
-		// that the character is eligible for
-		if (abilityList == null || abilityList.isEmpty()) {
-			return aList;
-		}
-
-		for (SpecialAbility saAbility : abilityList) {
-			final String aString = saAbility.toString();
-
-			// If we've already added the special ability, don't add it again
-			if (aList.contains(aString)) {
-				break;
-			}
-
-			// If the PC qualifies for the special ability, then add it
-			if (saAbility.pcQualifiesFor(aPC)) {
-				aList.add(aString);
-			}
+		if (saList.isEmpty())
+		{
+			return formattedList;
 		}
 
 		// From the list of allowed SAs, format the output strings
 		// to include all of the variables
-		for (String str : aList) {
+		for (SpecialAbility sa : saList) {
+			String str = sa.getDisplayName();
 			if (str == null || str.length() == 0)
 			{
 				continue;

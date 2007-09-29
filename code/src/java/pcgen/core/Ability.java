@@ -30,7 +30,6 @@ import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.IntegerKey;
-import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.StringKey;
@@ -593,56 +592,6 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		}
 
 		return aStrBuf.toString();
-	}
-
-	@Override
-	protected List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
-	{
-		final List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
-
-		if (specialAbilityList != null)
-		{
-			final StringBuffer sb = new StringBuffer();
-
-			for (SpecialAbility sa : specialAbilityList)
-			{
-				final String key = sa.getKeyName();
-				final int idx = key.indexOf("%CHOICE");
-
-				if (idx >= 0)
-				{
-					sb.setLength(0);
-					sb.append(key.substring(0, idx));
-
-					if (getAssociatedCount() != 0)
-					{
-						for (int i = 0; i < getAssociatedCount(); ++i)
-						{
-							if (i != 0)
-							{
-								sb.append(" ,");
-							}
-
-							sb.append(getAssociated(i));
-						}
-					}
-					else
-					{
-						sb.append("<undefined>");
-					}
-
-					sb.append(key.substring(idx + 7));
-					sa = new SpecialAbility(
-							sb.toString(),
-							sa.getSASource(),
-							sa.getSADesc());
-				}
-
-				aList.add(sa);
-			}
-		}
-
-		return aList;
 	}
 
 	boolean canBeSelectedBy(final PlayerCharacter pc)

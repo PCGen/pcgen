@@ -96,7 +96,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/** A map of Lists for the object */
 	protected ListKeyMapToList listChar = new ListKeyMapToList();
 	
-	private final MapKeyMapToList mapChar = new MapKeyMapToList();
+	protected final MapKeyMapToList mapChar = new MapKeyMapToList();
 
 	/** List of associated items for the object */
 	// TODO Contains strings or FeatMultipleObjects
@@ -1819,6 +1819,52 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		listChar.removeListFor(ListKey.SPECIAL_ABILITY);
 	}
 
+	public void addSAB(SpecialAbility sa, int level)
+	{
+		mapChar.addToListFor(MapKey.SAB, level, sa);
+	}
+
+	public void clearSABList(int level)
+	{
+		mapChar.removeListFor(MapKey.SAB, level);
+	}
+	
+	public void clearAllSABLists()
+	{
+		mapChar.removeListsFor(MapKey.SAB);
+	}
+	
+	public void removeSAB(String s, int level)
+	{
+		List<SpecialAbility> sabs = mapChar.getListFor(MapKey.SAB, level);
+		if (sabs != null)
+		{
+			for (SpecialAbility sa : sabs)
+			{
+				if (sa.getDisplayName().equals(s)
+					|| sa.getDisplayName().startsWith(s + "|"))
+				{
+					mapChar.removeFromListFor(MapKey.SAB, level, sa);
+				}
+			}
+		}
+	}
+
+	public void addSABToList(List<SpecialAbility> saList, PlayerCharacter pc)
+	{
+		List<SpecialAbility> sabs = mapChar.getListFor(MapKey.SAB, -9);
+		if (sabs != null)
+		{
+			for (SpecialAbility sa : sabs)
+			{
+				if (pc == null || sa.qualifies(pc))
+				{
+					saList.add(sa);
+				}
+			}
+		}
+	}
+
 	/**
 	 * Get the type of PObject
 	 * @return the type of PObject
@@ -2810,6 +2856,16 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				txt.append("\tSA:").append(sa.toString());
 			}
 		}
+		
+		if (!(this instanceof PCClass))
+		{
+			specialAbilityList = new ArrayList<SpecialAbility>();
+			addSABToList(specialAbilityList, null);
+			for (SpecialAbility sa : specialAbilityList)
+			{
+				txt.append("\tSAB:").append(sa.toString());
+			}
+		}
 
 		DoubleKeyMap<Class, String, List<String>> dkm = getQualifyMap();
 		if (dkm != null) 
@@ -2995,19 +3051,58 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 	}
 
-	protected List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
+	public List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
-		aList.addAll(getSafeListFor(ListKey.SPECIAL_ABILITY));
+		for ( SpecialAbility sa : getSafeListFor(ListKey.SPECIAL_ABILITY) )
+		{
+			if (sa.pcQualifiesFor(aPC))
+			{
+				final String key = sa.getKeyName();
+				final int idx = key.indexOf("%CHOICE");
+
+				if (idx >= 0)
+				{
+					StringBuilder sb = new StringBuilder();
+					sb.append(key.substring(0, idx));
+
+					if (getAssociatedCount() != 0)
+					{
+						for (int i = 0; i < getAssociatedCount(); ++i)
+						{
+							if (i != 0)
+							{
+								sb.append(" ,");
+							}
+
+							sb.append(getAssociated(i));
+						}
+					}
+					else
+					{
+						sb.append("<undefined>");
+					}
+
+					sb.append(key.substring(idx + 7));
+					sa =
+							new SpecialAbility(sb.toString(), sa.getSASource(),
+								sa.getSADesc());
+				}
+
+				aList.add(sa);
+			}
+		}
+
 		return aList;
 	}
 
 	/**
-	 * This method is used to add the type to the appropriate global list
-	 * if we are ever interested in knowing what types are available for
-	 * a particular object type (for example, all of the different equipment types)
-	 *
-	 * @param type The name of the type that is to be added to the global
-	 * list of types.
+	 * This method is used to add the type to the appropriate global list if we
+	 * are ever interested in knowing what types are available for a particular
+	 * object type (for example, all of the different equipment types)
+	 * 
+	 * @param type
+	 *            The name of the type that is to be added to the global list of
+	 *            types.
 	 */
 	protected void doGlobalTypeUpdate(final String type)
 	{
@@ -5012,7 +5107,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	public void clearAdds() {
 		levelAbilityList.clear();
 	}
-	
+
 //	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC, final String aBonusType, final String aBonusName)
 //	{
 //		if (!PrereqHandler.passesAll(this.getPreReqList(), aPC, this))

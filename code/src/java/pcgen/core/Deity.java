@@ -596,34 +596,6 @@ public final class Deity extends PObject
 	}
 
 	/**
-	 * This method adds a group of abilities to the list of special
-	 * abilities granted by this deity.
-	 * @param aList List of SpecialAbility objects granted by
-	 * this deity.
-	 * @param aPC
-	 * @return List
-	 */
-	protected List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
-	{
-		final List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
-
-		if ((specialAbilityList == null) || specialAbilityList.isEmpty())
-		{
-			return aList;
-		}
-
-		for ( SpecialAbility sa : specialAbilityList )
-		{
-			if (sa.pcQualifiesFor(aPC))
-			{
-				aList.add(sa);
-			}
-		}
-
-		return aList;
-	}
-
-	/**
 	 * This method determines whether any of the classes that a character
 	 * has is acceptable to this deity.
 	 * @param classList Iterator pointing to the Collection of classes the

@@ -25,16 +25,19 @@
  */
 package plugin.exporttokens;
 
+import pcgen.core.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SpecialAbility;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -63,6 +66,7 @@ public class DeityToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -71,6 +75,7 @@ public class DeityToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
@@ -134,7 +139,7 @@ public class DeityToken extends Token
 			}
 			else if ("SA".equals(subTag))
 			{
-				retString = getSAToken(deity);
+				retString = getSAToken(deity, pc);
 			}
 			else if ("TITLE".equals(subTag))
 			{
@@ -287,15 +292,32 @@ public class DeityToken extends Token
 	 * @param deity
 	 * @return the SA sub token
 	 */
-	public static String getSAToken(Deity deity)
+	public static String getSAToken(Deity deity, PlayerCharacter pc)
 	{
-		if (deity.containsListFor(ListKey.SPECIAL_ABILITY))
+		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		deity.addSpecialAbilitiesToList(saList, pc);
+		deity.addSABToList(saList, pc);
+
+		if (saList.isEmpty())
 		{
-			return CoreUtility.join(deity.getListFor(ListKey.SPECIAL_ABILITY),
-				", ");
+			return Constants.EMPTY_STRING;
 		}
 
-		return "";
+		StringBuffer returnString = new StringBuffer();
+		boolean firstLine = true;
+		for (SpecialAbility sa : saList)
+		{
+			if (!firstLine)
+			{
+				returnString.append(", "); //$NON-NLS-1$
+			}
+
+			firstLine = false;
+
+			returnString.append(sa.getDisplayName());
+		}
+
+		return returnString.toString();
 	}
 
 	/**

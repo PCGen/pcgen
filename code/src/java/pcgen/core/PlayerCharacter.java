@@ -3003,9 +3003,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		List<SpecialAbility> aList = new ArrayList<SpecialAbility>(
 			specialAbilityList);
 
-		final int atl = getTotalLevels();
-		final int thd = totalHitDice();
-
 		// Try all possible POBjects
 		for (PObject aPObj : getPObjectList())
 		{
@@ -3015,22 +3012,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			List<SpecialAbility> al = new ArrayList<SpecialAbility>();
-			if (aPObj instanceof PCTemplate)
-			{
-				final PCTemplate bTemplate = Globals.getTemplateKeyed(aPObj
-					.getKeyName());
-
-				if (bTemplate == null)
-				{
-					continue;
-				}
-
-				al = bTemplate.addSpecialAbilitiesToList(al, atl, thd);
-			}
-			else
-			{
-				al = aPObj.addSpecialAbilitiesToList(al, this);
-			}
+			al = aPObj.addSpecialAbilitiesToList(al, this);
 			ArrayList<SpecialAbility> masterList = new ArrayList<SpecialAbility>(al);
 			for (SpecialAbility sa : masterList)
 			{
@@ -3064,6 +3046,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 			aList.addAll(al);
+			aPObj.addSABToList(aList, this);
 		}
 
 		Collections.sort(aList);

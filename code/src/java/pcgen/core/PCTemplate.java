@@ -38,7 +38,6 @@ import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.DoubleKeyMap;
@@ -942,56 +941,6 @@ public final class PCTemplate extends PObject implements HasCost
 	}
 
 	/**
-	 * Get a list of Special Abilities added by this Template at a given level
-	 * (Class and Hit Dice). This will include the absolute adjustment made with
-	 * LEVEL:<num>:SA and HD:<num>:SA tags
-	 * 
-	 * @param level
-	 *            The level to calculate the adjustment for
-	 * @param hitdice
-	 *            The Hit dice to calculate the adjustment for
-	 * 
-	 * @return A list of Special Abilities
-	 */
-	public List<SpecialAbility> getSpecialAbilityList(final int level,
-		final int hitdice)
-	{
-		final List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
-
-		if (specialAbilityList == null)
-		{
-			return specialAbilityList;
-		}
-
-		if (theLevelAbilities != null)
-		{
-			for (int lvl = 0; lvl < level; lvl++)
-			{
-				final String saString = theLevelAbilities.get(lvl, "SA");
-				if (saString != null)
-				{
-					specialAbilityList.add(new SpecialAbility(saString));
-				}
-			}
-		}
-
-		for (int x = 0; x < getListSize(hitDiceStrings); ++x)
-		{
-			if (contains(hitDiceStrings.get(x), "SA:")
-				&& doesHitDiceQualify(hitdice, x))
-			{
-				final String saString = getStringAfter("SA:", hitDiceStrings
-					.get(x));
-				final SpecialAbility sa = new SpecialAbility(saString);
-
-				specialAbilityList.add(sa);
-			}
-		}
-
-		return specialAbilityList;
-	}
-
-	/**
 	 * Manipulate the list of subTypes that this Template add or removes from
 	 * the creature it is applied to.
 	 * 
@@ -1542,17 +1491,37 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @return the list passed in with any special abilities this template
 	 *         grants added to it
 	 */
-	List<SpecialAbility> addSpecialAbilitiesToList(
-		final List<SpecialAbility> aList, final int level, final int hitdice)
+	@Override
+	public List<SpecialAbility> addSpecialAbilitiesToList(
+		final List<SpecialAbility> aList, PlayerCharacter pc)
 	{
-		/*
-		 * CONSIDER Is this really proper behaviour?!? If the PObject has
-		 * anything, then do the detailed work? That doesn't terribly make sense
-		 * to me - TRP
-		 */
-		if (containsListFor(ListKey.SPECIAL_ABILITY))
+		super.addSpecialAbilitiesToList(aList, pc);
+
+		if (theLevelAbilities != null)
 		{
-			aList.addAll(getSpecialAbilityList(level, hitdice));
+			int level = pc.getTotalLevels();
+			for (int lvl = 0; lvl < level; lvl++)
+			{
+				final String saString = theLevelAbilities.get(lvl, "SA");
+				if (saString != null)
+				{
+					aList.add(new SpecialAbility(saString));
+				}
+			}
+		}
+
+		int hitdice = pc.totalHitDice();
+		for (int x = 0; x < getListSize(hitDiceStrings); ++x)
+		{
+			if (contains(hitDiceStrings.get(x), "SA:")
+				&& doesHitDiceQualify(hitdice, x))
+			{
+				final String saString = getStringAfter("SA:", hitDiceStrings
+					.get(x));
+				final SpecialAbility sa = new SpecialAbility(saString);
+
+				aList.add(sa);
+			}
 		}
 
 		return aList;

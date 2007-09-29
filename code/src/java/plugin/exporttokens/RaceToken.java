@@ -25,13 +25,17 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.*;
-import pcgen.core.utils.ListKey;
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.core.Constants;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SpecialAbility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.PropertyFactory;
-
-import java.util.List;
 
 /**
  * This class implements support for the RACE set of tokens.
@@ -90,10 +94,12 @@ public class RaceToken extends Token
 		{
 			return Constants.EMPTY_STRING;
 		}
-		final List<SpecialAbility> saList =
-				pc.getRace().getListFor(ListKey.SPECIAL_ABILITY);
+		
+		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		pc.getRace().addSpecialAbilitiesToList(saList, pc);
+		pc.getRace().addSABToList(saList, pc);
 
-		if ((saList == null) || saList.isEmpty())
+		if (saList.isEmpty())
 		{
 			return Constants.EMPTY_STRING;
 		}

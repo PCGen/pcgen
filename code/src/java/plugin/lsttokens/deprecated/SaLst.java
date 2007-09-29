@@ -2,7 +2,9 @@
  * Created on Sep 2, 2005
  *
  */
-package plugin.lsttokens;
+package plugin.lsttokens.deprecated;
+
+import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -11,17 +13,16 @@ import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * @author djones4
  *
  */
-public class SaLst implements GlobalLstToken
+public class SaLst implements GlobalLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -138,5 +139,13 @@ public class SaLst implements GlobalLstToken
 			Globals.addToSASet(sa);
 			obj.addSpecialAbilityToList(sa);
 		}
+	}
+
+	public String getMessage(PObject obj, String value)
+	{
+		return "SA has been deprecated due to cross-level interaction.\n  " +
+				"Please use SAB: for most situations.\n  " +
+				"If you are using .CLEAR in an SA to remove items granted\n  " +
+				"  at a lower level, you must now use a PRExxx token attached to the SAB";
 	}
 }

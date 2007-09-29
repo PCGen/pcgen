@@ -271,6 +271,23 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 
+		aList = new ArrayList<SpecialAbility>();
+		obj.addSABToList(aList, null);
+
+		if (!aList.isEmpty())
+		{
+			for (Iterator<SpecialAbility> e = aList.iterator(); e.hasNext();)
+			{
+				SpecialAbility sa = e.next();
+				String src = sa.getSASource();
+				String lev = src.substring(src.lastIndexOf('|') + 1);
+
+				LevelTag lt = new LevelTag(lev, LevelTag.TAG_SAB, sa.toString());
+				levelTagList.add(lt);
+			}
+		}
+
+
 		for (LevelProperty<String> lp : obj.getSRlist())
 		{
 			levelTagList.add(new LevelTag(lp.getLevel(), LevelTag.TAG_SR, lp.getObject()));
@@ -886,7 +903,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		static final String[] validTags =
 		{
 			"ADD", "ADDDOMAINS", "BONUS", "CAST", "DEFINE", "DR", "FEAT", "FEATAUTO", "KIT", "KNOWN", "REGION", "SA",
-			"SPELLS", "SR", "TEMPLATE", "UDAM", "UMULT", "VFEAT"
+			"SAB", "SPELLS", "SR", "TEMPLATE", "UDAM", "UMULT", "VFEAT"
 		};
 		private static final int TAG_ADD = 0;
 		private static final int TAG_ADDDOMAINS = 1;
@@ -900,12 +917,13 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		private static final int TAG_KNOWN = 9;
 		private static final int TAG_REGION = 10;
 		private static final int TAG_SA = 11;
-		private static final int TAG_SPELLS = 12;
-		private static final int TAG_SR = 13;
-		private static final int TAG_TEMPLATE = 14;
-		private static final int TAG_UDAM = 15;
-		private static final int TAG_UMULT = 16;
-		private static final int TAG_VFEAT = 17;
+		private static final int TAG_SAB = 12;
+		private static final int TAG_SPELLS = 13;
+		private static final int TAG_SR = 14;
+		private static final int TAG_TEMPLATE = 15;
+		private static final int TAG_UDAM = 16;
+		private static final int TAG_UMULT = 17;
+		private static final int TAG_VFEAT = 18;
 		private String value;
 		private boolean needsSaving;
 		private int level;

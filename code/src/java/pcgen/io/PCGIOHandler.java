@@ -122,29 +122,6 @@ public final class PCGIOHandler extends IOHandler
 
 		final List<SpecialAbility> aSAList = currentPC.getSpecialAbilityList();
 
-		//
-		// Add special abilities due to templates
-		//
-		for (PCTemplate template : currentPC.getTemplateList())
-		{
-			final List<SpecialAbility> SAs =
-					template.getSpecialAbilityList(currentPC.getTotalLevels(),
-						currentPC.totalHitDice());
-
-			if ((SAs == null) || SAs.isEmpty()) // null pointer/empty check
-			{
-				continue;
-			}
-
-			for (SpecialAbility sa : SAs)
-			{
-				if (!aSAList.contains(sa))
-				{
-					aSAList.add(sa);
-				}
-			}
-		}
-
 		for (String name : saNames)
 		{
 			for (SpecialAbility sa : aSAList)

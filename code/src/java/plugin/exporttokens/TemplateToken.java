@@ -25,6 +25,10 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -32,9 +36,6 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * Deals with returning the values for the TEMPALTE Token
@@ -58,6 +59,7 @@ public class TemplateToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -66,6 +68,7 @@ public class TemplateToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
@@ -222,9 +225,9 @@ public class TemplateToken extends Token
 	 */
 	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
 	{
-		List<SpecialAbility> saList =
-				template.getSpecialAbilityList(pc.getTotalLevels(), pc
-					.totalHitDice());
+		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		template.addSpecialAbilitiesToList(saList, pc);
+		template.addSABToList(saList, pc);
 		return CoreUtility.join(saList, ", ");
 	}
 
