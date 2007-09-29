@@ -7,12 +7,13 @@
   <body>
     <release version="5.13.3" date="In SVN" description="Alpha release">
       <action dev="thpr" type="add" issue="1800407">Deprecate Eqmod CHOOSE:EQBUILDER|1 tag</action>
-      <action dev="thpr" type="add" issue="1798233">Eliminate Cross-Level Interactions in SA tagn</action>
+      <action dev="thpr" type="add" issue="1798233">Eliminate Cross-Level Interactions in SA tag</action>
       <action dev="thpr" type="add" issue="1800290">SPELLLIST Token exception for DOMAINS</action>
       <action dev="thpr" type="fix" issue="1790746">AUTO: must take multiple versions of each Subtoken</action>
       <action dev="thpr" type="fix" issue="1800720">ADD:LANGUAGE|ALL broken</action>
       <action dev="thpr" type="fix" issue="1802347">PRESA: Can't Count Properly</action>
       <action dev="thpr" type="fix" issue="1802352">PRESA: ignores PRExxx tokens on SAs</action>
+      <action dev="thpr" type="add" issue="1784493">Attach REPEATLEVEL to level in Class LST</action>
     </release>
     <release version="5.13.1" date="2007-08-28" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1782465">VFEAT tags ignored.</action>
