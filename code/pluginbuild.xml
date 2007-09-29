@@ -2893,14 +2893,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-<!--		<jar jarfile="${lstplugins.dir}/ChooseToken-STRING.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/ChooseToken-STRING.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/choose/StringToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
--->
 		<jar jarfile="${lstplugins.dir}/ChooseToken-USERINPUT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
