@@ -6377,7 +6377,10 @@ public class PCClass extends PObject {
 		{
 			for (String key : s)
 			{
-				addAutoArray(key, otherClass.getAuto(key));
+				for (String value : otherClass.getAuto(key))
+				{
+					addAutoArray(key, value);
+				}
 			}
 		}
 

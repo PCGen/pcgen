@@ -57,7 +57,7 @@ import pcgen.core.utils.KeyedListContainer;
 import pcgen.core.utils.ListKey;
 import pcgen.core.utils.ListKeyMapToList;
 import pcgen.core.utils.MapKey;
-import pcgen.core.utils.MapKeyMapToObject;
+import pcgen.core.utils.MapKeyMapToList;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.StringKey;
@@ -96,7 +96,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/** A map of Lists for the object */
 	protected ListKeyMapToList listChar = new ListKeyMapToList();
 	
-	private final MapKeyMapToObject mapChar = new MapKeyMapToObject();
+	private final MapKeyMapToList mapChar = new MapKeyMapToList();
 
 	/** List of associated items for the object */
 	// TODO Contains strings or FeatMultipleObjects
@@ -2283,7 +2283,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public final void addAutoArray(String arrayName, String item)
 	{
-		mapChar.put(MapKey.AUTO_ARRAY, arrayName, item);
+		mapChar.addToListFor(MapKey.AUTO_ARRAY, arrayName, item);
 	}
 
 	/**
@@ -2322,7 +2322,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public final void clearAutoMap()
 	{
-		mapChar.removeAll(MapKey.AUTO_ARRAY);
+		mapChar.removeListsFor(MapKey.AUTO_ARRAY);
 	}
 
 	/**
@@ -2332,17 +2332,17 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public final void clearAutoTag(String tag)
 	{
-		mapChar.remove(MapKey.AUTO_ARRAY, tag);
+		mapChar.removeListFor(MapKey.AUTO_ARRAY, tag);
 	}
 
 	public final Set<String> getAutoMapKeys()
 	{
-		return mapChar.getKeySet(MapKey.AUTO_ARRAY);
+		return mapChar.getSecondaryKeySet(MapKey.AUTO_ARRAY);
 	}
 	
-	public final String getAuto(String tag)
+	public final List<String> getAuto(String tag)
 	{
-		return mapChar.get(MapKey.AUTO_ARRAY, tag);
+		return mapChar.getListFor(MapKey.AUTO_ARRAY, tag);
 	}
 	
 	/**
@@ -2697,16 +2697,19 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			txt.append("\tKEY:").append(getKeyName());
 //		}
 
-		Set<String> aaKeys = mapChar.getKeySet(MapKey.AUTO_ARRAY);
+		Set<String> aaKeys = mapChar.getSecondaryKeySet(MapKey.AUTO_ARRAY);
 		if (aaKeys != null)
 		{
 			for (String s : aaKeys)
 			{
-				String value = mapChar.get(MapKey.AUTO_ARRAY, s);
-				if (value != null && value.trim().length() > 0)
+				List<String> values = mapChar.getListFor(MapKey.AUTO_ARRAY, s);
+				for (String value : values)
 				{
-					txt.append("\tAUTO:").append(s).append(Constants.PIPE)
-						.append(value);
+					if (value != null && value.trim().length() > 0)
+					{
+						txt.append("\tAUTO:").append(s).append(Constants.PIPE)
+							.append(value);
+					}
 				}
 			}
 		}
@@ -3150,13 +3153,22 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	  */
 	public final void addAutoTagsToList(final String tag, final Collection aList, final PlayerCharacter aPC, boolean expandWeaponTypes)
 	{
-		String aString = mapChar.get(MapKey.AUTO_ARRAY, tag);
+		List<String> list = mapChar.getListFor(MapKey.AUTO_ARRAY, tag);
 		
-		if (aString == null)
+		if (list == null)
 		{
 			return;
 		}
 		
+		for (String val : list)
+		{
+			addAutoTagToList(tag, val, aList, aPC, expandWeaponTypes);
+		}
+	}
+
+	private void addAutoTagToList(String tag, String aString, Collection aList,
+		PlayerCharacter aPC, boolean expandWeaponTypes)
+	{
 		String preReqTag;
 		final List<Prerequisite> aPreReqList = new ArrayList<Prerequisite>();
 		final int j1 = aString.lastIndexOf('[');
@@ -3164,7 +3176,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 		if (j2 < j1)
 		{
-			j2 = tag.length();
+			j2 = aString.length();
 		}
 
 		if (j1 >= 0)
