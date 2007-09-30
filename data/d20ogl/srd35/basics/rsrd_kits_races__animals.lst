@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Sun Sep 30 12:06:30 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Default Ape	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ape]
@@ -295,9 +295,9 @@ STARTPACK:Default Lizard (Monitor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERAC
 RACE:Lizard (Monitor)	!PRERACE:1,%
 NAME:Monitor Lizard
 ALIGN:TN
-SKILL:Listen		RANK:1
-SKILL:Spot			RANK:1
-SKILL:Climb			RANK:4
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+SKILL:Climb		RANK:4
 FEAT:Alertness
 FEAT:Great Fortitude
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10

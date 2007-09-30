@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Sep 29 05:08:33 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Sun Sep 30 12:06:30 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Merton Monk and Glddragon35
 
@@ -47,11 +47,11 @@ Undead			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10				
 Vermin			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Creature Subtypes
-# Template Name	Visible	Source Page						Special Ability																																															Define							Required Type	Combat bonus										Automatic Languages	Vision
+# Template Name	Visible	Source Page						Special Ability																																															Define							Required Type	Combat bonus											Automatic Languages	Vision
 Air			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Air creatures always have fly speeds and usually have perfect maneuverability
-Angel			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to acid/ cold/ and petrification	SA:Protective Aura (Su)	SA:Tongues (Su)	SA:+4 racial bonus on saves vs. poison																																																							VISION:Darkvision (60')|Low-light
+Angel			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to acid/ cold/ and petrification	SA:Protective Aura (Su)	SA:Tongues (Su)	SA:+4 racial bonus on saves vs. poison																																																								VISION:Darkvision (60')|Low-light
 Aquatic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Aquatic creatures move in water without making Swim checks/ and breathe underwater
-Archon		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:+4 racial bonus on saves vs. poison	SA:Aura of Menace (Su)	SA:Magic Circle against Evil (Su)	SA:Teleport (Su)	SA:Tongues (Su)																																																						VISION:Darkvision (60')|Low-light
+Archon		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:+4 racial bonus on saves vs. poison	SA:Aura of Menace (Su)	SA:Magic Circle against Evil (Su)	SA:Teleport (Su)	SA:Tongues (Su)																																																							VISION:Darkvision (60')|Low-light
 Augmented		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Chaotic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the chaotic subtype overcomes damage reduction as if its natural weapons and any weapons it wields were chaotic-aligned
 Cold			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to cold/ vulnerable to fire
@@ -59,7 +59,7 @@ Earth			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Evil			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
 Extraplanar		VISIBLE:YES	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Fire			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to fire/ vulnerable to cold
-Goblinoid		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																																									LANGAUTO:Goblin
+Goblinoid		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																																										LANGAUTO:Goblin
 Good			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the good subtype overcomes damage reduction as if its natural weapons and any weapons it wields were good-aligned
 Incorporeal		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SA:50% chance to ignore any damage from a corporeal source	SA:Can pass through solid objects at will	SA:Attacks pass through armor	SA:Always moves silently									DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1				BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
 Lawful		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the lawful subtype overcomes damage reduction as if its natural weapons and any weapons it wields were lawful-aligned

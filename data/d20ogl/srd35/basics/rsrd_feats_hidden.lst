@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Aug 31 15:56:37 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sun Sep 30 12:06:30 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -377,9 +377,9 @@ Undead Traits			TYPE:Special	VISIBLE:NO	SA:Undead Traits|!PRERULE:DISPLAYTYPETRA
 Vermin Traits			TYPE:Special	VISIBLE:NO	SA:Vermin Traits|!PRERULE:DISPLAYTYPETRAITS	SA:Vermin eat/sleep/breathe|PRERULE:DISPLAYTYPETRAITS	SA:Mindless - Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:Mindless|PRERULE:DISPLAYTYPETRAITS																																																																																																																																																																				VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Special Abilities
-# Feat Name				Output Name							Type					Visible	Special Ability					Multiple?	Choose			Combat bonus									Weapon prof. bonus																									Source Page
+# Feat Name				Output Name							Type					Visible	Special Ability					Multiple?	Choose			Combat bonus									Weapon prof. bonus																		Source Page
 Oversized Weapon			OUTPUTNAME:Oversized Weapon (Ex)			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Oversized Weapon (Ex)			MULT:YES	CHOOSE:WEAPONPROFS|LIST												BONUS:WEAPONPROF=%LIST|PCSIZE|1
-Powerful Build			OUTPUTNAME:Powerful Build (Ex)			TYPE:Special.Extraordinary	VISIBLE:NO																									BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1	BONUS:COMBAT|TOHIT.GRAPPLE|4|PRESIZELT:C	SOURCEPAGE:PsionicMonsters.rtf
+Powerful Build			OUTPUTNAME:Powerful Build (Ex)			TYPE:Special.Extraordinary	VISIBLE:NO														BONUS:COMBAT|TOHIT.GRAPPLE|4|PRESIZELT:C					BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1	SOURCEPAGE:PsionicMonsters.rtf
 Superior Two-Weapon Fighting	OUTPUTNAME:Superior Two-Weapon Fighting (Ex)	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Superior Two-Weapon Fighting (Ex)							BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
 
 ###Block: Leadership feat support
