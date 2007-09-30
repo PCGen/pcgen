@@ -141,7 +141,7 @@ More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	
 ###Block: Shadowdancer special abilities
 # Feat Name		Type						Visible	Special Ability																																																			Define													Innate Spells											Source Page
 Shadow Illusion	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SA:Shadow Illusion (Sp)																																																		DEFINE:ShadowIllusionLVL|0										SPELLS:Shadowdancer|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA	SOURCEPAGE:PrestigeClasses.rtf
-Shadow Jump		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	SA:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SA:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SA:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:ShadowJump|0	DEFINE:EpicShadowJump|0	DEFINE:ShadowJumpProgression|0														SOURCEPAGE:PrestigeClasses.rtf
+Shadow Jump		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0																																										DEFINE:ShadowJump|0	DEFINE:ShadowJumpProgression|0																		SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Thaumaturgist special abilities
 # Feat Name			Type			Visible	Special Ability			Source Page

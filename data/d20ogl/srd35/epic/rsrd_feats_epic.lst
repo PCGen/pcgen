@@ -201,6 +201,8 @@ Improved Flyby Attack		TYPE:General			PREFEAT:3,Dodge,Flyby Attack,Mobility					
 Improved Multiattack		TYPE:General			PREFEAT:1,Multiattack								PREHANDSGTEQ:3							DESC:Your secondary attacks with natural weapons have no penalty.																								SOURCEPAGE:EpicFeats.rtf
 Improved Multiweapon Fighting	TYPE:General	PREATT:9	PREFEAT:1,Multiweapon Fighting						PREHANDSGTEQ:3				PRESTAT:1,DEX=15	DESC:In addition to the single extra attack you get with each extra weapon from Multiweapon Fighting, you get a second attack with each extra weapon, albeit at a -5 penalty.						SOURCEPAGE:EpicFeats.rtf
 
+###BLOCK: Mod Shadow Jump:
+Shadow Jump.MOD	SA:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SA:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SA:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:EpicShadowJump|0
 #
 # End
 #
