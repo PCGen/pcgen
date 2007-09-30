@@ -209,7 +209,8 @@ WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
 #
 # Ability Categories
 #
-ABILITYCATEGORY:Fighter Feat			VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO					CATEGORY:FEAT				TYPE:Fighter	PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object	Plural description for UI		Display where?
+ABILITYCATEGORY:Fighter Feat			VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter	PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
 
 
 PREVIEWDIR:d20/fantasy
