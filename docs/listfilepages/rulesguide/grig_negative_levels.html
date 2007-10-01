@@ -28,50 +28,67 @@
 	<p class="indent0"><strong>PCGen Version:</strong> 5.8.x to current.</p>
 	<p class="indent0"><strong>File(s) Covered:</strong> equipment.lst and feat.lst</p>
 	<p class="indent0"><strong>Tags used:</strong></p>
-	<p class="indent1"><code><a href="../globalfilestagpages/globalfilesother.html#VFEAT">VFEAT</a>, 
-  		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a>,
-  		<a href="../globalfilestagpages/globalfilesprexxx.html">PRExxx</a>,
-  		<a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
+	<p class="indent1"><code><a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
   		<a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE</a>,
+  		<a href="../globalfilestagpages/globalfilesother.html#SA">SA</a>,
  		<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a>,
   		<a href="../globalfilestagpages/globalfilesbonus.html#CHECKS">BONUS:CHECKS</a>,
  		<a href="../globalfilestagpages/globalfilesbonus.html#COMBAT">BONUS:COMBAT</a>,
-  		<a href="../globalfilestagpages/globalfilesbonus.html#SKILL">BONUS:SKILL</a></code></p>
+  		<a href="../globalfilestagpages/globalfilesbonus.html#SKILL">BONUS:SKILL</a>
+  		<a href="../globalfilestagpages/globalfilesother.html#VFEAT">VFEAT</a>,
+  		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a>
+  		<a href="../globalfilestagpages/globalfilesprexxx.html">PRExxx</a></code></p>
 
 <hr>
 
 	<h2>Implementation Discussion</h2>
+	
+	<p>In this section we will discuss only those lst tag elements specific to this rules implementation.  
+	For more general information on the associated tags, please visit the LST Tag section of the 
+	PCGen Documentation.</p>
 		
-<hr>
+	<p>Implementing the ability for an item to grant 'Negative Levels" requires 
+	two specific LST entries.  These are a feat.lst entry titled 'Negative Levels" and a specifc 
+	application of this feat in the appropriate item entry in the equipment.lst file.</P>
+	
+	<p>NOTE: This game rule has been icorporated in the SRD, RSRD, MSRD, and several other datasets currently in distribution.</p>
 
-	<h2>Tag Discussion</h2>
-		
-	<p class="indent0"><strong><a name="VFEAT">Tag Name:</a></strong> VFEAT:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (&quot;Negative Levels&quot;)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Activates the ability of items to bestow negative levels.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>VFEAT:Negative Levels</code></p>
-	<p class="indent3">Use &quot;Negative Levels&quot; virtual feat</p>
+	<h3>Feat File Entry</h3>
+	
+	<p class="indent1">In the specific feat entry in the feat.lst file we must first create a new feat called "Negative Levels".</p>
 
-	<p>Secondly, create the item as normal and append to it a special BONUS tag.</p>
-	<p></p>
+	<h3>Equipment File Entry</h3>
+	
+	<p class="indent1">In the specific equipment entry in the equip.lst file we must first apply the new 
+	"Negative Levels" by using the VFEAT tag:</p>
+	
+	<blockquote class="indent2">
+		<p><strong>Tag Name:</strong> <code>VFEAT:Negative Levels</code></p>
+		<p><strong>What it does:</strong></p>
+		<p class="indent1">Applies the <em>Negative Levels</em> feat and initializes the <em>NegLevels</em> variable.</p>
+		<p><strong>Example:</strong></p>
+		<p class="indent1"><code>VFEAT:Negative Levels</code></p>
+		<p class="indent2">Use &quot;Negative Levels&quot; virtual feat</p>
+	</blockquote>
 
-	<p class="indent0"><strong><a name="BONUSVAR">Tag Name:</a></strong> BONUS:VAR|NegLevels|x|PREy</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (number of negative levels.)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (PRE condition for bestowing negative levels)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>&quot;NegLevels&quot; is a special predefined variable made specifically for
-		  this purpose.</li>
-		<li>Use '2', not -2, to bestow 2 negative levels.</li>
-		<li>If the NegLevels Variable is 0 (no negative levels applied), then nothing will show,
+	<p class="indent1">Second, create the item as normal and append to it a special BONUS tag.</p>
+	
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Name:</strong> <code>BONUS:VAR|NegLevels|x|PREy</code></p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (number of negative levels.)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (PRE condition for bestowing negative levels)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>&quot;NegLevels&quot; is a special predefined variable made specifically for
+			  this purpose.</li>
+			<li>Use '2', not -2, to bestow 2 negative levels.</li>
+			<li>If the NegLevels Variable is 0 (no negative levels applied), then nothing will show,
 				and it will be as if the Negative Levels feat was not even there. :)</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7</code></p>
-	<p class="indent3">Demon Armor bestows 1 negative level to all non-evil characters.</p>
-	<p></p>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7</code></p>
+		<p class="indent3">Demon Armor bestows 1 negative level to all non-evil characters.</p>
+	</blockquote>
 
 <hr>
 
