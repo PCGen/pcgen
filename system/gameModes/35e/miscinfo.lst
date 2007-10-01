@@ -265,9 +265,10 @@ WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
 #
 # Ability Categories
 #
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object	Plural description for UI		Display where?
-ABILITYCATEGORY:Salient Divine Ability	VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:SalientDivinePool	CATEGORY:Salient Divine Ability				PLURAL:Salient Divine Abilities	
-ABILITYCATEGORY:Fighter Feat			VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter	PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
+ABILITYCATEGORY:Salient Divine Ability	VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:SalientDivinePool	CATEGORY:Salient Divine Ability							PLURAL:Salient Divine Abilities	
+ABILITYCATEGORY:Fighter Feat			VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter				PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Wizard Feat			VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Wizard.ItemCreation.Metamagic	PLURAL:Wizard Feats			DISPLAYLOCATION:Feats
 
 
 PREVIEWDIR:d20/fantasy
