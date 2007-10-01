@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Aug 31 06:45:46 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Mon Oct  1 14:55:16 2007 -- reformated by prettylst.pl v1.38 (build 3943)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -139,9 +139,9 @@ Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SA:S
 More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SA:Secret (More Newfound Arcana)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Shadowdancer special abilities
-# Feat Name		Type						Visible	Special Ability																																																			Define													Innate Spells											Source Page
-Shadow Illusion	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SA:Shadow Illusion (Sp)																																																		DEFINE:ShadowIllusionLVL|0										SPELLS:Shadowdancer|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA	SOURCEPAGE:PrestigeClasses.rtf
-Shadow Jump		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0																																										DEFINE:ShadowJump|0	DEFINE:ShadowJumpProgression|0																		SOURCEPAGE:PrestigeClasses.rtf
+# Feat Name		Type						Visible	Special Ability										Define									Innate Spells											Source Page
+Shadow Illusion	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SA:Shadow Illusion (Sp)									DEFINE:ShadowIllusionLVL|0						SPELLS:Shadowdancer|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA	SOURCEPAGE:PrestigeClasses.rtf
+Shadow Jump		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	DEFINE:ShadowJump|0	DEFINE:ShadowJumpProgression|0														SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Thaumaturgist special abilities
 # Feat Name			Type			Visible	Special Ability			Source Page
