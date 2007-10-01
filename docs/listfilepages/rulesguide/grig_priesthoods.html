@@ -24,26 +24,28 @@
 
 	<h2>Multiple Priesthoods per Deity</h2>
 		
-	<p class="indent0"><strong>Rule Description:</strong> Deities may have more than one &quot;Priesthood&quot;, each with theri own class abilities.</p>
+	<p class="indent0"><strong>Rule Description:</strong> Deities may have more than one &quot;Priesthood&quot;, each with their own powers and abilities.</p>
 	<p class="indent0"><strong>PCGen Version:</strong> 5.12.x to Current.</p>
 	<p class="indent0"><strong>File(s) Covered:</strong> class.lst, feat.lst, and deity.lst</p>
 	<p class="indent0"><strong>Tags used:</strong></p>
 	<p class="indent1"><code><a href="../globalfilestagpages/globalfilesother.html#MOD">.MOD</a>, 
   		<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a>,
-  		<a href="../">VISIBLE<a>, 
-  		<a href="../">TYPE</a>,
-  		<a href="../">PREVAREQ</a>, 
-  		<a href="../">BONUS:VAR</a>,
-  		<a href="../">DOMAINS</a>, 
-  		<a href="../">ADD:FEAT</a></code></p>
+  		<a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE<a>, 
+  		<a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
+  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREVAR">PREVAREQ</a>, 
+  		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a>,
+  		<a href="../datafilestagpages/datafilesdeities.html#DOMAINS">DOMAINS</a>, 
+  		<a href="../globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT</a></code></p>
 
 <hr>
 
-	<h3>Implementation Discussion</h3>
+	<h2>Implementation Discussion</h2>
 
-<hr>
+	<h3>Class File Entry</h3>
 
-	<h3>Tag Discussion</h3>
+	<h3>Feat File Entry</h3>
+
+	<h3>Deity File Entry</h3>
 
 <hr>
 
@@ -83,11 +85,11 @@
 
 	<p class="indent1">Deity File: &quot;Monkey God&quot;</p>
 	<p class="indent2"><code>
-		<il>Monkey God</il><br>
-		<il>ALIGN:TN</il><br>
-		<il>PREALIGN:NG,LN,TN,CN,NE</il><br>
-		<il>DEITYWEAPON:Pile of Poo</il><br>
-		<il>DOMAINS:Knowledge,Madness</il><br>
+		<il>Monkey God</il></code><br>
+		<il>.</il><br>
+		<il>.</il><br>
+		<il>.</il><br>
+		<code><il>DOMAINS:Knowledge,Madness</il><br>
 		<il>DOMAINS:Creation|PREMULT:1,[PREVAREQ:Priesthood|1],[PREVAREQ:Priesthood|2]</il><br>
 		<il>DOMAINS:Artifice|PREMULT:1,[PREVAREQ:Priesthood|2],[PREVAREQ:Priesthood|3]</il><br>
 		<il>DOMAINS:Magic|PREMULT:1,[PREVAREQ:Priesthood|1],[PREVAREQ:Priesthood|3]</il><br>
