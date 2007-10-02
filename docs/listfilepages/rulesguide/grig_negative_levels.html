@@ -47,36 +47,36 @@
 	For more general information on the associated tags, please visit the LST Tag section of the 
 	PCGen Documentation.</p>
 		
+	<p class="indent1">NOTE: This game rule has been incorporated in the SRD, RSRD, MSRD, and several other datasets currently in distribution.</p>
+
 	<p>Implementing the ability for an item to grant 'Negative Levels" requires 
 	two specific LST entries.  These are a feat.lst entry titled 'Negative Levels" and a specifc 
 	application of this feat in the appropriate item entry in the equipment.lst file.</P>
 	
-	<p>NOTE: This game rule has been icorporated in the SRD, RSRD, MSRD, and several other datasets currently in distribution.</p>
+	<p>We will discuss below each of these entries and how they work:</p>
 
 	<h3>Feat File Entry</h3>
 	
-	<p class="indent1">In the specific feat entry in the feat.lst file we must first create a new feat called "Negative Levels".</p>
+	<p class="indent1">In the specific feat entry in the feat.lst file we must first create a new feat called "Negative Levels" that will provide all of the &quot;enhancements&quot; required when a negative level is applied.  This includes such effect5s as the reduction of .</p>
+
+	<p class="indent1"></p>
 
 	<h3>Equipment File Entry</h3>
 	
-	<p class="indent1">In the specific equipment entry in the equip.lst file we must first apply the new 
+	<p class="indent1">1) In the specific equipment entry in the equip.lst file we must first apply the new 
 	"Negative Levels" by using the VFEAT tag:</p>
 	
 	<blockquote class="indent2">
 		<p><strong>Tag Name:</strong> <code>VFEAT:Negative Levels</code></p>
-		<p><strong>What it does:</strong></p>
-		<p class="indent1">Applies the <em>Negative Levels</em> feat and initializes the <em>NegLevels</em> variable.</p>
-		<p><strong>Example:</strong></p>
-		<p class="indent1"><code>VFEAT:Negative Levels</code></p>
-		<p class="indent2">Use &quot;Negative Levels&quot; virtual feat</p>
+		<p><strong>What it does:</strong> Grants the <em>Negative Levels</em> feat and initializes the <em>NegLevels</em> variable. (see Feat File Entry above.)</p>
 	</blockquote>
 
-	<p class="indent1">Second, create the item as normal and append to it a special BONUS tag.</p>
+	<p class="indent1">2) Apply the specific number of negative levels through the BONUS:VAR tag.</p>
 	
 	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Name:</strong> <code>BONUS:VAR|NegLevels|x|PREy</code></p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (number of negative levels.)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text (PRE condition for bestowing negative levels)</p>
+		<p class="indent0"><strong>Tag Name:</strong> <code>BONUS:VAR|NegLevels|x|y</code></p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (number of negative levels applied.)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> PRExxx (Requisite condition for bestowing negative levels.)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>&quot;NegLevels&quot; is a special predefined variable made specifically for
@@ -85,7 +85,7 @@
 			<li>If the NegLevels Variable is 0 (no negative levels applied), then nothing will show,
 				and it will be as if the Negative Levels feat was not even there. :)</li>
 		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent1"><strong>Example - Demon Armor (RSRD):</strong></p>
 		<p class="indent2"><code>BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7</code></p>
 		<p class="indent3">Demon Armor bestows 1 negative level to all non-evil characters.</p>
 	</blockquote>
@@ -107,14 +107,13 @@
 		<il>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</il>
 	</code></p>
 	
-	<p class="indent1">Equipment File: &quot;Sun Blas (Short)&quot;</p>
+	<p class="indent1">Equipment File: &quot;Sun Blade (Short)&quot;</p>
 	<p class="indent2"><code>
 		<il>Sun Blade (Short)</il><br>
 		<il>.</il><br>
 		<il>.</il><br>
 		<il>.</il><br>
-		<il>VFEAT:Negative Levels</il><br>
-	</code></p>
+		<il>VFEAT:Negative Levels</il></code></p>
 
 
 <hr>

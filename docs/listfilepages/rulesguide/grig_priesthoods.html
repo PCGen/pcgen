@@ -41,11 +41,50 @@
 
 	<h2>Implementation Discussion</h2>
 
+	<p>In this section we will discuss only those lst tag elements specific to this rules implementation.  
+	For more general information on the associated tags, please visit the LST Tag section of the 
+	PCGen Documentation.</p>
+		
+	<p>Implementing &quot;Priesthoods&quot; for deities requires entries in three lst files.  
+	These will be a <code>.MOD</code> of the &quot;Cleric&quot; class in the class.lst file, 
+	entries for the specific &quot;Priesthoods&quot; allowed in the feat.lst file, and finally 
+	the &quot;deity&quot; entry where the preisthood feats are selected and applied in the deity.lst file.</P>
+
+	<p>We will discuss below each of these entries and how they work:</p>
+
 	<h3>Class File Entry</h3>
+
+	<p class="indent1">This entry will &quot;.MOD&quot; the &quot;Cleric&quot; class to 
+	allow it to select from from between the priesthoods allowed by the character's deity.</p>
+	
+	<blockquote class="indent2">
+		<p><strong>Tag Used:</strong> <code>DEFINE:Priesthood|0</code></p>
+		<p><strong>What it does:</strong></p>
+		<p class="indent1">This tag creates and initializes the &quot;Priesthood&quot; 
+		variable which will be used to record the priesthood selected for the character.</p>
+	</blockquote>
 
 	<h3>Feat File Entry</h3>
 
+	<blockquote class="indent2">
+		<p><strong>Tag Used:</strong> <code><tag used></code></p>
+		<p><strong>What it does:</strong></p>
+		<p class="indent1">Explanation of what the tags does.</p>
+		<p><strong>Example:</strong></p>
+		<p class="indent1"><code>Tag Usage Sample</code></p>
+		<p class="indent2">Explanation of specific usage.</p>
+	</blockquote>
+
 	<h3>Deity File Entry</h3>
+
+	<blockquote class="indent2">
+		<p><strong>Tag Used:</strong> <code><tag used></code></p>
+		<p><strong>What it does:</strong></p>
+		<p class="indent1">Explanation of what the tags does.</p>
+		<p><strong>Example:</strong></p>
+		<p class="indent1"><code>Tag Usage Sample</code></p>
+		<p class="indent2">Explanation of specific usage.</p>
+	</blockquote>
 
 <hr>
 
@@ -82,6 +121,12 @@
 		<il>PREVAREQ:Priesthood,0</il><br>
 		<il>BONUS:VAR|Priesthood|3</il><br>
 	</code></p>
+	<p></p>
+	<p class="indent2"><code>
+		<il>No Priesthood</il><br>
+		<il>VISIBLE:NO</il><br>
+		<il>TYPE:Priesthood</il><br>
+	</code></p>
 
 	<p class="indent1">Deity File: &quot;Monkey God&quot;</p>
 	<p class="indent2"><code>
@@ -93,7 +138,7 @@
 		<il>DOMAINS:Creation|PREMULT:1,[PREVAREQ:Priesthood|1],[PREVAREQ:Priesthood|2]</il><br>
 		<il>DOMAINS:Artifice|PREMULT:1,[PREVAREQ:Priesthood|2],[PREVAREQ:Priesthood|3]</il><br>
 		<il>DOMAINS:Magic|PREMULT:1,[PREVAREQ:Priesthood|1],[PREVAREQ:Priesthood|3]</il><br>
-		<il>ADD:FEAT|TYPE=Priesthood</il><br></code>
+		<il>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey,Priesthood of the Doc Monkey,No Priesthood</il><br></code>
 		<il>etc.</il><br>
 	</p>
 
