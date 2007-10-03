@@ -437,21 +437,21 @@ SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:
 ###Block: Familiar - remove these via .MOD if Familiars aren't desired
 1	AUTO:FEAT|Summon Familiar	BONUS:VAR|FMLevel|CL
 ###Block: Level progression
-1	CAST:3,1														AUTO:FEAT|Scribe Scroll
+1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	ABILITY:Wizard Feat|AUTOMATIC|Scribe Scroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
-5	CAST:4,3,2,1			ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+5	CAST:4,3,2,1
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
 9	CAST:4,4,4,3,2,1
-10	CAST:4,4,4,3,3,2			ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+10	CAST:4,4,4,3,3,2
 11	CAST:4,4,4,4,3,2,1
 12	CAST:4,4,4,4,3,3,2
 13	CAST:4,4,4,4,4,3,2,1
 14	CAST:4,4,4,4,4,3,3,2
-15	CAST:4,4,4,4,4,4,3,2,1		ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+15	CAST:4,4,4,4,4,4,3,2,1
 16	CAST:4,4,4,4,4,4,3,3,2
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
