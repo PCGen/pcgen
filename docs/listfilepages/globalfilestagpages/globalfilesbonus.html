@@ -5,7 +5,7 @@
 	<!--
 
 		PCGen Documentation Project
-		
+
 		$Author$
 		$Date$
 		$Revision$
@@ -31,7 +31,8 @@
 
 	<h1>The Global BONUS Tags</h1>
 
-	<p>The BONUS tag tells PCGen that the following information is to be added to a character, in the appropriate places.</p>
+	<p>The BONUS tag tells PCGen that the following information is to be added to a character, in the
+	appropriate places.</p>
 	<p>Bonus tags are done in this format:</p>
 	<p><code>BONUS:&lt;category&gt;|&lt;group&gt;|&lt;formula&gt;</code></p>
 	<p>This can be followed by pipe-delimitated PRExxx or TYPE= tags.</p>
@@ -50,6 +51,10 @@
     	matching TYPEs. This needs to be mentioned in the section which explains TYPE stacking and possibly at
     	the top of the BONUS page as well. An explanation as to why this is would be good as well but I don't
     	know what this might be.</p>
+
+	<p>While you can't .CLEAR a BONUS tag you can add a counter bonus to that would negate it, in this case you
+	would add a counter bonus and PRE tag it with the reverse of the feats prereq.</p>
+
 	<p>Each bonus comes in four different types.</p>
 	<ol>
 		<li>The <strong>Typeless</strong> bonus with no type</li>
@@ -71,7 +76,8 @@
 	<p class="indent3">This bonus would grant the character a bonus to the listed skills of four.<br /></p>
 	<p class="indent2"><code>BONUS:SKILL|STAT=DEX|1</code></p>
 	<p class="indent3">This would grant the character a bonus of one to all skills based on DEX.</p>
- 	<p></p>
+
+	<p></p>
 	<p class="indent0"><strong>Bonus Type:</strong> Standard</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
@@ -97,7 +103,8 @@
 		BONUS:SKILL|Bluff,Listen|4|TYPE=Divine</code></p>
 	<p class="indent3">This would also return a value of 7, since 3 is the highest Luck bonus, and 4 is
 		the highest Divine bonus.</p>
- 	<p></p>
+
+	<p></p>
 	<p class="indent0"><strong>Bonus Type:</strong> .REPLACE</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
@@ -120,7 +127,8 @@
 		BONUS:SKILL|Bluff,Listen|6|TYPE=Luck</code></p>
 	<p class="indent3">This would take the values from the .REPLACE (total 4), and compares it to the
 		standards, which are 2 and 6, and takes the highest value, for 6.</p>
- 	<p></p>
+
+	<p></p>
 	<p class="indent0"><strong>Bonus Type:</strong> .STACK</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
@@ -153,7 +161,7 @@
 		BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.STACK</code></p>
 	<p class="indent3">This would take the normal (4), compare it to the total .REPLACE (2), give the higher
 		value, then add in the .STACK (6) for a final value of 10.</p>
-		
+
 <hr>
 
 	<h2><a name="TAGLIST">BONUS Tag List</a></h2>
