@@ -42,6 +42,7 @@
 		<li>Class Abilities, Racial Abilities, Special Attacks, Special Qualities, Feat,
 		Skill, Supernatural, Extraordinary and Spell, etc...</li>
 		</ul>
+			<li><a href="#DISPLAYLOCATION">DISPLAYLOCATION</a> - Define the name of the sub tab that the ability category will be displayed on.</li>
 			<li><a href="#DISPLAYNAME">DISPLAYNAME</a> - Defines the display name of the category.</li>
 			<li><a href="#EDITABLE">EDITABLE</a> - Defines whether this category of abilities is user-editable.</li>
 			<li><a href="#EDITPOOL">EDITPOOL</a> - Sets the flag to allow/disallow user editing of the pool.</li>
@@ -428,18 +429,36 @@
 		<p class="indent3">Set Imperial as the Unit Set used by the game mode.</p>
 
 		<p></p><hr>
+		<p class="new">*** New 5.13.2</p>
+		<p class="indent0"><strong><a name="DISPLAYLOCATION">Tag Name:</a></strong>DISPLAYLOCATION:x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Text (The sub tab name or key to the sub tab name)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent1">
+        	<li>Used to define the name of the sub-tab that the ability category will be displayed on. 
+        	The tag allows related categories to be grouped onto the same subtab.</li>
+			<li>This tag is optional, and if not present the ability category's plural name will be used instead.</li>
+        	<li>Support for internationalization can be achieved by using a sub-tab key in the form of 
+        	&quot;in_&lt;name&gt;&quot;, i.e. &quot;in_feats&quot;.</li>
+		</ul>
+ 		<p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>DISPLAYLOCATION:in_feat</code></p>
+        <p class="indent3">Abilities of the associated category will be displayed in the feats sub-tab, which is identified by the sub-tab key &quot;in_feat&quot.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+
+		<p></p><hr>
 		<p class="new">*** New 5.11.1</p>
 		<p class="indent0"><strong><a name="DISPLAYNAME">Tag Name:</a></strong>DISPLAYNAME:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Text (The name or key to the name)</p>
         <p class="indent1"><strong>What it does:</strong></p>
         <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the displayed name for this category.
 			If this tag is set to in_name (ie: in_feat) it will pull the name from the language files (for internationalization).</p>
-        <p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-        <p class="indent2"><code>DISPLAYNAME:in_feat</code></p>
+ 		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>DISPLAYNAME:in_feat</code></p>
         <p class="indent3">The displayed name for the category is the value in the selected language for the key in_feat.</p>
-
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+ 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="DISPLAYORDER">Tag Name:</a></strong>DISPLAYORDER:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Number (Order of priority)</p>
