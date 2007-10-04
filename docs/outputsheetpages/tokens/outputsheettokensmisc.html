@@ -682,14 +682,14 @@ look like:<br/>
 <hr>
 		
 		<p class="indent0"><strong><a name="TEXT">Token Name:</a></strong> TEXT.x.</p>
-		<p class="indent1"><strong> Variables Used (x):</strong>LOWER, LOWERCASE, SENTENCE, SENTENCECASE, TITLE, TITLECASE, UPPER, UPPERCASE or NUMSUFFIX</p>
+		<p class="indent1"><strong> Variables Used (x):</strong>LOWER, LOWERCASE, REPLACE, REPLACEALL, SENTENCE, SENTENCECASE, TITLE, TITLECASE, UPPER, UPPERCASE or NUMSUFFIX</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Alters the output of the following tag. For it to work it has to be the first subtoken.  The following are the subrags allowed and their effect.</p>
 		<ul class="indent2">
 			<li>LENGTH - Returns the length of the string the specified token produces. (Mostly useful to test for 0 length strings)</li>
 			<li>LOWER, LOWERCASE - Output the tag result in lower case. e.g. the vitamins are in my fresh brussels sprouts</li>
 			<li>NUMSUFFIX - Output a numeric suffix appropriate for the tag result. e.g th or rd</li>
-			<li>REPLACE, REPLACEALL - Does a regular expression based search and replace on the string produced by the associated token. Multiple replacements can be specified and are processed right to left.
+			<li>REPLACE, REPLACEALL - Performs a regular expression based search and replace on the string produced by the associated token. Multiple replacements can be specified and are processed right to left.
 			<li>SENTENCE, SENTENCECASE - Output the tag result in sentence case. e.g. The vitamins are in my fresh brussels sprouts</li>
 			<li>TITLE, TITLECASE - Output the tag result in title case. e.g. The Vitamins Are In My Fresh Brussels Sprouts</li>
 			<li>UPPER, UPPERCASE - Output the tag result in upper case. e.g. THE VITAMINS ARE IN MY FRESH BRUSSELS SPROUTS</li>
