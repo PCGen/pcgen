@@ -468,6 +468,13 @@
 			<li>Nested IIFs are supported.</li>
 		</ul>
 
+		<p class="indent0"><strong>Token Name:</strong> IIF(&lt;JEP boolean expression&gt;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Evaluates the <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#Boolean">JEP boolean expression</a>.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>IIF((CL>5)||(TL>5))</code></p>
+		<p class="indent3">Returns TRUE if Class Level or Total Level ar greater-then 5.</p>
+
 		<p class="indent0"><strong>Token Name:</strong> IIF(EVEN)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">True if the variable is an even number (frequently used to control grey/white
@@ -640,12 +647,16 @@ look like:<br/>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Provides conditional processing of expressions.</li>
+			<li>Will take <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#Boolean">JEP boolean expressions</a> as the conditional statement.</li>
 			<li>Only the expressions mentioned above for IIF are currently supported.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>OIF(HASFEAT:Armor Proficiency (Light),YES,NO)</code></p>
 		<p class="indent3">If the character has the Light Armor proficiency, then returns
 		  &quot;YES&quot;. Otherwise it returns &quot;NO&quot;.</p>
+		<p class="indent2"><code>OIF((CL>5)||(TL>5),YES,NO)</code></p>
+		<p class="indent3">Returns &quot;YES&quot; if Class Level or Total Level ar greater then 5. 
+		Oterwise it returns &quot;NO&quot;</p>
 		<p></p>
 
 <hr>
