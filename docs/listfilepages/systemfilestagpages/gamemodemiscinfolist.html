@@ -327,11 +327,11 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the low-level ability category the category refers to.
 			Not normally required.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CATEGORY:Feat</code></p>
 		<p class="indent3">The low-level ability category for this category is Feat.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.4</p>
@@ -476,15 +476,15 @@
 		<p class="indent2">Used in UNITSET lines to define the distance factor of the unit set.
 		Distance is multiplied by the unit sets DISTANCEFACTOR and the resulting conversion is displayed in the GUI.
 		A Unit set which is native to the data will always have a factor of 1.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DISTANCEFACTOR:0.3</code></p>
 		<p class="indent3">Defines the distance factor as &quot;0.3&quot;.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
+		<p></p>
 
-        <p class="indent3">&nbsp;</p>
+<hr>
 
-		<p></p><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong><a name="DISTANCEPATTERN">Tag Name:</a></strong> DISTANCEPATTERN:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Distance unit pattern).</p>
@@ -494,11 +494,11 @@
 		  you can specify e.g. how many decimal digits are printed. The pattern follows
 		  the definition of the Java class DecimaFormat and can be found
 		  <a href="http://java.sun.com/j2se/1.3/docs/api/java/text/DecimalFormat.html">here</a>.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DISTANCEPATTERN:#</code></p>
 		<p class="indent3">Defines the distance unit abbreviation as &quot;#&quot;.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.9.5</p>
@@ -508,22 +508,22 @@
 		<p class="indent2">Used in UNITSET lines to define the distance unit abbreviation of the unit set.
 		The string 'unit' is appended to the value and set off from the value by a
 		space. If you want the unit to follow directly after the value, prefix the string with '~'.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DISTANCEUNIT:ft.</code></p>
 		<p class="indent3">Defines the distance unit abbreviation as &quot;ft.&quot;.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="DOWN">Tag Name:</a></strong> DOWN:x,x</p>
 		<p class="indent1"><strong>Varibles used:</strong> (x) alpha numerical</p>
 		<p class="indent1"><strong>What it does: </strong></p>
 		<p class="indent2">This comma (,) delimited value determines the next die value in an incremental set</p>
-		<p class="indent1"><strong>Where it is used: </strong> </p>
-		<p class="indent2"><a href="#BASEDICE">BASEDICE</a> Line </p>
 		<p class="indent1"><strong>Example: </strong> </p>
 		<p class="indent2"><code>DOWN:1d4,1d3,1d2,1</code></p>
 		<p class="indent3">The next die in the progression will be 1d4, then 1d3 if chosen again, etc.</p>
+		<p class="indent1"><strong>Where it is used: </strong> </p>
+		<p class="indent2"><a href="#BASEDICE">BASEDICE</a> Line </p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.11.1</p>
@@ -532,11 +532,11 @@
         <p class="indent1"><strong>What it does:</strong></p>
         <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define whether this category of abilities is user-editable.
 			If editable, the normal abilities may be adjusted by the user through the UI.</p>
-        <p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
         <p class="indent2"><code>EDITABLE:No</code></p>
         <p class="indent3">Defines that abilities of this category can not be edited by the user.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.11.1</p>
@@ -545,11 +545,11 @@
         <p class="indent1"><strong>What it does:</strong></p>
         <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a>
 			lines to define if user editing of the category's pool is allowed/disallowed.</p>
-        <p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
         <p class="indent2"><code>EDITPOOL:No</code></p>
         <p class="indent3">Defines that the category's pool can not be edited by the user.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.5.2</p>
@@ -571,11 +571,11 @@
         <p class="indent1"><strong>What it does:</strong></p>
         <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a>
 			lines to define if the pool can use fractional amounts.</p>
-        <p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
         <p class="indent2"><code>FRACTIONALPOOL:No</code></p>
         <p class="indent3">Define that the category's pool can only be a whole number.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.11.8</p>
@@ -607,11 +607,11 @@
 		<p class="indent2">Used in UNITSET lines to define the height factor of the unit set.
 		Height is multiplied by the unit sets HEIGHTFACTOR and the resulting conversion is displayed in the GUI.
 		A Unit set which is native to the data will always have a factor of 1.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>HEIGHTUNIT:2.54</code></p>
 		<p class="indent3">Defines the height factored as &quot;2.54&quot;.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.9.5</p>
@@ -623,11 +623,11 @@
 		  you can specify e.g. how many decimal digits are printed. The pattern follows
 		  the definition of the Java class DecimaFormat and can be found
 		  <a href="http://java.sun.com/j2se/1.3/docs/api/java/text/DecimalFormat.html">here</a>.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>HEIGHTPATTERN:#</code></p>
 		<p class="indent3">Defines the distance unit pattern as &quot;#&quot;.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.9.5</p>
@@ -638,11 +638,11 @@
 		The string 'unit' is appended to the value and set off from the value by a
 		space. If you want the unit to follow directly after the value, prefix the string
 		with '~'. The string 'ftin' is hard-coded to give results of the format x'y&quot;.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>HEIGHTUNIT:cm</code></p>
 		<p class="indent3">Defines the height unit abbreviation as &quot;cm&quot;.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** Removed. This is now defined by the
@@ -771,8 +771,6 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Formula (Random Stat rolling method formula).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Follows a <a href="#ROLLMETHOD">ROLLMETHOD</a> tag and defines the dice formula used.</p>
-		<p class="indent1"><strong>Where is this used:</strong></p>
-		<p class="indent2">In a <a href="#ROLLMETHOD">ROLLMETHOD</a> line.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ROLLMETHOD:3d6 &lt;tab&gt; METHOD:3d6</code></p>
 		<p class="indent3">Menu displays &quot;3d6&quot; as the label for this method and simulates rolling 3 six sided dice.</p>
@@ -780,6 +778,8 @@
 		<p class="indent3">Simulates rolling 4 six sided dice and dropping the lowest.</p>
 		<p class="indent2"><code>ROLLMETHOD:5d6 drop 2 lowest &lt;tab&gt; METHOD:roll(5,6,[3,4,5])</code></p>
 		<p class="indent3">Simulates rolling 5 six sided dice and dropping the 2 lowest.</p>
+		<p class="indent1"><strong>Where is this used:</strong></p>
+		<p class="indent2">In a <a href="#ROLLMETHOD">ROLLMETHOD</a> line.</p>
 
 		<p></p><hr>
 		<p class="new">*** Removed. This is now defined in the
@@ -813,11 +813,11 @@
         <p class="indent1"><strong>What it does:</strong></p>
         <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the plural name for this category.
 			If this tag is set to in_name (ie: in_feats) it will pull the plural name from the language files (for internationalization).</p>
-        <p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
         <p class="indent2"><code>PLURAL:in_feats</code></p>
         <p class="indent3">The plural name for the category is the value in the selected language for the key in_feats.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="PLUSCOST">Tag Name:</a></strong>PLUSCOST:x</p>
@@ -865,11 +865,11 @@
         <p class="indent1"><strong>What it does:</strong></p>
         <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a>
 			lines to define the formula to use to calculate the base pool size for this category of ability.</p>
-        <p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
         <p class="indent2"><code>POOL:TL/2</code></p>
         <p class="indent3">The pool starts with a value of half the character's level.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.13.2</p>
@@ -1100,30 +1100,28 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Tab Name).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-		  <li>This indicates what &quot;TABS&quot; will be displayed in the graphic user interface of the PCGen program.</li>
-          <li>Indicates which tab the options following it will affect. Must be first on
+			<li>This indicates what &quot;TABS&quot; will be displayed in the graphic user interface of the PCGen program.</li>
+        	<li>Indicates which tab the options following it will affect. Must be first on
 				  the line, to be followed by NAME and CONTEXT (and optionally VISIBLE).</li>
-          <li>Tab Name may be one of:
-		  <ul>
-			  <li>ABILITIES - The tab where languages, SAs and weapon profs are displayed.</li>
-			  <li>CAMPAIGNS - The tab where source materials are displayed.</li>
-			  <li>CLASS - The tab where classes are displayed.</li>
-			  <li>DESCRIPTION - The tab where character descriptive information is displayed.</li>
-			  <li>DOMAINS - The tab where deity/domain information is displayed.</li>
-			  <li>FEATS - The tab where feat information is displayed.</li>
-			  <li>INVENTORY - The tab where inventory, equipping, and followers are displayed.</li>
-			  <li>RACE - The tab where races are displayed.</li>
-			  <li>SKILLS - The tab where skills are displayed.</li>
-			  <li>SPELLS - The tab where spells are displayed.</li>
-			  <li>SUMMARY - The tab with summary information.</li>
+        	<li>Tab Name may be one of:</li>
+			<ul>
+				<li>ABILITIES - The tab where languages, SAs and weapon profs are displayed.</li>
+				<li>CAMPAIGNS - The tab where source materials are displayed.</li>
+				<li>CLASS - The tab where classes are displayed.</li>
+				<li>DESCRIPTION - The tab where character descriptive information is displayed.</li>
+				<li>DOMAINS - The tab where deity/domain information is displayed.</li>
+				<li>FEATS - The tab where feat information is displayed.</li>
+				<li>INVENTORY - The tab where inventory, equipping, and followers are displayed.</li>
+				<li>RACE - The tab where races are displayed.</li>
+				<li>SKILLS - The tab where skills are displayed.</li>
+				<li>SPELLS - The tab where spells are displayed.</li>
+				<li>SUMMARY - The tab with summary information.</li>
 	        </ul>
-	      </li>
+			<li>If the game mode doesn't support the TAB, you must use the Tag VISIBLE:NO.</li>
         </ul>
         <p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TAB:SUMMARY</code></p>
 		<p class="indent3">Indicates that the line will effect the &quot;Summary&quot; tab.</p>
-		<p class="indent1"><strong>Note:</strong></p>
-		<p class="indent2">If the game mode doesn't support the TAB, you must use the Tag VISIBLE:NO.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">TAB Line.</p>
 
@@ -1171,28 +1169,32 @@
 		<p class="indent1"><strong>Varibles used:</strong> (x) alpha numerical </p>
 		<p class="indent1"><strong>What it does: </strong> </p>
 		<p class="indent2">This comma (,) delimited value determines the next die value in an incremental set </p>
-		<p class="indent1"><strong>Where it is used: </strong> </p>
-		<p class="indent2"><a href="#BASEDICE">BASEDICE</a> Line </p>
 		<p class="indent1"><strong>Example: </strong> </p>
 		<p class="indent2"><code>UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6</code> </p>
 		<p class="indent3">Determines the next die in the progression will be 1d8, then 2d6 if chosen again, etc. </p>
+		<p class="indent1"><strong>Where it is used: </strong> </p>
+		<p class="indent2"><a href="#BASEDICE">BASEDICE</a> Line </p>
 
 		<p></p><hr>
 		<p class="new">*** Updated 5.11.1</p>
 		<p class="indent0"><strong><a name="VISIBLE">Tag Name:</a></strong> VISIBLE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (Yes or No).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (YES, NO, or QUALIFY).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Turns the associated tab or sub-tab on or off in the GUI.</li>
 			<li>YES - Used to make the tab display in the GUI
 				(this is the default if a VISIBLE tag is not present).</li>
 			<li>NO - Used to keep the tab from displaying in the GUI.</li>
+			<li>QUALIFY - Ability category is only displayed if its total pool (spent + remaining) is not empty.</li>
+			<li>If the ability category is on its own subtab (see DISPLAYLOCATION) 
+			it will always be displayed. As a result it is recommended that these 
+			optional categories be grouped where possible.</li>
 		</ul>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#TAB">TAB</a> and <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VISIBLE:NO</code></p>
 		<p class="indent3">Used to keep the tab from displaying in the GUI.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#TAB">TAB</a> and <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="WEAPONCATEGORY">Tag Name:</a></strong> WEAPONCATEGORY:x </p>
@@ -1258,11 +1260,11 @@
 		<p class="indent2">Used in UNITSET lines to define the weight factor of the unit set.
 		Weight is multiplied by the unit sets WEIGHTFACTOR and the resulting conversion is displayed in the GUI.
 		A Unit set which is native to the data will always have a factor of 1.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEIGHTFACTOR:0.5</code></p>
 		<p class="indent3">Defines the weight factor as &quot;0.5&quot;.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.9.5</p>
@@ -1274,11 +1276,11 @@
 		  you can specify e.g. how many decimal digits are printed. The pattern follows
 		  the definition of the Java class DecimaFormat and can be found
 		  <a href="http://java.sun.com/j2se/1.3/docs/api/java/text/DecimalFormat.html">here</a>.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEIGHTPATTERN:#.##</code></p>
 		<p class="indent3">Defines the weight unit pattern as &quot;ft.&quot;.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.9.5</p>
@@ -1288,11 +1290,11 @@
 		<p class="indent2">Used in UNITSET lines to define the weight unit abbreviation of the unit set.
 		The string 'unit' is appended to the value and set off from the value by a
 		space. If you want the unit to follow directly after the value, prefix the string with '~'.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEIGHTUNIT:lbs.</code></p>
 		<p class="indent3">Defines the weight unit abbreviation as &quot;lbs.&quot;.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 
 		<p></p><hr>
 		<p class="new">*** Removed. This is now defined by the
@@ -1326,11 +1328,9 @@
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">CLASSTYPE Line.</p>
 
-			<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
+<hr>
+
+		<p><a href="http://validator.w3.org/check?uri=referer"><img	src="../../images/system/valid-html401.png" alt="Valid HTML 4.01 Strict" height="31" width="88"></a></p>
 
 </body>
 
