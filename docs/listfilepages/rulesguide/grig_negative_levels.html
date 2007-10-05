@@ -99,14 +99,14 @@
 
 	<blockquote class="indent2">
 		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,<br>
-		<il class="indent1">TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</il></code></p>
+		<il class="indent4">TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</il></code></p>
 		<p class="indent1"><strong>What it does:</strong> Subtracts the number of negative levels granted from all skills.</p>
 	</blockquote>
 
 
 	<h3>Equipment File Entry</h3>
 	
-	<p class="indent1">In the equip.lst file we must first apply the new feat &quot;Negative Levels&quot; by using the 
+	<p class="indent1">In the <em>equip.lst</em> file we must first apply the new feat &quot;Negative Levels&quot; by using the 
 	VFEAT tag in the specific equipment entry and then we must apply the specific number of negative levels 
 	through the BONUS:VAR tag.</p>
 
@@ -142,12 +142,14 @@
 		<il>Negative Levels</il><br>
 		<il>TYPE:Special</il><br>
 		<il>VISIBLE:NO</il><br>
-		<il>SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell 
-		level castable)|NegLevels|NegLevels|NegLevels</il><br>
+		<il>SA:% negative level(s) (-% effective level(s) and loses access to </il><br>
+		<il class="indent1">% spell(s) from the highest spell level castable)|NegLevels|</il><br>
+		<il class="indent1">NegLevels|NegLevels</il><br>
 		<il>DEFINE:NegLevels|0</il><br>
 		<il>BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)</il><br>
 		<il>BONUS:COMBAT|TOHIT|-1*(NegLevels)</il><br>
-		<il>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</il>
+		<il>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,</il><br>
+		<il class="indent1">TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</il>
 	</code></p>
 	
 	<p class="indent1">Equipment File: &quot;Demon Armor&quot;</p>
