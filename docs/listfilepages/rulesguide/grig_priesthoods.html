@@ -26,14 +26,11 @@
 		
 	<p class="indent0"><strong>Rule Description:</strong> Deities may have more than one &quot;Priesthood&quot;, each with their own powers and abilities.</p>
 	<p class="indent0"><strong>PCGen Version:</strong> 5.12.x to Current.</p>
-	<p class="indent0"><strong>File(s) Covered:</strong> class.lst, feat.lst, and deity.lst</p>
+	<p class="indent0"><strong>File(s) Covered:</strong> feat.lst, and deity.lst</p>
 	<p class="indent0"><strong>Tags used:</strong></p>
-	<p class="indent1"><code><a href="../globalfilestagpages/globalfilesother.html#MOD">.MOD</a>, 
-  		<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a>,
-  		<a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE<a>, 
+	<p class="indent1"><code><a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE<a>, 
   		<a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
-  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREVAR">PREVAREQ</a>, 
-  		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a>,
+  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT">PREFEAT</a>, 
   		<a href="../datafilestagpages/datafilesdeities.html#DOMAINS">DOMAINS</a>, 
   		<a href="../globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT</a></code></p>
 
@@ -46,8 +43,9 @@
 	PCGen Documentation.</p>
 		
 	<p>Implementing &quot;Priesthoods&quot; for deities requires entries in two lst files. These will be 
-	entries for the specific &quot;Priesthoods&quot; allowed in the feat.lst file, and the &quot;deity&quot; 
-	entry where the preisthood feats are selected and applied in the deity.lst file.</P>
+	entries for the priesthood feats, in the feat.lst file, where specific powers and abilities unique to 
+	the priesthood are granted, and the &quot;Deity&quot; entry, in the deity.lst file, where the 
+	preisthood feats are selected and applied.</P>
 
 	<p>We will discuss below each of these entries and how they work:</p>
 
@@ -114,7 +112,7 @@
 	<p class="indent1">Deity File: &quot;Monkey God&quot;</p>
 	<p class="indent2"><code>
 		<il>Monkey God</il></il><br>
-		<il>ALIGN:TN>/il><br>
+		<il>ALIGN:TN</il><br>
 		<il>PREALIGN:NG,LN,TN,CN,NE</il><br>
 		<il>DEITYWEAP:Pile of Poo</il><br>
 		<code><il>DOMAINS:Knowledge,Madness</il><br>

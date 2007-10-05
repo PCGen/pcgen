@@ -24,10 +24,11 @@
 
 	<h2>Equipment Granting Negative Levels</h2>
 		
-	<p class="indent0"><strong>Rule Description:</strong> Items can now grant &quot;Negative Levels&quot;.</p>
+	<p class="indent0"><strong>Rule Description:</strong> The granting of &quot;Negative 
+	Levels&quot; to characters by equipment.</p>
 	<p class="indent0"><strong>PCGen Version:</strong> 5.8.x to current.</p>
 	<p class="indent0"><strong>File(s) Covered:</strong> equipment.lst and feat.lst</p>
-	<p class="indent0"><strong>Tags used:</strong></p>
+	<p class="indent0"><strong>Tags Used:</strong></p>
 	<p class="indent1"><code><a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
   		<a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE</a>,
   		<a href="../globalfilestagpages/globalfilesother.html#SA">SA</a>,
@@ -47,47 +48,88 @@
 	For more general information on the associated tags, please visit the LST Tag section of the 
 	PCGen Documentation.</p>
 		
-	<p class="indent1">NOTE: This game rule has been incorporated in the SRD, RSRD, MSRD, and several other datasets currently in distribution.</p>
+	<p class="indent1">NOTE: This game rule has been incorporated in the SRD, RSRD, MSRD, and several 
+	other datasets currently in distribution.</p>
 
-	<p>Implementing the ability for an item to grant 'Negative Levels" requires 
-	two specific LST entries.  These are a feat.lst entry titled 'Negative Levels" and a specifc 
-	application of this feat in the appropriate item entry in the equipment.lst file.</P>
-	
-	<p>We will discuss below each of these entries and how they work:</p>
+	<p>Implementing the ability for an item to grant &quot;Negative Levels&quot; requires two specific 
+	LST entries. These are a feat.lst entry titled &quot;Negative Levels&quot; and a specifc application 
+	of this feat in the appropriate item entry in the equipment.lst file. We discuss these entries in 
+	more detail below. To help you better understand these entries, we will be using the &quot;Demon 
+	Armor&quot; out of the RSRD.</p>
 
 	<h3>Feat File Entry</h3>
 	
-	<p class="indent1">In the specific feat entry in the feat.lst file we must first create a new feat called "Negative Levels" that will provide all of the &quot;enhancements&quot; required when a negative level is applied.  This includes such effect5s as the reduction of .</p>
+	<p class="indent1">The specific feat entry in the <em>feat.lst</em> file is called "Negative Levels" 
+	and will provide all of the penalties, or enhancments, required when a negative level is applied.  
+	The penalties, in this case, include a reduction to &quot;Fortitude&quot;, &quot;Reflex&quot;, and 
+	&quot;Will&quot; checks, the reduction of the characters &quot;To Hit&quot; bonus, and a reduction 
+	in skill bonuses across the board.  </p>
 
-	<p class="indent1"></p>
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell 
+		level castable)|NegLevels|NegLevels|NegLevels</code></p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This grants the character &quot;negative levels&quot; as a Special Ability that will get 
+			listed together with all other special abilities the character has been granted.</li>
+			<li>The &quot;%&quot; tag will fill in a number from a variable listed after the pipe (|) with each 
+			successive &quot;%&quot; being replaced by the next variable listed after subsequent pipes.</li>
+			<li>The variable &quot;NegLevels&quot; is defined by the DEFINE tag within this feat.</li>
+			<li>The SA will NOT be displayed if the last variable or formula equals 0.</li>
+		</ul>
+	</blockquote>
+
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:NegLevels|0</code></p>
+		<p class="indent1"><strong>What it does:</strong> Creates the <em>NegLevels</em> variable 
+		and initializes it to a value of zero.</p>
+	</blockquote>
+
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)</code></p>
+		<p class="indent1"><strong>What it does:</strong> Subracts the number of negative levels granted from the 
+		&quot;Fortitude&quot;. &quot;Reflex&quot;, and &quot;Will&quot; saving throws.</p>
+	</blockquote>
+
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:COMBAT|TOHIT|-1*(NegLevels)</code></p>
+		<p class="indent1"><strong>What it does:</strong> Subtracts the number of negative leves granted from the 
+		Primary Attack bonus.</p>
+	</blockquote>
+
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,<br>
+		<il class="indent1">TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</il></code></p>
+		<p class="indent1"><strong>What it does:</strong> Subtracts the number of negative levels granted from all skills.</p>
+	</blockquote>
+
 
 	<h3>Equipment File Entry</h3>
 	
-	<p class="indent1">1) In the specific equipment entry in the equip.lst file we must first apply the new 
-	"Negative Levels" by using the VFEAT tag:</p>
-	
+	<p class="indent1">In the equip.lst file we must first apply the new feat &quot;Negative Levels&quot; by using the 
+	VFEAT tag in the specific equipment entry and then we must apply the specific number of negative levels 
+	through the BONUS:VAR tag.</p>
+
 	<blockquote class="indent2">
-		<p><strong>Tag Name:</strong> <code>VFEAT:Negative Levels</code></p>
-		<p><strong>What it does:</strong> Grants the <em>Negative Levels</em> feat and initializes the <em>NegLevels</em> variable. (see Feat File Entry above.)</p>
+		<p class="indent0"><strong>Tag Used:</strong> <code>VFEAT:Negative Levels</code></p>
+		<p class="indent1"><strong>What it does:</strong> Grants the <em>Negative Levels</em> feat and initializes the <em>NegLevels</em> variable. (see Feat File Entry above.)</p>
 	</blockquote>
 
-	<p class="indent1">2) Apply the specific number of negative levels through the BONUS:VAR tag.</p>
-	
 	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Name:</strong> <code>BONUS:VAR|NegLevels|x|y</code></p>
+		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:VAR|NegLevels|x|y</code></p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (number of negative levels applied.)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> PRExxx (Requisite condition for bestowing negative levels.)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>&quot;NegLevels&quot; is a special predefined variable made specifically for
-			  this purpose.</li>
-			<li>Use '2', not -2, to bestow 2 negative levels.</li>
-			<li>If the NegLevels Variable is 0 (no negative levels applied), then nothing will show,
-				and it will be as if the Negative Levels feat was not even there. :)</li>
+			<li>&quot;NegLevels&quot; is a variable defined in the &quot;Negative Levels&quot; feat specifically 
+			for this purpose.</li>
+			<li>Use &quot;2&quot;, not &quot;-2&quot;, to bestow two negative levels.</li>
+			<li>If the NegLevels Variable is &quot;0&quot; (no negative levels applied), then nothing will show,
+			and it will be as if the Negative Levels feat was not even there. :)</li>
 		</ul>
 		<p class="indent1"><strong>Example - Demon Armor (RSRD):</strong></p>
 		<p class="indent2"><code>BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7</code></p>
-		<p class="indent3">Demon Armor bestows 1 negative level to all non-evil characters.</p>
+		<p class="indent3">Demon Armor bestows one negative level to all non-evil characters.</p>
 	</blockquote>
 
 <hr>
@@ -100,21 +142,23 @@
 		<il>Negative Levels</il><br>
 		<il>TYPE:Special</il><br>
 		<il>VISIBLE:NO</il><br>
-		<il>SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels</il><br>
+		<il>SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell 
+		level castable)|NegLevels|NegLevels|NegLevels</il><br>
 		<il>DEFINE:NegLevels|0</il><br>
 		<il>BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)</il><br>
 		<il>BONUS:COMBAT|TOHIT|-1*(NegLevels)</il><br>
 		<il>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</il>
 	</code></p>
 	
-	<p class="indent1">Equipment File: &quot;Sun Blade (Short)&quot;</p>
+	<p class="indent1">Equipment File: &quot;Demon Armor&quot;</p>
 	<p class="indent2"><code>
-		<il>Sun Blade (Short)</il><br>
+		<il>Demon Armor</il></code><br>
 		<il>.</il><br>
+		<il>. (See the RSRD for full detail on this item.)</il><br>
 		<il>.</il><br>
-		<il>.</il><br>
-		<il>VFEAT:Negative Levels</il></code></p>
-
+		<code><il>VFEAT:Negative Levels</il><br>
+		<il>BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7</il></code>
+	</p>
 
 <hr>
 	<p>
