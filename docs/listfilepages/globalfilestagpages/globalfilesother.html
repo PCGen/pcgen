@@ -344,10 +344,10 @@
 		</ul>
 		<li>The following special variables are allowed within the variable list:</li>
 		<ul>
-			<li><code>%NAME</code> - The name of the object this DESC tag is in.</li>
-			<li><code>%FEAT</code> - Will substitute the descriptions of feats within the object that match the associated preqrequisites.</li>
 			<li><code>%CHOICE</code> - Will replace the first associated choice in the object.</li>
+			<li><code>%FEAT</code> - Will substitute the descriptions of feats within the object that match the associated preqrequisites.</li>
 			<li><code>%LIST</code> - Will substitute all choices comma separated into that parameter.</li>
+			<li><code>%NAME</code> - The name of the object this DESC tag is in.</li>
 		</ul>
 		<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and 
 			formulas within parentheses.</li>
@@ -380,7 +380,7 @@
 	<p class="indent2"><code>DESC:You get a +2 bonus on all %1 saving throws|%CHOICE</code></p>
 	<p class="indent3">Adds feat description and replaces %1 with the first choice made.</p>
 	<p class="indent2"><code>DESC:Bardic Music %1/day (%2)|BardicMusicTimes|%FEAT=TYPE.BardicMusic</code></p>
-	<p class="indent3">The variable &quot;BardicMusicTimes&quot; is substituted for &quot;%1&quot; and the text from the &quot;DESC&quot; tag in a FEAT with type &quot;BardicMusic&quot; is substituted for &quot;%2&quot;.</p>
+	<p class="indent3">The variable &quot;BardicMusicTimes&quot; is substituted for &quot;%1&quot; and the text from the &quot;DESC&quot; tags in all granted feats with type &quot;BardicMusic&quot; are concatenated and substituted for &quot;%2&quot;.</p>
 	<p class="indent2"><code>DESC:You get a +3 bonus on all checks involving %1|%LIST.</code></p>
 	<p class="indent3">Adds feat description replaces %LIST with all choices made. </p>
 	<p class="indent2"><code>DESC:%3 Sneak Attacks per day for +%1d%2 damage|SneakAttack|SneakAttackDie|SneakAttackTimes</code></p>
