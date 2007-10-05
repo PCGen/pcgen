@@ -1,0 +1,1502 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!--
+PCGen Character Sheet Template
+==============================
+Author: Eddy Anthony (MoSaT)
+Email: eddybaATmindspringDOTcom
+Javascript by: Aaron Divinsky
+Email: boomer70ATyahooDOTcom
+
+$Revision:  $
+$Author:  $
+$Date:  $
+-->
+<head>
+<title>Fantasy Character Sheet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.header {
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	height: 20px;
+}
+.label {
+	font-family: Arial;
+	font-size: 9px;
+	vertical-align: text-top;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #000000;
+	margin-right: 5px;
+	color: #593400;
+}
+.statCentered {
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: bold;
+}
+.statSmall {
+	font-family: Arial;
+	font-size: 12px;
+}
+.maxRank {
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 11px;
+}
+.skills {
+	font-family: Arial;
+	font-size: 12px;
+}
+.attackTables {
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+}
+.attackIterations {
+	font-family: Arial;
+|IIF(ATTACK.MELEE.BASE.SHORT>14)|
+	font-size: 10px;
+|ELSE|
+	font-size: 14px;
+|ENDIF|
+	font-weight: bold;
+}
+.equipProperty {
+	font-family: Arial;
+	font-size: 9px;
+}
+.sprop {
+	font-family: Arial;
+	font-size: 12px;
+	padding-right: 32px;
+	padding-left: 28px;
+	color: #563C00;
+}
+-->
+</style>
+<script language="javascript" type="text/javascript">
+			function rollDice(numDice,dieSize,bonus){
+				var result=0;
+				for (dieCount=0; dieCount<numDice; dieCount++) {
+					result = result + (Math.round(Math.random() * dieSize) % dieSize + 1);
+				}
+				result += parseInt(bonus);
+				return result;
+			}
+			function roll(numDice,dieSize,bonus,caption) {
+				result = rollDice(numDice,dieSize,bonus);
+	 
+				var msg = caption + "Result ("+numDice+"d"+dieSize;
+				if (bonus > 1){
+					msg += "+";
+				//} else if (bonus < 1) {
+					//msg += "-";
+				}
+				if (bonus != 0) {
+					msg += bonus;
+				}
+				msg += ")="+result;
+	 
+				alert(msg);
+			}
+			function rollAttack(toHit,damage,crit,mult) {
+				var attackValues = toHit.split("/");
+				var dieRoll = 0;
+				var critVals = crit.split("-");
+				var msg = "Attack Result:\n";
+				for (i = 0; i < attackValues.length; i++) {
+					dieRoll = (Math.round(Math.random() * 20) % 20 + 1);
+					msg += "Attack " + (i+1)+ ": " + dieRoll+ attackValues[i] + "=" + (dieRoll+parseInt(attackValues[i]));
+					var totalDamage = 0;
+					var dmgSplit = damage.split("d");
+					var dice = dmgSplit[0];
+					var dieSize = 0;
+					var bonusDmg = 0;
+					if (dmgSplit[1].indexOf("+")!=-1){
+						var dmgSplit1 = dmgSplit[1].split("+");
+						dieSize = dmgSplit1[0];
+						bonusDmg = dmgSplit1[1];
+					}
+					totalDamage = rollDice(dice,dieSize,bonusDmg);
+					if (dieRoll >= critVals[0]) {
+						totalDamage *= mult;
+					}
+					msg += "    Damage: " + totalDamage+"\n";
+				}
+				alert(msg);
+			}
+			function rollTurning(checkBonus,turnDice,turnDieSize,turnBonus,turnLvl,caption) {
+				var checkResult = rollDice(1,20,checkBonus);
+				var maxHD = 0;
+				if (checkResult <= 0) {
+					maxHD = turnLvl - 4;
+				} else if (checkResult <= 3) {
+					maxHD = turnLvl - 3;
+				} else if (checkResult <= 6) {
+					maxHD = turnLvl - 2;
+				} else if (checkResult <= 9) {
+					maxHD = turnLvl - 1;
+				} else if (checkResult <= 12) {
+					maxHD = turnLvl;
+				} else if (checkResult <= 15) {
+					maxHD = turnLvl + 1;
+				} else if (checkResult <= 18) {
+					maxHD = turnLvl + 2;
+				} else if (checkResult <= 21) {
+					maxHD = turnLvl + 3;
+				} else {
+					maxHD = turnLvl + 4;
+				}
+				var totalHD = rollDice(turnDice,turnDieSize,turnBonus);
+				var msg = caption;
+				msg += ": " + totalHD + " total HD (max " + maxHD + " HD)";
+				if (turnLvl / 2 >= 1) {
+					msg += "\n\t(Destroy " + turnLvl/2 + " HD or lower)";
+				}
+				alert(msg);
+			}
+			function displaySpellInfo(name,school,subschool,descriptors,levels,comps,castTime, range,targetArea,duration,save,spellRes,desc) {
+				var buf = "<b>" + name + "</b><br/> " + school;
+				if (subschool != null && subschool.length > 0) {
+					buf += " " + subschool;
+				}
+				if (descriptors != null && descriptors.length > 0) {
+					buf += "[" + descriptors + "]";
+				}
+				buf += "<br />";
+				buf += "<b>Level:</b> " + levels + "<br />";
+				buf += "<b>Components:</b> " + comps + "<br />";
+				buf += "<b>Casting Time:</b> " + castTime + "<br />";
+				buf += "<b>Range:</b> " + range + "<br />";
+				buf += "<b>Effect:</b> " + targetArea + "<br />";
+				buf += "<b>Duration:</b> " + duration + "<br />";
+				buf += "<b>Saving Throw:</b> " + save + "<br />";
+				buf += "<b>Spell Resistance:</b> " + spellRes + "<br />";
+				buf += "<br />" + desc;
+				document.getElementById("spellDisplay").innerHTML=buf;
+			}
+		</script>
+</head>
+
+<body bgcolor="#660000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<!-- Start Section One - Header -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="30" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+      <td height="30" background="preview/d20/fantasy/images/gold/border_top.png"><div align="center"><img src="preview/d20/fantasy/images/gold/deco_top.png" width="90" height="30"></div></td>
+      <td width="34" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+    </tr>
+    <tr> 
+      <td width="30" background="preview/d20/fantasy/images/gold/border_left.png"><img src="preview/d20/fantasy/images/gold/deco_left.png" width="30" height="89"></td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+	  
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td colspan="2" class="header">|NAME|</td>
+      <td colspan="2" class="header">|PLAYERNAME|</td>
+      <td colspan="2" class="header">|ALIGNMENT|</td>
+      <td width="25%" class="header">|DEITY|</td>
+    </tr>
+    <tr> 
+      <td colspan="2" class="label">Name</td>
+      <td colspan="2" class="label">Player</td>
+      <td colspan="2" class="label">Alignment</td>
+      <td class="label">Deity</td>
+    </tr>
+    <tr> 
+      <td colspan="2" class="header">
+|FOR,%class,0,COUNT[CLASSES]-1,1,1| 
+|IIF(CLASS.%class.TYPE:Monster)| 
+|ELSE| 
+|IIF(TEXT.LENGTH.CLASS.%class.LEVEL:0)| 
+|ELSE|
+|MANUALWHITESPACE| |CLASSABB.%class||CLASS.%class.LEVEL| |ENDMANUALWHITESPACE| 
+|ENDIF| 
+|ENDIF|
+|ENDFOR|
+	  </td>
+      <td colspan="2" class="header">|RACE|</td>
+      <td class="header">|GENDER|</td>
+      <td class="header">|AGE|</td>
+      <td class="header">|COLOR.EYE|</td>
+    </tr>
+    <tr> 
+      <td colspan="2" class="label">Class &amp; Level</td>
+      <td colspan="2" class="label">Race</td>
+      <td class="label">Gender</td>
+      <td class="label">Age</td>
+      <td class="label">Eyes</td>
+    </tr>
+    <tr> 
+      <td class="header">|EXP.CURRENT|</td>
+      <td class="header">|ECL|</td>
+      <td class="header">|SIZELONG|</td>
+      <td class="header">|REACH|</td>
+      <td class="header">|HEIGHT|</td>
+      <td class="header">|WEIGHT|</td>
+      <td class="header">|COLOR.HAIR|</td>
+    </tr>
+    <tr> 
+      <td class="label">XP</td>
+      <td class="label">ECL</td>
+      <td class="label">Size</td>
+      <td class="label">Reach</td>
+      <td class="label">Height</td>
+      <td class="label">Weight</td>
+            <td class="label">Hair</td>
+    </tr>
+  </table>	  
+	  
+	  </td>
+      <td width="34" background="preview/d20/fantasy/images/gold/border_right.png"><img src="preview/d20/fantasy/images/gold/deco_right.png" width="34" height="89"></td>
+    </tr>
+    <tr> 
+      <td width="30" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+      <td height="34" background="preview/d20/fantasy/images/gold/border_bottom.png"><div align="center"><img src="preview/d20/fantasy/images/gold/deco_bottom.png" width="90" height="34"></div></td>
+      <td width="34" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+    </tr>
+  </table>
+<!-- Stop Section One - Header -->
+
+<!-- Start Section Two -->
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      	<td>
+<!-- Start Abilities Table -->
+  <table width="289" height="299" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/Abilities.png" class="statCentered">
+    <tr> 
+      <td height="81" colspan="10"></td>
+    </tr>
+    <tr> 
+      <td width="74" height="30"><a href="#" onClick="roll(1,20,|STAT.0.MOD|,'Strength Check\n')"><img name="CheckHold" src="" width="72" height="28"></a></td>
+      <td width="29"><div align="center">|STAT.0.NOTEMP.NOEQUIP|</div></td>
+      <td width="29"><div align="center">|STAT.0.MOD.NOTEMP.NOEQUIP|</div></td>
+      <td width="4"></td>
+      <td width="30"><div align="center">|STAT.0|</div></td>
+      <td width="30"><div align="center">|STAT.0.MOD|</div></td>
+      <td width="4"></td>
+      <td width="29"><div align="center">|STAT.0.NOTEMP|</div></td>
+      <td width="29"><div align="center">|STAT.0.MOD.NOTEMP|</div></td>
+      <td width="31"></td>
+    </tr>
+    <tr> 
+      <td height="31"><a href="#" onClick="roll(1,20,|STAT.1.MOD|,'Dexterity Check\n')"><img name="CheckHold" src="" width="72" height="28"></a></td>
+      <td><div align="center">|STAT.1.NOTEMP.NOEQUIP|</div></td>
+      <td><div align="center">|STAT.1.MOD.NOTEMP.NOEQUIP|</div></td>
+      <td></td>
+      <td><div align="center">|STAT.1|</div></td>
+      <td><div align="center">|STAT.1.MOD|</div></td>
+      <td></td>
+      <td><div align="center">|STAT.1.NOTEMP|</div></td>
+      <td><div align="center">|STAT.1.MOD.NOTEMP|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="31"><a href="#" onClick="roll(1,20,|STAT.2.MOD|,'Constitution Check\n')"><img name="CheckHold" src="" width="72" height="28"></a></td>
+      <td><div align="center">|STAT.2.NOTEMP.NOEQUIP|</div></td>
+      <td><div align="center">|STAT.2.MOD.NOTEMP.NOEQUIP|</div></td>
+      <td></td>
+      <td><div align="center">|STAT.2|</div></td>
+      <td><div align="center">|STAT.2.MOD|</div></td>
+      <td></td>
+      <td><div align="center">|STAT.2.NOTEMP|</div></td>
+      <td><div align="center">|STAT.2.MOD.NOTEMP|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="31"><a href="#" onClick="roll(1,20,|STAT.3.MOD|,'Intelligence Check\n')"><img name="CheckHold" src="" width="72" height="28"></a></td>
+      <td><div align="center">|STAT.3.NOTEMP.NOEQUIP|</div></td>
+      <td><div align="center">|STAT.3.MOD.NOTEMP.NOEQUIP|</div></td>
+      <td></td>
+      <td><div align="center">|STAT.3|</div></td>
+      <td><div align="center">|STAT.3.MOD|</div></td>
+      <td></td>
+      <td><div align="center">|STAT.3.NOTEMP|</div></td>
+      <td><div align="center">|STAT.3.MOD.NOTEMP|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="31"><a href="#" onClick="roll(1,20,|STAT.4.MOD|,'Wisdom Check\n')"><img name="CheckHold" src="" width="72" height="28"></a></td>
+      <td><div align="center">|STAT.4.NOTEMP.NOEQUIP|</div></td>
+      <td><div align="center">|STAT.4.MOD.NOTEMP.NOEQUIP|</div></td>
+      <td></td>
+      <td><div align="center">|STAT.4|</div></td>
+      <td><div align="center">|STAT.4.MOD|</div></td>
+      <td></td>
+      <td><div align="center">|STAT.4.NOTEMP|</div></td>
+      <td><div align="center">|STAT.4.MOD.NOTEMP|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="30"><a href="#" onClick="roll(1,20,|STAT.5.MOD|,'Charisma Check\n')"><img name="CheckHold" src="" width="72" height="28"></a></td>
+      <td><div align="center">|STAT.5.NOTEMP.NOEQUIP|</div></td>
+      <td><div align="center">|STAT.5.MOD.NOTEMP.NOEQUIP|</div></td>
+      <td></td>
+      <td><div align="center">|STAT.5|</div></td>
+      <td><div align="center">|STAT.5.MOD|</div></td>
+      <td></td>
+      <td><div align="center">|STAT.5.NOTEMP|</div></td>
+      <td><div align="center">|STAT.5.MOD.NOTEMP|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td colspan="10"></td>
+    </tr>
+  </table>
+<!-- Stop Abilities Table -->	
+			
+			
+		</td>
+      	<td>
+			
+			
+<!-- Start Statistics Table -->
+  <table width="512" height="301" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/Stats.png">
+    <tr> 
+      <td height="54" colspan="17"></td>
+    </tr>
+    <tr> 
+      <td width="109" height="49"></td>
+      <td width="38" class="statCentered"><div align="center">|HP|</div></td>
+      <td width="9"></td>
+      <td width="28"></td>
+      <td width="17"></td>
+      <td colspan="11" class="statSmall">&nbsp;|VISION|</td>
+      <td width="36"></td>
+    </tr>
+    <tr> 
+      <td height="30"></td>
+      <td class="statCentered"><div align="center">|AC.Total|</div></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td width="29" class="statCentered"><div align="center">|AC.Armor|</div></td>
+      <td width="20"></td>
+      <td width="30" class="statCentered"><div align="center">|AC.Shield|</div></td>
+      <td width="22"></td>
+      <td width="29" class="statCentered"><div align="center">|AC.Ability|</div></td>
+      <td width="18"></td>
+      <td width="31" class="statCentered"><div align="center">|AC.Size|</div></td>
+      <td width="19"></td>
+      <td width="29" class="statCentered"><div align="center">|AC.NaturalArmor|</div></td>
+      <td width="19"></td>
+      <td width="29" class="statCentered"><div align="center">|AC.Misc|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="30"></td>
+      <td class="statCentered"><div align="center">|AC.Touch|</div></td>
+      <td colspan="3"></td>
+      <td colspan="11" class="statSmall">&nbsp;|DR|</td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="29"></td>
+      <td class="statCentered"><div align="center">|AC.Flatfooted|</div></td>
+      <td colspan="3"></td>
+      <td colspan="11" class="statSmall">&nbsp;|MOVEMENT|</td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="15" colspan="17"></td>
+    </tr>
+    <tr> 
+      <td height="26"></td>
+      <td class="statCentered"><div align="center">|INITIATIVEMOD|</div></td>
+      <td></td>
+      <td class="statCentered"><div align="center">|STAT.1.MOD|</div></td>
+      <td></td>
+      <td class="statCentered"><div align="center">|INITIATIVEBONUS|</div></td>
+      <td colspan="2"><a href="#" onClick="roll(1,20,|INITIATIVEMOD|,'Initiative Roll\n')"><img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></td>
+      <td colspan="7"></td>
+      <td class="statCentered"><div align="center">|ATTACK.MELEE.BASE.SHORT|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="30"></td>
+      <td class="statCentered"><div align="center">|SPELLFAILURE|</div></td>
+      <td colspan="5"></td>
+      <td class="statCentered"><div align="center">|SR|</div></td>
+      <td colspan="3"></td>
+      <td class="statCentered"><div align="center">|ACCHECK|</div></td>
+      <td colspan="3"></td>
+      <td class="statCentered"><div align="center">|MAXDEX|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="38" colspan="17"></td>
+    </tr>
+  </table>
+<!-- Stop Statistics Table -->			
+			
+		</td>
+    </tr>
+  </table>
+<!-- Stop Section Two -->
+
+<!-- Start Section Three -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="400" valign="top">
+<!-- Start Section Three - Column One -->
+<!-- Start Saving Throw Table -->
+  <table width="400" height="202" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/Saves.png" class="statCentered">
+    <tr> 
+      <td height="61" colspan="9"></td>
+    </tr>
+    <tr> 
+      <td width="49" height="36"><div align="right"><a href="#" onClick="roll(1,20,|CHECK.0.TOTAL|,'Fortitude Save\n')"><img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></div></td>
+      <td width="66"><div align="center"></div></td>
+      <td width="55"><div align="center">|CHECK.0.TOTAL|</div></td>
+      <td width="41"><div align="center">|CHECK.0.BASE|</div></td>
+      <td width="41"><div align="center">|CHECK.0.STATMOD|</div></td>
+      <td width="39"><div align="center">|CHECK.0.MAGIC|</div></td>
+      <td width="40"><div align="center">|CHECK.0.MISC.NOMAGIC.NOSTAT|</div></td>
+      <td width="40"><div align="center">|CHECK.0.EPIC|</div></td>
+      <td width="29"><div align="center"></div></td>
+    </tr>
+    <tr> 
+      <td height="35"><div align="right"><a href="#" onClick="roll(1,20,|CHECK.1.TOTAL|,'Reflex Save\n')"><img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></div></td>
+      <td><div align="center"></div></td>
+      <td><div align="center">|CHECK.1.TOTAL|</div></td>
+      <td><div align="center">|CHECK.1.BASE|</div></td>
+      <td><div align="center">|CHECK.1.STATMOD|</div></td>
+      <td><div align="center">|CHECK.1.MAGIC|</div></td>
+      <td><div align="center">|CHECK.1.MISC.NOMAGIC.NOSTAT|</div></td>
+      <td><div align="center">|CHECK.1.EPIC|</div></td>
+      <td><div align="center"></div></td>
+    </tr>
+    <tr> 
+      <td height="34"><div align="right"><a href="#" onClick="roll(1,20,|CHECK.2.TOTAL|,'Will Save\n')"><img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></div></td>
+      <td><div align="center"></div></td>
+      <td><div align="center">|CHECK.2.TOTAL|</div></td>
+      <td><div align="center">|CHECK.2.BASE|</div></td>
+      <td><div align="center">|CHECK.2.STATMOD|</div></td>
+      <td><div align="center">|CHECK.2.MAGIC|</div></td>
+      <td><div align="center">|CHECK.2.MISC.NOMAGIC.NOSTAT|</div></td>
+      <td><div align="center">|CHECK.2.EPIC|</div></td>
+      <td><div align="center"></div></td>
+    </tr>
+    <tr> 
+      <td colspan="9"></td>
+    </tr>
+  </table>
+<!-- Start Saving Throw Table -->
+
+<!-- Start Attack Tables -->
+<!-- Start Main Attack Table -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_main.png">
+    <tr> 
+      <td height="64" colspan="10"></td>
+    </tr>
+    <tr> 
+      <td width="40" height="29"><div align="center">
+	  	<a href="#" onClick="roll(1,20,|ATTACK.MELEE.TOTAL|,'Melee Attack Roll\n')">
+			<img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></div></td>
+      <td width="48"></td>
+      <td width="92" class="attackIterations"><div align="center">|ATTACK.MELEE.TOTAL|</div></td>
+      <td width="10"></td>
+      <td width="35" class="attackTables"><div align="center">|ATTACK.MELEE.BASE.SHORT|</div></td>
+      <td width="35" class="attackTables"><div align="center">|ATTACK.MELEE.STAT|</div></td>
+      <td width="36" class="attackTables"><div align="center">|ATTACK.MELEE.SIZE|</div></td>
+      <td width="35" class="attackTables"><div align="center">|ATTACK.MELEE.MISC|</div></td>
+      <td width="35" class="attackTables"><div align="center">|ATTACK.MELEE.EPIC|</div></td>
+      <td width="34"></td>
+    </tr>
+    <tr> 
+      <td height="29"><div align="center">
+	  	<a href="#" onClick="roll(1,20,|ATTACK.RANGED.TOTAL|,'Ranged Attack Roll\n')">
+			<img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></div></td>
+      <td></td>
+      <td class="attackIterations"><div align="center">|ATTACK.RANGED.TOTAL|</div></td>
+      <td></td>
+      <td class="attackTables"><div align="center">|ATTACK.RANGED.BASE.SHORT|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.RANGED.STAT|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.RANGED.SIZE|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.RANGED.MISC|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.RANGED.EPIC|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="28"><div align="center">
+	  	<a href="#" onClick="roll(1,20,|ATTACK.GRAPPLE.TOTAL.SHORT|,'Grapple Check Roll\n')">
+			<img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></div></td>
+      <td></td>
+      <td class="attackTables"><div align="center">|ATTACK.GRAPPLE.TOTAL.SHORT|</div></td>
+      <td></td>
+      <td class="attackTables"><div align="center">|ATTACK.GRAPPLE.BASE.SHORT|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.GRAPPLE.STAT|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.GRAPPLE.SIZE|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.GRAPPLE.MISC|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.GRAPPLE.EPIC|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="10" colspan="10"></td>
+    </tr>
+  </table>
+<!-- Stap Main Attack Table -->
+
+<!-- Start Unarmed Attack Table -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_unarmed.png">
+    <tr> 
+      <td height="34" colspan="6"></td>
+    </tr>
+    <tr> 
+      <td width="40" height="27"><div align="center">
+	  	<a href="#" onClick="rollAttack('|WEAPONH.TOTALHIT|','|WEAPONH.DAMAGE|','|WEAPONH.CRIT|','|WEAPONH.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></div>
+		</a>
+	  </td>
+      <td width="98"></td>
+      <td width="91" class="attackIterations"><div align="center">|WEAPONH.TOTALHIT|</div></td>
+      <td width="68" class="attackTables"><div align="center">|WEAPONH.DAMAGE|</div></td>
+      <td width="71" class="attackTables"><div align="center">|WEAPONH.CRIT|/x|WEAPONH.MULT|</div></td>
+      <td width="32"></td>
+    </tr>
+    <tr> 
+      <td height="10" colspan="6"></td>
+    </tr>
+  </table>
+<!-- Stop Unarmed Attack Table -->
+
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1| 
+|IIF(WEAPON.%weap.CATEGORY:NATURAL)|
+
+<!-- Start Natural Attack Table -->  
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_natural.png">
+    <tr> 
+      <td height="26" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td width="29" height="22"></td>
+      <td colspan="5" class="attackTables">&nbsp;|WEAPON.%weap.NAME.NOSTAR|</td>
+      <td width="41"></td>
+    </tr>
+    <tr> 
+      <td height="21"></td>
+      <td colspan="5" valign="top" class="attackTables">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TOTALHIT|','|WEAPON.%weap.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16" align="texttop"></a>
+        <font size="-2">|OIF(WEAPON.%weap.HAND:Off-Hand,Secondary,Primary)| Natural |OIF(WEAPON.%weap.CATEGORY:Ranged,Ranged,Melee)| Attack</font></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td  height="42"></td>
+      <td width="66" class="attackTables"><div align="center">|VAR.WEAPON.%weap.ATTACKS+1.INTVAL|</div></td>
+      <td width="66" class="attackTables"><div align="center">|WEAPON.%weap.TOTALHIT.0|</div></td>
+      <td width="67" class="attackTables"><div align="center">|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|</div></td>
+      <td width="66" class="attackTables"><div align="center">|WEAPON.%weap.DAMAGE|</div></td>
+      <td width="65" class="attackTables"><div align="center">|WEAPON.%weap.TYPE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      	<td colspan="7" class="sprop" background="preview/d20/fantasy/images/gold/attacks_tile.png">|WEAPON.%weap.SPROP|</td>
+    </tr>
+  </table>
+<!-- Stop Natural Attack Table -->
+
+|ELSE|
+|IIF(WEAPON.%weap.CATEGORY:BOTH)|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+
+<!-- Start Ranged Thrown Attack Table --> 
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_ranged_thrown.png">
+    <tr> 
+      <td width="66" height="27"></td>
+      <td width="60" valign="bottom" class="statSmall">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.0.TOTALHIT|','|WEAPON.%weap.RANGELIST.0.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a>
+        |WEAPON.%weap.RANGELIST.0| </td>
+      <td width="59" valign="bottom" class="statSmall">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.1.TOTALHIT|','|WEAPON.%weap.RANGELIST.1.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a>
+        |WEAPON.%weap.RANGELIST.1| </td>
+      <td width="58" valign="bottom" class="statSmall">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.2.TOTALHIT|','|WEAPON.%weap.RANGELIST.2.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a>
+        |WEAPON.%weap.RANGELIST.2| </td>
+      <td width="59" valign="bottom" class="statSmall">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.3.TOTALHIT|','|WEAPON.%weap.RANGELIST.3.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a>
+        |WEAPON.%weap.RANGELIST.3| </td>
+      <td width="60" valign="bottom" class="statSmall">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.4.TOTALHIT|','|WEAPON.%weap.RANGELIST.4.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a>
+        |WEAPON.%weap.RANGELIST.4| </td>
+      <td width="38"></td>
+    </tr>
+    <tr> 
+      <td height="23"></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.0.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.1.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.2.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.3.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.4.TOTALHIT|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="23"></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.0.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.1.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.2.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.3.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.4.DAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr height="3"> 
+      <td colspan="7"></td>
+    </tr>
+    <tr height="5" background="preview/d20/fantasy/images/gold/attacks_tile.png"> 
+      <td colspan="7" class="sprop">|WEAPON.%weap.SPROP|</td>
+    </tr>
+  </table>
+<!-- Stop Ranged Thrown Attack Table -->
+
+|ELSE|
+
+<!-- Start Thrown Melee Weapon Table -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_melee.png">
+    <tr> 
+      <td height="27" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td width="29"></td>
+      <td colspan="5" class="attackTables">&nbsp;|WEAPON.%weap.NAME|</td>
+      <td width="37"></td>
+    </tr>
+    <tr> 
+      <td height="20" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td></td>
+      <td width="58" class="attackTables"><div align="center">|WEAPON.%weap.SIZE|</div></td>
+      <td width="59" class="attackTables"><div align="center">|WEAPON.%weap.REACH| ft.</div></td>
+      <td width="58" class="attackTables"><div align="center">|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|</div></td>
+      <td width="90" class="attackTables"><div align="center">|WEAPON.%weap.HAND|</div></td>
+      <td width="69" class="attackTables"><div align="center">|WEAPON.%weap.TYPE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="19" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td height="19" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.BASEHIT|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.BASEHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="20" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.OHHIT|','|WEAPON.%weap.OHDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.OHHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.OHDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="22" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.THHIT|','|WEAPON.%weap.THDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.THHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.THDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="20" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWPHITH|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.TWPHITH|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="22" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWPHITL|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.TWPHITL|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="21" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWOHIT|','|WEAPON.%weap.OHDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.TWOHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.OHDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr height="2"> 
+      <td colspan="7"></td>
+    </tr>
+  </table>
+<!-- Stop Thrown Melee Weapon Table -->
+
+|ENDIF|
+|ELSE|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+
+<!-- Start Ranged Attack Table -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_ranged.png">
+    <tr> 
+      <td height="24" colspan="8"></td>
+    </tr>
+    <tr> 
+      <td width="27" height="22"></td>
+      <td colspan="6" class="attackTables">&nbsp;|WEAPON.%weap.NAME|</td>
+      <td width="37"></td>
+    </tr>
+    <tr height="16"> 
+      <td colspan="8"></td>
+    </tr>
+    <tr> 
+      <td height="23"></td>
+      <td width="38" class="attackTables"><div align="center">|WEAPON.%weap.SIZE|</div></td>
+      <td colspan="2" class="attackTables"><div align="center">|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|</div></td>
+      <td colspan="2" class="attackTables"><div align="center">|WEAPON.%weap.HAND|</div></td>
+      <td width="60" class="attackTables"> <div align="center">|WEAPON.%weap.TYPE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="24"></td>
+      <td></td>
+      <td width="61" valign="bottom" class="statSmall"> <a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.0.TOTALHIT|','|WEAPON.%weap.RANGELIST.0.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')"> 
+        <img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a>&nbsp;|WEAPON.%weap.RANGELIST.0|</td>
+      <td width="58" valign="bottom" class="statSmall"> <a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.1.TOTALHIT|','|WEAPON.%weap.RANGELIST.1.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')"> 
+        <img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a>&nbsp;|WEAPON.%weap.RANGELIST.1|</td>
+      <td width="58" valign="bottom" class="statSmall"> <a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.2.TOTALHIT|','|WEAPON.%weap.RANGELIST.2.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')"> 
+        <img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a>&nbsp;|WEAPON.%weap.RANGELIST.2|</td>
+      <td width="61" valign="bottom" class="statSmall"> <a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.3.TOTALHIT|','|WEAPON.%weap.RANGELIST.3.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')"> 
+        <img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a>&nbsp;|WEAPON.%weap.RANGELIST.3|</td>
+      <td valign="bottom" class="statSmall"> <a href="#" onClick="rollAttack('|WEAPON.%weap.RANGELIST.4.TOTALHIT|','|WEAPON.%weap.RANGELIST.4.DAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')"> 
+        <img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a>&nbsp;|WEAPON.%weap.RANGELIST.4|</td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="22"></td>
+      <td></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.0.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.1.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.2.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.3.TOTALHIT|</div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.RANGELIST.4.TOTALHIT|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="26"></td>
+      <td></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.0.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.1.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.2.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.3.DAMAGE|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.RANGELIST.4.DAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr height="5" background="preview/d20/fantasy/images/gold/attacks_tile.png"> 
+      <td colspan="8" class="sprop">|WEAPON.%weap.SPROP| 
+|IIF(WEAPON.%weap.CONTENTS:0)| 
+|ELSE|
+|FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0
+<br /><b>Ammunition:</b> |WEAPON.%weap.CONTENTS.%ammo|
+|IIF(WEAPON.%weap.CONTENTS.%ammo.SPROP: )|
+ (|WEAPON.%weap.CONTENTS.%ammo.SPROP|) 
+|ENDIF|
+|ENDFOR|
+|ENDIF| 
+		</td>
+    </tr>
+  </table>
+<!-- Stop Ranged Attack Table -->
+
+|ELSE|
+|IIF(WEAPON.%weap.HAND:Two-Weapons)|
+|IIF(WEAPON.%weap.ISTYPE.Double)|
+
+<!-- Start Double TWF Top Attack Table -->
+  <table width="400" height="93" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_melee_twf_top.png">
+    <tr> 
+      <td height="26" colspan="5"></td>
+    </tr>
+    <tr> 
+      <td width="32" height="21"></td>
+      <td colspan="3" class="attackTables">|WEAPON.%weap.NAME.NOSTAR|</td>
+      <td width="38"></td>
+    </tr>
+     <tr> 
+      <td height="14" colspan="5"></td>
+    </tr>
+   <tr> 
+      <td height="21"></td>
+      <td width="211"></td>
+      <td width="60" class="attackTables"><div align="center">|WEAPON.%weap.SIZE|</div></td>
+      <td width="59" class="attackTables"><div align="center">|WEAPON.%weap.REACH| ft.</div></td>
+      <td></td>
+    </tr>
+     <tr> 
+      <td height="6" colspan="4"></td>
+    </tr>
+ </table>
+<!-- Stop Double TWF Top Attack Table -->
+
+|ELSE|
+
+<!-- Start Double TWF Heads Attack Table -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_melee_twf_head|OIF(WEAPON.%weap.NAME:Head 1,1,2)|.png">
+    <tr> 
+      <td height="14" colspan="4"></td>
+    </tr>
+    <tr> 
+      <td width="146" height="19"></td>
+      <td width="148" class="attackTables"><div align="center">|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|</div></td>
+      <td width="70" class="attackTables"><div align="center">|WEAPON.%weap.TYPE|</div></td>
+      <td width="36"></td>
+    </tr>
+    <tr> 
+      <td height="15" colspan="4"></td>
+    </tr>
+    <tr> 
+      <td height="21"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.THHIT|','|WEAPON.%weap.THDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.THHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.THDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="21"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWPHITL|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.TWPHITL|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="19"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWOHIT|','|WEAPON.%weap.OHDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.TWOHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.OHDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr height="4" background="preview/d20/fantasy/images/gold/attacks_tile.png"> 
+      <td colspan="4" class="sprop">|WEAPON.%weap.SPROP|</td>
+    </tr>
+  </table>
+<!-- Stop Double TWF Heads Attack Table -->
+
+|ENDIF|
+
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.Double)|
+
+<!-- Start Double Melee Attack Table -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_melee_double.png">
+    <tr> 
+      <td height="27" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td width="28" height="21"></td>
+      <td colspan="5" class="attackTables">&nbsp;|WEAPON.%weap.NAME|</td>
+      <td width="39"></td>
+    </tr>
+    <tr> 
+      <td height="14" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td height="24"></td>
+      <td width="59" class="attackTables"><div align="center">|WEAPON.%weap.SIZE|</div></td>
+      <td width="59" class="attackTables"><div align="center">|WEAPON.%weap.REACH| ft.</div></td>
+      <td width="58" class="attackTables"><div align="center">|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|</div></td>
+      <td width="89" class="attackTables"><div align="center">|WEAPON.%weap.HAND|</div></td>
+      <td width="68" class="attackTables"><div align="center">|WEAPON.%weap.TYPE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="10" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td height="26"></td>
+      <td></td>
+      <td><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.THHIT|','|WEAPON.%weap.THDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+      <td colspan="2" class="attackIterations"><div align="center">|WEAPON.%weap.THHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.THDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr height="4"> 
+      <td  background="preview/d20/fantasy/images/gold/attacks_tile.png" colspan="7" class="sprop">|WEAPON.%weap.SPROP|</td>
+    </tr>
+  </table>
+<!-- Stop Double Melee Attack Table -->
+
+|ELSE|
+
+<!-- Start Melee Weapon Table -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_melee.png">
+    <tr> 
+      <td height="27" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td width="29"></td>
+      <td colspan="5" class="attackTables">&nbsp;|WEAPON.%weap.NAME|</td>
+      <td width="37"></td>
+    </tr>
+    <tr> 
+      <td height="20" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td></td>
+      <td width="58" class="attackTables"><div align="center">|WEAPON.%weap.SIZE|</div></td>
+      <td width="59" class="attackTables"><div align="center">|WEAPON.%weap.REACH| ft.</div></td>
+      <td width="58" class="attackTables"><div align="center">|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|</div></td>
+      <td width="90" class="attackTables"><div align="center">|WEAPON.%weap.HAND|</div></td>
+      <td width="69" class="attackTables"><div align="center">|WEAPON.%weap.TYPE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="19" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td height="19" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.BASEHIT|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.BASEHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="20" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.OHHIT|','|WEAPON.%weap.OHDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.OHHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.OHDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="22" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.THHIT|','|WEAPON.%weap.THDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.THHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.THDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="20" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWPHITH|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.TWPHITH|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="22" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWPHITL|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.TWPHITL|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="21" colspan="4"><div align="right">
+	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWOHIT|','|WEAPON.%weap.OHDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+      <td class="attackIterations"><div align="center">|WEAPON.%weap.TWOHIT|</div></td>
+      <td class="attackTables"><div align="center">|WEAPON.%weap.OHDAMAGE|</div></td>
+      <td></td>
+    </tr>
+    <tr height="4"> 
+      <td colspan="7"></td>
+    </tr>
+    <tr> 
+      <td colspan="7" background="preview/d20/fantasy/images/gold/attacks_tile.png" class="sprop">|WEAPON.%weap.SPROP|</td>
+    </tr>
+  </table>
+<!-- Stop Melee Weapon Table -->
+
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+
+<!-- Start Attack Table Footer -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td><img src="preview/d20/fantasy/images/gold/attacks_foot.png" width="400" height="42"></td>
+    </tr>
+  </table>
+<!-- Stop Attack Table Footer -->
+<!-- Stop Attack Tables -->
+
+<!-- Start All Armor Tables -->
+|IIF(AC.Armor:0.AND.AC.Shield:0)|
+|ELSE|
+|IIF(AC.Shield:0)|
+
+<!-- Start Armor Table -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/armor_1up.png">
+    <tr> 
+      <td height="58" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td width="31" height="22"></td>
+      <td colspan="5" class="attackTables">&nbsp;|ARMOR.EQUIPPED.0.NAME|</td>
+      <td width="38"></td>
+    </tr>
+    <tr> 
+      <td height="9" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td height="33"></td>
+      <td width="87" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.TYPE|</div></td>
+      <td width="67" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.TOTALAC|</div></td>
+      <td width="60" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.MAXDEX|</div></td>
+      <td width="59" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.ACCHECK|</div></td>
+      <td width="58" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.SPELLFAIL|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="5" colspan="7" class="sprop">|ARMOR.EQUIPPED.0.SPROP|</td>
+    </tr>
+  </table>
+<!-- Stop Armor Table -->
+
+|ELSE|
+|IIF(AC.Armor:0)|
+
+<!-- Start Shield Table -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/armor_1up.png">
+    <tr> 
+      <td height="58" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td width="31" height="22"></td>
+      <td colspan="5" class="attackTables">&nbsp;|ARMOR.SHIELD.EQUIPPED.0.NAME|</td>
+      <td width="38"></td>
+    </tr>
+    <tr> 
+      <td height="9" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td height="33"></td>
+      <td width="87" class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.TYPE|</div></td>
+      <td width="67" class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.TOTALAC|</div></td>
+      <td width="60" class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.MAXDEX|</div></td>
+      <td width="59" class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.ACCHECK|</div></td>
+      <td width="58" class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.SPELLFAIL|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="5" colspan="7" class="sprop">|ARMOR.SHIELD.EQUIPPED.0.SPROP|</td>
+    </tr>
+  </table>
+<!-- Stop Shield Table -->
+
+|ELSE|
+
+<!-- Start Armor and Shield Table -->
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/armor_2up.png">
+    <tr> 
+      <td height="56" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td width="30" height="23"></td>
+      <td colspan="5" class="attackTables">&nbsp;|ARMOR.EQUIPPED.0.NAME|</td>
+      <td width="38"></td>
+    </tr>
+    <tr> 
+      <td colspan="7" height="14"></td>
+    </tr>
+    <tr> 
+      <td height="23"></td>
+      <td width="89" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.TYPE|</div></td>
+      <td width="66" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.TOTALAC|</div></td>
+      <td width="61" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.MAXDEX|</div></td>
+      <td width="59" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.ACCHECK|</div></td>
+      <td width="57" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.SPELLFAIL|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td colspan="7" height="20"></td>
+    </tr>
+    <tr> 
+      <td></td>
+      <td height="20" colspan="5" class="attackTables">&nbsp;|ARMOR.SHIELD.EQUIPPED.0.NAME.NOSTAR|</td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="16" colspan="7"></td>
+    </tr>
+    <tr> 
+      <td height="22"></td>
+      <td class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.TYPE|</div></td>
+      <td class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.TOTALAC|</div></td>
+      <td class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.MAXDEX|</div></td>
+      <td class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.ACCHECK|</div></td>
+      <td class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.SPELLFAIL|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="3" colspan="7" ></td>
+    </tr>
+|IIF(ARMOR.EQUIPPED.0.SPROP: )|
+    <tr> 
+      <td height="6" colspan="7" class="sprop" background="preview/d20/fantasy/images/gold/attacks_tile.png"><b>Armor Properties: </b>|ARMOR.EQUIPPED.0.SPROP|</td>
+    </tr>
+|ENDIF|
+|IIF(ARMOR.SHIELD.EQUIPPED.0.SPROP: )|
+    <tr> 
+      <td height="6" colspan="7" class="sprop" background="preview/d20/fantasy/images/gold/attacks_tile.png"><b>Shield Properties: </b>|ARMOR.SHIELD.EQUIPPED.0.SPROP|</td>
+    </tr>
+|ENDIF|
+  </table>
+<!-- Stop Armor and Shield Table -->
+
+|ENDIF|
+|ENDIF|
+<table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="preview/d20/fantasy/images/gold/attacks_foot.png"></td>
+  </tr>
+</table>
+|ENDIF|
+<!-- Stop All Armor Tables -->
+
+<!-- Start Weight Table -->
+<table width="400" height="157" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/Weight.png">
+  <tr> 
+      
+    <td width="81" height="59"></td>
+      <td width="56"></td>
+      <td width="64"></td>
+      <td width="58"></td>
+      <td width="52"></td>
+      <td width="55"></td>
+      <td width="34"></td>
+    </tr>
+    <tr> 
+      
+    <td height="30"></td>
+      <td class="statCentered"><div align="center">|WEIGHT.LIGHT|</div></td>
+      <td></td>
+      <td class="statCentered"><div align="center">|WEIGHT.MEDIUM|</div></td>
+      <td></td>
+      <td class="statCentered"><div align="center">|WEIGHT.HEAVY|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      
+    <td height="31"></td>
+      <td class="statCentered"><div align="center">|WEIGHT.OVERHEAD|</div></td>
+      <td></td>
+      <td class="statCentered"><div align="center">|WEIGHT.OFFGROUND|</div></td>
+      <td></td>
+      <td class="statCentered"><div align="center">|WEIGHT.PUSHDRAG|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="35" colspan="7"></td>
+    </tr>
+  </table>
+<!-- Stop Weight Table -->
+	
+<!-- Stop Section Three - Column One -->
+	</td>
+    <td valign="top">
+<!-- Start Section Three - Column Two -->
+
+<!-- Start Skill Table -->
+  <table width="100%" height="49" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="125"><img src="preview/d20/fantasy/images/gold/skill_top_left.png" width="125" height="59"></td>
+      <td background="preview/d20/fantasy/images/gold/skill_top.png">&nbsp;</td>
+      <td width="91"><img src="preview/d20/fantasy/images/gold/skill_maxrank.png" width="91" height="59"></td>
+      <td width="56" valign="top" background="preview/d20/fantasy/images/gold/skill_maxrankfield.png" class="maxRank"> 
+        <div align="center">|MAXSKILLLEVEL|/|MAXCCSKILLLEVEL|</div></td>
+      <td width="41"><img src="preview/d20/fantasy/images/gold/skill_top_right.png" width="41" height="59"></td>
+    </tr>
+  </table>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td background="preview/d20/fantasy/images/gold/skill_left.png">&nbsp;</td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                  <td><img src="preview/d20/fantasy/images/gold/skill_name.png" width="77" height="21"></td>
+                  <td><div align="center"><img src="preview/d20/fantasy/images/gold/skill_stat.png" width="30" height="21"></div></td>
+                  <td></td>
+                  <td><div align="center"><img src="preview/d20/fantasy/images/gold/skill_mod.png" width="35" height="21"></div></td>
+                  <td></td>
+                  <td><div align="center"><img src="preview/d20/fantasy/images/gold/skill_ability.png" width="41" height="20"></div></td>
+                  <td></td>
+                  <td><div align="center"><img src="preview/d20/fantasy/images/gold/skill_ranks.png" width="40" height="21"></div></td>
+                  <td></td>
+                  <td><div align="center"><img src="preview/d20/fantasy/images/gold/skill_misc.png" width="33" height="21"></div></td>
+                </tr>
+|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+				<tr valign="center">
+                <td class="skills" |OIF(EVEN:%skill,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
+|IIF(SKILL.%skill.RANK==0)|
+			      <div align="left"><i>|SKILL.%skill|</i></div></td>
+|ELSE|
+			      <div align="left"><b>|SKILL.%skill|</b></div></td>
+|ENDIF|                  
+                <td class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
+                  <div align="center">
+                      |SKILL.%skill.ABILITY|
+                    </div></td>
+                  
+                <td  |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
+                  <div align="center">
+				  	<a href="#" onClick="roll(1,20,|SKILL.%skill.TOTAL|,'|SKILL.%skill| Check\n')">
+						<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
+                  
+                <td  class="skills" background="preview/d20/fantasy/images/gold/gold_tile_white.png">
+                  <div align="center">
+                      |SKILL.%skill.TOTAL|
+                    </div></td>
+                  
+                <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
+                  <div align="center">
+                      =
+                    </div></td>
+                  
+                <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
+                  <div align="center">
+                      |SKILL.%skill.ABMOD|
+                    </div></td>
+                  
+                <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
+                  <div align="center">
+                      +
+                    </div></td>
+                  
+                <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
+                  <div align="center">
+|IIF(SKILL.%skill.RANK==0)|
+|ELSE|
+                      |SKILL.%skill.RANK|
+|ENDIF|
+                    </div></td>
+                  
+                <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
+                  <div align="center">
+                      +
+                    </div></td>
+                  
+                <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
+                  <div align="center">
+                      |SKILL.%skill.MISC|
+                    </div></td>
+                </tr>
+|ENDFOR|
+              </table>
+	  </td>
+      <td background="preview/d20/fantasy/images/gold/skill_right.png">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="35"><img src="preview/d20/fantasy/images/gold/skill_bottom_left.png" width="35" height="38"></td>
+      <td background="preview/d20/fantasy/images/gold/skill_bottom.png">&nbsp;</td>
+      <td width="41"><img src="preview/d20/fantasy/images/gold/skill_bottom_right.png" width="41" height="38"></td>
+    </tr>
+  </table>
+<!-- Stop Skill Table -->
+
+<!-- Start Languages Table -->
+|FOR,%LanguageTest,STRLEN[LANGUAGES],STRLEN[LANGUAGES],1,0|
+|IIF(%LanguageTest:0)|
+|ELSE|
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="30" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+      <td height="30" background="preview/d20/fantasy/images/gold/border_top.png"><div align="center" class="title"><img src="preview/d20/fantasy/images/gold/title_languages.png" width="225" height="30"></div></td>
+      <td width="34" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+    </tr>
+    <tr> 
+      <td width="30" background="preview/d20/fantasy/images/gold/border_left.png"></td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png" class="statSmall">|LANGUAGES|</td>
+      <td width="34" background="preview/d20/fantasy/images/gold/border_right.png"></td>
+    </tr>
+    <tr> 
+      <td width="30" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+      <td height="34" background="preview/d20/fantasy/images/gold/border_bottom.png"><div align="center"><img src="preview/d20/fantasy/images/gold/deco_bottom.png" width="90" height="34"></div></td>
+      <td width="34" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+    </tr>
+  </table>
+|ENDIF|
+<!-- Stop Languages Table -->
+
+<!-- Start Feats Table -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="30" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+      <td height="30" background="preview/d20/fantasy/images/gold/border_top.png"><div align="center" class="title"><img src="preview/d20/fantasy/images/gold/title_feats.png" width="225" height="30"></div></td>
+      <td width="34" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+    </tr>
+    <tr> 
+      <td width="30" background="preview/d20/fantasy/images/gold/border_left.png"></td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+		<table width="100%" border="0" cellpadding="3" cellspacing="0" background="preview/d20/fantasy/images/gold/gold_tile_light.png">
+|FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0| 
+			<tr>
+				<td class="statSmall" |OIF(EVEN:%feat,background="preview/d20/fantasy/images/gold/gold_tile_white.png",)|><b>|FEATALL.VISIBLE.%feat|</b> ~ |FEATALL.VISIBLE.%feat.DESC|</td>
+			</tr>
+|ENDFOR|		
+		</table>
+  	</td>
+      <td width="34" background="preview/d20/fantasy/images/gold/border_right.png"></td>
+    </tr>
+    <tr> 
+      <td width="30" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+      <td height="34" background="preview/d20/fantasy/images/gold/border_bottom.png"><div align="center"><img src="preview/d20/fantasy/images/gold/deco_bottom.png" width="90" height="34"></div></td>
+      <td width="34" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+    </tr>
+  </table>
+<!-- Stop Feats Table -->
+
+<!-- Start Special Ability Table -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="30" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+      <td height="30" background="preview/d20/fantasy/images/gold/border_top.png"><div align="center" class="title"><img src="preview/d20/fantasy/images/gold/title_sa.png" width="225" height="30"></div></td>
+      <td width="34" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+    </tr>
+    <tr> 
+      <td width="30" background="preview/d20/fantasy/images/gold/border_left.png"></td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+		<table width="100%" border="0" cellpadding="3" cellspacing="0" background="preview/d20/fantasy/images/gold/gold_tile_light.png">
+|FOR,%sa,0,COUNT[SA]-1,1,0| 
+			<tr>
+				<td class="statSmall" |OIF(EVEN:%sa,background="preview/d20/fantasy/images/gold/gold_tile_white.png",)|>|SPECIALABILITY.%sa|</td>
+			</tr>
+|ENDFOR|		
+		</table>
+  	</td>
+      <td width="34" background="preview/d20/fantasy/images/gold/border_right.png"></td>
+    </tr>
+    <tr> 
+      <td width="30" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+      <td height="34" background="preview/d20/fantasy/images/gold/border_bottom.png"><div align="center"><img src="preview/d20/fantasy/images/gold/deco_bottom.png" width="90" height="34"></div></td>
+      <td width="34" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+    </tr>
+  </table>
+<!-- Stop Special Ability Table -->
+
+<!-- Start Templates Table -->
+|FOR,%TemplateTest,STRLEN[TEMPLATELIST],STRLEN[TEMPLATELIST],1,0|
+|IIF(%TemplateTest:0)|
+|ELSE|
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="30" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+      <td height="30" background="preview/d20/fantasy/images/gold/border_top.png"><div align="center" class="title"><img src="preview/d20/fantasy/images/gold/title_templates.png" width="225" height="30"></div></td>
+      <td width="34" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+    </tr>
+    <tr> 
+      <td width="30" background="preview/d20/fantasy/images/gold/border_left.png"></td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png" class="statSmall">|TEMPLATELIST|</td>
+      <td width="34" background="preview/d20/fantasy/images/gold/border_right.png"></td>
+    </tr>
+    <tr> 
+      <td width="30" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+      <td height="34" background="preview/d20/fantasy/images/gold/border_bottom.png"><div align="center"><img src="preview/d20/fantasy/images/gold/deco_bottom.png" width="90" height="34"></div></td>
+      <td width="34" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+    </tr>
+  </table>
+|ENDIF|
+<!-- Stop Templates Table -->
+
+<!-- Start Weapon Prof Table -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="30" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+      <td height="30" background="preview/d20/fantasy/images/gold/border_top.png"><div align="center" class="title"><img src="preview/d20/fantasy/images/gold/title_weaponprof.png" width="225" height="30"></div></td>
+      <td width="34" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+    </tr>
+    <tr> 
+      <td width="30" background="preview/d20/fantasy/images/gold/border_left.png"></td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png" class="statSmall">|WEAPONPROFS|</td>
+      <td width="34" background="preview/d20/fantasy/images/gold/border_right.png"></td>
+    </tr>
+    <tr> 
+      <td width="30" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+      <td height="34" background="preview/d20/fantasy/images/gold/border_bottom.png"><div align="center"><img src="preview/d20/fantasy/images/gold/deco_bottom.png" width="90" height="34"></div></td>
+      <td width="34" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+    </tr>
+  </table>
+<!-- Stop Weapon Prof Table -->
+	
+<!-- Stop Section Three - Column Two -->
+	</td>
+  </tr>
+</table>
+<!-- Stop Section Three -->
+
+<!-- Start Equipment Table -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td width="37"><img src="preview/d20/fantasy/images/gold/equipment_top_left.png" width="37" height="66"></td>
+      <td background="preview/d20/fantasy/images/gold/equipment_top.png"><img src="preview/d20/fantasy/images/gold/equipment_title.png" width="156" height="66"></td>  
+      <td width="46"><img src="preview/d20/fantasy/images/gold/equipment_top_right.png" width="46" height="66"></td>
+  </tr>
+  <tr>
+      <td background="preview/d20/fantasy/images/gold/equipment_left.png"></td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td background="preview/d20/fantasy/images/gold/gold_tile.png" height="11"><img src="preview/d20/fantasy/images/gold/equipment_label_name.png" width="26" height="11"></td>
+            <td background="preview/d20/fantasy/images/gold/gold_tile.png"><div align="center"><img src="preview/d20/fantasy/images/gold/equipment_label_location.png" width="57" height="11"></div></td>
+            <td background="preview/d20/fantasy/images/gold/gold_tile.png"><div align="center"><img src="preview/d20/fantasy/images/gold/equipment_label_quantity.png" width="52" height="11"></div></td>
+            <td background="preview/d20/fantasy/images/gold/gold_tile.png"><div align="center"><img src="preview/d20/fantasy/images/gold/equipment_label_weight.png" width="43" height="11"></div></td>
+            <td background="preview/d20/fantasy/images/gold/gold_tile.png"><div align="center"><img src="preview/d20/fantasy/images/gold/equipment_label_cost.png" width="30" height="11"></div></td>
+          </tr>
+|FOR,%equip1,0,(COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1),1,0|
+		  <tr>
+            <td class="statSmall" |OIF(EVEN:%equip1,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|EQ.Not.Coin.NOT.Gem.%equip1.NAME.MAGIC~<b>~</b>|
+|IIF(EQ.Not.Coin.NOT.Gem.%equip1.SPROP: )|
+        <br /><span class="equipProperty">(|EQ.Not.Coin.NOT.Gem.%equip1.SPROP|)</span> 
+|ENDIF| 
+
+|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE: )|
+        <br /><span class="equipProperty">(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE|)</span>
+|ENDIF|
+		  </td>
+            <td class="statSmall" |OIF(EVEN:%equip1,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="center">|EQ.Not.Coin.NOT.Gem.%equip1.LOCATION|</div></td>
+            <td class="statSmall" |OIF(EVEN:%equip1,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="center">|EQ.Not.Coin.NOT.Gem.%equip1.QTY|</div></td>
+            <td class="statSmall" |OIF(EVEN:%equip1,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="center">|EQ.Not.Coin.NOT.Gem.%equip1.WT| lbs.</div></td>
+            <td class="statSmall" |OIF(EVEN:%equip1,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="center">|EQ.Not.Coin.NOT.Gem.%equip1.COST| gp</div></td>
+          </tr>
+|ENDFOR|
+		  <tr>
+            <td height="10" colspan="5"></td>
+		  </tr>
+		  <tr>
+            <td colspan="5" align="right" valign="bottom"  class="statSmall">
+				Total Weight: <b>|TOTAL.WEIGHT|</b>, Total Value: <b>|TOTAL.VALUE|</b></td>
+          </tr>
+	</table>	
+	  
+	  
+	  </td>
+      <td background="preview/d20/fantasy/images/gold/equipment_right.png"></td>
+  </tr>
+  <tr>
+      <td><img src="preview/d20/fantasy/images/gold/equipment_bottom_left.png" width="37" height="44"></td>
+      <td background="preview/d20/fantasy/images/gold/equipment_bottom.png"></td>
+      <td><img src="preview/d20/fantasy/images/gold/equipment_bottom_right.png" width="46" height="44"></td>
+  </tr>
+</table>
+<!-- Stop Equipment Table -->
+
+</body>
+</html>
