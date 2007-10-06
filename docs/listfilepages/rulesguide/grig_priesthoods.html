@@ -31,7 +31,9 @@
 	<p class="indent1"><code><a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE<a>, 
   		<a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
   		<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT">PREFEAT</a>, 
-  		<a href="../datafilestagpages/datafilesdeities.html#DOMAINS">DOMAINS</a>, 
+  		<a href="../datafilestagpages/datafilesdeities.html#DOMAINS">DOMAINS</a>,
+  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREMULT|">PREMULT</a>, 
+  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT|">PREFEAT</a>, 
   		<a href="../globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT</a></code></p>
 
 <hr>
@@ -52,24 +54,57 @@
 	<h3>Feat File Entry</h3>
 
 	<blockquote class="indent2">
-		<p><strong>Tag Used:</strong> <code><tag used></code></p>
-		<p><strong>What it does:</strong></p>
-		<p class="indent1">Explanation of what the tags does.</p>
-		<p><strong>Example:</strong></p>
-		<p class="indent1"><code>Tag Usage Sample</code></p>
-		<p class="indent2">Explanation of specific usage.</p>
+		<p class="indent0"><strong>Tag Used:</strong> <code>VISIBLE:EXPORT</code></p>
+		<p class="indent1"><strong>What it does:</strong> Hides the feat name from PCGen but displays it on the character sheet.</p>
+	</blockquote>
+
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>TYPE:Priesthood</code></p>
+		<p class="indent1"><strong>What it does:</strong> This sets the TYPE of the associated priesthood 
+		feat as &quot;Prisethood&quot;.</p>
+	</blockquote>
+
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>!PREFEAT:1,TYPE=Priesthood</code></p>
+		<p class="indent1"><strong>What it does:</strong>  Sets a feat requirement of not already having a 
+		priesthood feat before granting the associated priesthood feat.</p>
 	</blockquote>
 
 	<h3>Deity File Entry</h3>
 
 	<blockquote class="indent2">
-		<p><strong>Tag Used:</strong> <code><tag used></code></p>
-		<p><strong>What it does:</strong></p>
-		<p class="indent1">Explanation of what the tags does.</p>
-		<p><strong>Example:</strong></p>
-		<p class="indent1"><code>Tag Usage Sample</code></p>
-		<p class="indent2">Explanation of specific usage.</p>
+		<p class="indent0"><strong>Tag Used:</strong> <code>DOMAINS:x,x|PREMULT:1,[PREFEAT:1,y],[PREFEAT:1,y]</code></p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Domain name being granted.)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong>Text (Priesthood feat name required. 
+		See priesthood feat list above.)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This is a comma-delimited list of domains that the deity grants to the members pf it's various priesthoods.</li>
+			<li>The domain name MUST match the domain names listed in the domain list file.</li>
+        	<li>The PREMULT tag has been added at the end of the DOMAINS tag to apply restrictions 
+        	on which priesthoods are allowed to select the domain.</li>
+			<li>Multiple DOMAINS tags may be present for a deity. They will all add to the list of the deity's domains.</li>
+	</ul>
 	</blockquote>
+
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>PREMULT:1,[PREFEAT:1,x],[PREFEAT:1,y]</code></p>
+		<p class="indent1"><strong>What it does:</strong> </p>
+	</blockquote>
+
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>PREFEAT:1,x</code></p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Name of priesthood.  See Feat File Entry above.)
+		<p class="indent1"><strong>What it does:</strong> Sets a feat requirement for the PREMULT 
+		tag as requirements for domains being granted.</p>
+	</blockquote>
+
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey,<il><br>
+		<il class="indent4">Priesthood of the Doc Monkey,Priesthood of the Monkey</code></p>
+		<p class="indent1"><strong>What it does:</strong> Will give the character a choice of one of the four priesthood feats listed.</p>
+	</blockquote>
+	<p></p>
 
 <hr>
 
@@ -79,7 +114,7 @@
 	<p class="indent1">Feat File: Priesthoods of the &quot;Code&quot;, &quot;Data&quot;, and &quot;Doc&quot; Monkeys</p>
 	<p class="indent2"><code>
 		<il>Priesthood of the Code Monkey</il><br>
-		<il>VISIBLE:NO</il><br>
+		<il>VISIBLE:EXPORT</il><br>
 		<il>TYPE:Priesthood</il><br>
 		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
 		<il>(Additional powers/abilities can be added here as desired.)</il>
@@ -87,7 +122,7 @@
 	<p></p>
 	<p class="indent2"><code>
 		<il>Priesthood of the Data Monkey</il><br>
-		<il>VISIBLE:NO</il><br>
+		<il>VISIBLE:EXPORT</il><br>
 		<il>TYPE:Priesthood</il><br>
 		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
 		<il>(Additional powers/abilities can be added here as desired.)</il>
@@ -95,7 +130,7 @@
 	<p></p>
 	<p class="indent2"><code>
 		<il>Priesthood of the Doc Monkey</il><br>
-		<il>VISIBLE:NO</il><br>
+		<il>VISIBLE:EXPORT</il><br>
 		<il>TYPE:Priesthood</il><br>
 		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
 		<il>(Additional powers/abilities can be added here as desired.)</il>
@@ -103,7 +138,7 @@
 	<p></p>
 	<p class="indent2"><code>
 		<il>Priesthood of the Monkey</il><br>
-		<il>VISIBLE:NO</il><br>
+		<il>VISIBLE:EXPORT</il><br>
 		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
 		<il>(Additional powers/abilities can be added here as desired.)</il>
 	</p>
