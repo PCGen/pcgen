@@ -24,34 +24,55 @@
 
 	<h2>Multiple Priesthoods per Deity</h2>
 		
-	<p class="indent0"><strong>Rule Description:</strong> Deities may have more than one &quot;Priesthood&quot;, each with their own powers and abilities.</p>
+	<p class="indent0"><strong>Rule Description:</strong> Deities may have more than one 
+	&quot;Priesthood&quot;, each with their own powers and abilities granted through the 
+	different domains available to each priesthood.</p>
 	<p class="indent0"><strong>PCGen Version:</strong> 5.12.x to Current.</p>
-	<p class="indent0"><strong>File(s) Covered:</strong> feat.lst, and deity.lst</p>
+	<p class="indent0"><strong>Gamemode/Dataset:</strong> 35e/RSRD Complete</p>
+	<p class="indent0"><strong>File(s) Covered:</strong> <em>feat.lst</em>, and <em>deity.lst</em></p>
+
+<hr>
+
+	<h2>Implementation Discussion</h2>
+
+	<p>In this section we will discuss only those LST tag elements specific to this rules implementation.  
+	For more general information on the associated tags, please visit the LST Tag section of the 
+	PCGen Documentation.</p>
+		
 	<p class="indent0"><strong>Tags used:</strong></p>
 	<p class="indent1"><code><a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE<a>, 
   		<a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
   		<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT">PREFEAT</a>, 
   		<a href="../datafilestagpages/datafilesdeities.html#DOMAINS">DOMAINS</a>,
   		<a href="../globalfilestagpages/globalfilesprexxx.html#PREMULT|">PREMULT</a>, 
-  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT|">PREFEAT</a>, 
   		<a href="../globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT</a></code></p>
 
-<hr>
-
-	<h2>Implementation Discussion</h2>
-
-	<p>In this section we will discuss only those lst tag elements specific to this rules implementation.  
-	For more general information on the associated tags, please visit the LST Tag section of the 
-	PCGen Documentation.</p>
-		
 	<p>Implementing &quot;Priesthoods&quot; for deities requires entries in two lst files. These will be 
-	entries for the priesthood feats, in the feat.lst file, where specific powers and abilities unique to 
-	the priesthood are granted, and the &quot;Deity&quot; entry, in the deity.lst file, where the 
-	preisthood feats are selected and applied.</P>
+	entries for the priesthood feats, four total, in the <em>feat.lst</em> file, and the &quot;Deity&quot; 
+	entry, in the <em>deity.lst</em> file, where the priesthood feats are selected and applied. It is through 
+	the selection and application of these feats that the various &quot;domains&quot; are made avaiable, and 
+	it is through these domains that the powers and abilities that differentiate each of a Deity's priesthoods 
+	from the others are granted.</p>
+	
+	<p>To help you better understand these entries, we will be using a fictitious deity called the 
+	&quot;The Monkey God&quot; who has four priesthoods, each with their own selection of domains. These 
+	priesthoods, and the domains they have access to, are listed below:</p>
+	<p class="indent1">Priesthood of Code Monkey - Domains of Knowledge, Madness, Creation, and Magic.</il><br>
+	<il>Priesthood of Data Monkey - Domains of Knowledge, Madness, Creation, and Artifice.</il><br>
+	<il>Priesthood of Doc Monkey - Domains of Knowledge, Madness, Artifice, and Magic.</il><br>
+	<il>Priesthood of the Monkey - Domains of Knowledge and Madness.</p>
 
-	<p>We will discuss below each of these entries and how they work:</p>
+	<p>We will discuss each of these entries required to implement these priesthoods below as well as 
+	the tags that make them work.</p>
 
 	<h3>Feat File Entry</h3>
+
+	<p class="indent1">The specific feat entries in the <em>feat.lst</em> file are made one per line 
+	and begin with the name of the feat.  Our feats are called &quot;Priesthood of the Code Monkey&quot;, 
+	&quot;Priesthood of the Data Monkey&quot;, &quot;Priesthood of the Doc Monkey&quot;, and the generic 
+	&quot;Priesthood of the Monkey&quot;. For this rules implementation these feats are used to simply 
+	identify which &quot;priesthood&quot; the character belongs to. The tags used to do this are explained below:</p>
+	<p> </p>
 
 	<blockquote class="indent2">
 		<p class="indent0"><strong>Tag Used:</strong> <code>VISIBLE:EXPORT</code></p>
@@ -70,7 +91,18 @@
 		priesthood feat before granting the associated priesthood feat.</p>
 	</blockquote>
 
+	<p class="indent1">You will find the completed <a href="#FEATS">Priesthood Feats</a> below.</p>
+
 	<h3>Deity File Entry</h3>
+
+	<p class="indent1">Now that we have created the priesthood feats, we can concentrate on &quot;The Monkey God&quot;, and for </p>
+	<p> </p>
+
+	<blockquote class="indent2">
+		<p class="indent0"><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey,<il><br>
+		<il class="indent4">Priesthood of the Doc Monkey,Priesthood of the Monkey</code></p>
+		<p class="indent1"><strong>What it does:</strong> Will give the character a choice of one of the four priesthood feats listed.</p>
+	</blockquote>
 
 	<blockquote class="indent2">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DOMAINS:x,x|PREMULT:1,[PREFEAT:1,y],[PREFEAT:1,y]</code></p>
@@ -84,7 +116,7 @@
         	<li>The PREMULT tag has been added at the end of the DOMAINS tag to apply restrictions 
         	on which priesthoods are allowed to select the domain.</li>
 			<li>Multiple DOMAINS tags may be present for a deity. They will all add to the list of the deity's domains.</li>
-	</ul>
+		</ul>
 	</blockquote>
 
 	<blockquote class="indent2">
@@ -98,12 +130,6 @@
 		<p class="indent1"><strong>What it does:</strong> Sets a feat requirement for the PREMULT 
 		tag as requirements for domains being granted.</p>
 	</blockquote>
-
-	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey,<il><br>
-		<il class="indent4">Priesthood of the Doc Monkey,Priesthood of the Monkey</code></p>
-		<p class="indent1"><strong>What it does:</strong> Will give the character a choice of one of the four priesthood feats listed.</p>
-	</blockquote>
 	<p></p>
 
 <hr>
@@ -111,13 +137,13 @@
 	<h3>LST File Entry Examples</h3>
 
 	<p>These examples .</p>
+	<a name="FEATS"></a>
 	<p class="indent1">Feat File: Priesthoods of the &quot;Code&quot;, &quot;Data&quot;, and &quot;Doc&quot; Monkeys</p>
 	<p class="indent2"><code>
 		<il>Priesthood of the Code Monkey</il><br>
 		<il>VISIBLE:EXPORT</il><br>
 		<il>TYPE:Priesthood</il><br>
 		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
-		<il>(Additional powers/abilities can be added here as desired.)</il>
 	</p>
 	<p></p>
 	<p class="indent2"><code>
@@ -125,7 +151,6 @@
 		<il>VISIBLE:EXPORT</il><br>
 		<il>TYPE:Priesthood</il><br>
 		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
-		<il>(Additional powers/abilities can be added here as desired.)</il>
 	</p>
 	<p></p>
 	<p class="indent2"><code>
@@ -133,20 +158,19 @@
 		<il>VISIBLE:EXPORT</il><br>
 		<il>TYPE:Priesthood</il><br>
 		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
-		<il>(Additional powers/abilities can be added here as desired.)</il>
 	</p>
 	<p></p>
 	<p class="indent2"><code>
 		<il>Priesthood of the Monkey</il><br>
 		<il>VISIBLE:EXPORT</il><br>
 		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
-		<il>(Additional powers/abilities can be added here as desired.)</il>
 	</p>
 	</code></p>
 
+	<a name="DEITY"></a>
 	<p class="indent1">Deity File: &quot;Monkey God&quot;</p>
 	<p class="indent2"><code>
-		<il>Monkey God</il></il><br>
+		<il>The Monkey God</il></il><br>
 		<il>ALIGN:TN</il><br>
 		<il>PREALIGN:NG,LN,TN,CN,NE</il><br>
 		<il>DEITYWEAP:Pile of Poo</il><br>
@@ -164,6 +188,10 @@
 		<il class="indent1">Priesthood of the Doc Monkey,Priesthood of the Monkey</il></code><br></code>
 		<il>etc.</il><br>
 	</p>
+
+<hr>
+
+	<h3>Variations on a Theme: Implementing Other Powers and Abilities</h3>
 
 
 <hr>

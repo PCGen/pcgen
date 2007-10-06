@@ -27,7 +27,17 @@
 	<p class="indent0"><strong>Rule Description:</strong> The granting of &quot;Negative 
 	Levels&quot; to characters by equipment.</p>
 	<p class="indent0"><strong>PCGen Version:</strong> 5.8.x to current.</p>
+	<p class="indent0"><strong>Gamemode/Dataset:</strong> 35e/RSRD Complete</p>
 	<p class="indent0"><strong>File(s) Covered:</strong> equipment.lst and feat.lst</p>
+
+<hr>
+
+	<h2>Implementation Discussion</h2>
+	
+	<p>In this section we will discuss only those lst tag elements specific to this rules implementation.  
+	For more general information on the associated tags, please visit the LST Tag section of the 
+	PCGen Documentation.</p>
+		
 	<p class="indent0"><strong>Tags Used:</strong></p>
 	<p class="indent1"><code><a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
   		<a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE</a>,
@@ -40,22 +50,14 @@
   		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a>
   		<a href="../globalfilestagpages/globalfilesprexxx.html">PRExxx</a></code></p>
 
-<hr>
-
-	<h2>Implementation Discussion</h2>
-	
-	<p>In this section we will discuss only those lst tag elements specific to this rules implementation.  
-	For more general information on the associated tags, please visit the LST Tag section of the 
-	PCGen Documentation.</p>
-		
 	<p class="indent1">NOTE: This game rule has been incorporated in the SRD, RSRD, MSRD, and several 
 	other datasets currently in distribution.</p>
 
 	<p>Implementing the ability for an item to grant &quot;Negative Levels&quot; requires two specific 
-	LST entries. These are a feat.lst entry titled &quot;Negative Levels&quot; and a specifc application 
-	of this feat in the appropriate item entry in the equipment.lst file. We discuss these entries in 
-	more detail below. To help you better understand these entries, we will be using the &quot;Demon 
-	Armor&quot; out of the RSRD.</p>
+	LST entries. These are a <em>feat.lst</em> entry titled &quot;Negative Levels&quot; and a specifc 
+	application of this feat in the appropriate item entry in the <em>equipment.lst</em> file. We discuss 
+	these entries in more detail below. To help you better understand these entries, we will be using the 
+	&quot;Demon Armor&quot; out of the <strong>RSRD</strong>.</p>
 
 	<h3>Feat File Entry</h3>
 	
@@ -63,11 +65,13 @@
 	and will provide all of the penalties, or enhancments, required when a negative level is applied.  
 	The penalties, in this case, include a reduction to &quot;Fortitude&quot;, &quot;Reflex&quot;, and 
 	&quot;Will&quot; checks, the reduction of the characters &quot;To Hit&quot; bonus, and a reduction 
-	in skill bonuses across the board.  </p>
+	in skill bonuses across the board. The tags used are explained below:</p>
+	<p> </p>
 
 	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Used:</strong> <code>SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell 
-		level castable)|NegLevels|NegLevels|NegLevels</code></p>
+		<p class="indent0"><strong>Tag Used:</strong> <code>SA:% negative level(s) (-% effective level(s) and loses </il><br>
+		<il class="indent4">access to % spell(s) from the highest spell level </il><br>
+		<il class="indent4">castable)|NegLevels|NegLevels|NegLevels</il></code></p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This grants the character &quot;negative levels&quot; as a Special Ability that will get 
