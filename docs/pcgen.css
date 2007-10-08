@@ -6,7 +6,10 @@ code {
 	font-family: "Courier New", Courier, mono;
 	font-size: 10pt;
 }
-h1 {
+dd	{
+	margin-bottom: 10px;
+}
+h1	{
 	font-size: 18pt;
 	text-decoration: underline;
 	font-weight: bold;
