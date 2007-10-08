@@ -15,14 +15,14 @@
 		Provides information on specific rules implamentation in the LST files.
 	-->
 <head>
-	<title>Game Rules Guide</title>
+	<title>Game Rules Implementation Guide</title>
 	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 	
 <body>
 
-	<h2>Priesthoods </h2>
+	<h1>Priesthoods</h1>
 		
 	<p class="indent0"><strong>Rule Description:</strong> Deities may have more than one 
 	&quot;Priesthood&quot;, each with their own powers and abilities granted through the 
@@ -39,10 +39,13 @@
 		<a href="../globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT</a>, 
   		<a href="../datafilestagpages/datafilesdeities.html#DOMAINS">DOMAINS</a></code></p>
 
-	<p>In this section we will discuss only those LST tag elements specific to this rules implementation.  
-	For more general information on the associated tags, please visit the LST Tag section of the 
-	PCGen Documentation.</p>
-		
+	<blockquote>
+		<p>NOTE: In this section we will discuss only those LST tags specific to this implementation.  
+		For more general information on the associated tags, please visit the 
+		<a href="../../navlistindex.html" target="navigation">LST File Tag Index</a> section of the 
+		PCGen Documentation.</p>
+	</blockquote>
+
 <hr>
 
 	<h2>Implementation Discussion</h2>
@@ -50,7 +53,7 @@
 	<p>Implementing &quot;Priesthoods&quot; for deities requires entries in two lst files. These will be 
 	entries for the priesthood feats, four total, in the <em>feat.lst</em> file, and the &quot;Deity&quot; 
 	entry, in the <em>deity.lst</em> file, where the priesthood feats are selected and applied. It is through 
-	the selection and application of these feats that the various &quot;domains&quot; are made avaiable, and 
+	the selection and application of these feats that the various &quot;domains&quot; are made available, and 
 	it is through these domains that the powers and abilities that differentiate each of a Deity's priesthoods 
 	from the others are granted.</p>
 	
@@ -139,6 +142,8 @@
 		tag granting domains to the deities clerics.</p>
 	</blockquote>
 	<p></p>
+
+	<p class="indent1">You will find the completed <a href="#DEITY">Deity</a> below.</p>
 
 <hr>
 
