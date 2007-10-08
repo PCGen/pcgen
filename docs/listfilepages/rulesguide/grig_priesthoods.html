@@ -22,7 +22,7 @@
 	
 <body>
 
-	<h2>Multiple Priesthoods per Deity</h2>
+	<h2>Priesthoods </h2>
 		
 	<p class="indent0"><strong>Rule Description:</strong> Deities may have more than one 
 	&quot;Priesthood&quot;, each with their own powers and abilities granted through the 
@@ -31,21 +31,21 @@
 	<p class="indent0"><strong>Gamemode/Dataset:</strong> 35e/RSRD Complete</p>
 	<p class="indent0"><strong>File(s) Covered:</strong> <em>feat.lst</em>, and <em>deity.lst</em></p>
 
-<hr>
-
-	<h2>Implementation Discussion</h2>
+	<p class="indent0"><strong>Tags Used</em>:</strong></p>
+	<p class="indent1"><code><a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE</a>, 
+  		<a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>, 
+  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREMULT">PREMULT</a>, 
+  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT">PREFEAT</a>,
+		<a href="../globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT</a>, 
+  		<a href="../datafilestagpages/datafilesdeities.html#DOMAINS">DOMAINS</a></code></p>
 
 	<p>In this section we will discuss only those LST tag elements specific to this rules implementation.  
 	For more general information on the associated tags, please visit the LST Tag section of the 
 	PCGen Documentation.</p>
 		
-	<p class="indent0"><strong>Tags used:</strong></p>
-	<p class="indent1"><code><a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE<a>, 
-  		<a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
-  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT">PREFEAT</a>, 
-  		<a href="../datafilestagpages/datafilesdeities.html#DOMAINS">DOMAINS</a>,
-  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREMULT|">PREMULT</a>, 
-  		<a href="../globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT</a></code></p>
+<hr>
+
+	<h2>Implementation Discussion</h2>
 
 	<p>Implementing &quot;Priesthoods&quot; for deities requires entries in two lst files. These will be 
 	entries for the priesthood feats, four total, in the <em>feat.lst</em> file, and the &quot;Deity&quot; 
@@ -86,9 +86,23 @@
 	</blockquote>
 
 	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Used:</strong> <code>!PREFEAT:1,TYPE=Priesthood</code></p>
-		<p class="indent1"><strong>What it does:</strong>  Sets a feat requirement of not already having a 
-		priesthood feat before granting the associated priesthood feat.</p>
+		<p class="indent0"><strong>Tag Used:</strong> <code>PREMULT:1,[!PREFEAT:TYPE=Priesthood],[PREFEAT:1,x]</code></p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Priesthood being granted.)</p>
+		<p class="indent1"><strong>What it does:</strong>  Sets a feat requirement of already having the associated feat OR 
+		having no priesthood feats at all.</p>
+	</blockquote>
+
+	<blockquote class="indent3">
+		<p class="indent0"><strong>Sub-Tag Used:</strong> <code>!PREFEAT:1,TYPE=Priesthood</code></p>
+		<p class="indent1"><strong>What it does:</strong>  Used as part of the PREMULT tag above to set a feat 
+		requirement of not already having a priesthood feat.</p>
+	</blockquote>
+
+	<blockquote class="indent3">
+		<p class="indent0"><strong>Sub-Tag Used:</strong> <code>PREFEAT:1,x</code></p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Priesthood)</p>
+		<p class="indent1"><strong>What it does:</strong>  Used as part of the PREMULT tag above to set a feat 
+		requirement of already having the associated priesthood feat.</p>
 	</blockquote>
 
 	<p class="indent1">You will find the completed <a href="#FEATS">Priesthood Feats</a> below.</p>
@@ -105,30 +119,24 @@
 	</blockquote>
 
 	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Used:</strong> <code>DOMAINS:x,x|PREMULT:1,[PREFEAT:1,y],[PREFEAT:1,y]</code></p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Domain name being granted.)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong>Text (Priesthood feat name required. 
-		See priesthood feat list above.)</p>
+		<p class="indent0"><strong>Tag Used:</strong> <code>DOMAINS:x,x|PREFEAT:1,y,y</code></p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Domain being granted.)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong>Text (Required priesthood. See priesthood feat list above.)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This is a comma-delimited list of domains that the deity grants to the members pf it's various priesthoods.</li>
 			<li>The domain name MUST match the domain names listed in the domain list file.</li>
-        	<li>The PREMULT tag has been added at the end of the DOMAINS tag to apply restrictions 
-        	on which priesthoods are allowed to select the domain.</li>
+        	<li>The PREFEAT tag has been added at the end of the DOMAINS tag to apply restrictions 
+        	on which domains are allowed for the priedthood selected in the ADD:FEAT tag.</li>
 			<li>Multiple DOMAINS tags may be present for a deity. They will all add to the list of the deity's domains.</li>
 		</ul>
 	</blockquote>
 
-	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Used:</strong> <code>PREMULT:1,[PREFEAT:1,x],[PREFEAT:1,y]</code></p>
-		<p class="indent1"><strong>What it does:</strong> </p>
-	</blockquote>
-
-	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Used:</strong> <code>PREFEAT:1,x</code></p>
+	<blockquote class="indent3">
+		<p class="indent0"><strong>Sub-Tag Used:</strong> <code>PREFEAT:1,x,x</code></p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Text (Name of priesthood.  See Feat File Entry above.)
-		<p class="indent1"><strong>What it does:</strong> Sets a feat requirement for the PREMULT 
-		tag as requirements for domains being granted.</p>
+		<p class="indent1"><strong>What it does:</strong> Sets a feat requirement for the DOMAINS 
+		tag granting domains to the deities clerics.</p>
 	</blockquote>
 	<p></p>
 
@@ -143,27 +151,27 @@
 		<il>Priesthood of the Code Monkey</il><br>
 		<il>VISIBLE:EXPORT</il><br>
 		<il>TYPE:Priesthood</il><br>
-		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
+		<il>PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Code Monkey]</il></code><br>
 	</p>
 	<p></p>
 	<p class="indent2"><code>
 		<il>Priesthood of the Data Monkey</il><br>
 		<il>VISIBLE:EXPORT</il><br>
 		<il>TYPE:Priesthood</il><br>
-		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
+		<il>PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Data Monkey]</il></code><br>
 	</p>
 	<p></p>
 	<p class="indent2"><code>
 		<il>Priesthood of the Doc Monkey</il><br>
 		<il>VISIBLE:EXPORT</il><br>
 		<il>TYPE:Priesthood</il><br>
-		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
+		<il>PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Doc Monkey]</il></code><br>
 	</p>
 	<p></p>
 	<p class="indent2"><code>
 		<il>Priesthood of the Monkey</il><br>
 		<il>VISIBLE:EXPORT</il><br>
-		<il>!PREFEAT:1,TYPE=Priesthood</il></code><br>
+		<il>PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Monkey]</il></code><br>
 	</p>
 	</code></p>
 
@@ -175,15 +183,9 @@
 		<il>PREALIGN:NG,LN,TN,CN,NE</il><br>
 		<il>DEITYWEAP:Pile of Poo</il><br>
 		<code><il>DOMAINS:Knowledge,Madness</il><br>
-		<il>DOMAINS:Creation|PREMULT:1,</il><br>
-		<il class="indent1">[PREFEAT:1,Priesthood of the Code Monkey],</il><br>
-		<il class="indent1">[PREFEAT:1,Priesthood of the Data Monkey]</il><br>
-		<il>DOMAINS:Artifice|PREMULT:1,</il><br>
-		<il class="indent1">[PREFEAT:1,Priesthood of the Data Monkey],</il><br>
-		<il class="indent1">[PREFEAT:1,Priesthood of the Doc Monkey]</il><br>
-		<il>DOMAINS:Magic|PREMULT:1,</il><br>
-		<il class="indent1">[PREFEAT:1,Priesthood of the Code Monkey],</il><br>
-		<il class="indent1">[PREFEAT:1,Priesthood of the Doc Monkey]</il><br>
+		<il>DOMAINS:Creation|PREFEAT:1,Priesthood of the Code Monkey,Priesthood of the Data Monkey</il><br>
+		<il>DOMAINS:Artifice|PREFEAT:1,Priesthood of the Data Monkey,Priesthood of the Doc Monkey</il><br>
+		<il>DOMAINS:Magic|PREFEAT:1,Priesthood of the Code Monkey],Priesthood of the Doc Monkey</il><br>
 		<il>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey,</il><br>
 		<il class="indent1">Priesthood of the Doc Monkey,Priesthood of the Monkey</il></code><br></code>
 		<il>etc.</il><br>
