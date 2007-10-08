@@ -105,7 +105,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 				1);
 		List<SpecialAbility> list =
 				object.getSafeListFor(ListKey.SPECIAL_ABILITY);
-		assertEquals(1, list.size());
+		assertEquals("Incorrect size of special ability list.", 1, list.size());
 		list.get(0);
 	}
 
