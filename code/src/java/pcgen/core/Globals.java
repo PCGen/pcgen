@@ -967,7 +967,16 @@ public final class Globals
 	 */
 	public static Iterator<Categorisable> getAbilityKeyIterator (String aCategory)
 	{
-		return abilityStore.getKeyIterator(aCategory);
+		String catKey = aCategory;
+		if (!aCategory.equals("ALL"))
+		{
+			AbilityCategory cat = AbilityUtilities.getAbilityCategory(aCategory);
+			if (cat != null)
+			{
+				catKey = cat.getAbilityCategory();
+			}
+		}
+		return abilityStore.getKeyIterator(catKey);
 	}
 
 	/**
@@ -979,7 +988,16 @@ public final class Globals
 	 */
 	public static Iterator<? extends Categorisable> getAbilityNameIterator (String aCategory)
 	{
-		return abilityStore.getNameIterator(aCategory);
+		String catKey = aCategory;
+		if (!aCategory.equals("ALL"))
+		{
+			AbilityCategory cat = AbilityUtilities.getAbilityCategory(aCategory);
+			if (cat != null)
+			{
+				catKey = cat.getAbilityCategory();
+			}
+		}
+		return abilityStore.getNameIterator(catKey);
 	}
 
 	/**
@@ -1027,7 +1045,16 @@ public final class Globals
 	 */
 	public static List<? extends Categorisable> getUnmodifiableAbilityList(String aCategory)
 	{
-		return abilityStore.getUnmodifiableList(aCategory);
+		String catKey = aCategory;
+		if (!aCategory.equals("ALL"))
+		{
+			AbilityCategory cat = AbilityUtilities.getAbilityCategory(aCategory);
+			if (cat != null)
+			{
+				catKey = cat.getAbilityCategory();
+			}
+		}
+		return abilityStore.getUnmodifiableList(catKey);
 	}
 
 	/**

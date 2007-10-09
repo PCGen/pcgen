@@ -1115,4 +1115,16 @@ public class AbilityUtilities
 		return null;
 	}
 
+	/**
+	 * Convenience method to retrieve an <tt>AbilityCategory</tt> by 
+	 * its key name.
+	 * 
+	 * @param aKey The key of the <tt>AbilityCategory</tt> to retrieve.
+	 * @return The requested <tt>AbilityCategory</tt> or <tt>null</tt> if the
+	 * category is not found in the current game mode.
+	 */
+	public static AbilityCategory getAbilityCategory(final String aKey)
+	{
+		return SettingsHandler.getGame().getAbilityCategory(aKey);
+	}
 }
