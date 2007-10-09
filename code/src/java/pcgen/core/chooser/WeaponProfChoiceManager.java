@@ -30,6 +30,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.util.Logging;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -37,6 +38,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.Collection;
+import java.util.logging.Logger;
 
 /**
  * This is the chooser that deals with choosing a Weapon Proficiency
@@ -361,6 +363,13 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 					profKey = aString.substring(4);
 				}
 				final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
+				if (wp == null)
+				{
+					Logging.log(Logging.LST_INFO,
+						"Reference to non-existant weapon proficiency "
+							+ profKey + " in CHOOSE:" + chooserHandled
+							+ " tag ignored.");
+				}
 				if (wp != null && aPc.hasWeaponProf(wp) && !availableList.contains(wp))
 				{
 					availableList.add(wp);
