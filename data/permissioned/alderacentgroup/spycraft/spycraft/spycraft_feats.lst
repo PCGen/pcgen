@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 21:08:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Oct  9 22:38:37 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -160,11 +160,11 @@ Traceless			TYPE:Covert																PRESTAT:1,INT=13																									
 
 ###Block: Gear Feats
 
-# Feat Name				Type		Description																	Stackable?	Multiple?	Choose			Modify VAR				Source Page
-Extra Budget			TYPE:Gear	DESC:You have a friend in the equipment dispensary who can provide you with extra equipment.			STACK:NO	MULT:YES	CHOOSE:1st|2nd|3rd|4th	BONUS:VAR|BUDGETPOINTS|5	SOURCEPAGE:p.86
-Extra R and D Support		TYPE:Gear	DESC:You have a friend in the Research & Development department who can provide you with extra gadgets.	STACK:NO	MULT:YES	CHOOSE:1st|2nd|3rd|4th	BONUS:VAR|GADGETPOINTS|2	SOURCEPAGE:p.86
-Signature Gear			TYPE:Gear	DESC:You carry a signature piece of gear.																									SOURCEPAGE:p.86
-Signature Gadget or Vehicle	TYPE:Gear	DESC:You own and use a signature gadget or vehicle.																							SOURCEPAGE:p.87
+# Feat Name				Type		Description																	Stackable?	Multiple?	Choose				Modify VAR				Source Page
+Extra Budget			TYPE:Gear	DESC:You have a friend in the equipment dispensary who can provide you with extra equipment.			STACK:NO	MULT:YES	CHOOSE:STRING|1st|2nd|3rd|4th	BONUS:VAR|BUDGETPOINTS|5	SOURCEPAGE:p.86
+Extra R and D Support		TYPE:Gear	DESC:You have a friend in the Research & Development department who can provide you with extra gadgets.	STACK:NO	MULT:YES	CHOOSE:STRING|1st|2nd|3rd|4th	BONUS:VAR|GADGETPOINTS|2	SOURCEPAGE:p.86
+Signature Gear			TYPE:Gear	DESC:You carry a signature piece of gear.																										SOURCEPAGE:p.86
+Signature Gadget or Vehicle	TYPE:Gear	DESC:You own and use a signature gadget or vehicle.																								SOURCEPAGE:p.87
 
 ###Block: Basic Skill Feats
 

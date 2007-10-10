@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep 18 22:28:59 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Oct  9 22:38:37 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -14,7 +14,7 @@ Deadly Power				TYPE:BasicPsion										PREFEAT:1,Combat Psion																	
 Efficient Power				TYPE:BasicPsion																																																			PREVARGTEQ:PSIONLEVEL,4																DESC:You can activate powers listed under one of your psion skills with much less effort than most psions																			STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|RANKS=1																																																																																																															SOURCEPAGE:p.178
 Extended Power				TYPE:BasicPsion																																																			PREVARGTEQ:PSIONLEVEL,2																DESC:You can activate powers listed under one of your psion skills for longer than most psions																					STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|RANKS=1																																																																																																															SOURCEPAGE:p.178
 Mastered Power				TYPE:BasicPsion																																																			PREVARGTEQ:PSIONLEVEL,2																DESC:You have mastered one of your psion skills and can control its powers more easily than most psions																			STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|RANKS=1																																																																																																															SOURCEPAGE:p.178
-Psion Prodigy				TYPE:BasicPsion																							!PREFEAT:1,Anti-Psi Training																																											DESC:You have powerful, if untrained, psionic potential																											STACK:NO	MULT:YES	CHOOSE:+1|+2																																													BONUS:VAR|PSIONLEVEL|1																																																																	SOURCEPAGE:p.179
+Psion Prodigy				TYPE:BasicPsion																							!PREFEAT:1,Anti-Psi Training																																											DESC:You have powerful, if untrained, psionic potential																											STACK:NO	MULT:YES	CHOOSE:STRING|+1|+2																																												BONUS:VAR|PSIONLEVEL|1																																																																	SOURCEPAGE:p.179
 Untraceable Power				TYPE:BasicPsion																																																			PREVARGTEQ:PSIONLEVEL,1																DESC:You may activate powers listed under one of your psion skills without leaving a trace of your activities																		STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|RANKS=1																																																																																																															SOURCEPAGE:p.179
 
 #### Mental Psion Feats ####

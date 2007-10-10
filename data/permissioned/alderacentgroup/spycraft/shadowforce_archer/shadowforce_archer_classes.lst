@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Oct  9 22:38:37 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -14,15 +14,15 @@ CLASS:Cat Burglar	PREFEAT:2,Acrobatic,Master Fence	PRELEVEL:5		PRESKILL:2,Climb,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cat Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Boating|Climb|Concentration|TYPE.Craft|Driver|Electronics|Escape Artist|Hide|TYPE.Hobby|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|Pilot|TYPE.Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
 
-1							SA:Case (scout)							BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0		ADD:FEAT|1|Cat Burglar Core Ability					AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)
-2							SA:Honor Among Thieves +%|HonorAmongThieves								DEFINE:HonorAmongThieves|((CL-1)/6)+1
-3																													ADD:FEAT|1|TYPE.Covert,TYPE.BasicSkill,TYPE.AdvancedSkill
-4							SA:Go to ground (hiding)	SA:Improvised Tools
-5	SA:.CLEAR.Case (scout)			SA:Case (foil)																				ADD:FEAT|1|TYPE.Covert,TYPE.BasicSkill,TYPE.AdvancedSkill
-6							SA:Do I want to know?
-7																													ADD:FEAT|1|TYPE.Covert,TYPE.BasicSkill,TYPE.AdvancedSkill
-8	SA:.CLEAR.Go to ground (hiding)	SA:Sucker Punch	SA:Go to ground (chases)
-9	SA:.CLEAR.Case (foil)			SA:Case (penetrate)																			ADD:FEAT|1|TYPE.Covert,TYPE.BasicSkill,TYPE.AdvancedSkill
+1	SA:Case (scout)|PREVARLT:CL,5							BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0		ADD:FEAT|1|Cat Burglar Core Ability					AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)
+2	SA:Honor Among Thieves +%|HonorAmongThieves										DEFINE:HonorAmongThieves|((CL-1)/6)+1
+3																									ADD:FEAT|1|TYPE.Covert,TYPE.BasicSkill,TYPE.AdvancedSkill
+4	SA:Go to ground (hiding)|PREVARLT:CL,8	SA:Improvised Tools
+5	SA:Case (foil)|PREVARLT:CL,9																				ADD:FEAT|1|TYPE.Covert,TYPE.BasicSkill,TYPE.AdvancedSkill
+6	SA:Do I want to know?
+7																									ADD:FEAT|1|TYPE.Covert,TYPE.BasicSkill,TYPE.AdvancedSkill
+8	SA:Sucker Punch	SA:Go to ground (chases)
+9	SA:Case (penetrate)																					ADD:FEAT|1|TYPE.Covert,TYPE.BasicSkill,TYPE.AdvancedSkill
 10
 
 
@@ -32,16 +32,16 @@ CLASS:Counter Terrorist	OUTPUTNAME:Counter-Terrorist	HD:10		TYPE:Prestige.PC	ABB
 CLASS:Counter Terrorist	PREATT:5	PREFEAT:1,Precise Shot	PRESKILL:1,Spot=8	PRESKILL:1,Sense Motive=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Counter Terrorist	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Demolitions|Diplomacy|Driver|First Aid|TYPE.Hobby|Intimidate|Jump|TYPE.Knowledge|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Surveillance|Swim|Use Rope
-1								SA:Special Tactics (locate)						BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Counter Terrorist Core Ability	ADD:FEAT|1|Counter Terrorist Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
-2								SA:Precision Takedown (-25% cover)
-3																														ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
-4								SA:Safe Attack	SA:Crowd control (% level)|CrowdControl							DEFINE:CrowdControl|CL/4
-5	SA:.CLEAR.Special Tactics (locate)		SA:Special Tactics (subdue)																		ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
-6								SA:Negotiator
-7	SA:.CLEAR.Precision Takedown (-25% cover)	SA:Precision Takedown (-50% cover)																	ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
-8								SA:Tactical Commander
-9	SA:.CLEAR.Special Tactics (subdue)		SA:Special Tactics (improved locate)																ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
-10								SA:Moment of truth
+1	SA:Special Tactics (locate)|PREVARLT:CL,5				BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Counter Terrorist Core Ability	ADD:FEAT|1|Counter Terrorist Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+2	SA:Precision Takedown (-25% cover)|PREVARLT:CL,7
+3																							ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
+4	SA:Safe Attack	SA:Crowd control (% level)|CrowdControl							DEFINE:CrowdControl|CL/4
+5	SA:Special Tactics (subdue)|PREVARLT:CL,9																ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
+6	SA:Negotiator
+7	SA:Precision Takedown (-50% cover)																	ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
+8	SA:Tactical Commander
+9	SA:Special Tactics (improved locate)																ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
+10	SA:Moment of truth
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																		Combat bonus																												Modify VAR
@@ -50,16 +50,16 @@ CLASS:Hacker	HD:8		TYPE:Prestige.PC	ABB:Hac		MAXLEVEL:10	SOURCEPAGE:p.167	LANGAU
 CLASS:Hacker	PREFEAT:1,Mathematical Genius	PRELEVEL:5		PRESKILL:2,Computers,Cryptography=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concentration|TYPE.Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|Forgery|Gather Information|TYPE.Hobby|Innuendo|TYPE.Knowledge|Languages|Listen|Mechanics|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Surveillance
-1							SA:Hard-wired (Concentrate)		BONUS:VAR|NumberPrestigeClasses|1	BONUS:SKILL|Concentration|4	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Hacker Core Ability
-2							SA:Synchronize (Solo)
-3																														ADD:FEAT|1|Advanced Skill Mastery(Mathematical Genius)	QUALIFY:FEAT|Advanced Skill Mastery
-4							SA:Lockout (Single)	SA:Sift
-5	SA:.CLEAR.Hard-wired (Concentrate)	SA:Hard-wired (All-Nighter)																			ADD:FEAT|1|Quick Use(Computers)					QUALIFY:FEAT|Quick Use
-6							SA:Fingerprints
-7	SA:.CLEAR.Synchronize (Solo)		SA:Synchronize (Team)																				ADD:FEAT|1|Grand Skill Mastery(Mathematical Genius)		QUALIFY:FEAT|Grand Skill Mastery
-8	SA:.CLEAR.Lockout (Single)		SA:Lockout (All)
-9	SA:.CLEAR.Hard-wired (All-Nighter)	SA:Hard-wired (Persevere)																			ADD:FEAT|1|Perfect Skill Mastery(Mathematical Genius)		QUALIFY:FEAT|Perfect Skill Mastery
-10							SA:Ghost in the Machine
+1	SA:Hard-wired (Concentrate)|PREVARLT:CL,5		BONUS:VAR|NumberPrestigeClasses|1	BONUS:SKILL|Concentration|4	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Hacker Core Ability
+2	SA:Synchronize (Solo)|PREVARLT:CL,7
+3																										ADD:FEAT|1|Advanced Skill Mastery(Mathematical Genius)	QUALIFY:FEAT|Advanced Skill Mastery
+4	SA:Lockout (Single)|PREVARLT:CL,8	SA:Sift
+5	SA:Hard-wired (All-Nighter)|PREVARLT:CL,9																			ADD:FEAT|1|Quick Use(Computers)					QUALIFY:FEAT|Quick Use
+6	SA:Fingerprints
+7	SA:Synchronize (Team)																						ADD:FEAT|1|Grand Skill Mastery(Mathematical Genius)		QUALIFY:FEAT|Grand Skill Mastery
+8	SA:Lockout (All)
+9	SA:Hard-wired (Persevere)																					ADD:FEAT|1|Perfect Skill Mastery(Mathematical Genius)		QUALIFY:FEAT|Perfect Skill Mastery
+10	SA:Ghost in the Machine
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus																													Modify VAR
@@ -88,16 +88,16 @@ CLASS:Shadespeaker	HD:10		TYPE:Prestige.PC	ABB:ShSpk		MAXLEVEL:10	SOURCEPAGE:p.2
 CLASS:Shadespeaker	PREFEAT:1,Sixth Sense	PRELEVEL:5		PRESTAT:1,WIS=13	PRETEMPLATE:Chamber - Guardians of the Whispering Knife
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE.Craft|First Aid|Gather Information|Handle Animal|TYPE.Hobby|Jump|TYPE.Knowledge|Languages|Listen|Sense Motive|Spot|Survival|Tumble
-1							SA:The Call (Questions)					BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Shadespeaker Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Hurled)
-2							SA:Deathwatch (Corpse Sense)
-3																											ADD:FEAT|1|TYPE.MeleeCombat,TYPE.Mystic
-4							SA:The Sleep	SA:Washaif Blade (Marking)
-5	SA:.CLEAR.The Call (Questions)	SA:The Call (Converse)																	ADD:FEAT|1|TYPE.MeleeCombat,TYPE.Mystic
-6							SA:Resolute Aura
-7	SA:.CLEAR.Deathwatch (Corpse Sense)	SA:Deathwatch (Death Sense)																ADD:FEAT|1|TYPE.MeleeCombat,TYPE.Mystic
-8	SA:.CLEAR.Washaif Blade (Marking)	SA:Washaif Blade (Blooding)
-9	SA:.CLEAR.The Call (Converse)		SA:The Call (Appear)																	ADD:FEAT|1|TYPE.MeleeCombat,TYPE.Mystic
-10							SA:Channel
+1	SA:The Call (Questions)|PREVARLT:CL,5				BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Shadespeaker Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Hurled)
+2	SA:Deathwatch (Corpse Sense)|PREVARLT:CL,7
+3																							ADD:FEAT|1|TYPE.MeleeCombat,TYPE.Mystic
+4	SA:The Sleep	SA:Washaif Blade (Marking)|PREVARLT:CL,8
+5	SA:The Call (Converse)|PREVARLT:CL,9																ADD:FEAT|1|TYPE.MeleeCombat,TYPE.Mystic
+6	SA:Resolute Aura
+7	SA:Deathwatch (Death Sense)																		ADD:FEAT|1|TYPE.MeleeCombat,TYPE.Mystic
+8	SA:Washaif Blade (Blooding)
+9	SA:The Call (Appear)																			ADD:FEAT|1|TYPE.MeleeCombat,TYPE.Mystic
+10	SA:Channel
 
 
 ### Base Psion Classes -------------------------------------------------------------------------------------------------------------
