@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Aug 10 04:25:34 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 22:05:32 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
 ###Original Entry: Andrew Maitland
 
@@ -122,15 +122,15 @@ CLASS:Arcane Warrior	PREATT:6	PREFEAT:4,Quicken Spell,Weapon Focus,Combat Castin
 CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Jump|Knowledge (Arcana)|TYPE.Profession|Search|Spellcraft|Swim|Tumble
 ###3e - Scry
 ###Block: Caster Level
-2										ADD:SPELLCASTER|Arcane
-4										ADD:SPELLCASTER|Arcane
-6										ADD:SPELLCASTER|Arcane
+2						ADD:SPELLCASTER|Arcane
+4						ADD:SPELLCASTER|Arcane
+6						ADD:SPELLCASTER|Arcane
 ### Special Abilities:
-1					SA:Steel Mind
-2					SA:Armor Skill
-3					SA:Enhanced Combat Casting
-5	SA:.CLEAR.Armor Skill	SA:Enhanced Armor Skill
-7					SA:Mystic Weapon
+1	SA:Steel Mind
+2	SA:Armor Skill|PREVARLT:CL,5
+3	SA:Enhanced Combat Casting
+5	SA:Enhanced Armor Skill
+7	SA:Mystic Weapon
 
 #CHOSEN OF AGRI (CA)
 

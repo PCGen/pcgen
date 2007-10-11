@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:52:12 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -141,16 +141,16 @@ CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Concentration=8,Craft (Alchemy
 CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Intimidate|Jump|Psicraft
 ###Block: Psionic Variables
 ###Block: Class Info
-1																		SA:Fire Lash (Ps)
-2																		SA:Hand Afire (Ps) (+2d6 Fire damage on unarmed attacks)	SA:Fire Adaptation (Ex) (+4 vs fire,heat effects)	SA:Resistance to Energy (fire) 10
-3																		SA:Bolt of Fire (Ps) (60' Ranged Touch; %d6 damage)|BoltFire															BONUS:VAR|BoltFire|CL			DEFINE:BoltFire|0
-4																		SA:Weapon Afire (Ps) (+2d6 Fire damage with weapon)
-5																		SA:Nimbus (Ps) (1x/day for up to % minutes)|NimbusDuration																BONUS:VAR|NimbusDuration|CL		DEFINE:NimbusDuration|0
-6																		SA:Firewalk (Su)
-7	SA:.CLEAR..Fire Adaptation (Ex) (+4 vs fire,heat effects)	SA:.CLEAR..Resistance to Energy (fire) 10	SA:Fear No Fire (Ex) (+8 vs fire,heat effects)	SA:Resistance to Energy (fire) 20
-8																		SA:Greater Weapon Afire (Ps) (+2d6 additional with Afire abilities)
-9																		SA:Heat Death (Ps) (1 creature within 30'; Fortitude save (DC:%), die if fail, 4d8 fire if save)|HeatDeathDC							BONUS:VAR|HeatDeath|14+CHA		DEFINE:HeatDeathDC|0
-10																		SA:Conflagration (Ps) (1x/day; 30'burst dealing 15d6 Fire, Reflex save (DC:%) for half + if fail, Fortitude save or die)|ConflagrationDC			BONUS:VAR|ConflagrationDC|15+CHA	DEFINE:ConflagrationDC|0
+1	SA:Fire Lash (Ps)
+2	SA:Hand Afire (Ps) (+2d6 Fire damage on unarmed attacks)	SA:Fire Adaptation (Ex) (+4 vs fire,heat effects)|PREVARLT:CL,7	SA:Resistance to Energy (fire) 10||PREVARLT:CL,7
+3	SA:Bolt of Fire (Ps) (60' Ranged Touch; %d6 damage)|BoltFire																				BONUS:VAR|BoltFire|CL			DEFINE:BoltFire|0
+4	SA:Weapon Afire (Ps) (+2d6 Fire damage with weapon)
+5	SA:Nimbus (Ps) (1x/day for up to % minutes)|NimbusDuration																					BONUS:VAR|NimbusDuration|CL		DEFINE:NimbusDuration|0
+6	SA:Firewalk (Su)
+7	SA:Fear No Fire (Ex) (+8 vs fire,heat effects)	SA:Resistance to Energy (fire) 20
+8	SA:Greater Weapon Afire (Ps) (+2d6 additional with Afire abilities)
+9	SA:Heat Death (Ps) (1 creature within 30'; Fortitude save (DC:%), die if fail, 4d8 fire if save)|HeatDeathDC												BONUS:VAR|HeatDeath|14+CHA		DEFINE:HeatDeathDC|0
+10	SA:Conflagration (Ps) (1x/day; 30'burst dealing 15d6 Fire, Reflex save (DC:%) for half + if fail, Fortitude save or die)|ConflagrationDC								BONUS:VAR|ConflagrationDC|15+CHA	DEFINE:ConflagrationDC|0
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Thrallherd	HD:4		TYPE:PC.Prestige.Psionic	ABB:Thr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE

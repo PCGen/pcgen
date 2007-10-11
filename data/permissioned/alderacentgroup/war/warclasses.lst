@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:46:04 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus
@@ -54,16 +54,16 @@ CLASS:Elf Treerunner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Hide|Int
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1									SA:Treewalking (Ex)
-2									SA:Trackless Step
-3					SA:.CLEAR.Treewalking	SA:Treewalking (Su)
-4									SA:Speak with Plants %/day|SpeakPlants	BONUS:VAR|SpeakPlants|3	DEFINE:SpeakPlants|WIS
-5									SA:Arboreal Ally (Su)
-6									SA:Arboreal Ambush (Su)
+1					SA:Treewalking (Ex)|PREVARLT:CL,3
+2					SA:Trackless Step
+3					SA:Treewalking (Su)
+4					SA:Speak with Plants %/day|SpeakPlants		BONUS:VAR|SpeakPlants|3	DEFINE:SpeakPlants|WIS
+5					SA:Arboreal Ally (Su)
+6					SA:Arboreal Ambush (Su)
 7	VISION:Darkvision (60')
-8									SA:Arboreal Gate (1d6 rounds)
-9					SA:.CLEAR.Arboreal Gate	SA:Arboreal Gate (1d4 rounds)
-10					SA:.CLEAR.Arboreal Gate	SA:Arboreal Gate (1 round)
+8					SA:Arboreal Gate (1d6 rounds)|PREVARLT:CL,9
+9					SA:Arboreal Gate (1d4 rounds)|PREVARLT:CL,10
+10					SA:Arboreal Gate (1 round)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Epic Athlete	HD:12		TYPE:PC.Prestige	ABB:Ath		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -198,14 +198,14 @@ CLASS:Rake		STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Gather Information|Innuen
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1											BONUS:VAR|SneakAttack|(CL+1)/2					AUTO:FEAT|Sneak Attack
-2				SA:Taunt (Intimidate)
-3																	ADD:FEAT|1|TYPE=Fighter
-4	SA:.CLEAR.Taunt	SA:Taunt (Intimidate/Enrage)
-6				SA:Humiliating Strike										ADD:FEAT|1|TYPE=Fighter
-8	SA:.CLEAR.Taunt	SA:Taunt (Intimidate/Enrage/Stun)
-9																	ADD:FEAT|1|TYPE=Fighter
-10	SA:.CLEAR.Taunt	SA:Taunt (Intimidate/Enrage/Stun/Rally)
+1										BONUS:VAR|SneakAttack|(CL+1)/2					AUTO:FEAT|Sneak Attack
+2	SA:Taunt (Intimidate)|PREVARLT:CL,4
+3																ADD:FEAT|1|TYPE=Fighter
+4	SA:Taunt (Intimidate/Enrage)|PREVARLT:CL,8
+6	SA:Humiliating Strike												ADD:FEAT|1|TYPE=Fighter
+8	SA:Taunt (Intimidate/Enrage/Stun)|PREVARLT:CL,10
+9																ADD:FEAT|1|TYPE=Fighter
+10	SA:Taunt (Intimidate/Enrage/Stun/Rally)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Sharpshooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

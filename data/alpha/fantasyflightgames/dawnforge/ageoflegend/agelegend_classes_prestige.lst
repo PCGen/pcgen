@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 22:03:27 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 # Original Entry by: Ratheof Blithwyn and Tir-Gwaith
 
@@ -17,14 +17,14 @@ CLASS:Diamond Guardsman	HD:12		TYPE:PC.Prestige	ABB:DGu		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Diamond Guardsman	PREALIGN:LG,LN,NG,TN	PREATT:6	PREFEAT:2,Endurance,Diehard	PRERACE:1,Dwarf (DF)	PRETEXT:The character must be accepted for membership by the Diamond Guard of Aradath.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Diamond Guardsman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Concentration|Diplomacy|Jump|Listen|TYPE.Profession|Sense Motive|Spot|Swim
-1																																			AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency														AUTO:WEAPONPROF|Mürblade|Urgrosh (Dwarven)|Waraxe (Dwarven)|TYPE.Martial
-1																																			AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
-1									SA:Soul Blade (+%)|SoulBlade			BONUS:VAR|SoulBlade|(CL+1)/2	DEFINE:SoulBlade|0
-2									SA:Shield Brother (full round action)																VFEAT:Combat Expertise
-4	SA:.CLEAR.Shield Brother (full round action)	SA:Shield Brother (standard action)
-6	SA:.CLEAR.Shield Brother (standard action)	SA:Shield Brother (move action)
-8									SA:Greater Combat Expertise
-10																									SPELLS:Innate|TIMES=1|Foresight
+1																													AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency														AUTO:WEAPONPROF|Mürblade|Urgrosh (Dwarven)|Waraxe (Dwarven)|TYPE.Martial
+1																													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1	SA:Soul Blade (+%)|SoulBlade					BONUS:VAR|SoulBlade|(CL+1)/2	DEFINE:SoulBlade|0
+2	SA:Shield Brother (full round action)|PREVARLT:CL,4																VFEAT:Combat Expertise
+4	SA:Shield Brother (standard action)|PREVARLT:CL,6
+6	SA:Shield Brother (move action)
+8	SA:Greater Combat Expertise
+10																			SPELLS:Innate|TIMES=1|Foresight
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Forge Magus	HD:4		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -112,13 +112,13 @@ CLASS:Warrior of the Lodge	HD:10		TYPE:PC.Prestige	ABB:WaL		MAXLEVEL:10	SOURCEPA
 CLASS:Warrior of the Lodge	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:6	PREFEAT:2,TYPE.Fighter	PRETEXT:See Text.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Warrior of the Lodge	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|TYPE.Profession|Ride|Survival|Swim
-1									SA:Haunted	SA:Share Strength (1st honored enemy)
-2									SA:Bloody Badges								VFEAT:Combat Expertise
-4	SA:.CLEAR.Share Strength (1st honored enemy)	SA:Share Strength (2nd honored enemy)
-5									SA:Share Mind
-7	SA:.CLEAR.Share Strength (2nd honored enemy)	SA:Share Strength (3rd honored enemy)
-8									SA:Share Spirit
-10	SA:.CLEAR.Share Strength (3rd honored enemy)	SA:Share Magic	SA:Share Strength (4th honored enemy)
+1	SA:Haunted	SA:Share Strength (1st honored enemy)|PREVARLT:CL,4
+2	SA:Bloody Badges									VFEAT:Combat Expertise
+4	SA:Share Strength (2nd honored enemy)|PREVARLT:CL,7
+5	SA:Share Mind
+7	SA:Share Strength (3rd honored enemy)|PREVARLT:CL,10
+8	SA:Share Spirit
+10	SA:Share Magic	SA:Share Strength (4th honored enemy)
 
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Brother of the Panthic Order	HD:4		TYPE:PC.Prestige	ABB:BPO		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -438,13 +438,13 @@ CLASS:The Unbroken	PREFEAT:4,Endurance,Great Fortitude,Iron Will,Lightning Refle
 CLASS:The Unbroken	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Concentration|Escape Artist|Hide|Sense Motive|Spot|Survival
 1	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
 ###Block: Normal level progression
-1							SA:Pain Immunity (Ex)	SA:Force of Will (Ex) +%|ForceOfWill				BONUS:VAR|ForceOfWill|floor((CL+1)/2)*2	DEFINE:ForceOfWill|0	ADD:FEAT|1|TYPE.UnbrokenResistance
-2							SA:Fortress of the Mind (Ex) +4 bonus against Charm effects
-4	SA:.CLEAR.Fortress of the Mind	SA:Fortress of the Mind (Ex) Ignore Charm effects																	ADD:FEAT|1|TYPE.UnbrokenResistance
-6	SA:.CLEAR.Fortress of the Mind	SA:Fortress of the Mind (Ex) Ignore Charm effects and +4 against Compulsion effects
-7																																ADD:FEAT|1|TYPE.UnbrokenResistance
-8	SA:.CLEAR.Fortress of the Mind	SA:Fortress of the Mind (Ex) Ignore Charm and Compulsion effects
-10	SA:.CLEAR.Fortress of the Mind	SA:Fortress of the Mind (Ex) Immune to all Mind-Affecting spells and effects.
+1	SA:Pain Immunity (Ex)	SA:Force of Will (Ex) +%|ForceOfWill							BONUS:VAR|ForceOfWill|floor((CL+1)/2)*2	DEFINE:ForceOfWill|0	ADD:FEAT|1|TYPE.UnbrokenResistance
+2	SA:Fortress of the Mind (Ex) +4 bonus against Charm effects|PREVARLT:CL,4
+4	SA:Fortress of the Mind (Ex) Ignore Charm effects|PREVARLT:CL,6																		ADD:FEAT|1|TYPE.UnbrokenResistance
+6	SA:Fortress of the Mind (Ex) Ignore Charm effects and +4 against Compulsion effects|PREVARLT:CL,8
+7																													ADD:FEAT|1|TYPE.UnbrokenResistance
+8	SA:Fortress of the Mind (Ex) Ignore Charm and Compulsion effects|PREVARLT:CL,10
+10	SA:Fortress of the Mind (Ex) Immune to all Mind-Affecting spells and effects.
 #Todo: Resistance abilities
 
 ##############################

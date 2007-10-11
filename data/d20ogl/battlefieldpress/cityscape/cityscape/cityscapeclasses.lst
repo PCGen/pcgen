@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:58:52 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com
 # Original Entry by: Tir Gwaith
 
@@ -126,24 +126,24 @@ CLASS:Dataman	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Computer Use|Concentration|C
 1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1							SA:Cybernetics Implant(Datajack)																																								AUTO:FEAT|Cybernetics Implant
+1	SA:Cybernetics Implant(Datajack)																																								AUTO:FEAT|Cybernetics Implant
 # Cybernetic Implant (Datajack) - Need to link to the feat eventually.
-2							SA:Interface Check bonus (+%)|Interface1	SA:Dataworld AC bonus +%|DataAC																									DEFINE:Interface1|1	DEFINE:DataAC|CL/5
-3																								BONUS:VAR|Interface1|1
-4																								BONUS:VAR|Interface1|1
-6	SA:.CLEAR.Interface check bonus	SA:Interface check bonus (+%/+%)|Interface1|Interface2								BONUS:VAR|Interface1|1																	DEFINE:Interface2|1
-7																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1
-8																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1
-9	SA:.CLEAR.Interface check bonus	SA:Interface check bonus (+%/+%/+%)|Interface1|Interface2|Interface3						BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1													DEFINE:Interface3|1
-10																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1
-11																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface3|1
-12																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1
-14	SA:.CLEAR.Interface check bonus	SA:Interface check bonus (+%/+%/+%/+%)|Interface1|Interface2|Interface3|Interface4				BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1									DEFINE:Interface4|1
-15																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1
-16																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1
-18	SA:.CLEAR.Interface check bonus	SA:Interface check bonus (+%/+%/+%/+%/+%)|Interface1|Interface2|Interface3|Interface4|Interface5	BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1					DEFINE:Interface5|1
-19																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1	BONUS:VAR|Interface5|1
-20																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1	BONUS:VAR|Interface5|1
+2	SA:Interface Check bonus (+%)|Interface1	SA:Dataworld AC bonus +%|DataAC|PREVARLT:CL,6																							DEFINE:Interface1|1	DEFINE:DataAC|CL/5
+3																		BONUS:VAR|Interface1|1
+4																		BONUS:VAR|Interface1|1
+6	SA:Interface check bonus (+%/+%)|Interface1|Interface2|PREVARLT:CL,9						BONUS:VAR|Interface1|1																	DEFINE:Interface2|1
+7																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1
+8																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1
+9	SA:Interface check bonus (+%/+%/+%)|Interface1|Interface2|Interface3|PREVARLT:CL,14				BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1													DEFINE:Interface3|1
+10																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1
+11																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface3|1
+12																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1
+14	SA:Interface check bonus (+%/+%/+%/+%)|Interface1|Interface2|Interface3|Interface4|PREVARLT:CL,18	BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1									DEFINE:Interface4|1
+15																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1
+16																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1
+18	SA:Interface check bonus (+%/+%/+%/+%/+%)|Interface1|Interface2|Interface3|Interface4|Interface5	BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1					DEFINE:Interface5|1
+19																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1	BONUS:VAR|Interface5|1
+20																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1	BONUS:VAR|Interface5|1
 
 # Class Name	Output Name		Hit Dice	Type			Abbreviation	Ex Class			Source Page		Automatic Languages		Bonus Languages	Save checks bonus											Combat bonus
 CLASS:Druid (CS)	OUTPUTNAME:Druid	HD:8		TYPE:Base.PC	ABB:Drd		EXCLASS:Ex Druid (CS)	SOURCEPAGE:p.33	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -242,26 +242,26 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 ###Block: Proficiencies
 1	AUTO:FEAT|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block:Level progression
-1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2								SA:Flurry of Blows																														VFEAT:Stunning Attack|Evasion	AUTO:FEAT|Improved Unarmed Strike
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																																	AUTO:FEAT|Deflect Arrows
-3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8											SA:Still Mind
-4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10										SA:Slow Fall (% ft.)|SlowFall									BONUS:VAR|SlowFall|20	DEFINE:SlowFall|0
-5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10										SA:Purity of Body
-6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																							BONUS:VAR|SlowFall|10																						AUTO:FEAT|Improved Trip
-7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10										SA:Leap of the Clouds	SA:Wholeness of Body (Su) % hp/day|WholenessHpLVL*2
-8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																							BONUS:VAR|SlowFall|20
-9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																											VFEAT:Improved Evasion
-10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12										SA:Ki Strike (+%) (Su)|KiStrike												DEFINE:KiStrike|1
-11	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12										SA:Diamond Body (Su)
-12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8										SA:Abundant Step (Sp)																		SPELLS:Abundant Step|TIMES=1|Dimension Door
-13	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SR:10+MonkSR					SA:Diamond Soul											BONUS:VAR|KiStrike|1
+1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2				SA:Flurry of Blows																														VFEAT:Stunning Attack|Evasion	AUTO:FEAT|Improved Unarmed Strike
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																													AUTO:FEAT|Deflect Arrows
+3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8							SA:Still Mind
+4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SA:Slow Fall (% ft.)|SlowFall|PREVARLT:CL,18						BONUS:VAR|SlowFall|20	DEFINE:SlowFall|0
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SA:Purity of Body
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:VAR|SlowFall|10																						AUTO:FEAT|Improved Trip
+7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SA:Leap of the Clouds	SA:Wholeness of Body (Su) % hp/day|WholenessHpLVL*2
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																			BONUS:VAR|SlowFall|20
+9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																							VFEAT:Improved Evasion
+10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						SA:Ki Strike (+%) (Su)|KiStrike												DEFINE:KiStrike|1
+11	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						SA:Diamond Body (Su)
+12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SA:Abundant Step (Sp)																		SPELLS:Abundant Step|TIMES=1|Dimension Door
+13	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SR:10+MonkSR	SA:Diamond Soul											BONUS:VAR|KiStrike|1
 14	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
-15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8										SA:Quivering Palm (Su) %/week|QuiverPalm							BONUS:VAR|QuiverPalm|1	DEFINE:QuiverPalm|0
-16	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																							BONUS:VAR|KiStrike|1
-17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Timeless Body	SA:Tongue of the Sun and Moon
-18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:.CLEAR.Slow Fall	SA:Slow Fall (any distance)
-19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Empty Body (Su) % rounds/day|EmptyBody							BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0
-20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Perfect Self																											TEMPLATE:Monk Outsider
+15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SA:Quivering Palm (Su) %/week|QuiverPalm							BONUS:VAR|QuiverPalm|1	DEFINE:QuiverPalm|0
+16	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																			BONUS:VAR|KiStrike|1
+17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:Timeless Body	SA:Tongue of the Sun and Moon
+18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:Slow Fall (any distance)
+19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:Empty Body (Su) % rounds/day|EmptyBody							BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0
+20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:Perfect Self																											TEMPLATE:Monk Outsider
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Mutant Hero	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:MutH		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -556,15 +556,15 @@ CLASS:Battle Mind	PREATT:3	PREFEAT:1,Wild Talent,Psionic Talent	PRESKILL:1,Jump=
 CLASS:Battle Mind	STARTSKILLPTS:3	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Jump|Knowledge (Current Events)|Knowledge (Streetwise)|TYPE.Profession|Read/Write Language|Speak Language|Spot|Swim
 ###Block:Level progression
 1	KNOWN:2
-2	KNOWN:3							SA:Psi-Blade	SA:Imprint Tattoo
-3	KNOWN:3,1		SA:.CLEAR.Psi-Blade		SA:Psi-Blade +%|PsiBlade									BONUS:VAR|PsiBlade|(CL-1)/2	DEFINE:PsiBlade|0		ADD:FEAT|1|Archaic Weapons Proficiency,Athletic,Blind-Fight,Cleave,Combat Martial Arts,Combat Reflexes,Exotic Weapon Proficiency,Focused,Improved Combat Martial Arts,Power Attack,Toughness,Weapon Finesse,Weapon Focus
-4	KNOWN:3,2							SA:Psychic Shield (+3 AC Equipment) for up to % rounds|PsyShield								DEFINE:PsyShield|CL
-5	KNOWN:3,3,1																																																																		AUTO:FEAT|Combat Manifestation
-6	KNOWN:3,3,2																													ADD:FEAT|1|Archaic Weapons Proficiency,Athletic,Blind-Fight,Cleave,Combat Martial Arts,Combat Reflexes,Exotic Weapon Proficiency,Focused,Improved Combat Martial Arts,Power Attack,Toughness,Weapon Finesse,Weapon Focus
-7	KNOWN:3,3,2,1	SA:.CLEAR.Psi-Blade		SA:Improved Psi-Blade
-8	KNOWN:3,3,3,1	SA:.CLEAR.Psychic Shield	SA:Improved Psychic Shield (+6 AC Equipment) for up to % rounds|PsyShield
-9	KNOWN:3,3,3,2																												ADD:FEAT|1|Archaic Weapons Proficiency,Athletic,Blind-Fight,Cleave,Combat Martial Arts,Combat Reflexes,Exotic Weapon Proficiency,Focused,Improved Combat Martial Arts,Power Attack,Toughness,Weapon Finesse,Weapon Focus
-10	KNOWN:3,3,3,2,1	SA:.CLEAR.Improved Psi-Blade	SA:Ultimate Psi-Blade
+2	KNOWN:3		SA:Psi-Blade|PREVARLT:CL,3	SA:Imprint Tattoo
+3	KNOWN:3,1		SA:Psi-Blade +%|PsiBlade|PREVARLT:CL,7								BONUS:VAR|PsiBlade|(CL-1)/2	DEFINE:PsiBlade|0		ADD:FEAT|1|Archaic Weapons Proficiency,Athletic,Blind-Fight,Cleave,Combat Martial Arts,Combat Reflexes,Exotic Weapon Proficiency,Focused,Improved Combat Martial Arts,Power Attack,Toughness,Weapon Finesse,Weapon Focus
+4	KNOWN:3,2		SA:Psychic Shield (+3 AC Equipment) for up to % rounds|PsyShield|PREVARLT:CL,8						DEFINE:PsyShield|CL
+5	KNOWN:3,3,1																																																														AUTO:FEAT|Combat Manifestation
+6	KNOWN:3,3,2																									ADD:FEAT|1|Archaic Weapons Proficiency,Athletic,Blind-Fight,Cleave,Combat Martial Arts,Combat Reflexes,Exotic Weapon Proficiency,Focused,Improved Combat Martial Arts,Power Attack,Toughness,Weapon Finesse,Weapon Focus
+7	KNOWN:3,3,2,1	SA:Improved Psi-Blade|PREVARLT:CL,10
+8	KNOWN:3,3,3,1	SA:Improved Psychic Shield (+6 AC Equipment) for up to % rounds|PsyShield
+9	KNOWN:3,3,3,2																								ADD:FEAT|1|Archaic Weapons Proficiency,Athletic,Blind-Fight,Cleave,Combat Martial Arts,Combat Reflexes,Exotic Weapon Proficiency,Focused,Improved Combat Martial Arts,Power Attack,Toughness,Weapon Finesse,Weapon Focus
+10	KNOWN:3,3,3,2,1	SA:Ultimate Psi-Blade
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus																	Combat bonus
 CLASS:Bodyguard	NAMEISPI:YES	HD:12		TYPE:Prestige.PC	ABB:BdG		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -623,16 +623,16 @@ CLASS:Security Specialist	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE.Craft|C
 1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1				SA:Electronic Tinkering	SA:Sweep	BONUS:SKILL|Computer Use,Craft (Electronics),Knowledge (Technology)|SynergyBonus|TYPE=Synergy
-2				SA:Improvised Implements
-3																										ADD:FEAT|1|Acrobatic,Alertness,Armor Proficiency (Light),Athletic,Attentive,Brawl,Cautious,Defensive Martial Arts,Dodge,Elusive Target,Meticulous,Mobility,Nimble,Renown,Run,Stealthy
-4																																																									VFEAT:Improved Evasion
-5				SA:Skill Mastery
+1	SA:Electronic Tinkering	SA:Sweep	BONUS:SKILL|Computer Use,Craft (Electronics),Knowledge (Technology)|SynergyBonus|TYPE=Synergy
+2	SA:Improvised Implements
+3																							ADD:FEAT|1|Acrobatic,Alertness,Armor Proficiency (Light),Athletic,Attentive,Brawl,Cautious,Defensive Martial Arts,Dodge,Elusive Target,Meticulous,Mobility,Nimble,Renown,Run,Stealthy
+4																																																						VFEAT:Improved Evasion
+5	SA:Skill Mastery
 # Same as Rogues?  Rogue uses feat...
-6				SA:Traceless																				ADD:FEAT|1|Acrobatic,Alertness,Armor Proficiency (Light),Athletic,Attentive,Brawl,Cautious,Defensive Martial Arts,Dodge,Elusive Target,Meticulous,Mobility,Nimble,Renown,Run,Stealthy
-7				SA:Improvised Weapon Damage
-8	SA:.CLEAR.Sweep	SA:Improved Sweep
-9																										ADD:FEAT|1|Acrobatic,Alertness,Armor Proficiency (Light),Athletic,Attentive,Brawl,Cautious,Defensive Martial Arts,Dodge,Elusive Target,Meticulous,Mobility,Nimble,Renown,Run,Stealthy
+6	SA:Traceless																				ADD:FEAT|1|Acrobatic,Alertness,Armor Proficiency (Light),Athletic,Attentive,Brawl,Cautious,Defensive Martial Arts,Dodge,Elusive Target,Meticulous,Mobility,Nimble,Renown,Run,Stealthy
+7	SA:Improvised Weapon Damage
+8	SA:Improved Sweep
+9																							ADD:FEAT|1|Acrobatic,Alertness,Armor Proficiency (Light),Athletic,Attentive,Brawl,Cautious,Defensive Martial Arts,Dodge,Elusive Target,Meticulous,Mobility,Nimble,Renown,Run,Stealthy
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Spy		NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Spy		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

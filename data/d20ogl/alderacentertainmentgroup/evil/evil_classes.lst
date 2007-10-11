@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:59:20 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
@@ -41,12 +41,12 @@ CLASS:Blood Archer	HD:10		TYPE:PC.Prestige	ABB:BlA		MAXLEVEL:10	SOURCEPAGE:p.69	
 CLASS:Blood Archer	PREALIGN:LE	PREATT:6	PREFEAT:4,Endurance,Point Blank Shot,Track,Weapon Specialization(Longbow)	PRESKILL:1,Craft (Bowyer/Fletcher)=6	PRESKILL:1,Hide=4	PRESKILL:1,Wilderness Lore=7
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blood Archer	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Climb|Craft (Bowyer/Fletcher)|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Ride|Search|Swim|Tumble|Wilderness Lore
-1									SA:Poison Blood	SA:Title - Initiate of the Path																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
-2	SA:.CLEAR.Title - Initiate of the Path		SA:Acid Blood	SA:Title - Initiate of the 1st Fletching
-3									SA:Blood Bow +%|BloodBow													DEFINE:BloodBow|CL/3
-4	SA:.CLEAR.Title - Initiate of the 1st Fletching	SA:Regeneration (1 hp/hour)	SA:Title - Initiate of the 2nd Fletching
-5									SA:Sneak Attack +%d% (Bow Only)|BowSneakAttack|SneakAttackDie		BONUS:VAR|BowSneakAttack|1	DEFINE:BowSneakAttack|0	DEFINE:SneakAttackDie|6
-6	SA:.CLEAR.Title - Initiate of the 2nd Fletching	SA:Title - Initiate of the 3rd Fletching
-7	SA:.CLEAR.Regeneration					SA:Regeneration (1 hp/minute)
-8																					BONUS:VAR|BowSneakAttack|1
-10																					BONUS:VAR|BowSneakAttack|1
+1	SA:Poison Blood	SA:Title - Initiate of the Path|PREVARLT:CL,2																				AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
+2	SA:Acid Blood	SA:Title - Initiate of the 1st Fletching|PREVARLT:CL,4
+3	SA:Blood Bow +%|BloodBow																		DEFINE:BloodBow|CL/3
+4	SA:Regeneration (1 hp/hour)|PREVARLT:CL,7	SA:Title - Initiate of the 2nd Fletching|PREVARLT:CL,6
+5	SA:Sneak Attack +%d% (Bow Only)|BowSneakAttack|SneakAttackDie							BONUS:VAR|BowSneakAttack|1	DEFINE:BowSneakAttack|0	DEFINE:SneakAttackDie|6
+6	SA:Title - Initiate of the 3rd Fletching
+7	SA:Regeneration (1 hp/minute)
+8																		BONUS:VAR|BowSneakAttack|1
+10																		BONUS:VAR|BowSneakAttack|1

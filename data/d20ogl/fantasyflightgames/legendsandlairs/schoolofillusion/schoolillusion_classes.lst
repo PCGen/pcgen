@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:56:44 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -159,16 +159,16 @@ CLASS:Mystic Infiltrator	HD:6		TYPE:PC.Prestige	ABB:Inf		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Mystic Infiltrator	PREFEAT:2,Alertness,Toughness	PRESKILL:3,Disguise,Hide,Move Silently=8	PRESPELL:1,Faceless	PRESPELLTYPE:2,Arcane=3	PRETEXT:See text
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Mystic Infiltrator	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Scry|Speak Language|Spellcraft
-1					SA:Master of Disguise												ADD:SPELLCASTER|1|ANY
-2					SA:Wormtongue (%)|Wormtongue		BONUS:VAR|Wormtongue|(CL+1)/3	DEFINE:Wormtongue|0	ADD:SPELLCASTER|1|ANY
-3					SA:Mystic Form (%/day)|MysticForm						DEFINE:MysticForm|1+CHA	ADD:SPELLCASTER|1|ANY
-4																				ADD:SPELLCASTER|1|ANY
-5																				ADD:SPELLCASTER|1|ANY
-6																				ADD:SPELLCASTER|1|ANY
-7					SA:Like the Wind													ADD:SPELLCASTER|1|ANY
-8																				ADD:SPELLCASTER|1|ANY
-9																				ADD:SPELLCASTER|1|ANY
-10	SA:.CLEAR.Mystic Form	SA:Mystic Form (at will)											ADD:SPELLCASTER|1|ANY
+1	SA:Master of Disguise															ADD:SPELLCASTER|1|ANY
+2	SA:Wormtongue (%)|Wormtongue					BONUS:VAR|Wormtongue|(CL+1)/3	DEFINE:Wormtongue|0	ADD:SPELLCASTER|1|ANY
+3	SA:Mystic Form (%/day)|MysticForm|PREVARLT:CL,10						DEFINE:MysticForm|1+CHA	ADD:SPELLCASTER|1|ANY
+4																			ADD:SPELLCASTER|1|ANY
+5																			ADD:SPELLCASTER|1|ANY
+6																			ADD:SPELLCASTER|1|ANY
+7	SA:Like the Wind																ADD:SPELLCASTER|1|ANY
+8																			ADD:SPELLCASTER|1|ANY
+9																			ADD:SPELLCASTER|1|ANY
+10	SA:Mystic Form (at will)														ADD:SPELLCASTER|1|ANY
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -177,16 +177,16 @@ CLASS:Shadowmancer	HD:4		TYPE:PC.Prestige	ABB:Sha		MAXLEVEL:10	SOURCEPAGE:p.21	B
 CLASS:Shadowmancer	PREFEAT:2,Silent Spell,Still Spell	PRESKILL:2,Hide,Move Silently=8	PRESPELL:1,Deeper Darkness	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowmancer	STARTSKILLPTS:2	CSKILL:Concentration|Hide|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|TYPE.Profession|Spellcraft
-1						SA:Dark Research								ADD:SPELLCASTER|1|ANY	AUTO:ARMORPROF|TYPE=Light
-2						SA:Shadow Channel								ADD:SPELLCASTER|1|ANY
-3						SA:Summmon Shadow (1st shadow)					ADD:SPELLCASTER|1|ANY
-4																ADD:SPELLCASTER|1|ANY
-5	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st shadow,+1 HD)				ADD:SPELLCASTER|1|ANY
-6																ADD:SPELLCASTER|1|ANY
-7	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st shadow,+2 HD)				ADD:SPELLCASTER|1|ANY
-8																ADD:SPELLCASTER|1|ANY
-9	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st shadow,+2 HD,strength funneling)	ADD:SPELLCASTER|1|ANY
-10	SA:.CLEAR.Summmon Shadow	SA:Summmon Shadow (1st&2nd shadow,+2 HD,strength funneling)	ADD:SPELLCASTER|1|ANY
+1	SA:Dark Research										ADD:SPELLCASTER|1|ANY	AUTO:ARMORPROF|TYPE=Light
+2	SA:Shadow Channel										ADD:SPELLCASTER|1|ANY
+3	SA:Summmon Shadow (1st shadow)|PREVARLT:CL,5					ADD:SPELLCASTER|1|ANY
+4													ADD:SPELLCASTER|1|ANY
+5	SA:Summmon Shadow (1st shadow,+1 HD)|PREVARLT:CL,7				ADD:SPELLCASTER|1|ANY
+6													ADD:SPELLCASTER|1|ANY
+7	SA:Summmon Shadow (1st shadow,+2 HD)|PREVARLT:CL,9				ADD:SPELLCASTER|1|ANY
+8													ADD:SPELLCASTER|1|ANY
+9	SA:Summmon Shadow (1st shadow,+2 HD,strength funneling)|PREVARLT:CL,10	ADD:SPELLCASTER|1|ANY
+10	SA:Summmon Shadow (1st&2nd shadow,+2 HD,strength funneling)			ADD:SPELLCASTER|1|ANY
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -195,16 +195,16 @@ CLASS:Unseen Master	HD:4		TYPE:PC.Prestige	ABB:Uns		MAXLEVEL:10	SOURCEPAGE:p.23	
 CLASS:Unseen Master	PRESKILL:2,Hide,Spellcraft=8	PRESPELL:1,Selective Invisibility	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Unseen Master	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Hide|TYPE.Knowledge|Move Silently|TYPE.Profession|Sense Motive|Spellcraft
-1									SA:Unseen Mastery (+% to hit)|UnseenMastery	BONUS:VAR|UnseenMastery|(CL+3)/4+2	DEFINE:UnseenMastery|0	ADD:SPELLCASTER|1|ANY
-2																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
-3									SA:Unseen Mastery (60% miss chance)													ADD:SPELLCASTER|1|ANY
-4																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
-5																											ADD:SPELLCASTER|1|ANY
-6																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
-7	SA:.CLEAR.Unseen Mastery (60% miss chance)	SA:Unseen Mastery (75% miss chance)													ADD:SPELLCASTER|1|ANY
-8																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
-9																											ADD:SPELLCASTER|1|ANY
-10																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
+1	SA:Unseen Mastery (+% to hit)|UnseenMastery		BONUS:VAR|UnseenMastery|(CL+3)/4+2	DEFINE:UnseenMastery|0	ADD:SPELLCASTER|1|ANY
+2																				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
+3	SA:Unseen Mastery (60% miss chance)|PREVARLT:CL,7											ADD:SPELLCASTER|1|ANY
+4																				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
+5																				ADD:SPELLCASTER|1|ANY
+6																				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
+7	SA:Unseen Mastery (75% miss chance)														ADD:SPELLCASTER|1|ANY
+8																				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
+9																				ADD:SPELLCASTER|1|ANY
+10																				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
 
 #
 # end

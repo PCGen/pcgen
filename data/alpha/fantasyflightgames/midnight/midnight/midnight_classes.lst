@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 22:03:27 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 # Original Entry by: Tir Gwaith
 
@@ -148,15 +148,15 @@ CLASS:Freerider	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intuit Dir
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1						SA:Horse Lord																																												AUTO:FEAT|Leadership
-2						SA:Loyal Companions
-3																									ADD:FEAT|1|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance)
-4						SA:Inspiring Leader (Su) +%|InspiringLeader	BONUS:VAR|InspiringLeader|CL/4	DEFINE:InspiringLeader|0
-5						SA:Whispering Step (Ex) (+5 DC)
-6																									ADD:FEAT|1|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance)
-7						SA:Spur (Ex)
-9																									ADD:FEAT|1|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance)
-10	SA:.CLEAR.Whispering Step	SA:Whispering Step (Ex) (full speed)
+1	SA:Horse Lord																																												AUTO:FEAT|Leadership
+2	SA:Loyal Companions
+3																				ADD:FEAT|1|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance)
+4	SA:Inspiring Leader (Su) +%|InspiringLeader	BONUS:VAR|InspiringLeader|CL/4	DEFINE:InspiringLeader|0
+5	SA:Whispering Step (Ex) (+5 DC)|PREVARLT:CL,10
+6																				ADD:FEAT|1|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance)
+7	SA:Spur (Ex)
+9																				ADD:FEAT|1|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance)
+10	SA:Whispering Step (Ex) (full speed)
 
 # Class Name		Hit Dice	Type			Max Level	Save checks bonus												Combat bonus
 CLASS:Insurgent Spy	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

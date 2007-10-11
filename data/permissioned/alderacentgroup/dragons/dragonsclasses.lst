@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:49:41 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
 
 # Class Name	Product Identity?	Hit Dice	Starting Feats	Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
@@ -41,16 +41,16 @@ CLASS:Student of the Dragon	NAMEISPI:NO		HD:8		ABB:SotD		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Student of the Dragon	PREATT:7	PREFEAT:1,Improved Unarmed Strike	PRELANG:1,Draconic	PRESKILL:1,Knowledge (Arcana)=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Student of the Dragon	STARTSKILLPTS:4	CSKILL:Balance|TYPE.Climb|Concentration|TYPE.Craft|TYPE.Diplomacy|Escape Artist|Hide|TYPE.Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE.Profession|Swim|Tumble
-1									SA:Wings of the Dragon
-2									SA:Strength of the Dragon
-3	VISION:Darkvision (60')					SA:Eyes of the Dragon
-4									SA:Fist of the Dragon
-5									SA:Ki Strike (+2)	SA:Tactics of the Dragon
-6									SA:Roar of the Dragon
-7									SA:Fury of the Dragon
-8					SA:.CLEAR.Ki Strike	SA:Ki Strike (+3)
-9									SA:Thunder of the Dragon
-10									SA:Master of the Dragon
+1					SA:Wings of the Dragon
+2					SA:Strength of the Dragon
+3	VISION:Darkvision (60')	SA:Eyes of the Dragon
+4					SA:Fist of the Dragon
+5					SA:Ki Strike (+2)|PREVARLT:CL,8	SA:Tactics of the Dragon
+6					SA:Roar of the Dragon
+7					SA:Fury of the Dragon
+8					SA:Ki Strike (+3)
+9					SA:Thunder of the Dragon
+10					SA:Master of the Dragon
 
 # Class Name	Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Wyrmfoe	NAMEISPI:NO		HD:4		ABB:WFoe		MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

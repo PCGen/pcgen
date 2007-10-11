@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 22:02:17 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 # Original Entry by: Felipe Diniz
 
@@ -160,16 +160,16 @@ CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
-1						SA:Armor Song (Medium)		BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARGTEQ:5,KotCArmorCheckPenalty	DEFINE:KotCArmorCheckPenalty|-ACCHECK	DEFINE:KotCSpellFailure|SPELLFAILURE
-2																																						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
-3						SA:Battle Dance (Su)
-4																																						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
-5	SA:.CLEAR.Armor Song (Medium)	SA:Armor Song (Heavy)		BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARLTEQ:KotCArmorCheckPenalty,7
-6																																						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
-7						SA:Singblade
-8																																						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
-9						SA:Sonic Protection (Su)
-10						SA:Song of Smiting (Sp)																													ADD:SPELLCASTER|1|ANY
+1	SA:Armor Song (Medium)|PREVARLT:CL,5	BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARGTEQ:5,KotCArmorCheckPenalty	DEFINE:KotCArmorCheckPenalty|-ACCHECK	DEFINE:KotCSpellFailure|SPELLFAILURE
+2																																			ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
+3	SA:Battle Dance (Su)
+4																																			ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
+5	SA:Armor Song (Heavy)				BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARLTEQ:KotCArmorCheckPenalty,7
+6																																			ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
+7	SA:Singblade
+8																																			ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=ImbueVibration
+9	SA:Sonic Protection (Su)
+10	SA:Song of Smiting (Sp)																															ADD:SPELLCASTER|1|ANY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mirror Master	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE

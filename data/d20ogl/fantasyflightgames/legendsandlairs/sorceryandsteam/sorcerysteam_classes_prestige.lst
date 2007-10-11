@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:56:08 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
@@ -151,15 +151,15 @@ CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimida
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1							SA:Armor Adaptation (Ex)			BONUS:VAR|ArmorAdaptation|-2						BONUS:MISC|SPELLFAILURE|ArmorAdaptation	DEFINE:ArmorAdaptation|0	ADD:SPELLCASTER|1|Arcane
-2							SA:Arcane Bond I (Sp)
-3							SA:Marksman +% (Ex)|GunGlyphMarksman																		DEFINE:GunGlyphMarksman|CL/3	ADD:SPELLCASTER|1|Arcane
-4														BONUS:VAR|ArmorAdaptation|-2
-5	SA:.CLEAR.Arcane Bond I (Sp)		SA:Arcane Bond II (Sp)																										ADD:SPELLCASTER|1|Arcane
-7														BONUS:VAR|ArmorAdaptation|-4																		ADD:SPELLCASTER|1|Arcane
-8	SA:.CLEAR.Arcane Bond II (Sp)		SA:Arcane Bond III (Sp)
-9																																				ADD:SPELLCASTER|1|Arcane
-10	SA:.CLEAR.Arcane Bond III (Sp)	SA:Gun Master	SA:Arcane Bond IV (Sp)	BONUS:VAR|ArmorAdaptation|-2	BONUS:VAR|GunGlyphMarksman|1
+1	SA:Armor Adaptation (Ex)			BONUS:VAR|ArmorAdaptation|-2						BONUS:MISC|SPELLFAILURE|ArmorAdaptation	DEFINE:ArmorAdaptation|0	ADD:SPELLCASTER|1|Arcane
+2	SA:Arcane Bond I (Sp)|PREVARLT:CL,5
+3	SA:Marksman +% (Ex)|GunGlyphMarksman																		DEFINE:GunGlyphMarksman|CL/3	ADD:SPELLCASTER|1|Arcane
+4								BONUS:VAR|ArmorAdaptation|-2
+5	SA:Arcane Bond II (Sp)|PREVARLT:CL,8																							ADD:SPELLCASTER|1|Arcane
+7								BONUS:VAR|ArmorAdaptation|-4																		ADD:SPELLCASTER|1|Arcane
+8	SA:Arcane Bond III (Sp)|PREVARLT:CL,10
+9																														ADD:SPELLCASTER|1|Arcane
+10	SA:Gun Master	SA:Arcane Bond IV (Sp)	BONUS:VAR|ArmorAdaptation|-2	BONUS:VAR|GunGlyphMarksman|1
 
 # Hypnotist -----------------------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 22:01:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://www.parentsbasementgames.com
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -175,13 +175,13 @@ CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE.Craft|Disable Device|TYPE.Knowle
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1																																					AUTO:FEAT|Alertness
-2																																	ADD:FEAT|1|TYPE.Gunnery
-4						SA:Magical Alertness (Ex) +%|MagicalAlertnessBonus							BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0
-5																																	ADD:FEAT|1|TYPE.Gunnery
-7						SA:Fear of Flame (Ex) +2 saving throw bonus versus any fire related attack or incident
-8																																	ADD:FEAT|1|TYPE.Gunnery
-10	SA:.CLEAR.Magical Alertness	SA:Improved Magical Alertness (Ex) +%|MagicalAlertnessBonus						BONUS:VAR|MagicalAlertnessBonus|4
+1																																AUTO:FEAT|Alertness
+2																												ADD:FEAT|1|TYPE.Gunnery
+4	SA:Magical Alertness (Ex) +%|MagicalAlertnessBonus|PREVARLT:CL,10					BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0
+5																												ADD:FEAT|1|TYPE.Gunnery
+7	SA:Fear of Flame (Ex) +2 saving throw bonus versus any fire related attack or incident
+8																												ADD:FEAT|1|TYPE.Gunnery
+10	SA:Improved Magical Alertness (Ex) +%|MagicalAlertnessBonus						BONUS:VAR|MagicalAlertnessBonus|4
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus

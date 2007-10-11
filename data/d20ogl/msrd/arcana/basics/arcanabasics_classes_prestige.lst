@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:54:05 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Paul King
 
@@ -8,11 +8,11 @@ CLASS:Archmage	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasse
 CLASS:Archmage	PRESKILL:3,Knowledge (Arcane Lore),Concentration,Spellcraft=12	PRESPELLCAST:TYPE=Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archmage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Repair|Research|Speak Language|Spellcraft
-1																SA:Total Spellcasting											BONUS:CASTERLEVEL|Techno Mage|CL=Mage|PRECLASS:1,Techno Mage=1	BONUS:CASTERLEVEL|Mage|CL=Techno Mage|PRECLASS:1,Mage=1
-2																SA:Increased Spells/Day (base number of arcane spells increase by 1/2 round down)
-3																SA:Gifted Incantations
-4	SA:.CLEAR.Increased Spells/Day (base number of arcane spells increase by 1/2 round down)	SA:Increased Spells/Day (double base number of arcane spells)
-5																SA:Granted Incantations
+1	SA:Total Spellcasting													BONUS:CASTERLEVEL|Techno Mage|CL=Mage|PRECLASS:1,Techno Mage=1	BONUS:CASTERLEVEL|Mage|CL=Techno Mage|PRECLASS:1,Mage=1
+2	SA:Increased Spells/Day (base number of arcane spells increase by 1/2 round down)|PREVARLT:CL,4
+3	SA:Gifted Incantations
+4	SA:Increased Spells/Day (double base number of arcane spells)
+5	SA:Granted Incantations
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
 CLASS:Artificer	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
@@ -32,11 +32,11 @@ CLASS:Ecclesiarch	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedCla
 CLASS:Ecclesiarch	PREFEAT:1,Base Turn	PRESKILL:3,Concentration,Knowledge (Theology and Philosophy),Spellcraft=10	PRESPELLCAST:TYPE=Divine
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ecclesiarch	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Listen|TYPE.Perform|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spellcraft|Survival|Treat Injury
-1																SA:Total Spellcasting											BONUS:CASTERLEVEL|Acolyte|CL=Mystic+CL=Holy Unholy Knight|PRECLASS:1,Acolyte=1	BONUS:CASTERLEVEL|Mystic|CL=Acolyte+CL=Holy Unholy Knight|PRECLASS:1,Mystic=1	BONUS:CASTERLEVEL|Holy Unholy Knight|CL=Acolyte+CL=Mystic|PRECLASS:1,Holy Unholy Knight=1
-2																SA:Increased Spells/Day (base number of divine spells increase by 1/2 round down)
-3																SA:Total Turning
-4	SA:.CLEAR.Increased Spells/Day (base number of divine spells increase by 1/2 round down)	SA:Increased Spells/Day (double base number of divine spells)
-5																SA:Innovative Turning
+1	SA:Total Spellcasting													BONUS:CASTERLEVEL|Acolyte|CL=Mystic+CL=Holy Unholy Knight|PRECLASS:1,Acolyte=1	BONUS:CASTERLEVEL|Mystic|CL=Acolyte+CL=Holy Unholy Knight|PRECLASS:1,Mystic=1	BONUS:CASTERLEVEL|Holy Unholy Knight|CL=Acolyte+CL=Mystic|PRECLASS:1,Holy Unholy Knight=1
+2	SA:Increased Spells/Day (base number of divine spells increase by 1/2 round down)|PREVARLT:CL,4
+3	SA:Total Turning
+4	SA:Increased Spells/Day (double base number of divine spells)
+5	SA:Innovative Turning
 
 # Class Name			Hit Dice	Type			Max Level	Source Page						Modify VAR
 CLASS:Holy Unholy Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)

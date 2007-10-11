@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 22:01:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -46,16 +46,16 @@ CLASS:Altherian Triggermage	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:ATrgm		MAXLE
 CLASS:Altherian Triggermage	PREFEAT:4,Exotic Weapon Proficiency(TYPE=Flintlock),Weapon Focus(TYPE=Flintlock),Point Blank Shot,Precise Shot	PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]	PRESKILL:1,Concentration=8	PRESKILL:1,Knowledge (Arcana)=6	PRESKILL:1,Spellcraft=7	PRESPELLTYPE:1,Arcane=2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Altherian Triggermage	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Ride|Spellcraft|Spot
-1						SA:Enrune Flintlock (Su)	SA:Enhance Rune Gun +% (Su)|RuneGunBonus	BONUS:VAR|RuneGunBonus|1	DEFINE:RuneGunBonus|0
-2						SA:Empower Rune Gun ~ Ghost (Sp)																ADD:SPELLCASTER|1|Arcane
-3																		BONUS:VAR|RuneGunBonus|1
-4						SA:Empower Rune Gun ~ Seeker (Sp)																ADD:SPELLCASTER|1|Arcane
-5																		BONUS:VAR|RuneGunBonus|1
-6						SA:Empower Rune Gun ~ Fire's Kiss (Sp)	SA:Imbue Bullet (Sp)											ADD:SPELLCASTER|1|Arcane
-7																		BONUS:VAR|RuneGunBonus|1
-8	SA:.CLEAR.Imbue Bullet (Sp)	SA:Empower Rune Gun ~ Magic Bullet (Sp)	SA:Improved Imbue Bullet (Sp)										ADD:SPELLCASTER|1|Arcane
-9																		BONUS:VAR|RuneGunBonus|1
-10						SA:Imbue Gun (Sp)																			ADD:SPELLCASTER|1|Arcane
+1	SA:Enrune Flintlock (Su)	SA:Enhance Rune Gun +% (Su)|RuneGunBonus		BONUS:VAR|RuneGunBonus|1	DEFINE:RuneGunBonus|0
+2	SA:Empower Rune Gun ~ Ghost (Sp)																	ADD:SPELLCASTER|1|Arcane
+3														BONUS:VAR|RuneGunBonus|1
+4	SA:Empower Rune Gun ~ Seeker (Sp)																	ADD:SPELLCASTER|1|Arcane
+5														BONUS:VAR|RuneGunBonus|1
+6	SA:Empower Rune Gun ~ Fire's Kiss (Sp)	SA:Imbue Bullet (Sp)|PREVARLT:CL,8										ADD:SPELLCASTER|1|Arcane
+7														BONUS:VAR|RuneGunBonus|1
+8	SA:Empower Rune Gun ~ Magic Bullet (Sp)	SA:Improved Imbue Bullet (Sp)											ADD:SPELLCASTER|1|Arcane
+9														BONUS:VAR|RuneGunBonus|1
+10	SA:Imbue Gun (Sp)																				ADD:SPELLCASTER|1|Arcane
 
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus

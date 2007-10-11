@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 22:01:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -300,26 +300,26 @@ CLASS:Order of the Inner Demon	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=
 4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 
 ###Block: Level Stuff
-1									SA:Aura of Faith (Ex)	SA:Discern Infernal (Sp)	SA:Path of the Tainted (Ex)	SA:Unnatural Aura (Ex)																																			BONUS:SKILL|Handle Animal,Ride|-2						ADD:FEAT|1|TYPE=InnerDemon								AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2									SA:Lure of Darkness (Ex)	SA:The Night Hides Not (Ex)																																																																		AUTO:FEAT|Favored Enemy (Infernal)|Favored Bonus__Infernal
-3									SA:Immune to Poison (Su)	SA:Acid and Cold Resistance % (Su)|ResistLevel|PREFEAT:1,Inner Demon Hamatula,Inner Demon Kyton,Inner Demon Osyluth	SA:Acid, Cold, and Fire Resistance % (Su)|ResistLevel|PREFEAT:1,Inner Demon Glabrezu,Inner Demon Succubus,Inner Demon Vrock	BONUS:VAR|ResistLevel|floor(CL/2)							DEFINE:ResistLevel|0
+1				SA:Aura of Faith (Ex)	SA:Discern Infernal (Sp)	SA:Path of the Tainted (Ex)	SA:Unnatural Aura (Ex)																																			BONUS:SKILL|Handle Animal,Ride|-2						ADD:FEAT|1|TYPE=InnerDemon								AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+2				SA:Lure of Darkness (Ex)	SA:The Night Hides Not (Ex)																																																																		AUTO:FEAT|Favored Enemy (Infernal)|Favored Bonus__Infernal
+3				SA:Immune to Poison (Su)	SA:Acid and Cold Resistance % (Su)|ResistLevel|PREFEAT:1,Inner Demon Hamatula,Inner Demon Kyton,Inner Demon Osyluth	SA:Acid, Cold, and Fire Resistance % (Su)|ResistLevel|PREFEAT:1,Inner Demon Glabrezu,Inner Demon Succubus,Inner Demon Vrock	BONUS:VAR|ResistLevel|floor(CL/2)							DEFINE:ResistLevel|0
 4	CAST:0,0
 5	CAST:0,0
-6	CAST:0,1							SA:Blessing of Sarish (Su)	SA:Symbiosis I (Su)																																																							ADD:FEAT|1|TYPE=InnerDemonFirst
+6	CAST:0,1		SA:Blessing of Sarish (Su)	SA:Symbiosis I (Su)|PREVARLT:CL,10																																																					ADD:FEAT|1|TYPE=InnerDemonFirst
 7	CAST:0,1
-8	CAST:0,1,0							SA:Fiendish Mount (Sp)
+8	CAST:0,1,0		SA:Fiendish Mount (Sp)
 9	CAST:0,1,0
-10	CAST:0,1,1		SA:.CLEAR.Symbiosis I (Su)	SA:Symbiosis II (Su)																																																												ADD:FEAT|1|TYPE=InnerDemonSecond
+10	CAST:0,1,1		SA:Symbiosis II (Su)|PREVARLT:CL,14																																																										ADD:FEAT|1|TYPE=InnerDemonSecond
 11	CAST:0,1,1,0
-12	CAST:0,1,1,1						SA:Aura of Courage (Ex)	SA:Fire Resistance % (Su)|GreaterResistLevel|PREFEAT:1,Inner Demon Hamatula,Inner Demon Kyton,Inner Demon Osyluth	SA:Electricity Resistance % (Su)|GreaterResistLevel|PREFEAT:1,Inner Demon Glabrezu,Inner Demon Succubus,Inner Demon Vrock			BONUS:VAR|GreaterResistLevel|CL							DEFINE:GreaterResistLevel|0
+12	CAST:0,1,1,1	SA:Aura of Courage (Ex)	SA:Fire Resistance % (Su)|GreaterResistLevel|PREFEAT:1,Inner Demon Hamatula,Inner Demon Kyton,Inner Demon Osyluth	SA:Electricity Resistance % (Su)|GreaterResistLevel|PREFEAT:1,Inner Demon Glabrezu,Inner Demon Succubus,Inner Demon Vrock			BONUS:VAR|GreaterResistLevel|CL							DEFINE:GreaterResistLevel|0
 13	CAST:0,1,1,1
-14	CAST:0,2,1,1,0	SA:.CLEAR.Symbiosis II (Su)	SA:Symbiosis III (Su)																																																												ADD:FEAT|1|TYPE=InnerDemonThird
+14	CAST:0,2,1,1,0	SA:Symbiosis III (Su)|PREVARLT:CL,18																																																									ADD:FEAT|1|TYPE=InnerDemonThird
 15	CAST:0,2,1,1,1
-16	CAST:0,2,2,1,1						SA:Nightmare Mount (Sp)
+16	CAST:0,2,2,1,1	SA:Nightmare Mount (Sp)
 17	CAST:0,2,2,2,1
-18	CAST:0,3,2,2,1	SA:.CLEAR.Symbiosis III (Su)	SA:Symbiosis IV (Su)																																																												ADD:FEAT|1|TYPE=InnerDemonFourth
+18	CAST:0,3,2,2,1	SA:Symbiosis IV (Su)																																																												ADD:FEAT|1|TYPE=InnerDemonFourth
 19	CAST:0,3,3,3,2
-20	CAST:0,3,3,3,3						SA:Apotheosis (Su)																																																																		TEMPLATE:Outsider	TEMPLATE:Native
+20	CAST:0,3,3,3,3	SA:Apotheosis (Su)																																																																		TEMPLATE:Outsider	TEMPLATE:Native
 
 ################################################################################################################
 

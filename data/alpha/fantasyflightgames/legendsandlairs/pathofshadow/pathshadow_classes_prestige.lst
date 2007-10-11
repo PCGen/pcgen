@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  5 14:33:08 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 22:03:27 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 # Original entry by: Blithwyn
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
@@ -370,14 +370,14 @@ CLASS:Unblinking Eye	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Deciphe
 1	AUTO:FEAT|Simple Weapon Proficiency|Unblinking Eye Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1							SA:Surface Disguise (Sp)		SPELLS:Surface Disguise|TIMES=1|Alter Self
-3							SA:Trained Memory (Ex)
-4	SA:.CLEAR.Surface Disguise (Sp)	SA:Greater Surface Disguise (Su)
-5							SA:Major Hunch (Ex)
-7							SA:Inner Disguise (Su)
-8							SA:Gather Secrets (Su)
-9							SA:Perfect Memory (Su)
-10							SA:Deep Cover (Su)
+1	SA:Surface Disguise (Sp)|PREVARLT:CL,4	SPELLS:Surface Disguise|TIMES=1|Alter Self
+3	SA:Trained Memory (Ex)
+4	SA:Greater Surface Disguise (Su)
+5	SA:Major Hunch (Ex)
+7	SA:Inner Disguise (Su)
+8	SA:Gather Secrets (Su)
+9	SA:Perfect Memory (Su)
+10	SA:Deep Cover (Su)
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
@@ -406,9 +406,9 @@ CLASS:Windrider	PREATT:4	PRESKILL:3,Intimidate,Ride,Wilderness Lore=5	PRESKILL:3
 CLASS:Windrider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Perform|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Tumble|Use Magic Device|Use Rope|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal progression
-1					SA:Track	SA:Sand-Sight I
-2													BONUS:VAR|SneakAttack|CL/2										AUTO:FEAT|Sneak Attack
-3					SA:Desert Adaption (Ex)
-5	SA:.CLEAR.Sand-Sight I	SA:Sand-Sight II
-7					SA:Blade Turning (Ex)										BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:DR|+1|5
-9	SA:.CLEAR.Sand-Sight II	SA:Sand-Sight III	SA:Howl of the Winds (Ex)
+1	SA:Track	SA:Sand-Sight I|PREVARLT:CL,5
+2									BONUS:VAR|SneakAttack|CL/2										AUTO:FEAT|Sneak Attack
+3	SA:Desert Adaption (Ex)
+5	SA:Sand-Sight II|PREVARLT:CL,9
+7	SA:Blade Turning (Ex)										BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:DR|+1|5
+9	SA:Sand-Sight III	SA:Howl of the Winds (Ex)

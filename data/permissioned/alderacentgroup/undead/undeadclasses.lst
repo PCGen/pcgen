@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:48:24 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 # Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
 SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20
 
@@ -29,16 +29,16 @@ CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31
 CLASS:Chirurgeon	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus(Necromancy)	PRESKILL:1,Craft (Autopsy)=6	PRESKILL:1,Heal=3	PRESKILL:2,Alchemy,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:Necromancy,4,0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chirurgeon	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
-1					SA:Touch of Repose %/day|TouchofRepose	BONUS:VAR|TouchofRepose|1	DEFINE:TouchofRepose|0	ADD:SPELLCASTER|1|ANY
-2					SA:Flesh Repair (light) (Su)			BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
-3					SA:Lesser Graft (Ex)				BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
-4					SA:Sense Graft (Su)				BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
-5	SA:.CLEAR.Flesh Repair	SA:Flesh Repair (moderate) (Su)		BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
-6					SA:Greater Graft (Su)				BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
-7					SA:Control Graft (Su)				BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
-8	SA:.CLEAR.Flesh Repair	SA:Flesh Repair (serious) (Su)		BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
-9					SA:Improved Flesh Golem (Ex)			BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
-10					SA:Brain Graft (Ex)				BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
+1	SA:Touch of Repose %/day|TouchofRepose		BONUS:VAR|TouchofRepose|1	DEFINE:TouchofRepose|0	ADD:SPELLCASTER|1|ANY
+2	SA:Flesh Repair (light) (Su)|PREVARLT:CL,5	BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
+3	SA:Lesser Graft (Ex)					BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
+4	SA:Sense Graft (Su)					BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
+5	SA:Flesh Repair (moderate) (Su)|PREVARLT:CL,5	BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
+6	SA:Greater Graft (Su)					BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
+7	SA:Control Graft (Su)					BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
+8	SA:Flesh Repair (serious) (Su)			BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
+9	SA:Improved Flesh Golem (Ex)				BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
+10	SA:Brain Graft (Ex)					BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|1|ANY
 
 # Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:The Dying	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -151,16 +151,16 @@ CLASS:Paladin of the Pale	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Palad
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1					SA:Atonement
-2												BONUS:VAR|TurnLevelBase|max(CL-1,0)|TYPE=Level.REPLACE	BONUS:PCLEVEL|Paladin|1
-3					SA:Searing Light %/day (Sp)|SearingLight	BONUS:VAR|SearingLight|CL/3						BONUS:PCLEVEL|Paladin|1	DEFINE:SearingLight|0
-4					SA:Last Rites (Su)														BONUS:PCLEVEL|Paladin|1
-5					SA:Life from Death (Ex)														BONUS:PCLEVEL|Paladin|1
-6																						BONUS:PCLEVEL|Paladin|1
-7					SA:Protection from Evil (Sp)													BONUS:PCLEVEL|Paladin|1
-8	SA:.CLEAR.Last Rites	SA:Last Rites (Advanced) (Su)													BONUS:PCLEVEL|Paladin|1
-9																						BONUS:PCLEVEL|Paladin|1
-10					SA:Holy Terror (Su)														BONUS:PCLEVEL|Paladin|1
+1	SA:Atonement
+2								BONUS:VAR|TurnLevelBase|max(CL-1,0)|TYPE=Level.REPLACE	BONUS:PCLEVEL|Paladin|1
+3	SA:Searing Light %/day (Sp)|SearingLight	BONUS:VAR|SearingLight|CL/3						BONUS:PCLEVEL|Paladin|1	DEFINE:SearingLight|0
+4	SA:Last Rites (Su)|PREVARLT:CL,8												BONUS:PCLEVEL|Paladin|1
+5	SA:Life from Death (Ex)														BONUS:PCLEVEL|Paladin|1
+6																		BONUS:PCLEVEL|Paladin|1
+7	SA:Protection from Evil (Sp)													BONUS:PCLEVEL|Paladin|1
+8	SA:Last Rites (Advanced) (Su)													BONUS:PCLEVEL|Paladin|1
+9																		BONUS:PCLEVEL|Paladin|1
+10	SA:Holy Terror (Su)														BONUS:PCLEVEL|Paladin|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Puppet	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.49-50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -185,16 +185,16 @@ CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	
 CLASS:Raider	PRESKILL:2,Hide,Move Silently=6	PRESKILL:2,Intuit Direction,Knowledge (Arcana)=4	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Raider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Search|Spot|Tumble|Use Magic Device|Use Rope
-1					SA:Practical Knowledge	SA:Quiet Inquisition
-2					SA:Sense Ward
-3					SA:Sense Life
-4					SA:Sense Scrying (Lesser)
-5					SA:Alter Traps
-6					SA:Light of Foot						BONUS:SKILL|Balance,Hide,Move Silently,Tumble|4|TYPE=Competence
-7					SA:Lure
-8	SA:.CLEAR.Sense Scrying	SA:Sense Scrying (Greater)
-9					SA:Skillful Dodge
-10					SA:Escape Certain Doom (Ex)
+1	SA:Practical Knowledge	SA:Quiet Inquisition
+2	SA:Sense Ward
+3	SA:Sense Life
+4	SA:Sense Scrying (Lesser)|PREVARLT:CL,8
+5	SA:Alter Traps
+6	SA:Light of Foot						BONUS:SKILL|Balance,Hide,Move Silently,Tumble|4|TYPE=Competence
+7	SA:Lure
+8	SA:Sense Scrying (Greater)
+9	SA:Skillful Dodge
+10	SA:Escape Certain Doom (Ex)
 
 # Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus														Combat bonus
 CLASS:Risen		NAMEISPI:YES	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.53-54	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -242,16 +242,16 @@ CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 # Should this have a Rebuke Undead call here, or just modify the VAR?  Leaving as just modifying the VAR, since htat is how it was. - Tir Gwaith
-1																BONUS:VAR|TurnLevel|(CL+1)/2	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Martial Weapon Proficiency
-2									SA:Bloody Devotion (Sp)
-3	VISION:Darkvision (60')					SA:Dark Eyes (Su)										ADD:SPELLCASTER|1|ANY
-4									SA:Hidden Veil (Undead) (Su)
-5					SA:.CLEAR.Hidden Veil	SA:Hidden Veil (Undead or Animals) (Su)						ADD:SPELLCASTER|1|ANY
-6									SA:Tainted Blood (Su)
-7									SA:Power over Death (Su)								ADD:SPELLCASTER|1|ANY
-8									SA:Consecrate Weapon (Su)
-9									SA:Beyond the Veil (Su)									ADD:SPELLCASTER|1|ANY
-10									SA:Beyond Death (Su)																				TEMPLATE:Undeath
+1													BONUS:VAR|TurnLevel|(CL+1)/2	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Martial Weapon Proficiency
+2					SA:Bloody Devotion (Sp)
+3	VISION:Darkvision (60')	SA:Dark Eyes (Su)											ADD:SPELLCASTER|1|ANY
+4					SA:Hidden Veil (Undead) (Su)|PREVARLT:CL,5
+5					SA:Hidden Veil (Undead or Animals) (Su)							ADD:SPELLCASTER|1|ANY
+6					SA:Tainted Blood (Su)
+7					SA:Power over Death (Su)									ADD:SPELLCASTER|1|ANY
+8					SA:Consecrate Weapon (Su)
+9					SA:Beyond the Veil (Su)										ADD:SPELLCASTER|1|ANY
+10					SA:Beyond Death (Su)																					TEMPLATE:Undeath
 
 # Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

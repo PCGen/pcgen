@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:52:55 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Uncanny Dodge should be moved to Feats/Feat with SAs...
@@ -221,8 +221,8 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Sw
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
-1						BONUS:ABILITYPOOL|Fighter Feat|CL/2+1
-4	DEFINE:WeapSpecQualify|1
+1	BONUS:ABILITYPOOL|Fighter Feat|CL/2+1
+4								DEFINE:WeapSpecQualify|1
 #1						ADD:FEAT|1|TYPE=Fighter
 #2						ADD:FEAT|1|TYPE=Fighter
 #4	DEFINE:WeapSpecQualify|1	ADD:FEAT|1|TYPE=Fighter
@@ -263,26 +263,26 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 ###Block Flurry of Blows
 1	SA:Flurry of Blows	DEFINE:FlurryOfBlows|1	AUTO:EQUIP|Flurry of Blows
 ###Block:Level progression
-1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2																																													VFEAT:Evasion		AUTO:FEAT|Improved Unarmed Strike
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																																				AUTO:FEAT|Deflect Arrows
-3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8											SA:Still Mind
-4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10										SA:Slow Fall (% ft.)|SlowFall									BONUS:VAR|SlowFall|20	DEFINE:SlowFall|0
-5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10										SA:Purity of Body
-6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																							BONUS:VAR|SlowFall|10																									AUTO:FEAT|Improved Trip
-7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10										SA:Leap of the Clouds	SA:Wholeness of Body (Su) % hp/day|WholenessHpLVL*2
-8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																							BONUS:VAR|SlowFall|20
-9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																															VFEAT:Improved Evasion
-10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12										SA:Ki Strike (+%) (Su)|KiStrike												DEFINE:KiStrike|1
-11	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12										SA:Diamond Body (Su)
-12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8										SA:Abundant Step (Sp)																		SPELLS:Abundant Step|TIMES=1|CASTERLEVEL=CL/2|Dimension Door,14+WIS
-13	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SR:10+MonkSR					SA:Diamond Soul											BONUS:VAR|KiStrike|1
+1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2																																									VFEAT:Evasion		AUTO:FEAT|Improved Unarmed Strike
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																																AUTO:FEAT|Deflect Arrows
+3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8							SA:Still Mind
+4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SA:Slow Fall (% ft.)|SlowFall|PREVARLT:CL,18						BONUS:VAR|SlowFall|20	DEFINE:SlowFall|0
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SA:Purity of Body
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:VAR|SlowFall|10																									AUTO:FEAT|Improved Trip
+7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SA:Leap of the Clouds	SA:Wholeness of Body (Su) % hp/day|WholenessHpLVL*2
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																			BONUS:VAR|SlowFall|20
+9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																											VFEAT:Improved Evasion
+10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						SA:Ki Strike (+%) (Su)|KiStrike												DEFINE:KiStrike|1
+11	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						SA:Diamond Body (Su)
+12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SA:Abundant Step (Sp)																		SPELLS:Abundant Step|TIMES=1|CASTERLEVEL=CL/2|Dimension Door,14+WIS
+13	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SR:10+MonkSR	SA:Diamond Soul											BONUS:VAR|KiStrike|1
 14	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
-15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8										SA:Quivering Palm (Su) %/week|QuiverPalm							BONUS:VAR|QuiverPalm|1	DEFINE:QuiverPalm|0
-16	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																							BONUS:VAR|KiStrike|1
-17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Timeless Body	SA:Tongue of the Sun and Moon																										TEMPLATE:Timeless Body
-18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:.CLEAR.Slow Fall	SA:Slow Fall (any distance)
-19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Empty Body (Su) % rounds/day|EmptyBody							BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0
-20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Perfect Self																															TEMPLATE:Monk Outsider
+15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SA:Quivering Palm (Su) %/week|QuiverPalm							BONUS:VAR|QuiverPalm|1	DEFINE:QuiverPalm|0
+16	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																			BONUS:VAR|KiStrike|1
+17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:Timeless Body	SA:Tongue of the Sun and Moon																										TEMPLATE:Timeless Body
+18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:Slow Fall (any distance)
+19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:Empty Body (Su) % rounds/day|EmptyBody							BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0
+20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:Perfect Self																															TEMPLATE:Monk Outsider
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page						Save checks bonus											Combat bonus
 CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pal		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCEPAGE:srdbasiccharacterclassesii.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -302,7 +302,7 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 3	BONUS:VAR|TurnDamagePlusBase|CL-2|TYPE=Level.REPLACE
 3	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block:Special Mount  Remove these via .MOD if Mount is not desired
-5	AUTO:FEAT|Special Mount	BONUS:VAR|SMLevel|CL
+5	BONUS:VAR|SMLevel|CL	AUTO:FEAT|Special Mount
 ###Block: Level progression
 1				SA:Detect Evil	SA:Divine Grace	SA:Divine Health	SA:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0	DEFINE:AllowHolyAvenger|1
 2				SA:Aura of Courage													BONUS:VAR|SmiteEvil|1																				AUTO:FEAT|Smite Evil
@@ -394,7 +394,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
 ###Block: Familiar - remove these via .MOD if Familiars aren't desired
-1	AUTO:FEAT|Summon Familiar	BONUS:VAR|FMLevel|CL
+1	BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
 ###Block: Level progression
 1	CAST:5,3				KNOWN:4,2
 2	CAST:6,4				KNOWN:5,2
@@ -435,9 +435,9 @@ SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:
 ###Block:Proficiencies
 1	AUTO:FEAT|Wizard Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Familiar - remove these via .MOD if Familiars aren't desired
-1	AUTO:FEAT|Summon Familiar	BONUS:VAR|FMLevel|CL
+1	BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	ABILITY:Wizard Feat|AUTOMATIC|Scribe Scroll
+1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5											ABILITY:Wizard Feat|AUTOMATIC|Scribe Scroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
@@ -456,7 +456,7 @@ SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
-20	CAST:4,4,4,4,4,4,4,4,4,4	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+20	CAST:4,4,4,4,4,4,4,4,4,4							ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
 
 # NPC Classes
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:57:30 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
@@ -64,16 +64,16 @@ CLASS:Chosen of Ba en Aset	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TY
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
-1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8							SA:Mystic Discipline (Light)																																	VFEAT:Evasion|Improved Unarmed Strike
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SA:.CLEAR.Mystic Discipline	SA:Detect Evil	SA:Mystic Discipline (Light/Fleetness of Foot)																											VFEAT:Stunning Fist
-3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SA:.CLEAR.Mystic Discipline	SA:Aura of Courage	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight)
-4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SA:.CLEAR.Mystic Discipline	SA:Divine Grace	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball)																BONUS:CHECKS|Fortitude,Reflex,Will|min(CHA,0)
-5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SA:.CLEAR.Mystic Discipline	SA:Purity of Body	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis)
-6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SA:.CLEAR.Mystic Discipline	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility)																					VFEAT:Improved Trip
-7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SA:.CLEAR.Mystic Discipline	SA:Wholeness of Body	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas)
-8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:.CLEAR.Mystic Discipline	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force)																	VFEAT:Improved Evasion
-9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:.CLEAR.Mystic Discipline	SA:Diamond Body	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal)
-10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:.CLEAR.Mystic Discipline	SA:Diamond Soul	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal/Antimagic Field)
+1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SA:Mystic Discipline (Light)|PREVARLT:CL,2																														VFEAT:Evasion|Improved Unarmed Strike
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SA:Detect Evil	SA:Mystic Discipline (Light/Fleetness of Foot)|PREVARLT:CL,3																								VFEAT:Stunning Fist
+3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SA:Aura of Courage	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight)|PREVARLT:CL,4
+4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SA:Divine Grace	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball)|PREVARLT:CL,5													BONUS:CHECKS|Fortitude,Reflex,Will|min(CHA,0)
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SA:Purity of Body	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis)|PREVARLT:CL,6
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility)|PREVARLT:CL,7																			VFEAT:Improved Trip
+7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SA:Wholeness of Body	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas)|PREVARLT:CL,8
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force)|PREVARLT:CL,9														VFEAT:Improved Evasion
+9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:Diamond Body	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal)|PREVARLT:CL,10
+10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:Diamond Soul	SA:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal/Antimagic Field)
 
 # Class Name			Hit Dice	Type			Max Level	Source Page			Save checks bonus													Combat bonus
 CLASS:Blickish Infiltrator	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33-35	BONUS:CHECKS|BASE.Fortitude|(CL+2)/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+5)/3	BONUS:COMBAT|BAB|(CL+3)/2|TYPE=Base.REPLACE

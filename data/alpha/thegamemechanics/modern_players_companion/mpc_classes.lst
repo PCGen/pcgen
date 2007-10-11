@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  9 00:27:35 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 10 21:59:58 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
 # Original Entry by: Frank Kliewe
 
@@ -134,16 +134,16 @@ CLASS:Fixer		HD:6		TYPE:PC.Advanced	ABB:Fxr		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:C
 CLASS:Fixer		PREFEAT:1,Favor	PRESKILL:3,Diplomacy,Gather Information,Knowledge (Current Events)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fixer		STARTSKILLPTS:7	CSKILL:Bluff|Diplomacy|Forgery|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Repair|Research|Sense Motive|Speak Language
-1							SA:Word on the Street
-2							SA:Contact (low-level)
-3												ADD:FEAT|1|TYPE=Fixer
-4							SA:Pack Rat
-5							SA:Contact (mid-level)
-6												ADD:FEAT|1|TYPE=Fixer
-7							SA:Make a Call (ordinary)
-8							SA:Contact (high-level)
-9												ADD:FEAT|1|TYPE=Fixer
-10	SA:.CLEAR.Make a Call (ordinary)	SA:Make a Call (heroic)
+1	SA:Word on the Street
+2	SA:Contact (low-level)
+3								ADD:FEAT|1|TYPE=Fixer
+4	SA:Pack Rat
+5	SA:Contact (mid-level)
+6								ADD:FEAT|1|TYPE=Fixer
+7	SA:Make a Call (ordinary)|PREVARLT:CL,10
+8	SA:Contact (high-level)
+9								ADD:FEAT|1|TYPE=Fixer
+10	SA:Make a Call (heroic)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
 CLASS:Gentle Warrior	HD:8		TYPE:PC.Advanced	ABB:GntlW		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
@@ -281,11 +281,11 @@ CLASS:Martial Arts Master	HD:8		TYPE:PC.Prestige	ABB:MAM		MAXLEVEL:5	SOURCEPAGE:
 CLASS:Martial Arts Master	PREATT:6	PREFEAT:3,Combat Expertise,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Balance=12	PRESKILL:1,Jump=6	PREVARGTEQ:ClassDefense,7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Martial Arts Master	STARTSKILLPTS:3	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|Read/Write Language|Speak Language|Spot|Tumble
-1					SA:Focus Ki
-2								ADD:FEAT|1|Advanced Techniques
-3	SA:.CLEAR.Focus Ki	SA:Fortify Ki
-4								ADD:FEAT|1|Advanced Techniques
-5	SA:.CLEAR.Fortify Ki	SA:Hone Ki
+1	SA:Focus Ki|PREVARLT:CL,3
+2						ADD:FEAT|1|Advanced Techniques
+3	SA:Fortify Ki|PREVARLT:CL,5
+4						ADD:FEAT|1|Advanced Techniques
+5	SA:Hone Ki
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Master Tinkerer	HD:6		TYPE:PC.Prestige	ABB:MTnkr		MAXLEVEL:5	SOURCEPAGE:p.46	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+4)/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*7
@@ -307,17 +307,17 @@ CLASS:Mentalist	PRESKILL:2,Autohypnosis,Concentration=14	PRESPELLTYPE:1,Psionic=
 CLASS:Mentalist	STARTSKILLPTS:7	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Profession|Psicraft|Read/Write Language|Search|Sense Motive|Speak Language
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Mentalist	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Mentalist|CL	SPELLLIST:2|Telepath|Psionic Agent
-1																																																						AUTO:FEAT|PsionicClass
-1													BONUS:VAR|MentalistML|CL	BONUS:VAR|MentalistML|var("BL=Mentalist")																					DEFINE:MentalistML|0
-1													BONUS:VAR|BasePowerPoints|7	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:MentalistML,2	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:MentalistML,3	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:MentalistML,4
-1													BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:MentalistML,5
-1													BONUS:VAR|BonusPowerPoints|max(((CHA*2)-1),0)
+1																																																			AUTO:FEAT|PsionicClass
+1										BONUS:VAR|MentalistML|CL	BONUS:VAR|MentalistML|var("BL=Mentalist")																					DEFINE:MentalistML|0
+1										BONUS:VAR|BasePowerPoints|7	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:MentalistML,2	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:MentalistML,3	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:MentalistML,4
+1										BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:MentalistML,5
+1										BONUS:VAR|BonusPowerPoints|max(((CHA*2)-1),0)
 
-1	KNOWN:1,1,1,1,1					SA:Draw Power (%)|Drw_Pwr	BONUS:VAR|Drw_Pwr|CL+var("CL=Psionic Agent")+var("CL=Psionic Assassin")																					DEFINE:Drw_Pwr|0
-2	KNOWN:1,1,1,2,2					SA:Power Crystal																																							ADD:FEAT|1|TYPE=Mentalist
-3	KNOWN:2,1,1,2,2,1																																														ADD:FEAT|1|Trigger Power
-4	KNOWN:2,2,2,2,3,2																																														ADD:FEAT|1|TYPE=Mentalist
-5	KNOWN:2,2,2,3,3,2	SA:.CLEAR.Power Crystal	SA:Improve Power Crystal
+1	KNOWN:1,1,1,1,1	SA:Draw Power (%)|Drw_Pwr		BONUS:VAR|Drw_Pwr|CL+var("CL=Psionic Agent")+var("CL=Psionic Assassin")																					DEFINE:Drw_Pwr|0
+2	KNOWN:1,1,1,2,2	SA:Power Crystal|PREVARLT:CL,5																																					ADD:FEAT|1|TYPE=Mentalist
+3	KNOWN:2,1,1,2,2,1																																											ADD:FEAT|1|Trigger Power
+4	KNOWN:2,2,2,2,3,2																																											ADD:FEAT|1|TYPE=Mentalist
+5	KNOWN:2,2,2,3,3,2	SA:Improve Power Crystal
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
 CLASS:Psionic Assassin	HD:8		TYPE:PC.Prestige	ABB:PsAss		MAXLEVEL:5	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|(CL+4)/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
