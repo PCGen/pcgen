@@ -101,7 +101,7 @@ a img {
 .tagindent0 {
 	text-align: left;
 	margin-top: 0px;
-	margin-right: 20%;
+	margin-right: 10%;
 	margin-bottom: 0px;
 	margin-left: 0px;
 	text-indent: 0px;
@@ -109,7 +109,7 @@ a img {
 .tagindent1 {
 	text-align: left;
 	margin-top: 0px;
-	margin-right: 20%;
+	margin-right: 10%;
 	margin-bottom: 0px;
 	margin-left: 25px;
 	text-indent: -25px;
@@ -117,7 +117,7 @@ a img {
 .tagindent2 {
 	text-align: left;
 	margin-top: 0px;
-	margin-right: 20%;
+	margin-right: 10%;
 	margin-bottom: 0px;
 	margin-left: 50px;
 	text-indent: -50px;
@@ -125,7 +125,7 @@ a img {
 .tagindent3 {
 	text-align: left;
 	margin-top: 0px;
-	margin-right: 20%;
+	margin-right: 10%;
 	margin-bottom: 0px;
 	margin-left: 75px;
 	text-indent: -75px;
@@ -133,7 +133,7 @@ a img {
 .tagindent4 {
 	text-align: left;
 	margin-top: 0px;
-	margin-right: 20%;
+	margin-right: 10%;
 	margin-left: 100px;
 	text-indent: -100px;
 }
