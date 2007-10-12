@@ -31,6 +31,10 @@ p {
 	font-size: 10pt;
 	text-align: justify;
 }
+pl {
+	font-size: 10pt;
+	text-align: left;
+}
 p18 {
 	font-size: 18pt;
 	text-align: justify;
@@ -45,6 +49,10 @@ table {
 td {
 	cell-spacing: 5px;
 	padding: 1px 10px;
+}
+tg {
+	font-size: 10pt;
+	text-align: left;
 }
 a img {
 	border-style: none;
@@ -97,6 +105,46 @@ a img {
 	margin-right: 0px;
 	margin-bottom: 0px;
 	text-indent: 100px;
+}
+.tagindent0 {
+	text-align: left;
+	margin-top: 0px;
+	margin-right: 20%;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	text-indent: 0px;
+}
+.tagindent1 {
+	text-align: left;
+	margin-top: 0px;
+	margin-right: 20%;
+	margin-bottom: 0px;
+	margin-left: 25px;
+	text-indent: -25px;
+}
+.tagindent2 {
+	text-align: left;
+	margin-top: 0px;
+	margin-right: 20%;
+	margin-bottom: 0px;
+	margin-left: 50px;
+	text-indent: -50px;
+}
+.tagindent3 {
+	text-align: left;
+	margin-top: 0px;
+	margin-right: 20%;
+	margin-bottom: 0px;
+	margin-left: 75px;
+	text-indent: -75px;
+}
+.tagindent4 {
+	text-align: left;
+	margin-top: 0px;
+	margin-right: 20%;
+	margin-bottom: 0px;
+	margin-left: 100px;
+	text-indent: -100px;
 }
 .new {
 	color: #FF0000;
