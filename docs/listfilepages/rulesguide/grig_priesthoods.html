@@ -31,7 +31,7 @@
 	<p class="indent0"><strong>Gamemode/Dataset:</strong> 35e/RSRD Complete</p>
 	<p class="indent0"><strong>File(s) Covered:</strong> <em>feat.lst</em>, and <em>deity.lst</em></p>
 
-	<p class="indent0"><strong>Tags Used</em>:</strong></p>
+	<p class="indent0"><strong>Tags Used:</strong></p>
 	<p class="indent1"><code><a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE</a>, 
   		<a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>, 
   		<a href="../globalfilestagpages/globalfilesprexxx.html#PREMULT">PREMULT</a>, 
@@ -60,10 +60,10 @@
 	<p>To help you better understand these entries, we will be using a fictitious deity called the 
 	&quot;The Monkey God&quot; who has four priesthoods, each with their own selection of domains. These 
 	priesthoods, and the domains they have access to, are listed below:</p>
-	<p class="indent1">Priesthood of Code Monkey - Domains of Knowledge, Madness, Creation, and Magic.</il><br>
-	<il>Priesthood of Data Monkey - Domains of Knowledge, Madness, Creation, and Artifice.</il><br>
-	<il>Priesthood of Doc Monkey - Domains of Knowledge, Madness, Artifice, and Magic.</il><br>
-	<il>Priesthood of the Monkey - Domains of Knowledge and Madness.</p>
+	<p class="indent1">Priesthood of Code Monkey - Domains of Knowledge, Madness, Creation, and Magic.<br>
+		Priesthood of Data Monkey - Domains of Knowledge, Madness, Creation, and Artifice.<br>
+		Priesthood of Doc Monkey - Domains of Knowledge, Madness, Artifice, and Magic.<br>
+		Priesthood of the Monkey - Domains of Knowledge and Madness.</p>
 
 	<p>We will discuss each of these entries required to implement these priesthoods below as well as 
 	the tags that make them work.</p>
@@ -116,8 +116,10 @@
 	<p> </p>
 
 	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey,<il><br>
-		<il class="indent4">Priesthood of the Doc Monkey,Priesthood of the Monkey</code></p>
+		<blockquote class="tagindent2">
+			<pl><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey, 
+			Priesthood of the Doc Monkey,Priesthood of the Monkey</code></pl>
+		</blockquote>
 		<p class="indent1"><strong>What it does:</strong> Will give the character a choice of one of the four priesthood feats listed.</p>
 	</blockquote>
 
@@ -141,7 +143,6 @@
 		<p class="indent1"><strong>What it does:</strong> Sets a feat requirement for the DOMAINS 
 		tag granting domains to the deities clerics.</p>
 	</blockquote>
-	<p></p>
 
 	<p class="indent1">You will find the completed <a href="#DEITY">Deity</a> below.</p>
 
@@ -153,53 +154,56 @@
 	<a name="FEATS"></a>
 	<p class="indent1">Feat File: Priesthoods of the &quot;Code&quot;, &quot;Data&quot;, and &quot;Doc&quot; Monkeys</p>
 	<p class="indent2"><code>
-		<il>Priesthood of the Code Monkey</il><br>
-		<il>VISIBLE:EXPORT</il><br>
-		<il>TYPE:Priesthood</il><br>
-		<il>PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Code Monkey]</il></code><br>
+		Priesthood of the Code Monkey<br>
+		VISIBLE:EXPORT<br>
+		TYPE:Priesthood<br>
+		PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Code Monkey]</code>
 	</p>
-	<p></p>
+	<p> </p>
+	
 	<p class="indent2"><code>
-		<il>Priesthood of the Data Monkey</il><br>
-		<il>VISIBLE:EXPORT</il><br>
-		<il>TYPE:Priesthood</il><br>
-		<il>PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Data Monkey]</il></code><br>
+		Priesthood of the Data Monkey<br>
+		VISIBLE:EXPORT<br>
+		TYPE:Priesthood<br>
+		PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Data Monkey]</code>
 	</p>
-	<p></p>
+	<p> </p>
 	<p class="indent2"><code>
-		<il>Priesthood of the Doc Monkey</il><br>
-		<il>VISIBLE:EXPORT</il><br>
-		<il>TYPE:Priesthood</il><br>
-		<il>PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Doc Monkey]</il></code><br>
+		Priesthood of the Doc Monkey<br>
+		VISIBLE:EXPORT<br>
+		TYPE:Priesthood<br>
+		PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Doc Monkey]</code><br>
 	</p>
-	<p></p>
+	<p> </p>
 	<p class="indent2"><code>
-		<il>Priesthood of the Monkey</il><br>
-		<il>VISIBLE:EXPORT</il><br>
-		<il>PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Monkey]</il></code><br>
+		Priesthood of the Monkey<br>
+		VISIBLE:EXPORT<br>
+		PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Monkey]</code><br>
 	</p>
-	</code></p>
 
 	<a name="DEITY"></a>
 	<p class="indent1">Deity File: &quot;Monkey God&quot;</p>
 	<p class="indent2"><code>
-		<il>The Monkey God</il></il><br>
-		<il>ALIGN:TN</il><br>
-		<il>PREALIGN:NG,LN,TN,CN,NE</il><br>
-		<il>DEITYWEAP:Pile of Poo</il><br>
-		<code><il>DOMAINS:Knowledge,Madness</il><br>
-		<il>DOMAINS:Creation|PREFEAT:1,Priesthood of the Code Monkey,Priesthood of the Data Monkey</il><br>
-		<il>DOMAINS:Artifice|PREFEAT:1,Priesthood of the Data Monkey,Priesthood of the Doc Monkey</il><br>
-		<il>DOMAINS:Magic|PREFEAT:1,Priesthood of the Code Monkey],Priesthood of the Doc Monkey</il><br>
-		<il>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey,</il><br>
-		<il class="indent1">Priesthood of the Doc Monkey,Priesthood of the Monkey</il></code><br></code>
-		<il>etc.</il><br>
+		The Monkey God<br>
+		ALIGN:TN<br>
+		PREALIGN:NG,LN,TN,CN,NE<br>
+		DEITYWEAP:Pile of Poo<br>
+		DOMAINS:Knowledge,Madness<br>
+		DOMAINS:Creation|PREFEAT:1,Priesthood of the Code Monkey,Priesthood of the Data Monkey<br>
+		DOMAINS:Artifice|PREFEAT:1,Priesthood of the Data Monkey,Priesthood of the Doc Monkey<br>
+		DOMAINS:Magic|PREFEAT:1,Priesthood of the Code Monkey],Priesthood of the Doc Monkey<br>
+		<blockquote class="tagindent2">
+			<pl>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey, Priesthood of 
+			the Doc Monkey,Priesthood of the Monkey</pl>
+		</blockquote></code>
+		etc.
 	</p>
 
 <hr>
 
 	<h3>Variations on a Theme: Implementing Other Powers and Abilities</h3>
 
+	<p>This section is under development.</p>
 
 <hr>
 	<p>

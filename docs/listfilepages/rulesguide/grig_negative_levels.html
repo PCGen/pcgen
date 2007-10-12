@@ -93,9 +93,10 @@
 	<p> </p>
 
 	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Used:</strong> <code>SA:% negative level(s) (-% effective level(s) and loses </il><br>
-		<il class="indent4">access to % spell(s) from the highest spell level </il><br>
-		<il class="indent4">castable)|NegLevels|NegLevels|NegLevels</il></code></p>
+		<blockquote class="tagindent2">
+			<pl><strong>Tag Used:</strong> <code>SA:% negative level(s) (-% effective level(s) and loses
+			access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels</code></pl>
+		</blockquote>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This grants the character &quot;negative levels&quot; as a Special Ability that will get 
@@ -126,8 +127,10 @@
 	</blockquote>
 
 	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,<br>
-		<il class="indent4">TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</il></code></p>
+		<blockquote class="tagindent2">
+			<pl><strong>Tag Used:</strong> <code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution, 
+			TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</code></pl>
+		</blockquote>
 		<p class="indent1"><strong>What it does:</strong> Subtracts the number of negative levels granted from all skills.</p>
 	</blockquote>
 
@@ -167,7 +170,7 @@
 	<a name="PREALIGN"></a>
 	<blockquote class="indent3">
 		<p class="indent0"><strong>Tag Used:</strong> <code>PREALIGN:LG,LN,NG,TN,CG,CN</code></p>
-		<p class="indent1"><strong>What it does:</strong> Sets an &quotlAlignment&quot; based 
+		<p class="indent1"><strong>What it does:</strong> Sets an &quot;Alignment&quot; based 
 		restriction upon when the associated bonus will be applied.</p>
 	</blockquote>
 
@@ -177,29 +180,29 @@
 
 	<p>These examples come from the RSRD.</p>
 	<p class="indent1">Feat File: &quot;Negative Levels&quot; feat</p>
-	<p class="indent2"><code>
-		<il>Negative Levels</il><br>
-		<il>TYPE:Special</il><br>
-		<il>VISIBLE:NO</il><br>
-		<il>SA:% negative level(s) (-% effective level(s) and loses access to </il><br>
-		<il class="indent1">% spell(s) from the highest spell level castable)|NegLevels|</il><br>
-		<il class="indent1">NegLevels|NegLevels</il><br>
-		<il>DEFINE:NegLevels|0</il><br>
-		<il>BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)</il><br>
-		<il>BONUS:COMBAT|TOHIT|-1*(NegLevels)</il><br>
-		<il>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,</il><br>
-		<il class="indent1">TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</il>
-	</code></p>
+	<blockquote><code>
+		Negative Levels<br>
+		TYPE:Special<br>
+		VISIBLE:NO<br>
+		SA:% negative level(s) (-% effective level(s) and loses access to <br>
+		<span class="indent1">% spell(s) from the highest spell level castable)|NegLevels|</span><br>
+		<span class="indent1">NegLevels|NegLevels</span><br>
+		DEFINE:NegLevels|0<br>
+		BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)<br>
+		BONUS:COMBAT|TOHIT|-1*(NegLevels)<br>
+		BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,<br>
+		<span class="indent1">TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</span></code>
+		</blockquote>
 	
 	<p class="indent1">Equipment File: &quot;Demon Armor&quot;</p>
-	<p class="indent2"><code>
-		<il>Demon Armor</il></code><br>
-		<il>.</il><br>
-		<il>. (See the RSRD for full detail on this item.)</il><br>
-		<il>.</il><br>
-		<code><il>VFEAT:Negative Levels</il><br>
-		<il>BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7</il></code>
-	</p>
+	<blockquote><code>
+		Demon Armor</code><br>
+		.<br>
+		. (See the RSRD for full detail on this item.)<br>
+		.<br>
+		<code>VFEAT:Negative Levels<br>
+		BONUS:VAR|NegLevels|1|PREALIGN:LG,LN,NG,TN,CG,CN</code>
+	</blockquote>
 
 <hr>
 	<p>
