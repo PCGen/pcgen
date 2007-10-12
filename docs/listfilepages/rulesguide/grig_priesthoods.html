@@ -116,10 +116,8 @@
 	<p> </p>
 
 	<blockquote class="indent2">
-		<blockquote class="tagindent2">
-			<pl><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey, 
-			Priesthood of the Doc Monkey,Priesthood of the Monkey</code></pl>
-		</blockquote>
+		<p class="tagindent3"><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey, 
+		Priesthood of the Doc Monkey,Priesthood of the Monkey</code></p>
 		<p class="indent1"><strong>What it does:</strong> Will give the character a choice of one of the four priesthood feats listed.</p>
 	</blockquote>
 
@@ -150,7 +148,7 @@
 
 	<h3>LST File Entry Examples</h3>
 
-	<p>These examples .</p>
+	<p>These examples.</p>
 	<a name="FEATS"></a>
 	<p class="indent1">Feat File: Priesthoods of the &quot;Code&quot;, &quot;Data&quot;, and &quot;Doc&quot; Monkeys</p>
 	<p class="indent2"><code>
@@ -168,6 +166,7 @@
 		PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Data Monkey]</code>
 	</p>
 	<p> </p>
+
 	<p class="indent2"><code>
 		Priesthood of the Doc Monkey<br>
 		VISIBLE:EXPORT<br>
@@ -175,15 +174,17 @@
 		PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Doc Monkey]</code><br>
 	</p>
 	<p> </p>
+	
 	<p class="indent2"><code>
 		Priesthood of the Monkey<br>
 		VISIBLE:EXPORT<br>
+		TYPE:Priesthood<br>
 		PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Monkey]</code><br>
 	</p>
 
 	<a name="DEITY"></a>
 	<p class="indent1">Deity File: &quot;Monkey God&quot;</p>
-	<p class="indent2"><code>
+	<p class="indent2" style="margin-bottom: 0px"><code>
 		The Monkey God<br>
 		ALIGN:TN<br>
 		PREALIGN:NG,LN,TN,CN,NE<br>
@@ -191,13 +192,12 @@
 		DOMAINS:Knowledge,Madness<br>
 		DOMAINS:Creation|PREFEAT:1,Priesthood of the Code Monkey,Priesthood of the Data Monkey<br>
 		DOMAINS:Artifice|PREFEAT:1,Priesthood of the Data Monkey,Priesthood of the Doc Monkey<br>
-		DOMAINS:Magic|PREFEAT:1,Priesthood of the Code Monkey],Priesthood of the Doc Monkey<br>
-		<blockquote class="tagindent2">
-			<pl>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey, Priesthood of 
-			the Doc Monkey,Priesthood of the Monkey</pl>
-		</blockquote></code>
-		etc.
-	</p>
+		DOMAINS:Magic|PREFEAT:1,Priesthood of the Code Monkey],Priesthood of the Doc Monkey</code></p>
+	<blockquote class="indent2">
+		<p class="tagindent1"><code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey, Priesthood of 
+		the Doc Monkey,Priesthood of the Monkey</code></p>
+	</blockquote>
+	<p class="indent2">etc.</p>
 
 <hr>
 

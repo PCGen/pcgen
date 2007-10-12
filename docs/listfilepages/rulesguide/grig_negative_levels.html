@@ -93,9 +93,9 @@
 	<p> </p>
 
 	<blockquote class="indent2">
-		<blockquote class="tagindent2">
-			<pl><strong>Tag Used:</strong> <code>SA:% negative level(s) (-% effective level(s) and loses
-			access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels</code></pl>
+		<blockquote class="indent0">
+			<p class="tagindent3"><strong>Tag Used:</strong> <code>SA:% negative level(s) (-% effective level(s) and loses
+			access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels</code></p>
 		</blockquote>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -127,9 +127,9 @@
 	</blockquote>
 
 	<blockquote class="indent2">
-		<blockquote class="tagindent2">
-			<pl><strong>Tag Used:</strong> <code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution, 
-			TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</code></pl>
+		<blockquote class="indent0">
+			<p class="tagindent3"><strong>Tag Used:</strong> <code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution, 
+			TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</code></p>
 		</blockquote>
 		<p class="indent1"><strong>What it does:</strong> Subtracts the number of negative levels granted from all skills.</p>
 	</blockquote>
@@ -180,18 +180,20 @@
 
 	<p>These examples come from the RSRD.</p>
 	<p class="indent1">Feat File: &quot;Negative Levels&quot; feat</p>
-	<blockquote><code>
+	<p class="indent2"><code>
 		Negative Levels<br>
 		TYPE:Special<br>
-		VISIBLE:NO<br>
-		SA:% negative level(s) (-% effective level(s) and loses access to <br>
-		<span class="indent1">% spell(s) from the highest spell level castable)|NegLevels|</span><br>
-		<span class="indent1">NegLevels|NegLevels</span><br>
-		DEFINE:NegLevels|0<br>
+		VISIBLE:NO</code></p>
+		<blockquote class="indent2">
+			<p class="tagindent1"><code>SA:% negative level(s) (-% effective level(s) and loses access to 
+			% spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels</code></p>
+		</blockquote>
+	<p class="indent2"><code>DEFINE:NegLevels|0<br>
 		BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)<br>
-		BONUS:COMBAT|TOHIT|-1*(NegLevels)<br>
-		BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,<br>
-		<span class="indent1">TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</span></code>
+		BONUS:COMBAT|TOHIT|-1*(NegLevels)</code></p>
+		<blockquote class="indent2">
+			<p class="tagindent1"><code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,
+			TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</code></p>
 		</blockquote>
 	
 	<p class="indent1">Equipment File: &quot;Demon Armor&quot;</p>
