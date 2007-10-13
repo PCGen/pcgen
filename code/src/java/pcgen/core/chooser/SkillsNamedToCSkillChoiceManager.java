@@ -29,6 +29,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * This is the chooser that deals with choosing a skill.
@@ -70,29 +71,32 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 		{
 			Ability anAbility = (Ability) pobject;
 
-			for (Iterator<String> cSkillIt = anAbility.getCSkillList().iterator(); cSkillIt.hasNext();)
+			List<String> skillList = anAbility.getCSkillList();
+			if (skillList != null)
 			{
-				final String tempString = cSkillIt.next();
-
-				if (!"LIST".equals(tempString))
+				for (Iterator<String> cSkillIt = skillList.iterator(); cSkillIt.hasNext();)
 				{
-					String tempKey = pobject.getKeyName();
-					final Ability tempAbility = Globals.getAbilityKeyed("FEAT", tempKey);
-
-					if (tempAbility != null)
+					final String tempString = cSkillIt.next();
+	
+					if (!"LIST".equals(tempString))
 					{
-						if (tempAbility.getCSkillList() != null)
+						String tempKey = pobject.getKeyName();
+						final Ability tempAbility = Globals.getAbilityKeyed("FEAT", tempKey);
+	
+						if (tempAbility != null)
 						{
-							if (tempAbility.getCSkillList().contains(tempString))
+							if (tempAbility.getCSkillList() != null)
 							{
-								cSkillIt.remove();
+								if (tempAbility.getCSkillList().contains(tempString))
+								{
+									cSkillIt.remove();
+								}
 							}
 						}
 					}
 				}
 			}
-
-			anAbility.clearCcSkills();
+			anAbility.clearCSkills();
 		}
 
 		super.cleanUpAssociated(aPc, size);
@@ -114,7 +118,7 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 
 		if (pobject != null && pobject instanceof Ability)
 		{
-			pobject.addCcSkill(item);
+			pobject.addCSkill(item);
 		}
 	}
 
