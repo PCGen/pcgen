@@ -27,7 +27,7 @@
 	<p class="indent0"><strong>Rule Description:</strong> Deities may have more than one 
 	&quot;Priesthood&quot;, each with their own powers and abilities granted through the 
 	different domains available to each priesthood.</p>
-	<p class="indent0"><strong>PCGen Version:</strong> 5.12.x to Current.</p>
+	<p class="indent0"><strong>PCGen Version:</strong> 5.12.1</p>
 	<p class="indent0"><strong>Gamemode/Dataset:</strong> 35e/RSRD Complete</p>
 	<p class="indent0"><strong>File(s) Covered:</strong> <em>feat.lst</em>, and <em>deity.lst</em></p>
 
@@ -36,14 +36,14 @@
   		<a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>, 
   		<a href="../globalfilestagpages/globalfilesprexxx.html#PREMULT">PREMULT</a>, 
   		<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT">PREFEAT</a>,
-		<a href="../globalfilestagpages/globalfilesadd.html#FEAT|">ADD:FEAT</a>, 
+		<a href="../globalfilestagpages/globalfilesadd.html#FEAT">ADD:FEAT</a>, 
   		<a href="../datafilestagpages/datafilesdeities.html#DOMAINS">DOMAINS</a></code></p>
 
 	<blockquote>
-		<p>NOTE: In this section we will discuss only those LST tags specific to this implementation.  
-		For more general information on the associated tags, please visit the 
-		<a href="../../navlistindex.html" target="navigation">LST File Tag Index</a> section of the 
-		PCGen Documentation.</p>
+		<p>NOTE: In this section we will discuss only those LST tags specific to this implementation,
+		and how they are used to implement the subject rule. For more general information on the 
+		associated tags, please visit the <a href="../../navlistindex.html" target="navigation">LST 
+		File Tag Index</a> section of the PCGen Documentation.</p>
 	</blockquote>
 
 <hr>
@@ -75,7 +75,7 @@
 	&quot;Priesthood of the Data Monkey&quot;, &quot;Priesthood of the Doc Monkey&quot;, and the generic 
 	&quot;Priesthood of the Monkey&quot;. For this rules implementation these feats are used to simply 
 	identify which &quot;priesthood&quot; the character belongs to. The tags used to do this are explained below:</p>
-	<p> </p>
+	<p></ p>
 
 	<blockquote class="indent2">
 		<p class="indent0"><strong>Tag Used:</strong> <code>VISIBLE:EXPORT</code></p>
@@ -113,12 +113,13 @@
 	<h3>Deity File Entry</h3>
 
 	<p class="indent1">Now that we have created the priesthood feats, we can concentrate on &quot;The Monkey God&quot;, and for </p>
-	<p> </p>
+	<p></ p>
 
 	<blockquote class="indent2">
-		<p class="tagindent3"><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey, 
-		Priesthood of the Doc Monkey,Priesthood of the Monkey</code></p>
-		<p class="indent1"><strong>What it does:</strong> Will give the character a choice of one of the four priesthood feats listed.</p>
+		<p class="tagindent3"><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,
+		Priesthood of the Data Monkey,Priesthood of the Doc Monkey,Priesthood of the Monkey</code></p>
+		<p class="indent1"><strong>What it does:</strong> Will give the character a choice of one of 
+		the four priesthood feats listed.</p>
 	</blockquote>
 
 	<blockquote class="indent2">
@@ -144,6 +145,12 @@
 
 	<p class="indent1">You will find the completed <a href="#DEITY">Deity</a> below.</p>
 
+	<h3>Known Issues</h3>
+	
+	<ol class="indent1">
+	<li>The use of the <code>ADD:FEAT</code> tag introduces a problem with the removal and reselection of a deity.</p>
+	</ol><p></ p>
+	
 <hr>
 
 	<h3>LST File Entry Examples</h3>
@@ -151,13 +158,14 @@
 	<p>These examples.</p>
 	<a name="FEATS"></a>
 	<p class="indent1">Feat File: Priesthoods of the &quot;Code&quot;, &quot;Data&quot;, and &quot;Doc&quot; Monkeys</p>
+	<p></ p>
 	<p class="indent2"><code>
 		Priesthood of the Code Monkey<br>
 		VISIBLE:EXPORT<br>
 		TYPE:Priesthood<br>
 		PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Code Monkey]</code>
 	</p>
-	<p> </p>
+	<p></ p>
 	
 	<p class="indent2"><code>
 		Priesthood of the Data Monkey<br>
@@ -165,7 +173,7 @@
 		TYPE:Priesthood<br>
 		PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Data Monkey]</code>
 	</p>
-	<p> </p>
+	<p></ p>
 
 	<p class="indent2"><code>
 		Priesthood of the Doc Monkey<br>
@@ -173,7 +181,7 @@
 		TYPE:Priesthood<br>
 		PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood of the Doc Monkey]</code><br>
 	</p>
-	<p> </p>
+	<p></ p>
 	
 	<p class="indent2"><code>
 		Priesthood of the Monkey<br>
@@ -184,6 +192,7 @@
 
 	<a name="DEITY"></a>
 	<p class="indent1">Deity File: &quot;Monkey God&quot;</p>
+	<p></ p>
 	<p class="indent2" style="margin-bottom: 0px"><code>
 		The Monkey God<br>
 		ALIGN:TN<br>
@@ -194,8 +203,8 @@
 		DOMAINS:Artifice|PREFEAT:1,Priesthood of the Data Monkey,Priesthood of the Doc Monkey<br>
 		DOMAINS:Magic|PREFEAT:1,Priesthood of the Code Monkey],Priesthood of the Doc Monkey</code></p>
 	<blockquote class="indent2">
-		<p class="tagindent1"><code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey, Priesthood of 
-		the Doc Monkey,Priesthood of the Monkey</code></p>
+		<p class="tagindent1"><code>ADD:FEAT|Priesthood of the Code Monkey,Priesthood of the Data Monkey, 
+		Priesthood of the Doc Monkey,Priesthood of the Monkey</code></p>
 	</blockquote>
 	<p class="indent2">etc.</p>
 

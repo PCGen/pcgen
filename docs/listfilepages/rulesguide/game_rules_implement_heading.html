@@ -36,7 +36,40 @@
 		<p>The rules implementation solutions represented below are not the only way to implement the subject  
 		rules.  They are given here simply as examples of how different rules can be implemented.</p>
 
-		<h4>Conventions</h4>
+		<p>You can find  the <a href="#CONVENTIONS">Style Conventions</a> and <a href="READING">Reading 
+		Instruction</a> for this section below.</p>
+
+<hr>
+
+		<h2>Rules Implementation Pages</h2>
+
+		<a name="PCGENDIST"></a>
+  		<h3>PCGen Distributed Rules Implementations</h3>
+		<dl class="indent1">
+			<dt><a href="grig_negative_levels.html">Negative Levels</a></dt>
+ 				<dd>Equipment/Items can now bestow negative levels upon a character.</dd>
+		</dl>
+		
+		<a name="HOMEBREW"></a>
+  		<h3>Rules Implementations for Homebrews</h3>
+		<dl class="indent1">
+			<dt><a href="grig_priesthoods1.html">Priesthoods #1</a></dt>
+				<dd>Deities may have multiple priesthoods, each with their own powers and abilities.<br>
+				by Maredudd</dd>
+			<dt><a href="grig_priesthoods2.html">Priesthoods #2</a></dt>
+				<dd>An alternative way to implement Priesthoods.<br>
+				by Tir Gwaith amd Maredudd</dd>
+			<dt>Skill Tricks (forthcoming)</dt>
+				<dd>Buying feats with skill points.<br>
+				by Andrew Maitland</dd>
+		</dl>
+
+<hr>
+
+		<h2>Rules Implementation Template</h2>
+
+		<a name="CONVENTIONS"></a>
+		<h3>Conventions</h3>
 		<p class="indent1">Because HTML formatting cannot exactly replicate what you would see in a LST 
   		file we are going to use certain conventions to convey these ideas.</p>
   		<dl class="indent1">
@@ -44,7 +77,7 @@
   				<dd>Tags in LST files are &lt;TAB&gt; deliminated, that is, the tags are separated by TABs. 
   				Because this is difficult to show, the LST examples will have their tags separated by 
   				simple line breaks with no additional indention.</dd>
-   			<dt><em>LST Code</em></td>
+   			<dt><em>LST Code</em></dt>
   				<dd>Text meant to display LST code will be in the <code>code font</code>.</dd>
   			<dt>Source Text</dt>
   				<dd>Text taken from source will be indicated in <strong>bold</strong>.</dd>
@@ -53,25 +86,63 @@
   				subsequent lines indented.</dd>
 	  	</dl>
 		
-<hr>
+		<a name="READING"></a>
+		<h3>How to Read the Pages</h3>
 
-		<h3>Rules Implementation Pages</h3>
+		<blockquote>
+			<p><strong>Rule Description:</strong> A brief description of the rule being implemented.</p>
 
-		<a name="PCGENDIST"></a>
-  		<h4>PCGen Distributed Rules Implementations</h4>
-		<dl class="indent1">
-			<dt><a href="grig_negative_levels.html">Negative Levels</a></dt>
- 				<dd>Equipment/Items can now bestow negative levels upon a character.</dd>
-		</dl>
+			<p><strong>PCGen Version:</strong> The version of PCGen used to develop this implementation.</p>
+
+			<p><strong>Gamemode/Dataset:</strong> The gamemode/datasets used by the author to implement this rule.</p>
+
+			<p><strong>File(s) Covered:</strong> The files modified during this implementation.</p>
+
+			<p><strong>Tags Used:</strong></p>
+			<p class="indent2">Links to the LST FIle Index for the tags used in this implementation</p>
+
+			<p class="indent1">NOTE: In this section we will discuss only those LST tags specific 
+			to this implementation. For more general information on the associated tags, please 
+			visit the <a href="../../navlistindex.html" target="navigation">LST File Tag Index</a> 
+			section of the PCGen Documentation.</p>
 		
-		<a name="HOMEBREW"></a>
-  		<h4>Rules Implementations for Homebrews</h4>
-		<dl class="indent1">
-			<dt><a href="grig_priesthoods.html">Priesthoods</a></dt>
-				<dd>Deities may have multiple priesthoods, each with their own powers and abilities.</dd>
-			<dt>Skill Tricks (forthcoming)</dt>
-				<dd>Buying feats with skill points.</dd>
-		</dl>
+			<p><strong>Implementation Description:</strong>  A detailed description of the implementation,
+			including a summary of the LST files (i.e. feat.lst, class.lst, etc.) and LST objects 
+			(i.e. feats, spells, deities, etc.), that will be required. If the rule being implemented 
+			has been incorporated into a PCGen distributed set, this sub-section will also include 
+			instructions for using the rule in new LST objects.</p>
+
+			<p><strong>LST File Entry:</strong> Discussion of each LST file being modified is provided 
+			and includes an explanation of each tag used for the specific implementation of the required 
+			LST objects. The information presented here is similar to that found in the 
+			<a href="../../navlistindex.html" target="navigation">LST File Tag Index</a>, but is tailered 
+			to the specific requirements of the implementation.</p>
+
+			<blockquote>
+				<p class="indent0"><strong>Tag Used:</strong> The LST tag in its specific form as used in
+				this implementation.</p>
+				<p class="indent1"><strong>Variables Used:</strong> The variables used and what they represent. 
+				This information will only be provided if the &quot;Tag Used&quot; includes variables.</p>
+				<p class="indent1"><strong>What it Does:</strong> A brief explanation of what the &quot;Tag 
+				Used&quot; will do, including specific information on allowable values for variables.</p>
+				<p class="indent1"><strong>Sub-Tag Used:</strong> The LST tag in its specific form that is
+				used as part of the &quot;Tag Used&quot;. This entry is otherwise treated as the &quot;Tag 
+				Used&quot; entry above, including descrption of the variables used and what it will do.</p>
+			</blockquote>
+			
+			<p><strong>Known Issues:</strong> Any issues or quirks with the LST code are briefly mentioned. 
+			This may involve specific user instructions or simple &quot;things to remember&quot;.</p>
+
+			<p><strong>LST File Entry Examples:</strong> An example of each of the LST objects recuired to
+			implement the subject rule is provided and includes all tags covered in the rule implementatin 
+			page. Simple objects are presented using the minimum tags required to make a functional LST object.</p>
+
+			<p><strong>Variations on a Theme:</strong> Hints may be provided on how to expand the scope of 
+			the specific rule being described.</p>
+
+		</blockquote>
+		
+		
 
 <hr>
 
