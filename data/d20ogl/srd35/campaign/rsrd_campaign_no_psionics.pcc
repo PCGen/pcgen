@@ -46,6 +46,7 @@ FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden2.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_monster.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
 
 KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst
 KIT:@/d20ogl/srd35/basics/rsrd_kits_races__base.lst
