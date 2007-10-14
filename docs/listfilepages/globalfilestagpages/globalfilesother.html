@@ -211,6 +211,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> LIST</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Grants the listed skills as class skills. When used in a classes.lst,
   			it grants the class skills only to the class it is actually in. When used in
@@ -223,6 +224,8 @@
 	<p class="indent3">The &quot;Search&quot; and &quot;Knowledge&quot; type skills are made class skills.</p>
 	<p class="indent2"><code>CSKILL:ALL</code></p>
 	<p class="indent3">All skills are made class skills.</p>
+	<p class="indent2"><code>CSKILL:LIST</code></p>
+	<p class="indent3">Skills selected in the associated choice are made class skills.</p>
 	<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; CSKILL:.CLEAR.Scry &lt;tab&gt; CSKILL:Drive|TYPE.Knowledge|Perform</code></p>
 	<p class="indent3">Modifies the Class Sorcerer, droping the class skill Scry and adding Drive, Perform and all TYPE.Knowledge skills.</p>
 	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
@@ -234,6 +237,7 @@
 	<p class="indent0"><strong><a name="CCSKILL">Tag Name:</a></strong> CCSKILL:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type.&lt;Skill Type&gt;)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> LIST</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Grants the listed exclusive skills as cross class skills.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
@@ -241,6 +245,8 @@
 	<p class="indent3">The &quot;Listen&quot; and &quot;Spot&quot; skills are made cross class skills.</p>
 	<p class="indent2"><code>CCSKILL:Search|TYPE.Knowledge</code></p>
 	<p class="indent3">The &quot;Search&quot; and &quot;Knowledge&quot; type skills are made cross class skills.</p>
+	<p class="indent2"><code>CCSKILL:LIST</code></p>
+	<p class="indent3">Skills selected in the associated choice are made cross class skills.</p>
 	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
 	<p class="indent3">Modified Class that changes all of these Tags from their starting values..</p>
 	<p></p>
