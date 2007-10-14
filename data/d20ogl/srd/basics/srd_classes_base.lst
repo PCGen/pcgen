@@ -456,7 +456,7 @@ SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
-20	CAST:4,4,4,4,4,4,4,4,4,4							ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+20	CAST:4,4,4,4,4,4,4,4,4,4
 
 # NPC Classes
 
