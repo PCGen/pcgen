@@ -265,10 +265,28 @@ WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
 #
 # Ability Categories
 #
+
+###Block: Salient Divine Ability
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
 ABILITYCATEGORY:Salient Divine Ability	VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:SalientDivinePool	CATEGORY:Salient Divine Ability							PLURAL:Salient Divine Abilities	
-ABILITYCATEGORY:Fighter Feat			VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter				PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Wizard Feat			VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Wizard.ItemCreation.Metamagic	PLURAL:Wizard Feats			DISPLAYLOCATION:Feats
+
+###Block: FEATs and subgroups
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
+ABILITYCATEGORY:FEAT				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT										PLURAL:Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Fighter Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter				PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Wizard Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Wizard.ItemCreation.Metamagic	PLURAL:Wizard Feats			DISPLAYLOCATION:Feats
+
+###Block: Special Ability and subgroups
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
+ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability														
+ABILITYCATEGORY:Rogue Special Ability	VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:RogueAbilities			PLURAL:Rogue Special Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Enemy			VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:FavoredEnemies	CATEGORY:Special Ability		TYPE:FavoredEnemy				PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Enemy Bonus		VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:FavoredEBonuses	CATEGORY:Special Ability		TYPE:FavoredEnemyBonus			PLURAL:Favored Enemy Bonuses		DISPLAYLOCATION:Class Abilities
+
+###Block: Stuff for Tir's homebrews
+ABILITYCATEGORY:Breath Effect			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Breath Effect									PLURAL:Breath Effects			DISPLAYLOCATION:Invocations
+ABILITYCATEGORY:Draconic Invocation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:DraconicInvocation								PLURAL:Draconic Invocations		DISPLAYLOCATION:Invocations
+ABILITYCATEGORY:Warlock Invocation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:WarlockInvocation								PLURAL:Warlock Invocations		DISPLAYLOCATION:Invocations
 
 
 PREVIEWDIR:d20/fantasy
