@@ -335,26 +335,26 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Combat Trees
 1	BONUS:VAR|RangerCombatTreeLVL|CL	AUTO:FEAT|Ranger Combat Tree
 ###Block: Level progression
-1				BONUS:VAR|WildEmpathy|CL		ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus	ADD:FEAT|TYPE.RangerCombatStyle	AUTO:FEAT|Wild Empathy|Track
-2										ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus	ADD:FEAT|TYPE.RangerCombatStyle
-3										ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							AUTO:FEAT|Endurance
-4	CAST:0,0		BONUS:VAR|RangerAnimalCompLVL|CL	ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							AUTO:FEAT|Animal Companion|Ranger Animal Companion
-5	CAST:0,0								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
-6	CAST:0,1								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
-7	CAST:0,1								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							AUTO:FEAT|Woodland Stride
-8	CAST:0,1,0								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							AUTO:FEAT|Swift Tracker
-9	CAST:0,1,0								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							AUTO:FEAT|Evasion
-10	CAST:0,1,1								ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
-11	CAST:0,1,1,0							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
-12	CAST:0,1,1,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
-13	CAST:0,1,1,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							AUTO:FEAT|Camouflage
-14	CAST:0,2,1,1,0							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
-15	CAST:0,2,1,1,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
-16	CAST:0,2,2,1,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
-17	CAST:0,2,2,2,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus							AUTO:FEAT|Hide in Plain Sight (Ranger)
-18	CAST:0,3,2,2,1							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
-19	CAST:0,3,3,3,2							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
-20	CAST:0,3,3,3,3							ADD:FEAT|TYPE.FavoredEnemy	ADD:FEAT|TYPE.FavoredEnemyBonus
+1				BONUS:VAR|WildEmpathy|CL			ADD:FEAT|TYPE.RangerCombatStyle	AUTO:FEAT|Wild Empathy|Track
+2											ADD:FEAT|TYPE.RangerCombatStyle
+3																	AUTO:FEAT|Endurance
+4	CAST:0,0		BONUS:VAR|RangerAnimalCompLVL|CL								AUTO:FEAT|Animal Companion|Ranger Animal Companion
+5	CAST:0,0								
+6	CAST:0,1								
+7	CAST:0,1															AUTO:FEAT|Woodland Stride
+8	CAST:0,1,0															AUTO:FEAT|Swift Tracker
+9	CAST:0,1,0															AUTO:FEAT|Evasion
+10	CAST:0,1,1								
+11	CAST:0,1,1,0							
+12	CAST:0,1,1,1							
+13	CAST:0,1,1,1														AUTO:FEAT|Camouflage
+14	CAST:0,2,1,1,0							
+15	CAST:0,2,1,1,1							
+16	CAST:0,2,2,1,1							
+17	CAST:0,2,2,2,1														AUTO:FEAT|Hide in Plain Sight (Ranger)
+18	CAST:0,3,2,2,1							
+19	CAST:0,3,3,3,2							
+20	CAST:0,3,3,3,3							
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
 CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -369,10 +369,11 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Deci
 3	BONUS:VAR|RogueTrapSenseLVL|CL																			AUTO:FEAT|Trap Sense Ability|Rogue Trap Sense
 4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|Uncanny Dodge,Improved Uncanny Dodge
 8												ADD:FEAT|Uncanny Dodge,Improved Uncanny Dodge
-10												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-13												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-16												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-19												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+10	BONUS:ABILITYPOOL|Rogue Special Ability|(CL-7)/3
+#10												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+#13												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+#16												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+#19												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -435,7 +436,7 @@ SUBCLASSLEVEL:1	AUTO:FEAT|Transmuter Learning Bonus
 ###Block: Familiar
 1	BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	ABILITY:Wizard Feat|AUTOMATIC|Scribe Scroll
+1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	ABILITY:Wizard Feat|NORMAL|Scribe Scroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
