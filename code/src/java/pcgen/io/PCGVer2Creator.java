@@ -624,7 +624,7 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(LINE_SEP);
 		}
 
-		for (Ability ability : thePC.aggregateFeatList())
+		for (Ability ability : thePC.getFullAbilitySet())
 		{
 			if (!ability.containsListFor(selectedArmorProfListKey))
 			{

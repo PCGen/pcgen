@@ -5700,8 +5700,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Ability getAbilityMatching(final Ability anAbility)
 	{
-		return AbilityUtilities.getAbilityFromList(aggregateFeatList(),
-			anAbility);
+		return AbilityUtilities.getAbilityFromList(new ArrayList<Ability>(
+			getFullAbilitySet()), anAbility);
 	}
 
 	public int getFirstSpellLevel(final Spell aSpell)
@@ -8805,7 +8805,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			SR = Math.max(SR, pcClass.getSR(this));
 		}
 
-		for (Ability aFeat : aggregateFeatList())
+		for (Ability aFeat : getFullAbilitySet())
 		{
 			SR = Math.max(SR, aFeat.getSR(this));
 		}
@@ -17188,7 +17188,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * nature that the PC has. 
 	 * @return Set of all abilities.
 	 */
-	private Set<Ability> getFullAbilitySet()
+	public Set<Ability> getFullAbilitySet()
 	{
 		GameMode gm = SettingsHandler.getGame();
 		Set<AbilityCategory> catSet = new HashSet<AbilityCategory>();

@@ -2393,8 +2393,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				pNode[5] = new PObjectNode("Skills"); //$NON-NLS-1$
 
 				//
-				// first do PC's feats
-				for (Ability aFeat : pc.aggregateFeatList())
+				// first do PC's feats and other abilities
+				for (Ability aFeat : pc.getFullAbilitySet())
 				{
 					for (BonusObj aBonus : aFeat.getBonusList())
 					{

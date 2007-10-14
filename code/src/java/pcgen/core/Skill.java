@@ -235,7 +235,7 @@ public final class Skill extends PObject
 			return true;
 		}
 
-		for (Ability aFeat : aPC.aggregateFeatList())
+		for (Ability aFeat : aPC.getFullAbilitySet())
 		{
 			if (aFeat.hasCSkill(keyName))
 			{
@@ -1429,7 +1429,7 @@ public final class Skill extends PObject
 			}
 		}
 
-		for ( Ability feat : aPC.aggregateFeatList() )
+		for ( Ability feat : aPC.getFullAbilitySet() )
 		{
 			if (feat.hasCcSkill(keyName))
 			{
