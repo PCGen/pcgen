@@ -1484,6 +1484,26 @@ public final class Skill extends PObject
 		return false;
 	}
 
+	/**
+	 * Check if this skill is cross class for any of the list of classes.
+	 * 
+	 * @param aList List of classes to be checked
+	 * @param aPC The character we are checking for.
+	 * @return true if it is a cross-class skill for any of the classes.
+	 */
+	boolean isCrossClassSkill(final List<PCClass> aList, final PlayerCharacter aPC)
+	{
+		for ( PCClass pcClass : aList )
+		{
+			if (isCrossClassSkill(pcClass, aPC))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	/** returns the adjustments to rank
 	 * @param currentPC TODO
 	 *

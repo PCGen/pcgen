@@ -13843,7 +13843,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (skill.isUntrained() && skill.isExclusive())
 		{
-			if (skill.isClassSkill(classList, this))
+			if (skill.isClassSkill(classList, this)
+				|| skill.isCrossClassSkill(classList, this))
 			{
 				UntrainedExclusiveClass = true;
 			}
