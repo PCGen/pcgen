@@ -14020,7 +14020,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					.getKeyName());
 				// if we fail to add the level, remove and return
 				if (!pcClassClone.addLevel(playerCharacterLevelInfo, false,
-					bSilent, this, false))
+					bSilent, this, bypassPrereqs))
 				{
 					removeLevelInfo(pcClassClone.getKeyName());
 					return;

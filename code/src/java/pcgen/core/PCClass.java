@@ -4868,13 +4868,7 @@ public class PCClass extends PObject {
 	}
 
 	/**
-	 * Adds a level of this class to the current Global PC.
-	 * 
-	 * This method is deeply evil. This instance of the PCClass has been
-	 * assigned to a PlayerCharacter, but the only way we can get from this
-	 * class back to the PlayerCharacter is to get the current global character
-	 * and hope that the caller is only calling this method on a PCClass
-	 * embedded within the current global PC.
+	 * Adds a level of this class to the character.
 	 * 
 	 * TODO: Split the PlayerCharacter code out of PCClass (i.e. the level
 	 * property). Then have a joining class assigned to PlayerCharacter that
@@ -4892,9 +4886,9 @@ public class PCClass extends PObject {
 	 *            questions.
 	 * @param aPC
 	 *            The character we are adding the level to.
-	 * @param isLoading
-	 *            True if the character is being loaded and prereqs for the
-	 *            level should be ignored.
+	 * @param ignorePrereqs
+	 *            True if prereqs for the level should be ignored. Used in 
+	 *            situations such as when the character is being loaded.
 	 * @return true or false
 	 */
 	/*
@@ -4905,7 +4899,7 @@ public class PCClass extends PObject {
 	 */
 	boolean addLevel(final PCLevelInfo pcLevelInfo, final boolean argLevelMax,
 			final boolean bSilent, final PlayerCharacter aPC,
-			final boolean isLoading) {
+			final boolean ignorePrereqs) {
 
 		// Check to see if we can add a level of this class to the
 		// current character
@@ -4913,7 +4907,7 @@ public class PCClass extends PObject {
 		boolean levelMax = argLevelMax;
 
 		level += 1;
-		if (!isLoading) {
+		if (!ignorePrereqs) {
 			// When loading a character, classes are added before feats, so
 			// this test would always fail on loading if feats are required
 			boolean doReturn = false;
