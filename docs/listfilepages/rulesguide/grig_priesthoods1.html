@@ -50,25 +50,30 @@
 
 	<h2>Implementation Discussion</h2>
 
-	<p>Implementing &quot;Priesthoods&quot; for deities requires entries in two lst files. These will be 
-	entries for the priesthood feats, four total, in the <em>feat.lst</em> file, and the &quot;Deity&quot; 
-	entry, in the <em>deity.lst</em> file, where the priesthood feats are selected and applied. It is through 
-	the selection and application of these feats that the various &quot;domains&quot; are made available, and 
-	it is through these domains that the powers and abilities that differentiate each of a Deity's priesthoods 
-	from the others are granted.</p>
+	<p class="indent1">Implementing &quot;Priesthoods&quot; for deities requires entries in two lst files. These will be 
+	entries for the priesthood feats, one for each priesthood created, in the <em>feat.lst</em> file, and the 
+	&quot;Deity&quot; entry in the <em>deity.lst</em> file where the priesthood feats are selected and applied. 
+	It is through the selection and application of these feats that the various &quot;domains&quot; are made 
+	available, and it is through these domains that the powers and abilities that differentiate each of a Deity's 
+	priesthoods from the others are granted.</p>
 	
-	<p>To help you better understand these entries, we will be using a fictitious deity called the 
+	<p class="indent1">To help you better understand these entries, we will be using a fictitious deity called the 
 	&quot;The Monkey God&quot; who has four priesthoods, each with their own selection of domains. These 
 	priesthoods, and the domains they have access to, are listed below:</p>
-	<p class="indent1">Priesthood of Code Monkey - Domains of Knowledge, Madness, Creation, and Magic.<br>
-		Priesthood of Data Monkey - Domains of Knowledge, Madness, Creation, and Artifice.<br>
-		Priesthood of Doc Monkey - Domains of Knowledge, Madness, Artifice, and Magic.<br>
-		Priesthood of the Monkey - Domains of Knowledge and Madness.</p>
+	
+	<blockquote>
+		<p class="indent1">Priesthood of Code Monkey - Domains of Knowledge, Madness, Creation, and Magic.<br>
+			Priesthood of Data Monkey - Domains of Knowledge, Madness, Creation, and Artifice.<br>
+			Priesthood of Doc Monkey - Domains of Knowledge, Madness, Artifice, and Magic.<br>
+			Priesthood of the Monkey - Domains of Knowledge and Madness.</p>
+	</blockquote>
 
-	<p>We will discuss each of these entries required to implement these priesthoods below as well as 
-	the tags that make them work.</p>
+	<p class="indent1">We will discuss, below, each of the LST entries required, and the tags that make them work, to implement 
+	these priesthoods.</p>
 
-	<h3>Feat File Entry</h3>
+<hr>
+
+	<h3>Feat File</h3>
 
 	<p class="indent1">The specific feat entries in the <em>feat.lst</em> file are made one per line 
 	and begin with the name of the feat.  Our feats are called &quot;Priesthood of the Code Monkey&quot;, 
@@ -77,31 +82,31 @@
 	identify which &quot;priesthood&quot; the character belongs to. The tags used to do this are explained below:</p>
 	<p></ p>
 
-	<blockquote class="indent2">
+	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>VISIBLE:EXPORT</code></p>
 		<p class="indent1"><strong>What it does:</strong> Hides the feat name from PCGen but displays it on the character sheet.</p>
 	</blockquote>
 
-	<blockquote class="indent2">
+	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>TYPE:Priesthood</code></p>
 		<p class="indent1"><strong>What it does:</strong> This sets the TYPE of the associated priesthood 
 		feat as &quot;Prisethood&quot;.</p>
 	</blockquote>
 
-	<blockquote class="indent2">
+	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>PREMULT:1,[!PREFEAT:TYPE=Priesthood],[PREFEAT:1,x]</code></p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Text (Priesthood being granted.)</p>
 		<p class="indent1"><strong>What it does:</strong>  Sets a feat requirement of already having the associated feat OR 
 		having no priesthood feats at all.</p>
 	</blockquote>
 
-	<blockquote class="indent3">
+	<blockquote class="indent2">
 		<p class="indent0"><strong>Sub-Tag Used:</strong> <code>!PREFEAT:1,TYPE=Priesthood</code></p>
 		<p class="indent1"><strong>What it does:</strong>  Used as part of the PREMULT tag above to set a feat 
 		requirement of not already having a priesthood feat.</p>
 	</blockquote>
 
-	<blockquote class="indent3">
+	<blockquote class="indent2">
 		<p class="indent0"><strong>Sub-Tag Used:</strong> <code>PREFEAT:1,x</code></p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Text (Priesthood)</p>
 		<p class="indent1"><strong>What it does:</strong>  Used as part of the PREMULT tag above to set a feat 
@@ -110,19 +115,21 @@
 
 	<p class="indent1">You will find the completed <a href="#FEATS">Priesthood Feats</a> below.</p>
 
-	<h3>Deity File Entry</h3>
+<hr>
+
+	<h3>Deity File</h3>
 
 	<p class="indent1">Now that we have created the priesthood feats, we can concentrate on &quot;The Monkey God&quot;, and for </p>
 	<p></ p>
 
-	<blockquote class="indent2">
+	<blockquote class="indent1">
 		<p class="tagindent3"><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,
 		Priesthood of the Data Monkey,Priesthood of the Doc Monkey,Priesthood of the Monkey</code></p>
 		<p class="indent1"><strong>What it does:</strong> Will give the character a choice of one of 
 		the four priesthood feats listed.</p>
 	</blockquote>
 
-	<blockquote class="indent2">
+	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DOMAINS:x,x|PREFEAT:1,y,y</code></p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Text (Domain being granted.)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong>Text (Required priesthood. See priesthood feat list above.)</p>
@@ -136,7 +143,7 @@
 		</ul>
 	</blockquote>
 
-	<blockquote class="indent3">
+	<blockquote class="indent2">
 		<p class="indent0"><strong>Sub-Tag Used:</strong> <code>PREFEAT:1,x,x</code></p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Text (Name of priesthood.  See Feat File Entry above.)
 		<p class="indent1"><strong>What it does:</strong> Sets a feat requirement for the DOMAINS 
@@ -145,18 +152,20 @@
 
 	<p class="indent1">You will find the completed <a href="#DEITY">Deity</a> below.</p>
 
+<hr>
+
 	<h3>Known Issues</h3>
 	
-	<ol class="indent1">
-		<li>The use of the <code>ADD:FEAT</code> tag introduces a problem with the removal and reselection of a deity.</li>
-	</ol>
+	<p class="indent1">The use of the <code>ADD:FEAT</code> tag introduces a problem with the removal 
+	and reselection of a deity.</p>
 	<p></ p>
 	
 <hr>
 
 	<h3>LST File Entry Examples</h3>
 
-	<p>These examples.</p>
+	<p class="indent1">These LST objects are being presented as examples only and are not part of 
+	any official PCGen dataset.</p>
 	<a name="FEATS"></a>
 	<p class="indent1">Feat File: Priesthoods of the &quot;Code&quot;, &quot;Data&quot;, and &quot;Doc&quot; Monkeys</p>
 	<p></ p>
@@ -215,7 +224,53 @@
 
 	<h4>Additional Powers and Abilities</h4>
 	
-	<p>This section is under development.</p>
+	<p class="indent1">The example above demonstrates how to grant different domains, and their associated powers, to 
+	a cleric based upon not only which deity he follows, but also based upon which of that deity's 
+	priesthoods he belongs to. It is possible, through the same &quot;Priesthood&quot; feats, to grant 
+	other powers and abilities directly that effect the characters skills, combat, spellcasting ability, 
+	and even the characters hit dice. To get a better idea of what powers and abilities can be granted, 
+	all you have to do is browse through the various feats and templates distibuted with the RSRD.  A 
+	few examples of such effects are listed below:</p>
+	
+	<p class="indent1"><strong>Examples of <em>feat.lst</em> solutions</strong></p>
+		
+	<blockquote>
+		<p class="indent0">Adding skill ranks can be done in a feat with the BONUS tag.</p>
+		<p class="indent1"><strong>Tag Used:</strong> <code>BONUS:SKILL|Balance,Escape Artist|2</code></p>
+		<p class="indent1"><strong>What it Does:</strong> Adds two ranks each to the skills Balance and 
+		<p class="indent1"><strong>Source:</strong> Taken from the feat <strong>Agile</strong>, <em>rsrd_feats.lst</em>.</p>
+		<p class="indent0">Increasing the characters combat initiative can be done in a feat with the BONUS tag.</p>
+		<p class="indent1"><strong>Tag Used:</strong> <code>BONUS:COMBAT|INITIATIVE|4</code></p>
+		<p class="indent1"><strong>What it Does:</strong> Adds four to the characters initiative modifier.</p>
+		<p class="indent1"><strong>Source:</strong> Taken from the feat <strong>Improved Initiative</strong>, <em>rsrd_feats.lst</em>.</p>
+		<p class="indent0">Adding additional feats can be done in a feat with the VFEAT tag.</p>
+		<p class="indent1"><strong>Tag Used:</strong> <code>VFEAT:Leadership</code></p>
+		<p class="indent1"><strong>What it Does:</strong> Grants the <strong>Leadership</strong> feat to the characters.</p>
+		<p class="indent1"><strong>Source:</strong> Adapted from the feat <strong>Leadership</strong>, <em>rsrd_feats.lst</em>.</p>
+	</blockquote>
+
+	<p class="indent1"><strong>Examples of <em>template.lst</em> solutions</strong></p>
+		
+	<blockquote>
+		<p class="indent0">Increasing the hitdie size can be done with the HITDIE tag in a template.</p>
+		<p class="indent1"><strong>Tag Used:</strong> <code>HITDIE:%up2|CLASS=Cleric</code></p>
+		<p class="indent1"><strong>What it Does:</strong> Increases the characters &quot;Cleric&quot; 
+		hitdie size by two steps.</p>
+		<p class="indent1"><strong>Source:</strong> Adapted from Template <strong>Half Hitdie</strong>, <em>rsrd_templates_type.lst</em>.</p>
+		<p class="indent0">Granting darkvision can be done with the VISION tag in a template.</p>
+		<p class="indent1"><strong>Tag Used:</strong> <code>VISION:Darkvision (60')</code></p>
+		<p class="indent1"><strong>What it Does:</strong> Grants to the character darkvision out to 60'.</p>
+		<p class="indent1"><strong>Source:</strong> Adapted from Template <strong>Angel</strong>, <em>rsrd_templates_type.lst</em>.</p>
+	</blockquote>
+	
+	<p class="indent1"><strong>Miscelaneous Examples</strong></p>
+	
+	<blockquote>
+		<p class="indent0">Granting special abilities can be done with the SA tag in a feat of a template.</p>
+		<p class="indent1"><strong>Tag Used:</strong> <code>SA:Scent (Ex) - track by sense of smell</code></p>
+		<p class="indent1"><strong>What it Does:</strong> Grants to the character the ability to track by sense of smell.</p>
+		<p class="indent1"><strong>Source:</strong> Taken from Template <strong>Scent</strong>, <em>rsrd_templates_type.lst</em>.</p>
+	</blockquote>
 
 <hr>
 	<p>
