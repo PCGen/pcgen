@@ -16,7 +16,7 @@
 		Provides explanations on the implementation of various game rules.
 	-->
 	<head>
-		<title>Game Rules Implementation</title>
+		<title>Game Rules Implementation Guide</title>
 		<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
@@ -24,130 +24,54 @@
 	<body>
 		<h1>Game Rules Implementation Guide</h1>
 		
-		<p>The Game Rules Implementation Guide provides a series of rules implementation explanations, 
+		<p class="indent1">The Game Rules Implementation Guide provides a series of rules implementation explanations, 
 		organized in two sections: The <a href="#PCGENDIST">PCGen Distributed Rules</a> and the 
 		<a href="#HOMEBREW">Rules for Homebrews</a>. The exaples provided are not the only way to 
 		implement the subject rules. They are given here simply as examples of how different rules 
 		can be implemented.  For more general information on writing standard LST files please 
 		visit the <a href="../lstfileclass/lstfileclass_heading.html">LST File Class</a> page.</p>
 
-		<p><a href="#INSTRUCTIONS">Instructions</a> on how to read these pages can be found below.</p>
+		<p class="indent1"><a href="../rulesguide/game_rules_reading_instructions.html">Instructions</a> 
+		on how to read these pages can be found below.</p>
 
 <hr>
 
 		<a name="PCGENDIST"></a>
   		<h2>PCGen Distributed Rules</h2>
 
-		<p>This section includes those rules that have been implemented as part of the officially 
+		<p class="indent1">This section includes those rules that have been implemented as part of the officially 
 		distributed datasets from PCGen.</p>
 
-		<dl class="indent1">
-			<dt><a href="grig_negative_levels.html">Negative Levels</a></dt>
- 				<dd>Equipment/Items can now bestow negative levels upon a character.</dd>
-		</dl>
+		<blockquote>
+			<dl class="indent1">
+				<dt><a href="grig_negative_levels.html">Negative Levels</a></dt>
+ 					<dd>Equipment/Items can now bestow negative levels upon a character.</dd>
+			</dl>
+		</blockquote>
 
 <hr>
 		
 		<a name="HOMEBREW"></a>
   		<h2>Rules for Homebrews</h2>
 
-		<p>This section includes rules implementation solutions aimed at homebrew datasets. As game 
+		<p class="indent1">This section includes rules implementation solutions aimed at homebrew datasets. As game 
 		rules can have many different implementations within PCGen, you will find implementations 
 		included below that address the same game rule. In these cases, each solution is presented on 
 		its own page for clarity.</p>
 
-		<dl class="indent1">
-			<dt><a href="grig_priesthoods1.html">Priesthoods #1</a></dt>
-				<dd>Deities may have multiple priesthoods, each with their own powers and abilities.<br>
-				by Maredudd</dd>
-			<dt>Priesthoods #2 (forthcoming)</dt>
-				<dd>An alternative way to implement Priesthoods.<br>
-				by Tir Gwaith amd Maredudd</dd>
-			<dt>Skill Tricks (forthcoming)</dt>
-				<dd>Buying feats with skill points.<br>
-				by Andrew Maitland</dd>
-		</dl>
-
-<hr>
-
-		<a name="INSTRUCTIONS"
-		<h2>How to Read These Pages</h2>
-
-		<a name="CONVENTIONS"></a>
-		<h3>Style Conventions</h3>
-		<p class="indent1">Because HTML formatting cannot exactly replicate what you would see in a LST 
-  		file we are going to use certain conventions to convey these ideas.</p>
-  		<dl class="indent1">
-   			<dt><em>&lt;TAB&gt; Delimiting</em></dt>
-  				<dd>Tags in LST files are &lt;TAB&gt; deliminated, that is, the tags are separated by TABs. 
-  				Because this is difficult to show, the LST examples will have their tags separated by 
-  				simple line breaks with no additional indention.</dd>
-   			<dt><em>LST Code</em></dt>
-  				<dd>Text meant to display LST code will be in the <code>code font</code>.</dd>
-  			<dt>Source Text</dt>
-  				<dd>Text taken from source will be indicated in <strong>bold</strong>.</dd>
- 			<dt><em>Extended LST Lines</em></dt>
-  				<dd>To improve readability, long LST tags will be formated with line-breaks with the 
-  				subsequent lines indented.</dd>
-	  	</dl>
-		
-		<a name="TEMPLATE"></a>
-		<h3>Rules Implementation Page Template</h3>
-
 		<blockquote>
-			<p><strong>Rule Description:</strong> A brief description of the rule being implemented.</p>
-
-			<p><strong>PCGen Version:</strong> The version of PCGen used to develop this implementation.</p>
-
-			<p><strong>Gamemode/Dataset:</strong> The gamemode/datasets used by the author to implement this rule.</p>
-
-			<p><strong>File(s) Covered:</strong> The files modified during this implementation.</p>
-
-			<p><strong>Tags Used:</strong></p>
-			<p class="indent2">Links to the LST FIle Index for the tags used in this implementation</p>
-
-			<p class="indent1">NOTE: In this section we will discuss only those LST tags specific 
-			to this implementation. For more general information on the associated tags, please 
-			visit the <a href="../../navlistindex.html" target="navigation">LST File Tag Index</a> 
-			section of the PCGen Documentation.</p>
-		
-			<p><strong>Implementation Description:</strong>  A detailed description of the implementation,
-			including a summary of the LST files (i.e. feat.lst, class.lst, etc.) and LST objects 
-			(i.e. feats, spells, deities, etc.), that will be required. If the rule being implemented 
-			has been incorporated into a PCGen distributed set, this sub-section will also include 
-			instructions for using the rule in new LST objects.</p>
-
-			<p><strong>LST File Entry:</strong> Discussion of each LST file being modified is provided 
-			and includes an explanation of each tag used for the specific implementation of the required 
-			LST objects. The information presented here is similar to that found in the 
-			<a href="../../navlistindex.html" target="navigation">LST File Tag Index</a>, but is tailered 
-			to the specific requirements of the implementation.</p>
-
-			<blockquote>
-				<p class="indent0"><strong>Tag Used:</strong> The LST tag in its specific form as used in
-				this implementation.</p>
-				<p class="indent1"><strong>Variables Used:</strong> The variables used and what they represent. 
-				This information will only be provided if the &quot;Tag Used&quot; includes variables.</p>
-				<p class="indent1"><strong>What it Does:</strong> A brief explanation of what the &quot;Tag 
-				Used&quot; will do, including specific information on allowable values for variables.</p>
-				<p class="indent1"><strong>Sub-Tag Used:</strong> The LST tag in its specific form that is
-				used as part of the &quot;Tag Used&quot;. This entry is otherwise treated as the &quot;Tag 
-				Used&quot; entry above, including descrption of the variables used and what it will do.</p>
-			</blockquote>
-			
-			<p><strong>Known Issues:</strong> Any issues or quirks with the LST code are briefly mentioned. 
-			This may involve specific user instructions or simple &quot;things to remember&quot;.</p>
-
-			<p><strong>LST File Entry Examples:</strong> An example of each of the LST objects recuired to
-			implement the subject rule is provided and includes all tags covered in the rule implementatin 
-			page. Simple objects are presented using the minimum tags required to make a functional LST object.</p>
-
-			<p><strong>Variations on a Theme:</strong> Hints may be provided on how to expand the scope of 
-			the specific rule being described.</p>
-
+			<dl class="indent1">
+				<dt><a href="grig_priesthoods1.html">Priesthoods #1</a></dt>
+					<dd>Deities may have multiple priesthoods, each with their own powers and abilities.<br>
+					by Maredudd</dd>
+				<dt>Priesthoods #2 (forthcoming)</dt>
+					<dd>An alternative way to implement Priesthoods.<br>
+					by Tir Gwaith amd Maredudd</dd>
+				<dt>Skill Tricks (forthcoming)</dt>
+					<dd>Buying feats with skill points.<br>
+					by Andrew Maitland</dd>
+			</dl>
 		</blockquote>
-		
-		
 
 <hr>
 
