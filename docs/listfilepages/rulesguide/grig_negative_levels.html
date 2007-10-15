@@ -190,30 +190,25 @@
 
 	<p class="indent1">These examples come from the RSRD.</p>
 	<p class="indent1">Feat File: &quot;Negative Levels&quot; feat</p>
-	<p class="indent2"><code>
-		Negative Levels<br>
-		TYPE:Special<br>
-		VISIBLE:NO</code></p>
-		<blockquote class="indent2">
-			<p class="tagindent1"><code>SA:% negative level(s) (-% effective level(s) and loses access to 
-			% spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels</code></p>
-		</blockquote>
-	<p class="indent2"><code>DEFINE:NegLevels|0<br>
-		BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)<br>
-		BONUS:COMBAT|TOHIT|-1*(NegLevels)</code></p>
-		<blockquote class="indent2">
-			<p class="tagindent1"><code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,
-			TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</code></p>
-		</blockquote>
+	<blockquote class="indent2">
+		<p class="tagindent1"><code>Negative Levels</code></p>
+		<p class="tagindent1"><code>TYPE:Special</code></p>
+		<p class="tagindent1"><code>VISIBLE:NO</code></p>
+		<p class="tagindent1"><code>SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels</code></p>
+		<p class="tagindent1"><code>DEFINE:NegLevels|0</code></p>
+		<p class="tagindent1"><code>BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)</code></p>
+		<p class="tagindent1"><code>BONUS:COMBAT|TOHIT|-1*(NegLevels)</code></p>
+		<p class="tagindent1"><code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution, TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</code></p>
+	</blockquote>
 	
 	<p class="indent1">Equipment File: &quot;Demon Armor&quot;</p>
-	<blockquote><code>
-		Demon Armor</code><br>
-		.<br>
-		. (See the RSRD for full detail on this item.)<br>
-		.<br>
-		<code>VFEAT:Negative Levels<br>
-		BONUS:VAR|NegLevels|1|PREALIGN:LG,LN,NG,TN,CG,CN</code>
+	<blockquote class="indent2">
+		<p class="tagindent2"><code>Demon Armor</code></p>
+		<p class="tagindent2">.</p>
+		<p class="tagindent2">. (See the RSRD for full detail on this item.)</p>
+		<p class="tagindent2">.</p>
+		<p class="tagindent2"><code>VFEAT:Negative Levels</code></p>
+		<p class="tagindent2"><code>BONUS:VAR|NegLevels|1|PREALIGN:LG,LN,NG,TN,CG,CN</code></p>
 	</blockquote>
 
 <hr>
