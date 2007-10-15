@@ -30,7 +30,7 @@
 
 	<p>There are a number of tags which are available in all data-files (excluding
 		the pcc and specialist files). There are: </p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -56,7 +56,7 @@
 		<p class="indent3">Adds the empower spell feat as an Auto feat.</p>
 		<p class="indent2"><code>ABILITY:CLASSFEATURE|VIRTUAL|Stunning Fist</code></p>
 		<p class="indent3">Adds the Stunning Fist ability as a virtual class feature.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 
@@ -84,7 +84,7 @@
 		<p class="indent3">Leather Armor is given as a free armor proficiency.</p>
 		<p class="indent2"><code>AUTO:ARMORPROF|TYPE=Light|TYPE=Medium</code></p>
 		<p class="indent3">Light and Medium Armor is given as a free armor proficiency.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -109,7 +109,7 @@
 		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]]</code></p>
 		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the
 		character has a level of Monk and a DEX score of 15 or better.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 
@@ -127,7 +127,7 @@
 		<p class="indent3">The feat &quot;Dodge&quot; is granted as an automatic feat.</p>
 		<p class="indent2"><code>AUTO:FEAT|.CLEAR.Dodge|Alertness</code></p>
 		<p class="indent3">The feat &quot;Dodge&quot; is cleared and the feat &quot;Alertness&quot; is granted as an automatic feat.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 
@@ -155,7 +155,7 @@
 	<p class="indent3">Tower Shields are given as a free armor proficiency.</p>
 	<p class="indent2"><code>AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy</code></p>
 	<p class="indent3">Light, Heavy and Buckler Shields are given as a free armor proficiency.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 		
@@ -202,7 +202,7 @@
 		are given as free weapon proficiencies.</p>
 	<p class="indent2"><code>CLASS:Rogue.MOD &lt;tab&gt; AUTO:WEAPONPROF|Gladius</code></p>
 	<p class="indent3">Modified the Rogue Class to include the Gladius weapon.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -230,7 +230,7 @@
 	<p class="indent3">Modifies the Class Sorcerer, droping the class skill Scry and adding Drive, Perform and all TYPE.Knowledge skills.</p>
 	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
 	<p class="indent3">Modified Class that changes all of these Tags from their starting values.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -249,7 +249,7 @@
 	<p class="indent3">Skills selected in the associated choice are made cross class skills.</p>
 	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
 	<p class="indent3">Modified Class that changes all of these Tags from their starting values..</p>
-	<p></p>
+	<p></ p>
 <hr>
 
 	<p class="new">*** New 5.3.13</p>
@@ -267,7 +267,7 @@
 	<p class="indent3">Changes the above weapons to be Martial weapons for proficiency purposes.</p>
 	<p class="indent2"><code>CHANGEPROF:TYPE.Hammer=Simple</code></p>
 	<p class="indent3">Changes all weapons of TYPE Hammer to be Simple weapons for proficiency purposes.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -304,7 +304,7 @@
         <p class="indent2"><code>COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3</code> </p>
         <p class="indent3">An Ape companion to a 4th level Druid gains the benefits normally granted to a
         companion of a 1st level Druid..</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -319,7 +319,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DEFINE:LOCK.CON|10</code></p>
 	<p class="indent3">Constitution is set to 10 and an asterisk is output.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -338,7 +338,7 @@
 		<li>Multiple DESC tags per line are allowed with all qualifying DESC tags being concatonated for output and separated by commas (,).</li>
 		<li><code>.CLEAR</code> will clear all DESC tags.</li>
 		<li><code>.CLEAR.(regular expression match)</code> will clear specific instances.</li>
-		<li>DESC tags now take variable substitution.<br></li>
+		<li>DESC tags now take variable substitution.<br>
 		<ul>
 			<li>Within the text a % followed by a number will substitute the #th variable from the 
 				variable list associated with the DESC. For example, %1 will substitute the first 
@@ -348,7 +348,7 @@
 			<li>If the parameter needs to be next to a number the parameter number should be surrounded 
 				in curly brackets { }. For example, %{1000}gp.</li>
 		</ul>
-		<li>The following special variables are allowed within the variable list:</li>
+		<li>The following special variables are allowed within the variable list:<br>
 		<ul>
 			<li><code>%CHOICE</code> - Will replace the first associated choice in the object.</li>
 			<li><code>%FEAT</code> - Will substitute the descriptions of feats within the object that match the associated preqrequisites.</li>
@@ -356,7 +356,7 @@
 			<li><code>%NAME</code> - The name of the object this DESC tag is in.</li>
 		</ul>
 		<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and 
-			formulas within parentheses.</li>
+			formulas within parentheses.<br>
 		<ul>
 			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for
 				this purpose, is commonly used though other variables can be used as well.</li>
@@ -399,7 +399,7 @@
 	<p class="indent3">If the value of CASTERLEVEL is equal to 3 then this would output: "Target is prone for 3 rounds.".</p>
 	<p class="indent2"><code>Maximize Power.MOD &lt;tab&gt; DESC:.CLEAR &lt;tab&gt; DESC:You can manifest powers to maximum effect.</code></p>
 	<p class="indent3">Replaces the standard spell DESC with the attached.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -413,7 +413,7 @@
 		<p class="indent2"><code>DESCISPI:YES</code></p>
 		<p class="indent3">It will bold and italicize the description of an item in the info boxes in PCGen, to
 		indicate that the name of the item is Product Identity.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 
@@ -433,7 +433,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DR:10/+1</code></p>
 	<p class="indent3">Grants DR of 10/+1 on output.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -454,7 +454,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>FOLLOWERS:Familiar|1</code></p>
 	<p class="indent3">A character is allowed only 1 companion of type Familiar.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -467,7 +467,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>KIT:1|Wizard1|Illusionist1</code></p>
 	<p class="indent3">Offers a choice of the Wizard1 or Illusionist1 starting kits.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -484,7 +484,7 @@
 		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian</code></p>
 	<p class="indent3">THIS IS AN ERROR... The .CLEAR has cleared all of the LANGAUTO: freebies, if it were
 		not	for the LANGBONUS: this race could not speak or write.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -497,7 +497,7 @@
 	<p class="indent2"><code>MOVE:Walk,30,Fly,10</code></p>
 	<p class="indent3">This would grant a walking speed of 30 ft per round and a flying speed of 10 feet per
 		round</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -516,7 +516,7 @@
 	<p class="indent3">Create the &quot;Fly&quot; movement type and set it equal to &quot;Walk&quot; multiplied by 2.</p>
 	<p class="indent2"><code>MOVECLONE:Walk,Tunnel,/3</code></p>
 	<p class="indent3">Create &quot;Tunnel&quot; movement type and set it equal to 1/3 of the &quot;Walk&quot; movement rate.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -528,7 +528,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>NAMEISPI:YES </code></p>
 	<p class="indent3">The name is the Product Identity</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -572,7 +572,7 @@
 	<p class="indent2"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,
 		1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>
 	<p class="indent3">Race has 2 Claw attacks and a Bite attack.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -608,7 +608,7 @@
 	<p class="indent3">If the character is level 10 this would output as &quot;Magic Sword +2&quot;.</p>
 	<p class="indent2"><code>Clenched Fist.MOD &lt;tab&gt; OUTPUTNAME:Big [NAME]</code></p>
 	<p class="indent3">This spell will output as &quot;Big Clenched Fist&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -642,7 +642,7 @@
 	<p class="indent2"><code>QUALIFY:CLASS|Battle Mind|Telepath</code></p>
 	<p class="indent3">The character would be able to take either the Battle Mind or Telepath class whether 
 		they meet the prereqs or not.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -660,7 +660,7 @@
 	<p class="indent3">Will allow the choice of Region1, Region2, or Region3 as the character's region.</p>
 	<p class="indent2"><code>REGION:1|Timbuktu</code></p>
 	<p class="indent3">The PC is from the &quot;Timbuktu&quot; region.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -688,10 +688,11 @@
 		If a feat has a COST:# associated with it, it returns that # back to the feat pool.</p>
 	<p class="indent2"><code>REMOVE:FEAT(CLASS.Paladin)ALL</code></p>
 	<p class="indent3">Removes all feats that have been granted/taken by the Paladin Class.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
+	<p class="new">*** *** Deprecated 5.x.x - Remove 6.0 -use <a href="#SAB">SAB</a></p>
 	<p class="indent0"><strong><a name="SA">Tag Name:</a></strong> SA:x</p>
 	<p><strong> Variables Used (x):</strong>Text (Special Ability Name)</p>
 	<p><strong> Variables Used (x):</strong>.CLEAR.Text (Clear Special Ability Totals)</p>
@@ -732,7 +733,53 @@
 		times, but selected only once.</p>
 	<p class="indent2"><code> 4 &lt;tab&gt; SA:.CLEAR.Shield Brother (full round action) &lt;tab&gt; SA:Shield Brother (standard action)</code></p>
 	<p class="indent3">Clears the 4th level value and makes it &quot;Shield Brother (standard action)&quot;instead.</p>
-	<p></p>
+	<p></ p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="SAB">Tag Name:</a></strong> SAB:x</p>
+	<p><strong> Variables Used (x):</strong>Text (Special Ability Name)</p>
+	<p><strong> Variables Used (x):</strong>.CLEAR.Text (Clear Special Ability Totals)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This grants the character a Special Ability that will get listed together with all other special
+			abilities the character has.</li>
+		<li>The &quot;%&quot; tag will fill in a number from a variable listed after a pipe (&quot;|&quot;).</li>
+		<li>This can be done numerous times, with each successive pipe (&quot;%&quot;) relating to the
+			next variable listed after another pipe (&quot;|&quot;).</li>
+		<li>This can be specified via number of %#, with each successive numbered &quot;%&quot; relating to
+			the next variable listed after another pipe (&quot;|&quot;). The count starts at 0 and counts up.</li>
+		<li>Each variable needs to be defined (via the global DEFINE tag.)</li>
+		<li>The SAB will NOT be displayed if the last variable or formula equals 0.</li>
+		<li><code>SAB:.CLEAR</code> can be used in conjunction with the <code>.MOD</code> but does not support 
+		cross-level interactions.</li>
+		<li><code>SAB:.CLEAR</code> will only clear a previous SAB in the same object (class, template,
+			etc.). It will not clear them across objects.</li>
+		<li><code>SAB:.CLEAR.Text to be removed</code> must include the exact text of the SAB to be removed but 
+			only the exact text up to the first open-parentheses &quot;(&quot;. The CLEAR and Replace tags should be at the end 
+			of the line, so the new and old tags are not</li>
+		<li>SAB tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
+			SAB tags qualified with PRExxx tags will not display unless the character meets the
+			prerequisites.</li>
+		<li>SAB tags can be used with %CHOICE tags to display the result of a CHOOSE tag result.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>SAB:Fire in the Hole</code></p>
+	<p class="indent3">Grants the special ability &quot;Fire in the Hole&quot;.</p>
+	<p class="indent2"><code>SAB:Sneak Attack +%d%|Sneak Attack|Sneak Attack Die</code></p>
+	<p class="indent3">If the PCs &lt;Sneak Attack&gt; was 5 and &lt;Sneak Attack
+		Die&gt; was 6, this would grant the special ability &quot;Sneak Attack&quot; at +5d6.</p>
+	<p class="indent2"><code>SAB:.CLEAR.+1d6 to natural weapons SAB:+1d8 to natural weapons </code></p>
+	<p class="indent3">Clears the &quot;Natural Weapons&quot; value and makes it +1d8 instead.</p>
+	<p class="indent2"><code>SAB:Banana toss|PRERACE:monkey</code></p>
+	<p class="indent3">Grants the special ability &quot;Banana toss&quot; if the characters race is &quot;monkey&quot;.</p>
+	<p class="indent2"><code>SAB:Banana toss via (%CHOICE) &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt;
+		CHOOSE:Air|Earth|Fire|Water</code></p>
+		<p class="indent3">Offers a Choice between Air/Earth/Fire/Water for banana tossing, may be used multiple
+		times, but selected only once.</p>
+	<p class="indent2"><code> 4 &lt;tab&gt; SAB:.CLEAR.Shield Brother (full round action) &lt;tab&gt; SAB:Shield Brother (standard action)</code></p>
+	<p class="indent3">Clears the 4th level value and makes it &quot;Shield Brother (standard action)&quot;instead.</p>
+	<p></ p>
 
 <hr>
 
@@ -749,7 +796,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SOURCELONG:Core Rulebook I (Foo Handbook)</code></p>
 	<p class="indent3">The long source name for this file is &quot;Core Rulebook I (Foo Handbook)&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -764,7 +811,7 @@
 	<p class="indent3">Further information can be found on page 102 of the source.</p>
 	<p class="indent2"><code>CLASS:Strong.MOD &lt;tab&gt; SOURCEPAGE:p. 28</code></p>
 	<p class="indent3">Further information can be found on page 28 of the changed source.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -782,7 +829,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SOURCESHORT:FHB</code></p>
 	<p class="indent3">The short source name for this file is &quot;FHB&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -800,7 +847,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SOURCEWEB:http://www.foogames.com/product.php?products=654321</code></p>
 	<p class="indent3">The web site for this source is &quot;SOURCEWEB:http://www.foogames.com/product.php?products=654321&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -839,11 +886,11 @@
 	<p class="indent3">The above example shows two spells in one SPELL tag. While this is perfectly legal, please
 		remember that the PRExxx tags at the end apply to ALL spells in the tag, so if the spells have different
 		Prereq's than they must have separate SPELL tags.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
-	<p class="new">*** Updated 5.11.4</p><p></p>
+	<p class="new">*** Updated 5.11.4</p><p></ p>
 	<p class="indent0"><strong><a name="SPELLLEVEL">Tag Name:</a></strong>SPELLLEVEL:v|w=x|y|w=x|y|w=x|y|w=x|y|w=x|y|z</p>
 	<p class="indent1"><strong>Variables Used (v):</strong> Text (DOMAIN or CLASS Tag)</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Text (domain or class name)</p>
@@ -869,19 +916,19 @@
 	<p class="indent3">This changes the character's spell's for this first level Trundlefolk Shaman class.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Class Level Line or SubClassLevel Line.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="new">*** Deprecated 5.11.4 - Use <a href="#SPELLLEVEL">SPELLLEVEL</a></p>
 	<p class="indent0"><strong><a name="SPELLLEVELCLASS">Tag Name:</a></strong> SPELLLEVEL:CLASS|x|y,y|x|y,y</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="new">*** Deprecated 5.11.4 - Use <a href="#SPELLLEVEL">SPELLLEVEL</a></p>
 	<p class="indent0"><strong><a name="SPELLLEVELDOMAIN">Tag Name:</a></strong> SPELLLEVEL:DOMAIN|x|y,y|x|y,y</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -931,7 +978,7 @@
 	<p class="indent3">Grants &quot;Wall of Stone&quot;, 5 times a day at 1st level in Spellbook &quot;Innate&quot;.</p>
 	<p class="indent2"><code>Barkskin.COPY=Earthskin</code></p>
 	<p class="indent3">Renames &quot;Barkskin&quot; to &quot;Earthskin&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -943,7 +990,7 @@
 	<p class="indent2"><code>SR:TL+10</code></p>
 	<p class="indent3">This would set the Spell Resistance to be the characters total
 		class levels + 10 on output for their total spell resistance.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -958,7 +1005,7 @@
 	<p class="indent3">This would output the character's unmodified strength score when used.</p>
 	<p class="indent2"><code>STAT.INT.NOTEMP</code></p>
 	<p class="indent3">This would output the character's unmodified intelligence score when used.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -972,7 +1019,7 @@
 	<p class="indent2"><code>SR:STAT.INT.NOTEMP</code></p>
 	<p class="indent3">This would set the character's spell resistance to their natural (unmodified)
 		intelligence modifier.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -989,7 +1036,7 @@
 	<p class="indent3">Describes the conditions needed for the bonus to be valid.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Any line with a BONUS tag qualified with a PREAPPLY tag.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -1002,13 +1049,13 @@
 	<p class="indent2"><code>&lt;template&gt; &lt;tab&gt; TEMPLATE:CHOOSE:Celestial|Outsider</code></p>
 	<p class="indent2"><code>&lt;template&gt;.MOD &lt;tab&gt; TEMPLATE:ADDCHOICE:Fiendish</code></p>
 	<p class="indent3">The &quot;Fiendish&quot; template is added to the  &quot;Celestial&quot; and  &quot;Outsider&quot; templates as possible choices presented by the pre-existing <code>TEMPLATE:CHOOSE</code> tag.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#MOD">.MOD</a> or <a href="#COPY">.COPY</a> or <a href="#CLEAR">.CLEAR</a> tags instead.)</p>
 	<p class="indent0"><strong><a name="TEMPLATEREMOVE">Tag Name:</a></strong> TEMPLATE:x.REMOVE</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -1020,7 +1067,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8</code></p>
 	<p class="indent3">This sets unarmed damage done as 1 for finite to 2d8 for colossal.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -1032,7 +1079,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>UMULT:2</code></p>
 	<p class="indent3">This set unarmed damage critical multiplier as x2.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -1056,7 +1103,7 @@
 	<p class="indent2"><code>UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor</code></p>
 	<p class="indent3">This is used in the Race entry for Dwarves, Dwarves ignore encumbrance penalties to
 		movement for heavy armor and heavy loads.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -1081,7 +1128,7 @@
 	<p class="indent2"><code>VFEAT:Banana Barrage|PRECLASS:1,Ninja Monkey=1</code></p>
 	<p class="indent3">The character gains &quot;Banana Barrage&quot; as virtual feats
 		only if they have at least one level of &quot;Ninja Monkey&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -1102,7 +1149,7 @@
 	<p class="indent2"><code>VISION:Darkvision (120')|Low-light</code></p>
 	<p class="indent3">This gives the &quot;Dark&quot; vision mode of 120 foot and the &quot;Low-Light&quot;
 		vision mode to the PC.</p>
-	<p class="indent0"></p>
+	<p class="indent0"></ p>
 	<p class="indent0"><strong> Variables Used:</strong> .SET, or .CLEAR</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">.CLEAR. will clear the vision listed after it from the character. The .SET. will
@@ -1113,19 +1160,19 @@
 	<p class="indent2"><code>VISION:Darkvision (0')&lt;tab&gt;BONUS:VISION|Darkvision|30</code></p>
 	<p class="indent3">If character does not have Darkvision, receives it at 30, or extends Darkvision by
 		30 if it already has it.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="AUTOWEAPONPROF">AUTO:WEAPONPROF</a> tag instead.</p>
 	<p class="indent0"><strong><a name="WEAPONAUTO">Tag Name:</a></strong> WEAPONAUTO:x</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<h2>The .MOD Tag</h2>
 	<p>Warning: This section is nowhere near complete and will be expanded on as time progresses.</p>
-	<p></p>
+	<p></ p>
 	<p class="new">*** Updated 5.11.11 - 5.13</p>
 	<p class="indent0"><strong><a name="MOD">Tag Name:</a></strong> &lt;name&gt;.MOD</p>
 	<p class="indent1"><strong>Variables Used: </strong>Text, First field of the item to be modified</p>
@@ -1167,12 +1214,12 @@
 	<p class="indent3">Modifies the &quot;BOWSTR&quot; eqmod (in eqmod.lst)</p>
 	<p class="indent2"><code>CATEGORY=(foo)|(key).MOD</code></p>
 	<p class="indent3">The new syntax to be used to .MOD an ability.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<h2>The .COPY Tag</h2>
-	<p></p>
+	<p></ p>
 
 	<p class="new">*** Updated 5.13</p>
 	<p class="indent0"><strong><a name="COPY">Tag Name:</a></strong> &lt;name&gt;.COPY=&lt;new name&gt;</p>
@@ -1211,13 +1258,13 @@
 	<p class="indent3">Creates a new feat called Heighten Knowledge based on the Skill Focus feat. (in feat.lst)</p>
 	<p class="indent2"><code>CATEGORY=(foo)|(key).COPY</code></p>
 	<p class="indent3">The new syntax to be used to .COPY an ability.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<h2>The .CLEAR Tag</h2>
 
-	<p></p>
+	<p></ p>
 	<p class="indent0"><strong><a name="CLEAR">Tag Name:</a></strong> &lt;tag&gt;.CLEAR.&lt;variable&gt;</p>
 	<p class="indent1"><strong>Variables Used: </strong>Text, Last field is the item to be cleared</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -1265,12 +1312,12 @@
 	<p class="indent2"><code>Acid Arrow.MOD &lt;tab&gt; SCHOOL:.CLEAR &lt;tab&gt; SCHOOL:Lesser Conjuration</code></p>
 	<p class="indent3">Modifies the Acid Arrow spell by eliminating the original value of the SCHOOL tag
 		and then sets the new value with a second SCHOOL tag (in spell.lst)</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<h2>The .FORGET Tag</h2>
-	<p></p>
+	<p></ p>
 	<p class="new">*** Updated 5.13</p>
 	<p class="indent0"><strong><a name="FORGET">Tag Name:</a></strong> &lt;name&gt;.FORGET</p>
 	<p class="indent1"><strong>Variables Used:</strong> Text, First field of the item to be removed</p>
@@ -1295,12 +1342,12 @@
 	<p class="indent3">Removes the Skill Focus feat (in feat.lst)</p>
 	<p class="indent2"><code>CATEGORY=(foo)|(key).FORGET</code></p>
 	<p class="indent3">The new syntax to be used to .FORGET an ability.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<h2>The WILDCARD Tag</h2>
-	<p></p>
+	<p></ p>
 	<p class="indent0"><strong><a name="WILDCARD">Tag Name:</a></strong> TAGNAME:% "Wildcard"</p>
 	<p class="indent1"><strong>Variables Used:</strong> Tagname</p>
 	<p class="indent1"><strong>Examples:</strong></p>
