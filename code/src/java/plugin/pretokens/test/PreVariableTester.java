@@ -93,7 +93,9 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements
 				}
 			}
 		}
-		return countedTotal(prereq, (int) runningTotal);
+		// The test has passed, but only pass 1 rather than the runningTotal 
+		// as the total could be negative, and isn't running...
+		return countedTotal(prereq, 1);
 	}
 
 	/* (non-Javadoc)
@@ -133,7 +135,9 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements
 			}
 		}
 
-		return countedTotal(prereq, (int) runningTotal);
+		// The test has passed, but only pass 1 rather than the runningTotal 
+		// as the total could be negative, and isn't running...
+		return countedTotal(prereq, 1);
 	}
 
 }
