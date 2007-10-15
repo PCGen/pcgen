@@ -42,6 +42,7 @@ EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
 FEAT:@/d20ogl/srd/basics/srd_feats_descriptions.lst
 FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
 FEAT:@/d20ogl/srd/basics/srd_feats.lst
+ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst
 
 KIT:@/d20ogl/srd/basics/srd_kits_races__animals.lst
 KIT:@/d20ogl/srd/basics/srd_kits_races__base.lst

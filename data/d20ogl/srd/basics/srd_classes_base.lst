@@ -344,25 +344,27 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
+###Block: Favored Enemy
+1	DEFINE:RangerFavoredEnemyLVL|0	BONUS:VAR|RangerFavoredEnemyLVL|CL	BONUS:ABILITYPOOL|Favored Enemy|var("RangerFavoredEnemyLVL")/5+1
 ###Block: Level progression
-1				ADD:FEAT|1|TYPE=RangerFavored	VFEAT:Ambidexterity|Two-Weapon Fighting	AUTO:FEAT|Track
+1				VFEAT:Ambidexterity|Two-Weapon Fighting	AUTO:FEAT|Track
 4	CAST:0,0
-5	CAST:0,0		ADD:FEAT|1|TYPE=RangerFavored
+5	CAST:0,0
 6	CAST:0,1
 7	CAST:0,1
 8	CAST:0,1,0
 9	CAST:0,1,0
-10	CAST:0,1,1		ADD:FEAT|1|TYPE=RangerFavored
+10	CAST:0,1,1
 11	CAST:0,1,1,0
 12	CAST:0,1,1,1
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0
-15	CAST:0,2,1,1,1	ADD:FEAT|1|TYPE=RangerFavored
+15	CAST:0,2,1,1,1
 16	CAST:0,2,2,1,1
 17	CAST:0,2,2,2,1
 18	CAST:0,3,2,2,1
 19	CAST:0,3,3,3,2
-20	CAST:0,3,3,3,3	ADD:FEAT|1|TYPE=RangerFavored
+20	CAST:0,3,3,3,3
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus												Combat bonus
 CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesii.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -372,17 +374,14 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Deci
 1	AUTO:FEAT|Rogue Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1	BONUS:VAR|SneakAttack|(CL+1)/2																		AUTO:FEAT|Sneak Attack
-2																					VFEAT:Evasion
-3	BONUS:VAR|UncannyDodge|1																			AUTO:FEAT|Uncanny Dodge
+1	BONUS:VAR|SneakAttack|(CL+1)/2													AUTO:FEAT|Sneak Attack
+2																VFEAT:Evasion
+3	BONUS:VAR|UncannyDodge|1														AUTO:FEAT|Uncanny Dodge
 6	BONUS:VAR|UncannyDodge|1
-10							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+10							BONUS:ABILITYPOOL|Rogue Special Ability|(CL-7)/3
 11	BONUS:VAR|UncannyDodge|1
-13							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 14	BONUS:VAR|UncannyDodge|1
-16							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 17	BONUS:VAR|UncannyDodge|1
-19							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 20	BONUS:VAR|UncannyDodge|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
@@ -437,7 +436,7 @@ SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:
 ###Block: Familiar - remove these via .MOD if Familiars aren't desired
 1	BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5											ABILITY:Wizard Feat|AUTOMATIC|Scribe Scroll
+1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	ABILITY:Wizard Feat|AUTOMATIC|Scribe Scroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
