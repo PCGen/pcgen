@@ -41,4 +41,4 @@ Extend Invention Feat				KEY:GDGT_EXTND				NAMEOPT:NOTHING										SOURCEPAGE:p
 
 ###Block: Charges for multi-use, limited items (like Trail Rations)
 # Modifier Name	Unique Key			Visible	Choose			Nb of Charges
-Charges (12)	KEY:CHARGED_ITEM_12	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|7
+Charges (12)	KEY:CHARGED_ITEM_12	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|7
