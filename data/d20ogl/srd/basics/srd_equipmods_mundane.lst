@@ -51,7 +51,7 @@ Spell Focus Value				KEY:SPELLFOCUS	NAMEOPT:NOTHING	TYPE:SpellFocus		COST:0	VISI
 
 ###Block: Charged items
 # Modifier Name	Unique Key			Cost							Visible	Choose			Nb of Charges
-Charges (10)	KEY:CHARGED_ITEM_10	COST:((BASECOST/10)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|10
+Charges (10)	KEY:CHARGED_ITEM_10	COST:((BASECOST/10)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|10
 
 
 # Add Type		KEY:ADD_TYPE	TYPE:ALL			COST:0												NAMEOPT:NONAME		SOURCEPAGE:p.																																																																		CHOOSE:Select desired TYPE(s)|TYPE=ALL
