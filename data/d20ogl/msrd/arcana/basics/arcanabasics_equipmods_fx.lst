@@ -143,7 +143,7 @@ Zephyr Tires				KEY:TIRE_ZEPHYR	TYPE:Transportation	COST:-BASECOST	VISIBLE:QUALI
 
 ###Block: needed for the Talisman of Pure Good and the Talisman of Ultimate Evil
 # Modifier Name	Unique Key			Naming Option	Visible	Choose			Nb of Charges
-Charges (7)		KEY:CHARGED_ITEM_7	NAMEOPT:SPELL	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|7
+Charges (7)		KEY:CHARGED_ITEM_7	NAMEOPT:SPELL	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|7
 
 #
 # End
