@@ -77,6 +77,22 @@ $Date:  $
 	padding-left: 28px;
 	color: #563C00;
 }
+.spellHeader {
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 4px;
+	padding-top: 8px;
+}
+.spellStat {
+	font-family: Arial;
+	font-size: 10px;
+}
+.spellName {
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+}
 -->
 </style>
 <script language="javascript" type="text/javascript">
@@ -1497,6 +1513,367 @@ $Date:  $
   </tr>
 </table>
 <!-- Stop Equipment Table -->
+
+<!-- Spell-Like Abilities -->
+|FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
+|IIF(%spellrace:0)|
+|ELSE|
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="Spell-Like Abilities">
+  <tr>
+    <td width="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+    <td background="preview/d20/fantasy/images/gold/border_top.png"><div align="center"><img src="preview/d20/fantasy/images/gold/title_spell_like_abillities.png" width="225" height="30"></div></td>
+    <td width="34"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+  </tr>
+  <tr>
+    <td background="preview/d20/fantasy/images/gold/border_left.png"></td>
+    <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td colspan="10" class="spellHeader">Racial Innate Spells</td>
+  </tr>
+  <tr> 
+    <td colspan="2" class="spellStat"><b>Spell Name</b></td>
+    <td class="spellStat"><b>DC</b></td>
+    <td class="spellStat"><b>Saving Throw</b></td>
+    <td class="spellStat"><b>Casting Time</b></td>
+    <td class="spellStat"><b>Duration</b></td>
+    <td class="spellStat"><b>Range</b></td>
+    <td class="spellStat"><b>Componants</b></td>
+    <td class="spellStat"><b>SR</b></td>
+    <td class="spellStat"><b>School</b></td>
+  </tr>
+|FOR,%spellbook,1,1,1,0|
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+  <tr> 
+    <td colspan="2" class="spellName" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME| 
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/day
+|ENDIF|
+	</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</td>
+  </tr>
+  <tr> 
+    <td colspan="6" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;<i>Effect:</i> |SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</td>
+    <td colspan="4" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="right"><i>Source:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|&nbsp;</div></td>
+  </tr>
+  <tr> 
+    <td colspan="6" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;<i>Target:</i> |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</td>
+    <td colspan="4" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="right"><i>Casterlevel:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|&nbsp;</div></td>
+  </tr>
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+<!-- Start Other Innate Spells -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|FOR,%class,0,0,1,1|
+|FOR,%level,0,0,1,1|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+  <tr> 
+    <td colspan="10" class="spellHeader">|SPELLBOOKNAME.%spellbook| Innate Spells</td>
+  </tr>
+  <tr> 
+    <td colspan="2" class="spellStat"><b>Spell Name</b></td>
+    <td class="spellStat"><b>DC</b></td>
+    <td class="spellStat"><b>Saving Throw</b></td>
+    <td class="spellStat"><b>Casting Time</b></td>
+    <td class="spellStat"><b>Duration</b></td>
+    <td class="spellStat"><b>Range</b></td>
+    <td class="spellStat"><b>Componants</b></td>
+    <td class="spellStat"><b>SR</b></td>
+    <td class="spellStat"><b>School</b></td>
+  </tr>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+  <tr> 
+    <td colspan="2" class="spellName" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME| 
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/day
+|ENDIF|
+	</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</td>
+  </tr>
+  <tr> 
+    <td colspan="6" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;<i>Effect:</i> |SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</td>
+    <td colspan="4" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="right"><i>Source:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|&nbsp;</div></td>
+  </tr>
+  <tr> 
+    <td colspan="6" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;<i>Target:</i> |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</td>
+    <td colspan="4" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="right"><i>Casterlevel:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|&nbsp;</div></td>
+  </tr>
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+</table>
+	</td>
+    <td background="preview/d20/fantasy/images/gold/border_right.png"></td>
+  </tr>
+  <tr>
+    <td height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+    <td background="preview/d20/fantasy/images/gold/border_bottom.png"></td>
+    <td><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+  </tr>
+</table>
+|ENDIF|
+<!-- End Spell-Like Abilities -->
+
+<!-- Start Known Spells -->
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
+|IIF(SPELLLISTMEMORIZE.%class:false)|
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="Known Spells">
+  <tr>
+    <td width="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+    <td background="preview/d20/fantasy/images/gold/border_top.png"><div align="center"><img src="preview/d20/fantasy/images/gold/title_spells_known.png" width="225" height="30"></div></td>
+    <td width="34"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+  </tr>
+  <tr>
+    <td background="preview/d20/fantasy/images/gold/border_left.png"></td>
+    <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+|FOR,%level,0,9,1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.0.%level],COUNT[SPELLSINBOOK.%class.0.%level],1,0|
+|IIF(%spelllevelcount:0)|
+|ELSE|
+  <tr> 
+    <td colspan="10" class="spellHeader">|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| level |SPELLLISTCLASS.%class| Spells</td>
+  </tr>
+  <tr> 
+    <td colspan="2" class="spellStat"><b>Spell Name</b></td>
+    <td class="spellStat"><b>DC</b></td>
+    <td class="spellStat"><b>Saving Throw</b></td>
+    <td class="spellStat"><b>Casting Time</b></td>
+    <td class="spellStat"><b>Duration</b></td>
+    <td class="spellStat"><b>Range</b></td>
+    <td class="spellStat"><b>Componants</b></td>
+    <td class="spellStat"><b>SR</b></td>
+    <td class="spellStat"><b>School</b></td>
+  </tr>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,0|
+  <tr> 
+    <td colspan="2" class="spellName" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;|SPELLMEM.%class.0.%level.%spell.NAME|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.0.%level.%spell.DC|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.0.%level.%spell.SAVEINFO|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.0.%level.%spell.CASTINGTIME| 
+|IIF(SPELLMEM.%class.0.%level.%spell.TIMES:At Will)|
+at will
+|ELSE|
+|SPELLMEM.%class.0.%level.%spell.TIMES|/day
+|ENDIF|
+	</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.0.%level.%spell.DURATION|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.0.%level.%spell.RANGE|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.0.%level.%spell.COMPONENTS|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.0.%level.%spell.SR|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.0.%level.%spell.SCHOOL|</td>
+  </tr>
+  <tr> 
+    <td colspan="6" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;<i>Effect:</i> |SPELLMEM.%class.0.%level.%spell.EFFECT|</td>
+    <td colspan="4" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="right"><i>Source:</i> |SPELLMEM.%class.0.%level.%spell.SOURCE|&nbsp;</div></td>
+  </tr>
+  <tr> 
+    <td colspan="6" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;<i>Target:</i> |SPELLMEM.%class.0.%level.%spell.TARGET|</td>
+    <td colspan="4" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="right"><i>Casterlevel:</i> |SPELLMEM.%class.0.%level.%spell.CASTERLEVEL|&nbsp;</div></td>
+  </tr>
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+</table>
+	</td>
+    <td background="preview/d20/fantasy/images/gold/border_right.png"></td>
+  </tr>
+  <tr>
+    <td height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+    <td background="preview/d20/fantasy/images/gold/border_bottom.png"></td>
+    <td><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+  </tr>
+</table>
+|ENDIF|
+|ENDFOR|
+<!-- Stop Known Spells -->
+
+<!-- Start Prepared Spells -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.NUMPAGES:0)|
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="Prepared Spells">
+  <tr>
+    <td width="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+    <td background="preview/d20/fantasy/images/gold/border_top.png"><div align="center"><img src="preview/d20/fantasy/images/gold/title_spells_prepared.png" width="225" height="30"></div></td>
+    <td width="34"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+  </tr>
+  <tr>
+    <td background="preview/d20/fantasy/images/gold/border_left.png"></td>
+    <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+    <td colspan="10" class="spellHeader">|SPELLBOOKNAME.%spellbook|</td>
+  </tr>
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
+|IIF(SPELLLISTMEMORIZE.%class:true)|
+|FOR,%level,0,9,1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+<!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
+|ELSE|
+  <tr valign="bottom"> 
+    <td height="20" colspan="2" class="spellName"><b><u>|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| level |SPELLLISTCLASS.%class| Spells</u></b></td>
+    <td class="spellStat"><b>DC</b></td>
+    <td class="spellStat"><b>Saving Throw</b></td>
+    <td class="spellStat"><b>Casting Time</b></td>
+    <td class="spellStat"><b>Duration</b></td>
+    <td class="spellStat"><b>Range</b></td>
+    <td class="spellStat"><b>Componants</b></td>
+    <td class="spellStat"><b>SR</b></td>
+    <td class="spellStat"><b>School</b></td>
+  </tr>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+  <tr> 
+    <td colspan="2" class="spellName" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+ (|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+	</td>
+   <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME| 
+	</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</td>
+  </tr>
+  <tr> 
+    <td colspan="6" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;<i>Effect:</i> |SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</td>
+    <td colspan="4" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="right"><i>Source:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|&nbsp;</div></td>
+  </tr>
+  <tr> 
+    <td colspan="6" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;<i>Target:</i> |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</td>
+    <td colspan="4" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="right"><i>Casterlevel:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|&nbsp;</div></td>
+  </tr>
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+</table>
+	</td>
+    <td background="preview/d20/fantasy/images/gold/border_right.png"></td>
+  </tr>
+  <tr>
+    <td height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+    <td background="preview/d20/fantasy/images/gold/border_bottom.png"></td>
+    <td><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+  </tr>
+</table>
+|ELSE|
+|ENDIF|
+|ENDFOR|	
+<!-- Stop Prepared Spells -->
+
+<!-- Start SpellBooks -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.NUMPAGES:0)|
+|ELSE|
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="SpellBooks">
+  <tr>
+    <td width="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+    <td background="preview/d20/fantasy/images/gold/border_top.png"><div align="center"><img src="preview/d20/fantasy/images/gold/title_spellbook.png" width="225" height="30"></div></td>
+    <td width="34"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+  </tr>
+  <tr>
+    <td background="preview/d20/fantasy/images/gold/border_left.png"></td>
+    <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+          <td colspan="10" class="spellHeader">|SPELLBOOKNAME.%spellbook| 
+		  <span class="spellStat">(|SPELLBOOK.%spellbook.NUMSPELLS| spells on |SPELLBOOK.%spellbook.NUMPAGESUSED| pages out of |SPELLBOOK.%spellbook.NUMPAGES|)</span></td>
+  </tr>
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-2,1,1|
+|IIF(SPELLLISTMEMORIZE.%class:false)|
+|ELSE|
+|FOR,%level,0,9,1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+<!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
+|ELSE|
+  <tr> 
+    <td colspan="2" class="spellName"><b><u>|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| level |SPELLLISTCLASS.%class| Spells</u></b></td>
+    <td class="spellStat"><b>DC</b></td>
+    <td class="spellStat"><b>Saving Throw</b></td>
+    <td class="spellStat"><b>Casting Time</b></td>
+    <td class="spellStat"><b>Duration</b></td>
+    <td class="spellStat"><b>Range</b></td>
+    <td class="spellStat"><b>Componants</b></td>
+    <td class="spellStat"><b>SR</b></td>
+    <td class="spellStat"><b>School</b></td>
+  </tr>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+  <tr> 
+    <td colspan="2" class="spellName" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</td>
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</td>
+  </tr>
+  <tr> 
+    <td colspan="6" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;<i>Effect:</i> |SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</td>
+    <td colspan="4" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="right"><i>Source:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|&nbsp;</div></td>
+  </tr>
+  <tr> 
+    <td colspan="6" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;<i>Target:</i> |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</td>
+    <td colspan="4" class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|><div align="right"><i>Casterlevel:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|&nbsp;</div></td>
+  </tr>
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+</table>
+|ENDIF|
+|ENDFOR|
+	</td>
+    <td background="preview/d20/fantasy/images/gold/border_right.png"></td>
+  </tr>
+  <tr>
+    <td height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+    <td background="preview/d20/fantasy/images/gold/border_bottom.png"></td>
+    <td><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+  </tr>
+</table>
+|ENDIF|
+|ENDFOR|
+<!-- Stop SpellBooks -->
 
 </body>
 </html>
