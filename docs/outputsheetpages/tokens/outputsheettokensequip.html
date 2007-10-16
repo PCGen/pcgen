@@ -296,11 +296,11 @@
 		<p class="indent1"><strong> Variables Used (w):</strong> MERGE.LOC (Optional)</p>
 		<p class="indent1"><strong> Variables Used (w):</strong> MERGE.NONE (Optional)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Subtype or &quot;CONTAINED&quot;).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Number (Equipment position. Not used with MERGE - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Number (Equipment position. Not used with MERGE.).</p>
 		<p class="indent1"><strong> Variables Used (z):</strong> ADD.Text (Subtype or &quot;CONTAINED&quot;).</p>
 		<p class="indent1"><strong> Variables Used (z):</strong> IS.Text (Options as per EQ.IS.x.y.z).</p>
 		<p class="indent1"><strong> Variables Used (z):</strong> NOT.Text (Subtype or &quot;CONTAINED&quot;).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> NOTE.Text (Property).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> NOTE.Text (Miscelaneous notes on sub-type. Used only with MERGE. Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<blockquote class="indent2">
 		<ul class="tagindent0">
@@ -309,9 +309,10 @@
 			<li>MERGE.ALL - Causes all items with the same name to be merged (default behavior).</li>
 			<li>MERGE.LOC - Causes all items with the same name and in the same location to be merged.</li>
 			<li>MERGE.NONE - No items with the same name are merged.</li>
-			<li>ADD.Text - Adds items containing that subtype to the returned list of equipment (Options as per EQ.NOT.x).</li>
-			<li>IS.w.v.u - Removes all equipment not containing that subtype from the returned list of equipment (Options as per EQ.IS.x.y.z).</li>
-			<li>NOT.w - Removes items containing that subtype from the returned list of equipment (Options as per EQ.NOT.x).</li>
+			<li>Equipment position is a zero-based index.</li>
+			<li>ADD - Adds items containing that subtype to the returned list of equipment (Options as per EQ.NOT.x).</li>
+			<li>IS - Removes all equipment not containing that subtype from the returned list of equipment (Options as per EQ.IS.x.y.z).</li>
+			<li>NOT - Removes items containing that subtype from the returned list of equipment (Options as per EQ.NOT.x).</li>
 			<li>NOTE - Displays the player added notes (if any) of the items containing that subtype.</li>
 			<li>Depending on the type of EQ, you can also use all the tokens from the ARMOR and ATTACK tokens (ACMOD, MAXDEX, DAMAGE, etc).</li>
 			<li>EQTYPE and all options can also be used in a COUNT[] statement.</li>
@@ -324,6 +325,8 @@
 		<p class="indent3">Would display a player added note on the 2<sup>nd</sup> gem in the equipment list. (If available)</p>
 		<p class="indent2"><code>EQTYPE.MAGIC.IS.STAFF.ADD.ROD.x.NAME</code></p>
 		<p class="indent3">Would display the name of the x-th magical staff or rod in the equipment list.</p>
+		<p class="indent2"><code>EQTYPE.MERGE.NONE.MAGIC.IS.STAFF.ADD.ROD.NAME</code></p>
+		<p class="indent3">Would display the name of all magical staves or rods in the equipment list.</p>
 		<p></ p>
 <hr>
 	<p>
