@@ -8,7 +8,7 @@ CLASS:Beast Handler	PREATT:4	PREFEAT:2,Exotic Weapon Proficiency (Whip),Skill Fo
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Beast Handler	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Beast Handler|CL	SPELLLIST:CLASS|Beast Handler=1|Animal Friendship,Calm Animals,Enlarge,Invisibility to Animals,Magic Fang,Reduce|Beast Handler=2|Animal Trance,Charm Person or Animal,Detect Animals or Plants,Hold Animal,Speak with Animals,Summon Nature's Ally I|Beast Handler=3|Animal Messenger,Dominate Animal,Greater Magic Fang,Summon Nature's Alley II,Summon Swarm|Beast Handler=4|Charm Monster,Giant Vermin,Remove Disease,Repel Vermin,Summon Nature's Ally III
+CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Beast Handler|CL	SPELLLEVEL:CLASS|Beast Handler=1|Animal Friendship,Calm Animals,Enlarge,Invisibility to Animals,Magic Fang,Reduce|Beast Handler=2|Animal Trance,Charm Person or Animal,Detect Animals or Plants,Hold Animal,Speak with Animals,Summon Nature's Ally I|Beast Handler=3|Animal Messenger,Dominate Animal,Greater Magic Fang,Summon Nature's Alley II,Summon Swarm|Beast Handler=4|Charm Monster,Giant Vermin,Remove Disease,Repel Vermin,Summon Nature's Ally III
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
