@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Sep 30 12:06:30 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Oct 17 11:07:50 2007 -- reformated by prettylst.pl v1.38 (build 4308)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -254,8 +254,8 @@ Two Weapon Fighting Combat Style	TYPE:RangerCombatStyle	VISIBLE:NO	!PREFEAT:1,TY
 Archery Combat Style			TYPE:RangerCombatStyle	VISIBLE:NO	!PREFEAT:1,TYPE=RangerCombatStyle	PREVARGTEQ:RangerCombatTree,1	SA:Archery Combat Style			VFEAT:Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Manyshot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
 
 ###Block: Favored Enemies
-# Feat Name						Type			Visible	Define																																									Multiple?	Source Page
-Basic Favored Enemy				TYPE:Special	VISIBLE:NO	DEFINE:FavoredBase|2	DEFINE:FavoredEnemies|0	DEFINE:FavoredEBonuses|0
+# Feat Name			Type			Visible	Define
+Basic Favored Enemy	TYPE:Special	VISIBLE:NO	DEFINE:FavoredBase|2	DEFINE:FavoredEnemies|0	DEFINE:FavoredEBonuses|0
 # Moved the Specifics to rsrd_abilities_class.lst
 
 ###Block: Wizard Specialist Abilities

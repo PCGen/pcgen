@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 01:04:29 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Oct 17 11:07:50 2007 -- reformated by prettylst.pl v1.38 (build 4308)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: abernat
 
@@ -33,8 +33,8 @@ Longspear				TYPE:Simple.Spear
 Quarterstaff			TYPE:Simple
 Spear					TYPE:Simple.Spear
 # -- Ranged
-Crossbow (Heavy)			TYPE:Simple.Crossbow			HANDS:2
-Crossbow (Light)			TYPE:Simple.Crossbow			HANDS:2
+Crossbow (Heavy)			TYPE:Simple.Crossbow	HANDS:2
+Crossbow (Light)			TYPE:Simple.Crossbow	HANDS:2
 Dart					TYPE:Simple.Thrown
 Javelin				TYPE:Simple.Thrown
 Sling					TYPE:Simple
@@ -103,7 +103,7 @@ Urgrosh (Dwarven)			TYPE:Exotic.Axe
 # -- ranged
 Bolas					TYPE:Exotic.Thrown
 Crossbow (Hand)			TYPE:Exotic.Crossbow
-Crossbow (Repeating Heavy)	TYPE:Exotic.Crossbow			HANDS:2
-Crossbow (Repeating Light)	TYPE:Exotic.Crossbow			HANDS:2
+Crossbow (Repeating Heavy)	TYPE:Exotic.Crossbow	HANDS:2
+Crossbow (Repeating Light)	TYPE:Exotic.Crossbow	HANDS:2
 Net					TYPE:Exotic
 Shuriken				TYPE:Exotic.Thrown
