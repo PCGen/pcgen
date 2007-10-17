@@ -18,68 +18,68 @@ Spells(Ray)				TYPE:Simple
 
 
 # -- light melee
-Dagger				TYPE:Simple
-Dagger (Punching)			TYPE:Simple
+Dagger				TYPE:Simple.Dagger
+Dagger (Punching)			TYPE:Simple.Dagger
 Gauntlet (Spiked)			TYPE:Simple
-Mace (Light)			TYPE:Simple
+Mace (Light)			TYPE:Simple.Mace
 Sickle				TYPE:Simple
 # -- 1-handers
-Club					TYPE:Simple
-Mace (Heavy)			TYPE:Simple
+Club					TYPE:Simple.Club
+Mace (Heavy)			TYPE:Simple.Mace
 Morningstar				TYPE:Simple
-Shortspear				TYPE:Simple
+Shortspear				TYPE:Simple.Spear
 # -- 2-handers
-Longspear				TYPE:Simple
+Longspear				TYPE:Simple.Spear
 Quarterstaff			TYPE:Simple
-Spear					TYPE:Simple
+Spear					TYPE:Simple.Spear
 # -- Ranged
-Crossbow (Heavy)			TYPE:Simple			HANDS:2
-Crossbow (Light)			TYPE:Simple			HANDS:2
-Dart					TYPE:Simple
-Javelin				TYPE:Simple
+Crossbow (Heavy)			TYPE:Simple.Crossbow			HANDS:2
+Crossbow (Light)			TYPE:Simple.Crossbow			HANDS:2
+Dart					TYPE:Simple.Thrown
+Javelin				TYPE:Simple.Thrown
 Sling					TYPE:Simple
 
-# MARTIAL
+# Martial
 # -- light
-Axe (Throwing)			TYPE:Martial
-Hammer (Light)			TYPE:Martial
-Handaxe				TYPE:Martial
+Axe (Throwing)			TYPE:Martial.Axe
+Hammer (Light)			TYPE:Martial.Hammer
+Handaxe				TYPE:Martial.Axe
 Kukri					TYPE:Martial
-Pick (Light)			TYPE:Martial
+Pick (Light)			TYPE:Martial.Pick
 Sap					TYPE:Martial
 Shieldbash (Light)		TYPE:Martial
 Spiked Armor			TYPE:Martial
-Sword (Short)			TYPE:Martial
+Sword (Short)			TYPE:Martial.Sword
 
 # 1-handers
-Battleaxe				TYPE:Martial
-Flail					TYPE:Martial
-Longsword				TYPE:Martial
-Pick (Heavy)			TYPE:Martial
-Rapier				TYPE:Martial
-Scimitar				TYPE:Martial
+Battleaxe				TYPE:Martial.Axe
+Flail					TYPE:Martial.Flail
+Longsword				TYPE:Martial.Sword
+Pick (Heavy)			TYPE:Martial.Pick
+Rapier				TYPE:Martial.Sword
+Scimitar				TYPE:Martial.Sword
 Shieldbash (Heavy)		TYPE:Martial
-Trident				TYPE:Martial
-Warhammer				TYPE:Martial
+Trident				TYPE:Martial.Thrown
+Warhammer				TYPE:Martial.Hammer
 
 # 2-handers
-Falchion				TYPE:Martial
-Glaive				TYPE:Martial
-Greataxe				TYPE:Martial
-Greatclub				TYPE:Martial
-Flail (Heavy)			TYPE:Martial
-Greatsword				TYPE:Martial
-Guisarme				TYPE:Martial
-Halberd				TYPE:Martial
+Falchion				TYPE:Martial.Sword
+Glaive				TYPE:Martial.Polearm
+Greataxe				TYPE:Martial.Axe
+Greatclub				TYPE:Martial.Club
+Flail (Heavy)			TYPE:Martial.Flail
+Greatsword				TYPE:Martial.Sword
+Guisarme				TYPE:Martial.Polearm
+Halberd				TYPE:Martial.Polearm
 Lance					TYPE:Martial
-Ranseur				TYPE:Martial
+Ranseur				TYPE:Martial.Polearm
 Scythe				TYPE:Martial
 Sword (Bastard)			TYPE:Martial.Exotic
 Waraxe (Dwarven)			TYPE:Martial.Exotic
 
 # --ranged
-Longbow				TYPE:Martial		HANDS:2
-Shortbow				TYPE:Martial		HANDS:2
+Longbow				TYPE:Martial.Bow		HANDS:2
+Shortbow				TYPE:Martial.Bow		HANDS:2
 
 # EXOTIC
 # -- light
@@ -93,17 +93,17 @@ Siangham				TYPE:Exotic
 Whip					TYPE:Exotic
 
 # -- 2-handers
-Axe (Orc Double)			TYPE:Exotic
+Axe (Orc Double)			TYPE:Exotic.Axe
 Chain (Spiked)			TYPE:Exotic
-Flail (Dire)			TYPE:Exotic
-Hammer (Gnome Hooked)		TYPE:Exotic
-Sword (Two-Bladed)		TYPE:Exotic
-Urgrosh (Dwarven)			TYPE:Exotic
+Flail (Dire)			TYPE:Exotic.Flail
+Hammer (Gnome Hooked)		TYPE:Exotic.Hammer.Pick
+Sword (Two-Bladed)		TYPE:Exotic.Sword
+Urgrosh (Dwarven)			TYPE:Exotic.Axe
 
 # -- ranged
-Bolas					TYPE:Exotic
-Crossbow (Hand)			TYPE:Exotic
-Crossbow (Repeating Heavy)	TYPE:Exotic			HANDS:2
-Crossbow (Repeating Light)	TYPE:Exotic			HANDS:2
+Bolas					TYPE:Exotic.Thrown
+Crossbow (Hand)			TYPE:Exotic.Crossbow
+Crossbow (Repeating Heavy)	TYPE:Exotic.Crossbow			HANDS:2
+Crossbow (Repeating Light)	TYPE:Exotic.Crossbow			HANDS:2
 Net					TYPE:Exotic
-Shuriken				TYPE:Exotic
+Shuriken				TYPE:Exotic.Thrown
