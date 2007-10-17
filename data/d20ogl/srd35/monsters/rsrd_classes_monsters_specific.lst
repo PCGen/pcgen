@@ -229,7 +229,7 @@ CLASS:Guardian Naga	HD:8		TYPE:Monster	MAXLEVEL:33	SOURCEPAGE:MonstersM-N.rtf	BO
 CLASS:Guardian Naga	PRERACE:1,Naga (Guardian)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Guardian Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer	SPELLLIST:3|Cleric|Good|Law
+1						ADD:SPELLCASTER|1|Sorcerer	SPELLLIST:3|Cleric|DOMAIN.Good|DOMAIN.Law
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 5	BONUS:PCLEVEL|Sorcerer|1

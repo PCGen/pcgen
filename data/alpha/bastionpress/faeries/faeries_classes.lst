@@ -9,7 +9,7 @@ CLASS:Faemancer	DEITY:None (Faemancer)	PREALIGN:CG,CN	PREFEAT:1,Leadership	PRESK
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Faemancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Arcana)|Knowledge (Fey)|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level				Use Spell List
-CLASS:Faemancer	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Faemancer|CL	SPELLLIST:Wizard
+CLASS:Faemancer	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Faemancer|CL	SPELLLIST:1|Wizard
 1	CAST:0,1		SA:Fey Companion (Grig)	SA:Life Bond (Su)
 2	CAST:0,2,0		SA:Fey Friend (Ex)	SA:Fey Companion Advancement (Ex)
 3	CAST:0,2,1		SA:Luck of the Fey (Ex)							BONUS:DOMAIN|NUMBER|1
