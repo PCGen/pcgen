@@ -219,7 +219,7 @@ ABILITYCATEGORY:Wizard Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIO
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
 ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability														
 ABILITYCATEGORY:Rogue Special Ability	VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:RogueAbilities			PLURAL:Rogue Special Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Enemy			VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:FavoredEnemies	CATEGORY:Special Ability		TYPE:FavoredEnemy				PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Enemy			VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:FavoredEnemy				PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
 
 
 PREVIEWDIR:d20/fantasy
