@@ -1188,6 +1188,73 @@ $Date:  $
 |ENDIF|
 <!-- Stop All Armor Tables -->
 
+<!-- Start Turn/Rebuke Undead Table -->
+|IIF(HASFEAT:Turn Undead.OR.HASFEAT:Rebuke Undead)|
+<table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+|IIF(HASFEAT:Turn Undead)|
+      <img src="preview/d20/fantasy/images/gold/turning_undead_turn.png" width="400" height="55">
+|ELSE|
+      <img src="preview/d20/fantasy/images/gold/turning_undead_rebuke.png" width="400" height="55">
+|ENDIF|
+	</td>
+  </tr>
+</table>
+<table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/turning_main.png">
+  <tr> 
+    <td height="22" colspan="4"><div align="right">
+		<a href="#" onClick="rollTurning(|VAR.TurnCheckUndead|,|VAR.TurnDiceUndead|,|VAR.TurnDieSizeUndead|,|VAR.TurnDamagePlusUndead|,|VAR.TurnLevelUndead|,'Turn Undead Result')">
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></a></div></td>
+    <td colspan="2" class="attackTables"><div align="center">1d20|VAR.TurnCheckUndead.INTVAL.SIGN.NOZERO|</div></td>
+    <td colspan="2"></td>
+    <td colspan="2" class="attackTables"><div align="center">|VAR.TurnTimesUndead.INTVAL|</div></td>
+    <td width="34"></td>
+  </tr>
+  <tr> 
+    <td height="20" colspan="4"></td>
+    <td colspan="2" class="attackTables"><div align="center">|VAR.TurnDiceUndead.INTVAL|d|VAR.TurnDieSizeUndead.INTVAL||VAR.TurnDamagePlusUndead.INTVAL.SIGN.NOZERO|</div></td>
+    <td colspan="2"></td>
+    <td colspan="2" class="attackTables"><div align="center">|VAR.TurnLevelUndead.INTVAL|</div></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="26" colspan="11"></td>
+  </tr>
+  <tr> 
+    <td width="26" height="24"></td>
+    <td width="37" class="attackTables"><div align="center">|(VAR.TurnLevelUndead-4).INTVAL|</div></td>
+    <td width="38" class="attackTables"><div align="center">|(VAR.TurnLevelUndead-3).INTVAL|</div></td>
+    <td width="38" class="attackTables"><div align="center">|(VAR.TurnLevelUndead-2).INTVAL|</div></td>
+    <td width="37" class="attackTables"><div align="center">|(VAR.TurnLevelUndead-1).INTVAL|</div></td>
+    <td width="38" class="attackTables"><div align="center">|(VAR.TurnLevelUndead).INTVAL|</div></td>
+    <td width="38" class="attackTables"><div align="center">|(VAR.TurnLevelUndead+1).INTVAL|</div></td>
+    <td width="38" class="attackTables"><div align="center">|(VAR.TurnLevelUndead+2).INTVAL|</div></td>
+    <td width="38" class="attackTables"><div align="center">|(VAR.TurnLevelUndead+3).INTVAL|</div></td>
+    <td width="38" class="attackTables"><div align="center">|(VAR.TurnLevelUndead+4).INTVAL|</div></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="12" colspan="11"></td>
+  </tr>
+  <tr> 
+    <td></td>
+    <td height="21" colspan="9" class="spellStat">
+|IIF(HASFEAT:Turn Undead)|
+      NOTE: You destroy undead creatures with total hit dice up to |(VAR.TurnLevelUndead/2).INTVAL|.
+|ELSE|
+      NOTE: You command undead creatures with total hit dice up to |VAR.TurnLevelUndead.INTVAL|.
+|ENDIF|	
+	</td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="31" colspan="11"></td>
+  </tr>
+</table>
+|ENDIF|
+<!-- Stop Turn/Rebuke Undead Table -->
+
 <!-- Start Weight Table -->
 <table width="400" height="157" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/Weight.png">
   <tr> 
@@ -1431,6 +1498,32 @@ $Date:  $
   </table>
 |ENDIF|
 <!-- Stop Templates Table -->
+
+<!-- Start Domain Table -->
+|%|
+|%DOMAIN.1|
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="Prepared Spells">
+  <tr>
+    <td width="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+    <td background="preview/d20/fantasy/images/gold/border_top.png"><div align="center"><img src="preview/d20/fantasy/images/gold/title_domains.png" width="225" height="30"></div></td>
+    <td width="34"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+  </tr>
+  <tr>
+    <td background="preview/d20/fantasy/images/gold/border_left.png"></td>
+    <td background="preview/d20/fantasy/images/gold/gold_tile.png"> 
+	<span class="header">Cleric of |DEITY|</span><br />
+|FOR.1,COUNT[DOMAINS]+1,1,<br /><span class="skills"><b>\DOMAIN.%\:</b> \DOMAIN.%.POWER\</span>, , ,0|	
+	</td>
+    <td background="preview/d20/fantasy/images/gold/border_right.png"></td>
+  </tr>
+  <tr>
+    <td height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+    <td background="preview/d20/fantasy/images/gold/border_bottom.png"></td>
+    <td><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+  </tr>
+</table>
+|%|
+<!-- Stop Domain Table -->
 
 <!-- Start Weapon Prof Table -->
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
