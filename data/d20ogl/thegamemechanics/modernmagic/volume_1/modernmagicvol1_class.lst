@@ -13,7 +13,7 @@ CLASS:The Ritualist	PRESKILL:2,Knowledge (Arcane Lore),Knowledge (Theology and P
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Ritualist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Knowledge (Arcane Lore)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|TYPE.Perform|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot
 1				SA:Summon Familiar	SA:Create Magic Circle
-2	REPEATLEVEL:2|0|8									ADD:FEAT|1|Elemental Affinity
+2:REPEATLEVEL:2|0|8									ADD:FEAT|1|Elemental Affinity
 3				SA:Craft Magic Charm
 5												ADD:FEAT|1|Brew Potion	ADD:FEAT|1|Magic Defense
 7				SA:Elemental Insight
@@ -39,7 +39,7 @@ CLASS:Magic Grunt	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 ###BLOCK: general
 1				SA:Detect Magic
 2							ADD:FEAT|1|Magic Defense
-3	REPEATLEVEL:3				ADD:FEAT|1|TYPE=MagicGrunt
+3:REPEATLEVEL:3				ADD:FEAT|1|TYPE=MagicGrunt
 4							ADD:FEAT|1|Focused
 5							ADD:FEAT|1|Weapon Focus
 7							ADD:FEAT|1|Combat Casting
@@ -55,9 +55,9 @@ CLASS:Arcane Spec Op	HD:8		TYPE:PC.Prestige	ABB:ASOp		MAXLEVEL:5	SOURCEPAGE:p.23
 CLASS:Arcane Spec Op	PREATT:6	PREFEAT:6,Advanced Firearms Proficiency,Athletic,Endurance,Personal Firearms Proficiency,Stealthy,Weapon Focus	PREMULT:1,[PRESKILL:1,Treat Injury=5],[PRESKILL:1,Knowledge (Tactics)=10],[PREFEAT:1,Burst Fire]	PRESKILL:2,Knowledge (Tactics),Knowledge (Arcane Lore)=6	PRESPELLTYPE:1,ANY=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Spec Op	STARTSKILLPTS:6	CSKILL:Climb|Craft (Chemical)|Diplomacy|Demolitions|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Jump|Listen|Move Silently|Navigate|Read/Write Language|Speak Language|Spellcraft|Spot|Survival|Swim|Treat Injury|Use Magic Device
-1	REPEATLEVEL:1				ADD:SPELLCASTER|1|Mage
+1:REPEATLEVEL:1				ADD:SPELLCASTER|1|Mage
 1							ADD:FEAT|1|Weapon Specialization,Spell Focus
-2	REPEATLEVEL:2				ADD:FEAT|1|TYPE=ArcaneSpecOp
+2:REPEATLEVEL:2				ADD:FEAT|1|TYPE=ArcaneSpecOp
 2							ADD:FEAT|1|Behind Enemy Lines
 3				SA:Night Raid
 4							ADD:FEAT|1|Swift Strike
@@ -69,8 +69,8 @@ CLASS:Thaumaturgical Specialist	HD:6		TYPE:PC.Prestige	ABB:ThSp		MAXLEVEL:5	SOUR
 CLASS:Thaumaturgical Specialist	PREATT:6	PRECHECKBASE:1,Will=6	PREFEAT:3,Combat Casting,Fork Spell,Personal Firearms Proficiency	PRESKILL:2,Knowledge (Tactics),Knowledge (Arcane Lore)=6	PRESPELLTYPE:1,Arcane=3
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Thaumaturgical Specialist	STARTSKILLPTS:6	CSKILL:Climb|Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Investigate|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Tactics)|Knowledge (Technology)|Profession|Read/Write Language|Search|Speak Language|Spellcraft|Survival|Swim|Use Magic Device
-1	REPEATLEVEL:1	ADD:SPELLCASTER|1|Mage
-1	REPEATLEVEL:2	ADD:FEAT|1|TYPE=Thaumaturgical
-2	REPEATLEVEL:2	ADD:FEAT|1|TYPE=Metamagic
+1:REPEATLEVEL:1	ADD:SPELLCASTER|1|Mage
+1:REPEATLEVEL:2	ADD:FEAT|1|TYPE=Thaumaturgical
+2:REPEATLEVEL:2	ADD:FEAT|1|TYPE=Metamagic
 2				ADD:FEAT|1|Brew Potion
 4				ADD:FEAT|1|Scribe Scroll

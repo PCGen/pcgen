@@ -7,7 +7,7 @@ CLASS:Construct (Psicrystal)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	SOURCEPAGE
 CLASS:Construct (Psicrystal)	PRERACETYPE:Construct
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Construct (Psicrystal)	STARTSKILLPTS:0	MODTOSKILLS:NO			CSKILL:Spot|Listen|Move Silently|Search
-4	REPEATLEVEL:4	ADD:FEAT|Psicrystal Ability Progression
+4:REPEATLEVEL:4	ADD:FEAT|Psicrystal Ability Progression
 
 
 #

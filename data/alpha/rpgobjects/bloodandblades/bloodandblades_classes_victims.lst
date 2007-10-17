@@ -39,7 +39,7 @@ CLASS:Mundane	HD:6		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHECKS|B
 CLASS:Mundane	PREMULT:1,[PRELEVELMAX:1],[PRECLASS:1,Mundane=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mundane	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Drive|TYPE.Knowledge|Profession
-1	REPEATLEVEL:1																		ADD:FEAT|1|TYPE=Mundane
+1:REPEATLEVEL:1																		ADD:FEAT|1|TYPE=Mundane
 1				SA:You MUST continue to advance in the Mundane class until you have reached 5th level|PREVARLT:CL,5					TEMPLATE:Starting Sanity
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR

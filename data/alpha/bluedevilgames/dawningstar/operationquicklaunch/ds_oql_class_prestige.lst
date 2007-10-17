@@ -21,7 +21,7 @@ CLASS:Velin Chief	PRECHECKBASE:1,Will=4	PREMULT:1,[PRERACE:1,Velin],[PREFEAT:1,V
 CLASS:Velin Chief	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Craft (Tribal)|Diplomacy|Handle Animal|Hide|Intimidate|Knowledge (Civics)|Knowledge (History)|Knowledge (Local)|Knowledge (Species)|Listen|Move Silently|Navigate|Perform (Act)|Perform (Dance)|Perform (Oratory)|Perform (Percussion Instruments)|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
 1				SA:Chief Reputation	SA:Tribal Authority
 2				SA:Protect the Tribe					ADD:FEAT|1|Region Familiarity
-3	REPEATLEVEL:3									ADD:FEAT|1|TYPE=VelinChief
+3:REPEATLEVEL:3									ADD:FEAT|1|TYPE=VelinChief
 4				SA:Shield of Will
 5				SA:Lead the Way
 7				SA:Tribal Guard

@@ -19,6 +19,6 @@ CLASS:Nephilim	PRECLASS:1,The Watcher=3	PREFEAT:3,Occupation (Celestial),Tongue 
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Nephilim	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Perform (Act)|Perform (Dance)|Perform (Sing)|Pilot|Profession|Read/Write Language|Sense Motive|Speak Language|Spot|Treat Injury
 1				SA:Divine Presence
-2	REPEATLEVEL:2					ADD:FEAT|1|TYPE=Nephilim
+2:REPEATLEVEL:2					ADD:FEAT|1|TYPE=Nephilim
 3								ADD:FEAT|1|TYPE=NephilimStatAdd
 5				SA:Beguile

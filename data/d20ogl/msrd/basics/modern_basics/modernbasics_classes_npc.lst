@@ -64,7 +64,7 @@ CLASS:Dragon (True)	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Dragon (True)	STARTSKILLPTS:6	MODTOSKILLS:YES
 13									ADD:SPELLCASTER|1|Mage
-16	REPEATLEVEL:3|0|40	BONUS:PCLEVEL|Mage|1
+16:REPEATLEVEL:3|0|40	BONUS:PCLEVEL|Mage|1
 
 # Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus					BONUS:FEAT										Modify VAR
 CLASS:Elemental (Air/Fire)	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)+(var("CL=Elemental (Air/Fire)")-1)/4	BONUS:VAR|MonsterLevel|CL
@@ -133,7 +133,7 @@ CLASS:Magical Beast	HD:10		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSP
 CLASS:Magical Beast	PRERACETYPE:Magical Beast
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Magical Beast	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
-2	REPEATLEVEL:1	BONUS:SKILLPOOL|NUMBER|-1|!PRESTAT:1,INT=3
+2:REPEATLEVEL:1	BONUS:SKILLPOOL|NUMBER|-1|!PRESTAT:1,INT=3
 
 # Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					BONUS:FEAT										Modify VAR
 CLASS:Monstrous Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)+(var("CL=Monstrous Humanoid")-1)/4	BONUS:VAR|MonsterLevel|CL
