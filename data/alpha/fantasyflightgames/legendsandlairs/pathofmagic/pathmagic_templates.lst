@@ -7,84 +7,84 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 #
 
 # Template Name									Visible		Source Page		Special Ability			Required Class				Required Feat				Required Gender	Required Language		Required Skill												Req. Spell Type		Required Stat	Required Template											Required Text	Var. Min. Value			Bonus to skill							Bonus to spell known/L				Removable?		Innate Spells
-Stormweaver - Lesson 1								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:The Study of Weather																																																																															REMOVABLE:NO
-Stormweaver - Lesson 2								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Trick Knee																																											PRETEMPLATE:Stormweaver - Lesson 1																																REMOVABLE:NO
-Stormweaver - Lesson 3								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Rain Dance																																											PRETEMPLATE:Stormweaver - Lesson 2																																REMOVABLE:NO
-Stormweaver - Lesson 4								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Adjust the Flow																																										PRETEMPLATE:Stormweaver - Lesson 3																																REMOVABLE:NO
-Stormweaver - Lesson 5								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Move Weather																																											PRETEMPLATE:Stormweaver - Lesson 4																																REMOVABLE:NO
-Stormweaver - Lesson 6								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Storm Friend																																											PRETEMPLATE:Stormweaver - Lesson 5																																REMOVABLE:NO
-Stormweaver - Lesson 7								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Lightning Rod																																											PRETEMPLATE:Stormweaver - Lesson 6																																REMOVABLE:NO
-Stormweaver - Lesson 8								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Fists of Rain																																											PRETEMPLATE:Stormweaver - Lesson 7																																REMOVABLE:NO
-Stormweaver - Lesson 9								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Breath of the Stormgod																																									PRETEMPLATE:Stormweaver - Lesson 8																																REMOVABLE:NO
-Stormweaver - Lesson 10								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Greater Storm Friend																																										PRETEMPLATE:Stormweaver - Lesson 9																																REMOVABLE:NO
+Stormweaver - Lesson 1								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SAB:The Study of Weather																																																																															REMOVABLE:NO
+Stormweaver - Lesson 2								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SAB:Trick Knee																																											PRETEMPLATE:Stormweaver - Lesson 1																																REMOVABLE:NO
+Stormweaver - Lesson 3								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SAB:Rain Dance																																											PRETEMPLATE:Stormweaver - Lesson 2																																REMOVABLE:NO
+Stormweaver - Lesson 4								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SAB:Adjust the Flow																																										PRETEMPLATE:Stormweaver - Lesson 3																																REMOVABLE:NO
+Stormweaver - Lesson 5								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SAB:Move Weather																																											PRETEMPLATE:Stormweaver - Lesson 4																																REMOVABLE:NO
+Stormweaver - Lesson 6								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SAB:Storm Friend																																											PRETEMPLATE:Stormweaver - Lesson 5																																REMOVABLE:NO
+Stormweaver - Lesson 7								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SAB:Lightning Rod																																											PRETEMPLATE:Stormweaver - Lesson 6																																REMOVABLE:NO
+Stormweaver - Lesson 8								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SAB:Fists of Rain																																											PRETEMPLATE:Stormweaver - Lesson 7																																REMOVABLE:NO
+Stormweaver - Lesson 9								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SAB:Breath of the Stormgod																																									PRETEMPLATE:Stormweaver - Lesson 8																																REMOVABLE:NO
+Stormweaver - Lesson 10								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SAB:Greater Storm Friend																																										PRETEMPLATE:Stormweaver - Lesson 9																																REMOVABLE:NO
 
-Arcane Marauder - Lesson 1							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Sea Legs																																																																																	REMOVABLE:NO
-Arcane Marauder - Lesson 2							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Spell Understanding																																										PRETEMPLATE:Arcane Marauder - Lesson 1																															REMOVABLE:NO
-Arcane Marauder - Lesson 3							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Concentration Taunt																																										PRETEMPLATE:Arcane Marauder - Lesson 2																															REMOVABLE:NO
-Arcane Marauder - Lesson 4							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Cheap Shot																																											PRETEMPLATE:Arcane Marauder - Lesson 3																															REMOVABLE:NO
-Arcane Marauder - Lesson 5							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Shifty Target																																											PRETEMPLATE:Arcane Marauder - Lesson 4																															REMOVABLE:NO
-Arcane Marauder - Lesson 6							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Mindbreaker																																											PRETEMPLATE:Arcane Marauder - Lesson 5																															REMOVABLE:NO
-Arcane Marauder - Lesson 7							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Arcane Plunder																																											PRETEMPLATE:Arcane Marauder - Lesson 6																															REMOVABLE:NO
-Arcane Marauder - Lesson 8							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:The Wizard Killers																																										PRETEMPLATE:Arcane Marauder - Lesson 7																															REMOVABLE:NO
-Arcane Marauder - Lesson 9							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Counter Spell																																											PRETEMPLATE:Arcane Marauder - Lesson 8																															REMOVABLE:NO
-Arcane Marauder - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Mind Blast																																											PRETEMPLATE:Arcane Marauder - Lesson 9																															REMOVABLE:NO
+Arcane Marauder - Lesson 1							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SAB:Sea Legs																																																																																	REMOVABLE:NO
+Arcane Marauder - Lesson 2							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SAB:Spell Understanding																																										PRETEMPLATE:Arcane Marauder - Lesson 1																															REMOVABLE:NO
+Arcane Marauder - Lesson 3							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SAB:Concentration Taunt																																										PRETEMPLATE:Arcane Marauder - Lesson 2																															REMOVABLE:NO
+Arcane Marauder - Lesson 4							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SAB:Cheap Shot																																											PRETEMPLATE:Arcane Marauder - Lesson 3																															REMOVABLE:NO
+Arcane Marauder - Lesson 5							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SAB:Shifty Target																																											PRETEMPLATE:Arcane Marauder - Lesson 4																															REMOVABLE:NO
+Arcane Marauder - Lesson 6							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SAB:Mindbreaker																																											PRETEMPLATE:Arcane Marauder - Lesson 5																															REMOVABLE:NO
+Arcane Marauder - Lesson 7							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SAB:Arcane Plunder																																											PRETEMPLATE:Arcane Marauder - Lesson 6																															REMOVABLE:NO
+Arcane Marauder - Lesson 8							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SAB:The Wizard Killers																																										PRETEMPLATE:Arcane Marauder - Lesson 7																															REMOVABLE:NO
+Arcane Marauder - Lesson 9							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SAB:Counter Spell																																											PRETEMPLATE:Arcane Marauder - Lesson 8																															REMOVABLE:NO
+Arcane Marauder - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SAB:Mind Blast																																											PRETEMPLATE:Arcane Marauder - Lesson 9																															REMOVABLE:NO
 
-Galvanar Spellmaster - Lesson 1						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Basic Studies																																																																BONUS:SKILL|Spellcraft|1|TYPE=Circumstance									REMOVABLE:NO
-Galvanar Spellmaster - Lesson 2						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Foreign Languages																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 1																														REMOVABLE:NO
-Galvanar Spellmaster - Lesson 3						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Intermediate Studies																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 2														BONUS:SKILL|Knowledge (Arcana)|1|TYPE=Circumstance								REMOVABLE:NO
-Galvanar Spellmaster - Lesson 4						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:The Mechanics of Magic																																									PRETEMPLATE:Galvanar Spellmaster - Lesson 3																														REMOVABLE:NO
-Galvanar Spellmaster - Lesson 5						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Defensive Spell Combat																																									PRETEMPLATE:Galvanar Spellmaster - Lesson 4																														REMOVABLE:NO
-Galvanar Spellmaster - Lesson 6						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Advanced Studies																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 5														BONUS:SKILL|STAT.INT|1													REMOVABLE:NO
-Galvanar Spellmaster - Lesson 7						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Spell Wringing																																											PRETEMPLATE:Galvanar Spellmaster - Lesson 6																														REMOVABLE:NO
-Galvanar Spellmaster - Lesson 8						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Metamagic Mastery																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 7																														REMOVABLE:NO
-Galvanar Spellmaster - Lesson 9						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Expert Spell Knowledge																																									PRETEMPLATE:Galvanar Spellmaster - Lesson 8																														REMOVABLE:NO
-Galvanar Spellmaster - Lesson 10						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Spellcasting Mastery																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 9																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 1						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SAB:Basic Studies																																																																BONUS:SKILL|Spellcraft|1|TYPE=Circumstance									REMOVABLE:NO
+Galvanar Spellmaster - Lesson 2						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SAB:Foreign Languages																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 1																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 3						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SAB:Intermediate Studies																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 2														BONUS:SKILL|Knowledge (Arcana)|1|TYPE=Circumstance								REMOVABLE:NO
+Galvanar Spellmaster - Lesson 4						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SAB:The Mechanics of Magic																																									PRETEMPLATE:Galvanar Spellmaster - Lesson 3																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 5						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SAB:Defensive Spell Combat																																									PRETEMPLATE:Galvanar Spellmaster - Lesson 4																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 6						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SAB:Advanced Studies																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 5														BONUS:SKILL|STAT.INT|1													REMOVABLE:NO
+Galvanar Spellmaster - Lesson 7						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SAB:Spell Wringing																																											PRETEMPLATE:Galvanar Spellmaster - Lesson 6																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 8						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SAB:Metamagic Mastery																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 7																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 9						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SAB:Expert Spell Knowledge																																									PRETEMPLATE:Galvanar Spellmaster - Lesson 8																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 10						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SAB:Spellcasting Mastery																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 9																														REMOVABLE:NO
 #lesson 9,10 bonuseszzzz
 
-Telwar Pyros - Lesson 1								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Alchemy Instructional																																																																														REMOVABLE:NO
-Telwar Pyros - Lesson 2								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:The Red Thumb																																											PRETEMPLATE:Telwar Pyros - Lesson 1																																REMOVABLE:NO
-Telwar Pyros - Lesson 3								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Little Snappers																																										PRETEMPLATE:Telwar Pyros - Lesson 2																																REMOVABLE:NO
-Telwar Pyros - Lesson 4								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Sparks																																												PRETEMPLATE:Telwar Pyros - Lesson 3																																REMOVABLE:NO
-Telwar Pyros - Lesson 5								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Firewalker																																											PRETEMPLATE:Telwar Pyros - Lesson 4																																REMOVABLE:NO
-Telwar Pyros - Lesson 6								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Burning Poker																																											PRETEMPLATE:Telwar Pyros - Lesson 5																																REMOVABLE:NO
-Telwar Pyros - Lesson 7								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:The Kiss of Fire																																										PRETEMPLATE:Telwar Pyros - Lesson 6																																REMOVABLE:NO
-Telwar Pyros - Lesson 8								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Flaming Fist																																											PRETEMPLATE:Telwar Pyros - Lesson 7																																REMOVABLE:NO
-Telwar Pyros - Lesson 9								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Big Bangers																																											PRETEMPLATE:Telwar Pyros - Lesson 8																																REMOVABLE:NO
-Telwar Pyros - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Cloak of Fire																																											PRETEMPLATE:Telwar Pyros - Lesson 9																																REMOVABLE:NO
+Telwar Pyros - Lesson 1								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SAB:Alchemy Instructional																																																																														REMOVABLE:NO
+Telwar Pyros - Lesson 2								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SAB:The Red Thumb																																											PRETEMPLATE:Telwar Pyros - Lesson 1																																REMOVABLE:NO
+Telwar Pyros - Lesson 3								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SAB:Little Snappers																																										PRETEMPLATE:Telwar Pyros - Lesson 2																																REMOVABLE:NO
+Telwar Pyros - Lesson 4								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SAB:Sparks																																												PRETEMPLATE:Telwar Pyros - Lesson 3																																REMOVABLE:NO
+Telwar Pyros - Lesson 5								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SAB:Firewalker																																											PRETEMPLATE:Telwar Pyros - Lesson 4																																REMOVABLE:NO
+Telwar Pyros - Lesson 6								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SAB:Burning Poker																																											PRETEMPLATE:Telwar Pyros - Lesson 5																																REMOVABLE:NO
+Telwar Pyros - Lesson 7								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SAB:The Kiss of Fire																																										PRETEMPLATE:Telwar Pyros - Lesson 6																																REMOVABLE:NO
+Telwar Pyros - Lesson 8								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SAB:Flaming Fist																																											PRETEMPLATE:Telwar Pyros - Lesson 7																																REMOVABLE:NO
+Telwar Pyros - Lesson 9								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SAB:Big Bangers																																											PRETEMPLATE:Telwar Pyros - Lesson 8																																REMOVABLE:NO
+Telwar Pyros - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.110	SAB:Cloak of Fire																																											PRETEMPLATE:Telwar Pyros - Lesson 9																																REMOVABLE:NO
 #lesson 10: fire resistance 10zzz
 
-Celestial Chorus - Lesson 1							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Songs of the Ages																																																															BONUS:SKILL|Perform (Sing)|1												REMOVABLE:NO
-Celestial Chorus - Lesson 2							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Hymn of Courage																																										PRETEMPLATE:Celestial Chorus - Lesson 1																															REMOVABLE:NO
-Celestial Chorus - Lesson 3							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:The Water Song																																											PRETEMPLATE:Celestial Chorus - Lesson 2																															REMOVABLE:NO
-Celestial Chorus - Lesson 4							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Soothing Lullaby																																										PRETEMPLATE:Celestial Chorus - Lesson 3																															REMOVABLE:NO
-Celestial Chorus - Lesson 5							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Torturous Melody																																										PRETEMPLATE:Celestial Chorus - Lesson 4																															REMOVABLE:NO
-Celestial Chorus - Lesson 6							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Tune of the Piper																																										PRETEMPLATE:Celestial Chorus - Lesson 5																															REMOVABLE:NO
-Celestial Chorus - Lesson 7							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:The Solo of Lenoire																																										PRETEMPLATE:Celestial Chorus - Lesson 6																															REMOVABLE:NO
-Celestial Chorus - Lesson 8							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:The Sorcerer's Sonata																																									PRETEMPLATE:Celestial Chorus - Lesson 7																															REMOVABLE:NO
-Celestial Chorus - Lesson 9							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Scroll of Gandral																																										PRETEMPLATE:Celestial Chorus - Lesson 8																															REMOVABLE:NO
-Celestial Chorus - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Scroll of Sulis																																										PRETEMPLATE:Celestial Chorus - Lesson 9																															REMOVABLE:NO
+Celestial Chorus - Lesson 1							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SAB:Songs of the Ages																																																															BONUS:SKILL|Perform (Sing)|1												REMOVABLE:NO
+Celestial Chorus - Lesson 2							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SAB:Hymn of Courage																																										PRETEMPLATE:Celestial Chorus - Lesson 1																															REMOVABLE:NO
+Celestial Chorus - Lesson 3							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SAB:The Water Song																																											PRETEMPLATE:Celestial Chorus - Lesson 2																															REMOVABLE:NO
+Celestial Chorus - Lesson 4							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SAB:Soothing Lullaby																																										PRETEMPLATE:Celestial Chorus - Lesson 3																															REMOVABLE:NO
+Celestial Chorus - Lesson 5							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SAB:Torturous Melody																																										PRETEMPLATE:Celestial Chorus - Lesson 4																															REMOVABLE:NO
+Celestial Chorus - Lesson 6							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SAB:Tune of the Piper																																										PRETEMPLATE:Celestial Chorus - Lesson 5																															REMOVABLE:NO
+Celestial Chorus - Lesson 7							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SAB:The Solo of Lenoire																																										PRETEMPLATE:Celestial Chorus - Lesson 6																															REMOVABLE:NO
+Celestial Chorus - Lesson 8							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SAB:The Sorcerer's Sonata																																									PRETEMPLATE:Celestial Chorus - Lesson 7																															REMOVABLE:NO
+Celestial Chorus - Lesson 9							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SAB:Scroll of Gandral																																										PRETEMPLATE:Celestial Chorus - Lesson 8																															REMOVABLE:NO
+Celestial Chorus - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SAB:Scroll of Sulis																																										PRETEMPLATE:Celestial Chorus - Lesson 9																															REMOVABLE:NO
 
-Snakebrine School - Lesson 1							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Herbs and Toads																																																															BONUS:SKILL|Knowledge (Nature)|2											REMOVABLE:NO
-Snakebrine School - Lesson 2							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Bats, Cats, and Owls																																										PRETEMPLATE:Snakebrine School - Lesson 1																															REMOVABLE:NO
-Snakebrine School - Lesson 3							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Black Cauldron																																											PRETEMPLATE:Snakebrine School - Lesson 2																															REMOVABLE:NO
-Snakebrine School - Lesson 4							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Shadow Puppetry																																										PRETEMPLATE:Snakebrine School - Lesson 3																															REMOVABLE:NO
-Snakebrine School - Lesson 5							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Toil and Trouble																																										PRETEMPLATE:Snakebrine School - Lesson 4																															REMOVABLE:NO
-Snakebrine School - Lesson 6							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Imposing Presence																																										PRETEMPLATE:Snakebrine School - Lesson 5																															REMOVABLE:NO
-Snakebrine School - Lesson 7							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Dark Magic																																											PRETEMPLATE:Snakebrine School - Lesson 6																															REMOVABLE:NO
-Snakebrine School - Lesson 8							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Broomstick																																											PRETEMPLATE:Snakebrine School - Lesson 7																															REMOVABLE:NO
-Snakebrine School - Lesson 9							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Moon Magic																																											PRETEMPLATE:Snakebrine School - Lesson 8																															REMOVABLE:NO
-Snakebrine School - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:The Horror of Horrors																																									PRETEMPLATE:Snakebrine School - Lesson 9																															REMOVABLE:NO
+Snakebrine School - Lesson 1							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SAB:Herbs and Toads																																																															BONUS:SKILL|Knowledge (Nature)|2											REMOVABLE:NO
+Snakebrine School - Lesson 2							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SAB:Bats, Cats, and Owls																																										PRETEMPLATE:Snakebrine School - Lesson 1																															REMOVABLE:NO
+Snakebrine School - Lesson 3							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SAB:Black Cauldron																																											PRETEMPLATE:Snakebrine School - Lesson 2																															REMOVABLE:NO
+Snakebrine School - Lesson 4							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SAB:Shadow Puppetry																																										PRETEMPLATE:Snakebrine School - Lesson 3																															REMOVABLE:NO
+Snakebrine School - Lesson 5							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SAB:Toil and Trouble																																										PRETEMPLATE:Snakebrine School - Lesson 4																															REMOVABLE:NO
+Snakebrine School - Lesson 6							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SAB:Imposing Presence																																										PRETEMPLATE:Snakebrine School - Lesson 5																															REMOVABLE:NO
+Snakebrine School - Lesson 7							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SAB:Dark Magic																																											PRETEMPLATE:Snakebrine School - Lesson 6																															REMOVABLE:NO
+Snakebrine School - Lesson 8							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SAB:Broomstick																																											PRETEMPLATE:Snakebrine School - Lesson 7																															REMOVABLE:NO
+Snakebrine School - Lesson 9							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SAB:Moon Magic																																											PRETEMPLATE:Snakebrine School - Lesson 8																															REMOVABLE:NO
+Snakebrine School - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SAB:The Horror of Horrors																																									PRETEMPLATE:Snakebrine School - Lesson 9																															REMOVABLE:NO
 
-Carharte Timekeeper - Lesson 1						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Age Study																																																																																REMOVABLE:NO
-Carharte Timekeeper - Lesson 2						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Internal Clock																																											PRETEMPLATE:Carharte Timekeeper - Lesson 1																														REMOVABLE:NO
-Carharte Timekeeper - Lesson 3						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Clock Construction																																										PRETEMPLATE:Carharte Timekeeper - Lesson 2																														REMOVABLE:NO
-Carharte Timekeeper - Lesson 4						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Fortune Teller																																											PRETEMPLATE:Carharte Timekeeper - Lesson 3																														REMOVABLE:NO	SPELLS:Innate|TIMES=3|Augury
-Carharte Timekeeper - Lesson 5						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Freeze Time																																											PRETEMPLATE:Carharte Timekeeper - Lesson 4																														REMOVABLE:NO
-Carharte Timekeeper - Lesson 6						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Wither																																												PRETEMPLATE:Carharte Timekeeper - Lesson 5																														REMOVABLE:NO
-Carharte Timekeeper - Lesson 7						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Time Stutter																																											PRETEMPLATE:Carharte Timekeeper - Lesson 6																														REMOVABLE:NO
-Carharte Timekeeper - Lesson 8						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Reinvigorate																																											PRETEMPLATE:Carharte Timekeeper - Lesson 7																														REMOVABLE:NO
-Carharte Timekeeper - Lesson 9						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:The 10-Minute Leap																																										PRETEMPLATE:Carharte Timekeeper - Lesson 8																														REMOVABLE:NO
-Carharte Timekeeper - Lesson 10						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:The Keys of Time																																										PRETEMPLATE:Carharte Timekeeper - Lesson 9																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 1						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SAB:Age Study																																																																																REMOVABLE:NO
+Carharte Timekeeper - Lesson 2						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SAB:Internal Clock																																											PRETEMPLATE:Carharte Timekeeper - Lesson 1																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 3						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SAB:Clock Construction																																										PRETEMPLATE:Carharte Timekeeper - Lesson 2																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 4						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SAB:Fortune Teller																																											PRETEMPLATE:Carharte Timekeeper - Lesson 3																														REMOVABLE:NO	SPELLS:Innate|TIMES=3|Augury
+Carharte Timekeeper - Lesson 5						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SAB:Freeze Time																																											PRETEMPLATE:Carharte Timekeeper - Lesson 4																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 6						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SAB:Wither																																												PRETEMPLATE:Carharte Timekeeper - Lesson 5																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 7						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SAB:Time Stutter																																											PRETEMPLATE:Carharte Timekeeper - Lesson 6																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 8						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SAB:Reinvigorate																																											PRETEMPLATE:Carharte Timekeeper - Lesson 7																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 9						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SAB:The 10-Minute Leap																																										PRETEMPLATE:Carharte Timekeeper - Lesson 8																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 10						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SAB:The Keys of Time																																										PRETEMPLATE:Carharte Timekeeper - Lesson 9																														REMOVABLE:NO
 
 
 #

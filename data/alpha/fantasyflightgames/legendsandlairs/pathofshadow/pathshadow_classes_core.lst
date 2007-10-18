@@ -17,7 +17,7 @@ CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,
 ###Block: Sneak Attack
 1								BONUS:VAR|SneakAttack|(CL+1)/4													AUTO:FEAT|Sneak Attack
 ##Block: Quick Change
-1	SA:Quick Change (% disguises)|Disguises	BONUS:VAR|Disguises|(CL+10)/5		BONUS:SKILL|Disguise|(CL+1)/2|TYPE=Competence	DEFINE:Disguises|0
+1	SAB:Quick Change (% disguises)|Disguises	BONUS:VAR|Disguises|(CL+10)/5		BONUS:SKILL|Disguise|(CL+1)/2|TYPE=Competence	DEFINE:Disguises|0
 ###Block: Weapon and Armor proficiencies
 1							AUTO:WEAPONPROF|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
 1	AUTO:FEAT|Armor Proficiency (Light)
@@ -27,14 +27,14 @@ CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,
 3	CAST:3,1
 4	CAST:3,2,0
 5	CAST:3,3,1
-6	CAST:3,3,2			SA:Masked Aura
+6	CAST:3,3,2			SAB:Masked Aura
 7	CAST:3,3,2,0
 8	CAST:3,3,3,1
 9	CAST:3,3,3,2
 10	CAST:3,3,3,2,0						ADD:FEAT|1|Defensive Roll,Skill Mastery,Slippery Mind,Traps,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 11	CAST:3,3,3,3,1
 12	CAST:3,3,3,3,2
-13	CAST:3,3,3,3,2,0		SA:Hidden Thoughts
+13	CAST:3,3,3,3,2,0		SAB:Hidden Thoughts
 14	CAST:4,3,3,3,3,1						ADD:FEAT|1|Defensive Roll,Skill Mastery,Slippery Mind,Traps,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 15	CAST:4,4,3,3,3,2
 16	CAST:4,4,4,3,3,2,0
@@ -56,9 +56,9 @@ CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Dip
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal progression
-1	SA:Deceptive Oration (%/day)|DeceptiveOration	SA:Second Attempt	BONUS:VAR|DeceptiveOration|CL															DEFINE:DeceptiveOration|0
-3	SA:Assess Mark (gullibility)
-6	SA:Assess Mark (desires)
+1	SAB:Deceptive Oration (%/day)|DeceptiveOration	SAB:Second Attempt	BONUS:VAR|DeceptiveOration|CL															DEFINE:DeceptiveOration|0
+3	SAB:Assess Mark (gullibility)
+6	SAB:Assess Mark (desires)
 10																																				ADD:FEAT|1|Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 11																	BONUS:SKILL|Bluff,Diplomacy,Gather Information|floor((CL-8)/3)*2|TYPE=Circumstance
 13																																				ADD:FEAT|1|Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
@@ -75,7 +75,7 @@ CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Cr
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal progression
-1	SA:Delver Notebook	SA:Traps						ADD:FEAT|1|Martial Weapon Proficiency,Exotic Weapon Proficiency
+1	SAB:Delver Notebook	SAB:Traps						ADD:FEAT|1|Martial Weapon Proficiency,Exotic Weapon Proficiency
 2																																																		VFEAT:Evasion
 3							BONUS:VAR|UncannyDodge|1																																										AUTO:FEAT|Uncanny Dodge
 7												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
@@ -116,14 +116,14 @@ CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1					DEFINE:POWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
 1					DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
 ###Block: Psychic Thief Powers
-1	SA:Psychic Thief 0 level powers (% free / day)|PsyThfFreePowers	DEFINE:PsyThfFreePowers|CL+2
+1	SAB:Psychic Thief 0 level powers (% free / day)|PsyThfFreePowers	DEFINE:PsyThfFreePowers|CL+2
 ###Block: normal progression
 1	KNOWN:2					BONUS:VAR|BASEPOWERPOINTS|2						ADD:FEAT|2|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 2	KNOWN:3					BONUS:VAR|BASEPOWERPOINTS|1																																							AUTO:FEAT|Evasion
 3	KNOWN:3,1					BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|UncannyDodge|1	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode																								AUTO:FEAT|Uncanny Dodge
 4	KNOWN:3,2					BONUS:VAR|BASEPOWERPOINTS|1
 5	KNOWN:3,3,1					BONUS:VAR|BASEPOWERPOINTS|3
-6	KNOWN:3,3,2			SA:Traps	BONUS:VAR|BASEPOWERPOINTS|3
+6	KNOWN:3,3,2			SAB:Traps	BONUS:VAR|BASEPOWERPOINTS|3
 7	KNOWN:3,3,2,1				BONUS:VAR|BASEPOWERPOINTS|5						ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
 8	KNOWN:3,3,3,1				BONUS:VAR|BASEPOWERPOINTS|5	BONUS:VAR|UncannyDodge|1
 9	KNOWN:3,3,3,2				BONUS:VAR|BASEPOWERPOINTS|5						ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode

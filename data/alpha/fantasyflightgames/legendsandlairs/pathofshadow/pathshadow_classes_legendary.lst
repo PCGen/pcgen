@@ -95,9 +95,9 @@ CLASS:Incantator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Concentration|Cli
 # (I currently don't see a way to code this.)
 # 1	CAST:4,3,2,1
 # 2	CAST:4,3,3,2
-# 3	CAST:4,4,3,2,1		SA:Steal Dweomer
-# 4	CAST:4,4,3,3,2		SA:Steal Spell-like Abilities
-# 5	CAST:4,4,4,3,2,1		SA:Steal Supernatural Ablities
+# 3	CAST:4,4,3,2,1		SAB:Steal Dweomer
+# 4	CAST:4,4,3,3,2		SAB:Steal Spell-like Abilities
+# 5	CAST:4,4,4,3,2,1		SAB:Steal Supernatural Ablities
 
 
 # Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus

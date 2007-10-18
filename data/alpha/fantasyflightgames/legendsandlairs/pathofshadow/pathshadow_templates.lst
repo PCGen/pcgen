@@ -7,93 +7,93 @@ SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyfli
 #
 
 # Template Name				Visible		Source Page		Special Ability			Required Feat							Required Skill					Required Stat	Required Template					Removable?
-Blade Dancer - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Blade Dancer's Stance																	PRESTAT:1,DEX=13								REMOVABLE:NO
-Blade Dancer - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Superior Dodge																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 1		REMOVABLE:NO
-Blade Dancer - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Tumbling Attack																		PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 2		REMOVABLE:NO
-Blade Dancer - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Burst of Speed																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 3		REMOVABLE:NO
-Blade Dancer - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Improved Superior Dodge																	PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 4		REMOVABLE:NO
-Blade Dancer - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Agile Attack																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 5		REMOVABLE:NO
-Blade Dancer - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Improved Burst of Speed																	PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 6		REMOVABLE:NO
-Blade Dancer - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Ultimate Dodge																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 7		REMOVABLE:NO
-Blade Dancer - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Vorpal Hurricane																		PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 8		REMOVABLE:NO
-Blade Dancer - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Ultimate Spring Attack																	PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 9		REMOVABLE:NO
+Blade Dancer - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SAB:Blade Dancer's Stance																	PRESTAT:1,DEX=13								REMOVABLE:NO
+Blade Dancer - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SAB:Superior Dodge																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 1		REMOVABLE:NO
+Blade Dancer - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SAB:Tumbling Attack																		PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 2		REMOVABLE:NO
+Blade Dancer - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SAB:Burst of Speed																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 3		REMOVABLE:NO
+Blade Dancer - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SAB:Improved Superior Dodge																	PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 4		REMOVABLE:NO
+Blade Dancer - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SAB:Agile Attack																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 5		REMOVABLE:NO
+Blade Dancer - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SAB:Improved Burst of Speed																	PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 6		REMOVABLE:NO
+Blade Dancer - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SAB:Ultimate Dodge																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 7		REMOVABLE:NO
+Blade Dancer - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SAB:Vorpal Hurricane																		PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 8		REMOVABLE:NO
+Blade Dancer - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.144	SAB:Ultimate Spring Attack																	PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 9		REMOVABLE:NO
 
-Confidence Man - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Sharp Bargainer																												REMOVABLE:NO
-Confidence Man - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Convincing Liar																					PRETEMPLATE:Confidence Man - Lesson 1	REMOVABLE:NO
-Confidence Man - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Energetic Presence																					PRETEMPLATE:Confidence Man - Lesson 2	REMOVABLE:NO
-Confidence Man - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Masterful Bargainer																					PRETEMPLATE:Confidence Man - Lesson 3	REMOVABLE:NO
-Confidence Man - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Tangled Twist of Words																				PRETEMPLATE:Confidence Man - Lesson 4	REMOVABLE:NO
-Confidence Man - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Rumor Monger																						PRETEMPLATE:Confidence Man - Lesson 5	REMOVABLE:NO
-Confidence Man - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SA:Master Trader																						PRETEMPLATE:Confidence Man - Lesson 6	REMOVABLE:NO
-Confidence Man - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SA:Supreme Confidence																					PRETEMPLATE:Confidence Man - Lesson 7	REMOVABLE:NO
-Confidence Man - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SA:Verbal Bull Rush																					PRETEMPLATE:Confidence Man - Lesson 8	REMOVABLE:NO
-Confidence Man - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SA:Sell the Moon																						PRETEMPLATE:Confidence Man - Lesson 9	REMOVABLE:NO
+Confidence Man - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SAB:Sharp Bargainer																												REMOVABLE:NO
+Confidence Man - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SAB:Convincing Liar																					PRETEMPLATE:Confidence Man - Lesson 1	REMOVABLE:NO
+Confidence Man - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SAB:Energetic Presence																					PRETEMPLATE:Confidence Man - Lesson 2	REMOVABLE:NO
+Confidence Man - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SAB:Masterful Bargainer																					PRETEMPLATE:Confidence Man - Lesson 3	REMOVABLE:NO
+Confidence Man - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SAB:Tangled Twist of Words																				PRETEMPLATE:Confidence Man - Lesson 4	REMOVABLE:NO
+Confidence Man - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SAB:Rumor Monger																						PRETEMPLATE:Confidence Man - Lesson 5	REMOVABLE:NO
+Confidence Man - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SAB:Master Trader																						PRETEMPLATE:Confidence Man - Lesson 6	REMOVABLE:NO
+Confidence Man - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SAB:Supreme Confidence																					PRETEMPLATE:Confidence Man - Lesson 7	REMOVABLE:NO
+Confidence Man - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SAB:Verbal Bull Rush																					PRETEMPLATE:Confidence Man - Lesson 8	REMOVABLE:NO
+Confidence Man - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SAB:Sell the Moon																						PRETEMPLATE:Confidence Man - Lesson 9	REMOVABLE:NO
 
-Master of Disguise - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SA:Master of Speech																												REMOVABLE:NO
-Master of Disguise - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SA:Superior Disguise																					PRETEMPLATE:Master of Disguise - Lesson 1	REMOVABLE:NO
-Master of Disguise - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SA:Clever Improvisation																					PRETEMPLATE:Master of Disguise - Lesson 2	REMOVABLE:NO
-Master of Disguise - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SA:Master of Words																					PRETEMPLATE:Master of Disguise - Lesson 3	REMOVABLE:NO
-Master of Disguise - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SA:Mimic																							PRETEMPLATE:Master of Disguise - Lesson 4	REMOVABLE:NO
-Master of Disguise - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SA:Cloak Nature																						PRETEMPLATE:Master of Disguise - Lesson 5	REMOVABLE:NO
-Master of Disguise - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SA:Masterful Linguist																					PRETEMPLATE:Master of Disguise - Lesson 6	REMOVABLE:NO
-Master of Disguise - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SA:Magical Alertness																					PRETEMPLATE:Master of Disguise - Lesson 7	REMOVABLE:NO
-Master of Disguise - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SA:Alias																							PRETEMPLATE:Master of Disguise - Lesson 8	REMOVABLE:NO
-Master of Disguise - Lesson 10	VISIBLE:DISPLAY	SOURCEPAGE:p.149	SA:Perfect Disguise																					PRETEMPLATE:Master of Disguise - Lesson 9	REMOVABLE:NO
+Master of Disguise - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SAB:Master of Speech																												REMOVABLE:NO
+Master of Disguise - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SAB:Superior Disguise																					PRETEMPLATE:Master of Disguise - Lesson 1	REMOVABLE:NO
+Master of Disguise - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SAB:Clever Improvisation																					PRETEMPLATE:Master of Disguise - Lesson 2	REMOVABLE:NO
+Master of Disguise - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SAB:Master of Words																					PRETEMPLATE:Master of Disguise - Lesson 3	REMOVABLE:NO
+Master of Disguise - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SAB:Mimic																							PRETEMPLATE:Master of Disguise - Lesson 4	REMOVABLE:NO
+Master of Disguise - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SAB:Cloak Nature																						PRETEMPLATE:Master of Disguise - Lesson 5	REMOVABLE:NO
+Master of Disguise - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SAB:Masterful Linguist																					PRETEMPLATE:Master of Disguise - Lesson 6	REMOVABLE:NO
+Master of Disguise - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SAB:Magical Alertness																					PRETEMPLATE:Master of Disguise - Lesson 7	REMOVABLE:NO
+Master of Disguise - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SAB:Alias																							PRETEMPLATE:Master of Disguise - Lesson 8	REMOVABLE:NO
+Master of Disguise - Lesson 10	VISIBLE:DISPLAY	SOURCEPAGE:p.149	SAB:Perfect Disguise																					PRETEMPLATE:Master of Disguise - Lesson 9	REMOVABLE:NO
 
-Master of Venoms - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Venom Handler																													REMOVABLE:NO
-Master of Venoms - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Venom Merchants																					PRETEMPLATE:Master of Venoms - Lesson 1	REMOVABLE:NO
-Master of Venoms - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Weapon Handler																						PRETEMPLATE:Master of Venoms - Lesson 2	REMOVABLE:NO
-Master of Venoms - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Harvest Poisons																					PRETEMPLATE:Master of Venoms - Lesson 3	REMOVABLE:NO
-Master of Venoms - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Poison Craftsman																					PRETEMPLATE:Master of Venoms - Lesson 4	REMOVABLE:NO
-Master of Venoms - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Poison Dealer																						PRETEMPLATE:Master of Venoms - Lesson 5	REMOVABLE:NO
-Master of Venoms - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SA:Strengthen Poison																					PRETEMPLATE:Master of Venoms - Lesson 6	REMOVABLE:NO
-Master of Venoms - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SA:Expert Craftsman																					PRETEMPLATE:Master of Venoms - Lesson 7	REMOVABLE:NO
-Master of Venoms - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SA:Venomous Strike																					PRETEMPLATE:Master of Venoms - Lesson 8	REMOVABLE:NO
-Master of Venoms - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SA:Deadly Injection																					PRETEMPLATE:Master of Venoms - Lesson 9	REMOVABLE:NO
+Master of Venoms - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SAB:Venom Handler																													REMOVABLE:NO
+Master of Venoms - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SAB:Venom Merchants																					PRETEMPLATE:Master of Venoms - Lesson 1	REMOVABLE:NO
+Master of Venoms - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SAB:Weapon Handler																						PRETEMPLATE:Master of Venoms - Lesson 2	REMOVABLE:NO
+Master of Venoms - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SAB:Harvest Poisons																					PRETEMPLATE:Master of Venoms - Lesson 3	REMOVABLE:NO
+Master of Venoms - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SAB:Poison Craftsman																					PRETEMPLATE:Master of Venoms - Lesson 4	REMOVABLE:NO
+Master of Venoms - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SAB:Poison Dealer																						PRETEMPLATE:Master of Venoms - Lesson 5	REMOVABLE:NO
+Master of Venoms - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SAB:Strengthen Poison																					PRETEMPLATE:Master of Venoms - Lesson 6	REMOVABLE:NO
+Master of Venoms - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SAB:Expert Craftsman																					PRETEMPLATE:Master of Venoms - Lesson 7	REMOVABLE:NO
+Master of Venoms - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SAB:Venomous Strike																					PRETEMPLATE:Master of Venoms - Lesson 8	REMOVABLE:NO
+Master of Venoms - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SAB:Deadly Injection																					PRETEMPLATE:Master of Venoms - Lesson 9	REMOVABLE:NO
 
-Razorfiend - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Swift Strike			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)																		REMOVABLE:NO
-Razorfiend - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Stinging Cut			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 1		REMOVABLE:NO
-Razorfiend - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Flurry of Cuts			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 2		REMOVABLE:NO
-Razorfiend - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Quickest Strike		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 3		REMOVABLE:NO
-Razorfiend - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Tendon Strike			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 4		REMOVABLE:NO
-Razorfiend - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Precise Blow			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 5		REMOVABLE:NO
-Razorfiend - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SA:Hurricane of Cuts		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 6		REMOVABLE:NO
-Razorfiend - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SA:Lightning Strike		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 7		REMOVABLE:NO
-Razorfiend - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SA:Deadeye Strike			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 8		REMOVABLE:NO
-Razorfiend - Lesson 10			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SA:Hobbling Strike		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 9		REMOVABLE:NO
+Razorfiend - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Swift Strike			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)																		REMOVABLE:NO
+Razorfiend - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Stinging Cut			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 1		REMOVABLE:NO
+Razorfiend - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Flurry of Cuts			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 2		REMOVABLE:NO
+Razorfiend - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Quickest Strike		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 3		REMOVABLE:NO
+Razorfiend - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Tendon Strike			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 4		REMOVABLE:NO
+Razorfiend - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Precise Blow			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 5		REMOVABLE:NO
+Razorfiend - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Hurricane of Cuts		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 6		REMOVABLE:NO
+Razorfiend - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Lightning Strike		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 7		REMOVABLE:NO
+Razorfiend - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Deadeye Strike			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 8		REMOVABLE:NO
+Razorfiend - Lesson 10			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Hobbling Strike		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 9		REMOVABLE:NO
 
-Shadowlurker - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Information Network																												REMOVABLE:NO
-Shadowlurker - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Face in the Crowd																					PRETEMPLATE:Shadowlurker - Lesson 1		REMOVABLE:NO
-Shadowlurker - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Scout Location																						PRETEMPLATE:Shadowlurker - Lesson 2		REMOVABLE:NO
-Shadowlurker - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Connections																						PRETEMPLATE:Shadowlurker - Lesson 3		REMOVABLE:NO
-Shadowlurker - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Escape Route																						PRETEMPLATE:Shadowlurker - Lesson 4		REMOVABLE:NO
-Shadowlurker - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Silent Killer																						PRETEMPLATE:Shadowlurker - Lesson 5		REMOVABLE:NO
-Shadowlurker - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Sniper																							PRETEMPLATE:Shadowlurker - Lesson 6		REMOVABLE:NO
-Shadowlurker - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Contacts and Informants																				PRETEMPLATE:Shadowlurker - Lesson 7		REMOVABLE:NO
-Shadowlurker - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.155	SA:Devious Escape																						PRETEMPLATE:Shadowlurker - Lesson 8		REMOVABLE:NO
-Shadowlurker - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.155	SA:Surprise Attack																					PRETEMPLATE:Shadowlurker - Lesson 9		REMOVABLE:NO
+Shadowlurker - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SAB:Information Network																												REMOVABLE:NO
+Shadowlurker - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SAB:Face in the Crowd																					PRETEMPLATE:Shadowlurker - Lesson 1		REMOVABLE:NO
+Shadowlurker - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SAB:Scout Location																						PRETEMPLATE:Shadowlurker - Lesson 2		REMOVABLE:NO
+Shadowlurker - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SAB:Connections																						PRETEMPLATE:Shadowlurker - Lesson 3		REMOVABLE:NO
+Shadowlurker - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SAB:Escape Route																						PRETEMPLATE:Shadowlurker - Lesson 4		REMOVABLE:NO
+Shadowlurker - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SAB:Silent Killer																						PRETEMPLATE:Shadowlurker - Lesson 5		REMOVABLE:NO
+Shadowlurker - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SAB:Sniper																							PRETEMPLATE:Shadowlurker - Lesson 6		REMOVABLE:NO
+Shadowlurker - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SAB:Contacts and Informants																				PRETEMPLATE:Shadowlurker - Lesson 7		REMOVABLE:NO
+Shadowlurker - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.155	SAB:Devious Escape																						PRETEMPLATE:Shadowlurker - Lesson 8		REMOVABLE:NO
+Shadowlurker - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.155	SAB:Surprise Attack																					PRETEMPLATE:Shadowlurker - Lesson 9		REMOVABLE:NO
 
-Trapspringer - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.155	SA:Trap Lore																													REMOVABLE:NO
-Trapspringer - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.155	SA:Trap Placement																						PRETEMPLATE:Trapspringer - Lesson 1		REMOVABLE:NO
-Trapspringer - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Know the Trap																						PRETEMPLATE:Trapspringer - Lesson 2		REMOVABLE:NO
-Trapspringer - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Analyze Trap																						PRETEMPLATE:Trapspringer - Lesson 3		REMOVABLE:NO
-Trapspringer - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Dodge Trap																						PRETEMPLATE:Trapspringer - Lesson 4		REMOVABLE:NO
-Trapspringer - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Magic Trap Lore																					PRETEMPLATE:Trapspringer - Lesson 5		REMOVABLE:NO
-Trapspringer - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Foil Trap																						PRETEMPLATE:Trapspringer - Lesson 6		REMOVABLE:NO
-Trapspringer - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Analyze Magic Trap																					PRETEMPLATE:Trapspringer - Lesson 7		REMOVABLE:NO
-Trapspringer - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Predict Trap																						PRETEMPLATE:Trapspringer - Lesson 8		REMOVABLE:NO
-Trapspringer - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Trap Sense																						PRETEMPLATE:Trapspringer - Lesson 9		REMOVABLE:NO
+Trapspringer - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.155	SAB:Trap Lore																													REMOVABLE:NO
+Trapspringer - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.155	SAB:Trap Placement																						PRETEMPLATE:Trapspringer - Lesson 1		REMOVABLE:NO
+Trapspringer - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SAB:Know the Trap																						PRETEMPLATE:Trapspringer - Lesson 2		REMOVABLE:NO
+Trapspringer - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SAB:Analyze Trap																						PRETEMPLATE:Trapspringer - Lesson 3		REMOVABLE:NO
+Trapspringer - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SAB:Dodge Trap																						PRETEMPLATE:Trapspringer - Lesson 4		REMOVABLE:NO
+Trapspringer - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SAB:Magic Trap Lore																					PRETEMPLATE:Trapspringer - Lesson 5		REMOVABLE:NO
+Trapspringer - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SAB:Foil Trap																						PRETEMPLATE:Trapspringer - Lesson 6		REMOVABLE:NO
+Trapspringer - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SAB:Analyze Magic Trap																					PRETEMPLATE:Trapspringer - Lesson 7		REMOVABLE:NO
+Trapspringer - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SAB:Predict Trap																						PRETEMPLATE:Trapspringer - Lesson 8		REMOVABLE:NO
+Trapspringer - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.156	SAB:Trap Sense																						PRETEMPLATE:Trapspringer - Lesson 9		REMOVABLE:NO
 
-Unfettered Falcon - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SA:Conceal Tools												PRESKILL:2,Escape Artist,Open Lock=4											REMOVABLE:NO
-Unfettered Falcon - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SA:Rapid Escape												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 1	REMOVABLE:NO
-Unfettered Falcon - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SA:Rapid Lock Picking											PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 2	REMOVABLE:NO
-Unfettered Falcon - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SA:Improvise Tools											PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 3	REMOVABLE:NO
-Unfettered Falcon - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Lock Knowledge												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 4	REMOVABLE:NO
-Unfettered Falcon - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Contortionist												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 5	REMOVABLE:NO
-Unfettered Falcon - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Lock Sense												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 6	REMOVABLE:NO
-Unfettered Falcon - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Lock Master												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 7	REMOVABLE:NO
-Unfettered Falcon - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Multitask												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 8	REMOVABLE:NO
-Unfettered Falcon - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Ligtning Escape											PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 9	REMOVABLE:NO
+Unfettered Falcon - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SAB:Conceal Tools												PRESKILL:2,Escape Artist,Open Lock=4											REMOVABLE:NO
+Unfettered Falcon - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SAB:Rapid Escape												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 1	REMOVABLE:NO
+Unfettered Falcon - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SAB:Rapid Lock Picking											PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 2	REMOVABLE:NO
+Unfettered Falcon - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SAB:Improvise Tools											PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 3	REMOVABLE:NO
+Unfettered Falcon - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SAB:Lock Knowledge												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 4	REMOVABLE:NO
+Unfettered Falcon - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SAB:Contortionist												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 5	REMOVABLE:NO
+Unfettered Falcon - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SAB:Lock Sense												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 6	REMOVABLE:NO
+Unfettered Falcon - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SAB:Lock Master												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 7	REMOVABLE:NO
+Unfettered Falcon - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SAB:Multitask												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 8	REMOVABLE:NO
+Unfettered Falcon - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SAB:Ligtning Escape											PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 9	REMOVABLE:NO
 
 
 #

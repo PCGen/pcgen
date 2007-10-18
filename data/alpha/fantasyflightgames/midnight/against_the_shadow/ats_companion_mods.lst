@@ -10,17 +10,17 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 #FOLLOWER:SarSMLevel=8		BONUS:VAR|TricksQty|1
 #FOLLOWER:SarSMLevel=8		BONUS:VAR|TricksQty|1
 # Class of the Master		Type				Hit Dice	Virtual Feat		Special Ability		Combat bonus						Add to base move			Stat bonus					Modify VAR			Main Race Type
-FOLLOWER:SarSMLevel=1		TYPE:Special Mount							SA:Devotion (Ex)															BONUS:STAT|STR|2				BONUS:VAR|TricksQty|2
+FOLLOWER:SarSMLevel=1		TYPE:Special Mount							SAB:Devotion (Ex)															BONUS:STAT|STR|2				BONUS:VAR|TricksQty|2
 FOLLOWER:SarSMLevel=3		TYPE:Special Mount	HD:2										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1	RACETYPE:Magical Beast
-FOLLOWER:SarSMLevel=6		TYPE:Special Mount	HD:2						SA:Evasion (Ex)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1
-FOLLOWER:SarSMLevel=8		TYPE:Special Mount	HD:2						SA:Improved Speed (Ex)	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1
-FOLLOWER:SarSMLevel=8		TYPE:Special Mount	HD:2						SA:Empathy (Ex)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1
+FOLLOWER:SarSMLevel=6		TYPE:Special Mount	HD:2						SAB:Evasion (Ex)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1
+FOLLOWER:SarSMLevel=8		TYPE:Special Mount	HD:2						SAB:Improved Speed (Ex)	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1
+FOLLOWER:SarSMLevel=8		TYPE:Special Mount	HD:2						SAB:Empathy (Ex)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1
 
-FOLLOWER:WogrenRiderLvl=1	TYPE:Special Mount							SA:Devotion (Ex)															BONUS:STAT|DEX|2
+FOLLOWER:WogrenRiderLvl=1	TYPE:Special Mount							SAB:Devotion (Ex)															BONUS:STAT|DEX|2
 FOLLOWER:WogrenRiderLvl=3	TYPE:Special Mount	HD:2		VFEAT:Evasion						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|1	BONUS:STAT|DEX|2
 FOLLOWER:WogrenRiderLvl=6	TYPE:Special Mount	HD:2		VFEAT:Improved Trip					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|1	BONUS:STAT|DEX|2
 FOLLOWER:WogrenRiderLvl=8	TYPE:Special Mount	HD:2										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|1	BONUS:STAT|DEX|2
-FOLLOWER:WogrenRiderLvl=10	TYPE:Special Mount	HD:2						SA:Empathy (Su)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|1	BONUS:STAT|DEX|2
+FOLLOWER:WogrenRiderLvl=10	TYPE:Special Mount	HD:2						SAB:Empathy (Su)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|1	BONUS:STAT|DEX|2
 
 #
 # End

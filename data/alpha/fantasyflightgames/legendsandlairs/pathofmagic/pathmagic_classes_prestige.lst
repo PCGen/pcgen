@@ -13,16 +13,16 @@ CLASS:Arcane Negotiator	HD:4		TYPE:PC.Prestige	ABB:ArN		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Arcane Negotiator	PREFEAT:1,Spell Focus (Conjuration)	PRESKILL:2,Diplomacy,Sense Motive=10	PRESKILL:1,Knowledge (The Planes)=5	PRESPELLTYPE:1,Arcane=5	PRESUBCLASS:1,Conjurer
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Negotiator	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
-1	SA:Summon Ally I|PREVARLT:CL,4													ADD:SPELLCASTER|1|Arcane
-2	SA:Great Negotiator							BONUS:SKILL|Bluff,Diplomacy,Sense Motive|4	ADD:SPELLCASTER|1|Arcane
-3	SA:Ally's Gift I																ADD:SPELLCASTER|1|Arcane
-4	SA:Summon Ally I,II|PREVARLT:CL,7													ADD:SPELLCASTER|1|Arcane
-5	SA:Multiple Summoning (up to two allies)|PREVARLT:CL,8									ADD:SPELLCASTER|1|Arcane
-6	SA:Ally's Gift II																ADD:SPELLCASTER|1|Arcane
-7	SA:Summon Ally I,II,III|PREVARLT:CL,10												ADD:SPELLCASTER|1|Arcane
-8	SA:Multiple Summoning (up to three allies)											ADD:SPELLCASTER|1|Arcane
-9	SA:Ally's Gift III															ADD:SPELLCASTER|1|Arcane
-10	SA:Summon Ally I,II,III,IV														ADD:SPELLCASTER|1|Arcane
+1	SAB:Summon Ally I|PREVARLT:CL,4													ADD:SPELLCASTER|1|Arcane
+2	SAB:Great Negotiator							BONUS:SKILL|Bluff,Diplomacy,Sense Motive|4	ADD:SPELLCASTER|1|Arcane
+3	SAB:Ally's Gift I																ADD:SPELLCASTER|1|Arcane
+4	SAB:Summon Ally I,II|PREVARLT:CL,7													ADD:SPELLCASTER|1|Arcane
+5	SAB:Multiple Summoning (up to two allies)|PREVARLT:CL,8									ADD:SPELLCASTER|1|Arcane
+6	SAB:Ally's Gift II																ADD:SPELLCASTER|1|Arcane
+7	SAB:Summon Ally I,II,III|PREVARLT:CL,10												ADD:SPELLCASTER|1|Arcane
+8	SAB:Multiple Summoning (up to three allies)											ADD:SPELLCASTER|1|Arcane
+9	SAB:Ally's Gift III															ADD:SPELLCASTER|1|Arcane
+10	SAB:Summon Ally I,II,III,IV														ADD:SPELLCASTER|1|Arcane
 #zzzzzzzz Implement Ally's Gift...
 
 
@@ -36,16 +36,16 @@ CLASS:Chanter	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concen
 1	AUTO:FEAT|Simple Weapon Proficiency						WEAPONBONUS:Greatclub|Flail (Heavy)|Flail (Light)|Hammer (Light)|Warhammer
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SA:Timing Chant										ADD:SPELLCASTER|1|ANY	VFEAT:Endurance
-2	SA:Soothing Chant (1/day)								ADD:SPELLCASTER|1|ANY
-3	SA:War Chant (%/day)|WarChant	BONUS:VAR|WarChant|CL/3	DEFINE:WarChant|0	ADD:SPELLCASTER|1|ANY
-4	SA:Counter Chant										ADD:SPELLCASTER|1|ANY
-5	SA:Continuous Spellcasting								ADD:SPELLCASTER|1|ANY
+1	SAB:Timing Chant										ADD:SPELLCASTER|1|ANY	VFEAT:Endurance
+2	SAB:Soothing Chant (1/day)								ADD:SPELLCASTER|1|ANY
+3	SAB:War Chant (%/day)|WarChant	BONUS:VAR|WarChant|CL/3	DEFINE:WarChant|0	ADD:SPELLCASTER|1|ANY
+4	SAB:Counter Chant										ADD:SPELLCASTER|1|ANY
+5	SAB:Continuous Spellcasting								ADD:SPELLCASTER|1|ANY
 6													ADD:SPELLCASTER|1|ANY
-7	SA:Trance											ADD:SPELLCASTER|1|ANY
-8	SA:Healing Chant (1/day)								ADD:SPELLCASTER|1|ANY
+7	SAB:Trance											ADD:SPELLCASTER|1|ANY
+8	SAB:Healing Chant (1/day)								ADD:SPELLCASTER|1|ANY
 9													ADD:SPELLCASTER|1|ANY
-10	SA:Alapantin's Kiss (1/day)								ADD:SPELLCASTER|1|ANY
+10	SAB:Alapantin's Kiss (1/day)								ADD:SPELLCASTER|1|ANY
 # no description of spellcasting: ANY or Arcane?
 
 
@@ -55,16 +55,16 @@ CLASS:Force Weaver	HD:6		TYPE:PC.Prestige	ABB:FoW		MAXLEVEL:10	SOURCEPAGE:p.15	B
 CLASS:Force Weaver	PREFEAT:1,Spell Focus(Evocation)	PRESKILL:1,Spellcraft=6	PRESKILL:1,Knowledge (Arcana)=3	PRESPELLTYPE:1,Arcane=3	PRETEXT:Must know three spells with the Force descriptor.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Force Weaver	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft
-1	SA:Weapon of Force|PREVARLT:CL,7														ADD:SPELLCASTER|1|Arcane
-2	SA:Force Spell Power +%|ForceSpellPower	BONUS:VAR|ForceSpellPower|min(CL/2,4)	DEFINE:ForceSpellPower|0	ADD:SPELLCASTER|1|Arcane
-3	SA:Armor of Force																	ADD:SPELLCASTER|1|Arcane
+1	SAB:Weapon of Force|PREVARLT:CL,7														ADD:SPELLCASTER|1|Arcane
+2	SAB:Force Spell Power +%|ForceSpellPower	BONUS:VAR|ForceSpellPower|min(CL/2,4)	DEFINE:ForceSpellPower|0	ADD:SPELLCASTER|1|Arcane
+3	SAB:Armor of Force																	ADD:SPELLCASTER|1|Arcane
 4																				ADD:SPELLCASTER|1|Arcane
-5	SA:Force Energy Substitution															ADD:SPELLCASTER|1|Arcane
+5	SAB:Force Energy Substitution															ADD:SPELLCASTER|1|Arcane
 6																				ADD:SPELLCASTER|1|Arcane
-7	SA:Greater Weapon of Force															ADD:SPELLCASTER|1|Arcane
+7	SAB:Greater Weapon of Force															ADD:SPELLCASTER|1|Arcane
 8																				ADD:SPELLCASTER|1|Arcane
-9	SA:Force Thrust																	ADD:SPELLCASTER|1|Arcane
-10	SA:Force Magic Immunity																ADD:SPELLCASTER|1|Arcane
+9	SAB:Force Thrust																	ADD:SPELLCASTER|1|Arcane
+10	SAB:Force Magic Immunity																ADD:SPELLCASTER|1|Arcane
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -73,16 +73,16 @@ CLASS:Grand Diva	HD:6		TYPE:PC.Prestige	ABB:GrD		MAXLEVEL:10	SOURCEPAGE:p.18	BON
 CLASS:Grand Diva	PREFEAT:1,Skill Focus(Perform)	PREGENDER:F		PRESKILL:2,Gather Information,Sense Motive=3	PRESKILL:1,Perform=8	PRETEXT:The character must earn a position of notoriety within an area of public musical performance.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grand Diva	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Gather Information|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Sense Motive|Spellcraft
-1	SA:Experienced Performer	BONUS:SKILL|Perform (Sing),Profession (Singer)|4								ADD:SPELLCASTER|1|ANY
-2	SA:Tuned Ear			BONUS:SKILL|Listen|2|TYPE=Circumstance										ADD:SPELLCASTER|1|ANY
-3	SA:High Note																			ADD:SPELLCASTER|1|ANY
-4	SA:Social Graces			BONUS:SKILL|Diplomacy,Gather Information,Knowledge (Nobility and Royalty)|2|TYPE=Circumstance	ADD:SPELLCASTER|1|ANY
-5	SA:Breaking the Barriers																	ADD:SPELLCASTER|1|ANY
-6	SA:Mastery of Sound																		ADD:SPELLCASTER|1|ANY
-7	SA:Scream of the Diva																		ADD:SPELLCASTER|1|ANY
-8	SA:Captivating Performance																	ADD:SPELLCASTER|1|ANY
-9	SA:Social Diva																			ADD:SPELLCASTER|1|ANY
-10	SA:Diva's Wail																			ADD:SPELLCASTER|1|ANY
+1	SAB:Experienced Performer	BONUS:SKILL|Perform (Sing),Profession (Singer)|4								ADD:SPELLCASTER|1|ANY
+2	SAB:Tuned Ear			BONUS:SKILL|Listen|2|TYPE=Circumstance										ADD:SPELLCASTER|1|ANY
+3	SAB:High Note																			ADD:SPELLCASTER|1|ANY
+4	SAB:Social Graces			BONUS:SKILL|Diplomacy,Gather Information,Knowledge (Nobility and Royalty)|2|TYPE=Circumstance	ADD:SPELLCASTER|1|ANY
+5	SAB:Breaking the Barriers																	ADD:SPELLCASTER|1|ANY
+6	SAB:Mastery of Sound																		ADD:SPELLCASTER|1|ANY
+7	SAB:Scream of the Diva																		ADD:SPELLCASTER|1|ANY
+8	SAB:Captivating Performance																	ADD:SPELLCASTER|1|ANY
+9	SAB:Social Diva																			ADD:SPELLCASTER|1|ANY
+10	SAB:Diva's Wail																			ADD:SPELLCASTER|1|ANY
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -94,14 +94,14 @@ CLASS:Jester	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|T
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Comedic Dialogue																	ADD:SPELLCASTER|1|ANY
-2	SA:Street Talk																		ADD:SPELLCASTER|1|ANY
-3	SA:Luck of the Fool						BONUS:CHECKS|ALL|(CL+4)/7|TYPE=Luck						ADD:SPELLCASTER|1|ANY
-4	SA:Juggler's Game													BONUS:COMBAT|TOHIT.THROWN|1	ADD:SPELLCASTER|1|ANY
-5	SA:Voice Throwing																		ADD:SPELLCASTER|1|ANY	SPELLS:Innate|TIMES=-1|Ventriloquism
-6	SA:Fast Reaction													BONUS:COMBAT|INITIATIVE|2	ADD:SPELLCASTER|1|ANY
-7	SA:A Bit Cracked																		ADD:SPELLCASTER|1|ANY
-8	SA:Deflect Arrows																		ADD:SPELLCASTER|1|ANY								VFEAT:Deflect Arrows
+1	SAB:Comedic Dialogue																	ADD:SPELLCASTER|1|ANY
+2	SAB:Street Talk																		ADD:SPELLCASTER|1|ANY
+3	SAB:Luck of the Fool						BONUS:CHECKS|ALL|(CL+4)/7|TYPE=Luck						ADD:SPELLCASTER|1|ANY
+4	SAB:Juggler's Game													BONUS:COMBAT|TOHIT.THROWN|1	ADD:SPELLCASTER|1|ANY
+5	SAB:Voice Throwing																		ADD:SPELLCASTER|1|ANY	SPELLS:Innate|TIMES=-1|Ventriloquism
+6	SAB:Fast Reaction													BONUS:COMBAT|INITIATIVE|2	ADD:SPELLCASTER|1|ANY
+7	SAB:A Bit Cracked																		ADD:SPELLCASTER|1|ANY
+8	SAB:Deflect Arrows																		ADD:SPELLCASTER|1|ANY								VFEAT:Deflect Arrows
 9					BONUS:VAR|UncannyDodge|1												ADD:SPELLCASTER|1|ANY												AUTO:FEAT|Uncanny Dodge
 10																					ADD:SPELLCASTER|1|ANY
 # no description of spellcasting: ANY or Arcane?
@@ -113,16 +113,16 @@ CLASS:Ring Sage	HD:6		TYPE:PC.Prestige	ABB:RiS		MAXLEVEL:10	SOURCEPAGE:p.26	BONU
 CLASS:Ring Sage	PRESKILL:2,Knowledge (Arcana),Spellcraft=10	PRESPELLTYPE:1,Arcane=5	PRETEXT:A character must study a magic ring, experiment with it, and attempt to understand its power.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ring Sage	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
-1	SA:Extra Ring		BONUS:SLOTS|RING|1	ADD:SPELLCASTER|1|ANY
-2	SA:Discern Ring						ADD:SPELLCASTER|1|ANY
-3	SA:Imbue Ring I						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Forge Ring
-4	SA:Skilled Creator					ADD:SPELLCASTER|1|ANY
-5	SA:Imbue Ring II		BONUS:SLOTS|RING|1	ADD:SPELLCASTER|1|ANY
-6	SA:Augment Ring Power					ADD:SPELLCASTER|1|ANY
-7	SA:Imbue Ring III						ADD:SPELLCASTER|1|ANY
-8	SA:Absorb Power						ADD:SPELLCASTER|1|ANY
-9	SA:Imbue Ring IV						ADD:SPELLCASTER|1|ANY
-10	SA:Ring Master						ADD:SPELLCASTER|1|ANY
+1	SAB:Extra Ring		BONUS:SLOTS|RING|1	ADD:SPELLCASTER|1|ANY
+2	SAB:Discern Ring						ADD:SPELLCASTER|1|ANY
+3	SAB:Imbue Ring I						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Forge Ring
+4	SAB:Skilled Creator					ADD:SPELLCASTER|1|ANY
+5	SAB:Imbue Ring II		BONUS:SLOTS|RING|1	ADD:SPELLCASTER|1|ANY
+6	SAB:Augment Ring Power					ADD:SPELLCASTER|1|ANY
+7	SAB:Imbue Ring III						ADD:SPELLCASTER|1|ANY
+8	SAB:Absorb Power						ADD:SPELLCASTER|1|ANY
+9	SAB:Imbue Ring IV						ADD:SPELLCASTER|1|ANY
+10	SAB:Ring Master						ADD:SPELLCASTER|1|ANY
 # no description of spellcasting: ANY or Arcane?
 
 
@@ -134,16 +134,16 @@ CLASS:Spellbinder	PREFEAT:2,Spell Focus(Enchantment),Spell Penetration	PRESKILL:
 CLASS:Spellbinder	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|Perform|TYPE.Profession|Scry|Spellcraft
 1	AUTO:FEAT|Wizard Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SA:Extra Spell (%)|ExtraSpell	SA:Specialty	BONUS:VAR|ExtraSpell|(CL+1)/2						DEFINE:ExtraSpell|0	ADD:SPELLCASTER|1|ANY
-2	SA:Enchantment feats										BONUS:DC|SCHOOL.Enchantment|2					ADD:SPELLCASTER|1|ANY
+1	SAB:Extra Spell (%)|ExtraSpell	SAB:Specialty	BONUS:VAR|ExtraSpell|(CL+1)/2						DEFINE:ExtraSpell|0	ADD:SPELLCASTER|1|ANY
+2	SAB:Enchantment feats										BONUS:DC|SCHOOL.Enchantment|2					ADD:SPELLCASTER|1|ANY
 3																							ADD:SPELLCASTER|1|ANY
-4	SA:Enchanting Dance (1/day)																		ADD:SPELLCASTER|1|ANY
+4	SAB:Enchanting Dance (1/day)																		ADD:SPELLCASTER|1|ANY
 5																							ADD:SPELLCASTER|1|ANY
-6	SA:Enchanting Voice																			ADD:SPELLCASTER|1|ANY
+6	SAB:Enchanting Voice																			ADD:SPELLCASTER|1|ANY
 7																							ADD:SPELLCASTER|1|ANY
-8	SA:Enchanting Gaze																			ADD:SPELLCASTER|1|ANY
+8	SAB:Enchanting Gaze																			ADD:SPELLCASTER|1|ANY
 9																							ADD:SPELLCASTER|1|ANY
-10	SA:Enchantment Mastery																			ADD:SPELLCASTER|1|ANY
+10	SAB:Enchantment Mastery																			ADD:SPELLCASTER|1|ANY
 # no description of spellcasting: ANY or Arcane?
 #zzz Extra Spell needs to be implemented
 #zzz This class needs lots of love
@@ -156,16 +156,16 @@ CLASS:Summoner	PREFEAT:2,Spell Focus(Conjuration),Heighten Spell	PRESKILL:1,Know
 CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 1	AUTO:FEAT|Wizard Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SA:Extra Spell (%)|ExtraSpell					BONUS:VAR|ExtraSpell|(CL+1)/2	DEFINE:ExtraSpell|0	ADD:SPELLCASTER|1|ANY
-2	SA:Improved Summoning															ADD:SPELLCASTER|1|ANY
+1	SAB:Extra Spell (%)|ExtraSpell					BONUS:VAR|ExtraSpell|(CL+1)/2	DEFINE:ExtraSpell|0	ADD:SPELLCASTER|1|ANY
+2	SAB:Improved Summoning															ADD:SPELLCASTER|1|ANY
 3																			ADD:SPELLCASTER|1|ANY
-4	SA:Improved Summoning (extra creature)	SA:Denial										ADD:SPELLCASTER|1|ANY
+4	SAB:Improved Summoning (extra creature)	SAB:Denial										ADD:SPELLCASTER|1|ANY
 5																			ADD:SPELLCASTER|1|ANY
-6	SA:Improved Summoning (convert spells)												ADD:SPELLCASTER|1|ANY
+6	SAB:Improved Summoning (convert spells)												ADD:SPELLCASTER|1|ANY
 7																			ADD:SPELLCASTER|1|ANY
-8	SA:Wrath of the Summoner														ADD:SPELLCASTER|1|ANY
+8	SAB:Wrath of the Summoner														ADD:SPELLCASTER|1|ANY
 9																			ADD:SPELLCASTER|1|ANY
-10	SA:Summoning Mastery															ADD:SPELLCASTER|1|ANY
+10	SAB:Summoning Mastery															ADD:SPELLCASTER|1|ANY
 # no description of spellcasting: ANY or Arcane?
 #zzz Extra Spell needs to be implemented, see also Spellbinder
 
@@ -177,16 +177,16 @@ CLASS:Swamp Witch	PREFEAT:1,Brew Potion	PRESKILL:1,Scry=10	PRESKILL:1,Wilderness
 CLASS:Swamp Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	SA:Divination Focus																								ADD:SPELLCASTER|1|ANY
-2	SA:Swamp Brewing|PREVARLT:CL,4																						ADD:SPELLCASTER|1|ANY
-3	SA:Foresight (%/day)|Foresight	SA:Territorial Sense	BONUS:VAR|Foresight|CL/3									DEFINE:Foresight|0	ADD:SPELLCASTER|1|ANY
-4	SA:Swamp Brewing (-4th level)|PREVARLT:CL,7																				ADD:SPELLCASTER|1|ANY
-5	SA:Psychometric Visions	SA:Friend of the Wild								BONUS:SKILL|Animal Empathy|10|TYPE=Competence					ADD:SPELLCASTER|1|ANY	SPELLS:Innate|TIMES=-1|Speak with Animals
-6	SA:Territorial Sense (scry)																							ADD:SPELLCASTER|1|ANY
-7	SA:Swamp Brewing (-5th level)																							ADD:SPELLCASTER|1|ANY
-8	SA:Potion Master																									ADD:SPELLCASTER|1|ANY
+1	SAB:Divination Focus																								ADD:SPELLCASTER|1|ANY
+2	SAB:Swamp Brewing|PREVARLT:CL,4																						ADD:SPELLCASTER|1|ANY
+3	SAB:Foresight (%/day)|Foresight	SAB:Territorial Sense	BONUS:VAR|Foresight|CL/3									DEFINE:Foresight|0	ADD:SPELLCASTER|1|ANY
+4	SAB:Swamp Brewing (-4th level)|PREVARLT:CL,7																				ADD:SPELLCASTER|1|ANY
+5	SAB:Psychometric Visions	SAB:Friend of the Wild								BONUS:SKILL|Animal Empathy|10|TYPE=Competence					ADD:SPELLCASTER|1|ANY	SPELLS:Innate|TIMES=-1|Speak with Animals
+6	SAB:Territorial Sense (scry)																							ADD:SPELLCASTER|1|ANY
+7	SAB:Swamp Brewing (-5th level)																							ADD:SPELLCASTER|1|ANY
+8	SAB:Potion Master																									ADD:SPELLCASTER|1|ANY
 9																												ADD:SPELLCASTER|1|ANY
-10	SA:Environmental Mastery																							ADD:SPELLCASTER|1|ANY	SPELLS:Innate|TIMES=1|Summon Swarm
+10	SAB:Environmental Mastery																							ADD:SPELLCASTER|1|ANY	SPELLS:Innate|TIMES=1|Summon Swarm
 # no description of spellcasting: ANY or Arcane?
 
 

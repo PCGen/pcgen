@@ -13,8 +13,8 @@ CLASS:Acolyte of Chance	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Di
 1	AUTO:FEAT|Acolyte of Chance Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block Other base abilities
-1	SA:Lucky Strike (+% luck bonus to attack and weapon damage rolls for a single attack)|LuckyStrike								DEFINE:LuckyStrike|0
-1	SA:Close Call (+% dodge bonus to AC)|CloseCall																	DEFINE:CloseCall|0
+1	SAB:Lucky Strike (+% luck bonus to attack and weapon damage rolls for a single attack)|LuckyStrike								DEFINE:LuckyStrike|0
+1	SAB:Close Call (+% dodge bonus to AC)|CloseCall																	DEFINE:CloseCall|0
 1																		BONUS:HP|CURRENTMAX|CL*VitalityChance	DEFINE:VitalityChance|0
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=ChanceSpecialAbilities
@@ -34,13 +34,13 @@ CLASS:Aerialist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|TYPE.Craft|Diploma
 1								AUTO:FEAT|Simple Weapon Proficiency|Aerialist Weapon Proficiencies
 1	ADD:FEAT|1|Exotic Weapon Proficiency
 ###Block: Normal Level Progression
-1	SA:Untouchable (+% dodge bonus to AC)|UntouchableDodgeBonus	BONUS:VAR|UntouchableDodgeBonus|CL/2	BONUS:VAR|SneakAttack|(CL+1)/2	DEFINE:UntouchableDodgeBonus|0					AUTO:FEAT|Sneak Attack
-2	SA:Pefect Balance (Ex)
+1	SAB:Untouchable (+% dodge bonus to AC)|UntouchableDodgeBonus	BONUS:VAR|UntouchableDodgeBonus|CL/2	BONUS:VAR|SneakAttack|(CL+1)/2	DEFINE:UntouchableDodgeBonus|0					AUTO:FEAT|Sneak Attack
+2	SAB:Pefect Balance (Ex)
 3											BONUS:VAR|UncannyDodge|1																			AUTO:FEAT|Uncanny Dodge
 4																														VFEAT:Aerialist Evasion
 6											BONUS:VAR|UncannyDodge|1
-8	SA:Blink of an Eye (Ex)
-10	SA:Defensive Roll (Ex)
+8	SAB:Blink of an Eye (Ex)
+10	SAB:Defensive Roll (Ex)
 
 
 
@@ -54,17 +54,17 @@ CLASS:Ebon Link	HD:6		TYPE:PC.Prestige	ABB:Ebo		MAXLEVEL:10	SOURCEPAGE:Chap.1, E
 CLASS:Ebon Link	PREFEAT:3,Great Fortitude,Iron Will,Lightning Reflexes	PRESKILL:4,Climb,Hide,Move Silently,Open Lock=9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ebon Link	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Knowledge (Arcana)|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Scry|Search|Sense Motive|Spellcraft|Spot|Tumble|Use Magic Device|Use Rope
-1	SA:Spell Resistance (Ex)						BONUS:MISC|SR|10+CL|TYPE=EbonLink
-2	SA:Magic Sight (Su)
+1	SAB:Spell Resistance (Ex)						BONUS:MISC|SR|10+CL|TYPE=EbonLink
+2	SAB:Magic Sight (Su)
 3																							VFEAT:Improved Evasion
 4																	ADD:FEAT|1|Trace Enchantment I
-5	SA:Slippery Mind (Ex)
+5	SAB:Slippery Mind (Ex)
 6																	ADD:FEAT|1|Trace Enchantment II
 7						BONUS:VAR|UncannyDodge|1																	AUTO:FEAT|Uncanny Dodge
 8																	ADD:FEAT|1|Trace Enchantment III
-9	SA:Magic Dodge (Su)
+9	SAB:Magic Dodge (Su)
 10																	ADD:FEAT|1|Trace Enchantment IV
-#7	SA:Uncanny Dodge (+1 against traps), going with the stacking uncanny dodge for the moment. Open for interpretation really.
+#7	SAB:Uncanny Dodge (+1 against traps), going with the stacking uncanny dodge for the moment. Open for interpretation really.
 
 
 # Falconer, casts as wizard (spellbook etc)
@@ -108,12 +108,12 @@ CLASS:Halfling Clanwarden	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TY
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Move with Ease (Ex)					BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:SKILL|Climb,Jump|8|TYPE=Competence	BONUS:SKILL|Climb,Jump|max((DEX-STR),0)						AUTO:FEAT|Sneak Attack
+1	SAB:Move with Ease (Ex)					BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:SKILL|Climb,Jump|8|TYPE=Competence	BONUS:SKILL|Climb,Jump|max((DEX-STR),0)						AUTO:FEAT|Sneak Attack
 2									BONUS:VAR|UncannyDodge|1																					AUTO:FEAT|Uncanny Dodge
-3	SA:Knockout Attack (%) (Ex)|KnockoutAttack																					DEFINE:KnockoutAttack|-4
+3	SAB:Knockout Attack (%) (Ex)|KnockoutAttack																					DEFINE:KnockoutAttack|-4
 4									BONUS:VAR|KnockoutAttack|(CL-2)/2
 5									BONUS:VAR|UncannyDodge|1
-10	SA:Knockout Attack (+0) (Ex)				BONUS:VAR|UncannyDodge|1
+10	SAB:Knockout Attack (+0) (Ex)				BONUS:VAR|UncannyDodge|1
 
 
 
@@ -126,15 +126,15 @@ CLASS:Myste		STARTSKILLPTS:6	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Cr
 1	AUTO:FEAT|Simple Weapon Proficiency|
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Spell-like Ability (detect magic)		BONUS:VAR|SneakAttack|(CL-1)/3					AUTO:FEAT|Sneak Attack
-2	SA:Arcane Trap Lore (+%)|ArcaneTrapLore		BONUS:VAR|ArcaneTrapLore|2		DEFINE:ArcaneTrapLore|0
-3	SA:Dominant Will (+%)|DominantWill			BONUS:VAR|DominantWill|2		DEFINE:DominantWill|0
-4	SA:Spell-like Ability (read magic)
-5	SA:Item Mastery I (Ex)	SA:Slippery Mind (Ex)
+1	SAB:Spell-like Ability (detect magic)		BONUS:VAR|SneakAttack|(CL-1)/3					AUTO:FEAT|Sneak Attack
+2	SAB:Arcane Trap Lore (+%)|ArcaneTrapLore		BONUS:VAR|ArcaneTrapLore|2		DEFINE:ArcaneTrapLore|0
+3	SAB:Dominant Will (+%)|DominantWill			BONUS:VAR|DominantWill|2		DEFINE:DominantWill|0
+4	SAB:Spell-like Ability (read magic)
+5	SAB:Item Mastery I (Ex)	SAB:Slippery Mind (Ex)
 6									BONUS:VAR|ArcaneTrapLore|4
-7	SA:Spell-like Ability (identify)
+7	SAB:Spell-like Ability (identify)
 8									BONUS:VAR|DominantWill|2
-9	SA:Item Mastery II (Ex)
+9	SAB:Item Mastery II (Ex)
 10									BONUS:VAR|ArcaneTrapLore|4
 
 
@@ -147,12 +147,12 @@ CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disable
 1	AUTO:FEAT|Night Hunter Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Imbue Weapon						BONUS:VAR|SneakAttack|(CL+1)/2
-2	SA:Bane of Lycanthropes (+%)|BaneofLycanthropes	BONUS:VAR|BaneofLycanthropes|1	DEFINE:BaneofLycanthropes|0
-4	SA:Scent of Lycanthropy (Sp)
-6	SA:Healing Techniques (Ex)				BONUS:VAR|BaneofLycanthropes|1
-8	SA:Scentless (Ex)
-10	SA:Immunity (Su)						BONUS:VAR|BaneofLycanthropes|1
+1	SAB:Imbue Weapon						BONUS:VAR|SneakAttack|(CL+1)/2
+2	SAB:Bane of Lycanthropes (+%)|BaneofLycanthropes	BONUS:VAR|BaneofLycanthropes|1	DEFINE:BaneofLycanthropes|0
+4	SAB:Scent of Lycanthropy (Sp)
+6	SAB:Healing Techniques (Ex)				BONUS:VAR|BaneofLycanthropes|1
+8	SAB:Scentless (Ex)
+10	SAB:Immunity (Su)						BONUS:VAR|BaneofLycanthropes|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
@@ -164,15 +164,15 @@ CLASS:Noble Decoy	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disable 
 1	AUTO:FEAT|Noble Decoy Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Avoid Death (+%)|AvoidDeath	BONUS:VAR|AvoidDeath|(CL+1)/2	DEFINE:AvoidDeath|0																					VFEAT:Improved Evasion
-2	SA:Detect Evil (%/day)|CL
+1	SAB:Avoid Death (+%)|AvoidDeath	BONUS:VAR|AvoidDeath|(CL+1)/2	DEFINE:AvoidDeath|0																					VFEAT:Improved Evasion
+2	SAB:Detect Evil (%/day)|CL
 3																ADD:FEAT|1|Alertness,Blind-Fight,Dodge,Great Fortitude,Improved Initiative,Iron Will,Lightning Reflexes,Run,Toughness
-4	SA:Blur (%/day)|CHA
-5	SA:Perfect Double (Ex)
+4	SAB:Blur (%/day)|CHA
+5	SAB:Perfect Double (Ex)
 6																ADD:FEAT|1|Alertness,Blind-Fight,Dodge,Great Fortitude,Improved Initiative,Iron Will,Lightning Reflexes,Run,Toughness
-8	SA:Mislead (%/day)|CHA
+8	SAB:Mislead (%/day)|CHA
 9																ADD:FEAT|1|Alertness,Blind-Fight,Dodge,Great Fortitude,Improved Initiative,Iron Will,Lightning Reflexes,Run,Toughness
-10	SA:Iron Body (1/day) (Sp)
+10	SAB:Iron Body (1/day) (Sp)
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
@@ -191,10 +191,10 @@ CLASS:Ossorus	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 1	AUTO:FEAT|Ossorus Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,0		SA:Death Attack				BONUS:VAR|SneakAttack|(CL-1)/3									AUTO:FEAT|Sneak Attack
+1	CAST:0,0		SAB:Death Attack				BONUS:VAR|SneakAttack|(CL-1)/3									AUTO:FEAT|Sneak Attack
 2	CAST:0,1								BONUS:VAR|UncannyDodge|1										AUTO:FEAT|Uncanny Dodge
-3	CAST:0,1,0		SA:Turn Undead %/day|TurnUndead	BONUS:VAR|TurnLevel|CL-2		DEFINE:TurnLevel|0	DEFINE:TurnUndead|3+CHA
-4	CAST:0,1,1		SA:Slipping the Bonds (Su)
+3	CAST:0,1,0		SAB:Turn Undead %/day|TurnUndead	BONUS:VAR|TurnLevel|CL-2		DEFINE:TurnLevel|0	DEFINE:TurnUndead|3+CHA
+4	CAST:0,1,1		SAB:Slipping the Bonds (Su)
 5	CAST:0,1,1,0							BONUS:VAR|UncannyDodge|1
 6	CAST:0,1,1,1
 7	CAST:0,2,1,1,0
@@ -214,10 +214,10 @@ CLASS:Packrat	PREFEAT:1,Lightning Reflexes	PRESKILL:1,Bluff=5	PRESKILL:2,Escape 
 CLASS:Packrat	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 #1	BONUS:VAR|SneakAttack|(COUNT[FEATNAME=PackratRogueIncrease]+1-PackratRogueLevelOdd)/2	DEFINE:PackratRogueLevelOdd|((CL=Rogue/2)-(CL=Rogue/2.TRUNC))*2
 1							BONUS:VAR|SneakAttack|((var("CL=Rogue")+1+COUNT[FEATNAME=PackratRogueIncrease.ALL])/2-floor((var("CL=Rogue")+1)/2))
-1	SA:Packrat (Ex)																								ADD:FEAT|1|TYPE=PackratLevelIncrease
-2	SA:Right Tool for the Job (Ex)
-3	SA:Quicker than the Eye (Ex)																						ADD:FEAT|1|TYPE=PackratLevelIncrease
-4	SA:Hard to Hold (Ex)
+1	SAB:Packrat (Ex)																								ADD:FEAT|1|TYPE=PackratLevelIncrease
+2	SAB:Right Tool for the Job (Ex)
+3	SAB:Quicker than the Eye (Ex)																						ADD:FEAT|1|TYPE=PackratLevelIncrease
+4	SAB:Hard to Hold (Ex)
 5																											ADD:FEAT|1|TYPE=PackratLevelIncrease
 
 
@@ -257,12 +257,12 @@ CLASS:Queen's Coronet	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Decipher Script|Dipl
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Encode Missive (Ex)
-2	SA:Seduction (Ex)
-3	SA:Composure (+%) (Ex)|Composure	BONUS:VAR|Composure|floor((CL-1)/2)*2												DEFINE:Composure|0
-4	SA:Slippery Mind (Ex)
-6	SA:Eidetic Memory (Ex)										BONUS:SKILL|TYPE.Knowledge,Appraise,Search,Spot|4|TYPE=Competence
-8	SA:Keen Ear (Ex)											BONUS:SKILL|Listen|4|TYPE=Competence
+1	SAB:Encode Missive (Ex)
+2	SAB:Seduction (Ex)
+3	SAB:Composure (+%) (Ex)|Composure	BONUS:VAR|Composure|floor((CL-1)/2)*2												DEFINE:Composure|0
+4	SAB:Slippery Mind (Ex)
+6	SAB:Eidetic Memory (Ex)										BONUS:SKILL|TYPE.Knowledge,Appraise,Search,Spot|4|TYPE=Competence
+8	SAB:Keen Ear (Ex)											BONUS:SKILL|Listen|4|TYPE=Competence
 10																													ADD:FEAT|1|Skill Mastery Queen's Coronet
 
 
@@ -294,9 +294,9 @@ CLASS:Royal Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disab
 1	AUTO:FEAT|Royal Assassin Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1	SA:Death Attack
+1	SAB:Death Attack
 2								BONUS:VAR|SneakAttack|CL/2					ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Improved Unarmed Strike,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Finesse,Weapon Focus
-5	SA:Assassin of Evil +%|AssassinofEvil	BONUS:VAR|AssassinofEvil|1	DEFINE:AssassinofEvil|0
+5	SAB:Assassin of Evil +%|AssassinofEvil	BONUS:VAR|AssassinofEvil|1	DEFINE:AssassinofEvil|0
 6																	ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Improved Unarmed Strike,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Finesse,Weapon Focus
 9								BONUS:VAR|AssassinofEvil|1
 10																	ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Improved Unarmed Strike,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Finesse,Weapon Focus
@@ -349,15 +349,15 @@ CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|L
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
-1	CAST:0,0		SA:Stalwart Defense (Ex)											BONUS:CHECKS|Fortitude,Reflex,Will|CHAMAX0
+1	CAST:0,0		SAB:Stalwart Defense (Ex)											BONUS:CHECKS|Fortitude,Reflex,Will|CHAMAX0
 2	CAST:0,1											BONUS:VAR|SneakAttack|(CL+1)/3													AUTO:FEAT|Sneak Attack
-3	CAST:0,1,0		SA:Deft Defense (Ex)
+3	CAST:0,1,0		SAB:Deft Defense (Ex)
 4	CAST:0,1,1											BONUS:VAR|SmiteAnyTimes|1														AUTO:FEAT|Smite
 5	CAST:0,1,1,0
-6	CAST:0,1,1,1	SA:Hunter's Wrath % rounds/day (Su)|HuntersWrath	BONUS:VAR|HuntersWrath|CL										DEFINE:HuntersWrath|0
+6	CAST:0,1,1,1	SAB:Hunter's Wrath % rounds/day (Su)|HuntersWrath	BONUS:VAR|HuntersWrath|CL										DEFINE:HuntersWrath|0
 7	CAST:0,2,1,1,0										BONUS:VAR|SmiteAnyTimes|1
 8	CAST:0,2,1,1,1
-9	CAST:0,2,2,1,1	SA:Hunter's Fury 1/day
+9	CAST:0,2,2,1,1	SAB:Hunter's Fury 1/day
 10	CAST:0,2,2,2,1										BONUS:VAR|SmiteAnyTimes|1
 
 
@@ -370,14 +370,14 @@ CLASS:Unblinking Eye	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Deciphe
 1	AUTO:FEAT|Simple Weapon Proficiency|Unblinking Eye Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1	SA:Surface Disguise (Sp)|PREVARLT:CL,4	SPELLS:Surface Disguise|TIMES=1|Alter Self
-3	SA:Trained Memory (Ex)
-4	SA:Greater Surface Disguise (Su)
-5	SA:Major Hunch (Ex)
-7	SA:Inner Disguise (Su)
-8	SA:Gather Secrets (Su)
-9	SA:Perfect Memory (Su)
-10	SA:Deep Cover (Su)
+1	SAB:Surface Disguise (Sp)|PREVARLT:CL,4	SPELLS:Surface Disguise|TIMES=1|Alter Self
+3	SAB:Trained Memory (Ex)
+4	SAB:Greater Surface Disguise (Su)
+5	SAB:Major Hunch (Ex)
+7	SAB:Inner Disguise (Su)
+8	SAB:Gather Secrets (Su)
+9	SAB:Perfect Memory (Su)
+10	SAB:Deep Cover (Su)
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
@@ -406,9 +406,9 @@ CLASS:Windrider	PREATT:4	PRESKILL:3,Intimidate,Ride,Wilderness Lore=5	PRESKILL:3
 CLASS:Windrider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Perform|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Tumble|Use Magic Device|Use Rope|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal progression
-1	SA:Track	SA:Sand-Sight I|PREVARLT:CL,5
+1	SAB:Track	SAB:Sand-Sight I|PREVARLT:CL,5
 2									BONUS:VAR|SneakAttack|CL/2										AUTO:FEAT|Sneak Attack
-3	SA:Desert Adaption (Ex)
-5	SA:Sand-Sight II|PREVARLT:CL,9
-7	SA:Blade Turning (Ex)										BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:DR|+1|5
-9	SA:Sand-Sight III	SA:Howl of the Winds (Ex)
+3	SAB:Desert Adaption (Ex)
+5	SAB:Sand-Sight II|PREVARLT:CL,9
+7	SAB:Blade Turning (Ex)										BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:DR|+1|5
+9	SAB:Sand-Sight III	SAB:Howl of the Winds (Ex)
