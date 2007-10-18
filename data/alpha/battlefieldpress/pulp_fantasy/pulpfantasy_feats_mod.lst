@@ -77,7 +77,7 @@ Shot on the Run.MOD			TYPE:Operator																						PRE:.CLEAR				PREFEAT:2
 Smart Plus.MOD																																																																					DESC:Your drive to excel enables you to progress faster toward becoming a truly intelligent hero																									SOURCEPAGE:p.58
 Spring Attack.MOD				TYPE:Daredevil.Shadowy_Avenger.Operator																		PRE:.CLEAR		PREATT:4	PREFEAT:1,Mobility	PREFEAT:1,Dodge,Fancy Footwork						PRESTAT:1,DEX=13
 Stealthy.MOD				TYPE:Hunter.Gangster.Relic_Hunter
-Streetfighting.MOD			TYPE:Daredevil.Driver.Explorer.Gangster																																										SA:Streetfighting damage bonus +1d4+%|StreetfightingDamageBonus	DEFINE:StreetfightingDamageBonus|0
+Streetfighting.MOD			TYPE:Daredevil.Driver.Explorer.Gangster																																										SAB:Streetfighting damage bonus +1d4+%|StreetfightingDamageBonus	DEFINE:StreetfightingDamageBonus|0
 Strong Plus.MOD																																																																					DESC:Your drive to excel enable you to progress faster toward becoming a truly strong hero.																										SOURCEPAGE:p.58
 Studious.MOD				TYPE:Antiques_Dealer.Explorer.Scientist
 Surface Vehicle Operation.MOD		TYPE:CombatAce.Daredevil
