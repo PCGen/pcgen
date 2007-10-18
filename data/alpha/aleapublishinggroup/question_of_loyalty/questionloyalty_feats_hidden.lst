@@ -6,64 +6,64 @@ SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:Gui
 # Feat Name				Type							Visible	Var. Min. Value							Special Ability															Define							Stackable?	Multiple?	Choose																															Virtual Feat														Modify VAR																		Class Skill
 ### Solomon Brotherhood Class
 # Feat Name				Type							Visible	Var. Min. Value							Special Ability						Define							Modify VAR																			Allow Follower			Allowed Companions													Class Skill
-hiddensolomonbrotherhood	TYPE:Class.Hidden					VISIBLE:NO										SA:Knightly Order						DEFINE:BrotherhoodSolomonSecretEnlightenment|0	BONUS:VAR|BrotherhoodSolomonSecretEnlightenment|var("CL=Monk")	BONUS:VAR|BrotherhoodSolomonSecretEnlightenment|WIS																						CSKILL:Concentration|Diplomacy|Knowledge (Arcana)|Knowledge (Arcane)|Profession (Soldier)|Ride
-hiddensolomonbrotherhood-4	TYPE:Class.Hidden					VISIBLE:NO										SA:Enlightenment
-hiddensolomonbrotherhood-7	TYPE:Class.Hidden					VISIBLE:NO										SA:Knighthood
+hiddensolomonbrotherhood	TYPE:Class.Hidden					VISIBLE:NO										SAB:Knightly Order						DEFINE:BrotherhoodSolomonSecretEnlightenment|0	BONUS:VAR|BrotherhoodSolomonSecretEnlightenment|var("CL=Monk")	BONUS:VAR|BrotherhoodSolomonSecretEnlightenment|WIS																						CSKILL:Concentration|Diplomacy|Knowledge (Arcana)|Knowledge (Arcane)|Profession (Soldier)|Ride
+hiddensolomonbrotherhood-4	TYPE:Class.Hidden					VISIBLE:NO										SAB:Enlightenment
+hiddensolomonbrotherhood-7	TYPE:Class.Hidden					VISIBLE:NO										SAB:Knighthood
 
 ### Secret Enlightenment:
-Absorb Arcana			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,1	SA:Secret Enlightenment: Absorb Arcana
-Arcane Heresy			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,2	SA:Secret Enlightenment: Arcane Heresy
-Contemplation			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,3	SA:Secret Enlightenment: Contemplation
-Forbidden Arcana			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,4	SA:Secret Enlightenment: Forbidden Arcana
-Mind over Body			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,5	SA:Secret Enlightenment: Mind over Body
-Reflection				TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,6	SA:Secret Enlightenment: Reflection
-True Insight			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,7	SA:Secret Enlightenment: True Insight
+Absorb Arcana			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,1	SAB:Secret Enlightenment: Absorb Arcana
+Arcane Heresy			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,2	SAB:Secret Enlightenment: Arcane Heresy
+Contemplation			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,3	SAB:Secret Enlightenment: Contemplation
+Forbidden Arcana			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,4	SAB:Secret Enlightenment: Forbidden Arcana
+Mind over Body			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,5	SAB:Secret Enlightenment: Mind over Body
+Reflection				TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,6	SAB:Secret Enlightenment: Reflection
+True Insight			TYPE:Class.Hidden.SecretEnlightenment	VISIBLE:NO	PREVARGTEQ:BrotherhoodSolomonSecretEnlightenment,7	SAB:Secret Enlightenment: True Insight
 
 ### ST. JOHN Class
-hiddenStJohn			TYPE:Class.Hidden					VISIBLE:NO										SA:Knightly Order						DEFINE:StJohnAncientHealing|0				BONUS:VAR|StJohnAncientHealing|var("CL=Cleric")	BONUS:VAR|StJohnAncientHealing|WIS																												CSKILL:Concentration|Diplomacy|Heal|Profession (Herbalist)|Profession (Soldier)
-hiddenStJohn-4			TYPE:Class.Hidden					VISIBLE:NO										SA:Charismatic Samaritian
-hiddenStJohn-7			TYPE:Class.Hidden					VISIBLE:NO										SA:Knighthood
+hiddenStJohn			TYPE:Class.Hidden					VISIBLE:NO										SAB:Knightly Order						DEFINE:StJohnAncientHealing|0				BONUS:VAR|StJohnAncientHealing|var("CL=Cleric")	BONUS:VAR|StJohnAncientHealing|WIS																												CSKILL:Concentration|Diplomacy|Heal|Profession (Herbalist)|Profession (Soldier)
+hiddenStJohn-4			TYPE:Class.Hidden					VISIBLE:NO										SAB:Charismatic Samaritian
+hiddenStJohn-7			TYPE:Class.Hidden					VISIBLE:NO										SAB:Knighthood
 
 ### Ancient Healing:
-Healing Poultices			TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,1				SA:Ancient Healing: Healing Poultices
-Healing Components		TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,2				SA:Ancient Healing: Healing Components
-Healer's Stamina			TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,3				SA:Ancient Healing: Healer's Stamina
-Prodigal Healer			TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,4				SA:Ancient Healing: Prodigal Healer
-Healer's Will			TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,5				SA:Ancient Healing: Healer's Will
-Blood of my Brother		TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,6				SA:Ancient Healing: Blood of my Brother
-Surgeon				TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,7				SA:Ancient Healing: Surgeon
-Breath of Life			TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,8				SA:Ancient Healing: Breath of Life
+Healing Poultices			TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,1				SAB:Ancient Healing: Healing Poultices
+Healing Components		TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,2				SAB:Ancient Healing: Healing Components
+Healer's Stamina			TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,3				SAB:Ancient Healing: Healer's Stamina
+Prodigal Healer			TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,4				SAB:Ancient Healing: Prodigal Healer
+Healer's Will			TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,5				SAB:Ancient Healing: Healer's Will
+Blood of my Brother		TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,6				SAB:Ancient Healing: Blood of my Brother
+Surgeon				TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,7				SAB:Ancient Healing: Surgeon
+Breath of Life			TYPE:Class.Hidden.AncientHealing		VISIBLE:NO	PREVARGTEQ:StJohnAncientHealing,8				SAB:Ancient Healing: Breath of Life
 
 ### Order of Perpetual Day Class
-hiddenOrderPerpetDay		TYPE:Class.Hidden					VISIBLE:NO										SA:Knightly Order						DEFINE:OrderPerpetDayRadiantEnlightenment|0	BONUS:VAR|OrderPerpetDayRadiantEnlightenment|var("CL=Cleric")	BONUS:VAR|OrderPerpetDayRadiantEnlightenment|WIS																						CSKILL:Bluff|Listen|Profession (Soldier)|Sense Motive|Survival
-hiddenOrderPerpetDay-2		TYPE:Class.Hidden					VISIBLE:NO										SA:Rules of Dawn
-hiddenOrderPerpetDayLV7		TYPE:Class.Hidden					VISIBLE:NO										SA:Knighthood
+hiddenOrderPerpetDay		TYPE:Class.Hidden					VISIBLE:NO										SAB:Knightly Order						DEFINE:OrderPerpetDayRadiantEnlightenment|0	BONUS:VAR|OrderPerpetDayRadiantEnlightenment|var("CL=Cleric")	BONUS:VAR|OrderPerpetDayRadiantEnlightenment|WIS																						CSKILL:Bluff|Listen|Profession (Soldier)|Sense Motive|Survival
+hiddenOrderPerpetDay-2		TYPE:Class.Hidden					VISIBLE:NO										SAB:Rules of Dawn
+hiddenOrderPerpetDayLV7		TYPE:Class.Hidden					VISIBLE:NO										SAB:Knighthood
 
 ### Radiant Enlightenment:
 #RadiantEnlightenment		MULT:YES	CHOOSE:FEAT|TYPE.RadiantEnlightenment
-Counter Resistance		TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,1		SA:Radiant Enlightenment: Counter Resistance
-Radiance				TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,2		SA:Radiant Enlightenment: Radiance
-Animal Pheromone			TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,3		SA:Radiant Enlightenment: Animal Pheromone
-Empty Mind				TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,3		SA:Radiant Enlightenment: Empty Mind
-Blood of the Blessed		TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,4		SA:Radiant Enlightenment: Blood of the Blessed
-Will of the Blessed		TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,5		SA:Radiant Enlightenment: Will of the Blessed
-Spirit of the Blessed		TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,6		SA:Radiant Enlightenment: Spirit of the Blessed
+Counter Resistance		TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,1		SAB:Radiant Enlightenment: Counter Resistance
+Radiance				TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,2		SAB:Radiant Enlightenment: Radiance
+Animal Pheromone			TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,3		SAB:Radiant Enlightenment: Animal Pheromone
+Empty Mind				TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,3		SAB:Radiant Enlightenment: Empty Mind
+Blood of the Blessed		TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,4		SAB:Radiant Enlightenment: Blood of the Blessed
+Will of the Blessed		TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,5		SAB:Radiant Enlightenment: Will of the Blessed
+Spirit of the Blessed		TYPE:Class.Hidden.RadiantEnlightenment	VISIBLE:NO	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,6		SAB:Radiant Enlightenment: Spirit of the Blessed
 
 ### Teutonic Knight Class
-hiddenTeutonicKnight		TYPE:Class.Hidden					VISIBLE:NO										SA:Knightly Order	SA:Hatred				DEFINE:TeutonicCombatEnlightenment|0		BONUS:VAR|TeutonicCombatEnlightenment|var("CL=Ranger")	BONUS:VAR|TeutonicCombatEnlightenment|WIS																									CSKILL:Bluff|Listen|Profession (Soldier)|Sense Motive|Survival
-hiddenTeutonicKnight-3		TYPE:Class.Hidden					VISIBLE:NO										SA:Minor enemy or minor nemesis
-hiddenTeutonicKnight-4		TYPE:Class.Hidden					VISIBLE:NO										SA:Companion of the Hunt
-hiddenTeutonicKnight-7		TYPE:Class.Hidden					VISIBLE:NO										SA:Knighthood
+hiddenTeutonicKnight		TYPE:Class.Hidden					VISIBLE:NO										SAB:Knightly Order	SAB:Hatred				DEFINE:TeutonicCombatEnlightenment|0		BONUS:VAR|TeutonicCombatEnlightenment|var("CL=Ranger")	BONUS:VAR|TeutonicCombatEnlightenment|WIS																									CSKILL:Bluff|Listen|Profession (Soldier)|Sense Motive|Survival
+hiddenTeutonicKnight-3		TYPE:Class.Hidden					VISIBLE:NO										SAB:Minor enemy or minor nemesis
+hiddenTeutonicKnight-4		TYPE:Class.Hidden					VISIBLE:NO										SAB:Companion of the Hunt
+hiddenTeutonicKnight-7		TYPE:Class.Hidden					VISIBLE:NO										SAB:Knighthood
 
 ### Combat Enlightenment:
-Predator				TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,1			SA:Combat Enlightenment: Predator
-Quick Feint				TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,2			SA:Combat Enlightenment: Quick Feint
-Zealous Charge			TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,3			SA:Combat Enlightenment: Zealous Charge
-Firm Grasp				TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,4			SA:Combat Enlightenment: Firm Grasp
-Zealous Haste			TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,4			SA:Combat Enlightenment: Zealous Haste
-Zealous Strike			TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,5			SA:Combat Enlightenment: Zealous Strike
-One-Weapon (One Mind)		TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,6			SA:Combat Enlightenment: One-Weapon, One Mind
-Two-Weapons (One Mind)		TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,6			SA:Combat Enlightenment: Two-Weapons, One Mind
+Predator				TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,1			SAB:Combat Enlightenment: Predator
+Quick Feint				TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,2			SAB:Combat Enlightenment: Quick Feint
+Zealous Charge			TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,3			SAB:Combat Enlightenment: Zealous Charge
+Firm Grasp				TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,4			SAB:Combat Enlightenment: Firm Grasp
+Zealous Haste			TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,4			SAB:Combat Enlightenment: Zealous Haste
+Zealous Strike			TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,5			SAB:Combat Enlightenment: Zealous Strike
+One-Weapon (One Mind)		TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,6			SAB:Combat Enlightenment: One-Weapon, One Mind
+Two-Weapons (One Mind)		TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVARGTEQ:TeutonicCombatEnlightenment,6			SAB:Combat Enlightenment: Two-Weapons, One Mind
 
 ### COMMENT: These were created if the TEMPLATE - LEVEL:x:FEAT doesn't work
 #hiddensolomonbrotherhood-5	TYPE:Class.Hidden					VISIBLE:NO																																			STACK:NO	MULT:YES	CHOOSE:FEAT|Absorb Arcana|Arcane Heresy|Contemplation|Forbidden Arcana|Mind over Body|Reflection|True Insight
@@ -72,6 +72,6 @@ Two-Weapons (One Mind)		TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVAR
 #hiddenTeutonicKnight-5		TYPE:Class.Hidden					VISIBLE:NO																																			STACK:NO	MULT:YES	CHOOSE:FEAT|Predator|Quick Feint|Zealous Charge|Firm Grasp|Zealous Haste|Zealous Strike|One-Weapon (One Mind)|Two-Weapons (One Mind)
 
 ### Extra Hidden Feats to simulate other features:
-Animal Companion Extra		TYPE:Internal					VISIBLE:NO										SA:Animal Companion (Ex)				DEFINE:ExtraAnimalCompLVL|0				BONUS:VAR|CompLevel|ExtraAnimalCompLVL/2														FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Dog,Dog (Riding),Hawk,Horse (Light),Horse (Heavy),Pony,Wolf
+Animal Companion Extra		TYPE:Internal					VISIBLE:NO										SAB:Animal Companion (Ex)				DEFINE:ExtraAnimalCompLVL|0				BONUS:VAR|CompLevel|ExtraAnimalCompLVL/2														FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Dog,Dog (Riding),Hawk,Horse (Light),Horse (Heavy),Pony,Wolf
 
 
