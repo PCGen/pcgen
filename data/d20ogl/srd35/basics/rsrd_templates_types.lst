@@ -5,17 +5,17 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #NOTE: These will be converted to Ability Objects, for now I'm setting them to VISIBLE:NO and set some VARs
 
 # Template Name		Visible	Source Page						Special Ability																	Define			Modify VAR				Removable?		Vision
-Vulnerability (Fire)	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Suffers +50% damage from Cold-based effect regardless of saving throw																REMOVABLE:YES
-Vulnerability (Cold)	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Suffers +50% damage from Fire-based effect regardless of saving throw																REMOVABLE:YES
-Tremorsense			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Tremorsense (Ex) - can pinpoint location of anything in contact with ground (%')|TremorRange				DEFINE:TremorRange|0						REMOVABLE:YES	VISION:Tremorsense (TremorRange')
-Aquatic Tremorsense	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Tremorsense (Ex) - can pinpoint location of anything moving in water (%')|TremorRange					DEFINE:TremorRange|0	BONUS:VAR|TremorRange|60	REMOVABLE:YES	VISION:Aquatic Tremorsense (TremorRange')
-Turn Resistance		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Turn resistance is increased by HD total																					REMOVABLE:YES
-Trample			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:As a full round action can move twice its speed and run over opponents at least one size category smaller										REMOVABLE:YES
-Telepathy			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Telepathy (Su) - can communicate telepathically with creature within (%')|TelepathRange				DEFINE:TelepathRange|0	BONUS:VAR|TelepathRange|100	REMOVABLE:YES
-Swallow Whole		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Swallow Whole (Ex) - at start of round with opponent in mouth it can start new grapple to swallow prey											REMOVABLE:YES
-Summon			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Summon (Sp) - can summon creatures of its kind
-Scent				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Scent (Ex) - track by sense of smell																						REMOVABLE:YES
-Rake				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Rake (Ex) - rake grappled opponent with 2 claw attacks																			REMOVABLE:YES
+Vulnerability (Fire)	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Suffers +50% damage from Cold-based effect regardless of saving throw																REMOVABLE:YES
+Vulnerability (Cold)	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Suffers +50% damage from Fire-based effect regardless of saving throw																REMOVABLE:YES
+Tremorsense			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Tremorsense (Ex) - can pinpoint location of anything in contact with ground (%')|TremorRange				DEFINE:TremorRange|0						REMOVABLE:YES	VISION:Tremorsense (TremorRange')
+Aquatic Tremorsense	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Tremorsense (Ex) - can pinpoint location of anything moving in water (%')|TremorRange					DEFINE:TremorRange|0	BONUS:VAR|TremorRange|60	REMOVABLE:YES	VISION:Aquatic Tremorsense (TremorRange')
+Turn Resistance		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Turn resistance is increased by HD total																					REMOVABLE:YES
+Trample			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:As a full round action can move twice its speed and run over opponents at least one size category smaller										REMOVABLE:YES
+Telepathy			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Telepathy (Su) - can communicate telepathically with creature within (%')|TelepathRange				DEFINE:TelepathRange|0	BONUS:VAR|TelepathRange|100	REMOVABLE:YES
+Swallow Whole		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Swallow Whole (Ex) - at start of round with opponent in mouth it can start new grapple to swallow prey											REMOVABLE:YES
+Summon			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Summon (Sp) - can summon creatures of its kind
+Scent				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Scent (Ex) - track by sense of smell																						REMOVABLE:YES
+Rake				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Rake (Ex) - rake grappled opponent with 2 claw attacks																			REMOVABLE:YES
 
 
 ###Block: Monk Outsider change at level 20.
@@ -48,26 +48,26 @@ Vermin			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Creature Subtypes
 # Template Name	Visible	Source Page						Special Ability																																															Define							Required Race			Combat bonus											Automatic Languages	Vision
-Air			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Air creatures always have fly speeds and usually have perfect maneuverability
-Angel			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to acid/ cold/ and petrification	SA:Protective Aura (Su)	SA:Tongues (Su)	SA:+4 racial bonus on saves vs. poison																																																										VISION:Darkvision (60')|Low-light
-Aquatic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Aquatic creatures move in water without making Swim checks/ and breathe underwater
-Archon		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:+4 racial bonus on saves vs. poison	SA:Aura of Menace (Su)	SA:Magic Circle against Evil (Su)	SA:Teleport (Su)	SA:Tongues (Su)																																																									VISION:Darkvision (60')|Low-light
+Air			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Air creatures always have fly speeds and usually have perfect maneuverability
+Angel			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Immune to acid/ cold/ and petrification	SAB:Protective Aura (Su)	SAB:Tongues (Su)	SAB:+4 racial bonus on saves vs. poison																																																										VISION:Darkvision (60')|Low-light
+Aquatic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Aquatic creatures move in water without making Swim checks/ and breathe underwater
+Archon		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:+4 racial bonus on saves vs. poison	SAB:Aura of Menace (Su)	SAB:Magic Circle against Evil (Su)	SAB:Teleport (Su)	SAB:Tongues (Su)																																																									VISION:Darkvision (60')|Low-light
 Augmented		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Chaotic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the chaotic subtype overcomes damage reduction as if its natural weapons and any weapons it wields were chaotic-aligned
-Cold			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to cold/ vulnerable to fire
+Chaotic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:A creature with the chaotic subtype overcomes damage reduction as if its natural weapons and any weapons it wields were chaotic-aligned
+Cold			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Immune to cold/ vulnerable to fire
 Earth			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Evil			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
+Evil			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
 Extraplanar		VISIBLE:YES	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Fire			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to fire/ vulnerable to cold
+Fire			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Immune to fire/ vulnerable to cold
 Goblinoid		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																																												LANGAUTO:Goblin
-Good			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the good subtype overcomes damage reduction as if its natural weapons and any weapons it wields were good-aligned
-Incorporeal		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SA:50% chance to ignore any damage from a corporeal source	SA:Can pass through solid objects at will	SA:Attacks pass through armor	SA:Always moves silently									DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1						BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
-Lawful		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the lawful subtype overcomes damage reduction as if its natural weapons and any weapons it wields were lawful-aligned
-Native		VISIBLE:YES	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Outsider native to Material Plane																																																			PRERACE:1,RACETYPE=Outsider
+Good			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:A creature with the good subtype overcomes damage reduction as if its natural weapons and any weapons it wields were good-aligned
+Incorporeal		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SAB:50% chance to ignore any damage from a corporeal source	SAB:Can pass through solid objects at will	SAB:Attacks pass through armor	SAB:Always moves silently									DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1						BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
+Lawful		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:A creature with the lawful subtype overcomes damage reduction as if its natural weapons and any weapons it wields were lawful-aligned
+Native		VISIBLE:YES	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Outsider native to Material Plane																																																			PRERACE:1,RACETYPE=Outsider
 Reptilian		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Shapechanger	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Swarm			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Not subject to critical hits or flanking	SA:Takes half damage from slashing and piercing weapons|PRESIZEEQ:T	SA:Immune to all weapon damage/ susceptible to high winds|PRESIZELTEQ:D	SA:Immune to any spell or effect that targets a specific number of creatures	SA:Distraction (Ex)	DEFINE:CanNotGrapple|1
-Water			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Always have swim speeds and can move in water without making Swim checks/ can breathe underwater and usually can breathe air as well
+Swarm			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Not subject to critical hits or flanking	SAB:Takes half damage from slashing and piercing weapons|PRESIZEEQ:T	SAB:Immune to all weapon damage/ susceptible to high winds|PRESIZELTEQ:D	SAB:Immune to any spell or effect that targets a specific number of creatures	SAB:Distraction (Ex)	DEFINE:CanNotGrapple|1
+Water			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SAB:Always have swim speeds and can move in water without making Swim checks/ can breathe underwater and usually can breathe air as well
 
 ###Block: Variable Type Traits
 # Template Name	Visible	Define

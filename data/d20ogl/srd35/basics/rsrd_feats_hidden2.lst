@@ -10,44 +10,44 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ###Block: Rogue Special Abilities
 # Feat Name		Type							Visible		Special Ability												Define				Description				Stackable?	Multiple?	Choose						Modify VAR					Source Page
-Crippling Strike	TYPE:Special.RogueAbilities.AttackOption	VISIBLE:NO		SA:Crippling Strike (Ex)															DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
-Defensive Roll	TYPE:Special.RogueAbilities			VISIBLE:NO		SA:Defensive Roll (Ex) %/day|DefensiveRollTimes							DEFINE:DefensiveRollTimes|0	DESC:Class Special Ability												BONUS:VAR|DefensiveRollTimes|1	SOURCEPAGE:ClassesII.rtf
-Opportunist		TYPE:Special.RogueAbilities.AttackOption	VISIBLE:NO		SA:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character						DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
-Slippery Mind	TYPE:Special.RogueAbilities			VISIBLE:NO		SA:Slippery Mind (Ex)																DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
+Crippling Strike	TYPE:Special.RogueAbilities.AttackOption	VISIBLE:NO		SAB:Crippling Strike (Ex)															DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
+Defensive Roll	TYPE:Special.RogueAbilities			VISIBLE:NO		SAB:Defensive Roll (Ex) %/day|DefensiveRollTimes							DEFINE:DefensiveRollTimes|0	DESC:Class Special Ability												BONUS:VAR|DefensiveRollTimes|1	SOURCEPAGE:ClassesII.rtf
+Opportunist		TYPE:Special.RogueAbilities.AttackOption	VISIBLE:NO		SAB:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character						DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
+Slippery Mind	TYPE:Special.RogueAbilities			VISIBLE:NO		SAB:Slippery Mind (Ex)																DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
 Skill Mastery	TYPE:Special.RogueAbilities			VISIBLE:EXPORT																				DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLS|LIST|3+INT							SOURCEPAGE:ClassesII.rtf
 
 ###Block: Arcane Archer Abilities
 # Feat Name		Type			Visible	Special Ability												Define									Modify VAR								Source Page
-Enhance Arrow	TYPE:Special	VISIBLE:NO	SA:Enhance Arrow (Su) +%|ArrowEnhancement								DEFINE:ArrowEnhancement|0	DEFINE:ArrowEnhancementLVL|0	BONUS:VAR|ArrowEnhancement|(ArrowEnhancementLVL+1)/2	SOURCEPAGE:PrestigeClasses.rtf
-Imbue Arrow		TYPE:Special	VISIBLE:NO	SA:Imbue Arrow (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
-Seeker Arrow	TYPE:Special	VISIBLE:NO	SA:Seeker Arrow (Sp) %/day|SeekerArrowTimes							DEFINE:SeekerArrowTimes|0															SOURCEPAGE:PrestigeClasses.rtf
-Phase Arrow		TYPE:Special	VISIBLE:NO	SA:Phase Arrow (Sp) %/day|PhaseArrowTimes								DEFINE:PhaseArrowTimes|0															SOURCEPAGE:PrestigeClasses.rtf
-Hail of Arrows	TYPE:Special	VISIBLE:NO	SA:Hail of Arrows (Sp) % maxium targets %/day|HailArrowsTargets|HailArrowsTimes	DEFINE:HailArrowsTargets|0	DEFINE:HailArrowsTimes|0										SOURCEPAGE:PrestigeClasses.rtf
-Arrow of Death	TYPE:Special	VISIBLE:NO	SA:Arrow of Death (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
+Enhance Arrow	TYPE:Special	VISIBLE:NO	SAB:Enhance Arrow (Su) +%|ArrowEnhancement								DEFINE:ArrowEnhancement|0	DEFINE:ArrowEnhancementLVL|0	BONUS:VAR|ArrowEnhancement|(ArrowEnhancementLVL+1)/2	SOURCEPAGE:PrestigeClasses.rtf
+Imbue Arrow		TYPE:Special	VISIBLE:NO	SAB:Imbue Arrow (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
+Seeker Arrow	TYPE:Special	VISIBLE:NO	SAB:Seeker Arrow (Sp) %/day|SeekerArrowTimes							DEFINE:SeekerArrowTimes|0															SOURCEPAGE:PrestigeClasses.rtf
+Phase Arrow		TYPE:Special	VISIBLE:NO	SAB:Phase Arrow (Sp) %/day|PhaseArrowTimes								DEFINE:PhaseArrowTimes|0															SOURCEPAGE:PrestigeClasses.rtf
+Hail of Arrows	TYPE:Special	VISIBLE:NO	SAB:Hail of Arrows (Sp) % maxium targets %/day|HailArrowsTargets|HailArrowsTimes	DEFINE:HailArrowsTargets|0	DEFINE:HailArrowsTimes|0										SOURCEPAGE:PrestigeClasses.rtf
+Arrow of Death	TYPE:Special	VISIBLE:NO	SAB:Arrow of Death (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block:Archmage High Arcana Class Abilities
 # Archmage abilities needs new PRE tag of PRESPELLSLOT that would function as PRESPELLSLOT:1,8 meaning that character must have 1 8th level spell slot
 # Feat Name				Type			Visible	Required Class		Req. Spell Type		Special Ability					Define			Stackable?	Multiple?	Choose		Bonus to spell cast/day				Modify VAR			Source Page
-Arcane Fire				TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=9	SA:Arcane Fire											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=9|-1					SOURCEPAGE:PrestigeClasses.rtf
-Arcane Reach			TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=7	SA:Arcane Reach											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:PrestigeClasses.rtf
-Mastery of Counterspelling	TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=7	SA:Mastery of Counterspelling									MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:PrestigeClasses.rtf
-Mastery of Elements		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=8	SA:Mastery of Elements										MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=8|-1					SOURCEPAGE:PrestigeClasses.rtf
-Mastery of Shaping		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=6	SA:Mastery of Shaping										MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=6|-1					SOURCEPAGE:PrestigeClasses.rtf
-Archmage Spell Power		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=5	SA:Spell Power +1											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1					SOURCEPAGE:PrestigeClasses.rtf
+Arcane Fire				TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=9	SAB:Arcane Fire											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=9|-1					SOURCEPAGE:PrestigeClasses.rtf
+Arcane Reach			TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=7	SAB:Arcane Reach											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:PrestigeClasses.rtf
+Mastery of Counterspelling	TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=7	SAB:Mastery of Counterspelling									MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:PrestigeClasses.rtf
+Mastery of Elements		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=8	SAB:Mastery of Elements										MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=8|-1					SOURCEPAGE:PrestigeClasses.rtf
+Mastery of Shaping		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=6	SAB:Mastery of Shaping										MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=6|-1					SOURCEPAGE:PrestigeClasses.rtf
+Archmage Spell Power		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=5	SAB:Spell Power +1											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1					SOURCEPAGE:PrestigeClasses.rtf
 #Needs alot of work -- Needs a way to dynamicly select a spell from spelllist and then get the level and class of the spell for removal of the spell slot
 #This is now set to indicate how many times the ability has been choosen
-Spell-Like Ability		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=5	SA:Spell-Like Ability (%)|ArchmageSLA	DEFINE:ArchmageSLA|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1	BONUS:VAR|ArchmageSLA|1	SOURCEPAGE:PrestigeClasses.rtf
+Spell-Like Ability		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=5	SAB:Spell-Like Ability (%)|ArchmageSLA	DEFINE:ArchmageSLA|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1	BONUS:VAR|ArchmageSLA|1	SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Assassin special abilities
 # Feat Name					Type				Visible	Special Ability						Define				Source Page
-Save against Poisons			TYPE:Extraordinary	VISIBLE:NO	SA:+% save against poisons|AssassinPoisonSave	DEFINE:AssassinPoisonSave|0	SOURCEPAGE:PrestigeClasses.rtf
-Hide in Plain Sight (Assassin)	TYPE:Supernatural		VISIBLE:NO	SA:Hide in Plain Sight (Su)									SOURCEPAGE:PrestigeClasses.rtf
+Save against Poisons			TYPE:Extraordinary	VISIBLE:NO	SAB:+% save against poisons|AssassinPoisonSave	DEFINE:AssassinPoisonSave|0	SOURCEPAGE:PrestigeClasses.rtf
+Hide in Plain Sight (Assassin)	TYPE:Supernatural		VISIBLE:NO	SAB:Hide in Plain Sight (Su)									SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Blackguard special abilities
 # Feat Name		Type			Visible	Special Ability		Innate Spells												Save checks bonus						Source Page
-Detect Good		TYPE:SpellLike	VISIBLE:NO	SA:Detect Good (Sp)	SPELLS:Blackguard|TIMES=-1|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS									SOURCEPAGE:PrestigeClasses.rtf
-Dark Blessing	TYPE:Supernatural	VISIBLE:NO	SA:Dark Blessing (Su)															BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
-Aura of Despair	TYPE:Supernatural	VISIBLE:NO	SA:Aura of Despair (Su)																							SOURCEPAGE:PrestigeClasses.rtf
+Detect Good		TYPE:SpellLike	VISIBLE:NO	SAB:Detect Good (Sp)	SPELLS:Blackguard|TIMES=-1|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS									SOURCEPAGE:PrestigeClasses.rtf
+Dark Blessing	TYPE:Supernatural	VISIBLE:NO	SAB:Dark Blessing (Su)															BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
+Aura of Despair	TYPE:Supernatural	VISIBLE:NO	SAB:Aura of Despair (Su)																							SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Dragon Disciple Class Features
 # Dragon Disciple
@@ -59,17 +59,17 @@ Bonus Spell Slot 4	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arc
 Bonus Spell Slot 5	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
 Bonus Spell Slot 6	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
 Bonus Spell Slot 7	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Dragon Wings		TYPE:DragonDisciple	VISIBLE:NO	PRECLASS:1,Dragon Disciple=9	SA:Wings (Ex)														MOVECLONE:Walk,Fly,*1
+Dragon Wings		TYPE:DragonDisciple	VISIBLE:NO	PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)														MOVECLONE:Walk,Fly,*1
 
 ###Block: Duelist special abilities
 # Feat Name		Type						Visible	Special Ability							Define								Combat bonus																					Modify VAR												Source Page
-Canny Defense	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Canny Defense (Ex)						DEFINE:CannyDefenseLVL|0					BONUS:COMBAT|AC|max(0,min(INT,CannyDefenseLVL))|TYPE=Ability.STACK|PREMULT:2,[!PREEQUIP:1,TYPE=Armor,TYPE=Shield],[PREEQUIP:1,TYPE=Melee]														SOURCEPAGE:PrestigeClasses.rtf
-Improved Reaction	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Improved Reaction +% (Ex)|ImprovedReaction		DEFINE:ImprovedReaction|0					BONUS:COMBAT|INITIATIVE|ImprovedReaction																														SOURCEPAGE:PrestigeClasses.rtf
-Enhanced Mobility	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Enhanced Mobility (Ex)																																																		SOURCEPAGE:PrestigeClasses.rtf
-Grace			TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Grace (Ex)																																																				SOURCEPAGE:PrestigeClasses.rtf
-Precise Strike	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6																																					SOURCEPAGE:PrestigeClasses.rtf
-Acrobatic Charge	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Acrobatic Charge (Ex)																																																		SOURCEPAGE:PrestigeClasses.rtf
-Elaborate Parry	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Elaborate Parry (Ex)						DEFINE:ElaborateParryLVL|0																												BONUS:VAR|FightingDefensivelyACBonus,TotalDefenseACBonus|ElaborateParryLVL	SOURCEPAGE:PrestigeClasses.rtf
+Canny Defense	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Canny Defense (Ex)						DEFINE:CannyDefenseLVL|0					BONUS:COMBAT|AC|max(0,min(INT,CannyDefenseLVL))|TYPE=Ability.STACK|PREMULT:2,[!PREEQUIP:1,TYPE=Armor,TYPE=Shield],[PREEQUIP:1,TYPE=Melee]														SOURCEPAGE:PrestigeClasses.rtf
+Improved Reaction	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Improved Reaction +% (Ex)|ImprovedReaction		DEFINE:ImprovedReaction|0					BONUS:COMBAT|INITIATIVE|ImprovedReaction																														SOURCEPAGE:PrestigeClasses.rtf
+Enhanced Mobility	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Enhanced Mobility (Ex)																																																		SOURCEPAGE:PrestigeClasses.rtf
+Grace			TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Grace (Ex)																																																				SOURCEPAGE:PrestigeClasses.rtf
+Precise Strike	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6																																					SOURCEPAGE:PrestigeClasses.rtf
+Acrobatic Charge	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Acrobatic Charge (Ex)																																																		SOURCEPAGE:PrestigeClasses.rtf
+Elaborate Parry	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Elaborate Parry (Ex)						DEFINE:ElaborateParryLVL|0																												BONUS:VAR|FightingDefensivelyACBonus,TotalDefenseACBonus|ElaborateParryLVL	SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Dwarven Defender special abilities
 # VAR -
@@ -77,78 +77,78 @@ Elaborate Parry	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Elaborate Parry (E
 #                                  Changed from DefensiveStance
 #     DefensiveStanceDuration   == How long each use of Defensive Stance lasts.
 # Feat Name					Output Name				Type						Visible	Special Ability																			Define										Save checks bonus						Combat bonus							Stat bonus									Modify VAR															Damage Reduction		Source Page
-Dwarven Defender AC Bonus							TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:AC Bonus (Ex)																			DEFINE:DwarvenDefenderACBonus|0														BONUS:COMBAT|AC|DwarvenDefenderACBonus|TYPE=Dodge																															SOURCEPAGE:PrestigeClasses.rtf
-Defensive Stance									TYPE:ClassAbility				VISIBLE:NO	SA:Defensive Stance % times/day (% rounds)|DefensiveStanceTimes|DefensiveStanceDuration|PREVARGTEQ:DefensiveStanceTimes,1	DEFINE:DefensiveStanceTimes|0	DEFINE:DefensiveStanceDuration|0	BONUS:CHECKS|ALL|2|TYPE=Resistance|PREAPPLY:PC	BONUS:COMBAT|AC|4|TYPE=Dodge|PREAPPLY:PC			BONUS:STAT|STR|2|PREAPPLY:PC	BONUS:STAT|CON|4|PREAPPLY:PC	BONUS:VAR|DefensiveStanceDuration|CON	BONUS:VAR|DefensiveStanceDuration|-2|PREAPPLY:PC					SOURCEPAGE:PrestigeClasses.rtf
+Dwarven Defender AC Bonus							TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:AC Bonus (Ex)																			DEFINE:DwarvenDefenderACBonus|0														BONUS:COMBAT|AC|DwarvenDefenderACBonus|TYPE=Dodge																															SOURCEPAGE:PrestigeClasses.rtf
+Defensive Stance									TYPE:ClassAbility				VISIBLE:NO	SAB:Defensive Stance % times/day (% rounds)|DefensiveStanceTimes|DefensiveStanceDuration|PREVARGTEQ:DefensiveStanceTimes,1	DEFINE:DefensiveStanceTimes|0	DEFINE:DefensiveStanceDuration|0	BONUS:CHECKS|ALL|2|TYPE=Resistance|PREAPPLY:PC	BONUS:COMBAT|AC|4|TYPE=Dodge|PREAPPLY:PC			BONUS:STAT|STR|2|PREAPPLY:PC	BONUS:STAT|CON|4|PREAPPLY:PC	BONUS:VAR|DefensiveStanceDuration|CON	BONUS:VAR|DefensiveStanceDuration|-2|PREAPPLY:PC					SOURCEPAGE:PrestigeClasses.rtf
 Dwarven Defender DR								TYPE:ClassAbility.Extraordinary	VISIBLE:NO																						DEFINE:DwarvenDefenderDRLVL|0																																		BONUS:VAR|DwarvenDefenderDR|3*floor(((DwarvenDefenderDRLVL-2)/4))						DR:DwarvenDefenderDR/-	SOURCEPAGE:PrestigeClasses.rtf
-Dwarven Defender Mobile Defense	OUTPUTNAME:Mobile Defense	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Mobile Defense (Ex)																																																																												SOURCEPAGE:PrestigeClasses.rtf
+Dwarven Defender Mobile Defense	OUTPUTNAME:Mobile Defense	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Mobile Defense (Ex)																																																																												SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Hierophant Abilities
 # Feat Name				Type			Visible	Required AL		Required Class		Special Ability				Define			Multiple?	Choose				Caster level											Modify VAR									Source Page
-Blast Infidel Lawful Good	TYPE:Hierophant	VISIBLE:NO	PREALIGN:TN,CE					SA:Blast Infidel (Lawful Good)																																			SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Lawful Neutral	TYPE:Hierophant	VISIBLE:NO	PREALIGN:CN						SA:Blast Infidel (Lawful Neutral)																																			SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Lawful Evil	TYPE:Hierophant	VISIBLE:NO	PREALIGN:TN,CG					SA:Blast Infidel (Lawful Evil)																																			SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Neutral Good	TYPE:Hierophant	VISIBLE:NO	PREALIGN:NE						SA:Blast Infidel (Neutral Good)																																			SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Neutral Evil	TYPE:Hierophant	VISIBLE:NO	PREALIGN:NG						SA:Blast Infidel (Neutral Evil)																																			SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Chaotic Good	TYPE:Hierophant	VISIBLE:NO	PREALIGN:LE,TN					SA:Blast Infidel (Chaotic Good)																																			SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Chaotic Neutral	TYPE:Hierophant	VISIBLE:NO	PREALIGN:LN						SA:Blast Infidel (Chaotic Neutral)																																			SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Chaotic Evil	TYPE:Hierophant	VISIBLE:NO	PREALIGN:LG,TN					SA:Blast Infidel (Chaotic Evil																																			SOURCEPAGE:PrestigeClasses.rtf
-Divine Reach			TYPE:Hierophant	VISIBLE:NO								SA:Divine Reach % ft|DivineReach	DEFINE:DivineReach|0	MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE														BONUS:VAR|DivineReach|2*COUNT[FEATNAME=Divine Reach.ALL]	SOURCEPAGE:PrestigeClasses.rtf
-Faith Healing			TYPE:Hierophant	VISIBLE:NO								SA:Faith Healing																																						SOURCEPAGE:PrestigeClasses.rtf
-Gift of the Divine		TYPE:Hierophant	VISIBLE:NO				PRECLASS:1,Cleric=1	SA:Gift of the Divine																																					SOURCEPAGE:PrestigeClasses.rtf
-Mastery of Energy			TYPE:Hierophant	VISIBLE:NO				PRECLASS:1,Cleric=1	SA:Mastery of Energy																											BONUS:VAR|TurnCheckUndead,TurnDamagePlusUndead|4		SOURCEPAGE:PrestigeClasses.rtf
-Power of Nature			TYPE:Hierophant	VISIBLE:NO				PRECLASS:1,Druid=1	SA:Power of Nature																																					SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Lawful Good	TYPE:Hierophant	VISIBLE:NO	PREALIGN:TN,CE					SAB:Blast Infidel (Lawful Good)																																			SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Lawful Neutral	TYPE:Hierophant	VISIBLE:NO	PREALIGN:CN						SAB:Blast Infidel (Lawful Neutral)																																			SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Lawful Evil	TYPE:Hierophant	VISIBLE:NO	PREALIGN:TN,CG					SAB:Blast Infidel (Lawful Evil)																																			SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Neutral Good	TYPE:Hierophant	VISIBLE:NO	PREALIGN:NE						SAB:Blast Infidel (Neutral Good)																																			SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Neutral Evil	TYPE:Hierophant	VISIBLE:NO	PREALIGN:NG						SAB:Blast Infidel (Neutral Evil)																																			SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Chaotic Good	TYPE:Hierophant	VISIBLE:NO	PREALIGN:LE,TN					SAB:Blast Infidel (Chaotic Good)																																			SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Chaotic Neutral	TYPE:Hierophant	VISIBLE:NO	PREALIGN:LN						SAB:Blast Infidel (Chaotic Neutral)																																			SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Chaotic Evil	TYPE:Hierophant	VISIBLE:NO	PREALIGN:LG,TN					SAB:Blast Infidel (Chaotic Evil																																			SOURCEPAGE:PrestigeClasses.rtf
+Divine Reach			TYPE:Hierophant	VISIBLE:NO								SAB:Divine Reach % ft|DivineReach	DEFINE:DivineReach|0	MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE														BONUS:VAR|DivineReach|2*COUNT[FEATNAME=Divine Reach.ALL]	SOURCEPAGE:PrestigeClasses.rtf
+Faith Healing			TYPE:Hierophant	VISIBLE:NO								SAB:Faith Healing																																						SOURCEPAGE:PrestigeClasses.rtf
+Gift of the Divine		TYPE:Hierophant	VISIBLE:NO				PRECLASS:1,Cleric=1	SAB:Gift of the Divine																																					SOURCEPAGE:PrestigeClasses.rtf
+Mastery of Energy			TYPE:Hierophant	VISIBLE:NO				PRECLASS:1,Cleric=1	SAB:Mastery of Energy																											BONUS:VAR|TurnCheckUndead,TurnDamagePlusUndead|4		SOURCEPAGE:PrestigeClasses.rtf
+Power of Nature			TYPE:Hierophant	VISIBLE:NO				PRECLASS:1,Druid=1	SAB:Power of Nature																																					SOURCEPAGE:PrestigeClasses.rtf
 Hierophant Spell Power		TYPE:Hierophant	VISIBLE:NO																		MULT:YES	CHOOSE:NOCHOICE			BONUS:CASTERLEVEL|TYPE.Divine|COUNT[FEATNAME=Hierophant Spell Power.ALL]											SOURCEPAGE:PrestigeClasses.rtf
 # Needs alot of work -- Needs a way to choose spell from spell-list and possibly to add metamagic and extra times per day to it...
-#Hierophant Spell-Like Ability	TYPE:Hierophant	VISIBLE:NO	SA:Spell-Like Ability		MULT:YES	STACK:NO	CHOOSE:		SOURCEPAGE:PrestigeClasses.rtf
+#Hierophant Spell-Like Ability	TYPE:Hierophant	VISIBLE:NO	SAB:Spell-Like Ability		MULT:YES	STACK:NO	CHOOSE:		SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Horizon Walker Terrain Abilities
 # Feat Name			Type			Visible	Special Ability																																	Define							Add to magical move						Bonus to skill								Modify VAR							Vision				Source Page
-Aquatic Terrain		TYPE:Terrain	VISIBLE:NO	SA:Aquatic Terrain Mastery (+% insight bonus on attack and damage rolls against aquatic creatures)|AquaticTerrainMasteryBonus															DEFINE:AquaticTerrainMasteryBonus|0			BONUS:POSTMOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1		BONUS:SKILL|Swim|4|TYPE=Competence|!PREMOVE:1,Swim=1		BONUS:VAR|AquaticTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Desert Terrain		TYPE:Terrain	VISIBLE:NO	SA:Desert Terrain Mastery (+% insight bonus on attack and damage rolls against desert creatures)|DesertTerrainMasteryBonus															DEFINE:DesertTerrainMasteryBonus|0																						BONUS:VAR|DesertTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Forest Terrain		TYPE:Terrain	VISIBLE:NO	SA:Forest Terrain Mastery (+% insight bonus on attack and damage rolls against forest creatures)|ForrestTerrainMasteryBonus															DEFINE:ForestTerrainMasteryBonus|0												BONUS:SKILL|Hide|4|TYPE=Competence					BONUS:VAR|ForestTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Hills Terrain		TYPE:Terrain	VISIBLE:NO	SA:Hills Terrain Mastery (+% insight bonus on attack and damage rolls against hills creatures)|HillsTerrainMasteryBonus																DEFINE:HillsTerrainMasteryBonus|0												BONUS:SKILL|Listen|4|TYPE=Competence				BONUS:VAR|HillsTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Marsh Terrain		TYPE:Terrain	VISIBLE:NO	SA:Marsh Terrain Mastery (+% insight bonus on attack and damage rolls against marsh creatures)|MarshTerrainMasteryBonus																DEFINE:MarshTerrainMasteryBonus|0												BONUS:SKILL|Move Silently|4|TYPE=Competence			BONUS:VAR|MarshTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Mountain Terrain		TYPE:Terrain	VISIBLE:NO	SA:Mountain Terrain Mastery (+% insight bonus on attack and damage rolls against mountain creatures)|MountainTerrainMasteryBonus														DEFINE:MountainTerrainMasteryBonus|0		BONUS:POSTMOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:SKILL|Climb|4|TYPE=Competence|!PREMOVE:1,Climb=1	BONUS:VAR|MountainTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Plains Terrain		TYPE:Terrain	VISIBLE:NO	SA:Plains Terrain Mastery (+% insight bonus on attack and damage rolls against plains creatures)|PlainsTerrainMasteryBonus															DEFINE:PlainsTerrainMasteryBonus|0												BONUS:SKILL|Spot|4|TYPE=Competence					BONUS:VAR|PlainsTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Underground Terrain	TYPE:Terrain	VISIBLE:NO	SA:Underground Terrain Mastery (+% insight bonus on attack and damage rolls against underground creatures)|UndergroundTerrainMasteryBonus													DEFINE:UndergroundTerrainMasteryBonus|0																					BONUS:VAR|UndergroundTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
-Fiery Planar		TYPE:Planar		VISIBLE:NO	SA:Fiery Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals with the fire subtype)|FieryPlanarTerrainMasteryBonus	SA:Fire Resistance 20				DEFINE:FieryPlanarTerrainMasteryBonus|0																					BONUS:VAR|FieryPlanarTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
-Weightless Planar		TYPE:Planar		VISIBLE:NO	SA:Weightless Planar Terrain Mastery (+% insight on attack and damage rolls against creatures native to the Astral Plane, the Elemental Plane of Air, and the Ethereal Plane)|WeightlessPlanarTerrainMasteryBonus	DEFINE:WeightlessPlanarTerrainMasteryBonus|0																				BONUS:VAR|WeightlessPlanarTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
-Cold Planar			TYPE:Planar		VISIBLE:NO	SA:Cold Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals with the cold subtype)|ColdPlanarTerrainMasteryBonus	SA:Cold Resistance 20					DEFINE:ColdPlanarTerrainMasteryBonus|0																					BONUS:VAR|ColdPlanarTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Shifting Planar		TYPE:Planar		VISIBLE:NO	SA:Shifting Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals native to a shifting plane)|ShiftingPlanarTerrainMasteryBonus						DEFINE:ShiftingPlanarTerrainMasteryBonus|0																				BONUS:VAR|ShiftingPlanarTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
-Aligned Planar		TYPE:Planar		VISIBLE:NO	SA:Aligned Planar Terrain Mastery																																																																						SOURCEPAGE:PrestigeClasses.rtf
-Cavernous Planar		TYPE:Planar		VISIBLE:NO	SA:Cavernous Planar Terrain Mastery																																																																	VISION:Tremorsense (30')	SOURCEPAGE:PrestigeClasses.rtf
-Other Planar		TYPE:Planar		VISIBLE:NO	SA:Other Planar Terrain Mastery
+Aquatic Terrain		TYPE:Terrain	VISIBLE:NO	SAB:Aquatic Terrain Mastery (+% insight bonus on attack and damage rolls against aquatic creatures)|AquaticTerrainMasteryBonus															DEFINE:AquaticTerrainMasteryBonus|0			BONUS:POSTMOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1		BONUS:SKILL|Swim|4|TYPE=Competence|!PREMOVE:1,Swim=1		BONUS:VAR|AquaticTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
+Desert Terrain		TYPE:Terrain	VISIBLE:NO	SAB:Desert Terrain Mastery (+% insight bonus on attack and damage rolls against desert creatures)|DesertTerrainMasteryBonus															DEFINE:DesertTerrainMasteryBonus|0																						BONUS:VAR|DesertTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
+Forest Terrain		TYPE:Terrain	VISIBLE:NO	SAB:Forest Terrain Mastery (+% insight bonus on attack and damage rolls against forest creatures)|ForrestTerrainMasteryBonus															DEFINE:ForestTerrainMasteryBonus|0												BONUS:SKILL|Hide|4|TYPE=Competence					BONUS:VAR|ForestTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
+Hills Terrain		TYPE:Terrain	VISIBLE:NO	SAB:Hills Terrain Mastery (+% insight bonus on attack and damage rolls against hills creatures)|HillsTerrainMasteryBonus																DEFINE:HillsTerrainMasteryBonus|0												BONUS:SKILL|Listen|4|TYPE=Competence				BONUS:VAR|HillsTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
+Marsh Terrain		TYPE:Terrain	VISIBLE:NO	SAB:Marsh Terrain Mastery (+% insight bonus on attack and damage rolls against marsh creatures)|MarshTerrainMasteryBonus																DEFINE:MarshTerrainMasteryBonus|0												BONUS:SKILL|Move Silently|4|TYPE=Competence			BONUS:VAR|MarshTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
+Mountain Terrain		TYPE:Terrain	VISIBLE:NO	SAB:Mountain Terrain Mastery (+% insight bonus on attack and damage rolls against mountain creatures)|MountainTerrainMasteryBonus														DEFINE:MountainTerrainMasteryBonus|0		BONUS:POSTMOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:SKILL|Climb|4|TYPE=Competence|!PREMOVE:1,Climb=1	BONUS:VAR|MountainTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
+Plains Terrain		TYPE:Terrain	VISIBLE:NO	SAB:Plains Terrain Mastery (+% insight bonus on attack and damage rolls against plains creatures)|PlainsTerrainMasteryBonus															DEFINE:PlainsTerrainMasteryBonus|0												BONUS:SKILL|Spot|4|TYPE=Competence					BONUS:VAR|PlainsTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
+Underground Terrain	TYPE:Terrain	VISIBLE:NO	SAB:Underground Terrain Mastery (+% insight bonus on attack and damage rolls against underground creatures)|UndergroundTerrainMasteryBonus													DEFINE:UndergroundTerrainMasteryBonus|0																					BONUS:VAR|UndergroundTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
+Fiery Planar		TYPE:Planar		VISIBLE:NO	SAB:Fiery Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals with the fire subtype)|FieryPlanarTerrainMasteryBonus	SAB:Fire Resistance 20				DEFINE:FieryPlanarTerrainMasteryBonus|0																					BONUS:VAR|FieryPlanarTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
+Weightless Planar		TYPE:Planar		VISIBLE:NO	SAB:Weightless Planar Terrain Mastery (+% insight on attack and damage rolls against creatures native to the Astral Plane, the Elemental Plane of Air, and the Ethereal Plane)|WeightlessPlanarTerrainMasteryBonus	DEFINE:WeightlessPlanarTerrainMasteryBonus|0																				BONUS:VAR|WeightlessPlanarTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
+Cold Planar			TYPE:Planar		VISIBLE:NO	SAB:Cold Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals with the cold subtype)|ColdPlanarTerrainMasteryBonus	SAB:Cold Resistance 20					DEFINE:ColdPlanarTerrainMasteryBonus|0																					BONUS:VAR|ColdPlanarTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
+Shifting Planar		TYPE:Planar		VISIBLE:NO	SAB:Shifting Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals native to a shifting plane)|ShiftingPlanarTerrainMasteryBonus						DEFINE:ShiftingPlanarTerrainMasteryBonus|0																				BONUS:VAR|ShiftingPlanarTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
+Aligned Planar		TYPE:Planar		VISIBLE:NO	SAB:Aligned Planar Terrain Mastery																																																																						SOURCEPAGE:PrestigeClasses.rtf
+Cavernous Planar		TYPE:Planar		VISIBLE:NO	SAB:Cavernous Planar Terrain Mastery																																																																	VISION:Tremorsense (30')	SOURCEPAGE:PrestigeClasses.rtf
+Other Planar		TYPE:Planar		VISIBLE:NO	SAB:Other Planar Terrain Mastery
 
 ###Block: Loremaster Lore Abilities
 # Feat Name		Type						Visible	Special Ability		Source Page
-Secret Lore		TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Lore (+%)|SecretLore	SOURCEPAGE:PrestigeClasses.rtf
-Greater Lore	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Greater Lore (Ex)	SOURCEPAGE:PrestigeClasses.rtf
-True Lore		TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:True Lore (Ex)		SOURCEPAGE:PrestigeClasses.rtf
+Secret Lore		TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Lore (+%)|SecretLore	SOURCEPAGE:PrestigeClasses.rtf
+Greater Lore	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Greater Lore (Ex)	SOURCEPAGE:PrestigeClasses.rtf
+True Lore		TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:True Lore (Ex)		SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Loremaster Secrets
 # Feat Name				Type				Visible	Var. Min. Value			Special Ability					Stackable?	Multiple?	Choose																Add										Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
-Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SA:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK|1																																			BONUS:SKILLRANK|LIST|4	SOURCEPAGE:PrestigeClasses.rtf
-Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SA:Secret (Secret Health)																																												BONUS:HP|CURRENTMAX|3					SOURCEPAGE:PrestigeClasses.rtf
-Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SA:Secret (Secrets of Inner Strength)																																BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:PrestigeClasses.rtf
-The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,4		SA:Secret (The Lore of True Stamina)																																BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:PrestigeClasses.rtf
-Secret Knowledge of Avoidance	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,5		SA:Secret (Secret Knowledge of Avoidance)																																BONUS:CHECKS|BASE.Reflex|2														SOURCEPAGE:PrestigeClasses.rtf
-Weapon Trick			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,6		SA:Secret (Weapon Trick)																																							BONUS:COMBAT|BAB|1										SOURCEPAGE:PrestigeClasses.rtf
-Dodge Trick				TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,7		SA:Secret (Dodge Trick)																																								BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:PrestigeClasses.rtf
-Applicable Knowledge		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,8		SA:Secret (Applicable Knowledge)																							ADD:FEAT|TYPE=Metamagic,TYPE=ItemCreation,TYPE=General																			SOURCEPAGE:PrestigeClasses.rtf
-Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SA:Secret (Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
-More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SA:Secret (More Newfound Arcana)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
+Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SAB:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK|1																																			BONUS:SKILLRANK|LIST|4	SOURCEPAGE:PrestigeClasses.rtf
+Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SAB:Secret (Secret Health)																																												BONUS:HP|CURRENTMAX|3					SOURCEPAGE:PrestigeClasses.rtf
+Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SAB:Secret (Secrets of Inner Strength)																																BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:PrestigeClasses.rtf
+The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,4		SAB:Secret (The Lore of True Stamina)																																BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:PrestigeClasses.rtf
+Secret Knowledge of Avoidance	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,5		SAB:Secret (Secret Knowledge of Avoidance)																																BONUS:CHECKS|BASE.Reflex|2														SOURCEPAGE:PrestigeClasses.rtf
+Weapon Trick			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,6		SAB:Secret (Weapon Trick)																																							BONUS:COMBAT|BAB|1										SOURCEPAGE:PrestigeClasses.rtf
+Dodge Trick				TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,7		SAB:Secret (Dodge Trick)																																								BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:PrestigeClasses.rtf
+Applicable Knowledge		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,8		SAB:Secret (Applicable Knowledge)																							ADD:FEAT|TYPE=Metamagic,TYPE=ItemCreation,TYPE=General																			SOURCEPAGE:PrestigeClasses.rtf
+Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SAB:Secret (Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
+More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SAB:Secret (More Newfound Arcana)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Shadowdancer special abilities
 # Feat Name		Type						Visible	Special Ability										Define									Innate Spells											Source Page
-Shadow Illusion	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SA:Shadow Illusion (Sp)									DEFINE:ShadowIllusionLVL|0						SPELLS:Shadowdancer|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA	SOURCEPAGE:PrestigeClasses.rtf
-Shadow Jump		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	DEFINE:ShadowJump|0	DEFINE:ShadowJumpProgression|0														SOURCEPAGE:PrestigeClasses.rtf
+Shadow Illusion	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SAB:Shadow Illusion (Sp)									DEFINE:ShadowIllusionLVL|0						SPELLS:Shadowdancer|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA	SOURCEPAGE:PrestigeClasses.rtf
+Shadow Jump		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	DEFINE:ShadowJump|0	DEFINE:ShadowJumpProgression|0														SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Thaumaturgist special abilities
 # Feat Name			Type			Visible	Special Ability			Source Page
-Improved Ally		TYPE:ClassAbility	VISIBLE:NO	SA:Improved Ally			SOURCEPAGE:PrestigeClasses.rtf
-Extended Summoning	TYPE:ClassAbility	VISIBLE:NO	SA:Extended Summoning		SOURCEPAGE:PrestigeClasses.rtf
-Contingent Conjuration	TYPE:ClassAbility	VISIBLE:NO	SA:Contingent Conjuration	SOURCEPAGE:PrestigeClasses.rtf
-Planar Cohort		TYPE:ClassAbility	VISIBLE:NO	SA:Planar Cohort			SOURCEPAGE:PrestigeClasses.rtf
+Improved Ally		TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Ally			SOURCEPAGE:PrestigeClasses.rtf
+Extended Summoning	TYPE:ClassAbility	VISIBLE:NO	SAB:Extended Summoning		SOURCEPAGE:PrestigeClasses.rtf
+Contingent Conjuration	TYPE:ClassAbility	VISIBLE:NO	SAB:Contingent Conjuration	SOURCEPAGE:PrestigeClasses.rtf
+Planar Cohort		TYPE:ClassAbility	VISIBLE:NO	SAB:Planar Cohort			SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Barding Proficiency    - This needs to be moved...
 # Feat Name				Type			Visible	Automaticaly Gained Armor Prof.	Source Page

@@ -51,7 +51,7 @@ Awakened Animal_Will		VISIBLE:NO												PRECLASS:1,Animal (Will)=1										
 
 ###Block: Righteous Might spell workaround
 # Template Name	Visible	Special Ability										Define
-RighteousMightDR	VISIBLE:NO	SA:DR %/Evil|RighteousMightDR_Evil	SA:DR %/Good|RighteousMightDR_Good	DEFINE:RighteousMightDR_Evil|0	DEFINE:RighteousMightDR_Good|0
+RighteousMightDR	VISIBLE:NO	SAB:DR %/Evil|RighteousMightDR_Evil	SAB:DR %/Good|RighteousMightDR_Good	DEFINE:RighteousMightDR_Evil|0	DEFINE:RighteousMightDR_Good|0
 
 ###Block: Timeless Body For Druid and Monk
 # Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class			Multiple Requirements						Stat bonus
