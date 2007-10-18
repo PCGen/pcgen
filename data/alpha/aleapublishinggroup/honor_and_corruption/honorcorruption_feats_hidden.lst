@@ -27,5 +27,5 @@ ScoundrelSubClassBonusHP	TYPE:Subclass.Hidden.ScoundrelHP	VISIBLE:NO						STACK:
 #ScoundrelSubClassBonusHPlv20	TYPE:Subclass.Hidden.ScoundrelHP	VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
 
 
-BlackguardSpellList								VISIBLE:NO	SA:Cast Blackguard Spells
+BlackguardSpellList								VISIBLE:NO	SAB:Cast Blackguard Spells
 ### TODO: Add blackguard spell list if CLERIC
