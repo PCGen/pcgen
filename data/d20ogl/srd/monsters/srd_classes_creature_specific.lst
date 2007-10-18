@@ -21,7 +21,7 @@ CLASS:Drider Cleric	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LE
 CLASS:Drider Cleric	PRERACE:1,Drider (Cleric)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	SA:Spontaneous casting	BONUS:VAR|TurnLevelBase|CL					ADD:SPELLCASTER|1|Cleric	ADD:FEAT|1|TYPE=TurnUndead	AUTO:FEAT|Basic Turning
+1	SAB:Spontaneous casting	BONUS:VAR|TurnLevelBase|CL					ADD:SPELLCASTER|1|Cleric	ADD:FEAT|1|TYPE=TurnUndead	AUTO:FEAT|Basic Turning
 2										BONUS:PCLEVEL|Cleric|1
 3										BONUS:PCLEVEL|Cleric|1
 4										BONUS:PCLEVEL|Cleric|1
@@ -119,7 +119,7 @@ CLASS:Lillend	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonstersl.rtf	LEVELSP
 CLASS:Lillend	PRERACE:1,Lillend	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Lillend	STARTSKILLPTS:8	MODTOSKILLS:YES
-1	SA:Bardic music %/day|BardicMusic	BONUS:VAR|BardicMusic|0	BONUS:VAR|BardicMusic|CL					DEFINE:BardicMusic|0	ADD:SPELLCASTER|1|Bard
+1	SAB:Bardic music %/day|BardicMusic	BONUS:VAR|BardicMusic|0	BONUS:VAR|BardicMusic|CL					DEFINE:BardicMusic|0	ADD:SPELLCASTER|1|Bard
 2																BONUS:PCLEVEL|Bard|1
 3																BONUS:PCLEVEL|Bard|1
 4																BONUS:PCLEVEL|Bard|1

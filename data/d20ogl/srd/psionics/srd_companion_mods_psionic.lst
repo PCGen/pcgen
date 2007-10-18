@@ -4,14 +4,14 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 
 ###Block:Psicrystal
 # Class of the Master		Type			Spell Res.	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special Ability																	Define			Misc bonus				Stat bonus
-FOLLOWER:PCrystalLevel=1	TYPE:Psicrystal			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	SA:Self Propulsion	SA:Telepathic Link	SA:Share Powers	SA:Improved Evasion (Ex)	SA:Sighted (40')	DEFINE:EvasionUsable|0
-FOLLOWER:PCrystalLevel=3	TYPE:Psicrystal																				SA:Deliver touch powers																									BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=5	TYPE:Psicrystal																				SA:Telepathic Speech																									BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=1	TYPE:Psicrystal			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	SAB:Self Propulsion	SAB:Telepathic Link	SAB:Share Powers	SAB:Improved Evasion (Ex)	SAB:Sighted (40')	DEFINE:EvasionUsable|0
+FOLLOWER:PCrystalLevel=3	TYPE:Psicrystal																				SAB:Deliver touch powers																									BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=5	TYPE:Psicrystal																				SAB:Telepathic Speech																									BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=7	TYPE:Psicrystal																																																BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=9	TYPE:Psicrystal																																																BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=11	TYPE:Psicrystal	SR:5																			SA:Power Resistance																				BONUS:MISC|SR|PCrystalLevel	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=13	TYPE:Psicrystal																				SA:Sight Link																										BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=15	TYPE:Psicrystal																				SA:Channel Power																										BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=11	TYPE:Psicrystal	SR:5																			SAB:Power Resistance																				BONUS:MISC|SR|PCrystalLevel	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=13	TYPE:Psicrystal																				SAB:Sight Link																										BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=15	TYPE:Psicrystal																				SAB:Channel Power																										BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=17	TYPE:Psicrystal																																																BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=19	TYPE:Psicrystal																																																BONUS:STAT|INT|1
 #

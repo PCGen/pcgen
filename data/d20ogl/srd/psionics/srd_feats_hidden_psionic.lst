@@ -5,54 +5,54 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 
 ###Block: Astral Construct menu choices
 # Feat Name				Type					Visible	Special Ability																																			Define																																																																		Stackable?	Multiple?	Choose								Combat bonus				Source Page
-AstralC Additional Attack	TYPE:AstralConstructMenuA	VISIBLE:NO	SA:Additional attack at highest attack bonus (both attacks -2 to attack roll)																																																																																																															SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Armor			TYPE:AstralConstructMenuA	VISIBLE:NO	SA:Armor(Ex)																																																																																																																			BONUS:COMBAT|AC|1|TYPE=Deflection	SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Fly				TYPE:AstralConstructMenuA	VISIBLE:NO	SA:Fly(Ex) 60'																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Resistance		TYPE:AstralConstructMenuA	VISIBLE:NO	SA:Fire Resistance(Ex) %|AstralCFireRes	SA:Cold Resistance(Ex) %|AstralCColdRes	SA:Acid Resistance(Ex) %|AstralCAcidRes	SA:Electricity Resistance(Ex) %|AstralCElectricityRes	SA:Sonic Resistance(Ex) %|AstralCSonicRes	DEFINE:AstralCFireRes|5*var("COUNT[FEATNAME=AstralC Resistance (Fire)]")	DEFINE:AstralCColdRes|5*var("COUNT[FEATNAME=AstralC Resistance (Cold)]")	DEFINE:AstralCAcidRes|5*var("COUNT[FEATNAME=AstralC Resistance (Acid)]")	DEFINE:AstralCElectricityRes|5*var("COUNT[FEATNAME=AstralC Resistance (Electricity)]")	DEFINE:AstralCSonicRes|5*var("COUNT[FEATNAME=AstralC Resistance (Sonic)]")	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Fire|Cold|Acid|Electricity|Sonic							SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Sprint			TYPE:AstralConstructMenuA	VISIBLE:NO	SA:Sprint(Ex)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Swim			TYPE:AstralConstructMenuA	VISIBLE:NO	SA:Swim 60'																																																																																																																										SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Trample			TYPE:AstralConstructMenuA	VISIBLE:NO	SA:Trample(Ex)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Trip			TYPE:AstralConstructMenuA	VISIBLE:NO	SA:Trip(Ex)																																																																																																																										SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Additional Attack	TYPE:AstralConstructMenuA	VISIBLE:NO	SAB:Additional attack at highest attack bonus (both attacks -2 to attack roll)																																																																																																															SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Armor			TYPE:AstralConstructMenuA	VISIBLE:NO	SAB:Armor(Ex)																																																																																																																			BONUS:COMBAT|AC|1|TYPE=Deflection	SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Fly				TYPE:AstralConstructMenuA	VISIBLE:NO	SAB:Fly(Ex) 60'																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Resistance		TYPE:AstralConstructMenuA	VISIBLE:NO	SAB:Fire Resistance(Ex) %|AstralCFireRes	SAB:Cold Resistance(Ex) %|AstralCColdRes	SAB:Acid Resistance(Ex) %|AstralCAcidRes	SAB:Electricity Resistance(Ex) %|AstralCElectricityRes	SAB:Sonic Resistance(Ex) %|AstralCSonicRes	DEFINE:AstralCFireRes|5*var("COUNT[FEATNAME=AstralC Resistance (Fire)]")	DEFINE:AstralCColdRes|5*var("COUNT[FEATNAME=AstralC Resistance (Cold)]")	DEFINE:AstralCAcidRes|5*var("COUNT[FEATNAME=AstralC Resistance (Acid)]")	DEFINE:AstralCElectricityRes|5*var("COUNT[FEATNAME=AstralC Resistance (Electricity)]")	DEFINE:AstralCSonicRes|5*var("COUNT[FEATNAME=AstralC Resistance (Sonic)]")	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Fire|Cold|Acid|Electricity|Sonic							SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Sprint			TYPE:AstralConstructMenuA	VISIBLE:NO	SAB:Sprint(Ex)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Swim			TYPE:AstralConstructMenuA	VISIBLE:NO	SAB:Swim 60'																																																																																																																										SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Trample			TYPE:AstralConstructMenuA	VISIBLE:NO	SAB:Trample(Ex)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Trip			TYPE:AstralConstructMenuA	VISIBLE:NO	SAB:Trip(Ex)																																																																																																																										SOURCEPAGE:srdpsioniccreatures.rtf
 
-AstralC Buff			TYPE:AstralConstructMenuB	VISIBLE:NO	SA:Buff(Ex)																																																																																																																										SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Charge			TYPE:AstralConstructMenuB	VISIBLE:NO	SA:Charge(Ex)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Heavy Armor		TYPE:AstralConstructMenuB	VISIBLE:NO	SA:Heavy Armor(Ex)																																																																																																																		BONUS:COMBAT|AC|4|TYPE=Deflection	SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Improved Grab		TYPE:AstralConstructMenuB	VISIBLE:NO	SA:Improved Grab(Ex)																																																																																																																								SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Smack Down		TYPE:AstralConstructMenuB	VISIBLE:NO	SA:Smack Down(Su)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Squeeze			TYPE:AstralConstructMenuB	VISIBLE:NO	SA:Squeeze(Ex)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Buff			TYPE:AstralConstructMenuB	VISIBLE:NO	SAB:Buff(Ex)																																																																																																																										SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Charge			TYPE:AstralConstructMenuB	VISIBLE:NO	SAB:Charge(Ex)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Heavy Armor		TYPE:AstralConstructMenuB	VISIBLE:NO	SAB:Heavy Armor(Ex)																																																																																																																		BONUS:COMBAT|AC|4|TYPE=Deflection	SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Improved Grab		TYPE:AstralConstructMenuB	VISIBLE:NO	SAB:Improved Grab(Ex)																																																																																																																								SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Smack Down		TYPE:AstralConstructMenuB	VISIBLE:NO	SAB:Smack Down(Su)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Squeeze			TYPE:AstralConstructMenuB	VISIBLE:NO	SAB:Squeeze(Ex)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
 
-AstralC Concussion		TYPE:AstralConstructMenuC	VISIBLE:NO	SA:Concussion(Sp)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Cone of Sound		TYPE:AstralConstructMenuC	VISIBLE:NO	SA:Cone of Sound(Sp)																																																																																																																								SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Dimension Slide		TYPE:AstralConstructMenuC	VISIBLE:NO	SA:Dimension Slide(Sp)																																																																																																																								SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Extra Buff		TYPE:AstralConstructMenuC	VISIBLE:NO	SA:Extra Buff(Ex)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Gore			TYPE:AstralConstructMenuC	VISIBLE:NO	SA:Gore(Ex)																																																																																																																										SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Invisibility		TYPE:AstralConstructMenuC	VISIBLE:NO	SA:Invisibility(Sp)																																																																																																																								SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC See Invisibility	TYPE:AstralConstructMenuC	VISIBLE:NO	SA:See Invisibility(Su)																																																																																																																								SOURCEPAGE:srdpsioniccreatures.rtf
-AstralC Superheavy Armor	TYPE:AstralConstructMenuC	VISIBLE:NO	SA:Superheavy Armor(Ex)																																																																																																																		BONUS:COMBAT|AC|7|TYPE=Deflection	SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Concussion		TYPE:AstralConstructMenuC	VISIBLE:NO	SAB:Concussion(Sp)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Cone of Sound		TYPE:AstralConstructMenuC	VISIBLE:NO	SAB:Cone of Sound(Sp)																																																																																																																								SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Dimension Slide		TYPE:AstralConstructMenuC	VISIBLE:NO	SAB:Dimension Slide(Sp)																																																																																																																								SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Extra Buff		TYPE:AstralConstructMenuC	VISIBLE:NO	SAB:Extra Buff(Ex)																																																																																																																									SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Gore			TYPE:AstralConstructMenuC	VISIBLE:NO	SAB:Gore(Ex)																																																																																																																										SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Invisibility		TYPE:AstralConstructMenuC	VISIBLE:NO	SAB:Invisibility(Sp)																																																																																																																								SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC See Invisibility	TYPE:AstralConstructMenuC	VISIBLE:NO	SAB:See Invisibility(Su)																																																																																																																								SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Superheavy Armor	TYPE:AstralConstructMenuC	VISIBLE:NO	SAB:Superheavy Armor(Ex)																																																																																																																		BONUS:COMBAT|AC|7|TYPE=Deflection	SOURCEPAGE:srdpsioniccreatures.rtf
 
 
 ###Block: Psionic Combat Modes
 
 # Feat Name			Type						Visible	Prohibited Feat			Special Ability
-Ego Whip			TYPE:PsionicAttackMode.BasedOnDex	VISIBLE:NO	!PREFEAT:1,Ego Whip		SA:Ego Whip
-Id Insinuation		TYPE:PsionicAttackMode.BasedOnStr	VISIBLE:NO	!PREFEAT:1,Id Insinuation	SA:Id Insinuation
-Mind Blast			TYPE:PsionicAttackMode.BasedOnCha	VISIBLE:NO	!PREFEAT:1,Mind Blast		SA:Mind Blast
-Mind Thrust			TYPE:PsionicAttackMode.BasedOnInt	VISIBLE:NO	!PREFEAT:1,Mind Thrust		SA:Mind Thrust
-Psychic Crush		TYPE:PsionicAttackMode.BasedOnWis	VISIBLE:NO	!PREFEAT:1,Psychic Crush	SA:Psychic Crush
-Empty Mind			TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Empty Mind		SA:Empty Mind
-Intellect Fortress	TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Intellect Fortress	SA:Intellect Fortress
-Mental Barrier		TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Mental Barrier	SA:Mental Barrier
-Thought Shield		TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Thought Shield	SA:Thought Shield
-Tower of Iron Will	TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Tower of Iron Will	SA:Tower of Iron Will
+Ego Whip			TYPE:PsionicAttackMode.BasedOnDex	VISIBLE:NO	!PREFEAT:1,Ego Whip		SAB:Ego Whip
+Id Insinuation		TYPE:PsionicAttackMode.BasedOnStr	VISIBLE:NO	!PREFEAT:1,Id Insinuation	SAB:Id Insinuation
+Mind Blast			TYPE:PsionicAttackMode.BasedOnCha	VISIBLE:NO	!PREFEAT:1,Mind Blast		SAB:Mind Blast
+Mind Thrust			TYPE:PsionicAttackMode.BasedOnInt	VISIBLE:NO	!PREFEAT:1,Mind Thrust		SAB:Mind Thrust
+Psychic Crush		TYPE:PsionicAttackMode.BasedOnWis	VISIBLE:NO	!PREFEAT:1,Psychic Crush	SAB:Psychic Crush
+Empty Mind			TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Empty Mind		SAB:Empty Mind
+Intellect Fortress	TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Intellect Fortress	SAB:Intellect Fortress
+Mental Barrier		TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Mental Barrier	SAB:Mental Barrier
+Thought Shield		TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Thought Shield	SAB:Thought Shield
+Tower of Iron Will	TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Tower of Iron Will	SAB:Tower of Iron Will
 
 ###Block: Manifester (for Output sheets), BasePowerPoints, BonusPowerPoints, HasSpellStat (for subclasses).
 # Feat Name		Type			Visible	Special Ability																					Define																						Modify VAR
-PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SA:Base Power Points (%)|BasePowerPoints	SA:Bonus Power Points (%)|BonusPowerPoints	SA:Total Power Points (%)|TotalPowerPoints	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
+PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
 
 ###Block: Psionic Feat Support
 # Feat Name				Type					Visible	Required Class			Prohibited Feat					Special Ability	Define									Save checks bonus			Bonus to skill			Modify VAR																															Allow Follower		Allowed Companions																																																			Source Page
 Inner Strength Points		TYPE:PsionicFeat			VISIBLE:NO																DEFINE:InnerStrFeatCount|0	DEFINE:InnerStrFeatBonus|0											BONUS:VAR|InnerStrFeatCount|var("COUNT[FEATNAME=Inner Strength]")	BONUS:VAR|InnerStrFeatBonus|(InnerStrFeatCount)*((InnerStrFeatCount/2)+.5)	BONUS:VAR|BASEPOWERPOINTS|InnerStrFeatBonus																																																											SOURCEPAGE:srdpsionicfeats.rtf
-Psicrystal				TYPE:PsionicFeat			VISIBLE:NO													SA:Psicrystal	DEFINE:PCrystalLevel|0																																																	FOLLOWERS:Psicrystal|1	COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulos),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)	SOURCEPAGE:srdpsionicclasses.rtf
+Psicrystal				TYPE:PsionicFeat			VISIBLE:NO													SAB:Psicrystal	DEFINE:PCrystalLevel|0																																																	FOLLOWERS:Psicrystal|1	COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulos),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)	SOURCEPAGE:srdpsionicclasses.rtf
 Speed of Thought Movement	TYPE:PsionicFeat			VISIBLE:NO																DEFINE:SOTMOVEBONUS|0																	BONUS:VAR|SOTMOVEBONUS|10*(var("COUNT[FEATNAME=Speed of Thought]"))|PREAPPLY:PC																																																																													SOURCEPAGE:srdpsionicfeats.rtf
 
 # These feats support the Talented feat, the user must decide which class the free powers are applied to
