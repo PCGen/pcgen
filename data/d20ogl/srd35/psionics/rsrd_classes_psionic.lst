@@ -163,11 +163,11 @@ CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilde
 1	BONUS:VAR|BonusPowerPoints|(CHA*WilderML)/2|TYPE=WilderBonusPP
 
 ###Block: Class Info
-1	KNOWN:0,1				SA:Psychic Enervation (+% percent/lvl added)|PsychicEnervation	SA:Wild Surge (+%)|WildSurge	BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	DEFINE:PsychicEnervation|0	DEFINE:WildSurge|0
-2	KNOWN:0,2				SA:Elude Touch (+% AC vs. Touch Attacks)|EludeTouch								BONUS:VAR|EludeTouch|CHA					DEFINE:EludeTouch|0
+1	KNOWN:0,1				SAB:Psychic Enervation (+% percent/lvl added)|PsychicEnervation	SAB:Wild Surge (+%)|WildSurge	BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	DEFINE:PsychicEnervation|0	DEFINE:WildSurge|0
+2	KNOWN:0,2				SAB:Elude Touch (+% AC vs. Touch Attacks)|EludeTouch								BONUS:VAR|EludeTouch|CHA					DEFINE:EludeTouch|0
 3	KNOWN:0,2																				BONUS:VAR|WildSurge|1
-4	KNOWN:0,2,1				SA:Surging Euphoria (+%)|SurgingEuphoria										BONUS:VAR|SurgingEuphoria|1					DEFINE:SurgingEuphoria|0
-5	KNOWN:0,2,1				SA:Volatile Mind (+% PP cost for telepathy powers used against character)|VolatileMind		BONUS:VAR|VolatileMind|1					DEFINE:VolatileMind|0
+4	KNOWN:0,2,1				SAB:Surging Euphoria (+%)|SurgingEuphoria										BONUS:VAR|SurgingEuphoria|1					DEFINE:SurgingEuphoria|0
+5	KNOWN:0,2,1				SAB:Volatile Mind (+% PP cost for telepathy powers used against character)|VolatileMind		BONUS:VAR|VolatileMind|1					DEFINE:VolatileMind|0
 6	KNOWN:0,2,1,1
 7	KNOWN:0,2,1,1																			BONUS:VAR|WildSurge|1
 8	KNOWN:0,2,1,1,1

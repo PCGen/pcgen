@@ -35,22 +35,22 @@ Psion Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|C
 ###Block: Mind Blade abilities
 # Feat Name				Type			Visible	Special Ability							Define																Automaticaly Gained Weapon Prof.	Modify VAR
 MindBlade Wielder			TYPE:Special	VISIBLE:NO										DEFINE:MindBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0	AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MindBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MindBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MindBladeECL+1)/4)
-MindBlade Standard		TYPE:Special	VISIBLE:NO	SA:Mind Blade
-MindBlade Throw			TYPE:Special	VISIBLE:NO	SA:Throw Mind Blade
-MindBlade Psychic Strike	TYPE:Special	VISIBLE:NO	SA:Psychic Strike (+%d8)|PsychicStrike
-MindBlade Plus			TYPE:Special	VISIBLE:NO	SA:+% Mind Blade|MindBladePlus
-MindBlade Free Draw		TYPE:Special	VISIBLE:NO	SA:Draw Mind Blade as free action
-MindBlade Shape			TYPE:Special	VISIBLE:NO	SA:Shape Mind Blade
-MindBlade Enhancement		TYPE:Special	VISIBLE:NO	SA:Mind Blade Enhancement +%|MindBladeEnhancement
-MindBlade Bladewind		TYPE:Special	VISIBLE:NO	SA:Bladewind
-MindBlade Knife to the Soul	TYPE:Special	VISIBLE:NO	SA:Knife to the Soul
-MindBlade Multiple Throw	TYPE:Special	VISIBLE:NO	SA:Multiple Throw
+MindBlade Standard		TYPE:Special	VISIBLE:NO	SAB:Mind Blade
+MindBlade Throw			TYPE:Special	VISIBLE:NO	SAB:Throw Mind Blade
+MindBlade Psychic Strike	TYPE:Special	VISIBLE:NO	SAB:Psychic Strike (+%d8)|PsychicStrike
+MindBlade Plus			TYPE:Special	VISIBLE:NO	SAB:+% Mind Blade|MindBladePlus
+MindBlade Free Draw		TYPE:Special	VISIBLE:NO	SAB:Draw Mind Blade as free action
+MindBlade Shape			TYPE:Special	VISIBLE:NO	SAB:Shape Mind Blade
+MindBlade Enhancement		TYPE:Special	VISIBLE:NO	SAB:Mind Blade Enhancement +%|MindBladeEnhancement
+MindBlade Bladewind		TYPE:Special	VISIBLE:NO	SAB:Bladewind
+MindBlade Knife to the Soul	TYPE:Special	VISIBLE:NO	SAB:Knife to the Soul
+MindBlade Multiple Throw	TYPE:Special	VISIBLE:NO	SAB:Multiple Throw
 
 ###Block: elocator abilities
 # Feat Name			Type			Visible	Special Ability		Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
-Elocator Transporter	TYPE:Special	VISIBLE:NO	SA:Transporter (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
+Elocator Transporter	TYPE:Special	VISIBLE:NO	SAB:Transporter (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
 
 ###Block: thrallherd abilities
 # Feat Name			Type			Visible	Special Ability			Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
-Thrallherd Charm		TYPE:Special	VISIBLE:NO	SA:Psionic Charm (Ex)		STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
-Thrallherd Dominate	TYPE:Special	VISIBLE:NO	SA:Psionic Dominate (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
+Thrallherd Charm		TYPE:Special	VISIBLE:NO	SAB:Psionic Charm (Ex)		STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
+Thrallherd Dominate	TYPE:Special	VISIBLE:NO	SAB:Psionic Dominate (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
