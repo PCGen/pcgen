@@ -1700,6 +1700,38 @@ $Date:  $
     <td valign="top">
 <!-- Start Section Three - Column Two -->
 
+<!-- Start PSI Power Points Table -->
+|%VAR.TOTALPOWERPOINTS.GTEQ.1|
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="Prepared Spells">
+  <tr>
+    <td width="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+    <td background="preview/d20/fantasy/images/gold/border_top.png"><div align="center"><img src="preview/d20/fantasy/images/gold/title_psi_power_points.png" width="225" height="30"></div></td>
+    <td width="34"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+  </tr>
+  <tr>
+    <td background="preview/d20/fantasy/images/gold/border_left.png"></td>
+    <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+			  <td class="statCentered"><div align="center">Base PP: |VAR.BASEPOWERPOINTS.INTVAL|</div></td>
+			  <td class="statCentered"><div align="center">Bonus PP: |VAR.BONUSPOWERPOINTS.INTVAL|</div></td>
+			  <td class="statCentered"><div align="center">Total PP: |VAR.TOTALPOWERPOINTS.INTVAL|</div></td>
+		  </tr>
+		</table>
+
+	</td>
+    <td background="preview/d20/fantasy/images/gold/border_right.png"></td>
+  </tr>
+  <tr>
+    <td height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+    <td background="preview/d20/fantasy/images/gold/border_bottom.png"></td>
+    <td><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+  </tr>
+</table>
+|%|
+<!-- Stop PSI Power Points Table -->
+
 <!-- Start Skill Table -->
   <table width="100%" height="49" border="0" cellspacing="0" cellpadding="0">
     <tr> 
@@ -2010,6 +2042,108 @@ $Date:  $
   </tr>
 </table>
 <!-- Stop Money Table -->
+
+<!-- Start Magic Table -->
+|%MISC.MAGIC|
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="Prepared Spells">
+  <tr>
+    <td width="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+    <td background="preview/d20/fantasy/images/gold/border_top.png"><div align="center"><img src="preview/d20/fantasy/images/gold/title_magic.png" width="225" height="30"></div></td>
+    <td width="34"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+  </tr>
+  <tr>
+    <td background="preview/d20/fantasy/images/gold/border_left.png"></td>
+    <td class="skills" background="preview/d20/fantasy/images/gold/gold_tile.png">
+		|MISC.MAGIC|
+	</td>
+    <td background="preview/d20/fantasy/images/gold/border_right.png"></td>
+  </tr>
+  <tr>
+    <td height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+    <td background="preview/d20/fantasy/images/gold/border_bottom.png"></td>
+    <td><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+  </tr>
+</table>
+|%|
+<!-- Stop Magic Table -->
+
+<!-- Start Spellcaster Table -->
+</p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="Prepared Spells">
+  <tr>
+    <td width="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+    <td background="preview/d20/fantasy/images/gold/border_top.png"><div align="center"><img src="preview/d20/fantasy/images/gold/title_spellcasting.png" width="225" height="30"></div></td>
+    <td width="34"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+  </tr>
+  <tr>
+    <td background="preview/d20/fantasy/images/gold/border_left.png"></td>
+    <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
+|IIF(SPELLLISTMEMORIZE.%class:true.OR.SPELLLISTMEMORIZE.%class:false)|
+        <tr> 
+          <td colspan="11" class="statCentered" background="preview/d20/fantasy/images/gold/gold_tile_light.png">|SPELLLISTCLASS.%class| 
+		  <span class="spellStat">(|SPELLLISTTYPE.%class| caster, Primary Stat: |SPELLLISTDCSTAT.%class|, Casterlevel: |SPELLLISTCLASS.%class.LEVEL|)</span></td>
+        </tr>
+        <tr> 
+          <td width="20%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png">Spell Level</td>
+          <td width="8%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png"><div align="center">0</div></td>
+          <td width="8%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png"><div align="center">1</div></td>
+          <td width="8%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png"><div align="center">2</div></td>
+          <td width="8%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png"><div align="center">3</div></td>
+          <td width="8%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png"><div align="center">4</div></td>
+          <td width="8%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png"><div align="center">5</div></td>
+          <td width="8%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png"><div align="center">6</div></td>
+          <td width="8%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png"><div align="center">7</div></td>
+          <td width="8%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png"><div align="center">8</div></td>
+          <td width="8%" class="spellStat" background="preview/d20/fantasy/images/gold/gold_tile_light.png"><div align="center">9</div></td>
+        </tr>
+|IIF(SPELLLISTMEMORIZE.%class:false)|
+        <tr height="22"> 
+          <td class="spellName">Known</td>
+          <td class="spellName"><div align="center">|SPELLLISTKNOWN.%class.0|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTKNOWN.%class.1|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTKNOWN.%class.2|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTKNOWN.%class.3|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTKNOWN.%class.4|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTKNOWN.%class.5|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTKNOWN.%class.6|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTKNOWN.%class.7|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTKNOWN.%class.8|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTKNOWN.%class.9|</div></td>
+        </tr>
+|ENDIF|
+        <tr height="22"> 
+          <td class="spellName">Cast per Day</td>
+          <td class="spellName"><div align="center">|SPELLLISTCAST.%class.0|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTCAST.%class.1|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTCAST.%class.2|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTCAST.%class.3|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTCAST.%class.4|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTCAST.%class.5|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTCAST.%class.6|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTCAST.%class.7|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTCAST.%class.8|</div></td>
+          <td class="spellName"><div align="center">|SPELLLISTCAST.%class.9|</div></td>
+        </tr>
+|ENDIF|
+|ENDFOR|
+|%PROHIBITEDLIST|
+       <tr> 
+          <td colspan="11" class="statCentered" background="preview/d20/fantasy/images/gold/gold_tile_light.png">Prohibited Schools: |PROHIBITEDLIST|</td>
+        </tr>
+|%|
+      </table>
+	</td>
+    <td background="preview/d20/fantasy/images/gold/border_right.png"></td>
+  </tr>
+  <tr>
+    <td height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+    <td background="preview/d20/fantasy/images/gold/border_bottom.png"></td>
+    <td><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+  </tr>
+</table>
+<!-- Start Spellcaster Table -->
 
 <!-- Stop Section Three - Column Two -->
 	</td>
