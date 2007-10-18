@@ -9,16 +9,16 @@ CLASS:Reef Warrior	HD:10		TYPE:PC.Prestige	ABB:RfW		MAXLEVEL:10	SOURCEPAGE:p.12	
 CLASS:Reef Warrior	PREALIGN:LN,NG,TN	PREATT:5	PREFEAT:1,Skill Focus(Swim)	PRERACE:1,Elf%	PRESKILL:1,Swim=6	PRESKILL:1,Hide=4	PRETEMPLATE:Coral Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Reef Warrior	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Hide|Intimidate|Listen|Scry|Search|Spot|Swim
-1	SA:Reef Bonding
-2	SA:Coral Skin +%|CoralSkin			BONUS:VAR|CoralSkin|CL/2	BONUS:COMBAT|AC|CoralSkin|TYPE=NaturalArmor						DEFINE:CoralSkin|0
-3	SA:Sustenance (Ex)																										ADD:FEAT|1|TYPE.Fighter
-4	SA:Alien Presence % (Ex)|AlienPresence	BONUS:VAR|AlienPresence|-1									BONUS:STAT|CHA|AlienPresence	DEFINE:AlienPresence|0
-5	SA:Meld (Su)	SA:Reef Attunement (Su)
+1	SAB:Reef Bonding
+2	SAB:Coral Skin +%|CoralSkin			BONUS:VAR|CoralSkin|CL/2	BONUS:COMBAT|AC|CoralSkin|TYPE=NaturalArmor						DEFINE:CoralSkin|0
+3	SAB:Sustenance (Ex)																										ADD:FEAT|1|TYPE.Fighter
+4	SAB:Alien Presence % (Ex)|AlienPresence	BONUS:VAR|AlienPresence|-1									BONUS:STAT|CHA|AlienPresence	DEFINE:AlienPresence|0
+5	SAB:Meld (Su)	SAB:Reef Attunement (Su)
 6								BONUS:VAR|AlienPresence|-1																		ADD:FEAT|1|TYPE.Fighter
-7	SA:Spikes (Su)
+7	SAB:Spikes (Su)
 8								BONUS:VAR|AlienPresence|-1
 9																														ADD:FEAT|1|TYPE.Fighter
-10	SA:Reefwalking (Sp)				BONUS:VAR|AlienPresence|-1
+10	SAB:Reefwalking (Sp)				BONUS:VAR|AlienPresence|-1
 
 #
 # end

@@ -14,21 +14,21 @@ Half-Dragon.MOD					LEVELADJUSTMENT:3	SOURCEPAGE:p.28																	PRE:.CLEAR
 # Half-dragon (XXX) done as .MOD of SRD.
 # Added DCs to breathweapon
 
-Half-Dragon (Black).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Acid	SA:60 foot Line of Acid 1/day (Dam 6d4/DC 17)
-Half-Dragon (Blue).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Electricity	SA:60 foot Line of Lightning 1/day (Dam 6d8/DC 18)
-Half-Dragon (Green).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Acid	SA:30 foot Cone of Gas 1/day (Dam 6d6/DC 17)
-Half-Dragon (Red).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Fire	SA:30 foot Cone of Fire 1/day (Dam 6d10/DC 19)
-Half-Dragon (White).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Cold	SA:30 foot Cone of Cold 1/day (Dam 3d6/DC 16)
-Half-Dragon (Brass).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Fire	SA:60 foot Line of Fire 1/day (Dam 3d6/DC 17)
-Half-Dragon (Bronze).MOD						SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Electricity	SA:60 foot Line of Lightning 1/day (Dam 6d6/DC 18)
-Half-Dragon (Copper).MOD						SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Acid	SA:60 foot Line of Acid 1/day (Dam 6d4/DC 17)
-Half-Dragon (Gold).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Fire	SA:30 foot Cone of Fire 1/day (Dam 6d10/DC 20)
-Half-Dragon (Silver).MOD						SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Cold	SA:30 foot Cone of Cold 1/day (6d8/DC 18)
+Half-Dragon (Black).MOD							SOURCEPAGE:p.28	SAB:.CLEAR	SAB:Immune to Acid	SAB:60 foot Line of Acid 1/day (Dam 6d4/DC 17)
+Half-Dragon (Blue).MOD							SOURCEPAGE:p.28	SAB:.CLEAR	SAB:Immune to Electricity	SAB:60 foot Line of Lightning 1/day (Dam 6d8/DC 18)
+Half-Dragon (Green).MOD							SOURCEPAGE:p.28	SAB:.CLEAR	SAB:Immune to Acid	SAB:30 foot Cone of Gas 1/day (Dam 6d6/DC 17)
+Half-Dragon (Red).MOD							SOURCEPAGE:p.28	SAB:.CLEAR	SAB:Immune to Fire	SAB:30 foot Cone of Fire 1/day (Dam 6d10/DC 19)
+Half-Dragon (White).MOD							SOURCEPAGE:p.28	SAB:.CLEAR	SAB:Immune to Cold	SAB:30 foot Cone of Cold 1/day (Dam 3d6/DC 16)
+Half-Dragon (Brass).MOD							SOURCEPAGE:p.28	SAB:.CLEAR	SAB:Immune to Fire	SAB:60 foot Line of Fire 1/day (Dam 3d6/DC 17)
+Half-Dragon (Bronze).MOD						SOURCEPAGE:p.28	SAB:.CLEAR	SAB:Immune to Electricity	SAB:60 foot Line of Lightning 1/day (Dam 6d6/DC 18)
+Half-Dragon (Copper).MOD						SOURCEPAGE:p.28	SAB:.CLEAR	SAB:Immune to Acid	SAB:60 foot Line of Acid 1/day (Dam 6d4/DC 17)
+Half-Dragon (Gold).MOD							SOURCEPAGE:p.28	SAB:.CLEAR	SAB:Immune to Fire	SAB:30 foot Cone of Fire 1/day (Dam 6d10/DC 20)
+Half-Dragon (Silver).MOD						SOURCEPAGE:p.28	SAB:.CLEAR	SAB:Immune to Cold	SAB:30 foot Cone of Cold 1/day (6d8/DC 18)
 
 # Star and Space dragon are new subspecies.
 
-Half-Dragon (Space)		VISIBLE:NO				SOURCEPAGE:p.28			SA:Immune to Cold	SA:30 foot Cone of Space 1/day (6d10/DC 19)							PREALIGN:LN								BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE								LANGAUTO:Draconic Sign Language	REMOVABLE:YES
-Half-Dragon (Star)		VISIBLE:NO				SOURCEPAGE:p.28			SA:Immune to Fire	SA:30 foot Line of Radiation 1/day (6d10/dc 20)							PREALIGN:CN								BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE								LANGAUTO:Draconic Sign Language	REMOVABLE:YES
+Half-Dragon (Space)		VISIBLE:NO				SOURCEPAGE:p.28			SAB:Immune to Cold	SAB:30 foot Cone of Space 1/day (6d10/DC 19)							PREALIGN:LN								BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE								LANGAUTO:Draconic Sign Language	REMOVABLE:YES
+Half-Dragon (Star)		VISIBLE:NO				SOURCEPAGE:p.28			SAB:Immune to Fire	SAB:30 foot Line of Radiation 1/day (6d10/dc 20)							PREALIGN:CN								BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE								LANGAUTO:Draconic Sign Language	REMOVABLE:YES
 #Mod version of SRD male/female templates
 
 Drow Male.MOD								SOURCEPAGE:p.27																																					BONUS:STAT|CHA|2	FAVOREDCLASS:Sorcerer
@@ -42,7 +42,7 @@ Outlands		VISIBLE:NO								SOURCEPAGE:p.	REGION:Yes
 
 ###Block: Robots/Soulmechs
 # Template Name	Visible	Special Ability																																																																																										Vision
-Robot			VISIBLE:YES	SA:Does not eat, drink, breathe, or sleep	SA:Does not heal damage on their own or through divine magic, though can be repaired like any object or with arcane magic	SA:Immune to any effect that requires a Fortitude save unless it effects objects also	SA:Cannot be raised or resurrected, but is effectively immortal since it does not age	SA:Cannot increase physical ability scores but can increase mental	SA:Not subject to subdual damage, or death from massive damage	SA:Immune to poison, sleep, paralysis, stunning, and disease	VISION:Low-light
+Robot			VISIBLE:YES	SAB:Does not eat, drink, breathe, or sleep	SAB:Does not heal damage on their own or through divine magic, though can be repaired like any object or with arcane magic	SAB:Immune to any effect that requires a Fortitude save unless it effects objects also	SAB:Cannot be raised or resurrected, but is effectively immortal since it does not age	SAB:Cannot increase physical ability scores but can increase mental	SAB:Not subject to subdual damage, or death from massive damage	SAB:Immune to poison, sleep, paralysis, stunning, and disease	VISION:Low-light
 
 ###Block: Vehicle
 # Template Name	Visible	Define																						Feat			Automaticaly Gained Weapon Prof.

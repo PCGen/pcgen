@@ -24,12 +24,12 @@ CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Concentration|Fr
 1	AUTO:FEAT|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (HighTechLight)
 ###Block: Normal Level Progression
-1	SA:Backfire	SA:Gun Mastery +%|GunMastery	BONUS:VAR|GunMastery|(CL+2)/3	DEFINE:GunMastery|0
-3	SA:Dead Aim
-5	SA:Dodge Fire
-7	SA:Haste
-9	SA:Firestorm
-10	SA:Absorb Energy
+1	SAB:Backfire	SAB:Gun Mastery +%|GunMastery	BONUS:VAR|GunMastery|(CL+2)/3	DEFINE:GunMastery|0
+3	SAB:Dead Aim
+5	SAB:Dodge Fire
+7	SAB:Haste
+9	SAB:Firestorm
+10	SAB:Absorb Energy
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Negotiator	HD:6		TYPE:PC.Prestige	ABB:Neg		MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
@@ -37,14 +37,14 @@ CLASS:Negotiator	HD:6		TYPE:PC.Prestige	ABB:Neg		MAXLEVEL:10	SOURCEPAGE:p.61	BON
 CLASS:Negotiator	PREFEAT:2,Iron Will,Leadership	PRESKILL:4,Bluff,Diplomacy,Innuendo,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Negotiator	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|TYPE.Knowledge|Listen|Move Silently|Perform|TYPE.Profession|Research|Search|Sense Motive|Speak Language|Spot
-1	SA:First Impression	SA:Fast Talk	SA:Bonus Languages	SA:Tongues						BONUS:LANGUAGES|NUMBER|1
-2	SA:Discern Lie %/day|DiscernLie								BONUS:VAR|DiscernLie|(CL+2)/4						DEFINE:DiscernLie|0
-3	SA:Suggestion																BONUS:LANGUAGES|NUMBER|1
-5	SA:Slippery Mind																BONUS:LANGUAGES|NUMBER|1
-6	SA:Detect Scrying and Surveillance
+1	SAB:First Impression	SAB:Fast Talk	SAB:Bonus Languages	SAB:Tongues						BONUS:LANGUAGES|NUMBER|1
+2	SAB:Discern Lie %/day|DiscernLie								BONUS:VAR|DiscernLie|(CL+2)/4						DEFINE:DiscernLie|0
+3	SAB:Suggestion																BONUS:LANGUAGES|NUMBER|1
+5	SAB:Slippery Mind																BONUS:LANGUAGES|NUMBER|1
+6	SAB:Detect Scrying and Surveillance
 7																			BONUS:LANGUAGES|NUMBER|1
 9																			BONUS:LANGUAGES|NUMBER|1
-10	SA:Mindscan												BONUS:VAR|DiscernLie|1
+10	SAB:Mindscan												BONUS:VAR|DiscernLie|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Technomancer	HD:6		TYPE:PC.Prestige	ABB:Tnm		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL
@@ -54,13 +54,13 @@ CLASS:Technomancer	PREFEAT:2,Technical Proficiency,TYPE=ItemCreation	PRESKILL:1,
 CLASS:Technomancer	STARTSKILLPTS:6	CSKILL:Alchemy|Concentration|TYPE.Craft|Cryptography|Decipher Script|Disable Device|TYPE.Knowledge|TYPE.Profession|Repair|Research|Scry|Spellcraft|Use Device|Use Magic Device
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Technomancer	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Technomancer|CL
-1	CAST:0		SA:Arcane Tools
-2	CAST:1		SA:Energy Flux
-3	CAST:1,0		SA:Confuse Construct
-4	CAST:1,1		SA:Enhance Construct
+1	CAST:0		SAB:Arcane Tools
+2	CAST:1		SAB:Energy Flux
+3	CAST:1,0		SAB:Confuse Construct
+4	CAST:1,1		SAB:Enhance Construct
 5	CAST:1,1,0
 6	CAST:1,1,1
-7	CAST:2,1,1,0	SA:Dominate Machine
+7	CAST:2,1,1,0	SAB:Dominate Machine
 8	CAST:2,1,1,1
 9	CAST:2,2,1,1
-10	CAST:2,2,2,1	SA:Meld with Construct
+10	CAST:2,2,2,1	SAB:Meld with Construct

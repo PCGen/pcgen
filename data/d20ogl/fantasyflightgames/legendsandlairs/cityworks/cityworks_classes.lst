@@ -8,27 +8,27 @@ CLASS:Acrobat	HD:8		TYPE:Base.PC	ABB:Acr		MAXLEVEL:20	SOURCEPAGE:p.15	LANGAUTO:L
 CLASS:Acrobat	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Hide|Jump|Move Silently|Perform|TYPE.Profession|Swim|Tumble|Use Rope
 1	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Simple
 ###Block: Improved Speed and Whirling Strike
-1	SA:Improved Speed (% ft.)|AcrobatSpeed	BONUS:VAR|AcrobatSpeed|(floor((CL+9)/3))*10|PRESIZEGTEQ:M	BONUS:VAR|AcrobatSpeed|(floor((CL+12)/3)*5)+(floor((CL+3)/9)*5)|PRESIZELTEQ:S	DEFINE:AcrobatSpeed|0
-1	SA:Whirling Strike +%|WhirlingStrikeLVL	BONUS:VAR|WhirlingStrikeLVL|(CL+5)/4																	DEFINE:WhirlingStrikeLVL|0
+1	SAB:Improved Speed (% ft.)|AcrobatSpeed	BONUS:VAR|AcrobatSpeed|(floor((CL+9)/3))*10|PRESIZEGTEQ:M	BONUS:VAR|AcrobatSpeed|(floor((CL+12)/3)*5)+(floor((CL+3)/9)*5)|PRESIZELTEQ:S	DEFINE:AcrobatSpeed|0
+1	SAB:Whirling Strike +%|WhirlingStrikeLVL	BONUS:VAR|WhirlingStrikeLVL|(CL+5)/4																	DEFINE:WhirlingStrikeLVL|0
 ###Block: Quarterstaff Affinity
-1	SA:Quarterstaff Affinity	BONUS:SKILL|Balance,Jump,Tumble|2|TYPE=Circumstance|PREEQUIP:1,TYPE=Quarterstaff	VFEAT:Ambidexterity|Two Weapon Fighting|PREEQUIPTWOWEAPON:1,TYPE=Quarterstaff
+1	SAB:Quarterstaff Affinity	BONUS:SKILL|Balance,Jump,Tumble|2|TYPE=Circumstance|PREEQUIP:1,TYPE=Quarterstaff	VFEAT:Ambidexterity|Two Weapon Fighting|PREEQUIPTWOWEAPON:1,TYPE=Quarterstaff
 ###Block: Normal progression
-1	SA:Agile Charge
+1	SAB:Agile Charge
 2							BONUS:VAR|ImprovedUncannyDodge|2																																					AUTO:FEAT|Uncanny Dodge
 4																																														VFEAT:Evasion
-5	SA:Rapid Climb
+5	SAB:Rapid Climb
 6																		ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run
-7	SA:Superior Charge
-8	SA:Power Leap
-9	SA:Tumbling Strike
+7	SAB:Superior Charge
+8	SAB:Power Leap
+9	SAB:Tumbling Strike
 10							BONUS:VAR|UncannyDodge|1	BONUS:VAR|ImprovedUncannyDodge|-1
 12																		ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run
-13	SA:Agile Landing
+13	SAB:Agile Landing
 14																		ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run
-16	SA:Uncanny Dodge (trap evasion)
-17	SA:Death From Above
+16	SAB:Uncanny Dodge (trap evasion)
+17	SAB:Death From Above
 18																		ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run
-20	SA:Supreme Agility
+20	SAB:Supreme Agility
 
 
 # Class Name		Output Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus
@@ -41,13 +41,13 @@ CLASS:Assassin (CW)	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Disg
 ###Block: Sneak Attack stacking Variables
 1	BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
 ###Block: Normal progression
-1	SA:Assassination
-2	SA:Weapon Mastery (+%/die Sneak Attack Bonus Damage)|AssassinWeaponSneakAttack																		DEFINE:AssassinWeaponSneakAttack|1	ADD:FEAT|1|TYPE.AssassinSpecialAbilities
-6	SA:Weapon Mastery (Blinding Strike)
-8	SA:Poison Mastery
-10	SA:Death Blow	SA:Weapon Mastery (Supreme Master)						BONUS:VAR|AssassinToHit|2	BONUS:VAR|AssassinDamage|2
-14	SA:Weapon Mastery (Deadly Strike)									BONUS:VAR|AssassinCritical|1
-18	SA:Weapon Mastery (Ultimate Master)									BONUS:VAR|AssassinWeaponSneakAttack|1	BONUS:VAR|AssassinToHit|2	BONUS:VAR|AssassinDamage|2
+1	SAB:Assassination
+2	SAB:Weapon Mastery (+%/die Sneak Attack Bonus Damage)|AssassinWeaponSneakAttack																		DEFINE:AssassinWeaponSneakAttack|1	ADD:FEAT|1|TYPE.AssassinSpecialAbilities
+6	SAB:Weapon Mastery (Blinding Strike)
+8	SAB:Poison Mastery
+10	SAB:Death Blow	SAB:Weapon Mastery (Supreme Master)						BONUS:VAR|AssassinToHit|2	BONUS:VAR|AssassinDamage|2
+14	SAB:Weapon Mastery (Deadly Strike)									BONUS:VAR|AssassinCritical|1
+18	SAB:Weapon Mastery (Ultimate Master)									BONUS:VAR|AssassinWeaponSneakAttack|1	BONUS:VAR|AssassinToHit|2	BONUS:VAR|AssassinDamage|2
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
@@ -56,15 +56,15 @@ CLASS:Pit Fighter	HD:10		TYPE:Base.PC	ABB:Ptf		MAXLEVEL:20	SOURCEPAGE:p.23	LANGA
 CLASS:Pit Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Heal|Intimidate|Jump|Perform
 1	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency|Improved Unarmed Strike	AUTO:WEAPONPROF|TYPE.Simple
 ###Block: Normal progression
-1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12		SA:Expert Pugilist																												ADD:FEAT|1|Exotic Weapon Proficiency	ADD:FEAT|1|Exotic Weapon Proficiency
+1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12		SAB:Expert Pugilist																												ADD:FEAT|1|Exotic Weapon Proficiency	ADD:FEAT|1|Exotic Weapon Proficiency
 2																BONUS:VAR|RageTimes|CL/5+1															DEFINE:RageTimes|0																AUTO:FEAT|Rage
-3									SA:Low Cunning (Expertise)																																									AUTO:FEAT|Expertise
+3									SAB:Low Cunning (Expertise)																																									AUTO:FEAT|Expertise
 4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																	ADD:FEAT|1|Exotic Weapon Proficiency
-6									SA:Low Cunning (Dodge +%)|PitFighterDodge	BONUS:VAR|PitFighterDodge|CL/6	BONUS:COMBAT|AC|PitFighterDodge|TYPE=Dodge|!PREEQUIP:2,TYPE=Armor,TYPE=Heavy	DEFINE:PitFighterDodge|0
+6									SAB:Low Cunning (Dodge +%)|PitFighterDodge	BONUS:VAR|PitFighterDodge|CL/6	BONUS:COMBAT|AC|PitFighterDodge|TYPE=Dodge|!PREEQUIP:2,TYPE=Armor,TYPE=Heavy	DEFINE:PitFighterDodge|0
 8	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																																ADD:FEAT|1|Exotic Weapon Proficiency
-9									SA:Low Cunning (Can't be flanked)
+9									SAB:Low Cunning (Can't be flanked)
 12	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																ADD:FEAT|1|Exotic Weapon Proficiency
-15									SA:Low Cunning (Critical Action)
+15									SAB:Low Cunning (Critical Action)
 16																																								ADD:FEAT|1|Exotic Weapon Proficiency
 17	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
 20																																								ADD:FEAT|1|Exotic Weapon Proficiency

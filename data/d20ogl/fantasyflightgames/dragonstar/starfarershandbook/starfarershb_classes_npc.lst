@@ -21,7 +21,7 @@ CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Crypt
 1	AUTO:FEAT|Rogue Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Backstab +%d6|Backstab	BONUS:VAR|Backstab|CL/5+1	DEFINE:Backstab|0
+1	SAB:Backstab +%d6|Backstab	BONUS:VAR|Backstab|CL/5+1	DEFINE:Backstab|0
 10														ADD:FEAT|1|TYPE.Fighter
 15														ADD:SPECIAL|1|Crippling Strike,Defensive Roll,Opportunist
 20														ADD:FEAT|1|TYPE.Fighter

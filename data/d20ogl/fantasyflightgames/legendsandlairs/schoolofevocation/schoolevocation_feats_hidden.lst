@@ -9,21 +9,21 @@ Order of Akmon Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Hamm
 
 ###Block: Discipline mastery for the Devoted Evoker
 # Feat Name					Type				Visible	Special Ability
-EvocationMasteryAcid			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Acid
-EvocationMasteryCold			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Cold
-EvocationMasteryEnergyConstruct	TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Energy Construct
-EvocationMasteryElectricity		TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Electricity
-EvocationMasteryFire			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Fire
-EvocationMasteryForce			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Force
-EvocationMasteryLight			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Light
-EvocationMasterySound			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Sound
+EvocationMasteryAcid			TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Acid
+EvocationMasteryCold			TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Cold
+EvocationMasteryEnergyConstruct	TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Energy Construct
+EvocationMasteryElectricity		TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Electricity
+EvocationMasteryFire			TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Fire
+EvocationMasteryForce			TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Force
+EvocationMasteryLight			TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Light
+EvocationMasterySound			TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Sound
 
 # Hidden feat: Evocation Library
-#Library Acid			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Acid)
-#Library Cold			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Cold)
-#Library Energy Construct	TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Energy Construct)
-#Library Electricity		TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Electricity)
-#Library Fire			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Fire)
-#Library Force			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Force)
-#Library Light			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Light)
-#Library Sound			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Sound)
+#Library Acid			TYPE:EvocationLibrary	VISIBLE:NO	SAB:Evocation Library (Acid)
+#Library Cold			TYPE:EvocationLibrary	VISIBLE:NO	SAB:Evocation Library (Cold)
+#Library Energy Construct	TYPE:EvocationLibrary	VISIBLE:NO	SAB:Evocation Library (Energy Construct)
+#Library Electricity		TYPE:EvocationLibrary	VISIBLE:NO	SAB:Evocation Library (Electricity)
+#Library Fire			TYPE:EvocationLibrary	VISIBLE:NO	SAB:Evocation Library (Fire)
+#Library Force			TYPE:EvocationLibrary	VISIBLE:NO	SAB:Evocation Library (Force)
+#Library Light			TYPE:EvocationLibrary	VISIBLE:NO	SAB:Evocation Library (Light)
+#Library Sound			TYPE:EvocationLibrary	VISIBLE:NO	SAB:Evocation Library (Sound)

@@ -9,16 +9,16 @@ CLASS:Kingpin	HD:6		TYPE:PC.Prestige	ABB:Kpn		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:
 CLASS:Kingpin	PREATT:7	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy,Intimidate=13	PRETEXT:Special
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Kingpin	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Tumble|Use Rope
-1	SA:Friends in Low Places	SA:Gang Boss
-2	SA:Steal Anything
-3	SA:Friends in High Places
-4	SA:Urban Predator
-5	SA:Thieves' House
-6	SA:City's Bounty
-7	SA:Mob Boss
-8	SA:Halls of Power
-9	SA:Keeper of Order
-10	SA:Crime Lord
+1	SAB:Friends in Low Places	SAB:Gang Boss
+2	SAB:Steal Anything
+3	SAB:Friends in High Places
+4	SAB:Urban Predator
+5	SAB:Thieves' House
+6	SAB:City's Bounty
+7	SAB:Mob Boss
+8	SAB:Halls of Power
+9	SAB:Keeper of Order
+10	SAB:Crime Lord
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
@@ -27,16 +27,16 @@ CLASS:Speaker of the City	HD:8		TYPE:PC.Prestige	ABB:SpC		MAXLEVEL:10	SOURCEPAGE
 CLASS:Speaker of the City	PRESKILL:1,Hide=4	PRESKILL:1,Scry=8	PRESPELLTYPE:1,Divine=3	PRETEXT:Special
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Gather Information|Handle Animal|Hide|TYPE.Knowledge|Pick Pocket|Scry|Sense Motive|Spellcraft|Wilderness Lore
-1	SA:Spirit of the City (Social Insight)				ADD:SPELLCASTER|1|Divine	AUTO:FEAT|SpeakerSpells|Speaker of the City in an urban setting
+1	SAB:Spirit of the City (Social Insight)				ADD:SPELLCASTER|1|Divine	AUTO:FEAT|SpeakerSpells|Speaker of the City in an urban setting
 2											ADD:SPELLCASTER|1|Divine
-3	SA:Spirit of the City (City Sense)					ADD:SPELLCASTER|1|Divine
+3	SAB:Spirit of the City (City Sense)					ADD:SPELLCASTER|1|Divine
 4											ADD:SPELLCASTER|1|Divine
-5	SA:Spirit of the City (Cloak of the City)				ADD:SPELLCASTER|1|Divine
+5	SAB:Spirit of the City (Cloak of the City)				ADD:SPELLCASTER|1|Divine
 6											ADD:SPELLCASTER|1|Divine
-7	SA:Spirit of the City (Eye of the City, Cast Scrying 1/day)	ADD:SPELLCASTER|1|Divine
+7	SAB:Spirit of the City (Eye of the City, Cast Scrying 1/day)	ADD:SPELLCASTER|1|Divine
 8											ADD:SPELLCASTER|1|Divine
-9	SA:Spirit of the City (Mind of the City)				ADD:SPELLCASTER|1|Divine
-10	SA:Spirit of the City (Avatar of the City)			ADD:SPELLCASTER|1|Divine
+9	SAB:Spirit of the City (Mind of the City)				ADD:SPELLCASTER|1|Divine
+10	SAB:Spirit of the City (Avatar of the City)			ADD:SPELLCASTER|1|Divine
 
 
 #Street Stalker
@@ -51,12 +51,12 @@ CLASS:Street Stalker	STARTSKILLPTS:8	CSKILL:Balance|Climb|Disable Device|Disguis
 ###Block: Sneak Attack stacking Variables
 1	BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
 ###Block: Normal progression
-1	SA:Urban Predetor (Stealth)			AUTO:FEAT|Street Stalker in an urban setting
-2	SA:Urban Predetor (Show of Strength)
-4	SA:Urban Predetor (Stunt Attack)
-6	SA:Urban Predetor (Urban Disguise)
-8	SA:Urban Predetor (Target assessment)
-10	SA:Urban Predetor (Sudden Strike)
+1	SAB:Urban Predetor (Stealth)			AUTO:FEAT|Street Stalker in an urban setting
+2	SAB:Urban Predetor (Show of Strength)
+4	SAB:Urban Predetor (Stunt Attack)
+6	SAB:Urban Predetor (Urban Disguise)
+8	SAB:Urban Predetor (Target assessment)
+10	SAB:Urban Predetor (Sudden Strike)
 
 #
 # end

@@ -24,9 +24,9 @@ Stealth				TYPE:General																																																									
 
 ### Discreet Companion Abilities
 
-Talkingtouch			TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																									SA:Talkingtouch																																																																									SOURCEPAGE:p.22
-Truthtouch				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																						PRESKILL:1,Sense Motive=4															SA:Truthtouch																																																																									SOURCEPAGE:p.22
-Paintouch				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																PRESTAT:1,DEX=15							SA:Paintouch																																																																									SOURCEPAGE:p.22
-Magekiss				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																									SA:Magekiss																																																																										SOURCEPAGE:p.22
-Siren's Song			TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																									SA:Siren's Song																																																																									SOURCEPAGE:p.23
-Caress of the Lost Hour		TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																		PRESA:Charmtouch												PRESTAT:2,DEX=15,CHA=15						SA:Caress of the Lost Hour																																																																							SOURCEPAGE:p.23
+Talkingtouch			TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																									SAB:Talkingtouch																																																																									SOURCEPAGE:p.22
+Truthtouch				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																						PRESKILL:1,Sense Motive=4															SAB:Truthtouch																																																																									SOURCEPAGE:p.22
+Paintouch				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																PRESTAT:1,DEX=15							SAB:Paintouch																																																																									SOURCEPAGE:p.22
+Magekiss				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																									SAB:Magekiss																																																																										SOURCEPAGE:p.22
+Siren's Song			TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																									SAB:Siren's Song																																																																									SOURCEPAGE:p.23
+Caress of the Lost Hour		TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																		PRESA:Charmtouch												PRESTAT:2,DEX=15,CHA=15						SAB:Caress of the Lost Hour																																																																							SOURCEPAGE:p.23

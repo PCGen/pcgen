@@ -19,11 +19,11 @@ CLASS:Devoted Illusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			S
 ###Block: Illusion DC bonus
 1	BONUS:DC|SCHOOL.Illusion|IllusionFocus	DEFINE:IllusionFocus|0
 ###Block: Normal Level Progression
-1	CAST:4,2				SA:Devotion																		ADD:FEAT|1|TYPE=IllusionMastery
-2	CAST:5,3				SA:Augment illusion (% levels)|AugmentIllusion	BONUS:VAR|AugmentIllusion|CL/4+1	DEFINE:AugmentIllusion|0
-3	CAST:5,3,2				SA:Illusion focus (+%)|IllusionFocus		BONUS:VAR|IllusionFocus|CL/6+1
+1	CAST:4,2				SAB:Devotion																		ADD:FEAT|1|TYPE=IllusionMastery
+2	CAST:5,3				SAB:Augment illusion (% levels)|AugmentIllusion	BONUS:VAR|AugmentIllusion|CL/4+1	DEFINE:AugmentIllusion|0
+3	CAST:5,3,2				SAB:Illusion focus (+%)|IllusionFocus		BONUS:VAR|IllusionFocus|CL/6+1
 4	CAST:5,4,3
-5	CAST:5,4,3,2			SA:Clear senses
+5	CAST:5,4,3,2			SAB:Clear senses
 6	CAST:5,4,4,3
 7	CAST:5,5,4,3,2
 8	CAST:5,5,4,4,3
@@ -33,7 +33,7 @@ CLASS:Devoted Illusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			S
 12	CAST:5,5,5,5,4,4,3
 13	CAST:5,5,5,5,5,4,3,2
 14	CAST:5,5,5,5,5,4,4,3
-15	CAST:5,5,5,5,5,5,4,3,2		SA:Master of illusion (Sp)
+15	CAST:5,5,5,5,5,5,4,3,2		SAB:Master of illusion (Sp)
 16	CAST:5,5,5,5,5,5,4,4,3
 17	CAST:5,5,5,5,5,5,5,4,3,2
 18	CAST:5,5,5,5,5,5,5,4,4,3
@@ -51,16 +51,16 @@ CLASS:Arcane Herald	HD:4		TYPE:PC.Prestige	ABB:Her		MAXLEVEL:10	SOURCEPAGE:p.7	B
 CLASS:Arcane Herald	PREFEAT:1,Scribe Scroll	PRESKILL:1,Knowledge (Heraldry)=8	PRESPELL:1,Stolen Sight	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Herald	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|Innuendo|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Ride|Scry|Sense Motive|Spellcraft
-1	SA:Grand Words			BONUS:VAR|FMLevel|CL	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Summon Familiar
-2	SA:Craft Ink							ADD:SPELLCASTER|1|ANY
-3	SA:Clever Wit							ADD:SPELLCASTER|1|ANY
-4	SA:Elegant Hand (messages)					ADD:SPELLCASTER|1|ANY
-5	SA:Showy Gestures							ADD:SPELLCASTER|1|ANY
-6	SA:Tidings								ADD:SPELLCASTER|1|ANY
-7	SA:Meaningful Glances						ADD:SPELLCASTER|1|ANY
-8	SA:Elegant Hand (illusions)					ADD:SPELLCASTER|1|ANY
-9	SA:Renowned Prowess						ADD:SPELLCASTER|1|ANY
-10	SA:The Messenger							ADD:SPELLCASTER|1|ANY
+1	SAB:Grand Words			BONUS:VAR|FMLevel|CL	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Summon Familiar
+2	SAB:Craft Ink							ADD:SPELLCASTER|1|ANY
+3	SAB:Clever Wit							ADD:SPELLCASTER|1|ANY
+4	SAB:Elegant Hand (messages)					ADD:SPELLCASTER|1|ANY
+5	SAB:Showy Gestures							ADD:SPELLCASTER|1|ANY
+6	SAB:Tidings								ADD:SPELLCASTER|1|ANY
+7	SAB:Meaningful Glances						ADD:SPELLCASTER|1|ANY
+8	SAB:Elegant Hand (illusions)					ADD:SPELLCASTER|1|ANY
+9	SAB:Renowned Prowess						ADD:SPELLCASTER|1|ANY
+10	SAB:The Messenger							ADD:SPELLCASTER|1|ANY
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
@@ -69,16 +69,16 @@ CLASS:Deceiver	HD:4		TYPE:PC.Prestige	ABB:Dec		MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:
 CLASS:Deceiver	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Spell Focus(Illusion)	PRESKILL:3,Bluff,Concentration,Spellcraft=8	PRESPELL:1,False Thoughts	PRESPELLTYPE:2,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Deceiver	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Forgery|Innuendo|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
-1	SA:Dreamsmithing (% xp)|Dreamsmithing	BONUS:VAR|Dreamsmithing|10	DEFINE:Dreamsmithing|0	ADD:SPELLCASTER|1|ANY
-2	SA:Improved Detect Magic												ADD:SPELLCASTER|1|ANY
+1	SAB:Dreamsmithing (% xp)|Dreamsmithing	BONUS:VAR|Dreamsmithing|10	DEFINE:Dreamsmithing|0	ADD:SPELLCASTER|1|ANY
+2	SAB:Improved Detect Magic												ADD:SPELLCASTER|1|ANY
 3								BONUS:VAR|Dreamsmithing|30					ADD:SPELLCASTER|1|ANY
-4	SA:Shield/Enhance Magic Aura												ADD:SPELLCASTER|1|ANY
+4	SAB:Shield/Enhance Magic Aura												ADD:SPELLCASTER|1|ANY
 5								BONUS:VAR|Dreamsmithing|120					ADD:SPELLCASTER|1|ANY
-6	SA:Placebo															ADD:SPELLCASTER|1|ANY
+6	SAB:Placebo															ADD:SPELLCASTER|1|ANY
 7								BONUS:VAR|Dreamsmithing|480					ADD:SPELLCASTER|1|ANY
-8	SA:Snake Oil Salesman													ADD:SPELLCASTER|1|ANY
+8	SAB:Snake Oil Salesman													ADD:SPELLCASTER|1|ANY
 9								BONUS:VAR|Dreamsmithing|1920					ADD:SPELLCASTER|1|ANY
-10	SA:Detect Cursed Items													ADD:SPELLCASTER|1|ANY
+10	SAB:Detect Cursed Items													ADD:SPELLCASTER|1|ANY
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -87,16 +87,16 @@ CLASS:Dread Lord	HD:4		TYPE:PC.Prestige	ABB:Dre		MAXLEVEL:10	SOURCEPAGE:p.11	BON
 CLASS:Dread Lord	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Spell Focus(Illusion)	PRESKILL:1,Intimidate=6	PRESKILL:1,Spellcraft=8	PRESPELL:1,Awakened Fears	PRESPELLTYPE:2,Arcane=3	PRETEXT:See text
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dread Lord	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
-1	SA:Intensify Fears I										ADD:SPELLCASTER|1|ANY
+1	SAB:Intensify Fears I										ADD:SPELLCASTER|1|ANY
 2														ADD:SPELLCASTER|1|ANY
-3	SA:Tame Fears											ADD:SPELLCASTER|1|ANY
-4	SA:Intensify Fears II										ADD:SPELLCASTER|1|ANY
-5	SA:Unnerve %/day|Unnerve	BONUS:VAR|Unnerve|(CL-3)/2	DEFINE:Unnerve|0	ADD:SPELLCASTER|1|ANY
+3	SAB:Tame Fears											ADD:SPELLCASTER|1|ANY
+4	SAB:Intensify Fears II										ADD:SPELLCASTER|1|ANY
+5	SAB:Unnerve %/day|Unnerve	BONUS:VAR|Unnerve|(CL-3)/2	DEFINE:Unnerve|0	ADD:SPELLCASTER|1|ANY
 6														ADD:SPELLCASTER|1|ANY
 7														ADD:SPELLCASTER|1|ANY
-8	SA:Intensify Fears III										ADD:SPELLCASTER|1|ANY
+8	SAB:Intensify Fears III										ADD:SPELLCASTER|1|ANY
 9														ADD:SPELLCASTER|1|ANY
-10	SA:Master Fears											ADD:SPELLCASTER|1|ANY
+10	SAB:Master Fears											ADD:SPELLCASTER|1|ANY
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -105,16 +105,16 @@ CLASS:Lord of Illusion	HD:4		TYPE:PC.Prestige	ABB:LoIl		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Lord of Illusion	PRESKILL:2,Bluff,Spellcraft=8	PRESPELL:1,Major Image	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Lord of Illusion	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|Perform|TYPE.Profession|Sense Motive|Spellcraft
-1	SA:Trademark Illusion (%)|TrademarkIllusion	BONUS:VAR|TrademarkIllusion|(CL+1)/2	DEFINE:TrademarkIllusion|0	ADD:SPELLCASTER|1|ANY
-2	SA:Detect Illusion 3/day																ADD:SPELLCASTER|1|ANY
+1	SAB:Trademark Illusion (%)|TrademarkIllusion	BONUS:VAR|TrademarkIllusion|(CL+1)/2	DEFINE:TrademarkIllusion|0	ADD:SPELLCASTER|1|ANY
+2	SAB:Detect Illusion 3/day																ADD:SPELLCASTER|1|ANY
 3																					ADD:SPELLCASTER|1|ANY
-4	SA:Robust Illusions (+% to DCs)|RobustIllusions								DEFINE:RobustIllusions|2	ADD:SPELLCASTER|1|ANY
+4	SAB:Robust Illusions (+% to DCs)|RobustIllusions								DEFINE:RobustIllusions|2	ADD:SPELLCASTER|1|ANY
 5																					ADD:SPELLCASTER|1|ANY
-6	SA:Mutable Illusions																	ADD:SPELLCASTER|1|ANY
+6	SAB:Mutable Illusions																	ADD:SPELLCASTER|1|ANY
 7																					ADD:SPELLCASTER|1|ANY
 8									BONUS:VAR|RobustIllusions|2								ADD:SPELLCASTER|1|ANY
 9																					ADD:SPELLCASTER|1|ANY
-10	SA:Augment Illusions																	ADD:SPELLCASTER|1|ANY
+10	SAB:Augment Illusions																	ADD:SPELLCASTER|1|ANY
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -125,14 +125,14 @@ CLASS:Master of the Ruse	PREALIGN:CG,CN,CE	PREFEAT:3,Enlarge Spell,Extend Spell,
 CLASS:Master of the Ruse	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Disguise|Diplomacy|Escape Artist|Forgery|Gather Information|Hide|Intimidate|TYPE.Knowledge|Listen|Move Silently|Perform|TYPE.Profession|Scry|Sense Motive|Spellcraft|Spot|Tumble
 1															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=MasterRuseSpecialAbilities
 2															ADD:SPELLCASTER|1|ANY
-3	SA:Fool Me (one failure for -%)|FoolMe					DEFINE:FoolMe|-2	ADD:SPELLCASTER|1|ANY
+3	SAB:Fool Me (one failure for -%)|FoolMe					DEFINE:FoolMe|-2	ADD:SPELLCASTER|1|ANY
 4															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=MasterRuseSpecialAbilities
 5															ADD:SPELLCASTER|1|ANY
 6								BONUS:VAR|FoolMe|-2				ADD:SPELLCASTER|1|ANY
 7															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=MasterRuseSpecialAbilities
-8	SA:Shadow Duplicate											ADD:SPELLCASTER|1|ANY
+8	SAB:Shadow Duplicate											ADD:SPELLCASTER|1|ANY
 9															ADD:SPELLCASTER|1|ANY
-10	SA:Unassailable Ruse											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=MasterRuseSpecialAbilities
+10	SAB:Unassailable Ruse											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=MasterRuseSpecialAbilities
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
@@ -142,15 +142,15 @@ CLASS:Mind Master	PREFEAT:1,Spell Focus(Illusion)	PRESKILL:3,Concentration,Knowl
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mind Master	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Scry|Speak Language|Spellcraft
 1					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=MindMasterHue
-2	SA:Mnemonic Device	ADD:SPELLCASTER|1|ANY
+2	SAB:Mnemonic Device	ADD:SPELLCASTER|1|ANY
 3					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=MindMasterHue
-4	SA:Finger Snap		ADD:SPELLCASTER|1|ANY
+4	SAB:Finger Snap		ADD:SPELLCASTER|1|ANY
 5					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=MindMasterHue
-6	SA:Hypnotic Pattern	ADD:SPELLCASTER|1|ANY
+6	SAB:Hypnotic Pattern	ADD:SPELLCASTER|1|ANY
 7					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=MindMasterHue
-8	SA:Pattern Barrier	ADD:SPELLCASTER|1|ANY
+8	SAB:Pattern Barrier	ADD:SPELLCASTER|1|ANY
 9					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=MindMasterHue
-10	SA:Convincing Illusions	ADD:SPELLCASTER|1|ANY
+10	SAB:Convincing Illusions	ADD:SPELLCASTER|1|ANY
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -159,16 +159,16 @@ CLASS:Mystic Infiltrator	HD:6		TYPE:PC.Prestige	ABB:Inf		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Mystic Infiltrator	PREFEAT:2,Alertness,Toughness	PRESKILL:3,Disguise,Hide,Move Silently=8	PRESPELL:1,Faceless	PRESPELLTYPE:2,Arcane=3	PRETEXT:See text
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Mystic Infiltrator	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Scry|Speak Language|Spellcraft
-1	SA:Master of Disguise															ADD:SPELLCASTER|1|ANY
-2	SA:Wormtongue (%)|Wormtongue					BONUS:VAR|Wormtongue|(CL+1)/3	DEFINE:Wormtongue|0	ADD:SPELLCASTER|1|ANY
-3	SA:Mystic Form (%/day)|MysticForm|PREVARLT:CL,10						DEFINE:MysticForm|1+CHA	ADD:SPELLCASTER|1|ANY
+1	SAB:Master of Disguise															ADD:SPELLCASTER|1|ANY
+2	SAB:Wormtongue (%)|Wormtongue					BONUS:VAR|Wormtongue|(CL+1)/3	DEFINE:Wormtongue|0	ADD:SPELLCASTER|1|ANY
+3	SAB:Mystic Form (%/day)|MysticForm|PREVARLT:CL,10						DEFINE:MysticForm|1+CHA	ADD:SPELLCASTER|1|ANY
 4																			ADD:SPELLCASTER|1|ANY
 5																			ADD:SPELLCASTER|1|ANY
 6																			ADD:SPELLCASTER|1|ANY
-7	SA:Like the Wind																ADD:SPELLCASTER|1|ANY
+7	SAB:Like the Wind																ADD:SPELLCASTER|1|ANY
 8																			ADD:SPELLCASTER|1|ANY
 9																			ADD:SPELLCASTER|1|ANY
-10	SA:Mystic Form (at will)														ADD:SPELLCASTER|1|ANY
+10	SAB:Mystic Form (at will)														ADD:SPELLCASTER|1|ANY
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -177,16 +177,16 @@ CLASS:Shadowmancer	HD:4		TYPE:PC.Prestige	ABB:Sha		MAXLEVEL:10	SOURCEPAGE:p.21	B
 CLASS:Shadowmancer	PREFEAT:2,Silent Spell,Still Spell	PRESKILL:2,Hide,Move Silently=8	PRESPELL:1,Deeper Darkness	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowmancer	STARTSKILLPTS:2	CSKILL:Concentration|Hide|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|TYPE.Profession|Spellcraft
-1	SA:Dark Research										ADD:SPELLCASTER|1|ANY	AUTO:ARMORPROF|TYPE=Light
-2	SA:Shadow Channel										ADD:SPELLCASTER|1|ANY
-3	SA:Summmon Shadow (1st shadow)|PREVARLT:CL,5					ADD:SPELLCASTER|1|ANY
+1	SAB:Dark Research										ADD:SPELLCASTER|1|ANY	AUTO:ARMORPROF|TYPE=Light
+2	SAB:Shadow Channel										ADD:SPELLCASTER|1|ANY
+3	SAB:Summmon Shadow (1st shadow)|PREVARLT:CL,5					ADD:SPELLCASTER|1|ANY
 4													ADD:SPELLCASTER|1|ANY
-5	SA:Summmon Shadow (1st shadow,+1 HD)|PREVARLT:CL,7				ADD:SPELLCASTER|1|ANY
+5	SAB:Summmon Shadow (1st shadow,+1 HD)|PREVARLT:CL,7				ADD:SPELLCASTER|1|ANY
 6													ADD:SPELLCASTER|1|ANY
-7	SA:Summmon Shadow (1st shadow,+2 HD)|PREVARLT:CL,9				ADD:SPELLCASTER|1|ANY
+7	SAB:Summmon Shadow (1st shadow,+2 HD)|PREVARLT:CL,9				ADD:SPELLCASTER|1|ANY
 8													ADD:SPELLCASTER|1|ANY
-9	SA:Summmon Shadow (1st shadow,+2 HD,strength funneling)|PREVARLT:CL,10	ADD:SPELLCASTER|1|ANY
-10	SA:Summmon Shadow (1st&2nd shadow,+2 HD,strength funneling)			ADD:SPELLCASTER|1|ANY
+9	SAB:Summmon Shadow (1st shadow,+2 HD,strength funneling)|PREVARLT:CL,10	ADD:SPELLCASTER|1|ANY
+10	SAB:Summmon Shadow (1st&2nd shadow,+2 HD,strength funneling)			ADD:SPELLCASTER|1|ANY
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -195,13 +195,13 @@ CLASS:Unseen Master	HD:4		TYPE:PC.Prestige	ABB:Uns		MAXLEVEL:10	SOURCEPAGE:p.23	
 CLASS:Unseen Master	PRESKILL:2,Hide,Spellcraft=8	PRESPELL:1,Selective Invisibility	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Unseen Master	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Hide|TYPE.Knowledge|Move Silently|TYPE.Profession|Sense Motive|Spellcraft
-1	SA:Unseen Mastery (+% to hit)|UnseenMastery		BONUS:VAR|UnseenMastery|(CL+3)/4+2	DEFINE:UnseenMastery|0	ADD:SPELLCASTER|1|ANY
+1	SAB:Unseen Mastery (+% to hit)|UnseenMastery		BONUS:VAR|UnseenMastery|(CL+3)/4+2	DEFINE:UnseenMastery|0	ADD:SPELLCASTER|1|ANY
 2																				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
-3	SA:Unseen Mastery (60% miss chance)|PREVARLT:CL,7											ADD:SPELLCASTER|1|ANY
+3	SAB:Unseen Mastery (60% miss chance)|PREVARLT:CL,7											ADD:SPELLCASTER|1|ANY
 4																				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
 5																				ADD:SPELLCASTER|1|ANY
 6																				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
-7	SA:Unseen Mastery (75% miss chance)														ADD:SPELLCASTER|1|ANY
+7	SAB:Unseen Mastery (75% miss chance)														ADD:SPELLCASTER|1|ANY
 8																				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility
 9																				ADD:SPELLCASTER|1|ANY
 10																				ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=UnseenMasterSpecialAbility

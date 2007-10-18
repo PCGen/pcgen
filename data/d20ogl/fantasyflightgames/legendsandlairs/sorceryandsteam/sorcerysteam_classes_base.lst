@@ -21,7 +21,7 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft
 17	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill17,1
 ###Block: Animal Companion & Master of the Wild
 1										BONUS:VAR|CompLevel|CL								AUTO:FEAT|Animal Companion
-1	SA:Master of the Wild (%/day)(Ex)|MasteroftheWild	BONUS:VAR|MasterOfTheWild|(CL+5)/6	DEFINE:MasterOfTheWild|0
+1	SAB:Master of the Wild (%/day)(Ex)|MasteroftheWild	BONUS:VAR|MasterOfTheWild|(CL+5)/6	DEFINE:MasterOfTheWild|0
 ###Block: Normal Level Progression
 1						ADD:FEAT|1|TYPE.AnimalLordAbility	ADD:FEAT|1|TYPE.AnimalLordTotem	AUTO:FEAT|Feral Child
 2																		AUTO:FEAT|Track
@@ -46,9 +46,9 @@ CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomac
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Sabotage (Ex)	SA:Steamcraft Creations (Ex)														AUTO:FEAT|Feral Child
+1	SAB:Sabotage (Ex)	SAB:Steamcraft Creations (Ex)														AUTO:FEAT|Feral Child
 2															ADD:FEAT|1|Artificer Skill Focus
-5	SA:Master Craftsman +%|MasterCraftsman		DEFINE:MasterCraftsman|(CL-2)/3	ADD:FEAT|1|Artificer Steamcraft Focus
+5	SAB:Master Craftsman +%|MasterCraftsman		DEFINE:MasterCraftsman|(CL-2)/3	ADD:FEAT|1|Artificer Steamcraft Focus
 8															ADD:FEAT|1|Artificer Skill Focus
 12															ADD:FEAT|1|Artificer Steamcraft Focus
 14															ADD:FEAT|1|Artificer Skill Focus
@@ -65,15 +65,15 @@ CLASS:Musketeer	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Cr
 ###Block: Normal Level Progression
 1																						AUTO:FEAT|Combat Reload|Rapid Reload (Firearms)
 2																						AUTO:FEAT|Reload on the Run
-3	SA:Avoid Fire +% (Ex)|AvoidFire							DEFINE:AvoidFire|1
-4	SA: Move and I'll Shoot (Ex)
+3	SAB:Avoid Fire +% (Ex)|AvoidFire							DEFINE:AvoidFire|1
+4	SAB: Move and I'll Shoot (Ex)
 5																	ADD:FEAT|1|TYPE.Musketeer
 6									BONUS:VAR|AvoidFire|1
-7	SA:Take Cover (Ex)
+7	SAB:Take Cover (Ex)
 8																	ADD:FEAT|1|TYPE.Musketeer
-10	SA:Crack Shot (Ex)					BONUS:VAR|AvoidFire|1
+10	SAB:Crack Shot (Ex)					BONUS:VAR|AvoidFire|1
 11																	ADD:FEAT|1|TYPE.Musketeer
-13	SA:Deadly Aim (%d6 Bonus Damage)(Ex)|DeadlyAim					DEFINE:DeadlyAim|1
+13	SAB:Deadly Aim (%d6 Bonus Damage)(Ex)|DeadlyAim					DEFINE:DeadlyAim|1
 14																	ADD:FEAT|1|TYPE.Musketeer
 15									BONUS:VAR|AvoidFire|1
 16									BONUS:VAR|DeadlyAim|1

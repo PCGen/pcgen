@@ -43,7 +43,7 @@ Musical Prodigy		TYPE:General.Heritage	PREFEAT:1,Child Prodigy																		
 Feral Child			TYPE:General.Heritage							PRELEVELMAX:1																DESC:You were raised by wolves or other beasts in the wild																												BONUS:SKILL|Handle Animal,Intimidate|3									SOURCEPAGE:p.107
 Feral Athleticism		TYPE:General.Heritage	PREFEAT:1,Feral Child																					DESC:You have a primal soul from being raised in the wild																												BONUS:SKILL|Climb,Jump|4											SOURCEPAGE:p.107
 Feral Voice			TYPE:General.Heritage	PREFEAT:1,Feral Child																					DESC:You can mimic the sounds of animals																																														SOURCEPAGE:p.107
-Feral Senses		TYPE:General.Heritage	PREFEAT:2,Feral Child,Alertness											SA:Scent							DESC:Your senses are as sharp as the most deadly wilderness predator																										BONUS:SKILL|Listen,Spot|2											SOURCEPAGE:p.108
+Feral Senses		TYPE:General.Heritage	PREFEAT:2,Feral Child,Alertness											SAB:Scent							DESC:Your senses are as sharp as the most deadly wilderness predator																										BONUS:SKILL|Listen,Spot|2											SOURCEPAGE:p.108
 Groomed for Nobility	TYPE:General.Heritage							PRELEVELMAX:1																DESC:You have been trained from birth to assume a role of importance, status and prestige																							BONUS:SKILL|Diplomacy,Sense Motive|3									SOURCEPAGE:p.108
 Noble Bearing		TYPE:General.Heritage	PREFEAT:1,Groomed for Nobility																			DESC:Your composure and attitude leave no doubt that you are destined for greatness																								BONUS:SKILL|Appraise,Knowledge (Nobility and Royalty)|4						SOURCEPAGE:p.108
 Noble Mien			TYPE:General.Heritage	PREFEAT:1,Noble Bearing										PRESTAT:1,CHA=13									DESC:Your very presence alone is enough to influence others in your favor																																								SOURCEPAGE:p.108
@@ -52,7 +52,7 @@ Industrial Know-How	TYPE:General.Heritage	PREFEAT:1,Industrial Upbringing							
 Industrial Master		TYPE:General.Heritage	PREFEAT:1,Industrial Know-How					PRESKILL:1,TYPE.Craft=1												DESC:You have a phenomenal ability to create items of exceptional quality																																								SOURCEPAGE:p.108
 Street Urchin		TYPE:General.Heritage							PRELEVELMAX:1																DESC:You were raised on the streets																																BONUS:SKILL|Gather Information,Innuendo|3									SOURCEPAGE:p.108
 Street Scamp		TYPE:General.Heritage	PREFEAT:1,Street Urchin										PRESTAT:1,DEX=13									DESC:You have parlayed your experience as a street urchin into great skill as a pickpocket																						BONUS:SKILL|Open Lock,Pick Pocket|4										SOURCEPAGE:p.109
-Street Rat			TYPE:General.Heritage	PREFEAT:1,Street Scamp						PRESKILL:1,Hide=1					SA:Trackless Step when in an urban environment	DESC:Growing up on the streets has given you a knowledge of the city second to none																								BONUS:SKILL|Knowledge (Local)|4					CSKILL:Knowledge (Local)	SOURCEPAGE:p.109
+Street Rat			TYPE:General.Heritage	PREFEAT:1,Street Scamp						PRESKILL:1,Hide=1					SAB:Trackless Step when in an urban environment	DESC:Growing up on the streets has given you a knowledge of the city second to none																								BONUS:SKILL|Knowledge (Local)|4					CSKILL:Knowledge (Local)	SOURCEPAGE:p.109
 
 #
 # end

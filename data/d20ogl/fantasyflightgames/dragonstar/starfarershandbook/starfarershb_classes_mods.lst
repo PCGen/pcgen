@@ -57,8 +57,8 @@ CLASS:Monk.MOD
 
 ###Block: Normal Level Progression
 #1	AUTO:WEAPONPROF|TYPE=Simple	AUTO:ARMORPROF|TYPE=Light|PREFEAT:1,Technical Proficiency
-4						SA:Evade Fire(Ex)
-7	SA:.CLEAR.Leap of the Clouds	SA:Leap of the Clouds(variable gravity still has normal effects)
+4						SAB:Evade Fire(Ex)
+7	SAB:.CLEAR.Leap of the Clouds	SAB:Leap of the Clouds(variable gravity still has normal effects)
 
 # Class Name	Removed Class Skill			Class Skill																					Cross-class Skill
 CLASS:Paladin.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE.Profession|Climb|Freefall|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
