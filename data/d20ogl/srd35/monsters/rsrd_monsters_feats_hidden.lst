@@ -6,4 +6,4 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ###Block: Winter Wolf abilities
 # Feat Name			Type						Visible	Special Ability																																Define																										Source Page
-Winter Wolf Breath	TYPE:Supernatural.AttackOption	VISIBLE:NO	SA:Breath Weapon (Su) %' Cone of Cold every %d4 rounds damage %d6 cold Reflex DC % half|WinterWolfBreathWeaponConeRange|WinterWolfBreathWeaponRecharge|WinterWolfBreathWeaponDice|WinterWolfBreathWeaponDC	DEFINE:WinterWolfBreathWeaponConeRange|15	DEFINE:WinterWolfBreathWeaponRecharge|1	DEFINE:WinterWolfBreathWeaponDice|4	DEFINE:WinterWolfBreathWeaponDC|13+CON	SOURCEPAGE:MonstersT-Z.rtf
+Winter Wolf Breath	TYPE:Supernatural.AttackOption	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Cold every %d4 rounds damage %d6 cold Reflex DC % half|WinterWolfBreathWeaponConeRange|WinterWolfBreathWeaponRecharge|WinterWolfBreathWeaponDice|WinterWolfBreathWeaponDC	DEFINE:WinterWolfBreathWeaponConeRange|15	DEFINE:WinterWolfBreathWeaponRecharge|1	DEFINE:WinterWolfBreathWeaponDice|4	DEFINE:WinterWolfBreathWeaponDC|13+CON	SOURCEPAGE:MonstersT-Z.rtf
