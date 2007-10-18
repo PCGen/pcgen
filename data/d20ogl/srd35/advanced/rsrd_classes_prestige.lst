@@ -29,9 +29,9 @@ CLASS:Arcane Trickster	HD:4		TYPE:PC.Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:Pr
 CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:3,Decipher Script,Disable Device,Escape Artist=7	PRESKILL:1,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttack,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Profession|Sense Motive|Search|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Rope
-1	SA:Ranged Ledgerdemain %/day (Su)|RangedLedgermain	BONUS:VAR|RangedLedgermain|(CL+3)/4	DEFINE:RangedLedgermain|0	ADD:SPELLCASTER|ANY
+1	SAB:Ranged Ledgerdemain %/day (Su)|RangedLedgermain	BONUS:VAR|RangedLedgermain|(CL+3)/4	DEFINE:RangedLedgermain|0	ADD:SPELLCASTER|ANY
 2										BONUS:VAR|SneakAttack|CL/2							ADD:SPELLCASTER|ANY	AUTO:FEAT|Sneak Attack
-3	SA:Impromptu Sneak Attack %/day (Su)|ImpromptuSneak	BONUS:VAR|ImpromptuSneak|(CL+1)/4	DEFINE:ImpromptuSneak|0		ADD:SPELLCASTER|ANY
+3	SAB:Impromptu Sneak Attack %/day (Su)|ImpromptuSneak	BONUS:VAR|ImpromptuSneak|(CL+1)/4	DEFINE:ImpromptuSneak|0		ADD:SPELLCASTER|ANY
 4																					ADD:SPELLCASTER|ANY
 5																					ADD:SPELLCASTER|ANY
 6																					ADD:SPELLCASTER|ANY
@@ -93,8 +93,8 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	BONUS:VAR|SneakAttack|1|PRECLASS:1,Ex Paladin=5
 4	BONUS:VAR|SneakAttack|(CL-1)/3							AUTO:FEAT|Sneak Attack
 ###Block: Other Paladin related Abilities
-1	SA:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayOnHands|0
-1	SA:Fiendish Summoning (Sp)|PRECLASS:1,Ex Paladin=7
+1	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayOnHands|0
+1	SAB:Fiendish Summoning (Sp)|PRECLASS:1,Ex Paladin=7
 ###Block: Servants Servant (Undead and Fiendish)
 5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	VFEAT:Undead Companion|PRECLASS:1,Ex Paladin=9
 5	BONUS:VAR|FSLevel|CL							VFEAT:Fiendish Servant
@@ -124,44 +124,44 @@ CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 ###COMMENT: CHOICE is invalid without COST tag, and as these aren't specializing in a Spell SCHOOL isn't required. Commented out and replaced with COST tag. - AM
 #SUBCLASS:Black Dragon Disciple	CHOICE:Black Dragon Disciple
 SUBCLASS:Black Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	SA:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-SUBCLASSLEVEL:10	SA:Immune to Acid
+SUBCLASSLEVEL:3	SAB:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+SUBCLASSLEVEL:10	SAB:Immune to Acid
 #SUBCLASS:Blue Dragon Disciple	CHOICE:Blue Dragon Disciple
 SUBCLASS:Blue Dragon Disciple		COST:0
-SUBCLASSLEVEL:3	SA:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-SUBCLASSLEVEL:10	SA:Immune to Electricity
+SUBCLASSLEVEL:3	SAB:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+SUBCLASSLEVEL:10	SAB:Immune to Electricity
 #SUBCLASS:Green Dragon Disciple	CHOICE:Green Dragon Disciple
 SUBCLASS:Green Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	SA:Cone of Gas (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-SUBCLASSLEVEL:10	SA:Immune to Acid
+SUBCLASSLEVEL:3	SAB:Cone of Gas (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+SUBCLASSLEVEL:10	SAB:Immune to Acid
 #SUBCLASS:Red Dragon Disciple		CHOICE:Red Dragon Disciple
 SUBCLASS:Red Dragon Disciple		COST:0
-SUBCLASSLEVEL:3	SA:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-SUBCLASSLEVEL:10	SA:Immune to Fire
+SUBCLASSLEVEL:3	SAB:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+SUBCLASSLEVEL:10	SAB:Immune to Fire
 #SUBCLASS:White Dragon Disciple	CHOICE:White Dragon Disciple
 SUBCLASS:White Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	SA:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-SUBCLASSLEVEL:10	SA:Immune to Cold
+SUBCLASSLEVEL:3	SAB:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+SUBCLASSLEVEL:10	SAB:Immune to Cold
 #SUBCLASS:Brass Dragon Disciple	CHOICE:Brass Dragon Disciple
 SUBCLASS:Brass Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	SA:Line of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-SUBCLASSLEVEL:10	SA:Immune to Fire
+SUBCLASSLEVEL:3	SAB:Line of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+SUBCLASSLEVEL:10	SAB:Immune to Fire
 #SUBCLASS:Bronze Dragon Disciple	CHOICE:Bronze Dragon Disciple
 SUBCLASS:Bronze Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	SA:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-SUBCLASSLEVEL:10	SA:Immune to Electricity
+SUBCLASSLEVEL:3	SAB:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+SUBCLASSLEVEL:10	SAB:Immune to Electricity
 #SUBCLASS:Copper Dragon Disciple	CHOICE:Copper Dragon Disciple
 SUBCLASS:Copper Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	SA:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-SUBCLASSLEVEL:10	SA:Immune to Acid
+SUBCLASSLEVEL:3	SAB:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+SUBCLASSLEVEL:10	SAB:Immune to Acid
 #SUBCLASS:Gold Dragon Disciple		CHOICE:Gold Dragon Disciple
 SUBCLASS:Gold Dragon Disciple		COST:0
-SUBCLASSLEVEL:3	SA:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-SUBCLASSLEVEL:10	SA:Immune to Fire
+SUBCLASSLEVEL:3	SAB:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+SUBCLASSLEVEL:10	SAB:Immune to Fire
 #SUBCLASS:Silver Dragon Disciple	CHOICE:Silver Dragon Disciple
 SUBCLASS:Silver Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	SA:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-SUBCLASSLEVEL:10	SA:Immune to Cold
+SUBCLASSLEVEL:3	SAB:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+SUBCLASSLEVEL:10	SAB:Immune to Cold
 1																		BONUS:VAR|BreathWeaponDC|10+CL+CON	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							DEFINE:BreathWeaponDC|0		ADD:FEAT|Bonus Spell Slot 1
 2																																BONUS:STAT|STR|2									ADD:FEAT|Bonus Spell Slot 2					TEMPLATE:Dragon Disciple Attacks
 3																		BONUS:VAR|BreathWeaponDice|2																DEFINE:BreathWeaponDice|0
@@ -171,7 +171,7 @@ SUBCLASSLEVEL:10	SA:Immune to Cold
 7																		BONUS:VAR|BreathWeaponDice|2		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 8																																BONUS:STAT|INT|2									ADD:FEAT|Bonus Spell Slot 6
 9																																											ADD:FEAT|Bonus Spell Slot 7	ADD:FEAT|Dragon Wings
-10	VISION:Blindsense (60')|Low-light|Darkvision (60')	SA:Immune to Sleep	SA:Immune to Paralysis	BONUS:VAR|BreathWeaponDice|2		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2
+10	VISION:Blindsense (60')|Low-light|Darkvision (60')	SAB:Immune to Sleep	SAB:Immune to Paralysis	BONUS:VAR|BreathWeaponDice|2		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
