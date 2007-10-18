@@ -12,11 +12,11 @@ CLASS:Chaos Mage	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Chaos Mage|CL
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SA:Chaos Magic Casting +%|ChaosCasting	BONUS:VAR|ChaosCasting|CL	BONUS:VAR|ChaosCasting|CHA	DEFINE:ChaosCasting|0
-4	SA:Chaos Familiar
-5	SA:Multiple Effects %|MultipleEffects											DEFINE:MultipleEffects|CL/5
-8	SA:Countermagic
-12	SA:Purge Chaos
+1	SAB:Chaos Magic Casting +%|ChaosCasting	BONUS:VAR|ChaosCasting|CL	BONUS:VAR|ChaosCasting|CHA	DEFINE:ChaosCasting|0
+4	SAB:Chaos Familiar
+5	SAB:Multiple Effects %|MultipleEffects											DEFINE:MultipleEffects|CL/5
+8	SAB:Countermagic
+12	SAB:Purge Chaos
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Bloodcarver	HD:6		TYPE:PC.Prestige	ABB:bcc		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ChaosCasting|CL
@@ -26,11 +26,11 @@ CLASS:Bloodcarver	PREALIGN:CG,CN,CE	PRESKILL:1,Concentration=12	PREVARGTEQ:Chaos
 CLASS:Bloodcarver	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Intimidate|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Bloodcarver	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Bloodcarver|CL
-1			SA:Bloodletting
-2			SA:Ignore Pain										FEAT:Combat Casting
-3	DR:1/-	SA:Damage Reduction 1
-4			SA:Armour of Scars	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-5			SA:Bloodcarving
+1			SAB:Bloodletting
+2			SAB:Ignore Pain										FEAT:Combat Casting
+3	DR:1/-	SAB:Damage Reduction 1
+4			SAB:Armour of Scars	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+5			SAB:Bloodcarving
 
 # Class Name	Hit Dice	Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Doomringer	HD:4		ABB:dmc		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ChaosCasting|CL
@@ -40,9 +40,9 @@ CLASS:Doomringer	PREALIGN:CE	PRESKILL:1,Concentration=12	PREVARGTEQ:ChaosCasting
 CLASS:Doomringer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Craft (Coppersmith)|Knowledge (Necrology)|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Doomringer	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Doomringer|CL
-1	SA:Corpse Pact
-2	SA:Preserve Corpse
-3	SA:Blood Shunt
-4	SA:Walking Death
-5	SA:Avatar of Death
+1	SAB:Corpse Pact
+2	SAB:Preserve Corpse
+3	SAB:Blood Shunt
+4	SAB:Walking Death
+5	SAB:Avatar of Death
 

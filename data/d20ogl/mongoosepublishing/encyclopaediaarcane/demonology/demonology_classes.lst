@@ -8,15 +8,15 @@ CLASS:Demonologist	PREFEAT:1,Spell Mastery	PRELANG:1,Draconic
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Demonologist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
 1						ADD:SPELLCASTER|1|Arcane
-2	SA:Siphon Demonic Energy	ADD:SPELLCASTER|1|Arcane
-3	SA:Extended Instruction		ADD:SPELLCASTER|1|Arcane
-4	SA:Lesser Control			ADD:SPELLCASTER|1|Arcane
-5	SA:Multiple Summoning		ADD:SPELLCASTER|1|Arcane
-6	SA:Demonic Vulnerability	ADD:SPELLCASTER|1|Arcane
+2	SAB:Siphon Demonic Energy	ADD:SPELLCASTER|1|Arcane
+3	SAB:Extended Instruction		ADD:SPELLCASTER|1|Arcane
+4	SAB:Lesser Control			ADD:SPELLCASTER|1|Arcane
+5	SAB:Multiple Summoning		ADD:SPELLCASTER|1|Arcane
+6	SAB:Demonic Vulnerability	ADD:SPELLCASTER|1|Arcane
 7						ADD:SPELLCASTER|1|Arcane
-8	SA:Full Instruction		ADD:SPELLCASTER|1|Arcane
+8	SAB:Full Instruction		ADD:SPELLCASTER|1|Arcane
 9						ADD:SPELLCASTER|1|Arcane
-10	SA:Greater Control		ADD:SPELLCASTER|1|Arcane
+10	SAB:Greater Control		ADD:SPELLCASTER|1|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Binder	HD:4		TYPE:PC.Prestige	ABB:Bnd		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -41,5 +41,5 @@ CLASS:Possessed	HD:4		TYPE:PC.Prestige	ABB:Pos		MAXLEVEL:10	SOURCEPAGE:p.11-12	B
 CLASS:Possessed	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Strength of Personality	PRESKILL:1,Knowledge (Demonology)=11
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Possessed	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
-1	SA:Demonic Possession %/day|DemonPos	SA:Additional Demonic Trait %|DemonicTrait	DEFINE:DemonPos|CL*2	DEFINE:DemonicTrait|CL/3+1
+1	SAB:Demonic Possession %/day|DemonPos	SAB:Additional Demonic Trait %|DemonicTrait	DEFINE:DemonPos|CL*2	DEFINE:DemonicTrait|CL/3+1
 
