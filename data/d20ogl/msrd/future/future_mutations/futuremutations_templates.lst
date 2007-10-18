@@ -7,14 +7,14 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 Adrenaline Jolt (Strength)	VISIBLE:NO											BONUS:STAT|STR|%CHOICE|TYPE=Jolt|PREAPPLY:PC	CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Adrenaline Jolt	TEMPDESC:Once per day, as a free action, you can temporarily increase either your Strength or your Dexterity by 1d4+1 points. The increase lasts for a number of rounds equal to 3 + your Constitution modifier.
 Adrenaline Jolt (Dexterity)	VISIBLE:NO											BONUS:STAT|DEX|%CHOICE|TYPE=Jolt|PREAPPLY:PC	CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Adrenaline Jolt	TEMPDESC:Once per day, as a free action, you can temporarily increase either your Strength or your Dexterity by 1d4+1 points. The increase lasts for a number of rounds equal to 3 + your Constitution modifier.
 
-Resistance (Acid)			VISIBLE:NO	SA:Acid Resistance %|MutantEnergyAbsorption
-Resistance (Cold)			VISIBLE:NO	SA:Cold Resistance %|MutantEnergyAbsorption
-Resistance (Electricity)	VISIBLE:NO	SA:Electricity Resistance %|MutantEnergyAbsorption
-Resistance (Fire)			VISIBLE:NO	SA:Fire Resistance %|MutantEnergyAbsorption
-Resistance (Sonic)		VISIBLE:NO	SA:Sonic/Concussion Resistance %|MutantEnergyAbsorption
+Resistance (Acid)			VISIBLE:NO	SAB:Acid Resistance %|MutantEnergyAbsorption
+Resistance (Cold)			VISIBLE:NO	SAB:Cold Resistance %|MutantEnergyAbsorption
+Resistance (Electricity)	VISIBLE:NO	SAB:Electricity Resistance %|MutantEnergyAbsorption
+Resistance (Fire)			VISIBLE:NO	SAB:Fire Resistance %|MutantEnergyAbsorption
+Resistance (Sonic)		VISIBLE:NO	SAB:Sonic/Concussion Resistance %|MutantEnergyAbsorption
 
-Cold Susceptibility		VISIBLE:NO	SA:Cold Susceptibility
-Heat Susceptibility		VISIBLE:NO	SA:Heat Susceptibility
+Cold Susceptibility		VISIBLE:NO	SAB:Cold Susceptibility
+Heat Susceptibility		VISIBLE:NO	SAB:Heat Susceptibility
 
 Blood Hunger Penalties		VISIBLE:NO											BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:PC		CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4		TEMPDESC:If you go 24 hours without consuming blood, you take 1d4 points of Constitution damage.
 Poisonous Blood Damage		VISIBLE:NO											BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:PC		CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4		TEMPDESC:If you go 24 hours without taking a dose of antitox you must make a successful Fortitude save (DC 15) or take 1d4 points of Constitution damage.

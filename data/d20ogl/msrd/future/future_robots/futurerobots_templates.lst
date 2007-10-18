@@ -7,7 +7,7 @@ Biodroid Traits	HITDIE:10		VISIBLE:NO							DEFINE:LOCK.CON|10										FEAT:Cri
 Bioreplica Traits	HITDIE:10		VISIBLE:NO							DEFINE:LOCK.CON|10										FEAT:Critical Systems|Cybernetic Incompatibility|Immunities|Lifelike Appearance|Rejuvenation Cycle|Repairable|Robot Resurrection													KIT:1|Bioreplica Basics
 
 
-Robot						VISIBLE:NO	SA:Purchase DC: %|RobotPurchaseDC	DEFINE:RobotPurchaseDC|0	DEFINE:LOCK.CON|10					FEAT:Cybernetic Incompatibility|Immunities|Rejuvenation Cycle|Repairable|Robot Resurrection							AUTO:ARMORPROF|TYPE.Robotic		AUTO:WEAPONPROF|TYPE.Robotic		KIT:1|Robotic Abilities
+Robot						VISIBLE:NO	SAB:Purchase DC: %|RobotPurchaseDC	DEFINE:RobotPurchaseDC|0	DEFINE:LOCK.CON|10					FEAT:Cybernetic Incompatibility|Immunities|Rejuvenation Cycle|Repairable|Robot Resurrection							AUTO:ARMORPROF|TYPE.Robotic		AUTO:WEAPONPROF|TYPE.Robotic		KIT:1|Robotic Abilities
 
 Mindless Robot				VISIBLE:NO							DEFINE:LOCK.INT|10
 
