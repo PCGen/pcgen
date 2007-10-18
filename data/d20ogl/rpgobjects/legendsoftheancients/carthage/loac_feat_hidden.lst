@@ -2,4 +2,4 @@
 SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:Carthage	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
 
 # Feat Name		Type			Visible	Special Ability									Define
-Color of Money	TYPE:Special	VISIBLE:NO	SA:Color of Money +% (%/day)|ColorOfMoneyBonus|ColorOfMoneyTimes	DEFINE:ColorOfMoneyTimes|0	DEFINE:ColorOfMoneyBonus|0
+Color of Money	TYPE:Special	VISIBLE:NO	SAB:Color of Money +% (%/day)|ColorOfMoneyBonus|ColorOfMoneyTimes	DEFINE:ColorOfMoneyTimes|0	DEFINE:ColorOfMoneyBonus|0

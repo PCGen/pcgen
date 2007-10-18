@@ -9,7 +9,7 @@ CLASS:Mercenary	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Intimidat
 2																					VFEAT:Improved Feint
 3					BONUS:VAR|ColorOfMoneyTimes|CL/5+1	BONUS:VAR|ColorOfMoneyBonus|CL/3									AUTO:FEAT|Color of Money
 4																	ADD:FEAT|1|TYPE=Fighter
-7	SA:Mercenary's Revenge
+7	SAB:Mercenary's Revenge
 8																	ADD:FEAT|1|TYPE=Fighter
 13																	ADD:FEAT|1|TYPE=Fighter
 15					BONUS:VAR|ColorOfMoneyBonus|-1

@@ -11,14 +11,14 @@ CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Ta
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: standard
-1	SA:Mounted Combat +%|MountedCombat				BONUS:VAR|MountedCombat|(CL/4)+1		DEFINE:MountedCombat|0	VFEAT:Mounted Combat
-2	SA:Mounted Mobility	SA:Saddle Leap
-3	SA:Cavalry Mount	SA:Spur +%|CavalrySpur			BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))	DEFINE:CavalrySpur|0
-5	SA:Harry +%|CavalryHarry					BONUS:VAR|CavalryHarry|CL/5			DEFINE:CavalryHarry|0	VFEAT:Ride By Attack
-7	SA:Spur (nonlethal damage)	SA:Mounted Endurance
+1	SAB:Mounted Combat +%|MountedCombat				BONUS:VAR|MountedCombat|(CL/4)+1		DEFINE:MountedCombat|0	VFEAT:Mounted Combat
+2	SAB:Mounted Mobility	SAB:Saddle Leap
+3	SAB:Cavalry Mount	SAB:Spur +%|CavalrySpur			BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))	DEFINE:CavalrySpur|0
+5	SAB:Harry +%|CavalryHarry					BONUS:VAR|CavalryHarry|CL/5			DEFINE:CavalryHarry|0	VFEAT:Ride By Attack
+7	SAB:Spur (nonlethal damage)	SAB:Mounted Endurance
 9																					VFEAT:Spirited Charge
-10	SA:Mounted Agility
-11	SA:Like the Wind +%|LikeTheWind				BONUS:VAR|LikeTheWind|(CL-8)/3		DEFINE:LikeTheWind|0
-13	SA:Tall in the saddle
-18	SA:Lightning Attack
-19	SA:Companion Mount
+10	SAB:Mounted Agility
+11	SAB:Like the Wind +%|LikeTheWind				BONUS:VAR|LikeTheWind|(CL-8)/3		DEFINE:LikeTheWind|0
+13	SAB:Tall in the saddle
+18	SAB:Lightning Attack
+19	SAB:Companion Mount

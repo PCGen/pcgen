@@ -7,11 +7,11 @@ CLASS:Bad Cop	HD:10		MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude|CL/2
 CLASS:Bad Cop	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=6	PRESKILL:1,Knowledge (Streetwise)=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bad Cop	STARTSKILLPTS:4	CSKILL:Climb|Drive|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Repair|Sense Motive|Swim
-1	SA:Bad Cop (Unfriendly Persuasion) +%|Reputation
-2	SA:Street Cred
+1	SAB:Bad Cop (Unfriendly Persuasion) +%|Reputation
+2	SAB:Street Cred
 3																																													ADD:FEAT|1|TYPE.BadCop
-4	SA:Bad Cop (Beat Down %/day +%d%)|BeatDownTimes|BeatDownDieNum|BeatDownDieSize	BONUS:VAR|BeatDownTimes|CL/4	BONUS:VAR|BeatDownDieNum|CL/4								DEFINE:BeatDownTimes|0	DEFINE:BeatDownDieNum|0	DEFINE:BeatDownDieSize|6
-5	SA:Brute Smash	SA:Stoolie %/day|StoolieTimes							BONUS:VAR|BruteSmash|1	BONUS:VAR|StoolieTimes|CL/5		BONUS:COMBAT|DAMAGE.Melee|BruteSmash	DEFINE:BruteSmash|0	DEFINE:StoolieTimes|0
+4	SAB:Bad Cop (Beat Down %/day +%d%)|BeatDownTimes|BeatDownDieNum|BeatDownDieSize	BONUS:VAR|BeatDownTimes|CL/4	BONUS:VAR|BeatDownDieNum|CL/4								DEFINE:BeatDownTimes|0	DEFINE:BeatDownDieNum|0	DEFINE:BeatDownDieSize|6
+5	SAB:Brute Smash	SAB:Stoolie %/day|StoolieTimes							BONUS:VAR|BruteSmash|1	BONUS:VAR|StoolieTimes|CL/5		BONUS:COMBAT|DAMAGE.Melee|BruteSmash	DEFINE:BruteSmash|0	DEFINE:StoolieTimes|0
 6																																													ADD:FEAT|1|TYPE.BadCop
 7															BONUS:VAR|BruteSmash|1
 9																																													ADD:FEAT|1|TYPE.BadCop
@@ -23,13 +23,13 @@ CLASS:Good Cop	HD:8		MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE
 CLASS:Good Cop	PREFEAT:1,Trustworthy	PRESKILL:3,Bluff,Diplomacy,Gather Information=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Good Cop	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Drive|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Investigate|Listen|Sense Motive|Spot
-1	SA:Good Cop (Friendly Persuasion) +%|Reputation
-2	SA:Banter +%|GoodCopBanter|PREVARGTEQ:GoodCopBanter,1					BONUS:VAR|ClassDefense|CHA+GoodCopBanter|TYPE=Competence								DEFINE:GoodCopBanter|0
+1	SAB:Good Cop (Friendly Persuasion) +%|Reputation
+2	SAB:Banter +%|GoodCopBanter|PREVARGTEQ:GoodCopBanter,1					BONUS:VAR|ClassDefense|CHA+GoodCopBanter|TYPE=Competence								DEFINE:GoodCopBanter|0
 3																																				ADD:FEAT|1|TYPE.GoodCop
-3	SA:% Undercover Personas|UndercoverPersonas						BONUS:VAR|UndercoverPersonas|CL/5+1												DEFINE:UndercoverPersonas|0
-4	SA:Street Contacts %/day|StreetContacts	SA:Good Cop (Ear to the Ground)	BONUS:VAR|StreetContacts|CL/4						BONUS:SKILL|Gather Information|Reputation	DEFINE:StreetContacts|0
+3	SAB:% Undercover Personas|UndercoverPersonas						BONUS:VAR|UndercoverPersonas|CL/5+1												DEFINE:UndercoverPersonas|0
+4	SAB:Street Contacts %/day|StreetContacts	SAB:Good Cop (Ear to the Ground)	BONUS:VAR|StreetContacts|CL/4						BONUS:SKILL|Gather Information|Reputation	DEFINE:StreetContacts|0
 5														BONUS:VAR|GoodCopBanter|CL/5
 6																																				ADD:FEAT|1|TYPE.GoodCop
-7	SA:The Shield
-8	SA:Good Cop (Master Investigator)																		BONUS:SKILL|Investigate|Reputation
+7	SAB:The Shield
+8	SAB:Good Cop (Master Investigator)																		BONUS:SKILL|Investigate|Reputation
 9																																				ADD:FEAT|1|TYPE.GoodCop

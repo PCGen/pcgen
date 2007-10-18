@@ -51,11 +51,11 @@ Advanced Jungle/Swamp Training				TYPE:Terrain.NavyBoat																								V
 Advanced Mountain Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Mountain Warfare College																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|MountainTraining|1
 Advanced Urban Training						TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Urban Warfare College																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|UrbanTraining|1
 
-Air Superiority							TYPE:Special																									VISIBLE:NO																	SA:Air Superiority +%|AirSuperiority												DEFINE:AirSuperiority|0
-Strafing								TYPE:Special																									VISIBLE:NO																	SA:SA:Strafing +%|Strafing														DEFINE:Strafing|0
+Air Superiority							TYPE:Special																									VISIBLE:NO																	SAB:Air Superiority +%|AirSuperiority												DEFINE:AirSuperiority|0
+Strafing								TYPE:Special																									VISIBLE:NO																	SAB:SA:Strafing +%|Strafing														DEFINE:Strafing|0
 
-Hostage Rescue							TYPE:Special																									VISIBLE:NO																	SA:Hostage Rescue|PREVARLT:HostageRescue,6	SA:Hostage Rescue (no crossfire)|PREVARGTEQ:HostageRescue,6
+Hostage Rescue							TYPE:Special																									VISIBLE:NO																	SAB:Hostage Rescue|PREVARLT:HostageRescue,6	SAB:Hostage Rescue (no crossfire)|PREVARGTEQ:HostageRescue,6
 
-Hasty Construction						TYPE:Special																									VISIBLE:NO																	SA:Hasty Construction % pct|HastyConstruction											DEFINE:HastyConstruction|100
+Hasty Construction						TYPE:Special																									VISIBLE:NO																	SAB:Hasty Construction % pct|HastyConstruction											DEFINE:HastyConstruction|100
 
-Semper Fi								TYPE:Special																									VISIBLE:NO																	SA:Semper Fi
+Semper Fi								TYPE:Special																									VISIBLE:NO																	SAB:Semper Fi

@@ -6,4 +6,4 @@ Sneak Attack.MOD			TYPE:GuerillaWarfare
 Sneak Attack Damage Increase	TYPE:GuerillaWarfare	VISIBLE:NO	PREFEAT:1,Sneak Attack														STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|SneakAttack|1
 Home Turf Increase		TYPE:GuerillaWarfare	VISIBLE:NO																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|HomeTurf|1
 
-Defensive Position		TYPE:Special		VISIBLE:NO					SA:Defensive Position +%|DefensivePosition	DEFINE:DefensivePosition|0
+Defensive Position		TYPE:Special		VISIBLE:NO					SAB:Defensive Position +%|DefensivePosition	DEFINE:DefensivePosition|0

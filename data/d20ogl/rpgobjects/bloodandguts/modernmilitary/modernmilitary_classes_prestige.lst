@@ -22,7 +22,7 @@ CLASS:Air Force Combat Controllers	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Cl
 9	ADD:FEAT|1|TYPE=SpecOpsTraining
 10	ADD:FEAT|1|TYPE=MOS,TYPE=CombatControllers
 ###Block: Rest of progression
-3	SA:Grace Under Pressure (Combat Controllers) %/day|GraceUnderPressureCombatContoller	BONUS:VAR|GraceUnderPressureCombatContoller|1	DEFINE:GraceUnderPressureCombatContoller|0
+3	SAB:Grace Under Pressure (Combat Controllers) %/day|GraceUnderPressureCombatContoller	BONUS:VAR|GraceUnderPressureCombatContoller|1	DEFINE:GraceUnderPressureCombatContoller|0
 5																BONUS:VAR|HastyConstruction|-(CL*2)											AUTO:FEAT|Hasty Construction
 7																BONUS:VAR|GraceUnderPressureCombatContoller|1
 9																BONUS:VAR|GraceUnderPressureCombatContoller|1
@@ -47,8 +47,8 @@ CLASS:Air Force Pararescue	STARTSKILLPTS:8	CSKILL:Climb|Communication Operations
 9	ADD:FEAT|1|TYPE=SpecOpsTraining
 10	ADD:FEAT|1|TYPE=Pararescue,TYPE=MOS
 ###Block: Rest of progression
-3	SA:Grace Under Pressure (Pararescue) %/day|GraceUnderPressurePararescue	BONUS:VAR|GraceUnderPressurePararescue|1	DEFINE:GraceUnderPressurePararescue|0
-5	SA:Bush Medicine
+3	SAB:Grace Under Pressure (Pararescue) %/day|GraceUnderPressurePararescue	BONUS:VAR|GraceUnderPressurePararescue|1	DEFINE:GraceUnderPressurePararescue|0
+5	SAB:Bush Medicine
 7													BONUS:VAR|GraceUnderPressurePararescue|1
 9													BONUS:VAR|GraceUnderPressurePararescue|1
 
@@ -72,7 +72,7 @@ CLASS:Army 75th Ranger Regiment	STARTSKILLPTS:4	CSKILL:Balance|Climb|Demolitions
 9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=Terrain
 10	ADD:FEAT|1|TYPE=Ranger,TYPE=MOS
 ###Block: Rest of progression
-1	SA:Death from Above
+1	SAB:Death from Above
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Army 160th SOAR	HD:6		TYPE:PC.Prestige.SpecOps	MAXLEVEL:5	SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -84,7 +84,7 @@ CLASS:Army 160th SOAR	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Climb|Communica
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Normal progression
 1						BONUS:VAR|Strafing|CL/4+1									AUTO:FEAT|Strafing
-2	SA:Air Support +%|AirSupport	BONUS:VAR|AirSupport|(CL+7)/3	DEFINE:AirSupport|0
+2	SAB:Air Support +%|AirSupport	BONUS:VAR|AirSupport|(CL+7)/3	DEFINE:AirSupport|0
 3															ADD:FEAT|1|TYPE=SOAR
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
@@ -106,7 +106,7 @@ CLASS:Army Delta Force	STARTSKILLPTS:6	CSKILL:Climb|Decipher Script|Demolitions|
 9	ADD:FEAT|1|TYPE=SpecOpsTraining
 10	ADD:FEAT|1|TYPE=DeltaForce,TYPE=MOS
 ###Block: Rest of progression
-1	SA:Counter Terrorist +%|CounterTerrorist	BONUS:VAR|CounterTerrorist|(CL+1)/2	DEFINE:CounterTerrorist|0
+1	SAB:Counter Terrorist +%|CounterTerrorist	BONUS:VAR|CounterTerrorist|(CL+1)/2	DEFINE:CounterTerrorist|0
 2								BONUS:VAR|HostageRescue|CL		DEFINE:HostageRescue|0		AUTO:FEAT|Hostage Rescue
 
 
@@ -128,8 +128,8 @@ CLASS:Marine Force Recon	STARTSKILLPTS:5	CSKILL:Climb|Communication Operations|C
 7	ADD:FEAT|1|TYPE=SpecOpsTraining
 9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=Terrain
 ###Block: Rest of progression
-5	SA:Grace Under Pressure (Marine Force Recon) %/day|GraceUnderPressureForceRecon	BONUS:VAR|GraceUnderPressureForceRecon|CL/5	DEFINE:GraceUnderPressureForceRecon|0
-8	SA:Esprit de Corps
+5	SAB:Grace Under Pressure (Marine Force Recon) %/day|GraceUnderPressureForceRecon	BONUS:VAR|GraceUnderPressureForceRecon|CL/5	DEFINE:GraceUnderPressureForceRecon|0
+8	SAB:Esprit de Corps
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Navy SEAL	HD:10		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -151,7 +151,7 @@ CLASS:Navy SEAL	STARTSKILLPTS:6	CSKILL:Climb|Craft (Electronic)|Craft (Mechanica
 9	ADD:FEAT|1|TYPE=SpecOpsTraining
 10	ADD:FEAT|1|TYPE=SEAL,TYPE=MOS
 ###Block: Rest of progression
-1	SA:Amphibious	BONUS:VAR|AmphibiousTraining|(CL+3)/2
+1	SAB:Amphibious	BONUS:VAR|AmphibiousTraining|(CL+3)/2
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Navy Special Boats Unit	HD:10		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -173,7 +173,7 @@ CLASS:Navy Special Boats Unit	STARTSKILLPTS:4	CSKILL:Climb|Demolitions|Disable D
 9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=NavyBoat
 10	ADD:FEAT|1|TYPE=SpecialBoat,TYPE=MOS
 ###Block: Rest of progression
-3	SA:River Warfare
+3	SAB:River Warfare
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Sniper	HD:6		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -195,7 +195,7 @@ CLASS:Sniper	STARTSKILLPTS:4	CSKILL:Climb|Hide|Intimidate|Jump|Knowledge (Tactic
 9	ADD:FEAT|1|TYPE=SpecOpsTraining
 10	ADD:FEAT|1|TYPE=Sniper,TYPE=MOS
 ###Block: Rest of progression
-1	SA:One Shot One Kill %d6|OneShotOneKill	BONUS:VAR|OneShotOneKill|(CL+1)/2	DEFINE:OneShotOneKill|0
+1	SAB:One Shot One Kill %d6|OneShotOneKill	BONUS:VAR|OneShotOneKill|(CL+1)/2	DEFINE:OneShotOneKill|0
 
 # Class Name						Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Special Forces Communications Sergeant	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -217,9 +217,9 @@ CLASS:Special Forces Communications Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Commun
 9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
 10	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS
 ###Block: Rest of progression
-2	SA:Indigenous Training (Communications)
-3	SA:Cross Training
-5	SA:Grace Under Pressure (Communications Sergeant) %/day|GraceUnderPressureCommunicationsSergeant	BONUS:VAR|GraceUnderPressureCommunicationsSergeant|CL/5	DEFINE:GraceUnderPressureCommunicationsSergeant|0
+2	SAB:Indigenous Training (Communications)
+3	SAB:Cross Training
+5	SAB:Grace Under Pressure (Communications Sergeant) %/day|GraceUnderPressureCommunicationsSergeant	BONUS:VAR|GraceUnderPressureCommunicationsSergeant|CL/5	DEFINE:GraceUnderPressureCommunicationsSergeant|0
 
 # Class Name					Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Special Forces Engineering Sergeant	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -241,9 +241,9 @@ CLASS:Special Forces Engineering Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Craft (Me
 9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
 10	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS
 ###Block: Rest of progression
-2	SA:Indigenous Training (Engineering)
-3	SA:Cross Training
-5	SA:Grace Under Pressure (Engineering Sergeant) %/day|GraceUnderPressureEngineeringSergeant	BONUS:VAR|GraceUnderPressureEngineeringSergeant|CL/5	DEFINE:GraceUnderPressureEngineeringSergeant|0
+2	SAB:Indigenous Training (Engineering)
+3	SAB:Cross Training
+5	SAB:Grace Under Pressure (Engineering Sergeant) %/day|GraceUnderPressureEngineeringSergeant	BONUS:VAR|GraceUnderPressureEngineeringSergeant|CL/5	DEFINE:GraceUnderPressureEngineeringSergeant|0
 5																	BONUS:VAR|HastyConstruction|-(CL*2)												AUTO:FEAT|Hasty Construction
 
 # Class Name						Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
@@ -266,9 +266,9 @@ CLASS:Special Forces Intelligence Specialist	STARTSKILLPTS:8	CSKILL:Climb|Demoli
 9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
 10	ADD:FEAT|1|TYPE=IntelligenceSpecialist,TYPE=MOS
 ###Block: Rest of progression
-2	SA:Indigenous Training (Intelligence)
-3	SA:Cross Training
-5	SA:Grace Under Pressure (Intelligence Specialist) %/day|GraceUnderPressureIntelligenceSpecialist	BONUS:VAR|GraceUnderPressureIntelligenceSpecialist|CL/5	DEFINE:GraceUnderPressureIntelligenceSpecialist|0
+2	SAB:Indigenous Training (Intelligence)
+3	SAB:Cross Training
+5	SAB:Grace Under Pressure (Intelligence Specialist) %/day|GraceUnderPressureIntelligenceSpecialist	BONUS:VAR|GraceUnderPressureIntelligenceSpecialist|CL/5	DEFINE:GraceUnderPressureIntelligenceSpecialist|0
 
 # Class Name					Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Special Forces Medical Sergeant	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -289,9 +289,9 @@ CLASS:Special Forces Medical Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Craft (Chemic
 9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
 10	ADD:FEAT|1|TYPE=MedicalSergeant,TYPE=MOS
 ###Block: Rest of progression
-2	SA:Indigenous Training (Meidcal)
-3	SA:Cross Training
-5	SA:Bush Medicine	SA:Grace Under Pressure (Medical Sergeant) %/day|GraceUnderPressureMedicalSergeant	BONUS:VAR|GraceUnderPressureMedicalSergeant|CL/5	DEFINE:GraceUnderPressureMedicalSergeant|0
+2	SAB:Indigenous Training (Meidcal)
+3	SAB:Cross Training
+5	SAB:Bush Medicine	SAB:Grace Under Pressure (Medical Sergeant) %/day|GraceUnderPressureMedicalSergeant	BONUS:VAR|GraceUnderPressureMedicalSergeant|CL/5	DEFINE:GraceUnderPressureMedicalSergeant|0
 
 # Class Name					Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Special Forces Weapons Sergeant	HD:10		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -313,9 +313,9 @@ CLASS:Special Forces Weapons Sergeant	STARTSKILLPTS:6	CSKILL:Climb|Craft (Struct
 9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
 10	ADD:FEAT|1|TYPE=WeaponsSergeant,TYPE=MOS
 ###Block: Rest of progression
-2	SA:Indigenous Training (Weapons)
-3	SA:Cross Training
-5	SA:Grace Under Pressure (Weapons Sergeant) %/day|GraceUnderPressureWeaponsSergeant	BONUS:VAR|GraceUnderPressureWeaponsSergeant|CL/5	DEFINE:GraceUnderPressureWeaponsSergeant|0
+2	SAB:Indigenous Training (Weapons)
+3	SAB:Cross Training
+5	SAB:Grace Under Pressure (Weapons Sergeant) %/day|GraceUnderPressureWeaponsSergeant	BONUS:VAR|GraceUnderPressureWeaponsSergeant|CL/5	DEFINE:GraceUnderPressureWeaponsSergeant|0
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Strategist	HD:6		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -332,16 +332,16 @@ CLASS:Strategist	STARTSKILLPTS:4	CSKILL:Bluff|Communication Operations|Diplomacy
 7	ADD:FEAT|1|TYPE=SpecOpsTraining
 9	ADD:FEAT|1|TYPE=SpecOpsTraining
 ###Block: Rest of progression
-1	SA:Inspire Bravery +%|InspireBravery		BONUS:VAR|InspireBravery|2	DEFINE:InspireBravery|0
-2	SA:Inspire Greatness %/day|InspireGreatness	BONUS:VAR|InspireGreatness|1	DEFINE:InspireGreatness|0
+1	SAB:Inspire Bravery +%|InspireBravery		BONUS:VAR|InspireBravery|2	DEFINE:InspireBravery|0
+2	SAB:Inspire Greatness %/day|InspireGreatness	BONUS:VAR|InspireGreatness|1	DEFINE:InspireGreatness|0
 3									BONUS:VAR|InspireBravery|1
-4	SA:Tactical Insight %/day|TacticalInsight		BONUS:VAR|TacticalInsight|1	DEFINE:TacticalInsight|0
+4	SAB:Tactical Insight %/day|TacticalInsight		BONUS:VAR|TacticalInsight|1	DEFINE:TacticalInsight|0
 5									BONUS:VAR|InspireBravery|1
 6									BONUS:VAR|InspireGreatness|1
 7									BONUS:VAR|TacticalInsight|1
 8									BONUS:VAR|InspireBravery|1
 9									BONUS:VAR|InspireGreatness|1
-10	SA:Semper Fi
+10	SAB:Semper Fi
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Top Gun	HD:6		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|7+TL/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|ClassDefense|(CL+4)/2	BONUS:VAR|Action|CL*7
@@ -352,9 +352,9 @@ CLASS:Top Gun	STARTSKILLPTS:4	CSKILL:Air Traffic Control|Communication Operation
 ###Block: Special Ops Level Tracker
 1							BONUS:VAR|SpecOpsLVL|CL			DEFINE:SpecOpsLVL|0
 ###Normal Progression
-1	SA:The Right Stuff %/day|RightStuff	BONUS:VAR|RightStuff|1			DEFINE:RightStuff|0
+1	SAB:The Right Stuff %/day|RightStuff	BONUS:VAR|RightStuff|1			DEFINE:RightStuff|0
 2							BONUS:VAR|AirSuperiority|(CL+1)/3					AUTO:FEAT|Air Superiority
-3	SA:Dogfighting				BONUS:VAR|Strafing|1							AUTO:FEAT|Strafing
+3	SAB:Dogfighting				BONUS:VAR|Strafing|1							AUTO:FEAT|Strafing
 4							BONUS:VAR|RightStuff|1
 6							BONUS:VAR|RightStuff|1
 7							BONUS:VAR|Strafing|1

@@ -11,6 +11,6 @@ CLASS:Corporate Fixer	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Craft (Chemical)
 ###Block:Sneak Attack
 2	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|SwiftStrike|SneakAttack|PREFEAT:1,Swift Strike
 ###Block:Normal Progression
-1	SA:Find the Quarry
-3	SA:Elude the Quarry
-5	SA:Finisher
+1	SAB:Find the Quarry
+3	SAB:Elude the Quarry
+5	SAB:Finisher

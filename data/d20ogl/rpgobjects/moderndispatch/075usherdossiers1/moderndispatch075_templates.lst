@@ -10,10 +10,10 @@ Medusa		NAMEISPI:YES	SOURCEPAGE:p.3	PREFEAT:1,Enemy	PRETEXT:Must have allegiance
 ###Block: membership benefits
 # Template Name		Product Identity?	Source Page		Special Ability		Required Template					Bonus to skill
 Medusa Special Access 1	NAMEISPI:YES	SOURCEPAGE:p.3					PRETEMPLATE:1,Medusa				BONUS:SKILL|Computer Use,Knowledge (Technology)|2|TYPE=Competence
-Medusa Special Access 2	NAMEISPI:YES	SOURCEPAGE:p.3	SA:Ghost in the Machine	PRETEMPLATE:1,Medusa Special Access 1
-Medusa Special Access 3	NAMEISPI:YES	SOURCEPAGE:p.3	SA:Medusa Protocol 1	PRETEMPLATE:1,Medusa Special Access 2
-Medusa Special Access 4	NAMEISPI:YES	SOURCEPAGE:p.3	SA:Cutting Edge		PRETEMPLATE:1,Medusa Special Access 3
-Medusa Special Access 5	NAMEISPI:YES	SOURCEPAGE:p.4	SA:Medusa Protocol 2	PRETEMPLATE:1,Medusa Special Access 4
+Medusa Special Access 2	NAMEISPI:YES	SOURCEPAGE:p.3	SAB:Ghost in the Machine	PRETEMPLATE:1,Medusa Special Access 1
+Medusa Special Access 3	NAMEISPI:YES	SOURCEPAGE:p.3	SAB:Medusa Protocol 1	PRETEMPLATE:1,Medusa Special Access 2
+Medusa Special Access 4	NAMEISPI:YES	SOURCEPAGE:p.3	SAB:Cutting Edge		PRETEMPLATE:1,Medusa Special Access 3
+Medusa Special Access 5	NAMEISPI:YES	SOURCEPAGE:p.4	SAB:Medusa Protocol 2	PRETEMPLATE:1,Medusa Special Access 4
 
 ###Block: special units
 # Template Name	Product Identity?	Source Page		Required Feat															Required Skill						Required Template		Bonus to skill						Modify VAR
