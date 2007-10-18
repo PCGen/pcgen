@@ -26,8 +26,8 @@ Gore (Huge)				VISIBLE:NO					PRESIZEEQ:H												NATURALATTACKS:Gore,Weapon.
 Gore (Gargantuan)			VISIBLE:NO					PRESIZEEQ:G												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,3d6
 Gore (Colossal)			VISIBLE:NO					PRESIZEEQ:C												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,4d6
 
-Powerful Charge (Medium)	VISIBLE:NO	SA:Powerful Charge (Ex)	PRESIZEEQ:M		BONUS:WEAPONPROF=Powerful Charge|DAMAGE|max(0,floor(STR/2))	NATURALATTACKS:Powerful Charge,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8
-Powerful Charge (Large)		VISIBLE:NO	SA:Powerful Charge (Ex)	PRESIZEEQ:L		BONUS:WEAPONPROF=Powerful Charge|DAMAGE|max(0,floor(STR/2))	NATURALATTACKS:Powerful Charge,Weapon.Natural.Melee.Finesseable.Piercing,*1,4d6
+Powerful Charge (Medium)	VISIBLE:NO	SAB:Powerful Charge (Ex)	PRESIZEEQ:M		BONUS:WEAPONPROF=Powerful Charge|DAMAGE|max(0,floor(STR/2))	NATURALATTACKS:Powerful Charge,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8
+Powerful Charge (Large)		VISIBLE:NO	SAB:Powerful Charge (Ex)	PRESIZEEQ:L		BONUS:WEAPONPROF=Powerful Charge|DAMAGE|max(0,floor(STR/2))	NATURALATTACKS:Powerful Charge,Weapon.Natural.Melee.Finesseable.Piercing,*1,4d6
 
 ###Block: Favored Classes
 
@@ -50,7 +50,7 @@ Minotrice Maze Mage Favored Class (Monster)	VISIBLE:NO																										
 ECL Adjuster	VISIBLE:NO	LEVELADJUSTMENT:LevelAdjustment					DEFINE:LevelAdjustment|0
 
 ### TODO: This should be a hidden feat but it doesn't add the feat if it is a feat
-Natural Cunning	VISIBLE:NO							SA:Natural Cunning (Ex)						VFEAT:Track
+Natural Cunning	VISIBLE:NO							SAB:Natural Cunning (Ex)						VFEAT:Track
 
 #
 # End
