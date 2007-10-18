@@ -25,19 +25,6 @@ Phase Arrow		TYPE:Special	VISIBLE:NO	SAB:Phase Arrow (Sp) %/day|PhaseArrowTimes	
 Hail of Arrows	TYPE:Special	VISIBLE:NO	SAB:Hail of Arrows (Sp) % maxium targets %/day|HailArrowsTargets|HailArrowsTimes	DEFINE:HailArrowsTargets|0	DEFINE:HailArrowsTimes|0										SOURCEPAGE:PrestigeClasses.rtf
 Arrow of Death	TYPE:Special	VISIBLE:NO	SAB:Arrow of Death (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
 
-###Block:Archmage High Arcana Class Abilities
-# Archmage abilities needs new PRE tag of PRESPELLSLOT that would function as PRESPELLSLOT:1,8 meaning that character must have 1 8th level spell slot
-# Feat Name				Type			Visible	Required Class		Req. Spell Type		Special Ability					Define			Stackable?	Multiple?	Choose		Bonus to spell cast/day				Modify VAR			Source Page
-Arcane Fire				TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=9	SAB:Arcane Fire											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=9|-1					SOURCEPAGE:PrestigeClasses.rtf
-Arcane Reach			TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=7	SAB:Arcane Reach											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:PrestigeClasses.rtf
-Mastery of Counterspelling	TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=7	SAB:Mastery of Counterspelling									MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:PrestigeClasses.rtf
-Mastery of Elements		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=8	SAB:Mastery of Elements										MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=8|-1					SOURCEPAGE:PrestigeClasses.rtf
-Mastery of Shaping		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=6	SAB:Mastery of Shaping										MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=6|-1					SOURCEPAGE:PrestigeClasses.rtf
-Archmage Spell Power		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=5	SAB:Spell Power +1											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1					SOURCEPAGE:PrestigeClasses.rtf
-#Needs alot of work -- Needs a way to dynamicly select a spell from spelllist and then get the level and class of the spell for removal of the spell slot
-#This is now set to indicate how many times the ability has been choosen
-Spell-Like Ability		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=5	SAB:Spell-Like Ability (%)|ArchmageSLA	DEFINE:ArchmageSLA|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1	BONUS:VAR|ArchmageSLA|1	SOURCEPAGE:PrestigeClasses.rtf
-
 ###Block: Assassin special abilities
 # Feat Name					Type				Visible	Special Ability						Define				Source Page
 Save against Poisons			TYPE:Extraordinary	VISIBLE:NO	SAB:+% save against poisons|AssassinPoisonSave	DEFINE:AssassinPoisonSave|0	SOURCEPAGE:PrestigeClasses.rtf

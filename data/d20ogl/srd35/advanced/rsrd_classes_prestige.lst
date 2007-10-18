@@ -46,11 +46,11 @@ CLASS:Archmage	HD:4		TYPE:PC.Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeCla
 CLASS:Archmage	PREFEAT:1,Skill Focus (Spellcraft)	PREFEAT:2,CHECKMULT,Spell Focus	PREMULT:5,[PRESPELLSCHOOL:Abjuration,1,5],[PRESPELLSCHOOL:Conjuration,1,5],[PRESPELLSCHOOL:Divination,1,5],[PRESPELLSCHOOL:Enchantment,1,5],[PRESPELLSCHOOL:Evocation,1,5],[PRESPELLSCHOOL:Illusion,1,5],[PRESPELLSCHOOL:Necromancy,1,5],[PRESPELLSCHOOL:Transmutation,1,5]	PRESKILL:2,Knowledge (Arcana),Spellcraft=15	PRESPELLTYPE:1,Arcane=7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
-1	ADD:SPELLCASTER|Arcane	ADD:FEAT|TYPE=HighArcana
-2	ADD:SPELLCASTER|Arcane	ADD:FEAT|TYPE=HighArcana
-3	ADD:SPELLCASTER|Arcane	ADD:FEAT|TYPE=HighArcana
-4	ADD:SPELLCASTER|Arcane	ADD:FEAT|TYPE=HighArcana
-5	ADD:SPELLCASTER|Arcane	ADD:FEAT|TYPE=HighArcana
+1	ADD:SPELLCASTER|Arcane	BONUS:ABILITYPOOL|High Arcana Ability|CL
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
 CLASS:Assassin	HD:6		TYPE:PC.Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

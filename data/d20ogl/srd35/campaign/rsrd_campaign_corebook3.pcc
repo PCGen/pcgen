@@ -70,6 +70,7 @@ HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryToo
 
 # Advanced
 CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst
+ABILITY:@/d20ogl/srd35/advanced/rsrd_abilities_class_prestige.lst
 
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_armorshields_specific.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_potions.lst
