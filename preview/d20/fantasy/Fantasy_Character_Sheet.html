@@ -1877,6 +1877,28 @@ $Date:  $
   </table>
 <!-- Stop Special Ability Table -->
 
+<!-- Start Salient Divine Ability Table -->
+|IIF(HASVAR:DivineRank)|
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="30" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+      <td height="30" background="preview/d20/fantasy/images/gold/border_top.png"><div align="center" class="title"><img src="preview/d20/fantasy/images/gold/title_salient_divine_ability.png" width="225" height="30"></div></td>
+      <td width="34" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+    </tr>
+    <tr> 
+      <td width="30" background="preview/d20/fantasy/images/gold/border_left.png"></td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png" class="statSmall">|ABILITYLIST.Salient Divine Ability|</td>
+      <td width="34" background="preview/d20/fantasy/images/gold/border_right.png"></td>
+    </tr>
+    <tr> 
+      <td width="30" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+      <td height="34" background="preview/d20/fantasy/images/gold/border_bottom.png"><div align="center"><img src="preview/d20/fantasy/images/gold/deco_bottom.png" width="90" height="34"></div></td>
+      <td width="34" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+    </tr>
+  </table>
+|ENDIF|
+<!-- Stop Salient Divine Ability Table -->
+
 <!-- Start Templates Table -->
 |FOR,%TemplateTest,STRLEN[TEMPLATELIST],STRLEN[TEMPLATELIST],1,0|
 |IIF(%TemplateTest:0)|
