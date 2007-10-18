@@ -3,7 +3,7 @@ SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWE
 # Original Entry by: Tir Gwaith
 
 # Feat Name		Type						Visible	Special Ability																							Define																																									Source Page
-Planar Turning	TYPE:Special.Turning.TurnPlanar	VISIBLE:NO	SA:Turn Planar (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesPlanar|TurnLevelPlanar|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	DEFINE:TurnTimesPlanar|TurnTimesBase	DEFINE:TurnLevelPlanar|TurnLevelBase	DEFINE:TurnDicePlanar|TurnDiceBase	DEFINE:TurnDieSizePlanar|TurnDieSizeBase	DEFINE:TurnDamagePlusPlanar|TurnDamagePlusBase	DEFINE:TurnCheckPlanar|TurnCheckBase	SOURCEPAGE:p.7
+Planar Turning	TYPE:Special.Turning.TurnPlanar	VISIBLE:NO	SAB:Turn Planar (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesPlanar|TurnLevelPlanar|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	DEFINE:TurnTimesPlanar|TurnTimesBase	DEFINE:TurnLevelPlanar|TurnLevelBase	DEFINE:TurnDicePlanar|TurnDiceBase	DEFINE:TurnDieSizePlanar|TurnDieSizeBase	DEFINE:TurnDamagePlusPlanar|TurnDamagePlusBase	DEFINE:TurnCheckPlanar|TurnCheckBase	SOURCEPAGE:p.7
 
 ###Block: Planar Attunement
 # Feat Name		Type					Visible	Required AL				Add

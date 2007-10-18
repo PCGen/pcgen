@@ -12,12 +12,12 @@ CLASS:The Ritualist	HD:6		TYPE:PC.Advanced	ABB:Rit		MAXLEVEL:10	SOURCEPAGE:p.11	
 CLASS:The Ritualist	PRESKILL:2,Knowledge (Arcane Lore),Knowledge (Theology and Philosophy)=6	PRESKILL:1,Research=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Ritualist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Knowledge (Arcane Lore)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|TYPE.Perform|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot
-1				SA:Summon Familiar	SA:Create Magic Circle
+1				SAB:Summon Familiar	SAB:Create Magic Circle
 2:REPEATLEVEL:2|0|8									ADD:FEAT|1|Elemental Affinity
-3				SA:Craft Magic Charm
+3				SAB:Craft Magic Charm
 5												ADD:FEAT|1|Brew Potion	ADD:FEAT|1|Magic Defense
-7				SA:Elemental Insight
-9				SA:Cast Without Circle
+7				SAB:Elemental Insight
+9				SAB:Cast Without Circle
 10												ADD:FEAT|1|Elemental Mastery
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
@@ -37,7 +37,7 @@ CLASS:Magic Grunt	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 9	CAST:4,3,3,2
 10	CAST:4,4,3,2,1
 ###BLOCK: general
-1				SA:Detect Magic
+1				SAB:Detect Magic
 2							ADD:FEAT|1|Magic Defense
 3:REPEATLEVEL:3				ADD:FEAT|1|TYPE=MagicGrunt
 4							ADD:FEAT|1|Focused
@@ -59,9 +59,9 @@ CLASS:Arcane Spec Op	STARTSKILLPTS:6	CSKILL:Climb|Craft (Chemical)|Diplomacy|Dem
 1							ADD:FEAT|1|Weapon Specialization,Spell Focus
 2:REPEATLEVEL:2				ADD:FEAT|1|TYPE=ArcaneSpecOp
 2							ADD:FEAT|1|Behind Enemy Lines
-3				SA:Night Raid
+3				SAB:Night Raid
 4							ADD:FEAT|1|Swift Strike
-5				SA:Light It Up
+5				SAB:Light It Up
 
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
 CLASS:Thaumaturgical Specialist	HD:6		TYPE:PC.Prestige	ABB:ThSp		MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3

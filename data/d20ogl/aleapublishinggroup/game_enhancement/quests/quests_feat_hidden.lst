@@ -3,7 +3,7 @@ SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_inf
 
 ###Block: Honor Guard abilities
 # Feat Name		Type			Visible	Special Ability				Define
-Combat Sense	TYPE:ClassAbility	VISIBLE:NO	SA:Combat Sense +%|CombatSense	DEFINE:CombatSense|0
+Combat Sense	TYPE:ClassAbility	VISIBLE:NO	SAB:Combat Sense +%|CombatSense	DEFINE:CombatSense|0
 
 ###Block: Questing Knight abilties
 # Feat Name		Type			Visible	Define			Bonus to skill
