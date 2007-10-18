@@ -13,12 +13,12 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 
 
 # Feat Name		Type			Visible	Special Ability																							Define			Save checks bonus						Combat bonus				Bonus to skill																		Source Page
-Negative Levels	TYPE:Special	VISIBLE:NO	SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:CHECKS|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	SOURCEPAGE:msrdspecialabilities.rtf
+Negative Levels	TYPE:Special	VISIBLE:NO	SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:CHECKS|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	SOURCEPAGE:msrdspecialabilities.rtf
 
 
 ###Block: Wealth Bonus
 # Feat Name		Type				Visible	Special Ability								Define			Modify VAR				Source Page
-Starting Wealth	TYPE:StartingWealth	VISIBLE:NO	SA:Wealth Bonus % (Current) % (Starting)|Wealth|WealthBonus	DEFINE:WealthBonus|0	BONUS:VAR|Wealth|WealthBonus	SOURCEPAGE:msrdbasicclasses.rtf
+Starting Wealth	TYPE:StartingWealth	VISIBLE:NO	SAB:Wealth Bonus % (Current) % (Starting)|Wealth|WealthBonus	DEFINE:WealthBonus|0	BONUS:VAR|Wealth|WealthBonus	SOURCEPAGE:msrdbasicclasses.rtf
 Wealth Roll of 2	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus|2		SOURCEPAGE:msrdbasicclasses.rtf
 Wealth Roll of 3	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus|3		SOURCEPAGE:msrdbasicclasses.rtf
 Wealth Roll of 4	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus|4		SOURCEPAGE:msrdbasicclasses.rtf
@@ -30,15 +30,15 @@ Wealth Roll of 8	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus
 
 ###Block: Techie Mastercraft
 # Feat Name			Type				Visible	Required Class		Special Ability						Define				Stackable?	Multiple?	Choose		Modify VAR				Source Page
-Electronic Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SA:Mastercraft (Electronic +%)|MasterElectronic	DEFINE:MasterElectronic|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterElectronic|1	SOURCEPAGE:msrdadvancedclasses.rtf
-Mechanical Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SA:Mastercraft (Mechanical +%)|MasterMechanical	DEFINE:MasterMechanical|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:msrdadvancedclasses.rtf
+Electronic Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SAB:Mastercraft (Electronic +%)|MasterElectronic	DEFINE:MasterElectronic|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterElectronic|1	SOURCEPAGE:msrdadvancedclasses.rtf
+Mechanical Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SAB:Mastercraft (Mechanical +%)|MasterMechanical	DEFINE:MasterMechanical|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:msrdadvancedclasses.rtf
 
 ###Block: Soldier and Gunslinger pseudofeats
 # Feat Name				Type			Visible	Required Feat						Var. Min. Value			Special Ability						Description		Multiple?	Choose					Weapon prof. bonus				Source Page
-Weapon Specialization		TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Focus					PREVARGTEQ:WeapSpecQualify,1	SA:Weapon Specialization (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus|1		BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:msrdadvancedclasses.rtf
-Greater Weapon Specialization	TYPE:Special	VISIBLE:NO	PREFEAT:2,Weapon Focus,Weapon Specialization						SA:Greater Weapon Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Specialization|1	BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:msrdadvancedclasses.rtf
-Improved Critical			TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Specialization								SA:Improved Critical (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Specialization|1	BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1	SOURCEPAGE:msrdadvancedclasses.rtf
-Greater Weapon Focus		TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Focus										SA:Greater Weapon Focus (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus|1		BONUS:WEAPONPROF=%LIST|TOHIT|1		SOURCEPAGE:msrdadvancedclasses.rtf
+Weapon Specialization		TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Focus					PREVARGTEQ:WeapSpecQualify,1	SAB:Weapon Specialization (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus|1		BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:msrdadvancedclasses.rtf
+Greater Weapon Specialization	TYPE:Special	VISIBLE:NO	PREFEAT:2,Weapon Focus,Weapon Specialization						SAB:Greater Weapon Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Specialization|1	BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:msrdadvancedclasses.rtf
+Improved Critical			TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Specialization								SAB:Improved Critical (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Specialization|1	BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1	SOURCEPAGE:msrdadvancedclasses.rtf
+Greater Weapon Focus		TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Focus										SAB:Greater Weapon Focus (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus|1		BONUS:WEAPONPROF=%LIST|TOHIT|1		SOURCEPAGE:msrdadvancedclasses.rtf
 
 ###Block: Creature Feats
 # Feat Name			Type			Visible	Description		Stackable?	Multiple?	Choose								Bonus to skill rank	Source Page
@@ -47,8 +47,8 @@ LowFiendKnowledge		TYPE:General	VISIBLE:NO	DESC:See text	STACK:NO	MULT:YES	CHOOS
 
 ###Block:Shadow Slayer Favored Enemies
 # Feat Name		Type			Visible	Required Class			Required Feat			Prohibited Feat			Special Ability			Multiple?	Choose
-Shadow Enemy I	TYPE:ShadowEnemy	VISIBLE:NO	PRECLASS:1,Shadow Slayer=5						!PREFEAT:1,Shadow Enemy I	SA:favored enemy (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Reptilian)|Lycanthrope|Magical Beast|Monsterous Humanoid|Outsider|Undead
-Shadow Enemy II	TYPE:ShadowEnemy	VISIBLE:NO	PRECLASS:1,Shadow Slayer=7	PREFEAT:1,Shadow Enemy I	!PREFEAT:1,Shadow Enemy II	SA:favored enemy (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Reptilian)|Lycanthrope|Magical Beast|Monsterous Humanoid|Outsider|Undead
+Shadow Enemy I	TYPE:ShadowEnemy	VISIBLE:NO	PRECLASS:1,Shadow Slayer=5						!PREFEAT:1,Shadow Enemy I	SAB:favored enemy (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Reptilian)|Lycanthrope|Magical Beast|Monsterous Humanoid|Outsider|Undead
+Shadow Enemy II	TYPE:ShadowEnemy	VISIBLE:NO	PRECLASS:1,Shadow Slayer=7	PREFEAT:1,Shadow Enemy I	!PREFEAT:1,Shadow Enemy II	SAB:favored enemy (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Reptilian)|Lycanthrope|Magical Beast|Monsterous Humanoid|Outsider|Undead
 
 ###Block:Familiar Temp Bonuses
 # Feat Name			Type			Visible	Bonus to skill							Source Page						Temporary effect description
@@ -58,11 +58,11 @@ Owl Familiar Bonuses	TYPE:Special	VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=OwlFamiliar
 ###Block:Turning
 # Feat Name			Type						Visible	Special Ability																								Define
 Base Turn			TYPE:Special.Turn/Rebuke		VISIBLE:NO																											DEFINE:TurnTimes|0	DEFINE:TurnLevel|0	DEFINE:TurnDice|2	DEFINE:TurnDieSize|6	DEFINE:TurnDamagePlus|CHA	DEFINE:TurnCheck|0
-Turn/Rebuke Undead	TYPE:Special.Turn/Rebuke.Undead	VISIBLE:NO	SA:Turn/Rebuke Undead (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimes	DEFINE:TurnLevelUndead|TurnLevel	DEFINE:TurnDiceUndead|TurnDice	DEFINE:TurnDieSizeUndead|TurnDieSize	DEFINE:TurnDamagePlusUndead|TurnDamagePlus	DEFINE:TurnCheckUndead|TurnCheck
+Turn/Rebuke Undead	TYPE:Special.Turn/Rebuke.Undead	VISIBLE:NO	SAB:Turn/Rebuke Undead (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimes	DEFINE:TurnLevelUndead|TurnLevel	DEFINE:TurnDiceUndead|TurnDice	DEFINE:TurnDieSizeUndead|TurnDieSize	DEFINE:TurnDamagePlusUndead|TurnDamagePlus	DEFINE:TurnCheckUndead|TurnCheck
 
 ###Block: Manifester (for Output sheets), BasePowerPoints, BonusPowerPoints, HasSpellStat (for subclasses).
 # Feat Name		Type			Visible	Special Ability																					Define																						Modify VAR
-PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SA:Base Power Points (%)|BasePowerPoints	SA:Bonus Power Points (%)|BonusPowerPoints	SA:Total Power Points (%)|TotalPowerPoints	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
+PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
 
 ###Block: All Proficiencies (for referencing)
 # Feat Name						Type			Visible	Automaticaly Gained Weapon Prof.
@@ -72,7 +72,7 @@ All Exotic Melee Weapons Proficiency	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYP
 
 ###Block:Web Access Spellbook
 # Feat Name		Type				Visible	Special Ability
-Web Access Spells	TYPE:VirtualPossession	VISIBLE:NO	SA:Can use Web Access as spellbook
+Web Access Spells	TYPE:VirtualPossession	VISIBLE:NO	SAB:Can use Web Access as spellbook
 
 #
 # EOF

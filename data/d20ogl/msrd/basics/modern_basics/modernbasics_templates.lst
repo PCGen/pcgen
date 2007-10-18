@@ -6,7 +6,7 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 
 ###Block: Starting Benefits
 # Template Name		Visible	Special Ability			Add
-Starting Benefits		VISIBLE:NO	SA:Reputation %|Reputation	ADD:FEAT|1|TYPE=WealthRoll	ADD:LANGUAGE|1|TYPE=Spoken
+Starting Benefits		VISIBLE:NO	SAB:Reputation %|Reputation	ADD:FEAT|1|TYPE=WealthRoll	ADD:LANGUAGE|1|TYPE=Spoken
 Starting Occupation	VISIBLE:NO						ADD:FEAT|TYPE=Occupation
 
 ###Block: Temporary Bonus Templates
