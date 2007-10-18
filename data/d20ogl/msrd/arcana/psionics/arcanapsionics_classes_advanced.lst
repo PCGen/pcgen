@@ -16,16 +16,16 @@ CLASS:Psionic Agent	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1	SPELLLEVEL:CLASS|Psionic Agent=2|Combat Focus,Combat Prescience,Darkvision,Levitate,Sensitivity to Psychic Impressions
 1	SPELLLEVEL:CLASS|Psionic Agent=3|Metaphysical Weapon
 ###Block: standard
-1	KNOWN:2		SA:Psionic Skills		BONUS:VAR|PowerPoints|2	DEFINE:PowerPoints|0
+1	KNOWN:2		SAB:Psionic Skills		BONUS:VAR|PowerPoints|2	DEFINE:PowerPoints|0
 2	KNOWN:3						BONUS:VAR|PowerPoints|1													AUTO:FEAT|Psionic Focus
 3	KNOWN:3,1						BONUS:VAR|PowerPoints|1					ADD:FEAT|TYPE=PsionicAgent,TYPE=Metapsionic
-4	KNOWN:3,2		SA:Draw Power		BONUS:VAR|PowerPoints|1
-5	KNOWN:3,3,1		SA:Charged Shot		BONUS:VAR|PowerPoints|3
+4	KNOWN:3,2		SAB:Draw Power		BONUS:VAR|PowerPoints|1
+5	KNOWN:3,3,1		SAB:Charged Shot		BONUS:VAR|PowerPoints|3
 6	KNOWN:3,3,2						BONUS:VAR|PowerPoints|3					ADD:FEAT|TYPE=PsionicAgent,TYPE=Metapsionic
-7	KNOWN:3,3,2,1	SA:Combat Manifestation	BONUS:VAR|PowerPoints|5
+7	KNOWN:3,3,2,1	SAB:Combat Manifestation	BONUS:VAR|PowerPoints|5
 8	KNOWN:3,3,3,1					BONUS:VAR|PowerPoints|5													AUTO:FEAT|Power Penetration
 9	KNOWN:3,3,3,2					BONUS:VAR|PowerPoints|5					ADD:FEAT|TYPE=PsionicAgent,TYPE=Metapsionic
-10	KNOWN:3,3,3,2,1	SA:Deadly Aim		BONUS:VAR|PowerPoints|7
+10	KNOWN:3,3,3,2,1	SAB:Deadly Aim		BONUS:VAR|PowerPoints|7
 
 #
 # End

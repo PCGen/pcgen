@@ -4,7 +4,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #Psionic Focus: Support for BONUS:DC|SPELL%LIST| syntax requested with Freq Tracker [ 1335940 ] -- Frank Kliewe
 
 # Feat Name		Type			Visible	Special Ability	Multiple?	Choose			Bonus to DC
-Psionic Focus	TYPE:Special	VISIBLE:NO	SA:Psionic Focus	MULT:YES	CHOOSE:SPELLLIST|2	BONUS:DC|SPELL.%LIST|2
+Psionic Focus	TYPE:Special	VISIBLE:NO	SAB:Psionic Focus	MULT:YES	CHOOSE:SPELLLIST|2	BONUS:DC|SPELL.%LIST|2
 
 #
 # End

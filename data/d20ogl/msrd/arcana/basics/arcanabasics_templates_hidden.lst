@@ -2,33 +2,33 @@
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Template Name	Visible	Source Page					Special Ability															Removable?
-Shadowkind		VISIBLE:NO	SOURCEPAGE:ArcanaShadowkind.rtf	SA:Shadowkind	SA:Can only be resurrected within 1d4 hours after death|PRETYPE:1,Humanoid,Dragon	REMOVABLE:NO
+Shadowkind		VISIBLE:NO	SOURCEPAGE:ArcanaShadowkind.rtf	SAB:Shadowkind	SAB:Can only be resurrected within 1d4 hours after death|PRETYPE:1,Humanoid,Dragon	REMOVABLE:NO
 
 ###Block: Celestial Immunities
 # Template Name			Visible	Source Page					Special Ability				Prohibited Template
-Acid Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Acid Immunity (Ex)			!PRETEMPLATE:Acid Resistance 10	!PRETEMPLATE:Acid Resistance 20
-Ballistic Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Ballistic Immunity (Ex)
-Cold Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Cold Immunity (Ex)			!PRETEMPLATE:Cold Resistance 10	!PRETEMPLATE:Cold Resistance 20
-Electricity Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Electricity Immunity (Ex)		!PRETEMPLATE:Electricty Resistance 10	!PRETEMPLATE:Electricty Resistance 20
-Fire Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Fire Immunity (Ex)			!PRETEMPLATE:Fire Resistance 10	!PRETEMPLATE:Fire Resistance 20
-Piercing Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Piercing Immunity (Ex)
-Poison Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Poison Immunity (Ex)
-Radiation Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Radiation Immunity (Ex)
-Slashing Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Slashing Immunity (Ex)
-Sonic/Concussion Immunity	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Sonic/Concussion Immunity (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 10	!PRETEMPLATE:Sonic/Concussion Resistance 20
+Acid Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Acid Immunity (Ex)			!PRETEMPLATE:Acid Resistance 10	!PRETEMPLATE:Acid Resistance 20
+Ballistic Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Ballistic Immunity (Ex)
+Cold Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Cold Immunity (Ex)			!PRETEMPLATE:Cold Resistance 10	!PRETEMPLATE:Cold Resistance 20
+Electricity Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Electricity Immunity (Ex)		!PRETEMPLATE:Electricty Resistance 10	!PRETEMPLATE:Electricty Resistance 20
+Fire Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Fire Immunity (Ex)			!PRETEMPLATE:Fire Resistance 10	!PRETEMPLATE:Fire Resistance 20
+Piercing Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Piercing Immunity (Ex)
+Poison Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Poison Immunity (Ex)
+Radiation Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Radiation Immunity (Ex)
+Slashing Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Slashing Immunity (Ex)
+Sonic/Concussion Immunity	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Sonic/Concussion Immunity (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 10	!PRETEMPLATE:Sonic/Concussion Resistance 20
 
 ###Block: Celestial Resistances
 # Template Name				Visible	Source Page					Special Ability					Prohibited Template
-Acid Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Acid Resistance 10 (Ex)			!PRETEMPLATE:Acid Resistance 20	!PRETEMPLATE:Acid Immunity
-Acid Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Acid Resistance 20 (Ex)			!PRETEMPLATE:Acid Resistance 10	!PRETEMPLATE:Acid Immunity
-Cold Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Cold Resistance 10 (Ex)			!PRETEMPLATE:Cold Resistance 20	!PRETEMPLATE:Cold Immunity
-Cold Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Cold Resistance 20 (Ex)			!PRETEMPLATE:Cold Resistance 10	!PRETEMPLATE:Cold Immunity
-Electricity Resistance 10		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Electricity Resistance 10 (Ex)		!PRETEMPLATE:Electricity Resistance 20	!PRETEMPLATE:Electricity Immunity
-Electricity Resistance 20		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Electricity Resistance 20 (Ex)		!PRETEMPLATE:Electricity Resistance 10	!PRETEMPLATE:Electricity Immunity
-Fire Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Fire Resistance 10 (Ex)			!PRETEMPLATE:Fire Resistance 20	!PRETEMPLATE:Fire Immunity
-Fire Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Fire Resistance 20 (Ex)			!PRETEMPLATE:Fire Resistance 10	!PRETEMPLATE:Fire Immunity
-Sonic/Concussion Resistance 10	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Sonic/Concussion Resistance 10 (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 20	!PRETEMPLATE:Sonic/Concussion Immunity
-Sonic/Concussion Resistance 20	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Sonic/Concussion Resistance 20 (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 10	!PRETEMPLATE:Sonic/Concussion Immunity
+Acid Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Acid Resistance 10 (Ex)			!PRETEMPLATE:Acid Resistance 20	!PRETEMPLATE:Acid Immunity
+Acid Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Acid Resistance 20 (Ex)			!PRETEMPLATE:Acid Resistance 10	!PRETEMPLATE:Acid Immunity
+Cold Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Cold Resistance 10 (Ex)			!PRETEMPLATE:Cold Resistance 20	!PRETEMPLATE:Cold Immunity
+Cold Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Cold Resistance 20 (Ex)			!PRETEMPLATE:Cold Resistance 10	!PRETEMPLATE:Cold Immunity
+Electricity Resistance 10		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Electricity Resistance 10 (Ex)		!PRETEMPLATE:Electricity Resistance 20	!PRETEMPLATE:Electricity Immunity
+Electricity Resistance 20		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Electricity Resistance 20 (Ex)		!PRETEMPLATE:Electricity Resistance 10	!PRETEMPLATE:Electricity Immunity
+Fire Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Fire Resistance 10 (Ex)			!PRETEMPLATE:Fire Resistance 20	!PRETEMPLATE:Fire Immunity
+Fire Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Fire Resistance 20 (Ex)			!PRETEMPLATE:Fire Resistance 10	!PRETEMPLATE:Fire Immunity
+Sonic/Concussion Resistance 10	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Sonic/Concussion Resistance 10 (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 20	!PRETEMPLATE:Sonic/Concussion Immunity
+Sonic/Concussion Resistance 20	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Sonic/Concussion Resistance 20 (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 10	!PRETEMPLATE:Sonic/Concussion Immunity
 
 ###Block: DR
 # Template Name	Visible	Damage Reduction	Source Page					Prohibited Template
@@ -61,7 +61,7 @@ Sonic/Concussion Resistance 20	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Soni
 
 ###Block: Demonic Auto
 # Template Name	Damage Reduction	Template						Source Page					Special Ability						Type				Vision
-Demonic Auto	DR:20/+1		TEMPLATE:Construct	TEMPLATE:Outsider	SOURCEPAGE:ArcanaCreatures.rtf	SA:No limbs	SA:Trample (Ex)	SA:Repairable	TYPE:Construct.Outsider	VISION:Darkvision (120)
+Demonic Auto	DR:20/+1		TEMPLATE:Construct	TEMPLATE:Outsider	SOURCEPAGE:ArcanaCreatures.rtf	SAB:No limbs	SAB:Trample (Ex)	SAB:Repairable	TYPE:Construct.Outsider	VISION:Darkvision (120)
 
 ###Block: Half-dragon
 # Template Name	Visible	Stat bonus		Move
@@ -82,7 +82,7 @@ Liquefied Zombie (Colossal)	CR:10	VISIBLE:NO	PRESIZEEQ:C
 
 ###Block: Species Traits
 # Template Name	Visible	Source Page					Special Ability
-Aquatic		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Can move in water without making Swim checks, and cannot drown in water
+Aquatic		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Can move in water without making Swim checks, and cannot drown in water
 
 #
 # End
