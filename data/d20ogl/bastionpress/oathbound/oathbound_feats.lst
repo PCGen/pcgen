@@ -9,7 +9,7 @@ Exotic Weapon Proficiency II (Rang Blade)	TYPE:General.Fighter	VISIBLE:YES	PREAT
 
 # Special hidden feats for Gift workarounds (xxxtemplate.lst)
 Talented						TYPE:Gift.Hidden		VISIBLE:NO																													MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Craft|TYPE.Profession|1	BONUS:SKILL|LIST|6|TYPE=Competence
-Focused						TYPE:Gift.Hidden		VISIBLE:NO																			SA:+1 caster level for %CHOICE spells				MULT:YES	CHOOSE:NUMCHOICES=1|SCHOOLS|1
+Focused						TYPE:Gift.Hidden		VISIBLE:NO																			SAB:+1 caster level for %CHOICE spells				MULT:YES	CHOOSE:NUMCHOICES=1|SCHOOLS|1
 
 # Special hidden feats for Prestige Race workarounds (xxxtemplate.lst) - does not seem to work
 #WildCreatureBite		TYPE:PrestigeRace.Hidden	VISIBLE:NO	DESC:See Text																				BONUS:WEAPONPROF=Bite%|CRITMULTADD|1	MULT:YES																																																																																																		SOURCEPAGE:p.63

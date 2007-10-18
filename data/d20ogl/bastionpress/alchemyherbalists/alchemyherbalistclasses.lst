@@ -10,9 +10,9 @@ CLASS:Black Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,
 CLASS:Black Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Black Alchemist	SPELLSTAT:NONE	SPELLTYPE:None	BONUS:CASTERLEVEL|Black Alchemist|CL
-1	SA:Enhanced Illusions		ADD:SPELLCASTER|1|ANY
+1	SAB:Enhanced Illusions		ADD:SPELLCASTER|1|ANY
 2						ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Chymicals
-3	SA:Enhanced Transmutations	ADD:SPELLCASTER|1|ANY
+3	SAB:Enhanced Transmutations	ADD:SPELLCASTER|1|ANY
 4						ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Create Alchana
 5						ADD:SPELLCASTER|1|ANY
 6						ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Perfect Materials
@@ -36,9 +36,9 @@ CLASS:White Alchemist	SPELLSTAT:NONE	SPELLTYPE:None	BONUS:CASTERLEVEL|White Alch
 5					ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Powders and Dusts
 6					ADD:SPELLCASTER|1|ANY
 7					ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Unguents
-8	SA:Enhance Medicinals	ADD:SPELLCASTER|1|ANY
+8	SAB:Enhance Medicinals	ADD:SPELLCASTER|1|ANY
 9					ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Wondrous Item
-10	SA:Perfect Medicinals	ADD:SPELLCASTER|1|ANY
+10	SAB:Perfect Medicinals	ADD:SPELLCASTER|1|ANY
 
 # Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																			Combat bonus
 CLASS:Red Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -70,7 +70,7 @@ CLASS:Taraston Herbalist	SPELLSTAT:NONE	SPELLTYPE:None	BONUS:CASTERLEVEL|Tarasto
 1								AUTO:FEAT|Craft Toxins
 2				ADD:SPELLCASTER|1|ANY
 3								AUTO:FEAT|Craft Herbal Restoratives
-4	SA:Bloomagic	ADD:SPELLCASTER|1|ANY
+4	SAB:Bloomagic	ADD:SPELLCASTER|1|ANY
 5								AUTO:FEAT|Craft Powders and Dusts
 6				ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Flourish Spell
 7								AUTO:FEAT|Grow Swathe
