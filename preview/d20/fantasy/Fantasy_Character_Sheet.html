@@ -1946,7 +1946,49 @@ $Date:  $
     </tr>
   </table>
 <!-- Stop Weapon Prof Table -->
-	
+
+<!-- Start Money Table -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="Prepared Spells">
+  <tr>
+    <td width="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+    <td background="preview/d20/fantasy/images/gold/border_top.png"><div align="center"><img src="preview/d20/fantasy/images/gold/title_money.png" width="225" height="30"></div></td>
+    <td width="34"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+  </tr>
+  <tr>
+    <td background="preview/d20/fantasy/images/gold/border_left.png"></td>
+    <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+<span class="skills">
+|IIF(VAR.IF(VAR("COUNT[EQTYPE.Coin]")>0;1;0):1)|
+<b>Coins:</b> 
+|FOR.0,COUNT[EQTYPE.Coin],1,\EQTYPE.Coin.%.NAME\: <b>\EQTYPE.Coin.%.QTY\</b>; , ,,|
+<br/>
+|ELSE|
+|ENDIF|
+|IIF(VAR.IF(VAR("COUNT[EQTYPE.Gem]")>0;1;0):1)|
+<b>Gems:</b>
+|FOR.0,COUNT[EQTYPE.Gem],1,\EQTYPE.Gem.%.NAME\ (<b>\EQTYPE.Gem.%.QTY\</b>x\EQTYPE.Gem.%.COST\gp); , ,,|
+<br/>
+|ELSE|
+|ENDIF|
+|IIF(VAR.GOLD>0)|
+<b>|GOLD|</b> Gold unspent on Gear Tab
+|ENDIF|
+|IIF(VAR.GOLD<0)|
+<b>|GOLD|</b> Gold debt on Gear Tab
+|ENDIF|
+<br />|MISC.FUNDS|
+</span>
+	</td>
+    <td background="preview/d20/fantasy/images/gold/border_right.png"></td>
+  </tr>
+  <tr>
+    <td height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+    <td background="preview/d20/fantasy/images/gold/border_bottom.png"></td>
+    <td><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+  </tr>
+</table>
+<!-- Stop Money Table -->
+
 <!-- Stop Section Three - Column Two -->
 	</td>
   </tr>
