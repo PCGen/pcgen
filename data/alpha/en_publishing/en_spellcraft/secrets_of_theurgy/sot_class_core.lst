@@ -30,22 +30,22 @@ CLASS:Elemental Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 1	AUTO:FEAT|Shield Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
-1	CAST:3,1				SA:Nature Sense (Ex)	SA:Wild Empathy (Ex)									BONUS:SKILL|Knowledge (Nature),Survival|2					AUTO:FEAT|Animal Companion
-2	CAST:4,2				SA:Woodland Stride (Ex)
-3	CAST:4,2,1				SA:Trackless Step (Ex)
-4	CAST:5,3,2				SA:Resist Nature's Lure (Ex)
-5	CAST:5,3,2,1			SA:Wildshape %/day|Wildshape				BONUS:VAR|Wildshape|1												DEFINE:Wildshape|0
+1	CAST:3,1				SAB:Nature Sense (Ex)	SAB:Wild Empathy (Ex)									BONUS:SKILL|Knowledge (Nature),Survival|2					AUTO:FEAT|Animal Companion
+2	CAST:4,2				SAB:Woodland Stride (Ex)
+3	CAST:4,2,1				SAB:Trackless Step (Ex)
+4	CAST:5,3,2				SAB:Resist Nature's Lure (Ex)
+5	CAST:5,3,2,1			SAB:Wildshape %/day|Wildshape				BONUS:VAR|Wildshape|1												DEFINE:Wildshape|0
 6	CAST:5,3,3,2											BONUS:VAR|Wildshape|1
 7	CAST:6,4,3,2,1											BONUS:VAR|Wildshape|1
-8	CAST:6,4,3,3,2			SA:Wildshape Large
-9	CAST:6,4,4,3,2,1			SA:Venom Immunity (Ex)
+8	CAST:6,4,3,3,2			SAB:Wildshape Large
+9	CAST:6,4,4,3,2,1			SAB:Venom Immunity (Ex)
 10	CAST:6,4,4,3,3,2											BONUS:VAR|Wildshape|1
-11	CAST:6,5,4,4,3,2,1		SA:Wildshape (Tiny)
-12	CAST:6,5,4,4,3,3,2		SA:Wildshape (Plant)
-13	CAST:6,5,5,4,4,3,2,1		SA:A Thousand Faces (Su)
+11	CAST:6,5,4,4,3,2,1		SAB:Wildshape (Tiny)
+12	CAST:6,5,4,4,3,3,2		SAB:Wildshape (Plant)
+13	CAST:6,5,5,4,4,3,2,1		SAB:A Thousand Faces (Su)
 14	CAST:6,5,5,4,4,3,3,2										BONUS:VAR|Wildshape|1
-15	CAST:6,5,5,5,4,4,3,2,1		SA:Wildshape (Huge)	SA:Timeless Body (Ex)
-16	CAST:6,5,5,5,4,4,3,3,2		SA:Wildshape (elemental %/day)|EWildshape		BONUS:VAR|EWildshape|1												DEFINE:EWildshape|0
+15	CAST:6,5,5,5,4,4,3,2,1		SAB:Wildshape (Huge)	SAB:Timeless Body (Ex)
+16	CAST:6,5,5,5,4,4,3,3,2		SAB:Wildshape (elemental %/day)|EWildshape		BONUS:VAR|EWildshape|1												DEFINE:EWildshape|0
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2									BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
 19	CAST:6,5,5,5,5,5,4,4,3,3
