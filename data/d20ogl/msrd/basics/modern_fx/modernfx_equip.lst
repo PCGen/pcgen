@@ -65,11 +65,11 @@ Potion of Wisdom			TYPE:FX.Potion.Magic.Consumable	COST:23	WT:0		SOURCEPAGE:msrd
 ###Block: Rings
 
 # Equipment Name					Type						Cost		Weight	Source Page				Bonus to skill		Special Property																		Special Ability
-Ring of Energy Resistance(acid)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by acid if total damage less than 15 wearer takes no damage			SA:Acid Resistance 15
-Ring of Energy Resistance(cold)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by cold if total damage less than 15 wearer takes no damage			SA:Cold Resistance 15
-Ring of Energy Resistance(electricity)	TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by electricity if total damage less than 15 wearer takes no damage	SA:Electricity Resistance 15
-Ring of Energy Resistance(fire)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by fire if total damage less than 15 wearer takes no damage			SA:Fire Resistance 15
-Ring of Energy Resistance(sonic)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by sonic if total damage less than 15 wearer takes no damage		SA:Sonic Resistance 15
+Ring of Energy Resistance(acid)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by acid if total damage less than 15 wearer takes no damage			SAB:Acid Resistance 15
+Ring of Energy Resistance(cold)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by cold if total damage less than 15 wearer takes no damage			SAB:Cold Resistance 15
+Ring of Energy Resistance(electricity)	TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by electricity if total damage less than 15 wearer takes no damage	SAB:Electricity Resistance 15
+Ring of Energy Resistance(fire)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by fire if total damage less than 15 wearer takes no damage			SAB:Fire Resistance 15
+Ring of Energy Resistance(sonic)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by sonic if total damage less than 15 wearer takes no damage		SAB:Sonic Resistance 15
 Ring (Jumping)					TYPE:FX.Ring.Magic			COST:26	WT:0		SOURCEPAGE:msrdfxitems.rtf	BONUS:SKILL|Jump|30	SPROP:Continually allows the wearer to make incredible leaps,
 Ring (Ram)						TYPE:FX.Ring.Magic.Weapon.Ranged	COST:34	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:see text
 

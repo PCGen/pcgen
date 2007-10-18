@@ -7,12 +7,12 @@ Maximize Spell	TYPE:Special	VISIBLE:NO																		DESC:All variable,numeri
 Scribe Scroll	TYPE:Special	VISIBLE:NO																		DESC:Create a scroll, level is set at time of creation...																												SOURCEPAGE:msrdadvancedclassesII.rtf
 Scribe Tattoo	TYPE:Special	VISIBLE:NO																		DESC:Create a tattoo, level is set at time of creation...																												SOURCEPAGE:msrdadvancedclassesII.rtf
 Spell Mastery	TYPE:Special	VISIBLE:NO	PRESPELLBOOK:YES															DESC:Choose a number of spells equal to your Intelligence modifier, those spells may be prepared without a spell book									MULT:YES	CHOOSE:SPELLLIST|1				SOURCEPAGE:msrdadvancedclassesII.rtf
-Wild Talent		TYPE:General						SA:one 0-LEVEL psionic power useable 3x per 24 hour period					DESC::one 0-Level psionic power useable 3x per 24 hour period																											SOURCEPAGE:msrdFXbasics.rtf
+Wild Talent		TYPE:General						SAB:one 0-LEVEL psionic power useable 3x per 24 hour period					DESC::one 0-Level psionic power useable 3x per 24 hour period																											SOURCEPAGE:msrdFXbasics.rtf
 
 ###Block: Hidden Feats
 
 # Feat Name		Type			Visible	Special Ability		Define		Allow Follower		Allowed Companions
-Summon Familiar	TYPE:Special	VISIBLE:NO	SA:Summon Familiar	DEFINE:FMLevel|0	FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad
+Summon Familiar	TYPE:Special	VISIBLE:NO	SAB:Summon Familiar	DEFINE:FMLevel|0	FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad
 
 #
 # End

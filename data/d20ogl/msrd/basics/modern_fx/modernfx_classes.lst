@@ -8,16 +8,16 @@ CLASS:Shadow Slayer	HD:8		TYPE:Advanced.PC	ABB:Shad		MAXLEVEL:10	BONUS:CHECKS|BA
 CLASS:Shadow Slayer	PREATT:3	PREFEAT:1,Archaic Weapons Proficiency
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Slayer	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Gather Information|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spot|Tumble
-1	SA:Detect Shadow (%/day)|ShadowSlayerLevel	BONUS:VAR|ShadowSlayerLevel|CL		DEFINE:ShadowSlayerLevel|0
-2	SA:Shadow Immunity (DR %)|ShadowSlayerHalfLevel	BONUS:VAR|ShadowSlayerHalfLevel|CL/2	DEFINE:ShadowSlayerHalfLevel|0
+1	SAB:Detect Shadow (%/day)|ShadowSlayerLevel	BONUS:VAR|ShadowSlayerLevel|CL		DEFINE:ShadowSlayerLevel|0
+2	SAB:Shadow Immunity (DR %)|ShadowSlayerHalfLevel	BONUS:VAR|ShadowSlayerHalfLevel|CL/2	DEFINE:ShadowSlayerHalfLevel|0
 3																						ADD:FEAT|TYPE=ShadowSlayer
-4	SA:Slayer Weapon (+%)|ShadowSlayerHalfLevel
+4	SAB:Slayer Weapon (+%)|ShadowSlayerHalfLevel
 5																						ADD:FEAT|TYPE=ShadowEnemy
 6																						ADD:FEAT|TYPE=ShadowSlayer
 7																						ADD:FEAT|TYPE=ShadowEnemy
-8	SA:Fast Healing
+8	SAB:Fast Healing
 9																						ADD:FEAT|TYPE=ShadowSlayer
-10	SA:Word of Slaying
+10	SAB:Word of Slaying
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus												Combat bonus					Modify VAR
 CLASS:Occultist	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL/3)	BONUS:VAR|Action|CL*6
@@ -27,16 +27,16 @@ CLASS:Occultist	PREFEAT:2,Educated,Studious	PRESKILL:3,Decipher Script,Knowledge
 CLASS:Occultist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Drive|Investigate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sleight of Hand|Speak Language|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
 CLASS:Occultist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:NO	BONUS:CASTERLEVEL|Occultist|CL
-1	SA:Spell Resistance (%)|OccultistRes	BONUS:VAR|OccultistRes|CL	DEFINE:OccultistRes|5
-2	SA:Arcane Research(Scrolls)
+1	SAB:Spell Resistance (%)|OccultistRes	BONUS:VAR|OccultistRes|CL	DEFINE:OccultistRes|5
+2	SAB:Arcane Research(Scrolls)
 3																	ADD:FEAT|TYPE=Occultist
-4	SA:Shadow Contact
-5	SA:Bind Shadow Creature
+4	SAB:Shadow Contact
+5	SAB:Bind Shadow Creature
 6																	ADD:FEAT|TYPE=Occultist
-7	SA:Arcane Research(Items)
-8	SA:Bind Shadow Creature
+7	SAB:Arcane Research(Items)
+8	SAB:Bind Shadow Creature
 9																	ADD:FEAT|TYPE=Occultist
-10	SA:Banish
+10	SAB:Banish
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
 CLASS:Telepath	HD:6		TYPE:Advanced.PC	ABB:Tele		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
@@ -62,15 +62,15 @@ CLASS:Telepath	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Tel
 1	BONUS:VAR|BonusPowerPoints|max(((CHA*2)-1),0)
 ###Block: Normal Level Progression
 1	KNOWN:3,1
-2	KNOWN:3,2		SA:Trigger Power (% powers|TelepathTriggerCount								DEFINE:TelepathTriggerCount|1
+2	KNOWN:3,2		SAB:Trigger Power (% powers|TelepathTriggerCount								DEFINE:TelepathTriggerCount|1
 3	KNOWN:3,3																						ADD:FEAT|TYPE=Telepath
-4	KNOWN:4,3,1		SA:Power crystal
+4	KNOWN:4,3,1		SAB:Power crystal
 5	KNOWN:4,3,2											BONUS:VAR|TelepathTriggerCount|1
 6	KNOWN:4,3,2,1																					ADD:FEAT|TYPE=Telepath
-7	KNOWN:5,4,3,2	SA:+4 to Concentation while manifesting defensively
+7	KNOWN:5,4,3,2	SAB:+4 to Concentation while manifesting defensively
 8	KNOWN:5,4,3,2,1										BONUS:VAR|TelepathTriggerCount|1
 9	KNOWN:5,4,3,3,2																					ADD:FEAT|TYPE=Telepath
-10	KNOWN:6,4,3,3,2,1	SA:Maximize Power
+10	KNOWN:6,4,3,3,2,1	SAB:Maximize Power
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus						Modify VAR
 CLASS:Battle Mind	HD:8		TYPE:Advanced.PC	ABB:Batt		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
@@ -90,10 +90,10 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVE
 1	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:BattlemindML,10
 ###Block: Normal Level Progression
 1	KNOWN:2
-2	KNOWN:3		SA:Imprint Tattoo												AUTO:EQUIP|PsiBlade[!PRECLASS:1,Battle Mind=3]
+2	KNOWN:3		SAB:Imprint Tattoo												AUTO:EQUIP|PsiBlade[!PRECLASS:1,Battle Mind=3]
 3	KNOWN:3,1											ADD:FEAT|TYPE=Battlemind	AUTO:EQUIP|PsiBlade +1[!PRECLASS:1,Battle Mind=5]
 4	KNOWN:3,2																AUTO:EQUIP|PsiShield[!PRECLASS:1,Battle Mind=8]
-5	KNOWN:3,3,1		SA:+4 to Concentation while manifesting defensively						AUTO:EQUIP|PsiBlade +2[!PRECLASS:1,Battle Mind=7]
+5	KNOWN:3,3,1		SAB:+4 to Concentation while manifesting defensively						AUTO:EQUIP|PsiBlade +2[!PRECLASS:1,Battle Mind=7]
 6	KNOWN:3,3,2											ADD:FEAT|TYPE=Battlemind
 7	KNOWN:3,3,2,1															AUTO:EQUIP|PsiBlade +3[!PRECLASS:1,Battle Mind=9]
 8	KNOWN:3,3,3,1															AUTO:EQUIP|PsiShield (Improved)
@@ -115,7 +115,7 @@ CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	B
 4	CAST:4,3,2														AUTO:FEAT|Scribe Tattoo
 5	CAST:4,3,2,1									ADD:FEAT|Spell Mastery
 6	CAST:4,3,3,2									ADD:FEAT|TYPE=Mage
-7	CAST:4,4,3,2,1	SA:+4 to Concentation while casting defensively
+7	CAST:4,4,3,2,1	SAB:+4 to Concentation while casting defensively
 8	CAST:4,4,3,3,2									ADD:FEAT|Spell Mastery
 9	CAST:4,4,4,3,2,1									ADD:FEAT|TYPE=Mage
 10	CAST:4,4,4,3,3,2													AUTO:FEAT|Maximize Spell
@@ -136,13 +136,13 @@ CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Standard block
 1	CAST:3,1
-2	CAST:4,2		SA:Turn or Rebuke Undead (Su)
+2	CAST:4,2		SAB:Turn or Rebuke Undead (Su)
 3	CAST:4,2,1										ADD:FEAT|TYPE=Acolyte
-4	CAST:5,3,2		SA:Spontaneous Casting
-5	CAST:5,3,2,1	SA:+4 to Concentation while casting defensively
+4	CAST:5,3,2		SAB:Spontaneous Casting
+5	CAST:5,3,2,1	SAB:+4 to Concentation while casting defensively
 6	CAST:5,3,3,2									ADD:FEAT|TYPE=Acolyte
-7	CAST:6,4,3,2,1	SA:Turn or Rebuke Magical Beasts (Su)
-8	CAST:6,4,3,3,2	SA:Turn or Rebuke Outsiders (Su)
+7	CAST:6,4,3,2,1	SAB:Turn or Rebuke Magical Beasts (Su)
+8	CAST:6,4,3,3,2	SAB:Turn or Rebuke Outsiders (Su)
 9	CAST:6,4,4,3,2,1									ADD:FEAT|TYPE=Acolyte
 10	CAST:6,4,4,3,3,2													AUTO:FEAT|Maximize Spell
 
