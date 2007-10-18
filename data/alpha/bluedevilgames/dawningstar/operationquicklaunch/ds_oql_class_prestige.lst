@@ -7,11 +7,11 @@ CLASS:Republic Ranger	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.67	BONUS:C
 CLASS:Republic Ranger	PREATT:8	PREFEAT:2,Force of Law,Weapon Focus	PRESKILL:1,Drive,Pilot,Ride=6	PRESKILL:1,Intimidate=8	PRESKILL:1,Knowledge (Civics)	PRETEXT:Dawning Star Republic allegiance
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Republic Ranger	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Computer Use|Demolitions|Diplomacy|Drive|Gather Information|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (History)|Knowledge (Local)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Navigate|Ride|Search|Sense Motive|Sleight of Hand|Spot|Survival|Swim|Treat Injury
-1	SA:Ranger Reputation						ADD:FEAT|1|TYPE=WordLaw
+1	SAB:Ranger Reputation						ADD:FEAT|1|TYPE=WordLaw
 2										ADD:FEAT|1|Region Familiarity	ADD:VFEAT|1|Frightful Presence
-3	SA:Posse								ADD:FEAT|1|Greater Weapon Focus
-4	SA:Improved Region Familiarity	SA:Chosen Quarry
-5	SA:Shield of the Law
+3	SAB:Posse								ADD:FEAT|1|Greater Weapon Focus
+4	SAB:Improved Region Familiarity	SAB:Chosen Quarry
+5	SAB:Shield of the Law
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Velin Chief	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3
@@ -19,11 +19,11 @@ CLASS:Velin Chief	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECK
 CLASS:Velin Chief	PRECHECKBASE:1,Will=4	PREMULT:1,[PRERACE:1,Velin],[PREFEAT:1,Velin Tribal Guest]	PRESKILL:2,Diplomacy,Knowledge (Species)=12	PRESKILL:1,Survival=6	PRETEXT:Velin Tribe or Velin Tribal Council allegiance	PREVARGTEQ:Reputation,5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Velin Chief	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Craft (Tribal)|Diplomacy|Handle Animal|Hide|Intimidate|Knowledge (Civics)|Knowledge (History)|Knowledge (Local)|Knowledge (Species)|Listen|Move Silently|Navigate|Perform (Act)|Perform (Dance)|Perform (Oratory)|Perform (Percussion Instruments)|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
-1				SA:Chief Reputation	SA:Tribal Authority
-2				SA:Protect the Tribe					ADD:FEAT|1|Region Familiarity
+1				SAB:Chief Reputation	SAB:Tribal Authority
+2				SAB:Protect the Tribe					ADD:FEAT|1|Region Familiarity
 3:REPEATLEVEL:3									ADD:FEAT|1|TYPE=VelinChief
-4				SA:Shield of Will
-5				SA:Lead the Way
-7				SA:Tribal Guard
-8				SA:Chief of Legend	SA:Sense Link
-10				SA:Crusade
+4				SAB:Shield of Will
+5				SAB:Lead the Way
+7				SAB:Tribal Guard
+8				SAB:Chief of Legend	SAB:Sense Link
+10				SAB:Crusade
