@@ -8,40 +8,40 @@ SOURCELONG:22 Talent Trees	SOURCESHORT:22TT	SOURCEWEB:http://www.bloodstone-pres
 ###Block: Brute Tree
 # Feat Name	Type						Visible	Required Feat		Special Ability					Define			Combat bonus					Modify VAR			Source Page
 # Ability Name	Category of Ability	Type						Visible	Required Ability					Var. Must Be Grater					Special Ability					Define			Combat bonus					Modify VAR								Source Page
-Rough			CATEGORY:Talent		TYPE:Talent.StrongTalent.Brute	VISIBLE:NO								PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Rough ~ +% on trip checks|BruteBonus	DEFINE:BruteBonus|0	BONUS:COMBAT|TOHIT.GRAPPLE|BruteBonus	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|BruteBonus|1	SOURCEPAGE:p.4
-Rowdy			CATEGORY:Talent		TYPE:Talent.StrongTalent.Brute	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Rough		PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Rowdy																	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|BruteBonus|1	SOURCEPAGE:p.4
-Brutal		CATEGORY:Talent		TYPE:Talent.StrongTalent.Brute	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Rough,Rowdy	PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Brutal																	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|BruteBonus|1	SOURCEPAGE:p.4
+Rough			CATEGORY:Talent		TYPE:Talent.StrongTalent.Brute	VISIBLE:NO								PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Rough ~ +% on trip checks|BruteBonus	DEFINE:BruteBonus|0	BONUS:COMBAT|TOHIT.GRAPPLE|BruteBonus	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|BruteBonus|1	SOURCEPAGE:p.4
+Rowdy			CATEGORY:Talent		TYPE:Talent.StrongTalent.Brute	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Rough		PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Rowdy																	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|BruteBonus|1	SOURCEPAGE:p.4
+Brutal		CATEGORY:Talent		TYPE:Talent.StrongTalent.Brute	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Rough,Rowdy	PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Brutal																	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|BruteBonus|1	SOURCEPAGE:p.4
 
 ###Block: Heavy Heavy Load Tree
 # Feat Name			Type						Visible	Required Feat								Special Ability										Define			Modify VAR			Source Page
 # Ability Name		Category of Ability	Type						Visible	Required Ability											Var. Must Be Grater					Special Ability										Define			Modify VAR								Source Page
-Heavy Load			CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:NO														PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Heavy Load ~ Carrying capacity is as if stength is %|STR+HeavyLoad	DEFINE:HeavyLoad|0	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
-Greater Heavy Load	CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Heavy Load							PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Greater Heavy Load													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
-Improved Heavy Load	CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Heavy Load,Greater Heavy Load				PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Improved Heavy Load													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
-Maximum Heavy Load	CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:NO	PREABILITY:3,CATEGORY=Talent,Heavy Load,Greater Heavy Load,Maximum Heavy Load	PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Maximum Heavy Load													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
+Heavy Load			CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:NO														PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Heavy Load ~ Carrying capacity is as if stength is %|STR+HeavyLoad	DEFINE:HeavyLoad|0	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
+Greater Heavy Load	CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Heavy Load							PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Greater Heavy Load													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
+Improved Heavy Load	CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Heavy Load,Greater Heavy Load				PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Improved Heavy Load													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
+Maximum Heavy Load	CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:NO	PREABILITY:3,CATEGORY=Talent,Heavy Load,Greater Heavy Load,Maximum Heavy Load	PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Maximum Heavy Load													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
 
 ###Block: Hurling Tree
 # Feat Name		Type						Visible	Required Feat			Special Ability										Define		Modify VAR		Source Page
 # Ability Name	Category of Ability	Type						Visible	Required Ability						Var. Must Be Grater					Special Ability										Define		Modify VAR							Source Page
-Hurl			CATEGORY:Talent		TYPE:Talent.StrongTalent.Hurling	VISIBLE:NO									PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Hurl ~ Maximum range for thrown weapons is % range increments|Hurl	DEFINE:Hurl|5	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|Hurl|2	SOURCEPAGE:p.4
-Greater Hurl	CATEGORY:Talent		TYPE:Talent.StrongTalent.Hurling	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Hurl			PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Greater Hurl													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|Hurl|3	SOURCEPAGE:p.4
-Mighty Hurl		CATEGORY:Talent		TYPE:Talent.StrongTalent.Hurling	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Hurl,Greater Hurl	PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Mighty Hurl													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|Hurl|2	SOURCEPAGE:p.4
+Hurl			CATEGORY:Talent		TYPE:Talent.StrongTalent.Hurling	VISIBLE:NO									PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Hurl ~ Maximum range for thrown weapons is % range increments|Hurl	DEFINE:Hurl|5	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|Hurl|2	SOURCEPAGE:p.4
+Greater Hurl	CATEGORY:Talent		TYPE:Talent.StrongTalent.Hurling	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Hurl			PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Greater Hurl													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|Hurl|3	SOURCEPAGE:p.4
+Mighty Hurl		CATEGORY:Talent		TYPE:Talent.StrongTalent.Hurling	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Hurl,Greater Hurl	PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Mighty Hurl													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|Hurl|2	SOURCEPAGE:p.4
 
 ###Block: Like a Rock Tree
 # Feat Name		Type						Visible	Required Feat					Special Ability		Define		Combat bonus						Modify VAR			Source Page
 # Ability Name	Category of Ability	Type						Visible	Required Ability									Var. Must Be Grater					Special Ability		Define		Combat bonus						Modify VAR								Source Page
-Strengthened Body	CATEGORY:Talent		TYPE:Talent.StrongTalent.LikeRock	VISIBLE:NO												PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Strengthened Body	DEFINE:LikeRock|0	BONUS:COMBAT|AC|LikeRock|TYPE=NaturalArmor	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|LikeRock|1	SOURCEPAGE:p.4
-Hardened Body	CATEGORY:Talent		TYPE:Talent.StrongTalent.LikeRock	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Strengthened Body				PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Hardened Body													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|LikeRock|1	SOURCEPAGE:p.4
-Solid as a Rock	CATEGORY:Talent		TYPE:Talent.StrongTalent.LikeRock	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Strengthened Body,Hardened Body	PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Solid as a Rock												BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|LikeRock|1	SOURCEPAGE:p.4
+Strengthened Body	CATEGORY:Talent		TYPE:Talent.StrongTalent.LikeRock	VISIBLE:NO												PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Strengthened Body	DEFINE:LikeRock|0	BONUS:COMBAT|AC|LikeRock|TYPE=NaturalArmor	BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|LikeRock|1	SOURCEPAGE:p.4
+Hardened Body	CATEGORY:Talent		TYPE:Talent.StrongTalent.LikeRock	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Strengthened Body				PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Hardened Body													BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|LikeRock|1	SOURCEPAGE:p.4
+Solid as a Rock	CATEGORY:Talent		TYPE:Talent.StrongTalent.LikeRock	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Strengthened Body,Hardened Body	PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Solid as a Rock												BONUS:VAR|StrongTalentUsed|1	BONUS:VAR|LikeRock|1	SOURCEPAGE:p.4
 
 ###Block: Mighty Tree
 # Feat Name		Type						Visible	Required Feat									Special Ability								Save checks bonus					Source Page
 # Ability Name	Category of Ability	Type						Visible	Required Ability												Var. Must Be Grater					Special Ability								Save checks bonus					Modify VAR				Source Page
-Might			CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO															PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Might ~ Add Str bonus (+%) to one saving throw 1/day|STR								BONUS:VAR|StrongTalentUsed|1	SOURCEPAGE:p.4
-Mighty Fortitude	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Might									PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Mighty Fortitude							BONUS:CHECKS|Fortitude|STR|TYPE=Morale	BONUS:VAR|StrongTalentUsed|1	SOURCEPAGE:p.5
-Mighty Reflexes	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Might									PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Mighty Reflexes							BONUS:CHECKS|Reflex|STR|TYPE=Morale		BONUS:VAR|StrongTalentUsed|1	SOURCEPAGE:p.5
-Mighty Will		CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Might									PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Mighty Will								BONUS:CHECKS|Will|STR|TYPE=Morale		BONUS:VAR|StrongTalentUsed|1	SOURCEPAGE:p.5
-Incredible Might	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO	PREABILITY:4,CATEGORY=Talent,Might,Mighty Fortitude,Mighty Reflexes,Mighty Will	PREVARGT:StrongTalentPool,StrongTalentUsed	SA:Incredible Might														BONUS:VAR|StrongTalentUsed|1	SOURCEPAGE:p.5
+Might			CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO															PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Might ~ Add Str bonus (+%) to one saving throw 1/day|STR								BONUS:VAR|StrongTalentUsed|1	SOURCEPAGE:p.4
+Mighty Fortitude	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Might									PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Mighty Fortitude							BONUS:CHECKS|Fortitude|STR|TYPE=Morale	BONUS:VAR|StrongTalentUsed|1	SOURCEPAGE:p.5
+Mighty Reflexes	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Might									PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Mighty Reflexes							BONUS:CHECKS|Reflex|STR|TYPE=Morale		BONUS:VAR|StrongTalentUsed|1	SOURCEPAGE:p.5
+Mighty Will		CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Might									PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Mighty Will								BONUS:CHECKS|Will|STR|TYPE=Morale		BONUS:VAR|StrongTalentUsed|1	SOURCEPAGE:p.5
+Incredible Might	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO	PREABILITY:4,CATEGORY=Talent,Might,Mighty Fortitude,Mighty Reflexes,Mighty Will	PREVARGT:StrongTalentPool,StrongTalentUsed	SAB:Incredible Might														BONUS:VAR|StrongTalentUsed|1	SOURCEPAGE:p.5
 
 #
 #Fast talents
@@ -49,34 +49,34 @@ Incredible Might	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:NO	PREA
 ###Block: Elusive Tree
 # Feat Name			Type						Visible	Required Feat				Special Ability			Combat bonus			Bonus to skill							Source Page
 # Ability Name		Category of Ability	Type						Visible	Required Ability							Var. Must Be Grater				Special Ability			Combat bonus			Bonus to skill							Modify VAR				Source Page
-Slippery			CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:NO										PREVARGT:FastTalentPool,FastTalentUsed	SA:Slippery									BONUS:SKILL|Escape Artist|3					BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
-Fancy Footwork		CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:NO										PREVARGT:FastTalentPool,FastTalentUsed	SA:Fancy Footwork			BONUS:COMBAT|AC|1|TYPE=Dodge										BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
-Creeping Reflexes		CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Slippery			PREVARGT:FastTalentPool,FastTalentUsed	SA:Creeping Reflexes							BONUS:SKILL|Hide,Move Silently|CHECKS.Reflex.BASE	BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
-Improved Fancy Footwork	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Fancy Footwork		PREVARGT:FastTalentPool,FastTalentUsed	SA:Improved Fancy Footwork	BONUS:COMBAT|AC|1|TYPE=Dodge										BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
-Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork	PREVARGT:FastTalentPool,FastTalentUsed	SA:Celeitous Skulking																BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
+Slippery			CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:NO										PREVARGT:FastTalentPool,FastTalentUsed	SAB:Slippery									BONUS:SKILL|Escape Artist|3					BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
+Fancy Footwork		CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:NO										PREVARGT:FastTalentPool,FastTalentUsed	SAB:Fancy Footwork			BONUS:COMBAT|AC|1|TYPE=Dodge										BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
+Creeping Reflexes		CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Slippery			PREVARGT:FastTalentPool,FastTalentUsed	SAB:Creeping Reflexes							BONUS:SKILL|Hide,Move Silently|CHECKS.Reflex.BASE	BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
+Improved Fancy Footwork	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Fancy Footwork		PREVARGT:FastTalentPool,FastTalentUsed	SAB:Improved Fancy Footwork	BONUS:COMBAT|AC|1|TYPE=Dodge										BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
+Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork	PREVARGT:FastTalentPool,FastTalentUsed	SAB:Celeitous Skulking																BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
 
 ###Block: Finesse Tree
 # Feat Name			Type						Visible	Required Feat						Prohibited Feat			Special Ability		Add					Combat bonus												Source Page
 # Ability Name		Category of Ability	Type						Visible	Required Ability									Prohibited Feat			Var. Must Be Grater				Special Ability		Add					Combat bonus												Modify VAR				Source Page
-Weapon Finesse Talent	CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:NO												!PREFEAT:1,Weapon Finesse	PREVARGT:FastTalentPool,FastTalentUsed	SA:Weapon Finesse		ADD:FEAT|1|Weapon Finesse															BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
-Masterful Finesse		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Weapon Finesse,Weapon Finesse Talent						PREVARGT:FastTalentPool,FastTalentUsed	SA:Masterful Finesse						BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged	BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
-Rapid Precision		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Masterful Finesse									PREVARGT:FastTalentPool,FastTalentUsed	SA:Rapid Precision						BONUS:COMBAT|DAMAGE.Finesseable|DEX									BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
+Weapon Finesse Talent	CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:NO												!PREFEAT:1,Weapon Finesse	PREVARGT:FastTalentPool,FastTalentUsed	SAB:Weapon Finesse		ADD:FEAT|1|Weapon Finesse															BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
+Masterful Finesse		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Weapon Finesse,Weapon Finesse Talent						PREVARGT:FastTalentPool,FastTalentUsed	SAB:Masterful Finesse						BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged	BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
+Rapid Precision		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Masterful Finesse									PREVARGT:FastTalentPool,FastTalentUsed	SAB:Rapid Precision						BONUS:COMBAT|DAMAGE.Finesseable|DEX									BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.5
 
 ###Block: Need for Speed Tree
 # Feat Name		Type						Visible	Required Feat				Required Skill		Special Ability		Bonus to skill					Source Page
 # Ability Name	Category of Ability	Type						Visible	Required Ability								Required Skill		Var. Must Be Grater				Special Ability		Bonus to skill					Modify VAR				Source Page
-Driven to Drive	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Surface Vehicle Operation	PRESKILL:1,Drive=4	PREVARGT:FastTalentPool,FastTalentUsed	SA:Driven to Drive	BONUS:SKILL|Drive|CHECKS.Reflex.BASE	BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.6
-Speed Racer		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Surface Vehicle Operation	PRESKILL:1,Drive=4	PREVARGT:FastTalentPool,FastTalentUsed	SA:Speed Racer									BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.6
-Offensive Driving	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Driven to Drive							PREVARGT:FastTalentPool,FastTalentUsed	SA:Offensive Driving								BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.6
-Speed Demon		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Driven to Drive							PREVARGT:FastTalentPool,FastTalentUsed	SA:Speed Demon									BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.6
+Driven to Drive	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Surface Vehicle Operation	PRESKILL:1,Drive=4	PREVARGT:FastTalentPool,FastTalentUsed	SAB:Driven to Drive	BONUS:SKILL|Drive|CHECKS.Reflex.BASE	BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.6
+Speed Racer		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Surface Vehicle Operation	PRESKILL:1,Drive=4	PREVARGT:FastTalentPool,FastTalentUsed	SAB:Speed Racer									BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.6
+Offensive Driving	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Driven to Drive							PREVARGT:FastTalentPool,FastTalentUsed	SAB:Offensive Driving								BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.6
+Speed Demon		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Driven to Drive							PREVARGT:FastTalentPool,FastTalentUsed	SAB:Speed Demon									BONUS:VAR|FastTalentUsed|1	SOURCEPAGE:p.6
 
 ###Block: Quicker Than the Eye Tree
 # Feat Name			Type							Visible	Required Feat		Special Ability																	Define								Modify VAR											Source Page
 # Ability Name		Category of Ability	Type							Visible	Required Ability					Var. Must Be Grater				Special Ability																	Define								Modify VAR																Source Page
-Quick				CATEGORY:Talent		TYPE:Talent.FastTalent.QuickerThanEye	VISIBLE:NO								PREVARGT:FastTalentPool,FastTalentUsed	SA:Quick ~ spend action point and attacks suffer a % pct miss chance for % rounds|QuickMissChance|QuickRounds	DEFINE:QuickMissChance|0	DEFINE:QuickRounds|0	BONUS:VAR|FastTalentUsed|1	BONUS:VAR|QuickMissChance|20	BONUS:VAR|QuickRounds|3+var("CL=Fast")	SOURCEPAGE:p.6
-Quicker			CATEGORY:Talent		TYPE:Talent.FastTalent.QuickerThanEye	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Quick		PREVARGT:FastTalentPool,FastTalentUsed	SA:Quicker																											BONUS:VAR|FastTalentUsed|1	BONUS:VAR|QuickMissChance|10								SOURCEPAGE:p.6
-Quickest			CATEGORY:Talent		TYPE:Talent.FastTalent.QuickerThanEye	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Quicker	PREVARGT:FastTalentPool,FastTalentUsed	SA:Quickest																											BONUS:VAR|FastTalentUsed|1	BONUS:VAR|QuickMissChance|10								SOURCEPAGE:p.6
-Quickest of them All	CATEGORY:Talent		TYPE:Talent.FastTalent.QuickerThanEye	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Quickest	PREVARGT:FastTalentPool,FastTalentUsed	SA:Quickest of them All																									BONUS:VAR|FastTalentUsed|1	BONUS:VAR|QuickMissChance|10								SOURCEPAGE:p.6
+Quick				CATEGORY:Talent		TYPE:Talent.FastTalent.QuickerThanEye	VISIBLE:NO								PREVARGT:FastTalentPool,FastTalentUsed	SAB:Quick ~ spend action point and attacks suffer a % pct miss chance for % rounds|QuickMissChance|QuickRounds	DEFINE:QuickMissChance|0	DEFINE:QuickRounds|0	BONUS:VAR|FastTalentUsed|1	BONUS:VAR|QuickMissChance|20	BONUS:VAR|QuickRounds|3+var("CL=Fast")	SOURCEPAGE:p.6
+Quicker			CATEGORY:Talent		TYPE:Talent.FastTalent.QuickerThanEye	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Quick		PREVARGT:FastTalentPool,FastTalentUsed	SAB:Quicker																											BONUS:VAR|FastTalentUsed|1	BONUS:VAR|QuickMissChance|10								SOURCEPAGE:p.6
+Quickest			CATEGORY:Talent		TYPE:Talent.FastTalent.QuickerThanEye	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Quicker	PREVARGT:FastTalentPool,FastTalentUsed	SAB:Quickest																											BONUS:VAR|FastTalentUsed|1	BONUS:VAR|QuickMissChance|10								SOURCEPAGE:p.6
+Quickest of them All	CATEGORY:Talent		TYPE:Talent.FastTalent.QuickerThanEye	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Quickest	PREVARGT:FastTalentPool,FastTalentUsed	SAB:Quickest of them All																									BONUS:VAR|FastTalentUsed|1	BONUS:VAR|QuickMissChance|10								SOURCEPAGE:p.6
 
 #
 #Block: Tough talents
@@ -84,17 +84,17 @@ Quickest of them All	CATEGORY:Talent		TYPE:Talent.FastTalent.QuickerThanEye	VISI
 ###Block: FX Resistance Tree
 # Feat Name			Type							Visible	Special Ability			Define			Modify VAR				Spell Res.		Source Page
 # Ability Name		Category of Ability	Type							Visible	Var. Must Be Grater				Special Ability			Define			Modify VAR									Spell Res.		Source Page
-FX Resistance		CATEGORY:Talent		TYPE:Talent.ToughTalent.FXResistance	VISIBLE:NO	PREVARGT:ToughTalentPool,ToughTalentUsed	SA:FX Resistance			DEFINE:FXResistance|0	BONUS:VAR|ToughTalentUsed|1	BONUS:VAR|FXResistance|8+TL	SR:FXResistance	SOURCEPAGE:p.6
-Improved FX Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.FXResistance	VISIBLE:NO	PREVARGT:ToughTalentPool,ToughTalentUsed	SA:Improved FX Resistance					BONUS:VAR|ToughTalentUsed|1	BONUS:VAR|FXResistance|2				SOURCEPAGE:p.6
-Greater FX Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.FXResistance	VISIBLE:NO	PREVARGT:ToughTalentPool,ToughTalentUsed	SA:Greater FX Resistance					BONUS:VAR|ToughTalentUsed|1	BONUS:VAR|FXResistance|2				SOURCEPAGE:p.7
-Maximum FX Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.FXResistance	VISIBLE:NO	PREVARGT:ToughTalentPool,ToughTalentUsed	SA:Maximum FX Resistance					BONUS:VAR|ToughTalentUsed|1	BONUS:VAR|FXResistance|2				SOURCEPAGE:p.7
+FX Resistance		CATEGORY:Talent		TYPE:Talent.ToughTalent.FXResistance	VISIBLE:NO	PREVARGT:ToughTalentPool,ToughTalentUsed	SAB:FX Resistance			DEFINE:FXResistance|0	BONUS:VAR|ToughTalentUsed|1	BONUS:VAR|FXResistance|8+TL	SR:FXResistance	SOURCEPAGE:p.6
+Improved FX Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.FXResistance	VISIBLE:NO	PREVARGT:ToughTalentPool,ToughTalentUsed	SAB:Improved FX Resistance					BONUS:VAR|ToughTalentUsed|1	BONUS:VAR|FXResistance|2				SOURCEPAGE:p.6
+Greater FX Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.FXResistance	VISIBLE:NO	PREVARGT:ToughTalentPool,ToughTalentUsed	SAB:Greater FX Resistance					BONUS:VAR|ToughTalentUsed|1	BONUS:VAR|FXResistance|2				SOURCEPAGE:p.7
+Maximum FX Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.FXResistance	VISIBLE:NO	PREVARGT:ToughTalentPool,ToughTalentUsed	SAB:Maximum FX Resistance					BONUS:VAR|ToughTalentUsed|1	BONUS:VAR|FXResistance|2				SOURCEPAGE:p.7
 
 ###Block: Toxin Resistance Tree
 # Feat Name			Type							Visible	Required Feat				Special Ability			Source Page
 # Ability Name		Category of Ability	Type							Visible	Required Ability							Var. Must Be Grater				Special Ability			Modify VAR				Source Page
-Apocrustic Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.ToxinResistance	VISIBLE:NO										PREVARGT:ToughTalentPool,ToughTalentUsed	SA:Apocrustic Resistance	BONUS:VAR|ToughTalentUsed|1	SOURCEPAGE:p.7
-Toxin Resistance		CATEGORY:Talent		TYPE:Talent.ToughTalent.ToxinResistance	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Apocrustic Resistance	PREVARGT:ToughTalentPool,ToughTalentUsed	SA:Toxin Resistance		BONUS:VAR|ToughTalentUsed|1	SOURCEPAGE:p.7
-Disease Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.ToxinResistance	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Apocrustic Resistance	PREVARGT:ToughTalentPool,ToughTalentUsed	SA:Disease Resistance		BONUS:VAR|ToughTalentUsed|1	SOURCEPAGE:p.7
+Apocrustic Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.ToxinResistance	VISIBLE:NO										PREVARGT:ToughTalentPool,ToughTalentUsed	SAB:Apocrustic Resistance	BONUS:VAR|ToughTalentUsed|1	SOURCEPAGE:p.7
+Toxin Resistance		CATEGORY:Talent		TYPE:Talent.ToughTalent.ToxinResistance	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Apocrustic Resistance	PREVARGT:ToughTalentPool,ToughTalentUsed	SAB:Toxin Resistance		BONUS:VAR|ToughTalentUsed|1	SOURCEPAGE:p.7
+Disease Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.ToxinResistance	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Apocrustic Resistance	PREVARGT:ToughTalentPool,ToughTalentUsed	SAB:Disease Resistance		BONUS:VAR|ToughTalentUsed|1	SOURCEPAGE:p.7
 
 #
 #Smart talents
@@ -102,29 +102,29 @@ Disease Resistance	CATEGORY:Talent		TYPE:Talent.ToughTalent.ToxinResistance	VISI
 ###Block: Fast Learner Tree
 # Feat Name		Type						Visible	Required Feat					Special Ability		Source Page
 # Ability Name	Category of Ability	Type						Visible	Required Ability								Var. Must Be Grater				Special Ability		Modify VAR				Source Page
-Fast Learner	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:NO											PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Fast learner		BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
-Improved Learning	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Fast Learner				PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Improved Learning	BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
-Broad Knowledge	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Fast Learner				PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Broad Knowledge	BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
-Cross Training	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Fast Learner,Broad Knowledge	PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Cross Training		BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
+Fast Learner	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:NO											PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Fast learner		BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
+Improved Learning	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Fast Learner				PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Improved Learning	BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
+Broad Knowledge	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Fast Learner				PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Broad Knowledge	BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
+Cross Training	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Fast Learner,Broad Knowledge	PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Cross Training		BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
 #	ADD:CLASSSKILLS(ANY)3
 #	 - ADD:CLASSSKILLS() is a Class level line tag ONLY
 
 ###Block: Quick Thinking Tree
 # Feat Name					Type							Visible	Required Feat						Special Ability				Multiple?	Choose																																															Save checks bonus		Combat bonus				Bonus to skill		Source Page
 # Ability Name				Category of Ability	Type							Visible	Required Ability									Var. Must Be Grater				Special Ability				Multiple?	Choose																																															Save checks bonus		Combat bonus				Bonus to skill		Modify VAR				Source Page
-Keen Reflex					CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:NO												PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Keen Reflex																																																						BONUS:CHECKS|Reflex|INT											BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
-Keenly Skilled				CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:NO												PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Keenly Skilled				MULT:YES	CHOOSE:Bluff|Climb|Diplomacy|Disguise|Drive|Handle Animal|Jump|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Pilot|Profession|Ride|Sense Motive|Survival|Swim											BONUS:SKILL|LIST|INT	BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
-Perspicacious Response			CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:NO												PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Perspicacious Response																																																								BONUS:COMBAT|INITIATIVE|INT						BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
-Greater Perspicacious Response	CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Perspicacious Response,Keen Reflex	PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Greater Perspicacious Response																																																							BONUS:COMBAT|INITIATIVE|CHECKS.Will					BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
+Keen Reflex					CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:NO												PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Keen Reflex																																																						BONUS:CHECKS|Reflex|INT											BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
+Keenly Skilled				CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:NO												PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Keenly Skilled				MULT:YES	CHOOSE:Bluff|Climb|Diplomacy|Disguise|Drive|Handle Animal|Jump|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Pilot|Profession|Ride|Sense Motive|Survival|Swim											BONUS:SKILL|LIST|INT	BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.7
+Perspicacious Response			CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:NO												PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Perspicacious Response																																																								BONUS:COMBAT|INITIATIVE|INT						BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
+Greater Perspicacious Response	CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Perspicacious Response,Keen Reflex	PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Greater Perspicacious Response																																																							BONUS:COMBAT|INITIATIVE|CHECKS.Will					BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
 
 ###Block: Tactical Tree
 # Feat Name			Type						Visible	Required Feat				Special Ability		Source Page
 # Ability Name		Category of Ability	Type						Visible	Required Ability							Var. Must Be Grater				Special Ability		Modify VAR				Source Page
-Outsmart			CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:NO										PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Outsmart			BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
-Tactician			CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Outsmart			PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Tactician		BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
-Greater Outsmarting	CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Outsmart			PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Greater Outsmarting	BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
-Keen Attacks		CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Outsmart			PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Keen Attacks		BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
-Greater Keen Attacks	CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Outsmart,Keen Attacks	PREVARGT:SmartTalentPool,SmartTalentUsed	SA:Greater Keen Attacks	BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
+Outsmart			CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:NO										PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Outsmart			BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
+Tactician			CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Outsmart			PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Tactician		BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
+Greater Outsmarting	CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Outsmart			PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Greater Outsmarting	BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
+Keen Attacks		CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Outsmart			PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Keen Attacks		BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
+Greater Keen Attacks	CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Outsmart,Keen Attacks	PREVARGT:SmartTalentPool,SmartTalentUsed	SAB:Greater Keen Attacks	BONUS:VAR|SmartTalentUsed|1	SOURCEPAGE:p.8
 
 #
 #Dedicated talents
@@ -132,37 +132,37 @@ Greater Keen Attacks	CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:
 ###Block: Animal Friendship
 # Feat Name				Type								Visible	Required Feat								Special Ability						Bonus to skill			Source Page
 # Ability Name			Category of Ability	Type								Visible	Required Ability											Var. Must Be Grater						Special Ability						Bonus to skill			Modify VAR					Source Page
-Annimal Affinity			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:NO														PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Animal Affinity					BONUS:SKILL|Handle Animal|3	BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.8
-Wild Empathy			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Animal Affinity						PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Wild Empathy +%|10+CHA+var("CL=Dedicated")						BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.8
-Animal Friendship			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:NO														PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Animal Friendship										BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.8
-Advanced Animal Friendship	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:NO	PREABILITY:3,CATEGORY=Talent,Animal Affinity,Wild Empathy,Animal Friendship	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Advanced Animal Friendship									BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.9
-Summon Animal			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Animal Affinity,Animal Friendship			PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Summon Animal											BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.9
-Summon Greater Animal		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:NO	PREABILITY:3,CATEGORY=Talent,Animal Affinity,Animal Friendship,Summon Animal	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Summon Greater Animal									BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.9
-Animal Companion			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:NO														PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Animal Companion										BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.9
+Annimal Affinity			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:NO														PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Animal Affinity					BONUS:SKILL|Handle Animal|3	BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.8
+Wild Empathy			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Animal Affinity						PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Wild Empathy +%|10+CHA+var("CL=Dedicated")						BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.8
+Animal Friendship			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:NO														PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Animal Friendship										BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.8
+Advanced Animal Friendship	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:NO	PREABILITY:3,CATEGORY=Talent,Animal Affinity,Wild Empathy,Animal Friendship	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Advanced Animal Friendship									BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.9
+Summon Animal			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Animal Affinity,Animal Friendship			PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Summon Animal											BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.9
+Summon Greater Animal		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:NO	PREABILITY:3,CATEGORY=Talent,Animal Affinity,Animal Friendship,Summon Animal	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Summon Greater Animal									BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.9
+Animal Companion			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:NO														PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Animal Companion										BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.9
 
 ###Block: Oracle Tree
 # Feat Name		Type						Visible	Required Feat				Special Ability		Source Page
 # Ability Name	Category of Ability	Type						Visible	Required Ability							Var. Must Be Grater						Special Ability		Modify VAR					Source Page
-Hunch			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Oracle	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Empathy			PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Hunch			BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.10
-Foretell		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Oracle	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Empathy,Hunch		PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Foretell			BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.11
-Prophetic Vision	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Oracle	VISIBLE:NO	PREABILITY:3,CATEGORY=Talent,Empathy,Hunch,Foretell	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Prophetic Vision	BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.11
+Hunch			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Oracle	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Empathy			PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Hunch			BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.10
+Foretell		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Oracle	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Empathy,Hunch		PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Foretell			BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.11
+Prophetic Vision	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Oracle	VISIBLE:NO	PREABILITY:3,CATEGORY=Talent,Empathy,Hunch,Foretell	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Prophetic Vision	BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.11
 
 ###Block: Selfless Tree
 # Feat Name		Type							Visible	Required Feat					Special Ability		Source Page
 # Ability Name	Category of Ability	Type							Visible	Required Ability									Var. Must Be Grater						Special Ability		Modify VAR					Source Page
-Moral Support	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Selfless	VISIBLE:NO												PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Moral Support		BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.11
-Financial Support	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Selfless	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Moral Support				PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Financial Support	BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.11
-Life Support	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Selfless	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Moral Support,Financial Support	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Life Support		BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.11
+Moral Support	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Selfless	VISIBLE:NO												PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Moral Support		BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.11
+Financial Support	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Selfless	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Moral Support				PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Financial Support	BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.11
+Life Support	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Selfless	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Moral Support,Financial Support	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Life Support		BONUS:VAR|DedicatedTalentUsed|1	SOURCEPAGE:p.11
 
 ###Block: Virtuous Tree
 # Feat Name			Type						Visible	Required Feat				Special Ability			Define			Stackable?	Multiple?	Save checks bonus			Bonus to skill																							Modify VAR			Source Page
 # Ability Name		Category of Ability	Type						Visible	Required Ability							Var. Must Be Grater						Special Ability			Define			Stackable?	Multiple?	Save checks bonus			Bonus to skill																							Modify VAR									Source Page
-Virtue			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO										PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Virtue				DEFINE:VirtueBonus|0	STACK:YES	MULT:YES						BONUS:SKILL|Diplomacy,Handle Animal,Intimidate,Knowledge (Arcane Lore),Knowledge (Theology and Philosophy),TYPE.Perform,Treat Injury|VirtueBonus	BONUS:VAR|DedicatedTalentUsed|1	BONUS:VAR|VirtueBonus|1	SOURCEPAGE:p.11
+Virtue			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO										PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Virtue				DEFINE:VirtueBonus|0	STACK:YES	MULT:YES						BONUS:SKILL|Diplomacy,Handle Animal,Intimidate,Knowledge (Arcane Lore),Knowledge (Theology and Philosophy),TYPE.Perform,Treat Injury|VirtueBonus	BONUS:VAR|DedicatedTalentUsed|1	BONUS:VAR|VirtueBonus|1	SOURCEPAGE:p.11
 # MULT:YES without a CHOOSE?
-Aura of Virtue		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Virtue				PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Aura of Virtue																																									BONUS:VAR|DedicatedTalentUsed|1					SOURCEPAGE:p.11
-Greater Aura of Virtue	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Virtue,Aura of Virtue	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Greater Aura of Virtue																																							BONUS:VAR|DedicatedTalentUsed|1					SOURCEPAGE:p.11
-Aura of Righteousness	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Virtue,Aura of Virtue	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Aura of Righteousness																																							BONUS:VAR|DedicatedTalentUsed|1					SOURCEPAGE:p.11
-Clean Living		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Virtue				PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SA:Clean Living											BONUS:CHECKS|Fortitude|WIS																										BONUS:VAR|DedicatedTalentUsed|1					SOURCEPAGE:p.12
+Aura of Virtue		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Virtue				PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Aura of Virtue																																									BONUS:VAR|DedicatedTalentUsed|1					SOURCEPAGE:p.11
+Greater Aura of Virtue	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Virtue,Aura of Virtue	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Greater Aura of Virtue																																							BONUS:VAR|DedicatedTalentUsed|1					SOURCEPAGE:p.11
+Aura of Righteousness	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Virtue,Aura of Virtue	PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Aura of Righteousness																																							BONUS:VAR|DedicatedTalentUsed|1					SOURCEPAGE:p.11
+Clean Living		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Virtue				PREVARGT:DedicatedTalentPool,DedicatedTalentUsed	SAB:Clean Living											BONUS:CHECKS|Fortitude|WIS																										BONUS:VAR|DedicatedTalentUsed|1					SOURCEPAGE:p.12
 
 #
 #Charismatic talents
@@ -170,29 +170,29 @@ Clean Living		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:NO	PRE
 ###Block: Efficacious Tree
 # Feat Name	Type							Visible	Clear Prereq.	Required Feat					Special Ability	Source Page
 # Ability Name			Category of Ability	Type							Visible	Clear Prereq.	Required Ability											Var. Must Be Grater						Special Ability	Modify VAR					Source Page
-Disarm				CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Efficacious	VISIBLE:NO																	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Disarm		BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.12
+Disarm				CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Efficacious	VISIBLE:NO																	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Disarm		BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.12
 CATEGORY=Talent|Charm.MOD	CATEGORY:Talent		TYPE:Efficacious
 CATEGORY=Talent|Favor.MOD	CATEGORY:Talent		TYPE:Efficacious							PRE:.CLEAR		PREABILITY:1,CATEGORY=Talent,Charm,Disarm
-Domination				CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Efficacious	VISIBLE:NO				PREABILITY:1,CATEGORY=Talent,Charm,Disarm	PREABILITY:1,CATEGORY=Talent,Favor	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Domination	BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.12
+Domination				CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Efficacious	VISIBLE:NO				PREABILITY:1,CATEGORY=Talent,Charm,Disarm	PREABILITY:1,CATEGORY=Talent,Favor	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Domination	BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.12
 
 ###Block: Facetious Tree
 # Feat Name		Type							Visible	Required Feat				Required Skill			Special Ability	Source Page
 # Ability Name	Category of Ability	Type							Visible	Required Ability							Required Skill			Var. Must Be Grater						Special Ability	Modify VAR					Source Page
-Clowning		CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Facetious	VISIBLE:NO										PRESKILL:1,TYPE.Perform=4	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Clowning		BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
-Razor Tongue	CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Facetious	VISIBLE:NO										PRESKILL:1,Intimidate=4		PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Razor Tongue	BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
-Hysterics		CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Facetious	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Clowning,Razor Tongue	PRESKILL:1,TYPE.Perform=4	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Hysterics	BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
+Clowning		CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Facetious	VISIBLE:NO										PRESKILL:1,TYPE.Perform=4	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Clowning		BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
+Razor Tongue	CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Facetious	VISIBLE:NO										PRESKILL:1,Intimidate=4		PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Razor Tongue	BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
+Hysterics		CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Facetious	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Clowning,Razor Tongue	PRESKILL:1,TYPE.Perform=4	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Hysterics	BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
 
 ###Block: Intimidating Tree
 # Feat Name			Type								Visible	Required Feat					Special Ability		Source Page
 # Ability Name		Category of Ability	Type								Visible	Required Ability								Var. Must Be Grater						Special Ability		Modify VAR					Source Page
-Intimidating Presence	CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:NO											PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Intimidate Presence	BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
-Shake				CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Intimidating Presence		PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Shake			BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
-Terrify			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Intimidating Presence,Shake	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Terrify			BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
-Game Face			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Intimidating Presence,Shake	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Game Face		BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
+Intimidating Presence	CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:NO											PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Intimidate Presence	BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
+Shake				CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:NO	PREABILITY:1,CATEGORY=Talent,Intimidating Presence		PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Shake			BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
+Terrify			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Intimidating Presence,Shake	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Terrify			BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
+Game Face			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Intimidating Presence,Shake	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Game Face		BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.13
 
 ###Block: Pulchritudinous Tree
 # Feat Name		Type								Visible	Required Feat				Special Ability		Bonus to skill								Source Page
 # Ability Name			Category of Ability	Type								Visible	Required Ability							Var. Must Be Grater						Special Ability		Bonus to skill								Modify VAR					Source Page
-Good Impression			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Pulchritudinous	VISIBLE:NO										PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Good Impression	BONUS:SKILL|Diplomacy,Bluff,TYPE.Perfor|3|TYPE=Circumstance	BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.14
+Good Impression			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Pulchritudinous	VISIBLE:NO										PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Good Impression	BONUS:SKILL|Diplomacy,Bluff,TYPE.Perfor|3|TYPE=Circumstance	BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.14
 CATEGORY=Talent|Charm.MOD	CATEGORY:Talent		TYPE:Pulchritudinous
-Stunning Beauty			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Pulchritudinous	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Good Impression,Charm	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SA:Stunning Beauty											BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.14
+Stunning Beauty			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Pulchritudinous	VISIBLE:NO	PREABILITY:2,CATEGORY=Talent,Good Impression,Charm	PREVARGT:CharismaticTalentPool,CharismaticTalentUsed	SAB:Stunning Beauty											BONUS:VAR|CharismaticTalentUsed|1	SOURCEPAGE:p.14
