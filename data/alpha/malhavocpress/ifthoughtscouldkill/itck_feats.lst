@@ -9,12 +9,12 @@ Transcend Limits		TYPE:Psionic	PRECLASS:1,SPELLCASTER.Psionic=3						DESC:Increa
 
 ###Block : hidden feats for subdisciplines.
 # Feat Name					Type					Visible	Special Ability						Bonus to DC
-Psychometabolism Subdiscipline	TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Psychometabolism psionic subdiscipline.	BONUS:DC|SCHOOL.Psychometabolism|SPELLSTAT-STR|TYPE=Subdiscipline
-Psychokinesis Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Psychokinesis psionic subdiscipline.		BONUS:DC|SCHOOL.Psychokinesis|SPELLSTAT-CON|TYPE=Subdiscipline
-Psychoportation Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Psychoportation psionic subdiscipline.		BONUS:DC|SCHOOL.Psychoportation|SPELLSTAT-DEX|TYPE=Subdiscipline
-Metacreativity Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Metacreativity psionic subdiscipline.		BONUS:DC|SCHOOL.Metacreativity|SPELLSTAT-INT|TYPE=Subdiscipline
-Clairsentience Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Clairsentience psionic subdiscipline.		BONUS:DC|SCHOOL.Clairsentience|SPELLSTAT-WIS|TYPE=Subdiscipline
-Telepathy Subdiscipline			TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Telepathy psionic subdiscipline.			BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline
+Psychometabolism Subdiscipline	TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Psychometabolism psionic subdiscipline.	BONUS:DC|SCHOOL.Psychometabolism|SPELLSTAT-STR|TYPE=Subdiscipline
+Psychokinesis Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Psychokinesis psionic subdiscipline.		BONUS:DC|SCHOOL.Psychokinesis|SPELLSTAT-CON|TYPE=Subdiscipline
+Psychoportation Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Psychoportation psionic subdiscipline.		BONUS:DC|SCHOOL.Psychoportation|SPELLSTAT-DEX|TYPE=Subdiscipline
+Metacreativity Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Metacreativity psionic subdiscipline.		BONUS:DC|SCHOOL.Metacreativity|SPELLSTAT-INT|TYPE=Subdiscipline
+Clairsentience Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Clairsentience psionic subdiscipline.		BONUS:DC|SCHOOL.Clairsentience|SPELLSTAT-WIS|TYPE=Subdiscipline
+Telepathy Subdiscipline			TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Telepathy psionic subdiscipline.			BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline
 
 ###block: weapon proficiencies
 # Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.

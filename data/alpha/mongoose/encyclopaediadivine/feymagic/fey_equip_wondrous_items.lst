@@ -6,7 +6,7 @@ Potion (Fey Sight)		OUTPUTNAME:Potion of [NAME]							TYPE:Magic.Potion.Consumab
 Potion (Dreaming)			OUTPUTNAME:Potion of [NAME]							TYPE:Magic.Potion.Consumable	COST:300	WT:0																		SOURCEPAGE:p.48
 Potion (Enchanted Sleep)	OUTPUTNAME:Potion of [NAME]							TYPE:Magic.Potion.Consumable	COST:250	WT:0																		SOURCEPAGE:p.48
 Ring (Fey Blessing)		OUTPUTNAME:Ring of [NAME]							TYPE:Magic.Ring			COST:4000	WT:0																		SOURCEPAGE:p.49
-Ring (Predator)			OUTPUTNAME:Ring of the [NAME]							TYPE:Magic.Ring			COST:8000	WT:0																		SOURCEPAGE:p.49									BONUS:SKILL|Hide,Move Silently|10|TYPE=Competence				SA:Trackless Step
+Ring (Predator)			OUTPUTNAME:Ring of the [NAME]							TYPE:Magic.Ring			COST:8000	WT:0																		SOURCEPAGE:p.49									BONUS:SKILL|Hide,Move Silently|10|TYPE=Competence				SAB:Trackless Step
 Rod (Fey Lacating)		OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod			COST:23000	WT:0																		SOURCEPAGE:p.49
 Rod (Dreaming)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod			COST:23000	WT:0																		SOURCEPAGE:p.49
 Rod (Fey Blood)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod			COST:23000	WT:0																		SOURCEPAGE:p.49

@@ -7,7 +7,7 @@ Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PREATT:1	PRECSKILL:3,Concentrati
 
 ###Block: ironborn
 # Template Name	Visible	Template																																																																							Special Ability				Combat bonus				Bonus to skill
-Ironborn Trait	VISIBLE:NO	TEMPLATE:Humanoid	TEMPLATE:CHOOSE:Ironborn No Stat Adjustment|Ironborn Str Stat Adjustment|Ironborn NonStr Stat Adjustment	TEMPLATE:CHOOSE:Ironborn Acrobat Ability Package|Ironborn Centurion Ability Package|Ironborn Divine Mark Ability Package|Ironborn Iron Heart Ability Package|Ironborn Shadow Friend Ability Package|Ironborn Slayer Ability Package|Ironborn Spellmaster Ability Package|Ironborn Trailblazer Ability Package	SA:Immortal	SA:Rust Vulnerability	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|-2|TYPE=Racial
+Ironborn Trait	VISIBLE:NO	TEMPLATE:Humanoid	TEMPLATE:CHOOSE:Ironborn No Stat Adjustment|Ironborn Str Stat Adjustment|Ironborn NonStr Stat Adjustment	TEMPLATE:CHOOSE:Ironborn Acrobat Ability Package|Ironborn Centurion Ability Package|Ironborn Divine Mark Ability Package|Ironborn Iron Heart Ability Package|Ironborn Shadow Friend Ability Package|Ironborn Slayer Ability Package|Ironborn Spellmaster Ability Package|Ironborn Trailblazer Ability Package	SAB:Immortal	SAB:Rust Vulnerability	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|-2|TYPE=Racial
 
 ###Block: Ironborn Stat Adjustments
 # Template Name				Visible	Template																																							Stat bonus

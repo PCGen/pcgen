@@ -8,16 +8,16 @@ CLASS:Colorless Adept	PREFEAT:1,Sequester Power	PREFEAT:2,TYPE=Psionic,TYPE=Meta
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|TYPE.Profession|Psicraft|Spot
 ###Block: Level progression
-1	SA:Power Sharing I																																					ADD:SPELLCASTER|1|Psionic
+1	SAB:Power Sharing I																																					ADD:SPELLCASTER|1|Psionic
 2																																									ADD:SPELLCASTER|1|Psionic
 3																																									ADD:SPELLCASTER|1|Psionic
-4	SA:Power Sharing II																																					ADD:SPELLCASTER|1|Psionic
-5	SA:Colorless Fire DC%, % times/day (Psi-like)|ColorlessFireDC|ColorlessFireTimes	BONUS:VAR|ColorlessFireDC|(17+INT)	BONUS:VAR|ColorlessFireTimes|(var("CL=Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
+4	SAB:Power Sharing II																																					ADD:SPELLCASTER|1|Psionic
+5	SAB:Colorless Fire DC%, % times/day (Psi-like)|ColorlessFireDC|ColorlessFireTimes	BONUS:VAR|ColorlessFireDC|(17+INT)	BONUS:VAR|ColorlessFireTimes|(var("CL=Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
 6																																									ADD:SPELLCASTER|1|Psionic
-7	SA:Power Sharing III																																					ADD:SPELLCASTER|1|Psionic
+7	SAB:Power Sharing III																																					ADD:SPELLCASTER|1|Psionic
 8																																									ADD:SPELLCASTER|1|Psionic
 9																																									ADD:SPELLCASTER|1|Psionic
-10	SA:Colorless Rain DC%, % times/day (Psi-like)|ColorlessRainDC|ColorlessRainTimes	BONUS:VAR|ColorlessRainDC|(23+INT)	BONUS:VAR|ColorlessRainTimes|(var("CL=Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
+10	SAB:Colorless Rain DC%, % times/day (Psi-like)|ColorlessRainDC|ColorlessRainTimes	BONUS:VAR|ColorlessRainDC|(23+INT)	BONUS:VAR|ColorlessRainTimes|(var("CL=Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0	ADD:FEAT|1|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
 
 ###Block: variant prestige classes
 
@@ -30,9 +30,9 @@ CLASS:Metamind ITCK	PREFEAT:1,Psicrystal Affinity	PRESKILL:1,Psicraft=4	PRESKILL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft
 ###Block: Psicrystal info
-1	SA:Cognizance Psicrystal %|PowerPsicrystal	BONUS:VAR|PowerPsicrystal|2*floor(((var("CL=Metamind ITCK")-1)/2))	DEFINE:PowerPsicrystal|5
+1	SAB:Cognizance Psicrystal %|PowerPsicrystal	BONUS:VAR|PowerPsicrystal|2*floor(((var("CL=Metamind ITCK")-1)/2))	DEFINE:PowerPsicrystal|5
 ###Block: sequestration
-1	SA:Sequestration %|SequesVar	BONUS:VAR|SequesVar|var("CL=Metamind ITCK")	DEFINE:SequesVar|1
+1	SAB:Sequestration %|SequesVar	BONUS:VAR|SequesVar|var("CL=Metamind ITCK")	DEFINE:SequesVar|1
 ###Block: Level progression
 1								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration	ADD:FEAT|1|Power Sequestration
 2								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
@@ -43,7 +43,7 @@ CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft
 7								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
 8								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
 9								ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
-10	SA:Font of Power ~ one minute/day (Ps)	ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
+10	SAB:Font of Power ~ one minute/day (Ps)	ADD:SPELLCASTER|1|Psionic	ADD:FEAT|1|Power Sequestration
 
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
