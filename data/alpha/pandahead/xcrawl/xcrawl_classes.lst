@@ -40,7 +40,7 @@ CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Int
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Weapon Proficiencies|All Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE.Sport
 ###Block: Normal Level Progression
-1	SA:Constant Training	SA:% Favored Sports|FavSports	BONUS:VAR|FavSports|CL/5+1	DEFINE:FavSports|0	ADD:FEAT|1|TYPE=Athlete
+1	SAB:Constant Training	SAB:% Favored Sports|FavSports	BONUS:VAR|FavSports|CL/5+1	DEFINE:FavSports|0	ADD:FEAT|1|TYPE=Athlete
 4																			ADD:FEAT|1|TYPE=Athlete
 7																			ADD:FEAT|1|TYPE=Athlete
 10																			ADD:FEAT|1|TYPE=Athlete
@@ -57,11 +57,11 @@ CLASS:Master Celebrity	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.
 ###Block: Proficiencies
 1	AUTO:FEAT|All Automatic Weapon Proficiencies	AUTO:WEAPONPROF|TYPE.Dagger|TYPE.Pistol
 ###Block: Normal Level Progression
-1	SA:Make It Look Natural	SA:Eminence
-2	SA:Work the Media
-3	SA:Therefore I Am				BONUS:SKILL|LIST|4	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1
-4	SA:Crossover
-5	SA:Reinvention
+1	SAB:Make It Look Natural	SAB:Eminence
+2	SAB:Work the Media
+3	SAB:Therefore I Am				BONUS:SKILL|LIST|4	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1
+4	SAB:Crossover
+5	SAB:Reinvention
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Trapper	HD:10		TYPE:PC.Prestige	ABB:Tpr		MAXLEVEL:10	SOURCEPAGE:141	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/3)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -72,16 +72,16 @@ CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hid
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Weapon Proficiencies	AUTO:WEAPONPROF|Net|Tranquilizer Rifle
 ###Block: Normal Level Progression
-1	SA:Subdual Specialist	SA:Favored Prey
-2	SA:Scent	SA:Exotic Weapon %|EW					DEFINE:EW|1	ADD:FEAT|1|Exotic Weapon Proficiency
-3	SA:Scentless
+1	SAB:Subdual Specialist	SAB:Favored Prey
+2	SAB:Scent	SAB:Exotic Weapon %|EW					DEFINE:EW|1	ADD:FEAT|1|Exotic Weapon Proficiency
+3	SAB:Scentless
 4								BONUS:VAR|EW|1			ADD:FEAT|1|Exotic Weapon Proficiency
-5	SA:Favored Prey
-6	SA:Eyes in the Back of Your Head
-7	SA:Bond With Region
+5	SAB:Favored Prey
+6	SAB:Eyes in the Back of Your Head
+7	SAB:Bond With Region
 8								BONUS:VAR|EW|1			ADD:FEAT|1|Exotic Weapon Proficiency
-9	SA:Think Like a Monster
-10	SA:Favored Prey
+9	SAB:Think Like a Monster
+10	SAB:Favored Prey
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Guild DJ	HD:4		TYPE:PC.Prestige	ABB:GDJ		MAXLEVEL:10	SOURCEPAGE:143	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/3)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -92,10 +92,10 @@ CLASS:Guild DJ	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Gather Information|Handle 
 ###Block: Proficiencies
 1	AUTO:FEAT|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SA:Mastery %|GDJM	SA:Poker Face	SA:Creature Language	BONUS:VAR|GDJM|(CL+1)/2	DEFINE:GDJM|0	ADD:LANGUAGE|1|Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
+1	SAB:Mastery %|GDJM	SAB:Poker Face	SAB:Creature Language	BONUS:VAR|GDJM|(CL+1)/2	DEFINE:GDJM|0	ADD:LANGUAGE|1|Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
 2																		ADD:LANGUAGE|1|Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon	ADD:FEAT|1|Skill Focus
 3																		ADD:LANGUAGE|1|Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
-4	SA:DJ's Blessing															ADD:FEAT|1|Skill Focus
+4	SAB:DJ's Blessing															ADD:FEAT|1|Skill Focus
 5																		ADD:LANGUAGE|1|Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
 6																		ADD:LANGUAGE|1|Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon	ADD:FEAT|1|Skill Focus
 7																		ADD:LANGUAGE|1|Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon

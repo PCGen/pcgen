@@ -3,6 +3,6 @@ SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.nec
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
 # Feat Name			Type						Visible	Special Ability		Define
-Psi-Like Abilities	TYPE:SpecialAttack			VISIBLE:NO	SA:Psi-Like abilities	DEFINE:ManifesterLvl|0
-Warp Reality		TYPE:SpecialQuality.SpellLike.AC	VISIBLE:NO	SA:Warp Reality (Sp)
+Psi-Like Abilities	TYPE:SpecialAttack			VISIBLE:NO	SAB:Psi-Like abilities	DEFINE:ManifesterLvl|0
+Warp Reality		TYPE:SpecialQuality.SpellLike.AC	VISIBLE:NO	SAB:Warp Reality (Sp)
 
