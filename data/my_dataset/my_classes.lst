@@ -20,7 +20,7 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #1	AUTO:FEAT|Simple Weapon Proficiency|Rogue Weapon Proficiencies|All Automatic Proficiencies
 #1	AUTO:FEAT|Armor Proficiency (Light)
 #1	BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
-#1	SA:Trapfinding
+#1	SAB:Trapfinding
 #2																												AUTO:FEAT|Evasion
 #3				BONUS:VAR|TrapSense|CL/3																				AUTO:FEAT|Trap Sense Ability
 #4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
