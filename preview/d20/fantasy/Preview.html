@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+FEATS<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text-html; charset=utf-8" />
@@ -1082,15 +1082,51 @@
 								</table>
 							</td>
 						</tr>
-<!-- STOP Money Table -->
 |%|
+<!-- STOP Money Table -->
+
+<!-- Start Special Ability Table -->
+						<tr>
+							<td>
+								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Class Abilities">
+									<tr>
+										<td class="border2 bor_col_dark color_header bold center">SPECIAL ABILITIES</td>
+									</tr>
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=VISIBLE")-1,1,0|
+									<tr>
+|OIF(EVEN:%specialAbilities,<td class="even bold">,<td class="odd bold">)|
+											|ABILITYALL.Special Ability.%specialAbilities|
+|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Extraordinary)|
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Supernatural)|
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:SpellLike)|
+ (Sp)
+|ENDIF|
+
+										</td>
+									</tr>
+									<tr>
+|OIF(EVEN:%specialAbilities,<td class="even">,<td class="odd">)|
+											|ABILITYALL.Special Ability.%specialAbilities.DESC|
+										</td>
+									</tr>
+|ENDFOR|
+								</table>
+							</td>
+						</tr>
+<!-- Stop Special Ability Table -->
+
+
 |%COUNT[SA]|
 						<tr>
 							<td>
 <!-- START Special Abilities Table -->
 								<table class="border2 bor_col_dark" width="100%" cellspacing="0" cellpadding="2" summary="Special Abilities Table">
 									<tr>
-										<td class="center color_header bold">SPECIAL ABILITIES</td>
+										<td class="center color_header bold">MISCELLANEOUS ABILITIES</td>
 									</tr>
 |FOR,%sa,0,COUNT[SA]-1,1,0|
 									<tr>
