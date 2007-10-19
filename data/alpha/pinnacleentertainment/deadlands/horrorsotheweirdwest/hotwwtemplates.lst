@@ -3,5 +3,5 @@ SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SO
 # MM templates done with link to the MM files.  -- Tir Gwaith
 
 # Template Name	CR	Visible	Level Adjustment	Source Page		Special Ability		Required AL	Removable?
-Replicant		CR:1	VISIBLE:YES	LEVELADJUSTMENT:1	SOURCEPAGE:p.	SA:Replication(Su)	PREALIGN:CE	REMOVABLE:YES
+Replicant		CR:1	VISIBLE:YES	LEVELADJUSTMENT:1	SOURCEPAGE:p.	SAB:Replication(Su)	PREALIGN:CE	REMOVABLE:YES
 

@@ -3,12 +3,12 @@ SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOUR
 
 ###Block: Agency Operative class features
 # Feat Name			Type			Visible	Special Ability					Define			Source Page
-Friends in High Places	TYPE:ClassAbility	VISIBLE:NO	SA:Friends in High Places %|FriendsHigh	DEFINE:FriendsHigh|0	SOURCEPAGE:p.90
-Requisition Equipment	TYPE:ClassAbility	VISIBLE:NO	SA:Requisition Equipment							SOURCEPAGE:p.90
+Friends in High Places	TYPE:ClassAbility	VISIBLE:NO	SAB:Friends in High Places %|FriendsHigh	DEFINE:FriendsHigh|0	SOURCEPAGE:p.90
+Requisition Equipment	TYPE:ClassAbility	VISIBLE:NO	SAB:Requisition Equipment							SOURCEPAGE:p.90
 
 ###Block: Black Magician class features
 # Feat Name					Type			Visible	Special Ability									Define				Source Page
-Black Magician Black Magic Points	TYPE:Internal	VISIBLE:NO	SA:Black Magician max Black Magic Points (%)|BlackMagicPoints	DEFINE:BlackMagicPoints|0	SOURCEPAGE:p.124
+Black Magician Black Magic Points	TYPE:Internal	VISIBLE:NO	SAB:Black Magician max Black Magic Points (%)|BlackMagicPoints	DEFINE:BlackMagicPoints|0	SOURCEPAGE:p.124
 
 ###Block: Black Magician spells known
 # Feat Name							Type			Visible	Multiple?	Choose													Source Page
@@ -24,8 +24,8 @@ Black Magician up to 9th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHO
 
 ###Block: Blessed class features
 # Feat Name			Type			Visible	Special Ability								Define					Source Page
-Divine Intervention	TYPE:ClassAbility	VISIBLE:NO	SA:Divine Intervention %/week|DivineInterventionTimes		DEFINE:DivineInterventionTimes|0	SOURCEPAGE:p.24
-Blessed Miracle Points	TYPE:Internal	VISIBLE:NO	SA:Blessed max Miracle Points (%)|BlessedMiraclesPoints	DEFINE:BlessedMiraclesPoints|0	SOURCEPAGE:p.24
+Divine Intervention	TYPE:ClassAbility	VISIBLE:NO	SAB:Divine Intervention %/week|DivineInterventionTimes		DEFINE:DivineInterventionTimes|0	SOURCEPAGE:p.24
+Blessed Miracle Points	TYPE:Internal	VISIBLE:NO	SAB:Blessed max Miracle Points (%)|BlessedMiraclesPoints	DEFINE:BlessedMiraclesPoints|0	SOURCEPAGE:p.24
 
 ###Block: Blessed spells known
 # Feat Name					Type			Visible	Multiple?	Choose											Source Page
@@ -42,18 +42,18 @@ Blessed up to 9th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLL
 
 ###Block: Brave class features
 # Feat Name		Type			Visible	Special Ability		Define		Source Page
-War Cry		TYPE:ClassAbility	VISIBLE:NO	SA:War Cry %/day|WarCry	DEFINE:WarCry|0	SOURCEPAGE:p.26
-Greater War Cry	TYPE:ClassAbility	VISIBLE:NO	SA:Greater War Cry				SOURCEPAGE:p.26
+War Cry		TYPE:ClassAbility	VISIBLE:NO	SAB:War Cry %/day|WarCry	DEFINE:WarCry|0	SOURCEPAGE:p.26
+Greater War Cry	TYPE:ClassAbility	VISIBLE:NO	SAB:Greater War Cry				SOURCEPAGE:p.26
 
 ###Block: Gunslinger class abilities
 # Feat Name		Type			Visible	Special Ability					Define				Source Page
-Greased Lightning	TYPE:ClassAbility	VISIBLE:NO	SA:Greased Lightnin' +%|GreaseLightning	DEFINE:GreaseLightning|0	SOURCEPAGE:p.28
+Greased Lightning	TYPE:ClassAbility	VISIBLE:NO	SAB:Greased Lightnin' +%|GreaseLightning	DEFINE:GreaseLightning|0	SOURCEPAGE:p.28
 
 ###Block: Huckster class features
 # Feat Name			Type			Visible	Special Ability					Define			Source Page
-Old Hand			TYPE:ClassAbility	VISIBLE:NO	SA:Old Hand %|OldHand				DEFINE:OldHand|0		SOURCEPAGE:p.30
-Blood Magician		TYPE:ClassAbility	VISIBLE:NO	SA:Blood Magic									SOURCEPAGE:p.30
-Huckster Hex Points	TYPE:Internal	VISIBLE:NO	SA:Huckster max Hex Points (%)|HexPoints	DEFINE:HexPoints|0	SOURCEPAGE:p.30
+Old Hand			TYPE:ClassAbility	VISIBLE:NO	SAB:Old Hand %|OldHand				DEFINE:OldHand|0		SOURCEPAGE:p.30
+Blood Magician		TYPE:ClassAbility	VISIBLE:NO	SAB:Blood Magic									SOURCEPAGE:p.30
+Huckster Hex Points	TYPE:Internal	VISIBLE:NO	SAB:Huckster max Hex Points (%)|HexPoints	DEFINE:HexPoints|0	SOURCEPAGE:p.30
 
 ###Block: Huckster spells known
 # Feat Name					Type			Visible	Multiple?	Choose												Source Page
@@ -69,31 +69,31 @@ Huckster up to 9th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEV
 
 ###Block: Mad Scientist class features
 # Feat Name		Type			Visible	Special Ability		Define		Source Page
-Concoct Potion	TYPE:ClassAbility	VISIBLE:NO	SA:Concoct Potion					SOURCEPAGE:p.32
-Starting Gadget	TYPE:ClassAbility	VISIBLE:NO	SA:Starting gadget				SOURCEPAGE:p.32
-Jury Rig		TYPE:ClassAbility	VISIBLE:NO	SA:Jury Rig %|JuryRig	DEFINE:JuryRig|0	SOURCEPAGE:p.32
-Jinx			TYPE:ClassAbility	VISIBLE:NO	SA:Jinx						SOURCEPAGE:p.32
+Concoct Potion	TYPE:ClassAbility	VISIBLE:NO	SAB:Concoct Potion					SOURCEPAGE:p.32
+Starting Gadget	TYPE:ClassAbility	VISIBLE:NO	SAB:Starting gadget				SOURCEPAGE:p.32
+Jury Rig		TYPE:ClassAbility	VISIBLE:NO	SAB:Jury Rig %|JuryRig	DEFINE:JuryRig|0	SOURCEPAGE:p.32
+Jinx			TYPE:ClassAbility	VISIBLE:NO	SAB:Jinx						SOURCEPAGE:p.32
 
 ###Block: Maverick class features
 # Feat Name			Type			Visible	Special Ability		Virtual Feat		Save checks bonus						Modify VAR			Source Page
-Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SA:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)					SOURCEPAGE:p.34
-Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SA:Gambler's Luck																		SOURCEPAGE:p.34
+Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)					SOURCEPAGE:p.34
+Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SAB:Gambler's Luck																		SOURCEPAGE:p.34
 Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack									BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.34
 # Not sure on the Maverick Sneak Attack, but had to remove the ADD:SPECIAL. - Tir Gwaith
 
 ###Block: Rowdy class abilities
 # Feat Name		Type			Visible	Special Ability				Define			Source Page
-Thick Skin		TYPE:ClassAbility	VISIBLE:NO	SA:Thick Skin								SOURCEPAGE:p.36
-Tough as Nails	TYPE:ClassAbility	VISIBLE:NO	SA:Tough as Nails %|ToughNails	DEFINE:ToughNails|0	SOURCEPAGE:p.36
+Thick Skin		TYPE:ClassAbility	VISIBLE:NO	SAB:Thick Skin								SOURCEPAGE:p.36
+Tough as Nails	TYPE:ClassAbility	VISIBLE:NO	SAB:Tough as Nails %|ToughNails	DEFINE:ToughNails|0	SOURCEPAGE:p.36
 
 ###Block: Shaman class abilities
 # Feat Name			Type						Visible	Special Ability							Define				Source Page
-Nature Sense		TYPE:ClassAbility				VISIBLE:NO	SA:Nature Sense												SOURCEPAGE:p.40
-Vision Quest		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Vision Quest (Su)											SOURCEPAGE:p.40
-View Hunting Grounds	TYPE:ClassAbility				VISIBLE:NO	SA:View Hunting Grounds											SOURCEPAGE:p.40
-One with Nature		TYPE:ClassAbility				VISIBLE:NO	SA:One with Nature											SOURCEPAGE:p.40
-Open Portal			TYPE:ClassAbility				VISIBLE:NO	SA:Open Portal												SOURCEPAGE:p.40
-Shaman Favors Points	TYPE:Internal				VISIBLE:NO	SA:Shaman max Favor Points (%)|ShamanFavorPoints	DEFINE:ShamanFavorPoints|0	SOURCEPAGE:p.40
+Nature Sense		TYPE:ClassAbility				VISIBLE:NO	SAB:Nature Sense												SOURCEPAGE:p.40
+Vision Quest		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Vision Quest (Su)											SOURCEPAGE:p.40
+View Hunting Grounds	TYPE:ClassAbility				VISIBLE:NO	SAB:View Hunting Grounds											SOURCEPAGE:p.40
+One with Nature		TYPE:ClassAbility				VISIBLE:NO	SAB:One with Nature											SOURCEPAGE:p.40
+Open Portal			TYPE:ClassAbility				VISIBLE:NO	SAB:Open Portal												SOURCEPAGE:p.40
+Shaman Favors Points	TYPE:Internal				VISIBLE:NO	SAB:Shaman max Favor Points (%)|ShamanFavorPoints	DEFINE:ShamanFavorPoints|0	SOURCEPAGE:p.40
 
 ###Block: Shaman spells known
 # Feat Name				Type			Visible	Multiple?	Choose												Source Page
@@ -109,10 +109,10 @@ Shaman up to 9th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVE
 
 ###Block: Texas Ranger class abilities
 # Feat Name				Type			Visible	Special Ability					Define			Bonus to skill								Source Page
-National Law Enforcement	TYPE:ClassAbility	VISIBLE:NO	SA:National Law Enforcement																	SOURCEPAGE:p.92
-Ranger's Bible			TYPE:ClassAbility	VISIBLE:NO	SA:Ranger's Bible									BONUS:SKILL|Gather Information|2					SOURCEPAGE:p.92
-Ranger's Presence			TYPE:ClassAbility	VISIBLE:NO	SA:Presence +%|RangerPres			DEFINE:RangerPres|0	BONUS:SKILL|Bluff,Gather Information,Intimidate|RangerPres	SOURCEPAGE:p.92
-One Riot - One Ranger		TYPE:ClassAbility	VISIBLE:NO	SA:One Riot- One Ranger %|RiotRanger|1	DEFINE:RiotRanger|0											SOURCEPAGE:p.92
-Chapter 13				TYPE:ClassAbility	VISIBLE:NO	SA:Chapter 13									BONUS:SKILL|Knowledge (Occult)|4|TYPE=Competence		SOURCEPAGE:p.92
+National Law Enforcement	TYPE:ClassAbility	VISIBLE:NO	SAB:National Law Enforcement																	SOURCEPAGE:p.92
+Ranger's Bible			TYPE:ClassAbility	VISIBLE:NO	SAB:Ranger's Bible									BONUS:SKILL|Gather Information|2					SOURCEPAGE:p.92
+Ranger's Presence			TYPE:ClassAbility	VISIBLE:NO	SAB:Presence +%|RangerPres			DEFINE:RangerPres|0	BONUS:SKILL|Bluff,Gather Information,Intimidate|RangerPres	SOURCEPAGE:p.92
+One Riot - One Ranger		TYPE:ClassAbility	VISIBLE:NO	SAB:One Riot- One Ranger %|RiotRanger|1	DEFINE:RiotRanger|0											SOURCEPAGE:p.92
+Chapter 13				TYPE:ClassAbility	VISIBLE:NO	SAB:Chapter 13									BONUS:SKILL|Knowledge (Occult)|4|TYPE=Competence		SOURCEPAGE:p.92
 
 
