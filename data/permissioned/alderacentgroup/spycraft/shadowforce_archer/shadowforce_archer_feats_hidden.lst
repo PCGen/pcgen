@@ -6,17 +6,17 @@
 SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.shadowforcearcher.com/
 
 # Feat Name					Type						Visible		Required var. value				Var. Max. Value				Special Ability		Description				Stackable?	Multiple?	Choose						Bonus to skill				Bonus to skill point for a level			Stat bonus								Modify VAR
-Cat Burglar Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Nimble			DESC:Nimble															BONUS:SKILL|STAT.DEX|1
-Counter Terrorist Core Ability	TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Quick-Thinking		DESC:Quick-Thinking
-Hacker Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Custom-Built System	DESC:Custom-Built System
-Sniper Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Precise			DESC:Precise
-Shadespeaker Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Dedication		DESC:Dedication																																					BONUS:VAR|ACTIONDICE|1
+Cat Burglar Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Nimble			DESC:Nimble															BONUS:SKILL|STAT.DEX|1
+Counter Terrorist Core Ability	TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Quick-Thinking		DESC:Quick-Thinking
+Hacker Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Custom-Built System	DESC:Custom-Built System
+Sniper Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Precise			DESC:Precise
+Shadespeaker Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Dedication		DESC:Dedication																																					BONUS:VAR|ACTIONDICE|1
 
 # Psion Core Abilities
 
-Mentalist Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1				SA:Insightful
-Physical Adept Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1				SA:Zen
-Telepath Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1				SA:Sensitive
+Mentalist Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1				SAB:Insightful
+Physical Adept Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1				SAB:Zen
+Telepath Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1				SAB:Sensitive
 
 # Psion Class Abilities
 

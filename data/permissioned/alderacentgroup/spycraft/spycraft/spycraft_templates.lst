@@ -10,7 +10,7 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.spycraftrpg.co
 # Template Name	Visible	Removable?		Add
 Agent			VISIBLE:NO	REMOVABLE:NO	ADD:FEAT|1|TYPE=StartingNationality
 
-#Agent					VISIBLE:NO		REMOVABLE:NO	SA:Action Dice - %, Action Die Type - d%, Personal Budget % bp, Mission Budget % bp, Gadget Points %|ACTIONDICE|ACTIONDIETYPE|BUDGETPOINTS|MISSIONBUDGET|GADGETPOINTS
+#Agent					VISIBLE:NO		REMOVABLE:NO	SAB:Action Dice - %, Action Die Type - d%, Personal Budget % bp, Mission Budget % bp, Gadget Points %|ACTIONDICE|ACTIONDIETYPE|BUDGETPOINTS|MISSIONBUDGET|GADGETPOINTS
 
 ###Block: Mission Budget Temporary Bonuses--------------------------------------------------
 

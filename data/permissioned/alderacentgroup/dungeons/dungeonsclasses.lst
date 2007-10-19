@@ -16,13 +16,13 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
 1							ADD:SPELLCASTER|1|Divine	ADD:FEAT|1|TYPE=RangerFavored
 2							ADD:SPELLCASTER|1|Divine	ADD:Language|3|Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Gnome,Goblin,Giant,Gnoll,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
 3							ADD:SPELLCASTER|1|Divine
-4	SA:Find the Path				ADD:SPELLCASTER|1|Divine
+4	SAB:Find the Path				ADD:SPELLCASTER|1|Divine
 5							ADD:SPELLCASTER|1|Divine
-6	SA:Improved Spontaneous Casting	ADD:SPELLCASTER|1|Divine
+6	SAB:Improved Spontaneous Casting	ADD:SPELLCASTER|1|Divine
 7							ADD:SPELLCASTER|1|Divine
-8	SA:Spells					ADD:SPELLCASTER|1|Divine
+8	SAB:Spells					ADD:SPELLCASTER|1|Divine
 9							ADD:SPELLCASTER|1|Divine
-10	SA:Turn Chosen Enemy			ADD:SPELLCASTER|1|Divine
+10	SAB:Turn Chosen Enemy			ADD:SPELLCASTER|1|Divine
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Demolitionist	HD:4		TYPE:PC.Prestige	ABB:ae2		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -35,14 +35,14 @@ CLASS:Demolitionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Demolitioni
 1	AUTO:FEAT|Wizard Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Produce Explosives(%d6)|ProduceExplosive	BONUS:VAR|ProduceExplosive|(CL+2)/3+1	DEFINE:ProduceExplosive|0	ADD:SPELLCASTER|1|Arcane
-2	SA:Time Delay Explosives																ADD:SPELLCASTER|1|Arcane
-3	SA:Craft Flash Bombs																	ADD:SPELLCASTER|1|Arcane
+1	SAB:Produce Explosives(%d6)|ProduceExplosive	BONUS:VAR|ProduceExplosive|(CL+2)/3+1	DEFINE:ProduceExplosive|0	ADD:SPELLCASTER|1|Arcane
+2	SAB:Time Delay Explosives																ADD:SPELLCASTER|1|Arcane
+3	SAB:Craft Flash Bombs																	ADD:SPELLCASTER|1|Arcane
 4																					ADD:SPELLCASTER|1|Arcane
-5	SA:Craft Musket																		ADD:SPELLCASTER|1|Arcane
+5	SAB:Craft Musket																		ADD:SPELLCASTER|1|Arcane
 6																					ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Exotic Weapon Proficiency(Pistol)|Exotic Weapon Proficiency(Musket)
 7																					ADD:SPELLCASTER|1|Arcane
-8	SA:Master of Destruction																ADD:SPELLCASTER|1|Arcane
+8	SAB:Master of Destruction																ADD:SPELLCASTER|1|Arcane
 9																					ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Uncanny Dodge
 10																					ADD:SPELLCASTER|1|Arcane
 
@@ -57,15 +57,15 @@ CLASS:Shock Trooper	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Intuit Direc
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1																	BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1|TYPE=FastMovement
-2	SA:Bonus Damage (%d6) vs. large or bigger creatures|LargeAttack																						DEFINE:LargeAttack|1
-3	SA:Improved Aid Another (+4 vs. size large or bigger)
+2	SAB:Bonus Damage (%d6) vs. large or bigger creatures|LargeAttack																						DEFINE:LargeAttack|1
+3	SAB:Improved Aid Another (+4 vs. size large or bigger)
 4													BONUS:VAR|LargeAttack|1
-5	SA:Focused Attack
+5	SAB:Focused Attack
 6													BONUS:VAR|LargeAttack|1
-7	SA:Improved Dodge (+2 AC vs size large or bigger)
+7	SAB:Improved Dodge (+2 AC vs size large or bigger)
 8													BONUS:VAR|LargeAttack|1
-9	SA:Into The Breach
-10	SA:Improved Critical (size large or bigger regardless of weapon used)
+9	SAB:Into The Breach
+10	SAB:Improved Critical (size large or bigger regardless of weapon used)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Treasure Hunter	HD:6		TYPE:PC.Prestige	ABB:ae4		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -76,13 +76,13 @@ CLASS:Treasure Hunter	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|Decipher Scr
 1	AUTO:FEAT|Rogue Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Danger Sense (+%)|DangerSense|PREVARLT:CL,10	SA:Treasure Lore								BONUS:SKILL|Appraise|2	DEFINE:DangerSense|1
-2	SA:+% Reflex save vs. Traps and +% dodge AC bonus vs. trap attacks|TrapSave	BONUS:VAR|TrapSave|(CL+1)/3					DEFINE:TrapSave|0
-3	SA:+% bonus to Fort vs. Poison|PoisonSave																DEFINE:PoisonSave|1
+1	SAB:Danger Sense (+%)|DangerSense|PREVARLT:CL,10	SAB:Treasure Lore								BONUS:SKILL|Appraise|2	DEFINE:DangerSense|1
+2	SAB:+% Reflex save vs. Traps and +% dodge AC bonus vs. trap attacks|TrapSave	BONUS:VAR|TrapSave|(CL+1)/3					DEFINE:TrapSave|0
+3	SAB:+% bonus to Fort vs. Poison|PoisonSave																DEFINE:PoisonSave|1
 4														BONUS:VAR|DangerSense|1
 5
 6														BONUS:VAR|PoisonSave|1
 7														BONUS:VAR|DangerSense|1
 8
 9																											VFEAT:Improved Evasion
-10	SA:Uncanny Sense (Danger Sense +%)|DangerSense						BONUS:VAR|DangerSense|1
+10	SAB:Uncanny Sense (Danger Sense +%)|DangerSense						BONUS:VAR|DangerSense|1
