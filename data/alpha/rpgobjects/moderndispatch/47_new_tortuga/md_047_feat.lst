@@ -13,4 +13,4 @@ Extra Psycher			TYPE:General																							PREVARGTEQ:Psyche,1	DESC:You 
 
 ###Block: hidden
 # Feat Name		Type			Visible	Special Ability					Define
-Empathic Surgery	TYPE:ClassAbility	VISIBLE:NO	SA:Empathic Surgery +%d6|EmpathicSurgery	DEFINE:EmpathicSurgery|0
+Empathic Surgery	TYPE:ClassAbility	VISIBLE:NO	SAB:Empathic Surgery +%d6|EmpathicSurgery	DEFINE:EmpathicSurgery|0

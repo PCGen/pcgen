@@ -7,6 +7,6 @@ French		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Diplomacy|Gather Information						LAN
 Holy Roman Empire	VISIBLE:YES	SOURCEPAGE:7				CSKILL:Knowledge (Religion)|Diplomacy					LANGAUTO:Latin		REGION:Italy
 Irish			VISIBLE:YES	SOURCEPAGE:7				CSKILL:Sense Motive|Spot							LANGAUTO:Irish		REGION:Ireland
 Saracen		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Handle Animal|Ride							LANGAUTO:Arabic		REGION:Arabia
-Saxon			VISIBLE:YES	SOURCEPAGE:7	SA:Illiterate	CSKILL:Intimidate|Survival							LANGAUTO:Saxon		REGION:Saxony
+Saxon			VISIBLE:YES	SOURCEPAGE:7	SAB:Illiterate	CSKILL:Intimidate|Survival							LANGAUTO:Saxon		REGION:Saxony
 Scottish		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Bluff|Hide									LANGAUTO:Scottish		REGION:Scotland
 Spanish		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Appraise|Listen								LANGAUTO:Spanish		REGION:Spain

@@ -2,7 +2,7 @@
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
 # Feat Name					Type						Visible	Required Feat				Prohibited Feat			Required Race		Special Ability		Define		Add						Save checks bonus			Modify VAR
-Psyche					TYPE:Special				VISIBLE:NO																SA:Psyche %|Psyche	DEFINE:Psyche|0												BONUS:VAR|Psyche|3
+Psyche					TYPE:Special				VISIBLE:NO																SAB:Psyche %|Psyche	DEFINE:Psyche|0												BONUS:VAR|Psyche|3
 
 Human Computer Fortitude		TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Fortitude|INT
 Human Computer Reflex			TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Reflex|INT

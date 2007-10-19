@@ -3,26 +3,26 @@ SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOU
 
 
 # Feat Name			Type			Visible	Special Ability			Stackable?	Multiple?	Choose		Bonus to skill			Stat bonus
-Aura of Knighthood	TYPE:Special	VISIBLE:NO	SA:Aura of Knighthood (Ex)	STACK:NO	MULT:NO				BONUS:SKILL|Intimidate|NOB/2
+Aura of Knighthood	TYPE:Special	VISIBLE:NO	SAB:Aura of Knighthood (Ex)	STACK:NO	MULT:NO				BONUS:SKILL|Intimidate|NOB/2
 
 CSStatBonus			TYPE:Special	VISIBLE:NO								MULT:YES	CHOOSE:STR|CON						BONUS:STAT|LIST|2
 
 ###Block: Power Source
 # Feat Name						Type			Visible	Prohibited Class					Special Ability
-Power Source (Crusaders)			TYPE:Special	VISIBLE:NO	!PRECLASS:1,Crusader=1				SA:Power Source (Crusaders)
-Power Source (Druids/Minstrels)		TYPE:Special	VISIBLE:NO	!PRECLASS:2,Druid,Minstrel=1			SA:Power Source (Druids/Minstrels)
-Power Source (Hedge Mage/Enchantress)	TYPE:Special	VISIBLE:NO	!PRECLASS:2,Hedge Mage,Enchantress=1	SA:Power Source (Hedge Mage/Enchantress)
-Power Source (Hermits)				TYPE:Special	VISIBLE:NO	!PRECLASS:1,Hermit=1				SA:Power Source (Hermits)
-Power Source (Priest)				TYPE:Special	VISIBLE:NO	!PRECLASS:1,Priest=1				SA:Power Source (Priest)
+Power Source (Crusaders)			TYPE:Special	VISIBLE:NO	!PRECLASS:1,Crusader=1				SAB:Power Source (Crusaders)
+Power Source (Druids/Minstrels)		TYPE:Special	VISIBLE:NO	!PRECLASS:2,Druid,Minstrel=1			SAB:Power Source (Druids/Minstrels)
+Power Source (Hedge Mage/Enchantress)	TYPE:Special	VISIBLE:NO	!PRECLASS:2,Hedge Mage,Enchantress=1	SAB:Power Source (Hedge Mage/Enchantress)
+Power Source (Hermits)				TYPE:Special	VISIBLE:NO	!PRECLASS:1,Hermit=1				SAB:Power Source (Hermits)
+Power Source (Priest)				TYPE:Special	VISIBLE:NO	!PRECLASS:1,Priest=1				SAB:Power Source (Priest)
 
 ###Block: Minstrel stuff
 # Feat Name		Type			Visible	Special Ability																																																																																																																																	Define																					Innate Spells																																												Modify VAR
-Minstrel Lore	TYPE:Special	VISIBLE:NO	SA:Lore (+%)|MinstrelLore																																																																																																																															DEFINE:MinstrelLore|0																																																																	BONUS:VAR|MinstrelLore|INT
-Minstrel Music	TYPE:Special	VISIBLE:NO	SA:Minstrel music %/day|MinstrelMusicTimes	SA:Countersong (Su)|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	SA:Fascinate (Sp) - can effect % creature|MinstrelFascinate|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	SA:Inspire Courage (Su) +%|InspireCourage	SA:Inspire Competence (Su)|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:MinstrelMusicLevel,3	SA:Suggestion (Sp)|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:MinstrelMusicLevel,6	SA:Inspire Greatness (Su) - can affect % people|InspireGreat	SA:Song of Freedom (Su)|PRESKILL:1,TYPE.Perform=15|PREVARGTEQ:MinstrelMusicLevel,12	SA:Inspire Heroics (Su) - can affect % people|InspireHeroics|PREVARGTEQ:MinstrelMusicLevel,15	SA:Mass Suggestion (Sp)|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:MinstrelMusicLevel,18	DEFINE:MinstrelMusicTimes|0	DEFINE:MinstrelFascinate|0	DEFINE:InspireCourage|0	DEFINE:InspireGreat|0	DEFINE:InspireHeroics|0	SPELLS:Minstrel|TIMES=-1|CASTERLEVEL=var("CL=Minstrel")|Suggestion,12+CHA|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:MinstrelMusicLevel,6	SPELLS:Minstrel|TIMES=-1|CASTERLEVEL=var("CL=Minstrel")|Suggestion (Mass),15+CHA|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:MinstrelMusicLevel,18	BONUS:VAR|MinstrelFascinate|(MinstrelMusicLevel+2)/3	BONUS:VAR|InspireCourage|max(floor((MinstrelMusicLevel+4)/6),1)|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	BONUS:VAR|InspireGreat|(MinstrelMusicLevel-6)/3|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:MinstrelMusicLevel,9	BONUS:VAR|InspireHeroics|(MinstrelMusicLevel-12)/3|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:MinstrelMusicLevel,15
+Minstrel Lore	TYPE:Special	VISIBLE:NO	SAB:Lore (+%)|MinstrelLore																																																																																																																															DEFINE:MinstrelLore|0																																																																	BONUS:VAR|MinstrelLore|INT
+Minstrel Music	TYPE:Special	VISIBLE:NO	SAB:Minstrel music %/day|MinstrelMusicTimes	SAB:Countersong (Su)|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	SAB:Fascinate (Sp) - can effect % creature|MinstrelFascinate|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	SAB:Inspire Courage (Su) +%|InspireCourage	SAB:Inspire Competence (Su)|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:MinstrelMusicLevel,3	SAB:Suggestion (Sp)|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:MinstrelMusicLevel,6	SAB:Inspire Greatness (Su) - can affect % people|InspireGreat	SAB:Song of Freedom (Su)|PRESKILL:1,TYPE.Perform=15|PREVARGTEQ:MinstrelMusicLevel,12	SAB:Inspire Heroics (Su) - can affect % people|InspireHeroics|PREVARGTEQ:MinstrelMusicLevel,15	SAB:Mass Suggestion (Sp)|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:MinstrelMusicLevel,18	DEFINE:MinstrelMusicTimes|0	DEFINE:MinstrelFascinate|0	DEFINE:InspireCourage|0	DEFINE:InspireGreat|0	DEFINE:InspireHeroics|0	SPELLS:Minstrel|TIMES=-1|CASTERLEVEL=var("CL=Minstrel")|Suggestion,12+CHA|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:MinstrelMusicLevel,6	SPELLS:Minstrel|TIMES=-1|CASTERLEVEL=var("CL=Minstrel")|Suggestion (Mass),15+CHA|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:MinstrelMusicLevel,18	BONUS:VAR|MinstrelFascinate|(MinstrelMusicLevel+2)/3	BONUS:VAR|InspireCourage|max(floor((MinstrelMusicLevel+4)/6),1)|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	BONUS:VAR|InspireGreat|(MinstrelMusicLevel-6)/3|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:MinstrelMusicLevel,9	BONUS:VAR|InspireHeroics|(MinstrelMusicLevel-12)/3|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:MinstrelMusicLevel,15
 
 ###Block: Knight's Warhorse
 # Feat Name		Type			Visible	Special Ability			Define			Allow Follower			Allowed Companions
-Knight's Warhorse	TYPE:Special	VISIBLE:NO	SA:Knight's Warhorse (Ex)	DEFINE:KnightLevel|0	FOLLOWERS:Knight's Mount|1	COMPANIONLIST:Knight's Mount|Horse (Light),Horse (Heavy),Horse (Warhorse Heavy),Horse (Warhorse Light)
+Knight's Warhorse	TYPE:Special	VISIBLE:NO	SAB:Knight's Warhorse (Ex)	DEFINE:KnightLevel|0	FOLLOWERS:Knight's Mount|1	COMPANIONLIST:Knight's Mount|Horse (Light),Horse (Heavy),Horse (Warhorse Heavy),Horse (Warhorse Light)
 
 #
 # End

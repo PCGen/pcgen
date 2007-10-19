@@ -4,6 +4,6 @@ SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOU
 ###Block:Knight's Mount
 # Class of the Master	Type				Hit Dice	Special Ability	Define			Combat bonus						Add to base move			Modify VAR
 FOLLOWER:KnightLevel=1	TYPE:Knight's Mount						DEFINE:BonusTricks|1
-FOLLOWER:KnightLevel=3	TYPE:Knight's Mount	HD:2		SA:Improved Speed					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10	BONUS:VAR|BonusTricks|1
-FOLLOWER:KnightLevel=5	TYPE:Knight's Mount	HD:2		SA:Devotion						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:VAR|BonusTricks|1
+FOLLOWER:KnightLevel=3	TYPE:Knight's Mount	HD:2		SAB:Improved Speed					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10	BONUS:VAR|BonusTricks|1
+FOLLOWER:KnightLevel=5	TYPE:Knight's Mount	HD:2		SAB:Devotion						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:VAR|BonusTricks|1
 FOLLOWER:KnightLevel=7	TYPE:Knight's Mount	HD:2									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10	BONUS:VAR|BonusTricks|1
