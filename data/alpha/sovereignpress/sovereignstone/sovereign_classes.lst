@@ -62,13 +62,13 @@ CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Deceptive Melee								BONUS:COMBAT|AC|max(CHA,0)				BONUS:SKILL|Bluff,Innuendo,Sense Motive|2
-2	SA:Monthly Funds %|MonthlyFunds																					DEFINE:MonthlyFunds|25
+1	SAB:Deceptive Melee								BONUS:COMBAT|AC|max(CHA,0)				BONUS:SKILL|Bluff,Innuendo,Sense Motive|2
+2	SAB:Monthly Funds %|MonthlyFunds																					DEFINE:MonthlyFunds|25
 6																																ADD:FEAT|1|Leadership
 8							BONUS:VAR|MonthlyFunds|25	BONUS:COMBAT|AC|max(CHA,0)|PRETYPE:ARMOR,LIGHT
-10	SA:Leadership +%|NobleLeadership																					DEFINE:NobleLeadership|1
+10	SAB:Leadership +%|NobleLeadership																					DEFINE:NobleLeadership|1
 11							BONUS:VAR|MonthlyFunds|50
-12	SA:Silver Tongue
+12	SAB:Silver Tongue
 15							BONUS:VAR|NobleLeadership|1
 17							BONUS:VAR|MonthlyFunds|100	BONUS:COMBAT|AC|max(CHA,0)|PRETYPE:ARMOR,MEDIUM
 20							BONUS:VAR|NobleLeadership|1

@@ -4,40 +4,40 @@ SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegameme
 
 ###Block:Gunslinger Levels for Level Substitution
 # Feat Name						Type			Visible	Special Ability		Add
-1st Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Close Combat Shot
+1st Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Close Combat Shot
 2nd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Weapon Focus
 3rd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Gunslinger
-4th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Defensive Position
-5th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Lightning Shot
+4th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Defensive Position
+5th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Lightning Shot
 6th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Gunslinger
-7th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Sharp Shooting
+7th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Sharp Shooting
 8th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Weapon Focus,Greater Weapon Focus
 9th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Gunslinger
-10th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Bullseye
+10th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Bullseye
 
 ###Block:Soldier Levels for Level Substitution
 # Feat Name					Type			Visible	Special Ability		Add							Combat bonus						Modify VAR
 1st Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Weapon Focus
 2nd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Weapon Specialization										BONUS:VAR|WeapSpecQualify|1
 3rd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Soldier												BONUS:VAR|WeapSpecQualify|-1
-4th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Tactical Aid
+4th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Tactical Aid
 5th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Improved Critical
 6th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Soldier
-7th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Improved Reaction								BONUS:COMBAT|INITIATIVE|2|TYPE=Competence.STACK
+7th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Improved Reaction								BONUS:COMBAT|INITIATIVE|2|TYPE=Competence.STACK
 8th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|Greater Weapon Specialization
 9th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Soldier
-10th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SA:Critical Strike
+10th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Critical Strike
 
 ###Block:Workarounds for Schools
 # Feat Name		Type				Visible	Special Ability					Stackable?	Multiple?	Choose								Cost
-The Five Elements	TYPE:SchoolWorkaround	VISIBLE:NO	SA:Five Elements Energy Types - %CHOICE	STACK:NO	MULT:YES	CHOOSE:Cold|Electricity|Fire|Sonic/Concussion|Acid	COST:0.5
+The Five Elements	TYPE:SchoolWorkaround	VISIBLE:NO	SAB:Five Elements Energy Types - %CHOICE	STACK:NO	MULT:YES	CHOOSE:Cold|Electricity|Fire|Sonic/Concussion|Acid	COST:0.5
 
 # Frank, these Combinations are NASTY.
 #	Really need a way to simplify thise (code or data)
 #	- Tir Gwaith
 ###Block:Kobujutsu Combinations
 # Feat Name		Type				Visible	Special Ability																																																				Weapon prof. bonus
-Combination 1	TYPE:KobujutsuCombi	VISIBLE:NO	SA:Kobujutsu Weapons - Eiku, Jitte, Kama, Nunchaku, Nunte, Rochin, Sai, Tekko (or Brass Knuckles), Timbe, Tonfa, Yawara
+Combination 1	TYPE:KobujutsuCombi	VISIBLE:NO	SAB:Kobujutsu Weapons - Eiku, Jitte, Kama, Nunchaku, Nunte, Rochin, Sai, Tekko (or Brass Knuckles), Timbe, Tonfa, Yawara
 Combination 1.MOD																																																													BONUS:WEAPONPROF=Eiku|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Eiku
 Combination 1.MOD																																																													BONUS:WEAPONPROF=Jitte|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Jitte
 Combination 1.MOD																																																													BONUS:WEAPONPROF=Kama|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Kama
@@ -62,7 +62,7 @@ Combination 1.MOD																																																													BO
 Combination 1.MOD																																																													BONUS:WEAPONPROF=Timbe|DAMAGE|2|PREWEAPONPROF:1,Timbe|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 1.MOD																																																													BONUS:WEAPONPROF=Tonfa|DAMAGE|2|PREWEAPONPROF:1,Tonfa|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 1.MOD																																																													BONUS:WEAPONPROF=Yawara|DAMAGE|2|PREWEAPONPROF:1,Yawara|PREFEAT:1,3rd Degree Mastery - Kobujutsu
-Combination 2	TYPE:KobujutsuCombi	VISIBLE:NO	SA:Kobujutsu Weapons: Butterfly Sword, Cha, Chai-dao, Chain Whip, Chinese Axe, Chuu, Comet Star Hammer, Copper Hammer, Da Dao, Flying Claw, Gen, Greatclub, Hatchet, Kwan Dao, Lian, Mourn Staff, Nine-Ring Sword, Shao Dao, Shou Li Jen, Spear, Tai Dao, Tieh Zuu, Three-Section Staff, Wind And Fire Wheels, Wolf's Teeth Staff
+Combination 2	TYPE:KobujutsuCombi	VISIBLE:NO	SAB:Kobujutsu Weapons: Butterfly Sword, Cha, Chai-dao, Chain Whip, Chinese Axe, Chuu, Comet Star Hammer, Copper Hammer, Da Dao, Flying Claw, Gen, Greatclub, Hatchet, Kwan Dao, Lian, Mourn Staff, Nine-Ring Sword, Shao Dao, Shou Li Jen, Spear, Tai Dao, Tieh Zuu, Three-Section Staff, Wind And Fire Wheels, Wolf's Teeth Staff
 Combination 2.MOD																																																													BONUS:WEAPONPROF=Butterfly Sword|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Butterfly Sword
 Combination 2.MOD																																																													BONUS:WEAPONPROF=Cha|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Cha
 Combination 2.MOD																																																													BONUS:WEAPONPROF=Chai Dao|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Chai Dao
@@ -113,7 +113,7 @@ Combination 2.MOD																																																													BO
 Combination 2.MOD																																																													BONUS:WEAPONPROF=Three-Section Staff|DAMAGE|2|PREWEAPONPROF:1,Three-Section Staff|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 2.MOD																																																													BONUS:WEAPONPROF=Wind and Fire Wheels|DAMAGE|2|PREWEAPONPROF:1,Wind and Fire Wheels|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 2.MOD																																																													BONUS:WEAPONPROF=Wolf's Teeth Staff|DAMAGE|2|PREWEAPONPROF:1,Wolf's Teeth Staff|PREFEAT:1,3rd Degree Mastery - Kobujutsu
-Combination 3	TYPE:KobujutsuCombi	VISIBLE:NO	SA:Kobujutsu Weapons - Club, Chakram, Punching Dagger, Flying Claw, Gada, Hatchet, Urumi, Whip
+Combination 3	TYPE:KobujutsuCombi	VISIBLE:NO	SAB:Kobujutsu Weapons - Club, Chakram, Punching Dagger, Flying Claw, Gada, Hatchet, Urumi, Whip
 Combination 3.MOD																																																													BONUS:WEAPONPROF=Club|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Club
 Combination 3.MOD																																																													BONUS:WEAPONPROF=Chakram|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Chakram
 Combination 3.MOD																																																													BONUS:WEAPONPROF=Punching Dagger|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Punching Dagger
@@ -130,7 +130,7 @@ Combination 3.MOD																																																													BO
 Combination 3.MOD																																																													BONUS:WEAPONPROF=Hatchet|DAMAGE|2|PREWEAPONPROF:1,Hatchet|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 3.MOD																																																													BONUS:WEAPONPROF=Urumi|DAMAGE|2|PREWEAPONPROF:1,Urumi|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 3.MOD																																																													BONUS:WEAPONPROF=Whip|DAMAGE|2|PREWEAPONPROF:1,Whip|PREFEAT:1,3rd Degree Mastery - Kobujutsu
-Combination 4	TYPE:KobujutsuCombi	VISIBLE:NO	SA:Kobujutsu Weapons - Chemeti, Golok, Kapak, Kris, Kwanto, Lajatang, Parang, Pendjepit, Petjat, Pisau, Rante, Sjang Sutai, Tekken (or Brass Knuckles), Titjio, Tjabang, Tjaluk, Tongkat
+Combination 4	TYPE:KobujutsuCombi	VISIBLE:NO	SAB:Kobujutsu Weapons - Chemeti, Golok, Kapak, Kris, Kwanto, Lajatang, Parang, Pendjepit, Petjat, Pisau, Rante, Sjang Sutai, Tekken (or Brass Knuckles), Titjio, Tjabang, Tjaluk, Tongkat
 Combination 4.MOD																																																													BONUS:WEAPONPROF=Chemeti|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Chemeti
 Combination 4.MOD																																																													BONUS:WEAPONPROF=Golok|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Golok
 Combination 4.MOD																																																													BONUS:WEAPONPROF=Kapak|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Kapak
@@ -167,7 +167,7 @@ Combination 4.MOD																																																													BO
 Combination 4.MOD																																																													BONUS:WEAPONPROF=Tjabang|DAMAGE|2|PREWEAPONPROF:1,Tjabang|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 4.MOD																																																													BONUS:WEAPONPROF=Tjaluk|DAMAGE|2|PREWEAPONPROF:1,Tjaluk|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 4.MOD																																																													BONUS:WEAPONPROF=Tongkat|DAMAGE|2|PREWEAPONPROF:1,Tongkat|PREFEAT:1,3rd Degree Mastery - Kobujutsu
-Combination 5	TYPE:KobujutsuCombi	VISIBLE:NO	SA:Kobujutsu Weapons - Aikuchi, Bisento, Hatchet, Hamidash, Jitte, Kiseru, Kusari, Kusarigama, Manriki-Gusari, Naginata, Nunte, Sai, Spear, War Fan
+Combination 5	TYPE:KobujutsuCombi	VISIBLE:NO	SAB:Kobujutsu Weapons - Aikuchi, Bisento, Hatchet, Hamidash, Jitte, Kiseru, Kusari, Kusarigama, Manriki-Gusari, Naginata, Nunte, Sai, Spear, War Fan
 Combination 5.MOD																																																													BONUS:WEAPONPROF=Aikuchi|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Aikuchi
 Combination 5.MOD																																																													BONUS:WEAPONPROF=Bisento|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Bisento
 Combination 5.MOD																																																													BONUS:WEAPONPROF=Hatchet|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Hatchet
@@ -196,7 +196,7 @@ Combination 5.MOD																																																													BO
 Combination 5.MOD																																																													BONUS:WEAPONPROF=Sai|DAMAGE|2|PREWEAPONPROF:1,Sai|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 5.MOD																																																													BONUS:WEAPONPROF=Spear|DAMAGE|2|PREWEAPONPROF:1,Spear|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 5.MOD																																																													BONUS:WEAPONPROF=War Fan|DAMAGE|2|PREWEAPONPROF:1,War Fan|PREFEAT:1,3rd Degree Mastery - Kobujutsu
-Combination 6	TYPE:KobujutsuCombi	VISIBLE:NO	SA:Kobujutsu Weapons - Club, Hatchet, Kabit, Panu, Sarong
+Combination 6	TYPE:KobujutsuCombi	VISIBLE:NO	SAB:Kobujutsu Weapons - Club, Hatchet, Kabit, Panu, Sarong
 Combination 6.MOD																																																													BONUS:WEAPONPROF=Club|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Club
 Combination 6.MOD																																																													BONUS:WEAPONPROF=Hatchet|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Hatchet
 Combination 6.MOD																																																													BONUS:WEAPONPROF=Kabit|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Kabit
@@ -207,7 +207,7 @@ Combination 6.MOD																																																													BO
 Combination 6.MOD																																																													BONUS:WEAPONPROF=Kabit|DAMAGE|2|PREWEAPONPROF:1,Kabit|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 6.MOD																																																													BONUS:WEAPONPROF=Panu|DAMAGE|2|PREWEAPONPROF:1,Panu|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 6.MOD																																																													BONUS:WEAPONPROF=Sarong|DAMAGE|2|PREWEAPONPROF:1,Sarong|PREFEAT:1,3rd Degree Mastery - Kobujutsu
-Combination 7	TYPE:KobujutsuCombi	VISIBLE:NO	SA:Kobujutsu Weapons - Club, Hatchet, Kris, Machete
+Combination 7	TYPE:KobujutsuCombi	VISIBLE:NO	SAB:Kobujutsu Weapons - Club, Hatchet, Kris, Machete
 Combination 7.MOD																																																													BONUS:WEAPONPROF=Club|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Club
 Combination 7.MOD																																																													BONUS:WEAPONPROF=Hatchet|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Hatchet
 Combination 7.MOD																																																													BONUS:WEAPONPROF=Kris|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Kris
@@ -216,7 +216,7 @@ Combination 7.MOD																																																													BO
 Combination 7.MOD																																																													BONUS:WEAPONPROF=Hatchet|DAMAGE|2|PREWEAPONPROF:1,Hatchet|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 7.MOD																																																													BONUS:WEAPONPROF=Kris|DAMAGE|2|PREWEAPONPROF:1,Kris|PREFEAT:1,3rd Degree Mastery - Kobujutsu
 Combination 7.MOD																																																													BONUS:WEAPONPROF=Machete|DAMAGE|2|PREWEAPONPROF:1,Machete|PREFEAT:1,3rd Degree Mastery - Kobujutsu
-Combination 8	TYPE:KobujutsuCombi	VISIBLE:NO	SA:Kobujutsu Weapons - Aikuchi, Ashiko, Hankyu, Kiseru, Kusari, Kusarigama, Manriki-Gusari, Hamidash, Nekode, Ninja-to, Quarterstaff, Shikomi-Zue, Shuriken, Spear, Tabiumi, Tanto
+Combination 8	TYPE:KobujutsuCombi	VISIBLE:NO	SAB:Kobujutsu Weapons - Aikuchi, Ashiko, Hankyu, Kiseru, Kusari, Kusarigama, Manriki-Gusari, Hamidash, Nekode, Ninja-to, Quarterstaff, Shikomi-Zue, Shuriken, Spear, Tabiumi, Tanto
 Combination 8.MOD																																																													BONUS:WEAPONPROF=Aikuchi|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Aikuchi
 Combination 8.MOD																																																													BONUS:WEAPONPROF=Ashiko|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Ashiko
 Combination 8.MOD																																																													BONUS:WEAPONPROF=Hankyu|TOHIT|1|TYPE=WeaponFocus|PREWEAPONPROF:1,Hankyu

@@ -3,5 +3,5 @@ SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://pa
 # Original Entry by: Paul W. King, Jan 2007
 
 # Modifier Name		Unique Key				Type							Cost		Visible		Type granted				Keys to replace	Source Page		Required Type		Bonus to skill						Special Ability
-Magic Enhanced Fur	KEY:MAG_ENH_FUR_CLOTHING	TYPE:BaseMaterial.MasterworkQuality		COST:9000	VISIBLE:QUALIFY	ITYPE:MagicalEnhancedFur.Masterwork				SOURCEPAGE:p.40	PRETYPE:1,Clothing	BONUS:SKILL|Hide|2|TYPE=EquipmentCircumstance	SA:Cold Resistance 5
-Magic Enhanced Fur	KEY:MAG_ENH_FUR_ARMOR		TYPE:BaseMaterial.MasterworkQuality.Armor	COST:16000	VISIBLE:QUALIFY	ITYPE:MagicalEnhancedFur.Masterwork	REPLACES:MWORKA	SOURCEPAGE:p.40	PRETYPE:1,Leather										SA:Cold Resistance 10
+Magic Enhanced Fur	KEY:MAG_ENH_FUR_CLOTHING	TYPE:BaseMaterial.MasterworkQuality		COST:9000	VISIBLE:QUALIFY	ITYPE:MagicalEnhancedFur.Masterwork				SOURCEPAGE:p.40	PRETYPE:1,Clothing	BONUS:SKILL|Hide|2|TYPE=EquipmentCircumstance	SAB:Cold Resistance 5
+Magic Enhanced Fur	KEY:MAG_ENH_FUR_ARMOR		TYPE:BaseMaterial.MasterworkQuality.Armor	COST:16000	VISIBLE:QUALIFY	ITYPE:MagicalEnhancedFur.Masterwork	REPLACES:MWORKA	SOURCEPAGE:p.40	PRETYPE:1,Leather										SAB:Cold Resistance 10

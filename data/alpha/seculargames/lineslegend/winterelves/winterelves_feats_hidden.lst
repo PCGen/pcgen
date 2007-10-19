@@ -4,9 +4,9 @@ SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://pa
 
 ###BLOCK: Heir of Balyk abilities
 # Feat Name					Type						Visible	Special Ability			Define			Bonus to skill							Modify VAR					Source Page
-Power of Deception			TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Power of Deception (Ex)	DEFINE:HeirBalyk|0	BONUS:SKILL|Bluff,Disguise|HeirBalyk|TYPE=Competence							SOURCEPAGE:p.18
+Power of Deception			TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Power of Deception (Ex)	DEFINE:HeirBalyk|0	BONUS:SKILL|Bluff,Disguise|HeirBalyk|TYPE=Competence							SOURCEPAGE:p.18
 Heir of Balyk Leadership		TYPE:ClassAbility				VISIBLE:NO																			BONUS:VAR|LeadershipScore|HeirBalyk	SOURCEPAGE:p.18
-Extra Domain SPELL			TYPE:ClassAbility				VISIBLE:NO	SA:Extra Domain Spell																					SOURCEPAGE:p.18
+Extra Domain SPELL			TYPE:ClassAbility				VISIBLE:NO	SAB:Extra Domain Spell																					SOURCEPAGE:p.18
 
 # This part isn't working right.
 Heir of Balyk Treachery Domain	TYPE:Internal.BalykDomain		VISIBLE:YES
@@ -15,32 +15,32 @@ Heir of Balyk Devil Domain		TYPE:Internal.BalykDomain		VISIBLE:YES
 
 ###Block: Keeper of the Ice abilities
 # Feat Name				Type			Visible	Special Ability			Source Page
-Cold Spell Mastery		TYPE:ClassAbility	VISIBLE:NO	SA:Cold Spell Mastery (Ex)	SOURCEPAGE:p.20
-Cold Damage Specialization	TYPE:ClassAbility	VISIBLE:NO	SA:Cold Damage Specialization	SOURCEPAGE:p.20
-Cold Spell Conversion		TYPE:ClassAbility	VISIBLE:NO	SA:Cold Spell Conversion	SOURCEPAGE:p.20
-Icy Familiar			TYPE:ClassAbility	VISIBLE:NO	SA:Icy Familiar			SOURCEPAGE:p.20
-Cold Spell Empowerment		TYPE:ClassAbility	VISIBLE:NO	SA:Cold Spell Empowerment	SOURCEPAGE:p.20
-Supreme Cold Mastery		TYPE:ClassAbility	VISIBLE:NO	SA:Supreme Cold Mastery		SOURCEPAGE:p.20
+Cold Spell Mastery		TYPE:ClassAbility	VISIBLE:NO	SAB:Cold Spell Mastery (Ex)	SOURCEPAGE:p.20
+Cold Damage Specialization	TYPE:ClassAbility	VISIBLE:NO	SAB:Cold Damage Specialization	SOURCEPAGE:p.20
+Cold Spell Conversion		TYPE:ClassAbility	VISIBLE:NO	SAB:Cold Spell Conversion	SOURCEPAGE:p.20
+Icy Familiar			TYPE:ClassAbility	VISIBLE:NO	SAB:Icy Familiar			SOURCEPAGE:p.20
+Cold Spell Empowerment		TYPE:ClassAbility	VISIBLE:NO	SAB:Cold Spell Empowerment	SOURCEPAGE:p.20
+Supreme Cold Mastery		TYPE:ClassAbility	VISIBLE:NO	SAB:Supreme Cold Mastery		SOURCEPAGE:p.20
 
 
 ###BLOCK:Knight of Frostfang abilities
 # Feat Name		Type						Visible	Special Ability					Define				Innate Spells															Allow Follower			Allowed Companions			Source Page
-Winter Wolf Mount	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Winter Wolf Mount (Ex)			DEFINE:FrostfangKnight|0																		FOLLOWERS:Special Mount|1	COMPANIONLIST:Mount|Winter Wolf	SOURCEPAGE:p.22
-Solid as Ice	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SA:Solid as Ice %/day (Sp)|SolidAsIce	DEFINE:SolidAsIce|0		SPELLS:Knight of the Frostfang|TIMES=0|CASTERLEVEL=1+FrostfangKnight|Bull's Strength|Bear's Endurance												SOURCEPAGE:p.22
-Wolf Brotherhood	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SA:Wolf Brotherhood (Sp)																																				SOURCEPAGE:p.22
+Winter Wolf Mount	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Winter Wolf Mount (Ex)			DEFINE:FrostfangKnight|0																		FOLLOWERS:Special Mount|1	COMPANIONLIST:Mount|Winter Wolf	SOURCEPAGE:p.22
+Solid as Ice	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SAB:Solid as Ice %/day (Sp)|SolidAsIce	DEFINE:SolidAsIce|0		SPELLS:Knight of the Frostfang|TIMES=0|CASTERLEVEL=1+FrostfangKnight|Bull's Strength|Bear's Endurance												SOURCEPAGE:p.22
+Wolf Brotherhood	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SAB:Wolf Brotherhood (Sp)																																				SOURCEPAGE:p.22
 
 ###BLOCK:Thrall of Gaulgardos abilities
 # Feat Name			Type						Visible	Special Ability														Define			Damage Reduction							Source Page
-Fiendish Call		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Fiendish Call +% (Su)|FiendishCall										DEFINE:FiendishCall|0										SOURCEPAGE:p.25
-Strength of the Chosen	TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Strength of the Chosen (Su)	SA:Resistance to Electricity 15	SA:Immunity to Poison	DEFINE:ThrallGaul|0	DR:5/Cold Iron and Good|PREVARGTEQ:ThrallGaul,10	SOURCEPAGE:p.25
-Bloodbond			TYPE:ClassAbility				VISIBLE:NO	SA:Bloodbond																											SOURCEPAGE:p.25
-Demon Ally I		TYPE:ClassAbility				VISIBLE:NO	SA:Demon Ally I																											SOURCEPAGE:p.25
+Fiendish Call		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Fiendish Call +% (Su)|FiendishCall										DEFINE:FiendishCall|0										SOURCEPAGE:p.25
+Strength of the Chosen	TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Strength of the Chosen (Su)	SAB:Resistance to Electricity 15	SAB:Immunity to Poison	DEFINE:ThrallGaul|0	DR:5/Cold Iron and Good|PREVARGTEQ:ThrallGaul,10	SOURCEPAGE:p.25
+Bloodbond			TYPE:ClassAbility				VISIBLE:NO	SAB:Bloodbond																											SOURCEPAGE:p.25
+Demon Ally I		TYPE:ClassAbility				VISIBLE:NO	SAB:Demon Ally I																											SOURCEPAGE:p.25
 
 ###BLOCK:Wayjik Demon Hunter abilities
 # Feat Name				Type						Visible	Special Ability						Define			Source Page
-Smite Outsider			TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Smite Outsider (Su) %/day|SmiteOutsider	DEFINE:SmiteOutsider|0	SOURCEPAGE:p.27
-Weapons of the Hunt		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Weapons of the Hunt (Su)								SOURCEPAGE:p.27
-Improved Weapons of the Hunt	TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Improved Weapons of the Hunt (Su)						SOURCEPAGE:p.27
-Mark of the Slayer		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SA:Mark of the Slayer (Sp)								SOURCEPAGE:p.27
+Smite Outsider			TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Smite Outsider (Su) %/day|SmiteOutsider	DEFINE:SmiteOutsider|0	SOURCEPAGE:p.27
+Weapons of the Hunt		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Weapons of the Hunt (Su)								SOURCEPAGE:p.27
+Improved Weapons of the Hunt	TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Improved Weapons of the Hunt (Su)						SOURCEPAGE:p.27
+Mark of the Slayer		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Mark of the Slayer (Sp)								SOURCEPAGE:p.27
 
 

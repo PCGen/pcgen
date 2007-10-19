@@ -6,8 +6,8 @@ SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://pa
 
 ###BLOCK:Winter Wolf mount
 # Class of the Master		Hit Dice	Spell Res.	Special Ability							Combat bonus						Add to base move						Stat bonus		Modify VAR
-FOLLOWER:FrostfangKnight=1					SA:Empathic Link (Su)	SA:Improved Evasion (Ex)
-FOLLOWER:FrostfangKnight=2	HD:1				SA:Improved Speed (Ex)						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:STAT|STR|1	BONUS:VAR|WinterWolfBreathWeaponDice|1
+FOLLOWER:FrostfangKnight=1					SAB:Empathic Link (Su)	SAB:Improved Evasion (Ex)
+FOLLOWER:FrostfangKnight=2	HD:1				SAB:Improved Speed (Ex)						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:STAT|STR|1	BONUS:VAR|WinterWolfBreathWeaponDice|1
 FOLLOWER:FrostfangKnight=3	HD:2													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE									BONUS:STAT|STR|1	BONUS:VAR|WinterWolfBreathWeaponDice|1
 FOLLOWER:FrostfangKnight=4	HD:2													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE									BONUS:STAT|STR|1	BONUS:VAR|WinterWolfBreathWeaponDice|1
 FOLLOWER:FrostfangKnight=5	HD:2		SR:TL+10										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE									BONUS:STAT|STR|1	BONUS:VAR|WinterWolfBreathWeaponDice|1

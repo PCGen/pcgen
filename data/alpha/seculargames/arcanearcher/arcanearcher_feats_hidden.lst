@@ -4,11 +4,11 @@ SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOU
 
 ###Block: .MOD
 # Feat Name			Clear SAs	Special Ability
-Arrow of Death.MOD	SA:.CLEAR	SA:Arrow of Death (Sp)|PREVARLTEQ:ArrowDeathLevel,20	SA:Greater Arrow of Death (Sp)|PREVARGTEQ:ArrowDeathLevel,20
+Arrow of Death.MOD	SAB:.CLEAR	SAB:Arrow of Death (Sp)|PREVARLTEQ:ArrowDeathLevel,20	SAB:Greater Arrow of Death (Sp)|PREVARGTEQ:ArrowDeathLevel,20
 
 ###Block: Arcane Crossbowman
 # Feat Name		Type				Visible	Special Ability					Define
-Enhance Bolt	TYPE:ArcaneCrossbowman	VISIBLE:NO	SA:Enhance Bolt +%|EnhanceBolt		DEFINE:EnhanceBolt|0
-Imbue Bolt		TYPE:ArcaneCrossbowman	VISIBLE:NO	SA:Imbue Bolt (Sp)
-Phase Bolt		TYPE:ArcaneCrossbowman	VISIBLE:NO	SA:Phase Bolt %/day|PhaseBoltTimes		DEFINE:PhaseBoltTimes|0
-Seeker Bolt		TYPE:ArcaneCrossbowman	VISIBLE:NO	SA:Seeker Bolt %/day|SeekerBoltTimes	DEFINE:SeekerBoltTimes|0
+Enhance Bolt	TYPE:ArcaneCrossbowman	VISIBLE:NO	SAB:Enhance Bolt +%|EnhanceBolt		DEFINE:EnhanceBolt|0
+Imbue Bolt		TYPE:ArcaneCrossbowman	VISIBLE:NO	SAB:Imbue Bolt (Sp)
+Phase Bolt		TYPE:ArcaneCrossbowman	VISIBLE:NO	SAB:Phase Bolt %/day|PhaseBoltTimes		DEFINE:PhaseBoltTimes|0
+Seeker Bolt		TYPE:ArcaneCrossbowman	VISIBLE:NO	SAB:Seeker Bolt %/day|SeekerBoltTimes	DEFINE:SeekerBoltTimes|0
