@@ -11,16 +11,16 @@ CLASS:Buccaneer	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Di
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SA:Shipboard Climbing
-2	SA:Up Close and Personal
+1	SAB:Shipboard Climbing
+2	SAB:Up Close and Personal
 #		BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2|PREVARGTEQ:COUNT[EQTYPE.MELEE.EQUIPPED.IS.LIGHT],2
-3	SA:Witty Repartee
-4	SA:Superb Seaman %|SuperbSeaman	BONUS:VAR|SuperbSeaman|floor(CL/4)*2	BONUS:SKILL|Knowledge (Seamanship)|SuperbSeaman|TYPE=Competence	DEFINE:SuperbSeaman|0
-5	SA:Swarm Rigging
-6	SA:Superb Balance
-7	SA:Rope Fighting
-9	SA:Sabotage
-10	SA:Acrobatic Defense
+3	SAB:Witty Repartee
+4	SAB:Superb Seaman %|SuperbSeaman	BONUS:VAR|SuperbSeaman|floor(CL/4)*2	BONUS:SKILL|Knowledge (Seamanship)|SuperbSeaman|TYPE=Competence	DEFINE:SuperbSeaman|0
+5	SAB:Swarm Rigging
+6	SAB:Superb Balance
+7	SAB:Rope Fighting
+9	SAB:Sabotage
+10	SAB:Acrobatic Defense
 
 # Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	ABB:Nvw		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -28,16 +28,16 @@ CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	ABB:Nv
 CLASS:Navigator Wizard	PREFEAT:1,Spell Mastery	PRESKILL:1,Profession (Navigator)=6	PRESPELLSCHOOL:Divination,1,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gather Information|TYPE.Knowledge|Profession (Navigator)|Scry|Spellcraft
-1	SA:Infallible Direction			BONUS:SKILL|Profession (Navigation)|2								ADD:SPELLCASTER|1|ANY
-2	SA:Fast Pursuit																		ADD:SPELLCASTER|1|ANY
-3	SA:Intuitive Seamanship %|IntuitSea	BONUS:SKILL|Knowledge (Seamanship)|IntuitSea	DEFINE:IntuitSea|floor(CL/3)*2	ADD:SPELLCASTER|1|ANY
-4	SA:Catch the Wind																		ADD:SPELLCASTER|1|ANY
-5	SA:True Voyage																		ADD:SPELLCASTER|1|ANY
+1	SAB:Infallible Direction			BONUS:SKILL|Profession (Navigation)|2								ADD:SPELLCASTER|1|ANY
+2	SAB:Fast Pursuit																		ADD:SPELLCASTER|1|ANY
+3	SAB:Intuitive Seamanship %|IntuitSea	BONUS:SKILL|Knowledge (Seamanship)|IntuitSea	DEFINE:IntuitSea|floor(CL/3)*2	ADD:SPELLCASTER|1|ANY
+4	SAB:Catch the Wind																		ADD:SPELLCASTER|1|ANY
+5	SAB:True Voyage																		ADD:SPELLCASTER|1|ANY
 6																					ADD:SPELLCASTER|1|ANY
-7	SA:Weather Prediction																	ADD:SPELLCASTER|1|ANY
-8	SA:Ride the Wind																		ADD:SPELLCASTER|1|ANY
+7	SAB:Weather Prediction																	ADD:SPELLCASTER|1|ANY
+8	SAB:Ride the Wind																		ADD:SPELLCASTER|1|ANY
 9																					ADD:SPELLCASTER|1|ANY
-10	SA:Control Winds																		ADD:SPELLCASTER|1|ANY
+10	SAB:Control Winds																		ADD:SPELLCASTER|1|ANY
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Reaver	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -50,11 +50,11 @@ CLASS:Reaver	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Hide|Intimidate|Jump|Kn
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
-1	SA:Armour Expertise (%)|		BONUS:VAR|ArmourExp|(CL+3)/4		DEFINE:ArmourExp|0
-2	SA:Inspire Crew (+%)|InspireCrew	BONUS:VAR|InspireCrew|(CL+2)/4	DEFINE:InspireCrew|0
+1	SAB:Armour Expertise (%)|		BONUS:VAR|ArmourExp|(CL+3)/4		DEFINE:ArmourExp|0
+2	SAB:Inspire Crew (+%)|InspireCrew	BONUS:VAR|InspireCrew|(CL+2)/4	DEFINE:InspireCrew|0
 3																	ADD:FEAT|1|Ambidexterity,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Quick Draw,Weapon Finesse,Weapon Focus
-4	SA:Instill Fear
-7	SA:Skilled Boarder
+4	SAB:Instill Fear
+7	SAB:Skilled Boarder
 8																	ADD:FEAT|1|Ambidexterity,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Quick Draw,Weapon Finesse,Weapon Focus
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -77,22 +77,22 @@ CLASS:Sea Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	CAST:3,1				SA:Nature Sense												BONUS:VAR|CompLevel|CL									AUTO:FEAT|Animal Companion
-2	CAST:4,2				SA:Speed of the Fish	SA:Predict the Weather % days in advance|PredictWeather	BONUS:VAR|PredictWeather|CL/2				DEFINE:PredictWeather|0
-3	CAST:4,2,1				SA:Salt Synthesis
-4	CAST:5,3,2				SA:Resist Nature's Lure
-5	CAST:5,3,2,1			SA:Wildshape %/day|Wildshape										BONUS:VAR|Wildshape|1					DEFINE:Wildshape|0
+1	CAST:3,1				SAB:Nature Sense												BONUS:VAR|CompLevel|CL									AUTO:FEAT|Animal Companion
+2	CAST:4,2				SAB:Speed of the Fish	SAB:Predict the Weather % days in advance|PredictWeather	BONUS:VAR|PredictWeather|CL/2				DEFINE:PredictWeather|0
+3	CAST:4,2,1				SAB:Salt Synthesis
+4	CAST:5,3,2				SAB:Resist Nature's Lure
+5	CAST:5,3,2,1			SAB:Wildshape %/day|Wildshape										BONUS:VAR|Wildshape|1					DEFINE:Wildshape|0
 6	CAST:5,3,3,2																	BONUS:VAR|Wildshape|1
 7	CAST:6,4,3,2,1																	BONUS:VAR|Wildshape|1
-8	CAST:6,4,3,3,2			SA:Wildshape Large
-9	CAST:6,4,4,3,2,1			SA:Venom Immunity
+8	CAST:6,4,3,3,2			SAB:Wildshape Large
+9	CAST:6,4,4,3,2,1			SAB:Venom Immunity
 10	CAST:6,4,4,3,3,2																	BONUS:VAR|Wildshape|1
-11	CAST:6,5,4,4,3,2,1		SA:Wildshape Tiny
-12	CAST:6,5,4,4,3,3,2		SA:Wildshape Dire
-13	CAST:6,5,5,4,4,3,2,1		SA:A Thousand Faces
+11	CAST:6,5,4,4,3,2,1		SAB:Wildshape Tiny
+12	CAST:6,5,4,4,3,3,2		SAB:Wildshape Dire
+13	CAST:6,5,5,4,4,3,2,1		SAB:A Thousand Faces
 14	CAST:6,5,5,4,4,3,3,2																BONUS:VAR|Wildshape|1
-15	CAST:6,5,5,5,4,4,3,2,1		SA:Wildshape Huge	SA:Timeless Body
-16	CAST:6,5,5,5,4,4,3,3,2		SA:Wildshape (elemental %/day)|EWildshape								BONUS:VAR|EWildshape|1					DEFINE:EWildshape|0
+15	CAST:6,5,5,5,4,4,3,2,1		SAB:Wildshape Huge	SAB:Timeless Body
+16	CAST:6,5,5,5,4,4,3,3,2		SAB:Wildshape (elemental %/day)|EWildshape								BONUS:VAR|EWildshape|1					DEFINE:EWildshape|0
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2															BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
 19	CAST:6,5,5,5,5,5,4,4,3,3

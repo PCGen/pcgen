@@ -9,14 +9,14 @@ CLASS:Assassin (Mong)	PREALIGN:LN,LE,TN,NE,CN,CE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Assassin (Mong)	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Craft|Disable Device|Disguise|Gather Information|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Assassination/Sneak Attack
-1	SA:Assassination +%d%|Assassination|AssassinationDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|Assassination|floor((CL+1)/2)*2	DEFINE:Assassination|0	DEFINE:AssassinationDie|6	AUTO:FEAT|Sneak Attack
+1	SAB:Assassination +%d%|Assassination|AssassinationDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|Assassination|floor((CL+1)/2)*2	DEFINE:Assassination|0	DEFINE:AssassinationDie|6	AUTO:FEAT|Sneak Attack
 ###Block: Proficiencies
 1	AUTO:FEAT|Assassin (Mong) Weapon Proficiencies|Simple Weapon Proficiency|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-2	SA:Poison Use|PREVARLT:CL,5
-4	SA:Meticulous Planning (+%)|MeticulousPlanning	BONUS:VAR|MeticulousPlanning|(CL+2)/6	DEFINE:MeticulousPlanning|0
-5	SA:Poison Use (+%)|PoisonUse				BONUS:VAR|PoisonUse|(CL+1)/3			DEFINE:PoisonUse|0
+2	SAB:Poison Use|PREVARLT:CL,5
+4	SAB:Meticulous Planning (+%)|MeticulousPlanning	BONUS:VAR|MeticulousPlanning|(CL+2)/6	DEFINE:MeticulousPlanning|0
+5	SAB:Poison Use (+%)|PoisonUse				BONUS:VAR|PoisonUse|(CL+1)/3			DEFINE:PoisonUse|0
 6																					ADD:FEAT|1|Exotic Weapon Proficiency
 12																					ADD:FEAT|1|Exotic Weapon Proficiency
 18																					ADD:FEAT|1|Exotic Weapon Proficiency

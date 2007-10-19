@@ -14,11 +14,11 @@ CLASS:Agent of the Crown	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|TYPE.Craf
 1	AUTO:WEAPONPROF|Dagger|Rapier|Sap
 1	AUTO:WEAPONPROF|Mace|[PRESIZEGTEQ:S]
 ###Block: Normal Level Progression
-1	SA:Agent of the Crown	SA:Smooth Talker								BONUS:SKILL|Bluff,Diplomacy,Intimidate,Sense Motive|2|TYPE=Competence
-2	SA:Friends in Low Places
-3	SA:Social Chameleon
-4	SA:Man of 1000 Faces
-5	SA:Charming Demeanor %/day|CharmingDemeanor	BONUS:VAR|CharmingDemeanor|CHA													DEFINE:CharmingDemeanor|0
+1	SAB:Agent of the Crown	SAB:Smooth Talker								BONUS:SKILL|Bluff,Diplomacy,Intimidate,Sense Motive|2|TYPE=Competence
+2	SAB:Friends in Low Places
+3	SAB:Social Chameleon
+4	SAB:Man of 1000 Faces
+5	SAB:Charming Demeanor %/day|CharmingDemeanor	BONUS:VAR|CharmingDemeanor|CHA													DEFINE:CharmingDemeanor|0
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Commando	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:5	SOURCEPAGE:p.23-24	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -31,10 +31,10 @@ CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Live off the Land	SA:Silent Strike
+1	SAB:Live off the Land	SAB:Silent Strike
 2								BONUS:VAR|SneakAttack|CL/2
-3	SA:Prepare Ambush
-5	SA:Sniper
+3	SAB:Prepare Ambush
+5	SAB:Sniper
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
 CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p.24-26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -42,13 +42,13 @@ CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Crusading Footpad	PREALIGN:LG,NG,CG	PREATT:4	PREFEAT:2,Dodge,Iron Will	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Crusading Footpad	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	SA:Divine Companion	SA:Divine Luck
+1	SAB:Divine Companion	SAB:Divine Luck
 #	BONUS:CHECKS|2	- Um... To what?  Tir Gwaith
-2	SA:Smite Undead +%d%|SmiteUndead|SmiteUndeadDie	BONUS:VAR|SmiteUndead|CL/2									DEFINE:SmiteUndeadDie|6	DEFINE:SmiteUndead|0
-3	SA:Detect Evil	SA:Detect Undead
-5	SA:Mask Alignment
-7	SA:Divine Shield
-9	SA:Sense Guards and Wards									BONUS:SKILL|Disable Device,Search|2|TYPE=Divine
+2	SAB:Smite Undead +%d%|SmiteUndead|SmiteUndeadDie	BONUS:VAR|SmiteUndead|CL/2									DEFINE:SmiteUndeadDie|6	DEFINE:SmiteUndead|0
+3	SAB:Detect Evil	SAB:Detect Undead
+5	SAB:Mask Alignment
+7	SAB:Divine Shield
+9	SAB:Sense Guards and Wards									BONUS:SKILL|Disable Device,Search|2|TYPE=Divine
 
 #TBD - implement Language requirement
 
@@ -62,11 +62,11 @@ CLASS:Deep Tracker	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Decipher Script|Diplo
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Monster Knowledge	SA:Underneath Explorer
-2	SA:Pathfinder						BONUS:VAR|SneakAttack|CL/2	AUTO:FEAT|Sneak Attack
-3	SA:Emissary
-4	SA:Maze Sense
-5	SA:Dark Sense
+1	SAB:Monster Knowledge	SAB:Underneath Explorer
+2	SAB:Pathfinder						BONUS:VAR|SneakAttack|CL/2	AUTO:FEAT|Sneak Attack
+3	SAB:Emissary
+4	SAB:Maze Sense
+5	SAB:Dark Sense
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Executioner	HD:8		TYPE:PC.Prestige	ABB:Exe		MAXLEVEL:5	SOURCEPAGE:p.28-30	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -79,9 +79,9 @@ CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|He
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Executioner's Strike +%d%|ExecutionersStrike|ExecutionersStrikeDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	DEFINE:ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	AUTO:FEAT|Sneak Attack
-2	SA:Cold Blooded Killer
-4	SA:Executioner's Song
+1	SAB:Executioner's Strike +%d%|ExecutionersStrike|ExecutionersStrikeDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	DEFINE:ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	AUTO:FEAT|Sneak Attack
+2	SAB:Cold Blooded Killer
+4	SAB:Executioner's Song
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
@@ -94,13 +94,13 @@ CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE.Craft|Disable De
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Eye for Detail	SA:Urban Ranger						BONUS:SKILL|Sense Motive|2|TYPE=Competence
-2	SA:Scrounger				BONUS:VAR|SneakAttack|CL/2												AUTO:FEAT|Sneak Attack
-3	SA:Punish the Guilty 1/day
-5	SA:Fearsome Reputation								BONUS:SKILL|Intimidate|2|TYPE=Competence
-7	SA:Alchemical Genius																VFEAT:Brew Potion
-9	SA:Long Arm of the Law
-10	SA:Angel of Judgement
+1	SAB:Eye for Detail	SAB:Urban Ranger						BONUS:SKILL|Sense Motive|2|TYPE=Competence
+2	SAB:Scrounger				BONUS:VAR|SneakAttack|CL/2												AUTO:FEAT|Sneak Attack
+3	SAB:Punish the Guilty 1/day
+5	SAB:Fearsome Reputation								BONUS:SKILL|Intimidate|2|TYPE=Competence
+7	SAB:Alchemical Genius																VFEAT:Brew Potion
+9	SAB:Long Arm of the Law
+10	SAB:Angel of Judgement
 
 #TBD - implement Superior Knowledge?
 
@@ -114,8 +114,8 @@ CLASS:Tomb Raider	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Climb|TYPE.Cra
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Recognize Trap Design	SA:Superior Knowledge
-2	SA:Mystic Knowledge	SA:Trap Sense			BONUS:SKILL|Use Magic Device|2|TYPE=Competence
-3	SA:Identify Item	SA:Superior Knowledge
-4	SA:Superior Appraise	SA:Rapid Dodge
-5	SA:Magical Lore	SA:Superior Knowledge
+1	SAB:Recognize Trap Design	SAB:Superior Knowledge
+2	SAB:Mystic Knowledge	SAB:Trap Sense			BONUS:SKILL|Use Magic Device|2|TYPE=Competence
+3	SAB:Identify Item	SAB:Superior Knowledge
+4	SAB:Superior Appraise	SAB:Rapid Dodge
+5	SAB:Magical Lore	SAB:Superior Knowledge

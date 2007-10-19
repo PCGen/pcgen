@@ -19,18 +19,18 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEM
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
-1	CAST:0,3		KNOWN:0,2			SA:Bardic knowledge (+%)|BardicKnowledge	BONUS:VAR|BardicKnowledge|INT	BONUS:VAR|Spellsong|1	BONUS:VAR|BardicKnowledge|CLASSLEVEL=Bard {Monte Cook's}	DEFINE:BardicKnowledge|0	DEFINE:Spellsong|0
+1	CAST:0,3		KNOWN:0,2			SAB:Bardic knowledge (+%)|BardicKnowledge	BONUS:VAR|BardicKnowledge|INT	BONUS:VAR|Spellsong|1	BONUS:VAR|BardicKnowledge|CLASSLEVEL=Bard {Monte Cook's}	DEFINE:BardicKnowledge|0	DEFINE:Spellsong|0
 2	CAST:0,4		KNOWN:0,2
 3	CAST:0,5		KNOWN:0,3
 4	CAST:0,6		KNOWN:0,3
-5	CAST:0,7		KNOWN:0,4			SA:Weave Notes
+5	CAST:0,7		KNOWN:0,4			SAB:Weave Notes
 6	CAST:0,8,0,0	KNOWN:0,4,0,1
 7	CAST:0,8,0,1	KNOWN:0,5,0,2
 8	CAST:0,8,0,2	KNOWN:0,5,0,2
 9	CAST:0,9,0,3	KNOWN:0,6,0,3																																					VFEAT:Evasion
 10	CAST:0,9,0,4	KNOWN:0,6,0,3
 11	CAST:0,9,0,5	KNOWN:0,7,0,4
-12	CAST:0,10,0,6	KNOWN:0,7,0,4		SA:Weave Chords
+12	CAST:0,10,0,6	KNOWN:0,7,0,4		SAB:Weave Chords
 13	CAST:0,10,0,7,0,0	KNOWN:0,8,0,5,0,1
 14	CAST:0,10,0,7,0,1	KNOWN:0,8,0,5,0,2
 15	CAST:0,11,0,7,0,2	KNOWN:0,9,0,6,0,2
@@ -38,7 +38,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEM
 17	CAST:0,11,0,8,0,4	KNOWN:0,10,0,7,0,3																																				VFEAT:Improved Evasion
 18	CAST:0,12,0,8,0,5	KNOWN:0,10,0,7,0,4
 19	CAST:0,12,0,9,0,6	KNOWN:0,11,0,8,0,4
-20	CAST:0,12,0,9,0,7	KNOWN:0,11,0,8,0,5	SA:Weave Melodies
+20	CAST:0,12,0,9,0,7	KNOWN:0,11,0,8,0,5	SAB:Weave Melodies
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Sorceror (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Sor(MC)		MAXLEVEL:20	SOURCEPAGE:p.8	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -76,15 +76,15 @@ CLASS:Diplomancer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECK
 CLASS:Diplomancer	PREFEAT:2,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:1,Diplomacy=10	PRESKILL:1,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Innuendo|Intimidate|TYPE.Knowledge|Listen|Scry|Search|Sense Motive|Spellcraft|Spot
-1	SA:Charm														ADD:SPELLCASTER|1|ANY
-2	SA:Enchantment Affinity +%|EnchantAff					DEFINE:EnchantAff|1
-3	SA:Magical Seduction/Attractiveness										ADD:SPELLCASTER|1|ANY
-4	SA:Protection from Evocations +%|ProtEvoc					DEFINE:ProtEvoc|1
-5	SA:Insight into Secrets												ADD:SPELLCASTER|1|ANY
+1	SAB:Charm														ADD:SPELLCASTER|1|ANY
+2	SAB:Enchantment Affinity +%|EnchantAff					DEFINE:EnchantAff|1
+3	SAB:Magical Seduction/Attractiveness										ADD:SPELLCASTER|1|ANY
+4	SAB:Protection from Evocations +%|ProtEvoc					DEFINE:ProtEvoc|1
+5	SAB:Insight into Secrets												ADD:SPELLCASTER|1|ANY
 6								BONUS:VAR|EnchantAff|1
-7	SA:Charisma Gift													ADD:SPELLCASTER|1|ANY
+7	SAB:Charisma Gift													ADD:SPELLCASTER|1|ANY
 8								BONUS:VAR|ProtEvoc|1
-9	SA:Word Cunning													ADD:SPELLCASTER|1|ANY
+9	SAB:Word Cunning													ADD:SPELLCASTER|1|ANY
 10								BONUS:VAR|EnchantAff|1					ADD:SPELLCASTER|1|ANY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
@@ -95,16 +95,16 @@ CLASS:Eldritch Warrior	PREATT:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:1
 CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Alchemy|Climb|Concentration|TYPE.Craft|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|Ride|Scry|Spellcraft
 # Class Name		Spell Type		Caster level
 CLASS:Eldritch Warrior	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Eldritch Warrior|CL
-1	SA:Ritual of Potency
-2	SA:Enrune Armor		ADD:FEAT|1|Ambidexterity,Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Finesse,Weapon Focus
-3	SA:Infuse with Power
-4	SA:Ritual of Potency
-5	SA:Enrune Weapon
+1	SAB:Ritual of Potency
+2	SAB:Enrune Armor		ADD:FEAT|1|Ambidexterity,Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Finesse,Weapon Focus
+3	SAB:Infuse with Power
+4	SAB:Ritual of Potency
+5	SAB:Enrune Weapon
 6					ADD:FEAT|1|Ambidexterity,Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Finesse,Weapon Focus
-7	SA:Ritual of Potency
-8	SA:Enrune Flesh
+7	SAB:Ritual of Potency
+8	SAB:Enrune Flesh
 9					ADD:FEAT|1|Ambidexterity,Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Finesse,Weapon Focus
-10	SA:Ritual of Potency
+10	SAB:Ritual of Potency
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Chord	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -112,16 +112,16 @@ CLASS:Knight of the Chord	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BO
 CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Perform=9	PREVARGTEQ:Spellsong,2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Gather Information|Hide|Innuendo|Jump|TYPE.Knowledge|Listen|Move Silently|Perform|Ride|Sense Motive|Speak Language|Spellcraft|Use Magic Device
-1	SA:Armor song (medium)|PREVARLT:CL,5
-2	SA:Imbue Vibration				ADD:SPELLCASTER|1|ANY
-3	SA:Battle Dance
-4	SA:Imbue Vibration				ADD:SPELLCASTER|1|ANY
-5	SA:Armor song (heavy)
-6	SA:Imbue Vibration				ADD:SPELLCASTER|1|ANY
-7	SA:Singblade
-8	SA:Imbue Vibration				ADD:SPELLCASTER|1|ANY
-9	SA:Sonic Protection
-10	SA:Song of Smiting				ADD:SPELLCASTER|1|ANY
+1	SAB:Armor song (medium)|PREVARLT:CL,5
+2	SAB:Imbue Vibration				ADD:SPELLCASTER|1|ANY
+3	SAB:Battle Dance
+4	SAB:Imbue Vibration				ADD:SPELLCASTER|1|ANY
+5	SAB:Armor song (heavy)
+6	SAB:Imbue Vibration				ADD:SPELLCASTER|1|ANY
+7	SAB:Singblade
+8	SAB:Imbue Vibration				ADD:SPELLCASTER|1|ANY
+9	SAB:Sonic Protection
+10	SAB:Song of Smiting				ADD:SPELLCASTER|1|ANY
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Song Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -129,13 +129,13 @@ CLASS:Song Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|
 CLASS:Song Mage	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Magical Talent	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Perform=8	PREVARGTEQ:Spellsong,2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Song Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Innuendo|TYPE.Knowledge|Listen|Perform|Read Lips|Scry|Speak Language|Spellcraft|Spot|Use Magic Device
-1	SA:Song Magic											ADD:SPELLCASTER|1|ANY
-2	SA:Song as Sustenance										ADD:SPELLCASTER|1|ANY
-3	SA:Songshield											ADD:SPELLCASTER|1|ANY
-4	SA:Divine Music											ADD:SPELLCASTER|1|ANY
-5	SA:Songburst											ADD:SPELLCASTER|1|ANY
-6	SA:Noble Music		BONUS:SKILL|Bluff,Diplomacy,Gather Information,Ride|2	ADD:SPELLCASTER|1|ANY
-7	SA:Sonic Protection										ADD:SPELLCASTER|1|ANY
-8	SA:Forbid the silence										ADD:SPELLCASTER|1|ANY
-9	SA:Wings of Song											ADD:SPELLCASTER|1|ANY
-10	SA:Clarity of Music										ADD:SPELLCASTER|1|ANY
+1	SAB:Song Magic											ADD:SPELLCASTER|1|ANY
+2	SAB:Song as Sustenance										ADD:SPELLCASTER|1|ANY
+3	SAB:Songshield											ADD:SPELLCASTER|1|ANY
+4	SAB:Divine Music											ADD:SPELLCASTER|1|ANY
+5	SAB:Songburst											ADD:SPELLCASTER|1|ANY
+6	SAB:Noble Music		BONUS:SKILL|Bluff,Diplomacy,Gather Information,Ride|2	ADD:SPELLCASTER|1|ANY
+7	SAB:Sonic Protection										ADD:SPELLCASTER|1|ANY
+8	SAB:Forbid the silence										ADD:SPELLCASTER|1|ANY
+9	SAB:Wings of Song											ADD:SPELLCASTER|1|ANY
+10	SAB:Clarity of Music										ADD:SPELLCASTER|1|ANY
