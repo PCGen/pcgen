@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+
+  <title>LST File Class</title>
+
+
+  <link rel="stylesheet" type="text/css" href="../../pcgen.css">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <style type="text/css">
+<!--
+.style1 {font-family: "Courier New", Courier, mono}
+.style2 {font-family: Arial, Helvetica, sans-serif}
+-->
+  </style>
+</head>
+
+	
+	<body>
+
+<h1>.lst - Skills buying abilities</h1>
+
+<p>By Andrew A. Maitland (LegacyKing) and Chris Chandler (Barak) for providing the basis for the text. </p>
+
+<p class="indent0"><strong>File(s) Covered:</strong>
+ *_abilities.lst, *_skills.lst, miscinfo.lst, statsandchecks.lst</p>
+
+<p class="indent0"><strong>Tags used:</strong></p>
+
+<p class="indent1"> <code><a href="../systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a>, <a href="../systemfilestagpages/globalfilesability#CATEGORY2">CATEGORY,</a> <a href="../systemfilestagpages/gamemodemiscinfolist.html#PLURAL">PLURAL</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITABLE">EDITABLE</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITPOOL">EDITPOOL</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#FRACTIONALPOOL">FRACTIONALPOOL</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#POOL">POOL</a>, 
+<a href="../systemfilestagpages/globalfilesability.html#VISIBLE">VISIBLE,</a><br>
+<a href="../systemfilestagpages/globalfilesdefine.html">DEFINE</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#TYPE">TYPE</a>, <a href="../globalfilestagpages/globalfilesprexxx.html">PREABILITY, 
+PRESKILL, 
+PREVARLT,</a> <a href="../globalfilesother.html#DESC">DESC</a>, 
+<a href="../globalfilesbonus.html#VAR">BONUS:VAR</a></code></p>
+
+<p></p>
+
+<hr>
+<p>This is a lesson to assist users in setting up things such as  buying abilities via Skill Ranks or known as Skill Tricks. Each section represents a different file and what tags you'll need. Provided with the included tags is a sample in each section. So if you copy these examples verbatim you'll have a good start. Above is referenced the actual tags for the full capabilities. The TOP header <strong>bolded</strong> text is the file where these tags need to be placed. Each new line should be considered a TAB in the actual file.</p>
+<p>So,</p>
+<p> ABILITYCATEGORY:ST<br>
+  CATEGORY:ST</p>
+<p>Becomes:</p>
+<p>ABILITYCATEGORY:ST &lt;tab&gt; CATEGORY:ST</p>
+<hr>
+<p><strong>Miscinfo.lst file:</strong> (Found in the gamemode folder) </p>
+<p class="indent1 style1">ABILITYCATEGORY:ST <br>
+  CATEGORY:ST <br>
+  PLURAL:STs <br>
+  EDITABLE:YES <br>
+  EDITPOOL:NO <br>
+  FRACTIONALPOOL:NO <br>
+  POOL:STPool <br>
+  VISIBLE:YES </p>
+<p class="indent1 style1">--</p>
+<p class="indent1 style1">ABILITYCATEGORY: <span class="style2">This makes the Ability Category. This is what will show in the PCGen user interface, under the FEATs tab.</span></p>
+<p class="indent1 style1">CATEGORY: <span class="style2">This is a 'sub' category. You'll note we leave it the same for this example but you can have the same abilit name as long as it has a different category name. For example: CATEGORY:Ambush could contain 'FooBarSneak' and then you could have CATEGORY:Rogue with 'FooBarSneak'</span></p>
+<p class="indent1 style1">PLURAL: <span class="style2">This has to do with the internationalization. An example is: in_feats which sets the Category key to 'in_feats'. &lt;Tir can you add anything to this?&gt; </span></p>
+<p class="indent1 style1">EDITABLE: <span class="style2">This defines whether a user can modify the abilities in the category. NO would be appropriate for class abilities which aren't chosen by the user.</span></p>
+<p class="indent1 style1">EDITPOOL: <span class="style2">This defines whether a user can modify the pool number or not. Each ability has a 'cost' (Default is 1) if this option is set to 'NO' the user cannot add or subtract from the pool.</span></p>
+<p class="indent1 style1">FRACTIONALPOOL: <span class="style2">This defines whether the pool must be a whole number or can be fractions. Some abilities may have a cost less than '1' like .5 or .25.</span></p>
+<p class="indent1 style1">POOL: This is a formula to determine the pool number. <br>
+  Example: TL/2 would grant one point every 2 levels to the character. </p>
+<p class="indent1 style1">VISIBLE: <span class="style2">Defines whether this category is visible on the UI or hidden. Usefull for hidden abilities and class abilities that require no interaction from the user. </span></p>
+<p></p>
+
+<hr>
+<p><strong>Statsandchecks.lst file</strong>: (Found in the gamemode folder) </p>
+<p>(added to the line defining intelligence stat): </p>
+<p class="indent1 style1">DEFINE:STMax|TL/2 </p>
+<p class="indent1 style1">--</p>
+<p class="indent1 style1">DEFINE: <span class="style2">This tag is used to DEFINE a variable. In this case we are defining 'STMax' to have a value of half the character's total level. </span></p>
+<p class="indent1 style1">&nbsp;</p>
+<hr>
+<p><strong>Skills.lst file:</strong> </p>
+<p class="indent1 style1">  ST Skill <br>
+  TYPE:NoStat <br>
+  VISIBLE:DISPLAY<br>
+  BONUS:ABILITYPOOL|ST|SKILL.ST Skill.RANK </p>
+<p class="indent1 style1">--</p>
+<p class="indent1 style1">TYPE: <span class="style2">We are defining what 'type' this skill belongs to. You can use any type that you feel appropriate.</span></p>
+<p class="indent1 style1">VISIBLE: <span class="style2">'DISPLAY' - This skill will only be visible in the GUI of PCGen on not appear on the Character sheet. Other valid choices are: YES - Default (Shows up on both PCGen and the Character sheet); NO - Does not appear either on PCGen or the character sheet; GUI - Same as DISPLAY.</span></p>
+<p class="indent1 style1">BONUS: <span class="style2">Breaking down the tag we are saying to give a bonus to the ABILITYPOOL of the ST category for each skill rank placed in the skill. Note: Each skill rank cost 2 points as a Cross-Class Skill. </span></p>
+<p class="style1"></p>
+<hr>
+<p><strong>Ability.lst file</strong>: (showing one ST specifically, adjust PRExxx to be appropriate...) </p>
+
+<p>Note the “!PREABILITY:1,CATEGORY=ST,Ac Ba”... this keeps the ability from showing up for choosing after you have already taken it. This is a temporary workaround as there is currently a bug with the ability object not respecting the default of MULT:NO): </p>
+<p class="indent1 style1">Ac Ba <br>
+  CATEGORY:ST <br>
+  TYPE:ST.Movement <br>
+  VISIBLE:YES <br>
+  !PREABILITY:1,CATEGORY=ST,Ac Ba <br>
+  PRESKILL:1,Tumble=12 <br>
+  PREVARLT:STCount,STMax <br>
+  DEFINE:STCount|0 <br>
+  DESC:&lt;appropriate description&gt; <br>
+  BONUS:VAR|STCount|1 </p>
+<p class="indent1 style1">--</p>
+<p class="indent1 style1">The first line is the Name of the Ability, you can have any name you prefer that makes sense. In ths example we are using a shortened name to simplify the lesson. </p>
+<p class="indent1 style1">CATEGORY: <span class="style2">This places the ability named in the 'ST' category. Remember we can use the same name, but you must use a different category. NOTE: This category must have been defined in the miscinfo.lst file to be valid. </span></p>
+<p class="indent1 style1">TYPE: <span class="style2">We have a period '.' delimiter to give the ability more than one 'type'. In this case we have 'ST' as a 'type' and we are placing this Ability under the 'Movement' type.</span></p>
+<p class="indent1 style1">VISIBLE: <span class="style2">Setting the visible to YES (which is default) allows the user to see this on the GUI in PCGen.</span></p>
+<p class="indent1 style1">!PRExxx: <span class="style2">This a PRE-Requisite tag, it determines whether the character qualifies for the Ability. The '!' exclamation mark preceeding the tag tells PCGen that the opposite is to be observed. In our first PRExxx tag, the character cannot have this ability already; CATEGORY=ST,&lt;Skill Name&gt; So I cannot have Ac Ba in the ST category already on my character to qualify.<br>
+  The PRESKILL says I must have x ranks in the skill. '1' indicates how many skills I must meet, and the Skill=x, sets how many ranks I must have in the skill.<br>
+  PREVARLT says that I must have less STCount than the STMax. If we remember STMax was defined as half my character level, and as we see further down the line STCount is a new defined tag, which will increase by one each time I grab an ability.</span></p>
+<p class="indent1 style1">DESC: <span class="style2">This is where you type the text you want to appear with your chosen ability. This will be displayed on the character sheet UNLESS the ability is set to NO or DISPLAY. In that case you would skip this tag and may instead use SA: in it's place. That tag is discussed in another lesson. </span></p>
+<p class="indent1 style1">BONUS: <span class="style2">This bonus tag is increasing the 'VAR'iable of STCount by 1 each time it is chosen. </span></p>
+<hr>
+<p>Using this, you merely dump skill points into the ST Skill and then flip to the feats tab and the STs sub-tab and choose the ones you want. Hope that helps. </p>
+<p>Remember, miscinfo.lst and statsandchecks.lst are gamemode files. They do not get referenced in the .pcc file directly. There are entries about them in the docs if you want to read up on them. Anyway, to make a long story somewhat shorter, what you want to do is go to the “pcgen/system/gamemodes/35e” directory, open the miscinfo.lst file there and add the information I gave you in the post (right below the Salient Divine Abilities entry would work :p). Then open up the statasandchecks.lst file and add the VAR definition as I described before. To call the ability file it's (as you guessed) “ABILITY:ability.lst” in the .pcc file. Basically pretend that an ability.lst is a feat file as far as what tags you can use in it and you'll be ok (fair warning though, there may be exceptions to that rule of thumb). </p>
+<p></p>
+
+<hr>
+<p>Andrew</p>
+<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="../../images/system/valid-html401.png"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+
+</body>
+</html>
