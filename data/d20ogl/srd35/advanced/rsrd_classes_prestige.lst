@@ -220,7 +220,7 @@ CLASS:Eldritch Knight	HD:6		TYPE:PC.Prestige	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:Pre
 CLASS:Eldritch Knight	PRESPELLTYPE:1,Arcane=3	PREWEAPONPROF:10,TYPE.Martial
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Jump|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|Ride|Sense Motive|Spellcraft|Swim
-1	ADD:FEAT|TYPE=Fighter
+1					BONUS:ABILITYPOOL|Fighter Feat|1
 2	ADD:SPELLCASTER|Arcane
 3	ADD:SPELLCASTER|Arcane
 4	ADD:SPELLCASTER|Arcane
