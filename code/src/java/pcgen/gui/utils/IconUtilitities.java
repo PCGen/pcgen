@@ -34,6 +34,7 @@ public class IconUtilitities
 {
 	/** The URL to the resource folder of pcgen */
 	public static final String RESOURCE_URL = "/pcgen/gui/resource/";
+	public static final String RESOURCE_APP_ICON = "PCGenApp.png";
 
 	/**
 	 * Fetch an <code>ImageIcon</code> relative to the calling
@@ -45,10 +46,13 @@ public class IconUtilitities
 	 * @return <code>ImageIcon</code>, the icon or
 	 * <code>null</code> on failure
 	 */
-	public static ImageIcon getImageIcon(String iconName)
+	public static ImageIcon getImageIcon(String location)
 	{
+		if (location.startsWith(RESOURCE_URL) == false) {
+			location = RESOURCE_URL + location;
+		}
 		final URL iconURL =
-				IconUtilitities.class.getResource(RESOURCE_URL + iconName);
+				IconUtilitities.class.getResource(location);
 
 		if (iconURL == null)
 		{
@@ -71,8 +75,11 @@ public class IconUtilitities
 	 */
 	public static ImageIcon getImageIcon(String location, String description)
 	{
+		if (location.startsWith(RESOURCE_URL) == false) {
+			location = RESOURCE_URL + location;
+		}
 		final URL iconURL =
-				IconUtilitities.class.getResource(RESOURCE_URL + location);
+				IconUtilitities.class.getResource(location);
 
 		if (iconURL == null)
 		{
