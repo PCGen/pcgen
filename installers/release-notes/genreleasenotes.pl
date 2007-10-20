@@ -23,40 +23,65 @@ use IO::Handle;
 # search through the roadmap file only keeping heading and closed trackers
 my $firstTime = (1 == 1);
 my $discardingSectionState = 0; # States are 0=not discarding, 1=discard line regardless, 2=stop discard at next blank line
+my $trackerNum = "";
+my @trackerLines;
 open ROADMAP, "work/roadmap.txt";
 open CHANGELOG, ">work/changelog.txt";
 while (<ROADMAP>) {
-		if ($discardingSectionState == 1) {
-			# Drop first line regardless - may be a blank line
-			$discardingSectionState = 2;
+        if ( /^[0-9\.]+%$/){
+        	# do nothing with percentage match lines
+        }
+        elsif ( /^ ?[0-9] *\t *[0-9]+[ \t]*$/ ) {
+        	# Tracker number
+        	s/^ ?[0-9][ \t]*//;
+        	s/\s*$//g;
+        	$trackerNum = $_;
+        	#print "Found tracker " . $trackerNum . "\n"; 
+        } 
+		elsif ( /^[ \t]*$/) {
+			# Ignore blank lines
 		}
-		elsif ($discardingSectionState == 2) {
-			# Discard line and stop discard mode if a blank line (end of section)
-			if (/^[ \t]*$/) {
-				$discardingSectionState = 0;
-			}
+		
+		elsif ( /^[ \t]/ ) {
+			# Tracker info line
+        	my $cat = $_;
+        	$cat =~ s/^[ \t]([A-Za-z ]*).*$/$1/;
+        	$cat =~ s/\s*$//g;
+        	s/^[ \t][A-Za-z ]*/<LI>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$trackerNum\"\>$trackerNum<\/a> \]/;
+        	s/\s+[0-9\-]+$//;
+        	s/\s+[A-Za-z_0-9 \-\.]+\s+[A-Za-z_0-9 \-\.]+\s+[A-Za-z_0-9 \-\.]+$//;
+        	s/\s*$//g;
+			push(@trackerLines, $cat . "@@@" . $_);
 		}
+
         elsif (/^[0-9].*Closed *$/oi) {
         	s/^([0-9]+)/<LI>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$1\"\>$1<\/a> \]/;
         	s/\s*Closed *$//i;
         	print CHANGELOG $_;
         }
-        elsif ( /^Link[ \t]+Title[ \t]+Status$/){
-        	# do nothing
-        }
-        elsif ( /^PrettyLst$/ || /^Development Specs$/){
-        	# Discard the section
-			$discardingSectionState = 1;
-        }
-        elsif ( /^[a-z]/oi ) {
-        	if (!$firstTime) {
-        		print CHANGELOG "</ul>\n\n";
-        	}
-        	
-        	$firstTime = (0 == 1);
-        	print CHANGELOG "<h3>".$_."</h3><ul>\n";
-        }
 }
+
+# Now output the info
+@trackerLines = sort { $a cmp $b } @trackerLines;
+my $lastTracker = "";
+foreach (@trackerLines) {
+	#Detect change in tracker type
+	my $currTracker = $_;
+	$currTracker =~ s/@@@[\s\S]*//;
+	if ($currTracker ne $lastTracker) {
+		$lastTracker = $currTracker;
+    	if (!$firstTime) {
+    		print CHANGELOG "</ul>\n\n";
+    	}
+    	
+    	$firstTime = (0 == 1);
+    	print CHANGELOG "<h3>".$currTracker."</h3><ul>\n";
+	}
+	#output tracker line
+	s/^[A-Za-z0-9 ]+@@@//;
+  	print CHANGELOG $_."\n";
+}
+
 print CHANGELOG "\n</ul>\n";
 close CHANGELOG;
 close ROADMAP;
