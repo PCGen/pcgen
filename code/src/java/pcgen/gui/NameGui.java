@@ -58,8 +58,7 @@ public final class NameGui extends JFrame
 		this.pc = pc;
 
 		// according to the API, the following should *ALWAYS* use '/'
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource(IconUtilitities.RESOURCE_URL
-		            + "PcgenIcon.gif")));
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource(IconUtilitities.RESOURCE_APP_ICON)));
 		Utility.centerFrame(this, true);
 
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

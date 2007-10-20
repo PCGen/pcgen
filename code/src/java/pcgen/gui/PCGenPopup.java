@@ -48,7 +48,7 @@ class PCGenPopup extends JFrame
 	{
 		super(title);
 
-		IconUtilitities.maybeSetIcon(this, "PcgenIcon.gif");
+		IconUtilitities.maybeSetIcon(this, IconUtilitities.RESOURCE_APP_ICON);
 		Utility.centerFrame(this, true);
 	}
 
@@ -63,7 +63,7 @@ class PCGenPopup extends JFrame
 	{
 		super(title);
 
-		IconUtilitities.maybeSetIcon(this, "PcgenIcon.gif");
+		IconUtilitities.maybeSetIcon(this, IconUtilitities.RESOURCE_APP_ICON);
 		Utility.centerFrame(this, true);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setPanel(panel);

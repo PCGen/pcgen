@@ -99,7 +99,7 @@ public final class AddSpecialAbility extends JFrame
 			setTitle(myGetTitle());
 
 			Toolkit kit = Toolkit.getDefaultToolkit();
-			Image img = kit.getImage(getClass().getResource(IconUtilitities.RESOURCE_URL + "PcgenIcon.gif"));
+			Image img = kit.getImage(getClass().getResource(IconUtilitities.RESOURCE_APP_ICON));
 			this.setIconImage(img);
 
 			// since the Toolkit.getScreenSize() method is broken in the Linux implementation

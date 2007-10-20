@@ -241,7 +241,7 @@ final class KitSelector extends JFrame
 
 	private void initComponentContents()
 	{
-		IconUtilitities.maybeSetIcon(this, "PcgenIcon.gif");
+		IconUtilitities.maybeSetIcon(this, IconUtilitities.RESOURCE_APP_ICON);
 
 		lstAvailable = new JList(new KitListModel(new ArrayList<Kit>()));
 		lstAvailable.setCellRenderer(new MyCellRenderer());

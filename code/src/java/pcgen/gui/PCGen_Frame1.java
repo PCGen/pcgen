@@ -2282,7 +2282,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	 */
 	private void jbInit() throws Exception
 	{
-		IconUtilitities.maybeSetIcon(this, "PcgenIcon.gif");
+		IconUtilitities.maybeSetIcon(this, IconUtilitities.RESOURCE_APP_ICON);
 
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(panelMain, BorderLayout.CENTER);

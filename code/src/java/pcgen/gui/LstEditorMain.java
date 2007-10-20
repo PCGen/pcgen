@@ -130,7 +130,7 @@ public final class LstEditorMain extends JFrame
 	{
 		initComponents();
 
-		IconUtilitities.maybeSetIcon(this, "PcgenIcon.gif");
+		IconUtilitities.maybeSetIcon(this, IconUtilitities.RESOURCE_APP_ICON);
 		pcgen.gui.utils.Utility.centerFrame(this, false);
 	}
 

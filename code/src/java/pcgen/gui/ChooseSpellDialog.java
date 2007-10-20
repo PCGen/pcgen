@@ -97,7 +97,7 @@ final class ChooseSpellDialog extends JDialog
 	ChooseSpellDialog(JFrame parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks, final String choiceString)
 	{
 		super(parent);
-		IconUtilitities.maybeSetIcon(parent, "PcgenIcon.gif");
+		IconUtilitities.maybeSetIcon(parent, IconUtilitities.RESOURCE_APP_ICON);
 		this.eqType = eqType;
 		this.pc = pc;
 		this.metaAllowed = metaAllowed;
@@ -113,7 +113,7 @@ final class ChooseSpellDialog extends JDialog
 	ChooseSpellDialog(JFrame parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks)
 	{
 		super(parent);
-		IconUtilitities.maybeSetIcon(parent, "PcgenIcon.gif");
+		IconUtilitities.maybeSetIcon(parent, IconUtilitities.RESOURCE_APP_ICON);
 		this.eqType = eqType;
 
 		this.metaAllowed = metaAllowed;

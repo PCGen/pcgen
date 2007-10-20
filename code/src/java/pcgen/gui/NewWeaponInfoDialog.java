@@ -59,7 +59,7 @@ final class NewWeaponInfoDialog extends JDialog
 		Toolkit kit = Toolkit.getDefaultToolkit();
 
 		// according to the API, the following should *ALWAYS* use '/'
-		Image img = kit.getImage(getClass().getResource(IconUtilitities.RESOURCE_URL + "PcgenIcon.gif"));
+		Image img = kit.getImage(getClass().getResource(IconUtilitities.RESOURCE_APP_ICON));
 		parent.setIconImage(img);
 		initComponents();
 		setLocationRelativeTo(parent); // centre on parent (Canadian spelling eh?)

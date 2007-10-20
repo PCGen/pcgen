@@ -86,7 +86,7 @@ final class PCCCreator extends JFrame
 		mSrc = ms;
 
 		Toolkit kit = Toolkit.getDefaultToolkit();
-		Image img = kit.getImage(getClass().getResource(IconUtilitities.RESOURCE_URL + "PcgenIcon.gif"));
+		Image img = kit.getImage(getClass().getResource(IconUtilitities.RESOURCE_APP_ICON));
 		this.setIconImage(img);
 		buildTree();
 
