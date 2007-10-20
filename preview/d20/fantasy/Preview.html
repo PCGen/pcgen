@@ -1,4 +1,4 @@
-FEATS<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text-html; charset=utf-8" />
@@ -1233,6 +1233,24 @@ FEATS<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 							</td>
 						</tr>
 <!-- Stop Feat Table -->
+<!-- Start Salient Divine Ability Table -->
+|IIF(HASVAR:DivineRank)|
+						<tr>
+							<td>
+								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Feats">
+									<tr>
+										<td class="border2 bor_col_dark color_header bold center">SALIENT DIVINE ABILITIES</td>
+									</tr>
+									<tr>
+										<td class="even">
+											|ABILITYLIST.Salient Divine Ability|
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+|ELSE|
+<!-- Stop Salient Divine Ability Table -->
 |%DOMAIN.1|
 						<tr>
 							<td>
