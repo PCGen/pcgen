@@ -1085,12 +1085,81 @@ FEATS<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 |%|
 <!-- STOP Money Table -->
 
+<!-- Start Special Attacks Table -->
+						<tr>
+							<td>
+								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Class Abilities">
+									<tr>
+										<td class="border2 bor_col_dark color_header bold center">SPECIAL ATTACKS</td>
+									</tr>
+|FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack")-1,1,0|
+									<tr>
+|OIF(EVEN:%specialAttack,<td class="even bold">,<td class="odd bold">)|
+											|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:Extraordinary)|
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:Supernatural)|
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:SpellLike)|
+ (Sp)
+|ENDIF|
+
+										</td>
+									</tr>
+									<tr>
+|OIF(EVEN:%specialAttack,<td class="even">,<td class="odd">)|
+											|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.DESC|
+										</td>
+									</tr>
+|ENDFOR|
+								</table>
+							</td>
+						</tr>
+<!-- Stop Special Attacks Table -->
+
+<!-- Start Special Qualities Table -->
+						<tr>
+							<td>
+								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Class Abilities">
+									<tr>
+										<td class="border2 bor_col_dark color_header bold center">SPECIAL QUALITIES</td>
+									</tr>
+|FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality")-1,1,0|
+									<tr>
+|OIF(EVEN:%specialQuality,<td class="even bold">,<td class="odd bold">)|
+											|ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)|
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.TYPE:Supernatural)|
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.TYPE:SpellLike)|
+ (Sp)
+|ENDIF|
+
+										</td>
+									</tr>
+									<tr>
+|OIF(EVEN:%specialQuality,<td class="even">,<td class="odd">)|
+											|ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.DESC|
+										</td>
+									</tr>
+|ENDFOR|
+								</table>
+							</td>
+						</tr>
+<!-- Stop Special Qualities Table -->
+
 <!-- Start Special Ability Table -->
 						<tr>
 							<td>
 								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Class Abilities">
 									<tr>
-										<td class="border2 bor_col_dark color_header bold center">SPECIAL ABILITIES</td>
+										<td class="border2 bor_col_dark color_header bold center">SPECIAL ABILITIES
+										<br />(for testing, displays all Category: Special Ability)</td>
 									</tr>
 |FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=VISIBLE")-1,1,0|
 									<tr>
@@ -1123,10 +1192,11 @@ FEATS<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 |%COUNT[SA]|
 						<tr>
 							<td>
-<!-- START Special Abilities Table -->
+<!-- START Miscellaneous Abilities Table -->
 								<table class="border2 bor_col_dark" width="100%" cellspacing="0" cellpadding="2" summary="Special Abilities Table">
 									<tr>
-										<td class="center color_header bold">MISCELLANEOUS ABILITIES</td>
+										<td class="border2 bor_col_dark color_header bold center">MISCELLANEOUS ABILITIES
+										<br />(outputs SA and SAB tags)</td>
 									</tr>
 |FOR,%sa,0,COUNT[SA]-1,1,0|
 									<tr>
@@ -1136,7 +1206,7 @@ FEATS<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 									</tr>
 |ENDFOR|
 								</table>
-<!-- STOP Special Abilities Table -->
+<!-- STOP Miscellaneous Abilities Table -->
 							</td>
 						</tr>
 |%|
