@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+
+  <title>LST File Class</title>
+
+
+  <link rel="stylesheet" type="text/css" href="../../pcgen.css">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <style type="text/css">
+<!--
+.style1 {font-family: "Courier New", Courier, mono}
+.style2 {font-family: Arial, Helvetica, sans-serif}
+-->
+  </style>
+</head>
+
+	
+	<body>
+
+<h1>.lst - Converting Feats to Abilities </h1>
+
+<p>By Andrew A. Maitland (LegacyKing). </p>
+
+<p class="indent0"><strong>File(s) Covered:</strong>
+ *_.pcc, *_abilities.lst, *_feat.lst, miscinfo.lst</p>
+
+<p class="indent0"><strong>Tags used:</strong></p>
+
+<p class="indent1"> <code><a href="../systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a>, <a href="../systemfilestagpages/globalfilesability#CATEGORY2">CATEGORY,</a> <a href="../systemfilestagpages/gamemodemiscinfolist.html#PLURAL">PLURAL</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITABLE">EDITABLE</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITPOOL">EDITPOOL</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#FRACTIONALPOOL">FRACTIONALPOOL</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#POOL">POOL</a>, 
+<a href="../systemfilestagpages/globalfilesability.html#VISIBLE">VISIBLE,</a><br>
+<a href="../systemfilestagpages/globalfilesdefine.html">DEFINE</a>, 
+<a href="../systemfilestagpages/gamemodemiscinfolist.html#TYPE">TYPE</a>, <a href="../globalfilestagpages/globalfilesprexxx.html">PREABILITY, 
+PRESKILL, 
+PREVARLT,</a> <a href="../globalfilesother.html#DESC">DESC</a>, 
+<a href="../globalfilesbonus.html#VAR">BONUS:VAR</a></code></p>
+
+<p></p>
+
+<hr>
+<p>This is a lesson to assist users in converting. Each section represents a different file and what tags you'll need. Provided with the included tags is a sample in each section. So if you copy these examples verbatim you'll have a good start. Above is referenced the actual tags for the full capabilities. The TOP header <strong>bolded</strong> text is the file where these tags need to be placed. Each new line should be considered a TAB in the actual file.</p>
+<p>So,</p>
+<p> ABILITYCATEGORY:My Ability Category<br>
+  CATEGORY:FEAT</p>
+<p>Becomes:</p>
+<p>ABILITYCATEGORY:My Ability Category &lt;tab&gt; CATEGORY:FEAT</p>
+<hr>
+<p><strong>my.pcc file:</strong> </p>
+<p>Abilities have a different file type from feats. Use ABILITY: to tell the pcc file where to load ability files</p>
+<p>Example:</p>
+<p>ABILITY:my_dataset_ability.lst </p>
+<hr>
+<p><strong>Miscinfo.lst file:</strong> (Found in the gamemode folder)</p>
+<p>For Homebrews you'll need to set up any special &quot;abilities&quot; in their own pools. </p>
+<p class="indent1 style1">ABILITYCATEGORY:My Ability Category <br>
+  CATEGORY:FEAT &lt;required all caps for FEAT if this is a typical feat&gt;<br>
+  &lt;NOTE:Categories may be different, you can make any category you want AS long as it is defined in the MISCINFO file.&gt; </p>
+<p class="indent1 style1"><br>
+  PLURAL:Class Ability Categories <br>
+  EDITABLE:YES <br>
+  EDITPOOL:NO <br>
+  FRACTIONALPOOL:NO <br>
+  POOL:0 &lt;Can take a variable formula - See 'Skill Tricks'&gt; <br>
+  VISIBLE:YES &lt;can also be QUALIFY&gt; </p>
+<p class="indent1 style1">--</p>
+<p class="indent1 style1">ABILITYCATEGORY: <span class="style2">This makes the Ability Category. This is what will show in the PCGen user interface, under the FEATs tab.</span></p>
+<p class="indent1 style1">CATEGORY: <span class="style2">This is a 'sub' category. You'll note we leave it the same for this example but you can have the same ability name as long as it has a different category name. For example: CATEGORY:Ambush could contain 'FooBarSneak' and then you could have CATEGORY:Rogue with 'FooBarSneak'</span></p>
+<p class="indent1 style1">PLURAL: <span class="style2">This has to do with the internationalization. An example is: in_feats which sets the Category key to 'in_feats'. It also shows up with the 'Plural' of the name. Ex. Feat would be Feats (Feats would display in the drop down bar). </span></p>
+<p class="indent1 style1">EDITABLE: <span class="style2">This defines whether a user can modify the abilities in the category. NO would be appropriate for class abilities which aren't chosen by the user.</span></p>
+<p class="indent1 style1">EDITPOOL: <span class="style2">This defines whether a user can modify the pool number or not. Each ability has a 'cost' (Default is 1) if this option is set to 'NO' the user cannot add or subtract from the pool. For feats, the default is 'YES'. </span></p>
+<p class="indent1 style1">FRACTIONALPOOL: <span class="style2">This defines whether the pool must be a whole number or can be fractions. Some abilities may have a cost less than '1' like .5 or .25. &lt;YES / NO&gt; </span></p>
+<p class="indent1 style1">POOL:0 unless you want a formula to determine the pool number. <br>
+  Example: TL/2 would grant one point every 2 levels to the character. </p>
+<p class="indent1 style1">VISIBLE: <span class="style2">Defines whether this category is visible on the UI or hidden. Usefull for hidden abilities and class abilities that require no interaction from the user. &lt;Options are - YES, NO, QUALIFY&gt; </span></p>
+<p></p>
+
+<hr>
+<p><strong>Ability.lst file</strong>: </p>
+<p>This is where your feat will be placed. You will need to add 'CATEGORY' to your feat to make it an ability. </p>
+<p>My Feat <br>
+  CATEGORY:FEAT &lt;note: ALL CAPS if making an actual FEAT; other abilitiy categories can be whatever name you decide upon&gt; <br>
+  TYPE:General &lt;Same as standard feats '.' period delimiter&gt; <br>
+  VISIBLE:YES &lt;DISPLAY, NO, YES are the valid entries; QUALIFY is a FREQ currently&gt; <br>
+  DESC:&lt;appropriate description&gt; <br>
+  You may continue to use PREFEAT, but it is recommended that you use PREABILITY. See tag for details.  </p>
+<p><br>
+  --</p>
+<p class="indent1 style1">The first line is the Name of the Ability, you can have any name you prefer that makes sense. In ths example we are using a shortened name to simplify the lesson. </p>
+<p class="indent1 style1">CATEGORY: <span class="style2">This places the ability named in the 'FEAT' category. <br>
+  NOTE: Any category, besides 'FEAT', must have been defined in the miscinfo.lst file to be valid. <br>
+  Another FREQ is to allow ABILITYCATEGORY to be made in the pcc file. This has NOT been implemented yet.</span></p>
+<p class="indent1 style1">TYPE: <span class="style2">We have a period '.' delimiter to give the ability more than one 'type'. In this case we have 'General' as a 'type'.</span></p>
+<p class="indent1 style1">VISIBLE: <span class="style2">Setting the visible to YES (which is default) allows the user to see this on the GUI in PCGen.</span></p>
+<p class="indent1 style1">DESC: <span class="style2">This is where you type the text you want to appear with your chosen ability. This will be displayed on the character sheet UNLESS the ability is set to NO or DISPLAY. In that case you would skip this tag and may instead use 'SA:' tag 5.12 and earlier or 'SAB:' tag (5.14) in it's place. You may also use %1, %2 for variables defined. See DESC tag for further details. </span></p>
+<p class="indent1 style1">&nbsp;</p>
+<hr>
+<p>Unless you've made a new ABILITYCATEGORY, all feats converted to Abilities will show up on the 'Feats' tab as normal. Great examples of new ABILITY CATEGORIES can be seen in the rsrd/srd for the Fighter, Wizard and Rogue class.</p>
+<p>Remember, miscinfo.lst is a gamemode file, to define new ability categories or subcategories you MUST create it there. There are entries about them in the docs if you want to read up on them.  To call the ability file it's (as you guessed) “ABILITY:ability.lst” in the .pcc file. Basically pretend that an ability.lst is a feat file as far as what tags you can use in it and you'll be ok (fair warning though, there may be exceptions to that rule of thumb). </p>
+<p></p>
+
+<hr>
+<p>Andrew</p>
+<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="../../images/system/valid-html401.png"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+
+</body>
+</html>
