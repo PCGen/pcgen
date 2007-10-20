@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.13.3
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.13.3</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.13.3</a></li>
+	<li><a href="#MSRDChars">MSRD Character Changes</a></li>
+	<li><a href="#GMGenIssue">GMGen known issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.13.3</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.13.3</a></h2>
+<p>PCGen v5.13.3 is an alpha release from our development branch to allow 
+experimentation and testing of our latest work. Some notable new changes are:</p>
+<ul>
+
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Graphical preview sheet for fantasy modes
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1783488" class="externalLink" title="External Link">1783488</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#eddyanthony">eddyanthony</a>
+
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+[R/SRD] Favored Enemy, Rogue abilities, Fighter and wizard feats to ABILITY objects
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1805246" class="externalLink" title="External Link">1805246</a>, 
+<a href="http://sourceforge.net/support/tracker.php?aid=1805969" class="externalLink" title="External Link">1805969</a>, 
+<a href="http://sourceforge.net/support/tracker.php?aid=1813374" class="externalLink" title="External Link">1813374</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#tir-gwaith">tir-gwaith</a>
+
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Deprecate Eqmod CHOOSE:EQBUILDER|1 tag
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1800407" class="externalLink" title="External Link">1800407</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Deprecate Eqmod CHOOSE:EQBUILDER|1 tag
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1800407" class="externalLink" title="External Link">1800407</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Eliminate Cross-Level Interactions in SA tag
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1798233" class="externalLink" title="External Link">1798233</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+SPELLLIST Token exception for DOMAINS
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1800290" class="externalLink" title="External Link">1800290</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Attach REPEATLEVEL to level in Class LST
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1784493" class="externalLink" title="External Link">1784493</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+
+
+</ul>
+
+
+<h2><a name="MSRDChars">MSRD Character Changes</a></h2>
+<p>When a pre-generated modern character is loaded, it will not recognize
+the selected Talents anymore. For that reason one or more error
+messages will be displayed at character load, which read: "Warning:
+Unable to Find Ability: xxx", where xxx is the name of a Talent that
+the character had previously selected.
+</p><p>
+To fix this problem, you can take the following steps:
+</p>
+<OL>
+<LI>Write down the Talents that are mentioned in those error messages somewhere.
+
+<LI>Go to the Feats tab and select the new "Talents" subtab
+
+<LI>In the lower right corner of the Talents tab you see a drop down
+menus which reads "Talents". Select a class that one of the talents
+you have noted was taken from. The "remaining" field should now show a
+positive number.
+
+<LI>In the upper left field only Talents that belong to that class will
+be displayed. Select your Talent(s) for that class there.
+
+<LI>Repeat for any Talents that were taken from another class.
+</OL>
+
+<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+  Tab when running a combat when you select any character other than the one whose
+  turn it is and click the Damage or Heal buttons the character whose turn it
+  is becomes selected and the damage is applied to him instead of the character
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around.
+  The problem will only manifest when using the System Look and Feel, you can
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.13.3 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Important Warning</h3>
+<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+very important that you read the <a href="#CustomDataSets">Custom Data Sets</a> section below before 
+installing your new version of PCGen.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5133_full.zip?download">pcgen5133_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5133_full.zip.asc?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5133_partial.zip?download">pcgen5133_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5133_partial.zip.asc?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5133_win_install.exe?download">pcgen5133_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5133_win_install.exe.asc?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5133_mac_install.dmg?download">pcgen5133_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5133_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+Editors and the starter data set <em>my_dataset</em>. Both of these need some 
+attention when upgrading PCGen.
+</P>
+<h3>Migrating Data Created in the LST Editor</h3>
+<p>
+If, as is recommended, you install PCGen into a new directory each time you upgrade, 
+you will need to copy over the data created using the LST Editors. To do this follow
+these steps.</p>
+<OL>
+<LI> Stop PCGen, if it is currently running. PCGen must not be 
+running when you copy the files, as PCGen writes a new copy of these files on exit.</LI>
+<LI>Copy the data/customsources folder and all of its contents from your old PCGen install 
+directory to the new install directory.</LI>
+<LI>Start the new version of PCGen and verify that your custom data is present.</LI>
+
+</OL>
+<p>
+If you install PCGen in the same directory as your previous install, your LST 
+editor data will still be present in the new version.</p> 
+
+<h3>Migrating Data Created using the my_dataset files</h3>
+<p>
+PCGen ships with an example set of data files ready to go to create you own data. This 
+is in the data/my_dataset folder. As the example files ship with PCGen, it is very important
+to note that these can be overwritten by a new PCGen install if you have not renamed the 
+data set and install the new version of PCGen in the same location as the old one.
+</p>
+<p>
+As a result we strongly recommend that when using the my_dataset example files you create a 
+copy in a new folder and work with that copy, rather than editing the example files directly.
+</p>
+<p> 
+If you install PCGen into a new directory each time you upgrade, 
+you may need to copy over the data you have created. If you cannot see your custom data, simply copy 
+over the folder with your custom data to the same location in the new PCGen install. The data should 
+then be visible when you restart PCGen. </p>
+<p>
+If you are installing PCGen into the same directory, backup your custom data first, then make sure it 
+does not use the default my_dataset folder name. Once you are sure you data is safe, then proceed with 
+the upgrade of PCGen.  
+
+</p>
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+
+<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?foru<nobr>m<wbr></nobr>_name=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.13.3</a></h2>
+<h3>Bugs</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1748175">1748175</a> ]	ADD.Grapple silently ignored in CHOOSE:WEAPONPROFS
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783781">1783781</a> ]	ADD:ABILITY in template gives two pop-ups
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783783">1783783</a> ]	ABILITY:NonFeatCategory|NORMAL|FeatName not working
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1788307">1788307</a> ]	PREVARLT tag is broken
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1790746">1790746</a> ]	AUTO: must take multiple versions of each Subtoken
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1796835">1796835</a> ]	PREABILITY doesn't match category
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800720">1800720</a> ]	ADD:LANGUAGE|ALL broken
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800900">1800900</a> ]	ADD:ABILITY - Not working with ABILITYCATEGORY, Just CATEGOR
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1802347">1802347</a> ]	PRESA: Can't Count Properly
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1802352">1802352</a> ]	PRESA: ignores PRExxx tokens on SAs
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1810555">1810555</a> ]	CHOOSE:SKILLSNAMEDTOCSKILL| not working as expected
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1810564">1810564</a> ]	USEUNTRAINED not working >Exclusive to Cross-Class
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1811224">1811224</a> ]	Template Bug - incrementClassLevel() not passing bypass flag
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1813058">1813058</a> ]	Abilities Excluded from Calculations
+</ul>
+
+<h3>Data Bugs</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1791325">1791325</a> ]	[KIT]Snake (Viper/Small) incorrect skillpoints
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1791339">1791339</a> ]	[RSRD]Dire Bat missing Blindsense
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804566">1804566</a> ]	[RSRD] Basics refers to Epic
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804580">1804580</a> ]	[MODERN] AC not calculating correctly
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1810565">1810565</a> ]	Awakened Template doesn't work properly with 'Animal (Will)'
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1810914">1810914</a> ]	Reconfigure SA:.CLEAR. cross level interactions
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1814604">1814604</a> ]	[AEG] Wrong tag used.
+</ul>
+
+<h3>Data Feature Requests</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1787972">1787972</a> ]	[Battlefield]Pulp Fantasy - Talents to Abilities conversion
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1788624">1788624</a> ]	[SwordsEdgePublishing] Roles&Classes Ability conversion
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804783">1804783</a> ]	Deprecate CHOOSE:EQBUILDER|1
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804784">1804784</a> ]	Deprecate SA: replace with SAB:
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804787">1804787</a> ]	SPELLLIST Syntax Change for Domains
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804813">1804813</a> ]	REPEATLEVEL must be attached to level
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1805246">1805246</a> ]	[R/SRD] Fighter Feat Pool using ABILITYPOOL
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1805969">1805969</a> ]	[R/SRD] Wizard feats using Ability Pool
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1813374">1813374</a> ]	[R/SRD] Favored Enemy, Rogue abilities to ABILITY objects
+</ul>
+
+<h3>Documentation Bugs</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1770410">1770410</a> ]	Links to send messages from the BoD Page are broken.
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1802354">1802354</a> ]	REPEATLEVEL is incorrect (Template File)
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1814805">1814805</a> ]	IGNORES tag not shown as deprecated in Docs
+</ul>
+
+<h3>Documentation Feature Requests</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1359026">1359026</a> ]	[Data File Tag Pages] Document various PRExxx tags
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1673312">1673312</a> ]	Document JEP usage in IIF and OIF tokens
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754358">1754358</a> ]	Add DESC functionality to BENEFIT tag for Abilities
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754361">1754361</a> ]	Added a new variable %FEAT to the Description tag
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754380">1754380</a> ]	Add LENGTH, REPLACE and REPLACEALL to TEXT
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1756984">1756984</a> ]	ABILITY on the Output Sheet - count[]
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1758675">1758675</a> ]	Documentation HTML Standards Compliance Review
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800415">1800415</a> ]	Document new ABILITYCATEGORY tag DISPLAYLOCATION
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800416">1800416</a> ]	Document new ABILITYCATEGORY VISIBLE tag extension
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800674">1800674</a> ]	Document new Character Sheet Tab
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804785">1804785</a> ]	Deprecate SA: replace with SAB:
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804788">1804788</a> ]	SPELLLIST Syntax Change for Domains
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804812">1804812</a> ]	REPEATLEVEL must be attached to level
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1812271">1812271</a> ]	Clarification of CATEGORY in Ability category entries
+</ul>
+
+<h3>Feature Requests</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1098587">1098587</a> ]	SKILLMULTIPLIER to take jep
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783488">1783488</a> ]	Programmable Preview Tab
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1784493">1784493</a> ]	REPEATLEVEL in Class lines
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1798233">1798233</a> ]	Implement - Eliminate Cross-Level Interactions in SA tag
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800290">1800290</a> ]	Please Implement - SPELLLIST Token
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800407">1800407</a> ]	Deprecate Eqmod CHOOSE:EQBUILDER|1 tag
+</ul>
+
+<h3>Output Sheet Feature Requests</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1807828">1807828</a> ]	Graphic based Character Sheet
+</ul>
+
+</body>
+</html>
