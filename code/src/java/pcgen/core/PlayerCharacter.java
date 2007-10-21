@@ -340,7 +340,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Set the age
 	 * 
-	 * @param i
+	 * @param i The PC's age
 	 */
 	public void setAge(final int i)
 	{
@@ -379,7 +379,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * to include in list as well TODO This is bogus. Not only does it return
 	 * skills with a bonus but it modifies the PC's skill list to include them.
 	 * 
-	 * @param checkBonus
+	 * @param checkBonus Whether to return all skills (true) (including those with
+     *                    a bonus but no ranks) or just the skills that are actually
+     *                    in the skillList.
 	 * @return ArrayList
 	 */
 	public ArrayList<Skill> getAllSkillList(final boolean checkBonus)
@@ -458,11 +460,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Sets a 'stable' list of armor profs
 	 * 
-	 * @param arg
+	 * @param isStable set the armour profs stable (when true) or
+     *                  not stable (when false) and also make the
+     *                  PC dirty.
 	 */
-	public void setArmorProfListStable(final boolean arg)
+	public void setArmorProfListStable(final boolean isStable)
 	{
-		armorProfListStable = arg;
+		armorProfListStable = isStable;
 		setDirty(true);
 	}
 
@@ -993,7 +997,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @return a List of Strings where each String is a type that the character
 	 *         has. The list returned will never be null
 	 * 
-	 * @deprecated Use getRaceType() and getRaceSubTypes() instead
+	 * @deprecated Use getRaceType() and getRacialSubTypes() instead
 	 */
 	@Deprecated
 	public List<String> getTypes()
@@ -1124,7 +1128,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Set the current equipment set name
 	 * 
-	 * @param aName
+	 * @param aName the name of the new current equipment set
 	 */
 	public void setCurrentEquipSetName(final String aName)
 	{
@@ -4525,7 +4529,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * attacks generated. The second increases both the size and number of
 	 * attacks
 	 * 
-	 * @param index
+	 * @param at
 	 *            The type of attack. Takes an AttackType (an enumeration)
 	 * 
 	 * @param TOHITBonus
@@ -7707,7 +7711,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            be modified
 	 * @param aFeatList
 	 *            is the list of feats to be added to the SpellInfo object
-	 * @param className
+	 * @param classKey
 	 *            is the name of the class whose list of character spells will
 	 *            be modified
 	 * @param bookName
@@ -9499,7 +9503,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * (Constants.HEAVY_LOAD, etc) If the check is more than the testing type,
 	 * return true
 	 * 
-	 * @param loadInt
+	 * @param load
 	 * @return true or false
 	 */
 	public boolean ignoreEncumberedLoadMove(final Load load)
@@ -11153,7 +11157,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * return the index of CharacterDomain matching domainName else return -1
 	 * 
-	 * @param domainName
+	 * @param domainKey
 	 * @return character domain index
 	 * @deprecated 10/21/06 thpr as part of PCClass rebuilding
 	 */
@@ -12207,8 +12211,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * create a map of key (vision-type string) and values (int)
 	 * 
-	 * @param visMap
-	 * @param aMap
+	 * @param visionList
+	 * @param addList
 	 * @return Map
 	 */
 	private List<Vision> addStringToVisionList(final List<Vision> visionList,
@@ -12605,7 +12609,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Get the class level as a String
 	 * 
-	 * @param className
+	 * @param aClassKey
 	 * @param doReplace
 	 * @return class level as String
 	 */
