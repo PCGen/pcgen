@@ -67,7 +67,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 
 		// Make some ability categories and add them to the game mode
 		AbilityCategory featCategory =
-				SettingsHandler.getGame().getAbilityCategory("FEAT");
+				SettingsHandler.getGame().silentlyGetAbilityCategory("FEAT");
 		if (featCategory == null)
 		{
 			featCategory = new AbilityCategory("FEAT");
@@ -75,27 +75,23 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		}
 
 		AbilityCategory bardCategory =
-				SettingsHandler.getGame().getAbilityCategory("BARDIC");
+				SettingsHandler.getGame().silentlyGetAbilityCategory("BARDIC");
 		if (bardCategory == null)
 		{
 			bardCategory = new AbilityCategory("BARDIC");
 			SettingsHandler.getGame().addAbilityCategory(bardCategory);
 		}
 
-		Ability ab1 =
-				TestHelper.makeAbility("Perform (Dance)", "FEAT",
-					"General.Fighter");
+		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", "FEAT", "General.Fighter");
 		ab1.setMultiples("NO");
 		ab1.setVisibility(Visibility.DEFAULT);
 		character.addAbility(featCategory, ab1, null);
 
-		Ability ab2 = TestHelper.makeAbility("Perform (Dance)", "BARDIC",
-					"General.Bardic");
+		Ability ab2 = TestHelper.makeAbility("Perform (Dance)", "BARDIC", "General.Bardic");
 		ab2.setMultiples("NO");
 		character.addAbility(bardCategory, ab2, null);
 
-		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", "FEAT",
-					"General.Fighter");
+		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", "FEAT", "General.Fighter");
 		ab3.setMultiples("NO");
 		character.addAbility(featCategory, ab3, null);
 
@@ -153,14 +149,19 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ab5.setVisibility(Visibility.OUTPUT_ONLY);
 		character.addAbility(featCategory, ab5, null);
 
-		is(character
+        Ability ab6 = TestHelper.makeAbility("Perform (Fiddle)", "FEAT", "Bardic");
+        ab6.setMultiples("NO");
+        character.addAbility(featCategory, ab6, null);
+
+
+        is(character
 			.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")",""),
-			eq(3.0, 0.1),
+			eq(4.0, 0.1),
 			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")");
 
 		is(character
 				.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")",""),
-				eq(4.0, 0.1),
+				eq(5.0, 0.1),
 				"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
 
 		is(character
@@ -168,7 +169,12 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 				eq(2.0, 0.1),
 				"count(\"ABILITIES\",\"CATEGORY=FEAT[and]TYPE=Fighter\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
 
-		is(character
+        is(character
+                .getVariableValue("count(\"ABILITIES\",\"CATEGORY=BARDIC[and]TYPE=Bardic.General\")", ""),
+                eq(1.0, 0.1),
+                "count(\"ABILITIES\",\"CATEGORY=BARDIC[and]TYPE=Bardic.General\")");
+
+        is(character
 				.getVariableValue("count(\"ABILITIES\",\"NATURE=AUTOMATIC\")",""),
 				eq(0.0, 0.1),
 				"count(\"ABILITIES\",\"NATURE=AUTOMATIC\")");
@@ -180,8 +186,13 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 
 		is(character
 				.getVariableValue("count(\"ABILITIES\",\"NATURE=NORMAL\")",""),
-				eq(5.0, 0.1),
+				eq(6.0, 0.1),
 				"count(\"ABILITIES\",\"NATURE=NORMAL\")");
+
+        is(character
+                .getVariableValue("count(\"ABILITIES\")",""),
+                eq(6.0, 0.1),
+                "count(\"ABILITIES\")");
 	}
 
 	/**
