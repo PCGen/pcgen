@@ -97,10 +97,10 @@ public final class AddSpecialAbility extends JFrame
 		{
 			aPC = pc;
 			setTitle(myGetTitle());
+			IconUtilitities.maybeSetIcon(this,
+				IconUtilitities.RESOURCE_APP_ICON);
 
 			Toolkit kit = Toolkit.getDefaultToolkit();
-			Image img = kit.getImage(getClass().getResource(IconUtilitities.RESOURCE_APP_ICON));
-			this.setIconImage(img);
 
 			// since the Toolkit.getScreenSize() method is broken in the Linux implementation
 			// of Java 5  (it returns double the screen size under xinerama), this method is

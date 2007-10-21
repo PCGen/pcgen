@@ -57,8 +57,8 @@ public final class NameGui extends JFrame
 		super("Random Name Generator");
 		this.pc = pc;
 
-		// according to the API, the following should *ALWAYS* use '/'
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource(IconUtilitities.RESOURCE_APP_ICON)));
+		IconUtilitities.maybeSetIcon(this,
+			IconUtilitities.RESOURCE_APP_ICON);
 		Utility.centerFrame(this, true);
 
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

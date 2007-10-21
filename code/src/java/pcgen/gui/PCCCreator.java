@@ -85,9 +85,8 @@ final class PCCCreator extends JFrame
 	{
 		mSrc = ms;
 
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Image img = kit.getImage(getClass().getResource(IconUtilitities.RESOURCE_APP_ICON));
-		this.setIconImage(img);
+		IconUtilitities.maybeSetIcon(this,
+			IconUtilitities.RESOURCE_APP_ICON);
 		buildTree();
 
 		JButton writeBtn = new JButton("Write .pcc file");

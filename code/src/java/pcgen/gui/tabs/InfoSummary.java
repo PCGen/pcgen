@@ -98,6 +98,7 @@ import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.utils.FormattedCellEditor;
+import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTableEx;
@@ -2046,16 +2047,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			});
 			cPanel.add(closeButton);
 			abilitiesFrame.getContentPane().add(cPanel, BorderLayout.SOUTH);
-
-			ClassLoader loader = getClass().getClassLoader();
-			Toolkit kit = Toolkit.getDefaultToolkit();
-
-			// according to the API, the following should *ALWAYS* use '/'
-			Image img =
-					kit.getImage(loader
-						.getResource("pcgen/gui/resource/PcgenIcon.gif")); //$NON-NLS-1$
-			loader = null;
-			abilitiesFrame.setIconImage(img);
+			IconUtilitities.maybeSetIcon(abilitiesFrame,
+				IconUtilitities.RESOURCE_APP_ICON);
 		}
 
 		// Layout the stats pane

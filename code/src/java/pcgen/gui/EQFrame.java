@@ -54,9 +54,8 @@ public final class EQFrame extends JFrame
 
 		this.aPC = aPC;
 
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Image img = kit.getImage(getClass().getResource(IconUtilitities.RESOURCE_APP_ICON));
-		this.setIconImage(img);
+		IconUtilitities.maybeSetIcon(this,
+			IconUtilitities.RESOURCE_APP_ICON);
 
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
