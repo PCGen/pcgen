@@ -17,7 +17,7 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 INFOTEXT:This is a subset of the RSRD which excludes Psionics, this should not be loaded with any other RSRD sets.
 
 # Do not remove the EXTRAFILE comment.
-#EXTRAFILE:OGL.txt
+#EXTRAFILE:@/d20ogl/srd35/OGL.txt
 
 # Basics
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst
