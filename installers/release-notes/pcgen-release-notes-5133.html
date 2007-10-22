@@ -15,7 +15,7 @@
 <h2>Table of Content</h2>
 <ul>
 	<li><a href="#WhatsNew">What's new for v5.13.3</a></li>
-	<li><a href="#MSRDChars">MSRD Character Changes</a></li>
+	<li><a href="#Chars">Character Changes</a></li>
 	<li><a href="#GMGenIssue">GMGen known issue</a></li>
 	<li><a href="#Installation">Installation</a></li>
 	<li><a href="#CustomDataSets">Custom Data Sets</a></li>
@@ -50,11 +50,6 @@ Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1800407" class="ex
 <a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
 <li>
 <img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
-Deprecate Eqmod CHOOSE:EQBUILDER|1 tag
-Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1800407" class="externalLink" title="External Link">1800407</a>.
-<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
-<li>
-<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
 Eliminate Cross-Level Interactions in SA tag
 Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1798233" class="externalLink" title="External Link">1798233</a>.
 <a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
@@ -73,7 +68,48 @@ Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1784493" class="ex
 </ul>
 
 
-<h2><a name="MSRDChars">MSRD Character Changes</a></h2>
+<h2><a name="Chars">Character Changes</a></h2>
+<p>We've been making some major changes behind the scenes to the way special 
+abilities for characters are handled. The benefit is that it lets us 
+model them more accurately, with fighter feats tracked separately to normal 
+feats for example, and that we can output them more accurately on the character 
+sheet or stat block. However there is a downside - this means that there is some 
+migration required for some characters. For details of what you need to do, see 
+the sections for the affected game modes below. 
+</p><p>
+This revamp of abilities is something we would like your feedback on. So please 
+have a play with them and send your thoughts to the 
+<a href="http://groups.yahoo.com/group/pcgen">PCGen list</a>.  
+</p>
+
+<h3>Fantasy Character Changes</h3>
+<p>When a pre-generated SRD (3rd ed) or RSRD (3.5 ed) ranger, archmage or high level rogue 
+character is loaded, it will not recognize
+the selected abilities anymore. For that reason one or more error
+messages will be displayed at character load, which read: "Warning:
+Unable to Find Ability: xxx", where xxx is the name of an ability that
+the character had previously selected.
+</p><p>
+To fix this problem, you can take the following steps:
+</p>
+<OL>
+<LI>Write down the abilities that are mentioned in those error messages somewhere.
+
+<LI>Go to the Feats tab and select the new "Class Abilities" subtab
+
+<LI>In the lower right corner of the Class Abilities tab you see a drop down
+menu which reads "Rogue Special Abilities". Select the appropriate type of ability 
+for one of the abilities that you have noted. The "remaining" field should now show a
+positive number.
+
+<LI>In the upper left field only abilities that belong to that group will
+be displayed. Select your ability(s) for that group there.
+
+<LI>Repeat for any abilities that were taken from another group.
+</OL>
+
+
+<h3>MSRD Character Changes</h3>
 <p>When a pre-generated modern character is loaded, it will not recognize
 the selected Talents anymore. For that reason one or more error
 messages will be displayed at character load, which read: "Warning:
@@ -269,6 +305,8 @@ the gods have mercy on your soul :-).</p>
 </ul>
 
 <h3>Data Feature Requests</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=798016">798016</a> ]	[Data Dependent] D20 Modern - Restart character levelling
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1081066">1081066</a> ]	Ability Object: Removing fighter bonus feats
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1787972">1787972</a> ]	[Battlefield]Pulp Fantasy - Talents to Abilities conversion
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1788624">1788624</a> ]	[SwordsEdgePublishing] Roles&Classes Ability conversion
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804783">1804783</a> ]	Deprecate CHOOSE:EQBUILDER|1
@@ -294,6 +332,7 @@ the gods have mercy on your soul :-).</p>
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754380">1754380</a> ]	Add LENGTH, REPLACE and REPLACEALL to TEXT
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1756984">1756984</a> ]	ABILITY on the Output Sheet - count[]
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1758675">1758675</a> ]	Documentation HTML Standards Compliance Review
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1789081">1789081</a> ]	[LST File CLASS] Conversion from FEATs to ABILITYs
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800415">1800415</a> ]	Document new ABILITYCATEGORY tag DISPLAYLOCATION
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800416">1800416</a> ]	Document new ABILITYCATEGORY VISIBLE tag extension
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800674">1800674</a> ]	Document new Character Sheet Tab
@@ -304,6 +343,7 @@ the gods have mercy on your soul :-).</p>
 </ul>
 
 <h3>Feature Requests</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=953153">953153</a> ]	New PCGen icon!
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1098587">1098587</a> ]	SKILLMULTIPLIER to take jep
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783488">1783488</a> ]	Programmable Preview Tab
 <LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1784493">1784493</a> ]	REPEATLEVEL in Class lines
