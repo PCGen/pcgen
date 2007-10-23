@@ -26,14 +26,14 @@
 	<h1>Skill Tricks</h1>
 
 	<p class="indent0"><strong>Rule Description:</strong> Buying abilities by skill ranks/points.</p>
-	<p class="indent0"><strong>PCGen Version:</strong> ?</p>
-	<p class="indent0"><strong>Gamemode/Dataset:</strong> ?</p>
+	<p class="indent0"><strong>PCGen Version:</strong> 5.12.1</p>
+	<p class="indent0"><strong>Gamemode/Dataset:</strong> 35e/RSRD</p>
 	<p class="indent0"><strong>File(s) Covered:</strong> <em>miscinfo.lst</em>, <em>statsandchecks.lst</em>, 
 	<em>*_abilities.lst</em>, <em>*_skills.lst</em></p>
 
-	<p class="indent0"><strong>Tags used:</strong></p>
+	<p class="indent0"><strong>Tags used</strong> (Gamemode File):</p>
 
-	<p class="indent1"> <code><a href="../systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a>, 
+	<p class="indent1"><code><a href="../systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a>, 
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#CATEGORY2">CATEGORY</a>, 
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#PLURAL">PLURAL</a>, 
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITABLE">EDITABLE</a>, 
@@ -42,7 +42,17 @@
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#POOL">POOL</a>, 
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#VISIBLE">VISIBLE</a>, 
 		<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a>, 
-		<a href="../systemfilestagpages/gamemodemiscinfolist.html#TYPE">TYPE</a>, 
+		<a href="../systemfilestagpages/gamemodemiscinfolist.html#TYPE">TYPE</a></code>
+	</p>
+	
+	<p class="indent0"><strong>Tags used</strong> (Data/Global File):</p>
+
+	<p class="indent1"><code><a href="../globalfilestagpages/globalfilesprexxx.html#TYPE">TYPE</a>, 
+		<a href="../globalfilestagpages/globalfilesprexxx.html#VISIBILITY">VISIBILITY</a>, 
+		<a href="../globalfilestagpages/globalfilesprexxx.html#ABILITYPOOL">BONUS:ABILITYPOOL</a>, 
+		<a href="../globalfilestagpages/globalfilesprexxx.html#CATEGORYY">CATEGORY</a>, 
+		<a href="../globalfilestagpages/globalfilesprexxx.html#TYPE">TYPE</a>, 
+		<a href="../globalfilestagpages/globalfilesprexxx.html#VISIBILITY">VISIBLE</a>, 
 		<a href="../globalfilestagpages/globalfilesprexxx.html#PREABILITY">PREABILITY</a>, 
 		<a href="../globalfilestagpages/globalfilesprexxx.html#PRESKILL">PRESKILL</a>, 
 		<a href="../globalfilestagpages/globalfilesprexxx.html#PREVAR">PREVARLT</a>, 
@@ -134,7 +144,7 @@
 
 	<h3>Statsandchecks.lst File</h3>
 	
-	<p>The following tags are added to the line defining the intelligence stat.</p>
+	<p>The following tag is added to the line defining the intelligence stat.</p>
 
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:STMax|TL/2</code></p>
@@ -254,11 +264,12 @@
 	<p class="indent1">Stats and Checks Gamemode File: </p>
 	<p></ p>
 	<blockquote class="indent2">
-	<p class="tagindent1"><code>Priesthood of the Code Monkey</code></p>
-	<p class="tagindent1"><code>VISIBLE:EXPORT</code></p>
-	<p class="tagindent1"><code>TYPE:Priesthood</code></p>
-	<p class="tagindent1"><code>PREMULT:1,[!PREFEAT:1,TYPE=Priesthood],[PREFEAT:1,Priesthood 
-	of the Code Monkey]</code></p>
+	<p class="tagindent1"><code>STATNAME:Intelligence</code></p>
+	<p class="tagindent1"><code>ABB:INT	STATMOD:floor(SCORE/2)-5</code></p>
+	<p class="tagindent1"><code>DEFINE:MAXLEVELSTAT=INT|INTSCORE-10</code></p>
+	<p class="tagindent1"><code>BONUS:LANG|BONUS|INT</code></p>
+	<p class="tagindent1"><code>BONUS:MODSKILLPOINTS|NUMBER|INT</code></p>
+	<p class="tagindent1"><code>DEFINE:STMax|TL/2</code></p>
 	</blockquote>
 
 	<a name="SKILLS"></a>
