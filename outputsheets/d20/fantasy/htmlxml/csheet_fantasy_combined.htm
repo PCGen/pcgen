@@ -1087,15 +1087,9 @@ function HPPrint()
 function RagePrint()
 {
 |%VAR.RageTimes.GTEQ.1|
-     var strMod = 4;
-     var conMod = 4;
-     var willMod = 2;
-     if ( BarbLvl >= 15 )
-     {
-        strMod = 6;
-        conMod = 6;
-        willMod = 3;
-     }
+     var strMod = |VAR.RageStrBonus|;
+     var conMod = |VAR.RageConBonus|;
+     var willMod = |VAR.RageMorale|;
 	tempHTML = '<br /><table width="100%" cellspacing="0" cellpadding="2"><tr><td class="c9wB" colspan="2">BARBARIAN RAGE<\/td><\/tr>';
 	tempHTML = tempHTML+'<tr><td colspan="2" class="l9s">The Barbarian temporarily gains '+modPlusMinus(strMod)+' to Strength, '+modPlusMinus(conMod)+' to Constitution, and a '+modPlusMinus(willMod)+' morale bonus on Will saves, but suffers a -2 penalty to AC.  ';
 	// Do it this way since we want to show the same length regardless of current rage state
@@ -1104,11 +1098,11 @@ function RagePrint()
 	   tempHTML = tempHTML+(3+AbArr[CONindex].tempmodifier)+' rounds.  ';
 	else
 	   tempHTML = tempHTML+(3+AbArr[CONindex].tempmodifier+conMod/2)+' rounds.  ';
-	if ( BarbLvl < 20 )
+	if ( |VAR.BarbarianRageLVL| < 20 )
 		tempHTML = tempHTML+'At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can&rsquo;t charge or run) for the duration of that encounter.  ';
 	else
 		tempHTML = tempHTML+'A 20th level Barbarian is NOT fatigued after leaving a rage.  ';
-	tempHTML = tempHTML+'The barbarian can only fly into a rage once per encounter, and only |VAR.BarbRageTimesLVL.INTVAL| times per day (determined by level). Entering a rage takes no time itself, but the barbarian can only do it during his action.<\/td><\/tr><\/table>';
+	tempHTML = tempHTML+'The barbarian can only fly into a rage once per encounter, and only |VAR.RageTimes.INTVAL| times per day (determined by level). Entering a rage takes no time itself, but the barbarian can only do it during his action.<\/td><\/tr><\/table>';
 	document.getElementById('RageDiv').innerHTML = tempHTML;
 |%|
 }
@@ -2489,16 +2483,17 @@ function BarbMods( newRageState )
 // ********************************************
 function OneTimeBbnLevelParse()
 {
-  BarbLvl = 0;
-  var lvlStr = "|CLASSLIST|";
-  var clses = lvlStr.split(" ");
-  for (i=0; i < clses.length; i++)
-  {
-     if ( clses[i].substr(0,9) == "Barbarian" )
-     {
-        BarbLvl = clses[i].substr(9,clses[i].length-9);
-     }
-  }
+//  BarbLvl = 0;
+//  var lvlStr = "|CLASSLIST|";
+//  var clses = lvlStr.split(" ");
+//  for (i=0; i < clses.length; i++)
+//  {
+//     if ( clses[i].substr(0,9) == "Barbarian" )
+//     {
+//        BarbLvl = clses[i].substr(9,clses[i].length-9);
+//     }
+//  }
+  BarbLvl= |VAR.BarbRageTimesLVL.INTVAL|;
   RageStatus = "";
 };
 // ********************************************
