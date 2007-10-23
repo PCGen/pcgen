@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Jul 19 23:38:26 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # RSRD Entry by: jaymecox
 
 ###Block:Special Mount
-# Class of the Master	Type				Hit Dice	Spell Res.	Automaticaly Gained Armor Prof.	Special Ability													Define						Combat bonus						Add to base move																																					Stat bonus		Main Race Type
+# Class of the Master	Type				Hit Dice	Spell Res.	Automaticaly Gained Armor Prof.	Special ABility													Define						Combat bonus						Add to base move																																					Stat bonus		Main Race Type
 FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				AUTO:ARMORPROF|TYPE.Barding		SAB:Share saving throws	SAB:Empathic Link	SAB:Share spells	SAB:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
 FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2										SAB:Improved Speed (Ex)												DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
 FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2										SAB:Command creatures of its kind										DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
@@ -16,18 +16,18 @@ FOLLOWER:SMLevel=20	TYPE:Special Mount			SR:25
 #
 
 ###Block:Fiendish Servant
-# Class of the Master	Type				Hit Dice	Spell Res.	Special Ability														Define						Combat bonus						Stat bonus
+# Class of the Master	Type				Hit Dice	Spell Res.	Special ABility														Define						Combat bonus						Stat bonus
 FOLLOWER:FSLevel=5	TYPE:Fiendish Servant	HD:2				SAB:Empathic Link (Su)	SAB:Share spells	SAB:Share saving throws	SAB:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:FSLevel=13	TYPE:Fiendish Servant	HD:2				SAB:Speak with Blackguard (Ex)												DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:FSLevel=13	TYPE:Fiendish Servant	HD:2				SAB:Speak with Blackguard (Ex)											DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:FSLevel=16	TYPE:Fiendish Servant	HD:2				SAB:Blood Bond (Ex)													DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:FSLevel=19	TYPE:Fiendish Servant	HD:2		SR:24																		DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:FSLevel=20	TYPE:Fiendish Servant			SR:25
 #
 
 ###Block: Undead Companion
-# Class of the Master			Type				Hit Dice	Spell Res.	Virtual Feat	Special Ability																				Define						Combat bonus						Stat bonus		Modify VAR
+# Class of the Master			Type				Hit Dice	Spell Res.	Virtual Feat	Special ABility																				Define						Combat bonus						Stat bonus		Modify VAR
 FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				VFEAT:Smite Good	SAB:Empathic Link (Su)	SAB:Share spells	SAB:Share saving throws	SAB:Improved Evasion (Ex)	SAB:Can not be Turned or Rebuked	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3
-FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2							SAB:Speak with Blackguard (Ex)																		DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2							SAB:Speak with Blackguard (Ex)																	DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2							SAB:Blood Bond (Ex)																			DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																											DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
@@ -38,10 +38,10 @@ FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Skeleton (Human Wa
 FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Zombie (Human Commoner)	KIT:1|Default Zombie (Human Commoner)
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special Ability						Define						Combat bonus						Main Race Type
+# Class of the Master	Type			Spell Res.	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special ABility						Define						Combat bonus						Main Race Type
 FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	SAB:Empathic Link
 FOLLOWER:FMLevel=1	TYPE:Familiar																				SAB:Share Spells	SAB:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical Beast
-FOLLOWER:FMLevel=3	TYPE:Familiar																				SAB:Deliver touch spells					DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=3	TYPE:Familiar																				SAB:Deliver touch spells				DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=5	TYPE:Familiar																				SAB:Speak with master					DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=7	TYPE:Familiar																				SAB:Speak with animals of its kind			DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=9	TYPE:Familiar																												DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
@@ -57,7 +57,7 @@ FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																											DEFINE:LOCK.IN
 FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 
 ###Block: Specific Familiars
-# Class of the Master	Type			Required Race			Apply Kit					Special Ability		Add
+# Class of the Master	Type			Required Race			Apply Kit					Special ABility		Add
 FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Raven									SAB:Speak one language	ADD:LANGUAGE|1|TYPE=Spoken
 FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Bat			KIT:1|Bat Familiar
 FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Cat			KIT:1|Cat Familiar
@@ -93,7 +93,7 @@ MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Ale
 #
 
 ###Block:Animal Companion
-# Class of the Master	Type				Hit Dice	Virtual Feat				Special Ability					Define			Combat bonus						Stat bonus
+# Class of the Master	Type				Hit Dice	Virtual Feat				Special ABility					Define			Combat bonus						Stat bonus
 FOLLOWER:CompLevel=1	TYPE:Animal Companion									SAB:Link (Ex)	SAB:Share Spells (Ex)
 FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2								SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2								SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
@@ -181,7 +181,7 @@ FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Squ
 FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
 
 ###Block:Shadowdancer summoned Shadow
-# Class of the Master		Type				Hit Dice	Special Ability																		Modify VAR
+# Class of the Master		Type				Hit Dice	Special ABility																		Modify VAR
 FOLLOWER:ShadowCompanion=3	TYPE:Shadow Companion	HD:2		SAB:Communiate with Master	SAB:Cannot Create Spawn	SAB:Cannot be turned, rebuked, or commanded by any third party	BONUS:VAR|ShadowSpawnBlock|1
 FOLLOWER:ShadowCompanion=6	TYPE:Shadow Companion	HD:2
 FOLLOWER:ShadowCompanion=9	TYPE:Shadow Companion	HD:2
