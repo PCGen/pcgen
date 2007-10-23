@@ -33,6 +33,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -228,7 +229,20 @@ public class TemplateToken extends Token
 		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
 		template.addSpecialAbilitiesToList(saList, pc);
 		template.addSABToList(saList, pc);
-		return CoreUtility.join(saList, ", ");
+		List<String> saDescList = new ArrayList<String>();
+		for (SpecialAbility sa : saList)
+		{
+			if (!PrereqHandler.passesAll(sa.getPreReqList(), pc, sa))
+			{
+				continue;
+			}
+			final String saText = sa.getParsedText(pc, pc);
+			if (saText != null && !saText.equals(""))
+			{
+				saDescList.add(saText);
+			}
+		}
+		return CoreUtility.join(saDescList, ", ");
 	}
 
 	/**
