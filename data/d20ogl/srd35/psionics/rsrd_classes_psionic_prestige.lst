@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 10 21:52:12 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -34,7 +34,7 @@ CLASS:Elocator	PREATT:3	PREFEAT:2,Mobility,Spring Attack	PRESKILL:1,Concentratio
 CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE.Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 ###Block: Psionic Variables
 ###Block: Class Info
-1	SAB:Scorn Earth (Su)	SAB:Sidestep Charge (Ex)																			ADD:SPELLCASTER|Psionic																		AUTO:FEAT|Sidestep Charge
+1	SAB:Scorn Earth (Su)	SAB:Sidestep Charge (Ex)																		ADD:SPELLCASTER|Psionic																		AUTO:FEAT|Sidestep Charge
 2	SAB:Opportunistic Strike (+%)(Ex)|OpportunisticStrike							BONUS:VAR|OpportunisticStrike|2	DEFINE:OpportunisticStrike|0
 3	SAB:Dimension Step (Su)																							ADD:SPELLCASTER|Psionic						SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
 4	SAB:Flanker (designate adjacent square to be determination for flanking)(Ex)														ADD:SPELLCASTER|Psionic
@@ -69,12 +69,12 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 2	KNOWN:0,2
 3	KNOWN:0,2,1
 4	KNOWN:0,2,2
-5	KNOWN:0,2,2,1				ADD:FEAT|TYPE=Psionic
+5	KNOWN:0,2,2,1					ADD:FEAT|TYPE=Psionic
 6	KNOWN:0,2,2,2
 7	KNOWN:0,2,2,2,1
 8	KNOWN:0,2,2,2,2
 9	KNOWN:0,2,2,2,2,1
-10	KNOWN:0,2,2,2,2,2				ADD:FEAT|TYPE=Psionic
+10	KNOWN:0,2,2,2,2,2					ADD:FEAT|TYPE=Psionic
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	ABB:Sla		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
@@ -124,13 +124,13 @@ CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TY
 ###Block: Class Info
 1	SAB:Uncarnate Armor (Su)	SAB:Incorporeal Touch %d6 (3x/day) (Su)|IncorporealTouch			BONUS:VAR|IncorporealTouch|1				DEFINE:IncorporealTouch|0
 2	SAB:Shed Body (Su) (%x/day)|ShedBody											BONUS:VAR|ShedBody|1					DEFINE:ShedBody|0			ADD:SPELLCASTER|Psionic
-3	SAB:Assume Equipment (Su)																									ADD:SPELLCASTER|Psionic
+3	SAB:Assume Equipment (Su)																										ADD:SPELLCASTER|Psionic
 4	SAB:Assume Likeness (Su)
-5																	BONUS:VAR|IncorporealTouch|1									ADD:SPELLCASTER|Psionic
-6																	BONUS:VAR|ShedBody|1										ADD:SPELLCASTER|Psionic
+5																		BONUS:VAR|IncorporealTouch|1									ADD:SPELLCASTER|Psionic
+6																		BONUS:VAR|ShedBody|1										ADD:SPELLCASTER|Psionic
 7	SAB:Telekinetic Force (Su) (DC:%) (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC	BONUS:VAR|TelekineticForceDC|(14+SPELLSTATMOD)	DEFINE:TelekineticForceDC|0
-8	SAB:Uncarnate Bridge (Su)																									ADD:SPELLCASTER|Psionic
-9																	BONUS:VAR|IncorporealTouch|1									ADD:SPELLCASTER|Psionic
+8	SAB:Uncarnate Bridge (Su)																										ADD:SPELLCASTER|Psionic
+9																		BONUS:VAR|IncorporealTouch|1									ADD:SPELLCASTER|Psionic
 10	SAB:Uncarnate (Ex)																															TEMPLATE:Incorporeal
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
@@ -187,12 +187,12 @@ CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War
 
 ###Block: Class Info
 1	KNOWN:0,1				SAB:Chain of Personal Superiority (Ex) (+%)|SuperiorityChain	BONUS:VAR|SuperiorityChain|2				DEFINE:SuperiorityChain|0
-2	KNOWN:0,2				SAB:Chain of Defensive Posture (Ex) (+%)|DefensivePosture	BONUS:VAR|DefensivePosture|2				DEFINE:DefensivePosture|0
+2	KNOWN:0,2				SAB:Chain of Defensive Posture (Ex) (+%)|DefensivePosture		BONUS:VAR|DefensivePosture|2				DEFINE:DefensivePosture|0
 3	KNOWN:0,2		DR:1/-	SAB:Enduring Body (Ex)
 4	KNOWN:0,2,1
 5	KNOWN:0,2,1				SAB:Sweeping Strike (Ex)
-6	KNOWN:0,2,1,1																		BONUS:DR|-|1
-7	KNOWN:0,2,1,1													BONUS:VAR|SuperiorityChain|2
-8	KNOWN:0,2,1,1,1													BONUS:VAR|DefensivePosture|2
-9	KNOWN:0,2,1,1,1																		BONUS:DR|-|1
+6	KNOWN:0,2,1,1																			BONUS:DR|-|1
+7	KNOWN:0,2,1,1														BONUS:VAR|SuperiorityChain|2
+8	KNOWN:0,2,1,1,1														BONUS:VAR|DefensivePosture|2
+9	KNOWN:0,2,1,1,1																			BONUS:DR|-|1
 10	KNOWN:0,2,1,1,1,1			SAB:Chain of Overwhelming Force (Su) (1x/day)

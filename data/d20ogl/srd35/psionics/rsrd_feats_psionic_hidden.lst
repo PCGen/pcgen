@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 10:44:44 2006 -- reformated by prettylst.pl v1.35 (build 555)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -33,7 +33,7 @@ Psionic Body Hit Points		TYPE:PsiBodyHP			VISIBLE:NO	DEFINE:PsiFeatCount|0						
 Psion Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear
 
 ###Block: Mind Blade abilities
-# Feat Name				Type			Visible	Special Ability							Define																Automaticaly Gained Weapon Prof.	Modify VAR
+# Feat Name				Type			Visible	Special ABility							Define																Automaticaly Gained Weapon Prof.	Modify VAR
 MindBlade Wielder			TYPE:Special	VISIBLE:NO										DEFINE:MindBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0	AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MindBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MindBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MindBladeECL+1)/4)
 MindBlade Standard		TYPE:Special	VISIBLE:NO	SAB:Mind Blade
 MindBlade Throw			TYPE:Special	VISIBLE:NO	SAB:Throw Mind Blade
@@ -47,10 +47,10 @@ MindBlade Knife to the Soul	TYPE:Special	VISIBLE:NO	SAB:Knife to the Soul
 MindBlade Multiple Throw	TYPE:Special	VISIBLE:NO	SAB:Multiple Throw
 
 ###Block: elocator abilities
-# Feat Name			Type			Visible	Special Ability		Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
+# Feat Name			Type			Visible	Special ABility		Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
 Elocator Transporter	TYPE:Special	VISIBLE:NO	SAB:Transporter (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
 
 ###Block: thrallherd abilities
-# Feat Name			Type			Visible	Special Ability			Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
+# Feat Name			Type			Visible	Special ABility			Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
 Thrallherd Charm		TYPE:Special	VISIBLE:NO	SAB:Psionic Charm (Ex)		STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
 Thrallherd Dominate	TYPE:Special	VISIBLE:NO	SAB:Psionic Dominate (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)

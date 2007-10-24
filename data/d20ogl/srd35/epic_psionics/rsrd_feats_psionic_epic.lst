@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: TaluronIscandar
 #     These are epic psionic feats derived from epic magic feats as allowed in the epic feat section
 
 ###BLOCK: General Feats
-# Feat Name					Type		Required Class				Required Feat				Required Lvl	Required Skill						Req. Spell Type			SR Min. Value	Special Ability								Define				Description														Stackable?	Multiple?	Choose					Add								Bonus to nb of slots	Modify VAR											Source Page
+# Feat Name					Type		Required Class				Required Feat				Required Lvl	Required Skill						Req. Spell Type			SR Min. Value	Special ABility								Define				Description														Stackable?	Multiple?	Choose					Add								Bonus to nb of slots	Modify VAR											Source Page
 Additional Psionic Item Space		TYPE:Epic													PRELEVEL:21																																	DESC:See Additional Magic Item Slot										STACK:YES	MULT:YES	CHOOSE:TATTOO												BONUS:SLOTS|LIST|1													SOURCEPAGE:EpicFeats.rtf
 Automatic Quicken Power			TYPE:Epic							PREFEAT:1,Quicken Power			PRELEVEL:21		PRESKILL:1,Psicraft=30					PRESPELLTYPE:1,Psionic=9																			DESC:See Automatic Quicken Spell										STACK:YES	MULT:YES	CHOOSE:NOCHOICE																												SOURCEPAGE:EpicFeats.rtf
 Efficient Psionic Item Creation	TYPE:Epic							PREFEAT:1,TYPE.ItemCreation		PRELEVEL:21		PRESKILL:2,Knowledge (Psionics),Psicraft=24																								DESC:See Efficient Item Creation										STACK:NO	MULT:YES	CHOOSE:FEATLIST|TYPE=ItemCreation																									SOURCEPAGE:EpicFeats.rtf
@@ -41,7 +41,7 @@ Craft Epic Universal Item		TYPE:Epic.ItemCreation	PREFEAT:1,Craft Universal Item
 Imprint Epic Stone			TYPE:Epic.ItemCreation	PREFEAT:1,Imprint Stone				PRELEVEL:21		PRESKILL:2,Psicraft,Knowledge (Psionics)=24	DESC:See Scribe Epic Scroll			SOURCEPAGE:EpicFeats.rtf
 
 ###BLOCK: Hidden feats
-# Feat Name					Type				Visible	Special Ability																			Define									Misc bonus				Modify VAR																																	Source Page
+# Feat Name					Type				Visible	Special ABility																			Define									Misc bonus				Modify VAR																																	Source Page
 Add 2 Power Resistance			TYPE:EpicPsiCountFeat	VISIBLE:NO																						DEFINE:IPRCount|0								BONUS:MISC|SR|(2*IPRCount)	BONUS:VAR|IPRCount|COUNT[FEATNAME=Improved Power Resistance]																								SOURCEPAGE:EpicFeats.rtf
 Add Psionic Focus				TYPE:EpicPsiCountFeat	VISIBLE:NO	SAB:you can simultaneously use % feats that requires a psionic focus to be expended|PsiFocusCount					DEFINE:PsiFocusCount|1												BONUS:VAR|PsiFocusCount|COUNT[FEATNAME=Add Psionic Focus]																									SOURCEPAGE:EpicFeats.rtf
 Improved Manifestation Power Points	TYPE:ImpManifestPP	VISIBLE:NO																						DEFINE:ImpManifestCount|0	DEFINE:ImpManifestBonus|0						BONUS:VAR|ImpManifestCount|COUNT[FEATNAME=Improved Manifestation Power Points]	BONUS:VAR|ImpManifestBonus|((18+ImpManifestCount)*ImpManifestCount)	BONUS:VAR|BasePowerPoints|ImpManifestBonus	SOURCEPAGE:EpicFeats.rtf

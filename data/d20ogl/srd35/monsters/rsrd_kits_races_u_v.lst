@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Default Unicorn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unicorn]
@@ -17,15 +17,15 @@ STARTPACK:Default Vampire Spawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1
 RACE:Vampire Spawn	!PRERACE:1,%
 NAME:Vampire Spawn
 ALIGN:LE|NE|CE
-SKILL:Sense Motive	RANK:6
-SKILL:Hide			RANK:4
-SKILL:Listen		RANK:4
-SKILL:Move Silently	RANK:4
-SKILL:Spot			RANK:4
-SKILL:Search		RANK:3
-SKILL:Climb			RANK:5
+SKILL:Sense Motive			RANK:6
+SKILL:Hide					RANK:4
+SKILL:Listen				RANK:4
+SKILL:Move Silently			RANK:4
+SKILL:Spot					RANK:4
+SKILL:Search				RANK:3
+SKILL:Climb					RANK:5
 SKILL:TYPE=Craft|TYPE=Profession	RANK:4
-SKILL:Jump			RANK:5
+SKILL:Jump					RANK:5
 FEAT:Toughness
 FEAT:Skill Focus
 STAT:INT=11|WIS=11|STR=10|DEX=10|CON=10|CHA=10

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 # This is specific classes for monsters with advancements requiring
@@ -300,13 +300,13 @@ CLASS:Androsphinx	HD:10		TYPE:Monster	MAXLEVEL:36	SOURCEPAGE:MonstersS.rtf	BONUS
 CLASS:Androsphinx	PRERACE:1,Sphinx (Androsphinx)	PRERACETYPE:Magical Beast
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Androsphinx	STARTSKILLPTS:2	MODTOSKILLS:YES
-1	BONUS:DOMAIN|NUMBER|2		ADD:SPELLCASTER|1|Cleric
-2	BONUS:PCLEVEL|Cleric|1
-4	BONUS:PCLEVEL|Cleric|1
-6	BONUS:PCLEVEL|Cleric|1
-8	BONUS:PCLEVEL|Cleric|1
-10	BONUS:PCLEVEL|Cleric|1
-12	BONUS:PCLEVEL|Cleric|1
+1	BONUS:DOMAIN|NUMBER|2					ADD:SPELLCASTER|1|Cleric
+2					BONUS:PCLEVEL|Cleric|1
+4					BONUS:PCLEVEL|Cleric|1
+6					BONUS:PCLEVEL|Cleric|1
+8					BONUS:PCLEVEL|Cleric|1
+10					BONUS:PCLEVEL|Cleric|1
+12					BONUS:PCLEVEL|Cleric|1
 
 ###Block: Lycanthropes
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original entry by: Arknight
 # update by: TaluronIscandar
@@ -9,13 +9,13 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 
 #Basic Psionic Creature		Visible
-# Template Name	Visible		Level Adjustment	Template								Source Page					Special Ability																					Define														Required Race			Prohibited Race				Prohibited Template	Stat bonus											Modify VAR															Removable?		Spell Res.	SUBRACE	Main Race Type		Race Subtype			Hit Dice						Innate Spells
+# Template Name	Visible		Level Adjustment	Template								Source Page					Special ABility																					Define														Required Race			Prohibited Race				Prohibited Template	Stat bonus											Modify VAR															Removable?		Spell Res.	SUBRACE	Main Race Type		Race Subtype			Hit Dice						Innate Spells
 Psionic		VISIBLE:EXPORT																			SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0																												BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints						SUBRACE:YES					RACESUBTYPE:Psionic
 Phrenic		VISIBLE:YES		LEVELADJUSTMENT:2	TEMPLATE:CHOOSE:Phrenic (Animal)	TEMPLATE:Psionic	SOURCEPAGE:PsionicMonsters.rtf	SAB:Naturally Psionic																																								!PRERACE:1,RACESUBTYPE=Psionic	!PRETEMPLATE:Mindless	BONUS:STAT|INT|2|PRESTAT:1,INT=3	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|BonusPowerPoints|1												REMOVABLE:YES	SR:10+HD												HD:1-5:CR:1	HD:6-10:CR:2	HD:11+:CR:3	SPELLS:Phrenic|TIMES=3|CASTERLEVEL=HD|Precognition (Defensive),11+CHA	SPELLS:Phrenic|TIMES=1|CASTERLEVEL=HD|Force Screen,11+CHA	SPELLS:Phrenic|TIMES=3|CASTERLEVEL=HD|Empty Mind,11+CHA|Mind Thrust,11+CHA|PREHD:3+	SPELLS:Phrenic|TIMES=1|CASTERLEVEL=HD|Body Adjustment,13+CHA|Brain Lock,12+CHA|PREHD:5+	SPELLS:Phrenic|TIMES=1|CASTERLEVEL=HD|Aversion,12+CHA|Psionic Blast,13+CHA|PREHD:7+	SPELLS:Phrenic|TIMES=3|CASTERLEVEL=HD|Intellect Fortress,14+CHA|PREHD:9+	SPELLS:Phrenic|TIMES=1|CASTERLEVEL=HD|Psychic Crush,15+CHA|PREHD:9+	SPELLS:Phrenic|TIMES=1|CASTERLEVEL=HD|Dominate (Psionic),14+CHA|PREHD:11+	SPELLS:Phrenic|TIMES=1|CASTERLEVEL=HD|Energy Current,15+CHA|Tower of Iron Will,15+CHA|PREHD:13+	SPELLS:Phrenic|TIMES=3|CASTERLEVEL=HD|Teleport (Psionic),15+CHA|PREHD:15+	SPELLS:Phrenic|TIMES=1|CASTERLEVEL=HD|Fission,17+CHA|PREHD:17+	SPELLS:Phrenic|TIMES=1|CASTERLEVEL=HD|Ultrablast,17+CHA|PREHD:19+
 Phrenic (Animal)	VISIBLE:NO														SOURCEPAGE:PsionicMonsters.rtf																																							PRERACE:1,RACETYPE=Animal																																														RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
 
 ###Block:Dromite Chitin
-# Template Name				Visible	Damage Reduction	Template																																																									Special Ability																							Required Race			Combat bonus						Damage reduction	Bonus to HP			Add to base move			Stat bonus		Feat					Move			Vision
+# Template Name				Visible	Damage Reduction	Template																																																									Special ABility																							Required Race			Combat bonus						Damage reduction	Bonus to HP			Add to base move			Stat bonus		Feat					Move			Vision
 Dromite Chitin				VISIBLE:NO				TEMPLATE:CHOOSE:Cold Resist Chitin|Electricity Resist Chitin|Fire Resist Chitin|Sonic Resist Chitin																																																																								BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
 Cold Resist Chitin			VISIBLE:NO																																																														SAB:Resistance to Energy (cold) 5
 Fire Resist Chitin			VISIBLE:NO																																																														SAB:Resistance to Energy (fire) 5
@@ -28,7 +28,7 @@ Buff Ability				VISIBLE:NO																																																						
 Celerity Ability				VISIBLE:NO																																																														SAB:Celerity (Ex)																																											BONUS:MOVEADD|TYPE.Walk|10
 Cleave Ability				VISIBLE:NO																																																														SAB:Cleave (Ex)																																																			FEAT:Cleave
 Deflection Ability			VISIBLE:NO																																																														SAB:Deflection (Ex)																											BONUS:COMBAT|AC|1|TYPE=Deflection
-Fly Ability					VISIBLE:NO																																																														SAB:Fly (Ex)																																																									MOVE:Fly,20
+Fly Ability					VISIBLE:NO																																																														SAB:Fly (Ex)																																																								MOVE:Fly,20
 Improved Bull Rush Ability		VISIBLE:NO																																																														SAB:Improved Bull Rush (Ex)																																																	FEAT:Improved Bull Rush
 Improved Slam Attack Ability		VISIBLE:NO																																																														SAB:Improved Natural Attack (Ex)																																																FEAT:Improved Natural Attack
 Mobility Ability				VISIBLE:NO																																																														SAB:Mobility (Ex)																																																			FEAT:Mobility

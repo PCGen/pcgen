@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -27,8 +27,8 @@ CLASS:Blackguard.MOD	MAXLEVEL:NOLIMIT
 
 # Class Name			Max Level
 CLASS:Dragon Disciple.MOD	MAXLEVEL:NOLIMIT
-13				BONUS:VAR|EpicDDNA|floor((CL-10)/3)								BONUS:COMBAT|AC|EpicDDNA|TYPE=NaturalArmor.REPLACE	DEFINE:EpicDDNA|0
-13				BONUS:VAR|BreathWeaponDice|EpicDDBW	BONUS:VAR|EpicDDBW|2*floor((CL-9)/4)										DEFINE:EpicDDBW|0
+13	BONUS:VAR|EpicDDNA|floor((CL-10)/3)								BONUS:COMBAT|AC|EpicDDNA|TYPE=NaturalArmor.REPLACE	DEFINE:EpicDDNA|0
+13	BONUS:VAR|BreathWeaponDice|EpicDDBW	BONUS:VAR|EpicDDBW|2*floor((CL-9)/4)										DEFINE:EpicDDBW|0
 14:REPEATLEVEL:4																										ADD:FEAT|Armor Skin,Damage Reduction,Epic Prowess,Epic Skill Focus,Epic Toughness,Extended Life Span,Flyby Attack,Great Charisma,Great Constitution,Great Strength,Hover,Improved Combat Casting,Improved Darkvision,Improved Spell Capacity,Improved Spell Resistance,Snatch,Spell Knowledge,Wingover
 
 
@@ -69,7 +69,7 @@ CLASS:Mystic Theurge.MOD	MAXLEVEL:NOLIMIT
 
 # Class Name		Max Level
 CLASS:Shadowdancer.MOD	MAXLEVEL:NOLIMIT
-11				BONUS:VAR|ShadowJumpProgression|1+(EpicShadowJump>5280)+((EpicShadowJump/5280)>92955778.5)	BONUS:VAR|EpicShadowJump|(2^floor((var("CL=Shadowdancer")-2)/2))*10
+11	BONUS:VAR|ShadowJumpProgression|1+(EpicShadowJump>5280)+((EpicShadowJump/5280)>92955778.5)	BONUS:VAR|EpicShadowJump|(2^floor((var("CL=Shadowdancer")-2)/2))*10
 13:REPEATLEVEL:3																													ADD:FEAT|Blinding Speed,Dexterous Fortitude,Dexterous Will,Epic Dodge,Epic Skill Focus,Epic Speed,Exceptional Deflection,Improved Combat Reflexes,Improved Darkvision,Improved Whirlwind Attack,Infinite Deflection,Legendary Leaper,Reflect Arrows,Self Concealment,Spellcasting Harrier,Superior Initiative
 
 #  Reference for Epic Shadow Jump formula

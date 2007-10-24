@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 
@@ -8,8 +8,8 @@ CLASS:Black Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw
 CLASS:Black Dragon	PRERACE:1,Dragon (Black%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Hide|Move Silently|Swim
-1	DEFINE:DragonCL|0	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1										BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))									DEFINE:DragonCL|0
+1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')														BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	SAB:Breath Weapon (Su) %' Line of Acid %d4 acid DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDC	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDC|10+(CL/2)+CON
 1	SAB:Immunity to Acid (Ex)
@@ -18,7 +18,7 @@ CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 ###Block: Frightful Presence
 1	SAB:Frightful Presence (Ex) % ft DC %|FrightfulPresRange|FrightfulPresDC|PREVARGTEQ:FrightfulPresRange,1,FrightfulPresDC,1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresDC|10+(CL/2)+CHA
 ###Block: Normal Progression
-1				SAB:Water Breathing (Ex)											DEFINE:DragonAge|1
+1				SAB:Water Breathing (Ex)										DEFINE:DragonAge|1
 7																		DEFINE:DragonAge|2
 10																		DEFINE:DragonAge|3
 13																		DEFINE:DragonAge|4						SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (40 ft. radius),12+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (50 ft. radius),12+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (60 ft. radius),12+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (70 ft. radius),12+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (80 ft. radius),12+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (90 ft. radius),12+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (100 ft. radius),12+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (110 ft. radius),12+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (120 ft. radius),12+CHA|PREVAREQ:DragonAge,12
@@ -45,8 +45,8 @@ CLASS:Blue Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.
 CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Spellcraft
-1	DEFINE:DragonCL|0	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1										BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))									DEFINE:DragonCL|0
+1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')														BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	SAB:Breath Weapon (Su) %' Line of Lightning %d8 electricity DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDC	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDC|10+(CL/2)+CON
 1	SAB:Immunity to Electricity (Ex)
@@ -83,8 +83,8 @@ CLASS:Green Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw
 CLASS:Green Dragon	PRERACE:1,Dragon (Green%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Move Silently
-1	DEFINE:DragonCL|0	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1										BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))									DEFINE:DragonCL|0
+1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')														BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	SAB:Breath Weapon (Su) %' Cone of Corrosive gas %d6 acid DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDC	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDC|10+(CL/2)+CON
 1	SAB:Immunity to Acid (Ex)
@@ -93,7 +93,7 @@ CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 ###Block: Frightful Presence
 1	SAB:Frightful Presence (Ex) % ft DC %|FrightfulPresRange|FrightfulPresDC|PREVARGTEQ:FrightfulPresRange,1,FrightfulPresDC,1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresDC|10+(CL/2)+CHA
 ###Block: Normal Progression
-1				SAB:Water Breathing (Ex)								DEFINE:DragonAge|1
+1				SAB:Water Breathing (Ex)							DEFINE:DragonAge|1
 8															DEFINE:DragonAge|2
 11															DEFINE:DragonAge|3
 14															DEFINE:DragonAge|4	ADD:SPELLCASTER|1|Sorcerer
@@ -121,8 +121,8 @@ CLASS:Red Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.r
 CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Red Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Appraise|Bluff|Jump
-1	DEFINE:DragonCL|0	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1										BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))									DEFINE:DragonCL|0
+1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')														BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	SAB:Breath Weapon (Su) %' Cone of Fire %d10 fire DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDC	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDC|10+(CL/2)+CON
 1	SAB:Immunity to Fire (Ex)
@@ -160,8 +160,8 @@ CLASS:White Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw
 CLASS:White Dragon	PRERACE:1,Dragon (White%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Hide|Move Silently|Swim
-1	DEFINE:DragonCL|0	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1										BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))									DEFINE:DragonCL|0
+1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')														BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	SAB:Breath Weapon (Su) %' Cone of Cold %d6 cold DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDC	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDC|10+(CL/2)+CON
 1	SAB:Immunity to Cold (Ex)
@@ -196,8 +196,8 @@ CLASS:Brass Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw
 CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Gather Information|Survival
-1	DEFINE:DragonCL|0	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1										BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))									DEFINE:DragonCL|0
+1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')														BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	SAB:Breath Weapon (Su) %' Cone of Sleep DC % for 1d6+%|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDC|10+(CL/2)+CON	DEFINE:BreathWeaponDuration|DragonAge
 1	SAB:Breath Weapon (Su) %' Line of Fire %d6 fire DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDC		DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)
@@ -208,26 +208,26 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 ###Block: Frightful Presence
 1	SAB:Frightful Presence (Ex) % ft DC %|FrightfulPresRange|FrightfulPresDC|PREVARGTEQ:FrightfulPresRange,1,FrightfulPresDC,1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresDC|10+(CL/2)+CHA
 ###Block: Normal Progression
-1																DEFINE:DragonAge|1											SPELLS:Innate|TIMES=-1|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
-7																DEFINE:DragonAge|2
-10																DEFINE:DragonAge|3						ADD:SPELLCASTER|1|Sorcerer
-12											BONUS:PCLEVEL|Sorcerer|1
-13											BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4											SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (40 ft. radius),11+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (50 ft. radius),11+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (60 ft. radius),11+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (70 ft. radius),11+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (80 ft. radius),11+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (90 ft. radius),11+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (100 ft. radius),11+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (110 ft. radius),11+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (120 ft. radius),11+CHA|PREVAREQ:DragonAge,12
-15											BONUS:PCLEVEL|Sorcerer|1
-16	SR:18	DR:5/Magic								BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|5
-18											BONUS:PCLEVEL|Sorcerer|1
-19	SR:20										BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|6											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
-21											BONUS:PCLEVEL|Sorcerer|1
-22	SR:22	DR:10/Magic	SAB:Crush (Ex) DC %|BreathWeaponDC		BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|7
-24											BONUS:PCLEVEL|Sorcerer|1
-25	SR:24										BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|8											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Winds,15+CHA
-27											BONUS:PCLEVEL|Sorcerer|1
-28	SR:25	DR:15/Magic								BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|9
-30											BONUS:PCLEVEL|Sorcerer|1
-31	SR:27										BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|10											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
-33											BONUS:PCLEVEL|Sorcerer|1
-34	SR:28	DR:20/Magic	SAB:Tail Sweep (Ex)				BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|11
-36											BONUS:PCLEVEL|Sorcerer|1
+1																	DEFINE:DragonAge|1											SPELLS:Innate|TIMES=-1|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
+7																	DEFINE:DragonAge|2
+10																	DEFINE:DragonAge|3						ADD:SPELLCASTER|1|Sorcerer
+12												BONUS:PCLEVEL|Sorcerer|1
+13												BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4											SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (40 ft. radius),11+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (50 ft. radius),11+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (60 ft. radius),11+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (70 ft. radius),11+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (80 ft. radius),11+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (90 ft. radius),11+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (100 ft. radius),11+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (110 ft. radius),11+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (120 ft. radius),11+CHA|PREVAREQ:DragonAge,12
+15												BONUS:PCLEVEL|Sorcerer|1
+16	SR:18	DR:5/Magic									BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|5
+18												BONUS:PCLEVEL|Sorcerer|1
+19	SR:20											BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|6											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
+21												BONUS:PCLEVEL|Sorcerer|1
+22	SR:22	DR:10/Magic	SAB:Crush (Ex) DC %|BreathWeaponDC			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|7
+24												BONUS:PCLEVEL|Sorcerer|1
+25	SR:24											BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|8											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Winds,15+CHA
+27												BONUS:PCLEVEL|Sorcerer|1
+28	SR:25	DR:15/Magic									BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|9
+30												BONUS:PCLEVEL|Sorcerer|1
+31	SR:27											BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|10											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+33												BONUS:PCLEVEL|Sorcerer|1
+34	SR:28	DR:20/Magic	SAB:Tail Sweep (Ex)					BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|11
+36												BONUS:PCLEVEL|Sorcerer|1
 37	SR:30			SAB:Summon Djinni (Sp) DC %|SummonDjinniDC	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12	DEFINE:SummonDjinniDC|17+CHA
 
 
@@ -237,8 +237,8 @@ CLASS:Bronze Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-D
 CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Disguise|Swim|Survival
-1	DEFINE:DragonCL|0	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1										BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))									DEFINE:DragonCL|0
+1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')														BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	SAB:Breath Weapon (Su) %' Cone of Repulsion Gas DC % for 1d6+%|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDC|10+(CL/2)+CON	DEFINE:BreathWeaponDuration|DragonAge
 1	SAB:Breath Weapon (Su) %' Line of Lightning %d6 electricity DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDC		DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)
@@ -248,7 +248,7 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 ###Block: Frightful Presence
 1	SAB:Frightful Presence (Ex) % ft DC %|FrightfulPresRange|FrightfulPresDC|PREVARGTEQ:FrightfulPresRange,1,FrightfulPresDC,1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresDC|10+(CL/2)+CHA
 ###Block: Normal Progression
-1				SAB:Water Breathing (Ex)								DEFINE:DragonAge|1						SPELLS:Innate|TIMES=-1|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
+1				SAB:Water Breathing (Ex)							DEFINE:DragonAge|1						SPELLS:Innate|TIMES=-1|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
 9															DEFINE:DragonAge|2
 12				SAB:Alternate Form (Su) 3/day							DEFINE:DragonAge|3	ADD:SPELLCASTER|1|Sorcerer
 14										BONUS:PCLEVEL|Sorcerer|1
@@ -277,8 +277,8 @@ CLASS:Copper Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-D
 CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Copper Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Jump
-1	DEFINE:DragonCL|0	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1										BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))									DEFINE:DragonCL|0
+1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')														BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	SAB:Breath Weapon (Su) %' Cone of Slow DC % for 1d6+%|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDC|10+(CL/2)+CON	DEFINE:BreathWeaponDuration|DragonAge
 1	SAB:Breath Weapon (Su) %' Line of Acid %d4 acid DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDC		DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)
@@ -317,11 +317,11 @@ CLASS:Gold Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.
 CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Gold Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Disguise|Heal|Swim
-1	DEFINE:DragonCL|0	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1										BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))									DEFINE:DragonCL|0
+1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')														BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	SAB:Breath Weapon (Su) %' Cone of Weakening Gas DC % or -% STR|BreathWeaponCone|BreathWeaponDC|BreathWeaponStatDamage	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponStatDamage|DragonAge
-1	SAB:Breath Weapon (Su) %' Cone of Fire %d10 Fire DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDC				DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDC|10+(CL/2)+CON
+1	SAB:Breath Weapon (Su) %' Cone of Fire %d10 Fire DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDC			DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDC|10+(CL/2)+CON
 1	SAB:Vulnerability to Cold (Ex)
 1	SAB:Immunity to Fire (Ex)
 1	SAB:Water Breathing (Ex)
@@ -359,8 +359,8 @@ CLASS:Silver Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-D
 CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Silver Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Disguise|Jump
-1	DEFINE:DragonCL|0	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1										BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))									DEFINE:DragonCL|0
+1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')														BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	SAB:Breath Weapon (Su) %' Cone of Paralyzing Gas DC % for 1d6+%|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDC|10+(CL/2)+CON	DEFINE:BreathWeaponDuration|DragonAge
 1	SAB:Breath Weapon (Su) %' Cone of Cold %d8 cold DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDC				DEFINE:BreathWeaponDice|(2*DragonAge)

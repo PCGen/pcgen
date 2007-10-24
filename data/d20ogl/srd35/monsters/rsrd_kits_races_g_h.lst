@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan  5 02:13:28 2006 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Default Gargoyle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle,Kapoacinth]
@@ -617,7 +617,7 @@ STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Hydra (Pyrohydra/Eight Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Eight Headed)]
 RACE:Hydra (Pyrohydra/Eight Headed)	!PRERACE:1,%
-NAME:Eight Headed Pyrohydra 
+NAME:Eight Headed Pyrohydra
 ALIGN:TN
 SKILL:Spot		RANK:6
 SKILL:Listen	RANK:5
