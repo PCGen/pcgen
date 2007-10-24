@@ -24,11 +24,13 @@
 package plugin.exporttokens;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbilityToken;
 
@@ -71,9 +73,17 @@ public class AbilityAllToken extends AbilityToken
 		final AbilityCategory aCategory)
 	{
 		List<Ability> ret = new ArrayList<Ability>();
-		ret.addAll(pc.getRealAbilitiesListAnyCat(aCategory));
-		ret.addAll(pc.getAutomaticAbilityList(aCategory));
-		ret.addAll(pc.getVirtualAbilityList(aCategory));
+		Collection<AbilityCategory> allCats =
+				SettingsHandler.getGame().getAllAbilityCategories();
+		for (AbilityCategory aCat : allCats)
+		{
+			if (aCat.getAbilityCategory().equals(aCategory.getKeyName()))
+			{
+				ret.addAll(pc.getRealAbilitiesListAnyCat(aCat));
+				ret.addAll(pc.getAutomaticAbilityList(aCat));
+				ret.addAll(pc.getVirtualAbilityList(aCat));
+			}
+		}
 		return ret;
 	}
 }

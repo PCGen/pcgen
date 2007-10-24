@@ -23,11 +23,14 @@
 
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.io.exporttoken.AbilityToken;
 
 /**
@@ -60,6 +63,16 @@ public class AbilityAutoToken extends AbilityToken
 	protected List<Ability> getAbilityList(PlayerCharacter pc,
 		final AbilityCategory aCategory)
 	{
-		return pc.getAutomaticAbilityList(aCategory);
+		final List<Ability> abilityList = new ArrayList<Ability>();
+		Collection<AbilityCategory> allCats =
+				SettingsHandler.getGame().getAllAbilityCategories();
+		for (AbilityCategory aCat : allCats)
+		{
+			if (aCat.getAbilityCategory().equals(aCategory.getKeyName()))
+			{
+				abilityList.addAll(pc.getAutomaticAbilityList(aCat));
+			}
+		}
+		return abilityList;
 	}
 }
