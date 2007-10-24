@@ -1076,7 +1076,7 @@ BIO
 		<feat>
 			<name>Maximize Spell</name>
 			<description>All variable, numeric effects of a maximized spell are maximized.</description>
-			<type>METAMAGIC</type>
+			<type>METAMAGIC.WIZARD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>

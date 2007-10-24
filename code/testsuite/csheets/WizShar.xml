@@ -997,7 +997,7 @@ BIO
 		<feat>
 			<name>Empower Spell</name>
 			<description>All variable, numeric effects of an empowered spell are increased by one-half.</description>
-			<type>METAMAGIC</type>
+			<type>METAMAGIC.WIZARD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1019,7 +1019,7 @@ BIO
 		<feat>
 			<name>Scribe Scroll</name>
 			<description>The character can create a scroll of any spell that the character knows.</description>
-			<type>ITEMCREATION</type>
+			<type>ITEMCREATION.WIZARD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

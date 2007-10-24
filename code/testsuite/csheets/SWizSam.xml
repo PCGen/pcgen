@@ -1004,7 +1004,7 @@ BIO
 		<feat>
 			<name>Scribe Scroll</name>
 			<description>The character can create a scroll of any spell that the character knows.</description>
-			<type>ITEMCREATION</type>
+			<type>ITEMCREATION.WIZARD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
