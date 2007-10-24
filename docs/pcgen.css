@@ -157,6 +157,13 @@ a img {
 	margin-left: 10px;
 	margin-right: 10px;
 }
+.sidebar1 {
+	background: #CCCCCC;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 5%;
+	margin-right: 5%;
+}
 .w20 {
 	width: 20%;
 }

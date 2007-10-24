@@ -39,12 +39,10 @@
 		<a href="../globalfilestagpages/globalfilesadd.html#FEAT">ADD:FEAT</a>, 
   		<a href="../datafilestagpages/datafilesdeities.html#DOMAINS">DOMAINS</a></code></p>
 
-	<blockquote>
-		<p>NOTE: In this section we will discuss only those LST tags specific to this implementation,
+		<p class="sidebar1">NOTE: In this section we will discuss only those LST tags specific to this implementation,
 		and how they are used to implement the subject rule. For more general information on the 
 		associated tags, please visit the <a href="../../navlistindex.html" target="navigation">LST 
 		File Tag Index</a> section of the PCGen Documentation.</p>
-	</blockquote>
 
 <hr>
 
@@ -120,8 +118,20 @@
 
 	<h3>Deity File</h3>
 
-	<p class="indent1">Now that we have created the priesthood feats, we can concentrate on &quot;The Monkey God&quot;, and for </p>
-	<p></ p>
+	<p class="indent1">The specific deity entry in the <em>deity.lst</em> file is made on a single 
+	line and begins with the name of the deity. For this implementation we will be using the name 
+	&quot;The Monkey God&quot;. The particular mechanism used to implement this rule is that of the 
+	domains granted by the deity to bestow the differing powers upon his clerics. Specifically, it 
+	is the PRExxx tags that make the difference possible. Each preisthood will have access to a 
+	different set of domains and it is the presence of the preisthood feat that establishes the 
+	prerequisite. Of course the first thing that needs to happen is the choice of the Monkey God's 
+	preisdthoods, a choice which is made when the deity is first selected. The tags used to do this 
+	are explained below:</p>
+	
+	<p class="sidebar1">NOTE: There are a number of tags used to create a deity that are not part 
+	of this implementation guide. To get more general information on how to create a deity you can 
+	review <a href="../lstfileclass/lfc_lesson14_deities.html">Lesson #14, Deities</a>, in the 
+	<a href="../lstfileclass/lstfileclass_heading.html">LST File Class</a> section of these documents.</p>
 
 	<blockquote class="indent1">
 		<p class="tagindent3"><strong>Tag Used:</strong> <code>ADD:FEAT|Priesthood of the Code Monkey,
