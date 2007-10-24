@@ -2382,20 +2382,12 @@ function BarbMods( newRageState )
   // Figure out what we have to do to "back out" old rage state
   if ( this.internalState == "Raging" )  // Raging
   {
-     strMod = -4;
-     conMod = -4;
-     strModMod = -2;
-     conModMod = -2;
-     acMod = +2;
-     willMod = -2;
-     if ( BarbLvl >= 15 )
-     {
-        strMod = -6;
-        conMod = -6;
-        strModMod = -3;
-        conModMod = -3;
-        willMod = -3;
-     }
+     strMod = -|VAR.RageStrBonus|;
+     conMod = -|VAR.RageConBonus|;
+     strModMod = -(|VAR.RageStrBonus|/2);
+     conModMod = -(|VAR.RageConBonus|/2);
+     acMod = +|VAR.RageACPenalty|;
+     willMod = -|VAR.RageMorale|;
   }
   else if ( this.internalState == "Fatigued" && BarbLvl<20 )  // Fatigued
   {
@@ -2414,24 +2406,12 @@ function BarbMods( newRageState )
      RageStatus = nRageStatus;
 	 this.internalState = nRageStatus;
 //	 StatusBgColor = "LIGHTPINK";
-     if ( BarbLvl >= 15 )
-     {
-        strMod = strMod+6;
-        conMod = conMod+6;
-        strModMod = strModMod+3;
-        conModMod = conModMod+3;
-        acMod = acMod-2;
-        willMod = willMod+3;
-     }
-     else
-     {
-		 strMod = strMod+4;
-		 conMod = conMod+4;
-		 strModMod = strModMod+2;
-		 conModMod = conModMod+2;
-		 acMod = acMod-2;
-		 willMod = willMod+2;
-     }
+        strMod = strMod+|VAR.RageStrBonus|;
+        conMod = conMod+|VAR.RageConBonus|;
+        strModMod = strModMod+(|VAR.RageStrBonus|/2);
+        conModMod = conModMod+(|VAR.RageConBonus|/2);
+        acMod = acMod-|VAR.RageACPenalty|;
+        willMod = willMod+|VAR.RageMorale|;
   }
   else if ( nRageStatus == "Fatigued" && BarbLvl<20 )  // Fatigued
   {
