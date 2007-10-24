@@ -1372,7 +1372,7 @@ BIO
 			<cr>0</cr>
 			<dr></dr>
 			<feat></feat>
-			<sa>Base Power Points (%)|BasePowerPoints, Bonus Power Points (%)|BonusPowerPoints, Total Power Points (%)|TotalPowerPoints</sa>
+			<sa>Base Power Points (25), Bonus Power Points (12), Total Power Points (37)</sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>
 		</template>
