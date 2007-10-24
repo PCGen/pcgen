@@ -442,7 +442,8 @@ public class WeaponEquipment implements Cloneable
 	private String getWeaponInfo(final String infoType, final boolean bPrimary)
 	{
 		final String it = infoType + "|";
-		final EquipmentModifier eqMod = theEquipment.getEqModifierKeyed("PCGENi_WEAPON", bPrimary);
+		final EquipmentModifier eqMod = theEquipment.getEqModifierKeyed(
+				Constants.s_INTERNAL_EQMOD_WEAPON, bPrimary);
 
 		if (eqMod != null)
 		{
