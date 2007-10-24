@@ -906,17 +906,12 @@
 |%|	<!-- Bard -->
 
 
-|%BARBARIAN=1|	<!-- If character is a barbarian -->
-		<rage>
-			<uses_per_day>|VAR.RageTimes.INTVAL|</uses_per_day>
-			<description>The Barbarian temporarily gains +4 to Strength, +4 to Constitution, and a +2 morale bonus on Will saves, but suffers a -2 penalty to AC. A fit of rage lasts for a number of rounds equal to 3 + the character's (newly improved) Constitution modifier. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter (unless the barbarian is 20th level, when this limitation no longer applies). The barbarian can only fly into a rage once per encounter, and only a certain number of times per day (determined by level). Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
-
-|%|
-|%BARBARIAN=15|	<!-- If character is a barbarian -->
-			<description>Starting at 15th level, the barbarian's rage bonuses become +6 to Strength, +6 to Constitution, and a +3 morale bonus to Will saves. (The AC penalty remains at -2.)</description>
-|%|	<!-- Barbarian of 15th Level -->
-|%BARBARIAN=1|	<!-- If character is a barbarian -->
-		</rage>
+|%VAR.RageTimes.GTEQ.1|	<!-- If character can Rage -->
+	<rage>
+		<uses_per_day>|VAR.RageTimes.INTVAL|</uses_per_day>
+		<description>The Barbarian temporarily gains +|VAR.RageStrBonus.INTVAL| to Strength, +|VAR.RageConBonus.INTVAL| to Constitution, and a +|VAR.RageMorale.INTVAL| morale bonus on Will saves, but suffers a -2 penalty to AC. A fit of rage lasts for a number of rounds equal to 3 + the character's (newly improved) Constitution modifier. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter (unless the barbarian is 20th level, when this limitation no longer applies). The barbarian can only fly into a rage once per encounter, and only a certain number of times per day (determined by level). Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
+	</rage>
+	<!-- this stuff needs a bit of work to display correct info for both 3e and 3.5e properly. - Tir Gwaith -->
 |%|	<!-- Character Rage -->
 
 
