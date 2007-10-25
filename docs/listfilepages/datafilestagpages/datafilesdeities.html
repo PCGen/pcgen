@@ -31,7 +31,7 @@
 
 	<p>The first field is the Deity Name, this is a required
 		field and does not have a tag.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -42,7 +42,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ALIGN:LG</code></p>
 	<p class="indent3">The deity's alignment is Lawful Good.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -54,7 +54,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>APPEARANCE:Tall human with dark hair</code></p>
 	<p class="indent3">The deity's description of appearance.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -73,7 +73,7 @@
 	<p class="indent2"><code>DEITYWEAP:Longspear|Shortspear|Halfspear</code></p>
 	<p class="indent3">The deity's favored weapon is either a &quot;Longspear&quot;, &quot;Shortspear&quot;
 		  or &quot;Halfspear&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -85,7 +85,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DESCISPI:YES</code></p>
 	<p class="indent3">The DESC is closed content.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -111,7 +111,7 @@
 		domains, but only if the cleric has one of the listed alignments.</p>
 	<p class="indent2"><code>DOMAINS:ALL</code></p>
 	<p class="indent3">The deity grants two of any domains.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -134,7 +134,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FOLLOWERALIGN:012</code></p>
 	<p class="indent3">All followers must be &quot;Lawful&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -151,24 +151,26 @@
 	<p class="indent3">The deity belongs to the &quot;Celtic&quot; pantheon.</p>
 	<p class="indent2"><code>PANTHEON:Celtic|Elf (Sun)</code></p>
 	<p class="indent3">The deity belongs to the &quot;Celtic&quot; or &quot;Sun Elf&quot; pantheon.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="new">*** NEW 5.11.4</p>
-	<p class="indent0"><strong><a name="PRERACE">Tag Name:</a></strong> PRERACE:y,RACETYPE= &gt;Text&lt;,RACESUBTYPE= &gt;Text&lt; </p>
+	<p class="indent0"><strong><a name="PRERACE">Tag Name:</a></strong> PRERACE:y,y</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a race).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (The name of a race type defined by the race TYPE tag).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> RACETYPE=Text (The name of a race type defined by the race RACETYPE tag).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> RACESUBTYPE=Text (The name of a race subtype defined by the race RACESUBTYPE tag).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">The character must be one of the listed races or possess one of the racial properties.</p>
-	<p class="indent2">TYPE=&lt;Text&gt; can be used to check types set by the race TYPE tag.</p>
-	<p class="indent2">RACETYPE=&lt;Race Type&gt; can be used to check racial types such as Humanoid, Giant and Outsider.</p>
-	<p class="indent2">RACESUBTYPE=&lt;Race Subtype&gt; can be used to check racial subtypes such as Air, Evil and Extraplanar.</p>
-	<p class="indent2">The wildcard character (%) can be used to include any text, for example Elf% will include any race name which begins with Elf.
-		Without the wildcard character the race name must match exactly.</p>
-	<p class="indent2">Enclosing a selection in square brackets ([ ]) excludes a race. Brackets do not work for the TYPE, RACETYPE and RACESUBTYPE properties.</p>
+	<ul class="indent2">
+		<li>The character must be one of the listed races or possess one of the racial properties.</li>
+		<li>TYPE=&lt;Text&gt; can be used to check types set by the race TYPE tag.</li>
+		<li>RACETYPE=&lt;Race Type&gt; can be used to check racial types such as Humanoid, Giant and Outsider.</li>
+		<li>RACESUBTYPE=&lt;Race Subtype&gt; can be used to check racial subtypes such as Air, Evil and Extraplanar.</li>
+		<li>The wildcard character (%) can be used to include any text, for example Elf% will include any race name which begins with Elf.
+			Without the wildcard character the race name must match exactly.</li>
+		<li>Enclosing a selection in square brackets ([ ]) excludes a race. Brackets do not work for the TYPE, RACETYPE and RACESUBTYPE properties.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>Belisarda &lt;tab&gt; PRERACE:Elorii</code></p>
 	<p class="indent3">Character must be a &quot;Elorii&quot;.</p>
@@ -191,7 +193,7 @@
 	<p class="indent3">This will pass if no race has been selected.</p>
 	<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; !PRERACE:Human</code></p>
 	<p class="indent3">This will pass if no Human race has been selected.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -203,7 +205,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RACE:Dwarf|Gnome</code></p>
 	<p class="indent3">The deity's typical worshippers are Dwarves and Gnomes.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -214,7 +216,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SYMBOL:A small wooden cross</code></p>
 	<p class="indent3">The deity's symbol is a small wooden cross.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -226,7 +228,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TITLE:Lord of the Morning</code></p>
 	<p class="indent3">The deity's title.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -240,7 +242,7 @@
 	<p class="indent3">The deity belongs to the &quot;Good&quot; type.</p>
 	<p class="indent2"><code>TYPE:Good.Chaotic</code></p>
 	<p class="indent3">The deity belongs to the &quot;Good&quot; and &quot;Chaotic&quot; types.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
