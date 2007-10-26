@@ -436,7 +436,7 @@ SUBCLASSLEVEL:1	AUTO:FEAT|Transmuter Learning Bonus
 ###Block: Familiar
 1	BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	ABILITY:Wizard Feat|NORMAL|Scribe Scroll
+1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	ABILITY:Wizard Feat|AUTOMATIC|Scribe Scroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
