@@ -24,13 +24,11 @@
 
 package pcgen.util;
 
-import java.util.regex.Matcher;
-
 import org.junit.Test;
 import org.nfunk.jep.ParseException;
-
 import pcgen.PCGenTestCase;
-import pcgen.util.ParameterTree;
+
+import java.util.regex.Matcher;
 
 /**
  * <code>ParameterTreeTest</code> is ...
@@ -51,23 +49,23 @@ public class ParameterTreeTest extends PCGenTestCase
 	@Test
 	public final void testParameterTree()
 	{
-		ParameterTree t1 = new ParameterTree("Test Node1");
-		is(t1.getContents(), strEq("Test Node1"), "New ParamterTrre has correct contents");
-		is(t1.getLeftTree(), eqnull(), "New ParamterTrre has null left subtree");
-		is(t1.getRightTree(), eqnull(), "New ParamterTrre has null right subtree");
+        final ParameterTree t1 = new ParameterTree("Test Node1");
+        is(t1.getContents(), strEq("Test Node1"), "New ParameterTree has correct contents");
+		is(t1.getLeftTree(), eqnull(), "New ParameterTree has null left subtree");
+		is(t1.getRightTree(), eqnull(), "New ParameterTree has null right subtree");
 
-		ParameterTree t2 = new ParameterTree("Test Node2");
+		final ParameterTree t2 = new ParameterTree("Test Node2");
 		t2.setLeftTree(t1);
-		is(t2.getContents(), strEq("Test Node2"), "New ParamterTrre has correct contents");
-		is(t2.getLeftTree().getContents(), strEq("Test Node1"), "New ParamterTrre has null left subtree");
-		is(t1.getRightTree(), eqnull(), "New ParamterTrre has null right subtree");
+		is(t2.getContents(), strEq("Test Node2"), "New ParameterTree has correct contents");
+		is(t2.getLeftTree().getContents(), strEq("Test Node1"), "New ParameterTree has null left subtree");
+		is(t1.getRightTree(), eqnull(), "New ParameterTree has null right subtree");
 	}
 
 	@Test
 	public final void testMakeTree1()
 	{
-		String s = "TYPE=Foo";
-		Matcher mat = ParameterTree.pat.matcher(s);
+		final String s = "TYPE=Foo";
+		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
 		ParameterTree t1 = new ParameterTree("Foo");
@@ -84,8 +82,8 @@ public class ParameterTreeTest extends PCGenTestCase
 	@Test
 	public final void testMakeTree2()
 	{
-		String s = "(TYPE=Foo)";
-		Matcher mat = ParameterTree.pat.matcher(s);
+		final String s = "(TYPE=Foo)";
+		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
 		ParameterTree t1 = new ParameterTree("Foo");
@@ -102,8 +100,8 @@ public class ParameterTreeTest extends PCGenTestCase
 	@Test
 	public final void testMakeTree3()
 	{
-		String s = "((TYPE=Foo))";
-		Matcher mat = ParameterTree.pat.matcher(s);
+		final String s = "((TYPE=Foo))";
+		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
 		ParameterTree t1 = new ParameterTree("Foo");
@@ -120,8 +118,8 @@ public class ParameterTreeTest extends PCGenTestCase
 	@Test
 	public final void testMakeTree4()
 	{
-		String s = "TYPE=Foo[or]TYPE=Bar";
-		Matcher mat = ParameterTree.pat.matcher(s);
+		final String s = "TYPE=Foo[or]TYPE=Bar";
+		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
 		ParameterTree t1 = new ParameterTree("Foo");
@@ -146,8 +144,8 @@ public class ParameterTreeTest extends PCGenTestCase
 	@Test
 	public final void testMakeTree5()
 	{
-		String s = "(TYPE=Foo[or]TYPE=Bar)";
-		Matcher mat = ParameterTree.pat.matcher(s);
+		final String s = "(TYPE=Foo[or]TYPE=Bar)";
+		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
 		ParameterTree t1 = new ParameterTree("Foo");
@@ -171,8 +169,8 @@ public class ParameterTreeTest extends PCGenTestCase
 	@Test
 	public final void testMakeTree6()
 	{
-		String s = "(TYPE=Foo[or]TYPE=Bar[and]String3)";
-		Matcher mat = ParameterTree.pat.matcher(s);
+		final String s = "(TYPE=Foo[or]TYPE=Bar[and]String3)";
+		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
 		ParameterTree t = new ParameterTree("Foo");
@@ -183,10 +181,10 @@ public class ParameterTreeTest extends PCGenTestCase
 			fail("Threw a parse exception");
 		}
 
-		ParameterTree tl  = t.getLeftTree();
-		ParameterTree tr  = t.getRightTree();
-		ParameterTree tll = tl.getLeftTree();
-		ParameterTree tlr = tl.getRightTree();
+		final ParameterTree tl  = t.getLeftTree();
+		final ParameterTree tr  = t.getRightTree();
+		final ParameterTree tll = tl.getLeftTree();
+		final ParameterTree tlr = tl.getRightTree();
 
 		// expected branch nodes
 		is(t.getContents(), strEq("[and]"),   "t1 ParamterTree has correct contents");
@@ -214,8 +212,8 @@ public class ParameterTreeTest extends PCGenTestCase
 //		verbose = true;
 //		Logging.errorPrint("\n\n --- Start Test Make tree 7 --- \n\n");
 
-		String s = "TYPE=Foo[or](TYPE=Bar[and]String3)";
-		Matcher mat = ParameterTree.pat.matcher(s);
+		final String s = "TYPE=Foo[or](TYPE=Bar[and]String3)";
+		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
 		ParameterTree t = new ParameterTree("Foo");
@@ -226,10 +224,10 @@ public class ParameterTreeTest extends PCGenTestCase
 			fail("Threw a parse exception");
 		}
 
-		ParameterTree tl  = t.getLeftTree();
-		ParameterTree tr  = t.getRightTree();
-		ParameterTree trl = tr.getLeftTree();
-		ParameterTree trr = tr.getRightTree();
+		final ParameterTree tl  = t.getLeftTree();
+		final ParameterTree tr  = t.getRightTree();
+		final ParameterTree trl = tr.getLeftTree();
+		final ParameterTree trr = tr.getRightTree();
 
 		// expected branch nodes
 		is(t, not(eqnull()),   "t  not null");
@@ -265,8 +263,8 @@ public class ParameterTreeTest extends PCGenTestCase
 //		verbose = true;
 //		Logging.errorPrint("\n\n --- Start Test Make tree 8 --- \n\n");
 
-		String s = "TYPE=Foo[or]((CATEGORY=FEAT[or]NATURE=AUTO)[and]TYPE=Bar)";
-		Matcher mat = ParameterTree.pat.matcher(s);
+		final String s = "TYPE=Foo[or]((CATEGORY=FEAT[or]NATURE=AUTO)[and]TYPE=Bar)";
+		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
 		ParameterTree t = new ParameterTree("Foo");
@@ -280,14 +278,14 @@ public class ParameterTreeTest extends PCGenTestCase
 		} 
 
 
-		ParameterTree tl  = t.getLeftTree();
-		ParameterTree tr  = t.getRightTree();
+		final ParameterTree tl  = t.getLeftTree();
+		final ParameterTree tr  = t.getRightTree();
 
-		ParameterTree trl = tr.getLeftTree();
-		ParameterTree trr = tr.getRightTree();
+		final ParameterTree trl = tr.getLeftTree();
+		final ParameterTree trr = tr.getRightTree();
 		
-		ParameterTree trll = trl.getLeftTree();
-		ParameterTree trlr = trl.getRightTree();
+		final ParameterTree trll = trl.getLeftTree();
+		final ParameterTree trlr = trl.getRightTree();
 
 		
 		// expected branch nodes
@@ -332,8 +330,8 @@ public class ParameterTreeTest extends PCGenTestCase
 //		verbose = true;
 //		Logging.errorPrint("\n\n --- Start Test Make tree 9 --- \n\n");
 
-		String s = "TYPE=Foo[or]((CATEGORY=FEAT[or]NATURE=AUTO[or]CATEGORY=SA)[and]TYPE=Bar)";
-		Matcher mat = ParameterTree.pat.matcher(s);
+		final String s = "TYPE=Foo[or]((CATEGORY=FEAT[or]NATURE=AUTO[or]CATEGORY=SA)[and]TYPE=Bar)";
+		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
 		ParameterTree t = new ParameterTree("Foo");
@@ -347,17 +345,17 @@ public class ParameterTreeTest extends PCGenTestCase
 		} 
 
 
-		ParameterTree tl    = t.getLeftTree();
-		ParameterTree tr    = t.getRightTree();
+		final ParameterTree tl    = t.getLeftTree();
+		final ParameterTree tr    = t.getRightTree();
 
-		ParameterTree trl   = tr.getLeftTree();
-		ParameterTree trr   = tr.getRightTree();
-		
-		ParameterTree trll  = trl.getLeftTree();
-		ParameterTree trlr  = trl.getRightTree();
+		final ParameterTree trl   = tr.getLeftTree();
+		final ParameterTree trr   = tr.getRightTree();
 
-		ParameterTree trlll = trll.getLeftTree();
-		ParameterTree trllr = trll.getRightTree();
+		final ParameterTree trll  = trl.getLeftTree();
+		final ParameterTree trlr  = trl.getRightTree();
+        
+		final ParameterTree trlll = trll.getLeftTree();
+		final ParameterTree trllr = trll.getRightTree();
 
 		
 		// expected branch nodes

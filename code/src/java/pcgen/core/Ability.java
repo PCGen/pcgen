@@ -19,13 +19,6 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
@@ -34,9 +27,16 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.StringKey;
 import pcgen.util.Logging;
-import pcgen.util.enumeration.Tab;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Tab;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Definition and games rules for an Ability.
@@ -55,7 +55,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		/** Ability is Virtual */
 		VIRTUAL,
 		/** Ability of any type */
-		ANY;
+		ANY
 	}
 
 	private boolean multiples = false;
@@ -93,15 +93,15 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public int getAddSpellLevel()
 	{
-		Integer characteristic = integerChar.get(IntegerKey.ADD_SPELL_LEVEL);
-		return characteristic == null ? 0 : characteristic.intValue();
+		final Integer characteristic = integerChar.get(IntegerKey.ADD_SPELL_LEVEL);
+		return characteristic == null ? 0 : characteristic;
 	}
 
 	/**
 	 * Set the attribute that controls what this ability adds, e.g. WEAPONPROF,
 	 * TEMPLATE, etc.
 	 *
-	 * @param  add
+	 * @param  add   what this ability adds, e.g. WEAPONPROF, TEMPLATE, etc.
 	 */
 	public void setAddString(final String add)
 	{
@@ -117,7 +117,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public String getAddString()
 	{
-		String characteristic = stringChar.get(StringKey.ADD);
+		final String characteristic = stringChar.get(StringKey.ADD);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -126,7 +126,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * and will be concatonated on output.
 	 * 
 	 * <p>The format of the description tag 
-	 * @param aDesc
+	 * @param aDesc a description of what this object provides
 	 */
 	public void addBenefit( final Description aDesc )
 	{
@@ -256,7 +256,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public String getCategory()
 	{
-		String characteristic = stringChar.get(StringKey.CATEGORY);
+		final String characteristic = stringChar.get(StringKey.CATEGORY);
 		return characteristic == null ? Constants.FEAT_CATEGORY : characteristic;
 	}
 
@@ -296,7 +296,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public String getCostString()
 	{
-		String characteristic = stringChar.get(StringKey.COST);
+		final String characteristic = stringChar.get(StringKey.COST);
 		return characteristic == null ? "1" : characteristic;
 	}
 
@@ -366,7 +366,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		}
 		else
 		{
-			char firstChar = aString.charAt(0);
+			final char firstChar = aString.charAt(0);
 			multiples = firstChar == 'y' || firstChar == 'Y';
 		}
 	}
@@ -427,10 +427,10 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * Whether we can add newAssociation to the associated list of this
 	 * Ability
 	 *
-	 * @param newAssociation
+	 * @param newAssociation The thing to be associated with this Ability
 	 * @return true if we can add the association
 	 */
-	public boolean canAddAssociation(String newAssociation)
+	public boolean canAddAssociation(final String newAssociation)
 	{
 		return 	this.isStacks() || (this.isMultiples() && !this.containsAssociated(newAssociation));
 	}
@@ -524,7 +524,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 
 		if (getChoiceToModify().length() != 0)
 		{
-			txt.append("\tMODIFYABILITYCHOICE:" + getChoiceToModify());
+            txt.append("\tMODIFYABILITYCHOICE:").append(getChoiceToModify());
 		}
 
 		txt.append(super.getPCCText(false));
@@ -550,7 +550,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		// don't do for Weapon Profs
 		final StringBuffer aStrBuf = new StringBuffer(getOutputName());
 
-		if (getOutputName().equalsIgnoreCase("[BASE]"))
+		if ("[BASE]".equalsIgnoreCase(getOutputName()))
 		{
 			return getDisplayName();
 		}
@@ -570,10 +570,10 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			}
 			else
 			{
-				int i = 0;
-
 				// has a sub-detail
 				aStrBuf.append(" (");
+
+                int i = 0;
 
 				// list of items in associatedList, e.g. " (Sub1, Sub2, ...)"
 				for (int e = 0; e < getAssociatedCount(true); ++e)
@@ -611,7 +611,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 *
 	 * @return  true if the Ability was modified, false otherwise
 	 */
-	public boolean modChoices(final PlayerCharacter aPC, final boolean addIt, AbilityCategory category)
+	public boolean modChoices(final PlayerCharacter aPC, final boolean addIt, final AbilityCategory category)
 	{
 		final List availableList = new ArrayList(); // available list of choices
 		final List selectedList  = new ArrayList(); // selected list of choices
@@ -632,11 +632,11 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * may also be used to build a list of choices available and choices
 	 * already made by passing false in the process parameter
 	 *
-	 * @param availableList
-	 * @param selectedList
-	 * @param process
-	 * @param aPC
-	 * @param addIt
+	 * @param availableList the list of things not already chosen
+	 * @param selectedList the list of things already chosen
+	 * @param process if false do not process the choice, just poplate the lists
+	 * @param aPC the PC that owns the Ability
+	 * @param addIt Whether to add or remove a choice from this Ability
      * @param category The ability category whose pool is to be charged for the ability.
 	 *
 	 * @return true if we processed the list of choices, false if we used the routine to
@@ -664,23 +664,23 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * Enhanced containsAssociated, which parses the input parameter for "=",
 	 * "+num" and "-num" to extract the value to look for.
 	 *
-	 * @param   aType  The type we're looking for
+	 * @param   type  The type we're looking for
 	 *
 	 * @return  enhanced containsAssociated, which parses the input parameter
 	 *          for "=", "+num" and "-num" to extract the value to look for.
 	 */
-	@Override int numberInList(String aType)
+	@Override int numberInList(final String type)
 	{
-		int iCount = 0;
-		final String numString = "0123456789";
+        String aType = type;
 
-		if (aType.lastIndexOf('=') > -1)
+        if (aType.lastIndexOf('=') > -1)
 		{
 			aType = aType.substring(aType.lastIndexOf('=') + 1);
 		}
 
 		// truncate at + sign if following character is a number
-		if (aType.lastIndexOf('+') > -1)
+        final String numString = "0123456789";
+        if (aType.lastIndexOf('+') > -1)
 		{
 			final String aString = aType.substring(aType.lastIndexOf('+') + 1);
 
@@ -701,7 +701,8 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			}
 		}
 
-		for (int i = 0; i < getAssociatedCount(); ++i)
+        int iCount = 0;
+        for (int i = 0; i < getAssociatedCount(); ++i)
 		{
 			if (getAssociated(i).equalsIgnoreCase(aType))
 			{
@@ -758,7 +759,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public String getChoiceToModify()
 	{
-		String characteristic = stringChar.get(StringKey.CHOICE_TO_MODIFY);
+		final String characteristic = stringChar.get(StringKey.CHOICE_TO_MODIFY);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -770,7 +771,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 *
 	 * @return  whether we modified the Ability
 	 */
-	public boolean modifyChoice(PlayerCharacter aPC)
+	public boolean modifyChoice(final PlayerCharacter aPC)
 	{
 		String abilityName = getChoiceToModify();
 
@@ -779,12 +780,10 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			return false;
 		}
 
-		ArrayList<String> abilityList = new ArrayList<String>();
-		ArrayList<String> selectedList = new ArrayList<String>();
+		final List<String> abilityList = new ArrayList<String>();
+		final List<String> selectedList = new ArrayList<String>();
 
-		Ability anAbility;
-
-		if (abilityName.startsWith("TYPE=") || abilityName.startsWith("TYPE="))
+        if (abilityName.startsWith("TYPE=") || abilityName.startsWith("TYPE."))
 		{
 			final String anAbilityType = abilityName.substring(5);
 
@@ -792,7 +791,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			// Get a list of all ability possessed by the character that
 			// are the specified type
 			//
-			for ( Ability ability : aPC.aggregateFeatList() )
+			for ( final PObject ability : aPC.aggregateFeatList() )
 			{
 				if (ability.isType(anAbilityType))
 				{
@@ -844,9 +843,9 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			}
 		}
 
-		anAbility = aPC.getFeatNamed(abilityName);
+        final Ability anAbility = aPC.getFeatNamed(abilityName);
 
-		if (anAbility == null)
+        if (anAbility == null)
 		{
 			Logging.debugPrint("PC does not have ability: " + abilityName);
 
@@ -912,7 +911,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
      * Compare an ability (category) to another one
      * Returns the compare value from String.compareToIgnoreCase
      * 
-     * @param obj 
+     * @param obj the object that we're comparing against
      * @return compare value
      */
 	@Override
@@ -922,7 +921,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		{
 			try
 			{
-				Ability ab = (Ability) obj;
+				final Categorisable ab = (Categorisable) obj;
 				if (this.getCategory().compareToIgnoreCase(ab.getCategory()) != 0)
 				{
 					return this.getCategory().compareToIgnoreCase(ab.getCategory());
@@ -949,7 +948,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * @return true if they are equal
 	 */
     @Override
-	public boolean equals(Object other)
+	public boolean equals(final Object other)
 	{
 		return other instanceof Ability && this.compareTo(other) == 0;
 	}
@@ -967,7 +966,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * Test whether other is the same base ability as this (ignoring any changes
 	 *  made to apply either to a PC)
 	 *
-	 * @param that
+	 * @param that the other ability
 	 * @return true is the abilities are copies of the same base ability
 	 */
 	public boolean isSameBaseAbility(Ability that) {

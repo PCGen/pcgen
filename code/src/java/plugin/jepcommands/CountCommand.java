@@ -144,11 +144,10 @@ public class CountCommand extends PCGenCommand {
 
                         while (abIt.hasNext()) {
                             final PObject p = abIt.next();
-                            if (!p.getKeyName().equalsIgnoreCase(keyValue[1])) {
+                            if (!p.getDisplayName().equalsIgnoreCase(keyValue[1])) {
                                 abIt.remove();
                             }
                         }
-
                         break;
 
                     case NATURE:
@@ -740,7 +739,7 @@ public class CountCommand extends PCGenCommand {
                     if (pt == null) {
                         pt = ParameterTree.makeTree((String) param);
                     } else {
-                        final ParameterTree npt = new ParameterTree(ParameterTree.andString);
+                        final ParameterTree npt = ParameterTree.makeTree(ParameterTree.andString);
                         npt.setLeftTree(pt);
                         pt = npt;
                         final ParameterTree npt1 = ParameterTree.makeTree((String) param);

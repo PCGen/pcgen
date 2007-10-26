@@ -23,158 +23,242 @@
  */
 package pcgen.util;
 
+import org.nfunk.jep.ParseException;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.nfunk.jep.ParseException;
-
 public class ParameterTree
 {
-	String        data;
-	ParameterTree left;
-	ParameterTree right;
-	static public String orString  = "[or]";
-	static public String andString = "[and]";
+	String        contents;
+	ParameterTree left  = null;
+	ParameterTree right = null;
+	public static String orString  = "[or]";
+	public static String andString = "[and]";
 	static String orPatString  = "\\[or\\]";
 	static String andPatString = "\\[and\\]";
-	
-	static String patString = "(\\(|\\)|" + orPatString + "|" + andPatString + ")";
+
+    private static String leftBracket = "(";
+    private static String leftPatString  = "\\(";
+    private static String rightPatString = "\\)";
+
+    static String patString = "(" + leftPatString + "|" + rightPatString+ "|" + orPatString + "|" + andPatString + ")";
 		
 	static Pattern pat = Pattern.compile(patString);
 
+    // the grouping pattern & matcher
+    private static final String  parenString  = "(" + leftPatString + "|" + rightPatString + ")";
+    private static final Pattern parenPattern = Pattern.compile(parenString);
 
-	public static ParameterTree makeTree (final String source) throws ParseException
+    // the opertor pattern & matcher
+    private static final String  operatorString  = "(" + orPatString + "|" + andPatString + ")";
+    private static final Pattern operatorPattern = Pattern.compile(operatorString);
+
+
+    private static int getIndexOfClosingParen (
+            final String s,
+            final int start) throws ParseException
+    {
+        final Matcher aMat = parenPattern.matcher(s);
+
+        aMat.find(start);
+        int level = 1;
+
+        while (level > 0) {
+            if (!aMat.find()) {
+                throw new ParseException("unbalanced parenthesis in " + s);
+            }
+
+            if (leftBracket.equalsIgnoreCase(aMat.group())) {
+                level++;
+            } else {
+                level--;
+            }
+        }
+
+        return aMat.end();
+    }
+
+    public static ParameterTree makeTree (final String source) throws ParseException
 	{
-		Matcher mat = ParameterTree.pat.matcher(source);
+		final Matcher mat = ParameterTree.pat.matcher(source);
 	
 		if (mat.find()) {
-			return ParameterTree.makeTree(null, source.substring(0, mat.start()), mat, source, 0);
+			return makeTree(source, false);
 		} else {
 			return new ParameterTree(source);
 		}
 	}
 
-	static ParameterTree makeTree (ParameterTree outertree, String beforeop, Matcher m, String s, int start) throws ParseException
+    private static ParameterTree makeTree (
+            final String source,
+            final boolean operatorNeeded) throws ParseException
 	{
-		ParameterTree newt = null;
+        final Matcher  pM   = parenPattern.matcher(source);
+        final boolean hasP = pM.find();
 
-		if (m.group().equalsIgnoreCase("("))
-		{
-			if (m.start() != start)
-			{
-				throw new ParseException("found ( with no preceeding operator at char " + start + " of " + s);
-			}
-	
-			if (m.find())
-			{
-				newt = makeTree(null, s.substring(start + 1, m.start()), m, s, start + 1);
-				
-			}
-			else
-			{
-				throw new ParseException("We should have matched a ')' to close the inner expression.");
-			}
-		}
-		
-		
-		ParameterTree root = outertree;
-	
-		if (beforeop.equalsIgnoreCase(""))
-		{
-			if (null == newt)
-			{
-				throw new ParseException("Apparently empty operand at char " + start + " of " + s);
-			}
-			else
-			{
-				if (root == null) {
-					root = newt;
-				}
-				else
-				{
-					root.setRightTree(newt);
-				}
-			}
-		}
-		else
-		{
-			if (root == null) {
-				root = new ParameterTree(beforeop);
-			}
-			else
-			{
-				root.setRightTree(new ParameterTree(beforeop));
-			}
-		}
-	
-		int nextstart = 0;
-		
-		// we can't just check for ")" because that will close all recursed subtrees
-		// if we match the ), then we try to match again, this resets the match object
-		// for the calling instance of this method.  This may mean that when the caller
-		// hits this piece of code, the match object is in an invalid state. 
-		try
-		{
-			nextstart = m.end();
-			
-			if (m.group().equalsIgnoreCase(")"))
-			{
-				// because this find may not work, the match object in the caller needs this try block
-				if (m.find())
-				{
-					if (nextstart != m.start())
-					{
-						throw new ParseException("a close bracket must be followed by an operator or another close bracket");
-					}
-				}
-				return root;
-			}
-		}
-		catch (IllegalStateException e)
-		{
-			return root;
-		}
+        ParameterTree t;
 
-		final ParameterTree op = new ParameterTree(m.group());
-	
-		op.setLeftTree(root);
-		root = op;
-	
-		// grab the start of the right operand incase we need it next
-		nextstart = m.end();
+        if (hasP) {
+            final String pre = source.substring(0, pM.start());
+            final int    end = getIndexOfClosingParen(source, pM.start());
 
-		if (m.find()) {
-			
-			ParameterTree t1 = makeTree(root, s.substring(nextstart, m.start()), m, s, nextstart);
-			return t1;
-			
-		} else {
-			root.setRightTree(new ParameterTree(s.substring(nextstart)));
-			return root;
-		}
-	}
+            if (0 == pre.length()) {
 
-	public Double processTree (Enum e)
+                final String inside = source.substring(pM.end(), end - 1);
+                t = makeTree(inside, false);
+
+            } else {
+
+                t = toTree(pre, operatorNeeded);
+
+                final Matcher rM = operatorPattern.matcher(t.getContents());
+
+                if (rM.find()) {
+
+                    if (t.getRightTree() == null) {
+                        // Since we found an operator in the root of the tree, but
+                        // the right subtree is null, then the parens must contain
+                        // a complete expression (or the whole thing is illegal)
+                        // so make a tree from the contents and append it here
+                        // remember to strip off the outer parens.
+                        final String inside = source.substring(pM.end(), end - 1);
+                        t.setRightTree(makeTree(inside, false));
+                    } else {
+                        // The root of the tree generated from the first section of the
+                        // string has something in its right sub tree. That means the
+                        // parenthesised expression is a part of that string (since
+                        // if it ended with an operator that would be in a separate
+                        // "root")
+                        final StringBuilder rNodeContents = new StringBuilder();
+                        rNodeContents.append(t.getRightTree().getContents());
+                        rNodeContents.append(source.substring(pM.start(), end));
+                    }
+
+                } else {
+                    // root of the generated tree doesn't contain an operator, so
+                    // the paren expression should be tacked onto it.
+                    final String parenExp = source.substring(pM.end() - 1, end);
+                    final StringBuilder rNodeContents = new StringBuilder();
+                    rNodeContents.append(t.getContents()).append(parenExp);
+                    t.setContents(rNodeContents.toString());
+                }
+            }
+
+            if (end < source.length()) {
+                final String sEnd = source.substring(end);
+                final ParameterTree r = makeTree(sEnd,true);
+
+                ParameterTree c = r;
+
+                final Matcher cM = operatorPattern.matcher(r.getContents());
+
+                if (!cM.find()) {
+                    throw new ParseException("expected \"" + source.substring(end) + "\" to begin with an operator");
+                }
+
+                while (c.getLeftTree() != null) {
+                    c = c.getLeftTree();
+                }
+
+                c.setLeftTree(t);
+                t = r;
+            }
+        } else {
+            t = toTree(source, operatorNeeded);
+        }
+
+        return t;
+    }
+
+    private static ParameterTree toTree(
+            final String source,
+            final boolean operatorNeeded) throws ParseException
 	{
-		
-		return new Double(0.0);
-	}
+        String s = source;
+        // the opertor matcher
+        Matcher oM = operatorPattern.matcher(s);
+        ParameterTree cT = new ParameterTree("");  //current Tree
 
-	/**
-	 * @param data
+        boolean hasO = oM.find();
+
+        // this is for operators, obviously
+        if (hasO && operatorNeeded) {
+            if (oM.start() != 0) {
+                throw new ParseException("expected \"" + s + "\" to begin with an operator");
+            } else {
+                cT = new ParameterTree(oM.group());
+                final int end = oM.end();
+                s = s.substring(end);
+                oM = operatorPattern.matcher(s);
+                hasO = oM.find();
+            }
+        }
+
+        int start = 0;
+
+        while (hasO) {
+
+            final String pre = s.substring(start, oM.start());
+
+            final ParameterTree P = new ParameterTree(pre);        // pre Tree
+            final ParameterTree R = new ParameterTree(oM.group()); // root Tree - must be an operator (it matched)
+
+            // is the "root" of the current tree an operator
+            final Matcher cM = operatorPattern.matcher(cT.getContents());
+
+            if (cM.find()) {
+                cT.setRightTree(P);
+                R.setLeftTree(cT);
+                // right branch of R is null
+            } else {
+                R.setLeftTree(P);
+                // can discard current tree, it's empty (first iteration)
+            }
+
+            // root becomes new current tree
+            cT = R;
+
+            start = oM.end();
+            hasO  = oM.find();
+        }
+
+        // no more operators, but string is not empty
+        if (start < s.length()) {
+
+            final ParameterTree p  = new ParameterTree(s.substring(start));
+            final Matcher       cM = operatorPattern.matcher(cT.getContents());
+
+            if (cM.find()) {
+                // current tree has operator in root
+                cT.setRightTree(p);
+            } else {
+                // current tree is the default empty tree created above
+                cT = p;
+            }
+        }
+
+        return cT;
+    }
+
+
+    /**
+	 * @param data The value that will end up in the node of the tree
 	 */
-	public ParameterTree(String data) {
+    ParameterTree(final String data) {
 		super();
-		this.data = data;
-		left      = null;
-		right     = null;
-	}
+		this.contents  = data;
+    }
 
-	/**
+    public void setContents(final String data) {
+        this.contents = data;
+    }
+
+    /**
 	 * @return the Contents
 	 */
 	public String getContents() {
-		return data;
+		return contents;
 	}
 
 
@@ -188,8 +272,8 @@ public class ParameterTree
 	/**
 	 * @param l the ParameterTree to add as the left sub tree
 	 */
-	public void setLeftTree(ParameterTree l) {
-		this.left = l;
+	public void setLeftTree(final ParameterTree l) {
+		left = l;
 	}
 	
 	/**
@@ -202,7 +286,27 @@ public class ParameterTree
 	/**
 	 * @param r the ParameterTree to add as the right sub tree
 	 */
-	public void setRightTree(ParameterTree r) {
-		this.right = r;
+	public void setRightTree(final ParameterTree r) {
+		right = r;
 	}
+
+    public String toString() {
+        final StringBuilder sb = new StringBuilder(200);
+
+        sb.append("[");
+        sb.append(contents);
+        sb.append(" ");
+
+        if (left != null) {
+            sb.append(left.toString());
+        }
+
+        if (right != null) {
+            sb.append(right.toString());
+        }
+
+        sb.append("]");
+
+        return sb.toString();
+    }
 }
