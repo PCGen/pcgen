@@ -43,7 +43,7 @@
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#VISIBLE">VISIBLE</a>, 
 		<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a>, 
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#TYPE">TYPE (miscinfo)</a>,
-		<a href="../globalfilestagpages/globalfilesprexxx.html#TYPE">TYPE</a>, 
+		<a href="../globalfilestagpages/globalfilesprexxx.html#TYPE">TYPE (data file)</a>, 
 		<a href="../globalfilestagpages/globalfilesprexxx.html#VISIBILITY">VISIBILITY</a>, 
 		<a href="../globalfilestagpages/globalfilesprexxx.html#ABILITYPOOL">BONUS:ABILITYPOOL</a>, 
 		<a href="../globalfilestagpages/globalfilesprexxx.html#CATEGORYY">CATEGORY</a>, 
@@ -56,42 +56,39 @@
 		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a></code>
 	</p>
 
-	<blockquote>
-		<p>NOTE: In this section we will discuss only those LST tags specific to this implementation,
-		and how they are used to implement the subject rule. For more general information on the 
-		associated tags, please visit the <a href="../../navlistindex.html" target="navigation">LST 
-		File Tag Index</a> section of the PCGen Documentation.</p>
-	</blockquote>
+	<p class="sidebar1">NOTE: In this section we will discuss only those LST tags specific to this implementation,
+	and how they are used to implement the subject rule. For more general information on the 
+	associated tags, please visit the <a href="../../navlistindex.html" target="navigation">LST 
+	File Tag Index</a> section of the PCGen Documentation.</p>
 
 <hr>
 
 	<h2>Implementation Discussion</h2>
 
 	<p class="indent1">Implementing &quot;Abilities by Skill Ranks&quot; requires modifications to two 
-	&quot;Gamemode&quot; files and two &quot;Data&quot; files. The gamemode files include 
-	the <em>miscinfo.lst</em> file where we will be adding a new category of abilities called 
-	the &quot;AbilitybySkills&quot;, and the <em>statsandchecks.lst</em> file where we will be modifying 
-	the <strong>Intelligence</strong> stat. The data files files include the <em>skill.lst</em> 
-	file where we will be creating a new skill called the &quot;Ability by Skill&quot;, and the 
-	<em>ability.lst</em> file where we will be creating a new ability to be &quot;purchased&quot;, 
-	in this case an ability called &quot;Ac Ba&quot;.</p>
+	Gamemode files and two Data files. The gamemode files include the <em>miscinfo.lst</em> file where 
+	we will be adding a new category of abilities called the &quot;AbilitybySkills&quot;, and the 
+	<em>statsandchecks.lst</em> file where we will be modifying the <strong>Intelligence</strong> 
+	stat. The data files files include the <em>skill.lst</em> file where we will be creating a new 
+	skill called the &quot;Ability by Skill&quot;, and the <em>ability.lst</em> file where we will 
+	be creating a new ability to be purchased, in this case an ability called &quot;Ac Ba&quot;.</p>
 	
 	<p class="indent1">The mechanics of this rule, as implemented on this page, work this way:</p>
 
 	<ul class="indent1">
-		<li class="tagindent0">When the character is created, the &quot;AbilitybySkillMax&quot; 
+		<li class="tagindent0">When the character is created, the <lstvar>AbilitybySkillMax</lstvar> 
 			variable is initialized and set to half of the characters total level.</li>
 		<li class="tagindent0">Each rank taken in the skill named &quot;Ability by Skill&quot; adds 
 			one point to the ability pool for the &quot;AbilitybySkill&quot; category of abilities.</li>
 		<li class="tagindent0">&quot;AbilitybySkill&quot; abilities become available under the 
 			&quot;AbilitybySkill&quot; sub-tab on the feats tab.</li>
-		<li class="tagindent0">The first &quot;AbilitybySkill&quot; ability the character takes 
-			defines and initializes the &quot;AbilitybySkillCount&quot; variable.</li>
-		<li class="tagindent0"> Subsequent &quot;AbilitybySkill&quot; abilities taken by the 
-			character increases the value of the variable, &quot;AbilitybySkillCount&quot;, by one.</li>
-		<li class="tagindent0">Once &quot;AbilitybySkillCount&quot; equals or exceeds &quot;AbilitybySkillMax&quot;, 
-			&quot;AbilitybySkill&quot; abilities become unavailable until the character goes up a level, thereby 
-			increasing the &quot;AbilitybySkillMax&quot; variable.</li>
+		<li class="tagindent0">The first such ability the character takes defines and initializes the 
+			<lstvar>AbilitybySkillCount</lstvar> variable.</li>
+		<li class="tagindent0"> Subsequent AbilitybySkill abilities taken by the character increases the 
+			value of the variable, <lstvar>AbilitybySkillCount</lstvar>, by one.</li>
+		<li class="tagindent0">Once <lstvar>AbilitybySkillCount</lstvar> equals or exceeds <lstvar>AbilitybySkillMax</lstvar>, 
+			AbilitybySkill abilities become unavailable until the character goes up a level, thereby 
+			increasing the <lstvar>AbilitybySkillMax</lstvar> variable.</li>
 	</ul>
 	
 	<p class="indent1">We will discuss, below, each of the LST entries required, and the tags that make 
@@ -102,17 +99,13 @@
 
 	<h3>Miscinfo.lst File</h3>
 
+	<p class="sidebar1">Note: The <em>miscinfo.lst</em> file is a gamemode file and as such is not referenced 
+	in the <em>*.pcc</em> file. It can be found in the <em>pcgen/system/gamemodes/35e</em> directory. The 
+	modifications listed below can be placed right below the Salient Divine Abilities entry.</p>
+
 	<p class="indent1">The specific <em>miscinfo.lst</em> file entry required to 
 	implement &quot;Abilities by Skill Ranks&quot; consists of the definition of a single ability 
-	category called &quot;AbilitybySkill&quot;. The tags used to do this are explained 
-	below:</p>
-
-	<blockquote>
-		<p>Note: The <em>miscinfo.lst</em> file is a gamemode file and as such is not referenced 
-		in the <em>*.pcc</em> file. It can be found in the <em>pcgen/system/gamemodes/35e</em> 
-		directory. The modifications listed below can be placed right below the Salient Divine 
-		Abilities entry.</p>
-	</blockquote>
+	category called AbilitybySkill. The tags used to do this are explained below:</p>
 
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>ABILITYCATEGORY:AbilitybySkill</code></p>
@@ -123,35 +116,38 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>CATEGORY:AbilitybySkill</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This sets the new category's 
-		&quot;parent&quot; category as the same as the new category.</p>
+		parent category as the same as the new category.</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>PLURAL:AbilitybySkills</code></p>
-		<p class="indent1"><strong>What it Does:</strong> This establishes the &quot;plural&quot; 
-		form of the ability category name. (Used primarily for Internatinalization.)</p>
+		<p class="indent1"><strong>What it Does:</strong> This establishes the pluralform 
+		of the ability category name. (Used primarily for Internatinalization.)</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>EDITABLE:YES</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This establishes that that a user 
-		can modify the abilities in the category. NO would be appropriate for class 
-		abilities which aren't chosen by the user.</p>
+		can select abilities in this category.</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>EDITPOOL:NO</code></p>
-		<p class="indent1"><strong>What it Does:</strong> The &quot;AbilitybySkill&quot; ability 
-		pool cannot be modified by the user.</p>
+		<p class="indent1"><strong>What it Does:</strong> The pool for this category of 
+		ability cannot be modified by the user.</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>FRACTIONALPOOL:NO</code></p>
-		<p class="indent1"><strong>What it Does:</strong> Restricts the &quot;AbilitiesbySkill&quot; 
-		ability pool to whole numbers only.</p>
+		<p class="indent1"><strong>What it Does:</strong> Restricts the ability pool for 
+		this category of ability to whole numbers only.</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>POOL:AbilitybySkillPool</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This establishes the base ability 
-		pool for AbilitybySkill equal to the value of the variable &quot;AbilitybySkillPool&quot;. 
-		As this variable hasn't been initialized, the value is zero with no points being 
-		added for each level gained.</p>
+		pool for AbilitybySkill equal to the value of the variable <lstvar>AbilitybySkillPool</lstvar>. 
+		(See DEFINE tag below.)</p>
+	</blockquote>
+	<blockquote class="indent1">
+		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillPool|0</code></p>
+		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
+		<lstvar>AbilitybySkillPool</lstvar> and initialize its value to zero.</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>VISIBLE:YES</code></p>
@@ -159,26 +155,24 @@
 		visible in the PCGen GUI.</p>
 	</blockquote>
 
-	<p class="indent1">You will find the completed <a href="#MISCINFO">AbilitybySkill Ability Category 
-	Definition</a> below.</p>
+	<p class="indent1">You will find the completed <a href="#MISCINFO">AbilitybySkill Ability</a> 
+	Category Definition below.</p>
 
 <hr>
 
 	<h3>Statsandchecks.lst File</h3>
 	
+	<p class="sidebar1">Note: The <em>statsandchecks.lst</em> file is a gamemode file and as such is not 
+	referenced in the <em>*.pcc</em> file. It can be found in the <em>pcgen/system/gamemodes/35e</em> directory.</p>
+
 	<p class="indent1">The <em>statsandchecks.lst</em> file entry required in this implementation 
 	consists of the modification of an existing entry. The following tag is added to the line 
 	defining the intelligence stat:</p>
 
-	<blockquote>
-		<p>Note: The <em>statsandchecks.lst</em> file is a gamemode file and as such is not referenced in the 
-		<em>*.pcc</em> file. It can be found in the <em>pcgen/system/gamemodes/35e</em> directory.</p>
-	</blockquote>
-
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillMax|TL/2</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
-		&quot;AbilitybySkillMax&quot; to have a value of half the character's total level.</p>
+		<lstvar>AbilitybySkillMax</lstvar> to have a value of half the character's total level.</p>
 	</blockquote>
 
 	<p class="indent1">You will find the modified <a href="#STATSANDSCHECKS">Intellegence Stat</a> below.</p>
@@ -187,25 +181,25 @@
 
 	<h3>Skills.lst File</h3>
 		
-	<p class="indent1">Only one new entry is required in the <em>skill.lst</em> file. This 
-	is the new skill &quot;Ability by Skill&quot;. The purpose of this skill is to add bonus points 
-	to the pool of available points for the &quot;AbilitybySkill&quot; category of abilities, one
-	for each skill rank taken. The tags used to do this are explained below:</p>
+	<p class="indent1">Only one new entry is required in the <em>skill.lst</em> file. This is the new 
+	skill &quot;Ability by Skill&quot;. The purpose of this skill is to add bonus points to the pool 
+	of available points for the AbilitybySkill category of abilities, one for each skill rank taken. 
+	The tags used to do this are explained below:</p>
 
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>TYPE:NoStat</code></p>
-		<p class="indent1"><strong>What it Does:</strong> We are defining what 'type' 
-		this skill belongs to.</p>
+		<p class="indent1"><strong>What it Does:</strong> This skill is assigned a type 
+		of &quot;NoStat&quot;.</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>VISIBLE:DISPLAY</code></p>
-		<p class="indent1"><strong>What it Does:</strong> 'DISPLAY' - This skill will 
-		only be visible in the GUI of PCGen on not appear on the Character sheet.</p>
+		<p class="indent1"><strong>What it Does:</strong> This skill will only be visible in 
+		PCGen's graphical user interface (GUI). It will not appear on the Character sheet.</p>
 	</blockquote>
 	<blockquote class="indent1">
-		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:ABILITYPOOL|AbilitybySkill|SKILL.Ability by Skill.RANK</code></p>
+		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:ABILITYPOOL|AbilitybySkillPool|SKILL.Ability by Skill.RANK</code></p>
 		<p class="indent1"><strong>What it Does:</strong> Breaking down the tag we are 
-		saying to give a bonus to the ABILITYPOOL of the &quot;AbilitybySkill&quot; 
+		saying to give a bonus to the ABILITYPOOL of the AbilitybySkill 
 		category for each skill rank placed in the skill. Note: Each skill rank cost 
 		2 points as a Cross-Class Skill.</p>
 	</blockquote>
@@ -224,8 +218,8 @@
 
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>CATEGORY:AbilitybySkill</code></p>
-		<p class="indent1"><strong>What it Does:</strong> This places the &qut;Ac Ba&quot; 
-		ability into the &quot;AbilitybySkill&quot; category. (See <em>miscinfo.lst</em> above.)</p>
+		<p class="indent1"><strong>What it Does:</strong> This places the &qout;Ac Ba&quot; 
+		ability into the AbilitybySkill category. (See <em>miscinfo.lst</em> above.)</p>
 	</blockquote>
 
 	<blockquote class="indent1">
@@ -245,7 +239,7 @@
 		<p class="indent0"><strong>Tag Used:</strong> <code>!PREABILITY:1,CATEGORY=AbilitybySkill,Ac Ba</code></p>
 		<p class="indent1"><strong>What it Does:</strong> Sets a prerequisite for the &quot;Ac Ba&quot; 
 		ability. Specifically, the character must not currently have the &quot;Ac Ba&quot; ability that 
-		has been defined as belonging to the &quot;AbilitybySkill&quot; category. An ability called &quot;Ac 
+		has been defined as belonging to the AbilitybySkill category. An ability called &quot;Ac 
 		Ba&quot; of any other category will not disqualify the character from selecting this ability. 
 		(The inclusion of this tag is a temporary workaround as there is currently a bug with the ability 
 		object not respecting the default of MULT:NO.)</p>
@@ -261,14 +255,14 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>PREVARLT:AbilitybySkillCount,AbilitybySkillMax</code></p>
 		<p class="indent1"><strong>What it Does:</strong> Sets a prerequisite for the &quot;Ac Ba&quot; 
-		ability. Specifically, the variable &quot;AbilitybySkillCount&quot; must be less than the variable 
-		&quot;AbilitybySkillMax&quot; in order for the ability to be selected.</p>
+		ability. Specifically, the variable <lstvar>AbilitybySkillCount</lstvar> must be less than the variable 
+		<lstvar>AbilitybySkillMax</lstvar> in order for the ability to be selected.</p>
 	</blockquote>
 
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillCount|0</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
-		&quot;AbilitybySkillCount&quot; and to initialize it to the value zero.</p>
+		<lstvar>AbilitybySkillCount</lstvar> and to initialize it to the value zero.</p>
 	</blockquote>
 
 	<blockquote class="indent1">
@@ -282,7 +276,7 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:VAR|AbilitybySkillCount|1</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This bonus tag increases the value of 
-		the variable &quot;AbilitybySkillCount&quot; by 1.</p>
+		the variable <lstvar>AbilitybySkillCount</lstvar> by 1.</p>
 	</blockquote>
 
 	<p class="indent1">You will find the completed <a href="#ABILITY">&quot;Ac Ba&quot; Ability</a> below.</p>
@@ -311,6 +305,7 @@
 		<p class="tagindent1"><code>EDITPOOL:NO</code></p>
 		<p class="tagindent1"><code>FRACTIONALPOOL:NO</code></p>
 		<p class="tagindent1"><code>POOL:AbilitybySkillPool</code></p>
+		<p class="tagindent1"><code>DEFINE:AbilitybySkillPool|0</code></p>
 		<p class="tagindent1"><code>VISIBLE:YES</code></p>
 	</blockquote>
 
@@ -334,7 +329,7 @@
 		<p class="tagindent1"><code>Ability by Skill</code></p>
 		<p class="tagindent1"><code>TYPE:NoStat</code></p>
 		<p class="tagindent1"><code>VISIBLE:DISPLAY</code></p>
-		<p class="tagindent1"><code>BONUS:ABILITYPOOL|AbilitybySkill|SKILL.Ability by Skill.RANK</code></p>
+		<p class="tagindent1"><code>BONUS:ABILITYPOOL|AbilitybySkillPool|SKILL.Ability by Skill.RANK</code></p>
 	</blockquote>
 
 	<a name="ABILITY"></a>

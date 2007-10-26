@@ -6,6 +6,12 @@ code {
 	font-family: "Courier New", Courier, mono;
 	font-size: 10pt;
 }
+lstvar {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 10pt;
+}
 dd	{
 	margin-bottom: 10px;
 }
@@ -158,11 +164,12 @@ a img {
 	margin-right: 10px;
 }
 .sidebar1 {
-	background: #CCCCCC;
+	background: #EFEFEF;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	margin-left: 5%;
 	margin-right: 5%;
+	padding:	5px;
 }
 .w20 {
 	width: 20%;

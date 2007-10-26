@@ -42,12 +42,10 @@
   		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a>
   		<a href="../globalfilestagpages/globalfilesprexxx.html#PREALIGN">PREALIGN</a></code></p>
 
-	<blockquote>
-		<p>NOTE: In this section we will discuss only those LST tags specific to this implementation,
-		and how they are used to implement the subject rule. For more general information on the 
-		associated tags, please visit the <a href="../../navlistindex.html" target="navigation">LST 
-		File Tag Index</a> section of the PCGen Documentation.</p>
-	</blockquote>
+	<p class="sidebar1">NOTE: In this section we will discuss only those LST tags specific to this implementation,
+	and how they are used to implement the subject rule. For more general information on the 
+	associated tags, please visit the <a href="../../navlistindex.html" target="navigation">LST 
+	File Tag Index</a> section of the PCGen Documentation.</p>
 
 <hr>
 
@@ -57,7 +55,7 @@
 	LST entries. These are a <em>feat.lst</em> entry titled &quot;Negative Levels&quot; and a specifc 
 	application of this feat in the appropriate item entry in the <em>equipment.lst</em> file. Fortunately, 
 	this ability has already been implemented in the RSRD, SRD, and the MSRD, as well as several 
-	other distributed datasets, so incorporating the rule into a &quot;Homebrew&quot; dataset is fairly simple, 
+	other distributed datasets, so incorporating the rule into a Homebrew dataset is fairly simple, 
 	as long as the homebrew rules are based upon one of the datasets that have the rule already implemented. 
 	The steps to follow in this case are as follows:</p>
 	
@@ -104,18 +102,18 @@
 		</blockquote>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>This grants the character &quot;negative levels&quot; as a Special Ability that will get 
+			<li>This grants the character &quot;negative levels&quot; as a Special Ability (SA) that will get 
 			listed together with all other special abilities the character has been granted.</li>
 			<li>The &quot;%&quot; tag will fill in a number from a variable listed after the pipe (|) with each 
 			successive &quot;%&quot; being replaced by the next variable listed after subsequent pipes.</li>
-			<li>The variable &quot;NegLevels&quot; is defined by the DEFINE tag within this feat.</li>
+			<li>The variable <lstvar>NegLevels</lstvar> is defined by the DEFINE tag within this feat.</li>
 			<li>The SA will NOT be displayed if the last variable or formula equals 0.</li>
 		</ul>
 	</blockquote>
 
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:NegLevels|0</code></p>
-		<p class="indent1"><strong>What it does:</strong> Creates the <em>NegLevels</em> variable 
+		<p class="indent1"><strong>What it does:</strong> Creates the <lstvar>NegLevels</lstvar> variable 
 		and initializes it to a value of zero.</p>
 	</blockquote>
 
@@ -150,7 +148,8 @@
 	<a name="VFEAT"></a>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>VFEAT:Negative Levels</code></p>
-		<p class="indent1"><strong>What it does:</strong> Grants the <em>Negative Levels</em> feat and initializes the <em>NegLevels</em> variable. (see Feat File Entry above.)</p>
+		<p class="indent1"><strong>What it does:</strong> Grants the Negative Levels feat and initializes the <lstvar>NegLevels</lstvar> 
+		variable. (see Feat File Entry above.)</p>
 	</blockquote>
 
 	<a name="BONUSVAR"></a>
@@ -159,12 +158,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (number of negative levels applied.)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>&quot;NegLevels&quot; is a variable defined in the &quot;Negative Levels&quot; feat specifically 
+			<li><lstvar>NegLevels</lstvar> is a variable defined in the Negative Levels feat specifically 
 			for this purpose.</li>
 			<li>Use &quot;2&quot;, not &quot;-2&quot;, to bestow two negative levels.</li>
-			<li>If the NegLevels Variable is &quot;0&quot; (no negative levels applied), then nothing will show,
-			and it will be as if the Negative Levels feat was not even there. :)</li>
-			<li>PRExxx tags can be used to set requirements for the applicaton of the &quot;NegLevels&quot; bonus.  
+			<li>If the <lstvar>NegLevels</lstvar> variable is &quot;0&quot; (no negative levels applied), then nothing will show,
+			and it will be as if the Negative Levels feat was not granted.</li>
+			<li>PRExxx tags can be used to set requirements for the applicaton of the <lstvar>NegLevels</lstvar> bonus.  
 			The most common PRExxx tag used is the PREALIGN tag, which sets an &quot;Alignment&quot; restriction 
 			on the associated bonus.</li>
 		</ul>
