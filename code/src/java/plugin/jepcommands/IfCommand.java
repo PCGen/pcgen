@@ -1,10 +1,9 @@
 package plugin.jepcommands;
 
-import java.util.Stack;
-
 import org.nfunk.jep.ParseException;
-
 import pcgen.util.PCGenCommand;
+
+import java.util.Stack;
 
 /**
  * <p>
@@ -54,7 +53,7 @@ public class IfCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-	public void run(Stack stack) throws ParseException
+	public void run(final Stack stack) throws ParseException
 	{
 		// Check if stack is null
 		if (null == stack)
@@ -62,13 +61,11 @@ public class IfCommand extends PCGenCommand
 			throw new ParseException("Stack argument null");
 		}
 
-		Object result = null;
+        final boolean condition;
 
-		boolean condition = false;
-
-		Object param3 = stack.pop();
-		Object param2 = stack.pop();
-		Object param1 = stack.pop();
+		final Object param3 = stack.pop();
+		final Object param2 = stack.pop();
+		final Object param1 = stack.pop();
 
 		if (param1 instanceof Number)
 		{
@@ -76,23 +73,14 @@ public class IfCommand extends PCGenCommand
 		}
 		else if (param1 instanceof Boolean)
 		{
-			condition = ((Boolean) param1).booleanValue();
+			condition = (Boolean) param1;
 		}
 		else
 		{
 			throw new ParseException("Invalid parameter type for Parameter 1");
 		}
 
-		if (condition)
-		{
-			result = param2;
-		}
-		else
-		{
-			result = param3;
-		}
-
 		// push the result on the inStack
-		stack.push(result);
+		stack.push(condition ? param2 : param3);
 	}
 }

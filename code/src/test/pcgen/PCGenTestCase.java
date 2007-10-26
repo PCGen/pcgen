@@ -80,7 +80,8 @@ public abstract class PCGenTestCase extends TestCase
 	/**
 	 * Constructs a new <code>PCGenTestCase</code> with the given <var>name</var>.
 	 *
-	 * @see TestCase#TestCase(String)
+	 * @param name The name of the test case
+     * @see TestCase#TestCase(String)
 	 */
 	public PCGenTestCase(final String name)
 	{
@@ -137,9 +138,9 @@ public abstract class PCGenTestCase extends TestCase
 		}
 	}
 
-	protected void is(Object something, TestChecker matches)
+	protected void is(final Object something, final TestChecker matches)
 	{
-		count = count + 1;
+        count += 1;
 
 		if (verbose)
 		{
@@ -151,27 +152,27 @@ public abstract class PCGenTestCase extends TestCase
 			{
 				Logging.errorPrint("\n!!! Not OK !!! - unlabelled test case");
 
-				StringBuffer message = new StringBuffer("  Expected: ");
+				final StringBuffer message = new StringBuffer("  Expected: ");
 				matches.scribe(message);
 				message.append("\n  but got: ").append(something).append('\n');
 
 				Logging.errorPrint(message.toString());
-				errors = errors + 1;				
+                errors += 1;
 			}
 		}
 		else if (!matches.check(something))
 		{
 
-			StringBuffer message = new StringBuffer("\nExpected: ");
+			final StringBuffer message = new StringBuffer("\nExpected: ");
 			matches.scribe(message);
 			message.append("\nbut got: ").append(something).append('\n');
 			fail(message.toString());
 		}
 	}
 
-	protected void is(Object something, TestChecker matches, String testCase)
+	protected void is(final Object something, final TestChecker matches, final String testCase)
 	{
-		count = count + 1;
+        count += 1;
 
 		if (verbose)
 		{
@@ -183,18 +184,18 @@ public abstract class PCGenTestCase extends TestCase
 			{
 				Logging.errorPrint("\n!!! Not OK !!! - " + testCase);
 
-				StringBuffer message = new StringBuffer("  Expected: ");
+				final StringBuffer message = new StringBuffer("  Expected: ");
 				matches.scribe(message);
 				message.append("\n  but got: ").append(something).append("\n");
 				
 				Logging.errorPrint(message.toString());
-				errors = errors + 1;				
+                errors += 1;
 			}
 		}
 		else if (!matches.check(something))
 		{
 
-			StringBuffer message = new StringBuffer("\nExpected: ");
+			final StringBuffer message = new StringBuffer("\nExpected: ");
 			matches.scribe(message);
 			message.append("\nbut got: ").append(something);
 			message.append(" \nIn test ").append(testCase);
@@ -203,57 +204,57 @@ public abstract class PCGenTestCase extends TestCase
 		}
 	}
 
-	public CompareEqualString strEq(String s)
+	public CompareEqualString strEq(final String s)
 	{
 		return new CompareEqualString(s);
 	}
 
-	public CompareEqualObject eq(Object operand)
+	public CompareEqualObject eq(final Object operand)
 	{
 		return new CompareEqualObject(operand);
 	}
 
-	public CompareEqualBoolean eq(boolean bo)
+	public CompareEqualBoolean eq(final boolean bo)
 	{
 		return new CompareEqualBoolean(bo);
 	}
 
-	public CompareEqualByte eq(byte operand)
+	public CompareEqualByte eq(final byte operand)
 	{
 		return new CompareEqualByte(operand);
 	}
 
-	public CompareEqualShort eq(short operand)
+	public CompareEqualShort eq(final short operand)
 	{
 		return new CompareEqualShort(operand);
 	}
 
-	public CompareEqualChar eq(char operand)
+	public CompareEqualChar eq(final char operand)
 	{
 		return new CompareEqualChar(operand);
 	}
 
-	public CompareEqualInt eq(int operand)
+	public CompareEqualInt eq(final int operand)
 	{
 		return new CompareEqualInt(operand);
 	}
 
-	public CompareEqualLong eq(long operand)
+	public CompareEqualLong eq(final long operand)
 	{
 		return new CompareEqualLong(operand);
 	}
 
-	public CompareEqualFloat eq(float operand)
+	public CompareEqualFloat eq(final float operand)
 	{
 		return new CompareEqualFloat(operand);
 	}
 
-	public CompareEqualDouble eq(double operand)
+	public CompareEqualDouble eq(final double operand)
 	{
 		return new CompareEqualDouble(operand);
 	}
 
-	public CompareDeadband eq(double operand, double error)
+	public CompareDeadband eq(final double operand, final double error)
 	{
 		return new CompareDeadband(operand, error);
 	}
@@ -263,52 +264,52 @@ public abstract class PCGenTestCase extends TestCase
 		return new CompareNull();
 	}
 
-	public CompareSame same(Object operand)
+	public CompareSame same(final Object operand)
 	{
 		return new CompareSame(operand);
 	}
 
-	public CompareSubstring stringContains(String substring)
+	public CompareSubstring stringContains(final String substring)
 	{
 		return new CompareSubstring(substring);
 	}
 
-	public BoolNot not(TestChecker c)
+	public BoolNot not(final TestChecker c)
 	{
 		return new BoolNot(c);
 	}
 
-	public BoolAnd and(TestChecker left, TestChecker right)
+	public BoolAnd and(final TestChecker left, final TestChecker right)
 	{
 		return new BoolAnd(left, right);
 	}
 
-	public BoolOr or(TestChecker left, TestChecker right)
+	public BoolOr or(final TestChecker left, final TestChecker right)
 	{
 		return new BoolOr(left, right);
 	}
 
-	public BoolXor xor(TestChecker left, TestChecker right)
+	public BoolXor xor(final TestChecker left, final TestChecker right)
 	{
 		return new BoolXor(left, right);
 	}
 
-	public CompareGreaterThan gt(Comparable operand)
+	public CompareGreaterThan gt(final Comparable<Object> operand)
 	{
 		return new CompareGreaterThan(operand);
 	}
 
-	public CompareGreaterOrEqual ge(Comparable operand)
+	public CompareGreaterOrEqual ge(final Comparable<Object> operand)
 	{
 		return new CompareGreaterOrEqual(operand);
 	}
 
-	public CompareLessThan lt(Comparable operand)
+	public CompareLessThan lt(final Comparable<Object> operand)
 	{
 		return new CompareLessThan(operand);
 	}
 
-	public CompareLessOrEqual le(Comparable operand)
+	public CompareLessOrEqual le(final Comparable<Object> operand)
 	{
 		return new CompareLessOrEqual(operand);
 	}

@@ -1,0 +1,146 @@
+/*
+ * IfCommandTest.java
+ * Copyright 2007 (C) andrew wilson <nuance@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on Oct 26, 2007
+ *
+ * $Id$
+ *
+ */
+package plugin.jepcommands;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import org.nfunk.jep.ParseException;
+import org.nfunk.jep.function.PostfixMathCommandI;
+import pcgen.PCGenTestCase;
+
+import java.util.Stack;
+
+/**
+ * <code>IfCommandTest</code> tests the functioning of the jep if plugin
+ *
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ *
+ * @author andrew wilson <nuance@users.sourceforge.net>
+ * @version $Revision$
+ */
+public class IfCommandTest extends PCGenTestCase
+{
+
+	/**
+	 * Quick test suite creation - adds all methods beginning with "test"
+	 * @return The Test suite
+	 */
+	public static Test suite()
+	{
+		return new TestSuite(IfCommandTest.class);
+	}
+
+	/*
+	 * @see TestCase#setUp()
+	 */
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+
+    }
+
+    private static boolean runIf(final Stack stack, final PostfixMathCommandI pCommand)
+    {
+        boolean b;
+        try
+        {
+            pCommand.run(stack);
+            b = true;
+        }
+        catch (ParseException e)
+        {
+            b = false;
+        }
+        return b;
+    }
+
+    /* Test the case where the condition is a zero double */
+    public void testIf01()
+    {
+        final PostfixMathCommandI   c = new IfCommand();
+        final Stack<Double>         s = new Stack<Double>();
+
+        s.push(0.0);
+        s.push(1.0);
+        s.push(2.0);
+
+        runIf(s, c);
+
+        final Double result = s.pop();
+
+        is(result, eq(2.0, 0.1), "if (0.0,1.0,2.0) returns 2.0");
+    }
+
+    /* Test the case where the condition is a non zero double */
+    public void testIf02()
+    {
+        final PostfixMathCommandI   c = new IfCommand();
+        final Stack<Double>         s = new Stack<Double>();
+
+        s.push(1.0);
+        s.push(1.0);
+        s.push(2.0);
+
+        runIf(s, c);
+
+        final Double result = s.pop();
+
+        is(result, eq(1.0, 0.1), "if (1.0,1.0,2.0) returns 1.0");
+    }
+
+    /* Test the case where the condition is a false boolean */
+    public void testIf03()
+    {
+        final PostfixMathCommandI   c = new IfCommand();
+        final Stack<Boolean>         s = new Stack<Boolean>();
+
+        s.push(false);
+        s.push(false);
+        s.push(true);
+
+        runIf(s, c);
+
+        final Boolean result = s.pop();
+
+        is(result, eq(true), "if (false,false,true) returns true");
+    }
+
+    /* Test the case where the condition is a true boolean */
+    public void testIf04()
+    {
+        final PostfixMathCommandI   c = new IfCommand();
+        final Stack<Boolean>         s = new Stack<Boolean>();
+
+        s.push(true);
+        s.push(false);
+        s.push(true);
+
+        runIf(s, c);
+
+        final Boolean result = s.pop();
+
+        is(result, eq(false), "if (true,false,true) returns false");
+    }
+}
