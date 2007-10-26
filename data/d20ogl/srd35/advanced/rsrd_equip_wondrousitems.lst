@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas tjannes@vub.ac.be based on srdequipwondrous
 
@@ -25,7 +25,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Helm of Comprehend Languages and Read Magic has KEY:Helm of Comprehending Languages and Reading Magic
 # Gloves of Swimming and Climbing             has KEY:Gloves of Swimming/Climbing
 
-# Equipment Name						Output Name						Type						Contains		Number of Pages	Page Usage				Cost		Weight	Slot Needed	Modifier					Source Page				Vision			Combat bonus																	Add to base move						Bonus to skill						Stat bonus					Unarmed Damage Level bonus	Modify VAR									Weapon prof. bonus																																																																											Automatic Languages	Special Property																																																	Special Ability
+# Equipment Name						Output Name						Type						Contains		Number of Pages	Page Usage				Cost		Weight	Slot Needed	Modifier					Source Page				Vision			Combat bonus																	Add to base move						Bonus to skill						Stat bonus					Unarmed Damage Level bonus	Modify VAR									Weapon prof. bonus																																																																											Automatic Languages	Special Property																																																	Special ABility
 Amulet of Health +2												TYPE:Magic.Wondrous.Amulet													COST:4000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																								BONUS:STAT|CON|2|TYPE=Enhancement
 Amulet of Health +4												TYPE:Magic.Wondrous.Amulet													COST:16000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																								BONUS:STAT|CON|4|TYPE=Enhancement
 Amulet of Health +6												TYPE:Magic.Wondrous.Amulet													COST:36000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																								BONUS:STAT|CON|6|TYPE=Enhancement
