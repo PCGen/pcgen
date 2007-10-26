@@ -53,6 +53,8 @@ Revisions: Chuck Pint 12/04/04 Fixed minor HTML warnings, Undead turning (again!
 
 Revisions: Eddy Anthony 1/16/06 Converted Will check to reference array number instead of name in preperation to converting the data to use "Will" as the check name
 
+Revisions: Tir-Gwaith 25/10/07 Converted Barbarian away from purely 3.0, reference defined VARs in all instances.  Still needs more work.
+
 $Revision$
 $Author$
 $Date$
@@ -302,7 +304,7 @@ var HP = new HPObject( |HP| );
 // AC object
 var AC = new ACObject(|AC.Flatfooted|,|AC.Touch|,|AC.Total|,|AC.Base|,|AC.Armor|,|AC.Shield|,|AC.Ability|,|AC.Size|,|AC.NaturalArmor|,|AC.Misc|);
 // List of skills forbidden to a raging Barb
-var SkillsRedList = new Array("Alchemy","Appraise","Craft","Decipher Script","Diplomacy","Disable Device","Disguise","Escape Artist","Forgery","Gather Information","Handle Animal","Heal","Hide","Innuendo","Intuit Direction","Knowledge","Move Silently","Open Lock","Perform","Pick Pocket","Profession","Read Lips","Scry","Search","Sense Motive","Spellcraft","Tumble","Use Magic Device");
+var SkillsRedList = new Array("Alchemy","Appraise","Craft","Decipher Script","Diplomacy","Disable Device","Disguise","Escape Artist","Forgery","Gather Information","Handle Animal","Heal","Hide","Innuendo","Intuit Direction","Knowledge","Move Silently","Open Lock","Perform","Pick Pocket","Profession","Read Lips","Scry","Search","Sense Motive","Sleight of Hand","Spellcraft","Tumble","Use Magic Device");
 // List of the supported states a char can be in.
 StateArr[0] = new CharState( "Rage", BarbMods, BarbMods );
 StateArr[1] = new CharState( "DefFighting", DefensiveCombatMods, DefensiveCombatMods );
