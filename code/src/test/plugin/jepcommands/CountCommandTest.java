@@ -1,6 +1,6 @@
 /*
- * AbilityListTokenTest.java
- * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
+ * CountCommandTest.java
+ * Copyright 2007 (C) andrew wilson <nuance@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Oct 17, 2006
+ * Created on Oct 20, 2007
  *
  * $Id$
  *
@@ -34,13 +34,12 @@ import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * <code>AbilityListTokenTest</code> tests the functioning of the ABILITYLIST
- * token processing code.
+ * <code>CountCommandTest</code> tests the functioning of the jep count plugin
  *
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author andrew wilson <nuance@users.sourceforge.net>
  * @version $Revision$
  */
 public class CountCommandTest extends AbstractCharacterTestCase
