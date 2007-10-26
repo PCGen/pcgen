@@ -58,7 +58,11 @@ Base Atk |ATTACK.MELEE|; Grp|ATTACK.GRAPPLE.TOTAL|;
 
 Atk:
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
+|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|WEAPON.%weap.THHIT.0|
+|ELSE|
 |WEAPON.%weap.BASEHIT.0|
+|ENDIF|
 |IIF(WEAPON.%weap.CATEGORY:Melee)|
 Melee
 |ENDIF|
@@ -75,7 +79,11 @@ Ranged
 ;
 Full Atk:
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
+|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|WEAPON.%weap.THHIT|
+|ELSE|
 |WEAPON.%weap.BASEHIT|
+|ENDIF|
 |IIF(WEAPON.%weap.CATEGORY:Melee)|
 Melee
 |ENDIF|
@@ -142,9 +150,9 @@ Will
 |STAT.%stat.NAME| |STAT.%stat|
 |ENDFOR|
 .
-<p/>
+<p/>&nbsp;&nbsp;
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Skills and Feats:</i> |SKILLLISTMODS|; |FEATALLLIST|.<p/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Skills and Feats:</i> |SKILLLISTMODS|; |FEATALLLIST|.<p/>&nbsp;&nbsp;
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Possessions:</i>
 
@@ -185,7 +193,7 @@ Will
 |FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
 |IIF(%spellrace:0)|
 |ELSE|
-<p />
+<p />&nbsp;&nbsp;
 |FOR,%spellbook,1,1,1,0|
 |FOR,%class,0,0,1,0|
 |FOR,%level,0,0,1,0|
@@ -209,7 +217,7 @@ At Will:
 |FOR,%class,0,0,1,1|
 |FOR,%level,0,0,1,1|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
-<p/><i>|SPELLBOOK.%spellbook.NAME| Spells:</i> [|SPELLBOOK.%spellbook.TYPE|, |SPELLBOOK.%spellbook.NUMSPELLS| spells 
+<p/>&nbsp;&nbsp;<i>|SPELLBOOK.%spellbook.NAME| Spells:</i> [|SPELLBOOK.%spellbook.TYPE|, |SPELLBOOK.%spellbook.NUMSPELLS| spells 
 |IIF(SPELLBOOK.%spellbook.NUMPAGES:0)|
 |ELSE|
 , Used |SPELLBOOK.%spellbook.NUMPAGESUSED| of |SPELLBOOK.%spellbook.NUMPAGES| (|SPELLBOOK.%spellbook.PAGEFORMULA|) pages
@@ -251,7 +259,7 @@ At Will:
 |FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1|
 |IIF(%foo:0.OR.%bar:0)|
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-<p /><i>|SPELLBOOKNAME.%spellbook|</i>
+<p />&nbsp;&nbsp;<i>|SPELLBOOKNAME.%spellbook|</i>
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
 |%SPELLLISTCLASS.%class|
 (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level)
@@ -293,7 +301,7 @@ At Will:
 <!-- End Prepared Spells -->
 
 <!-- Domain list -->
-|%DOMAIN.1|<p />
+|%DOMAIN.1|<p />&nbsp;&nbsp;
 *Domain spell. <i>Domains:</i> [
 |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\ (\DOMAIN.%.POWER\);, ,NONE,1|
 ] Deity: |DEITY|;
@@ -301,7 +309,7 @@ At Will:
 
 <!-- Known spells -->
 |%SPELLLISTCLASS.0|
-<p />
+<p />&nbsp;&nbsp;
 <i>Spells Known</i>
 |%|
 

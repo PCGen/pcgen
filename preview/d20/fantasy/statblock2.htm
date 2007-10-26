@@ -66,10 +66,18 @@ Init |INITIATIVEMOD|
 |AC.Total| (flatfooted |AC.Flatfooted|, touch
 |AC.Touch|), 
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-2,1,1|
+|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|WEAPON.%weap.NAME| |WEAPON.%weap.THHIT| |WEAPON.%weap.TYPE| (|WEAPON.%weap.THDAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|) or 
+|ELSE|
 |WEAPON.%weap.NAME| |WEAPON.%weap.BASEHIT| |WEAPON.%weap.RANGE|/|WEAPON.%weap.TYPE| (|WEAPON.%weap.DAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|) or 
+|ENDIF|
 |ENDFOR|
 |FOR,%weap,COUNT[EQTYPE.WEAPON]-1,COUNT[EQTYPE.WEAPON]-1,1,1|
+|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|WEAPON.%weap.NAME| |WEAPON.%weap.THHIT| |WEAPON.%weap.TYPE| (|WEAPON.%weap.THDAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|); 
+|ELSE|
 |WEAPON.%weap.NAME| |WEAPON.%weap.BASEHIT| |WEAPON.%weap.RANGE|/|WEAPON.%weap.TYPE| (|WEAPON.%weap.DAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|); 
+|ENDIF|
 |ENDFOR|
 SA: 
 |FOR,%DRtest,STRLEN[DR],STRLEN[DR],1,0|

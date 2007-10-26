@@ -58,7 +58,11 @@ Base Atk |ATTACK.MELEE|; Grp|ATTACK.GRAPPLE.TOTAL|;
 
 Atk:
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
+|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|WEAPON.%weap.THHIT.0|
+|ELSE|
 |WEAPON.%weap.BASEHIT.0|
+|ENDIF|
 |IIF(WEAPON.%weap.CATEGORY:Melee)|
 Melee
 |ENDIF|
@@ -75,7 +79,11 @@ Ranged
 ;
 Full Atk:
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
+|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|WEAPON.%weap.THHIT|
+|ELSE|
 |WEAPON.%weap.BASEHIT|
+|ENDIF|
 |IIF(WEAPON.%weap.CATEGORY:Melee)|
 Melee
 |ENDIF|

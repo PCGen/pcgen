@@ -163,8 +163,8 @@ Tower Shield,
     <td width="75%">
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
 <strong>|WEAPON.%weap.NAME.NOSTAR| </strong>
-|IIF(WEAPON.%weap.TOTALHIT:N/A)|
-(two handed) |WEAPON.%weap.THHIT| melee ((two handed) |WEAPON.%weap.THDAMAGE|
+|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|WEAPON.%weap.THHIT| melee (|WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|
 |ELSE|
@@ -210,8 +210,8 @@ melee
     <td width="75%">
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
 <strong>|WEAPON.%weap.NAME.NOSTAR| </strong>
-|IIF(WEAPON.%weap.TOTALHIT:N/A)|
-(two handed) |WEAPON.%weap.THHIT.0| melee ((two handed) |WEAPON.%weap.THDAMAGE|
+|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|WEAPON.%weap.THHIT.0| melee (|WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|
 |ELSE|
