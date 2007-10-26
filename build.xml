@@ -193,25 +193,27 @@ Class-Path: ${manifest.extra.jars}
 		<!--
 	<echo file="${bin.dir}/${bin.pcgen.bat}" message="java -Dpcgen.filter=filter.ini -Dpcgen.options=options.ini -jar ${jar.bin.file}">
 		-->
-		<echo file="${bin.dir}/${bin.pcgen.bat}">REM PCGEN.BAT
-REM ==================
-REM
-REM This script should only be used if you have more than 256MB of RAM and if you
-REM don't mind committing at least 128MB of these to PCGEN.
-REM The value after -Xmx is the maximum amount of memory that PCGen will be allowed to use.
-REM It defaults to 64MB.
-REM The value after -Xms is the starting memory, using both then to speed up PCGEN.
-REM To load all sources takes more than the default 64MB.
+		<echo file="${bin.dir}/${bin.pcgen.bat}">@ECHO OFF
+ECHO PCGEN.BAT
+ECHO ==================
+ECHO This script should only be used if you have more than 256MB of RAM and if you
+ECHO don't mind committing at least 128MB of these to PCGEN.
+ECHO The value after -Xmx is the maximum amount of memory that PCGen will be allowed to use.
+ECHO It defaults to 64MB.
+ECHO The value after -Xms is the starting memory, using both then to speed up PCGEN.
+ECHO To load all sources takes more than the default 64MB.
 java -Dswing.aatext=true -Xms128m -Xmx256m -jar ${jar.bin.file}
 </echo>
-		<echo file="${bin.dir}/${bin.pcgenlowmem.bat}">REM PCGEN_LOW_MEM.BAT
-REM Uncomment the following line and comment out the last line
-REM if you have Out of Memory problems. The value after -Xmx is the
-REM maximum amount of memory that PCGen will be allowed to use.
-REM It defaults to 64MB.
-REM The value after -Xms is the starting memory, using both then to speed up PCGEN.
-REM java -Xms128m -Xmx256m -jar ${jar.bin.file}
-REM To load all sources takes more than the default 64MB.
+		<echo file="${bin.dir}/${bin.pcgenlowmem.bat}">@ECHO OFF
+ECHO PCGEN_LOW_MEM.BAT
+ECHO ==================
+ECHO Uncomment the following line and comment out the last line
+ECHO if you have Out of Memory problems. The value after -Xmx is the
+ECHO maximum amount of memory that PCGen will be allowed to use.
+ECHO It defaults to 64MB.
+ECHO The value after -Xms is the starting memory, using both then to speed up PCGEN.
+ECHO java -Xms128m -Xmx256m -jar ${jar.bin.file}
+ECHO To load all sources takes more than the default 64MB.
 java -Dswing.aatext=true -Xmx96m -jar ${jar.bin.file}
 </echo>
 		<echo file="${bin.dir}/${bin.pcgen.sh}">#!/bin/sh
