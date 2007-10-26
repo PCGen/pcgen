@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -46,11 +46,11 @@ CLASS:Archmage	HD:4		TYPE:PC.Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeCla
 CLASS:Archmage	PREFEAT:1,Skill Focus (Spellcraft)	PREFEAT:2,CHECKMULT,Spell Focus	PREMULT:5,[PRESPELLSCHOOL:Abjuration,1,5],[PRESPELLSCHOOL:Conjuration,1,5],[PRESPELLSCHOOL:Divination,1,5],[PRESPELLSCHOOL:Enchantment,1,5],[PRESPELLSCHOOL:Evocation,1,5],[PRESPELLSCHOOL:Illusion,1,5],[PRESPELLSCHOOL:Necromancy,1,5],[PRESPELLSCHOOL:Transmutation,1,5]	PRESKILL:2,Knowledge (Arcana),Spellcraft=15	PRESPELLTYPE:1,Arcane=7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
-1	ADD:SPELLCASTER|Arcane	BONUS:ABILITYPOOL|High Arcana Ability|CL
-2	ADD:SPELLCASTER|Arcane
-3	ADD:SPELLCASTER|Arcane
-4	ADD:SPELLCASTER|Arcane
-5	ADD:SPELLCASTER|Arcane
+1	BONUS:ABILITYPOOL|High Arcana Ability|CL	ADD:SPELLCASTER|Arcane
+2								ADD:SPELLCASTER|Arcane
+3								ADD:SPELLCASTER|Arcane
+4								ADD:SPELLCASTER|Arcane
+5								ADD:SPELLCASTER|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
 CLASS:Assassin	HD:6		TYPE:PC.Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -220,16 +220,16 @@ CLASS:Eldritch Knight	HD:6		TYPE:PC.Prestige	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:Pre
 CLASS:Eldritch Knight	PRESPELLTYPE:1,Arcane=3	PREWEAPONPROF:10,TYPE.Martial
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Jump|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|Ride|Sense Motive|Spellcraft|Swim
-1					BONUS:ABILITYPOOL|Fighter Feat|1
-2	ADD:SPELLCASTER|Arcane
-3	ADD:SPELLCASTER|Arcane
-4	ADD:SPELLCASTER|Arcane
-5	ADD:SPELLCASTER|Arcane
-6	ADD:SPELLCASTER|Arcane
-7	ADD:SPELLCASTER|Arcane
-8	ADD:SPELLCASTER|Arcane
-9	ADD:SPELLCASTER|Arcane
-10	ADD:SPELLCASTER|Arcane
+1	BONUS:ABILITYPOOL|Fighter Feat|1
+2							ADD:SPELLCASTER|Arcane
+3							ADD:SPELLCASTER|Arcane
+4							ADD:SPELLCASTER|Arcane
+5							ADD:SPELLCASTER|Arcane
+6							ADD:SPELLCASTER|Arcane
+7							ADD:SPELLCASTER|Arcane
+8							ADD:SPELLCASTER|Arcane
+9							ADD:SPELLCASTER|Arcane
+10							ADD:SPELLCASTER|Arcane
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
@@ -238,11 +238,7 @@ CLASS:Hierophant	HD:8		TYPE:PC.Prestige	ABB:Hie		MAXLEVEL:5	SOURCEPAGE:PrestigeC
 CLASS:Hierophant	PREFEAT:1,TYPE=Metamagic	PRESKILL:1,Knowledge (Religion)=15	PRESPELLTYPE:1,Divine=7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hierophant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Spellcraft
-1	BONUS:CASTERLEVEL|TYPE.Divine|CL	ADD:FEAT|TYPE=Hierophant,TYPE=Metamagic
-2							ADD:FEAT|TYPE=Hierophant,TYPE=Metamagic
-3							ADD:FEAT|TYPE=Hierophant,TYPE=Metamagic
-4							ADD:FEAT|TYPE=Hierophant,TYPE=Metamagic
-5							ADD:FEAT|TYPE=Hierophant,TYPE=Metamagic
+1	BONUS:ABILITYPOOL|Hierophant|CL	BONUS:CASTERLEVEL|TYPE.Divine|CL	ADD:FEAT|TYPE=Hierophant,TYPE=Metamagic
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
@@ -251,16 +247,8 @@ CLASS:Horizon Walker	HD:8		TYPE:PC.Prestige	ABB:How		MAXLEVEL:10	SOURCEPAGE:Pres
 CLASS:Horizon Walker	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Geography)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Animal|Hide|Knowledge (Geography)|Listen|Move Silently|TYPE.Profession|Ride|Speak Language|Spot|Survival
-1	ADD:FEAT|TYPE=Terrain
-2	ADD:FEAT|TYPE=Terrain
-3	ADD:FEAT|TYPE=Terrain
-4	ADD:FEAT|TYPE=Terrain
-5	ADD:FEAT|TYPE=Terrain
-6	ADD:FEAT|TYPE=Terrain,TYPE=Planar
-7	ADD:FEAT|TYPE=Terrain,TYPE=Planar
-8	ADD:FEAT|TYPE=Terrain,TYPE=Planar
-9	ADD:FEAT|TYPE=Terrain,TYPE=Planar
-10	ADD:FEAT|TYPE=Terrain,TYPE=Planar
+1	BONUS:ABILITYPOOL|Terrain Mastery|min(CL,5)
+6	BONUS:ABILITYPOOL|Advanced Terrain Mastery|min(CL-5,5)
 
 # Modified: 10-19-2003
 # Change: Changed PREMULT:6,[PRESPELLSCHOOL:Divination,1,1],[PRESPELLSCHOOL:Divination,1,2],[PRESPELLSCHOOL:Divination,1,4],[PRESPELLSCHOOL:Divination,1,5],[PRESPELLSCHOOL:Divination,1,6],[PRESPELLSCHOOL:Divination,1,7],[PRESPELLSCHOOL:Divination,1,8],[PRESPELLSCHOOL:Divination,1,9] to PRESPELLSCHOOL:Divination,7,0
