@@ -1,15 +1,14 @@
 package plugin.jepcommands;
 
-import java.util.Stack;
-
 import org.nfunk.jep.ParseException;
-
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessorEq;
 import pcgen.core.VariableProcessorPC;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
+
+import java.util.Stack;
 
 /**
  * JEP command for get vars
@@ -34,17 +33,17 @@ public class GetVarCommand extends PCGenCommand
 	 * Runs getvar on the inStack. The parameter is popped
 	 * off the <code>inStack</code>, and the variable's value is
 	 * pushed back to the top of <code>inStack</code>.
-	 * @param inStack
+	 * @param inStack the jep stack
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-	public void run(Stack inStack) throws ParseException
+	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack
 		checkStack(inStack);
 
 		// get the parameter from the stack
-		Object param1;
+		final Object param1;
 		Object param2 = null;
 
 		//
@@ -69,13 +68,12 @@ public class GetVarCommand extends PCGenCommand
 			throw new ParseException("Invalid parameter count");
 		}
 
-		Float result = null;
-
-		if (param1 instanceof String)
+        if (param1 instanceof String)
 		{
-			if (parent instanceof PlayerCharacter)
+            Float result = null;
+            if (parent instanceof PlayerCharacter)
 			{
-				PlayerCharacter character = (PlayerCharacter) parent;
+				final PlayerCharacter character = (PlayerCharacter) parent;
 				result = getVariableForCharacter(character, param1);
 			}
 			else if (parent instanceof Equipment)
@@ -93,7 +91,7 @@ public class GetVarCommand extends PCGenCommand
 			}
 			else if (parent instanceof VariableProcessorPC)
 			{
-				VariableProcessorPC vpc = (VariableProcessorPC) parent;
+				final VariableProcessorPC vpc = (VariableProcessorPC) parent;
 				// check to see if this is just a variable
 				result =
 						vpc.lookupVariable((String) param1, variableSource,
@@ -123,7 +121,7 @@ public class GetVarCommand extends PCGenCommand
 				throw new ParseException("Error retreiving variable:" + param1);
 			}
 
-			inStack.push(new Double(result.doubleValue()));
+			inStack.push(result.doubleValue());
 		}
 		else
 		{
@@ -131,11 +129,8 @@ public class GetVarCommand extends PCGenCommand
 		}
 	}
 
-	protected Float getVariableForCharacter(PlayerCharacter character,
-		Object param1)
+	protected Float getVariableForCharacter(final PlayerCharacter character, final Object param1)
 	{
-		Float result =
-				character.getVariableValue((String) param1, variableSource);
-		return result;
+        return character.getVariableValue((String) param1, variableSource);
 	}
 }

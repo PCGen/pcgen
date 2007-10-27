@@ -1,13 +1,12 @@
 package plugin.jepcommands;
 
-import java.util.Stack;
-
 import org.nfunk.jep.ParseException;
-
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
+
+import java.util.Stack;
 
 /**
  * JEP command for class level (cl)
@@ -32,7 +31,7 @@ public class ClassLevelCommand extends PCGenCommand
 		return "CLASSLEVEL";
 	}
 
-	public boolean updateVariables(PJEP jep)
+	public boolean updateVariables(final PJEP jep)
 	{
 		boolean updated = false;
 		if (jep.removeVariable("CL") != null)
@@ -61,7 +60,7 @@ public class ClassLevelCommand extends PCGenCommand
 			return updated;
 		}
 
-		Double result = new Double(pc.getClassLevelString(src, false));
+		final Number result = new Double(pc.getClassLevelString(src, false));
 		jep.addVariable("CL", result.doubleValue());
 
 		return true;
@@ -71,20 +70,18 @@ public class ClassLevelCommand extends PCGenCommand
 	 * Runs classlevel on the inStack. The parameter is popped
 	 * off the <code>inStack</code>, and the variable's value is
 	 * pushed back to the top of <code>inStack</code>.
-	 * @param inStack
+	 * @param inStack the jep stack
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-	public void run(Stack inStack) throws ParseException
+	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack
 		checkStack(inStack);
 
 		// get the parameter from the stack
-		Object param1;
-		Object param2 = null;
 
-		int paramCount = curNumberOfParameters;
+        int paramCount = curNumberOfParameters;
 
 		//
 		// If there are no parameters and this is used in a CLASS file, then use the
@@ -104,7 +101,9 @@ public class ClassLevelCommand extends PCGenCommand
 		//
 		// have to do this in reverse order...this is a stack afterall
 		//
-		if (paramCount == 1)
+        final Object param1;
+        Object param2 = null;
+        if (paramCount == 1)
 		{
 			param1 = inStack.pop();
 		}
@@ -115,11 +114,11 @@ public class ClassLevelCommand extends PCGenCommand
 
 			if (param2 instanceof Integer)
 			{
-				// TODO Do Nothing?
+				// Do Nothing, param is already an integer
 			}
 			else if (param2 instanceof Double)
 			{
-				param2 = Integer.valueOf(((Double) param2).intValue());
+				param2 = ((Double) param2).intValue();
 			}
 			else
 			{
@@ -131,9 +130,7 @@ public class ClassLevelCommand extends PCGenCommand
 			throw new ParseException("Invalid parameter count");
 		}
 
-		Object result = null;
-
-		if (param1 instanceof String)
+        if (param1 instanceof String)
 		{
 			PlayerCharacter pc = null;
 			if (parent instanceof VariableProcessor)
@@ -157,9 +154,9 @@ public class ClassLevelCommand extends PCGenCommand
 				cl += ";BEFORELEVEL=" + param2.toString();
 			}
 
-			result = new Double(pc.getClassLevelString(cl, false));
+            final Object result = new Double(pc.getClassLevelString(cl, false));
 
-			inStack.push(result);
+            inStack.push(result);
 		}
 		else
 		{

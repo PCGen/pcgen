@@ -1,12 +1,11 @@
 package plugin.jepcommands;
 
-import java.util.Stack;
-
 import org.nfunk.jep.ParseException;
-
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
+
+import java.util.Stack;
 
 /**
  * Deals with JEP command for charbonusto
@@ -32,18 +31,18 @@ public class CharBonusToCommand extends PCGenCommand
 	 * Runs charbonusto on the inStack. The parameter is popped
 	 * off the <code>inStack</code>, and the variable's value is
 	 * pushed back to the top of <code>inStack</code>.
-	 * @param inStack
+	 * @param inStack the jep stack
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-	public void run(Stack inStack) throws ParseException
+	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack
 		checkStack(inStack);
 
 		// get the parameter from the stack
-		Object param1;
-		Object param2;
+		final Object param1;
+		final Object param2;
 
 		//
 		// have to do this in reverse order...this is a stack afterall
@@ -63,9 +62,7 @@ public class CharBonusToCommand extends PCGenCommand
 			throw new ParseException("Invalid parameter count");
 		}
 
-		Object result = null;
-
-		if ((param1 instanceof String) && (param2 instanceof String))
+        if ((param1 instanceof String) && (param2 instanceof String))
 		{
 			PlayerCharacter pc = null;
 			if (parent instanceof VariableProcessor)
@@ -82,11 +79,10 @@ public class CharBonusToCommand extends PCGenCommand
 					+ parent.getClass().getName());
 			}
 
-			result =
-					new Double(pc.getTotalBonusTo((String) param1,
-						(String) param2));
+            final Object result = pc.getTotalBonusTo((String) param1,
+                                                     (String) param2);
 
-			inStack.push(result);
+            inStack.push(result);
 		}
 		else
 		{

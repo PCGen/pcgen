@@ -1,11 +1,10 @@
 package plugin.jepcommands;
 
-import java.util.Stack;
-
 import org.nfunk.jep.ParseException;
-
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
+
+import java.util.Stack;
 
 /**
  * eg. roll("10+d10") 
@@ -24,7 +23,7 @@ public class RollCommand extends PCGenCommand
 		return "ROLL";
 	}
 
-	public boolean updateVariables(PJEP jep)
+	public boolean updateVariables(final PJEP jep)
 	{
 		return false;
 	}
@@ -42,30 +41,26 @@ public class RollCommand extends PCGenCommand
 	 * Runs getvar on the inStack. The parameter is popped
 	 * off the <code>inStack</code>, and the variable's value is
 	 * pushed back to the top of <code>inStack</code>.
-	 * @param inStack
+	 * @param inStack the jep stack
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-	public void run(Stack inStack) throws ParseException
+	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack
 		checkStack(inStack);
 
 		// get the parameter from the stack
-		Object param1;
 
-		//
+        //
 		// have to do this in reverse order...this is a stack afterall
 		//
-		param1 = inStack.pop();
-		Object result = null;
+        final Object param1 = inStack.pop();
 
-		if (param1 instanceof String)
+        if (param1 instanceof String)
 		{
-			result =
-					Integer.valueOf(pcgen.core.RollingMethods
-						.roll((String) param1));
-			inStack.push(result);
+            final Object result = pcgen.core.RollingMethods.roll((String) param1);
+            inStack.push(result);
 		}
 		else
 		{
