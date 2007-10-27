@@ -238,7 +238,7 @@ CLASS:Hierophant	HD:8		TYPE:PC.Prestige	ABB:Hie		MAXLEVEL:5	SOURCEPAGE:PrestigeC
 CLASS:Hierophant	PREFEAT:1,TYPE=Metamagic	PRESKILL:1,Knowledge (Religion)=15	PRESPELLTYPE:1,Divine=7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hierophant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Spellcraft
-1	BONUS:ABILITYPOOL|Hierophant|CL	BONUS:CASTERLEVEL|TYPE.Divine|CL	ADD:FEAT|TYPE=Hierophant,TYPE=Metamagic
+1	BONUS:ABILITYPOOL|Hierophant|CL	BONUS:CASTERLEVEL|TYPE.Divine|CL
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
