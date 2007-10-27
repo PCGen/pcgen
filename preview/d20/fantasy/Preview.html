@@ -19,16 +19,8 @@
 				totalResult += result + bonus;
 
 
-				var msg = caption + "Result ("+numDice+"d"+dieSize;
-				if (bonus > 1){
-					msg += "+";
-				//} else if (bonus < 1) {
-					//msg += "-";
-				}
-				if (bonus != 0) {
-					msg += bonus;
-				}
-				msg += "): " + result + "+" + bonus + "="+ totalResult;
+				var msg = caption + "Result";
+				msg += ": " + result + "+" + bonus + "="+ totalResult;
 
 				alert(msg);
 			}
@@ -41,7 +33,9 @@
 				for (i = 0; i < attackValues.length; i++)
 				{
 					dieRoll = (Math.round(Math.random() * 20) % 20 + 1);
+					/*
 					dieRoll = 20;
+					*/
 
 					var critDiceRole = 0;
 					msg += "     Attack " + (i+1)+ ": " + parseInt(dieRoll) + "+" + parseInt(attackValues[i]) + "=" + (parseInt(dieRoll)+parseInt(attackValues[i]));
