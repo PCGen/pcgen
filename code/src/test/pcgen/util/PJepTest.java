@@ -29,7 +29,6 @@
 package pcgen.util;
 
 import gmgen.pluginmgr.PluginLoader;
-import java.util.Iterator;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.nfunk.jep.SymbolTable;
@@ -38,6 +37,8 @@ import pcgen.PCGenTestCase;
 import pcgen.core.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+
+import java.util.Iterator;
 
 /**
  * Tests {@link PJEP}.
@@ -57,7 +58,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		PluginLoader ploader = PluginLoader.inst();
+		final PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 	}
 
@@ -299,7 +300,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("Undefined variable should return 0", 0.0, val
 			.doubleValue(), 0.1);
 
-		Race giantRace = TestHelper.makeRace("Ogre", "GIANT");
+		Race giantRace = TestHelper.makeRace("Ogre");
 		giantRace.addVariable(-9, "UseAlternateDamage", "2");
 		character.setRace(giantRace);
 

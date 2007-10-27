@@ -25,25 +25,7 @@
 package pcgen.util;
 
 import gmgen.pluginmgr.PluginLoader;
-import java.lang.reflect.Field;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Arrays;
-import java.util.StringTokenizer;
-import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
-import pcgen.core.Campaign;
-import pcgen.core.Constants;
-import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
-import pcgen.core.GameMode;
-import pcgen.core.Globals;
-import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
-import pcgen.core.SizeAdjustment;
-import pcgen.core.Skill;
-import pcgen.core.SystemCollections;
-import pcgen.core.WeaponProf;
+import pcgen.core.*;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
@@ -51,7 +33,14 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.EquipmentLoader;
+import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import java.lang.reflect.Field;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 /**
  * Helps Junit tests
@@ -59,19 +48,19 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 @SuppressWarnings("nls")
 public class TestHelper
 {
-	private static boolean 				loaded = false;
-	private static EquipmentLoader 		eqLoader = new EquipmentLoader();
-	private static AbilityLoader   		abLoader = new AbilityLoader();
-	private static CampaignSourceEntry 	source = null;
+	private static boolean loaded = false;
+	private static LstObjectFileLoader<Equipment> eqLoader = new EquipmentLoader();
+	private static LstObjectFileLoader<Ability>   abLoader = new AbilityLoader();
+	private static CampaignSourceEntry source = null;
 
 	/**
 	 * Make some size adjustments
 	 */
 	public static void makeSizeAdjustments()
 	{
-		String sizes =
+		final String sizes =
 				"Fine|Diminutive|Tiny|Small|Medium|Large|Huge|Gargantuan|Colossal";
-		StringTokenizer aTok = new StringTokenizer(sizes, "|");
+		final StringTokenizer aTok = new StringTokenizer(sizes, "|");
 		GameMode gamemode = SystemCollections.getGameModeNamed("3.5");
 		if (gamemode == null)
 		{
@@ -81,10 +70,10 @@ public class TestHelper
 		SettingsHandler.setGame("3.5");
 		while (aTok.hasMoreTokens())
 		{
-			String name = aTok.nextToken();
-			String abb = name.substring(0, 1);
+			final String name = aTok.nextToken();
+			final String abb  = name.substring(0, 1);
 
-			SizeAdjustment sa = new SizeAdjustment();
+			final SizeAdjustment sa = new SizeAdjustment();
 
 			sa.setName(name);
 			sa.setAbbreviation(abb);
@@ -96,19 +85,19 @@ public class TestHelper
 	
 	/**
 	 * Make some equipment
-	 * @param input
+	 * @param input Equipment source line to be parsed
 	 * @return true if OK
 	 */
-	public static boolean makeEquipment(String input)
+	public static boolean makeEquipment(final String input)
 	{
 		if (!loaded)
 		{
 			loadPlugins();
 		}
-		Equipment eq = new Equipment();
+		final Equipment eq = new Equipment();
 		try
 		{
-			CampaignSourceEntry source;
+			final CampaignSourceEntry source;
 			try
 			{
 				source = new CampaignSourceEntry(new Campaign(),
@@ -134,25 +123,25 @@ public class TestHelper
 	 */
 	public static void loadPlugins()
 	{
-		PluginLoader ploader = PluginLoader.inst();
+		final PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		loaded = true;
 	}
 
 	/**
 	 * Get the field related to a name
-	 * @param aClass
-	 * @param fieldName
+	 * @param aClass The class to search for the field
+	 * @param fieldName the field to search for
 	 * @return the field related to a name in the class
 	 */
-	static public Object findField(Class<?> aClass, String fieldName)
+    public static Object findField(final Class<?> aClass, final String fieldName)
 	{
 		try
 		{
 			Class<?> clazz = aClass;
 			while (true)
 			{
-				for (Field f : Arrays.asList(clazz.getDeclaredFields()))
+				for (final Field f : Arrays.asList(clazz.getDeclaredFields()))
 				{
 					if (f.getName().equals(fieldName))
 					{
@@ -160,7 +149,7 @@ public class TestHelper
 						return f;
 					}
 				}
-				if (!clazz.getName().equals("Object"))
+				if (!"Object".equals(clazz.getName()))
 				{
 					clazz = clazz.getSuperclass();
 				}
@@ -186,10 +175,14 @@ public class TestHelper
 	 * @param untrained Can this be used untrained
 	 * @param armorCheck should an armor check penalty be applied
 	 */
-	public static void makeSkill(String name, String type, String stat,
-		boolean untrained, String armorCheck)
+	public static void makeSkill(
+            final String name,
+            final String type,
+            final String stat,
+		    final boolean untrained,
+            final String armorCheck)
 	{
-		Skill aSkill = new Skill();
+		final Skill aSkill = new Skill();
 		aSkill.setName(name);
 		aSkill.setKeyName("KEY_" + name);
 		aSkill.setTypeInfo(type);
@@ -206,9 +199,9 @@ public class TestHelper
 	 * @param type The type info ("." separated)
 	 * @return The ability (which has also been added to global storage
 	 */
-	public static Ability makeAbility(String name, String cat, String type)
+	public static Ability makeAbility(final String name, final String cat, final String type)
 	{
-		Ability anAbility = new Ability();
+		final Ability anAbility = new Ability();
 		anAbility.setName(name);
 		anAbility.setKeyName("KEY_" + name);
 		anAbility.setCategory(cat);
@@ -218,11 +211,12 @@ public class TestHelper
 	}
 
 	/**
-	 * Make some equipment
-	 * @param input
+	 * Make an ability
+     *
+	 * @param input the Ability source string to parse and create the ability from
 	 * @return true if OK
 	 */
-	public static boolean makeAbilityFromString(String input)
+	public static boolean makeAbilityFromString(final String input)
 	{
 		if (!loaded)
 		{
@@ -262,9 +256,9 @@ public class TestHelper
 	 * @param type The type info ("." separated)
 	 * @return The weapon prof (which has also been added to global storage
 	 */
-	public static WeaponProf makeWeaponProf(String name, String type)
+	public static WeaponProf makeWeaponProf(final String name, final String type)
 	{
-		WeaponProf aWpnProf = new WeaponProf();
+		final WeaponProf aWpnProf = new WeaponProf();
 		aWpnProf.setName(name);
 		aWpnProf.setKeyName("KEY_" + name);
 		aWpnProf.setTypeInfo(type);
@@ -275,12 +269,11 @@ public class TestHelper
 	/**
 	 * Set the important info about a Race
 	 * @param name The race name
-	 * @param type The type info ("." separated)
 	 * @return The race (which has also been added to global storage)
 	 */
-	public static Race makeRace(String name, String type)
+	public static Race makeRace(final String name)
 	{
-		Race aRace = new Race();
+		final Race aRace = new Race();
 		aRace.setName(name);
 		aRace.setKeyName("KEY_" + name);
 
@@ -304,10 +297,14 @@ public class TestHelper
 	}
 
 	/**
-	 * @param ability
-	 * @return
+     * Get the Ability Category of the Ability object passed in.  If it does
+     * not exist in the game mode, a new object wil be created and added to
+     * the game mode
+     *
+	 * @param ability an ability in the AbilityCategory we want to retrieve
+	 * @return the AbilityCategory
 	 */
-	public static AbilityCategory getAbilityCategory(Ability ability)
+	public static AbilityCategory getAbilityCategory(final Ability ability)
 	{
 		AbilityCategory aCategory =
 				SettingsHandler.getGame().getAbilityCategory(ability.getCategory());
