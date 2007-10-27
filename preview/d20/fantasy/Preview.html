@@ -5,17 +5,20 @@
 		<link type="text/css" rel="stylesheet" href="preview/preview.css" />
 		<link type="text/css" rel="stylesheet" href="preview/preview_color.css" />
 		<script language="javascript" type="text/javascript">
-			function rollDice(numDice,dieSize,bonus){
+			function rollDice(numDice,dieSize){
 				var result=0;
 				for (dieCount=0; dieCount<numDice; dieCount++) {
 					result = result + (Math.round(Math.random() * dieSize) % dieSize + 1);
 				}
-				result += parseInt(bonus);
 				return result;
 			}
 			function roll(numDice,dieSize,bonus,caption) {
-				result = rollDice(numDice,dieSize,bonus);
-	 
+				result = rollDice(numDice,dieSize);
+
+				var totalResult =0;
+				totalResult += result + bonus;
+
+
 				var msg = caption + "Result ("+numDice+"d"+dieSize;
 				if (bonus > 1){
 					msg += "+";
@@ -25,8 +28,8 @@
 				if (bonus != 0) {
 					msg += bonus;
 				}
-				msg += ")="+result;
-	 
+				msg += "): " + result + "+" + bonus + "="+ totalResult;
+
 				alert(msg);
 			}
 			function rollAttack(toHit,damage,crit,mult) {
@@ -34,24 +37,67 @@
 				var dieRoll = 0;
 				var critVals = crit.split("-");
 				var msg = "Attack Result:\n";
-				for (i = 0; i < attackValues.length; i++) {
+
+				for (i = 0; i < attackValues.length; i++)
+				{
 					dieRoll = (Math.round(Math.random() * 20) % 20 + 1);
-					msg += "Attack " + (i+1)+ ": " + dieRoll+ attackValues[i] + "=" + (dieRoll+parseInt(attackValues[i]));
+					dieRoll = 20;
+
+					var critDiceRole = 0;
+					msg += "     Attack " + (i+1)+ ": " + parseInt(dieRoll) + "+" + parseInt(attackValues[i]) + "=" + (parseInt(dieRoll)+parseInt(attackValues[i]));
 					var totalDamage = 0;
+					var baseDamage  =0;
 					var dmgSplit = damage.split("d");
 					var dice = dmgSplit[0];
+					var remainder = dmgSplit[1];
+					var modDamage =0;
+					var critBaseDamage;
+					var critTotalDamage;
 					var dieSize = 0;
 					var bonusDmg = 0;
-					if (dmgSplit[1].indexOf("+")!=-1){
-						var dmgSplit1 = dmgSplit[1].split("+");
-						dieSize = dmgSplit1[0];
-						bonusDmg = dmgSplit1[1];
+
+					if (remainder.indexOf("+")!=-1)
+					{
+						var bonusSplit = remainder.split("+");
+						dieSize 	= bonusSplit[0];
+						bonusDmg 	= bonusSplit[1];
 					}
-					totalDamage = rollDice(dice,dieSize,bonusDmg);
-					if (dieRoll >= critVals[0]) {
-						totalDamage *= mult;
+					else if(remainder.indexOf("-")!=-1)
+					{
+						var bonusSplit = remainder.split("-");
+						dieSize 	= bonusSplit[0];
+						bonusDmg 	= parseInt(-bonusSplit[1]);
 					}
-					msg += "    Damage: " + totalDamage+"\n";
+					else
+					{
+						dieSize = remainder;
+					}
+
+					baseDamage = rollDice(dice,dieSize);
+					modDamage = bonusDmg;
+					totalDamage += parseInt(baseDamage) + parseInt(modDamage);
+					msg += "    Damage: " + baseDamage + "+" + modDamage +  "=" + totalDamage + " \n";
+
+					if (dieRoll >= critVals[0])
+					{
+						var fullDamage =0;
+						var critbaseDamage = rollDice(parseInt(mult)-1 ,dieSize);
+						critDiceRole =  (Math.round(Math.random() * 20) % 20 + 1);
+
+						critmodDamage = parseInt(bonusDmg) * (parseInt(mult)-1 );
+						critTotalDamage =  critbaseDamage  +  critmodDamage ;
+
+						fullDamage = parseInt(critTotalDamage) + parseInt(totalDamage);
+
+
+						msg += "     Critical - Attack " + (i+1) + ": " + critDiceRole  + "+" + parseInt(attackValues[i]) + "=" + (parseInt(critDiceRole)+parseInt(attackValues[i]));
+						msg += "     Critical Damage: " + parseInt(critbaseDamage) + "+" + parseInt(critmodDamage )  +  "=" + parseInt(critTotalDamage ) + " \n";
+						msg += "     Damage Total: " + totalDamage + "+" + critTotalDamage +  "=" + fullDamage  + " \n";
+					}
+					if(i+1 < attackValues.length)
+					{
+						msg += "-----------------------------------------------------------------------------\n";
+					}
 				}
 				alert(msg);
 			}
