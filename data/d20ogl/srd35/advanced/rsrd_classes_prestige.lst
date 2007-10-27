@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+# CVS $Revision$ $Author$ -- Sat Oct 27 12:06:16 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -260,16 +260,16 @@ CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:Prestige
 CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge,TYPE.Knowledge=10	PRESPELLSCHOOL:Divination,1,3	PRESPELLSCHOOL:Divination,7,0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Speak Language|Spellcraft|Use Magic Device
-1	BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=LoremasterSecret
-2										ADD:SPELLCASTER|ANY							AUTO:FEAT|Secret Lore
-3										ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=LoremasterSecret
-4										ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
-5										ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=LoremasterSecret
-6										ADD:SPELLCASTER|ANY							AUTO:FEAT|Greater Lore
-7										ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=LoremasterSecret
-8										ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
-9										ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=LoremasterSecret
-10										ADD:SPELLCASTER|ANY							AUTO:FEAT|True Lore
+1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:SPELLCASTER|ANY
+2																		ADD:SPELLCASTER|ANY						AUTO:FEAT|Secret Lore
+3																		ADD:SPELLCASTER|ANY
+4																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
+5																		ADD:SPELLCASTER|ANY
+6																		ADD:SPELLCASTER|ANY						AUTO:FEAT|Greater Lore
+7																		ADD:SPELLCASTER|ANY
+8																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
+9																		ADD:SPELLCASTER|ANY
+10																		ADD:SPELLCASTER|ANY						AUTO:FEAT|True Lore
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Mystic Theurge	HD:4		TYPE:PC.Prestige	ABB:Myt		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE

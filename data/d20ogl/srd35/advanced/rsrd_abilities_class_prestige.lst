@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+# CVS $Revision$ $Author$ -- Sat Oct 27 12:06:16 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -31,27 +31,27 @@ Spell-Like Ability		CATEGORY:Special Ability	TYPE:HighArcana	VISIBLE:YES	PRECLAS
 #Dragon Wings		CATEGORY:Special Ability	TYPE:Dragon Disciple.Extraordinary	VISIBLE:YES	PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)																	MOVECLONE:Walk,Fly,*1
 
 ###Block: Hierophant Abilities
-# Ability Name			Category of Ability		Type				Visible		Required AL		Required Class		Special ABility				Define			Description						Stackable?	Multiple?	Choose				Bonus to Ability Pool		Caster level											Modify VAR									Source Page
-Blast Infidel Lawful Good	CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY	PREALIGN:TN,CE					SAB:Blast Infidel (Lawful Good)																																																	SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Lawful Neutral	CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY	PREALIGN:CN						SAB:Blast Infidel (Lawful Neutral)																																																	SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Lawful Evil	CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY	PREALIGN:TN,CG					SAB:Blast Infidel (Lawful Evil)																																																	SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Neutral Good	CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY	PREALIGN:NE						SAB:Blast Infidel (Neutral Good)																																																	SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Neutral Evil	CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY	PREALIGN:NG						SAB:Blast Infidel (Neutral Evil)																																																	SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Chaotic Good	CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY	PREALIGN:LE,TN					SAB:Blast Infidel (Chaotic Good)																																																	SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Chaotic Neutral	CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY	PREALIGN:LN						SAB:Blast Infidel (Chaotic Neutral)																																																	SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Chaotic Evil	CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY	PREALIGN:LG,TN					SAB:Blast Infidel (Chaotic Evil																																																	SOURCEPAGE:PrestigeClasses.rtf
-Divine Reach			CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY								SAB:Divine Reach % ft|DivineReach	DEFINE:DivineReach|0										MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE																			BONUS:VAR|DivineReach|2*COUNT[FEATNAME=Divine Reach.ALL]	SOURCEPAGE:PrestigeClasses.rtf
-Faith Healing			CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY								SAB:Faith Healing																																																				SOURCEPAGE:PrestigeClasses.rtf
-Gift of the Divine		CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY				PRECLASS:1,Cleric=1	SAB:Gift of the Divine																																																			SOURCEPAGE:PrestigeClasses.rtf
-Mastery of Energy			CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY				PRECLASS:1,Cleric=1	SAB:Mastery of Energy																																									BONUS:VAR|TurnCheckUndead,TurnDamagePlusUndead|4		SOURCEPAGE:PrestigeClasses.rtf
-Power of Nature			CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY				PRECLASS:1,Druid=1	SAB:Power of Nature																																																			SOURCEPAGE:PrestigeClasses.rtf
-Hierophant Spell Power		CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY																											MULT:YES	CHOOSE:NOCHOICE								BONUS:CASTERLEVEL|TYPE.Divine|COUNT[FEATNAME=Hierophant Spell Power.ALL]											SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name			Category of Ability		Type			Visible		Required AL		Required Class		Special ABility				Define			Description				Stackable?	Multiple?	Choose				Bonus to Ability Pool				Caster level											Modify VAR									Source Page
+Blast Infidel Lawful Good	CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY	PREALIGN:TN,CE					SAB:Blast Infidel (Lawful Good)																																																	SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Lawful Neutral	CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY	PREALIGN:CN						SAB:Blast Infidel (Lawful Neutral)																																																	SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Lawful Evil	CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY	PREALIGN:TN,CG					SAB:Blast Infidel (Lawful Evil)																																																	SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Neutral Good	CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY	PREALIGN:NE						SAB:Blast Infidel (Neutral Good)																																																	SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Neutral Evil	CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY	PREALIGN:NG						SAB:Blast Infidel (Neutral Evil)																																																	SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Chaotic Good	CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY	PREALIGN:LE,TN					SAB:Blast Infidel (Chaotic Good)																																																	SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Chaotic Neutral	CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY	PREALIGN:LN						SAB:Blast Infidel (Chaotic Neutral)																																																	SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Chaotic Evil	CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY	PREALIGN:LG,TN					SAB:Blast Infidel (Chaotic Evil																																																	SOURCEPAGE:PrestigeClasses.rtf
+Divine Reach			CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY								SAB:Divine Reach % ft|DivineReach	DEFINE:DivineReach|0								MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE																					BONUS:VAR|DivineReach|2*COUNT[FEATNAME=Divine Reach.ALL]	SOURCEPAGE:PrestigeClasses.rtf
+Faith Healing			CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY								SAB:Faith Healing																																																				SOURCEPAGE:PrestigeClasses.rtf
+Gift of the Divine		CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY				PRECLASS:1,Cleric=1	SAB:Gift of the Divine																																																			SOURCEPAGE:PrestigeClasses.rtf
+Mastery of Energy			CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY				PRECLASS:1,Cleric=1	SAB:Mastery of Energy																																									BONUS:VAR|TurnCheckUndead,TurnDamagePlusUndead|4		SOURCEPAGE:PrestigeClasses.rtf
+Power of Nature			CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY				PRECLASS:1,Druid=1	SAB:Power of Nature																																																			SOURCEPAGE:PrestigeClasses.rtf
+Hierophant Spell Power		CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY																									MULT:YES	CHOOSE:NOCHOICE										BONUS:CASTERLEVEL|TYPE.Divine|COUNT[FEATNAME=Hierophant Spell Power.ALL]											SOURCEPAGE:PrestigeClasses.rtf
 # Needs alot of work -- Needs a way to choose spell from spell-list and possibly to add metamagic and extra times per day to it...
 #Hierophant Spell-Like Ability	TYPE:Hierophant	VISIBLE:NO	SAB:Spell-Like Ability		MULT:YES	STACK:NO	CHOOSE:		SOURCEPAGE:PrestigeClasses.rtf
-Metamagic Feat			CATEGORY:Special Ability	TYPE:Hierophant		VISIBLE:DISPLAY																		DESC:1 Extra Metamagic Feat			STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:ABILITYPOOL|Hierophant Ability|1																						SOURCEPAGE:PrestigeClasses.rtf
+Metamagic Feat			CATEGORY:Special Ability	TYPE:Hierophant	VISIBLE:DISPLAY																		DESC:1 Extra Metamagic Feat	STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:ABILITYPOOL|Hierophant Ability|1																								SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Horizon Walker Terrain Abilities
-# Feat Name			Type			Visible	Special ABility																																		Define							Add to magical move						Bonus to skill								Modify VAR							Vision				Source Page
+# Ability Name		Category of Ability		Type			Visible		Special ABility																																		Define							Add to magical move						Bonus to skill								Modify VAR							Vision				Source Page
 Aquatic Terrain		CATEGORY:Special Ability	TYPE:Terrain	VISIBLE:DISPLAY	SAB:Aquatic Terrain Mastery (+% insight bonus on attack and damage rolls against aquatic creatures)|AquaticTerrainMasteryBonus															DEFINE:AquaticTerrainMasteryBonus|0			BONUS:POSTMOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1		BONUS:SKILL|Swim|4|TYPE=Competence|!PREMOVE:1,Swim=1		BONUS:VAR|AquaticTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
 Desert Terrain		CATEGORY:Special Ability	TYPE:Terrain	VISIBLE:DISPLAY	SAB:Desert Terrain Mastery (+% insight bonus on attack and damage rolls against desert creatures)|DesertTerrainMasteryBonus																DEFINE:DesertTerrainMasteryBonus|0																						BONUS:VAR|DesertTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
 Forest Terrain		CATEGORY:Special Ability	TYPE:Terrain	VISIBLE:DISPLAY	SAB:Forest Terrain Mastery (+% insight bonus on attack and damage rolls against forest creatures)|ForrestTerrainMasteryBonus																DEFINE:ForestTerrainMasteryBonus|0												BONUS:SKILL|Hide|4|TYPE=Competence					BONUS:VAR|ForestTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
@@ -68,6 +68,18 @@ Aligned Planar		CATEGORY:Special Ability	TYPE:Planar		VISIBLE:DISPLAY	SAB:Aligne
 Cavernous Planar		CATEGORY:Special Ability	TYPE:Planar		VISIBLE:DISPLAY	SAB:Cavernous Planar Terrain Mastery																																																																	VISION:Tremorsense (30')	SOURCEPAGE:PrestigeClasses.rtf
 Other Planar		CATEGORY:Special Ability	TYPE:Planar		VISIBLE:DISPLAY	SAB:Other Planar Terrain Mastery
 
+###Block: Loremaster Secrets
+# Ability Name			Category of Ability		Type				Visible		Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose																Bonus to Ability Pool		Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
+Instant Mastery			CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,1		SAB:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK|1																														BONUS:SKILLRANK|LIST|4	SOURCEPAGE:PrestigeClasses.rtf
+Secret Health			CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,2		SAB:Secret (Secret Health)																																								BONUS:HP|CURRENTMAX|3					SOURCEPAGE:PrestigeClasses.rtf
+Secrets of Inner Strength	CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,3		SAB:Secret (Secrets of Inner Strength)																												BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:PrestigeClasses.rtf
+The Lore of True Stamina	CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,4		SAB:Secret (The Lore of True Stamina)																												BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:PrestigeClasses.rtf
+Secret Knowledge of Avoidance	CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,5		SAB:Secret (Secret Knowledge of Avoidance)																											BONUS:CHECKS|BASE.Reflex|2														SOURCEPAGE:PrestigeClasses.rtf
+Weapon Trick			CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,6		SAB:Secret (Weapon Trick)																																			BONUS:COMBAT|BAB|1										SOURCEPAGE:PrestigeClasses.rtf
+Dodge Trick				CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,7		SAB:Secret (Dodge Trick)																																			BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:PrestigeClasses.rtf
+Applicable Knowledge		CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,8		SAB:Secret (Applicable Knowledge)																								BONUS:ABILITYPOOL|FEAT|1																			SOURCEPAGE:PrestigeClasses.rtf
+Newfound Arcana			CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,9		SAB:Secret (Newfound Arcana)				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:PrestigeClasses.rtf
+More Newfound Arcana		CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,10	SAB:Secret (More Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:PrestigeClasses.rtf
 
 #
 #EOF
