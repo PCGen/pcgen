@@ -294,22 +294,22 @@ public abstract class PCGenTestCase extends TestCase
 		return new BoolXor(left, right);
 	}
 
-	public CompareGreaterThan gt(final Comparable<Object> operand)
+	public CompareGreaterThan gt(Comparable operand)
 	{
 		return new CompareGreaterThan(operand);
 	}
 
-	public CompareGreaterOrEqual ge(final Comparable<Object> operand)
+	public CompareGreaterOrEqual ge(Comparable operand)
 	{
 		return new CompareGreaterOrEqual(operand);
 	}
 
-	public CompareLessThan lt(final Comparable<Object> operand)
+	public CompareLessThan lt(Comparable operand)
 	{
 		return new CompareLessThan(operand);
 	}
 
-	public CompareLessOrEqual le(final Comparable<Object> operand)
+	public CompareLessOrEqual le(Comparable operand)
 	{
 		return new CompareLessOrEqual(operand);
 	}
