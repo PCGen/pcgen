@@ -203,7 +203,7 @@ public class CategorisableStore implements Cloneable
 			return null;
 		}
 
-		String strippedName = EquipmentUtilities.removeChoicesFromName(aName);
+		String strippedName = AbilityUtilities.removeChoicesFromName(aName);
 
 		while (it.hasNext())
 		{
@@ -407,7 +407,7 @@ public class CategorisableStore implements Cloneable
 			return false;
 		}
 
-		String strippedName = EquipmentUtilities.removeChoicesFromName(aName);
+		String strippedName = AbilityUtilities.removeChoicesFromName(aName);
 
 		while (it.hasNext())
 		{

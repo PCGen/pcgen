@@ -25,40 +25,21 @@
  */
 package pcgen.core;
 
-import java.io.BufferedWriter;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.SortedSet;
-import java.util.StringTokenizer;
-import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.IntegerKey;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.core.utils.StringKey;
+import pcgen.core.utils.*;
 import pcgen.io.FileAccess;
-import pcgen.util.BigDecimalHelper;
-import pcgen.util.Delta;
-import pcgen.util.JEPResourceChecker;
-import pcgen.util.Logging;
-import pcgen.util.PJEP;
-import pcgen.util.PjepPool;
-import pcgen.util.PropertyFactory;
+import pcgen.util.*;
 import pcgen.util.enumeration.Load;
+
+import java.io.BufferedWriter;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <code>Equipment</code>.
@@ -2242,15 +2223,15 @@ public final class Equipment extends PObject implements Serializable,
 		removeCommonFromList(list2, comn,
 				"SPROP: eqMod expected but not found: ");
 
-		final String common = CoreUtility
-				.commaDelimit(getSpecialAbilityTimesList(getSpecialAbilityList(
-						comn, aPC)));
-		final String saList1 = CoreUtility
-				.commaDelimit(getSpecialAbilityTimesList(getSpecialAbilityList(
-						list1, aPC)));
-		final String saList2 = CoreUtility
-				.commaDelimit(getSpecialAbilityTimesList(getSpecialAbilityList(
-						list2, aPC)));
+		final String common = CoreUtility.join(
+				getSpecialAbilityTimesList(getSpecialAbilityList(comn, aPC)),
+				", ");
+		final String saList1 = CoreUtility.join(
+				getSpecialAbilityTimesList(getSpecialAbilityList(list1, aPC)),
+				", ");
+		final String saList2 = CoreUtility.join(
+				getSpecialAbilityTimesList(getSpecialAbilityList(list2, aPC)),
+				", ");
 		final StringBuffer sp = new StringBuffer();
 
 		boolean first = true;

@@ -1321,9 +1321,9 @@ public final class SettingsHandler
 			retractRelativePath(getSelectedPartyPDFOutputSheet()));
 		getOptions().setProperty("pcgen.files.selectedEqSetTemplate", retractRelativePath(getSelectedEqSetTemplate())); //$NON-NLS-1$
 		getOptions().setProperty("pcgen.files.chosenCampaignSourcefiles", //$NON-NLS-1$
-			CoreUtility.join(PersistenceManager.getInstance().getChosenCampaignSourcefiles(), ','));
+			CoreUtility.join(PersistenceManager.getInstance().getChosenCampaignSourcefiles(), ", "));
 
-		getOptions().setProperty("pcgen.options.custColumnWidth", CoreUtility.join(Globals.getCustColumnWidth(), ',')); //$NON-NLS-1$
+		getOptions().setProperty("pcgen.options.custColumnWidth", CoreUtility.join(Globals.getCustColumnWidth(), ", ")); //$NON-NLS-1$
 
 		if (getPcgenCustomDir() != null)
 		{

@@ -30,7 +30,6 @@ package pcgen.persistence.lst.utils;
 
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
 import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
@@ -77,9 +76,9 @@ public class FeatParser
 			}
 			else
 			{
-				ArrayList<String> choices = new ArrayList<String>();
-				String abilityName =
-						EquipmentUtilities.getUndecoratedName(aPart, choices);
+				final Collection<String> choices = new ArrayList<String>();
+				final String abilityName =
+						AbilityUtilities.getUndecoratedName(aPart, choices);
 				Ability anAbility =
 						AbilityUtilities.getAbilityFromList(aList, "FEAT",
 							abilityName, Ability.Nature.ANY);

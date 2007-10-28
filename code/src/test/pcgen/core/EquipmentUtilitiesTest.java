@@ -24,42 +24,22 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
 import pcgen.PCGenTestCase;
 
 /**
- * @author andrew
+ * @author nuance
  *
  */
-@SuppressWarnings("nls")
 public class EquipmentUtilitiesTest extends PCGenTestCase
 {
 
 	/**
 	 * Run the test
-	 * @param args
+	 * @param args don't need args apparently
 	 */
-	public static void main(String[] args)
+	public static void main(final String[] args)
 	{
 		junit.textui.TestRunner.run(EquipmentUtilitiesTest.class);
-	}
-
-	/**
-	 * @see PCGenTestCase#setUp()
-	 */
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
-	/**
-	 * @see PCGenTestCase#tearDown()
-	 */
-	@Override
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
 	}
 
 	/**
@@ -67,38 +47,11 @@ public class EquipmentUtilitiesTest extends PCGenTestCase
 	 */
 	public void testAppendToName()
 	{
-		String bare = "Bare Thing";
-		String decoration = "Mad cow";
+		final String bare = "Bare Thing";
+		final String decoration = "Mad cow";
 
 		is(EquipmentUtilities.appendToName(bare, decoration),
 			strEq("Bare Thing (Mad cow)"), "Choice appends to name correctly");
-	}
-
-	/**
-	 * Test method for 'pcgen.core.EquipmentUtilities.removeChoicesFromName(String)'
-	 */
-	public void testRemoveChoicesFromName()
-	{
-		is(EquipmentUtilities.removeChoicesFromName("Bare Thing (Mad cow)"),
-			strEq("Bare Thing"), "Choice is removed from name correctly");
-	}
-
-	/**
-	 * Test method for 'pcgen.core.EquipmentUtilities.getUndecoratedName(String, ArrayList)'
-	 */
-	public void testGetUndecoratedName()
-	{
-		String name = "foo (bar, baz)";
-		ArrayList<String> specifics = new ArrayList<String>();
-		specifics.add("quxx");
-
-		is(EquipmentUtilities.getUndecoratedName(name, specifics),
-			strEq("foo"), "Got correct undecorated name");
-		is(specifics.size(), eq(2), "First extracted decoration is correct");
-		is(specifics.get(0), strEq("bar"),
-			"First extracted decoration is correct");
-		is(specifics.get(1), strEq("baz"),
-			"Second extracted decoration is correct");
 	}
 
 }

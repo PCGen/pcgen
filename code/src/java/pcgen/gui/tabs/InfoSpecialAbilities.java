@@ -237,7 +237,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 		if (specialAbilities.size() > 0)
 		{
-			saText.setText(CoreUtility.commaDelimit(specialAbilities));
+			saText.setText(CoreUtility.join(specialAbilities, ", "));
 		}
 		else
 		{

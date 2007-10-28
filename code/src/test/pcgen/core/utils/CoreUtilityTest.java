@@ -67,13 +67,13 @@ public class CoreUtilityTest extends PCGenTestCase
 	/**
 	 * Test unsplit string (join method).
 	 */
-	public void testUnSplitString()
+	public void testJoin()
 	{
 		final String sep = "|";
 		final List<String> list = constructList();
 		final String result = CoreUtility.join(list, sep);
 		final String trueResult = "one|two|three|four";
-		assertTrue("unSplit returned bad String: got '" + result
+		assertTrue("join returned bad String: got '" + result
 			+ "' should be '" + trueResult + "'", trueResult.equals(result));
 	}
 

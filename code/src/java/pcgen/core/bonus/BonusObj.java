@@ -25,21 +25,14 @@
  */
 package pcgen.core.bonus;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-
-import pcgen.core.Constants;
-import pcgen.core.Equipment;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.PrereqObject;
+import pcgen.core.*;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
+
+import java.io.Serializable;
+import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  * <code>BonusObj</code>
@@ -1233,7 +1226,9 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 					for (int i = 0; i < anObj.getAssociatedCount(); ++i)
 					{
 						final StringBuffer ab = new StringBuffer();
-						final String tName = CoreUtility.replaceFirst(name, VALUE_TOKEN_REPLACEMENT, anObj.getAssociated(i));
+						final String tName =
+								name.replaceFirst(Pattern.quote(VALUE_TOKEN_REPLACEMENT),
+								                  anObj.getAssociated(i));
 						ab.append(tName).append('.');
 						ab.append(info);
 
@@ -1250,7 +1245,9 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 					for (int i = 0; i < anObj.getAssociatedCount(true); ++i)
 					{
 						final StringBuffer ab = new StringBuffer();
-						final String tName = CoreUtility.replaceFirst(info, VALUE_TOKEN_REPLACEMENT, anObj.getAssociated(i, true));
+						final String tName = 
+								info.replaceFirst(Pattern.quote(VALUE_TOKEN_REPLACEMENT),
+								                  anObj.getAssociated(i, true));
 						ab.append(getTypeOfBonus()).append('.');
 						ab.append(tName);
 

@@ -375,7 +375,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			case TYPE:
 				if (ability != null)
 				{
-					retVal = CoreUtility.join(ability.getTypeList(true), '.');
+					retVal = CoreUtility.join(ability.getTypeList(true), ". ");
+//					retVal = CoreUtility.join(ability.getTypeList(true), '.');
 				}
 				break;
 			case COST:

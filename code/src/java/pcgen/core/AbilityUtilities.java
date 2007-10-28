@@ -24,13 +24,12 @@
 package pcgen.core;
 
 import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
 import pcgen.util.Logging;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 /**
  * General utilities related to the Ability class.
@@ -48,14 +47,14 @@ public class AbilityUtilities
 	/**
 	 * Add the choices in the List to the ability if it is legal to do so.
 	 *
-	 * @param ability
-	 * @param choices
+	 * @param ability Ability to add the choices to
+	 * @param choices the iterable collection of choices to add
 	 */
 	private static void addChoicesToAbility(
 			final Ability ability,
-			final List<String>    choices)
+			final Iterable<String> choices)
 	{
-		for ( String choice : choices )
+		for ( final String choice : choices )
 		{
 			if (ability.canAddAssociation(choice))
 			{
@@ -114,8 +113,8 @@ public class AbilityUtilities
 			final String category,
 			final String abilityName)
 	{
-		final ArrayList<String> choices = new ArrayList<String>();
-		EquipmentUtilities.getUndecoratedName(abilityName, choices);
+		final Collection<String> choices = new ArrayList<String>();
+		getUndecoratedName(abilityName, choices);
 
 		Ability anAbility = getAbilityFromList(theAbilityList, "FEAT", abilityName, Ability.Nature.ANY);
 
@@ -142,8 +141,8 @@ public class AbilityUtilities
 			final AbilityCategory aCategory,
 			final String aKey)
 	{
-		final ArrayList<String> choices = new ArrayList<String>();
-		EquipmentUtilities.getUndecoratedName(aKey, choices);
+		final Collection<String> choices = new ArrayList<String>();
+		getUndecoratedName(aKey, choices);
 
 		Ability anAbility = getAbilityFromList(anAbilityList, aCategory.getAbilityCategory(), aKey, Ability.Nature.ANY);
 
@@ -218,8 +217,8 @@ public class AbilityUtilities
 		final List<Ability>   abilityList,
 		final PCLevelInfo     levelInfo)
 	{
-		final ArrayList<String> choices = new ArrayList<String>();
-		final String    abilityKey      = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
+		final List<String> choices = new ArrayList<String>();
+		final String    abilityKey      = getUndecoratedName(aFeatKey, choices);
 		final Ability   anAbility       = Globals.getAbilityKeyed(category, abilityKey);
 
 		return addVirtualAbility(anAbility, choices, abilityList, levelInfo);
@@ -251,10 +250,10 @@ public class AbilityUtilities
 			 * in brackets) from the name, then check the undecorated names are
 			 * equal.
 			 */
-			final ArrayList<String> decorationsThis = new ArrayList<String>();
-			final ArrayList<String> decorationsThat = new ArrayList<String>();
-			final String undecoratedThis = EquipmentUtilities.getUndecoratedName(first.getKeyName(), decorationsThis);
-			final String undecoratedThat = EquipmentUtilities.getUndecoratedName(second.getKeyName(), decorationsThat);
+			final Collection<String> decorationsThis = new ArrayList<String>();
+			final Collection<String> decorationsThat = new ArrayList<String>();
+			final String undecoratedThis = getUndecoratedName(first.getKeyName(), decorationsThis);
+			final String undecoratedThat = getUndecoratedName(second.getKeyName(), decorationsThat);
 			nameCheck = undecoratedThis.compareToIgnoreCase(undecoratedThat) == 0;
 
 		} else if (multFirst || multSecond) {
@@ -330,11 +329,10 @@ public class AbilityUtilities
 			final String category,
 			final String anAbilityKey)
 	{
-		Ability   anAbility;
-		final ArrayList<String> choices  = new ArrayList<String>();
-		final String    baseKey = EquipmentUtilities.getUndecoratedName(anAbilityKey, choices);
+		final Collection<String> choices  = new ArrayList<String>();
+		final String    baseKey = getUndecoratedName(anAbilityKey, choices);
 
-		anAbility = Globals.getAbilityKeyed(category, anAbilityKey);
+		Ability anAbility = Globals.getAbilityKeyed(category, anAbilityKey);
 
 		if ((anAbility == null) && (baseKey.length() != 0))
 		{
@@ -676,13 +674,12 @@ public class AbilityUtilities
 			aPC.getSpellList();
 		}
 
-		final ArrayList<String> choices       = new ArrayList<String>();
-		final String            undoctoredKey = aFeatKey;
-		final String            baseKey       = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
-			  String            subKey        = choices.size() > 0 ? choices.get(0) : "";
+		final Collection<String> choices = new ArrayList<String>();
+		final String             baseKey = getUndecoratedName(aFeatKey, choices);
+			  String             subKey  = choices.size() > 0 ? choices.iterator().next() : "";
 
 		// See if our choice is not auto or virtual
-		Ability anAbility = aPC.getRealFeatKeyed(undoctoredKey);
+		Ability anAbility = aPC.getRealFeatKeyed(aFeatKey);
 
 		// if a feat keyed aFeatKey doesn't exist, and aFeatKey
 		// contains a (blah) descriptor, try removing it.
@@ -704,7 +701,7 @@ public class AbilityUtilities
 
 			if (anAbility == null)
 			{
-				anAbility = Globals.getAbilityKeyed("FEAT", undoctoredKey);
+				anAbility = Globals.getAbilityKeyed("FEAT", aFeatKey);
 
 				if (anAbility != null)
 				{
@@ -714,9 +711,9 @@ public class AbilityUtilities
 
 			if (anAbility == null)
 			{
-				Logging.errorPrint("Feat not found: " + undoctoredKey);
+				Logging.errorPrint("Feat not found: " + aFeatKey);
 
-				return addIt ? 1 : 0;
+				return 1;
 			}
 
 			anAbility = anAbility.clone();
@@ -1104,7 +1101,7 @@ public class AbilityUtilities
 			return ability;
 		}
 
-		final String stripped = EquipmentUtilities.removeChoicesFromName(token);
+		final String stripped = removeChoicesFromName(token);
 		ability = Globals.getAbilityKeyed(cat, stripped);
 
 		if (ability != null)
@@ -1126,5 +1123,53 @@ public class AbilityUtilities
 	public static AbilityCategory getAbilityCategory(final String aKey)
 	{
 		return SettingsHandler.getGame().getAbilityCategory(aKey);
+	}
+
+	/**
+	 * Extracts the choiceless form of a name, for example, with all choices removed
+	 *
+	 * @param aName
+	 *
+	 * @return the name with sub-choices stripped from it
+	 */
+	public static String removeChoicesFromName(String aName)
+	{
+		final int anInt = aName.indexOf('(');
+
+		return (anInt >= 0) ? aName.substring(0, anInt).trim() : aName;
+	}
+
+	/**
+	 * Takes a string of the form "foo (bar, baz)", populates the array with ["bar", "baz"]
+	 * and returns foo.  All strings returned by this function have had leading.trailing
+	 * whitespace removed.
+	 *
+	 * @param name      The full name with stuff in parenthesis
+	 * @param specifics a list which will contain the specifics after the operation has
+	 *                  completed
+	 *
+	 * @return the name with sub-choices stripped from it
+	 */
+	public static String getUndecoratedName(
+			final String name, 
+			final Collection<String> specifics)
+	{
+
+		final String altName = removeChoicesFromName(name);
+
+		specifics.clear();
+		final int start = name.indexOf('(') + 1;
+		final int end = name.lastIndexOf(')');
+
+		if (start >= 0 && end > start)
+		{
+
+			// we want what is inside the outermost parenthesis.
+			final String subName = name.substring(start, end);
+
+			specifics.addAll(CoreUtility.split(subName, ','));
+		}
+
+		return altName;
 	}
 }

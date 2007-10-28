@@ -25,40 +25,9 @@
  */
 package pcgen.core;
 
-import java.awt.geom.Point2D;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Observable;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.StringTokenizer;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.character.CharacterSpell;
-import pcgen.core.character.CompanionMod;
-import pcgen.core.character.EquipSet;
-import pcgen.core.character.EquipSlot;
-import pcgen.core.character.Follower;
-import pcgen.core.character.SpellBook;
-import pcgen.core.character.SpellInfo;
+import pcgen.core.character.*;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -67,25 +36,22 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.spell.PCSpellTracker;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.GameModeRollMethod;
-import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.core.utils.StringKey;
+import pcgen.core.utils.*;
 import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.Delta;
-import pcgen.util.DoubleKeyMap;
-import pcgen.util.HashMapToList;
-import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.util.*;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
+
+import java.awt.geom.Point2D;
+import java.io.*;
+import java.math.BigDecimal;
+import java.util.*;
 
 /**
  * <code>PlayerCharacter</code>.
@@ -1511,11 +1477,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<Equipment> getEquipmentMasterList()
 	{
-		final ArrayList<Equipment> aList = new ArrayList<Equipment>(
-			equipmentMasterList);
+		final List<Equipment> aList = new ArrayList<Equipment>(equipmentMasterList);
 
 		// Try all possible POBjects
-		for (PObject aPObj : getPObjectList())
+		for (final PObject aPObj : getPObjectList())
 		{
 			if (aPObj != null)
 			{
@@ -1533,8 +1498,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<Equipment> getEquipmentMasterListInOutputOrder()
 	{
-		return EquipmentUtilities.mergeEquipmentList(getEquipmentMasterList(),
-			Constants.MERGE_NONE);
+		final List<Equipment> l = getEquipmentMasterList(); 
+		Collections.sort(l, CoreUtility.equipmentComparator);
+		return l;
 	}
 
 	/**
@@ -14433,19 +14399,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @return An ArrayList of the equipment objects in output order.
 	 */
 	private List<Equipment> sortEquipmentList(
-		final List<Equipment> unsortedEquipList, final int merge)
+			final List<Equipment> unsortedEquipList, final int merge)
 	{
 		if (unsortedEquipList.isEmpty())
 		{
 			return unsortedEquipList;
 		}
 
-		final List<Equipment> sortedList;
-
 		// Merge list for duplicates
 		// The sorting is done during the Merge
-		sortedList = EquipmentUtilities.mergeEquipmentList(unsortedEquipList,
-			merge);
+		final List<Equipment> sortedList = 
+				CoreUtility.mergeEquipmentList(unsortedEquipList, merge);
 
 		// Remove the hidden items from the list
 		for (Iterator<Equipment> i = sortedList.iterator(); i.hasNext();)
@@ -16718,9 +16682,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return null;
 	}
 
-	public int addAbility(final PCLevelInfo LevelInfo,
-		final AbilityCategory aCategory, final String aKey,
-		final boolean addIt, final boolean singleChoice)
+	public int addAbility(
+			final PCLevelInfo LevelInfo,
+			final AbilityCategory aCategory,
+			final String aKey,
+			final boolean addIt,
+			final boolean singleChoice)
 	{
 		boolean singleChoice1 = !singleChoice;
 		if (!isImporting())
@@ -16728,12 +16695,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			getSpellList();
 		}
 
-		final ArrayList<String> choices = new ArrayList<String>();
+		final Collection<String> choices = new ArrayList<String>();
 		final String undoctoredKey = aKey;
-		final String baseKey = EquipmentUtilities.getUndecoratedName(aKey,
-			choices);
-		String subKey = choices.size() > 0 ? choices.get(0)
-			: Constants.EMPTY_STRING;
+		final String baseKey = AbilityUtilities.getUndecoratedName(aKey, choices);
+		String subKey = choices.size() > 0 ? choices.iterator().next() : Constants.EMPTY_STRING;
 
 		// See if our choice is not auto or virtual
 		Ability anAbility = getRealAbilityKeyed(aCategory, undoctoredKey);

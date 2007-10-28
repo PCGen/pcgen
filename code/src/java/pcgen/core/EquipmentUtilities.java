@@ -26,11 +26,7 @@
  */
 package pcgen.core;
 
-import pcgen.core.utils.CoreUtility;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -43,134 +39,6 @@ public final class EquipmentUtilities
 	private EquipmentUtilities()
 	{
 		//Don't allow instantiation of utility class
-	}
-
-	private static Comparator<Equipment> equipmentComparator = new Comparator<Equipment>()
-	{
-		private int compareInts(final int obj1Index, final int obj2Index)
-		{
-			if (obj1Index > obj2Index)
-			{
-				return 1;
-			}
-			else if (obj1Index < obj2Index)
-			{
-				return -1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-
-		public int compare(final Equipment obj1, final Equipment obj2)
-		{
-			int o1i = obj1.getOutputIndex();
-			int o2i = obj2.getOutputIndex();
-
-			// Force unset items (index of 0) to appear at the end
-			o1i = (o1i == 0) ? 999 : o1i;
-			o2i = (o2i == 0) ? 999 : o2i;
-
-			final int result1 = compareInts(o1i, o2i);
-
-			if (result1 != 0)
-			{
-				return result1;
-			}
-
-			final int result2 = compareInts(obj1.getOutputSubindex(), obj2.getOutputSubindex());
-
-			if (result2 != 0)
-			{
-				return result2;
-			}
-
-			final int result3 = obj1.getName().compareToIgnoreCase(obj2.getName());
-
-			if (result3 != 0)
-			{
-				return result3;
-			}
-
-			return obj1.getParentName().compareToIgnoreCase(obj2.getParentName());
-		}
-
-		public boolean equals(final Equipment obj)
-		{
-			return false;
-		}
-
-		public int hashCode()
-		{
-			return 0;
-		}
-	};
-
-	/**
-	 * Merge the equipment list
-	 *
-	 * @param aList the list of Equipment
-	 * @param merge The type of merge to perform
-	 *
-	 * @return merged list
-	 */
-	public static List<Equipment> mergeEquipmentList(final List<Equipment> aList, final int merge)
-	{
-		Collections.sort(aList, equipmentComparator);
-
-		// no merging, just sorting
-		if (merge == Constants.MERGE_NONE)
-		{
-			return aList;
-		}
-
-		final List<Equipment> workingList = new ArrayList<Equipment>();
-
-		// create a temporary list to merge with
-		for (final Equipment tempEq : aList)
-		{
-			workingList.add(tempEq.clone());
-		}
-
-		int endIndex = workingList.size();
-
-		for (int i = 0; i < endIndex; i++)
-		{
-			final Equipment eq1 = workingList.get(i);
-			double eQty = eq1.qty();
-
-			for (int j = i + 1; j < endIndex; j++)
-			{
-				final Equipment eq2 = workingList.get(j);
-
-				// no container merge or Temporary Bonus generated equipment must not merge
-				if (eq1.isContainer() || eq1.isType("TEMPORARY") || eq2.isType("TEMPORARY"))
-				{
-					continue;
-				}
-
-				if (eq1.getName().equals(eq2.getName()))
-				{
-					// merge all like equipment together
-					if (merge == Constants.MERGE_ALL ||
-
-					    // merge like equipment within same container
-					    (merge == Constants.MERGE_LOCATION
-					     && (eq1.getLocation() == eq2.getLocation())
-					     && eq1.getParentName().equals(eq2.getParentName())))
-					{
-						workingList.remove(eq2);
-						eQty += eq2.qty();
-						endIndex--;
-					}
-				}
-			}
-
-			eq1.setQty(eQty);
-		}
-
-		return workingList;
 	}
 
 	/**
@@ -252,52 +120,5 @@ public final class EquipmentUtilities
 		aBuf.append(')');
 
 		return aBuf.toString();
-	}
-
-	/**
-	 * Extracts the choiceless form of a name, for example, with all choices removed
-	 *
-	 * @param aName
-	 *
-	 * @return the name with sub-choices stripped from it
-	 */
-	public static String removeChoicesFromName(String aName)
-	{
-		final int anInt = aName.indexOf('(');
-
-		return (anInt >= 0) ? aName.substring(0, anInt).trim() : aName;
-	}
-
-
-	/**
-	 * Takes a string of the form "foo (bar, baz)", populates the array with ["bar", "baz"]
-	 * and returns foo.  All strings returned by this function have had leading.trailing
-	 * whitespace removed.
-	 *
-	 * @param name      The full name with stuff in parenthesis
-	 * @param specifics a list which will contain the specifics after the operation has
-	 *                  completed
-	 *
-	 * @return the name with sub-choices stripped from it
-	 */
-	public static String getUndecoratedName(final String name, final ArrayList<String> specifics)
-	{
-
-		final String altName = removeChoicesFromName(name);
-
-		specifics.clear();
-		final int start = name.indexOf('(') + 1;
-		final int end = name.lastIndexOf(')');
-
-		if (start >= 0 && end > start)
-		{
-
-			// we want what is inside the outermost parenthesis.
-			final String subName = name.substring(start, end);
-
-			specifics.addAll(CoreUtility.split(subName, ','));
-		}
-
-		return altName;
 	}
 }

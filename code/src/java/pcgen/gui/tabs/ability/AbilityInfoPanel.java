@@ -22,22 +22,17 @@
  */
 package pcgen.gui.tabs.ability;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.border.TitledBorder;
-
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.utils.CoreUtility;
+import static pcgen.gui.HTMLUtils.*;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
 import pcgen.util.PropertyFactory;
 
-import static pcgen.gui.HTMLUtils.*;
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
 
 /**
  * @author boomer70 <boomer70@yahoo.com>
@@ -121,7 +116,7 @@ public class AbilityInfoPanel extends JPanel
 		sb.append(BOLD);
 		sb.append(PropertyFactory.getString("in_type")).append(':'); //$NON-NLS-1$
 		sb.append(END_BOLD);
-		sb.append(CoreUtility.join(theAbility.getTypeList(true), '.'));
+		sb.append(CoreUtility.join(theAbility.getTypeList(true), ". "));
 
 		final String costStr = theAbility.getCostString();
 		if (!costStr.equals("1")) //$NON-NLS-1$

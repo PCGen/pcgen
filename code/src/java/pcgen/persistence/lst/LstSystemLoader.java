@@ -25,48 +25,7 @@
  */
 package pcgen.persistence.lst;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.lang.Deprecated;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.Properties;
-import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.TreeSet;
-
-import pcgen.core.Campaign;
-import pcgen.core.Constants;
-import pcgen.core.CustomData;
-import pcgen.core.Description;
-import pcgen.core.Domain;
-import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
-import pcgen.core.GameMode;
-import pcgen.core.Globals;
-import pcgen.core.LevelInfo;
-import pcgen.core.PCClass;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.core.Skill;
-import pcgen.core.SourceEntry;
-import pcgen.core.SystemCollections;
+import pcgen.core.*;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.pcGenGUI;
@@ -75,6 +34,16 @@ import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.UnreachableError;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.*;
 
 /**
  * ???
@@ -317,7 +286,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		chosenCampaignSourcefiles.addAll(l);
 		SettingsHandler.getOptions().setProperty(
 			"pcgen.files.chosenCampaignSourcefiles",
-			CoreUtility.join(chosenCampaignSourcefiles, ','));
+			CoreUtility.join(chosenCampaignSourcefiles, ", "));
+//		CoreUtility.join(chosenCampaignSourcefiles, ','));
 	}
 
 	public List<URI> getChosenCampaignSourcefiles()
@@ -1167,7 +1137,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			chosenCampaignSourcefiles.add(sourceFile);
 			SettingsHandler.getOptions().setProperty(
 				"pcgen.files.chosenCampaignSourcefiles",
-				CoreUtility.join(chosenCampaignSourcefiles, ','));
+				CoreUtility.join(chosenCampaignSourcefiles, ", "));
+//			CoreUtility.join(chosenCampaignSourcefiles, ','));
 		}
 
 		// Update whether licenses need shown

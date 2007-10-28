@@ -22,21 +22,15 @@
  */
 package pcgen.core.kit;
 
+import pcgen.core.*;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.ListKey;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-
-import pcgen.core.Globals;
-import pcgen.core.Kit;
-import pcgen.core.PCClass;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
-import pcgen.core.WeaponProf;
-import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
 
 /**
  * <code>KitFeat</code>.
@@ -109,7 +103,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 			info.append(choiceCount).append(" of ");
 		}
 
-		info.append(CoreUtility.joinToStringBuffer(profList, ", "));
+		info.append(CoreUtility.join(profList, ", "));
 
 		return info.toString();
 	}

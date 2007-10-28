@@ -44,7 +44,7 @@ public class AbilityInfo implements Comparable<Object>, Categorisable
     protected String category;
 	private Ability realThing;
 	private List<Prerequisite> prereqList;
-	private ArrayList<String> decorations;
+	private List<String> decorations;
 	protected char delim = '<';
 
 	private static final String split1 = "[<>\\|]";
@@ -95,8 +95,7 @@ public class AbilityInfo implements Comparable<Object>, Categorisable
 			{
 				// get the decorations, throw away the name (because we already
 				// have it in keyname)
-				EquipmentUtilities
-					.getUndecoratedName(this.keyName, decorations);
+				AbilityUtilities.getUndecoratedName(this.keyName, decorations);
 			}
 		}
 
