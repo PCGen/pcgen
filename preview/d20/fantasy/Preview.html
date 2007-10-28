@@ -16,13 +16,30 @@
 				result = rollDice(numDice,dieSize);
 
 				var totalResult =0;
-				totalResult += result + bonus;
-
-
+				totalResult += minOne(result + bonus);
 				var msg = caption + "Result";
-				msg += ": " + result + "+" + bonus + "="+ totalResult;
+				msg += ": " + result + processBonus( bonus) + "="+ totalResult;
 
 				alert(msg);
+			}
+			function processBonus(damage)
+			{
+				if (damage >= 0)
+				{
+					return "+" + damage;
+				}
+				else
+				{
+					return damage;
+				}
+			}
+			function minOne(roll)
+			{
+				if (roll <= 0)
+				{
+					return parseInt(1);
+				}
+				return roll;
 			}
 			function rollAttack(toHit,damage,crit,mult) {
 				var attackValues = toHit.split("/");
@@ -33,13 +50,16 @@
 				for (i = 0; i < attackValues.length; i++)
 				{
 					dieRoll = (Math.round(Math.random() * 20) % 20 + 1);
-					/*
+					 
 					dieRoll = 20;
-					*/
+					 
 
 					var critDiceRole = 0;
-					msg += "     Attack " + (i+1)+ ": " + parseInt(dieRoll) + "+" + parseInt(attackValues[i]) + "=" + (parseInt(dieRoll)+parseInt(attackValues[i]));
-					var totalDamage = 0;
+					var rollTotal =0;
+					
+					msg += "     Attack " + (i+1)+ ": " + parseInt(dieRoll) + processBonus( parseInt(attackValues[i])) + "=" + minOne(parseInt(parseInt(dieRoll)+parseInt(attackValues[i])));
+					
+										var totalDamage = 0;
 					var baseDamage  =0;
 					var dmgSplit = damage.split("d");
 					var dice = dmgSplit[0];
@@ -69,24 +89,24 @@
 
 					baseDamage = rollDice(dice,dieSize);
 					modDamage = bonusDmg;
-					totalDamage += parseInt(baseDamage) + parseInt(modDamage);
-					msg += "    Damage: " + baseDamage + "+" + modDamage +  "=" + totalDamage + " \n";
+					totalDamage = minOne((parseInt(baseDamage) + parseInt(modDamage)));
+					msg += "    Damage: " + baseDamage +  processBonus(modDamage) +  "=" + totalDamage + " \n";
 
 					if (dieRoll >= critVals[0])
 					{
 						var fullDamage =0;
-						var critbaseDamage = rollDice(parseInt(mult)-1 ,dieSize);
+						var critbaseDamage = minOne(rollDice(parseInt(mult)-1 ,dieSize));
 						critDiceRole =  (Math.round(Math.random() * 20) % 20 + 1);
 
 						critmodDamage = parseInt(bonusDmg) * (parseInt(mult)-1 );
-						critTotalDamage =  critbaseDamage  +  critmodDamage ;
+						critTotalDamage =  minOne(critbaseDamage  +  critmodDamage) ;
 
-						fullDamage = parseInt(critTotalDamage) + parseInt(totalDamage);
+						fullDamage = ((parseInt(critTotalDamage) + parseInt(totalDamage)));
 
 
-						msg += "     Critical - Attack " + (i+1) + ": " + critDiceRole  + "+" + parseInt(attackValues[i]) + "=" + (parseInt(critDiceRole)+parseInt(attackValues[i]));
-						msg += "     Critical Damage: " + parseInt(critbaseDamage) + "+" + parseInt(critmodDamage )  +  "=" + parseInt(critTotalDamage ) + " \n";
-						msg += "     Damage Total: " + totalDamage + "+" + critTotalDamage +  "=" + fullDamage  + " \n";
+						msg += "     Critical Attack " + (i+1) + ": " + critDiceRole  + processBonus(parseInt(attackValues[i])) + "=" + minOne(parseInt(critDiceRole)+parseInt(attackValues[i]));
+						msg += "     Critical Damage: " + parseInt(critbaseDamage) + processBonus(critmodDamage )  +  "=" + minOne(parseInt(critTotalDamage )) + " \n";
+						msg += "     Damage Total: " + totalDamage + "+" + minOne(critTotalDamage) +  "=" + fullDamage  + " \n";
 					}
 					if(i+1 < attackValues.length)
 					{
