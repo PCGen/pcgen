@@ -1,5 +1,5 @@
 /*
- * UtilityTest.java
+ * CoreUtilityTest.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -25,13 +25,14 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
-import java.util.List;
 import pcgen.PCGenTestCase;
 import pcgen.core.utils.CoreUtility;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * <code>UtilityTest</code>.
+ * <code>CoreUtilityTest</code>.
  *
  * Tests the CoreUtility class.
  *
@@ -40,66 +41,28 @@ import pcgen.core.utils.CoreUtility;
  * @see pcgen.core.utils.CoreUtility
  */
 @SuppressWarnings("nls")
-public class UtilityTest extends PCGenTestCase
+public class CoreUtilityTest extends PCGenTestCase
 {
 	/**
-	 * Constructs a new <code>UtilityTest</code>.
+	 * Constructs a new <code>CoreUtilityTest</code>.
 	 *
 	 * @see PCGenTestCase#PCGenTestCase()
 	 */
-	public UtilityTest()
+	public CoreUtilityTest()
 	{
 		// Do Nothing
 	}
 
 	/**
-	 * Constructs a new <code>UtilityTest</code> with the given <var>name</var>.
+	 * Constructs a new <code>CoreUtilityTest</code> with the given <var>name</var>.
 	 *
 	 * @param name the test case name
 	 *
 	 * @see PCGenTestCase#PCGenTestCase(String)
 	 */
-	public UtilityTest(final String name)
+	public CoreUtilityTest(final String name)
 	{
 		super(name);
-	}
-
-	/**
-	 * Test commaDelimit method.
-	 */
-	public void testCommaDelimit()
-	{
-		final List<String> list = constructList();
-		final String result = CoreUtility.commaDelimit(list);
-		final String trueResult = "one, two, three, four";
-		assertTrue("commaDelimit returned bad String: got '" + result
-			+ "' should be '" + trueResult + "'", trueResult.equals(result));
-	}
-
-	/**
-	 * Test replaceFirst method.
-	 *
-	 * @throws Exception
-	 */
-	public void testReplaceFirst() throws Exception
-	{
-		assertEquals(CoreUtility.replaceFirst("abcdefghijklmnopqrstuvwz",
-			"def", "01234"), "abc01234ghijklmnopqrstuvwz");
-		assertEquals(CoreUtility.replaceFirst("abcdefghijklmnopqrstuvwz",
-			"def", "01"), "abc01ghijklmnopqrstuvwz");
-	}
-
-	/**
-	 * Test unsplit char (join method).
-	 */
-	public void testUnSplitChar()
-	{
-		final char sep = ',';
-		final List<String> list = constructList();
-		final String result = CoreUtility.join(list, sep);
-		final String trueResult = "one, two, three, four";
-		assertTrue("unSplit returned bad String: got '" + result
-			+ "' should be '" + trueResult + "'", trueResult.equals(result));
 	}
 
 	/**
