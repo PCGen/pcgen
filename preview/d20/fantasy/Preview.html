@@ -93,12 +93,11 @@
 					if (dieRoll >= critVals[0])
 					{
 						var fullDamage =0;
-						var critbaseDamage = minOne(rollDice(parseInt(mult)-1 ,dieSize));
+						var critbaseDamage = rollDice(parseInt(mult)-1 ,dieSize);
 						critDiceRole =  (Math.round(Math.random() * 20) % 20 + 1);
 
 						critmodDamage = parseInt(bonusDmg) * (parseInt(mult)-1 );
 						critTotalDamage =  critbaseDamage  +  critmodDamage ;
-						alert(critTotalDamage);
 						if(critTotalDamage <= 0)
 						{
 							critTotalDamage = parseInt(mult)-1;
