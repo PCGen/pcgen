@@ -25,65 +25,19 @@
  */
 package pcgen.io;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-
-import pcgen.core.Constants;
-import pcgen.core.Equipment;
-import pcgen.core.Globals;
-import pcgen.core.PCClass;
-import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.core.Skill;
+import pcgen.core.*;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.Follower;
 import pcgen.core.utils.CoreUtility;
-import pcgen.io.exporttoken.ACCheckToken;
-import pcgen.io.exporttoken.AbilityListToken;
-import pcgen.io.exporttoken.AbilityToken;
-import pcgen.io.exporttoken.AlignmentToken;
-import pcgen.io.exporttoken.AttackToken;
-import pcgen.io.exporttoken.BonusToken;
-import pcgen.io.exporttoken.CheckToken;
-import pcgen.io.exporttoken.DRToken;
-import pcgen.io.exporttoken.DomainToken;
-import pcgen.io.exporttoken.EqToken;
-import pcgen.io.exporttoken.EqTypeToken;
-import pcgen.io.exporttoken.GameModeToken;
-import pcgen.io.exporttoken.HPToken;
-import pcgen.io.exporttoken.HeightToken;
-import pcgen.io.exporttoken.InitiativeMiscToken;
-import pcgen.io.exporttoken.MovementToken;
-import pcgen.io.exporttoken.ReachToken;
-import pcgen.io.exporttoken.SRToken;
-import pcgen.io.exporttoken.SizeLongToken;
-import pcgen.io.exporttoken.SkillToken;
-import pcgen.io.exporttoken.SkillpointsToken;
-import pcgen.io.exporttoken.SpellFailureToken;
-import pcgen.io.exporttoken.StatToken;
-import pcgen.io.exporttoken.Token;
-import pcgen.io.exporttoken.TotalToken;
-import pcgen.io.exporttoken.VarToken;
-import pcgen.io.exporttoken.WeaponToken;
-import pcgen.io.exporttoken.WeaponhToken;
-import pcgen.io.exporttoken.WeightToken;
+import pcgen.io.exporttoken.*;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
+
+import java.io.*;
+import java.text.NumberFormat;
+import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  * <code>ExportHandler</code>.
@@ -508,67 +462,69 @@ public final class ExportHandler
 		}
 	}
 
-	private boolean evaluateExpression(String expr, PlayerCharacter aPC)
+	private boolean evaluateExpression(final String expr, 
+	                                   final PlayerCharacter aPC)
 	{
 		if (expr.indexOf(".AND.") > 0)
 		{
-			String part1 = expr.substring(0, expr.indexOf(".AND."));
-			String part2 = expr.substring(expr.indexOf(".AND.") + 5);
+			final String part1 = expr.substring(0, expr.indexOf(".AND."));
+			final String part2 = expr.substring(expr.indexOf(".AND.") + 5);
 
-			return (evaluateExpression(part1, aPC) && evaluateExpression(part2,
-				aPC));
+			return (evaluateExpression(part1, aPC) && 
+			        evaluateExpression(part2, aPC));
 		}
 
 		if (expr.indexOf(".OR.") > 0)
 		{
-			String part1 = expr.substring(0, expr.indexOf(".OR."));
-			String part2 = expr.substring(expr.indexOf(".OR.") + 4);
+			final String part1 = expr.substring(0, expr.indexOf(".OR."));
+			final String part2 = expr.substring(expr.indexOf(".OR.") + 4);
 
-			return (evaluateExpression(part1, aPC) || evaluateExpression(part2,
-				aPC));
+			return (evaluateExpression(part1, aPC) || 
+			        evaluateExpression(part2, aPC));
 		}
 
-		for (Object anObject : loopVariables.keySet())
+		String expr1 = expr;
+		for (final Object anObject : loopVariables.keySet())
 		{
 			if (anObject == null)
 			{
 				continue;
 			}
 
-			String fString = anObject.toString();
-			String rString = loopVariables.get(fString).toString();
-			expr = CoreUtility.replaceAll(expr, fString, rString);
+			final String fString = anObject.toString();
+			final String rString = loopVariables.get(fString).toString();
+			expr1 = expr1.replaceAll(Pattern.quote(fString), rString);
 		}
 
-		if (expr.startsWith("HASVAR:"))
+		if (expr1.startsWith("HASVAR:"))
 		{
-			expr = expr.substring(7).trim();
+			expr1 = expr1.substring(7).trim();
 
-			return (aPC.getVariableValue(expr, "").intValue() > 0);
+			return (aPC.getVariableValue(expr1, "").intValue() > 0);
 		}
 
-		if (expr.startsWith("HASFEAT:"))
+		if (expr1.startsWith("HASFEAT:"))
 		{
-			expr = expr.substring(8).trim();
+			expr1 = expr1.substring(8).trim();
 
-			return (aPC.getFeatNamed(expr) != null);
+			return (aPC.getFeatNamed(expr1) != null);
 		}
 
-		if (expr.startsWith("HASSA:"))
+		if (expr1.startsWith("HASSA:"))
 		{
-			expr = expr.substring(6).trim();
+			expr1 = expr1.substring(6).trim();
 
-			return (aPC.hasSpecialAbility(expr));
+			return (aPC.hasSpecialAbility(expr1));
 		}
 
-		if (expr.startsWith("HASEQUIP:"))
+		if (expr1.startsWith("HASEQUIP:"))
 		{
-			expr = expr.substring(9).trim();
+			expr1 = expr1.substring(9).trim();
 
-			return (aPC.getEquipmentNamed(expr) != null);
+			return (aPC.getEquipmentNamed(expr1) != null);
 		}
 
-		if (expr.startsWith("SPELLCASTER:"))
+		if (expr1.startsWith("SPELLCASTER:"))
 		{
 			// Could look like one of the following:
 			// Arcane
@@ -582,7 +538,7 @@ public final class ExportHandler
 			// 0=Wizard    (%classNum=className)
 			// 0=Divine    (%classNum=spell_type)
 			// 0=Prepare   (%classNum=preparation_type)
-			final String fString = expr.substring(12).trim();
+			final String fString = expr1.substring(12).trim();
 
 			if (fString.indexOf('=') >= 0)
 			{
@@ -615,20 +571,20 @@ public final class ExportHandler
 				}
 
 				if ("!Prepare".equalsIgnoreCase(cs)
-					&& aClass.getMemorizeSpells())
+				    && aClass.getMemorizeSpells())
 				{
 					return true;
 				}
 
 				if ("Prepare".equalsIgnoreCase(cs)
-					&& (!aClass.getMemorizeSpells()))
+				    && (!aClass.getMemorizeSpells()))
 				{
 					return true;
 				}
 			}
 			else
 			{
-				for (PCClass pcClass : aPC.getClassList())
+				for (final PCClass pcClass : aPC.getClassList())
 				{
 					if (fString.equalsIgnoreCase(pcClass.getSpellType()))
 					{
@@ -646,13 +602,13 @@ public final class ExportHandler
 					}
 
 					if ("!Prepare".equalsIgnoreCase(fString)
-						&& pcClass.getMemorizeSpells())
+					    && pcClass.getMemorizeSpells())
 					{
 						return true;
 					}
 
 					if ("Prepare".equalsIgnoreCase(fString)
-						&& (!pcClass.getMemorizeSpells()))
+					    && (!pcClass.getMemorizeSpells()))
 					{
 						return true;
 					}
@@ -660,13 +616,13 @@ public final class ExportHandler
 			}
 		}
 
-		if (expr.startsWith("EVEN:"))
+		if (expr1.startsWith("EVEN:"))
 		{
 			int i = 0;
 
 			try
 			{
-				i = Integer.parseInt(expr.substring(5).trim());
+				i = Integer.parseInt(expr1.substring(5).trim());
 			}
 			catch (NumberFormatException exc)
 			{
@@ -678,9 +634,9 @@ public final class ExportHandler
 			return ((i % 2) == 0);
 		}
 
-		if (expr.endsWith("UNTRAINED"))
+		if (expr1.endsWith("UNTRAINED"))
 		{
-			final StringTokenizer aTok = new StringTokenizer(expr, ".");
+			final StringTokenizer aTok = new StringTokenizer(expr1, ".");
 			final String fString = aTok.nextToken();
 			Skill aSkill = null;
 
@@ -708,9 +664,8 @@ public final class ExportHandler
 		}
 
 		// Test for JEP formula 
-		Float res =
-				aPC.getVariableProcessor().getJepOnlyVariableValue(null, expr,
-					"", 0);
+		final Float res =
+				aPC.getVariableProcessor().getJepOnlyVariableValue(null, expr1, "", 0);
 		if (res != null)
 		{
 			return res.equals(JEP_TRUE);
@@ -725,20 +680,20 @@ public final class ExportHandler
 		// |END IF|
 		// It can theorically be used with any valid token, doing an equal compare
 		// (integer or string equalities are valid)
-		StringTokenizer aTok = new StringTokenizer(expr, ":");
+		final StringTokenizer aTok = new StringTokenizer(expr1, ":");
 		final String token;
 		final String equals;
 
 		final int tokenCount = aTok.countTokens();
 		if (tokenCount == 1)
 		{
-			token = expr;
+			token = expr1;
 			equals = "TRUE";
 		}
 		else if (tokenCount != 2)
 		{
 			Logging
-				.errorPrint("evaluateExpression: Incorrect syntax (missing parameter)");
+					.errorPrint("evaluateExpression: Incorrect syntax (missing parameter)");
 
 			return false;
 		}
@@ -748,8 +703,8 @@ public final class ExportHandler
 			equals = aTok.nextToken().toUpperCase();
 		}
 
-		StringWriter sWriter = new StringWriter();
-		BufferedWriter aWriter = new BufferedWriter(sWriter);
+		final StringWriter sWriter = new StringWriter();
+		final BufferedWriter aWriter = new BufferedWriter(sWriter);
 		replaceToken(token, aWriter, aPC);
 		sWriter.flush();
 
@@ -765,7 +720,6 @@ public final class ExportHandler
 		String aString = sWriter.toString();
 		if (token.startsWith("VAR."))
 		{
-			aString = token.substring(4);
 			aString = aPC.getVariableValue(token.substring(4), "").toString();
 		}
 
@@ -774,24 +728,28 @@ public final class ExportHandler
 			// integer values
 			final int i = Integer.parseInt(aString);
 
-			return (i != Integer.parseInt(equals)) ? false : true;
+			return i == Integer.parseInt(equals);
 		}
 		catch (NumberFormatException e)
 		{
 			// String values
-			return (aString.toUpperCase().indexOf(equals) < 0) ? false : true;
+			return 0 <= aString.toUpperCase().indexOf(equals);
 		}
 	}
 
-	private void evaluateIIF(IIFNode node, BufferedWriter output,
-		FileAccess fa, PlayerCharacter aPC)
+	private void evaluateIIF(
+			final IIFNode node,
+			final BufferedWriter output,
+			final FileAccess fa,
+			final PlayerCharacter aPC)
 	{
 		//
-		// Comma is a delimiter for a higher-level parser, so we'll use a semicolon and replace it with a comma for
+		// Comma is a delimiter for a higher-level parser, so 
+		// we'll use a semicolon and replace it with a comma for
 		// expressions like:
 		// |IIF(VAR.IF(var("COUNT[SKILLTYPE=Strength]")>0;1;0):1)|
 		//
-		String aString = CoreUtility.replaceAll(node.expr(), ";", ",");
+		final String aString = node.expr().replaceAll(Pattern.quote(";"), ",");
 		if (evaluateExpression(aString, aPC))
 		{
 			evaluateIIFChildren(node.trueChildren(), output, fa, aPC);
@@ -802,44 +760,45 @@ public final class ExportHandler
 		}
 	}
 
-	private void evaluateIIFChildren(final List<?> children,
-		BufferedWriter output, FileAccess fa, PlayerCharacter aPC)
+	private void evaluateIIFChildren(
+			final List<?> children,
+			final BufferedWriter output,
+			final FileAccess fa, 
+			final PlayerCharacter aPC)
 	{
 		for (int y = 0; y < children.size(); ++y)
 		{
 			if (children.get(y) instanceof FORNode)
 			{
-				FORNode nextFor = (FORNode) children.get(y);
-				loopVariables.put(nextFor.var(), Integer.valueOf(0));
+				final FORNode nextFor = (FORNode) children.get(y);
+				loopVariables.put(nextFor.var(), 0);
 				existsOnly = nextFor.exists();
 
 				String minString = nextFor.min();
 				String maxString = nextFor.max();
 				String stepString = nextFor.step();
-				String fString;
-				String rString;
 
-				for (Object anObject : loopVariables.keySet())
+				for (final Object anObject : loopVariables.keySet())
 				{
 					if (anObject == null)
 					{
 						continue;
 					}
 
-					fString = anObject.toString();
-					rString = loopVariables.get(fString).toString();
-					minString =
-							CoreUtility.replaceAll(minString, fString, rString);
-					maxString =
-							CoreUtility.replaceAll(maxString, fString, rString);
-					stepString =
-							CoreUtility
-								.replaceAll(stepString, fString, rString);
+					final String fString = anObject.toString();
+					final String rString = loopVariables.get(fString).toString();
+					minString  = minString.replaceAll(Pattern.quote(fString), rString);
+					maxString  = maxString.replaceAll(Pattern.quote(fString), rString); 
+					stepString = stepString.replaceAll(Pattern.quote(fString), rString);
 				}
 
-				loopFOR(nextFor, getVarValue(minString, aPC), getVarValue(
-					maxString, aPC), getVarValue(stepString, aPC), output, fa,
-					aPC);
+				loopFOR(nextFor, 
+				        getVarValue(minString, aPC), 
+				        getVarValue(maxString, aPC), 
+				        getVarValue(stepString, aPC), 
+				        output,
+				        fa, 
+				        aPC);
 				existsOnly = nextFor.exists();
 				loopVariables.remove(nextFor.var());
 			}
@@ -851,18 +810,16 @@ public final class ExportHandler
 			{
 				String lineString = (String) children.get(y);
 
-				for (Object anObject : loopVariables.keySet())
+				for (final Object anObject : loopVariables.keySet())
 				{
 					if (anObject == null)
 					{
 						continue;
 					}
 
-					String fString = anObject.toString();
-					String rString = loopVariables.get(fString).toString();
-					lineString =
-							CoreUtility
-								.replaceAll(lineString, fString, rString);
+					final String fString = anObject.toString();
+					final String rString = loopVariables.get(fString).toString();
+					lineString = lineString.replaceAll(Pattern.quote(fString), rString);
 				}
 
 				replaceLine(lineString, output, aPC);
@@ -880,36 +837,27 @@ public final class ExportHandler
 	 * Loop through a set of output as required by a FOR loop.
 	 * 
 	 * @param node The node being processed
-	 * @param min The starting value of the loop
-	 * @param max The ending value fo the loop
+	 * @param start The starting value of the loop
+	 * @param end The ending value fo the loop
 	 * @param step The amount by which the counter should be changed each iteration.
 	 * @param output The writer output is to be sent to.
 	 * @param fa The FileAccess instance to be used to manage the output.
 	 * @param aPC The character being processed.
 	 */
-	private void loopFOR(FORNode node, int min, int max, int step,
-		BufferedWriter output, FileAccess fa, PlayerCharacter aPC)
+	private void loopFOR(
+			final FORNode node, 
+			final int start, 
+			final int end, 
+			final int step,
+			final BufferedWriter output, 
+			final FileAccess fa, 
+			final PlayerCharacter aPC)
 	{
-		if (step < 0)
+		for (int x = start; ((step < 0) ? x >= end : x <= end); x += step)
 		{
-			for (int x = min; x >= max; x += step)
+			if (processLoop(node, output, fa, aPC, x))
 			{
-				boolean stopLoop = processLoop(node, output, fa, aPC, x);
-				if (stopLoop)
-				{
-					x = max - 1;
-				}
-			}
-		}
-		else
-		{
-			for (int x = min; x <= max; x += step)
-			{
-				boolean stopLoop = processLoop(node, output, fa, aPC, x);
-				if (stopLoop)
-				{
-					x = max + 1;
-				}
+				break;
 			}
 		}
 	}
@@ -950,13 +898,9 @@ public final class ExportHandler
 
 					fString = anObject.toString();
 					rString = loopVariables.get(fString).toString();
-					minString =
-							CoreUtility.replaceAll(minString, fString, rString);
-					maxString =
-							CoreUtility.replaceAll(maxString, fString, rString);
-					stepString =
-							CoreUtility
-								.replaceAll(stepString, fString, rString);
+					minString  = minString.replaceAll(Pattern.quote(fString), rString);
+					maxString  = maxString.replaceAll(Pattern.quote(fString), rString);
+					stepString = stepString.replaceAll(Pattern.quote(fString), rString);
 				}
 
 				final int varMin = getVarValue(minString, aPC);
@@ -983,9 +927,7 @@ public final class ExportHandler
 
 					String fString = anObject.toString();
 					String rString = loopVariables.get(fString).toString();
-					lineString =
-							CoreUtility
-								.replaceAll(lineString, fString, rString);
+					lineString = lineString.replaceAll(Pattern.quote(fString), rString);
 				}
 
 				noMoreItems = false;
@@ -1050,8 +992,9 @@ public final class ExportHandler
 			}
 		}
 
-		aString = CoreUtility.replaceAll(aString, "[", "(");
-		aString = CoreUtility.replaceAll(aString, "]", ")");
+		
+		aString = aString.replaceAll(Pattern.quote("["), "("); 
+		aString = aString.replaceAll(Pattern.quote("]"), ")");
 
 		final String delimiter = "+-/*";
 		String valString = "";
@@ -1279,9 +1222,7 @@ public final class ExportHandler
 									}
 								}
 
-								attackData =
-										CoreUtility.replaceAll(newAttackData
-											.substring(1), "+-", "-");
+								attackData = newAttackData.substring(1).replaceAll(Pattern.quote("+-"), "-");
 							}
 						}
 						else

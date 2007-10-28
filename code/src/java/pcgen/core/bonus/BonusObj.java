@@ -920,7 +920,7 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 	public void expandToken(final String token, final String tokenValue)
 	{
 		final String value = getValue();
-		setValue( CoreUtility.replaceAll(value, token, tokenValue));
+		setValue(value.replaceAll(Pattern.quote(token), tokenValue));
 
 		if ( hasPreReqs() )
 		{

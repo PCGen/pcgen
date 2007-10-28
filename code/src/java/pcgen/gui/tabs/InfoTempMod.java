@@ -26,65 +26,13 @@
  */
 package pcgen.gui.tabs;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-import javax.swing.JTree;
-import javax.swing.KeyStroke;
-import javax.swing.ListSelectionModel;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.TableColumn;
-import javax.swing.tree.TreePath;
-
-import pcgen.core.Ability;
-import pcgen.core.Categorisable;
-import pcgen.core.Constants;
-import pcgen.core.Equipment;
-import pcgen.core.GameMode;
-import pcgen.core.Globals;
-import pcgen.core.PCClass;
-import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.core.Skill;
+import pcgen.core.*;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.core.character.CharacterSpell;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
@@ -94,23 +42,24 @@ import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
-import pcgen.gui.utils.AbstractTreeTableModel;
-import pcgen.gui.utils.ClickHandler;
-import pcgen.gui.utils.InfoLabelTextBuilder;
-import pcgen.gui.utils.JLabelPane;
-import pcgen.gui.utils.JTreeTable;
-import pcgen.gui.utils.JTreeTableMouseAdapter;
-import pcgen.gui.utils.JTreeTableSorter;
-import pcgen.gui.utils.LabelTreeCellRenderer;
-import pcgen.gui.utils.PObjectNode;
-import pcgen.gui.utils.ResizeColumnListener;
-import pcgen.gui.utils.TreeTableModel;
-import pcgen.gui.utils.Utility;
+import pcgen.gui.utils.*;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserRadio;
 import pcgen.util.enumeration.Tab;
+
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableColumn;
+import javax.swing.tree.TreePath;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * <code>InfoTempMod</code> creates a new tabbed panel that is used to
@@ -366,26 +315,30 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 	/**
 	 * allows user to choose value of bonus
-	 * @param newB
+	 * @param newB 
 	 * @param aChoice
 	 * @param repeatValue
 	 * @return bonus choice
 	 **/
-	private String getBonusChoice(BonusObj newB, String aChoice,
-		String repeatValue)
+	private String getBonusChoice(
+			final BonusObj newB,
+			final String aChoice,
+			String repeatValue)
 	{
 
 		// If repeatValue is set, this is a multi BONUS and they all
 		// should get the same value as the first choice
 		if (repeatValue.length() > 0)
 		{
+			final String aS = newB.getValue(); 
+
 			// need to parse the aChoice string
 			// and replace %CHOICE with choice
-			if (newB.getValue().indexOf("%CHOICE") >= 0) //$NON-NLS-1$
+			if (aS.indexOf("%CHOICE") >= 0) //$NON-NLS-1$
 			{
-				String ac =
-						CoreUtility.replaceAll(newB.getValue(), "%CHOICE", //$NON-NLS-1$
-							repeatValue); 
+				final String ac = aS.replaceAll(
+						Pattern.quote("%CHOICE"), //$NON-NLS-1$ 
+						repeatValue);
 				newB.setValue(ac);
 			}
 
@@ -464,21 +417,21 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				ArrayList<String> selectedList = c.getSelectedList();
 				if (selectedList.size() > 0)
 				{
-					String aI = selectedList.get(0);
-					repeatValue = aI;
+					final String aI = selectedList.get(0);
 
+					final String bValue = newB.getValue(); 
+					
 					// need to parse the bonus.getValue()
 					// string and replace %CHOICE
-					if (newB.getValue().indexOf("%CHOICE") >= 0) //$NON-NLS-1$
+					if (bValue.indexOf("%CHOICE") >= 0) //$NON-NLS-1$
 					{
-						String ac = 
-								CoreUtility.replaceAll(newB.getValue(), 
-									"%CHOICE", aI); //$NON-NLS-1$
-						aI = ac;
-						newB.setValue(aI);
+						final String ac =
+								bValue.replaceAll(Pattern.quote("%CHOICE"),  //$NON-NLS-1$
+								                  aI);
+						newB.setValue(ac);
 					}
 
-					return repeatValue;
+					return aI;
 				}
 				// they hit the cancel button
 				newB.setValue("0");

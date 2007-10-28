@@ -417,7 +417,7 @@ public final class CoreUtility
 
 			boolean needjoin = false;
 
-			for (final Object obj : (Collection<?>) strings)
+			for (final Object obj : strings)
 			{
 				if (needjoin)
 				{
@@ -468,53 +468,6 @@ public final class CoreUtility
 	}
 
 	/**
-	 * Replace all occurrences of original in source with replacement 
-	 * @param source the source string
-	 * @param original the substring to search for
-	 * @param replacement the substring to substitute
-	 * @return a new String based on source where original has been replaced with replacement
-	 */
-	public static String replaceAll(
-			final String source,
-			final String original,
-			final String replacement)
-	{
-		return source.replaceAll(Pattern.quote(original), replacement);
-		
-//		final char[] working = source.toCharArray();
-//		final StringBuffer sb = new StringBuffer(source.length() + replacement.length());
-//		int startindex = source.indexOf(original);
-//
-//		if (startindex < 0)
-//		{
-//			return source;
-//		}
-//
-//		int currindex = 0;
-//
-//		while (startindex > -1)
-//		{
-//			for (int i = currindex; i < startindex; ++i)
-//			{
-//				sb.append(working[i]);
-//			}
-//
-//			currindex = startindex;
-//			sb.append(replacement);
-//			currindex += original.length();
-//			startindex = source.indexOf(original, currindex);
-//		}
-//
-//		for (int i = currindex; i < working.length; ++i)
-//		{
-//			sb.append(working[i]);
-//		}
-//
-//		return sb.toString();
-	}
-
-
-	/**
 	 *  Turn a 'separator' separated string into a ArrayList of strings, each
 	 *  corresponding to one trimmed 'separator'-separated portion of the original
 	 *  string.
@@ -525,17 +478,17 @@ public final class CoreUtility
 	 */
 	public static List<String> split(final String aString, final char separator)
 	{
-		ArrayList<String> temp = new ArrayList<String>();
-		String sepStr = "\\" + String.valueOf(separator);
+		final List<String> temp = new ArrayList<String>();
+		final String sepStr = Pattern.quote(String.valueOf(separator)); 
+
 		if (aString.trim().length() == 0)
 		{
 			return temp;
 		}
 
-		for (Iterator<String> iter = Arrays.asList(aString.split(sepStr)).iterator(); iter
-			.hasNext();)
+		for (final String s : Arrays.asList(aString.split(sepStr)))
 		{
-			temp.add(iter.next().trim());
+			temp.add(s.trim());
 		}
 
 		return temp;
@@ -543,12 +496,12 @@ public final class CoreUtility
 
 	/**
 	 * Unescape the : character
-	 * @param in
-	 * @return String
+	 * @param in the string to operate on
+	 * @return the modified string
 	 */
 	public static String unEscapeColons2(final String in)
 	{
-		return replaceAll(in, "&#59;", ":");
+		return in.replaceAll(Pattern.quote("&#59;"), ":");
 	}
 
 	/**

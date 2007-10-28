@@ -22,11 +22,6 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
-
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.levelability.LevelAbility;
@@ -41,6 +36,12 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.regex.Pattern;
 
 /**
  * <code>Skill</code>.
@@ -1171,11 +1172,12 @@ public final class Skill extends PObject
 		String aString = Globals.getGameModeRankModFormula();
 		if (aString.length() != 0)
 		{
-			aString = CoreUtility.replaceAll(aString, "$$RANK$$", getTotalRank(aPC).toString());
+			aString = aString.replaceAll(Pattern.quote("$$RANK$$"),
+			                             getTotalRank(aPC).toString());
 			bonus += aPC.getVariableValue(aString, "").intValue();
 		}
 
-		return Integer.valueOf(bonus);
+		return bonus;
 	}
 
 	/**
@@ -1712,7 +1714,8 @@ public final class Skill extends PObject
 		String aString = Globals.getGameModeRankModFormula();
 		if (aString.length() != 0)
 		{
-			aString = CoreUtility.replaceAll(aString, "$$RANK$$", getTotalRank(aPC).toString());
+			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), 
+			                             getTotalRank(aPC).toString());
 			bonus = aPC.getVariableValue(aString, "").intValue();
 			appendBonusDesc(bonusDetails, bonus, "RANKS");
 		}

@@ -25,13 +25,13 @@
  */
 package pcgen.core;
 
-import pcgen.core.utils.CoreUtility;
+import pcgen.core.bonus.BonusObj;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Collections;
-import pcgen.core.bonus.BonusObj;
+import java.util.regex.Pattern;
 
 /**
  * <code>StatList</code>.
@@ -106,17 +106,18 @@ public final class StatList implements Iterable<PCStat>
 		String aString = stat.getStatMod();
 
 		/////////////////////////////////////////////////////////////////////////
-		// Need to replace all occurances of 'SCORE' in the formula, not just the first.
-		// For some systems (High Adventure Role Playing for example), it is necessary to
-		// have multiple 'SCORE' values in the formula.
+		// Need to replace all occurances of 'SCORE' in the formula, not just the
+		// first. For some systems (High Adventure Role Playing for example), it
+		// is necessary to have multiple 'SCORE' values in the formula.
 		//
-		// This whole method should probably be revisited as a valid variable name that
-		// contains 'SCORE' can be trounced by the replacement (e.g. IQ_SCORE could be changed to IQ_12)
+		// This whole method should probably be revisited as a valid variable name
+		// that contains 'SCORE' can be trounced by the replacement (e.g. IQ_SCORE
+		// could be changed to IQ_12)
+		//
 		// - Byngl Dec 16, 2004
-		//
-		//aString = aString.replaceFirst("SCORE", Integer.toString(aNum)); //Only works on jdk 1.4
-//		aString = CoreUtility.replaceFirst(aString, "SCORE", Integer.toString(aNum));
-		aString = CoreUtility.replaceAll(aString, "SCORE", Integer.toString(aNum));
+
+		aString = aString.replaceAll(Pattern.quote("SCORE"), Integer.toString(aNum));
+
 		/////////////////////////////////////////////////////////////////////////
 
 		return ownerPC.getVariableValue(aString, "").intValue();

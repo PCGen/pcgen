@@ -5,8 +5,9 @@
 package plugin.lsttokens;
 
 import pcgen.core.PObject;
-import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.lst.GlobalLstToken;
+
+import java.util.regex.Pattern;
 
 /**
  * @author djones4
@@ -24,24 +25,20 @@ public class BonusLst implements GlobalLstToken
 	}
 
 	/**
-	 * Parse BONUS token
-	 * @param obj 
-	 * @param value 
-	 * @param anInt 
-	 * @return true or false
+	 * Parse BONUS token and use it to add a bonus to a PObject
+	 * 
+	 * @param obj the object to make the bonus a part of
+	 * @param value the text of the bonus 
+	 * @param anInt the level to add the bonus at 
+	 * @return true if the bonus added to the PObject is non null or false otherwise
 	 */
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(final PObject obj,
+	                     final String value, 
+	                     final int anInt)
 	{
-		boolean result = false;
-		value = CoreUtility.replaceAll(value, "<this>", obj.getKeyName());
-		if (anInt > -9)
-		{
-			result = obj.addBonusList(anInt + "|" + value);
-		}
-		else
-		{
-			result = obj.addBonusList(value);
-		}
-		return result;
+		final String v = value.replaceAll(Pattern.quote("<this>"), obj.getKeyName());
+		return (anInt > -9) ?
+		       obj.addBonusList(anInt + "|" + v) :
+		       obj.addBonusList(v);
 	}
 }

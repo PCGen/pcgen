@@ -25,30 +25,6 @@
  */
 package pcgen.core;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.text.Collator;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.MissingResourceException;
-import java.util.Random;
-import java.util.ResourceBundle;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.SortedSet;
-import java.util.StringTokenizer;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
-import javax.swing.JFrame;
-
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.spell.Spell;
@@ -58,13 +34,21 @@ import pcgen.persistence.PersistenceManager;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
-import pcgen.util.PropertyFactory;
+
+import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.text.Collator;
+import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  * This is like the top level model container. However,
@@ -2568,14 +2552,20 @@ public final class Globals
 	 * @param mult
 	 * @return Float
 	 */
-	public static Float maxLoadForLoadScore(final int loadScore, final PlayerCharacter aPC, Float mult)
+	public static Float maxLoadForLoadScore(
+			final int loadScore,
+			final PlayerCharacter aPC,
+			final Float mult)
 	{
-		Float loadValue = SystemCollections.getLoadInfo().getLoadScoreValue(loadScore);
+		final Float loadValue = SystemCollections.getLoadInfo().getLoadScoreValue(loadScore);
 		String formula = SystemCollections.getLoadInfo().getLoadModifierFormula();
 		if (formula.length() != 0)
 		{
-			formula = CoreUtility.replaceAll(formula, "$$SCORE$$", new Float(loadValue.doubleValue() * mult.doubleValue() * getLoadMultForSize(aPC)).toString());
-			return new Float(aPC.getVariableValue(formula, "").intValue());
+			formula = formula.replaceAll(Pattern.quote("$$SCORE$$"),
+			                             Double.toString(loadValue.doubleValue() * 
+			                                             mult.doubleValue() * 
+			                                             getLoadMultForSize(aPC)));
+			return (float) aPC.getVariableValue(formula, "").intValue();
 		}
 		return new Float(loadValue.doubleValue() * mult.doubleValue() * getLoadMultForSize(aPC));
 	}
@@ -3260,7 +3250,8 @@ public final class Globals
 					String formula = SystemCollections.getLoadInfo().getLoadMoveFormula(load.toString());
 					if (formula.length() != 0)
 					{
-						formula = CoreUtility.replaceAll(formula, "$$MOVE$$", new Float(Math.floor(unencumberedMove)).toString());
+						formula = formula.replaceAll(Pattern.quote("$$MOVE$$"),
+						                             Double.toString(Math.floor(unencumberedMove)));
 						return aPC.getVariableValue(formula, "").doubleValue();
 					}
 				}
