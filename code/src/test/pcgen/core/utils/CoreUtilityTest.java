@@ -23,10 +23,9 @@
  * Last Editor: $Author$
  * Last Edited: $Date$
  */
-package pcgen.core;
+package pcgen.core.utils;
 
 import pcgen.PCGenTestCase;
-import pcgen.core.utils.CoreUtility;
 
 import java.util.ArrayList;
 import java.util.List;

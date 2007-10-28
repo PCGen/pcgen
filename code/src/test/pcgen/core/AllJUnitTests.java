@@ -24,6 +24,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import pcgen.core.levelability.LevelAbilityTest;
+import pcgen.core.utils.CoreUtilityTest;
 import pcgen.persistence.lst.FeatTest;
 
 //import pcgen.core.LevelAbilityTest;
