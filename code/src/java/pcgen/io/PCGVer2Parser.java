@@ -2982,7 +2982,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			thePC.setPoolAmount(Integer.parseInt(line.substring(TAG_POOLPOINTS
 				.length() + 1)));
-			thePC.setCostPool(thePC.getPoolAmount());
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -3000,6 +2999,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			thePC.setPointBuyPoints(Integer.parseInt(line
 				.substring(TAG_POOLPOINTSAVAIL.length() + 1)));
+			thePC
+				.setCostPool(thePC.getPointBuyPoints() - thePC.getPoolAmount());
 		}
 		catch (NumberFormatException nfe)
 		{
