@@ -1852,14 +1852,17 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	public void addSABToList(List<SpecialAbility> saList, PlayerCharacter pc)
 	{
-		List<SpecialAbility> sabs = mapChar.getListFor(MapKey.SAB, -9);
-		if (sabs != null)
+		for (Integer lvl : mapChar.getSecondaryKeySet(MapKey.SAB))
 		{
-			for (SpecialAbility sa : sabs)
+			List<SpecialAbility> sabs = mapChar.getListFor(MapKey.SAB, lvl);
+			if (sabs != null)
 			{
-				if (pc == null || sa.qualifies(pc))
+				for (SpecialAbility sa : sabs)
 				{
-					saList.add(sa);
+					if (pc == null || sa.qualifies(pc))
+					{
+						saList.add(sa);
+					}
 				}
 			}
 		}

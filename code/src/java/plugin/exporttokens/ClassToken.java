@@ -26,6 +26,7 @@
 package plugin.exporttokens;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -170,7 +171,8 @@ public class ClassToken extends Token {
 		{
 			return formattedList;
 		}
-
+		Collections.sort(saList);
+		
 		// From the list of allowed SAs, format the output strings
 		// to include all of the variables
 		for (SpecialAbility sa : saList) {
