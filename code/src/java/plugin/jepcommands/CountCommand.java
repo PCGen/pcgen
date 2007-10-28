@@ -160,25 +160,19 @@ public class CountCommand extends PCGenCommand
 
 								while (abIt.hasNext())
 								{
-									final PObject p = abIt.next();
-									if (!p.getDisplayName().equalsIgnoreCase(keyValue[1]))
+									final Ability ab = (Ability) abIt.next();
+
+									final String name = (ab.isMultiples()) ?
+												AbilityUtilities.getUndecoratedName(
+														ab.getDisplayName(),
+														new ArrayList<String>()) :
+												ab.getDisplayName();
+									if (!name.equalsIgnoreCase(keyValue[1]))
 									{
 										abIt.remove();
 									}
 								}
 								break;
-
-//									final String name = (ab.isMultiples()) ?
-//														AbilityUtilities.getUndecoratedName(
-//																ab.getDisplayName(),
-//																new ArrayList<String>()) :
-//																						 ab.getDisplayName();
-//									if (!name.equalsIgnoreCase(keyValue[1]))
-//									{
-//										abIt.remove();
-//									}
-//								}
-//								break;
 
 							case NATURE:
 							case NAT:
