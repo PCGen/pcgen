@@ -74,7 +74,7 @@ public class AllJUnitTests extends TestCase
 		suite.addTest(new TestSuite(PObjectTest.class));
 		suite.addTest(new TestSuite(PObjectUtilitiesTest.class));
 		suite.addTest(new TestSuite(PrereqHandlerTest.class));
-		suite.addTest(new TestSuite(UtilityTest.class));
+		suite.addTest(new TestSuite(CoreUtilityTest.class));
 
 		// core.bonus
 		suite.addTest(new TestSuite(pcgen.core.bonus.BonusTest.class));
