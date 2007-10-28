@@ -167,6 +167,7 @@ public class CountCommand extends PCGenCommand
 														ab.getDisplayName(),
 														new ArrayList<String>()) :
 												ab.getDisplayName();
+									
 									if (!name.equalsIgnoreCase(keyValue[1]))
 									{
 										abIt.remove();

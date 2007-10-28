@@ -119,8 +119,10 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 
         abArray[1].setMultiples("YES");
+		abArray[1].addAssociated("one");
+		abArray[1].addAssociated("two");
 
-        for (int i = 0;6 > i;i++) {
+		for (int i = 0;6 > i;i++) {
             character.addAbility(featCategory, abArray[i], null);
         }
 
@@ -142,7 +144,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\")",""),
-           eq(14.0, 0.1),
+           eq(15.0, 0.1),
            "count(\"ABILITIES\")");
     }
 
@@ -152,7 +154,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\")",""),
-           eq(6.0, 0.1),
+           eq(7.0, 0.1),
            "count(\"ABILITIES\",\"CATEGORY=FEAT\")");
     }
 
@@ -203,7 +205,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT[or]CATEGORY=BARDIC\")",""),
-           eq(12.0, 0.1),
+           eq(13.0, 0.1),
            "count(\"ABILITIES\",\"CATEGORY=FEAT[or]CATEGORY=BARDIC\")");
     }
 
@@ -214,7 +216,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT[or]CATEGORY=BARDIC[or]CATEGORY=CLERICAL\")",""),
-           eq(14.0, 0.1),
+           eq(15.0, 0.1),
            "count(\"ABILITIES\",\"CATEGORY=FEAT[or]CATEGORY=BARDIC[or]CATEGORY=CLERICAL\")");
     }
 
@@ -226,7 +228,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\",\"VISIBILITY=DEFAULT\")",""),
-           eq(8.0, 0.1),
+           eq(9.0, 0.1),
            "count(\"ABILITIES\",\"VISIBILITY=DEFAULT\")");
     }
 
@@ -267,7 +269,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")",""),
-            eq(3.0, 0.1),
+            eq(4.0, 0.1),
             "count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")");
     }
 
@@ -277,7 +279,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT[or]CATEGORY=CLERICAL\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")",""),
-           eq(5.0, 0.1),
+           eq(6.0, 0.1),
            "count(\"ABILITIES\",\"CATEGORY=FEAT[or]CATEGORY=CLERICAL\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
     }
 
@@ -292,7 +294,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		is(character.getVariableValue("count(\"ABILITIES\",\"TYPE=Fighter\")",""),
-		   eq(4.0, 0.1),
+		   eq(5.0, 0.1),
 		   "count(\"ABILITIES\",\"TYPE=Fighter\")");
     }
 
@@ -301,7 +303,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\",\"TYPE=General.Fighter\")", ""),
-           eq(4.0, 0.1),
+           eq(5.0, 0.1),
            "count(\"ABILITIES\",\"TYPE=General.Fighter\")");
     }
 
@@ -310,7 +312,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\",\"TYPE=General.Fighter[or]TYPE=Epic\")", ""),
-           eq(7.0, 0.1),
+           eq(8.0, 0.1),
            "count(\"ABILITIES\",\"TYPE=General.Fighter[or]TYPE=Epic\")");
     }
 
@@ -369,7 +371,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		is(character.getVariableValue("count(\"ABILITIES\",\"NATURE=NORMAL\")",""),
-		   eq(14.0, 0.1),
+		   eq(15.0, 0.1),
 		   "count(\"ABILITIES\",\"NATURE=NORMAL\")");
     }
 
@@ -392,7 +394,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\",\"NAME=Improved Initiative\")",""),
-           eq(1.0, 0.1),
+           eq(2.0, 0.1),
            "count(\"ABILITIES\",\"NAME=Improved Initiative\")");
     }
 
@@ -419,7 +421,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
         final PlayerCharacter character = getCharacter();
 
         is(character.getVariableValue("count(\"ABILITIES\",\"NAME=Skill Focus (Profession (Basket weaving))[or]CATEGORY=FEAT\")",""),
-           eq(6.0, 0.1),
+           eq(7.0, 0.1),
            "count(\"ABILITIES\",\"NAME=Skill Focus (Profession (Basket weaving))[or]CATEGORY=FEAT\")");
     }
 
@@ -436,6 +438,53 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
         final String s = sB.toString();
 
-        is(character.getVariableValue(s,""), eq(5.0, 0.1), s);
+        is(character.getVariableValue(s,""), eq(6.0, 0.1), s);
     }
+
+	public void testCountAbilities30()
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final AbilityCategory gCat =
+				SettingsHandler.getGame().silentlyGetAbilityCategory("CLERICAL");
+		final AbilityCategory useCat =
+				(gCat == null) ? new AbilityCategory("CLERICAL") : gCat;
+
+		if (useCat != gCat)
+		{
+			SettingsHandler.getGame().addAbilityCategory(useCat);
+		}
+
+		final Ability ab =
+				TestHelper.makeAbility("Eat Burger", "CLERICAL", "Clerical.General");
+
+		ab.setMultiples("YES");
+
+		ab.addAssociated("munch");
+		
+		// now the tests
+
+		final StringBuilder sB = new StringBuilder(100);
+
+		sB.append("count(\"ABILITIES\",");
+		sB.append("\"NAME=Eat Burger\")");
+
+		final String s = sB.toString();
+
+		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
+		
+		character.addAbility(gCat, ab, null);
+
+		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
+
+		ab.addAssociated("devour");
+		character.setDirty(true);
+		
+		is(character.getVariableValue(s,""), eq(2.0, 0.1), s + " two choices");
+
+		ab.addAssociated("nibble");
+		character.setDirty(true);
+
+		is(character.getVariableValue(s,""), eq(3.0, 0.1), s + " three choices");
+	}
 }

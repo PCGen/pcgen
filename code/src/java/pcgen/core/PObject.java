@@ -878,7 +878,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	/**
 	 * Add the item to the associated list for this object
-	 * @param aString
+	 * @param aString the string to add to the associated list
 	 */
 	public final void addAssociated(final String aString)
 	{
