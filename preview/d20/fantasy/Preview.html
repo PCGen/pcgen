@@ -50,9 +50,7 @@
 				for (i = 0; i < attackValues.length; i++)
 				{
 					dieRoll = (Math.round(Math.random() * 20) % 20 + 1);
-					 
-					//dieRoll = 20;
-					 
+					\\dieRoll = 20;					 
 
 					var critDiceRole = 0;
 					var rollTotal =0;
@@ -99,14 +97,18 @@
 						critDiceRole =  (Math.round(Math.random() * 20) % 20 + 1);
 
 						critmodDamage = parseInt(bonusDmg) * (parseInt(mult)-1 );
-						critTotalDamage =  minOne(critbaseDamage  +  critmodDamage) ;
-
-						fullDamage = ((parseInt(critTotalDamage) + parseInt(totalDamage)));
+						critTotalDamage =  critbaseDamage  +  critmodDamage ;
+						alert(critTotalDamage);
+						if(critTotalDamage <= 0)
+						{
+							critTotalDamage = parseInt(mult)-1;
+						}
+						fullDamage = (critTotalDamage + parseInt(totalDamage));
 
 
 						msg += "     Critical Attack " + (i+1) + ": " + critDiceRole  + processBonus(parseInt(attackValues[i])) + "=" + minOne(parseInt(critDiceRole)+parseInt(attackValues[i]));
-						msg += "     Critical Damage: " + parseInt(critbaseDamage) + processBonus(critmodDamage )  +  "=" + minOne(parseInt(critTotalDamage )) + " \n";
-						msg += "     Damage Total: " + totalDamage + "+" + minOne(critTotalDamage) +  "=" + fullDamage  + " \n";
+						msg += "     Critical Damage: " + parseInt(critbaseDamage) + processBonus(critmodDamage )  +  "=" + critTotalDamage + " \n";
+						msg += "     Damage Total: " + totalDamage + "+" + critTotalDamage +  "=" + fullDamage  + " \n";
 					}
 					if(i+1 < attackValues.length)
 					{
