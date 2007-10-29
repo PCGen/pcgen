@@ -34,14 +34,14 @@
 
 				<ul>
 					<li>Try edit the pcgen.bat file and assign more memory to pcgen, this means changing the
-					<code>-Xmx</code> option:<br>&#160&#160&#160&#160&#160&#160
+					<code>-Xmx</code> option:<br>&#160;&#160;&#160;&#160;&#160;&#160;
 					<br><br>
 					from <code>java -Dswing.aatext=true -Xms128m -Xmx256m -jar pcgen.jar</code>
 					<br><br>
 					to <code>java -Dswing.aatext=true <strong>-Xms256m -Xmx512m</strong> -jar pcgen.jar</code>
 					<br><br>
 					-Xms - This assigns starting of 256Mb of RAM and should be enough memory for pcgen to run
-					with lots of sources loaded.</li>
+					with lots of sources loaded.
 					<br><br>
 					-Xmx - This assigns maximum of 512Mb of RAM and should be enough memory for pcgen to run
 					with lots more sources and characters loaded.</li>
@@ -78,7 +78,7 @@
 				<ul>
 					<li>Refer to Mac instructions</li>
 				</ul>
-			<p></p>
+			<p></ p>
 				<p>For All Users:<br /></p>
 
 				<ul>
@@ -88,12 +88,12 @@
 					create equipment as needed. To custom create, right click on the basic equipement and add to
 					it.</li>
 				</ul>
-			<p></p>
+			<p></ p>
 
 <h1>Java Issues</h1>
 
 
-			<p></p>
+			<p></ p>
 				<p><span class="underline">What Java do I need?</span></p>
 
                 <p>"PCGen 5.12.x and above needs Java 1.5.x or Java 1.6.0_01 (and above)"<br /></p>
@@ -118,24 +118,24 @@
 				<p>For Windows Users:<br /></p>
 				<ul>
 					<li>First question is, do you have java installed on your machine. If you don't know, go the
-					command prompt and type:<br>&#160&#160&#160&#160&#160&#160
+					command prompt and type:<br>&#160;&#160;&#160;&#160;&#160;&#160;
 					<code>java -version</code>
-					<p></p>
-					<li>You should get some kind of a response like:<br>&#160&#160&#160&#160&#160&#160
-					<code>java version "1.5.0_06"<br>&#160&#160&#160&#160&#160&#160
-					Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_06-b05)<br>&#160&#160&#160&#160&#160&#160
+					<p></ p>
+					<li>You should get some kind of a response like:<br>&#160;&#160;&#160;&#160;&#160;&#160;
+					<code>java version "1.5.0_06"<br>&#160;&#160;&#160;&#160;&#160;&#160;
+					Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_06-b05)<br>&#160;&#160;&#160;&#160;&#160;&#160;
                     Java HotSpot(TM) Client VM (build 1.5.0_06-b05, mixed mode, sharing)</code>
 				</ul>
 
 				<p>For Mac Users:<br /></p>
 				<ul>
 					<li>What Java run-time environment (JRE) are you running? (I think I already know the
-					answer, but asking anyway.) From a command line (open a Terminal window), enter:<br>&#160&#160&#160&#160&#160&#160
+					answer, but asking anyway.) From a command line (open a Terminal window), enter:<br>&#160;&#160;&#160;&#160;&#160;&#160;
 					<code># java -version</code>
-				<p></p>
-					<li>You should get some kind of a response like:<br>&#160&#160&#160&#160&#160&#160
-					<code>java version "1.5.0_06"<br>&#160&#160&#160&#160&#160&#160
-					Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_06-b05)<br>&#160&#160&#160&#160&#160&#160
+				<p></ p>
+					<li>You should get some kind of a response like:<br>&#160;&#160;&#160;&#160;&#160;&#160;
+					<code>java version "1.5.0_06"<br>&#160;&#160;&#160;&#160;&#160;&#160;
+					Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_06-b05)<br>&#160;&#160;&#160;&#160;&#160;&#160;
                     Java HotSpot(TM) Client VM (build 1.5.0_06-b05, mixed mode, sharing)</code>
 				</ul>
 
@@ -156,57 +156,66 @@
 					<li>You need to download a complete Java implementation, such as that from Sun
 					Microsystems (available at <a href="http://java.sun.com/">http://java.sun.com/</a>)</li>
 				</ul>
-			<p></p>
+			<p></ p>
 				<p>For Ubuntu Users:<br /></p>
 
+				<p class="indent1">The #1 issue for PCGen users running on Ubuntu is that you need to use the Sun Java implementation,
+					not the default that ships with Ubuntu.</p>
+
 				<ul>
-					<li>The #1 issue for PCGen and Ubuntu is that you need to use the Sun Java implementation,
-					not the default that ships with Ubuntu. We have detailed instructions in one of the closed
-					support requests if you need those (just search for Ubuntu when in the support requests
-					list at PCGen's SF site at <a href="https://sourceforge.net/tracker/?group_id=25576">SourceForge.net PCGen An RPG Character Generator Tracker</a>).</li>
-					<br><br>
-					<li>You need to run sun java. You can check this with:
-					<br><br>
-					$ java -version
-					<br><br>
-					If not, you might need to install Sun JRE from the repositories (see the Ubuntu wiki for
-					help)
-					<br><br>
-					If Sun java is installed but not run, you need to update the default java by using:
-					<br><br>
-					$ sudo update-alternatives --config java
-					<br><br>
-					or
-					<br><br>
-					$ sudo update-alternatives --set \java /usr/lib/jvm/java-1.5.0-sun/jre/bin/java
-					<br><br>
-					I think both these command do the same thing (with the first command you get a list of
-					possible java's and are asked to choose).
-					<br><br>
-					Manually moving files and placing symbolic links might get the job done but is probably bad
+					<li>Check the version of Java being used: <code>$ java -version</code></li>
+					<li>If not using Sun's JRE, you will need to install it. (see the Ubuntu wiki for help)</li>
+					<li>If Sun's Java is installed but not running, update the default java by using: 
+					<ul>
+						<li><code>$ sudo update-alternatives --config java</code><br>
+						or</li>
+						<li><code>$ sudo update-alternatives --set \java /usr/lib/jvm/java-1.5.0-sun/jre/bin/java</code><br>
+						Note: Both command do the same thing (with the first command you get a list of possible java's and are asked to choose).</li>
+					</ul>
+					<li>WARNING: Manually moving files and placing symbolic links might get the job done but is probably bad
 					for the long-term health of your system. I think things might break with an update.</li>
-					<br><br>
-					<li>You need to download a complete Java implementation, such as that from Sun
-					Microsystems (available at <a href="http://java.sun.com/">http://java.sun.com/</a>)</li>
 				</ul>
-					<br><br>
+
 		<h1>Operating System Issues</h1>
-					<br><br>
 
-				<p>For Vista Users:<br /></p>
+				<p class="indent0">For Vista and XP 64 Bit Users:</p>
+				
+				<p class="indent1">Question: Why doesn't Windows Vista/XP 64 run the <em>pcgen.bat</em> file?</p>
 
-				<ul>
-					<li>Q] I found the problem to be, that Windows does not allow to point the command "java", to
-					the java.exe file. Why this is so, is beyond me.
-					<br><br>
-					Furthermore, I cannot enter the path to java.exe in the pcgen.bat file, presumably because
-					it contains spaces!! (C:\Program Files (x86)\Java\jre1.6.0\bin)....
-					<br><br>
-					A] You could try wrapping the name in quotes.
-					<br><br>
-					"C:\Program Files (x86) \Java\jre1.6.0\bin"</li>
-					<br><br>
+				<p class="indent1">Answer: The most common cause of this problem is that Windows is not 
+					pointing the command "java" to the java.exe file.</p>
+				<p class="indent2">Solution #1: Create a new file called <em>PCGen.cmd</em> and then put 
+				the following into it:</p>
+
+				<ul class="indent2">
+					<li>&lt;Path to Java&gt; -Xms&lt;Minimum Memory&gt;m -Xmx&lt;Maximum Memory&gt;m -jar E:\PCGen5102\pcgen.jar</li>
+					<li>Put your paths and memory limits in as appropriate. If the path has a space in it, you need the quotes.
+					<ul>
+						<li>Sample Path to Java: &quot;C:\Program Files (x86)\Java\jre1.6.0_01\bin\java.exe&quot;</li>
+						<li>Minimum Memory: 768, Maximum Memory: 1024
+						<li>Sample Path to PCGen: &quot;E:\PCGen5102\&quot;</li>
+						<li>Note: &quot;Quotes&quot; are required in path names that include spaces.</li>
+					</ul></li>
+					<li>Launch PCGen by running the <em>PCGen.cmd</em> file.</li>
 				</ul>
+				<p></ p>
+
+				<p class="indent2">Solution #2: Add the bin directory from your java install to the path.:</p>
+
+				<ul class="indent2">
+					<li>Open the control panel.</li>
+					<li>Open the system item.</li>
+					<li>Select the advanced tab.</li>
+					<li>Click on the button marked environment variables.</li>
+					<li>On my system path is listed under the system variables.</li>
+					<li>Edit the path item.</li>
+					<li>Add the bin directory to the end of the path.</li>
+					<li>Note: The path is a semi-colon (;) separated list.</li>
+					<li>Launch PCGen by running the <em>pcgen.bat</em> file.</li>
+				</ul>
+
+<hr>
+
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
        	src="../images/system/valid-html401.png"
