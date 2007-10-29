@@ -59,7 +59,7 @@ $Date:  $
 }
 .attackIterations {
 	font-family: Arial;
-|IIF(ATTACK.MELEE.BASE.SHORT>14)|
+|IIF(ATTACK.MELEE.BASE.SHORT>10)|
 	font-size: 10px;
 |ELSE|
 	font-size: 14px;
@@ -95,108 +95,9 @@ $Date:  $
 }
 -->
 </style>
-<script language="javascript" type="text/javascript">
-			function rollDice(numDice,dieSize,bonus){
-				var result=0;
-				for (dieCount=0; dieCount<numDice; dieCount++) {
-					result = result + (Math.round(Math.random() * dieSize) % dieSize + 1);
-				}
-				result += parseInt(bonus);
-				return result;
-			}
-			function roll(numDice,dieSize,bonus,caption) {
-				result = rollDice(numDice,dieSize,bonus);
-	 
-				var msg = caption + "Result ("+numDice+"d"+dieSize;
-				if (bonus > 1){
-					msg += "+";
-				//} else if (bonus < 1) {
-					//msg += "-";
-				}
-				if (bonus != 0) {
-					msg += bonus;
-				}
-				msg += ")="+result;
-	 
-				alert(msg);
-			}
-			function rollAttack(toHit,damage,crit,mult) {
-				var attackValues = toHit.split("/");
-				var dieRoll = 0;
-				var critVals = crit.split("-");
-				var msg = "Attack Result:\n";
-				for (i = 0; i < attackValues.length; i++) {
-					dieRoll = (Math.round(Math.random() * 20) % 20 + 1);
-					msg += "Attack " + (i+1)+ ": " + dieRoll+ attackValues[i] + "=" + (dieRoll+parseInt(attackValues[i]));
-					var totalDamage = 0;
-					var dmgSplit = damage.split("d");
-					var dice = dmgSplit[0];
-					var dieSize = 0;
-					var bonusDmg = 0;
-					if (dmgSplit[1].indexOf("+")!=-1){
-						var dmgSplit1 = dmgSplit[1].split("+");
-						dieSize = dmgSplit1[0];
-						bonusDmg = dmgSplit1[1];
-					}
-					totalDamage = rollDice(dice,dieSize,bonusDmg);
-					if (dieRoll >= critVals[0]) {
-						totalDamage *= mult;
-					}
-					msg += "    Damage: " + totalDamage+"\n";
-				}
-				alert(msg);
-			}
-			function rollTurning(checkBonus,turnDice,turnDieSize,turnBonus,turnLvl,caption) {
-				var checkResult = rollDice(1,20,checkBonus);
-				var maxHD = 0;
-				if (checkResult <= 0) {
-					maxHD = turnLvl - 4;
-				} else if (checkResult <= 3) {
-					maxHD = turnLvl - 3;
-				} else if (checkResult <= 6) {
-					maxHD = turnLvl - 2;
-				} else if (checkResult <= 9) {
-					maxHD = turnLvl - 1;
-				} else if (checkResult <= 12) {
-					maxHD = turnLvl;
-				} else if (checkResult <= 15) {
-					maxHD = turnLvl + 1;
-				} else if (checkResult <= 18) {
-					maxHD = turnLvl + 2;
-				} else if (checkResult <= 21) {
-					maxHD = turnLvl + 3;
-				} else {
-					maxHD = turnLvl + 4;
-				}
-				var totalHD = rollDice(turnDice,turnDieSize,turnBonus);
-				var msg = caption;
-				msg += ": " + totalHD + " total HD (max " + maxHD + " HD)";
-				if (turnLvl / 2 >= 1) {
-					msg += "\n\t(Destroy " + turnLvl/2 + " HD or lower)";
-				}
-				alert(msg);
-			}
-			function displaySpellInfo(name,school,subschool,descriptors,levels,comps,castTime, range,targetArea,duration,save,spellRes,desc) {
-				var buf = "<b>" + name + "</b><br/> " + school;
-				if (subschool != null && subschool.length > 0) {
-					buf += " " + subschool;
-				}
-				if (descriptors != null && descriptors.length > 0) {
-					buf += "[" + descriptors + "]";
-				}
-				buf += "<br />";
-				buf += "<b>Level:</b> " + levels + "<br />";
-				buf += "<b>Components:</b> " + comps + "<br />";
-				buf += "<b>Casting Time:</b> " + castTime + "<br />";
-				buf += "<b>Range:</b> " + range + "<br />";
-				buf += "<b>Effect:</b> " + targetArea + "<br />";
-				buf += "<b>Duration:</b> " + duration + "<br />";
-				buf += "<b>Saving Throw:</b> " + save + "<br />";
-				buf += "<b>Spell Resistance:</b> " + spellRes + "<br />";
-				buf += "<br />" + desc;
-				document.getElementById("spellDisplay").innerHTML=buf;
-			}
-		</script>
+
+<script language="javascript" type="text/javascript" src="preview/d20/javascripts/common.js"></script>
+
 </head>
 
 <body bgcolor="#660000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -513,7 +414,7 @@ $Date:  $
     </tr>
     <tr> 
       <td width="40" height="29"><div align="center">
-	  	<a href="#" onClick="roll(1,20,|ATTACK.MELEE.TOTAL|,'Melee Attack Roll\n')">
+	  	<a href="#" onClick="roll(1,20,|ATTACK.MELEE.TOTAL.SHORT|,'Melee Attack Roll\n')">
 			<img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></div></td>
       <td width="48"></td>
       <td width="92" class="attackIterations"><div align="center">|ATTACK.MELEE.TOTAL|</div></td>
@@ -527,7 +428,7 @@ $Date:  $
     </tr>
     <tr> 
       <td height="29"><div align="center">
-	  	<a href="#" onClick="roll(1,20,|ATTACK.RANGED.TOTAL|,'Ranged Attack Roll\n')">
+	  	<a href="#" onClick="roll(1,20,|ATTACK.RANGED.TOTAL.SHORT|,'Ranged Attack Roll\n')">
 			<img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></div></td>
       <td></td>
       <td class="attackIterations"><div align="center">|ATTACK.RANGED.TOTAL|</div></td>
@@ -567,8 +468,8 @@ $Date:  $
     <tr> 
       <td width="40" height="27"><div align="center">
 	  	<a href="#" onClick="rollAttack('|WEAPONH.TOTALHIT|','|WEAPONH.DAMAGE|','|WEAPONH.CRIT|','|WEAPONH.MULT|')">
-			<img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></div>
-		</a>
+			<img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26">
+		</a></div>
 	  </td>
       <td width="98"></td>
       <td width="91" class="attackIterations"><div align="center">|WEAPONH.TOTALHIT|</div></td>
@@ -729,7 +630,7 @@ $Date:  $
     <tr> 
       <td height="20" colspan="4"><div align="right">
 	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWPHITH|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
-			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
       <td class="attackIterations"><div align="center">|WEAPON.%weap.TWPHITH|</div></td>
       <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
       <td></td>
@@ -737,7 +638,7 @@ $Date:  $
     <tr> 
       <td height="22" colspan="4"><div align="right">
 	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWPHITL|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
-			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
       <td class="attackIterations"><div align="center">|WEAPON.%weap.TWPHITL|</div></td>
       <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
       <td></td>
@@ -745,7 +646,7 @@ $Date:  $
     <tr> 
       <td height="21" colspan="4"><div align="right">
 	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWOHIT|','|WEAPON.%weap.OHDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
-			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
       <td class="attackIterations"><div align="center">|WEAPON.%weap.TWOHIT|</div></td>
       <td class="attackTables"><div align="center">|WEAPON.%weap.OHDAMAGE|</div></td>
       <td></td>
@@ -1008,7 +909,7 @@ $Date:  $
     <tr> 
       <td height="20" colspan="4"><div align="right">
 	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWPHITH|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
-			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
       <td class="attackIterations"><div align="center">|WEAPON.%weap.TWPHITH|</div></td>
       <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
       <td></td>
@@ -1016,7 +917,7 @@ $Date:  $
     <tr> 
       <td height="22" colspan="4"><div align="right">
 	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWPHITL|','|WEAPON.%weap.BASICDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
-			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
       <td class="attackIterations"><div align="center">|WEAPON.%weap.TWPHITL|</div></td>
       <td class="attackTables"><div align="center">|WEAPON.%weap.BASICDAMAGE|</div></td>
       <td></td>
@@ -1024,7 +925,7 @@ $Date:  $
     <tr> 
       <td height="21" colspan="4"><div align="right">
 	  	<a href="#" onClick="rollAttack('|WEAPON.%weap.TWOHIT|','|WEAPON.%weap.OHDAMAGE|','|WEAPON.%weap.CRIT|','|WEAPON.%weap.MULT|')">
-			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></div></td>
+			<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
       <td class="attackIterations"><div align="center">|WEAPON.%weap.TWOHIT|</div></td>
       <td class="attackTables"><div align="center">|WEAPON.%weap.OHDAMAGE|</div></td>
       <td></td>
