@@ -18,53 +18,189 @@ $Date$
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
 <title>|NAME| [|POOL.COST| Points]</title>
 <style TYPE="text/css">
-	.font4 {  font-family: Arial; font-size:4pt; }
-	.font5 {  font-family: Arial; font-size:5pt; }
-	.font6 {  font-family: Arial; font-size:6pt; }
-	.font7 {  font-family: Arial; font-size:7pt; }
-	.font8 {  font-family: Arial; font-size:8pt; }
-	.font9 {  font-family: Arial; font-size:9pt; }
-	.h { font-family: Arial; font-size:8pt; vertical-align: bottom; }
-	.ab { font-family: Arial; font-size:10pt; text-align:center; color:white; background:black; }
-	.abb { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 1px solid black;}
-	.abt { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 5px solid lightgray;}
-	.sptab { font-family: Arial; vertical-align:top; text-align:center;font-size:8pt;}
-	.sptab1 { font-family: Arial; vertical-align:top; text-align:left;font-size:8pt;}
-	.sptab2 { font-family: Arial; vertical-align:top; text-align:right;font-size:8pt;}
-	.notetab { font-family: Arial; vertical-align:top;border: 1px solid black; text-align:left;font-size:8pt;}
-	.skl { font-family: Arial; font-size: 9pt; font-weight:bold; text-align:center; vertical-align:middle; border: 4px solid black;}
-	.spname { font-family: Arial; vertical-align:top; text-align:left;font-size:8pt;}
-	.sptop { font-family: Arial; vertical-align:top;border: 1px solid black; text-align:center;font-size:8pt; color:white;}
-	.splevel {  font-family: Arial; background:black; text-align:center;font-size:9pt; color:white;}
-	.sphead {  font-family: Arial; background:black; text-align:center;font-size:12pt; color:white;}
-	.notehead {  font-family: Arial; background:black; text-align:center;font-size:12pt; color:white;}
-	.biodata { font-family: Arial; vertical-align:bottom; text-align:left;font-size:9pt;}
-		.topline {
-		border-top-width:1px;
-		border-top: 1pt solid black;
-		font-family: Arial;
+	.font4 {  
+		font-family: Arial; 
+		font-size:4pt; 
+	}
+	.font5 {  
+		font-family: Arial; 
+		font-size:5pt; 
+	}
+	.font6 {  
+		font-family: Arial; 
 		font-size:6pt;
 	}
-	.border {
-		border: 1px solid black;
-	}
-	.border4 {
-		border: 1px solid black;
-		font-size:4pt;
-	}
-	.border7 {
-		border: 1px solid black;
+	.font7 {  
+		font-family: Arial; 
 		font-size:7pt;
 	}
+	.font8 {  
+		font-family: Arial; 
+		font-size:8pt;
+	}
+	.font9 {  
+		font-family: Arial; 
+		font-size:9pt;
+	}
+	.h { 
+		font-family: Arial; 
+		font-size:12pt; 
+		vertical-align: bottom;
+	}
+	.ab { 
+		font-family: Arial; 
+		font-size:12pt; 
+		text-align:center; 
+		color:white; 
+		background:black;
+	}
+	.ablable { 
+		font-family: Arial; 
+		font-size:8pt; 
+		text-align:center; 
+		color:white; 
+		background:black;
+	}
+	.abb { 
+		font-family: Arial; 
+		font-size:12pt; 
+		text-align:center; 
+		font-weight:bold; 
+		border: 1px solid black;
+	}
+	.abt { 
+		font-family: Arial; 
+		font-size:12pt; 
+		text-align:center; 
+		font-weight:bold; 
+		border: 5px solid #CCCCCC;
+	}
+	.sign { 
+		font-family: Arial; 
+		font-size:10pt;
+	}
+	.item { 
+		font-family: Arial; 
+		font-size:16pt; 
+		text-align:center; 
+		color:white; 
+		background:black;
+	}
+	.sptab { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:center;
+		font-size:8pt;
+	}
+	.sptab1 { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:left;
+		font-size:8pt;
+	}
+	.sptab2 { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:right;
+		font-size:8pt;
+	}
+	.notetab { 
+		font-family: Arial; 
+		vertical-align:top;
+		border: 1px solid black; 
+		text-align:left;
+		font-size:8pt;
+	}
+	.skl { 
+		font-family: Arial; 
+		font-size: 9pt; 
+		font-weight:bold; 
+		text-align:center; 
+		vertical-align:middle; 
+		border: 4px solid black;
+	}
+	.skill { 
+		font-family: Arial; 
+		font-size: 10pt; 
+	}
+	.skillValue {
+	font-family: Arial;
+	font-size: 10pt;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: black;
+	}
+	.topline {
+		border-top-width:1px; 
+		border-top: 1pt solid black; 
+		font-family: Arial; 
+		font-size:6pt; 
+	}
+	.spname { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:left;
+		font-size:8pt;
+	}
+	.sptop { 
+		font-family: Arial; 
+		vertical-align:top;
+		border: 1px solid black; 
+		text-align:center;
+		font-size:8pt; 
+		color:white;
+	}
+	.splevel {  
+		font-family: Arial; 
+		background:black; 
+		text-align:center;
+		font-size:9pt; 
+		color:white;
+	}
+	.sphead {  
+		font-family: Arial; 
+		background:black; 
+		text-align:center;
+		font-size:12pt; 
+		color:white;
+	}
+	.notehead {  
+		font-family: Arial; 
+		background:black; 
+		text-align:center;
+		font-size:12pt; 
+		color:white;
+	}
+	.biodata { 
+		font-family: Arial; 
+		vertical-align:bottom; 
+		text-align:left;
+		font-size:9pt;
+	}
+	.border { 
+		border: 1px solid black; 
+	}
+	.border4 { 
+		font-family: Arial; 
+		border: 1px solid black; 
+		font-size:4pt; 
+	}
+	.border7 {
+		font-family: Arial; 
+		border: 1px solid black;
+		font-size:7pt; }
 	.border8 {
+		font-family: Arial; 
 		border: 1px solid black;
 		font-size:8pt;
 	}
 	.border9 {
+		font-family: Arial; 
 		border: 1px solid black;
 		font-size:9pt;
 	}
 	.border10 {
+		font-family: Arial; 
 		border: 1px solid black;
 		font-size:10pt;
 	}
@@ -81,13 +217,18 @@ $Date$
 		border-bottom: 1pt solid black;
 		font-size:8pt;
 	}
-	span.notes p {margin-top:0; margin-bottom:0;}
-
+	span.notes p {
+		margin-top:0; 
+		margin-bottom:0;
+	}
+	.lable {  
+		font-family: Arial; 
+		font-size:6pt; 
+	}
 </style>
 </head>
 <body bgcolor="white">
 
-<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br />
 <!-- START Top Character Data -->
 <table cellpadding="0" cellspacing="4" border="0" width="100%" summary="Character Info">
  <tr>
@@ -141,288 +282,236 @@ $Date$
  </tr>
 </table>
 <!-- STOP Top Character Data -->
-<!-- START Page Master Table -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Page Master Table">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td rowspan="2" valign="top">
-      <table summary="Stat Block"> <!-- START Abilities Table -->
+    <td width="200">
+	<!-- START Abilities Table -->
+	   <table width="95%" summary="Stat Block"> 
         <tr>
-          <td align="center" width="20%" class="font4">ABILITY<br />NAME</td>
-          <td align="center" width="20%" class="font4">ABILITY<br />SCORE</td>
-          <td align="center" width="20%" class="font4">ABILITY<br />MODIFIER</td>
-          <td align="center" width="20%" class="font4">TEMPORARY<br />SCORE</td>
-          <td align="center" width="20%" class="font4">TEMPORARY<br />MODIFIER</td>
+          <td align="center" width="20%" class="lable">ABILITY<br />NAME</td>
+          <td align="center" width="20%" class="lable">ABILITY<br />SCORE</td>
+          <td align="center" width="20%" class="lable">ABILITY<br />MODIFIER</td>
+          <td align="center" width="20%" class="lable">TEMPORARY<br />SCORE</td>
+          <td align="center" width="20%" class="lable">TEMPORARY<br />MODIFIER</td>
           </tr>
 |FOR,%stat,0,COUNT[STATS]-1,1,1|
         <tr>
-          <td class="ab"><b>|STAT.%stat.NAME|</b><font style="font-size:5pt"><br />|STAT.%stat.LONGNAME|</font></td>
+          <td class="ab"><b>|STAT.%stat.NAME|</b><br />
+            <span class="ablable">&nbsp;|STAT.%stat.LONGNAME|&nbsp;</span></td>
           <td class="abb">|STAT.%stat.NOTEMP.NOEQUIP|</td>
           <td class="abb">|STAT.%stat.MOD.NOTEMP.NOEQUIP|</td>
           <td class="abt">|STAT.%stat|</td>
           <td class="abt">|STAT.%stat.MOD|</td>
           </tr>
 |ENDFOR|
-        </table> <!-- STOP Abilities Table -->
-      </td>
-    <td colspan="2" valign="top">
+        </table> 
+<!-- STOP Abilities Table -->
+	</td>
+    <td valign="top">&nbsp;
 |IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
-	<table summary="Hit Point Table"> <!-- START -->
+<!-- START Hit Point Table -->
+	<table summary="Hit Point Table"> 
         <tr>
-          <td align="center" width="50"></td>
+          <td align="center" width="90"></td>
           <td align="center" width="25" valign="bottom"></td>
           <td align="center"></td>
-          <td align="center" width="119" class="font5"><br />WOUNDS/CURRENT HP</td>
+          <td align="center" width="119" class="lable">WOUNDS/CURRENT HP</td>
           <td align="center"></td>
-          <td align="center" width="119" class="font5"><br />SUBDUAL DAMAGE</td>
+          <td align="center" width="119" class="lable">SUBDUAL DAMAGE</td>
           <td align="center"></td>
-          <td align="center" width="60" class="font5"><br />DAMAGE<br />REDUCTION</td>
+          <td align="center" class="lable">&nbsp;&nbsp;DAMAGE REDUCTION&nbsp;&nbsp;</td>
           <td align="center"></td>
-          <td align="center" width="60" class="font5"><br />SPEED</td>
+          <td align="center" class="lable">SPEED</td>
           </tr>
         <tr>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HP</b></font>
-            <font style="font-size:5pt" color="white"><br />Hit Points</font></td>
-          <td align="center" class="border9"><b>|HP|</b></td>
+          <td class="ab"><b>HP</b>
+            <br /><span class="ablable"> Hit Points</span></td>
+          <td align="center" class="abb"><b>|HP|</b></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><br /></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><br /></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><b>&nbsp;|DR|&nbsp;</b></td>
+          <td align="center" class="abb"><b>&nbsp;|DR|&nbsp;</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><b>|MOVEMENT|<br /></b></td>
+          <td align="center" class="border10">&nbsp;|MOVEMENT|&nbsp;</td>
           </tr>
-       </table> <!-- STOP Hit Point Table -->
+       </table> 
+<!-- STOP Hit Point Table -->
 |ELSE|
-       <table summary="Vitality/Wound Point Table"> <!-- START Vitality/Wound Point Table-->
+<!-- START Vitality/Wound Point Table-->
+       <table summary="Vitality/Wound Point Table"> 
         <tr>
+          <td align="center" width="90"></td>
+          <td align="center" width="25" valign="bottom"></td>
+          <td align="center"></td>
+          <td align="center" width="75" class="lable">CURRENT VITALITY</td>
+          <td align="center"></td>
+          <td align="center" width="75" class="lable">SUBDUAL DAMAGE</td>
+          <td align="center"></td>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
           <td align="center"></td>
-          <td align="center" width="75" class="font5"><br />CURRENT VITALITY</td>
+          <td align="center" width="75" class="lable">CURRENT WP</td>
           <td align="center"></td>
-          <td align="center" width="75" class="font5"><br />SUBDUAL DAMAGE</td>
+          <td align="center" class="lable">DAMAGE REDUCTION</td>
           <td align="center"></td>
-          <td align="center" width="50"></td>
-          <td align="center" width="25" valign="bottom"></td>
-          <td align="center"></td>
-          <td align="center" width="75" class="font5"><br />CURRENT WP</td>
-          <td align="center"></td>
-          <td align="center" width="60" class="font5"><br />DAMAGE<br />REDUCTION</td>
-          <td align="center"></td>
-          <td align="center" width="60" class="font5"><br />SPEED</td>
+          <td align="center" class="lable">SPEED</td>
           </tr>
         <tr>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>VP</b></font>
-            <font style="font-size:5pt" color="white"><br />Vitality</font></td>
-          <td align="center" class="border9"><b>|HP|</b></td>
+          <td align="center" class="ab"><b>VP</b>
+            <br /><span class="ablable">Vitality</span></td>
+          <td align="center" class="abb"><b>|HP|</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><br /></td>
-          <td align="center"><br /></td>
-          <td align="center" class="border9"><br /></td>
-          <td align="center"><br /></td>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>WP</b></font>
-            <font style="font-size:5pt" color="white"><br />Wound Points</font></td>
-          <td align="center" class="border9"><b>|ALTHP|</b></td>
-          <td align="center"><br /></td>
-          <td align="center" class="border9"><br /></td>
-          <td align="center"><br /></td>
-          <td align="center" class="border9"><b>&nbsp;|DR|&nbsp;</b></td>
-          <td align="center"><br /></td>
-          <td align="center" class="border9"><b>|MOVEMENT|<br /></b></td>
+          <td align="center" class="border9"></td>
+          <td></td>
+          <td align="center" class="border9"></td>
+          <td align="center"></td>
+          <td align="center" class="ab"><b>WP</b>
+            <br /><span class="ablable">Wound Points</span></td>
+          <td align="center" class="abb"><b>|ALTHP|</b></td>
+          <td></td>
+          <td  class="abb"></td>
+          <td></td>
+          <td align="center" class="abb"><b>&nbsp;|DR|&nbsp;</b></td>
+          <td></td>
+          <td align="center" class="border10">|MOVEMENT|</td>
           </tr>
-       </table> <!-- STOP Vitality/Wound Point Table -->
+       </table> 
+<!-- STOP Vitality/Wound Point Table -->
 |ENDIF|
-      <table summary="AC Table"> <!-- Armour Class Table -->
+<br />
+<!-- Armour Class Table -->
+      <table summary="AC Table"> 
         <tr>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>AC</b></font>
-            <font style="font-size:5pt" color="white"><br />Armour Class</font></td>
-          <td align="center" class="border9"><b>|AC.Total|</b></td>
-          <td align="center" class="font7"><b>:</b></td>
-          <td align="center" class="border9"><b>|AC.Flatfooted|</b></td>
-          <td align="center" class="font7"><b>:</b></td>
-          <td align="center" class="border9"><b>|AC.Touch|</b></td>
-          <td align="center" class="font7"><b>=</b></td>
-          <td align="center" class="border9"><b>|AC.Base|</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>|AC.Armor|</b></td>
+          <td width="90" class="ab"><b>AC</b>
+            <br /><span class="ablable">&nbsp;Armour Class&nbsp;</span></td>
+          <td align="center" class="abb"><b>|AC.Total|</b></td>
+          <td align="center" class="sign"><b>:</b></td>
+          <td align="center" class="abb"><b>|AC.Flatfooted|</b></td>
+          <td align="center" class="sign"><b>:</b></td>
+          <td align="center" class="abb"><b>|AC.Touch|</b></td>
+          <td align="center" class="sign"><b>=</b></td>
+          <td align="center" class="abb"><b>|AC.Base|</b></td>
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.Armor|</b></td>
 
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>|AC.Shield|</b></td>
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.Shield|</b></td>
 
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>|AC.Ability|</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>|AC.Size|</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>|AC.NaturalArmor|</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>|AC.Misc|</b></td>
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.Ability|</b></td>
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.Size|</b></td>
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.NaturalArmor|</b></td>
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.Misc|</b></td>
           <td align="center" width="5"></td>
-          <td align="center" class="border9"><br /></td>
+          <td align="center" class="abb"><br /></td>
           <td align="center"></td>
-          <td align="center" class="border9"><b>|SPELLFAILURE|</b></td>
+          <td align="center" class="abb"><b>|SPELLFAILURE|</b></td>
           <td align="center"></td>
-          <td align="center" class="border9"><b>|ACCHECK|</b></td>
+          <td align="center" class="abb"><b>|ACCHECK|</b></td>
           <td align="center"></td>
-          <td align="center" class="border9"><b>|MAXDEX|</b></td>
+          <td align="center" class="abb"><b>|MAXDEX|</b></td>
           <td align="center"></td>
-          <td align="center" class="border9"><b>|SR|</b></td>
+          <td align="center" class="abb"><b>|SR|</b></td>
           <td align="center"></td>
-          <td align="center" class="border9"><b>&nbsp;</b></td>
+          <td align="center" class="abb"><b>&nbsp;</b></td>
           </tr>
         <tr>
           <td align="center" width="50"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOTAL</b></font></td>
+          <td align="center" width="25" valign="top" class="lable"><b>TOTAL</b></td>
           <td align="center"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>FLAT</b></font></td>
+          <td align="center" width="25" valign="top" class="lable"><b>FLAT</b></td>
           <td align="center"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOUCH</b></font></td>
+          <td align="center" width="25" valign="top" class="lable"><b>TOUCH</b></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">BASE</td>
+          <td align="center" width="25" class="lable">BASE</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">ARMOR<br />BONUS</td>
+          <td align="center" width="25" class="lable">ARMOR<br />BONUS</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">SHIELD<br />BONUS</td>
+          <td align="center" width="25" class="lable">SHIELD<br />BONUS</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">STAT<br />BONUS</td>
+          <td align="center" width="25" class="lable">STAT<br />BONUS</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">SIZE<br />BONUS</td>
+          <td align="center" width="25" class="lable">SIZE<br />BONUS</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">NATURAL<br />ARMOR</td>
+          <td align="center" width="25" class="lable">NATURAL<br />ARMOR</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">MISC<br />BONUS</td>
+          <td align="center" width="25" class="lable">MISC<br />BONUS</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">MISS<br />CHANCE</td>
+          <td align="center" width="25" class="lable">MISS<br />CHANCE</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">ARCANE<br />FAILURE</td>
+          <td align="center" width="25" class="lable">ARCANE<br />FAILURE</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">ARMOR<br />CHECK</td>
+          <td align="center" width="25" class="lable">ARMOR<br />CHECK</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">MAX<br />DEX</td>
+          <td align="center" width="25" class="lable">MAX<br />DEX</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">SPELL<br />RESIST.</td>
+          <td align="center" width="25" class="lable">SPELL<br />RESIST.</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font4">TEMP</td>
+          <td align="center" width="25" class="lable">TEMP</td>
           </tr>
-        </table> <!-- STOP AC Table -->
-      </td>
-    </tr>
-  <tr>
-  <td valign="top">
-<!-- START Initiative Table -->
-   <table width="100%" summary="Initiative Table">
+        </table> 
+<!-- STOP AC Table -->
+<!-- START Initiative and Base Attack Table -->
+   <table summary="Initiative Table">
     <tr>
-     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>INITIATIVE</b></font><font style="font-size:5pt" color="white"><br />Modifier</font></td>
+     <td class="ab" width="90"><b>INITIATIVE</b><br /><span class="ablable"> Modifier</span></td>
      <td align="center" class="border10"><b>|INITIATIVEMOD|</b></td>
-     <td align="center" class="font7"><b>=</b></td>
+     <td align="center" class="sign"><b>=</b></td>
      <td align="center" class="border10"><b>|STAT.1.MOD|</b></td>
-     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="sign"><b>+</b></td>
      <td align="center" class="border10"><b>|INITIATIVEBONUS|</b></td>
-     <td width="50%" rowspan="2" align="center"><br /></td>
-    </tr>
+     <td width="20" align="center" class="sign"></td>
+     <td class="ab"><b>&nbsp;BASE ATTACK BONUS&nbsp;</b></td>
+     <td align="center" width="94" class="border10"><b>|ATTACK.MELEE|</b></td>
+   </tr>
     <tr>
-     <td align="center" width="50" class="font7"></td>
-     <td align="center" width="25" valign="top" class="font7">TOTAL</td>
+     <td align="center" width="50" class="sign"></td>
+     <td align="center" width="25" valign="top" class="lable">TOTAL</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font5">DEX</td>
+     <td align="center" width="25" class="lable">DEX</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font5">MISC</td>
+     <td align="center" width="25" class="lable">MISC</td>
+     <td rowspan="3" ></td>
     </tr>
    </table>
-<!-- STOP Initiative Table -->
-<!-- START Base Attack Table -->
-   <table width="100%" summary="Base Attack Table">
-    <tr>
-     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>BASE ATTACK</b></font><font style="font-size:5pt" color="white"><br />Bonus</font></td>
-     <td align="center" width="94" class="border"><font style="font-size: 10pt"><b>|ATTACK.MELEE|<br /></b></font></td>
-     <td align="center" width="50%"><br /></td>
-    </tr>
-   </table>
-<!-- STOP Base Attack Table -->
-  </td>
-  <td rowspan="2" valign="top" width="50%">
-|%VAR.TOTALPOWERPOINTS.GTEQ.1|
-<!-- START PSI Power Points Table -->
-   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Power Point Table">
-    <tr>
-     <td colspan="6" bgcolor="black" align="center"><font style="font-size: 9pt" color="white"><b>PSI POWER POINTS</b></font></td>
-    </tr>
-    <tr>
-     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Base PP</b></font></td>
-     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">|VAR.BASEPOWERPOINTS.INTVAL|</font></td>
-     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Bonus PP</b></font></td>
-     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">|VAR.BONUSPOWERPOINTS.INTVAL|</font></td>
-     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Total PP</b></font></td>
-     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">|VAR.TOTALPOWERPOINTS.INTVAL|</font></td>
-    </tr>
-    <tr>
-     <td>&nbsp;</td>
-    </tr>
-   </table>
-|%|
-<!-- STOP PSI Power Points Table -->
-<!-- START Skills Table -->
-   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Skills Table">
-    <tr>
-     <td height="30" bgcolor="black"></td>
-     <td height="30" bgcolor="black" align="center"><font style="font-size: 9pt" color="white"><b>SKILLS</b></font></td>
-     <td colspan="4" height="30" bgcolor="black" align="center"></td>
-     <td height="30" bgcolor="black" align="right" ></td>
-     <td height="30" bgcolor="black" align="center"><font style="font-size: 7pt" color="white" >MAX<br />RANKS</font></td>
-     <td colspan="2" height="30"  bgcolor="white" align="center" class="skl"><b>|MAXSKILLLEVEL|/|MAXCCSKILLLEVEL|</b></td>
-    </tr>
-    <tr>
-     <td colspan="2" align="center" width="40%" class="border4">SKILL NAME</td>
-     <td align="center" width="5%" class="border4">ABILITY</td>
-     <td align="center" width="13%" colspan="1" class="border4">SKILL<br />MODIFIER</td>
-     <td align="center" width="13%" colspan="2" class="border4">ABILITY<br />MODIFIER</td>
-     <td align="center" width="13%" colspan="2" class="border4">RANKS</td>
-     <td align="center" width="13%" colspan="2" class="border4">MISC<br />MODIFIER</td>
-    </tr>
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
-|OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td align="center" ><font style="font-size: 7pt">|OIF(SKILL%skill.UNTRAINED,&#9670;,)|</font></td>
-     <td align="left" class="font8">&nbsp;&nbsp;|SKILL.%skill|</td>
-     <td align="center" class="font8">|SKILL.%skill.ABILITY|</td>
-     <td align="center" class="borderbottom8" valign="bottom"><b>|SKILL.%skill.TOTAL|</b></td>
-     <td align="center" valign="bottom" class="font8"><b>=</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">|SKILL.%skill.ABMOD|<br /></td>
-     <td align="center" valign="bottom" class="font8"><b>+</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">|SKILL.%skill.RANK|<br /></td>
-     <td align="center" valign="bottom" class="font8"><b>+</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">|SKILL.%skill.MISC|<br /></td>
-    </tr>
-|ENDFOR|
-   </table>
-   <font style="font-size: 6pt">&#9670;</font><font face="Arial" style="font-size: 8pt">= Useable Untrained</font>
-<!-- STOP Skills Table -->
-  </td>
- </tr>
- <tr>
-  <td colspan="2" valign="top">
+<!-- STOP Initiative and Base Attack Table -->
+	</td>
+  </tr>
+</table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="55%" valign="top">
+
 <!-- START Saving Throws Table -->
    <table width="100%" summary="Saving Throws">
     <tr>
-     <td align="center" class="font4">SAVING THROWS</td>
-     <td align="center" width="25" class="font4">TOTAL</td>
+     <td align="center" class="lable" width="75">SAVING THROWS</td>
+     <td align="center" width="25" class="lable">TOTAL</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font4">BASE</td>
+     <td align="center" width="25" class="lable">BASE</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font4">ABILITY</td>
+     <td align="center" width="25" class="lable">ABILITY</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font4">MAGIC</td>
+     <td align="center" width="25" class="lable">MAGIC</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font4">EPIC</td>
+     <td align="center" width="25" class="lable">EPIC</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font4">MISC</td>
+     <td align="center" width="25" class="lable">MISC</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font4">TEMPORARY</td>
-     <td align="left" valign="top" width="63" rowspan="4" class="border4">CONDITIONAL<br />MODIFIERS</td>
+     <td align="center" width="25" class="lable">TEMPORARY</td>
+     <td align="left" valign="top" rowspan="4" class="border4">&nbsp;CONDITIONAL MODIFIERS</td>
     </tr>
 |FOR,%checks,0,COUNT[CHECKS]-1,1,0|
     <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>|CHECK.%checks.NAME|</b></font><font style="font-size:5pt" color="white"><br />
+          <td align="center" class="ab"><b>|CHECK.%checks.NAME|</b><span class="ablable"><br />
 |IIF(CHECK.%checks.NAME:Fortitude)|
 Constitution
 |ELSE|
@@ -435,111 +524,115 @@ Dexterity
 Wisdom
 |ELSE|
 |ENDIF|
-     </font></td>
+</span>
+     </td>
      <td align="center" class="border10"><b>|CHECK.%checks.TOTAL|</b></td>
-     <td align="center" class="font7"><b>=</b></td>
+     <td align="center" class="sign"><b>=</b></td>
      <td align="center" class="border10"><b>|CHECK.%checks.BASE|</b></td>
-     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="sign"><b>+</b></td>
      <td align="center" class="border10"><b>|CHECK.%checks.STATMOD|</b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|CHECK.%checks.MAGIC|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|CHECK.%checks.EPIC|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|CHECK.%checks.MISC.NOMAGIC.NOSTAT|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="tempborder"><br /></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|CHECK.%checks.MAGIC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|CHECK.%checks.EPIC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|CHECK.%checks.MISC.NOMAGIC.NOSTAT|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="abt"></td>
     </tr>
 |ENDFOR|
    </table>
 <!-- STOP Saving Throws Table -->
+
 <!-- START Melee and Range Attack Table -->
    <table width="100%" summary="Melee ~ Ranged Attacks">
     <tr>
+     <td align="center" width="75"></td>
+     <td align="center" valign="bottom" class="lable">TOTAL</td>
      <td align="center"></td>
-     <td align="center" width="60" valign="bottom" class="font4">TOTAL</td>
+     <td align="center" valign="bottom" class="lable">BASE ATTACK</td>
      <td align="center"></td>
-     <td align="center" width="60" valign="bottom" class="font4">BASE ATTACK</td>
+     <td align="center" width="25" valign="bottom" class="lable">STAT</td>
      <td align="center"></td>
-     <td align="center" width="25" valign="bottom" class="font4">STAT</td>
+     <td align="center" width="25" valign="bottom" class="lable">SIZE</td>
      <td align="center"></td>
-     <td align="center" width="25" valign="bottom" class="font4">SIZE</td>
+     <td align="center" width="25" valign="bottom" class="lable">EPIC</td>
      <td align="center"></td>
-     <td align="center" width="25" valign="bottom" class="font4">EPIC</td>
+     <td align="center" width="25" valign="bottom" class="lable">MISC</td>
      <td align="center"></td>
-     <td align="center" width="25" valign="bottom" class="font4">MISC</td>
-     <td align="center"></td>
-     <td align="center" width="25" valign="bottom" class="font4">TEMP</td>
+     <td align="center" width="25" valign="bottom" class="lable">TEMP</td>
     </tr>
     <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>MELEE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
+     <td align="center" class="ab"><b>MELEE</b><br /><span class="ablable">ATTACK BONUS</span></td>
      <td align="center" class="border10"><b>|ATTACK.MELEE.TOTAL|</b></td>
-     <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>|ATTACK.MELEE|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="sign"><b>=</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
      <td align="center" class="border10"><b>|ATTACK.MELEE.STAT|</b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|ATTACK.MELEE.SIZE|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|ATTACK.MELEE.EPIC|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|ATTACK.MELEE.MISC|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="tempborder"><br /></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE.SIZE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE.EPIC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE.MISC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center"  class="abt"></td>
     </tr>
     <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>RANGED</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
+     <td align="center" class="ab"><b>RANGED</b><br /><span class="ablable">ATTACK BONUS</span></td>
      <td align="center" class="border10"><b>|ATTACK.RANGED.TOTAL|</b></td>
-     <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>|ATTACK.RANGED|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="sign"><b>=</b></td>
+     <td align="center" class="border10"><b>|ATTACK.RANGED|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
      <td align="center" class="border10"><b>|ATTACK.RANGED.STAT|</b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|ATTACK.RANGED.SIZE|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|ATTACK.RANGED.EPIC|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|ATTACK.RANGED.MISC|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="tempborder"><br /></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.RANGED.SIZE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.RANGED.EPIC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.RANGED.MISC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center"  class="abt"></td>
     </tr>
     <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>GRAPPLE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
+     <td align="center" class="ab"><b>GRAPPLE</b><br /><span class="ablable">ATTACK BONUS</span></td>
      <td align="center" class="border10"><b>|ATTACK.GRAPPLE.TOTAL|</b></td>
-     <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>|ATTACK.GRAPPLE|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="sign"><b>=</b></td>
+     <td align="center" class="border10"><b>|ATTACK.GRAPPLE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
      <td align="center" class="border10"><b>|ATTACK.GRAPPLE.STAT|</b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.SIZE|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.EPIC|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.MISC|<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="tempborder"><br /></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.SIZE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.EPIC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.MISC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center"  class="abt"></td>
     </tr>
     <tr><td></td></tr>
    </table>
+   <br />
 <!-- STOP Melee and Range Attack Table -->
 <!-- START Unarmed Attack Table -->
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
     <tr>
-     <td align="center" height="25" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>UNARMED</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>TOTAL ATTACK BONUS</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>DAMAGE</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>REACH</b></font></td>
+     <td align="center" height="25" bgcolor="black" rowspan="2" width="40%" class="item"><b>UNARMED</b></td>
+     <td align="center" bgcolor="black" width="15%" class="ab" height="20">TOTAL ATTACK BONUS</td>
+     <td align="center" bgcolor="black" width="15%" class="ab">DAMAGE</td>
+     <td align="center" bgcolor="black" width="15%" class="ab">CRITICAL</td>
+     <td align="center" bgcolor="black" width="15%" class="ab">REACH</td>
     </tr>
     <tr>
-     <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>|WEAPONH.TOTALHIT|<br /></b></font></td>
-     <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>|WEAPONH.DAMAGE|<br /></b></font></td>
-     <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>|WEAPONH.CRIT|/x|WEAPONH.MULT|<br /></b></font></td>
-     <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>|REACH|<br /></b></font></td>
+     <td align="center" bgcolor="white" class="border" height="20">|WEAPONH.TOTALHIT|</td>
+     <td align="center" bgcolor="white" class="border">|WEAPONH.DAMAGE|</td>
+     <td align="center" bgcolor="white" class="border">|WEAPONH.CRIT|/x|WEAPONH.MULT|</td>
+     <td align="center" bgcolor="white" class="border">|REACH|</td>
     </tr>
    </table>
-   <font style="font-size:2pt"><br /></font>
+   <br />
 <!-- STOP Unarmed Attack Table -->
+
 <!-- START Weapon Table -->
 |FOR,%weap,0,2,1,1|
    <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Table">
@@ -835,18 +928,133 @@ Wisdom
     </tr>
    </table>
 <!-- STOP Weapon Table -->
+
 <!-- START Armor Table -->
-|%ARMOR.1|
-|FOR.0,2,1,<tr><td align="center" height="20" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>\ARMOR.EQUIPPED.%.NAME\<br /></b></font></td><td align="center" bgcolor="black" width="20%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td><td align="center" bgcolor="black" width="20%" height="15"><font style="font-size:6pt" color="white"><b>ARMOR BONUS</b></font></td><td align="center" bgcolor="black" width="20%" height="15"><font style="font-size:6pt" color="white"><b>MAX DEX BONUS</b></font></td></tr><tr><td align="center" bgcolor="white" class="border8"><b>\ARMOR.EQUIPPED.%.TYPE\<br /></b></td><td align="center" bgcolor="white" class="border8"><b>\ARMOR.EQUIPPED.%.TOTALAC\<br /></b></td><td align="center" bgcolor="white" class="border8"><b>\ARMOR.EQUIPPED.%.MAXDEX\<br /></b></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Armor Table"><tr><td align="center" height="15" bgcolor="black" width="60"><font style="font-size:5pt" color="white"><b>CHECK PENALTY</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:5pt" color="white"><b>SPELL FAILURE</b></font></td><td align="center" bgcolor="black" width="237" height="15"><font style="font-size:6pt" color="white"><b>SPECIAL PROPERTIES</b></font></td></tr><tr><td align="center" bgcolor="white" class="border8"><b>\ARMOR.EQUIPPED.%.ACCHECK\<br /></b></td><td align="center" bgcolor="white" class="border8"><b>\ARMOR.EQUIPPED.%.SPELLFAIL\<br /></b></td><td align="center" bgcolor="white" class="border8"><b>\ARMOR.EQUIPPED.%.SPROP\<br /></b></td></tr>,<table cellpadding="0" cellspacing="0" width="100%" border="0" summary="Armor Table">,</table>,1|
-|%|
-</td>
-</tr>
+|IIF(AC.Armor>0)|
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Armor Table">
+	<tr>
+		<td align="center" bgcolor="black" width="40%" class="item" rowspan="2"><b>|ARMOR.EQUIPPED.0.NAME|<br /></b></td>
+		<td align="center" bgcolor="black" width="20%" class="ab" height="20">TYPE</td>
+		<td align="center" bgcolor="black" width="20%" class="ab">ARMOR BONUS</td>
+		<td align="center" bgcolor="black" width="20%" class="ab">MAX DEX BONUS</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="white" class="border9" height="20"><b>|ARMOR.EQUIPPED.0.TYPE|<br /></b></td>
+		<td align="center" bgcolor="white" class="border9"><b>|ARMOR.EQUIPPED.0.TOTALAC|<br /></b></td>
+		<td align="center" bgcolor="white" class="border9"><b>|ARMOR.EQUIPPED.0.MAXDEX|<br /></b></td>
+	</tr>
 </table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Armor Table">
+	<tr>
+		<td align="center" bgcolor="black" class="ab" height="20">CHECK PENALTY</td>
+		<td align="center" bgcolor="black" class="ab">SPELL FAILURE</td>
+		<td align="center" bgcolor="black" class="ab">SPECIAL PROPERTIES</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="white" class="border9" height="20"><b>|ARMOR.EQUIPPED.0.ACCHECK|<br /></b></td>
+		<td align="center" bgcolor="white" class="border9"><b>|ARMOR.EQUIPPED.0.SPELLFAIL|<br /></b></td>
+		<td align="center" bgcolor="white" class="border9"><b>|ARMOR.EQUIPPED.0.SPROP|<br /></b></td>
+	</tr>
+</table>
+|ENDIF|
+<br />
 <!-- STOP Armor Table -->
-<hr /><center><font style="font-size: 7pt">PCGen Character Template by ROG, mods/maint by Arcady, Barak &amp; Dimrill.  For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</font></center>
-<!-- ================================================================ -->
-<br style="page-break-after: always" />
-<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br />
+
+<!-- START Shield Table -->
+|IIF(AC.Shield>0)|
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Armor Table">
+	<tr>
+		<td align="center" bgcolor="black" width="40%" class="item" rowspan="2"><b>|ARMOR.SHIELD.EQUIPPED.0.NAME|<br /></b></td>
+		<td align="center" bgcolor="black" width="20%" class="ab" height="20">TYPE</td>
+		<td align="center" bgcolor="black" width="20%" class="ab">ARMOR BONUS</td>
+		<td align="center" bgcolor="black" width="20%" class="ab">MAX DEX BONUS</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="white" class="border9" height="20"><b>|ARMOR.SHIELD.EQUIPPED.0.TYPE|<br /></b></td>
+		<td align="center" bgcolor="white" class="border9"><b>|ARMOR.SHIELD.EQUIPPED.0.TOTALAC|<br /></b></td>
+		<td align="center" bgcolor="white" class="border9"><b>|ARMOR.SHIELD.EQUIPPED.0.MAXDEX|<br /></b></td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Armor Table">
+	<tr>
+		<td align="center" bgcolor="black" class="ab" height="20">CHECK PENALTY</td>
+		<td align="center" bgcolor="black" class="ab">SPELL FAILURE</td>
+		<td align="center" bgcolor="black" class="ab">SPECIAL PROPERTIES</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="white" class="border9" height="20"><b>|ARMOR.SHIELD.EQUIPPED.0.ACCHECK|<br /></b></td>
+		<td align="center" bgcolor="white" class="border9"><b>|ARMOR.SHIELD.EQUIPPED.0.SPELLFAIL|<br /></b></td>
+		<td align="center" bgcolor="white" class="border9"><b>|ARMOR.SHIELD.EQUIPPED.0.SPROP|<br /></b></td>
+	</tr>
+</table>
+|ENDIF|
+<br />
+<!-- STOP Shield Table -->
+</td>
+<td width="45%" valign="top">
+
+<!-- START PSI Power Points Table -->
+|%VAR.TOTALPOWERPOINTS.GTEQ.1|
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Power Point Table">
+    <tr>
+     <td colspan="6" bgcolor="black" align="center"><font style="font-size: 9pt" color="white"><b>PSI POWER POINTS</b></font></td>
+    </tr>
+    <tr>
+     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Base PP</b></font></td>
+     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">|VAR.BASEPOWERPOINTS.INTVAL|</font></td>
+     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Bonus PP</b></font></td>
+     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">|VAR.BONUSPOWERPOINTS.INTVAL|</font></td>
+     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Total PP</b></font></td>
+     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">|VAR.TOTALPOWERPOINTS.INTVAL|</font></td>
+    </tr>
+    <tr>
+     <td>&nbsp;</td>
+    </tr>
+   </table>
+|%|
+<!-- STOP PSI Power Points Table -->
+
+<!-- START Skills Table -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Skills Table">
+    <tr>
+		 <td height="30" bgcolor="black"></td>
+		 <td height="30" align="center" class="ab"><b>SKILLS</b></td>
+		 <td colspan="4" height="30" bgcolor="black" align="center"></td>
+		 <td height="30" bgcolor="black" align="right" ></td>
+		 <td height="30" align="center" class="ab">MAX<br />RANKS</td>
+		 <td colspan="2" height="30" align="center" class="skl"><b>|MAXSKILLLEVEL|/|MAXCCSKILLLEVEL|</b></td>
+    </tr>
+    <tr>
+		 <td colspan="2" align="center" width="50%" class="border7">SKILL NAME</td>
+		 <td align="center" width="10%" class="border7">ABILITY</td>
+		 <td align="center" width="10%" colspan="1" class="border7">SKILL<br />MODIFIER</td>
+		 <td align="center" width="10%" colspan="2" class="border7">ABILITY<br />MODIFIER</td>
+		 <td align="center" width="10%" colspan="2" class="border7">RANKS</td>
+		 <td align="center" width="10%" colspan="2" class="border7">MISC<br />MODIFIER</td>
+    </tr>
+|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+		 <td align="center" class="skill" width="5%" height="15">|OIF(SKILL%skill.UNTRAINED,&#9670;,)|</td>
+		 <td align="left" class="skill">|SKILL.%skill|</td>
+		 <td align="center" class="skill">|SKILL.%skill.ABILITY|</td>
+		 <td align="center" class="skillValue"><b>|SKILL.%skill.TOTAL|</b></td>
+		 <td align="center" class="sign">=</td>
+		 <td align="center" class="skillValue">|SKILL.%skill.ABMOD|<br /></td>
+		 <td align="center" class="sign">+</td>
+		 <td align="center" class="skillValue" >|SKILL.%skill.RANK|<br /></td>
+		 <td align="center" class="sign">+</td>
+		 <td align="center" class="skillValue">|SKILL.%skill.MISC|<br /></td>
+    </tr>
+|ENDFOR|
+</table>
+   <span class="skill">&#9670; = Useable Untrained</span>
+<!-- STOP Skills Table -->
+
+	</td>
+  </tr>
+</table>
+
+
 <table width="100%" border="0" summary="Page 2 Master Table"> <!-- Master Page Table -->
  <tr>
   <td colspan="2" width="100%" valign="top">
