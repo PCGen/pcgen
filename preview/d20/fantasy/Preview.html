@@ -985,6 +985,7 @@
 <!-- STOP Money Table -->
 
 <!-- Start Special Attacks Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
 						<tr>
 							<td>
 								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Class Abilities">
@@ -1016,9 +1017,11 @@
 								</table>
 							</td>
 						</tr>
+|ENDIF|
 <!-- Stop Special Attacks Table -->
 
 <!-- Start Special Qualities Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
 						<tr>
 							<td>
 								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Class Abilities">
@@ -1050,43 +1053,8 @@
 								</table>
 							</td>
 						</tr>
+|ENDIF|
 <!-- Stop Special Qualities Table -->
-
-<!-- Start Special Ability Table -->
-						<tr>
-							<td>
-								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Class Abilities">
-									<tr>
-										<td class="border2 bor_col_dark color_header bold center">SPECIAL ABILITIES
-										<br />(for testing, displays all Category: Special Ability)</td>
-									</tr>
-|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=VISIBLE")-1,1,0|
-									<tr>
-|OIF(EVEN:%specialAbilities,<td class="even bold">,<td class="odd bold">)|
-											|ABILITYALL.Special Ability.%specialAbilities|
-|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Extraordinary)|
- (Ex)
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Supernatural)|
- (Su)
-|ENDIF|
-|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:SpellLike)|
- (Sp)
-|ENDIF|
-
-										</td>
-									</tr>
-									<tr>
-|OIF(EVEN:%specialAbilities,<td class="even">,<td class="odd">)|
-											|ABILITYALL.Special Ability.%specialAbilities.DESC|
-										</td>
-									</tr>
-|ENDFOR|
-								</table>
-							</td>
-						</tr>
-<!-- Stop Special Ability Table -->
-
 
 |%COUNT[SA]|
 						<tr>
@@ -1094,8 +1062,7 @@
 <!-- START Miscellaneous Abilities Table -->
 								<table class="border2 bor_col_dark" width="100%" cellspacing="0" cellpadding="2" summary="Special Abilities Table">
 									<tr>
-										<td class="border2 bor_col_dark color_header bold center">MISCELLANEOUS ABILITIES
-										<br />(outputs SA and SAB tags)</td>
+										<td class="border2 bor_col_dark color_header bold center">SPECIAL ABILITIES</td>
 									</tr>
 |FOR,%sa,0,COUNT[SA]-1,1,0|
 									<tr>
