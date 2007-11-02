@@ -373,6 +373,7 @@ final class PreferencesDialog extends JDialog
 	private JCheckBox ignoreMonsterHDCap = new JCheckBox();
 	private JCheckBox loadURL = new JCheckBox();
 	private JCheckBox maxHpAtFirstLevel = new JCheckBox();
+	private JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
 	private JCheckBox printSpellsWithPC = new JCheckBox();
 	private JCheckBox removeTempFiles;
 	private JCheckBox saveCustom = new JCheckBox();
@@ -689,6 +690,7 @@ final class PreferencesDialog extends JDialog
 
 		SettingsHandler.setHPPct(hpPct.getValue());
 		SettingsHandler.setHPMaxAtFirstLevel(maxHpAtFirstLevel.isSelected());
+		SettingsHandler.setHPMaxAtFirstClassLevel(maxHpAtFirstClassLevel.isSelected());
 
 		// House Rules
 
@@ -1242,6 +1244,7 @@ final class PreferencesDialog extends JDialog
 
 		hpPct.setValue(SettingsHandler.getHPPct());
 		maxHpAtFirstLevel.setSelected(SettingsHandler.isHPMaxAtFirstLevel());
+		maxHpAtFirstClassLevel.setSelected(SettingsHandler.isHPMaxAtFirstClassLevel());
 
 		// House Rules
 		//		crossClassSkillCostCombo.setSelectedIndex(SettingsHandler.getIntCrossClassSkillCost());
@@ -2072,9 +2075,20 @@ final class PreferencesDialog extends JDialog
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		hitPointsPanel.add(label);
-		Utility.buildConstraints(c, 2, iRow, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 2, iRow++, 1, 1, 0, 0);
 		gridbag.setConstraints(maxHpAtFirstLevel, c);
 		hitPointsPanel.add(maxHpAtFirstLevel);
+
+		Utility.buildConstraints(c, 0, iRow, 2, 1, 0, 0);
+		label =
+				new JLabel("      " 
+					+ PropertyFactory.getString("in_Prefs_hpMaxAtFirstClass") 
+					+ ": ");
+		gridbag.setConstraints(label, c);
+		hitPointsPanel.add(label);
+		Utility.buildConstraints(c, 2, iRow, 1, 1, 0, 0);
+		gridbag.setConstraints(maxHpAtFirstClassLevel, c);
+		hitPointsPanel.add(maxHpAtFirstClassLevel);
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;

@@ -4978,7 +4978,7 @@ public class PCClass extends PObject {
 		// This is so GMGen can add classes to a person without pcgen flipping
 		// out
 		if (Globals.getUseGUI()) {
-			rollHP(aPC, level, aPC.getTotalLevels() == 1);
+			rollHP(aPC, level, (SettingsHandler.isHPMaxAtFirstClassLevel() ? aPC.totalNonMonsterLevels() : aPC.getTotalLevels()) == 1);
 		}
 
 		if (!aPC.isImporting()) {

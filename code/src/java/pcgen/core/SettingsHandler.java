@@ -105,6 +105,7 @@ public final class SettingsHandler
 	private static boolean showMatureOnLoad = true;
 	private static boolean showSponsorsOnLoad = true;
 	private static boolean hpMaxAtFirstLevel = true;
+	private static boolean hpMaxAtFirstClassLevel = true;
 	private static int hpRollMethod = Constants.HP_STANDARD;
 	private static int hpPct = 100;
 	private static boolean ignoreMonsterHDCap = false;
@@ -809,6 +810,16 @@ public final class SettingsHandler
 		return hpMaxAtFirstLevel;
 	}
 
+	public static void setHPMaxAtFirstClassLevel(final boolean aBool)
+	{
+		hpMaxAtFirstClassLevel = aBool;
+	}
+
+	public static boolean isHPMaxAtFirstClassLevel()
+	{
+		return hpMaxAtFirstClassLevel;
+	}
+
 	public static void setHPPct(final int argHPPct)
 	{
 		hpPct = argHPPct;
@@ -1172,6 +1183,7 @@ public final class SettingsHandler
 		setGUIUsesOutputNameSpells(getPCGenOption("GUIUsesOutputNameSpells", false)); //$NON-NLS-1$
 		setHideMonsterClasses(getPCGenOption("hideMonsterClasses", false)); //$NON-NLS-1$
 		setHPMaxAtFirstLevel(getPCGenOption("hpMaxAtFirstLevel", true)); //$NON-NLS-1$
+		setHPMaxAtFirstClassLevel(getPCGenOption("hpMaxAtFirstClassLevel", false)); //$NON-NLS-1$
 		setHPPct(getPCGenOption("hpPct", 100)); //$NON-NLS-1$
 		setHPRollMethod(getPCGenOption("hpRollMethod", Constants.HP_STANDARD)); //$NON-NLS-1$
 		setIgnoreMonsterHDCap(getPCGenOption("ignoreMonsterHDCap", false)); //$NON-NLS-1$
@@ -1545,6 +1557,7 @@ public final class SettingsHandler
 		setPCGenOption("GUIUsesOutputNameSpells", guiUsesOutputNameSpells()); //$NON-NLS-1$
 		setPCGenOption("hideMonsterClasses", hideMonsterClasses()); //$NON-NLS-1$
 		setPCGenOption("hpMaxAtFirstLevel", isHPMaxAtFirstLevel()); //$NON-NLS-1$
+		setPCGenOption("hpMaxAtFirstClassLevel", isHPMaxAtFirstClassLevel()); //$NON-NLS-1$
 		setPCGenOption("hpPct", getHPPct()); //$NON-NLS-1$
 		setPCGenOption("hpRollMethod", getHPRollMethod()); //$NON-NLS-1$
 		setPCGenOption("ignoreMonsterHDCap", isIgnoreMonsterHDCap()); //$NON-NLS-1$
