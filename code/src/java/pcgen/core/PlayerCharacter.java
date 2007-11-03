@@ -25,9 +25,40 @@
  */
 package pcgen.core;
 
+import java.awt.geom.Point2D;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Observable;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.character.*;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.CompanionMod;
+import pcgen.core.character.EquipSet;
+import pcgen.core.character.EquipSlot;
+import pcgen.core.character.Follower;
+import pcgen.core.character.SpellBook;
+import pcgen.core.character.SpellInfo;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -36,22 +67,25 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.spell.PCSpellTracker;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.GameModeRollMethod;
-import pcgen.core.utils.*;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.ListKey;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.core.utils.StringKey;
 import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.*;
+import pcgen.util.Delta;
+import pcgen.util.DoubleKeyMap;
+import pcgen.util.HashMapToList;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
-
-import java.awt.geom.Point2D;
-import java.io.*;
-import java.math.BigDecimal;
-import java.util.*;
 
 /**
  * <code>PlayerCharacter</code>.
@@ -16035,7 +16069,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	
 	/**
-	 * Get a list of real abiltiies of a particualr AbilityCategory
+	 * Get a list of real abiltiies of a particular AbilityCategory
 	 * no matter which AbilityCategory list they reside in.
 	 * 
 	 * @param aCategory The AbilityCategory of the desired abilities.
@@ -16905,9 +16939,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final AbilityCategory aCategory)
 	{
 		final List<Ability> abilities = new ArrayList<Ability>();
-		abilities.addAll(getRealAbilitiesListAnyCat(AbilityCategory.FEAT));
-		abilities.addAll(getAutomaticAbilityList(AbilityCategory.FEAT));
-		abilities.addAll(getVirtualAbilityList(AbilityCategory.FEAT));
+		abilities.addAll(getRealAbilitiesListAnyCat(aCategory));
+		abilities.addAll(getAutomaticAbilityList(aCategory));
+		abilities.addAll(getVirtualAbilityList(aCategory));
 		final List<Ability> ret = new ArrayList<Ability>(abilities.size());
 		for (final Ability ability : abilities)
 		{

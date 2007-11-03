@@ -24,6 +24,7 @@
 package pcgen.io.exporttoken;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -106,7 +107,12 @@ public class AbilityListToken extends Token
 		if (lastPC != pc || !aCategory.equals(lastCategory)
 			|| lastPCSerial != pc.getSerial() || !tokenString.equals(lastType))
 		{
-			abilityList = getAbilityList(pc, aCategory);
+			Collection<AbilityCategory> cats = SettingsHandler.getGame().getAllAbilityCatsForKey(aCategory.getKeyName());
+			abilityList = new ArrayList<Ability>();
+			for (AbilityCategory abilityCategory : cats)
+			{
+				abilityList.addAll(getAbilityList(pc, abilityCategory));
+			}
 			lastPC = pc;
 			lastCategory = aCategory;
 			lastPCSerial = pc.getSerial();
@@ -167,7 +173,7 @@ public class AbilityListToken extends Token
 		AbilityCategory aCategory)
 	{
 		List<Ability> listOfAbilities = new ArrayList<Ability>();
-		for (Ability ability : pc.getRealAbilitiesListAnyCat(aCategory))
+		for (Ability ability : pc.getRealAbilitiesList(aCategory))
 		{
 			listOfAbilities.add(ability);
 		}

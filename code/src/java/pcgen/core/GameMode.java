@@ -3225,6 +3225,36 @@ public final class GameMode implements Comparable<Object>
 		return Collections.unmodifiableCollection(catList);
 	}
 
+	
+	/**
+	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects 
+	 * defined by this game mode that match the category key.
+	 * 
+	 * @param key The category key to filter for.
+	 * @return A <tt>Collection</tt> of <tt>AbilityCategory</tt> objects.
+	 */
+	public Collection<AbilityCategory> getAllAbilityCatsForKey(String key)
+	{
+		if (key == null)
+		{
+			return Collections.emptyList();
+		}
+		List<AbilityCategory> catList = new ArrayList<AbilityCategory>();
+		if ( !theAbilityCategories.contains(AbilityCategory.FEAT) )
+		{
+			theAbilityCategories.add(0, AbilityCategory.FEAT);
+		}
+		for (AbilityCategory cat : theAbilityCategories)
+		{
+			if (key.equals(cat.getKeyName())
+				|| key.equals(cat.getAbilityCategory()))
+			{
+				catList.add(cat);
+			}
+		}
+		return Collections.unmodifiableCollection(catList);
+	}
+
 	public void setPreviewDir(final String aDir)
 	{
 		thePreviewDir = aDir;

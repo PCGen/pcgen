@@ -29,6 +29,7 @@ import pcgen.util.enumeration.Visibility;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -693,41 +694,58 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			valString = Integer.toString(countVisibleFeats(getPc().featAutoList(), false, true));
 		}
-		else if ("COUNT[FEATSALL]".equals(valString) || "COUNT[FEATSALL.VISIBLE]".equals(valString))
+		else if ("COUNT[FEATSALL]".equals(valString)
+			|| "COUNT[FEATSALL.VISIBLE]".equals(valString))
 		{
-			valString = Integer.toString(getPc().aggregateVisibleFeatList().size());
+			String catKey = AbilityCategory.FEAT.getKeyName();
+			valString =
+					Integer.toString(countVisibleFeats(
+						getAggregateAbilitiesListForKey(catKey), true, false));
 		}
 		else if ("COUNT[FEATSALL.ALL]".equals(valString))
 		{
-			valString = Integer.toString(getPc().aggregateFeatList().size());
+			String catKey = AbilityCategory.FEAT.getKeyName();
+			List<Ability> abilityList = getAggregateAbilitiesListForKey(catKey);
+			valString = Integer.toString(abilityList.size());
 		}
 		else if ("COUNT[FEATSALL.HIDDEN]".equals(valString))
 		{
-			valString = Integer.toString(countVisibleFeats(getPc().aggregateFeatList(), false, true));
+			String catKey = AbilityCategory.FEAT.getKeyName();
+			valString =
+					Integer.toString(countVisibleFeats(
+						getAggregateAbilitiesListForKey(catKey), false, true));
 		}
 		else if ((valString.startsWith("COUNT[FEATTYPE=") || valString.startsWith("COUNT[FEATTYPE."))
 		&& valString.endsWith(".ALL]"))
 		{
+			String catKey = AbilityCategory.FEAT.getKeyName();
+			List<Ability> abilityList = getAggregateAbilitiesListForKey(catKey);
 			final List<String> featTypes = CoreUtility.split(valString.substring(15, valString.length() - 5), '.');
-			valString = Integer.toString(countVisibleFeatTypes(getPc().aggregateFeatList(), featTypes, true, true));
+			valString = Integer.toString(countVisibleFeatTypes(abilityList, featTypes, true, true));
 		}
 		else if ((valString.startsWith("COUNT[FEATTYPE=") || valString.startsWith("COUNT[FEATTYPE."))
 		&& valString.endsWith(".HIDDEN]"))
 		{
+			String catKey = AbilityCategory.FEAT.getKeyName();
+			List<Ability> abilityList = getAggregateAbilitiesListForKey(catKey);
 			final List<String> featTypes = CoreUtility.split(valString.substring(15, valString.length() - 8), '.');
-			valString = Integer.toString(countVisibleFeatTypes(getPc().aggregateFeatList(), featTypes, false, true));
+			valString = Integer.toString(countVisibleFeatTypes(abilityList, featTypes, false, true));
 		}
 		else if ((valString.startsWith("COUNT[FEATTYPE=") || valString.startsWith("COUNT[FEATTYPE."))
 		&& valString.endsWith(".VISIBLE]"))
 		{
+			String catKey = AbilityCategory.FEAT.getKeyName();
+			List<Ability> abilityList = getAggregateAbilitiesListForKey(catKey);
 			final List<String> featTypes = CoreUtility.split(valString.substring(15, valString.length() - 9), '.');
-			valString = Integer.toString(countVisibleFeatTypes(getPc().aggregateFeatList(), featTypes, true, false));
+			valString = Integer.toString(countVisibleFeatTypes(abilityList, featTypes, true, false));
 		}
 		else if ((valString.startsWith("COUNT[FEATTYPE=") || valString.startsWith("COUNT[FEATTYPE."))
 		&& valString.endsWith("]"))
 		{
+			String catKey = AbilityCategory.FEAT.getKeyName();
+			List<Ability> abilityList = getAggregateAbilitiesListForKey(catKey);
 			final List<String> featTypes = CoreUtility.split(valString.substring(15, valString.length() - 1), '.');
-			valString = Integer.toString(countVisibleFeatTypes(getPc().aggregateFeatList(), featTypes, true, false));
+			valString = Integer.toString(countVisibleFeatTypes(abilityList, featTypes, true, false));
 		}
 
 		//
@@ -1317,5 +1335,24 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 
 		return valString;
+	}
+
+	/**
+	 * Retrieve a list of all abilities in all categories associated with a given key.
+	 * e.g. Fighter feats are included when feats are requested.
+	 * @param catKey The key of the category to be retrieved
+	 * @return List of matching abilities.
+	 */
+	private List<Ability> getAggregateAbilitiesListForKey(String catKey)
+	{
+		Collection<AbilityCategory> cats =
+				SettingsHandler.getGame().getAllAbilityCatsForKey(catKey);
+		List<Ability> abilityList = new ArrayList<Ability>();
+		for (AbilityCategory abilityCategory : cats)
+		{
+			abilityList.addAll(getPc().getAggregateAbilityList(
+				abilityCategory));
+		}
+		return abilityList;
 	}
 }
