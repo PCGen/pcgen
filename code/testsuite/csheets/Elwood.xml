@@ -295,7 +295,7 @@ BIO
 		<natural>0</natural>
 		<class_bonus>6</class_bonus>
 		<dodge_bonus>0</dodge_bonus>
-		<misc>6</misc>
+		<misc>0</misc>
 		<miss_chance/>
 		<max_dex></max_dex>
 		<spell_failure>0</spell_failure>
@@ -1779,7 +1779,7 @@ BIO
 		</class>
 		<class>
 			<class>Infiltrator</class>
-			<ability>Sweep, Improvised Implements</ability>
+			<ability>Improvised Implements, Sweep</ability>
 		</class>
 	</special_abilities>
 	<!--
@@ -1867,16 +1867,6 @@ BIO
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 		<feat>
-			<name>Evasion</name>
-			<description></description>
-			<type>TALENT.FASTTALENT.DEFENSIVE</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
 			<name>Hide(+1 to skill)</name>
 			<description></description>
 			<type>OCCUPATION_SKILL.CRIMINAL_SKILLS.MILITARY_SKILLS.DRIFTER_SKILLS.OUTCAST_SKILLS</type>
@@ -1890,16 +1880,6 @@ BIO
 			<name>Outcast</name>
 			<description>iOutcasti is not so much an occupation as a forced way of life. Persecuted and exiled for being different, outcasts are lone pariahs or shunned members of a culture whose customs or characteristics society finds deviant or abhorrent. Outcasts lurk on the fringes of civilization. Some strive for acceptance, while others are trapped by their own feelings of resentment, self-loathing, or hopelessness.</description>
 			<type>OCCUPATION</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Uncanny Dodge I</name>
-			<description></description>
-			<type>TALENT.FASTTALENT.DEFENSIVE.FASTPLUS</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>

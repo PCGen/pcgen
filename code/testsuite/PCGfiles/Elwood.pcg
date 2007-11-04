@@ -2,7 +2,7 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:MSRD - Arcana|CAMPAIGN:MSRD - Basics|CAMPAIGN:MSRD - Future|CAMPAIGN:MSRD - Menaces
-VERSION:5.10.1-RC2
+VERSION:5.13.4-Dev
 ROLLMETHOD:3|EXPRESSION:roll(4,6,[2,3,4])
 PURCHASEPOINTS:N
 POOLPOINTS:0
@@ -52,8 +52,8 @@ STAT:CHA|SCORE:13
 RACE:Human
 
 # Character Class(es)
-CLASS:Fast|SUBCLASS:Fast Hero|LEVEL:3|SKILLPOOL:0|PROHIBITED:None
-CLASS:Infiltrator|SUBCLASS:None|LEVEL:3|SKILLPOOL:16|PROHIBITED:None
+CLASS:Fast|SUBCLASS:Fast Hero|LEVEL:3|SKILLPOOL:0
+CLASS:Infiltrator|SUBCLASS:None|LEVEL:3|SKILLPOOL:16
 CLASSABILITIESLEVEL:Fast=1|HITPOINTS:8|SKILLSGAINED:24
 CLASSABILITIESLEVEL:Fast=2|HITPOINTS:4|SKILLSGAINED:6
 CLASSABILITIESLEVEL:Fast=3|HITPOINTS:5|SKILLSGAINED:6
@@ -121,31 +121,47 @@ SKILL:Treat Injury|OUTPUTORDER:44|
 LANGUAGE:English|LANGUAGE:German
 
 # Character Feats
-FEAT:Wealth Roll of 6|TYPE:WEALTHROLL|DESC:
-FEAT:Occupation (Outcast)|TYPE:OCCUPATION|DESC:iOutcasti is not so much an occupation as a forced way of life. Persecuted and exiled for being different, outcasts are lone pariahs or shunned members of a culture whose customs or characteristics society finds deviant or abhorrent. Outcasts lurk on the fringes of civilization. Some strive for acceptance, while others are trapped by their own feelings of resentment, self-loathing, or hopelessness.
-FEAT:Hide(+1 to skill)|TYPE:OCCUPATION_SKILL.CRIMINAL_SKILLS.MILITARY_SKILLS.DRIFTER_SKILLS.OUTCAST_SKILLS|DESC:
-FEAT:Toughness|APPLIEDTO:|TYPE:GENERAL.TOUGH.DAREDEVIL.DREADNOUGHT.SPACEMONKEY|DESC:The character gains +3 hit points
-FEAT:Evasion|TYPE:TALENT.FASTTALENT.DEFENSIVE|DESC:
-FEAT:Personal Firearms Proficiency|TYPE:GENERAL.OCCULTIST.CRIMINAL.INVESTIGATIVE.LAW_ENFORCEMENTMILITARY.RURAL.FAST.FIELDSCIENTIST.TECHIE.INVESTIGATOR.FIELDMEDIC.NEGOTIATOR.ADVENTURER.MECHAJOCKEY.STREETWARRIOR.TECHNOMAGE.WILDLORD|DESC:The character can fire any personal firearm without penalty
-FEAT:Weapon Finesse|APPLIEDTO:Pistol Whip|TYPE:BATTLEMIND.GENERAL.FAST|DESC:Choose one light melee weapon, a rapier (if the character can use it with one hand), or a chain
-FEAT:Uncanny Dodge I|TYPE:TALENT.FASTTALENT.DEFENSIVE.FASTPLUS|DESC:
-FEAT:Advanced Firearms Proficiency|TYPE:GENERAL.DEDICATED.SOLDIER.GUNSLINGER.BODYGUARD.INVESTIGATOR.NEGOTIATOR.DREADNOUGHT.FIELDOFFICER.HELIXWARRIOR.SPACEMONKEY.TRACER.STREETWARRIOR|DESC:The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an auto-fire setting)
-FEAT:Combat Martial Arts|TYPE:BATTLEMIND.GENERAL.LAW_ENFORCEMENT.MILITARY.STRONG.DREADNOUGHT.GLADIATOR|DESC:With an unarmed strike, the character deals lethal or nonlethal damage (the character's choice) equal to 1d4 + the character's Strength modifier. The character's unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks
-FEAT:Brawl|TYPE:GENERAL.ATHLETE.CRIMINAL.INVESTIGATIVE.MILITARY.RURAL.STRONG.TOUGH.SOLDIER.INFILTRATOR.DAREDEVIL.INVESTIGATOR.ADVENTURER.DOGFIGHTER.DREADNOUGHT.EXPLORER.SPACEMONKEY.GLADIATOR.SHADOWHUNTER.SPEEDDEMON.THRASHER|DESC:When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier
-FEATPOOL:1.0
+FEATPOOL:-3.0
+
+# Character Abilities
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Wealth Roll of 6|TYPE:WEALTHROLL
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Occupation (Outcast)|TYPE:OCCUPATION|DESC:iOutcasti is not so much an occupation as a forced way of life. Persecuted and exiled for being different, outcasts are lone pariahs or shunned members of a culture whose customs or characteristics society finds deviant or abhorrent. Outcasts lurk on the fringes of civilization. Some strive for acceptance, while others are trapped by their own feelings of resentment, self-loathing, or hopelessness.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Hide(+1 to skill)|TYPE:OCCUPATION_SKILL.CRIMINAL_SKILLS.MILITARY_SKILLS.DRIFTER_SKILLS.OUTCAST_SKILLS
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Toughness|APPLIEDTO:|TYPE:GENERAL.TOUGH.DAREDEVIL.DREADNOUGHT.SPACEMONKEY|DESC:The character gains +3 hit points
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Personal Firearms Proficiency|TYPE:GENERAL.OCCULTIST.CRIMINAL.INVESTIGATIVE.LAW_ENFORCEMENT.MILITARY.RURAL.FAST.FIELDSCIENTIST.TECHIE.INVESTIGATOR.FIELDMEDIC.NEGOTIATOR.ADVENTURER.MECHAJOCKEY.STREETWARRIOR.TECHNOMAGE.WILDLORD|DESC:The character can fire any personal firearm without penalty
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Finesse|APPLIEDTO:Pistol Whip|TYPE:BATTLEMIND.GENERAL.FAST|DESC:Choose one light melee weapon, a rapier (if the character can use it with one hand), or a chain
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Advanced Firearms Proficiency|TYPE:GENERAL.DEDICATED.SOLDIER.GUNSLINGER.BODYGUARD.INVESTIGATOR.NEGOTIATOR.DREADNOUGHT.FIELDOFFICER.HELIXWARRIOR.SPACEMONKEY.TRACER.STREETWARRIOR|DESC:The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an auto-fire setting)
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Combat Martial Arts|TYPE:BATTLEMIND.GENERAL.LAW_ENFORCEMENT.MILITARY.STRONG.DREADNOUGHT.GLADIATOR|DESC:With an unarmed strike, the character deals lethal or nonlethal damage (the character's choice) equal to 1d4 + the character's Strength modifier. The character's unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Brawl|TYPE:GENERAL.ATHLETE.CRIMINAL.INVESTIGATIVE.MILITARY.RURAL.STRONG.TOUGH.SOLDIER.INFILTRATOR.DAREDEVIL.INVESTIGATOR.ADVENTURER.DOGFIGHTER.DREADNOUGHT.EXPLORER.SPACEMONKEY.GLADIATOR.SHADOWHUNTER.SPEEDDEMON.THRASHER|DESC:When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier
+USERPOOL:FEAT|POOLPOINTS:0.0
+USERPOOL:Mutation|POOLPOINTS:0.0
+USERPOOL:Talent|POOLPOINTS:0.0
+USERPOOL:Strong Talent|POOLPOINTS:0.0
+ABILITY:Fast Talent|TYPE:NORMAL|CATEGORY:Talent|KEY:Evasion|TYPE:TALENT.FASTTALENT.DEFENSIVE
+ABILITY:Fast Talent|TYPE:NORMAL|CATEGORY:Talent|KEY:Uncanny Dodge I|TYPE:TALENT.FASTTALENT.DEFENSIVE.FASTPLUS
+USERPOOL:Fast Talent|POOLPOINTS:0.0
+USERPOOL:Tough Talent|POOLPOINTS:0.0
+USERPOOL:Smart Talent|POOLPOINTS:0.0
+USERPOOL:Dedicated Talent|POOLPOINTS:0.0
+USERPOOL:Charismatic Talent|POOLPOINTS:0.0
+USERPOOL:Combat Hero Talent|POOLPOINTS:0.0
+USERPOOL:Covert Hero Talent|POOLPOINTS:0.0
 
 # Character Weapon proficiencies
-WEAPONPROF:[WEAPON:AKM/AK-47|WEAPON:Barrett Light Fifty|WEAPON:Beam Sword|WEAPON:Benelli 121 M1|WEAPON:Beretta 92F|WEAPON:Beretta 93R|WEAPON:Beretta M3P|WEAPON:Brass Knuckles|WEAPON:Browning BPS|WEAPON:Cleaver]
-WEAPONPROF:[WEAPON:Club|WEAPON:Colt Double Eagle|WEAPON:Colt M1911|WEAPON:Colt Python|WEAPON:Concussion Rifle|WEAPON:Concussion Rod|WEAPON:Crossbow|WEAPON:Cryonic Rifle|WEAPON:Crystal Pistol|WEAPON:Derringer]
-WEAPONPROF:[WEAPON:Desert Eagle|WEAPON:Disintegrator|WEAPON:Falcon 45|WEAPON:Flamethrower|WEAPON:Glock 17|WEAPON:Glock 20|WEAPON:Gravity Snare|WEAPON:HK G3|WEAPON:HK MP5|WEAPON:HK MP5K]
-WEAPONPROF:[WEAPON:HK PSG1|WEAPON:High Frequency Sword|WEAPON:Javelin|WEAPON:Knife|WEAPON:Laser Optics|WEAPON:Laser Pistol|WEAPON:Laser Rifle|WEAPON:Laser Sniper Rifle|WEAPON:Lightning Gun|WEAPON:M-60]
-WEAPONPROF:[WEAPON:M16A2|WEAPON:M4 Carbine|WEAPON:MAC Ingram M10|WEAPON:Metal Baton|WEAPON:Mini-Grenade Launcher|WEAPON:Mini-Rocket Launcher|WEAPON:Mossberg|WEAPON:OICW Assault Rifle|WEAPON:Pathfinder|WEAPON:Pepper Spray]
-WEAPONPROF:[WEAPON:Pistol Whip|WEAPON:Plasma Pistol|WEAPON:Plasma Rifle|WEAPON:Pulse Rifle|WEAPON:Rail Gun|WEAPON:Remington 700|WEAPON:Rifle Butt|WEAPON:Ruger Service-Six|WEAPON:S and W M29|WEAPON:SITES M9]
-WEAPONPROF:[WEAPON:Sap|WEAPON:Sawed-Off Shotgun|WEAPON:Skorpion|WEAPON:Sonic Beam|WEAPON:Steyr AUG|WEAPON:Stun Baton|WEAPON:Stun Gun|WEAPON:TACMIL Sniper Rifle|WEAPON:TEC-9|WEAPON:Tangler Gun]
-WEAPONPROF:[WEAPON:Taser|WEAPON:Tonfa|WEAPON:Twin thunder machine gun|WEAPON:Unarmed Lethal Strike|WEAPON:Unarmed Strike|WEAPON:Uzi|WEAPON:Walther PPK|WEAPON:Whip|WEAPON:Winchester 94]
+WEAPONPROF:[WEAPON:Air Pistol|WEAPON:Air Rifle|WEAPON:AKM/AK-47|WEAPON:Barrett Light Fifty|WEAPON:Beam Sword|WEAPON:Benelli 121 M1|WEAPON:Beretta 92F|WEAPON:Beretta 93R|WEAPON:Beretta M3P|WEAPON:Blowgun]
+WEAPONPROF:[WEAPON:Brass Knuckles|WEAPON:Browning BPS|WEAPON:Cleaver|WEAPON:Club|WEAPON:Colt Double Eagle|WEAPON:Colt M1911|WEAPON:Colt Python|WEAPON:Concussion Rifle|WEAPON:Concussion Rod|WEAPON:Crossbow]
+WEAPONPROF:[WEAPON:Cryonic Rifle|WEAPON:Crystal Pistol|WEAPON:Derringer|WEAPON:Desert Eagle|WEAPON:Disintegrator|WEAPON:Falcon .45|WEAPON:Flamethrower|WEAPON:Flare Gun|WEAPON:Gauntlet|WEAPON:Glock 17]
+WEAPONPROF:[WEAPON:Glock 20|WEAPON:Gravity Snare|WEAPON:Heavy Mace|WEAPON:High Frequency Sword|WEAPON:HK G3|WEAPON:HK MP5|WEAPON:HK MP5K|WEAPON:HK PSG1|WEAPON:Javelin|WEAPON:Ketch-all Pole]
+WEAPONPROF:[WEAPON:Knife|WEAPON:Laser Optics|WEAPON:Laser Pistol|WEAPON:Laser Rifle|WEAPON:Laser Sniper Rifle|WEAPON:Light Mace|WEAPON:Lightning Gun|WEAPON:M-60|WEAPON:M16A2|WEAPON:M4 Carbine]
+WEAPONPROF:[WEAPON:MAC Ingram M10|WEAPON:Metal Baton|WEAPON:Mini-Grenade Launcher|WEAPON:Mini-Rocket Launcher|WEAPON:Mossberg|WEAPON:OICW Assault Rifle|WEAPON:Paint Ball Gun|WEAPON:Pathfinder|WEAPON:Pepper Spray|WEAPON:Pistol Whip]
+WEAPONPROF:[WEAPON:Plasma Pistol|WEAPON:Plasma Rifle|WEAPON:Pulse Rifle|WEAPON:Punching Dagger|WEAPON:Quarterstaff|WEAPON:Rail Gun|WEAPON:Remington 700|WEAPON:Rifle Butt|WEAPON:Ruger Service-Six|WEAPON:S and W M29]
+WEAPONPROF:[WEAPON:Sap|WEAPON:Sawed-Off Shotgun|WEAPON:Shortspear|WEAPON:Sickle|WEAPON:SITES M9|WEAPON:Skorpion|WEAPON:Slingshot|WEAPON:Sonic Beam|WEAPON:Speargun|WEAPON:Spiked Club]
+WEAPONPROF:[WEAPON:Steyr AUG|WEAPON:Sticky Foam Sprayer|WEAPON:Stun Baton|WEAPON:Stun Gun|WEAPON:Super Watergun|WEAPON:TACMIL Sniper Rifle|WEAPON:Tangler Gun|WEAPON:Taser|WEAPON:TEC-9|WEAPON:Tonfa]
+WEAPONPROF:[WEAPON:Twin thunder machine gun|WEAPON:Unarmed Lethal Strike|WEAPON:Unarmed Strike|WEAPON:Uzi|WEAPON:Walther PPK|WEAPON:Water Cannon|WEAPON:Whip|WEAPON:Winchester 94]
 
 # Character Equipment
 MONEY:0.00
+EQUIPNAME:Unarmed Lethal Strike (Natural/Primary)|OUTPUTORDER:0|COST:0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Unarmed Lethal Strike|DATA:KEY=Unarmed Lethal Strike]
 EQUIPNAME:Clothing Outfit (Normal Everday)|OUTPUTORDER:4|COST:0|WT:0.0|QUANTITY:1.0
 EQUIPNAME:Mercedes E55 AMG|OUTPUTORDER:6|COST:32.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Mercedes E55 AMG|DATA:NAME=Mercedes E55 AMG$EQMOD=AAVEHICLE]
 EQUIPNAME:Aluminum Travel Case (75 lb)|OUTPUTORDER:1|COST:12|WT:15.0|QUANTITY:1.0
@@ -154,7 +170,6 @@ EQUIPNAME:PDA (Satellite Datalink Gadget)|OUTPUTORDER:7|COST:17.0|WT:0.5|QUANTIT
 EQUIPNAME:Colt Python (.357 revolver)|OUTPUTORDER:5|COST:5.0|WT:3.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Colt Python (.357 revolver)|DATA:NAME=Colt Python (.357 revolver)$EQMOD=MASTERCRAFT_WEAP_HIT_1]
 EQUIPNAME:Bullet (.357/50)|OUTPUTORDER:2|COST:5|WT:0.0|QUANTITY:1.0
 EQUIPNAME:Bullet (.357)|OUTPUTORDER:1|COST:5|WT:0.0|QUANTITY:6.0
-EQUIPNAME:Unarmed Lethal Strike (Natural/Primary)|OUTPUTORDER:0|COST:0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Unarmed Lethal Strike|DATA:KEY=Unarmed Lethal Strike]
 EQUIPSET:Default Set|ID:0.1|USETEMPMODS:Y
 EQUIPSET:Torso|ID:0.1.1|VALUE:Clothing Outfit (Normal Everday)|QUANTITY:1.0|USETEMPMODS:Y
 EQUIPSET:Carried|ID:0.1.2|VALUE:Aluminum Travel Case (75 lb)|QUANTITY:1.0|USETEMPMODS:Y
@@ -184,12 +199,12 @@ CHARACTERCOMP:
 CHARACTERASSET:
 CHARACTERMAGIC:
 
+# Kits
+
 # Character Master/Follower
 
 # Character Notes Tab
 NOTE:Character Sheet Notes|ID:1|PARENTID:-1|VALUE:
-
-# Kits
 
 # Chosen Armor Profs
 
