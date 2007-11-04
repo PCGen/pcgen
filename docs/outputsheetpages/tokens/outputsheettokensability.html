@@ -43,12 +43,12 @@
 		<p class="indent3">Displays Armour Check Penalty for all equiped armor.</p>
 		
 		<p></p><hr>
-		<p class="indent0"><strong><a name="ARMOR">Token Name:</a></strong> ARMOR.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Property (Merge Code).</p>
+		<p class="indent0"><strong><a name="ARMOR">Token Name:</a></strong> ARMOR.[x.]y.z</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Merge Type - Optional)</p>
 		<ul class="indent2">
-			<li>MERGEALL - Causes all armors with the same name to be merged (default behavior).</li>
-			<li>MERGELOC - Causes all armors with the same name and in the same location to be merged.</li>
-			<li>MERGEALL - Causes all armors with the same name to be merged - default behavior.</li>
+			<li>MERGEALL - Causes all armor with the same name to be merged (default behavior).</li>
+			<li>MERGELOC - Causes all armor with the same name and in the same location to be merged.</li>
+			<li>MERGENONE - No armor with the same name will be merged.</li>
 		</ul>
 		<p class="indent1"><strong> Variables Used (y):</strong> Number (The armor's position in the character's 
 			armor list - starting from zero).</p>
@@ -75,8 +75,10 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ARMOR.0.MAXDEX</code></p>
 		<p class="indent3">Displays the max dex adjustment to AC allowed by the armor being worn in position 0.</p>
-
 		<p></p>
+
+<hr>
+
 		<p class="indent0"><strong>Token Name:</strong> ARMOR.x.y.z</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Property (Status).</p>
 		<ul class="indent2">
