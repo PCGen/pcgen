@@ -124,7 +124,7 @@ public class EqTypeToken extends EqToken
 			token = aTok.nextToken();
 		}
 
-		String tempString = aTok.nextToken();
+		String tempString = aTok.hasMoreTokens() ? aTok.nextToken() : "";
 
 		if ((temp >= 0) && (temp < eqList.size()))
 		{
