@@ -439,7 +439,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 			{
 				theTarget = aPC.getEquipmentNamed(theLocation);
 			}
-			else
+			else if (theLocation.equalsIgnoreCase("DEFAULT"))
 			{
 				theLocation = "";
 			}
@@ -473,10 +473,28 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 			existing.setQty(existing.qty() + theQty);
 		}
 
+		// If the target is null, try and grab it incase it is there now
+		if (theTarget == null
+			&& !(theLocation.equalsIgnoreCase("DEFAULT") || theLocation
+				.equalsIgnoreCase("Equipped")))
+		{
+			theTarget = aPC.getEquipmentNamed(theLocation);
+			//TODO (JD 7Nov07) Resized items get missed by the above call as their name has changed 
+		}
+		EquipSet eSet = null;
+		if (theTarget != null)
+		{
+			eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath("0.1"), theTarget);
+		}
+		if (eSet == null)
+		{
+			eSet = aPC.getEquipSetByIdPath("0.1");
+		}
+	
 		//
 		// Equip the item to the default EquipSet.
 		//
-		aPC.addEquipToTarget(aPC.getEquipSetByIdPath("0.1"), theTarget,
+		aPC.addEquipToTarget(eSet, theTarget,
 							 theLocation, theEquipment, new Float(theQty));
 
 		aPC.setGold(aPC.getGold().subtract(theCost).toString());

@@ -15440,7 +15440,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param eqI
 	 * @return EquipSet
 	 */
-	private EquipSet getEquipSetForItem(EquipSet eSet, Equipment eqI)
+	public EquipSet getEquipSetForItem(EquipSet eSet, Equipment eqI)
 	{
 		final String rPath = eSet.getIdPath();
 
