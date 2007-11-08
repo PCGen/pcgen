@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+
+		PCGen Documentation Project
+
+		$Author: fitzs $
+		$Date: $
+		$Revision: $
+
+		Contributors:
+		Eddy Anthony - eddybaATmindspringDOTcom
+
+		Description:
+		Provides information on the use of PCGen TYPE Tags with special case uses.
+	-->
+
+<head>
+
+	<title>Special Case TYPEs</title>
+	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+
+	<h1>Special Case TYPEs</h1>
+
+	<p>The LST file tag TYPE has many uses within the PCGen, most commonly it is used 
+	  to sort objects by type within the display or to identify a group of objects 
+	  to another object that grants a choice from that type. Additionally there are 
+	  certain types which have uses beyond sorting the display and identification 
+	  within the data. Examples of this include types used to identify objects for 
+	  the output sheets and special case types used by in the code for various purposes. 
+	  This page will list these types and explain their uses. This page will not detail 
+	  all TYPEs used in our data (that would be a long list) just the ones more commonly 
+	  used and/or which have uses outside of the dataset which may not be immediately 
+	  apparent.</p>
+
+    <p class="indent1">Objects which utilize TYPE tags:</p>
+
+	<ul class="indent1">
+		<li><a href="#Class">Classes</a><br>
+		<li><a href="#CompanionMod">Companion Modifiers</a><br>
+		<li><a href="#Deity">Deities</a><br>
+		<li><a href="#Equipment">Equipment</a><br>
+		<li><a href="#Equipmod">Equipment Modifiers</a><br>
+		<li><a href="#Feat">Feats and Abilities</a><br>
+		<li><a href="#Language">Languages</a><br>
+		<li><a href="#PCC">PCC Files</a><br>
+		<li><a href="#Race">Races</a><br>
+		<li><a href="#Skill">Skills</a><br>
+		<li><a href="#Spell">Spells</a><br>
+		<li><a href="#Template">Templates</a><br>
+		<li><a href="#WeaponProf">Weapon Proficiencies</a><br>
+	</ul>
+
+<hr>
+	<h2><a name="Class"></a>Class TYPEs</h2>
+	<p class="indent1">See Class <a href="../datafilestagpages/datafilesclasses.html#TYPE">TYPE</a> entry.</p>
+	<p class="indent1">In addition to sorting classes in the display class type 
+	  is used by the gameMode to define certain properties of the class as set 
+	  by the miscinfo.lst tag <a href="../systemfilestagpages/gamemodemiscinfolist.html#CLASSTYPE">CLASSTYPE</a>. 
+	  These properties include how much (if any) CR is added per level of the class, 
+	  weather or not the class is considered a monster class and if the class is subject to 
+	  an XP penalty for multiclassing. 
+	  See also <a href="../systemfilestagpages/gamemodemiscinfolist.html#CRFORMULA">CRFORMULA</a>, 
+	  <a href="../systemfilestagpages/gamemodemiscinfolist.html#ISMONSTER">ISMONSTER</a> 
+	  and <a href="../systemfilestagpages/gamemodemiscinfolist.html#XPPENALTY">XPPENALTY</a></p>
+  	<p class="indent1"><strong>Commonly used:</strong></p>
+	<p class="indent2"><code>PC</code></p>
+	<p class="indent2"><code>NPC</code></p>
+	<p class="indent2"><code>Prestige</code></p>
+	<p class="indent2"><code>Monster</code></p>
+  	<p class="indent1"><strong>Used in MSRD:</strong></p>
+	<p class="indent2"><code>Advanced</code></p>
+
+<hr>
+	<h2><a name="CompanionMod"></a>Companion Modifier TYPEs</h2>
+	<p class="indent1">See Companion Modifier <a href="../datafilestagpages/datafilescompanionmodifiers.html#TYPE">TYPE</a> entry.</p>
+	<p class="indent1">Unlike most other PCGen objects, which are defined in a single 
+	  line, Companion Modifiers can be composed of several lines. Each companion Modifier 
+	  line begins with a <a href="../datafilestagpages/datafilescompanionmodifiers.html#FOLLOWER">FOLLOWER</a> 
+	  or <a href="../datafilestagpages/datafilescompanionmodifiers.html#MASTERBONUSRACE">MASTERBONUSRACE</a> 
+	  tag and not a name or KEY. Companion Modifiers use TYPE as the primary identifier 
+	  instead.</p>
+	<p class="indent1">Another unusual property of TYPE in Companion Modifiers is 
+	  that Spaces can be used, this is normally not recommended.</p>
+  	<p class="indent1"><strong>Commonly used:</strong></p>
+	<p class="indent2"><code>Familiar</code></p>
+	<p class="indent2"><code>Animal Companion</code></p>
+	<p class="indent2"><code>Special Mount</code></p>
+	
+<hr>
+	<h2><a name="Deity"></a>Deity TYPEs</h2>
+	<p class="indent1">See Deity <a href="../datafilestagpages/datafilesdeities.html#TYPE">TYPE</a> entry.</p>
+	<p class="indent1">TYPE is not commonly used in Deity files.</p>
+  
+<hr>
+	<h2><a name="Equipment"></a>Equipment TYPEs</h2>
+	<p class="indent1">See Equipment <a href="../datafilestagpages/datafilesequipment.html#TYPE">TYPE</a> entry.</p>
+  	<p class="indent1"><strong>Equip Slot TYPEs</strong></p>
+	<p class="indent2">Equip Slot TYPEs are specific TYPEs which are used to control 
+	  how many of a specific equipment TYPE a character can Equip to any one Equipset. 
+	  Equipment Slots and their associated TYPEs are defined the <a href="../systemfilestagpages/gamemodeequipmentslots.html">equipmentslots.lst</a> 
+	  gameMode file. Since Slot TYPEs control where an item can be equipped no item 
+	  should have more than one of these types, an item with more than one Slot TYPE 
+	  will confuse PCGen and may not be equipped into the expected Slot. A Slot TYPE 
+	  is not required, an item with no Slot TYPE can still be equipped. There is no 
+	  limit on how many such items can be equipped.</p>
+	<p class="indent1"><strong>Common Equip Slot TYPEs:</strong></p>
+	<p class="indent2"><code>
+		Eyegear<br />
+		Headgear<br />
+		Amulet<br />
+		Armor<br />
+		Robe<br />
+		Cape<br />
+		Shirt<br />
+		Clothing<br />
+		Belt<br />
+		Shield<br />
+		Bracer<br />
+		Glove<br />
+		Weapon<br />
+		Ring<br />
+		Legwear<br />
+		Boot<br />
+	</code></p>
+	<p class="indent1"><strong>Uncommon Equip Slot TYPEs:</strong></p>
+	<p class="indent2">
+		<code>PsionicTattoo</code> - used in SRD and RSRD<br />
+		<code>Tattoo</code> - used in MSRD<br />
+		<code>Transportation</code> - used in MSRD<br />
+		<code>Vehicle</code> - used in Spycraft<br />
+	</p>		
+	<p class="indent1"><strong>Special Case Output Sheet TYPEs:</strong></p>
+	<p class="indent2"><code>Coin<br />Gem</code></p>		
+	<p class="indent3">Items with the Coin or Gem TYPE are not listed in the Equipment List but are instead listed in a separate block labeled Money.</p><br />		
+	<p class="indent2"><code>Armor<br />Ammunition<br />Shield<br />Weapon</code></p>		
+	<p class="indent3">These four types trigger special blocks for these Equipment TYPEs, they are mutually exclusive.</p><br />
+	<p class="indent2"><code>OffensiveGear</code></p>
+	<p class="indent3">Used to identify Equipment which can be useful in combat during 
+	  ones turn but which is not a Weapon or Ammunition (and thus already listed under 
+	  attacks). This is used in some newer stat block formats. Examples might include 
+	  a wand of Fireballs, a Thunderstone and a Tanglefoot Bag.</p><br />
+		<p class="indent2"><code>DefensiveGear</code></p>
+	<p class="indent3">Used to identify Equipment which can be useful for defense 
+	  in combat but which is not an Armor or Shield item (and thus already listed 
+	  under Armor Class). This is used in some newer stat block formats. Examples 
+	  might include a Cloak of Displacement and a Ring of Invisibility.<br /></p>
+	<p class="indent1"><strong>Special Case Weapon TYPEs:</strong></p>
+	<p class="indent2"><code>Melee<br />Ranged</code></p>		
+	<p class="indent3">Every TYPE:Weapon item must be also have either Melee or Ranged TYPE.</p><br />
+	<p class="indent2"><code>Thrown</code></p>		
+	<p class="indent3">Designates the weapon a thrown weapon, activates a second output block showing the weapons Ranged statistics.</p><br />
+	<p class="indent2"><code>Double</code></p>		
+	<p class="indent3">Designates the weapon a double weapon, activates the three ALTxxx tags for the second head statistics.</p><br />
+	<p class="indent1"><strong>Weapon Damage TYPEs</strong></p>
+	<p class="indent2">Weapon Damage TYPEs are defined in the 
+		<a href="../systemfilestagpages/gamemodemiscinfolist.html">miscinfo.lst</a> gameMode file by the 
+		<a href="../systemfilestagpages/gamemodemiscinfolist.html#WEAPONTYPE">WEAPONTYPE</a> tag.<br /><br />
+		<code>
+		Bludgeoning<br />
+		Piercing<br />
+		Slashing<br />
+		Fire<br />
+		Acid<br />
+		Electricity<br />
+		Cold<br />
+		Poison<br />
+		Sonic<br /></code>
+	</p>
+	<p class="indent2"><br/ >Additional MSRD Weapon Damage TYPEs:<br/ ><code>
+		Ballistic<br/ >
+		Concussion<br/ >
+		Radiation<br/ >
+		Disintegration<br/ >
+	</code></p>		
+	<p class="indent1"><strong>Special Case:</strong></p>
+	<p class="indent2"><code>Container</code></p>		
+	<p class="indent3">Designates the item a container, activates the 
+		<a href="../datafilestagpages/datafilesequipment.html#CONTAINS">CONTAINS</a> tag in the item.</p>
+
+<hr>
+	<h2><a name="Equipmod"></a>Equipment Modifier TYPEs</h2>
+	<p class="indent1">See Equipment Modifier <a href="../datafilestagpages/datafilesequipmentmodifiers.html#TYPE">TYPE</a> entry.</p>
+	<p class="indent1">Equipment Modifier TYPEs are used to determine what equipment 
+	  the Equipment Modifiers can be applied to. An Equipment item must have at least one TYPE 
+	  that an equipment modifier has to be applied.</p>
+  	<p class="indent1"><strong>Special Case:</strong></p>
+	<p class="indent2"><code>BaseMaterial</code></p>
+	<p class="indent3">The BaseMaterial TYPE is used to identify Equipment Modifiers 
+	  which represent materials an item can be made from such as Mithral, Adamantine, 
+	  Steel and Wood. An equipment item can only have one Equipment Modifier with 
+	  the BaseMaterial TYPE, if a second one is applied the first is automatically 
+	  removed.</p>
+	  
+<hr>
+	<h2><a name="Feat"></a>Feat and Ability TYPEs</h2>
+	<p class="indent1">See Feat <a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a> entry.</p>
+	<p class="indent1">Feat and Ability TYPEs fall into three general uses, game rule 
+	  types, class bonus feat or ability types and types used by the output sheets. 
+	  Game rule types represent the types the game itself groups the feats or abilities 
+	  into and are derived from the source material. Class bonus feat or ability types 
+	  are used to create a group of feats or abilities from which a class is granted 
+	  a selection.</p>
+	<p class="indent1"><strong>Common game rule types:</strong></p>
+	<p class="indent2"><code>General</code></p>
+	<p class="indent2"><code>ItemCreation</code></p>
+	<p class="indent2"><code>Metamagic</code></p>  	
+	<p class="indent1"><strong>Common Class bonus feat or ability types:</strong></p>
+	<p class="indent2"><code>Fighter</code></p>
+	<p class="indent2"><code>Wizard</code></p>
+	<p class="indent2"><code>FavoredEnemy</code></p>
+	<p class="indent2"><code>Turning</code></p>
+	<p class="indent2"><code>RogueAbilities</code></p>
+	<p class="indent1"><strong>Output Sheet types:</strong><br />
+	Types used by the output sheets require more explanation since 
+	  their purpose is not evident in the data files. </p><br />
+		<p class="indent2"><code>SpecialAttack</code></p>
+		<p class="indent2"><code>SpecialQuality</code></p>
+	<p class="indent3">These two types are used in Abilities of CATEGORY=Special Ability 
+	  (in the RSRD). Every Ability in this category should have one of these types 
+	  or the other. Depending on the type the output sheet will list the ability in 
+	  the Special Attacks block or the Special Qualities block.</p><br />
+	<p class="indent2"><code>Extraordinary</code></p>
+	<p class="indent2"><code>SpellLike</code></p>
+	<p class="indent2"><code>Supernatural</code></p>
+	<p class="indent3">Abilities designated as Extraordinary, SpellLike or Supernatural 
+	  in the source material do so with an abbreviation at the end of the name, (Ex), 
+	  (Sp) and (Su). The output sheet can use this type to add the abbreviation to 
+	  the end of the ability name if it is appropriate for that sheet. Not all sheets 
+	  will want to display the name in that way and by using a type rather than having 
+	  the abbreviation be part of the name this makes it optional.</p><br />
+	<p class="indent2"><code>AttackOption</code></p>
+	<p class="indent3">Identifies the Feat or Ability as one which provides an alternate 
+	  attack or modifies a standard attack. This is used in some newer stat block 
+	  formats.</p><br />	
+	<p class="indent2"><code>Aura</code></p>
+	<p class="indent3">Identifies the Feat or Ability as one which represents an Aura 
+	  or continuous area of effect ability. This is used in some newer stat block 
+	  formats.</p><br />	
+	<p class="indent2"><code>Immunity</code></p>
+	<p class="indent3">Identifies the Feat or Ability as one which represent a specific 
+	  immunity. This is used in some newer stat block formats.</p><br />	
+	<p class="indent2"><code>ModifyAC</code></p>
+	<p class="indent3">Identifies the Feat or Ability as one which provide a circumstantial 
+	  AC bonus or other defensive benefit. This is used in some newer stat block formats.</p><br />	
+	<p class="indent2"><code>Resistance</code></p>
+	<p class="indent3">Identifies the Feat or Ability as one which represent a specific 
+	  resistance. This is used in some newer stat block formats.</p>	<br />
+	<p class="indent2"><code>Weakness</code></p>
+	<p class="indent3">Identifies the Feat or Ability as one which represent a specific 
+	  weakness. This is used in some newer stat block formats.</p>
+	
+<hr>
+	<h2><a name="Language"></a>Language TYPEs</h2>
+	<p class="indent1">See Language <a href="../datafilestagpages/datafileslanguages.html#TYPE">TYPE</a> entry.</p>
+  	<p class="indent1"><strong>Commonly used:</strong></p>
+	<p class="indent2"><code>Read</code></p>
+	<p class="indent2"><code>Spoken</code></p>
+	<p class="indent2"><code>Written</code></p>
+	
+<hr>
+	<h2><a name="PCC"></a>PCC TYPEs</h2>
+	<p class="indent1">See PCC <a href="../datafilestagpages/datafilespcc.html#TYPE">TYPE</a> entry.</p>
+	<p class="indent1">TYPE in PCC files is used to set the source display tree in 
+	  the Sources Tab. Unlike most other places TYPE is used PCC TYPEs can contain 
+	  spaces. PCC TYPE tags cannot have more than three TYPEs.</p>
+	<p class="indent1"><strong>Caution:</strong> If two PCC files use the same TYPE 
+	  but in a different order the display in the Sources Tab can potentially be disrupted. 
+	  Side effects can include sources being displayed more than once. Duplicate TYPEs 
+	  should be used in the same order in every file.</p>
+	
+<hr>
+	<h2><a name="Race"></a>Race TYPEs</h2>
+	<p class="indent1">See Race <a href="../datafilestagpages/datafilesraces.html#TYPE">TYPE</a> entry.</p>
+	<p class="indent1">In the past TYPE in Race has been used to set the races Creature 
+	  Type as defined in the game rules. This function is now being performed by the 
+	  <a href="../datafilestagpages/datafilesraces.html#RACETYPE">RACETYPE</a> tag 
+	  and the use of TYPE to set this is being phased out.</p>
+  	<p class="indent1"><strong>Commonly used:</strong></p>
+	<p class="indent2"><code>Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, 
+	Giant, Humanoid, Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and Vermin</code></p>
+	
+<hr>
+	<h2><a name="Skill"></a>Skill TYPEs</h2>
+	<p class="indent1">See Skill <a href="../datafilestagpages/datafilesskills.html#TYPE">TYPE</a> entry.</p>
+	<p class="indent1"><strong>Commonly used to group by relevant ability:</strong></p>
+	<p class="indent2"><code>Strength<br />Dexterity<br />Constitution<br />Intelligence<br />Wisdom<br />Charisma</code></p>
+	<p class="indent1"><strong>Commonly used to group by relevant skill type:</strong></p>
+	<p class="indent2"><code>Craft<br />Knowledge<br />Perform</code></p>
+	
+<hr>
+	<h2><a name="Spell"></a>Spell TYPEs</h2>
+	<p class="indent1">See Spell <a href="../datafilestagpages/datafilesspells.html#TYPE">TYPE</a> entry.</p>
+  	<p class="indent1"><strong>Commonly used:</strong></p>
+	<p class="indent2"><code>Arcane</code></p>
+	<p class="indent2"><code>Divine</code></p>
+	<p class="indent2"><code>Psionic</code></p>
+	
+<hr>
+	<h2><a name="Template"></a>Template TYPEs</h2>
+	<p class="indent1">See Template <a href="../datafilestagpages/datafilestemplates.html#TYPE">TYPE</a> entry.</p>
+	<p class="indent1">In the past TYPE in Templates have been used to alter the races 
+	  Creature Type as defined in the game rules. This function is now being performed 
+	  by the <a href="../datafilestagpages/datafilesraces.html#RACETYPE">RACETYPE</a> 
+	  tag and the use of TYPE to alter this is being phased out.</p>
+	
+<hr>
+	<h2><a name="WeaponProf"></a>Weapon Proficiency TYPEs</h2>
+	<p class="indent1">See Weapon Proficiency <a href="../datafilestagpages/datafilesweaponproficiencies.html#TYPE">TYPE</a> entry.</p>
+	<p class="indent1">Proficiency types are used to grant proficiencies and to grant 
+	  bonuses to weapons of a certain proficiency. TYPEs generally represent broad 
+	  groups of weapons, such as Simple, Martial and Exotic or a smaller, more specific 
+	  group of weapons such as Axe, Sword, Crossbow and Thrown used for granting bonuses.</p>
+  
+<p class="new"><br></p>
+  </p>
+	<p>
+	<a href="http://validator.w3.org/check?uri=referer"><img
+       	src="../../images/system/valid-html401.png"
+       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+	</p>
+</body>
+</html>
