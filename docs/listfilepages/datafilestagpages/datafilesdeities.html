@@ -155,48 +155,6 @@
 
 <hr>
 
-	<p class="new">*** NEW 5.11.4</p>
-	<p class="indent0"><strong><a name="PRERACE">Tag Name:</a></strong> PRERACE:y,y</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a race).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (The name of a race type defined by the race TYPE tag).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> RACETYPE=Text (The name of a race type defined by the race RACETYPE tag).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> RACESUBTYPE=Text (The name of a race subtype defined by the race RACESUBTYPE tag).</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>The character must be one of the listed races or possess one of the racial properties.</li>
-		<li>TYPE=&lt;Text&gt; can be used to check types set by the race TYPE tag.</li>
-		<li>RACETYPE=&lt;Race Type&gt; can be used to check racial types such as Humanoid, Giant and Outsider.</li>
-		<li>RACESUBTYPE=&lt;Race Subtype&gt; can be used to check racial subtypes such as Air, Evil and Extraplanar.</li>
-		<li>The wildcard character (%) can be used to include any text, for example Elf% will include any race name which begins with Elf.
-			Without the wildcard character the race name must match exactly.</li>
-		<li>Enclosing a selection in square brackets ([ ]) excludes a race. Brackets do not work for the TYPE, RACETYPE and RACESUBTYPE properties.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>Belisarda &lt;tab&gt; PRERACE:Elorii</code></p>
-	<p class="indent3">Character must be a &quot;Elorii&quot;.</p>
-	<p class="indent2"><code>Fire Drake &lt;tab&gt; !PRERACE:Ss'ressen</code></p>
-	<p class="indent3">Character must not be one of the &quot;Ss'ressen&quot;.</p>
-	<p class="indent2"><code>PRERACE:1,TYPE=Dire</code></p>
-	<p class="indent3">Characters race type must be &quot;Dire&quot;.</p>
-	<p class="indent2"><code>PRERACE:1,RACETYPE=Giant</code></p>
-	<p class="indent3">Characters race type must be &quot;Giant&quot;.</p>
-	<p class="indent2"><code>!PRERACE:1,RACETYPE=Outsider</code></p>
-	<p class="indent3">Characters race type must not be &quot;Outsider&quot;.</p>
-	<p class="indent2"><code>PRERACE:1,RACESUBTYPE=Incorporeal</code></p>
-	<p class="indent3">Character must have the &quot;Incorporeal&quot; subtype.</p>
-	<p class="indent2"><code>PRERACE:2,RACETYPE=Undead,RACESUBTYPE=Incorporeal</code></p>
-	<p class="indent3">Character must have both a race type of &quot;Undead&quot; and a subtype of
-	&quot;Incorporeal&quot;.</p>
-		<p class="indent2"><code>PRERACE:1,%</code></p>
-	<p class="indent3">This will pass if any race has been chosen but will fail if no race has been selected.</p>
-	<p class="indent2"><code>!PRERACE:1,%</code></p>
-	<p class="indent3">This will pass if no race has been selected.</p>
-	<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; !PRERACE:Human</code></p>
-	<p class="indent3">This will pass if no Human race has been selected.</p>
-	<p></ p>
-
-<hr>
-
 	<p class="new">*** New 5.11.8</p>
 	<p class="indent0"><strong><a name="RACE">Tag Name:</a></strong> RACE:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Race of typical Worshippers)</p>
