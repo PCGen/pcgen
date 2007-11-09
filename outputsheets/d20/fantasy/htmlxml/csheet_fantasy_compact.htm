@@ -387,13 +387,39 @@ $Date$
 				</tr>
 			</table>
 <!-- STOP Skills Table -->
+<!-- START Special Attacks Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Feats Table">
+				<tr>
+					<td colspan="1" bgcolor="black" align="center"><font style="font-size: 9pt" color="white"><b>SPECIAL ATTACKS</b></font></td>
+				</tr>
+				<tr>
+					<td align="left" width="100%" class="border7">|ABILITYLIST.Special Ability.TYPE=SpecialAttack|</td>
+				</tr>
+			</table>
+|ENDIF|
+<!-- STOP Special Attacks Table -->
+<!-- START Special Quality Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Feats Table">
+				<tr>
+					<td colspan="1" bgcolor="black" align="center"><font style="font-size: 9pt" color="white"><b>SPECIAL QUALITIES</b></font></td>
+				</tr>
+				<tr>
+					<td align="left" width="100%" class="border7">|ABILITYLIST.Special Ability.TYPE=SpecialQuality|</td>
+				</tr>
+			</table>
+|ENDIF|
+<!-- STOP Special Quality Table -->
 <!-- START Special Abilities Table -->
+|%COUNT[SA]|
 			<table width="100%" cellspacing="0" cellpadding="2"  summary="Special Abilities Table">
 				<tr>
 					<td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>SPECIAL ABILITIES</b></font></td>
 				</tr>
 				<tr><td align="left" width="100%" class="border7">|SPECIALLIST|</td></tr>
 			</table>
+|%|
 <!-- STOP Special Abilities Table -->
 <!-- START Feats Table -->
 			<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Feats Table">

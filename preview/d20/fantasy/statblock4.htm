@@ -177,10 +177,12 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
  - 
 |ENDIF|
 <br>
-
-<!-- TODO: Atk Options need to be defined by Abilty Objects -->
-
-<!-- TODO: Special Actions need to be defined by Abilty Objects -->
+|IIF(count("ABILITIES";"TYPE=AttackOption")>0)|
+<b>Atk Options: </b> |ABILITYLIST.FEAT.TYPE=AttackOption| |ABILITYLIST.Special Ability.TYPE=AttackOption|<br>
+|ENDIF|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
+<b>Special Actions </b> |ABILITYLIST.Special Ability.TYPE=SpecialAttack|<br>
+|ENDIF|
 
 <!-- TODO: Combat Gear need to be defined by Equipment TYPE -->
 
@@ -273,7 +275,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 <!-- End Prepared Spells -->
 
 <!-- Domain list -->
-|%DOMAIN.1|<p />
+|%DOMAIN.1|<p />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 *: Domain spell. Deity: |DEITY|.
 Domains: 
 |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\, ,NONE,1|
@@ -320,7 +322,12 @@ at will)
 |TEXT.TITLECASE.STAT.%stat.NAME| |STAT.%stat|
 |ENDFOR|
 <br>
-<b>SQ </b> |SPECIALLIST|<br>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
+<b>Special Qualities </b> |ABILITYLIST.Special Ability.TYPE=SpecialQuality|<br>
+|ENDIF|
+|%COUNT[SA]|
+<b>Special Abilities </b> |SPECIALLIST|<br>
+|%|
 
 <b>Feats </b> |FEATALLLIST|<br>
 

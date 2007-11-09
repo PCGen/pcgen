@@ -2911,6 +2911,27 @@ function RemoveStat (attribute) {
 <!-- END TEMPLATE table -->
 |%|
 <!-- Start of special abilities table (still inside the SkillsCompact Table) -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
+				<table width="100%" cellspacing="0" cellpadding="2">
+				<tr>
+					<td class="c9wB">SPECIAL ATTACKS</td>
+				</tr>
+				<tr>
+					<td width="100%" class="l7s">|ABILITYLIST.Special Ability.TYPE=SpecialAttack|</td>
+				</tr>
+				</table>
+|ENDIF|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
+				<table width="100%" cellspacing="0" cellpadding="2">
+				<tr>
+					<td class="c9wB">SPECIAL QUALITIES</td>
+				</tr>
+				<tr>
+					<td width="100%" class="l7s">|ABILITYLIST.Special Ability.TYPE=SpecialQuality|</td>
+				</tr>
+				</table>
+|ENDIF|
+|%COUNT[SA]|
 				<table width="100%" cellspacing="0" cellpadding="2">
 				<tr>
 					<td class="c9wB">SPECIAL ABILITIES</td>
@@ -2919,6 +2940,7 @@ function RemoveStat (attribute) {
 					<td width="100%" class="l7s">|SPECIALLIST|</td>
 				</tr>
 				</table>
+|%|
 <!-- End of Special Abilities table (still inside the SkillsCompact Table) -->
 <!-- Start of feats table (still inside the SkillsCompact Table) -->
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -2939,7 +2961,7 @@ function RemoveStat (attribute) {
 					<td width="100%" class="t7s">|LANGUAGES|<br /></td>
 				</tr>
 				</table>
-<!-- End of special abilities table (still inside the SkillsCompact Table) -->
+<!-- End of languages table (still inside the SkillsCompact Table) -->
 <!-- Start of psion abilities table (still inside the SkillsCompact Table) -->
 |%VAR.TOTALPOWERPOINTS.GTEQ.1|
 				<table width="100%" border="0" cellpadding="2" cellspacing="0">
@@ -3501,8 +3523,28 @@ function RemoveStat (attribute) {
 |%|
 <!-- END MISC Companions table -->
 
-
-<!-- TEMPLATE table -->
+<!-- START Special Abilities Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
+		<table width="100%" cellspacing="0" cellpadding="2">
+		<tr>
+			<td class="c9wB">SPECIAL ATTACKS</td>
+		</tr>
+		<tr>
+			<td class="lt8s" width="100%">|ABILITYLIST.Special Ability.TYPE=SpecialAttack|</td>
+		</tr>
+		</table>
+|ENDIF|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
+		<table width="100%" cellspacing="0" cellpadding="2">
+		<tr>
+			<td class="c9wB">SPECIAL QUALITIES</td>
+		</tr>
+		<tr>
+			<td class="lt8s" width="100%">|ABILITYLIST.Special Ability.TYPE=SpecialQuality|</td>
+		</tr>
+		</table>
+|ENDIF|
+|%COUNT[SA]|
 		<table width="100%" cellspacing="0" cellpadding="2">
 		<tr>
 			<td class="c9wB">SPECIAL ABILITIES</td>
@@ -3511,6 +3553,9 @@ function RemoveStat (attribute) {
 			<td class="lt8s" width="100%">|SPECIALLIST|</td>
 		</tr>
 		</table>
+|%|
+<!-- END Special Abilities Table -->
+<!-- TEMPLATE table -->
 |%TEMPLATE.0|
 		<table width="100%" cellspacing="0" cellpadding="3">
 		<tr>
@@ -3755,40 +3800,10 @@ function RemoveStat (attribute) {
      <td class="lt8sB" width="40%">NAME</td>
      <td class="lt8sB" width="60%">DESCRIPTION</td>
     </tr>
-|FOR,%feat,0,COUNT[FEATS.VISIBLE]-1,1,0|
+|FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
 |OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8">|FEAT.VISIBLE.%feat|</td>
-     <td valign="top" align="left" class="font8">|FEAT.VISIBLE.%feat.DESC|</td>
-    </tr>
-|ENDFOR|
-|FOR,%feat,0,COUNT[FEATSAUTO.VISIBLE]-1,1,0|
-|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8">|FEATAUTO.VISIBLE.%feat|</td>
-     <td valign="top" align="left" class="font8">|FEATAUTO.VISIBLE.%feat.DESC|</td>
-    </tr>
-|ENDFOR|
-|FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|
-|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8">|VFEAT.VISIBLE.%feat|</td>
-     <td valign="top" align="left" class="font8">|VFEAT.VISIBLE.%feat.DESC|</td>
-    </tr>
-|ENDFOR|
-|FOR,%feat,0,COUNT[FEATS.HIDDEN]-1,1,0|
-|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8">|FEAT.HIDDEN.%feat|</td>
-     <td valign="top" align="left" class="font8">|FEAT.HIDDEN.%feat.DESC|</td>
-    </tr>
-|ENDFOR|
-|FOR,%feat,0,COUNT[FEATSAUTO.HIDDEN]-1,1,0|
-|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8">|FEATAUTO.HIDDEN.%feat|</td>
-     <td valign="top" align="left" class="font8">|FEATAUTO.HIDDEN.%feat.DESC|</td>
-    </tr>
-|ENDFOR|
-|FOR,%feat,0,COUNT[VFEATS.HIDDEN]-1,1,0|
-|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8">|VFEAT.HIDDEN.%feat|</td>
-     <td valign="top" align="left" class="font8">|VFEAT.HIDDEN.%feat.DESC|</td>
+     <td valign="top" class="l8s">|FEATALL.VISIBLE.%feat|</td>
+     <td valign="top" align="left" class="l8s">|FEATALL.VISIBLE.%feat.DESC|</td>
     </tr>
 |ENDFOR|
    </table>
