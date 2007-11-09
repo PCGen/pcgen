@@ -1782,7 +1782,90 @@ $Date:  $
   </table>
 <!-- Stop Feats Table -->
 
+<!-- Start Special Actions Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="30" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+      <td height="30" background="preview/d20/fantasy/images/gold/border_top.png"><div align="center" class="title"><img src="preview/d20/fantasy/images/gold/title_special_actions.png" width="225" height="30"></div></td>
+      <td width="34" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+    </tr>
+    <tr> 
+      <td width="30" background="preview/d20/fantasy/images/gold/border_left.png"></td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+		<table width="100%" border="0" cellpadding="3" cellspacing="0" background="preview/d20/fantasy/images/gold/gold_tile_light.png">
+|FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack")-1,1,0|
+			<tr>
+				<td class="statSmall" |OIF(EVEN:%specialAttack,background="preview/d20/fantasy/images/gold/gold_tile_white.png",)|>
+				<b>|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:Extraordinary)|
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:Supernatural)|
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:SpellLike)|
+ (Sp)
+|ENDIF|
+				</b> ~ |ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.DESC|</td>
+			</tr>
+|ENDFOR|		
+		</table>
+  	</td>
+      <td width="34" background="preview/d20/fantasy/images/gold/border_right.png"></td>
+    </tr>
+    <tr> 
+      <td width="30" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+      <td height="34" background="preview/d20/fantasy/images/gold/border_bottom.png"><div align="center"><img src="preview/d20/fantasy/images/gold/deco_bottom.png" width="90" height="34"></div></td>
+      <td width="34" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+    </tr>
+  </table>
+|ENDIF|
+<!-- Stop Special Actions Table -->
+
+<!-- Start Special Qualities Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="30" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
+      <td height="30" background="preview/d20/fantasy/images/gold/border_top.png"><div align="center" class="title"><img src="preview/d20/fantasy/images/gold/title_special_qualities.png" width="225" height="30"></div></td>
+      <td width="34" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_right.png" width="34" height="30"></td>
+    </tr>
+    <tr> 
+      <td width="30" background="preview/d20/fantasy/images/gold/border_left.png"></td>
+      <td background="preview/d20/fantasy/images/gold/gold_tile.png">
+		<table width="100%" border="0" cellpadding="3" cellspacing="0" background="preview/d20/fantasy/images/gold/gold_tile_light.png">
+|FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality")-1,1,0|
+			<tr>
+				<td class="statSmall" |OIF(EVEN:%specialQuality,background="preview/d20/fantasy/images/gold/gold_tile_white.png",)|>
+				<b>|ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialQuality.TYPE:Extraordinary)|
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialQuality.TYPE:Supernatural)|
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialQuality.TYPE:SpellLike)|
+ (Sp)
+|ENDIF|
+				</b> ~ |ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.DESC|</td>
+			</tr>
+|ENDFOR|		
+		</table>
+  	</td>
+      <td width="34" background="preview/d20/fantasy/images/gold/border_right.png"></td>
+    </tr>
+    <tr> 
+      <td width="30" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_left.png" width="30" height="34"></td>
+      <td height="34" background="preview/d20/fantasy/images/gold/border_bottom.png"><div align="center"><img src="preview/d20/fantasy/images/gold/deco_bottom.png" width="90" height="34"></div></td>
+      <td width="34" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
+    </tr>
+  </table>
+|ENDIF|
+<!-- Stop Special Qualities Table -->
+
 <!-- Start Special Ability Table -->
+|%COUNT[SA]|
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr> 
       <td width="30" height="30"><img src="preview/d20/fantasy/images/gold/corner_top_left.png" width="30" height="30"></td>
@@ -1808,6 +1891,7 @@ $Date:  $
       <td width="34" height="34"><img src="preview/d20/fantasy/images/gold/corner_bottom_right.png" width="34" height="34"></td>
     </tr>
   </table>
+|%|
 <!-- Stop Special Ability Table -->
 
 <!-- Start Salient Divine Ability Table -->
