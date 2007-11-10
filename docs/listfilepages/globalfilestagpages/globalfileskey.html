@@ -1,41 +1,55 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
-<html>
+
+
+<html>
 	<!--
-		PCGen Documentation Project
-
-		$Author: fitzs $
-		$Date: $
-		$Revision: $
+
+		PCGen Documentation Project
+
+
+		$Author$
+		$Date$
+		$Revision$
 
 		Contributors:
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
 		Eric C Smith - mareduddATblackrootDOTorg
-		Description:
-		Provides information on the use of PCGen global KEY: Tags.
+
+		Description:
+
+		Provides information on the use of PCGen global KEY: Tags.
 	-->
-<head>
-	<title>KEY Tag</title>
+
+<head>
+
+	<title>KEY Tag</title>
 	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
 <body>
 
-	<h1>The KEY Tag</h1>
-	<p>This file is broken down into three sections: the <a href="#KEY"><strong>Tag Description</strong></a>,
+
+	<h1>The KEY Tag</h1>
+
+	<p>This file is broken down into three sections: the <a href="#KEY"><strong>Tag Description</strong></a>,
 		the <a href="#STANDARD"><strong>Application Standard</strong></a>, and the <a
 		href="#GLOSSARY"><strong>KEY Glossary</strong></a>.</p>
 	<p><strong>NOTE:</strong>The KEY tag <span class="underline">MUST</span> be unique in the datasets and
 		sub-datasets that it is present in.</p>
-	<hr>
-	<h2><a name="KEY">Tag Description</a></h2>
+
+	<hr>
+
+	<h2><a name="KEY">Tag Description</a></h2>
 	<p></p>
 
 <hr>
-	<p class="new">UPDATED 5.10.1, 5.11.5</p>
+
+	<p class="new">UPDATED 5.10.1, 5.11.5</p>
 	<p class="indent0"><strong><a name="KEYTAG">Tag Name:</a></strong> KEY:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Key Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -46,7 +60,8 @@
 		load. And don't just take out the KEY and use the name. Potions modifier's will work without a
 		KEY but work much better using the KEY than the name.If a Potion includes a KEY, then the KEY
 		must be used for all calling purposes.</p>
-	<p></p>
+
+	<p></p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>KEY:MUT_SECOND_WIND</code></p>
 	<p class="indent3">Creates the unique KEY for the MSRD Feat <em>Second Wind</em></p>
@@ -59,27 +74,37 @@
 	<p class="indent2"><code>KEY:SKL_DISABLE_DEVICE_MP</code></p>
 	<p class="indent3">Creates the unique KEY for Swords Edge Publishing's Modern Principles <em>Disable
 		Device</em></p>
-<hr>
-        <h2><a name="STANDARD">Application Standard</a></h2>
+
+<hr>
+
+        <h2><a name="STANDARD">Application Standard</a></h2>
         <p class="indent0"><strong>General Notes</strong></p>
-        <p></p>
-        <p class="indent1">1) The KEY is set to the item name unless you put in a KEY tag.</p>
+
+        <p></p>
+
+        <p class="indent1">1) The KEY is set to the item name unless you put in a KEY tag.</p>
 	<ul class="indent2">
-       	<li>So if a KEY is used, that one will be stored in the PCG file, instead of the name? And if
+
+       	<li>So if a KEY is used, that one will be stored in the PCG file, instead of the name? And if
 			I use the previous name as the KEY, and change the name, will the PCG that has stored
 			the name load the renamed object now based on the KEY? And is this truly global?.<br>
 		<li>Works for Equipmods, Races, Feats, Domains and Classes, did not work for Templates, Spells.<br>
 	</ul>
-        <p class="indent1">2) If the name is the same but the key is different both will be processed and
+
+        <p class="indent1">2) If the name is the same but the key is different both will be processed and
 		displayed.</p>
-        <ul class="indent2">
-		<li>PCGen will determine which source is newer with a new PCC tag SOURCEDATE which should be
+
+        <ul class="indent2">
+
+		<li>PCGen will determine which source is newer with a new PCC tag SOURCEDATE which should be
 			set to the date of release of the source in the format YYYY-MM. A source without a
 			SOURCEDATE will always be considered older than a source with a date.<br>
-	</ul>
+
+	</ul>
         <p class="indent1">3) Oh no that source name is X and they have Y in PCGen.</p>
         <ul class="indent2">
-	<li>I know this would be a pain to track, but could we get those that are editing data
+
+	<li>I know this would be a pain to track, but could we get those that are editing data
 			files to keep track of any name changes they make? If we could have a file for
 			this checked into each release and copied with the release when it is installed,
 			we could have prettylst (or some other perl script) read the file from the
@@ -90,40 +115,67 @@
 		<li>If we start using Keys, even better - then, it would be possible to run a perl script
 			to find all of the changes and create the above file, and people wouldn't have to
 			track their changes to names directly.<br>
-	</ul>
+
+	</ul>
         <p class="indent0"><strong>General Naming Standards</strong></p>
         <p class="indent1">The following are the naming conventions to be used when creating a KEY.
 	<ul class="indent1">
-		<li>Keys are to be in all capital letters and may only contain letters, numbers and
+
+		<li>Keys are to be in all capital letters and may only contain letters, numbers and
 			underscores ("_").<br>
-		<li>Each word should be separated by an underscore character for ease in reading.<br>
-		<li>The first section is the same as the SOURCESHORT: in the .pcc, on the second, third
+
+		<li>Each word should be separated by an underscore character for ease in reading.<br>
+
+		<li>The first section is the same as the SOURCESHORT: in the .pcc, on the second, third
 			or more sections of the Key name is the unique ID of the tag.<br>
-		<li>The letter limit on the second and third sections of the Key name is 8 and 7.<br>
+
+		<li>The letter limit on the second and third sections of the Key name is 8 and 7.<br>
 		<li>EQMODs for different item types (Weapon vs. Armor for example) will be done as
 			separate KEYs<br>
-		<li>Materials which list different pricing for different item types or sub-types (Light
+
+		<li>Materials which list different pricing for different item types or sub-types (Light
 			Armor vs. Medium Armor for example) will be done as separate KEYs for each price
 			type.<br>
-	</ul>
-        <p class="indent1">Standard abbreviations</p>
-        <ul class="indent1">
-			<li>Ammunition - AMMO<br>
-			<li>Armor - ARMR<br>			<li>Electrical - ELEC<br>			<li>Enhancement - ENHANCE<br>			<li>Greater - GRT<br>			<li>Heavy - HVY<br>			<li>Improved - IMP<br>
+
+	</ul>
+
+        <p class="indent1">Standard abbreviations</p>
+
+        <ul class="indent1">
+
+			<li>Ammunition - AMMO<br>
+			<li>Armor - ARMR<br>
+			<li>Electrical - ELEC<br>
+			<li>Enhancement - ENHANCE<br>
+			<li>Greater - GRT<br>
+			<li>Heavy - HVY<br>
+			<li>Improved - IMP<br>
 			<li>Instrument - INSTR<br>
-			<li>Light - LT<br>			<li>Masterwork - MWORK<br>			<li>Medium - MED<br>
-			<li>Resistance - RES<br>			<li>Shield - SHLD<br>			<li>Weapon - WEAP<br>
-		</ul>
-	<p>To see the rest of the standards, including the EQMOD KEY name list look here:<a
+			<li>Light - LT<br>
+			<li>Masterwork - MWORK<br>
+			<li>Medium - MED<br>
+			<li>Resistance - RES<br>
+			<li>Shield - SHLD<br>
+			<li>Weapon - WEAP<br>
+
+		</ul>
+
+	<p>To see the rest of the standards, including the EQMOD KEY name list look here:<a
 		href="http://pcgen.sourceforge.net/StandardsProject/">
-		http://pcgen.sourceforge.net/StandardsProject/</a></p>
+		http://pcgen.sourceforge.net/StandardsProject/</a></p>
+
 <hr>
 
-	<h2><a name="GLOSSARY">The KEY Glossary</a></h2>
-	<h3 class="indent1">By Gamemode</h3>
-	<p class="indent1">The following list of keys covers all keys used in the following gamemodes.</p>	<blockquote>
+
+	<h2><a name="GLOSSARY">The KEY Glossary</a></h2>
+
+	<h3 class="indent1">By Gamemode</h3>
+	<p class="indent1">The following list of keys covers all keys used in the following gamemodes.</p>
+
+	<blockquote>
 		<p><strong>Gamemode</strong></p>
-		<blockquote>
+
+		<blockquote>
 			<p>Publisher - Setting/Dataset</p>
 		</blockquote>
 
@@ -149,21 +201,27 @@
 		</blockquote>
 
 		<p><strong><a name="35e">D&amp;D 3.5 Edition (35e)</a></strong></P>
-		<blockquote>
+
+		<blockquote>
 			<p><a href="#RSRD">Wizards of the Coast (WotC) - Revised Standard Reference Document (35e)</a><br>
-			<a href="#APG">Alea Publishing Group (APG) - Quests (35e)</a><br>			<a href="#BaS">Bards and Sages (BaS) - Neiyar Land of Heaven and the Abyss</a><br>
+			<a href="#APG">Alea Publishing Group (APG) - Quests (35e)</a><br>
+			<a href="#BaS">Bards and Sages (BaS) - Neiyar Land of Heaven and the Abyss</a><br>
 			<a href="#BFG">Big Finger Games (BFG) - Masterwork Qualities</a><br>
 			<a href="#MPEM">Malhavoc Press (MP) - Complete Book of Eldritch Might</a><br>
-			<a href="#NGES">Necromancer Games (NG) - Eldritch Sorcery</a><br>			<a href="#NGToH">Necromancer Games (NG) - Tome of Horrors</a><br>			<a href="#PCIWoA">Paradigm Concepts Inc (PCI) - World of Arcanis</a></p>
+			<a href="#NGES">Necromancer Games (NG) - Eldritch Sorcery</a><br>
+			<a href="#NGToH">Necromancer Games (NG) - Tome of Horrors</a><br>
+			<a href="#PCIWoA">Paradigm Concepts Inc (PCI) - World of Arcanis</a></p>
 			<a href="#SG">Secular Games (SG) - Lines of Legend - Winter Elves</a></p>
 			<a href="#SEP">Swords Edge Publishing (SEP) - Modern Medieval - Modern Principles</a><br>
 		</blockquote>
-		<p><strong><a name="Deadlands">Deadlands</a></strong></p>
+
+		<p><strong><a name="Deadlands">Deadlands</a></strong></p>
 
 		<blockquote>
 			<p><a href="#PE">Pinnacle Entertainment (PE) - Deadlands d20</a></p>
 		</blockquote>
-		<p><strong><a name="Modern">d20 Modern (Modern)</a></strong></p>
+
+		<p><strong><a name="Modern">d20 Modern (Modern)</a></strong></p>
 
 		<blockquote>
 			<p><a href="#MSRD">Wizards of the Coast (WotC) - Moderm Standard Reference Document</a><br>
@@ -200,18 +258,23 @@
 		</blockquote>
 	</blockquote>
 
-	<h3 class="indent1"><a href="#Complete">The Complete Listing of Keys</a></h3>
+
+	<h3 class="indent1"><a href="#Complete">The Complete Listing of Keys</a></h3>
 
 		<p class="indent1"><strong>NOTE:</strong> The information contained in the square brackets ([ ]) is
 		not part of the name of the modifier. It is included in this list to provide additional
 		information on the intended object type of object the modifier is intended for.</p>
-	<p></p>
+
+	<p></p>
 
 <hr>
 
-	<p class="indent1"><strong><a name="SRD">Wizards of the Coast (WotC): Standard Reference		Document</a></strong> - SRD (3e)</p>
-	<blockquote>
-	<p><strong>SRD - Basics File.</strong></p>
+	<p class="indent1"><strong><a name="SRD">Wizards of the Coast (WotC): Standard Reference
+		Document</a></strong> - SRD (3e)</p>
+
+	<blockquote>
+
+	<p><strong>SRD - Basics File.</strong></p>
 		<p><code>KEY:A_1USEMA</code> - Spell Effect (Single Use/Completion) [Major]<br>
 		<code>KEY:A_1USEME</code> - Spell Effect (Single Use/Completion) [Medium]<br>
 		<code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion) [Minor]<br>
@@ -456,9 +519,12 @@
 	</blockquote>
 
 <hr>
-	<p class="indent1"><strong><a name="RSRD">Wizards of the Coast (WotC): Revised Standard Reference					Document</a></strong> - RSRD (35e)</p>
+
+	<p class="indent1"><strong><a name="RSRD">Wizards of the Coast (WotC): Revised Standard Reference
+					Document</a></strong> - RSRD (35e)</p>
 	<blockquote>
-	<p><strong>RSRD - Advanced File.</strong></p>
+
+	<p><strong>RSRD - Advanced File.</strong></p>
 		<p><code>KEY:ART</code> - Art Value<br>
 		<code>KEY:GEM</code> - Gem Value<br>
 		<code>KEY:Gloves of Swimming/Climbing</code> - Gloves of Swimming and Climbing<br>
@@ -684,7 +750,8 @@
 		<code>KEY:SPELL_RES_17</code> - Spell Resistance (SR 17)<br>
 		<code>KEY:SPELL_RES_19</code> - Spell Resistance (SR 19)<br>
 		<code>KEY:SPELLFOCUS</code> - Spell Focus Value<br>
-		<code>KEY:SPELLMATERIAL</code> - Spell Material Component Value<br>		<code>KEY:SPIKE_A</code> - Armor Spikes<br>
+		<code>KEY:SPELLMATERIAL</code> - Spell Material Component Value<br>
+		<code>KEY:SPIKE_A</code> - Armor Spikes<br>
 		<code>KEY:SPIKE_S</code> - Shield Spikes<br>
 		<code>KEY:SPIKE_SB</code> - Shield Bash<br>
 		<code>KEY:SPL_1USE</code> - Spell Effect (Single Use/Use Activated)<br>
@@ -888,10 +955,12 @@
 	</blockquote>
 
 <hr>
-	<p class="indent1"><a name="MSRD"><strong>Wizards of the Coast(WotC): Modern Standard Reference
+
+	<p class="indent1"><a name="MSRD"><strong>Wizards of the Coast(WotC): Modern Standard Reference
 		Documen (MSRD)</strong></a> - d20 Modern (Modern)</p>
 	<blockquote>
-	<p><strong>MSRD - Arcana Basics File.</strong></p>
+
+	<p><strong>MSRD - Arcana Basics File.</strong></p>
 		<p><code>KEY:ACID_RES</code> - Acid Resistance<br>
 		<code>KEY:ACIDIC</code> - Acidic<br>
 		<code>KEY:ANIMATED</code> - Animated<br>
@@ -1087,7 +1156,8 @@
 		<P><code>KEY:ARTIFICIALORGAN</code> - Artificial Organ<br>
 		<code>KEY:EDUCATEDFEATIMPLANT</code> - Educated Feat Implant<br>
 		<code>KEY:SKILLIMPLANT</code> - Skill Implant<br></p>
-	<P><strong>MSRD - Future Equipment File.</strong></p>
+
+	<P><strong>MSRD - Future Equipment File.</strong></p>
 		<p><code>KEY:AASTARSHIP_LB</code> - Starship<br>
 		<code>KEY:AASTARSHIP_TON</code> - Starship<br>
 		<code>KEY:AAVEHICLE_FUTURE</code> - Vehicle<br>
@@ -1295,7 +1365,8 @@
 		<code>KEY:SNSR_CLASS_9</code> - Class IX Sensor Array<br>
 		<code>KEY:SNSR_IMP_TRGT_SYS</code> - Improved Targeting System<br>
 		<code>KEY:SNSR_TRGT_SYS</code> - Targeting System<br>
-		<code>KEY:SPRNG_LDD_GDGT</code> - Spring Loaded Gadget<br>		<code>KEY:STN_MDL_GDGT_12</code> - Stun Module Gadget (Fort DC 12)<br>
+		<code>KEY:SPRNG_LDD_GDGT</code> - Spring Loaded Gadget<br>
+		<code>KEY:STN_MDL_GDGT_12</code> - Stun Module Gadget (Fort DC 12)<br>
 		<code>KEY:STN_MDL_GDGT_15</code> - Stun Module Gadget (Fort DC 15)<br>
 		<code>KEY:STN_MDL_GDGT_18</code> - Stun Module Gadget (Fort DC 18)<br>
 		<code>KEY:STOR_CMPRT_GDGT_AMR</code> - Storage Compartment Gadget<br>
@@ -1450,7 +1521,8 @@
 		<code>KEY:ZERO_G_STABILZR</code> - Zero-G Stabilizer (PL 7)<br></p>
 
 	<p><strong>MSRD - Future Mutations File.</strong></p>
-		<p><code>KEY:MUT_SECOND_WIND</code> - Second Wind<br></p>
+		<p><code>KEY:MUT_SECOND_WIND</code> - Second Wind<br></p>
+
 	<p><strong>MSRD - Future Robots File.</strong></p>
 		<p><code>KEY:ROBOT_FLY_05</code> - +5 Speed<br>
 		<code>KEY:ROBOT_FLY_10</code> - +10 Speed<br>
@@ -1498,9 +1570,11 @@
 	</blockquote>
 
 <hr>
-	<p class="indent1"><a name="AEG"><strong>Alderac Entertainment Group (AEG) - Spycraft (Spycraft)</strong></a></p>
+
+	<p class="indent1"><a name="AEG"><strong>Alderac Entertainment Group (AEG) - Spycraft (Spycraft)</strong></a></p>
 	<blockquote>
-	<p><strong>AEG - Spycraft: Shadow Force Archer File.</strong></p>
+
+	<p><strong>AEG - Spycraft: Shadow Force Archer File.</strong></p>
 		<p><code>KEY:BACKFIRE_PALMPRINT_ID</code> - Backfire Palmprint ID<br>
 		<code>KEY:BACKUP_IDCARD</code> - Backup ID<br>
 		<code>KEY:BLINDMAN_EARIMPLANT</code> - Blindman Unit<br>
@@ -1610,7 +1684,9 @@
 	</blockquote>
 
 <hr>
-	<p class="indent1"><a name="APG"><strong>Alea Publishing Group (APG) - Quests (35e)</strong></a></p>	<blockquote>
+
+	<p class="indent1"><a name="APG"><strong>Alea Publishing Group (APG) - Quests (35e)</strong></a></p>
+	<blockquote>
 		<p><strong>APG Game Enhancement - Quests File.</strong></p>
 		<p><code>KEY:CORRUPTED</code> - Corrupted<br>
 		<code>KEY:CORRUPTING</code> - Corrupting<br>
@@ -1635,7 +1711,8 @@
 
 	<p class="indent1"><a name="BP"><strong>Bastion Press (BP) - Oathbound (3e)</strong></a></p>
 	<blockquote>
-		<p><strong>BP Oathbound File.</strong></p>
+
+		<p><strong>BP Oathbound File.</strong></p>
 		<p><code>KEY:ARMRDBCL</code> - Celestial Bone<br>
 		<code>KEY:ARMRDFL1</code> - Deflecting +1<br>
 		<code>KEY:ARMRDFL2</code> - Deflecting +2<br>
@@ -1702,7 +1779,8 @@
 	</blockquote>
 
 <hr>
-	<p class="indent1"><a name="BFG"><strong>Big Finger Games (BFG) - Masterwork Qualities (35e)</strong></a></p>
+
+	<p class="indent1"><a name="BFG"><strong>Big Finger Games (BFG) - Masterwork Qualities (35e)</strong></a></p>
 	<blockquote>
 	<p><strong>BFG - Masterwork Qualities File.</strong></p>
 		<p><code>KEY:ARTICULATED</code> - Articulated<br>
@@ -1750,7 +1828,8 @@
 <hr>
 
 	<p class="indent1"><a name="DHR"><strong>Dog House Rules (DHR) - Sidewinder (Sidewinder)</strong></a></p>
-	<blockquote>
+
+	<blockquote>
 		<p><strong>DHR - Sidewinder Recoiled File.</strong></p>
 		<p><code>KEY:CUSGRIP</code> - Custom Grip<br>
 		<code>KEY:CUSSIT</code> - Custom Sights<br>
@@ -1766,7 +1845,8 @@
 	</blockquote>
 
 <hr>
-	<p class="indent1"><a name="FFGM"><strong>Fantasy Flight Games (FFG) - Midnight (3e)</strong></a></p>
+
+	<p class="indent1"><a name="FFGM"><strong>Fantasy Flight Games (FFG) - Midnight (3e)</strong></a></p>
 	<blockquote>
 	<p><strong>FFG - Midnight File.</strong></p>
 		<p><code>KEY:ICEWD</code> - Icewood<br></p>
@@ -1777,10 +1857,12 @@
 		<code>KEY:HORN</code> - Horn<br>
 		<code>KEY:ROPE</code> - Rope<br>
 		<code>KEY:STONE</code> - Stone<br></p>
-	</blockquote>
+
+	</blockquote>
 
 	<p class="indent1"><a name="FFGDSH"><strong>Fantasy Flight Games (FFG) - Dragonstar (3e)</strong></a></p>
-	<blockquote>
+
+	<blockquote>
 	<p><strong>FFG - Dragonster: Starfarers Handbook File.</strong></p>
 		<p><code>KEY:SF_CAMO</code> - Camouflage<br>
 		<code>KEY:SF_DATA</code> - Program<br>
@@ -1803,7 +1885,8 @@
 		<code>KEY:SF_TOOLSSP</code> - Specialized<br>
 		<code>KEY:SF_TOOLSSPM</code> - Specialized Masterwork<br></p>
 
-	<p><strong>FFG - EQUIPMODE EXCLUDED</strong></p>	</blockquote>
+	<p><strong>FFG - EQUIPMODE EXCLUDED</strong></p>
+	</blockquote>
 
 	<p class="indent1"><a name="FFGLL"><strong>Fantasy Flight Games (FFG) - Legends and	Lairs (3e)</strong></a></p>
 	<blockquote>
@@ -1942,8 +2025,10 @@
 		<code>KEY:TUMBLE</code> - Tumbling<br>
 		<code>KEY:UNCANNY</code> - Uncanny Protection<br>
 		<code>KEY:UNRULY</code> - Unruly<br></p>
-	</blockquote>
-	<p class="indent1"><a name="MPHM"><strong>Malhavoc Press (MP) - Book of Hallowed Might (3e)</strong></a></p>
+
+	</blockquote>
+
+	<p class="indent1"><a name="MPHM"><strong>Malhavoc Press (MP) - Book of Hallowed Might (3e)</strong></a></p>
 	<blockquote>
 		<p><strong>MP - Book of Hallowed Might File.</strong></p>
 		<p><code>KEY:BOHMASABCOUR</code> - Absolute Courage<br>
@@ -1966,7 +2051,8 @@
 	</blockquote>
 
 <hr>
-	<p class="indent1"><a name="MP"><strong>Mongoose Publishing - SRD (3e)</strong></a></p>
+
+	<p class="indent1"><a name="MP"><strong>Mongoose Publishing - SRD (3e)</strong></a></p>
 	<blockquote>
 
 	<p><strong>Mongoose - Collectors Series: Quintessential Rogue File.</strong></p>
@@ -1988,11 +2074,14 @@
 		<code>KEY:RINGPoisonDrip</code> - Poison Dripper<br>
 		<code>KEY:RINGPoisonNeedle</code> - Poison Needle<br>
 		<code>KEY:RINGPoisonSquirt</code> - Poison Squirter<br></p>
-		<p><strong>Mongoose - EQUIPMODE EXCLUDED</strong><br></p>
+
+		<p><strong>Mongoose - EQUIPMODE EXCLUDED</strong><br></p>
 	</blockquote>
 
 <hr>
-	<p class="indent1"><a name="MDS"><strong>Mythic Dreams Studios (MDS) - Dark Inheritance (Modern)</strong></a></p>	<blockquote>
+
+	<p class="indent1"><a name="MDS"><strong>Mythic Dreams Studios (MDS) - Dark Inheritance (Modern)</strong></a></p>
+	<blockquote>
 	<p><strong>MDS - Dark Inheritance: Modern File.</strong></p>
 		<p><code>KEY:ARNOLDSCLIP</code> - Arnold's Clip<br>
 		<code>KEY:STWL_STUNTMN</code> - Stuntman's Steering Wheel<br>
@@ -2002,14 +2091,16 @@
 	</blockquote>
 
 <hr>
-	<p class="indent1"><a name="NGES"><strong>Necromancer Games (NG) - Eldritch Sorcery (35e)</strong></a></p>
+
+	<p class="indent1"><a name="NGES"><strong>Necromancer Games (NG) - Eldritch Sorcery (35e)</strong></a></p>
 	<blockquote>
 		<p><strong>NG - Eldritch Sorcery File.</strong></p>
 		<p><code>KEY:TRANSSTEEL</code> - Transparent Steel<br></p>
 	</blockquote>
 
 	<p class="indent1"><a name="NGToH"><strong>Necromancer Games (NG) - Tome of	Horrors (35e)</strong></a></p>
-	<blockquote>
+
+	<blockquote>
 	<p><strong>NG - Tome of Horrors File.</strong></p>
 		<p><code>KEY:CRUSH</code> - Crushing<br>
 		<code>KEY:SMITE</code> - Smiting<br>
@@ -2054,10 +2145,12 @@
 		<code>KEY:TOOLSGRMW</code> - Greater Mastercraft<br>
 		<code>KEY:WEAPALTHST</code> - Altherian Steel<br>
 		<code>KEY:WEAPGRMW</code> - Greater Mastercraft<br></p>
-	</blockquote>
+	</blockquote>
+
 <hr>
 
-	<p class="indent1"><a name="PCIWoA"><strong>Paradigm Concepts Inc (PCI) - World of Arcanis (35e)</strong></a></p>	<blockquote>
+	<p class="indent1"><a name="PCIWoA"><strong>Paradigm Concepts Inc (PCI) - World of Arcanis (35e)</strong></a></p>
+	<blockquote>
 	<p><strong>PCI - Players Guide to Arcanis File.</strong></p>
 		<p><code>KEY:CUSTOMA</code> - Custom - Armor.Shield<br>
 		<code>KEY:CUSTOMW</code> - Custom - Weapon<br>
@@ -2117,12 +2210,14 @@
 		<code>KEY:SARISH_SARM</code> - Sarishan Steel (Sm)<br>
 		<code>KEY:SARISH_SSHD</code> - Sarishan Steel (Sm)<br>
 		<code>KEY:SARISH_SWEAP</code> - Sarishan Steel (Sm)<br></p>
-		<p><strong>PCI - EQUIPMODE EXCLUDED</strong></p>
+
+		<p><strong>PCI - EQUIPMODE EXCLUDED</strong></p>
 	</blockquote>
 
 <hr>
 
-	<p class="indent1"><a name="PE"><strong>Pinnacle Entertainment (PE) - Deadlands d20 (Deadlands)</strong></a></p>	<blockquote>
+	<p class="indent1"><a name="PE"><strong>Pinnacle Entertainment (PE) - Deadlands d20 (Deadlands)</strong></a></p>
+	<blockquote>
 	<p><strong>PE - Deadlands d20 File.</strong></p>
 		<p><code>KEY:AMMOMW</code> - Masterwork - Ammunition<br>
 		<code>KEY:AMMOSLVR</code> - Silvered - Ammunition<br>
@@ -2209,9 +2304,11 @@
 	</blockquote>
 
 <hr>
-	<p class="indent1"><a name="TGM"><strong>The Game Mechanics (TGM) - d20 Modern (Modern)</strong></a></p>
+
+	<p class="indent1"><a name="TGM"><strong>The Game Mechanics (TGM) - d20 Modern (Modern)</strong></a></p>
 	<blockquote>
-		<p><strong>TGM - Martial Arts Mayhem File.</strong></p>
+
+		<p><strong>TGM - Martial Arts Mayhem File.</strong></p>
 		<p><code>KEY:ARW_DRGN_TNG_A</code> - Dragon's Tongue<br>
 		<code>KEY:ARW_EXPLSV_A</code> - Explosive<br>
 		<code>KEY:ARW_HIKIME_A</code> - Hikime<br>
@@ -2236,8 +2333,10 @@
 	</blockquote>
 
 <hr>
-	<p class="indent1"><a name="WotC"><strong>Wizards of the Coast (WotC) - d20 Modern (Modern)</strong></a></p>
-	<blockquote>
+
+	<p class="indent1"><a name="WotC"><strong>Wizards of the Coast (WotC) - d20 Modern (Modern)</strong></a></p>
+
+	<blockquote>
 		<p><strong>WotC - d20 Modern Weapons Locker File.</strong></p>
 		<p><code>KEY:KAHLES_SIGHT</code> - Kahles ZF69<br>
 		<code>KEY:MOUNT_SCP_RFL</code> - Rifle Scope Mount<br>
