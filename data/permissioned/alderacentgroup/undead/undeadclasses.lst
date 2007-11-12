@@ -202,7 +202,7 @@ CLASS:Risen		NAMEISPI:YES	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.53-54
 CLASS:Risen		PRECHECKBASE:1,Will=8	PREFEAT:4,Endurance,Great Fortitude,Iron Will,Toughness
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Risen		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Swim
-1	SAB:Lure of Darkness (Su)	SAB:Undead (Su)	SAB:Vampiric Touch %/day (Su)|VampiricTouch	BONUS:VAR|VampiricTouch|(CL+1)/2	DEFINE:Vampiric Touch|0					TEMPLATE:Undeath
+1	SAB:Lure of Darkness (Su)	SAB:Undead (Su)	SAB:Vampiric Touch %/day (Su)|VampiricTouch	BONUS:VAR|VampiricTouch|(CL+1)/2	DEFINE:VampiricTouch|0					TEMPLATE:Undeath
 2																											ADD:FEAT|1|Toughness
 3	SAB:Death of the Body (Su)
 4																											ADD:FEAT|1|Toughness
