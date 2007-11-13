@@ -618,6 +618,11 @@ public class pcGenGUI
 
 	public static void showSponsors()
 	{
+		if (Globals.getSponsors().size() <= 1)
+		{
+			return;
+		}
+
 		String title = "PCGen's sponsors";
 
 		final JFrame aFrame = new JFrame(title);
