@@ -14,7 +14,7 @@
 		Added spells per day for spell casters.
 
 $Revision$
-$Author: eddyanthony $
+$Author$
 $Date$
 
 -->
@@ -98,7 +98,24 @@ Ranged
 ) or
 |ENDFOR|
 ;
-SA 
+SA: 
+|IIF(count("ABILITIES";"CATEGORY=Special Ability")>0)|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0| 
+|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Extraordinary)|
+|ABILITYALL.Special Ability.%specialAbilities| (Ex), 
+|ELSE|
+|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Supernatural)|
+|ABILITYALL.Special Ability.%specialAbilities| (Su), 
+|ELSE|
+|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:SpellLike)|
+|ABILITYALL.Special Ability.%specialAbilities| (Sp), 
+|ELSE|
+|ABILITYALL.Special Ability.%specialAbilities|, 
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+|ENDIF|
 |FOR,%DRtest,STRLEN[DR],STRLEN[DR],1,0|
 |IIF(%DRtest:0)|
 |ELSE|
@@ -150,9 +167,9 @@ Will
 |STAT.%stat.NAME| |STAT.%stat|
 |ENDFOR|
 .
-<p/>&nbsp;&nbsp;
+<p/>&nbsp;&nbsp;&nbsp;&nbsp;
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Skills and Feats:</i> |SKILLLISTMODS|; |FEATALLLIST|.<p/>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Skills and Feats:</i> |SKILLLISTMODS|; |FEATALLLIST|.<p/>&nbsp;&nbsp;&nbsp;&nbsp;
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Possessions:</i>
 
@@ -193,7 +210,7 @@ Will
 |FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
 |IIF(%spellrace:0)|
 |ELSE|
-<p />&nbsp;&nbsp;
+<p />&nbsp;&nbsp;&nbsp;&nbsp;
 |FOR,%spellbook,1,1,1,0|
 |FOR,%class,0,0,1,0|
 |FOR,%level,0,0,1,0|
@@ -217,7 +234,7 @@ At Will:
 |FOR,%class,0,0,1,1|
 |FOR,%level,0,0,1,1|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
-<p/>&nbsp;&nbsp;<i>|SPELLBOOK.%spellbook.NAME| Spells:</i> [|SPELLBOOK.%spellbook.TYPE|, |SPELLBOOK.%spellbook.NUMSPELLS| spells 
+<p/>&nbsp;&nbsp;&nbsp;&nbsp;<i>|SPELLBOOK.%spellbook.NAME| Spells:</i> [|SPELLBOOK.%spellbook.TYPE|, |SPELLBOOK.%spellbook.NUMSPELLS| spells 
 |IIF(SPELLBOOK.%spellbook.NUMPAGES:0)|
 |ELSE|
 , Used |SPELLBOOK.%spellbook.NUMPAGESUSED| of |SPELLBOOK.%spellbook.NUMPAGES| (|SPELLBOOK.%spellbook.PAGEFORMULA|) pages
@@ -259,7 +276,7 @@ At Will:
 |FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1|
 |IIF(%foo:0.OR.%bar:0)|
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-<p />&nbsp;&nbsp;<i>|SPELLBOOKNAME.%spellbook|</i>
+<p />&nbsp;&nbsp;&nbsp;&nbsp;<i>|SPELLBOOKNAME.%spellbook|</i>
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
 |%SPELLLISTCLASS.%class|
 (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level)
@@ -301,7 +318,7 @@ At Will:
 <!-- End Prepared Spells -->
 
 <!-- Domain list -->
-|%DOMAIN.1|<p />&nbsp;&nbsp;
+|%DOMAIN.1|<p />&nbsp;&nbsp;&nbsp;&nbsp;
 *Domain spell. <i>Domains:</i> [
 |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\ (\DOMAIN.%.POWER\);, ,NONE,1|
 ] Deity: |DEITY|;
@@ -309,7 +326,7 @@ At Will:
 
 <!-- Known spells -->
 |%SPELLLISTCLASS.0|
-<p />&nbsp;&nbsp;
+<p />&nbsp;&nbsp;&nbsp;&nbsp;
 <i>Spells Known</i>
 |%|
 
