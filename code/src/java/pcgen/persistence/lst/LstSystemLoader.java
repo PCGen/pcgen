@@ -1675,8 +1675,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					false);
 
 				// Load pointbuymethods.lst
-				loadGameModeLstFile(pointBuyLoader, gmName, gameFile,
-					"pointbuymethods.lst", false);
+				loadPointBuyFile(gameFile, gmName);
 
 				// Load sizeAdjustment.lst
 				loadGameModeLstFile(sizeLoader, gmName, gameFile,
@@ -1689,6 +1688,38 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 
 		SystemCollections.sortGameModeList();
+	}
+
+	/**
+	 * Load the purchase mode/point buy definitions from either the new 
+	 * location under the custom sources folder, or in the old location
+	 * with the game mode.
+	 *   
+	 * @param gameFile The location of the game mode directory.
+	 * @param gmName The name of the game mode being loaded.
+	 */
+	private void loadPointBuyFile(String gameFile, String gmName)
+	{
+		File pointBuyFile =
+				new File(CustomData.customPurchaseModeFilePath(true, gmName));
+		boolean useGameModeFile = true;
+		if (pointBuyFile.exists())
+		{
+			try
+			{
+				pointBuyLoader.loadLstFile(pointBuyFile.toURI(), gmName);
+				useGameModeFile = false;
+			}
+			catch (PersistenceLayerException e)
+			{
+				// Ignore - its OK if the file cannot be loaded
+			}
+		}
+		if (useGameModeFile)
+		{
+			loadGameModeLstFile(pointBuyLoader, gmName, gameFile,
+				"pointbuymethods.lst", false);
+		}
 	}
 
 	/**

@@ -131,6 +131,17 @@ public final class CustomData
 	}
 
 	/**
+	 * Get custom purchase mode path
+	 * @param usePath Should the game mode path be used
+	 * @param gmName The name of the game mode to get the path for 
+	 * @return  custom purchase mode file set path
+	 */
+	public static String customPurchaseModeFilePath(final boolean usePath, String gmName)
+	{
+		return getCustomPath("PointBuyMethods", usePath, gmName);
+	}
+
+	/**
 	 * Get customRaceFilePath
 	 * @param usePath
 	 * @return customRaceFilePath
@@ -285,6 +296,7 @@ public final class CustomData
 	 */
 	public static void writePurchaseModeConfiguration()
 	{
+		ensureCustomDirExists();
 		final BufferedWriter bw = getPurchaseModeWriter();
 		final SortedMap<Integer, PointBuyCost> pbStatCosts = SettingsHandler.getGame().getPointBuyStatCostMap();
 
@@ -378,27 +390,28 @@ public final class CustomData
 		return getWriter(customEquipmentFilePath());
 	}
 
-	private static String getCustomPath(final String type, final boolean usePath)
+	private static String getCustomPath(final String type,
+		final boolean usePath, String gmName)
 	{
 		String aString = "";
 
 		if (usePath)
 		{
 			aString = SettingsHandler.getPcgenCustomDir().getAbsolutePath();
-			aString += File.separator + SettingsHandler.getGame().getName();
+			aString += File.separator + gmName;
 		}
 		return aString + File.separator + "custom" + type
 			+ Constants.s_PCGEN_LIST_EXTENSION;
 	}
 
+	private static String getCustomPath(final String type, final boolean usePath)
+	{
+		return getCustomPath(type, usePath, SettingsHandler.getGame().getName());
+	}
+
 	private static BufferedWriter getPurchaseModeWriter()
 	{
-		final String modeFile = SettingsHandler.getPcgenSystemDir()
-			+ File.separator + "gameModes" + File.separator
-			+ SettingsHandler.getGame().getName() + File.separator
-			+ "pointbuymethods.lst";
-
-		return getWriter(modeFile);
+		return getWriter(customPurchaseModeFilePath(true, SettingsHandler.getGame().getName()));
 	}
 
 	private static BufferedReader getReader(final String path)
