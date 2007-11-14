@@ -5,6 +5,9 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
+    <release version="5.13.5" date="In SVN" description="Alpha release">
+      <action dev="jdempsey" type="update" issue="1831621">Move point buy definitions to Custom data</action>
+    </release>
     <release version="5.13.4" date="2007-11-12" description="Alpha release"></release>
     <release version="5.13.3" date="2007-10-22" description="Alpha release">
       <action dev="thpr" type="add" issue="1800407">Deprecate Eqmod CHOOSE:EQBUILDER|1 tag</action>
