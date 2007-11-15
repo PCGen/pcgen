@@ -46,7 +46,7 @@
 
 <hr>
 
-	<p class="deprecated"><span class="deprecated">(Deprecated, use CHOOSE:PROFICIENCY)</span></p>
+	<p class="new">*** Deprecated - Use <a href="#PROFICIENCY">CHOOSE:PROFICIENCY</a></p>
 	<p class="indent0"><strong><a name="EMPTYCHOOSE1">Tag Name:</a></strong> CHOOSE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (SIMPLE, MARTIAL, EXOTIC etc.)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -58,6 +58,7 @@
 
 <hr>
 
+	<p class="new">*** Deprecated - Use <a href="#STRING">CHOOSE:STRING|x|x</a></p>
 	<p class="indent0"><strong><a name="EMPTYCHOOSE2">Tag Name:</a></strong> CHOOSE:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Any text)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -531,6 +532,19 @@
 	<p class="indent3">This will produce a list off all stats except CON.</p>
 	<p></p>
 
+<hr>
+
+	<p class="new">*** New 5.13.4</p>
+	<p class="indent0"><strong><a name="STRING">Tag Name:</a></strong> CHOOSE:STRING|x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Choice to be offered)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This will produce a list of the provided strings.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:STRING|+1|+2</code></p>
+	<p class="indent3">This will produce a list consisting of &quot;+1&quot; and &quot;+2&quot;.</p>
+	<p class="indent2"><code>CHOOSE:STRING|Undead|Constructs|Monkeys</code></p>
+	<p class="indent3">This will produce a list consisting of &quot;Undead&quot;, &quot;Constructs&quot; and &quot;Monkeys&quot;.</p>
+	<p></p>
 <hr>
 
 	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> CHOOSE:TEMPLATE</p>
