@@ -9,8 +9,8 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.spycraftrpg.co
 # Feat Name		Type			Visible	Stackable?	Multiple?	Choose					Bonus to skill			Stat bonus										Class Skill	Cost
 D-0 Class Skills	TYPE:Department	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS|1																	CSKILL:LIST	COST:0
 
-D-2 Stat Bonus	TYPE:Department	VISIBLE:NO			MULT:YES	CHOOSE:NUMCHOICES=1|STAT|1							BONUS:STAT|LIST|2	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|-2
-D-2 Stat Penalty	TYPE:Department	VISIBLE:NO			MULT:YES	CHOOSE:NUMCHOICES=1|STAT|1							BONUS:STAT|LIST|-2	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|2
+D-2 Stat Bonus	TYPE:Department	VISIBLE:NO			MULT:YES	CHOOSE:STAT										BONUS:STAT|LIST|2	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|-2
+D-2 Stat Penalty	TYPE:Department	VISIBLE:NO			MULT:YES	CHOOSE:STAT										BONUS:STAT|LIST|-2	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|2
 D-2 Skill Bonus	TYPE:DepartmentD2	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CLASS|1		BONUS:SKILL|LIST|(TL/4)+1														COST:0
 
 ### Class Abilities
@@ -87,8 +87,8 @@ Snoop Skill Mastery					TYPE:SnoopAbility	VISIBLE:NO																								STAC
 
 ###Block:  Soldier Abilities
 
-# Feat Name			Type				Visible	Required Class		Stackable?	Multiple?	Choose			Weapon prof. bonus
-Weapon Specialization	TYPE:SoldierAbility	VISIBLE:NO	PRECLASS:1,Soldier=6	STACK:YES	MULT:YES	CHOOSE:WEAPONPROF|1	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged	BONUS:WEAPONPROF=%LIST|DAMAGE-SHORTRANGE|2
+# Feat Name			Type				Visible	Stackable?	Multiple?	Choose			Weapon prof. bonus
+Weapon Specialization	TYPE:SoldierAbility	VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:WEAPONPROFS|LIST	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged	BONUS:WEAPONPROF=%LIST|DAMAGE-SHORTRANGE|2
 
 ###Block:  Minion Abilities
 
