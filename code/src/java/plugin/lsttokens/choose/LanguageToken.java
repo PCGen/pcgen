@@ -35,12 +35,6 @@ public class LanguageToken implements ChooseLstToken
 				+ " requires additional arguments");
 			return false;
 		}
-		if (value.indexOf(',') != -1)
-		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value);
-			return false;
-		}
 		if (value.indexOf('[') != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
@@ -70,7 +64,7 @@ public class LanguageToken implements ChooseLstToken
 		{
 			sb.append(prefix).append('|');
 		}
-		sb.append(getTokenName()).append('(');
+		sb.append("Language").append('(');
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		boolean first = true;
 		while (st.hasMoreTokens())
