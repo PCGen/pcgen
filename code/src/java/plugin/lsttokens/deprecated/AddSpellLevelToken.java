@@ -15,12 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.add;
+package plugin.lsttokens.deprecated;
 
 import pcgen.core.PObject;
 import pcgen.persistence.lst.AddLstToken;
+import pcgen.persistence.lst.DeprecatedToken;
 
-public class SpellLevelToken implements AddLstToken
+public class AddSpellLevelToken implements AddLstToken,DeprecatedToken
 {
 
 	public boolean parse(PObject target, String value, int level)
@@ -32,5 +33,11 @@ public class SpellLevelToken implements AddLstToken
 	public String getTokenName()
 	{
 		return "SPELLLEVEL";
+	}
+
+	@Override
+	public String getMessage(PObject obj, String value) {
+		// TODO Auto-generated method stub
+		return "Warning: tag 'ADD:SPELLLEVEL' has been deprecated. Use SPELLLEVEL tag instead.";
 	}
 }

@@ -2321,10 +2321,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/AddLstToken-SPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/AddLstToken-DEPRECATED-SPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/add/SpellLevelToken.class" />
+					<include name="plugin/lsttokens/deprecated/AddSpellLevelToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
