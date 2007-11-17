@@ -35,9 +35,8 @@ public class AddSpellLevelToken implements AddLstToken,DeprecatedToken
 		return "SPELLLEVEL";
 	}
 
-	@Override
-	public String getMessage(PObject obj, String value) {
-		// TODO Auto-generated method stub
+	public String getMessage(PObject obj, String value)
+	{
 		return "Warning: tag 'ADD:SPELLLEVEL' has been deprecated. Use SPELLLEVEL tag instead.";
 	}
 }
