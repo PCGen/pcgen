@@ -76,10 +76,17 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-
-			writer.write("PREHD:");
-			writer.write(prereq.getOperand());
-			writer.write('+');
+			if (prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+			{
+				writer.write("PREHD:MIN=");
+				writer.write(prereq.getOperand());
+			}
+			else if(prereq.getOperator().equals(PrerequisiteOperator.LTEQ))
+			{
+				writer.write("PREHD:MAX=");
+				writer.write(prereq.getOperand());
+			}
+			
 		}
 		catch (IOException e)
 		{
@@ -122,8 +129,9 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements
 						writer.write('!');
 					}
 					writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:":""));
+					writer.write("MIN=");
 					writer.write(elementGTEQ.getOperand());
-					writer.write('-');
+					writer.write(",MAX=");
 					writer.write(elementLTEQ.getOperand());
 					return true;
 				}
