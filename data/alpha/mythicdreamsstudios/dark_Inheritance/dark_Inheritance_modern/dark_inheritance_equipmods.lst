@@ -3,7 +3,7 @@ SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT
 # Original Entry by: Frank Kliewe
 
 # Modifier Name			Unique Key		Type				Cost		Visible		Source Page		Required Type	Bonus to skill				Special Property			Choose
-Unreliable				KEY:UNRELIABLE	TYPE:Weapon.Ammunition	COST:0	VISIBLE:YES		SOURCEPAGE:p.190										SPROP:Unreliable (%CHOICE)	CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%
+Unreliable				KEY:UNRELIABLE	TYPE:Weapon.Ammunition	COST:0	VISIBLE:YES		SOURCEPAGE:p.190										SPROP:Unreliable (%CHOICE)	CHOOSE:Reliability|5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%
 
 Arnold's Clip			KEY:ARNOLDSCLIP	TYPE:Weapon			COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.198	PRETYPE:Firearm							SPROP:always 1 shot left
 #Cost 37, additional DC
