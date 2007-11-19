@@ -686,20 +686,23 @@
 
 <hr>
 
-	<p class="new">*** New 5.10</p>
-	<p class="indent0"><strong><a name="PREHD">Tag Name:</a></strong> PREHD:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Calculation (range or minimum natural Hit Dice)</p>
+	<p class="new">*** Updated 5.13.5</p>
+	<p class="indent0"><strong><a name="PREHD">Tag Name:</a></strong> PREHD:x,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> MIN=number or formula (Minimum natural Hit Dice)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> MAX=number or formula (Maximum natural Hit Dice)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>The numeric values supplied are a range (1-3) or minimum (4+) hit dice the character must have
-			to qualify.</li>
+		<li>Provides the minimum or maximum hit dice the character must have to qualify.</li>
 		<li>This test looks at a character's race's HD attribute and any levels of Monster Classes.</li>
+		<li>Either value may be used without the other.
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>PREHD:1-3</code></p>
+	<p class="indent2"><code>PREHD:MIN=1,MAX=3</code></p>
 	<p class="indent3">The character must have one, two, or three racial hit die.</p>
-	<p class="indent2"><code>PREHD:4+</code></p>
+	<p class="indent2"><code>PREHD:MIN=4</code></p>
 	<p class="indent3">The character must have four or more racial hit die.</p>
+	<p class="indent2"><code>PREHD:MAX=4</code></p>
+	<p class="indent3">The character must have four or fewer racial hit die.</p>
 	<p></ p>
 
 <hr>
