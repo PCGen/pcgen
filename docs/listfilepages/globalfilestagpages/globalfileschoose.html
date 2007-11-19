@@ -269,23 +269,27 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="NUMCHOICES">Tag Name:</a></strong> CHOOSE:NUMCHOICES=x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum number of times the CHOOSE can be selected)</p>
+	<p class="indent0"><strong><a name="NUMCHOICES">Tag Name:</a></strong> CHOOSE:NUMCHOICES=x|y|z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Maximum number of times the chooser can be taken)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Any Chooser)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number or Formula (Number of choices to be taken with the chooser.)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">NUMCHOICES is not a choose, but a pre-fix for any Choose.
-		It sets the number of choices that a feat can be selected at most.</p>
+	<ul class="indent2">
+		<li>Used as a pre-fix for any Choose.</li>
+		<li>Sets the number of choices that a feat can be selected at most.</li>
+		<li>Used in conjunction with the MULT tag.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>MULT:YES &lt;tab&gt; STACK:YES &lt;tab&gt; CHOOSE:NUMCHOICES=3|SKILLSNAMED|Spot|Listen|Search</code></p>
-	<p class="indent3">The user can select the same choice more than once,
-		but the user will never be allowed to select the feat more than 3 times.</p>
-	<p class="indent2"><code>CHOOSE:NUMCHOICES=1|SKILLSNAMED|Craft%|3</code></p>
-	<p class="indent3">The user can select the this choice once, the user will be allowed to select
-		the Craft subskill 3 times.</p>
-	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE.Knowledge$|2</code></p>
-	<p class="indent3">The user can select the this choice three times, the user will be allowed to select the
-		Knowledge subskill twice each time.</p>
-	<p class="indent2"><code>MULT:YES &lt;tab&gt; STACK:YES &lt;tab&gt; CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|TYPE=Intelligence|TYPE=Wisdom|3 &lt;tab&gt; BONUS:SKILL|%LIST|MasterAdventurerBonus</code></p>
-	<p class="indent3">The user can select the this choice three times, the user will be allowed to select from the &quot;Strength&quot; &quot;Dexterity&quot; &quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; Skills upto three times per cycle.</p>
+	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|Spot|Listen|Search</code></p>
+	<p class="indent3">The user can select the same choice more than once, but the user will never be allowed more than 
+	3 choices total, each made one at a time.</p>
+	<p class="indent2"><code>CHOOSE:NUMCHOICES=6|SKILLSNAMED|Craft%|3</code></p>
+	<p class="indent3">The user can select this chooser multiple times and will be allowed to select upto 3 Craft 
+	subskills each time the chooser is selected, but may only make 6 Craft subskill sellection total.</p>
+	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|TYPE=Intelligence|TYPE=Wisdom</code></p>
+	<p class="indent3">The user will be allowed to select of one skill from the &quot;Strength&quot; &quot;Dexterity&quot; 
+	&quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; Skills but is limited to a maximum of three 
+	such selections through this chooser.</p>
 	<p></p>
 
 <hr>
