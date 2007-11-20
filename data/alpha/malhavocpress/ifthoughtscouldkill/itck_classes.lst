@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Nov 20 16:51:23 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
 # Remove Veiwing in Colorless Adept changed to "Remote View" to match srd skill.
 
@@ -123,7 +123,7 @@ CLASS:Pyrokineticist ITCK	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craf
 1	SAB:Fire Lash (PP 11+)	SAB:Touch Aflame (PP 1+)
 2	SAB:Hand Afire (PP 9+)	SAB:Fire Adaptation (PP 3+)	BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	ADD:SPELLCASTER|1|Psionic
 3	SAB:Bolt of Fire (costs 3 PP)
-4	SAB:Weapon Afire (PP 9+)						BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	ADD:SPELLCASTER|1|Psionic
+4	SAB:Weapon Afire (PP 9+)					BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	ADD:SPELLCASTER|1|Psionic
 5	SAB:Breath of the Dragon
 6	SAB:Firewalk (1 PP/10 feet)					BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	ADD:SPELLCASTER|1|Psionic
 7	SAB:Nimbus (costs 9 PP/min)
@@ -159,7 +159,7 @@ CLASS:Soulknife ITCK	OUTPUTNAME:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVE
 # Class Name		Req. Att.	Required Skill						Var. Min. Value
 CLASS:Soulknife ITCK	PREATT:3	PRESKILL:2,Move Silently,Knowledge (Psionics)=3	PREVARGTEQ:BasePowerPoints,9
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Soulknife ITCK	STARTSKILLPTS:4	CSKILL:Autohynosis|Concentration|Hide|Knowledge (Psionics)|Move Silently|Psicraft|Sense Motive|Stabilize Self|Tumble
+CLASS:Soulknife ITCK	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|Hide|Knowledge (Psionics)|Move Silently|Psicraft|Sense Motive|Stabilize Self|Tumble
 ###Block: Mind Blade
 1	SAB:Mind-blade sneak attack +%d%|MindBladeSneakAttack|SneakAttackDie	BONUS:VAR|MindBladeSneakAttack|(CL+1)/2	BONUS:VAR|MindBladeEnchantment|CL/2	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|6	AUTO:EQUIP|Mind Blade
 2	SAB:Throw Mind-Blade	SAB:Mind-Blade +%|MindBladeEnchantment		BONUS:VAR|MindBladeRange|30									DEFINE:MindBladeRange|0
@@ -168,7 +168,7 @@ CLASS:Soulknife ITCK	STARTSKILLPTS:4	CSKILL:Autohynosis|Concentration|Hide|Knowl
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
 2	SAB:Imbed Power				BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal													ADD:SPELLCASTER|1|Psionic
-4	SAB:Imbed Psionic Attack			BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal													ADD:SPELLCASTER|1|Psionic
+4	SAB:Imbed Psionic Attack		BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal													ADD:SPELLCASTER|1|Psionic
 6	SAB:Free Draw	SAB:Sever Life	BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal													ADD:SPELLCASTER|1|Psionic
 8	SAB:Upgrade					BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|MindBladeDamageSizeAdj|1	DEFINE:MindBladeDamageSizeAdj|0	ADD:SPELLCASTER|1|Psionic
 10	SAB:Knife to the Soul			BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal													ADD:SPELLCASTER|1|Psionic

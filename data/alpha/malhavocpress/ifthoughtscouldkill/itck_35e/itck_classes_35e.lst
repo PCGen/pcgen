@@ -51,7 +51,7 @@ CLASS:Blade Manifester	HD:8		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.5
 # Class Name		Required Feat						Required Stat
 CLASS:Blade Manifester	PREFEAT:2,MindBlade Wielder,MindBlade Shape	PRESTAT:1,WIS=15
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Blade Manifester	STARTSKILLPTS:2	CSKILL:Autohynosis|Climb|Concentration|TYPE.Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE.Profession|Spot|Tumble
+CLASS:Blade Manifester	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE.Profession|Spot|Tumble
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
 CLASS:Blade Manifester	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Blade Manifester|CL	SPELLLIST:1|Psychic Warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
