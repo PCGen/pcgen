@@ -21,3 +21,4 @@ INFOTEXT:RSRD Divine options for creating divine characters. Requires the RSRD B
 
 ABILITY:rsrd_divine_feats_sda.lst
 TEMPLATE:rsrd_divine_templates.lst
+ABILITYCATEGORY:rsrd_divine_abilitycategories.lst
