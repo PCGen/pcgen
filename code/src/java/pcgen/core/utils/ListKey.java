@@ -49,6 +49,8 @@ public final class ListKey<T> {
 	public static final ListKey<String> CROSS_CLASS_SKILLS = new ListKey<String>();
 	/** DOMAIN - a ListKey */
 	public static final ListKey<QualifiedObject<Domain>> DOMAIN = new ListKey<QualifiedObject<Domain>>();
+	/** FILE_ABILITY_CATEGORY - a ListKey */
+	public static final ListKey<CampaignSourceEntry> FILE_ABILITY_CATEGORY = new ListKey<CampaignSourceEntry>();
 	/** FILE_BIO_SET - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_BIO_SET = new ListKey<CampaignSourceEntry>();
 	/** FILE_CLASS - a ListKey */

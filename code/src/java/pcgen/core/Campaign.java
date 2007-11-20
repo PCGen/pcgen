@@ -56,6 +56,7 @@ public final class Campaign extends PObject
 		listChar.initializeListFor(ListKey.LICENSE);
 		listChar.initializeListFor(ListKey.LINE);
 		listChar.initializeListFor(ListKey.SECTION_15);
+		listChar.initializeListFor(ListKey.FILE_ABILITY_CATEGORY);
 		listChar.initializeListFor(ListKey.FILE_BIO_SET);
 		listChar.initializeListFor(ListKey.FILE_CLASS);
 		listChar.initializeListFor(ListKey.FILE_CLASS_SKILL);
@@ -87,6 +88,15 @@ public final class Campaign extends PObject
 	public void addAllAbilityFiles(final List<CampaignSourceEntry> files)
 	{
 		listChar.addAllToListFor(ListKey.FILE_ABILITY, files);
+	}
+
+	/**
+	 * Add a list of ability category files to the campaign
+	 * @param files
+	 */
+	public void addAllAbilityCategoryFiles(final List<CampaignSourceEntry> files)
+	{
+		listChar.addAllToListFor(ListKey.FILE_ABILITY_CATEGORY, files);
 	}
 
 	/**
@@ -285,6 +295,15 @@ public final class Campaign extends PObject
 	public void addAbilityFile(final CampaignSourceEntry file)
 	{
 		listChar.addToListFor(ListKey.FILE_ABILITY, file);
+	}
+
+	/**
+	 * Add an ability category file to the campaign
+	 * @param file
+	 */
+	public void addAbilityCategoryFile(final CampaignSourceEntry file)
+	{
+		listChar.addToListFor(ListKey.FILE_ABILITY_CATEGORY, file);
 	}
 
 	/**
@@ -549,6 +568,15 @@ public final class Campaign extends PObject
 	public List<CampaignSourceEntry> getAbilityFiles()
 	{
 		return getListFor(ListKey.FILE_ABILITY);
+	}
+
+	/**
+	 * Returns the abilityCategoryFileList.
+	 * @return List
+	 */
+	public List<CampaignSourceEntry> getAbilityCategoryFiles()
+	{
+		return getListFor(ListKey.FILE_ABILITY_CATEGORY);
 	}
 
 	/**

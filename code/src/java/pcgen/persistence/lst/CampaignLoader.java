@@ -173,6 +173,7 @@ public class CampaignLoader extends LstLineFileLoader
 			.addAllCompanionModFiles(subCampaign.getCompanionModFiles());
 		baseCampaign.addAllCoverFiles(subCampaign.getCoverFiles());
 		baseCampaign.addAllSkillFiles(subCampaign.getSkillFiles());
+		baseCampaign.addAllAbilityCategoryFiles(subCampaign.getAbilityCategoryFiles());
 		baseCampaign.addAllAbilityFiles(subCampaign.getAbilityFiles());
 		baseCampaign.addAllFeatFiles(subCampaign.getFeatFiles());
 		baseCampaign.addAllDeityFiles(subCampaign.getDeityFiles());

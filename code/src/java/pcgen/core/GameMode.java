@@ -172,6 +172,7 @@ public final class GameMode implements Comparable<Object>
 	private boolean [] skillTabColumnVisible = { true, true, true, true, true, true, true };				// Skill, Modifier, Ranks, Total, Cost, Source, Order
 
 	private List<AbilityCategory> theAbilityCategories = new ArrayList<AbilityCategory>(5);
+	private List<AbilityCategory> theLstAbilityCategories = new ArrayList<AbilityCategory>();
 
 	private String thePreviewDir;
 	private String theDefaultPreviewSheet;
@@ -3147,6 +3148,27 @@ public final class GameMode implements Comparable<Object>
 	{
 		theAbilityCategories.add(aCategory);
 	}
+
+	/**
+	 * Adds an <tt>AbilityCategory</tt> definition to the game mode.
+	 * 
+	 * @param aCategory The <tt>AbilityCategory</tt> to add.
+	 */
+	public void addLstAbilityCategory(final AbilityCategory aCategory)
+	{
+		theLstAbilityCategories.add(aCategory);
+	}
+
+	/**
+	 * Clears all LST sourced <tt>AbilityCategory</tt> definitions from the 
+	 * game mode. Used when unloading the data.
+	 * 
+	 * @param aCategory The <tt>AbilityCategory</tt> to add.
+	 */
+	public void clearLstAbilityCategories()
+	{
+		theLstAbilityCategories.clear();
+	}
 	
 	/**
 	 * Gets the <tt>AbilityCategory</tt> for the given key.
@@ -3194,7 +3216,10 @@ public final class GameMode implements Comparable<Object>
 		{
 			theAbilityCategories.add(0, AbilityCategory.FEAT);
 		}
-		return Collections.unmodifiableCollection(theAbilityCategories);
+		List<AbilityCategory> allCats = new ArrayList<AbilityCategory>();
+		allCats.addAll(theAbilityCategories);
+		allCats.addAll(theLstAbilityCategories);
+		return Collections.unmodifiableCollection(allCats);
 	}
 	
 	/**
@@ -3211,11 +3236,7 @@ public final class GameMode implements Comparable<Object>
 			return Collections.emptyList();
 		}
 		List<AbilityCategory> catList = new ArrayList<AbilityCategory>();
-		if ( !theAbilityCategories.contains(AbilityCategory.FEAT) )
-		{
-			theAbilityCategories.add(0, AbilityCategory.FEAT);
-		}
-		for (AbilityCategory cat : theAbilityCategories)
+		for (AbilityCategory cat : getAllAbilityCategories())
 		{
 			if (displayLoc.equals(cat.getDisplayLocation()))
 			{
@@ -3240,11 +3261,7 @@ public final class GameMode implements Comparable<Object>
 			return Collections.emptyList();
 		}
 		List<AbilityCategory> catList = new ArrayList<AbilityCategory>();
-		if ( !theAbilityCategories.contains(AbilityCategory.FEAT) )
-		{
-			theAbilityCategories.add(0, AbilityCategory.FEAT);
-		}
-		for (AbilityCategory cat : theAbilityCategories)
+		for (AbilityCategory cat : getAllAbilityCategories())
 		{
 			if (key.equals(cat.getKeyName())
 				|| key.equals(cat.getAbilityCategory()))

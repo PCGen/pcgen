@@ -28,6 +28,7 @@ import java.util.StringTokenizer;
 
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
+import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
@@ -35,13 +36,15 @@ import pcgen.util.PropertyFactory;
 
 /**
  * This class handles parsing the whole ABILITYCATEGORY line and passing each
- * token to the correct parser.
+ * token to the correct parser. These lines may be in either the miscinfo file 
+ * of the game mode, or in an LST file included in a campaign via an 
+ * ABILITYCATEGORY entry.
  * 
  * @author boomer70 <boomer70@yahoo.com>
  * 
  * @since 5.11.1
  */
-public class AbilityCategoryLoader
+public class AbilityCategoryLoader extends LstLineFileLoader
 {
 	/**
 	 * Default Constructor
@@ -56,10 +59,25 @@ public class AbilityCategoryLoader
 	 * 
 	 * @param aGameMode The <tt>GameMode</tt> this object belongs to.
 	 * @param aLine The line to parse
+	 * @param source The URI to the file being loaded
+	 * @throws PersistenceLayerException 
+	 */
+	public void parseLine(final GameMode aGameMode, final String aLine, URI source) throws PersistenceLayerException
+	{
+		parseLine(aGameMode, aLine, source, false);
+	}
+	
+	/**
+	 * Parse the ABILITYCATEGORY line.
+	 * 
+	 * @param aGameMode The <tt>GameMode</tt> this object belongs to.
+	 * @param aLine The line to parse
+	 * @param source The URI to the file being loaded
+	 * @param fromLst Is this line being loaded from a LST file (false for the miscinfo file).
 	 * 
 	 * @throws PersistenceLayerException
 	 */
-	public void parseLine(final GameMode aGameMode, final String aLine, URI source)
+	public void parseLine(final GameMode aGameMode, final String aLine, URI source, final boolean fromLst)
 		throws PersistenceLayerException
 	{
 		final StringTokenizer colToken =
@@ -75,16 +93,23 @@ public class AbilityCategoryLoader
 		{
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');
-			final String key;
+			String key;
 			try
 			{
 				key = colString.substring(0, idxColon);
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{
-				throw new PersistenceLayerException(PropertyFactory
-					.getFormattedString("Errors.LstTokens.InvalidTokenFormat", //$NON-NLS-1$
-						getClass().toString(), colString));
+				if (cat == null && fromLst)
+				{
+					key = "ABILITYCATEGORY"; //$NON-NLS-1$
+				}
+				else
+				{
+					throw new PersistenceLayerException(PropertyFactory
+						.getFormattedString("Errors.LstTokens.InvalidTokenFormat", //$NON-NLS-1$
+							getClass().toString(), colString));
+				}
 			}
 
 			final AbilityCategoryLstToken token =
@@ -124,5 +149,15 @@ public class AbilityCategoryLoader
 					+ " on ABILITYCATEGORY line");
 			}
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URI)
+	 */
+	@Override
+	public void parseLine(String aLine, URI source)
+		throws PersistenceLayerException
+	{
+		parseLine(SettingsHandler.getGame(), aLine, source, true);
 	}
 }

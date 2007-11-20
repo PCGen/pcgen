@@ -105,6 +105,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			};
 
 	private static int lineNum = 0;
+	private AbilityCategoryLoader abilityCategoryLoader = new AbilityCategoryLoader();
 	private BioSetLoader bioLoader = new BioSetLoader();
 	private CampaignLoader campaignLoader = new CampaignLoader();
 	private final CampaignSourceEntry globalCampaign;
@@ -180,6 +181,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> equipmodFileList =
 			new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> abilityCategoryFileList =
+		new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> abilityFileList =
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> featFileList =
@@ -245,6 +248,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	public LstSystemLoader()
 	{
 		//featLoader.addObserver(this);
+		abilityCategoryLoader.addObserver(this);
 		bioLoader.addObserver(this);
 		campaignLoader.addObserver(this);
 		companionModLoader.addObserver(this);
@@ -426,6 +430,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			// Load using the new LstFileLoaders
 
+			// load ability categories first as they used to only be at the game mode
+			abilityCategoryLoader.loadLstFiles(abilityCategoryFileList);
+
 			// load weapon profs first
 			wProfLoader.loadLstFiles(weaponProfFileList);
 
@@ -536,6 +543,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private int countTotalFilesToLoad()
 	{
 		int count = bioSetFileList.size();
+		count += abilityCategoryFileList.size();
 		count += classFileList.size();
 		count += classSkillFileList.size();
 		count += classSpellFileList.size();
@@ -1176,6 +1184,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		classFileList.addAll(aCamp.getClassFiles());
 		companionmodFileList.addAll(aCamp.getCompanionModFiles());
 		skillFileList.addAll(aCamp.getSkillFiles());
+		abilityCategoryFileList.addAll(aCamp.getAbilityCategoryFiles());
 		abilityFileList.addAll(aCamp.getAbilityFiles());
 		featFileList.addAll(aCamp.getFeatFiles());
 		deityFileList.addAll(aCamp.getDeityFiles());
@@ -1976,6 +1985,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		classFileList.removeAll(lstExcludeFiles);
 		companionmodFileList.removeAll(lstExcludeFiles);
 		skillFileList.removeAll(lstExcludeFiles);
+		abilityCategoryFileList.removeAll(lstExcludeFiles);
 		abilityFileList.removeAll(lstExcludeFiles);
 		featFileList.removeAll(lstExcludeFiles);
 		deityFileList.removeAll(lstExcludeFiles);
@@ -2004,6 +2014,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		classFileList.clear();
 		companionmodFileList.clear();
 		skillFileList.clear();
+		abilityCategoryFileList.clear();
 		abilityFileList.clear();
 		featFileList.clear();
 		deityFileList.clear();
