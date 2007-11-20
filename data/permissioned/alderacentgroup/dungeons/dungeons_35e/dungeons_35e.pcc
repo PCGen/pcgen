@@ -1,0 +1,29 @@
+# CVS $Revision$ $Author$
+CAMPAIGN:AEG - Dungeons Source Book - 3.5 Conversion
+GAMEMODE:35e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Alderac Entertainment Group.Sourcebook
+PUBNAMELONG:Alderac Entertainment Group
+PUBNAMESHORT:AEG
+PUBNAMEWEB:http://alderac.com/
+SOURCELONG:Alderac Entertainment Group - Dungeons
+SOURCESHORT:Dungeons
+SOURCEWEB:http://alderac.com/d20
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Dungeons Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King)
+
+
+CLASS:dungeonsclasses_35e.lst
+FEAT:dungeonsclassfeats_35e.lst
+FEAT:dungeonsfeats_35e.lst
+
+CLASS:@/permissioned/alderacentgroup/dungeons/dungeonsclasses.lst
+EQUIPMENT:@/permissioned/alderacentgroup/dungeons/dungeonsequip.lst
+EQUIPMENT:@/permissioned/alderacentgroup/dungeons/dungeonsequipwondrousitems.lst
+FEAT:@/permissioned/alderacentgroup/dungeons/dungeonsfeats.lst
+SKILL:@/permissioned/alderacentgroup/dungeons/dungeonsskills.lst
+SPELL:@/permissioned/alderacentgroup/dungeons/dungeonsspells.lst

@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$
+CAMPAIGN:AEG - War Source Book - 3.5 Conversion
+GAMEMODE:35e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Alderac Entertainment Group.Sourcebook
+PUBNAMELONG:Alderac Entertainment Group
+PUBNAMESHORT:AEG
+PUBNAMEWEB:http://alderac.com/
+SOURCELONG:Alderac Entertainment Group - War
+SOURCESHORT:War
+SOURCEWEB:http://alderac.com/d20
+ISOGL:YES
+COPYRIGHT:Open Game License v1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for War Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King)
+
+DOMAIN:wardomains_35e.lst
+CLASS:warclasses_35e.lst
+
+CLASS:@/permissioned/alderacentgroup/war/warclasses.lst
+FEAT:@/permissioned/alderacentgroup/war/warfeats.lst
+SKILL:@/permissioned/alderacentgroup/war/warskills.lst
+SPELL:@/permissioned/alderacentgroup/war/warspells.lst
+DEITY:@/permissioned/alderacentgroup/war/wardeities.lst

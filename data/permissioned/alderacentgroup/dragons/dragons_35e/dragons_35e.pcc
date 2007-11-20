@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$
+CAMPAIGN:AEG - Dragons Source Book - 3.5 Conversion
+GAMEMODE:35e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Alderac Entertainment Group.Sourcebook
+PUBNAMELONG:Alderac Entertainment Group
+PUBNAMESHORT:AEG
+PUBNAMEWEB:http://alderac.com/
+SOURCELONG:Alderac Entertainment Group - Dragons
+SOURCESHORT:Dragons
+SOURCEWEB:http://alderac.com/d20
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Dragons Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:dragonsclasses_35e.lst
+FEAT:dragonsfeats_35e.lst
+SKILL:dragonsskills_35e.lst
+
+
+CLASS:@/permissioned/alderacentgroup/dragons/dragonsclasses.lst
+DEITY:@/permissioned/alderacentgroup/dragons/dragonsdeities.lst
+EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequip.lst
+EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequippotionspoisons.lst
+EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequipwondrousitems.lst
+EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequipweapmelee.lst
+EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequipweapmeleespecific.lst
+EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequipweapammospecific.lst
+EQUIPMOD:@/permissioned/alderacentgroup/dragons/dragonsequipmods.lst
+FEAT:@/permissioned/alderacentgroup/dragons/dragonsfeats.lst
+SPELL:@/permissioned/alderacentgroup/dragons/dragonsspells.lst
+WEAPONPROF:@/permissioned/alderacentgroup/dragons/dragonsweapprofs.lst
