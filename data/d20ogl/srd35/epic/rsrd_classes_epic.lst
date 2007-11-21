@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+# CVS $Revision$ $Author$ -- Wed Nov 21 12:30:43 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Agent Retriever	HD:6		TYPE:Epic.PC	ABB:Agr		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required AL		Required Feat	Required Lvl	Required Skill
-CLASS:Agent Retriever	PREALIGN:LG,LN,LE	PREFEAT:1,Track	PRELEVEL:20		PRESKILL:1,Knowledge (The Planes)=15	PRESKILL:1,Gather Information=24
+CLASS:Agent Retriever	PREALIGN:LG,LN,LE	PREFEAT:1,Track	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (The Planes)=15	PRESKILL:1,Gather Information=24
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|Forgery|Gather Information|Knowledge (Arcana)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (The Planes)|Listen|Search|Spot|Survival
 1:REPEATLEVEL:1																						ADD:SPELLCASTER|ANY
@@ -19,7 +19,7 @@ CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Cosmic Descryer	HD:4		TYPE:Epic.PC	ABB:Cde		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required Feat							Required Lvl	Required Skill					Req. Known Spell
-CLASS:Cosmic Descryer	PREFEAT:2,Spell Focus (Conjuration),Energy Resistance	PRELEVEL:20		PRESKILL:1,Knowledge (The Planes)=24	PRESPELL:1,Gate	PRESPELL:1,Planar Ally,Planar Ally (Lesser),Planar Ally (Greater),Planar Binding,Planar Binding (Lesser),Planar Binding (Greater)
+CLASS:Cosmic Descryer	PREFEAT:2,Spell Focus (Conjuration),Energy Resistance	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (The Planes)=24	PRESPELL:1,Gate	PRESPELL:1,Planar Ally,Planar Ally (Lesser),Planar Ally (Greater),Planar Binding,Planar Binding (Lesser),Planar Binding (Greater)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Sense Motive|Spellcraft|TYPE.Craft|TYPE.Profession
 1	SAB:Superior Planar Summoning (Ex) +% HD|SuperiorSummoning	BONUS:VAR|SuperiorSummoning|4*ceil(CL/4)		DEFINE:SuperiorSummoning|0
@@ -32,7 +32,7 @@ CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowl
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Divine Emissary	HD:10		TYPE:Epic.PC	ABB:Die		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Req. Att.	Required Feat					Required Lvl	Required Skill
-CLASS:Divine Emissary	PREATT:23	PREFEAT:2,Weapon Focus,Great Smiting	PRELEVEL:20		PRESKILL:1,Knowledge (Religion)=10
+CLASS:Divine Emissary	PREATT:23	PREFEAT:2,Weapon Focus,Great Smiting	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (Religion)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Emissary	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Disguise|Gather Information|Heal|Intimidate|Knowledge (Religion)|Search|Sense Motive|Spellcraft|Spot|TYPE.Craft|TYPE.Profession|Use Magic Device
 1:REPEATLEVEL:1																																																			ADD:SPELLCASTER|ANY
@@ -46,7 +46,7 @@ CLASS:Divine Emissary	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Disguise|Ga
 # Class Name		Hit Dice	Type				Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Epic Infiltrator	HD:6		TYPE:Prestige.Epic.PC	ABB:Ein		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required AL				Required Feat			Required Lvl	Required Skill
-CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:2,Alertness,Polyglot	PRELEVEL:20		PRESKILL:2,Diplomacy,Spot=10	PRESKILL:2,Bluff,Disguise=24
+CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:2,Alertness,Polyglot	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy,Spot=10	PRESKILL:2,Bluff,Disguise=24
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Sense Motive|Sleight of Hand|Spot|TYPE.Craft|TYPE.Profession
 1	SAB:Improved Cover Identity (Ex/Su) %/day|EICover		BONUS:VAR|EICover|(2+ceil(CL/4))	BONUS:VAR|SneakAttack|ceil(CL/3)	DEFINE:EICover|0																							AUTO:FEAT|Sneak Attack
@@ -60,7 +60,7 @@ CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decip
 # Class Name			Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Guardian Paramount	HD:10		TYPE:Epic.PC	ABB:Gpa		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name			Req. Att.	Required Feat																	Required Lvl	Required Skill
-CLASS:Guardian Paramount	PREATT:15	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PREFEAT:2,Evasion,Uncanny Dodge	PRELEVEL:20		PRESKILL:1,Spot=13
+CLASS:Guardian Paramount	PREATT:15	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PREFEAT:2,Evasion,Uncanny Dodge	PRELEVEL:MIN=20	PRESKILL:1,Spot=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Guardian Paramount	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Intimidate|Jump|Listen|Spot|TYPE.Profession
 1	SAB:Uncanny Dodge Enabler (Ex) %/day|GPEnabler	BONUS:VAR|GPEnabler|(2+ceil(CL/3))		DEFINE:GPEnabler|0	ADD:FEAT|Bulwark of Defense,Combat Archery,Damage Reduction,Dexterous Fortitude,Dexterous Will,Epic Dodge,Epic Fortitude,Epic Reflexes,Epic Reputation,Epic Skill Focus,Epic Speed,Epic Toughness,Epic Will,Exceptional Deflection,Fast Healing,Great Dexterity,Improved Combat Reflexes,Improved Sneak Attack,Improved Spell Resistance,Infinite Deflection,Legendary Climber,Lingering Damage,Mobile Defense,Perfect Health,Reflect Arrows,Self Concealment,Sneak Attack of Opportunity,Spellcasting Harrier,Uncanny Accuracy
@@ -74,7 +74,7 @@ CLASS:Guardian Paramount	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Intimidate
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:High Proselytizer	HD:8		TYPE:Epic.PC	ABB:Hig		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required Feat					Required Lvl	Required Skill											Req. Spell Type
-CLASS:High Proselytizer	PREFEAT:2,Leadership,Epic Leadership	PRELEVEL:20		PRESKILL:1,Knowledge (Religion),Knowledge (Nature)=24	PRESKILL:1,Diplomacy=12	PRESPELLTYPE:1,Divine=5
+CLASS:High Proselytizer	PREFEAT:2,Leadership,Epic Leadership	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (Religion),Knowledge (Nature)=24	PRESKILL:1,Diplomacy=12	PRESPELLTYPE:1,Divine=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft|TYPE.Craft|TYPE.Profession
 1	SAB:Proselytize (Sp) %/day|HPProsetilyze				BONUS:VAR|HPProsetilyze|ceil(CL/10)	DEFINE:HPProsetilyze|0
@@ -90,7 +90,7 @@ CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Know
 # Class Name			Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Legendary Dreadnought	HD:12		TYPE:Epic.PC	ABB:Dre		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name			Required Feat											Required Lvl	Required Skill			Var. Min. Value
-CLASS:Legendary Dreadnought	PREFEAT:4,Combat Reflexes,Great Cleave,Improved Bull Rush,Improved Critical	PRELEVEL:20		PRESKILL:1,Intimidate=15	PREVARGTEQ:BAB+var("BONUS.COMBAT.TOHIT.Epic"),23
+CLASS:Legendary Dreadnought	PREFEAT:4,Combat Reflexes,Great Cleave,Improved Bull Rush,Improved Critical	PRELEVEL:MIN=20	PRESKILL:1,Intimidate=15	PREVARGTEQ:BAB+var("BONUS.COMBAT.TOHIT.Epic"),23
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Legendary Dreadnought	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim|TYPE.Craft
 1			SAB:Unstoppable (Ex) %/day|LDUnstoppable	BONUS:VAR|LDUnstoppable|ceil(CL/5)													DEFINE:LDUnstoppable|0
@@ -103,7 +103,7 @@ CLASS:Legendary Dreadnought	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim|TY
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Perfect Wight	HD:6		TYPE:Epic.PC	ABB:Pwi		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required Feat			Required Lvl	Required Skill				Var. Min. Value
-CLASS:Perfect Wight	PREFEAT:1,Self Concealment	PRELEVEL:20		PRESKILL:2,Hide,Move Silently=24	PREVARGTEQ:SneakAttack,10
+CLASS:Perfect Wight	PREFEAT:1,Self Concealment	PRELEVEL:MIN=20	PRESKILL:2,Hide,Move Silently=24	PREVARGTEQ:SneakAttack,10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|Search|Spot|Survival|TYPE.Craft|Tumble|Use Rope
 1																				SPELLS:Perfect Wight|CASTERLEVEL=15|TIMES=ceil(var("CL=Perfect Wight")/5)|Invisibility (Greater),14+CHA
@@ -116,7 +116,7 @@ CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomac
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Union Sentinel	HD:10		TYPE:Epic.PC	ABB:Sen		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required AL		Req. Att.	Required Feat						Required Lvl	Required Skill
-CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PREATT:21	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:20		PRESKILL:2,Diplomacy,Knowledge (Local)=8
+CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PREATT:21	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy,Knowledge (Local)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Union Sentinel	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimidate|Knowledge (Local)|Listen|Search|Sense Motive|Spot|TYPE.Profession
 1																				SPELLS:Union Sentinel|CASTERLEVEL=15|TIMES=(ceil(var("CL=Union Sentinel")/7))|Sending,15+CHA	SPELLS:Union Sentinel|CASTERLEVEL=15|TIMES=(ceil(var("CL=Union Sentinel")/3))|Shield of Law,18+CHA

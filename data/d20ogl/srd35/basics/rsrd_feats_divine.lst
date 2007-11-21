@@ -1,4 +1,4 @@
-# CVS $Revision: 228 $ $Author: nuance $ -- Tue Nov 20 13:19:46 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision: 228 $ $Author: nuance $ -- Wed Nov 21 12:30:43 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Additional Feats from the Divine Characters section of the RSRD
@@ -12,7 +12,7 @@ Extra Music				TYPE:General			PREFEAT:1,Bardic Music																									DES
 Eyes in the Back of Your Head	TYPE:General	PREATT:3																										PRESTAT:1,WIS=19	DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Fleet of Foot			TYPE:General			PREFEAT:1,Run																							PRESTAT:1,DEX=15	DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Hold the Line			TYPE:General	PREATT:2	PREFEAT:1,Combat Reflexes																								DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Jack Of All Trades		TYPE:General													PRELEVEL:6																	DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Jack Of All Trades		TYPE:General													PRELEVEL:MIN=6																DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Knock Down				TYPE:General	PREATT:2	PREFEAT:1,Improved Trip																						PRESTAT:1,STR=15	DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Persistent Spell			TYPE:Metamagic			PREFEAT:1,Extend Spell																									DESC:See Text																				ADDSPELLLEVEL:6						SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Plant Control			TYPE:General			PREFEAT:1,Plant Defiance															PRESPELL:1,Speak with Plants					DESC:See Text																ADD:FEAT|1|Rebuke Plant									SOURCEPAGE:DivineAbilitiesandFeats.rtf
