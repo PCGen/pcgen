@@ -780,14 +780,23 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PRELEVEL">Tag Name:</a></strong> PRELEVEL:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The minimum level).</p>
+	<p class="new">*** Updated 5.13.5</p>
+	<p class="indent0"><strong><a name="PRELEVEL">Tag Name:</a></strong> PRELEVEL:x,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> MIN=Number or formula (Minimum total level).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> MAX=Number or formula (Maximum total level).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Makes the character have a minimum amount of levels, regardless of class. &nbsp;This
-		check also includes racial hit dice and monster class levels.</p>
+	<ul class="indent2">
+		<li>Provides the minimum and/or maximum total levels, including all character, racial, or monster 
+		class levels, the character must have to qualify.</li>
+		<li>Either value may be used without the other.
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRELEVEL:5</code></p>
-	<p class="indent3">Character must be 5th level.</p>
+	<p class="indent2"><code>PRELEVEL:MIN=5</code></p>
+	<p class="indent3">Character must be at least 5th level.</p>
+	<p class="indent2"><code>PRELEVEL:MAX=5</code></p>
+	<p class="indent3">Character must be no greater than 5th level.</p>
+	<p class="indent2"><code>PRELEVEL:MIN=5,MAX=10</code></p>
+	<p class="indent3">Character must be at least 5th level but no greater than 10th level.</p>
 	<p></ p>
 
 <hr>
