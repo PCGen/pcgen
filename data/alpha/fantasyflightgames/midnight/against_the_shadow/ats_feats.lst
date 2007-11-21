@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 19:32:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Nov 21 00:00:04 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
 
-# Feat Name				Output Name				Type			Required AL		Required Feat					Required Race				Required Skill							Required Stat	Special Ability				Define							Description																					Save checks bonus				Combat bonus												Bonus to skill												Modify VAR														Weapon prof. bonus																											Source Page
+# Feat Name				Output Name				Type			Required AL		Required Feat					Required Race				Required Skill							Required Stat	Special ABility				Define							Description																					Save checks bonus				Combat bonus												Bonus to skill												Modify VAR														Weapon prof. bonus																											Source Page
 Brew Herbal Concoctions							TYPE:General																	PRESKILL:1,Profession (Herbalist)=4																					DESC:Create near-miraculous conctions from natural ingredients																																																																																											SOURCEPAGE:p. 74
 Charm Lore									TYPE:General																													SAB:Charm Lore [% Charms]|NumCharms	DEFINE:InitLevel|0	DEFINE:NumCharms|0	DESC:Knowledge of one charm per level.																																																		BONUS:VAR|InitLevel|TL|PREVAREQ:InitLevel,0	BONUS:VAR|NumCharms|(TL-InitLevel)+1																															SOURCEPAGE:p. 74
 Devastating Mounted Assault						TYPE:General				PREFEAT:1,Mounted Combat									PRESKILL:1,Ride=10																							DESC:Make a full attack when mounted even if move more than 5 ft.																																																																																											SOURCEPAGE:p. 74

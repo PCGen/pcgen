@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Oct 10 22:03:27 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 21 00:00:04 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
 
 ###Block: Heroic Paths
-# Template Name		Output Name				Visible	Template															Source Page		Special Ability															Define																		Level																				Required Lvl	Required var. value	Required Vision		Bonus to skill					Stat bonus																			Modify VAR																																																																																																	Weapon prof. bonus																													Feat		Vision			Innate Spells
+# Template Name		Output Name				Visible	Template															Source Page		Special ABility															Define																		Level																				Required Lvl	Required var. value	Required Vision		Bonus to skill					Stat bonus																			Modify VAR																																																																																																	Weapon prof. bonus																													Feat		Vision			Innate Spells
 Heroic Path (Beast)	OUTPUTNAME:Beast Heroic Path	VISIBLE:YES	TEMPLATE:Weak Claw 2 ~ Very Weak Bite	TEMPLATE:Wild Sense	TEMPLATE:Improved Wild Sense	SOURCEPAGE:p. 21	SAB:Bestial Aura (Su)|PREVARGT:TL,1|PREVARLT:TL,12	SAB:Improved Beastial Aura (Su)|PREVARGT:TL,11	DEFINE:HeroicPath|1	DEFINE:AllowImprovedTurning|0	DEFINE:AllowExtraTurning|0	DEFINE:BullsStrengthTimes|0	LEVEL:1:FEAT:Improved Unarmed Strike	LEVEL:3:FEAT:Turn Animal	LEVEL:3:FEAT:Basic Turning	LEVEL:7:FEAT:Rage				PREVAREQ:HeroicPath,0					BONUS:SKILL|Handle Animal|-10|PRELEVEL:2	BONUS:STAT|STR|1|PRELEVEL:5	BONUS:STAT|STR|1|PRELEVEL:10	BONUS:STAT|STR|1|PRELEVEL:15	BONUS:STAT|STR|1|PRELEVEL:20	BONUS:VAR|TurnLevelBase|TL-2|PRELEVEL:3	BONUS:VAR|TurnTimesBase|2+CHA|TYPE=NoStack|PRELEVEL:3	BONUS:VAR|AllowExtraTurning|1|PRELEVEL:3	BONUS:VAR|AllowImprovedTurning|1|PRELEVEL:3	BONUS:VAR|TurnDamagePlusBase|TL-2|PRELEVEL:3	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack|PRELEVEL:3	BONUS:VAR|RageTimes|1|PRELEVEL:7	BONUS:VAR|TurnLevelBase|2|PRELEVEL:12	BONUS:VAR|TurnDamagePlusBase|2|PRELEVEL:12	BONUS:VAR|TurnTimesBase|3|PRELEVEL:12	BONUS:VAR|BullsStrengthTimes|1|PRELEVEL:13	BONUS:VAR|RageTimes|1|PRELEVEL:17	BONUS:VAR|BullsStrengthTimes|1|PRELEVEL:19	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1|PRELEVEL:6	BONUS:WEAPONPROF=Bite|DAMAGESIZE|1|PRELEVEL:6	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1|PRELEVEL:11	BONUS:WEAPONPROF=Bite|DAMAGESIZE|1|PRELEVEL:11							SPELLS:Beast|TIMES=1|CASTERLEVEL=var("TL")|Magic Fang|PRELEVEL:3	SPELLS:Beast|TIMES=1|CASTERLEVEL=var("TL")|Expeditious Retreat|PRELEVEL:4	SPELLS:Beast|TIMES=1|CASTERLEVEL=var("TL")|Endurance|PRELEVEL:8	SPELLS:Beast|TIMES=1|CASTERLEVEL=var("TL")|Cat's Grace|PRELEVEL:9	SPELLS:Beast|TIMES=var("BullsStrengthTimes")|CASTERLEVEL=var("TL")|Bull's Strength|PRELEVEL:13	SPELLS:Beast|TIMES=1|CASTERLEVEL=var("TL")|Greater Magic Fang|PRELEVEL:14	SPELLS:Beast|TIMES=1|CASTERLEVEL=var("TL")|Freedom of Movement|PRELEVEL:18
 
 Wild Sense								VISIBLE:NO	TEMPLATE:CHOOSE:Increased Vision|Scent																																																																					PRELEVEL:1
@@ -27,14 +27,14 @@ Heroic Path (Elementalborn)	OUTPUTNAME:Elementalborn Heroic Path	VISIBLE:YES	TEM
 # Template Name	Visible	Template																Required Lvl
 Elemental Taint	VISIBLE:NO	TEMPLATE:CHOOSE:Air Elemental Taint|Earth Elemental Taint|Fire Elemental Taint|Water Elemental Taint	PRELEVEL:1
 ###Block: Elemental Taint Choices
-# Template Name		Visible	Special Ability			Level																													Modify VAR									Feat					Type					Innate Spells
-Air Elemental Taint	VISIBLE:NO	SAB:Air Elemental Taint (Su)																														BONUS:VAR|ElectricityResistance|5|TYPE=EnergyResistance	FEAT:Electricity Resistance						SPELLS:Elementalborn|TIMES=1|CASTERLEVEL=var("TL")|Open/Close
+# Template Name		Visible	Special ABility				Level																													Modify VAR									Feat					Type					Innate Spells
+Air Elemental Taint	VISIBLE:NO	SAB:Air Elemental Taint (Su)																															BONUS:VAR|ElectricityResistance|5|TYPE=EnergyResistance	FEAT:Electricity Resistance						SPELLS:Elementalborn|TIMES=1|CASTERLEVEL=var("TL")|Open/Close
 Earth Elemental Taint	VISIBLE:NO	SAB:Earth Elemental Taint (Su)																														BONUS:VAR|AcidResistance|5|TYPE=EnergyResistance		FEAT:Acid Resistance							SPELLS:Elementalborn|TIMES=1|CASTERLEVEL=var("TL")|Detect Poison
-Fire Elemental Taint	VISIBLE:NO	SAB:Fire Elemental Taint (Su)																														BONUS:VAR|FireResistance|5|TYPE=EnergyResistance		FEAT:Fire Resistance							SPELLS:Elementalborn|TIMES=1|CASTERLEVEL=var("TL")|Flare
+Fire Elemental Taint	VISIBLE:NO	SAB:Fire Elemental Taint (Su)																															BONUS:VAR|FireResistance|5|TYPE=EnergyResistance		FEAT:Fire Resistance							SPELLS:Elementalborn|TIMES=1|CASTERLEVEL=var("TL")|Flare
 Water Elemental Taint	VISIBLE:NO	SAB:Water Elemental Taint (Su)																														BONUS:VAR|ColdResistance|5|TYPE=EnergyResistance		FEAT:Cold Resistance							SPELLS:Elementalborn|TIMES=1|CASTERLEVEL=var("TL")|Ray of Frost
 
 
-Elemental Form		VISIBLE:NO						LEVEL:20:FEAT:Energy Immunity (acid)	LEVEL:20:FEAT:Energy Immunity (cold)	LEVEL:20:FEAT:Energy Immunity (electricity)	LEVEL:20:FEAT:Energy Immunity (fire)																TYPE:Elemental|PRELEVEL:20
+Elemental Form		VISIBLE:NO							LEVEL:20:FEAT:Energy Immunity (acid)	LEVEL:20:FEAT:Energy Immunity (cold)	LEVEL:20:FEAT:Energy Immunity (electricity)	LEVEL:20:FEAT:Energy Immunity (fire)																TYPE:Elemental|PRELEVEL:20
 
 ###########################
 ###Block: Fellhunter Heroic Path

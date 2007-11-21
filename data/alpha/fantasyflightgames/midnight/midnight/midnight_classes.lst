@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 10 22:03:27 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 21 00:00:04 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 # Original Entry by: Tir Gwaith
 
@@ -10,11 +10,11 @@ CLASS:Channeler	STARTSKILLPTS:6	CSKILL:Alchemy|Animal Empathy|Bluff|Concentratio
 CLASS:Channeler	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Channeler|CL
 
 SUBCLASS:Hermetic Channeler		COST:0	SPELLSTAT:INT
-SUBCLASSLEVEL:1	SA:Lorebook +% (% pages)|LorebookCheck|LorebookPages						BONUS:VAR|LorebookCheck|CL+INT	BONUS:VAR|LorebookPages|max(INT,0)*5*(CL)	DEFINE:LorebookCheck|0	DEFINE:LorebookPages|0			AUTO:FEAT|Magecraft (Hermetic)
+SUBCLASSLEVEL:1	SAB:Lorebook +% (% pages)|LorebookCheck|LorebookPages						BONUS:VAR|LorebookCheck|CL+INT	BONUS:VAR|LorebookPages|max(INT,0)*5*(CL)	DEFINE:LorebookCheck|0	DEFINE:LorebookPages|0			AUTO:FEAT|Magecraft (Hermetic)
 SUBCLASS:Spiritual Channeler		COST:0	SPELLSTAT:WIS
 SUBCLASSLEVEL:1																																						AUTO:FEAT|Magecraft (Spiritual)
 SUBCLASS:Charismatic Channeler	COST:0	SPELLSTAT:CHA
-SUBCLASSLEVEL:1	SA:Force of Personality (+% up to % rounds)|ForcePersonality|PersonalityRounds	BONUS:VAR|ForcePersonality|CL+CHA	BONUS:VAR|PersonalityRounds|CL+3		DEFINE:PersonalityRounds|0	DEFINE:ForcePersonality|0	AUTO:FEAT|Magecraft (Charismatic)
+SUBCLASSLEVEL:1	SAB:Force of Personality (+% up to % rounds)|ForcePersonality|PersonalityRounds	BONUS:VAR|ForcePersonality|CL+CHA	BONUS:VAR|PersonalityRounds|CL+3		DEFINE:PersonalityRounds|0	DEFINE:ForcePersonality|0	AUTO:FEAT|Magecraft (Charismatic)
 1	CAST:1,1								ADD:FEAT|1|Spellcasting (Transmutation)	ADD:FEAT|1|TYPE=Spellcasting
 2	CAST:1,1				BONUS:VAR|FMLevel|CL													AUTO:FEAT|Summon Familiar
 3	CAST:1,1,1
@@ -47,8 +47,8 @@ CLASS:Defender	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Escape Arti
 2																																																						ADD:FEAT|1|TYPE=DefenderAbility
 4																												BONUS:MOVEADD|TYPE=Walk|floor((CL+2)/6)*10|PREVARLTEQ:ENCUMBERANCE,1,COUNT[EQTYPE.ARMOR.EQUIPPED],0|TYPE=FastMovement.REPLACE
 5																																																						ADD:FEAT|1|TYPE=DefenderAbility
-6	SA:Precise Strike (+%)|PreciseStrike	BONUS:VAR|PreciseStrike|CL/6																																					DEFINE:PreciseStrike|0
-7	SA:Masterful Strike +%d6|MasterfulStrike	BONUS:VAR|MasterfulStrike|(CL-1)/6																																				DEFINE:MasterfulStrike|0
+6	SAB:Precise Strike (+%)|PreciseStrike	BONUS:VAR|PreciseStrike|CL/6																																					DEFINE:PreciseStrike|0
+7	SAB:Masterful Strike +%d6|MasterfulStrike	BONUS:VAR|MasterfulStrike|(CL-1)/6																																				DEFINE:MasterfulStrike|0
 8																																																						ADD:FEAT|1|TYPE=DefenderAbility
 11																																																						ADD:FEAT|1|TYPE=DefenderAbility
 14																																																						ADD:FEAT|1|TYPE=DefenderAbility
@@ -75,8 +75,8 @@ CLASS:Legate	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Progression
-1	CAST:3,1				SA:Spontaneous Casting		TEMPLATE:Maximum Spell Level
-2	CAST:4,2				SA:Astirax Companion (Ex)
+1	CAST:3,1				SAB:Spontaneous Casting		TEMPLATE:Maximum Spell Level
+2	CAST:4,2				SAB:Astirax Companion (Ex)
 3	CAST:4,2,1
 4	CAST:5,3,2
 5	CAST:5,3,2,1
@@ -111,12 +111,12 @@ CLASS:Wildlander	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle A
 ###Block: Normal Level Progression
 1																													ADD:FEAT|1|TYPE.WildlanderTrait
 2																													ADD:FEAT|1|TYPE.WildlanderTrait
-3	SA:Danger Sense (Ex) (bonus to spot enemies)
-4	SA:Smite (%/day +% damage)|SmiteTimes|SmiteDamage		BONUS:VAR|SmiteTimes|(CL+2)/6	BONUS:VAR|SmiteDamage|CL	DEFINE:SmiteTimes|0	DEFINE:SmiteDamage|0
+3	SAB:Danger Sense (Ex) (bonus to spot enemies)
+4	SAB:Smite (%/day +% damage)|SmiteTimes|SmiteDamage		BONUS:VAR|SmiteTimes|(CL+2)/6	BONUS:VAR|SmiteDamage|CL	DEFINE:SmiteTimes|0	DEFINE:SmiteDamage|0
 5																													ADD:FEAT|1|TYPE.WildlanderTrait
-6	SA:Danger Sense (Ex) (never surprised)
+6	SAB:Danger Sense (Ex) (never surprised)
 8																													ADD:FEAT|1|TYPE.WildlanderTrait
-9	SA:Danger Sense (Ex) (+% to initiative)|DangerSenseInit	BONUS:VAR|DangerSenseInit|CL/3-2					DEFINE:DangerSenseInit|0
+9	SAB:Danger Sense (Ex) (+% to initiative)|DangerSenseInit	BONUS:VAR|DangerSenseInit|CL/3-2					DEFINE:DangerSenseInit|0
 11																													ADD:FEAT|1|TYPE.WildlanderTrait
 14																													ADD:FEAT|1|TYPE.WildlanderTrait
 17																													ADD:FEAT|1|TYPE.WildlanderTrait
@@ -130,12 +130,12 @@ CLASS:Druid (Midnight)	PREFEAT:1,Magecraft (Spiritual)	PRESKILL:2,Knowledge (Nat
 CLASS:Druid (Midnight)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
 # Druids and Channeler stack for the bonus spells thing.
 # Master of two worlds - Druid levels stack w/Channeler Spiritual
-1	SA:Druidcraft	SA:Nature Sense (Ex)																									AUTO:WEAPONPROF|Club|Dagger|Longbow|Shortbow|Quarterstaff
-2	SA:Wispering World (Ex) (+% % feet)|WisperingCheck|WhisperingArea	BONUS:VAR|WisperingCheck|CL	BONUS:VAR|WhisperingArea|CL*500	DEFINE:WisperingCheck|WIS	DEFINE:WhisperingArea|0
-3	SA:Woodland Stride (Ex)
-4	SA:Trackless Step (Ex)
-6	SA:Venom Immunity (Ex)
-8	SA:Fey Friend
+1	SAB:Druidcraft	SAB:Nature Sense (Ex)																										AUTO:WEAPONPROF|Club|Dagger|Longbow|Shortbow|Quarterstaff
+2	SAB:Wispering World (Ex) (+% % feet)|WisperingCheck|WhisperingArea	BONUS:VAR|WisperingCheck|CL	BONUS:VAR|WhisperingArea|CL*500	DEFINE:WisperingCheck|WIS	DEFINE:WhisperingArea|0
+3	SAB:Woodland Stride (Ex)
+4	SAB:Trackless Step (Ex)
+6	SAB:Venom Immunity (Ex)
+8	SAB:Fey Friend
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus
 CLASS:Freerider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -148,15 +148,15 @@ CLASS:Freerider	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intuit Dir
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SA:Horse Lord																																												AUTO:FEAT|Leadership
-2	SA:Loyal Companions
+1	SAB:Horse Lord																																												AUTO:FEAT|Leadership
+2	SAB:Loyal Companions
 3																				ADD:FEAT|1|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance)
-4	SA:Inspiring Leader (Su) +%|InspiringLeader	BONUS:VAR|InspiringLeader|CL/4	DEFINE:InspiringLeader|0
-5	SA:Whispering Step (Ex) (+5 DC)|PREVARLT:CL,10
+4	SAB:Inspiring Leader (Su) +%|InspiringLeader	BONUS:VAR|InspiringLeader|CL/4	DEFINE:InspiringLeader|0
+5	SAB:Whispering Step (Ex) (+5 DC)|PREVARLT:CL,10
 6																				ADD:FEAT|1|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance)
-7	SA:Spur (Ex)
+7	SAB:Spur (Ex)
 9																				ADD:FEAT|1|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance)
-10	SA:Whispering Step (Ex) (full speed)
+10	SAB:Whispering Step (Ex) (full speed)
 
 # Class Name		Hit Dice	Type			Max Level	Save checks bonus												Combat bonus
 CLASS:Insurgent Spy	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -168,10 +168,10 @@ CLASS:Insurgent Spy	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cra
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Conceal Magic (Su) (% items)|ConcealMagic	SA:Shadow Contact (minor)	BONUS:VAR|ConcealMagic|CL		DEFINE:ConcealMagic|0
-2	SA:Shadow Speak (+%)|ShadowSpeak								BONUS:VAR|ShadowSpeak|CL/2		DEFINE:ShadowSpeak|0
-3	SA:Shadow Contact (major)									BONUS:VAR|SneakAttack|(CL-1)/2					AUTO:FEAT|Sneak Attack
-5	SA:Shadow Contact (incredible)
+1	SAB:Conceal Magic (Su) (% items)|ConcealMagic	SAB:Shadow Contact (minor)	BONUS:VAR|ConcealMagic|CL		DEFINE:ConcealMagic|0
+2	SAB:Shadow Speak (+%)|ShadowSpeak								BONUS:VAR|ShadowSpeak|CL/2		DEFINE:ShadowSpeak|0
+3	SAB:Shadow Contact (major)									BONUS:VAR|SneakAttack|(CL-1)/2					AUTO:FEAT|Sneak Attack
+5	SAB:Shadow Contact (incredible)
 
 # Class Name		Output Name		Hit Dice	Type			Max Level	Save checks bonus											Combat bonus
 CLASS:Wizard (Midnight)	OUTPUTNAME:Wizard	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -182,7 +182,7 @@ CLASS:Wizard (Midnight)	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|
 # CL bonus EPs.
 # CL Stacks with Channeler for advanced spells known
 # Lorebook stacks with Channeler
-1	SA:Art of Magic (% percent reduction)|ArtMagicItemCreation	SA:Improved Spellcasting	SA:Spell Preparation (% spells)|SpellPreparation	SA:Spellbook	BONUS:VAR|ArtMagicItemCreation|(floor(CL/5)+1)*10	BONUS:VAR|SpellPreparation|CL*3	DEFINE:ArtMagicItemCreation|0	DEFINE:SpellPreparation|0														AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+1	SAB:Art of Magic (% percent reduction)|ArtMagicItemCreation	SAB:Improved Spellcasting	SAB:Spell Preparation (% spells)|SpellPreparation	SAB:Spellbook	BONUS:VAR|ArtMagicItemCreation|(floor(CL/5)+1)*10	BONUS:VAR|SpellPreparation|CL*3	DEFINE:ArtMagicItemCreation|0	DEFINE:SpellPreparation|0														AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 2																																																					ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic
 3																																																					ADD:FEAT|1|TYPE=Spellcasting
 4																																																					ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic
