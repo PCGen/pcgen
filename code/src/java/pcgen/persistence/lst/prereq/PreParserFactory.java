@@ -214,7 +214,7 @@ public class PreParserFactory
 		throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
-		String preLevelString = "PRELEVEL:" + level; //$NON-NLS-1$
+		String preLevelString = "PRELEVEL:MIN=" + level; //$NON-NLS-1$
 		if (obj instanceof PCClass)
 		{
 			// Classes handle this differently

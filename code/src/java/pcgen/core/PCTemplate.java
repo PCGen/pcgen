@@ -1180,7 +1180,7 @@ public final class PCTemplate extends PObject implements HasCost
 				try
 				{
 					PreParserFactory factory = PreParserFactory.getInstance();
-					r = factory.parse("PRELEVEL:" + aLevel);
+					r = factory.parse("PRELEVEL:MIN=" + aLevel);
 				}
 				catch (PersistenceLayerException notUsed)
 				{

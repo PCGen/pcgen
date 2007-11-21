@@ -36,7 +36,7 @@ public class DrLst implements GlobalLstToken
 			try
 			{
 				PreParserFactory factory = PreParserFactory.getInstance();
-				String preLevelString = "PRELEVEL:" + anInt;
+				String preLevelString = "PRELEVEL:MIN=" + anInt;
 				if (obj instanceof PCClass)
 				{
 					// Classes handle this differently

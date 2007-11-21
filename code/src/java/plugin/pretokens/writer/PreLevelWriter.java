@@ -36,6 +36,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 
 public class PreLevelWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
@@ -55,7 +56,7 @@ public class PreLevelWriter extends AbstractPrerequisiteWriter implements
 	public PrerequisiteOperator[] operatorsHandled()
 	{
 		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-			PrerequisiteOperator.LT};
+				PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,PrerequisiteOperator.GT};
 	}
 
 	/* (non-Javadoc)
@@ -71,15 +72,76 @@ public class PreLevelWriter extends AbstractPrerequisiteWriter implements
 			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
 				writer.write('!');
+				writer.write("PRELEVEL:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MIN=");
+				writer.write(prereq.getOperand());
+			}
+			else if(prereq.getOperator().equals(PrerequisiteOperator.GT))
+			{
+				writer.write('!');
+				writer.write("PRELEVEL:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MAX=");
+				writer.write(prereq.getOperand());	
+			}
+			else if (prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+			{
+				writer.write("PRELEVEL:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MIN=");
+				writer.write(prereq.getOperand());
+			}
+			else if(prereq.getOperator().equals(PrerequisiteOperator.LTEQ))
+			{
+				writer.write("PRELEVEL:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MAX=");
+				writer.write(prereq.getOperand());
 			}
 
-			writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:":""));
-			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)
 		{
 			throw new PersistenceLayerException(e.getMessage());
 		}
+	}
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
+	 */
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+		throws IOException
+	{
+		//
+		// If this is a PREMULT...
+		//
+		if (prereq.getKind() == null)
+		{
+			//
+			// ...with exactly 2 entries...
+			//
+			List<Prerequisite> prereqList = prereq.getPrerequisites();
+			if (prereqList.size() == 2)
+			{
+				//
+				// ...both of which are PREHD. The first must specify >= and the second <=
+				//
+				final Prerequisite elementGTEQ = prereqList.get(0);
+				final Prerequisite elementLTEQ = prereqList.get(1);
+				if ("level".equalsIgnoreCase(elementGTEQ.getKind())
+					&& elementGTEQ.getOperator().equals(
+						PrerequisiteOperator.GTEQ)
+					&& "level".equalsIgnoreCase(elementLTEQ.getKind())
+					&& elementLTEQ.getOperator().equals(
+						PrerequisiteOperator.LTEQ))
+				{
+					if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+					{
+						writer.write('!');
+					}
+					writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:":""));
+					writer.write("MIN=");
+					writer.write(elementGTEQ.getOperand());
+					writer.write(",MAX=");
+					writer.write(elementLTEQ.getOperand());
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 }

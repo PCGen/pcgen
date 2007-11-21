@@ -145,7 +145,9 @@ public class PrerequisiteWriterTest extends TestCase
 		"PRELANG:2,Dwarven,Elven,Halfling",												"PREMULT:2,[PRELANG:1,Dwarven],[PRELANG:1,Elven],[PRELANG:1,Halfling]",
 		"PRELANG:3,ANY",																"PRELANG:3,ANY",
 		"PRELEGSGTEQ:4",																"PRELEGSGTEQ:4",
-		"PRELEVEL:5",																	"PRELEVEL:5",
+		"PRELEVEL:MIN=5",																"PRELEVEL:MIN=5",
+		"PRELEVEL:MAX=5",																"PRELEVEL:MAX=5",
+		"PRELEVEL:MIN=4,MAX=5",															"PRELEVEL:MIN=4,MAX=5",
 		"PRELEVELMAX:10",																"PRELEVELMAX:10",
 		"PREMOVE:Walk=30,Fly=20",														"PREMULT:1,[PREMOVE:1,Walk=30],[PREMOVE:1,Fly=20]",
 		"PREMOVE:Swim=10",																"PREMOVE:1,Swim=10",
@@ -280,7 +282,11 @@ public class PrerequisiteWriterTest extends TestCase
 		"!PREDEITY:Y",																	"!PREDEITY:1,Y",
 		"!PREITEM:1,Sword (Long)",														"!PREITEM:1,Sword (Long)",
 		"!PRELEVELMAX:10",																"!PRELEVELMAX:10",
-		"!PRELEVEL:5",																	"!PRELEVEL:5",
+		"!PRELEVEL:4",																	"!PRELEVEL:MIN=4",		// New syntax...
+		"!PRELEVEL:MIN=4",																"!PRELEVEL:MIN=4",
+		"!PRELEVEL:MAX=4",																"!PRELEVEL:MAX=4",
+		"!PRELEVEL:MIN=4,MAX=6",														"!PRELEVEL:MIN=4,MAX=6",
+	
 		"!PREREGION:Slithe",															"!PREREGION:Slithe",
 		"!PRERULE:SYS_WTPSK",															"!PRERULE:1,SYS_WTPSK",
 		"!PRESHIELDPROF:1,Buckler",														"!PRESHIELDPROF:1,Buckler",

@@ -52,7 +52,7 @@ public class FeatToken implements AutoLstToken
 			try
 			{
 				PreParserFactory factory = PreParserFactory.getInstance();
-				String preLevelString = "PRELEVEL:" + level; //$NON-NLS-1$
+				String preLevelString = "PRELEVEL:MIN=" + level; //$NON-NLS-1$
 				if (target instanceof PCClass)
 				{
 					// Classes handle this differently
