@@ -47,7 +47,7 @@ Bow_STR		KEY:BOWSTR	NAMEOPT:NONAME	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	SOU
 ###Block: Armor Accesories
 
 # Modifier Name	Unique Key		Type			Cost													Visible		Type granted		Source Page				Required Type		BONUS:EQM			BONUS:EQMWEAPON			Special Property	Automaticaly Added to Inventory
-Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Shield|Armor	BONUS:EQM|WEIGHTADD|10						SPROP:Spiked	AUTO:EQUIP|Armor Spikes
+Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Shield|Armor										SPROP:Spiked	AUTO:EQUIP|Armor Spikes
 Shield Spikes	KEY:SPIKE_S		TYPE:Shield		COST:10												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Shield|Armor	BONUS:EQM|WEIGHTADD|5	BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
 Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf									BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
 Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITYPE:GauntletLock	SOURCEPAGE:RSRD Equipment.rtf					BONUS:EQM|WEIGHTADD|5						SPROP:Locked
