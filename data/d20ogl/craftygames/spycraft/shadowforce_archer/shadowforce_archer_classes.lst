@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct  9 22:38:37 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 21 13:05:19 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -10,11 +10,11 @@ SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://ww
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus																									Modify VAR
 CLASS:Cat Burglar	HD:10		TYPE:Prestige.PC	ABB:Cat		MAXLEVEL:10	SOURCEPAGE:p.163	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+1	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL-1)-((CL-1)/4)
 # Class Name	Required Feat				Required Lvl	Required Skill
-CLASS:Cat Burglar	PREFEAT:2,Acrobatic,Master Fence	PRELEVEL:5		PRESKILL:2,Climb,Open Lock=8
+CLASS:Cat Burglar	PREFEAT:2,Acrobatic,Master Fence	PRELEVEL:MIN=5	PRESKILL:2,Climb,Open Lock=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cat Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Boating|Climb|Concentration|TYPE.Craft|Driver|Electronics|Escape Artist|Hide|TYPE.Hobby|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|Pilot|TYPE.Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
 
-1	SAB:Case (scout)|PREVARLT:CL,5							BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0		ADD:FEAT|1|Cat Burglar Core Ability					AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)
+1	SAB:Case (scout)|PREVARLT:CL,5						BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0		ADD:FEAT|1|Cat Burglar Core Ability					AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)
 2	SAB:Honor Among Thieves +%|HonorAmongThieves										DEFINE:HonorAmongThieves|((CL-1)/6)+1
 3																									ADD:FEAT|1|TYPE.Covert,TYPE.BasicSkill,TYPE.AdvancedSkill
 4	SAB:Go to ground (hiding)|PREVARLT:CL,8	SAB:Improvised Tools
@@ -32,11 +32,11 @@ CLASS:Counter Terrorist	OUTPUTNAME:Counter-Terrorist	HD:10		TYPE:Prestige.PC	ABB
 CLASS:Counter Terrorist	PREATT:5	PREFEAT:1,Precise Shot	PRESKILL:1,Spot=8	PRESKILL:1,Sense Motive=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Counter Terrorist	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Demolitions|Diplomacy|Driver|First Aid|TYPE.Hobby|Intimidate|Jump|TYPE.Knowledge|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Surveillance|Swim|Use Rope
-1	SAB:Special Tactics (locate)|PREVARLT:CL,5				BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Counter Terrorist Core Ability	ADD:FEAT|1|Counter Terrorist Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+1	SAB:Special Tactics (locate)|PREVARLT:CL,5			BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Counter Terrorist Core Ability	ADD:FEAT|1|Counter Terrorist Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
 2	SAB:Precision Takedown (-25% cover)|PREVARLT:CL,7
 3																							ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
 4	SAB:Safe Attack	SAB:Crowd control (% level)|CrowdControl							DEFINE:CrowdControl|CL/4
-5	SAB:Special Tactics (subdue)|PREVARLT:CL,9																ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
+5	SAB:Special Tactics (subdue)|PREVARLT:CL,9															ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
 6	SAB:Negotiator
 7	SAB:Precision Takedown (-50% cover)																	ADD:FEAT|1|TYPE.Covert,TYPE.BasicCombat
 8	SAB:Tactical Commander
@@ -47,14 +47,14 @@ CLASS:Counter Terrorist	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE.Craft|De
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																		Combat bonus																												Modify VAR
 CLASS:Hacker	HD:8		TYPE:Prestige.PC	ABB:Hac		MAXLEVEL:10	SOURCEPAGE:p.167	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|(((CL+2)*2)/5)+(floor(CL/5))+(floor((CL+3)/5))	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL
 # Class Name	Required Feat			Required Lvl	Required Skill
-CLASS:Hacker	PREFEAT:1,Mathematical Genius	PRELEVEL:5		PRESKILL:2,Computers,Cryptography=8
+CLASS:Hacker	PREFEAT:1,Mathematical Genius	PRELEVEL:MIN=5	PRESKILL:2,Computers,Cryptography=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concentration|TYPE.Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|Forgery|Gather Information|TYPE.Hobby|Innuendo|TYPE.Knowledge|Languages|Listen|Mechanics|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Surveillance
-1	SAB:Hard-wired (Concentrate)|PREVARLT:CL,5		BONUS:VAR|NumberPrestigeClasses|1	BONUS:SKILL|Concentration|4	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Hacker Core Ability
+1	SAB:Hard-wired (Concentrate)|PREVARLT:CL,5	BONUS:VAR|NumberPrestigeClasses|1	BONUS:SKILL|Concentration|4	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Hacker Core Ability
 2	SAB:Synchronize (Solo)|PREVARLT:CL,7
 3																										ADD:FEAT|1|Advanced Skill Mastery(Mathematical Genius)	QUALIFY:FEAT|Advanced Skill Mastery
 4	SAB:Lockout (Single)|PREVARLT:CL,8	SAB:Sift
-5	SAB:Hard-wired (All-Nighter)|PREVARLT:CL,9																			ADD:FEAT|1|Quick Use(Computers)					QUALIFY:FEAT|Quick Use
+5	SAB:Hard-wired (All-Nighter)|PREVARLT:CL,9																		ADD:FEAT|1|Quick Use(Computers)					QUALIFY:FEAT|Quick Use
 6	SAB:Fingerprints
 7	SAB:Synchronize (Team)																						ADD:FEAT|1|Grand Skill Mastery(Mathematical Genius)		QUALIFY:FEAT|Grand Skill Mastery
 8	SAB:Lockout (All)
@@ -65,18 +65,18 @@ CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concent
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus																													Modify VAR
 CLASS:Sniper	HD:10		TYPE:Prestige.PC	ABB:Snpr		MAXLEVEL:10	SOURCEPAGE:p.170	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|(CL-1)-(CL>=5)-(CL>=9)
 # Class Name	Required Feat			Required Lvl	Required Skill				Required Stat
-CLASS:Sniper	PREFEAT:2,Far Shot,Marksman	PRELEVEL:5		PRESKILL:2,Hide,Surveillance=6	PRESTAT:1,DEX=13
+CLASS:Sniper	PREFEAT:2,Far Shot,Marksman	PRELEVEL:MIN=5	PRESKILL:2,Hide,Surveillance=6	PRESTAT:1,DEX=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sniper	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Disguise|Driver|Hide|TYPE.Hobby|Intimidate|Jump|Move Silently|Open Lock|TYPE.Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
-1								BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Sniper Core Ability		AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Rifle)|Run
-2	SAB:Magic Touch (+%)|MagicTouch								DEFINE:MagicTouch|1+(CL>=7)
-3																				ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert
+1										BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Sniper Core Ability		AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Rifle)|Run
+2	SAB:Magic Touch (+%)|MagicTouch										DEFINE:MagicTouch|1+(CL>=7)
+3																						ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert
 4	SAB:One Shot	SAB:Deadly Aim (%d6)|DeadlyAim							DEFINE:DeadlyAim|CL/4
-5																				ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert	AUTO:FEAT|Mobility
+5																						ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert	AUTO:FEAT|Mobility
 6	SAB:Surprise Shot
-7																				ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert
+7																						ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert
 8	SAB:Disappear
-9																				ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert	AUTO:FEAT|Increased Speed
+9																						ADD:FEAT|1|TYPE.RangedCombat,TYPE.Covert	AUTO:FEAT|Increased Speed
 10	SAB:Million Dollar Skill
 
 
@@ -85,7 +85,7 @@ CLASS:Sniper	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																	Combat bonus																									Modify VAR
 CLASS:Shadespeaker	HD:10		TYPE:Prestige.PC	ABB:ShSpk		MAXLEVEL:10	SOURCEPAGE:p.216	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|(((CL+1)*5)/13)+1	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(CL/2)+1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL/2
 # Class Name		Required Feat		Required Lvl	Required Stat	Required Template
-CLASS:Shadespeaker	PREFEAT:1,Sixth Sense	PRELEVEL:5		PRESTAT:1,WIS=13	PRETEMPLATE:Chamber - Guardians of the Whispering Knife
+CLASS:Shadespeaker	PREFEAT:1,Sixth Sense	PRELEVEL:MIN=5	PRESTAT:1,WIS=13	PRETEMPLATE:Chamber - Guardians of the Whispering Knife
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE.Craft|First Aid|Gather Information|Handle Animal|TYPE.Hobby|Jump|TYPE.Knowledge|Languages|Listen|Sense Motive|Spot|Survival|Tumble
 1	SAB:The Call (Questions)|PREVARLT:CL,5				BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Shadespeaker Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Hurled)
@@ -165,7 +165,7 @@ CLASS:Telepath	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|D
 7																									ADD:FEAT|1|Telepath Psi Mastery
 8																									ADD:FEAT|1|TYPE.TelepathicPsion,TYPE.BasicCombat
 9																									ADD:FEAT|1|Telepath Psi Mastery
-10	SAB:Blind Spot (%/session)|BlindSpot												DEFINE:BlindSpot|CL/10
+10	SAB:Blind Spot (%/session)|BlindSpot											DEFINE:BlindSpot|CL/10
 11																									ADD:FEAT|1|Telepath Psi Mastery
 12																									ADD:FEAT|1|TYPE.TelepathicPsion,TYPE.BasicCombat
 13																									ADD:FEAT|1|Telepath Psi Mastery
