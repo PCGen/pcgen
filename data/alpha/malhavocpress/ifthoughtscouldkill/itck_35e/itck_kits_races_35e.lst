@@ -1,23 +1,20 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Nov 20 23:03:42 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
-
-STARTPACK:Default Kuresh	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kuresh]
-RACE:Kuresh	!PRERACE:1,%
-NAME:Kuresh
 
 STARTPACK:Default Duncharath	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Duncharath]
 RACE:Duncharath	!PRERACE:1,%
 NAME:Duncharath
-SKILL:Climb			RANK:9
 SKILL:Hide			RANK:17
 SKILL:Move Silently	RANK:17
-SKILL:Listen		RANK:19
-SKILL:Spot			RANK:19
-FEAT:Alertness
+SKILL:Listen		RANK:17
+SKILL:Spot			RANK:5
+SKILL:Spot			RANK:12	FREE:YES
 FEAT:Improved Initiative
-FEAT:Improved Natural Attack
+FEAT:Improved Natural Attack(Slam)
 FEAT:Lightning Reflexes
 FEAT:Multiattack
+FEAT:Alertness				FREE:YES
+STAT:STR=10|DEX=10|CHA=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Mind Grub Collective	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mind Grub Collective]
 RACE:Mind Grub Collective	!PRERACE:1,%
@@ -34,3 +31,4 @@ SKILL:Intimidate		RANK:6
 FEAT:Combat Manifestation
 FEAT:Improved Initiative
 FEAT:Weapon Finesse
+STAT:STR=10|DEX=10|CHA=10|CON=10|INT=10|WIS=10
