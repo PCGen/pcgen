@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 21 21:19:46 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn and Tir Gwaith
 
@@ -6,220 +6,220 @@ SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/
 #This is how I want them to look....  (I changed it to how _I_ want it to look) - Tir Gwaith
 # Template Name				Visible	Removable?		Source Page		Racial Progression																	Modify VAR
 #Dwarf Racial Progression		VISIBLE:NO	REMOVABLE:NO	SOURCEPAGE:p.22	LEVEL:1:ADD:FEAT(TYPE.DwarfRacialTalent)	LEVEL:2:ADD:FEAT(TYPE.DwarfRacialTransformation)	LEVEL:3:FEAT:TYPE.DwarfRacialTalent	LEVEL:4:ADD:FEAT(TYPE.DwarfRacialTransformation)	LEVEL:5:ADD:FEAT(TYPE.DwarfRacialTalent)	LEVEL:6:ADD:FEAT(TYPE.DwarfRacialTransformation)	LEVEL:7:ADD:FEAT(TYPE.DwarfRacialTalent)	LEVEL:8:ADD:FEAT(TYPE.DwarfRacialTransformation)	LEVEL:9:ADD:FEAT(TYPE.DwarfRacialTalent)	LEVEL:10:ADD:FEAT(TYPE.DwarfRacialTransformation)
-#Dwarf Racial Progression.MOD	BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|STR|2|PRELEVEL:5	BONUS:STAT|CON|2|PRELEVEL:7	BONUS:STAT|WIS|2|PRELEVEL:9
+#Dwarf Racial Progression.MOD	BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|STR|2|PRELEVEL:MIN=5	BONUS:STAT|CON|2|PRELEVEL:MIN=7	BONUS:STAT|WIS|2|PRELEVEL:MIN=9
 
 
 #These templates are all added from the race.
-# Template Name				Visible	Source Page		Define				Stat bonus																			Modify VAR					Removable?		Add
-Racial Progression Doppelganger	VISIBLE:NO	SOURCEPAGE:p.20	DEFINE:AlternateFormChoices|0	BONUS:STAT|DEX|2|PRELEVEL:3	BONUS:STAT|CHA|2|PRELEVEL:5	BONUS:STAT|INT|2|PRELEVEL:7	BONUS:STAT|CON|2|PRELEVEL:9	BONUS:VAR|AlternateFormChoices|1	REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelBaseAltForm
-Racial Progression Dwarf		VISIBLE:NO	SOURCEPAGE:p.23						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|STR|2|PRELEVEL:5	BONUS:STAT|CON|2|PRELEVEL:7	BONUS:STAT|WIS|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Dawn Elf		VISIBLE:NO	SOURCEPAGE:p.26						BONUS:STAT|INT|2|PRELEVEL:3	BONUS:STAT|DEX|2|PRELEVEL:5	BONUS:STAT|CHA|2|PRELEVEL:7	BONUS:STAT|DEX|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Night Elf		VISIBLE:NO	SOURCEPAGE:p.28						BONUS:STAT|INT|2|PRELEVEL:3	BONUS:STAT|DEX|2|PRELEVEL:5	BONUS:STAT|CHA|2|PRELEVEL:7	BONUS:STAT|DEX|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Gnome		VISIBLE:NO	SOURCEPAGE:p.31						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|WIS|2|PRELEVEL:5	BONUS:STAT|CHA|2|PRELEVEL:7	BONUS:STAT|WIS|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Halfling		VISIBLE:NO	SOURCEPAGE:p.33						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|CHA|2|PRELEVEL:5	BONUS:STAT|DEX|2|PRELEVEL:7	BONUS:STAT|CHA|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Highlander		VISIBLE:NO	SOURCEPAGE:p.35						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|DEX|2|PRELEVEL:5	BONUS:STAT|WIS|2|PRELEVEL:7	BONUS:STAT|DEX|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Lowlander		VISIBLE:NO	SOURCEPAGE:p.38						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|STR|2|PRELEVEL:5	BONUS:STAT|WIS|2|PRELEVEL:7	BONUS:STAT|CON|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Saltblood		VISIBLE:NO	SOURCEPAGE:p.40						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|STR|2|PRELEVEL:5	BONUS:STAT|DEX|2|PRELEVEL:7	BONUS:STAT|CON|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Trueborn		VISIBLE:NO	SOURCEPAGE:p.43						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|WIS|2|PRELEVEL:5	BONUS:STAT|CHA|2|PRELEVEL:7	BONUS:STAT|STR|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Lizardfolk		VISIBLE:NO	SOURCEPAGE:p.45						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|WIS|2|PRELEVEL:5	BONUS:STAT|DEX|2|PRELEVEL:7	BONUS:STAT|STR|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Minotaur		VISIBLE:NO	SOURCEPAGE:p.47						BONUS:STAT|STR|2|PRELEVEL:3	BONUS:STAT|CON|2|PRELEVEL:5	BONUS:STAT|STR|2|PRELEVEL:7	BONUS:STAT|WIS|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Ogre			VISIBLE:NO	SOURCEPAGE:p.49						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|CON|2|PRELEVEL:5	BONUS:STAT|STR|2|PRELEVEL:7	BONUS:STAT|WIS|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Orc			VISIBLE:NO	SOURCEPAGE:p.51						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|WIS|2|PRELEVEL:5	BONUS:STAT|STR|2|PRELEVEL:7	BONUS:STAT|CON|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Tiefling		VISIBLE:NO	SOURCEPAGE:p.53						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|INT|2|PRELEVEL:5	BONUS:STAT|STR|2|PRELEVEL:7	BONUS:STAT|CHA|2|PRELEVEL:9							REMOVABLE:NO
-Racial Progression Thinblood		VISIBLE:NO	SOURCEPAGE:p.56						BONUS:STAT|CON|2|PRELEVEL:3	BONUS:STAT|WIS|2|PRELEVEL:5	BONUS:STAT|INT|2|PRELEVEL:7	BONUS:STAT|CHA|2|PRELEVEL:9							REMOVABLE:NO
+# Template Name				Visible	Source Page		Define				Stat bonus																							Modify VAR					Removable?		Add
+Racial Progression Doppelganger	VISIBLE:NO	SOURCEPAGE:p.20	DEFINE:AlternateFormChoices|0	BONUS:STAT|DEX|2|PRELEVEL:MIN=3	BONUS:STAT|CHA|2|PRELEVEL:MIN=5	BONUS:STAT|INT|2|PRELEVEL:MIN=7	BONUS:STAT|CON|2|PRELEVEL:MIN=9	BONUS:VAR|AlternateFormChoices|1	REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelBaseAltForm
+Racial Progression Dwarf		VISIBLE:NO	SOURCEPAGE:p.23						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|STR|2|PRELEVEL:MIN=5	BONUS:STAT|CON|2|PRELEVEL:MIN=7	BONUS:STAT|WIS|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Dawn Elf		VISIBLE:NO	SOURCEPAGE:p.26						BONUS:STAT|INT|2|PRELEVEL:MIN=3	BONUS:STAT|DEX|2|PRELEVEL:MIN=5	BONUS:STAT|CHA|2|PRELEVEL:MIN=7	BONUS:STAT|DEX|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Night Elf		VISIBLE:NO	SOURCEPAGE:p.28						BONUS:STAT|INT|2|PRELEVEL:MIN=3	BONUS:STAT|DEX|2|PRELEVEL:MIN=5	BONUS:STAT|CHA|2|PRELEVEL:MIN=7	BONUS:STAT|DEX|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Gnome		VISIBLE:NO	SOURCEPAGE:p.31						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|WIS|2|PRELEVEL:MIN=5	BONUS:STAT|CHA|2|PRELEVEL:MIN=7	BONUS:STAT|WIS|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Halfling		VISIBLE:NO	SOURCEPAGE:p.33						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|CHA|2|PRELEVEL:MIN=5	BONUS:STAT|DEX|2|PRELEVEL:MIN=7	BONUS:STAT|CHA|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Highlander		VISIBLE:NO	SOURCEPAGE:p.35						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|DEX|2|PRELEVEL:MIN=5	BONUS:STAT|WIS|2|PRELEVEL:MIN=7	BONUS:STAT|DEX|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Lowlander		VISIBLE:NO	SOURCEPAGE:p.38						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|STR|2|PRELEVEL:MIN=5	BONUS:STAT|WIS|2|PRELEVEL:MIN=7	BONUS:STAT|CON|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Saltblood		VISIBLE:NO	SOURCEPAGE:p.40						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|STR|2|PRELEVEL:MIN=5	BONUS:STAT|DEX|2|PRELEVEL:MIN=7	BONUS:STAT|CON|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Trueborn		VISIBLE:NO	SOURCEPAGE:p.43						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|WIS|2|PRELEVEL:MIN=5	BONUS:STAT|CHA|2|PRELEVEL:MIN=7	BONUS:STAT|STR|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Lizardfolk		VISIBLE:NO	SOURCEPAGE:p.45						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|WIS|2|PRELEVEL:MIN=5	BONUS:STAT|DEX|2|PRELEVEL:MIN=7	BONUS:STAT|STR|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Minotaur		VISIBLE:NO	SOURCEPAGE:p.47						BONUS:STAT|STR|2|PRELEVEL:MIN=3	BONUS:STAT|CON|2|PRELEVEL:MIN=5	BONUS:STAT|STR|2|PRELEVEL:MIN=7	BONUS:STAT|WIS|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Ogre			VISIBLE:NO	SOURCEPAGE:p.49						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|CON|2|PRELEVEL:MIN=5	BONUS:STAT|STR|2|PRELEVEL:MIN=7	BONUS:STAT|WIS|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Orc			VISIBLE:NO	SOURCEPAGE:p.51						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|WIS|2|PRELEVEL:MIN=5	BONUS:STAT|STR|2|PRELEVEL:MIN=7	BONUS:STAT|CON|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Tiefling		VISIBLE:NO	SOURCEPAGE:p.53						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|INT|2|PRELEVEL:MIN=5	BONUS:STAT|STR|2|PRELEVEL:MIN=7	BONUS:STAT|CHA|2|PRELEVEL:MIN=9							REMOVABLE:NO
+Racial Progression Thinblood		VISIBLE:NO	SOURCEPAGE:p.56						BONUS:STAT|CON|2|PRELEVEL:MIN=3	BONUS:STAT|WIS|2|PRELEVEL:MIN=5	BONUS:STAT|INT|2|PRELEVEL:MIN=7	BONUS:STAT|CHA|2|PRELEVEL:MIN=9							REMOVABLE:NO
 
 ###Block: The progression blocks
 # Template Name				Visible	Source Page		Required Lvl	Required Race					Removable?		Add
 Doppelganger Progression level 01	VISIBLE:YES	SOURCEPAGE:p.20				PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent1
-Doppelganger Progression level 02	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:2		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation2
-Doppelganger Progression level 03	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:3		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent3
-Doppelganger Progression level 04	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:4		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation4
-Doppelganger Progression level 05	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:5		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent5
-Doppelganger Progression level 06	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:6		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation6
-Doppelganger Progression level 07	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:7		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent7
-Doppelganger Progression level 08	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:8		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation8
-Doppelganger Progression level 09	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:9		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent9
-Doppelganger Progression level 10	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:10		PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation10
+Doppelganger Progression level 02	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:MIN=2	PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation2
+Doppelganger Progression level 03	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:MIN=3	PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent3
+Doppelganger Progression level 04	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:MIN=4	PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation4
+Doppelganger Progression level 05	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:MIN=5	PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent5
+Doppelganger Progression level 06	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:MIN=6	PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation6
+Doppelganger Progression level 07	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:MIN=7	PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent7
+Doppelganger Progression level 08	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:MIN=8	PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation8
+Doppelganger Progression level 09	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:MIN=9	PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTalent,TYPE=DoppelRacialTalent9
+Doppelganger Progression level 10	VISIBLE:YES	SOURCEPAGE:p.20	PRELEVEL:MIN=10	PRERACE:1,Doppelganger (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=DoppelRacialTransformation,TYPE=DoppelRacialTransformation10
 
 # Template Name				Visible	Source Page		Required Lvl	Required Race					Removable?		Add
 Dwarf Progression level 01		VISIBLE:YES	SOURCEPAGE:p.23				PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent1
-Dwarf Progression level 02		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:2		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation2
-Dwarf Progression level 03		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:3		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent3
-Dwarf Progression level 04		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:4		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation4
-Dwarf Progression level 05		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:5		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent5
-Dwarf Progression level 06		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:6		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation6
-Dwarf Progression level 07		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:7		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent7
-Dwarf Progression level 08		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:8		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation8
-Dwarf Progression level 09		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:9		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent9
-Dwarf Progression level 10		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:10		PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation10
+Dwarf Progression level 02		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:MIN=2	PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation2
+Dwarf Progression level 03		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:MIN=3	PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent3
+Dwarf Progression level 04		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:MIN=4	PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation4
+Dwarf Progression level 05		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:MIN=5	PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent5
+Dwarf Progression level 06		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:MIN=6	PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation6
+Dwarf Progression level 07		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:MIN=7	PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent7
+Dwarf Progression level 08		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:MIN=8	PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation8
+Dwarf Progression level 09		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:MIN=9	PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTalent,TYPE=DwarfRacialTalent9
+Dwarf Progression level 10		VISIBLE:YES	SOURCEPAGE:p.23	PRELEVEL:MIN=10	PRERACE:1,Dwarf (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DwarfRacialTransformation,TYPE=DwarfRacialTransformation10
 
 # Dawn Elf Racial progressions
 Dawn Elf Progression level 01		VISIBLE:YES	SOURCEPAGE:p.26				PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTalent,TYPE=DawnElfRacialTalent1
-Dawn Elf Progression level 02		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:2		PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTransformation,TYPE=DawnElfRacialTransformation2
-Dawn Elf Progression level 03		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:3		PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTalent,TYPE=DawnElfRacialTalent3
-Dawn Elf Progression level 04		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:4		PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTransformation,TYPE=DawnElfRacialTransformation4
-Dawn Elf Progression level 05		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:5		PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTalent,TYPE=DawnElfRacialTalent5
-Dawn Elf Progression level 06		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:6		PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTransformation,TYPE=DawnElfRacialTransformation6
-Dawn Elf Progression level 07		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:7		PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTalent,TYPE=DawnElfRacialTalent7
-Dawn Elf Progression level 08		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:8		PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTransformation,TYPE=DawnElfRacialTransformation8
-Dawn Elf Progression level 09		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:9		PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTalent,TYPE=DawnElfRacialTalent9
-Dawn Elf Progression level 10		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:10		PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTransformation,TYPE=DawnElfRacialTransformation10
+Dawn Elf Progression level 02		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:MIN=2	PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTransformation,TYPE=DawnElfRacialTransformation2
+Dawn Elf Progression level 03		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:MIN=3	PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTalent,TYPE=DawnElfRacialTalent3
+Dawn Elf Progression level 04		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:MIN=4	PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTransformation,TYPE=DawnElfRacialTransformation4
+Dawn Elf Progression level 05		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:MIN=5	PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTalent,TYPE=DawnElfRacialTalent5
+Dawn Elf Progression level 06		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:MIN=6	PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTransformation,TYPE=DawnElfRacialTransformation6
+Dawn Elf Progression level 07		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:MIN=7	PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTalent,TYPE=DawnElfRacialTalent7
+Dawn Elf Progression level 08		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:MIN=8	PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTransformation,TYPE=DawnElfRacialTransformation8
+Dawn Elf Progression level 09		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:MIN=9	PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTalent,TYPE=DawnElfRacialTalent9
+Dawn Elf Progression level 10		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:MIN=10	PRERACE:1,Elf (Dawn)				REMOVABLE:NO	ADD:FEAT|1|TYPE=DawnElfRacialTransformation,TYPE=DawnElfRacialTransformation10
 
 # Night Elf Racial progressions
 Night Elf Progression level 01	VISIBLE:YES	SOURCEPAGE:p.28				PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTalent,TYPE=NightElfRacialTalent1
-Night Elf Progression level 02	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:2		PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTransformation,TYPE=NightElfRacialTransformation2
-Night Elf Progression level 03	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:3		PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTalent,TYPE=NightElfRacialTalent3
-Night Elf Progression level 04	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:4		PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTransformation,TYPE=NightElfRacialTransformation4
-Night Elf Progression level 05	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:5		PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTalent,TYPE=NightElfRacialTalent5
-Night Elf Progression level 06	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:6		PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTransformation,TYPE=NightElfRacialTransformation6
-Night Elf Progression level 07	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:7		PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTalent,TYPE=NightElfRacialTalent7
-Night Elf Progression level 08	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:8		PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTransformation,TYPE=NightElfRacialTransformation8
-Night Elf Progression level 09	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:9		PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTalent,TYPE=NightElfRacialTalent9
-Night Elf Progression level 10	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:10		PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTransformation,TYPE=NightElfRacialTransformation10
+Night Elf Progression level 02	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:MIN=2	PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTransformation,TYPE=NightElfRacialTransformation2
+Night Elf Progression level 03	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:MIN=3	PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTalent,TYPE=NightElfRacialTalent3
+Night Elf Progression level 04	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:MIN=4	PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTransformation,TYPE=NightElfRacialTransformation4
+Night Elf Progression level 05	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:MIN=5	PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTalent,TYPE=NightElfRacialTalent5
+Night Elf Progression level 06	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:MIN=6	PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTransformation,TYPE=NightElfRacialTransformation6
+Night Elf Progression level 07	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:MIN=7	PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTalent,TYPE=NightElfRacialTalent7
+Night Elf Progression level 08	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:MIN=8	PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTransformation,TYPE=NightElfRacialTransformation8
+Night Elf Progression level 09	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:MIN=9	PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTalent,TYPE=NightElfRacialTalent9
+Night Elf Progression level 10	VISIBLE:YES	SOURCEPAGE:p.28	PRELEVEL:MIN=10	PRERACE:1,Elf (Night)				REMOVABLE:NO	ADD:FEAT|1|TYPE=NightElfRacialTransformation,TYPE=NightElfRacialTransformation10
 
 # Gnome Racial progressions
 Gnome Progression level 01		VISIBLE:YES	SOURCEPAGE:p.31				PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTalent,TYPE=GnomeRacialTalent1
-Gnome Progression level 02		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:2		PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTransformation,TYPE=GnomeRacialTransformation2
-Gnome Progression level 03		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:3		PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTalent,TYPE=GnomeRacialTalent3
-Gnome Progression level 04		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:4		PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTransformation,TYPE=GnomeRacialTransformation4
-Gnome Progression level 05		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:5		PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTalent,TYPE=GnomeRacialTalent5
-Gnome Progression level 06		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:6		PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTransformation,TYPE=GnomeRacialTransformation6
-Gnome Progression level 07		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:7		PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTalent,TYPE=GnomeRacialTalent7
-Gnome Progression level 08		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:8		PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTransformation,TYPE=GnomeRacialTransformation8
-Gnome Progression level 09		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:9		PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTalent,TYPE=GnomeRacialTalent9
-Gnome Progression level 10		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:10		PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTransformation,TYPE=GnomeRacialTransformation10
+Gnome Progression level 02		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:MIN=2	PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTransformation,TYPE=GnomeRacialTransformation2
+Gnome Progression level 03		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:MIN=3	PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTalent,TYPE=GnomeRacialTalent3
+Gnome Progression level 04		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:MIN=4	PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTransformation,TYPE=GnomeRacialTransformation4
+Gnome Progression level 05		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:MIN=5	PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTalent,TYPE=GnomeRacialTalent5
+Gnome Progression level 06		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:MIN=6	PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTransformation,TYPE=GnomeRacialTransformation6
+Gnome Progression level 07		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:MIN=7	PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTalent,TYPE=GnomeRacialTalent7
+Gnome Progression level 08		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:MIN=8	PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTransformation,TYPE=GnomeRacialTransformation8
+Gnome Progression level 09		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:MIN=9	PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTalent,TYPE=GnomeRacialTalent9
+Gnome Progression level 10		VISIBLE:YES	SOURCEPAGE:p.31	PRELEVEL:MIN=10	PRERACE:1,Gnome (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=GnomeRacialTransformation,TYPE=GnomeRacialTransformation10
 
 # Halfling Racial progressions
 Halfling Progression level 01		VISIBLE:YES	SOURCEPAGE:p.33				PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTalent,TYPE=HalflRacialTalent1
-Halfling Progression level 02		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:2		PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTransformation,TYPE=HalflRacialTransformation2
-Halfling Progression level 03		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:3		PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTalent,TYPE=HalflRacialTalent3
-Halfling Progression level 04		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:4		PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTransformation,TYPE=HalflRacialTransformation4
-Halfling Progression level 05		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:5		PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTalent,TYPE=HalflRacialTalent5
-Halfling Progression level 06		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:6		PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTransformation,TYPE=HalflRacialTransformation6
-Halfling Progression level 07		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:7		PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTalent,TYPE=HalflRacialTalent7
-Halfling Progression level 08		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:8		PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTransformation,TYPE=HalflRacialTransformation8
-Halfling Progression level 09		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:9		PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTalent,TYPE=HalflRacialTalent9
-Halfling Progression level 10		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:10		PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTransformation,TYPE=HalflRacialTransformation10
+Halfling Progression level 02		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:MIN=2	PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTransformation,TYPE=HalflRacialTransformation2
+Halfling Progression level 03		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:MIN=3	PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTalent,TYPE=HalflRacialTalent3
+Halfling Progression level 04		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:MIN=4	PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTransformation,TYPE=HalflRacialTransformation4
+Halfling Progression level 05		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:MIN=5	PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTalent,TYPE=HalflRacialTalent5
+Halfling Progression level 06		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:MIN=6	PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTransformation,TYPE=HalflRacialTransformation6
+Halfling Progression level 07		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:MIN=7	PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTalent,TYPE=HalflRacialTalent7
+Halfling Progression level 08		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:MIN=8	PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTransformation,TYPE=HalflRacialTransformation8
+Halfling Progression level 09		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:MIN=9	PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTalent,TYPE=HalflRacialTalent9
+Halfling Progression level 10		VISIBLE:YES	SOURCEPAGE:p.33	PRELEVEL:MIN=10	PRERACE:1,Halfling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=HalflRacialTransformation,TYPE=HalflRacialTransformation10
 
 # Highlander Racial progressions
 Highlander Progression level 01	VISIBLE:YES	SOURCEPAGE:p.35				PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTalent,TYPE=HHighlRacialTalent1
-Highlander Progression level 02	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:2		PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTransformation,TYPE=HHighlRacialTransformation2
-Highlander Progression level 03	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:3		PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTalent,TYPE=HHighlRacialTalent3
-Highlander Progression level 04	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:4		PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTransformation,TYPE=HHighlRacialTransformation4
-Highlander Progression level 05	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:5		PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTalent,TYPE=HHighlRacialTalent5
-Highlander Progression level 06	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:6		PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTransformation,TYPE=HHighlRacialTransformation6
-Highlander Progression level 07	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:7		PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTalent,TYPE=HHighlRacialTalent7
-Highlander Progression level 08	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:8		PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTransformation,TYPE=HHighlRacialTransformation8
-Highlander Progression level 09	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:9		PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTalent,TYPE=HHighlRacialTalent9
-Highlander Progression level 10	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:10		PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTransformation,TYPE=HHighlRacialTransformation10
+Highlander Progression level 02	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=2	PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTransformation,TYPE=HHighlRacialTransformation2
+Highlander Progression level 03	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=3	PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTalent,TYPE=HHighlRacialTalent3
+Highlander Progression level 04	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=4	PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTransformation,TYPE=HHighlRacialTransformation4
+Highlander Progression level 05	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=5	PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTalent,TYPE=HHighlRacialTalent5
+Highlander Progression level 06	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=6	PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTransformation,TYPE=HHighlRacialTransformation6
+Highlander Progression level 07	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=7	PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTalent,TYPE=HHighlRacialTalent7
+Highlander Progression level 08	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=8	PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTransformation,TYPE=HHighlRacialTransformation8
+Highlander Progression level 09	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=9	PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTalent,TYPE=HHighlRacialTalent9
+Highlander Progression level 10	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=10	PRERACE:1,Human (Highlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HHighlRacialTransformation,TYPE=HHighlRacialTransformation10
 
 # Lowlander Racial progressions
 Lowlander Progression level 01	VISIBLE:YES	SOURCEPAGE:p.38				PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTalent,TYPE=HLowlRacialTalent1
-Lowlander Progression level 02	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:2		PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTransformation,TYPE=HLowlRacialTransformation2
-Lowlander Progression level 03	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:3		PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTalent,TYPE=HLowlRacialTalent3
-Lowlander Progression level 04	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:4		PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTransformation,TYPE=HLowlRacialTransformation4
-Lowlander Progression level 05	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:5		PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTalent,TYPE=HLowlRacialTalent5
-Lowlander Progression level 06	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:6		PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTransformation,TYPE=HLowlRacialTransformation6
-Lowlander Progression level 07	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:7		PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTalent,TYPE=HLowlRacialTalent7
-Lowlander Progression level 08	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:8		PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTransformation,TYPE=HLowlRacialTransformation8
-Lowlander Progression level 09	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:9		PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTalent,TYPE=HLowlRacialTalent9
-Lowlander Progression level 10	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:10		PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTransformation,TYPE=HLowlRacialTransformation10
+Lowlander Progression level 02	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=2	PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTransformation,TYPE=HLowlRacialTransformation2
+Lowlander Progression level 03	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=3	PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTalent,TYPE=HLowlRacialTalent3
+Lowlander Progression level 04	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=4	PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTransformation,TYPE=HLowlRacialTransformation4
+Lowlander Progression level 05	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=5	PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTalent,TYPE=HLowlRacialTalent5
+Lowlander Progression level 06	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=6	PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTransformation,TYPE=HLowlRacialTransformation6
+Lowlander Progression level 07	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=7	PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTalent,TYPE=HLowlRacialTalent7
+Lowlander Progression level 08	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=8	PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTransformation,TYPE=HLowlRacialTransformation8
+Lowlander Progression level 09	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=9	PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTalent,TYPE=HLowlRacialTalent9
+Lowlander Progression level 10	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=10	PRERACE:1,Human (Lowlander)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HLowlRacialTransformation,TYPE=HLowlRacialTransformation10
 
 # Saltblood Racial progressions
 Saltblood Progression level 01	VISIBLE:YES	SOURCEPAGE:p.40				PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTalent,TYPE=HSaltRacialTalent1
-Saltblood Progression level 02	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:2		PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTransformation,TYPE=HSaltRacialTransformation2
-Saltblood Progression level 03	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:3		PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTalent,TYPE=HSaltRacialTalent3
-Saltblood Progression level 04	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:4		PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTransformation,TYPE=HSaltRacialTransformation4
-Saltblood Progression level 05	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:5		PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTalent,TYPE=HSaltRacialTalent5
-Saltblood Progression level 06	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:6		PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTransformation,TYPE=HSaltRacialTransformation6
-Saltblood Progression level 07	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:7		PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTalent,TYPE=HSaltRacialTalent7
-Saltblood Progression level 08	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:8		PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTransformation,TYPE=HSaltRacialTransformation8
-Saltblood Progression level 09	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:9		PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTalent,TYPE=HSaltRacialTalent9
-Saltblood Progression level 10	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:10		PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTransformation,TYPE=HSaltRacialTransformation10
+Saltblood Progression level 02	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:MIN=2	PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTransformation,TYPE=HSaltRacialTransformation2
+Saltblood Progression level 03	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:MIN=3	PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTalent,TYPE=HSaltRacialTalent3
+Saltblood Progression level 04	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:MIN=4	PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTransformation,TYPE=HSaltRacialTransformation4
+Saltblood Progression level 05	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:MIN=5	PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTalent,TYPE=HSaltRacialTalent5
+Saltblood Progression level 06	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:MIN=6	PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTransformation,TYPE=HSaltRacialTransformation6
+Saltblood Progression level 07	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:MIN=7	PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTalent,TYPE=HSaltRacialTalent7
+Saltblood Progression level 08	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:MIN=8	PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTransformation,TYPE=HSaltRacialTransformation8
+Saltblood Progression level 09	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:MIN=9	PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTalent,TYPE=HSaltRacialTalent9
+Saltblood Progression level 10	VISIBLE:YES	SOURCEPAGE:p.40	PRELEVEL:MIN=10	PRERACE:1,Human (Saltblood)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HSaltRacialTransformation,TYPE=HSaltRacialTransformation10
 
 # Trueborn Racial progressions
 Trueborn Progression level 01		VISIBLE:YES	SOURCEPAGE:p.43				PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTalent,TYPE=HTrueRacialTalent1
-Trueborn Progression level 02		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:2		PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTransformation,TYPE=HTrueRacialTransformation2
-Trueborn Progression level 03		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:3		PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTalent,TYPE=HTrueRacialTalent3
-Trueborn Progression level 04		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:4		PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTransformation,TYPE=HTrueRacialTransformation4
-Trueborn Progression level 05		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:5		PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTalent,TYPE=HTrueRacialTalent5
-Trueborn Progression level 06		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:6		PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTransformation,TYPE=HTrueRacialTransformation6
-Trueborn Progression level 07		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:7		PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTalent,TYPE=HTrueRacialTalent7
-Trueborn Progression level 08		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:8		PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTransformation,TYPE=HTrueRacialTransformation8
-Trueborn Progression level 09		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:9		PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTalent,TYPE=HTrueRacialTalent9
-Trueborn Progression level 10		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:10		PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTransformation,TYPE=HTrueRacialTransformation10
+Trueborn Progression level 02		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:MIN=2	PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTransformation,TYPE=HTrueRacialTransformation2
+Trueborn Progression level 03		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:MIN=3	PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTalent,TYPE=HTrueRacialTalent3
+Trueborn Progression level 04		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:MIN=4	PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTransformation,TYPE=HTrueRacialTransformation4
+Trueborn Progression level 05		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:MIN=5	PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTalent,TYPE=HTrueRacialTalent5
+Trueborn Progression level 06		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:MIN=6	PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTransformation,TYPE=HTrueRacialTransformation6
+Trueborn Progression level 07		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:MIN=7	PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTalent,TYPE=HTrueRacialTalent7
+Trueborn Progression level 08		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:MIN=8	PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTransformation,TYPE=HTrueRacialTransformation8
+Trueborn Progression level 09		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:MIN=9	PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTalent,TYPE=HTrueRacialTalent9
+Trueborn Progression level 10		VISIBLE:YES	SOURCEPAGE:p.43	PRELEVEL:MIN=10	PRERACE:1,Human (Trueborn)			REMOVABLE:NO	ADD:FEAT|1|TYPE=HTrueRacialTransformation,TYPE=HTrueRacialTransformation10
 
 # Lizardfolk Racial progressions
 Lizardfolk Progression level 01	VISIBLE:YES	SOURCEPAGE:p.45				PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTalent,TYPE=LizardRacialTalent1
-Lizardfolk Progression level 02	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:2		PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTransformation,TYPE=LizardRacialTransformation2
-Lizardfolk Progression level 03	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:3		PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTalent,TYPE=LizardRacialTalent3
-Lizardfolk Progression level 04	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:4		PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTransformation,TYPE=LizardRacialTransformation4
-Lizardfolk Progression level 05	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:5		PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTalent,TYPE=LizardRacialTalent5
-Lizardfolk Progression level 06	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:6		PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTransformation,TYPE=LizardRacialTransformation6
-Lizardfolk Progression level 07	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:7		PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTalent,TYPE=LizardRacialTalent7
-Lizardfolk Progression level 08	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:8		PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTransformation,TYPE=LizardRacialTransformation8
-Lizardfolk Progression level 09	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:9		PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTalent,TYPE=LizardRacialTalent9
-Lizardfolk Progression level 10	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:10		PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTransformation,TYPE=LizardRacialTransformation10
+Lizardfolk Progression level 02	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:MIN=2	PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTransformation,TYPE=LizardRacialTransformation2
+Lizardfolk Progression level 03	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:MIN=3	PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTalent,TYPE=LizardRacialTalent3
+Lizardfolk Progression level 04	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:MIN=4	PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTransformation,TYPE=LizardRacialTransformation4
+Lizardfolk Progression level 05	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:MIN=5	PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTalent,TYPE=LizardRacialTalent5
+Lizardfolk Progression level 06	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:MIN=6	PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTransformation,TYPE=LizardRacialTransformation6
+Lizardfolk Progression level 07	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:MIN=7	PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTalent,TYPE=LizardRacialTalent7
+Lizardfolk Progression level 08	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:MIN=8	PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTransformation,TYPE=LizardRacialTransformation8
+Lizardfolk Progression level 09	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:MIN=9	PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTalent,TYPE=LizardRacialTalent9
+Lizardfolk Progression level 10	VISIBLE:YES	SOURCEPAGE:p.45	PRELEVEL:MIN=10	PRERACE:1,Lizardfolk (DF)			REMOVABLE:NO	ADD:FEAT|1|TYPE=LizardRacialTransformation,TYPE=LizardRacialTransformation10
 
 # Minotaur Racial progressions
 Minotaur Progression level 01		VISIBLE:YES	SOURCEPAGE:p.47				PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTalent,TYPE=MinotaurRacialTalent1
-Minotaur Progression level 02		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:2		PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTransformation,TYPE=MinotaurRacialTransformation2
-Minotaur Progression level 03		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:3		PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTalent,TYPE=MinotaurRacialTalent3
-Minotaur Progression level 04		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:4		PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTransformation,TYPE=MinotaurRacialTransformation4
-Minotaur Progression level 05		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:5		PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTalent,TYPE=MinotaurRacialTalent5
-Minotaur Progression level 06		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:6		PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTransformation,TYPE=MinotaurRacialTransformation6
-Minotaur Progression level 07		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:7		PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTalent,TYPE=MinotaurRacialTalent7
-Minotaur Progression level 08		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:8		PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTransformation,TYPE=MinotaurRacialTransformation8
-Minotaur Progression level 09		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:9		PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTalent,TYPE=MinotaurRacialTalent9
-Minotaur Progression level 10		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:10		PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTransformation,TYPE=MinotaurRacialTransformation10
+Minotaur Progression level 02		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:MIN=2	PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTransformation,TYPE=MinotaurRacialTransformation2
+Minotaur Progression level 03		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:MIN=3	PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTalent,TYPE=MinotaurRacialTalent3
+Minotaur Progression level 04		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:MIN=4	PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTransformation,TYPE=MinotaurRacialTransformation4
+Minotaur Progression level 05		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:MIN=5	PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTalent,TYPE=MinotaurRacialTalent5
+Minotaur Progression level 06		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:MIN=6	PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTransformation,TYPE=MinotaurRacialTransformation6
+Minotaur Progression level 07		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:MIN=7	PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTalent,TYPE=MinotaurRacialTalent7
+Minotaur Progression level 08		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:MIN=8	PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTransformation,TYPE=MinotaurRacialTransformation8
+Minotaur Progression level 09		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:MIN=9	PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTalent,TYPE=MinotaurRacialTalent9
+Minotaur Progression level 10		VISIBLE:YES	SOURCEPAGE:p.47	PRELEVEL:MIN=10	PRERACE:1,Minotaur (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=MinotaurRacialTransformation,TYPE=MinotaurRacialTransformation10
 
 # Ogre Racial progressions
 Ogre Progression level 01		VISIBLE:YES	SOURCEPAGE:p.49				PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTalent,TYPE=OgreRacialTalent1
-Ogre Progression level 02		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:2		PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTransformation,TYPE=OgreRacialTransformation2
-Ogre Progression level 03		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:3		PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTalent,TYPE=OgreRacialTalent3
-Ogre Progression level 04		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:4		PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTransformation,TYPE=OgreRacialTransformation4
-Ogre Progression level 05		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:5		PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTalent,TYPE=OgreRacialTalent5
-Ogre Progression level 06		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:6		PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTransformation,TYPE=OgreRacialTransformation6
-Ogre Progression level 07		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:7		PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTalent,TYPE=OgreRacialTalent7
-Ogre Progression level 08		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:8		PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTransformation,TYPE=OgreRacialTransformation8
-Ogre Progression level 09		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:9		PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTalent,TYPE=OgreRacialTalent9
-Ogre Progression level 10		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:10		PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTransformation,TYPE=OgreRacialTransformation10
+Ogre Progression level 02		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:MIN=2	PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTransformation,TYPE=OgreRacialTransformation2
+Ogre Progression level 03		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:MIN=3	PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTalent,TYPE=OgreRacialTalent3
+Ogre Progression level 04		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:MIN=4	PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTransformation,TYPE=OgreRacialTransformation4
+Ogre Progression level 05		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:MIN=5	PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTalent,TYPE=OgreRacialTalent5
+Ogre Progression level 06		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:MIN=6	PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTransformation,TYPE=OgreRacialTransformation6
+Ogre Progression level 07		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:MIN=7	PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTalent,TYPE=OgreRacialTalent7
+Ogre Progression level 08		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:MIN=8	PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTransformation,TYPE=OgreRacialTransformation8
+Ogre Progression level 09		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:MIN=9	PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTalent,TYPE=OgreRacialTalent9
+Ogre Progression level 10		VISIBLE:YES	SOURCEPAGE:p.49	PRELEVEL:MIN=10	PRERACE:1,Ogre (Stormfells),Ogre (Wild)	REMOVABLE:NO	ADD:FEAT|1|TYPE=OgreRacialTransformation,TYPE=OgreRacialTransformation10
 
 # Orc Racial progressions
 Orc Progression level 01		VISIBLE:YES	SOURCEPAGE:p.51				PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTalent,TYPE=OrcRacialTalent1
-Orc Progression level 02		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:2		PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTransformation,TYPE=OrcRacialTransformation2
-Orc Progression level 03		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:3		PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTalent,TYPE=OrcRacialTalent3
-Orc Progression level 04		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:4		PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTransformation,TYPE=OrcRacialTransformation4
-Orc Progression level 05		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:5		PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTalent,TYPE=OrcRacialTalent5
-Orc Progression level 06		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:6		PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTransformation,TYPE=OrcRacialTransformation6
-Orc Progression level 07		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:7		PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTalent,TYPE=OrcRacialTalent7
-Orc Progression level 08		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:8		PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTransformation,TYPE=OrcRacialTransformation8
-Orc Progression level 09		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:9		PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTalent,TYPE=OrcRacialTalent9
-Orc Progression level 10		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:10		PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTransformation,TYPE=OrcRacialTransformation10
+Orc Progression level 02		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:MIN=2	PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTransformation,TYPE=OrcRacialTransformation2
+Orc Progression level 03		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:MIN=3	PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTalent,TYPE=OrcRacialTalent3
+Orc Progression level 04		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:MIN=4	PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTransformation,TYPE=OrcRacialTransformation4
+Orc Progression level 05		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:MIN=5	PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTalent,TYPE=OrcRacialTalent5
+Orc Progression level 06		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:MIN=6	PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTransformation,TYPE=OrcRacialTransformation6
+Orc Progression level 07		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:MIN=7	PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTalent,TYPE=OrcRacialTalent7
+Orc Progression level 08		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:MIN=8	PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTransformation,TYPE=OrcRacialTransformation8
+Orc Progression level 09		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:MIN=9	PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTalent,TYPE=OrcRacialTalent9
+Orc Progression level 10		VISIBLE:YES	SOURCEPAGE:p.51	PRELEVEL:MIN=10	PRERACE:1,Orc (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=OrcRacialTransformation,TYPE=OrcRacialTransformation10
 
 # Tiefling Racial progressions
 Tiefling Progression level 01		VISIBLE:YES	SOURCEPAGE:p.53				PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTalent,TYPE=TieflingRacialTalent1
-Tiefling Progression level 02		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:2		PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTransformation,TYPE=TieflingRacialTransformation2
-Tiefling Progression level 03		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:3		PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTalent,TYPE=TieflingRacialTalent3
-Tiefling Progression level 04		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:4		PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTransformation,TYPE=TieflingRacialTransformation4
-Tiefling Progression level 05		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:5		PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTalent,TYPE=TieflingRacialTalent5
-Tiefling Progression level 06		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:6		PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTransformation,TYPE=TieflingRacialTransformation6
-Tiefling Progression level 07		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:7		PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTalent,TYPE=TieflingRacialTalent7
-Tiefling Progression level 08		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:8		PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTransformation,TYPE=TieflingRacialTransformation8
-Tiefling Progression level 09		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:9		PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTalent,TYPE=TieflingRacialTalent9
-Tiefling Progression level 10		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:10		PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTransformation,TYPE=TieflingRacialTransformation10
+Tiefling Progression level 02		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:MIN=2	PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTransformation,TYPE=TieflingRacialTransformation2
+Tiefling Progression level 03		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:MIN=3	PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTalent,TYPE=TieflingRacialTalent3
+Tiefling Progression level 04		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:MIN=4	PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTransformation,TYPE=TieflingRacialTransformation4
+Tiefling Progression level 05		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:MIN=5	PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTalent,TYPE=TieflingRacialTalent5
+Tiefling Progression level 06		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:MIN=6	PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTransformation,TYPE=TieflingRacialTransformation6
+Tiefling Progression level 07		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:MIN=7	PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTalent,TYPE=TieflingRacialTalent7
+Tiefling Progression level 08		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:MIN=8	PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTransformation,TYPE=TieflingRacialTransformation8
+Tiefling Progression level 09		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:MIN=9	PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTalent,TYPE=TieflingRacialTalent9
+Tiefling Progression level 10		VISIBLE:YES	SOURCEPAGE:p.53	PRELEVEL:MIN=10	PRERACE:1,Tiefling (DF)				REMOVABLE:NO	ADD:FEAT|1|TYPE=TieflingRacialTransformation,TYPE=TieflingRacialTransformation10
 
 # Thinblood Racial progressions
 Thinblood Progression level 01	VISIBLE:YES	SOURCEPAGE:p.56				PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTalent,TYPE=ThinbloodRacialTalent1
-Thinblood Progression level 02	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:2		PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTransformation,TYPE=ThinbloodRacialTransformation2
-Thinblood Progression level 03	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:3		PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTalent,TYPE=ThinbloodRacialTalent3
-Thinblood Progression level 04	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:4		PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTransformation,TYPE=ThinbloodRacialTransformation4
-Thinblood Progression level 05	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:5		PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTalent,TYPE=ThinbloodRacialTalent5
-Thinblood Progression level 06	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:6		PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTransformation,TYPE=ThinbloodRacialTransformation6
-Thinblood Progression level 07	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:7		PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTalent,TYPE=ThinbloodRacialTalent7
-Thinblood Progression level 08	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:8		PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTransformation,TYPE=ThinbloodRacialTransformation8
-Thinblood Progression level 09	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:9		PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTalent,TYPE=ThinbloodRacialTalent9
-Thinblood Progression level 10	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:10		PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTransformation,TYPE=ThinbloodRacialTransformation10
+Thinblood Progression level 02	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:MIN=2	PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTransformation,TYPE=ThinbloodRacialTransformation2
+Thinblood Progression level 03	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:MIN=3	PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTalent,TYPE=ThinbloodRacialTalent3
+Thinblood Progression level 04	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:MIN=4	PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTransformation,TYPE=ThinbloodRacialTransformation4
+Thinblood Progression level 05	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:MIN=5	PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTalent,TYPE=ThinbloodRacialTalent5
+Thinblood Progression level 06	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:MIN=6	PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTransformation,TYPE=ThinbloodRacialTransformation6
+Thinblood Progression level 07	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:MIN=7	PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTalent,TYPE=ThinbloodRacialTalent7
+Thinblood Progression level 08	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:MIN=8	PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTransformation,TYPE=ThinbloodRacialTransformation8
+Thinblood Progression level 09	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:MIN=9	PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTalent,TYPE=ThinbloodRacialTalent9
+Thinblood Progression level 10	VISIBLE:YES	SOURCEPAGE:p.56	PRELEVEL:MIN=10	PRERACE:1,Thinblood				REMOVABLE:NO	ADD:FEAT|1|TYPE=ThinbloodRacialTransformation,TYPE=ThinbloodRacialTransformation10
 
 
 

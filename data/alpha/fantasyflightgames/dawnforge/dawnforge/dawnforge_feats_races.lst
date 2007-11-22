@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 21 21:19:46 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -79,15 +79,15 @@ Transformation +1 on Use Rope		TYPE:TransfSkill.HalflTransfSkill.HSaltTransfSkil
 #####################
 
 ###Block: Generic Racial Talents
-# Feat Name			Type																							Visible	Required Class				Required Lvl	Special Ability	Multiple?	Template				Source Page
+# Feat Name			Type																							Visible	Required Class				Required Lvl	Special ABility		Multiple?	Template				Source Page
 Arcane Mastery		TYPE:RacialTalent.DawnElfRacialTalent.NightElfRacialTalent.GnomeRacialTalent.HalflRacialTalent.HLowlRacialTalent.TieflingRacialTalent	VISIBLE:NO	PRECLASS:1,SPELLCASTER.Arcane=1				SAB:Arcane Mastery	MULT:NO						SOURCEPAGE:p.25
 Divine Mastery		TYPE:RacialTalent.DwarfRacialTalent.GnomeRacialTalent.HLowlRacialTalent.HTrueRacialTalent									VISIBLE:NO	PRECLASS:1,SPELLCASTER.Divine=1				SAB:Divine Mastery	MULT:NO						SOURCEPAGE:p.22
-Fast Learner		TYPE:RacialTalent.HalflRacialTalent.HHighlRacialTalent.HLowlRacialTalent.HSaltRacialTalent								VISIBLE:NO										SAB:Fast Learner	MULT:NO						SOURCEPAGE:p.32
+Fast Learner		TYPE:RacialTalent.HalflRacialTalent.HHighlRacialTalent.HLowlRacialTalent.HSaltRacialTalent								VISIBLE:NO										SAB:Fast Learner		MULT:NO						SOURCEPAGE:p.32
 
 ### Generic Racial Transformations
-# Feat Name			Type																							Visible	Required Class				Required Lvl	Special Ability	Multiple?	Template				Source Page
-Monstrous Humanoid	TYPE:MinotaurRacialTransformation.DoppelRacialTransformation													VISIBLE:NO							PRELEVEL:6					MULT:NO	TEMPLATE:Monstrous Humanoid	SOURCEPAGE:p.47
-#Darkvision					TYPE:RacialTransformation		MULT:NO			VISIBLE:NO							BONUS:VISION|DarkVision|60						SOURCEPAGE:p.22							PRELEVEL:4
+# Feat Name			Type																							Visible	Required Class				Required Lvl	Special ABility		Multiple?	Template				Source Page
+Monstrous Humanoid	TYPE:MinotaurRacialTransformation.DoppelRacialTransformation													VISIBLE:NO							PRELEVEL:MIN=6					MULT:NO	TEMPLATE:Monstrous Humanoid	SOURCEPAGE:p.47
+#Darkvision					TYPE:RacialTransformation		MULT:NO			VISIBLE:NO							BONUS:VISION|DarkVision|60						SOURCEPAGE:p.22							PRELEVEL:MIN=4
 #Turns out that Darkvision has different prereqs for different races:(
 
 ####################
@@ -95,37 +95,37 @@ Monstrous Humanoid	TYPE:MinotaurRacialTransformation.DoppelRacialTransformation	
 ####################
 
 ###Block: Racial Talents and Transformations
-# Feat Name				Type					Visible	Required Feat					Prohibited Feat					Required Lvl	Special Ability		Stackable?	Multiple?	Template				Add																																																																	Source Page
-Base Alternate Form		TYPE:DoppelBaseAltForm		VISIBLE:NO																								MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
-Alternate Form 1			TYPE:DoppelRacialTalent1	VISIBLE:NO																								MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
-Alternate Form 3			TYPE:DoppelRacialTalent3	VISIBLE:NO																								MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
-Alternate Form 5			TYPE:DoppelRacialTalent5	VISIBLE:NO																								MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
-Alternate Form 7			TYPE:DoppelRacialTalent7	VISIBLE:NO																								MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
-Alternate Form 9			TYPE:DoppelRacialTalent9	VISIBLE:NO																								MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
-Form Mastery			TYPE:DoppelRacialTalent		VISIBLE:NO	PREFEAT:2,Quick Form,TYPE=DoppelAltForm								PRELEVEL:7		SAB:Form Mastery				MULT:NO																																																																							SOURCEPAGE:p.19
-Deception				TYPE:DoppelRacialTalent		VISIBLE:NO																		SAB:Deception				MULT:NO	TEMPLATE:Deception Talent																																																																		SOURCEPAGE:p.19
+# Feat Name				Type					Visible	Required Feat					Prohibited Feat					Required Lvl	Special ABility			Stackable?	Multiple?	Template				Add																																																																	Source Page
+Base Alternate Form		TYPE:DoppelBaseAltForm		VISIBLE:NO																									MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
+Alternate Form 1			TYPE:DoppelRacialTalent1	VISIBLE:NO																									MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
+Alternate Form 3			TYPE:DoppelRacialTalent3	VISIBLE:NO																									MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
+Alternate Form 5			TYPE:DoppelRacialTalent5	VISIBLE:NO																									MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
+Alternate Form 7			TYPE:DoppelRacialTalent7	VISIBLE:NO																									MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
+Alternate Form 9			TYPE:DoppelRacialTalent9	VISIBLE:NO																									MULT:NO						ADD:FEAT|1|TYPE=DoppelAltForm																																																													SOURCEPAGE:p.19
+Form Mastery			TYPE:DoppelRacialTalent		VISIBLE:NO	PREFEAT:2,Quick Form,TYPE=DoppelAltForm								PRELEVEL:MIN=7	SAB:Form Mastery					MULT:NO																																																																							SOURCEPAGE:p.19
+Deception				TYPE:DoppelRacialTalent		VISIBLE:NO																		SAB:Deception					MULT:NO	TEMPLATE:Deception Talent																																																																		SOURCEPAGE:p.19
 Improvised Equipment		TYPE:DoppelRacialTalent		VISIBLE:NO																		SAB:Improvised Equipment			MULT:NO																																																																							SOURCEPAGE:p.19
-Quick Form				TYPE:DoppelRacialTalent		VISIBLE:NO																		SAB:Quick Form				MULT:NO																																																																							SOURCEPAGE:p.20
-Doppelganger Talent Feats 1	TYPE:DoppelRacialTalent1	VISIBLE:NO																								MULT:NO						ADD:FEAT|1|TYPE=ItemCreation,Improved Initiative																																																									SOURCEPAGE:p.20
-Doppelganger Talent Feats 3	TYPE:DoppelRacialTalent3	VISIBLE:NO								!PREFEAT:1,Doppelganger Talent Feats 1										MULT:NO						ADD:FEAT|1|TYPE=ItemCreation,Improved Initiative																																																									SOURCEPAGE:p.20
-Doppelganger Talent Feats 5	TYPE:DoppelRacialTalent5	VISIBLE:NO								!PREFEAT:1,Doppelganger Talent Feats 3										MULT:NO						ADD:FEAT|1|TYPE=ItemCreation,Improved Initiative																																																									SOURCEPAGE:p.20
-Doppelganger Talent Feats 7	TYPE:DoppelRacialTalent7	VISIBLE:NO								!PREFEAT:1,Doppelganger Talent Feats 5										MULT:NO						ADD:FEAT|1|TYPE=ItemCreation,Improved Initiative																																																									SOURCEPAGE:p.20
-Doppelganger Talent Feats 9	TYPE:DoppelRacialTalent9	VISIBLE:NO								!PREFEAT:1,Doppelganger Talent Feats 7										MULT:NO						ADD:FEAT|1|TYPE=ItemCreation,Improved Initiative																																																									SOURCEPAGE:p.20
-Doppelganger Talent Skills 1	TYPE:DoppelRacialTalent1	VISIBLE:NO																						STACK:NO	MULT:NO						ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.20
-Doppelganger Talent Skills 3	TYPE:DoppelRacialTalent3	VISIBLE:NO																						STACK:NO	MULT:NO						ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.20
-Doppelganger Talent Skills 5	TYPE:DoppelRacialTalent5	VISIBLE:NO																						STACK:NO	MULT:NO						ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.20
-Doppelganger Talent Skills 7	TYPE:DoppelRacialTalent7	VISIBLE:NO																						STACK:NO	MULT:NO						ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.20
-Doppelganger Talent Skills 9	TYPE:DoppelRacialTalent9	VISIBLE:NO																						STACK:NO	MULT:NO						ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.20
+Quick Form				TYPE:DoppelRacialTalent		VISIBLE:NO																		SAB:Quick Form					MULT:NO																																																																							SOURCEPAGE:p.20
+Doppelganger Talent Feats 1	TYPE:DoppelRacialTalent1	VISIBLE:NO																									MULT:NO						ADD:FEAT|1|TYPE=ItemCreation,Improved Initiative																																																									SOURCEPAGE:p.20
+Doppelganger Talent Feats 3	TYPE:DoppelRacialTalent3	VISIBLE:NO								!PREFEAT:1,Doppelganger Talent Feats 1											MULT:NO						ADD:FEAT|1|TYPE=ItemCreation,Improved Initiative																																																									SOURCEPAGE:p.20
+Doppelganger Talent Feats 5	TYPE:DoppelRacialTalent5	VISIBLE:NO								!PREFEAT:1,Doppelganger Talent Feats 3											MULT:NO						ADD:FEAT|1|TYPE=ItemCreation,Improved Initiative																																																									SOURCEPAGE:p.20
+Doppelganger Talent Feats 7	TYPE:DoppelRacialTalent7	VISIBLE:NO								!PREFEAT:1,Doppelganger Talent Feats 5											MULT:NO						ADD:FEAT|1|TYPE=ItemCreation,Improved Initiative																																																									SOURCEPAGE:p.20
+Doppelganger Talent Feats 9	TYPE:DoppelRacialTalent9	VISIBLE:NO								!PREFEAT:1,Doppelganger Talent Feats 7											MULT:NO						ADD:FEAT|1|TYPE=ItemCreation,Improved Initiative																																																									SOURCEPAGE:p.20
+Doppelganger Talent Skills 1	TYPE:DoppelRacialTalent1	VISIBLE:NO																							STACK:NO	MULT:NO						ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.20
+Doppelganger Talent Skills 3	TYPE:DoppelRacialTalent3	VISIBLE:NO																							STACK:NO	MULT:NO						ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.20
+Doppelganger Talent Skills 5	TYPE:DoppelRacialTalent5	VISIBLE:NO																							STACK:NO	MULT:NO						ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.20
+Doppelganger Talent Skills 7	TYPE:DoppelRacialTalent7	VISIBLE:NO																							STACK:NO	MULT:NO						ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.20
+Doppelganger Talent Skills 9	TYPE:DoppelRacialTalent9	VISIBLE:NO																							STACK:NO	MULT:NO						ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DoppelTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.20
 #TODO: Talent feats from the choosen form,...
 
 ###Block: Racial Transformations
-# Feat Name						Type						Visible	Prohibited Feat						Required Lvl	Special Ability						Define				Stackable?	Multiple?	Choose							Add																														Combat bonus					Add to vision			Modify VAR				Source Page
-Doppelganger Darkvision				TYPE:DoppelRacialTransformation	VISIBLE:NO									PRELEVEL:4																	MULT:NO																																														BONUS:VISION|DarkVision|60						SOURCEPAGE:p.20
-Detect Thoughts					TYPE:DoppelRacialTransformation	VISIBLE:NO									PRELEVEL:6		SAB:Detect Thoughts												MULT:NO																																																								SOURCEPAGE:p.20
+# Feat Name						Type						Visible	Prohibited Feat						Required Lvl	Special ABility						Define				Stackable?	Multiple?	Choose							Add																														Combat bonus					Add to vision			Modify VAR				Source Page
+Doppelganger Darkvision				TYPE:DoppelRacialTransformation	VISIBLE:NO									PRELEVEL:MIN=4																MULT:NO																																														BONUS:VISION|DarkVision|60						SOURCEPAGE:p.20
+Detect Thoughts					TYPE:DoppelRacialTransformation	VISIBLE:NO									PRELEVEL:MIN=6	SAB:Detect Thoughts												MULT:NO																																																								SOURCEPAGE:p.20
 Unusal Physiology					TYPE:Special				VISIBLE:NO												SAB:Unusal Physiology (%pct.)|UnusalPhysiology	DEFINE:UnusalPhysiology|0			MULT:NO																																																								SOURCEPAGE:p.20
 Doppelganger Unusal Physiology		TYPE:DoppelRacialTransformation	VISIBLE:NO																									STACK:YES	MULT:YES	CHOOSE:+10% chance to negate critical hit		ADD:FEAT|1|Unusal Physiology																																						BONUS:VAR|UnusalPhysiology|10	SOURCEPAGE:p.20
-Change Shape					TYPE:Special				VISIBLE:NO												SAB:Change Shape (%/day)|ChangeShape			DEFINE:ChangeShape|0				MULT:NO																																																								SOURCEPAGE:p.20
-Doppelganger Change Shape			TYPE:DoppelRacialTransformation	VISIBLE:NO									PRELEVEL:6															STACK:YES	MULT:YES	CHOOSE:Change shape one additional time per day	ADD:FEAT|1|Change Shape																																							BONUS:VAR|ChangeShape|1		SOURCEPAGE:p.20
+Change Shape					TYPE:Special				VISIBLE:NO												SAB:Change Shape (%/day)|ChangeShape		DEFINE:ChangeShape|0				MULT:NO																																																								SOURCEPAGE:p.20
+Doppelganger Change Shape			TYPE:DoppelRacialTransformation	VISIBLE:NO									PRELEVEL:MIN=6														STACK:YES	MULT:YES	CHOOSE:Change shape one additional time per day	ADD:FEAT|1|Change Shape																																							BONUS:VAR|ChangeShape|1		SOURCEPAGE:p.20
 Doppelganger Natural Armor			TYPE:DoppelRacialTransformation	VISIBLE:NO																											MULT:NO																																							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											SOURCEPAGE:p.20
 Doppelganger Transformation Feats 4		TYPE:DoppelRacialTransformation4	VISIBLE:NO																											MULT:NO									ADD:FEAT|1|Dodge,Endurance,Great Fortitude																																								SOURCEPAGE:p.20
 Doppelganger Transformation Feats 6		TYPE:DoppelRacialTransformation6	VISIBLE:NO	!PREFEAT:1,Doppelganger Transformation Feats 4																			MULT:NO									ADD:FEAT|1|Dodge,Endurance,Great Fortitude																																								SOURCEPAGE:p.20
@@ -143,9 +143,9 @@ Doppelganger Transformation Skills 10	TYPE:DoppelRacialTransformation10	VISIBLE:
 #################
 
 ###Block: Racial Talents and Transformations
-# Feat Name				Type				Visible	Required Feat					Prohibited Feat				Required Lvl	Special Ability				Stackable?	Multiple?	Choose							Add																																																																	Modify VAR				Class Skill					Source Page
+# Feat Name				Type				Visible	Required Feat					Prohibited Feat				Required Lvl	Special ABility				Stackable?	Multiple?	Choose							Add																																																																	Modify VAR				Class Skill					Source Page
 Craft Magic Arms and Armor I	TYPE:DwarfRacialTalent	VISIBLE:NO	PREFEAT:1,Identify Magic Arms and Armor										SAB:Craft Magic Arms and Armor I			MULT:NO																																																																																					SOURCEPAGE:p.22
-Craft Magic Arms and Armor II	TYPE:DwarfRacialTalent	VISIBLE:NO	PREFEAT:1,Craft Magic Arms and Armor I							PRELEVEL:7		SAB:Craft Magic Arms and Armor II			MULT:NO																																																																																					SOURCEPAGE:p.22
+Craft Magic Arms and Armor II	TYPE:DwarfRacialTalent	VISIBLE:NO	PREFEAT:1,Craft Magic Arms and Armor I							PRELEVEL:MIN=7	SAB:Craft Magic Arms and Armor II			MULT:NO																																																																																					SOURCEPAGE:p.22
 Giant Fighter			TYPE:DwarfRacialTalent	VISIBLE:NO																							STACK:YES	MULT:YES	CHOOSE:+1 on all attack rolls against giants																																																																		BONUS:VAR|DwarfGiantFighter|1							SOURCEPAGE:p.22
 Identify Magic Arms and Armor	TYPE:DwarfRacialTalent	VISIBLE:NO																	SAB:Identify Magic Arms and Armor			MULT:NO																																																																																					SOURCEPAGE:p.22
 Sabotage				TYPE:DwarfRacialTalent	VISIBLE:NO																									MULT:NO																																																																															CSKILL:Disable Device|Open Lock	SOURCEPAGE:p.22
@@ -161,13 +161,13 @@ Dwarf Talent Skills 7		TYPE:DwarfRacialTalent7	VISIBLE:NO																							
 Dwarf Talent Skills 9		TYPE:DwarfRacialTalent9	VISIBLE:NO																							STACK:NO	MULT:NO									ADD:FEAT|1|TYPE=DwarfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DwarfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DwarfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DwarfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DwarfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill												SOURCEPAGE:p.22
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Prohibited Feat					Required Lvl	Special Ability		Stackable?	Multiple?	Move			Add																														Damage reduction	Bonus to skill				Add to vision			Source Page
+# Feat Name					Type						Visible	Prohibited Feat					Required Lvl	Special ABility		Stackable?	Multiple?	Move			Add																														Damage reduction	Bonus to skill				Add to vision			Source Page
 Dwarf Damage Reduction 2		TYPE:DwarfRacialTransformation2	VISIBLE:NO																	MULT:NO																																		BONUS:DR|-|1												SOURCEPAGE:p.22
 Dwarf Damage Reduction 4		TYPE:DwarfRacialTransformation4	VISIBLE:NO	!PREFEAT:1,Dwarf Damage Reduction 2											MULT:NO																																		BONUS:DR|-|1												SOURCEPAGE:p.22
 Dwarf Damage Reduction 6		TYPE:DwarfRacialTransformation6	VISIBLE:NO	!PREFEAT:1,Dwarf Damage Reduction 4											MULT:NO																																		BONUS:DR|-|1												SOURCEPAGE:p.22
 Dwarf Damage Reduction 8		TYPE:DwarfRacialTransformation8	VISIBLE:NO	!PREFEAT:1,Dwarf Damage Reduction 6											MULT:NO																																		BONUS:DR|-|1												SOURCEPAGE:p.22
 Dwarf Damage Reduction 10		TYPE:DwarfRacialTransformation10	VISIBLE:NO	!PREFEAT:1,Dwarf Damage Reduction 8											MULT:NO																																		BONUS:DR|-|1												SOURCEPAGE:p.22
-Dwarf Darkvision				TYPE:DwarfRacialTransformation	VISIBLE:NO								PRELEVEL:4								MULT:NO																																											BONUS:VISION|DarkVision|60	SOURCEPAGE:p.22
+Dwarf Darkvision				TYPE:DwarfRacialTransformation	VISIBLE:NO								PRELEVEL:MIN=4							MULT:NO																																											BONUS:VISION|DarkVision|60	SOURCEPAGE:p.22
 Improved Climber				TYPE:DwarfRacialTransformation	VISIBLE:NO											SAB:Improved Climber			MULT:NO	MOVE:Climb,10																																		BONUS:SKILL|Climb|8|TYPE=Racial						SOURCEPAGE:p.22
 Dwarf Transformation Feats 4		TYPE:DwarfRacialTransformation4	VISIBLE:NO																	MULT:NO				ADD:FEAT|1|Endurance,Great Fortitude,Toughness																																					SOURCEPAGE:p.22
 Dwarf Transformation Feats 6		TYPE:DwarfRacialTransformation6	VISIBLE:NO	!PREFEAT:1,Dwarf Transformation Feats 4										MULT:NO				ADD:FEAT|1|Endurance,Great Fortitude,Toughness																																					SOURCEPAGE:p.22
@@ -186,9 +186,9 @@ Dwarf Transformation Skills 10	TYPE:DwarfRacialTransformation10	VISIBLE:NO						
 ##################
 
 ###Block: Racial Talents
-# Feat Name				Type					Visible	Required Feat				Prohibited Feat				Required Lvl	Special Ability						Define				Stackable?	Multiple?	Add																																																																	Modify VAR				Source Page
+# Feat Name				Type					Visible	Required Feat				Prohibited Feat				Required Lvl	Special ABility						Define				Stackable?	Multiple?	Add																																																																	Modify VAR				Source Page
 Lesser Spellcasting I		TYPE:DawnElfRacialTalent	VISIBLE:NO																SAB:Lesser Spellcasting I											MULT:NO																																																																							SOURCEPAGE:p.25
-Lesser Spellcasting II		TYPE:DawnElfRacialTalent	VISIBLE:NO	PREFEAT:1,Lesser Spellcasting I							PRELEVEL:7		SAB:Lesser Spellcasting II											MULT:NO																																																																							SOURCEPAGE:p.25
+Lesser Spellcasting II		TYPE:DawnElfRacialTalent	VISIBLE:NO	PREFEAT:1,Lesser Spellcasting I							PRELEVEL:MIN=7	SAB:Lesser Spellcasting II											MULT:NO																																																																							SOURCEPAGE:p.25
 Voice of the Woodlands		TYPE:DawnElfRacialTalent	VISIBLE:NO																SAB:Voice of the Woodlands											MULT:NO																																																																							SOURCEPAGE:p.25
 Woodland Fighting 3		TYPE:DawnElfRacialTalent3	VISIBLE:NO																SAB:Woodland Fighting (+%)|WoodlandFighting	DEFINE:WoodlandFighting|0			MULT:NO																																																																		BONUS:VAR|WoodlandFighting|1	SOURCEPAGE:p.25
 Woodland Fighting 5		TYPE:DawnElfRacialTalent5	VISIBLE:NO							!PREFEAT:1,Woodland Fighting 3				SAB:Woodland Fighting (+%)|WoodlandFighting	DEFINE:WoodlandFighting|0			MULT:NO																																																																		BONUS:VAR|WoodlandFighting|1	SOURCEPAGE:p.25
@@ -206,8 +206,8 @@ Dawn Elf Talent Skills 7	TYPE:DawnElfRacialTalent7	VISIBLE:NO																			
 Dawn Elf Talent Skills 9	TYPE:DawnElfRacialTalent9	VISIBLE:NO																													STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill						SOURCEPAGE:p.25
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Prohibited Feat						Special Ability			Stackable?	Multiple?	Add																														Source Page
-Elfsight					TYPE:DawnElfRacialTransformation	VISIBLE:NO									SAB:Elfsight						MULT:NO																															SOURCEPAGE:p.25
+# Feat Name					Type						Visible	Prohibited Feat						Special ABility			Stackable?	Multiple?	Add																														Source Page
+Elfsight					TYPE:DawnElfRacialTransformation	VISIBLE:NO									SAB:Elfsight					MULT:NO																															SOURCEPAGE:p.25
 Improved Spell Immunity			TYPE:DawnElfRacialTransformation	VISIBLE:NO									SAB:Improved Spell Immunity			MULT:NO																															SOURCEPAGE:p.25
 Wild Empathy				TYPE:DawnElfRacialTransformation	VISIBLE:NO									SAB:Wild Empathy					MULT:NO																															SOURCEPAGE:p.25
 Ageless					TYPE:DawnElfRacialTransformation	VISIBLE:NO									SAB:Ageless						MULT:NO																															SOURCEPAGE:p.25
@@ -229,10 +229,10 @@ Dawn Elf Transformation Skills 10	TYPE:DawnElfRacialTransformation10	VISIBLE:NO	
 ##################
 
 ###Block: Racial Talents
-# Feat Name				Type					Visible	Prohibited Feat				Required Lvl	Special Ability					Define			Stackable?	Multiple?	Choose				Add																																																																						Modify VAR			Source Page
+# Feat Name				Type					Visible	Prohibited Feat				Required Lvl	Special ABility					Define			Stackable?	Multiple?	Choose				Add																																																																						Modify VAR			Source Page
 Unusual Stealth			TYPE:NightElfRacialTalent	VISIBLE:NO										SAB:Unusual Stealth										MULT:NO																																																																																SOURCEPAGE:p.27
-Spider's Bite			TYPE:NightElfRacialTalent	VISIBLE:NO							PRELEVEL:5		SAB:Spider's Bite											MULT:NO																																																																																SOURCEPAGE:p.27
-Shadow Jump				TYPE:NightElfRacialTalent	VISIBLE:NO							PRELEVEL:7		SAB:Shadow Jump (up to %ft.)|ShadowJump	DEFINE:ShadowJump|0	STACK:YES	MULT:YES	CHOOSE:Shadow Jump +40ft.																																																																							BONUS:VAR|ShadowJump|40	SOURCEPAGE:p.27
+Spider's Bite			TYPE:NightElfRacialTalent	VISIBLE:NO							PRELEVEL:MIN=5	SAB:Spider's Bite											MULT:NO																																																																																SOURCEPAGE:p.27
+Shadow Jump				TYPE:NightElfRacialTalent	VISIBLE:NO							PRELEVEL:MIN=7	SAB:Shadow Jump (up to %ft.)|ShadowJump	DEFINE:ShadowJump|0	STACK:YES	MULT:YES	CHOOSE:Shadow Jump +40ft.																																																																							BONUS:VAR|ShadowJump|40	SOURCEPAGE:p.27
 Night Elf Talent Feats 1	TYPE:NightElfRacialTalent1	VISIBLE:NO																							MULT:NO						ADD:FEAT|1|TYPE=Metamagic,Rapid Reload,Track																																																																			SOURCEPAGE:p.27
 Night Elf Talent Feats 3	TYPE:NightElfRacialTalent3	VISIBLE:NO	!PREFEAT:1,Night Elf Talent Feats 1																	MULT:NO						ADD:FEAT|1|TYPE=Metamagic,Rapid Reload,Track																																																																			SOURCEPAGE:p.27
 Night Elf Talent Feats 5	TYPE:NightElfRacialTalent5	VISIBLE:NO	!PREFEAT:1,Night Elf Talent Feats 3																	MULT:NO						ADD:FEAT|1|TYPE=Metamagic,Rapid Reload,Track																																																																			SOURCEPAGE:p.27
@@ -247,9 +247,9 @@ Night Elf Talent Skills 9	TYPE:NightElfRacialTalent9	VISIBLE:NO																	
 ###Block: Racial Transformations
 # Feat Name					Type						Visible	Required Feat				Prohibited Feat						Required Lvl	Stackable?	Multiple?	Add																														Misc bonus		Add to vision			Source Page
 Night Elf Darkvision			TYPE:NightElfRacialTransformation	VISIBLE:NO																				MULT:NO																																		BONUS:VISION|DarkVision|60	SOURCEPAGE:p.27
-Full Spell Resistance			TYPE:NightElfRacialTransformation	VISIBLE:NO	PREFEAT:1,Moderate Spell Resistance									PRELEVEL:10				MULT:NO																															BONUS:MISC|SR|5						SOURCEPAGE:p.27
+Full Spell Resistance			TYPE:NightElfRacialTransformation	VISIBLE:NO	PREFEAT:1,Moderate Spell Resistance									PRELEVEL:MIN=10			MULT:NO																															BONUS:MISC|SR|5						SOURCEPAGE:p.27
 Minor Spell Resistance			TYPE:NightElfRacialTransformation	VISIBLE:NO																				MULT:NO																															BONUS:MISC|SR|5						SOURCEPAGE:p.27
-Moderate Spell Resistance		TYPE:NightElfRacialTransformation	VISIBLE:NO	PREFEAT:1,Minor Spell Resistance									PRELEVEL:6				MULT:NO																															BONUS:MISC|SR|5						SOURCEPAGE:p.27
+Moderate Spell Resistance		TYPE:NightElfRacialTransformation	VISIBLE:NO	PREFEAT:1,Minor Spell Resistance									PRELEVEL:MIN=6			MULT:NO																															BONUS:MISC|SR|5						SOURCEPAGE:p.27
 Night Elf Transformation Feats 4	TYPE:NightElfRacialTransformation4	VISIBLE:NO																				MULT:NO	ADD:FEAT|1|Dodge,Lightning Reflexes,Iron Will																															SOURCEPAGE:p.27
 Night Elf Transformation Feats 6	TYPE:NightElfRacialTransformation6	VISIBLE:NO							!PREFEAT:1,Night Elf Transformation Feats 4						MULT:NO	ADD:FEAT|1|Dodge,Lightning Reflexes,Iron Will																															SOURCEPAGE:p.27
 Night Elf Transformation Feats 8	TYPE:NightElfRacialTransformation8	VISIBLE:NO							!PREFEAT:1,Night Elf Transformation Feats 6						MULT:NO	ADD:FEAT|1|Dodge,Lightning Reflexes,Iron Will																															SOURCEPAGE:p.27
@@ -267,9 +267,9 @@ Night Elf Transformation Skills 10	TYPE:NightElfRacialTransformation10	VISIBLE:N
 #############
 
 ###Block: Racial Talents
-# Feat Name			Type				Visible	Required Feat			Prohibited Feat				Required Lvl	Special Ability		Stackable?	Multiple?	Add																																																																	Source Page
+# Feat Name			Type				Visible	Required Feat			Prohibited Feat				Required Lvl	Special ABility		Stackable?	Multiple?	Add																																																																	Source Page
 Fey Gift I			TYPE:GnomeRacialTalent	VISIBLE:NO															SAB:Fey Gift I				MULT:NO																																																																		SOURCEPAGE:p.30
-Fey Gift II			TYPE:GnomeRacialTalent	VISIBLE:NO	PREFEAT:1,Fey Gift I								PRELEVEL:7		SAB:Fey Gift II				MULT:NO																																																																		SOURCEPAGE:p.30
+Fey Gift II			TYPE:GnomeRacialTalent	VISIBLE:NO	PREFEAT:1,Fey Gift I								PRELEVEL:MIN=7	SAB:Fey Gift II				MULT:NO																																																																		SOURCEPAGE:p.30
 Potion Mastery I		TYPE:GnomeRacialTalent	VISIBLE:NO															SAB:Potion Mastery I			MULT:NO																																																																		SOURCEPAGE:p.30
 Potion Mastery II		TYPE:GnomeRacialTalent	VISIBLE:NO	PREFEAT:1,Potion Mastery I										SAB:Potion Mastery II			MULT:NO																																																																		SOURCEPAGE:p.30
 Gnome Talent Feats 1	TYPE:GnomeRacialTalent1	VISIBLE:NO																					MULT:NO	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Alertness,Improved Initiative,Spell Focus																																																			SOURCEPAGE:p.30
@@ -284,13 +284,13 @@ Gnome Talent Skills 7	TYPE:GnomeRacialTalent7	VISIBLE:NO																			STACK
 Gnome Talent Skills 9	TYPE:GnomeRacialTalent9	VISIBLE:NO																			STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=GnomeTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=GnomeTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=GnomeTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=GnomeTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=GnomeTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.30
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Required Feat	Prohibited Feat					Special Ability		Stackable?	Multiple?	Add																														Damage reduction				Source Page
+# Feat Name					Type						Visible	Required Feat	Prohibited Feat					Special ABility		Stackable?	Multiple?	Add																														Damage reduction				Source Page
 Gnome Damage Reduction 2		TYPE:GnomeRacialTransformation2	VISIBLE:NO																	MULT:NO																															BONUS:DR|Piercing or Slashing|2	SOURCEPAGE:p.30
 Gnome Damage Reduction 4		TYPE:GnomeRacialTransformation4	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 2								MULT:NO																															BONUS:DR|Piercing or Slashing|2	SOURCEPAGE:p.30
 Gnome Damage Reduction 6		TYPE:GnomeRacialTransformation6	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 4								MULT:NO																															BONUS:DR|Piercing or Slashing|2	SOURCEPAGE:p.30
 Gnome Damage Reduction 8		TYPE:GnomeRacialTransformation8	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 6								MULT:NO																															BONUS:DR|Piercing or Slashing|2	SOURCEPAGE:p.30
 Gnome Damage Reduction 10		TYPE:GnomeRacialTransformation10	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 8								MULT:NO																															BONUS:DR|Piercing or Slashing|2	SOURCEPAGE:p.30
-Ghosting					TYPE:GnomeRacialTransformation	VISIBLE:NO											SAB:Ghosting					MULT:NO																																					SOURCEPAGE:p.30
+Ghosting					TYPE:GnomeRacialTransformation	VISIBLE:NO											SAB:Ghosting				MULT:NO																																					SOURCEPAGE:p.30
 Fading					TYPE:GnomeRacialTransformation	VISIBLE:NO											SAB:Fading					MULT:NO																																					SOURCEPAGE:p.30
 Improved Fading				TYPE:GnomeRacialTransformation	VISIBLE:NO	PREFEAT:1,Fading								SAB:Improved Fading			MULT:NO																																					SOURCEPAGE:p.30
 Gnome Transformation Feats 4		TYPE:GnomeRacialTransformation4	VISIBLE:NO																	MULT:NO	ADD:FEAT|1|Dodge,Endurance,Great Fortitude,Iron Will,Toughness																										SOURCEPAGE:p.30
@@ -310,7 +310,7 @@ Gnome Transformation Skills 10	TYPE:GnomeRacialTransformation10	VISIBLE:NO						
 ################
 
 ###Block: Racial Talents
-# Feat Name				Type				Visible	Prohibited Feat				Special Ability		Stackable?	Multiple?	Add																																																																																					Source Page
+# Feat Name				Type				Visible	Prohibited Feat				Special ABility		Stackable?	Multiple?	Add																																																																																					Source Page
 Incredible Luck			TYPE:HalflRacialTalent	VISIBLE:NO							SAB:Incredible Luck			MULT:NO																																																																																						SOURCEPAGE:p.32
 Halfling Talent Feats 1		TYPE:HalflRacialTalent1	VISIBLE:NO													MULT:NO	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Combat Expertise,Rapid Reload																																																																									SOURCEPAGE:p.32
 Halfling Talent Feats 3		TYPE:HalflRacialTalent3	VISIBLE:NO	!PREFEAT:1,Halfling Talent Feats 1							MULT:NO	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Combat Expertise,Rapid Reload																																																																									SOURCEPAGE:p.32
@@ -324,7 +324,7 @@ Halfling Talent Skills 7	TYPE:HalflRacialTalent7	VISIBLE:NO											STACK:NO	M
 Halfling Talent Skills 9	TYPE:HalflRacialTalent9	VISIBLE:NO											STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=HalflTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HalflTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HalflTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HalflTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HalflTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	SOURCEPAGE:p.32
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Prohibited Feat						Special Ability				Define			Stackable?	Multiple?	Add																														Modify VAR			Source Page
+# Feat Name					Type						Visible	Prohibited Feat						Special ABility				Define			Stackable?	Multiple?	Add																														Modify VAR			Source Page
 Halfling Animal Companion		TYPE:HalflRacialTransformation	VISIBLE:NO									SAB:Animal Companion									MULT:NO																																			SOURCEPAGE:p.32
 Good First Impression			TYPE:HalflRacialTransformation	VISIBLE:NO									SAB:Good First Impression								MULT:NO																																			SOURCEPAGE:p.32
 Quick Feet 2				TYPE:HalflRacialTransformation2	VISIBLE:NO									SAB:Quick Feet (+%ft.)|QuickFeet	DEFINE:QuickFeet|0			MULT:NO																															BONUS:VAR|QuickFeet|5	SOURCEPAGE:p.32
@@ -349,7 +349,7 @@ Halfling Transformation Skills 10	TYPE:HalflRacialTransformation10	VISIBLE:NO			
 #########################
 
 ###Block: Racial Talents
-# Feat Name				Type					Visible	Prohibited Feat					Special Ability			Multiple?	Add																	Source Page
+# Feat Name				Type					Visible	Prohibited Feat					Special ABility			Multiple?	Add																	Source Page
 Clan Favored Weapon		TYPE:HHighlRacialTalent		VISIBLE:NO								SAB:Clan Favored Weapon		MULT:NO																		SOURCEPAGE:p.32
 Highlander Talent Feats 1	TYPE:HHighlRacialTalent1	VISIBLE:NO													MULT:NO	ADD:FEAT|1|Alertness,Endurance,Improved Initiative,Martial Weapon Proficiency,Track,Weapon Finesse	SOURCEPAGE:p.32
 Highlander Talent Feats 3	TYPE:HHighlRacialTalent3	VISIBLE:NO	!PREFEAT:1,Highlander Talent Feats 1						MULT:NO	ADD:FEAT|1|Alertness,Endurance,Improved Initiative,Martial Weapon Proficiency,Track,Weapon Finesse	SOURCEPAGE:p.32
@@ -359,7 +359,7 @@ Highlander Talent Feats 9	TYPE:HHighlRacialTalent9	VISIBLE:NO	!PREFEAT:1,Highlan
 Voice of the Highlands		TYPE:HHighlRacialTalent		VISIBLE:NO								SAB:Voice of the Highlands	MULT:NO																		SOURCEPAGE:p.32
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Prohibited Feat						Special Ability						Define				Stackable?	Multiple?	Choose		Add																																				Add to base move			Modify VAR				Source Page
+# Feat Name					Type						Visible	Prohibited Feat						Special ABility						Define				Stackable?	Multiple?	Choose		Add																																				Add to base move			Modify VAR				Source Page
 Disciplined Mind				TYPE:HHighlRacialTransformation	VISIBLE:NO									SAB:Disciplined Mind (%/day)|DisciplinedMind	DEFINE:DisciplinedMind|0	STACK:YES	MULT:YES	CHOOSE:+1 per day																																										BONUS:VAR|DisciplinedMind|1	SOURCEPAGE:p.32
 Fast Movement				TYPE:HHighlRacialTransformation	VISIBLE:NO									SAB:Fast Movement											STACK:YES	MULT:YES	CHOOSE:Walk +5ft.																																					BONUS:MOVEADD|TYPE.Walk|5						SOURCEPAGE:p.32
 Highlander Transformation Feats 4	TYPE:HHighlRacialTransformation4	VISIBLE:NO																								MULT:NO				ADD:FEAT|1|Dodge,Great Fortitude,Iron Will,Lightning Reflexes,Run,Toughness																																		SOURCEPAGE:p.32
@@ -379,7 +379,7 @@ Highlander Transformation Skills 10	TYPE:HHighlRacialTransformation10	VISIBLE:NO
 ########################
 
 ###Block: Racial Talents
-# Feat Name				Type				Visible	Prohibited Feat				Special Ability				Define			Stackable?	Multiple?	Add																																																																																																						Modify VAR				Source Page
+# Feat Name				Type				Visible	Prohibited Feat				Special ABility				Define			Stackable?	Multiple?	Add																																																																																																						Modify VAR				Source Page
 Connected				TYPE:HLowlRacialTalent	VISIBLE:NO							SAB:Ignore Pain										MULT:NO																																																																																																												SOURCEPAGE:p.37
 Group Fighter			TYPE:Special		VISIBLE:NO							SAB:Group Fighter (+%)|GroupFighter	DEFINE:GroupFighter|0			MULT:NO																																																																																																												SOURCEPAGE:p.37
 Group Fighter 1			TYPE:HLowlRacialTalent1	VISIBLE:NO																			MULT:NO																																																																																																							BONUS:VAR|GroupFighter|1	SOURCEPAGE:p.37
@@ -399,7 +399,7 @@ Lowlander Talent Skills 8	TYPE:HLowlRacialTalent7	VISIBLE:NO																	STA
 Lowlander Talent Skills 10	TYPE:HLowlRacialTalent9	VISIBLE:NO																	STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=HLowlTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HLowlTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HLowlTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HLowlTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HLowlTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HLowlTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill						SOURCEPAGE:p.37
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Prohibited Feat						Special Ability	Stackable?	Multiple?	Choose						Add																																				Save checks bonus		Add to base move			Source Page
+# Feat Name					Type						Visible	Prohibited Feat						Special ABility	Stackable?	Multiple?	Choose						Add																																				Save checks bonus		Add to base move			Source Page
 Fast Movement 4				TYPE:HLowlRacialTransformation4	VISIBLE:NO														MULT:NO																																																BONUS:MOVEADD|TYPE.Walk|10	SOURCEPAGE:p.40
 Fast Movement 6				TYPE:HLowlRacialTransformation6	VISIBLE:NO	!PREFEAT:1,Fast Movement 4									MULT:NO																																																BONUS:MOVEADD|TYPE.Walk|10	SOURCEPAGE:p.40
 Fast Movement 8				TYPE:HLowlRacialTransformation8	VISIBLE:NO	!PREFEAT:1,Fast Movement 6									MULT:NO																																																BONUS:MOVEADD|TYPE.Walk|10	SOURCEPAGE:p.40
@@ -422,7 +422,7 @@ Lowlander Transformation Skills 10	TYPE:HLowlRacialTransformation10	VISIBLE:NO		
 ########################
 
 ###Block: Racial Talents
-# Feat Name				Type				Visible	Prohibited Feat				Special Ability	Stackable?	Multiple?	Add																																																																																																						Combat bonus			Source Page
+# Feat Name				Type				Visible	Prohibited Feat				Special ABility	Stackable?	Multiple?	Add																																																																																																						Combat bonus			Source Page
 Danger Sense 1			TYPE:HSaltRacialTalent1	VISIBLE:NO												MULT:NO																																																																																																							BONUS:COMBAT|INITIATIVE|4	SOURCEPAGE:p.39
 Danger Sense 3			TYPE:HSaltRacialTalent3	VISIBLE:NO	!PREFEAT:1,Danger Sense 1							MULT:NO																																																																																																							BONUS:COMBAT|INITIATIVE|4	SOURCEPAGE:p.39
 Danger Sense 5			TYPE:HSaltRacialTalent5	VISIBLE:NO	!PREFEAT:1,Danger Sense 3							MULT:NO																																																																																																							BONUS:COMBAT|INITIATIVE|4	SOURCEPAGE:p.39
@@ -441,12 +441,12 @@ Saltblood Talent Skills 8	TYPE:HSaltRacialTalent7	VISIBLE:NO										STACK:NO	M
 Saltblood Talent Skills 10	TYPE:HSaltRacialTalent9	VISIBLE:NO										STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=HSaltTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HSaltTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HSaltTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HSaltTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HSaltTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill	ADD:FEAT|1|TYPE=HSaltTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentKnowSkill,TYPE=TalentProfSkill						SOURCEPAGE:p.39
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Required Feat			Prohibited Feat						Required Lvl	Special Ability		Stackable?	Multiple?	Move			Add																																				Damage reduction	Add to base move			Source Page
+# Feat Name					Type						Visible	Required Feat			Prohibited Feat						Required Lvl	Special ABility		Stackable?	Multiple?	Move			Add																																				Damage reduction	Add to base move			Source Page
 Hold Breath					TYPE:HSaltRacialTransformation	VISIBLE:NO	PREFEAT:1,Perfect Swimmer												SAB:Hold Breath				MULT:NO																																																SOURCEPAGE:p.40
 Saltblood Damage Reduction 6		TYPE:HSaltRacialTransformation6	VISIBLE:NO																							MULT:NO																																								BONUS:DR|-|1						SOURCEPAGE:p.40
 Saltblood Damage Reduction 8		TYPE:HSaltRacialTransformation8	VISIBLE:NO						!PREFEAT:1,Saltblood Damage Reduction 6											MULT:NO																																								BONUS:DR|-|1						SOURCEPAGE:p.40
 Saltblood Damage Reduction 10		TYPE:HSaltRacialTransformation10	VISIBLE:NO						!PREFEAT:1,Saltblood Damage Reduction 8											MULT:NO																																								BONUS:DR|-|1						SOURCEPAGE:p.40
-Natural Swimmer				TYPE:HSaltRacialTransformation	VISIBLE:NO														PRELEVEL:4		SAB:Natural Swimmer			MULT:NO	MOVE:Swim,10																																													SOURCEPAGE:p.40
+Natural Swimmer				TYPE:HSaltRacialTransformation	VISIBLE:NO														PRELEVEL:MIN=4	SAB:Natural Swimmer			MULT:NO	MOVE:Swim,10																																													SOURCEPAGE:p.40
 Perfect Swimmer				TYPE:HSaltRacialTransformation	VISIBLE:NO	PREFEAT:1,Natural Swimmer												SAB:Perfect Swimmer			MULT:NO																																											BONUS:MOVEADD|TYPE.Swim|10	SOURCEPAGE:p.40
 Saltblood Transformation Feats 4	TYPE:HSaltRacialTransformation4	VISIBLE:NO																							MULT:NO				ADD:FEAT|1|Dodge,Endurance,Great Fortitude,Iron Will,Lightning Reflexes,Toughness																															SOURCEPAGE:p.40
 Saltblood Transformation Feats 6	TYPE:HSaltRacialTransformation6	VISIBLE:NO						!PREFEAT:1,Saltblood Transformation Feats 4										MULT:NO				ADD:FEAT|1|Dodge,Endurance,Great Fortitude,Iron Will,Lightning Reflexes,Toughness																															SOURCEPAGE:p.40
@@ -464,9 +464,9 @@ Saltblood Transformation Skills 10	TYPE:HSaltRacialTransformation10	VISIBLE:NO		
 #######################
 
 ###Block: Racial Talents
-# Feat Name					Type				Visible	Required Feat				Prohibited Feat						Required Lvl	Special Ability				Define			Stackable?	Multiple?	Add																																																																														Modify VAR			Source Page
+# Feat Name					Type				Visible	Required Feat				Prohibited Feat						Required Lvl	Special ABility				Define			Stackable?	Multiple?	Add																																																																														Modify VAR			Source Page
 Lesser Spellcasting I			TYPE:HTrueRacialTalent	VISIBLE:NO																		SAB:Lesser Spellcasting I								MULT:NO																																																																																			SOURCEPAGE:p.41
-Lesser Spellcasting II			TYPE:HTrueRacialTalent	VISIBLE:NO	PREFEAT:1,Lesser Spellcasting I									PRELEVEL:7		SAB:Lesser Spellcasting II								MULT:NO																																																																																			SOURCEPAGE:p.41
+Lesser Spellcasting II			TYPE:HTrueRacialTalent	VISIBLE:NO	PREFEAT:1,Lesser Spellcasting I									PRELEVEL:MIN=7	SAB:Lesser Spellcasting II								MULT:NO																																																																																			SOURCEPAGE:p.41
 Trueborn Celestial Talent Feats 1	TYPE:HTrueRacialTalent1	VISIBLE:NO																														MULT:NO	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Exotic Weapon Proficiency,Leadership,Spell Focus																																																																			SOURCEPAGE:p.41
 Trueborn Celestial Talent Feats 3	TYPE:HTrueRacialTalent3	VISIBLE:NO							!PREFEAT:1,Trueborn Celestial Talent Feats 1																MULT:NO	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Exotic Weapon Proficiency,Leadership,Spell Focus																																																																			SOURCEPAGE:p.41
 Trueborn Celestial Talent Feats 5	TYPE:HTrueRacialTalent5	VISIBLE:NO							!PREFEAT:1,Trueborn Celestial Talent Feats 3																MULT:NO	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Exotic Weapon Proficiency,Leadership,Spell Focus																																																																			SOURCEPAGE:p.41
@@ -484,7 +484,7 @@ Horse Shield 5				TYPE:HTrueRacialTalent5	VISIBLE:NO							!PREFEAT:1,Horse Shie
 Horse Shield 7				TYPE:HTrueRacialTalent7	VISIBLE:NO							!PREFEAT:1,Horse Shield 6																			MULT:NO	ADD:FEAT|1|Horse Shield																																																																											BONUS:VAR|HorseShield|2	SOURCEPAGE:p.41
 Horse Shield 9				TYPE:HTrueRacialTalent9	VISIBLE:NO							!PREFEAT:1,Horse Shield 8																			MULT:NO	ADD:FEAT|1|Horse Shield																																																																											BONUS:VAR|HorseShield|2	SOURCEPAGE:p.41
 Natural Rider				TYPE:HTrueRacialTalent	VISIBLE:NO																		SAB:Natural Rider										MULT:NO																																																																																			SOURCEPAGE:p.41
-Mounted Warrior				TYPE:HTrueRacialTalent	VISIBLE:NO																		SAB:Mounted Warrior (+1)									MULT:NO																																																																																			SOURCEPAGE:p.41
+Mounted Warrior				TYPE:HTrueRacialTalent	VISIBLE:NO																		SAB:Mounted Warrior (+1)								MULT:NO																																																																																			SOURCEPAGE:p.41
 Trueborn Talent Feats 1			TYPE:HTrueRacialTalent1	VISIBLE:NO																														MULT:NO	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Mounted Combat,Quick Draw,Trample																																																																						SOURCEPAGE:p.41
 Trueborn Talent Feats 3			TYPE:HTrueRacialTalent3	VISIBLE:NO							!PREFEAT:1,Trueborn Talent Feats 1																		MULT:NO	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Mounted Combat,Quick Draw,Trample																																																																						SOURCEPAGE:p.41
 Trueborn Talent Feats 5			TYPE:HTrueRacialTalent5	VISIBLE:NO							!PREFEAT:1,Trueborn Talent Feats 3																		MULT:NO	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Mounted Combat,Quick Draw,Trample																																																																						SOURCEPAGE:p.41
@@ -498,13 +498,13 @@ Trueborn Talent Skills 10		TYPE:HTrueRacialTalent9	VISIBLE:NO																			
 #TODO: Lesser Spellcasting ..
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Required Feat		Prohibited Feat						Required Lvl	Special Ability			Stackable?	Multiple?	Template				Add																																				Combat bonus				Add to vision			Source Page
-Trueborn Outsider				TYPE:HTrueRacialTransformation	VISIBLE:NO													PRELEVEL:6									MULT:NO	TEMPLATE:Trueborn Outsider																																																SOURCEPAGE:p.41
+# Feat Name					Type						Visible	Required Feat		Prohibited Feat						Required Lvl	Special ABility			Stackable?	Multiple?	Template				Add																																				Combat bonus				Add to vision			Source Page
+Trueborn Outsider				TYPE:HTrueRacialTransformation	VISIBLE:NO													PRELEVEL:MIN=6								MULT:NO	TEMPLATE:Trueborn Outsider																																																SOURCEPAGE:p.41
 Aura of Good				TYPE:HTrueRacialTransformation	VISIBLE:NO																SAB:Aura of Good					MULT:NO																																																					SOURCEPAGE:p.41
 Trueborn Natural Armor			TYPE:HTrueRacialTransformation	VISIBLE:NO																							MULT:NO																																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor						SOURCEPAGE:p.41
-Trueborn Spell Resistance		TYPE:HTrueRacialTransformation	VISIBLE:NO	PREFEAT:1,Aura of Good									PRELEVEL:6		SAB:Spell Resistance (%)|5+TL			MULT:NO																																																					SOURCEPAGE:p.41
-Angel Wings					TYPE:HTrueRacialTransformation	VISIBLE:NO													PRELEVEL:8		SAB:Angel Wings					MULT:NO																																																					SOURCEPAGE:p.41
-Trueborn Darkvision			TYPE:HTrueRacialTransformation	VISIBLE:NO													PRELEVEL:4									MULT:NO																																																BONUS:VISION|DarkVision|60	SOURCEPAGE:p.41
+Trueborn Spell Resistance		TYPE:HTrueRacialTransformation	VISIBLE:NO	PREFEAT:1,Aura of Good									PRELEVEL:MIN=6	SAB:Spell Resistance (%)|5+TL			MULT:NO																																																					SOURCEPAGE:p.41
+Angel Wings					TYPE:HTrueRacialTransformation	VISIBLE:NO													PRELEVEL:MIN=8	SAB:Angel Wings					MULT:NO																																																					SOURCEPAGE:p.41
+Trueborn Darkvision			TYPE:HTrueRacialTransformation	VISIBLE:NO													PRELEVEL:MIN=4								MULT:NO																																																BONUS:VISION|DarkVision|60	SOURCEPAGE:p.41
 Trueborn Transformation Feats 4	TYPE:HTrueRacialTransformation4	VISIBLE:NO																							MULT:NO						ADD:FEAT|1|Great Fortitude,Iron Will,Toughness																																								SOURCEPAGE:p.41
 Trueborn Transformation Feats 6	TYPE:HTrueRacialTransformation6	VISIBLE:NO					!PREFEAT:1,Trueborn Transformation Feats 4											MULT:NO						ADD:FEAT|1|Great Fortitude,Iron Will,Toughness																																								SOURCEPAGE:p.41
 Trueborn Transformation Feats 8	TYPE:HTrueRacialTransformation8	VISIBLE:NO					!PREFEAT:1,Trueborn Transformation Feats 6											MULT:NO						ADD:FEAT|1|Great Fortitude,Iron Will,Toughness																																								SOURCEPAGE:p.41
@@ -521,10 +521,10 @@ Trueborn Transformation Skills 10	TYPE:HTrueRacialTransformation10	VISIBLE:NO			
 ##################
 
 ###Block: Racial Talents
-# Feat Name				Type					Visible	Required Feat				Prohibited Feat					Special Ability								Define					Stackable?	Multiple?	Choose	Add																																																																						Modify VAR									Weapon prof. bonus													Source Page		Natural Attacks
+# Feat Name				Type					Visible	Required Feat				Prohibited Feat					Special ABility								Define					Stackable?	Multiple?	Choose	Add																																																																						Modify VAR									Weapon prof. bonus													Source Page		Natural Attacks
 Natural Weapon Mastery I	TYPE:LizardRacialTalent		VISIBLE:NO														SAB:Natural Weapon Mastery I														MULT:NO																																																																																																			SOURCEPAGE:p.44	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
 Natural Weapon Mastery II	TYPE:LizardRacialTalent		VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery I								SAB:Natural Weapon Mastery II														MULT:NO																																																																																																			SOURCEPAGE:p.44	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
-Natural Weapon Mastery III	TYPE:LizardRacialTalent		VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery II								SAB:Natural Weapon Mastery III														MULT:NO																																																																																			BONUS:WEAPONPROF=Tail Sweep|DAMAGEMULT:0|.5	BONUS:WEAPONPROF=Tail Sweep|DAMAGEMULT:1|.5	SOURCEPAGE:p.44	NATURALATTACKS:Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d4|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d4
+Natural Weapon Mastery III	TYPE:LizardRacialTalent		VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery II								SAB:Natural Weapon Mastery III													MULT:NO																																																																																			BONUS:WEAPONPROF=Tail Sweep|DAMAGEMULT:0|.5	BONUS:WEAPONPROF=Tail Sweep|DAMAGEMULT:1|.5	SOURCEPAGE:p.44	NATURALATTACKS:Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d4|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d4
 Primitive Weapon Mastery	TYPE:Special			VISIBLE:NO														SAB:Primitive Weapon Mastery (+%)|PrimitiveWeaponMastery	DEFINE:PrimitiveWeaponMastery|0	STACK:YES	MULT:YES	CHOOSE:+1																																																																							BONUS:VAR|PrimitiveWeaponMastery|1|TYPE=RacialTalent.STACK																	SOURCEPAGE:p.44
 Primitive Weapon Mastery 1	TYPE:LizardRacialTalent1	VISIBLE:NO																																MULT:NO			ADD:FEAT|1|Primitive Weapon Mastery																																																																	BONUS:VAR|PrimitiveWeaponMastery|1|TYPE=RacialTalent.STACK																	SOURCEPAGE:p.44
 Primitive Weapon Mastery 3	TYPE:LizardRacialTalent3	VISIBLE:NO							!PREFEAT:1,Primitive Weapon Mastery 1																			MULT:NO			ADD:FEAT|1|Primitive Weapon Mastery																																																																	BONUS:VAR|PrimitiveWeaponMastery|1|TYPE=RacialTalent.STACK																	SOURCEPAGE:p.44
@@ -544,11 +544,11 @@ Lizardfolk Talent Skills 9	TYPE:LizardRacialTalent9	VISIBLE:NO																		
 #TODO: need to code the natural weapons so Weapon Focus(..) can be taken...add to Talent Feats..
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Prohibited Feat						Required Lvl	Special Ability	Stackable?	Multiple?	Choose			Add																																			Combat bonus					Add to vision			Source Page
+# Feat Name					Type						Visible	Prohibited Feat						Required Lvl	Special ABility	Stackable?	Multiple?	Choose			Add																																			Combat bonus					Add to vision			Source Page
 Breathe Water				TYPE:LizardRacialTransformation	VISIBLE:NO												SAB:Breathe Water			MULT:NO																																																				SOURCEPAGE:p.45
 Lizardfolk Natural Armor		TYPE:LizardRacialTransformation	VISIBLE:NO															STACK:YES	MULT:YES	CHOOSE:+1 Natural Armor																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.45
 Lizardfolk Scent				TYPE:LizardRacialTransformation	VISIBLE:NO												SAB:Scent				MULT:NO																																																				SOURCEPAGE:p.45
-Lizardfolk Darkvision			TYPE:LizardRacialTransformation	VISIBLE:NO									PRELEVEL:6							MULT:NO																																															BONUS:VISION|DarkVision|60	SOURCEPAGE:p.45
+Lizardfolk Darkvision			TYPE:LizardRacialTransformation	VISIBLE:NO									PRELEVEL:MIN=6						MULT:NO																																															BONUS:VISION|DarkVision|60	SOURCEPAGE:p.45
 Lizardfolk Transformation Feats 4	TYPE:LizardRacialTransformation4	VISIBLE:NO																	MULT:NO					ADD:FEAT|1|Dodge,Endurance,Great Fortitude,Lightning Reflexes,Toughness																																				SOURCEPAGE:p.45
 Lizardfolk Transformation Feats 6	TYPE:LizardRacialTransformation6	VISIBLE:NO	!PREFEAT:1,Lizardfolk Transformation Feats 4									MULT:NO					ADD:FEAT|1|Dodge,Endurance,Great Fortitude,Lightning Reflexes,Toughness																																				SOURCEPAGE:p.45
 Lizardfolk Transformation Feats 8	TYPE:LizardRacialTransformation8	VISIBLE:NO	!PREFEAT:1,Lizardfolk Transformation Feats 6									MULT:NO					ADD:FEAT|1|Dodge,Endurance,Great Fortitude,Lightning Reflexes,Toughness																																				SOURCEPAGE:p.45
@@ -565,7 +565,7 @@ Lizardfolk Transformation Skills 10	TYPE:LizardRacialTransformation10	VISIBLE:NO
 ################
 
 ###Block: Racial Talents
-# Feat Name				Type					Visible	Prohibited Feat				Special Ability		Stackable?	Multiple?	Add																																																																						Bonus to HP			Weapon prof. bonus					Source Page		Natural Attacks
+# Feat Name				Type					Visible	Prohibited Feat				Special ABility		Stackable?	Multiple?	Add																																																																						Bonus to HP			Weapon prof. bonus					Source Page		Natural Attacks
 Gore					TYPE:MinotaurRacialTalent	VISIBLE:NO							SAB:Gore					MULT:NO																																																																											BONUS:WEAPONPROF=Gore|DAMAGE|-STR/2			SOURCEPAGE:p.46	NATURALATTACKS:Gore,Weapon.Melee.Natural.Piercing,*1,1d8
 Powerful Charge			TYPE:MinotaurRacialTalent	VISIBLE:NO							SAB:Powerful Charge			MULT:NO																																																																											BONUS:WEAPONPROF=Powerful Charge|DAMAGE|STR/2	SOURCEPAGE:p.46	NATURALATTACKS:Powerful Charge,Weapon.Melee.Natural.Piercing,*1,4d6
 Minotaur Talent Feats 1		TYPE:MinotaurRacialTalent1	VISIBLE:NO													MULT:NO	ADD:FEAT|1|Blind Fight,Exotic Weapon Proficiency,Leadership																																																																									SOURCEPAGE:p.46
@@ -584,14 +584,14 @@ Second Wind				TYPE:MinotaurRacialTalent	VISIBLE:NO							SAB:Second Wind				MUL
 Stamina				TYPE:MinotaurRacialTalent	VISIBLE:NO							SAB:Stamina					MULT:NO																																																																																			SOURCEPAGE:p.47
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Prohibited Feat						Required Lvl	Special Ability	Stackable?	Multiple?	Template				Add																														Combat bonus					Add to vision			Source Page
-Minotaur Darkvision			TYPE:MinotaurRacialTransformation	VISIBLE:NO									PRELEVEL:6							MULT:NO																																											BONUS:VISION|DarkVision|60	SOURCEPAGE:p.47
+# Feat Name					Type						Visible	Prohibited Feat						Required Lvl	Special ABility	Stackable?	Multiple?	Template				Add																														Combat bonus					Add to vision			Source Page
+Minotaur Darkvision			TYPE:MinotaurRacialTransformation	VISIBLE:NO									PRELEVEL:MIN=6						MULT:NO																																											BONUS:VISION|DarkVision|60	SOURCEPAGE:p.47
 Minotaur Natural Armor 2		TYPE:MinotaurRacialTransformation2	VISIBLE:NO																	MULT:NO																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.47
 Minotaur Natural Armor 4		TYPE:MinotaurRacialTransformation4	VISIBLE:NO	!PREFEAT:1,Minotaur Natural Armor 2											MULT:NO																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.47
 Minotaur Natural Armor 6		TYPE:MinotaurRacialTransformation6	VISIBLE:NO	!PREFEAT:1,Minotaur Natural Armor 4											MULT:NO																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.47
 Minotaur Natural Armor 8		TYPE:MinotaurRacialTransformation8	VISIBLE:NO	!PREFEAT:1,Minotaur Natural Armor 6											MULT:NO																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.47
 Minotaur Natural Armor 10		TYPE:MinotaurRacialTransformation10	VISIBLE:NO	!PREFEAT:1,Minotaur Natural Armor 8											MULT:NO																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.47
-Minotaur Large Size			TYPE:MinotaurRacialTransformation	VISIBLE:NO									PRELEVEL:6							MULT:NO	TEMPLATE:Minotaur Large Size																																											SOURCEPAGE:p47
+Minotaur Large Size			TYPE:MinotaurRacialTransformation	VISIBLE:NO									PRELEVEL:MIN=6						MULT:NO	TEMPLATE:Minotaur Large Size																																											SOURCEPAGE:p47
 Minotaur Scent				TYPE:MinotaurRacialTransformation	VISIBLE:NO												SAB:Scent				MULT:NO																																																SOURCEPAGE:p.47
 Minotaur Transformation Feats 4	TYPE:MinotaurRacialTransformation4	VISIBLE:NO																	MULT:NO						ADD:FEAT|1|Dodge,Improved Initiative,Lightning Reflexes																																	SOURCEPAGE:p.47
 Minotaur Transformation Feats 6	TYPE:MinotaurRacialTransformation6	VISIBLE:NO	!PREFEAT:1,Minotaur Transformation Feats 4									MULT:NO						ADD:FEAT|1|Dodge,Improved Initiative,Lightning Reflexes																																	SOURCEPAGE:p.47
@@ -608,7 +608,7 @@ Minotaur Transformation Skills 10	TYPE:MinotaurRacialTransformation10	VISIBLE:NO
 ### Ogre ###
 ############
 ###Block: Racial Talents
-# Feat Name				Type				Visible	Prohibited Feat				Special Ability						Define			Stackable?	Multiple?	Choose		Add																																																																	Combat bonus						Bonus to skill		Bonus to skill point/L		Modify VAR				Source Page
+# Feat Name				Type				Visible	Prohibited Feat				Special ABility						Define			Stackable?	Multiple?	Choose		Add																																																																	Combat bonus						Bonus to skill		Bonus to skill point/L		Modify VAR				Source Page
 Ogre Favored Weapons 1		TYPE:OgreRacialTalent1	VISIBLE:NO																					MULT:NO																																																																					BONUS:COMBAT|TOHIT.Piercing|1|TYPE=Talent.STACK															SOURCEPAGE:p48
 Ogre Favored Weapons 3		TYPE:OgreRacialTalent3	VISIBLE:NO	!PREFEAT:1,Ogre Favored Weapons 1															MULT:NO																																																																					BONUS:COMBAT|TOHIT.Piercing|1|TYPE=Talent.STACK															SOURCEPAGE:p48
 Ogre Favored Weapons 5		TYPE:OgreRacialTalent5	VISIBLE:NO	!PREFEAT:1,Ogre Favored Weapons 3															MULT:NO																																																																					BONUS:COMBAT|TOHIT.Piercing|1|TYPE=Talent.STACK															SOURCEPAGE:p48
@@ -631,8 +631,8 @@ Ogre Talent Skills 9		TYPE:OgreRacialTalent9	VISIBLE:NO																			STACK:
 ###Block: Racial Transformations
 # Feat Name				Type						Visible	Prohibited Feat					Required Lvl	Required Size	Stackable?	Multiple?	Template				Add																														Combat bonus					Add to vision			Source Page
 Ogre Darkvision			TYPE:OgreRacialTransformation		VISIBLE:NO																MULT:NO																																											BONUS:VISION|DarkVision|60	SOURCEPAGE:p49
-Ogre Large Size			TYPE:OgreRacialTransformation		VISIBLE:NO								PRELEVEL:6							MULT:NO	TEMPLATE:Ogre Large Size																																											SOURCEPAGE:p49
-Ogre Giant				TYPE:OgreRacialTransformation		VISIBLE:NO								PRELEVEL:8		PRESIZEEQ:L				MULT:NO	TEMPLATE:Ogre Giant																																												SOURCEPAGE:p49
+Ogre Large Size			TYPE:OgreRacialTransformation		VISIBLE:NO								PRELEVEL:MIN=6						MULT:NO	TEMPLATE:Ogre Large Size																																											SOURCEPAGE:p49
+Ogre Giant				TYPE:OgreRacialTransformation		VISIBLE:NO								PRELEVEL:MIN=8	PRESIZEEQ:L				MULT:NO	TEMPLATE:Ogre Giant																																												SOURCEPAGE:p49
 Ogre Natural Armor 4		TYPE:OgreRacialTransformation4	VISIBLE:NO																MULT:NO																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p49
 Ogre Natural Armor 6		TYPE:OgreRacialTransformation6	VISIBLE:NO	!PREFEAT:1,Ogre Natural Armor 4										MULT:NO																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p49
 Ogre Natural Armor 8		TYPE:OgreRacialTransformation8	VISIBLE:NO	!PREFEAT:1,Ogre Natural Armor 6										MULT:NO																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p49
@@ -683,7 +683,7 @@ Orc Damage Reduction 4		TYPE:OrcRacialTransformation4		VISIBLE:NO	!PREFEAT:1,Orc
 Orc Damage Reduction 6		TYPE:OrcRacialTransformation6		VISIBLE:NO	!PREFEAT:1,Orc Damage Reduction 4							MULT:NO																															BONUS:DR|-|1						SOURCEPAGE:p.51
 Orc Damage Reduction 8		TYPE:OrcRacialTransformation8		VISIBLE:NO	!PREFEAT:1,Orc Damage Reduction 6							MULT:NO																															BONUS:DR|-|1						SOURCEPAGE:p.51
 Orc Damage Reduction 10		TYPE:OrcRacialTransformation10	VISIBLE:NO	!PREFEAT:1,Orc Damage Reduction 8							MULT:NO																															BONUS:DR|-|1						SOURCEPAGE:p.51
-Orc Darkvision			TYPE:OrcRacialTransformation		VISIBLE:NO								PRELEVEL:4				MULT:NO																																		BONUS:VISION|DarkVision|60	SOURCEPAGE:p.51
+Orc Darkvision			TYPE:OrcRacialTransformation		VISIBLE:NO								PRELEVEL:MIN=4			MULT:NO																																		BONUS:VISION|DarkVision|60	SOURCEPAGE:p.51
 Orc Transformation Feats 4	TYPE:OrcRacialTransformation4		VISIBLE:NO													MULT:NO	ADD:FEAT|1|Diehard,Dodge,Endurance,Great Fortitude,Run,Toughness																												SOURCEPAGE:p.51
 Orc Transformation Feats 6	TYPE:OrcRacialTransformation6		VISIBLE:NO	!PREFEAT:1,Orc Transformation Feats 4						MULT:NO	ADD:FEAT|1|Diehard,Dodge,Endurance,Great Fortitude,Run,Toughness																												SOURCEPAGE:p.51
 Orc Transformation Feats 8	TYPE:OrcRacialTransformation8		VISIBLE:NO	!PREFEAT:1,Orc Transformation Feats 6						MULT:NO	ADD:FEAT|1|Diehard,Dodge,Endurance,Great Fortitude,Run,Toughness																												SOURCEPAGE:p.51
@@ -700,9 +700,9 @@ Orc Transformation Skills 10	TYPE:OrcRacialTransformation10	VISIBLE:NO										
 ################
 
 ###Block: Racial Talents
-# Feat Name				Type					Visible	Required Feat			Prohibited Feat				Required Lvl	Special Ability		Stackable?	Multiple?	Add																																																																																					Source Page
+# Feat Name				Type					Visible	Required Feat			Prohibited Feat				Required Lvl	Special ABility		Stackable?	Multiple?	Add																																																																																					Source Page
 Infernal Gift I			TYPE:TieflingRacialTalent	VISIBLE:NO															SAB:Infernal Gift I			MULT:NO																																																																																						SOURCEPAGE:p.52
-Infernal Gift II			TYPE:TieflingRacialTalent	VISIBLE:NO	PREFEAT:1,Infernal Gift I							PRELEVEL:7		SAB:Infernal Gift II			MULT:NO																																																																																						SOURCEPAGE:p.53
+Infernal Gift II			TYPE:TieflingRacialTalent	VISIBLE:NO	PREFEAT:1,Infernal Gift I							PRELEVEL:MIN=7	SAB:Infernal Gift II			MULT:NO																																																																																						SOURCEPAGE:p.53
 Demonic Familiar			TYPE:TieflingRacialTalent	VISIBLE:NO															SAB:Demonic Familiar			MULT:NO																																																																																						SOURCEPAGE:p.53
 Infernal Resistance		TYPE:TieflingRacialTalent	VISIBLE:NO															SAB:Infernal Resistance			MULT:NO																																																																																						SOURCEPAGE:p.53
 Tiefling Talent Feats 1		TYPE:TieflingRacialTalent1	VISIBLE:NO																					MULT:NO	ADD:FEAT|1|TYPE=Metamagic,Augment Summoning,Spell Focus(Conjuration)																																																																										SOURCEPAGE:p.53
@@ -718,10 +718,10 @@ Tiefling Talent Skills 9	TYPE:TieflingRacialTalent9	VISIBLE:NO																		
 #TODO:Infernal Gift..
 
 ###Block: Racial Transformations
-# Feat Name					Type						Visible	Prohibited Feat						Required Lvl	Special Ability						Define				Stackable?	Multiple?	Choose					Template				Add																														Combat bonus					Add to vision			Modify VAR																Source Page
+# Feat Name					Type						Visible	Prohibited Feat						Required Lvl	Special ABility						Define				Stackable?	Multiple?	Choose					Template				Add																														Combat bonus					Add to vision			Modify VAR																Source Page
 Outsider					TYPE:TieflingRacialTransformation	VISIBLE:NO																											MULT:NO							TEMPLATE:Tiefling Outsider																																																												SOURCEPAGE:p.53
 Tiefling Fire Resistance		TYPE:TieflingRacialTransformation	VISIBLE:NO	!PREFEAT:3,CHECKMULT,Tiefling Fire Resistance																	STACK:YES	MULT:YES	CHOOSE:Increase fire resistance						ADD:FEAT|1|Fire Resistance																																						BONUS:VAR|FireResistance|5	BONUS:VAR|FireImmunity|1|PREFEAT:3,CHECKMULT,Tiefling Fire Resistance	SOURCEPAGE:p.53
-Tiefling Darkvision			TYPE:TieflingRacialTransformation	VISIBLE:NO									PRELEVEL:4																	MULT:NO																																																	BONUS:VISION|DarkVision|60																		SOURCEPAGE:p.53
+Tiefling Darkvision			TYPE:TieflingRacialTransformation	VISIBLE:NO									PRELEVEL:MIN=4																MULT:NO																																																	BONUS:VISION|DarkVision|60																		SOURCEPAGE:p.53
 Infernal Presence				TYPE:TieflingRacialTransformation	VISIBLE:NO												SAB:Infernal Presence (%/day)|InfernalPresence	DEFINE:InfernalPresence|0	STACK:YES	MULT:YES	CHOOSE:+1 per day																																																			BONUS:VAR|InfernalPresence|1													SOURCEPAGE:p.53
 Tiefling Natural Armor			TYPE:TieflingRacialTransformation	VISIBLE:NO																											MULT:NO																																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																							SOURCEPAGE:p.53
 Tiefling Transformation Feats 4	TYPE:TieflingRacialTransformation4	VISIBLE:NO																											MULT:NO												ADD:FEAT|1|Dodge,Improved Initiative,Lightning Reflexes																																																		SOURCEPAGE:p.53
@@ -744,11 +744,11 @@ Tiefling Transformation Skills 10	TYPE:TieflingRacialTransformation10	VISIBLE:NO
 #
 
 ###Block: Racial Talents
-# Feat Name				Type					Visible	Required Feat				Prohibited Feat				Required Lvl	Special Ability			Innate Spells										Stackable?	Multiple?	Add																																																																																					Source Page
+# Feat Name				Type					Visible	Required Feat				Prohibited Feat				Required Lvl	Special ABility			Innate Spells										Stackable?	Multiple?	Add																																																																																					Source Page
 Bite Attack				TYPE:ThinbloodRacialTalent	VISIBLE:NO																SAB:Bite Attack																	MULT:NO																																																																																						SOURCEPAGE:p.55
 Poison Attack			TYPE:ThinbloodRacialTalent	VISIBLE:NO																SAB:Poison Attack																	MULT:NO																																																																																						SOURCEPAGE:p.55
 Lesser Psionics I			TYPE:ThinbloodRacialTalent	VISIBLE:NO																SAB:Lesser Psionics I		SPELLS:RacialTalent|TIMES=1|Chameleon,11|Detect Poison,10|Produce Acid			MULT:NO																																																																																						SOURCEPAGE:p.55
-Lesser Psionics II		TYPE:ThinbloodRacialTalent	VISIBLE:NO	PREFEAT:1,Lesser Psionics I								PRELEVEL:5		SAB:Lesser Psionics II		SPELLS:RacialTalent|TIMES=1|Alternate Form|Aversion,12					MULT:NO																																																																																						SOURCEPAGE:p.55
+Lesser Psionics II		TYPE:ThinbloodRacialTalent	VISIBLE:NO	PREFEAT:1,Lesser Psionics I								PRELEVEL:MIN=5	SAB:Lesser Psionics II		SPELLS:RacialTalent|TIMES=1|Alternate Form|Aversion,12					MULT:NO																																																																																						SOURCEPAGE:p.55
 Psionic Mastery			TYPE:ThinbloodRacialTalent	VISIBLE:NO																SAB:Psionic Mastery																MULT:NO																																																																																						SOURCEPAGE:p.55
 Invisible Psionics		TYPE:ThinbloodRacialTalent	VISIBLE:NO	PREFEAT:1,Lesser Psionics II											SAB:Invisible Psionics																MULT:NO																																																																																						SOURCEPAGE:p.55
 Thinblood Talent Feats 1	TYPE:ThinbloodRacialTalent1	VISIBLE:NO																																			MULT:NO	ADD:FEAT|1|TYPE=Metapsionic,TYPE=ItemCreation,Psionic Focus																																																																												SOURCEPAGE:p.55
@@ -768,18 +768,18 @@ Craft Power Stone			TYPE:ThinbloodRacialTalent	VISIBLE:NO	PREFEAT:1,Identify Psi
 #TODO: Psionic Mastery
 
 ###Block: Racial Transformations
-# Feat Name					Type							Visible	Prohibited Feat						Required Lvl	Special Ability	Stackable?	Multiple?	Add																																			Combat bonus					Add to vision			Source Page
-Thinblood Darkvision			TYPE:ThinbloodRacialTransformation		VISIBLE:NO									PRELEVEL:6							MULT:NO																																											BONUS:VISION|DarkVision|60	SOURCEPAGE:p.55
-Thinblood Natural Armor			TYPE:ThinbloodRacialTransformation		VISIBLE:NO																	MULT:NO																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.55
-Snake Form I				TYPE:ThinbloodgRacialTransformation		VISIBLE:NO												SAB:Snake Form I			MULT:NO																																																SOURCEPAGE:p.56
-Snake Form II				TYPE:ThinbloodgRacialTransformation		VISIBLE:NO												SAB:Snake Form II			MULT:NO																																																SOURCEPAGE:p.56
+# Feat Name					Type							Visible	Prohibited Feat						Required Lvl	Special ABility		Stackable?	Multiple?	Add																																			Combat bonus					Add to vision			Source Page
+Thinblood Darkvision			TYPE:ThinbloodRacialTransformation		VISIBLE:NO									PRELEVEL:MIN=6							MULT:NO																																											BONUS:VISION|DarkVision|60	SOURCEPAGE:p.55
+Thinblood Natural Armor			TYPE:ThinbloodRacialTransformation		VISIBLE:NO																		MULT:NO																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.55
+Snake Form I				TYPE:ThinbloodgRacialTransformation		VISIBLE:NO												SAB:Snake Form I				MULT:NO																																																SOURCEPAGE:p.56
+Snake Form II				TYPE:ThinbloodgRacialTransformation		VISIBLE:NO												SAB:Snake Form II				MULT:NO																																																SOURCEPAGE:p.56
 Snake Form III				TYPE:ThinbloodgRacialTransformation		VISIBLE:NO												SAB:Snake Form III			MULT:NO																																																SOURCEPAGE:p.56
-Thinblood Transformation Feats 4	TYPE:ThinbloodRacialTransformation4		VISIBLE:NO																	MULT:NO	ADD:FEAT|1|Dodge,Improved Initiative,Iron Will,Lightning Reflexes																																					SOURCEPAGE:p.56
-Thinblood Transformation Feats 6	TYPE:ThinbloodRacialTransformation6		VISIBLE:NO	!PREFEAT:1,Thinblood Transformation Feats 4									MULT:NO	ADD:FEAT|1|Dodge,Improved Initiative,Iron Will,Lightning Reflexes																																					SOURCEPAGE:p.56
-Thinblood Transformation Feats 8	TYPE:ThinbloodRacialTransformation8		VISIBLE:NO	!PREFEAT:1,Thinblood Transformation Feats 6									MULT:NO	ADD:FEAT|1|Dodge,Improved Initiative,Iron Will,Lightning Reflexes																																					SOURCEPAGE:p.56
-Thinblood Transformation Feats 10	TYPE:ThinbloodRacialTransformation10	VISIBLE:NO	!PREFEAT:1,Thinblood Transformation Feats 8									MULT:NO	ADD:FEAT|1|Dodge,Improved Initiative,Iron Will,Lightning Reflexes																																					SOURCEPAGE:p.56
-Thinblood Transformation Skills 2	TYPE:ThinbloodRacialTransformation2		VISIBLE:NO															STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill													SOURCEPAGE:p.56
-Thinblood Transformation Skills 4	TYPE:ThinbloodRacialTransformation4		VISIBLE:NO															STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill													SOURCEPAGE:p.56
-Thinblood Transformation Skills 6	TYPE:ThinbloodRacialTransformation6		VISIBLE:NO															STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill													SOURCEPAGE:p.56
-Thinblood Transformation Skills 8	TYPE:ThinbloodRacialTransformation8		VISIBLE:NO															STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill													SOURCEPAGE:p.56
-Thinblood Transformation Skills 10	TYPE:ThinbloodRacialTransformation10	VISIBLE:NO															STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill													SOURCEPAGE:p.56
+Thinblood Transformation Feats 4	TYPE:ThinbloodRacialTransformation4		VISIBLE:NO																		MULT:NO	ADD:FEAT|1|Dodge,Improved Initiative,Iron Will,Lightning Reflexes																																					SOURCEPAGE:p.56
+Thinblood Transformation Feats 6	TYPE:ThinbloodRacialTransformation6		VISIBLE:NO	!PREFEAT:1,Thinblood Transformation Feats 4										MULT:NO	ADD:FEAT|1|Dodge,Improved Initiative,Iron Will,Lightning Reflexes																																					SOURCEPAGE:p.56
+Thinblood Transformation Feats 8	TYPE:ThinbloodRacialTransformation8		VISIBLE:NO	!PREFEAT:1,Thinblood Transformation Feats 6										MULT:NO	ADD:FEAT|1|Dodge,Improved Initiative,Iron Will,Lightning Reflexes																																					SOURCEPAGE:p.56
+Thinblood Transformation Feats 10	TYPE:ThinbloodRacialTransformation10	VISIBLE:NO	!PREFEAT:1,Thinblood Transformation Feats 8										MULT:NO	ADD:FEAT|1|Dodge,Improved Initiative,Iron Will,Lightning Reflexes																																					SOURCEPAGE:p.56
+Thinblood Transformation Skills 2	TYPE:ThinbloodRacialTransformation2		VISIBLE:NO																STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill													SOURCEPAGE:p.56
+Thinblood Transformation Skills 4	TYPE:ThinbloodRacialTransformation4		VISIBLE:NO																STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill													SOURCEPAGE:p.56
+Thinblood Transformation Skills 6	TYPE:ThinbloodRacialTransformation6		VISIBLE:NO																STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill													SOURCEPAGE:p.56
+Thinblood Transformation Skills 8	TYPE:ThinbloodRacialTransformation8		VISIBLE:NO																STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill													SOURCEPAGE:p.56
+Thinblood Transformation Skills 10	TYPE:ThinbloodRacialTransformation10	VISIBLE:NO																STACK:NO	MULT:NO	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill	ADD:FEAT|1|TYPE=ThinbloodTransfSkill													SOURCEPAGE:p.56

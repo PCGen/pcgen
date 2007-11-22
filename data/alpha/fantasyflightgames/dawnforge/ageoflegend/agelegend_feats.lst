@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 21 21:19:46 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -14,27 +14,27 @@ Mountain Charge		TYPE:Cultural																				PRETEMPLATE:Region (Stormfells
 
 
 ###block: Regional Feats Chapter Two
-# Feat Name				Type			Visible		Required Feat			Multiple Requirements							Required Race				Req. Special Ability	Req. Known Spell				Req. Spell Type		Required Stat	Required Template								Special Ability			Define		Description																		Stackable?	Multiple?	Choose		Modify VAR		Source Page
+# Feat Name				Type			Visible		Required Feat			Multiple Requirements							Required Race				Req. Special Ability	Req. Known Spell				Req. Spell Type		Required Stat	Required Template								Special ABility				Define		Description																		Stackable?	Multiple?	Choose		Modify VAR		Source Page
 Fey Racer				TYPE:Cultural	VISIBLE:DISPLAY	PREFEAT:1,Fey Rider												PRERACE:1,Elf,Gnome (DF)																PRESTAT:1,CHA=13	PRETEMPLATE:Region (Central Sildanyr)				SAB:Fey Racer (%/day)|FeyRacer	DEFINE:FeyRacer|0	DESC:You know how to extend a bit of fey power to your mount.									STACK:YES	MULT:YES	CHOOSE:FeyRacer	BONUS:VAR|LIST|1	SOURCEPAGE:p.17
-Fey Rider				TYPE:Cultural																			PRERACE:1,Elf,Gnome (DF)																PRESTAT:1,CHA=13	PRETEMPLATE:Region (Central Sildanyr)												DESC:The magic in your spirit reaches out to support your mount.																			SOURCEPAGE:p.17
-Song of Stream and Stone	TYPE:Cultural									PREMULT:1,[PRESPELLTYPE:1,Any=1],[PREFEAT:1,Bardic Music]																								PRETEMPLATE:Region (Deep Sildanyr)													DESC:Given enough time, your voice can shape mountains.																				SOURCEPAGE:p.17
-Rites of the Hours		TYPE:Cultural																																							PRESTAT:1,CON=13	PRETEMPLATE:Region (Central Sildanyr)												DESC:You keep the oldest fey rites and rituals.																						SOURCEPAGE:p.17
-Whisper to the Trees		TYPE:Cultural									PREMULT:1,[PRESPELLTYPE:1,Any=1],[PREFEAT:1,Bardic Music]																								PRETEMPLATE:Region (Deep Sildanyr)													DESC:Given enough time, your can shape a forest into a city.																			SOURCEPAGE:p.17
-The Endless Dance			TYPE:Cultural																																										PRETEMPLATE:Region (Deep Sildanyr)													DESC:You can dance the measure of creation.																						SOURCEPAGE:p.17
-By Moonlight Vision		TYPE:Cultural																			PRERACE:1,Elf (Moon),Gnome (DF)																		PRETEMPLATE:Region (Deep Sildanyr)													DESC:You know how to look for the telltale signs of secrets revealed by moon and starlight.														SOURCEPAGE:p.17
-By Old Loyalties Bound		TYPE:Cultural																			PRERACE:1,Elf,Gnome (DF)																			PRETEMPLATE:Region (Deep Sildanyr)													DESC:You participate in the intricate ties of obligation that bind all of the fey folk together.													SOURCEPAGE:p.18
-Color of the Wind			TYPE:Cultural																			PRERACE:1,Elf,Gnome (DF)						PRESPELL:1,Summon Nature's Ally I								PRETEMPLATE:Region (Deep Sildanyr)													DESC:You know how to listen to the voices of the world.																				SOURCEPAGE:p.18
-Song of the Seasons		TYPE:Cultural																									PRESA:1,Wild Empathy														PRETEMPLATE:Region (Deep Sildanyr)													DESC:You know the song sung by the land as it changes and grows.																			SOURCEPAGE:p.18
-Dance of Blood			TYPE:Cultural				PREFEAT:1,Dance of Blades																															PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You know how to use momentum to your advantage in a fight.																			SOURCEPAGE:p.18
-Dance of the Pine Needle	TYPE:Cultural				PREFEAT:1,Dance of Blades																															PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You use the unpredictable path of a falling needle as a model for your movement in combat.														SOURCEPAGE:p.18
-Dance of Blades			TYPE:Cultural																																							PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You have incorporated the sliding steps of elven dance into your fighting style.															SOURCEPAGE:p.18
-Display of Power			TYPE:Cultural																																			PRESPELLTYPE:1,Any=1				PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You know how to use magic to intimidate others.																					SOURCEPAGE:p.18
-Songs of Blood and War		TYPE:Cultural				PREFEAT:1,Bardic Music																																			PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You have modified the old elven songs to become a dirge of war.																		SOURCEPAGE:p.18
-Dance of Fury			TYPE:Cultural																																							PRESTAT:1,DEX=13	PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You have broken the traditional beauty of elven reed dances to fit your fighting style.														SOURCEPAGE:p.19
-Dance of Hate			TYPE:Cultural																																							PRESTAT:1,DEX=13	PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You have adapted dance steps into your fighting style to mock your hated enemy.															SOURCEPAGE:p.19
-Songs of Darkness and Loss	TYPE:Cultural				PREFEAT:1,Bardic Music																																			PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You have learned the new songs of your people, songs that speak of the darkness that protects your kin.											SOURCEPAGE:p.19
-The Cruelest Hand			TYPE:Cultural																																										PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You can strike down the helpless with brutal efficiency.																			SOURCEPAGE:p.19
-Voice of the Dark Brothers	TYPE:Cultural																									PRESA:1,Wild Empathy														PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You have learned to speak to Lathail's chosen creatures.																			SOURCEPAGE:p.19
+Fey Rider				TYPE:Cultural																			PRERACE:1,Elf,Gnome (DF)																PRESTAT:1,CHA=13	PRETEMPLATE:Region (Central Sildanyr)													DESC:The magic in your spirit reaches out to support your mount.																			SOURCEPAGE:p.17
+Song of Stream and Stone	TYPE:Cultural									PREMULT:1,[PRESPELLTYPE:1,Any=1],[PREFEAT:1,Bardic Music]																								PRETEMPLATE:Region (Deep Sildanyr)														DESC:Given enough time, your voice can shape mountains.																				SOURCEPAGE:p.17
+Rites of the Hours		TYPE:Cultural																																							PRESTAT:1,CON=13	PRETEMPLATE:Region (Central Sildanyr)													DESC:You keep the oldest fey rites and rituals.																						SOURCEPAGE:p.17
+Whisper to the Trees		TYPE:Cultural									PREMULT:1,[PRESPELLTYPE:1,Any=1],[PREFEAT:1,Bardic Music]																								PRETEMPLATE:Region (Deep Sildanyr)														DESC:Given enough time, your can shape a forest into a city.																			SOURCEPAGE:p.17
+The Endless Dance			TYPE:Cultural																																										PRETEMPLATE:Region (Deep Sildanyr)														DESC:You can dance the measure of creation.																						SOURCEPAGE:p.17
+By Moonlight Vision		TYPE:Cultural																			PRERACE:1,Elf (Moon),Gnome (DF)																		PRETEMPLATE:Region (Deep Sildanyr)														DESC:You know how to look for the telltale signs of secrets revealed by moon and starlight.														SOURCEPAGE:p.17
+By Old Loyalties Bound		TYPE:Cultural																			PRERACE:1,Elf,Gnome (DF)																			PRETEMPLATE:Region (Deep Sildanyr)														DESC:You participate in the intricate ties of obligation that bind all of the fey folk together.													SOURCEPAGE:p.18
+Color of the Wind			TYPE:Cultural																			PRERACE:1,Elf,Gnome (DF)						PRESPELL:1,Summon Nature's Ally I								PRETEMPLATE:Region (Deep Sildanyr)														DESC:You know how to listen to the voices of the world.																				SOURCEPAGE:p.18
+Song of the Seasons		TYPE:Cultural																									PRESA:1,Wild Empathy														PRETEMPLATE:Region (Deep Sildanyr)														DESC:You know the song sung by the land as it changes and grows.																			SOURCEPAGE:p.18
+Dance of Blood			TYPE:Cultural				PREFEAT:1,Dance of Blades																															PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)												DESC:You know how to use momentum to your advantage in a fight.																			SOURCEPAGE:p.18
+Dance of the Pine Needle	TYPE:Cultural				PREFEAT:1,Dance of Blades																															PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)												DESC:You use the unpredictable path of a falling needle as a model for your movement in combat.														SOURCEPAGE:p.18
+Dance of Blades			TYPE:Cultural																																							PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)												DESC:You have incorporated the sliding steps of elven dance into your fighting style.															SOURCEPAGE:p.18
+Display of Power			TYPE:Cultural																																			PRESPELLTYPE:1,Any=1				PRETEMPLATE:Region (Outskirts of Sildanyr)												DESC:You know how to use magic to intimidate others.																					SOURCEPAGE:p.18
+Songs of Blood and War		TYPE:Cultural				PREFEAT:1,Bardic Music																																			PRETEMPLATE:Region (Outskirts of Sildanyr)												DESC:You have modified the old elven songs to become a dirge of war.																		SOURCEPAGE:p.18
+Dance of Fury			TYPE:Cultural																																							PRESTAT:1,DEX=13	PRETEMPLATE:Region (Subterranean Morningstar Mountains)										DESC:You have broken the traditional beauty of elven reed dances to fit your fighting style.														SOURCEPAGE:p.19
+Dance of Hate			TYPE:Cultural																																							PRESTAT:1,DEX=13	PRETEMPLATE:Region (Subterranean Morningstar Mountains)										DESC:You have adapted dance steps into your fighting style to mock your hated enemy.															SOURCEPAGE:p.19
+Songs of Darkness and Loss	TYPE:Cultural				PREFEAT:1,Bardic Music																																			PRETEMPLATE:Region (Subterranean Morningstar Mountains)										DESC:You have learned the new songs of your people, songs that speak of the darkness that protects your kin.											SOURCEPAGE:p.19
+The Cruelest Hand			TYPE:Cultural																																										PRETEMPLATE:Region (Subterranean Morningstar Mountains)										DESC:You can strike down the helpless with brutal efficiency.																			SOURCEPAGE:p.19
+Voice of the Dark Brothers	TYPE:Cultural																									PRESA:1,Wild Empathy														PRETEMPLATE:Region (Subterranean Morningstar Mountains)										DESC:You have learned to speak to Lathail's chosen creatures.																			SOURCEPAGE:p.19
 
 ###block Regional Feats Chapter Three
 # Feat Name		Output Name			Type			Required Feat		Req. Spell Type		Required Stat	Required Template								Description																	Save checks bonus				Class Skill				Source Page
@@ -59,7 +59,7 @@ True Speaker					TYPE:Cultural												PRETEMPLATE:Region (Durning Highlands)
 
 
 ###block Regional Feats Chapter Four
-# Feat Name			Type				Visible	Required AL				Required Feat					Required Stat	Required Template								Special Ability				Description														Multiple?	Choose																			% bonus to range			Source Page
+# Feat Name			Type				Visible	Required AL				Required Feat					Required Stat	Required Template								Special ABility				Description														Multiple?	Choose																			% bonus to range			Source Page
 Dream of the Dawn B	TYPE:Cultural				PREALIGN:LG,LN,LE,CG,NE,CE											PRETEMPLATE:Region (Foothills)											DESC:You have seen a vision of the world at the moment of its creation.																															SOURCEPAGE:p.59
 Defender's Frenzy		TYPE:Cultural									PREFEAT:1,Rage								PRETEMPLATE:Region (Foothills)											DESC:The presence of your master in battle drives you into a murderous frenzy.																													SOURCEPAGE:p.59
 Bloodlust			TYPE:Cultural.Fighter								PREFEAT:2,Cleave,Power Attack			PRESTAT:1,STR=13	PRETEMPLATE:Region (Foothills)											DESC:See Text.																																								SOURCEPAGE:p.60
@@ -115,7 +115,7 @@ Lordling Reflexes		TYPE:Cultural						PREFEAT:2,Lightning Reflexes,Improved Init
 Skilled Duelist		TYPE:Cultural																																	PRETEMPLATE:Region (Valhedar Dominion)	DESC:The character is skilled at making nonlethal attacks with his weapon.																																		SOURCEPAGE:p.92
 Stalwart Legionnaire	TYPE:Cultural																											PRESTAT:1,STR=13	PRESTAT:1,DEX=13	PRETEMPLATE:Region (Valhedar Dominion)	DESC:The legionnaires of the Dominion are famous for undertaking long marches while carrying heavy loads.																													SOURCEPAGE:p.92
 #zzzzzzz add the Bonuses!!!
-Survivor of the Pits	TYPE:Cultural						PREFEAT:1,Iron Will						PRELEVEL:6																	PRETEMPLATE:Region (Valhedar Dominion)	DESC:Those who survive the summoning pits will never fear anything outside them.																																	SOURCEPAGE:p.92
+Survivor of the Pits	TYPE:Cultural						PREFEAT:1,Iron Will						PRELEVEL:MIN=6																PRETEMPLATE:Region (Valhedar Dominion)	DESC:Those who survive the summoning pits will never fear anything outside them.																																	SOURCEPAGE:p.92
 
 
 
