@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Nov 21 22:11:55 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn
 
 ### Regional Feats Chapter One
-# Feat Name				Type				Req. Att.	Required Class			Required Skill				Description																						Stackable?	Multiple?	Choose		Source Page
-Exotic Shield Proficiency	TYPE:General.Fighter	PREATT:1												DESC:Choose a type of exotic shield, such as the breaker shield or flankshield. You understand how to use that type of shield in combat.	STACK:NO	MULT:YES	CHOOSE:Exotic	SOURCEPAGE:p.87
+# Feat Name				Type				Req. Att.	Required Class			Required Skill				Description																						Stackable?	Multiple?	Choose							Source Page
+Exotic Shield Proficiency	TYPE:General.Fighter	PREATT:1												DESC:Choose a type of exotic shield, such as the breaker shield or flankshield. You understand how to use that type of shield in combat.	STACK:NO	MULT:YES	CHOOSE:PROFICIENCY|SHIELD|UNIQUE|TYPE=Exotic	SOURCEPAGE:p.87
 #Chooser won't work, waiting for redesign of chooser....
-Craft Magic Pouch			TYPE:ItemCreation				PRECLASS:1,Spellcaster=5							DESC:You can create magic pouches, which carry spells within themselves.																		SOURCEPAGE:p.87
-Craft Spell Fetish		TYPE:ItemCreation				PRECLASS:1,Spellcaster=1	PRESKILL:1,Knowledge (Nature)=5	DESC:You can create spell fetishes, which carry spells within themselves.																		SOURCEPAGE:p.87
+Craft Magic Pouch			TYPE:ItemCreation				PRECLASS:1,Spellcaster=5							DESC:You can create magic pouches, which carry spells within themselves.																							SOURCEPAGE:p.87
+Craft Spell Fetish		TYPE:ItemCreation				PRECLASS:1,Spellcaster=1	PRESKILL:1,Knowledge (Nature)=5	DESC:You can create spell fetishes, which carry spells within themselves.																							SOURCEPAGE:p.87
