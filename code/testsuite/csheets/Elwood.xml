@@ -1472,7 +1472,7 @@ BIO
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents></contents>
+			<contents>0 lbs.</contents>
 			<cost>32</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
@@ -1484,7 +1484,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
-			<type>GOODS.TRANSPORTATION.CIVILIAN.CAR</type>
+			<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1670,7 +1670,7 @@ BIO
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
-					<contents></contents>
+					<contents>0 lbs.</contents>
 					<cost>32</cost>
 					<equipped>Y</equipped>
 					<location>Equipped</location>
@@ -1682,7 +1682,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
-					<type>GOODS.TRANSPORTATION.CIVILIAN.CAR</type>
+					<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
