@@ -2422,6 +2422,7 @@ public final class Globals
 		createEmptyRace();
 		Equipment.clearEquipmentTypes();
 		PersistenceManager.getInstance().emptyLists();
+		SettingsHandler.getGame().clearLstAbilityCategories();
 	}
 
 	/**

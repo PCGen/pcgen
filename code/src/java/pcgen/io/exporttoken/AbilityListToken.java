@@ -18,7 +18,7 @@
  *
  * Created on 21/11/2006
  *
- * $Id: $
+ * $Id$
  */
 
 package pcgen.io.exporttoken;
@@ -42,11 +42,11 @@ import pcgen.io.ExportHandler;
  * y is the category (FEAT, FIGHTER etc, or ALL)
  * z is an option list of TYPE=<type> - type filter - may be negated
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
 public class AbilityListToken extends Token
 {

@@ -133,6 +133,7 @@ public class MainSource extends FilterAdapterPanel
 	private static final int VIEW_PUBLISH = 1;
 	private static final int VIEW_PUBSET = 2;
 	private static final int VIEW_PUBFMTSET = 3;
+	//private static final int VIEW_RANK = 4;
 	private static int viewMode = VIEW_PUBFMTSET; // keep track of what view mode we're in for Available
 	private static int viewSelectMode = VIEW_PRODUCT; // keep track of what view mode we're in for Selected. defaults to "Name"
 
@@ -142,6 +143,7 @@ public class MainSource extends FilterAdapterPanel
 	private static PObjectNode typePubRoot;
 	private static PObjectNode typePubSetRoot;
 	private static PObjectNode typePubFmtSetRoot;
+	//private static PObjectNode rankRoot;
 	private final JLabel avaLabel = new JLabel( /*"Available"*/
 		);
 	private final JLabel selLabel = new JLabel( /*"Selected"*/
@@ -790,6 +792,7 @@ public class MainSource extends FilterAdapterPanel
 		viewComboBox.addItem("Company");
 		viewComboBox.addItem("Company/Setting");
 		viewComboBox.addItem("Comp/Fmt/Setting"); //abbr. here so that all GUI elements will fit when started at default window size
+		//viewComboBox.addItem("Rank");
 		Utility.setDescription(viewComboBox, "You can change how the Sources in the Tables are listed.");
 		viewMode = SettingsHandler.getPCGenOption("pcgen.options.sourceTab.availableListMode", VIEW_PUBFMTSET);
 		viewComboBox.setSelectedIndex(viewMode); // must be done before createModels call
@@ -1078,6 +1081,12 @@ public class MainSource extends FilterAdapterPanel
 
 				updateModels();
 				showSourcesLoaded(oldStatus);
+
+				if (Globals.getRootFrame() != null)
+				{
+					PCGen_Frame1.getInst().refreshCharInfoTabs();
+				}
+
 			}
 
 		};
@@ -1143,8 +1152,10 @@ public class MainSource extends FilterAdapterPanel
 		typePubRoot = new PObjectNode();
 		typePubSetRoot = new PObjectNode();
 		typePubFmtSetRoot = new PObjectNode();
+		//rankRoot = new PObjectNode();
 
 		Set<String> aList = new TreeSet<String>(); //TYPE list
+		//Set<Integer> rankList = new TreeSet<Integer>(); //RANK list
 
 		for (Campaign aCamp : Globals.getCampaignList())
 		{
@@ -1154,6 +1165,7 @@ public class MainSource extends FilterAdapterPanel
 				{
 					aList.add(aCamp.getMyType(0)); //TYPE[0] = Publisher
 				}
+				//rankList.add(aCamp.getRank());
 			}
 		}
 
@@ -1164,6 +1176,20 @@ public class MainSource extends FilterAdapterPanel
 		PObjectNode[] p1 = new PObjectNode[size];
 		PObjectNode[] p2 = new PObjectNode[size];
 		PObjectNode[] p3 = new PObjectNode[size];
+//		PObjectNode[] pRank = new PObjectNode[rankList.size()+1];
+//		int arrayIdx = 0;
+//		for (Integer rank : rankList)
+//		{
+//			PObjectNode pon = new PObjectNode();
+//			pon.setItem(rank.toString());
+//			pon.setParent(rankRoot);
+//			pRank[arrayIdx++] = pon;
+//		}
+//		PObjectNode opon = new PObjectNode();
+//		opon.setItem("Other");
+//		opon.setParent(rankRoot);
+//		pRank[arrayIdx++] = opon;
+//		rankRoot.setChildren(pRank);
 
 		int arrayIdx = 0;
 		for (String s : aList)
@@ -1909,6 +1935,46 @@ public class MainSource extends FilterAdapterPanel
 					}
 
 					break;
+
+//				case VIEW_RANK: // by Rank/Product Name
+//					setRoot((PObjectNode) MainSource.rankRoot.clone());
+//
+//					for (Campaign aCamp : campList)
+//					{
+//						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+////						final Campaign aCamp = (Campaign) fI.next();
+//
+//						// filter out campaigns here
+//						if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
+//						{
+//							continue;
+//						}
+//
+//						//don't display selected campaigns in the available table
+//						if (available && selectedCampaigns.contains(aCamp))
+//						{
+//							continue;
+//						}
+//
+//						boolean added = false;
+//
+//						for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
+//						{
+//							//if we've matched Publisher, or we've reached the last node ("Other") then add it here
+//							if (String.valueOf(aCamp.getRank()).equals(rootAsPObjectNode.getChild(i).getItem().toString())
+//								|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
+//							{
+//								PObjectNode aFN = new PObjectNode();
+//								aFN.setParent(rootAsPObjectNode.getChild(i));
+//								aFN.setItem(aCamp);
+//								PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
+//								rootAsPObjectNode.getChild(i).addChild(aFN);
+//								added = true;
+//							}
+//						}
+//					}
+//
+//					break;
 
 				default:
 					Logging.errorPrint("In MainSource.CampaignlModel.resetModel the mode " + mode + " is not handled.");

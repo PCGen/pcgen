@@ -613,4 +613,18 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 			theModel.setCurrentAbilityCategory(aCategory);
 		}
 	}
+	
+	/**
+	 * Set a new list of categories to be displayed. 
+	 * @param aCategoryList The list of ability categories
+	 */
+	public void setCategories(final List<AbilityCategory> aCategoryList)
+	{
+		theCategoryList = new ArrayList<AbilityCategory>();
+		theCategoryList.addAll(aCategoryList);
+		if (theModel != null)
+		{
+			theModel.setAbilityCategories(aCategoryList);
+		}
+	}
 }

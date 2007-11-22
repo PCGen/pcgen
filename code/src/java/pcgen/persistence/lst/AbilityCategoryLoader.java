@@ -123,7 +123,14 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 				if (cat == null)
 				{
 					cat = new AbilityCategory(value);
-					aGameMode.addAbilityCategory(cat);
+					if (fromLst)
+					{
+						aGameMode.addLstAbilityCategory(cat);
+					}
+					else
+					{
+						aGameMode.addAbilityCategory(cat);
+					}
 				}
 			}
 			else if (token != null)

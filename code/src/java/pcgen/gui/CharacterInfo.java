@@ -195,7 +195,9 @@ public final class CharacterInfo extends JPanel {
 						.getComponentAt(i);
 			characterInfoTabbedPane.setTitleAt(i, tab.getTabName());
 		}
+		infoAbilities().refreshAbilityCategories();
 	}
+	
 	/**
 	 * Get the info description
 	 * @return info description

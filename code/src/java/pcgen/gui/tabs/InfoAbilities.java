@@ -53,6 +53,26 @@ public class InfoAbilities extends TabContainer
 	{
 		super(aPC);
 
+		refreshAbilityCategories(aPC);
+	}
+
+	/**
+	 * Refresh the display of ability categories
+	 */
+	public void refreshAbilityCategories()
+	{
+		refreshAbilityCategories(getPc());
+	}
+	
+	/**
+	 * Refresh the display of ability categories
+	 * @param aPC The character to be displayed
+	 */
+	public void refreshAbilityCategories(final PlayerCharacter aPC)
+	{
+		// Make sure we are starting form a clean slate
+		clearSubTabs();
+		
 		Map<String, AbilityCategory> acTabs = new HashMap<String, AbilityCategory>();
 		
 		final Collection<AbilityCategory> cats =

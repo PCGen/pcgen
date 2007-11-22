@@ -97,6 +97,18 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	}
 
 	/**
+	 *	Remove all existing sub tabs ready for the new set. 
+	 */
+	protected void clearSubTabs()
+	{
+		for (BaseCharacterInfoTab subtab : theSubTabs)
+		{
+			remove(subtab);
+		}
+		theSubTabs.clear();
+	}
+	
+	/**
 	 * @see pcgen.gui.filter.Filterable#getAvailableFilters()
 	 */
 	public List<PObjectFilter> getAvailableFilters()
