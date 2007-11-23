@@ -2474,8 +2474,10 @@ public final class ExportHandler
 			}
 
 			//Leave
-			else if (((testString.indexOf('(') >= 0)
-				|| (testString.indexOf('+') >= 0)
+			else if ((
+					//(testString.indexOf('(') >= 0)
+				//|| 
+				(testString.indexOf('+') >= 0)
 				|| (testString.indexOf('-') >= 0)
 				|| (testString.indexOf(".INTVAL") >= 0)
 				|| (testString.indexOf(".SIGN") >= 0)

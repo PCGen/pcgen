@@ -313,13 +313,40 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("DummyFeat2");
 		dummyFeat2.addBonusList("VAR|NegLevels|7");
+		
+		Ability dummyFeat3 = new Ability();
+		dummyFeat3.setName("DummyFeat3");
+		dummyFeat3.setCategory("Maneuver");		
+		
+		Ability dummyFeat4 = new Ability();
+		dummyFeat4.setName("DummyFeat4");
+		dummyFeat4.setCategory("Maneuver(Special)");
+		
 		pc.addFeat(dummyFeat, null);
 		pc.addFeat(dummyFeat2, null);
-
+		pc.addFeat(dummyFeat3, null);
+		pc.addFeat(dummyFeat4, null);
+		
 		assertEquals("Unsigned output", "7", evaluateToken(
 			"VAR.NegLevels.INTVAL", pc));
 		assertEquals("Signed output", "+7", evaluateToken(
 			"VAR.NegLevels.INTVAL.SIGN", pc));
+	
+		String tok ="";
+	
+		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
+		// if this evaluates math wise, the values should be string "1.0"
+		assertFalse("Token: |" + tok + "| != 1.0: ", evaluateToken(tok, pc).equals("1.0"));
+		
+		tok = "VAR.count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
+		assertTrue("Token: |" + tok + "| == 1.0: ",  evaluateToken(tok, pc).equals("1.0"));
+	
+		tok ="COUNT[\"ABILITIES\", \"CATEGORY=Maneuver\"]";		
+		assertFalse("Token: |" + tok + "| != 1.0: ",  evaluateToken(tok, pc).equals("1.0"));
+		
+		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")";
+		assertFalse("Token: |" + tok + "| != 1.0 ",  evaluateToken(tok, pc).equals("1.0"));
+		
 	}
 
 	private String evaluateToken(String token, PlayerCharacter pc)
