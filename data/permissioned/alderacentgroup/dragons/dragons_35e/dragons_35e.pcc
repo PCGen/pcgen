@@ -20,6 +20,7 @@ COPYRIGHT:PCGen dataset conversion for Dragons Copyright 2003, PCGen Data Team (
 #EXTRAFILE:OGL.txt
 
 CLASS:dragonsclasses_35e.lst
+EQUIPMENT:dragonsequipweapons_35e.lst
 FEAT:dragonsfeats_35e.lst
 SKILL:dragonsskills_35e.lst
 
