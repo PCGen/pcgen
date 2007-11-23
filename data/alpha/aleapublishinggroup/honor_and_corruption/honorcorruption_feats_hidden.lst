@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 28 03:42:41 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 00:38:25 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com
 #Original Entry: Andrew Maitland
 
@@ -6,8 +6,8 @@ SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.c
 
 ### HIDDEN SUBCLASS HP
 #SubClassBonusHPd10		TYPE:Subclass.Hidden.KnightHP	VISIBLE:NO	MULT:YES	STACK:YES	BONUS:HP|CURRENTMAX|%CHOICE|TYPE=Enhancement|PREAPPLY:ANYPC										CHOOSE:NUMBER|MIN=4|MAX=18|TITLE=Choose number of bonus Hp.
-# Feat Name				Type						Visible	Special Ability			Stackable?	Multiple?	Choose											Bonus to HP
-KnightSubClassBonusHP		TYPE:Subclass.Hidden.KnightHP		VISIBLE:NO						STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:PC
+# Feat Name				Type						Visible	Stackable?	Multiple?	Choose											Bonus to HP						SAB
+KnightSubClassBonusHP		TYPE:Subclass.Hidden.KnightHP		VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:PC
 
 #KnightSubClassBonusHPlv4	TYPE:Subclass.Hidden.KnightHP		VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
 #KnightSubClassBonusHPlv8	TYPE:Subclass.Hidden.KnightHP		VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
@@ -18,7 +18,7 @@ KnightSubClassBonusHP		TYPE:Subclass.Hidden.KnightHP		VISIBLE:NO						STACK:YES	
 
 
 #SubClassBonusHPd6		TYPE:Subclass.Hidden.ScoundrelHP	VISIBLE:NO	MULT:YES	STACK:YES	BONUS:HP|CURRENTMAX|%CHOICE|TYPE=Enhancement|PREAPPLY:ANYPC										CHOOSE:NUMBER|MIN=4|MAX=18|TITLE=Choose number of bonus Hp.
-ScoundrelSubClassBonusHP	TYPE:Subclass.Hidden.ScoundrelHP	VISIBLE:NO						STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:PC
+ScoundrelSubClassBonusHP	TYPE:Subclass.Hidden.ScoundrelHP	VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:PC
 
 #ScoundrelSubClassBonusHPlv4	TYPE:Subclass.Hidden.ScoundrelHP	VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
 #ScoundrelSubClassBonusHPlv8	TYPE:Subclass.Hidden.ScoundrelHP	VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
@@ -27,5 +27,5 @@ ScoundrelSubClassBonusHP	TYPE:Subclass.Hidden.ScoundrelHP	VISIBLE:NO						STACK:
 #ScoundrelSubClassBonusHPlv20	TYPE:Subclass.Hidden.ScoundrelHP	VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
 
 
-BlackguardSpellList								VISIBLE:NO	SAB:Cast Blackguard Spells
+BlackguardSpellList								VISIBLE:NO																								SAB:Cast Blackguard Spells
 ### TODO: Add blackguard spell list if CLERIC

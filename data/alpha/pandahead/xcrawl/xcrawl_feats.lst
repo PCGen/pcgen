@@ -26,6 +26,6 @@ Extra Signature Move		TYPE:General
 Pistol Proficiency		TYPE:General																																					AUTO:WEAPONPROF|TYPE=Pistol
 The Profile				TYPE:General																		PRESKILL:1,Perform=4	PRESTAT:1,CHA=16
 Rifle Proficiency			TYPE:General																																					AUTO:WEAPONPROF|TYPE=Rifle
-Rally					TYPE:General.Athlete														PRELEVEL:5						PRESTAT:1,CHA=16
+Rally					TYPE:General.Athlete														PRELEVEL:MIN=5						PRESTAT:1,CHA=16
 Serpentine				TYPE:General								PREFEAT:1,Dodge
 Two-Fisted Healing		TYPE:General								PREFEAT:1,Extra Turning

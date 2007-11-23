@@ -1,117 +1,117 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Nov 23 00:38:25 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Bastion Press - Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://www.bastionpress.com
 
 # Aspect Name			Type			Cost	Multiple?	Stacks?		Source Index		Prerequisites							Bonuses					Penalties					Description
 #------------------------------	-----------------------	-------	---------------	---------------	-----------------------	---------------------------------------------------------------	---------------------------------------	-----------------------------------------------	-------------
 #Aspect of the Air
-# Feat Name			Type				Required Template				Special Ability											Description		Stackable?	Multiple?	Cost		Source Page
-Clear Skies			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Air		SAB:Capable spellcasting (electricity)	SAB:Crude spellcasting (acid)		DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Cyclone			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Air		SAB:+1 to Attack rolls 3x/day	SAB:-1 to Attack rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Hurricane		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Air		SAB:+1 to Damage rolls 3x/day	SAB:-1 to Damage rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Typhoon			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Air		SAB:+1 to AC rolls 3x/day	SAB:-1 to AC rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Winds			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Air		SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
+# Feat Name			Type				Required Template				Description		Stackable?	Multiple?	Cost		Source Page		SAB
+Clear Skies			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Air		DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:Capable spellcasting (electricity)	SAB:Crude spellcasting (acid)
+The Cyclone			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Air		DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Attack rolls 3x/day	SAB:-1 to Attack rolls 3x/day
+The Hurricane		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Air		DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Damage rolls 3x/day
+The Typhoon			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Air		DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to AC rolls 3x/day	SAB:-1 to AC rolls 3x/day
+The Winds			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Air		DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws
 
 #Aspect of the Animal
-The Bird			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Animal	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Insect			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Animal	SAB:+1 to AC 3x/day	SAB:-1 to Damage rolls 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Mammal			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Animal	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Reptile			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Animal	SAB:+1 to AC 3x/day	SAB:-1 to Atteck rolls 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Rodent			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Animal	SAB:+1 to Reflex saving throws	SAB:-1 to Will saving throws				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
+The Bird			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Animal	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws
+The Insect			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Animal	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to AC 3x/day	SAB:-1 to Damage rolls 3x/day
+The Mammal			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Animal	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day
+The Reptile			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Animal	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to AC 3x/day	SAB:-1 to Atteck rolls 3x/day
+The Rodent			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Animal	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Reflex saving throws	SAB:-1 to Will saving throws
 
 #Aspect of the Autumn
-Autumnal Splendor		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Autumn	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-Falling Leaves		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Autumn	SAB:Effective spellcasting (sonic)	SAB:-1 to Ineffective spellcasting (force)	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-Darkening Skies		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Autumn	SAB:Capable spellcasting (acid)	SAB:-1 to Crude spellcasting (electricity)	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Harvest			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Autumn	SAB:+1 to Attack rolls 3x/day	SAB:-1 to AC 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-Renewal			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Autumn	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
+Autumnal Splendor		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Autumn	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws
+Falling Leaves		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Autumn	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:Effective spellcasting (sonic)	SAB:-1 to Ineffective spellcasting (force)
+Darkening Skies		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Autumn	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:Capable spellcasting (acid)	SAB:-1 to Crude spellcasting (electricity)
+The Harvest			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Autumn	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Attack rolls 3x/day	SAB:-1 to AC 3x/day
+Renewal			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Autumn	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day
 
 #Aspect of the Darkness
-The Moon			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Darkness	SAB:Practiced spell (chaos)	SAB:Amateur spell (law)					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Night			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Darkness	SAB:Effective spellcasting (cold)	SAB:Ineffective spellcasting (fire)		DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Shadows			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Darkness	SAB:+1 to AC 3x/day	SAB:-1 to AC 3x/day						DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Stars			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Darkness	SAB:Capable spellcasting (darkness)	SAB:Crude spellcasting (light)			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Void			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Darkness	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
+The Moon			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Darkness	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:Practiced spell (chaos)	SAB:Amateur spell (law)
+The Night			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Darkness	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:Effective spellcasting (cold)	SAB:Ineffective spellcasting (fire)
+The Shadows			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Darkness	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to AC 3x/day	SAB:-1 to AC 3x/day
+The Stars			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Darkness	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:Capable spellcasting (darkness)	SAB:Crude spellcasting (light)
+The Void			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Darkness	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day
 
 #Aspect of the Dawn
-The Brilliant Sky		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dawn	SAB:+1 to Will saving throws	SAB:-1 to Fortitude saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Emerging Rays		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dawn	SAB:+1 to Attack rolls 3x/day	SAB:-1 to Damage rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-Resplendent Beams		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dawn	SAB:+1 to AC 3x/day	SAB:-1 to AC 3x/day						DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Rising Sun		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dawn	SAB:+1 to Capable spellcasting (fore)	SAB:-1 to Crude spellcasting (cold)	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Twilight		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dawn	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
+The Brilliant Sky		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dawn	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Will saving throws	SAB:-1 to Fortitude saving throws
+The Emerging Rays		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dawn	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Attack rolls 3x/day	SAB:-1 to Damage rolls 3x/day
+Resplendent Beams		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dawn	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to AC 3x/day	SAB:-1 to AC 3x/day
+The Rising Sun		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dawn	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Capable spellcasting (fore)	SAB:-1 to Crude spellcasting (cold)
+The Twilight		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dawn	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws
 
 #Aspect of the Dusk
-The Fleeting Rays		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dusk	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Gloom			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dusk	SAB:+1 to Fortitude saving throws	SAB:-1 to Will saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Luminous Clouds	TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dusk	SAB:+1 to AC 3x/day	SAB:-1 to AC 3x/day						DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-Retreating Luster		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dusk	SAB:+1 to Reflex saving throws	SAB:-1 to Will saving throws				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
-The Setting Sun		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dusk	SAB:Capable spellcasting (cold)	SAB:Crude spellcasting (fire)			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39
+The Fleeting Rays		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dusk	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day
+The Gloom			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dusk	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Fortitude saving throws	SAB:-1 to Will saving throws
+The Luminous Clouds	TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dusk	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to AC 3x/day	SAB:-1 to AC 3x/day
+Retreating Luster		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dusk	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:+1 to Reflex saving throws	SAB:-1 to Will saving throws
+The Setting Sun		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Dusk	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.39	SAB:Capable spellcasting (cold)	SAB:Crude spellcasting (fire)
 
 #Aspect of the Earth
-The Caverns			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Earth	SAB:Practiced spell	SAB:Amateur spell							DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-Fertile Soil		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Earth	SAB:+1 to Fortitude saving throws	SAB:-1 to Reflex saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-Mud				TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Earth	SAB:Effective Spellcasting (cold)	SAB:Ineffective Spellcasting (fire)		DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-Ooze				TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Earth	SAB:+1 to Attack rolls 3x/day	SAB:-1 to Damage rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-Stone				TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Earth	SAB:Capable spellcasting (acid)	SAB:Crude spellcasting (electricity)		DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
+The Caverns			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Earth	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:Practiced spell	SAB:Amateur spell
+Fertile Soil		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Earth	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Fortitude saving throws	SAB:-1 to Reflex saving throws
+Mud				TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Earth	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:Effective Spellcasting (cold)	SAB:Ineffective Spellcasting (fire)
+Ooze				TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Earth	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Attack rolls 3x/day	SAB:-1 to Damage rolls 3x/day
+Stone				TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Earth	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:Capable spellcasting (acid)	SAB:Crude spellcasting (electricity)
 
 #Aspect of the Fire
-Ash				TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Fire	SAB:Practiced spell (fire)	SAB:Amateur spell (cold)					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Blaze			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Fire	SAB:+1 to Damage rolls 3x/day	SAB:-1 to AC 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Firestorm		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Fire	SAB:+1 to Attack rolls 3x/day	SAB:-1 to AC 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Flashfire		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Fire	SAB:Capable spellcasting (fire)	SAB:Crude spellcasting (cold)			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-Sparking Embers		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Fire	SAB:Spell resistant (fire)	SAB:Spell vulnerable (cold)				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
+Ash				TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Fire	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:Practiced spell (fire)	SAB:Amateur spell (cold)
+The Blaze			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Fire	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Damage rolls 3x/day	SAB:-1 to AC 3x/day
+The Firestorm		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Fire	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Attack rolls 3x/day	SAB:-1 to AC 3x/day
+The Flashfire		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Fire	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:Capable spellcasting (fire)	SAB:Crude spellcasting (cold)
+Sparking Embers		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Fire	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:Spell resistant (fire)	SAB:Spell vulnerable (cold)
 
 #Aspect of the Lights
-Brilliant Reflections	TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Lights	SAB:Spell Resistant (chaos)	SAB:Spell vulnerable (law)				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-Radiance			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Lights	SAB:+1 to Will saving throws	SAB:-1 to Fortitude saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-Scintillating Light	TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Lights	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-Scintillating Pools	TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Lights	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-Sun Beams			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Lights	SAB:Capable spellcasting (fire)	SAB:Crude spellcasting (cold)			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
+Brilliant Reflections	TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Lights	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:Spell Resistant (chaos)	SAB:Spell vulnerable (law)
+Radiance			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Lights	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Will saving throws	SAB:-1 to Fortitude saving throws
+Scintillating Light	TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Lights	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws
+Scintillating Pools	TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Lights	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Reflex saving throws	SAB:-1 to Fortitude saving throws
+Sun Beams			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Lights	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:Capable spellcasting (fire)	SAB:Crude spellcasting (cold)
 
 #Aspect of the Plant
-The Ferns			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Plant	SAB:+1 to Will saving throws	SAB:-1 to Reflex saving throws				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Flowers			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Plant	SAB:Capable spellcasting (fire)	SAB:Crude spellcasting (cold)			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Grasses			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Plant	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Mosses			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Plant	SAB:+1 to Fortitude saving throws	SAB:-1 to AC 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Trees			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Plant	SAB:+1 to AC 3x/day	SAB:-1 to Damage rolls 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
+The Ferns			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Plant	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Will saving throws	SAB:-1 to Reflex saving throws
+The Flowers			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Plant	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:Capable spellcasting (fire)	SAB:Crude spellcasting (cold)
+The Grasses			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Plant	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day
+The Mosses			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Plant	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Fortitude saving throws	SAB:-1 to AC 3x/day
+The Trees			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Plant	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to AC 3x/day	SAB:-1 to Damage rolls 3x/day
 
 #Aspect of the Predator
-The Arachnid		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Predator	SAB:Practiced spell	SAB:Amateur spell							DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Canine			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Predator	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Feline			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Predator	SAB:+1 to Reflex saving throws	SAB:-1 to Will saving throws				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Raptor			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Predator	SAB:+1 to Fortitude saving throws	SAB:-1 to Will saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
-The Serpent			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Predator	SAB:+1 to Attack rolls 3x/day	SAB:-1 to Damage rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41
+The Arachnid		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Predator	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:Practiced spell	SAB:Amateur spell
+The Canine			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Predator	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day
+The Feline			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Predator	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Reflex saving throws	SAB:-1 to Will saving throws
+The Raptor			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Predator	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Fortitude saving throws	SAB:-1 to Will saving throws
+The Serpent			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Predator	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.41	SAB:+1 to Attack rolls 3x/day	SAB:-1 to Damage rolls 3x/day
 
 #Aspect of the Prey
-The Bovine			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Prey	SAB:+1 to Fortitude saving throws	SAB:-1 to Will saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The Fish			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Prey	SAB:+1 to AC 3x/day	SAB:-1 to Damage rolls 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The Pheasant		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Prey	SAB:+1 to Reflex saving throws	SAB:-1 to Will saving throws				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The Seal			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Prey	SAB:+1 to AC 3x/day	SAB:-1 to Attack rolls 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The Stag			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Prey	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
+The Bovine			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Prey	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to Fortitude saving throws	SAB:-1 to Will saving throws
+The Fish			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Prey	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to AC 3x/day	SAB:-1 to Damage rolls 3x/day
+The Pheasant		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Prey	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to Reflex saving throws	SAB:-1 to Will saving throws
+The Seal			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Prey	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to AC 3x/day	SAB:-1 to Attack rolls 3x/day
+The Stag			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Prey	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to Damage rolls 3x/day	SAB:-1 to Attack rolls 3x/day
 
 #Aspect of the Spring
-Fertility			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Spring	SAB:+1 to AC 3x/day	SAB:-1 to Attack rolls 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-Blooming Splendor		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Spring	SAB:Capable spellcasting (transmutation)	SAB:Crude spellcasting (conjuration)	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-Sown Earth			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Spring	SAB:Spell resistant (acid)	SAB:Spell vulnerable (sonic)				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-Vernal Showers		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Spring	SAB:Spell resistant (cold)	SAB:Spell vulnerable (fire)				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-Spring's Triumph		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Spring	SAB:+1 to Fortitude saving throws	SAB:-1 to Reflex saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
+Fertility			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Spring	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to AC 3x/day	SAB:-1 to Attack rolls 3x/day
+Blooming Splendor		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Spring	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Capable spellcasting (transmutation)	SAB:Crude spellcasting (conjuration)
+Sown Earth			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Spring	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Spell resistant (acid)	SAB:Spell vulnerable (sonic)
+Vernal Showers		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Spring	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Spell resistant (cold)	SAB:Spell vulnerable (fire)
+Spring's Triumph		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Spring	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to Fortitude saving throws	SAB:-1 to Reflex saving throws
 
 #Aspect of the Summer
-Blazing Sun			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Summer	SAB:Capable spellcasting (light)	SAB:Crude spellcasting (darkness)		DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-Drought			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Summer	SAB:Spell resistant (acid)	SAB:Spell vulnerable (electricity)			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-Fiery Equinox		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Summer	SAB:Spell resistant (fire)	SAB:Spell vulnerable (water)				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The Mirage			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Summer	SAB:+1 to Reflex saving throws	SAB:-1 to Will saving throws				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-Summer's Fury		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Summer	SAB:+1 to Attack rolls 3x/day	SAB:-1 to AC 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
+Blazing Sun			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Summer	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Capable spellcasting (light)	SAB:Crude spellcasting (darkness)
+Drought			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Summer	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Spell resistant (acid)	SAB:Spell vulnerable (electricity)
+Fiery Equinox		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Summer	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Spell resistant (fire)	SAB:Spell vulnerable (water)
+The Mirage			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Summer	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to Reflex saving throws	SAB:-1 to Will saving throws
+Summer's Fury		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Summer	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to Attack rolls 3x/day	SAB:-1 to AC 3x/day
 
 #Aspect of the Water
-The Lake			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Water	SAB:Capable spellcasting (cold)	SAB:Crude spellcasting (fire)			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The Ocean			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Water	SAB:Spell resistant (acid)	SAB:Spell vulnerable (sonic)				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The River			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Water	SAB:+1 to Attack rolls 3x/day	SAB:-1 to Damage rolls 3x/day				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The Springs			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Water	SAB:Spell resistant (cold)	SAB:Spell vulnerable (fire)				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The Watery Depths		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Water	SAB:Capable spellcasting (darkness)	SAB:Crude spellcasting (light)			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
+The Lake			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Water	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Capable spellcasting (cold)	SAB:Crude spellcasting (fire)
+The Ocean			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Water	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Spell resistant (acid)	SAB:Spell vulnerable (sonic)
+The River			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Water	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to Attack rolls 3x/day	SAB:-1 to Damage rolls 3x/day
+The Springs			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Water	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Spell resistant (cold)	SAB:Spell vulnerable (fire)
+The Watery Depths		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Water	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Capable spellcasting (darkness)	SAB:Crude spellcasting (light)
 
 #Aspect of the Winter
-The Howling Winds		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Winter	SAB:+1 to Attack rolls 3x/day	SAB:-1 to AC 3x/day					DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The Ice			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Winter	SAB:+1 to Will saving throws	SAB:-1 to Fortitude saving throws			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-The Snowdrifts		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Winter	SAB:Spell resistant (electricity)	SAB:Spell vulnerable (sonic)			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-Stormy Skies		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Winter	SAB:Capable spellcasting (darkness)	SAB:Crude spellcasting (light)			DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
-Winter's Grip		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Winter	SAB:Spell resistant (cold)	SAB:Spell vulnerable (fire)				DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42
+The Howling Winds		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Winter	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to Attack rolls 3x/day	SAB:-1 to AC 3x/day
+The Ice			TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Winter	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:+1 to Will saving throws	SAB:-1 to Fortitude saving throws
+The Snowdrifts		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Winter	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Spell resistant (electricity)	SAB:Spell vulnerable (sonic)
+Stormy Skies		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Winter	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Capable spellcasting (darkness)	SAB:Crude spellcasting (light)
+Winter's Grip		TYPE:AspectOfNature	PRETEMPLATE:Aspect of the Winter	DESC:See text	STACK:NO	MULT:NO	COST:0	SOURCEPAGE:p.42	SAB:Spell resistant (cold)	SAB:Spell vulnerable (fire)
