@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Nov 22 21:42:31 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html
 # Original Entry by: Paul W. King
 
-# Race Name	Size		Move			Save checks bonus																	Combat bonus													Bonus to skill rank						Stat bonus																						Default Monster Feat															Natural Attacks								HITDICE	MONSTERCLASS			Main Race Type		Template			CR	Source Page		Innate Spells
-War Pig	SIZE:L	MOVE:Walk,40	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|6|PREDEFAULTMONSTER:Y	BONUS:CHECKS|BASE.Will|3|PREDEFAULTMONSTER:Y	BONUS:COMBAT|AC|8|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|6|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Listen,Spot|7|PREDEFAULTMONSTER:Y	BONUS:STAT|STR|20	BONUS:STAT|DEX|2	BONUS:STAT|CON|10	BONUS:STAT|INT|-6	BONUS:STAT|WIS|4	BONUS:STAT|STR,CON,WIS|1|PREDEFAULTMONSTER:Y	MFEAT:Weapon Focus|Toughness|Improved Initiative|Improved Natural Attack|Alertness|Endurance|Iron Will	NATURALATTACKS:Gore,Weapon.Melee.Natural.Piercing,*1,3d6	HITDICE:9,8	MONSTERCLASS:Magical Beast:9	RACETYPE:Magical Beast	TEMPLATE:Magical Beast	CR:6	SOURCEPAGE:p.19	SPELLS:Innate|TIMES=3|Shield|Shout	SPELLS:Innate|TIMES=1|False Life|Protection from Energy|Waves of Fatigue
+# Race Name	Size		Move			Combat bonus						Stat bonus														Natural Attacks								MONSTERCLASS			Main Race Type		Template			CR	Source Page		Innate Spells
+War Pig	SIZE:L	MOVE:Walk,40	BONUS:COMBAT|AC|8|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|20	BONUS:STAT|DEX|2	BONUS:STAT|CON|10	BONUS:STAT|INT|-6	BONUS:STAT|WIS|4	NATURALATTACKS:Gore,Weapon.Melee.Natural.Piercing,*1,3d6	MONSTERCLASS:Magical Beast:9	RACETYPE:Magical Beast	TEMPLATE:Magical Beast	CR:6	SOURCEPAGE:p.19	SPELLS:Innate|TIMES=3|Shield|Shout	SPELLS:Innate|TIMES=1|False Life|Protection from Energy|Waves of Fatigue
 # War Pig comes with spiked full plate barding...not sure how to do that

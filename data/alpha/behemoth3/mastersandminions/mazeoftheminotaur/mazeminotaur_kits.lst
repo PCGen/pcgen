@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Nov 22 21:39:23 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/
 # Original Entry by: Eddy Anthony
 
 REGION:None
 
 STARTPACK:Bull Lord Default Equipment	VISIBLE:NO	EQUIPBUY:0
-GEAR:Greataxe (Large)		PREDEFAULTMONSTER:Y
-GEAR:Chain Shirt (Large)	PREDEFAULTMONSTER:Y
+GEAR:Greataxe (Large)
+GEAR:Chain Shirt (Large)
 
 STARTPACK:Minotrice Maze Mage Default Equipment	VISIBLE:NO	EQUIPBUY:0
-GEAR:Leather	PREDEFAULTMONSTER:Y
+GEAR:Leather
 
 #
 # End
