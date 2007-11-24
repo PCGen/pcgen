@@ -17,6 +17,9 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 
 #Sleight of Hand		KEYSTAT:DEX		USEUNTRAINED:NO	ACHECK:YES		TYPE:Dexterity		BONUS:SKILL|Sleight of Hand|2|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK		SOURCEPAGE:SkillsII.rtf
 
+###Sample for Ability by Skill rules guide.
+#Ability by Skill	TYPE:NoStat	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|AbilitybySkillPool|SKILL.Ability by Skill.RANK
+
 #####
 #Sleight of Hand is the name of the skill. It will appear in the skills list on PCGen's Skills tab and will be used if a
 #skill gets bonused or is declared a class skill. It must be the first entry on each line.
