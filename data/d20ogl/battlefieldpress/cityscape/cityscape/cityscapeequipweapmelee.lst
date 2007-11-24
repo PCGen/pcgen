@@ -67,14 +67,14 @@ Brass Knuckles							TYPE:Weapon.Simple.Melee.Bludgeoning											COST:200	WT:
 Knife (Bowie)							TYPE:Weapon.Dagger.Simple.Melee.Ranged.Piercing.Standard.Metal							COST:300	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					RANGE:10
 
 #SMALL ----------------------------------------------------------------------------------------------------------
-Mace (Light)		PROFICIENCY:Mace			TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal									COST:5	WT:6		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
+Mace (Light)		PROFICIENCY:Mace (Light)	TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal									COST:5	WT:6		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
 Sickle								TYPE:Weapon.Simple.Melee.Slashing.Standard.Metal									COST:6	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
 Sword cane								TYPE:Weapon.Simple.Melee.Slashing.Standard.Metal									COST:250	WT:4		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6
 
 #MEDIUM ----------------------------------------------------------------------------------------------------------
 Club									TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Wooden								COST:0	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					RANGE:10	SIZE:M	SOURCEPAGE:p.
 Halfspear								TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Wooden								COST:1	WT:3		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					RANGE:20	SIZE:M	SOURCEPAGE:p.
-Mace (Heavy)		PROFICIENCY:Mace			TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal									COST:12	WT:12		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8							SIZE:M	SOURCEPAGE:p.
+Mace (Heavy)		PROFICIENCY:Mace (Heavy)	TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal									COST:12	WT:12		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8							SIZE:M	SOURCEPAGE:p.
 Morningstar								TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Piercing.Metal							COST:8	WT:8		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8							SIZE:M	SOURCEPAGE:p.
 Baseball Bat							TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Wooden								COST:35	WT:7		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d8
 

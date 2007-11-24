@@ -66,6 +66,10 @@ Halfspear			TYPE:Simple
 Javelin			TYPE:Simple
 Knife (Bowie)		TYPE:Simple
 Mace				TYPE:Simple
+###Keeping old Mace Proficiency... Soon we'll convert to using only the SRD weaponprof.
+Mace (Heavy)		TYPE:Simple
+Mace (Light)		TYPE:Simple
+
 Morningstar			TYPE:Simple
 Quarterstaff		TYPE:Simple
 Shortspear			TYPE:Simple
