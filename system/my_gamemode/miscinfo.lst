@@ -275,11 +275,16 @@
 # Ability Categories
 #
 #ABILITYCATEGORY:my_foo abilities	CATEGORY:PooSlinger	PLURAL:PooSlinger		EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	POOL:<myformula or Number>	VISIBLE:YES/NO/QUALIFY
+#ABILITYCATEGORY:AbilitybySkill	CATEGORY:AbilitybySkill	PLURAL:AbilitybySkills	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	POOL:AbilitybySkillPool	DEFINE:AbilitybySkillPool|0	VISIBLE:QUALIFY
+
+
 # VISIBLE TAG will take YES, NO or QUALIFY - QUALIFY won't display the Category unless it has one valid selection or the number is 1 or higher in the pool.
 # New tag - DISPLAYLOCATION:<user defined> will allow you to group ABILITIES together in the same "tab"
 # New tag - DISPLAYNAME:<user defined> serves the same function as OUTPUTNAME is showing what is displayed
 # Using TYPE will populate the category with any ABILITY with a matching type. Example:
 # ABILITYCATEGORY:Fighter Feats	CATEGORY:FEAT	TYPE:Fighter
 # That will make all the Feats with TYPE:Fighter appear
+
+
 # DONE
 #
