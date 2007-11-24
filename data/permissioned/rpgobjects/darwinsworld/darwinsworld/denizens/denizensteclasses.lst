@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat Nov 24 07:13:09 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 #Orginal entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth	SOURCESHORT:DenizensTE	SOURCEWEB:http://www.darwinrpg.com
 
@@ -24,9 +24,9 @@ CLASS:Brethren Follower	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Hide|Knowledge
 ###Block: Rage
 1	BONUS:VAR|RageTimes|CL/4+1	DEFINE:RageTimes|0	VFEAT:Rage
 ###Block: Normal level progression
-1	SAB:Experience Bonus																																		AUTO:FEAT|Improved Unarmed Strike
-2	SAB:Trap-Making %d6 (DC%)|TrapMaking|TrapMakingDC	BONUS:VAR|TrapMaking|(CL-1)/4+1	BONUS:VAR|TrapMakingDC|floor((CL-1)/4)*3+16	DEFINE:TrapMaking|0	DEFINE:TrapMakingDC|0
-4																								DEFINE:WeapSpecQualify|1				ADD:FEAT|1|Weapon Specialization
+1																													AUTO:FEAT|Improved Unarmed Strike	SAB:Experience Bonus
+2	BONUS:VAR|TrapMaking|(CL-1)/4+1	BONUS:VAR|TrapMakingDC|floor((CL-1)/4)*3+16	DEFINE:TrapMaking|0	DEFINE:TrapMakingDC|0													SAB:Trap-Making %d6 (DC%)|TrapMaking|TrapMakingDC
+4															DEFINE:WeapSpecQualify|1				ADD:FEAT|1|Weapon Specialization
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
@@ -40,11 +40,11 @@ CLASS:Cartel Trade Master	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Informat
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1																AUTO:FEAT|Skill Focus(Diplomacy)
-2	SAB:Make a Deal
-3	SAB:Wise Man Speaks
-4	SAB:Peacemaker		BONUS:SKILL|Bluff,Diplomacy,Innuendo,Intimidate,Sense Motive|8
-5																AUTO:FEAT|Sandwalker
+1												AUTO:FEAT|Skill Focus(Diplomacy)
+2																		SAB:Make a Deal
+3																		SAB:Wise Man Speaks
+4	BONUS:SKILL|Bluff,Diplomacy,Innuendo,Intimidate,Sense Motive|8							SAB:Peacemaker
+5												AUTO:FEAT|Sandwalker
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Champion	HD:12		TYPE:PC.Prestige	ABB:Cha		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -70,9 +70,9 @@ CLASS:Demolitions Expert	STARTSKILLPTS:4	CSKILL:Climb|Craft (Tinker)|Disable Dev
 ###Block: Proficiencies
 1	AUTO:FEAT|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SAB:Eye for Safety	SAB:Keen Eye	SAB:Trap Making (DC %)|DETrapMakingDC	BONUS:VAR|DETrapMakingDC|floor((CL-1)/3)*3+16	DEFINE:DETrapMakingDC|0
-2	SAB:Grenadier +%|Grenadier								BONUS:VAR|Grenadier|(CL+1)/3				DEFINE:Grenadier|0
-6	SAB:Make Explosives
+1	BONUS:VAR|DETrapMakingDC|floor((CL-1)/3)*3+16	DEFINE:DETrapMakingDC|0	SAB:Eye for Safety	SAB:Keen Eye	SAB:Trap Making (DC %)|DETrapMakingDC
+2	BONUS:VAR|Grenadier|(CL+1)/3				DEFINE:Grenadier|0	SAB:Grenadier +%|Grenadier
+6													SAB:Make Explosives
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Force Master	HD:8		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -81,13 +81,13 @@ CLASS:Force Master	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Iron Will	PRERACE:1,1st 
 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Focus Master	STARTSKILLPTS:2	CSKILL:Animal Empathy|Decipher Script|Heal|Knowledge (Ancient Lore)|Perform|Sense Motive|Speak Language
-1	SAB:Radiation Immunity	SAB:Willpower
-2	SAB:Manipulation
-3	SAB:Telekinetic Shield
-5	SAB:Minor Precognition				BONUS:COMBAT|INITIATIVE|4|TYPE=Enhancement
-7	SAB:Focus Sword
-9	SAB:Major Precognition												BONUS:SKILL|Listen,Spot|2|TYPE=Enhancement
-10	SAB:Free Neural Mutation
+1																	SAB:Radiation Immunity	SAB:Willpower
+2																	SAB:Manipulation
+3																	SAB:Telekinetic Shield
+5	BONUS:COMBAT|INITIATIVE|4|TYPE=Enhancement									SAB:Minor Precognition
+7																	SAB:Focus Sword
+9									BONUS:SKILL|Listen,Spot|2|TYPE=Enhancement	SAB:Major Precognition
+10																	SAB:Free Neural Mutation
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Foundationist Paladin	HD:10		TYPE:PC.Prestige	ABB:FPa		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -98,14 +98,14 @@ CLASS:Foundationist Paladin	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Martial Weapon Proficiencies|All Exotic Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
-1	SAB:Ancient Lore									ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
-3	SAB:Command %|Command	BONUS:VAR|Command|3	DEFINE:Command|0
-4												ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
-5					BONUS:VAR|Command|2
-6	SAB:Heroic Direction
-7					BONUS:VAR|Command|2				ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
-9					BONUS:VAR|Command|2
-10					BONUS:VAR|Command|1				ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
+1								ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus	SAB:Ancient Lore
+3	BONUS:VAR|Command|3	DEFINE:Command|0																																																SAB:Command %|Command
+4								ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
+5	BONUS:VAR|Command|2
+6																																																							SAB:Heroic Direction
+7	BONUS:VAR|Command|2				ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
+9	BONUS:VAR|Command|2
+10	BONUS:VAR|Command|1				ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Juju Doctor	HD:4		TYPE:PC.Prestige	ABB:JJD		MAXLEVEL:10	SOURCEPAGE:p. 30, 31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -113,15 +113,15 @@ CLASS:Juju Doctor	HD:4		TYPE:PC.Prestige	ABB:JJD		MAXLEVEL:10	SOURCEPAGE:p. 30, 
 CLASS:Juju Doctor	PREFEAT:3,Brew Potion,Skill Focus(Knowledge (Medicine)),Skill Focus(Knowledge (Pharmacy))	PRESKILL:3,Heal,Knowledge (Medicine),Knowledge (Pharmacy)=9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Juju Doctor	STARTSKILLPTS:2	CSKILL:Decipher Script|Heal|Knowledge (Ancient Lore)|Knowledge (Medicine)|Knowledge (Mutant Lore)|Knowledge (Pathology)|Knowledge (Pharmacy)|Perform|Profession (Herbalist)|Sense Motive|Speak Language
-1	SAB:Doctor's Know-How	SAB:Herbal Medicine (Minor)
-2	SAB:Canny Defense
-3	SAB:Herbal Medicine (Moderate)
-4	SAB:Improved First Aid
-5	SAB:Bedside Manner +%|BedsideManner	SAB:Herbal Medicine (Major)	BONUS:VAR|BedsideManner|2	DEFINE:BedsideManner|0
-7	SAB:Neutralize Poison
-8	SAB:Witch
-9												BONUS:VAR|BedsideManner|2
-10	SAB:Cure Disease
+1										SAB:Doctor's Know-How	SAB:Herbal Medicine (Minor)
+2										SAB:Canny Defense
+3										SAB:Herbal Medicine (Moderate)
+4										SAB:Improved First Aid
+5	BONUS:VAR|BedsideManner|2	DEFINE:BedsideManner|0	SAB:Bedside Manner +%|BedsideManner	SAB:Herbal Medicine (Major)
+7										SAB:Neutralize Poison
+8										SAB:Witch
+9	BONUS:VAR|BedsideManner|2
+10										SAB:Cure Disease
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Mech		HD:4		TYPE:PC.Prestige	ABB:Mec		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -129,14 +129,14 @@ CLASS:Mech		HD:4		TYPE:PC.Prestige	ABB:Mec		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CH
 CLASS:Mech		PREFEAT:1,Skill Focus(Craft (Mechanics)),Skill Focus(Knowledge (Technology))	PRELANG:1,Computer	PRESKILL:3,Craft (Mechanics),Craft (Technician),Knowledge (Technology)=8	PRETEMPLATE:Advanced|Guardian|Resurrector|Ritual Preservationist|Visionary Reinventor
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mech		STARTSKILLPTS:4	CSKILL:TYPE.Craft|Decipher Script|Disable Device|Knowledge (Ancient Lore)|Knowledge (Computers)|Knowledge (Technology)|Open Lock|TYPE.Profession
-1	SAB:Repair Mechanical Damage
-2	SAB:Growing Toolkit +%|GrowingToolkit	BONUS:VAR|GrowingToolkit|5*floor((CL+2)/4)	BONUS:SKILL|TYPE.Craft|min(5*floor((CL+2)/4),15)|TYPE=Competence	DEFINE:GrowingToolkit|0
-3	SAB:Identify
-4	SAB:Artifice (%000 cp max)|Artifice		BONUS:VAR|Artifice|8																DEFINE:Artifice|0
-5	SAB:Minor Helper
-7								BONUS:VAR|Artifice|8
-9	SAB:Major Helper
-10								BONUS:VAR|Artifice|16
+1																								SAB:Repair Mechanical Damage
+2	BONUS:VAR|GrowingToolkit|5*floor((CL+2)/4)	BONUS:SKILL|TYPE.Craft|min(5*floor((CL+2)/4),15)|TYPE=Competence	DEFINE:GrowingToolkit|0	SAB:Growing Toolkit +%|GrowingToolkit
+3																								SAB:Identify
+4	BONUS:VAR|Artifice|8																DEFINE:Artifice|0		SAB:Artifice (%000 cp max)|Artifice
+5																								SAB:Minor Helper
+7	BONUS:VAR|Artifice|8
+9																								SAB:Major Helper
+10	BONUS:VAR|Artifice|16
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Ranger (DW)	HD:10		TYPE:PC.Prestige	ABB:RDW		MAXLEVEL:5	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -147,11 +147,11 @@ CLASS:Ranger (DW)	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Gather Information|Hand
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
-1	SAB:Rigorous Training
-2	SAB:Wanderer's Reputation +%|WanderersReputation	BONUS:VAR|WanderersReputation|2	BONUS:SKILL|Diplomacy,Intimidate|CL)	DEFINE:WanderersReputation|CL
-3																											ADD:FEAT|1|Feel for Weapon
-4	SAB:Do It with Eyes Closed
-5	SAB:Leave No One Behind
+1																								SAB:Rigorous Training
+2	BONUS:VAR|WanderersReputation|2	BONUS:SKILL|Diplomacy,Intimidate|CL)	DEFINE:WanderersReputation|CL						SAB:Wanderer's Reputation +%|WanderersReputation
+3																			ADD:FEAT|1|Feel for Weapon
+4																								SAB:Do It with Eyes Closed
+5																								SAB:Leave No One Behind
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Road Warrior	HD:8		TYPE:PC.Prestige	ABB:RWa		MAXLEVEL:5	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -161,11 +161,11 @@ CLASS:Road Warrior	PREATT:5	PREFEAT:1,Road Warrior	PREITEM:1,TYPE=Vehicle	PRESKI
 CLASS:Road Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Mechanics)|Disable Device|Escape Artist|Intuit Direction|Jump|Knowledge (Vehicle Operations)|Spot
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SAB:Boarding Party	SAB:Offensive Driving
-2	SAB:Defensive Driving
-3	SAB:Vehicular Dodge
-4	SAB:Master Mechanic				BONUS:SKILL|Craft (Mechanics)|2|TYPE=Competence
-5	SAB:Improved Defensive Driving
+1									SAB:Boarding Party	SAB:Offensive Driving
+2									SAB:Defensive Driving
+3									SAB:Vehicular Dodge
+4	BONUS:SKILL|Craft (Mechanics)|2|TYPE=Competence	SAB:Master Mechanic
+5									SAB:Improved Defensive Driving
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Sister of the Desert	HD:8		TYPE:PC.Prestige	ABB:SoD		MAXLEVEL:5	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

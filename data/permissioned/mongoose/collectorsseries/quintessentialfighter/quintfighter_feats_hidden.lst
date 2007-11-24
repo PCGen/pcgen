@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri May  4 22:05:44 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Sat Nov 24 07:13:09 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
 # Original Entry by: Tir Gwaith
 
 
 ###Block: Peasant Hero
-# Feat Name						Type			Visible	Special Ability		Stackable?	Multiple?	Choose																Weapon prof. bonus							Source Page
-Peasant Hero Weapon Competence Bonus	TYPE:ClassAbility	VISIBLE:NO					STACK:YES	MULT:YES	CHOOSE:PROFICIENCY|PC|Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake	BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
-Peasant Hero 5th level Weapon Competence	TYPE:ClassAbility	VISIBLE:NO					STACK:YES	MULT:YES	CHOOSE:PROFICIENCY|PC|Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake	BONUS:WEAPONPROF=%LIST|TOHIT|2|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
-Inspire Commoners					TYPE:ClassAbility	VISIBLE:NO	SAB:Inspire Commoners																																SOURCEPAGE:p.24
-Harmless Bluff					TYPE:ClassAbility	VISIBLE:NO	SAB:Harmless Bluff																																	SOURCEPAGE:p.24
-Improvise Weapon					TYPE:ClassAbility	VISIBLE:NO	SAB:Improvise Weapon																																SOURCEPAGE:p.24
-Unconventional Skill				TYPE:ClassAbility	VISIBLE:NO	SAB:Unconventional Skill																																SOURCEPAGE:p.24
+# Feat Name						Type			Visible	Stackable?	Multiple?	Choose																Weapon prof. bonus							Source Page		SAB
+Peasant Hero Weapon Competence Bonus	TYPE:ClassAbility	VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:PROFICIENCY|PC|Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake	BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
+Peasant Hero 5th level Weapon Competence	TYPE:ClassAbility	VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:PROFICIENCY|PC|Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake	BONUS:WEAPONPROF=%LIST|TOHIT|2|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
+Inspire Commoners					TYPE:ClassAbility	VISIBLE:NO																																SOURCEPAGE:p.24	SAB:Inspire Commoners
+Harmless Bluff					TYPE:ClassAbility	VISIBLE:NO																																SOURCEPAGE:p.24	SAB:Harmless Bluff
+Improvise Weapon					TYPE:ClassAbility	VISIBLE:NO																																SOURCEPAGE:p.24	SAB:Improvise Weapon
+Unconventional Skill				TYPE:ClassAbility	VISIBLE:NO																																SOURCEPAGE:p.24	SAB:Unconventional Skill
 

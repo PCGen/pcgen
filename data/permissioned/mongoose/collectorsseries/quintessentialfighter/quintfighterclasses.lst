@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri May  4 21:05:37 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Sat Nov 24 07:13:09 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
 
 # Removed the (TYPE=Slashing) to the Living blade... I can't get it to
@@ -15,11 +15,11 @@ CLASS:Berserker	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Berserk Fury %/day|BerserkFury	BONUS:VAR|BerserkFury|1	DEFINE:BerserkFury|0
-2	SAB:Savage Fear
-3	SAB:Berserk Attack
-4	SAB:Shrug off Blow (1 / day)
-5	SAB:Mind Block
+1	BONUS:VAR|BerserkFury|1	DEFINE:BerserkFury|0	SAB:Berserk Fury %/day|BerserkFury
+2									SAB:Savage Fear
+3									SAB:Berserk Attack
+4									SAB:Shrug off Blow (1 / day)
+5									SAB:Mind Block
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Brl		MAXLEVEL:5	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -27,11 +27,11 @@ CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Brl		MAXLEVEL:5	SOURCEPAGE:p.16	BONUS:
 CLASS:Brawler	PREATT:5	PREFEAT:2,Alertness,Improved Unarmed Strike	PRESTAT:1,STR=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim
-1	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10									BONUS:VAR|SneakAttack|1									AUTO:FEAT|Sneak Attack
-2	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10		SAB:Combat Awareness (can't be flanked)
+1	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10		BONUS:VAR|SneakAttack|1									AUTO:FEAT|Sneak Attack
+2	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10																		SAB:Combat Awareness (can't be flanked)
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8
-4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8	SAB:Surprise Guard
-5	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8	SAB:Barroom Fury %/day|BarroomFury		BONUS:VAR|SneakAttack|1	BONUS:VAR|BarroomFury|1	DEFINE:BarroomFury|0
+4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																	SAB:Surprise Guard
+5	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8	BONUS:VAR|SneakAttack|1	BONUS:VAR|BarroomFury|1	DEFINE:BarroomFury|0					SAB:Barroom Fury %/day|BarroomFury
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Griffin	HD:10		TYPE:PC.Prestige	ABB:KotG		MAXLEVEL:5	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -61,11 +61,11 @@ CLASS:Legend	STARTSKILLPTS:4	CSKILL:TYPE.Strength|TYPE.Intelligence|TYPE.Wisdom|
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Favour of the Gods %/day|FavourGods	BONUS:VAR|FavourGods|1	DEFINE:FavourGods|0
-2	SAB:Pain Driven (1/day)
-3	SAB:Inspiring					BONUS:VAR|FavourGods|1
-4	SAB:Killing Machine
-5	SAB:To the Bitter End
+1	BONUS:VAR|FavourGods|1	DEFINE:FavourGods|0	SAB:Favour of the Gods %/day|FavourGods
+2									SAB:Pain Driven (1/day)
+3	BONUS:VAR|FavourGods|1					SAB:Inspiring
+4									SAB:Killing Machine
+5									SAB:To the Bitter End
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Living Blade	HD:10		TYPE:PC.Prestige	ABB:LiB		MAXLEVEL:5	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -78,11 +78,11 @@ CLASS:Living Blade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Jump|
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Weaponmastery			BONUS:WEAPON|TOHIT|1|PREFEAT:1,Weapon Specialization|TYPE=Competence
-2	SAB:Suberb Specialization	BONUS:WEAPON|DAMAGE|2|PREFEAT:1,Weapon Specialization|TYPE=Competence
-3	SAB:Deadly opponent
-4	SAB:Web of Death
-5	SAB:Furious Strike
+1	BONUS:WEAPON|TOHIT|1|PREFEAT:1,Weapon Specialization|TYPE=Competence	SAB:Weaponmastery
+2	BONUS:WEAPON|DAMAGE|2|PREFEAT:1,Weapon Specialization|TYPE=Competence	SAB:Suberb Specialization
+3													SAB:Deadly opponent
+4													SAB:Web of Death
+5													SAB:Furious Strike
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Master Bowman	HD:8		TYPE:PC.Prestige	ABB:MBm		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -94,11 +94,11 @@ CLASS:Master Bowman	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Bowmaking)
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Master shot
-2	SAB:Shoot the Opening
-3	SAB:Master Aim +%d6|MasterAim	BONUS:VAR|MasterAim|1	DEFINE:MasterAim|0
-4	SAB:All Seeing Eyes
-5	SAB:All Seeing Aim
+1									SAB:Master shot
+2									SAB:Shoot the Opening
+3	BONUS:VAR|MasterAim|1	DEFINE:MasterAim|0	SAB:Master Aim +%d6|MasterAim
+4									SAB:All Seeing Eyes
+5									SAB:All Seeing Aim
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Noble Defender	HD:10		TYPE:PC.Prestige	ABB:NoD		MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -111,11 +111,11 @@ CLASS:Noble Defender	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|I
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Noble Command +%|NobleCommand	BONUS:VAR|NobleCommand|1	DEFINE:NobleCommand|0
-2	SAB:Noble Renown
-3							BONUS:VAR|NobleCommand|1
-4	SAB:Castle
-5							BONUS:VAR|NobleCommand|1
+1	BONUS:VAR|NobleCommand|1	DEFINE:NobleCommand|0	SAB:Noble Command +%|NobleCommand
+2										SAB:Noble Renown
+3	BONUS:VAR|NobleCommand|1
+4										SAB:Castle
+5	BONUS:VAR|NobleCommand|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Officer of War	HD:10		TYPE:PC.Prestige	ABB:OoW		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -158,8 +158,8 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Diplomacy|Gather I
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SAB:Leaping Dodge							BONUS:COMBAT|AC|CL|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0
-2																				BONUS:SKILL|Balance,Climb,Jump,Tumble|4
-3																											VFEAT:Evasion
-4					BONUS:VAR|UncannyDodge|1																					AUTO:FEAT|Uncanny Dodge
-5	SAB:Freedom of Movement
+1						BONUS:COMBAT|AC|CL|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0															SAB:Leaping Dodge
+2																BONUS:SKILL|Balance,Climb,Jump,Tumble|4
+3																							VFEAT:Evasion
+4	BONUS:VAR|UncannyDodge|1																					AUTO:FEAT|Uncanny Dodge
+5																														SAB:Freedom of Movement

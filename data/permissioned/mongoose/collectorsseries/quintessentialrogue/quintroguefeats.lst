@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 21:09:27 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Nov 24 07:13:09 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com
 
 # Feat Name			Type			Required AL				Req. Att.	Required Class		Required Feat			Required Lvl	Maximum Level	Required Skill			Required Stat	Prohibited Stat	Description																							Stackable?	Multiple?	Choose								Bonus to skill							Source Page
@@ -16,7 +16,7 @@ Devious Alchemy		TYPE:Rogue									PRECLASS:1,Rogue=1	PREFEAT:1,Poison Craftsma
 Expert Climber		TYPE:General																												PRESTAT:1,DEX=15				DESC:You are an accomplished climber and athlete.																													BONUS:SKILL|Balance,Climb|2					SOURCEPAGE:p.49
 Eye for Quality		TYPE:General																												PRESTAT:1,WIS=15				DESC:You quickly judge the value of items.																														BONUS:SKILL|Appraise,Forgery|2				SOURCEPAGE:p.49-50
 Fiendish Designer		TYPE:Rogue									PRECLASS:1,Rogue=1	PREFEAT:1,Clever Designer																		DESC:Your traps inflict more damage than usual.																																							SOURCEPAGE:p.50
-Guildmaster			TYPE:Rogue									PRECLASS:1,Rogue=1	PREFEAT:1,Leadership		PRELEVEL:10																DESC:You have the talent or organising and leading others.																																					SOURCEPAGE:p.50
+Guildmaster			TYPE:Rogue									PRECLASS:1,Rogue=1	PREFEAT:1,Leadership		PRELEVEL:MIN=10															DESC:You have the talent or organising and leading others.																																					SOURCEPAGE:p.50
 Hair Trigger Reflexes	TYPE:General												PREFEAT:1,Improved Initiative												PRESTAT:1,DEX=15				DESC:You leap into action whilst others are still reaching for their swords.																																		SOURCEPAGE:p.50
 Lightning Grab		TYPE:Rogue									PRECLASS:1,Rogue=1	PREFEAT:1,Improved Initiative												PRESTAT:1,DEX=15				DESC:You quickly scan a situation and make a rapid move to grab an item out of another's hand, belt, or backpack.																												SOURCEPAGE:p.50
 Low Key			TYPE:General																				PRELEVELMAX:1												DESC:You are the kind of person others tend to overlook.																												BONUS:SKILL|Disguise,Hide|2					SOURCEPAGE:p.50
