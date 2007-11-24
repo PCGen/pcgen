@@ -52,8 +52,8 @@ Infuse with Power		TYPE:CircleWalkerGift	VISIBLE:NO	SAB:Infuse with Power							
 Steps of the Gods		TYPE:CircleWalkerGift	VISIBLE:NO	SAB:Steps of the Gods							SOURCEPAGE:p.80
 True Believers		TYPE:CircleWalkerGift	VISIBLE:NO	SAB:True Believers							SOURCEPAGE:p.80
 
-Black Circle		TYPE:CircleWalkerChoice	VISIBLE:NO	SAB:Smite Good (Su) %/day|SmiteGood	BONUS:VAR|SmiteGood|1	SOURCEPAGE:p.80
-White Circle		TYPE:CircleWalkerChoice	VISIBLE:NO	SAB:Smite Evil (Su) %/day|SmiteEvil	BONUS:VAR|SmiteEvil|1	SOURCEPAGE:p.80
+Black Circle		TYPE:CircleWalkerChoice	VISIBLE:NO	BONUS:VAR|SmiteGood|1	SOURCEPAGE:p.80	SAB:Smite Good (Su) %/day|SmiteGood
+White Circle		TYPE:CircleWalkerChoice	VISIBLE:NO	BONUS:VAR|SmiteEvil|1	SOURCEPAGE:p.80	SAB:Smite Evil (Su) %/day|SmiteEvil
 #These choices should also set alignment....
 
 

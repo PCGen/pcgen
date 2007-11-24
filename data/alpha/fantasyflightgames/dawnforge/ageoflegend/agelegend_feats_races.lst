@@ -324,10 +324,10 @@ Elnaria			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Elnaria																				MUL
 Larakis			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Larakis																				MULT:NO																																				SOURCEPAGE:p.47
 Ironwall			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Ironwall																			MULT:YES	CHOOSE:WEAPONPROFS|3								BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																COST:.33	SOURCEPAGE:p.47
 #TODO:zzzzz Ironwall...
-Riversend			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Riversend																			MULT:NO																																				SOURCEPAGE:p.47
-Seaward			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Seaward																				MULT:NO					BONUS:CHECKS|Fortitude|2|TYPE=Talent																									SOURCEPAGE:p.47
-Saranor			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Saranor																				MULT:NO																																				SOURCEPAGE:p.48
-Stormhaven			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Stormhaven																			MULT:NO																			BONUS:SKILL|Decipher Script,Forgery|2|TYPE=Talent	CSKILL:Decipher Script|Forgery			SOURCEPAGE:p.48
+Riversend			TYPE:HLowlRacialTalent			VISIBLE:NO										MULT:NO																																				SOURCEPAGE:p.47	SAB:Riversend
+Seaward			TYPE:HLowlRacialTalent			VISIBLE:NO										MULT:NO					BONUS:CHECKS|Fortitude|2|TYPE=Talent																									SOURCEPAGE:p.47	SAB:Seaward
+Saranor			TYPE:HLowlRacialTalent			VISIBLE:NO										MULT:NO																																				SOURCEPAGE:p.48	SAB:Saranor
+Stormhaven			TYPE:HLowlRacialTalent			VISIBLE:NO										MULT:NO																			BONUS:SKILL|Decipher Script,Forgery|2|TYPE=Talent	CSKILL:Decipher Script|Forgery			SOURCEPAGE:p.48	SAB:Stormhaven
 
 ### Racial Transformations
 # Feat Name			Type						Visible	Special ABility										Innate Spells							Multiple?	Choose			Save checks bonus					Combat bonus					Bonus to skill							Class Skill					Cost		Source Page
@@ -335,11 +335,11 @@ Black Eyed			TYPE:HLowlRacialTransformation	VISIBLE:NO	SAB:Black-Eyed										S
 Gold Blooded		TYPE:HLowlRacialTransformation	VISIBLE:NO	SAB:Gold-Blooded (resistance acid 1, cold 1, fire 1, electricity 1)										MULT:NO																																				SOURCEPAGE:p.48
 
 ### Things to do here!!!!###
-Green Man's Chosen	TYPE:HLowlRacialTransformation	VISIBLE:NO	SAB:Green Man's Chosen																		MULT:NO																																				SOURCEPAGE:p.48
-Flowers on the Brow	TYPE:HLowlRacialTransformation	VISIBLE:NO	SAB:Flowers on the Brow																		MULT:NO																																				SOURCEPAGE:p.48
-Harvester's Chosen	TYPE:HLowlRacialTransformation	VISIBLE:NO	SAB:Harvester's Chosen																		MULT:NO																																				SOURCEPAGE:p.48
-Hero's Son			TYPE:HLowlRacialTransformation	VISIBLE:NO	SAB:Hero's Son																			MULT:NO																																				SOURCEPAGE:p.48
-Roots in the Soil		TYPE:HLowlRacialTransformation	VISIBLE:NO	SAB:Roots in the Soil																		MULT:NO																																				SOURCEPAGE:p.48
+Green Man's Chosen	TYPE:HLowlRacialTransformation	VISIBLE:NO										MULT:NO																																				SOURCEPAGE:p.48	SAB:Green Man's Chosen
+Flowers on the Brow	TYPE:HLowlRacialTransformation	VISIBLE:NO										MULT:NO																																				SOURCEPAGE:p.48	SAB:Flowers on the Brow
+Harvester's Chosen	TYPE:HLowlRacialTransformation	VISIBLE:NO										MULT:NO																																				SOURCEPAGE:p.48	SAB:Harvester's Chosen
+Hero's Son			TYPE:HLowlRacialTransformation	VISIBLE:NO										MULT:NO																																				SOURCEPAGE:p.48	SAB:Hero's Son
+Roots in the Soil		TYPE:HLowlRacialTransformation	VISIBLE:NO										MULT:NO																																				SOURCEPAGE:p.48	SAB:Roots in the Soil
 ### Things to do here!!!!###
 
 
@@ -595,11 +595,11 @@ Whip Fighting		TYPE:TieflingRacialTalent		VISIBLE:NO	PREFEAT:1,Weapon Focus(Whip
 # Feat Name			Type						Visible	Required Feat			Prohibited Feat				Required Lvl	Required Stat	Required Template			Special ABility			Define					Innate Spells										Multiple?	Move		Add																			Combat bonus			Bonus to skill													Bonus to nb of slots	Modify VAR					Source Page
 Claws				TYPE:TieflingRacialTransformation	VISIBLE:NO																							SAB:Claws (1d3)																					MULT:NO																											BONUS:SKILL|Open Locks,Sleight of Hand|-2|TYPE=Racial																	SOURCEPAGE:p.94
 #TODO: Claws as weapons plus multiple time...
-Fiendish Form		TYPE:TieflingRacialTransformation	VISIBLE:NO																		PRETEMPLATE:Tiefling Outsider	SAB:Fiendish Form (Ex)																				MULT:NO																						BONUS:COMBAT|TOHIT.GRAPPLE|2	BONUS:SKILL|Hide|4|TYPE=Transformation	BONUS:SKILL|Handle Animal,Ride|-4|TYPE=Racial											SOURCEPAGE:p.94
-Inured to Good		TYPE:TieflingRacialTransformation	VISIBLE:NO																							SAB:Inured to Good (Ex)																				MULT:NO																																																				SOURCEPAGE:p.94
-Tail				TYPE:TieflingRacialTransformation	VISIBLE:NO																							SAB:Tail																						MULT:NO																											BONUS:SKILL|Balance|2|TYPE=Transformation									BONUS:SLOTS|RING|1							SOURCEPAGE:p.94
+Fiendish Form		TYPE:TieflingRacialTransformation	VISIBLE:NO																		PRETEMPLATE:Tiefling Outsider																			MULT:NO																						BONUS:COMBAT|TOHIT.GRAPPLE|2	BONUS:SKILL|Hide|4|TYPE=Transformation	BONUS:SKILL|Handle Animal,Ride|-4|TYPE=Racial											SOURCEPAGE:p.94	SAB:Fiendish Form (Ex)
+Inured to Good		TYPE:TieflingRacialTransformation	VISIBLE:NO																																									MULT:NO																																																				SOURCEPAGE:p.94	SAB:Inured to Good (Ex)
+Tail				TYPE:TieflingRacialTransformation	VISIBLE:NO																																									MULT:NO																											BONUS:SKILL|Balance|2|TYPE=Transformation									BONUS:SLOTS|RING|1							SOURCEPAGE:p.94	SAB:Tail
 #TODO: Tail as weapon plus multiple time...
-Wings				TYPE:TieflingRacialTransformation	VISIBLE:NO	PREFEAT:1,Fiendish Form														PRETEMPLATE:Tiefling Outsider	SAB:Wings																						MULT:NO	MOVE:Fly,30																																																		SOURCEPAGE:p.94
+Wings				TYPE:TieflingRacialTransformation	VISIBLE:NO	PREFEAT:1,Fiendish Form														PRETEMPLATE:Tiefling Outsider																			MULT:NO	MOVE:Fly,30																																																		SOURCEPAGE:p.94	SAB:Wings
 
 
 #######################

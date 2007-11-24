@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn and Tir Gwaith
 
@@ -20,10 +20,10 @@ CLASS:Disciple	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1	AUTO:FEAT|Shield Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal level progression
-1	CAST:3,1				SAB:Intercession %/day (Su)|Intercession						BONUS:VAR|Intercession|CL/10+1	DEFINE:Intercession|0
-2	CAST:4,2				SAB:Innate Spell (Ex) (one spell on each level 0..%)|DiscInnateSpell	BONUS:VAR|DiscInnateSpell|(CL-1)/2	DEFINE:DiscInnateSpell|0
+1	CAST:3,1				BONUS:VAR|Intercession|CL/10+1	DEFINE:Intercession|0		SAB:Intercession %/day (Su)|Intercession
+2	CAST:4,2				BONUS:VAR|DiscInnateSpell|(CL-1)/2	DEFINE:DiscInnateSpell|0	SAB:Innate Spell (Ex) (one spell on each level 0..%)|DiscInnateSpell
 3	CAST:4,2,1
-4	CAST:5,3,2				SAB:Immortal's Gift (Su)
+4	CAST:5,3,2															SAB:Immortal's Gift (Su)
 5	CAST:5,3,2,1
 6	CAST:5,3,3,2
 7	CAST:6,4,3,2,1
@@ -53,24 +53,24 @@ CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	AUTO:FEAT|Shield Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal level progression
-1	CAST:3,1				SAB:Spontaneous Casting (Summon Nature's Ally)	SAB:Nature Sense (Ex)	SAB:Wild Empathy (Ex)												BONUS:VAR|CompLevel|CL/2	BONUS:SKILL|Knowledge (Nature),Survival|2						AUTO:FEAT|Animal Companion
-2	CAST:4,2																																																AUTO:FEAT|Craft Spell Fetish
-3	CAST:4,2,1				SAB:Rituals of Power I (Su) (-1 WIS for any spell up to 3rd level)
-4	CAST:5,3,2				SAB:Companion Sight (Su)
-5	CAST:5,3,2,1																																										ADD:FEAT|1|Elemental Form
-6	CAST:5,3,3,2			SAB:Trackless Step (Ex)
-7	CAST:6,4,3,2,1			SAB:Rituals of Power II (Su) (-2 WIS for any spell up to 5th level or next larger Elemental form)
-8	CAST:6,4,3,3,2			SAB:Treant Form (Su)
+1	CAST:3,1				BONUS:VAR|CompLevel|CL/2	BONUS:SKILL|Knowledge (Nature),Survival|2						AUTO:FEAT|Animal Companion	SAB:Spontaneous Casting (Summon Nature's Ally)	SAB:Nature Sense (Ex)	SAB:Wild Empathy (Ex)
+2	CAST:4,2																					AUTO:FEAT|Craft Spell Fetish
+3	CAST:4,2,1																										SAB:Rituals of Power I (Su) (-1 WIS for any spell up to 3rd level)
+4	CAST:5,3,2																										SAB:Companion Sight (Su)
+5	CAST:5,3,2,1															ADD:FEAT|1|Elemental Form
+6	CAST:5,3,3,2																									SAB:Trackless Step (Ex)
+7	CAST:6,4,3,2,1																									SAB:Rituals of Power II (Su) (-2 WIS for any spell up to 5th level or next larger Elemental form)
+8	CAST:6,4,3,3,2																									SAB:Treant Form (Su)
 9	CAST:6,4,4,3,2,1
 10	CAST:6,4,4,3,3,2
-11	CAST:6,5,4,4,3,2,1																																									ADD:FEAT|1|Elemental Form
-12	CAST:6,5,4,4,3,3,2		SAB:Quickened Rituals (Ex) for I and II
-13	CAST:6,5,5,4,4,3,2,1		SAB:Rituals of Power III (Su) (-3 WIS for any spell up to 7th level or remove all poisons/diseases and physical damage)
-14	CAST:6,5,5,4,4,3,3,2		SAB:Improved Elemental Form
-15	CAST:6,5,5,5,4,4,3,2,1		SAB:Timeless Body (Ex)
+11	CAST:6,5,4,4,3,2,1														ADD:FEAT|1|Elemental Form
+12	CAST:6,5,4,4,3,3,2																								SAB:Quickened Rituals (Ex) for I and II
+13	CAST:6,5,5,4,4,3,2,1																								SAB:Rituals of Power III (Su) (-3 WIS for any spell up to 7th level or remove all poisons/diseases and physical damage)
+14	CAST:6,5,5,4,4,3,3,2																								SAB:Improved Elemental Form
+15	CAST:6,5,5,5,4,4,3,2,1																								SAB:Timeless Body (Ex)
 16	CAST:6,5,5,5,4,4,3,3,2
-17	CAST:6,5,5,5,5,4,4,3,2,1																																								ADD:FEAT|1|Elemental Form
-18	CAST:6,5,5,5,5,4,4,3,3,2	SAB:Rituals of Power IV (Su) (-4 WIS for any spell up to 9th level or free from all harmful magical effects/heal all ability damage/remove all negative levels)
+17	CAST:6,5,5,5,5,4,4,3,2,1													ADD:FEAT|1|Elemental Form
+18	CAST:6,5,5,5,5,4,4,3,3,2																							SAB:Rituals of Power IV (Su) (-4 WIS for any spell up to 9th level or free from all harmful magical effects/heal all ability damage/remove all negative levels)
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,3,4
 
@@ -85,24 +85,24 @@ CLASS:Shaper	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Shaper
 1	AUTO:FEAT|Shield Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
-1	CAST:5,3				KNOWN:4,2									ADD:FEAT|2|TYPE=ShaperDivineFocus
-2	CAST:6,4				KNOWN:5,2				SAB:Enlarge Specialty Spell	ADD:FEAT|1|TYPE=ShaperSpecialty
+1	CAST:5,3				KNOWN:4,2				ADD:FEAT|2|TYPE=ShaperDivineFocus
+2	CAST:6,4				KNOWN:5,2				ADD:FEAT|1|TYPE=ShaperSpecialty	SAB:Enlarge Specialty Spell
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
-5	CAST:6,6,4				KNOWN:6,4,2									ADD:FEAT|1|TYPE=ShaperSpecialty
+5	CAST:6,6,4				KNOWN:6,4,2				ADD:FEAT|1|TYPE=ShaperSpecialty
 6	CAST:6,6,5,3			KNOWN:7,4,2,1
 7	CAST:6,6,6,4			KNOWN:7,5,3,2
-8	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1			SAB:Empower Specialty Spell
+8	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1									SAB:Empower Specialty Spell
 9	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
 10	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
-11	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2								ADD:FEAT|1|TYPE=ShaperSpecialty
+11	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2			ADD:FEAT|1|TYPE=ShaperSpecialty
 12	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
 13	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
-14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1		SAB:Extend Specialty Spell
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1								SAB:Extend Specialty Spell
 15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
 16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,3,1
-17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2		SAB:Maximize Specialty Spell
-18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1						ADD:FEAT|1|TYPE=ShaperSpecialty
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2								SAB:Maximize Specialty Spell
+18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1	ADD:FEAT|1|TYPE=ShaperSpecialty
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
@@ -115,19 +115,19 @@ CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|
 1	AUTO:FEAT|Shield Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
-1	SAB:Spirit Sense I	SAB:Spirit Strength (%)|SpiritStrength	BONUS:VAR|SpiritStrength|2*min(var("CL=Spirit Adept"),5)						DEFINE:SpiritStrength|0	ADD:FEAT|1|TYPE=SpiritAdeptPowers
-2																																				AUTO:FEAT|Evasion
-3																														ADD:FEAT|1|TYPE=SpiritAdeptPowers
-4																						BONUS:FEAT|POOL|CL/4
-5	SAB:Feather Fall (Sp)																										ADD:FEAT|1|TYPE=SpiritAdeptPowers
-6	SAB:Spirit Sense II							BONUS:VAR|SpiritStrength|5*min(var("CL=Spirit Adept")-5,5)
-7																														ADD:FEAT|1|TYPE=SpiritAdeptPowers
-9																														ADD:FEAT|1|TYPE=SpiritAdeptPowers	AUTO:FEAT|Improved Evasion
-11	SAB:Spirit Sense III							BONUS:VAR|SpiritStrength|10*min(var("CL=Spirit Adept")-10,10)									ADD:FEAT|1|TYPE=SpiritAdeptPowers
-13																														ADD:FEAT|1|TYPE=SpiritAdeptPowers
-15																														ADD:FEAT|1|TYPE=SpiritAdeptPowers
-17																														ADD:FEAT|1|TYPE=SpiritAdeptPowers
-19																														ADD:FEAT|1|TYPE=SpiritAdeptPowers
+1	BONUS:VAR|SpiritStrength|2*min(var("CL=Spirit Adept"),5)						DEFINE:SpiritStrength|0	ADD:FEAT|1|TYPE=SpiritAdeptPowers						SAB:Spirit Sense I	SAB:Spirit Strength (%)|SpiritStrength
+2																										AUTO:FEAT|Evasion
+3																				ADD:FEAT|1|TYPE=SpiritAdeptPowers
+4												BONUS:FEAT|POOL|CL/4
+5																				ADD:FEAT|1|TYPE=SpiritAdeptPowers						SAB:Feather Fall (Sp)
+6	BONUS:VAR|SpiritStrength|5*min(var("CL=Spirit Adept")-5,5)																					SAB:Spirit Sense II
+7																				ADD:FEAT|1|TYPE=SpiritAdeptPowers
+9																				ADD:FEAT|1|TYPE=SpiritAdeptPowers	AUTO:FEAT|Improved Evasion
+11	BONUS:VAR|SpiritStrength|10*min(var("CL=Spirit Adept")-10,10)									ADD:FEAT|1|TYPE=SpiritAdeptPowers						SAB:Spirit Sense III
+13																				ADD:FEAT|1|TYPE=SpiritAdeptPowers
+15																				ADD:FEAT|1|TYPE=SpiritAdeptPowers
+17																				ADD:FEAT|1|TYPE=SpiritAdeptPowers
+19																				ADD:FEAT|1|TYPE=SpiritAdeptPowers
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
@@ -212,29 +212,29 @@ SUBCLASSLEVEL:1	SAB:Available Shools (Abjuration, Enchantment, Illusion, Transmu
 SUBCLASS:Wizard (Dominion)	COST:0
 SUBCLASSLEVEL:1	SAB:Available Shools (Conjuration, Divination, Enchantment, Necromancy)
 #
-1						SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
-1						SAB:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SAB:Silent Spell (1/day)
-1						SAB:The experience cost for creating magic items from available schools is reduced by 10pct and increased 20pct from others.
-1	CAST:3,1																																			AUTO:FEAT|Summon Familiar	AUTO:FEAT|Scribe Scroll	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+1																																						SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
+1																																						SAB:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SAB:Silent Spell (1/day)
+1																																						SAB:The experience cost for creating magic items from available schools is reduced by 10pct and increased 20pct from others.
+1	CAST:3,1														AUTO:FEAT|Summon Familiar	AUTO:FEAT|Scribe Scroll	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
-5	CAST:4,3,2,1			SAB:Still Spell (1/day)																		ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+5	CAST:4,3,2,1			ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery																							SAB:Still Spell (1/day)
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
 9	CAST:4,4,4,3,2,1
-10	CAST:4,4,4,3,3,2			SAB:Empower Spell (1/day)																	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+10	CAST:4,4,4,3,3,2			ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery																							SAB:Empower Spell (1/day)
 11	CAST:4,4,4,4,3,2,1
 12	CAST:4,4,4,4,3,3,2
 13	CAST:4,4,4,4,4,3,2,1
 14	CAST:4,4,4,4,4,3,3,2
-15	CAST:4,4,4,4,4,4,3,2,1		SAB:Widen Spell (1/day)																		ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+15	CAST:4,4,4,4,4,4,3,2,1		ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery																							SAB:Widen Spell (1/day)
 16	CAST:4,4,4,4,4,4,3,3,2
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
-20	CAST:4,4,4,4,4,4,4,4,4,4	SAB:Quicken Spell (1/day)																	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+20	CAST:4,4,4,4,4,4,4,4,4,4	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery																							SAB:Quicken Spell (1/day)
 #TODO: Spell Focus granting +2 instead of +1 for available schools
 
 
