@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
 
 ###Block: Honor Guard abilities
-# Feat Name		Type			Visible	Special Ability				Define
-Combat Sense	TYPE:ClassAbility	VISIBLE:NO	SAB:Combat Sense +%|CombatSense	DEFINE:CombatSense|0
+# Feat Name		Type			Visible	Define			SAB
+Combat Sense	TYPE:ClassAbility	VISIBLE:NO	DEFINE:CombatSense|0	SAB:Combat Sense +%|CombatSense
 
 ###Block: Questing Knight abilties
 # Feat Name		Type			Visible	Define			Bonus to skill

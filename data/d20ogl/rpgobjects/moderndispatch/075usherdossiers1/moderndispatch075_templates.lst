@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1	SOURCESHORT:MD75-USHER#1	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198
 # Original Entry by: Paul W. King
 
@@ -8,12 +8,12 @@ Medusa		NAMEISPI:YES	SOURCEPAGE:p.3	PREFEAT:1,Enemy	PRETEXT:Must have allegiance
 
 
 ###Block: membership benefits
-# Template Name		Product Identity?	Source Page		Special Ability		Required Template					Bonus to skill
-Medusa Special Access 1	NAMEISPI:YES	SOURCEPAGE:p.3					PRETEMPLATE:1,Medusa				BONUS:SKILL|Computer Use,Knowledge (Technology)|2|TYPE=Competence
-Medusa Special Access 2	NAMEISPI:YES	SOURCEPAGE:p.3	SAB:Ghost in the Machine	PRETEMPLATE:1,Medusa Special Access 1
-Medusa Special Access 3	NAMEISPI:YES	SOURCEPAGE:p.3	SAB:Medusa Protocol 1	PRETEMPLATE:1,Medusa Special Access 2
-Medusa Special Access 4	NAMEISPI:YES	SOURCEPAGE:p.3	SAB:Cutting Edge		PRETEMPLATE:1,Medusa Special Access 3
-Medusa Special Access 5	NAMEISPI:YES	SOURCEPAGE:p.4	SAB:Medusa Protocol 2	PRETEMPLATE:1,Medusa Special Access 4
+# Template Name		Product Identity?	Source Page		Required Template					Bonus to skill									SAB
+Medusa Special Access 1	NAMEISPI:YES	SOURCEPAGE:p.3	PRETEMPLATE:1,Medusa				BONUS:SKILL|Computer Use,Knowledge (Technology)|2|TYPE=Competence
+Medusa Special Access 2	NAMEISPI:YES	SOURCEPAGE:p.3	PRETEMPLATE:1,Medusa Special Access 1												SAB:Ghost in the Machine
+Medusa Special Access 3	NAMEISPI:YES	SOURCEPAGE:p.3	PRETEMPLATE:1,Medusa Special Access 2												SAB:Medusa Protocol 1
+Medusa Special Access 4	NAMEISPI:YES	SOURCEPAGE:p.3	PRETEMPLATE:1,Medusa Special Access 3												SAB:Cutting Edge
+Medusa Special Access 5	NAMEISPI:YES	SOURCEPAGE:p.4	PRETEMPLATE:1,Medusa Special Access 4												SAB:Medusa Protocol 2
 
 ###Block: special units
 # Template Name	Product Identity?	Source Page		Required Feat															Required Skill						Required Template		Bonus to skill						Modify VAR

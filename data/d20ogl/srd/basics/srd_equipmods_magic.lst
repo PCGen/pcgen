@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:12:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 #added Ring, Scroll and Wand as BaseMaterial. This should allow later to easily handle hardness/hitpoints for those objects - Frank
@@ -171,7 +171,7 @@ EXCLUDEEQ_MAGIC	VISIBLE:NO	ITYPE:Enhancement
 
 ###Block: Charged items
 
-# Modifier Name	Unique Key			Cost							Visible	Choose			Nb of Charges
+# Modifier Name	Unique Key			Cost							Visible	Choose		Nb of Charges
 Charges (3)		KEY:CHARGED_ITEM_3	COST:((BASECOST/3)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|3
 Charges (5)		KEY:CHARGED_ITEM_5	COST:((BASECOST/5)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|5
 # Charges (10) is in _equipmods_mundane, since it is used for some mundane items.

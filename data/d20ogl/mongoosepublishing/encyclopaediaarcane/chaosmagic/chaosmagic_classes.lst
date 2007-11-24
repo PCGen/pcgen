@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Chaos Magic	SOURCESHORT:ChaosMagic	SOURCEWEB:http://www.mongoosepublishing.com
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -12,11 +12,11 @@ CLASS:Chaos Mage	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Chaos Mage|CL
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SAB:Chaos Magic Casting +%|ChaosCasting	BONUS:VAR|ChaosCasting|CL	BONUS:VAR|ChaosCasting|CHA	DEFINE:ChaosCasting|0
-4	SAB:Chaos Familiar
-5	SAB:Multiple Effects %|MultipleEffects											DEFINE:MultipleEffects|CL/5
-8	SAB:Countermagic
-12	SAB:Purge Chaos
+1	BONUS:VAR|ChaosCasting|CL	BONUS:VAR|ChaosCasting|CHA	DEFINE:ChaosCasting|0		SAB:Chaos Magic Casting +%|ChaosCasting
+4																SAB:Chaos Familiar
+5											DEFINE:MultipleEffects|CL/5	SAB:Multiple Effects %|MultipleEffects
+8																SAB:Countermagic
+12																SAB:Purge Chaos
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Bloodcarver	HD:6		TYPE:PC.Prestige	ABB:bcc		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ChaosCasting|CL
@@ -26,11 +26,11 @@ CLASS:Bloodcarver	PREALIGN:CG,CN,CE	PRESKILL:1,Concentration=12	PREVARGTEQ:Chaos
 CLASS:Bloodcarver	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Intimidate|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Bloodcarver	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Bloodcarver|CL
-1			SAB:Bloodletting
-2			SAB:Ignore Pain										FEAT:Combat Casting
-3	DR:1/-	SAB:Damage Reduction 1
-4			SAB:Armour of Scars	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-5			SAB:Bloodcarving
+1															SAB:Bloodletting
+2											FEAT:Combat Casting	SAB:Ignore Pain
+3	DR:1/-													SAB:Damage Reduction 1
+4			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE					SAB:Armour of Scars
+5															SAB:Bloodcarving
 
 # Class Name	Hit Dice	Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Doomringer	HD:4		ABB:dmc		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ChaosCasting|CL

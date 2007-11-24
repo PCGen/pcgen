@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
@@ -10,7 +10,7 @@ SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Demagogue	HD:6		TYPE:PC.Prestige	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Lvl	Required Skill							Required Stat
-CLASS:Demagogue	PREFEAT:1,Iron Will	PRELEVEL:5		PRESKILL:2,Bluff,Intimidate=4	PRESKILL:1,Diplomacy=6	PRESTAT:1,CHA=12
+CLASS:Demagogue	PREFEAT:1,Iron Will	PRELEVEL:MIN=5	PRESKILL:2,Bluff,Intimidate=4	PRESKILL:1,Diplomacy=6	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Forgery|Gather Information|Innuendo|Intimidate|Listen|Perform|TYPE.Profession|Read Lips|Search|Sense Motive|Speak Language|Spot|Use Magic Device
 ###Block: Class Defines
@@ -18,21 +18,21 @@ CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TY
 1	DEFINE:DemPowerUse|(CL+1)/2
 1	DEFINE:DemPowerDC|10+floor(CL/2)+CHA
 ###Block: Normal Level Progression
-1	SAB:Sway (Ex)																											ADD:CLASSSKILLS|2|TYPE=Knowledge
-2	SAB:Taunt (Ex) %/day (DC%)|DemPowerUse|DemPowerDC	SAB:Threaten (Ex)				BONUS:SKILL|Intimidate|4|TYPE=Competence
-3	SAB:Pacify (Ex) %/day (DC%)|DemPowerUse|DemPowerDC
-4	SAB:Outrage (Ex) %/day (DC% % hours)|DemPowerUse|DemPowerDC|DemPowerDur	SAB:Convey (Sp)
-5	SAB:Tempt (Sp) %/day (DC%) % hours)|DemPowerUse|DemPowerDC|DemPowerDur
-6	SAB:Convince (Sp) %/day (DC%)|DemPowerUse|DemPowerDC	SAB:Negotiate (Ex)				BONUS:SKILL|Bluff,Diplomacy|4|TYPE=Competence
-7	SAB:Humiliate (Sp) %/day (DC% % days)|DemPowerUse|DemPowerDC|DemPowerDur
-8	SAB:Filibuster (Sp) %/day (DC% Concentration)|DemPowerUse|DemPowerDC
-9	SAB:Charm (Sp) %/day (DC%)|DemPowerUse|DemPowerDC
-10	SAB:Control Crowd (Sp) %/day (% ft)|DemPowerUse|DemPowerRange													DEFINE:DemPowerRange|(CHA*250)
+1															ADD:CLASSSKILLS|2|TYPE=Knowledge	SAB:Sway (Ex)
+2	BONUS:SKILL|Intimidate|4|TYPE=Competence														SAB:Taunt (Ex) %/day (DC%)|DemPowerUse|DemPowerDC	SAB:Threaten (Ex)
+3																					SAB:Pacify (Ex) %/day (DC%)|DemPowerUse|DemPowerDC
+4																					SAB:Outrage (Ex) %/day (DC% % hours)|DemPowerUse|DemPowerDC|DemPowerDur	SAB:Convey (Sp)
+5																					SAB:Tempt (Sp) %/day (DC%) % hours)|DemPowerUse|DemPowerDC|DemPowerDur
+6	BONUS:SKILL|Bluff,Diplomacy|4|TYPE=Competence													SAB:Convince (Sp) %/day (DC%)|DemPowerUse|DemPowerDC	SAB:Negotiate (Ex)
+7																					SAB:Humiliate (Sp) %/day (DC% % days)|DemPowerUse|DemPowerDC|DemPowerDur
+8																					SAB:Filibuster (Sp) %/day (DC% Concentration)|DemPowerUse|DemPowerDC
+9																					SAB:Charm (Sp) %/day (DC%)|DemPowerUse|DemPowerDC
+10									DEFINE:DemPowerRange|(CHA*250)							SAB:Control Crowd (Sp) %/day (% ft)|DemPowerUse|DemPowerRange
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Hone		HD:10		TYPE:PC.Prestige	ABB:Hn		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat										Required Lvl
-CLASS:Hone		PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:3,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PRELEVEL:5
+CLASS:Hone		PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:3,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PRELEVEL:MIN=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Spot|Swim|Tumble
 ###Block: Class Defines
@@ -44,9 +44,9 @@ CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jum
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Precision Strike +% (Ex)|PrecisionStrikeBonus	SAB:Improved Defense +% (Ex)|ImprovedDefenseBonus	ADD:FEAT|1|Weapon of Choice
-2	SAB:Fell Blow +% (Ex)|FellBlowBonus	SAB:Skilled Stunt +% (Ex)|SkilledStuntBonus
-10																			ADD:FEAT|1|Extended Critical
+1	ADD:FEAT|1|Weapon of Choice	SAB:Precision Strike +% (Ex)|PrecisionStrikeBonus	SAB:Improved Defense +% (Ex)|ImprovedDefenseBonus
+2						SAB:Fell Blow +% (Ex)|FellBlowBonus	SAB:Skilled Stunt +% (Ex)|SkilledStuntBonus
+10	ADD:FEAT|1|Extended Critical
 
 
 # Divine Protection bonus type depends on alignment. Advice on implementing required.
@@ -54,7 +54,7 @@ CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jum
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Inquisitor	HD:6		TYPE:PC.Prestige	ABB:Inq		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat						Required Lvl	Required Skill											Required Stat
-CLASS:Inquisitor	PREFEAT:1,Skill Focus(Knowledge (Religion))	PRELEVEL:5		PRESKILL:1,Knowledge (Religion),Knowledge (Nature)=6	PRESKILL:1,Diplomacy=4	PRESTAT:1,CHA=12
+CLASS:Inquisitor	PREFEAT:1,Skill Focus(Knowledge (Religion))	PRELEVEL:MIN=5	PRESKILL:1,Knowledge (Religion),Knowledge (Nature)=6	PRESKILL:1,Diplomacy=4	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE.Craft|Diplomacy|Gather Information|Handle Animal|Heal|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Read Lips|Ride|Scry|Search|Sense Motive|Speak Language|Spellcraft|Spot|Wilderness Lore
 ###Block: Proficiencies
@@ -62,63 +62,63 @@ CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE.Craft|Diplo
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Smite the Heathen (Ex)
-2	SAB:Divine Protection (Ex)							BONUS:CHECKS|Fortitude,Reflex,Will|CHA																	ADD:SPELLCASTER|1|Divine
-3	SAB:Convert the Unbeliever (Su) %/day (DC%)|ConvertUse|ConvertDC														DEFINE:ConvertDC|CL+CHA+10	DEFINE:ConvertUse|CL+CHA	ADD:SPELLCASTER|1|Divine
-4																																			ADD:SPELLCASTER|1|Divine
-5	SAB:Empower Congregation  (Ex) %/day|EmpowerUse																	DEFINE:EmpowerUse|CHA							ADD:SPELLCASTER|1|Divine
-6	SAB:Divine Knowledge (Su)							BONUS:CHECKS|Reflex|2|TYPE=Insight		BONUS:COMBAT|AC|2|TYPE=Insight
-7	SAB:Foster Martyr (Sp) (DC%)|FosterMartyrDC																	DEFINE:FosterMartyrDC|CL+CHA+10					ADD:SPELLCASTER|1|Divine
-8																																			ADD:SPELLCASTER|1|Divine
-9	SAB:Enrapture (Ex) %/day|EmpowerUse																													ADD:SPELLCASTER|1|Divine
-10	SAB:Convert the Masses (Su)																														ADD:SPELLCASTER|1|Divine
+1																													SAB:Smite the Heathen (Ex)
+2	BONUS:CHECKS|Fortitude,Reflex,Will|CHA																	ADD:SPELLCASTER|1|Divine	SAB:Divine Protection (Ex)
+3														DEFINE:ConvertDC|CL+CHA+10	DEFINE:ConvertUse|CL+CHA	ADD:SPELLCASTER|1|Divine	SAB:Convert the Unbeliever (Su) %/day (DC%)|ConvertUse|ConvertDC
+4																								ADD:SPELLCASTER|1|Divine
+5														DEFINE:EmpowerUse|CHA							ADD:SPELLCASTER|1|Divine	SAB:Empower Congregation  (Ex) %/day|EmpowerUse
+6	BONUS:CHECKS|Reflex|2|TYPE=Insight		BONUS:COMBAT|AC|2|TYPE=Insight																SAB:Divine Knowledge (Su)
+7														DEFINE:FosterMartyrDC|CL+CHA+10					ADD:SPELLCASTER|1|Divine	SAB:Foster Martyr (Sp) (DC%)|FosterMartyrDC
+8																								ADD:SPELLCASTER|1|Divine
+9																								ADD:SPELLCASTER|1|Divine	SAB:Enrapture (Ex) %/day|EmpowerUse
+10																								ADD:SPELLCASTER|1|Divine	SAB:Convert the Masses (Su)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Rafter	HD:8		TYPE:PC.Prestige	ABB:Raf		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Lvl	Required Skill
-CLASS:Rafter	PREFEAT:1,Blind-Fight	PRELEVEL:5		PRESKILL:1,Appraise=2	PRESKILL:3,Intuit Direction,Knowledge (Arcana),Craft (Maps)=4
+CLASS:Rafter	PREFEAT:1,Blind-Fight	PRELEVEL:MIN=5	PRESKILL:1,Appraise=2	PRESKILL:3,Intuit Direction,Knowledge (Arcana),Craft (Maps)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE.Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Research (Ex)
-2	SAB:Escape (Ex)	SAB:Depth Perception (Ex)
-3	SAB:Judge Structural Integrity (Ex)
-4	SAB:Make Map (Ex)
-5	SAB:Find the Way (Ex)
-6	SAB:Positioning (Ex)
-7	SAB:Scout (Ex)(% feet)|ScoutRange			DEFINE:ScoutRange|(CL*5)
-8	SAB:Find Secret Area (Ex)
-9	SAB:Sense Danger (Ex)
-10	SAB:Greater Make Map (Ex)
+1						SAB:Research (Ex)
+2						SAB:Escape (Ex)	SAB:Depth Perception (Ex)
+3						SAB:Judge Structural Integrity (Ex)
+4						SAB:Make Map (Ex)
+5						SAB:Find the Way (Ex)
+6						SAB:Positioning (Ex)
+7	DEFINE:ScoutRange|(CL*5)	SAB:Scout (Ex)(% feet)|ScoutRange
+8						SAB:Find Secret Area (Ex)
+9						SAB:Sense Danger (Ex)
+10						SAB:Greater Make Map (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Stalker	HD:6		TYPE:PC.Prestige	ABB:Sta		MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat	Required Lvl	Required Skill
-CLASS:Stalker	PREFEAT:1,Track	PRELEVEL:5		PRESKILL:3,Balance,City Lore,Disguise=2	PRESKILL:2,Hide,Move Silently=4
+CLASS:Stalker	PREFEAT:1,Track	PRELEVEL:MIN=5	PRESKILL:3,Balance,City Lore,Disguise=2	PRESKILL:2,Hide,Move Silently=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Stalker Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Shadow (Ex)	SAB:Shadow Penalty %|ShadowBonus	DEFINE:ShadowBonus|(10-CL)
-2	SAB:Roofwalk (Ex)
-3	SAB:Avoid Detection (Ex) SR %|AvoidDetectionScore	DEFINE:AvoidDetectionScore|(20+CL)
-4	SAB:Memorization (Ex)(% weeks)|MemorizationDur		DEFINE:MemorizationDur|CL
-5	SAB:Realization (Ex)
-6	SAB:Lie (Ex)
-7	SAB:City Sense (Ex)
-8	SAB:Lost in the Crowd (Ex)
-9	SAB:Find Trail (Ex)
-10	SAB:Nondetection (Su)
+1	DEFINE:ShadowBonus|(10-CL)		SAB:Shadow (Ex)	SAB:Shadow Penalty %|ShadowBonus
+2							SAB:Roofwalk (Ex)
+3	DEFINE:AvoidDetectionScore|(20+CL)	SAB:Avoid Detection (Ex) SR %|AvoidDetectionScore
+4	DEFINE:MemorizationDur|CL		SAB:Memorization (Ex)(% weeks)|MemorizationDur
+5							SAB:Realization (Ex)
+6							SAB:Lie (Ex)
+7							SAB:City Sense (Ex)
+8							SAB:Lost in the Crowd (Ex)
+9							SAB:Find Trail (Ex)
+10							SAB:Nondetection (Su)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Vigilante	HD:8		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat					Required Lvl
-CLASS:Vigilante	PREATT:5	PREFEAT:3,Alertness,Combat Reflexes,Dodge	PRELEVEL:5
+CLASS:Vigilante	PREATT:5	PREFEAT:3,Alertness,Combat Reflexes,Dodge	PRELEVEL:MIN=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Balance|Bluff|City Lore|Climb|Concentration|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies
@@ -126,13 +126,13 @@ CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Balance|Bluff|City Lore|Climb|Concentrati
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1		SAB:Sense Attack (Ex)	SAB:Reflexive Awarness (Ex)
-2											BONUS:VAR|UncannyDodge|CL/5+1							AUTO:FEAT|Uncanny Dodge
+1																	SAB:Sense Attack (Ex)	SAB:Reflexive Awarness (Ex)
+2		BONUS:VAR|UncannyDodge|CL/5+1							AUTO:FEAT|Uncanny Dodge
 3	SR:15
-4		SAB:Heal Self (Su)(% hp)|HealSelfCap										DEFINE:HealSelfCap|CL*CON
+4								DEFINE:HealSelfCap|CL*CON					SAB:Heal Self (Su)(% hp)|HealSelfCap
 5
 6	SR:20
-7		SAB:Counter Effect (Ex)(%/day)|CounterEffectBonus	BONUS:VAR|CounterEffectBonus|1	DEFINE:CounterEffectBonus|0
-8		SAB:Greater Heal Self (Su)
-9	SR:25										BONUS:VAR|CounterEffectBonus|1
-10		SAB:Avoid Blow (Ex)
+7		BONUS:VAR|CounterEffectBonus|1	DEFINE:CounterEffectBonus|0					SAB:Counter Effect (Ex)(%/day)|CounterEffectBonus
+8																	SAB:Greater Heal Self (Su)
+9	SR:25	BONUS:VAR|CounterEffectBonus|1
+10																	SAB:Avoid Blow (Ex)

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74
 # Original Entry by: Paul W. King
 
@@ -8,12 +8,12 @@ CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:CHECKS|BAS
 CLASS:Hitman	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Spot
-1				BONUS:VAR|BloodMoney|floor((CL+4)/4)*2					AUTO:FEAT|Blood Money
-2				BONUS:VAR|DirtyDeeds|(CL+5)/5							AUTO:FEAT|Dirty Deeds
-3											ADD:FEAT|1|TYPE.Hitman
-6											ADD:FEAT|1|TYPE.Hitman
-7	SAB:Calling Card
-9											ADD:FEAT|1|TYPE.Hitman
+1	BONUS:VAR|BloodMoney|floor((CL+4)/4)*2					AUTO:FEAT|Blood Money
+2	BONUS:VAR|DirtyDeeds|(CL+5)/5							AUTO:FEAT|Dirty Deeds
+3								ADD:FEAT|1|TYPE.Hitman
+6								ADD:FEAT|1|TYPE.Hitman
+7																SAB:Calling Card
+9								ADD:FEAT|1|TYPE.Hitman
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Vigilante	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -21,10 +21,10 @@ CLASS:Vigilante	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|
 CLASS:Vigilante	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Streetwise)=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Climb|Craft (Chemical)|Craft (Structural)|Demolitions|Disguise|Drive|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Sense Motive
-1										ADD:FEAT|1|Weapon Focus
-2					BONUS:VAR|VigilanteBonus|CL/2						AUTO:FEAT|Vigilante
-3										ADD:FEAT|1|TYPE.Vigilante
-5	SAB:Hunter and Hunted
-6										ADD:FEAT|1|TYPE.Vigilante
-7	SAB:Urban Legend
-9										ADD:FEAT|1|TYPE.Vigilante
+1						ADD:FEAT|1|Weapon Focus
+2	BONUS:VAR|VigilanteBonus|CL/2						AUTO:FEAT|Vigilante
+3						ADD:FEAT|1|TYPE.Vigilante
+5															SAB:Hunter and Hunted
+6						ADD:FEAT|1|TYPE.Vigilante
+7															SAB:Urban Legend
+9						ADD:FEAT|1|TYPE.Vigilante

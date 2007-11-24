@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:12:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Mace (Heavy) for Rogue weapon proficiency.  I'll clean it all up when I get more time - Tir Gwaith
 
-# Weapon Name		Type				Nb Hands
+# Weapon Name		Type					Nb Hands
 Armor Spikes		TYPE:Martial
 Axe				TYPE:Martial.Axe
 Axe (Orc Double)		TYPE:Exotic.Axe
@@ -12,9 +12,9 @@ Blowgun			TYPE:Simple
 Chain (Spiked)		TYPE:Exotic
 Club				TYPE:Simple.Club
 Crossbow (Hand)		TYPE:Exotic.Crossbow
-Crossbow (Heavy)		TYPE:Simple.Crossbow	HANDS:2
-Crossbow (Light)		TYPE:Simple.Crossbow	HANDS:2
-Crossbow (Repeating)	TYPE:Exotic.Crossbow	HANDS:2
+Crossbow (Heavy)		TYPE:Simple.Crossbow		HANDS:2
+Crossbow (Light)		TYPE:Simple.Crossbow		HANDS:2
+Crossbow (Repeating)	TYPE:Exotic.Crossbow		HANDS:2
 Dagger			TYPE:Simple.Dagger
 Dagger (Punching)		TYPE:Simple.Dagger
 Dart				TYPE:Simple.Thrown
@@ -38,8 +38,8 @@ Katana			TYPE:Martial.Exotic
 Kukri				TYPE:Exotic.Dagger
 Kusari-gama			TYPE:Martial
 Lance				TYPE:Martial
-Longbow			TYPE:Martial.Bow		HANDS:2
-Longbow (Composite)	TYPE:Martial.Bow		HANDS:2
+Longbow			TYPE:Martial.Bow			HANDS:2
+Longbow (Composite)	TYPE:Martial.Bow			HANDS:2
 Longspear			TYPE:Martial.Spear
 Mace				TYPE:Simple.Mace
 ###COMMENT:Mace should be Light or Heavy, leaving this in until all 3.0 sources are corrected. -AM
@@ -55,9 +55,9 @@ Rapier			TYPE:Martial.Sword
 Sap				TYPE:Martial
 Scimitar			TYPE:Martial.Sword
 Scythe			TYPE:Martial
-Shieldbash			TYPE:Martial		HANDS:0
-Shortbow			TYPE:Martial.Bow		HANDS:2
-Shortbow (Composite)	TYPE:Martial.Bow		HANDS:2
+Shieldbash			TYPE:Martial			HANDS:0
+Shortbow			TYPE:Martial.Bow			HANDS:2
+Shortbow (Composite)	TYPE:Martial.Bow			HANDS:2
 Shortspear			TYPE:Simple.Spear
 Shuriken			TYPE:Exotic.Thrown
 Siangham			TYPE:Exotic

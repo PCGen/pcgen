@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224
 
 #Original entry by Paul W. King
@@ -18,7 +18,7 @@ CLASS:Nephilim	HD:6		TYPE:Advanced.PC	MAXLEVEL:5	BONUS:CHECKS|BASE.Fortitude|(CL
 CLASS:Nephilim	PRECLASS:1,The Watcher=3	PREFEAT:3,Occupation (Celestial),Tongue of Angels,Aura	PRESKILL:1,Knowledge (Theology and Philosophy)=8	PRETEXT:Allegiance to a higher power
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Nephilim	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Perform (Act)|Perform (Dance)|Perform (Sing)|Pilot|Profession|Read/Write Language|Sense Motive|Speak Language|Spot|Treat Injury
-1				SAB:Divine Presence
+1							SAB:Divine Presence
 2:REPEATLEVEL:2					ADD:FEAT|1|TYPE=Nephilim
-3								ADD:FEAT|1|TYPE=NephilimStatAdd
-5				SAB:Beguile
+3	ADD:FEAT|1|TYPE=NephilimStatAdd
+5							SAB:Beguile

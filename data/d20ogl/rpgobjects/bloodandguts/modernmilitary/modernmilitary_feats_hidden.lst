@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
 ### MOS skills
-# Feat Name								Type																											Visible	Required Feat					Prohibited Feat							Special Ability																Define				Stackable?	Multiple?	Choose		Add					Modify VAR					Class Skill
-Air Traffic Control(class skill)				TYPE:AviationSkills.Pilotskills																						VISIBLE:NO								!PREFEAT:1,Air Traffic Control(class skill)																																											CSKILL:Air Traffic Control
+# Feat Name								Type																											Visible	Required Feat					Prohibited Feat							Define				Stackable?	Multiple?	Choose		Add					Modify VAR					Class Skill					SAB
+Air Traffic Control(class skill)				TYPE:AviationSkills.Pilotskills																						VISIBLE:NO								!PREFEAT:1,Air Traffic Control(class skill)																									CSKILL:Air Traffic Control
 Climb(class skill).MOD						TYPE:InfantrySkills
-Communication Operations(class skill)			TYPE:ArmorSkills.AviationSkills.SignalsSkills.MaintenanceSkills.IntelligenceSkills														VISIBLE:NO								!PREFEAT:1,Communication Operations(class skill)																																										CSKILL:Communication Operations
+Communication Operations(class skill)			TYPE:ArmorSkills.AviationSkills.SignalsSkills.MaintenanceSkills.IntelligenceSkills														VISIBLE:NO								!PREFEAT:1,Communication Operations(class skill)																								CSKILL:Communication Operations
 Computer Use(class skill).MOD					TYPE:IntelligenceSkills
 Craft (Chemical - class skill).MOD				TYPE:CombatEngineeringSkills.DiverSkills.NBCSkills.MedicalSkills
 Craft (Electronic - class skill).MOD			TYPE:AviationSkills.CombatEngineeringSkills.DiverSkills.SignalsSkills.PilotSkills.NBCSkills.MaintenanceSkills
@@ -41,21 +41,21 @@ Survival(class skill).MOD					TYPE:CombatEngineeringSkills.InfantrySkills
 Treat Injury(class skill).MOD					TYPE:NBCSkills.MedicalSkills
 
 
-Psychotherapy Qualify						TYPE:MedicalFeat																									VISIBLE:NO	PREFEAT:1,Officer Candidate School																																									ADD:FEAT|1|Psychotherapy
-Surgery Qualify							TYPE:MedicalFeat																									VISIBLE:NO	PREFEAT:1,Officer Candidate School																																									ADD:FEAT|1|Surgery
+Psychotherapy Qualify						TYPE:MedicalFeat																									VISIBLE:NO	PREFEAT:1,Officer Candidate School																							ADD:FEAT|1|Psychotherapy
+Surgery Qualify							TYPE:MedicalFeat																									VISIBLE:NO	PREFEAT:1,Officer Candidate School																							ADD:FEAT|1|Surgery
 
-Advanced Amphibious Training					TYPE:Terrain.NavyBoat																								VISIBLE:NO	PREFEAT:1,Amphibious Assault Training																																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|AmphibiousTraining|1
-Advanced Arctic Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Arctic Warfare College																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|ArcticTraining|1
-Advanced Desert Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Desert Warfare College																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|DesertTraining|1
-Advanced Jungle/Swamp Training				TYPE:Terrain.NavyBoat																								VISIBLE:NO	PREFEAT:1,Jungle/Swamp Warfare College																																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|JungleTraining|1
-Advanced Mountain Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Mountain Warfare College																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|MountainTraining|1
-Advanced Urban Training						TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Urban Warfare College																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|UrbanTraining|1
+Advanced Amphibious Training					TYPE:Terrain.NavyBoat																								VISIBLE:NO	PREFEAT:1,Amphibious Assault Training															STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|AmphibiousTraining|1
+Advanced Arctic Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Arctic Warfare College																STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|ArcticTraining|1
+Advanced Desert Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Desert Warfare College																STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|DesertTraining|1
+Advanced Jungle/Swamp Training				TYPE:Terrain.NavyBoat																								VISIBLE:NO	PREFEAT:1,Jungle/Swamp Warfare College															STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|JungleTraining|1
+Advanced Mountain Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Mountain Warfare College																STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|MountainTraining|1
+Advanced Urban Training						TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Urban Warfare College																STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|UrbanTraining|1
 
-Air Superiority							TYPE:Special																									VISIBLE:NO																	SAB:Air Superiority +%|AirSuperiority												DEFINE:AirSuperiority|0
-Strafing								TYPE:Special																									VISIBLE:NO																	SAB:SA:Strafing +%|Strafing														DEFINE:Strafing|0
+Air Superiority							TYPE:Special																									VISIBLE:NO																	DEFINE:AirSuperiority|0																										SAB:Air Superiority +%|AirSuperiority
+Strafing								TYPE:Special																									VISIBLE:NO																	DEFINE:Strafing|0																											SAB:SA:Strafing +%|Strafing
 
-Hostage Rescue							TYPE:Special																									VISIBLE:NO																	SAB:Hostage Rescue|PREVARLT:HostageRescue,6	SAB:Hostage Rescue (no crossfire)|PREVARGTEQ:HostageRescue,6
+Hostage Rescue							TYPE:Special																									VISIBLE:NO																																														SAB:Hostage Rescue|PREVARLT:HostageRescue,6	SAB:Hostage Rescue (no crossfire)|PREVARGTEQ:HostageRescue,6
 
-Hasty Construction						TYPE:Special																									VISIBLE:NO																	SAB:Hasty Construction % pct|HastyConstruction											DEFINE:HastyConstruction|100
+Hasty Construction						TYPE:Special																									VISIBLE:NO																	DEFINE:HastyConstruction|100																									SAB:Hasty Construction % pct|HastyConstruction
 
-Semper Fi								TYPE:Special																									VISIBLE:NO																	SAB:Semper Fi
+Semper Fi								TYPE:Special																									VISIBLE:NO																																														SAB:Semper Fi

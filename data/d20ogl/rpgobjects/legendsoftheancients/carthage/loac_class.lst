@@ -1,18 +1,18 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:Carthage	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mercenary	HD:12		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mercenary	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Intimidate|Jump|Ride|Sense Motive|Survival|Swim
-1																									AUTO:FEAT|Weapon Focus|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-2																					VFEAT:Improved Feint
-3					BONUS:VAR|ColorOfMoneyTimes|CL/5+1	BONUS:VAR|ColorOfMoneyBonus|CL/3									AUTO:FEAT|Color of Money
-4																	ADD:FEAT|1|TYPE=Fighter
-7	SAB:Mercenary's Revenge
-8																	ADD:FEAT|1|TYPE=Fighter
-13																	ADD:FEAT|1|TYPE=Fighter
-15					BONUS:VAR|ColorOfMoneyBonus|-1
-16					BONUS:VAR|ColorOfMoneyBonus|1
-17																	ADD:FEAT|1|TYPE=Fighter
-19																	ADD:FEAT|1|TYPE=Fighter
+1																					AUTO:FEAT|Weapon Focus|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+2																	VFEAT:Improved Feint
+3	BONUS:VAR|ColorOfMoneyTimes|CL/5+1	BONUS:VAR|ColorOfMoneyBonus|CL/3									AUTO:FEAT|Color of Money
+4													ADD:FEAT|1|TYPE=Fighter
+7																																																		SAB:Mercenary's Revenge
+8													ADD:FEAT|1|TYPE=Fighter
+13													ADD:FEAT|1|TYPE=Fighter
+15	BONUS:VAR|ColorOfMoneyBonus|-1
+16	BONUS:VAR|ColorOfMoneyBonus|1
+17													ADD:FEAT|1|TYPE=Fighter
+19													ADD:FEAT|1|TYPE=Fighter

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 20:49:41 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Blood and Guts - War on Terror	SOURCESHORT:BnG-WoT	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24
 
-# Feat Name				Type				Visible	Required Feat		Special Ability						Define				Stackable?	Multiple?	Choose		Modify VAR
+# Feat Name				Type				Visible	Required Feat		Define				Stackable?	Multiple?	Choose		Modify VAR			SAB
 Sneak Attack.MOD			TYPE:GuerillaWarfare
-Sneak Attack Damage Increase	TYPE:GuerillaWarfare	VISIBLE:NO	PREFEAT:1,Sneak Attack														STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|SneakAttack|1
-Home Turf Increase		TYPE:GuerillaWarfare	VISIBLE:NO																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|HomeTurf|1
+Sneak Attack Damage Increase	TYPE:GuerillaWarfare	VISIBLE:NO	PREFEAT:1,Sneak Attack						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|SneakAttack|1
+Home Turf Increase		TYPE:GuerillaWarfare	VISIBLE:NO										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|HomeTurf|1
 
-Defensive Position		TYPE:Special		VISIBLE:NO					SAB:Defensive Position +%|DefensivePosition	DEFINE:DefensivePosition|0
+Defensive Position		TYPE:Special		VISIBLE:NO					DEFINE:DefensivePosition|0												SAB:Defensive Position +%|DefensivePosition

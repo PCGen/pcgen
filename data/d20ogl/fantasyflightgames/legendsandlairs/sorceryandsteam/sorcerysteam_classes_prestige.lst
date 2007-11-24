@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 10 21:56:08 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
@@ -13,16 +13,16 @@ CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|T
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Operations Expert (Ex)																				ADD:SPELLCASTER|1|Arcane
-2	SAB:Makeshift Repairs (Ex)																				ADD:SPELLCASTER|1|Arcane
-3	SAB:Expert Aviator +% (Ex)|ExpertAviator	BONUS:VAR|ExpertAviator|2	BONUS:SKILL|Drive,ExpertAviator|TYPE=Competence	DEFINE:ExpertAviator|0	ADD:SPELLCASTER|1|Arcane
-4	SAB:Freefall (Sp)																						ADD:SPELLCASTER|1|Arcane
-5	SAB:Pinpoint Accuracy (Ex)																				ADD:SPELLCASTER|1|Arcane
-6								BONUS:VAR|ExpertAviator|2													ADD:SPELLCASTER|1|Arcane
-7	SAB:Safe Flying (Ex)																					ADD:SPELLCASTER|1|Arcane
-8	SAB:Push the Limit (Ex)																					ADD:SPELLCASTER|1|Arcane
-9								BONUS:VAR|ExpertAviator|2													ADD:SPELLCASTER|1|Arcane
-10	SAB:Sky Captain (Ex)																					ADD:SPELLCASTER|1|Arcane
+1																		ADD:SPELLCASTER|1|Arcane	SAB:Operations Expert (Ex)
+2																		ADD:SPELLCASTER|1|Arcane	SAB:Makeshift Repairs (Ex)
+3	BONUS:VAR|ExpertAviator|2	BONUS:SKILL|Drive,ExpertAviator|TYPE=Competence	DEFINE:ExpertAviator|0	ADD:SPELLCASTER|1|Arcane	SAB:Expert Aviator +% (Ex)|ExpertAviator
+4																		ADD:SPELLCASTER|1|Arcane	SAB:Freefall (Sp)
+5																		ADD:SPELLCASTER|1|Arcane	SAB:Pinpoint Accuracy (Ex)
+6	BONUS:VAR|ExpertAviator|2													ADD:SPELLCASTER|1|Arcane
+7																		ADD:SPELLCASTER|1|Arcane	SAB:Safe Flying (Ex)
+8																		ADD:SPELLCASTER|1|Arcane	SAB:Push the Limit (Ex)
+9	BONUS:VAR|ExpertAviator|2													ADD:SPELLCASTER|1|Arcane
+10																		ADD:SPELLCASTER|1|Arcane	SAB:Sky Captain (Ex)
 
 # Arcane Performer ----------------------------------------------------------------------------
 
@@ -36,18 +36,18 @@ CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Cli
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Musical Prodigy
-1	SAB:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC	DEFINE:MusicalProdigyDC|1	AUTO:FEAT|Musical Prodigy
+1	DEFINE:MusicalProdigyDC|1	AUTO:FEAT|Musical Prodigy	SAB:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC
 ###Block: Normal Level Progression
-1															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power I
-2	SAB:Masterful Performance (Ex)										ADD:SPELLCASTER|1|ANY
-3	SAB:Tools of the Trade (Ex)										ADD:SPELLCASTER|1|ANY
-4															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power II
-5															ADD:SPELLCASTER|1|ANY
-6															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power III
-7															ADD:SPELLCASTER|1|ANY
-8															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power IV
-9	SAB:Musical Genius (Ex)		BONUS:VAR|MusicalProdigyDC|2	BONUS:SKILL|Perform|5	ADD:SPELLCASTER|1|ANY
-10	SAB:Song Power Master (Ex)										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power V
+1										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power I
+2										ADD:SPELLCASTER|1|ANY						SAB:Masterful Performance (Ex)
+3										ADD:SPELLCASTER|1|ANY						SAB:Tools of the Trade (Ex)
+4										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power II
+5										ADD:SPELLCASTER|1|ANY
+6										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power III
+7										ADD:SPELLCASTER|1|ANY
+8										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power IV
+9	BONUS:VAR|MusicalProdigyDC|2	BONUS:SKILL|Perform|5	ADD:SPELLCASTER|1|ANY						SAB:Musical Genius (Ex)
+10										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power V		SAB:Song Power Master (Ex)
 ###Block: Bard Spells Known
 10	BONUS:DC|CLASS.Bard|2	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1|PRESTAT:1,CHA=24
 10					BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1|PRESTAT:1,CHA=14	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1|PRESTAT:1,CHA=26
@@ -67,16 +67,16 @@ CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimi
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Stubborn Resolve (Ex)
-2						ADD:FEAT|1|TYPE.Brawler
-3	SAB:Feinting Maneuver (Ex)
-4						ADD:FEAT|1|TYPE.Brawler
-5	SAB:Grappler (Ex)
-6						ADD:FEAT|1|TYPE.Brawler
-7	SAB:Defensive Stand (Ex)
-8						ADD:FEAT|1|TYPE.Brawler
-9	SAB:Eyes of the Champion (Ex)
-10	SAB:Final Attack (Ex)		ADD:FEAT|1|TYPE.Brawler
+1					SAB:Stubborn Resolve (Ex)
+2	ADD:FEAT|1|TYPE.Brawler
+3					SAB:Feinting Maneuver (Ex)
+4	ADD:FEAT|1|TYPE.Brawler
+5					SAB:Grappler (Ex)
+6	ADD:FEAT|1|TYPE.Brawler
+7					SAB:Defensive Stand (Ex)
+8	ADD:FEAT|1|TYPE.Brawler
+9					SAB:Eyes of the Champion (Ex)
+10	ADD:FEAT|1|TYPE.Brawler	SAB:Final Attack (Ex)
 
 # Demolitionist -------------------------------------------------------------------------------
 
@@ -89,14 +89,14 @@ CLASS:Demolitionist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Disa
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Precise Touch (Ex)								BONUS:VAR|PreciseTouch|1		BONUS:SKILL|Disable Device,Open Lock,Munitions,Use Steamcraft Device|PreciseTouch	DEFINE:PreciseTouch|0
-2	SAB:Explosive Knowledge (Ex) (%d6 bonus Damage)|ExplosiveKnowledge	BONUS:VAR|ExplosiveKnowledge|1															DEFINE:ExplosiveKnowledge|0
-4												BONUS:VAR|ExplosiveKnowledge|1
-5												BONUS:VAR|PreciseTouch|1
-6												BONUS:VAR|ExplosiveKnowledge|1
-8												BONUS:VAR|ExplosiveKnowledge|1
-9	SAB:Defusing Touch (Su)
-10	SAB:Thick Skin (Su)								BONUS:VAR|PreciseTouch|1
+1	BONUS:VAR|PreciseTouch|1		BONUS:SKILL|Disable Device,Open Lock,Munitions,Use Steamcraft Device|PreciseTouch	DEFINE:PreciseTouch|0		SAB:Precise Touch (Ex)
+2	BONUS:VAR|ExplosiveKnowledge|1															DEFINE:ExplosiveKnowledge|0	SAB:Explosive Knowledge (Ex) (%d6 bonus Damage)|ExplosiveKnowledge
+4	BONUS:VAR|ExplosiveKnowledge|1
+5	BONUS:VAR|PreciseTouch|1
+6	BONUS:VAR|ExplosiveKnowledge|1
+8	BONUS:VAR|ExplosiveKnowledge|1
+9																										SAB:Defusing Touch (Su)
+10	BONUS:VAR|PreciseTouch|1																					SAB:Thick Skin (Su)
 
 # Detective -----------------------------------------------------------------------------------
 
@@ -109,16 +109,16 @@ CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher S
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1																										ADD:FEAT|1|Reference Material
-2	SAB:Eye for Clues (Ex)										BONUS:SKILL|Spot|4|TYPE=Competence
-3	SAB:Second Thought %/day (Ex)|SecondThought														DEFINE:SecondThought|1
-4																										ADD:FEAT|1|Reference Material
-5	SAB:Experienced Detective (Ex)									BONUS:SKILL|Sense Motive,Spot|2|TYPE=Competence
-6									BONUS:VAR|SecondThought|1
-7																										ADD:FEAT|1|Reference Material
-8	SAB:Understanding the Criminal Mind (Ex)
-9									BONUS:VAR|SecondThought|1
-10	SAB:Master Detective (Ex)																					ADD:FEAT|1|Reference Material
+1																		ADD:FEAT|1|Reference Material
+2						BONUS:SKILL|Spot|4|TYPE=Competence												SAB:Eye for Clues (Ex)
+3														DEFINE:SecondThought|1						SAB:Second Thought %/day (Ex)|SecondThought
+4																		ADD:FEAT|1|Reference Material
+5						BONUS:SKILL|Sense Motive,Spot|2|TYPE=Competence										SAB:Experienced Detective (Ex)
+6	BONUS:VAR|SecondThought|1
+7																		ADD:FEAT|1|Reference Material
+8																							SAB:Understanding the Criminal Mind (Ex)
+9	BONUS:VAR|SecondThought|1
+10																		ADD:FEAT|1|Reference Material	SAB:Master Detective (Ex)
 
 # Game Hunter ---------------------------------------------------------------------------------
 
@@ -131,14 +131,14 @@ CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle 
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1																														ADD:FEAT|1|TYPE.GameHunterFavored
-2	SAB:Scentless
-3	SAB:Steady Aim +% (Ex)|SteadyAim	SAB:Ranged Sneak Attack (%d6)(Ex)|SteadyAim												DEFINE:SteadyAim|CL/3
-4	SAB:Survivor (Ex)												BONUS:SKILL|Intuit Direction,Wilderness Lore|2|TYPE=Competence
-5																														ADD:FEAT|1|TYPE.GameHunterFavored
-7	SAB:Silent Hunter (Ex)											BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence
-8	SAB:Outdoorsman (Ex)											BONUS:SKILL|Climb,Swim|2|TYPE=Competence
-10	SAB:Death Attack (Ex)																										ADD:FEAT|1|TYPE.GameHunterFavored
+1																ADD:FEAT|1|TYPE.GameHunterFavored
+2																						SAB:Scentless
+3												DEFINE:SteadyAim|CL/3							SAB:Steady Aim +% (Ex)|SteadyAim	SAB:Ranged Sneak Attack (%d6)(Ex)|SteadyAim
+4	BONUS:SKILL|Intuit Direction,Wilderness Lore|2|TYPE=Competence											SAB:Survivor (Ex)
+5																ADD:FEAT|1|TYPE.GameHunterFavored
+7	BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence													SAB:Silent Hunter (Ex)
+8	BONUS:SKILL|Climb,Swim|2|TYPE=Competence															SAB:Outdoorsman (Ex)
+10																ADD:FEAT|1|TYPE.GameHunterFavored	SAB:Death Attack (Ex)
 
 # Gun Glyph ----------------------------------------------------------------------------
 
@@ -151,15 +151,15 @@ CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimida
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SAB:Armor Adaptation (Ex)			BONUS:VAR|ArmorAdaptation|-2						BONUS:MISC|SPELLFAILURE|ArmorAdaptation	DEFINE:ArmorAdaptation|0	ADD:SPELLCASTER|1|Arcane
-2	SAB:Arcane Bond I (Sp)|PREVARLT:CL,5
-3	SAB:Marksman +% (Ex)|GunGlyphMarksman																		DEFINE:GunGlyphMarksman|CL/3	ADD:SPELLCASTER|1|Arcane
-4								BONUS:VAR|ArmorAdaptation|-2
-5	SAB:Arcane Bond II (Sp)|PREVARLT:CL,8																							ADD:SPELLCASTER|1|Arcane
-7								BONUS:VAR|ArmorAdaptation|-4																		ADD:SPELLCASTER|1|Arcane
-8	SAB:Arcane Bond III (Sp)|PREVARLT:CL,10
-9																														ADD:SPELLCASTER|1|Arcane
-10	SAB:Gun Master	SAB:Arcane Bond IV (Sp)	BONUS:VAR|ArmorAdaptation|-2	BONUS:VAR|GunGlyphMarksman|1
+1	BONUS:VAR|ArmorAdaptation|-2						BONUS:MISC|SPELLFAILURE|ArmorAdaptation	DEFINE:ArmorAdaptation|0	ADD:SPELLCASTER|1|Arcane	SAB:Armor Adaptation (Ex)
+2																												SAB:Arcane Bond I (Sp)|PREVARLT:CL,5
+3																		DEFINE:GunGlyphMarksman|CL/3	ADD:SPELLCASTER|1|Arcane	SAB:Marksman +% (Ex)|GunGlyphMarksman
+4	BONUS:VAR|ArmorAdaptation|-2
+5																							ADD:SPELLCASTER|1|Arcane	SAB:Arcane Bond II (Sp)|PREVARLT:CL,8
+7	BONUS:VAR|ArmorAdaptation|-4																		ADD:SPELLCASTER|1|Arcane
+8																												SAB:Arcane Bond III (Sp)|PREVARLT:CL,10
+9																							ADD:SPELLCASTER|1|Arcane
+10	BONUS:VAR|ArmorAdaptation|-2	BONUS:VAR|GunGlyphMarksman|1																		SAB:Gun Master	SAB:Arcane Bond IV (Sp)
 
 # Hypnotist -----------------------------------------------------------------------------------
 
@@ -171,17 +171,17 @@ CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:2,Bluff,Concentration=5	PRESKILL:1,
 CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Sense Motive|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1																								ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Spell Focus(Enchantment),Hypnotist DC Bonus
-2	SAB:Focused Mind +% (Ex)|FocusedMind				BONUS:CHECKS|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2
+1															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Spell Focus(Enchantment),Hypnotist DC Bonus
+2	BONUS:CHECKS|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2																						SAB:Focused Mind +% (Ex)|FocusedMind
 #2	AUTO:FEAT|Master Hypnotist	Not sure but I would think they left this out
-3																								ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment I
-4																																						AUTO:FEAT|Ultimate Hypnotist
-5																								ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment II
+3															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment I
+4																													AUTO:FEAT|Ultimate Hypnotist
+5															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment II
 6
-7																								ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment III
+7															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment III
 8
-9																								ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment IV
-10	SAB:Master of Domination %/day (Sp)|MasterofDomination									DEFINE:MasterofDomination|INT/2
+9															ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Master of Enchantment IV
+10									DEFINE:MasterofDomination|INT/2																				SAB:Master of Domination %/day (Sp)|MasterofDomination
 
 # Noble Bodyguard ----------------------------------------------------------------------------
 
@@ -195,11 +195,11 @@ CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Hand
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1			SAB:Human Shield (Ex)
-3			SAB:Improved Defense +% (Ex)|ImprovedDefense	BONUS:COMBAT|AC|ImprovedDefense|TYPE=Dodge	DEFINE:ImprovedDefense|(CL-1)/2
-6																									AUTO:FEAT|Uncanny Dodge
-9			SAB:Defensive Reflexes (Ex)				BONUS:COMBAT|INITIATIVE|4|TYPE=Insight
-10	DR:2/-	SAB:Bastion of Protection (Ex)
+1																					SAB:Human Shield (Ex)
+3			BONUS:COMBAT|AC|ImprovedDefense|TYPE=Dodge	DEFINE:ImprovedDefense|(CL-1)/2					SAB:Improved Defense +% (Ex)|ImprovedDefense
+6																	AUTO:FEAT|Uncanny Dodge
+9			BONUS:COMBAT|INITIATIVE|4|TYPE=Insight												SAB:Defensive Reflexes (Ex)
+10	DR:2/-																			SAB:Bastion of Protection (Ex)
 
 # Physician -----------------------------------------------------------------------------------
 
@@ -212,13 +212,13 @@ CLASS:Physician	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Hide|Intuit Direction|Listen|M
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Survey the Damage
-2	SAB:Healing Hand	SAB:Medicinal Knowledge I (Ex)															BONUS:SKILL|Heal|4|TYPE=Competence
-3	SAB:Temporary Reprieve (1d6+%) (Ex)|TemporaryReprieve																				DEFINE:TemporaryReprieve|((CL-1)/2)*CL
-4	SAB:Model of Health (Ex)	SAB:Restore Health (Ex)										BONUS:CHECKS|Fortitude|2
-6	SAB:Hand of Life (Ex)	SAB:Medicinal Knowledge II (Ex)
-8	SAB:Reaper's Bane (Ex)
-10	SAB:Medicinal Knowledge III (Ex)	SAB:Master Physician (Ex)	BONUS:VAR|TemporaryReprieve|CL
+1																									SAB:Survey the Damage
+2												BONUS:SKILL|Heal|4|TYPE=Competence								SAB:Healing Hand	SAB:Medicinal Knowledge I (Ex)
+3																		DEFINE:TemporaryReprieve|((CL-1)/2)*CL	SAB:Temporary Reprieve (1d6+%) (Ex)|TemporaryReprieve
+4							BONUS:CHECKS|Fortitude|2														SAB:Model of Health (Ex)	SAB:Restore Health (Ex)
+6																									SAB:Hand of Life (Ex)	SAB:Medicinal Knowledge II (Ex)
+8																									SAB:Reaper's Bane (Ex)
+10	BONUS:VAR|TemporaryReprieve|CL																			SAB:Medicinal Knowledge III (Ex)	SAB:Master Physician (Ex)
 
 # Pilot ----------------------------------------------------------------------------
 
@@ -231,13 +231,13 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Disable Device|Driv
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SAB:Skilled Pilot +% (Ex)|SkilledPilot	SAB:Combat Ace +% (Ex)|CombatAce						BONUS:SKILL|Drive,SkilledPilot|TYPE=Competence	DEFINE:SkilledPilot|(((CL/5)*2)+2)	DEFINE:CombatAce|(CL+3)/4
-2	SAB:Vehicle Evasion (Ex)
-4	SAB:Combat Maneuvers (Ex)
-6	SAB:Master Gunner (%d6) (Ex)|MasterGunner																				DEFINE:MasterGunner|1
-7	SAB:Defensive Piloting (Ex)
-8	SAB:Greater Evasion (Ex)
-10	SAB:Master Pilot (Ex)										BONUS:VAR|MasterGunner|1
+1						BONUS:SKILL|Drive,SkilledPilot|TYPE=Competence	DEFINE:SkilledPilot|(((CL/5)*2)+2)	DEFINE:CombatAce|(CL+3)/4	SAB:Skilled Pilot +% (Ex)|SkilledPilot	SAB:Combat Ace +% (Ex)|CombatAce
+2																									SAB:Vehicle Evasion (Ex)
+4																									SAB:Combat Maneuvers (Ex)
+6														DEFINE:MasterGunner|1								SAB:Master Gunner (%d6) (Ex)|MasterGunner
+7																									SAB:Defensive Piloting (Ex)
+8																									SAB:Greater Evasion (Ex)
+10	BONUS:VAR|MasterGunner|1																				SAB:Master Pilot (Ex)
 
 # Rocket Ace ----------------------------------------------------------------------------
 
@@ -250,16 +250,16 @@ CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE.Craft|Disable
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Roll (Ex)
-2	SAB:Rocket Mechanic (Ex)
-3	SAB:Dive (Ex)
-4	SAB:Booster (% ft. for % rounds) (Ex)|CL+10|CL
-5	SAB:Fly-By (Ex)
-6	SAB:Rocket Defense +% (Ex)|RocketDefense		DEFINE:RocketDefense|DEX
-7	SAB:Cannonball (Ex)
-8	SAB:Attack of Momentum (Ex)
-9	SAB:Afterburner (Ex)
-10	SAB:Rocket Legeng (Ex)
+1						SAB:Roll (Ex)
+2						SAB:Rocket Mechanic (Ex)
+3						SAB:Dive (Ex)
+4						SAB:Booster (% ft. for % rounds) (Ex)|CL+10|CL
+5						SAB:Fly-By (Ex)
+6	DEFINE:RocketDefense|DEX	SAB:Rocket Defense +% (Ex)|RocketDefense
+7						SAB:Cannonball (Ex)
+8						SAB:Attack of Momentum (Ex)
+9						SAB:Afterburner (Ex)
+10						SAB:Rocket Legeng (Ex)
 
 # Steamcraft Mage -----------------------------------------------------------------------------
 
@@ -271,16 +271,16 @@ CLASS:Steamcraft Mage	PREFEAT:2,Mechanical Aptitude,Industrial Upbringing	PRESKI
 CLASS:Steamcraft Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft|Use Steamcraft Device
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	SAB:Advanced Craftsman (Ex)	ADD:SPELLCASTER|1|Arcane
-2						ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation
-3	SAB:Spell Infusion I (Su)	ADD:SPELLCASTER|1|Arcane
-4						ADD:SPELLCASTER|1|Arcane
-5	SAB:Expert Craftsman (Ex)	ADD:SPELLCASTER|1|Arcane
-6	SAB:Spell Infusion II (Su)	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation
-7						ADD:SPELLCASTER|1|Arcane
-8	SAB:Machine Mind (Su)		ADD:SPELLCASTER|1|Arcane
-9	SAB:Spell Infusion III (Su)	ADD:SPELLCASTER|1|Arcane
-10	SAB:Master Craftsman (Ex)	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation
+1	ADD:SPELLCASTER|1|Arcane																																	SAB:Advanced Craftsman (Ex)
+2	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation
+3	ADD:SPELLCASTER|1|Arcane																																	SAB:Spell Infusion I (Su)
+4	ADD:SPELLCASTER|1|Arcane
+5	ADD:SPELLCASTER|1|Arcane																																	SAB:Expert Craftsman (Ex)
+6	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation	SAB:Spell Infusion II (Su)
+7	ADD:SPELLCASTER|1|Arcane
+8	ADD:SPELLCASTER|1|Arcane																																	SAB:Machine Mind (Su)
+9	ADD:SPELLCASTER|1|Arcane																																	SAB:Spell Infusion III (Su)
+10	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation	SAB:Master Craftsman (Ex)
 
 # Street Runner ----------------------------------------------------------------------------
 
@@ -293,12 +293,12 @@ CLASS:Street Runner	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cra
 1	AUTO:FEAT|Street Runner Weapon Proficiencies	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1					BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
-2	SAB:Gossip Hound (Ex)
-4	SAB:Quick Lift (Ex)
-5	SAB:Street Master (Ex)
-8	SAB:Fast Talker (Ex)
-10	SAB:Street Lord (Ex)
+1	BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
+2											SAB:Gossip Hound (Ex)
+4											SAB:Quick Lift (Ex)
+5											SAB:Street Master (Ex)
+8											SAB:Fast Talker (Ex)
+10											SAB:Street Lord (Ex)
 
 # Watchman ----------------------------------------------------------------------------
 
@@ -312,13 +312,13 @@ CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle 
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1																										AUTO:FEAT|Weapon Focus(Club)
-2	SAB:Crowd Control (Ex)
-4	SAB:Mounted Watchman (Ex)										BONUS:SKILL|Ride|4|TYPE=Competence
-5																					ADD:FEAT|1|TYPE.Watchman
-6	SAB:Renewed Vitality (Ex)	BONUS:CHECKS|Fortitude|1	BONUS:HP|CURRENTMAX|5
-8	SAB:Presence of Authority (Ex)																					AUTO:FEAT|Leadership
-10	SAB:Veteran Watchman (Ex)																ADD:FEAT|1|TYPE.Watchman
+1																					AUTO:FEAT|Weapon Focus(Club)
+2																										SAB:Crowd Control (Ex)
+4										BONUS:SKILL|Ride|4|TYPE=Competence											SAB:Mounted Watchman (Ex)
+5																ADD:FEAT|1|TYPE.Watchman
+6	BONUS:CHECKS|Fortitude|1	BONUS:HP|CURRENTMAX|5																	SAB:Renewed Vitality (Ex)
+8																					AUTO:FEAT|Leadership		SAB:Presence of Authority (Ex)
+10																ADD:FEAT|1|TYPE.Watchman						SAB:Veteran Watchman (Ex)
 
 #
 # end

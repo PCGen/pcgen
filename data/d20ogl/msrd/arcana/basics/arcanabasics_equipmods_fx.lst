@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Apr  2 01:30:05 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Magic Shields and Armor
@@ -142,7 +142,7 @@ Windows of Deception			KEY:WNDW_DCPTN	TYPE:Transportation	COST:-BASECOST	VISIBLE
 Zephyr Tires				KEY:TIRE_ZEPHYR	TYPE:Transportation	COST:-BASECOST	VISIBLE:QUALIFY	REPLACES:TIRE_IMPVS,TIRE_REINFLT					SOURCEPAGE:ArcanaFXItems.rtf					BONUS:ITEMCOST|TYPE.Transportation|if(BASECOST<25,29,if(BASECOST<28,30,if(BASECOST<30,31,if(BASECOST<31,32,if(BASECOST<33,33,BASECOST+1)))))										SPROP:The tires allow the vehicle to fly for up to 10 rounds once per day
 
 ###Block: needed for the Talisman of Pure Good and the Talisman of Ultimate Evil
-# Modifier Name	Unique Key			Naming Option	Visible	Choose			Nb of Charges
+# Modifier Name	Unique Key			Naming Option	Visible	Choose		Nb of Charges
 Charges (7)		KEY:CHARGED_ITEM_7	NAMEOPT:SPELL	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|7
 
 #

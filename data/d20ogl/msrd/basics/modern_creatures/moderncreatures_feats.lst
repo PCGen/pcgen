@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr 27 00:39:14 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System Reference Document - Creatures	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Multiattack for monsters
@@ -77,35 +77,35 @@ Fiend Movement (Burrow 60)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.
 
 ###Block: Fiend Immunity
 
-# Feat Name						Type				Visible	Special Ability				Add						Source Page
-Fiend Immunity (Acid damage)			TYPE:CreatureImmunity	VISIBLE:NO	SAB:Acid Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity (Cold damage)			TYPE:CreatureImmunity	VISIBLE:NO	SAB:Cold Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity (Sonic/Concussion damage)	TYPE:CreatureImmunity	VISIBLE:NO	SAB:Sonic/Concussion Immununity (Ex)							SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity (Electricity damage)		TYPE:CreatureImmunity	VISIBLE:NO	SAB:Electrical Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity (Fire damage)			TYPE:CreatureImmunity	VISIBLE:NO	SAB:Fire Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity (Radiation damage)		TYPE:CreatureImmunity	VISIBLE:NO	SAB:Radiation Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity (Poison damage)		TYPE:CreatureImmunity	VISIBLE:NO	SAB:Poison Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity (Ballistic damage)		TYPE:CreatureImmunity	VISIBLE:NO	SAB:Ballistic Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity (Bludgeoning damage)		TYPE:CreatureImmunity	VISIBLE:NO	SAB:Bludgeoning Immununity (Ex)							SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity (Piercing damage)		TYPE:CreatureImmunity	VISIBLE:NO	SAB:Piercing Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity (Slashing damage)		TYPE:CreatureImmunity	VISIBLE:NO	SAB:Slashing Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
-Fiend Immunity ( Choose two)			TYPE:CreatureImmunity	VISIBLE:NO							ADD:FEAT|2|TYPE=CreatureImmunity
+# Feat Name						Type				Visible	Add						Source Page				SAB
+Fiend Immunity (Acid damage)			TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Acid Immununity (Ex)
+Fiend Immunity (Cold damage)			TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Cold Immununity (Ex)
+Fiend Immunity (Sonic/Concussion damage)	TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Sonic/Concussion Immununity (Ex)
+Fiend Immunity (Electricity damage)		TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Electrical Immununity (Ex)
+Fiend Immunity (Fire damage)			TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Fire Immununity (Ex)
+Fiend Immunity (Radiation damage)		TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Radiation Immununity (Ex)
+Fiend Immunity (Poison damage)		TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Poison Immununity (Ex)
+Fiend Immunity (Ballistic damage)		TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Ballistic Immununity (Ex)
+Fiend Immunity (Bludgeoning damage)		TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Bludgeoning Immununity (Ex)
+Fiend Immunity (Piercing damage)		TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Piercing Immununity (Ex)
+Fiend Immunity (Slashing damage)		TYPE:CreatureImmunity	VISIBLE:NO							SOURCEPAGE:msrdcreatures.rtf	SAB:Slashing Immununity (Ex)
+Fiend Immunity ( Choose two)			TYPE:CreatureImmunity	VISIBLE:NO	ADD:FEAT|2|TYPE=CreatureImmunity
 
 ###Block: Creature Resistance
 
-# Feat Name						Type				Visible	Prohibited Feat							Special Ability					Add												Source Page
-Fiend Resistance (Acid 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Acid 20)			SAB:Acid Resistance 10 (Ex)															SOURCEPAGE:msrdcreatures.rtf
-Fiend Resistance (Acid 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Acid 10)			SAB:Acid Resistance 20 (Ex)															SOURCEPAGE:msrdcreatures.rtf
-Fiend Resistance (Cold 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Cold 20)			SAB:Cold Resistance 10 (Ex)															SOURCEPAGE:msrdcreatures.rtf
-Fiend Resistance (Cold 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Cold 10)			SAB:Cold Resistance 20 (Ex)															SOURCEPAGE:msrdcreatures.rtf
-Fiend Resistance (Sonic/Concussion 10)	TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Sonic/Concussion 20)	SAB:Sonic/Concussion Resistance 10 (Ex)													SOURCEPAGE:msrdcreatures.rtf
-Fiend Resistance (Sonic/Concussion 20)	TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Sonic/Concussion 10)	SAB:Sonic/Concussion Resistance 20 (Ex)													SOURCEPAGE:msrdcreatures.rtf
-Fiend Resistance (Electrical 10)		TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Electrical 20)		SAB:Electrical Resistance 10 (Ex)														SOURCEPAGE:msrdcreatures.rtf
-Fiend Resistance (Electrical 20)		TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Electrical 10)		SAB:Electrical Resistance 20 (Ex)														SOURCEPAGE:msrdcreatures.rtf
-Fiend Resistance (Fire 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Fire 20)			SAB:Fire Resistance 10 (Ex)															SOURCEPAGE:msrdcreatures.rtf
-Fiend Resistance (Fire 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Fire 10)			SAB:Fire Resistance 20 (Ex)															SOURCEPAGE:msrdcreatures.rtf
+# Feat Name						Type				Visible	Prohibited Feat							Add												Source Page				SAB
+Fiend Resistance (Acid 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Acid 20)															SOURCEPAGE:msrdcreatures.rtf	SAB:Acid Resistance 10 (Ex)
+Fiend Resistance (Acid 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Acid 10)															SOURCEPAGE:msrdcreatures.rtf	SAB:Acid Resistance 20 (Ex)
+Fiend Resistance (Cold 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Cold 20)															SOURCEPAGE:msrdcreatures.rtf	SAB:Cold Resistance 10 (Ex)
+Fiend Resistance (Cold 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Cold 10)															SOURCEPAGE:msrdcreatures.rtf	SAB:Cold Resistance 20 (Ex)
+Fiend Resistance (Sonic/Concussion 10)	TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Sonic/Concussion 20)													SOURCEPAGE:msrdcreatures.rtf	SAB:Sonic/Concussion Resistance 10 (Ex)
+Fiend Resistance (Sonic/Concussion 20)	TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Sonic/Concussion 10)													SOURCEPAGE:msrdcreatures.rtf	SAB:Sonic/Concussion Resistance 20 (Ex)
+Fiend Resistance (Electrical 10)		TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Electrical 20)														SOURCEPAGE:msrdcreatures.rtf	SAB:Electrical Resistance 10 (Ex)
+Fiend Resistance (Electrical 20)		TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Electrical 10)														SOURCEPAGE:msrdcreatures.rtf	SAB:Electrical Resistance 20 (Ex)
+Fiend Resistance (Fire 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Fire 20)															SOURCEPAGE:msrdcreatures.rtf	SAB:Fire Resistance 10 (Ex)
+Fiend Resistance (Fire 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Fire 10)															SOURCEPAGE:msrdcreatures.rtf	SAB:Fire Resistance 20 (Ex)
 Fiend Resistance ( None)			TYPE:CreatureResistance	VISIBLE:NO
-Fiend Resistance ( Choose two)		TYPE:CreatureResistance	VISIBLE:NO																	ADD:FEAT|1|TYPE=CreatureResistance	ADD:FEAT|1|TYPE=CreatureResistance
+Fiend Resistance ( Choose two)		TYPE:CreatureResistance	VISIBLE:NO										ADD:FEAT|1|TYPE=CreatureResistance	ADD:FEAT|1|TYPE=CreatureResistance
 
 ###Block: Creature DR
 

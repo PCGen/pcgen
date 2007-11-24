@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:12:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Still need to take the separate entry weapons for Spiked Armor/Shield
 
@@ -50,7 +50,7 @@ Spell Focus Value				KEY:SPELLFOCUS	NAMEOPT:NOTHING	TYPE:SpellFocus		COST:0	VISI
 # CHARGED_ITEM_10 is used by the Healers Kit
 
 ###Block: Charged items
-# Modifier Name	Unique Key			Cost							Visible	Choose			Nb of Charges
+# Modifier Name	Unique Key			Cost							Visible	Choose		Nb of Charges
 Charges (10)	KEY:CHARGED_ITEM_10	COST:((BASECOST/10)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|10
 
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
 # Original entry by: Ratheof Blithwyn
 
@@ -8,7 +8,7 @@ Devoted Evoker Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club
 Order of Akmon Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Hammer (Light)|Warhammer
 
 ###Block: Discipline mastery for the Devoted Evoker
-# Feat Name					Type				Visible	Special Ability
+# Feat Name					Type				Visible	SAB
 EvocationMasteryAcid			TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Acid
 EvocationMasteryCold			TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Cold
 EvocationMasteryEnergyConstruct	TYPE:EvocationMastery	VISIBLE:NO	SAB:Discipline Mastery Energy Construct

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
 # Original Entry by: Eddy Anthony
 
@@ -9,16 +9,16 @@ CLASS:Reef Warrior	HD:10		TYPE:PC.Prestige	ABB:RfW		MAXLEVEL:10	SOURCEPAGE:p.12	
 CLASS:Reef Warrior	PREALIGN:LN,NG,TN	PREATT:5	PREFEAT:1,Skill Focus(Swim)	PRERACE:1,Elf%	PRESKILL:1,Swim=6	PRESKILL:1,Hide=4	PRETEMPLATE:Coral Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Reef Warrior	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Hide|Intimidate|Listen|Scry|Search|Spot|Swim
-1	SAB:Reef Bonding
-2	SAB:Coral Skin +%|CoralSkin			BONUS:VAR|CoralSkin|CL/2	BONUS:COMBAT|AC|CoralSkin|TYPE=NaturalArmor						DEFINE:CoralSkin|0
-3	SAB:Sustenance (Ex)																										ADD:FEAT|1|TYPE.Fighter
-4	SAB:Alien Presence % (Ex)|AlienPresence	BONUS:VAR|AlienPresence|-1									BONUS:STAT|CHA|AlienPresence	DEFINE:AlienPresence|0
-5	SAB:Meld (Su)	SAB:Reef Attunement (Su)
-6								BONUS:VAR|AlienPresence|-1																		ADD:FEAT|1|TYPE.Fighter
-7	SAB:Spikes (Su)
-8								BONUS:VAR|AlienPresence|-1
-9																														ADD:FEAT|1|TYPE.Fighter
-10	SAB:Reefwalking (Sp)				BONUS:VAR|AlienPresence|-1
+1																											SAB:Reef Bonding
+2	BONUS:VAR|CoralSkin|CL/2	BONUS:COMBAT|AC|CoralSkin|TYPE=NaturalArmor						DEFINE:CoralSkin|0					SAB:Coral Skin +%|CoralSkin
+3																							ADD:FEAT|1|TYPE.Fighter	SAB:Sustenance (Ex)
+4	BONUS:VAR|AlienPresence|-1									BONUS:STAT|CHA|AlienPresence	DEFINE:AlienPresence|0					SAB:Alien Presence % (Ex)|AlienPresence
+5																											SAB:Meld (Su)	SAB:Reef Attunement (Su)
+6	BONUS:VAR|AlienPresence|-1																		ADD:FEAT|1|TYPE.Fighter
+7																											SAB:Spikes (Su)
+8	BONUS:VAR|AlienPresence|-1
+9																							ADD:FEAT|1|TYPE.Fighter
+10	BONUS:VAR|AlienPresence|-1																						SAB:Reefwalking (Sp)
 
 #
 # end

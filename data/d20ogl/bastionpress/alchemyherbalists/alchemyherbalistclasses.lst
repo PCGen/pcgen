@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Bastion Press - Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:www.bastionpress.com
 # Orginal Entry By: Knightcrawler
 
@@ -10,16 +10,16 @@ CLASS:Black Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,
 CLASS:Black Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Black Alchemist	SPELLSTAT:NONE	SPELLTYPE:None	BONUS:CASTERLEVEL|Black Alchemist|CL
-1	SAB:Enhanced Illusions		ADD:SPELLCASTER|1|ANY
-2						ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Chymicals
-3	SAB:Enhanced Transmutations	ADD:SPELLCASTER|1|ANY
-4						ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Create Alchana
-5						ADD:SPELLCASTER|1|ANY
-6						ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Perfect Materials
-7						ADD:SPELLCASTER|1|ANY
-8						ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Create Greater Alchana
-9						ADD:SPELLCASTER|1|ANY
-10						ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Magic Arms and Armor
+1	ADD:SPELLCASTER|1|ANY								SAB:Enhanced Illusions
+2	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Chymicals
+3	ADD:SPELLCASTER|1|ANY								SAB:Enhanced Transmutations
+4	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Create Alchana
+5	ADD:SPELLCASTER|1|ANY
+6	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Perfect Materials
+7	ADD:SPELLCASTER|1|ANY
+8	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Create Greater Alchana
+9	ADD:SPELLCASTER|1|ANY
+10	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Magic Arms and Armor
 
 # Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																			Combat bonus
 CLASS:White Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -29,16 +29,16 @@ CLASS:White Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,
 CLASS:White Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Sense Motive|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:White Alchemist	SPELLSTAT:NONE	SPELLTYPE:None	BONUS:CASTERLEVEL|White Alchemist|CL
-1					ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Toxins
-2					ADD:SPELLCASTER|1|ANY
-3					ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Brew Ingestibles
-4					ADD:SPELLCASTER|1|ANY
-5					ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Powders and Dusts
-6					ADD:SPELLCASTER|1|ANY
-7					ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Unguents
-8	SAB:Enhance Medicinals	ADD:SPELLCASTER|1|ANY
-9					ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Wondrous Item
-10	SAB:Perfect Medicinals	ADD:SPELLCASTER|1|ANY
+1	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Toxins
+2	ADD:SPELLCASTER|1|ANY
+3	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Brew Ingestibles
+4	ADD:SPELLCASTER|1|ANY
+5	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Powders and Dusts
+6	ADD:SPELLCASTER|1|ANY
+7	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Unguents
+8	ADD:SPELLCASTER|1|ANY							SAB:Enhance Medicinals
+9	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Craft Wondrous Item
+10	ADD:SPELLCASTER|1|ANY							SAB:Perfect Medicinals
 
 # Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																			Combat bonus
 CLASS:Red Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -67,16 +67,16 @@ CLASS:Taraston Herbalist	PRECHECK:1,Fortitude=2	PRECLASS:1,Spellcaster=3	PREFEAT
 CLASS:Taraston Herbalist	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Spellcraft|Swim|Use Magic Device|Wilderness Lore
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Taraston Herbalist	SPELLSTAT:NONE	SPELLTYPE:None	BONUS:CASTERLEVEL|Taraston Herbalist|CL
-1								AUTO:FEAT|Craft Toxins
-2				ADD:SPELLCASTER|1|ANY
-3								AUTO:FEAT|Craft Herbal Restoratives
-4	SAB:Bloomagic	ADD:SPELLCASTER|1|ANY
-5								AUTO:FEAT|Craft Powders and Dusts
-6				ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Flourish Spell
-7								AUTO:FEAT|Grow Swathe
-8				ADD:SPELLCASTER|1|ANY
-9								AUTO:FEAT|Create Erlcana
-10				ADD:SPELLCASTER|1|ANY
+1					AUTO:FEAT|Craft Toxins
+2	ADD:SPELLCASTER|1|ANY
+3					AUTO:FEAT|Craft Herbal Restoratives
+4	ADD:SPELLCASTER|1|ANY							SAB:Bloomagic
+5					AUTO:FEAT|Craft Powders and Dusts
+6	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Flourish Spell
+7					AUTO:FEAT|Grow Swathe
+8	ADD:SPELLCASTER|1|ANY
+9					AUTO:FEAT|Create Erlcana
+10	ADD:SPELLCASTER|1|ANY
 
 # Class Name			Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus														Combat bonus
 CLASS:Taraston Apothecary	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE

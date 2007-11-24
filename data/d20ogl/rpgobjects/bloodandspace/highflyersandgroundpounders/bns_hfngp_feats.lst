@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Blood and Space - High Flyers and Ground Pounders	SOURCESHORT:BnS-HFnGP	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56
 
 # Feat Name			Type							Req. Att.	Required Feat				Required Lvl	Required Skill				Required Stat		Required Text											Description																																																						Bonus to skill			Class Skill		Source Page
@@ -14,7 +14,7 @@ Fast Track			TYPE:General.Charismatic.FieldOfficer																														
 Fighter Escort		TYPE:General.Dedicated						PREFEAT:1,Teamwork																													DESC:One of the key advantages for fighters is to protect larger, more valuable craft in combat. You have received special training allowing you to perform this task effectively.																																		SOURCEPAGE:p.12
 Formation Flying		TYPE:General.Dedicated.Dogfighter				PREFEAT:1,Teamwork																													DESC:As long as aircraft have been shooting each other down pilots have known the advantages of flying in formation with one craft covering the others.																																						SOURCEPAGE:p.12
 Improved Slingshot	TYPE:General.Dedicated.Dogfighter													PRESKILL:1,Navigate=5																				DESC:You are especially skilled at using gravity wells to your advantage.																																																			SOURCEPAGE:p.12
-Leadership			TYPE:General													PRELEVEL:6																									DESC:You are able to engender personal loyalty among those who follow you.																																																			SOURCEPAGE:p.12
+Leadership			TYPE:General													PRELEVEL:MIN=6																								DESC:You are able to engender personal loyalty among those who follow you.																																																			SOURCEPAGE:p.12
 Tactician (Squad)		TYPE:General.StarshipMarine					PREFEAT:1,Teamwork												PRESTAT:2,INT=13,CHA=13														DESC:You are a skilled tactician capable of leading a small group effectively in battle.																																																	SOURCEPAGE:p.12
 Tactician (Platoon)	TYPE:General.StarshipMarine					PREFEAT:1,Tactician (Squad)					PRESKILL:1,Knowledge (Tactics)=8																		DESC:The character has mastered the art of large-scale maneuvers. For ground combat this feat covers Squad tactics. For fighters this feat covers Squadron tactics.																																				SOURCEPAGE:p.12
 Tactician (Company)	TYPE:General.StarshipMarine					PREFEAT:1,Tactician (Platoon)					PRESKILL:1,Knowledge (Tactics)=10	PRESTAT:1,CHA=15															DESC:The character has the logistical knowledge and command experience to effectively command extremely large groups into battle.																																										SOURCEPAGE:p.12

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Blood and Guts - Inside Vossberg Supermax	SOURCESHORT:BnG-IVS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=45
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
@@ -7,14 +7,14 @@ CLASS:Banger	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BAS
 CLASS:Banger	PREATT:3	PREFEAT:2,Home Turf,Brawl	PRESKILL:1,Knowledge (Streetwise)=6	PRETEXT:Must have Blood In Blood Out allegiance
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Banger	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Drive|Gamble|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Streetwise)|Sense Motive|Spot
-1	SAB:Gang Signs
-2	SAB:Street Cred
-3	SAB:Turf +%|Turf	BONUS:VAR|Turf|CL/3			DEFINE:Turf|0
-4													ADD:FEAT|1|TYPE=Banger
-5	SAB:Contraband	BONUS:VAR|WealthBonus|Reputation
-7	SAB:Commission
-8													ADD:FEAT|1|TYPE=Banger
-10	SAB:Ganglord
+1														SAB:Gang Signs
+2														SAB:Street Cred
+3	BONUS:VAR|Turf|CL/3			DEFINE:Turf|0					SAB:Turf +%|Turf
+4										ADD:FEAT|1|TYPE=Banger
+5	BONUS:VAR|WealthBonus|Reputation								SAB:Contraband
+7														SAB:Commission
+8										ADD:FEAT|1|TYPE=Banger
+10														SAB:Ganglord
 
 # Class Name						Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:US Marshals Special Operations Group	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
@@ -22,10 +22,10 @@ CLASS:US Marshals Special Operations Group	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SO
 CLASS:US Marshals Special Operations Group	PREATT:5	PREFEAT:3,Alertness,Personal Firearms Proficiency,Teamwork	PRESKILL:1,Investigate=5	PRESKILL:2,Spot,Gather Information=3
 # Class Name						Skill Pts/Lvl	Class Skill
 CLASS:US Marshals Special Operations Group	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Diplomacy|Disguise|Drive|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Research|Search|Sense Motive|Spot
-1	SAB:Federal Jurisdiction
-2																			AUTO:FEAT|Police Combat Training
-3	SAB:Hard Target Search +%|HardTargetSearch	BONUS:VAR|HardTargetSearch|(CL-2)/3	DEFINE:HardTargetSearch|0
-4	SAB:Harm's Way
-5								BONUS:VAR|DefensivePosition|CL/4						AUTO:FEAT|Defensive Position
-7	SAB:Sentinel
-10	SAB:Counter Attack
+1																		SAB:Federal Jurisdiction
+2												AUTO:FEAT|Police Combat Training
+3	BONUS:VAR|HardTargetSearch|(CL-2)/3	DEFINE:HardTargetSearch|0							SAB:Hard Target Search +%|HardTargetSearch
+4																		SAB:Harm's Way
+5	BONUS:VAR|DefensivePosition|CL/4						AUTO:FEAT|Defensive Position
+7																		SAB:Sentinel
+10																		SAB:Counter Attack

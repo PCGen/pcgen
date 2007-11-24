@@ -1,22 +1,22 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original entry by Eddy Anthony (MoSaT)
 
-# Template Name	Hit Dice Size	Visible	Special Ability				Define								Bonus to HP			Feat																						Automaticaly Gained Armor Prof.	Automaticaly Gained Weapon Prof.	Apply Kit
-Biodroid Traits	HITDIE:10		VISIBLE:NO							DEFINE:LOCK.CON|10										FEAT:Critical Systems|Cybernetic Incompatibility|Immunities|Lifelike Appearance|Rejuvenation Cycle|Repairable|Robot Resurrection													KIT:1|Biodroid Basics
-Bioreplica Traits	HITDIE:10		VISIBLE:NO							DEFINE:LOCK.CON|10										FEAT:Critical Systems|Cybernetic Incompatibility|Immunities|Lifelike Appearance|Rejuvenation Cycle|Repairable|Robot Resurrection													KIT:1|Bioreplica Basics
+# Template Name	Hit Dice Size	Visible	Define								Bonus to HP			Feat																						Automaticaly Gained Armor Prof.	Automaticaly Gained Weapon Prof.	Apply Kit			SAB
+Biodroid Traits	HITDIE:10		VISIBLE:NO	DEFINE:LOCK.CON|10										FEAT:Critical Systems|Cybernetic Incompatibility|Immunities|Lifelike Appearance|Rejuvenation Cycle|Repairable|Robot Resurrection													KIT:1|Biodroid Basics
+Bioreplica Traits	HITDIE:10		VISIBLE:NO	DEFINE:LOCK.CON|10										FEAT:Critical Systems|Cybernetic Incompatibility|Immunities|Lifelike Appearance|Rejuvenation Cycle|Repairable|Robot Resurrection													KIT:1|Bioreplica Basics
 
 
-Robot						VISIBLE:NO	SAB:Purchase DC: %|RobotPurchaseDC	DEFINE:RobotPurchaseDC|0	DEFINE:LOCK.CON|10					FEAT:Cybernetic Incompatibility|Immunities|Rejuvenation Cycle|Repairable|Robot Resurrection							AUTO:ARMORPROF|TYPE.Robotic		AUTO:WEAPONPROF|TYPE.Robotic		KIT:1|Robotic Abilities
+Robot						VISIBLE:NO	DEFINE:RobotPurchaseDC|0	DEFINE:LOCK.CON|10					FEAT:Cybernetic Incompatibility|Immunities|Rejuvenation Cycle|Repairable|Robot Resurrection							AUTO:ARMORPROF|TYPE.Robotic		AUTO:WEAPONPROF|TYPE.Robotic		KIT:1|Robotic Abilities	SAB:Purchase DC: %|RobotPurchaseDC
 
-Mindless Robot				VISIBLE:NO							DEFINE:LOCK.INT|10
+Mindless Robot				VISIBLE:NO	DEFINE:LOCK.INT|10
 
-Colossal Robot				VISIBLE:NO																BONUS:HP|CURRENTMAX|120
-Gargantuan Robot				VISIBLE:NO																BONUS:HP|CURRENTMAX|80
-Huge Robot					VISIBLE:NO																BONUS:HP|CURRENTMAX|40
-Large Robot					VISIBLE:NO																BONUS:HP|CURRENTMAX|20
-Medium Robot				VISIBLE:NO																BONUS:HP|CURRENTMAX|10
-Small Robot		HITDIE:%/2		VISIBLE:NO																BONUS:HP|CURRENTMAX|5
+Colossal Robot				VISIBLE:NO										BONUS:HP|CURRENTMAX|120
+Gargantuan Robot				VISIBLE:NO										BONUS:HP|CURRENTMAX|80
+Huge Robot					VISIBLE:NO										BONUS:HP|CURRENTMAX|40
+Large Robot					VISIBLE:NO										BONUS:HP|CURRENTMAX|20
+Medium Robot				VISIBLE:NO										BONUS:HP|CURRENTMAX|10
+Small Robot		HITDIE:%/2		VISIBLE:NO										BONUS:HP|CURRENTMAX|5
 Tiny Robot		HITDIE:%/4		VISIBLE:NO
 Diminutive Robot	HITDIE:%/8		VISIBLE:NO
 Fine Robot		HITDIE:%/16		VISIBLE:NO

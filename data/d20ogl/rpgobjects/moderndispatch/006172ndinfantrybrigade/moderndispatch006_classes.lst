@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern Dispatch #6 - 172nd Infantry Brigade [Sep]	SOURCESHORT:MD06-172nd	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3990
 #Original Entry by: Frank Kliewe
 
@@ -8,10 +8,10 @@ CLASS:Arctic Warfare Specialist	HD:10		TYPE:PC.Advanced	SOURCEPAGE:p.4	BONUS:CHE
 CLASS:Arctic Warfare Specialist	PREATT:2	PREFEAT:2,Arctic Warfare College,Endurance	PRESKILL:1,Survival=6	PRESKILL:1,Drive=4
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Arctic Warfare Specialist	STARTSKILLPTS:5	CSKILL:Balance|Climb|Demolitions|Drive|Handle Animal|Hide|Jump|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Navigate|Spot|Survival
-1	SAB:Combat Skiing	SAB:Snow Leopard +%|SnowLeopard	BONUS:VAR|SnowLeopard|floor(CL/5)*5+5						DEFINE:SnowLeopard|0
-2	SAB:Arctic Warrior +%|ArcticWarrior				BONUS:VAR|ArcticWarrior|CL/2	BONUS:VAR|ArcticTraining|ArcticWarrior	DEFINE:ArcticWarrior|0
-3																										ADD:FEAT|1|TYPE.MOS
-5	SAB:Snow Ghost
-6																										ADD:FEAT|1|TYPE.MOS
-7	SAB:Snow Blind
-9																										ADD:FEAT|1|TYPE.MOS
+1	BONUS:VAR|SnowLeopard|floor(CL/5)*5+5						DEFINE:SnowLeopard|0					SAB:Combat Skiing	SAB:Snow Leopard +%|SnowLeopard
+2	BONUS:VAR|ArcticWarrior|CL/2	BONUS:VAR|ArcticTraining|ArcticWarrior	DEFINE:ArcticWarrior|0					SAB:Arctic Warrior +%|ArcticWarrior
+3																	ADD:FEAT|1|TYPE.MOS
+5																					SAB:Snow Ghost
+6																	ADD:FEAT|1|TYPE.MOS
+7																					SAB:Snow Blind
+9																	ADD:FEAT|1|TYPE.MOS

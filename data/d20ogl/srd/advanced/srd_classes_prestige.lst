@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
@@ -10,12 +10,12 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Intuit Direction|List
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Normal Progression
-1	SAB:Enchant Arrow +%|EnchantArrow	BONUS:VAR|EnchantArrow|(CL+1)/2	DEFINE:EnchantArrow|0
-2	SAB:Imbue Arrow
-4	SAB:Seeker Arrow
-6	SAB:Phase Arrow
-8	SAB:Hail of Arrows
-10	SAB:Arrow of Death
+1	BONUS:VAR|EnchantArrow|(CL+1)/2	DEFINE:EnchantArrow|0	SAB:Enchant Arrow +%|EnchantArrow
+2											SAB:Imbue Arrow
+4											SAB:Seeker Arrow
+6											SAB:Phase Arrow
+8											SAB:Hail of Arrows
+10											SAB:Arrow of Death
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus												Combat bonus
 CLASS:Assassin	HD:6		TYPE:PC.Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -28,16 +28,16 @@ CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|As
 1	AUTO:FEAT|Assassin Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,0		SAB:Poison Use	SAB:Death Attack (DC %)|DeathAttackDC	BONUS:VAR|SneakAttack|(CL+1)/2	DEFINE:DeathAttackDC|10+INT+CL	AUTO:FEAT|Sneak Attack
-2	CAST:0,1		SAB:Save vs. Poison +%|PoisonSave					BONUS:VAR|UncannyDodge|1		DEFINE:PoisonSave|CL/2			AUTO:FEAT|Uncanny Dodge
+1	CAST:0,0		BONUS:VAR|SneakAttack|(CL+1)/2	DEFINE:DeathAttackDC|10+INT+CL	AUTO:FEAT|Sneak Attack	SAB:Poison Use	SAB:Death Attack (DC %)|DeathAttackDC
+2	CAST:0,1		BONUS:VAR|UncannyDodge|1		DEFINE:PoisonSave|CL/2			AUTO:FEAT|Uncanny Dodge	SAB:Save vs. Poison +%|PoisonSave
 3	CAST:0,1,0
 4	CAST:0,1,1
-5	CAST:0,1,1,0											BONUS:VAR|UncannyDodge|1
+5	CAST:0,1,1,0	BONUS:VAR|UncannyDodge|1
 6	CAST:0,1,1,1
 7	CAST:0,2,1,1,0
 8	CAST:0,2,1,1,1
 9	CAST:0,2,2,1,1
-10	CAST:0,2,2,2,1											BONUS:VAR|UncannyDodge|1
+10	CAST:0,2,2,2,1	BONUS:VAR|UncannyDodge|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Blackguard	HD:10		TYPE:PC.Prestige	ABB:Bgd		MAXLEVEL:10	SOURCEPAGE:prestigeclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -54,17 +54,17 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	BONUS:VAR|SneakAttack|1|PRECLASS:1,Ex Paladin=5
 4	BONUS:VAR|SneakAttack|(CL-1)/3			AUTO:FEAT|Sneak Attack
 ###Block: Servants (Undead and Fiendish)
-5	SAB:Fiendish Servant					BONUS:VAR|FSLevel|TL							DEFINE:FSLevel|0
-5	SAB:Undead Companion|PRECLASS:1,Ex Paladin=9	BONUS:VAR|UndeadCompanionLVL|TL|PRECLASS:1,Ex Paladin=9	DEFINE:UndeadCompanionLVL|0
+5	BONUS:VAR|FSLevel|TL							DEFINE:FSLevel|0			SAB:Fiendish Servant
+5	BONUS:VAR|UndeadCompanionLVL|TL|PRECLASS:1,Ex Paladin=9	DEFINE:UndeadCompanionLVL|0	SAB:Undead Companion|PRECLASS:1,Ex Paladin=9
 ###Block: Ex-Paladin stuff
-1														BONUS:VAR|SmiteGood|1|PRECLASS:1,Ex Paladin=1									AUTO:FEAT|Smite Good
-3														BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL-2|TYPE=Base.REPLACE						AUTO:FEAT|Rebuke Undead|Basic Turning
-1	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL				DEFINE:BlackguardLayOnHands|0
-1	SAB:Fiendish Summoning|PRECLASS:1,Ex Paladin=7
+1	BONUS:VAR|SmiteGood|1|PRECLASS:1,Ex Paladin=1									AUTO:FEAT|Smite Good
+3	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL-2|TYPE=Base.REPLACE						AUTO:FEAT|Rebuke Undead|Basic Turning
+1	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL				DEFINE:BlackguardLayOnHands|0								SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3
+1																								SAB:Fiendish Summoning|PRECLASS:1,Ex Paladin=7
 ###Block: Normal Class Progression
-1	CAST:0,0		SAB:Poison Use	SAB:Detect Good (Sp)									EXCHANGELEVEL:Ex Paladin|11|10|1	SPELLS:Class Ability|TIMES=-1|CASTERLEVEL=CL+BL|Detect Good,11+CHA
-2	CAST:0,1		SAB:Dark Blessing (Su)				BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)
-3	CAST:0,1,0		SAB:Aura of Despair (Su)
+1	CAST:0,0										EXCHANGELEVEL:Ex Paladin|11|10|1	SPELLS:Class Ability|TIMES=-1|CASTERLEVEL=CL+BL|Detect Good,11+CHA	SAB:Poison Use	SAB:Detect Good (Sp)
+2	CAST:0,1		BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)																			SAB:Dark Blessing (Su)
+3	CAST:0,1,0																												SAB:Aura of Despair (Su)
 4	CAST:0,1,1
 5	CAST:0,1,1,0
 6	CAST:0,1,1,1
@@ -83,10 +83,10 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1			SAB:Defensive Stance %/day|DefStance						BONUS:COMBAT|AC|(CL-1)/3+1	DEFINE:DefStance|(CL+1)/2
-2									BONUS:VAR|UncannyDodge|1											AUTO:FEAT|Defensive Awareness
-6	DR:3/-							BONUS:VAR|UncannyDodge|1
-10	DR:6/-							BONUS:VAR|UncannyDodge|1
+1								BONUS:COMBAT|AC|(CL-1)/3+1	DEFINE:DefStance|(CL+1)/2						SAB:Defensive Stance %/day|DefStance
+2			BONUS:VAR|UncannyDodge|1											AUTO:FEAT|Defensive Awareness
+6	DR:3/-	BONUS:VAR|UncannyDodge|1
+10	DR:6/-	BONUS:VAR|UncannyDodge|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
 CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -94,16 +94,16 @@ CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:srdbasic
 CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge %)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge,TYPE.Knowledge=10	PRESPELLSCHOOL:Divination,1,3	PRESPELLSCHOOL:Divination,7,0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|Decipher Script|Gather Information|Handle Animal|Heal|TYPE.Knowledge|Perform|TYPE.Profession|Scry|Speak Language|Spellcraft|Use Magic Device
-1					DEFINE:SecretLore|CL+INT	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
-2	SAB:Lore (+%)|SecretLore						ADD:SPELLCASTER|1|ANY
-3										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
-4										ADD:SPELLCASTER|1|ANY	ADD:LANGUAGE|1|TYPE=Spoken
-5										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
-6	SAB:Greater Lore(Ex)						ADD:SPELLCASTER|1|ANY
-7										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
-8										ADD:SPELLCASTER|1|ANY	ADD:LANGUAGE|1|TYPE=Spoken
-9										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
-10	SAB:True Lore(Ex)							ADD:SPELLCASTER|1|ANY
+1	DEFINE:SecretLore|CL+INT	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
+2						ADD:SPELLCASTER|1|ANY							SAB:Lore (+%)|SecretLore
+3						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
+4						ADD:SPELLCASTER|1|ANY	ADD:LANGUAGE|1|TYPE=Spoken
+5						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
+6						ADD:SPELLCASTER|1|ANY							SAB:Greater Lore(Ex)
+7						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
+8						ADD:SPELLCASTER|1|ANY	ADD:LANGUAGE|1|TYPE=Spoken
+9						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
+10						ADD:SPELLCASTER|1|ANY							SAB:True Lore(Ex)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus												Combat bonus
 CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesii.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -114,13 +114,13 @@ CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomac
 1	AUTO:FEAT|Shadowdancer Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1					SAB:Hide in Plain Sight(Su)
-2	VISION:Darkvision (60')								BONUS:VAR|UncannyDodge|1																					VFEAT:Evasion		AUTO:FEAT|Uncanny Dodge
-3					SAB:Shadow Illusion	SAB:Summon Shadow	BONUS:VAR|ShadowCompanion|CL					DEFINE:ShadowCompanion|0	SPELLS:Shadowdancer|TIMES=1|CASTERLEVEL=CL+BL|Silent Image,11+CHA
-4					SAB:Shadow Jump (% ft.)|ShadowJump		BONUS:VAR|ShadowJump|20						DEFINE:ShadowJump|0
-5					SAB:Defensive Roll					BONUS:VAR|UncannyDodge|1
-6					SAB:Summon Shadow					BONUS:VAR|ShadowJump|20
-7					SAB:Slippery Mind
-8												BONUS:VAR|ShadowJump|40
-9					SAB:Summon Shadow
-10												BONUS:VAR|ShadowJump|80	BONUS:VAR|UncannyDodge|1																	VFEAT:Improved Evasion
+1																																						SAB:Hide in Plain Sight(Su)
+2	VISION:Darkvision (60')	BONUS:VAR|UncannyDodge|1																					VFEAT:Evasion		AUTO:FEAT|Uncanny Dodge
+3					BONUS:VAR|ShadowCompanion|CL					DEFINE:ShadowCompanion|0	SPELLS:Shadowdancer|TIMES=1|CASTERLEVEL=CL+BL|Silent Image,11+CHA									SAB:Shadow Illusion	SAB:Summon Shadow
+4					BONUS:VAR|ShadowJump|20						DEFINE:ShadowJump|0																					SAB:Shadow Jump (% ft.)|ShadowJump
+5					BONUS:VAR|UncannyDodge|1																													SAB:Defensive Roll
+6					BONUS:VAR|ShadowJump|20																														SAB:Summon Shadow
+7																																						SAB:Slippery Mind
+8					BONUS:VAR|ShadowJump|40
+9																																						SAB:Summon Shadow
+10					BONUS:VAR|ShadowJump|80	BONUS:VAR|UncannyDodge|1																	VFEAT:Improved Evasion

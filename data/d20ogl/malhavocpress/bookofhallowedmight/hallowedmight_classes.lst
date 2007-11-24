@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 #Original Author: kingpaul, Updated by Beaver and Tir Gwaith
 
 SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
@@ -26,26 +26,26 @@ CLASS:Paladin (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 3	BONUS:VAR|TurnDamagePlusBase|CL-2|TYPE=Level.REPLACE
 3	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal level progression
-1				SAB:Detect Evil	SAB:Divine Grace	SAB:Divine Health	SAB:Lay on Hands % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0	DEFINE:AllowHolyAvenger|1
-2				SAB:Aura of Courage																																			AUTO:FEAT|Smite Evil
-3				SAB:Remove Disease %/week|RemoveDisease									BONUS:VAR|RemoveDisease|CL/3										DEFINE:RemoveDisease|0
+1				BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0	DEFINE:AllowHolyAvenger|1					SAB:Detect Evil	SAB:Divine Grace	SAB:Divine Health	SAB:Lay on Hands % hp/day|LayOnHands
+2																											AUTO:FEAT|Smite Evil	SAB:Aura of Courage
+3				BONUS:VAR|RemoveDisease|CL/3										DEFINE:RemoveDisease|0										SAB:Remove Disease %/week|RemoveDisease
 4	CAST:0,0
-5	CAST:0,0		SAB:Special Mount
+5	CAST:0,0																													SAB:Special Mount
 6	CAST:0,1
 7	CAST:0,1
 8	CAST:0,1,0
 9	CAST:0,1,0
-10	CAST:0,1,1																	BONUS:VAR|SmiteEvil|1
+10	CAST:0,1,1		BONUS:VAR|SmiteEvil|1
 11	CAST:0,1,1,0
-12	CAST:0,1,1,1	SAB:Special Weapon
+12	CAST:0,1,1,1																												SAB:Special Weapon
 13	CAST:0,1,1,1
-14	CAST:0,2,1,1,0	SAB:Special Weapon becomes bane weapon
+14	CAST:0,2,1,1,0																												SAB:Special Weapon becomes bane weapon
 15	CAST:0,2,1,1,1
-16	CAST:0,2,2,1,1																BONUS:VAR|SmiteEvil|1
-17	CAST:0,2,2,2,1	SAB:Special Weapon becomes holy
+16	CAST:0,2,2,1,1	BONUS:VAR|SmiteEvil|1
+17	CAST:0,2,2,2,1																												SAB:Special Weapon becomes holy
 18	CAST:0,3,2,2,1
 19	CAST:0,3,3,3,2
-20	CAST:0,3,3,3,3	SAB:Blessed Aura
+20	CAST:0,3,3,3,3																												SAB:Blessed Aura
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus															Combat bonus
 CLASS:Ranger (BoHM)	HD:10		TYPE:Base.PC	ABB:HMR		MAXLEVEL:20	SOURCEPAGE:p.9	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
@@ -88,16 +88,16 @@ CLASS:Blessed Prelate	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BPr		MAXLEVEL:10	S
 CLASS:Blessed Prelate	PREALIGN:LG,NG,CG	PREFEAT:3,Devout Faith,Vow of Obedience,Vow of Stability	PRESKILL:1,Knowledge (Religion)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blessed Prelate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Scry|Sense Motive|Spellcraft
-1																							ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence
-2	SAB:Blessed Child (Dayod)																		ADD:SPELLCASTER|1|ANY
-3																							ADD:FEAT|1|Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence
-4	SAB:Enlightened State						BONUS:COMBAT|AC|2	BONUS:COMBAT|INITIATIVE|2	BONUS:SKILL|Spot,Listen|2	ADD:SPELLCASTER|1|ANY
-5																							ADD:FEAT|1|Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence
-6	SAB:Blessed Child (Fealom)																		ADD:SPELLCASTER|1|ANY
-7																							ADD:FEAT|1|Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence
-8	SAB:Greater Enlightened State					BONUS:COMBAT|AC|2	BONUS:COMBAT|INITIATIVE|2	BONUS:SKILL|Spot,Listen|2	ADD:SPELLCASTER|1|ANY
-9																							ADD:FEAT|1|Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence
-10	SAB:Blessed Child (Hallas)	SAB:Touch of Purity														ADD:SPELLCASTER|1|ANY
+1														ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence
+2														ADD:SPELLCASTER|1|ANY																																																						SAB:Blessed Child (Dayod)
+3														ADD:FEAT|1|Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence
+4	BONUS:COMBAT|AC|2	BONUS:COMBAT|INITIATIVE|2	BONUS:SKILL|Spot,Listen|2	ADD:SPELLCASTER|1|ANY																																																						SAB:Enlightened State
+5														ADD:FEAT|1|Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence
+6														ADD:SPELLCASTER|1|ANY																																																						SAB:Blessed Child (Fealom)
+7														ADD:FEAT|1|Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence
+8	BONUS:COMBAT|AC|2	BONUS:COMBAT|INITIATIVE|2	BONUS:SKILL|Spot,Listen|2	ADD:SPELLCASTER|1|ANY																																																						SAB:Greater Enlightened State
+9														ADD:FEAT|1|Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence
+10														ADD:SPELLCASTER|1|ANY																																																						SAB:Blessed Child (Hallas)	SAB:Touch of Purity
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Hallowed Mage	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:HMa		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2

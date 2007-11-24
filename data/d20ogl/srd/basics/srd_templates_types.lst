@@ -1,21 +1,21 @@
-# CVS $Revision$ $Author$ -- Thu May 17 21:26:45 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:12:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 #
 # This File is for all "standard" templates used in multiple sources.
 #
 # - Tir Gwaith
-# Template Name	Visible	Source Page					Special Ability																																							Define			Combat bonus								Bonus to HP											Stat bonus		Feat							Removable?		Type		Vision
-Construct		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SAB:Immune to Mind-influencing effects	SAB:Immune to poison/disease and similar effects	SAB:Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage.								DEFINE:LOCK.CON|10																																	REMOVABLE:YES
+# Template Name	Visible	Source Page					Define			Combat bonus								Bonus to HP											Stat bonus		Feat							Removable?		Type		Vision			SAB
+Construct		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10																																	REMOVABLE:YES							SAB:Immune to Mind-influencing effects	SAB:Immune to poison/disease and similar effects	SAB:Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage.
 # Added all dragons skills to keep the race files down in size.
-Dragon		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SAB:Sleep Immunity(Ex)	SAB:Paralysis Immunity(Ex)																																																																					REMOVABLE:YES	TYPE:Dragon
-Elemental		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SAB:Immune to poison/sleep/paralysis/stunning	SAB:Not subject to critical hits																																																																REMOVABLE:YES
-Familiar				SOURCEPAGE:srdNPCsFamMntsComps.rtf	SAB:Share Spells	SAB:Empathic Link																																								BONUS:COMBAT|AC|((TL+1)/2).INTVAL|TYPE=NaturalArmor.REPLACE													BONUS:STAT|INT|6	FEAT:Alertness	FEAT:Improved Evasion	REMOVABLE:YES
-Incorporeal		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SAB:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SAB:50% chance to ignore any damage from a corporeal source	SAB:Can pass through solid objects at will	SAB:attacks pass through armor	SAB:Always moves silently	DEFINE:LOCK.STR|10	BONUS:COMBAT|TOHIT|DEX|TYPE=NotRanged																										REMOVABLE:YES
-Ooze			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SAB:Immune to mind influencing effects/poison/sleep/paralysis/stunning/polymorphing	SAB:Not subject to critical hits																						DEFINE:LOCK.INT|10											BONUS:HP|CURRENTMAX|(SIZE-2)MAX0*5	BONUS:HP|CURRENTMAX|(SIZE-6)MAX0*5											REMOVABLE:YES
-Plant			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SAB:Immune to mind-influencing effects/ poison/ sleep/ paralysis/ stunning/ polymorphing	SAB:Not subject to critical hits																																																									REMOVABLE:YES
-Undead		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SAB:Immune to mind-influencing effects/ poison/ sleep/ paralysis/ stunning/ disease	SAB:Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage										DEFINE:LOCK.CON|10																																	REMOVABLE:YES	TYPE:Undead	VISION:Darkvision (60')
-Vermin		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SAB:Vermin	SAB:Immune to mind-influencing effects																																	DEFINE:LOCK.INT|10																																	REMOVABLE:YES	TYPE:Vermin
+Dragon		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																					REMOVABLE:YES	TYPE:Dragon					SAB:Sleep Immunity(Ex)	SAB:Paralysis Immunity(Ex)
+Elemental		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																					REMOVABLE:YES							SAB:Immune to poison/sleep/paralysis/stunning	SAB:Not subject to critical hits
+Familiar				SOURCEPAGE:srdNPCsFamMntsComps.rtf					BONUS:COMBAT|AC|((TL+1)/2).INTVAL|TYPE=NaturalArmor.REPLACE													BONUS:STAT|INT|6	FEAT:Alertness	FEAT:Improved Evasion	REMOVABLE:YES							SAB:Share Spells	SAB:Empathic Link
+Incorporeal		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.STR|10	BONUS:COMBAT|TOHIT|DEX|TYPE=NotRanged																										REMOVABLE:YES							SAB:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SAB:50% chance to ignore any damage from a corporeal source	SAB:Can pass through solid objects at will	SAB:attacks pass through armor	SAB:Always moves silently
+Ooze			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.INT|10											BONUS:HP|CURRENTMAX|(SIZE-2)MAX0*5	BONUS:HP|CURRENTMAX|(SIZE-6)MAX0*5											REMOVABLE:YES							SAB:Immune to mind influencing effects/poison/sleep/paralysis/stunning/polymorphing	SAB:Not subject to critical hits
+Plant			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																					REMOVABLE:YES							SAB:Immune to mind-influencing effects/ poison/ sleep/ paralysis/ stunning/ polymorphing	SAB:Not subject to critical hits
+Undead		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10																																	REMOVABLE:YES	TYPE:Undead	VISION:Darkvision (60')	SAB:Immune to mind-influencing effects/ poison/ sleep/ paralysis/ stunning/ disease	SAB:Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage
+Vermin		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.INT|10																																	REMOVABLE:YES	TYPE:Vermin					SAB:Vermin	SAB:Immune to mind-influencing effects
 
 ###Block: For races which only have one gender - Satyr, Succubi, Dryads, and so on.
 # Template Name	Visible	GENDERLOCK

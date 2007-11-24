@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original entry by Eddy Anthony (MoSaT)
 
@@ -9,7 +9,7 @@ CLASS:Robot		HD:10		TYPE:Monster	SOURCEPAGE:FutureRobots.rtf	BONUS:CHECKS|BASE.W
 CLASS:Robot		PRERACETYPE:Robot
 # Class Name	Add INT to Skill Points?
 CLASS:Robot		MODTOSKILLS:NO
-1				BONUS:SKILLPOOL|NUMBER|(1+INT)*4|PREEQUIP:1,Robot Software (Skill Web)
+1	BONUS:SKILLPOOL|NUMBER|(1+INT)*4|PREEQUIP:1,Robot Software (Skill Web)
 2:REPEATLEVEL:1	BONUS:SKILLPOOL|NUMBER|1+INT|PREEQUIP:1,Robot Software (Skill Web)
 
 #
