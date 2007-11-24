@@ -1,0 +1,17 @@
+# CVS $Revision$ $Author$ -- Fri Nov 23 23:23:54 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Modern Dispatch #108 - Teamwork Mechanics	SOURCESHORT:MD108-TM	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21050&
+
+# Feat Name			Type					Req. Att.	Required Feat		Required Skill				Required Stat		Required Text		Description		Multiple?	Choose		Save checks bonus				Combat bonus					Bonus to skill			Source Page
+Animal Lover		TYPE:General.Charismatic							PRESKILL:1,Handle Animal=4		PRESTAT:1,CHA=13						DESC:See Text																								SOURCEPAGE:p.4
+Coordinated Attack	TYPE:General.Dedicated		PREATT:5	PREFEAT:1,Teamwork															DESC:See Text																								SOURCEPAGE:p.4
+Cover Fire			TYPE:General.Dedicated				PREFEAT:1,Teamwork															DESC:See Text																								SOURCEPAGE:p.4
+Enemy				TYPE:General.Dedicated																						DESC:See Text	MULT:YES	CHOOSE:NOCHOICE							BONUS:COMBAT|TOHIT|2|PREAPPLY:PC		BONUS:SKILL|ALL|1|PREAPPLY:PC	SOURCEPAGE:p.4
+Networking			TYPE:General.Charismatic							PRESKILL:1,Diplomacy=4			PRESTAT:1,CHA=13						DESC:See Text																								SOURCEPAGE:p.4
+Tactician			TYPE:General					PREFEAT:1,Teamwork	PRESKILL:1,Knowledge (Tactics)=5	PRESTAT:2,INT=13,CHA=13					DESC:See Text																								SOURCEPAGE:p.4
+Teamwork			TYPE:General.Dedicated																		PRETEXT:1 allegiance	DESC:See Text	MULT:YES	CHOOSE:NOCHOICE							BONUS:COMBAT|TOHIT|2|PREAPPLY:PC		BONUS:SKILL|ALL|1|PREAPPLY:PC	SOURCEPAGE:p.4
+Teamwork Plus		TYPE:General.Dedicated				PREFEAT:1,Teamwork															DESC:See Text	MULT:YES	CHOOSE:NOCHOICE																			SOURCEPAGE:p.4
+Unified Response		TYPE:General.Dedicated				PREFEAT:1,Teamwork															DESC:See Text						BONUS:CHECKS|Reflex|1|PREAPPLY:PC	BONUS:COMBAT|INITIATIVE|4|PREAPPLY:PC						SOURCEPAGE:p.4
+
+#
+# End
+#
