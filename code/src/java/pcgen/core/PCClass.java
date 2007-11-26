@@ -4973,6 +4973,7 @@ public class PCClass extends PObject {
 		aPC.setAutomaticAbilitiesStable(null, false);
 //		aPC.setAutomaticFeatsStable(false);
 		doPlusLevelMods(newLevel, aPC, pcLevelInfo);
+		aPC.addAddsFromAllObjForLevel();
 
 		// Don't roll the hit points if the gui is not being used.
 		// This is so GMGen can add classes to a person without pcgen flipping

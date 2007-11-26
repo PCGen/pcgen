@@ -17644,6 +17644,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return reach;
 	}
 
+	/**
+	 * Fire any adds for any objects other than classes that 
+	 * should be received at the character's current level. 
+	 */
+	public void addAddsFromAllObjForLevel()
+	{
+		for (PObject pobj : getPObjectList())
+		{
+			if (!(pobj instanceof PCClass))
+			{
+				pobj.addAddsForLevel(this.getTotalCharacterLevel(), this, null);
+			}
+		}
+		
+	}
+
 	// public double getBonusValue(final String aBonusType, final String
 	// aBonusName )
 	// {

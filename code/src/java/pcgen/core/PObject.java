@@ -2999,9 +2999,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			levAbility.setOwner(this);
 
-			if (
-				!(this instanceof PCClass) ||
-				((levAbility.level() == aLevel) && levAbility.canProcess()))
+			if ((levAbility.level() == aLevel) && levAbility.canProcess())
 			{
 				boolean canProcess = true;
 
