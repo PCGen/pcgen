@@ -22,9 +22,11 @@ package pcgen.gui.filter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.core.*;
@@ -279,22 +281,28 @@ public final class FilterFactory implements FilterConstants
 	{
 		if (raceFilters.size() == 0)
 		{
-			/*
-			 * this is done locally in InfoStats, since we have to populate that combobox!
-			 * author: Thomas Behr 17-02-02
-			 *
-			 * not anymore - we now have InfoRace, which does not have that combobox!
-			 * author: Thomas Behr 04-03-02
-			 */
-
-			// TODO - Change to RACETYPE/RACESUBTYPE?
-			for ( final String raceType : Globals.getRaceTypes() )
-			{
-				raceFilters.add(FilterFactory.createTypeFilter(raceType));
-			}
-
 			raceFilters.add(FilterFactory.createQualifyFilter());
 
+			// Create filters for race type and sub type
+			Set<String> racetypes = new HashSet<String>();
+			Set<String> raceSubTypes = new HashSet<String>();
+			for (final Race race : Globals.getAllRaces())
+			{
+				racetypes.add(race.getRaceType());
+				for (String subtype : race.getRacialSubTypes())
+				{
+					raceSubTypes.add(subtype);
+				}
+			}
+			for (String raceType : racetypes)
+			{
+				raceFilters.add(FilterFactory.createRaceTypeFilter(raceType));
+			}
+			for (String raceSubType : raceSubTypes)
+			{
+				raceFilters.add(FilterFactory.createRaceSubTypeFilter(raceSubType));
+			}
+			
 			// Create a favored class filter for each visible Base.PC class.
 			// TODO - Fix this hardcoding
 			PObjectFilter filter = FilterFactory.createCompoundFilter(new TypeFilter("Base"), new TypeFilter("PC"), AND); //$NON-NLS-1$ //$NON-NLS-2$
@@ -711,6 +719,16 @@ public final class FilterFactory implements FilterConstants
 		return new RaceFilter();
 	}
 
+	private static PObjectFilter createRaceSubTypeFilter(String subType)
+	{
+		return new RaceSubTypeFilter(subType);
+	}
+
+	private static PObjectFilter createRaceTypeFilter(String type)
+	{
+		return new RaceTypeFilter(type);
+	}
+
 	private static PObjectFilter createRangeFilter(String range)
 	{
 		return new RangeFilter(range);
@@ -1053,11 +1071,11 @@ abstract class AlignmentFilter extends AbstractPObjectFilter
 {
 	enum Mode {
 		/** Objects with this alignment are allowed */
-		ALLOWED("Filters.Mode.Allowed"), //$NON-NLS-1$
+		ALLOWED("in_Filters.Mode.Allowed"), //$NON-NLS-1$
 		/** Objects with this alignment are required */
-		REQUIRED("Filters.Mode.Required"), //$NON-NLS-1$
+		REQUIRED("in_Filters.Mode.Required"), //$NON-NLS-1$
 		/** Not sure */
-		DEFAULT("Filters.Mode.Default"); //$NON-NLS-1$
+		DEFAULT("in_Filters.Mode.Default"); //$NON-NLS-1$
 		
 		private String theName;
 		
