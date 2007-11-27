@@ -627,18 +627,22 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="INCLUDE">Tag Name:</a></strong> INCLUDE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>LST object name</p>
-	<p class="indent1"><strong>Variables Used:</strong>CLASS, COMPANIONMODS, DEITY, DOMAIN, EQUIPMENT,
-		EQUIPMOD, FEAT, KIT, LANGUAGE, RACE, SKILL, SPELL, TEMPLATE, WEAPONPROF</p>
+	<p class="indent0"><strong><a name="INCLUDE">Tag Name:</a></strong> (INCLUDE:x|x)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> text (LST object name)</p>
+	<p class="indent1"><strong>Variables Used:</strong></p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This would first load all the races from the <code>fhbrace.lst</code> file,
-		then add to that list all the races defined in <code>myrace.lst</code>
-		but then include only the Happy Elf class from <code>myrace.lst</code>.
-		The resulting list of races would then be available for character creation.
-		The INCLUDE tag will not prevent other .pcc files from loading the same LST files.</p>
+	<ul class="indent2">
+		<li>The INCLUDE tag and its arguments are enclosed within a pair of parentheses.</li>
+		<li>The tag will add the pipe-delimited list of LST objects from the LST file the 
+		tag is associated with.</li>
+		<li>The tag will not prevent other .pcc files from loading the same LST file.</li>
+		<li>LST objects can include any of the following types: CLASS, COMPANIONMODS, DEITY, 
+		DOMAIN, EQUIPMENT, EQUIPMOD, FEAT, KIT, LANGUAGE, RACE, SKILL, SPELL, TEMPLATE, 
+		WEAPONPROF</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>RACE:fhbrace.lst|myrace.lst|(INCLUDE:Happy Elf)</code></p>
+	<p class="indent2"><code>RACE:fhbrace.lst|myrace.lst|(INCLUDE:Happy Elf|Dower Dwarf)</code></p>
+	<p class="indent3">This loads all the races from the <code>fhbrace.lst</code> file, then loads only the &quot;Happy Elf&quot; and the &quot;Dower Dward&quot; from <code>myrace.lst</code>.</p>
 	<p><span class="new">IMPORTANT NOTE:</span> Using INCLUDE for the same file on multiple lines will cause only the first line with INCLUDE to be processed.</p>
 	<p></ p>
 
