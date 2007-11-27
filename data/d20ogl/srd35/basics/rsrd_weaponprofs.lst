@@ -6,104 +6,111 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # Laid out to match RSRD ordering
 
+#Weapon Groupings used to facilitate homebrews:
+#	Sword, Spear, Axe, Bow, Unarmed
+#	Melee, Ranged, Thrown, Spell
+#	Bludgeoning, Slashing, Piercing
+#	TwoHanded, DoubleWeapon, MeleeTwoHanded, Reach
+#	MeleeSlashing, MeleePiercing, MeeleBludgeoning, RangedSlashing, RangedPiercing, RangerBludgeoning
+#	RangedTouch
+
 # SIMPLE WEAPONS
 # -- unarmed
-# Weapon Name			Type				Nb Hands
-Gauntlet				TYPE:Simple
-Unarmed Strike			TYPE:Simple
+# Weapon Name			Type																				Nb Hands
+Gauntlet				TYPE:Simple.Melee.Unarmed.Bludgeoning
+Unarmed Strike			TYPE:Simple.Melee.Unarmed.Bludgeoning
 
 #Spells(Energy Missile)		TYPE:Simple
-Spells(Ray)				TYPE:Simple
+Spells(Ray)				TYPE:Simple.RangedTouch.Spell
 #Spells(Touch)			TYPE:Simple
 
-
 # -- light melee
-Dagger				TYPE:Simple.Dagger
-Dagger (Punching)			TYPE:Simple.Dagger
-Gauntlet (Spiked)			TYPE:Simple
-Mace (Light)			TYPE:Simple.Mace
-Sickle				TYPE:Simple
+Dagger				TYPE:Simple.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
+Dagger (Punching)			TYPE:Simple.Melee.Dagger.Piercing.MeleePiercing
+Gauntlet (Spiked)			TYPE:Simple.Melee.Piercing.MeleePiercing.Unarmed
+Mace (Light)			TYPE:Simple.Melee.Bludgeoning.Mace
+Sickle				TYPE:Simple.Melee.Slashing.Sickle.MeleeSlashing
 # -- 1-handers
-Club					TYPE:Simple.Club
-Mace (Heavy)			TYPE:Simple.Mace
-Morningstar				TYPE:Simple
-Shortspear				TYPE:Simple.Spear
+Club					TYPE:Simple.Melee.Bludgeoning.Club
+Mace (Heavy)			TYPE:Simple.Melee.Bludgeoning.MeleeBludgeoning
+Morningstar				TYPE:Simple.Melee.Bludgeoning.MeleeBludgeoning.Piercing.MeleePiercing
+Shortspear				TYPE:Simple.Melee.Piercing.MeleePiercing.Spear
 # -- 2-handers
-Longspear				TYPE:Simple.Spear
-Quarterstaff			TYPE:Simple
-Spear					TYPE:Simple.Spear
+Longspear				TYPE:Simple.Melee.Piercing.MeleePiercing.Spear.TwoHanded
+Quarterstaff			TYPE:Simple.Melee.Quarterstaff.TwoHanded.DoubleWeapon.Bludgeoning.MeleeBludgeoning
+Spear					TYPE:Simple.Melee.Piercing.MeleePiercing.Spear.TwoHanded
 # -- Ranged
-Crossbow (Heavy)			TYPE:Simple.Crossbow	HANDS:2
-Crossbow (Light)			TYPE:Simple.Crossbow	HANDS:2
-Dart					TYPE:Simple.Thrown
-Javelin				TYPE:Simple.Thrown
-Sling					TYPE:Simple
+Crossbow (Heavy)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow												HANDS:2
+Crossbow (Light)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow												HANDS:2
+Dart					TYPE:Simple.Thrown.Piercing.RangedPiercing
+Javelin				TYPE:Simple.Thrown.Piercing.RangedPiercing
+Sling					TYPE:Simple.Ranged.Bludgeoning.RangedBludgeoning
 
 # Martial
 # -- light
-Axe (Throwing)			TYPE:Martial.Axe
-Hammer (Light)			TYPE:Martial.Hammer
-Handaxe				TYPE:Martial.Axe
-Kukri					TYPE:Martial
-Pick (Light)			TYPE:Martial.Pick
-Sap					TYPE:Martial
-Shieldbash (Light)		TYPE:Martial
-Spiked Armor			TYPE:Martial
-Sword (Short)			TYPE:Martial.Sword
+Axe (Throwing)			TYPE:Martial.Thrown.Slashing.Axe
+Hammer (Light)			TYPE:Martial.Thrown.Melee.Bludgeoning.Hammer
+Handaxe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe
+Kukri					TYPE:Martial.Melee.Slashing.MeleeSlashing
+Pick (Light)			TYPE:Martial.Melee.Piercing.MeleePiercing.Pick
+Sap					TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning
+Shieldbash (Light)		TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning
+Spiked Armor			TYPE:Martial.Melee.Piercing.MeleePiercing
+Sword (Short)			TYPE:Martial.Melee.Piercing.MeleePiercing.Sword
 
 # 1-handers
-Battleaxe				TYPE:Martial.Axe
-Flail					TYPE:Martial.Flail
-Longsword				TYPE:Martial.Sword
-Pick (Heavy)			TYPE:Martial.Pick
-Rapier				TYPE:Martial.Sword
-Scimitar				TYPE:Martial.Sword
-Shieldbash (Heavy)		TYPE:Martial
-Trident				TYPE:Martial.Thrown
-Warhammer				TYPE:Martial.Hammer
+Battleaxe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe
+Flail					TYPE:Martial.Melee.Bludgeoning.Flail.MeleeBludgeoning
+Longsword				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword
+Pick (Heavy)			TYPE:Martial.Melee.Piercing.MeleePiercing.Pick
+Rapier				TYPE:Martial.Melee.Piercing.MeleePiercing.Sword
+Scimitar				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword
+Shieldbash (Heavy)		TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning
+Trident				TYPE:Martial.Melee.Thrown.Piercing.RangedPiercing.MeleePiercing
+Warhammer				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Hammer
 
 # 2-handers
-Falchion				TYPE:Martial.Sword
-Glaive				TYPE:Martial.Polearm
-Greataxe				TYPE:Martial.Axe
-Greatclub				TYPE:Martial.Club
-Flail (Heavy)			TYPE:Martial.Flail
-Greatsword				TYPE:Martial.Sword
-Guisarme				TYPE:Martial.Polearm
-Halberd				TYPE:Martial.Polearm
-Lance					TYPE:Martial
-Ranseur				TYPE:Martial.Polearm
-Scythe				TYPE:Martial
-Sword (Bastard)			TYPE:Martial.Exotic
-Waraxe (Dwarven)			TYPE:Martial.Exotic
+Falchion				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
+Glaive				TYPE:Martial.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded
+Greataxe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded
+Greatclub				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Club.TwoHanded
+Flail (Heavy)			TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Flail.TwoHanded
+Greatsword				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
+Guisarme				TYPE:Martial.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded
+Halberd				TYPE:Martial.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded.Piercing.MeleePiercing
+Lance					TYPE:Martial.Melee.Piercing.MeleePiercing.TwoHanded
+Ranseur				TYPE:Martial.Melee.Piercing.MeleePiercing.Polearm.TwoHanded
+Scythe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.TwoHanded
+Sword (Bastard)			TYPE:Martial.Exotic.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
+Waraxe (Dwarven)			TYPE:Martial.Exotic.Melee.Slashing.MeleeSlashing.Axe.TwoHanded
 
 # --ranged
-Longbow				TYPE:Martial.Bow		HANDS:2
-Shortbow				TYPE:Martial.Bow		HANDS:2
+Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow													HANDS:2
+Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow													HANDS:2
 
 # EXOTIC
 # -- light
-Kama					TYPE:Exotic
-Nunchaku				TYPE:Exotic
-Sai					TYPE:Exotic
-Siangham				TYPE:Exotic
+Kama					TYPE:Exotic.Melee.Slashing.MeleeSlashing
+Nunchaku				TYPE:Exotic.Melee.Bludgeoning.MeleeBludgeoning
+Sai					TYPE:Exotic.Melee.Thrown.Bludgeoning.MeleeBludgeoning
+Siangham				TYPE:Exotic.Melee.Piercing.MeleePiercing
 
 
 # -- 1-handers
-Whip					TYPE:Exotic
+Whip					TYPE:Exotic.Melee.Slashing.MeleeSlashing.Reach
 
 # -- 2-handers
-Axe (Orc Double)			TYPE:Exotic.Axe
-Chain (Spiked)			TYPE:Exotic
-Flail (Dire)			TYPE:Exotic.Flail
-Hammer (Gnome Hooked)		TYPE:Exotic.Hammer.Pick
-Sword (Two-Bladed)		TYPE:Exotic.Sword
-Urgrosh (Dwarven)			TYPE:Exotic.Axe
+Axe (Orc Double)			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Axe.DoubleWeapon.TwoHanded
+Chain (Spiked)			TYPE:Exotic.Melee.Piercing.MeleePiercing.Reach.TwoHanded
+Flail (Dire)			TYPE:Exotic.Melee.Bludgeoning.MeleeBludgeoning.TwoHanded.Flail
+Hammer (Gnome Hooked)		TYPE:Exotic.Melee.Bludgeoning.MeleeBludgeoning.Piercing.MeleePiercing.Hammer.Pick.TwoHanded
+Sword (Two-Bladed)		TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.TwoHanded.DoubleWeapon
+Urgrosh (Dwarven)			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.Axe.TwoHanded.DoubleWeapon
 
 # -- ranged
-Bolas					TYPE:Exotic.Thrown
-Crossbow (Hand)			TYPE:Exotic.Crossbow
-Crossbow (Repeating Heavy)	TYPE:Exotic.Crossbow	HANDS:2
-Crossbow (Repeating Light)	TYPE:Exotic.Crossbow	HANDS:2
-Net					TYPE:Exotic
-Shuriken				TYPE:Exotic.Thrown
+Bolas					TYPE:Exotic.Thrown.Bludgeoning
+Crossbow (Hand)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow
+Crossbow (Repeating Heavy)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow	HANDS:2
+Crossbow (Repeating Light)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow	HANDS:2
+Net					TYPE:Exotic.Thrown.Net
+Shuriken				TYPE:Exotic.Thrown.Piercing.RangedPiercing
