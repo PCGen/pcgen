@@ -53,7 +53,7 @@ public class SpelllistToken implements PCClassLstToken
 			if (className.startsWith("DOMAIN."))
 			{
 				String domainName = className.substring(7);
-				if (Globals.getDomainKeyed(domainName) != null)
+				if (Globals.getDomainKeyed(domainName) == null)
 				{
 					Logging.errorPrint(getTokenName()
 						+ " could not find Domain: " + domainName);
