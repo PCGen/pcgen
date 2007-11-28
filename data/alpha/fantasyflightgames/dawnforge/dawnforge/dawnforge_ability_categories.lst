@@ -1,0 +1,123 @@
+# CVS $Revision$ $Author$ -- Sat Feb 10 01:53:01 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
+# Original Entry by: Ratheof Blithwyn, conversion to Abilities by Eddy Anthony
+
+
+ABILITYCATEGORY:Dawnforge Ability				VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability
+
+ABILITYCATEGORY:Doppelganger Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTalent			PLURAL:Doppelganger Talents				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Doppelganger Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DoppelTalentSkill			PLURAL:Doppelganger Talent Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Doppelganger Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DoppelTalentFeat.ItemCreation	PLURAL:Doppelganger Talent Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Doppelganger Transformation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	PLURAL:Doppelganger Transformations			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Doppelganger Transformation Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DoppelTransfSkill			PLURAL:Doppelganger Transformation Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Doppelganger Transformation Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DoppelTransformationFeat		PLURAL:Doppelganger Transformation Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Doppelganger Alternate Form		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DoppelAltForm			PLURAL:Doppelganger Alternate Forms			DISPLAYLOCATION:Talents and Transformations
+
+
+ABILITYCATEGORY:Dwarf Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTalent			PLURAL:Dwarf Talents					DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Dwarf Talent Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DwarfTalentSkill			PLURAL:Dwarf Talent Skills				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Dwarf Talent Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DwarfTalentFeat			PLURAL:Dwarf Talent Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Dwarf Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTransformation	PLURAL:Dwarf Transformations				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Dwarf Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DwarfTransfSkill			PLURAL:Dwarf Transformation Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Dwarf Transformation Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DwarfTransformationFeat		PLURAL:Dwarf Transformation Feats			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Dawn Elf Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent				PLURAL:Dawn Elf Talents				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Dawn Elf Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DawnElfTalentSkill					PLURAL:Dawn Elf Talent Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Dawn Elf Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DawnElfTalentFeat.ItemCreation.Metamagic	PLURAL:Dawn Elf Talent Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Dawn Elf Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation			PLURAL:Dawn Elf Transformations		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Dawn Elf Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DawnElfTransfSkill					PLURAL:Dawn Elf Transformation Skills	DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Dawn Elf Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DwarfTransformationFeat				PLURAL:Dawn Elf Transformation Feats	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Night Elf Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTalent				PLURAL:Night Elf Talents			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Night Elf Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:NightElfTalentSkill				PLURAL:Night Elf Talent Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Night Elf Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:NightElfTalentFeat.Metamagic			PLURAL:Night Elf Talent Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Night Elf Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTransformation			PLURAL:Night Elf Transformations		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Night Elf Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:NightElfTransfSkill				PLURAL:Night Elf Transformation Skills	DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Night Elf Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:NightElfTransformationFeat			PLURAL:Night Elf Transformation Feats	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Gnome Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent					PLURAL:Gnome Talents					DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Gnome Talent Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:GnomeTalentSkill					PLURAL:Gnome Talent Skills				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Gnome Talent Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GnomeTalentFeat.ItemCreation.Metamagic	PLURAL:Gnome Talent Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Gnome Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTransformation			PLURAL:Gnome Transformations				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Gnome Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:GnomeTransfSkill					PLURAL:Gnome Transformation Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Gnome Transformation Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GnomeTransformationFeat				PLURAL:Gnome Transformation Feats			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Halfling Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:HalflingRacialTalent		PLURAL:Halfling Talents					DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Halfling Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:HalflingTalentSkill		PLURAL:Halfling Talent Skills				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Halfling Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:HalflingTalentFeat.ItemCreation.Metamagic			PLURAL:Halfling Talent Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Halfling Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:HalflingRacialTransformation	PLURAL:Halfling Transformations			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Halfling Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:HalflingTransfSkill		PLURAL:Halfling Transformation Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Halfling Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:HalflingTransformationFeat	PLURAL:Halfling Transformation Feats		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Highlander Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTalent		PLURAL:Highlander Talents				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Highlander Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:HighlanderTalentFeat		PLURAL:Highlander Talent Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Highlander Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTransformation	PLURAL:Highlander Transformations			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Highlander Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:HighlanderTransfSkill		PLURAL:Highlander Transformation Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Highlander Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:HighlanderTransformationFeat	PLURAL:Highlander Transformation Feats		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Lowlander Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent		PLURAL:Lowlander Talents				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Lowlander Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:LowlanderTalentSkill		PLURAL:Lowlander Talent Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Lowlander Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:LowlanderTalentFeat		PLURAL:Lowlander Talent Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Lowlander Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	PLURAL:Lowlander Transformations			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Lowlander Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:LowlanderTransfSkill		PLURAL:Lowlander Transformation Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Lowlander Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:LowlanderTransformationFeat	PLURAL:Lowlander Transformation Feats		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Saltblood Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:SaltbloodRacialTalent		PLURAL:Saltblood Talents				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Saltblood Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:SaltbloodTalentSkill		PLURAL:Saltblood Talent Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Saltblood Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SaltbloodTalentFeat.Metamagic	PLURAL:Saltblood Talent Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Saltblood Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:SaltbloodRacialTransformation	PLURAL:Saltblood Transformations			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Saltblood Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:SaltbloodTransfSkill		PLURAL:Saltblood Transformation Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Saltblood Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SaltbloodTransformationFeat	PLURAL:Saltblood Transformation Feats		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Trueborn Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent				PLURAL:Trueborn Talents				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Trueborn Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:TruebornTalentSkill				PLURAL:Trueborn Talent Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Trueborn Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:TruebornTalentFeat.ItemCreation.Metamagic	PLURAL:Trueborn Talent Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Trueborn Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation			PLURAL:Trueborn Transformations		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Trueborn Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:TruebornTransfSkill				PLURAL:Trueborn Transformation Skills	DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Trueborn Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:TruebornTransformationFeat			PLURAL:Trueborn Transformation Feats	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Lizardfolk Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:LizardRacialTalent			PLURAL:Lizardfolk Talents				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Lizardfolk Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:LizardTalentSkill			PLURAL:Lizardfolk Talent Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Lizardfolk Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:LizardTalentFeat.Metamagic	PLURAL:Lizardfolk Talent Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Lizardfolk Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:LizardRacialTransformation	PLURAL:Lizardfolk Transformations			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Lizardfolk Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:LizardTransfSkill			PLURAL:Lizardfolk Transformation Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Lizardfolk Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:LizardTransformationFeat		PLURAL:Lizardfolk Transformation Feats		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Minotaur Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:MinotaurRacialTalent			PLURAL:Minotaur Talents				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Minotaur Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:MinotaurTalentSkill			PLURAL:Minotaur Talent Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Minotaur Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MinotaurTalentFeat.ItemCreation	PLURAL:Minotaur Talent Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Minotaur Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:MinotaurRacialTransformation		PLURAL:Minotaur Transformations		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Minotaur Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:MinotaurTransfSkill			PLURAL:Minotaur Transformation Skills	DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Minotaur Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MinotaurTransformationFeat		PLURAL:Minotaur Transformation Feats	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Ogre Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:OgreRacialTalent			PLURAL:Ogre Talents					DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Ogre Talent Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:OgreTalentSkill			PLURAL:Ogre Talent Skills				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Ogre Talent Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OgreTalentFeat			PLURAL:Ogre Talent Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Ogre Transformation				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation		PLURAL:Ogre Transformations				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Ogre Transformation Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:OgreTransfSkill			PLURAL:Ogre Transformation Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Ogre Transformation Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OgreTransformationFeat		PLURAL:Ogre Transformation Feats			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Orc Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:OrcRacialTalent			PLURAL:Orc Talents					DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Orc Talent Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:OrcTalentSkill			PLURAL:Orc Talent Skills				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Orc Talent Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OrcTalentFeat			PLURAL:Orc Talent Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Orc Transformation				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:OrcRacialTransformation		PLURAL:Orc Transformations				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Orc Transformation Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:OrcTransfSkill			PLURAL:Orc Transformation Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Orc Transformation Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OrcTransformationFeat		PLURAL:Orc Transformation Feats			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Tiefling Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTalent		PLURAL:Tiefling Talents					DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Tiefling Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:TieflingTalentSkill		PLURAL:Tiefling Talent Skills				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Tiefling Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:TieflingTalentFeat.Metamagic	PLURAL:Tiefling Talent Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tiefling Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	PLURAL:Tiefling Transformations			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Tiefling Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:TieflingTransfSkill		PLURAL:Tiefling Transformation Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Tiefling Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:TieflingTransformationFeat	PLURAL:Tiefling Transformation Feats		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Thinblood Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent			PLURAL:Thinblood Talents				DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Thinblood Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:ThinbloodTalentSkill			PLURAL:Thinblood Talent Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Thinblood Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ThinbloodTalentFeat.Metapsionic	PLURAL:Thinblood Talent Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Thinblood Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTransformation		PLURAL:Thinblood Transformations			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Thinblood Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:ThinbloodTransfSkill			PLURAL:Thinblood Transformation Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Thinblood Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ThinbloodTransformationFeat		PLURAL:Thinblood Transformation Feats		DISPLAYLOCATION:Feats
+
+#
+# End
+#

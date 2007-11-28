@@ -29,7 +29,7 @@ COPYRIGHT:Seafarer's Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
 COPYRIGHT:Dawnforge Copyright 2003, Fantasy Flight Publishing, Inc.
 COPYRIGHT:PCGen dataset conversion for Dawnforge Copyright 2004-2005, PCgen Data team (Including, but not limited to Anders Lindgren (Ratheof Blithwyn),Eddy Anthony, Andrew McDougall (Tir Gwaith), Tod W. Milam)
 
-INFOTEXT:Dawnforge campaign setting, load with Core Rules for the 3.5 revised edition. Racial progression NOT automatic, add appropriate template for each level.
+INFOTEXT:Dawnforge campaign setting, load with Core Rules for the 3.5 revised edition.
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
@@ -39,9 +39,7 @@ INFOTEXT:Dawnforge campaign setting, load with Core Rules for the 3.5 revised ed
 RACE:dawnforge_races.lst
 BIOSET:dawnforge_biosettings.lst
 LANGUAGE:dawnforge_languages.lst
-TEMPLATE:dawnforge_templates_races.lst
 TEMPLATE:dawnforge_templates_hidden.lst
-FEAT:dawnforge_feats_races.lst
 
 TEMPLATE:dawnforge_templates.lst
 
@@ -55,8 +53,18 @@ FEAT:dawnforge_feats_hidden_legendary.lst
 EQUIPMENT:dawnforge_equip_shields.lst
 EQUIPMENT:dawnforge_equip_weap.lst
 WEAPONPROF:dawnforge_weaponprofs.lst
-WEAPONPROF:dawnforge_weaponprofs_natural.lst
 
-#EQUIPMENT:dawnforge_equip.lst
-#SKILL:dawnforge_skills.lst
-#SPELL:dawnforge_spells.lst
+# Talents & Transformations to Abililtes
+
+ABILITYCATEGORY:dawnforge_ability_categories.lst
+ABILITY:dawnforge_abilities_racial.lst
+
+#FEAT:dawnforge_feats_races.lst
+#TEMPLATE:dawnforge_templates_races.lst
+#WEAPONPROF:dawnforge_weaponprofs_natural.lst
+
+HIDETYPE:FEAT|DoppelTalentFeat|DoppelTransformationFeat|DwarfTalentFeat|DwarfTransformationFeat|DawnElfTalentFeat|DwarfTransformationFeat|NightElfTalentFeat|NightElfTransformationFeat|GnomeTalentFeat|GnomeTransformationFeat|HalflingTalentFeat|HalflingTransformationFeat|HighlanderTalentFeat|HighlanderTransformationFeat|LowlanderTalentFeat|LowlanderTransformationFeat|SaltbloodTalentFeat|SaltbloodTransformationFeat|TruebornTalentFeat|TruebornTransformationFeat|LizardTalentFeat|LizardTransformationFeat|MinotaurTalentFeat|MinotaurTransformationFeat|OgreTalentFeat|OgreTransformationFeat|OrcTalentFeat|OrcTransformationFeat|TieflingTalentFeat|TieflingTransformationFeat|ThinbloodTalentFeat|ThinbloodTransformationFeat
+
+#
+# End
+#

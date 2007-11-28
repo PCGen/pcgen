@@ -1,7 +1,6 @@
-# CVS $Revision$ $Author$ -- Wed Nov 21 21:19:46 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Nov 27 21:49:02 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn
-
 
 
 # Template Name			Visible		Source Page		Define																															Required Lvl	Required Template					Prohibited Template				Removable?		Add
@@ -11,3 +10,20 @@ Legendary Path 3rd Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																							
 Legendary Path 4th Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																																	PRELEVEL:MIN=11	PRETEMPLATE:Legendary Path 3rd Circle	!PRETEMPLATE:Legendary Path 4th Circle	REMOVABLE:NO	ADD:FEAT|1|TYPE=LegendaryPath
 Legendary Path 5th Circle	VISIBLE:DISPLAY	SOURCEPAGE:p.85																																	PRELEVEL:MIN=13	PRETEMPLATE:Legendary Path 4th Circle	!PRETEMPLATE:Legendary Path 5th Circle	REMOVABLE:NO	ADD:FEAT|1|TYPE=LegendaryPath
 
+###Block: Dwarf Sabotage support
+# Template Name			Visible	Template																						Required Class Skill		Prohibited Class SKill		Bonus to skill					Class Skill
+Dwarf Sabotage			VISIBLE:NO	TEMPLATE:CHOOSE:Sabotage Disable Device CS|Sabotage Disable Device CCS	TEMPLATE:CHOOSE:Sabotage Open Lock CS|Sabotage Open Lock CCS
+Sabotage Disable Device CS	VISIBLE:NO																								PRECSKILL:1,Disable Device						BONUS:SKILL|Disable Device|2|TYPE=Talent
+Sabotage Disable Device CCS	VISIBLE:NO																													!PRECSKILL:1,Disable Device								CSKILL:Disable Device
+Sabotage Open Lock CS		VISIBLE:NO																								PRECSKILL:1,Open Lock							BONUS:SKILL|Open Lock|2|TYPE=Talent
+Sabotage Open Lock CCS		VISIBLE:NO																													!PRECSKILL:1,Open Lock									CSKILL:Open Lock
+
+###Block: Orcish Rage support
+# Template Name		Visible	Template								Special ABility											Define							Required Feat	Prohibited Feat	Modify VAR
+Orcish Rage			VISIBLE:NO	TEMPLATE:CHOOSE:Orcish Rage New|Orcish Rage Stacked
+Orcish Rage New		VISIBLE:NO										SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|!PREFEAT:1,Rage	DEFINE:RageTimes|0	DEFINE:RageDuration|0				!PREFEAT:1,Rage	BONUS:VAR|RageTimes|1	BONUS:VAR|RageDuration|3+((CONSCORE-10)/2)
+Orcish Rage Stacked	VISIBLE:NO																							DEFINE:OrcishRage|0					PREFEAT:1,Rage				BONUS:VAR|RageTimes|1	BONUS:VAR|BarbRagePowerLVL|2*OrcishRage
+
+#
+# End
+#

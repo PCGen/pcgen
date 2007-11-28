@@ -35,7 +35,7 @@ Divine Focus Defense	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Defense (Domains:Prot
 Divine Focus Elemental	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Elemental (Domains:Air, Earth, Fire, Water)	SAB:Elemental resistance 10
 Divine Focus Nature	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Nature (Domains:Animal, Healing, Plant)	SAB:Animals and plants cannot attack you|PRECLASS:1,Shaper=10																																											BONUS:SKILL|Handle Animal,Heal,Survival|2
 Divine Focus Power	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Power (Domains:Destruction, Strength, War)													SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Harm,16+CHA|PRECLASS:1,Shaper=10								ADD:FEAT|1|Martial Weapon Proficiency
-Divine Focus Shadow	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Shadow (Domains:Luck, Magic, Trickery)	SAB:You can choose to re-roll any dice roll once per day.			SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Spell Immunity,14+CHA|PRECLASS:1,Shaper=10
+Divine Focus Shadow	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Shadow (Domains:Luck, Magic, Trickery)	SAB:You can choose to re-roll any dice roll once per day			SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Spell Immunity,14+CHA|PRECLASS:1,Shaper=10
 Divine Focus Vitality	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Vitality (Domains:Death, Life, Knowledge)													SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Divine Power,14+CHA|PRECLASS:1,Shaper=10	VFEAT:Endurance|Toughness
 #TODO: elemental resistance chooser
 
@@ -82,22 +82,22 @@ Extreme Focus	TYPE:SpiritAdeptPowers	VISIBLE:NO	SAB:Level 1 - (Extreme Focus, +4
 
 ###Block: Doppelganger Alternate Forms
 # Feat Name					Type				Visible	Var. Min. Value				Special ABility
-Alternate Form (Dwarf)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Dwarf)
-Alternate Form (Dawn Elf)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Dawn Elf)
-Alternate Form (Night Elf)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Night Elf)
-Alternate Form (Gnome)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Gnome)
-Alternate Form (Halfling)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Halfling)
-Alternate Form (Highlander Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Highlander Human)
-Alternate Form (Lowlander Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Lowlander Human)
-Alternate Form (Saltblood Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Saltblood Human)
-Alternate Form (Trueborn Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Trueborn Human)
-Alternate Form (Lizardfolk)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Lizardfolk)
-Alternate Form (Minotaur)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Minotaur)
-Alternate Form (Ogre)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Ogre)
-Alternate Form (Orc)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Orc)
-Alternate Form (Tiefling)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Tiefling)
-Alternate Form (Thinblood Yuan-ti)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Thinblood Yuan-ti)
-
+#Alternate Form (Dwarf)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Dwarf)
+#Alternate Form (Dawn Elf)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Dawn Elf)
+#Alternate Form (Night Elf)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Night Elf)
+#Alternate Form (Gnome)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Gnome)
+#Alternate Form (Halfling)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Halfling)
+#Alternate Form (Highlander Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Highlander Human)
+#Alternate Form (Lowlander Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Lowlander Human)
+#Alternate Form (Saltblood Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Saltblood Human)
+#Alternate Form (Trueborn Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Trueborn Human)
+#Alternate Form (Lizardfolk)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Lizardfolk)
+#Alternate Form (Minotaur)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Minotaur)
+#Alternate Form (Ogre)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Ogre)
+#Alternate Form (Orc)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Orc)
+#Alternate Form (Tiefling)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Tiefling)
+#Alternate Form (Thinblood Yuan-ti)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SAB:Alternate Form (Thinblood Yuan-ti)
+#
 
 #
 # EOF
