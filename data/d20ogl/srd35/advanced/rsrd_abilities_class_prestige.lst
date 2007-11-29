@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 27 12:06:16 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -14,7 +14,7 @@ Mastery of Shaping		CATEGORY:Special Ability	TYPE:HighArcana.SpecialQuality			VI
 Archmage Spell Power		CATEGORY:Special Ability	TYPE:HighArcana.SpecialQuality			VISIBLE:YES	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=5	SAB:High Arcana - Spell Power +1										MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1					SOURCEPAGE:PrestigeClasses.rtf
 #Needs alot of work -- Needs a way to dynamicly select a spell from spelllist and then get the level and class of the spell for removal of the spell slot
 #This is now set to indicate how many times the ability has been choosen
-Spell-Like Ability		CATEGORY:Special Ability	TYPE:HighArcana.SpellLike.SpecialAttack	VISIBLE:YES	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=5	SAB:High Arcana - Spell-Like Ability (%)|ArchmageSLA	DEFINE:ArchmageSLA|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1	BONUS:VAR|ArchmageSLA|1	SOURCEPAGE:PrestigeClasses.rtf
+Spell-Like Ability		CATEGORY:Special Ability	TYPE:HighArcana.SpellLike.SpecialAttack		VISIBLE:YES	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=5	SAB:High Arcana - Spell-Like Ability (%)|ArchmageSLA	DEFINE:ArchmageSLA|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1	BONUS:VAR|ArchmageSLA|1	SOURCEPAGE:PrestigeClasses.rtf
 
 # Not sure about Dragon Disciple stuff, so I'm commenting these out for now. - Tir Gwaith
 

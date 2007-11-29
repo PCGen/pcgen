@@ -1,11 +1,12 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com
 # Original Entry by: Mynex, Tir Gwaith, & bD_92
 
 # Weapon Name		Type				Nb Hands
 #Blowgun			TYPE:Exotic
-Bola				TYPE:Exotic
-Boomerang			TYPE:Exotic
+# Weapon Name	Type			Nb Hands
+Bola			TYPE:Exotic
+Boomerang		TYPE:Exotic
 #Spiked Chain		TYPE:Exotic
 #Crossbow (Hand)		TYPE:Exotic			HANDS:1
 #Crossbow (Repeating)	TYPE:Exotic			HANDS:2
@@ -25,7 +26,7 @@ Boomerang			TYPE:Exotic
 #Whip				TYPE:Exotic
 #Armor Spikes		TYPE:Martial
 #Battleaxe			TYPE:Martial
-Epee				TYPE:Martial
+Epee			TYPE:Martial
 #Falchion			TYPE:Martial
 #Flail				TYPE:Martial
 #Glaive			TYPE:Martial
@@ -47,14 +48,14 @@ Epee				TYPE:Martial
 #Scythe			TYPE:Martial
 #Shortbow			TYPE:Martial		HANDS:2
 #Shortbow (Composite)	TYPE:Martial		HANDS:2
-Speargun			TYPE:Martial		HANDS:2
-Greatsword			TYPE:Martial
+Speargun		TYPE:Martial	HANDS:2
+Greatsword		TYPE:Martial
 #Longsword			TYPE:Martial
 #Sword (Short)		TYPE:Martial
 #Trident			TYPE:Martial
 #Warhammer			TYPE:Martial
-Baseball Bat		TYPE:Simple
-Brass Knuckles		TYPE:Simple
+Baseball Bat	TYPE:Simple
+Brass Knuckles	TYPE:Simple
 #Club				TYPE:Simple
 #Crossbow (Heavy)		TYPE:Simple			HANDS:2
 #Crossbow (Light)		TYPE:Simple			HANDS:2
@@ -64,7 +65,7 @@ Brass Knuckles		TYPE:Simple
 #Gauntlet (Spiked)		TYPE:Simple
 #Halfspear			TYPE:Simple
 #Javelin			TYPE:Simple
-Knife (Bowie)		TYPE:Simple
+Knife (Bowie)	TYPE:Simple
 #Mace				TYPE:Simple
 ###Keeping old Mace Proficiency... Soon we'll convert to using only the SRD weaponprof.
 #Mace (Heavy)		TYPE:Simple
@@ -75,24 +76,24 @@ Knife (Bowie)		TYPE:Simple
 #Shortspear			TYPE:Simple
 #Sickle			TYPE:Simple
 #Sling				TYPE:Simple
-Sword cane			TYPE:Simple
-Beretta 92F			TYPE:Personal
-M1911 .45			TYPE:Personal
-IMI Eagle			TYPE:Personal
-Luger 9mm			TYPE:Personal
-Colt Army			TYPE:Personal
-Colt Navy			TYPE:Personal
-Colt Dragoon		TYPE:Personal
-Colt Python			TYPE:Personal
-Derringer			TYPE:Personal
-Thompson .45		TYPE:Personal
-IMI Uzi			TYPE:Personal
-M16				TYPE:Advanced
-AK 47				TYPE:Advanced
-M72A3LAW			TYPE:Heavy			HANDS:2
-Antimatter Pistol		TYPE:Futuristic
-Antimatter Rifle		TYPE:Futuristic
-Blaster Pistol		TYPE:Futuristic
-Blaster Rifle		TYPE:Futuristic
-Laser Pistol		TYPE:Futuristic
-Laser Rifle			TYPE:Futuristic
+Sword cane		TYPE:Simple
+Beretta 92F		TYPE:Personal
+M1911 .45		TYPE:Personal
+IMI Eagle		TYPE:Personal
+Luger 9mm		TYPE:Personal
+Colt Army		TYPE:Personal
+Colt Navy		TYPE:Personal
+Colt Dragoon	TYPE:Personal
+Colt Python		TYPE:Personal
+Derringer		TYPE:Personal
+Thompson .45	TYPE:Personal
+IMI Uzi		TYPE:Personal
+M16			TYPE:Advanced
+AK 47			TYPE:Advanced
+M72A3LAW		TYPE:Heavy		HANDS:2
+Antimatter Pistol	TYPE:Futuristic
+Antimatter Rifle	TYPE:Futuristic
+Blaster Pistol	TYPE:Futuristic
+Blaster Rifle	TYPE:Futuristic
+Laser Pistol	TYPE:Futuristic
+Laser Rifle		TYPE:Futuristic

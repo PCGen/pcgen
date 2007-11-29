@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html
 # Original Entry by: Eddy Anthony
 
@@ -27,16 +27,16 @@ CLASS:Speaker of the City	HD:8		TYPE:PC.Prestige	ABB:SpC		MAXLEVEL:10	SOURCEPAGE
 CLASS:Speaker of the City	PRESKILL:1,Hide=4	PRESKILL:1,Scry=8	PRESPELLTYPE:1,Divine=3	PRETEXT:Special
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Gather Information|Handle Animal|Hide|TYPE.Knowledge|Pick Pocket|Scry|Sense Motive|Spellcraft|Wilderness Lore
-1	ADD:SPELLCASTER|1|Divine	AUTO:FEAT|SpeakerSpells|Speaker of the City in an urban setting	SAB:Spirit of the City (Social Insight)
-2	ADD:SPELLCASTER|1|Divine
-3	ADD:SPELLCASTER|1|Divine												SAB:Spirit of the City (City Sense)
-4	ADD:SPELLCASTER|1|Divine
-5	ADD:SPELLCASTER|1|Divine												SAB:Spirit of the City (Cloak of the City)
-6	ADD:SPELLCASTER|1|Divine
-7	ADD:SPELLCASTER|1|Divine												SAB:Spirit of the City (Eye of the City, Cast Scrying 1/day)
-8	ADD:SPELLCASTER|1|Divine
-9	ADD:SPELLCASTER|1|Divine												SAB:Spirit of the City (Mind of the City)
-10	ADD:SPELLCASTER|1|Divine												SAB:Spirit of the City (Avatar of the City)
+1	SAB:Spirit of the City (Social Insight)					ADD:SPELLCASTER|1|Divine	AUTO:FEAT|SpeakerSpells|Speaker of the City in an urban setting
+2												ADD:SPELLCASTER|1|Divine
+3	SAB:Spirit of the City (City Sense)						ADD:SPELLCASTER|1|Divine
+4												ADD:SPELLCASTER|1|Divine
+5	SAB:Spirit of the City (Cloak of the City)				ADD:SPELLCASTER|1|Divine
+6												ADD:SPELLCASTER|1|Divine
+7	SAB:Spirit of the City (Eye of the City, Cast Scrying 1/day)	ADD:SPELLCASTER|1|Divine
+8												ADD:SPELLCASTER|1|Divine
+9	SAB:Spirit of the City (Mind of the City)					ADD:SPELLCASTER|1|Divine
+10	SAB:Spirit of the City (Avatar of the City)				ADD:SPELLCASTER|1|Divine
 
 
 #Street Stalker
@@ -51,12 +51,12 @@ CLASS:Street Stalker	STARTSKILLPTS:8	CSKILL:Balance|Climb|Disable Device|Disguis
 ###Block: Sneak Attack stacking Variables
 1	BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
 ###Block: Normal progression
-1	AUTO:FEAT|Street Stalker in an urban setting	SAB:Urban Predetor (Stealth)
-2									SAB:Urban Predetor (Show of Strength)
-4									SAB:Urban Predetor (Stunt Attack)
-6									SAB:Urban Predetor (Urban Disguise)
-8									SAB:Urban Predetor (Target assessment)
-10									SAB:Urban Predetor (Sudden Strike)
+1	SAB:Urban Predetor (Stealth)			AUTO:FEAT|Street Stalker in an urban setting
+2	SAB:Urban Predetor (Show of Strength)
+4	SAB:Urban Predetor (Stunt Attack)
+6	SAB:Urban Predetor (Urban Disguise)
+8	SAB:Urban Predetor (Target assessment)
+10	SAB:Urban Predetor (Sudden Strike)
 
 #
 # end

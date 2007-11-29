@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri Jul 27 02:45:58 2007 -- reformated by prettylst.pl v1.38 (build 2949)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 # Original Entry by: Lone Jedi (MSRD by Barak & Hugo & Tir Gwaith)
 
 ###Block: Class Features (pseudofeats)
-# Feat Name			Type			Visible	Special Ability				Description		Multiple?	Choose
+# Feat Name			Type			Visible	Special ABility					Description		Multiple?	Choose
 Terrain Specialization	TYPE:Special	VISIBLE:NO	SAB:Terrain Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:NUMCHOICES=1|Chaparral|Desert|Grassland|Forest|Mountains|Swamp
 
 
 ###Block: Professor abilities
-# Feat Name			Type			Visible	Special Ability				Multiple?	Choose																													Combat bonus					Bonus to skill			Source Page
+# Feat Name			Type			Visible	Special ABility				Multiple?	Choose																													Combat bonus					Bonus to skill			Source Page
 Smart Defense		TYPE:ClassAbility	VISIBLE:NO	SAB:Smart Defense																																				BONUS:COMBAT|AC|INT|TYPE=ClassFeature						SOURCEPAGE:p.182
 Quick Wits			TYPE:ClassAbility	VISIBLE:NO	SAB:Quick Wits																																																SOURCEPAGE:p.182
 Book Learnin'		TYPE:ClassAbility	VISIBLE:NO	SAB:Book Learnin'																																											BONUS:SKILL|TYPE.Knowledge|4	SOURCEPAGE:p.182

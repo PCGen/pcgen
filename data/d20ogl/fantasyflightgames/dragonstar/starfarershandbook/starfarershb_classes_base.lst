@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
@@ -20,14 +20,14 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Freefall|Intuit Direc
 1	AUTO:FEAT|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (HighTechLight)
 ###Block: Normal Level Progression
-1												ADD:FEAT|1|TYPE.Pilot	SAB:Speed Demon
-2	BONUS:VAR|Dogfighter|(CL+5)/7		DEFINE:Dogfighter|0						SAB:Dogfighter +%|Dogfighter
-3	BONUS:VAR|DefensiveManeuvering|CL/3	DEFINE:DefensiveManeuvering|0					SAB:Defensive Maneuvering +%|DefensiveManeuvering
-4																SAB:Pilot Evasion
-5	BONUS:VAR|GunnersInstinct|CL/5	DEFINE:GunnersInstinct|0	ADD:FEAT|1|TYPE.Pilot	SAB:Gunners Instinct +%|GunnersInstinct
-9												ADD:FEAT|1|TYPE.Pilot
-13												ADD:FEAT|1|TYPE.Pilot
-17												ADD:FEAT|1|TYPE.Pilot
+1	SAB:Speed Demon																		ADD:FEAT|1|TYPE.Pilot
+2	SAB:Dogfighter +%|Dogfighter					BONUS:VAR|Dogfighter|(CL+5)/7		DEFINE:Dogfighter|0
+3	SAB:Defensive Maneuvering +%|DefensiveManeuvering	BONUS:VAR|DefensiveManeuvering|CL/3	DEFINE:DefensiveManeuvering|0
+4	SAB:Pilot Evasion
+5	SAB:Gunners Instinct +%|GunnersInstinct			BONUS:VAR|GunnersInstinct|CL/5	DEFINE:GunnersInstinct|0	ADD:FEAT|1|TYPE.Pilot
+9																					ADD:FEAT|1|TYPE.Pilot
+13																					ADD:FEAT|1|TYPE.Pilot
+17																					ADD:FEAT|1|TYPE.Pilot
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Mechanist	HD:6		TYPE:Base.PC	ABB:Mech		MAXLEVEL:20	SOURCEPAGE:p.52	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
@@ -37,15 +37,15 @@ CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Craft|Cryptog
 1	AUTO:FEAT|HighTechSimple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (HighTechLight)
 ###Block: Normal Level Progression
-1	ADD:FEAT|1|TYPE.Mechanist						SAB:Jury-rig	SAB:Guerilla Repair	SAB:Minor Upgrade	SAB:Traps
-2	ADD:FEAT|1|TYPE.MechTech						SAB:Sabotage
-5											SAB:Moderate Upgrade
-6	ADD:FEAT|1|TYPE.MechTech	ADD:FEAT|1|TYPE=Mechanist
-10	ADD:FEAT|1|TYPE.MechTech						SAB:Major Upgrade
-11	ADD:FEAT|1|TYPE.Mechanist
-14	ADD:FEAT|1|TYPE.MechTech
-15											SAB:Extraordinary Upgrade
-16	ADD:FEAT|1|TYPE.Mechanist
-18	ADD:FEAT|1|TYPE.MechTech
-20											SAB:Masterful Upgrade
+1	SAB:Jury-rig	SAB:Guerilla Repair	SAB:Minor Upgrade	SAB:Traps	ADD:FEAT|1|TYPE.Mechanist
+2	SAB:Sabotage										ADD:FEAT|1|TYPE.MechTech
+5	SAB:Moderate Upgrade
+6													ADD:FEAT|1|TYPE.MechTech	ADD:FEAT|1|TYPE=Mechanist
+10	SAB:Major Upgrade										ADD:FEAT|1|TYPE.MechTech
+11													ADD:FEAT|1|TYPE.Mechanist
+14													ADD:FEAT|1|TYPE.MechTech
+15	SAB:Extraordinary Upgrade
+16													ADD:FEAT|1|TYPE.Mechanist
+18													ADD:FEAT|1|TYPE.MechTech
+20	SAB:Masterful Upgrade
 

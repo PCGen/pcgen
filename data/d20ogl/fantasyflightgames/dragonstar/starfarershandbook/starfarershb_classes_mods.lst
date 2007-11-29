@@ -1,4 +1,4 @@
-# CVS $Revision: 314 $ $Author: tir-gwaith $ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision: 314 $ $Author: tir-gwaith $ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
@@ -57,7 +57,7 @@ CLASS:Monk.MOD
 
 ###Block: Normal Level Progression
 #1	AUTO:WEAPONPROF|TYPE=Simple	AUTO:ARMORPROF|TYPE=Light|PREFEAT:1,Technical Proficiency
-4	SAB:Evade Fire(Ex)
+4						SAB:Evade Fire(Ex)
 7	SAB:.CLEAR.Leap of the Clouds	SAB:Leap of the Clouds(variable gravity still has normal effects)
 
 # Class Name	Removed Class Skill			Class Skill																					Cross-class Skill

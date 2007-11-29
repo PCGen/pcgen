@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology	SOURCESHORT:Demonology	SOURCEWEB:http://www.mongoosepublishing.com
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -7,16 +7,16 @@ CLASS:Demonologist	HD:4		TYPE:PC.Prestige	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p.8-9	
 CLASS:Demonologist	PREFEAT:1,Spell Mastery	PRELANG:1,Draconic
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Demonologist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
-1	ADD:SPELLCASTER|1|Arcane
-2	ADD:SPELLCASTER|1|Arcane	SAB:Siphon Demonic Energy
-3	ADD:SPELLCASTER|1|Arcane	SAB:Extended Instruction
-4	ADD:SPELLCASTER|1|Arcane	SAB:Lesser Control
-5	ADD:SPELLCASTER|1|Arcane	SAB:Multiple Summoning
-6	ADD:SPELLCASTER|1|Arcane	SAB:Demonic Vulnerability
-7	ADD:SPELLCASTER|1|Arcane
-8	ADD:SPELLCASTER|1|Arcane	SAB:Full Instruction
-9	ADD:SPELLCASTER|1|Arcane
-10	ADD:SPELLCASTER|1|Arcane	SAB:Greater Control
+1						ADD:SPELLCASTER|1|Arcane
+2	SAB:Siphon Demonic Energy	ADD:SPELLCASTER|1|Arcane
+3	SAB:Extended Instruction	ADD:SPELLCASTER|1|Arcane
+4	SAB:Lesser Control		ADD:SPELLCASTER|1|Arcane
+5	SAB:Multiple Summoning		ADD:SPELLCASTER|1|Arcane
+6	SAB:Demonic Vulnerability	ADD:SPELLCASTER|1|Arcane
+7						ADD:SPELLCASTER|1|Arcane
+8	SAB:Full Instruction		ADD:SPELLCASTER|1|Arcane
+9						ADD:SPELLCASTER|1|Arcane
+10	SAB:Greater Control		ADD:SPELLCASTER|1|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Binder	HD:4		TYPE:PC.Prestige	ABB:Bnd		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -41,5 +41,5 @@ CLASS:Possessed	HD:4		TYPE:PC.Prestige	ABB:Pos		MAXLEVEL:10	SOURCEPAGE:p.11-12	B
 CLASS:Possessed	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Strength of Personality	PRESKILL:1,Knowledge (Demonology)=11
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Possessed	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
-1	DEFINE:DemonPos|CL*2	DEFINE:DemonicTrait|CL/3+1	SAB:Demonic Possession %/day|DemonPos	SAB:Additional Demonic Trait %|DemonicTrait
+1	SAB:Demonic Possession %/day|DemonPos	SAB:Additional Demonic Trait %|DemonicTrait	DEFINE:DemonPos|CL*2	DEFINE:DemonicTrait|CL/3+1
 

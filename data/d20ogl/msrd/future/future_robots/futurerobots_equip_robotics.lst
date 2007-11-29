@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original entry by Eddy Anthony (MoSaT)
 
@@ -280,7 +280,7 @@ Robot Ability Upgrade (Wisdom)		TYPE:Robotic.PL7	SOURCEPAGE:FutureRobots.rtf	BON
 
 ###Block: Robot Accessories
 
-# Equipment Name							Output Name					Type					Contains		Cost		Source Page				Damage Reduction	Add to base move						Add to vision						Special Property						SAB
+# Equipment Name							Output Name					Type					Contains		Cost		Source Page				Damage Reduction	Add to base move						Add to vision						Special Property						Special ABility
 Robot Accessory (AV Recorder)					OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:13	SOURCEPAGE:FutureRobots.rtf
 Robot Accessory (AV Transmitter)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:16	SOURCEPAGE:FutureRobots.rtf
 Robot Accessory (Fire Extinguisher)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL5								SOURCEPAGE:FutureRobots.rtf																				SPROP:Purchase DC: %|5+(RobotPurchaseDC/4)

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 17 11:07:50 2007 -- reformated by prettylst.pl v1.38 (build 4308)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: abernat
 
@@ -16,7 +16,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # SIMPLE WEAPONS
 # -- unarmed
-# Weapon Name			Type																				Nb Hands
+# Weapon Name			Type																		Nb Hands
 Gauntlet				TYPE:Simple.Melee.Unarmed.Bludgeoning
 Unarmed Strike			TYPE:Simple.Melee.Unarmed.Bludgeoning
 
@@ -40,8 +40,8 @@ Longspear				TYPE:Simple.Melee.Piercing.MeleePiercing.Spear.TwoHanded
 Quarterstaff			TYPE:Simple.Melee.Quarterstaff.TwoHanded.DoubleWeapon.Bludgeoning.MeleeBludgeoning
 Spear					TYPE:Simple.Melee.Piercing.MeleePiercing.Spear.TwoHanded
 # -- Ranged
-Crossbow (Heavy)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow												HANDS:2
-Crossbow (Light)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow												HANDS:2
+Crossbow (Heavy)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow										HANDS:2
+Crossbow (Light)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow										HANDS:2
 Dart					TYPE:Simple.Thrown.Piercing.RangedPiercing
 Javelin				TYPE:Simple.Thrown.Piercing.RangedPiercing
 Sling					TYPE:Simple.Ranged.Bludgeoning.RangedBludgeoning
@@ -85,8 +85,8 @@ Sword (Bastard)			TYPE:Martial.Exotic.Melee.Slashing.MeleeSlashing.Sword.TwoHand
 Waraxe (Dwarven)			TYPE:Martial.Exotic.Melee.Slashing.MeleeSlashing.Axe.TwoHanded
 
 # --ranged
-Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow													HANDS:2
-Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow													HANDS:2
+Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow											HANDS:2
+Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow											HANDS:2
 
 # EXOTIC
 # -- light
@@ -110,7 +110,7 @@ Urgrosh (Dwarven)			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Piercing.MeleePierc
 # -- ranged
 Bolas					TYPE:Exotic.Thrown.Bludgeoning
 Crossbow (Hand)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow
-Crossbow (Repeating Heavy)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow	HANDS:2
-Crossbow (Repeating Light)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow	HANDS:2
+Crossbow (Repeating Heavy)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow										HANDS:2
+Crossbow (Repeating Light)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow										HANDS:2
 Net					TYPE:Exotic.Thrown.Net
 Shuriken				TYPE:Exotic.Thrown.Piercing.RangedPiercing

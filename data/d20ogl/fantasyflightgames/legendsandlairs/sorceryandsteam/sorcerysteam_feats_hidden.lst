@@ -1,28 +1,28 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
-# Feat Name				Type				Visible	Required Feat				Description		Multiple?	Choose																																																						Bonus to DC				Bonus to skill		Source Page		SAB
-Artificer Skill Focus		TYPE:General		VISIBLE:NO							DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|Alchemy|Concentration|TYPE.Craft|Diplomacy|Disable Device|Drive|Heal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Engine Programming)|Knowledge (Firearms)|Knowledge (Clockworks)|Knowledge (Steamcraft)|Listen|Munitions|Open Lock|TYPE.Profession|Ride|Search|Use Rope|Use Steamcraft Device|1						BONUS:SKILL|LIST|2	SOURCEPAGE:p.53	SAB:Skill Focus (%CHOICE)
-Artificer Steamcraft Focus	TYPE:SteamcraftFocus	VISIBLE:NO										MULT:YES	CHOOSE:Weapons|Armor|Vehicles|General																																																													SAB:Steamcraft Focus (%CHOICE)
-Musketeer Skill Focus		TYPE:General		VISIBLE:NO							DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble|Use Rope|Use Steamcraft Device|1																						BONUS:SKILL|LIST|2	SOURCEPAGE:p.47	SAB:Skill Focus (%CHOICE)
-Hypnotist DC Bonus		TYPE:General		VISIBLE:NO	PREFEAT:1,Spell Focus(Enchantment)	DESC:See Text	MULT:NO																																																								BONUS:DC|SCHOOL.Enchantment|2
-Reference Material		TYPE:Detective		VISIBLE:NO							DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge|1																																																							BONUS:SKILL|LIST|2	SOURCEPAGE:p.59	SAB:Reference Material (%CHOICE)
+# Feat Name				Type				Visible	Required Feat				Special ABility				Description		Multiple?	Choose																																																						Bonus to DC				Bonus to skill		Source Page
+Artificer Skill Focus		TYPE:General		VISIBLE:NO							SAB:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|Alchemy|Concentration|TYPE.Craft|Diplomacy|Disable Device|Drive|Heal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Engine Programming)|Knowledge (Firearms)|Knowledge (Clockworks)|Knowledge (Steamcraft)|Listen|Munitions|Open Lock|TYPE.Profession|Ride|Search|Use Rope|Use Steamcraft Device|1						BONUS:SKILL|LIST|2	SOURCEPAGE:p.53
+Artificer Steamcraft Focus	TYPE:SteamcraftFocus	VISIBLE:NO							SAB:Steamcraft Focus (%CHOICE)				MULT:YES	CHOOSE:Weapons|Armor|Vehicles|General
+Musketeer Skill Focus		TYPE:General		VISIBLE:NO							SAB:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble|Use Rope|Use Steamcraft Device|1																						BONUS:SKILL|LIST|2	SOURCEPAGE:p.47
+Hypnotist DC Bonus		TYPE:General		VISIBLE:NO	PREFEAT:1,Spell Focus(Enchantment)							DESC:See Text	MULT:NO																																																								BONUS:DC|SCHOOL.Enchantment|2
+Reference Material		TYPE:Detective		VISIBLE:NO							SAB:Reference Material (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge|1																																																							BONUS:SKILL|LIST|2	SOURCEPAGE:p.59
 
 ###Block: Arcane Performer Song Power
-# Feat Name		Type			Visible	Multiple?	Choose																																					SAB
-Song Power I	TYPE:SongPower	VISIBLE:NO	MULT:YES	CHOOSE:Cause Fear|Charm Person|Detect Secret Doors|Expeditious retreat|Feather Fall|Hypnotism|Mage Armor|Protection from Chaos|Protection from  Evil|Protection from Good|Protection from Law|Sleep|Summon Monster I			SAB:Song Power I (Sp) (%CHOICE)
-Song Power II	TYPE:SongPower	VISIBLE:NO	MULT:YES	CHOOSE:Animal Trance|Blindness|Deafness|Blur|Bull's Strength|Cats Grace|Darkness|Daylight|Enthrall|Hold Person|Hypnotic Pattern|Mirror Image|Pyrotechnics|Scare|Shatter|Sound Burst|Summon Monster II|Summon Swarm|Whispering Wind	SAB:Song Power II (Sp) (%CHOICE)
-Song Power III	TYPE:SongPower	VISIBLE:NO	MULT:YES	CHOOSE:Charm Monster|Confusion|Dispell Magic|Displacement|Emotion|Fear|Lesser Geas|Phantom Steed|Remove Curse|Remove Disease|Sculpt Sound|Sommon Monster III												SAB:Song Power III (Sp) (%CHOICE)
-Song Power IV	TYPE:SongPower	VISIBLE:NO	MULT:YES	CHOOSE:Break Enchantment|Dismissal|Dominate Person|Hold Monster|Legend Lore|Modify Memory|Rainbow Pattern|Shout|Summon Monster IV																	SAB:Song Power IV (Sp) (%CHOICE)
-Song Power V	TYPE:SongPower	VISIBLE:NO	MULT:YES	CHOOSE:Control Water|Dream|Greater Dispelling|Mind Fog|Nightmare|Summon Monster V																									SAB:Song Power V (Sp) (%CHOICE)
+# Feat Name		Type			Visible	Special ABility				Multiple?	Choose
+Song Power I	TYPE:SongPower	VISIBLE:NO	SAB:Song Power I (Sp) (%CHOICE)	MULT:YES	CHOOSE:Cause Fear|Charm Person|Detect Secret Doors|Expeditious retreat|Feather Fall|Hypnotism|Mage Armor|Protection from Chaos|Protection from  Evil|Protection from Good|Protection from Law|Sleep|Summon Monster I
+Song Power II	TYPE:SongPower	VISIBLE:NO	SAB:Song Power II (Sp) (%CHOICE)	MULT:YES	CHOOSE:Animal Trance|Blindness|Deafness|Blur|Bull's Strength|Cats Grace|Darkness|Daylight|Enthrall|Hold Person|Hypnotic Pattern|Mirror Image|Pyrotechnics|Scare|Shatter|Sound Burst|Summon Monster II|Summon Swarm|Whispering Wind
+Song Power III	TYPE:SongPower	VISIBLE:NO	SAB:Song Power III (Sp) (%CHOICE)	MULT:YES	CHOOSE:Charm Monster|Confusion|Dispell Magic|Displacement|Emotion|Fear|Lesser Geas|Phantom Steed|Remove Curse|Remove Disease|Sculpt Sound|Sommon Monster III
+Song Power IV	TYPE:SongPower	VISIBLE:NO	SAB:Song Power IV (Sp) (%CHOICE)	MULT:YES	CHOOSE:Break Enchantment|Dismissal|Dominate Person|Hold Monster|Legend Lore|Modify Memory|Rainbow Pattern|Shout|Summon Monster IV
+Song Power V	TYPE:SongPower	VISIBLE:NO	SAB:Song Power V (Sp) (%CHOICE)	MULT:YES	CHOOSE:Control Water|Dream|Greater Dispelling|Mind Fog|Nightmare|Summon Monster V
 
 ###Block: Hypnotist Master of Enchantment
-# Feat Name				Type					Visible	Multiple?	Choose							SAB
-Master of Enchantment I		TYPE:MasterofEnchantment	VISIBLE:NO	MULT:YES	CHOOSE:Charm Person|Hypnotism|Sleep			SAB:Master of Enchantment I (Sp) (%CHOICE)
-Master of Enchantment II	TYPE:MasterofEnchantment	VISIBLE:NO	MULT:YES	CHOOSE:Hideous Laughter|Hold Person|Suggestion	SAB:Master of Enchantment I (Sp) (%CHOICE)
-Master of Enchantment III	TYPE:MasterofEnchantment	VISIBLE:NO	MULT:YES	CHOOSE:Confusion|Emotion				SAB:Master of Enchantment I (Sp) (%CHOICE)
-Master of Enchantment IV	TYPE:MasterofEnchantment	VISIBLE:NO	MULT:YES	CHOOSE:Mind Fog|Feeblemind|Hold Monster		SAB:Master of Enchantment I (Sp) (%CHOICE)
+# Feat Name				Type					Visible	Special ABility						Multiple?	Choose
+Master of Enchantment I		TYPE:MasterofEnchantment	VISIBLE:NO	SAB:Master of Enchantment I (Sp) (%CHOICE)	MULT:YES	CHOOSE:Charm Person|Hypnotism|Sleep
+Master of Enchantment II	TYPE:MasterofEnchantment	VISIBLE:NO	SAB:Master of Enchantment I (Sp) (%CHOICE)	MULT:YES	CHOOSE:Hideous Laughter|Hold Person|Suggestion
+Master of Enchantment III	TYPE:MasterofEnchantment	VISIBLE:NO	SAB:Master of Enchantment I (Sp) (%CHOICE)	MULT:YES	CHOOSE:Confusion|Emotion
+Master of Enchantment IV	TYPE:MasterofEnchantment	VISIBLE:NO	SAB:Master of Enchantment I (Sp) (%CHOICE)	MULT:YES	CHOOSE:Mind Fog|Feeblemind|Hold Monster
 
 ###Block: Proficiencies
 # Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
@@ -31,14 +31,14 @@ Musketeer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Fire
 
 
 ###Block: Game Hunter Favored Enemies
-# Feat Name				Type				Visible	Required Class			Required Feat										Prohibited Feat					Define											Multiple?	Choose																																																																										SAB
-Game Hunter Favored Enemy I	TYPE:GameHunterFavored	VISIBLE:NO	PRECLASS:1,Game Hunter=1													!PREFEAT:1,Game Hunter Favored Enemy I	DEFINE:GHFavoredEnemy1|var("COUNT[FEATTYPE=GameHunterFavored.ALL]")	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)	SAB:Game Hunter favored enemy (%CHOICE) +%|GHFavoredEnemy1
-Game Hunter Favored Enemy II	TYPE:GameHunterFavored	VISIBLE:NO	PRECLASS:1,Game Hunter=5	PREFEAT:1,Game Hunter Favored Enemy I						!PREFEAT:1,Game Hunter Favored Enemy II	DEFINE:GHFavoredEnemy2|var("COUNT[FEATTYPE=GameHunterFavored.ALL]")-1	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)	SAB:Game Hunter favored enemy (%CHOICE) +%|GHFavoredEnemy2
-Game Hunter Favored Enemy III	TYPE:GameHunterFavored	VISIBLE:NO	PRECLASS:1,Game Hunter=10	PREFEAT:2,Game Hunter Favored Enemy I,Game Hunter Favored Enemy II	!PREFEAT:1,Game Hunter Favored Enemy III	DEFINE:GHFavoredEnemy3|var("COUNT[FEATTYPE=GameHunterFavored.ALL]")-2	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)	SAB:Game Hunter favored enemy (%CHOICE) +%|GHFavoredEnemy3
+# Feat Name				Type				Visible	Required Class			Required Feat										Prohibited Feat					Special ABility								Define											Multiple?	Choose
+Game Hunter Favored Enemy I	TYPE:GameHunterFavored	VISIBLE:NO	PRECLASS:1,Game Hunter=1													!PREFEAT:1,Game Hunter Favored Enemy I	SAB:Game Hunter favored enemy (%CHOICE) +%|GHFavoredEnemy1	DEFINE:GHFavoredEnemy1|var("COUNT[FEATTYPE=GameHunterFavored.ALL]")	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)
+Game Hunter Favored Enemy II	TYPE:GameHunterFavored	VISIBLE:NO	PRECLASS:1,Game Hunter=5	PREFEAT:1,Game Hunter Favored Enemy I						!PREFEAT:1,Game Hunter Favored Enemy II	SAB:Game Hunter favored enemy (%CHOICE) +%|GHFavoredEnemy2	DEFINE:GHFavoredEnemy2|var("COUNT[FEATTYPE=GameHunterFavored.ALL]")-1	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)
+Game Hunter Favored Enemy III	TYPE:GameHunterFavored	VISIBLE:NO	PRECLASS:1,Game Hunter=10	PREFEAT:2,Game Hunter Favored Enemy I,Game Hunter Favored Enemy II	!PREFEAT:1,Game Hunter Favored Enemy III	SAB:Game Hunter favored enemy (%CHOICE) +%|GHFavoredEnemy3	DEFINE:GHFavoredEnemy3|var("COUNT[FEATTYPE=GameHunterFavored.ALL]")-2	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)
 
 ###Block: Animal Lord Home Environment
 
-# Feat Name					Type				Visible	SAB
+# Feat Name					Type				Visible	Special ABility
 Home Environment (Underground)	TYPE:HomeEnvironment	VISIBLE:NO	SAB:+4 Track when Underground
 Home Environment (Plains)		TYPE:HomeEnvironment	VISIBLE:NO	SAB:+4 Track when on the Plains
 Home Environment (Marshes)		TYPE:HomeEnvironment	VISIBLE:NO	SAB:+4 Track when in Marshes
@@ -49,72 +49,72 @@ Home Environment (Mountains)		TYPE:HomeEnvironment	VISIBLE:NO	SAB:+4 Track when 
 
 ###Block: Animal Lord Totem Animals
 
-# Feat Name		Type				Visible	Define				Description		Multiple?	SAB
-Ape Totem		TYPE:AnimalLordTotem	VISIBLE:NO						DESC:See Text	MULT:NO	SAB:Totem Animal- Ape
-Bear Totem		TYPE:AnimalLordTotem	VISIBLE:NO						DESC:See Text	MULT:NO	SAB:Totem Animal- Bear
-Boar Totem		TYPE:AnimalLordTotem	VISIBLE:NO	DEFINE:CenterofBalance|0	DESC:See Text	MULT:NO	SAB:Totem Animal- Boar
-Cheetah Totem	TYPE:AnimalLordTotem	VISIBLE:NO	DEFINE:CenterofBalance|0	DESC:See Text	MULT:NO	SAB:Totem Animal- Cheetah
-Lion Totem		TYPE:AnimalLordTotem	VISIBLE:NO						DESC:See Text	MULT:NO	SAB:Totem Animal- Lion
-Wolf Totem		TYPE:AnimalLordTotem	VISIBLE:NO						DESC:See Text	MULT:NO	SAB:Totem Animal- Wolf
+# Feat Name		Type				Visible	Special ABility			Define				Description		Multiple?
+Ape Totem		TYPE:AnimalLordTotem	VISIBLE:NO	SAB:Totem Animal- Ape							DESC:See Text	MULT:NO
+Bear Totem		TYPE:AnimalLordTotem	VISIBLE:NO	SAB:Totem Animal- Bear							DESC:See Text	MULT:NO
+Boar Totem		TYPE:AnimalLordTotem	VISIBLE:NO	SAB:Totem Animal- Boar		DEFINE:CenterofBalance|0	DESC:See Text	MULT:NO
+Cheetah Totem	TYPE:AnimalLordTotem	VISIBLE:NO	SAB:Totem Animal- Cheetah	DEFINE:CenterofBalance|0	DESC:See Text	MULT:NO
+Lion Totem		TYPE:AnimalLordTotem	VISIBLE:NO	SAB:Totem Animal- Lion							DESC:See Text	MULT:NO
+Wolf Totem		TYPE:AnimalLordTotem	VISIBLE:NO	SAB:Totem Animal- Wolf							DESC:See Text	MULT:NO
 
 ###Block: Animal Lord Totem Abilities
 
-# Feat Name							Type				Visible	Required Class			Required Feat											Prohibited Feat				Required var. value		Define			Description		Multiple?	Choose		Add				Save checks bonus			Combat bonus				Add to base move					Bonus to skill						Modify VAR				Weapon prof. bonus						SAB
-Ape Ability - Deceptive Intellect			TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=1	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,1						DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill1|1										SAB:Deceptive Intellect
-Ape Ability - Deceptive Intellect Level 5		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=5	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,5						DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill5|1
-Ape Ability - Deceptive Intellect Level 9		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=9	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,9						DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill9|1
-Ape Ability - Deceptive Intellect Level 13	TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=13	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,13					DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill13|1
-Ape Ability - Deceptive Intellect Level 17	TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=17	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,17					DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill17|1
-Ape Ability - Master Climbers				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Ape Totem																									DESC:See Text	MULT:NO																										BONUS:SKILL|Climb|4|TYPE=Competence																	SAB:Master Climber
-Ape Ability - Animal Agility				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Ape Totem																									DESC:See Text	MULT:NO																										BONUS:SKILL|Tumble|4|TYPE=Competence																SAB:Animal Agility
-Ape Ability - Quick Movment				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Ape Totem																									DESC:See Text	MULT:NO													BONUS:COMBAT|AC|1|TYPE=Dodge																															SAB:Quick Movment
-Ape Ability - Jungle Warrior				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Ape Totem																									DESC:See Text	MULT:NO																																							BONUS:WEAPONPROF=Unarmed Strike|CRITRANGEDOUBLE|1	SAB:Jungle Warrior
+# Feat Name							Type				Visible	Required Class			Required Feat											Prohibited Feat				Required var. value		Special ABility											Define			Description		Multiple?	Choose		Add				Save checks bonus			Combat bonus				Add to base move					Bonus to skill						Modify VAR				Weapon prof. bonus
+Ape Ability - Deceptive Intellect			TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=1	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,1		SAB:Deceptive Intellect														DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill1|1
+Ape Ability - Deceptive Intellect Level 5		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=5	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,5																			DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill5|1
+Ape Ability - Deceptive Intellect Level 9		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=9	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,9																			DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill9|1
+Ape Ability - Deceptive Intellect Level 13	TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=13	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,13																		DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill13|1
+Ape Ability - Deceptive Intellect Level 17	TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=17	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,17																		DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill17|1
+Ape Ability - Master Climbers				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Ape Totem																					SAB:Master Climber														DESC:See Text	MULT:NO																										BONUS:SKILL|Climb|4|TYPE=Competence
+Ape Ability - Animal Agility				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Ape Totem																					SAB:Animal Agility														DESC:See Text	MULT:NO																										BONUS:SKILL|Tumble|4|TYPE=Competence
+Ape Ability - Quick Movment				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Ape Totem																					SAB:Quick Movment															DESC:See Text	MULT:NO													BONUS:COMBAT|AC|1|TYPE=Dodge
+Ape Ability - Jungle Warrior				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Ape Totem																					SAB:Jungle Warrior														DESC:See Text	MULT:NO																																							BONUS:WEAPONPROF=Unarmed Strike|CRITRANGEDOUBLE|1
 
-Bear Ability - Sturdy Build				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																									DESC:See Text	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|Toughness																																									SAB:Sturdy Build
-Bear Ability - Natural Swimmer			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																									DESC:See Text	MULT:NO																										BONUS:SKILL|Swim|4|TYPE=Competence																	SAB:Natural Swimmer
-Bear Ability - Inner Might				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																									DESC:See Text	MULT:NO								BONUS:CHECKS|Fortitude|1																																				SAB:Inner Might
-Bear Ability - Thick Skinned				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																									DESC:See Text	MULT:NO													BONUS:COMBAT|AC|1|TYPE=NaturalArmor																														SAB:Thick Skinned
-Bear Ability - Great Strength				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																									DESC:See Text	MULT:NO																																																SAB:Great Strength (+1d6 to unarmed damage)
+Bear Ability - Sturdy Build				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Sturdy Build															DESC:See Text	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|Toughness
+Bear Ability - Natural Swimmer			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Natural Swimmer														DESC:See Text	MULT:NO																										BONUS:SKILL|Swim|4|TYPE=Competence
+Bear Ability - Inner Might				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Inner Might															DESC:See Text	MULT:NO								BONUS:CHECKS|Fortitude|1
+Bear Ability - Thick Skinned				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Thick Skinned															DESC:See Text	MULT:NO													BONUS:COMBAT|AC|1|TYPE=NaturalArmor
+Bear Ability - Great Strength				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Great Strength (+1d6 to unarmed damage)										DESC:See Text	MULT:NO
 
-Boar Ability - Acute Senses				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem																									DESC:See Text	MULT:NO																																																SAB:Scent
-Boar Ability - Center of Balance +2			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem																									DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2										SAB:Center of Balance (+% Competence Bonus on Trip Attacks)|CenterofBalance
-Boar Ability - Center of Balance +4			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem	PREFEAT:1,Boar Ability - Center of Balance +2																	DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
-Boar Ability - Center of Balance +6			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem	PREFEAT:1,Boar Ability - Center of Balance +4																	DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
-Boar Ability - Center of Balance +8			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem	PREFEAT:1,Boar Ability - Center of Balance +6																	DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
-Boar Ability - Center of Balance +10		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem	PREFEAT:1,Boar Ability - Center of Balance +8																	DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
-Boar Ability - Eye of Anger				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem																									DESC:See Text	MULT:NO																										BONUS:SKILL|Intimidate|4|TYPE=Competence																SAB:Eye's of Anger
-Boar Ability - Charge					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem										!PREFEAT:1,Improved Bull Rush											DESC:See Text	MULT:NO																																																SAB:Charge (as Improved Bull Rush)
-Boar Ability - Ferocity					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem																									DESC:See Text	MULT:NO																																																SAB:Ferocity (Ex)
+Boar Ability - Acute Senses				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem																					SAB:Scent																DESC:See Text	MULT:NO
+Boar Ability - Center of Balance +2			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem																					SAB:Center of Balance (+% Competence Bonus on Trip Attacks)|CenterofBalance					DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
+Boar Ability - Center of Balance +4			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem	PREFEAT:1,Boar Ability - Center of Balance +2																														DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
+Boar Ability - Center of Balance +6			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem	PREFEAT:1,Boar Ability - Center of Balance +4																														DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
+Boar Ability - Center of Balance +8			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem	PREFEAT:1,Boar Ability - Center of Balance +6																														DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
+Boar Ability - Center of Balance +10		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem	PREFEAT:1,Boar Ability - Center of Balance +8																														DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
+Boar Ability - Eye of Anger				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem																					SAB:Eye's of Anger														DESC:See Text	MULT:NO																										BONUS:SKILL|Intimidate|4|TYPE=Competence
+Boar Ability - Charge					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem										!PREFEAT:1,Improved Bull Rush							SAB:Charge (as Improved Bull Rush)												DESC:See Text	MULT:NO
+Boar Ability - Ferocity					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Boar Totem																					SAB:Ferocity (Ex)															DESC:See Text	MULT:NO
 
-Cheetah Ability - Speed +5				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					DEFINE:CheetahSpeed|5	DESC:See Text	MULT:NO																			BONUS:MOVEADD|TYPE=Walk|CheetahSpeed																							SAB:Speed (Ex)
-Cheetah Ability - Speed +10				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Speed +5																		DESC:See Text	MULT:NO																																		BONUS:VAR|CheetahSpeed|5
-Cheetah Ability - Speed +15				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Speed +10																		DESC:See Text	MULT:NO																																		BONUS:VAR|CheetahSpeed|5
-Cheetah Ability - Speed +20				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Speed +15																		DESC:See Text	MULT:NO																																		BONUS:VAR|CheetahSpeed|5
-Cheetah Ability - Speed +25				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Speed +20																		DESC:See Text	MULT:NO																																		BONUS:VAR|CheetahSpeed|5
-Cheetah Ability - Center of Balance +2		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																									DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2										SAB:Center of Balance (+% Competence Bonus on Trip Attacks)|CenterofBalance
-Cheetah Ability - Center of Balance +4		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Center of Balance +2																DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
-Cheetah Ability - Center of Balance +6		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Center of Balance +4																DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
-Cheetah Ability - Center of Balance +8		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Center of Balance +6																DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
-Cheetah Ability - Center of Balance +10		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Center of Balance +8																DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
-Cheetah Ability - Moving Target			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																									DESC:See Text	MULT:NO													BONUS:COMBAT|AC|1|TYPE=Dodge																															SAB:Moving Target
-Cheetah Ability - Quick Reflexes			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																									DESC:See Text	MULT:NO								BONUS:CHECKS|Reflex|1																																					SAB:Quick Reflexes
-Cheetah Ability - Trip					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																									DESC:See Text	MULT:NO																																																SAB:Trip (Ex)
+Cheetah Ability - Speed +5				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Speed (Ex)											DEFINE:CheetahSpeed|5	DESC:See Text	MULT:NO																			BONUS:MOVEADD|TYPE=Walk|CheetahSpeed
+Cheetah Ability - Speed +10				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Speed +5																															DESC:See Text	MULT:NO																																		BONUS:VAR|CheetahSpeed|5
+Cheetah Ability - Speed +15				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Speed +10																															DESC:See Text	MULT:NO																																		BONUS:VAR|CheetahSpeed|5
+Cheetah Ability - Speed +20				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Speed +15																															DESC:See Text	MULT:NO																																		BONUS:VAR|CheetahSpeed|5
+Cheetah Ability - Speed +25				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Speed +20																															DESC:See Text	MULT:NO																																		BONUS:VAR|CheetahSpeed|5
+Cheetah Ability - Center of Balance +2		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Center of Balance (+% Competence Bonus on Trip Attacks)|CenterofBalance					DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
+Cheetah Ability - Center of Balance +4		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Center of Balance +2																													DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
+Cheetah Ability - Center of Balance +6		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Center of Balance +4																													DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
+Cheetah Ability - Center of Balance +8		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Center of Balance +6																													DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
+Cheetah Ability - Center of Balance +10		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Center of Balance +8																													DESC:See Text	MULT:NO																																		BONUS:VAR|CenterofBalance|2
+Cheetah Ability - Moving Target			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Moving Target															DESC:See Text	MULT:NO													BONUS:COMBAT|AC|1|TYPE=Dodge
+Cheetah Ability - Quick Reflexes			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Quick Reflexes														DESC:See Text	MULT:NO								BONUS:CHECKS|Reflex|1
+Cheetah Ability - Trip					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Trip (Ex)															DESC:See Text	MULT:NO
 
-Lion Ability - Toughness				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																									DESC:See Text	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|Toughness																																									SAB:Toughness
-Lion Ability - Ambush					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																									DESC:See Text	MULT:NO																										BONUS:SKILL|Hide|4|TYPE=Competence																	SAB:Ambush
-Lion Ability - Stalking					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																									DESC:See Text	MULT:NO																										BONUS:SKILL|Move Silently|4|TYPE=Competence															SAB:Stalking
-Lion Ability - King of the Jungle			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																									DESC:See Text	MULT:NO																										BONUS:SKILL|Intimidate|4|TYPE=Competence																SAB:King of the Jungle
-Lion Ability - Pounce					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																									DESC:See Text	MULT:NO																																																SAB:Pounce (Ex)
+Lion Ability - Toughness				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:Toughness															DESC:See Text	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|Toughness
+Lion Ability - Ambush					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:Ambush																DESC:See Text	MULT:NO																										BONUS:SKILL|Hide|4|TYPE=Competence
+Lion Ability - Stalking					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:Stalking															DESC:See Text	MULT:NO																										BONUS:SKILL|Move Silently|4|TYPE=Competence
+Lion Ability - King of the Jungle			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:King of the Jungle														DESC:See Text	MULT:NO																										BONUS:SKILL|Intimidate|4|TYPE=Competence
+Lion Ability - Pounce					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:Pounce (Ex)															DESC:See Text	MULT:NO
 
-Wolf Ability - Skilled Hunter				TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=1	PREFEAT:1,Wolf Totem																PREVAREQ:ALSkillBonus,1						DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill1|1										SAB:Skilled Hunter
-Wolf Ability - Skilled Hunter Level 5		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=5	PREFEAT:1,Wolf Totem																PREVAREQ:ALSkillBonus,5						DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill5|1
-Wolf Ability - Skilled Hunter Level 9		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=9	PREFEAT:1,Wolf Totem																PREVAREQ:ALSkillBonus,9						DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill9|1
-Wolf Ability - Skilled Hunter Level 13		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=13	PREFEAT:1,Wolf Totem																PREVAREQ:ALSkillBonus,13					DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill13|1
-Wolf Ability - Skilled Hunter Level 17		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=17	PREFEAT:1,Wolf Totem																PREVAREQ:ALSkillBonus,17					DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill17|1
-Wolf Ability - Skills					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Wolf Totem																									DESC:See Text	MULT:NO																										BONUS:SKILL|Wilderness Lore|4|TYPE=Competence															SAB:Skills
-Wolf Ability - Hard Target				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Wolf Totem																									DESC:See Text	MULT:NO													BONUS:COMBAT|AC|1|TYPE=Dodge																															SAB:Hard Target
-Wolf Ability - Pack Tactics				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Wolf Totem																									DESC:See Text	MULT:NO																																																SAB:Pack Tactics (+4 to hit when Flanking)
-Wolf Ability - Trip					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Wolf Totem																									DESC:See Text	MULT:NO																																																SAB:Trip (Ex)
+Wolf Ability - Skilled Hunter				TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=1	PREFEAT:1,Wolf Totem																PREVAREQ:ALSkillBonus,1		SAB:Skilled Hunter														DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill1|1
+Wolf Ability - Skilled Hunter Level 5		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=5	PREFEAT:1,Wolf Totem																PREVAREQ:ALSkillBonus,5																			DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill5|1
+Wolf Ability - Skilled Hunter Level 9		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=9	PREFEAT:1,Wolf Totem																PREVAREQ:ALSkillBonus,9																			DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill9|1
+Wolf Ability - Skilled Hunter Level 13		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=13	PREFEAT:1,Wolf Totem																PREVAREQ:ALSkillBonus,13																		DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill13|1
+Wolf Ability - Skilled Hunter Level 17		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=17	PREFEAT:1,Wolf Totem																PREVAREQ:ALSkillBonus,17																		DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill17|1
+Wolf Ability - Skills					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Wolf Totem																					SAB:Skills																DESC:See Text	MULT:NO																										BONUS:SKILL|Wilderness Lore|4|TYPE=Competence
+Wolf Ability - Hard Target				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Wolf Totem																					SAB:Hard Target															DESC:See Text	MULT:NO													BONUS:COMBAT|AC|1|TYPE=Dodge
+Wolf Ability - Pack Tactics				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Wolf Totem																					SAB:Pack Tactics (+4 to hit when Flanking)										DESC:See Text	MULT:NO
+Wolf Ability - Trip					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Wolf Totem																					SAB:Trip (Ex)															DESC:See Text	MULT:NO
 
 Improved Bull Rush.MOD																													!PREFEAT:1,Boar Ability - Charge
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:39:39 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -19,15 +19,15 @@ Chamber - Russian Confederacy				NAMEISPI:YES	VISIBLE:YES	SOURCEPAGE:p.30	DEFINE
 
 ###Block:Chem Treatments
 
-# Template Name				Visible	Source Page		Special Ability																																					Required Stat	Required Template				Combat bonus						Damage reduction	Adjust PC Size		Bonus to skill				Stat bonus								Choose										Temporary effect description
+# Template Name				Visible	Source Page		Special ABility																																						Required Stat	Required Template				Combat bonus						Damage reduction	Adjust PC Size		Bonus to skill				Stat bonus								Choose										Temporary effect description
 Chem Treatment (Endure)			VISIBLE:YES	SOURCEPAGE:p.173	SAB:Chem Booster required weekly, immune to critical hits, regains 2 vitality points at the end of every round, wound points heal at the rate of 1 per hour, agent does not have to make a saving throw in order to survive massive damage	PRESTAT:1,CON=15															BONUS:DR|-|2											BONUS:STAT|CON|%CHOICE|PREAPPLY:PC				CHOOSE:NUMBER|MIN=-18|MAX=-2|TITLE=Penalty for missed treatments	TEMPDESC:Every treatment the agent misses causes 2 points of permanent Constitution damage and the agent permanently loses the ability to spend action dice for any purpose
-Chem Treatment (Gill)			VISIBLE:YES	SOURCEPAGE:p.173	SAB:Chem Booster required quarterly, ability to breathe water as well as air																											PRESTAT:1,CON=11
-Chem Treatment (Kickstart)		VISIBLE:YES	SOURCEPAGE:p.173	SAB:agent has been restored to life with Kickstart Chem Treatment																																																											BONUS:STAT|CON|-2
+Chem Treatment (Gill)			VISIBLE:YES	SOURCEPAGE:p.173	SAB:Chem Booster required quarterly, ability to breathe water as well as air																												PRESTAT:1,CON=11
+Chem Treatment (Kickstart)		VISIBLE:YES	SOURCEPAGE:p.173	SAB:agent has been restored to life with Kickstart Chem Treatment																																																												BONUS:STAT|CON|-2
 Chem Treatment (Muscle)			VISIBLE:YES	SOURCEPAGE:p.173	SAB:Chem Booster required monthly, grows 6 inches plus another 3 every 3 levels afterwards																									PRESTAT:1,STR=13																												BONUS:STAT|STR|2	BONUS:STAT|STR|%CHOICE|PREAPPLY:PC	CHOOSE:NUMBER|MIN=1|MAX=8|TITLE=Additional strength bonus		TEMPDESC:For every 3 agent levels he advances after his first treatment, he gains another +1 bonus to Strength and grows another 3 inches taller
-Chem Treatment (Muscle/Enlargment)	VISIBLE:YES	SOURCEPAGE:p.173																																											PRETEMPLATE:Chem Treatment (Muscle)												BONUS:SIZEMOD|NUMBER|1
-Chem Treatment (Rush)			VISIBLE:YES	SOURCEPAGE:p.174	SAB:Chem Booster required every two weeks																																	PRESTAT:1,DEX=13
+Chem Treatment (Muscle/Enlargment)	VISIBLE:YES	SOURCEPAGE:p.173																																												PRETEMPLATE:Chem Treatment (Muscle)												BONUS:SIZEMOD|NUMBER|1
+Chem Treatment (Rush)			VISIBLE:YES	SOURCEPAGE:p.174	SAB:Chem Booster required every two weeks																																		PRESTAT:1,DEX=13
 Chem Treatment (Sharpen)		VISIBLE:YES	SOURCEPAGE:p.174	SAB:Chem Booster required monthly, +5 bonus to any Survival checks made to find or follow tracks																								PRESTAT:1,WIS=13																						BONUS:SKILL|Spot,Listen,Search|5
-Chem Treatment (Talon)			VISIBLE:YES	SOURCEPAGE:p.174	SAB:Chem Booster required every two months, retractable bone claws, -6 penalty for anything that the Game Control determines to require fine manipulation or to any Disguise check when the agent's claws are extended				PRESTAT:1,CON=11							BONUS:COMBAT|DAMAGE.Unarmed|%CHOICE|PREAPPLY:PC																							CHOOSE:NUMBER|MIN=2|MAX=7|TITLE=Damage bonus for claws
+Chem Treatment (Talon)			VISIBLE:YES	SOURCEPAGE:p.174	SAB:Chem Booster required every two months, retractable bone claws, -6 penalty for anything that the Game Control determines to require fine manipulation or to any Disguise check when the agent's claws are extended					PRESTAT:1,CON=11							BONUS:COMBAT|DAMAGE.Unarmed|%CHOICE|PREAPPLY:PC																							CHOOSE:NUMBER|MIN=2|MAX=7|TITLE=Damage bonus for claws
 
 ###Block:Psionic Skill  Attacks
 

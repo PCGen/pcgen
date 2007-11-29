@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author: $ -- Sun Sep 23 07:50:11 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author: $ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html
 #Original Entry by: Frank Kliewe
 
@@ -10,7 +10,7 @@ CATEGORY=Talent|Opportunist.MOD	TYPE:CombatHeroTalent
 
 ###Block:Firearms Training Talent Tree
 # Feat Name						Output Name				Type								Visible	Required Feat					Prohibited Feat						Special Ability						Stackable?	Multiple?	Choose						Weapon prof. bonus				Source Page
-# Ability Name				Output Name				Type								Visible	Restricted Ability					Required Feat					Special Ability						Stackable?	Multiple?	Choose						Weapon prof. bonus				Source Page
+# Ability Name				Output Name				Type								Visible	Restricted Ability					Required Feat					Special ABility						Stackable?	Multiple?	Choose						Weapon prof. bonus				Source Page
 Personal Weapon Focus								TYPE:Talent.CombatHeroTalent.FirearmsTraining	VISIBLE:YES																SAB:Personal Weapon Focus (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST				BONUS:WEAPONPROF=%LIST|TOHIT|1		SOURCEPAGE:p.3
 Personal Weapon Specialization						TYPE:Talent.CombatHeroTalent.FirearmsTraining	VISIBLE:YES									PREFEAT:1,Personal Weapon Focus		SAB:Personal Weapon Specialization (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:Personal Weapon Focus			BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:p.3
 Improved Critical - Combat Hero	OUTPUTNAME:Improved Critical	TYPE:Talent.CombatHeroTalent.FirearmsTraining	VISIBLE:YES	!PREABILITY:1,CATEGORY=Talent,Improved Critical	PREFEAT:1,Personal Weapon Specialization	SAB:Improved Critical (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:Personal Weapon Specialization	BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1	SOURCEPAGE:p.3

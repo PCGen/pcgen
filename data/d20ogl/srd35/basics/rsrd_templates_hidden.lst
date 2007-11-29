@@ -1,4 +1,4 @@
-# CVS $Revision: 400 $ $Author: eddyanthony $ -- Tue Nov 20 13:19:46 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision: 400 $ $Author: eddyanthony $ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -50,8 +50,8 @@ Awakened Animal_Standard	VISIBLE:NO												PRECLASS:1,Animal=1														
 Awakened Animal_Will		VISIBLE:NO												PRECLASS:1,Animal (Will)=1																												ADDLEVEL:Animal (Will)|2
 
 ###Block: Righteous Might spell workaround
-# Template Name	Visible	Define											SAB
-RighteousMightDR	VISIBLE:NO	DEFINE:RighteousMightDR_Evil|0	DEFINE:RighteousMightDR_Good|0	SAB:DR %/Evil|RighteousMightDR_Evil	SAB:DR %/Good|RighteousMightDR_Good
+# Template Name	Visible	Special ABility										Define
+RighteousMightDR	VISIBLE:NO	SAB:DR %/Evil|RighteousMightDR_Evil	SAB:DR %/Good|RighteousMightDR_Good	DEFINE:RighteousMightDR_Evil|0	DEFINE:RighteousMightDR_Good|0
 
 ###Block: Timeless Body For Druid and Monk
 # Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class			Multiple Requirements						Stat bonus

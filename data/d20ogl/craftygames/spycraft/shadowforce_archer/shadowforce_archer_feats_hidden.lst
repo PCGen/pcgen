@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Tue Oct  9 22:38:37 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
 
 SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54
 
-# Feat Name					Type						Visible		Required var. value				Var. Max. Value				Special Ability		Description				Stackable?	Multiple?	Choose						Bonus to skill				Bonus to skill point for a level			Stat bonus								Modify VAR
+# Feat Name					Type						Visible		Required var. value				Var. Max. Value				Special ABility		Description				Stackable?	Multiple?	Choose						Bonus to skill				Bonus to skill point for a level			Stat bonus								Modify VAR
 Cat Burglar Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Nimble			DESC:Nimble															BONUS:SKILL|STAT.DEX|1
-Counter Terrorist Core Ability	TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Quick-Thinking		DESC:Quick-Thinking
+Counter Terrorist Core Ability	TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Quick-Thinking	DESC:Quick-Thinking
 Hacker Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Custom-Built System	DESC:Custom-Built System
 Sniper Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Precise			DESC:Precise
 Shadespeaker Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SAB:Dedication		DESC:Dedication																																					BONUS:VAR|ACTIONDICE|1

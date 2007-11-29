@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author: $ -- Sun Sep 23 07:50:11 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author: $ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Roles and Classes - Covert Hero	SOURCESHORT:CovertHero	SOURCEWEB:http://swordsedgepublishing.ca/Products.html
 
 ###Block: Defensive Talent Tree
@@ -10,14 +10,14 @@ CATEGORY=Talent|Uncanny Dodge II.MOD	TYPE:CovertHeroTalent.DefensiveTalent
 
 ###Block: Offensive Talent Tree
 # Feat Name					Type							Visible	Required Feat		Special Ability						Define							Description				Stackable?	Multiple?	Choose		Modify VAR			Source Page
-# Ability Name				Type							Visible	Required Feat		Special Ability						Define							Description				Stackable?	Multiple?	Choose		Modify VAR			Source Page
-Crippling Strike				TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:YES	PREFEAT:1,Sneak Attack	SAB:Crippling Strike (Ex)												DESC:Class Special Ability												SOURCEPAGE:p.3
+# Ability Name				Type							Visible	Required Feat		Special ABility							Define							Description				Stackable?	Multiple?	Choose		Modify VAR			Source Page
+Crippling Strike				TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:YES	PREFEAT:1,Sneak Attack	SAB:Crippling Strike (Ex)													DESC:Class Special Ability												SOURCEPAGE:p.3
 CATEGORY=Talent|Opportunist.MOD	TYPE:CovertHeroTalent.OffensiveTalent
 Sneak Attack				TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:YES					SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0	DESC:Class Special Ability	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.4
 
 ###Block: Scout Talent Tree
 # Feat Name		Type						Visible		Required Feat		Special Ability					Define			Description				Stackable?	Multiple?	Choose						Modify VAR			Source Page
-# Ability Name	Type						Visible	Required Feat		Special Ability					Define			Description				Stackable?	Multiple?	Choose						Modify VAR			Source Page
+# Ability Name	Type						Visible	Required Feat		Special ABility					Define			Description				Stackable?	Multiple?	Choose						Modify VAR			Source Page
 Skill Mastery	TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES					SAB:Skill Mastery (Take 10 on %CHOICE)					DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLS|LIST|3+INT					SOURCEPAGE:p.3
 Trap Finding	TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES					SAB:Trap Finding
 Trap Sense		TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES	PREFEAT:1,Trap Finding	SAB:Trap Sense (Ex) +%|TrapSense		DEFINE:TrapSense|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|TrapSense|1

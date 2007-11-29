@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 22 21:44:19 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
 ###Block: feats
 # Feat Name			Type			Required Class				Required Feat			Description																					Source Page
@@ -8,13 +8,13 @@ Sequester Power		TYPE:Psionic	PRECLASS:1,SPELLCASTER.Psionic=3	PREFEAT:1,Inner S
 Transcend Limits		TYPE:Psionic	PRECLASS:1,SPELLCASTER.Psionic=3						DESC:Increase spending limit on metapsionically enhanced powers												SOURCEPAGE:p.42
 
 ###Block : hidden feats for subdisciplines.
-# Feat Name					Type					Visible	Bonus to DC										SAB
-Psychometabolism Subdiscipline	TYPE:Special.Subdiscipline	VISIBLE:NO	BONUS:DC|SCHOOL.Psychometabolism|SPELLSTAT-STR|TYPE=Subdiscipline	SAB:Psychometabolism psionic subdiscipline.
-Psychokinesis Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	BONUS:DC|SCHOOL.Psychokinesis|SPELLSTAT-CON|TYPE=Subdiscipline	SAB:Psychokinesis psionic subdiscipline.
-Psychoportation Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	BONUS:DC|SCHOOL.Psychoportation|SPELLSTAT-DEX|TYPE=Subdiscipline	SAB:Psychoportation psionic subdiscipline.
-Metacreativity Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	BONUS:DC|SCHOOL.Metacreativity|SPELLSTAT-INT|TYPE=Subdiscipline	SAB:Metacreativity psionic subdiscipline.
-Clairsentience Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	BONUS:DC|SCHOOL.Clairsentience|SPELLSTAT-WIS|TYPE=Subdiscipline	SAB:Clairsentience psionic subdiscipline.
-Telepathy Subdiscipline			TYPE:Special.Subdiscipline	VISIBLE:NO	BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline		SAB:Telepathy psionic subdiscipline.
+# Feat Name					Type					Visible	Special ABility						Bonus to DC
+Psychometabolism Subdiscipline	TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Psychometabolism psionic subdiscipline.	BONUS:DC|SCHOOL.Psychometabolism|SPELLSTAT-STR|TYPE=Subdiscipline
+Psychokinesis Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Psychokinesis psionic subdiscipline.		BONUS:DC|SCHOOL.Psychokinesis|SPELLSTAT-CON|TYPE=Subdiscipline
+Psychoportation Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Psychoportation psionic subdiscipline.	BONUS:DC|SCHOOL.Psychoportation|SPELLSTAT-DEX|TYPE=Subdiscipline
+Metacreativity Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Metacreativity psionic subdiscipline.		BONUS:DC|SCHOOL.Metacreativity|SPELLSTAT-INT|TYPE=Subdiscipline
+Clairsentience Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Clairsentience psionic subdiscipline.		BONUS:DC|SCHOOL.Clairsentience|SPELLSTAT-WIS|TYPE=Subdiscipline
+Telepathy Subdiscipline			TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Telepathy psionic subdiscipline.		BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline
 
 ###block: weapon proficiencies
 # Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
 # Original entry by: Ratheof Blithwyn
 
@@ -7,56 +7,56 @@ SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:h
 #   - Opposed Spell not possible to code
 #   - Multiple subschools are not working
 
-# Feat Name					Type						Visible	Required Class				Required Feat			Multiple Requirements										Required Spell School		Required Sub-school		Req. Spell Type		Description																								Source Page		SAB
-Illusion Library Avoidance		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]															DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
-Illusion Library Deception		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]															DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
-Illusion Library Disguise		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]															DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
-Illusion Library Fascination		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]															DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
-Illusion Library Invisibility		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]															DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
-Illusion Library Message		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]															DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
-Illusion Library Shadow			TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]															DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
-Illusion Library Terror			TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]															DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
-Illusion Library True Illusion	TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]															DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
-Infuse Reality				TYPE:Metamagic																														PRESPELLSCHOOL:Illusion,1,1										DESC:You can add shadow energy to your illusion spells to make them partially real.												SOURCEPAGE:p.25
-Infuse Truth				TYPE:Metamagic																														PRESPELLSCHOOL:Illusion,1,1										DESC:You can cause your illusion spells to affect undead and other creatures normally immune to them.									SOURCEPAGE:p.25
-Opposed Spell				TYPE:General																																								PRESPELLTYPE:1,Arcane=1	DESC:You can cast a spell from a school of magic normally not available to you.												SOURCEPAGE:p.25
-Shadow Familiar				TYPE:General												PREFEAT:1,Summon Familiar																			PRESPELLSCHOOLSUB:Shadow,3,1					DESC:Your familiar has been infused with energy from the Plane of Shadow.													SOURCEPAGE:p.25
+# Feat Name					Type						Visible	Required Class				Required Feat			Multiple Requirements										Required Spell School		Required Sub-school		Req. Spell Type		Special ABility					Description																								Source Page
+Illusion Library Avoidance		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
+Illusion Library Deception		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
+Illusion Library Disguise		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
+Illusion Library Fascination		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
+Illusion Library Invisibility		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
+Illusion Library Message		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
+Illusion Library Shadow			TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
+Illusion Library Terror			TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
+Illusion Library True Illusion	TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
+Infuse Reality				TYPE:Metamagic																														PRESPELLSCHOOL:Illusion,1,1																	DESC:You can add shadow energy to your illusion spells to make them partially real.												SOURCEPAGE:p.25
+Infuse Truth				TYPE:Metamagic																														PRESPELLSCHOOL:Illusion,1,1																	DESC:You can cause your illusion spells to affect undead and other creatures normally immune to them.									SOURCEPAGE:p.25
+Opposed Spell				TYPE:General																																								PRESPELLTYPE:1,Arcane=1								DESC:You can cast a spell from a school of magic normally not available to you.												SOURCEPAGE:p.25
+Shadow Familiar				TYPE:General												PREFEAT:1,Summon Familiar																			PRESPELLSCHOOLSUB:Shadow,3,1												DESC:Your familiar has been infused with energy from the Plane of Shadow.													SOURCEPAGE:p.25
 # The descriptions of Opposed Spell and Shadow Familiar is messed up in the source.
 
 # Hidden feat: Discipline mastery for the Devoted Illusionist
-# Feat Name					Type						Visible	Required Class				Required Feat			Multiple Requirements										Required Spell School		Required Sub-school		Req. Spell Type		Description																								Source Page		SAB
-IllusionMasteryAvoidance		TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																																													SAB:Discipline Mastery Avoidance
-IllusionMasteryDeception		TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																																													SAB:Discipline Mastery Deception
-IllusionMasteryDisguise			TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																																													SAB:Discipline Mastery Disguise
-IllusionMasteryFascination		TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																																													SAB:Discipline Mastery Fascination
-IllusionMasteryInvisibility		TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																																													SAB:Discipline Mastery Invisibility
-IllusionMasteryMessage			TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																																													SAB:Discipline Mastery Message
-IllusionMasteryShadow			TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																																													SAB:Discipline Mastery Shadow
-IllusionMasteryTerror			TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																																													SAB:Discipline Mastery Terror
-IllusionMasteryTrueIllusion		TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																																													SAB:Discipline Mastery True Illusion
+# Feat Name					Type						Visible	Required Class				Required Feat			Multiple Requirements										Required Spell School		Required Sub-school		Req. Spell Type		Special ABility					Description																								Source Page
+IllusionMasteryAvoidance		TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																	SAB:Discipline Mastery Avoidance
+IllusionMasteryDeception		TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																	SAB:Discipline Mastery Deception
+IllusionMasteryDisguise			TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																	SAB:Discipline Mastery Disguise
+IllusionMasteryFascination		TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																	SAB:Discipline Mastery Fascination
+IllusionMasteryInvisibility		TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																	SAB:Discipline Mastery Invisibility
+IllusionMasteryMessage			TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																	SAB:Discipline Mastery Message
+IllusionMasteryShadow			TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																	SAB:Discipline Mastery Shadow
+IllusionMasteryTerror			TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																	SAB:Discipline Mastery Terror
+IllusionMasteryTrueIllusion		TYPE:IllusionMastery			VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1																																	SAB:Discipline Mastery True Illusion
 
 # Hidden feat: Special abilities for the Master of the Ruse
-# Feat Name					Type						Visible	Required Class				Required Feat			Multiple Requirements										Required Spell School		Required Sub-school		Req. Spell Type		Description																								Source Page		SAB
-Artful Diversion				TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1																																																													SAB:Artful Diversion
-Exploit Distractions			TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1																																																													SAB:Exploit Distractions
-Artful Feint				TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1																																																													SAB:Artful Feint
-Disrupt Concentration			TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1																																																													SAB:Disrupt Concentration
-Enhanced Likeness				TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1																																																													SAB:Enhanced Likeness
+# Feat Name					Type						Visible	Required Class				Required Feat			Multiple Requirements										Required Spell School		Required Sub-school		Req. Spell Type		Special ABility					Description																								Source Page
+Artful Diversion				TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1																																	SAB:Artful Diversion
+Exploit Distractions			TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1																																	SAB:Exploit Distractions
+Artful Feint				TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1																																	SAB:Artful Feint
+Disrupt Concentration			TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1																																	SAB:Disrupt Concentration
+Enhanced Likeness				TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1																																	SAB:Enhanced Likeness
 
 # Hidden feat: Hue for the Mind Master
-# Feat Name					Type						Visible	Required Class				Required Feat			Multiple Requirements										Required Spell School		Required Sub-school		Req. Spell Type		Description																								Source Page		SAB
-Squamous					TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																																														SAB:Hue (Squamous)
-Octarine					TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																																														SAB:Hue (Octarine)
-Shriek					TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																																														SAB:Hue (Shriek)
-Pristine					TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																																														SAB:Hue (Pristine)
-Shine						TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																																														SAB:Hue (Shine)
-Maddening					TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																																														SAB:Hue (Maddening)
+# Feat Name					Type						Visible	Required Class				Required Feat			Multiple Requirements										Required Spell School		Required Sub-school		Req. Spell Type		Special ABility					Description																								Source Page
+Squamous					TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																		SAB:Hue (Squamous)
+Octarine					TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																		SAB:Hue (Octarine)
+Shriek					TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																		SAB:Hue (Shriek)
+Pristine					TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																		SAB:Hue (Pristine)
+Shine						TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																		SAB:Hue (Shine)
+Maddening					TYPE:MindMasterHue			VISIBLE:NO	PRECLASS:1,Mind Master=1																																		SAB:Hue (Maddening)
 
 # Hidden feat: Special abilities for the Unseen Master
-# Feat Name					Type						Visible	Required Class				Required Feat			Multiple Requirements										Required Spell School		Required Sub-school		Req. Spell Type		Description																								Source Page		SAB
-Extra Invisibilty				TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																																														SAB:Extra Invisibilty
-Greater Invisibilty			TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																																														SAB:Greater Invisibilty
-Invisible Familiar			TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																																														SAB:Invisible Familiar
-Scentless					TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																																														SAB:Scentless
-Silent					TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																																														SAB:Silent
-Unseen Eye					TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																																														SAB:Unseen Eye
+# Feat Name					Type						Visible	Required Class				Required Feat			Multiple Requirements										Required Spell School		Required Sub-school		Req. Spell Type		Special ABility					Description																								Source Page
+Extra Invisibilty				TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																		SAB:Extra Invisibilty
+Greater Invisibilty			TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																		SAB:Greater Invisibilty
+Invisible Familiar			TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																		SAB:Invisible Familiar
+Scentless					TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																		SAB:Scentless
+Silent					TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																		SAB:Silent
+Unseen Eye					TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2																																		SAB:Unseen Eye

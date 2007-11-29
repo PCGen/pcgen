@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Aug  8 05:24:19 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp
 
 #CREATED BY:Paul W. King, Jan 2007
@@ -12,13 +12,13 @@ CLASS:The Ritualist	HD:6		TYPE:PC.Advanced	ABB:Rit		MAXLEVEL:10	SOURCEPAGE:p.11	
 CLASS:The Ritualist	PRESKILL:2,Knowledge (Arcane Lore),Knowledge (Theology and Philosophy)=6	PRESKILL:1,Research=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Ritualist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Knowledge (Arcane Lore)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|TYPE.Perform|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot
-1				SAB:Summon Familiar	SAB:Create Magic Circle
+1	SAB:Summon Familiar	SAB:Create Magic Circle
 2:REPEATLEVEL:2|0|8									ADD:FEAT|1|Elemental Affinity
-3				SAB:Craft Magic Charm
-5												ADD:FEAT|1|Brew Potion	ADD:FEAT|1|Magic Defense
-7				SAB:Elemental Insight
-9				SAB:Cast Without Circle
-10												ADD:FEAT|1|Elemental Mastery
+3	SAB:Craft Magic Charm
+5									ADD:FEAT|1|Brew Potion	ADD:FEAT|1|Magic Defense
+7	SAB:Elemental Insight
+9	SAB:Cast Without Circle
+10									ADD:FEAT|1|Elemental Mastery
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Magic Grunt	HD:6		TYPE:PC.Advanced	ABB:MGrnt		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
@@ -37,14 +37,14 @@ CLASS:Magic Grunt	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 9	CAST:4,3,3,2
 10	CAST:4,4,3,2,1
 ###BLOCK: general
-1				SAB:Detect Magic
-2							ADD:FEAT|1|Magic Defense
+1	SAB:Detect Magic
+2				ADD:FEAT|1|Magic Defense
 3:REPEATLEVEL:3				ADD:FEAT|1|TYPE=MagicGrunt
-4							ADD:FEAT|1|Focused
-5							ADD:FEAT|1|Weapon Focus
-7							ADD:FEAT|1|Combat Casting
-8							ADD:FEAT|1|Armored Casting
-10							ADD:FEAT|1|Fork Spell
+4				ADD:FEAT|1|Focused
+5				ADD:FEAT|1|Weapon Focus
+7				ADD:FEAT|1|Combat Casting
+8				ADD:FEAT|1|Armored Casting
+10				ADD:FEAT|1|Fork Spell
 
 
 ###Prestige Classes
@@ -56,12 +56,12 @@ CLASS:Arcane Spec Op	PREATT:6	PREFEAT:6,Advanced Firearms Proficiency,Athletic,E
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Spec Op	STARTSKILLPTS:6	CSKILL:Climb|Craft (Chemical)|Diplomacy|Demolitions|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Jump|Listen|Move Silently|Navigate|Read/Write Language|Speak Language|Spellcraft|Spot|Survival|Swim|Treat Injury|Use Magic Device
 1:REPEATLEVEL:1				ADD:SPELLCASTER|1|Mage
-1							ADD:FEAT|1|Weapon Specialization,Spell Focus
+1				ADD:FEAT|1|Weapon Specialization,Spell Focus
 2:REPEATLEVEL:2				ADD:FEAT|1|TYPE=ArcaneSpecOp
-2							ADD:FEAT|1|Behind Enemy Lines
-3				SAB:Night Raid
-4							ADD:FEAT|1|Swift Strike
-5				SAB:Light It Up
+2				ADD:FEAT|1|Behind Enemy Lines
+3	SAB:Night Raid
+4				ADD:FEAT|1|Swift Strike
+5	SAB:Light It Up
 
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
 CLASS:Thaumaturgical Specialist	HD:6		TYPE:PC.Prestige	ABB:ThSp		MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
@@ -72,5 +72,5 @@ CLASS:Thaumaturgical Specialist	STARTSKILLPTS:6	CSKILL:Climb|Concentration|Craft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|1|Mage
 1:REPEATLEVEL:2	ADD:FEAT|1|TYPE=Thaumaturgical
 2:REPEATLEVEL:2	ADD:FEAT|1|TYPE=Metamagic
-2				ADD:FEAT|1|Brew Potion
-4				ADD:FEAT|1|Scribe Scroll
+2	ADD:FEAT|1|Brew Potion
+4	ADD:FEAT|1|Scribe Scroll

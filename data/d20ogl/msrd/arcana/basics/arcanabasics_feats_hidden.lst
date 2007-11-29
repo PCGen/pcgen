@@ -1,19 +1,19 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
-# Feat Name				Type							Visible	Required Skill							Define																																												Multiple?	Choose																																							Add Spell Lvl	Weapon prof. bonus							SAB
-Craft Wand				TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Mechanical)=1																																																																																																								SAB:Craft Wand
-Find the Mark			TYPE:Special					VISIBLE:NO																																																							MULT:YES	CHOOSE:FEAT=Weapon Finesse|1																																							BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
-Improved Brew Potion		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Chemical)=1																																																																																																									SAB:Improved Brew Potion
-Improved Scribe Scroll		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Writing)=1																																																																																																									SAB:Improved Scribe Scroll
-Improved Scribe Tattoo		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Visual Art)=1																																																																																																								SAB:Improved Scribe Tattoo
-Increased Weapon Critical	TYPE:Special					VISIBLE:NO																																																							MULT:YES	CHOOSE:FEAT=Weapon Specialization|1																																						BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
-Magic Mastercraft			TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:2,Craft (Chemical),Craft (Mechanical)=1																																																																																																					SAB:Magic Mastercraft
-Quicken Spell			TYPE:Special					VISIBLE:NO																																																																																																	ADDSPELLLEVEL:4
-Turn/Rebuke Animals		TYPE:Special.Turn/Rebuke.Animals		VISIBLE:NO										DEFINE:TurnTimesAnimals|TurnTimes	DEFINE:TurnLevelAnimals|TurnLevel	DEFINE:TurnDiceAnimals|TurnDice	DEFINE:TurnDieSizeAnimals|TurnDieSize	DEFINE:TurnDamagePlusAnimals|TurnDamagePlus	DEFINE:TurnCheckAnimals|TurnCheck																																																														SAB:Turn/Rebuke Animals (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesAnimals|TurnLevelAnimals|TurnDiceAnimals|TurnDieSizeAnimals|TurnDamagePlusAnimals
-Turn/Rebuke Humans		TYPE:Special.Turn/Rebuke.Humans		VISIBLE:NO										DEFINE:TurnTimesHumans|TurnTimes	DEFINE:TurnLevelHumans|TurnLevel	DEFINE:TurnDiceHumans|TurnDice	DEFINE:TurnDieSizeHumans|TurnDieSize	DEFINE:TurnDamagePlusHumans|TurnDamagePlus	DEFINE:TurnCheckHumans|TurnCheck																																																														SAB:Turn/Rebuke Humans (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesHumans|TurnLevelHumans|TurnDiceHumans|TurnDieSizeHumans|TurnDamagePlusHumans
-Turn/Rebuke Magical Beasts	TYPE:Special.Turn/Rebuke.MagicalBeasts	VISIBLE:NO										DEFINE:TurnTimesMagicalBeasts|TurnTimes	DEFINE:TurnLevelMagicalBeasts|TurnLevel	DEFINE:TurnDiceMagicalBeasts|TurnDice	DEFINE:TurnDieSizeMagicalBeasts|TurnDieSize	DEFINE:TurnDamagePlusMagicalBeasts|TurnDamagePlus	DEFINE:TurnCheckMagicalBeasts|TurnCheck																																																								SAB:Turn/Rebuke Magical Beasts (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesMagicalBeasts|TurnLevelMagicalBeasts|TurnDiceMagicalBeasts|TurnDieSizeMagicalBeasts|TurnDamagePlusMagicalBeasts
-Wildlord Skill Mastery		TYPE:Special					VISIBLE:NO																																																							MULT:YES	CHOOSE:Climb|Concentration|Drive|Diplomacy|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
+# Feat Name				Type							Visible	Required Skill							Special ABility																																Define																																												Multiple?	Choose																																							Add Spell Lvl	Weapon prof. bonus
+Craft Wand				TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Mechanical)=1				SAB:Craft Wand
+Find the Mark			TYPE:Special					VISIBLE:NO																																																																																									MULT:YES	CHOOSE:FEAT=Weapon Finesse|1																																							BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
+Improved Brew Potion		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Chemical)=1					SAB:Improved Brew Potion
+Improved Scribe Scroll		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Writing)=1					SAB:Improved Scribe Scroll
+Improved Scribe Tattoo		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Visual Art)=1				SAB:Improved Scribe Tattoo
+Increased Weapon Critical	TYPE:Special					VISIBLE:NO																																																																																									MULT:YES	CHOOSE:FEAT=Weapon Specialization|1																																						BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
+Magic Mastercraft			TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:2,Craft (Chemical),Craft (Mechanical)=1	SAB:Magic Mastercraft
+Quicken Spell			TYPE:Special					VISIBLE:NO																																																																																																																																			ADDSPELLLEVEL:4
+Turn/Rebuke Animals		TYPE:Special.Turn/Rebuke.Animals		VISIBLE:NO										SAB:Turn/Rebuke Animals (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesAnimals|TurnLevelAnimals|TurnDiceAnimals|TurnDieSizeAnimals|TurnDamagePlusAnimals							DEFINE:TurnTimesAnimals|TurnTimes	DEFINE:TurnLevelAnimals|TurnLevel	DEFINE:TurnDiceAnimals|TurnDice	DEFINE:TurnDieSizeAnimals|TurnDieSize	DEFINE:TurnDamagePlusAnimals|TurnDamagePlus	DEFINE:TurnCheckAnimals|TurnCheck
+Turn/Rebuke Humans		TYPE:Special.Turn/Rebuke.Humans		VISIBLE:NO										SAB:Turn/Rebuke Humans (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesHumans|TurnLevelHumans|TurnDiceHumans|TurnDieSizeHumans|TurnDamagePlusHumans								DEFINE:TurnTimesHumans|TurnTimes	DEFINE:TurnLevelHumans|TurnLevel	DEFINE:TurnDiceHumans|TurnDice	DEFINE:TurnDieSizeHumans|TurnDieSize	DEFINE:TurnDamagePlusHumans|TurnDamagePlus	DEFINE:TurnCheckHumans|TurnCheck
+Turn/Rebuke Magical Beasts	TYPE:Special.Turn/Rebuke.MagicalBeasts	VISIBLE:NO										SAB:Turn/Rebuke Magical Beasts (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesMagicalBeasts|TurnLevelMagicalBeasts|TurnDiceMagicalBeasts|TurnDieSizeMagicalBeasts|TurnDamagePlusMagicalBeasts	DEFINE:TurnTimesMagicalBeasts|TurnTimes	DEFINE:TurnLevelMagicalBeasts|TurnLevel	DEFINE:TurnDiceMagicalBeasts|TurnDice	DEFINE:TurnDieSizeMagicalBeasts|TurnDieSize	DEFINE:TurnDamagePlusMagicalBeasts|TurnDamagePlus	DEFINE:TurnCheckMagicalBeasts|TurnCheck
+Wildlord Skill Mastery		TYPE:Special					VISIBLE:NO																																																																																									MULT:YES	CHOOSE:Climb|Concentration|Drive|Diplomacy|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
 
 ###Block:Dragon spell-like abilities
 # Feat Name						Type						Visible	Innate Spells
@@ -52,8 +52,8 @@ One Knowledge Skill (+24)	TYPE:OneKnowledge24	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSN
 One Perform Skill (+8)	TYPE:OnePerform8	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Perform|1	BONUS:SKILLRANK|LIST|7|PREDEFAULTMONSTER:Y
 
 ###Block: Rage
-# Feat Name	Type			Visible	Define																										Combat bonus						Stat bonus													Modify VAR																																							SAB
-Rage		TYPE:Special	VISIBLE:NO	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DEFINE:RageTimes|0	BONUS:COMBAT|AC|-1*RageACPenalty|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1
+# Feat Name	Type			Visible	Special ABility																															Define																										Combat bonus						Stat bonus													Modify VAR
+Rage		TYPE:Special	VISIBLE:NO	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DEFINE:RageTimes|0	BONUS:COMBAT|AC|-1*RageACPenalty|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC
 
 ###Block: Vivilor swap table
 # Feat Name	Type			Visible	Multiple?	Choose			Add
@@ -61,31 +61,31 @@ Vivilor 2 A	TYPE:VivSwap1	VISIBLE:NO	MULT:YES	CHOOSE:2 from Vivilor A	ADD:FEAT|2
 Vivilor 1 B	TYPE:VivSwap1	VISIBLE:NO	MULT:YES	CHOOSE:2 from Vivilor B	ADD:FEAT|TYPE=VivB
 
 ###Block: Vivilor A
-# Feat Name						Type		Visible	Prohibited Feat							Move			Combat bonus					Add to base move			Stat bonus			SAB
-Vivilor Aquatic					TYPE:VivA	VISIBLE:NO										MOVE:Swim,60
-Vivilor Bat Wings					TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Feathered Wings				MOVE:Fly,60
-Vivilor Acid Resistance 5			TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Acid Resistance 15																						SAB:Acid Resistance 5 (Ex)
-Vivilor Cold Resistance 5			TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Cold Resistance 15																						SAB:Cold Resistance 5 (Ex)
-Vivilor Electricity Resistance 5		TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Electricity Resistance 15																					SAB:Electricty Resistance 5 (Ex)
-Vivilor Fire Resistance 5			TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Fire Resistance 15																						SAB:Fire Resistance 5 (Ex)
-Vivilor Sonic/Concussion Resistance 5	TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Sonic/Concussion Resistance 15																				SAB:Sonic/Concussion Resistance 5 (Ex)
-Vivilor Improved Ability Scores		TYPE:VivA																											BONUS:STAT|STR,CON|2
-Vivilor Quadrupedal				TYPE:VivA																						BONUS:MOVEADD|TYPE=Walk|20
-Vivilor Tentacles					TYPE:VivA			!PREFEAT:1,Vivilor Grasping Tentacles						BONUS:COMBAT|REACH|10
-Vivilor Tougher Skin				TYPE:VivA			!PREFEAT:1,Vivilor Metallic Skin							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+# Feat Name						Type		Visible	Prohibited Feat							Special ABility					Move			Combat bonus					Add to base move			Stat bonus
+Vivilor Aquatic					TYPE:VivA	VISIBLE:NO																	MOVE:Swim,60
+Vivilor Bat Wings					TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Feathered Wings											MOVE:Fly,60
+Vivilor Acid Resistance 5			TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Acid Resistance 15			SAB:Acid Resistance 5 (Ex)
+Vivilor Cold Resistance 5			TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Cold Resistance 15			SAB:Cold Resistance 5 (Ex)
+Vivilor Electricity Resistance 5		TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Electricity Resistance 15		SAB:Electricty Resistance 5 (Ex)
+Vivilor Fire Resistance 5			TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Fire Resistance 15			SAB:Fire Resistance 5 (Ex)
+Vivilor Sonic/Concussion Resistance 5	TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Sonic/Concussion Resistance 15	SAB:Sonic/Concussion Resistance 5 (Ex)
+Vivilor Improved Ability Scores		TYPE:VivA																																		BONUS:STAT|STR,CON|2
+Vivilor Quadrupedal				TYPE:VivA																													BONUS:MOVEADD|TYPE=Walk|20
+Vivilor Tentacles					TYPE:VivA			!PREFEAT:1,Vivilor Grasping Tentacles													BONUS:COMBAT|REACH|10
+Vivilor Tougher Skin				TYPE:VivA			!PREFEAT:1,Vivilor Metallic Skin														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 
 ###Block: Vivilor B
-# Feat Name						Type		Visible	Prohibited Feat							Move		Combat bonus					SAB
-Vivilor Amorphous					TYPE:VivB																					SAB:Immune to critical hits and massive damage, can't be flanked
-Vivilor Acid Resistance 15			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Acid Resistance 5												SAB:Acid Resistance 5 (Ex)
-Vivilor Cold Resistance 15			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Cold Resistance 5												SAB:Cold Resistance 5 (Ex)
-Vivilor Electricity Resistance 15		TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Electricity Resistance 5											SAB:Electricty Resistance 5 (Ex)
-Vivilor Fire Resistance 15			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Fire Resistance 5												SAB:Fire Resistance 5 (Ex)
-Vivilor Sonic/Concussion Resistance 15	TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Sonic/Concussion Resistance 5										SAB:Sonic/Concussion Resistance 5 (Ex)
-Vivilor Feathered Wings				TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Bat Wings					MOVE:Fly,90
+# Feat Name						Type		Visible	Prohibited Feat							Special ABility									Move		Combat bonus
+Vivilor Amorphous					TYPE:VivB												SAB:Immune to critical hits and massive damage, can't be flanked
+Vivilor Acid Resistance 15			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Acid Resistance 5			SAB:Acid Resistance 5 (Ex)
+Vivilor Cold Resistance 15			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Cold Resistance 5			SAB:Cold Resistance 5 (Ex)
+Vivilor Electricity Resistance 15		TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Electricity Resistance 5		SAB:Electricty Resistance 5 (Ex)
+Vivilor Fire Resistance 15			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Fire Resistance 5			SAB:Fire Resistance 5 (Ex)
+Vivilor Sonic/Concussion Resistance 15	TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Sonic/Concussion Resistance 5	SAB:Sonic/Concussion Resistance 5 (Ex)
+Vivilor Feathered Wings				TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Bat Wings																MOVE:Fly,90
 Vivilor Grasping Tentacles			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Tentacles
-Vivilor Metallic Skin				TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Tougher Skin						BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK
-Vivilor Serpentine				TYPE:VivB	VISIBLE:NO																			SAB:Double slam damage
+Vivilor Metallic Skin				TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Tougher Skin																	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK
+Vivilor Serpentine				TYPE:VivB	VISIBLE:NO										SAB:Double slam damage
 
 #
 # End

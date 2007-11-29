@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74
 # Original Entry by: Paul W. King
 
 ###Block: hidden feats
-# Feat Name	Type			Visible	Define			SAB
-Blood Money	TYPE:ClassFeature	VISIBLE:NO	DEFINE:BloodMoney|0	SAB:Blood Money +%|BloodMoney
-Dirty Deeds	TYPE:ClassFeature	VISIBLE:NO	DEFINE:DirtyDeeds|0	SAB:Dirty Deeds +%d6|DirtyDeeds
-Vigilante	TYPE:ClassFeature	VISIBLE:NO	DEFINE:VigilanteBonus|0	SAB:Vigilante +%|VigilanteBonus
+# Feat Name	Type			Visible	Special ABility				Define
+Blood Money	TYPE:ClassFeature	VISIBLE:NO	SAB:Blood Money +%|BloodMoney		DEFINE:BloodMoney|0
+Dirty Deeds	TYPE:ClassFeature	VISIBLE:NO	SAB:Dirty Deeds +%d6|DirtyDeeds	DEFINE:DirtyDeeds|0
+Vigilante	TYPE:ClassFeature	VISIBLE:NO	SAB:Vigilante +%|VigilanteBonus	DEFINE:VigilanteBonus|0

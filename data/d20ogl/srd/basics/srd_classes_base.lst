@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 13:12:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Uncanny Dodge should be moved to Feats/Feat with SAs...
@@ -181,21 +181,21 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Animal Companion - Remove these if Animal Companions are not desired
 1	BONUS:VAR|CompLevel|CL	AUTO:FEAT|Animal Companion
 ###Block: Level progression
-1	CAST:3,1								SAB:Nature Sense
-2	CAST:4,2								SAB:Woodland Stride
-3	CAST:4,2,1								SAB:Trackless Step
-4	CAST:5,3,2								SAB:Resist Nature's Lure
+1	CAST:3,1				SAB:Nature Sense
+2	CAST:4,2				SAB:Woodland Stride
+3	CAST:4,2,1				SAB:Trackless Step
+4	CAST:5,3,2				SAB:Resist Nature's Lure
 5	CAST:5,3,2,1
 6	CAST:5,3,3,2
 7	CAST:6,4,3,2,1
 8	CAST:6,4,3,3,2
-9	CAST:6,4,4,3,2,1							SAB:Venom Immunity
+9	CAST:6,4,4,3,2,1			SAB:Venom Immunity
 10	CAST:6,4,4,3,3,2
 11	CAST:6,5,4,4,3,2,1
 12	CAST:6,5,4,4,3,3,2
-13	CAST:6,5,5,4,4,3,2,1						SAB:A Thousand Faces
+13	CAST:6,5,5,4,4,3,2,1		SAB:A Thousand Faces
 14	CAST:6,5,5,4,4,3,3,2
-15	CAST:6,5,5,5,4,4,3,2,1		TEMPLATE:Timeless Body	SAB:Timeless Body
+15	CAST:6,5,5,5,4,4,3,2,1		SAB:Timeless Body			TEMPLATE:Timeless Body
 16	CAST:6,5,5,5,4,4,3,3,2
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2
@@ -261,28 +261,28 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 1	BONUS:VAR|WholenessHpLVL|CL	DEFINE:WholenessHpLVL|0
 1	BONUS:VAR|MonkACLVL|CL						VFEAT:Monk AC
 ###Block Flurry of Blows
-1	DEFINE:FlurryOfBlows|1	AUTO:EQUIP|Flurry of Blows	SAB:Flurry of Blows
+1	SAB:Flurry of Blows	DEFINE:FlurryOfBlows|1	AUTO:EQUIP|Flurry of Blows
 ###Block:Level progression
-1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2																												VFEAT:Evasion		AUTO:FEAT|Improved Unarmed Strike
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																			AUTO:FEAT|Deflect Arrows
-3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																									SAB:Still Mind
-4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						BONUS:VAR|SlowFall|20	DEFINE:SlowFall|0																												SAB:Slow Fall (% ft.)|SlowFall|PREVARLT:CL,18
-5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																																								SAB:Purity of Body
-6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						BONUS:VAR|SlowFall|10																									AUTO:FEAT|Improved Trip
-7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																																								SAB:Leap of the Clouds	SAB:Wholeness of Body (Su) % hp/day|WholenessHpLVL*2
-8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						BONUS:VAR|SlowFall|20
-9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																														VFEAT:Improved Evasion
-10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12										DEFINE:KiStrike|1																												SAB:Ki Strike (+%) (Su)|KiStrike
-11	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																								SAB:Diamond Body (Su)
-12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8														SPELLS:Abundant Step|TIMES=1|CASTERLEVEL=CL/2|Dimension Door,14+WIS															SAB:Abundant Step (Sp)
-13	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SR:10+MonkSR	BONUS:VAR|KiStrike|1																															SAB:Diamond Soul
+1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2																																									VFEAT:Evasion		AUTO:FEAT|Improved Unarmed Strike
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																																AUTO:FEAT|Deflect Arrows
+3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8							SAB:Still Mind
+4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Slow Fall (% ft.)|SlowFall|PREVARLT:CL,18						BONUS:VAR|SlowFall|20	DEFINE:SlowFall|0
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Purity of Body
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:VAR|SlowFall|10																									AUTO:FEAT|Improved Trip
+7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Leap of the Clouds	SAB:Wholeness of Body (Su) % hp/day|WholenessHpLVL*2
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																			BONUS:VAR|SlowFall|20
+9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																											VFEAT:Improved Evasion
+10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						SAB:Ki Strike (+%) (Su)|KiStrike												DEFINE:KiStrike|1
+11	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						SAB:Diamond Body (Su)
+12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SAB:Abundant Step (Sp)																		SPELLS:Abundant Step|TIMES=1|CASTERLEVEL=CL/2|Dimension Door,14+WIS
+13	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SR:10+MonkSR	SAB:Diamond Soul											BONUS:VAR|KiStrike|1
 14	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
-15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						BONUS:VAR|QuiverPalm|1	DEFINE:QuiverPalm|0																											SAB:Quivering Palm (Su) %/week|QuiverPalm
-16	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						BONUS:VAR|KiStrike|1
-17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																										TEMPLATE:Timeless Body											SAB:Timeless Body	SAB:Tongue of the Sun and Moon
-18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																																								SAB:Slow Fall (any distance)
-19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0																											SAB:Empty Body (Su) % rounds/day|EmptyBody
-20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																										TEMPLATE:Monk Outsider											SAB:Perfect Self
+15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SAB:Quivering Palm (Su) %/week|QuiverPalm							BONUS:VAR|QuiverPalm|1	DEFINE:QuiverPalm|0
+16	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																			BONUS:VAR|KiStrike|1
+17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Timeless Body	SAB:Tongue of the Sun and Moon																									TEMPLATE:Timeless Body
+18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Slow Fall (any distance)
+19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Empty Body (Su) % rounds/day|EmptyBody						BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0
+20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Perfect Self																															TEMPLATE:Monk Outsider
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page						Save checks bonus											Combat bonus
 CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pal		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCEPAGE:srdbasiccharacterclassesii.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -304,9 +304,9 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 ###Block:Special Mount  Remove these via .MOD if Mount is not desired
 5	BONUS:VAR|SMLevel|CL	AUTO:FEAT|Special Mount
 ###Block: Level progression
-1				BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0	DEFINE:AllowHolyAvenger|1					SAB:Detect Evil	SAB:Divine Grace	SAB:Divine Health	SAB:Lay on Hands (Su) % hp/day|LayOnHands
-2				BONUS:VAR|SmiteEvil|1																				AUTO:FEAT|Smite Evil	SAB:Aura of Courage
-3				BONUS:VAR|RemoveDisease|CL/3										DEFINE:RemoveDisease|0										SAB:Remove Disease %/week|RemoveDisease
+1				SAB:Detect Evil	SAB:Divine Grace	SAB:Divine Health	SAB:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0	DEFINE:AllowHolyAvenger|1
+2				SAB:Aura of Courage													BONUS:VAR|SmiteEvil|1																				AUTO:FEAT|Smite Evil
+3				SAB:Remove Disease %/week|RemoveDisease										BONUS:VAR|RemoveDisease|CL/3										DEFINE:RemoveDisease|0
 4	CAST:0,0
 5	CAST:0,0
 6	CAST:0,1
