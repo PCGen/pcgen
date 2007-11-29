@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Wed Oct 10 21:46:04 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus
-CLASS:Beast Handler	HD:10		TYPE:PC.Prestige	ABB:BHd		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2|PRECLASS:1,Beast Handler=3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus					List of Class Spells by Level
+CLASS:Beast Handler	HD:10		TYPE:PC.Prestige	ABB:BHd		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2|PRECLASS:1,Beast Handler=3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Beast Handler=1|Animal Friendship,Calm Animals,Enlarge,Invisibility to Animals,Magic Fang,Reduce|Beast Handler=2|Animal Trance,Charm Person or Animal,Detect Animals or Plants,Hold Animal,Speak with Animals,Summon Nature's Ally I|Beast Handler=3|Animal Messenger,Dominate Animal,Greater Magic Fang,Summon Nature's Alley II,Summon Swarm|Beast Handler=4|Charm Monster,Giant Vermin,Remove Disease,Repel Vermin,Summon Nature's Ally III
 # Class Name		Req. Att.	Required Feat										Required Skill
 CLASS:Beast Handler	PREATT:4	PREFEAT:2,Exotic Weapon Proficiency (Whip),Skill Focus (Handle Animal)	PRESKILL:1,Handle Animal=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Beast Handler	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
-# Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Beast Handler|CL	SPELLLEVEL:CLASS|Beast Handler=1|Animal Friendship,Calm Animals,Enlarge,Invisibility to Animals,Magic Fang,Reduce|Beast Handler=2|Animal Trance,Charm Person or Animal,Detect Animals or Plants,Hold Animal,Speak with Animals,Summon Nature's Ally I|Beast Handler=3|Animal Messenger,Dominate Animal,Greater Magic Fang,Summon Nature's Alley II,Summon Swarm|Beast Handler=4|Charm Monster,Giant Vermin,Remove Disease,Repel Vermin,Summon Nature's Ally III
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Beast Handler|CL
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
@@ -34,13 +34,13 @@ CLASS:Brute		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Ride|Swim
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Improved Power Attack										AUTO:FEAT|Toughness
+1	SAB:Improved Power Attack											AUTO:FEAT|Toughness
 2	SAB:Battle Cry %/day|BattleCry	BONUS:VAR|BattleCry|(CL+2)/4	DEFINE:BattleCry|0
 3	SAB:Shield Breaker
-4															AUTO:FEAT|Toughness
+4																AUTO:FEAT|Toughness
 5	SAB:Relentless Assault
 6	SAB:Onslaught
-7															AUTO:FEAT|Toughness
+7																AUTO:FEAT|Toughness
 8	SAB:Batter Foe
 9	SAB:Batter Steel
 10	SAB:Brutal Assault
@@ -80,7 +80,7 @@ CLASS:Epic Athlete	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Heal|Intim
 5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:HD|MIN|2
 6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																																								BONUS:SKILL|Jump|4|TYPE=Competence
 7	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Giant Killer
-8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Bear Hug																	BONUS:HD|MIN|1
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Bear Hug																BONUS:HD|MIN|1
 9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SAB:Hearty Constitution
 10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SAB:Immunity to disease and poison	SAB:Regeneration (Ex) % HP/ Hour|Regen	BONUS:VAR|Regen|max(CON,0)																													DEFINE:Regen|0
 
@@ -110,12 +110,12 @@ CLASS:Gutter Fighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist
 ###Block: Normal Level Progression
 1	SAB:Dirty Blow
 2	SAB:Strike and Fade
-3					BONUS:VAR|SneakAttack|CL/3									AUTO:FEAT|Sneak Attack
-4										BONUS:COMBAT|AC|1|TYPE=Dodge|PREFEAT:1,Dodge	AUTO:FEAT|Dodge
+3						BONUS:VAR|SneakAttack|CL/3									AUTO:FEAT|Sneak Attack
+4											BONUS:COMBAT|AC|1|TYPE=Dodge|PREFEAT:1,Dodge	AUTO:FEAT|Dodge
 5	SAB:Scaling the Mountain
-6										BONUS:COMBAT|AC|CL/3|TYPE=NaturalArmor.REPLACE
+6											BONUS:COMBAT|AC|CL/3|TYPE=NaturalArmor.REPLACE
 7	SAB:Hobbling Strike
-8					BONUS:VAR|UncannyDodge|1									AUTO:FEAT|Uncanny Dodge
+8						BONUS:VAR|UncannyDodge|1									AUTO:FEAT|Uncanny Dodge
 10	SAB:Agonizing Strike
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -179,13 +179,13 @@ CLASS:Mercenary Captain	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Innuendo|Intimidate|L
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Grizzled	SAB:War Cry
-2	SAB:Attack Drill %/day|Drill					DEFINE:Drill|CL/2
+2	SAB:Attack Drill %/day|Drill						DEFINE:Drill|CL/2
 3	SAB:Battle Music %|BattleMusic	BONUS:VAR|BattleMusic|1	DEFINE:BattleMusic|0
 4	SAB:Tactical Superiority
-5						BONUS:VAR|BattleMusic|1
+5							BONUS:VAR|BattleMusic|1
 6	SAB:Strategic Mastery
 7	SAB:Without Hesitation
-8						BONUS:VAR|BattleMusic|1
+8							BONUS:VAR|BattleMusic|1
 9	SAB:Battle Brother
 10	SAB:Battle Master
 
@@ -257,7 +257,7 @@ CLASS:Spellbreaker	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Kn
 ###Block: Normal Level Progression
 1	SAB:Neutralize Magic %/day|Neutralize			BONUS:VAR|Neutralize|(CL+1)/2	DEFINE:Neutralize|0
 2	SAB:Disrupt Spellcaster
-4	SAB:Empty Mind %/day|EmptyMind					BONUS:VAR|EmptyMind|CL/4	DEFINE:EmptyMind|0
+4	SAB:Empty Mind %/day|EmptyMind				BONUS:VAR|EmptyMind|CL/4	DEFINE:EmptyMind|0
 6	SAB:Disruptive Strike
 8	SAB:Disruptive Fist
 10	SAB:Empty Mind (10' radius)	SAB:Shattering Strike
@@ -272,16 +272,16 @@ CLASS:Wandering Squire	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Diplomacy|Gather 
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Staff Expert															AUTO:FEAT|Expertise
+1	SAB:Staff Expert																AUTO:FEAT|Expertise
 2	SAB:Stunning Attack %/day|Stun	BONUS:COMBAT|AC|1|TYPE=Dodge	DEFINE:Stun|1
-3														ADD:FEAT|1|TYPE=Fighter
+3															ADD:FEAT|1|TYPE=Fighter
 4	SAB:Deflect Arrows
-5						BONUS:COMBAT|AC|1|TYPE=Dodge
+5							BONUS:COMBAT|AC|1|TYPE=Dodge
 6	SAB:Defensive Stance
-7														ADD:FEAT|1|TYPE=Fighter
-8						BONUS:COMBAT|AC|1|TYPE=Dodge
+7															ADD:FEAT|1|TYPE=Fighter
+8							BONUS:COMBAT|AC|1|TYPE=Dodge
 9	SAB:Warding Attack
-10	SAB:Staff Mastery			BONUS:COMBAT|AC|1|TYPE=Dodge
+10	SAB:Staff Mastery				BONUS:COMBAT|AC|1|TYPE=Dodge
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Warleader	HD:10		TYPE:PC.Prestige	ABB:Wrl		MAXLEVEL:10	SOURCEPAGE:p.81	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -322,7 +322,7 @@ CLASS:Warmage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowl
 7	SAB:Dodge Missile Fire +1
 8									BONUS:VAR|ArmoredMage|5																										ADD:SPELLCASTER|1|Arcane
 9	SAB:Arcane Tactician
-10	SAB:Arcane Warrior																																			ADD:SPELLCASTER|1|Arcane
+10	SAB:Arcane Warrior																																		ADD:SPELLCASTER|1|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Wild Rider	HD:10		TYPE:PC.Prestige	ABB:Wld		MAXLEVEL:10	SOURCEPAGE:p.85	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -340,6 +340,6 @@ CLASS:Wild Rider	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle A
 4	SAB:Furious Fire
 5	SAB:Spirited Mount +%HD|Spirited	DEFINE:Spirited|(CL-1)/4
 6	SAB:Incite Rage
-7	SAB:Exotic Mount %|ExoticMount		DEFINE:ExoticMount|(CL-4)/3
+7	SAB:Exotic Mount %|ExoticMount	DEFINE:ExoticMount|(CL-4)/3
 8	SAB:Ride Like the Wind
 10	SAB:Ferocious Charge

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 10 21:51:01 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Malhavoc Press - Book of Eldritch Might II	SOURCESHORT:BoEM2	SOURCEWEB:http://www.montecook.com
 # The Bard, Sorcerer, and Eldritch Warrior are the only OGC named classes.  The rest of the names are PI
 
@@ -76,16 +76,16 @@ CLASS:Diplomancer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECK
 CLASS:Diplomancer	PREFEAT:2,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:1,Diplomacy=10	PRESKILL:1,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Innuendo|Intimidate|TYPE.Knowledge|Listen|Scry|Search|Sense Motive|Spellcraft|Spot
-1	SAB:Charm														ADD:SPELLCASTER|1|ANY
-2	SAB:Enchantment Affinity +%|EnchantAff					DEFINE:EnchantAff|1
+1	SAB:Charm															ADD:SPELLCASTER|1|ANY
+2	SAB:Enchantment Affinity +%|EnchantAff						DEFINE:EnchantAff|1
 3	SAB:Magical Seduction/Attractiveness										ADD:SPELLCASTER|1|ANY
 4	SAB:Protection from Evocations +%|ProtEvoc					DEFINE:ProtEvoc|1
 5	SAB:Insight into Secrets												ADD:SPELLCASTER|1|ANY
-6								BONUS:VAR|EnchantAff|1
-7	SAB:Charisma Gift													ADD:SPELLCASTER|1|ANY
-8								BONUS:VAR|ProtEvoc|1
-9	SAB:Word Cunning													ADD:SPELLCASTER|1|ANY
-10								BONUS:VAR|EnchantAff|1					ADD:SPELLCASTER|1|ANY
+6									BONUS:VAR|EnchantAff|1
+7	SAB:Charisma Gift														ADD:SPELLCASTER|1|ANY
+8									BONUS:VAR|ProtEvoc|1
+9	SAB:Word Cunning														ADD:SPELLCASTER|1|ANY
+10									BONUS:VAR|EnchantAff|1					ADD:SPELLCASTER|1|ANY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

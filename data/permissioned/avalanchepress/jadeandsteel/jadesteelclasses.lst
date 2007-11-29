@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -13,10 +13,10 @@ CLASS:Alchemist	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft
 4	SAB:Analyze Chemical				ADD:SPELLCASTER|1|Arcane
 5	SAB:Brew Paint	SAB:Chemical Resistance	ADD:SPELLCASTER|1|Arcane
 6	SAB:Substitute					ADD:SPELLCASTER|1|Arcane
-7	SAB:Brew Oil						ADD:SPELLCASTER|1|Arcane
-8	SAB:Brew Superior Elixir				ADD:SPELLCASTER|1|Arcane
-9	SAB:Brew Gas						ADD:SPELLCASTER|1|Arcane
-10	SAB:Elixir of Life					ADD:SPELLCASTER|1|Arcane
+7	SAB:Brew Oil					ADD:SPELLCASTER|1|Arcane
+8	SAB:Brew Superior Elixir			ADD:SPELLCASTER|1|Arcane
+9	SAB:Brew Gas					ADD:SPELLCASTER|1|Arcane
+10	SAB:Elixir of Life				ADD:SPELLCASTER|1|Arcane
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Attack Cycle	Save checks bonus								Combat bonus
 CLASS:Dim Mak Practitioner	HD:8		TYPE:PC.Prestige	ABB:DMk		MAXLEVEL:10	SOURCEPAGE:p.13	ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -44,7 +44,7 @@ CLASS:Diviner	STARTSKILLPTS:2	CSKILL:Concentration|Decipher Script|Gather Inform
 # Class Name	Use Spell List
 CLASS:Diviner	SPELLLIST:1|Wizard
 1	SAB:Augury									ADD:SPELLCASTER|1|Arcane
-2	SAB:Insight %|DivInsight		DEFINE:DivInsight|CL/2		ADD:SPELLCASTER|1|Arcane
+2	SAB:Insight %|DivInsight	DEFINE:DivInsight|CL/2		ADD:SPELLCASTER|1|Arcane
 3	SAB:Divination								ADD:SPELLCASTER|1|Arcane
 4											ADD:SPELLCASTER|1|Arcane
 5	SAB:Inspiration %|Inspiration	DEFINE:Inspiration|(CL-1)/4	ADD:SPELLCASTER|1|Arcane
@@ -63,15 +63,15 @@ CLASS:Geometer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Diplomac
 # Class Name	Use Spell List
 CLASS:Geometer	SPELLLIST:1|Cleric
 1	SAB:Enchant Area %|EnchantArea	SAB:Harmony Within	DEFINE:EnchantArea|(CL+1)/2	ADD:SPELLCASTER|1|ANY
-2	SAB:Harmony's Blessing										ADD:SPELLCASTER|1|ANY
-3														ADD:SPELLCASTER|1|ANY
-4	SAB:Harmony Without										ADD:SPELLCASTER|1|ANY
-5														ADD:SPELLCASTER|1|ANY
-6	SAB:Harmony's Touch										ADD:SPELLCASTER|1|ANY
-7														ADD:SPELLCASTER|1|ANY
-8	SAB:Harmony's Shield										ADD:SPELLCASTER|1|ANY
-9														ADD:SPELLCASTER|1|ANY
-10	SAB:Perfect Harmony										ADD:SPELLCASTER|1|ANY
+2	SAB:Harmony's Blessing												ADD:SPELLCASTER|1|ANY
+3																ADD:SPELLCASTER|1|ANY
+4	SAB:Harmony Without												ADD:SPELLCASTER|1|ANY
+5																ADD:SPELLCASTER|1|ANY
+6	SAB:Harmony's Touch												ADD:SPELLCASTER|1|ANY
+7																ADD:SPELLCASTER|1|ANY
+8	SAB:Harmony's Shield												ADD:SPELLCASTER|1|ANY
+9																ADD:SPELLCASTER|1|ANY
+10	SAB:Perfect Harmony												ADD:SPELLCASTER|1|ANY
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Attack Cycle	Save checks bonus								Combat bonus
 CLASS:Iron Hand Disciple	HD:8		TYPE:PC.Prestige	ABB:IHD		SOURCEPAGE:p.18	ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

@@ -1,37 +1,53 @@
-# CVS $Revision$ $Author$ -- Wed Oct 10 21:46:04 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 
-CLASS:Beast Handler.MOD	CSKILL:.CLEAR	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
-CLASS:Beast Handler.MOD		SPELLLEVEL:CLASS|Beast Handler=1|Enlarge Person,Hide from Animals,Reduce Person|Beast Handler=2|Charm Animal,Magic Fang (Greater),Summon Nature's Ally II
+# Class Name		List of Class Spells by Level
+CLASS:Beast Handler.MOD	SPELLLEVEL:CLASS|Beast Handler=1|Enlarge Person,Hide from Animals,Reduce Person|Beast Handler=2|Charm Animal,Magic Fang (Greater),Summon Nature's Ally II
+# Class Name		Removed Class Skill	Class Skill
+CLASS:Beast Handler.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
 
-CLASS:Elf Treerunner.MOD	PRE:.CLEAR	PREATT:5	PREFEAT:2,Lightning Reflexes,Track	PRERACE:1,Elf%,Half-Elf	PRESKILL:1,Climb=8	PRESKILL:1,Survival=4	PRESKILL:2,Jump,Balance=6
-CLASS:Elf Treerunner.MOD	CSKILL:.CLEAR	CSKILL:Balance|Climb|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Survival|Swim
+# Class Name			Clear Prereq.	Req. Att.	Required Feat				Required Race		Required Skill
+CLASS:Elf Treerunner.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:2,Lightning Reflexes,Track	PRERACE:1,Elf%,Half-Elf	PRESKILL:1,Climb=8	PRESKILL:1,Survival=4	PRESKILL:2,Jump,Balance=6
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Elf Treerunner.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Survival|Swim
 
-CLASS:Epic Athlete.MOD	CSKILL:.CLEAR	CSKILL:Balance|Climb|Escape Artist|Heal|Intimidate|Jump|Listen|TYPE.Perform|Ride|Spot|Swim|Tumble
+# Class Name		Removed Class Skill	Class Skill
+CLASS:Epic Athlete.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Escape Artist|Heal|Intimidate|Jump|Listen|TYPE.Perform|Ride|Spot|Swim|Tumble
 
-CLASS:Footman.MOD	PRE:.CLEAR	PREATT:3	PREFEAT:2,Dodge,Combat Expertise	PRESIZELTEQ:S
+# Class Name	Clear Prereq.	Req. Att.	Required Feat				Maximum Size
+CLASS:Footman.MOD	PRE:.CLEAR		PREATT:3	PREFEAT:2,Dodge,Combat Expertise	PRESIZELTEQ:S
 
-CLASS:Gutter Fighter.MOD	CSKILL:.CLEAR	CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Search|Sleight of Hand|Spot|Swim|Tumble
-8	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK		AUTO:FEAT|Uncanny Dodge
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Gutter Fighter.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Search|Sleight of Hand|Spot|Swim|Tumble
+8	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	AUTO:FEAT|Uncanny Dodge
 
-CLASS:Knight Chaplain.MOD	CSKILL:.CLEAR	CSKILL:Concentration|TYPE.Craft|Heal|Listen|Ride|Search|Spot
-CLASS:Knight Chaplain.MOD
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Knight Chaplain.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|Heal|Listen|Ride|Search|Spot
 1	SPELLLEVEL:CLASS|Knight Chaplain=1|Enlarge Person,Reduce Person
 1	SPELLLEVEL:CLASS|Knight Chaplain=2|Restoration (Lesser),Bear's Endurance
 1	SPELLLEVEL:CLASS|Knight Chaplain=4|Globe of Invulnerability (Lesser)
 1	SPELLLEVEL:CLASS|Knight Chaplain=5|Cure Light Wounds (Mass)
 
+# Class Name
 CLASS:Lancer.MOD
 7	VFEAT:Two Weapon Fighting
 
-CLASS:Mercenary Captain.MOD	CSKILL:.CLEAR	CSKILL:Bluff|Climb|Intimidate|Listen|TYPE.Perform|Ride|Search|Sense Motive|Spot
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Mercenary Captain.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Climb|Intimidate|Listen|TYPE.Perform|Ride|Search|Sense Motive|Spot
 
+# Class Name	Clear Prereq.	Req. Att.	Required Feat			Required Skill
 CLASS:Rake.MOD	PRE:.CLEAR		PREATT:4	PREFEAT:1,Combat Expertise	PRESKILL:2,Bluff,Intimidate=8
-CLASS:Rake.MOD	CSKILL:.CLEAR	CSKILL:Balance|Bluff|Climb|Gather Information|Intimidate|Jump|TYPE.Perform|Sleight of Hand|Tumble
+# Class Name	Removed Class Skill	Class Skill
+CLASS:Rake.MOD	CSKILL:.CLEAR		CSKILL:Balance|Bluff|Climb|Gather Information|Intimidate|Jump|TYPE.Perform|Sleight of Hand|Tumble
 
-CLASS:Wandering Squire.MOD	PRE:.CLEAR	PREATT:5	PREFEAT:3,Dodge,Two Weapon Fighting,Weapon Focus(Quarterstaff)
-CLASS:Wandering Squire.MOD		AUTO:FEAT|Combat Expertise
+# Class Name			Automaticaly Gained Feat
+CLASS:Wandering Squire.MOD	AUTO:FEAT|Combat Expertise
+# Class Name			Clear Prereq.	Req. Att.	Required Feat
+CLASS:Wandering Squire.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:3,Dodge,Two Weapon Fighting,Weapon Focus(Quarterstaff)
 
-CLASS:Warmage.MOD	CSKILL:.CLEAR	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft
+# Class Name	Removed Class Skill	Class Skill
+CLASS:Warmage.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft
 
-CLASS:Wild Rider.MOD	PRE:.CLEAR	PREATT:5	PREFEAT:2,Mounted Combat,Mounted Archery	PRESKILL:1,Ride=8	PRESKILL:2,Heal,Survival=6	PREVARGTEQ:RageTimes,1
-CLASS:Wild Rider.MOD	CSKILL:.CLEAR	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Listen|TYPE.Profession|Ride|Survival|Swim
+# Class Name		Clear Prereq.	Req. Att.	Required Feat					Required Skill						Var. Min. Value
+CLASS:Wild Rider.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:2,Mounted Combat,Mounted Archery	PRESKILL:1,Ride=8	PRESKILL:2,Heal,Survival=6	PREVARGTEQ:RageTimes,1
+# Class Name		Removed Class Skill	Class Skill
+CLASS:Wild Rider.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Listen|TYPE.Profession|Ride|Survival|Swim

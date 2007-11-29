@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 24 07:13:09 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 # Original entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
 
@@ -17,18 +17,18 @@ CLASS:Guardian	STARTSKILLPTS:2	CSKILL:Gather Information|Handle Animal|Intimidat
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1																		ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter	ADD:FEAT|1|Primitive Craft Class Skill,Skill Focus Advanced	SAB:Defender
-2																		ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-4										DEFINE:WeapSpecQualify|1				ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-5	BONUS:VAR|CalledShot|(var("CL=Guardian")-5)/4 +1	DEFINE:CalledShotDie|6	DEFINE:CalledShot|0																											SAB:Called Shot +%d%|CalledShot|CalledShotDie
-6																		ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-8																		ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-10																		ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-12																		ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-14																		ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-16																		ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-18																		ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-20																		ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter											SAB:Shoot to Kill
+1	SAB:Defender																							ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter	ADD:FEAT|1|Primitive Craft Class Skill,Skill Focus Advanced
+2																										ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
+4																		DEFINE:WeapSpecQualify|1				ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
+5	SAB:Called Shot +%d%|CalledShot|CalledShotDie	BONUS:VAR|CalledShot|(var("CL=Guardian")-5)/4 +1	DEFINE:CalledShotDie|6	DEFINE:CalledShot|0
+6																										ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
+8																										ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
+10																										ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
+12																										ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
+14																										ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
+16																										ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
+18																										ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
+20	SAB:Shoot to Kill																							ADD:FEAT|1|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
 
 # Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus											Combat bonus
 CLASS:Raider	HD:10		XTRAFEATS:0		TYPE:Base.PC	ABB:Rdr		SOURCEPAGE:pp.19-21	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -39,19 +39,19 @@ CLASS:Raider	STARTSKILLPTS:2	CSKILL:Craft (Mechanics)|Gather Information|Handle 
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	DEFINE:ChainsChaps|CL/10+1	ADD:FEAT|1|Primitive Raider Craft Class Skill,Primitive Raider Mechanics Bonus,Skill Focus Advanced																				SAB:Chains and Chaps +%|ChainsChaps
-2						ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
-3																																										SAB:Boarding Party
-5						ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
-7																																										SAB:Slaver
-8						ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
-10																																										SAB:Bloodthirsty Cry
-11						ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
-12																																										SAB:No Survivors
-14						ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
-17						ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
-18																																										SAB:Terrifying Presence
-20						ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
+1	SAB:Chains and Chaps +%|ChainsChaps	DEFINE:ChainsChaps|CL/10+1	ADD:FEAT|1|Primitive Raider Craft Class Skill,Primitive Raider Mechanics Bonus,Skill Focus Advanced
+2												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
+3	SAB:Boarding Party
+5												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
+7	SAB:Slaver
+8												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
+10	SAB:Bloodthirsty Cry
+11												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
+12	SAB:No Survivors
+14												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
+17												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
+18	SAB:Terrifying Presence
+20												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page			Save checks bonus											Combat bonus
 CLASS:Scav		HD:8		TYPE:Base.PC	ABB:Scv		SOURCEPAGE:pp.21-23	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -62,11 +62,11 @@ CLASS:Scav		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|For
 1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	BONUS:VAR|SneakAttack|CL/5+1																									ADD:FEAT|1|Primitive Craft Skill Bonus,Skill Focus Advanced	AUTO:FEAT|Sneak Attack	SAB:Nature Sense
-4																																												SAB:Radiation Sense
-8						BONUS:COMBAT|AC|WIS|PREVAREQ:LowArmor,0|TYPE=Enhancement	DEFINE:LowArmor|COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]															SAB:Canny Defense (%)|WIS
-12																DEFINE:FeignDeathRounds|CL*10																								SAB:Feign Death (% rounds)|FeignDeathRounds
-16																																												SAB:Shadow in the Open
+1	SAB:Nature Sense						BONUS:VAR|SneakAttack|CL/5+1																									ADD:FEAT|1|Primitive Craft Skill Bonus,Skill Focus Advanced	AUTO:FEAT|Sneak Attack
+4	SAB:Radiation Sense
+8	SAB:Canny Defense (%)|WIS									BONUS:COMBAT|AC|WIS|PREVAREQ:LowArmor,0|TYPE=Enhancement	DEFINE:LowArmor|COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]
+12	SAB:Feign Death (% rounds)|FeignDeathRounds																DEFINE:FeignDeathRounds|CL*10
+16	SAB:Shadow in the Open
 
 # Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
 CLASS:Thinker	HD:4		XTRAFEATS:0		TYPE:Base.PC	ABB:Thn		SOURCEPAGE:pp.23-26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -74,17 +74,17 @@ CLASS:Thinker	HD:4		XTRAFEATS:0		TYPE:Base.PC	ABB:Thn		SOURCEPAGE:pp.23-26	BONUS
 CLASS:Thinker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|Diplomacy|Forgery|Heal|TYPE.Knowledge|Open Lock|TYPE.Profession
 1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
 ###Block: Normal Level Progression
-1											ADD:FEAT|1|Skill Focus	ADD:FEAT|1|Primitive Craft Skill Bonus,Skill Focus Advanced
-2	BONUS:VAR|ThinkerKnowledge|CL	DEFINE:ThinkerKnowledge|INT																			SAB:Thinker Knowledge (+%)|ThinkerKnowledge
-5											ADD:FEAT|1|Skill Focus															SAB:Dirty Fighter
-6											ADD:FEAT|1|Exotic Weapon Proficiency
-8																													SAB:Inspire Skill
-9																									AUTO:FEAT|Secret Lore	SAB:Identify	SAB:Secret Lore
-10											ADD:FEAT|1|Skill Focus															SAB:Confusing Tirade
-12											ADD:FEAT|1|Exotic Weapon Proficiency
-15											ADD:FEAT|1|Skill Focus															SAB:Protected by Code
-18											ADD:FEAT|1|Exotic Weapon Proficiency
-20											ADD:FEAT|1|Skill Focus
+1																			ADD:FEAT|1|Skill Focus	ADD:FEAT|1|Primitive Craft Skill Bonus,Skill Focus Advanced
+2	SAB:Thinker Knowledge (+%)|ThinkerKnowledge	BONUS:VAR|ThinkerKnowledge|CL	DEFINE:ThinkerKnowledge|INT
+5	SAB:Dirty Fighter																ADD:FEAT|1|Skill Focus
+6																			ADD:FEAT|1|Exotic Weapon Proficiency
+8	SAB:Inspire Skill
+9	SAB:Identify	SAB:Secret Lore																											AUTO:FEAT|Secret Lore
+10	SAB:Confusing Tirade															ADD:FEAT|1|Skill Focus
+12																			ADD:FEAT|1|Exotic Weapon Proficiency
+15	SAB:Protected by Code															ADD:FEAT|1|Skill Focus
+18																			ADD:FEAT|1|Exotic Weapon Proficiency
+20																			ADD:FEAT|1|Skill Focus
 
 # Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus											Combat bonus
 CLASS:Trader	HD:6		XTRAFEATS:0		TYPE:Base.PC	ABB:Trd		SOURCEPAGE:pp.26-28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -94,13 +94,13 @@ CLASS:Trader	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Gather Info
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1																																	ADD:Language|1|Trade	ADD:FEAT|1|Liked by All,Silver Tongue,Vulture	ADD:FEAT|1|Primitive Craft Class Skill,Skill Focus Advanced					SAB:Protector
-2									BONUS:SKILL|Bluff,Diplomacy,Forgery|2|TYPE=Morale																																										SAB:Spit Polish
-3									BONUS:SKILL|Appraise|2|TYPE=Competence	BONUS:SKILL|Gather Information|4|TYPE=Competence																																			SAB:Ear to the Ground
-4																																																											SAB:Money Talks
-5																									DEFINE:GoingOnce1|1	DEFINE:GoingOnce2|5																											SAB:Going Once x%.%|GoingOnce1|GoingOnce2
-10	BONUS:VAR|GoingOnce1|1	BONUS:VAR|GoingOnce2|-5																																																			SAB:Sucker Every Minute
-12																																																											SAB:Read the Signs
-15																																																							AUTO:FEAT|Leadership
-18																																																											SAB:Professional Courtesy
-20	BONUS:VAR|GoingOnce1|1
+1	SAB:Protector																																					ADD:Language|1|Trade	ADD:FEAT|1|Liked by All,Silver Tongue,Vulture	ADD:FEAT|1|Primitive Craft Class Skill,Skill Focus Advanced
+2	SAB:Spit Polish													BONUS:SKILL|Bluff,Diplomacy,Forgery|2|TYPE=Morale
+3	SAB:Ear to the Ground												BONUS:SKILL|Appraise|2|TYPE=Competence	BONUS:SKILL|Gather Information|4|TYPE=Competence
+4	SAB:Money Talks
+5	SAB:Going Once x%.%|GoingOnce1|GoingOnce2																									DEFINE:GoingOnce1|1	DEFINE:GoingOnce2|5
+10	SAB:Sucker Every Minute				BONUS:VAR|GoingOnce1|1	BONUS:VAR|GoingOnce2|-5
+12	SAB:Read the Signs
+15																																																														AUTO:FEAT|Leadership
+18	SAB:Professional Courtesy
+20								BONUS:VAR|GoingOnce1|1

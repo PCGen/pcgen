@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 10 21:49:41 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
 
 # Class Name	Product Identity?	Hit Dice	Starting Feats	Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
@@ -7,12 +7,12 @@ CLASS:Air Lord	NAMEISPI:NO		HD:10		XTRAFEATS:1		ABB:AL		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Air Lord	PREFEAT:1,Mounted Combat	PRESKILL:1,Balance=4	PRESKILL:1,Ride=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Air Lord	STARTSKILLPTS:2	CSKILL:Balance|TYPE.Climb|TYPE.Craft|Handle Animal|Intuit Direction|TYPE.Jump|Ride|Spot|Swim
-1	SAB:Improved Aerial Rider																																																													AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1	SAB:Improved Aerial Rider																																																														AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2	SAB:Aerial mount
 3	SAB:Swoop attack
 4	SAB:Feather fall
 5	SAB:Improved aerial rider	SAB:Improved mount
-6									DEFINE:WeapSpecQualify|1	ADD:FEAT|1|Alertness,Improved Critical,Improved Initiative,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Skill Focus,Weapon Finesse,Weapon Focus,Weapon Specialization
+6										DEFINE:WeapSpecQualify|1	ADD:FEAT|1|Alertness,Improved Critical,Improved Initiative,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Skill Focus,Weapon Finesse,Weapon Focus,Weapon Specialization
 7	SAB:Aerial Awarness
 8	SAB:Summon Air Elemental
 9	SAB:Improved Aerial Rider
@@ -56,16 +56,16 @@ CLASS:Student of the Dragon	STARTSKILLPTS:4	CSKILL:Balance|TYPE.Climb|Concentrat
 CLASS:Wyrmfoe	NAMEISPI:NO		HD:4		ABB:WFoe		MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wyrmfoe	STARTSKILLPTS:2	CSKILL:TYPE.Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
-1	SAB:Dragon Magic		ADD:SPELLCASTER|1|ANY
-2	SAB:Dragon Claws		ADD:SPELLCASTER|1|ANY
-3	SAB:Damage Resistance	ADD:SPELLCASTER|1|ANY
-4	SAB:Dragon Magic		ADD:SPELLCASTER|1|ANY
+1	SAB:Dragon Magic			ADD:SPELLCASTER|1|ANY
+2	SAB:Dragon Claws			ADD:SPELLCASTER|1|ANY
+3	SAB:Damage Resistance		ADD:SPELLCASTER|1|ANY
+4	SAB:Dragon Magic			ADD:SPELLCASTER|1|ANY
 5	SAB:Dragon Creature Type	ADD:SPELLCASTER|1|ANY
-6	SAB:Damage Resistance	ADD:SPELLCASTER|1|ANY
-7	SAB:Dragon Magic		ADD:SPELLCASTER|1|ANY
-8	SAB:Damage Resistance	ADD:SPELLCASTER|1|ANY
-9	SAB:Dragon Breath		ADD:SPELLCASTER|1|ANY
-10	SAB:Dragon Magic		ADD:SPELLCASTER|1|ANY
+6	SAB:Damage Resistance		ADD:SPELLCASTER|1|ANY
+7	SAB:Dragon Magic			ADD:SPELLCASTER|1|ANY
+8	SAB:Damage Resistance		ADD:SPELLCASTER|1|ANY
+9	SAB:Dragon Breath			ADD:SPELLCASTER|1|ANY
+10	SAB:Dragon Magic			ADD:SPELLCASTER|1|ANY
 
 # Class Name	Product Identity?	Hit Dice	Max Level	Source Page			Save checks bonus								Combat bonus
 CLASS:Wyrm Spawn	NAMEISPI:NO		HD:8		MAXLEVEL:10	SOURCEPAGE:p.42-44	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|0|TYPE=Base.REPLACE
