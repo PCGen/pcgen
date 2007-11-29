@@ -46,6 +46,7 @@ $pub{'behemoth3'} = 'Behemoth3';
 $pub{'bigfingergames'} = 'Big Finger Games';
 $pub{'bloodstonepress'} = 'Bloodstone Press';
 $pub{'bluedevilgames'} = 'Blue Devil Games';
+$pub{'craftygames'} = 'Crafty Games';
 $pub{'creativemountaingames'} = 'Creative Mountain Games';
 $pub{'doghouserules'} = 'Dog House Rules';
 $pub{'en_publishing'} = 'EN Publishing';
