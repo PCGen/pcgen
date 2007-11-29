@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # Bard and Druid block.  Due to .MOD issues, redoing classes here
@@ -40,27 +40,27 @@ CLASS:Druid ~ LoE	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rt
 CLASS:Druid ~ LoE	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
 CLASS:Druid ~ LoE	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Druid ~ LoE|CL
-1	CAST:1,2,12				SAB:Nature Sense (Ex)	SAB:Wild Empathy (Ex)	BONUS:VAR|CompLevel|CL	BONUS:VAR|BASEPOWERPOINTS|1									VFEAT:Power Source(Druid/Minstrel)	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium	AUTO:FEAT|Animal Companion	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Longspear
+1	CAST:1,2,12				BONUS:VAR|CompLevel|CL	BONUS:VAR|BASEPOWERPOINTS|1									VFEAT:Power Source(Druid/Minstrel)	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium	AUTO:FEAT|Animal Companion	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Longspear	SAB:Nature Sense (Ex)	SAB:Wild Empathy (Ex)
 # VFEAT:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-2	CAST:1,1,8				SAB:Woodland Stride (Ex)					BONUS:VAR|BASEPOWERPOINTS|1
-3	CAST:1,1,4,15			SAB:Trackless Step (Ex)					BONUS:VAR|BASEPOWERPOINTS|2
-4	CAST:1,1,3,10			SAB:Resist Nature's Lure (Ex)				BONUS:VAR|BASEPOWERPOINTS|3
-5	CAST:0,1,2,5,18			SAB:Wildshape %/day|Wildshape				BONUS:VAR|BASEPOWERPOINTS|3	BONUS:VAR|Wildshape|1					DEFINE:Wildshape|0
-6	CAST:0,1,2,4,12											BONUS:VAR|BASEPOWERPOINTS|5	BONUS:VAR|Wildshape|1
-7	CAST:0,1,2,3,6,21											BONUS:VAR|BASEPOWERPOINTS|5	BONUS:VAR|Wildshape|1
-8	CAST:0,1,2,3,5,14			SAB:Wildshape Large					BONUS:VAR|BASEPOWERPOINTS|7
-9	CAST:0,1,2,3,4,7,24		SAB:Venom Immunity (Ex)					BONUS:VAR|BASEPOWERPOINTS|7
-10	CAST:0,1,2,3,4,6,16										BONUS:VAR|BASEPOWERPOINTS|9	BONUS:VAR|Wildshape|1
-11	CAST:0,1,2,3,4,5,8,27		SAB:Wildshape (Tiny)					BONUS:VAR|BASEPOWERPOINTS|9
-12	CAST:0,1,2,3,4,5,7,18		SAB:Wildshape (Plant)					BONUS:VAR|BASEPOWERPOINTS|11
-13	CAST:0,1,2,3,4,5,6,9,30		SAB:A Thousand Faces (Su)				BONUS:VAR|BASEPOWERPOINTS|11
-14	CAST:0,1,2,3,4,5,6,8,20										BONUS:VAR|BASEPOWERPOINTS|13	BONUS:VAR|Wildshape|1
-15	CAST:0,1,2,3,4,5,6,7,10,33	SAB:Wildshape (Huge)	SAB:Timeless Body (Ex)	BONUS:VAR|BASEPOWERPOINTS|13
-16	CAST:0,1,2,3,4,5,6,7,9,22	SAB:Wildshape (elemental %/day)|EWildshape		BONUS:VAR|BASEPOWERPOINTS|15	BONUS:VAR|EWildshape|1					DEFINE:EWildshape|0
-17	CAST:0,1,2,3,4,5,6,7,8,11									BONUS:VAR|BASEPOWERPOINTS|15
-18	CAST:0,0,2,3,4,5,6,7,8,10									BONUS:VAR|BASEPOWERPOINTS|17	BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
-19	CAST:0,0,2,3,4,5,6,7,8,9									BONUS:VAR|BASEPOWERPOINTS|17
-20	CAST:0,0,2,3,4,5,6,7,8,9									BONUS:VAR|BASEPOWERPOINTS|19	BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
+2	CAST:1,1,8				BONUS:VAR|BASEPOWERPOINTS|1																																																									SAB:Woodland Stride (Ex)
+3	CAST:1,1,4,15			BONUS:VAR|BASEPOWERPOINTS|2																																																									SAB:Trackless Step (Ex)
+4	CAST:1,1,3,10			BONUS:VAR|BASEPOWERPOINTS|3																																																									SAB:Resist Nature's Lure (Ex)
+5	CAST:0,1,2,5,18			BONUS:VAR|BASEPOWERPOINTS|3	BONUS:VAR|Wildshape|1					DEFINE:Wildshape|0																																													SAB:Wildshape %/day|Wildshape
+6	CAST:0,1,2,4,12			BONUS:VAR|BASEPOWERPOINTS|5	BONUS:VAR|Wildshape|1
+7	CAST:0,1,2,3,6,21			BONUS:VAR|BASEPOWERPOINTS|5	BONUS:VAR|Wildshape|1
+8	CAST:0,1,2,3,5,14			BONUS:VAR|BASEPOWERPOINTS|7																																																									SAB:Wildshape Large
+9	CAST:0,1,2,3,4,7,24		BONUS:VAR|BASEPOWERPOINTS|7																																																									SAB:Venom Immunity (Ex)
+10	CAST:0,1,2,3,4,6,16		BONUS:VAR|BASEPOWERPOINTS|9	BONUS:VAR|Wildshape|1
+11	CAST:0,1,2,3,4,5,8,27		BONUS:VAR|BASEPOWERPOINTS|9																																																									SAB:Wildshape (Tiny)
+12	CAST:0,1,2,3,4,5,7,18		BONUS:VAR|BASEPOWERPOINTS|11																																																									SAB:Wildshape (Plant)
+13	CAST:0,1,2,3,4,5,6,9,30		BONUS:VAR|BASEPOWERPOINTS|11																																																									SAB:A Thousand Faces (Su)
+14	CAST:0,1,2,3,4,5,6,8,20		BONUS:VAR|BASEPOWERPOINTS|13	BONUS:VAR|Wildshape|1
+15	CAST:0,1,2,3,4,5,6,7,10,33	BONUS:VAR|BASEPOWERPOINTS|13																																																									SAB:Wildshape (Huge)	SAB:Timeless Body (Ex)
+16	CAST:0,1,2,3,4,5,6,7,9,22	BONUS:VAR|BASEPOWERPOINTS|15	BONUS:VAR|EWildshape|1					DEFINE:EWildshape|0																																													SAB:Wildshape (elemental %/day)|EWildshape
+17	CAST:0,1,2,3,4,5,6,7,8,11	BONUS:VAR|BASEPOWERPOINTS|15
+18	CAST:0,0,2,3,4,5,6,7,8,10	BONUS:VAR|BASEPOWERPOINTS|17	BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
+19	CAST:0,0,2,3,4,5,6,7,8,9	BONUS:VAR|BASEPOWERPOINTS|17
+20	CAST:0,0,2,3,4,5,6,7,8,9	BONUS:VAR|BASEPOWERPOINTS|19	BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
 
 # Legends of Excalibur base class block
 
@@ -71,18 +71,18 @@ CLASS:Fool		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Diplo
 1	AUTO:FEAT|Armor Proficiency (Light)
 1							AUTO:WEAPONPROF|TYPE=Simple|Crossbow (Hand)|Rapier|Shortbow|Sword (Short)
 ###Block: Normal Level Progression
-1																																																	VFEAT:Improved Feint
-2	SAB:Banter (Ex)																													BONUS:COMBAT|AC|max(CHA,0)
-3	SAB:Fool's Luck (Ex) +%|FoolsLuck					BONUS:VAR|FoolsLuck|CL/3												BONUS:CHECKS|ALL|FoolsLuck						DEFINE:FoolsLuck|0
-4	SAB:Barrel Roll (Ex) +%|BarrelRoll	SAB:Uncanny Dodge		BONUS:VAR|BarrelRoll|CL/4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE											DEFINE:BarrelRoll|0	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-5	SAB:Jig (Su) %/day|JigPerDay|PRESKILL:1,Perform (Dance)=8	BONUS:VAR|JigPerDay|CL/5																						DEFINE:JigPerDay|0
-7	SAB:Wit (Ex)
-8																																									ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-11	SAB:Rapier Wit (Ex)
-13	SAB:Tongue Lashing (Ex)
-14	SAB:Razon Wit (Ex)
-17	SAB:Verbal Barrage (Ex)
-19	SAB:Verbal Firestorm (Ex)
+1																																							VFEAT:Improved Feint
+2																						BONUS:COMBAT|AC|max(CHA,0)																	SAB:Banter (Ex)
+3	BONUS:VAR|FoolsLuck|CL/3												BONUS:CHECKS|ALL|FoolsLuck						DEFINE:FoolsLuck|0													SAB:Fool's Luck (Ex) +%|FoolsLuck
+4	BONUS:VAR|BarrelRoll|CL/4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE											DEFINE:BarrelRoll|0	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge					SAB:Barrel Roll (Ex) +%|BarrelRoll	SAB:Uncanny Dodge
+5	BONUS:VAR|JigPerDay|CL/5																						DEFINE:JigPerDay|0													SAB:Jig (Su) %/day|JigPerDay|PRESKILL:1,Perform (Dance)=8
+7																																											SAB:Wit (Ex)
+8																															ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
+11																																											SAB:Rapier Wit (Ex)
+13																																											SAB:Tongue Lashing (Ex)
+14																																											SAB:Razon Wit (Ex)
+17																																											SAB:Verbal Barrage (Ex)
+19																																											SAB:Verbal Firestorm (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages												Define																			Save checks bonus											Combat bonus
 CLASS:Hedge Mage	HD:6		TYPE:Base.PC	ABB:HeM		MAXLEVEL:20	SOURCEPAGE:p.12	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|CHA	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE:Base.REPLACE
@@ -90,26 +90,26 @@ CLASS:Hedge Mage	HD:6		TYPE:Base.PC	ABB:HeM		MAXLEVEL:20	SOURCEPAGE:p.12	LANGAUT
 CLASS:Hedge Mage	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcana)|TYPE.Profession|Prophecy|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Hedge Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CLASS=Hedge Mage|CL
-1	CAST:1,2,12				KNOWN:4,2,1				SAB:Superstition		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|FMLevel|CL	VFEAT:Power Source(Hedge Mage)	AUTO:FEAT|Summon Familiar	AUTO:WEAPONPROF|TYPE=Simple
-2	CAST:1,1,8				KNOWN:5,2,1				SAB:Dream Reader		BONUS:VAR|BASEPOWERPOINTS|1
-3	CAST:1,1,4,15			KNOWN:5,3,2,1							BONUS:VAR|BASEPOWERPOINTS|2
-4	CAST:1,1,3,10			KNOWN:6,3,2,1							BONUS:VAR|BASEPOWERPOINTS|3
-5	CAST:0,1,2,5,18			KNOWN:6,4,3,2,1			SAB:Lesser Prophecy	BONUS:VAR|BASEPOWERPOINTS|3
-6	CAST:0,1,2,4,12			KNOWN:7,4,3,2,1							BONUS:VAR|BASEPOWERPOINTS|5
-7	CAST:0,1,2,3,6,21			KNOWN:7,5,3,3,2							BONUS:VAR|BASEPOWERPOINTS|5
-8	CAST:0,1,2,3,5,14			KNOWN:8,5,3,3,2,1							BONUS:VAR|BASEPOWERPOINTS|7
-9	CAST:0,1,2,3,4,7,24		KNOWN:8,5,4,3,3,1							BONUS:VAR|BASEPOWERPOINTS|7
-10	CAST:0,1,2,3,4,6,16		KNOWN:9,5,4,3,3,1			SAB:Prophecy			BONUS:VAR|BASEPOWERPOINTS|9
-11	CAST:0,1,2,3,4,5,8,27		KNOWN:9,5,5,4,3,2,1						BONUS:VAR|BASEPOWERPOINTS|9
-12	CAST:0,1,2,3,4,5,7,18		KNOWN:9,5,5,4,3,3,2,1						BONUS:VAR|BASEPOWERPOINTS|11
-13	CAST:0,1,2,3,4,5,6,9,30		KNOWN:9,5,5,4,4,3,3,2,1						BONUS:VAR|BASEPOWERPOINTS|11
-14	CAST:0,1,2,3,4,5,6,8,20		KNOWN:9,5,5,4,4,3,3,2,1						BONUS:VAR|BASEPOWERPOINTS|13
-15	CAST:0,1,2,3,4,5,6,7,10,33	KNOWN:9,5,5,4,4,4,3,3,2,1	SAB:Greater Prophecy	BONUS:VAR|BASEPOWERPOINTS|13
-16	CAST:0,1,2,3,4,5,6,7,9,22	KNOWN:9,5,5,4,4,4,3,3,2,1					BONUS:VAR|BASEPOWERPOINTS|15
-17	CAST:0,1,2,3,4,5,6,7,8,11	KNOWN:9,5,5,4,4,4,3,3,2,1					BONUS:VAR|BASEPOWERPOINTS|15
-18	CAST:0,0,2,3,4,5,6,7,8,10	KNOWN:9,5,5,4,4,4,3,3,2,1					BONUS:VAR|BASEPOWERPOINTS|17
-19	CAST:0,0,2,3,4,5,6,7,8,9	KNOWN:9,5,5,4,4,4,3,3,3,2					BONUS:VAR|BASEPOWERPOINTS|17
-20	CAST:0,0,2,3,4,5,6,7,8,9	KNOWN:9,5,5,4,4,4,3,3,3,3	SAB:Ultimate Prophecy	BONUS:VAR|BASEPOWERPOINTS|19
+1	CAST:1,2,12				KNOWN:4,2,1				BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|FMLevel|CL	VFEAT:Power Source(Hedge Mage)	AUTO:FEAT|Summon Familiar	AUTO:WEAPONPROF|TYPE=Simple	SAB:Superstition
+2	CAST:1,1,8				KNOWN:5,2,1				BONUS:VAR|BASEPOWERPOINTS|1																					SAB:Dream Reader
+3	CAST:1,1,4,15			KNOWN:5,3,2,1			BONUS:VAR|BASEPOWERPOINTS|2
+4	CAST:1,1,3,10			KNOWN:6,3,2,1			BONUS:VAR|BASEPOWERPOINTS|3
+5	CAST:0,1,2,5,18			KNOWN:6,4,3,2,1			BONUS:VAR|BASEPOWERPOINTS|3																					SAB:Lesser Prophecy
+6	CAST:0,1,2,4,12			KNOWN:7,4,3,2,1			BONUS:VAR|BASEPOWERPOINTS|5
+7	CAST:0,1,2,3,6,21			KNOWN:7,5,3,3,2			BONUS:VAR|BASEPOWERPOINTS|5
+8	CAST:0,1,2,3,5,14			KNOWN:8,5,3,3,2,1			BONUS:VAR|BASEPOWERPOINTS|7
+9	CAST:0,1,2,3,4,7,24		KNOWN:8,5,4,3,3,1			BONUS:VAR|BASEPOWERPOINTS|7
+10	CAST:0,1,2,3,4,6,16		KNOWN:9,5,4,3,3,1			BONUS:VAR|BASEPOWERPOINTS|9																					SAB:Prophecy
+11	CAST:0,1,2,3,4,5,8,27		KNOWN:9,5,5,4,3,2,1		BONUS:VAR|BASEPOWERPOINTS|9
+12	CAST:0,1,2,3,4,5,7,18		KNOWN:9,5,5,4,3,3,2,1		BONUS:VAR|BASEPOWERPOINTS|11
+13	CAST:0,1,2,3,4,5,6,9,30		KNOWN:9,5,5,4,4,3,3,2,1		BONUS:VAR|BASEPOWERPOINTS|11
+14	CAST:0,1,2,3,4,5,6,8,20		KNOWN:9,5,5,4,4,3,3,2,1		BONUS:VAR|BASEPOWERPOINTS|13
+15	CAST:0,1,2,3,4,5,6,7,10,33	KNOWN:9,5,5,4,4,4,3,3,2,1	BONUS:VAR|BASEPOWERPOINTS|13																					SAB:Greater Prophecy
+16	CAST:0,1,2,3,4,5,6,7,9,22	KNOWN:9,5,5,4,4,4,3,3,2,1	BONUS:VAR|BASEPOWERPOINTS|15
+17	CAST:0,1,2,3,4,5,6,7,8,11	KNOWN:9,5,5,4,4,4,3,3,2,1	BONUS:VAR|BASEPOWERPOINTS|15
+18	CAST:0,0,2,3,4,5,6,7,8,10	KNOWN:9,5,5,4,4,4,3,3,2,1	BONUS:VAR|BASEPOWERPOINTS|17
+19	CAST:0,0,2,3,4,5,6,7,8,9	KNOWN:9,5,5,4,4,4,3,3,3,2	BONUS:VAR|BASEPOWERPOINTS|17
+20	CAST:0,0,2,3,4,5,6,7,8,9	KNOWN:9,5,5,4,4,4,3,3,3,3	BONUS:VAR|BASEPOWERPOINTS|19																					SAB:Ultimate Prophecy
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages												Define																			Save checks bonus											Combat bonus
 CLASS:Hermit	HD:6		TYPE:Base.PC	ABB:Hrm		MAXLEVEL:20	SOURCEPAGE:p.14	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE:Base.REPLACE
@@ -121,26 +121,26 @@ CLASS:Hermit	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	AUTO:FEAT|Armor Proficiency (Light)
 1							AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1	CAST:1,2,12				SAB:Leech (Ex) +%|Lch		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|Lch|CL/2+1	DEFINE:Lch|0					VFEAT:Faith|Power Source(Hermit)
-2	CAST:1,1,8				SAB:Fast (Ex)			BONUS:VAR|BASEPOWERPOINTS|1
-3	CAST:1,1,4,15								BONUS:VAR|BASEPOWERPOINTS|2								ADD:FEAT|1|Brew Potion
-4	CAST:1,1,3,10			SAB:Chirurgery 1d4+% (Ex)|Lch	BONUS:VAR|BASEPOWERPOINTS|3
-5	CAST:0,1,2,5,18								BONUS:VAR|BASEPOWERPOINTS|3
-6	CAST:0,1,2,4,12			SAB:Poultrice (Ex)			BONUS:VAR|BASEPOWERPOINTS|5
-7	CAST:0,1,2,3,6,21								BONUS:VAR|BASEPOWERPOINTS|5
-8	CAST:0,1,2,3,5,14			SAB:Denial (Ex)			BONUS:VAR|BASEPOWERPOINTS|7
-9	CAST:0,1,2,3,4,7,24							BONUS:VAR|BASEPOWERPOINTS|7
-10	CAST:0,1,2,3,4,6,16							BONUS:VAR|BASEPOWERPOINTS|9								ADD:FEAT|1|TYPE=Hermit
-11	CAST:0,1,2,3,4,5,8,27							BONUS:VAR|BASEPOWERPOINTS|9
-12	CAST:0,1,2,3,4,5,7,18							BONUS:VAR|BASEPOWERPOINTS|11
-13	CAST:0,1,2,3,4,5,6,9,30							BONUS:VAR|BASEPOWERPOINTS|11
-14	CAST:0,1,2,3,4,5,6,8,20							BONUS:VAR|BASEPOWERPOINTS|13								ADD:FEAT|1|TYPE=Hermit
-15	CAST:0,1,2,3,4,5,6,7,10,33						BONUS:VAR|BASEPOWERPOINTS|13
-16	CAST:0,1,2,3,4,5,6,7,9,22						BONUS:VAR|BASEPOWERPOINTS|15
-17	CAST:0,1,2,3,4,5,6,7,8,11						BONUS:VAR|BASEPOWERPOINTS|15
-18	CAST:0,0,2,3,4,5,6,7,8,10						BONUS:VAR|BASEPOWERPOINTS|17								ADD:FEAT|1|TYPE=Hermit
-19	CAST:0,0,2,3,4,5,6,7,8,9						BONUS:VAR|BASEPOWERPOINTS|17
-20	CAST:0,0,2,3,4,5,6,7,8,9						BONUS:VAR|BASEPOWERPOINTS|19
+1	CAST:1,2,12				BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|Lch|CL/2+1	DEFINE:Lch|0					VFEAT:Faith|Power Source(Hermit)	SAB:Leech (Ex) +%|Lch
+2	CAST:1,1,8				BONUS:VAR|BASEPOWERPOINTS|1																		SAB:Fast (Ex)
+3	CAST:1,1,4,15			BONUS:VAR|BASEPOWERPOINTS|2								ADD:FEAT|1|Brew Potion
+4	CAST:1,1,3,10			BONUS:VAR|BASEPOWERPOINTS|3																		SAB:Chirurgery 1d4+% (Ex)|Lch
+5	CAST:0,1,2,5,18			BONUS:VAR|BASEPOWERPOINTS|3
+6	CAST:0,1,2,4,12			BONUS:VAR|BASEPOWERPOINTS|5																		SAB:Poultrice (Ex)
+7	CAST:0,1,2,3,6,21			BONUS:VAR|BASEPOWERPOINTS|5
+8	CAST:0,1,2,3,5,14			BONUS:VAR|BASEPOWERPOINTS|7																		SAB:Denial (Ex)
+9	CAST:0,1,2,3,4,7,24		BONUS:VAR|BASEPOWERPOINTS|7
+10	CAST:0,1,2,3,4,6,16		BONUS:VAR|BASEPOWERPOINTS|9								ADD:FEAT|1|TYPE=Hermit
+11	CAST:0,1,2,3,4,5,8,27		BONUS:VAR|BASEPOWERPOINTS|9
+12	CAST:0,1,2,3,4,5,7,18		BONUS:VAR|BASEPOWERPOINTS|11
+13	CAST:0,1,2,3,4,5,6,9,30		BONUS:VAR|BASEPOWERPOINTS|11
+14	CAST:0,1,2,3,4,5,6,8,20		BONUS:VAR|BASEPOWERPOINTS|13								ADD:FEAT|1|TYPE=Hermit
+15	CAST:0,1,2,3,4,5,6,7,10,33	BONUS:VAR|BASEPOWERPOINTS|13
+16	CAST:0,1,2,3,4,5,6,7,9,22	BONUS:VAR|BASEPOWERPOINTS|15
+17	CAST:0,1,2,3,4,5,6,7,8,11	BONUS:VAR|BASEPOWERPOINTS|15
+18	CAST:0,0,2,3,4,5,6,7,8,10	BONUS:VAR|BASEPOWERPOINTS|17								ADD:FEAT|1|TYPE=Hermit
+19	CAST:0,0,2,3,4,5,6,7,8,9	BONUS:VAR|BASEPOWERPOINTS|17
+20	CAST:0,0,2,3,4,5,6,7,8,9	BONUS:VAR|BASEPOWERPOINTS|19
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages												Save checks bonus											Combat bonus
 CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		MAXLEVEL:20	SOURCEPAGE:p.16	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE:Base.REPLACE
@@ -148,18 +148,18 @@ CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		MAXLEVEL:20	SOURCEPAGE:p.16	LANGAUTO:L
 CLASS:Knight	PRESTAT:1,NOB=41
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|TYPE.Profession|Ride|Swim
-1	SAB:Mounted Combat +% (Ex)|MountedCombat	SAB:Code of Chivalry (Ex)	BONUS:VAR|MountedCombat|CL/4+1					DEFINE:MountedCombat|0	ADD:FEAT|1|Mounted Combat	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:FEAT|Aura of Knighthood	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-2	SAB:Armor Tolerance +% (Ex)|ArmorTolerance						BONUS:VAR|ArmorTolerance|CL/2	BONUS:VAR|KnightLevel|CL	DEFINE:ArmorTolerance|0															AUTO:FEAT|Knight's Warhorse
-3																											ADD:FEAT|1|Ride By Attack
-4	SAB:Dispense Justice (Ex)
-5																											ADD:FEAT|1|Spirited Charge
-7																											ADD:FEAT|1|Trample
-9	SAB:Unhorse (Ex)
-11	SAB:Take the Reins (Ex)
-13	SAB:Power Charge %/day (Ex)|PowerCharge						BONUS:VAR|PowerCharge|1							DEFINE:PowerCharge|0
-15													BONUS:VAR|PowerCharge|1
-17													BONUS:VAR|PowerCharge|1
-19	SAB:Terrifying Charge (Ex)
+1	BONUS:VAR|MountedCombat|CL/4+1					DEFINE:MountedCombat|0	ADD:FEAT|1|Mounted Combat	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:FEAT|Aura of Knighthood	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	SAB:Mounted Combat +% (Ex)|MountedCombat	SAB:Code of Chivalry (Ex)
+2	BONUS:VAR|ArmorTolerance|CL/2	BONUS:VAR|KnightLevel|CL	DEFINE:ArmorTolerance|0															AUTO:FEAT|Knight's Warhorse																	SAB:Armor Tolerance +% (Ex)|ArmorTolerance
+3															ADD:FEAT|1|Ride By Attack
+4																																																		SAB:Dispense Justice (Ex)
+5															ADD:FEAT|1|Spirited Charge
+7															ADD:FEAT|1|Trample
+9																																																		SAB:Unhorse (Ex)
+11																																																		SAB:Take the Reins (Ex)
+13	BONUS:VAR|PowerCharge|1							DEFINE:PowerCharge|0																																				SAB:Power Charge %/day (Ex)|PowerCharge
+15	BONUS:VAR|PowerCharge|1
+17	BONUS:VAR|PowerCharge|1
+19																																																		SAB:Terrifying Charge (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages												Define																			Save checks bonus											Combat bonus
 CLASS:Minstrel	HD:6		TYPE:Base.PC	ABB:Min		MAXLEVEL:20	SOURCEPAGE:p.19	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:BASE.Replace
@@ -170,25 +170,25 @@ CLASS:Minstrel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1	BONUS:VAR|MinstrelLoreLevel|CL	BONUS:VAR|MinstrelLore|MinstrelLoreLevel		DEFINE:MinstrelLoreLevel|0
 1	BONUS:VAR|MinstrelMusicLevel|CL	BONUS:VAR|MinstrelMusicTimes|MinstrelMusicLevel	DEFINE:MinstrelMusicLevel|0
 ###Block: Normal Level Progression
-1																																											AUTO:ARMORPROF|TYPE=Light|TYPE=Medium	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple
-2						SAB:Soothe the Savage Beast (Ex)
-4	CAST:1,2,12				SAB:Nature Sense (Ex)			BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS	BONUS:SKILL|Knowledge (Nature),Survival|2								VFEAT:Power Source(Druid/Minstrel)
-5	CAST:1,1,8										BONUS:VAR|BASEPOWERPOINTS|1																		ADD:FEAT|1|Track
-6	CAST:1,1,4,15									BONUS:VAR|BASEPOWERPOINTS|2
-7	CAST:1,1,3,10			SAB:Trackless Step (Ex)			BONUS:VAR|BASEPOWERPOINTS|3
-8	CAST:0,1,2,5,18									BONUS:VAR|BASEPOWERPOINTS|3
-9	CAST:0,1,2,4,12									BONUS:VAR|BASEPOWERPOINTS|5
-10	CAST:0,1,2,3,6,21			SAB:Resist Nature's Lure (Ex)		BONUS:VAR|BASEPOWERPOINTS|5
-11	CAST:0,1,2,3,5,14			SAB:Wild Shape %/day (Su)|WildShape	BONUS:VAR|BASEPOWERPOINTS|7	BONUS:VAR|WildShape|1										DEFINE:WildShape|0
-12	CAST:0,1,2,3,4,7,24								BONUS:VAR|BASEPOWERPOINTS|7
-13	CAST:0,1,2,3,4,6,16		SAB:Venom Immunity (Ex)			BONUS:VAR|BASEPOWERPOINTS|9
-14	CAST:0,1,2,3,4,5,8,27								BONUS:VAR|BASEPOWERPOINTS|9
-15	CAST:0,1,2,3,4,5,7,18								BONUS:VAR|BASEPOWERPOINTS|11
-16	CAST:0,1,2,3,4,5,6,9,30								BONUS:VAR|BASEPOWERPOINTS|11	BONUS:VAR|WildShape|1
-17	CAST:0,1,2,3,4,5,6,8,20								BONUS:VAR|BASEPOWERPOINTS|13	BONUS:VAR|WildShape|1
-18	CAST:0,1,2,3,4,5,6,7,10,33							BONUS:VAR|BASEPOWERPOINTS|13
-19	CAST:0,1,2,3,4,5,6,7,9,22	SAB:A Thousand Faces (Su)		BONUS:VAR|BASEPOWERPOINTS|15
-20	CAST:0,1,2,3,4,5,6,7,8,11							BONUS:VAR|BASEPOWERPOINTS|15
+1																																					AUTO:ARMORPROF|TYPE=Light|TYPE=Medium	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple
+2																																																										SAB:Soothe the Savage Beast (Ex)
+4	CAST:1,2,12				BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS	BONUS:SKILL|Knowledge (Nature),Survival|2								VFEAT:Power Source(Druid/Minstrel)																						SAB:Nature Sense (Ex)
+5	CAST:1,1,8				BONUS:VAR|BASEPOWERPOINTS|1																		ADD:FEAT|1|Track
+6	CAST:1,1,4,15			BONUS:VAR|BASEPOWERPOINTS|2
+7	CAST:1,1,3,10			BONUS:VAR|BASEPOWERPOINTS|3																																																SAB:Trackless Step (Ex)
+8	CAST:0,1,2,5,18			BONUS:VAR|BASEPOWERPOINTS|3
+9	CAST:0,1,2,4,12			BONUS:VAR|BASEPOWERPOINTS|5
+10	CAST:0,1,2,3,6,21			BONUS:VAR|BASEPOWERPOINTS|5																																																SAB:Resist Nature's Lure (Ex)
+11	CAST:0,1,2,3,5,14			BONUS:VAR|BASEPOWERPOINTS|7	BONUS:VAR|WildShape|1										DEFINE:WildShape|0																															SAB:Wild Shape %/day (Su)|WildShape
+12	CAST:0,1,2,3,4,7,24		BONUS:VAR|BASEPOWERPOINTS|7
+13	CAST:0,1,2,3,4,6,16		BONUS:VAR|BASEPOWERPOINTS|9																																																SAB:Venom Immunity (Ex)
+14	CAST:0,1,2,3,4,5,8,27		BONUS:VAR|BASEPOWERPOINTS|9
+15	CAST:0,1,2,3,4,5,7,18		BONUS:VAR|BASEPOWERPOINTS|11
+16	CAST:0,1,2,3,4,5,6,9,30		BONUS:VAR|BASEPOWERPOINTS|11	BONUS:VAR|WildShape|1
+17	CAST:0,1,2,3,4,5,6,8,20		BONUS:VAR|BASEPOWERPOINTS|13	BONUS:VAR|WildShape|1
+18	CAST:0,1,2,3,4,5,6,7,10,33	BONUS:VAR|BASEPOWERPOINTS|13
+19	CAST:0,1,2,3,4,5,6,7,9,22	BONUS:VAR|BASEPOWERPOINTS|15																																																SAB:A Thousand Faces (Su)
+20	CAST:0,1,2,3,4,5,6,7,8,11	BONUS:VAR|BASEPOWERPOINTS|15
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages												Save checks bonus											Combat bonus
 CLASS:Noble		HD:8		TYPE:Base.PC	ABB:Nbl		MAXLEVEL:20	SOURCEPAGE:p.23	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
@@ -196,18 +196,18 @@ CLASS:Noble		HD:8		TYPE:Base.PC	ABB:Nbl		MAXLEVEL:20	SOURCEPAGE:p.23	LANGAUTO:Li
 CLASS:Noble		PRESTAT:1,NOB=51
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE.Profession|Ride|Sense Motive
-1	SAB:Dispense Justice (Ex)	SAB:Aura of Nobility (Ex)	SAB:Nobless Oblige (Ex)	BONUS:VAR|AuraNobility|NOB/2									BONUS:SKILL|Intimidate|AuraNobility	DEFINE:AuraNobility|0	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-2	SAB:Divine Grace (Su)																BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
-3	SAB:Quest +% (Ex)|Qust											BONUS:VAR|Qust|CL/3																DEFINE:Qust|0
-4	SAB:Aura of Courage (Su)
-5	SAB:Divine Wrath %/day (Su)|DivineWrath								BONUS:VAR|DivineWrath|1																DEFINE:DivineWrath|0
-8	SAB:Divine Right (Aura of Majesty) (Su)
-10															BONUS:VAR|DivineWrath|1
-12	SAB:Aura of Majesty (all saving throws) (Su)
-13	SAB:Papal Intercession (Ex)
-15	SAB:Aura of Majesty (attack rolls) (Su)	SAB:Divine Intercession (Su)			BONUS:VAR|DivineWrath|1
-18	SAB:Aura of Majesty (damage) (Su)
-20	SAB:Land and the Lord are One (Su)
+1	BONUS:VAR|AuraNobility|NOB/2									BONUS:SKILL|Intimidate|AuraNobility	DEFINE:AuraNobility|0	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	SAB:Dispense Justice (Ex)	SAB:Aura of Nobility (Ex)	SAB:Nobless Oblige (Ex)
+2						BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)																																				SAB:Divine Grace (Su)
+3	BONUS:VAR|Qust|CL/3																DEFINE:Qust|0																											SAB:Quest +% (Ex)|Qust
+4																																																	SAB:Aura of Courage (Su)
+5	BONUS:VAR|DivineWrath|1																DEFINE:DivineWrath|0																										SAB:Divine Wrath %/day (Su)|DivineWrath
+8																																																	SAB:Divine Right (Aura of Majesty) (Su)
+10	BONUS:VAR|DivineWrath|1
+12																																																	SAB:Aura of Majesty (all saving throws) (Su)
+13																																																	SAB:Papal Intercession (Ex)
+15	BONUS:VAR|DivineWrath|1																																													SAB:Aura of Majesty (attack rolls) (Su)	SAB:Divine Intercession (Su)
+18																																																	SAB:Aura of Majesty (damage) (Su)
+20																																																	SAB:Land and the Lord are One (Su)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages												Define																				Save checks bonus											Combat bonus
 CLASS:Priest	HD:8		TYPE:Base.PC	ABB:Pri		MAXLEVEL:20	SOURCEPAGE:p.26	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS+NOB	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
@@ -215,67 +215,67 @@ CLASS:Priest	HD:8		TYPE:Base.PC	ABB:Pri		MAXLEVEL:20	SOURCEPAGE:p.26	LANGAUTO:Li
 CLASS:Priest	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|Heal|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
 CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Priest|CL
-1	CAST:1,2,12				SAB:Aura of Piety (Ex)	SAB:Turn the Other Cheek (Ex)	BONUS:VAR|BASEPOWERPOINTS|1								VFEAT:Ordination|Power Source(Priest)	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple
-2	CAST:1,1,8				SAB:Sacraments (Su)						BONUS:VAR|BASEPOWERPOINTS|1
-3	CAST:1,1,4,15			SAB:Crusade (Ex) +%|Crus						BONUS:VAR|BASEPOWERPOINTS|2	BONUS:VAR|Crus|CL/3	DEFINE:Crus|0
-4	CAST:1,1,3,10			SAB:Absolution - Minor (Su)					BONUS:VAR|BASEPOWERPOINTS|3
-5	CAST:0,1,2,5,18												BONUS:VAR|BASEPOWERPOINTS|3
-6	CAST:0,1,2,4,12												BONUS:VAR|BASEPOWERPOINTS|5
-7	CAST:0,1,2,3,6,21												BONUS:VAR|BASEPOWERPOINTS|5
-8	CAST:0,1,2,3,5,14			SAB:Absolution - Moderate (Su)					BONUS:VAR|BASEPOWERPOINTS|7
-9	CAST:0,1,2,3,4,7,24											BONUS:VAR|BASEPOWERPOINTS|7
-10	CAST:0,1,2,3,4,6,16											BONUS:VAR|BASEPOWERPOINTS|9
-11	CAST:0,1,2,3,4,5,8,27											BONUS:VAR|BASEPOWERPOINTS|9
-12	CAST:0,1,2,3,4,5,7,18		SAB:Absolution - Major (Su)					BONUS:VAR|BASEPOWERPOINTS|11
-13	CAST:0,1,2,3,4,5,6,9,30		SAB:Declare Infidel (Ex)						BONUS:VAR|BASEPOWERPOINTS|11
-14	CAST:0,1,2,3,4,5,6,8,20		SAB:Excoummunication (Su)					BONUS:VAR|BASEPOWERPOINTS|13
-15	CAST:0,1,2,3,4,5,6,7,10,33										BONUS:VAR|BASEPOWERPOINTS|13
-16	CAST:0,1,2,3,4,5,6,7,9,22	SAB:Absolution - Severe (Su)					BONUS:VAR|BASEPOWERPOINTS|15
-17	CAST:0,1,2,3,4,5,6,7,8,11										BONUS:VAR|BASEPOWERPOINTS|15
-18	CAST:0,0,2,3,4,5,6,7,8,10										BONUS:VAR|BASEPOWERPOINTS|17
-19	CAST:0,0,2,3,4,5,6,7,8,9										BONUS:VAR|BASEPOWERPOINTS|17
-20	CAST:0,0,2,3,4,5,6,7,8,9	SAB:Divine Interention (Su)					BONUS:VAR|BASEPOWERPOINTS|19
+1	CAST:1,2,12				BONUS:VAR|BASEPOWERPOINTS|1								VFEAT:Ordination|Power Source(Priest)	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple	SAB:Aura of Piety (Ex)	SAB:Turn the Other Cheek (Ex)
+2	CAST:1,1,8				BONUS:VAR|BASEPOWERPOINTS|1																																						SAB:Sacraments (Su)
+3	CAST:1,1,4,15			BONUS:VAR|BASEPOWERPOINTS|2	BONUS:VAR|Crus|CL/3	DEFINE:Crus|0																															SAB:Crusade (Ex) +%|Crus
+4	CAST:1,1,3,10			BONUS:VAR|BASEPOWERPOINTS|3																																						SAB:Absolution - Minor (Su)
+5	CAST:0,1,2,5,18			BONUS:VAR|BASEPOWERPOINTS|3
+6	CAST:0,1,2,4,12			BONUS:VAR|BASEPOWERPOINTS|5
+7	CAST:0,1,2,3,6,21			BONUS:VAR|BASEPOWERPOINTS|5
+8	CAST:0,1,2,3,5,14			BONUS:VAR|BASEPOWERPOINTS|7																																						SAB:Absolution - Moderate (Su)
+9	CAST:0,1,2,3,4,7,24		BONUS:VAR|BASEPOWERPOINTS|7
+10	CAST:0,1,2,3,4,6,16		BONUS:VAR|BASEPOWERPOINTS|9
+11	CAST:0,1,2,3,4,5,8,27		BONUS:VAR|BASEPOWERPOINTS|9
+12	CAST:0,1,2,3,4,5,7,18		BONUS:VAR|BASEPOWERPOINTS|11																																						SAB:Absolution - Major (Su)
+13	CAST:0,1,2,3,4,5,6,9,30		BONUS:VAR|BASEPOWERPOINTS|11																																						SAB:Declare Infidel (Ex)
+14	CAST:0,1,2,3,4,5,6,8,20		BONUS:VAR|BASEPOWERPOINTS|13																																						SAB:Excoummunication (Su)
+15	CAST:0,1,2,3,4,5,6,7,10,33	BONUS:VAR|BASEPOWERPOINTS|13
+16	CAST:0,1,2,3,4,5,6,7,9,22	BONUS:VAR|BASEPOWERPOINTS|15																																						SAB:Absolution - Severe (Su)
+17	CAST:0,1,2,3,4,5,6,7,8,11	BONUS:VAR|BASEPOWERPOINTS|15
+18	CAST:0,0,2,3,4,5,6,7,8,10	BONUS:VAR|BASEPOWERPOINTS|17
+19	CAST:0,0,2,3,4,5,6,7,8,9	BONUS:VAR|BASEPOWERPOINTS|17
+20	CAST:0,0,2,3,4,5,6,7,8,9	BONUS:VAR|BASEPOWERPOINTS|19																																						SAB:Divine Interention (Su)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages												Save checks bonus											Combat bonus
 CLASS:Robber Baron	HD:8		TYPE:Base.PC	ABB:RBr		MAXLEVEL:20	SOURCEPAGE:29	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Robber Baron	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Disguise|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|Move Silently|TYPE.Profession|Ride|Sleight of Hand
-1																					ADD:VFEAT|1|Improved Feint	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy						AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-2																					ADD:FEAT|1|Mounted Combat
-3	SAB:Sneak Attack +%d6|SneakAttack	BONUS:VAR|SneakAttack|CL/3	BONUS:VAR|KnightLevel|CL-2																			AUTO:FEAT|Knight's Warhorse
-4																					ADD:Feat|1|TYPE=RobberBaron
-5							BONUS:VAR|MountedCombat|CL/5						DEFINE:MountedCombat|0
-8																					ADD:Feat|1|TYPE=RobberBaron
-12																					ADD:Feat|1|TYPE=RobberBaron
-16																					ADD:Feat|1|TYPE=RobberBaron
-20																					ADD:Feat|1|TYPE=RobberBaron
+1															ADD:VFEAT|1|Improved Feint	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy						AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+2															ADD:FEAT|1|Mounted Combat
+3	BONUS:VAR|SneakAttack|CL/3	BONUS:VAR|KnightLevel|CL-2																			AUTO:FEAT|Knight's Warhorse																	SAB:Sneak Attack +%d6|SneakAttack
+4															ADD:Feat|1|TYPE=RobberBaron
+5	BONUS:VAR|MountedCombat|CL/5						DEFINE:MountedCombat|0
+8															ADD:Feat|1|TYPE=RobberBaron
+12															ADD:Feat|1|TYPE=RobberBaron
+16															ADD:Feat|1|TYPE=RobberBaron
+20															ADD:Feat|1|TYPE=RobberBaron
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages												Save checks bonus											Combat bonus
 CLASS:Skald		HD:8		TYPE:Base.PC	ABB:Ska		MAXLEVEL:20	SOURCEPAGE:p.31	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Skald		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Heal|Intimidate|Jump|Listen|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Survival|Swim
-1	SAB:Inspire Courage +% (Su)|InspireCourage|PRESKILL:1,TYPE.Perform=3	BONUS:VAR|InspireCourage|CL/4+1	DEFINE:InspireCourage|0	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-2	SAB:Marching Cadence (Su)|PRESKILL:1,TYPE.Perform=5
-3	SAB:Rally Cry %/day (Su)|RallyingCry							BONUS:VAR|RallyingCry|CL/3		DEFINE:RallyingCry|0
-5	SAB:Instill Rage %/day (Su)|InstillRage						BONUS:VAR|InstillRage|CL/4		DEFINE:InstillRage|0
-7	SAB:Clarion Call (Su)
-9	SAB:Inspire Greatness (Su)|PRESKILL:1,TYPE.Perform=12
-11	SAB:War Cry (Su)
-13	SAB:Precision Cadence (Su)|PRESKILL:1,TYPE.Perform=15
-15	SAB:Inspire Heroics (Su)|PRESKILL:1,TYPE.Perform=18
+1	BONUS:VAR|InspireCourage|CL/4+1	DEFINE:InspireCourage|0	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	SAB:Inspire Courage +% (Su)|InspireCourage|PRESKILL:1,TYPE.Perform=3
+2																																		SAB:Marching Cadence (Su)|PRESKILL:1,TYPE.Perform=5
+3	BONUS:VAR|RallyingCry|CL/3		DEFINE:RallyingCry|0																								SAB:Rally Cry %/day (Su)|RallyingCry
+5	BONUS:VAR|InstillRage|CL/4		DEFINE:InstillRage|0																								SAB:Instill Rage %/day (Su)|InstillRage
+7																																		SAB:Clarion Call (Su)
+9																																		SAB:Inspire Greatness (Su)|PRESKILL:1,TYPE.Perform=12
+11																																		SAB:War Cry (Su)
+13																																		SAB:Precision Cadence (Su)|PRESKILL:1,TYPE.Perform=15
+15																																		SAB:Inspire Heroics (Su)|PRESKILL:1,TYPE.Perform=18
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages												Save checks bonus											Combat bonus
 CLASS:Yeoman	HD:8		TYPE:Base.PC	ABB:Yeo		MAXLEVEL:20	SOURCEPAGE:p.33	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Yeoman	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Spot|Survival|Swim
-1	SAB:Archer +%|Arch			BONUS:VAR|Arch|CL/4+1	BONUS:COMBAT|TOHIT.Bow|Arch	BONUS:COMBAT|TOHIT.Crossbow|Arch	DEFINE:Arch|0	ADD:FEAT|1|Point Blank Shot	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-2																								ADD:FEAT|1|Track
-3																								ADD:FEAT|1|Far Shot
-5																								ADD:FEAT|1|Precise Shot
-7																								ADD:FEAT|1|Rapid Shot
-9																								ADD:FEAT|1|Mounted Combat
-11																								ADD:FEAT|1|Mounted Archery
-13	SAB:Called Shot (Ex)
-15	SAB:Ranged Disarm (Ex)
-17	SAB:Disabling Shot (Ex)
-19	SAB:Between the Eyes (Ex)
+1	BONUS:VAR|Arch|CL/4+1	BONUS:COMBAT|TOHIT.Bow|Arch	BONUS:COMBAT|TOHIT.Crossbow|Arch	DEFINE:Arch|0	ADD:FEAT|1|Point Blank Shot	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	SAB:Archer +%|Arch
+2																			ADD:FEAT|1|Track
+3																			ADD:FEAT|1|Far Shot
+5																			ADD:FEAT|1|Precise Shot
+7																			ADD:FEAT|1|Rapid Shot
+9																			ADD:FEAT|1|Mounted Combat
+11																			ADD:FEAT|1|Mounted Archery
+13																																						SAB:Called Shot (Ex)
+15																																						SAB:Ranged Disarm (Ex)
+17																																						SAB:Disabling Shot (Ex)
+19																																						SAB:Between the Eyes (Ex)

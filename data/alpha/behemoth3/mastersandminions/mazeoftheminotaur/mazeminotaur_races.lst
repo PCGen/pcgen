@@ -1,9 +1,9 @@
 # CVS $Revision$ $Author$ -- Thu Nov 22 21:39:23 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/
 # Original Entry by: Aaron Divinsky
-### TODO: HITDICEADVANCEMENT is not right if PREDEFAULTMONSTER:Y
+### TODO: HITDICEADVANCEMENT is not right if PRE DEFAULT MONSTER :Y
 
-### TODO: LEVELADJUSTMENT is not right if PREDEFAULTMONSTER:Y
+### TODO: LEVELADJUSTMENT is not right if PRE DEFAULT MONSTER :Y
 
 
 # Race Name			Output Name			Favored Class			Starting Feats	Size		Move			Face/Space	Reach		Vision			Automatic Languages	Bonus Languages							Combat bonus						Adjust PC Size		Bonus to skill												Stat bonus														Modify VAR																Racial HD Class Skills																								Automaticaly Gained Weapon Prof.		Virtual Feat							Feat																				Weapon prof. bonus													Natural Attacks																								MONSTERCLASS				Main Race Type			Type				Template																									Hit Dice Advancement	Level Adjustment	CR	Source Page		Apply Kit

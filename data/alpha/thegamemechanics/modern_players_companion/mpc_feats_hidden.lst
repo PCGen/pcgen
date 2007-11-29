@@ -1,66 +1,66 @@
-# CVS $Revision$ $Author$ -- Mon Sep  3 20:08:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
 # Original Entry by: Frank Kliewe
 
 
 ###Block: Categories for Logical Talent -
-# Feat Name					Visible	Required Skill							Special Ability					Bonus to skill												Source Page
-Category[Arcane lore]			VISIBLE:NO	PRESKILL:1,Knowledge (Arcane Lore)=4			SAB:Logical (Arcane Lore)			BONUS:SKILL|Knowledge (Theology and Philosophy)|var("CL=Smart")/2|TYPE=Synergy	SOURCEPAGE:p.6
-Category[Art]				VISIBLE:NO	PRESKILL:1,Knowledge (Art)=4					SAB:Logical (Art)					BONUS:SKILL|Craft (Visual Art)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
-Category[Behavioral sciences]		VISIBLE:NO	PRESKILL:1,Knowledge (Behavioral Sciences)=4		SAB:Logical (Behavioral Sciences)		BONUS:SKILL|Sense Motive|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
-Category[Business]			VISIBLE:NO	PRESKILL:1,Knowledge (Business)=4				SAB:Logical (Business)				BONUS:SKILL|Forgery|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
-Category[Civics]				VISIBLE:NO	PRESKILL:1,Knowledge (Civics)=4				SAB:Logical (Civics)				BONUS:SKILL|Diplomacy|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
-Category[Current events]		VISIBLE:NO	PRESKILL:1,Knowledge (Current Events)=4			SAB:Logical (Current Events)			BONUS:SKILL|Gather Information|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
-Category[Earth and life sciences]	VISIBLE:NO	PRESKILL:1,Knowledge (Earth and Life Sciences)=4	SAB:Logical (Earth and Life Sciences)	BONUS:SKILL|Treat Injury|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
-Category[History]				VISIBLE:NO	PRESKILL:1,Knowledge (History)=4				SAB:Logical (History)				BONUS:SKILL|Research|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
-Category[Physical sciences]		VISIBLE:NO	PRESKILL:1,Knowledge (Physical Sciences)=4		SAB:Logical (Physical Sciences)		BONUS:SKILL|Craft (Chemical)|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
-Category[Popular culture]		VISIBLE:NO	PRESKILL:1,Knowledge (Popular Culture)=4			SAB:Logical (Popular Culture)			BONUS:SKILL|Knowledge (Streetwise)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
-Category[Streetwise]			VISIBLE:NO	PRESKILL:1,Knowledge (Streetwise)=4				SAB:Logical (Streetwise)				BONUS:SKILL|Intimidate|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
-Category[Tactics]				VISIBLE:NO	PRESKILL:1,Knowledge (Tactics)=4				SAB:Logical (Tactics)				BONUS:SKILL|Investigate|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
-Category[Technology]			VISIBLE:NO	PRESKILL:1,Knowledge (Technology)=4				SAB:Logical (Technology)				BONUS:SKILL|Craft (Electronic)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
-Category[Theology and philosophy]	VISIBLE:NO	PRESKILL:1,Knowledge (Theology and Philosophy)=4	SAB:Logical (Theology and Philosophy)	BONUS:SKILL|Knowledge (Arcane Lore)|var("CL=Smart")/2|TYPE=Synergy			SOURCEPAGE:p.6
+# Feat Name					Visible	Required Skill							Bonus to skill												Source Page		SAB
+Category[Arcane lore]			VISIBLE:NO	PRESKILL:1,Knowledge (Arcane Lore)=4			BONUS:SKILL|Knowledge (Theology and Philosophy)|var("CL=Smart")/2|TYPE=Synergy	SOURCEPAGE:p.6	SAB:Logical (Arcane Lore)
+Category[Art]				VISIBLE:NO	PRESKILL:1,Knowledge (Art)=4					BONUS:SKILL|Craft (Visual Art)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6	SAB:Logical (Art)
+Category[Behavioral sciences]		VISIBLE:NO	PRESKILL:1,Knowledge (Behavioral Sciences)=4		BONUS:SKILL|Sense Motive|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6	SAB:Logical (Behavioral Sciences)
+Category[Business]			VISIBLE:NO	PRESKILL:1,Knowledge (Business)=4				BONUS:SKILL|Forgery|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6	SAB:Logical (Business)
+Category[Civics]				VISIBLE:NO	PRESKILL:1,Knowledge (Civics)=4				BONUS:SKILL|Diplomacy|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6	SAB:Logical (Civics)
+Category[Current events]		VISIBLE:NO	PRESKILL:1,Knowledge (Current Events)=4			BONUS:SKILL|Gather Information|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6	SAB:Logical (Current Events)
+Category[Earth and life sciences]	VISIBLE:NO	PRESKILL:1,Knowledge (Earth and Life Sciences)=4	BONUS:SKILL|Treat Injury|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6	SAB:Logical (Earth and Life Sciences)
+Category[History]				VISIBLE:NO	PRESKILL:1,Knowledge (History)=4				BONUS:SKILL|Research|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6	SAB:Logical (History)
+Category[Physical sciences]		VISIBLE:NO	PRESKILL:1,Knowledge (Physical Sciences)=4		BONUS:SKILL|Craft (Chemical)|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6	SAB:Logical (Physical Sciences)
+Category[Popular culture]		VISIBLE:NO	PRESKILL:1,Knowledge (Popular Culture)=4			BONUS:SKILL|Knowledge (Streetwise)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6	SAB:Logical (Popular Culture)
+Category[Streetwise]			VISIBLE:NO	PRESKILL:1,Knowledge (Streetwise)=4				BONUS:SKILL|Intimidate|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6	SAB:Logical (Streetwise)
+Category[Tactics]				VISIBLE:NO	PRESKILL:1,Knowledge (Tactics)=4				BONUS:SKILL|Investigate|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6	SAB:Logical (Tactics)
+Category[Technology]			VISIBLE:NO	PRESKILL:1,Knowledge (Technology)=4				BONUS:SKILL|Craft (Electronic)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6	SAB:Logical (Technology)
+Category[Theology and philosophy]	VISIBLE:NO	PRESKILL:1,Knowledge (Theology and Philosophy)=4	BONUS:SKILL|Knowledge (Arcane Lore)|var("CL=Smart")/2|TYPE=Synergy			SOURCEPAGE:p.6	SAB:Logical (Theology and Philosophy)
 
 ###Block: Categories for Talk a Good Game Talent
-# Feat Name					Visible	Required Feat						Special Ability						Source Page
-Category [Arcane lore]			VISIBLE:NO	PREFEAT:1,Category[Arcane lore]			SAB:Talk a Good Game (Arcane Lore)			SOURCEPAGE:p.6
-Category [Art]				VISIBLE:NO	PREFEAT:1,Category[Art]					SAB:Talk a Good Game (Art)				SOURCEPAGE:p.6
-Category [Behavioral sciences]	VISIBLE:NO	PREFEAT:1,Category[Behavioral sciences]		SAB:Talk a Good Game (Behavioral Sciences)		SOURCEPAGE:p.6
-Category [Business]			VISIBLE:NO	PREFEAT:1,Category[Business]				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.6
-Category [Civics]				VISIBLE:NO	PREFEAT:1,Category[Civics]				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.6
-Category [Current events]		VISIBLE:NO	PREFEAT:1,Category[Current events]			SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.6
-Category [Earth and life sciences]	VISIBLE:NO	PREFEAT:1,Category[Earth and life sciences]	SAB:Talk a Good Game (Earth and Life Sciences)	SOURCEPAGE:p.6
-Category [History]			VISIBLE:NO	PREFEAT:1,Category[History]				SAB:Talk a Good Game (History)				SOURCEPAGE:p.6
-Category [Physical sciences]		VISIBLE:NO	PREFEAT:1,Category[Physical sciences]		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.6
-Category [Popular culture]		VISIBLE:NO	PREFEAT:1,Category[Popular culture]			SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.6
-Category [Streetwise]			VISIBLE:NO	PREFEAT:1,Category[Streetwise]			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.6
-Category [Tactics]			VISIBLE:NO	PREFEAT:1,Category[Tactics]				SAB:Talk a Good Game (Tactics)				SOURCEPAGE:p.6
-Category [Technology]			VISIBLE:NO	PREFEAT:1,Category[Technology]			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.6
-Category [Theology and philosophy]	VISIBLE:NO	PREFEAT:1,Category[Theology and philosophy]	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.6
+# Feat Name					Visible	Required Feat						Source Page		SAB
+Category [Arcane lore]			VISIBLE:NO	PREFEAT:1,Category[Arcane lore]			SOURCEPAGE:p.6	SAB:Talk a Good Game (Arcane Lore)
+Category [Art]				VISIBLE:NO	PREFEAT:1,Category[Art]					SOURCEPAGE:p.6	SAB:Talk a Good Game (Art)
+Category [Behavioral sciences]	VISIBLE:NO	PREFEAT:1,Category[Behavioral sciences]		SOURCEPAGE:p.6	SAB:Talk a Good Game (Behavioral Sciences)
+Category [Business]			VISIBLE:NO	PREFEAT:1,Category[Business]				SOURCEPAGE:p.6	SAB:Talk a Good Game (Business)
+Category [Civics]				VISIBLE:NO	PREFEAT:1,Category[Civics]				SOURCEPAGE:p.6	SAB:Talk a Good Game (Civics)
+Category [Current events]		VISIBLE:NO	PREFEAT:1,Category[Current events]			SOURCEPAGE:p.6	SAB:Talk a Good Game (Current Events)
+Category [Earth and life sciences]	VISIBLE:NO	PREFEAT:1,Category[Earth and life sciences]	SOURCEPAGE:p.6	SAB:Talk a Good Game (Earth and Life Sciences)
+Category [History]			VISIBLE:NO	PREFEAT:1,Category[History]				SOURCEPAGE:p.6	SAB:Talk a Good Game (History)
+Category [Physical sciences]		VISIBLE:NO	PREFEAT:1,Category[Physical sciences]		SOURCEPAGE:p.6	SAB:Talk a Good Game (Physical Sciences)
+Category [Popular culture]		VISIBLE:NO	PREFEAT:1,Category[Popular culture]			SOURCEPAGE:p.6	SAB:Talk a Good Game (Popular Culture)
+Category [Streetwise]			VISIBLE:NO	PREFEAT:1,Category[Streetwise]			SOURCEPAGE:p.6	SAB:Talk a Good Game (Streetwise)
+Category [Tactics]			VISIBLE:NO	PREFEAT:1,Category[Tactics]				SOURCEPAGE:p.6	SAB:Talk a Good Game (Tactics)
+Category [Technology]			VISIBLE:NO	PREFEAT:1,Category[Technology]			SOURCEPAGE:p.6	SAB:Talk a Good Game (Technology)
+Category [Theology and philosophy]	VISIBLE:NO	PREFEAT:1,Category[Theology and philosophy]	SOURCEPAGE:p.6	SAB:Talk a Good Game (Theology and Philosophy)
 
 
 ###Block: Advanced Class Abilities
-# Feat Name					Type								Visible	Required Feat			Prohibited Feat			Special Ability						Define				Stackable?	Multiple?	Choose																															Virtual Feat		Add					BONUS:FEAT		Misc bonus		Bonus to skill				Stat bonus			Modify VAR											Weapon prof. bonus											Source Page
-Class Ability Magic Defense		TYPE:ArcaneScholarAbility.DarkSageAbility		VISIBLE:NO						!PREFEAT:1,Magic Defense	SAB:Magic Defense											STACK:NO	MULT:NO																																													BONUS:MISC|SR|5																																					SOURCEPAGE:p.21+p44
-Master of Incantations			TYPE:ArcaneScholarAbility.DarkSageAbility		VISIBLE:NO											SAB:Master of Incantations (+%)|Mstr_of_Incnttn	DEFINE:Mstr_of_Incnttn|0																																																														BONUS:VAR|Mstr_of_Incnttn|var("CL=Arcane Scholar")+var("CL=Dark Sage")															SOURCEPAGE:p.20+p.44
-Sharp Eye					TYPE:BountyHunterAbility.CriminologistAbility	VISIBLE:NO											SAB:Sharp Eye (%CHOICE)										STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILLSNAMED|Investigate|Knowledge (Physical Sciences)|Knowledge (Technology)|Research|Sense Motive|Search|Spot																										BONUS:SKILL|LIST|2|TYPE=Competence																															SOURCEPAGE:p.22
-Dead Shot Weapon Focus			TYPE:DeadShotAbility					VISIBLE:NO											SAB:Dead Shot Weapon Focus (%CHOICE)								STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|AKM/AK-47|Barrett Light Fifty|Beretta M3P|Browning BPS|HK G3|HK MP5|HK MP5K|HK PSG1|M16A2|M4 Carbine|Mossberg|Remington 700|Sawed-Off Shotgun|Steyr AUG|Uzi|Winchester 94																																						BONUS:WEAPONPROF=%LIST|TOHIT|1									SOURCEPAGE:p.27
-Staggering Shot				TYPE:DeadShotAbility					VISIBLE:NO											SAB:Staggering Shot (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:FEAT=Dead Shot Weapon Focus|1																																																																													SOURCEPAGE:p.27
-Dead Shot Greater Weapon Focus	TYPE:DeadShotAbility					VISIBLE:NO											SAB:Dead Shot Greater Weapon Focus (%CHOICE)						STACK:NO	MULT:YES	CHOOSE:FEAT=Staggering Shot|1																																																																	BONUS:WEAPONPROF=%LIST|TOHIT|1									SOURCEPAGE:p.27
-Unarmed Weapon Finesse			TYPE:GentleWarriorAbility				VISIBLE:NO											SAB:Unarmed Weapon Finesse																																																																																		BONUS:WEAPONPROF=Unarmed Strike|TOHIT|(STRMAXDEX+SHIELDACCHECK)-STR|TYPE=NotRanged	SOURCEPAGE:p.32
-Uncanny Dodge X1				TYPE:GentleWarriorAbility				VISIBLE:NO						!PREFEAT:1,Uncanny Dodge I																																																		VFEAT:Uncanny Dodge I																																																SOURCEPAGE:p.32
-Uncanny Dodge X2				TYPE:GentleWarriorAbility				VISIBLE:NO	PREFEAT:1,Uncanny Dodge I																																																							VFEAT:Uncanny Dodge II																																																SOURCEPAGE:p.32
-Hacker Abilities				TYPE:HackerAbility					VISIBLE:NO											SAB:Hacker Abilities (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|Careful Progress|Electronic Empathy|False Trail|Install Backdoor|Instant Upgrade|Overclock|Passfirewall|Personal Database																																																												SOURCEPAGE:p.34
-Naturalist					TYPE:SurvivalistAbility					VISIBLE:NO											SAB:Naturalist (%CHOICE)										STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Arctic|Desert|Deciduous Forest|Jungle|Mountain [high altitude]|Mountain [low altitude]|Plains [temperate grasslands]|Rainforest|Savanna|Sea Coast|Swamp|Volcanic Plain																																																				SOURCEPAGE:p.40
-Advanced Techniques			TYPE:MartialArtsMasterAbility				VISIBLE:NO											SAB:Advanced Techniques (%CHOICE)								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|Crane Kick|Hands Without Shadow|Improvised Weapon Proficiency|Mat Techniques|Three Conflicts Stance																																																																SOURCEPAGE:p.46
-Trigger Power				TYPE:MentalistAbility					VISIBLE:NO											SAB:Trigger Power (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|LIST																																																																														SOURCEPAGE:p.50
+# Feat Name					Type								Visible	Required Feat			Prohibited Feat			Define				Stackable?	Multiple?	Choose																															Virtual Feat		Add					BONUS:FEAT		Misc bonus		Bonus to skill				Stat bonus			Modify VAR											Weapon prof. bonus											Source Page			SAB
+Class Ability Magic Defense		TYPE:ArcaneScholarAbility.DarkSageAbility		VISIBLE:NO						!PREFEAT:1,Magic Defense						STACK:NO	MULT:NO																																													BONUS:MISC|SR|5																																					SOURCEPAGE:p.21+p44	SAB:Magic Defense
+Master of Incantations			TYPE:ArcaneScholarAbility.DarkSageAbility		VISIBLE:NO											DEFINE:Mstr_of_Incnttn|0																																																														BONUS:VAR|Mstr_of_Incnttn|var("CL=Arcane Scholar")+var("CL=Dark Sage")															SOURCEPAGE:p.20+p.44	SAB:Master of Incantations (+%)|Mstr_of_Incnttn
+Sharp Eye					TYPE:BountyHunterAbility.CriminologistAbility	VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILLSNAMED|Investigate|Knowledge (Physical Sciences)|Knowledge (Technology)|Research|Sense Motive|Search|Spot																										BONUS:SKILL|LIST|2|TYPE=Competence																															SOURCEPAGE:p.22		SAB:Sharp Eye (%CHOICE)
+Dead Shot Weapon Focus			TYPE:DeadShotAbility					VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|AKM/AK-47|Barrett Light Fifty|Beretta M3P|Browning BPS|HK G3|HK MP5|HK MP5K|HK PSG1|M16A2|M4 Carbine|Mossberg|Remington 700|Sawed-Off Shotgun|Steyr AUG|Uzi|Winchester 94																																						BONUS:WEAPONPROF=%LIST|TOHIT|1									SOURCEPAGE:p.27		SAB:Dead Shot Weapon Focus (%CHOICE)
+Staggering Shot				TYPE:DeadShotAbility					VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:FEAT=Dead Shot Weapon Focus|1																																																																													SOURCEPAGE:p.27		SAB:Staggering Shot (%CHOICE)
+Dead Shot Greater Weapon Focus	TYPE:DeadShotAbility					VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:FEAT=Staggering Shot|1																																																																	BONUS:WEAPONPROF=%LIST|TOHIT|1									SOURCEPAGE:p.27		SAB:Dead Shot Greater Weapon Focus (%CHOICE)
+Unarmed Weapon Finesse			TYPE:GentleWarriorAbility				VISIBLE:NO																																																																																									BONUS:WEAPONPROF=Unarmed Strike|TOHIT|(STRMAXDEX+SHIELDACCHECK)-STR|TYPE=NotRanged	SOURCEPAGE:p.32		SAB:Unarmed Weapon Finesse
+Uncanny Dodge X1				TYPE:GentleWarriorAbility				VISIBLE:NO						!PREFEAT:1,Uncanny Dodge I																																										VFEAT:Uncanny Dodge I																																																SOURCEPAGE:p.32
+Uncanny Dodge X2				TYPE:GentleWarriorAbility				VISIBLE:NO	PREFEAT:1,Uncanny Dodge I																																															VFEAT:Uncanny Dodge II																																																SOURCEPAGE:p.32
+Hacker Abilities				TYPE:HackerAbility					VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|Careful Progress|Electronic Empathy|False Trail|Install Backdoor|Instant Upgrade|Overclock|Passfirewall|Personal Database																																																												SOURCEPAGE:p.34		SAB:Hacker Abilities (%CHOICE)
+Naturalist					TYPE:SurvivalistAbility					VISIBLE:NO																STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Arctic|Desert|Deciduous Forest|Jungle|Mountain [high altitude]|Mountain [low altitude]|Plains [temperate grasslands]|Rainforest|Savanna|Sea Coast|Swamp|Volcanic Plain																																																				SOURCEPAGE:p.40		SAB:Naturalist (%CHOICE)
+Advanced Techniques			TYPE:MartialArtsMasterAbility				VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|Crane Kick|Hands Without Shadow|Improvised Weapon Proficiency|Mat Techniques|Three Conflicts Stance																																																																SOURCEPAGE:p.46		SAB:Advanced Techniques (%CHOICE)
+Trigger Power				TYPE:MentalistAbility					VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|LIST																																																																														SOURCEPAGE:p.50		SAB:Trigger Power (%CHOICE)
 
 #Cross Training Sub-Entries
-Raise Abilities				TYPE:X-Training						VISIBLE:NO											SAB:Cross Training (+1 to %CHOICE)								STACK:NO	MULT:YES	CHOOSE:COUNT=2|STAT																																																		BONUS:STAT|%LIST|1																											SOURCEPAGE:p.55
-Lower Ability				TYPE:X-Training						VISIBLE:NO											SAB:Cross Training (-2 to %CHOICE)								STACK:NO	MULT:YES	CHOOSE:COUNT=1|STAT																																						BONUS:FEAT|POOL|1										BONUS:STAT|%LIST|-2																											SOURCEPAGE:p.55
+Raise Abilities				TYPE:X-Training						VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:COUNT=2|STAT																																																		BONUS:STAT|%LIST|1																											SOURCEPAGE:p.55		SAB:Cross Training (+1 to %CHOICE)
+Lower Ability				TYPE:X-Training						VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:COUNT=1|STAT																																						BONUS:FEAT|POOL|1										BONUS:STAT|%LIST|-2																											SOURCEPAGE:p.55		SAB:Cross Training (-2 to %CHOICE)
 
 #Multilingual Choices
-Spoken Language				TYPE:Multilingual						VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																		ADD:Language|1|TYPE=Spoken																																											SOURCEPAGE:p.58
-Written Language				TYPE:Multilingual						VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																		ADD:Language|1|TYPE=Written																																											SOURCEPAGE:P.58
+Spoken Language				TYPE:Multilingual						VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																		ADD:Language|1|TYPE=Spoken																																											SOURCEPAGE:p.58
+Written Language				TYPE:Multilingual						VISIBLE:NO																STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																		ADD:Language|1|TYPE=Written																																											SOURCEPAGE:P.58
 
 ###Block: Signature Skills Choices
 # Feat Name									Type			Visible	Required Class				Add

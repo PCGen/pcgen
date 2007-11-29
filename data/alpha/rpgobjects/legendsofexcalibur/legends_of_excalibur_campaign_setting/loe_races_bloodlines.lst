@@ -1,27 +1,27 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # These bloodlines impact a character's starting nobility, which isn't treated like the standard stats.
 #   Not sure how to code that atm.
 # Also, bloodline determines what you're starting gold is, which I also don't know ow to code.
 
-# Race Name			Favored Class		Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Automatic Languages		Bonus to skill							Stat bonus					Special Ability								Main Race Type	Source Page		Add
-Base/Criminal		FAVCLASS:Rogue						STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English			BONUS:SKILL|Search,Spot,Survival|2|TYPE=Bloodline	BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2	SAB:Illiterate	SAB:Survivor (Ex)					RACETYPE:Humanoid	SOURCEPAGE:p5	ADD:FEAT|1|TYPE=BaseCriminal
+# Race Name			Favored Class		Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Automatic Languages		Bonus to skill							Stat bonus					Main Race Type	Source Page		Add									SAB
+Base/Criminal		FAVCLASS:Rogue						STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English			BONUS:SKILL|Search,Spot,Survival|2|TYPE=Bloodline	BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2	RACETYPE:Humanoid	SOURCEPAGE:p5	ADD:FEAT|1|TYPE=BaseCriminal					SAB:Illiterate	SAB:Survivor (Ex)
 # starting nobility is 10+1d10
 # starting gold is 2d6 * nobility
 
-Common/Serf			FAVCLASS:Any						STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English			BONUS:SKILL|TYPE.Craft|2|TYPE=Bloodline			BONUS:STAT|INT|-2				SAB:Illiterate	SAB:Worker (Ex)	SAB:Fealty (Ex)		RACETYPE:Humanoid	SOURCEPAGE:p6	ADD:FEAT|1|TYPE=CommonSerf	ADD:FEAT|1|CSStatBonus
+Common/Serf			FAVCLASS:Any						STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English			BONUS:SKILL|TYPE.Craft|2|TYPE=Bloodline			BONUS:STAT|INT|-2				RACETYPE:Humanoid	SOURCEPAGE:p6	ADD:FEAT|1|TYPE=CommonSerf	ADD:FEAT|1|CSStatBonus	SAB:Illiterate	SAB:Worker (Ex)	SAB:Fealty (Ex)
 # starting nobility is 20+1d10
 # starting gold is 3d6 * nobility
 
-Middle Class		FAVCLASS:Any		XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English,Literacy	BONUS:SKILL|Diplomacy|2|TYPE=Bloodline									SAB:Stuck in the Middle With You (Ex)	SAB:Fealty (Ex)	RACETYPE:Humanoid	SOURCEPAGE:p7
+Middle Class		FAVCLASS:Any		XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English,Literacy	BONUS:SKILL|Diplomacy|2|TYPE=Bloodline									RACETYPE:Humanoid	SOURCEPAGE:p7										SAB:Stuck in the Middle With You (Ex)	SAB:Fealty (Ex)
 # starting nobility is 30+1d10
 # starting gold is 3d6 * nobility
 
-Lesser Nobility/Peerage	FAVCLASS:Priest|Knight					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English,Literacy	BONUS:SKILL|Ride|2|TYPE=Bloodline				BONUS:STAT|CON|2				SAB:Bred to the Saddle (Ex)	SAB:Fealty (Ex)			RACETYPE:Humanoid	SOURCEPAGE:p8
+Lesser Nobility/Peerage	FAVCLASS:Priest|Knight					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English,Literacy	BONUS:SKILL|Ride|2|TYPE=Bloodline				BONUS:STAT|CON|2				RACETYPE:Humanoid	SOURCEPAGE:p8										SAB:Bred to the Saddle (Ex)	SAB:Fealty (Ex)
 # starting nobility is 40+1d10
 # starting gold is 5d6 * nobility
 
-Nobility/Royalty		FAVCLASS:Noble						STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English,Literacy	BONUS:SKILL|Intimidate|2|TYPE=Bloodline			BONUS:STAT|CHA|2	BONUS:STAT|STR|-2	SAB:Voice of Command (Ex)	SAB:Noblesse Oblige (Ex)		RACETYPE:Humanoid	SOURCEPAGE:p9
+Nobility/Royalty		FAVCLASS:Noble						STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English,Literacy	BONUS:SKILL|Intimidate|2|TYPE=Bloodline			BONUS:STAT|CHA|2	BONUS:STAT|STR|-2	RACETYPE:Humanoid	SOURCEPAGE:p9										SAB:Voice of Command (Ex)	SAB:Noblesse Oblige (Ex)
 # starting nobility is 50+1d10
 # starting gold is 7d6 * nobility

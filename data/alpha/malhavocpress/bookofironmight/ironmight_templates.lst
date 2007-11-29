@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM
 
 ###Block: arcane battle mastery
@@ -6,8 +6,8 @@ SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.co
 Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PREATT:1	PRECSKILL:3,Concentration,Knowledge (Arcana),Spellcraft	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,INT=13	FEAT:Arcane Battle Mastery
 
 ###Block: ironborn
-# Template Name	Visible	Template																																																																							Special Ability				Combat bonus				Bonus to skill
-Ironborn Trait	VISIBLE:NO	TEMPLATE:Humanoid	TEMPLATE:CHOOSE:Ironborn No Stat Adjustment|Ironborn Str Stat Adjustment|Ironborn NonStr Stat Adjustment	TEMPLATE:CHOOSE:Ironborn Acrobat Ability Package|Ironborn Centurion Ability Package|Ironborn Divine Mark Ability Package|Ironborn Iron Heart Ability Package|Ironborn Shadow Friend Ability Package|Ironborn Slayer Ability Package|Ironborn Spellmaster Ability Package|Ironborn Trailblazer Ability Package	SAB:Immortal	SAB:Rust Vulnerability	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|-2|TYPE=Racial
+# Template Name	Visible	Template																																																																							Combat bonus				Bonus to skill											SAB
+Ironborn Trait	VISIBLE:NO	TEMPLATE:Humanoid	TEMPLATE:CHOOSE:Ironborn No Stat Adjustment|Ironborn Str Stat Adjustment|Ironborn NonStr Stat Adjustment	TEMPLATE:CHOOSE:Ironborn Acrobat Ability Package|Ironborn Centurion Ability Package|Ironborn Divine Mark Ability Package|Ironborn Iron Heart Ability Package|Ironborn Shadow Friend Ability Package|Ironborn Slayer Ability Package|Ironborn Spellmaster Ability Package|Ironborn Trailblazer Ability Package	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|-2|TYPE=Racial	SAB:Immortal	SAB:Rust Vulnerability
 
 ###Block: Ironborn Stat Adjustments
 # Template Name				Visible	Template																																							Stat bonus
