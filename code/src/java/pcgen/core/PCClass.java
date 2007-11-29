@@ -5993,7 +5993,7 @@ public class PCClass extends PObject {
 	 */
 	private void buildSubstitutionClassChoiceList(final List<PCClass> choiceList,
 			final int level, final PlayerCharacter aPC) {
-
+		
 		for (SubstitutionClass sc : substitutionClassList) {
 			if (!PrereqHandler.passesAll(sc.getPreReqList(), aPC, this)) {
 				continue;
@@ -6004,6 +6004,8 @@ public class PCClass extends PObject {
 
 			choiceList.add(sc);
 		}
+		Collections.sort(choiceList); 	// sort the SubstitutionClass's 
+		choiceList.add(0,this); 		// THEN add the base class as the first choice
 	}
 
 	/**
@@ -6266,14 +6268,17 @@ public class PCClass extends PObject {
 
 		List<PCClass> choiceList = new ArrayList<PCClass>();
 		buildSubstitutionClassChoiceList(choiceList, level, aPC);
-		if (choiceList.size() == 0) {
-			return;
+		if (choiceList.size() <= 1) {
+			return;			// This means the there are no classes for which
+							// the pc meets the prerequisitions and thus the 
+							// base class is chosen.
 		}
 
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTitle("Substitution Levels");
 		c.setMessageText("Choose one of the listed substitution levels " +
-                         "or press Close to take the standard class level.");
+                         "or the base class(top entry).  "
+						+"Pressing Close will take the standard class level.");
 		c.setPool(1);
 		c.setPoolFlag(false);
 
@@ -6282,15 +6287,29 @@ public class PCClass extends PObject {
 
 		c.setVisible(true);
 
-		List<SubstitutionClass> selectedList = c.getSelectedList();
-
-		if (!selectedList.isEmpty()) {
-			SubstitutionClass sc = selectedList.get(0);
+		List<PCClass> selectedList = c.getSelectedList();
+		PCClass selected =selectedList.get(0);	
+		
+		if ((!selectedList.isEmpty()) && selected instanceof SubstitutionClass) 
+		{
+			SubstitutionClass sc = (SubstitutionClass)selected;
 			setSubstitutionClassKey(sc.getKeyName(), aLevel);
 			sc.applyLevelArrayModsToLevel(this, aLevel);
 			return;
 		}
-		setSubstitutionClassKey(null, aLevel);
+		else 
+		{
+			/*	
+			 *  the original code has the below line..
+			 *	however, it appears to not be needed.
+			 *	I say this because if the original buildSubstitutionClassChoiceList
+			 *	method returned an empty list, it returned right away without
+			 *	calling this method.
+			*/
+			setSubstitutionClassKey(null, aLevel);
+			return;
+		}
+		
 	}
 
 	/*
