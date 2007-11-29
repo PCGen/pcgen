@@ -37,14 +37,26 @@ INFOTEXT:Accessory for the Dawnforge campaign setting.
 
 RACE:agelegend_races.lst
 TEMPLATE:agelegend_templates.lst
-TEMPLATE:agelegend_templates_races.lst
 CLASS:agelegend_classes_prestige.lst
 #CLASS:agelegend_classes_legendary.lst
 #CLASS:agelegend_classes_variant.lst
 FEAT:agelegend_feats.lst
 FEAT:agelegend_feats_hidden.lst
 #FEAT:agelegend_feats_hidden_legendary.lst
-FEAT:agelegend_feats_races.lst
 #EQUIPMENT:agelegend_equip.lst
 SKILL:agelegend_skills.lst
 SPELL:agelegend_spells.lst
+
+# Talents & Transformations to Abililtes
+
+ABILITYCATEGORY:agelegend_ability_categories.lst
+ABILITY:agelegend_abilities_racial.lst
+
+#FEAT:agelegend_feats_races.lst
+#TEMPLATE:agelegend_templates_races.lst
+
+HIDETYPE:FEAT|ForestWightTalentFeat|ForestWightTransformationFeat|OrcTrustingEars|TieflingCovertCasting|TieflingCombatManeuver|TieflingMartialTraining
+
+#
+# End
+#

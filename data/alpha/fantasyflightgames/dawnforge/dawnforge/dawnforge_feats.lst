@@ -12,116 +12,37 @@ Craft Spell Fetish		TYPE:ItemCreation				PRECLASS:1,Spellcaster=1	PRESKILL:1,Kno
 
 ###Block: Feat Mods
 # Feat Name					Type
-Acrobatic.MOD
-Agile.MOD
 Alertness.MOD				TYPE:GnomeTalentFeat.HighlanderTalentFeat
-Animal Affinity.MOD
-Armor Proficiency (Heavy).MOD
-Armor Proficiency (Light).MOD
-Armor Proficiency (Medium).MOD
-Athletic.MOD
 Augment Summoning.MOD			TYPE:TieflingTalentFeat
 Blind Fight.MOD				TYPE:MinotaurTalentFeat.OgreTalentFeat
 Brew Potion.MOD				TYPE:OrcTalentFeat
-Cleave.MOD
-Combat Casting.MOD
 Combat Expertise.MOD			TYPE:HalflingTalentFeat
-Combat Reflexes.MOD
 Craft Magic Arms and Armor.MOD	TYPE:OrcTalentFeat
-Craft Rod.MOD
-Craft Staff.MOD
-Craft Wand.MOD
-Craft Wondrous Item.MOD
-Deceitful.MOD
-Deflect Arrows.MOD
-Deft Hands.MOD
-Diehard.MOD					TYPE:MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
-Diligent.MOD
-Dodge.MOD					TYPE:DoppelTransformationFeat.DwarfTransformationFeat.NightElfTransformationFeat.GnomeTransformationFeat.HalflingTransformationFeat.HighlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OrcTransformationFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
-Empower Spell.MOD
-Endurance.MOD				TYPE:DoppelTransformationFeat.DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTalentFeat.SaltbloodTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
-Enlarge Spell.MOD
+Diehard.MOD					TYPE:LowlanderTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
+Dodge.MOD					TYPE:DoppelTransformationFeat.DawnElfTransformationFeat.NightElfTransformationFeat.GnomeTransformationFeat.HalflingTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OrcTransformationFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
+Endurance.MOD				TYPE:DoppelTransformationFeat.DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTalentFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
 Eschew Materials.MOD			TYPE:LizardTalentFeat
 Exotic Weapon Proficiency.MOD		TYPE:TruebornTalentFeat.MinotaurTalentFeat.OrcTalentFeat
-Extend Spell.MOD
-Extra Turning.MOD
-Far Shot.MOD
-Forge Ring.MOD
-Great Cleave.MOD
-Great Fortitude.MOD			TYPE:DoppelTransformationFeat.DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
-Greater Spell Focus.MOD
-Greater Spell Penetration.MOD
-Greater Two Weapon Fighting.MOD
+Great Fortitude.MOD			TYPE:DoppelTransformationFeat.DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
 Greater Weapon Focus.MOD		TYPE:LizardTalentFeat.MinotaurTalentFeat
-Greater Weapon Specialization.MOD
-Heighten Spell.MOD
-Improved Bull Rush.MOD
-Improved Counterspell.MOD
-Improved Critical.MOD
-Improved Disarm.MOD
-Improved Familiar.MOD
-Improved Feint.MOD
-Improved Grapple.MOD
 Improved Initiative.MOD			TYPE:DoppelTalentFeat.NightElfTransformationFeat.GnomeTalentFeat.HighlanderTalentFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
-Improved Overrun.MOD
-Improved Precise Shot.MOD
-Improved Shield Bash.MOD
-Improved Sunder.MOD
-Improved Trip.MOD
-Improved Turning.MOD
-Improved Two Weapon Fighting.MOD
 Improved Unarmed Strike.MOD		TYPE:OgreTalentFeat
-Investigator.MOD
-Iron Will.MOD				TYPE:DwarfTransformationFeat.NightElfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.OrcTalentFeat.ThinbloodTransformationFeat
-Leadership.MOD				TYPE:DwarfTalentFeat.SaltbloodTalentFeat.TruebornTalentFeat.MinotaurTalentFeat
-Lightning Reflexes.MOD			TYPE:DwarfTransformationFeat.NightElfTransformationFeat.HalflingTransformationFeat.HighlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
-Magical Aptitude.MOD
-Manyshot.MOD
+Iron Will.MOD				TYPE:DawnElfTransformationFeat.NightElfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.OrcTalentFeat.ThinbloodTransformationFeat
+Leadership.MOD				TYPE:DwarfTalentFeat.LowlanderTalentFeat.SaltbloodTalentFeat.TruebornTalentFeat.MinotaurTalentFeat
+Lightning Reflexes.MOD			TYPE:DawnElfTransformationFeat.NightElfTransformationFeat.HalflingTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
 Martial Weapon Proficiency.MOD	TYPE:DwarfTalentFeat.HighlanderTalentFeat
-Maximize Spell.MOD
-Mobility.MOD
-Mounted Archery.MOD
 Mounted Combat.MOD			TYPE:TruebornTalentFeat
-Natural Spell.MOD
-Negotiator.MOD
-Nimble Fingers.MOD
-Persuasive.MOD
 Point Blank Shot.MOD			TYPE:DawnElfTalentFeat
 Power Attack.MOD				TYPE:DwarfTalentFeat.OgreTalentFeat.OrcTalentFeat
-Precise Shot.MOD
 Quick Draw.MOD				TYPE:DawnElfTalentFeat.SaltbloodTalentFeat.TruebornTalentFeat
-Quicken Spell.MOD
 Rapid Reload.MOD				TYPE:NightElfTalentFeat.HalflingTalentFeat.SaltbloodTalentFeat
-Rapid Shot.MOD
-Ride By Attack.MOD
-Run.MOD					TYPE:HalflingTransformationFeat.HighlanderTransformationFeat.OrcTransformationFeat
-Scribe Scroll.MOD
-Self Sufficient.MOD
-Shield Proficiency.MOD
-Shot on the Run.MOD
-Silent Spell.MOD
-Simple Weapon Proficiency.MOD
-Skill Focus.MOD
-Snatch Arrows.MOD
+Run.MOD					TYPE:HalflingTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.OrcTransformationFeat
 Spell Focus.MOD				TYPE:DawnElfTalentFeat.GnomeTalentFeat.TruebornTalentFeat.TieflingTalentFeat
-Spell Mastery.MOD
-Spell Penetration.MOD
-Spirited Charge.MOD
-Spring Attack.MOD
-Stealthy.MOD
-Still Spell.MOD
-Stunning Fist.MOD
-Toughness.MOD				TYPE:DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
-Tower Shield Proficiency.MOD
-Track.MOD					TYPE:NightElfTalentFeat.HighlanderTalentFeat
+Toughness.MOD				TYPE:DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
+Track.MOD					TYPE:NightElfTalentFeat.HighlanderTalentFeat.LowlanderTalentFeat
 Trample.MOD					TYPE:TruebornTalentFeat
-Two Weapon Defense.MOD
-Two Weapon Fighting.MOD
 Weapon Finesse.MOD			TYPE:HighlanderTalentFeat
 Weapon Focus.MOD				TYPE:LizardTalentFeat.MinotaurTalentFeat
-Weapon Specialization.MOD
-Whirlwind Attack.MOD
-Widen Spell.MOD
 
 # Psionics
 Craft Cognizance Crystal.MOD		TYPE:ThinbloodTalentFeat
