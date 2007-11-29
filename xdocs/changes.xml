@@ -1,242 +1,242 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<document>
-  <properties>
-    <title>PCGen Change Log</title>
-  </properties>
-  <body>
-    <release version="5.13.5" date="In SVN" description="Alpha release">
-      <action dev="jdempsey" type="update" issue="1831621">Move point buy definitions to Custom data</action>
-      <action dev="jdempsey" type="add" issue="1834907">Define ABILITYCATEGORIES in lst file</action>
-    </release>
-    <release version="5.13.4" date="2007-11-12" description="Alpha release"></release>
-    <release version="5.13.3" date="2007-10-22" description="Alpha release">
-      <action dev="thpr" type="add" issue="1800407">Deprecate Eqmod CHOOSE:EQBUILDER|1 tag</action>
-      <action dev="thpr" type="add" issue="1798233">Eliminate Cross-Level Interactions in SA tag</action>
-      <action dev="thpr" type="add" issue="1800290">SPELLLIST Token exception for DOMAINS</action>
-      <action dev="thpr" type="fix" issue="1790746">AUTO: must take multiple versions of each Subtoken</action>
-      <action dev="thpr" type="fix" issue="1800720">ADD:LANGUAGE|ALL broken</action>
-      <action dev="thpr" type="fix" issue="1802347">PRESA: Can't Count Properly</action>
-      <action dev="thpr" type="fix" issue="1802352">PRESA: ignores PRExxx tokens on SAs</action>
-      <action dev="thpr" type="add" issue="1784493">Attach REPEATLEVEL to level in Class LST</action>
-      <action dev="eddyanthony" type="add" issue="1783488">Graphical preview sheet for fantasy modes</action>
-      <action dev="tir-gwaith" type="add" issue="1805246,1805969,1813374">[R/SRD] Favored Enemy, Rogue abilities, Fighter and wizard feats to ABILITY objects</action>
-    </release>
-    <release version="5.13.2" date="2007-09-23" description="Alpha release"/>
-    <release version="5.13.1" date="2007-08-28" description="Alpha release">
-      <action dev="jdempsey" type="fix" issue="1782465">VFEAT tags ignored.</action>
-      <action dev="thpr" type="add" issue="1707366">Resolve MOVE related tag order of operations</action>
-      <action dev="thpr" type="add" issue="1777052">Formal MOVECLONE change request</action>
-      <action dev="thpr" type="add" issue="1754529">Deprecate PRETYPE for PlayerCharacter</action>
-      <action dev="thpr" type="add" issue="1777050">Class CHOICE: Token change</action>
-      <action dev="thpr" type="add" issue="1777047">CONTAINS Magical Value Elimination</action>
-      <action dev="thpr" type="fix" issue="1776390">.MOD with weapon Profs renames the Proficiency</action>
-      <action dev="amaitland" type="add" issue="1750552">Add Sheath to PCGen OGC</action>
-      <action dev="amaitland" type="fix" issue="1763382">[SRD] Mace (Light) / (Heavy) proficiency issues</action>
-      <action dev="tir-gwaith" type="fix" issue="1772816">[RSRD] Derro and Babau don't use Sneak Attack mechanic right</action>
-      <action dev="eddyanthony" type="fix" issue="1776713">rpgwebprofiler adds weapon weight twice</action>
-    </release>
-    <release version="5.13.0" date="2007-08-12" description="Alpha release">
-      <action dev="takeyabue" type="fix">W3C Validation of documentation (228/295 files done already)</action>
-      <action dev="tir-gwaith" type="fix" issue="1768097">[RSRD] Animal Companion List missing some entries</action>
-      <action dev="frank_kliewe" type="add" issue="1753599" due-to="amaitland">[Bards and Sages] Neiyar Land of Heaven and the Abyss</action>
-      <action dev="frank_kliewe" type="add" issue="1633758" due-to="kingpaul">[TGM] Modern Magic Vol.1</action>
-      <action dev="darkstorm999" type="fix" issue="1472565">[GMGen] Can not generate generic encounters</action>
-      <action dev="darkstorm999" type="fix" issue="1761877">[GMGen] Overland Travel tab</action>
-      <action dev="thpr" type="add" issue="1748116">Global AUTO:FEAT</action>
-      <action dev="thpr" type="update" issue="1613771">Deprecate Default Monster Mode Tags</action>
-      <action dev="thpr" type="fix" issue="1771278">Spell Characteristics are not properly cloned</action>
-      <action dev="thpr" type="fix" issue="1771873">!PREVISION fails if tested for presence</action>
-    </release>
-    <release version="5.12.0 RC1" date="2007-5-20" description="Beta release">
-      <action dev="thpr" type="fix" issue="1677623">Equipping tab print preview bypasses filters</action>
-      <action dev="thpr" type="fix" issue="1711707">Custom Feat Descriptions Not Saving</action>
-      <action dev="thpr" type="fix" issue="1712559">Ex class with tab VISIBLE:NO are visible</action>
-      <action dev="thpr" type="fix" issue="1565846">GMGen initiative bugs (partial fix)</action>
-      <action dev="jdempsey" type="fix" issue="1711578">[5.11.14] Closing Character with Companions under Java 1.6.</action>
-      <action dev="thpr" type="fix" issue="1719758">NPE in Spell Editor</action>
-    </release>
-    <release version="5.11.14" date="2007-05-02" description="Beta release">
-      <action dev="tir-gwaith" type="add" issue="1703302">[SRD/RSRD]Dynamic DESC for Combat Expertise and Power Attack</action>
-      <action dev="thpr" type="fix" issue="1666473">Use of ".CLEAR" does not remove Racial SA abilities</action>
-      <action dev="thpr" type="fix" issue="1631977">.COPY does not correct Contextual SA Prereqs</action>
-      <action dev="thpr" type="fix" issue="1709325">PCGen parses saved characters on "Save As..." and Crashes</action>
-      <action dev="thpr" type="fix" issue="1612976">Raven Familiar gets New Language each Update from Master</action>
-      <action dev="thpr" type="fix" issue="1660906">BAB can't be in formula in &gt; lvl 20 char. (Infinite Loop)</action>
-    </release>
-    <release version="5.11.13" date="2007-04-16" description="Beta release">
-      <action dev="thpr" type="fix" issue="1683314">Source Load Leaks Memory</action>
-      <action dev="jdempsey" type="fix" issue="1687934">Psionicist forces powers on character load.</action>
-      <action dev="thpr" type="fix" issue="1695386">UTF-8 files do not properly filter BOM</action>
-      <action dev="jdempsey" type="fix" issue="1691217">MAXLEVEL for classes defaults to 20.</action>
-      <action dev="jdempsey" type="fix" issue="1693551">Ability Object: Proficiency warning on character load.</action>
-      <action dev="zaister" type="fix" issue="1696862">Show skill rank breakdown on Skills Tab</action>
-      <action dev="jdempsey" type="fix" issue="1663749">KNOWNSPELLS not working on class level line</action>
-    </release>
-    <release version="5.11.12" date="2007-04-04" description="Beta release">
-      <action dev="thpr" type="fix" issue="1681152">BONUSFEATLEVELSTARTINTERVAL:1|0 doesn't work</action>
-      <action dev="thpr" type="fix" issue="1678660">COUNT[SKILLS] export token miscounts with VISIBLE:GUI skill</action>
-      <action dev="thpr" type="fix" issue="1681540">System look and feel does not work in Gnome</action>
-      <action dev="thpr" type="fix" issue="1683259">Skill Editor mangles CHOOSE: Tokens</action>
-      <action dev="jdempsey" type="add" issue="1262317">Ability Object: Add ability tags.</action>
-      <action dev="jdempsey" type="update" issue="1307101">DOMAINS tag to take PRExxx tags in Deity files.</action>
-      <action dev="jdempsey" type="fix" issue="1686367">BONUS:VAR|&lt;Var Y&gt;|&lt;Var X&gt; not being evaluated.</action>
-      <action dev="thpr" type="fix" issue="1683247">CHOOSE:Language does not allow multiple types</action>
-      <action dev="thpr" type="fix" issue="1272641">MOVE on Class level lines</action>
-      <action dev="fitzs" type="update" issue="1673128">Document new ADD Syntax.</action>
-    </release>
-    <release version="5.11.11" date="2007-03-24" description="Alpha release">
-      <action dev="jdempsey" type="fix" issue="1685359">Can't save Monk.</action>
-      <action dev="jdempsey" type="fix" issue="1673585">Familiar give no bonuses and gets no bonuses.</action>
-    </release>
-    <release version="5.11.10" date="2007-03-20" description="Alpha release">
-      <action dev="thpr" type="fix" issue="1675324">ADD:SKILL(x,x)y not working with a skill that uses parens</action>
-      <action dev="thpr" type="fix" issue="1667368">PCC Main Body Tags fail with http LST</action>
-      <action dev="jdempsey" type="update" issue="1680391">Enhance skillpoints export tag to allow breakdown by class.</action>
-      <action dev="jdempsey" type="update" issue="1680228">CHECKBOXES token.</action>
-      <action dev="vandaelek" type="add" issue="1673304">Temp bonuses should work with Spell-like abilities.</action>
-      <action dev="jdempsey" type="add" issue="1681235">Skills Tab - Add +/- buttons for adding and removing skills.</action>
-      <action dev="eddyanthony" type="add" issue="1538443">New Output Sheet for rpgwebprofiler.</action>
-      <action dev="eddyanthony" type="add" issue="1266021">New DMG2 style statblock Output Sheet.</action>
-      <action dev="eddyanthony" type="fix" issue="1679456">Output Sheets: Use BASEQTY in calculation for checkboxes for items.</action>
-      <action dev="tir-gwaith" type="add" issue="1669676" due-to="Paul W. King (kingpaul)">New Source [Secular Games] Winter Elves.</action>
-      <action dev="thpr" type="fix" issue="1681781">Subclasses break CLASSLIST token</action>
-      <action dev="thpr" type="fix" issue="1683180">LEVEL:6:FEAT:Foo prompts at Level 7</action>
-      <action dev="thpr" type="fix" issue="1683181">LEVEL:6:Feat:Type.Fighter won't stop prompting</action>
-    </release>
-    <release version="5.11.9" date="2007-03-06" description="Alpha release">
-      <action dev="jdempsey" type="add" issue="1411073">OS Token IFF() to accept any JEP Boolean functions</action>
-      <action dev="maredudd800" type="update">Updated and corrected documentation issues with KNOWNSPELLS and the default spell level for wands.</action>
-      <action dev="maredudd800" type="update">Updated the race file documentation to include HITDIE tag.</action>
-      <action dev="jdempsey" type="add" issue="1588325">User input for feat target.</action>
-      <action dev="thpr" type="update" issue="1670470">Deprecate ADD:LIST and ADD:WEAPONBONUS</action>
-      <action dev="thpr" type="update" issue="1669592">ADD:FEAT Supports ALL</action>
-      <action dev="thpr" type="update" issue="1671219">Deprecated RACE AC Tag</action>
-      <action dev="eddyanthony" type="add" issue="1667706">New OS to export to RPTools InitTool file format.</action>
-      <action dev="eddyanthony" type="add" issue="1339969">Monk's Timeless Body ability should counter aging penalties.</action>
-      <action dev="thpr" type="update" issue="1673230">Altered CLEAR behavior in DOMAINS: and CLASSES: Tokens</action>
-      <action dev="thpr" type="fix" issue="1673191">Backslash in relative path causes relative path failure</action>
-    </release>
-    <release version="5.11.8" date="2007-02-18" description="Alpha release">
-      <action dev="jdempsey" type="fix" issue="1648569">[5.11.6] Virtual Feats Lost on Character Load</action>
-      <action dev="perchrh" type="add" issue="1275919">Added new PREAGESET tag.</action>
-      <action dev="eddyanthony" type="add" issue="1339969">Added a Timeless Body template for Monk and Druid.</action>
-      <action dev="thpr" type="update" issue="1662066">Deprecated NAME Tag</action>
-      <action dev="thpr" type="update" issue="1633550">Deprecated Old PRESPELLTYPE syntax</action>
-      <action dev="thpr" type="fix" issue="1654039">UNENCUMBEREDMOVE now works properly on CLASS line</action>
-    </release>
-    <release version="5.11.7" date="2007-01-30" description="Alpha release">
-      <action dev="thpr" type="update" issue="1611839">Deprecated +d in KNOWN Tag</action>
-      <action dev="thpr" type="update" issue="1613697">Deprecated ALTCRITICAL Tag</action>
-      <action dev="thpr" type="update" issue="1620950">Deprecated UATT Tag</action>
-      <action dev="thpr" type="update" issue="1620957">Changed QUALIFY Syntax</action>
-      <action dev="jdempsey" type="fix" issue="1628407">BONUS:WIELDCATEGORY|ALL|-1 issues.</action>
-      <action dev="thpr" type="update" issue="1632839">Eliminated Ability Nature partial matches</action>
-      <action dev="thpr" type="update" issue="1632898">Removed support for old file types (CLASSSPELLS, CLASSSKILLS, REQSKILL)</action>
-      <action dev="thpr" type="update" issue="1633550">Deprecate old PRESPELLTYPE Syntax</action>
-      <action dev="jdempsey" type="add" issue="1642779">Added new PREABILITY tag.</action>
-      <action dev="jdempsey" type="fix" issue="1638866">MULT:YES Abilities can't be added.</action>
-      <action dev="eddyanthony" type="update" issue="1638080">[RSRD] Convert Salient Divine Abilities to Ability Object</action>
-      <action dev="eddyanthony" type="update" issue="1639771">[MSRD] Convert Mutations set to use Ability Object</action>
-      <action dev="thpr" type="fix" issue="1641072">Fix Prepared spells with metamagic feat</action>
-      <action dev="thpr" type="fix" issue="1641069">Fix Improved Spell Capacity</action>
-      <action dev="thpr" type="fix" issue="1580961">XTRAFEATS now parsed</action>
-      <action dev="thpr" type="fix" issue="1640467">Preview Pane now works with Keyed Skills [Internationalization]</action>
-      <action dev="thpr" type="fix" issue="1640377">Template LANGBONUS will now correctly work with Type</action>
-      <action dev="thpr" type="fix" issue="1640417">.COPY now respects include/exclude</action>
-      <action dev="thpr" type="fix" issue="1640415">Duplicate Object Warning now determines source of .COPY</action>
-      <action dev="thpr" type="fix" issue="1637276">LST import now correctly detects duplicate files regardless of spaces in file names</action>
-      <action dev="frank_kliewe" type="add" issue="1428977" due-to="boomer70 and amaitland">Added new Data set for Green Ronin's Psychic's Handbook.</action>
-    </release>
-    <release version="5.11.6" date="2007-01-07" description="Alpha release">
-      <action dev="jdempsey" type="fix" issue="1625324">Filter not working in feat tab.</action>
-      <action dev="jdempsey" type="fix" issue="1625112">Multiple Bonuses on Feat Only Added Once [CMP].</action>
-      <action dev="jdempsey" type="fix" issue="1621485">Spells lost from known spells list when removed from prepared spell list.</action>
-      <action dev="jdempsey" type="fix" issue="1619872">Weapon damage not changing when weapons resized.</action>
-      <action dev="jdempsey" type="fix" issue="1618932">Multiple spells on scroll can't be done.</action>
-      <action dev="jdempsey" type="fix" issue="1616630">SPELLLEVEL in LST Editors.</action>
-      <action dev="jdempsey" type="fix" issue="1612182">PRExxx Q: to override Qualify doesn't.</action>
-      <action dev="jdempsey" type="fix" issue="1590684">SUBCLASS PREREQs not enforced after level 1.</action>
-      <action dev="jdempsey" type="fix" issue="1584302">Extra feats remaining after load of 5.10.1 character.</action>
-      <action dev="jdempsey" type="fix" issue="1519429">Feat tab - Problems when column order swapped.</action>
-      <action dev="jdempsey" type="fix" issue="1517762">Bug with 'BONUS:WEAPONPROF=' in LST editor.</action>
-      <action dev="tir-gwaith" type="fix" issue="1623630">Search (secret doors and hidden compartments) not working correctly.</action>
-      <action dev="frank_kliewe" type="fix" issue="1620975">[RSRD] Literacy is missing in languages.</action>
-      <action dev="frank_kliewe" type="fix" issue="1618934">[RSRD] missing scrolls.</action>
-      <action dev="eddyanthony" type="fix" issue="1615157">Masterwork price bug with Special Material and Plus EQMOD.</action>
-      <action dev="boomer70" type="add" issue="1629414">Added random treasure generator.</action>
-    </release>
-    <release version="5.11.5" date="2006-12-24" description="Alpha release">
-      <action dev="jdempsey" type="fix" issue="1613069">Correct processing of various spell sort orders</action>
-      <action dev="perchrh" type="fix" due-to="Jonas Karlsson">Fixed compilation on Linux PPC with IBM JDK 1.5.0</action>
-      <action dev="perchrh" type="fix">Workaround for bug in the IBM JDK that resulted in Random name generation not working for most types of names</action>
-      <action dev="fitzs" type="add" issue="1617919">Document New Ability Tag</action>
-      <action dev="fitzs" type="update" issue="1612002">Improved Documentation Request - .MOD, .CLEAR, etc.</action>
-      <action dev="fitzs" type="update">Large number of docs updates, see changelog.</action>
-    </release>
-    <release version="5.11.4" date="2006-12-10" description="Alpha release">
-      <action dev="jdempsey" type="add" issue="1439802">Enhance the PREDEITY tag</action>
-      <action dev="jdempsey" type="fix" issue="1598598">Internationalization Choice Broken in 5.10.1</action>
-      <action dev="thpr" type="update" issue="1604156">Deprecate LONGNAME in Equipment LST Files</action>
-      <action dev="thpr" type="update" issue="1604159">Deprecate AC in Equipment LST Files</action>
-      <action dev="thpr" type="update" issue="1605662">Deprecate IGNORES in EquipmentMod LST Files</action>
-      <action dev="jdempsey" type="add" issue="1335943">Activate FACE, HANDS, LEGS and REACH Template tags</action>
-      <action dev="thpr" type="fix" issue="1611183">Fix Save Error due to Vision List issues</action>
-      <action dev="thpr" type="add" issue="1605655">PRECLASS: Add support for keyword "Any"</action>
-      <action dev="thpr" type="update" issue="1605660">Deprecate MULTIPREREQS in Class LST Files</action>
-      <action dev="thpr" type="fix" issue="1611238">Fix Save Error due to null Known List</action>
-      <action dev="thpr" type="add" issue="1335943">Allow BONUS:CHECKS to use %LIST</action>
-      <action dev="jdempsey" type="fix" issue="1608799">CHOOSE from Spell Mastery not allowing save</action>
-    </release>
-    <release version="5.11.3" date="2006-11-27" description="Alpha release">
-      <action dev="apsen" type="add" issue="1313263">Carriage Return support in OS</action>
-      <action dev="thpr" type="fix" issue="1594925">Loaded Characters correctly receive level-based feats</action>
-      <action dev="thpr" type="fix" issue="1593113">Officially Deprecate FEAT in PCClass</action>
-      <action dev="jdempsey" type="add" issue="1262322">Add new suite of ABILITY output tags, including a new JEP based count function for abilities.</action>
-      <action dev="jdempsey" type="update">Update output sheet FOR node to allow it to call multi parameter JEP functions.</action>
-      <action dev="frank_kliewe" type="fix" issue="1602948">[MSRD] Move real world animals from Creatures to Basics</action>
-      <action dev="thpr" type="update" issue="1599063">Deprecate AL Token in Race LST Files</action>
-      <action dev="thpr" type="update" issue="1599062">Deprecate RACENAME Token in Race LST Files</action>
-      <action dev="thpr" type="update" issue="1599064">Deprecate SKILL Token in Race LST Files</action>
-      <action dev="thpr" type="update" issue="1600646">Deprecate ROOT Token in Skill LST Files</action>
-    </release>
-    <release version="5.11.2" date="2006-11-12" description="Alpha release">
-      <action dev="thpr" type="fix" issue="1580188">MULTIPREREQs no longer ignored</action>
-      <action dev="thpr" type="fix" issue="1592361">HITDIE: mods in Templates no longer applied twice to SUBCLASSes</action>
-      <action dev="thpr" type="fix" issue="1593500">Templates once again properly applied to PlayerCharacters (broken in 5.11.1)</action>
-      <action dev="tir-gwaith" type="fix" issue="1594679">[RSRD] Lich Template missing +8 racial bonus to Search</action>
-      <action dev="frank_kliewe" type="fix" issue="1580216" due-to="tir-gwaith">[RSRD] Phrenic Creature template missing</action>
-      <action dev="tir-gwaith" type="add" issue="1464776" due-to="Paul W. King (kingpaul)">New source [Secular Games] [ACG] Arcane Archer.</action>
-      <action dev="frank_kliewe" type="add" issue="1541502" due-to="Paul W. King (kingpaul)">New source [Blue Devil Games] [DS] Operation Quick Launch.</action>
-    </release>
-    <release version="5.11.1" date="2006-10-29" description="Alpha release">
-      <action dev="thpr" type="fix" issue="1577347">Template prerequisites (no longer) prevent removal</action>
-      <action dev="thpr" type="fix" issue="1489300">VISION Tag now works on Class Level Lines</action>
+<document> 
+  <properties> 
+    <title>PCGen Change Log</title> 
+  </properties>  
+  <body> 
+    <release version="5.13.5" date="2007-11-29" description="Alpha release"> 
+      <action dev="jdempsey" type="update" issue="1831621">Move point buy definitions to Custom data</action>  
+      <action dev="jdempsey" type="add" issue="1834907">Define ABILITYCATEGORIES in lst file</action> 
+    </release>  
+    <release version="5.13.4" date="2007-11-12" description="Alpha release"/>  
+    <release version="5.13.3" date="2007-10-22" description="Alpha release"> 
+      <action dev="thpr" type="add" issue="1800407">Deprecate Eqmod CHOOSE:EQBUILDER|1 tag</action>  
+      <action dev="thpr" type="add" issue="1798233">Eliminate Cross-Level Interactions in SA tag</action>  
+      <action dev="thpr" type="add" issue="1800290">SPELLLIST Token exception for DOMAINS</action>  
+      <action dev="thpr" type="fix" issue="1790746">AUTO: must take multiple versions of each Subtoken</action>  
+      <action dev="thpr" type="fix" issue="1800720">ADD:LANGUAGE|ALL broken</action>  
+      <action dev="thpr" type="fix" issue="1802347">PRESA: Can't Count Properly</action>  
+      <action dev="thpr" type="fix" issue="1802352">PRESA: ignores PRExxx tokens on SAs</action>  
+      <action dev="thpr" type="add" issue="1784493">Attach REPEATLEVEL to level in Class LST</action>  
+      <action dev="eddyanthony" type="add" issue="1783488">Graphical preview sheet for fantasy modes</action>  
+      <action dev="tir-gwaith" type="add" issue="1805246,1805969,1813374">[R/SRD] Favored Enemy, Rogue abilities, Fighter and wizard feats to ABILITY objects</action> 
+    </release>  
+    <release version="5.13.2" date="2007-09-23" description="Alpha release"/>  
+    <release version="5.13.1" date="2007-08-28" description="Alpha release"> 
+      <action dev="jdempsey" type="fix" issue="1782465">VFEAT tags ignored.</action>  
+      <action dev="thpr" type="add" issue="1707366">Resolve MOVE related tag order of operations</action>  
+      <action dev="thpr" type="add" issue="1777052">Formal MOVECLONE change request</action>  
+      <action dev="thpr" type="add" issue="1754529">Deprecate PRETYPE for PlayerCharacter</action>  
+      <action dev="thpr" type="add" issue="1777050">Class CHOICE: Token change</action>  
+      <action dev="thpr" type="add" issue="1777047">CONTAINS Magical Value Elimination</action>  
+      <action dev="thpr" type="fix" issue="1776390">.MOD with weapon Profs renames the Proficiency</action>  
+      <action dev="amaitland" type="add" issue="1750552">Add Sheath to PCGen OGC</action>  
+      <action dev="amaitland" type="fix" issue="1763382">[SRD] Mace (Light) / (Heavy) proficiency issues</action>  
+      <action dev="tir-gwaith" type="fix" issue="1772816">[RSRD] Derro and Babau don't use Sneak Attack mechanic right</action>  
+      <action dev="eddyanthony" type="fix" issue="1776713">rpgwebprofiler adds weapon weight twice</action> 
+    </release>  
+    <release version="5.13.0" date="2007-08-12" description="Alpha release"> 
+      <action dev="takeyabue" type="fix">W3C Validation of documentation (228/295 files done already)</action>  
+      <action dev="tir-gwaith" type="fix" issue="1768097">[RSRD] Animal Companion List missing some entries</action>  
+      <action dev="frank_kliewe" type="add" issue="1753599" due-to="amaitland">[Bards and Sages] Neiyar Land of Heaven and the Abyss</action>  
+      <action dev="frank_kliewe" type="add" issue="1633758" due-to="kingpaul">[TGM] Modern Magic Vol.1</action>  
+      <action dev="darkstorm999" type="fix" issue="1472565">[GMGen] Can not generate generic encounters</action>  
+      <action dev="darkstorm999" type="fix" issue="1761877">[GMGen] Overland Travel tab</action>  
+      <action dev="thpr" type="add" issue="1748116">Global AUTO:FEAT</action>  
+      <action dev="thpr" type="update" issue="1613771">Deprecate Default Monster Mode Tags</action>  
+      <action dev="thpr" type="fix" issue="1771278">Spell Characteristics are not properly cloned</action>  
+      <action dev="thpr" type="fix" issue="1771873">!PREVISION fails if tested for presence</action> 
+    </release>  
+    <release version="5.12.0 RC1" date="2007-5-20" description="Beta release"> 
+      <action dev="thpr" type="fix" issue="1677623">Equipping tab print preview bypasses filters</action>  
+      <action dev="thpr" type="fix" issue="1711707">Custom Feat Descriptions Not Saving</action>  
+      <action dev="thpr" type="fix" issue="1712559">Ex class with tab VISIBLE:NO are visible</action>  
+      <action dev="thpr" type="fix" issue="1565846">GMGen initiative bugs (partial fix)</action>  
+      <action dev="jdempsey" type="fix" issue="1711578">[5.11.14] Closing Character with Companions under Java 1.6.</action>  
+      <action dev="thpr" type="fix" issue="1719758">NPE in Spell Editor</action> 
+    </release>  
+    <release version="5.11.14" date="2007-05-02" description="Beta release"> 
+      <action dev="tir-gwaith" type="add" issue="1703302">[SRD/RSRD]Dynamic DESC for Combat Expertise and Power Attack</action>  
+      <action dev="thpr" type="fix" issue="1666473">Use of ".CLEAR" does not remove Racial SA abilities</action>  
+      <action dev="thpr" type="fix" issue="1631977">.COPY does not correct Contextual SA Prereqs</action>  
+      <action dev="thpr" type="fix" issue="1709325">PCGen parses saved characters on "Save As..." and Crashes</action>  
+      <action dev="thpr" type="fix" issue="1612976">Raven Familiar gets New Language each Update from Master</action>  
+      <action dev="thpr" type="fix" issue="1660906">BAB can't be in formula in &gt; lvl 20 char. (Infinite Loop)</action> 
+    </release>  
+    <release version="5.11.13" date="2007-04-16" description="Beta release"> 
+      <action dev="thpr" type="fix" issue="1683314">Source Load Leaks Memory</action>  
+      <action dev="jdempsey" type="fix" issue="1687934">Psionicist forces powers on character load.</action>  
+      <action dev="thpr" type="fix" issue="1695386">UTF-8 files do not properly filter BOM</action>  
+      <action dev="jdempsey" type="fix" issue="1691217">MAXLEVEL for classes defaults to 20.</action>  
+      <action dev="jdempsey" type="fix" issue="1693551">Ability Object: Proficiency warning on character load.</action>  
+      <action dev="zaister" type="fix" issue="1696862">Show skill rank breakdown on Skills Tab</action>  
+      <action dev="jdempsey" type="fix" issue="1663749">KNOWNSPELLS not working on class level line</action> 
+    </release>  
+    <release version="5.11.12" date="2007-04-04" description="Beta release"> 
+      <action dev="thpr" type="fix" issue="1681152">BONUSFEATLEVELSTARTINTERVAL:1|0 doesn't work</action>  
+      <action dev="thpr" type="fix" issue="1678660">COUNT[SKILLS] export token miscounts with VISIBLE:GUI skill</action>  
+      <action dev="thpr" type="fix" issue="1681540">System look and feel does not work in Gnome</action>  
+      <action dev="thpr" type="fix" issue="1683259">Skill Editor mangles CHOOSE: Tokens</action>  
+      <action dev="jdempsey" type="add" issue="1262317">Ability Object: Add ability tags.</action>  
+      <action dev="jdempsey" type="update" issue="1307101">DOMAINS tag to take PRExxx tags in Deity files.</action>  
+      <action dev="jdempsey" type="fix" issue="1686367">BONUS:VAR|&lt;Var Y&gt;|&lt;Var X&gt; not being evaluated.</action>  
+      <action dev="thpr" type="fix" issue="1683247">CHOOSE:Language does not allow multiple types</action>  
+      <action dev="thpr" type="fix" issue="1272641">MOVE on Class level lines</action>  
+      <action dev="fitzs" type="update" issue="1673128">Document new ADD Syntax.</action> 
+    </release>  
+    <release version="5.11.11" date="2007-03-24" description="Alpha release"> 
+      <action dev="jdempsey" type="fix" issue="1685359">Can't save Monk.</action>  
+      <action dev="jdempsey" type="fix" issue="1673585">Familiar give no bonuses and gets no bonuses.</action> 
+    </release>  
+    <release version="5.11.10" date="2007-03-20" description="Alpha release"> 
+      <action dev="thpr" type="fix" issue="1675324">ADD:SKILL(x,x)y not working with a skill that uses parens</action>  
+      <action dev="thpr" type="fix" issue="1667368">PCC Main Body Tags fail with http LST</action>  
+      <action dev="jdempsey" type="update" issue="1680391">Enhance skillpoints export tag to allow breakdown by class.</action>  
+      <action dev="jdempsey" type="update" issue="1680228">CHECKBOXES token.</action>  
+      <action dev="vandaelek" type="add" issue="1673304">Temp bonuses should work with Spell-like abilities.</action>  
+      <action dev="jdempsey" type="add" issue="1681235">Skills Tab - Add +/- buttons for adding and removing skills.</action>  
+      <action dev="eddyanthony" type="add" issue="1538443">New Output Sheet for rpgwebprofiler.</action>  
+      <action dev="eddyanthony" type="add" issue="1266021">New DMG2 style statblock Output Sheet.</action>  
+      <action dev="eddyanthony" type="fix" issue="1679456">Output Sheets: Use BASEQTY in calculation for checkboxes for items.</action>  
+      <action dev="tir-gwaith" type="add" issue="1669676" due-to="Paul W. King (kingpaul)">New Source [Secular Games] Winter Elves.</action>  
+      <action dev="thpr" type="fix" issue="1681781">Subclasses break CLASSLIST token</action>  
+      <action dev="thpr" type="fix" issue="1683180">LEVEL:6:FEAT:Foo prompts at Level 7</action>  
+      <action dev="thpr" type="fix" issue="1683181">LEVEL:6:Feat:Type.Fighter won't stop prompting</action> 
+    </release>  
+    <release version="5.11.9" date="2007-03-06" description="Alpha release"> 
+      <action dev="jdempsey" type="add" issue="1411073">OS Token IFF() to accept any JEP Boolean functions</action>  
+      <action dev="maredudd800" type="update">Updated and corrected documentation issues with KNOWNSPELLS and the default spell level for wands.</action>  
+      <action dev="maredudd800" type="update">Updated the race file documentation to include HITDIE tag.</action>  
+      <action dev="jdempsey" type="add" issue="1588325">User input for feat target.</action>  
+      <action dev="thpr" type="update" issue="1670470">Deprecate ADD:LIST and ADD:WEAPONBONUS</action>  
+      <action dev="thpr" type="update" issue="1669592">ADD:FEAT Supports ALL</action>  
+      <action dev="thpr" type="update" issue="1671219">Deprecated RACE AC Tag</action>  
+      <action dev="eddyanthony" type="add" issue="1667706">New OS to export to RPTools InitTool file format.</action>  
+      <action dev="eddyanthony" type="add" issue="1339969">Monk's Timeless Body ability should counter aging penalties.</action>  
+      <action dev="thpr" type="update" issue="1673230">Altered CLEAR behavior in DOMAINS: and CLASSES: Tokens</action>  
+      <action dev="thpr" type="fix" issue="1673191">Backslash in relative path causes relative path failure</action> 
+    </release>  
+    <release version="5.11.8" date="2007-02-18" description="Alpha release"> 
+      <action dev="jdempsey" type="fix" issue="1648569">[5.11.6] Virtual Feats Lost on Character Load</action>  
+      <action dev="perchrh" type="add" issue="1275919">Added new PREAGESET tag.</action>  
+      <action dev="eddyanthony" type="add" issue="1339969">Added a Timeless Body template for Monk and Druid.</action>  
+      <action dev="thpr" type="update" issue="1662066">Deprecated NAME Tag</action>  
+      <action dev="thpr" type="update" issue="1633550">Deprecated Old PRESPELLTYPE syntax</action>  
+      <action dev="thpr" type="fix" issue="1654039">UNENCUMBEREDMOVE now works properly on CLASS line</action> 
+    </release>  
+    <release version="5.11.7" date="2007-01-30" description="Alpha release"> 
+      <action dev="thpr" type="update" issue="1611839">Deprecated +d in KNOWN Tag</action>  
+      <action dev="thpr" type="update" issue="1613697">Deprecated ALTCRITICAL Tag</action>  
+      <action dev="thpr" type="update" issue="1620950">Deprecated UATT Tag</action>  
+      <action dev="thpr" type="update" issue="1620957">Changed QUALIFY Syntax</action>  
+      <action dev="jdempsey" type="fix" issue="1628407">BONUS:WIELDCATEGORY|ALL|-1 issues.</action>  
+      <action dev="thpr" type="update" issue="1632839">Eliminated Ability Nature partial matches</action>  
+      <action dev="thpr" type="update" issue="1632898">Removed support for old file types (CLASSSPELLS, CLASSSKILLS, REQSKILL)</action>  
+      <action dev="thpr" type="update" issue="1633550">Deprecate old PRESPELLTYPE Syntax</action>  
+      <action dev="jdempsey" type="add" issue="1642779">Added new PREABILITY tag.</action>  
+      <action dev="jdempsey" type="fix" issue="1638866">MULT:YES Abilities can't be added.</action>  
+      <action dev="eddyanthony" type="update" issue="1638080">[RSRD] Convert Salient Divine Abilities to Ability Object</action>  
+      <action dev="eddyanthony" type="update" issue="1639771">[MSRD] Convert Mutations set to use Ability Object</action>  
+      <action dev="thpr" type="fix" issue="1641072">Fix Prepared spells with metamagic feat</action>  
+      <action dev="thpr" type="fix" issue="1641069">Fix Improved Spell Capacity</action>  
+      <action dev="thpr" type="fix" issue="1580961">XTRAFEATS now parsed</action>  
+      <action dev="thpr" type="fix" issue="1640467">Preview Pane now works with Keyed Skills [Internationalization]</action>  
+      <action dev="thpr" type="fix" issue="1640377">Template LANGBONUS will now correctly work with Type</action>  
+      <action dev="thpr" type="fix" issue="1640417">.COPY now respects include/exclude</action>  
+      <action dev="thpr" type="fix" issue="1640415">Duplicate Object Warning now determines source of .COPY</action>  
+      <action dev="thpr" type="fix" issue="1637276">LST import now correctly detects duplicate files regardless of spaces in file names</action>  
+      <action dev="frank_kliewe" type="add" issue="1428977" due-to="boomer70 and amaitland">Added new Data set for Green Ronin's Psychic's Handbook.</action> 
+    </release>  
+    <release version="5.11.6" date="2007-01-07" description="Alpha release"> 
+      <action dev="jdempsey" type="fix" issue="1625324">Filter not working in feat tab.</action>  
+      <action dev="jdempsey" type="fix" issue="1625112">Multiple Bonuses on Feat Only Added Once [CMP].</action>  
+      <action dev="jdempsey" type="fix" issue="1621485">Spells lost from known spells list when removed from prepared spell list.</action>  
+      <action dev="jdempsey" type="fix" issue="1619872">Weapon damage not changing when weapons resized.</action>  
+      <action dev="jdempsey" type="fix" issue="1618932">Multiple spells on scroll can't be done.</action>  
+      <action dev="jdempsey" type="fix" issue="1616630">SPELLLEVEL in LST Editors.</action>  
+      <action dev="jdempsey" type="fix" issue="1612182">PRExxx Q: to override Qualify doesn't.</action>  
+      <action dev="jdempsey" type="fix" issue="1590684">SUBCLASS PREREQs not enforced after level 1.</action>  
+      <action dev="jdempsey" type="fix" issue="1584302">Extra feats remaining after load of 5.10.1 character.</action>  
+      <action dev="jdempsey" type="fix" issue="1519429">Feat tab - Problems when column order swapped.</action>  
+      <action dev="jdempsey" type="fix" issue="1517762">Bug with 'BONUS:WEAPONPROF=' in LST editor.</action>  
+      <action dev="tir-gwaith" type="fix" issue="1623630">Search (secret doors and hidden compartments) not working correctly.</action>  
+      <action dev="frank_kliewe" type="fix" issue="1620975">[RSRD] Literacy is missing in languages.</action>  
+      <action dev="frank_kliewe" type="fix" issue="1618934">[RSRD] missing scrolls.</action>  
+      <action dev="eddyanthony" type="fix" issue="1615157">Masterwork price bug with Special Material and Plus EQMOD.</action>  
+      <action dev="boomer70" type="add" issue="1629414">Added random treasure generator.</action> 
+    </release>  
+    <release version="5.11.5" date="2006-12-24" description="Alpha release"> 
+      <action dev="jdempsey" type="fix" issue="1613069">Correct processing of various spell sort orders</action>  
+      <action dev="perchrh" type="fix" due-to="Jonas Karlsson">Fixed compilation on Linux PPC with IBM JDK 1.5.0</action>  
+      <action dev="perchrh" type="fix">Workaround for bug in the IBM JDK that resulted in Random name generation not working for most types of names</action>  
+      <action dev="fitzs" type="add" issue="1617919">Document New Ability Tag</action>  
+      <action dev="fitzs" type="update" issue="1612002">Improved Documentation Request - .MOD, .CLEAR, etc.</action>  
+      <action dev="fitzs" type="update">Large number of docs updates, see changelog.</action> 
+    </release>  
+    <release version="5.11.4" date="2006-12-10" description="Alpha release"> 
+      <action dev="jdempsey" type="add" issue="1439802">Enhance the PREDEITY tag</action>  
+      <action dev="jdempsey" type="fix" issue="1598598">Internationalization Choice Broken in 5.10.1</action>  
+      <action dev="thpr" type="update" issue="1604156">Deprecate LONGNAME in Equipment LST Files</action>  
+      <action dev="thpr" type="update" issue="1604159">Deprecate AC in Equipment LST Files</action>  
+      <action dev="thpr" type="update" issue="1605662">Deprecate IGNORES in EquipmentMod LST Files</action>  
+      <action dev="jdempsey" type="add" issue="1335943">Activate FACE, HANDS, LEGS and REACH Template tags</action>  
+      <action dev="thpr" type="fix" issue="1611183">Fix Save Error due to Vision List issues</action>  
+      <action dev="thpr" type="add" issue="1605655">PRECLASS: Add support for keyword "Any"</action>  
+      <action dev="thpr" type="update" issue="1605660">Deprecate MULTIPREREQS in Class LST Files</action>  
+      <action dev="thpr" type="fix" issue="1611238">Fix Save Error due to null Known List</action>  
+      <action dev="thpr" type="add" issue="1335943">Allow BONUS:CHECKS to use %LIST</action>  
+      <action dev="jdempsey" type="fix" issue="1608799">CHOOSE from Spell Mastery not allowing save</action> 
+    </release>  
+    <release version="5.11.3" date="2006-11-27" description="Alpha release"> 
+      <action dev="apsen" type="add" issue="1313263">Carriage Return support in OS</action>  
+      <action dev="thpr" type="fix" issue="1594925">Loaded Characters correctly receive level-based feats</action>  
+      <action dev="thpr" type="fix" issue="1593113">Officially Deprecate FEAT in PCClass</action>  
+      <action dev="jdempsey" type="add" issue="1262322">Add new suite of ABILITY output tags, including a new JEP based count function for abilities.</action>  
+      <action dev="jdempsey" type="update">Update output sheet FOR node to allow it to call multi parameter JEP functions.</action>  
+      <action dev="frank_kliewe" type="fix" issue="1602948">[MSRD] Move real world animals from Creatures to Basics</action>  
+      <action dev="thpr" type="update" issue="1599063">Deprecate AL Token in Race LST Files</action>  
+      <action dev="thpr" type="update" issue="1599062">Deprecate RACENAME Token in Race LST Files</action>  
+      <action dev="thpr" type="update" issue="1599064">Deprecate SKILL Token in Race LST Files</action>  
+      <action dev="thpr" type="update" issue="1600646">Deprecate ROOT Token in Skill LST Files</action> 
+    </release>  
+    <release version="5.11.2" date="2006-11-12" description="Alpha release"> 
+      <action dev="thpr" type="fix" issue="1580188">MULTIPREREQs no longer ignored</action>  
+      <action dev="thpr" type="fix" issue="1592361">HITDIE: mods in Templates no longer applied twice to SUBCLASSes</action>  
+      <action dev="thpr" type="fix" issue="1593500">Templates once again properly applied to PlayerCharacters (broken in 5.11.1)</action>  
+      <action dev="tir-gwaith" type="fix" issue="1594679">[RSRD] Lich Template missing +8 racial bonus to Search</action>  
+      <action dev="frank_kliewe" type="fix" issue="1580216" due-to="tir-gwaith">[RSRD] Phrenic Creature template missing</action>  
+      <action dev="tir-gwaith" type="add" issue="1464776" due-to="Paul W. King (kingpaul)">New source [Secular Games] [ACG] Arcane Archer.</action>  
+      <action dev="frank_kliewe" type="add" issue="1541502" due-to="Paul W. King (kingpaul)">New source [Blue Devil Games] [DS] Operation Quick Launch.</action> 
+    </release>  
+    <release version="5.11.1" date="2006-10-29" description="Alpha release"> 
+      <action dev="thpr" type="fix" issue="1577347">Template prerequisites (no longer) prevent removal</action>  
+      <action dev="thpr" type="fix" issue="1489300">VISION Tag now works on Class Level Lines</action>  
       <action dev="jdempsey" type="add" issue="1578536">New Output Tag - TEXT. Used to format text output, see
-        <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/outputsheetpages/tokens/outputsheettokensmisc.html#TEXT">PCGen Documentation</a>
-      </action>
-      <action dev="jdempsey" type="add" issue="1579482">Add .NOSTAR option to ARMOR.x.y.NAME tag</action>
-      <action dev="jdempsey" type="fix" issue="1579545">Fix FOR loop can only count upwards.</action>
-      <action dev="boomer70" type="update" issue="1484380">Companion Mod Enhancements</action>
-      <action dev="zaister" type="add" issue="1575974">AUTO:WEAPONPROF for deity's favored weapon</action>
-      <action dev="boomer70" type="update" issue="1262313">Further work on the ability object</action>
-      <action dev="boomer70" type="add">Version 0.001 of NPC Generator</action>
-      <action dev="frank_kliewe" type="add" issue="1026942" due-to="Terry FitzSimons (fitzs)">[WotC] d20 Weapons Locker</action>
-      <action dev="tir-gwaith" type="add" issue="1516477" due-to="Paul W. King (kingpaul)">[BFG] Masterwork Qualities</action>
-      <action dev="frank_kliewe" type="add" issue="1533248" due-to="Paul W. King (kingpaul)">[SEP] Modern Principles</action>
-    </release>
-    <release version="5.11.0" date="2006-08-24" description="Alpha release">
-      <action dev="zaister" type="add" issue="1436352">Implement Substitution Levels.</action>
-      <action dev="jdempsey" type="add" issue="1231443">Added MANUALWHITESPACE output tag.</action>
-      <action dev="jujutsunerd" type="update" issue="1472258">Clean up the pcgen/lib directory.</action>
-      <action dev="jujutsunerd" type="update" issue="1472270">Update skinlf to 6.2.</action>
-      <action dev="jujutsunerd" type="update" issue="1472262">Update JEP to 2.31.</action>
-      <action dev="jdempsey" type="fix" issue="924272">Default data directory to user's home directory.</action>
-      <action dev="jdempsey" type="fix" issue="1429034">Correct the handling of accented characters in sources.</action>
-      <action dev="jdempsey" type="fix" issue="1442000">DOMAIN LST editor - Add FEAT support.</action>
-      <action dev="boomer70" type="fix" issue="1479787">KIT Duplicate ranks added when adding a Trained Only skill.</action>
-      <action dev="jdempsey" type="fix" issue="1494672">DR tag does not work per level in Class files.</action>
-      <action dev="frank_kliewe" type="add" issue="1507145" due-to="gwjrabbit">Added completed FantasyGrounds sheet.</action>
-    </release>
-  </body>
+        <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/outputsheetpages/tokens/outputsheettokensmisc.html#TEXT">PCGen Documentation</a> 
+      </action>  
+      <action dev="jdempsey" type="add" issue="1579482">Add .NOSTAR option to ARMOR.x.y.NAME tag</action>  
+      <action dev="jdempsey" type="fix" issue="1579545">Fix FOR loop can only count upwards.</action>  
+      <action dev="boomer70" type="update" issue="1484380">Companion Mod Enhancements</action>  
+      <action dev="zaister" type="add" issue="1575974">AUTO:WEAPONPROF for deity's favored weapon</action>  
+      <action dev="boomer70" type="update" issue="1262313">Further work on the ability object</action>  
+      <action dev="boomer70" type="add">Version 0.001 of NPC Generator</action>  
+      <action dev="frank_kliewe" type="add" issue="1026942" due-to="Terry FitzSimons (fitzs)">[WotC] d20 Weapons Locker</action>  
+      <action dev="tir-gwaith" type="add" issue="1516477" due-to="Paul W. King (kingpaul)">[BFG] Masterwork Qualities</action>  
+      <action dev="frank_kliewe" type="add" issue="1533248" due-to="Paul W. King (kingpaul)">[SEP] Modern Principles</action> 
+    </release>  
+    <release version="5.11.0" date="2006-08-24" description="Alpha release"> 
+      <action dev="zaister" type="add" issue="1436352">Implement Substitution Levels.</action>  
+      <action dev="jdempsey" type="add" issue="1231443">Added MANUALWHITESPACE output tag.</action>  
+      <action dev="jujutsunerd" type="update" issue="1472258">Clean up the pcgen/lib directory.</action>  
+      <action dev="jujutsunerd" type="update" issue="1472270">Update skinlf to 6.2.</action>  
+      <action dev="jujutsunerd" type="update" issue="1472262">Update JEP to 2.31.</action>  
+      <action dev="jdempsey" type="fix" issue="924272">Default data directory to user's home directory.</action>  
+      <action dev="jdempsey" type="fix" issue="1429034">Correct the handling of accented characters in sources.</action>  
+      <action dev="jdempsey" type="fix" issue="1442000">DOMAIN LST editor - Add FEAT support.</action>  
+      <action dev="boomer70" type="fix" issue="1479787">KIT Duplicate ranks added when adding a Trained Only skill.</action>  
+      <action dev="jdempsey" type="fix" issue="1494672">DR tag does not work per level in Class files.</action>  
+      <action dev="frank_kliewe" type="add" issue="1507145" due-to="gwjrabbit">Added completed FantasyGrounds sheet.</action> 
+    </release> 
+  </body> 
 </document>

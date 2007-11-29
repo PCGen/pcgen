@@ -5,7 +5,7 @@
   <id>pcgen</id>
   <groupId>pcgen</groupId>
   <name>PCGen</name>
-  <currentVersion>5.13.4</currentVersion>
+  <currentVersion>5.13.5</currentVersion>
   <organization>
     <name>SourceForge</name>
     <url>http://sourceforge.net/</url>
@@ -194,7 +194,7 @@
     </developer>
   </developers>
   <dependencies>
-    <!-- Compiling -->
+    <!-- Compiling --> 
     <dependency>
       <groupId>cobra</groupId>
       <artifactId>cobra</artifactId>
@@ -264,7 +264,7 @@
       <version>2.6.2</version>
       <url>http://xml.apache.org/xerces-j/</url>
     </dependency>
-    <!-- Testing -->
+    <!-- Testing --> 
     <dependency>
       <groupId>easymock</groupId>
       <artifactId>easymock</artifactId>
@@ -296,7 +296,7 @@
       <type>plugin</type>
       <url>http://emma.sourceforge.net/maven-emma-plugin/</url>
     </dependency>
-    <!-- Maven -->
+    <!-- Maven --> 
     <dependency>
       <groupId>commons-jelly</groupId>
       <artifactId>commons-jelly-tags-interaction</artifactId>
@@ -317,24 +317,24 @@
             <type>plugin</type>
             <url>http://maven-plugins.sourceforge.net/findbugs/</url>
         </dependency>
--->
+--> 
   </dependencies>
   <reports>
     <report>maven-changelog-plugin</report>
     <report>maven-changes-plugin</report>
-    <!-- Runs slower'n molassas -->
-    <!-- <report>maven-checkstyle-plugin</report> -->
+    <!-- Runs slower'n molassas --> 
+    <!-- <report>maven-checkstyle-plugin</report> --> 
     <report>maven-developer-activity-plugin</report>
     <report>maven-emma-plugin</report>
     <report>maven-file-activity-plugin</report>
     <report>maven-javadoc-plugin</report>
     <report>maven-jdepend-plugin</report>
     <report>maven-junit-report-plugin</report>
-    <!--  Overly large report -->
-    <!--  <report>maven-jxr-plugin</report>  -->
+    <!--  Overly large report --> 
+    <!--  <report>maven-jxr-plugin</report>  --> 
     <report>maven-license-plugin</report>
-    <!-- Another slow'un -->
-    <!-- <report>maven-linkcheck-plugin</report> -->
+    <!-- Another slow'un --> 
+    <!-- <report>maven-linkcheck-plugin</report> --> 
     <report>maven-pmd-plugin</report>
     <report>maven-simian-plugin</report>
     <report>maven-tasklist-plugin</report>
@@ -351,14 +351,14 @@
     </unitTest>
     <resources>
       <resource>
-        <!-- The resources are in the same place as the sources. -->
+        <!-- The resources are in the same place as the sources. --> 
         <directory>code/src/java</directory>
         <includes>
           <include>**/*.properties</include>
         </includes>
       </resource>
       <resource>
-        <!-- The resources are in the same place as the sources. -->
+        <!-- The resources are in the same place as the sources. --> 
         <directory>code/src/java</directory>
         <includes>
           <include>pcgen/gui/resource/*</include>
@@ -476,6 +476,11 @@
       <id>5.13.4</id>
       <name>5.13.4</name>
       <tag>release-5.13.4</tag>
+    </version>
+    <version>
+      <id>5.13.5</id>
+      <name>5.13.5</name>
+      <tag>release-5.13.5</tag>
     </version>
   </versions>
 </project>
