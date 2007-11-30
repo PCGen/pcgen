@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 22 21:42:31 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Nov 30 14:15:43 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html
 # Original Entry by: Paul W. King
 
@@ -16,5 +16,5 @@ SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www
 # 17–18 Summon monster IX
 # 19–20 Wail of the banshee
 
-# Template Name	Template			Source Page		Required Template				Combat bonus					Add to base move			Stat bonus								Feat												Spell Res.		Type				Vision			Hit Dice														Innate Spells				SAB
-War Beast		TEMPLATE:Magical Beast	SOURCEPAGE:p.7	PRETEMPLATE:1,Animal,Magical Beast	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR,CON|4	BONUS:STAT|DEX,INT,WIS,CHA|2	FEAT:Weapon Focus|Toughness|Improved Initiative|Improved Natural Attack	SR:max(10+TL,35)	TYPE:Magical Beast	VISION:Darkvision (60)	HD:1-11:DR:5/Magic	HD:12+:DR:10/Magic	HD:1-4:CR:1	HD:5-10:CR:1	HD:11+:CR:1	SPELLS:Innate|TIMES=1|True Strike	SAB:Immunity to Poison	SAB:Acid Resistance 10	SAB:Cold Resistance 10	SAB:Electricity Resistance 10	SAB:Fire Resistance 10
+# Template Name	Template			Source Page		Special ABility																			PREHD																					Required Template				Combat bonus					Add to base move			Stat bonus								Feat												Spell Res.		Type				Vision			Innate Spells
+War Beast		TEMPLATE:Magical Beast	SOURCEPAGE:p.7	SAB:Immunity to Poison	SAB:Acid Resistance 10	SAB:Cold Resistance 10	SAB:Electricity Resistance 10	SAB:Fire Resistance 10	PREHD:MIN=1,MAX=11:DR:5/Magic	PREHD:MIN=12:DR:10/Magic	PREHD:MIN=1,MAX=4:CR:1	PREHD:MIN=5,MAX=10:CR:1	PREHD:MIN=11:CR:1	PRETEMPLATE:1,Animal,Magical Beast	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR,CON|4	BONUS:STAT|DEX,INT,WIS,CHA|2	FEAT:Weapon Focus|Toughness|Improved Initiative|Improved Natural Attack	SR:max(10+TL,35)	TYPE:Magical Beast	VISION:Darkvision (60)	SPELLS:Innate|TIMES=1|True Strike

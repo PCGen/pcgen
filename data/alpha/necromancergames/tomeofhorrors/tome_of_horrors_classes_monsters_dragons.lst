@@ -11,7 +11,7 @@ CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 1	VISION:Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponRange|max(15,(SIZE-1)*10)	BONUS:VAR|BreathWeaponDice|DragonAge*2	BONUS:VAR|BreathWeaponDieSize|6	BONUS:VAR|BreathWeaponDC|CON	AUTO:FEAT|Breath Weapon (Cone/Cold Air)
-1																											AUTO:FEAT|Immune to Sleep Effects	AUTO:FEAT|Immune to Paralysis	AUTO:FEAT|Immune to Electricity
+1																											AUTO:FEAT|Immune to Sleep Effects|Immune to Paralysis|Immune to Electricity
 ###Block: Frightful Presence
 17	BONUS:VAR|FrightfulPresenceRange|30*DragonAge	BONUS:VAR|FrightfulPresenceDC|CHA	AUTO:FEAT|Frightful Presence
 ###Block: Stats
