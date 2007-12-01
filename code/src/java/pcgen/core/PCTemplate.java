@@ -1062,7 +1062,7 @@ public final class PCTemplate extends PObject implements HasCost
 				try
 				{
 					PreParserFactory factory = PreParserFactory.getInstance();
-					r = factory.parse("PREHD:MIN=" + hdStr);
+					r = factory.parse("PREHD:" + hdStr);
 				}
 				catch (PersistenceLayerException notUsed)
 				{
