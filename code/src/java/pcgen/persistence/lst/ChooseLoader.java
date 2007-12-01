@@ -55,7 +55,8 @@ public final class ChooseLoader
 			if (!token.parse(target, prefix, value))
 			{
 				Logging.deprecationPrint("Error parsing CHOOSE: " + key + ":"
-					+ value);
+					+ value + " in " + target.getDisplayName() + " of "
+					+ target.getSourceURI());
 				return false;
 			}
 			return true;
@@ -63,7 +64,8 @@ public final class ChooseLoader
 		else
 		{
 			Logging.deprecationPrint("Error parsing CHOOSE, invalid SubToken: "
-				+ key);
+				+ key + " in " + target.getDisplayName() + " of "
+				+ target.getSourceURI());
 			return false;
 		}
 	}

@@ -120,7 +120,7 @@ public final class EquipmentModifierLoader extends
 	}
 
 	/**
-	 * This method adds the default available equipment modififiers to the
+	 * This method adds the default available equipment modifiers to the
 	 * Globals.
 	 * @throws PersistenceLayerException 
 	 * 
@@ -147,12 +147,12 @@ public final class EquipmentModifierLoader extends
 		//
 		anObj = new EquipmentModifier();
 		aLine = Constants.s_INTERNAL_EQMOD_WEAPON
-				+ "\tTYPE:Weapon\tVISIBLE:No\tCHOOSE:DUMMY\tNAMEOPT:NONAME";
+				+ "\tTYPE:Weapon\tVISIBLE:No\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
 		parseLine(anObj, aLine, source);
 
 		anObj = new EquipmentModifier();
 		aLine = Constants.s_INTERNAL_EQMOD_ARMOR
-				+ "\tTYPE:Armor\tVISIBLE:No\tCHOOSE:DUMMY\tNAMEOPT:NONAME";
+				+ "\tTYPE:Armor\tVISIBLE:No\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
 		parseLine(anObj, aLine, source);
 	}
 }
