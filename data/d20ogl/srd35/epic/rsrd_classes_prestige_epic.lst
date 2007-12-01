@@ -1,27 +1,27 @@
-# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+# CVS $Revision$ $Author$ -- Sat Dec  1 14:00:20 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
 # Class Name		Max Level
 CLASS:Arcane Archer.MOD	MAXLEVEL:NOLIMIT
-14	REPEATLEVEL:4	ADD:FEAT|Blinding Speed,Combat Archery,Distant Shot,Epic Prowess,Epic Speed,Epic Toughness,Epic Weapon Focus(Longbow),Epic Weapon Focus (Shortbow),Improved Arrow of Death,Improved Combat Casting,Improved Low light Vision,Improved Manyshot,Swarm of Arrows,Uncanny Accuracy
+14:REPEATLEVEL:4	ADD:FEAT|Blinding Speed,Combat Archery,Distant Shot,Epic Prowess,Epic Speed,Epic Toughness,Epic Weapon Focus(Longbow),Epic Weapon Focus (Shortbow),Improved Arrow of Death,Improved Combat Casting,Improved Low light Vision,Improved Manyshot,Swarm of Arrows,Uncanny Accuracy
 
 
 # Class Name			Max Level
 CLASS:Arcane Trickster.MOD	MAXLEVEL:NOLIMIT
-11	REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
-14	REPEATLEVEL:4	ADD:FEAT|Automatic Silent Spell,Automatic Still Spell,Blinding Speed,Epic Skill Focus,Improved Combat Casting,Improved Sneak Attack,Improved Spell Capacity,Lingering Damage,Self Concealment,Sneak Attack of Opportunity,Spell Knowledge,Spell Opportunity,Spell Stowaway
+11:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+14:REPEATLEVEL:4	ADD:FEAT|Automatic Silent Spell,Automatic Still Spell,Blinding Speed,Epic Skill Focus,Improved Combat Casting,Improved Sneak Attack,Improved Spell Capacity,Lingering Damage,Self Concealment,Sneak Attack of Opportunity,Spell Knowledge,Spell Opportunity,Spell Stowaway
 
 
 # Class Name		Max Level
 CLASS:Assassin.MOD	MAXLEVEL:NOLIMIT
-11				BONUS:VAR|DeathAttack|(-1*(floor((CL-10)/2)))
-14	REPEATLEVEL:4									ADD:FEAT|Dexterous Fortitude,Dexterous Will,Improved Combat Casting,Improved Death Attack,Improved Sneak Attack,Improved Spell Capacity,Legendary Tracker,Lingering Damage,Sneak Attack of Opportunity,Spell Knowledge,Spontaneous Spell,Superior Initiative,Tenacious Magic,Uncanny Accuracy
+11	BONUS:VAR|DeathAttack|(-1*(floor((CL-10)/2)))
+14:REPEATLEVEL:4									ADD:FEAT|Dexterous Fortitude,Dexterous Will,Improved Combat Casting,Improved Death Attack,Improved Sneak Attack,Improved Spell Capacity,Legendary Tracker,Lingering Damage,Sneak Attack of Opportunity,Spell Knowledge,Spontaneous Spell,Superior Initiative,Tenacious Magic,Uncanny Accuracy
 
 
 # Class Name		Max Level
 CLASS:Blackguard.MOD	MAXLEVEL:NOLIMIT
-13	REPEATLEVEL:3	ADD:FEAT|Armor Skin,Devastating Critical,Epic Leadership,Epic Prowess,Epic Reputation,Epic Toughness,Epic Weapon Focus,Great Smiting,Improved Aura of Despair,Improved Combat Casting,Improved Sneak Attack,Improved Spell Capacity,Legendary Commander,Legendary Rider,Lingering Damage,Negative Energy Burst,Overwhelming Critical,Perfect Health,Permanent Emanation,Planar Turning,Spontaneous Spell,Undead Mastery,Unholy Strike,Widen Aura of Despair,Zone of Animation
+13:REPEATLEVEL:3	ADD:FEAT|Armor Skin,Devastating Critical,Epic Leadership,Epic Prowess,Epic Reputation,Epic Toughness,Epic Weapon Focus,Great Smiting,Improved Aura of Despair,Improved Combat Casting,Improved Sneak Attack,Improved Spell Capacity,Legendary Commander,Legendary Rider,Lingering Damage,Negative Energy Burst,Overwhelming Critical,Perfect Health,Permanent Emanation,Planar Turning,Spontaneous Spell,Undead Mastery,Unholy Strike,Widen Aura of Despair,Zone of Animation
 
 # Epic Skill Focus (Knowledge (Arcana)) doesn't work
 
