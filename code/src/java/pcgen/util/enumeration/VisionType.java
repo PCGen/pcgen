@@ -71,6 +71,10 @@ public final class VisionType extends AbstractConstant
 	@Override
 	public String toString()
 	{
+		if (typeMap == null)
+		{
+			return "";
+		}
 		for (Map.Entry<CaseInsensitiveString, VisionType> me : typeMap
 			.entrySet())
 		{
@@ -90,6 +94,10 @@ public final class VisionType extends AbstractConstant
 
 	public static Collection<VisionType> getAllVisionTypes()
 	{
+		if (typeMap == null)
+		{
+			buildMap();
+		}
 		return Collections.unmodifiableCollection(typeMap.values());
 	}
 }
