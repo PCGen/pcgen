@@ -17500,7 +17500,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 					for (; anIt.hasNext();)
 					{
-						final Ability abI = (Ability) anIt.next();
+						final AbilityInfo abI = (AbilityInfo) anIt.next();
 						Ability added = AbilityUtilities
 							.addCloneOfGlobalAbilityToListWithChoices(
 								abilities,
