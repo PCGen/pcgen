@@ -327,23 +327,27 @@
 <hr>
 
 	<p class="indent1"><strong><a name="count">Count Information</a></strong></p>
-	<p></p>
-	<p class="indent2"><code>count("parameter 1", "parameter 2", ...)</code></p>
-	<p></p>
-	<p class="indent3">This function returns the number of objects of the requested type. It is commonly
-		used in output sheet FOR loops as the maximum value.</p>
-	<p></p>
-	<p class="indent3">parameter 1 is required. It is the type of object to be counted. Different types of objects will require different numbers of following parameters</p>
-	<p></p>
+	<p class="indent2"><code>count("parameter 1", "parameter 2", ...)</code></p><br>
+	<p class="indent3">This function returns the number of objects of the requested type. 
+		It is commonly used in output sheet FOR loops as the maximum value. 
+		Parameter 1 is required. It is the type of object to be counted. 
+		Different types of objects will require different numbers of following parameters. 
+		Currently count() has only been implemented to count Abilities but there are plans to expand it to other objects in future versions.
+		<b>Note:</b> count() can be used in some output sheet tokens however certain tokens, 
+		such as IIF and VAR, require that the separators between the parameters be semicolons (;) instead of comma's (,).</p><br>
 	<p class="indent2"><code>count("ABILITIES", "&lt;param=value&gt;")</code></p>
-	<p class="indent3">Returns the number of abiltiies meeting the critieria.<br />
-	Allowed parameters are:</p>
+	<p class="indent3">Returns the number of abilities meeting the criteria.<br />
+		Allowed parameters are:</p>
 	<p class="indent4"><code>&quot;CATEGORY=&lt;text&gt;&quot;</code> - The ability category as defined in the gamemode/miscinfo.lst file.</p>
+	<p class="indent4"><code>&quot;NAME=&lt;text&gt;&quot;</code> - The name of a specific Ability which can be taken multiple times, returns the number of times it was taken.</p>
 	<p class="indent4"><code>&quot;NATURE=&lt;text&gt;&quot;</code> - &quot;NORMAL&quot;, &quot;VIRTUAL&quot;, or &quot;AUTOMATIC&quot;.</p>
 	<p class="indent4"><code>&quot;TYPE=&lt;text&gt;&quot;</code> - The ability type as defined in the ability.lst file. (i.e. &quot;General&quot;, &quot;Fighter&quot;, &quot;Metamagic&quot;, etc.)</p>
-	<p class="indent4"><code>&quot;VISIBILITY=&lt;text&gt;&quot;</code> - &quot;YES&quot;, &quot;NO&quot;, &quot;DISPLAY&quot;, or &quot;EXPORT&quot;.</p>
+	<p class="indent4"><code>&quot;VISIBILITY=&lt;text&gt;&quot;</code> - &quot;YES&quot;, &quot;NO&quot;, &quot;DISPLAY&quot;, or &quot;EXPORT&quot;.</p><br>
 	<p class="indent3">Examples:</p>
-	<p class="indent3"><code>count("ABILITIES","CATEGORY=FEAT",&quot;TYPE=Fighter&quot;,"VISIBILITY=YES")</code> List all visible feat abilities.</p>
+	<p class="indent3"><code>count("ABILITIES","CATEGORY=FEAT",&quot;TYPE=Fighter&quot;,"VISIBILITY=YES")</code></p>
+	<p class="indent4">Returns the number of all visible Fighter type feat abilities.</p><br>
+	<p class="indent3"><code>count("ABILITIES","CATEGORY=FEAT",&quot;NAME=Toughness&quot;)</code></p>
+	<p class="indent4">Returns the number of times the Toughness feat was taken.</p>
 	<p></p>
 	<p class="new">*** New 5.11.X</p>
 
