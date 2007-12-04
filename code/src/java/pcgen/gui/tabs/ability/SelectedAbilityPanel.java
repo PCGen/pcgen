@@ -362,6 +362,33 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 			setRemoveEnabled(false);
 		}
 	}
+
+	/**
+	 * Process the selection of a new category.
+	 * 
+	 * @param anAbilityCat the ability category
+	 * 
+	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#abilitySelected(pcgen.core.Ability)
+	 */
+	@Override
+	protected void categorySelected(final PCAbilityCategory anAbilityCat)
+	{
+		super.categorySelected(anAbilityCat);
+		if (anAbilityCat != null)
+		{
+			for (final IAbilityCategorySelectionListener listener : getCategoryListeners())
+			{
+				SwingUtilities.invokeLater(new Runnable()
+				{
+					public void run()
+					{
+						listener.abilityCategorySelected(anAbilityCat
+							.getCategory());
+					}
+				});
+			}
+		}
+	}
 	
 	/* (non-Javadoc)
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#getSplitByCategory()

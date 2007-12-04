@@ -26,7 +26,11 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.InputVerifier;
 import javax.swing.JComboBox;
@@ -34,6 +38,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -51,11 +56,16 @@ public class AbilityPoolPanel extends JPanel
 {
 	private PlayerCharacter thePC;
 	private AbilityCategory theCategory;
-	private InfoAbility theParent;
 
 	private JComboBox theCategoryField = new JComboBox();
 	private JTextField theNumAbilitiesField = new JTextField();
 
+	/** A list of listeners registered to receive ability category selection events */
+	private List<IAbilityCategorySelectionListener> theCatListeners =
+			new ArrayList<IAbilityCategorySelectionListener>();
+
+	private ActionListener categoryListener;
+	
 	/**
 	 * Construct the panel and add all the components.
 	 * 
@@ -63,12 +73,10 @@ public class AbilityPoolPanel extends JPanel
 	 * @param aCategoryList The <tt>AbilityCategory</tt> this panel represents.
 	 */
 	public AbilityPoolPanel(final PlayerCharacter aPC, 
-		final Collection<AbilityCategory> aCategoryList,
-		final InfoAbility parent)
+		final Collection<AbilityCategory> aCategoryList)
 	{
 		super();
 		thePC = aPC;
-		theParent = parent;
 
 		setLayout(new FlowLayout());
 		for (AbilityCategory abilityCategory : aCategoryList)
@@ -138,13 +146,14 @@ public class AbilityPoolPanel extends JPanel
 			}
 		});
 		
-		theCategoryField.addActionListener(new ActionListener()
+		categoryListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)
 			{
 				categoryFieldActionPerformed();
 			}
-		});
+		};
+		theCategoryField.addActionListener(categoryListener);
 
 		showRemainingAbilityPoints();
 		theNumAbilitiesField.setColumns(3);
@@ -162,19 +171,21 @@ public class AbilityPoolPanel extends JPanel
 	 */
 	private void categoryFieldActionPerformed()
 	{
-		// Set the selected category
-		theCategory =
+		// Get the selected category
+		final AbilityCategory aCategory =
 			((AbilityCatDisplay) theCategoryField.getSelectedItem()).abilityCat;
 		
-		// Adjust the ability points display
-		showRemainingAbilityPoints();
-		theNumAbilitiesField.setEditable(theCategory.allowPoolMod());
-		Utility.setDescription(theNumAbilitiesField, PropertyFactory
-			.getFormattedString("InfoAbility.Pool.Description", //$NON-NLS-1$
-				theCategory.getDisplayName()));
-		
 		// Tell our parent about the change
-		theParent.setCurrentActivityCategory(theCategory);
+		for (final IAbilityCategorySelectionListener listener : getCategoryListeners())
+		{
+			SwingUtilities.invokeLater(new Runnable()
+			{
+				public void run()
+				{
+					listener.abilityCategorySelected(aCategory);
+				}
+			});
+		}
 	}
 
 	/**
@@ -188,6 +199,33 @@ public class AbilityPoolPanel extends JPanel
 	}
 
 	/**
+	 * Sets the category this panel is displaying information for.
+	 * 
+	 * @param aCategory the new category
+	 */
+	public void setCategory(final AbilityCategory aCategory)
+	{
+		theCategory = aCategory;
+		theNumAbilitiesField.setEditable(theCategory.allowPoolMod());
+		Utility.setDescription(theNumAbilitiesField, PropertyFactory
+			.getFormattedString("InfoAbility.Pool.Description", //$NON-NLS-1$
+				theCategory.getDisplayName()));
+		
+		theCategoryField.removeActionListener(categoryListener);
+		for (int i = 0; i < theCategoryField.getItemCount(); i++)
+		{
+			AbilityCatDisplay acd = (AbilityCatDisplay) theCategoryField.getItemAt(i);
+			if (acd.abilityCat == aCategory)
+			{
+				theCategoryField.setSelectedIndex(i);
+				break;
+			}
+		}
+		theCategoryField.addActionListener(categoryListener);
+		
+	}
+	
+	/**
 	 * Displays the current number of remaining points in the ability pool.
 	 */
 	public void showRemainingAbilityPoints()
@@ -195,7 +233,32 @@ public class AbilityPoolPanel extends JPanel
 		theNumAbilitiesField.setText(BigDecimalHelper.trimBigDecimal(
 			thePC.getAvailableAbilityPool(theCategory)).toString());
 	}
-	
+
+	/**
+	 * Adds a new ability category selection listener to the panel that 
+	 * will be advised of ability category selection events that occur 
+	 * within the panel.
+	 * 
+	 * @param aListener the listener
+	 */
+	public void addAbilityCategorySelectionListener(
+		final IAbilityCategorySelectionListener aListener)
+	{
+		if (theCatListeners.contains(aListener) == false)
+		{
+			theCatListeners.add(aListener);
+		}
+	}
+
+	/**
+	 * Gets the ability category listeners.
+	 * 
+	 * @return An unmodifiable list of the category listeners
+	 */
+	public List<IAbilityCategorySelectionListener> getCategoryListeners()
+	{
+		return Collections.unmodifiableList(theCatListeners);
+	}	
 	/**
 	 * <code>AbilityCatDisplay</code> encapsulates an ability category so that 
 	 * its plural name can be used for display.

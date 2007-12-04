@@ -41,6 +41,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
+import org.mozilla.javascript.tools.debugger.downloaded.TreeTableModelAdapter;
+
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -83,6 +85,11 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 	private List<IAbilitySelectionListener> theListeners =
 			new ArrayList<IAbilitySelectionListener>(2);
 
+	/** A list of listeners registered to receive ability category selection events */
+	private List<IAbilityCategorySelectionListener> theCatListeners =
+			new ArrayList<IAbilityCategorySelectionListener>();
+
+	
 	private String theOptionsRoot = "InfoAbility."; //$NON-NLS-1$
 
 	/** enum for the possible view modes supported */
@@ -369,7 +376,8 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 								theTable.getTree().getPathForRow(idx)
 									.getLastPathComponent();
 						final Ability ability = getAbilityFromObject(temp);
-
+						final PCAbilityCategory pcac = getPCAbilityCategoryFromObject(temp);
+						
 						for (final IAbilitySelectionListener listener : theListeners)
 						{
 							SwingUtilities.invokeLater(new Runnable()
@@ -378,6 +386,10 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 								{
 									abilitySelected(ability);
 									listener.abilitySelected(ability);
+									if (pcac != null)
+									{
+										categorySelected(pcac);
+									}
 								}
 							});
 						}
@@ -398,6 +410,21 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 	 */
 	protected void abilitySelected(@SuppressWarnings("unused")
 	final Ability anAbility)
+	{
+		// Placeholder.
+	}
+
+	/**
+	 * This method is called when an ability category is selected 
+	 * (clicked on) in the table.
+	 * 
+	 * <p>This implementation does nothing.  Subclasses can override it to 
+	 * provide custom behaviour.
+	 * 
+	 * @param anAbilityCat The selected <tt>PC Ability Category</tt>
+	 */
+	protected void categorySelected(@SuppressWarnings("unused")
+	final PCAbilityCategory anAbilityCat)
 	{
 		// Placeholder.
 	}
@@ -428,6 +455,70 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 			if (temp instanceof Ability)
 			{
 				return (Ability) temp;
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * Adds a new ability category selection listener to the panel that 
+	 * will be advised of ability category selection events that occur 
+	 * within the panel.
+	 * 
+	 * @param aListener the listener
+	 */
+	public void addAbilityCategorySelectionListener(
+		final IAbilityCategorySelectionListener aListener)
+	{
+		if (theCatListeners.contains(aListener) == false)
+		{
+			theCatListeners.add(aListener);
+		}
+	}
+
+	/**
+	 * Gets the ability category listeners.
+	 * 
+	 * @return An unmodifiable list of the category listeners
+	 */
+	public List<IAbilityCategorySelectionListener> getCategoryListeners()
+	{
+		return Collections.unmodifiableList(theCatListeners);
+	}
+
+	/**
+	 * This is a utility method that safely gets an <tt>Ability</tt> object from
+	 * the tree.
+	 * 
+	 * @param anObject The node in the tree.
+	 * 
+	 * @return An <tt>Ability</tt> object or <tt>null</tt> if the selected item
+	 * is not an Ability.
+	 */
+	protected PCAbilityCategory getPCAbilityCategoryFromObject(final Object anObject)
+	{
+		if (anObject == null)
+		{
+			// This should never happen.  I don't think we need a user
+			// message here.
+			Logging.debugPrint("No ability selected while processing event"); //$NON-NLS-1$
+			return null;
+		}
+
+		if (anObject instanceof PObjectNode)
+		{
+			final Object temp = ((PObjectNode) anObject).getItem();
+
+			if (temp instanceof PCAbilityCategory)
+			{
+				return (PCAbilityCategory) temp;
+			}
+			// See if the parent of this element is an ability category
+			final PObjectNode parent = ((PObjectNode) anObject).getParent();
+			if (parent != null)
+			{
+				return getPCAbilityCategoryFromObject(parent);
 			}
 		}
 
@@ -531,6 +622,8 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 		if (theTable != null)
 		{
 			final List<String> pathList = theTable.getExpandedPaths();
+			final int selRow = theTable.getSelectedRow();
+			Logging.log(Logging.INFO, "Rebuilding view. sel row is " + selRow);
 			theModel.resetModel(thePC, theViewMode, false);
 
 			if (theSorter != null)
@@ -554,6 +647,15 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 		if (theTable != null)
 		{
 			List<String> pathList = theTable.getExpandedPaths();
+			final int selRow = theTable.getSelectedRow();
+			Object selObj = null;
+			if (selRow >= 0)
+			{
+				selObj = theTable.getValueAt(selRow, 0);
+			}
+			//theTable.getTree().g
+			//final Object selObj = theModel.nodeForRow(selRow);
+			Logging.log(Logging.INFO, "Updating. sel row is " + selRow + " aka " + selObj);
 			theModel.setAbilityList(getAbilityList(), thePC);
 			if (theSorter != null)
 			{
@@ -561,6 +663,12 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 			}
 			theTable.updateUI();
 			theTable.expandPathList(pathList);
+			Logging.log(Logging.INFO, " - After expand sel row is " + theTable.getSelectedRow());
+			if (selObj != null)
+			{
+				theTable.addRowSelectionInterval(selRow, selRow);
+			}
+			Logging.log(Logging.INFO, " - After set sel row is " + theTable.getSelectedRow());
 		}
 	}
 

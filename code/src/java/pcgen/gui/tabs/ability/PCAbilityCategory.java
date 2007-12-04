@@ -73,7 +73,7 @@ public class PCAbilityCategory
 	/**
 	 * @return the category
 	 */
-	AbilityCategory getCategory()
+	public AbilityCategory getCategory()
 	{
 		return category;
 	}

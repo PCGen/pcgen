@@ -64,7 +64,9 @@ import pcgen.gui.tabs.ability.AbilityInfoPanel;
 import pcgen.gui.tabs.ability.AbilityPoolPanel;
 import pcgen.gui.tabs.ability.AbilitySelectionPanel;
 import pcgen.gui.tabs.ability.AvailableAbilityPanel;
+import pcgen.gui.tabs.ability.IAbilityCategorySelectionListener;
 import pcgen.gui.tabs.ability.IAbilitySelectionListener;
+import pcgen.gui.tabs.ability.PCAbilityCategory;
 import pcgen.gui.tabs.ability.SelectedAbilityPanel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.util.Logging;
@@ -83,7 +85,7 @@ import pcgen.util.enumeration.Tab;
  * @version $Revision$
  */
 public final class InfoAbility extends BaseCharacterInfoTab implements
-		IAbilitySelectionListener
+		IAbilitySelectionListener, IAbilityCategorySelectionListener
 {
 	private static final Tab tab = Tab.ABILITIES;
 
@@ -421,6 +423,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		}
 		theSelectedPane = new SelectedAbilityPanel(getPc(), categoryList);
 		theSelectedPane.addAbilitySelectionListener(this);
+		theSelectedPane.addAbilityCategorySelectionListener(this);
 		theSelectedPane.addFilterer(this);
 
 		if (editable)
@@ -463,7 +466,8 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 						"InfoAbility.Title", theCategory.getDisplayName())); //$NON-NLS-1$
 
 		// Pool panel
-		thePoolPanel = new AbilityPoolPanel(getPc(), categoryList, this);
+		thePoolPanel = new AbilityPoolPanel(getPc(), categoryList);
+		thePoolPanel.addAbilityCategorySelectionListener(this);
 
 		splitBotLeftRight =
 				new FlippingSplitPane(splitOrientation, theInfoPanel,
@@ -573,6 +577,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		if (thePoolPanel != null)
 		{
 			thePoolPanel.setPC(getPc());
+			thePoolPanel.setCategory(theCategory);
 			thePoolPanel.showRemainingAbilityPoints();
 		}
 		setNeedsUpdate(false);
@@ -761,5 +766,13 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 	{
 		theCategory = cat;
 		forceRefresh();
+	}
+
+	public void abilityCategorySelected(AbilityCategory anAbilityCat)
+	{
+		if (theCategory != anAbilityCat)
+		{
+			setCurrentActivityCategory(anAbilityCat);
+		}
 	}
 }

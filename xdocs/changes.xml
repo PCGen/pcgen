@@ -5,6 +5,9 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
+    <release version="5.13.6" date="In SVN" description="Alpha release"> 
+      <action dev="jdempsey" type="update" issue="1838181">Ability tab location Freq - select pool from header</action>  
+    </release>  
     <release version="5.13.5" date="2007-11-29" description="Alpha release"> 
       <action dev="jdempsey" type="update" issue="1831621">Move point buy definitions to Custom data</action>  
       <action dev="jdempsey" type="add" issue="1834907">Define ABILITYCATEGORIES in lst file</action> 
