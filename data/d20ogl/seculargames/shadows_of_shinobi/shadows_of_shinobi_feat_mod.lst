@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:32:02 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja
+
+#CREATED BY: Paul W. King, Jan 2007
+#EDITED BY: Paul W. King, Jan 2007
+
+# Feat Name					Type
+Greater Weapon Focus.MOD		TYPE:LotusWarrior
+Greater Weapon Specialization.MOD	TYPE:LotusWarrior
+Weapon Specialization.MOD		TYPE:LotusWarrior
+
+#
+# End
+#

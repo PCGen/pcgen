@@ -1,0 +1,43 @@
+# CVS $Revision$ $Author$ -- Fri Nov 23 13:32:02 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja
+
+#CREATED BY: Paul W. King, Jan 2007
+#EDITED BY: Paul W. King, Jan 2007
+
+###BLOCK: Tiny weapons
+# Equipment Name	Required Proficiency	Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Range		Size		Source Page
+Bo Shuriken		PROFICIENCY:Bo Shuriken	TYPE:Weapon.Exotic.Piercing.Melee.Thrown		COST:1	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1	WIELD:Light		RANGE:10	SIZE:T	SOURCEPAGE:p.32
+Tsubute		PROFICIENCY:Tsubute	TYPE:Weapon.Exotic.Bludgeoning.Melee.Thrown	COST:1	WT:0.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	WIELD:Light		RANGE:10	SIZE:T	SOURCEPAGE:p.32
+
+###BLOCK: Small weapons
+# Equipment Name	Required Proficiency		Type							Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Range		Size		Source Page
+Futokoro Teppo	PROFICIENCY:Futokoro Teppo	TYPE:Weapon.Exotic.Piercing.Melee.Thrown	COST:100	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6	WIELD:Light		RANGE:20	SIZE:S	SOURCEPAGE:p.32
+Uchi Ne		PROFICIENCY:Uchi Ne		TYPE:Weapon.Exotic.Piercing.Melee.Thrown	COST:1	WT:0.5	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d3	WIELD:Light		RANGE:15	SIZE:S	SOURCEPAGE:p.32
+
+###BLOCK: Medium weapons
+# Equipment Name	Required Proficiency	Type						Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Size		Source Page
+Ninja To		PROFICIENCY:Ninja To	TYPE:Weapon.Melee.Exotic.Slashing	COST:20	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.32
+
+###BLOCK: Large weapons
+# Equipment Name	Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Wield Category	Range		Size		Source Page
+Bakuhatsugama	PROFICIENCY:Bakuhatsugama	TYPE:Weapon.Melee.Exotic.Slashing				COST:25	WT:6		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					WIELD:TwoHanded			SIZE:L	SOURCEPAGE:p.32
+Hyakurai Ju		PROFICIENCY:Hyakurai Ju		TYPE:Weapon.Ranged.Melee.Thrown.Exotic.Bludgeoning	COST:250	WT:20		CRITMULT:x3			CRITRANGE:1												DAMAGE:3d8					WIELD:TwoHanded	RANGE:45	SIZE:L	SOURCEPAGE:p.32
+Kusarigama		PROFICIENCY:Kusarigama		TYPE:Weapon.Melee.Exotic.TwoHanded.Double.Slashing	COST:40	WT:8		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		WIELD:TwoHanded			SIZE:L	SOURCEPAGE:p.32
+
+###BLOCK: Goods
+# Equipment Name		Type				Cost		Weight	Source Page		Bonus to skill
+Doka				TYPE:Equipment.Goods	COST:25	WT:6		SOURCEPAGE:p.33
+Musubi Bashigo ~ 50 ft	TYPE:Equipment.Goods	COST:50	WT:1		SOURCEPAGE:p.33	BONUS:SKILL|Climb|2|TYPE=Competence|PREAPPLY:ANYPC
+Tegake			TYPE:Equipment.Goods	COST:45	WT:1		SOURCEPAGE:p.33	BONUS:SKILL|Climb|2|TYPE=Circumstance|PREAPPLY:ANYPC
+Ashiko			TYPE:Equipment.Goods	COST:45	WT:1		SOURCEPAGE:p.33	BONUS:SKILL|Climb|2|TYPE=Circumstance|PREAPPLY:ANYPC
+Nagedepppo			TYPE:Equipment.Goods	COST:50	WT:1		SOURCEPAGE:p.33
+
+###BLOCK: Magic
+# Equipment Name					Required Proficiency		Type										Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus					Bonus to skill								Weapon prop. bonus
+Kogiros Disguise Kit									TYPE:Magic.Wondrous							COST:60000	WT:4																													SOURCEPAGE:p.34												BONUS:SKILL|Disguise|10|TYPE=Competence|PREAPPLY:ANYPC
+Liars Bane ~ The Sword of the Silver Lord	PROFICIENCY:Sword (Bastard)	TYPE:Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword	COST:56035	WT:6					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:STEEL.MWORKW.PLUS4W.LAW_M	WIELD:TwoHanded				SIZE:M	SOURCEPAGE:p.35																						BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency(Sword (Bastard))	BONUS:WEAPON|DAMAGE|SKILLRANK=Bluff
+Mail of Shadows										TYPE:Armor.Light.Suit.Standard					COST:6025	WT:20		ACCHECK:-1												EQMOD:STEEL.MWORKA.PLUS3A.SHDW.SLK				MAXDEX:5				SOURCEPAGE:p.35	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+
+#
+# End
+#
