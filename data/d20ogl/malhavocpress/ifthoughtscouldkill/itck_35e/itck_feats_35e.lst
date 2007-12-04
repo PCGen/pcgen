@@ -10,4 +10,4 @@ Transcend Limits		TYPE:Psionic	PRECLASS:1,SPELLCASTER.Psionic=3	PREFEAT:1,Overch
 
 ###Block: hidden feats
 # Feat Name			Type			Visible	Required Class			Stackable?	Multiple?	Choose													Modify VAR						Source Page
-Power Sequestration	TYPE:ClassSpecial	VISIBLE:NO	PRECLASS:1,Metamind ITCK=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Psionic|0|MAXLEVEL|[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|-1]	BONUS:VAR|BasePowerPoints|((%CHOICE*2)-1)	SOURCEPAGE:p.40
+Power Sequestration	TYPE:ClassSpecial	VISIBLE:NO	PRECLASS:1,Metamind ITCK=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Psionic|0|MAXLEVEL[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|-1]	BONUS:VAR|BasePowerPoints|((%CHOICE*2)-1)	SOURCEPAGE:p.40
