@@ -20,6 +20,6 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 
 INFOTEXT:This set loads the Mutations options from the Future section of the MSRD.
 
-
 ABILITY:futuremutations_feats.lst
 TEMPLATE:futuremutations_templates.lst
+ABILITYCATEGORY:futuremutations_abilitycategories.lst

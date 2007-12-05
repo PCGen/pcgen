@@ -209,8 +209,6 @@ WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
 #
 # Ability Categories
 #
-# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object	Type of Object		Plural description for UI	Display where?
-ABILITYCATEGORY:Mutation		VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:0			CATEGORY:Mutation						PLURAL:Mutations
 
 #ABILITYCATEGORY:Occupation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:0			CATEGORY:Occupation					PLURAL:Occupations
 ###COMMENT: Occupations have issue with not knowing 1st level Class Skills - Slated for 6.0 when CDOM goes live. -AM
