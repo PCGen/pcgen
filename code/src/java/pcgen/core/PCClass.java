@@ -25,6 +25,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -6160,6 +6161,33 @@ public class PCClass extends PObject {
 			choiceList.add(columnList);
 		}
 		
+		Collections.sort(choiceList, new Comparator<List> () 
+			{
+				public int compare(List o1, List o2)
+				{
+					try
+					{
+						PCClass class1 = ((List<PCClass>) o1).get(0);
+						PCClass class2 = ((List<PCClass>) o2).get(0);
+						return class1.compareTo(class2);
+					}
+					catch (RuntimeException e)
+					{
+						return 0; 
+					}
+				}
+			}
+		);
+		
+		// add base class to the chooser at the TOP
+		final List<Object> columnList2 = new ArrayList<Object>(3);
+		columnList2.add(this);
+		columnList2.add("0");
+		columnList2.add("");
+		choiceList.add(0,columnList2);
+		
+		
+		
 		/*
 		 * REFACTOR This makes an assumption that SubClasses are ONLY Schools, which may
 		 * not be a fabulous assumption
@@ -6183,16 +6211,26 @@ public class PCClass extends PObject {
 			c.setVisible(true);
 		}
 
-		List<List<SubClass>> selectedList = c.getSelectedList();
-
-		if (!selectedList.isEmpty()) {
+		List<List<PCClass>> selectedList = c.getSelectedList(); 
+		if (selectedList.size() == 0)
+		{
+			return;
+		}
+		List<PCClass> selectedRow = selectedList.get(0);
+		if (selectedRow.size() == 0)
+		{
+			return;
+		}
+		PCClass subselected = selectedRow.get(0);
+		
+		if (!selectedList.isEmpty() && subselected instanceof SubClass) {
 			clearProhibitedSchools();
 			/*
 			 * CONSIDER What happens to this reset during PCClass/PCClassLevel split
 			 */
 			specialtyList = null;
-
-			SubClass sc = selectedList.get(0).get(0);
+			
+			SubClass sc = (SubClass) subselected;
 			choiceList = new ArrayList<List>();
 			
 			for (SubClass sub : subClassList) {
@@ -6243,7 +6281,7 @@ public class PCClass extends PObject {
 				c1.setVisible(true);
 				selectedList = c1.getSelectedList();
 
-				for (Iterator<List<SubClass>> i = selectedList.iterator(); i
+				for (Iterator<List<PCClass>> i = selectedList.iterator(); i
 						.hasNext();) {
 					final List columns = i.next();
 					sc = (SubClass) columns.get(0);
