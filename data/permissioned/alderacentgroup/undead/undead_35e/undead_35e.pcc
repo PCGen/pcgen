@@ -19,16 +19,16 @@ COPYRIGHT:PCGen dataset conversion for Undead Copyright 2003, PCGen Data Team (i
 
 CLASS:undeadclasses_35e.lst
 
-CLASS:@/permissioned/alderacentgroup/undead/undeadclasses.lst
-DEITY:@/permissioned/alderacentgroup/undead/undeaddeities.lst
-DOMAIN:@/permissioned/alderacentgroup/undead/undeaddomains.lst
-EQUIPMENT:@/permissioned/alderacentgroup/undead/undeadequip.lst
-EQUIPMENT:@/permissioned/alderacentgroup/undead/undeadequipwondrousitems.lst
-EQUIPMENT:@/permissioned/alderacentgroup/undead/undeadequiprings.lst
-EQUIPMENT:@/permissioned/alderacentgroup/undead/undeadequippotionspoisons.lst
-EQUIPMENT:@/permissioned/alderacentgroup/undead/undeadequiprodstaffwands.lst
-EQUIPMOD:@/permissioned/alderacentgroup/undead/undeadequipmods.lst
-FEAT:@/permissioned/alderacentgroup/undead/undeadfeats.lst
-SKILL:@/permissioned/alderacentgroup/undead/undeadskills.lst
-SPELL:@/permissioned/alderacentgroup/undead/undeadspells.lst
-TEMPLATE:@/permissioned/alderacentgroup/undead/undeadtemplates.lst
+CLASS:../undeadclasses.lst
+DEITY:../undeaddeities.lst
+DOMAIN:../undeaddomains.lst
+EQUIPMENT:../undeadequip.lst
+EQUIPMENT:../undeadequipwondrousitems.lst
+EQUIPMENT:../undeadequiprings.lst
+EQUIPMENT:../undeadequippotionspoisons.lst
+EQUIPMENT:../undeadequiprodstaffwands.lst
+EQUIPMOD:../undeadequipmods.lst
+FEAT:../undeadfeats.lst
+SKILL:../undeadskills.lst
+SPELL:../undeadspells.lst
+TEMPLATE:../undeadtemplates.lst

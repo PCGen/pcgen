@@ -20,14 +20,14 @@ CLASS:evil_classes_35e.lst
 SPELL:evil_spells_35e.lst
 
 
-DEITY:@/d20ogl/alderacentertainmentgroup/evil/evil_deities.lst
-DOMAIN:@/d20ogl/alderacentertainmentgroup/evil/evil_domains.lst
-RACE:@/d20ogl/alderacentertainmentgroup/evil/evil_races.lst
-SKILL:@/d20ogl/alderacentertainmentgroup/evil/evil_skills.lst
-CLASS:@/d20ogl/alderacentertainmentgroup/evil/evil_classes.lst
-FEAT:@/d20ogl/alderacentertainmentgroup/evil/evil_feats.lst
-KIT:@/d20ogl/alderacentertainmentgroup/evil/evil_kits_races.lst
-EQUIPMENT:@/d20ogl/alderacentertainmentgroup/evil/evil_equip_potionsscrolls.lst
-EQUIPMENT:@/d20ogl/alderacentertainmentgroup/evil/evil_equip_rodsstaffswands.lst
-EQUIPMENT:@/d20ogl/alderacentertainmentgroup/evil/evil_equip_wondrousitems.lst
-EQUIPMENT:@/d20ogl/alderacentertainmentgroup/evil/evil_equip_artifacts.lst
+DEITY:../evil_deities.lst
+DOMAIN:../evil_domains.lst
+RACE:../evil_races.lst
+SKILL:../evil_skills.lst
+CLASS:../evil_classes.lst
+FEAT:../evil_feats.lst
+KIT:../evil_kits_races.lst
+EQUIPMENT:../evil_equip_potionsscrolls.lst
+EQUIPMENT:../evil_equip_rodsstaffswands.lst
+EQUIPMENT:../evil_equip_wondrousitems.lst
+EQUIPMENT:../evil_equip_artifacts.lst

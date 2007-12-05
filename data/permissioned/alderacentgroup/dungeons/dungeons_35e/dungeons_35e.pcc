@@ -21,9 +21,9 @@ CLASS:dungeonsclasses_35e.lst
 FEAT:dungeonsclassfeats_35e.lst
 FEAT:dungeonsfeats_35e.lst
 
-CLASS:@/permissioned/alderacentgroup/dungeons/dungeonsclasses.lst
-EQUIPMENT:@/permissioned/alderacentgroup/dungeons/dungeonsequip.lst
-EQUIPMENT:@/permissioned/alderacentgroup/dungeons/dungeonsequipwondrousitems.lst
-FEAT:@/permissioned/alderacentgroup/dungeons/dungeonsfeats.lst
-SKILL:@/permissioned/alderacentgroup/dungeons/dungeonsskills.lst
-SPELL:@/permissioned/alderacentgroup/dungeons/dungeonsspells.lst
+CLASS:../dungeonsclasses.lst
+EQUIPMENT:../dungeonsequip.lst
+EQUIPMENT:../dungeonsequipwondrousitems.lst
+FEAT:../dungeonsfeats.lst
+SKILL:../dungeonsskills.lst
+SPELL:../dungeonsspells.lst

@@ -19,8 +19,8 @@ COPYRIGHT:PCGen dataset conversion for War Copyright 2003-2005, PCGen Data Team 
 DOMAIN:wardomains_35e.lst
 CLASS:warclasses_35e.lst
 
-CLASS:@/permissioned/alderacentgroup/war/warclasses.lst
-FEAT:@/permissioned/alderacentgroup/war/warfeats.lst
-SKILL:@/permissioned/alderacentgroup/war/warskills.lst
-SPELL:@/permissioned/alderacentgroup/war/warspells.lst
-DEITY:@/permissioned/alderacentgroup/war/wardeities.lst
+CLASS:../warclasses.lst
+FEAT:../warfeats.lst
+SKILL:../warskills.lst
+SPELL:../warspells.lst
+DEITY:../wardeities.lst

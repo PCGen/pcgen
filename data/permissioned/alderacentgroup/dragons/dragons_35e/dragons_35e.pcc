@@ -25,15 +25,15 @@ FEAT:dragonsfeats_35e.lst
 SKILL:dragonsskills_35e.lst
 
 
-CLASS:@/permissioned/alderacentgroup/dragons/dragonsclasses.lst
-DEITY:@/permissioned/alderacentgroup/dragons/dragonsdeities.lst
-EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequip.lst
-EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequippotionspoisons.lst
-EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequipwondrousitems.lst
-EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequipweapmelee.lst
-EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequipweapmeleespecific.lst
-EQUIPMENT:@/permissioned/alderacentgroup/dragons/dragonsequipweapammospecific.lst
-EQUIPMOD:@/permissioned/alderacentgroup/dragons/dragonsequipmods.lst
-FEAT:@/permissioned/alderacentgroup/dragons/dragonsfeats.lst
-SPELL:@/permissioned/alderacentgroup/dragons/dragonsspells.lst
-WEAPONPROF:@/permissioned/alderacentgroup/dragons/dragonsweapprofs.lst
+CLASS:../dragonsclasses.lst
+DEITY:../dragonsdeities.lst
+EQUIPMENT:../dragonsequip.lst
+EQUIPMENT:../dragonsequippotionspoisons.lst
+EQUIPMENT:../dragonsequipwondrousitems.lst
+EQUIPMENT:../dragonsequipweapmelee.lst
+EQUIPMENT:../dragonsequipweapmeleespecific.lst
+EQUIPMENT:../dragonsequipweapammospecific.lst
+EQUIPMOD:../dragonsequipmods.lst
+FEAT:../dragonsfeats.lst
+SPELL:../dragonsspells.lst
+WEAPONPROF:../dragonsweapprofs.lst
