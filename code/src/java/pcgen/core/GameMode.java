@@ -176,6 +176,7 @@ public final class GameMode implements Comparable<Object>
 
 	private String thePreviewDir;
 	private String theDefaultPreviewSheet;
+	private int [] dieSizes;
 	
 	/**
 	 * Creates a new instance of GameMode.
