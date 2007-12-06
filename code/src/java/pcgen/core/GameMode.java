@@ -3291,5 +3291,46 @@ public final class GameMode implements Comparable<Object>
 	{
 		return theDefaultPreviewSheet;
 	}
+	public void setDieSizes(final String value)
+	{
+		final StringTokenizer aTok = new StringTokenizer(value, ",", false);
+		List<Integer> list = new ArrayList<Integer>();
+		while (aTok.hasMoreTokens())
+		{
+			final String aString = aTok.nextToken();
+			try
+			{
+				int die = Integer.parseInt(aString);
+				list.add(die);
+			}
+			catch (NumberFormatException e)
+			{
+				Logging.errorPrint("Invalid integer value for DIESIZES: " + aString + ".  Original value: DIESIZES:"+ value);
+			}
+		}
+		if (list.size() == 0)
+		{
+			return;
+		}
+		
+		int[] dieSizes = new int[list.size()];
+		
+		for (int i = 0; i < list.size(); i++)
+		{
+			dieSizes[i] = list.get(i);
+		}
+		list = null;
+		this.setDieSizes(dieSizes);
+	}
+
+	public int[] getDieSizes()
+	{
+		return dieSizes;
+	}
+
+	public void setDieSizes(int[] die)
+	{
+		this.dieSizes = die;
+	}
 }
 
