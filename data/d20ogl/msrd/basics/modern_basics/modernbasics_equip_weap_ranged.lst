@@ -3,8 +3,8 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 
 # Other Ranged Weapons
 # Equipment Name	Required Proficiency		Type											Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page							Weapon prop. bonus					Special Property			Rate of Fire
-Compound Bow	PROFICIENCY:Compound Bow	TYPE:Weapon.Archaic.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1	COST:10	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:40	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:WEAPON|DAMAGE|STR					SPROP:1 Arrow			RATEOFFIRE:1
-Crossbow		PROFICIENCY:Crossbow		TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Bolt=1	COST:9	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	RANGE:40	SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf									SPROP:1 Bolt			RATEOFFIRE:1
+Compound Bow	PROFICIENCY:Compound Bow	TYPE:Weapon.Archaic.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1	COST:10	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:40	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:WEAPON|DAMAGE|STR					SPROP:1 Arrow			RATEOFFIRE:1
+Crossbow		PROFICIENCY:Crossbow		TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Bolt=1	COST:9	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	RANGE:40	SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf									SPROP:1 Bolt			RATEOFFIRE:1
 Flamethrower	PROFICIENCY:Flamethrower	TYPE:Weapon.Simple.Ranged.Fire										COST:17	WT:50		CRITMULT:-			CRITRANGE:0			DAMAGE:3d6	RANGE:0	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf									SPROP:Magazine 10,Mil(+3)	RATEOFFIRE:1
 Javelin		PROFICIENCY:Javelin		TYPE:Weapon.Simple.Ranged.Standard.Thrown.Piercing.Wooden						COST:4	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:30	SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf														RATEOFFIRE:1
 Pepper Spray	PROFICIENCY:Pepper Spray	TYPE:Weapon.Simple.Ranged.Standard.Special								COST:5	WT:.5		CRITMULT:-			CRITRANGE:0			DAMAGE:0	RANGE:5	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf									SPROP:1 int.			RATEOFFIRE:1

@@ -38,19 +38,6 @@ Dragon True Seeing				TYPE:DragonSpellLikeKing		VISIBLE:NO	SPELLS:Innate|TIMES=1
 Dragon Cloudkill					TYPE:DragonSpellLikeEmperor		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Cloudkill,15+INT
 Dragon Telekinesis				TYPE:DragonSpellLikeEmperor		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Telekinesis,15+INT
 
-###Block: Craft skills
-# Feat Name			Type			Visible	Multiple?	Choose					Bonus to skill rank
-One Craft Skill (+7)	TYPE:OneCraft7	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Craft|1	BONUS:SKILLRANK|LIST|7|PREDEFAULTMONSTER:Y
-
-###Block: Knowledge skills
-# Feat Name				Type				Visible	Multiple?	Choose					Bonus to skill rank
-One Knowledge Skill (+10)	TYPE:OneKnowledge10	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Craft|1	BONUS:SKILLRANK|LIST|10|PREDEFAULTMONSTER:Y
-One Knowledge Skill (+24)	TYPE:OneKnowledge24	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Craft|1	BONUS:SKILLRANK|LIST|24|PREDEFAULTMONSTER:Y
-
-###Block: Perform skills
-# Feat Name			Type			Visible	Multiple?	Choose					Bonus to skill rank
-One Perform Skill (+8)	TYPE:OnePerform8	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Perform|1	BONUS:SKILLRANK|LIST|7|PREDEFAULTMONSTER:Y
-
 ###Block: Rage
 # Feat Name	Type			Visible	Special ABility																															Define																										Combat bonus						Stat bonus													Modify VAR
 Rage		TYPE:Special	VISIBLE:NO	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DEFINE:RageTimes|0	BONUS:COMBAT|AC|-1*RageACPenalty|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC

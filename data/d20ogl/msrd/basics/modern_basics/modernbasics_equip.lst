@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep  3 19:28:03 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Dec  5 21:23:21 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Phantom of Krankor
 # 5.14 added 'QUALITY:Light|x ft.' and 'QUALITY:DURATION|x hr.'
@@ -37,9 +37,9 @@ Tool Belt										TYPE:Goods.Clothing.Belt	COST:9	WT:2		SOURCEPAGE:msrdequipmen
 Camera (35mm)				OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo			COST:17	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
 Camera (Digital)				OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo			COST:14	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
 Camera (Disposable)			OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo.Consumable	COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Camera (Film)				OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo.Consumable	COST:3	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
-Camera (Film Developing (Roll))	OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo.Consumable	COST:3	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
-Cell Phone											TYPE:Goods.Tools.Electronic				COST:9	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
+Camera (Film)				OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo.Consumable	COST:3	WT:0		SOURCEPAGE:msrdequipmentgeneral.rtf
+Camera (Film Developing (Roll))	OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo.Consumable	COST:3	WT:0		SOURCEPAGE:msrdequipmentgeneral.rtf
+Cell Phone											TYPE:Goods.Tools.Electronic				COST:9	WT:0		SOURCEPAGE:msrdequipmentgeneral.rtf
 Computer (Desktop)			OUTPUTNAME:Computer, [NAME]		TYPE:Goods.Tools.Electronic.Desktop.Spellbook	COST:22	WT:10		SOURCEPAGE:msrdequipmentgeneral.rtf
 Computer (Notebook)			OUTPUTNAME:Computer, [NAME]		TYPE:Goods.Tools.Electronic.Notebook.Spellbook	COST:23	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf
 Digital Audio Recorder									TYPE:Goods.Tools.Electronic				COST:10	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
@@ -79,7 +79,7 @@ Electrical Tool Kit (Basic)	OUTPUTNAME:Electrical Tool Kit, [NAME]	TYPE:Goods.To
 Electrical Tool Kit (Deluxe)	OUTPUTNAME:Electrical Tool Kit, [NAME]	TYPE:Goods.Tools			COST:21	WT:33		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Craft (electronic)|2+CircumstanceAdjustment|TYPE=Circumstance
 Evidence Kit (Basic)		OUTPUTNAME:Evidence Kit, [NAME]		TYPE:Goods.Tools			COST:7	WT:6		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Investigate|CircumstanceAdjustment|TYPE=Circumstance
 Evidence Kit (Deluxe)		OUTPUTNAME:Evidence Kit, [NAME]		TYPE:Goods.Tools			COST:15	WT:8		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Investigate|2+CircumstanceAdjustment|TYPE=Circumstance
-Fake ID											TYPE:Goods.General				WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
+Fake ID											TYPE:Goods.General				WT:0		SOURCEPAGE:msrdequipmentgeneral.rtf
 First Aid Kit										TYPE:Goods.Tools			COST:5	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
 Forgery Kit											TYPE:Goods.Tools			COST:12	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Forgery|CircumstanceAdjustment|TYPE=Circumstance
 Handcuffs (Steel)			OUTPUTNAME:Handcuffs, [NAME]			TYPE:Goods.General		COST:7	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
@@ -128,14 +128,14 @@ Tent (8-Person Dome)		OUTPUTNAME:Tent, [NAME]		TYPE:Goods.General						COST:13	W
 Trail Rations (12)							TYPE:Goods.General.Consumable					COST:5	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 
 ###Block: Weapon Accessories
-# Equipment Name			Output Name				Type							Contains			Cost		Weight	Source Page
-Box Magazine								TYPE:Goods.WeaponAccessory.Container	CONTAINS:-1|Bullet=100	COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Detonator (Blasting cap)	OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable					COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Detonator (Radio Controlled)	OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable					COST:10	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Detonator (Timed)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable					COST:7	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Detonator (Wired)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable					COST:6	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
-Holster (Hip)			OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:-1|Firearm=1	COST:5	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
-Holster (Concealed carry)	OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:-1|Firearm=1	COST:5	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+# Equipment Name			Output Name				Type							Contains				Cost		Weight	Source Page
+Box Magazine								TYPE:Goods.WeaponAccessory.Container	CONTAINS:UNLIM|Bullet=100	COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Detonator (Blasting cap)	OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable						COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Detonator (Radio Controlled)	OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable						COST:10	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Detonator (Timed)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable						COST:7	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Detonator (Wired)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable						COST:6	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+Holster (Hip)			OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:UNLIM|Firearm=1	COST:5	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+Holster (Concealed carry)	OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:UNLIM|Firearm=1	COST:5	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
 # Original Entry by: Phantom of Krankor
 
 
