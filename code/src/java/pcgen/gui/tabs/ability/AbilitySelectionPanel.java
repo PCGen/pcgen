@@ -623,7 +623,6 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 		{
 			final List<String> pathList = theTable.getExpandedPaths();
 			final int selRow = theTable.getSelectedRow();
-			Logging.log(Logging.INFO, "Rebuilding view. sel row is " + selRow);
 			theModel.resetModel(thePC, theViewMode, false);
 
 			if (theSorter != null)
@@ -655,7 +654,6 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 			}
 			//theTable.getTree().g
 			//final Object selObj = theModel.nodeForRow(selRow);
-			Logging.log(Logging.INFO, "Updating. sel row is " + selRow + " aka " + selObj);
 			theModel.setAbilityList(getAbilityList(), thePC);
 			if (theSorter != null)
 			{
@@ -663,12 +661,10 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 			}
 			theTable.updateUI();
 			theTable.expandPathList(pathList);
-			Logging.log(Logging.INFO, " - After expand sel row is " + theTable.getSelectedRow());
 			if (selObj != null)
 			{
 				theTable.addRowSelectionInterval(selRow, selRow);
 			}
-			Logging.log(Logging.INFO, " - After set sel row is " + theTable.getSelectedRow());
 		}
 	}
 
