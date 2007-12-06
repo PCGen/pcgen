@@ -67,3 +67,22 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #The ADD:FEAT tag will give the character a choice of one from the feats listed in the parentheses. If the feat being added
 #has a chooser ADD:FEAT is the only tag which will activate it (VFEAT, MFEAT and FEATAUTO will not). Besides of ADD:FEAT, there
 #is a multitude of ADD tags in PCGen. You can look them up in the List File Tag Index under the topic "ADD Tags".
+
+
+
+
+CLASS:Ranger.MOD	HASSUBSTITUTIONLEVEL:YES
+
+SUBSTITUTIONCLASS:Elven Ranger		COST:0	PRERACE:1,Elf%
+SUBSTITUTIONLEVEL:1		ADD:CLASSSKILLS|Balance		HITDIE:%down1		STARTSKILLPTS:8		SA:Gain special bonus to Elven Favored Enemies
+
+SUBSTITUTIONCLASS:Forester		COST:0	PRERACE:1,Elf%
+SUBSTITUTIONLEVEL:1		ADD:CLASSSKILLS|Survival		HITDIE:%up3		STARTSKILLPTS:8		SA:Plus 8 spells
+
+
+SUBSTITUTIONCLASS:Wild Mage Forester		COST:0	PRERACE:1,Elf%
+SUBSTITUTIONLEVEL:1		ADD:CLASSSKILLS|Concentration,Spellcraft		HITDIE:%down3		STARTSKILLPTS:8		SA:blah
+
+SUBSTITUTIONCLASS:Arbuckle Ranger		COST:0	PRERACE:1,Elf%
+SUBSTITUTIONLEVEL:1		ADD:CLASSSKILLS|Concentration,Spellcraft		HITDIE:%down3		STARTSKILLPTS:8		SA:blah
+
