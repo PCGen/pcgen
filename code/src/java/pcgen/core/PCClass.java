@@ -33,7 +33,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-import pcgen.core.GameMode;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -1862,7 +1861,7 @@ public class PCClass extends PObject {
 	 * without making the system far too complicated for something that really
 	 * is very simple. - thpr 11/6/06
 	 */
-	private int calcHitDieLock(String dieLock, final int currDie) {		
+	private int calcHitDieLock(String dieLock, final int currDie) {
 		final int[] dieSizes = Globals.getDieSizes();
 		int diedivide;
 

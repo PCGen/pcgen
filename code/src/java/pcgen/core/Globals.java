@@ -2940,11 +2940,10 @@ public final class Globals
 		return expandRelativePath(defaultPcgPath);
 	}
 
-	//static int[] getDieSizes()
-	//{
-	//	return dieSizes;
-	//}
-
+	static int[] getDieSizes()
+	{
+		return dieSizes;
+	}
 
 	/**
 	 * returns the location of the "filepaths.ini" file
@@ -3636,15 +3635,6 @@ public final class Globals
 	public static boolean removeRaceKeyed(final String aKey)
 	{
 		return raceMap.remove(aKey.toLowerCase()) != null;
-	}
-	
-	public static int[] getDieSizes()
-	{
-		return SettingsHandler.getGame().getDieSizes();
-	}
-	public static int[] getDefaultDieSizes()
-	{
-		return dieSizes;
 	}
 	
 }

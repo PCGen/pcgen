@@ -19,13 +19,13 @@ COPYRIGHT:My Campaign, Copyright 2005 by me
 
 #ABILITY:my_abilities.lst
 #BIOSET:my_biosettings.lst
-CLASS:my_classes.lst
+#CLASS:my_classes.lst
 #COMPANIONMOD:my_companionmods.lst
 #DEITY:my_deities.lst
 #DOMAIN:my_domains.lst
 #EQUIPMENT:my_equipment.lst
 #EQUIPMOD:my_equipmods.lst
-FEAT:my_feats.lst
+#FEAT:my_feats.lst
 #KIT:my_kits.lst
 #LANGUAGE:my_languages.lst
 #RACE:my_races.lst

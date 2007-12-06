@@ -41,12 +41,3 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #of them, look in the List File Tag Index under the topic "Bonus tags".
 #
 #The SOURCEPAGE tag can be used to hold a reference to where you can find the feat. This will be displayed in PCGen.
-
-
-
-AA-1		PREHD:MIN=3,MAX=5		TYPE:General		DESC:See Text		MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1		BONUS:SKILL|LIST|3		SOURCEPAGE:Feats.rtf
-AA-2		PREHD:MIN=3			TYPE:General		DESC:See Text		MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1		BONUS:SKILL|LIST|3		SOURCEPAGE:Feats.rtf
-AA-3		PREHD:MAX=3			TYPE:General		DESC:See Text		MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1		BONUS:SKILL|LIST|3		SOURCEPAGE:Feats.rtf
-AA-4		PREHD:3-5			TYPE:General		DESC:See Text		MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1		BONUS:SKILL|LIST|3		SOURCEPAGE:Feats.rtf
-AA-5		PREHD:5+			TYPE:General		DESC:See Text		MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1		BONUS:SKILL|LIST|3		SOURCEPAGE:Feats.rtf
-AA-6		PREHD:3+			TYPE:General		DESC:See Text		MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1		BONUS:SKILL|LIST|3		SOURCEPAGE:Feats.rtf
