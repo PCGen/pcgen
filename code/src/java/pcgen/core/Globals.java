@@ -83,8 +83,7 @@ public final class Globals
 	private static final String defaultPath    = System.getProperty("user.dir"); //$NON-NLS-1$
 	private static final String defaultPcgPath = getDefaultPath() + File.separator + "characters"; //$NON-NLS-1$
 	private static final String backupPcgPath = Constants.EMPTY_STRING;
-	private static final int[]  dieSizes       = new int[]{ 1, 2, 3, 4, 6, 8, 10, 12, 20, 100, 1000 };
-
+	
 	/** These are for the Internationalization project. */
 	private static String     language        = "en"; //$NON-NLS-1$
 	private static String     country         = "US"; //$NON-NLS-1$
@@ -3632,12 +3631,12 @@ public final class Globals
 	{
 		return raceMap.remove(aKey.toLowerCase()) != null;
 	}
+	/**
+	 * Get's current gamemodes DieSizes
+	 * @return dieSizes array
+	 */
 	public static int[] getDieSizes()
 	{
 		return SettingsHandler.getGame().getDieSizes();
 	}
-	public static int[] getDefaultDieSizes()
-	{
-		return dieSizes;
-	}	
 }

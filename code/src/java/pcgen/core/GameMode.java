@@ -3292,6 +3292,12 @@ public final class GameMode implements Comparable<Object>
 	{
 		return theDefaultPreviewSheet;
 	}
+	/**
+	 * Parses the DIESIZE tag's values to create 
+	 * the dieSizes array
+	 * 
+	 * @param value
+	 */
 	public void setDieSizes(final String value)
 	{
 		final StringTokenizer aTok = new StringTokenizer(value, ",", false);
@@ -3323,12 +3329,18 @@ public final class GameMode implements Comparable<Object>
 		list = null;
 		this.setDieSizes(dieSizes);
 	}
-
+	/**
+	 * Get's current gamemodes DieSizes
+	 * @return dieSizes array
+	 */
 	public int[] getDieSizes()
 	{
 		return dieSizes;
 	}
-
+	/**
+	 * Set's DieSizes available for the gamemode
+	 * @param die The parsed integer diesizes
+	 */
 	public void setDieSizes(int[] die)
 	{
 		this.dieSizes = die;
