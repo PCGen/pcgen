@@ -325,31 +325,56 @@
 	<p class="indent3"><code>charbonusto("WEAPONPROF=TYPE.Martial", "PCSIZE")</code></p><p></p>
 
 <hr>
-
-	<p class="indent1"><strong><a name="count">Count Information</a></strong></p>
-	<p class="indent2"><code>count("parameter 1", "parameter 2", ...)</code></p><br>
-	<p class="indent3">This function returns the number of objects of the requested type. 
-		It is commonly used in output sheet FOR loops as the maximum value. 
-		Parameter 1 is required. It is the type of object to be counted. 
-		Different types of objects will require different numbers of following parameters. 
-		Currently count() has only been implemented to count Abilities but there are plans to expand it to other objects in future versions.
-		<b>Note:</b> count() can be used in some output sheet tokens however certain tokens, 
-		such as IIF and VAR, require that the separators between the parameters be semicolons (;) instead of comma's (,).</p><br>
-	<p class="indent2"><code>count("ABILITIES", "&lt;param=value&gt;")</code></p>
-	<p class="indent3">Returns the number of abilities meeting the criteria.<br />
-		Allowed parameters are:</p>
-	<p class="indent4"><code>&quot;CATEGORY=&lt;text&gt;&quot;</code> - The ability category as defined in the gamemode/miscinfo.lst file.</p>
-	<p class="indent4"><code>&quot;NAME=&lt;text&gt;&quot;</code> - The name of a specific Ability which can be taken multiple times, returns the number of times it was taken.</p>
-	<p class="indent4"><code>&quot;NATURE=&lt;text&gt;&quot;</code> - &quot;NORMAL&quot;, &quot;VIRTUAL&quot;, or &quot;AUTOMATIC&quot;.</p>
-	<p class="indent4"><code>&quot;TYPE=&lt;text&gt;&quot;</code> - The ability type as defined in the ability.lst file. (i.e. &quot;General&quot;, &quot;Fighter&quot;, &quot;Metamagic&quot;, etc.)</p>
-	<p class="indent4"><code>&quot;VISIBILITY=&lt;text&gt;&quot;</code> - &quot;YES&quot;, &quot;NO&quot;, &quot;DISPLAY&quot;, or &quot;EXPORT&quot;.</p><br>
-	<p class="indent3">Examples:</p>
-	<p class="indent3"><code>count("ABILITIES","CATEGORY=FEAT",&quot;TYPE=Fighter&quot;,"VISIBILITY=YES")</code></p>
-	<p class="indent4">Returns the number of all visible Fighter type feat abilities.</p><br>
-	<p class="indent3"><code>count("ABILITIES","CATEGORY=FEAT",&quot;NAME=Toughness&quot;)</code></p>
-	<p class="indent4">Returns the number of times the Toughness feat was taken.</p>
+		
+	<p class="indent0"><strong><a name="count">Formula:</a></strong> <code>count(x,y)</code></p>
+	<p class="indent1"><strong> Variables Used (x):</strong> Text (Object to be counted, i.e. ABILITIES, CLASSES, etc.)</p>
+	<p class="indent1"><strong> Variables Used (y):</strong> Text (Matching criteria)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This token is used to obtain the number of objects matching the provided criteria.</li>
+		<li>The matching criteria are a comma-delimited (,) list of quotated parameters ("parameter=text") associated with 
+		the &quot;Object&quot; being counted.</li>
+		<li>Use of this token in conjunction with output sheet tokens <code>IIF</code> and <code>VAR</code> require 
+		a semicolon-delimited (;) list of quotated parameters instead of a comma-delimited list.</li>
+		<li>This token can be used in any of the OS FOR loops in place of max.</li>
+		<li>Valid &lt;Object to be counted&gt; and the associated &lt;Matching criteria&gt; are listed below:</li>
+		<ul>
+			<li>ABILITIES - Will count the abilities that satisfy the included &quot;CATEGORY&quot;, &quot;NATURE&quot;, 
+			&quot;TYPE&quot;, and &quot;VISIBILITY&quot; parameters.</li>
+			<ul>
+				<li><code>&quot;CATEGORY=&lt;text&gt;&quot;</code> - The ability category as defined in the 
+				<em>gamemode/miscinfo.lst</em> file or the <em>data/abilitycategory.lst</em> file.</li>
+				<li><code>&quot;NAME=&lt;text&gt;&quot;</code> - The name of a specific Ability which can be 
+				taken multiple times, returns the number of times it was taken. This does not currently function 
+				with abilities with parenthesis, i.e. Weapon Focus.</li>
+				<li><code>&quot;NATURE=&lt;text&gt;&quot;</code> - &quot;NORMAL&quot;, &quot;VIRTUAL&quot;, or 
+				&quot;AUTOMATIC&quot;.</li>
+				<li><code>&quot;TYPE=&lt;text&gt;&quot;</code> - The ability type as defined in the ability.lst 
+				file. (i.e. &quot;General&quot;, &quot;Fighter&quot;, &quot;Metamagic&quot;, etc.)</li>
+				<li><code>&quot;VISIBILITY=&lt;text&gt;&quot;</code> - &quot;YES&quot;, &quot;NO&quot;, 
+				&quot;DISPLAY&quot;, or &quot;EXPORT&quot;.</li>
+			</ul>
+			<li>CLASSES - Not yet implemented.</li>
+			<li>DOMAINS - Not yet implemented.</li>
+			<li>EQUIPMENT - Not yet implemented..</li>
+			<li>FOLLOWERS - Not yet implemented..</li>
+			<li>LANGUAGES - Not yet implemented.</li>
+			<li>RACESUBTYPES - Not yet implemented.</li>
+			<li>SPELLBOOKS - Not yet implemented.</li>
+			<li>SPELLS - Not yet implemented.</li>
+			<li>SPELLSKNOWN - Not yet implemented.</li>
+			<li>SPELLSINBOOK - Not yet implemented.</li>
+			<li>TEMPLATES - Not yet implemented.</li>
+		</ul>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>count(&quot;ABILITIES&quot;,&quot;CATEGORY=FEAT&quot;,&quot;TYPE=Metamagic&quot;,&quot;VISIBILITY=YES&quot;)</code></p>
+	<p class="indent3">This token returns the number of visible metamagic feats the character has.</p>
+	<p class="indent2"><code>count("ABILITIES","CATEGORY=FEAT",&quot;TYPE=Fighter&quot;,"VISIBILITY=YES")</code></p>
+	<p class="indent3">Returns the number of all visible Fighter type feat abilities.</p>
+	<p class="indent2"><code>count("ABILITIES","CATEGORY=FEAT",&quot;NAME=Toughness&quot;)</code></p>
+	<p class="indent3">Returns the number of times the Toughness feat was taken.</p>
 	<p></p>
-	<p class="new">*** New 5.11.X</p>
 
 <hr>
 

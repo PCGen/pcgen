@@ -24,7 +24,7 @@
 
 	<body>
 		<h1>Miscellaneous Output Sheet Tokens</h1>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -61,7 +61,7 @@
 		<p class="indent2"><code>(VAR.RangeMod-2).INTVAL.SIGN</code></p>
 		<p class="indent3">Displays the integer portion preceded with a sign (+ or -) for the result of the Range
 			Modifier minus 2.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -122,7 +122,7 @@
 		<p class="indent2"><code>|%WEAPON.3|</code></p>
 		<p class="indent3">The filter will stop all output (until this filter is
 			ended or the next filter started) unless the character has at least 3 weapons.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -138,7 +138,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUSLIST.COMBAT.AC</code></p>
 		<p class="indent3">Would list all COMBAT.AC bonuses as a comma-space delimited list.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -150,7 +150,7 @@
 		<p class="indent2"><code>2|BR|3</code></p>
 		<p class="indent3">Then the output would look like:<br/>
 			<code>2<br/>3</code></p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -164,66 +164,67 @@
 				Zero, not One.</li>
 			<li>Also if you are still having problems, then you might have a Base 1 list, where the start
 				is at One not Zero. Different programmers, different styles.</li>
-			<li>The following are the tags that can be used as the &lt;Count Type&gt;:</li>
-			<ul class="indent0">
-				<li>CHECKS - The number of checks defined in the gameMode.</li>
-				<li>CLASSES - The number of classes a character has.</li>
-				<li>CONTAINERS - The number of containers a character has.</li>
-				<li>DOMAINS - The number of domains a character has.</li>
-				<li>EQTYPE.&lt;type1&gt;.ADD.&lt;type2&gt;.ADD.&lt;typen&gt; - The number of items of the type specified
-					a character has. (All types present in equipment .lst files can be used here).</li>
-				<li>EQTYPE.WEAPON - The number of weapons a character has.</li>
-				<li>EQTYPE.ACITEM - The number of armor a character has.</li>
-				<li>EQUIPMENT - The number of items a character has (one arrow in bow, 19 carried and 40 in backpack will return 1).</li>
-				<li>EQUIPMENT.MERGELOC - The number of items a character has, including items split between locations (one arrow in bow, 19 carried and 40 in backpack will return 3).</li>
-				<li>FEATNAME=&lt;featname&gt; - Some feats can be taken more than
-					once. This will tell you how many times a particular feat has been taken. (If &lt;featname&gt; is VISIBLE:YES)</li>
-				<li>FEATNAME=&lt;featname&gt;.ALL - Some feats can be taken more than
-					once. This will tell you how many times a particular feat has been taken. (If &lt;featname&gt; is VISIBLE:NO)</li>
-				<li>FEATS - This has been deprecated, use FEATS.VISIBLE instead.</li>
-				<li>FEATS.ALL - The total number of visible and hidden feats a character has excluding automatic feats.</li>
-				<li>FEATS.HIDDEN - The number of hidden feats a character has excluding automatic feats.</li>
-				<li>FEATS.VISIBLE - The number of visible feats a character has excluding automatic feats.</li>
-				<li>FEATSALL - This has been deprecated, use FEATSALL.VISIBLE instead.</li>
-				<li>FEATSALL.ALL - The number of both visible and hidden feats a character has including automatic feats.</li>
-				<li>FEATSALL.HIDDEN - The number of hidden feats a character has including automatic feats.</li>
-				<li>FEATSALL.VISIBLE - The number of visible feats a character has including automatic feats.</li>
-				<li>FEATSAUTO - This has been deprecated, use FEATAUTO.VISIBLE instead.</li>
-				<li>FEATSAUTO.ALL - The number of both visible and hidden automatic feats a character has.</li>
-				<li>FEATSAUTO.HIDDEN - The number of hidden automatic feats a character has.</li>
-				<li>FEATSAUTO.VISIBLE - The number of visible automatic feats a character has.</li>
-				<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt; - This has been deprecated, use
-					FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE instead.</li>
-				<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.ALL - The
-					number of both visible and hidden feats of the type specified a character has.</li>
-				<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.HIDDEN - The
-					number of hidden feats of the type specified a character has.</li>
-				<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE - The
-					number of visible feats of the type specified a character has.</li>
-				<li>FOLLOWERTYPE.&lt;followertype&gt; - The number of followers of
-				the type specified a character has.</li>
-				<li>LANGUAGES - The number of languages the character knows.</li>
-				<li>MOVE - The number of movement types the character has.</li>
-				<li>NOTES - The items notes entered when creating a custom item.</li>
-				<li>RACESUBTYPES - The number of racial subtypes the character has.</li>
-				<li>SA - The number of special abilities a character has.</li>
-				<li>SKILLS - The number of skills the character knows.</li>
-				<li>SPELLBOOKS - The number of spellbooks a character has.</li>
-				<li>SPELLRACE - Returns 1 if the character has any innate spells, 0 if the character has no innate spells.</li>
-				<li>SPELLSKNOWN - The number of spells the character knows.</li>
-				<li>SPELLSINBOOK%class.%book.%level - The number of spells of a particular class, in a particular spell book and of a
-					particular level that the character has (Note: The Known Spellbook is number 0, The Innate Spellbook
-					is number 1 and the -1 Spellbook should not be used anymore).</li>
-				<li>SPELLTIMES%class.%book.%level.%spell - The number of times the referenced spell has been memorized.</li>
-				<li>STATS - The number of stats a character has.</li>
-				<li>TEMPBONUSNAMES - The number of Temporary Bonus Tab items a character has.</li>
-				<li>TEMPLATES - The number of templates a character has.</li>
-				<li>VFEATS - This has been deprecated, use VFEATS.VISIBLE instead.</li>
-				<li>VFEATS.ALL - The number of both visible and hidden virtual feats a character has.</li>
-				<li>VFEATS.HIDDEN - The number of hidden virtual feats a character has.</li>
-				<li>VFEATS.VISIBLE - The number of visible virtual feats a character has.</li>
-				<li>VISION - The number of vision types a character has.</li>
-			</ul>
+			<li>The following are the tags that can be used as the &lt;Count Type&gt;:
+				<ul>
+					<li>CHECKS - The number of checks defined in the gameMode.</li>
+					<li>CLASSES - The number of classes a character has.</li>
+					<li>CONTAINERS - The number of containers a character has.</li>
+					<li>DOMAINS - The number of domains a character has.</li>
+					<li>EQTYPE.&lt;type1&gt;.ADD.&lt;type2&gt;.ADD.&lt;typen&gt; - The number of items of the type specified
+						a character has. (All types present in equipment .lst files can be used here).</li>
+					<li>EQTYPE.WEAPON - The number of weapons a character has.</li>
+					<li>EQTYPE.ACITEM - The number of armor a character has.</li>
+					<li>EQUIPMENT - The number of items a character has (one arrow in bow, 19 carried and 40 in backpack will return 1).</li>
+					<li>EQUIPMENT.MERGELOC - The number of items a character has, including items split between locations (one arrow in bow, 19 carried and 40 in backpack will return 3).</li>
+					<li>FEATNAME=&lt;featname&gt; - Some feats can be taken more than
+						once. This will tell you how many times a particular feat has been taken. (If &lt;featname&gt; is VISIBLE:YES)</li>
+					<li>FEATNAME=&lt;featname&gt;.ALL - Some feats can be taken more than
+						once. This will tell you how many times a particular feat has been taken. (If &lt;featname&gt; is VISIBLE:NO)</li>
+					<li>FEATS - This has been deprecated, use FEATS.VISIBLE instead.</li>
+					<li>FEATS.ALL - The total number of visible and hidden feats a character has excluding automatic feats.</li>
+					<li>FEATS.HIDDEN - The number of hidden feats a character has excluding automatic feats.</li>
+					<li>FEATS.VISIBLE - The number of visible feats a character has excluding automatic feats.</li>
+					<li>FEATSALL - This has been deprecated, use FEATSALL.VISIBLE instead.</li>
+					<li>FEATSALL.ALL - The number of both visible and hidden feats a character has including automatic feats.</li>
+					<li>FEATSALL.HIDDEN - The number of hidden feats a character has including automatic feats.</li>
+					<li>FEATSALL.VISIBLE - The number of visible feats a character has including automatic feats.</li>
+					<li>FEATSAUTO - This has been deprecated, use FEATAUTO.VISIBLE instead.</li>
+					<li>FEATSAUTO.ALL - The number of both visible and hidden automatic feats a character has.</li>
+					<li>FEATSAUTO.HIDDEN - The number of hidden automatic feats a character has.</li>
+					<li>FEATSAUTO.VISIBLE - The number of visible automatic feats a character has.</li>
+					<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt; - This has been deprecated, use
+						FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE instead.</li>
+					<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.ALL - The
+						number of both visible and hidden feats of the type specified a character has.</li>
+					<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.HIDDEN - The
+						number of hidden feats of the type specified a character has.</li>
+					<li>FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE - The
+						number of visible feats of the type specified a character has.</li>
+					<li>FOLLOWERTYPE.&lt;followertype&gt; - The number of followers of
+						the type specified a character has.</li>
+					<li>LANGUAGES - The number of languages the character knows.</li>
+					<li>MOVE - The number of movement types the character has.</li>
+					<li>NOTES - The items notes entered when creating a custom item.</li>
+					<li>RACESUBTYPES - The number of racial subtypes the character has.</li>
+					<li>SA - The number of special abilities a character has.</li>
+					<li>SKILLS - The number of skills the character knows.</li>
+					<li>SPELLBOOKS - The number of spellbooks a character has.</li>
+					<li>SPELLRACE - Returns 1 if the character has any innate spells, 0 if the character has no innate spells.</li>
+					<li>SPELLSKNOWN - The number of spells the character knows.</li>
+					<li>SPELLSINBOOK%class.%book.%level - The number of spells of a particular class, in a particular spell book and of a
+						particular level that the character has (Note: The Known Spellbook is number 0, The Innate Spellbook
+						is number 1 and the -1 Spellbook should not be used anymore).</li>
+					<li>SPELLTIMES%class.%book.%level.%spell - The number of times the referenced spell has been memorized.</li>
+					<li>STATS - The number of stats a character has.</li>
+					<li>TEMPBONUSNAMES - The number of Temporary Bonus Tab items a character has.</li>
+					<li>TEMPLATES - The number of templates a character has.</li>
+					<li>VFEATS - This has been deprecated, use VFEATS.VISIBLE instead.</li>
+					<li>VFEATS.ALL - The number of both visible and hidden virtual feats a character has.</li>
+					<li>VFEATS.HIDDEN - The number of hidden virtual feats a character has.</li>
+					<li>VFEATS.VISIBLE - The number of visible virtual feats a character has.</li>
+					<li>VISION - The number of vision types a character has.</li>
+				</ul>
+			</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:HP|CURRENTMAX|3*COUNT[FEATNAME=Toughness]</code></p>
@@ -237,44 +238,12 @@
 															ENDFOR</code></p>
 		<p class="indent3">The {statements} would be processed for each of the 0<sup>th</sup> level spells in
 			the 1<sup>st</sup> classes 1<sup>st</sup> spellbook (known) that the character has.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
-		<p class="indent0"><strong><a name="JEPCOUNT">Token Name:</a></strong> count(x,y) - See <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">jep count ()</a> function in the Global Formulas page.</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Text (Object to be counted)</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Text (Matching criteria)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This token is used to obtain the number of objects matching the provided criteria.</li>
-			<li>This token can be used in any of the FOR loops in place of max.</li>
-			<li>The matching criteria are a comma-delimited (,) list of quotated parameters assiciated with the &quot;Object&quot; being counted.</li>
-			<li>The following tokens are the valid &lt;Objects to be counted&gt; (x) and the associated &lt;Matching criteria&gt; (y):</li>
-			<ul>
-				<li>ABILITIES - Will count the abilities that satisfy the included &quot;CATEGORY&quot;, &quot;NATURE&quot;, &quot;TYPE&quot;, and &quot;VISIBILITY&quot; parameters.</li>
-				<ul>
-					<li><code>&quot;CATEGORY=&lt;text&gt;&quot;</code> - The ability category as defined in the gamemode/miscinfo.lst file.</li>
-					<li><code>&quot;NATURE=&lt;text&gt;&quot;</code> - &quot;NORMAL&quot;, &quot;VIRTUAL&quot;, or &quot;AUTOMATIC&quot;.</li>
-					<li><code>&quot;TYPE=&lt;text&gt;&quot;</code> - The ability type as defined in the ability.lst file. (i.e. &quot;General&quot;, &quot;Fighter&quot;, &quot;Metamagic&quot;, etc.)</li>
-					<li><code>&quot;VISIBILITY=&lt;text&gt;&quot;</code> - &quot;YES&quot;, &quot;NO&quot;, &quot;DISPLAY&quot;, or &quot;EXPORT&quot;.</li>
-				</ul>
-				<li>CLASSES - Not yet implemented.</li>
-				<li>DOMAINS - Not yet implemented.</li>
-				<li>EQUIPMENT - Not yet implemented..</li>
-				<li>FOLLOWERS - Not yet implemented..</li>
-				<li>LANGUAGES - Not yet implemented.</li>
-				<li>RACESUBTYPES - Not yet implemented.</li>
-				<li>SPELLBOOKS - Not yet implemented.</li>
-				<li>SPELLS - Not yet implemented.</li>
-				<li>SPELLSKNOWN - Not yet implemented.</li>
-				<li>SPELLSINBOOK - Not yet implemented.</li>
-				<li>TEMPLATES - Not yet implemented.</li>
-			</ul>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>count(&quot;ABILITIES&quot;,&quot;CATEGORY=FEAT&quot;,&quot;TYPE=Metamagic&quot;,&quot;VISIBILITY=YES&quot;)</code></p>
-		<p class="indent3">This token returns the number of metamagic feats the character has.</p>
-		<p></p>
+		<p class="indent0"><strong><a name="count">Token Name:</a></strong> count(x,y) - See <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">jep count ()</a> function in the Global Formulas page.</p>
+		<p></ p>
 
 <hr>
 		
@@ -292,7 +261,7 @@
 		<p class="indent3">This would change the field delimiter from the default &quot;\&quot; character for
 			&quot;~&quot;. This allows the FOR/DFOR loop to be used in RTF output which does not allow the
 			&quot;\&quot; character to be used</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -337,7 +306,7 @@
 															&lt;td&gt;\SKILL%.ABILITY\&lt;/td&gt;&lt;td&gt;\SKILL%.MOD\,&lt;tr
 																align=&quot;center&quot;&gt;,&lt;/tr&gt;,0</code></p>
 		<p class="indent3">Produces a 2 column row table of all skills.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -367,7 +336,7 @@
 		  in &quot;<code>D:\RPG\PCGen</code>&quot;.</p>
 		<p class="indent2"><code>DIR.TEMP</code></p>
 		<p class="indent3">Would display &quot;<code>C:\Temp</code>&quot; if that was the Operating System's temp directory.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -383,7 +352,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>EXPORT.DATE</code></p>
 		<p class="indent3">Displays the date of export.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -411,7 +380,7 @@
 															{Statements}<br />
 															ENDFOR</code></p>
 		<p class="indent3">Counts from 0 to 20 minus the sting length of the skill name.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -446,7 +415,7 @@
 														 |FOR.0,10,1,[td]\\%.FOR.0,100,1,\SKILL%\,(,),2\\,&lt;tr&gt;,&lt;/tr&gt;,1|<br />
 														 &lt;/table&gt;</code></p>
 		<p class="indent3">Produces a list of all the party member's skills.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -513,7 +482,7 @@
 
 							Byngl</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(HASEQUIP)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">True if the character has the listed equipment.</p>
@@ -521,7 +490,7 @@
 		<p class="indent2"><code>IIF(HASEQUIP:Dagger)</code></p>
 		<p class="indent3">Would be true if character had a dagger.</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(HASFEAT)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">True if the character has the listed feat.</p>
@@ -529,7 +498,7 @@
 		<p class="indent2"><code>IIF(HASFEAT:Sneak Attack)</code></p>
 		<p class="indent3">Would be true if character has the Sneak Attack Feat.</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(HASSA)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">True if the character has the listed Special Ability.</p>
@@ -537,7 +506,7 @@
 		<p class="indent2"><code>IIF(HASSA:Greater Rage)</code></p>
 		<p class="indent3">Would be true if character has the Greater Rage Special Ability.</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(HASVAR)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2"> True if the user has taken a class that defined the named (often used to determine
@@ -546,7 +515,7 @@
 		<p class="indent2"><code>IIF(HASVAR:BasePowerPoints)</code></p>
 		<p class="indent3">Would be true if character has a class with Base Power Points.</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(SKILL.x.UNTRAINED)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The array number of the skill).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -555,7 +524,7 @@
 		<p class="indent2"><code>IIF(SKILL.%skill.UNTRAINED)</code></p>
 		<p class="indent3">Would be true if the current skill is usable untrained.</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(SKILL.UNTRAINED,x,y)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Result if usable untrained).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Result if usable trained).</p>
@@ -572,7 +541,7 @@
 		<p class="indent3">Prints out &quot;YES&quot; if the skill is usable untrained or &quot;NO&quot;
 		  if not usable untrained.</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(SKILL.ACP,w,x,y,z)</p>
 		<p class="indent1"><strong> Variables Used (w):</strong> Text (Result if the skill is not affected by ACP).</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Result if the skill is affected by ACP).</p>
@@ -586,7 +555,7 @@
 		  if the skill is effected by ACP, &quot;UNTRAINED&quot; if the skill is effected by ACP only if the character is untrained
 			, &quot;SWIM&quot; if the skill is effected by ACP only if it has a special weight penalty.</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(SPELLCASTER:x)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Caster Type - Possible values include Wizard or Arcane).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -595,7 +564,7 @@
 		<p class="indent2"><code>IIF(SPELLCASTER:Wizard)</code></p>
 		<p class="indent3">Would be true if the character is a Wizard.</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(SPELLCASTER:x=PREPARE)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The array number of the spellcaster class).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -606,7 +575,7 @@
 		<p class="indent2"><code>IIF(SPELLCASTER:0=!PREPARE)</code></p>
 		<p class="indent3">Would be true if the character's 1st class does not prepare spells.</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(WEAPON.x.CATEGORY:y)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The array number of the weapon).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Weapon Type - Possible values include:
@@ -617,7 +586,7 @@
 		<p class="indent2"><code>IIF(WEAPON.%weap.CATEGORY:Ranged)</code></p>
 		<p class="indent3">True if the current weapon is part of the Ranged category.</p>
 
-		<p></p>
+		<p></ p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(x:y)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any valid token).</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Condition variable).</p>
@@ -626,7 +595,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>IIF(COMBAT.AC.TOTAL:20)</code></p>
 		<p class="indent3">Would be true if the combat AC total was 20.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -653,7 +622,7 @@
 look like:<br/>
 
 <code>1&amp;nbsp;Chuck Pint23&lt;br&gt;4</code></p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -674,7 +643,7 @@ look like:<br/>
 		<p class="indent2"><code>OIF((CL>5)||(TL>5),YES,NO)</code></p>
 		<p class="indent3">Returns &quot;YES&quot; if Class Level or Total Level ar greater then 5. 
 		Oterwise it returns &quot;NO&quot;</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -684,7 +653,7 @@ look like:<br/>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>Pipe|PIPE|Example</code></p>
 		<p class="indent3">Would display &quot;Pipe|Example&quot;.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -694,7 +663,7 @@ look like:<br/>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SUB10.SPELLMEM.0.0.0.0.COMPONENTS</code></p>
 		<p class="indent3">Would limit the output from the above tag to no more than 10 characters.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -716,7 +685,7 @@ look like:<br/>
 		<p class="indent3">Would output the name for the spell in lower case.</p>
 		<p class="indent2"><code>TEXT.NUMSUFFIX.22</code></p>
 		<p class="indent3">Would output a suffix of nd rather than the value 22.</p>
-		<p></p>
+		<p></ p>
 
 <hr>
 		
@@ -731,7 +700,6 @@ look like:<br/>
 			<li>It is possible to define the Turn Undead variable more than once. The program keeps track of this. (say one instance
 				is 2 and the other 4).</li>
 			<li>Also .MINVAL should be included if instead of the default maximum of multiple defines, you want the minimum.</li>
-			<li></li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VAR.Turn Undead.MINVAL.INTVAL</code></p>
