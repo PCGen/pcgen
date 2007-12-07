@@ -1374,7 +1374,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		if (dieSizes == null || dieSizes.length == 0)
 		{
 			gameMode.setDieSizes(Globals.getDefaultDieSizes());
-			Logging.errorPrint("GameMode (" + gameMode.getName() + ") : MiscInfo.lst did not contain any valid DIESIZES. " 
+			Logging.log(Logging.LST_ERROR, "GameMode (" + gameMode.getName() + ") : MiscInfo.lst did not contain any valid DIESIZES. " 
 				+ "Using the system default DIESIZES.");
 		}
 		return gameMode;
