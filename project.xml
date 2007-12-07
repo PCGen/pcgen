@@ -192,6 +192,10 @@
       <name>Peter Barker</name>
       <id>pjdb</id>
     </developer>
+    <developer>
+      <name>Joe Frazier</name>
+      <id>jfrazierjr</id>
+    </developer>
   </developers>
   <dependencies>
     <!-- Compiling --> 
