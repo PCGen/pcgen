@@ -8737,6 +8737,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			CR += raceCR;
 		}
+		
+		CR += (int) getTotalBonusTo("MISC", "CR");
 
 		return CR;
 	}
