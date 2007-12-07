@@ -5380,10 +5380,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DieSizesToken.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DIESIZES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/gamemode/AcabbrevToken.class" />
+					<include name="plugin/lsttokens/gamemode/DieSizesToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

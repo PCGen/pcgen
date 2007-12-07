@@ -3304,7 +3304,9 @@ public final class GameMode implements Comparable<Object>
 		List<Integer> list = new ArrayList<Integer>();
 		while (aTok.hasMoreTokens())
 		{
-			final String aString = aTok.nextToken();
+			String aString = aTok.nextToken();
+			// in case there is training\leading whitespace after the comma split
+			aString = aString.trim();  
 			try
 			{
 				int die = Integer.parseInt(aString);
