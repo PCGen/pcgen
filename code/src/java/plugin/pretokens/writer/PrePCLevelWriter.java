@@ -113,10 +113,10 @@ public class PrePCLevelWriter extends AbstractPrerequisiteWriter implements
 				//
 				final Prerequisite elementGTEQ = prereqList.get(0);
 				final Prerequisite elementLTEQ = prereqList.get(1);
-				if ("level".equalsIgnoreCase(elementGTEQ.getKind())
+				if ("pclevel".equalsIgnoreCase(elementGTEQ.getKind())
 					&& elementGTEQ.getOperator().equals(
 						PrerequisiteOperator.GTEQ)
-					&& "level".equalsIgnoreCase(elementLTEQ.getKind())
+					&& "pclevel".equalsIgnoreCase(elementLTEQ.getKind())
 					&& elementLTEQ.getOperator().equals(
 						PrerequisiteOperator.LTEQ))
 				{

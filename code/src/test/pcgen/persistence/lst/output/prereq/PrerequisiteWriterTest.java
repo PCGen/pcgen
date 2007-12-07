@@ -149,6 +149,11 @@ public class PrerequisiteWriterTest extends TestCase
 		"PRELEVEL:MAX=5",																"PRELEVEL:MAX=5",
 		"PRELEVEL:MIN=4,MAX=5",															"PRELEVEL:MIN=4,MAX=5",
 		"PRELEVELMAX:10",																"PRELEVELMAX:10",
+		
+		"PREPCLEVEL:MIN=5",																"PREPCLEVEL:MIN=5",
+		"PREPCLEVEL:MAX=5",																"PREPCLEVEL:MAX=5",
+		"PREPCLEVEL:MIN=4,MAX=5",														"PREPCLEVEL:MIN=4,MAX=5",
+				
 		"PREMOVE:Walk=30,Fly=20",														"PREMULT:1,[PREMOVE:1,Walk=30],[PREMOVE:1,Fly=20]",
 		"PREMOVE:Swim=10",																"PREMOVE:1,Swim=10",
 		"PREMULT:1,[PRERACE:Gnome],[PRECLASS:1,Cleric=1]",								"PREMULT:1,[PRERACE:Gnome],[PRECLASS:1,Cleric=1]",
@@ -286,6 +291,10 @@ public class PrerequisiteWriterTest extends TestCase
 		"!PRELEVEL:MIN=4",																"!PRELEVEL:MIN=4",
 		"!PRELEVEL:MAX=4",																"!PRELEVEL:MAX=4",
 		"!PRELEVEL:MIN=4,MAX=6",														"!PRELEVEL:MIN=4,MAX=6",
+
+		"!PREPCLEVEL:MIN=4",															"!PREPCLEVEL:MIN=4",
+		"!PREPCLEVEL:MAX=4",															"!PREPCLEVEL:MAX=4",
+		"!PREPCLEVEL:MIN=4,MAX=6",														"!PREPCLEVEL:MIN=4,MAX=6",
 	
 		"!PREREGION:Slithe",															"!PREREGION:Slithe",
 		"!PRERULE:SYS_WTPSK",															"!PRERULE:1,SYS_WTPSK",
