@@ -36,7 +36,7 @@ public final class Misc extends MultiTagBonusObj
 {
 	private static final String[] bonusHandled = {"MISC"};
 	private static final String[] bonusTags =
-			{"ACCHECK", "MAXDEX", "SPELLFAILURE", "SR", "SR"};
+			{"ACCHECK", "MAXDEX", "SPELLFAILURE", "SR", "CR"};
 
 	protected String[] getBonusesHandled()
 	{
