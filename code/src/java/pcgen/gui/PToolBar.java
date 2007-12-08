@@ -560,7 +560,7 @@ public class PToolBar extends JToolBar
 			else
 			{
 				disableFilterButtons();
-				PCGen_Frame1.getInst().getPcgenMenuBar().filtersMenu.setEnabled(false);
+				PCGen_Frame1.getInst().getPcgenMenuBar().getFiltersMenu().setEnabled(false);
 			}
 		}
 
@@ -579,12 +579,12 @@ public class PToolBar extends JToolBar
 					setFilterInactive();
 				}
 
-				PCGen_Frame1.getInst().getPcgenMenuBar().filtersMenu.setEnabled(true);
+				PCGen_Frame1.getInst().getPcgenMenuBar().getFiltersMenu().setEnabled(true);
 			}
 			else
 			{
 				disableFilterButtons();
-				PCGen_Frame1.getInst().getPcgenMenuBar().filtersMenu.setEnabled(false);
+				PCGen_Frame1.getInst().getPcgenMenuBar().getFiltersMenu().setEnabled(false);
 			}
 		}
 	}
