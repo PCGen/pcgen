@@ -3,7 +3,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # Removed Default Psicrystal kits, Psicrystals need to be created as companions and can't be acurately created without a master.
 
-STARTPACK:Default Phthisic	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phthisic]
+STARTPACK:Phthisic Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phthisic]
 RACE:Phthisic	!PRERACE:1,%
 NAME:Phthisic
 ALIGN:CE
@@ -15,13 +15,13 @@ FEAT:Great Fortitude
 FEAT:Improved Initiative
 STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psion Killer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psion Killer]
+STARTPACK:Psion Killer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psion Killer]
 RACE:Psion Killer	!PRERACE:1,%
 NAME:Psion Killer
 ALIGN:TN
 STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Puppeteer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer]
+STARTPACK:Puppeteer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer]
 RACE:Puppeteer	!PRERACE:1,%
 NAME:Puppeteer
 SKILL:Hide			RANK:4
@@ -31,7 +31,7 @@ SKILL:Spot			RANK:4
 FEAT:Iron Will
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Puppeteer (Flesh Harrower)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer (Flesh Harrower)]
+STARTPACK:Puppeteer (Flesh Harrower) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer (Flesh Harrower)]
 RACE:Puppeteer (Flesh Harrower)	!PRERACE:1,%
 NAME:Puppeteer (Flesh Harrower)
 ALIGN:TN
@@ -43,7 +43,7 @@ FEAT:Alertness
 FEAT:Iron Will
 STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
 
-STARTPACK:Default Temporal Filcher	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Temporal Filcher]
+STARTPACK:Temporal Filcher Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Temporal Filcher]
 RACE:Temporal Filcher	!PRERACE:1,%
 NAME:Temporal Filcher
 SKILL:Listen	RANK:4
@@ -54,7 +54,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Thought Eater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
+STARTPACK:Thought Eater Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
 RACE:Thought Eater	!PRERACE:1,%
 NAME:Thought Eater
 SKILL:Hide		RANK:2
@@ -64,7 +64,7 @@ FEAT:Alertness
 FEAT:Improved Initiative
 STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Default Thought Slayer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Slayer]
+STARTPACK:Thought Slayer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Slayer]
 RACE:Thought Slayer	!PRERACE:1,%
 NAME:Thought Slayer
 SKILL:Climb		RANK:4
@@ -78,7 +78,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus(Bite)
 STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
 
-STARTPACK:Default Udoroot	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
+STARTPACK:Udoroot Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
 RACE:Udoroot	!PRERACE:1,%
 NAME:Udoroot
 ALIGN:TN
@@ -87,7 +87,7 @@ FEAT:Iron Will
 FEAT:Lightning Reflexes
 STAT:WIS=11|STR=10|DEX=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Unbodied	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unbodied]
+STARTPACK:Unbodied Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unbodied]
 RACE:Unbodied	!PRERACE:1,%
 NAME:Unbodied
 SKILL:Bluff			RANK:4

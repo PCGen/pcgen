@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Default Aboleth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth]
+STARTPACK:Aboleth Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth]
 ALIGN:LE
 RACE:Aboleth	!PRERACE:1,%
 NAME:Aboleth
@@ -14,7 +14,7 @@ FEAT:Combat Casting
 FEAT:Iron Will
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
-STARTPACK:Default Achaierai	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Achaierai]
+STARTPACK:Achaierai Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Achaierai]
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 RACE:Achaierai	!PRERACE:1,%
 NAME:Achaierai
@@ -31,7 +31,7 @@ FEAT:Dodge
 FEAT:Mobility
 FEAT:Spring Attack
 
-STARTPACK:Default Allip	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Allip]
+STARTPACK:Allip Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Allip]
 STAT:INT=10|WIS=11|STR=10|DEX=10|CON=10|CHA=10
 RACE:Allip	!PRERACE:1,%
 NAME:Allip
@@ -44,7 +44,7 @@ SKILL:Spot		RANK:7
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 
-STARTPACK:Default Angel (Astral Deva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Astral Deva)]
+STARTPACK:Angel (Astral Deva) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Astral Deva)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Angel (Astral Deva)	!PRERACE:1,%
 NAME:Astral Deva
@@ -66,7 +66,7 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 GEAR:Mace (Heavy)	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W.DISRPT
 
-STARTPACK:Default Angel (Planetar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Planetar)]
+STARTPACK:Angel (Planetar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Planetar)]
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 RACE:Angel (Planetar)	!PRERACE:1,%
 NAME:Planetar
@@ -92,7 +92,7 @@ DEITY:None	DOMAIN:Destruction|Good
 # ERATTA: Circle of Doom is not a 3.5 spell.  Inflict Light Wounds (Mass) is the Destruction domain spell at 5th level.
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Align Weapon|Banishment|Bear's Endurance|Bless=2|Break Enchantment|Bull's Strength=2|Cause Fear|Consecrate|Contagion|Create Water|Cure Critical Wounds (Mass)|Cure Moderate Wounds (Mass)|Daylight|Death Ward|Detect Magic|Dictum|Disintegrate|Dismissal|Dispel Evil|Dispel Magic (Greater)|Divine Favor=2|Doom|Eagle's Splendor|Entropic Shield|Guidance|Harm|Heal|Heroes' Feast|Hold Person|Holy Aura|Holy Word|Implosion|Inflict Critical Wounds|Inflict Light Wounds|Invisibility Purge|Mark of Justice|Neutralize Poison=2|Plane Shift|Prayer=2|Regenerate|Resistance=2|Righteous Might|Shield of Faith|Shield of Law|Summon Monster III|Summon Monster IV|Summon Monster IX|Virtue|Wind Wall
 
-STARTPACK:Default Angel (Solar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Solar)]
+STARTPACK:Angel (Solar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Solar)]
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 RACE:Angel (Solar)	!PRERACE:1,%
 NAME:Solar
@@ -121,49 +121,49 @@ GEAR:Greatsword			SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS5W.DANCE
 DEITY:None	DOMAIN:Air|War
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon|Banishment|Bear's Endurance=2|Bless=2|Break Enchantment|Bull's Strength=2|Cause Fear|Chain Lightning|Consecrate|Control Weather|Control Winds|Create Water|Cure Critical Wounds (Mass)=2|Cure Moderate Wounds (Mass)|Daylight|Death Ward=2|Destruction|Detect Magic|Dictum|Dismissal=2|Dispel Evil|Divine Favor=2|Divine Power|Eagle's Splendor|Elemental Swarm|Entropic Shield|Ethereal Jaunt|Etherealness|Fire Storm|Guidance=2|Heal (Mass)|Heroes' Feast|Holy Aura|Holy Word|Invisibility Purge|Magic Circle against Evil|Magic Vestment|Miracle|Neutralize Poison=2|Obscuring Mist|Plane Shift|Prayer=2|Protection from Energy|Regenerate|Resistance=2|Righteous Might=2|Shield of Faith|Spiritual Weapon|Storm of Vengeance|Symbol of Pain|Undeath to Death|Whirlwind|Wind Wall|Word of Recall
 
-STARTPACK:Default Animated Object (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Tiny)]
+STARTPACK:Animated Object (Tiny) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Tiny)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Tiny)	!PRERACE:1,%
 NAME:Tiny Animated Object
 ALIGN:TN
 
-STARTPACK:Default Animated Object (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Small)]
+STARTPACK:Animated Object (Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Small)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Small)	!PRERACE:1,%
 NAME:Small Animated Object
 ALIGN:TN
 
-STARTPACK:Default Animated Object (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Medium)]
+STARTPACK:Animated Object (Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Medium)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Medium)	!PRERACE:1,%
 NAME:Medium Animated Object
 ALIGN:TN
 
-STARTPACK:Default Animated Object (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Large)]
+STARTPACK:Animated Object (Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Large)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Large)	!PRERACE:1,%
 NAME:Large Animated Object
 ALIGN:TN
 
-STARTPACK:Default Animated Object (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Huge)]
+STARTPACK:Animated Object (Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Huge)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Huge)	!PRERACE:1,%
 NAME:Huge Animated Object
 ALIGN:TN
 
-STARTPACK:Default Animated Object (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Gargantuan)]
+STARTPACK:Animated Object (Gargantuan) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Gargantuan)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Gargantuan)	!PRERACE:1,%
 NAME:Gargantuan Animated Object
 ALIGN:TN
 
-STARTPACK:Default Animated Object (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Colossal)]
+STARTPACK:Animated Object (Colossal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Colossal)]
 STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
 RACE:Animated Object (Colossal)	!PRERACE:1,%
 NAME:Colossal Animated Object
 ALIGN:TN
 
-STARTPACK:Default Ankheg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ankheg]
+STARTPACK:Ankheg Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ankheg]
 RACE:Ankheg	!PRERACE:1,%
 NAME:Ankheg
 ALIGN:TN
@@ -173,7 +173,7 @@ FEAT:Alertness
 FEAT:Toughness
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Aranea	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aranea]
+STARTPACK:Aranea Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aranea]
 ALIGN:TN
 RACE:Aranea	!PRERACE:1,%
 NAME:Aranea
@@ -188,7 +188,7 @@ FEAT:Weapon Finesse
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Ghost Sound|Light|Mage Armor|Resistance|Silent Image|Sleep
 
-STARTPACK:Default Archon (Hound)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Hound)]
+STARTPACK:Archon (Hound) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Hound)]
 RACE:Archon (Hound)	!PRERACE:1,%
 NAME:Hound Archon
 ALIGN:LG
@@ -206,7 +206,7 @@ FEAT:Track
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Archon (Lantern)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Lantern)]
+STARTPACK:Archon (Lantern) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Lantern)]
 RACE:Archon (Lantern)	!PRERACE:1,%
 NAME:Lantern Archon
 ALIGN:LG
@@ -219,7 +219,7 @@ SKILL:Spot				RANK:4
 FEAT:Improved Initiative
 STAT:DEX=11|WIS=11|STR=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Archon (Trumpet)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Trumpet)]
+STARTPACK:Archon (Trumpet) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Trumpet)]
 RACE:Archon (Trumpet)	!PRERACE:1,%
 NAME:Trumpet Archon
 ALIGN:LG
@@ -244,7 +244,7 @@ GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS4W
 DEITY:None	DOMAIN:Good|Law
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Banishment|Blade Barrier|Bless=2|Bull's Strength=2|Consecrate|Cure Light Wounds (Mass)|Cure Serious Wounds (Mass)|Daylight|Detect Magic|Dictum|Dismissal|Dispel Evil|Divine Favor=2|Divine Power|Heal|Holy Smite|Holy Word|Invisibility Purge|Light|Magic Circle against Chaos|Magic Vestment|Neutralize Poison|Owl's Wisdom=2|Plane Shift|Protection from Chaos|Protection from Energy=2|Purify Food and Drink|Raise Dead|Read Magic|Resistance=2|Restoration (Lesser)|Sanctuary|Shield of Faith|Spell Immunity|Undeath to Death
 
-STARTPACK:Default Arrowhawk (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Adult)]
+STARTPACK:Arrowhawk (Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Adult)]
 RACE:Arrowhawk (Adult)	!PRERACE:1,%
 NAME:Adult Arrowhawk
 ALIGN:TN
@@ -261,7 +261,7 @@ FEAT:Flyby Attack
 FEAT:Weapon Finesse
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Arrowhawk (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Elder)]
+STARTPACK:Arrowhawk (Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Elder)]
 RACE:Arrowhawk (Elder)	!PRERACE:1,%
 NAME:Elder Arrowhawk
 ALIGN:TN
@@ -281,7 +281,7 @@ FEAT:Flyby Attack
 FEAT:Weapon Finesse
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Arrowhawk (Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Juvenile)]
+STARTPACK:Arrowhawk (Juvenile) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Juvenile)]
 RACE:Arrowhawk (Juvenile)	!PRERACE:1,%
 NAME:Juvenile Arrowhawk
 ALIGN:TN
@@ -297,13 +297,13 @@ FEAT:Dodge
 FEAT:Weapon Finesse
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Assassin Vine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Assassin Vine]
+STARTPACK:Assassin Vine Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Assassin Vine]
 RACE:Assassin Vine	!PRERACE:1,%
 NAME:Assassin Vine
 ALIGN:TN
 STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
 
-STARTPACK:Default Athach	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Athach]
+STARTPACK:Athach Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Athach]
 ALIGN:CE
 RACE:Athach	!PRERACE:1,%
 NAME:Athach
@@ -322,7 +322,7 @@ GEAR:Morningstar	SIZE:PC	LOCATION:Secondary Hand
 GEAR:Morningstar	SIZE:PC	LOCATION:Secondary Hand1
 GEAR:Hide		SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Avoral	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Avoral]
+STARTPACK:Avoral Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Avoral]
 RACE:Avoral	!PRERACE:1,%
 NAME:Avoral
 ALIGN:NG
@@ -341,7 +341,7 @@ FEAT:Flyby Attack
 FEAT:Weapon Finesse
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Azer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Azer]
+STARTPACK:Azer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Azer]
 RACE:Azer	!PRERACE:1,%
 NAME:Azer
 ALIGN:LN
@@ -360,7 +360,7 @@ GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 GEAR:Shortspear			SIZE:PC	LOCATION:Carried
 GEAR:Warhammer			SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Barghest	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest]
+STARTPACK:Barghest Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest]
 RACE:Barghest	!PRERACE:1,%
 NAME:Barghest
 ALIGN:LE
@@ -379,7 +379,7 @@ FEAT:Improved Initiative
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Barghest (Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest (Greater)]
+STARTPACK:Barghest (Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest (Greater)]
 RACE:Barghest (Greater)	!PRERACE:1,%
 NAME:Greater Barghest
 ALIGN:LE
@@ -401,7 +401,7 @@ FEAT:Improved Initiative
 FEAT:Track
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Basilisk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk]
+STARTPACK:Basilisk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk]
 RACE:Basilisk	!PRERACE:1,%
 NAME:Basilisk
 ALIGN:TN
@@ -413,7 +413,7 @@ FEAT:Blind Fight
 FEAT:Great Fortitude
 STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 
-STARTPACK:Default Basilisk (Abyssal/Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk]
+STARTPACK:Basilisk (Abyssal/Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk]
 RACE:Basilisk (Abyssal/Greater)	!PRERACE:1,%
 NAME:Abyssal Greater Basilisk
 ALIGN:CE
@@ -429,7 +429,7 @@ FEAT:Lightning Reflexes
 FEAT:Weapon Focus(Bite)
 STAT:STR=10|CON=11|CHA=11|DEX=10|INT=11|WIS=10
 
-STARTPACK:Default Behir	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behir]
+STARTPACK:Behir Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behir]
 ALIGN:TN
 RACE:Behir	!PRERACE:1,%
 NAME:Behir
@@ -440,7 +440,7 @@ FEAT:Power Attack
 FEAT:Track
 STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
 
-STARTPACK:Default Belker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Belker]
+STARTPACK:Belker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Belker]
 ALIGN:NE
 RACE:Belker	!PRERACE:1,%
 NAME:Belker
@@ -451,7 +451,7 @@ FEAT:Multiattack
 FEAT:Weapon Finesse
 STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
 
-STARTPACK:Default Blink Dog	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blink Dog]
+STARTPACK:Blink Dog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blink Dog]
 ALIGN:LG
 RACE:Blink Dog	!PRERACE:1,%
 NAME:Blink Dog
@@ -463,7 +463,7 @@ FEAT:Iron Will
 FEAT:Run
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Bodak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bodak]
+STARTPACK:Bodak Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bodak]
 RACE:Bodak	!PRERACE:1,%
 NAME:Bodak
 ALIGN:CE
@@ -476,7 +476,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Focus(Slam)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Bralani	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bralani]
+STARTPACK:Bralani Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bralani]
 RACE:Bralani	!PRERACE:1,%
 NAME:Bralani
 ALIGN:CG
@@ -496,7 +496,7 @@ STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
 GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS1W.HOLY_R.BOWSTR|4
 GEAR:Scimitar			SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W.HOLY_M
 
-STARTPACK:Default Bugbear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]
+STARTPACK:Bugbear Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]
 ALIGN:CE
 RACE:Bugbear	!PRERACE:1,%
 NAME:Bugbear
@@ -513,7 +513,7 @@ GEAR:Leather			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Wood)	SIZE:PC	LOCATION:Equipped
 GEAR:Morningstar			SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Bulette	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bulette]
+STARTPACK:Bulette Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bulette]
 RACE:Bulette	!PRERACE:1,%
 NAME:Bulette
 ALIGN:TN

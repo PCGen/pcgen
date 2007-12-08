@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Wed Jan  4 20:31:25 2006 -- reformated by prettylst.pl v1.35 (build 553)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Default Inevitable (Kolyarut)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Kolyarut)]
+STARTPACK:Inevitable (Kolyarut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Kolyarut)]
 STAT:DEX=11|WIS=11|STR=10|CON=10|INT=10|CHA=10
 RACE:Inevitable (Kolyarut)	!PRERACE:1,%
 NAME:Inevitable (Kolyarut)
@@ -21,7 +21,7 @@ FEAT:Quicken Spell Like Ability(Suggestion)
 GEAR:Banded Mail	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W
 
-STARTPACK:Default Inevitable (Marut)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Marut)]
+STARTPACK:Inevitable (Marut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Marut)]
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 RACE:Inevitable (Marut)	!PRERACE:1,%
 NAME:Inevitable (Marut)
@@ -40,7 +40,7 @@ FEAT:Improved Bull Rush
 FEAT:Power Attack
 GEAR:Full Plate	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Inevitable (Zelekhut)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Zelekhut)]
+STARTPACK:Inevitable (Zelekhut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Zelekhut)]
 RACE:Inevitable (Zelekhut)	!PRERACE:1,%
 NAME:Inevitable (Zelekhut)
 ALIGN:LN
@@ -55,7 +55,7 @@ FEAT:Spirited Charge
 STAT:STR=11|DEX=11|WIS=11|CHA=11|CON=10|INT=10
 GEAR:Barding (Full Plate)	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Invisible Stalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Invisible Stalker]
+STARTPACK:Invisible Stalker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Invisible Stalker]
 RACE:Invisible Stalker	!PRERACE:1,%
 NAME:Invisible Stalker
 ALIGN:TN

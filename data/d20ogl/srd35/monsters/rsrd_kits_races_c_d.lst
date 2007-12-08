@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Nov 27 13:08:25 2005 -- reformated by prettylst.pl v1.35 (build 549)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Default Centaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centaur]
+STARTPACK:Centaur Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centaur]
 RACE:Centaur	!PRERACE:1,%
 ALIGN:NG
 NAME:Centaur
@@ -15,7 +15,7 @@ STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
 GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:BOWSTR|4
 GEAR:Longsword			SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Chaos Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chaos Beast]
+STARTPACK:Chaos Beast Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chaos Beast]
 RACE:Chaos Beast	!PRERACE:1,%
 NAME:Chaos Beast
 ALIGN:CN
@@ -32,7 +32,7 @@ FEAT:Improved Initiative
 FEAT:Mobility
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Chimera	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chimera]
+STARTPACK:Chimera Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chimera]
 ALIGN:CE
 RACE:Chimera	!PRERACE:1,%
 NAME:Chimera
@@ -45,7 +45,7 @@ FEAT:Iron Will
 FEAT:Multiattack
 STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
 
-STARTPACK:Default Choker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Choker]
+STARTPACK:Choker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Choker]
 ALIGN:CE
 RACE:Choker	!PRERACE:1,%
 NAME:Choker
@@ -56,7 +56,7 @@ FEAT:Lightning Reflexes
 FEAT:Stealthy
 STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
 
-STARTPACK:Default Chuul	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chuul]
+STARTPACK:Chuul Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chuul]
 ALIGN:CE
 RACE:Chuul	!PRERACE:1,%
 NAME:Chuul
@@ -69,7 +69,7 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Cloaker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cloaker]
+STARTPACK:Cloaker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cloaker]
 ALIGN:CN
 RACE:Cloaker	!PRERACE:1,%
 NAME:Cloaker
@@ -82,7 +82,7 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
 
-STARTPACK:Default Cockatrice	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cockatrice]
+STARTPACK:Cockatrice Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cockatrice]
 RACE:Cockatrice	!PRERACE:1,%
 NAME:Cockatrice
 ALIGN:TN
@@ -92,7 +92,7 @@ FEAT:Alertness
 FEAT:Dodge
 STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
 
-STARTPACK:Default Couatl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Couatl]
+STARTPACK:Couatl Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Couatl]
 RACE:Couatl	!PRERACE:1,%
 NAME:Couatl
 ALIGN:LG
@@ -113,7 +113,7 @@ FEAT:Improved Initiative
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Monster|Cure Minor Wounds|Cure Moderate Wounds|Daze|Disrupt Undead|Eagle's Splendor|Endure Elements|Freedom of Movement|Gaseous Form|Light|Mage Armor|Magic Circle against Evil|Obscuring Mist|Protection from Chaos|Ray of Frost|Read Magic|Resistance|Scorching Ray|Silence|Summon Monster III|True Strike|Wind Wall
 
-STARTPACK:Default Darkmantle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Darkmantle]
+STARTPACK:Darkmantle Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Darkmantle]
 RACE:Darkmantle	!PRERACE:1,%
 NAME:Darkmantle
 ALIGN:TN
@@ -123,7 +123,7 @@ SKILL:Spot		RANK:1
 FEAT:Improved Initiative
 STAT:CON=11|STR=10|DEX=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Delver	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Delver]
+STARTPACK:Delver Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Delver]
 ALIGN:TN
 RACE:Delver	!PRERACE:1,%
 NAME:Delver
@@ -140,7 +140,7 @@ FEAT:Power Attack
 FEAT:Toughness
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Demon (Babau)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Babau)]
+STARTPACK:Demon (Babau) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Babau)]
 RACE:Demon (Babau)	!PRERACE:1,%
 NAME:Babau
 ALIGN:CE
@@ -159,7 +159,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Demon (Balor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Balor)]
+STARTPACK:Demon (Balor) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Balor)]
 RACE:Demon (Balor)	!PRERACE:1,%
 NAME:Balor
 ALIGN:CE
@@ -187,7 +187,7 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Whip		SIZE:PC	LOCATION:Secondary Hand	EQMOD:MWORKW.PLUS1W.FLM_M
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W.VORPAL
 
-STARTPACK:Default Demon (Bebilith)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Bebilith)]
+STARTPACK:Demon (Bebilith) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Bebilith)]
 RACE:Demon (Bebilith)	!PRERACE:1,%
 NAME:Bebilith
 ALIGN:CE
@@ -206,7 +206,7 @@ FEAT:Power Attack
 FEAT:Track
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
-STARTPACK:Default Demon (Dretch)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Dretch)]
+STARTPACK:Demon (Dretch) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Dretch)]
 RACE:Demon (Dretch)	!PRERACE:1,%
 NAME:Dretch
 ALIGN:CE
@@ -218,7 +218,7 @@ SKILL:Spot			RANK:5
 FEAT:Multiattack
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
-STARTPACK:Default Demon (Glabrezu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Glabrezu)]
+STARTPACK:Demon (Glabrezu) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Glabrezu)]
 RACE:Demon (Glabrezu)	!PRERACE:1,%
 NAME:Glabrezu
 ALIGN:CE
@@ -239,7 +239,7 @@ FEAT:Persuasive
 FEAT:Power Attack
 STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Demon (Hezrou)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Hezrou)]
+STARTPACK:Demon (Hezrou) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Hezrou)]
 RACE:Demon (Hezrou)	!PRERACE:1,%
 NAME:Hezrou
 ALIGN:CE
@@ -259,7 +259,7 @@ FEAT:Power Attack
 FEAT:Toughness
 STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Demon (Marilith)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Marilith)]
+STARTPACK:Demon (Marilith) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Marilith)]
 RACE:Demon (Marilith)	!PRERACE:1,%
 NAME:Marilith
 ALIGN:CE
@@ -289,7 +289,7 @@ GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand3
 GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand4
 GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand5
 
-STARTPACK:Default Demon (Nalfeshnee)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Nalfeshnee)]
+STARTPACK:Demon (Nalfeshnee) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Nalfeshnee)]
 RACE:Demon (Nalfeshnee)	!PRERACE:1,%
 NAME:Nalfeshnee
 ALIGN:CE
@@ -313,7 +313,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Demon (Quasit)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Quasit)]
+STARTPACK:Demon (Quasit) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Quasit)]
 RACE:Demon (Quasit)	!PRERACE:1,%
 NAME:Quasit
 ALIGN:CE
@@ -329,13 +329,13 @@ FEAT:Improved Initiative
 FEAT:Weapon Finesse
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Demon (Retriever)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Retriever)]
+STARTPACK:Demon (Retriever) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Retriever)]
 RACE:Demon (Retriever)	!PRERACE:1,%
 NAME:Retriever
 ALIGN:CE
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Demon (Succubus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Succubus)]
+STARTPACK:Demon (Succubus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Succubus)]
 RACE:Demon (Succubus)	!PRERACE:1,%
 NAME:Succubus
 ALIGN:CE
@@ -356,7 +356,7 @@ FEAT:Mobility
 FEAT:Persuasive
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Demon (Vrock)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Vrock)]
+STARTPACK:Demon (Vrock) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Vrock)]
 RACE:Demon (Vrock)	!PRERACE:1,%
 NAME:Vrock
 ALIGN:CE
@@ -376,7 +376,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Derro	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Derro]
+STARTPACK:Derro Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Derro]
 ALIGN:CE
 RACE:Derro	!PRERACE:1,%
 NAME:Derro
@@ -392,7 +392,7 @@ GEAR:Crossbow (Repeating Light)	SIZE:PC	LOCATION:Carried
 GEAR:Sword (Short)			SIZE:PC	LOCATION:Primary Hand
 GEAR:Studded Leather			SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Destrachan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Destrachan]
+STARTPACK:Destrachan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Destrachan]
 ALIGN:NE
 RACE:Destrachan	!PRERACE:1,%
 NAME:Destrachan
@@ -404,7 +404,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 
-STARTPACK:Default Devil (Barbed (Hamatula))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Barbed (Hamatula))]
+STARTPACK:Devil (Barbed (Hamatula)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Barbed (Hamatula))]
 RACE:Devil (Barbed (Hamatula))	!PRERACE:1,%
 NAME:Barbed Devil (Hamatula)
 ALIGN:LE
@@ -424,7 +424,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devil (Bearded (Barbazu))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Bearded (Barbazu))]
+STARTPACK:Devil (Bearded (Barbazu)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Bearded (Barbazu))]
 RACE:Devil (Bearded (Barbazu))	!PRERACE:1,%
 NAME:Bearded Devil (Barbazu)
 ALIGN:LE
@@ -440,7 +440,7 @@ FEAT:Weapon Focus(Glaive)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Glaive	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Devil (Bone (Osyluth))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Bone (Osyluth))]
+STARTPACK:Devil (Bone (Osyluth)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Bone (Osyluth))]
 RACE:Devil (Bone (Osyluth))	!PRERACE:1,%
 NAME:Bone Devil (Osyluth)
 ALIGN:LE
@@ -460,7 +460,7 @@ FEAT:Iron Will
 FEAT:Multiattack
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devil (Chain (Kyton))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Chain (Kyton))]
+STARTPACK:Devil (Chain (Kyton)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Chain (Kyton))]
 RACE:Devil (Chain (Kyton))	!PRERACE:1,%
 NAME:Chain Devil (Kyton)
 ALIGN:LE
@@ -475,7 +475,7 @@ FEAT:Improved Critical(Chain)
 FEAT:Improved Initiative
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devil (Erinyes)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Erinyes)]
+STARTPACK:Devil (Erinyes) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Erinyes)]
 RACE:Devil (Erinyes)	!PRERACE:1,%
 NAME:Erinyes
 ALIGN:LE
@@ -497,7 +497,7 @@ GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.FLM_R.B
 GEAR:Longsword			SIZE:PC	LOCATION:Carried
 GEAR:Rope (Hempen/50 Ft.)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Devil (Hellcat (Bezekira))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Hellcat (Bezekira))]
+STARTPACK:Devil (Hellcat (Bezekira)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Hellcat (Bezekira))]
 RACE:Devil (Hellcat (Bezekira))	!PRERACE:1,%
 NAME:Hellcat (Bezekira)
 ALIGN:LE
@@ -514,7 +514,7 @@ FEAT:Improved Initiative
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devil (Horned (Cornugon))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Horned (Cornugon))]
+STARTPACK:Devil (Horned (Cornugon)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Horned (Cornugon))]
 RACE:Devil (Horned (Cornugon))	!PRERACE:1,%
 NAME:Horned Devil (Cornugon)
 ALIGN:LE
@@ -537,7 +537,7 @@ FEAT:Weapon Focus(Chain (Spiked))
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Chain (Spiked)	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Devil (Ice (Gelugon))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Ice (gelugon))]
+STARTPACK:Devil (Ice (Gelugon)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Ice (gelugon))]
 RACE:Devil (Ice (Gelugon))	!PRERACE:1,%
 NAME:Ice Devil (Gelugon)
 ALIGN:LE
@@ -561,7 +561,7 @@ FEAT:Weapon Focus(Spear)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Spear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Devil (Imp)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Imp)]
+STARTPACK:Devil (Imp) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Imp)]
 RACE:Devil (Imp)	!PRERACE:1,%
 NAME:Imp
 ALIGN:LE
@@ -577,13 +577,13 @@ FEAT:Dodge
 FEAT:Weapon Finesse
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devil (Lemure)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Lemure)]
+STARTPACK:Devil (Lemure) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Lemure)]
 RACE:Devil (Lemure)	!PRERACE:1,%
 NAME:Lemure
 ALIGN:LE
 STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
 
-STARTPACK:Default Devil (Pit Fiend)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Pit Fiend)]
+STARTPACK:Devil (Pit Fiend) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Pit Fiend)]
 RACE:Devil (Pit Fiend)	!PRERACE:1,%
 NAME:Pit Fiend
 ALIGN:LE
@@ -613,7 +613,7 @@ FEAT:Power Attack
 FEAT:Quicken Spell Like Ability(Fireball)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devourer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devourer]
+STARTPACK:Devourer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devourer]
 RACE:Devourer	!PRERACE:1,%
 NAME:Devourer
 ALIGN:NE
@@ -632,7 +632,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Focus(Claw)
 STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Digester	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Digester]
+STARTPACK:Digester Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Digester]
 RACE:Digester	!PRERACE:1,%
 NAME:Digester
 ALIGN:TN
@@ -645,7 +645,7 @@ FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Dinosaur (Deinonychus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Deinonychus)]
+STARTPACK:Dinosaur (Deinonychus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Deinonychus)]
 RACE:Dinosaur (Deinonychus)	!PRERACE:1,%
 NAME:Deinonychus
 ALIGN:TN
@@ -658,7 +658,7 @@ FEAT:Run
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Dinosaur (Elasmosaurus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Elasmosaurus)]
+STARTPACK:Dinosaur (Elasmosaurus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Elasmosaurus)]
 RACE:Dinosaur (Elasmosaurus)	!PRERACE:1,%
 NAME:Elasmosaurus
 ALIGN:TN
@@ -671,7 +671,7 @@ FEAT:Toughness
 FEAT:Toughness
 STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
 
-STARTPACK:Default Dinosaur (Megaraptor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Megaraptor)]
+STARTPACK:Dinosaur (Megaraptor) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Megaraptor)]
 RACE:Dinosaur (Megaraptor)	!PRERACE:1,%
 NAME:Megaraptor
 ALIGN:TN
@@ -685,7 +685,7 @@ FEAT:Toughness
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
 
-STARTPACK:Default Dinosaur (Triceratops)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Triceratops)]
+STARTPACK:Dinosaur (Triceratops) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Triceratops)]
 RACE:Dinosaur (Triceratops)	!PRERACE:1,%
 NAME:Triceratops
 ALIGN:TN
@@ -699,7 +699,7 @@ FEAT:Toughness
 FEAT:Toughness
 STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
 
-STARTPACK:Default Dinosaur (Tyrannosaurus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Tyrannosaurus)]
+STARTPACK:Dinosaur (Tyrannosaurus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Tyrannosaurus)]
 RACE:Dinosaur (Tyrannosaurus)	!PRERACE:1,%
 NAME:Tyrannosaurus
 ALIGN:TN
@@ -715,7 +715,7 @@ FEAT:Toughness
 FEAT:Track
 STAT:CON=11|WIS=11|STR=10|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dire Animal (Dire Ape)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Ape)]
+STARTPACK:Dire Animal (Dire Ape) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Ape)]
 RACE:Dire Animal (Dire Ape)	!PRERACE:1,%
 NAME:Dire Ape
 ALIGN:TN
@@ -726,7 +726,7 @@ FEAT:Alertness
 FEAT:Toughness
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Dire Animal (Dire Badger)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Badger)]
+STARTPACK:Dire Animal (Dire Badger) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Badger)]
 RACE:Dire Animal (Dire Badger)	!PRERACE:1,%
 NAME:Dire Badger
 ALIGN:TN
@@ -736,7 +736,7 @@ FEAT:Alertness
 FEAT:Toughness
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Dire Animal (Dire Bat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Bat)]
+STARTPACK:Dire Animal (Dire Bat) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Bat)]
 RACE:Dire Animal (Dire Bat)	!PRERACE:1,%
 NAME:Dire Bat
 ALIGN:TN
@@ -746,7 +746,7 @@ FEAT:Alertness
 FEAT:Stealthy
 STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Dire Animal (Dire Bear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Bear)]
+STARTPACK:Dire Animal (Dire Bear) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Bear)]
 RACE:Dire Animal (Dire Bear)	!PRERACE:1,%
 NAME:Dire Bear
 ALIGN:TN
@@ -760,7 +760,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Dire Animal (Dire Boar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Boar)]
+STARTPACK:Dire Animal (Dire Boar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Boar)]
 RACE:Dire Animal (Dire Boar)	!PRERACE:1,%
 NAME:Dire Boar
 ALIGN:TN
@@ -771,7 +771,7 @@ FEAT:Endurance
 FEAT:Iron Will
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dire Animal (Dire Lion)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Lion)]
+STARTPACK:Dire Animal (Dire Lion) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Lion)]
 RACE:Dire Animal (Dire Lion)	!PRERACE:1,%
 NAME:Dire Lion
 ALIGN:TN
@@ -782,7 +782,7 @@ FEAT:Run
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Dire Animal (Dire Rat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Rat)]
+STARTPACK:Dire Animal (Dire Rat) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Rat)]
 RACE:Dire Animal (Dire Rat)	!PRERACE:1,%
 NAME:Dire Rat
 ALIGN:TN
@@ -793,7 +793,7 @@ SKILL:Spot			RANK:1
 FEAT:Alertness
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Dire Animal (Dire Shark)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Shark)]
+STARTPACK:Dire Animal (Dire Shark) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Shark)]
 RACE:Dire Animal (Dire Shark)	!PRERACE:1,%
 NAME:Dire Shark
 ALIGN:TN
@@ -807,7 +807,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Dire Animal (Dire Tiger)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Tiger)]
+STARTPACK:Dire Animal (Dire Tiger) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Tiger)]
 RACE:Dire Animal (Dire Tiger)	!PRERACE:1,%
 NAME:Dire Tiger
 ALIGN:TN
@@ -825,7 +825,7 @@ FEAT:Stealthy
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Dire Animal (Dire Weasel)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Weasel)]
+STARTPACK:Dire Animal (Dire Weasel) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Weasel)]
 RACE:Dire Animal (Dire Weasel)	!PRERACE:1,%
 NAME:Dire Weasel
 ALIGN:TN
@@ -836,7 +836,7 @@ FEAT:Alertness
 FEAT:Stealthy
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Dire Animal (Dire Wolf)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Wolf)]
+STARTPACK:Dire Animal (Dire Wolf) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Wolf)]
 RACE:Dire Animal (Dire Wolf)	!PRERACE:1,%
 NAME:Dire Wolf
 ALIGN:TN
@@ -848,7 +848,7 @@ FEAT:Run
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Dire Animal (Dire Wolverine)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Wolverine)]
+STARTPACK:Dire Animal (Dire Wolverine) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Wolverine)]
 RACE:Dire Animal (Dire Wolverine)	!PRERACE:1,%
 NAME:Dire Wolverine
 ALIGN:TN
@@ -858,7 +858,7 @@ FEAT:Alertness
 FEAT:Toughness
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Doppelganger	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Doppelganger]
+STARTPACK:Doppelganger Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Doppelganger]
 RACE:Doppelganger	!PRERACE:1,%
 NAME:Doppelganger
 ALIGN:TN
@@ -873,7 +873,7 @@ FEAT:Dodge
 FEAT:Great Fortitude
 STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
 
-STARTPACK:Default Dragon Turtle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon Turtle]
+STARTPACK:Dragon Turtle Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon Turtle]
 RACE:Dragon Turtle	!PRERACE:1,%
 NAME:Dragon Turtle
 ALIGN:TN
@@ -892,7 +892,7 @@ FEAT:Power Attack
 FEAT:Snatch
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Dragonne	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonne]
+STARTPACK:Dragonne Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonne]
 RACE:Dragonne	!PRERACE:1,%
 NAME:Dragonne
 ALIGN:TN
@@ -904,7 +904,7 @@ FEAT:Improved Initiative
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Drider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Cleric)]
+STARTPACK:Drider Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Cleric)]
 ALIGN:CE
 SKILL:Hide			RANK:8
 SKILL:Concentration	RANK:6
@@ -920,23 +920,23 @@ GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand
 GEAR:Dagger		SIZE:PC	LOCATION:Secondary Hand
 GEAR:Shortbow	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Drider (Cleric)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Cleric)]
+STARTPACK:Drider (Cleric) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Cleric)]
 RACE:Drider (Cleric)	!PRERACE:1,%
 NAME:Drider (Cleric)
 KIT:Default Drider
 
-STARTPACK:Default Drider (Sorcerer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Sorcerer)]
+STARTPACK:Drider (Sorcerer) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Sorcerer)]
 RACE:Drider (Sorcerer)	!PRERACE:1,%
 NAME:Drider (Sorcerer)
 KIT:Default Drider
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Ghost Sound|Mage Hand|Ray of Frost|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Web|Lightning Bolt
 
-STARTPACK:Default Drider (Wizard)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Wizard)]
+STARTPACK:Drider (Wizard) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Wizard)]
 RACE:Drider (Wizard)	!PRERACE:1,%
 NAME:Drider (Wizard)
 KIT:Default Drider
 
-STARTPACK:Default Dryad	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dryad]
+STARTPACK:Dryad Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dryad]
 ALIGN:CG
 RACE:Dryad	!PRERACE:1,%
 NAME:Dryad
@@ -954,7 +954,7 @@ STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
 GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand
 GEAR:Longbow	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW
 
-STARTPACK:Default Dwarf (Duergar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf (Duergar)]
+STARTPACK:Dwarf (Duergar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf (Duergar)]
 RACE:Dwarf (Duergar)	!PRERACE:1,%
 NAME:Duergar
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Default Kobold	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kobold]
+STARTPACK:Kobold Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kobold]
 RACE:Kobold	!PRERACE:1,%
 NAME:Kobold
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
@@ -16,7 +16,7 @@ GEAR:Leather	SIZE:PC	LOCATION:Equipped
 GEAR:Spear		SIZE:PC	LOCATION:Both Hands
 GEAR:Sling		SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Kraken	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kraken]
+STARTPACK:Kraken Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kraken]
 RACE:Kraken	!PRERACE:1,%
 NAME:Kraken
 ALIGN:NE
@@ -39,7 +39,7 @@ FEAT:Improved Trip
 FEAT:Iron Will
 STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Default Krenshar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Krenshar]
+STARTPACK:Krenshar Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Krenshar]
 RACE:Krenshar	!PRERACE:1,%
 NAME:Krenshar
 ALIGN:TN
@@ -50,7 +50,7 @@ FEAT:Multiattack
 FEAT:Track
 STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 
-STARTPACK:Default Lamia	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lamia]
+STARTPACK:Lamia Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lamia]
 RACE:Lamia	!PRERACE:1,%
 NAME:Lamia
 ALIGN:CE
@@ -65,7 +65,7 @@ FEAT:Spring Attack
 STAT:DEX=11|INT=11|WIS=11|STR=10|CON=10|CHA=10
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Lammasu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lammasu]
+STARTPACK:Lammasu Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lammasu]
 RACE:Lammasu	!PRERACE:1,%
 NAME:Lammasu
 ALIGN:LG
@@ -81,7 +81,7 @@ STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 DEITY:None	DOMAIN:Good|Healing
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Bear's Endurance|Bless=2|Bull's Strength|Daylight|Detect Evil|Detect Magic|Dispel Magic|Divine Favor|Entropic Shield|Guidance=2|Holy Smite|Light|Magic Circle against Evil|Neutralize Poison|Protection from Evil|Read Magic|Remove Curse|Resist Energy|Resistance|Restoration (Lesser)
 
-STARTPACK:Default Leonal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leonal]
+STARTPACK:Leonal Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leonal]
 RACE:Leonal	!PRERACE:1,%
 NAME:Leonal
 ALIGN:NG
@@ -103,7 +103,7 @@ FEAT:Spring Attack
 FEAT:Track
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Lillend	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lillend]
+STARTPACK:Lillend Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lillend]
 RACE:Lillend	!PRERACE:1,%
 NAME:Lillend
 ALIGN:CG
@@ -124,7 +124,7 @@ STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Person|Cure Light Wounds|Dancing Lights|Daze|Detect Magic|Hold Person|Identify|Invisibility|Lullaby|Mage Hand|Read Magic|Sleep|Sound Burst
 
-STARTPACK:Default Lizardfolk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lizardfolk]
+STARTPACK:Lizardfolk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lizardfolk]
 RACE:Lizardfolk	!PRERACE:1,%
 NAME:Lizardfolk
 STAT:STR=11|CON=11|INT=11|DEX=10|WIS=10|CHA=10
@@ -137,7 +137,7 @@ GEAR:Shield (Heavy/Wood)	SIZE:PC	LOCATION:Equipped
 GEAR:Club				SIZE:PC	LOCATION:Primary Hand
 GEAR:Javelin			SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Locathah	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Locathah]
+STARTPACK:Locathah Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Locathah]
 RACE:Locathah	!PRERACE:1,%
 NAME:Locathah
 ALIGN:TN
@@ -149,7 +149,7 @@ STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 GEAR:Longspear		SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Lycanthrope (Werebear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
+STARTPACK:Lycanthrope (Werebear) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
 NAME:Werebear
 RACE:Human	!PRERACE:1,%
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
@@ -168,7 +168,7 @@ GEAR:Studded Leather	SIZE:PC	LOCATION:Equipped
 GEAR:Greataxe		SIZE:M	LOCATION:Both Hands
 GEAR:Axe (Throwing)	SIZE:M	LOCATION:Carried
 
-STARTPACK:Default Lycanthrope (Wereboar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
+STARTPACK:Lycanthrope (Wereboar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
 NAME:Wereboar
 ALIGN:TN
 RACE:Human	!PRERACE:1,%
@@ -187,7 +187,7 @@ GEAR:Javelin			SIZE:PC	LOCATION:Carried
 GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Lycanthrope (Wererat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
+STARTPACK:Lycanthrope (Wererat) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
 NAME:Wererat
 ALIGN:LE
 RACE:Human	!PRERACE:1,%
@@ -207,7 +207,7 @@ GEAR:Buckler		SIZE:PC	LOCATION:Equipped
 GEAR:Rapier			SIZE:PC	LOCATION:Primary Hand
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Lycanthrope (Weretiger)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
+STARTPACK:Lycanthrope (Weretiger) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
 NAME:Weretiger
 ALIGN:TN
 RACE:Human	!PRERACE:1,%
@@ -228,7 +228,7 @@ GEAR:Breastplate			SIZE:PC	LOCATION:Equipped
 GEAR:Glaive				SIZE:PC	LOCATION:Both Hands
 GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:BOWSTR|1
 
-STARTPACK:Default Lycanthrope (Werewolf)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
+STARTPACK:Lycanthrope (Werewolf) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
 NAME:Werewolf
 ALIGN:CE
 RACE:Human	!PRERACE:1,%
@@ -250,7 +250,7 @@ GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
 GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Lycanthrope (Hill Giant Dire Wereboar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Hill)]
+STARTPACK:Lycanthrope (Hill Giant Dire Wereboar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Hill)]
 NAME:Hill Giant Dire Wereboar
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 ALIGN:TN
@@ -269,7 +269,7 @@ FEAT:Endurance
 GEAR:Hide		SIZE:PC	LOCATION:Equipped
 GEAR:Greatclub	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Lycanthrope (Werewolf Lord)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
+STARTPACK:Lycanthrope (Werewolf Lord) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
 NAME:Werewolf Lord
 STAT:STR=16|DEX=14|CON=14|INT=10|WIS=10|CHA=12
 ALIGN:CE

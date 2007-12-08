@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Fri Apr 14 00:45:43 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Default Abomination (Anaxim)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Anaxim)]
+STARTPACK:Abomination (Anaxim) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Anaxim)]
 RACE:Abomination (Anaxim)	!PRERACE:1,%
 NAME:Abomination (Anaxim)
 ALIGN:LN
@@ -22,7 +22,7 @@ FEAT:Improved Sunder
 FEAT:Epic Toughness
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Abomination (Atropal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Atropal)]
+STARTPACK:Abomination (Atropal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Atropal)]
 RACE:Abomination (Atropal)	!PRERACE:1,%
 NAME:Abomination (Atropal)
 ALIGN:LE
@@ -66,7 +66,7 @@ FEAT:Whirlwind Attack
 FEAT:Zone of Animation
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Abomination (Chichimec)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Chichimec)]
+STARTPACK:Abomination (Chichimec) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Chichimec)]
 RACE:Abomination (Chichimec)	!PRERACE:1,%
 NAME:Abomination (Chichimec)
 ALIGN:NE
@@ -90,7 +90,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Abomination (Dream Larva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Dream Larva)]
+STARTPACK:Abomination (Dream Larva) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Dream Larva)]
 RACE:Abomination (Dream Larva)	!PRERACE:1,%
 NAME:Abomination (Dream Larva)
 ALIGN:CE
@@ -121,7 +121,7 @@ FEAT:Weapon Focus(Gore)
 FEAT:Weapon Focus(Pincers)
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Abomination (Hecatoncheires)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Hecatoncheires)]
+STARTPACK:Abomination (Hecatoncheires) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Hecatoncheires)]
 RACE:Abomination (Hecatoncheires)	!PRERACE:1,%
 NAME:Abomination (Hecatoncheires)
 ALIGN:CE
@@ -257,7 +257,7 @@ GEAR:Greatsword	SIZE:PC	LOCATION:Secondary Hand99
 GEAR:Greatsword	SIZE:PC	LOCATION:Secondary Hand100
 
 
-STARTPACK:Default Abomination (Infernal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Infernal)]
+STARTPACK:Abomination (Infernal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Infernal)]
 RACE:Abomination (Infernal)	!PRERACE:1,%
 NAME:Abomination (Infernal)
 SKILL:Concentration		RANK:43
@@ -290,7 +290,7 @@ FEAT:Tenacious Magic(Invisibility (Greater))
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Abomination (Phaethon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Phaethon)]
+STARTPACK:Abomination (Phaethon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Phaethon)]
 RACE:Abomination (Phaethon)	!PRERACE:1,%
 NAME:Abomination (Phaethon)
 ALIGN:CE
@@ -328,7 +328,7 @@ FEAT:Superior Initiative
 FEAT:Weapon Focus(Pseudopod Slam)
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Abomination (Phane)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Phane)]
+STARTPACK:Abomination (Phane) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Phane)]
 RACE:Abomination (Phane)	!PRERACE:1,%
 NAME:Abomination (Phane)
 ALIGN:CE
@@ -361,7 +361,7 @@ FEAT:Spell Stowaway(Time Stop)
 FEAT:Weapon Focus(Incorporeal Touch)
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Abomination (Xixecal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Xixecal)]
+STARTPACK:Abomination (Xixecal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Xixecal)]
 RACE:Abomination (Xixecal)	!PRERACE:1,%
 NAME:Abomination (Xixecal)
 ALIGN:CE
@@ -399,7 +399,7 @@ FEAT:Weapon Focus(Claw)
 FEAT:Weapon Focus(Stamp)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Behemoth (Eagle)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behemoth (Eagle)]
+STARTPACK:Behemoth (Eagle) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behemoth (Eagle)]
 RACE:Behemoth (Eagle)	!PRERACE:1,%
 NAME:Behemoth (Eagle)
 ALIGN:TN
@@ -425,7 +425,7 @@ FEAT:Superior Initiative
 FEAT:Weapon Finesse
 STAT:STR=11|CON=11|INT=11|WIS=11|DEX=10|CHA=10
 
-STARTPACK:Default Behemoth (Gorilla)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behemoth (Gorilla)]
+STARTPACK:Behemoth (Gorilla) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behemoth (Gorilla)]
 RACE:Behemoth (Gorilla)	!PRERACE:1,%
 NAME:Behemoth (Gorilla)
 ALIGN:TN
@@ -445,7 +445,7 @@ FEAT:Power Attack
 FEAT:Spring Attack
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Brachyurus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Brachyurus]
+STARTPACK:Brachyurus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Brachyurus]
 RACE:Brachyurus	!PRERACE:1,%
 NAME:Brachyurus
 SKILL:Jump			RANK:21
@@ -469,23 +469,23 @@ FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Claw)
 STAT:CON=11|CHA=11|STR=10|DEX=10|INT=10|WIS=10
 
-STARTPACK:Default Colossus (Flesh)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Colossus (Flesh)]
+STARTPACK:Colossus (Flesh) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Colossus (Flesh)]
 RACE:Colossus (Flesh)	!PRERACE:1,%
 NAME:Colossus (Flesh)
 STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
 GEAR:Club	SIZE:C	LOCATION:Primary Hand
 
-STARTPACK:Default Colossus (Iron)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Colossus (Iron)]
+STARTPACK:Colossus (Iron) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Colossus (Iron)]
 RACE:Colossus (Iron)	!PRERACE:1,%
 NAME:Colossus (Iron)
 STAT:DEX=11|INT=11|STR=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Colossus (Stone)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Colossus (Stone)]
+STARTPACK:Colossus (Stone) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Colossus (Stone)]
 RACE:Colossus (Stone)	!PRERACE:1,%
 NAME:Colossus (Stone)
 STAT:DEX=11|INT=11|STR=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Demilich	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demilich]
+STARTPACK:Demilich Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demilich]
 RACE:Demilich	!PRERACE:1,%
 NAME:Demilich
 SKILL:Concentration		RANK:24
@@ -519,37 +519,37 @@ GEAR:Ioun Stone (Pink)		LOCATION:Equipped
 GEAR:Ring (Wizardry I)		LOCATION:Equipped
 GEAR:Gloves of Dexterity +2	LOCATION:Equipped
 
-STARTPACK:Default Devastation Vermin (Devastation Beetle)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Beetle)]
+STARTPACK:Devastation Vermin (Devastation Beetle) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Beetle)]
 RACE:Devastation Vermin (Devastation Beetle)	!PRERACE:1,%
 NAME:Devastation Vermin (Devastation Beetle)
 ALIGN:TN
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Devastation Vermin (Devastation Centipede)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Centipede)]
+STARTPACK:Devastation Vermin (Devastation Centipede) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Centipede)]
 RACE:Devastation Vermin (Devastation Centipede)	!PRERACE:1,%
 NAME:Devastation Vermin (Devastation Centipede)
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devastation Vermin (Devastation Scorpion)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Scorpion)]
+STARTPACK:Devastation Vermin (Devastation Scorpion) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Scorpion)]
 RACE:Devastation Vermin (Devastation Scorpion)	!PRERACE:1,%
 NAME:Devastation Vermin (Devastation Scorpion)
 ALIGN:TN
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devastation Vermin (Devastation Spider/Web-Spinning)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Spider/Web-Spinning)]
+STARTPACK:Devastation Vermin (Devastation Spider/Web-Spinning) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Spider/Web-Spinning)]
 RACE:Devastation Vermin (Devastation Spider/Web-Spinning)	!PRERACE:1,%
 NAME:Devastation Vermin (Devastation Spider/Web-Spinning)
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devastation Vermin (Devastation Spider/Hunting)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Spider/Hunting)]
+STARTPACK:Devastation Vermin (Devastation Spider/Hunting) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Spider/Hunting)]
 RACE:Devastation Vermin (Devastation Spider/Hunting)	!PRERACE:1,%
 NAME:Devastation Vermin (Devastation Spider/Hunting)
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Elemental (Air Primal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air Primal)]
+STARTPACK:Elemental (Air Primal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air Primal)]
 RACE:Elemental (Air Primal)	!PRERACE:1,%
 NAME:Elemental (Air Primal)
 SKILL:Listen	RANK:45
@@ -579,7 +579,7 @@ FEAT:Weapon Finesse
 FEAT:Weapon Focus(Slam)
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Elemental (Earth Primal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth Primal)]
+STARTPACK:Elemental (Earth Primal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth Primal)]
 RACE:Elemental (Earth Primal)	!PRERACE:1,%
 NAME:Elemental (Earth Primal)
 SKILL:Spot		RANK:45
@@ -609,7 +609,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus(Slam)
 STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
 
-STARTPACK:Default Elemental (Fire Primal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire Primal)]
+STARTPACK:Elemental (Fire Primal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire Primal)]
 RACE:Elemental (Fire Primal)	!PRERACE:1,%
 NAME:Elemental (Fire Primal)
 SKILL:Listen	RANK:45
@@ -639,7 +639,7 @@ FEAT:Weapon Finesse
 FEAT:Weapon Focus(Slam)
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Elemental (Water Primal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water Primal)]
+STARTPACK:Elemental (Water Primal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water Primal)]
 RACE:Elemental (Water Primal)	!PRERACE:1,%
 NAME:Elemental (Water Primal)
 SKILL:Swim		RANK:3
@@ -670,12 +670,12 @@ FEAT:Power Attack
 FEAT:Weapon Focus(Slam)
 STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
 
-STARTPACK:Default Genius Loci	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genius Loci]
+STARTPACK:Genius Loci Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genius Loci]
 STAT:DEX=10|CON=10|STR=10|INT=10|WIS=10|CHA=10
 RACE:Genius Loci	!PRERACE:1,%
 NAME:Genius Loci
 
-STARTPACK:Default Gibbering Orb	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gibbering Orb]
+STARTPACK:Gibbering Orb Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gibbering Orb]
 RACE:Gibbering Orb	!PRERACE:1,%
 NAME:Gibbering Orb
 SKILL:Knowledge (Arcana)	RANK:22
@@ -699,7 +699,7 @@ FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Eye Ray)
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Gloom	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloom]
+STARTPACK:Gloom Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloom]
 RACE:Gloom	!PRERACE:1,%
 NAME:Gloom
 SKILL:Bluff			RANK:28
@@ -723,19 +723,19 @@ FEAT:Weapon Finesse
 FEAT:Weapon Focus(Dagger)
 STAT:CON=11|WIS=11|STR=10|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Golem (Adamantine)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Adamantine)]
+STARTPACK:Golem (Adamantine) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Adamantine)]
 RACE:Golem (Adamantine)	!PRERACE:1,%
 NAME:Golem (Adamantine)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Golem (Mithral)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Mithral)]
+STARTPACK:Golem (Mithral) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Mithral)]
 RACE:Golem (Mithral)	!PRERACE:1,%
 NAME:Golem (Mithral)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Ha Naga	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ha Naga]
+STARTPACK:Ha Naga Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ha Naga]
 RACE:Ha Naga	!PRERACE:1,%
 NAME:Ha Naga
 SKILL:Bluff				RANK:11
@@ -762,7 +762,7 @@ FEAT:Quicken Spell
 FEAT:Weapon Finesse
 STAT:STR=11|INT=11|WIS=11|DEX=10|CON=10|CHA=10
 
-STARTPACK:Default Hagunemnon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hagunemnon]
+STARTPACK:Hagunemnon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hagunemnon]
 RACE:Hagunemnon	!PRERACE:1,%
 NAME:Hagunemnon
 ALIGN:CN
@@ -792,7 +792,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus(Slam)
 STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
 
-STARTPACK:Default Hoary Hunter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hoary Hunter]
+STARTPACK:Hoary Hunter Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hoary Hunter]
 STAT:DEX=11|INT=11|WIS=11|STR=10|CON=10|CHA=10
 RACE:Hoary Hunter	!PRERACE:1,%
 NAME:Hoary Hunter
@@ -826,7 +826,7 @@ FEAT:Trample
 FEAT:Weapon Focus(Longsword)
 GEAR:Longsword	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS_6_WEAP
 
-STARTPACK:Default Hoary Hunter (Hoary Steed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hoary Hunter (Hoary Steed)]
+STARTPACK:Hoary Hunter (Hoary Steed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hoary Hunter (Hoary Steed)]
 RACE:Hoary Hunter (Hoary Steed)	!PRERACE:1,%
 NAME:Hoary Hunter (Hoary Steed)
 ALIGN:NE
@@ -839,7 +839,7 @@ FEAT:Improved Initiative
 FEAT:Multiattack
 STAT:CON=11|WIS=11|STR=10|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Hunefer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hunefer]
+STARTPACK:Hunefer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hunefer]
 RACE:Hunefer	!PRERACE:1,%
 NAME:Hunefer
 ALIGN:LE
@@ -870,7 +870,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Slam)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Lavawight	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lavawight]
+STARTPACK:Lavawight Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lavawight]
 RACE:Lavawight	!PRERACE:1,%
 NAME:Lavawight
 SKILL:Listen			RANK:35
@@ -890,7 +890,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus(Claw)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Legendary Animal (Legendary Bear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Bear)]
+STARTPACK:Legendary Animal (Legendary Bear) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Bear)]
 RACE:Legendary Animal (Legendary Bear)	!PRERACE:1,%
 NAME:Legendary Animal (Legendary Bear)
 ALIGN:TN
@@ -905,7 +905,7 @@ FEAT:Iron Will
 FEAT:Run
 FEAT:Track
 
-STARTPACK:Default Legendary Animal (Legendary Tiger)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Tiger)]
+STARTPACK:Legendary Animal (Legendary Tiger) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Tiger)]
 RACE:Legendary Animal (Legendary Tiger)	!PRERACE:1,%
 NAME:Legendary Animal (Legendary Tiger)
 ALIGN:TN
@@ -924,7 +924,7 @@ FEAT:Toughness
 FEAT:Toughness
 FEAT:Track
 
-STARTPACK:Default Leshay	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leshay]
+STARTPACK:Leshay Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leshay]
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=11|CHA=11
 RACE:Leshay	!PRERACE:1,%
 NAME:Leshay
@@ -961,12 +961,12 @@ FEAT:Weapon Focus(Leshay Weapon)
 FEAT:Whirlwind Attack
 GEAR:Leshay Weapon	LOCATION:Primary Hand
 
-STARTPACK:Default Living Vault	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Living Vault]
+STARTPACK:Living Vault Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Living Vault]
 RACE:Living Vault	!PRERACE:1,%
 NAME:Living Vault
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Mercane	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mercane]
+STARTPACK:Mercane Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mercane]
 STAT:STR=11|DEX=11|WIS=11|CHA=11|CON=10|INT=10
 RACE:Mercane	!PRERACE:1,%
 NAME:Mercane
@@ -989,7 +989,7 @@ FEAT:Improved Disarm
 FEAT:Improved Feint
 GEAR:Falchion	LOCATION:Both Hands	EQMOD:MWORKW
 
-STARTPACK:Default Mu Spore	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mu Spore]
+STARTPACK:Mu Spore Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mu Spore]
 RACE:Mu Spore	!PRERACE:1,%
 NAME:Mu Spore
 SKILL:Bluff				RANK:38
@@ -1015,7 +1015,7 @@ FEAT:Power Attack
 FEAT:Superior Initiative
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Neh Thalggu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neh Thalggu]
+STARTPACK:Neh Thalggu Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neh Thalggu]
 RACE:Neh Thalggu	!PRERACE:1,%
 NAME:Neh Thalggu
 SKILL:Concentration		RANK:35
@@ -1038,7 +1038,7 @@ FEAT:Spring Attack
 FEAT:Superior Initiative
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Prismasaurus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismasaurus]
+STARTPACK:Prismasaurus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismasaurus]
 RACE:Prismasaurus	!PRERACE:1,%
 NAME:Prismasaurus
 ALIGN:TN
@@ -1067,7 +1067,7 @@ FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Tail)
 STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
 
-STARTPACK:Default Pseudonatural Troll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pseudonatural Troll]
+STARTPACK:Pseudonatural Troll Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pseudonatural Troll]
 RACE:Pseudonatural Troll	!PRERACE:1,%
 NAME:Pseudonatural Troll
 ALIGN:CE
@@ -1082,13 +1082,13 @@ FEAT:Iron Will
 FEAT:Track
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Ruin Swarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ruin Swarm]
+STARTPACK:Ruin Swarm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ruin Swarm]
 RACE:Ruin Swarm	!PRERACE:1,%
 NAME:Ruin Swarm
 ALIGN:TN
 STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Shadow of the Void	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow of the Void]
+STARTPACK:Shadow of the Void Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow of the Void]
 RACE:Shadow of the Void	!PRERACE:1,%
 NAME:Shadow of the Void
 ALIGN:LE
@@ -1115,7 +1115,7 @@ FEAT:Spring Attack		FREE:YES
 FEAT:Whirlwind Attack		FREE:YES
 STAT:DEX=11|INT=11|WIS=11|CHA=11|STR=10|CON=10
 
-STARTPACK:Default Shape of Fire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shape of Fire]
+STARTPACK:Shape of Fire Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shape of Fire]
 RACE:Shape of Fire	!PRERACE:1,%
 NAME:Shape of Fire
 ALIGN:LE
@@ -1142,7 +1142,7 @@ FEAT:Superior Initiative	FREE:YES
 FEAT:Whirlwind Attack		FREE:YES
 STAT:DEX=11|INT=11|WIS=11|CHA=11|STR=10|CON=10
 
-STARTPACK:Default Sirrush	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sirrush]
+STARTPACK:Sirrush Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sirrush]
 RACE:Sirrush	!PRERACE:1,%
 NAME:Sirrush
 SKILL:Climb			RANK:43
@@ -1168,7 +1168,7 @@ FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Claw)
 STAT:INT=11|STR=10|DEX=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Sirrush (Three Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sirrush (Three Headed)]
+STARTPACK:Sirrush (Three Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sirrush (Three Headed)]
 RACE:Sirrush (Three Headed)	!PRERACE:1,%
 NAME:Sirrush (Three Headed)
 SKILL:Hide			RANK:48
@@ -1199,7 +1199,7 @@ FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|DEX=11|CON=11|WIS=11|CHA=11|INT=10
 
-STARTPACK:Default Tayellah	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tayellah]
+STARTPACK:Tayellah Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tayellah]
 RACE:Tayellah	!PRERACE:1,%
 NAME:Tayellah
 ALIGN:TN
@@ -1221,7 +1221,7 @@ FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Claw)
 STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Thorciasid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thorciasid]
+STARTPACK:Thorciasid Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thorciasid]
 RACE:Thorciasid	!PRERACE:1,%
 NAME:Thorciasid
 SKILL:Bluff			RANK:32
@@ -1246,7 +1246,7 @@ FEAT:Weapon Finesse
 FEAT:Weapon Focus(Forelimb)
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
-STARTPACK:Default Titan (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan (Elder)]
+STARTPACK:Titan (Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan (Elder)]
 RACE:Titan (Elder)	!PRERACE:1,%
 NAME:Titan (Elder)
 ALIGN:TN
@@ -1288,7 +1288,7 @@ STAT:STR=11|CON=11|INT=11|WIS=11|DEX=10|CHA=10
 GEAR:Warhammer	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS5W
 GEAR:Javelin	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS5W
 
-STARTPACK:Default Treant (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Treant (Elder)]
+STARTPACK:Treant (Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Treant (Elder)]
 RACE:Treant (Elder)	!PRERACE:1,%
 NAME:Treant (Elder)
 ALIGN:NG
@@ -1319,7 +1319,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus(Slam)
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
-STARTPACK:Default Umbral Blot	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Umbral Blot]
+STARTPACK:Umbral Blot Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Umbral Blot]
 RACE:Umbral Blot	!PRERACE:1,%
 NAME:Umbral Blot
 ALIGN:TN
@@ -1350,7 +1350,7 @@ FEAT:Stealthy
 FEAT:Superior Initiative
 FEAT:Track
 
-STARTPACK:Default Uvuudaum	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Uvuudaum]
+STARTPACK:Uvuudaum Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Uvuudaum]
 RACE:Uvuudaum	!PRERACE:1,%
 NAME:Uvuudaum
 SKILL:Jump				RANK:33
@@ -1391,7 +1391,7 @@ FEAT:Tenacious Magic(Haste)
 FEAT:Tenacious Magic(Stoneskin)
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Vermiurge	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vermiurge]
+STARTPACK:Vermiurge Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vermiurge]
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Vermiurge	!PRERACE:1,%
 NAME:Vermiurge
@@ -1418,7 +1418,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus(Pincers)
 FEAT:Weapon Focus(Sting)
 
-STARTPACK:Default Winterwight	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Winterwight]
+STARTPACK:Winterwight Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Winterwight]
 RACE:Winterwight	!PRERACE:1,%
 NAME:Winterwight
 ALIGN:CE
@@ -1437,7 +1437,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus(Claw)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Worm That Walks	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Worm That Walks]
+STARTPACK:Worm That Walks Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Worm That Walks]
 STAT:CON=11|STR=10|DEX=10|INT=10|WIS=10|CHA=10
 RACE:Worm That Walks	!PRERACE:1,%
 NAME:Worm That Walks

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Default Gargoyle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle,Kapoacinth]
+STARTPACK:Gargoyle Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle,Kapoacinth]
 RACE:Gargoyle	!PRERACE:1,%
 NAME:Gargoyle
 ALIGN:CE
@@ -12,12 +12,12 @@ FEAT:Multiattack
 FEAT:Toughness
 STAT:STR=11|WIS=11|CHA=11|DEX=10|CON=10|INT=10
 
-STARTPACK:Default Kapoacinth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kapoacinth]
+STARTPACK:Kapoacinth Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kapoacinth]
 RACE:Kapoacinth	!PRERACE:1,%
 KIT:Default Gargoyle
 NAME:Kapoacinth
 
-STARTPACK:Default Genie (Djinni)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Djinni)]
+STARTPACK:Genie (Djinni) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Djinni)]
 RACE:Genie (Djinni)	!PRERACE:1,%
 NAME:Djinni
 ALIGN:CG
@@ -36,7 +36,7 @@ FEAT:Combat Reflexes
 FEAT:Dodge
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Genie (Efreeti)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Efreeti)]
+STARTPACK:Genie (Efreeti) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Efreeti)]
 RACE:Genie (Efreeti)	!PRERACE:1,%
 NAME:Efreeti
 ALIGN:LE
@@ -55,7 +55,7 @@ FEAT:Dodge
 FEAT:Quicken Spell Like Ability(Scorching Ray)
 STAT:STR=11|DEX=11|WIS=11|CHA=11|CON=10|INT=10
 
-STARTPACK:Default Genie (Janni)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Janni)]
+STARTPACK:Genie (Janni) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Janni)]
 RACE:Genie (Janni)	!PRERACE:1,%
 NAME:Janni
 ALIGN:TN
@@ -76,7 +76,7 @@ GEAR:Chainmail	SIZE:PC	LOCATION:Equipped
 GEAR:Longbow	SIZE:PC	LOCATION:Carried
 GEAR:Scimitar	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Ghaele	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghaele]
+STARTPACK:Ghaele Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghaele]
 RACE:Ghaele	!PRERACE:1,%
 NAME:Ghaele
 ALIGN:CG
@@ -100,7 +100,7 @@ DEITY:None
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Align Weapon|Animal Shapes|Banishment|Bear's Endurance|Blade Barrier|Bless|Calm Animals|Chain Lightning|Command|Control Winds|Cure Minor Wounds|Daylight|Death Ward|Detect Magic|Dismissal|Divine Favor|Divine Power|Flame Strike|Gaseous Form|Guidance|Heal|Hold Animal|Holy Word|Light|Obscuring Mist|Prayer|Raise Dead|Remove Curse|Remove Paralysis|Resistance|Restoration|Restoration (Lesser)|Sanctuary|Searing Light|Shield of Faith|Summon Monster VII|Summon Nature's Ally IV|True Seeing|Virtue|Water Breathing|Zone of Truth
 
 
-STARTPACK:Default Ghoul	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghoul,Lacedon]
+STARTPACK:Ghoul Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghoul,Lacedon]
 RACE:Ghoul	!PRERACE:1,%
 NAME:Ghoul
 ALIGN:CE
@@ -113,12 +113,12 @@ SKILL:Spot			RANK:5
 FEAT:Multiattack
 STAT:STR=11|DEX=11|INT=11|WIS=10|CHA=10
 
-STARTPACK:Default Lacedon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lacedon]
+STARTPACK:Lacedon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lacedon]
 RACE:Lacedon	!PRERACE:1,%
 KIT:Default Ghoul
 NAME:Lacedon
 
-STARTPACK:Default Ghoul (Ghast)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghoul (Ghast)]
+STARTPACK:Ghoul (Ghast) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghoul (Ghast)]
 RACE:Ghoul (Ghast)	!PRERACE:1,%
 NAME:Ghast
 ALIGN:CE
@@ -132,7 +132,7 @@ FEAT:Multiattack
 FEAT:Toughness
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Giant (Cloud)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Cloud)]
+STARTPACK:Giant (Cloud) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Cloud)]
 RACE:Giant (Cloud)	!PRERACE:1,%
 NAME:Cloud Giant
 ALIGN:NE|NG
@@ -153,7 +153,7 @@ STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
 GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped
 GEAR:Morningstar	SIZE:G	LOCATION:Both Hands
 
-STARTPACK:Default Giant (Fire)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Fire)]
+STARTPACK:Giant (Fire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Fire)]
 RACE:Giant (Fire)	!PRERACE:1,%
 NAME:Fire Giant
 ALIGN:LE
@@ -172,7 +172,7 @@ STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
 GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands
 GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Giant (Frost)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
+STARTPACK:Giant (Frost) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
 RACE:Giant (Frost)	!PRERACE:1,%
 NAME:Frost Giant
 ALIGN:CE
@@ -190,7 +190,7 @@ STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
 GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands
 GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Giant (Hill)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Hill)]
+STARTPACK:Giant (Hill) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Hill)]
 STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 RACE:Giant (Hill)	!PRERACE:1,%
 NAME:Hill Giant
@@ -207,7 +207,7 @@ FEAT:Weapon Focus(Greatclub)
 GEAR:Greatclub	SIZE:PC	LOCATION:Both Hands
 GEAR:Hide		SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Giant (Stone)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Stone)]
+STARTPACK:Giant (Stone) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Stone)]
 RACE:Giant (Stone)	!PRERACE:1,%
 NAME:Stone Giant
 ALIGN:TN
@@ -224,7 +224,7 @@ STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
 GEAR:Greatclub	SIZE:PC	LOCATION:Both Hands
 GEAR:Hide		SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Giant (Storm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Storm)]
+STARTPACK:Giant (Storm) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Storm)]
 RACE:Giant (Storm)	!PRERACE:1,%
 NAME:Storm Giant
 ALIGN:CG
@@ -250,7 +250,7 @@ GEAR:Breastplate			SIZE:PC	LOCATION:Equipped
 GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:BOWSTR|14
 GEAR:Greatsword			SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Gibbering Mouther	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gibbering Mouther]
+STARTPACK:Gibbering Mouther Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gibbering Mouther]
 RACE:Gibbering Mouther	!PRERACE:1,%
 NAME:Gibbering Mouther
 ALIGN:TN
@@ -260,7 +260,7 @@ FEAT:Lightning Reflexes
 FEAT:Weapon Finesse
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Girallon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Girallon]
+STARTPACK:Girallon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Girallon]
 RACE:Girallon	!PRERACE:1,%
 NAME:Girallon
 ALIGN:TN
@@ -271,7 +271,7 @@ FEAT:Toughness
 FEAT:Toughness
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Gnoll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnoll]
+STARTPACK:Gnoll Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnoll]
 RACE:Gnoll	!PRERACE:1,%
 NAME:Gnoll
 ALIGN:CE
@@ -284,38 +284,38 @@ GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Leather			SIZE:PC	LOCATION:Equipped
 GEAR:Shortbow			SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Golem (Clay)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Clay)]
+STARTPACK:Golem (Clay) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Clay)]
 RACE:Golem (Clay)	!PRERACE:1,%
 NAME:Clay Golem
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Golem (Flesh)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
+STARTPACK:Golem (Flesh) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
 RACE:Golem (Flesh)	!PRERACE:1,%
 NAME:Flesh Golem
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Golem (Iron)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Iron)]
+STARTPACK:Golem (Iron) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Iron)]
 RACE:Golem (Iron)	!PRERACE:1,%
 NAME:Iron Golem
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Golem (Stone)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stone)]
+STARTPACK:Golem (Stone) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stone)]
 RACE:Golem (Stone)	!PRERACE:1,%
 NAME:Stone Golem
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Golem (Stone/Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stone)]
+STARTPACK:Golem (Stone/Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stone)]
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 RACE:Golem (Stone)	!PRERACE:1,%
 NAME:Greater Stone Golem
 ALIGN:TN
 CLASS:Construct (Mindless)	LEVEL:28
 
-STARTPACK:Default Gorgon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgon]
+STARTPACK:Gorgon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgon]
 RACE:Gorgon	!PRERACE:1,%
 NAME:Gorgon
 ALIGN:TN
@@ -326,7 +326,7 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 
-STARTPACK:Default Gray Render	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Render]
+STARTPACK:Gray Render Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Render]
 RACE:Gray Render	!PRERACE:1,%
 NAME:Gray Render
 ALIGN:TN
@@ -339,7 +339,7 @@ FEAT:Power Attack
 FEAT:Track
 STAT:STR=11|INT=11|DEX=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Grick	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grick]
+STARTPACK:Grick Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grick]
 RACE:Grick	!PRERACE:1,%
 NAME:Grick
 ALIGN:TN
@@ -349,7 +349,7 @@ SKILL:Spot		RANK:2
 FEAT:Alertness
 STAT:CON=11|INT=11|CHA=11|STR=10|DEX=10|WIS=10
 
-STARTPACK:Default Griffon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Griffon]
+STARTPACK:Griffon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Griffon]
 RACE:Griffon	!PRERACE:1,%
 NAME:Griffon
 ALIGN:TN
@@ -360,7 +360,7 @@ FEAT:Multiattack
 FEAT:Weapon Focus(Bite)
 STAT:DEX=11|INT=11|WIS=11|STR=10|CON=10|CHA=10
 
-STARTPACK:Default Grimlock	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grimlock]
+STARTPACK:Grimlock Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grimlock]
 RACE:Grimlock	!PRERACE:1,%
 NAME:Grimlock
 ALIGN:NE
@@ -373,7 +373,7 @@ FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Battleaxe	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Gnome (Svirfneblin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome (Svirfneblin)]
+STARTPACK:Gnome (Svirfneblin) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome (Svirfneblin)]
 RACE:Gnome (Svirfneblin)	!PRERACE:1,%
 NAME:Svirfneblin
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
@@ -387,7 +387,7 @@ GEAR:Buckler		SIZE:PC	LOCATION:Equipped
 GEAR:Pick (Heavy)		SIZE:PC	LOCATION:Both Hands
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Goblin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]
+STARTPACK:Goblin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]
 RACE:Goblin	!PRERACE:1,%
 NAME:Goblin
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
@@ -403,7 +403,7 @@ GEAR:Shield (Light/Wood)	SIZE:PC	LOCATION:Equipped
 GEAR:Morningstar			SIZE:PC	LOCATION:Primary Hand
 GEAR:Javelin			SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Hag (Annis)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Annis)]
+STARTPACK:Hag (Annis) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Annis)]
 RACE:Hag (Annis)	!PRERACE:1,%
 NAME:Annis Hag
 ALIGN:CE
@@ -416,7 +416,7 @@ FEAT:Blind Fight
 FEAT:Great Fortitude
 STAT:STR=11|INT=11|WIS=11|DEX=10|CON=10|CHA=10
 
-STARTPACK:Default Hag (Green)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Green)]
+STARTPACK:Hag (Green) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Green)]
 RACE:Hag (Green)	!PRERACE:1,%
 NAME:Green Hag
 ALIGN:CE
@@ -431,7 +431,7 @@ FEAT:Combat Casting
 FEAT:Great Fortitude
 STAT:STR=11|INT=11|WIS=11|DEX=10|CON=10|CHA=10
 
-STARTPACK:Default Hag (Sea)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Sea)]
+STARTPACK:Hag (Sea) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Sea)]
 RACE:Hag (Sea)	!PRERACE:1,%
 NAME:Sea Hag
 ALIGN:CE
@@ -443,7 +443,7 @@ FEAT:Alertness
 FEAT:Toughness
 STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Harpy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harpy]
+STARTPACK:Harpy Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harpy]
 RACE:Harpy	!PRERACE:1,%
 NAME:Harpy
 ALIGN:CE
@@ -458,7 +458,7 @@ FEAT:Persuasive
 STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
 GEAR:Club	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Hell Hound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hell Hound]
+STARTPACK:Hell Hound Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hell Hound]
 RACE:Hell Hound	!PRERACE:1,%
 NAME:Hell Hound
 ALIGN:LE
@@ -473,7 +473,7 @@ FEAT:Run
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Hippogriff	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippogriff]
+STARTPACK:Hippogriff Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippogriff]
 RACE:Hippogriff	!PRERACE:1,%
 NAME:Hippogriff
 ALIGN:TN
@@ -483,7 +483,7 @@ FEAT:Dodge
 FEAT:Wingover
 STAT:DEX=11|WIS=11|STR=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Default Hobgoblin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hobgoblin]
+STARTPACK:Hobgoblin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hobgoblin]
 RACE:Hobgoblin	!PRERACE:1,%
 NAME:Hobgoblin
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
@@ -498,7 +498,7 @@ GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
 GEAR:Javelin			SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Homunculus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Homunculus]
+STARTPACK:Homunculus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Homunculus]
 RACE:Homunculus	!PRERACE:1,%
 NAME:Homunculus
 ALIGN:TN
@@ -508,7 +508,7 @@ SKILL:Spot		RANK:3
 FEAT:Lightning Reflexes
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Howler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Howler]
+STARTPACK:Howler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Howler]
 RACE:Howler	!PRERACE:1,%
 NAME:Howler
 ALIGN:CE
@@ -523,7 +523,7 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Hydra (Eight Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Headed)]
+STARTPACK:Hydra (Eight Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Headed)]
 RACE:Hydra (Eight Headed)	!PRERACE:1,%
 NAME:Eight Headed Hydra
 ALIGN:TN
@@ -534,7 +534,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Eleven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Headed)]
+STARTPACK:Hydra (Eleven Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Headed)]
 RACE:Hydra (Eleven Headed)	!PRERACE:1,%
 NAME:Eleven Headed Hydra
 ALIGN:TN
@@ -546,7 +546,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Five Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Headed)]
+STARTPACK:Hydra (Five Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Headed)]
 RACE:Hydra (Five Headed)	!PRERACE:1,%
 NAME:Five Headed Hydra
 ALIGN:TN
@@ -556,7 +556,7 @@ FEAT:Iron Will
 FEAT:Toughness
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Nine Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Headed)]
+STARTPACK:Hydra (Nine Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Headed)]
 RACE:Hydra (Nine Headed)	!PRERACE:1,%
 NAME:Nine Headed Hydra
 ALIGN:TN
@@ -568,7 +568,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Seven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Headed)]
+STARTPACK:Hydra (Seven Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Headed)]
 RACE:Hydra (Seven Headed)	!PRERACE:1,%
 NAME:Seven Headed Hydra
 ALIGN:TN
@@ -579,7 +579,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Six Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Headed)]
+STARTPACK:Hydra (Six Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Headed)]
 RACE:Hydra (Six Headed)	!PRERACE:1,%
 NAME:Six Headed Hydra
 ALIGN:TN
@@ -590,7 +590,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Ten Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Headed)]
+STARTPACK:Hydra (Ten Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Headed)]
 RACE:Hydra (Ten Headed)	!PRERACE:1,%
 NAME:Ten Headed Hydra
 ALIGN:TN
@@ -602,7 +602,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Twelve Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Headed)]
+STARTPACK:Hydra (Twelve Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Headed)]
 RACE:Hydra (Twelve Headed)	!PRERACE:1,%
 NAME:Twelve Headed Hydra
 ALIGN:TN
@@ -615,7 +615,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Pyrohydra/Eight Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Eight Headed)]
+STARTPACK:Hydra (Pyrohydra/Eight Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Eight Headed)]
 RACE:Hydra (Pyrohydra/Eight Headed)	!PRERACE:1,%
 NAME:Eight Headed Pyrohydra
 ALIGN:TN
@@ -626,7 +626,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Pyrohydra/Eleven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Eleven Headed)]
+STARTPACK:Hydra (Pyrohydra/Eleven Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Eleven Headed)]
 RACE:Hydra (Pyrohydra/Eleven Headed)	!PRERACE:1,%
 NAME:Eleven Headed Pyrohydra
 ALIGN:TN
@@ -638,7 +638,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Pyrohydra/Five Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Five Headed)]
+STARTPACK:Hydra (Pyrohydra/Five Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Five Headed)]
 RACE:Hydra (Pyrohydra/Five Headed)	!PRERACE:1,%
 NAME:Five Headed Pyrohydra
 ALIGN:TN
@@ -648,7 +648,7 @@ FEAT:Iron Will
 FEAT:Toughness
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Pyrohydra/Nine Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Nine Headed)]
+STARTPACK:Hydra (Pyrohydra/Nine Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Nine Headed)]
 RACE:Hydra (Pyrohydra/Nine Headed)	!PRERACE:1,%
 NAME:Nine Headed Pyrohydra
 ALIGN:TN
@@ -660,7 +660,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Pyrohydra/Seven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Seven Headed)]
+STARTPACK:Hydra (Pyrohydra/Seven Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Seven Headed)]
 RACE:Hydra (Pyrohydra/Seven Headed)	!PRERACE:1,%
 NAME:Seven Headed Pyrohydra
 ALIGN:TN
@@ -671,7 +671,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Pyrohydra/Six Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Six Headed)]
+STARTPACK:Hydra (Pyrohydra/Six Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Six Headed)]
 RACE:Hydra (Pyrohydra/Six Headed)	!PRERACE:1,%
 NAME:Six Headed Pyrohydra
 ALIGN:TN
@@ -682,7 +682,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Pyrohydra/Ten Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Ten Headed)]
+STARTPACK:Hydra (Pyrohydra/Ten Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Ten Headed)]
 RACE:Hydra (Pyrohydra/Ten Headed)	!PRERACE:1,%
 NAME:Ten Headed Pyrohydra
 ALIGN:TN
@@ -694,7 +694,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Pyrohydra/Twelve Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Twelve Headed)]
+STARTPACK:Hydra (Pyrohydra/Twelve Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Twelve Headed)]
 RACE:Hydra (Pyrohydra/Twelve Headed)	!PRERACE:1,%
 NAME:Twelve Headed Pyrohydra
 ALIGN:TN
@@ -707,7 +707,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Cryohydra/Eight Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Eight Headed)]
+STARTPACK:Hydra (Cryohydra/Eight Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Eight Headed)]
 RACE:Hydra (Cryohydra/Eight Headed)	!PRERACE:1,%
 NAME:Eight Headed Cryohydra
 ALIGN:TN
@@ -718,7 +718,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Cryohydra/Eleven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Eleven Headed)]
+STARTPACK:Hydra (Cryohydra/Eleven Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Eleven Headed)]
 RACE:Hydra (Cryohydra/Eleven Headed)	!PRERACE:1,%
 NAME:Eleven Headed Cryohydra
 ALIGN:TN
@@ -730,7 +730,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Cryohydra/Five Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Five Headed)]
+STARTPACK:Hydra (Cryohydra/Five Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Five Headed)]
 RACE:Hydra (Cryohydra/Five Headed)	!PRERACE:1,%
 NAME:Five Headed Cryohydra
 ALIGN:TN
@@ -740,7 +740,7 @@ FEAT:Iron Will
 FEAT:Toughness
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Cryohydra/Nine Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Nine Headed)]
+STARTPACK:Hydra (Cryohydra/Nine Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Nine Headed)]
 RACE:Hydra (Cryohydra/Nine Headed)	!PRERACE:1,%
 NAME:Nine Headed Cryohydra
 ALIGN:TN
@@ -752,7 +752,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Cryohydra/Seven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Seven Headed)]
+STARTPACK:Hydra (Cryohydra/Seven Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Seven Headed)]
 RACE:Hydra (Cryohydra/Seven Headed)	!PRERACE:1,%
 NAME:Seven Headed Cryohydra
 ALIGN:TN
@@ -763,7 +763,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Cryohydra/Six Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Six Headed)]
+STARTPACK:Hydra (Cryohydra/Six Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Six Headed)]
 RACE:Hydra (Cryohydra/Six Headed)	!PRERACE:1,%
 NAME:Six Headed Cryohydra
 ALIGN:TN
@@ -774,7 +774,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Cryohydra/Ten Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Ten Headed)]
+STARTPACK:Hydra (Cryohydra/Ten Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Ten Headed)]
 RACE:Hydra (Cryohydra/Ten Headed)	!PRERACE:1,%
 NAME:Ten Headed Cryohydra
 ALIGN:TN
@@ -786,7 +786,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Hydra (Cryohydra/Twelve Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Twelve Headed)]
+STARTPACK:Hydra (Cryohydra/Twelve Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Twelve Headed)]
 RACE:Hydra (Cryohydra/Twelve Headed)	!PRERACE:1,%
 NAME:Twelve Headed Cryohydra
 ALIGN:TN

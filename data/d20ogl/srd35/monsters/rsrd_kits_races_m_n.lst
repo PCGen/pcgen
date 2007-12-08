@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Default Magmin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magmin]
+STARTPACK:Magmin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magmin]
 RACE:Magmin	!PRERACE:1,%
 NAME:Magmin
 ALIGN:CN
@@ -10,7 +10,7 @@ SKILL:Climb	RANK:2
 FEAT:Great Fortitude
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Manticore	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Manticore]
+STARTPACK:Manticore Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Manticore]
 RACE:Manticore	!PRERACE:1,%
 NAME:Manticore
 ALIGN:LE
@@ -21,7 +21,7 @@ FEAT:Multiattack
 FEAT:Weapon Focus(Spikes)
 STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
 
-STARTPACK:Default Medusa	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Medusa]
+STARTPACK:Medusa Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Medusa]
 RACE:Medusa	!PRERACE:1,%
 NAME:Medusa
 ALIGN:LE
@@ -36,7 +36,7 @@ STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 GEAR:Dagger		SIZE:PC	LOCATION:Carried
 GEAR:Shortbow	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Mephit (Air)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Air)]
+STARTPACK:Mephit (Air) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Air)]
 RACE:Mephit (Air)	!PRERACE:1,%
 NAME:Air Mephit
 ALIGN:TN
@@ -50,7 +50,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Mephit (Dust)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Dust)]
+STARTPACK:Mephit (Dust) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Dust)]
 RACE:Mephit (Dust)	!PRERACE:1,%
 NAME:Dust Mephit
 ALIGN:TN
@@ -64,7 +64,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Mephit (Earth)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Earth)]
+STARTPACK:Mephit (Earth) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Earth)]
 RACE:Mephit (Earth)	!PRERACE:1,%
 NAME:Earth Mephit
 ALIGN:TN
@@ -78,7 +78,7 @@ FEAT:Power Attack
 FEAT:Toughness
 STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
 
-STARTPACK:Default Mephit (Fire)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Fire)]
+STARTPACK:Mephit (Fire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Fire)]
 RACE:Mephit (Fire)	!PRERACE:1,%
 NAME:Fire Mephit
 ALIGN:TN
@@ -92,7 +92,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Mephit (Ice)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Ice)]
+STARTPACK:Mephit (Ice) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Ice)]
 RACE:Mephit (Ice)	!PRERACE:1,%
 NAME:Ice Mephit
 ALIGN:TN
@@ -106,7 +106,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Mephit (Magma)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Magma)]
+STARTPACK:Mephit (Magma) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Magma)]
 RACE:Mephit (Magma)	!PRERACE:1,%
 NAME:Magma Mephit
 ALIGN:TN
@@ -120,7 +120,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Mephit (Ooze)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Ooze)]
+STARTPACK:Mephit (Ooze) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Ooze)]
 RACE:Mephit (Ooze)	!PRERACE:1,%
 NAME:Ooze Mephit
 ALIGN:TN
@@ -134,7 +134,7 @@ FEAT:Power Attack
 FEAT:Toughness
 STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
 
-STARTPACK:Default Mephit (Salt)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Salt)]
+STARTPACK:Mephit (Salt) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Salt)]
 RACE:Mephit (Salt)	!PRERACE:1,%
 NAME:Salt Mephit
 ALIGN:TN
@@ -148,7 +148,7 @@ FEAT:Power Attack
 FEAT:Toughness
 STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
 
-STARTPACK:Default Mephit (Steam)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Steam)]
+STARTPACK:Mephit (Steam) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Steam)]
 RACE:Mephit (Steam)	!PRERACE:1,%
 NAME:Steam Mephit
 ALIGN:TN
@@ -162,7 +162,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
-STARTPACK:Default Mephit (Water)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Water)]
+STARTPACK:Mephit (Water) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Water)]
 RACE:Mephit (Water)	!PRERACE:1,%
 NAME:Water Mephit
 ALIGN:TN
@@ -176,7 +176,7 @@ FEAT:Power Attack
 FEAT:Toughness
 STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
 
-STARTPACK:Default Merfolk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merfolk]
+STARTPACK:Merfolk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merfolk]
 RACE:Merfolk	!PRERACE:1,%
 NAME:Merfolk
 ALIGN:TN
@@ -189,7 +189,7 @@ GEAR:Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Trident		SIZE:PC	LOCATION:Both Hands
 GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Mimic	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mimic]
+STARTPACK:Mimic Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mimic]
 RACE:Mimic	!PRERACE:1,%
 NAME:Mimic
 ALIGN:TN
@@ -202,7 +202,7 @@ FEAT:Lightning Reflexes
 FEAT:Weapon Focus(Slam)
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Default Minotaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur]
+STARTPACK:Minotaur Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur]
 RACE:Minotaur	!PRERACE:1,%
 NAME:Minotaur
 ALIGN:CE
@@ -215,7 +215,7 @@ FEAT:Track
 STAT:STR=11|CON=11|INT=11|DEX=10|WIS=10|CHA=10
 GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Mohrg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mohrg]
+STARTPACK:Mohrg Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mohrg]
 RACE:Mohrg	!PRERACE:1,%
 NAME:Mohrg
 ALIGN:CE
@@ -232,7 +232,7 @@ FEAT:Lightning Reflexes
 FEAT:Mobility
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Mummy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]
+STARTPACK:Mummy Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]
 RACE:Mummy	!PRERACE:1,%
 NAME:Mummy
 ALIGN:LE
@@ -245,7 +245,7 @@ FEAT:Great Fortitude
 FEAT:Toughness
 STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Default Naga (Dark)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Dark)]
+STARTPACK:Naga (Dark) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Dark)]
 RACE:Naga (Dark)	!PRERACE:1,%
 NAME:Dark Naga
 ALIGN:LE
@@ -263,7 +263,7 @@ FEAT:Lightning Reflexes
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cat's Grace|Daze|Detect Magic|Displacement|Expeditious Retreat|Invisibility|Light|Lightning Bolt|Mage Hand|Magic Missile|Open/Close|Ray of Enfeeblement|Ray of Frost|Read Magic|Scorching Ray|Shield|Silent Image
 
-STARTPACK:Default Naga (Guardian)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Guardian)]
+STARTPACK:Naga (Guardian) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Guardian)]
 RACE:Naga (Guardian)	!PRERACE:1,%
 NAME:Guardian Naga
 ALIGN:LG
@@ -280,7 +280,7 @@ FEAT:Lightning Reflexes
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Light Wounds|Cure Minor Wounds|Cure Serious Wounds|Daze|Detect Magic|Detect Thoughts|Dispel Magic|Divine Favor|Divine Power|Expeditious Retreat|Invisibility (Greater)|Light|Lightning Bolt|Mage Armor|Mage Hand|Magic Missile|Open/Close|Ray of Frost|Read Magic|Restoration (Lesser)|Scorching Ray|See Invisibility
 
-STARTPACK:Default Naga (Spirit)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Spirit)]
+STARTPACK:Naga (Spirit) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Spirit)]
 RACE:Naga (Spirit)	!PRERACE:1,%
 NAME:Spirit Naga
 ALIGN:CE
@@ -295,7 +295,7 @@ FEAT:Lightning Reflexes
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cat's Grace|Charm Person|Cure Light Wounds|Cure Minor Wounds|Daze|Detect Magic|Displacement|Divine Favor|Fireball|Invisibility|Mage Hand|Magic Missile|Open/Close|Ray of Frost|Read Magic|Shield of Faith|Summon Swarm
 
-STARTPACK:Default Naga (Water)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Water)]
+STARTPACK:Naga (Water) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Water)]
 RACE:Naga (Water)	!PRERACE:1,%
 NAME:Water Naga
 ALIGN:TN
@@ -309,7 +309,7 @@ FEAT:Lightning Reflexes
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Arrow|Acid Splash|Daze|Detect Magic|Expeditious Retreat|Invisibility|Light|Mage Hand|Magic Missile|Mirror Image|Obscuring Mist|Open/Close|Protection from Energy|Read Magic|Shield|Suggestion|True Strike
 
-STARTPACK:Default Night Hag	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Hag]
+STARTPACK:Night Hag Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Hag]
 RACE:Night Hag	!PRERACE:1,%
 NAME:Night Hag
 ALIGN:NE
@@ -327,7 +327,7 @@ FEAT:Mounted Combat
 GEAR:Periapt of the Night Hag (Heartstone)	LOCATION:Equipped
 STAT:STR=11|INT=11|WIS=11|DEX=10|CON=10|CHA=10
 
-STARTPACK:Default Nightmare	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightmare]
+STARTPACK:Nightmare Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightmare]
 RACE:Nightmare	!PRERACE:1,%
 NAME:Nightmare
 ALIGN:NE
@@ -345,7 +345,7 @@ FEAT:Improved Initiative
 FEAT:Run
 STAT:DEX=11|INT=11|WIS=11|STR=10|CON=10|CHA=10
 
-STARTPACK:Default Nightshade (Nightcrawler)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightcrawler)]
+STARTPACK:Nightshade (Nightcrawler) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightcrawler)]
 STAT:DEX=10|INT=10|WIS=10|STR=10|CON=10|CHA=10
 RACE:Nightshade (Nightcrawler)	!PRERACE:1,%
 NAME:Nightshade (Nightcrawler)
@@ -369,7 +369,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Quicken Spell Like Ability(Cone Of Cold)
 
-STARTPACK:Default Nightshade (Nightwalker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwalker)]
+STARTPACK:Nightshade (Nightwalker) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwalker)]
 STAT:DEX=10|INT=10|WIS=10|STR=10|CON=10|CHA=10
 RACE:Nightshade (Nightwalker)	!PRERACE:1,%
 NAME:Nightshade (Nightwalker)
@@ -392,7 +392,7 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 FEAT:Quicken Spell Like Ability(Unholy Blight)
 
-STARTPACK:Default Nightshade (Nightwing)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwing)]
+STARTPACK:Nightshade (Nightwing) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwing)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Nightshade (Nightwing)	!PRERACE:1,%
 NAME:Nightshade (Nightwing)
@@ -412,7 +412,7 @@ FEAT:Great Fortitude
 FEAT:Improved Critical(Bite)
 FEAT:Improved Initiative
 
-STARTPACK:Default Nymph	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nymph]
+STARTPACK:Nymph Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nymph]
 RACE:Nymph	!PRERACE:1,%
 NAME:Nymph
 ALIGN:CG
