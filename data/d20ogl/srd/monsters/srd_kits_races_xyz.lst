@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-STARTPACK:Default Xill	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xill]
+STARTPACK:Xill Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xill]
 RACE:Xill	!PRERACE:1,%
 NAME:Xill
 ALIGN:LE
@@ -16,7 +16,7 @@ FEAT:Improved Initiative
 FEAT:Multidexterity
 FEAT:Multiweapon Fighting
 
-STARTPACK:Default Xorn (Minor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xorn (Minor)]
+STARTPACK:Xorn (Minor) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xorn (Minor)]
 RACE:Xorn (Minor)	!PRERACE:1,%
 NAME:Xorn (Minor)
 ALIGN:TN
@@ -29,7 +29,7 @@ SKILL:Search		RANK:2
 SKILL:Spot			RANK:4
 FEAT:Multiattack
 
-STARTPACK:Default Xorn (Average)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xorn (Average)]
+STARTPACK:Xorn (Average) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xorn (Average)]
 RACE:Xorn (Average)	!PRERACE:1,%
 NAME:Xorn (Average)
 ALIGN:TN
@@ -43,7 +43,7 @@ SKILL:Search		RANK:6
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Xorn (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xorn (Elder)]
+STARTPACK:Xorn (Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xorn (Elder)]
 RACE:Xorn (Elder)	!PRERACE:1,%
 NAME:Xorn (Elder)
 ALIGN:TN
@@ -60,7 +60,7 @@ FEAT:Power Attack
 FEAT:Cleave
 FEAT:Great Cleave
 
-STARTPACK:Default Yeth Hound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yeth Hound]
+STARTPACK:Yeth Hound Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yeth Hound]
 RACE:Yeth Hound	!PRERACE:1,%
 NAME:Yeth Hound
 ALIGN:NE
@@ -70,7 +70,7 @@ SKILL:Spot			RANK:6
 SKILL:Wilderness Lore	RANK:6
 FEAT:Improved Initiative
 
-STARTPACK:Default Yrthak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yrthak]
+STARTPACK:Yrthak Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yrthak]
 RACE:Yrthak	!PRERACE:1,%
 NAME:Yrthak
 ALIGN:TN
@@ -81,42 +81,42 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Multiattack
 
-STARTPACK:Default Zombie (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Tiny)]
+STARTPACK:Zombie (Tiny) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Tiny)]
 RACE:Zombie (Tiny)	!PRERACE:1,%
 NAME:Zombie (Tiny)
 ALIGN:TN
 STAT:STR=11|DEX=10|WIS=10|CHA=10
 FEAT:Toughness
 
-STARTPACK:Default Zombie (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Small)]
+STARTPACK:Zombie (Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Small)]
 RACE:Zombie (Small)	!PRERACE:1,%
 NAME:Zombie (Small)
 ALIGN:TN
 STAT:STR=11|DEX=10|WIS=10|CHA=10
 FEAT:Toughness
 
-STARTPACK:Default Zombie (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Medium)]
+STARTPACK:Zombie (Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Medium)]
 RACE:Zombie (Medium)	!PRERACE:1,%
 NAME:Zombie (Medium)
 ALIGN:TN
 STAT:STR=11|DEX=10|WIS=10|CHA=10
 FEAT:Toughness
 
-STARTPACK:Default Zombie (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Large)]
+STARTPACK:Zombie (Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Large)]
 RACE:Zombie (Large)	!PRERACE:1,%
 NAME:Zombie (Large)
 ALIGN:TN
 STAT:STR=11|DEX=10|WIS=10|CHA=10
 FEAT:Toughness
 
-STARTPACK:Default Zombie (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Huge)]
+STARTPACK:Zombie (Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Huge)]
 RACE:Zombie (Huge)	!PRERACE:1,%
 NAME:Zombie (Huge)
 ALIGN:TN
 STAT:STR=11|DEX=10|WIS=10|CHA=10
 FEAT:Toughness
 
-STARTPACK:Default Zombie (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Gargantuan)]
+STARTPACK:Zombie (Gargantuan) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Gargantuan)]
 RACE:Zombie (Gargantuan)	!PRERACE:1,%
 NAME:Zombie (Gargantuan)
 ALIGN:TN
@@ -124,7 +124,7 @@ STAT:STR=11|DEX=10|WIS=10|CHA=10
 FEAT:Toughness
 FEAT:Improved Critical (Slam)
 
-STARTPACK:Default Zombie (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Colossal)]
+STARTPACK:Zombie (Colossal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Colossal)]
 RACE:Zombie (Colossal)	!PRERACE:1,%
 NAME:Zombie (Colossal)
 ALIGN:TN

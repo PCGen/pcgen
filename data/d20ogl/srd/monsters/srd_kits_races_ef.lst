@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-STARTPACK:Default Elemental (Air/Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Small)]
+STARTPACK:Elemental (Air/Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Small)]
 RACE:Elemental (Air/Small)	!PRERACE:1,%
 NAME:Elemental (Air/Small)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -11,7 +11,7 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Weapon Finesse (Slam)
 
-STARTPACK:Default Elemental (Air/Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Medium)]
+STARTPACK:Elemental (Air/Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Medium)]
 RACE:Elemental (Air/Medium)	!PRERACE:1,%
 NAME:Elemental (Air/Medium)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -21,7 +21,7 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Weapon Finesse (Slam)
 
-STARTPACK:Default Elemental (Air/Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Large)]
+STARTPACK:Elemental (Air/Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Large)]
 RACE:Elemental (Air/Large)	!PRERACE:1,%
 NAME:Elemental (Air/Large)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -32,7 +32,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Finesse (Slam)
 FEAT:Dodge
 
-STARTPACK:Default Elemental (Air/Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Huge)]
+STARTPACK:Elemental (Air/Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Huge)]
 RACE:Elemental (Air/Huge)	!PRERACE:1,%
 NAME:Elemental (Air/Huge)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -44,7 +44,7 @@ FEAT:Weapon Finesse (Slam)
 FEAT:Dodge
 FEAT:Mobility
 
-STARTPACK:Default Elemental (Air/Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Greater)]
+STARTPACK:Elemental (Air/Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Greater)]
 RACE:Elemental (Air/Greater)	!PRERACE:1,%
 NAME:Elemental (Air/Greater)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -57,7 +57,7 @@ FEAT:Dodge
 FEAT:Mobility
 FEAT:Spring Attack
 
-STARTPACK:Default Elemental (Air/Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Elder)]
+STARTPACK:Elemental (Air/Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Elder)]
 RACE:Elemental (Air/Elder)	!PRERACE:1,%
 NAME:Elemental (Air/Elder)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -71,7 +71,7 @@ FEAT:Mobility
 FEAT:Spring Attack
 FEAT:Combat Reflexes
 
-STARTPACK:Default Elemental (Earth/Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Small)]
+STARTPACK:Elemental (Earth/Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Small)]
 RACE:Elemental (Earth/Small)	!PRERACE:1,%
 NAME:Elemental (Earth/Small)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -79,7 +79,7 @@ SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 FEAT:Power Attack
 
-STARTPACK:Default Elemental (Earth/Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Medium)]
+STARTPACK:Elemental (Earth/Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Medium)]
 RACE:Elemental (Earth/Medium)	!PRERACE:1,%
 NAME:Elemental (Earth/Medium)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -87,7 +87,7 @@ SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 FEAT:Power Attack
 
-STARTPACK:Default Elemental (Earth/Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Large)]
+STARTPACK:Elemental (Earth/Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Large)]
 RACE:Elemental (Earth/Large)	!PRERACE:1,%
 NAME:Elemental (Earth/Large)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -96,7 +96,7 @@ SKILL:Spot		RANK:10
 FEAT:Power Attack
 FEAT:Cleave
 
-STARTPACK:Default Elemental (Earth/Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Huge)]
+STARTPACK:Elemental (Earth/Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Huge)]
 RACE:Elemental (Earth/Huge)	!PRERACE:1,%
 NAME:Elemental (Earth/Huge)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -106,7 +106,7 @@ FEAT:Power Attack
 FEAT:Cleave
 FEAT:Great Cleave
 
-STARTPACK:Default Elemental (Earth/Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Greater)]
+STARTPACK:Elemental (Earth/Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Greater)]
 RACE:Elemental (Earth/Greater)	!PRERACE:1,%
 NAME:Elemental (Earth/Greater)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -117,7 +117,7 @@ FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Sunder
 
-STARTPACK:Default Elemental (Earth/Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Elder)]
+STARTPACK:Elemental (Earth/Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Elder)]
 RACE:Elemental (Earth/Elder)	!PRERACE:1,%
 NAME:Elemental (Earth/Elder)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -129,7 +129,7 @@ FEAT:Great Cleave
 FEAT:Sunder
 FEAT:Improved Critical (Slam)
 
-STARTPACK:Default Elemental (Fire/Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Small)]
+STARTPACK:Elemental (Fire/Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Small)]
 RACE:Elemental (Fire/Small)	!PRERACE:1,%
 NAME:Elemental (Fire/Small)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -138,7 +138,7 @@ SKILL:Spot		RANK:5
 FEAT:Improved Initiative
 FEAT:Weapon Finesse (Slam)
 
-STARTPACK:Default Elemental (Fire/Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Medium)]
+STARTPACK:Elemental (Fire/Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Medium)]
 RACE:Elemental (Fire/Medium)	!PRERACE:1,%
 NAME:Elemental (Fire/Medium)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -147,7 +147,7 @@ SKILL:Spot		RANK:6
 FEAT:Improved Initiative
 FEAT:Weapon Finesse (Slam)
 
-STARTPACK:Default Elemental (Fire/Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Large)]
+STARTPACK:Elemental (Fire/Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Large)]
 RACE:Elemental (Fire/Large)	!PRERACE:1,%
 NAME:Elemental (Fire/Large)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -157,7 +157,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Finesse (Slam)
 FEAT:Dodge
 
-STARTPACK:Default Elemental (Fire/Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Huge)]
+STARTPACK:Elemental (Fire/Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Huge)]
 RACE:Elemental (Fire/Huge)	!PRERACE:1,%
 NAME:Elemental (Fire/Huge)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -168,7 +168,7 @@ FEAT:Weapon Finesse (Slam)
 FEAT:Dodge
 FEAT:Mobility
 
-STARTPACK:Default Elemental (Fire/Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Greater)]
+STARTPACK:Elemental (Fire/Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Greater)]
 RACE:Elemental (Fire/Greater)	!PRERACE:1,%
 NAME:Elemental (Fire/Greater)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -180,7 +180,7 @@ FEAT:Dodge
 FEAT:Mobility
 FEAT:Spring Attack
 
-STARTPACK:Default Elemental (Fire/Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Elder)]
+STARTPACK:Elemental (Fire/Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Elder)]
 RACE:Elemental (Fire/Elder)	!PRERACE:1,%
 NAME:Elemental (Fire/Elder)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -193,7 +193,7 @@ FEAT:Mobility
 FEAT:Spring Attack
 FEAT:Combat Reflexes
 
-STARTPACK:Default Elemental (Water/Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Small)]
+STARTPACK:Elemental (Water/Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Small)]
 RACE:Elemental (Water/Small)	!PRERACE:1,%
 NAME:Elemental (Water/Small)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -201,7 +201,7 @@ SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 FEAT:Power Attack
 
-STARTPACK:Default Elemental (Water/Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Medium)]
+STARTPACK:Elemental (Water/Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Medium)]
 RACE:Elemental (Water/Medium)	!PRERACE:1,%
 NAME:Elemental (Water/Medium)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -209,7 +209,7 @@ SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 FEAT:Power Attack
 
-STARTPACK:Default Elemental (Water/Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Large)]
+STARTPACK:Elemental (Water/Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Large)]
 RACE:Elemental (Water/Large)	!PRERACE:1,%
 NAME:Elemental (Water/Large)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -218,7 +218,7 @@ SKILL:Spot		RANK:10
 FEAT:Power Attack
 FEAT:Cleave
 
-STARTPACK:Default Elemental (Water/Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Huge)]
+STARTPACK:Elemental (Water/Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Huge)]
 RACE:Elemental (Water/Huge)	!PRERACE:1,%
 NAME:Elemental (Water/Huge)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -228,7 +228,7 @@ FEAT:Power Attack
 FEAT:Cleave
 FEAT:Great Cleave
 
-STARTPACK:Default Elemental (Water/Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Greater)]
+STARTPACK:Elemental (Water/Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Greater)]
 RACE:Elemental (Water/Greater)	!PRERACE:1,%
 NAME:Elemental (Water/Greater)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -239,7 +239,7 @@ FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Sunder
 
-STARTPACK:Default Elemental (Water/Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Elder)]
+STARTPACK:Elemental (Water/Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Elder)]
 RACE:Elemental (Water/Elder)	!PRERACE:1,%
 NAME:Elemental (Water/Elder)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -251,32 +251,32 @@ FEAT:Great Cleave
 FEAT:Sunder
 FEAT:Improved Critical (Slam)
 
-STARTPACK:Default Elf (Aquatic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Aquatic)]
+STARTPACK:Elf (Aquatic) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Aquatic)]
 RACE:Elf (Aquatic)	!PRERACE:1,%
 NAME:Elf (Aquatic)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
 
-STARTPACK:Default Elf (Drow)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Drow)]
+STARTPACK:Elf (Drow) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Drow)]
 RACE:Elf (Drow)	!PRERACE:1,%
 NAME:Elf (Drow)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
 
-STARTPACK:Default Elf (Gray)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Gray)]
+STARTPACK:Elf (Gray) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Gray)]
 RACE:Elf (Gray)	!PRERACE:1,%
 NAME:Elf (Gray)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
 
-STARTPACK:Default Elf (Wild)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Wild)]
+STARTPACK:Elf (Wild) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Wild)]
 RACE:Elf (Wild)	!PRERACE:1,%
 NAME:Elf (Wild)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
 
-STARTPACK:Default Elf (Wood)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Wood)]
+STARTPACK:Elf (Wood) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Wood)]
 RACE:Elf (Wood)	!PRERACE:1,%
 NAME:Elf (Wood)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
 
-STARTPACK:Default Ethereal Filcher	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Filcher]
+STARTPACK:Ethereal Filcher Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Filcher]
 RACE:Ethereal Filcher	!PRERACE:1,%
 NAME:Ethereal Filcher
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
@@ -285,7 +285,7 @@ SKILL:Spot		RANK:7
 SKILL:Pick Pocket	RANK:8
 FEAT:Improved Initiative
 
-STARTPACK:Default Ethereal Marauder	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Marauder]
+STARTPACK:Ethereal Marauder Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Marauder]
 RACE:Ethereal Marauder	!PRERACE:1,%
 NAME:Ethereal Marauder
 ALIGN:TN
@@ -295,7 +295,7 @@ SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:5
 FEAT:Improved Initiative
 
-STARTPACK:Default Ettercap	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ettercap]
+STARTPACK:Ettercap Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ettercap]
 RACE:Ettercap	!PRERACE:1,%
 NAME:Ettercap
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
@@ -303,7 +303,7 @@ SKILL:Listen	RANK:8
 SKILL:Spot		RANK:8
 FEAT:Multiattack
 
-STARTPACK:Default Ettin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ettin]
+STARTPACK:Ettin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ettin]
 RACE:Ettin	!PRERACE:1,%
 NAME:Ettin
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -313,14 +313,14 @@ FEAT:Alertness
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Default Formian (Worker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Worker)]
+STARTPACK:Formian (Worker) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Worker)]
 RACE:Formian (Worker)	!PRERACE:1,%
 NAME:Formian (Worker)
 ALIGN:LN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Climb	RANK:2
 
-STARTPACK:Default Formian (Warrior)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Warrior)]
+STARTPACK:Formian (Warrior) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Warrior)]
 RACE:Formian (Warrior)	!PRERACE:1,%
 NAME:Formian (Warrior)
 ALIGN:LN
@@ -333,7 +333,7 @@ SKILL:Spot			RANK:5
 FEAT:Dodge
 FEAT:Multiattack
 
-STARTPACK:Default Formian (Taskmaster)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Taskmaster)]
+STARTPACK:Formian (Taskmaster) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Taskmaster)]
 RACE:Formian (Taskmaster)	!PRERACE:1,%
 NAME:Formian (Taskmaster)
 ALIGN:LN
@@ -348,7 +348,7 @@ SKILL:Search		RANK:6
 FEAT:Improved Initiative
 FEAT:Spell-Like Ability Focus (Enchantment)
 
-STARTPACK:Default Formian (Myrmarch)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Myrmarch)]
+STARTPACK:Formian (Myrmarch) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Myrmarch)]
 RACE:Formian (Myrmarch)	!PRERACE:1,%
 NAME:Formian (Myrmarch)
 ALIGN:LN
@@ -366,7 +366,7 @@ FEAT:Improved Initiative
 FEAT:Mobility
 FEAT:Multiattack
 
-STARTPACK:Default Formian (Queen)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Queen)]
+STARTPACK:Formian (Queen) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Queen)]
 RACE:Formian (Queen)	!PRERACE:1,%
 NAME:Formian (Queen)
 ALIGN:LN
@@ -386,7 +386,7 @@ FEAT:Iron Will
 FEAT:Spell Focus (Enchantment)
 FEAT:Quicken Spell
 
-STARTPACK:Default Frost Worm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Worm]
+STARTPACK:Frost Worm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Worm]
 RACE:Frost Worm	!PRERACE:1,%
 NAME:Frost Worm
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
@@ -394,13 +394,13 @@ SKILL:Hide		RANK:11
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:2
 
-STARTPACK:Default Fungus (Shrieker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fungus (Shrieker)]
+STARTPACK:Fungus (Shrieker) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fungus (Shrieker)]
 RACE:Fungus (Shrieker)	!PRERACE:1,%
 NAME:Fungus (Shrieker)
 ALIGN:TN
 STAT:CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Fungus (Violet Fungus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fungus (Violet Fungus)]
+STARTPACK:Fungus (Violet Fungus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fungus (Violet Fungus)]
 RACE:Fungus (Violet Fungus)	!PRERACE:1,%
 NAME:Fungus (Violet Fungus)
 ALIGN:TN

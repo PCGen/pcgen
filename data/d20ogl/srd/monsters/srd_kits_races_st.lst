@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-STARTPACK:Default Sahuagin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]
+STARTPACK:Sahuagin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]
 RACE:Sahuagin	!PRERACE:1,%
 NAME:Sahuagin
 ALIGN:LE
@@ -13,7 +13,7 @@ SKILL:Listen		RANK:2
 SKILL:Spot			RANK:2
 FEAT:Multiattack
 
-STARTPACK:Default Sahuagin (Mutant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin (Mutant)]
+STARTPACK:Sahuagin (Mutant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin (Mutant)]
 RACE:Sahuagin (Mutant)	!PRERACE:1,%
 NAME:Sahuagin (Mutant)
 ALIGN:LE
@@ -25,7 +25,7 @@ SKILL:Listen		RANK:2
 SKILL:Spot			RANK:2
 FEAT:Multiattack
 
-STARTPACK:Default Sahuagin (Malenti)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin (Malenti)]
+STARTPACK:Sahuagin (Malenti) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin (Malenti)]
 RACE:Sahuagin (Malenti)	!PRERACE:1,%
 NAME:Sahuagin (Malenti)
 ALIGN:LE
@@ -37,7 +37,7 @@ SKILL:Listen		RANK:2
 SKILL:Spot			RANK:2
 FEAT:Multiattack
 
-STARTPACK:Default Salamander (Flamebrother)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Flamebrother)]
+STARTPACK:Salamander (Flamebrother) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Flamebrother)]
 RACE:Salamander (Flamebrother)	!PRERACE:1,%
 NAME:Salamander (Flamebrother)
 ALIGN:LN|LE|TN|NE|CN|CE
@@ -50,7 +50,7 @@ SKILL:Escape Artist		RANK:6
 SKILL:Hide				RANK:4
 FEAT:Multiattack
 
-STARTPACK:Default Salamander (Average)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Average)]
+STARTPACK:Salamander (Average) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Average)]
 RACE:Salamander (Average)	!PRERACE:1,%
 NAME:Salamander (Average)
 ALIGN:LN|LE|TN|NE|CN|CE
@@ -65,7 +65,7 @@ SKILL:Spot				RANK:10
 FEAT:Multiattack
 FEAT:Alertness
 
-STARTPACK:Default Salamander (Noble)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Noble)]
+STARTPACK:Salamander (Noble) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Noble)]
 RACE:Salamander (Noble)	!PRERACE:1,%
 NAME:Salamander (Noble)
 ALIGN:LN|LE|TN|NE|CN|CE
@@ -85,7 +85,7 @@ FEAT:Great Cleave
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Satyr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satyr]
+STARTPACK:Satyr Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satyr]
 RACE:Satyr	!PRERACE:1,%
 NAME:Satyr
 ALIGN:CN
@@ -100,7 +100,7 @@ FEAT:Alertness
 FEAT:Dodge
 FEAT:Mobility
 
-STARTPACK:Default Satyr (with Pipes)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satyr (with Pipes)]
+STARTPACK:Satyr (with Pipes) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satyr (with Pipes)]
 RACE:Satyr (with Pipes)	!PRERACE:1,%
 NAME:Satyr (with Pipes)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -114,7 +114,7 @@ FEAT:Alertness
 FEAT:Dodge
 FEAT:Mobility
 
-STARTPACK:Default Sea Lion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Lion]
+STARTPACK:Sea Lion Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Lion]
 RACE:Sea Lion	!PRERACE:1,%
 NAME:Sea Lion
 ALIGN:TN
@@ -122,7 +122,7 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 
-STARTPACK:Default Shadow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow]
+STARTPACK:Shadow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow]
 RACE:Shadow	!PRERACE:1,%
 NAME:Shadow
 ALIGN:CE
@@ -133,7 +133,7 @@ SKILL:Spot			RANK:6
 SKILL:Intuit Direction	RANK:4
 FEAT:Dodge
 
-STARTPACK:Default Shadow Mastiff	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow Mastiff]
+STARTPACK:Shadow Mastiff Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow Mastiff]
 RACE:Shadow Mastiff	!PRERACE:1,%
 NAME:Shadow Mastiff
 ALIGN:NE
@@ -144,19 +144,19 @@ SKILL:Wilderness Lore	RANK:6
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Default Shambling Mound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shambling Mound]
+STARTPACK:Shambling Mound Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shambling Mound]
 RACE:Shambling Mound	!PRERACE:1,%
 NAME:Shambling Mound
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
-STARTPACK:Default Shield Guardian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shield Guardian]
+STARTPACK:Shield Guardian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shield Guardian]
 RACE:Shield Guardian	!PRERACE:1,%
 NAME:Shield Guardian
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Default Shocker Lizard	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shocker Lizard]
+STARTPACK:Shocker Lizard Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shocker Lizard]
 RACE:Shocker Lizard	!PRERACE:1,%
 NAME:Shocker Lizard
 ALIGN:TN
@@ -168,56 +168,56 @@ SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 FEAT:Alertness
 
-STARTPACK:Default Skeleton (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Tiny)]
+STARTPACK:Skeleton (Tiny) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Tiny)]
 RACE:Skeleton (Tiny)	!PRERACE:1,%
 NAME:Skeleton (Tiny)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 FEAT:Improved Initiative
 
-STARTPACK:Default Skeleton (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Small)]
+STARTPACK:Skeleton (Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Small)]
 RACE:Skeleton (Small)	!PRERACE:1,%
 NAME:Skeleton (Small)
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 ALIGN:TN
 FEAT:Improved Initiative
 
-STARTPACK:Default Skeleton (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Medium)]
+STARTPACK:Skeleton (Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Medium)]
 RACE:Skeleton (Medium)	!PRERACE:1,%
 NAME:Skeleton (Medium)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 FEAT:Improved Initiative
 
-STARTPACK:Default Skeleton (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Large)]
+STARTPACK:Skeleton (Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Large)]
 RACE:Skeleton (Large)	!PRERACE:1,%
 NAME:Skeleton (Large)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 FEAT:Improved Initiative
 
-STARTPACK:Default Skeleton (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Huge)]
+STARTPACK:Skeleton (Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Huge)]
 RACE:Skeleton (Huge)	!PRERACE:1,%
 NAME:Skeleton (Huge)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 FEAT:Improved Initiative
 
-STARTPACK:Default Skeleton (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Gargantuan)]
+STARTPACK:Skeleton (Gargantuan) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Gargantuan)]
 RACE:Skeleton (Gargantuan)	!PRERACE:1,%
 NAME:Skeleton (Gargantuan)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 FEAT:Improved Initiative
 
-STARTPACK:Default Skeleton (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Colossal)]
+STARTPACK:Skeleton (Colossal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Colossal)]
 RACE:Skeleton (Colossal)	!PRERACE:1,%
 NAME:Skeleton (Colossal)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 FEAT:Improved Initiative
 
-STARTPACK:Default Skum	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skum]
+STARTPACK:Skum Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skum]
 RACE:Skum	!PRERACE:1,%
 NAME:Skum
 ALIGN:LE
@@ -229,7 +229,7 @@ SKILL:Spot			RANK:5
 SKILL:Move Silently	RANK:2
 FEAT:Alertness
 
-STARTPACK:Default Spectre	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spectre]
+STARTPACK:Spectre Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spectre]
 RACE:Spectre	!PRERACE:1,%
 NAME:Spectre
 ALIGN:LE
@@ -245,7 +245,7 @@ FEAT:Blind-Fight
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
-STARTPACK:Default Spider Eater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider Eater]
+STARTPACK:Spider Eater Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider Eater]
 RACE:Spider Eater	!PRERACE:1,%
 NAME:Spider Eater
 ALIGN:TN
@@ -253,7 +253,7 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 
-STARTPACK:Default Sphinx (Androsphinx)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Androsphinx)]
+STARTPACK:Sphinx (Androsphinx) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Androsphinx)]
 RACE:Sphinx (Androsphinx)	!PRERACE:1,%
 NAME:Sphinx (Androsphinx)
 ALIGN:CG
@@ -269,7 +269,7 @@ FEAT:Flyby Attack
 FEAT:Power Attack
 FEAT:Track
 
-STARTPACK:Default Sphinx (Criosphinx)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Criosphinx)]
+STARTPACK:Sphinx (Criosphinx) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Criosphinx)]
 RACE:Sphinx (Criosphinx)	!PRERACE:1,%
 NAME:Sphinx (Criosphinx)
 ALIGN:TN
@@ -281,7 +281,7 @@ FEAT:Cleave
 FEAT:Flyby Attack
 FEAT:Power Attack
 
-STARTPACK:Default Sphinx (Gynosphinx)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Gynosphinx)]
+STARTPACK:Sphinx (Gynosphinx) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Gynosphinx)]
 RACE:Sphinx (Gynosphinx)	!PRERACE:1,%
 NAME:Sphinx (Gynosphinx)
 ALIGN:TN
@@ -297,7 +297,7 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Iron Will
 
-STARTPACK:Default Sphinx (Hieracosphinx)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Hieracosphinx)]
+STARTPACK:Sphinx (Hieracosphinx) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Hieracosphinx)]
 RACE:Sphinx (Hieracosphinx)	!PRERACE:1,%
 NAME:Sphinx (Hieracosphinx)
 ALIGN:CE
@@ -307,7 +307,7 @@ SKILL:Spot		RANK:10
 FEAT:Alertness
 FEAT:Flyby Attack
 
-STARTPACK:Default Sprite (Grig)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Grig)]
+STARTPACK:Sprite (Grig) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Grig)]
 RACE:Sprite (Grig)	!PRERACE:1,%
 NAME:Sprite (Grig)
 ALIGN:NG
@@ -321,7 +321,7 @@ SKILL:Spot			RANK:1
 FEAT:Dodge
 FEAT:Weapon Finesse (Shortsword)
 
-STARTPACK:Default Sprite (Nixie)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Nixie)]
+STARTPACK:Sprite (Nixie) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Nixie)]
 RACE:Sprite (Nixie)	!PRERACE:1,%
 NAME:Sprite (Nixie)
 ALIGN:TN
@@ -339,7 +339,7 @@ FEAT:Dodge
 FEAT:Weapon Finesse (Dagger)
 FEAT:Improved Initiative
 
-STARTPACK:Default Sprite (Pixie)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Pixie)]
+STARTPACK:Sprite (Pixie) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Pixie)]
 RACE:Sprite (Pixie)	!PRERACE:1,%
 NAME:Sprite (Pixie)
 ALIGN:NG
@@ -361,13 +361,13 @@ FEAT:Point Blank Shot
 FEAT:Rapid Shot
 FEAT:Weapon Focus (Shortbow)
 
-STARTPACK:Default Stirge	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stirge]
+STARTPACK:Stirge Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stirge]
 RACE:Stirge	!PRERACE:1,%
 NAME:Stirge
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Tarrasque	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tarrasque]
+STARTPACK:Tarrasque Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tarrasque]
 RACE:Tarrasque	!PRERACE:1,%
 NAME:Tarrasque
 ALIGN:TN
@@ -380,13 +380,13 @@ FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Iron Will
 
-STARTPACK:Default Tendriculos	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tendriculos]
+STARTPACK:Tendriculos Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tendriculos]
 RACE:Tendriculos	!PRERACE:1,%
 NAME:Tendriculos
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
-STARTPACK:Default Thoqqua	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thoqqua]
+STARTPACK:Thoqqua Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thoqqua]
 RACE:Thoqqua	!PRERACE:1,%
 NAME:Thoqqua
 ALIGN:TN
@@ -396,7 +396,7 @@ SKILL:Jump			RANK:4
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:5
 
-STARTPACK:Default Titan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan]
+STARTPACK:Titan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan]
 RACE:Titan	!PRERACE:1,%
 NAME:Titan
 ALIGN:CG
@@ -418,7 +418,7 @@ FEAT:Expertise
 FEAT:Great Cleave
 FEAT:Power Attack
 
-STARTPACK:Default Tojanida (Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Juvenile)]
+STARTPACK:Tojanida (Juvenile) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Juvenile)]
 RACE:Tojanida (Juvenile)	!PRERACE:1,%
 NAME:Tojanida (Juvenile)
 ALIGN:TN
@@ -430,7 +430,7 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:2
 FEAT:Blind-Fight
 
-STARTPACK:Default Tojanida (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Adult)]
+STARTPACK:Tojanida (Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Adult)]
 RACE:Tojanida (Adult)	!PRERACE:1,%
 NAME:Tojanida (Adult)
 ALIGN:TN
@@ -445,7 +445,7 @@ SKILL:Spot			RANK:8
 FEAT:Blind-Fight
 FEAT:Dodge
 
-STARTPACK:Default Tojanida (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Elder)]
+STARTPACK:Tojanida (Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Elder)]
 RACE:Tojanida (Elder)	!PRERACE:1,%
 NAME:Tojanida (Elder)
 ALIGN:TN
@@ -463,7 +463,7 @@ FEAT:Dodge
 FEAT:Cleave
 FEAT:Power Attack
 
-STARTPACK:Default Treant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Treant]
+STARTPACK:Treant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Treant]
 RACE:Treant	!PRERACE:1,%
 NAME:Treant
 ALIGN:NG
@@ -476,7 +476,7 @@ SKILL:Wilderness Lore	RANK:7
 FEAT:Iron Will
 FEAT:Power Attack
 
-STARTPACK:Default Triton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Triton]
+STARTPACK:Triton Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Triton]
 RACE:Triton	!PRERACE:1,%
 NAME:Triton
 ALIGN:NG
@@ -487,7 +487,7 @@ SKILL:Ride		RANK:6
 SKILL:Spot		RANK:6
 FEAT:Mounted Combat
 
-STARTPACK:Default Troglodyte	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troglodyte]
+STARTPACK:Troglodyte Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troglodyte]
 RACE:Troglodyte	!PRERACE:1,%
 NAME:Troglodyte
 ALIGN:CE
@@ -497,7 +497,7 @@ SKILL:Listen	RANK:3
 FEAT:Multiattack
 FEAT:Weapon Focus (Javelin)
 
-STARTPACK:Default Troll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]
+STARTPACK:Troll Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]
 RACE:Troll	!PRERACE:1,%
 NAME:Troll
 ALIGN:CE
