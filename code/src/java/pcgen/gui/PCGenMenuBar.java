@@ -55,6 +55,12 @@ import pcgen.util.PropertyFactory;
  * <p/>
  * The {@link Options}
  * and {@link GameModes} are all created externally.
+ *
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ *
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision$
  */
 final class PCGenMenuBar extends JMenuBar
 {
