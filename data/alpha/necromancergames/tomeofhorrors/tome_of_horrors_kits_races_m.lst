@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Magnesium Spirit	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Magnesium Spirit]
+STARTPACK:Magnesium Spirit Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Magnesium Spirit]
 ALIGN:LE
 RACE:Magnesium Spirit	!PRERACE:%
 NAME:Magnesium Spirit
@@ -22,7 +22,7 @@ FEAT:Blind Fight
 FEAT:Improved Initiative
 
 
-STARTPACK:Default Mandragora	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mandragora]
+STARTPACK:Mandragora Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mandragora]
 ALIGN:NE
 RACE:Mandragora	!PRERACE:%
 NAME:Mandragora
@@ -33,7 +33,7 @@ SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
 FEAT:Alertness
 
-STARTPACK:Default Mantari	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mantari]
+STARTPACK:Mantari Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mantari]
 ALIGN:NE
 RACE:Mantari	!PRERACE:%
 NAME:Mantari
@@ -43,7 +43,7 @@ SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:2
 FEAT:Alertness
 
-STARTPACK:Default Marble Snake	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Marble Snake]
+STARTPACK:Marble Snake Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Marble Snake]
 ALIGN:TN
 RACE:Marble Snake	!PRERACE:%
 NAME:Marble Snake
@@ -57,7 +57,7 @@ SKILL:Spot			RANK:1
 FEAT:Alertness
 FEAT:Toughness
 
-STARTPACK:Default Medusa (Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Medusa (Greater)]
+STARTPACK:Medusa (Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Medusa (Greater)]
 ALIGN:LE
 RACE:Medusa (Greater)	!PRERACE:%
 NAME:Medusa, Greater
@@ -73,7 +73,7 @@ FEAT:Weapon Focus (Snakes)
 GEAR:Shortbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:BOWSTR|2
 GEAR:Dagger				SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Midnight Peddler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Midnight Peddler]
+STARTPACK:Midnight Peddler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Midnight Peddler]
 ALIGN:TN
 RACE:Midnight Peddler	!PRERACE:%
 NAME:Midnight Peddler
@@ -93,7 +93,7 @@ FEAT:Alertness
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Default Mihstu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mihstu]
+STARTPACK:Mihstu Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mihstu]
 ALIGN:NE
 RACE:Mihstu	!PRERACE:%
 NAME:Mihstu
@@ -114,7 +114,7 @@ SKILL:Hide			RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
 
-STARTPACK:Default Mite (Common)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mite (Common)]
+STARTPACK:Mite (Common) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mite (Common)]
 ALIGN:LE
 RACE:Mite (Common)	!PRERACE:%
 NAME:Common Mite
@@ -123,7 +123,7 @@ SKILL:Craft (Trapmaking)	RANK:1
 FEAT:Weapon Focus (Club)
 GEAR:Club	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Mite (Pestie)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mite (Pestie)]
+STARTPACK:Mite (Pestie) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mite (Pestie)]
 ALIGN:TN
 RACE:Mite (Pestie)	!PRERACE:%
 NAME:Pestie
@@ -132,7 +132,7 @@ SKILL:Sleight of Hand	RANK:1
 FEAT:Weapon Finesse
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Mongrelman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mongrelman]
+STARTPACK:Mongrelman Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mongrelman]
 ALIGN:LN
 RACE:Mongrelman	!PRERACE:%
 NAME:Mongrelman
@@ -642,7 +642,7 @@ SELECT:roll("1d2")
 TEMPLATE:Orc Jaw/Mouth	OPTION:1
 TEMPLATE:Ogre Jaw/Mouth	OPTION:2
 
-STARTPACK:Default Moon Dog	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Moon Dog]
+STARTPACK:Moon Dog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Moon Dog]
 ALIGN:NG
 RACE:Moon Dog	!PRERACE:%
 NAME:Moon Dog
@@ -662,7 +662,7 @@ FEAT:Combat Casting
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Muckdweller	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Muckdweller]
+STARTPACK:Muckdweller Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Muckdweller]
 ALIGN:TN
 RACE:Muckdweller	!PRERACE:%
 NAME:Muckdweller
@@ -673,13 +673,13 @@ SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Default Mud Man	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mud Man]
+STARTPACK:Mud Man Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mud Man]
 RACE:Mud Man	!PRERACE:%
 NAME:Mud Man
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Mummy of the Deep	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mummy of the Deep]
+STARTPACK:Mummy of the Deep Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mummy of the Deep]
 RACE:Mummy of the Deep	!PRERACE:%
 NAME:Mummy of the Deep
 ALIGN:NE
@@ -691,7 +691,7 @@ FEAT:Alertness
 FEAT:Great Fortitude
 FEAT:Toughness
 
-STARTPACK:Default Mustard Jelly	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mustard Jelly]
+STARTPACK:Mustard Jelly Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mustard Jelly]
 RACE:Mustard Jelly	!PRERACE:%
 NAME:Mustard Jelly
 ALIGN:TN

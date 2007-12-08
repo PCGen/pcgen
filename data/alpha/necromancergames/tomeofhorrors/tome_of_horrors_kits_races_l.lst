@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Land Lamprey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Land Lamprey]
+STARTPACK:Land Lamprey Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Land Lamprey]
 ALIGN:TN
 RACE:Land Lamprey	!PRERACE:%
 NAME:Land Lamprey
@@ -12,7 +12,7 @@ SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Default Lava Child	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lava Child]
+STARTPACK:Lava Child Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lava Child]
 ALIGN:TN
 RACE:Lava Child	!PRERACE:%
 NAME:Lava Child
@@ -22,13 +22,13 @@ SKILL:Spot		RANK:7
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Default Leech (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Leech (Giant)]
+STARTPACK:Leech (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Leech (Giant)]
 ALIGN:TN
 RACE:Leech (Giant)	!PRERACE:%
 NAME:Leech, Giant
 STAT:STR=11|DEX=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Livestone	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Livestone]
+STARTPACK:Livestone Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Livestone]
 ALIGN:TN
 RACE:Livestone	!PRERACE:%
 NAME:Livestone
@@ -45,12 +45,12 @@ FEAT:Blind Fight
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 
-STARTPACK:Default Lurker Above	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lurker Above]
+STARTPACK:Lurker Above Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lurker Above]
 RACE:Lurker Above	!PRERACE:%
 NAME:Lurker Above
 KIT:Common Lurker
 
-STARTPACK:Default Lurker Below	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lurker Below]
+STARTPACK:Lurker Below Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lurker Below]
 RACE:Lurker Below	!PRERACE:%
 NAME:Lurker Below
 KIT:Common Lurker

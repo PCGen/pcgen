@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Sandling	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sandling]
+STARTPACK:Sandling Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sandling]
 RACE:Sandling	!PRERACE:%
 NAME:Sandling
 ALIGN:TN
@@ -12,7 +12,7 @@ SKILL:Spot		RANK:4
 FEAT:Alertness
 FEAT:Power Attack
 
-STARTPACK:Default Sandman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sandman]
+STARTPACK:Sandman Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sandman]
 RACE:Sandman	!PRERACE:%
 NAME:Sandman
 ALIGN:TN
@@ -24,13 +24,13 @@ SKILL:Spot			RANK:4
 FEAT:Alertness
 FEAT:Weapon Focus (Slam)
 
-STARTPACK:Default Scarecrow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Scarecrow]
+STARTPACK:Scarecrow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Scarecrow]
 RACE:Scarecrow	!PRERACE:%
 NAME:Scarecrow
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=11|CHA=10
 
-STARTPACK:Default Screaming Devilkin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Screaming Devilkin]
+STARTPACK:Screaming Devilkin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Screaming Devilkin]
 RACE:Screaming Devilkin	!PRERACE:%
 NAME:Screaming Devilkin
 ALIGN:LE
@@ -41,7 +41,7 @@ SKILL:Spot			RANK:2
 FEAT:Alertness
 FEAT:Dodge
 
-STARTPACK:Default Scythe Tree	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Scythe Tree]
+STARTPACK:Scythe Tree Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Scythe Tree]
 RACE:Scythe Tree	!PRERACE:%
 NAME:Scythe Tree
 ALIGN:CE
@@ -53,7 +53,7 @@ FEAT:Alertness
 FEAT:Iron Will
 FEAT:Power Attack
 
-STARTPACK:Default Shadow (Lesser)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shadow (Lesser)]
+STARTPACK:Shadow (Lesser) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shadow (Lesser)]
 RACE:Shadow (Lesser)	!PRERACE:%
 NAME:Shadow, Lesser
 ALIGN:CE
@@ -64,7 +64,7 @@ SKILL:Search	RANK:1
 SKILL:Spot		RANK:1
 FEAT:Dodge
 
-STARTPACK:Default Shedu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shedu]
+STARTPACK:Shedu Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shedu]
 RACE:Shedu	!PRERACE:%
 NAME:Shedu
 ALIGN:LG
@@ -82,7 +82,7 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Power Attack
 
-STARTPACK:Default Shedu (Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shedu (Greater)]
+STARTPACK:Shedu (Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shedu (Greater)]
 RACE:Shedu (Greater)	!PRERACE:%
 NAME:Greater Shedu
 ALIGN:LG
@@ -109,13 +109,13 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Food and Water|Dispel Magic
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divination|Divine Power|Restoration|Spell Immunity
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Atonement|Cure Light Wounds (Mass)
 
-STARTPACK:Default Skeleton (Lead)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Lead)]
+STARTPACK:Skeleton (Lead) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Lead)]
 RACE:Skeleton (Lead)	!PRERACE:%
 NAME:Skeleton, Lead
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=11
 
-STARTPACK:Default Skulk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skulk]
+STARTPACK:Skulk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skulk]
 RACE:Skulk	!PRERACE:%
 NAME:Skulk
 ALIGN:CE
@@ -126,13 +126,13 @@ SKILL:Spot			RANK:1
 FEAT:Improved Initiative
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Skull Spider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skull Spider]
+STARTPACK:Skull Spider Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skull Spider]
 RACE:Skull Spider	!PRERACE:%
 NAME:Skull Spider
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Skulleton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skulleton]
+STARTPACK:Skulleton Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skulleton]
 RACE:Skulleton	!PRERACE:%
 NAME:Skulleton
 ALIGN:LE|NE|CE
@@ -144,7 +144,7 @@ SKILL:Spot			RANK:5
 FEAT:Alertness
 FEAT:Weapon Finesse
 
-STARTPACK:Default Slaad Lord (Lord of Entropy)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slaad Lord (Lord of Entropy)]
+STARTPACK:Slaad Lord (Lord of Entropy) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slaad Lord (Lord of Entropy)]
 RACE:Slaad Lord (Lord of Entropy)	!PRERACE:%
 NAME:Slaad Lord: Lord of Entropy
 ALIGN:CN
@@ -222,7 +222,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dismissal|Feeblemind|Hold Monster|T
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Antimagic Field|Geas/Quest|Mage's Lucubration
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Hold Person (Mass)|Spell Turning
 
-STARTPACK:Default Slaad Lord (Lord of the Insane)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slaad Lord (Lord of the Insane)]
+STARTPACK:Slaad Lord (Lord of the Insane) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slaad Lord (Lord of the Insane)]
 RACE:Slaad Lord (Lord of the Insane)	!PRERACE:%
 NAME:Slaad Lord: Lord of the Insane
 ALIGN:CN
@@ -260,7 +260,7 @@ FEAT:Mobility
 FEAT:Power Attack
 FEAT:Weapon Focus (Slam)
 
-STARTPACK:Default Slime Crawler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slime Crawler]
+STARTPACK:Slime Crawler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slime Crawler]
 RACE:Slime Crawler	!PRERACE:%
 NAME:Slime Crawler
 ALIGN:TN
@@ -270,7 +270,7 @@ SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 FEAT:Alertness
 
-STARTPACK:Default Slithering Tracker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slithering Tracker]
+STARTPACK:Slithering Tracker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slithering Tracker]
 RACE:Slithering Tracker	!PRERACE:%
 NAME:Slithering Tracker
 ALIGN:TN
@@ -283,13 +283,13 @@ SKILL:Spot			RANK:3
 FEAT:Alertness
 FEAT:Skill Focus (Move Silently)
 
-STARTPACK:Default Slug (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slug (Giant)]
+STARTPACK:Slug (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slug (Giant)]
 RACE:Slug (Giant)	!PRERACE:%
 NAME:Slug, Giant
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Soul Eater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Soul Eater]
+STARTPACK:Soul Eater Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Soul Eater]
 RACE:Soul Eater	!PRERACE:%
 NAME:Soul Eater
 ALIGN:TN
@@ -309,7 +309,7 @@ FEAT:Dodge
 FEAT:Flyby Attack
 FEAT:Weapon Finesse
 
-STARTPACK:Default Soul Nibbler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Soul Nibbler]
+STARTPACK:Soul Nibbler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Soul Nibbler]
 RACE:Soul Nibbler	!PRERACE:%
 NAME:Soul Nibbler
 ALIGN:TN
@@ -319,7 +319,7 @@ SKILL:Hide			RANK:1
 SKILL:Move Silently	RANK:2
 FEAT:Weapon Finesse
 
-STARTPACK:Default Spriggan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Spriggan]
+STARTPACK:Spriggan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Spriggan]
 RACE:Spriggan	!PRERACE:%
 NAME:Spriggan
 ALIGN:CE
@@ -339,7 +339,7 @@ GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Halberd		SIZE:PC	LOCATION:Carried
 GEAR:Chain Shirt		SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Sprite	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sprite]
+STARTPACK:Sprite Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sprite]
 RACE:Sprite	!PRERACE:%
 NAME:Sprite
 ALIGN:TN
@@ -358,7 +358,7 @@ FEAT:Dodge
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Shortbow		SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Sea Sprite	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sea Sprite]
+STARTPACK:Sea Sprite Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sea Sprite]
 RACE:Sea Sprite	!PRERACE:%
 NAME:Sea Sprite
 ALIGN:TN
@@ -377,7 +377,7 @@ FEAT:Dodge
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Squealer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Squealer]
+STARTPACK:Squealer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Squealer]
 RACE:Squealer	!PRERACE:%
 NAME:Squealer
 ALIGN:TN
@@ -393,13 +393,13 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 FEAT:Track
 
-STARTPACK:Default Stegocentipede	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stegocentipede]
+STARTPACK:Stegocentipede Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stegocentipede]
 RACE:Stegocentipede	!PRERACE:%
 NAME:Stegocentipede
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Stench Kow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stench Kow]
+STARTPACK:Stench Kow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stench Kow]
 RACE:Stench Kow	!PRERACE:%
 NAME:Stench Kow
 ALIGN:TN
@@ -409,7 +409,7 @@ SKILL:Spot		RANK:3
 FEAT:Alertness
 FEAT:Great Fortitude
 
-STARTPACK:Default Stone Roper	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stone Roper]
+STARTPACK:Stone Roper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stone Roper]
 RACE:Stone Roper	!PRERACE:%
 NAME:Stone Roper
 ALIGN:CE
@@ -422,7 +422,7 @@ FEAT:Alertness
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Strand)
 
-STARTPACK:Default Stormwarden	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stormwarden]
+STARTPACK:Stormwarden Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stormwarden]
 RACE:Stormwarden	!PRERACE:%
 NAME:Stormwarden
 ALIGN:NE
@@ -437,7 +437,7 @@ GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 GEAR:Longbow	SIZE:PC	LOCATION:Carried
 GEAR:Leather	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Default Strangle Weed	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Strangle Weed]
+STARTPACK:Strangle Weed Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Strangle Weed]
 RACE:Strangle Weed	!PRERACE:%
 NAME:Strangle Weed
 ALIGN:TN
@@ -447,13 +447,13 @@ SKILL:Move Silently	RANK:3
 FEAT:Power Attack
 FEAT:Weapon Focus (Slam)
 
-STARTPACK:Default Stunjelly	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stunjelly]
+STARTPACK:Stunjelly Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stunjelly]
 RACE:Stunjelly	!PRERACE:%
 NAME:Stunjelly
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=11
 
-STARTPACK:Default Stymphalian Bird	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stymphalian Bird]
+STARTPACK:Stymphalian Bird Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stymphalian Bird]
 RACE:Stymphalian Bird	!PRERACE:%
 NAME:Stymphalian Bird
 ALIGN:TN
@@ -463,7 +463,7 @@ SKILL:Spot		RANK:4
 FEAT:Alertness
 FEAT:Weapon Focus (Feathers)
 
-STARTPACK:Default Swarm (Scarlet Spider)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Swarm (Scarlet Spider)]
+STARTPACK:Swarm (Scarlet Spider) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Swarm (Scarlet Spider)]
 RACE:Swarm (Scarlet Spider)	!PRERACE:%
 NAME:Swarm, Scarlet Spider
 ALIGN:TN

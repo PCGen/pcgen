@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Wind Walker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wind Walker]
+STARTPACK:Wind Walker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wind Walker]
 RACE:Wind Walker	!PRERACE:%
 NAME:Wind Walker
 ALIGN:TN
@@ -15,7 +15,7 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Toughness
 
-STARTPACK:Default Witherstench	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Witherstench]
+STARTPACK:Witherstench Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Witherstench]
 RACE:Witherstench	!PRERACE:%
 NAME:Witherstench
 ALIGN:TN
@@ -24,7 +24,7 @@ SKILL:Listen	RANK:3
 SKILL:Spot		RANK:2
 FEAT:Weapon Finesse
 
-STARTPACK:Default Witherweed	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Witherweed]
+STARTPACK:Witherweed Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Witherweed]
 RACE:Witherweed	!PRERACE:%
 NAME:Witherweed
 ALIGN:TN
@@ -39,7 +39,7 @@ SKILL:Hide		RANK:3
 SKILL:Listen	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Default Wolf (Ghoul)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wolf (Ghoul)]
+STARTPACK:Wolf (Ghoul) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wolf (Ghoul)]
 RACE:Wolf (Ghoul)	!PRERACE:%
 NAME:Ghoul Wolf
 ALIGN:NE
@@ -50,7 +50,7 @@ SKILL:Survival	RANK:2
 FEAT:Alertness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Wolf (Dire Ghoul)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wolf (Dire Ghoul)]
+STARTPACK:Wolf (Dire Ghoul) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wolf (Dire Ghoul)]
 RACE:Wolf (Dire Ghoul)	!PRERACE:%
 NAME:Dire Ghoul Wolf
 ALIGN:NE
@@ -66,7 +66,7 @@ FEAT:Run
 FEAT:Toughness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Wolf (Shadow)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wolf (Shadow)]
+STARTPACK:Wolf (Shadow) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wolf (Shadow)]
 RACE:Wolf (Shadow)	!PRERACE:%
 NAME:Wolf, Shadow
 ALIGN:CE
@@ -91,7 +91,7 @@ FEAT:Lightning Reflexes
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Tentacle)
 
-STARTPACK:Default Wolf-Spider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wolf-Spider]
+STARTPACK:Wolf-Spider Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wolf-Spider]
 RACE:Wolf-Spider	!PRERACE:%
 NAME:Wolf-Spider
 ALIGN:NE

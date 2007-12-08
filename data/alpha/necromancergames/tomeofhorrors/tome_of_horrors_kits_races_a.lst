@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Adherer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Adherer]
+STARTPACK:Adherer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Adherer]
 ALIGN:LE
 RACE:Adherer	!PRERACE:%
 NAME:Adherer
@@ -14,7 +14,7 @@ SKILL:Spot			RANK:2
 FEAT:Alertness
 FEAT:Weapon Focus (Slam)
 
-STARTPACK:Default Aerial Servant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aerial Servant]
+STARTPACK:Aerial Servant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aerial Servant]
 ALIGN:TN
 RACE:Aerial Servant	!PRERACE:%
 NAME:Aerial Servant
@@ -41,7 +41,7 @@ SKILL:Spot			RANK:4
 FEAT:Alertness
 FEAT:Iron Will
 
-STARTPACK:Default Algoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Algoid]
+STARTPACK:Algoid Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Algoid]
 RACE:Algoid	!PRERACE:%
 NAME:Algoid
 KIT:Common Algoid
@@ -60,7 +60,7 @@ RACE:Al-mi'raj	!PRERACE:%
 NAME:Al-mi'raj
 KIT:Common Al-mi'raj
 
-STARTPACK:Default Amphisbaena	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Amphisbaena]
+STARTPACK:Amphisbaena Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Amphisbaena]
 ALIGN:TN
 RACE:Amphisbaena	!PRERACE:%
 NAME:Amphisbaena
@@ -74,7 +74,7 @@ FEAT:Alertness
 FEAT:Toughness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Angel (Monadic Deva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Angel (Monadic Deva)]
+STARTPACK:Angel (Monadic Deva) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Angel (Monadic Deva)]
 ALIGN:LG|NG|CG
 RACE:Angel (Monadic Deva)	!PRERACE:%
 NAME:Angel, Monadic Deva
@@ -98,7 +98,7 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 GEAR:Mace (Heavy)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS3W.SMITE.ADAMANT_WEAP
 
-STARTPACK:Default Angel (Movanic Deva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Angel (Movanic Deva)]
+STARTPACK:Angel (Movanic Deva) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Angel (Movanic Deva)]
 ALIGN:LG|NG|CG
 RACE:Angel (Movanic Deva)	!PRERACE:%
 NAME:Angel, Movanic Deva
@@ -121,7 +121,7 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.FLM_M
 
-STARTPACK:Default Animal Lord (Cat Lord)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Lord (Cat Lord)]
+STARTPACK:Animal Lord (Cat Lord) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Lord (Cat Lord)]
 ALIGN:TN
 RACE:Animal Lord (Cat Lord)	!PRERACE:%
 NAME:Cat Lord
@@ -149,7 +149,7 @@ FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 FEAT:Multiattack
 
-STARTPACK:Default Animal Lord (Mouse Lord)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Lord (Mouse Lord)]
+STARTPACK:Animal Lord (Mouse Lord) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Lord (Mouse Lord)]
 ALIGN:TN
 RACE:Animal Lord (Mouse Lord)	!PRERACE:%
 NAME:Mouse Lord
@@ -173,13 +173,13 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Weapon Finesse
 
-STARTPACK:Default Ant Lion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ant Lion]
+STARTPACK:Ant Lion Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ant Lion]
 ALIGN:TN
 RACE:Ant Lion	!PRERACE:%
 NAME:Ant Lion
 STAT:STR=10|DEX=11|CON=11|WIS=11|CHA=11
 
-STARTPACK:Default Apparition	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Apparition]
+STARTPACK:Apparition Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Apparition]
 ALIGN:CE
 RACE:Apparition	!PRERACE:%
 NAME:Apparition
@@ -195,7 +195,7 @@ FEAT:Alertness
 FEAT:Blind Fight
 FEAT:Improved Initiative
 
-STARTPACK:Default Archer Bush	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Archer Bush]
+STARTPACK:Archer Bush Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Archer Bush]
 ALIGN:TN
 RACE:Archer Bush	!PRERACE:%
 NAME:Archer Bush
@@ -204,13 +204,13 @@ SKILL:Hide			RANK:3
 SKILL:Move Silently	RANK:2
 FEAT:Weapon Focus (Thorns)
 
-STARTPACK:Default Ascomoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ascomoid]
+STARTPACK:Ascomoid Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ascomoid]
 ALIGN:TN
 RACE:Ascomoid	!PRERACE:%
 NAME:Ascomoid
 STAT:STR=10|DEX=11|CON=11|WIS=11|CHA=11
 
-STARTPACK:Default Astral Shark	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Shark]
+STARTPACK:Astral Shark Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Shark]
 ALIGN:TN
 RACE:Astral Shark	!PRERACE:%
 NAME:Astral Shark
@@ -225,7 +225,7 @@ FEAT:Alertness
 FEAT:Improved Critical (Bite)
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Atomie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Atomie]
+STARTPACK:Atomie Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Atomie]
 ALIGN:CN
 RACE:Atomie	!PRERACE:%
 NAME:Atomie
@@ -245,7 +245,7 @@ FEAT:Dodge
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Aurumvorax	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aurumvorax]
+STARTPACK:Aurumvorax Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aurumvorax]
 ALIGN:TN
 RACE:Aurumvorax	!PRERACE:%
 NAME:Aurumvorax
@@ -259,7 +259,7 @@ FEAT:Endurance
 FEAT:Great Fortitude
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Axe Beak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Axe Beak]
+STARTPACK:Axe Beak Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Axe Beak]
 ALIGN:TN
 RACE:Axe Beak	!PRERACE:%
 NAME:Axe Beak

@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Algoid (Psionic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Algoid (Psionic)]
+STARTPACK:Algoid (Psionic) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Algoid (Psionic)]
 RACE:Algoid (Psionic)	!PRERACE:%
 NAME:Algoid
 KIT:Common Algoid
@@ -13,7 +13,7 @@ NAME:Al-mi'raj, Psionic
 KIT:Common Al-mi'raj
 SKILL:Listen	RANK:1
 
-STARTPACK:Default Elemental (Psionic/Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Small)]
+STARTPACK:Elemental (Psionic/Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Small)]
 RACE:Elemental (Psionic/Small)	!PRERACE:%
 NAME:Elemental, Psionic - Small
 ALIGN:TN
@@ -25,7 +25,7 @@ SKILL:Listen			RANK:1
 SKILL:Spot				RANK:1
 FEAT:Combat Manifestation
 
-STARTPACK:Default Elemental (Psionic/Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Medium)]
+STARTPACK:Elemental (Psionic/Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Medium)]
 RACE:Elemental (Psionic/Medium)	!PRERACE:%
 NAME:Elemental, Psionic - Medium
 ALIGN:TN
@@ -38,7 +38,7 @@ SKILL:Spot				RANK:2
 FEAT:Combat Manifestation
 FEAT:Combat Reflexes
 
-STARTPACK:Default Elemental (Psionic/Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Large)]
+STARTPACK:Elemental (Psionic/Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Large)]
 RACE:Elemental (Psionic/Large)	!PRERACE:%
 NAME:Elemental, Psionic - Large
 ALIGN:TN
@@ -52,7 +52,7 @@ FEAT:Combat Manifestation
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
-STARTPACK:Default Elemental (Psionic/Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Huge)]
+STARTPACK:Elemental (Psionic/Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Huge)]
 RACE:Elemental (Psionic/Huge)	!PRERACE:%
 NAME:Elemental, Psionic - Huge
 ALIGN:TN
@@ -69,7 +69,7 @@ FEAT:Improved Initiative
 FEAT:Rapid Metabolism
 FEAT:Weapon Finesse
 
-STARTPACK:Default Elemental (Psionic/Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Greater)]
+STARTPACK:Elemental (Psionic/Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Greater)]
 RACE:Elemental (Psionic/Greater)	!PRERACE:%
 NAME:Elemental, Psionic - Greater
 ALIGN:TN
@@ -89,7 +89,7 @@ FEAT:Psionic Hole
 FEAT:Rapid Metabolism
 FEAT:Weapon Finesse
 
-STARTPACK:Default Elemental (Psionic/Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Elder)]
+STARTPACK:Elemental (Psionic/Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Psionic/Elder)]
 RACE:Elemental (Psionic/Elder)	!PRERACE:%
 NAME:Elemental, Psionic - Elder
 ALIGN:TN
@@ -109,7 +109,7 @@ FEAT:Psionic Hole
 FEAT:Rapid Metabolism
 FEAT:Weapon Finesse
 
-STARTPACK:Default Rat (Brain/Psionic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Rat (Brain/Psionic)]
+STARTPACK:Rat (Brain/Psionic) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Rat (Brain/Psionic)]
 RACE:Rat (Brain/Psionic)	!PRERACE:%
 NAME:Rat, Brain
 ALIGN:TN

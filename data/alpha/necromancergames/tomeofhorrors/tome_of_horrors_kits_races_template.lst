@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Abomination (Owlephant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Owlephant)]
+STARTPACK:Abomination (Owlephant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Owlephant)]
 RACE:Abomination (Owlephant)	!PRERACE:%
 NAME:Owlephant
 ALIGN:TN
@@ -14,7 +14,7 @@ FEAT:Endurance
 FEAT:Iron Will
 FEAT:Skill Focus (Listen)
 
-STARTPACK:Default Abomination (Tigrilla)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Tigrilla)]
+STARTPACK:Abomination (Tigrilla) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Tigrilla)]
 RACE:Abomination (Tigrilla)	!PRERACE:%
 NAME:Tigrilla
 ALIGN:CE
@@ -35,7 +35,7 @@ NAME:Bleeding Horror Minotaur
 TEMPLATE:Bleeding Horror
 ALIGN:CE
 
-STARTPACK:Default Dire Bison	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Bison]
+STARTPACK:Dire Bison Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Bison]
 RACE:Dire Bison	!PRERACE:%
 NAME:Dire Bison
 ALIGN:TN
@@ -47,7 +47,7 @@ FEAT:Endurance
 FEAT:Great Fortitude
 FEAT:Power Attack
 
-STARTPACK:Default Dire Goat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Goat]
+STARTPACK:Dire Goat Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Goat]
 RACE:Dire Goat	!PRERACE:%
 NAME:Dire Goat
 ALIGN:TN
@@ -57,7 +57,7 @@ SKILL:Spot		RANK:2
 FEAT:Alertness
 FEAT:Great Fortitude
 
-STARTPACK:Default Dire Hippopotamus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Hippopotamus]
+STARTPACK:Dire Hippopotamus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Hippopotamus]
 RACE:Dire Hippopotamus	!PRERACE:%
 NAME:Dire Hippopotamus (Behemoth)
 ALIGN:TN
@@ -70,7 +70,7 @@ FEAT:Great Fortitude
 FEAT:Toughness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Dire Porcupine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Porcupine]
+STARTPACK:Dire Porcupine Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Porcupine]
 RACE:Dire Porcupine	!PRERACE:%
 NAME:Dire Porcupine
 ALIGN:TN
@@ -79,7 +79,7 @@ SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
 FEAT:Weapon Focus (Quills)
 
-STARTPACK:Default Dire Ram	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Ram]
+STARTPACK:Dire Ram Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Ram]
 RACE:Dire Ram	!PRERACE:%
 NAME:Dire Ram
 ALIGN:TN
@@ -89,7 +89,7 @@ SKILL:Spot		RANK:4
 FEAT:Alertness
 FEAT:Endurance
 
-STARTPACK:Default Foo Dog	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Foo Dog]
+STARTPACK:Foo Dog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Foo Dog]
 RACE:Foo Dog	!PRERACE:%
 NAME:Foo Dog
 ALIGN:CG
@@ -132,7 +132,7 @@ GEAR:Cloak of Resistance +2	SIZE:PC	LOCATION:Equipped
 GEAR:Boots of Speed		SIZE:PC	LOCATION:Equipped
 TEMPLATE:Skeleton Warrior
 
-STARTPACK:Default Slime Zombie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slime Zombie]
+STARTPACK:Slime Zombie Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slime Zombie]
 RACE:Slime Zombie	!PRERACE:%
 NAME:Slime Zombie
 ALIGN:TN
@@ -142,7 +142,7 @@ SKILL:Spot		RANK:3
 FEAT:Alertness
 FEAT:Weapon Focus (Morningstar)
 
-STARTPACK:Default Spectral Troll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Spectral Troll]
+STARTPACK:Spectral Troll Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Spectral Troll]
 RACE:Spectral Troll	!PRERACE:%
 NAME:Spectral Troll
 ALIGN:CE

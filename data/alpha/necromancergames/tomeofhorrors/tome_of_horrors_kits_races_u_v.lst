@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Ubue	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ubue]
+STARTPACK:Ubue Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ubue]
 RACE:Ubue	!PRERACE:%
 NAME:Ubue
 ALIGN:CG|CN|CE
@@ -19,13 +19,13 @@ GEAR:Club	SIZE:PC	LOCATION:Primary Hand
 GEAR:Club	SIZE:PC	LOCATION:Secondary Hand
 GEAR:Club	SIZE:PC	LOCATION:Secondary Hand2
 
-STARTPACK:Default Vampire Rose	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire Rose]
+STARTPACK:Vampire Rose Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire Rose]
 RACE:Vampire Rose	!PRERACE:%
 NAME:Vampire Rose
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=10
 
-STARTPACK:Default Vegepygmy (Commoner)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Commoner)]
+STARTPACK:Vegepygmy (Commoner) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Commoner)]
 RACE:Vegepygmy (Commoner)	!PRERACE:%
 NAME:Commoner
 ALIGN:TN
@@ -37,7 +37,7 @@ SKILL:Spot			RANK:1
 FEAT:Alertness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Vegepygmy (Worker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Worker)]
+STARTPACK:Vegepygmy (Worker) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Worker)]
 RACE:Vegepygmy (Worker)	!PRERACE:%
 NAME:Worker
 ALIGN:TN
@@ -49,7 +49,7 @@ SKILL:Spot			RANK:1
 FEAT:Alertness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Vegepygmy (Guard)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Guard)]
+STARTPACK:Vegepygmy (Guard) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Guard)]
 RACE:Vegepygmy (Guard)	!PRERACE:%
 NAME:Guard
 ALIGN:TN
@@ -62,7 +62,7 @@ FEAT:Alertness
 FEAT:Toughness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Vegepygmy (Bodyguard)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Bodyguard)]
+STARTPACK:Vegepygmy (Bodyguard) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Bodyguard)]
 RACE:Vegepygmy (Bodyguard)	!PRERACE:%
 NAME:Bodyguard
 ALIGN:TN
@@ -75,7 +75,7 @@ FEAT:Alertness
 FEAT:Toughness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Vegepygmy (Subchief)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Subchief)]
+STARTPACK:Vegepygmy (Subchief) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Subchief)]
 RACE:Vegepygmy (Subchief)	!PRERACE:%
 NAME:Subchief
 ALIGN:TN
@@ -88,7 +88,7 @@ FEAT:Alertness
 FEAT:Weapon Focus (Longspear)
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Vegepygmy (Chief)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Chief)]
+STARTPACK:Vegepygmy (Chief) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Chief)]
 RACE:Vegepygmy (Chief)	!PRERACE:%
 NAME:Chief
 ALIGN:TN
@@ -102,7 +102,7 @@ FEAT:Toughness
 FEAT:Weapon Focus (Longspear)
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Vilstrak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vilstrak]
+STARTPACK:Vilstrak Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vilstrak]
 RACE:Vilstrak	!PRERACE:%
 NAME:Vilstrak (Tunnel Thug)
 ALIGN:TN
@@ -112,7 +112,7 @@ SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 FEAT:Alertness
 
-STARTPACK:Default Volt	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Volt]
+STARTPACK:Volt Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Volt]
 RACE:Volt	!PRERACE:%
 NAME:Volt
 ALIGN:TN
@@ -121,7 +121,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:3
 FEAT:Weapon Finesse
 
-STARTPACK:Default Vulchling	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vulchling]
+STARTPACK:Vulchling Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vulchling]
 RACE:Vulchling	!PRERACE:%
 NAME:Vulchling
 ALIGN:CE

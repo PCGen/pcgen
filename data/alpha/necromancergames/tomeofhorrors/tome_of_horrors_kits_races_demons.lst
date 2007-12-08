@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Demon (Aeshma)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Aeshma)]
+STARTPACK:Demon (Aeshma) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Aeshma)]
 ALIGN:CE
 RACE:Demon (Aeshma)	!PRERACE:%
 NAME:Demon, Aeshma (Rage Demon)
@@ -24,7 +24,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Longspear)
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.WOUND
 
-STARTPACK:Default Demon (Alu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Alu)]
+STARTPACK:Demon (Alu) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Alu)]
 ALIGN:CE
 RACE:Demon (Alu)	!PRERACE:%
 NAME:Demon, Alu-
@@ -43,7 +43,7 @@ FEAT:Cleave
 FEAT:Power Attack
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Demon (Baphomet)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Baphomet)]
+STARTPACK:Demon (Baphomet) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Baphomet)]
 ALIGN:CE
 RACE:Demon (Baphomet)	!PRERACE:%
 NAME:Demon: Baphomet (Demon Lord)
@@ -82,7 +82,7 @@ GEAR:Halberd	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS4W.UNHLY_M.SPEED
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Detect Magic|Flare|Ghost Sound|Touch of Fatigue|Burning Hands|Feather Fall|Jump|Obscuring Mist|Protection from Law|Ray of Enfeeblement|Blur|Bull's Strength|Flaming Sphere|Acid Arrow|Protection from Arrows|Summon Swarm|Blink|Deep Slumber|Fly|Lightning Bolt|Rage|Slow|Bestow Curse|Dimensional Anchor|Enervation|Globe of Invulnerability (Lesser)|Locate Creature|Wall of Fire
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Cloudkill|Feeblemind|Mind Fog|Summon Monster V|Waves of Fatigue|Eyebite|Globe of Invulnerability|Repulsion|Circle of Death|Mislead|Insanity|Limited Wish|Hold Person (Mass)|Spell Turning|Summon Monster VII|Dimensional Lock|Shout (Greater)|Incendiary Cloud|Maze|Polar Ray|Imprisonment|Meteor Swarm|Mage's Disjunction|Weird
 
-STARTPACK:Default Demon (Beluiri)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Beluiri)]
+STARTPACK:Demon (Beluiri) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Beluiri)]
 ALIGN:CE
 RACE:Demon (Beluiri)	!PRERACE:%
 NAME:Demon: Beluiri (The Temptress)
@@ -109,7 +109,7 @@ FEAT:Combat Reflexes
 FEAT:Dodge
 FEAT:Iron Will
 
-STARTPACK:Default Demon (Cambion)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Cambion)]
+STARTPACK:Demon (Cambion) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Cambion)]
 ALIGN:CE
 RACE:Demon (Cambion)	!PRERACE:%
 NAME:Demon, Cambion
@@ -130,7 +130,7 @@ FEAT:Cleave
 FEAT:Power Attack
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Demon (Dagon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Dagon)]
+STARTPACK:Demon (Dagon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Dagon)]
 ALIGN:CE
 RACE:Demon (Dagon)	!PRERACE:%
 NAME:Demon: Dagon (Demon Prince of Sea Creatures)
@@ -179,7 +179,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Control Weather|Finger of Death|Li
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Antipathy|Dimensional Lock|Horrid Wilting=2|Prismatic Wall
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Mage's Disjunction|Soul Bind|Teleportation Circle|Time Stop
 
-STARTPACK:Default Demon of Corruption (Barizou)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon of Corruption (Barizou)]
+STARTPACK:Demon of Corruption (Barizou) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon of Corruption (Barizou)]
 ALIGN:CE
 RACE:Demon of Corruption (Barizou)	!PRERACE:%
 NAME:Barizou
@@ -193,7 +193,7 @@ SKILL:Survival		RANK:6
 FEAT:Multiattack
 FEAT:Weapon Finesse
 
-STARTPACK:Default Demon of Corruption (Azizou)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon of Corruption (Azizou)]
+STARTPACK:Demon of Corruption (Azizou) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon of Corruption (Azizou)]
 ALIGN:CE
 RACE:Demon of Corruption (Azizou)	!PRERACE:%
 NAME:Azizou
@@ -208,7 +208,7 @@ SKILL:Spot			RANK:7
 FEAT:Multiattack
 FEAT:Weapon Finesse
 
-STARTPACK:Default Demon of Corruption (Geruzou)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon of Corruption (Geruzou)]
+STARTPACK:Demon of Corruption (Geruzou) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon of Corruption (Geruzou)]
 ALIGN:CE
 RACE:Demon of Corruption (Geruzou)	!PRERACE:%
 NAME:Geruzou
@@ -224,7 +224,7 @@ SKILL:Survival		RANK:8
 FEAT:Multiattack
 FEAT:Weapon Finesse
 
-STARTPACK:Default Demon (Daraka)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Daraka)]
+STARTPACK:Demon (Daraka) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Daraka)]
 ALIGN:CE
 RACE:Demon (Daraka)	!PRERACE:%
 NAME:Demon, Daraka
@@ -294,7 +294,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Finger of Death|Hold Person (Mass)|
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Binding|Charm Monster (Mass)|Summon Monster VIII
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dominate Monster|Power Word Kill|Wail of the Banshee
 
-STARTPACK:Default Demon (Gharros)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Gharros)]
+STARTPACK:Demon (Gharros) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Gharros)]
 ALIGN:CE
 RACE:Demon (Gharros)	!PRERACE:%
 NAME:Demon, Gharros (Scorpion Demon)
@@ -322,7 +322,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Tail Sting)
 GEAR:Battleaxe	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Demon (Jubilex)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Jubilex)]
+STARTPACK:Demon (Jubilex) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Jubilex)]
 ALIGN:CE
 RACE:Demon (Jubilex)	!PRERACE:%
 NAME:Demon: Jubilex "The Faceless Lord" (Demon Lord)
@@ -368,7 +368,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Control Weather|Destruction=2|Repu
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Antimagic Field|Dimensional Lock|Fire Storm|Inflict Critical Wounds (Mass)=2
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Energy Drain|Heal (Mass)|Miracle|Soul Bind|True Resurrection
 
-STARTPACK:Default Demon (Kostchtchie)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Kostchtchie)]
+STARTPACK:Demon (Kostchtchie) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Kostchtchie)]
 ALIGN:CE
 RACE:Demon (Kostchtchie)	!PRERACE:%
 NAME:Demon: Kostchtchie (Demon Lord)
@@ -413,7 +413,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Control Weather|Delayed Blast Cold
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Incendiary Cloud|Mind Blank|Polymorph Any Object|Trap the Soul
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Prismatic Sphere|Foresight|Power Word Kill|Shades
 
-STARTPACK:Default Demon (Maphistal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Maphistal)]
+STARTPACK:Demon (Maphistal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Maphistal)]
 ALIGN:CE
 RACE:Demon (Maphistal)	!PRERACE:%
 NAME:Demon: Maphistal
@@ -442,7 +442,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 GEAR:Mace (Heavy)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS3W.UNHLY_M.CRUSH
 
-STARTPACK:Default Demon (Nabasu (Demonling))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Nabasu (Demonling))]
+STARTPACK:Demon (Nabasu (Demonling)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Nabasu (Demonling))]
 ALIGN:CE
 RACE:Demon (Nabasu (Demonling))	!PRERACE:%
 NAME:Demon, Nabasu, Demonling (Death Stealer)
@@ -463,7 +463,7 @@ FEAT:Improved Initiative
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Demon (Nabasu (Mature))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Nabasu (Mature))]
+STARTPACK:Demon (Nabasu (Mature)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Nabasu (Mature))]
 ALIGN:CE
 RACE:Demon (Nabasu (Mature))	!PRERACE:%
 NAME:Demon, Nabasu, Mature (Death Stealer)
@@ -486,7 +486,7 @@ FEAT:Improved Initiative
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Demon (Nerizo)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Nerizo)]
+STARTPACK:Demon (Nerizo) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Nerizo)]
 ALIGN:CE
 RACE:Demon (Nerizo)	!PRERACE:%
 NAME:Demon, Nerizo
@@ -505,7 +505,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Track
 
-STARTPACK:Default Demon (Orcus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Orcus)]
+STARTPACK:Demon (Orcus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Orcus)]
 ALIGN:CE
 RACE:Demon (Orcus)	!PRERACE:%
 NAME:Demon: Orcus (Demon Prince of Undead)
@@ -566,7 +566,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Geas/Quest|Harm|Inflict Moderate W
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Inflict Serious Wounds (Mass)|Repulsion|Word of Chaos
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cloak of Chaos|Inflict Critical Wounds (Mass)
 
-STARTPACK:Default Demon (Pazuzu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Pazuzu)]
+STARTPACK:Demon (Pazuzu) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Pazuzu)]
 ALIGN:CE
 RACE:Demon (Pazuzu)	!PRERACE:%
 NAME:Demon: Pazuzu (Demon Prince of Air)
@@ -615,7 +615,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Moment of Prescience|Sunburst|Whirl
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Soul Bind|Meteor Swarm|Prismatic Sphere
 SPELLS:SPELLBOOK=Known Spells|CLASS=Epic Spells (Arcane/CHA)|Eclipse|Nailed to the Sky|Rain of Fire
 
-STARTPACK:Default Demon (Shadow)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Shadow)]
+STARTPACK:Demon (Shadow) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Shadow)]
 ALIGN:CE
 RACE:Demon (Shadow)	!PRERACE:%
 NAME:Demon, Shadow
@@ -634,7 +634,7 @@ FEAT:Alertness
 FEAT:Blind Fight
 FEAT:Improved Initiative
 
-STARTPACK:Default Demon (Sonechard)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Sonechard)]
+STARTPACK:Demon (Sonechard) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Sonechard)]
 ALIGN:CE
 RACE:Demon (Sonechard)	!PRERACE:%
 NAME:Demon: Sonechard
@@ -664,7 +664,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Pick (Heavy))
 GEAR:Pick (Heavy)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.UNHLY_M.WOUND
 
-STARTPACK:Default Demon (Stirge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Stirge)]
+STARTPACK:Demon (Stirge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Stirge)]
 ALIGN:CE
 RACE:Demon (Stirge)	!PRERACE:%
 NAME:Demon, Stirge
@@ -685,7 +685,7 @@ FEAT:Cleave
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Demon (Tsathogga)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Tsathogga)]
+STARTPACK:Demon (Tsathogga) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Tsathogga)]
 ALIGN:CE
 RACE:Demon (Tsathogga)	!PRERACE:%
 NAME:Demon: Tsathogga (The Frog Demon God)

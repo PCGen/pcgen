@@ -16,10 +16,10 @@ SKILL:Spot			RANK:4
 FEAT:Dodge
 FEAT:Lightning Reflexes
 
-STARTPACK:Default Eblis	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eblis]
+STARTPACK:Eblis Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eblis]
 KIT:Common Eblis
 
-STARTPACK:Default Eblis (Spell User)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eblis]
+STARTPACK:Eblis (Spell User) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eblis]
 KIT:Common Eblis
 SELECT:roll("2d4")
 KIT:Eblis Spells	OPTION:1,2
@@ -42,7 +42,7 @@ TEMPLATE:Eblis (Blur)			OPTION:6
 TEMPLATE:Eblis (Hypnotic Pattern)	OPTION:7
 TEMPLATE:Eblis (Whispering Wind)	OPTION:8
 
-STARTPACK:Default Eel (Giant Moray)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eel (Giant Moray)]
+STARTPACK:Eel (Giant Moray) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eel (Giant Moray)]
 ALIGN:TN
 RACE:Eel (Giant Moray)	!PRERACE:%
 NAME:Eel, Giant Moray
@@ -54,7 +54,7 @@ SKILL:Swim		RANK:3
 FEAT:Alertness
 FEAT:Weapon Finesse
 
-STARTPACK:Default Elemental (Time/Common)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Time/Common)]
+STARTPACK:Elemental (Time/Common) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Time/Common)]
 ALIGN:TN
 RACE:Elemental (Time/Common)	!PRERACE:%
 NAME:Elemental, Time - Common
@@ -69,7 +69,7 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Weapon Finesse
 
-STARTPACK:Default Elemental (Time/Noble)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Time/Noble)]
+STARTPACK:Elemental (Time/Noble) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Time/Noble)]
 ALIGN:TN
 RACE:Elemental (Time/Noble)	!PRERACE:%
 NAME:Elemental, Time - Noble
@@ -88,7 +88,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Weapon Finesse
 
-STARTPACK:Default Elemental (Time/Royal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Time/Royal)]
+STARTPACK:Elemental (Time/Royal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental (Time/Royal)]
 ALIGN:TN
 RACE:Elemental (Time/Royal)	!PRERACE:%
 NAME:Elemental, Time - Royal
@@ -111,7 +111,7 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 FEAT:Weapon Finesse
 
-STARTPACK:Default Elemental Dragon (Air)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental Dragon (Air)]
+STARTPACK:Elemental Dragon (Air) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental Dragon (Air)]
 ALIGN:LE|NE|CE
 RACE:Elemental Dragon (Air)	!PRERACE:%
 NAME:Elemental Dragon, Air
@@ -132,7 +132,7 @@ FEAT:Snatch
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Default Elemental Dragon (Earth)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental Dragon (Earth)]
+STARTPACK:Elemental Dragon (Earth) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental Dragon (Earth)]
 ALIGN:LE|NE|CE
 RACE:Elemental Dragon (Earth)	!PRERACE:%
 NAME:Elemental Dragon, Earth
@@ -153,7 +153,7 @@ FEAT:Snatch
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Default Elemental Dragon (Fire)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental Dragon (Fire)]
+STARTPACK:Elemental Dragon (Fire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental Dragon (Fire)]
 ALIGN:LE|NE|CE
 RACE:Elemental Dragon (Fire)	!PRERACE:%
 NAME:Elemental Dragon, Fire
@@ -173,7 +173,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Default Elemental Dragon (Water)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental Dragon (Water)]
+STARTPACK:Elemental Dragon (Water) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elemental Dragon (Water)]
 ALIGN:LE|NE|CE
 RACE:Elemental Dragon (Water)	!PRERACE:%
 NAME:Elemental Dragon, Water
@@ -202,7 +202,7 @@ SKILL:Listen	RANK:3
 SKILL:Spot		RANK:2
 FEAT:Alertness
 
-STARTPACK:Default Eye Killer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eye Killer]
+STARTPACK:Eye Killer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eye Killer]
 ALIGN:CE
 RACE:Eye Killer	!PRERACE:%
 NAME:Eye Killer
@@ -212,7 +212,7 @@ SKILL:Move Silently	RANK:1
 FEAT:Alertness
 FEAT:Weapon Focus (Tail Slap)
 
-STARTPACK:Default Eye Killer (Umbral)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eye Killer (Umbral)]
+STARTPACK:Eye Killer (Umbral) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eye Killer (Umbral)]
 ALIGN:CE
 RACE:Eye Killer (Umbral)	!PRERACE:%
 NAME:Umbral Eye Killer
@@ -222,7 +222,7 @@ SKILL:Move Silently	RANK:1
 FEAT:Alertness
 FEAT:Weapon Focus (Tail Slap)
 
-STARTPACK:Default Eye of the Deep	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eye of the Deep]
+STARTPACK:Eye of the Deep Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eye of the Deep]
 ALIGN:LE
 RACE:Eye of the Deep	!PRERACE:%
 NAME:Eye of the Deep

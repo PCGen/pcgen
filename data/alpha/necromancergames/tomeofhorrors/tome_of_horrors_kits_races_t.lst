@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Tabaxi	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tabaxi]
+STARTPACK:Tabaxi Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tabaxi]
 RACE:Tabaxi	!PRERACE:%
 NAME:Tabaxi
 ALIGN:CN
@@ -15,7 +15,7 @@ FEAT:Weapon Finesse
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Javelin		SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Taer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Taer]
+STARTPACK:Taer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Taer]
 RACE:Taer	!PRERACE:%
 NAME:Taer
 ALIGN:TN
@@ -28,7 +28,7 @@ FEAT:Alertness
 FEAT:Multiattack
 GEAR:Shortspear	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Tenebrous Worm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tenebrous Worm]
+STARTPACK:Tenebrous Worm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tenebrous Worm]
 RACE:Tenebrous Worm	!PRERACE:%
 NAME:Tenebrous Worm
 ALIGN:TN
@@ -42,7 +42,7 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Tentamort	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tentamort]
+STARTPACK:Tentamort Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tentamort]
 RACE:Tentamort	!PRERACE:%
 NAME:Tentamort
 ALIGN:TN
@@ -53,7 +53,7 @@ SKILL:Move Silently	RANK:5
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 
-STARTPACK:Default Thorny	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thorny]
+STARTPACK:Thorny Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thorny]
 RACE:Thorny	!PRERACE:%
 NAME:Thorny
 ALIGN:TN
@@ -65,7 +65,7 @@ SKILL:Spot			RANK:2
 FEAT:Alertness
 FEAT:Combat Reflexes
 
-STARTPACK:Default Thunder Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thunder Beast]
+STARTPACK:Thunder Beast Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thunder Beast]
 RACE:Thunder Beast	!PRERACE:%
 NAME:Thunder Beast
 ALIGN:TN
@@ -75,13 +75,13 @@ SKILL:Spot		RANK:5
 FEAT:Alertness
 FEAT:Power Attack
 
-STARTPACK:Default Tick (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tick (Giant)]
+STARTPACK:Tick (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tick (Giant)]
 RACE:Tick (Giant)	!PRERACE:%
 NAME:Tick, Giant
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|WIS=10|CHA=10
 
-STARTPACK:Default Transposer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Transposer]
+STARTPACK:Transposer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Transposer]
 RACE:Transposer	!PRERACE:%
 NAME:Transposer
 ALIGN:TN
@@ -94,7 +94,7 @@ FEAT:Alertness
 FEAT:Dodge
 FEAT:Skill Focus (Disguise)
 
-STARTPACK:Default Trapper	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Trapper]
+STARTPACK:Trapper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Trapper]
 RACE:Trapper	!PRERACE:%
 NAME:Trapper
 ALIGN:TN
@@ -109,13 +109,13 @@ FEAT:Improved Initiative
 FEAT:Skill Focus (Hide)
 FEAT:Toughness
 
-STARTPACK:Default Tri Flower Frond	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tri Flower Frond]
+STARTPACK:Tri Flower Frond Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tri Flower Frond]
 RACE:Tri Flower Frond	!PRERACE:%
 NAME:Tri-Flower Frond
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=11
 
-STARTPACK:Default Troll (Cave)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Cave)]
+STARTPACK:Troll (Cave) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Cave)]
 RACE:Troll (Cave)	!PRERACE:%
 NAME:Troll, Cave
 ALIGN:CE
@@ -125,7 +125,7 @@ SKILL:Spot		RANK:4
 FEAT:Alertness
 FEAT:Multiattack
 
-STARTPACK:Default Troll (Ice)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Ice)]
+STARTPACK:Troll (Ice) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Ice)]
 RACE:Troll (Ice)	!PRERACE:%
 NAME:Troll, Ice
 ALIGN:CE
@@ -134,7 +134,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:3
 FEAT:Alertness
 
-STARTPACK:Default Troll (Rock)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Rock)]
+STARTPACK:Troll (Rock) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Rock)]
 RACE:Troll (Rock)	!PRERACE:%
 NAME:Troll, Rock
 ALIGN:CE
@@ -145,7 +145,7 @@ FEAT:Alertness
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Troll (Swamp)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Swamp)]
+STARTPACK:Troll (Swamp) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Swamp)]
 RACE:Troll (Swamp)	!PRERACE:%
 NAME:Troll, Swamp
 ALIGN:CE
@@ -158,7 +158,7 @@ SKILL:Survival		RANK:1
 FEAT:Alertness
 FEAT:Iron Will
 
-STARTPACK:Default Troll (Two Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Two Headed)]
+STARTPACK:Troll (Two Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Two Headed)]
 RACE:Troll (Two Headed)	!PRERACE:%
 NAME:Troll, Two-Headed
 ALIGN:CE
@@ -173,7 +173,7 @@ FEAT:Power Attack
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand
 
-STARTPACK:Default Tsathar (Tsathar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tsathar (Tsathar)]
+STARTPACK:Tsathar (Tsathar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tsathar (Tsathar)]
 RACE:Tsathar (Tsathar)	!PRERACE:%
 NAME:Tsathar
 ALIGN:CE
@@ -190,7 +190,7 @@ SKILL:Swim			RANK:2
 FEAT:Improved Initiative
 GEAR:Shortspear	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Tsathar (Tsathar Scourge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tsathar (Tsathar Scourge)]
+STARTPACK:Tsathar (Tsathar Scourge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tsathar (Tsathar Scourge)]
 RACE:Tsathar (Tsathar Scourge)	!PRERACE:%
 NAME:Tsathar Scourge
 ALIGN:CE
@@ -207,7 +207,7 @@ SKILL:Swim			RANK:2
 FEAT:Improved Initiative
 GEAR:Shortspear	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Tunnel Worm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tunnel Worm]
+STARTPACK:Tunnel Worm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tunnel Worm]
 RACE:Tunnel Worm	!PRERACE:%
 NAME:Tunnel Worm
 ALIGN:TN

@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Inphidian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Inphidian]
+STARTPACK:Inphidian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Inphidian]
 ALIGN:NE
 RACE:Inphidian	!PRERACE:%
 NAME:Inphidian
@@ -16,14 +16,14 @@ SKILL:Spot				RANK:3
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Default Iron Cobra	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Iron Cobra]
+STARTPACK:Iron Cobra Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Iron Cobra]
 GENDER:None
 ALIGN:TN
 RACE:Iron Cobra	!PRERACE:%
 NAME:Iron Cobra
 STAT:STR=10|DEX=11|WIS=11|CHA=11
 
-STARTPACK:Default Jack-O-Lantern	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jack-O-Lantern]
+STARTPACK:Jack-O-Lantern Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jack-O-Lantern]
 ALIGN:TN
 RACE:Jack-O-Lantern	!PRERACE:%
 NAME:Jack-O-Lantern	GENDER:None
@@ -35,7 +35,7 @@ FEAT:Dodge
 FEAT:Mobility
 FEAT:Stealthy
 
-STARTPACK:Default Jaculi	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jaculi]
+STARTPACK:Jaculi Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jaculi]
 ALIGN:TN
 RACE:Jaculi	!PRERACE:%
 NAME:Jaculi
@@ -44,13 +44,13 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 FEAT:Weapon Finesse
 
-STARTPACK:Default Jellyfish (Monstrous)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jellyfish (Monstrous)]
+STARTPACK:Jellyfish (Monstrous) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jellyfish (Monstrous)]
 ALIGN:TN
 RACE:Jellyfish (Monstrous)	!PRERACE:%
 NAME:Jellyfish, Monstrous
 STAT:STR=11|DEX=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Default Jupiter Bloodsucker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jupiter Bloodsucker]
+STARTPACK:Jupiter Bloodsucker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jupiter Bloodsucker]
 ALIGN:TN
 RACE:Jupiter Bloodsucker	!PRERACE:%
 NAME:Jupiter Bloodsucker

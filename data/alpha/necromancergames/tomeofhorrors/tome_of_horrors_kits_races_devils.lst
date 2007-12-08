@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Devil (Amon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Amon)]
+STARTPACK:Devil (Amon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Amon)]
 ALIGN:LE
 RACE:Devil (Amon)	!PRERACE:%
 NAME:Devil: Amon (Duke of Hell)
@@ -40,7 +40,7 @@ FEAT:Blinding Speed
 FEAT:Overwhelming Critical (Mace (Heavy))
 GEAR:Mace (Heavy)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.LAW_M.THNDR_M
 
-STARTPACK:Default Devil (Baaphel)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Baaphel)]
+STARTPACK:Devil (Baaphel) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Baaphel)]
 ALIGN:LE
 RACE:Devil (Baaphel)	!PRERACE:%
 NAME:Devil: Baaphel (Duke of Hell)
@@ -72,7 +72,7 @@ FEAT:Weapon Focus (Scythe)
 GEAR:Chainmail	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
 GEAR:Scythe		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W.LAW_M.KEEN
 
-STARTPACK:Default Devil (Bael)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Bael)]
+STARTPACK:Devil (Bael) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Bael)]
 ALIGN:LE
 RACE:Devil (Bael)	!PRERACE:%
 NAME:Devil: Bael (Duke of Hell)
@@ -108,7 +108,7 @@ FEAT:Weapon Focus (Morningstar)
 GEAR:Chainmail	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
 GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKA.PLUS4W.UNHLY_M.TELE
 
-STARTPACK:Default Devil (Geryon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Geryon)]
+STARTPACK:Devil (Geryon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Geryon)]
 ALIGN:LE
 RACE:Devil (Geryon)	!PRERACE:%
 NAME:Devil: Geryon (Arch-Devil)
@@ -157,7 +157,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Imprisonment|Hold Monster (Mass)|Ti
 SPELLS:SPELLBOOK=Known Spells|CLASS=Epic Spells (Arcane/CHA)|Crown of Vermin|Spell Worm
 GEAR:Bull's Horn	LOCATION:Equipped
 
-STARTPACK:Default Devil (Ghaddar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Ghaddar)]
+STARTPACK:Devil (Ghaddar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Ghaddar)]
 ALIGN:LE
 RACE:Devil (Ghaddar)	!PRERACE:%
 NAME:Devil, Ghaddar
@@ -178,7 +178,7 @@ FEAT:Improved Initiative
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Devil (Gorson)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Gorson)]
+STARTPACK:Devil (Gorson) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Gorson)]
 ALIGN:LE
 RACE:Devil (Gorson)	!PRERACE:%
 NAME:Devil: Gorson (The Blood Duke)
@@ -212,7 +212,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Battleaxe)
 GEAR:Battleaxe	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS3W.WOUND
 
-STARTPACK:Default Devil (Hutijin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Hutijin)]
+STARTPACK:Devil (Hutijin) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Hutijin)]
 ALIGN:LE
 RACE:Devil (Hutijin)	!PRERACE:%
 NAME:Devil: Hutijin (Duke of Hell)
@@ -248,7 +248,7 @@ FEAT:Quicken Spell Like Ability (Fireball)
 GEAR:Trident		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.FLM_BR_M.UNHLY_M
 GEAR:Net of Snaring	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Devil (Lucifer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Lucifer)]
+STARTPACK:Devil (Lucifer) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Lucifer)]
 ALIGN:LE
 RACE:Devil (Lucifer)	!PRERACE:%
 NAME:Devil: Lucifer
@@ -313,7 +313,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Earthquake|Fire Storm|Spell Immuni
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Gate|Heal (Mass)|Storm of Vengeance|True Resurrection
 SPELLS:SPELLBOOK=Known Spells|CLASS=Epic Spells|Enslave|Epic Mage Armor|Greater Ruin
 
-STARTPACK:Default Devil (Moloch)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Moloch)]
+STARTPACK:Devil (Moloch) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Moloch)]
 ALIGN:LE
 RACE:Devil (Moloch)	!PRERACE:%
 NAME:Devil: Moloch (Arch Devil)
@@ -361,13 +361,13 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Greater Undead=2|Inflict Cr
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Energy Drain|Miracle|Soul Bind|True Resurrection
 GEAR:Whip (6 tail)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.UNHLY_M.SHOCK_M
 
-STARTPACK:Default Devil (Nupperibo)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Nupperibo)]
+STARTPACK:Devil (Nupperibo) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Nupperibo)]
 ALIGN:LE
 RACE:Devil (Nupperibo)	!PRERACE:%
 NAME:Devil, Nupperibo
 STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=10
 
-STARTPACK:Default Devil (Titivilus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Titivilus)]
+STARTPACK:Devil (Titivilus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Titivilus)]
 ALIGN:LE
 RACE:Devil (Titivilus)	!PRERACE:%
 NAME:Devil: Titivilus (Duke of Hell)
@@ -400,7 +400,7 @@ FEAT:Power Attack
 FEAT:Quicken Spell Like Ability (Confusion)
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.ALCHM.WOUND
 
-STARTPACK:Default Devil (Tormentor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Tormentor)]
+STARTPACK:Devil (Tormentor) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Tormentor)]
 ALIGN:LE
 RACE:Devil (Tormentor)	!PRERACE:%
 NAME:Devil, Tormentor (Tormentor of Souls)

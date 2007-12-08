@@ -2,14 +2,14 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Barracuda (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barracuda (Small)]
+STARTPACK:Barracuda (Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barracuda (Small)]
 RACE:Barracuda (Small)	!PRERACE:%
 NAME:Small Barracuda
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 FEAT:Alertness
 
-STARTPACK:Default Barracuda (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barracuda (Medium)]
+STARTPACK:Barracuda (Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barracuda (Medium)]
 RACE:Barracuda (Medium)	!PRERACE:%
 NAME:Medium Barracuda
 ALIGN:TN
@@ -19,7 +19,7 @@ SKILL:Spot		RANK:4
 FEAT:Alertness
 FEAT:Weapon Finesse
 
-STARTPACK:Default Barracuda (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barracuda (Large)]
+STARTPACK:Barracuda (Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barracuda (Large)]
 RACE:Barracuda (Large)	!PRERACE:%
 NAME:Large Barracuda
 ALIGN:TN
@@ -30,7 +30,7 @@ FEAT:Alertness
 FEAT:Power Attack
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Caribe (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Caribe (Giant)]
+STARTPACK:Caribe (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Caribe (Giant)]
 RACE:Caribe (Giant)	!PRERACE:%
 NAME:Giant Caribe
 ALIGN:TN
@@ -49,17 +49,17 @@ SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:1
 FEAT:Run
 
-STARTPACK:Default Deer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Deer]
+STARTPACK:Deer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Deer]
 RACE:Deer	!PRERACE:%
 NAME:Deer
 KIT:Common Deer
 
-STARTPACK:Default Deer (Black-Tailed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Deer (Black-Tailed)]
+STARTPACK:Deer (Black-Tailed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Deer (Black-Tailed)]
 RACE:Deer (Black-Tailed)	!PRERACE:%
 NAME:Black-Tailed Deer
 KIT:Common Deer
 
-STARTPACK:Default Eel (Electric)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eel (Electric)]
+STARTPACK:Eel (Electric) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eel (Electric)]
 RACE:Eel (Electric)	!PRERACE:%
 NAME:Electric Eel
 ALIGN:TN
@@ -70,7 +70,7 @@ SKILL:Swim		RANK:2
 FEAT:Weapon Finesse
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Fox	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Fox]
+STARTPACK:Fox Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Fox]
 RACE:Fox	!PRERACE:%
 NAME:Fox
 ALIGN:TN
@@ -80,7 +80,7 @@ SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 FEAT:Track
 
-STARTPACK:Default Hamster (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hamster (Giant)]
+STARTPACK:Hamster (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hamster (Giant)]
 RACE:Hamster (Giant)	!PRERACE:%
 NAME:Giant Hamster
 ALIGN:TN
@@ -91,7 +91,7 @@ SKILL:Spot		RANK:2
 FEAT:Alertness
 FEAT:Endurance
 
-STARTPACK:Default Hippopotamus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hippopotamus]
+STARTPACK:Hippopotamus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hippopotamus]
 RACE:Hippopotamus	!PRERACE:%
 NAME:Hippopotamus
 ALIGN:TN
@@ -102,7 +102,7 @@ FEAT:Alertness
 FEAT:Toughness
 FEAT:Toughness
 
-STARTPACK:Default Lizard (Giant Rock-Horned)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lizard (Giant Rock-Horned)]
+STARTPACK:Lizard (Giant Rock-Horned) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lizard (Giant Rock-Horned)]
 RACE:Lizard (Giant Rock-Horned)	!PRERACE:%
 NAME:Giant Rock-Horned Lizard (Blood Lizard)
 ALIGN:TN
@@ -112,7 +112,7 @@ SKILL:Listen	RANK:1
 FEAT:Alertness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Marmoset (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Marmoset (Giant)]
+STARTPACK:Marmoset (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Marmoset (Giant)]
 RACE:Marmoset (Giant)	!PRERACE:%
 NAME:Giant Marmoset
 ALIGN:TN
@@ -124,7 +124,7 @@ SKILL:Spot			RANK:1
 FEAT:Alertness
 FEAT:Weapon Finesse
 
-STARTPACK:Default Moose	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Moose]
+STARTPACK:Moose Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Moose]
 RACE:Moose	!PRERACE:%
 NAME:Moose
 ALIGN:TN
@@ -136,7 +136,7 @@ SKILL:Swim			RANK:2
 FEAT:Alertness
 FEAT:Endurance
 
-STARTPACK:Default Quipper	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Quipper]
+STARTPACK:Quipper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Quipper]
 RACE:Quipper	!PRERACE:%
 NAME:Quipper
 ALIGN:TN
@@ -145,7 +145,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 FEAT:Alertness
 
-STARTPACK:Default Sheep	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sheep]
+STARTPACK:Sheep Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sheep]
 RACE:Sheep	!PRERACE:%
 GENDER:Female
 NAME:Sheep
@@ -155,7 +155,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:3
 FEAT:Alertness
 
-STARTPACK:Default Sheep (Ram)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sheep (Ram)]
+STARTPACK:Sheep (Ram) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sheep (Ram)]
 RACE:Sheep (Ram)	!PRERACE:%
 NAME:Ram
 GENDER:Male
@@ -166,7 +166,7 @@ SKILL:Spot		RANK:3
 FEAT:Alertness
 FEAT:Toughness
 
-STARTPACK:Default Skunk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skunk]
+STARTPACK:Skunk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skunk]
 RACE:Skunk	!PRERACE:%
 NAME:Skunk
 ALIGN:TN
@@ -177,7 +177,7 @@ SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
 FEAT:Alertness
 
-STARTPACK:Default Tiger Barb (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tiger Barb (Giant)]
+STARTPACK:Tiger Barb (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tiger Barb (Giant)]
 RACE:Tiger Barb (Giant)	!PRERACE:%
 NAME:Giant Tiger Barb
 ALIGN:TN
@@ -187,7 +187,7 @@ SKILL:Spot		RANK:4
 FEAT:Alertness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Default Turtle (Giant Snapping)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Turtle (Giant Snapping)]
+STARTPACK:Turtle (Giant Snapping) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Turtle (Giant Snapping)]
 RACE:Turtle (Giant Snapping)	!PRERACE:%
 NAME:Giant Tiger Barb
 ALIGN:TN

@@ -2,13 +2,13 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Default Yellow Musk Creeper	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Yellow Musk Creeper]
+STARTPACK:Yellow Musk Creeper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Yellow Musk Creeper]
 RACE:Yellow Musk Creeper	!PRERACE:%
 NAME:Yellow Musk Creeper
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|WIS=11|CHA=11
 
-STARTPACK:Default Yeti	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Yeti]
+STARTPACK:Yeti Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Yeti]
 RACE:Yeti	!PRERACE:%
 NAME:Yeti
 ALIGN:TN
@@ -20,7 +20,7 @@ SKILL:Spot			RANK:1
 FEAT:Great Fortitude
 FEAT:Power Attack
 
-STARTPACK:Default Zombie (Brine)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Brine)]
+STARTPACK:Zombie (Brine) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Brine)]
 RACE:Zombie (Brine)	!PRERACE:%
 NAME:Zombie, Brine
 ALIGN:NE
