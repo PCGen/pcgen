@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Barranca Prowler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barranca Prowler]
+STARTPACK:Barranca Prowler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barranca Prowler]
 RACE:Barranca Prowler	!PRERACE:1,%
 NAME:Barranca Prowler
 ALIGN:TN
@@ -15,7 +15,7 @@ SKILL:Listen		RANK:9
 SKILL:Spot			RANK:9
 SKILL:Wilderness Lore	RANK:9
 
-STARTPACK:Default Black Regiment	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Black Regiment]
+STARTPACK:Black Regiment Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Black Regiment]
 RACE:Black Regiment	!PRERACE:1,%
 NAME:Black Regiment
 ALIGN:LE
@@ -24,12 +24,12 @@ SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
 FEAT:Exotic Weapon Proficiency (Rifle Bayonet)
 
-STARTPACK:Default Blob	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blob]
+STARTPACK:Blob Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blob]
 RACE:Blob	!PRERACE:1,%
 NAME:Blob
 ALIGN:TN
 
-STARTPACK:Default Bloodwire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bloodwire]
+STARTPACK:Bloodwire Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bloodwire]
 RACE:Bloodwire	!PRERACE:1,%
 NAME:Bloodwire
 ALIGN:TN
@@ -41,7 +41,7 @@ SKILL:Hide			RANK:2
 SKILL:Jump			RANK:6
 SKILL:Wilderness Lore	RANK:6
 
-STARTPACK:Default Bogie Man	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bogie Man]
+STARTPACK:Bogie Man Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bogie Man]
 RACE:Bogie Man	!PRERACE:1,%
 NAME:Bogie Man
 ALIGN:CE
@@ -58,7 +58,7 @@ SKILL:Move Silently	RANK:6
 FEAT:Dodge
 FEAT:Mobility
 
-STARTPACK:Default Bone Fiend	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bone Fiend]
+STARTPACK:Bone Fiend Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bone Fiend]
 RACE:Bone Fiend	!PRERACE:1,%
 NAME:Bone Fiend
 ALIGN:CE
@@ -73,7 +73,7 @@ SKILL:Hide			RANK:8
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Braincrawler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Braincrawler]
+STARTPACK:Braincrawler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Braincrawler]
 RACE:Braincrawler	!PRERACE:1,%
 NAME:Braincrawler
 ALIGN:CE

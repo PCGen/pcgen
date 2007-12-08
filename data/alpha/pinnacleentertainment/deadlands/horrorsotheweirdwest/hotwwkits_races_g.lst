@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Gabriel Hound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gabriel Hound]
+STARTPACK:Gabriel Hound Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gabriel Hound]
 RACE:Gabriel Hound	!PRERACE:1,%
 NAME:Gabriel Hound
 ALIGN:NE
@@ -15,7 +15,7 @@ SKILL:Wilderness Lore	RANK:3
 FEAT:Dodge
 FEAT:Track
 
-STARTPACK:Default Gaki	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gaki]
+STARTPACK:Gaki Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gaki]
 RACE:Gaki	!PRERACE:1,%
 NAME:Gaki
 ALIGN:CE
@@ -31,7 +31,7 @@ SKILL:Wilderness Lore	RANK:7
 FEAT:Multiattack
 FEAT:Track
 
-STARTPACK:Default Gaki (Cat-Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gaki (Cat-Form)]
+STARTPACK:Gaki (Cat-Form) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gaki (Cat-Form)]
 RACE:Gaki (Cat-Form)	!PRERACE:1,%
 NAME:Gaki (Cat-Form)
 ALIGN:CE
@@ -45,7 +45,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Track
 
-STARTPACK:Default Ghost (Banshee)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Banshee)]
+STARTPACK:Ghost (Banshee) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Banshee)]
 RACE:Ghost (Banshee)	!PRERACE:1,%
 NAME:Ghost (Banshee)
 ALIGN:CE
@@ -57,7 +57,7 @@ SKILL:Spot			RANK:7
 FEAT:Blind-Fight
 FEAT:Improved Initiative
 
-STARTPACK:Default Ghost (Haunt)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Haunt)]
+STARTPACK:Ghost (Haunt) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Haunt)]
 RACE:Ghost (Haunt)	!PRERACE:1,%
 NAME:Ghost (Haunt)
 SKILL:Hide			RANK:7
@@ -68,7 +68,7 @@ SKILL:Spot			RANK:7
 FEAT:Blind-Fight
 FEAT:Improved Initiative
 
-STARTPACK:Default Ghost (Living House)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Living House)]
+STARTPACK:Ghost (Living House) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Living House)]
 RACE:Ghost (Living House)	!PRERACE:1,%
 NAME:Ghost (Living House)
 ALIGN:CE
@@ -81,7 +81,7 @@ SKILL:Spot			RANK:6
 FEAT:Point Blank Shot
 FEAT:Precise Shot
 
-STARTPACK:Default Ghost (Poltergeist)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Poltergeist)]
+STARTPACK:Ghost (Poltergeist) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Poltergeist)]
 RACE:Ghost (Poltergeist)	!PRERACE:1,%
 NAME:Ghost (Poltergeist)
 ALIGN:CE
@@ -94,7 +94,7 @@ SKILL:Pick Pocket		RANK:5
 SKILL:Spot			RANK:5
 FEAT:Improved Initiative
 
-STARTPACK:Default Ghost (Shade)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Shade)]
+STARTPACK:Ghost (Shade) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Shade)]
 RACE:Ghost (Shade)	!PRERACE:1,%
 NAME:Ghost (Shade)
 SKILL:Hide			RANK:7
@@ -105,7 +105,7 @@ SKILL:Spot			RANK:7
 FEAT:Blind-Fight
 FEAT:Improved Initiative
 
-STARTPACK:Default Ghost (Spectre)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Spectre)]
+STARTPACK:Ghost (Spectre) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost (Spectre)]
 RACE:Ghost (Spectre)	!PRERACE:1,%
 NAME:Ghost (Spectre)
 ALIGN:CE
@@ -117,7 +117,7 @@ SKILL:Spot			RANK:7
 FEAT:Blind-Fight
 FEAT:Improved Initiative
 
-STARTPACK:Default Giant (Appalachian)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Appalachian)]
+STARTPACK:Giant (Appalachian) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Appalachian)]
 RACE:Giant (Appalachian)	!PRERACE:1,%
 NAME:Giant (Appalachian)
 ALIGN:CE
@@ -129,7 +129,7 @@ FEAT:Improved Bull Rush
 FEAT:Power Attack
 FEAT:Sunder
 
-STARTPACK:Default Giant of the Deep (Crocodile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant of the Deep (Crocodile)]
+STARTPACK:Giant of the Deep (Crocodile) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant of the Deep (Crocodile)]
 RACE:Giant of the Deep (Crocodile)	!PRERACE:1,%
 NAME:Giant of the Deep (Crocodile)
 ALIGN:TN
@@ -139,7 +139,7 @@ SKILL:Wilderness Lore	RANK:6
 SKILL:Move Silently	RANK:4
 SKILL:Swim			RANK:8
 
-STARTPACK:Default Giant of the Deep (Octopus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant of the Deep (Octopus)]
+STARTPACK:Giant of the Deep (Octopus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant of the Deep (Octopus)]
 RACE:Giant of the Deep (Octopus)	!PRERACE:1,%
 NAME:Giant of the Deep (Octopus)
 ALIGN:TN
@@ -149,7 +149,7 @@ SKILL:Move Silently	RANK:3
 SKILL:Swim			RANK:8
 SKILL:Wilderness Lore	RANK:6
 
-STARTPACK:Default Giant of the Deep (Shark)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant of the Deep (Shark)]
+STARTPACK:Giant of the Deep (Shark) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant of the Deep (Shark)]
 RACE:Giant of the Deep (Shark)	!PRERACE:1,%
 NAME:Giant of the Deep (Shark)
 ALIGN:TN

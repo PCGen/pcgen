@@ -46,7 +46,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Listen		RANK:5
 SKILL:Wilderness Lore	RANK:4
 
-STARTPACK:Default Headless Horseman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Headless Horseman]
+STARTPACK:Headless Horseman Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Headless Horseman]
 RACE:Headless Horseman	!PRERACE:1,%
 NAME:Headless Horseman
 ALIGN:CE
@@ -61,7 +61,7 @@ SKILL:Ridicule		RANK:6
 FEAT:Exotic Weapon Proficiency (Cavalry Saber)
 FEAT:Track
 
-STARTPACK:Default Hellfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hellfish]
+STARTPACK:Hellfish Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hellfish]
 RACE:Hellfish	!PRERACE:1,%
 NAME:Hellfish
 ALIGN:TN
@@ -72,7 +72,7 @@ SKILL:Spot			RANK:7
 SKILL:Wilderness Lore	RANK:7
 SKILL:Swim			RANK:9
 
-STARTPACK:Default Horned Serpent	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horned Serpent]
+STARTPACK:Horned Serpent Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horned Serpent]
 RACE:Horned Serpent	!PRERACE:1,%
 NAME:Horned Serpent
 ALIGN:CE
@@ -85,7 +85,7 @@ SKILL:Wilderness Lore	RANK:8
 FEAT:Multiattack
 FEAT:Track
 
-STARTPACK:Default Humbug	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Humbug]
+STARTPACK:Humbug Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Humbug]
 RACE:Humbug	!PRERACE:1,%
 NAME:Humbug
 ALIGN:TN

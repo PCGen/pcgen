@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Patchwork Monster (Man)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)]
+STARTPACK:Patchwork Monster (Man) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)]
 RACE:Patchwork Monster (Man)	!PRERACE:1,%
 NAME:Patchwork Monster (Man)
 SKILL:Climb			RANK:5
@@ -12,7 +12,7 @@ SKILL:Spot			RANK:5
 SKILL:Swim			RANK:4
 FEAT:Power Attack
 
-STARTPACK:Default Patchwork Monster (Man)(Disease)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)(Disease)]
+STARTPACK:Patchwork Monster (Man)(Disease) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)(Disease)]
 RACE:Patchwork Monster (Man)(Disease)	!PRERACE:1,%
 NAME:Patchwork Monster (Man)(Disease)
 SKILL:Climb			RANK:5
@@ -23,7 +23,7 @@ SKILL:Spot			RANK:5
 SKILL:Swim			RANK:4
 FEAT:Power Attack
 
-STARTPACK:Default Patchwork Monster (Man)(Disease/Enhancements)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)(Disease/Enhancements)]
+STARTPACK:Patchwork Monster (Man)(Disease/Enhancements) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)(Disease/Enhancements)]
 RACE:Patchwork Monster (Man)(Disease/Enhancements)	!PRERACE:1,%
 NAME:Patchwork Monster (Man)(Disease/Enhancements)
 SKILL:Climb			RANK:5
@@ -34,7 +34,7 @@ SKILL:Spot			RANK:5
 SKILL:Swim			RANK:4
 FEAT:Power Attack
 
-STARTPACK:Default Patchwork Monster (Man)(Enhancements)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)(Enhancements)]
+STARTPACK:Patchwork Monster (Man)(Enhancements) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)(Enhancements)]
 RACE:Patchwork Monster (Man)(Enhancements)	!PRERACE:1,%
 NAME:Patchwork Monster (Man)(Enhancements)
 SKILL:Climb			RANK:5
@@ -45,7 +45,7 @@ SKILL:Spot			RANK:5
 SKILL:Swim			RANK:4
 FEAT:Power Attack
 
-STARTPACK:Default Patchwork Monster (Wasp)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Wasp)]
+STARTPACK:Patchwork Monster (Wasp) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Wasp)]
 RACE:Patchwork Monster (Wasp)	!PRERACE:1,%
 NAME:Patchwork Monster (Wasp)
 SKILL:Climb			RANK:5
@@ -55,7 +55,7 @@ SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:10
 FEAT:Flyby Attack
 
-STARTPACK:Default Piasa	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Piasa]
+STARTPACK:Piasa Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Piasa]
 RACE:Piasa	!PRERACE:1,%
 NAME:Piasa
 SKILL:Climb			RANK:4
@@ -64,7 +64,7 @@ SKILL:Spot			RANK:9
 SKILL:Move Silently	RANK:8
 SKILL:Wilderness Lore	RANK:8
 
-STARTPACK:Default Pit Wasp (Queen)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pit Wasp (Queen)]
+STARTPACK:Pit Wasp (Queen) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pit Wasp (Queen)]
 RACE:Pit Wasp (Queen)	!PRERACE:1,%
 NAME:Pit Wasp (Queen)
 SKILL:Climb			RANK:9
@@ -74,7 +74,7 @@ SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
 SKILL:Wilderness Lore	RANK:3
 
-STARTPACK:Default Pit Wasp (Warrior)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pit Wasp (Warrior)]
+STARTPACK:Pit Wasp (Warrior) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pit Wasp (Warrior)]
 RACE:Pit Wasp (Warrior)	!PRERACE:1,%
 NAME:Pit Wasp (Warrior)
 SKILL:Climb			RANK:9
@@ -84,7 +84,7 @@ SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
 SKILL:Wilderness Lore	RANK:3
 
-STARTPACK:Default Pit Wasp (Worker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pit Wasp (Worker)]
+STARTPACK:Pit Wasp (Worker) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pit Wasp (Worker)]
 RACE:Pit Wasp (Worker)	!PRERACE:1,%
 NAME:Pit Wasp (Worker)
 SKILL:Climb			RANK:9
@@ -94,7 +94,7 @@ SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
 SKILL:Wilderness Lore	RANK:3
 
-STARTPACK:Default Poison Woman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Poison Woman]
+STARTPACK:Poison Woman Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Poison Woman]
 RACE:Poison Woman	!PRERACE:1,%
 NAME:Poison Woman
 ALIGN:CE
@@ -115,7 +115,7 @@ FEAT:Improved Bull Rush
 FEAT:Power Attack
 FEAT:Sunder
 
-STARTPACK:Default Poison Woman (Spellcaster)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Poison Woman (Spellcaster)]
+STARTPACK:Poison Woman (Spellcaster) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Poison Woman (Spellcaster)]
 RACE:Poison Woman (Spellcaster)	!PRERACE:1,%
 NAME:Poison Woman (Spellcaster)
 ALIGN:CE
@@ -136,7 +136,7 @@ FEAT:Improved Bull Rush
 FEAT:Power Attack
 FEAT:Sunder
 
-STARTPACK:Default Pox Walker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pox Walker]
+STARTPACK:Pox Walker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pox Walker]
 RACE:Pox Walker	!PRERACE:1,%
 NAME:Pox Walker
 ALIGN:CE
@@ -149,7 +149,7 @@ FEAT:Mounted Combat
 FEAT:Power Attack
 FEAT:Track
 
-STARTPACK:Default Prairie Tick (Hatchling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prairie Tick (Hatchling)]
+STARTPACK:Prairie Tick (Hatchling) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prairie Tick (Hatchling)]
 RACE:Prairie Tick (Hatchling)	!PRERACE:1,%
 NAME:Prairie Tick (Hatchling)
 ALIGN:TN
@@ -160,7 +160,7 @@ SKILL:Spot			RANK:4
 SKILL:Move Silently	RANK:1
 SKILL:Wilderness Lore	RANK:3
 
-STARTPACK:Default Prairie Tick (Queen)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prairie Tick (Queen)]
+STARTPACK:Prairie Tick (Queen) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prairie Tick (Queen)]
 RACE:Prairie Tick (Queen)	!PRERACE:1,%
 NAME:Prairie Tick (Queen)
 ALIGN:TN

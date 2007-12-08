@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Zombie (Bloat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Bloat)]
+STARTPACK:Zombie (Bloat) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Bloat)]
 RACE:Zombie (Bloat)	!PRERACE:1,%
 NAME:Zombie (Bloat)
 ALIGN:CE
@@ -12,7 +12,7 @@ SKILL:Spot			RANK:4
 SKILL:Swim			RANK:4
 FEAT:Power Attack
 
-STARTPACK:Default Zombie (Dessicated Dead)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Dessicated Dead)]
+STARTPACK:Zombie (Dessicated Dead) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Dessicated Dead)]
 RACE:Zombie (Dessicated Dead)	!PRERACE:1,%
 NAME:Zombie (Dessicated Dead)
 ALIGN:CE
@@ -34,7 +34,7 @@ SKILL:Spot			RANK:6
 SKILL:Listen		RANK:6
 FEAT:Multiattack
 
-STARTPACK:Default Zombie (Frozen Dead)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Frozen Dead)]
+STARTPACK:Zombie (Frozen Dead) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Frozen Dead)]
 RACE:Zombie (Frozen Dead)	!PRERACE:1,%
 NAME:Zombie (Frozen Dead)
 ALIGN:CE
@@ -46,7 +46,7 @@ SKILL:Spot			RANK:5
 SKILL:Intimidate		RANK:6
 FEAT:Multiattack
 
-STARTPACK:Default Zombie (Glom)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Glom)]
+STARTPACK:Zombie (Glom) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Glom)]
 RACE:Zombie (Glom)	!PRERACE:1,%
 NAME:Zombie (Glom)
 ALIGN:CE
@@ -56,7 +56,7 @@ SKILL:Spot			RANK:7
 SKILL:Move Silently	RANK:3
 FEAT:Multiattack
 
-STARTPACK:Default Zombie (Glom/Colony)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Glom/Colony)]
+STARTPACK:Zombie (Glom/Colony) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Glom/Colony)]
 RACE:Zombie (Glom/Colony)	!PRERACE:1,%
 NAME:Zombie (Glom/Colony)
 ALIGN:CE
@@ -66,7 +66,7 @@ SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:7
 FEAT:Multiattack
 
-STARTPACK:Default Zombie (Headless Dead)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Headless Dead)]
+STARTPACK:Zombie (Headless Dead) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Headless Dead)]
 RACE:Zombie (Headless Dead)	!PRERACE:1,%
 NAME:Zombie (Headless Dead)
 ALIGN:CE
@@ -79,7 +79,7 @@ SKILL:Spot			RANK:5
 SKILL:Intimidate		RANK:6
 FEAT:Blind-Fight
 
-STARTPACK:Default Zombie (Orphaned Head)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Orphaned Head)]
+STARTPACK:Zombie (Orphaned Head) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Orphaned Head)]
 RACE:Zombie (Orphaned Head)	!PRERACE:1,%
 NAME:Zombie (Orphaned Head)
 ALIGN:CE
@@ -92,7 +92,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Ridicule		RANK:6
 FEAT:Power Attack
 
-STARTPACK:Default Zombie (Severed Hand)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Severed Hand)]
+STARTPACK:Zombie (Severed Hand) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Severed Hand)]
 RACE:Zombie (Severed Hand)	!PRERACE:1,%
 NAME:Zombie (Severed Hand)
 ALIGN:CE
@@ -112,7 +112,7 @@ SKILL:Hide			RANK:10
 SKILL:Ridicule		RANK:3
 FEAT:Dodge
 
-STARTPACK:Default Zombie (Skeleton)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Skeleton)]
+STARTPACK:Zombie (Skeleton) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Skeleton)]
 RACE:Zombie (Skeleton)	!PRERACE:1,%
 NAME:Zombie (Skeleton)
 ALIGN:CE

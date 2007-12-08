@@ -13,7 +13,7 @@ SKILL:Move Silently	RANK:4
 FEAT:Power Attack
 FEAT:Track
 
-STARTPACK:Default Wave Shadow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wave Shadow]
+STARTPACK:Wave Shadow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wave Shadow]
 RACE:Wave Shadow	!PRERACE:1,%
 NAME:Wave Shadow
 ALIGN:LE
@@ -25,7 +25,7 @@ SKILL:Search		RANK:6
 SKILL:Swim			RANK:8
 FEAT:Endurance
 
-STARTPACK:Default Weeping Widow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Weeping Widow]
+STARTPACK:Weeping Widow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Weeping Widow]
 RACE:Weeping Widow	!PRERACE:1,%
 NAME:Weeping Widow
 ALIGN:CE
@@ -39,7 +39,7 @@ SKILL:Knowledge (Local)	RANK:8
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Default Were-Shark	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Were-Shark]
+STARTPACK:Were-Shark Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Were-Shark]
 RACE:Were-Shark	!PRERACE:1,%
 NAME:Were-Shark
 SKILL:Climb			RANK:4

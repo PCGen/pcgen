@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Mexican Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mexican Dragon]
+STARTPACK:Mexican Dragon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mexican Dragon]
 RACE:Mexican Dragon	!PRERACE:1,%
 NAME:Mexican Dragon
 ALIGN:TN
@@ -14,7 +14,7 @@ SKILL:Spot			RANK:9
 SKILL:Wilderness Lore	RANK:9
 FEAT:Dodge
 
-STARTPACK:Default Mourning Mist	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mourning Mist]
+STARTPACK:Mourning Mist Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mourning Mist]
 RACE:Mourning Mist	!PRERACE:1,%
 NAME:Mourning Mist
 ALIGN:CN
@@ -23,7 +23,7 @@ SKILL:Move Silently	RANK:7
 SKILL:Spot			RANK:8
 FEAT:Improved Initiative
 
-STARTPACK:Default Mummy (Aztec) with Jade stone	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy (Aztec) with Jade stone]
+STARTPACK:Mummy (Aztec) with Jade stone Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy (Aztec) with Jade stone]
 RACE:Mummy (Aztec) with Jade stone	!PRERACE:1,%
 NAME:Mummy (Aztec) with Jade stone
 ALIGN:CE
@@ -36,7 +36,7 @@ SKILL:Spot				RANK:4
 FEAT:Cleave
 FEAT:Power Attack
 
-STARTPACK:Default Mummy (Aztec) without Jade stone	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy (Aztec) without Jade stone]
+STARTPACK:Mummy (Aztec) without Jade stone Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy (Aztec) without Jade stone]
 RACE:Mummy (Aztec) without Jade stone	!PRERACE:1,%
 NAME:Mummy (Aztec) without Jade stone
 ALIGN:CE
@@ -49,7 +49,7 @@ SKILL:Spot				RANK:4
 FEAT:Cleave
 FEAT:Power Attack
 
-STARTPACK:Default Mummy (Egyptian)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy (Egyptian)]
+STARTPACK:Mummy (Egyptian) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy (Egyptian)]
 RACE:Mummy (Egyptian)	!PRERACE:1,%
 NAME:Mummy (Egyptian)
 ALIGN:CE
