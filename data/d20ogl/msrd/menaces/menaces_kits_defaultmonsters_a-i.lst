@@ -8,7 +8,7 @@ SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:
 #Attack TOHIT too low:Fiend (Murdergaunt (Whistling Fiend))
 #INT score when INT is nonability: Infester (Grub)
 
-STARTPACK:Default Acid Rainer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Acid Rainer]
+STARTPACK:Acid Rainer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Acid Rainer]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Acid Rainer	!PRERACE:1,%
 NAME:Acid Rainer
@@ -18,7 +18,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 FEAT:Power Attack
 
-STARTPACK:Default Acid Rainer (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Acid Rainer (Advanced)]
+STARTPACK:Acid Rainer (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Acid Rainer (Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Acid Rainer (Advanced)	!PRERACE:1,%
 NAME:Acid Rainer, Advanced
@@ -31,66 +31,66 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Stealthy
 
-STARTPACK:Default Alien Probe	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Alien Probe]
+STARTPACK:Alien Probe Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Alien Probe]
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 RACE:Alien Probe	!PRERACE:1,%
 NAME:Alien Probe
 
-STARTPACK:Default Anaconda (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Anaconda (Giant)]
+STARTPACK:Anaconda (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Anaconda (Giant)]
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 RACE:Anaconda (Giant)	!PRERACE:1,%
 NAME:Giant Anaconda
 SKILL:Hide	RANK:15
 
-STARTPACK:Default Anaconda (Advanced Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Anaconda (Advanced Giant)]
+STARTPACK:Anaconda (Advanced Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Anaconda (Advanced Giant)]
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 RACE:Anaconda (Advanced Giant)	!PRERACE:1,%
 NAME:Advanced Giant Anaconda
 SKILL:Hide	RANK:15
 
-STARTPACK:Default Animated Object (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Tiny)]
+STARTPACK:Animated Object (Tiny) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Tiny)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Animated Object (Tiny)	!PRERACE:1,%
 NAME:Tiny Animated Object
 
-STARTPACK:Default Animated Object (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Small)]
+STARTPACK:Animated Object (Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Small)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Animated Object (Small)	!PRERACE:1,%
 NAME:Small Animated Object
 
-STARTPACK:Default Animated Object (Medium-size)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Medium size)]
+STARTPACK:Animated Object (Medium-size) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Medium size)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Animated Object (Medium size)	!PRERACE:1,%
 NAME:Medium-size Animated Object
 
-STARTPACK:Default Animated Object (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Large)]
+STARTPACK:Animated Object (Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Large)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Animated Object (Large)	!PRERACE:1,%
 NAME:Large Animated Object
 
-STARTPACK:Default Animated Object (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Huge)]
+STARTPACK:Animated Object (Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Huge)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Animated Object (Huge)	!PRERACE:1,%
 NAME:Huge Animated Object
 
-STARTPACK:Default Animated Object (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Gargantuan)]
+STARTPACK:Animated Object (Gargantuan) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Gargantuan)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Animated Object (Gargantuan)	!PRERACE:1,%
 NAME:Gargantuan Animated Object
 
-STARTPACK:Default Animated Object (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Colossal)]
+STARTPACK:Animated Object (Colossal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Colossal)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Animated Object (Colossal)	!PRERACE:1,%
 NAME:Colossal Animated Object
 
-STARTPACK:Default Boar (Wild Pig)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boar (Wild Pig)]
+STARTPACK:Boar (Wild Pig) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boar (Wild Pig)]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 RACE:Boar (Wild Pig)	!PRERACE:1,%
 NAME:Boar (Wild Pig)
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:4
 
-STARTPACK:Default Bodak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bodak]
+STARTPACK:Bodak Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bodak]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Bodak	!PRERACE:1,%
 NAME:Bodak
@@ -101,7 +101,7 @@ SKILL:Spot			RANK:8
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Default Bodak (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bodak (Advanced)]
+STARTPACK:Bodak (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bodak (Advanced)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Bodak (Advanced)	!PRERACE:1,%
 NAME:Advanced Bodak
@@ -112,7 +112,7 @@ SKILL:Spot			RANK:10
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Default Cat Folk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cat Folk]
+STARTPACK:Cat Folk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cat Folk]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Cat Folk	!PRERACE:1,%
 NAME:Cat Folk
@@ -129,7 +129,7 @@ GEAR:Bullet (9mm/50)			LOCATION:Carried
 GEAR:Holster (Concealed carry)	LOCATION:Carried
 GEAR:Clothing Outfit (Formal)		LOCATION:Torso
 
-STARTPACK:Default Charred One	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Charred One]
+STARTPACK:Charred One Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Charred One]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Charred One	!PRERACE:1,%
 NAME:Charred One
@@ -140,7 +140,7 @@ SKILL:Spot		RANK:8
 FEAT:Lightning Reflexes
 FEAT:Weapon Focus (Incorporeal Touch)
 
-STARTPACK:Default Charred One (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Charred One (Advanced)]
+STARTPACK:Charred One (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Charred One (Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Charred One (Advanced)	!PRERACE:1,%
 NAME:Advanced Charred One
@@ -152,17 +152,17 @@ FEAT:Lightning Reflexes
 FEAT:Weapon Focus (Incorporeal Touch)
 FEAT:Iron Will
 
-STARTPACK:Default Chemical Golem	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chemical Golem]
+STARTPACK:Chemical Golem Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chemical Golem]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 RACE:Chemical Golem	!PRERACE:1,%
 NAME:Chemical Golem
 
-STARTPACK:Default Chemical Golem (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chemical Golem (Advanced)]
+STARTPACK:Chemical Golem (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chemical Golem (Advanced)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 RACE:Chemical Golem (Advanced)	!PRERACE:1,%
 NAME:Advanced Chemical Golem
 
-STARTPACK:Default Chimpanzee	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chimpanzee]
+STARTPACK:Chimpanzee Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chimpanzee]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Chimpanzee	!PRERACE:1,%
 NAME:Chimpanzee
@@ -173,22 +173,22 @@ SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
 FEAT:Weapon Finesse (Slam)
 
-STARTPACK:Default Crawfordsville Monster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crawfordsville Monster]
+STARTPACK:Crawfordsville Monster Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crawfordsville Monster]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Crawfordsville Monster	!PRERACE:1,%
 NAME:Crawfordsville Monster
 
-STARTPACK:Default Crawfordsville Monster (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crawfordsville Monster (Advanced)]
+STARTPACK:Crawfordsville Monster (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crawfordsville Monster (Advanced)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Crawfordsville Monster (Advanced)	!PRERACE:1,%
 NAME:Advanced Crawfordsville Monster
 
-STARTPACK:Default Crawling Claw	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crawling Claw]
+STARTPACK:Crawling Claw Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crawling Claw]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Crawling Claw	!PRERACE:1,%
 NAME:Crawling Claw
 
-STARTPACK:Default Demonic Machine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Machine]
+STARTPACK:Demonic Machine Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Machine]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 RACE:Demonic Machine	!PRERACE:1,%
 NAME:Demonic Machine
@@ -199,7 +199,7 @@ SKILL:Spot			RANK:8
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Default Demonic Machine (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Machine (Advanced)]
+STARTPACK:Demonic Machine (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Machine (Advanced)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 RACE:Demonic Machine (Advanced)	!PRERACE:1,%
 NAME:Advanced Demonic Machine (industrial shredder)
@@ -210,7 +210,7 @@ SKILL:Spot			RANK:14
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Default Dimensional Horror	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dimensional Horror]
+STARTPACK:Dimensional Horror Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dimensional Horror]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 RACE:Dimensional Horror	!PRERACE:1,%
 NAME:Dimensional Horror
@@ -223,7 +223,7 @@ SKILL:Survival		RANK:9
 FEAT:Multiattack
 FEAT:Track
 
-STARTPACK:Default Dimensional Horror (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dimensional Horror (Advanced)]
+STARTPACK:Dimensional Horror (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dimensional Horror (Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 RACE:Dimensional Horror (Advanced)	!PRERACE:1,%
 NAME:Advanced Dimensional Horror
@@ -238,14 +238,14 @@ FEAT:Track
 FEAT:Cleave
 FEAT:Power Attack
 
-STARTPACK:Default Dinosaur (Plesiosaur)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Plesiosaur)]
+STARTPACK:Dinosaur (Plesiosaur) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Plesiosaur)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Dinosaur (Plesiosaur)	!PRERACE:1,%
 NAME:Plesiosaur
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 
-STARTPACK:Default Dinosaur (Pteradon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Pteradon)]
+STARTPACK:Dinosaur (Pteradon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Pteradon)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 RACE:Dinosaur (Pteradon)	!PRERACE:1,%
 NAME:Pteradon
@@ -253,14 +253,14 @@ SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:5
 
-STARTPACK:Default Dinosaur (Tyrannosaur)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Tyrannosaur)]
+STARTPACK:Dinosaur (Tyrannosaur) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Tyrannosaur)]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 RACE:Dinosaur (Tyrannosaur)	!PRERACE:1,%
 NAME:Tyrannosaur
 SKILL:Listen	RANK:9
 SKILL:Spot		RANK:9
 
-STARTPACK:Default Doom Hag	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Doom Hag]
+STARTPACK:Doom Hag Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Doom Hag]
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 RACE:Doom Hag	!PRERACE:1,%
 NAME:Doom Hag
@@ -278,7 +278,7 @@ FEAT:Weapon Focus (Claw)
 GEAR:Tattered clothing					LOCATION:Torso
 GEAR:Collection of scalps teeth and thighbones	LOCATION:Carried
 
-STARTPACK:Default Dread Tree	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dread Tree]
+STARTPACK:Dread Tree Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dread Tree]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 RACE:Dread Tree	!PRERACE:1,%
 NAME:Dread Tree
@@ -287,7 +287,7 @@ SKILL:Intimidate	RANK:3
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 
-STARTPACK:Default Dread Tree (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dread Tree (Advanced)]
+STARTPACK:Dread Tree (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dread Tree (Advanced)]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 RACE:Dread Tree (Advanced)	!PRERACE:1,%
 NAME:Advanced Dread Tree
@@ -296,7 +296,7 @@ SKILL:Intimidate	RANK:3
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 
-STARTPACK:Default Drop Bear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drop Bear]
+STARTPACK:Drop Bear Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drop Bear]
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 RACE:Drop Bear	!PRERACE:1,%
 NAME:Drop Bear
@@ -306,7 +306,7 @@ SKILL:Hide			RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:2
 
-STARTPACK:Default Elohim	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elohim]
+STARTPACK:Elohim Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elohim]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Elohim	!PRERACE:1,%
 NAME:Elohim
@@ -321,7 +321,7 @@ FEAT:Archaic Weapons Proficiency
 FEAT:Personal Firearms Proficiency
 GEAR:Flame Sword	LOCATION:Both Hands
 
-STARTPACK:Default Etoile	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Etoile]
+STARTPACK:Etoile Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Etoile]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Etoile	!PRERACE:1,%
 NAME:Etoile
@@ -336,7 +336,7 @@ FEAT:Gearhead
 FEAT:Surgery
 FEAT:Weapon Finesse (Pincer)
 
-STARTPACK:Default Fiend (Fleshraker (Knife Fiend))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Fleshraker (Knife Fiend))]
+STARTPACK:Fiend (Fleshraker (Knife Fiend)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Fleshraker (Knife Fiend))]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Fiend (Fleshraker (Knife Fiend))	!PRERACE:1,%
 NAME:Fleshraker (knife fiend)
@@ -359,7 +359,7 @@ GEAR:Clothing Outfit (Casual)	LOCATION:Torso
 GEAR:Knife				LOCATION:Primary Hand
 GEAR:Knife				QTY:11	LOCATION:Carried
 
-STARTPACK:Default Fiend (Harriken (Headsnatcher Fiend))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Harriken (Headsnatcher Fiend))]
+STARTPACK:Fiend (Harriken (Headsnatcher Fiend)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Harriken (Headsnatcher Fiend))]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 RACE:Fiend (Harriken (Headsnatcher Fiend))	!PRERACE:1,%
 NAME:Harriken (headsnatcher fiend)
@@ -374,7 +374,7 @@ SKILL:Spot			RANK:4
 FEAT:Heroic Surge
 GEAR:Longsword	LOCATION:Primary Hand
 
-STARTPACK:Default Fiend (Jumping Jack (Blood Fiend))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Jumping Jack (Blood Fiend))]
+STARTPACK:Fiend (Jumping Jack (Blood Fiend)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Jumping Jack (Blood Fiend))]
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 RACE:Fiend (Jumping Jack (Blood Fiend))	!PRERACE:1,%
 NAME:Jumping Jack (blood fiend)
@@ -383,7 +383,7 @@ SKILL:Tumble	RANK:1
 SKILL:Jump		RANK:5
 FEAT:Acrobatic
 
-STARTPACK:Default Fiend (Kwevencha (Spider Fiend))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Kwevencha (Spider Fiend))]
+STARTPACK:Fiend (Kwevencha (Spider Fiend)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Kwevencha (Spider Fiend))]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 RACE:Fiend (Kwevencha (Spider Fiend))	!PRERACE:1,%
 NAME:Kwevencha (spider fiend)
@@ -398,7 +398,7 @@ SKILL:Spot			RANK:7
 FEAT:Improved Damage Threshold
 FEAT:Iron Will
 
-STARTPACK:Default Fiend (Murdergaunt (Whistling Fiend))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Murdergaunt (Whisper Fiend))]
+STARTPACK:Fiend (Murdergaunt (Whistling Fiend)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Murdergaunt (Whisper Fiend))]
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 RACE:Fiend (Murdergaunt (Whisper Fiend))	!PRERACE:1,%
 NAME:Murdergaunt (whistling fiend)
@@ -415,7 +415,7 @@ FEAT:Agile Riposte
 FEAT:Dodge
 FEAT:Stealthy
 
-STARTPACK:Default Fiend (Stygilor (Tumor Fiend))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Stygilor (Tumor Fiend))]
+STARTPACK:Fiend (Stygilor (Tumor Fiend)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Stygilor (Tumor Fiend))]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 RACE:Fiend (Stygilor (Tumor Fiend))	!PRERACE:1,%
 NAME:Stygilor (tumor fiend)
@@ -428,14 +428,14 @@ SKILL:Spot			RANK:9
 FEAT:Frightful Presence
 FEAT:Improved Damage Threshold
 
-STARTPACK:Default Fire Wisp	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Wisp]
+STARTPACK:Fire Wisp Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Wisp]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Fire Wisp	!PRERACE:1,%
 NAME:Fire Wisp
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 
-STARTPACK:Default Fire Wisp (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Wisp (Advanced)]
+STARTPACK:Fire Wisp (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Wisp (Advanced)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Fire Wisp (Advanced)	!PRERACE:1,%
 NAME:Advanced Fire Wisp
@@ -443,7 +443,7 @@ SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 FEAT:Heroic Surge
 
-STARTPACK:Default Grimlock	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grimlock]
+STARTPACK:Grimlock Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grimlock]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Grimlock	!PRERACE:1,%
 NAME:Grimlock
@@ -456,7 +456,7 @@ LEVELABILITY:Monstrous Humanoid=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency
 FEAT:Brawl
 GEAR:Spear	LOCATION:Both Hands
 
-STARTPACK:Default Harpy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harpy]
+STARTPACK:Harpy Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harpy]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 RACE:Harpy	!PRERACE:1,%
 NAME:Harpy
@@ -473,13 +473,13 @@ GEAR:S and W M29 (.44 magnum revolver)	LOCATION:Primary Hand
 GEAR:Bullet (.44/50)				LOCATION:Carried
 GEAR:Metal Baton					LOCATION:Carried
 
-STARTPACK:Default Hippopotamus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus]
+STARTPACK:Hippopotamus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 RACE:Hippopotamus	!PRERACE:1,%
 NAME:Hippopotamus
 SKILL:Listen	RANK:6
 
-STARTPACK:Default Infester (Grub)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Infester (Grub)]
+STARTPACK:Infester (Grub) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Infester (Grub)]
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=11
 RACE:Infester (Grub)	!PRERACE:1,%
 NAME:Infester (grub)
@@ -487,7 +487,7 @@ SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:6
 
-STARTPACK:Default Infester (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Infester (Adult)]
+STARTPACK:Infester (Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Infester (Adult)]
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 RACE:Infester (Adult)	!PRERACE:1,%
 NAME:Infester (adult)
@@ -495,7 +495,7 @@ SKILL:Hide			RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:6
 
-STARTPACK:Default Intellect Devourer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Intellect Devourer]
+STARTPACK:Intellect Devourer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Intellect Devourer]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Intellect Devourer	!PRERACE:1,%
 NAME:Intellect Devourer

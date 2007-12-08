@@ -9,7 +9,7 @@ SOURCELONG:Modern System Reference Document - Creatures	SOURCESHORT:MSRD	SOURCEW
 #Monstrous Plant (Flytrap) Bite attack TOHIT too high
 #Terrestrial Effluvium Slam attack TOHIT too high, DAMAGE off
 
-STARTPACK:Default Bugbear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]
+STARTPACK:Bugbear Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 RACE:Bugbear	!PRERACE:1,%
 NAME:Bugbear
@@ -27,7 +27,7 @@ GEAR:Colt Python (.357 revolver)	LOCATION:Carried
 GEAR:Bullet (.357/50)			LOCATION:Carried
 GEAR:Clothing Outfit (Casual)		LOCATION:Torso
 
-STARTPACK:Default Dinosaur (Deinonychus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Deinonychus)]
+STARTPACK:Dinosaur (Deinonychus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Deinonychus)]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Dinosaur (Deinonychus)	!PRERACE:1,%
 NAME:Dinosaur (Deinonychus)
@@ -41,7 +41,7 @@ SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 SKILL:Survival	RANK:2
 
-STARTPACK:Default Fiend (Carrion/Rotlord)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Carrion/Rotlord)]
+STARTPACK:Fiend (Carrion/Rotlord) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Carrion/Rotlord)]
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 RACE:Fiend (Carrion/Rotlord)	!PRERACE:1,%
 NAME:Fiend (Carrion/Rotlord)
@@ -57,7 +57,7 @@ LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic W
 FEAT:Multiattack
 FEAT:Track
 
-STARTPACK:Default Fiend (Blade/Skinhusker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Blade/Skinhusker)]
+STARTPACK:Fiend (Blade/Skinhusker) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Blade/Skinhusker)]
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 RACE:Fiend (Blade/Skinhusker)	!PRERACE:1,%
 NAME:Fiend (Blade/Skinhusker)
@@ -73,7 +73,7 @@ FEAT:Cleave
 FEAT:Power Attack
 LANGAUTO:Latin
 
-STARTPACK:Default Fiend (Vomit/Festergog)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Vomit/Festergog)]
+STARTPACK:Fiend (Vomit/Festergog) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Vomit/Festergog)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Fiend (Vomit/Festergog)	!PRERACE:1,%
 NAME:Fiend (Vomit/Festergog)
@@ -94,7 +94,7 @@ FEAT:Frightful Presence
 FEAT:Iron Will
 FEAT:Power Attack
 
-STARTPACK:Default Gargoyle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle]
+STARTPACK:Gargoyle Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Gargoyle	!PRERACE:1,%
 NAME:Gargoyle
@@ -103,7 +103,7 @@ SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 FEAT:Multiattack
 
-STARTPACK:Default Gnoll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnoll]
+STARTPACK:Gnoll Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnoll]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 RACE:Gnoll	!PRERACE:1,%
 NAME:Gnoll
@@ -116,7 +116,7 @@ GEAR:TEC-9 (9mm machine pistol)	LOCATION:Carried
 GEAR:Bullet (9mm/50)			LOCATION:Carried
 GEAR:Fatigues				LOCATION:Torso
 
-STARTPACK:Default Goblin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]
+STARTPACK:Goblin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 RACE:Goblin	!PRERACE:1,%
 NAME:Goblin
@@ -129,18 +129,18 @@ GEAR:Bullet (.357)			QTY:25	LOCATION:Carried
 GEAR:Holster (Hip)			LOCATION:Carried
 GEAR:Walkie-Talkie (Basic)		LOCATION:Carried
 
-STARTPACK:Default Golem (Flesh)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
+STARTPACK:Golem (Flesh) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Golem (Flesh)	!PRERACE:1,%
 NAME:Flesh Golem
 
-STARTPACK:Default Golem (Advanced Flesh)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
+STARTPACK:Golem (Advanced Flesh) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
 KIT:Default Golem (Flesh)
 STAT:STR=19|DEX=9|CON=10|INT=10|WIS=11|CHA=11
 CLASS:Construct	LEVEL:11
 NAME:Advanced Flesh Golem
 
-STARTPACK:Default Invisible Stalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Invisible Stalker]
+STARTPACK:Invisible Stalker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Invisible Stalker]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Invisible Stalker	!PRERACE:1,%
 NAME:Invisible Stalker
@@ -152,7 +152,7 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Slam)
 
-STARTPACK:Default Invisible Stalker (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Invisible Stalker]
+STARTPACK:Invisible Stalker (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Invisible Stalker]
 KIT:Default Invisible Stalker
 NAME:Advanced Invisible Stalker
 CLASS:Elemental (Air/Fire)	LEVEL:4
@@ -162,7 +162,7 @@ SKILL:Search		RANK:2
 SKILL:Spot			RANK:2
 FEAT:Dodge
 
-STARTPACK:Default Kobold	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kobold]
+STARTPACK:Kobold Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kobold]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Kobold	!PRERACE:1,%
 NAME:Kobold
@@ -172,7 +172,7 @@ GEAR:Knife					LOCATION:Carried
 GEAR:Pathfinder (.22 revolver)	LOCATION:Primary Hand
 GEAR:Bullet (.22)				QTY:10	LOCATION:Carried
 
-STARTPACK:Default Medusa	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Medusa]
+STARTPACK:Medusa Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Medusa]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Medusa	!PRERACE:1,%
 NAME:Medusa
@@ -193,7 +193,7 @@ GEAR:Outerwear (Overcoat)		LOCATION:Body
 LANGAUTO:English
 LANGAUTO:Spanish
 
-STARTPACK:Default Minotaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur]
+STARTPACK:Minotaur Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Minotaur	!PRERACE:1,%
 NAME:Minotaur
@@ -207,18 +207,18 @@ FEAT:Power Attack
 FEAT:Great Fortitude
 GEAR:Club	SIZE:H	LOCATION:Both Hands
 
-STARTPACK:Default Monstrous Plant (Flytrap)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Plant (Flytrap)]
+STARTPACK:Monstrous Plant (Flytrap) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Plant (Flytrap)]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Monstrous Plant (Flytrap)	!PRERACE:1,%
 NAME:Monstrous Flytrap
 
-STARTPACK:Default Monstrous Plant (Advanced Flytrap)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Plant (Flytrap)]
+STARTPACK:Monstrous Plant (Advanced Flytrap) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Plant (Flytrap)]
 KIT:Default Monstrous Plant (Flytrap)
 STAT:STR=18|DEX=11|CON=15|INT=10|WIS=10|CHA=10
 CLASS:Plant	LEVEL:11
 NAME:Advanced Monstrous Flytrap
 
-STARTPACK:Default Monstrous Spider (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Colossal)]
+STARTPACK:Monstrous Spider (Colossal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Colossal)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Monstrous Spider (Colossal)	!PRERACE:1,%
 NAME:Colossal Monstrous Spider
@@ -227,7 +227,7 @@ SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:4
 
-STARTPACK:Default Monstrous Spider (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Gargantuan)]
+STARTPACK:Monstrous Spider (Gargantuan) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Gargantuan)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Monstrous Spider (Gargantuan)	!PRERACE:1,%
 NAME:Gargantuan Monstrous Spider
@@ -236,7 +236,7 @@ SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:4
 
-STARTPACK:Default Monstrous Spider (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Huge)]
+STARTPACK:Monstrous Spider (Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Huge)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Monstrous Spider (Huge)	!PRERACE:1,%
 NAME:Huge Monstrous Spider
@@ -245,7 +245,7 @@ SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:4
 
-STARTPACK:Default Monstrous Spider (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Large)]
+STARTPACK:Monstrous Spider (Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Large)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Monstrous Spider (Large)	!PRERACE:1,%
 NAME:Large Monstrous Spider
@@ -254,7 +254,7 @@ SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:4
 
-STARTPACK:Default Monstrous Spider (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Medium)]
+STARTPACK:Monstrous Spider (Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Medium)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Monstrous Spider (Medium)	!PRERACE:1,%
 NAME:Medium Monstrous Spider
@@ -263,7 +263,7 @@ SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:4
 
-STARTPACK:Default Monstrous Spider (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Small)]
+STARTPACK:Monstrous Spider (Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Small)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Monstrous Spider (Small)	!PRERACE:1,%
 NAME:Small Monstrous Spider
@@ -272,7 +272,7 @@ SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:4
 
-STARTPACK:Default Monstrous Spider (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Tiny)]
+STARTPACK:Monstrous Spider (Tiny) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Tiny)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Monstrous Spider (Tiny)	!PRERACE:1,%
 NAME:Tiny Monstrous Spider
@@ -281,7 +281,7 @@ SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:4
 
-STARTPACK:Default Mummy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]
+STARTPACK:Mummy Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 RACE:Mummy	!PRERACE:1,%
 NAME:Mummy
@@ -294,7 +294,7 @@ FEAT:Alertness
 FEAT:Toughness
 LANGAUTO:Middle Egyptian
 
-STARTPACK:Default Ogre	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]
+STARTPACK:Ogre Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 RACE:Ogre	!PRERACE:1,%
 NAME:Ogre
@@ -305,29 +305,29 @@ LEVELABILITY:Giant=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weap
 FEAT:Weapon Focus (Huge Club)
 GEAR:Club	SIZE:H	LOCATION:Both Hands
 
-STARTPACK:Default Ooze (Terrestrial Effluvium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Terrestrial Effluvium)]
+STARTPACK:Ooze (Terrestrial Effluvium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Terrestrial Effluvium)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Ooze (Terrestrial Effluvium)	!PRERACE:1,%
 NAME:Terrestrial Effluvium
 
-STARTPACK:Default Puppeteer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer]
+STARTPACK:Puppeteer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Puppeteer	!PRERACE:1,%
 NAME:Puppeteer
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 
-STARTPACK:Default Robot (Diminutive)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Diminutive)]
+STARTPACK:Robot (Diminutive) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Diminutive)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Robot (Diminutive)	!PRERACE:1,%
 NAME:Diminutive Robot
 
-STARTPACK:Default Robot (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Tiny)]
+STARTPACK:Robot (Tiny) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Tiny)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Robot (Tiny)	!PRERACE:1,%
 NAME:Tiny Robot
 
-STARTPACK:Default Tooth Fairy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tooth Fairy]
+STARTPACK:Tooth Fairy Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tooth Fairy]
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 RACE:Tooth Fairy	!PRERACE:1,%
 NAME:Tooth Fairy
@@ -350,7 +350,7 @@ FEAT:Improved Initiative
 FEAT:Renown
 GEAR:Knife	LOCATION:Primary Hand
 
-STARTPACK:Default Troglodyte	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troglodyte]
+STARTPACK:Troglodyte Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troglodyte]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Troglodyte	!PRERACE:1,%
 NAME:Troglodyte
@@ -362,7 +362,7 @@ GEAR:Sap		LOCATION:Carried
 GEAR:Javelin	LOCATION:Primary Hand
 GEAR:Backpack	LOCATION:Carried
 
-STARTPACK:Default Troll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]
+STARTPACK:Troll Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 RACE:Troll	!PRERACE:1,%
 NAME:Troll
@@ -372,7 +372,7 @@ LEVELABILITY:Giant=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weap
 FEAT:Alertness
 FEAT:Multiattack
 
-STARTPACK:Default Wyrm (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wyrm (Adult)]
+STARTPACK:Wyrm (Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wyrm (Adult)]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Wyrm (Adult)	!PRERACE:1,%
 NAME:Wyrm (Adult)
@@ -386,7 +386,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Weapon Focus(Sting)
 
-STARTPACK:Default Wyrm (Hatchling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wyrm (Hatchling)]
+STARTPACK:Wyrm (Hatchling) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wyrm (Hatchling)]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Wyrm (Hatchling)	!PRERACE:1,%
 NAME:Wyrm (Hatchling)
