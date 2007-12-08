@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 
-STARTPACK:Default Valiance	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Valiance]
+STARTPACK:Valiance Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Valiance]
 RACE:Valiance	!PRERACE:1,%
 NAME:Valiance
 ALIGN:LG|NG|CG
@@ -22,7 +22,7 @@ FEAT:Alertness
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Default Thaerestian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thaerestian]
+STARTPACK:Thaerestian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thaerestian]
 RACE:Thaerestian	!PRERACE:1,%
 NAME:Thaerestian
 ALIGN:LN
@@ -101,7 +101,7 @@ FEAT:Iron Will
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Eye Golem	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eye Golem]
+STARTPACK:Eye Golem Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eye Golem]
 RACE:Eye Golem	!PRERACE:1,%
 NAME:Eye Golem
 ALIGN:TN
@@ -111,7 +111,7 @@ SKILL:Spot		RANK:10
 FEAT:Alertness
 FEAT:Lightning Reflexes
 
-STARTPACK:Default Kallendine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kallendine]
+STARTPACK:Kallendine Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kallendine]
 RACE:Kallendine	!PRERACE:1,%
 NAME:Kallendine
 STAT:DEX=11|CON=11|INT=11|WIS=11|STR=10|CHA=10
@@ -124,7 +124,7 @@ FEAT:Iron Will
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Sohr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sohr]
+STARTPACK:Sohr Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sohr]
 RACE:Sohr	!PRERACE:1,%
 NAME:Sohr
 ALIGN:TN
@@ -137,7 +137,7 @@ FEAT:Flyby Attack
 FEAT:Hover
 FEAT:Power Attack
 
-STARTPACK:Default Battle Sohr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Battle Sohr]
+STARTPACK:Battle Sohr Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Battle Sohr]
 RACE:Battle Sohr	!PRERACE:1,%
 NAME:Battle Sohr
 ALIGN:TN
@@ -162,7 +162,7 @@ FEAT:Alertness
 FEAT:Great Fortitude
 FEAT:Multiattack
 
-STARTPACK:Default Unholy Riven	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unholy Riven]
+STARTPACK:Unholy Riven Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unholy Riven]
 RACE:Unholy Riven	!PRERACE:1,%
 NAME:Unholy Riven
 ALIGN:NE

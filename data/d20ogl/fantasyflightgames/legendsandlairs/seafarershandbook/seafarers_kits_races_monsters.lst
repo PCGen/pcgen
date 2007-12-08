@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
 
-STARTPACK:Default Abyssal Shark	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abyssal Shark]
+STARTPACK:Abyssal Shark Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abyssal Shark]
 STAT:CON=10|WIS=10|CHA=10|STR=10|DEX=10|INT=10
 RACE:Abyssal Shark	!PRERACE:1,%
 NAME:Abyssal Shark
@@ -20,14 +20,14 @@ FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Improved Bull Rush
 
-STARTPACK:Default Coral Golem	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Coral Golem]
+STARTPACK:Coral Golem Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Coral Golem]
 STAT:CON=10|WIS=10|CHA=10|STR=10|DEX=10|INT=10
 RACE:Coral Golem	!PRERACE:1,%
 NAME:Coral Golem
 ALIGN:TN
 SKILL:Swim	RANK:1
 
-STARTPACK:Default Drowned Dead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drowned Dead]
+STARTPACK:Drowned Dead Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drowned Dead]
 STAT:CON=10|WIS=10|CHA=10|STR=10|DEX=10|INT=10
 RACE:Drowned Dead	!PRERACE:1,%
 NAME:Drowned Dead
@@ -38,7 +38,7 @@ SKILL:Listen		RANK:7
 SKILL:Move Silently	RANK:6
 SKILL:Swim			RANK:12
 
-STARTPACK:Default Hippocampus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus]
+STARTPACK:Hippocampus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus]
 STAT:CON=10|WIS=10|CHA=10|STR=10|DEX=10|INT=10
 RACE:Hippocampus	!PRERACE:1,%
 NAME:Hippocampus

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
 
-STARTPACK:Default Angel of Fire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel of Fire]
+STARTPACK:Angel of Fire Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel of Fire]
 RACE:Angel of Fire	!PRERACE:1,%
 NAME:Angel of Fire
 ALIGN:LG|LN|LE
@@ -18,7 +18,7 @@ SKILL:Spot				RANK:9
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Default Angel of the Winds	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel of the Winds]
+STARTPACK:Angel of the Winds Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel of the Winds]
 RACE:Angel of the Winds	!PRERACE:1,%
 NAME:Angel of the Winds
 ALIGN:LG|LN|LE
@@ -35,7 +35,7 @@ SKILL:Listen			RANK:6
 FEAT:Improved Initiative
 FEAT:Iron Will
 
-STARTPACK:Default Angel of Stone	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel of Stone]
+STARTPACK:Angel of Stone Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel of Stone]
 RACE:Angel of Stone	!PRERACE:1,%
 NAME:Angel of Stone
 ALIGN:LG|LN|LE
@@ -52,7 +52,7 @@ FEAT:Cleave
 FEAT:Expertise
 FEAT:Power Attack
 
-STARTPACK:Default Angel of the Waves	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel of the Waves]
+STARTPACK:Angel of the Waves Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel of the Waves]
 RACE:Angel of the Waves	!PRERACE:1,%
 NAME:Angel of the Waves
 ALIGN:LG|LN|LE
@@ -68,7 +68,7 @@ SKILL:Move Silently	RANK:8
 FEAT:Improved Initiative
 FEAT:Weapon Focus(Trident)
 
-STARTPACK:Default Balsam	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Balsam]
+STARTPACK:Balsam Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Balsam]
 RACE:Balsam	!PRERACE:1,%
 NAME:Balsam
 ALIGN:LG|LN|LE
@@ -78,7 +78,7 @@ SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:4
 FEAT:Alertness
 
-STARTPACK:Default Dayod	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dayod]
+STARTPACK:Dayod Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dayod]
 RACE:Dayod	!PRERACE:1,%
 NAME:Dayod
 ALIGN:LG|LN|LE
@@ -86,7 +86,7 @@ STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 FEAT:Alertness
 FEAT:Combat Reflexes
 
-STARTPACK:Default Fealom	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fealom]
+STARTPACK:Fealom Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fealom]
 RACE:Fealom	!PRERACE:1,%
 NAME:Fealom
 ALIGN:LG|LN|LE
@@ -103,7 +103,7 @@ FEAT:Alertness
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
-STARTPACK:Default Hallas	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hallas]
+STARTPACK:Hallas Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hallas]
 RACE:Hallas	!PRERACE:1,%
 NAME:Hallas
 ALIGN:LG|LN|LE

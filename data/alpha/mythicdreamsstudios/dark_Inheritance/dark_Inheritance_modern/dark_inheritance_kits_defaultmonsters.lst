@@ -2,7 +2,7 @@
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 #Original Entry by: Frank Kliewe
 
-STARTPACK:Default Elemental (Glass)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Glass)]
+STARTPACK:Elemental (Glass) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Glass)]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 RACE:Elemental (Glass)	!PRERACE:1,%
 NAME:Glass Elemental
@@ -10,7 +10,7 @@ SKILL:Listen	RANK:4
 SKILL:Spot		RANK:7
 FEAT:Weapon Finesse (Slam)
 
-STARTPACK:Default Elemental (Radiation)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Radiation)]
+STARTPACK:Elemental (Radiation) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Radiation)]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 RACE:Elemental (Radiation)	!PRERACE:1,%
 NAME:Radiation Elemental
@@ -18,7 +18,7 @@ SKILL:Listen	RANK:4
 SKILL:Spot		RANK:7
 FEAT:Weapon Finesse (Slam)
 
-STARTPACK:Default Elemental (Steel)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Steel)]
+STARTPACK:Elemental (Steel) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Steel)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Elemental (Steel)	!PRERACE:1,%
 NAME:Steel Elemental
@@ -26,7 +26,7 @@ SKILL:Listen	RANK:7
 SKILL:Spot		RANK:4
 FEAT:Power Attack
 
-STARTPACK:Default Elemental (Concrete)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Concrete)]
+STARTPACK:Elemental (Concrete) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Concrete)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Elemental (Concrete)	!PRERACE:1,%
 NAME:Concrete Elemental
@@ -34,7 +34,7 @@ SKILL:Listen	RANK:7
 SKILL:Spot		RANK:4
 FEAT:Power Attack
 
-STARTPACK:Default Daemonhost (Disembodied Attendant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemonhost (Disembodied Attendant)]
+STARTPACK:Daemonhost (Disembodied Attendant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemonhost (Disembodied Attendant)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Daemonhost (Disembodied Attendant)	!PRERACE:1,%
 NAME:Disembodied Daemonhost Attendant
@@ -48,7 +48,7 @@ SKILL:Spellcraft			RANK:2
 FEAT:Iron Will
 FEAT:Archaic Weapons Proficiency
 
-STARTPACK:Default Daemon Hound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon Hound]
+STARTPACK:Daemon Hound Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon Hound]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Daemon Hound	!PRERACE:1,%
 NAME:Daemon Hound
@@ -60,7 +60,7 @@ FEAT:Multiattack
 FEAT:Alertness
 FEAT:Dodge
 
-STARTPACK:Default Ethereal Predator	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Predator]
+STARTPACK:Ethereal Predator Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Predator]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 RACE:Ethereal Predator	!PRERACE:1,%
 NAME:Ethereal Predator
@@ -68,7 +68,7 @@ SKILL:Listen	RANK:7
 SKILL:Spot		RANK:9
 FEAT:Alertness
 
-STARTPACK:Default Mentiscaptor (Whipspider)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mentiscaptor (Whipspider)]
+STARTPACK:Mentiscaptor (Whipspider) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mentiscaptor (Whipspider)]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 RACE:Mentiscaptor (Whipspider)	!PRERACE:1,%
 NAME:Mentiscaptor
@@ -79,7 +79,7 @@ SKILL:Search		RANK:2
 SKILL:Spot			RANK:2
 FEAT:Weapon Finesse (Bite)
 
-STARTPACK:Default Plategrazer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Plategrazer]
+STARTPACK:Plategrazer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Plategrazer]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Plategrazer	!PRERACE:1,%
 NAME:Plategrazer
@@ -87,7 +87,7 @@ SKILL:Hide		RANK:4
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 
-STARTPACK:Default Pteroraptor	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pteroraptor]
+STARTPACK:Pteroraptor Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pteroraptor]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 RACE:Pteroraptor	!PRERACE:1,%
 NAME:Pteroraptor
@@ -95,7 +95,7 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:4
 
-STARTPACK:Default Screamer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Screamer]
+STARTPACK:Screamer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Screamer]
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 RACE:Screamer	!PRERACE:1,%
 NAME:Screamer
@@ -106,7 +106,7 @@ SKILL:Spot			RANK:4
 FEAT:Alertness
 FEAT:Weapon Finesse (Bite)
 
-STARTPACK:Default Shadowcrawler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadowcrawler]
+STARTPACK:Shadowcrawler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadowcrawler]
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 RACE:Shadowcrawler	!PRERACE:1,%
 NAME:Shadowcrawler
@@ -118,7 +118,7 @@ SKILL:Search		RANK:2
 SKILL:Spot			RANK:4
 FEAT:Alertness
 
-STARTPACK:Default Shaskarath (The Cold Death)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaskarath (The Cold Death)]
+STARTPACK:Shaskarath (The Cold Death) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaskarath (The Cold Death)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Shaskarath (The Cold Death)	!PRERACE:1,%
 NAME:Shaskarath
@@ -151,7 +151,7 @@ FEAT:Power Attack
 FEAT:Renown
 FEAT:Weapon Focus (Claws)
 
-STARTPACK:Default Spider Ebon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider Ebon]
+STARTPACK:Spider Ebon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider Ebon]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Spider Ebon	!PRERACE:1,%
 NAME:Spider Ebon
@@ -160,7 +160,7 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:4
 
-STARTPACK:Default Spring Snake	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spring Snake]
+STARTPACK:Spring Snake Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spring Snake]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Spring Snake	!PRERACE:1,%
 NAME:Spring Snake

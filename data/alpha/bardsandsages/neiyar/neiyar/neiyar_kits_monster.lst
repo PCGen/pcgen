@@ -1,7 +1,7 @@
 # CVS $Revision: $ $Author: $ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
 
-STARTPACK:Default Banyanta	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Banyanta%]
+STARTPACK:Banyanta Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Banyanta%]
 RACE:Banyanta	!PRERACE:1,%
 NAME:Banyanta
 ALIGN:NG
@@ -21,7 +21,7 @@ FEAT:Power Attack
 
 
 #Clockwork Beetle - tiny vermin
-STARTPACK:Default Clockwork Beetle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Clockwork Beetle]
+STARTPACK:Clockwork Beetle Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Clockwork Beetle]
 RACE:Clockwork Beetle	!PRERACE:1,%
 NAME:Clockwork Beetle
 ALIGN:TN
@@ -32,7 +32,7 @@ STAT:WIS=10|CHA=10|STR=10|DEX=10|CON=10|INT=10
 
 
 #Chardara Bird - small animal
-STARTPACK:Default Chardara Bird	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chardara Bird]
+STARTPACK:Chardara Bird Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chardara Bird]
 RACE:Chardara Bird	!PRERACE:1,%
 NAME:Chardara Bird
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -43,7 +43,7 @@ FEAT:Weapon Finesse
 FEAT:Improved Initiative	FREE:YES
 
 
-STARTPACK:Default Chovoo	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chovoo%]
+STARTPACK:Chovoo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chovoo%]
 RACE:Chovoo	!PRERACE:1,%
 NAME:Chovoo
 ALIGN:CE
@@ -58,7 +58,7 @@ FEAT:Blind Fight
 
 
 #Corpse-Eater Lily
-STARTPACK:Default Corpse-Eater Lily	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Corpse-Eater Lily]
+STARTPACK:Corpse-Eater Lily Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Corpse-Eater Lily]
 RACE:Corpse-Eater Lily	!PRERACE:1,%
 NAME:Corpse-Eater Lily
 STAT:STR=10|DEX=10|CON=12|INT=10|WIS=11|CHA=10
@@ -67,7 +67,7 @@ SKILL:Move Silently	RANK:2
 FEAT:Improved Initiative
 
 #Fleshcutter Ant (Worker)
-STARTPACK:Default Fleshcutter Ant (Worker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fleshcutter Ant (Worker)]
+STARTPACK:Fleshcutter Ant (Worker) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fleshcutter Ant (Worker)]
 RACE:Fleshcutter Ant (Worker)	!PRERACE:1,%
 NAME:Fleshcutter Ant (Worker)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
@@ -81,7 +81,7 @@ FEAT:Improved Critical(Bite)
 
 
 #Fleshcutter Ant (Soldier)
-STARTPACK:Default Fleshcutter Ant (Soldier)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fleshcutter Ant (Soldier)]
+STARTPACK:Fleshcutter Ant (Soldier) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fleshcutter Ant (Soldier)]
 RACE:Fleshcutter Ant (Soldier)	!PRERACE:1,%
 NAME:Fleshcutter Ant (Soldier)
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
@@ -95,7 +95,7 @@ FEAT:Improved Critical(Bite)
 
 
 #Fleshcutter Ant (Queen)
-STARTPACK:Default Fleshcutter Ant (Queen)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fleshcutter Ant (Queen)]
+STARTPACK:Fleshcutter Ant (Queen) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fleshcutter Ant (Queen)]
 RACE:Fleshcutter Ant (Queen)	!PRERACE:1,%
 NAME:Fleshcutter Ant (Queen)
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
@@ -108,7 +108,7 @@ FEAT:Weapon Focus(Bite)
 FEAT:Improved Critical(Bite)
 
 #Fleshcutter Ant (Swarm)
-STARTPACK:Default Fleshcutter Ant (Swarm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fleshcutter Ant (Swarm)]
+STARTPACK:Fleshcutter Ant (Swarm) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fleshcutter Ant (Swarm)]
 RACE:Fleshcutter Ant (Swarm)	!PRERACE:1,%
 NAME:Fleshcutter Ant (Swarm)
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -122,7 +122,7 @@ FEAT:Improved Critical(Bite)
 #Supposed to be a swarm of the Drones - do we use the Drone Stats?
 
 #Green Bear
-STARTPACK:Default Green Bear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Green Bear]
+STARTPACK:Green Bear Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Green Bear]
 RACE:Green Bear	!PRERACE:1,%
 NAME:Green Bear
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -131,7 +131,7 @@ SKILL:Hide	RANK:6
 SKILL:Swim	RANK:14	FREE:YES
 
 #Mud Squid
-STARTPACK:Default Mud Squid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mud Squid]
+STARTPACK:Mud Squid Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mud Squid]
 RACE:Mud Squid	!PRERACE:1,%
 NAME:Mud Squid
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
@@ -139,7 +139,7 @@ ALIGN:TN
 #COMMENT:Swim skill listed as +4 but 35e should be +8 total
 
 #Pigmy Troll
-STARTPACK:Default Pigmy Troll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pigmy Troll]
+STARTPACK:Pigmy Troll Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pigmy Troll]
 RACE:Pigmy Troll	!PRERACE:1,%
 NAME:Pigmy Troll
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -156,7 +156,7 @@ FEAT:Improved Initiative	FREE:YES
 #Imp. Init listed in the Init area but not in feats.
 
 #Reef Razor
-STARTPACK:Default Reef Razor	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Reef Razor]
+STARTPACK:Reef Razor Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Reef Razor]
 RACE:Reef Razor	!PRERACE:1,%
 NAME:Reef Razor
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -166,7 +166,7 @@ SKILL:Swim	RANK:6	FREE:YES
 #FEAT:Scent (No such feat, perhaps this is really an SQ?)
 
 #Sleeper Bat
-STARTPACK:Default Sleeper Bat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sleeper Bat]
+STARTPACK:Sleeper Bat Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sleeper Bat]
 RACE:Sleeper Bat	!PRERACE:1,%
 NAME:Sleeper Bat
 STAT:STR=11|DEX=11|CON=12|INT=11|WIS=10|CHA=10
@@ -177,7 +177,7 @@ SKILL:Spot			RANK:8	FREE:YES
 FEAT:Weapon Finesse
 
 #Vine Constrictor
-STARTPACK:Default Vine Constrictor	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vine Constrictor]
+STARTPACK:Vine Constrictor Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vine Constrictor]
 RACE:Vine Constrictor	!PRERACE:1,%
 NAME:Vine Constrictor
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10

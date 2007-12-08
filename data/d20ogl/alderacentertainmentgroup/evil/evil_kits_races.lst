@@ -1,56 +1,56 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20
 
-STARTPACK:Default Prismatic Archon (Red)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Red)]
+STARTPACK:Prismatic Archon (Red) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Red)]
 RACE:Prismatic Archon (Red)	!PRERACE:1,%
 NAME:Prismatic Archon (Red)
 ALIGN:LG
 FEAT:Improved Initiative
 
-STARTPACK:Default Prismatic Archon (Orange)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Orange)]
+STARTPACK:Prismatic Archon (Orange) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Orange)]
 RACE:Prismatic Archon (Orange)	!PRERACE:1,%
 NAME:Prismatic Archon (Orange)
 ALIGN:LG
 FEAT:Improved Initiative
 
-STARTPACK:Default Prismatic Archon (Yellow)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Yellow)]
+STARTPACK:Prismatic Archon (Yellow) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Yellow)]
 RACE:Prismatic Archon (Yellow)	!PRERACE:1,%
 NAME:Prismatic Archon (Yellow)
 ALIGN:LG
 FEAT:Improved Initiative
 
-STARTPACK:Default Prismatic Archon (Green)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Green)]
+STARTPACK:Prismatic Archon (Green) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Green)]
 RACE:Prismatic Archon (Green)	!PRERACE:1,%
 NAME:Prismatic Archon (Green)
 ALIGN:LG
 FEAT:Improved Initiative
 
-STARTPACK:Default Prismatic Archon (Blue)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Blue)]
+STARTPACK:Prismatic Archon (Blue) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Blue)]
 RACE:Prismatic Archon (Blue)	!PRERACE:1,%
 NAME:Prismatic Archon (Blue)
 ALIGN:LG
 FEAT:Improved Initiative
 
-STARTPACK:Default Prismatic Archon (Indigo)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Indigo)]
+STARTPACK:Prismatic Archon (Indigo) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Indigo)]
 RACE:Prismatic Archon (Indigo)	!PRERACE:1,%
 NAME:Prismatic Archon (Indigo)
 ALIGN:LG
 FEAT:Improved Initiative
 
-STARTPACK:Default Prismatic Archon (Violet)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Violet)]
+STARTPACK:Prismatic Archon (Violet) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismatic Archon (Violet)]
 RACE:Prismatic Archon (Violet)	!PRERACE:1,%
 NAME:Prismatic Archon (Violet)
 ALIGN:LG
 FEAT:Improved Initiative
 
-STARTPACK:Default Spring Wolf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spring Wolf]
+STARTPACK:Spring Wolf Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spring Wolf]
 RACE:Spring Wolf	!PRERACE:1,%
 NAME:Spring Wolf
 ALIGN:NG
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Default Taurian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Taurian]
+STARTPACK:Taurian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Taurian]
 RACE:Taurian	!PRERACE:1,%
 NAME:Taurian
 ALIGN:LG
@@ -59,7 +59,7 @@ FEAT:Improved Bull Rush
 FEAT:Cleave
 FEAT:Improved Initiative
 
-STARTPACK:Default Ahsarin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ahsarin]
+STARTPACK:Ahsarin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ahsarin]
 RACE:Ahsarin	!PRERACE:1,%
 NAME:Ahsarin
 ALIGN:LG|NG|CG
@@ -67,7 +67,7 @@ FEAT:Weapon Finesse(Longsword)
 FEAT:Weapon Focus(Longsword)
 FEAT:Improved Initiative
 
-STARTPACK:Default Shadowraven	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadowraven]
+STARTPACK:Shadowraven Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadowraven]
 RACE:Shadowraven	!PRERACE:1,%
 NAME:Shadowraven
 ALIGN:CE

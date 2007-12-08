@@ -2,12 +2,12 @@
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe
 
-STARTPACK:Default Breed (Warrior)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Breed (Warrior)]
+STARTPACK:Breed (Warrior) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Breed (Warrior)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 RACE:Breed (Warrior)	!PRERACE:1,%
 NAME:Warrior Breed
 
-STARTPACK:Default Demon (Pumpkin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Pumpkin)]
+STARTPACK:Demon (Pumpkin) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Pumpkin)]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Demon (Pumpkin)	!PRERACE:1,%
 NAME:Pumpkin Demon
@@ -27,7 +27,7 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Multiattack
 
-STARTPACK:Default Demon (Slasher)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Slasher)]
+STARTPACK:Demon (Slasher) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Slasher)]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Demon (Slasher)	!PRERACE:1,%
 NAME:Slasher Demon
@@ -35,7 +35,7 @@ SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 SKILL:Hide		RANK:8
 
-STARTPACK:Default Dream Stalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dream Stalker]
+STARTPACK:Dream Stalker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dream Stalker]
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 RACE:Dream Stalker	!PRERACE:1,%
 NAME:Dream Stalker
@@ -53,7 +53,7 @@ FEAT:Catch Phrase
 #Combat Casting does not exist in Modern
 #FEAT:Combat Casting
 
-STARTPACK:Default Lurker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lurker]
+STARTPACK:Lurker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lurker]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Lurker	!PRERACE:1,%
 NAME:Lurker
@@ -63,12 +63,12 @@ SKILL:Spot		RANK:2
 FEAT:Multiattack
 FEAT:Toughness(+3 HP)
 
-STARTPACK:Default Sentinel Sphere	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sentinel Sphere]
+STARTPACK:Sentinel Sphere Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sentinel Sphere]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Sentinel Sphere	!PRERACE:1,%
 NAME:Sentinel Sphere
 
-STARTPACK:Default Soul Sucker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Soul Sucker]
+STARTPACK:Soul Sucker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Soul Sucker]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 RACE:Soul Sucker	!PRERACE:1,%
 NAME:Soul Sucker
@@ -84,7 +84,7 @@ FEAT:Blind-Fight
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
-STARTPACK:Default Thin Stranger	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%]
+STARTPACK:Thin Stranger Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 RACE:Thin Stranger	!PRERACE:1,%
 NAME:Thin Stranger

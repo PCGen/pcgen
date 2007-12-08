@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Oct 28 02:20:07 2006 -- reformated by prettylst.pl v1.35 (build 1495)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
 
-STARTPACK:Default Xenomorph (Dawson Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dawson Dragon]
+STARTPACK:Xenomorph (Dawson Dragon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dawson Dragon]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Dawson Dragon	!PRERACE:1,%
 NAME:Dawson Dragon
@@ -9,14 +9,14 @@ SKILL:Jump		RANK:6
 SKILL:Spot		RANK:3
 SKILL:Survival	RANK:5
 
-STARTPACK:Default Xenomorph (Delhi Beacon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Delhi Beacon]
+STARTPACK:Xenomorph (Delhi Beacon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Delhi Beacon]
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 RACE:Delhi Beacon	!PRERACE:1,%
 NAME:Delhi Beacon
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 
-STARTPACK:Default Xenomorph (Iron Scar Charger)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Iron Scar Charger]
+STARTPACK:Xenomorph (Iron Scar Charger) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Iron Scar Charger]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Iron Scar Charger	!PRERACE:1,%
 NAME:Iron Scar Charger
@@ -25,14 +25,14 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:4
 
-STARTPACK:Default Xenomorph (Iron Scar Scraper)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Iron Scar Scraper]
+STARTPACK:Xenomorph (Iron Scar Scraper) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Iron Scar Scraper]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 RACE:Iron Scar Scraper	!PRERACE:1,%
 NAME:Iron Scar Scraper
 SKILL:Listen	RANK:8
 SKILL:Spot		RANK:5
 
-STARTPACK:Default Xenomorph (Murcow)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Murcow]
+STARTPACK:Xenomorph (Murcow) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Murcow]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 RACE:Murcow	!PRERACE:1,%
 NAME:Murcow
@@ -40,19 +40,19 @@ SKILL:Climb		RANK:1
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:4
 
-STARTPACK:Default Xenomorph (Sap Trap)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sap Trap]
+STARTPACK:Xenomorph (Sap Trap) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sap Trap]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Sap Trap	!PRERACE:1,%
 NAME:Sap Trap
 
-STARTPACK:Default Xenomorph (Shovel Headed Centipede)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shovel Headed Centipede]
+STARTPACK:Xenomorph (Shovel Headed Centipede) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shovel Headed Centipede]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Shovel Headed Centipede	!PRERACE:1,%
 NAME:Shovel Headed Centipede
 SKILL:Spot	RANK:6
 SKILL:Hide	RANK:4
 
-STARTPACK:Default Xenomorph (Siren Megalodon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Siren Megalodon]
+STARTPACK:Xenomorph (Siren Megalodon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Siren Megalodon]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Siren Megalodon	!PRERACE:1,%
 NAME:Siren Megalodon
@@ -60,14 +60,14 @@ SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 SKILL:Swim		RANK:3
 
-STARTPACK:Default Xenomorph (Sloth Roach)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sloth Roach]
+STARTPACK:Xenomorph (Sloth Roach) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sloth Roach]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Sloth Roach	!PRERACE:1,%
 NAME:Sloth Roach
 SKILL:Climb	RANK:6
 SKILL:Hide	RANK:6
 
-STARTPACK:Default Xenomorph (Spestin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spestin]
+STARTPACK:Xenomorph (Spestin) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spestin]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 RACE:Spestin	!PRERACE:1,%
 NAME:Spestin
@@ -76,7 +76,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:4
 SKILL:Survival	RANK:4
 
-STARTPACK:Default Xenomorph (Spitter Spider)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spitter Spider]
+STARTPACK:Xenomorph (Spitter Spider) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spitter Spider]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 RACE:Spitter Spider	!PRERACE:1,%
 NAME:Spitter Spider
@@ -85,7 +85,7 @@ SKILL:Jump			RANK:3
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:3
 
-STARTPACK:Default Xenomorph (Swamp Hulk)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swamp Hulk]
+STARTPACK:Xenomorph (Swamp Hulk) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swamp Hulk]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Swamp Hulk	!PRERACE:1,%
 NAME:Swamp Hulk
@@ -94,7 +94,7 @@ SKILL:Jump		RANK:3
 SKILL:Spot		RANK:3
 SKILL:Listen	RANK:5
 
-STARTPACK:Default Xenomorph (Yanoris Raptor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yanoris Raptor]
+STARTPACK:Xenomorph (Yanoris Raptor) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yanoris Raptor]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Yanoris Raptor	!PRERACE:1,%
 NAME:Yanoris Raptor
@@ -102,7 +102,7 @@ SKILL:Balance	RANK:1
 SKILL:Spot		RANK:8
 SKILL:Survival	RANK:3
 
-STARTPACK:Default Vaasi (Grunt True Vaasi)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grunt True Vaasi]
+STARTPACK:Vaasi (Grunt True Vaasi) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grunt True Vaasi]
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 RACE:Grunt True Vaasi	!PRERACE:1,%
 NAME:Grunt True Vaasi
@@ -120,7 +120,7 @@ FEAT:Personal Firearms Proficiency
 FEAT:Point Blank Shot
 FEAT:Track
 
-STARTPACK:Default Vaasi (Phrenic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phrenic]
+STARTPACK:Vaasi (Phrenic) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phrenic]
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 RACE:Phrenic	!PRERACE:1,%
 NAME:Phrenic
@@ -134,7 +134,7 @@ FEAT:Frightful Presence
 FEAT:Iron Will
 FEAT:Stealthy
 
-STARTPACK:Default Vaasi (Vaasi Soldier)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vaasi Soldier]
+STARTPACK:Vaasi (Vaasi Soldier) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vaasi Soldier]
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 RACE:Vaasi Soldier	!PRERACE:1,%
 NAME:Vaasi Soldier
@@ -147,7 +147,7 @@ SKILL:Survival		RANK:4
 FEAT:Armor Proficiency (Light)
 FEAT:Armor Proficiency (Medium)
 
-STARTPACK:Default Vaasi (Vaasi Warhound)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vaasi Warhound]
+STARTPACK:Vaasi (Vaasi Warhound) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vaasi Warhound]
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 RACE:Vaasi Warhound	!PRERACE:1,%
 NAME:Vaasi Warhound
