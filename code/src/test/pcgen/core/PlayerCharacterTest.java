@@ -866,4 +866,41 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Logging.errorPrint("Real abilities: " + pc.getRealAbilitiesList(ac).size());
 	
 	}
+	
+	public void testIsNonAbility()
+	{
+		PlayerCharacter pc = getCharacter();
+		int index = pc.getStatList().getIndexOfStatFor("STR");
+
+		//Base
+		assertEquals("Initially character should not have a locked ability", false, pc.isNonAbility(index));
+
+		// With template lock
+		PCTemplate nonAbilityLocker = new PCTemplate();
+		nonAbilityLocker.setName("locker");
+		nonAbilityLocker.addVariable(-9, "LOCK.STR", "10");
+		pc.addTemplate(nonAbilityLocker);
+		assertEquals("STR now locked to non ability", true, pc.isNonAbility(index));
+		pc.removeTemplate(nonAbilityLocker);
+		assertEquals("STR no longer locked to non ability", false, pc.isNonAbility(index));
+		
+		// With race lock
+		Race nonAbilityLockerRace = new Race();
+		nonAbilityLockerRace.setName("locker");
+		nonAbilityLockerRace.addVariable(-9, "LOCK.STR", "10");
+		pc.setRace(nonAbilityLockerRace);
+		assertEquals("STR now locked to non ability", true, pc.isNonAbility(index));
+		
+		// With template unlock
+		nonAbilityLocker.addVariable(-9, "UNLOCK.STR", "");
+		pc.addTemplate(nonAbilityLocker);
+		assertEquals("STR now unlocked from a non ability by template", false, pc.isNonAbility(index));
+		pc.removeTemplate(nonAbilityLocker);
+		assertEquals("STR no longer locked to non ability", true, pc.isNonAbility(index));
+		
+		// With race unlock
+		nonAbilityLockerRace.addVariable(-9, "UNLOCK.STR", "");
+		pc.setRace(nonAbilityLockerRace);
+		assertEquals("STR now unlocked from a non ability by race", false, pc.isNonAbility(index));
+	}
 }

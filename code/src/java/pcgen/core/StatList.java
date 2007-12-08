@@ -60,14 +60,17 @@ public final class StatList implements Iterable<PCStat>
 
 		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
-		int z = aPC.getVariableValue("LOCK." + stat.getAbb(), "").intValue();
-
-		if ((z != 0) || ((z == 0) && aPC.hasVariable("LOCK." + stat.getAbb())))
+		// Only check for a lock if the stat hasn't been unlocked
+		if (!aPC.hasVariable("UNLOCK." + stat.getAbb()))
 		{
-			return z;
+			int z = aPC.getVariableValue("LOCK." + stat.getAbb(), "").intValue();
+			if ((z != 0) || ((z == 0) && aPC.hasVariable("LOCK." + stat.getAbb())))
+			{
+				return z;
+			}
 		}
-
-		z = aPC.getVariableValue("BASE." + stat.getAbb(), "").intValue();
+		
+		int z = aPC.getVariableValue("BASE." + stat.getAbb(), "").intValue();
 
 		if (z != 0)
 		{
@@ -204,11 +207,14 @@ public final class StatList implements Iterable<PCStat>
 
 		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
-		x = aPC.getVariableValue("LOCK." + stat.getAbb(), "").intValue();
-
-		if ((x != 0) || ((x == 0) && aPC.hasVariable("LOCK." + stat.getAbb())))
+		// Only check for a lock if the stat hasn't been unlocked
+		if (!aPC.hasVariable("UNLOCK." + stat.getAbb()))
 		{
-			return x;
+			x = aPC.getVariableValue("LOCK." + stat.getAbb(), "").intValue();
+			if ((x != 0) || ((x == 0) && aPC.hasVariable("LOCK." + stat.getAbb())))
+			{
+				return x;
+			}
 		}
 
 		y += aPC.getTotalBonusTo("STAT", stat.getAbb());

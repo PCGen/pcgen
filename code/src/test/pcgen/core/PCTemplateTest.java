@@ -327,6 +327,39 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	}
 	
 	/**
+	 * Test the isUnlocked method of PCTemplate.
+	 */
+	public void testIsUnlocked()
+	{
+		PCTemplate template = new PCTemplate();
+		template.setName("Test Template");
+		int index = getCharacter().getStatList().getIndexOfStatFor("STR");
+		assertEquals("Template has not been unlocked", false, template.isUnlocked(index));
+		template.addVariable(-9, "LOCK.STR", "12");
+		assertEquals("Template has not been unlocked", false, template.isUnlocked(index));
+		template.addVariable(-9, "UNLOCK.STR", "");
+		assertEquals("Template has been unlocked", true, template.isUnlocked(index));
+	}
+	
+	/**
+	 * Test the isNonAbility method of PCTemplate.
+	 */
+	public void testIsNonAbility()
+	{
+		PCTemplate template = new PCTemplate();
+		template.setName("Test Template");
+		int index = getCharacter().getStatList().getIndexOfStatFor("STR");
+		assertEquals("Template has not been locked to a nonability", false, template.isNonAbility(index));
+		template.addVariable(-9, "LOCK.STR", "12");
+		assertEquals("Template has been locked to an ability", false, template.isNonAbility(index));
+		template.addVariable(-9, "LOCK.STR", "10");
+		assertEquals("Template has been locked to a nonability", true, template.isNonAbility(index));
+		template.addVariable(-9, "UNLOCK.STR", "");
+		assertEquals("Template has been unlocked", false, template.isNonAbility(index));
+	}
+	
+	
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

@@ -532,8 +532,48 @@ public final class Race extends PObject
 			return true;
 		}
 
+		// An unlock will always override a lock, so check it first
+		if (isUnlocked(statIdx))
+		{
+			return false;
+		}
+
 		final String aStat = "|LOCK." + statList.get(statIdx).getAbb() + "|10";
 
+		for (int i = 0, x = getVariableCount(); i < x; ++i)
+		{
+			final String varString = getVariableDefinition(i);
+
+			if (varString.endsWith(aStat))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Takes an integer input which it uses to access Games mode's 
+	 * "statlist" array. Test if that stat has been unlocked via a 
+	 * DEFINE|UNLOCK 
+	 * 
+	 * @param statIdx
+	 *            index number of the stat in question
+	 * 
+	 * @return Whether this has been unlocked
+	 */
+	public boolean isUnlocked(final int statIdx)
+	{
+		final List<PCStat> statList = SettingsHandler.getGame()
+			.getUnmodifiableStatList();
+
+		if ((statIdx < 0) || (statIdx >= statList.size()))
+		{
+			return false;
+		}
+
+		String aStat = "|UNLOCK." + statList.get(statIdx).getAbb() + "|";
 		for (int i = 0, x = getVariableCount(); i < x; ++i)
 		{
 			final String varString = getVariableDefinition(i);
