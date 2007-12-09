@@ -231,10 +231,8 @@ ABILITYCATEGORY:Covert Hero Talent	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FR
 PREVIEWDIR:d20/modern
 PREVIEWSHEET:Standard.htm
 
-
-
-
-
+# DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
+DIESIZES:1,2,3,4,6,8,10,12,20,100,1000 
 
 #
 # End

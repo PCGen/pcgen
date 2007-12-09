@@ -205,5 +205,9 @@ WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
 PREVIEWDIR:d20/fantasy
 PREVIEWSHEET:preview.html
 
+# DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
+DIESIZES:1,2,3,4,6,8,10,12,20,100,1000 
+
 #
 # DONE
+#

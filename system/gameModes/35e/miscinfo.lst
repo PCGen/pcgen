@@ -288,6 +288,10 @@ ABILITYCATEGORY:Loremaster Secret		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FR
 
 PREVIEWDIR:d20/fantasy
 PREVIEWSHEET:preview.html
+
+# DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
+DIESIZES:1,2,3,4,6,8,10,12,20,100,1000 
+
 #
 # DONE
 #
