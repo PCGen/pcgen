@@ -12,6 +12,7 @@
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
+		Eric C. Smith - mareduddATblackrootDOTorg
 
 		Description:
 		Provides information on the use of PCGen global ADDTags.
@@ -65,11 +66,13 @@
 	<p class="indent0"><strong>Tag Name:</strong>ADD:.CLEAR.LEVELx</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Class level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Used to clear an ADD tag. This can be used in conjunction with the
-		<a href="globalfilesother.html#MOD">.MOD</a> tag to alter a class or other objects.</p>
-	<p class="indent2">However, please note in the docs that using an ADD.CLEAR.LEVELx on a class line or
-		on a level line where the level does not equal X will result in a warning, and may not be supported in
-		the future.</p>
+	<ul class="indent2">
+		<li>Used to clear an ADD tag.</li>
+		<li>Can be used in conjunction with the <a href="globalfilesother.html#MOD">.MOD</a> tag to alter 
+		a class or other objects.</li>
+		<li>Using an ADD.CLEAR.LEVELx on a class line or on a level line where the level does not equal 
+		X will result in a warning, and may not be supported in the future.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ADD:.CLEAR.LEVEL2</code></p>
 	<p class="indent3">If this were used in a CLASS:Rogue.MOD line it would clear the <code>ADD:FEAT(Evasion,
@@ -87,18 +90,18 @@
 <hr>
 
 	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="ABILITY">Tag Name:</a></strong> ADD:ABILITY|[w|]x|y|z[,z..]</p>
+	<p class="indent0"><strong><a name="ABILITY">Tag Name:</a></strong> ADD:ABILITY|w|x|y|z,z..</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Number, Variable or Formula (Optional - Number of
 		choices granted)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Ability Category (The Ability Category this ability will be added to).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Ability Nature (The nature of the added ability: NORMAL, AUTOMATIC, or VIRTUAL)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (The ability category this ability will be added to.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (The nature of the added ability: NORMAL, AUTOMATIC, or VIRTUAL)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Text (Key of the ability to select from)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> TYPE.AbilityType (Type of ability to select from)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> TYPE.Text (Type of ability to select from)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>ABILITY will give the character a choice of one from the listed abilities.</li>
-		<li>Abilities listed are all &quot;,&quot; (comma) delimited</li>
-		<li>Valid TYPE's are TYPE=REGION, TYPE=SUBREGION, TYPE=ALLREGION, and TYPE=&lt;abilitytype&gt;
+		<li>The ability list is a comma-delimited (&quot;,&quot;) list of ability names and/or types.</li>
+		<li>Valid types are TYPE=REGION, TYPE=SUBREGION, TYPE=ALLREGION, and TYPE=&lt;abilitytype&gt;
 			(i.e. the type of ability, not the word &quot;abilitytype&quot;.)</li>
 		<li>If the ability being added has a chooser ADD:ABILITY is the only tag which will activate it
 			(ABILITY will not).</li>
@@ -122,25 +125,27 @@
 <hr>
 
 	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="CLASSSKILLS|">Tag Name:</a></strong> ADD:CLASSSKILLS|[x|]y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>  Number, Variable or Formula (Optional - Number
-		of choices granted)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of item)</p>
+	<p class="indent0"><strong><a name="CLASSSKILLS|">Tag Name:</a></strong> ADD:CLASSSKILLS|x|y,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>  Number, Variable or Formula (Number of 
+	choices granted. Optional)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of skill)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of skill)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
+		<li>Adds a number (x) of skills selected from the presented list (y) to the characters class skills list.</li>
+		<li>The skills list is a comma-delimited (&quot;,&quot;) list of skills to be presented to choose from.</li>
 		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>CLASSSKILLS with no additional parameters will increase the quantity of the items by 1.</li>
 		<li>CLASSSKILLS with parameters will give the character a choice of one from the items listed in
 			the parenthesis.</li>
-		<li>CLASSSKILLS listed in the parenthesis are all &quot;,&quot; (comma) delimited</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>ADD:CLASSSKILLS|[3|]ANY</code></p>
-	<p class="indent3">Add three of skill listed.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|3|ANY</code></p>
+	<p class="indent3">Add three skills from the full list of skills to the characters list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|Knowledge (Reverie)</code></p>
-	<p class="indent3">Add one to the &quot;Knowledge&quot; with a specility of &quot;Reverie&quot;.</p>
+	<p class="indent3">Add &quot;Knowledge (Reverie)&quot; skill to the characters list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|TYPE=Craft</code></p>
-	<p class="indent3">Add one to the &quot;TYPE&quot; of &quot;Craft&quot;.</p>
+	<p class="indent3">Add one skill from the list of &quot;Craft&quot; type skills to the characters list of class skills.</p>
 	<p></p>
 
 <hr>
@@ -168,20 +173,20 @@
 <hr>
 
 	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="EQUIP|">Tag Name:</a></strong> ADD:EQUIP|[x|]y,y</p>
+	<p class="indent0"><strong><a name="EQUIP|">Tag Name:</a></strong> ADD:EQUIP|x|y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>  Number, Variable or Formula (Optional - Number
 		of choices granted)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of item)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
-		<li>EQUIP with no additional parameters will increase the quantity of the items by 1.</li>
-		<li>EQUIP with parameters will give the character a choice of one from the items listed in the
+		<li>Will give the character a choice of one from the items listed in the
 			parenthesis.</li>
-		<li>EQUIP listed in the parenthesis are all &quot;,&quot; (comma) delimited</li>
+		<li>The equipment list comma-delimited (&quot;,&quot;) list.</li>
+		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
+		<li>If the count (x) is not used, &quot;1&quot; is assumed.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>ADD:EQUIP|[1|]Torch,Lantern</code></p>
+	<p class="indent2"><code>ADD:EQUIP|1|Torch,Lantern</code></p>
 	<p class="indent3">Add one of either a &quot;Torch&quot; or a &quot;Lantern&quot;.</p>
 	<p class="indent2"><code>ADD:EQUIP|Blastpowder (10)</code></p>
 	<p class="indent3">Add one of &quot;Blastpowder&quot; with a quantity of &quot;10&quot; charges.</p>
@@ -198,8 +203,8 @@
 	<p class="indent0"><strong><a name="FEAT(">Tag Name:</a></strong> ADD:FEAT(y,y)z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of feat)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE= (Type of feat)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE. (Type of feat)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of feat)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Type of feat)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ALL (all feats)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number, Variable or Formula (Number of
 		choices granted)</p>
@@ -236,31 +241,32 @@
 <hr>
 
 	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="FEAT|">Tag Name:</a></strong> ADD:FEAT|[x|]y,y</p>
+	<p class="indent0"><strong><a name="FEAT|">Tag Name:</a></strong> ADD:FEAT|x|y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
 		of choices granted)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (the feats to be chosen from)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE= (Type of feat)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE. (Type of feat)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> ALL (all feats)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Feat name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of feat. Assignment)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Type of feat. Reference)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ALL (List of all feats.)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
+		<li>Will add a number (x) of feats from the presented list of feats (y).</li>
+		<li>The feat list (y) is a comma-delimited (&quot;,&quot;) list.</li>
 		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
-		<li>FEAT with parameters will give the character a choice of one (option count) from the feats
-			listed in the y,y list.</li>
-		<li>Feats listed are all &quot;,&quot; (comma) delimited</li>
-		<li>Valid TYPE's TYPE=(feattype( (i.e. the type of feat, not the word &quot;feattype&quot;.)</li>
+		<li>If the count (x) is not used, &quot;1&quot; is assumed.</li>
+		<li>Valid feat types are REGION, SUBREGION, ALLREGION, and the feat-type as defined in the 
+		<em>feat.lst</em> file.</li>
 		<li>If the feat being added has a chooser ADD:FEAT is the only tag which will activate it
-			(VFEAT, MFEAT and FEATAUTO will not).</li>
+			(VFEAT, MFEAT and FEATAUTO will not, with the last two beng deperecated and removed in 6.0.).</li>
 		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ADD:FEAT|2|Alertness,TYPE=Fighter,Electric Boogalo</code></p>
-	<p class="indent3">Add two feats from &quot;Alertness&quot;, any &quot;Fighter&quot; type feats
-		or &quot;Electric Boogalo&quot;.</p>
+	<p class="indent3">Add two feats from a list of feats consisting of &quot;Alertness&quot;, any &quot;Fighter&quot; type feats
+		oad &quot;Electric Boogalo&quot;.</p>
 	<p class="indent2"><code>ADD:FEAT|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation</code></p>
-	<p class="indent3">Add one feat from &quot;General&quot;, any &quot;Metamagic&quot;,
-		any &quot;ItemCreation&quot; type feats.</p>
+	<p class="indent3">Add one feat from the list of feats consisting of &quot;General&quot;, any &quot;Metamagic&quot;,
+		or any &quot;ItemCreation&quot; type feats.</p>
 	<p class="indent2"><code>ADD:FEAT|2|ALL</code></p>
 	<p class="indent3">Add two feats from all feats listed.</p>
 	<p></p>
@@ -291,29 +297,28 @@
 <hr>
 
 	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="LANGUAGE|">Tag Name:</a></strong> ADD:LANGUAGE|[x|]y,y</p>
+	<p class="indent0"><strong><a name="LANGUAGE|">Tag Name:</a></strong> ADD:LANGUAGE|x|y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
 		of choices granted)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (the Language to be chosen from)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE= (Type of language - Spoken
-		or Written or Read)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE. (Type of language - Spoken
-		or Written or Read)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> ALL (all Language)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Language name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of language. Assignment)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Type of language. Reference)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ALL (All languages.)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
+		<li>Will add a number (x) of languages from the presented list of feats (y) to the characters list of known languages.</li>
 		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
-		<li>This is a &quot;,&quot; (comma) delimited list of language choices that the character can
-			choose from. The choice is added to their Known Languages.</li>
-		<li>The list will also accept language types as in &quot;TYPE=Spoken&quot;.</li>
+		<li>This is a comma-delimited (&quot;,&quot;) list of language choices that the character can
+			choose from.</li>
+		<li>Valid language types are &quot;Spoken&quot;, &quot;Written&quot;, or &quot;Read&quot;.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ADD:Language|Draconic,Elven,Undercommon</code></p>
 	<p class="indent3">Add &quot;Draconic&quot;, &quot;Elven&quot; or &quot;Undercommon&quot; to the list
 		of languages known.</p>
-	<p class="indent2"><code>ADD:Language|[2|]TYPE=Spoken</code></p>
+	<p class="indent2"><code>ADD:Language|2|TYPE=Spoken</code></p>
 	<p class="indent3">Adds two of any spoken type languages to the list of languages known.</p>
-	<p class="indent2"><code>ADD:Language|[2|]TYPE=Imperial,TYPE=Infernal</code></p>
+	<p class="indent2"><code>ADD:Language|2|TYPE=Imperial,TYPE=Infernal</code></p>
 	<p class="indent3">Adds two of any Imperial or Infernal type languages to the list of languages known.</p>
 	<p></p>
 
@@ -326,21 +331,22 @@
 <hr>
 
 	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="SA">Tag Name:</a></strong> ADD:SA|x|[y|]z,z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (name of the Special Ability to be chosen)</p>
+	<p class="indent0"><strong><a name="SA">Tag Name:</a></strong> ADD:SA|x|y|z,z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name displayed on the chooser dialog.)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, Variable or Formula (Optional - Number
 		of choices granted)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Text (the choices; comma delimited)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Text (Special ability name or description.)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
+		<li>Will add a number (x) of special abilities, from the presented list of special abilities (y), to the character.</li>
 		<li>The optional count has a pipe [y|] that is not needed, unless the count is used.</li>
-		<li>SA with no additional parameters will assign the first of the items.</li>
-		<li>SA with parameters will give the character a choice of one to the limit of count from
-			the items listed in the list.</li>
-		<li>SA listed are all &quot;,&quot; (comma) delimited</li>
+		<li>If the count (x) is not used the first special ability will be selected.</li>
+		<li>If count (x) is used the character will be given a choice of one to the limit of count (x) from
+			the items listed (y).</li>
+		<li>Special Abilities listed are a comma-delimited (&quot;,&quot;) list.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>ADD:SA|Brick Wall|[3|]Damage Reduction,Concussion Resistance,Remain Concious,
+	<p class="indent2"><code>ADD:SA|Brick Wall|3|Damage Reduction,Concussion Resistance,Remain Concious,
 		Melee Smash,Extreme Effort</code></p>
 	<p class="indent3">Add three of special abilities listed.</p>
 	<p class="indent2"><code>ADD:SA|Shadow Slayer|Detect Shadow,Shadow Immunity</code></p>
@@ -366,27 +372,28 @@
 <hr>
 
 	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="SKILL|">Tag Name:</a></strong> ADD:SKILL|[x|]y,y</p>
+	<p class="indent0"><strong><a name="SKILL|">Tag Name:</a></strong> ADD:SKILL|x|y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
 		of choices granted)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of skill)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
+		<li>Will add a number (x) of skills from the povided list of skills (y) to the character.</li>
 		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>SKILL with no additional parameters will increase the quantity of the items by 1.</li>
 		<li>SKILL with parameters will give the character a choice of one from the items listed in the
 			y,y list.</li>
 		<li>SKILL with parameters will give the character a choice up to the count parameter from the items
 			listed in the y,y list.</li>
-		<li>SKILL listed are all &quot;,&quot; (comma) delimited</li>
+		<li>The list of skills is a comma-delimited (&quot;,&quot;) list of skills.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>ADD:SKILL|[1|]Read/Write Language</code></p>
+	<p class="indent2"><code>ADD:SKILL|1|Read/Write Language</code></p>
 	<p class="indent3">Add one of either a &quot;Read/Write Language&quot;.</p>
-	<p class="indent2"><code>ADD:SKILL|[5|]Balance,Craft (Structural),Demolitions</code></p>
+	<p class="indent2"><code>ADD:SKILL|5|Balance,Craft (Structural),Demolitions</code></p>
 	<p class="indent3">Add five skill levels of &quot;Balance&quot; or &quot;Craft (Structural)&quot; or
 		&quot;Demolitions&quot;.</p>
-	<p class="indent2"><code>ADD:SKILL|[2|]Speak Language</code></p>
+	<p class="indent2"><code>ADD:SKILL|2|Speak Language</code></p>
 	<p class="indent3">Add two of &quot;Speak Language&quot;.</p>
 	<p></p>
 
@@ -445,18 +452,16 @@
 <hr>
 
 	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="SPELLCASTER|">Tag Name:</a></strong> ADD:SPELLCASTER|[x|]y,y</p>
+	<p class="indent0"><strong><a name="SPELLCASTER|">Tag Name:</a></strong> ADD:SPELLCASTER|x|y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
 		of choices granted)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Class name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE (Spellcasting class type such as Arcane or
-		Divine)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Any spellcasting class the character has
-		levels in)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Spellcasting class type, i.e. Arcane, Divine, Psionic)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Any spellcasting class the character has levels in)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of choices granted, Optional)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2"></p>
-	<ul>
+	<ul class="indent2">
 		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>This grants a one bonus level to the spell casting class chosen.</li>
 		<li>The bonus level confers only it's spellcasting capabilities, no other bonuses or benefits from
@@ -488,7 +493,7 @@
 		has levels in.</p>
 	<p class="indent2"><code>ADD:SPELLCASTER|Bard,Sorcerer</code></p>
 	<p class="indent3">Adds a bonus level of spellcasting of either Bard or Sorcerer.</p>
-	<p class="indent2"><code>ADD:SPELLCASTER|[3|]Arcane	ADD:SPELLCASTER|Psionic</code></p>
+	<p class="indent2"><code>ADD:SPELLCASTER|3|Arcane	ADD:SPELLCASTER|Psionic</code></p>
 	<p class="indent3">Adds three bonus level of spellcasting to Arcane and one bonus level of spellcasting to Psionic.</p>
 	<p></p>
 
@@ -517,7 +522,7 @@
 <hr>
 
 	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> ADD:TEMPLATE|[x|]y,y</p>
+	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> ADD:TEMPLATE|x|y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
 		of choices granted)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of template)</p>
@@ -532,11 +537,11 @@
 		<li>TEMPLATE listed in the parenthesis are all &quot;,&quot; (comma) delimited</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>ADD:TEMPLATE|[1|]Scholar,Soldier</code></p>
+	<p class="indent2"><code>ADD:TEMPLATE|1|Scholar,Soldier</code></p>
 	<p class="indent3">Add one of either a &quot;Scholar&quot; or a &quot;Soldier&quot;.</p>
 	<p class="indent2"><code>ADD:TEMPLATE|Robot</code></p>
 	<p class="indent3">Add one of &quot;Robot&quot;.</p>
-	<p class="indent2"><code>ADD:TEMPLATE|[2|]Suite of St. Daris,Suite of St. Feldin,Suite of Lothian</code></p>
+	<p class="indent2"><code>ADD:TEMPLATE|2|Suite of St. Daris,Suite of St. Feldin,Suite of Lothian</code></p>
 	<p class="indent3">Add teo of &quot;Suite of St. Daris&quot;, &quot;Suite of St. Feldin&quot; and
 		&quot;Suite of Lothian&quot;.</p>
 	<p></p>
@@ -570,7 +575,7 @@
 <hr>
 
 	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="VFEAT|">Tag Name:</a></strong> ADD:VFEAT|[x|]y,y</p>
+	<p class="indent0"><strong><a name="VFEAT|">Tag Name:</a></strong> ADD:VFEAT|x|y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
 		of choices granted)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (the feats to be chosen from)</p>
@@ -595,7 +600,7 @@
 	<p class="indent2"><code>ADD:VFEAT|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation</code></p>
 	<p class="indent3">Add one virtual feat from &quot;General&quot;, any &quot;Metamagic&quot;,
 		any &quot;ItemCreation&quot; type feats.</p>
-	<p class="indent2"><code>ADD:VFEAT|[2|]ALL</code></p>
+	<p class="indent2"><code>ADD:VFEAT|2|ALL</code></p>
 	<p class="indent3">Add two virtual feats from all feats listed.</p>
 	<p></p>
 
@@ -609,6 +614,8 @@
 
 	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="filestagpages/globalfilesbonus.html#WEAPON">BONUS:WEAPON</a> tag instead.</p>
 	<p class="indent0"><strong><a name="WEAPONBONUS|">Tag Name:</a></strong> ADD:WEAPONBONUS|y|y|y</p>
+
+<hr>
 
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
