@@ -30,7 +30,7 @@
 	<p><strong>*NOTE:</strong>
 		The ADD tag <span class="underline">MUST</span> be used with at least one valid
 		choice (like the CHOOSE tag) or it will not function.<br />
-		i.e. If <code>ADD:FEAT(TYPE=Foo)</code> and the character does not qualify for
+		i.e. If <code>ADD:FEAT|TYPE=Foo</code> and the character does not qualify for
 		any TYPE=Foo feat, there will be no pop-up or choice.</p>
 	<p></ p>
 
@@ -94,15 +94,16 @@
 	<p class="indent1"><strong>Variables Used (w):</strong> Number, Variable or Formula (Optional - Number of
 		choices granted)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (The ability category this ability will be added to.)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (The nature of the added ability: NORMAL, AUTOMATIC, or VIRTUAL)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (The nature of the added ability: NORMAL, 
+	AUTOMATIC, or VIRTUAL)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Text (Key of the ability to select from)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> TYPE.Text (Type of ability to select from)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>ABILITY will give the character a choice of one from the listed abilities.</li>
 		<li>The ability list is a comma-delimited (&quot;,&quot;) list of ability names and/or types.</li>
-		<li>Valid types are TYPE=REGION, TYPE=SUBREGION, TYPE=ALLREGION, and TYPE=&lt;abilitytype&gt;
-			(i.e. the type of ability, not the word &quot;abilitytype&quot;.)</li>
+		<li>Valid ability types are REGION, SUBREGION, ALLREGION, and &lt;abilitytype&gt; as defined in the 
+		<em>ability.lst</em> file.</li>
 		<li>If the ability being added has a chooser ADD:ABILITY is the only tag which will activate it
 			(ABILITY will not).</li>
 		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
@@ -134,7 +135,6 @@
 	<ul class="indent2">
 		<li>Adds a number (x) of skills selected from the presented list (y) to the characters class skills list.</li>
 		<li>The skills list is a comma-delimited (&quot;,&quot;) list of skills to be presented to choose from.</li>
-		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>CLASSSKILLS with no additional parameters will increase the quantity of the items by 1.</li>
 		<li>CLASSSKILLS with parameters will give the character a choice of one from the items listed in
 			the parenthesis.</li>
@@ -182,7 +182,6 @@
 		<li>Will give the character a choice of one from the items listed in the
 			parenthesis.</li>
 		<li>The equipment list comma-delimited (&quot;,&quot;) list.</li>
-		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>If the count (x) is not used, &quot;1&quot; is assumed.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -252,7 +251,6 @@
 	<ul class="indent2">
 		<li>Will add a number (x) of feats from the presented list of feats (y).</li>
 		<li>The feat list (y) is a comma-delimited (&quot;,&quot;) list.</li>
-		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>If the count (x) is not used, &quot;1&quot; is assumed.</li>
 		<li>Valid feat types are REGION, SUBREGION, ALLREGION, and the feat-type as defined in the 
 		<em>feat.lst</em> file.</li>
@@ -307,7 +305,6 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Will add a number (x) of languages from the presented list of feats (y) to the characters list of known languages.</li>
-		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>This is a comma-delimited (&quot;,&quot;) list of language choices that the character can
 			choose from.</li>
 		<li>Valid language types are &quot;Spoken&quot;, &quot;Written&quot;, or &quot;Read&quot;.</li>
@@ -339,7 +336,6 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Will add a number (x) of special abilities, from the presented list of special abilities (y), to the character.</li>
-		<li>The optional count has a pipe [y|] that is not needed, unless the count is used.</li>
 		<li>If the count (x) is not used the first special ability will be selected.</li>
 		<li>If count (x) is used the character will be given a choice of one to the limit of count (x) from
 			the items listed (y).</li>
@@ -379,7 +375,6 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Will add a number (x) of skills from the povided list of skills (y) to the character.</li>
-		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>SKILL with no additional parameters will increase the quantity of the items by 1.</li>
 		<li>SKILL with parameters will give the character a choice of one from the items listed in the
 			y,y list.</li>
@@ -460,7 +455,6 @@
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of choices granted, Optional)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>This grants a one bonus level to the spell casting class chosen.</li>
 		<li>The bonus level confers only it's spellcasting capabilities, no other bonuses or benefits from
 			the class are granted.</li>
@@ -526,7 +520,6 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of template)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>TEMPLATE with no additional parameters will increase the quantity of the items by 1.</li>
 		<li>TEMPLATE with parameters will give the character a choice of one from the items listed in the
 			y,y list.</li>
@@ -582,7 +575,6 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> ALL (all feats)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
 		<li>VFEAT with parameters will give the character a choice of one (up to option count) from the
 			feats listed in the y,y list.</li>
 		<li>Feats listed are all &quot;,&quot; (comma) delimited</li>
