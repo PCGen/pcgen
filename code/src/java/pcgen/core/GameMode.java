@@ -177,6 +177,8 @@ public final class GameMode implements Comparable<Object>
 	private String thePreviewDir;
 	private String theDefaultPreviewSheet;
 	private int [] dieSizes;
+	private int maxDieSize = 12;
+	private int minDieSize = 4;
 	
 	/**
 	 * Creates a new instance of GameMode.
@@ -3306,16 +3308,39 @@ public final class GameMode implements Comparable<Object>
 		{
 			String aString = aTok.nextToken();
 			// in case there is training\leading whitespace after the comma split
-			aString = aString.trim();  
+			aString = aString.trim(); 
+			String minValue;
+			String maxValue;
+			
 			try
 			{
-				int die = Integer.parseInt(aString);
-				list.add(die);
+			if (aString.contains("MIN="))
+				{
+					String[] t = aString.split("MIN=");
+					minValue = t[1];
+					int die = Integer.parseInt(minValue);
+					setMinDieSize(die);
+					list.add(die);
+				}
+				else if (aString.contains("MAX="))
+				{
+					String[] t = aString.split("MAX=");
+					maxValue = t[1];
+					int die = Integer.parseInt(maxValue);
+					setMaxDieSize(die);
+					list.add(die);
+				}
+				else 
+				{
+					int die = Integer.parseInt(aString);
+					list.add(die);
+				}
 			}
 			catch (NumberFormatException e)
 			{
 				Logging.errorPrint("Invalid integer value for DIESIZES: " + aString + ".  Original value: DIESIZES:"+ value);
 			}
+			
 		}
 		if (list.size() == 0)
 		{
@@ -3331,6 +3356,42 @@ public final class GameMode implements Comparable<Object>
 		list = null;
 		this.setDieSizes(dieSizes);
 	}
+	
+	/**
+	 * Get's current gamemodes MaxDieSize
+	 * @return maxDieSize
+	 */
+	public int getMaxDieSize()
+	{
+		return maxDieSize;
+	}	
+	/**
+	 * Sets's current gamemodes MaxDieSize
+	 * @param dice 
+	 */	
+	public void setMaxDieSize(final int dice)
+	{
+		maxDieSize = dice;
+	}
+	
+	/**
+	 * Get's current gamemodes MinDieSize
+	 * @return minDieSize
+	 */
+	public int getMinDieSize()
+	{
+		return minDieSize;
+	}
+	/**
+	 * Sets's current gamemodes MinDieSize
+	 * @param dice 
+	 */
+	public void setMinDieSize(final int dice)
+	{
+		minDieSize = dice;
+	}
+		
+
 	/**
 	 * Get's current gamemodes DieSizes
 	 * @return dieSizes array

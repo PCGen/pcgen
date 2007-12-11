@@ -3639,4 +3639,22 @@ public final class Globals
 	{
 		return SettingsHandler.getGame().getDieSizes();
 	}
+	/**
+	 * Get's current gamemodes MinDieSize
+	 * @return minDieSize
+	 */
+	public static int getMaxDieSize()
+	{
+		return SettingsHandler.getGame().getMaxDieSize();
+	}
+	/**
+	 * Get's current gamemodes MaxDieSize
+	 * @return minDieSize
+	 */
+	public static int getMinDieSize()
+	{
+		return SettingsHandler.getGame().getMinDieSize();
+	}	
+	
+	
 }

@@ -1863,7 +1863,24 @@ public class PCClass extends PObject {
 	 */
 	private int calcHitDieLock(String dieLock, final int currDie) {
 		final int[] dieSizes = Globals.getDieSizes();
+		final int maxDie	= Globals.getMaxDieSize();
+		final int minDie	= Globals.getMinDieSize();
 		int diedivide;
+		
+		int minIndex = 0;
+		int maxIndex = 0;
+		
+		for (int i = 0; i < dieSizes.length; i++)
+		{
+			if (dieSizes[i] == minDie )
+			{
+				minIndex = i;
+			}
+			else if (dieSizes[i] == maxDie )
+			{
+				maxIndex = i;
+			}
+		}
 
 		StringTokenizer tok = new StringTokenizer(dieLock, Constants.PIPE);
 		dieLock = tok.nextToken();
@@ -1909,63 +1926,90 @@ public class PCClass extends PObject {
 		} else if (dieLock.startsWith("%up")) {
 			diedivide = Integer.parseInt(dieLock.substring(3));
 
-			// lock in valid values.
-			if (diedivide > 4) {
-				diedivide = 4;
+			if (diedivide < 0) 
+			{
+				return currDie;
 			}
-
-			if (diedivide < 0) {
-				diedivide = 0;
-			}
-
-			for (int i = 3; i <= (7 - diedivide); ++i) {
-				if (currDie == dieSizes[i]) {
-					return dieSizes[i + diedivide];
+			
+			for (int i = 0; i <= dieSizes.length; ++i) 
+			{
+				if (currDie == dieSizes[i]) 
+				{
+					if ((i + diedivide) > maxIndex)
+					{
+						return maxDie;
+					}
+					else 
+					{
+						return dieSizes[i + diedivide]; 
+					}
 				}
 			}
-
-			diedivide = dieSizes[7]; // If they went too high, they get maxed
-										// out.
 		} else if (dieLock.startsWith("%Hup")) {
 			diedivide = Integer.parseInt(dieLock.substring(4));
 
-			for (int i = 0; i < ((dieSizes.length) - diedivide); ++i) {
-				if (currDie == dieSizes[i]) {
-					return dieSizes[i + diedivide];
+			if (diedivide < 0) 
+			{
+				return currDie;
+			}
+			
+			for (int i = 0; i <= dieSizes.length; ++i) 
+			{
+				if (currDie == dieSizes[i]) 
+				{
+					if ((i+ diedivide) > dieSizes.length-1)
+					{
+						return dieSizes[dieSizes.length-1]; 
+					}
+					else 
+					{
+						return dieSizes[i + diedivide]; 
+					}
 				}
 			}
 
-			diedivide = dieSizes[dieSizes.length]; // If they went too high,
-													// they get maxed out.
 		} else if (dieLock.startsWith("%down")) {
 			diedivide = Integer.parseInt(dieLock.substring(5));
-
-			// lock in valid values.
-			if (diedivide > 4) {
-				diedivide = 4;
+			
+			if (diedivide < 0) 
+			{
+				return currDie;
 			}
-
-			if (diedivide < 0) {
-				diedivide = 0;
-			}
-
-			for (int i = (3 + diedivide); i <= 7; ++i) {
-				if (currDie == dieSizes[i]) {
-					return dieSizes[i - diedivide];
+			
+			for (int i = 0; i <= dieSizes.length; ++i) 
+			{
+				if (currDie == dieSizes[i]) 
+				{
+					if ((i - diedivide) < minIndex)
+					{
+						return minDie; 
+					}
+					else 
+					{
+						return dieSizes[i - diedivide]; 
+					}
 				}
 			}
-
-			diedivide = dieSizes[3]; // Minimum valid if too low.
 		} else if (dieLock.startsWith("%Hdown")) {
 			diedivide = Integer.parseInt(dieLock.substring(5));
-
-			for (int i = diedivide; i < dieSizes.length; ++i) {
-				if (currDie == dieSizes[i]) {
-					return dieSizes[i - diedivide];
+			if (diedivide < 0) {
+				return currDie;
+			}
+			
+			for (int i = 0; i <= dieSizes.length; ++i) 
+			{
+				if (currDie == dieSizes[i]) 
+				{
+					if ((i - diedivide) < 0)
+					{
+						return dieSizes[0];
+					}
+					else 
+					{
+						return dieSizes[i - diedivide]; 
+					}
 				}
 			}
-
-			diedivide = dieSizes[0]; // floor them if they're too low.
 		} else {
 			diedivide = Integer.parseInt(dieLock);
 		}
