@@ -281,14 +281,14 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|Spot|Listen|Search</code></p>
-	<p class="indent3">The user can select the same choice more than once, but the user will never be allowed more than 
+	<p class="indent3">The user can select the same choice more than once, but the user will never be allowed more than
 	3 choices total, each made one at a time.</p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=6|SKILLSNAMED|Craft%|3</code></p>
-	<p class="indent3">The user can select this chooser multiple times and will be allowed to select upto 3 Craft 
+	<p class="indent3">The user can select this chooser multiple times and will be allowed to select upto 3 Craft
 	subskills each time the chooser is selected, but may only make 6 Craft subskill sellection total.</p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|TYPE=Intelligence|TYPE=Wisdom</code></p>
-	<p class="indent3">The user will be allowed to select of one skill from the &quot;Strength&quot; &quot;Dexterity&quot; 
-	&quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; Skills but is limited to a maximum of three 
+	<p class="indent3">The user will be allowed to select of one skill from the &quot;Strength&quot; &quot;Dexterity&quot;
+	&quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; Skills but is limited to a maximum of three
 	such selections through this chooser.</p>
 	<p></p>
 
@@ -497,7 +497,7 @@
 		Wizard 0 Wizard 1 Wizard 2 for a 5th level Wizard) and Cleric 1 Cleric 2 Cleric 3 if the character
 		had Cleric as a class and allow two to be chosen.</p>
 	<p class="indent2"><code>CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]</code></p>
-	<p class="indent3">Would present a list of the character's castable Arcane spells and allow one to be chosen 
+	<p class="indent3">Would present a list of the character's castable Arcane spells and allow one to be chosen
 		as a bonus spell per day.</p>
 	<p></p>
 
@@ -621,8 +621,6 @@
 	<p class="indent3">Choice of all weapons which have a WIELD tag of either OneHanded or Light.</p>
 	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|WIELD.OneHanded|!TYPE.Exotic</code></p>
 	<p class="indent3">Choice of all weapons which have a WIELD tag of OneHanded which are not Exotic.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt; BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code></p>
-	<p class="indent3">Choice 3 weapons proficiencies which will be inserted in the %LIST giving you an additional +1 to-hit with them.</p>
 	<p></p>
 
 <hr>
@@ -677,6 +675,8 @@
 	<p class="indent3">Displays a list of weapon proficiencies for all weapons that are not 2 handed.</p>
 	<p class="indent2"><code>CHOOSE:WEAPONPROFS|Longsword|Longbow</code></p>
 	<p class="indent3">Displays a list of Longsword and Longbow.</p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt; BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code></p>
+	<p class="indent3">Choice 3 weapons proficiencies which will be inserted in the %LIST giving you an additional +1 to-hit with them.</p>
 
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
