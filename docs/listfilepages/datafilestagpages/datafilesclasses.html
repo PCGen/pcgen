@@ -1097,31 +1097,32 @@
 
 <hr>
 
-	<p class="new">*** New 5.7.8 *** Updated 5.11.4</p>
+	<p class="new">*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="HITDIE">Tag Name:</a></strong> HITDIE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Dice size)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> %+Number (Amount added to Hit Dice)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> %-Number (Amount subtracted from Hit Dice)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> %*Number (Amount Hit Dice is multiplied by)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> %/Number (Amount Hit Dice is divided by)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> %upNumber (Amount Hit Dice size is stepped up by)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> %downNumber (Amount Hit Dice size is stepped down by)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> %HupNumber (Amount Hit Dice size is stepped up by)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> %HdownNumber (Amount Hit Dice size is stepped down by)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Die size)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> %+Number (Amount added to Hit Die)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> %-Number (Amount subtracted from Hit Die)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> %*Number (Amount Hit Die is multiplied by)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> %/Number (Amount Hit Die is divided by)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> %upNumber (Amount Hit Die size is stepped up by)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> %downNumber (Amount Hit Die size is stepped down by)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> %HupNumber (Amount Hit Die size is stepped up by)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> %HdownNumber (Amount Hit Die size is stepped down by)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This tag can be used on a level line to specify a hit dice size which will
-			be applied only that level.</li>
-		<li>When using the step up function (%upNumber) the steps are d4,d6,d8,d10 and
-			stops at d12.</li>
-		<li>When using the step down function (%downNumber) the steps are d12,d10,d8,d6
-			and stops at d4.</li>
+		<li>This tag can be used on a Class level line, a <a href="#SUBCLASSLEVEL">SUBCLASSLEVEL</a> line 
+			or a <a href="#SUBSTITUTIONLEVEL">SUBSTITUTIONLEVEL</a> line 
+			to specify a Hit Die size which will be applied only that level.</li>
+		<li>The scale used by the functions which raise or lower Hit Die in steps is defined by the 
+			<a href="../systemfilestagpages/gamemodemiscinfolist.html#DIESIZES">DIESIZES</a> gameMode tag.</li>
+		<li>The scale used in most gameModes is: 1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000</li>
+		<li>When using the step up function (%upNumber) or step down function (%downNumber) 
+			the minimum and maximum steps are set by the MIN and MAX tags in the DIESIZES tag.</li>
+		<li>The step up function (%Hup) and step down functions (%Hdown) 
+			will ignore the MIN and MAX settings and use the full range of die sizes specified by the DIESIZES tag.</li>
 		<li>Regardless of the number it will never allow a hit die below 1.</li>
-		<li>This tag can be used on a level line to specify a hit dice size which will
-			be applied only that level.</li>
-		<li>When using the step up function (%Hup) the steps are d1-d1000.</li>
-		<li>When using the step down function (%Hdown) the steps are d1-d1000.</li>
-		<li>Regardless of the number it will never allow a hit die below 1.</li>
+		<li>HITDIE may also be used in <a href="datafilesraces.html#HITDIE">Race</a> 
+    		and <a href="datafilestemplates.html#HITDIE">Template</a> files.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HITDIE:12</code></p>
@@ -1140,12 +1141,12 @@
 	<p class="indent2"><code>HITDIE:%down1</code></p>
 	<p class="indent3">Steps down the Hit Dice size by one step. If the class has a Hit Die of d6 it will be
 		stepped down to d4.</p>
-	<p class="indent2"><code>HITDIE:%Hup9</code></p>
-	<p class="indent3">Steps up the Hit Dice size by nine steps. If the class has a Hit Die of d6 it will be
-		stepped up to d15.</p>
+	<p class="indent2"><code>HITDIE:%Hup4</code></p>
+	<p class="indent3">Steps up the Hit Dice size by four steps. If the class has a Hit Die of d6 it will be
+		stepped up to d20.</p>
 	<p class="indent2"><code>HITDIE:%Hdown3</code></p>
 	<p class="indent3">Steps down the Hit Dice size by three step. If the class has a Hit Die of d6 it will
-		be stepped down to d3.</p>
+		be stepped down to d2.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Class Level Line.</p>
 	<p></ p>
