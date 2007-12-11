@@ -131,21 +131,47 @@
 	choices granted. Optional)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of skill)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of skill)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Includes list of all skills)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> CROSSCLASSSKILLS (Includes list of cross-class skills)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> UNTRAINED (Includes list of skills that can be used untrained.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TRAINED (Includes list of skills that require training to use.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EXCLUSIVE (Includes list of exclusive skills)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> NONEXCLUSIVE (Includes list of non-exclusive skills)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> AUTORANK=Number (Number of free ranks granted)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Adds a number (x) of skills selected from the presented list (y) to the characters class skills list.</li>
-		<li>The skills list is a comma-delimited (&quot;,&quot;) list of skills to be presented to choose from.</li>
-		<li>CLASSSKILLS with no additional parameters will increase the quantity of the items by 1.</li>
-		<li>CLASSSKILLS with parameters will give the character a choice of one from the items listed in
-			the parenthesis.</li>
+		<li>The skills list is a comma-delimited (&quot;,&quot;) list of skills.</li>
+		<li>If count (x) is not included, &quot;1&quot; is assumed.</li>
+		<li>AUTORANK will assign free ranks to any chosen skills.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>ADD:CLASSSKILLS|3|ANY</code></p>
-	<p class="indent3">Add three skills from the full list of skills to the characters list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|Knowledge (Reverie)</code></p>
 	<p class="indent3">Add &quot;Knowledge (Reverie)&quot; skill to the characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|Knowledge (nature),Survival,AUTORANK=3</code></p>
+	<p class="indent3">Add &quot;Knowledge (nature)&quot; and &quot;Survival&quot; 
+	skills to the characters list of class skills and grant 2 free ranks in each.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|TYPE=Craft</code></p>
-	<p class="indent3">Add one skill from the list of &quot;Craft&quot; type skills to the characters list of class skills.</p>
+	<p class="indent3">Add one skill from the list of &quot;Craft&quot; type skills 
+	to the characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|3|ANY</code></p>
+	<p class="indent3">Add three skills from the full list of skills to the characters 
+	list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|CROSSCLASSSKILLSY</code></p>
+	<p class="indent3">Add one skill from the list of cross-class skills to the 
+	characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|UNTRIANED</code></p>
+	<p class="indent3">Add one skill from the list of skills that can be used 
+	untrained to the characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|3|TRAINED</code></p>
+	<p class="indent3">Add three skills from the list of skills that require 
+	training to the characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|2|EXCLUSIVE</code></p>
+	<p class="indent3">Add two skills from the list of exclusive skills to the 
+	characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|2|NONEXCLUSIVE</code></p>
+	<p class="indent3">Add two skills from the list of non-exclusive skills to 
+	the characters list of class skills.</p>
 	<p></ p>
 
 <hr>
