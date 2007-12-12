@@ -218,13 +218,13 @@
 	<p class="indent3">Add one of either a &quot;Torch&quot; or a &quot;Lantern&quot; to the character.</p>
 	<p class="indent2"><code>ADD:EQUIP|Blastpowder (10)</code></p>
 	<p class="indent3">Add one of &quot;Blastpowder (10)&quot; to the character.</p>
-	<p class="indent2"><code>ADD:EQUIP|Synchronicity Watch,Secret Pockets,Daylight Flares</code></p>
-	<p class="indent3">Add one of &quot;Synchronicity Watch&quot;, &quot;Secret Pockets&quot; or
+	<p class="indent2"><code>ADD:EQUIP|2|Synchronicity Watch,Secret Pockets,Daylight Flares</code></p>
+	<p class="indent3">Add two of &quot;Synchronicity Watch&quot;, &quot;Secret Pockets&quot; or
 		&quot;Daylight Flares&quot; to the character.</p>
 	<p class="indent2"><code>ADD:EQUIP|Dagger (Sarishan Steel)</code></p>
 	<p class="indent3">Add one of &quot;Sarishan Steel Dagger&quot; to the character.</p>
-	<p class="indent2"><code>ADD:EQUIP|TYPE=Melee</code></p>
-	<p class="indent3">Add one piece of equipment of type melee to the character.</p>
+	<p class="indent2"><code>ADD:EQUIP|TYPE=Thrown</code></p>
+	<p class="indent3">Add one piece of equipment of type &quot;Thrown&quot; to the character.</p>
 	<p></ p>
 
 <hr>
@@ -272,11 +272,12 @@
 
 	<p class="new">*** New 5.11.11</p>
 	<p class="indent0"><strong><a name="FEAT|">Tag Name:</a></strong> ADD:FEAT|x|y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
-		of choices granted)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Number
+		of choices granted. Optional)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Feat name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of feat)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ALL (List of all feats.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Feat type for assignment.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Feat type for refernce.)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Will add a number (x) of feats from the presented list of feats (y).</li>
@@ -296,7 +297,7 @@
 	<p class="indent3">Add one feat from the list of feats consisting of &quot;General&quot;, any &quot;Metamagic&quot;,
 		or any &quot;ItemCreation&quot; type feats.</p>
 	<p class="indent2"><code>ADD:FEAT|2|ALL</code></p>
-	<p class="indent3">Add two feats from all feats listed.</p>
+	<p class="indent3">Add two feats from all feats available.</p>
 	<p></ p>
 
 <hr>
@@ -326,16 +327,17 @@
 
 	<p class="new">*** New 5.11.11</p>
 	<p class="indent0"><strong><a name="LANGUAGE|">Tag Name:</a></strong> ADD:LANGUAGE|x|y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Optional - Number
-		of choices granted)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Number
+		of choices granted. Optional)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Language name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of language for assignment.)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Type of language for reference.)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> ALL (All languages.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Language type for assignment.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Language type for reference.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ALL</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Will add a number (x) of languages from the presented list of feats (y) to the characters list of known languages.</li>
-		<li>This is a comma-delimited (&quot;,&quot;) list of language choices that the character can
+		<li>Will add a number (x) of languages from the presented list of feats (y) to the 
+			characters list of known languages.</li>
+		<li>This is a comma-delimited (&quot;,&quot;) list of languages that the character can
 			choose from.</li>
 		<li>Valid language types are &quot;Spoken&quot;, &quot;Written&quot;, or &quot;Read&quot;.</li>
 		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
@@ -348,6 +350,8 @@
 	<p class="indent3">Adds two of any spoken type languages to the list of languages known.</p>
 	<p class="indent2"><code>ADD:Language|2|TYPE=Imperial,TYPE=Infernal</code></p>
 	<p class="indent3">Adds two of any Imperial or Infernal type languages to the list of languages known.</p>
+	<p class="indent2"><code>ADD:Language|2|ALL</code></p>
+	<p class="indent3">Adds two of any language to the list of languages known.</p>
 	<p></ p>
 
 <hr>
