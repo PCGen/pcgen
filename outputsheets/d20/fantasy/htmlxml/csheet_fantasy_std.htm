@@ -978,8 +978,32 @@ Wisdom
      </tr>
     </table>
 <!-- STOP Weight Table -->
-    <font style="font-size:2pt"><br /></font>
+<!-- START Illumination Table -->
+|IIF(VAR.IF(var("COUNT[EQTYPE.LightSource]")>0;1;0):1)|
+<br>
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Illumination">
+     <tr>
+      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>ILLUMINATION</b></font></td>
+     </tr>
+     <tr>
+      	<td width="45%" class="border8"><B>Light Source</B></td>
+      	<td width="15%" class="border8"><B>Bright</B></td>
+       	<td width="15%" class="border8"><B>Shadowy</B></td>
+     	<td width="15%" class="border8"><B>Duration</B></td>
+     </tr>
+|FOR,%light,0,COUNT[EQTYPE.LightSource]-1,1,0|
+|OIF(EVEN:%light,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+      	<td class="border8">|EQTYPE.LightSource.%light.NAME|</td>
+      	<td class="border8">|EQTYPE.LightSource.%light.QUALITY.Bright Illumination|</td>
+       	<td class="border8">|EQTYPE.LightSource.%light.QUALITY.Shadowy Illumination|</td>
+     	<td class="border8">|EQTYPE.LightSource.%light.QUALITY.Duration|</td>
+     </tr>
+|ENDFOR|
+    </table>
+|ENDIF|
+<!-- STOP Illumination Table -->
 <!-- START Money Table -->
+<br>
     <table width="100%" cellspacing="0" cellpadding="3" summary="Money">
      <tr>
       <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>MONEY</b></font></td>
