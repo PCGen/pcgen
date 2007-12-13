@@ -27,7 +27,7 @@ public class DefineLst implements GlobalLstToken
 		try
 		{
 			String varName = tok.nextToken();
-			String defineFormula = tok.nextToken();
+			String defineFormula = tok.hasMoreTokens() ? tok.nextToken() : "";
 			obj.addVariable(anInt, varName, defineFormula);
 		}
 		catch (Exception e)
