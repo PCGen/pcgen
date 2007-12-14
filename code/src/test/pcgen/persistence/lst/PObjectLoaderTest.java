@@ -91,6 +91,30 @@ public class PObjectLoaderTest extends PCGenTestCase
 		}
 	}
 
+	public void testUnlockDefine() throws Exception
+	{
+		PluginLoader ploader = PluginLoader.inst();
+		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		Ability feat = new Ability();
+
+		is(PObjectLoader.parseTag(feat, "DEFINE:UNLOCK.INT"), eq(true),
+			"Parse fails for unlock");
+
+		Variable var = feat.getVariable(0);
+		assertEquals("UNLOCK.INT", var.getName());
+		assertEquals("", var.getValue());
+	}
+
+	public void testBadUnlockDefine() throws Exception
+	{
+		PluginLoader ploader = PluginLoader.inst();
+		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		Ability feat = new Ability();
+
+		is(PObjectLoader.parseTag(feat, "DEFINE:UNLOCK.INT|0"), eq(false),
+			"Parse fails to catch bad unlock define");
+	}
+
 	public void testParseSA() throws Exception
 	{
 		PluginLoader ploader = PluginLoader.inst();
