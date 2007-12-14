@@ -464,7 +464,6 @@ CLASS:Wizard (CS)	OUTPUTNAME:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	
 CLASS:Wizard (CS)	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Jump|TYPE.Knowledge|Linguistics|TYPE.Profession|Read/Write Language|Ritual Casting|Scent/Taste|Scry|Search|Spellcraft|Spot
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level				Use Spell List
 CLASS:Wizard (CS)	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard (CS)|CL	SPELLLIST:1|Wizard
-SUBCLASS:Wizard (CS)		COST:0
 SUBCLASS:Abjurer (CS)		COST:2	CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Conjurer (CS)		COST:4	CHOICE:SCHOOL|Conjuration	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Diviner (CS)		COST:1	CHOICE:SCHOOL|Divination	KNOWNSPELLSFROMSPECIALTY:1
