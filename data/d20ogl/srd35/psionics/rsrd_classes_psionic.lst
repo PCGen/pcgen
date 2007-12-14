@@ -126,7 +126,7 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Cra
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for
 #  mind blade powers, use BONUS:VAR|MndBladeECL|x in the PrC's class level line setup
 
-1	BONUS:VAR|MndBladeECL|CL	ADD:FEAT|MindBlade Wielder	VFEAT:MindBlade Standard|PREVARLTEQ:MndBladeECL,3
+1	BONUS:VAR|MndBladeECL|CL	AUTO:FEAT|MindBlade Wielder	VFEAT:MindBlade Standard|PREVARLTEQ:MndBladeECL,3
 1											VFEAT:MindBlade Throw|PREMULT:2,[PREVARGTEQ:MndBladeECL,2],[PREVARLT:MndBladeECL,17]
 1											VFEAT:MindBlade Psychic Strike|PREVARGTEQ:MndBladeECL,3
 1											VFEAT:MindBlade Plus|PREVARGTEQ:MndBladeECL,4
