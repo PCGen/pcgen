@@ -124,18 +124,18 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Cra
 1	ADD:FEAT|Wild Talent
 
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for
-#  mind blade powers, use BONUS:VAR|MindBladeECL|x in the PrC's class level line setup
+#  mind blade powers, use BONUS:VAR|MndBladeECL|x in the PrC's class level line setup
 
-1	BONUS:VAR|MindBladeECL|CL	ADD:FEAT|MindBlade Wielder	VFEAT:MindBlade Standard|PREVARLTEQ:MindBladeECL,3
-1											VFEAT:MindBlade Throw|PREMULT:2,[PREVARGTEQ:MindBladeECL,2],[PREVARLT:MindBladeECL,17]
-1											VFEAT:MindBlade Psychic Strike|PREVARGTEQ:MindBladeECL,3
-1											VFEAT:MindBlade Plus|PREVARGTEQ:MindBladeECL,4
-1											VFEAT:MindBlade Free Draw|PREVARGTEQ:MindBladeECL,5
-1											VFEAT:MindBlade Shape|PREVARGTEQ:MindBladeECL,5
-1											VFEAT:MindBlade Enhancement|PREVARGTEQ:MindBladeECL,6
-1											VFEAT:MindBlade Bladewind|PREVARGTEQ:MindBladeECL,9
-1											VFEAT:MindBlade Knife to the Soul|PREVARGTEQ:MindBladeECL,13
-1											VFEAT:MindBlade Multiple Throw|PREVARGTEQ:MindBladeECL,17
+1	BONUS:VAR|MndBladeECL|CL	ADD:FEAT|MindBlade Wielder	VFEAT:MindBlade Standard|PREVARLTEQ:MndBladeECL,3
+1											VFEAT:MindBlade Throw|PREMULT:2,[PREVARGTEQ:MndBladeECL,2],[PREVARLT:MndBladeECL,17]
+1											VFEAT:MindBlade Psychic Strike|PREVARGTEQ:MndBladeECL,3
+1											VFEAT:MindBlade Plus|PREVARGTEQ:MndBladeECL,4
+1											VFEAT:MindBlade Free Draw|PREVARGTEQ:MndBladeECL,5
+1											VFEAT:MindBlade Shape|PREVARGTEQ:MndBladeECL,5
+1											VFEAT:MindBlade Enhancement|PREVARGTEQ:MndBladeECL,6
+1											VFEAT:MindBlade Bladewind|PREVARGTEQ:MndBladeECL,9
+1											VFEAT:MindBlade Knife to the Soul|PREVARGTEQ:MndBladeECL,13
+1											VFEAT:MindBlade Multiple Throw|PREVARGTEQ:MndBladeECL,17
 
 ###Block: Class Info
 1	AUTO:FEAT|Weapon Focus(Mind Blade)

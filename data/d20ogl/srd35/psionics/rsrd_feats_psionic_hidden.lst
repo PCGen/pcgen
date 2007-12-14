@@ -34,7 +34,7 @@ Psion Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|C
 
 ###Block: Mind Blade abilities
 # Feat Name				Type			Visible	Special ABility							Define																Automaticaly Gained Weapon Prof.	Modify VAR
-MindBlade Wielder			TYPE:Special	VISIBLE:NO										DEFINE:MindBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0	AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MindBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MindBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MindBladeECL+1)/4)
+MindBlade Wielder			TYPE:Special	VISIBLE:NO										DEFINE:MndBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0	AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MndBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MndBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MndBladeECL+1)/4)
 MindBlade Standard		TYPE:Special	VISIBLE:NO	SAB:Mind Blade
 MindBlade Throw			TYPE:Special	VISIBLE:NO	SAB:Throw Mind Blade
 MindBlade Psychic Strike	TYPE:Special	VISIBLE:NO	SAB:Psychic Strike (+%d8)|PsychicStrike
