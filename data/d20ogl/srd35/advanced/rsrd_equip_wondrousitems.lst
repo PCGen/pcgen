@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+# CVS $Revision$ $Author$ -- Thu Dec 13 23:18:07 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas tjannes@vub.ac.be based on srdequipwondrous
 
@@ -128,7 +128,7 @@ Dust of Dryness												TYPE:Magic.Wondrous.Consumable	COST:850	WT:0								S
 Dust of Illusion												TYPE:Magic.Wondrous.Consumable	COST:1200	WT:0								SOURCEPAGE:MagicItemsV.rtf
 Dust of Tracelessness											TYPE:Magic.Wondrous.Consumable	COST:250	WT:0								SOURCEPAGE:MagicItemsV.rtf
 ###Block:E's
-# Equipment Name						Unique Key					Output Name					Type							Contains								Cost		Weight	Slot Needed	Modifier					Source Page				Virtual Feat		Vision			Bonus to skill					Stat bonus
+# Equipment Name						Unique Key					Output Name					Type							Contains								Cost		Weight	Slot Needed	Modifier					Source Page				Virtual Feat		Vision			Bonus to skill					Stat bonus					Quality and value
 Efficient Quiver																		TYPE:Magic.Wondrous.Container			CONTAINS:*UNLIM|Ammunition=60|Thrown=18|Weapon=6	COST:1800	WT:2										SOURCEPAGE:MagicItemsV.rtf
 Efreeti Bottle																		TYPE:Magic.Wondrous													COST:145000	WT:1										SOURCEPAGE:MagicItemsV.rtf
 Elemental Gem (Transparent)																TYPE:Magic.Wondrous.Consumable											COST:2250	WT:0										SOURCEPAGE:MagicItemsV.rtf
@@ -164,7 +164,7 @@ Figurine of Wondrous Power (Serpentine Owl)													TYPE:Magic.Wondrous					
 Figurine of Wondrous Power (Silver Raven)														TYPE:Magic.Wondrous													COST:3800	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Gauntlets of Ogre Power																	TYPE:Magic.Wondrous.Glove												COST:4000	WT:4		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																BONUS:STAT|STR|2|TYPE=Enhancement
 Gauntlet of Rust																		TYPE:Magic.Wondrous.Glove												COST:11500	WT:2		SLOTS:1							SOURCEPAGE:MagicItemsV.rtf
-Gem of Brightness																		TYPE:Magic.Wondrous													COST:13000	WT:0				EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:MagicItemsV.rtf
+Gem of Brightness																		TYPE:Magic.Wondrous.LightSource											COST:13000	WT:0				EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:MagicItemsV.rtf																						QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|On command
 Gem of Seeing																		TYPE:Magic.Wondrous													COST:75000	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Gloves of Arrow Snaring																	TYPE:Magic.Wondrous.Glove												COST:4000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf	VFEAT:Snatch Arrows
 Gloves of Dexterity +2																	TYPE:Magic.Wondrous.Glove												COST:4000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																BONUS:STAT|DEX|2|TYPE=Enhancement
