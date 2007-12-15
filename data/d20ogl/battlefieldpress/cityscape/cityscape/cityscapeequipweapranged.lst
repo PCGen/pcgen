@@ -18,25 +18,25 @@ Net												TYPE:Weapon.Exotic.Ranged.Thrown.Standard										COST:20	WT:10	
 
 #Martial Ranged
 #MEDIUM ----------------------------------------------------------------------------------------------------------
-Shortbow											TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:30	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:60	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN0
-Shortbow (Composite)									TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:75	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:70	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN0
-Shortbow (+1 Mighty/Composite)	PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:150	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:70	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN1
-Shortbow (+2 Mighty/Composite)	PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:225	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:70	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN2
+Shortbow											TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:30	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:60	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,0)
+Shortbow (Composite)									TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:75	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:70	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,0)
+Shortbow (+1 Mighty/Composite)	PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:150	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:70	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,1)
+Shortbow (+2 Mighty/Composite)	PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:225	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:70	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,2)
 Speargun											TYPE:Weapon.Martial.Ranged.Standard.Piercing									COST:500	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:10
 
 #LARGE ----------------------------------------------------------------------------------------------------------
-Longbow											TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:75	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:100	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN0
-Longbow (Composite)									TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:100	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN0
-Longbow (+1 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:200	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN1
-Longbow (+2 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:300	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN2
-Longbow (+3 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:400	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN3
-Longbow (+4 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:500	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN4
+Longbow											TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:75	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:100	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,0)
+Longbow (Composite)									TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:100	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,0)
+Longbow (+1 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:200	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,1)
+Longbow (+2 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:300	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,2)
+Longbow (+3 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:400	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,3)
+Longbow (+4 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1		COST:500	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,4)
 
 #Simple Weapons Ranged
 #SMALL ----------------------------------------------------------------------------------------------------------
 Crossbow (Light)										TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Bolt=1		COST:35	WT:6		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8		RANGE:80	SIZE:S	SOURCEPAGE:p.
 Dart												TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Wooden							COST:0.5	WT:.5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4		RANGE:20	SIZE:S	SOURCEPAGE:p.
-Sling												TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Container		CONTAINS:UNLIM|SlingStone=1	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4		RANGE:50	SIZE:S	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN0
+Sling												TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Container		CONTAINS:UNLIM|SlingStone=1	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4		RANGE:50	SIZE:S	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,0)
 
 #MEDIUM ----------------------------------------------------------------------------------------------------------
 Crossbow (Heavy)										TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Bolt=1		COST:50	WT:9		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10		RANGE:120	SIZE:M	SOURCEPAGE:p.
