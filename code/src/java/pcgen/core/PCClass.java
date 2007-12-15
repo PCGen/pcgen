@@ -1694,9 +1694,15 @@ public class PCClass extends PObject {
 	 * getDisplayName()?  What additional value does this provide by being
 	 * a separate method?? - thpr 11/6/06
 	 */
-	public String getDisplayClassName() {
-		if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE)) {
-			return getSubClassKeyed(subClassKey).getDisplayName();
+	public String getDisplayClassName()
+	{
+		if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
+		{
+			SubClass sc = getSubClassKeyed(subClassKey);
+			if (sc != null)
+			{
+				return sc.getDisplayName();
+			}
 		}
 
 		return getDisplayName();

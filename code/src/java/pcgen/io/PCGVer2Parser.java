@@ -59,6 +59,7 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
+import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -1782,8 +1783,27 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (TAG_SUBCLASS.equals(tag))
 			{
-				aPCClass
-					.setSubClassKey(EntityEncoder.decode(element.getText()));
+				String subClassKey = EntityEncoder.decode(element.getText());
+				if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
+				{
+					SubClass sc = aPCClass.getSubClassKeyed(subClassKey);
+					if (sc == null)
+					{
+						if (subClassKey.equals(aPCClass.getKeyName()))
+						{
+							subClassKey = Constants.s_NONE;
+						}
+						else
+						{
+							final String msg =
+									PropertyFactory.getFormattedString(
+										"Warnings.PCGenParser.InvalidSubclass", //$NON-NLS-1$
+										element.getText());
+							warnings.add(msg);
+						}
+					}
+				}
+				aPCClass.setSubClassKey(subClassKey);
 			}
 
 			if (TAG_LEVEL.equals(tag))
