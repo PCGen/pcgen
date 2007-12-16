@@ -63,15 +63,15 @@ CLASS:Blade Manifester	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERL
 
 ###Block: Level progression
 1	KNOWN:0,1
-2	KNOWN:0,2		BONUS:VAR|MndBladeECL|var("CL=Blade Manifester")
-3	KNOWN:0,3		BONUS:VAR|MndBladeECL|var("CL=Blade Manifester")
+2	KNOWN:0,2		BONUS:VAR|MndBladeECL|1
+3	KNOWN:0,3		BONUS:VAR|MndBladeECL|1
 4	KNOWN:0,3,1
-5	KNOWN:0,3,2		BONUS:VAR|MndBladeECL|var("CL=Blade Manifester")
-6	KNOWN:0,3,3		BONUS:VAR|MndBladeECL|var("CL=Blade Manifester")
+5	KNOWN:0,3,2		BONUS:VAR|MndBladeECL|1
+6	KNOWN:0,3,3		BONUS:VAR|MndBladeECL|1
 7	KNOWN:0,3,3,1
-8	KNOWN:0,3,3,2	BONUS:VAR|MndBladeECL|var("CL=Blade Manifester")
-9	KNOWN:0,3,3,3	BONUS:VAR|MndBladeECL|var("CL=Blade Manifester")
-10	KNOWN:0,3,3,3,1	BONUS:VAR|MndBladeECL|var("CL=Blade Manifester")
+8	KNOWN:0,3,3,2	BONUS:VAR|MndBladeECL|1
+9	KNOWN:0,3,3,3	BONUS:VAR|MndBladeECL|1
+10	KNOWN:0,3,3,3,1	BONUS:VAR|MndBladeECL|1
 
 ###Block: Monster class for Mind Grub Collective
 
