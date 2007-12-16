@@ -60,11 +60,14 @@
 
 	<p class="indent0"><strong><a name="DEITYWEAP">Tag Name:</a></strong> DEITYWEAP:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ANY</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This is a | (pipe) delimited list of the deity's favored weapon(s).</li>
-		<li>If the deity has the War domain, then the weapon listed is granted to the character
-			as them being proficient with the weapon.</li>
+		<li>The War domain grants proficiency (if the character does not already have it) 
+			and Weapon Focus with the deity's favored weapon 
+			(or a choice of one of the weapons if more than one is listed).</li>
+		<li>ANY will produce a list of all loaded proficiencies for the War domain.</li>
 		<li>The Weapon name MUST match exactly what is listed in the weapon proficiencies list file.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
@@ -73,6 +76,8 @@
 	<p class="indent2"><code>DEITYWEAP:Longspear|Shortspear|Halfspear</code></p>
 	<p class="indent3">The deity's favored weapon is either a &quot;Longspear&quot;, &quot;Shortspear&quot;
 		  or &quot;Halfspear&quot;.</p>
+	<p class="indent2"><code>DEITYWEAP:ANY</code></p>
+	<p class="indent3">The deity's favored weapon can be any weapon.</p>
 	<p></ p>
 
 <hr>
