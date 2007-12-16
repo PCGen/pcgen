@@ -90,13 +90,6 @@ Snoop Skill Mastery					TYPE:SnoopAbility	VISIBLE:NO																								STAC
 # Feat Name			Type				Visible	Stackable?	Multiple?	Choose			Weapon prof. bonus
 Weapon Specialization	TYPE:SoldierAbility	VISIBLE:NO	STACK:YES	MULT:YES	CHOOSE:WEAPONPROFS|LIST	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged	BONUS:WEAPONPROF=%LIST|DAMAGE-SHORTRANGE|2
 
-###Block:  Minion Abilities
-
-# Feat Name	Type				Visible	Bonus to HP			Modify VAR
-Minion d4	TYPE:MinionVitality	VISIBLE:NO					BONUS:VAR|MinionVitalityDice|0
-Minion d6	TYPE:MinionVitality	VISIBLE:NO	BONUS:HP|CURRENTMAX|2	BONUS:VAR|MinionVitalityDice|2
-Minion d8	TYPE:MinionVitality	VISIBLE:NO	BONUS:HP|CURRENTMAX|4	BONUS:VAR|MinionVitalityDice|4
-
 ###Block: Nationalities
 
 # Feat Name		Type					Visible	Special ABility				Template					Automatic Languages

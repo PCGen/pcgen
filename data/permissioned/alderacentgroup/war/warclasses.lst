@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Dec 15 15:30:19 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus					List of Class Spells by Level
@@ -73,16 +73,16 @@ CLASS:Epic Athlete	PREATT:5	!PRECLASS:1,Monk=1	PREFEAT:3,Improved Unarmed Strike
 CLASS:Epic Athlete	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Heal|Intimidate|Jump|Listen|Perform|Ride|Spot|Swim|Tumble
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
-1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																																									BONUS:SKILL|STAT=CHA|2|TYPE=Competence
-2	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																							BONUS:MOVEADD|TYPE=Walk|15|PREVARLTEQ:COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT],0
+1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																																						BONUS:SKILL|STAT=CHA|2|TYPE=Competence
+2	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																				BONUS:MOVEADD|TYPE=Walk|15|PREVARLTEQ:COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT],0
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Far Throw
 4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Grappler
-5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:HD|MIN|2
-6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																																								BONUS:SKILL|Jump|4|TYPE=Competence
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:The Epic
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Prodigious Leap																																	BONUS:SKILL|Jump|4|TYPE=Competence
 7	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Giant Killer
-8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Bear Hug																BONUS:HD|MIN|1
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Bear Hug
 9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SAB:Hearty Constitution
-10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SAB:Immunity to disease and poison	SAB:Regeneration (Ex) % HP/ Hour|Regen	BONUS:VAR|Regen|max(CON,0)																													DEFINE:Regen|0
+10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SAB:Immunity to disease and poison	SAB:Regeneration (Ex) % HP/ Hour|Regen	BONUS:VAR|Regen|max(CON,0)																										DEFINE:Regen|0
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Footman	HD:8		TYPE:PC.Prestige	ABB:Ftm		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

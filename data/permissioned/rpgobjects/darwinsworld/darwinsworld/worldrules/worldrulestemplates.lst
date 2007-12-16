@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat Dec 15 15:30:46 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
 # Original entry by wizofice2001
 
@@ -28,3 +28,7 @@ Resentful			NAMEISPI:YES	LEVELADJUSTMENT:max((RacialAdjust-1),0)	SOURCEPAGE:p.13
 Resurrector			NAMEISPI:YES	LEVELADJUSTMENT:RacialAdjust+1		SOURCEPAGE:p.14		PRERACE:1,1st Generation Mutant,2nd Generation Mutant,3rd Generation Mutant,Human (DW)	!PRETEMPLATE:Advanced|Degenerate|Feral|Guardian|Hedonist|Primitive|Radical|Resentful|Ritual Preservationist|Visionary Reinventor		BONUS:SKILL|Knowledge (Technology)|2|TYPE=Racial																					FAVOREDCLASS:Thinker,Guardian	FEAT:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies										LANGAUTO:Unislang		LANGBONUS:Ancient,Trade		REMOVABLE:NO	SUBRACE:Yes										ADD:CLASSSKILLS|1|TYPE=Knowledge
 Ritual Preservationist	NAMEISPI:YES	LEVELADJUSTMENT:max((RacialAdjust-1),0)	SOURCEPAGE:pp.12-13	PRERACE:1,2nd Generation Mutant										!PRETEMPLATE:Advanced|Degenerate|Feral|Guardian|Hedonist|Primitive|Radical|Resentful|Resurrector|Visionary Reinventor				BONUS:SKILL|Decipher Script,Knowledge (Technology)|2|TYPE=Racial			BONUS:STAT|INT|1	BONUS:STAT|WIS|-1											FAVOREDCLASS:Scav,Thinker	FEAT:Simple Weapon Proficiency																				LANGAUTO:Gutter Talk	LANGBONUS:Unislang,Ancient	REMOVABLE:NO	SUBRACE:Yes	WEAPONBONUS:TYPE=Exotic
 Visionary Reinventor	NAMEISPI:YES	LEVELADJUSTMENT:RacialAdjust+1		SOURCEPAGE:pp.14-15	PRERACE:1,1st Generation Mutant,2nd Generation Mutant,3rd Generation Mutant			!PRETEMPLATE:Advanced|Degenerate|Feral|Guardian|Hedonist|Primitive|Radical|Resentful|Resurrector|Ritual Preservationist				BONUS:SKILL|Craft (Tinker)|2|TYPE=Racial							BONUS:STAT|INT|2														FAVOREDCLASS:Thinker		FEAT:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies										LANGAUTO:Unislang		LANGBONUS:Gutter Talk,Trade	REMOVABLE:NO	SUBRACE:Yes
+
+###Block: Improved Hit Dice feat support
+# Template Name			Hit Dice Size	Visible
+Improved Hit Dice Support	HITDIE:%up1		VISIBLE:NO

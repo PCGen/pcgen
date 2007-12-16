@@ -170,7 +170,7 @@ CLASS:Minion	HD:4		TYPE:Base.NPC	ABB:Min		MAXLEVEL:20	SOURCEPAGE:p.244	LANGAUTO:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Minion	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE.Profession|TYPE.Sport|Spot|Survival|Swim|Tumble|Use Rope
 
-1	BONUS:HD|MAX|MinionVitalityDice	DEFINE:MinionVitalityDice|0	ADD:FEAT|1|TYPE.MinionVitality	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:WEAPONPROF|TYPE=Melee|TYPE=Hurled|TYPE=Handgun|TYPE=Rifle|TYPE=Archaic|TYPE=Martial Arts|TYPE=Tactical
+1	TEMPLATE:Minion Vitality Dice	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:WEAPONPROF|TYPE=Melee|TYPE=Hurled|TYPE=Handgun|TYPE=Rifle|TYPE=Archaic|TYPE=Martial Arts|TYPE=Tactical
 
 #
 # End
