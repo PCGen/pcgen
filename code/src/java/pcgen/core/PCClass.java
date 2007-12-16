@@ -1903,7 +1903,7 @@ public class PCClass extends PObject {
 				}
 			} else if (prereq.startsWith("CLASS=")) {
 				if (!getKeyName().equals(
-						prereq.substring(prereq.indexOf("="), prereq.length()))) {
+						prereq.substring(prereq.indexOf("=")+1, prereq.length()))) {
 					return currDie;
 				}
 			}
@@ -1997,7 +1997,7 @@ public class PCClass extends PObject {
 				}
 			}
 		} else if (dieLock.startsWith("%Hdown")) {
-			diedivide = Integer.parseInt(dieLock.substring(5));
+			diedivide = Integer.parseInt(dieLock.substring(6));
 			if (diedivide < 0) {
 				return currDie;
 			}
