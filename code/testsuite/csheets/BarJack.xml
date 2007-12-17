@@ -40,7 +40,7 @@ BIO
 			<alignment></alignment>
 			<description>None</description>
 			<domainlist>Air, Animal, Chaos, Death, Destruction, Earth, Evil, Fire, Good, Healing, Knowledge, Law, Luck, Magic, Plant, Protection, Strength, Sun, Travel, Trickery, War, Water</domainlist>
-			<favoredweapon></favoredweapon>
+			<favoredweapon>ANY</favoredweapon>
 			<followeralignment></followeralignment>
 			<holyitem>None</holyitem>
 			<pantheonlist></pantheonlist>
