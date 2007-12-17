@@ -591,22 +591,31 @@
 	<p class="indent0"><strong><a name="WEAPONPROF">Tag Name:</a></strong> CHOOSE:WEAPONPROF|x|y|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Total Selections allowed)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (DEITYWEAPON)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Feat=&lt;feat name&gt;)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (WIELD.WieldCategory)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> DEITYWEAPON</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> FEAT=Text (Feat name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> WIELD.Text (Wield category)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>WEAPONPROF is the only viable choice at this time in the domains list file with the CHOOSE tag.</li>
 		<li>The actual listing of the types of weapon proficiencies the character may have is made up of:
 		<ul>
-			<li>a | (pipe) delimited list of weapon proficiencies as they appear in the weapon proficiencies list file.</li>
-			<li>DEITYWEAPON (gets the weapon listed in the deities list file)</li>
-			<li>FEAT= which must be any feat that requires a weapon proficiency (such as Simple, Martial, Exotic, Weapon Focus, etc)</li>
-			<li>WIELD.WieldCategory (Wield category, can be Light, OneHanded or TwoHanded.
-        			NOT can be specified with the TYPE tag by using a &quot;!&quot; before the TYPE.
-				You can have any as many !TYPE tags as you like, but they all MUST be at the end.</li>
-			</ul>
+			<li>A pipe-delimited (&quot;|&quot;) list of weapon proficiencies as they appear in the weapon proficiencies list file.</li>
+			<li>DEITYWEAPON gets the weapon listed in the deities list file.</li>
+			<li>Feat name must be any feat that requires a weapon proficiency, such as Simple, 
+				Martial, Exotic, Weapon Focus, etc.</li>
+			<li>Wield category can be &quot;Light&quot;, &quot;OneHanded&quot; or &quot;TwoHanded&quot;. 
+				Specific types of weapon proficiencies may be excluded by using &quot;|!TYPE=&lt;weapon 
+				type&gt;&quot; at the end of the tag. You can have as many !TYPE tags as you like, but 
+				they all MUST be at the end of the tag.</li>
+		</ul>
 		</li>
+	</ul>
+	<p class="indent1"><strong>Special Case:</strong> <code>CHOOSE:WEAPONPROF|1|DEITYWEAPON[WEAPONPROF][FEAT=Weapon Focus]</code></p>
+	<ul class="indent2">
+		<li>I cannot explain how this tag works but it does.</li>
+		<li>This tag is used in the War Domain to grant proficiency in, and the Weapon Focus feat of, the 
+			dieties Favored Weapon to the cleric that has selected that domain.</li>
+		<li>This syntax will not survive the move to CDOM and PCGen 6.0.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|Dagger|Club</code></p>
