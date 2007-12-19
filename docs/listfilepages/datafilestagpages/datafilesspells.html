@@ -25,7 +25,18 @@
 <body>
 
 	<h1>Spell Files</h1>
+		<p class="new">*** Updated 5.13.6
 	<p class="indent1">The first field is the name of the spell.</p>
+	<p></p>
+	<p class="indent2"><code>Ghost Sound</code></p>
+	<p class="indent3">The spell named &quot;Ghost Sound&quot; is to be created.</p>
+	<p class="indent2"><code>Silent Image.MOD</code></p>
+	<p class="indent3">The spell named &quot;Silent Image&quot; is to be modified.</p>
+	<p class="indent2"><code>Magic Aura.COPY=Nystal's Undetectable Aura</code></p>
+	<p class="indent3">Copy the spell &quot;Magic Aura&quot; and rename to &quot;Nystal's Undetectable Aura&quot; in all aspects.</p>
+	<p class="indent2"><code>Holy Smite.FORGET</code></p>
+	<p class="indent3">Copy the spell &quot;Holy Smite&quot; is to be forgotten.</p>
+	<p></p>
 
 	<p>Initial Comment:<br /></p>
 	<p class="indent1">In all four versions of KEY (Spell - Potion) or KEY (Spell - Scroll) or KEY (Spell -
@@ -321,6 +332,7 @@
 
 <hr>
 
+	<p class="new">*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="RANGE">Tag Name:</a></strong> RANGE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell range)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -328,6 +340,8 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RANGE:Medium (100' + 5/lv)</code></p>
 	<p class="indent3">This spell has a range of 100 feet plus 5 feet per level.</p>
+	<p class="indent2"><code>RANGE:.CLEAR &lt;tab&gt; RANGE:Personal</code></p>
+	<p class="indent3">This clears the previous range and replaces with &quot;Personal&quot; range.</p>
 	<p></p>
 
 <hr>
@@ -343,7 +357,7 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.7.3*** Updated 5.11.4*** Updated 5.11.13</p>
+	<p class="new">*** Updated 5.7.3*** Updated 5.11.4*** Updated 5.11.13*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="SCHOOL">Tag Name:</a></strong> SCHOOL:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell School Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -357,13 +371,13 @@
 	<p class="indent3">This spell belongs to the &quot;Enchantment&quot; and &quot;Illusion&quot; schools.</p>
 	<p class="indent2"><code>Summon Monster VII.MOD &lt;tab&gt; CLASSES:Channeler=7 &lt;tab&gt; SCHOOL:.CLEAR &lt;tab&gt; SCHOOL:Greater Conjuration</code></p>
 	<p class="indent3">For the Class Channeler of level 7 the spell Summon Monster VII is modified, moving it from whatever schools it was in to just &quot;Greater Conjuration&quot;.</p>
-	<p class="indent2"><code>SCHOOL:.CLEAR|Illusion</code></p>
+	<p class="indent2"><code>SCHOOL:.CLEAR &lt;tab&gt; SCHOOL:Illusion</code></p>
 	<p class="indent3">This clears the schools list and replaces with &quot;Illusion&quot; schools.</p>
 	<p></p>
 
 <hr>
 
-	<p class="new">*** New 5.11.4</p>
+	<p class="new">*** New 5.11.4*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="SPELLCHANGE">Tag Name:</a></strong> (SPELLNAME).MOD or .COPY or .CLEAR</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (.MOD or .COPY or .CLEAR)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -373,6 +387,8 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>Holy Aura.FORGET</code></p>
 	<p class="indent3">Forget the spell &quot;Holy Aura&quot;.</p>
+	<p class="indent2"><code>Barkskin.COPY=Earthskin</code></p>
+	<p class="indent3">Copies the spell &quot;Barkskin&quot; and calls it &quot;Earthskin&quot;.</p>
 	<p></p>
 
 <hr>
@@ -412,15 +428,15 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (stat abbreviation)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Used to tell PCGen what attribute/stat to use for determining 
+		<li>Used to tell PCGen what attribute/stat to use for determining
 			bonus spells and maximum level the character can cast</li>
-		<li>Used in conjunction with the <code>SPELLSTAT:SPELL</code> tag 
+		<li>Used in conjunction with the <code>SPELLSTAT:SPELL</code> tag
 			in the <em>*_class.lst</em> file.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>STAT:CHA</code></p>
-	<p class="indent3">When used in conjunction with the <code>SPELLSTAT:SPELL</code> tag 
-		in a class file, a spell with this tag will use the charisma modifier to determine 
+	<p class="indent3">When used in conjunction with the <code>SPELLSTAT:SPELL</code> tag
+		in a class file, a spell with this tag will use the charisma modifier to determine
 		bonus spells and maximum level the character can cast.</p>
 	<p></p>
 
@@ -476,7 +492,7 @@
 	<ul class="indent2">
 		<li>Indicates what &quot;types&quot; are associated with the spell.</li>
 		<li>You can also Specify multiple types using the . (period) delimiter.</li>
-		<li>See <a href="../globalfilestagpages/globalfilestype.html#Spell">Special Case TYPEs</a> 
+		<li>See <a href="../globalfilestagpages/globalfilestype.html#Spell">Special Case TYPEs</a>
 			for more detail on specific type usage.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>

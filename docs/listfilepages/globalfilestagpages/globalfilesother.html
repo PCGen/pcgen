@@ -115,7 +115,7 @@
 
 <hr>
 
-	<p class="new">*** New 5.13.0 - Replaces FEATAUTO:x|x</p>
+	<p class="new">*** New 5.13.0*** Updated 5.13.6 - Replaces FEATAUTO:x|x</p>
 	<p class="indent0"><strong><a name="AUTOFEAT">Tag Name:</a></strong> AUTO:FEAT|x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Feat Name&gt;)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -127,7 +127,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:FEAT|Dodge</code></p>
 		<p class="indent3">The feat &quot;Dodge&quot; is granted as an automatic feat.</p>
-		<p class="indent2"><code>AUTO:FEAT|.CLEAR.Dodge|Alertness</code></p>
+		<p class="indent2"><code>AUTO:FEAT|.CLEAR.Dodge &lt;tab&gt; AUTO:FEAT|Alertness</code></p>
 		<p class="indent3">The feat &quot;Dodge&quot; is cleared and the feat &quot;Alertness&quot; is granted as an automatic feat.</p>
 		<p></ p>
 
@@ -160,7 +160,7 @@
 	<p></ p>
 
 <hr>
-		
+
 	<p class="new">*** Updated 5.11.1</p>
 	<p class="indent0"><strong><a name="AUTOWEAPONPROF">Tag Name:</a></strong> AUTO:WEAPONPROF|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Weapon Name&gt;)</p>
@@ -200,7 +200,7 @@
 	<p class="indent2"><code>AUTO:WEAPONPROF|DEITYWEAPONS</code></p>
 	<p class="indent3">All favored weapons of the character's deity are given as free weapon proficiencies.</p>
 	<p class="indent2"><code>AUTO:WEAPONPROF|TYPE=NoProfReq|Longspear|Javelin</code></p>
-	<p class="indent3">All &quot;NoProfReq&quot; and &quot;Longspear&quot; and &quot;Javelin&quot; weapons 
+	<p class="indent3">All &quot;NoProfReq&quot; and &quot;Longspear&quot; and &quot;Javelin&quot; weapons
 		are given as free weapon proficiencies.</p>
 	<p class="indent2"><code>CLASS:Rogue.MOD &lt;tab&gt; AUTO:WEAPONPROF|Gladius</code></p>
 	<p class="indent3">Modified the Rogue Class to include the Gladius weapon.</p>
@@ -208,7 +208,7 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.9.5</p>
+	<p class="new">*** Updated 5.9.5*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="CSKILL">Tag Name:</a></strong> CSKILL:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
@@ -229,8 +229,8 @@
 	<p class="indent2"><code>CSKILL:LIST</code></p>
 	<p class="indent3">Skills selected in the associated choice are made class skills.</p>
 	<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; CSKILL:.CLEAR.Scry &lt;tab&gt; CSKILL:Drive|TYPE.Knowledge|Perform</code></p>
-	<p class="indent3">Modifies the Class Sorcerer, droping the class skill Scry and adding Drive, Perform and all TYPE.Knowledge skills.</p>
-	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
+	<p class="indent3">Modifies the Class Sorcerer, droping the class skill &quot;Scry&quot; and adding &quot;Drive, Perform and all TYPE.Knowledge&quot; skills.</p>
+	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot</code></p>
 	<p class="indent3">Modified Class that changes all of these Tags from their starting values.</p>
 	<p></ p>
 
@@ -356,12 +356,12 @@
 		<li><code>.CLEAR.(regular expression match)</code> will clear specific instances.</li>
 		<li>DESC tags now take variable substitution.<br>
 		<ul>
-			<li>Within the text a % followed by a number will substitute the #th variable from the 
-				variable list associated with the DESC. For example, %1 will substitute the first 
+			<li>Within the text a % followed by a number will substitute the #th variable from the
+				variable list associated with the DESC. For example, %1 will substitute the first
 				variable into that position in the DESC</li>
 			<li>Variables are specified after the descriptive text and are pipe-delimited (|).</li>
 			<li>The special parameter %% will insert an actual % character into the text.</li>
-			<li>If the parameter needs to be next to a number the parameter number should be surrounded 
+			<li>If the parameter needs to be next to a number the parameter number should be surrounded
 				in curly brackets { }. For example, %{1000}gp.</li>
 		</ul>
 		<li>The following special variables are allowed within the variable list:<br>
@@ -371,7 +371,7 @@
 			<li><code>%LIST</code> - Will substitute all choices comma separated into that parameter.</li>
 			<li><code>%NAME</code> - The name of the object this DESC tag is in.</li>
 		</ul>
-		<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and 
+		<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and
 			formulas within parentheses.<br>
 		<ul>
 			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for
@@ -487,6 +487,7 @@
 
 <hr>
 
+	<p class="new">*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="LANGAUTO">Tag Name:</a></strong> LANGAUTO:x,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Language Name&gt;)</p>
 	<p class="indent1"><strong>What it does:</strong> </p>
@@ -496,8 +497,7 @@
 	<p class="indent3">Character automatically gains &quot;Common&quot; &amp; &quot;Gnome&quot;.</p>
 	<p class="indent2"><code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; LANGAUTO:Low Coryani,Gnome</code></p>
 	<p class="indent3">Race Gnome is modified, clearing all of the Auto Languages and replaces with  &quot;Low Coryani&quot; &amp; &quot;Gnome&quot;.</p>
-	<p class="indent2"><code>Human.MOD &lt;tab&gt; LANGAUTO:Remarian &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt;
-		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian</code></p>
+	<p class="indent2"><code>Human.MOD &lt;tab&gt; LANGAUTO:Remarian &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian</code></p>
 	<p class="indent3">THIS IS AN ERROR... The .CLEAR has cleared all of the LANGAUTO: freebies, if it were
 		not	for the LANGBONUS: this race could not speak or write.</p>
 	<p></ p>
@@ -646,7 +646,7 @@
 	</ul>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Object KEY)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Counters PRExxx tags. Any objects listed will ignore all PRE tags and be a valid 
+	<p class="indent2">Counters PRExxx tags. Any objects listed will ignore all PRE tags and be a valid
 		selection for the character.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Valid in most objects except .pcc files and class level lines.</p>
@@ -656,7 +656,7 @@
 	<p class="indent2"><code>QUALIFY:CLASS|Monk</code></p>
 	<p class="indent3">The character would be able to take the Monk class whether they meet the prereqs or not.</p>
 	<p class="indent2"><code>QUALIFY:CLASS|Battle Mind|Telepath</code></p>
-	<p class="indent3">The character would be able to take either the Battle Mind or Telepath class whether 
+	<p class="indent3">The character would be able to take either the Battle Mind or Telepath class whether
 		they meet the prereqs or not.</p>
 	<p></ p>
 
@@ -725,8 +725,8 @@
 		<li>The SA will NOT be displayed if the last variable or formula equals 0.</li>
 		<li><code>SA:.CLEAR</code> will only clear a previous SA in the same object (class, template,
 			etc.). It will not clear them across objects.</li>
-		<li><code>SA:.CLEAR.Text to be removed</code> must include the exact text of the SA to be removed but 
-			only the exact text up to the first &quot;(&quot;. The CLEAR and Replace tags should be at the end 
+		<li><code>SA:.CLEAR.Text to be removed</code> must include the exact text of the SA to be removed but
+			only the exact text up to the first &quot;(&quot;. The CLEAR and Replace tags should be at the end
 			of the line, so the new and old tags are not</li>
 		<li>SA tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
 			SA tags qualified with PRExxx tags will not display unless the character meets the
@@ -753,7 +753,7 @@
 
 <hr>
 
-	<p class="new">*** New 5.13.3</p>
+	<p class="new">*** New 5.13.3*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="SAB">Tag Name:</a></strong> SAB:x</p>
 	<p><strong> Variables Used (x):</strong>Text (Special Ability Name)</p>
 	<p><strong> Variables Used (x):</strong>.CLEAR.Text (Clear Special Ability Totals)</p>
@@ -768,12 +768,12 @@
 			the next variable listed after another pipe (&quot;|&quot;). The count starts at 0 and counts up.</li>
 		<li>Each variable needs to be defined (via the global DEFINE tag.)</li>
 		<li>The SAB will NOT be displayed if the last variable or formula equals 0.</li>
-		<li><code>SAB:.CLEAR</code> can be used in conjunction with the <code>.MOD</code> but does not support 
+		<li><code>SAB:.CLEAR</code> can be used in conjunction with the <code>.MOD</code> but does not support
 		cross-level interactions.</li>
 		<li><code>SAB:.CLEAR</code> will only clear a previous SAB in the same object (class, template,
 			etc.). It will not clear them across objects.</li>
-		<li><code>SAB:.CLEAR.Text to be removed</code> must include the exact text of the SAB to be removed but 
-			only the exact text up to the first open-parentheses &quot;(&quot;. The CLEAR and Replace tags should be at the end 
+		<li><code>SAB:.CLEAR.Text to be removed</code> must include the exact text of the SAB to be removed but
+			only the exact text up to the first open-parentheses &quot;(&quot;. The CLEAR and Replace tags should be at the end
 			of the line, so the new and old tags are not</li>
 		<li>SAB tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
 			SAB tags qualified with PRExxx tags will not display unless the character meets the
@@ -786,7 +786,7 @@
 	<p class="indent2"><code>SAB:Sneak Attack +%d%|Sneak Attack|Sneak Attack Die</code></p>
 	<p class="indent3">If the PCs &lt;Sneak Attack&gt; was 5 and &lt;Sneak Attack
 		Die&gt; was 6, this would grant the special ability &quot;Sneak Attack&quot; at +5d6.</p>
-	<p class="indent2"><code>SAB:.CLEAR.+1d6 to natural weapons SAB:+1d8 to natural weapons </code></p>
+	<p class="indent2"><code>SAB:.CLEAR.+1d6 to natural weapons &lt;tab&gt; SAB:+1d8 to natural weapons </code></p>
 	<p class="indent3">Clears the &quot;Natural Weapons&quot; value and makes it +1d8 instead.</p>
 	<p class="indent2"><code>SAB:Banana toss|PRERACE:monkey</code></p>
 	<p class="indent3">Grants the special ability &quot;Banana toss&quot; if the characters race is &quot;monkey&quot;.</p>
@@ -796,6 +796,8 @@
 		times, but selected only once.</p>
 	<p class="indent2"><code> 4 &lt;tab&gt; SAB:.CLEAR.Shield Brother (full round action) &lt;tab&gt; SAB:Shield Brother (standard action)</code></p>
 	<p class="indent3">Clears the 4th level value and makes it &quot;Shield Brother (standard action)&quot;instead.</p>
+	<p class="indent2"><code>SAB:.CLEAR.Poison</code></p>
+	<p class="indent3">Clears the &quot;Poison&quot; value and replaces it with nothing.</p>
 	<p></ p>
 
 <hr>
@@ -1199,13 +1201,13 @@
 		<li>Please note that the name must match EXACTLY (case sensitive, and the classes need the beginning
 			CLASS: tag, see examples).</li>
 		<li>If you want to .MOD the name, you need to include the NAME: designator (see examples).</li>
-		<li>If you want to .MOD an eqmod, you use the KEY but not the KEY: designator (see examples).</li> 
+		<li>If you want to .MOD an eqmod, you use the KEY but not the KEY: designator (see examples).</li>
 		<li>Any tags that are listed are added to the list of tags already in the object.</li>
 		<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
 			replace the tag in the original entry.</li>
-		<li>If more than one tag is allowed (most notably BONUS statements), then the new tag will be added 
+		<li>If more than one tag is allowed (most notably BONUS statements), then the new tag will be added
 			to the other tags in the object.</li>
-		<li>When .MODing an object to remove or replace a numerical BONUS, you must duplicate the original 
+		<li>When .MODing an object to remove or replace a numerical BONUS, you must duplicate the original
 			BONUS with the number or formula used for the numerical bonus multiplied by &quot;-1&quot;.</li>
 		<li>When .MODing abilities you reference the ability by its CATEGORY, i.e. CATEGORY=&lt;category&gt;, and its KEY.(see example below.)</li>
 		<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
@@ -1257,7 +1259,7 @@
 		<li>Any tags that are listed are added to the list of tags already in the object.</li>
 		<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
 			replace the tag in the original entry.</li>
-		<li>If more than one tag is allowed (most notably BONUS statements), then the new tag will be added 
+		<li>If more than one tag is allowed (most notably BONUS statements), then the new tag will be added
 			to the other tags in the object.</li>
 		<li>When .COPYing abilities you reference the ability by its CATEGORY, i.e. CATEGORY=&lt;category&gt;, and its KEY.(see example below.)</li>
 		<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the

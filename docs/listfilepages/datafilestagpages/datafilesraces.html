@@ -26,13 +26,22 @@
 <body>
 
 	<h1>Race Files</h1>
-
+	<p class="new">*** Updated 5.13.6</p>
 	<p>The &quot;Name&quot; of the race must be the first field on each line,
 			the remaining tags may be of any order.</p>
-
+	<p></p>
+	<p class="indent2"><code>Boar (Wild Pig)</code></p>
+	<p class="indent3">The race named &quot;Boar (Wild Pig)&quot; is to be created.</p>
+	<p class="indent2"><code>Bugbear.COPY=Bugbear (Shadowkind)</code></p>
+	<p class="indent3">Copies the race named &quot;Bugbear&quot; to a new race called &quot;Bugbear (Shadowkind)&quot;.</p>
+	<p class="indent2"><code>Shark (Huge).MOD</code></p>
+	<p class="indent3">The race named &quot;Shark (Huge)&quot; is to be modified.</p>
+	<p></p>
 	<p>If you want to get rid of racex in your campaign, better put racex.<a href="../globalfilestagpages/globalfilesother.html#FORGET">FORGET</a> in one of your RACE files.
 		That will remove racex from your campaign, in fact you won't even be able to use the name racex for a
 		new race in your campaign, if you should want to do so later use the <a href="../globalfilestagpages/globalfilesother.html#MOD">.MOD</a> tag.</p>
+	<p class="indent2"><code>Shark (Huge).FORGET</code></p>
+	<p class="indent3">The race named &quot;Shark (Huge)&quot; is to be forgotten.</p>
 	<p></p>
 
 <hr>
@@ -180,14 +189,14 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent1">
         <li>Specifies the new Hit Die size granted to the creature.</li>
-		<li>HITDIE may also be used in <a href="datafilesclasses.html#HITDIE">Class</a> 
+		<li>HITDIE may also be used in <a href="datafilesclasses.html#HITDIE">Class</a>
     		and <a href="datafilestemplates.html#HITDIE">Template</a> files.</li>
-		<li>The scale used by the functions which raise or lower Hit Die in steps is defined by the 
+		<li>The scale used by the functions which raise or lower Hit Die in steps is defined by the
 			<a href="../systemfilestagpages/gamemodemiscinfolist.html#DIESIZES">DIESIZES</a> gameMode tag.</li>
 		<li>The scale used in most gameModes is: 1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000</li>
-		<li>When using the step up function (%upNumber) or step down function (%downNumber) 
+		<li>When using the step up function (%upNumber) or step down function (%downNumber)
 			the minimum and maximum steps are set by the MIN and MAX tags in the DIESIZES tag.</li>
-		<li>The step up function (%Hup) and step down functions (%Hdown) 
+		<li>The step up function (%Hup) and step down functions (%Hdown)
 			will ignore the MIN and MAX settings and use the full range of die sizes specified by the DIESIZES tag.</li>
 		<li>Regardless of the number it will never allow a hit die below 1.</li>
 		<li>Optionally HITDIE can be qualified with a Class or Class type in which case it will only be applied to matching classes.</li>
@@ -342,8 +351,12 @@
 		<li>Allows for changes to the defined Races in the Biosettings file.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>Boar (Wild Pig)</code></p>
+	<p class="indent3">The race named &quot;Boar (Wild Pig)&quot; is to be created.</p>
 	<p class="indent2"><code>Human.COPY=Nimmr</code></p>
-	<p class="indent3">Copy the race possesses the &quot;Human&quot; RACENAME: to &quot;Nimmr&quot; in all aspects.</p>
+	<p class="indent3">Copy the race possesses the &quot;Human&quot; and rename to &quot;Nimmr&quot; in all aspects.</p>
+	<p class="indent2"><code>Shark (Huge).MOD</code></p>
+	<p class="indent3">The race named &quot;Shark (Huge)&quot; is to be modified.</p>
 	<p></p>
 
 <hr>
@@ -355,8 +368,8 @@
 	<ul class="indent2">
 		<li>Defines the Subtypes of creature possesses.</li>
 		<li>Additional Subtypes can be added and/or removed with a RACESUBTYPE in a template or other file type</li>
-		<li>Examples include: Air, Angel, Aquatic, Archon, Augmented, Chaotic, Cold, Earth, Evil, Extraplanar, 
-		Fire, Goblinoid, Good, Incorporeal, Lawful, Native, Reptilian, Shapechanger, Swarm, Water as well as 
+		<li>Examples include: Air, Angel, Aquatic, Archon, Augmented, Chaotic, Cold, Earth, Evil, Extraplanar,
+		Fire, Goblinoid, Good, Incorporeal, Lawful, Native, Reptilian, Shapechanger, Swarm, Water as well as
 		Humanoid subraces such as Elf, Orc, Dwarf, etc..</li>
 		<li>The <code>.CLEAR</code> tag may be used with this tag.</li>
 	</ul>
@@ -379,8 +392,8 @@
 		<li>Defines the Type of creature the race is.</li>
 		<li>A Creature may only have one RACETYPE at any given time.</li>
 		<li>The Base RACETYPE set in the race line can be changed with a RACETYPE tag in a template or other file type.</li>
-		<li>Currently existing selections from the Monster List include: Aberration, Animal, Beast, Construct, 
-		Dragon, Elemental, Fey, Giant, Humanoid, Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, 
+		<li>Currently existing selections from the Monster List include: Aberration, Animal, Beast, Construct,
+		Dragon, Elemental, Fey, Giant, Humanoid, Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant,
 		Shapechanger, Undead, and Vermin.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -506,7 +519,7 @@
 			Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid,
 			Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and
 			Vermin</li>
-		<li>See <a href="../globalfilestagpages/globalfilestype.html#Race">Special Case TYPEs</a> 
+		<li>See <a href="../globalfilestagpages/globalfilestype.html#Race">Special Case TYPEs</a>
 			for more detail on specific type usage.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
