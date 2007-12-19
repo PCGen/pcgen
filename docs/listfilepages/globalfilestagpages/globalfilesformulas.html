@@ -101,35 +101,53 @@
 
 <hr>
 
-	<p class="indent2"><code><a name="modulus/remainder">CL%3</a></code></p>
-	<p></p>
-	<p class="indent2">The % performs a modulus... or is the remainder operator.</p>
-	<p class="indent3"><code>would determine the remainder after performing an integer divide on the Class Level by three. If the class level was
-		7, the remainder is 1 ( 7 / 3 = 2 remainder 1  ... or alternately 2 * 3 + 1 = 7)</code></p>
-	<p></p>
-
-<hr>
-
-	<p class="indent1"><strong><a name="MinMax">Minimums and maximums</a><br></strong></p>
-	<p></p>
-	<p class="indent2">The min and max functions support 2 or more arguments, so you can compare 2, 3, 4 or more numbers or variables.<br></p>
-	<p class="indent2"><code>min(a,b,c)</code></p>
-	<p class="indent3">Returns the lowest of 'a', 'b' or 'c'.</p>
-	<p></p>
-	<p class="indent2"><code>max(a,b,c)</code></p>
-	<p class="indent3">Returns the highest of 'a', 'b' or 'c'.</p>
+	<a name="modulus/remainder"></a>
+	<p class="indent0"><strong>Modulus/Remainder</strong></p>
+	<p class="indent1"><strong>Formula:</strong> <code>x%y</code></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Variable (Dividend)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number (Divisor)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<p class="indent2">Performs a modulus, returning the remainder for the opration.</p>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>CL%3</code></p>
+	<p class="indent3">Divides the character's class level by 3 and returns the remainder</p>
+	<p class="indent3">If the class level was 7, the remainder is 1.</p>
 	<p></p>
 
 <hr>
 
-	<p class="indent1"><strong><a name="Truncation">Truncation, rounding up and down.</a><br></strong></p>
-	<p></p>
-	<p class="indent2"><code>floor(a)</code></p>
-	<p class="indent3">Returns the highest integer that is less than 'a'.</p>
-	<p></p>
-	<p class="indent2"><code>ceil(a)</code></p>
-	<p class="indent3">Returns the lowest integer that is greater than 'a'.</p>
-	<p></p>
+	<a name="MinMax"></a>
+	<p class="indent0"><strong>Minimums and Maximums</strong></p>
+	<p class="indent1"><strong>Formula:</strong> <code>min(x,x)</code> or <code>max(x,x)</code></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable, or Formula (Value list)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Returns the lowest (min) or highest (max) value from the value list.</li>
+		<li>The value list is a comma-delimited (&quot;,&quot;) list of values to be compared.</li>
+		<li>The value-list may contain any number of values desired.</li>
+	</ul>
+	<p class="indent1"><strong>Exqmples:</strong></p>
+	<p class="indent2"><code>min(10,CL,TL/2)</code> given a multi-class character: Wiz8/Ftr6 and looking at it from the Wizard's perspective.</p>
+	<p class="indent3">Evaluating: min(10,[CL=8],[TL/2 -&gt; (8+6)/2 -&gt; (14/2)=7]) -&gt; min returns the value &quot;7&quot;.</p>
+	<p class="indent2"><code>max(3,CL,TL/2)</code> given a multi-class character: Wiz4/Rog6 and looking at it from the Rogue's perspective.</p>
+	<p class="indent3">Evaluating: max(3,[CL=6],[TL/2 -&gt; (4+6)/2 -&gt; (10/2)=5]) -&gt; max returns the value &quot;6&quot;.</p>
+	<p></ p>
+
+<hr>
+
+	<a name="Truncation"></a>
+	<p class="indent0"><strong>Truncation, Rounding Up or Down.</strong></p>
+	<p class="indent1"><strong>Formula:</strong> <code>floor(x)</code> or <code>ceil(x)</code></code></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable, or Formula</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<p class="indent2">The function &quot;floor&quot; returns the highest integer that is less than 'x'.</p>
+	<p class="indent2">The function &quot;ceil&quot; returns the lowest integer that is greater than 'x'.</p>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>floor((FooVariable+4)/6)</code> Assume FooVariable is &quot;7&quot;</p>
+	<p class="indent3">Evaluate: (FooVariable+4)/6 -&gt; (7+4)/6 -&gt; 11/6 -&gt; 1 5/6 - &gt; floor returns 1.</p>
+	<p class="indent2"><code>ceil(STR/2)</code> Assume STR=15</p>
+	<p class="indent3">Evaluate: STR/2 -&gt; 15/2 -&gt; 7 1/2 -&gt; ceil returns 8.</p>
+	<p></ p>
 
 <hr>
 
@@ -325,8 +343,10 @@
 	<p class="indent3"><code>charbonusto("WEAPONPROF=TYPE.Martial", "PCSIZE")</code></p><p></p>
 
 <hr>
-		
-	<p class="indent0"><strong><a name="count">Formula:</a></strong> <code>count(x,y)</code></p>
+
+	<a name="count"></a>
+	<p class="indento">JEP Count</p>
+	<p class="indent1"><strong>Formula:</strong> <code>count(x,y)</code></p>
 	<p class="indent1"><strong> Variables Used (x):</strong> Text (Object to be counted, i.e. ABILITIES, CLASSES, etc.)</p>
 	<p class="indent1"><strong> Variables Used (y):</strong> Text (Matching criteria)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
