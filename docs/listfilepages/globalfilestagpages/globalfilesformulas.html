@@ -82,6 +82,9 @@
 <hr>
 
 	<a name="Operators"></a>
+	<h2>Operators</h2>
+
+	<a name="MathOperators"></a>
 	<p class="indent0"><strong>Mathematical Operators</strong></p>
 	<p class="indent1"><strong>Addition:</strong> <code>x+y</code></p>
 	<p class="indent1"><strong>Subtraction:</strong> <code>x-y</code></p>
@@ -94,8 +97,8 @@
 		<p class="indent2">These are the four traditional mathematical operators.</p>
 		<p class="indent1"><strong>Order of Operation:</strong></p>
 		<ul class="indent2">
-			<li>For JEP Commands</li>
-			<li>For Non-JEP Commands</li>
+			<li>For JEP Commands: Per standard mathematical order of operation. (i.e. Parenthises -&gt Multiplication/Division -&gt Addition/Subtraction)</li>
+			<li>For Non-JEP Commands: Parenthesis are resolved first, then operators will be processed from left to right.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong>
 		<p class="indent2"><code>2+1</code></p>
@@ -113,6 +116,79 @@
 	<p></ p>
 
 <hr>
+
+	<a name="Boolean"></a>
+	<p class="indent0"><strong>Boolean Operators</strong></p>
+	<p class="indent1"><strong>Equal:</strong> <code>x==y</code></p>
+	<p class="indent1"><strong>Not Equal:</strong> <code>x!=y</code></p>
+	<p class="indent1"><strong>Greater Than:</strong> <code>x&gt;y</code></p>
+	<p class="indent1"><strong>Less Than:</strong> <code>x&lt;y</code></p>
+	<p class="indent1"><strong>Greater Than or Equal:</strong> <code>x&gt;=y</code></p>
+	<p class="indent1"><strong>Less Than or Equal:</strong> <code>x&lt;=y</code></p>
+	<p class="indent1"><strong>Logical AND:</strong> <code>x&amp;&amp;y</code></p>
+	<p class="indent1"><strong>Logical OR:</strong> <code>x||y</code></p>
+	<blockquote>
+		<p class="indent1"><strong>Variable Used (x):</strong> Number, Variable, or Formula</p>
+		<p class="indent1"><strong>Variable Used (y):</strong> Number, Variable, or Formula</p>
+		<p class="indent1"><strong>What They Do:</strong></p>
+		<p class="indent2">Boolean expressions are evaluated to be either 1 or 0 (true or false respectively).</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>CL==1</code></p>
+		<p class="indent3">Will return &quot;True&quot; if Class Level is equal to 1.</p>
+		<p class="indent2"><code>CL!=1</code></p>
+		<p class="indent3">Will return &quot;True&quot; if Class Level is not equal to 1.</p>
+		<p class="indent2"><code>CL&gt;1</code></p>
+		<p class="indent3">Will return &quot;True&quot; if Class Level is greater than 1.</p>
+		<p class="indent2"><code>CL&lt;1</code></p>
+		<p class="indent3">Will return &quot;True&quot; if Class Level is less than 1.</p>
+		<p class="indent2"><code>CL&gt;=1</code></p>
+		<p class="indent3">Will return &quot;True&quot; if Class Level is greater than or equal to 1.</p>
+		<p class="indent2"><code>CL&lt;=1</code></p>
+		<p class="indent3">Will return &quot;True&quot; if Class Level is less than or equal to 1.</p>
+		<p class="indent2"><code>(CL&gt;5)&amp;&amp;(TL&gt;5)</code></p>
+		<p class="indent3">Will return &quot;True&quot; if Class Level <strong>and</strong> Total Level are greater than 5.</p>
+		<p class="indent2"><code>(CL&gt;5)||(TL&gt;5)</code></p>
+		<p class="indent3">Will return &quot;True&quot; if Class Level <strong>or</strong> Total Level is greater than 5.</p>
+	</blockquote>
+	<p></ p>
+
+<hr>
+
+	<p class="indent1"><strong><a name="SYMBOLOPERATORS">Symbol Operators</a></strong></p>
+	<p class="indent2">The following symbol operators are explained below.<br></p>
+	<p class="indent1"><code><a name="%PERCENTCHOICE">%CHOICE</a></code></p>
+	<p class="indent2"><strong>What it does:</strong></p>
+	<p class="indent3">The %CHOICE will put the input from a CHOOSE tag into its place.</p>
+	<p class="indent2"><strong>Where it is used:</strong></p>
+	<p class="indent3">In conjunction with the CHOOSE, including within math computations.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>SPROP:Unreliable (%CHOICE) &lt;tab&gt; CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%</code></p>
+	<p class="indent3">Chooser to select the level of unreliablty.</p>
+	<p class="indent1"><code><a name="PERCENTLIST">%LIST</a></code></p>
+	<p class="indent2"><strong>What it does:</strong></p>
+	<p class="indent3">The %LIST will put the input from a CHOOSE tag into its place.</p>
+	<p class="indent2"><strong>Where it is used:</strong></p>
+	<p class="indent3">In conjunction with the CHOOSE tag but not within math computations.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL &lt;tab&gt; BONUS:CHECKS|%LIST|1</code></p>
+	<p class="indent3"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL, of which the selection is put into BONUS:CHECKS|%LIST|1</code></p>
+	<p class="indent1"><code><a name="EXCLAMATION">!</a></code> (Not)</p>
+	<p class="indent2"><strong>What it does:</strong></p>
+	<p class="indent3">The NOT operator.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:SKILL|Swim|1|!PRESKILL:1,Swim=1.</code></p>
+	<p class="indent3"><code>If the character has swim, add 1 to it, if not add 1 to swim.</code></p>
+	<p class="indent1"><code><a name="PERCENT">% (Replacement/Substitution)</a></code></p>
+	<p class="indent2"><strong>What it does:</strong></p>
+	<p class="indent3">The Replacement/Substitution Operator, used in the SA: tag.</p>
+	<p class="indent2">See the <a href="globalfilesother.html#SA">SA:</a>tag for more information.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:Acid|Cold|Electricity|Fire &lt;tab&gt; SA:Resistance to % 5|LIST</code></p>
+	<p class="indent3"><code>CHOOSE:Acid|Cold|Electricity|Fire, of which the selection is put into SA:Resistance to % 5|LIST</code></p>
+
+<hr>
+
+	<h2>Formula Functions</h2>
 
 	<a name="modulus/remainder"></a>
 	<p class="indent0"><strong>Modulus/Remainder</strong></p>
@@ -132,7 +208,7 @@
 <hr>
 
 	<a name="MinMax"></a>
-	<p class="indent0"><strong>Minimums and Maximums</strong></p>
+	<p class="indent0"><strong>Minimums and Maximums (JEP Expression)</strong></p>
 	<p class="indent1"><strong>Formula:</strong> <code>min(x,x)</code> or <code>max(x,x)</code></p>
 	<blockquote>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable, or Formula (Value list)</p>
@@ -153,7 +229,7 @@
 <hr>
 
 	<a name="Truncation"></a>
-	<p class="indent0"><strong>Truncation, Rounding Up or Down.</strong></p>
+	<p class="indent0"><strong>Truncation, Rounding Up or Down (JEP Expression)</strong></p>
 	<p class="indent1"><strong>Formula:</strong> <code>floor(x)</code> or <code>ceil(x)</code></p>
 	<blockquote>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable, or Formula</p>
@@ -194,38 +270,6 @@
 		<p class="indent2"><code>if(STR,5,0)</code></p>
 		<p class="indent3">Asks if Strength modifier is greater than or less than 0 then returns 5 or else returns 0.</p>
 	</blockquote>
-	<p></ p>
-
-<hr>
-
-	<a name="Boolean"></a>
-	<p class="indent0"><strong>Boolean operators</strong></p>
-	<p class="indent1">Boolean operators are also fully supported.
-		Boolean expressions are evaluated to be either 1 or 0 (true or false respectively).<br></p>
-	<p></ p>
-	<p class="indent2"><code>CL==1</code></p>
-	<p class="indent3">Equal (==). Asks if Class Level is equal to 1.</p>
-	<p></ p>
-	<p class="indent2"><code>CL!=1</code></p>
-	<p class="indent3">Not Equal (!=). Asks if Class Level is not equal to 1.</p>
-	<p></ p>
-	<p class="indent2"><code>CL&gt;1</code></p>
-	<p class="indent3">Greater than (&gt;). Asks if Class Level is greater than 1.</p>
-	<p></ p>
-	<p class="indent2"><code>CL&lt;1</code></p>
-	<p class="indent3">Less than (&lt;). Asks if Class Level is less than 1.</p>
-	<p></ p>
-	<p class="indent2"><code>CL&gt;=1</code></p>
-	<p class="indent3">Greater than or Equal (&gt;=). Asks if Class Level is greater than or equal to 1.</p>
-	<p></ p>
-	<p class="indent2"><code>CL&lt;=1</code></p>
-	<p class="indent3">Less than or Equal (&lt;=). Asks if Class Level is less than or equal to 1.</p>
-	<p></ p>
-	<p class="indent2"><code>(CL&gt;5)&amp;&amp;(TL&gt;5)</code></p>
-	<p class="indent3">Boolean And (&amp;&amp;). Asks if Class Level <strong>and</strong> Total Level are greater than 5.</p>
-	<p></ p>
-	<p class="indent2"><code>(CL&gt;5)||(TL&gt;5)</code></p>
-	<p class="indent3">Boolean Or (||). Asks if Class Level <strong>or</strong> Total Level is greater than 5.</p>
 	<p></ p>
 
 <hr>
@@ -285,7 +329,7 @@
 
 	<p class="new">*** Updated 5.12.1 - Use of <code>cl("x")</code> deprecated.</p>
 	<a name="ClassLevel"></a>
-	<p class="indent0"><strong>Class Level</strong></p>
+	<p class="indent0"><strong>Class Level (JEP Expression)</strong></p>
 	<p class="indent1"><strong>Formula:</strong> <code>classlevel("x")</code></p>
 	<blockquote>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class Name)</p>
@@ -301,7 +345,7 @@
 <hr>
 
 	<a name="SkillInfo"></a>
-	<p class="indent0"><strong>Skill Information</strong></p>
+	<p class="indent0"><strong>Skill Information (JEP Expression)</strong></p>
 	<p class="indent1"><strong>Formula:</strong> <code>skillinfo("x","y")</code></p>
 	<blockquote>
 		<p class="indent1"><strong>Variables Used (x):</strong> RANK (Property)</p>
@@ -332,7 +376,7 @@
 <hr>
 
 	<a name="charbonusto"></a>
-	<p class="indent0"><strong>Character Bonus Information</strong></p>
+	<p class="indent0"><strong>Character Bonus Information (JEP Expression)</strong></p>
 	<p class="indent1"><strong>Formula:</strong> <code>charbonusto("x","y")</code></p>
 	<blockquote>
 		<p class="indent1"><strong>Variable Used (x):</strong> Text (Parameter 1 - Optional)</p>
@@ -372,7 +416,7 @@
 <hr>
 
 	<a name="count"></a>
-	<p class="indento"><strong>Count</strong></p>
+	<p class="indento"><strong>Count (JEP Expression)</strong></p>
 	<p class="indent1"><strong>Formula:</strong> <code>count(x,y)</code></p>
 	<blockquote>
 	<p class="indent1"><strong> Variables Used (x):</strong> Text (Object to be counted)</p>
@@ -429,48 +473,11 @@
 
 <hr>
 
-
-<hr>
-
-	<p class="indent1"><strong><a name="SYMBOLOPERATORS">Symbol Operators</a></strong></p>
-	<p class="indent2">The following symbol operators are explained below.<br></p>
-	<p class="indent1"><code><a name="%PERCENTCHOICE">%CHOICE</a></code></p>
-	<p class="indent2"><strong>What it does:</strong></p>
-	<p class="indent3">The %CHOICE will put the input from a CHOOSE tag into its place.</p>
-	<p class="indent2"><strong>Where it is used:</strong></p>
-	<p class="indent3">In conjunction with the CHOOSE, including within math computations.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>SPROP:Unreliable (%CHOICE) &lt;tab&gt; CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%</code></p>
-	<p class="indent3">Chooser to select the level of unreliablty.</p>
-	<p class="indent1"><code><a name="PERCENTLIST">%LIST</a></code></p>
-	<p class="indent2"><strong>What it does:</strong></p>
-	<p class="indent3">The %LIST will put the input from a CHOOSE tag into its place.</p>
-	<p class="indent2"><strong>Where it is used:</strong></p>
-	<p class="indent3">In conjunction with the CHOOSE tag but not within math computations.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL &lt;tab&gt; BONUS:CHECKS|%LIST|1</code></p>
-	<p class="indent3"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL, of which the selection is put into BONUS:CHECKS|%LIST|1</code></p>
-	<p class="indent1"><code><a name="EXCLAMATION">!</a></code> (Not)</p>
-	<p class="indent2"><strong>What it does:</strong></p>
-	<p class="indent3">The NOT operator.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:SKILL|Swim|1|!PRESKILL:1,Swim=1.</code></p>
-	<p class="indent3"><code>If the character has swim, add 1 to it, if not add 1 to swim.</code></p>
-	<p class="indent1"><code><a name="PERCENT">% (Replacement/Substitution)</a></code></p>
-	<p class="indent2"><strong>What it does:</strong></p>
-	<p class="indent3">The Replacement/Substitution Operator, used in the SA: tag.</p>
-	<p class="indent2">See the <a href="globalfilesother.html#SA">SA:</a>tag for more information.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:Acid|Cold|Electricity|Fire &lt;tab&gt; SA:Resistance to % 5|LIST</code></p>
-	<p class="indent3"><code>CHOOSE:Acid|Cold|Electricity|Fire, of which the selection is put into SA:Resistance to % 5|LIST</code></p>
-
-<hr>
-
-
-<hr>
-
-	<p class="indent1"><span class=new><strong><a name="DeprecatedOper">Deprecated operators</a></strong></span></p>
-	<p class="indent2">The following operators are deprecated as of version 5.7.1. The syntax will be replaced with JEP syntax.<br></p>
+	<a name="DeprecatedOper"></a>
+	<h2>Deprecated Functions</h2>
+	
+	<p class="indent0"><span class=new><strong>Deprecated operators</strong></span></p>
+	<p class="indent1">The following operators are deprecated as of version 5.7.1. The syntax will be replaced with JEP syntax.<br></p>
 	<p class="indent2"><code>((TL/3).TRUNC)*2</code></p>
 	<p class="indent3">Truncation - would divide TL by 3, truncate (or round down) and then multiply by 2.</p>
 	<p class="indent3">Deprecated, use floor(a).</p>
@@ -483,6 +490,7 @@
 		(MAX is always between the values).</p>
 	<p class="indent3">Deprecated, use max(a,b).</p>
 
+<hr>
 
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
