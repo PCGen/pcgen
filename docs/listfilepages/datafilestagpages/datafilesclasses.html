@@ -179,6 +179,58 @@
 
 <hr>
 
+	<p class="new">*** New 5.11.11</p>
+	<p class="indent0"><strong><a name="CLASSSKILLS|">Tag Name:</a></strong> ADD:CLASSSKILLS|x|y,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>  Number, Variable or Formula (Number of 
+	choices granted. Optional)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of skill)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of skill)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Includes list of all skills)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> CROSSCLASSSKILLS (Includes list of cross-class skills)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> UNTRAINED (Includes list of skills that can be used untrained.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TRAINED (Includes list of skills that require training to use.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EXCLUSIVE (Includes list of exclusive skills)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> NONEXCLUSIVE (Includes list of non-exclusive skills)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> AUTORANK=Number (Number of free ranks granted)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Adds a number (x) of skills selected from the presented list (y) to the characters class skills list.</li>
+		<li>The skills list is a comma-delimited (&quot;,&quot;) list of skills.</li>
+		<li>If count (x) is not included, &quot;1&quot; is assumed.</li>
+		<li>AUTORANK will assign free ranks to any chosen skills.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|Knowledge (Reverie)</code></p>
+	<p class="indent3">Add &quot;Knowledge (Reverie)&quot; skill to the characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|Knowledge (nature),Survival,AUTORANK=3</code></p>
+	<p class="indent3">Add &quot;Knowledge (nature)&quot; and &quot;Survival&quot; 
+	skills to the characters list of class skills and grant 2 free ranks in each.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|TYPE=Craft</code></p>
+	<p class="indent3">Add one skill from the list of &quot;Craft&quot; type skills 
+	to the characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|3|ANY</code></p>
+	<p class="indent3">Add three skills from the full list of skills to the characters 
+	list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|CROSSCLASSSKILLSY</code></p>
+	<p class="indent3">Add one skill from the list of cross-class skills to the 
+	characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|UNTRIANED</code></p>
+	<p class="indent3">Add one skill from the list of skills that can be used 
+	untrained to the characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|3|TRAINED</code></p>
+	<p class="indent3">Add three skills from the list of skills that require 
+	training to the characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|2|EXCLUSIVE</code></p>
+	<p class="indent3">Add two skills from the list of exclusive skills to the 
+	characters list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|2|NONEXCLUSIVE</code></p>
+	<p class="indent3">Add two skills from the list of non-exclusive skills to 
+	the characters list of class skills.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong> <a href="CLASSSKILLS(">ADD:CLASSSKILLS(y,y)z</a></p>
+	<p></ p>
+
+<hr>
+
 	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="CLASSSKILLS|">ADD:CLASSSKILLS|</a> tag
 		instead.</p>
 	<p class="indent0"><strong><a name="CLASSSKILLS(">Tag Name:</a></strong> ADD:CLASSSKILLS(y,y)z</p>
@@ -215,44 +267,6 @@
 	<p class="indent2"><code>ADD:CLASSSKILLS(TYPE=Knowledge)2</code></p>
 	<p class="indent3">This would give the char two bonus ranks to the TYPE of &quot;Knowledge&quot;
 		type skill selected.</p>
-	<p></ p>
-
-<hr>
-
-	<p class="new">*** New 5.11.11</p>
-	<p class="indent0"><strong><a name="CLASSSKILLS|">Tag Name:</a></strong> ADD:CLASSSKILLS|[x|]y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> number (Number of selections made, defaults to 1)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> text (Skill name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=text (Skill type)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> ANY</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> CROSSCLASSSKILLS</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> EXCLUSIVE</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> NONEXCLUSIVE</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TRAINED</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> UNTRAINED</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> AUTORANK=&lt;number&gt; (Number of free ranks granted)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will add a number of skills of the chosen type to the characters list of classs skills.</li>
-		<li>The number leading denotes how many choices are granted.</li>
-		<li>The optional count has a pipe [x|] that is not needed, unless the count is used.</li>
-		<li>Use AUTORANK to assign free ranks to any skills chosen as if there was
-			a BONUS:SKILLRANK|&lt;SkillName&gt;|&lt;number&gt; tag for that skill.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>ADD:CLASSSKILLS|2|Bluff,Listen,Move Silently</code></p>
-	<p class="indent3">Add any two of &quot;Bluff&quot;, &quot;Listen&quot; or &quot;Move Silently&quot; to the characters list of class skills.</p>
-	<p class="indent2"><code>ADD:CLASSSKILLS|2|TYPE=Knowledge</code></p>
-	<p class="indent3">Add any two &quot;Knowledge&quot; type skills selected to the characters list of class skills.</p>
-	<p class="indent2"><code>ADD:CLASSSKILLS|NONEXCLUSIVE,AUTORANK=2</code></p>
-	<p class="indent3">This would give the character two bonus ranks to the  &quot;nonexclusive&quot;
-		type skill selected.</p>
-	<p class="indent2"><code>ADD:CLASSSKILLS|2|Wilderness Lore,TYPE=Knowledge,AUTORANK=1,Bluff,Move Silently,
-		Listen</code></p>
-	<p class="indent3">Add any two of &quot;Wilderness Lore&quot;, &quot;Knowledge&quot; type skills,
-		&quot;Bluff&quot;, &quot;Move Silently&quot; or &quot;Listen&quot; and grants 1 bonus rank each.</p>
-	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">Class Lines.</p>
 	<p></ p>
 
 <hr>
