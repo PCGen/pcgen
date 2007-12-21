@@ -59,7 +59,7 @@
 <hr>
 
 	<p class="new">*** New 5.11.7</p>
-	<p class="indent0"><strong><a name="PREABILITY">Tag Name:</a></strong>PREABILITY:x,CATEGORY=y,z[,z]</p>
+	<p class="indent0"><strong><a name="PREABILITY">Tag Name:</a></strong>PREABILITY:x,CATEGORY=y,z,z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Number (Number of abilities needed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong>Text (Category name).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong>ALL (Checks all categories).</p>
@@ -67,9 +67,11 @@
 	<p class="indent1"><strong>Variables Used (z):</strong>TYPE.Text (Ability TYPE).</p>
 	<p class="indent1"><strong>Variables Used (z):</strong>ALL (Any ability applies).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Checks for the required number of Abilities.
-		If CATEGORY=ALL is used the tag checks all categories (including feats)
-		for an Ability of the specified name or type.</p>
+	<ul class="indent2">
+		<li>Checks for the required number of Abilities.>/li>
+		<li>If CATEGORY=ALL is used the tag checks all categories (including feats) for an Ability of the specified name or type.</li>
+		<li>The list of abilities, by name and/or type, is a comma=delimited list.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREABILITY:1,CATEGORY=Special Quality,Night Vision,Acid Blast</code></p>
 	<p class="indent3">Requires the Night Vision or Acid Blast Special Quality</p>
@@ -88,13 +90,13 @@
 	<p class="indent1"><strong>Variables Used (x):</strong>Text (Ageset abbreviation).</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Number (Ageset array number).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Requires the PC to have the specified Ageset or an older Ageset.
-  		Agesets are defined in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">biosettings.lst</a>
-  			files by the <a href="../systemfilestagpages/systemfilesbiosettingslist.html#AGESET">AGESET</a> tag.
-			Biosettings.lst files can be set in the gameMode and may also be used in datasets.
-			The tag can be inversed in which case the PC must have a younger Ageset than specified.
-			There are four Agesets defined in the 35e gameMode, they are:
-			0=Adulthood, 1=Middle Age, 2=Old, 3=Venerable.</p>
+	<ul class="indent2">
+		<li>Requires the PC to have the specified Ageset or older.</li>
+		<li>Agesets are defined in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">biosettings.lst</a>
+  			files by the <a href="../systemfilestagpages/systemfilesbiosettingslist.html#AGESET">AGESET</a> tag.</li>
+		<li><em>Biosettings.lst</em> files can be placed in the gameMode or in the applicable datasets.</li>
+		<li>There are four Agesets defined in the 35e gameMode, they are: 0=Adulthood, 1=Middle Age, 2=Old, 3=Venerable.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREAGESET:Old</code></p>
 	<p class="indent3">Requires the PC to be Old or Venerable.</p>
@@ -113,12 +115,14 @@
 	<p class="indent1"><strong>Variables Used (x):</strong>LG,LN,LE,NG,TN,NE,CG,CN,CE,Deity (Alignment abbreviation).</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>0,1,2,3,4,5,6,7,8,10 (Alignment array number).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Alignment names and abbreviations (ABB) are defined in the statsandchecks.lst gameMode file.
-			The array number is based on the order the Alignments are presented in the statsandchecks.lst file the first one being 0.
-			You can now use the Alignment abbreviation directly in addition to using the Alignment array number.
-			If NO alignments are defined in GameMode, all PREALIGN tags will return TRUE.
-			In the 3e and 35e gameModes these are the listed Alignments:
-			(0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE,  6=CG, 7=CN, 8=CE, 9=None, 10 Deity's Alignment).</p>
+	<ul class="indent2">
+		<li>Requires the PC be one of the specified alignments.</li>
+		<li>Alignment names are defined in the <em>statsandchecks.lst</em> gameMode file.</li>
+		<li>The Alignment abbreviation is the prefered method of identifying the required alignments.
+		<li>The Alignment array number, based on the order the Alignments are presented in the <em>statsandchecks.lst</em> file with the first one being 0.</li>
+		<li>If NO alignments are defined in GameMode, all PREALIGN tags will return TRUE.</li>
+		<li>In the 3e and 35e gameModes these are the listed Alignments: 0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE,  6=CG, 7=CN, 8=CE, 9=None, 10 Deity's Alignment.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREALIGN:LG,NG,CG</code></p>
 	<p class="indent3">Requires any Good alignment.</p>
@@ -126,6 +130,8 @@
 	<p class="indent3">Requires any evil alignment.</p>
 	<p class="indent2"><code>PREALIGN:LG,Deity</code></p>
 	<p class="indent3">Requires Lawful Good or the characters chosen Deities alignment.</p>
+	<p class="indent2"><code>!PREALIGN:LG,NG,CG</code></p>
+	<p class="indent3">Requires the PC not be of &quot;Good&quot; alignment.</p>
 	<br>
 
 <hr>
@@ -135,22 +141,23 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> PC (Apply to the character).</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (A type name).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This tag does two things:</p>
-	<p class="indent3">1. It is used by the Temporary Bonus tab as a flag to see which objects should be listed on that tab.</p>
-	<p class="indent3">2. It is a PRExxx tag whose qualifications must be met before that BONUS will be applied to the target of the bonus.</p>
-	<p class="indent2">Bonuses with PREAPPLY tags will only appear in the Temporary Bonuses Tab.</p>
-	<p class="indent2">All feats, spells or templates with ANYPC as the target of
-		  the PREAPPLY: tag will always show up on the Temp Bonuses tab. This allows for
-		  Spells that can be cast on any character and Feats and Templates which act as
-		  holders for conditional bonuses any character can get (given the right circumstances
-		  of course) without the character needing to have added those objects to his character.</p>
-	<p class="indent2">Spells with weapon type PREAPPLY tags will also show in the tab.
-			The PREAPPLY:ANYPC is assumed in this case but the bonus can only be applied to a weapon.</p>
-	<p class="indent2">See the documentation for the
-		<a href="../../tabpages/players/inventory/inventorytempbonus.html">Temporary Bonus Tab</a> for more information on using this tag.</p>
-	<p class="indent2"><strong>NOTE: </strong>PREAPPLY works ONLY at the end of a BONUS tag.</p>
-	<p class="indent2"><strong>Note(s):</strong> use a comma (,) delimiter to indicate AND (both  conditions must be met).</p>
-	<p class="indent2"><strong>Note(s):</strong> use a semi-colon (;) delimiter to indicate OR (either condition needs to be met).</p>
+	<ul class="indent2">
+		<li>Requires included qualifications must be met before the assiciated BONUS will be applied to the target.</li>
+		<li>The Temporary Bonus tab uses this tag as a flag to identify which objects should be listed on that tab.</li>
+		<li>PREAPPLY works ONLY at the end of a BONUS tag.</li>
+		<li>Bonuses with PREAPPLY tags will only appear in the Temporary Bonuses Tab.</li>
+		<li>Use a comma (,) delimiter to indicate AND (both  conditions must be met).</li>
+		<li>Use a semi-colon (;) delimiter to indicate OR (either condition needs to be met).</li>
+		<li>All feats, spells or templates with ANYPC as the target of the PREAPPLY tag will always 
+		show up on the Temp Bonuses tab. This allows for Spells that can be cast on any character and 
+		Feats and Templates which act as holders for conditional bonuses any character can get (given 
+		the right circumstances of course) without the character needing to have added those objects 
+		to his character.</li>
+		<li>Spells with weapon type PREAPPLY tags will also show in the tab. The PREAPPLY:ANYPC is 
+		assumed in this case but the bonus can only be applied to a weapon.</li>
+		<li>See the documentation for the <a href="../../tabpages/players/inventory/inventorytempbonus.html">Temporary 
+		Bonus Tab</a> for more information on using this tag.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREAPPLY:ANYPC</code></p>
 	<p class="indent3">This would apply the bonus to the PC (such as spells that can be cast on a  character).</p>
@@ -435,13 +442,14 @@
 	<p class="indent1"><strong>Variables Used (x):</strong>LG,LN,LE,NG,TN,NE,CG,CN,CE (Alignment abbreviation).</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>0,1,2,3,4,5,6,7,8 (Alignment array number).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Having a deity with a particular alignment is a prerequisite.
-		Alignment names and abbreviations (ABB) are defined in the statsandchecks.lst gameMode file.
-		The array number is based on the order the Alignments are presented in the statsandchecks.lst file the first one being 0.
-		You can now use the Alignment abbreviation directly in addition to using the Alignment array number.
-			If NO alignments are defined in GameMode, all PREALIGN tags will return TRUE.
-			In the 3e and 35e gameModes these are the listed Alignments:
-			(0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE,  6=CG, 7=CN, 8=CE, 9=None).</p>
+	<ul class="indent2">
+		<li>Requires the PC to have a deity with a particular alignment.</li>
+		<li>Alignment names are defined in the <em>statsandchecks.lst</em> gameMode file.</li>
+		<li>The Alignment abbreviation is the prefered method of identifying the required alignments.
+		<li>The Alignment array number, based on the order the Alignments are presented in the <em>statsandchecks.lst</em> file with the first one being 0.</li>
+		<li>If NO alignments are defined in GameMode, all PREALIGN tags will return TRUE.</li>
+		<li>In the 3e and 35e gameModes these are the listed Alignments: 0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE,  6=CG, 7=CN, 8=CE, 9=None, 10 Deity's Alignment.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREDEITYALIGN:0</code></p>
 	<p class="indent3">Character must have chosen a Lawful Good deity.</p>
@@ -455,8 +463,10 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the deity's domains that must match).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Domain names).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets requirements for the character's deity's domains.
-		This tag applies to the domains of the PC's deity, and not the domains that the PC has selected for itself.</p>
+	<ul class="indent2">
+		<li>Sets requirements for the character's deity's domains.</li>
+		<li>This tag applies to the domains of the PC's deity, and not the domains that the PC has selected for itself.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREDEITYDOMAIN:1,Good,Law </code></p>
 	<p class="indent3">Character must have chosen of deity with either the &quot;good&quot; domain or the &quot;law&quot; domain.</p>
@@ -469,8 +479,10 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the deity's domains that must match).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Domain names or ANY).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Set's requirements for a character's domains.
-		This tag applies to the domains that the PC has selected for itself. </p>
+	<ul class="indent2">
+		<li>Set's requirements for a character's domains.</li>
+		<li>This tag applies to the domains that the PC has selected for itself.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREDOMAIN:1,Good,Law</code></p>
 	<p class="indent3">Character must have 1 of the two listed domains.</p>
@@ -570,15 +582,11 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PREEQUIPBOTH">Tag Name:</a></strong> PREEQUIPBOTHx,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number
-		(The number of items from the list that must be equipped in a two handed manner - usually 1).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text
-		(The name of a piece of equipment that must be equipped in a two handed manner
-		- &quot;%&quot; may be used as a wildcard).</p>
-	<p class="indent1"><strong>Variables Used (y): </strong>TYPE=Text
-		(The type of a piece of equipment that must be equipped in a two handed manner).</p>
-	<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (The wield category of a weapon).</p>
+	<p class="indent0"><strong><a name="PREEQUIPBOTH">Tag Name:</a></strong> PREEQUIPBOTH:x,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of items to be equipped).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Equipment name).</p>
+	<p class="indent1"><strong>Variables Used (y): </strong>TYPE=Text (Equipment type).</p>
+	<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (Wield category name).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This is used to determine if a character has a particular item
 		(usually a weapon) equipped and used two-handed style.</p>
@@ -688,8 +696,8 @@
 
 	<p class="new">*** Updated 5.13.5</p>
 	<p class="indent0"><strong><a name="PREHD">Tag Name:</a></strong> PREHD:x,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> MIN=number or formula (Minimum natural Hit Dice)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> MAX=number or formula (Maximum natural Hit Dice)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> MIN=Number or Formula (Minimum natural Hit Dice)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> MAX=Number or Formula (Maximum natural Hit Dice)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Provides the minimum or maximum hit dice the character must have to qualify.</li>
@@ -1214,14 +1222,15 @@
 <hr>
 
 	<p class="new">*** NEW 5.11.6</p>
-	<p class="indent0"><strong><a name="PRESPELLSCHOOL2">Tag Name:</a></strong> PRESPELLSCHOOL:x,y=z[,y=z],[y=z],[...]</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The quantity of spells of the proper
-		school and level the character must know).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a school of magic).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (The minimum spell level of the school
-		of spells a character must know).</p>
+	<p class="indent0"><strong><a name="PRESPELLSCHOOL2">Tag Name:</a></strong> PRESPELLSCHOOL:x,y=z,y=z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of spells known)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of a school of magic).</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Minimum spell level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets spell school requirements. Loremaster is a good example of this pre-requisite</p>
+	<ul class="indent2">
+		<li>Establishes a requirement for (x) number of spells from magic school (y) of at least level (z).</li>
+		<li>You may include as many &quot;School=Level&quot; pairs as you require as a comma-delimited (&quot;,&quot;) list.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRESPELLSCHOOL:3,Necromancy=2</code></p>
 	<p class="indent3">Character must have at least three 2nd level or higher Necromancy spells to meet
@@ -1235,7 +1244,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The quantity of spells of the proper
 		sub-school and level the character must know).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a sub-school of magic).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (The spell level of the sub-school of
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Minimum spell level of the sub-school of
 		spells a character must know).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Sets spell sub-school requirements.</p>
@@ -1248,14 +1257,15 @@
 <hr>
 
 	<p class="new">*** Updated 5.11.6</p>
-	<p class="indent0"><strong><a name="PRESPELLSCHOOLSUB2">Tag Name:</a></strong> PRESPELLSCHOOLSUB:x,y=z[,y=z][,y=z],[...]</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a sub-school of magic).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (The quantity of spells of the proper
-		sub-school and level the character must know).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (The spell level of the sub-school of
-		spells a character must know).</p>
+	<p class="indent0"><strong><a name="PRESPELLSCHOOLSUB2">Tag Name:</a></strong> PRESPELLSCHOOLSUB:x,y=z,y=z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of spells known)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of sub-school of magic.)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Minimum spell level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets spell sub-school requirements.</p>
+	<ul class="indent2">
+		<li>Establishes a requirement for (x) number of spells from magic sub-school (y) of at least level (z).</li>
+		<li>You may include as many &quot;Sub-School=Level&quot; pairs as you require as a comma-delimited (&quot;,&quot;) list.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRESPELLSCHOOLSUB:3,Creation=2</code></p>
 	<p class="indent3">Character must have at least three 2nd level &quot;Creation&quot; spells to meet
