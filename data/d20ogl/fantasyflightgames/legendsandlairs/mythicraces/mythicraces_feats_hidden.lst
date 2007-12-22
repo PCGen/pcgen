@@ -4,7 +4,7 @@ SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:
 # Feat Name		Type			Visible	Maximum Level	Required Race			Var. Min. Value			Multiple?	Choose							Add				Bonus to skill		Source Page
 Racial Craft	TYPE:Special	VISIBLE:NO				PRERACE:1,Coivald,Rhoode	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Craft%|1						BONUS:SKILL|LIST|2	SOURCEPAGE:p.
 Artistic Craft	TYPE:Special	VISIBLE:NO									PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Art|1					BONUS:SKILL|LIST|2	SOURCEPAGE:p.
-Coivald Classes	TYPE:Special	VISIBLE:NO	PRELEVELMAX:1	PRERACE:1,Coivald			PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Cleric|Druid			ADD:FAVOREDCLASS|LIST					SOURCEPAGE:p.
+Coivald Classes	TYPE:Special	VISIBLE:NO	PREPCLEVEL:MAX=1	PRERACE:1,Coivald			PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Cleric|Druid			ADD:FAVOREDCLASS|LIST					SOURCEPAGE:p.
 
 
 ###Block: Proficiencies

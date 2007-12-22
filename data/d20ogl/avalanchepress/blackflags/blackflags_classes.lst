@@ -3,7 +3,7 @@ SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean	SOURCESHORT:B
 
 # Several classes have odd skill point progressions where first level has a different base number of
 #	skill points than higher levels (see Priest and Sailor for examples).
-# Doing this by adding BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=4 to the first level
+# Doing this by adding BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=4 to the first level
 #	line of those classes to simulate the higher number for first level.
 # Also note that the bonus tag has very quirky behavior in that it automatically is multiplied by
 #	4 at first level. I don't think that is correct but I can work around this.
@@ -57,7 +57,7 @@ CLASS:Priest	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Pri		MAXLEVEL:20	SOURCEPAGE:p.3
 CLASS:Priest	PREGENDER:M
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Priest	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|TYPE.Knowledge|Listen|TYPE.Profession|Read Lips|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
-1	SAB:Bless %/day (Sp)|BFBless	SAB:Bless Water %/day (Sp)|BFBlessWater	SAB:Literacy x2(Native,Latin) (Ex)													BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=4	BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=2	DEFINE:BFBless|1	DEFINE:BFBlessWater|1	AUTO:FEAT|Literacy
+1	SAB:Bless %/day (Sp)|BFBless	SAB:Bless Water %/day (Sp)|BFBlessWater	SAB:Literacy x2(Native,Latin) (Ex)													BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=4	BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=2	DEFINE:BFBless|1	DEFINE:BFBlessWater|1	AUTO:FEAT|Literacy
 2	SAB:Bane %/day (Sp)|BFBane																																														DEFINE:BFBane|1
 3	SAB:Aura of Fear %/day (Sp)|BFAuraFear																																												DEFINE:BFAuraFear|1
 4	SAB:Divine Favor %/day (Sp)|BFDivineFavor												BONUS:VAR|BFBless|1																													DEFINE:BFDivineFavor|1
@@ -85,7 +85,7 @@ CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Disab
 ###Block: Proficiencies
 1	AUTO:FEAT|Firearms Proficiency|Simple Weapon Proficiency|All Automatic Proficiencies	AUTO:WEAPONPROF|Cutlass
 ###Block: Normal Level Progression
-1	SAB:Sea Legs (Ex)					BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=8	BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=6
+1	SAB:Sea Legs (Ex)					BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=8	BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=6
 2																												AUTO:FEAT|Great Fortitude
 3																												AUTO:FEAT|Improvised Weapon Proficiency
 5					BONUS:FEAT|POOL|1
