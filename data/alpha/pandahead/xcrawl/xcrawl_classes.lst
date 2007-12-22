@@ -20,14 +20,14 @@ CLASS:Ranger.MOD	CSKILL:Drive
 CLASS:Rogue.MOD	CSKILL:Drive|Perform
 
 # Class Name		Multiple Requirements
-CLASS:Sorcerer.MOD	PREMULT:1,[PREMULT:2,[PRELEVELMAX:1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana),Knowledge (Astronomy)=2]
+CLASS:Sorcerer.MOD	PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana),Knowledge (Astronomy)=2]
 1	KIT:1|MageGuild
 
 # Class Name		Removed Class Skill	Class Skill
 CLASS:Sorcerer.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|TYPE.Knowledge|Perform
 
 # Class Name	Multiple Requirements
-CLASS:Wizard.MOD	PREMULT:1,[PREMULT:2,[PRELEVELMAX:1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana),Knowledge (Astronomy)=2]
+CLASS:Wizard.MOD	PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana),Knowledge (Astronomy)=2]
 1	KIT:1|MageGuild
 
 # Class Name	Removed Class Skill	Class Skill

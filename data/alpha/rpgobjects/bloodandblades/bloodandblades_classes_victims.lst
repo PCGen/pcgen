@@ -14,7 +14,7 @@ SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodB
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Cheerleader	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL-1	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
-CLASS:Cheerleader	PREMULT:1,[PRELEVELMAX:1],[PRECLASS:1,Cheerleader=1]
+CLASS:Cheerleader	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Cheerleader=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cheerleader	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Disable Device|Hide|Move Silently|TYPE.Perform|Sleight of Hand|Spot|Survival
 1						BONUS:STAT|CHA|4	ADD:FEAT|1|Endurance,Run	TEMPLATE:Starting Sanity	SAB:You MUST continue to advance in the Cheerleader class until you have reached 5th level|PREVARLT:CL,5	SAB:Cheerleader(Ex) +%|CL/2+1	SAB:Tight Shirt(Su)	SAB:Fit	SAB:Popular
@@ -25,7 +25,7 @@ CLASS:Cheerleader	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Disable Device|Hide|Move Sil
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Jock		HD:6		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+2)/4+3	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
-CLASS:Jock		PREMULT:1,[PRELEVELMAX:1],[PRECLASS:1,Jock=1]
+CLASS:Jock		PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Jock=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Jock		STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Spot|Swim|Tumble
 1															BONUS:STAT|STR|2	BONUS:STAT|DEX|2	ADD:FEAT|1|Power Attack,Weapon Finesse	TEMPLATE:Starting Sanity	SAB:You MUST continue to advance in the Jock class until you have reached 5th level|PREVARLT:CL,5	SAB:Heroic Surge(Ex) %/day|CL/2+1	SAB:trained
@@ -36,7 +36,7 @@ CLASS:Jock		STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Spot|Swim|Tumble
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus								Combat bonus		Modify VAR
 CLASS:Mundane	HD:6		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
-CLASS:Mundane	PREMULT:1,[PRELEVELMAX:1],[PRECLASS:1,Mundane=1]
+CLASS:Mundane	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Mundane=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mundane	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Drive|TYPE.Knowledge|Profession
 1:REPEATLEVEL:1																		ADD:FEAT|1|TYPE=Mundane
@@ -45,7 +45,7 @@ CLASS:Mundane	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Drive|TYPE.Knowledge|Profession
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Nerd		HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
-CLASS:Nerd		PREMULT:1,[PRELEVELMAX:1],[PRECLASS:1,Nerd=1]
+CLASS:Nerd		PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Nerd=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Nerd		STARTSKILLPTS:2	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|TYPE.Knowledge|Repair|Research
 1	BONUS:STAT|INT|4	ADD:FEAT|1|Focused	TEMPLATE:Starting Sanity	SAB:You MUST continue to advance in the Nerd class until you have reached 5th level|PREVARLT:CL,5	SAB:Insight(Ex) %/day|CL/2+1
@@ -55,7 +55,7 @@ CLASS:Nerd		STARTSKILLPTS:2	CSKILL:Computer Use|Craft (Chemical)|Craft (Electron
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus								Combat bonus		Modify VAR
 CLASS:Outcast	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|CL/2+4	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
-CLASS:Outcast	PREMULT:1,[PRELEVELMAX:1],[PRECLASS:1,Outcast=1]
+CLASS:Outcast	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Outcast=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Outcast	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Hide|Spot|Move Silently|TYPE.Perform|Sleight of Hand|Survival
 1	BONUS:VAR|SneakAttack|CL/2+1														BONUS:STAT|DEX|4	ADD:FEAT|1|Combat Expertise,Dodge	TEMPLATE:Starting Sanity	AUTO:FEAT|Sneak Attack	SAB:You MUST continue to advance in the Outcast class until you have reached 5th level|PREVARLT:CL,5	SAB:Forgettable(Ex)	SAB:Quick
@@ -66,7 +66,7 @@ CLASS:Outcast	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Hide|Spot|Move Silently|TY
 # Class Name		Hit Dice	Type				Max Level	Source Page		Save checks bonus								Combat bonus		Modify VAR
 CLASS:Scream Queen	HD:8		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2+2	BONUS:VAR|ClassDefense|CL/2+2	BONUS:VAR|Reputation|CL/2+2	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name		Multiple Requirements
-CLASS:Scream Queen	PREMULT:1,[PRELEVELMAX:1],[PRECLASS:1,Scream Queen=1]
+CLASS:Scream Queen	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Scream Queen=1]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Scream Queen	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist|Hide|TYPE.Knowledge|Search|Spot|Move Silently|Sleight of Hand|Survival|Treat Injury
 1	BONUS:SKILL|Sense Motive|4|TYPE=Insight			TEMPLATE:Starting Sanity	SAB:You MUST continue to advance in the Scream Queen class until you have reached 5th level|PREVARLT:CL,5	SAB:Resourceful(Ex)	SAB:Sense Trouble(Ex)
@@ -78,7 +78,7 @@ CLASS:Scream Queen	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist|H
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Stoner	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL-1	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|Action|CL*8	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
-CLASS:Stoner	PREMULT:1,[PRELEVELMAX:1],[PRECLASS:1,Stoner=1]
+CLASS:Stoner	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Stoner=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stoner	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Chemical)|Gather Information|Knowledge (Popular Culture)|Knowledge (Streetwise)|Sleight of Hand
 1								BONUS:STAT|WIS|4	ADD:FEAT|1|Deceptive,Improved Initiative	TEMPLATE:Starting Sanity	SAB:You MUST continue to advance in the Stoner class until you have reached 5th level|PREVARLT:CL,5	SAB:Dude	SAB:Stoned	SAB:Happy Thoughts(Ex)
@@ -90,7 +90,7 @@ CLASS:Stoner	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Chemical)|Gather Information|Kn
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Tough Guy	HD:8		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
-CLASS:Tough Guy	PREMULT:1,[PRELEVELMAX:1],[PRECLASS:1,Tough Guy=1]
+CLASS:Tough Guy	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Tough Guy=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tough Guy	STARTSKILLPTS:2	CSKILL:Bluff|Intimidate|Knowledge (Streetwise)|Sense Motive|Search|Spot
 1										BONUS:STAT|CON|2	BONUS:STAT|CHA|2	ADD:FEAT|1|Improved Unarmed Strike,Improved Grapple	TEMPLATE:Starting Sanity	SAB:You MUST continue to advance in the Tough Guy class until you have reached 5th level|PREVARLT:CL,5	SAB:Tough Guy	SAB:Brawler	SAB:Smite Weakling(Ex) %/day|CL/2+1	SAB:Taunt(Ex) - Fear save DC %|10+CL/2+CHA
@@ -101,7 +101,7 @@ CLASS:Tough Guy	STARTSKILLPTS:2	CSKILL:Bluff|Intimidate|Knowledge (Streetwise)|S
 # Class Name	Hit Dice	Type			Max Level	Source Page		Template
 CLASS:Child		HD:4		TYPE:NPC.Victim	MAXLEVEL:1	SOURCEPAGE:p.5	TEMPLATE:Child
 # Class Name	Maximum Level
-CLASS:Child		PRELEVELMAX:1
+CLASS:Child		PREPCLEVEL:MAX=1
 # Class Name	Add INT to Skill Points?
 CLASS:Child		MODTOSKILLS:NO
 1	TEMPLATE:Starting Sanity	SAB:Cannot collect XP.	SAB:To advance this character remove the Child class and then add another 1st level class.

@@ -2,5 +2,5 @@
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 STARTPACK:MageGuild	VISIBLE:NO	APPLY:INSTANT
-SKILL:Knowledge (Astronomy)	RANK:4	PRELEVELMAX:1
-SKILL:Knowledge (Arcana)	RANK:4	PRELEVELMAX:1
+SKILL:Knowledge (Astronomy)	RANK:4	PREPCLEVEL:MAX=1
+SKILL:Knowledge (Arcana)	RANK:4	PREPCLEVEL:MAX=1
