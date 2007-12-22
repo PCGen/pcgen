@@ -14,6 +14,7 @@
 	Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 	Eddy Anthony - eddybaATmindspringDOTcom
 	Terry FitzSimons - fitzsimonsATmintelDOTnet
+	Eric C. Smith - mareduddATblackrootDOTorg
 
 	Description:
 	Provides information on the content of PCGen Campaign Configuration (PCC) files.
@@ -85,6 +86,17 @@
 
 <hr>
 
+	<p class="indent0"><strong><a name="BOOKTYPE">Tag Name:</a></strong> BOOKTYPE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>Text (Book type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This tells PCGen what the book type is.</p>
+	<p class="indent2">Eventually This will be used to filter sources.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BOOKTYPE:Supplement</code></p>
+	<p></ p>
+
+<hr>
+
 	<p class="indent0"><strong><a name="COPYRIGHT">Tag Name:</a></strong> COPYRIGHT:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Text (Copyright information)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -100,6 +112,40 @@
 		Please list all contributors to the dataset.</p>
 	<p class="indent2"><code>COPYRIGHT:Foo Reference Document &amp;copy 2003 Foo Games, Inc.</code></p>
 	<p class="indent3"><strong>Note(s):</strong><code>&amp;copy</code> - This code coverts to a copyright symbol (&copy;) when put in the text of a COPYRIGHT tag.</p>
+	<p></ p>
+
+ <!-- 
+<hr>
+
+	<p class="indent0"><strong><a name="DESC">Tag Name:</a></strong> DESC:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Information)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Provides Text information that is displayed in the Source Information Panel on the Source Tab when the source material is selected.</li>
+		<li>This text will appear just below the cover image (if there is one) or the CAMPAIGN header (if there is no cover image).</li>
+		<li>The text is a short description of the selected source such as one might find at amazon.com or other book/pdf seller.</li>
+		<li>Functionally this is the same as INFOTEXT except where it appears in the Source Info panel. Like INFOTEXT, DESC should be used only once per pcc.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>DESC:This pcc loads all the Foo source materials minus the FooWorld races</code></p>
+	<p></ p>
+ -->	
+ 
+<hr>
+
+	<p class="new">*** Deprecated <5.8.1 - Remove 6.0 - Use <a href="#GAMEMODE">GAMEMODE</a> tag instead.</p>
+	<p class="indent0"><strong><a name="GAME">Tag Name:</a></strong> GAME:x</p>
+	<p></ p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="GENRE">Tag Name:</a></strong> GENRE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>Text (Genre)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This tells PCGen what genre this is.</p>
+	<p class="indent2">Eventually This will be used to filter sources.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>GENRE:Fantasy</code></p>
 	<p></ p>
 
 <hr>
@@ -174,23 +220,6 @@
 
 <hr>
 
-	<p class="new">*** Deprecated <5.8.1 - Remove 6.0 - Use <a href="#GAMEMODE">GAMEMODE</a> tag instead.</p>
-	<p class="indent0"><strong><a name="GAME">Tag Name:</a></strong> GAME:x</p>
-	<p></ p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="GENRE">Tag Name:</a></strong> GENRE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>Text (Genre)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This tells PCGen what genre this is.</p>
-	<p class="indent2">Eventually This will be used to filter sources.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>GENRE:Fantasy</code></p>
-	<p></ p>
-
-<hr>
-
 	<p class="new">*** New 5.3.3</p>
 	<p class="indent0"><strong><a name="LICENSE">Tag Name:</a></strong> LICENSE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Text (License information)</p>
@@ -202,6 +231,39 @@
 	<p class="indent3">Would display the text in a nice box with other licenses.</p>
 	<p class="indent2"><code>LICENSE:FILE=foolicense.html</code></p>
 	<p class="indent3">Doing a <code>FILE=</code> allows PCC to point to an HTML formatted file, which will display in a box of its own.</p>
+	<p></ p>
+
+<hr>
+
+	<p class="new">*** New 4.3.10</p>
+	<p class="indent0"><strong><a name="PUBNAMELONG">Tag Name:</a></strong> PUBNAMELONG:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>Text (Long name of publisher)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">The Publisher's full name.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>PUBNAMELONG:Foo Games, Inc.</code></p>
+	<p></ p>
+
+<hr>
+
+	<p class="new">*** New 4.3.10</p>
+	<p class="indent0"><strong><a name="PUBNAMESHORT">Tag Name:</a></strong> PUBNAMESHORT:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>Text (Short name of publisher)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2"> The Publisher's abbreviated name (usually their initials).</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>PUBNAMESHORT:FGI</code></p>
+	<p></ p>
+
+<hr>
+
+	<p class="new">*** New 4.3.10</p>
+	<p class="indent0"><strong><a name="PUBNAMEWEB">Tag Name:</a></strong> PUBNAMEWEB:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>Text (Web link)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2"> The Publisher's website/URL.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>PUBNAMEWEB:http://www.foogames.com/index.php</code></p>
 	<p></ p>
 
 <hr>
@@ -246,13 +308,12 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="BOOKTYPE">Tag Name:</a></strong> BOOKTYPE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>Text (Book type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This tells PCGen what the book type is.</p>
-	<p class="indent2">Eventually This will be used to filter sources.</p>
+	<p class="indent0"><strong><a name="SHOWINMENU">Tag Name:</a></strong> SHOWINMENU:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>Boolean (YES or NO, TRUE or FALSE also accepted)</p>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BOOKTYPE:Supplement</code></p>
+	<p class="indent2"><code>SHOWINMENU:YES</code></p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">When set to YES, this tag tells PCGen to display this campaign in the <em>Settings -&gt; Campaigns</em> menu. When selected, it will unload all other campaigns, and load this campaign. It will also set any options listed in the PCC file. It will appear in a submenu of its gamemode.</p>
 	<p></ p>
 
 <hr>
@@ -307,49 +368,29 @@
 	<p class="indent3">This source was published in December 2005.</p>
 	<p></ p>
 
+<!--
 <hr>
 
-	<p class="new">*** New 4.3.10</p>
-	<p class="indent0"><strong><a name="PUBNAMELONG">Tag Name:</a></strong> PUBNAMELONG:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>Text (Long name of publisher)</p>
+	<p class="new">*** New 5.13.x</p>
+	<p class="indent0"><strong><a name="URL">Tag Name:</a></strong> URL:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (E-commerce site name. i.e. Amazon, DriveThruRPG, etc.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Hypertext link)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Text (Link description)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">The Publisher's full name.</p>
+	<ul class="indent2">
+		<li>Specifies the URL for hyperlinks that will be displayed in the Source Tab in the Source Info panel when the dataset is selected.</li>
+		<li>Multiple HYPERLINK tags may be entered into the *,pcc file.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PUBNAMELONG:Foo Games, Inc.</code></p>
+	<p class="indent2"><code>URL:WEBSITE|http://www.foopublisher.com|Visit FooPublishers website.</code></p>
+	<p class="indent3">Displays the text "Visit Foopublishers website" as an active link to the website &quot;http://www.foopublisher.com&quot;</p>
+	<p class="indent2"><code>URL:Barcommerce|http://www.barcommercesite.com/product_info.php?products_i\d=12345&affiliate_id=54321|Support PCGen by buying this source now!</code></p>
+	<p class="indent3">Displays the text &quot;Support PCGen by buying this source now!&quot; as an active link to the URL &quot;http://www.foobarcommercesite.com/product_info.php?products_id=12345&affiliate_\id=5432&quot;.</p>
+	<p class="indent2"><code>URL:SURVEY|http://www.pcgenubersite.com|Help PCGen out by visiting our user feedback page and letting us know what you think.</code></p>
+	<p class="indent3">Displays the text "Help PCGen out by visiting our user feedback page and letting us know what you think!" as an active link to the website &quot;http://www.pcgenubersite.com&quot;</p>
 	<p></ p>
 
-<hr>
-
-	<p class="new">*** New 4.3.10</p>
-	<p class="indent0"><strong><a name="PUBNAMESHORT">Tag Name:</a></strong> PUBNAMESHORT:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>Text (Short name of publisher)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2"> The Publisher's abbreviated name (usually their initials).</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PUBNAMESHORT:FGI</code></p>
-	<p></ p>
-
-<hr>
-
-	<p class="new">*** New 4.3.10</p>
-	<p class="indent0"><strong><a name="PUBNAMEWEB">Tag Name:</a></strong> PUBNAMEWEB:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>Text (Web link)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2"> The Publisher's website/URL.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PUBNAMEWEB:http://www.foogames.com/index.php</code></p>
-	<p></ p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="SHOWINMENU">Tag Name:</a></strong> SHOWINMENU:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>Boolean (YES or NO, TRUE or FALSE also accepted)</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>SHOWINMENU:YES</code></p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">When set to YES, this tag tells PCGen to display this campaign in the <em>Settings -&gt; Campaigns</em> menu. When selected, it will unload all other campaigns, and load this campaign. It will also set any options listed in the PCC file. It will appear in a submenu of its gamemode.</p>
-	<p></ p>
-
+-->
 <hr>
 
 	<h2><a name="MAINBODYTAGS">Main Body Tags</a></h2>
