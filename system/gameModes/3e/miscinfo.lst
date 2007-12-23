@@ -215,6 +215,9 @@ ABILITYCATEGORY:FEAT				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:N
 ABILITYCATEGORY:Fighter Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter				PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Wizard Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Wizard.ItemCreation.Metamagic	PLURAL:Wizard Feats			DISPLAYLOCATION:Feats
 
+ABILITYCATEGORY:Internal			VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:0			CATEGORY:Internal
+###COMMENT: Internal Category is for all hidden abilities.
+
 ###Block: Special Ability and subgroups
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
 ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability														
