@@ -1128,15 +1128,23 @@
 
 	<p class="new">*** Updated</p>
 	<p class="indent0"><strong><a name="VFEAT">Tag Name:</a></strong> VFEAT:x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of Feats)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of feat)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This is a | (pipe) delimited list of feats that the character gains as virtual feats.</li>
-		<li>Virtual Feats are granted to the character regardless of the prerequisites.</li>
-		<li>New prerequisites can be assigned by appending PRExxx tags.</li>
-		<li>Depends on if it has a CHOOSE or not.  Armor Proficiency (xxx) is a set of feats, none with a
-			CHOOSE, so those have the space.  Weapon Focus(yyy) is a single feat with a CHOOSE, so it can't
-			have the space.</li>
+		<li>Grants any number of feats to the character as &quot;Virtual&quot; feats.</li>
+		<li>The list of feats granted are a pipe-delimited (&quot;|&quot;) list of feats.</li>
+		<li>The feats are granted regardless of the prerequisites for those feats.</li>
+		<li>Feats with built-in choosers, i.e. &quot;Weapon Focus&quot;, must include the 
+			specific &quot;choice&quot; being granted, i.e. &quot;Weapon Focus(Greatsword)&quot;.</li>
+		<li type="none"><strong>Note:</strong> The VFEAT tag <strong class="new">WILL NOT</strong> activate a 
+			CHOOSER inside of a feat. You must use <a href="globalfilesadd.html#FEAT|">ADD:FEAT</a> 
+			to activate a chooser inside of a feat being granted.</li>
+		<li>Feats such as &quot;Armor Proficiency (yyy)&quot; that do not have a built-in chooser are a set 
+			of individual feats and therfore <strong>WILL</strong> have a space between the feat name 
+			and the opening parenthesis.</li>
+		<li>Feats such as &quot;Weapon Focus&quot; are single feats with built-in choosers and will <strong>NOT</strong> 
+			have a space between the feat name and the opening parenthesis, i.e. &quot;Weapon Focus(xxx)&quot;.</li>
+		<li>PRExxx tags can be used to assign new prerequisites to the virtual feats.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>VFEAT:Simple Weapon Proficiency</code></p>
@@ -1144,8 +1152,10 @@
 	<p class="indent2"><code>VFEAT:Alertness|Blind Fight</code></p>
 	<p class="indent3">The character gains &quot;Alertness&quot; and &quot;Blind Fight&quot; as virtual
 		feats.</p>
+	<p class="indent2"><code>VFEAT:Weapon Focus(Greatsword)</code></p>
+	<p class="indent3">The character gains &quot;Weapon Focus(Greatsword)&quot; as a virtual feat.</p>
 	<p class="indent2"><code>VFEAT:Banana Barrage|PRECLASS:1,Ninja Monkey=1</code></p>
-	<p class="indent3">The character gains &quot;Banana Barrage&quot; as virtual feats
+	<p class="indent3">The character gains &quot;Banana Barrage&quot; as a virtual feat
 		only if they have at least one level of &quot;Ninja Monkey&quot;.</p>
 	<p></ p>
 
