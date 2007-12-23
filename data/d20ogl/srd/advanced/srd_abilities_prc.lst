@@ -1,0 +1,48 @@
+# CVS $Revision: 4610 $ $Author: amaitland $ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+###Comment: Low priority but start of bring srd closer to rsrd. -AM
+
+
+###NEW - Arcane Archer
+Arcane Archer ~ Enchant Arrow		CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Enchant Arrow +%|EnchantArrow	DEFINE:EnchantArrow|0
+Arcane Archer ~ Imbue Arrow		CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Imbue Arrow
+Arcane Archer ~ Seeker Arrow		CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Seeker Arrow
+Arcane Archer ~ Phase Arrow		CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Phase Arrow
+Arcane Archer ~ Hail of Arrows	CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Hail of Arrows
+Arcane Archer ~ Arrow of Death	CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Arrow of Death
+
+###Block: Dwarven Defender special abilities
+# VAR -
+#     DefensiveStanceTimes      == How many times the character can go into Defensive Stance per day.
+#                                  Changed from DefensiveStance
+#     DefensiveStanceDuration   == How long each use of Defensive Stance lasts.
+# Feat Name					Output Name				Type						Visible	Special ABility																			Define										Save checks bonus						Combat bonus							Stat bonus									Modify VAR															Damage Reduction		Source Page
+#Dwarven Defender AC Bonus							TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:AC Bonus (Ex)																			DEFINE:DwarvenDefenderACBonus|0														BONUS:COMBAT|AC|DwarvenDefenderACBonus|TYPE=Dodge																															SOURCEPAGE:PrestigeClasses.rtf
+#Dwarven Defender Defensive Stance						TYPE:ClassAbility				VISIBLE:NO	SAB:Defensive Stance % times/day (% rounds)|DefensiveStanceTimes|DefensiveStanceDuration|PREVARGTEQ:DefensiveStanceTimes,1	DEFINE:DefensiveStanceTimes|0	DEFINE:DefensiveStanceDuration|0	BONUS:CHECKS|ALL|2|TYPE=Resistance|PREAPPLY:PC	BONUS:COMBAT|AC|4|TYPE=Dodge|PREAPPLY:PC			BONUS:STAT|STR|2|PREAPPLY:PC	BONUS:STAT|CON|4|PREAPPLY:PC	BONUS:VAR|DefensiveStanceDuration|CON	BONUS:VAR|DefensiveStanceDuration|-2|PREAPPLY:PC					SOURCEPAGE:PrestigeClasses.rtf
+#Dwarven Defender DR								TYPE:ClassAbility.Extraordinary	VISIBLE:NO																						DEFINE:DwarvenDefenderDRLVL|0																																		BONUS:VAR|DwarvenDefenderDR|3*floor(((DwarvenDefenderDRLVL-2)/4))						DR:DwarvenDefenderDR/-	SOURCEPAGE:PrestigeClasses.rtf
+#Dwarven Defender Mobile Defense	OUTPUTNAME:Mobile Defense	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Mobile Defense (Ex)																																																																												SOURCEPAGE:PrestigeClasses.rtf
+
+#####Block: Normal Level Progression
+#Defensive Stance
+#Dwarven Defender AC Bonus
+#Trap Sense Ability
+#Dwarven Defender DR
+#Dwarven Defender Mobile Defense
+
+
+###Block: Loremaster secrets
+# Ability Name			Category of Ability		Type				Visible		Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose																		Bonus to Ability Pool		Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
+Instant Mastery			CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,1		SAB:Loremaster Secret (Instant Mastery %CHOICE)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK|1																														BONUS:SKILLRANK|LIST|4	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Secret Health			CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,2		SAB:Loremaster Secret (Secret Health)																																								BONUS:HP|CURRENTMAX|3					SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Secrets of Inner Strength	CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,3		SAB:Loremaster Secret (Secrets of Inner Strength)																												BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:srdbasiccharacterclassesi.rtf
+The Lore of True Stamina	CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,4		SAB:Loremaster Secret (The Lore of True Stamina)																												BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Secret Knowledge of Avoidance	CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,5		SAB:Loremaster Secret (Secret Knowledge of Avoidance)																												BONUS:CHECKS|BASE.Reflex|2														SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Weapon Trick			CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,6		SAB:Loremaster Secret (Weapon Trick)																																			BONUS:COMBAT|BAB|1										SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Dodge Trick				CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,7		SAB:Loremaster Secret (Dodge Trick)																																				BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Applicable Knowledge		CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,8		SAB:Loremaster Secret (Applicable Knowledge)																								BONUS:ABILITYPOOL|FEAT|1																			SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Newfound Arcana			CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,9		SAB:Loremaster Secret (Newfound Arcana)				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:srdbasiccharacterclassesii.rtf
+More Newfound Arcana		CATEGORY:Special Ability	TYPE:LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,10	SAB:Loremaster Secret (More Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:srdbasiccharacterclassesii.rtf
+
+#
+##EOF
+#

@@ -19,6 +19,7 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 
 INFOTEXT:SRD Advanced options such as Prestige Classes and Magic Items.  Requires the SRD Basics set.
 
+ABILITY:srd_abilities_prc.lst
 
 CLASS:srd_classes_prestige.lst
 
