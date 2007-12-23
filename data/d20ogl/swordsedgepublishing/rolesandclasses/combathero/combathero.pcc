@@ -22,6 +22,7 @@ COPYRIGHT:PCGen dataset conversion for Combat Hero Copyright 2006, PCGen Data te
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITYCATEGORY:combathero_abilitycategory.lst
 ABILITY:combathero_feats_hidden.lst
 CLASS:combathero_class.lst
 FEAT:combathero_feats_mod.lst
