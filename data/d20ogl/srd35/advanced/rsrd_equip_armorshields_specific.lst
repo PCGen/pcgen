@@ -26,7 +26,7 @@ Caster's Shield		TYPE:Enhancement.Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQ
 Darkwood Buckler		TYPE:Shield.Light.Specific.Nonmetal			COST:3	WT:5		EQMOD:DARK							SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
 Darkwood Shield		TYPE:Shield.Heavy.Specific.Nonmetal			COST:7	WT:10		EQMOD:DARK							SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
 Lion's Shield		TYPE:Enhancement.Shield.Heavy.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS2S.MAGIC_COST|5000		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:It has a lion face that allows the wearer as a free action, to make a bite attack (wearer's BAB) and deals 2d6 damage, 3/day
-Mithral Heavy Shield	TYPE:Shield.Heavy.Specific				COST:20	WT:15		EQMOD:MITHRAL_SHLD					SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+Mithral Heavy Shield	TYPE:Shield.Heavy.Specific				COST:20	WT:15		EQMOD:MITHRAL_SHLD					SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
 Spined Shield		TYPE:Enhancement.Heavy.Shield.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS1S.MAGIC_COST|4410		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to fire a spine (+1, range 120 ft., 1d10 dam, 19-20x2) 3/day
 Winged Shield		TYPE:Enhancement.Heavy.Shield.Specific.Nonmetal	COST:7	WT:10		EQMOD:WOOD.MWORKA.PLUS3S.MAGIC_COST|8100		SOURCEPAGE:MagicItemsII.rtf	SPELLS:Winged Shield|TIMES=1|CASTERLEVEL=5|Fly,14	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to fly on command once per day
 
