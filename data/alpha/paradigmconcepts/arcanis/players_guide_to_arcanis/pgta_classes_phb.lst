@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Dec 25 00:08:03 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -7,8 +7,9 @@ CLASS:Druid.MOD	AUTO:WEAPONPROF|Longbow|Shortbow|Terbutje|Khopesh
 # Class Name	Required Deity
 CLASS:Druid.MOD	PREDEITY:Saluwe,Yarris,Belisarda,Fire Dragon
 
-# Class Name		Maximum Level
-CLASS:Aristocrat.MOD	PRELEVELMAX:1
+# Class Name
+CLASS:Aristocrat.MOD
+1	PREPCLEVEL:MAX=0
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
 CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:pg. 51	LANGAUTO:Literacy		LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
@@ -20,45 +21,45 @@ CLASS:Cleric	STARTSKILLPTS:2
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 #
 SUBCLASS:Cleric of Althares		PREDEITY:Althares		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)																											SAB:Right to Carry
-SUBCLASSLEVEL:5	BONUS:VAR|AgesKnowledgeLevel|floor(CL/2)|PREDEITY:Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT|1|Knowledge of the Ages
+SUBCLASSLEVEL:1	SAB:Right to Carry																																																																												ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+SUBCLASSLEVEL:5																											BONUS:VAR|AgesKnowledgeLevel|floor(CL/2)|PREDEITY:Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT|1|Knowledge of the Ages
 SUBCLASS:Cleric of Anshar		PREDEITY:Anshar		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Improved Unarmed Strike							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
-SUBCLASSLEVEL:3																																																																						VFEAT:Endurance
-SUBCLASSLEVEL:9																																																																						VFEAT:Dieheard
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Improved Unarmed Strike							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
+SUBCLASSLEVEL:3																																																																																																VFEAT:Endurance
+SUBCLASSLEVEL:9																																																																																																VFEAT:Dieheard
 SUBCLASS:Cleric of Belisarda		PREDEITY:Belisarda	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Knowledge (Geography)|Knowledge (Nature)|Survival
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
 SUBCLASS:Cleric of Beltine		PREDEITY:Beltine		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
 SUBCLASS:Cleric of Cadic		PREDEITY:Cadic		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnCadicGood							VFEAT:Martial Weapon Proficiency(Crossbow (Hand))			AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)														AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
-SUBCLASSLEVEL:5	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																																											ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnCadicGood							VFEAT:Martial Weapon Proficiency(Crossbow (Hand))			AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)														AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
+SUBCLASSLEVEL:5																											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																																											ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
 SUBCLASS:Cleric of Hurrian		PREDEITY:Hurrian		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Survival
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Longsword
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Longsword
 SUBCLASS:Cleric of Illir		PREDEITY:Illir		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnIllirGood							VFEAT:Gladius Exotic Weapon Proficiency					AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-SUBCLASSLEVEL:5																																																																																																																																		SAB:Fearless (Ex)
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnIllirGood							VFEAT:Gladius Exotic Weapon Proficiency					AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+SUBCLASSLEVEL:5	SAB:Fearless (Ex)
 SUBCLASS:Cleric of the Fire Dragon	PREDEITY:Fire Dragon	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Survival
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Flail (Heavy)																		SAB:Ignore detrimental effects from natural heat between 80-150 degrees F.
+SUBCLASSLEVEL:1	SAB:Ignore detrimental effects from natural heat between 80-150 degrees F.																																																																			ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Flail (Heavy)
 SUBCLASS:Cleric of Larissa		PREDEITY:Larissa		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|TYPE.Perform|Tumble
-SUBCLASSLEVEL:1																																				BONUS:DOMAIN|NUMBER|1															ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency																						AUTO:WEAPONPROF|Rapier|TYPE.Whip
-SUBCLASSLEVEL:3																						BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
+SUBCLASSLEVEL:1																																																														BONUS:DOMAIN|NUMBER|1															ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency																						AUTO:WEAPONPROF|Rapier|TYPE.Whip
+SUBCLASSLEVEL:3																																																BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
 SUBCLASS:Cleric of Neroth		PREDEITY:Neroth		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Scythe
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Scythe
 SUBCLASS:Cleric of Nier			PREDEITY:Nier		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Greatsword																		SAB:+1 per die of damage on spells cast with the fire descriptor.	SAB:When turning undead, the Cleric of Nier must destroy the undead or nothing happens.
+SUBCLASSLEVEL:1	SAB:+1 per die of damage on spells cast with the fire descriptor.	SAB:When turning undead, the Cleric of Nier must destroy the undead or nothing happens.																																																						ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Greatsword
 SUBCLASS:Cleric of Saluwe		PREDEITY:Saluwe		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)														AUTO:WEAPONPROF|Club|Dagger|Dart|Khopesh|Longbow|Quarterstaff|Scimitar|Sickle|Shortbow|Shortspear|Sling|Terbutje|Halfspear|Spear
-SUBCLASSLEVEL:3																																																																																	AUTO:FEAT|Track																																															SAB:Wild Empathy (Ex)
-SUBCLASSLEVEL:4	BONUS:VAR|CompLevel|CL																																																																													AUTO:FEAT|Animal Companion
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead																							AUTO:FEAT|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)														AUTO:WEAPONPROF|Club|Dagger|Dart|Khopesh|Longbow|Quarterstaff|Scimitar|Sickle|Shortbow|Shortspear|Sling|Terbutje|Halfspear|Spear
+SUBCLASSLEVEL:3	SAB:Wild Empathy (Ex)																																																																																																							AUTO:FEAT|Track
+SUBCLASSLEVEL:4																											BONUS:VAR|CompLevel|CL																																																																													AUTO:FEAT|Animal Companion
 SUBCLASS:Cleric of Sarish		PREDEITY:Sarish		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																						ADD:Language|1|TYPE=Infernal	ADD:FEAT|1|TYPE=TurnUndead	ADD:EQUIP|1|Dagger (Sarishan Steel)												AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Rebuke Undead
-SUBCLASSLEVEL:3																																																																																	AUTO:FEAT|Magical Aptitude
-SUBCLASSLEVEL:10																																																																																																																																		SAB:Mark of My Brother
+SUBCLASSLEVEL:1																																																																																ADD:Language|1|TYPE=Infernal	ADD:FEAT|1|TYPE=TurnUndead	ADD:EQUIP|1|Dagger (Sarishan Steel)												AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Rebuke Undead
+SUBCLASSLEVEL:3																																																																																																											AUTO:FEAT|Magical Aptitude
+SUBCLASSLEVEL:10	SAB:Mark of My Brother
 SUBCLASS:Cleric of Yarris		PREDEITY:Yarris		CSKILL:Knowledge (Nature)|Survival|Swim
-SUBCLASSLEVEL:1																																																						ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnYarrisGood																	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)														AUTO:WEAPONPROF|Trident
-SUBCLASSLEVEL:2																																																																																																																																		SAB:Effected by Endure Elements when within 1 mile of any large body of water.
-SUBCLASSLEVEL:3																																								BONUS:SKILL|Profession (Navigator),Survival,Swim|2																																																																																		SAB:Wild Empathy (Ex) (Water Only)
+SUBCLASSLEVEL:1																																																																																ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnYarrisGood																	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)														AUTO:WEAPONPROF|Trident
+SUBCLASSLEVEL:2	SAB:Effected by Endure Elements when within 1 mile of any large body of water.
+SUBCLASSLEVEL:3	SAB:Wild Empathy (Ex) (Water Only)																																																												BONUS:SKILL|Profession (Navigator),Survival,Swim|2
 ###Block: Basic Turn Undead
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack							DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:TurnLevelSpecial|0	AUTO:FEAT|Basic Turning
 1	BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -129,74 +130,74 @@ CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl
 CLASS:Monk		STARTSKILLPTS:4
 SUBCLASS:Monk					COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-SUBCLASSLEVEL:1														ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
-SUBCLASSLEVEL:2														ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
-SUBCLASSLEVEL:6														ADD:VFEAT|1|Improved Disarm,Improved Trip
+SUBCLASSLEVEL:1																																																		ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
+SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip
 SUBCLASS:Order of Althares			COST:0																					PREREGION:Altheria	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-SUBCLASSLEVEL:1														ADD:VFEAT|1|Improved Grapple,Stunning Fist													AUTO:FEAT|Exotic Weapon Proficiency(Altherian Flintlock (Pistol))|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))|Martial Weapon Proficiency(Warhammer)	AUTO:WEAPONPROF|Dagger|Handaxe|Javelin|Quarterstaff															SAB:May multiclass with Transmuter.
-SUBCLASSLEVEL:2														ADD:VFEAT|1|Combat Reflexes,Combat Firing
-SUBCLASSLEVEL:6														ADD:VFEAT|1|Improved Disarm,Martial Weapon Technique (Warhammer)
+SUBCLASSLEVEL:1	SAB:May multiclass with Transmuter.																																												ADD:VFEAT|1|Improved Grapple,Stunning Fist													AUTO:FEAT|Exotic Weapon Proficiency(Altherian Flintlock (Pistol))|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))|Martial Weapon Proficiency(Warhammer)	AUTO:WEAPONPROF|Dagger|Handaxe|Javelin|Quarterstaff
+SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Combat Firing
+SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Martial Weapon Technique (Warhammer)
 SUBCLASS:Order of the Blade			COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1														ADD:VFEAT|1|Weapon Focus (Longsword),Stunning Fist																																							AUTO:WEAPONPROF|Longsword																			SAB:May multiclass with Fighter.
-SUBCLASSLEVEL:2														ADD:VFEAT|1|Combat Reflexes,Greater Weapon Focus (Longsword)
-SUBCLASSLEVEL:6														ADD:VFEAT|1|Improved Disarm,Martial Weapon Technique (Longsword)
+SUBCLASSLEVEL:1	SAB:May multiclass with Fighter.																																												ADD:VFEAT|1|Weapon Focus (Longsword),Stunning Fist																																							AUTO:WEAPONPROF|Longsword
+SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Greater Weapon Focus (Longsword)
+SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Martial Weapon Technique (Longsword)
 SUBCLASS:Order of the Bronze Sepulcher	COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1														ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling	SAB:+2 on saves vs. ability score loss, energy drain, and fear effects caused by undead.	SAB:-5 on Diplomacy checks except with Myrantians, members of the order, or undead.	SAB:May multiclass with Necromancer.
-SUBCLASSLEVEL:2														ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
-SUBCLASSLEVEL:6														ADD:VFEAT|1|Improved Disarm,Improved Trip
+SUBCLASSLEVEL:1	SAB:+2 on saves vs. ability score loss, energy drain, and fear effects caused by undead.	SAB:-5 on Diplomacy checks except with Myrantians, members of the order, or undead.	SAB:May multiclass with Necromancer.														ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
+SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip
 SUBCLASS:Contemplation of the Elements	COST:0																		PRERACE:1,Elorii					CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1														ADD:VFEAT|1|Elorii Bloodline,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling	SAB:May multiclass with Wizard.	SAB:You must take the Elorii bloodline feats in order to qualify for them.  If you don't take the feat at first level, you can take the beginning feat at the next opportunity.
-SUBCLASSLEVEL:2														ADD:VFEAT|1|Elorii Bloodline,Improved Elorii Bloodline,Combat Reflexes
-SUBCLASSLEVEL:6														ADD:VFEAT|1|Elorii Bloodline,Improved Elorii Bloodline,Heightened Elorii Bloodline,Improved Trip
+SUBCLASSLEVEL:1	SAB:May multiclass with Wizard.	SAB:You must take the Elorii bloodline feats in order to qualify for them.  If you don't take the feat at first level, you can take the beginning feat at the next opportunity.														ADD:VFEAT|1|Elorii Bloodline,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Elorii Bloodline,Improved Elorii Bloodline,Combat Reflexes
+SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Elorii Bloodline,Improved Elorii Bloodline,Heightened Elorii Bloodline,Improved Trip
 SUBCLASS:Order of the Incandescent Path	COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1														ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling	SAB:May multiplass with Fighter.
-SUBCLASSLEVEL:2														ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
-SUBCLASSLEVEL:3														ADD:VFEAT|1|Iron Skin
-SUBCLASSLEVEL:6														ADD:VFEAT|1|Improved Disarm,Improved Trip
+SUBCLASSLEVEL:1	SAB:May multiplass with Fighter.																																												ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
+SUBCLASSLEVEL:3																																																		ADD:VFEAT|1|Iron Skin
+SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip
 SUBCLASS:Order of the Irridescent Scale	COST:0				PREMULT:2,[PRERACE:1,Ss'ressen],[PRETEMPLATE:Black Talon Male,Black Talon Female]								CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1									BONUS:MOVEADD|TYPE.Walk|10	ADD:VFEAT|1|Iron Skin,Stunning Fist																																																																	SAB:May Multiclass with Ranger.	SAB:+2 Dodge bonus to AC against attacks of opprtunity induced by moving.
-SUBCLASSLEVEL:2														ADD:VFEAT|1|Combat Reflexes,Tail Attack
-SUBCLASSLEVEL:6														ADD:VFEAT|1|Avalanche,Improved Trip
+SUBCLASSLEVEL:1	SAB:May Multiclass with Ranger.	SAB:+2 Dodge bonus to AC against attacks of opprtunity induced by moving.																										BONUS:MOVEADD|TYPE.Walk|10	ADD:VFEAT|1|Iron Skin,Stunning Fist
+SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Tail Attack
+SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Avalanche,Improved Trip
 SUBCLASS:Order of the Iron Soul		COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1	BONUS:CHECKS|Will|2	BONUS:CHECKS|Reflex|-2						ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
-SUBCLASSLEVEL:2														ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
-SUBCLASSLEVEL:6														ADD:VFEAT|1|Improved Disarm,Improved Trip
+SUBCLASSLEVEL:1																																					BONUS:CHECKS|Will|2	BONUS:CHECKS|Reflex|-2						ADD:VFEAT|1|Improved Grapple,Stunning Fist																																								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
+SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip
 SUBCLASS:Order of the Pearl Maidens		COST:0																									CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1														ADD:FEAT|1|Skill Focus (Profession (Sailor))	ADD:VFEAT|1|Dodge,Stunning Fist				TEMPLATE:Fair Sex																												AUTO:WEAPONPROF|Club|Dagger|Handaxe|Javelin|Kama|Longbow|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling						SAB:May multiclass with Ranger.
-SUBCLASSLEVEL:2														ADD:VFEAT|1|Deflect Arrows,Mobility
-SUBCLASSLEVEL:3														ADD:VFEAT|1|Master of the Tops
-SUBCLASSLEVEL:6														ADD:VFEAT|1|Hero's Heart,Improved Disarm
+SUBCLASSLEVEL:1	SAB:May multiclass with Ranger.																																												ADD:FEAT|1|Skill Focus (Profession (Sailor))	ADD:VFEAT|1|Dodge,Stunning Fist				TEMPLATE:Fair Sex																												AUTO:WEAPONPROF|Club|Dagger|Handaxe|Javelin|Kama|Longbow|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Deflect Arrows,Mobility
+SUBCLASSLEVEL:3																																																		ADD:VFEAT|1|Master of the Tops
+SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Hero's Heart,Improved Disarm
 SUBCLASS:Order of the Perfect Union		COST:0	PREDEITY:Illir																						CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
-SUBCLASSLEVEL:1														ADD:VFEAT|1|Unfazed,Stunning Fist																																										AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
-SUBCLASSLEVEL:2														ADD:VFEAT|1|Callous,Combat Reflexes
-SUBCLASSLEVEL:5																																																																																				SAB:Immune to all types of fear, and mind-affecting compulsions and spells or spell-like abilities of third level or less.	SAB:Suffer an extra +1d6 damage when struck by an Abomination or Undead.
-SUBCLASSLEVEL:6														ADD:VFEAT|1|Improved Disarm,Improved Trip,Divinity's Purpose
+SUBCLASSLEVEL:1																																																		ADD:VFEAT|1|Unfazed,Stunning Fist																																										AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Callous,Combat Reflexes
+SUBCLASSLEVEL:5	SAB:Immune to all types of fear, and mind-affecting compulsions and spells or spell-like abilities of third level or less.	SAB:Suffer an extra +1d6 damage when struck by an Abomination or Undead.
+SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip,Divinity's Purpose
 ###Block:Proficiencies
 1	AUTO:FEAT|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Monk AC
 1	BONUS:VAR|MonkACLvl|CL		AUTO:FEAT|Monk AC
 1	BONUS:VAR|MonkMoveLvl|CL	AUTO:FEAT|Monk Movement
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2									DEFINE:MonkLvl|CL											AUTO:FEAT|Improved Unarmed Strike	SAB:Flurry of Blows (Ex)
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																									AUTO:FEAT|Evasion
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																															SAB:Still Mind (Ex)
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						BONUS:VAR|SlowFall|floor((CL)/2)*10	DEFINE:SlowFall|0																	SAB:Ki Strike (Magic)|PREVARLT:CL,10	SAB:Slow Fall (%)|SlowFall|PREVARLT:CL,20
-5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																															SAB:Purity of Body (Ex)
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2			SAB:Flurry of Blows (Ex)																DEFINE:MonkLvl|CL											AUTO:FEAT|Improved Unarmed Strike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																							AUTO:FEAT|Evasion
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6						SAB:Still Mind (Ex)
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Ki Strike (Magic)|PREVARLT:CL,10	SAB:Slow Fall (%)|SlowFall|PREVARLT:CL,20	BONUS:VAR|SlowFall|floor((CL)/2)*10	DEFINE:SlowFall|0
+5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Purity of Body (Ex)
 6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						BONUS:VAR|WholenessBody|CL*2		DEFINE:WholenessBody|0																SAB:Wholeness of Body (Su) % hp/day|WholenessBody
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Wholeness of Body (Su) % hp/day|WholenessBody						BONUS:VAR|WholenessBody|CL*2		DEFINE:WholenessBody|0
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																									AUTO:FEAT|Improved Evasion
-10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																															SAB:Ki Strike (Magic and Lawful)|PREVARLT:CL,16
-11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																															SAB:Diamond Body (Su)
-12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																															SAB:Abundant Step (Su)
-13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				SR:10+CL																										SAB:Diamond Soul (Ex)
+9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																																							AUTO:FEAT|Improved Evasion
+10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8						SAB:Ki Strike (Magic and Lawful)|PREVARLT:CL,16
+11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8						SAB:Diamond Body (Su)
+12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6						SAB:Abundant Step (Su)
+13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				SR:10+CL	SAB:Diamond Soul (Ex)
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6						BONUS:VAR|QuiveringPalmDC|CL/2+WIS	DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10											SAB:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC
-16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																															SAB:Ki Strike (Magic and Lawful and Adamantine)
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																															SAB:Timeless Body (Ex)	SAB:Tongue of the Sun and Moon
+15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6						SAB:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC			BONUS:VAR|QuiveringPalmDC|CL/2+WIS	DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10
+16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						SAB:Ki Strike (Magic and Lawful and Adamantine)
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						SAB:Timeless Body (Ex)	SAB:Tongue of the Sun and Moon
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						BONUS:VAR|EmptyBody|CL			DEFINE:EmptyBody|0																SAB:Empty Body (Su) % rounds/day|EmptyBody
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8																				TEMPLATE:Monk Outsider							SAB:Perfect Self (Su)	SAB:Slow Fall (Any Distance)
+19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						SAB:Empty Body (Su) % rounds/day|EmptyBody							BONUS:VAR|EmptyBody|CL			DEFINE:EmptyBody|0
+20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8					SAB:Perfect Self (Su)	SAB:Slow Fall (Any Distance)																					TEMPLATE:Monk Outsider
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Ex Class			Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
@@ -209,39 +210,39 @@ CLASS:Paladin	STARTSKILLPTS:2
 CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASS:1,Paladin=4
 #
 SUBCLASS:Paladin of Althares		PREDEITY:Althares										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
-SUBCLASSLEVEL:1	BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	DEFINE:BardicKnowledgeLevel|0		ADD:Language|1|TYPE=Imperial	ADD:EQUIP|1|Altherian Flintlock (Pistol),Altherian Flintlock (Rifle)	ADD:EQUIP|1|Blastpowder (10)	AUTO:FEAT|Exotic Weapon Proficiency(Altherian Flintlock (Pistol)|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:FEAT|Bardic Knowledge|Special Mount	SAB:May multiclass with Philosophic Warrior (Holy Champion of Althares).
-SUBCLASSLEVEL:5	BONUS:VAR|ChannelLevelAlthares|ChannelLevelUndead-1						DEFINE:ChannelLevelAlthares|0																																																			SAB:Turn Undead (Su) (Turn level %)|ChannelLevelAlthares
+SUBCLASSLEVEL:1	SAB:May multiclass with Philosophic Warrior (Holy Champion of Althares).								BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	DEFINE:BardicKnowledgeLevel|0		ADD:Language|1|TYPE=Imperial	ADD:EQUIP|1|Altherian Flintlock (Pistol),Altherian Flintlock (Rifle)	ADD:EQUIP|1|Blastpowder (10)	AUTO:FEAT|Exotic Weapon Proficiency(Altherian Flintlock (Pistol)|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:FEAT|Bardic Knowledge|Special Mount
+SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelAlthares											BONUS:VAR|ChannelLevelAlthares|ChannelLevelUndead-1						DEFINE:ChannelLevelAlthares|0
 SUBCLASS:Paladin of Belisarda		PREDEITY:Belisarda									CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Knowledge (Nature)|Survival
-SUBCLASSLEVEL:1																																																																						SAB:Wild Empathy (Ex)
-SUBCLASSLEVEL:4																																																																						SAB:Turn Undead (Su) (Turn level %)|ChannelLevelUndead
+SUBCLASSLEVEL:1	SAB:Wild Empathy (Ex)
+SUBCLASSLEVEL:4	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelUndead
 SUBCLASS:Paladin of Hurrian		PREDEITY:Hurrian										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
-SUBCLASSLEVEL:1																					ADD:Language|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Longsword)
-SUBCLASSLEVEL:5	BONUS:VAR|ChannelLevelHurrian|ChannelLevelUndead-1						DEFINE:ChannelLevelHurrian|0																																																			SAB:Turn Undead (Su) (Turn level %)|ChannelLevelHurrian
+SUBCLASSLEVEL:1																																									ADD:Language|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Longsword)
+SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelHurrian											BONUS:VAR|ChannelLevelHurrian|ChannelLevelUndead-1						DEFINE:ChannelLevelHurrian|0
 SUBCLASS:Paladin of Illir		PREDEITY:Illir										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
-SUBCLASSLEVEL:1																					ADD:Language|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Gladius)
-SUBCLASSLEVEL:4																																																																						SAB:+2 on saving throws against Enchantment spells and abilities.	SAB:May prepare and cast Light as a 1st level spell.
-SUBCLASSLEVEL:8																																																																						SAB:May prepare and cast Searing Light as a 2nd level spell.
+SUBCLASSLEVEL:1																																									ADD:Language|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Gladius)
+SUBCLASSLEVEL:4	SAB:+2 on saving throws against Enchantment spells and abilities.	SAB:May prepare and cast Light as a 1st level spell.
+SUBCLASSLEVEL:8	SAB:May prepare and cast Searing Light as a 2nd level spell.
 SUBCLASS:Paladin of Nier		PREDEITY:Nier										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
-SUBCLASSLEVEL:1																					ADD:Language|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Greatsword)
-SUBCLASSLEVEL:5	BONUS:VAR|ChannelLevelNier|ChannelLevelUndead-1							DEFINE:ChannelLevelNier|0																																																			SAB:Turn Undead (Su) (Turn level %)|ChannelLevelNier
+SUBCLASSLEVEL:1																																									ADD:Language|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Greatsword)
+SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelNier												BONUS:VAR|ChannelLevelNier|ChannelLevelUndead-1							DEFINE:ChannelLevelNier|0
 SUBCLASS:Paladin of Sarish		PREDEITY:Sarish										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
-SUBCLASSLEVEL:1																					ADD:Language|2|TYPE=Imperial,TYPE=Infernal																																										SAB:You gain a Sarishan Steel weapon of your choice.
-SUBCLASSLEVEL:6	BONUS:VAR|ChannelLevelSarish|ChannelLevelUndead-2						DEFINE:ChannelLevelSarish|0																																																			SAB:Turn Undead (Su) (Turn level %)|ChannelLevelSarish
+SUBCLASSLEVEL:1	SAB:You gain a Sarishan Steel weapon of your choice.																																ADD:Language|2|TYPE=Imperial,TYPE=Infernal
+SUBCLASSLEVEL:6	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelSarish											BONUS:VAR|ChannelLevelSarish|ChannelLevelUndead-2						DEFINE:ChannelLevelSarish|0
 SUBCLASS:Paladin of the Fire Dragon	PREDEITY:Fire Dragon	PRETEMPLATE:Black Talon Male,Ashen Hide Male	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
-SUBCLASSLEVEL:1																																											AUTO:FEAT|Weapon Focus(Flail (Heavy)
-SUBCLASSLEVEL:5	BONUS:VAR|ChannelLevelFireDragon|ChannelLevelUndead-1						DEFINE:ChannelLevelFireDragon|0																																																		SAB:Turn Undead (Su) (Turn level %)|ChannelLevelFireDragon
+SUBCLASSLEVEL:1																																																															AUTO:FEAT|Weapon Focus(Flail (Heavy)
+SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelFireDragon											BONUS:VAR|ChannelLevelFireDragon|ChannelLevelUndead-1						DEFINE:ChannelLevelFireDragon|0
 ###Block: Channeling Stuff
 4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT|1|TYPE=Channeling	AUTO:FEAT|Basic Channeling
 4	BONUS:VAR|ChannelLevelBase|CL-3			DEFINE:AllowExtraTurning|1
 4	BONUS:VAR|ChannelDamagePlusBase|CL-3
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression
-1				BONUS:VAR|SmiteEvil|(CL/5)+1										DEFINE:SmiteEvil|0	DEFINE:AllowHolyAvenger|1	SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial	SAB:Smite Evil (Su) %/day|SmiteEvil	SAB:Aura of Faith (Ex)
-2				BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0																																																				SAB:Divine Grace (Su)	SAB:Lay on Hands (Su) % hp/day|LayOnHands
-3																																																																									SAB:Aura of Courage (Su)	SAB:Divine Health (Ex)
+1				SAB:Smite Evil (Su) %/day|SmiteEvil	SAB:Aura of Faith (Ex)		BONUS:VAR|SmiteEvil|(CL/5)+1										DEFINE:SmiteEvil|0	DEFINE:AllowHolyAvenger|1	SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+2				SAB:Divine Grace (Su)	SAB:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
+3				SAB:Aura of Courage (Su)	SAB:Divine Health (Ex)
 4	CAST:0,0
-5	CAST:0,0																																																																							SAB:Faithful Steed (Sp)
-6	CAST:0,1		BONUS:VAR|RemoveDisease|(CL/3)-1									DEFINE:RemoveDisease|0																																																				SAB:Remove Disease (Sp) %/week|RemoveDisease
+5	CAST:0,0		SAB:Faithful Steed (Sp)
+6	CAST:0,1		SAB:Remove Disease (Sp) %/week|RemoveDisease				BONUS:VAR|RemoveDisease|(CL/3)-1									DEFINE:RemoveDisease|0
 7	CAST:0,1
 8	CAST:0,1,0
 9	CAST:0,1,0
@@ -262,16 +263,16 @@ SUBCLASSLEVEL:5	BONUS:VAR|ChannelLevelFireDragon|ChannelLevelUndead-1						DEFIN
 CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:pg. 69	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Black Market|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE.Local|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Research|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	BONUS:VAR|SneakAttack|(CL+1)/2																			AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Saber|Sap|Shortbow|Sword (Short)	SAB:Trapfinding
-1																									AUTO:FEAT|Sneak Attack
-2												ADD:FEAT|1|Evasion,Improved Evasion
-3	BONUS:VAR|TrapSense|CL/3																				AUTO:FEAT|Trap Sense Ability
-4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-8												ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-10												ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-13												ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-16												ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-19												ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+1	SAB:Trapfinding	BONUS:VAR|SneakAttack|(CL+1)/2																			AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Saber|Sap|Shortbow|Sword (Short)
+1																												AUTO:FEAT|Sneak Attack
+2															ADD:FEAT|1|Evasion,Improved Evasion
+3				BONUS:VAR|TrapSense|CL/3																				AUTO:FEAT|Trap Sense Ability
+4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
+8															ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
+10															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+13															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+16															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+19															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
 CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:pg. 70	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
@@ -281,7 +282,7 @@ CLASS:Sorcerer	!PRERACE:1,Human
 CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL	SPELLLIST:1|Wizard
-1	CAST:5,3				KNOWN:4,2				AUTO:FEAT|Simple Weapon Proficiency|Eschew Materials|Summon Familiar	SAB:Hunted
+1	CAST:5,3				KNOWN:4,2				SAB:Hunted	AUTO:FEAT|Simple Weapon Proficiency|Eschew Materials|Summon Familiar
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
@@ -321,26 +322,26 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 1	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6
 1	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11
 ###Block: Level progression
-1									ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree							VFEAT:Streetwise	AUTO:FEAT|Track
-2									ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-3									ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree										AUTO:FEAT|Endurance
-4	CAST:0,0		BONUS:VAR|CompLevel|CL/2	ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree										AUTO:FEAT|Animal Companion
-5	CAST:0,0							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-6	CAST:0,1							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-7	CAST:0,1							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree															SAB:As the Ghost (Ex)
-8	CAST:0,1,0							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree															SAB:Swift Tracker (Ex)
-9	CAST:0,1,0							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree	ADD:FEAT|1|Evasion,Improved Evasion
-10	CAST:0,1,1							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-11	CAST:0,1,1,0						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-12	CAST:0,1,1,1						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-13	CAST:0,1,1,1						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree															SAB:Camouflage (Ex)
-14	CAST:0,2,1,1,0						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-15	CAST:0,2,1,1,1						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-16	CAST:0,2,2,1,1						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-17	CAST:0,2,2,2,1						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree															SAB:Hide in Plain Sight (Ex)
-18	CAST:0,3,2,2,1						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-19	CAST:0,3,3,3,2						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-20	CAST:0,3,3,3,3						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+1														ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree							VFEAT:Streetwise	AUTO:FEAT|Track
+2														ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+3														ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree										AUTO:FEAT|Endurance
+4	CAST:0,0							BONUS:VAR|CompLevel|CL/2	ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree										AUTO:FEAT|Animal Companion
+5	CAST:0,0												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+6	CAST:0,1												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+7	CAST:0,1		SAB:As the Ghost (Ex)							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+8	CAST:0,1,0		SAB:Swift Tracker (Ex)							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+9	CAST:0,1,0												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree	ADD:FEAT|1|Evasion,Improved Evasion
+10	CAST:0,1,1												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+11	CAST:0,1,1,0											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+12	CAST:0,1,1,1											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+13	CAST:0,1,1,1	SAB:Camouflage (Ex)							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+14	CAST:0,2,1,1,0											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+15	CAST:0,2,1,1,1											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+16	CAST:0,2,2,1,1											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+17	CAST:0,2,2,2,1	SAB:Hide in Plain Sight (Ex)						ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+18	CAST:0,3,2,2,1											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+19	CAST:0,3,3,3,2											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+20	CAST:0,3,3,3,3											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 
 
 
@@ -370,26 +371,26 @@ SUBCLASSLEVEL:1	SAB:+2 bonus to Spellcraft when learning Transmutation
 ###Block:Proficiencies
 1	AUTO:FEAT|Wizard Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Level progression
-1	CAST:3,1														AUTO:FEAT|Scribe Scroll|Summon Familiar	SAB:Hunted
+1	CAST:3,1				SAB:Hunted											AUTO:FEAT|Scribe Scroll|Summon Familiar
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
-5	CAST:4,3,2,1			ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+5	CAST:4,3,2,1					ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
 9	CAST:4,4,4,3,2,1
-10	CAST:4,4,4,3,3,2			ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+10	CAST:4,4,4,3,3,2					ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
 11	CAST:4,4,4,4,3,2,1
 12	CAST:4,4,4,4,3,3,2
 13	CAST:4,4,4,4,4,3,2,1
 14	CAST:4,4,4,4,4,3,3,2
-15	CAST:4,4,4,4,4,4,3,2,1		ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+15	CAST:4,4,4,4,4,4,3,2,1				ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
 16	CAST:4,4,4,4,4,4,3,3,2
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
-20	CAST:4,4,4,4,4,4,4,4,4,4	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+20	CAST:4,4,4,4,4,4,4,4,4,4			ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
 #
 # End
 #
