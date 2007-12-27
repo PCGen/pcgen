@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Author: eddyanthony $
+		$Date: 2007-11-09 21:10:15 -0500 (Fri, 09 Nov 2007) $
+		$Revision: 4494 $
+		
+		Contributors:
+		Eric C Smith - mareduddATblackrootDOTorg
+		
+		Description:
+		PCGen Non-Player Character (NPC) Generator Documentation.
+	-->
+	<head>
+		<title>NPC Generator Documentation</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	
+	<body>
+		<h1>PCGen Non-Player Character (NPC) Generator</h1>
+		
+		<p class="indent0">PCGen 5.12.x added a non-player character (NPC) generator to the 
+		list of evergrowing list of capabilities. The generator will generate an NPC from 
+		scratch, or you can select some parameters from which the generator can build upon.</p>
+		
+		<p class="indent0">It is important to note that at this time, the NPC generator only 
+		supports the creation of NPCs for the RSRD under gameMode 35e.</p>
+		
+		<p class="center" title="NPC Generator Window">
+			<img src="../images/windows/npc_generator.png" alt="npc_generator.png">
+		</p>
+		<p class="center"><strong>NPC Generator Window</strong></p>
+
+		<h2>Creating an NPC</h2>
+
+		<p class="indent0">The <strong>New NPC</strong> command, found under the 
+			<strong>File</strong> menu, opens up a new window containing options for 
+			creating random characters within a set of parameters you can specify. The 
+			available parameters are:</p>
+		
+		<p class="indent1"><strong>Alignment</strong> - You can specify a specific 
+			alignment or a random selection from a sub-set (such as &quot;any Good&quot;) 
+			or a random selection from all available alignments.</p>
+		<p class="indent1"><strong>Race</strong> - You can specify a specific race or 
+			choose Any, Any Core or Any Humanoid to be randomly selected.</p>
+		<p class="indent1"><strong>Gender</strong> - You can set the gender or have 
+			it randomly assigned.</p>
+		<p class="indent1"><strong>Class</strong> - You can specify up to three classes 
+			for your NPC.</p>
+		<p class="indent1"><strong>Stats</strong> - You can specify the roll-method used 
+			to generate the base stats for your NPC.</p>
+		<p class="indent1"><strong>Name</strong> - You can specify which of the name-sets 
+			to use to generate a name for your NPC.</p>
+
+<hr>
+
+		<h2>NPC Generator Data Files</h2>
+		
+		<p class="indent1">The NPC generator uses XML formated data to establish the 'options' .<p>
+		
+		<h3>Class Data Files</h3>
+		
+		<h4>Defining the Data Structure - <em>classdata.xsd</em></h4>
+		
+		<h4>Filling in the Data - <em>classdata.xml</em></h4>
+		
+		<h3>Options Data Files</h3>
+		
+		<h4>Defining the Data Structure - <em>options.xsd</em></h4>
+		
+		<h4>Filling in the Data - <em>optionsdata.xml</em></h4>
+		
+		<h3>Treasure Data Files</h3>
+		
+		<h4>Defining the Data Structure - <em>treasure.xsd</em></h4>
+		
+		<h4>Filling in the Data - <em>treasuredata.xml</em></h4>
+		
+<hr>
+
+		<p>
+		<a href="http://validator.w3.org/check?uri=referer"><img
+    	   	src="../images/system/valid-html401.png"
+    	   	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+		</p>
+
+	</body>
+
+</html>
