@@ -20,6 +20,8 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 INFOTEXT:SRD Basics (The base classes, feats, spells, equipment, etc.)
 
 ABILITYCATEGORY:srd_abilitycategory.lst
+ABILITY:srd_ability_class.lst
+ABILITY:srd_ability_hidden.lst
 
 CLASS:srd_classes_base.lst
 CLASS:srd_classes_creature_types.lst
@@ -42,14 +44,8 @@ EQUIPMOD:srd_equipmods_mundane.lst
 
 FEAT:srd_feats.lst
 FEAT:srd_feats_monster.lst
-ABILITY:srd_ability_class.lst
-ABILITY:srd_ability_hidden.lst
-ABILITY:srd_feats_hidden2.lst
-
-#FEAT:srd_feats_descriptions.lst
-##Descriptions moved into the feat file, like the rsrd.
-
-
+FEAT:srd_feats_hidden.lst
+FEAT:srd_feats_hidden2.lst
 
 KIT:srd_kits_races__animals.lst
 KIT:srd_kits_races__base.lst

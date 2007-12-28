@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Dec 22 21:43:02 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Dec 27 23:23:23 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
@@ -10,12 +10,12 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Intuit Direction|List
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Normal Progression
-1	BONUS:VAR|EnchantArrow|(CL+1)/2	AUTO:FEAT|Arcane Archer ~ Enchant Arrow
-2							AUTO:FEAT|Arcane Archer ~ Imbue Arrow
-4							AUTO:FEAT|Arcane Archer ~ Seeker Arrow
-6							AUTO:FEAT|Arcane Archer ~ Phase Arrow
-8							AUTO:FEAT|Arcane Archer ~ Hail of Arrows
-10							AUTO:FEAT|Arcane Archer ~ Arrow of Death
+1	BONUS:VAR|EnchantArrow|(CL+1)/2	ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Enchant Arrow
+2							ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Imbue Arrow
+4							ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Seeker Arrow
+6							ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Phase Arrow
+8							ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Hail of Arrows
+10							ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Arrow of Death
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus												Combat bonus
 CLASS:Assassin	HD:6		TYPE:PC.Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
