@@ -5,6 +5,9 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
+    <release version="5.13.7" date="In SVN" description="Alpha release"> 
+      <action dev="jdempsey" type="add" issue="1859541">Data installer for out of cycle data releases</action> 
+    </release>  
     <release version="5.13.6" date="2007-12-17" description="Alpha release"> 
       <action dev="jdempsey" type="update" issue="1838181">Ability tab location Freq - select pool from header</action> 
     </release>  

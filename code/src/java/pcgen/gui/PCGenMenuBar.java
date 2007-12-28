@@ -95,6 +95,7 @@ final class PCGenMenuBar extends JMenuBar
 	JMenuItem exitItem;
 	JMenuItem exportItem;
 	private JMenuItem exportPDFItem;
+	private JMenuItem installDataItem;
 	JMenuItem listEditor;
 	JMenuItem newItem;
 	JMenuItem newNPCItem;
@@ -503,6 +504,19 @@ final class PCGenMenuBar extends JMenuBar
 
 		toolsMenu.addSeparator();
 
+		installDataItem =
+				Utility.createMenuItem("mnuToolsInstallData", new ActionListener()
+				{
+					public void actionPerformed(ActionEvent e)
+					{
+						DataInstaller di = new DataInstaller(PCGenMenuBar.this.mainFrame);
+						di.setVisible(true);
+					}
+				}, "tools.installdata", null, null, true);
+		toolsMenu.add(installDataItem);
+
+		toolsMenu.addSeparator();
+		
 		//
 		// List Editors
 		//

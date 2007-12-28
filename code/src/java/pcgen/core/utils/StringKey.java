@@ -90,6 +90,10 @@ public final class StringKey {
 	public static final StringKey TRAIT1 = new StringKey();
 	public static final StringKey TRAIT2 = new StringKey();
 	public static final StringKey WORSHIPPERS = new StringKey();
+	/** Key for the minimum supported version for a deta set */
+	public static final StringKey MINVER = new StringKey();
+	/** Key for the minimum supported dev version for a deta set */
+	public static final StringKey MINDEVVER = new StringKey();
 
     private StringKey() {
         //Only allow instantation here

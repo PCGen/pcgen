@@ -4,11 +4,12 @@ import java.net.URI;
 
 import pcgen.core.Campaign;
 import pcgen.persistence.lst.CampaignLstToken;
+import pcgen.persistence.lst.InstallLstToken;
 
 /**
  * Class deals with INFOTEXT Token
  */
-public class InfotextToken implements CampaignLstToken
+public class InfotextToken implements CampaignLstToken, InstallLstToken
 {
 
 	public String getTokenName()

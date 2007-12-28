@@ -72,9 +72,22 @@ public abstract class LstLineFileLoader extends Observable
 	public void loadLstFile(URI uri) throws PersistenceLayerException
 	{
 		StringBuilder dataBuffer = LstFileLoader.readFromURI(uri);
-
-		final String newlinedelim = "\r\n";
 		final String aString = dataBuffer.toString();
+
+		loadLstString(uri, aString);
+	}
+
+	/**
+	 * This method loads a single LST formatted file.
+	 * @param uri String containing the absolute file path
+	 * or the URL from which the LST formatted data was read.
+	 * @param aString The LST formatted data
+	 * @throws PersistenceLayerException
+	 */
+	public void loadLstString(URI uri, final String aString)
+		throws PersistenceLayerException
+	{
+		final String newlinedelim = "\r\n";
 		final StringTokenizer fileLines =
 				new StringTokenizer(aString, newlinedelim);
 

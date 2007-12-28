@@ -178,6 +178,18 @@ public class PluginBuildTest extends PCGenTestCase
 	}
 	
 	/**
+	 * Check for the presence of all campaign
+	 * token parsing plugins.
+	 */
+	public void testLstInstallableCampaignPlugins()
+	{
+		String jarPrefix = "InstCampaignLstToken-";
+		File sourceFolder = new File("code/src/java/plugin/lsttokens/campaign/installable");
+		File jarFolder = new File("plugins/lstplugins");
+		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
+	}
+	
+	/**
 	 * Check for the presence of all choose
 	 * token parsing plugins.
 	 */

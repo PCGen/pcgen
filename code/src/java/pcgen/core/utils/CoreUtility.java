@@ -22,13 +22,21 @@
  */
 package pcgen.core.utils;
 
-import pcgen.core.Constants;
-import pcgen.core.Equipment;
-
 import java.io.File;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 import java.util.regex.Pattern;
+
+import pcgen.core.Constants;
+import pcgen.core.Equipment;
+import pcgen.gui.PCGenProp;
+import pcgen.util.Logging;
 
 /**
  * <code>CoreUtility</code>.
@@ -589,5 +597,108 @@ public final class CoreUtility
 		}
 
 		return workingList;
+	}
+
+	/**
+	 * Compare the two PCGen versions.  
+	 * @param ver The first version
+	 * @param compVer The second version
+	 * @return the value 0 if the PCG versions are equal; a 
+	 * value less than 0 if the first version is less than the second version; 
+	 * and a value greater than 0 if the first version is greater than the second version.
+	 */
+	public static int compareVersions(int[] ver, int[] compVer)
+	{
+		if (ver[0] != compVer[0])
+		{
+			return new Integer(ver[0]).compareTo(compVer[0]);
+		}
+		if (ver[1] != compVer[1])
+		{
+			return new Integer(ver[1]).compareTo(compVer[1]);
+		}
+		return new Integer(ver[2]).compareTo(compVer[2]);
+	}
+
+	/**
+	 * Compare the two PCGen versions.  
+	 * @param ver The first version
+	 * @param compVer The second version
+	 * @return the value 0 if the PCG versions are equal; a 
+	 * value less than 0 if the first version is less than the second version; 
+	 * and a value greater than 0 if the first version is greater than the second version.
+	 */
+	public static int compareVersions(String ver, String compVer)
+	{
+		if (!ver.equals(compVer))
+		{
+			return compareVersions(convertVersionToNumber(ver),
+				convertVersionToNumber(compVer));
+		}
+		return 0;
+	}
+
+	/**
+	 * Check if a version is earlier or equal to the current pcgen version.
+	 * @param version PCGen version to be checked.
+	 * @return True if the version is before or equal to the current pcgen version.
+	 */
+	public static boolean isPriorToCurrent(String version)
+	{
+		return CoreUtility.compareVersions(version, PCGenProp
+			.getVersionNumber()) <= 0;
+	}
+
+	/**
+	 * Convert a PCGen version to its numerical format.
+	 * 
+	 * @param version the String version
+	 * @return the version as an array of 3 ints
+	 */
+	public static int[] convertVersionToNumber(String version)
+	{
+		int[] intVer = {0, 0, 0};
+
+		// extract the tokens from the version line
+		String[] tokens = version.split(" |\\.|\\-", 4); //$NON-NLS-1$
+
+		for (int idx = 0; idx < 3 && idx < tokens.length; idx++)
+		{
+			try
+			{
+				intVer[idx] = Integer.parseInt(tokens[idx]);
+			}
+			catch (NumberFormatException e)
+			{
+				if (idx == 2 && (tokens[idx].startsWith("RC")))
+				{
+					// Ignore we are not concerned about Release candidates
+				}
+				else
+				{
+					// Something in the first 3 digits was not an integer
+					Logging.errorPrint("Invalid PCGen version: " + version);
+				}
+			}
+		}
+		return intVer;
+	}
+
+	/**
+	 * Checks if the supplied version shares the same major and minor versions
+	 * as the currently running version of PCGen.
+	 * 
+	 * @param ver the version to check
+	 * @return true, if it is the current minor version
+	 */
+	public static boolean isCurrMinorVer(String ver)
+	{
+		if (ver.equals(PCGenProp.getVersionNumber()))
+		{
+			return true;
+		}
+		int[] inVer = convertVersionToNumber(ver);
+		int[] currVer = convertVersionToNumber(PCGenProp.getVersionNumber());
+		return (inVer[0] == currVer[0] && inVer[1] == currVer[1]);
 	}
 }

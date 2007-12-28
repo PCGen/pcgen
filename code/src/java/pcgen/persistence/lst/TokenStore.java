@@ -121,6 +121,9 @@ public class TokenStore
 		tokenTypeList.add(AutoLstToken.class);
 		tokenTypeList.add(AddLstToken.class);
 		tokenTypeList.add(RemoveLstToken.class);
+
+		//install.lst
+		tokenTypeList.add(InstallLstToken.class);
 	}
 
 	/**

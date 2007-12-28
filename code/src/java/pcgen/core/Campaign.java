@@ -36,7 +36,7 @@ import java.util.*;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Campaign extends PObject
+public class Campaign extends PObject
 {
 	private Map<String, String> publisherMap = new HashMap<String, String>();
 	private Properties options = new Properties();
