@@ -25,16 +25,20 @@
 
 		<h1>Out-of-Cycle (OOC) Data Set Install Files</h1>
 
-		<p class="indento">The OOC data set installation capability has been added 
+		<p class="indent0">The OOC data set installation capability has been added 
 		to PCGen to allow for the distribution of those data sets released between 
-		stable releases. This page presents instructions for the creation and 
-		installation of the OOC data set installation archive. You will also find 
-		the explanation of the tags required to create the <em>install.lst</em> file.
-		To accomplish this, this page is divided into three sections:</p>
+		stable releases. This page presents instructions for the creation of the OOC 
+		data set installation archive. You will also find the explanation of the 
+		tags required to create the <em>install.lst</em> file as well as an example
+		install file. To accomplish this, this page is divided into three sections:</p>
 	
 		<p class="indent1"><a href="#PREPARATION">OOC Data Set Preparation</a></p>
-		<p class="indent1"><a href="#INTALLATION">OOC Data Set Installation</a></p>
 		<p class="indent1"><a href="#INSTALLFILETAGS">Data Set Installation Tags</a></p>
+		<p class="indent1"><a href="#EXAMPL">Example <em>install.lst</em> File</a></p>
+
+		<p class="indent0">For information on installing OOC data sets in PCGen go to
+		the <a href="../../menupages/tools/toolsinstalldataset.html">Install Data Set 
+		Tool</a> page.</p>
 		<p></ p>
 
 <hr>
@@ -66,26 +70,6 @@
 		<p class="indent1">The OOC data set is now ready for release.</p>
 		<p></ p>
 
-
-<hr>
-		
-		<a name="INSTALLATION"></a>
-		<h2>Data Set Installation</h2>
-		
-		<p class="indent0">The following are the steps required to install an OOC data set:</p>
-		<ol class="indent1">
-			<li>PCGen team publishes OOC dataset archive to SourceForge downloads section.</li>
-			<li>User downloads OOC dataset archive.</li>
-			<li>In PCGen, user selects <strong>Tools</strong> &gt; <strong>Install Dataset</strong>.</li>
-			<li>User selects dataset to install via the presented File Selection dialog.</li>
-			<li>PCGen verifies that the selected dataset is compatible with the version of PCGen being used.</li>
-			<li>Information on the selected archive is displayed and the user is given a choice of &quot;DATA&quot; or 
-				&quot;VENDORDATA&quot; folders with the default specified in <em>install.lst</em>.</li>
-			<li>User selects destination and clicks OK.</li>
-			<li>Dataset is saved to default location and sources are refreshed.</li>
-		</ol>
-		<p class="indent1">The source dataset is now available for the user to load and use.</p>
-		<p></ p>
 
 <hr>
 		<a name="INSTALLFILETAGS"></a>
