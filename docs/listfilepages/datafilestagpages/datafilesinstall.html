@@ -113,15 +113,18 @@
 			<li>Optional tag specifying the minimum development version of PCGen that 
 			will support his dataset, where this is later than the production version.</li>
 			<li>This would be used where a tag was added partway through a dev cycle and then 
-			retrofitted to the next patch release of PCGen.<.li>
+			retrofitted to the next patch release of PCGen.</li>
 			<li>For the source to be installed by PCGen, the version of PCGen must either:
 				<ul class="tagindent0">
-					<li>Have an even minor version (as in 5.x.y, where x is even indicating a production 
-						release) and be greater than or equal to the MINVER value; or</li>
-					<li>Have an odd minor version (as in 5.x.y, where x is odd indicating a development 
-						release) and be greater than or equal to the MINDEVVER value.</li>
-					<li>e.g. Given MINVER:5.14.1 and MINDEVVER:5.15.3 the source could not be installed by 
-						5.15.2, but could be installed by 5.14.1 or 5.15.3</li>
+					<li>Have an even minor version (as in 5.x.y, where x is even indicating 
+						a production release) and be greater than or equal to the MINVER 
+						value; or</li>
+					<li>Have an odd minor version (as in 5.x.y, where x is odd indicating a 
+						development release) and be greater than or equal to the MINDEVVER 
+						value.</li>
+					<li>e.g. Given <code>MINVER:5.14.1</code> and <code>MINDEVVER:5.15.3</code>, 
+						the source could not be installed by 5.15.2, but could be installed by 
+						5.14.1 or 5.15.3</li>
 				</ul>
 			</li>
 		</ul>
