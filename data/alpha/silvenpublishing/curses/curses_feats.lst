@@ -1,0 +1,22 @@
+# CVS $Revision: 3232 $ $Author: tir-gwaith $ -- Sat Dec 29 09:57:20 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/
+# Original Entry by: Eddy Anthony (MoSaT)
+
+# Feat Name				Output Name						Type			Required AL		Required Feat				Req. Known Spell								Req. Casting Type		Req. Spell Type				Description																				Caster level					Bonus to DC				Source Page		PREPCLEVEL
+Blessed											TYPE:General																														DESC:You are harder to curse and curses don't take to you easily.																							SOURCEPAGE:p. 13
+Curse of Blood										TYPE:General	PREALIGN:CG,CN,CE																	PRESPELLCAST:MEMORIZE=N							DESC:Your curses come from somewhere deep inside, and sometimes they are overpowering.																			SOURCEPAGE:p. 13
+Curse of Blood - Greater	OUTPUTNAME:Curse of Blood, Greater		TYPE:General	PREALIGN:CG,CN,CE	PREFEAT:1,Curse of Blood												PRESPELLCAST:MEMORIZE=N							DESC:You cast curses with more potency than other spells.												BONUS:CASTERLEVEL|DESCRIPTOR.Curse|2						SOURCEPAGE:p. 13
+Death Curse Contingency									TYPE:General																														DESC:When you die, you can use the last ounce of your life force to inflict a potent curse on your killer.																SOURCEPAGE:p. 13	PREPCLEVEL:MIN=6
+Hexer Bane											TYPE:General										PRESPELL:1,Remove Curse																	DESC:You have a knack for removing curses.																										SOURCEPAGE:p. 13
+Persistent Curse										TYPE:General				PREFEAT:1,Potent Curse																	PRESPELLTYPE:1,Arcane=3,Divine=3	DESC:The spells of the curse subtype that you cast require more power to remove.																				SOURCEPAGE:p. 13
+Potent Curse										TYPE:General																														DESC:Weaker casters cannot remove the spells of the curse subtype that you cast.																				SOURCEPAGE:p. 13
+Power Word Master										TYPE:General										PRESPELL:1,Power Word Blind,Power Word Kill,Power Word Stun											DESC:Any power word spell(s) (see the PHB) you cast affect a greater range of foes.																				SOURCEPAGE:p. 13
+Spell Focus - Curse		OUTPUTNAME:Spell Focus: Curse			TYPE:General																														DESC:The spells of the curse subtype that you cast are more potent.																	BONUS:DC|DESCRIPTOR.Curse|1	SOURCEPAGE:p. 13
+Spell Focus - Curse/Greater	OUTPUTNAME:Spell Focus: Curse, Greater	TYPE:General				PREFEAT:1,Spell Focus - Curse																						DESC:The spells of the curse subtype that you cast are now even more potent than before.														BONUS:DC|DESCRIPTOR.Curse|1	SOURCEPAGE:p. 13
+Undeath Infusion - Lesser	OUTPUTNAME:Undeath Infusion, Lesser		TYPE:Metamagic	PREALIGN:LE,NE,CE	PREFEAT:1,TYPE=Metamagic		PRESPELL:1,Animate Dead																	DESC:Any target(s) killed by a lesser undeath infused spell come back as undead under your control.																	SOURCEPAGE:p. 14
+Undeath Infusion										TYPE:Metamagic				PREFEAT:1,Undeath Infusion - Lesser	PRESPELL:1,Create Undead																DESC:Any target killed by an undeath infused spell comes back as a powerful undead creature under your control.															SOURCEPAGE:p. 14
+Undeath Infusion - Greater	OUTPUTNAME:Undeath Infusion, Greater	TYPE:Metamagic				PREFEAT:1,Undeath Infusion		PRESPELL:1,Create Greater Undead															DESC:Any target killed by a greater undeath infused spell comes back as a very powerful undead creature under your control.													SOURCEPAGE:p. 14
+
+#
+# End
+#

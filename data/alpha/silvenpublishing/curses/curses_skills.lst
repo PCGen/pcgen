@@ -1,0 +1,10 @@
+# CVS $Revision: 3232 $ $Author: tir-gwaith $ -- Sat Dec 29 09:57:20 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/
+# Original Entry by: Eddy Anthony (MoSaT)
+
+# Skill Name		Key Stat	Untrained?		Type				Source Page
+Craft (Doll-Making)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:p. 18
+
+#
+# End
+#
