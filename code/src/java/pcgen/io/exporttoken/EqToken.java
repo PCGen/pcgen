@@ -275,7 +275,7 @@ public class EqToken extends Token
 
 	public boolean isEncoded()
 	{
-		return false;
+		return true;
 	}
 
 	/**
