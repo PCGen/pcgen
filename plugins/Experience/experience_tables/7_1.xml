@@ -2858,13 +2858,13 @@
       <item>6000</item>
 
       <!-- CR 21-30 -->
-      <item>8000</item>
+      <item>9000</item>
       <item>12000</item>
-      <item>16000</item>
+      <item>18000</item>
       <item>24000</item>
-      <item>32000</item>
+      <item>36000</item>
       <item>48000</item>
-      <item>64000</item>
+      <item>72000</item>
       <item>0</item>
       <item>0</item>
       <item>0</item>
@@ -2877,6 +2877,1368 @@
       <item>0</item>
       <item>0</item>
       <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 41-50 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 51-60 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 61-70 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 71-80 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 81-90 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 91-100 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+   </row>
+
+<!-- Level 21 -->
+   <row>
+      <item>21</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>525</item>
+
+      <item>788</item>
+
+      <item>1050</item>
+
+      <item>1575</item>
+
+      <item>2100</item>
+
+      <item>3150</item>
+
+      <item>4200</item>
+
+      <!-- CR 21-30 -->
+      <item>6300</item>
+      <item>9450</item>
+      <item>12600</item>
+      <item>18900</item>
+      <item>25200</item>
+      <item>37800</item>
+      <item>50400</item>
+      <item>75600</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 31-40 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 41-50 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 51-60 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 61-70 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 71-80 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 81-90 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 91-100 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+   </row>
+
+<!-- Level 22 -->
+   <row>
+      <item>22</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>550</item>
+
+      <item>825</item>
+
+      <item>1100</item>
+
+      <item>1650</item>
+
+      <item>2200</item>
+
+      <item>3300</item>
+
+      <!-- CR 21-30 -->
+      <item>4400</item>
+      <item>6600</item>
+      <item>9900</item>
+      <item>13200</item>
+      <item>19800</item>
+      <item>26400</item>
+      <item>39600</item>
+      <item>52800</item>
+      <item>79200</item>
+      <item>0</item>
+
+      <!-- CR 31-40 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 41-50 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 51-60 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 61-70 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 71-80 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 81-90 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 91-100 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+   </row>
+
+<!-- Level 23 -->
+   <row>
+      <item>23</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>575</item>
+
+      <item>863</item>
+
+      <item>1650</item>
+
+      <item>1725</item>
+
+      <item>2300</item>
+
+      <!-- CR 21-30 -->
+      <item>3450</item>
+      <item>4600</item>
+      <item>6900</item>
+      <item>10350</item>
+      <item>13800</item>
+      <item>20700</item>
+      <item>27600</item>
+      <item>41400</item>
+      <item>55200</item>
+      <item>82800</item>
+
+      <!-- CR 31-40 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 41-50 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 51-60 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 61-70 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 71-80 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 81-90 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 91-100 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+   </row>
+
+<!-- Level 24 -->
+   <row>
+      <item>24</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>600</item>
+
+      <item>900</item>
+
+      <item>1200</item>
+
+      <item>1800</item>
+
+      <!-- CR 21-30 -->
+      <item>2400</item>
+      <item>3600</item>
+      <item>4800</item>
+      <item>7200</item>
+      <item>10800</item>
+      <item>14400</item>
+      <item>21600</item>
+      <item>28800</item>
+      <item>43200</item>
+      <item>57600</item>
+
+      <!-- CR 31-40 -->
+      <item>86400</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 41-50 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 51-60 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 61-70 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 71-80 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 81-90 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 91-100 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+   </row>
+
+<!-- Level 25 -->
+   <row>
+      <item>25</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>625</item>
+
+      <item>938</item>
+
+      <item>1250</item>
+
+      <!-- CR 21-30 -->
+      <item>1875</item>
+      <item>2500</item>
+      <item>3750</item>
+      <item>5000</item>
+      <item>7500</item>
+      <item>11250</item>
+      <item>15000</item>
+      <item>22500</item>
+      <item>30000</item>
+      <item>45000</item>
+
+      <!-- CR 31-40 -->
+      <item>60000</item>
+      <item>90000</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 41-50 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 51-60 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 61-70 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 71-80 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 81-90 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 91-100 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+   </row>
+
+<!-- Level 26 -->
+   <row>
+      <item>26</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>650</item>
+
+      <item>975</item>
+
+      <!-- CR 21-30 -->
+      <item>1300</item>
+      <item>1950</item>
+      <item>2600</item>
+      <item>3900</item>
+      <item>5200</item>
+      <item>7800</item>
+      <item>11700</item>
+      <item>15600</item>
+      <item>23400</item>
+      <item>31200</item>
+
+      <!-- CR 31-40 -->
+      <item>46800</item>
+      <item>62400</item>
+      <item>93600</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 41-50 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 51-60 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 61-70 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 71-80 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 81-90 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 91-100 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+   </row>
+
+<!-- Level 27 -->
+   <row>
+      <item>27</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>675</item>
+
+      <!-- CR 21-30 -->
+      <item>1013</item>
+      <item>1350</item>
+      <item>2025</item>
+      <item>2700</item>
+      <item>4050</item>
+      <item>5400</item>
+      <item>81000</item>
+      <item>12150</item>
+      <item>16200</item>
+      <item>24300</item>
+
+      <!-- CR 31-40 -->
+      <item>32400</item>
+      <item>48600</item>
+      <item>64800</item>
+      <item>97200</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 41-50 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 51-60 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 61-70 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 71-80 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 81-90 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 91-100 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+   </row>
+
+<!-- Level 28 -->
+   <row>
+      <item>28</item>
+
+      <!-- CR 1-10 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 11-20 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 21-30 -->
+      <item>700</item>
+      <item>1050</item>
+      <item>1400</item>
+      <item>2100</item>
+      <item>2800</item>
+      <item>4200</item>
+      <item>5600</item>
+      <item>8400</item>
+      <item>12600</item>
+      <item>16800</item>
+
+      <!-- CR 31-40 -->
+      <item>25200</item>
+      <item>33600</item>
+      <item>50400</item>
+      <item>67200</item>
+      <item>100800</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 41-50 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 51-60 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 61-70 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 71-80 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 81-90 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 91-100 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+   </row>
+
+<!-- Level 29 -->
+   <row>
+      <item>29</item>
+
+      <!-- CR 1-10 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 11-20 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 21-30 -->
+      <item>0</item>
+      <item>725</item>
+      <item>1088</item>
+      <item>1450</item>
+      <item>2175</item>
+      <item>2900</item>
+      <item>4350</item>
+      <item>5800</item>
+      <item>8700</item>
+      <item>13050</item>
+
+      <!-- CR 31-40 -->
+      <item>17400</item>
+      <item>26100</item>
+      <item>34800</item>
+      <item>52200</item>
+      <item>69600</item>
+      <item>104400</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 41-50 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 51-60 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 61-70 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 71-80 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 81-90 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 91-100 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+   </row>
+
+<!-- Level 30 -->
+   <row>
+      <item>30</item>
+
+      <!-- CR 1-10 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 11-20 -->
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+      <item>0</item>
+
+      <!-- CR 21-30 -->
+      <item>0</item>
+      <item>0</item>
+      <item>750</item>
+      <item>1125</item>
+      <item>1500</item>
+      <item>2250</item>
+      <item>3000</item>
+      <item>4500</item>
+      <item>6000</item>
+      <item>9000</item>
+
+      <!-- CR 31-40 -->
+      <item>13500</item>
+      <item>18000</item>
+      <item>27000</item>
+      <item>36000</item>
+      <item>54000</item>
+      <item>72000</item>
+      <item>108000</item>
       <item>0</item>
       <item>0</item>
       <item>0</item>
