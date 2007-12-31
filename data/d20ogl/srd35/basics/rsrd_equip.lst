@@ -150,10 +150,10 @@ Warhorse (Light)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=
 Pony					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*225|Any=UNLIM		COST:30	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
 Warpony				TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any=UNLIM		COST:100	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
 Saddle (Military)			TYPE:Goods.Mount.Saddle.Military.Resizable						COST:20	WT:30				SOURCEPAGE:Equipment.rtf	SPROP:+2 circumstance bonus on Ride checks related to staying in the saddle
-Saddle (Pack)			TYPE:Goods.Mount.Saddle.Resizable								COST:5	WT:15				SOURCEPAGE:Equipment.rtf
+Saddle (Pack)			TYPE:Goods.Container.Mount.Saddle.Resizable	CONTAINS:UNLIM|Any=UNLIM	COST:5	WT:15				SOURCEPAGE:Equipment.rtf
 Saddle (Riding)			TYPE:Goods.Mount.Saddle.Resizable								COST:10	WT:25				SOURCEPAGE:Equipment.rtf
 Saddle (Exotic Military)	TYPE:Goods.Mount.Saddle.Military.Resizable						COST:60	WT:40				SOURCEPAGE:Equipment.rtf	SPROP:+2 circumstance bonus on Ride checks related to staying in the saddle
-Saddle (Exotic Pack)		TYPE:Goods.Mount.Saddle.Resizable								COST:15	WT:20				SOURCEPAGE:Equipment.rtf
+Saddle (Exotic Pack)		TYPE:Goods.Container.Mount.Saddle.Resizable	CONTAINS:UNLIM|Any=UNLIM	COST:15	WT:20				SOURCEPAGE:Equipment.rtf
 Saddle (Exotic Riding)		TYPE:Goods.Mount.Saddle.Resizable								COST:30	WT:30				SOURCEPAGE:Equipment.rtf
 Saddlebags				TYPE:Goods.Container.Mount.Resizable		CONTAINS:UNLIM|Any=UNLIM	COST:4	WT:8				SOURCEPAGE:Equipment.rtf
 Stabling (Per Day)		TYPE:Goods.Mount											COST:.5	WT:0				SOURCEPAGE:Equipment.rtf
