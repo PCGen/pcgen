@@ -57,7 +57,7 @@ CLASS:Construct	PRERACETYPE:Construct
 CLASS:Construct	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name			Output Name			Hit Dice	Type			Max Level		Source Page					Virtual Feat						Save checks bonus								Combat bonus					BONUS:FEAT
-CLASS:Construct (Mindless)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+CLASS:Construct (Mindless)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-floor(CL/3)
 # Class Name			Reg. Race Type
 CLASS:Construct (Mindless)	PRERACETYPE:Construct
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
@@ -92,7 +92,7 @@ CLASS:Elemental (Earth/Water)	PRERACETYPE:Elemental
 CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name			Hit Dice	Type			Max Level		Source Page					Virtual Feat						Save checks bonus																																																							Combat bonus					BONUS:FEAT
-CLASS:Elemental (Mindless)	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Elemental Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+CLASS:Elemental (Mindless)	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Elemental Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-floor(CL/3)
 # Class Name			Reg. Race Type
 CLASS:Elemental (Mindless)	PRERACETYPE:Elemental
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
@@ -151,7 +151,7 @@ CLASS:Monstrous humanoid	PRERACETYPE:Monstrous humanoid
 CLASS:Monstrous humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name	Hit Dice	Type			Max Level		Source Page					Virtual Feat					Save checks bonus								Combat bonus					BONUS:FEAT
-CLASS:Ooze		HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Ooze Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+CLASS:Ooze		HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Ooze Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-floor(CL/3)
 # Class Name	Reg. Race Type
 CLASS:Ooze		PRERACETYPE:Ooze
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
@@ -179,7 +179,7 @@ CLASS:Plant		PRERACETYPE:Plant
 CLASS:Plant		STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name		Output Name		Hit Dice	Type			Max Level		Source Page					Virtual Feat						Save checks bonus											Combat bonus					BONUS:FEAT
-CLASS:Plant (Mindless)	OUTPUTNAME:Plant	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Plant Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+CLASS:Plant (Mindless)	OUTPUTNAME:Plant	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Plant Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-floor(CL/3)
 # Class Name		Reg. Race Type
 CLASS:Plant (Mindless)	PRERACETYPE:Plant
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
@@ -193,14 +193,14 @@ CLASS:Undead	PRERACETYPE:Undead
 CLASS:Undead	STARTSKILLPTS:4	MODTOSKILLS:YES
 
 # Class Name		Output Name		Hit Dice	Type			Max Level		Source Page					Virtual Feat																Save checks bonus											Combat bonus					BONUS:FEAT
-CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Undead Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Undead Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-floor(CL/3)
 # Class Name		Reg. Race Type
 CLASS:Undead (Mindless)	PRERACETYPE:Undead
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Undead (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
 # Class Name	Hit Dice	Type			Max Level		Source Page					Virtual Feat						Save checks bonus											Combat bonus					BONUS:FEAT
-CLASS:Vermin	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Vermin Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+CLASS:Vermin	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Vermin Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-floor(CL/3)
 # Class Name	Reg. Race Type
 CLASS:Vermin	PRERACETYPE:Vermin
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
