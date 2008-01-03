@@ -43,7 +43,7 @@
 		<li>The use of Heavy_GyroJet_Launcher is also permitted.</li>
 		<li>The use of Heavy GyroJet Launcher will cause indexing problems and is not permitted.</li></p>
 
-	<p><li>For searching purposes, put all like items in the same TYPE: statement, seperated by periods (.).
+	<p><li>For searching purposes, put all like items in the same TYPE: statement, separated by periods (.).
 	The exact sequence of variables listed does not matter, can be alphabetical, numbertical, or mixed.</li>
 		<li>TYPE:Class.Hidden.RadiantEnlightenment</li>
 		<li>This will cause this item to show up in searches of Class, Hidden, and RadiantEnlightenment in
@@ -51,6 +51,13 @@
 		<li>TYPE:NPC.Base</li>
 		<li>This will cause this item to show up in searches of NPC and Base in Classes groups.</li><hr>
 
+	<p><li>A problem with one of the parser. When it looks at some of the variables it parses them
+			strangely.  It is best to avoid the use of MIN and MAX in your variables till the parser is
+			replaced in the area of 6.0+</li>
+			<li>For some idea of other things to avoid try <a href="/globalfilesformulas.html">Math Operators and Formulas</a>.</li>
+		<li>The variable CHAMIN3 is coming out as min(CHA,3).</li>
+		<li>The variable MindBladeECL is coming out as ()MIN(dBladeECL).</li></p>
+		<li>The TYPE Illumination is apparently coming out as (Illu)MIN(ation).</li></p>
 
 	<h2><a name="GLOSSARY">The Variable Glossary</a></h2>
 
@@ -67,8 +74,7 @@
 		<p><strong><a name="3e">D&amp;D 3.0 Edition (3e)</a></strong></p>
 
 		<blockquote>
-			<p><a href="#BaS">Bards and Sages (BaS) - Neiyar</a><br>
-			<a href="#BP">Bastion Press (BP) - Faeries</a></p>
+			<p><a href="#BP">Bastion Press (BP) - Faeries</a></p>
 		</blockquote>
 
 		<p><strong><a name="35e">D&amp;D 3.5 Edition (35e)</a></strong></P>
@@ -76,7 +82,11 @@
 		<blockquote>
 			<p><a href="#APG1">Alea Publishing Group (APG) - A Question of Loyalty</a><br>
 			<a href="#APG2">Alea Publishing Group (APG) - Honor and Corruption</a><br>
-			<a href="#BaS">Bards and Sages (BaS) - Neiyar</a></p>
+			<a href="#BaS">Bards and Sages (BaS) - Neiyar</a>
+			<a href="#B3">Behemoth3 (B3) - Masters and Minions</a>
+			<a href="#BFG">Big Finger Games - Fantasy Folio - Masterwork Qualities</a>
+
+			</p>
 		</blockquote>
 
 		<p><strong><a name="Deadlands">Deadlands</a></strong></p>
@@ -111,7 +121,7 @@
 
 <hr>
 
-	<p class="indent1"><a name="APG1"><strong>Alea Publishing Group (APG) - A Question of Loyalty (35e)</strong></a></p>
+	<p class="indent1"><a name="APG1"><strong>Alea Publishing Group (APG) - A Question of Loyalty (35e)</a></p>
 	<blockquote>
 
 		<p><strong>APG questionloyalty_class_prestige.lst File.</strong></p>
@@ -164,7 +174,7 @@
 
 <hr>
 
-	<p class="indent1"><a name="AP"><strong>Avalanche Press (AP) - Vlad the Impaler (3e)</strong></a></p>
+	<p class="indent1"><a name="AP"><strong>Avalanche Press (AP) - Vlad the Impaler (3e)</a></p>
 	<blockquote>
 
 		<p><strong>AP vlad_classes.lst File.</strong></p>
@@ -192,7 +202,7 @@
 
 <hr>
 
-	<p class="indent1"><a name="BaS"><strong>Bards and Sages (BaS) - Neiyar (35e)</strong></a></p>
+	<p class="indent1"><a name="BaS"><strong>Bards and Sages (BaS) - Neiyar (35e)</a></p>
 	<blockquote>
 
 		<p><strong>BaS neiyar_classes.lst File.</strong></p>
@@ -290,7 +300,7 @@
 
 <hr>
 
-	<p class="indent1"><a name="BP">Bastion Press (BP) - Faeries (3e)</strong></a></p>
+	<p class="indent1"><a name="BP">Bastion Press (BP) - Faeries (3e)</a></p>
 	<blockquote>
 
 	<p><strong>BP faeries_classes.lst File.</strong></p>
@@ -306,11 +316,11 @@
 	<p><strong>BP faeries_feats_aspects.lst File.</strong></p>
 		<p><code>TYPE:AspectOfNature</code></p>
 
-	<p><strong>BaS neiyar_equip_magic_items.lst File.</strong></p>
+	<p><strong>BP faeries_feats_hidden.lst File.</strong></p>
 		<p><code>TYPE:FaerieRacialTrait</code><br>
-		<code>TYPE:FeyArts</code><br>
-		<code>TYPE:Special.RacialTraitCost</code><br>
-		<code>TYPE:Special.UncannyDodge</code></p>
+		<p><code>TYPE:FeyArts</code><br>
+		<p><code>TYPE:Special.RacialTraitCost</code><br>
+		<p><code>TYPE:Special.UncannyDodge</code></p>
 
 	<p><strong>BP faeries_languages.lst File.</strong></p>
 		<p><code>TYPE:Spoken</code></p>
@@ -320,7 +330,7 @@
 
 	<p><strong>BP faeries_spells.lst File.</strong></p>
 		<p><code>TYPE:Arcane</code><br>
-		<code>TYPE:Arcane.Divine</code></p>
+		<code>TYPE:Divine</code></p>
 
 	<p><strong>BP faeries_templates_focus.lst File.</strong></p>
 		<p><code>TYPE:Fey</code><br>
@@ -331,7 +341,7 @@
 
 <hr>
 
-	<p class="indent1"><a name="BFP">Battlefield Press (BP) - Pulp Fantasy (Modern)</strong></a></p>
+	<p class="indent1"><a name="BFP">Battlefield Press (BP) - Pulp Fantasy (Modern)</a></p>
 	<blockquote>
 
 		<p><strong>BP pulpfantasy_abilities.lst File.</strong></p>
@@ -592,11 +602,101 @@
 
 	</blockquote>
 
+<hr>
+
+	<p class="indent1"><a name="B3">Behemoth3 (B3) - Masters and Minions (35e)</a></p>
+	<blockquote>
+
+	<p><strong>B3 mazeminotaur_classes.lst File.</strong></p>
+		<p><code>TYPE:Monster</code><br>
+		<code>TYPE:PC.Prestige</code></p>
+
+	<p><strong>B3 mazeminotaur_equip.lst File.</strong></p>
+		<p><code>TYPE:Goods.Alchemical.Consumable.Flask</code><br>
+		<code>TYPE:Goods.General</code><br>
+		<code>TYPE:Goods.Trade</code></p>
+
+	<p><strong>B3 mazeminotaur_feats_hidden.lst File.</strong></p>
+		<p><code>TYPE:SpecialQuality.Extraordinary</code><br>
+		<code>TYPE:SpecialQuality.Supernatural</code><br>
+		<p><code>TYPE:SpecialAttack.Extraordinary</code><br>
+		<p><code>TYPE:SpecialQuality.Extraordinary</code><br></p>
+
+	<p><strong>BP faeries_languages.lst File.</strong></p>
+		<p><code>TYPE:Spoken</code></p>
+
+	<p><strong>B3 mazeminotaur_races.lst File.</strong></p>
+		<p><code>TYPE:Monstrous Humanoid</code><br>
+		<p><code>TYPE:Magical Beast</code></p>
+
+	<p><strong>BP faeries_skills.lst File.</strong></p>
+		<p><code>TYPE:Intelligence.Knowledge</code></p>
+
+	<p><strong>BP faeries_spells.lst File.</strong></p>
+		<p><code>TYPE:Arcane</code><br>
+		<code>TYPE:Divine</code></p>
+
+	<p><strong>BP faeries_templates_focus.lst File.</strong></p>
+		<p><code>TYPE:Fey</code><br>
+		<code>TYPE:Humanoid</code><br>
+		<code>TYPE:Giant</code></p>
+
+	</blockquote>
+
+<hr>
+
+	<p class="indent1"><a name="BFG">Big Finger Games - Fantasy Folio - Masterwork Qualities(35e)</a></p>
+	<blockquote>
+
+	<p><strong>BFG masterworkqualities_equip_weap_melee.lst File.</strong></p>
+		<p><code>TYPE:Weapon.Melee.Martial.Specific.Slashing.Sword</code><br>
+		<code>TYPE:Weapon.Melee.Ranged.Simple.Thrown.Specific.Piercing.Slashing.Dagger</code></p>
+
+	<p><strong>BFG masterworkqualities_equipmods.lst File.</strong></p>
+		<p><code>TYPE:Weapon</code><br>
+		<code>TYPE:Ammunition</code><br>
+		<code>TYPE:Armor</code></p>
+
+	</blockquote>
+
+
 </blockquote>
 
 	<h3 class="indent1"><a href="#Complete">The Complete Listing of Variables</a></h3>
 
 	<p></p>
+
+	<p class="indent0"><strong><a name="abilities">Group Name:</a></strong> -- abilities.lst</p>
+	<ul class="indent2">
+		<li>AddTalent</li>
+		<li>Attentive</li>
+		<li>Authority</li>
+		<li>BrainsOverBrawn</li>
+		<li>Brawler</li>
+		<li>ByGraceOfFortune</li>
+		<li>CharismaticPlus</li>
+		<li>CharismaticTalent</li>
+		<li>DedicatedPlus</li>
+		<li>DedicatedTalent</li>
+		<li>Deduction</li>
+		<li>Elusive</li>
+		<li>FastLearner</li>
+		<li>FastTalent</li>
+		<li>InstinctiveResponse</li>
+		<li>MechanicalAptitude</li>
+		<li>NeedForSpeed</li>
+		<li>Precision</li>
+		<li>Prodigy</li>
+		<li>Rage</li>
+		<li>Research</li>
+		<li>SmartTalent</li>
+		<li>Soldiery</li>
+		<li>StrongTalent</li>
+		<li>Survivalist</li>
+		<li>Talent</li>
+		<li>ToughTalent</li>
+
+	</ul>
 
 	<p class="indent0"><strong><a name="classes">Group Name:</a></strong> -- classes.lst</p>
 	<ul class="indent2">
@@ -624,6 +724,11 @@
 	<ul class="indent2">
 		<li>PC</li>
 		<li>Prestige</li>
+	</ul>
+
+	<p class="indent0"><strong><a name="classes_monster">Group Name:</a></strong> -- classes_monster.lst</p>
+	<ul class="indent2">
+		<li>Monster</li>
 	</ul>
 
 	<p class="indent0"><strong><a name="class_prestige">Group Name:</a></strong> -- class_prestige.lst</p>
@@ -681,6 +786,7 @@
 		<li>Cybernetics</li>
 		<li>Fire</li>
 		<li>Flask</li>
+		<li>Gadget</li>
 		<li>General</li>
 		<li>Headgear</li>
 		<li>Laser</li>
@@ -805,8 +911,10 @@
 
 	<p class="indent0"><strong><a name="equip_magic_items_Goods">Group Name:</a></strong> -- equip_magic_items.lst TYPE:Goods</p>
 	<ul class="indent2">
+		<li>Alchemical</li>
 		<li>Book</li>
 		<li>Boot</li>
+		<li>Consumable</li>
 		<li>Container</li>
 		<li>Food</li>
 		<li>Glove</li>
@@ -847,6 +955,7 @@
 		<li>Potion</li>
 		<li>Ring</li>
 		<li>Shield</li>
+		<li>Simple</li>
 		<li>Slashing</li>
 		<li>Specific</li>
 		<li>Staff</li>
@@ -888,14 +997,13 @@
 		<li>Finesseable</li>
 		<li>Martial</li>
 		<li>Piercing</li>
-		<li>Standard</li>
 		<li>Ranged</li>
 		<li>Reach</li>
-		<li>Sword</li>
 		<li>Simple</li>
 		<li>Slashing</li>
 		<li>Standard</li>
 		<li>Subdual</li>
+		<li>Sword</li>
 		<li>Thrown</li>
 	</ul>
 
@@ -931,7 +1039,6 @@
 		<li>Aircraft</li>
 		<li>Car</li>
 		<li>Hovervehicle</li>
-		<li>Motorcycle</li>
 		<li>Truck</li>
 		<li>Wheel</li>
 	</ul>
@@ -940,6 +1047,7 @@
 	<ul class="indent2">
 		<li>Aircraft</li>
 		<li>Armored</li>
+		<li>Motorcycle</li>
 		<li>Track</li>
 		<li>Tracked</li>
 		<li>U-boat</li>
@@ -958,7 +1066,6 @@
 		<li>Metal</li>
 		<li>Standard</li>
 	</ul>
-
 
 	<p class="indent0"><strong><a name="equip_weap_melee_Weapon_Melee">Group Name:</a></strong> -- equip_weap_melee.lst TYPE:Weapon.Melee</p>
 	<ul class="indent2">
@@ -1006,7 +1113,7 @@
 		<li>Unarmed</li>
 	</ul>
 
-	<p class="indent0"><strong><a name="equip_weap_ranged_Weapon_Ranged_Standard_Firearm">Group Name:</a></strong> -- equip_weap_ranged.lst TYPE:Weapon.Ranged.Standard.Firearm</p>
+	<p class="indent0"><strong><a name="equip_weap_ranged_Weapon_Ranged_Standard">Group Name:</a></strong> -- equip_weap_ranged.lst TYPE:Weapon.Ranged.Standard</p>
 	<ul class="indent2">
 		<li>Archaic</li>
 		<li>Automatic</li>
@@ -1017,6 +1124,7 @@
 		<li>Disintegration</li>
 		<li>Exotic</li>
 		<li>Fire</li>
+		<li>Firearm</li>
 		<li>GrenadeLauncher</li>
 		<li>Heavy</li>
 		<li>HeavyGyroJetLauncher</li>
@@ -1048,6 +1156,14 @@
 		<li>Wooden</li>
 	</ul>
 
+	<p class="indent0"><strong><a name="equipmods">Group Name:</a></strong> -- equipmods.lst</p>
+	<ul class="indent2">
+		<li>Ammunition</li>
+		<li>Armor</li>
+		<li>Gadget</li>
+		<li>Weapon</li>
+	</ul>
+
 	<p class="indent0"><strong><a name="feats">Group Name:</a></strong> -- feats.lst</p>
 	<ul class="indent2">
 		<li>Ambassador</li>
@@ -1069,6 +1185,7 @@
 		<li>Mystery_Man</li>
 		<li>Operator</li>
 		<li>Order</li>
+		<li>Rogue</li>
 		<li>Smart</li>
 		<li>SmartPreferred</li>
 		<li>Special</li>
@@ -1157,6 +1274,7 @@
 		<li>IconLPL5</li>
 		<li>InstinctiveResponse</li>
 		<li>Internal</li>
+		<li>KnightHP</li>
 		<li>LegendaryArcaneResistance</li>
 		<li>LegendaryCaptivatingSpeach</li>
 		<li>LegendaryCheatDeath</li>
@@ -1219,6 +1337,7 @@
 		<li>RelicHunterAbility</li>
 		<li>ScientistAbility</li>
 		<li>SecretEnlightenment</li>
+		<li>ScoundrelHP</li>
 		<li>ShalraekuZarakku</li>
 		<li>ShadowyAvengerAbility</li>
 		<li>ShamanElementalForm</li>
@@ -1234,6 +1353,7 @@
 		<li>SpiritAdeptPowers</li>
 		<li>SpyAbility</li>
 		<li>StrongTalent</li>
+		<li>Subclass</li>
 		<li>Supernatural</li>
 		<li>Survivalist</li>
 		<li>TeutonicKnightCombat</li>
@@ -1260,8 +1380,8 @@
 		<li>Ambassador</li>
 		<li>Antiques_Dealer</li>
 		<li>Athlete</li>
+		<li>Athlete</li>
 		<li>BarterJack</li>
-		<li>BarterKing</li>
 		<li>Brawler</li>
 		<li>Bureaucrat</li>
 		<li>Circus_Performer</li>
@@ -1785,15 +1905,6 @@
 		<li>Outsider</li>
 	</ul>
 
-	<p class="indent0"><strong><a name="weapons">Group Name:</a></strong> -- weapons.lst</p>
-	<ul class="indent2">
-		<li>Arquebus</li>
-		<li>Cannon</li>
-		<li>Ranged</li>
-		<li>Projectile</li>
-		<li>Weapon</li>
-	</ul>
-
 	<p class="indent0"><strong><a name="weaponprofs">Group Name:</a></strong> -- weaponprofs.lst</p>
 	<ul class="indent2">
 		<li>Archaic</li>
@@ -1809,6 +1920,16 @@
 	<ul class="indent2">
 		<li>Natural</li>
 	</ul>
+
+	<p class="indent0"><strong><a name="weapons">Group Name:</a></strong> -- weapons.lst</p>
+	<ul class="indent2">
+		<li>Arquebus</li>
+		<li>Cannon</li>
+		<li>Ranged</li>
+		<li>Projectile</li>
+		<li>Weapon</li>
+	</ul>
+
 </body>
 
 </html>
