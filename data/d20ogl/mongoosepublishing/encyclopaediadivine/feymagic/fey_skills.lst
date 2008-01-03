@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Thu Jan  3 00:21:19 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
+
+# Skill Name		Key Stat	Untrained?		Type					Bonus to skill																											Source Page
+Knowledge (Fey)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge																														SOURCEPAGE:p.8
+Knowledge (Enigmas)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	BONUS:SKILL|Open Locks|SynergyBonus|TYPE=Synergy|PRESKILL:1,Knowledge (Enigmas)=5	BONUS:SKILL|Disable Device|SynergyBonus|TYPE=Synergy|PRESKILL:1,Knowledge (Enigmas)=5	SOURCEPAGE:p.12
+Knowledge (Reverie)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Reverie)|2|PRERACE:1,Elf%																					SOURCEPAGE:p.16

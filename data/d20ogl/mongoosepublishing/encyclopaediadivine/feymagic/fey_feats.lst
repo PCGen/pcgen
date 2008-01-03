@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Thu Jan  3 00:21:19 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
+
+# Feat Name			Type			Required Feat		Required Skill						Description														Stackable?	Multiple?	Choose											Bonus to skill		Source Page		PREPCLEVEL
+Animal Totem		TYPE:Special	PREFEAT:1,Forge Bond									DESC:You no longer run the risk of losing your bonded companion							MULT:NO																	SOURCEPAGE:p.34
+Craft Token			TYPE:ItemCreation					PRESKILL:1,Knowledge (Reverie)=4			DESC:You can harness the Reverie to enchant fey tokens								MULT:NO																	SOURCEPAGE:p.34
+Fey Blooded			TYPE:General													DESC:You are a changling, born of fey and human blood									MULT:NO																	SOURCEPAGE:p.34	PREPCLEVEL:MAX=1
+Fey Gift			TYPE:Special					PRESKILL:1,Knowledge (Reverie)=1			DESC:You have focused the Reverie within yourself to call upon additional natural gifts	STACK:NO	MULT:YES	CHOOSE:USERINPUT|100|TITLE="Choose a 0 through 3rd level Druid Spell"					SOURCEPAGE:p.34
+#TODO: Fey Gift is not working as it should - until we get a spell chooser it will not be fully functional
+Forge Bond			TYPE:ItemCreation					PRESKILL:2,Knowledge (Reverie),Animal Empathy=4	DESC:You can use the Reverie to forge a mystical bond with an animal companion				MULT:NO																	SOURCEPAGE:p.34
+Mark of the Fey		TYPE:General													DESC:You have been marked as one of the champions of the fey							MULT:NO																	SOURCEPAGE:p.34	PREPCLEVEL:MAX=1
+Resist Fey			TYPE:General													DESC:You have builf up a resistance to the enchantments of the fey						MULT:NO																	SOURCEPAGE:p.34
+Waking Dreamer		TYPE:General					PRESKILL:1,Knowledge (Reverie)=12			DESC:You can call upon the powers of the Reverie while you are still awake					MULT:NO																	SOURCEPAGE:p.34
+Craft Focus			TYPE:General													DESC:+2 to one selected craft skill												MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Craft|1							BONUS:SKILL|LIST|2	SOURCEPAGE:p.28
+Improved Craft Focus	TYPE:General	PREFEAT:1,Craft Focus									DESC:+4 to one selected craft skill												MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Craft|1							BONUS:SKILL|LIST|4	SOURCEPAGE:p.28

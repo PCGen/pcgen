@@ -1,0 +1,83 @@
+# CVS $Revision$ $Author$ -- Thu Jan  3 00:21:19 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Feydancer	HD:4		TYPE:PC.Prestige	ABB:Fyd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+# Class Name	Required Language	Required Skill
+CLASS:Feydancer	PRELANG:1,Sylvan	PRESKILL:2,Knowledge (Fey),Knowledge (Reverie)=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Feydancer	STARTSKILLPTS:4	CSKILL:Animal Empathy|TYPE.Craft|Knowledge (Fey)|Knowledge (Reverie)|Perform|TYPE.Profession|Sense Motive|Spot|Wilderness Lore
+1	SAB:Attunement +%|ATTUNEMENT	SAB:Essence Retention	BONUS:VAR|ATTUNEMENT|2	DEFINE:ATTUNEMENT|0
+2																		ADD:FEAT|1|Fey Gift
+3	SAB:Attunement +%|ATTUNEMENT					BONUS:VAR|ATTUNEMENT|2
+4	SAB:Essence Efficiency %|EssEff				BONUS:VAR|EssEff|1	DEFINE:EssEff|0
+5										BONUS:VAR|ATTUNEMENT|2					ADD:FEAT|1|Fey Gift
+6	SAB:Enchanted Slumber
+7										BONUS:VAR|ATTUNEMENT|2
+8										BONUS:VAR|EssEff|1					ADD:FEAT|1|Fey Gift
+9										BONUS:VAR|ATTUNEMENT|2
+10	SAB:Transformation																		TEMPLATE:Feydancer Transformation
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+# Class Name	Required Feat					Required Skill										Req. Spell Type
+CLASS:Spellbinder	PREFEAT:2,Craft Token,TYPE.ItemCreation	PRESKILL:2,TYPE.Craft,TYPE.Craft=8	PRESKILL:1,Knowledge (Reverie)=6	PRESPELLTYPE:1,Arcane=2Divine=2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Spellbinder	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|Knowledge (Reverie)|TYPE.Profession|Spellcraft|Wilderness Lore
+1	SAB:Sense Token																							ADD:FEAT|1|Craft Focus
+2	SAB:Hand of the Inventor (+%)|HOTI	SAB:Overcharge %|OVERCHARGE	BONUS:VAR|HOTI|2	BONUS:VAR|OVERCHARGE|1	DEFINE:HOTI|0	DEFINE:OVERCHARGE|0
+3																										ADD:FEAT|1|Improved Craft Focus
+4												BONUS:VAR|HOTI|2												ADD:FEAT|1|Craft Focus
+5	SAB:Invest Token									BONUS:VAR|OVERCHARGE|1
+6												BONUS:VAR|HOTI|2												ADD:FEAT|1|Improved Craft Focus
+7	SAB:Command Word Activated																					ADD:FEAT|1|Craft Focus
+8												BONUS:VAR|HOTI|2	BONUS:VAR|OVERCHARGE|1
+9																										ADD:FEAT|1|Improved Craft Focus
+10	SAB:Use Activated									BONUS:VAR|HOTI|2
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Wylding	HD:6		TYPE:PC.Prestige	ABB:Wyl		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+# Class Name	Required Feat		Required Skill										Req. Known Spell
+CLASS:Wylding	PREFEAT:1,Forge Bond	PRESKILL:3,Wilderness Lore,Knowledge (Nature),Knowledge (Reverie)=8	PRESPELL:1,Speak with Plants
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wylding	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Wilderness Lore
+1	SAB:Safe Passage (Natural)															SPELLS:Innate|TIMES=1|Speak with Plants
+2	SAB:Absorb Essence %|ABSORBESSENCE	BONUS:VAR|ABSORBESSENCE|1	DEFINE:ABSORBESSENCE|0	ADD:SPELLCASTER|1|ANY
+3	SAB:Plant Bond																	SPELLS:Innate|TIMES=2|Speak with Plants
+4	SAB:Safe Passage (Enchanted)											ADD:SPELLCASTER|1|ANY
+5							BONUS:VAR|ABSORBESSENCE|1									SPELLS:Innate|TIMES=3|Speak with Plants
+6																ADD:SPELLCASTER|1|ANY
+7																				SPELLS:Innate|TIMES=-1|Speak with Plants
+8																ADD:SPELLCASTER|1|ANY	SPELLS:Innate|TIMES=-1|Commune with Nature
+9							BONUS:VAR|ABSORBESSENCE|1
+10	SAB:Symbiosis													ADD:SPELLCASTER|1|ANY									TEMPLATE:Wylding Plant
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Chosen Protector	HD:10		TYPE:PC.Prestige	ABB:Chp		MAXLEVEL:10	SOURCEPAGE:p.32	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL
+# Class Name		Req. Att.	Required Feat	Required Skill
+CLASS:Chosen Protector	PREATT:5	PREFEAT:1,Track	PRESKILL:1,Wilderness Lore=8	PRESKILL:1,Knowledge (Fey)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Chosen Protector	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Spot|Swim|Wilderness Lore
+1	SAB:Scent of the Hunter (+%)|CL	SAB:Slayer (+%)|CPSLAYER	BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1	DEFINE:CPSLAYER|0
+2	SAB:Augmentation													BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Listen,Spot,Wilderness Lore|1													TEMPLATE:Chosen Protector Natural Attacks
+3												BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
+4																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally I
+5												BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
+6																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally II
+7												BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
+8																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally III
+9												BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
+10																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally IV
+
+
+# Class Name
+CLASS:Druid.MOD
+1	ADD:CLASSSKILLS|1|Knowledge (Reverie)
+
+
+# Class Name
+CLASS:Ranger.MOD
+1	ADD:CLASSSKILLS|1|Knowledge (Reverie)
