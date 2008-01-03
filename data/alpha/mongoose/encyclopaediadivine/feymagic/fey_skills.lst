@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Apr  2 04:37:37 2007 -- reformated by prettylst.pl v1.38 (build 2621)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Thu Jan  3 00:21:19 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
 
 # Skill Name		Key Stat	Untrained?		Type					Bonus to skill																											Source Page
 Knowledge (Fey)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge																														SOURCEPAGE:p.8

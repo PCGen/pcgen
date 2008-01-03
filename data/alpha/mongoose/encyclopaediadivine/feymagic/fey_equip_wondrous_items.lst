@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:02:45 2007 -- reformated by prettylst.pl v1.37 (build 2312)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Thu Jan  3 00:21:19 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
 
-# Equipment Name			Output Name					Required Proficiency		Type					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Combat bonus						Bonus to skill							Special Property	Special Ability
+# Equipment Name			Output Name					Required Proficiency		Type					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Combat bonus						Bonus to skill							Special Property	Special ABility
 Potion (Fey Sight)		OUTPUTNAME:Potion of [NAME]							TYPE:Magic.Potion.Consumable	COST:250	WT:0																		SOURCEPAGE:p.48
 Potion (Dreaming)			OUTPUTNAME:Potion of [NAME]							TYPE:Magic.Potion.Consumable	COST:300	WT:0																		SOURCEPAGE:p.48
 Potion (Enchanted Sleep)	OUTPUTNAME:Potion of [NAME]							TYPE:Magic.Potion.Consumable	COST:250	WT:0																		SOURCEPAGE:p.48
@@ -13,8 +13,6 @@ Rod (Fey Blood)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod			COST:23000	WT:
 Staff (Wanderer)			OUTPUTNAME:Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff			COST:90000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.49	BONUS:COMBAT|DAMAGE,TOHIT|2|TYPE=Enchantment
 Staff (Protection)		OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Staff			COST:45000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.49	BONUS:COMBAT|DAMAGE,TOHIT|3|TYPE=Enchantment										SPROP:Defending
 
-# Fey Token requires a MOD but there are no MODs set up for it, perhaps it needs to be a mod since a fey token can be any object
-
 ###Block: Fey Token
-# Equipment Name	Type		Cost		Weight	Requires Modification?	Source Page
-Fey Token		TYPE:Token	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.50
+# Equipment Name	Type		Cost		Weight	Source Page
+Fey Token		TYPE:Token	COST:0	WT:0		SOURCEPAGE:p.50
