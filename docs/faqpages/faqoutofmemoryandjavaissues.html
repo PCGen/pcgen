@@ -77,6 +77,16 @@
 
 				<ul>
 					<li>Refer to Mac instructions</li>
+					<li>Alternatively, you may make the following change to the <em>pcgen.sh</em> file.:
+						<ol>
+							<li>Open the <em>pcgen.sh</em> file.</li>
+							<li>Find the following line: <code>java -jar ./pcgen.jar</code> . . .</li>
+							<li>Replace it with the following line: <code>java -Xms256m -Xmx512m -jar ./pcgen.jar</code> . . .</li>
+							<li>The values &quot;256&quot; and &quot;512&quot; are the &quot;Minimum&quot; 
+								and &quot;Maximum&quot; memory allocated to PCGen when it is run.</li>
+							<li>The line of replacement code may also be run at the command line.</li>
+						</ol>
+					</li>
 				</ul>
 			<p></ p>
 				<p>For All Users:<br /></p>
@@ -187,22 +197,22 @@
 				<p class="indent2">Solution #1: Create a new file called <em>PCGen.cmd</em> and then put 
 				the following into it:</p>
 
-				<ul class="indent2">
-					<li>&lt;Path to Java&gt; -Xms&lt;Minimum Memory&gt;m -Xmx&lt;Maximum Memory&gt;m -jar E:\PCGen5102\pcgen.jar</li>
+				<ol class="indent2">
+					<li><code>&lt;Path to Java&gt; -Xms&lt;Minimum Memory&gt;m -Xmx&lt;Maximum Memory&gt;m -jar E:\PCGen5102\pcgen.jar</code></li>
 					<li>Put your paths and memory limits in as appropriate. If the path has a space in it, you need the quotes.
-					<ul>
+					<ol style="list-style-type: lower-alpha">
 						<li>Sample Path to Java: &quot;C:\Program Files (x86)\Java\jre1.6.0_01\bin\java.exe&quot;</li>
 						<li>Minimum Memory: 768, Maximum Memory: 1024
 						<li>Sample Path to PCGen: &quot;E:\PCGen5102\&quot;</li>
 						<li>Note: &quot;Quotes&quot; are required in path names that include spaces.</li>
-					</ul></li>
+					</ol></li>
 					<li>Launch PCGen by running the <em>PCGen.cmd</em> file.</li>
-				</ul>
+				</ol>
 				<p></ p>
 
 				<p class="indent2">Solution #2: Add the bin directory from your java install to the path.:</p>
 
-				<ul class="indent2">
+				<ol class="indent2">
 					<li>Open the control panel.</li>
 					<li>Open the system item.</li>
 					<li>Select the advanced tab.</li>
@@ -212,7 +222,7 @@
 					<li>Add the bin directory to the end of the path.</li>
 					<li>Note: The path is a semi-colon (;) separated list.</li>
 					<li>Launch PCGen by running the <em>pcgen.bat</em> file.</li>
-				</ul>
+				</ol>
 
 <hr>
 
