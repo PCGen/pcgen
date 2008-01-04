@@ -23,25 +23,36 @@
 	<body>
 		<h1>NPC Generator Data Files</h1>
 		
-		<p class="indent1">The NPC generator uses XML formated data to establish the 'options' .<p>
+		<p class="indent1">The NPC generator uses XML formated data to establish the 
+		character options, class data, and treasure data. The data files are located 
+		in the <em>system/npcgen.options</em>, <em>system/npcgen/classdata</em>, and
+		<em>system/npcgen/treasure</em> folders respectively. Though the data files 
+		that are used to support NPCGen may be modified by the user, requireing a 
+		familiarity with XML, they were not designed to be extensible as the LST file 
+		structure and tags were.<p>
 		
 		<h2>Class Data Files</h2>
 		
-		<h3>Defining the Data Structure - <em>classdata.xsd</em></h3>
-		
-		<h3>Filling in the Data - <em>classdata.xml</em></h3>
+		<p class="indent1">The data-structure of the &quot;class data&quot; is defined 
+		in the file named <em>classdata.xsd</em> while the actual data is contained in 
+		the file named <em>classdata.xml</em>. Each gameMode will have its own XML file 
+		to establish its own class data, though all gameModes will use the same data-structure.</p>
 		
 		<h2>Options Data Files</h2>
 		
-		<h3>Defining the Data Structure - <em>options.xsd</em></h3>
-		
-		<h3>Filling in the Data - <em>optionsdata.xml</em></h3>
+		<p class="indent1">The data-structure of the character &quot;options&quot; is 
+		defined in the file named <em>options.xsd</em> while the actual data is contained 
+		in the file named <em>optionsdata.xml</em>. Each gameMode will have its own XML file 
+		to establish its own character options, though all gameModes will use the same 
+		data-structure.</p>
 		
 		<h2>Treasure Data Files</h2>
 		
-		<h3>Defining the Data Structure - <em>treasure.xsd</em></h3>
-		
-		<h3>Filling in the Data - <em>treasuredata.xml</em></h3>
+		<p class="indent1">The data-structure of the &quot;treasure&quot; data is defined 
+		in the file named <em>treasure.xsd</em> while the actual data is contained in 
+		the file named <em>treasure.xml</em>. Each gameMode will have its own XML file to 
+		establish its own treasure data, though all gameModes will use the same data-structure.</p>
+		<p></ p>
 		
 <hr>
 
