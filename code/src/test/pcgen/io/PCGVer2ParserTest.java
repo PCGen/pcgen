@@ -193,4 +193,17 @@ public class PCGVer2ParserTest extends TestCase
 
 		assertEquals(3, version.length);
 	}
+	
+	public void testCompareVersionTo() throws PCGParseException
+	{
+		PCGVer2Parser parser = new PCGVer2Parser(null);
+
+		parser.parseVersionLine("VERSION:5.13.6");
+		assertEquals("Check of a matching version", 0, parser
+			.compareVersionTo(new int[]{5, 13, 6}));
+		assertEquals("Check of an earlier version", -1, parser
+			.compareVersionTo(new int[]{5, 13, 7}));
+		assertEquals("Check of a later version", 1, parser
+			.compareVersionTo(new int[]{5, 13, 5}));
+	}
 }

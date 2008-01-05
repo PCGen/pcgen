@@ -5262,7 +5262,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	protected int compareVersionTo(int inVer[])
 	{
-		return CoreUtility.compareVersions(inVer, pcgenVersion);
+		return CoreUtility.compareVersions(pcgenVersion, inVer);
 	}
 
 	/**
