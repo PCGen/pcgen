@@ -75,6 +75,10 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager<String>
 			{
 				profKey = profKey.substring(5);
 			}
+			if (profKey.startsWith("ARMORTYPE"))
+			{
+				profKey = profKey.substring(10);
+			}
 			availableList.add(profKey);
 		}
 

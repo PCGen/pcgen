@@ -3985,7 +3985,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			//
 			// Insert all types at the head of the list
 			//
-			if (aProf.startsWith("TYPE=") || aProf.startsWith("TYPE."))
+			if (aProf.startsWith("ARMORTYPE=") || aProf.startsWith("ARMORTYPE."))
+			{
+				armorProfList.add(0, aProf);
+			}
+			else if (aProf.startsWith("TYPE=") || aProf.startsWith("TYPE."))
 			{
 				armorProfList.add(0, aProf);
 			}
@@ -11906,30 +11910,34 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString = aList.get(i);
 
-			if ((aString.startsWith("TYPE=") || aString.startsWith("TYPE.")))
+			StringTokenizer tok;
+			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 			{
-				int matches = 0;
-				final StringTokenizer tok = new StringTokenizer(aString
-					.substring(5), ".");
-				final int minMatches = tok.countTokens();
-				while (tok.hasMoreTokens())
-				{
-					final String aType = tok.nextToken();
-					if (eq.isType(aType))
-					{
-						matches++;
-					}
-				}
-				// We have to match all the tokens.
-				if (matches == minMatches)
-				{
-					return true;
-				}
+				tok = new StringTokenizer(aString.substring(5), ".");
+			}
+			else if (aString.startsWith("ARMORTYPE=") || aString.startsWith("ARMORTYPE."))
+			{
+				tok = new StringTokenizer(aString.substring(10), ".");
 			}
 			else
 			{
 				// All TYPE profs are at the beginning of the list
 				break;
+			}
+			int matches = 0;
+			final int minMatches = tok.countTokens();
+			while (tok.hasMoreTokens())
+			{
+				final String aType = tok.nextToken();
+				if (eq.isType(aType))
+				{
+					matches++;
+				}
+			}
+			// We have to match all the tokens.
+			if (matches == minMatches)
+			{
+				return true;
 			}
 		}
 

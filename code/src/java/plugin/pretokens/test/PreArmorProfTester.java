@@ -58,6 +58,17 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements
 				// TYPE=Light equals TYPE.Light
 				runningTotal++;
 			}
+			else if (profName.startsWith("ARMORTYPE"))
+			{
+				if (profName.substring(5).equalsIgnoreCase(prereq.getKey()))
+				{
+					runningTotal++;
+				}
+				else if (profName.substring(10).equalsIgnoreCase(prereq.getKey()))
+				{
+					runningTotal++;
+				}
+			}
 		}
 
 		return countedTotal(prereq, runningTotal);
