@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.add;
+package plugin.lsttokens.deprecated;
 
 import pcgen.core.Constants;
 import pcgen.core.PObject;
@@ -27,6 +27,8 @@ public class SAToken implements AddLstToken
 
 	public boolean parse(PObject target, String value, int level)
 	{
+		Logging.deprecationPrint("ADD:SA "
+				+ "is deprecated.  Please use ADD:SAB");
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
