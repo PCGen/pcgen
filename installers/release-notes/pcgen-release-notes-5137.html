@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.13.7
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.13.7</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.13.7</a></li>
+	<li><a href="#Chars">Character Changes</a></li>
+	<li><a href="#GMGenIssue">GMGen known issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.13.7</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.13.7</a></h2>
+<p>PCGen v5.13.7 is an alpha release from our development branch to allow 
+experimentation and testing of our latest work. The main changes in this release
+were refinements to the new implementation of special abilities. </p>
+<ul>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Data installer for out of cycle data releases
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1859541" class="externalLink" title="External Link">1859541</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+
+
+</ul>
+<h3>New sources</h2>
+The following new sources were added in 5.13.7
+
+<ul>
+<LI>	[Silven Publishing] Curses!
+<LI>	[AEG] Feats
+</ul>
+
+
+<h2><a name="Chars">Character Changes</a></h2>
+<p>We've been making some major changes behind the scenes to the way special 
+abilities for characters are handled. The benefit is that it lets us 
+model them more accurately, with fighter feats tracked separately to normal 
+feats for example, and that we can output them more accurately on the character 
+sheet or stat block. However there is a downside - this means that there is some 
+migration required for some characters. For details of what you need to do, see 
+the sections for the affected game modes below. 
+</p><p>
+This revamp of abilities is something we would like your feedback on. So please 
+have a play with them and send your thoughts to the 
+<a href="http://groups.yahoo.com/group/pcgen">PCGen list</a>.  
+</p>
+
+<h3>Fantasy Character Changes</h3>
+<p>When a pre-generated SRD (3rd ed) or RSRD (3.5 ed) ranger, archmage or high level rogue 
+character is loaded, it will not recognize
+the selected abilities anymore. For that reason one or more error
+messages will be displayed at character load, which read: "Warning:
+Unable to Find Ability: xxx", where xxx is the name of an ability that
+the character had previously selected.
+</p><p>
+To fix this problem, you can take the following steps:
+</p>
+<OL>
+<LI>Write down the abilities that are mentioned in those error messages somewhere.
+
+<LI>Go to the Feats tab and select the new "Class Abilities" subtab
+
+<LI>In the lower right corner of the Class Abilities tab you see a drop down
+menu which reads "Rogue Special Abilities". Select the appropriate type of ability 
+for one of the abilities that you have noted. The "remaining" field should now show a
+positive number.
+
+<LI>In the upper left field only abilities that belong to that group will
+be displayed. Select your ability(s) for that group there.
+
+<LI>Repeat for any abilities that were taken from another group.
+</OL>
+
+
+<h3>MSRD Character Changes</h3>
+<p>When a pre-generated modern character is loaded, it will not recognize
+the selected Talents anymore. For that reason one or more error
+messages will be displayed at character load, which read: "Warning:
+Unable to Find Ability: xxx", where xxx is the name of a Talent that
+the character had previously selected.
+</p><p>
+To fix this problem, you can take the following steps:
+</p>
+<OL>
+<LI>Write down the Talents that are mentioned in those error messages somewhere.
+
+<LI>Go to the Feats tab and select the new "Talents" subtab
+
+<LI>In the lower right corner of the Talents tab you see a drop down
+menus which reads "Talents". Select a class that one of the talents
+you have noted was taken from. The "remaining" field should now show a
+positive number.
+
+<LI>In the upper left field only Talents that belong to that class will
+be displayed. Select your Talent(s) for that class there.
+
+<LI>Repeat for any Talents that were taken from another class.
+</OL>
+
+<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+  Tab when running a combat when you select any character other than the one whose
+  turn it is and click the Damage or Heal buttons the character whose turn it
+  is becomes selected and the damage is applied to him instead of the character
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around.
+  The problem will only manifest when using the System Look and Feel, you can
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.13.7 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Important Warning</h3>
+<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+very important that you read the <a href="#CustomDataSets">Custom Data Sets</a> section below before 
+installing your new version of PCGen.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5137_full.zip?download">pcgen5137_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5137_full.zip.asc?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5137_partial.zip?download">pcgen5137_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5137_partial.zip.asc?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5137_win_install.exe?download">pcgen5137_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5137_win_install.exe.asc?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5137_mac_install.dmg?download">pcgen5137_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5137_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+Editors and the starter data set <em>my_dataset</em>. Both of these need some 
+attention when upgrading PCGen.
+</P>
+<h3>Migrating Data Created in the LST Editor</h3>
+<p>
+If, as is recommended, you install PCGen into a new directory each time you upgrade, 
+you will need to copy over the data created using the LST Editors. To do this follow
+these steps.</p>
+<OL>
+<LI> Stop PCGen, if it is currently running. PCGen must not be 
+running when you copy the files, as PCGen writes a new copy of these files on exit.</LI>
+<LI>Copy the data/customsources folder and all of its contents from your old PCGen install 
+directory to the new install directory.</LI>
+<LI>Start the new version of PCGen and verify that your custom data is present.</LI>
+
+</OL>
+<p>
+If you install PCGen in the same directory as your previous install, your LST 
+editor data will still be present in the new version.</p> 
+
+<h3>Migrating Data Created using the my_dataset files</h3>
+<p>
+PCGen ships with an example set of data files ready to go to create you own data. This 
+is in the data/my_dataset folder. As the example files ship with PCGen, it is very important
+to note that these can be overwritten by a new PCGen install if you have not renamed the 
+data set and install the new version of PCGen in the same location as the old one.
+</p>
+<p>
+As a result, we strongly recommend that when using the my_dataset example files, you create a 
+copy in a new folder and work with that copy, rather than editing the example files directly.
+</p>
+<p> 
+If you install PCGen into a new directory each time you upgrade, 
+you may need to copy over the data you have created. If you cannot see your custom data, simply copy 
+over the folder with your custom data to the same location in the new PCGen install. The data should 
+then be visible when you restart PCGen. </p>
+<p>
+If you are installing PCGen into the same directory, backup your custom data first, then make sure it 
+does not use the default my_dataset folder name. Once you are sure you data is safe, then proceed with 
+the upgrade of PCGen.  
+
+</p>
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />&nbsp;&nbsp;
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the development):<br />
+
+<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?foru<nobr>m<wbr></nobr>_name=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.13.7</a></h2>
+
+
+<h3>Bugs</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1802349">1802349</a> ]	LEVEL: doesn't support any Template Token
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1802350">1802350</a> ]	LEVEL:.CLEAR doesn't work
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1848387">1848387</a> ]	Bug with KNOWNSPELLSFROMSPECIALTY
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1850583">1850583</a> ]	Defined Vars based upon another Var failing
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1851519">1851519</a> ]	HITDIE template tag issues
+</ul>
+
+<h3>Data Bugs</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846334">1846334</a> ]	[rsrd][srd] pack saddle missing Contains tag
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1857687">1857687</a> ]	mithral heavy shield has AC of 1 instead of 2
+</ul>
+
+<h3>Data Feature Requests</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1843578">1843578</a> ]	[Bastion Press]Move datasets to DragonWing
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1847124">1847124</a> ]	Convert PRELEVELMAX:x tags to PREPCLEVEL:MAX=x
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1851530">1851530</a> ]	Refactor BONUS:HD tags to HITDIE
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1860752">1860752</a> ]	Awakened tree (3.5)
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1862325">1862325</a> ]	[Mongoose] Fey Magic - review and move to d20ogl
+</ul>
+
+<h3>Documentation Bugs</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1726543">1726543</a> ]	Undocumented CHOOSE tag syntax
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846400">1846400</a> ]	Apply LST Doc Standard to JEP Formula Docs
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1847355">1847355</a> ]	Clean-up doc examples that use [] for optional syntax
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1847669">1847669</a> ]	Clean-up LST tag index and related tag entries
+</ul>
+
+<h3>Documentation Feature Requests</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1273259">1273259</a> ]	Linux command line documentation
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1688378">1688378</a> ]	Document NPC Generator and related files
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1752603">1752603</a> ]	Document Treasure Generator
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1851927">1851927</a> ]	DEITYWEAP:ANY is valid
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1859544">1859544</a> ]	Docuemnt new Data Installer Tags
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1860320">1860320</a> ]	[AEG] Feats. Add to Source List
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1860779">1860779</a> ]	[Silven] Curses!, Add to Source List
+</ul>
+
+<h3>Feature Requests</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1840800">1840800</a> ]	Subclass fix up - same as Substitution
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1859541">1859541</a> ]	Data installer for out of cycle data releases
+</ul>
+
+<h3>New Data Source Development</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1773533">1773533</a> ]	[Silven Publishing] Curses!
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1812291">1812291</a> ]	[AEG] Feats
+</ul>
+
+<h3>Support Requests</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1839803">1839803</a> ]	[CMP] Empty or garbled preview in Preview Pane
+
+</ul>
+
+</body>
+</html>
