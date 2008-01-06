@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:E.N. Publishing	SOURCESHORT:ENPub	SOURCEWEB:http://www.enworld.org/index.php?page=enpublishing
+# CVS $Revision$ $Author$ -- Fri Jan  4 13:15:14 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoTheurgy	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&	SOURCEDATE:2004-07
 
 # Equipment Name			Required Proficiency		Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier							Wield Category	Size		Source Page		Special Property
 Theurgic Staff of Air							TYPE:Magic.Staff													COST:61050	WT:5																EQMOD:SPL_CHRG|CHARGES[50]									SOURCEPAGE:14	SPROP:Control Winds (2 charges) ~ Lightning Bolt (1 charge) ~ Gust of Wind (1 charge) ~ Fog Cloud (1 charge)
@@ -10,3 +10,7 @@ Theurgic Staff of Lore							TYPE:Magic.Staff													COST:91550	WT:5							
 Theurgic Staff of Sanctuary						TYPE:Magic.Staff													COST:82988	WT:5																EQMOD:SPL_CHRG|CHARGES[50]									SOURCEPAGE:14	SPROP:Heroes' Feast (2 charges) ~ Secure Shield (1 charge) ~ Cure Light Wounds (Mass) (2 charges) ~ Sanctuary (1 charge)
 Theurgic Staff of Strength	PROFICIENCY:Quarterstaff	TYPE:Weapon.Melee.TwoHanded.Simple.Double.Standard.Bludgeoning.Quarterstaff.Magic.Staff	COST:170175	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:WOOD.MWORKW.PLUS3W.SPL_CHRG|CHARGES[50]	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:14	SPROP:Bull's Strength (Mass) (1 charge) ~ Bear's Endurance (Mass) (1 charge) ~ Righteous Might (1 charge) ~ Rage (1 charge)
 Theurgic Staff of Water							TYPE:Magic.Staff													COST:79050	WT:5																EQMOD:SPL_CHRG|CHARGES[50]									SOURCEPAGE:14	SPROP:Ice Storm (1 charge) ~ Control Water (1 charge) ~ Water Walk (1 charge) ~ Create Water (1 charge)
+
+#
+# End
+#

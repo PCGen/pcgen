@@ -1,0 +1,11 @@
+# CVS $Revision: 4329 $ $Author: maredudd800 $ -- Fri Jan  4 12:18:30 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+#SOURCELONG:E.N. Publishing	SOURCESHORT:ENPub	SOURCEWEB:http://www.enworld.org/index.php?page=enpublishing	SOURCEDATE:2004-07
+
+
+ABILITYCATEGORY:Theurgic Lorewarden Secret	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:TheurgicLorewardenSecret	PLURAL:Theurgic Lorewarden Secrets	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Theurgic Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:TheurgicFeats		PLURAL:Theurgic Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Hierophant Theurge Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:HierophantTheurgeAbility	PLURAL:Hierophant Theurge Abilities	DISPLAYLOCATION:Class Abilities
+
+#
+# End
+#
