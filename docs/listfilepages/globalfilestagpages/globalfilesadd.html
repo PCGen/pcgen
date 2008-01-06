@@ -301,7 +301,7 @@
 
 <hr>
 
-	<p class="new">*** New 5.11.11</p>
+	<p class="new">*** Deprecated 5.13.7 - Remove 6.0</p>
 	<p class="indent0"><strong><a name="SA">Tag Name:</a></strong> ADD:SA|x|y|z,z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name displayed on the chooser dialog.)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, Variable or Formula (Optional - Number
@@ -320,6 +320,30 @@
 		Melee Smash,Extreme Effort</code></p>
 	<p class="indent3">Add three of special abilities listed.</p>
 	<p class="indent2"><code>ADD:SA|Shadow Slayer|Detect Shadow,Shadow Immunity</code></p>
+	<p class="indent3">Add one of the two special abilities.</p>
+	<p></ p>
+
+<hr>
+
+	<p class="new">*** New 5.13.7</p>
+	<p class="indent0"><strong><a name="SAB">Tag Name:</a></strong> ADD:SAB|x|y|z,z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name displayed on the chooser dialog.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, Variable or Formula (Optional - Number
+		of choices granted)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Text (Special ability name or description.)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Will add a number (x) of special abilities, from the presented list of special abilities (y), to the character.</li>
+		<li>If the count (x) is not used the first special ability will be selected.</li>
+		<li>If count (x) is used the character will be given a choice of one to the limit of count (x) from
+			the items listed (y).</li>
+		<li>Special Abilities listed are a comma-delimited (&quot;,&quot;) list.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ADD:SAB|Brick Wall|3|Damage Reduction,Concussion Resistance,Remain Concious,
+		Melee Smash,Extreme Effort</code></p>
+	<p class="indent3">Add three of special abilities listed.</p>
+	<p class="indent2"><code>ADD:SAB|Shadow Slayer|Detect Shadow,Shadow Immunity</code></p>
 	<p class="indent3">Add one of the two special abilities.</p>
 	<p></ p>
 
