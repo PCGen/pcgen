@@ -56,7 +56,7 @@ CLASS:Monk.MOD
 1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
 
 ###Block: Normal Level Progression
-#1	AUTO:WEAPONPROF|TYPE=Simple	AUTO:ARMORPROF|TYPE=Light|PREFEAT:1,Technical Proficiency
+#1	AUTO:WEAPONPROF|TYPE=Simple	AUTO:ARMORPROF|ARMORTYPE=Light|PREFEAT:1,Technical Proficiency
 4						SAB:Evade Fire(Ex)
 7	SAB:.CLEAR.Leap of the Clouds	SAB:Leap of the Clouds(variable gravity still has normal effects)
 

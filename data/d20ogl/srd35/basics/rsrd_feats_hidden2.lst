@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Jan  7 12:41:45 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -139,4 +139,4 @@ Planar Cohort		TYPE:ClassAbility	VISIBLE:NO	SAB:Planar Cohort			SOURCEPAGE:Prest
 
 ###Block: Barding Proficiency    - This needs to be moved...
 # Feat Name				Type			Visible	Automaticaly Gained Armor Prof.	Source Page
-Armor Proficiency (Barding)	TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|TYPE.Barding		SOURCEPAGE:Feats.rtf
+Armor Proficiency (Barding)	TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Barding	SOURCEPAGE:Feats.rtf

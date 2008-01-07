@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Jan  7 12:54:40 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 # Original Entry by Emily and Tir Gwaith
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 ###Block:Special Mount
 # Class of the Master	Type				Hit Dice	Spell Res.	Automaticaly Gained Armor Prof.	Special ABility													Define						Combat bonus						Stat bonus		Main Race Type
-FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				AUTO:ARMORPROF|TYPE.Barding		SAB:Share saving throws	SAB:Empathic Link	SAB:Share spells	SAB:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	RACETYPE:Magical Beast
+FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				AUTO:ARMORPROF|ARMORTYPE=Barding	SAB:Share saving throws	SAB:Empathic Link	SAB:Share spells	SAB:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	RACETYPE:Magical Beast
 FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2																									DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2										SAB:Command creatures of its kind										DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																							DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
@@ -72,5 +72,5 @@ FOLLOWER:ShadowCompanion=9	TYPE:Shadow Companion	HD:2
 
 ###Block: Standard Companions
 # Class of the Master		Type			Automaticaly Gained Armor Prof.
-FOLLOWER:NormalMount=1		TYPE:Mount		AUTO:ARMORPROF|TYPE.Barding
+FOLLOWER:NormalMount=1		TYPE:Mount		AUTO:ARMORPROF|ARMORTYPE=Barding
 FOLLOWER:NormalFollower=1	TYPE:Follower

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 21 13:05:19 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Jan  7 12:57:46 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -9,9 +9,9 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.c
 
 # Feat Name							Output Name						Type			Req. Att.	Required Feat									Req. nb of Hand	Required Lvl	Required Stat		Description																									Stackable?	Multiple?	Choose									Automaticaly Gained Armor Prof.	Automaticaly Gained Weapon Prof.	Save checks bonus					Combat bonus						Bonus to HP			Add to base move			Weapon prof. bonus			Source Page
 Ambidexterity													TYPE:BasicCombat														PREHANDSEQ:2				PRESTAT:1,DEX=15		DESC:You ignore all penalties for using an off hand. The character is neither left-handed nor right-handed.																																										BONUS:COMBAT|TOHIT-SECONDARY|4																		SOURCEPAGE:p.68
-Armor Proficiency (Heavy)											TYPE:BasicCombat			PREFEAT:2,Armor Proficiency (Medium),Armor Proficiency (Light)											DESC:You are proficient with heavy armor.																																		AUTO:ARMORPROF|TYPE.Heavy																																						SOURCEPAGE:p.68
-Armor Proficiency (Light)											TYPE:BasicCombat																								DESC:You are proficient with light armor.																																		AUTO:ARMORPROF|TYPE.Light																																						SOURCEPAGE:p.68
-Armor Proficiency (Medium)											TYPE:BasicCombat			PREFEAT:1,Armor Proficiency (Light)																DESC:You are proficient with medium armor.																																	AUTO:ARMORPROF|TYPE.Medium																																						SOURCEPAGE:p.68
+Armor Proficiency (Heavy)											TYPE:BasicCombat			PREFEAT:2,Armor Proficiency (Medium),Armor Proficiency (Light)											DESC:You are proficient with heavy armor.																																		AUTO:ARMORPROF|ARMORTYPE=Heavy																																					SOURCEPAGE:p.68
+Armor Proficiency (Light)											TYPE:BasicCombat																								DESC:You are proficient with light armor.																																		AUTO:ARMORPROF|ARMORTYPE=Light																																					SOURCEPAGE:p.68
+Armor Proficiency (Medium)											TYPE:BasicCombat			PREFEAT:1,Armor Proficiency (Light)																DESC:You are proficient with medium armor.																																	AUTO:ARMORPROF|ARMORTYPE=Medium																																					SOURCEPAGE:p.68
 Career Operative													TYPE:BasicCombat																	PRELEVEL:MIN=6					DESC:Your experience as a super spy make you very hard to kill.																																										BONUS:CHECKS|Fortitude,Reflex,Will|1																								SOURCEPAGE:p.69
 Combat Instincts													TYPE:BasicCombat																								DESC:You react instinctively when an opportunity presents itself in melee combat.																																																																					SOURCEPAGE:p.69
 Confident Charge													TYPE:BasicCombat																				PRESTAT:2,DEX=13,WIS=13	DESC:You can charge around corners.																																																																													SOURCEPAGE:p.69
@@ -189,20 +189,20 @@ World Traveler		TYPE:BasicSkill	PRESKILL:3,Cultures,Languages,First Aid=1			DESC
 
 ###Block: Advanced Skill Feats
 
-# Feat Name			Type				Required Feat				Required Lvl	Maximum Level	Description																		Stackable?	Multiple?	Choose																		Bonus to skill		Class Skill	Source Page
-Advanced Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,TYPE.BasicSkill		PRELEVEL:MIN=6				DESC:You have worked diligently to improve one of your basic skill feats.									MULT:YES	CHOOSE:FEATLIST|TYPE.BasicSkill																				SOURCEPAGE:p.89
-False Start			TYPE:AdvancedSkill	PREFEAT:1,TYPE.BasicSkill								DESC:You have become so accustomed to using your skills that you automatically know your use of them is flawed.			MULT:YES	CHOOSE:FEATLIST|TYPE.BasicSkill																				SOURCEPAGE:p.89
-Grand Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,Advanced Skill Mastery	PRELEVEL:MIN=12				DESC:You excel with one particular skill.															MULT:YES	CHOOSE:FEAT=Advanced Skill Mastery																				SOURCEPAGE:p.90
-Perfect Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,Grand Skill Mastery		PRELEVEL:MIN=18				DESC:You have become one of the world's greatest experts in a particular field.								MULT:YES	CHOOSE:FEAT=Grand Skill Mastery																				SOURCEPAGE:p.90
-Quick Use			TYPE:AdvancedSkill													DESC:You are very quick and efficient with a particular skill.											MULT:YES	CHOOSE:SKILLSNAMED|RANKS=1																					SOURCEPAGE:p.90
-Talented			TYPE:AdvancedSkill										PREPCLEVEL:MAX=1	DESC:You are extraordinarily gifted in the use of a single skill.											MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1	BONUS:SKILL|LIST|1	CSKILL:LIST	SOURCEPAGE:p.90
-Track				TYPE:AdvancedSkill													DESC:You can follow the trail of pray - human and animal - across nearly any type of terrain.																																	SOURCEPAGE:p.90
+# Feat Name			Type				Required Feat				Required Lvl	Description																		Stackable?	Multiple?	Choose																		Bonus to skill		Class Skill	Source Page		PREPCLEVEL
+Advanced Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,TYPE.BasicSkill		PRELEVEL:MIN=6	DESC:You have worked diligently to improve one of your basic skill feats.									MULT:YES	CHOOSE:FEATLIST|TYPE.BasicSkill																				SOURCEPAGE:p.89
+False Start			TYPE:AdvancedSkill	PREFEAT:1,TYPE.BasicSkill					DESC:You have become so accustomed to using your skills that you automatically know your use of them is flawed.			MULT:YES	CHOOSE:FEATLIST|TYPE.BasicSkill																				SOURCEPAGE:p.89
+Grand Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,Advanced Skill Mastery	PRELEVEL:MIN=12	DESC:You excel with one particular skill.															MULT:YES	CHOOSE:FEAT=Advanced Skill Mastery																				SOURCEPAGE:p.90
+Perfect Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,Grand Skill Mastery		PRELEVEL:MIN=18	DESC:You have become one of the world's greatest experts in a particular field.								MULT:YES	CHOOSE:FEAT=Grand Skill Mastery																				SOURCEPAGE:p.90
+Quick Use			TYPE:AdvancedSkill										DESC:You are very quick and efficient with a particular skill.											MULT:YES	CHOOSE:SKILLSNAMED|RANKS=1																					SOURCEPAGE:p.90
+Talented			TYPE:AdvancedSkill										DESC:You are extraordinarily gifted in the use of a single skill.											MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1	BONUS:SKILL|LIST|1	CSKILL:LIST	SOURCEPAGE:p.90	PREPCLEVEL:MAX=1
+Track				TYPE:AdvancedSkill										DESC:You can follow the trail of pray - human and animal - across nearly any type of terrain.																																	SOURCEPAGE:p.90
 
 #TODO: Training is non functional at this time, need to find a way to add 4 points to the skill pool
-Training			TYPE:AdvancedSkill													DESC:You have devoted a great deal of your spare time to improving your skills.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							SOURCEPAGE:p.91
+Training			TYPE:AdvancedSkill										DESC:You have devoted a great deal of your spare time to improving your skills.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							SOURCEPAGE:p.91
 
 #TODO: Unlocked Potential is non functional at this time, need a way to raise the max ranks for a class skill
-Unlocked Potential	TYPE:AdvancedSkill													DESC:You have incredible potential for improvement with one of your skills.									MULT:YES	CHOOSE:CSKILLS																							SOURCEPAGE:p.91
+Unlocked Potential	TYPE:AdvancedSkill										DESC:You have incredible potential for improvement with one of your skills.									MULT:YES	CHOOSE:CSKILLS																							SOURCEPAGE:p.91
 
 ###Block: Style Feats
 
