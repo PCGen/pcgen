@@ -47,7 +47,7 @@ while (<ROADMAP>) {
         	my $cat = $_;
         	$cat =~ s/^[ \t]([A-Za-z ]*).*$/$1/;
         	$cat =~ s/\s*$//g;
-        	s/^[ \t][A-Za-z ]*/<LI>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$trackerNum\"\>$trackerNum<\/a> \]/;
+        	s/^[ \t][A-Za-z ]*/<li>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$trackerNum\"\>$trackerNum<\/a><\/li> \]/;
         	s/\s+[0-9\-]+$//;
         	s/\s+[A-Za-z_0-9 \-\.]+\s+[A-Za-z_0-9 \-\.]+\s+[A-Za-z_0-9 \-\.]+$//;
         	s/\s*$//g;
@@ -55,7 +55,7 @@ while (<ROADMAP>) {
 		}
 
         elsif (/^[0-9].*Closed *$/oi) {
-        	s/^([0-9]+)/<LI>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$1\"\>$1<\/a> \]/;
+        	s/^([0-9]+)/<li>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$1\"\>$1<\/a><\/li> \]/;
         	s/\s*Closed *$//i;
         	print CHANGELOG $_;
         }
@@ -75,7 +75,7 @@ foreach (@trackerLines) {
     	}
     	
     	$firstTime = (0 == 1);
-    	print CHANGELOG "<h3>".$currTracker."</h3><ul>\n";
+    	print CHANGELOG "<h3>".$currTracker."</h3>\n\n<ul>\n";
 	}
 	#output tracker line
 	s/^[A-Za-z0-9 ]+@@@//;
@@ -98,7 +98,7 @@ while (<CHANGES>) {
 	s/<\/*td>//g;
 	s/<\/tr>//g;
 	if (length $_ > 0 && !/<table/i && !/<\/table>/) {
-	   	print WHATSNEW $_ . "\n";
+	   	print WHATSNEW $_ . "<\/li>\n";
 	}
 }
 close WHATSNEW;
