@@ -25,6 +25,8 @@ my @basedirlist;
 my %basedir;
 my $dirname;
 my $pubname;
+my $currDir;
+my @subdirlist;
 
 # The directories under data that will be included.
 @basedirlist = qw(d20ogl permissioned alpha);
@@ -49,6 +51,7 @@ $pub{'bluedevilgames'} = 'Blue Devil Games';
 $pub{'craftygames'} = 'Crafty Games';
 $pub{'creativemountaingames'} = 'Creative Mountain Games';
 $pub{'doghouserules'} = 'Dog House Rules';
+$pub{'dragonwinggames'} = 'DragonWing Games';
 $pub{'en_publishing'} = 'EN Publishing';
 $pub{'fantasycommunitycouncil'} = 'Fantasy Community Council';
 $pub{'fantasyflightgames'} = 'Fantasy Flight Games';
@@ -91,14 +94,26 @@ foreach $dirname (@basedirlist)
 	$data_dir = $DATA_ROOT . $dirname;
 	opendir(DIR, $data_dir) || die "can't opendir $data_dir: $!";
 	@dirlist =  readdir(DIR);
+	closedir DIR;
 	@nondots = grep ( !/^[\.]/, @dirlist );
 
 	# generate the Data category section
 	print SCRIPT "SubSection \"$basedir{$dirname}\"\n";
 	
 	# Loop through the publisher directories adding a section for each
-	foreach $filename (@nondots)
+NAME:	foreach $filename (@nondots)
 	{
+		$currDir = $data_dir . "/" . $filename;
+		opendir(DIR, $currDir) || die "can't opendir $currDir: $!";
+		@subdirlist =  readdir(DIR);
+		closedir DIR;
+
+		# Skip any pub directories that are empty (., .., .svn only contents)		
+		if (scalar(grep( !/^\..*$/, @subdirlist)) == 0)
+		{
+			next NAME;
+		}
+
 		if (defined($pub{$filename}))
 		{
 			$pubname = $pub{$filename};
@@ -148,6 +163,5 @@ foreach $dirname (@basedirlist)
 		print SCRIPT "	SectionEnd\n\n";
 	}
 	print SCRIPT "SubSectionEnd\n\n";
-	closedir DIR;
 }
 close(SCRIPT);
