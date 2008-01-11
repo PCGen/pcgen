@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Dec 13 23:18:07 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Jan  8 13:06:34 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas tjannes@vub.ac.be based on srdequipwondrous
 
@@ -227,44 +227,44 @@ Ioun Stone (Lavender and Green)												TYPE:Magic.Wondrous						COST:40000	W
 Iron Bands of Binding														TYPE:Magic.Wondrous						COST:26000	WT:1		SOURCEPAGE:MagicItemsV.rtf
 Iron Flask																TYPE:Magic.Wondrous.Vial					COST:170000	WT:1		SOURCEPAGE:MagicItemsV.rtf
 ###Block:L's
-# Equipment Name				Required Proficiency	Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page				Spell Res.	Damage Reduction	Bonus to skill		Weapon prop. bonus																Special Property
-Lantern of Revealing							TYPE:Magic.Wondrous									COST:30000	WT:2														SOURCEPAGE:MagicItemsV.rtf
-Lens of Detection								TYPE:Magic.Wondrous									COST:3500	WT:1														SOURCEPAGE:MagicItemsV.rtf						BONUS:SKILL|Search|5																				SPROP:+5 to Survival while Tracking
-Lyre of Building								TYPE:Magic.Wondrous									COST:13000	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Mantle of Faith								TYPE:Magic.Wondrous.Clothing								COST:76000	WT:0														SOURCEPAGE:MagicItemsV.rtf			DR:5/Evil
-Mantle of Spell Resistance						TYPE:Magic.Wondrous									COST:90000	WT:0														SOURCEPAGE:MagicItemsV.rtf	SR:21
-Manual of Bodily Health +1						TYPE:Magic.Wondrous.Book.Consumable							COST:27500	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Bodily Health +2						TYPE:Magic.Wondrous.Book.Consumable							COST:55000	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Bodily Health +3						TYPE:Magic.Wondrous.Book.Consumable							COST:82500	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Bodily Health +4						TYPE:Magic.Wondrous.Book.Consumable							COST:110000	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Bodily Health +5						TYPE:Magic.Wondrous.Book.Consumable							COST:137500	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Gainful Exercise +1						TYPE:Magic.Wondrous.Book.Consumable							COST:27500	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Gainful Exercise +2						TYPE:Magic.Wondrous.Book.Consumable							COST:55000	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Gainful Exercise +3						TYPE:Magic.Wondrous.Book.Consumable							COST:82500	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Gainful Exercise +4						TYPE:Magic.Wondrous.Book.Consumable							COST:110000	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Gainful Exercise +5						TYPE:Magic.Wondrous.Book.Consumable							COST:137500	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Quickness of Action +1					TYPE:Magic.Wondrous.Book.Consumable							COST:27500	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Quickness of Action +2					TYPE:Magic.Wondrous.Book.Consumable							COST:55000	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Quickness of Action +3					TYPE:Magic.Wondrous.Book.Consumable							COST:82500	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Quickness of Action +4					TYPE:Magic.Wondrous.Book.Consumable							COST:110000	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Manual of Quickness of Action +5					TYPE:Magic.Wondrous.Book.Consumable							COST:137500	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Marvelous Pigments							TYPE:Magic.Wondrous									COST:4000	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Mask of the Skull								TYPE:Magic.Wondrous									COST:22000	WT:3														SOURCEPAGE:MagicItemsV.rtf
-Mattock of the Titans			PROFICIENCY:Morningstar	TYPE:Magic.Wondrous.Weapon.Simple.Melee.Bludgeoning.Piercing.Metal.Mace	COST:23348	WT:120	CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6	SIZE:G	SOURCEPAGE:MagicItemsV.rtf										BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement												SPROP:Smashes rock and removes dirt in the hands of a Huge user
-Maul of the Titans			PROFICIENCY:Greatclub	TYPE:Magic.Wondrous.Weapon.Martial.Melee.Bludgeoning.Wooden.Club		COST:25305	WT:160	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	SIZE:L	SOURCEPAGE:MagicItemsV.rtf										BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	BONUS:WEAPON|TOHIT|-4	BONUS:WEAPON|TOHIT|4|PRESTAT:1,STR=18	SPROP:Triple damage to inanimate objects, Must have an 18 Strength to wield properly
-Medallion of Thoughts							TYPE:Magic.Wondrous.Amulet								COST:12000	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Mirror of Life Trapping							TYPE:Magic.Wondrous									COST:200000	WT:50														SOURCEPAGE:MagicItemsV.rtf
-Mirror of Mental Prowess						TYPE:Magic.Wondrous									COST:175000	WT:40														SOURCEPAGE:MagicItemsV.rtf
-Mirror of Opposition							TYPE:Magic.Wondrous									COST:92000	WT:45														SOURCEPAGE:MagicItemsV.rtf
-Necklace of Adaptation							TYPE:Magic.Wondrous									COST:9000	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Necklace of Fireballs I							TYPE:Magic.Wondrous									COST:1650	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Necklace of Fireballs II						TYPE:Magic.Wondrous									COST:2700	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Necklace of Fireballs III						TYPE:Magic.Wondrous									COST:4350	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Necklace of Fireballs IV						TYPE:Magic.Wondrous									COST:5400	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Necklace of Fireballs V							TYPE:Magic.Wondrous									COST:5850	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Necklace of Fireballs VI						TYPE:Magic.Wondrous									COST:8100	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Necklace of Fireballs VII						TYPE:Magic.Wondrous									COST:8700	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Orb of Storms								TYPE:Magic.Wondrous									COST:48000	WT:6														SOURCEPAGE:MagicItemsV.rtf
+# Equipment Name				Required Proficiency			Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page				Spell Res.	Damage Reduction	Bonus to skill		Weapon prop. bonus																Special Property
+Lantern of Revealing									TYPE:Magic.Wondrous									COST:30000	WT:2														SOURCEPAGE:MagicItemsV.rtf
+Lens of Detection										TYPE:Magic.Wondrous									COST:3500	WT:1														SOURCEPAGE:MagicItemsV.rtf						BONUS:SKILL|Search|5																				SPROP:+5 to Survival while Tracking
+Lyre of Building										TYPE:Magic.Wondrous									COST:13000	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Mantle of Faith										TYPE:Magic.Wondrous.Clothing								COST:76000	WT:0														SOURCEPAGE:MagicItemsV.rtf			DR:5/Evil
+Mantle of Spell Resistance								TYPE:Magic.Wondrous									COST:90000	WT:0														SOURCEPAGE:MagicItemsV.rtf	SR:21
+Manual of Bodily Health +1								TYPE:Magic.Wondrous.Book.Consumable							COST:27500	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Bodily Health +2								TYPE:Magic.Wondrous.Book.Consumable							COST:55000	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Bodily Health +3								TYPE:Magic.Wondrous.Book.Consumable							COST:82500	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Bodily Health +4								TYPE:Magic.Wondrous.Book.Consumable							COST:110000	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Bodily Health +5								TYPE:Magic.Wondrous.Book.Consumable							COST:137500	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Gainful Exercise +1								TYPE:Magic.Wondrous.Book.Consumable							COST:27500	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Gainful Exercise +2								TYPE:Magic.Wondrous.Book.Consumable							COST:55000	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Gainful Exercise +3								TYPE:Magic.Wondrous.Book.Consumable							COST:82500	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Gainful Exercise +4								TYPE:Magic.Wondrous.Book.Consumable							COST:110000	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Gainful Exercise +5								TYPE:Magic.Wondrous.Book.Consumable							COST:137500	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Quickness of Action +1							TYPE:Magic.Wondrous.Book.Consumable							COST:27500	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Quickness of Action +2							TYPE:Magic.Wondrous.Book.Consumable							COST:55000	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Quickness of Action +3							TYPE:Magic.Wondrous.Book.Consumable							COST:82500	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Quickness of Action +4							TYPE:Magic.Wondrous.Book.Consumable							COST:110000	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Manual of Quickness of Action +5							TYPE:Magic.Wondrous.Book.Consumable							COST:137500	WT:5														SOURCEPAGE:MagicItemsV.rtf
+Marvelous Pigments									TYPE:Magic.Wondrous									COST:4000	WT:0														SOURCEPAGE:MagicItemsV.rtf
+Mask of the Skull										TYPE:Magic.Wondrous									COST:22000	WT:3														SOURCEPAGE:MagicItemsV.rtf
+Mattock of the Titans			PROFICIENCY:WEAPON|Morningstar	TYPE:Magic.Wondrous.Weapon.Simple.Melee.Bludgeoning.Piercing.Metal.Mace	COST:23348	WT:120	CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6	SIZE:G	SOURCEPAGE:MagicItemsV.rtf										BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement												SPROP:Smashes rock and removes dirt in the hands of a Huge user
+Maul of the Titans			PROFICIENCY:WEAPON|Greatclub		TYPE:Magic.Wondrous.Weapon.Martial.Melee.Bludgeoning.Wooden.Club		COST:25305	WT:160	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	SIZE:L	SOURCEPAGE:MagicItemsV.rtf										BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	BONUS:WEAPON|TOHIT|-4	BONUS:WEAPON|TOHIT|4|PRESTAT:1,STR=18	SPROP:Triple damage to inanimate objects, Must have an 18 Strength to wield properly
+Medallion of Thoughts									TYPE:Magic.Wondrous.Amulet								COST:12000	WT:0														SOURCEPAGE:MagicItemsV.rtf
+Mirror of Life Trapping									TYPE:Magic.Wondrous									COST:200000	WT:50														SOURCEPAGE:MagicItemsV.rtf
+Mirror of Mental Prowess								TYPE:Magic.Wondrous									COST:175000	WT:40														SOURCEPAGE:MagicItemsV.rtf
+Mirror of Opposition									TYPE:Magic.Wondrous									COST:92000	WT:45														SOURCEPAGE:MagicItemsV.rtf
+Necklace of Adaptation									TYPE:Magic.Wondrous									COST:9000	WT:0														SOURCEPAGE:MagicItemsV.rtf
+Necklace of Fireballs I									TYPE:Magic.Wondrous									COST:1650	WT:0														SOURCEPAGE:MagicItemsV.rtf
+Necklace of Fireballs II								TYPE:Magic.Wondrous									COST:2700	WT:0														SOURCEPAGE:MagicItemsV.rtf
+Necklace of Fireballs III								TYPE:Magic.Wondrous									COST:4350	WT:0														SOURCEPAGE:MagicItemsV.rtf
+Necklace of Fireballs IV								TYPE:Magic.Wondrous									COST:5400	WT:0														SOURCEPAGE:MagicItemsV.rtf
+Necklace of Fireballs V									TYPE:Magic.Wondrous									COST:5850	WT:0														SOURCEPAGE:MagicItemsV.rtf
+Necklace of Fireballs VI								TYPE:Magic.Wondrous									COST:8100	WT:0														SOURCEPAGE:MagicItemsV.rtf
+Necklace of Fireballs VII								TYPE:Magic.Wondrous									COST:8700	WT:0														SOURCEPAGE:MagicItemsV.rtf
+Orb of Storms										TYPE:Magic.Wondrous									COST:48000	WT:6														SOURCEPAGE:MagicItemsV.rtf
 ###Block: P's
 # Equipment Name				Type					Contains				Cost		Weight	Modifier					Source Page				Virtual Feat		Vision											Spell Res.	Save checks bonus							Combat bonus			Bonus to skill						Stat bonus					Modify VAR													Special Property
 Pearl of Power (1st Level)		TYPE:Magic.Wondrous							COST:1000	WT:0								SOURCEPAGE:MagicItemsV.rtf

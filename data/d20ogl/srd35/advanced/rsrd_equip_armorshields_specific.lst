@@ -32,8 +32,8 @@ Winged Shield		TYPE:Enhancement.Heavy.Shield.Specific.Nonmetal	COST:7	WT:10		EQM
 
 ###Block: Virtual weapons
 
-# Equipment Name		Required Proficiency		Type									Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Size
-Demon Armor Claw Attack	PROFICIENCY:Unarmed Strike	TYPE:Weapon.Melee.Simple.Unarmed.Piercing.Slashing	COST:-2300	WT:0		ACCHECK:-6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:STEEL.MWORKW.PLUS1W	WIELD:Light		SIZE:M
+# Equipment Name		Required Proficiency			Type									Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Size
+Demon Armor Claw Attack	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Simple.Unarmed.Piercing.Slashing	COST:-2300	WT:0		ACCHECK:-6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:STEEL.MWORKW.PLUS1W	WIELD:Light		SIZE:M
 
 #
 # End
