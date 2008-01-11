@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Fri Jan  4 12:18:30 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+#SOURCELONG:E.N. Publishing	SOURCESHORT:ENPub	SOURCEWEB:http://www.enworld.org/index.php?page=enpublishing	SOURCEDATE:2004-07
+#CREATED BY: Paul W. King, Mar 2007, EDITED BY: Paul W. King, Mar 2007, UPDATED BY: Eddy Anthony, Jan 2008
+
+ABILITYCATEGORY:Mounted Speciality	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:MountedSpeciality	PLURAL:Mounted Specialities	DISPLAYLOCATION:Class Abilities
+
+#
+# End
+#

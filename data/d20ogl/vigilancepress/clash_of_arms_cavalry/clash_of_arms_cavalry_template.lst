@@ -1,0 +1,57 @@
+# CVS $Revision$ $Author$ -- Thu Jan 10 23:56:26 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
+
+#CREATED BY: Paul W. King, Mar 2007, EDITED BY: Paul W. King, Mar 2007, UPDATED BY: Eddy Anthony, Jan 2008
+
+###BLOCK: Mount quality
+# Template Name			Output Name		Template														Source Page		Add to base move			Stat bonus
+Mount Quality (Bag of Bones)	OUTPUTNAME:[NAME]	TEMPLATE:CHOOSE:Decrease Animal By 2|Decrease Dragon By 2|Decrease Magical Beast By 2	SOURCEPAGE:p.8	BONUS:MOVEADD|TYPE.Walk|-20	BONUS:STAT|STR|-4	BONUS:STAT|DEX|-2
+Mount Quality (Old Nag)		OUTPUTNAME:[NAME]	TEMPLATE:CHOOSE:Decrease Animal By 1|Decrease Dragon By 1|Decrease Magical Beast By 1	SOURCEPAGE:p.8	BONUS:MOVEADD|TYPE.Walk|-15	BONUS:STAT|STR,DEX|-2
+Mount Quality (Nag)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.8	BONUS:MOVEADD|TYPE.Walk|-10
+Mount Quality (Charger)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.8	BONUS:MOVEADD|TYPE.Walk|10
+Mount Quality (Courser)		OUTPUTNAME:[NAME]	TEMPLATE:CHOOSE:Increase Animal By 1|Increase Dragon By 1|Increase Magical Beast By 1	SOURCEPAGE:p.8	BONUS:MOVEADD|TYPE.Walk|15	BONUS:STAT|STR,DEX|2
+Mount Quality (Steed)		OUTPUTNAME:[NAME]	TEMPLATE:CHOOSE:Increase Animal By 1|Increase Dragon By 1|Increase Magical Beast By 1	SOURCEPAGE:p.8	BONUS:MOVEADD|TYPE.Walk|20	BONUS:STAT|STR,DEX|2
+Mount Quality (Noble Steed)	OUTPUTNAME:[NAME]	TEMPLATE:CHOOSE:Increase Animal By 2|Increase Dragon By 2|Increase Magical Beast By 2	SOURCEPAGE:p.8	BONUS:MOVEADD|TYPE.Walk|25	BONUS:STAT|STR,DEX|4
+
+###BLOCK: number of hit die change
+# Template Name			Visible	Required Race				ADDLEVEL
+Decrease Animal By 2		VISIBLE:NO	PRERACE:1,RACETYPE=Animal		ADDLEVEL:Animal|-2
+Decrease Animal By 1		VISIBLE:NO	PRERACE:1,RACETYPE=Animal		ADDLEVEL:Animal|-1
+Increase Animal By 1		VISIBLE:NO	PRERACE:1,RACETYPE=Animal		ADDLEVEL:Animal|1
+Increase Animal By 2		VISIBLE:NO	PRERACE:1,RACETYPE=Animal		ADDLEVEL:Animal|2
+Decrease Dragon By 2		VISIBLE:NO	PRERACE:1,RACETYPE=Dragon		ADDLEVEL:Dragon|-2
+Decrease Dragon By 1		VISIBLE:NO	PRERACE:1,RACETYPE=Dragon		ADDLEVEL:Dragon|-1
+Increase Dragon By 1		VISIBLE:NO	PRERACE:1,RACETYPE=Dragon		ADDLEVEL:Dragon|1
+Increase Dragon By 2		VISIBLE:NO	PRERACE:1,RACETYPE=Dragon		ADDLEVEL:Dragon|2
+Decrease Magical Beast By 2	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast	ADDLEVEL:Magical Beast|-2
+Decrease Magical Beast By 1	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast	ADDLEVEL:Magical Beast|-1
+Increase Magical Beast By 1	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast	ADDLEVEL:Magical Beast|1
+Increase Magical Beast By 2	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast	ADDLEVEL:Magical Beast|2
+
+###BLOCK: Mount trait
+# Template Name				Output Name		Template														Source Page		Special ABility				Combat bonus					Bonus to HP				Add to base move			Bonus to skill		Stat bonus			Feat
+Mount Trait (Lame)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.9																			BONUS:MOVEADD|TYPE.Walk|15
+Mount Trait (Hairline Fracture)	OUTPUTNAME:[NAME]																SOURCEPAGE:p.9
+Mount Trait (Past Injury)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.9
+Mount Trait (Skinny)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10														BONUS:HP|CURRENTMAX|(-1)*TL
+Mount Trait (Clumsy)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																												BONUS:STAT|DEX|-2
+Mount Trait (Weak)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																												BONUS:STAT|STR|-2
+Mount Trait (Barely Tamed)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.10	SAB:-5 on Ride and Handle Animal
+Mount Trait (Maverick)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10	SAB:-2 on Ride and Handle Animal	BONUS:COMBAT|TOHIT.Hoof,DAMAGE.Hoof|1
+Mount Trait (Wild Streak)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.10
+Mount Trait (Skittish)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10							BONUS:COMBAT|TOHIT.Hoof,DAMAGE.Hoof|-1
+Mount Trait (Coltish)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10							BONUS:COMBAT|TOHIT.Hoof,DAMAGE.Hoof|-1						BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Jump|4
+Mount Trait (Gelding)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10	SAB:+2 on Ride and Handle Animal	BONUS:COMBAT|INITIATIVE|-1
+Mount Trait (Workhorse)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																																FEAT:Endurance
+Mount Trait (Tough as Nails)		OUTPUTNAME:[NAME]	TEMPLATE:CHOOSE:Increase Animal By 1|Increase Dragon By 1|Increase Magical Beast By 1	SOURCEPAGE:p.10
+Mount Trait (Mixed Breed)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																			BONUS:MOVEADD|TYPE.Walk|10					BONUS:STAT|STR,DEX|1
+Mount Trait (Nimble)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																												BONUS:STAT|DEX|2
+Mount Trait (Strong)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.10																												BONUS:STAT|STR|2
+Mount Trait (Lightning Quick)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.11																																FEAT:Improved Initiative
+Mount Trait (Blazing Fast)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.11																			BONUS:MOVEADD|TYPE.Walk|10
+Mount Trait (Pure Breed)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.11																			BONUS:MOVEADD|TYPE.Walk|10					BONUS:STAT|STR,DEX|2
+
+
+#
+# End
+#

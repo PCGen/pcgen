@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Wed Jan  9 23:03:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
+
+#CREATED BY: Paul W. King, Mar 2007, EDITED BY: Paul W. King, Mar 2007, UPDATED BY: Eddy Anthony, Jan 2008
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Cavalryman	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cavalryman	STARTSKILLPTS:2	CSKILL:Balance|Handle Animal|Intimidate|Knowledge (Nobility and Royalty)|Ride
+###Block: proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
+
+
+###Block: Standard Progression
+1								BONUS:VAR|CavalryMountLevel|CL															AUTO:FEAT|Mounted Combat
+2	BONUS:ABILITYPOOL|Mounted Speciality|CL/2
+3															ABILITY:Special Ability|AUTOMATIC|Warrior's Mount|Cavalryman Level Adjuster
+5															ABILITY:Special Ability|AUTOMATIC|Eye for Horseflesh
+7															ABILITY:Special Ability|AUTOMATIC|Formation Combat
+11								BONUS:VAR|EliteDiscipline|((CL-5)/6)*2	ABILITY:Special Ability|AUTOMATIC|Elite Discipline
+
+#
+# End
+#

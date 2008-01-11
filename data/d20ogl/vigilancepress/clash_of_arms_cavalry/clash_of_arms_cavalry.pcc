@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Tue Jan  8 23:00:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+CAMPAIGN:Vigilance Press - Clash of Arms - Cavalry
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+TYPE:Vigilance Press.Clash of Arms
+PUBNAMELONG:Vigilance Press
+PUBNAMESHORT:VP
+PUBNAMEWEB:http://www.rpgnow.com/default.php?manufacturers_id=323
+SOURCELONG:Clash of Arms - Cavalry
+SOURCESHORT:CoA-C
+SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&
+SOURCEDATE:2007-03
+ISOGL:YES
+COPYRIGHT:Open Game COPYRIGHT v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Legends of Excalibur Copyright 2003, RPGObjects; Author Charles Rice.
+COPYRIGHT:COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast; Author Andy Collins, Jesse Decker, David Noonan, Rich Redman
+COPYRIGHT:Swords of the Father, copyright 2003 The Game Mechanics
+COPYRIGHT:Mutants and Masterminds, copyright 2002 Green Ronin Publishing.
+COPYRIGHT:Legends of the Dark Ages Copyright 2005, RPGObjects; Author Charles Rice, Chris Davis.
+COPYRIGHT:Notice of Copyright: Clash of arms: Cavalry is ©2007 Vigilance Press.
+COPYRIGHT:PCGen dataset conversion for Clash of Arms: Cavalry Copyright 2007, PCgen Data team (Including, but not limited to Paul W. King, Eddy Anthony (MoSaT))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITYCATEGORY:clash_of_arms_cavalry_ability_categories.lst
+ABILITY:clash_of_arms_cavalry_ability_class.lst
+CLASS:clash_of_arms_cavalry_class.lst
+COMPANIONMOD:clash_of_arms_cavalry_companionmod.lst
+EQUIPMOD:clash_of_arms_cavalry_equipmod.lst
+TEMPLATE:clash_of_arms_cavalry_template.lst
+
+#
+# End
+#

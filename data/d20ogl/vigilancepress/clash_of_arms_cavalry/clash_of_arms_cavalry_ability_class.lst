@@ -1,0 +1,69 @@
+# CVS $Revision$ $Author$ -- Thu Jan 10 17:47:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
+
+#CREATED BY: Paul W. King, Mar 2007, EDITED BY: Paul W. King, Mar 2007, UPDATED BY: Eddy Anthony, Jan 2008
+
+###BLOCK: Cavalryman abilities
+# Ability Name							Category of Ability		Type						Visible		Special ABility							Define				Choose												Save checks bonus										Combat bonus																					Misc bonus																			Modify VAR								Temporary effect description
+Elite Discipline							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Elite Discipline +%|EliteDiscipline			DEFINE:EliteDiscipline|0
+Formation Combat							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Formation Combat
+Eye for Horseflesh						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Eye for Horseflesh
+Warrior's Mount							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:DISPLAY	SAB:Warrior's Mount (Ex)					DEFINE:CavalryMountLevel|0
+Cavalryman Level Adjuster					CATEGORY:Special Ability							VISIBLE:NO																CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Set the level at where the Mount was aquired																																																								BONUS:VAR|CavalryMountLevel|-(%CHOICE)|PREAPPLY:PC	TEMPDESC:If the cavalrymans mount was not aquired at level 1 use this to set the level it was aquired and the benefits will be adjusted accordingly.
+Mounted Tank							CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC		VISIBLE:DISPLAY	SAB:Mounted Tank +%|MountedTank				DEFINE:MountedTank|0																																																		BONUS:MISC|MAXDEX|MountedTank|TYPE=MountedTank|PREAPPLY:PC	BONUS:MISC|ACCHECK|MountedTank|TYPE=MountedTank|PREAPPLY:PC	BONUS:VAR|MountedTank|1						TEMPDESC:While mounted the heavy cavalryman adds this bonus to the armor penalty and maximum Dexterity modifier of any armor he wears.
+Mounted Combat							CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Mounted Combat +%|MountedCombat				DEFINE:MountedCombat|0																											BONUS:COMBAT|TOHIT|MountedCombat|TYPE=MountedCombat|PREAPPLY:PC																																	BONUS:VAR|MountedCombat|1					TEMPDESC:While mounted the heavy cavalryman adds this bonus to melee attack rolls.
+Power Charge							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Power Charge
+Terrifying Charge							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Terrifying Charge ~ Will DC %|TerrifyingCharge	DEFINE:TerrifyingCharge|0																																																																					BONUS:VAR|TerrifyingCharge|15+CHA
+Terrifying Charge ~ Formation					CATEGORY:Special Ability							VISIBLE:DISPLAY																																																																																			BONUS:VAR|TerrifyingCharge|5|PREAPPLY:PC
+Terrifying Charge ~ Formation and Terrifying Charge	CATEGORY:Special Ability							VISIBLE:DISPLAY																																																																																			BONUS:VAR|TerrifyingCharge|10|PREAPPLY:PC
+Dragoon								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Dragoon
+Mounted Archer							CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Mounted Archery +%|MountedArchery			DEFINE:MountedArchery|0																											BONUS:COMBAT|TOHIT.RANGED|MountedArchery|TYPE=MountedArchery|PREAPPLY:PC																															BONUS:VAR|MountedArchery|1					TEMPDESC:While mounted the horse archer adds this bonus to ranged attack rolls.
+Spur									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Spur +% ft|SpurMount					DEFINE:SpurMount|0																																																																						BONUS:VAR|SpurMount|5
+Shot on the Run ~ Mounted					CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Shot on the Run (mounted only)
+Manyshot ~ Mounted						CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Manyshot (mounted only)
+Lightning Attack							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Lightning Attack +%|LightningAttack			DEFINE:LightningAttack|0																																																																					BONUS:VAR|LightningAttack|2
+Lightning Rider							CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC		VISIBLE:DISPLAY	SAB:Lightning Rider +%|LightningRider			DEFINE:LightningRider|0															BONUS:CHECKS|Reflex|LightningRider|TYPE=LightningRider|PREAPPLY:PC	BONUS:COMBAT|AC|LightningRider|TYPE=LightningRider|PREAPPLY:PC	BONUS:COMBAT|INITIATIVE|LightningRider|TYPE=LightningRider|PREAPPLY:PC																					BONUS:VAR|LightningRider|2					TEMPDESC:The cavalryman gains the listed bonus to armor class, initiative and Reflex saving throws while mounted.
+Fog of War								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:DISPLAY	SAB:Fog of War ~ Will DC %|FogOfWar				DEFINE:FogOfWar|0																																																																							BONUS:VAR|FogOfWar|15+CHA
+
+###BLOCK: heavy cavalry
+# Ability Name						Category of Ability		Type				Visible		Required Ability											Required Feat										Prohibited Feat					Modify VAR				ABILITY
+Heavy Cavalry 1st: Heavy Armor Proficiency	CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY																										!PREFEAT:1,Armor Proficiency (Heavy)						ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)
+Heavy Cavalry 2nd: Ride-by Attack			CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY														PREFEAT:1,Armor Proficiency (Heavy)							!PREFEAT:1,Ride By Attack								ABILITY:FEAT|AUTOMATIC|Ride By Attack
+Heavy Cavalry 3rd: Spirited Charge			CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY														PREFEAT:2,Armor Proficiency (Heavy),Ride By Attack																ABILITY:FEAT|AUTOMATIC|Spirited Charge
+Heavy Cavalry 4th: Mounted Tank +1			CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY														PREFEAT:3,Armor Proficiency (Heavy),Ride By Attack,Spirited Charge													ABILITY:Special Ability|AUTOMATIC|Mounted Tank
+Heavy Cavalry 5th: Mounted Combat +1		CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Heavy Cavalry 4th: Mounted Tank +1																									ABILITY:Special Ability|AUTOMATIC|Mounted Combat
+Heavy Cavalry 6th: Power Charge			CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Heavy Cavalry 5th: Mounted Combat +1																									ABILITY:Special Ability|AUTOMATIC|Power Charge
+Heavy Cavalry 7th: Terrifying Charge		CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Heavy Cavalry 6th: Power Charge																										ABILITY:Special Ability|AUTOMATIC|Terrifying Charge
+Heavy Cavalry 8th: Mounted Tank +2			CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Heavy Cavalry 7th: Terrifying Charge																				BONUS:VAR|MountedTank|1
+Heavy Cavalry 9th: Mounted Combat +2		CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Heavy Cavalry 8th: Mounted Tank +2																				BONUS:VAR|MountedCombat|1
+Heavy Cavalry 10th: Mounted Tank +3; Dragoon	CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Heavy Cavalry 9th: Mounted Combat +2																				BONUS:VAR|MountedTank|1		ABILITY:Special Ability|AUTOMATIC|Dragoon
+
+###BLOCK: horse archer
+# Ability Name							Category of Ability		Type				Visible		Required Ability												Restricted Ability									Required Feat						Prohibited Feat			Var. Min. Value		Modify VAR					ABILITY
+Horse Archer 1st: Mounted Archery				CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY																																			!PREFEAT:1,Mounted Archery											ABILITY:FEAT|AUTOMATIC|Mounted Archery
+Horse Archer 2nd: Mounted Archer +1				CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY																											PREFEAT:1,Mounted Archery																			ABILITY:FEAT|AUTOMATIC|Mounted Archery
+Horse Archer 3rd: Spur +5'					CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Horse Archer 2nd: Mounted Archer +1		!PREABILITY:1,CATEGORY=Special Ability,Light Cavalry 1st: Spur +5'																								ABILITY:Special Ability|AUTOMATIC|Spur
+Horse Archer 4th: Point Blank Shot				CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:2,CATEGORY=Special Ability,Horse Archer 2nd: Mounted Archer +1,Spur																					!PREFEAT:1,Point Blank Shot											ABILITY:FEAT|AUTOMATIC|Point Blank Shot
+Horse Archer 5th: Mounted Archer +2				CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY																											PREFEAT:2,Mounted Archery,Point Blank Shot										BONUS:VAR|MountedArchery|1
+Horse Archer 6th: Rapid Shot					CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Horse Archer 5th: Mounted Archer +2																						!PREFEAT:1,Rapid Shot												ABILITY:FEAT|AUTOMATIC|Rapid Shot
+Horse Archer 7th: Spur +10'					CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:2,CATEGORY=Special Ability,Horse Archer 5th: Mounted Archer +2,Spur	!PREABILITY:1,CATEGORY=Special Ability,Light Cavalry 5th: Spur +10'	PREFEAT:1,Rapid Shot														BONUS:VAR|SpurMount|5
+Horse Archer 8th: Shot on the run (mounted)		CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:2,CATEGORY=Special Ability,Horse Archer 5th: Mounted Archer +2,Spur													PREFEAT:1,Rapid Shot										PREVARGTEQ:SpurMount,10							ABILITY:Special Ability|AUTOMATIC|Shot on the Run ~ Mounted|!PREMULT:3,[PRESTAT:1,DEX=13],[PREFEAT:3,Dodge,Mobility,Point Blank Shot],[PREATT:4]
+Horse Archer 9th: Mounted Archer +3				CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Horse Archer 8th: Shot on the run (mounted)																														BONUS:VAR|MountedArchery|1
+Horse Archer 10th: Spur +15'; Manyshot (mounted)	CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Horse Archer 9th: Mounted Archer +3																															BONUS:VAR|SpurMount|5|TYPE=Spur15	ABILITY:Special Ability|AUTOMATIC|Manyshot ~ Mounted|!PREMULT:3,[PRESTAT:1,DEX=17],[PREFEAT:2,Point Blank Shot,Rapid Shot],[PREATT:6]
+
+###BLOCK: light cavalry
+# Ability Name					Category of Ability		Type				Visible		Required Ability											Restricted Ability									Required Feat						Prohibited Feat				Var. Min. Value		Modify VAR									ABILITY
+Light Cavalry 1st: Spur +5'			CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY														!PREABILITY:1,CATEGORY=Special Ability,Horse Archer 3rd: Spur +5'																														ABILITY:Special Ability|AUTOMATIC|Spur
+Light Cavalry 2nd: Improved Initiative	CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Spur																										!PREFEAT:1,Improved Initiative															ABILITY:FEAT|AUTOMATIC|Improved Initiative
+Light Cavalry 3rd: Ride-by Attack		CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Spur																		PREFEAT:1,Improved Initiative				!PREFEAT:1,Ride By Attack																ABILITY:FEAT|AUTOMATIC|Ride By Attack
+Light Cavalry 4th: Lightning Attack +2	CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Spur																		PREFEAT:2,Improved Initiative,Ride By Attack																					ABILITY:Special Ability|AUTOMATIC|Lightning Attack
+Light Cavalry 5th: Spur +10'			CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Light Cavalry 4th: Lightning Attack +2	!PREABILITY:1,CATEGORY=Special Ability,Horse Archer 7th: Spur +10'																			BONUS:VAR|SpurMount|5
+Light Cavalry 6th: Lightning Rider +2	CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Light Cavalry 4th: Lightning Attack +2																											PREVARGTEQ:SpurMount,10											ABILITY:Special Ability|AUTOMATIC|Lightning Rider
+Light Cavalry 7th: Fog of War			CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Light Cavalry 6th: Lightning Rider +2																																									ABILITY:Special Ability|AUTOMATIC|Fog of War
+Light Cavalry 8th: Lightning Attack +4	CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Light Cavalry 7th: Fog of War																																BONUS:VAR|LightningAttack|2
+Light Cavalry 9th: Lightning Rider +4	CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Light Cavalry 8th: Lightning Attack +4																															BONUS:VAR|LightningRider|2
+Light Cavalry 10th: Spur 15'; Fog of War	CATEGORY:Special Ability	TYPE:MountedSpeciality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Light Cavalry 9th: Lightning Rider +4																															BONUS:VAR|SpurMount|5|TYPE=Spur15	BONUS:VAR|FogOfWar|10
+
+#
+# End
+#
