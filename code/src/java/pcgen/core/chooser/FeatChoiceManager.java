@@ -29,6 +29,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.AssociatedChoice;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -80,11 +81,11 @@ public class FeatChoiceManager extends AbstractComplexChoiceManager<String>
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
-		final Ability theFeat = aPc.getFeatNamed(choices.get(0));
-
-		if (theFeat != null)
+		// Grab a list of occurrences of the feat being chosen in any category
+		final List<Ability> theFeats = aPc.getFeatNamedAnyCat(choices.get(0));
+		for (Ability ability : theFeats)
 		{
-			for (AssociatedChoice<String> choice : theFeat.getAssociatedList())
+			for (AssociatedChoice<String> choice : ability.getAssociatedList())
 			{
 				availableList.add(choice.getDefaultChoice());
 			}

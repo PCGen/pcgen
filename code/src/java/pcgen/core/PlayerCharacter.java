@@ -50,6 +50,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -11611,35 +11612,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return bonus;
 	}
 
-	/**
-	 * Returns the Feat definition searching by key (not name), as contained in
-	 * the specified list
-	 * 
-	 * @param featName
-	 *            String key of the feat to check for.
-	 * @param afeatList
-	 * @return the Feat (not the CharacterFeat) searched for, <code>null</code>
-	 *         if not found.
-	 */
-	private Ability getFeatKeyed(final String featName,
-		final List<Ability> afeatList)
-	{
-		if (afeatList.isEmpty())
-		{
-			return null;
-		}
-
-		for (Ability feat : afeatList)
-		{
-			if (feat.getKeyName().equalsIgnoreCase(featName))
-			{
-				return feat;
-			}
-		}
-
-		return null;
-	}
-
 	private String getFullDisplayClassName()
 	{
 		if (classList.isEmpty())
@@ -12795,7 +12767,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Feats and abilities (virtual feats, auto feats)
-		Set<Ability> abilities = getFullAbilitySet();
+		List<Ability> abilities = getFullAbilityList();
 		results.addAll(abilities);
 
 		// Race
@@ -16835,17 +16807,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Ability getFeatKeyed(final String featName)
 	{
-		return getFeatKeyed(featName, aggregateFeatList());
+		return getAbilityKeyed(AbilityCategory.FEAT, featName);
 	}
 
 	public Ability getAbilityKeyed(final AbilityCategory aCategory,
 		final String aKey)
 	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return getFeatKeyed(aKey);
-		}
-
 		final List<Ability> abilities = getAggregateAbilityList(aCategory);
 		for (final Ability ability : abilities)
 		{
@@ -17235,6 +17202,28 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return abilitySet;
+	}
+
+	/**
+	 * Return a list of all abilities no matter what category or 
+	 * nature that the PC has. Note: This method allows duplicates,
+	 * such as when the same ability has been added by different 
+	 * categories.
+	 * @return List of all abilities.
+	 */
+	public List<Ability> getFullAbilityList()
+	{
+		GameMode gm = SettingsHandler.getGame();
+		Set<AbilityCategory> catSet = new HashSet<AbilityCategory>();
+		catSet.addAll(gm.getAllAbilityCategories());
+		List<Ability> abilityList = new ArrayList<Ability>();
+
+		for (AbilityCategory cat: catSet)
+		{
+			abilityList.addAll(this.getAggregateAbilityList(cat));
+		}
+
+		return abilityList;
 	}
 	
 	public List<Ability> getVirtualAbilityList(final AbilityCategory aCategory)
@@ -17688,6 +17677,33 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		
+	}
+
+	/**
+	 * Gets a list of feats matching the supplied name no matter what category
+	 * they were added in.
+	 * 
+	 * @param featName the feat name
+	 * 
+	 * @return the list of matching feats
+	 */
+	public List<Ability> getFeatNamedAnyCat(String featName)
+	{
+		List<Ability> feats = new ArrayList<Ability>();
+		for (AbilityCategory cat : SettingsHandler.getGame()
+			.getAllAbilityCategories())
+		{
+			Ability tempFeat =
+					AbilityUtilities.getAbilityFromList(
+						getAggregateAbilityList(cat), Constants.FEAT_CATEGORY,
+						featName, Nature.ANY);
+			if (tempFeat != null)
+			{
+				feats.add(tempFeat);
+			}
+		}
+
+		return feats;
 	}
 
 	// public double getBonusValue(final String aBonusType, final String

@@ -67,7 +67,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	PCClass pcClass = null;
 	PCClass classWarmind = null;
 	Race human = null;
-
+	Ability toughness = null;
+	AbilityCategory specialFeatCat;
+	
 	/**
 	 * Run the tests.
 	 * @param args
@@ -150,12 +152,13 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		classWarmind.setAbbrev("WM");
 		Globals.getClassList().add(classWarmind);
 	
-		Ability toughness = new Ability();
+		toughness = new Ability();
 		toughness.setName("Toughness");
 		toughness.setMultiples("Y");
 		toughness.setStacks("Y");
 		toughness.setChoiceString("NOCHOICE");
 		toughness.setCategory("FEAT");
+		toughness.addBonusList("HP|CURRENTMAX|3");
 		Globals.addAbility(toughness);
 	
 		Ability exoticWpnProf =
@@ -190,6 +193,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pcClass.addAddList(1, "FEAT(KEY_Exotic Weapon Proficiency (Weapon A))");
 		pcClass.addAddList(2, "FEAT(KEY_Exotic Weapon Proficiency (Weapon B))");
 		pcClass.addAddList(3, "FEAT(KEY_Exotic Weapon Proficiency (Weapon C))");
+		
+		specialFeatCat = new AbilityCategory("Special Feat");
+		specialFeatCat.setAbilityCategory(AbilityCategory.FEAT.getKeyName());
+		SettingsHandler.getGame().addAbilityCategory(specialFeatCat);
 	}
 
 	protected void tearDown()
@@ -902,5 +909,41 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		nonAbilityLockerRace.addVariable(-9, "UNLOCK.STR", "");
 		pc.setRace(nonAbilityLockerRace);
 		assertEquals("STR now unlocked from a non ability by race", false, pc.isNonAbility(index));
+	}
+	
+	/**
+	 * Test the stacking of the same ability added via different abiltiy 
+	 * categories.
+	 */
+	public void testStackDifferentAbiltyCat()
+	{
+		PlayerCharacter pc = getCharacter();
+		double base = pc.getTotalBonusTo("HP", "CURRENTMAX");
+		
+		assertEquals("Check repeatability of bonus", base, pc.getTotalBonusTo(
+			"HP", "CURRENTMAX"));
+		
+		try
+		{
+			AbilityUtilities.modFeat(pc, null, "Toughness", true, false);
+			//pc.calcActiveBonuses();
+			assertEquals("Check application of single bonus", base+3, pc.getTotalBonusTo(
+				"HP", "CURRENTMAX"));
+			AbilityUtilities.modFeat(pc, null, "Toughness", true, false);
+			pc.calcActiveBonuses();
+			assertEquals("Check application of second bonus", base+6, pc.getTotalBonusTo(
+				"HP", "CURRENTMAX"));
+
+			AbilityUtilities.modAbility(pc, null, toughness, "Toughness", true,
+				specialFeatCat);
+			pc.calcActiveBonuses();
+			assertEquals(
+				"Check application of third bonus in different catgeory",
+				base + 9, pc.getTotalBonusTo("HP", "CURRENTMAX"));
+		}
+		catch (HeadlessException e)
+		{
+			Logging.debugPrint("Ignoring Headless exception.");
+		}
 	}
 }

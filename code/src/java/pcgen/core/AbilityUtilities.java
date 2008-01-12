@@ -454,7 +454,7 @@ public class AbilityUtilities
 			{
 				abilityCount -= ability.getCost(aPC);
 			}
-			else
+			else if (category == AbilityCategory.FEAT)
 			{
 				int listSize = ability.getAssociatedCount();
 
