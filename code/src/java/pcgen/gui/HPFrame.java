@@ -20,18 +20,18 @@
  */
 package pcgen.gui;
 
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Image;
-import java.awt.Toolkit;
 
 /**
  * Popup frame with export options
