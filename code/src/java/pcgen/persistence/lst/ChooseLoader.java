@@ -54,7 +54,7 @@ public final class ChooseLoader
 			LstUtils.deprecationCheck(token, target, value);
 			if (!token.parse(target, prefix, value))
 			{
-				Logging.deprecationPrint("Error parsing CHOOSE: " + key + ":"
+				Logging.deprecationPrint("Error parsing CHOOSE: " + key + "|"
 					+ value + " in " + target.getDisplayName() + " of "
 					+ target.getSourceURI());
 				return false;

@@ -53,6 +53,7 @@ public class PluginBuildTest extends PCGenTestCase
 	 */
 	String [][] exceptions = new String[][] {
 		{ "EqBuilderSpell", "EqBuilder.Spell" },
+		{ "EqBuilderEqType", "EqBuilder.EqType" },
 		{ "GetVar", "Var" },
 		{ "HitdieLst", "Hitdie" },
 		{ "Casttime", "Casttimes" },
