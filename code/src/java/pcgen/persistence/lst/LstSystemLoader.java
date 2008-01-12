@@ -514,6 +514,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			// Verify weapons are melee or ranged
 			verifyWeaponsMeleeOrRanged();
+			verifyFavClassSyntax();
 
 			//  Auto-gen additional equipment
 			if (!SettingsHandler.wantToLoadMasterworkAndMagic())
@@ -2159,9 +2160,91 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 	}
 
+	private void verifyFavClassSyntax() throws PersistenceLayerException
+	{
+		for (Race r : Globals.getAllRaces()) {
+			validateFavClassString(r.getKeyName(), "RACE", "FAVCLASS", r.getFavoredClass());
+		}
+		for (PCTemplate t : Globals.getTemplateList())
+		{
+			validateFavClassString(t.getKeyName(), "TEMPLATE", "FAVOREDCLASS", t.getFavoredClass());
+		}
+	}
+
+	private void validateFavClassString(String key, String type, String tag, String fav)
+			throws PersistenceLayerException
+	{
+		String favored = fav;
+		if (fav.startsWith("CHOOSE:"))
+		{
+			favored = fav.substring(7);
+		}
+		
+		if (favored.equalsIgnoreCase("ANY"))
+		{
+			return;
+		}
+
+		final StringTokenizer tok = new StringTokenizer(favored, "|");
+		while (tok.hasMoreTokens())
+		{
+			String cl = tok.nextToken();
+			int dotLoc = cl.indexOf(".");
+			if (dotLoc == -1)
+			{
+				// Base Class
+				PCClass pcclass = Globals.getClassKeyed(cl);
+				if (pcclass == null)
+				{
+					Logging.deprecationPrint("Class entry in " + tag
+							+ " token in " + type + " " + key + ": " + cl
+							+ " likely references a SubClass.  Should use "
+							+ tag + ":PARENT.SUBCLASS syntax");
+				}
+			}
+			else
+			{
+				String parent = cl.substring(0, dotLoc);
+				PCClass pcclass = Globals.getClassKeyed(parent);
+				if (pcclass == null)
+				{
+					Logging.errorPrint("Invalid Class entry in " + tag
+							+ " token in " + type + " " + key + ": " + cl
+							+ " ... " + parent + " does not exist as a Class");
+				}
+				String subclass = cl.substring(dotLoc + 1);
+				if (parent.equals(subclass))
+				{
+					/*
+					 * TODO 1849571 requires a change here
+					 * 
+					 * Today this is totally legal, so the case drops through.
+					 * Once 1849571 is implemented, this if case should check to
+					 * see if ALLOWBASECLASS is set to YES. If set to NO, an
+					 * error (shown below) should be reported, because the
+					 * FAV(ORED)CLASS token is attempting to reference an
+					 * invalid class
+					 */
+					/*
+					Logging.errorPrint("Invalid Class entry in " + tag
+							+ " token in " + type + " " + key + ": " + cl
+							+ " ... Base class is prohibited in " + parent);
+					 */
+				}
+				else if (pcclass.getSubClassKeyed(subclass) == null)
+				{
+					Logging.errorPrint("Invalid Class entry in " + tag
+							+ " token in " + type + " " + key + ": " + cl
+							+ " ... " + subclass
+							+ " does not exist as a SubClass of " + parent);
+				}
+			}
+		}
+	}
+
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
 	public void update(Observable o, Object arg)

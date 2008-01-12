@@ -4286,7 +4286,7 @@ public class PCClass extends PObject {
 	 * selected substitutionClass, if any, is structured into the PCClassLevel
 	 * during the construction of the PCClassLevel
 	 */
-	public List getSubstitutionClassList() {
+	public List<SubstitutionClass> getSubstitutionClassList() {
 		return substitutionClassList;
 	}
 

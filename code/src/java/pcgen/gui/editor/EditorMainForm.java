@@ -1436,10 +1436,29 @@ public final class EditorMainForm extends JDialog
 				List<String> availableFavouredClassList = new ArrayList<String>();
 				List<String> selectedFavouredClassList = new ArrayList<String>();
 
-				for (Iterator<PCClass> e = Globals.getClassList().iterator(); e.hasNext();)
+				for (PCClass aClass : Globals.getClassList())
 				{
-					final PCClass aClass = e.next();
-					availableFavouredClassList.add(aClass.getKeyName());
+					if (!(aClass instanceof SubClass)
+						&& !(aClass instanceof SubstitutionClass))
+					{
+						availableFavouredClassList.add(aClass.getKeyName());
+					}
+					if (aClass.hasSubClass())
+					{
+						for (SubClass subClass : aClass.getSubClassList())
+						{
+							availableFavouredClassList.add(aClass.getKeyName()
+								+ "." + subClass.getKeyName());
+						}
+					}
+					if (aClass.hasSubstitutionClass())
+					{
+						for (SubstitutionClass subClass : aClass.getSubstitutionClassList())
+						{
+							availableFavouredClassList.add(aClass.getKeyName()
+								+ "." + subClass.getKeyName());
+						}
+					}
 				}
 
 				availableFavouredClassList.add("Any");
@@ -1865,10 +1884,29 @@ public final class EditorMainForm extends JDialog
 				List<String> availableFavouredClassesList = new ArrayList<String>();
 				List<String> selectedFavouredClassesList = new ArrayList<String>();
 
-				for (Iterator<PCClass> e = Globals.getClassList().iterator(); e.hasNext();)
+				for (PCClass aClass : Globals.getClassList())
 				{
-					final PCClass aClass = e.next();
-					availableFavouredClassesList.add(aClass.getKeyName());
+					if (!(aClass instanceof SubClass)
+						&& !(aClass instanceof SubstitutionClass))
+					{
+						availableFavouredClassesList.add(aClass.getKeyName());
+					}
+					if (aClass.hasSubClass())
+					{
+						for (SubClass subClass : aClass.getSubClassList())
+						{
+							availableFavouredClassesList.add(aClass.getKeyName()
+								+ "." + subClass.getKeyName());
+						}
+					}
+					if (aClass.hasSubstitutionClass())
+					{
+						for (SubstitutionClass subClass : aClass.getSubstitutionClassList())
+						{
+							availableFavouredClassesList.add(aClass.getKeyName()
+								+ "." + subClass.getKeyName());
+						}
+					}
 				}
 
 				availableFavouredClassesList.add("Any");

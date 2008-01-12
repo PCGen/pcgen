@@ -5653,11 +5653,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCTemplate template : templateList)
 		{
-			final String favoredClass = template.getFavoredClass();
-
-			if ((favoredClass.length() != 0) && !favored.contains(favoredClass))
+			StringTokenizer aTok = new StringTokenizer(template
+					.getFavoredClass(), "|");
+			while (aTok.hasMoreTokens())
 			{
-				favored.add(favoredClass);
+				String favoredClass = aTok.nextToken();
+				if ((favoredClass.length() != 0) && !favored.contains(favoredClass))
+				{
+					favored.add(favoredClass);
+				}
 			}
 		}
 
@@ -6194,7 +6198,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if (stringChar.containsKey(StringKey.RACIAL_FAVORED_CLASS))
 			{
-				favoredClasses.remove(stringChar
+				removeFavoredClass(stringChar
 						.get(StringKey.RACIAL_FAVORED_CLASS));
 			}
 
@@ -10208,11 +10212,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public double multiclassXPMultiplier()
 	{
-		final SortedSet<String> unfavoredClasses = new TreeSet<String>();
+		final HashSet<PCClass> unfavoredClasses = new HashSet<PCClass>();
 		final SortedSet<String> aList = getFavoredClasses();
 		boolean hasAny = false;
-		String maxClass = "";
-		String secondClass = "";
+		PCClass maxClass = null;
+		PCClass secondClass = null;
 		int maxClassLevel = 0;
 		int secondClassLevel = 0;
 		int xpPenalty = 0;
@@ -10225,12 +10229,50 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCClass pcClass : classList)
 		{
-			// TODO Fix this to use keys
-			if (!aList.contains(pcClass.getDisplayClassName())
-				&& (!aList.contains(pcClass.toString()))
-				&& pcClass.hasXPPenalty())
+			if (!pcClass.hasXPPenalty())
 			{
-				unfavoredClasses.add(pcClass.getDisplayClassName());
+				continue;
+			}
+			boolean found = false;
+			String classKey = pcClass.getKeyName();
+			String subClassKey = pcClass.getSubClassKey();
+			if (subClassKey.equals("None"))
+			{
+				subClassKey = "";
+			}
+			if (aList.contains(pcClass.getDisplayClassName()))
+			{
+				//Old 5.x style match
+				found = true;
+			}
+			else if (aList.contains(pcClass.toString()))
+			{
+				//Old 5.x style match
+				found = true;
+			}
+			else
+			{
+				if (subClassKey.length() == 0)
+				{
+					if (aList.contains(classKey) || aList.contains(classKey + "." + classKey))
+					{
+						//6.x style match (key)
+						found = true;
+					}
+				}
+				else
+				{
+					//Sub Class or Subst Class
+					if (aList.contains(classKey + "." + subClassKey))
+					{
+						//New 6.x style match
+						found = true;
+					}
+				}
+			}
+			if (!found)
+			{
+				unfavoredClasses.add(pcClass);
 
 				if (pcClass.getLevel() > maxClassLevel)
 				{
@@ -10241,12 +10283,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					}
 
 					maxClassLevel = pcClass.getLevel();
-					maxClass = pcClass.getDisplayClassName();
+					maxClass = pcClass;
 				}
 				else if ((pcClass.getLevel() > secondClassLevel) && (hasAny))
 				{
 					secondClassLevel = pcClass.getLevel();
-					secondClass = pcClass.getDisplayClassName();
+					secondClass = pcClass;
 				}
 			}
 		}
@@ -10262,16 +10304,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			unfavoredClasses.remove(maxClass);
 
-			for (String className : unfavoredClasses)
+			for (PCClass aClass : unfavoredClasses)
 			{
-				final PCClass aClass = getClassDisplayNamed(className);
-
-				if (aClass != null)
+				if ((maxClassLevel - (aClass.getLevel())) > 1)
 				{
-					if ((maxClassLevel - (aClass.getLevel())) > 1)
-					{
-						++xpPenalty;
-					}
+					++xpPenalty;
 				}
 			}
 
@@ -11208,15 +11245,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	boolean addFavoredClass(final String aString)
 	{
-		if ((aString.length() != 0) && !favoredClasses.contains(aString))
+		if (aString.length() == 0)
 		{
-			favoredClasses.add(aString);
-			setDirty(true);
-
-			return true;
+			return false;
 		}
-
-		return false;
+		StringTokenizer tok = new StringTokenizer(aString, Constants.PIPE);
+		while (tok.hasMoreTokens())
+		{
+			String fc = tok.nextToken();
+			if ((fc.length() != 0) && !favoredClasses.contains(fc))
+			{
+				favoredClasses.add(fc);
+				setDirty(true);
+			}
+		}
+		
+		return true;
 	}
 
 	void addFreeLanguage(final Language aLang)
@@ -11238,15 +11282,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	boolean removeFavoredClass(final String aString)
 	{
-		if (favoredClasses.contains(aString))
+		StringTokenizer tok = new StringTokenizer(aString, Constants.PIPE);
+		boolean mod = false;
+		while (tok.hasMoreTokens())
 		{
-			favoredClasses.remove(aString);
-			setDirty(true);
-
-			return true;
+			String fc = tok.nextToken();
+			if ((fc.length() != 0) && favoredClasses.contains(fc))
+			{
+				favoredClasses.remove(fc);
+				setDirty(true);
+				mod = true;
+			}
 		}
 
-		return false;
+		return mod;
 	}
 
 	void removeVariable(final String variableString)
@@ -11944,10 +11993,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				"|");
 			while (tok.hasMoreTokens())
 			{
-				final PCClass pcClass = Globals.getClassKeyed(tok.nextToken());
-				if (pcClass != null)
+				String cl = tok.nextToken();
+				int dotLoc = cl.indexOf(".");
+				if (dotLoc == -1)
 				{
-					availableList.add(pcClass);
+					//Base Class
+					final PCClass pcClass = Globals.getClassKeyed(cl);
+					if (pcClass != null)
+					{
+						availableList.add(pcClass);
+					}
+				}
+				else
+				{
+					//Sub Class
+					final PCClass pcClass = Globals.getClassKeyed(cl.substring(dotLoc + 1));
+					if (pcClass != null)
+					{
+						availableList.add(pcClass);
+					}
 				}
 			}
 			final List<PCClass> selectedList = new ArrayList<PCClass>(1);

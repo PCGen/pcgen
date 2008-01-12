@@ -2405,7 +2405,16 @@ final class FavoredClassFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Race)
 		{
-			return ((Race) pObject).getFavoredClass().toUpperCase().equals(className);
+			String fav = ((Race) pObject).getFavoredClass();
+			StringTokenizer tok = new StringTokenizer(fav, Constants.PIPE);
+			while (tok.hasMoreTokens())
+			{
+				if (tok.nextToken().equalsIgnoreCase(className))
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		return true;

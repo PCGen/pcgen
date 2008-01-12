@@ -42,6 +42,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -934,14 +935,22 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			if (aRace.getFavoredClass().length() != 0)
 			{
-				final String favClassKey = aRace.getFavoredClass();
-				String favClassName =
-						PropertyFactory.getString("in_sumVarious"); //$NON-NLS-1$
-				PCClass favClass = Globals.getClassKeyed(favClassKey);
-				if (favClass != null)
+				StringBuffer favClassSet = new StringBuffer();
+				String fav = aRace.getFavoredClass();
+				StringTokenizer tok = new StringTokenizer(fav, Constants.PIPE);
+				while (tok.hasMoreTokens())
 				{
-					favClassName = favClass.getDisplayName();
+					if (favClassSet.length() != 0)
+					{
+						favClassSet.append(", ");
+					}
+					favClassSet.append(tok.nextToken());
 				}
+
+				String favClassName = favClassSet.length() == 0 ? 
+					PropertyFactory.getString("in_sumVarious"): //$NON-NLS-1$
+						favClassSet.toString();
+				
 				b
 					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>").append(favClassName); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
