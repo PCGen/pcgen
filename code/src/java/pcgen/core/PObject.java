@@ -3138,6 +3138,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 		else
 		{
+			addAddsForLevel(-9, aPC, null);
 			addAddsForLevel(0, aPC, null);
 		}
 
