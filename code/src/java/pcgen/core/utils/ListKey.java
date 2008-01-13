@@ -139,6 +139,8 @@ public final class ListKey<T> {
 	public static final ListKey<Ability> VIRTUAL_FEATS = new ListKey<Ability>();
 //	/** Key for a list of weapon proficiencies */
 //	public static final ListKey<String> WEAPON_PROF = new ListKey<String>();
+	public static final ListKey<CampaignSourceEntry> FILE_ARMOR_PROF = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_SHIELD_PROF = new ListKey<CampaignSourceEntry>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

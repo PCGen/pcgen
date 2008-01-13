@@ -37,6 +37,13 @@ public class WeaponProfToken implements AutoLstToken
 				+ " is not supported on class level lines");
 			return false;
 		}
+		if (value.startsWith("TYPE"))
+		{
+			Logging.deprecationPrint("TYPE= in AUTO:" + getTokenName()
+					+ " Must refer to the Weapon Proficiency LST File.  "
+					+ "Consider WEAPONTYPE= "
+					+ "if you are trying to match an Equipment TYPE");
+		}
 		target.addAutoArray(getTokenName(), value);
 		return true;
 	}

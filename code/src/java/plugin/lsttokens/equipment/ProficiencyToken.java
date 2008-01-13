@@ -45,36 +45,15 @@ public class ProficiencyToken implements EquipmentLstToken
 			}
 			if (subtoken.equals("WEAPON"))
 			{
-				if (prof.startsWith("TYPE="))
-				{
-					eq.setArmorProf("Weapon (" + prof.substring(5) + ")");
-				}
-				else
-				{
-					eq.setWeaponProf(prof);
-				}
+				eq.setWeaponProf(prof);
 			}
 			else if (subtoken.equals("ARMOR"))
 			{
-				if (prof.startsWith("TYPE="))
-				{
-					eq.setArmorProf("Armor (" + prof.substring(5) + ")");
-				}
-				else
-				{
-					eq.setArmorProf(prof);
-				}
+				eq.setArmorProf(prof);
 			}
 			else if (subtoken.equals("SHIELD"))
 			{
-				if (prof.startsWith("TYPE="))
-				{
-					eq.setShieldProf("Shield (" + prof.substring(5) + ")");
-				}
-				else
-				{
-					eq.setShieldProf(prof);
-				}
+				eq.setShieldProf(prof);
 			}
 			else
 			{

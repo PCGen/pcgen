@@ -127,6 +127,8 @@ public final class Globals
 
 	/** Weapon proficiency Data storage */
 	private static final PObjectDataStore<WeaponProf> weaponProfs = new PObjectDataStore<WeaponProf>("WeaponProf");
+	private static final PObjectDataStore<ArmorProf> armorProfs = new PObjectDataStore<ArmorProf>("ArmorProf");
+	private static final PObjectDataStore<ShieldProf> shieldProfs = new PObjectDataStore<ShieldProf>("ShieldProf");
 
 	/** this is used by the random selection tools */
 	private static final Random random = new Random(System.currentTimeMillis());
@@ -2028,6 +2030,28 @@ public final class Globals
 	}
 
 	/**
+	 * Searches for an exact key match.
+	 *
+	 * @param aKey
+	 * @return an exact match or null
+	 */
+	public static ArmorProf getArmorProfKeyed(final String aKey)
+	{
+		return armorProfs.getKeyed(aKey);
+	}
+
+	/**
+	 * Searches for an exact key match.
+	 *
+	 * @param aKey
+	 * @return an exact match or null
+	 */
+	public static ShieldProf getShieldProfKeyed(final String aKey)
+	{
+		return shieldProfs.getKeyed(aKey);
+	}
+
+	/**
 	 * Get weapon prof names
 	 * @param delim
 	 * @param addArrayMarkers
@@ -2196,6 +2220,24 @@ public final class Globals
 	public static void addWeaponProf(final WeaponProf wp)
 	{
 		weaponProfs.add(wp);
+	}
+
+	/**
+	 * Add a armor proficiency
+	 * @param wp
+	 */
+	public static void addArmorProf(final ArmorProf wp)
+	{
+		armorProfs.add(wp);
+	}
+
+	/**
+	 * Add a shield proficiency
+	 * @param wp
+	 */
+	public static void addShieldProf(final ShieldProf wp)
+	{
+		shieldProfs.add(wp);
 	}
 
 	/**
@@ -2577,6 +2619,24 @@ public final class Globals
 	public static void removeWeaponProfKeyed(final String aKey)
 	{
 		weaponProfs.removeNamed(aKey);
+	}
+
+	/**
+	 * Remove a armor prof by key
+	 * @param aKey
+	 */
+	public static void removeArmorProfKeyed(final String aKey)
+	{
+		armorProfs.removeNamed(aKey);
+	}
+
+	/**
+	 * Remove a shield prof by key
+	 * @param aKey
+	 */
+	public static void removeShieldProfKeyed(final String aKey)
+	{
+		shieldProfs.removeNamed(aKey);
 	}
 
 	/**

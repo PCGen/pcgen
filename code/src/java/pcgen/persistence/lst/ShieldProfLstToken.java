@@ -1,5 +1,6 @@
 /*
- * Copyright 2007 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * WeaponProfToken
+ * Copyright 2008
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -14,36 +15,29 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on September 2, 2002, 8:16 AM
+ *
+ * Current Ver: $Revision: 197 $
+ * Last Editor: $Author: nuance $
+ * Last Edited: $Date: 2006-03-14 18:59:43 -0400 (Tue, 14 Mar 2006) $
+ *
  */
-package plugin.lsttokens.auto;
+package pcgen.persistence.lst;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.AutoLstToken;
-import pcgen.util.Logging;
+import pcgen.core.ShieldProf;
 
-public class ShieldProfToken implements AutoLstToken
+/**
+ * <code>ShieldProfToken</code>
+ */
+public interface ShieldProfLstToken extends LstToken
 {
-
-	public String getTokenName()
-	{
-		return "SHIELDPROF";
-	}
-
-	public boolean parse(PObject target, String value, int level)
-	{
-		if (level > 1)
-		{
-			Logging.errorPrint("AUTO:" + getTokenName()
-				+ " is not supported on class level lines");
-			return false;
-		}
-		if (value.startsWith("TYPE"))
-		{
-			Logging.deprecationPrint("TYPE= in AUTO:" + getTokenName()
-					+ " is deprecated.  " + "Use SHIELDTYPE=");
-		}
-		target.addAutoArray(getTokenName(), value);
-		return true;
-	}
-
+	/**
+	 * Parses an ShieldProf object
+	 * 
+	 * @param prof
+	 * @param value
+	 * @return true if parse OK
+	 */
+	public abstract boolean parse(ShieldProf prof, String value);
 }

@@ -205,7 +205,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private final List<CampaignSourceEntry> templateFileList =
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> weaponProfFileList =
-			new ArrayList<CampaignSourceEntry>();
+		new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> armorProfFileList =
+		new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> shieldProfFileList =
+		new ArrayList<CampaignSourceEntry>();
 	private LocationLoader locationLoader = new LocationLoader();
 	private final Set<URI> loadedFiles = new HashSet<URI>();
 	private PCClassLoader classLoader = new PCClassLoader();
@@ -232,6 +236,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private StringBuffer matureCampaigns = new StringBuffer();
 	private TraitLoader traitLoader = new TraitLoader();
 	private WeaponProfLoader wProfLoader = new WeaponProfLoader();
+	private ArmorProfLoader aProfLoader = new ArmorProfLoader();
+	private ShieldProfLoader sProfLoader = new ShieldProfLoader();
 	private boolean customItemsLoaded = false;
 	private boolean showD20 = false;
 	private boolean showLicensed = true;
@@ -274,6 +280,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		templateLoader.addObserver(this);
 		traitLoader.addObserver(this);
 		wProfLoader.addObserver(this);
+		aProfLoader.addObserver(this);
+		sProfLoader.addObserver(this);
 		try {
 			globalCampaign =
 				new CampaignSourceEntry(new Campaign(),
@@ -435,6 +443,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			// load weapon profs first
 			wProfLoader.loadLstFiles(weaponProfFileList);
+			aProfLoader.loadLstFiles(armorProfFileList);
+			sProfLoader.loadLstFiles(shieldProfFileList);
 
 			// load skills before classes to handle class skills
 			skillLoader.loadLstFiles(skillFileList);
@@ -562,6 +572,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		count += spellFileList.size();
 		count += templateFileList.size();
 		count += weaponProfFileList.size();
+		count += armorProfFileList.size();
+		count += shieldProfFileList.size();
 
 		return count;
 	}
@@ -1191,6 +1203,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		deityFileList.addAll(aCamp.getDeityFiles());
 		domainFileList.addAll(aCamp.getDomainFiles());
 		weaponProfFileList.addAll(aCamp.getWeaponProfFiles());
+		armorProfFileList.addAll(aCamp.getArmorProfFiles());
+		shieldProfFileList.addAll(aCamp.getShieldProfFiles());
 		equipmentFileList.addAll(aCamp.getEquipFiles());
 		classSkillFileList.addAll(aCamp.getClassSkillFiles());
 		classSpellFileList.addAll(aCamp.getClassSpellFiles());
@@ -2000,6 +2014,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		deityFileList.removeAll(lstExcludeFiles);
 		domainFileList.removeAll(lstExcludeFiles);
 		weaponProfFileList.removeAll(lstExcludeFiles);
+		armorProfFileList.removeAll(lstExcludeFiles);
+		shieldProfFileList.removeAll(lstExcludeFiles);
 		equipmentFileList.removeAll(lstExcludeFiles);
 		classSkillFileList.removeAll(lstExcludeFiles);
 		classSpellFileList.removeAll(lstExcludeFiles);
@@ -2030,6 +2046,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		domainFileList.clear();
 		templateFileList.clear();
 		weaponProfFileList.clear();
+		armorProfFileList.clear();
+		shieldProfFileList.clear();
 		equipmentFileList.clear();
 		classSkillFileList.clear();
 		classSpellFileList.clear();

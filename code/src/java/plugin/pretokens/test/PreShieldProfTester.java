@@ -60,6 +60,18 @@ public class PreShieldProfTester extends AbstractPrerequisiteTest implements
 			{
 				runningTotal++;
 			}
+			else if (profName.startsWith("SHIELDTYPE"))
+			{
+				if (profName.substring(6).equalsIgnoreCase(prereq.getKey()))
+				{
+					runningTotal++;
+				}
+				else if (profName.substring(11).equalsIgnoreCase(
+						prereq.getKey()))
+				{
+					runningTotal++;
+				}
+			}
 		}
 
 		runningTotal =

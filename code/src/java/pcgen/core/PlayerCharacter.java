@@ -7683,7 +7683,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			//
 			// Insert all types at the head of the list
 			//
-			if (aProf.startsWith("TYPE=") || aProf.startsWith("TYPE."))
+			if (aProf.startsWith("SHIELDTYPE=") || aProf.startsWith("SHIELDTYPE."))
+			{
+				armorProfList.add(0, aProf);
+			}
+			else if (aProf.startsWith("TYPE=") || aProf.startsWith("TYPE."))
 			{
 				shieldProfList.add(0, aProf);
 			}
@@ -11939,6 +11943,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			else if (aString.startsWith("ARMORTYPE=") || aString.startsWith("ARMORTYPE."))
 			{
 				tok = new StringTokenizer(aString.substring(10), ".");
+			}
+			else if (aString.startsWith("SHIELDTYPE=") || aString.startsWith("SHIELDTYPE."))
+			{
+				tok = new StringTokenizer(aString.substring(11), ".");
 			}
 			else
 			{

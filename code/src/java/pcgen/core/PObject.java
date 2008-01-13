@@ -3309,12 +3309,19 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			String tok = aTok.nextToken();
 
 			if ((tok.startsWith("TYPE=") || tok.startsWith("TYPE."))
-				&& tag.startsWith("WEAPON") && expandWeaponTypes)
-			{
-				List<String> xList = processWeaponAutoTags(aPC, tok);
+					&& tag.startsWith("WEAPON") && expandWeaponTypes)
+				{
+					List<String> xList = processWeaponAutoTags(aPC, tok.substring(5));
 
-				aList.addAll(xList);
-			}
+					aList.addAll(xList);
+				}
+			else if ((tok.startsWith("WEAPONTYPE=") || tok.startsWith("WEAPONTYPE."))
+					&& tag.startsWith("WEAPON") && expandWeaponTypes)
+				{
+					List<String> xList = processWeaponAutoTags(aPC, tok.substring(11));
+
+					aList.addAll(xList);
+				}
 			else if ((tok.startsWith("TYPE=") || tok.startsWith("TYPE."))
 				&& tag.startsWith("ARMOR"))
 			{
@@ -3384,7 +3391,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	private List<String> processWeaponAutoTags(final PlayerCharacter aPC, String tok)
 	{
-		final StringTokenizer bTok = new StringTokenizer(tok.substring(5), ".");
+		final StringTokenizer bTok = new StringTokenizer(tok, ".");
 		List<String> xList = null;
 
 		while (bTok.hasMoreTokens())

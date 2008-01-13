@@ -79,6 +79,8 @@ public class Campaign extends PObject
 		listChar.initializeListFor(ListKey.FILE_SPELL);
 		listChar.initializeListFor(ListKey.FILE_TEMPLATE);
 		listChar.initializeListFor(ListKey.FILE_WEAPON_PROF);
+		listChar.initializeListFor(ListKey.FILE_ARMOR_PROF);
+		listChar.initializeListFor(ListKey.FILE_SHIELD_PROF);
 	}
 
 	/**
@@ -556,6 +558,24 @@ public class Campaign extends PObject
 	 *
 	 * @param file
 	 */
+	public void addArmorProfFile(final CampaignSourceEntry file)
+	{
+		listChar.addToListFor(ListKey.FILE_ARMOR_PROF, file);
+	}
+
+	/**
+	 *
+	 * @param file
+	 */
+	public void addShieldProfFile(final CampaignSourceEntry file)
+	{
+		listChar.addToListFor(ListKey.FILE_SHIELD_PROF, file);
+	}
+
+	/**
+	 *
+	 * @param file
+	 */
 	public void addWeaponProfFile(final CampaignSourceEntry file)
 	{
 		listChar.addToListFor(ListKey.FILE_WEAPON_PROF, file);
@@ -955,6 +975,24 @@ public class Campaign extends PObject
 	public List<CampaignSourceEntry> getTemplateFiles()
 	{
 		return getListFor(ListKey.FILE_TEMPLATE);
+	}
+
+	/**
+	 * Returns the armorProfFileList.
+	 * @return List
+	 */
+	public List<CampaignSourceEntry> getArmorProfFiles()
+	{
+		return getListFor(ListKey.FILE_ARMOR_PROF);
+	}
+
+	/**
+	 * Returns the shieldProfFileList.
+	 * @return List
+	 */
+	public List<CampaignSourceEntry> getShieldProfFiles()
+	{
+		return getListFor(ListKey.FILE_SHIELD_PROF);
 	}
 
 	/**

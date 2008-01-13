@@ -28,13 +28,8 @@ package pcgen.core;
  * @version $Revision$
  * DO NOT DELETE (waiting for use)
  */
-final class ArmorProf extends PObject implements Comparable<Object>
+public final class ArmorProf extends PObject implements Comparable<Object>
 {
-	ArmorProf(final String aString)
-	{
-		setName(aString);
-	}
-
 	/**
 	 * Compares keyName only
 	 *
