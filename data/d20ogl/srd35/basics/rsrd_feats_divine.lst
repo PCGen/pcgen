@@ -1,29 +1,29 @@
-# CVS $Revision: 228 $ $Author: nuance $ -- Wed Nov 21 12:30:43 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision: 228 $ $Author: nuance $ -- Mon Jan 14 12:58:47 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Additional Feats from the Divine Characters section of the RSRD
-# Feat Name				Type			Req. Att.	Required Feat								Required Lvl	Required Skill				Req. Known Spell				Required Stat	Description		Stackable?	Multiple?	Choose										Add				Add Spell Lvl	Modify VAR				Source Page
-Blindsight (5 ft Radius)	TYPE:General	PREATT:4	PREFEAT:1,Blind Fight																						PRESTAT:1,WIS=19	DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Disguise Spell			TYPE:Metamagic			PREFEAT:1,Bardic Music										PRESKILL:1,TYPE.Perform=12											DESC:See Text																				ADDSPELLLEVEL:1						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Divine Might			TYPE:Divine				PREFEAT:1,Turn Undead,Rebuke Undead	PREFEAT:1,Power Attack																PRESTAT:1,STR=13	DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Divine Vengeance			TYPE:Divine				PREFEAT:1,Extra Turning	PREFEAT:1,Turn Undead																					DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Energy Substitution		TYPE:Metamagic			PREFEAT:1,TYPE.Metamagic									PRESKILL:1,Knowledge (Arcana)=5										DESC:See Text	STACK:NO	MULT:YES	CHOOSE:Energy Substitution|Acid|Cold|Electricity|Fire|Sonic|1													SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Extra Music				TYPE:General			PREFEAT:1,Bardic Music																									DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|BardicMusicTimes|4	SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Eyes in the Back of Your Head	TYPE:General	PREATT:3																										PRESTAT:1,WIS=19	DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Fleet of Foot			TYPE:General			PREFEAT:1,Run																							PRESTAT:1,DEX=15	DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Hold the Line			TYPE:General	PREATT:2	PREFEAT:1,Combat Reflexes																								DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Jack Of All Trades		TYPE:General													PRELEVEL:MIN=6																DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Knock Down				TYPE:General	PREATT:2	PREFEAT:1,Improved Trip																						PRESTAT:1,STR=15	DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Persistent Spell			TYPE:Metamagic			PREFEAT:1,Extend Spell																									DESC:See Text																				ADDSPELLLEVEL:6						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Plant Control			TYPE:General			PREFEAT:1,Plant Defiance															PRESPELL:1,Speak with Plants					DESC:See Text																ADD:FEAT|1|Rebuke Plant									SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Plant Defiance			TYPE:General																						PRESPELL:1,Detect Animals or Plants				DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Power Control			TYPE:General	PREATT:4	PREFEAT:1,Weapon Focus																									DESC:See Text			MULT:YES	CHOOSE:FEAT=Weapon Focus|1																			SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Reach Spell				TYPE:Metamagic																															DESC:See Text																				ADDSPELLLEVEL:2						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Repeat Spell			TYPE:Metamagic																															DESC:See Text																				ADDSPELLLEVEL:3						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Sacred Spell			TYPE:Metamagic																															DESC:See Text																				ADDSPELLLEVEL:2						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Sharp Shooting			TYPE:General	PREATT:3	PREFEAT:2,Point Blank Shot,Precise Shot																						DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Subdual Substitution		TYPE:Metamagic			PREFEAT:1,TYPE=Metamagic									PRESKILL:1,Knowledge (Arcana)=5										DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Superior Expertise		TYPE:General	PREATT:6																										PRESTAT:1,INT=13	DESC:See Text																												SOURCEPAGE:DivineAbilitiesandFeats.rtf
+# Feat Name				Type			Req. Att.	Required Feat								Required Lvl	Required Skill				Req. Known Spell				Required Stat	Description		Stackable?	Multiple?	Choose							Add				Add Spell Lvl	Modify VAR				Source Page
+Blindsight (5 ft Radius)	TYPE:General	PREATT:4	PREFEAT:1,Blind Fight																						PRESTAT:1,WIS=19	DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Disguise Spell			TYPE:Metamagic			PREFEAT:1,Bardic Music										PRESKILL:1,TYPE.Perform=12											DESC:See Text																	ADDSPELLLEVEL:1						SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Divine Might			TYPE:Divine				PREFEAT:1,Turn Undead,Rebuke Undead	PREFEAT:1,Power Attack																PRESTAT:1,STR=13	DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Divine Vengeance			TYPE:Divine				PREFEAT:1,Extra Turning	PREFEAT:1,Turn Undead																					DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Energy Substitution		TYPE:Metamagic			PREFEAT:1,TYPE.Metamagic									PRESKILL:1,Knowledge (Arcana)=5										DESC:See Text	STACK:NO	MULT:YES	CHOOSE:STRING|Acid|Cold|Electricity|Fire|Sonic													SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Extra Music				TYPE:General			PREFEAT:1,Bardic Music																									DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|BardicMusicTimes|4	SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Eyes in the Back of Your Head	TYPE:General	PREATT:3																										PRESTAT:1,WIS=19	DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Fleet of Foot			TYPE:General			PREFEAT:1,Run																							PRESTAT:1,DEX=15	DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Hold the Line			TYPE:General	PREATT:2	PREFEAT:1,Combat Reflexes																								DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Jack Of All Trades		TYPE:General													PRELEVEL:MIN=6																DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Knock Down				TYPE:General	PREATT:2	PREFEAT:1,Improved Trip																						PRESTAT:1,STR=15	DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Persistent Spell			TYPE:Metamagic			PREFEAT:1,Extend Spell																									DESC:See Text																	ADDSPELLLEVEL:6						SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Plant Control			TYPE:General			PREFEAT:1,Plant Defiance															PRESPELL:1,Speak with Plants					DESC:See Text													ADD:FEAT|1|Rebuke Plant									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Plant Defiance			TYPE:General																						PRESPELL:1,Detect Animals or Plants				DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Power Control			TYPE:General	PREATT:4	PREFEAT:1,Weapon Focus																									DESC:See Text			MULT:YES	CHOOSE:FEAT=Weapon Focus|1																SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Reach Spell				TYPE:Metamagic																															DESC:See Text																	ADDSPELLLEVEL:2						SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Repeat Spell			TYPE:Metamagic																															DESC:See Text																	ADDSPELLLEVEL:3						SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Sacred Spell			TYPE:Metamagic																															DESC:See Text																	ADDSPELLLEVEL:2						SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Sharp Shooting			TYPE:General	PREATT:3	PREFEAT:2,Point Blank Shot,Precise Shot																						DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Subdual Substitution		TYPE:Metamagic			PREFEAT:1,TYPE=Metamagic									PRESKILL:1,Knowledge (Arcana)=5										DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Superior Expertise		TYPE:General	PREATT:6																										PRESTAT:1,INT=13	DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
 
 #
 #
