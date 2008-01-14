@@ -155,6 +155,18 @@ public class PluginBuildTest extends PCGenTestCase
 	}
 	
 	/**
+	 * Check for the presence of all 'remove'
+	 * token parsing plugins.
+	 */
+	public void testLstRemovePlugins()
+	{
+		String jarPrefix = "RemoveLstToken-";
+		File sourceFolder = new File("code/src/java/plugin/lsttokens/remove");
+		File jarFolder = new File("plugins/lstplugins");
+		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
+	}
+	
+	/**
 	 * Check for the presence of all 'automatic'
 	 * token parsing plugins.
 	 */
@@ -198,6 +210,18 @@ public class PluginBuildTest extends PCGenTestCase
 	{
 		String jarPrefix = "ChooseToken-";
 		File sourceFolder = new File("code/src/java/plugin/lsttokens/choose");
+		File jarFolder = new File("plugins/lstplugins");
+		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
+	}
+	
+	/**
+	 * Check for the presence of all choose
+	 * token parsing plugins.
+	 */
+	public void testLstEqModChoosePlugins()
+	{
+		String jarPrefix = "EqModChooseToken-";
+		File sourceFolder = new File("code/src/java/plugin/lsttokens/equipmentmodifier/choose");
 		File jarFolder = new File("plugins/lstplugins");
 		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
 	}

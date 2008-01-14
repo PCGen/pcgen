@@ -7,6 +7,7 @@
   <body> 
     <release version="5.13.8" date="In SVN" description="Alpha release"> 
       <action dev="thpr" type="add" issue="1800342">FAVCLASS and FAVOREDCLASS updates</action> 
+      <action dev="thpr" type="add" issue="1809933">EqMod CHOOSE Changes</action> 
     </release>  
     <release version="5.13.7" date="2008-01-08" description="Alpha release"> 
       <action dev="jdempsey" type="add" issue="1859541">Data installer for out of cycle data releases</action> 
