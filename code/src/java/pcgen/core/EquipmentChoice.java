@@ -49,6 +49,7 @@ final class EquipmentChoice
 	private boolean allowDuplicates = false;
 	private boolean noSign = false;
 	private boolean bAdd = false;
+	private boolean skipZero = false;
 
 	private int minValue = 0;
 	private int maxValue = 0;
@@ -102,7 +103,7 @@ final class EquipmentChoice
 				{
 					for (int j = getMinValue(); j <= getMaxValue(); j += getIncValue())
 					{
-						if (j != 0)
+						if (!skipZero || j != 0)
 						{
 							finalList.add(choice + '|' + Delta.toString(j));
 						}
@@ -610,6 +611,10 @@ final class EquipmentChoice
 				{
 					this.addSkills();
 				}
+				else if ("SKIPZERO".equals(kind))
+				{
+					skipZero = originalkind.equals("NUMBER");
+				}
 				else if ("MULTIPLE".equals(kind))
 				{
 					this.setAllowDuplicates(true);
@@ -671,9 +676,9 @@ final class EquipmentChoice
 				j <= this.getMaxValue();
 				j += this.getIncValue())
 			{
-				if (j != 0)
+				if (!skipZero || j != 0)
 				{
-					if (this.isNoSign() && (j > 0))
+					if (this.isNoSign() && (j >= 0))
 					{
 						this.getAvailableList().add(Integer.toString(j));
 					}

@@ -100,6 +100,10 @@ public class NumberToken implements EqModChooseLstToken
 			{
 				//OK
 			}
+			else if (tokString.startsWith("SKIPZERO"))
+			{
+				//OK
+			}
 			else if (tokString.startsWith("MULTIPLE"))
 			{
 				//OK
