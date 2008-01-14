@@ -15,20 +15,24 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.equipmentmodifier.choose;
 
 import java.util.StringTokenizer;
 
 import pcgen.core.Constants;
 import pcgen.core.EquipmentModifier;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.persistence.lst.EqModChooseLstToken;
 import pcgen.util.Logging;
 
-public class NumberToken implements ChooseLstToken
+public class NumberToken implements EqModChooseLstToken
 {
 
-	public boolean parse(PObject po, String prefix, String value)
+	public String getTokenName()
+	{
+		return "NUMBER";
+	}
+
+	public boolean parse(EquipmentModifier mod, String prefix, String value)
 	{
 		if (value == null)
 		{
@@ -68,31 +72,69 @@ public class NumberToken implements ChooseLstToken
 			return false;
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		if (tok.countTokens() != 3)
+		Integer min = null;
+		Integer max = null;
+		while (tok.hasMoreTokens())
 		{
-			Logging
-				.errorPrint("COUNT:" + getTokenName()
-					+ " requires three arguments, MIN=, MAX= and TITLE= : "
-					+ value);
-			return false;
+			String tokString = tok.nextToken();
+			if (tokString.startsWith("MIN="))
+			{
+				min = Integer.valueOf(tokString.substring(4));
+				//OK
+			}
+			else if (tokString.startsWith("MAX="))
+			{
+				max = Integer.valueOf(tokString.substring(4));
+				//OK
+			}
+			else if (tokString.startsWith("TITLE="))
+			{
+				//OK
+			}
+			else if (tokString.startsWith("INCREMENT="))
+			{
+				//OK
+				Integer.parseInt(tokString.substring(4));
+			}
+			else if (tokString.startsWith("NOSIGN"))
+			{
+				//OK
+			}
+			else if (tokString.startsWith("MULTIPLE"))
+			{
+				//OK
+			}
+			else
+			{
+				Integer.parseInt(tokString);
+			}
 		}
-		if (!tok.nextToken().startsWith("MIN="))
+		if (max == null)
 		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " first argument was not MIN=");
-			return false;
+			if (min != null)
+			{
+				Logging
+						.errorPrint("Cannot have MIN=n without MAX=m in CHOOSE:NUMBER: "
+								+ value);
+				return false;
+			}
 		}
-		if (!tok.nextToken().startsWith("MAX="))
+		else
 		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " second argument was not MAX=");
-			return false;
-		}
-		if (!tok.nextToken().startsWith("TITLE="))
-		{
-			Logging.errorPrint("COUNT:" + getTokenName()
-				+ " third argument was not TITLE=");
-			return false;
+			if (min == null)
+			{
+				Logging
+						.errorPrint("Cannot have MAX=n without MIN=m in CHOOSE:NUMBER: "
+								+ value);
+				return false;
+			}
+			if (max < min)
+			{
+				Logging
+						.errorPrint("Cannot have MAX= less than MIN= in CHOOSE:NUMBER: "
+								+ value);
+				return false;
+			}
 		}
 		StringBuilder sb = new StringBuilder();
 		if (prefix.length() > 0)
@@ -100,12 +142,7 @@ public class NumberToken implements ChooseLstToken
 			sb.append(prefix).append('|');
 		}
 		sb.append(getTokenName()).append('|').append(value);
-		po.setChoiceString(sb.toString());
+		mod.setChoiceString(sb.toString());
 		return true;
-	}
-
-	public String getTokenName()
-	{
-		return "NUMBER";
 	}
 }

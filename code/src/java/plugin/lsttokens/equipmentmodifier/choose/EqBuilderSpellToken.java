@@ -15,19 +15,19 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.equipmentmodifier.choose;
 
 import java.util.StringTokenizer;
 
 import pcgen.core.Constants;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.core.EquipmentModifier;
+import pcgen.persistence.lst.EqModChooseLstToken;
 import pcgen.util.Logging;
 
-public class EqBuilderSpellToken implements ChooseLstToken
+public class EqBuilderSpellToken implements EqModChooseLstToken
 {
 
-	public boolean parse(PObject po, String prefix, String value)
+	public boolean parse(EquipmentModifier po, String prefix, String value)
 	{
 		if (value == null)
 		{

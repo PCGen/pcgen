@@ -27,12 +27,6 @@ public class StringToken implements ChooseLstToken
 
 	public boolean parse(PObject po, String prefix, String value)
 	{
-		if (po instanceof EquipmentModifier)
-		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " may not be used in EquipmentModifier");
-			return false;
-		}
 		if (value.indexOf(',') != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()

@@ -117,6 +117,7 @@ public class TokenStore
 		tokenTypeList.add(SponsorLstToken.class);
 		
 		//subtokens
+		tokenTypeList.add(EqModChooseLstToken.class);
 		tokenTypeList.add(ChooseLstToken.class);
 		tokenTypeList.add(AutoLstToken.class);
 		tokenTypeList.add(AddLstToken.class);

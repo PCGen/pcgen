@@ -24,6 +24,7 @@ package pcgen.persistence.lst;
 
 import java.util.Map;
 
+import pcgen.core.EquipmentModifier;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
@@ -35,6 +36,42 @@ public final class ChooseLoader
 		// Utility Class, no construction needed
 	}
 
+	public static boolean isEqModChooseToken(String key)
+	{
+		return TokenStore.inst().getTokenMap(EqModChooseLstToken.class)
+				.get(key) != null;
+				//|| isGlobalChooseToken(key);
+	}
+	
+	public static boolean isGlobalChooseToken(String key)
+	{
+		return TokenStore.inst().getTokenMap(ChooseLstToken.class).get(key) != null;
+	}
+
+	public static boolean parseEqModToken(EquipmentModifier mod, String prefix,
+			String key, String value)
+	{
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				EqModChooseLstToken.class);
+		EqModChooseLstToken token = (EqModChooseLstToken) tokenMap.get(key);
+		if (token != null)
+		{
+			LstUtils.deprecationCheck(token, mod, value);
+			if (!token.parse(mod, prefix, value))
+			{
+				Logging.deprecationPrint("Error parsing CHOOSE: " + key + ":"
+						+ value + " in " + mod.getDisplayName() + " of "
+						+ mod.getSourceURI());
+				return false;
+			}
+			return true;
+		}
+		//in case global use is needed:
+		//parseToken(mod, prefix, key, value, -9);
+		//Always have to return true to maintain old format as ok, but deprecated
+		return true;
+	}
+	
 	/**
 	 * This method is static so it can be used by the ADD Token.
 	 * 

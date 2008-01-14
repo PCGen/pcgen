@@ -20,13 +20,13 @@
  *
  * $Id$
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.equipmentmodifier.choose;
 
 import java.util.StringTokenizer;
 
 import pcgen.core.Constants;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.core.EquipmentModifier;
+import pcgen.persistence.lst.EqModChooseLstToken;
 import pcgen.util.Logging;
 
 /**
@@ -39,13 +39,10 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class EqBuilderEqTypeToken implements ChooseLstToken
+public class EqBuilderEqTypeToken implements EqModChooseLstToken
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.ChooseLstToken#parse(pcgen.core.PObject, java.lang.String, java.lang.String)
-	 */
-	public boolean parse(PObject po, String prefix, String value)
+	public boolean parse(EquipmentModifier po, String prefix, String value)
 	{
 		if (value == null)
 		{

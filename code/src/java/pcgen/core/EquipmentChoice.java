@@ -539,19 +539,24 @@ final class EquipmentChoice
 		final int             numSelected,
 		final boolean         forEqBuilder)
 	{
-		final StringTokenizer aTok       = new StringTokenizer(choiceString, "|", false);
-		String                choiceType = aTok.nextToken();
-		String                category   = "FEAT";
+		final StringTokenizer titleTok       = new StringTokenizer(choiceString, "|", false);
+		while (!forEqBuilder && titleTok.hasMoreTokens())
+		{
+			String workingkind = titleTok.nextToken();
+			if (workingkind.startsWith("TITLE="))
+			{
+				this.setTitle(workingkind.substring(6));
+			}
+			else if (workingkind.startsWith("COUNT="))
+			{
+				this.setMaxSelectFromString(workingkind);
+			}
+		}
 
-		if (choiceType.startsWith("COUNT="))
-		{
-			this.setMaxSelectFromString(choiceType);
-			choiceType = aTok.nextToken();
-		}
-		if (choiceType.equals("ABILITY"))
-		{
-			category = aTok.nextToken();
-		}
+		String originalkind = null;
+		final StringTokenizer aTok       = new StringTokenizer(choiceString, "|", false);
+		boolean needStats = false;
+		boolean needSkills = false;
 
 		while (!forEqBuilder && aTok.hasMoreTokens())
 		{
@@ -561,59 +566,94 @@ final class EquipmentChoice
 
 			if (kind.startsWith("TITLE="))
 			{
-				this.setTitle(kind.substring(6));
+				//Do nothing, handled above
 			}
-			else if (kind.startsWith("TYPE=") ||
-				kind.startsWith("TYPE."))
+			else if (kind.startsWith("COUNT="))
 			{
-				this.addChoicesByType(
-					parent,
-					available,
-					numSelected,
-					kind,
-					choiceType,
-					category);
-			}
-			else if ("STAT".equals(kind))
-			{
-				this.addStats();
-			}
-			else if ("SKILL".equals(kind))
-			{
-				this.addSkills();
-			}
-			else if ("MULTIPLE".equals(kind))
-			{
-				this.setAllowDuplicates(true);
-			}
-			else if ("NOSIGN".equals(kind))
-			{
-				this.setNoSign(true);
-			}
-			else if (kind.startsWith("MIN="))
-			{
-				this.setMinValueFromString(kind);
-			}
-			else if (kind.startsWith("MAX="))
-			{
-				this.setMaxValueFromString(kind);
-			}
-			else if (kind.startsWith("INCREMENT="))
-			{
-				this.setIncrementValueFromString(kind);
+				// Do nothing, handled above
 			}
 			else
 			{
-				if (!this.getAvailableList().contains(kind))
+				if (originalkind == null)
 				{
-					this.getAvailableList().add(kind);
+					originalkind = kind;
+					if (originalkind.equals("STATBONUS"))
+					{
+						needStats = true;
+					}
+					else if (originalkind.equals("SKILLBONUS"))
+					{
+						needSkills = true;
+					}
+
+				}
+				else if (kind.startsWith("TYPE=") || kind.startsWith("TYPE."))
+				{
+					if (originalkind.equals("SKILLBONUS"))
+					{
+						//New Style
+						this.addChoicesByType(parent, available, numSelected, kind,
+								"SKILL", "FEAT");
+					}
+					else
+					{
+						//Old Style
+						this.addChoicesByType(parent, available, numSelected, kind,
+								getTitle(), "FEAT");
+					}
+				}
+				else if ("STAT".equals(kind))
+				{
+					this.addStats();
+				}
+				else if ("SKILL".equals(kind))
+				{
+					this.addSkills();
+				}
+				else if ("MULTIPLE".equals(kind))
+				{
+					this.setAllowDuplicates(true);
+				}
+				else if ("NOSIGN".equals(kind))
+				{
+					this.setNoSign(true);
+				}
+				else if (kind.startsWith("MIN="))
+				{
+					this.setMinValueFromString(kind);
+				}
+				else if (kind.startsWith("MAX="))
+				{
+					this.setMaxValueFromString(kind);
+				}
+				else if (kind.startsWith("INCREMENT="))
+				{
+					this.setIncrementValueFromString(kind);
+				}
+				else
+				{
+					needStats = false;
+					needSkills = false;
+					if (!this.getAvailableList().contains(kind))
+					{
+						this.getAvailableList().add(kind);
+					}
 				}
 			}
 		}
 
+		if (needStats)
+		{
+			this.addStats();
+		}
+		else if (needSkills)
+		{
+			this.addSkills();
+		}
+
 		if (this.getTitle() == null)
 		{
-			this.setTitle(choiceType);
+			this.setTitle(originalkind);
 		}
 
 		if (this.getMaxSelect() == Integer.MAX_VALUE)

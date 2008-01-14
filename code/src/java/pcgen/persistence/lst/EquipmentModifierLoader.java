@@ -96,7 +96,7 @@ public final class EquipmentModifierLoader extends
 					final String value = colString.substring(idxColon + 1);
 					LstUtils.deprecationCheck(token, eqMod, value);
 					if (!token.parse(eqMod, value)) {
-						Logging.errorPrint("Error parsing ability "
+						Logging.errorPrint("Error parsing EqMod "
 								+ eqMod.getDisplayName() + ':'
 								+ source.getURI() + ':' + colString + "\"");
 					}
