@@ -1275,27 +1275,31 @@
 <hr>
 
 	<p class="new">*** Updated 5.10</p>
-	<p class="indent0"><strong><a name="PRESPELLTYPE">Tag Name:</a></strong> PRESPELLTYPE:x,y,z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Arcane (Arcane type spells).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Divine (Divine type spells).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Psionic (Psionic type spells).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Any (Any type of spell).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number
-		(The quantity of spells of the proper type and level the character must know).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number
-		(The spell level of the type of spells a character must know).</p>
-	<p class="indent2"><strong>Note:</strong> Use two PRESPELLTYPE tags if more than one spell type is required</p>
-	<p class="indent2"><strong>Note:</strong> The syntax for this tag a recently changed to match the standard for
-		PRExxx tags.  The new syntax is: <br/><code>PRESPELLTYPE:</code>&lt;number of matches&gt;,&lt;spell type&gt;=&lt;spell level&gt;
-		,&lt;spell type&gt;=&lt;spell level&gt;...</p>
+	<p class="indent0"><strong><a name="PRESPELLTYPE">Tag Name:</a></strong> PRESPELLTYPE:x,y=z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of spells known).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Arcane (Arcane type spells).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Divine (Divine type spells).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Psionic (Psionic type spells).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Any type of spell).</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Spell level).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets spell type requirements. Loremaster is a good example of this kind of pre-requisite</p>
+	<ul class="indent2">
+		<li>Sets spell type requirements. (Number of spells known of a specific type and level.)</li>
+		<li>Use two, or more, PRESPELLTYPE tags if more than one spell type is required</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRESPELLTYPE:Arcane,4,5</code></p>
+	<p class="indent2"><code>PRESPELLTYPE:4,Arcane=5</code></p>
 	<p class="indent3">Character must have at least four 5th level arcane spells to meet the requirement.</p>
 	<p class="indent2"><code>PRESPELLTYPE:1,Arcane=3,Divine=3,Psionic=3</code></p>
-	<p class="indent3">Character must have at least one 3rd level spell from any of the Arcane, Divine, or Psionic types.</p>
-	<br>
+	<p class="indent3">Character must have at least one 3rd level spell from any of the &quot;Arcane&quot;, &quot;Divine&quot;, or &quot;Psionic&quot; types.</p>
+	<p class="indent2"><code>PRESPELLTYPE:1,Arcane=3 &lt;tab&gt; PRESPELLTYPE:1,Divine=3</code></p>
+	<p class="indent3">Character must have at least one 3rd level &quot;Arcane&quot; type spell and one 3rd level &quot;Divine&quot; type spell.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>PRESPELLTYPE:x,y,z</code></p>
+	<ul class="indent2">
+		<li>x is &lt;spell type&gt;, y is &lt;number of spells&gt;, and z is &lt;spell level&gt;.</li>
+	</ul>
+	<p></ p>
 
 <hr>
 
