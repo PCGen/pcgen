@@ -135,29 +135,28 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.7.7</p>
-	<p class="indent0"><strong><a name="AUTOSHIELDPROF">Tag Name:</a></strong> AUTO:SHIELDPROF|x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Shield name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Shield type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This is a pipe-delimited (|) list of shields, by name or shield type, that are granted 
-			as free shield proficiencies.</li>
-		<li>You can specify individual shields or all shields of a shield proficiency type.</li>
-		<li>When including the <code>TYPE=</code> sub-tag you may use a period-delimted (.) list 
-			of shield types. This will grant the character proficiency with shields that meet all of the 
-			listed shield types.</li>
-		<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
-		<li>PRExxx tags must be enclosed within brackets. (i.e. [PRExxx]).</li>
-		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>AUTO:SHIELDPROF|TYPE.Buckler|TYPE.Light|TYPE.Heavy</code></p>
-	<p class="indent3">All Light, Heavy and Buckler shields are given as free shield proficiencies.</p>
-	<p class="indent2"><code>AUTO:SHIELDPROF|TYPE.Tower</code></p>
-	<p class="indent3">Tower Shields are given as a free armor proficiency.</p>
-	<p class="indent2"><code>AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy</code></p>
-	<p class="indent3">Light, Heavy and Buckler Shields are given as a free armor proficiency.</p>
+		<p class="new">*** Updated 5.13.8</p>
+		<p class="indent0"><strong><a name="AUTOSHIELDPROF">Tag Name:</a></strong> AUTO:SHIELDPROF|x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Shield name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> SHIELDTYPE=Text (Shield type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This is a pipe-delimited (|) list of shields, by name or shield type, that are granted 
+				as free shield proficiencies.</li>
+			<li>When including the <code>SHIELDTYPE=</code> sub-tag you may use a period-delimted (.) list 
+				of shield types. This will grant the character proficiency with shields that meet all of the 
+				listed shield types.</li>
+			<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
+			<li>PRExxx tags must be enclosed within brackets. (i.e. [PRExxx]).</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>AUTO:SHIELDPROF|SHIELDTYPE=Buckler</code></p>
+		<p class="indent3">Buckler shield is given as a free shield proficiency.</p>
+		<p class="indent2"><code>AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy</code></p>
+		<p class="indent3">Bucjler, Light, and Heavy Shields are given as free shield proficiencies.</p>
+		<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+		<p class="indent2"><code>AUTO:SHIELDPROF:TYPE.x|TYPE=x</code> (<span class="new">Deprecated 5.13.8</span>)</p>
+		<p class="indent3">&quot;TYPE&quot; replaced by &quot;SHIELDTYPE&quot;.</p>
 	<p></ p>
 
 <hr>
