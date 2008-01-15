@@ -3770,14 +3770,14 @@ jar-all-plugins - Generate the plugin jar files
 	</target>
 
 	<target name="jar-lst-equipmentmodifier-choose-plugins" depends="makeplugindirs" description="Build (Link) Equipment Modifier CHOOSE SubToken plugin jar files">
-		<jar jarfile="${lstplugins.dir}/EquipmentModifierChooseToken-EQBUILDER.EQTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierChooseLstToken-EQBUILDER.EQTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/equipmentmodifier/choose/EqBuilderEqTypeToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/EquipmentModifierChooseToken-EQBUILDER.SPELL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierChooseLstToken-EQBUILDER.SPELL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/equipmentmodifier/choose/EqBuilderSpellToken.class" />

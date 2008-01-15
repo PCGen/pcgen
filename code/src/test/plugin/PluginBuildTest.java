@@ -220,7 +220,7 @@ public class PluginBuildTest extends PCGenTestCase
 	 */
 	public void testLstEqModChoosePlugins()
 	{
-		String jarPrefix = "EqModChooseToken-";
+		String jarPrefix = "EquipmentModifierChooseLstToken-";
 		File sourceFolder = new File("code/src/java/plugin/lsttokens/equipmentmodifier/choose");
 		File jarFolder = new File("plugins/lstplugins");
 		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
@@ -640,7 +640,9 @@ public class PluginBuildTest extends PCGenTestCase
 
 				testString = jarPrefix + testString + ".jar";
 				testString = testString.toLowerCase();
-				assertTrue("Jar for " + sources[i] + " should be present in jars list", jarSet.contains(testString));
+				assertTrue("Jar for " + sources[i]
+					+ " should be present in jars list as " + testString,
+					jarSet.contains(testString));
 			}
 		}
 	}
