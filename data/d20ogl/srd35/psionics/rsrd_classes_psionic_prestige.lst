@@ -142,7 +142,7 @@ CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Intim
 ###Block: Psionic Variables
 ###Block: Class Info
 1	SAB:Fire Lash (Ps)
-2	SAB:Hand Afire (Ps) (+2d6 Fire damage on unarmed attacks)	SAB:Fire Adaptation (Ex) (+4 vs fire,heat effects)|PREVARLT:CL,7	SAB:Resistance to Energy (fire) 10||PREVARLT:CL,7
+2	SAB:Hand Afire (Ps) (+2d6 Fire damage on unarmed attacks)	SAB:Fire Adaptation (Ex) (+4 vs fire,heat effects)|PREVARLT:CL,7	SAB:Resistance to Energy (fire) 10|PREVARLT:CL,7
 3	SAB:Bolt of Fire (Ps) (60' Ranged Touch; %d6 damage)|BoltFire																				BONUS:VAR|BoltFire|CL			DEFINE:BoltFire|0
 4	SAB:Weapon Afire (Ps) (+2d6 Fire damage with weapon)
 5	SAB:Nimbus (Ps) (1x/day for up to % minutes)|NimbusDuration																					BONUS:VAR|NimbusDuration|CL		DEFINE:NimbusDuration|0
