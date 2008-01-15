@@ -92,21 +92,49 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="FAVCLASS">Tag Name:</a></strong> FAVCLASS:x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class Name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text ('Any')</p>
+	<p class="new">*** Updated 5.13.8</p>
+	<p class="indent0"><strong><a name="FAVCLASS">Tag Name:</a></strong> FAVCLASS:x|x.y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Base class name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ANY</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Base class or sub-class name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Determines the Race's favored class. 2 or more classes separated by | (pipe)
-			will grant all of the classes as Favored.</li>
-		<li>Special type 'Any' will grant the character's highest level class as Favored.</li>
-		<li>When 'Any' is used no other class is required.</li>
+		<li>Determines the Race's favored class.</li>
+		<li>Classes with sub-classes must use the (x.y) syntax and must include the base-class name or the sub-class name.</li>
+		<li>More than one class may be included as a pipe-delimited (|) list with all listed classes identified as &quot;Favored&quot;.</li>
+		<li>Special type 'ANY' will grant the character's highest level class as Favored.</li>
+		<li>When 'ANY' is used no other class is required.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>FAVCLASS:Wizard</code></p>
-	<p class="indent3">Race's favored class is Wizard.</p>
-	<p class="indent2"><code>Gnome.MOD &lt;tab&gt; FAVCLASS:Illusionist|Mechanist</code></p>
-	<p class="indent3">Race's favored class is Illusionist or Mechanist.</p>
+	<p class="indent2"><code>FAVCLASS:Wizard|Fighter</code></p>
+	<p class="indent3">The character's favored classes are Wizard and Fighter.</p>
+	<p class="indent2"><code>FAVCLASS:Wizard.Wizard</code></p>
+	<p class="indent3">Race's favored class is &quot;Wizard&quot;.</p>
+	<p class="indent2"><code>FAVCLASS:Wizard.Illusionist</code></p>
+	<p class="indent3">Race's favored class is &quot;Ilusionist&quot;.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** New 5.13.8</p>
+	<p class="indent0"><strong><a name="FAVCLASSCHOOSE">Tag Name:</a></strong> FAVCLASS:CHOOSE:x|x.y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Base class name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ANY</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Base class or sub-class name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Determines the Race's favored class.</li>
+		<li>More than one class may be included, as a pipe-delimited (|) list, with all listws classes identified as &quot;Favored&quot;.</li>
+		<li>Special type 'ANY' will grant the character's highest level class as Favored.</li>
+		<li>When 'ANY' is used no other class is required.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>FAVCLASS:CHOOSE:Wizard</code></p>
+	<p class="indent3">Race may select any sub-class of &quot;Wizard&quot; as the favored class.</p>
+	<p class="indent2"><code>FAVCLASS:CHOOSE:Rogue|Wizard.Illusionist</code></p>
+	<p class="indent3">Race may select either &quot;Rogue&quot; or &quot;Ilusionist&quot; as the favored class.</p>
+	<p class="indent2"><code>FAVCLASS:CHOOSE:Wizard</code></p>
+	<p class="indent3">Race may select any &quot;Wizard&quot; sub-class as the favored class.</p>
 	<p></p>
 
 <hr>
