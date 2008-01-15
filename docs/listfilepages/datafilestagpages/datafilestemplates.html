@@ -142,15 +142,15 @@
 		<li>Classes with sub-classes must use the (x.y) syntax and must include the base-class name or the sub-class name.</li>
 		<li>More than one class may be included as a pipe-delimited (|) list with all listed classes identified as &quot;Favored&quot;.</li>
 		<li>Special type 'ANY' will grant the character's highest level class as Favored.</li>
-		<li>When 'ANY' is used no other class is required.</li>
+		<li>When 'ANY' is used no other class is allowed.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FAVOREDCLASS:Wizard|Fighter</code></p>
-	<p class="indent3">The character's favored classes are Wizard and Fighter.</p>
+	<p class="indent3">The character's favored classes are &quot;Wizard&quot;, including any of its sub-classes, and &quot;Fighter&quot;.</p>
 	<p class="indent2"><code>FAVOREDCLASS:Wizard.Wizard</code></p>
-	<p class="indent3">Race's favored class is &quot;Wizard&quot;.</p>
+	<p class="indent3">Race's favored class is &quot;Wizard&quot;, excluding any of its sub-classes.</p>
 	<p class="indent2"><code>FAVOREDCLASS:Wizard.Illusionist</code></p>
-	<p class="indent3">Race's favored class is &quot;Ilusionist&quot;.</p>
+	<p class="indent3">Race's favored class is the &quot;Wizard&quot; sub-class, the &quot;Illusionist&quot;.</p>
 	<p></p>
 
 <hr>
