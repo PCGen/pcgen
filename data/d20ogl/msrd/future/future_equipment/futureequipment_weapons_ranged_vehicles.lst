@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Jan 15 17:20:01 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
-# Equipment Name			Required Proficiency		Type						Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page				Special Property				Rate of Fire
-T-95 Cavalcade Chain Gun	PROFICIENCY:T 95 Calvalcade	TYPE:Weapon.Ranged.Exotic.Ballistic	COST:21	WT:185	CRITMULT:x2			CRITRANGE:1			DAMAGE:7d6	RANGE:60	SIZE:H	SOURCEPAGE:FutureVehicles.rtf	SPROP:Mil(+3), linked magazine	RATEOFFIRE:S,A
-M-300 Rhino Mass Cannon		PROFICIENCY:M 300			TYPE:Weapon.Ranged.Exotic.Ballistic	COST:29	WT:450	CRITMULT:x2			CRITRANGE:1			DAMAGE:8d12	RANGE:100	SIZE:H	SOURCEPAGE:FutureVehicles.rtf	SPROP:Mil(+3)				RATEOFFIRE:S
+# Equipment Name			Required Proficiency			Type						Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page				Special Property				Rate of Fire
+T-95 Cavalcade Chain Gun	PROFICIENCY:WEAPON|T 95 Calvalcade	TYPE:Weapon.Ranged.Exotic.Ballistic	COST:21	WT:185	CRITMULT:x2			CRITRANGE:1			DAMAGE:7d6	RANGE:60	SIZE:H	SOURCEPAGE:FutureVehicles.rtf	SPROP:Mil(+3), linked magazine	RATEOFFIRE:S,A
+M-300 Rhino Mass Cannon		PROFICIENCY:WEAPON|M 300		TYPE:Weapon.Ranged.Exotic.Ballistic	COST:29	WT:450	CRITMULT:x2			CRITRANGE:1			DAMAGE:8d12	RANGE:100	SIZE:H	SOURCEPAGE:FutureVehicles.rtf	SPROP:Mil(+3)				RATEOFFIRE:S

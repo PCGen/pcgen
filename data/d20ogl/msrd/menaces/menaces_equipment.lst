@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Jan 15 17:20:01 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Equipment Name		Type				Cost		Weight	Size		Source Page					Special Property
@@ -13,5 +13,5 @@ Collection of scalps teeth and thighbones	OUTPUTNAME:Collection of scalps, teeth
 Collection of beheaded Dolls													TYPE:Goods.General	COST:0	WT:0		SOURCEPAGE:MenaceCreaturesJ-Z.rtf
 
 ###Block: Weapons
-# Equipment Name	Required Proficiency	Type									Cost		Weight	Required Race	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page					Special Property
-Flame Sword		PROFICIENCY:Greatsword	TYPE:FX.Specific.Weapon.Archaic.Melee.Slashing.Fire	COST:0	WT:0		PRERACE:1,Elohim	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	SIZE:L	SOURCEPAGE:MenaceCreaturesA-I.rtf	SPROP:+3d6 fire damage, vanishes in a puff of smoke if it should leave the hands of the Elohim
+# Equipment Name	Required Proficiency		Type									Cost		Weight	Required Race	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page					Special Property
+Flame Sword		PROFICIENCY:WEAPON|Greatsword	TYPE:FX.Specific.Weapon.Archaic.Melee.Slashing.Fire	COST:0	WT:0		PRERACE:1,Elohim	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	SIZE:L	SOURCEPAGE:MenaceCreaturesA-I.rtf	SPROP:+3d6 fire damage, vanishes in a puff of smoke if it should leave the hands of the Elohim

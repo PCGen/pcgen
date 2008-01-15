@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Jan 15 17:20:01 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original entry by Eddy Anthony (MoSaT)
 
@@ -21,15 +21,15 @@ Robot Locomotion (Inductor)		OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionWalk.PL8
 
 ###Block: Manipulators
 
-# Equipment Name					Output Name		Required Proficiency	Type										Critical Hit Range	Damage	Size		Source Page				Special Property
-Robot Manipulator (Advanced Hand)		OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Manipulator (Claw)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Manipulator (Hand)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Manipulator (Jaws)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Piercing.PL5			CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Manipulator (Pincer)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.Piercing.PL5	CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Manipulator (Probe)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.Piercing.PL5	CRITRANGE:1			DAMAGE:1d2	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Manipulator (Special-Use Gripper)	OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Manipulator (Task Hand)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
+# Equipment Name					Output Name		Required Proficiency			Type										Critical Hit Range	Damage	Size		Source Page				Special Property
+Robot Manipulator (Advanced Hand)		OUTPUTNAME:[NAME]	PROFICIENCY:WEAPON|Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Claw)			OUTPUTNAME:[NAME]	PROFICIENCY:WEAPON|Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Hand)			OUTPUTNAME:[NAME]	PROFICIENCY:WEAPON|Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Jaws)			OUTPUTNAME:[NAME]	PROFICIENCY:WEAPON|Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Piercing.PL5			CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Pincer)			OUTPUTNAME:[NAME]	PROFICIENCY:WEAPON|Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.Piercing.PL5	CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Probe)			OUTPUTNAME:[NAME]	PROFICIENCY:WEAPON|Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.Piercing.PL5	CRITRANGE:1			DAMAGE:1d2	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Special-Use Gripper)	OUTPUTNAME:[NAME]	PROFICIENCY:WEAPON|Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Task Hand)			OUTPUTNAME:[NAME]	PROFICIENCY:WEAPON|Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
 
 ###Block: Integrated Armor
 #TODO: figure out how to do the weight, usualy given as a fraction of the Robots frame weight, may not be doable
