@@ -71,7 +71,7 @@ Defensive Awareness	VISIBLE:NO	SAB:Defensive Awareness (Dex bonus to AC)|Uncanny
 
 ###Block: Loremaster secrets
 # Feat Name				Type				Visible	Var. Min. Value			Special ABility							Stackable?	Multiple?	Choose																Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
-Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SAB:Loremaster Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK|1																									BONUS:SKILLRANK|LIST|4	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SAB:Loremaster Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK																									BONUS:SKILLRANK|LIST|4	SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SAB:Loremaster Secret (Secret Health)			STACK:NO	MULT:NO																												BONUS:HP|CURRENTMAX|3					SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SAB:Loremaster Secret (Secrets of Inner Strength)	STACK:NO	MULT:NO																		BONUS:CHECKS|Will|1															SOURCEPAGE:srdbasiccharacterclassesi.rtf
 The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,4		SAB:Loremaster Secret (The Lore of True Strength)	STACK:NO	MULT:NO																		BONUS:CHECKS|Fortitude|1														SOURCEPAGE:srdbasiccharacterclassesi.rtf

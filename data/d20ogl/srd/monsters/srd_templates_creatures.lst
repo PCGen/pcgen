@@ -1,28 +1,28 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Jan 15 15:31:36 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Specific Templates used in monster races
 #
 ###Block: Dragons
-# Template Name	Visible	Source Page					Removable?		Hit Dice
-Dragon(Black)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:16-21:DR:5/+1	HD:23-27:DR:10/+1	HD:28-33:DR:15/+2	HD:34+:DR:20/+3
-Dragon(Blue)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:18-23:DR:5/+1	HD:24-29:DR:10/+1	HD:30-35:DR:15/+2	HD:36+:DR:20/+3
-Dragon(Green)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:17-22:DR:5/+1	HD:23-28:DR:10/+1	HD:29-34:DR:15/+2	HD:35+:DR:20/+2
-Dragon(Red)		VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:19-24:DR:5/+1	HD:25-30:DR:10/+1	HD:31-36:DR:15/+2	HD:37+:DR:20/+3
-Dragon(White)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:15-20:DR:5/+1	HD:21-26:DR:10/+1	HD:27-32:DR:15/+2	HD:33+:DR:20/+3
-Dragon(Brass)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:16-21:DR:5/+1	HD:22-27:DR:10/+1	HD:28-33:DR:15/+2	HD:34+:DR:20/+3
-Dragon(Bronze)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:18-23:DR:5/+1	HD:24-29:DR:10/+1	HD:30-35:DR:15/+2	HD:36+:DR:20/+3
-Dragon(Copper)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:17-22:DR:5/+1	HD:23-28:DR:10/+1	HD:29-34:DR:15/+2	HD:35+:DR:20/+2
-Dragon(Gold)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:20-25:DR:5/+1	HD:26-31:DR:10/+1	HD:32-37:DR:15/+2	HD:38+:DR:20/+3
-Dragon(Silver)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:19-24:DR:5/+1	HD:25-30:DR:10/+1	HD:31-36:DR:15/+2	HD:37+:DR:20/+3
+# Template Name	Visible	Source Page					Virtual Feat																															Removable?
+Dragon(Black)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=16,MAX=21	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=23,MAX=27	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=28,MAX=33	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=34	REMOVABLE:YES
+Dragon(Blue)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=18,MAX=23	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=24,MAX=29	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=30,MAX=35	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=36	REMOVABLE:YES
+Dragon(Green)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=17,MAX=22	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=23,MAX=28	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=29,MAX=34	VFEAT:Monster DR ~ 20 plus 2|PREHD:MIN=35	REMOVABLE:YES
+Dragon(Red)		VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=19,MAX=24	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=25,MAX=30	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=31,MAX=36	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=37	REMOVABLE:YES
+Dragon(White)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=15,MAX=20	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=21,MAX=26	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=27,MAX=32	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=33	REMOVABLE:YES
+Dragon(Brass)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=16,MAX=21	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=22,MAX=27	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=28,MAX=33	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=34	REMOVABLE:YES
+Dragon(Bronze)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=18,MAX=23	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=24,MAX=29	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=30,MAX=35	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=36	REMOVABLE:YES
+Dragon(Copper)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=17,MAX=22	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=23,MAX=28	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=29,MAX=34	VFEAT:Monster DR ~ 20 plus 2|PREHD:MIN=35	REMOVABLE:YES
+Dragon(Gold)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=20,MAX=25	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=26,MAX=31	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=32,MAX=37	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=38	REMOVABLE:YES
+Dragon(Silver)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=19,MAX=24	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=25,MAX=30	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=31,MAX=36	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=37	REMOVABLE:YES
 #
 ###Block: Animated Objects
-# Template Name	Visible		Source Page				Special ABility					Required Race			Prohibited Template							MOVEA			MOVECLONE			Removable?
-Float			VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Float			PRERACE:1,Animated Object%														MOVECLONE:Walk,Swim,/2	REMOVABLE:YES
-Multiple Legs	VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Multiple Legs	PRERACE:1,Animated Object%	!PRETEMPLATE:Two Legs|Wheeled|Sheet-like				MOVEA:Walk,20					REMOVABLE:YES
-Sheet-like		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Sheet-like		PRERACE:1,Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Multiple Legs|Sinuous					MOVECLONE:Walk,Fly,/2	REMOVABLE:YES
-Sinuous		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Sinuous		PRERACE:1,Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Sheet-like							MOVECLONE:Walk,Climb,/2	REMOVABLE:YES
-Two Legs		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Two Legs		PRERACE:1,Animated Object%	!PRETEMPLATE:Multiple Legs|Wheeled|Sinuous|Sheet-like		MOVEA:Walk,10					REMOVABLE:YES
-Wheeled		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Wheeled		PRERACE:1,Animated Object%	!PRETEMPLATE:Two Legs|Multiple Legs|Sinuous|Sheet-like	MOVEA:Walk,40					REMOVABLE:YES
+# Template Name	Visible		Source Page				Special ABility					Required Race			Prohibited Template							Add to base move			MOVECLONE			Removable?
+Float			VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Float			PRERACE:1,Animated Object%																MOVECLONE:Walk,Swim,/2	REMOVABLE:YES
+Multiple Legs	VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Multiple Legs	PRERACE:1,Animated Object%	!PRETEMPLATE:Two Legs|Wheeled|Sheet-like				BONUS:MOVEADD|TYPE.Walk|20					REMOVABLE:YES
+Sheet-like		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Sheet-like		PRERACE:1,Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Multiple Legs|Sinuous							MOVECLONE:Walk,Fly,/2	REMOVABLE:YES
+Sinuous		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Sinuous		PRERACE:1,Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Sheet-like									MOVECLONE:Walk,Climb,/2	REMOVABLE:YES
+Two Legs		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Two Legs		PRERACE:1,Animated Object%	!PRETEMPLATE:Multiple Legs|Wheeled|Sinuous|Sheet-like		BONUS:MOVEADD|TYPE.Walk|10					REMOVABLE:YES
+Wheeled		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Wheeled		PRERACE:1,Animated Object%	!PRETEMPLATE:Two Legs|Multiple Legs|Sinuous|Sheet-like	BONUS:MOVEADD|TYPE.Walk|40					REMOVABLE:YES
 #
 ###Block: Demon/Devil
 # Template Name	Visible	Source Page				Special ABility																Required AL	Removable?		SUBRACE
@@ -34,9 +34,9 @@ Devil			VISIBLE:NO	SOURCEPAGE:srdmonstersd.rtf	SAB:Fire/Poison Immunity(Ex)	SAB:
 Nightshade		VISIBLE:NO	DR:25/+3		SOURCEPAGE:srdmonstersnop.rtf	SAB:Chill Aura(Su)	SAB:Spell-like Abilities(Sp)	SAB:Summon Undead(Su)	SAB:Aversion to daylight(Ex)	SAB:Cold Immunity(Ex)	SAB:Acid/Fire/Electricity Resitstance 50	SAB:Spell Immunity(Su)	SAB:Detect Magic(Su)	SAB:See Invisibility(Su)	SAB:Telepathy(Su)	REMOVABLE:YES	TYPE:Undead
 #
 ###Block: Monstrous Spiders
-# Template Name	Visible	Source Page					Special ABility																						Define																	Bonus to skill																Modify VAR																																																																																																																						MOVEA			Removable?		SUBRACE
-Hunting		VISIBLE:NO	SOURCEPAGE:srdmonstersvermin.rtf																																											BONUS:SKILL|Hide|4|TYPE=Racial	BONUS:SKILL|Jump|6|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial																																																																																																																								MOVEA:Walk,10	REMOVABLE:YES	SUBRACE:Yes
-Web Spinning	VISIBLE:NO	SOURCEPAGE:srdmonstersvermin.rtf	SAB:Web(Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|14	DEFINE:MonstrousSpiderWebBreakDC|20	DEFINE:MonstrousSpiderWebHp|0	BONUS:SKILL|Hide,Spot|4|TYPE=Racial													BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|2|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|4|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|6|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|12|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|14|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|16|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|18|PRESIZEEQ:C				REMOVABLE:YES	SUBRACE:Yes
+# Template Name	Visible	Source Page					Special ABility																						Define																	Add to base move			Bonus to skill																Modify VAR																																																																																																																						Removable?		SUBRACE
+Hunting		VISIBLE:NO	SOURCEPAGE:srdmonstersvermin.rtf																																											BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Hide|4|TYPE=Racial	BONUS:SKILL|Jump|6|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial																																																																																																																								REMOVABLE:YES	SUBRACE:Yes
+Web Spinning	VISIBLE:NO	SOURCEPAGE:srdmonstersvermin.rtf	SAB:Web(Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|14	DEFINE:MonstrousSpiderWebBreakDC|20	DEFINE:MonstrousSpiderWebHp|0						BONUS:SKILL|Hide,Spot|4|TYPE=Racial													BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|2|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|4|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|6|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|12|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|14|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|16|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|18|PRESIZEEQ:C	REMOVABLE:YES	SUBRACE:Yes
 #
 ###Block: Hydra Variants
 # Template Name		CR	Visible	Source Page				Special ABility																																										Prohibited Template				Removable?		SUBRACE

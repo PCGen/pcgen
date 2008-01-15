@@ -21,7 +21,6 @@ INFOTEXT:SRD Basics (The base classes, feats, spells, equipment, etc.)
 
 ABILITYCATEGORY:srd_abilitycategory.lst
 ABILITY:srd_ability_class.lst
-ABILITY:srd_ability_hidden.lst
 
 CLASS:srd_classes_base.lst
 CLASS:srd_classes_creature_types.lst

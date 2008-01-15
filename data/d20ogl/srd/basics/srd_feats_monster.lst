@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Dec 22 21:43:02 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Jan 15 14:05:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 ###Block: Monster Feats
 # Currently the Multidexterity and Multiweapon Fighting feats are only displayed properly
 #    in the eqsheet.htm created by the Equip tab.
