@@ -1390,8 +1390,12 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Proficiency Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Weapon Type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a | (pipe) delimited list of weapons or weapon types that are granted to the class as
-		a choice of ONE of the listed weapons.</p>
+	<ul class="indent2">
+		<li>This is a pipe-delimited (|) list of weapons or weapon types that are granted to the class as
+			a choice of ONE of the listed weapons.</li>
+		<li>This tag does not use a CHOOSE pop-up to make a selection.  You nust use the &quot;Lang, Weapon, 
+			and SA&quot; dialog found on the &quot;Summary&quot; tab.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>WEAPONBONUS:Dagger|Staff|Club|Mace|Sword (Short)|Shortbow (Composite)</code></p>
 	<p class="indent3">The class can choose from a weapon proficiency from &quot;Dagger&quot;,
@@ -1492,6 +1496,8 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRERACETYPE:Animal</code></p>
 	<p class="indent3">This class can only be taken by &quot;Animal&quot; races.</p>
+
+<hr>
 
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
