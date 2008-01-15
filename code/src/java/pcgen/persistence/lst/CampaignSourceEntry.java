@@ -250,6 +250,20 @@ public class CampaignSourceEntry
 			return new File(SettingsHandler.getPcgenVendorDataDir(), path)
 					.toURI();
 		}
+		else if (basePath.charAt(0) == '*')
+		{
+			String pathNoLeader =
+					trimLeadingFileSeparator(basePath.substring(1));
+			String path = CoreUtility.fixFilenamePath(pathNoLeader);
+			File pccFile =
+					new File(SettingsHandler.getPccFilesLocation(), path);
+			if (pccFile.exists())
+			{
+				return pccFile.toURI();
+			}
+			return new File(SettingsHandler.getPcgenVendorDataDir(), path)
+				.toURI();
+		}
 		/*
 		 * If the line doesn't use "@" or "&" then it's a relative path
 		 * 
