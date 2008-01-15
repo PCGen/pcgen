@@ -44,8 +44,8 @@ Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)
 
 ###Block Spell Component stuff
 # Modifier Name				Unique Key		Naming Option	Type				Cost		Visible		Source Page					Required Type			Modify the item cost					Choose
-Spell Material Component Value	KEY:SPELLMATERIAL	NAMEOPT:NOTHING	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdmagicoverview.rtf	PRETYPE:MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:Material Component Value|MIN=0|MAX=50000
-Spell Focus Value				KEY:SPELLFOCUS	NAMEOPT:NOTHING	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdmagicoverview.rtf	PRETYPE:SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:Spell Focus Value|MIN=0|MAX=10000
+Spell Material Component Value	KEY:SPELLMATERIAL	NAMEOPT:NOTHING	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdmagicoverview.rtf	PRETYPE:MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:NUMBER|MIN=0|MAX=50000|TITLE=Material Component Value
+Spell Focus Value				KEY:SPELLFOCUS	NAMEOPT:NOTHING	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdmagicoverview.rtf	PRETYPE:SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:NUMBER|MIN=0|MAX=10000|TITLE=Spell Focus Value
 
 # CHARGED_ITEM_10 is used by the Healers Kit
 
