@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Tue Jan  2 15:40:06 2007 -- reformated by prettylst.pl v1.35 (build 1495)
+CAMPAIGN:Heroes of High Favor - Dwarves
+RANK:6
+GAMEMODE:3e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Fantasy
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Badaxe Games.Heroes of High Favor
+PUBNAMELONG:Badaxe Games
+PUBNAMESHORT:Badaxe
+PUBNAMEWEB:www.badaxegames.com
+SOURCELONG:Heroes of High Favor - Dwarves
+SOURCESHORT:HoHF-D
+SOURCEWEB:www.badaxegames.com
+SOURCEDATE:2002-07
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc. licensed for public use under the terms of the Open Game License v1.0a;
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson;
+COPYRIGHT:Cleave Asunder Copyright 2000, Michael J. Kletch;
+COPYRIGHT:Heroes of High Favor: DWARVES Copyright 2002, Benjamin R. Durbin; published by Bad Axe Games, LLC.
+COPYRIGHT:PCGen dataset conversion for Badaxe Games Heroes of High Favor Dwarves Copyright 2007, PCGen Data Team (including, but not limited to: Andrew Maitland, Eric Smith, Paul W. King)
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+CLASS:heroes_dwarves_classes.lst
+EQUIPMOD:heroes_dwarves_equipmods.lst
+FEAT:heroes_dwarves_feats.lst
+FEAT:heroes_dwarves_feats_hidden.lst
+RACE:heroes_dwarves_races.lst
+SKILL:heroes_dwarves_skills.lst
+TEMPLATE:heroes_dwarves_templates.lst
+
+#
+# DONE
+#

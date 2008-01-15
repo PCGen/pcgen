@@ -1,0 +1,40 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 11 23:56:04 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
+# Original Entry by: Andrew Maitland
+
+
+#Hidden
+
+###Block: HIDDEN CLASS FEATS
+# Feat Name				Output Name				Type			Visible	Required Class			Special ABility				Description					Stackable?	Multiple?	Choose				BONUS:EQMARMOR				Source Page
+Ancestral Lore								TYPE:Aceldamist	VISIBLE:NO						SAB:Ancestral Lore			DESC:See Text						MULT:YES	CHOOSE:SPELLLIST|1								SOURCEPAGE:pg.54
+Armored Casting								TYPE:Aceldamist	VISIBLE:NO						SAB:Armored Casting			DESC:See Text						MULT:YES	CHOOSE:ARMORTYPE			BONUS:EQMARMOR|SPELLFAILURE|-5	SOURCEPAGE:pg.54
+Blood Magic									TYPE:Aceldamist	VISIBLE:NO						SAB:Blood Magic				DESC:See Text																			SOURCEPAGE:pg.54
+Fellblade Magic								TYPE:Aceldamist	VISIBLE:NO						SAB:Fellblade Magic			DESC:See Text																			SOURCEPAGE:pg.55
+Signature Metaspell							TYPE:Aceldamist	VISIBLE:NO						SAB:Signature Metaspell			DESC:See Text						MULT:YES	CHOOSE:SPELLLIST|1								SOURCEPAGE:pg.55
+Signature Spell Focus							TYPE:Aceldamist	VISIBLE:NO						SAB:Signature Spell Focus		DESC:See Text						MULT:YES	CHOOSE:SPELLLIST|1								SOURCEPAGE:pg.55
+Signature Spell Immunity						TYPE:Aceldamist	VISIBLE:NO						SAB:Signature Spell Immunity		DESC:See Text						MULT:YES	CHOOSE:SPELLLIST|1								SOURCEPAGE:pg.55
+Signature Spell Penetration						TYPE:Aceldamist	VISIBLE:NO						SAB:Signature Spell Penetration	DESC:Signature Spell Penetration			MULT:YES	CHOOSE:SPELLLIST|1								SOURCEPAGE:pg.55
+
+
+SlayerSkillMastery		OUTPUTNAME:Skill Mastery	TYPE:SlayerHidden	VISIBLE:NO	PRECLASS:1,Slayer ~ HoHFD=1	SAB:Skill Mastery of (%CHOICE)	DESC:Skill Mastery of (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CLASS
+
+###Block:  COMMENTS: Slayer get a virtual feat usable against only favored enemies - Don't stack. Using SA to display
+# Feat Name					Type					Visible	Required Feat				Special ABility								Description					Source Page
+Slayer Favored ~ Cleave			TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Cleave			DESC:Benefit against favored enemy	SOURCEPAGE:pg.46
+Slayer Favored ~ Dodge			TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Dodge			DESC:Benefit against favored enemy	SOURCEPAGE:pg.46
+Slayer Favored ~ Expertise		TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Expertise			DESC:Benefit against favored enemy	SOURCEPAGE:pg.46
+Slayer Favored ~ Great Cleave		TYPE:ClassAbilitiesSlayer	VISIBLE:NO	PREFEAT:1,Slayer Favored ~ Cleave	SAB:Slayer Favored Enemy Bonus Feat ~ Great Cleave		DESC:Benefit against favored enemy	SOURCEPAGE:pg.46
+Slayer Favored ~ Great Fortitude	TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Great Fortitude		DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
+Slayer Favored ~ Lightning Reflexes	TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Lightning Reflexes	DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
+Slayer Favored ~ Iron Will		TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Iron Will			DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
+Slayer Favored ~ Improved Charge	TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Improved Charge		DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
+Slayer Favored ~ Point Blank Shot	TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Point Blank Shot	DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
+Slayer Favored ~ Power Attack		TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Power Attack		DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
+Slayer Favored ~ Precise Shot		TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Precise Shot		DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
+Slayer Favored ~ Improved Critical	TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Improved Critical	DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
+Slayer Favored ~ Mobility		TYPE:ClassAbilitiesSlayer	VISIBLE:NO							SAB:Slayer Favored Enemy Bonus Feat ~ Mobility			DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
+
+### (Slayer Favored ~ Cleave,Slayer Favored ~ Dodge,Slayer Favored ~ Expertise,Slayer Favored ~ Great Fortitude,Slayer Favored ~ Lightning Reflexes,Slayer Favored ~ Iron Will,Slayer Favored ~ Improved Charge,Slayer Favored ~ Point Blank Shot,Slayer Favored ~ Power Attack,Slayer Favored ~ Precise Shot,Slayer Favored ~ Improved Critical,Slayer Favored ~ Mobility,Slayer Favored ~ Great Cleave)1
+
+
