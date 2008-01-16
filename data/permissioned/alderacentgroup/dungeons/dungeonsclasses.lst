@@ -13,7 +13,7 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1							ADD:SPELLCASTER|1|Divine	ADD:FEAT|1|TYPE=RangerFavored
+1							ADD:SPELLCASTER|1|Divine	ADD:FEAT|1|TYPE=CrusaderFavored
 2							ADD:SPELLCASTER|1|Divine	ADD:LANGUAGE|3|Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Gnome,Goblin,Giant,Gnoll,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
 3							ADD:SPELLCASTER|1|Divine
 4	SAB:Find the Path				ADD:SPELLCASTER|1|Divine

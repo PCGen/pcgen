@@ -22,6 +22,7 @@ FEAT:dungeonsclassfeats_35e.lst
 FEAT:dungeonsfeats_35e.lst
 
 CLASS:../dungeonsclasses.lst
+FEAT:../dungeonsclassfeats.lst
 EQUIPMENT:../dungeonsequip.lst
 EQUIPMENT:../dungeonsequipwondrousitems.lst
 FEAT:../dungeonsfeats.lst
