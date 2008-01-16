@@ -16,12 +16,12 @@ GEAR:Trident		SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Sahuagin (Mutant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin (Mutant)]
 RACE:Sahuagin (Mutant)	!PRERACE:1,%
-KIT:Default Sahuagin
+KIT:Sahuagin Default
 NAME:Mutant Sahuagin
 
 STARTPACK:Sahuagin (Malenti) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin (Malenti)]
 RACE:Sahuagin (Malenti)	!PRERACE:1,%
-KIT:Default Sahuagin
+KIT:Sahuagin Default
 NAME:Malenti
 
 STARTPACK:Salamander (Average) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Average)]
@@ -624,6 +624,6 @@ FEAT:Track
 
 STARTPACK:Troll (Scrag) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Scrag)]
 RACE:Troll (Scrag)	!PRERACE:1,%
-KIT:Default Troll
+KIT:Troll Default
 NAME:Scrag
 

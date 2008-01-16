@@ -923,18 +923,18 @@ GEAR:Shortbow	SIZE:PC	LOCATION:Carried
 STARTPACK:Drider (Cleric) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Cleric)]
 RACE:Drider (Cleric)	!PRERACE:1,%
 NAME:Drider (Cleric)
-KIT:Default Drider
+KIT:Drider Default
 
 STARTPACK:Drider (Sorcerer) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Sorcerer)]
 RACE:Drider (Sorcerer)	!PRERACE:1,%
 NAME:Drider (Sorcerer)
-KIT:Default Drider
+KIT:Drider Default
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Ghost Sound|Mage Hand|Ray of Frost|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Web|Lightning Bolt
 
 STARTPACK:Drider (Wizard) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Wizard)]
 RACE:Drider (Wizard)	!PRERACE:1,%
 NAME:Drider (Wizard)
-KIT:Default Drider
+KIT:Drider Default
 
 STARTPACK:Dryad Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dryad]
 ALIGN:CG

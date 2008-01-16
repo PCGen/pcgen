@@ -17,7 +17,7 @@ GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Duergar Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Duergar]
 NAME:Duergar
-KIT:Default Dwarf (Duergar)
+KIT:Dwarf (Duergar) Default
 RACE:Duergar	!PRERACE:1,%
 
 STARTPACK:Elan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elan]
