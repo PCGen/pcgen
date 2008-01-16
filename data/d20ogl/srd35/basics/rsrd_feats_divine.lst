@@ -17,7 +17,7 @@ Knock Down				TYPE:General	PREATT:2	PREFEAT:1,Improved Trip																					
 Persistent Spell			TYPE:Metamagic			PREFEAT:1,Extend Spell																									DESC:See Text																	ADDSPELLLEVEL:6						SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Plant Control			TYPE:General			PREFEAT:1,Plant Defiance															PRESPELL:1,Speak with Plants					DESC:See Text													ADD:FEAT|1|Rebuke Plant									SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Plant Defiance			TYPE:General																						PRESPELL:1,Detect Animals or Plants				DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Power Control			TYPE:General	PREATT:4	PREFEAT:1,Weapon Focus																									DESC:See Text			MULT:YES	CHOOSE:FEAT=Weapon Focus|1																SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Power Control			TYPE:General	PREATT:4	PREFEAT:1,Weapon Focus																									DESC:See Text			MULT:YES	CHOOSE:FEAT=Weapon Focus																SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Reach Spell				TYPE:Metamagic																															DESC:See Text																	ADDSPELLLEVEL:2						SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Repeat Spell			TYPE:Metamagic																															DESC:See Text																	ADDSPELLLEVEL:3						SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Sacred Spell			TYPE:Metamagic																															DESC:See Text																	ADDSPELLLEVEL:2						SOURCEPAGE:DivineAbilitiesandFeats.rtf

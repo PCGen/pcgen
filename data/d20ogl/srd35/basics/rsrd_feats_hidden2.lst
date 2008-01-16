@@ -114,7 +114,7 @@ True Lore		TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:True Lore (Ex)		SOURCE
 
 ###Block: Loremaster Secrets
 # Feat Name				Type				Visible	Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose																Add										Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
-Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SAB:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK|1																																			BONUS:SKILLRANK|LIST|4	SOURCEPAGE:PrestigeClasses.rtf
+Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SAB:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK																																			BONUS:SKILLRANK|LIST|4	SOURCEPAGE:PrestigeClasses.rtf
 Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SAB:Secret (Secret Health)																																													BONUS:HP|CURRENTMAX|3					SOURCEPAGE:PrestigeClasses.rtf
 Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SAB:Secret (Secrets of Inner Strength)																																	BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:PrestigeClasses.rtf
 The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,4		SAB:Secret (The Lore of True Stamina)																																	BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:PrestigeClasses.rtf

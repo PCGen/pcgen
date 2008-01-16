@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Jan 16 12:30:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -126,16 +126,16 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Cra
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for
 #  mind blade powers, use BONUS:VAR|MndBladeECL|x in the PrC's class level line setup
 
-1	BONUS:VAR|MndBladeECL|CL	AUTO:FEAT|MindBlade Wielder	VFEAT:MindBlade Standard|PREVARLTEQ:MndBladeECL,3
-1											VFEAT:MindBlade Throw|PREMULT:2,[PREVARGTEQ:MndBladeECL,2],[PREVARLT:MndBladeECL,17]
-1											VFEAT:MindBlade Psychic Strike|PREVARGTEQ:MndBladeECL,3
-1											VFEAT:MindBlade Plus|PREVARGTEQ:MndBladeECL,4
-1											VFEAT:MindBlade Free Draw|PREVARGTEQ:MndBladeECL,5
-1											VFEAT:MindBlade Shape|PREVARGTEQ:MndBladeECL,5
-1											VFEAT:MindBlade Enhancement|PREVARGTEQ:MndBladeECL,6
-1											VFEAT:MindBlade Bladewind|PREVARGTEQ:MndBladeECL,9
-1											VFEAT:MindBlade Knife to the Soul|PREVARGTEQ:MndBladeECL,13
-1											VFEAT:MindBlade Multiple Throw|PREVARGTEQ:MndBladeECL,17
+1	BONUS:VAR|MndBladeECL|CL	VFEAT:MindBlade Standard|PREVARLTEQ:MndBladeECL,3							AUTO:FEAT|MindBlade Wielder
+1						VFEAT:MindBlade Throw|PREMULT:2,[PREVARGTEQ:MndBladeECL,2],[PREVARLT:MndBladeECL,17]
+1						VFEAT:MindBlade Psychic Strike|PREVARGTEQ:MndBladeECL,3
+1						VFEAT:MindBlade Plus|PREVARGTEQ:MndBladeECL,4
+1						VFEAT:MindBlade Free Draw|PREVARGTEQ:MndBladeECL,5
+1						VFEAT:MindBlade Shape|PREVARGTEQ:MndBladeECL,5
+1						VFEAT:MindBlade Enhancement|PREVARGTEQ:MndBladeECL,6
+1						VFEAT:MindBlade Bladewind|PREVARGTEQ:MndBladeECL,9
+1						VFEAT:MindBlade Knife to the Soul|PREVARGTEQ:MndBladeECL,13
+1						VFEAT:MindBlade Multiple Throw|PREVARGTEQ:MndBladeECL,17
 
 ###Block: Class Info
 1	AUTO:FEAT|Weapon Focus(Mind Blade)
