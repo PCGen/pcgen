@@ -30,14 +30,14 @@ KIT:Treasure Table Goods CR23
 KIT:Treasure Table Items CR23
 
 STARTPACK:Aranea with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aranea]
-KIT:Defautl Aranea
+KIT:Aranea Default
 KIT:Treasure Table Coins CR4
 KIT:Treasure Table Goods CR4
 KIT:Treasure Table Goods CR4
 KIT:Treasure Table Items CR4
 
 STARTPACK:Archon (Hound) with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Hound)]
-KIT:Defautl Archon (Hound)
+KIT:Archon (Hound) Default
 KIT:Treasure Table Goods CR4
 KIT:Treasure Table Goods CR4
 KIT:Treasure Table Items CR4
@@ -88,7 +88,7 @@ KIT:Treasure Table
 KIT:Treasure Table
 
 STARTPACK:Basilisk (Abyssal/Greater) with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk]
-KIT:Basilisk (Abyssal Default/Greater)
+KIT:Basilisk (Abyssal/Greater) Default
 KIT:Treasure Table
 
 STARTPACK:Behir with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behir]

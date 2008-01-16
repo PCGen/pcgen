@@ -159,7 +159,7 @@ Manual of Stealthly Pilfering								TYPE:Artifact.Minor												COST:0	WT:3	
 Rogue's Dice										TYPE:Artifact.Minor												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
 
 #major
-Axe of the Dwarvish Lords		PROFICIENCY:WEAPON|Waraxe (Dwarven)	TYPE:Magic.Epic.Artifact.Major.Weapon.Melee.Martial.Exotic.Standard.Dwarven.Slashing.Axe	COST:0	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	EQMOD:BANE_M|Humanoids (goblinoid).MWORKW.STEEL.PLUS_6_WEAP.THROW	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:epicArtifacts.rtf	BONUS:STAT|CHA|-2|!PRERACE:1,Dwarf%	BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency (Waraxe (Dwarven))
+Axe of the Dwarvish Lords		PROFICIENCY:WEAPON|Waraxe (Dwarven)	TYPE:Magic.Epic.Artifact.Major.Weapon.Melee.Martial.Exotic.Standard.Dwarven.Slashing.Axe	COST:0	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	EQMOD:BANE_M|Humanoids (goblinoid).MWORKW.STEEL.PLUS_6_WEAP.THROW	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:epicArtifacts.rtf	BONUS:STAT|CHA|-2|!PRERACE:1,Dwarf%	BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency(Waraxe (Dwarven))
 Codex of the Infinite Planes								TYPE:Artifact.Major												COST:0	WT:100																											SOURCEPAGE:epicArtifacts.rtf
 Cup of the Demigod									TYPE:Artifact.Major												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
 Talisman of the Demigod									TYPE:Artifact.Major												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf

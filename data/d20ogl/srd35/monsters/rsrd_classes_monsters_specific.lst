@@ -310,24 +310,6 @@ CLASS:Androsphinx	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 ###Block: Lycanthropes
 
-# Class Name	Hit Dice	Type			Source Page					Save checks bonus											Combat bonus
-CLASS:Wolf Lord	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
-# Class Name	Required Race																				Reg. Race Type
-CLASS:Wolf Lord	PRERACE:1,Lycanthrope (Werewolf Lord Human Form),Lycanthrope (Werewolf Lord Dire Wolf Form),Lycanthrope (Werewolf Lord Hybrid Form)	PRERACETYPE:Humanoid
-# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Wolf Lord	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Ride|Swim
-7	HITDIE:10
-8	HITDIE:10
-9	HITDIE:10
-10	HITDIE:10
-11	HITDIE:10
-12	HITDIE:10
-13	HITDIE:10
-14	HITDIE:10
-15	HITDIE:10
-16	HITDIE:10
-
-
 # Class Name			Output Name		Hit Dice	Type			Source Page
 CLASS:Lycanthrope (Generic)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	SOURCEPAGE:MonstersK-L.rtf
 # Class Name			Required Lvl	Required Template

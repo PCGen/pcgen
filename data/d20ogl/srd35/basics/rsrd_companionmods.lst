@@ -34,8 +34,8 @@ FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 
 ###Block: Specific Undead Companions
 # Class of the Master		Type				Required Race				Apply Kit
-FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Skeleton (Human Warrior)	KIT:1|Default Skeleton (Human Warrior)
-FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Zombie (Human Commoner)	KIT:1|Default Zombie (Human Commoner)
+FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Skeleton (Human Warrior)	KIT:1|Skeleton (Human Warrior) Default
+FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Zombie (Human Commoner)	KIT:1|Zombie (Human Commoner) Default
 
 ###Block:Familiar
 # Class of the Master	Type			Spell Res.	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special ABility						Define						Combat bonus						Main Race Type

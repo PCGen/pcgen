@@ -4,9 +4,9 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 STARTPACK:Treasure Table Mundane Items	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
-KIT:Treasure Table Alchemical Item	OPTION:1,17
+KIT:Treasure Table Alchemical Items	OPTION:1,17
 KIT:Treasure Table Mundane Armor	OPTION:18,50
-KIT:Treasure Tabel Mundane Weapon	OPTION:51,83
+KIT:Treasure Table Mundane Weapon	OPTION:51,83
 KIT:Treasure Table Tools and Gear	OPTION:84,100
 
 STARTPACK:Treasure Table Alchemical Items	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
