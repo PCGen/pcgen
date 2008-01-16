@@ -30,7 +30,7 @@
 	<p class="indent3">The item named &quot;SCP_STD&quot; is to be modified.</p>
 	<p class="indent2"><code>Autofire.FORGET</code></p>
 	<p class="indent3">The item named &quot;Autofire&quot; is to be forgotten.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -42,7 +42,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ADDPROF:Exotic.Heavy</code></p>
 	<p class="indent3">Item requires the &quot;Exotic&quot; and &quot;Heavy&quot; proficiencies.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -54,7 +54,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ARMORTYPE:Medium|Heavy</code></p>
 	<p class="indent3">Changes the armor type from &quot;Medium&quot; to &quot;Heavy&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -66,7 +66,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ASSIGNTOALL:YES</code></p>
 	<p class="indent3">Assigns modifiers to both heads.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -78,11 +78,11 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHARGES:1|50</code></p>
 	<p class="indent3">Sets the charges for a magic item at a minimum of 1 and maximum of 50.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
-	<p class="new">*** New</p>
+	<p class="new">*** Updated 5.13.8</p>
 	<p class="indent0"><strong><a name="EQBUILDER">Tag Name:</a></strong> CHOOSE:EQBUILDER.SPELL|w|x|y|z</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> :Text (Spell Type, i.e. Arcane, Divine, Psionic, ANY)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> :SCHOOL.Text (School Name, optional)</p>
@@ -110,7 +110,7 @@
 	<p class="indent3">Allows a minor powerstone</p>
 	<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|Arcane|SCHOOL.Illusion,DESCRIPTOR.Fear|SCHOOL.Abjuration</code></p>
 	<p class="indent3">indicates Spells which are:  (School Illusion AND Descriptor Fear) OR School Abjuration</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -132,8 +132,95 @@
 	<p class="indent3">A list of all equipement of types 'Natural' and 'Bludgeoning'.</p>
 	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Alchemical|TYPE=Consumable</code></p>
 	<p class="indent3">A list of all equipement of types 'Alchemical' and 'Consumable'.</p>
-	<p></p>
+	<p></ p>
 
+<hr>
+
+	<p class="new">*** Updated 5.13.8</p>
+	<p class="indent0"><strong><a name="NOCHOICE">Tag Name:</a></strong> CHOOSE:NOCHOICE</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This CHOOSE tag will NOT produce a pop up window.</li>
+		<li>Usefull in feats which use <code>MULT:YES</code> to allow them to be selected multiple 
+			times. A feat with this tag will simply be added to the character without a chooser window.</li>
+		<li>Each time the feat is added, a (x2), (x3) etc. will be displayed indicating how many 
+			times the feat was chosen.</li>
+		<li>When used for a "nested" choice the choice also doesn't show up. For example a if you 
+			have a feat &quot;Feat X&quot; that has an <code>ADD:FEAT|Feat Y</code> and &quot;Feat X&quot; has a CHOOSE, 
+			normally it will appear as &quot;Feat X(Feat Y)&quot; in the chooser. With this option it will show up as 
+			&quot;Feat Y&quot;.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:NOCHOICE</code></p>
+	<p class="indent3">The associated feat is added without a chooser window.</p>
+	<p></ p>
+
+<hr>
+
+	<p class="new">*** Updated 5.13.8</p>
+	<p class="indent0"><strong><a name="NUMBER">Tag Name:</a></strong> CHOOSE:NUMBER|v|w|x|y|z</p>
+	<p class="indent1"><strong>Variables Used (v):</strong> Number (Number choice)</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> MIN=Number (Lowest value to choose from. Not used if descrete number choices provided.)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> MAX=Number (Highest value to choose from)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> INCREMENT=Number (Steps between Min and Max. Optional - Used only if MIN and Max are used.)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> TITLE=Text (Description to output to the chooser)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Produces a pop-up dialogue with title (z) with a list of that allows you to select a number between (and including) he high and low values</li>
+		<li><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll 1d4+1 and pick a number</code></p>
+	<p class="indent3">Will let you choose a number between 2 and 5. (Simulates rolling 1d4+1).</p>
+	<p></ p>
+
+<hr>
+
+	<p class="new">*** Updated 5.13.8</p>
+	<p class="indent0"><strong><a name="SKILLBONUS">Tag Name:</a></strong> CHOOSE:SKILLBONUS|w|x|y|z</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> Text (Skill name)</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> TYPE=Text (Skill type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Lowest value to choose from)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number (Highest value to choose from)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> TITLE=Text (Chooser dialog title)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">You get a pop-up dialogue that allows you to select a number between (and including) he high and low values</p>
+	<p class="indent1"><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll 1d4+1 and pick a number</code></p>
+	<p class="indent3">Will let you choose a number between 2 and 5. (Simulates rolling 1d4+1).</p>
+	<p></ p>
+
+<hr>
+
+	<p class="new">*** Updated 5.13.8</p>
+	<p class="indent0"><strong><a name="STATBONUS">Tag Name:</a></strong> CHOOSE:STATBONUS|w|MIN=x|MAX=y|TITLE=z</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> Text (Stat abbreviation)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Lowest value to choose from)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number (Highest value to choose from)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Text (Description to output to the chooser)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">You get a pop-up dialogue that allows you to select a number between (and including) he high and low values</p>
+	<p class="indent1"><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll 1d4+1 and pick a number</code></p>
+	<p class="indent3">Will let you choose a number between 2 and 5. (Simulates rolling 1d4+1).</p>
+	<p></ p>
+
+<hr>
+
+	<p class="new">*** Updated 5.13.8</p>
+	<p class="indent0"><strong><a name="STRING">Tag Name:</a></strong> CHOOSE:STRING|x|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Choice to be offered)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TITLE=Text (Title on the chooser dialog.)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This will produce a list of the provided strings.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:STRING|+1|+2|TITLE=Enhancement Bonus</code></p>
+	<p class="indent3">This will produce an &quot;Enhancement Bonus&quot; list consisting of &quot;+1&quot; and &quot;+2&quot;.</p>
+	<p class="indent2"><code>CHOOSE:STRING|Undead|Constructs|Monkeys|TITLE=</code></p>
+	<p class="indent3">This will produce a list consisting of &quot;Undead&quot;, &quot;Constructs&quot; and &quot;Monkeys&quot;.</p>
+	<p></ p>
 <hr>
 
 	<p class="indent0"><strong><a name="COST">Tag Name:</a></strong> COST:x</p>
@@ -170,7 +257,7 @@
 		one fiftieth of the basecost making the cost of the equipment proportional to the number of charges left in it.</p>
 	<p class="indent2"><code>COST:(25*((%SPELLLEVEL)MAX(1/2))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)</code></p>
 	<p class="indent3">This is the cost formula from a scroll EQMOD.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -184,7 +271,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>COSTDOUBLE:YES</code></p>
 	<p class="indent3">Cost of item is doubled.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -195,7 +282,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>COSTPRE:100</code></p>
 	<p class="indent3">Item cost is 100 gold before resizing.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -213,7 +300,7 @@
 	<p class="indent3">Modifies the equiment &quot;Padded&quot;.</p>
 	<p class="indent2"><code>Autofire.FORGET</code></p>
 	<p class="indent3">Forget the equiment &quot;Autofire&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -238,7 +325,7 @@
 	<p class="indent3">when applied to a battleaxe would give +1 battleaxe</p>
 	<p class="indent2"><code>MAGIC_PLUS_1[tab]FORMATCAT:MIDDLE[tab]NAMEOPT:TEXT=+1</code></p>
 	<p class="indent3">when applied to a battleaxe would give battleaxe +1</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -255,7 +342,7 @@
 	<p class="indent3">Indicates and error range of 1-3.</p>
 	<p class="indent2"><code>FUMBLERANGE:Natural 1</code></p>
 	<p class="indent3">Indicates and error range of a natural 1.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -268,7 +355,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>IGNORES:ARMRMW,WEAPWM</code></p>
 	<p class="indent3">The &quot;ARMRMW&quot; &amp; &quot;WEAPWM&quot; keys are ignored.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -280,7 +367,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ITYPE:Magic.Ranged.Thrown</code></p>
 	<p class="indent3">The item gains the types &quot;Magic&quot;, &quot;Ranged&quot; &amp; &quot;Thrown&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -318,7 +405,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>NAMEOPT:SPELL</code></p>
 	<p class="indent3">Customizing boots with an invisibility spell might generate: Boots (Invisibility/Extend Spell/Wizard/5th).</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -329,7 +416,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PLUS:1</code></p>
 	<p class="indent3">Item is treated as +1.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -373,7 +460,7 @@
 	<p class="indent3">Type must be Magic, Piercing and Slashing.</p>
 	<p class="indent2"><code>PRETYPE:Magic,Armor|Shield,Piercing,Slashing</code></p>
 	<p class="indent3">Type must be Magic, Piercing, Slashing and (Armor OR Shield).</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -387,7 +474,7 @@
 	<p class="indent3">Replaces keys &quot;WEAP+1&quot;, &quot;WEAP+2&quot;,
 		&quot;WEAP+3&quot;, &quot;WEAP+4&quot; or &quot;WEAP+5&quot; with the keys
 		specified in this tag.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -424,7 +511,7 @@
 	<p class="indent3">If one of the choices offered by the EQMOD were &quot;Dragons&quot; the SPROP might read &quot;+2 against Dragons&quot;.</p>
 	<p class="indent2"><code>SPROP:Unreliable (%CHOICE) &lt;tab&gt; CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%</code></p>
 	<p class="indent3">Chooser to select the level of unreliablty.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -447,7 +534,7 @@
 	<p class="indent3">Item is of the &quot;Armor&quot; &amp; &quot;Shield&quot; types.</p>
 	<p class="indent2"><code>EDF Combat Armor.MOD &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; TYPE:Armor.Medium.Suit.Tactical.PL6</code></p>
 	<p class="indent3">Modifies the item is of the &quot;Armor&quot; &quot;Medium&quot; &quot;Suit&quot; &quot;Tactical&quot; &quot;PL6&quot; types.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
