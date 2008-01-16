@@ -578,21 +578,16 @@ final class EquipmentChoice
 				if (originalkind == null)
 				{
 					originalkind = kind;
-					if (originalkind.equals("STATBONUS"))
-					{
-						needStats = true;
-					}
-					else if (originalkind.equals("SKILLBONUS"))
-					{
-						needSkills = true;
-					}
-
+					needStats = originalkind.equals("STATBONUS");
+					needSkills = originalkind.equals("SKILLBONUS")
+							|| originalkind.equals("SKILL");
 				}
 				else if (kind.startsWith("TYPE=") || kind.startsWith("TYPE."))
 				{
-					if (originalkind.equals("SKILLBONUS"))
+					if (originalkind.equals("SKILLBONUS") || originalkind.equals("SKILL"))
 					{
 						//New Style
+						needSkills = false;
 						this.addChoicesByType(parent, available, numSelected, kind,
 								"SKILL", "FEAT");
 					}
