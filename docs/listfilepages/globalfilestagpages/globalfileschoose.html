@@ -223,7 +223,7 @@
 	<p class="indent2"><code>CHOOSE:HP|+3 hp </code></p>
 	<p class="indent3">Will display a list with &quot;+3 hp&quot; .</p>
 	<p></p>
-
+<!--
 <hr>
 
 	<p class="new">*** New 5.9.4</p>
@@ -241,7 +241,7 @@
 	<p class="indent2"><code>CHOOSE:NOCHOICE</code></p>
 	<p class="indent3">The feat is added without a chooser window.</p>
 	<p></p>
-
+-->
 <hr>
 
 	<p class="indent0"><strong><a name="NONCLASSSKILLLIST">Tag Name:</a></strong> CHOOSE:NONCLASSSKILLLIST|x</p>
@@ -254,7 +254,7 @@
 	<p></p>
 
 <hr>
-
+<!--
 	<p class="indent0"><strong><a name="NUMBER">Tag Name:</a></strong> CHOOSE:NUMBER|MIN=x|MAX=y|TITLE=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Lowest value to choose from)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Highest value to choose from)</p>
@@ -268,7 +268,7 @@
 	<p></p>
 
 <hr>
-
+-->
 	<p class="indent0"><strong><a name="NUMCHOICES">Tag Name:</a></strong> CHOOSE:NUMCHOICES=x|y|z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Maximum number of times the chooser can be taken)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Any Chooser)</p>
@@ -559,18 +559,16 @@
 <hr>
 
 	<p class="new">*** New 5.11.9</p>
-	<p class="indent0"><strong><a name="USERINPUT">Tag Name:</a></strong> CHOOSE:USERINPUT|x|TITLE="y"</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of inputs the chooser should
-		ask for (1 being default))</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> text (string that is displayed as the title of
-		the chooser)</p>
+	<p class="indent0"><strong><a name="USERINPUT">Tag Name:</a></strong> CHOOSE:USERINPUT|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of inputs. Optional. Defaults to 1)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TITLE=&quot;Text&quot; (Chooser dialog title)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a feats/abilities only tag that when
-		activated (by choosing the ability it's embedded in)
-		will pop up a dialog box asking for the user's entry via keyboard input..</p>
+	<p class="indent2">Produces a pop-up dialog box asking for the user's entry via keyboard input.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:USERINPUT|1|TITLE="Hobby Name"</code></p>
 	<p class="indent3">This will produce a chooser for the user to enter a single hobby name.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Feat and Ability Files</p>
 	<p></p>
 
 <hr>
