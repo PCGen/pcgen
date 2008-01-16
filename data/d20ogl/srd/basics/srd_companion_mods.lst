@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan  7 12:54:40 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jan 16 17:25:24 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 # Original Entry by Emily and Tir Gwaith
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
@@ -33,16 +33,16 @@ FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																														DEFINE:LOCK
 FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar	Type			Save checks bonus			Bonus to skill			Stat bonus
-MASTERBONUSRACE:Bat	TYPE:Familiar
-MASTERBONUSRACE:Cat	TYPE:Familiar						BONUS:SKILL|Move Silently|2
-MASTERBONUSRACE:Hawk	TYPE:Familiar
-MASTERBONUSRACE:Owl	TYPE:Familiar						BONUS:SKILL|Move Silently|2
-MASTERBONUSRACE:Rat	TYPE:Familiar	BONUS:CHECKS|Fortitude|2
-MASTERBONUSRACE:Raven	TYPE:Familiar
-MASTERBONUSRACE:Snake	TYPE:Familiar
-MASTERBONUSRACE:Toad	TYPE:Familiar											BONUS:STAT|CON|2
-MASTERBONUSRACE:Weasel	TYPE:Familiar	BONUS:CHECKS|Reflex|2
+# Race of familiar			Type			Save checks bonus			Bonus to skill			Stat bonus
+MASTERBONUSRACE:Bat			TYPE:Familiar
+MASTERBONUSRACE:Cat			TYPE:Familiar						BONUS:SKILL|Move Silently|2
+MASTERBONUSRACE:Hawk			TYPE:Familiar
+MASTERBONUSRACE:Owl			TYPE:Familiar						BONUS:SKILL|Move Silently|2
+MASTERBONUSRACE:Rat			TYPE:Familiar	BONUS:CHECKS|Fortitude|2
+MASTERBONUSRACE:Raven			TYPE:Familiar
+MASTERBONUSRACE:Snake (Tiny Viper)	TYPE:Familiar
+MASTERBONUSRACE:Toad			TYPE:Familiar											BONUS:STAT|CON|2
+MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2
 
 ###Block:Fiendish Servant
 # Class of the Master	Type				Hit Dice	Spell Res.	Special ABility													Define						Combat bonus						Stat bonus

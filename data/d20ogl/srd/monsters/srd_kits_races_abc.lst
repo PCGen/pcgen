@@ -170,7 +170,7 @@ NAME:Azer
 ALIGN:LN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Climb				RANK:1
-SKILL:Craft (Blacksmith)	RANK:5
+SKILL:Craft (Blacksmithing)	RANK:5
 SKILL:Listen			RANK:3
 SKILL:Search			RANK:3
 SKILL:Spot				RANK:4

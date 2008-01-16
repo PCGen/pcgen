@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri Apr 27 00:28:38 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Jan 16 17:25:24 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original entry for Astral Contruct templates by: Ian
 
-# Template Name		Visible	Add to magical move								FAVOREDCLASS
-PP >= 1					BONUS:POSTMOVEADD|TYPE=Walk|10*var("HASFEAT:Speed of Thought")
+# Template Name		Visible	Add to magical move							FAVOREDCLASS
+PP >= 1					BONUS:POSTMOVEADD|TYPE=Walk|10|PREFEAT:1,Speed of Thought
 
 # Race templates
 
-Fighter Favored		VISIBLE:NO												FAVOREDCLASS:Fighter
-Psychic Warrior Favored	VISIBLE:NO												FAVOREDCLASS:Psychic Warrior
+Fighter Favored		VISIBLE:NO											FAVOREDCLASS:Fighter
+Psychic Warrior Favored	VISIBLE:NO											FAVOREDCLASS:Psychic Warrior
 
 ###Block: Astral Construct menu choices, groups are all possible combinations of A/B/C choices given any set in the group.
 # Template Name				Visible	Template																																																																																					Source Page					Add

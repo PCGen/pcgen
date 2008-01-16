@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 15 15:05:43 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jan 16 17:25:24 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 ###Comment: Low priority but start of bring srd closer to rsrd. -AM
 
@@ -27,6 +27,10 @@ Monster DR ~ 10 plus 3	TYPE:Special	VISIBLE:NO	DR:10/+3
 Monster DR ~ 15 plus 2	TYPE:Special	VISIBLE:NO	DR:15/+2
 Monster DR ~ 20 plus 2	TYPE:Special	VISIBLE:NO	DR:20/+2
 Monster DR ~ 20 plus 3	TYPE:Special	VISIBLE:NO	DR:20/+3
+
+###Block: Wildshape Tempmod Support
+# Feat Name			Type			Visible	Vision
+Wildshape Blindsight	TYPE:Special	VISIBLE:NO	VISION:Blindsight (120')
 
 #
 # End

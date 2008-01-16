@@ -87,7 +87,7 @@ Profession (Tanner)				KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Profession
 Profession (Teamster)				KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Profession																																SOURCEPAGE:srdskillsii.rtf
 Profession (Woodcutter)				KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Profession																																SOURCEPAGE:srdskillsii.rtf
 Read Lips						KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence																																	SOURCEPAGE:srdskillsii.rtf
-Ride							KEYSTAT:DEX				ACHECK:PROFICIENT					TYPE:Dexterity						BONUS:SKILL|Ride|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK	BONUS:SKILL|Ride|-5|TYPE=Circumstance|!PREITEM:1,TYPE.Saddle|PREAPPLY:PC		SOURCEPAGE:srdskillsii.rtf														TEMPDESC:If you are riding bareback, or attempt to ride a creature that is ill suited as a mount, you take a -5 penalty on Ride checks.
+Ride							KEYSTAT:DEX				ACHECK:PROFICIENT					TYPE:Dexterity						BONUS:SKILL|Ride|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK	BONUS:SKILL|Ride|-5|TYPE=Circumstance|!PREITEM:1,TYPE=Saddle|PREAPPLY:PC		SOURCEPAGE:srdskillsii.rtf														TEMPDESC:If you are riding bareback, or attempt to ride a creature that is ill suited as a mount, you take a -5 penalty on Ride checks.
 Scry							KEYSTAT:INT								EXCLUSIVE:YES	TYPE:Intelligence																																	SOURCEPAGE:srdskillsii.rtf
 Search						KEYSTAT:INT											TYPE:Intelligence																																	SOURCEPAGE:srdskillsii.rtf
 Sense Motive					KEYSTAT:WIS											TYPE:Wisdom																																		SOURCEPAGE:srdskillsii.rtf
