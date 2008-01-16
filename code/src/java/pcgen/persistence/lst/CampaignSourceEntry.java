@@ -256,12 +256,12 @@ public class CampaignSourceEntry
 					trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
 			File pccFile =
-					new File(SettingsHandler.getPccFilesLocation(), path);
+					new File(SettingsHandler.getPcgenVendorDataDir(), path);
 			if (pccFile.exists())
 			{
 				return pccFile.toURI();
 			}
-			return new File(SettingsHandler.getPcgenVendorDataDir(), path)
+			return new File(SettingsHandler.getPccFilesLocation(), path)
 				.toURI();
 		}
 		/*
