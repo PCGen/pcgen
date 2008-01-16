@@ -139,17 +139,7 @@
 	<p class="new">*** Updated 5.13.8</p>
 	<p class="indent0"><strong><a name="NOCHOICE">Tag Name:</a></strong> CHOOSE:NOCHOICE</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This CHOOSE tag will NOT produce a pop up window.</li>
-		<li>Usefull in feats which use <code>MULT:YES</code> to allow them to be selected multiple 
-			times. A feat with this tag will simply be added to the character without a chooser window.</li>
-		<li>Each time the feat is added, a (x2), (x3) etc. will be displayed indicating how many 
-			times the feat was chosen.</li>
-		<li>When used for a "nested" choice the choice also doesn't show up. For example a if you 
-			have a feat &quot;Feat X&quot; that has an <code>ADD:FEAT|Feat Y</code> and &quot;Feat X&quot; has a CHOOSE, 
-			normally it will appear as &quot;Feat X(Feat Y)&quot; in the chooser. With this option it will show up as 
-			&quot;Feat Y&quot;.</li>
-	</ul>
+	<p class="indent2">This CHOOSE tag will NOT produce a pop up window.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:NOCHOICE</code></p>
 	<p class="indent3">The associated feat is added without a chooser window.</p>
@@ -163,15 +153,28 @@
 	<p class="indent1"><strong>Variables Used (w):</strong> MIN=Number (Lowest value to choose from. Not used if descrete number choices provided.)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> MAX=Number (Highest value to choose from)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> INCREMENT=Number (Steps between Min and Max. Optional - Used only if MIN and Max are used.)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> TITLE=Text (Description to output to the chooser)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> TITLE=Text (Chooser dialog title)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>Produces a pop-up dialogue with title (z) with a list of that allows you to select a number between (and including) he high and low values</li>
-		<li><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</li>
-	</ul>
+	<p class="indent2">Produces a pop-up dialogue with title (z) with a list of that allows you to select a number between (and including) the high and low values</p>
+	<p class="indent2"><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll 1d4+1 and pick a number</code></p>
 	<p class="indent3">Will let you choose a number between 2 and 5. (Simulates rolling 1d4+1).</p>
+	<p></ p>
+
+<hr>
+
+	<p class="new">*** Updated 5.13.8</p>
+	<p class="indent0"><strong><a name="CHOOSESKILL">Tag Name:</a></strong> CHOOSE:SKILL|x|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TITLE=Text (Chooser dialog title)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">You get a pop-up dialogue that allows you to select a &quot;Skill&quot; from the presented list.</p>
+	<p class="indent2"><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:SKILL|Climb|Jump|Balance|Tumble|TITLE=Acrobatics Skill Bonus</code></p>
+	<p class="indent3">Will let you select &quot;Climb&quot;, &quot;Climb&quot;, &quot;Climb&quot;, or &quot;Climb&quot; as an &quot;Acrobatic Skill Bonus&quot;.</p>
 	<p></ p>
 
 <hr>
@@ -180,31 +183,31 @@
 	<p class="indent0"><strong><a name="SKILLBONUS">Tag Name:</a></strong> CHOOSE:SKILLBONUS|w|x|y|z</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Text (Skill name)</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> TYPE=Text (Skill type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Lowest value to choose from)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (Highest value to choose from)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> MIN=Number (Lowest value to choose from)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> MAX=Number (Highest value to choose from)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> TITLE=Text (Chooser dialog title)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">You get a pop-up dialogue that allows you to select a number between (and including) he high and low values</p>
+	<p class="indent2">You get a pop-up dialogue that allows you to select a number between (and including) the high and low values</p>
 	<p class="indent1"><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</p>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll 1d4+1 and pick a number</code></p>
-	<p class="indent3">Will let you choose a number between 2 and 5. (Simulates rolling 1d4+1).</p>
+	<p class="indent2"><code>CHOOSE:SKILLBONUS|Climb|MIN=2|MAX=5|TITLE=Enhancement Bonus</code></p>
+	<p class="indent3">Will let you choose a number between 2 and 5 as an enhancement bonus to the &quot;Climb&quot; skill.</p>
 	<p></ p>
 
 <hr>
 
 	<p class="new">*** Updated 5.13.8</p>
-	<p class="indent0"><strong><a name="STATBONUS">Tag Name:</a></strong> CHOOSE:STATBONUS|w|MIN=x|MAX=y|TITLE=z</p>
+	<p class="indent0"><strong><a name="STATBONUS">Tag Name:</a></strong> CHOOSE:STATBONUS|w|x|y|z</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Text (Stat abbreviation)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Lowest value to choose from)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (Highest value to choose from)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Text (Description to output to the chooser)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> MIN=Number (Lowest value to choose from)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> MAX=Number (Highest value to choose from)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> TITLE=Text (Chooser dialog title)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">You get a pop-up dialogue that allows you to select a number between (and including) he high and low values</p>
+	<p class="indent2">You get a pop-up dialogue that allows you to select a number between (and including) the high and low values</p>
 	<p class="indent1"><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</p>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll 1d4+1 and pick a number</code></p>
-	<p class="indent3">Will let you choose a number between 2 and 5. (Simulates rolling 1d4+1).</p>
+	<p class="indent2"><code>CHOOSE:STATBONUS|INT|MIN=2|MAX=5|TITLE=Enhancement Bonus</code></p>
+	<p class="indent3">Will let you choose a number between 2 and 5 as an enhancment bonus to the &quot;Intelligence&quot; bonus.</p>
 	<p></ p>
 
 <hr>
@@ -212,13 +215,13 @@
 	<p class="new">*** Updated 5.13.8</p>
 	<p class="indent0"><strong><a name="STRING">Tag Name:</a></strong> CHOOSE:STRING|x|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Choice to be offered)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TITLE=Text (Title on the chooser dialog.)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TITLE=Text (Chooser dialog title)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This will produce a list of the provided strings.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:STRING|+1|+2|TITLE=Enhancement Bonus</code></p>
 	<p class="indent3">This will produce an &quot;Enhancement Bonus&quot; list consisting of &quot;+1&quot; and &quot;+2&quot;.</p>
-	<p class="indent2"><code>CHOOSE:STRING|Undead|Constructs|Monkeys|TITLE=</code></p>
+	<p class="indent2"><code>CHOOSE:STRING|Undead|Constructs|Monkeys|TITLE=Biggest Irritant</code></p>
 	<p class="indent3">This will produce a list consisting of &quot;Undead&quot;, &quot;Constructs&quot; and &quot;Monkeys&quot;.</p>
 	<p></ p>
 <hr>
