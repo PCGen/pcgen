@@ -20,7 +20,6 @@ package plugin.lsttokens.choose;
 import java.util.StringTokenizer;
 
 import pcgen.core.Constants;
-import pcgen.core.EquipmentModifier;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.ChooseLstToken;
 import pcgen.util.Logging;

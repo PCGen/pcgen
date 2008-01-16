@@ -26,7 +26,7 @@ public class SpellClassesToken implements ChooseLstToken
 
 	public boolean parse(PObject po, String prefix, String value)
 	{
-		if (value == null)
+		if (value != null)
 		{
 			Logging.deprecationPrint("CHOOSE:" + getTokenName()
 				+ " will ignore arguments: " + value);
