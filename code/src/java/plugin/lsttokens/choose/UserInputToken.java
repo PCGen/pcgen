@@ -63,34 +63,36 @@ public class UserInputToken implements ChooseLstToken
 			return false;
 		}
 		int pipeLoc = value.indexOf("|");
+		String title;
 		if (pipeLoc == -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " must have two or more | delimited arguments : " + value);
-			return false;
+			title = value;
 		}
-		String start = value.substring(0, pipeLoc);
-		try
+		else
 		{
-			Integer.parseInt(start);
+			String start = value.substring(0, pipeLoc);
+			try
+			{
+				Integer.parseInt(start);
+			}
+			catch (NumberFormatException nfe)
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " first argument must be an Integer : " + value);
+				return false;
+			}
+			title = value.substring(pipeLoc + 1);
 		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " first argument must be an Integer : " + value);
-			return false;
-		}
-		String title = value.substring(pipeLoc + 1);
 		if (!title.startsWith("TITLE=\""))
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " second argument must start with TITLE=\" : " + value);
+				+ " argument must start with TITLE=\" : " + value);
 			return false;
 		}
 		if (!title.endsWith("\""))
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " second argument must end with \" : " + value);
+				+ " argument must end with \" : " + value);
 			return false;
 		}
 		StringBuilder sb = new StringBuilder();
