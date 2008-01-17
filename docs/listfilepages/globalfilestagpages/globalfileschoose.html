@@ -17,6 +17,7 @@
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Aaron Divinsky - boomer70ATyahooDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
+		Eric C Smith - mareduddATblackrootDOTorg
 
 		Description:
 		Provides information on the use of PCGen global CHOOSE Tag.
@@ -24,7 +25,7 @@
 	-->
 
 <head>
-	<title>The CHOOSE Tag</title>
+	<title>The Global CHOOSE Tag</title>
 	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
@@ -43,7 +44,12 @@
   		to activate the selection window. Using VFEAT, MFEAT or FEATAUTO will bypass the CHOOSE tag.</p>
 	<p class="indent0">CHOOSE must be paired with a <a href="../datafilestagpages/datafilesfeats.html#MULT">MULT:YES</a>
   		tag in feats for it to work properly.</p>
-	<p></p>
+	<p></ p>
+
+<hr>
+
+	<a name="DICTIONARY"></a>
+	<h3>Global CHOOSE Dictionary</h3>
 
 <hr>
 
@@ -55,7 +61,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:EXOTIC</code></p>
 	<p class="indent3">Will produce a list of all Exotic weapon proficiencies.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -67,14 +73,14 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:Choice1|Choice2|Choice3</code></p>
 	<p class="indent3">Will produce a list containing Choice1, Choice2, and Choice3.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="ARMORPROF">Tag Name:</a></strong> CHOOSE:ARMORPROF|x|y|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum number of choices that can be selected)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Armor name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (TYPE=&lt;Armor type&gt;)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Armor type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This will produce a list of all armors matching the criteria.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -84,7 +90,7 @@
 	<p class="indent3">Allow the choice of one of Scale Mail or Chainmail.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -96,12 +102,13 @@
 	<p class="indent3">This will produce a list of all the armor types with which the character is proficient.  If the character in question was a Fighter the list produced would be Light, Medium, and Heavy.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="CCSKILLLIST">Tag Name:</a></strong> CHOOSE:CCSKILLLIST|x,x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name or LIST) </p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> LIST</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This will produce a list of all skills in the appropriate category for
 		that character (root skills are added only once).</p>
@@ -111,7 +118,7 @@
 		that character.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -123,14 +130,14 @@
 	<p class="indent3">This will produce a list of all class skills for the character.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="new">*** New 5.9.4</p>
 	<p class="indent0"><strong><a name="DOMAIN">Tag Name:</a></strong> CHOOSE:DOMAIN|x,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ANY</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> DIETY=&lt;name&gt;</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DIETY=Text (Deity name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> QUALIFY</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> PC</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain name)</p>
@@ -149,12 +156,12 @@
 	<p class="indent3">Will allow selection any Domain granted by the deity &quot;Kong&quot;.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
-	<p class="indent0"><strong><a name="EQUIPTYPE">Tag Name:</a></strong> CHOOSE:EQUIPTYPE|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (list of dot separated equipment types)</p>
+	<p class="indent0"><strong><a name="EQUIPTYPE">Tag Name:</a></strong> CHOOSE:EQUIPTYPE|x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This will produce a list of all known equipment that are of all of the named types.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -162,7 +169,7 @@
 	<p class="indent3">Will allow selection from all simple melee weapons.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -176,13 +183,13 @@
 	<p class="indent3">Will display a list of all the character's choices for the Weapon Focus feat.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="FEATADD">Tag Name:</a></strong> CHOOSE:FEATADD|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Feat Type&gt;)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This will produce a list of feats that match the type or name specified. The selected feat will be added to the characters feats.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -190,13 +197,13 @@
 	<p class="indent3">This will produce a list of all fighter feats. The selected feat will be added to the character's feats.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="FEATLIST">Tag Name:</a></strong> CHOOSE:FEATLIST|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Feat Type&gt;)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This will produce a list of feats possessed by the character that match the type or name specified.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -204,13 +211,13 @@
 	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="FEATSELECT">Tag Name:</a></strong> CHOOSE:FEATSELECT|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Feat Type&gt;)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This will produce a list of feats that match the type or name specified.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -218,7 +225,7 @@
 	<p class="indent3">This will produce a list of all fighter feats.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -231,7 +238,7 @@
 	<p class="indent3">Will display a list with &quot;+3 hp&quot; .</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -249,7 +256,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:NOCHOICE</code></p>
 	<p class="indent3">The feat is added without a chooser window.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -262,7 +269,7 @@
 	<p class="indent3">This will produce a list of cross class skills for the character.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -278,7 +285,7 @@
 	<p class="indent3">Will let you choose a number between 2 and 5. (Simulates rolling 1d4+1).</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -307,7 +314,7 @@
 	<p class="indent2"><code>Feats</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -330,7 +337,7 @@
 	<p class="indent3">This will produce a list of all Humanoid races that have the Aquatic subtype.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -344,7 +351,7 @@
 	<p class="indent3">This will produce a list of all Special Abilities that start with Turn or Rebuke possessed by the character.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -356,7 +363,7 @@
 	<p class="indent3">This will produce a list of all schools of magic (abjuration, evocation, etc.).</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -370,7 +377,7 @@
 	<p class="indent3">This will produce a list of all wooden shields.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -384,7 +391,7 @@
 	<p class="indent3">Will display a list of all skills in the system.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -398,7 +405,7 @@
 		have ranks for the character.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -432,7 +439,7 @@
 		the selection.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -451,7 +458,7 @@
 	<p class="indent3">This will display a list of all the characters class skills and allow them to select a skill to be made a cross class skill.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -470,7 +477,7 @@
 	<p class="indent3">This will display a list of all the characters cross class skills and allow them to select a skill to be made a class skill.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -483,7 +490,7 @@
 	<p class="indent3">Will produce a list of the character's classes that can cast spells.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -511,7 +518,7 @@
 		as a bonus spell per day.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -524,7 +531,7 @@
 	<p class="indent3">Would produce a list of all known spells for each class that uses a spellbook for the character. If the character is a Wizard, for example, it would allow INT mod selections from the list.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -539,7 +546,7 @@
 	<p class="indent3">Would produce a list of all Wizard spells.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -552,7 +559,7 @@
 	<p class="indent3">This will produce a list off all stats except CON.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -566,14 +573,14 @@
 	<p class="indent3">This will produce a list consisting of &quot;+1&quot; and &quot;+2&quot;.</p>
 	<p class="indent2"><code>CHOOSE:STRING|Undead|Constructs|Monkeys</code></p>
 	<p class="indent3">This will produce a list consisting of &quot;Undead&quot;, &quot;Constructs&quot; and &quot;Monkeys&quot;.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> CHOOSE:TEMPLATE</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">See <a href="../datafilestagpages/datafilestemplates.html#TEMPLATECHOOSE">TEMPLATE:CHOOSE</a> instead.</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -590,7 +597,7 @@
 	<p class="indent2">Feat and Ability Files</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -604,7 +611,7 @@
 	<p class="indent3">Present a list of weaponprofs associated with a characters Weapon Focus feats that match a given equipment type.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -653,7 +660,7 @@
 	<p class="indent3">Choice of all weapons which have a WIELD tag of OneHanded which are not Exotic.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
@@ -715,11 +722,11 @@
 	
 <hr>
 
-  	
+  	<a name="PREFIX"></>
   	<h3>CHOOSE Tag Prefixes</h3>
 	<p class="indent0">The CHOOSE tag uses &quot;Prefix&quot; tags to modify the application of 
-	the CHOOSE tag. The refix tags are inserted into the CHOOSE tags syntax immediatelt after the 
-	colon (:) and before the first argument and uses a pipe (|) as a delimiter between itself and 
+	the CHOOSE tag. The prefix tags are inserted into the CHOOSE tags syntax immediately after the 
+	colon (:) and before the first argument, using a pipe (|) as a delimiter between itself and 
 	the first argument.</p>
 	<p class="indent0">The valid prefix tags are detailed below.</p>
 
@@ -734,17 +741,14 @@
 	<p class="indent2"><code>STACK:YES</code></p>
 	<p class="indent2"><code>CHOOSE:COUNT=3|STAT|Con</code></p>
 	<p class="indent3">The user can select up to three stats (but not Con).</p>
-	<p></p>
+	<p></ p>
 
 <hr>
 
-	<p class="indent0"><strong><a name="NUMCHOICES">Tag Name:</a></strong> NUMCHOICES=x|y|z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Maximum number of times the chooser can be taken)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Any Chooser)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number or Formula (Number of choices to be taken with the chooser.)</p>
+	<p class="indent0"><strong><a name="NUMCHOICES">Tag Name:</a></strong> NUMCHOICES=x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Maximum number of total selections that can be taken)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Used as a pre-fix for any Choose.</li>
 		<li>Sets the number of choices that a feat can be selected at most.</li>
 		<li>Used in conjunction with the MULT tag.</li>
 	</ul>
@@ -756,10 +760,10 @@
 	<p class="indent3">The user can select this chooser multiple times and will be allowed to select upto 3 Craft
 	subskills each time the chooser is selected, but may only make 6 Craft subskill sellection total.</p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|TYPE=Intelligence|TYPE=Wisdom</code></p>
-	<p class="indent3">The user will be allowed to select of one skill from the &quot;Strength&quot; &quot;Dexterity&quot;
-	&quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; Skills but is limited to a maximum of three
-	such selections through this chooser.</p>
-	<p></p>
+	<p class="indent3">The user will be allowed to select one skill from &quot;Strength&quot; &quot;Dexterity&quot;
+	&quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; skills each time the chooser 
+	is takem but is limited to a maximum of three such selections through this chooser.</p>
+	<p></ p>
 
 <hr>
 
