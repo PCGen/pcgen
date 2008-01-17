@@ -38,12 +38,14 @@
 	<p>While the CHOOSE tag is extremely flexible, it should be noted that support for CHOOSE in class files is
 		still in the works and will cause problems. This is a known issue, and all I can say is that,
 		&quot;We are working on it.&quot;</p>
-
-	<h3>Notes on using CHOOSE within feats:</h3>
-	<p class="indent0">If a feat contains a CHOOSE tag you must use <a href="globalfilesadd.html#FEAT">ADD:FEAT</a>
-  		to activate the selection window. Using VFEAT, MFEAT or FEATAUTO will bypass the CHOOSE tag.</p>
-	<p class="indent0">CHOOSE must be paired with a <a href="../datafilestagpages/datafilesfeats.html#MULT">MULT:YES</a>
-  		tag in feats for it to work properly.</p>
+	
+	<p class="indent0">When using CHOOSE within a feat you must:</p>
+	<ul class="indent2">
+		<li>Use <a href="globalfilesadd.html#FEAT">ADD:FEAT</a> to activate the selection window. 
+			Using VFEAT, MFEAT or FEATAUTO will bypass the CHOOSE tag.</li>
+		<li>Use it in conjunction with a <a href="../datafilestagpages/datafilesfeats.html#MULT">MULT:YES</a>
+  		tag for it to work properly.</li>
+	</ul>
 	<p></ p>
 
 <hr>
