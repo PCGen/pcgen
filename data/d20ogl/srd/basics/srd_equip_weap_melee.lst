@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 15 13:12:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Jan 17 21:36:15 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Hammer (Gnome Hooked)    -- REMOVED - NOT in SRD.
 # Urgrosh (Dwarven)    -- REMOVED - NOT in SRD.
@@ -73,6 +73,8 @@ Gauntlet								PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Unarmed.Simple.Melee.B
 Gauntlet (Locked)							PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Gauntlet								COST:8	WT:5									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL																SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf																		SPROP:+10 vs. disarm
 Shieldbash (Light)						PROFICIENCY:WEAPON|Shieldbash			TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3																						SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf																		SPROP:Shieldbash attacks are considered to be offhanded attacks
 Shieldbash (Heavy)						PROFICIENCY:WEAPON|Shieldbash			TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4																						SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf																		SPROP:Shieldbash attacks are considered to be offhanded attacks
+Touch Attack (Grapple)						PROFICIENCY:WEAPON|Grapple			TYPE:Weapon.Natural.Melee.Unarmed													COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:0													MODS:NO								SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+Touch Attack (Ray)						PROFICIENCY:WEAPON|Spells(Ray)		TYPE:Weapon.Ranged.Unarmed														COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:0													MODS:NO								SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
 
 #TINY ----------------------------------------------------------------------------------------------------------
 Dagger								PROFICIENCY:WEAPON|Dagger			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Thrown.Dagger								COST:2	WT:1									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:STEEL											RANGE:10				SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf

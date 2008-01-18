@@ -18,6 +18,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # -- unarmed
 # Weapon Name			Type																		Nb Hands
 Gauntlet				TYPE:Simple.Melee.Unarmed.Bludgeoning
+Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
 Unarmed Strike			TYPE:Simple.Melee.Unarmed.Bludgeoning
 
 #Spells(Energy Missile)		TYPE:Simple

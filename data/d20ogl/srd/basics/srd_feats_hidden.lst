@@ -91,7 +91,7 @@ Sneak Attack	TYPE:Special			VISIBLE:NO	SAB:Sneak Attack %d%|SneakAttack|SneakAtt
 
 ###Block: Proficiencies
 # Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
-All Automatic Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Ray
+All Automatic Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
 All Martial Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial
 Druid Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Halfspear|Longspear|Quarterstaff|Scimitar|Sickle|Shortspear|Sling
 Monk Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Shuriken|Siangham|Sling

@@ -25,6 +25,7 @@ Flail (Light)		TYPE:Martial.Flail
 Gauntlet			TYPE:Simple.Gauntlet
 Gauntlet (Spiked)		TYPE:Simple.Gauntlet
 Glaive			TYPE:Martial
+Grapple			TYPE:Simple
 Greataxe			TYPE:Martial.Axe
 Greatclub			TYPE:Martial.Club
 Guisarme			TYPE:Martial.Polearm
@@ -63,6 +64,7 @@ Shuriken			TYPE:Exotic.Thrown
 Siangham			TYPE:Exotic
 Sickle			TYPE:Simple
 Sling				TYPE:Simple
+Spells(Ray)			TYPE:Simple
 Sword (Bastard)		TYPE:Martial.Exotic.Sword
 Greatsword			TYPE:Martial.Sword
 Longsword			TYPE:Martial.Sword
