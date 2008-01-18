@@ -250,9 +250,9 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Psicrystal (Meticulos) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Meticulos)]
-RACE:Psicrystal (Meticulos)	!PRERACE:1,%
-NAME:Psicrystal (Meticulos)
+STARTPACK:Psicrystal (Meticulous) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Meticulous)]
+RACE:Psicrystal (Meticulous)	!PRERACE:1,%
+NAME:Psicrystal (Meticulous)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
 SKILL:Spot			RANK:6
