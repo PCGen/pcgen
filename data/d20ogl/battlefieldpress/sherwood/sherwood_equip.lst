@@ -1,0 +1,33 @@
+# CVS $Revision$ $Author$ -- Thu Jan 17 13:41:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+#FROM THE INVENTION LIST - PLACING HERE JUST IN CASE
+SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-01
+#Original Entry: Andrew Maitland
+
+# Equipment Name		Output Name					Type				Cost		Weight	Source Page
+Alchemist's Fire								TYPE:Invention.Lesser	COST:5	WT:1		SOURCEPAGE:pg.37
+Arrows (Armor Piercing)	OUTPUTNAME:Arrows, Armor Piercing	TYPE:Invention.Lesser	COST:.6	WT:3		SOURCEPAGE:pg.37
+Arrows (Fire)		OUTPUTNAME:Arrows, Fire			TYPE:Invention.Lesser	COST:1	WT:2		SOURCEPAGE:pg.38
+Arrows (Smokescreen)	OUTPUTNAME:Arrows, Smokescreen	TYPE:Invention.Lesser	COST:2	WT:2		SOURCEPAGE:pg.38
+
+Bouncing Boots								TYPE:Invention.Greater	COST:100	WT:7		SOURCEPAGE:pg.38
+Breathing Rope								TYPE:Invention.Minor	COST:2	WT:5		SOURCEPAGE:pg.38
+Climbing Harness								TYPE:Invention.Lesser	COST:20	WT:12		SOURCEPAGE:pg.39
+Crossbow (Quad)		OUTPUTNAME:Crossbow, Quad		TYPE:Invention.Greater	COST:75	WT:10		SOURCEPAGE:pg.39
+Crossbow (Repeating)	OUTPUTNAME:Crossbow, Repeating	TYPE:Invention.Greater	COST:60	WT:10		SOURCEPAGE:pg.39
+Fire Gloves									TYPE:Invention.Minor	COST:3	WT:1		SOURCEPAGE:pg.39
+Flash Powder								TYPE:Invention.Lesser	COST:.6	WT:0		SOURCEPAGE:pg.39
+Forest Blind								TYPE:Invention.Minor	COST:2	WT:10		SOURCEPAGE:pg.39
+Grapplegum									TYPE:Invention.Lesser	COST:3	WT:0		SOURCEPAGE:pg.39
+Gripping Resin								TYPE:Invention.Lesser	COST:.6	WT:0		SOURCEPAGE:pg.40
+Ironwood Balm								TYPE:Invention.Lesser	COST:4	WT:0		SOURCEPAGE:pg.40
+Rope Cranker								TYPE:Invention.Lesser	COST:25	WT:15		SOURCEPAGE:pg.40
+Sleeping Draught								TYPE:Invention.Lesser	COST:.6	WT:0		SOURCEPAGE:pg.40
+Smokestick									TYPE:Invention.Lesser	COST:5	WT:.5		SOURCEPAGE:pg.40
+Tanglefoot Bag								TYPE:Invention.Lesser	COST:8	WT:4		SOURCEPAGE:pg.40
+Thief’s Harness								TYPE:Invention.Greater	COST:75	WT:15		SOURCEPAGE:pg.41
+Wood Chimes									TYPE:Invention.Minor	COST:.3	WT:0		SOURCEPAGE:pg.41
+
+
+#
+##EOF
+#

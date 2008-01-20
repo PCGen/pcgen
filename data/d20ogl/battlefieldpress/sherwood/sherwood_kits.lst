@@ -1,0 +1,159 @@
+# CVS $Revision$ $Author$ -- Fri Jan 18 12:51:40 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-01
+#Original Entry: Andrew Maitland
+
+STARTPACK:Dragon (Sherwood) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon_Sherwood]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+RACE:Dragon_Sherwood	!PRERACE:1,%
+NAME:Dragon
+ALIGN:CE
+SKILL:Bluff				RANK:6
+SKILL:Concentration		RANK:12
+SKILL:Diplomacy			RANK:8
+SKILL:Hide				RANK:4
+SKILL:Intimidate			RANK:14
+SKILL:Jump				RANK:18
+SKILL:Knowledge (Arcana)	RANK:8
+SKILL:Knowledge (Geography)	RANK:6
+SKILL:Knowledge (Local)		RANK:6
+SKILL:Knowledge (Nature)	RANK:8
+SKILL:Listen			RANK:13
+SKILL:Search			RANK:16
+SKILL:Sense Motive		RANK:7
+SKILL:Spot				RANK:16
+FEAT:Alertness
+FEAT:Ability Focus(Breath Weapon)
+FEAT:Hover
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Snatch
+
+
+STARTPACK:Gargoyle (Sherwood) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle_Sherwood]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+RACE:Gargoyle_Sherwood	!PRERACE:1,%
+NAME:Gargoyle
+ALIGN:CE
+SKILL:Hide		RANK:5
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Flyby Attack
+FEAT:Multiattack
+FEAT:Toughness
+
+
+STARTPACK:Selkie Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Selkie]
+RACE:Selkie	!PRERACE:1,%
+NAME:Selkie
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+GEAR:Trident		SIZE:PC	LOCATION:Both Hands
+GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
+SKILL:Bluff		RANK:1
+SKILL:Diplomacy	RANK:1
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+FEAT:Alertness
+
+
+STARTPACK:Changeling (Young Child) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Changeling (Young Child)]
+RACE:Changeling (Young Child)	!PRERACE:1,%
+NAME:Changeling (Young Child)
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Bluff			RANK:4
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:1
+FEAT:Alertness
+
+
+STARTPACK:Grogach Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grogach]
+RACE:Grogach	!PRERACE:1,%
+NAME:Grogach
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+ALIGN:CG
+SKILL:Bluff			RANK:4
+SKILL:Escape Artist	RANK:4
+SKILL:Hide			RANK:4
+SKILL:Jump			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Search		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Alertness
+GEAR:Dagger	SIZE:PC	LOCATION:Both Hands
+
+
+STARTPACK:Leprechaun Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leprechaun]
+RACE:Leprechaun	!PRERACE:1,%
+NAME:Leprechaun
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+ALIGN:TN
+SKILL:Bluff				RANK:4
+SKILL:Concentration		RANK:4
+SKILL:Craft (Woodworking)	RANK:2
+SKILL:Craft (Shoemaking)	RANK:2
+SKILL:Escape Artist		RANK:4
+SKILL:Hide				RANK:4
+SKILL:Listen			RANK:4
+SKILL:Move Silently		RANK:4
+SKILL:Open Lock			RANK:4
+SKILL:TYPE.Perform		RANK:4
+SKILL:Search			RANK:2
+SKILL:Sense Motive		RANK:4
+SKILL:Sleight of Hand		RANK:4
+SKILL:Spot				RANK:4
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Mobility
+FEAT:Weapon Finesse
+GEAR:Dagger	SIZE:PC	LOCATION:Both Hands
+
+
+STARTPACK:Pooka Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pooka%]
+RACE:Pooka (Goblin Form)	!PRERACE:1,%
+NAME:Pooka
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+ALIGN:CN
+SKILL:Climb			RANK:6
+SKILL:Disguise		RANK:7
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:5
+SKILL:Search		RANK:7
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Improved Natural Attack(Bite)
+
+STARTPACK:Banshee Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Banshee]
+RACE:Banshee	!PRERACE:1,%
+NAME:Banshee
+STAT:DEX=10|INT=10|WIS=10|CHA=11
+ALIGN:LE
+SKILL:Diplomacy		RANK:2
+SKILL:Hide			RANK:8
+SKILL:Intimidate		RANK:8
+SKILL:Listen		RANK:8
+SKILL:Sense Motive	RANK:6
+SKILL:Search		RANK:8
+SKILL:Spot			RANK:8
+FEAT:Blind Fight
+FEAT:Combat Reflexes
+
+
+STARTPACK:Ghost Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost]
+RACE:Ghost	!PRERACE:1,%
+NAME:Ghost
+STAT:DEX=10|INT=10|WIS=10|CHA=11
+ALIGN:TN
+SKILL:Hide		RANK:6
+SKILL:Listen	RANK:4
+SKILL:Search	RANK:6
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Dodge
+
+
+#
+##EOF
+#

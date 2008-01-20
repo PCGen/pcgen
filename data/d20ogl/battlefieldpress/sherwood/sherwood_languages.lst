@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Thu Jan 17 13:41:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-01
+#Original Entry: Andrew Maitland
+
+
+# Language	Type
+Latin		TYPE:Spoken.Written.Read
+English	TYPE:Spoken.Written.Read
+French	TYPE:Spoken.Written.Read
+Scots		TYPE:Spoken.Written.Read
+Gaelic	TYPE:Spoken.Written.Read
+Welsh		TYPE:Spoken.Written.Read
+
+#OPTIONAL
+Cornish	TYPE:Spoken.Written.Read
+Breton	TYPE:Spoken.Written.Read
+Irish		TYPE:Spoken.Written.Read
+
+
+#
+##EOF
+#

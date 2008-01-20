@@ -1,0 +1,99 @@
+# CVS $Revision$ $Author$ -- Sun Jan 20 02:04:15 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-01
+#Original Entry: Andrew Maitland
+
+###Block: Class Defense Bonus
+# Ability Name	Category of Ability	Visible		Define				Combat bonus
+EngineerDefense	CATEGORY:Internal		VISIBLE:DISPLAY	DEFINE:EngineerDefense|0	BONUS:COMBAT|AC|EngineerDefense|TYPE=ClassBonus.REPLACE
+KnaveDefense	CATEGORY:Internal		VISIBLE:DISPLAY	DEFINE:KnaveDefense|0		BONUS:COMBAT|AC|KnaveDefense|TYPE=ClassBonus.REPLACE
+ManAtArmsDefense	CATEGORY:Internal		VISIBLE:DISPLAY	DEFINE:ManAtArmsAC|0		BONUS:COMBAT|AC|ManAtArmsAC|TYPE=ClassBonus.REPLACE
+NobleDefense	CATEGORY:Internal		VISIBLE:DISPLAY	DEFINE:NobleAC|0			BONUS:COMBAT|AC|NobleAC|TYPE=ClassBonus.REPLACE
+PriestDefense	CATEGORY:Internal		VISIBLE:DISPLAY	DEFINE:PriestAC|0			BONUS:COMBAT|AC|PriestAC|TYPE=ClassBonus.REPLACE
+YeomanDefense	CATEGORY:Internal		VISIBLE:DISPLAY	DEFINE:YeomanAC|0			BONUS:COMBAT|AC|YeomanAC|TYPE=ClassBonus.REPLACE
+ConjurerDefense	CATEGORY:Internal		VISIBLE:DISPLAY	DEFINE:ConjurerAC|0		BONUS:COMBAT|AC|ConjurerAC|TYPE=ClassBonus.REPLACE
+
+###Block: Class Bonus Feats
+# Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose		Bonus to Ability Pool
+Engineer Bonus Feat	CATEGORY:Special Ability	TYPE:EngineerAbility	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Engineer Feat|1
+Knave Bonus Feat		CATEGORY:Special Ability	TYPE:KnaveAbility		VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Knave Feat|1
+Man-At-Arms Bonus Feat	CATEGORY:Special Ability	TYPE:ManAtArmsAbility	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Man-at-Arms Feat|1
+Noble Bonus Feat		CATEGORY:Special Ability	TYPE:NobleAbility		VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Noble Feat|1
+Priest Bonus Feat		CATEGORY:Special Ability	TYPE:PriestAbility	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Priest Feat|1
+Yeoman Bonus Feat		CATEGORY:Special Ability	TYPE:YeomanAbility	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Yeoman Feat|1
+Conjurer Bonus Feat	CATEGORY:Special Ability	TYPE:ConjurerAbility	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Conjurer Feat|1
+
+###Block: Swashbuckling Points
+# Ability Name		Category of Ability		Type				Visible		Special ABility									Define					Stackable?	Multiple?	Choose		Modify VAR
+Swashbuckling Points	CATEGORY:Special Ability					VISIBLE:NO		SAB:Swashbuckling Points ~ %/session|SwashbucklingPointTotal	DEFINE:SwashbucklingPointTotal|0
+Swashbuckling Point	CATEGORY:Special Ability	TYPE:SwashbucklingPoint	VISIBLE:DISPLAY																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|SwashbucklingPointTotal|1
+
+###Block: Core Ability
+# Ability Name		Category of Ability		Type				Visible		Special ABility						Define					Bonus to Ability Pool								Modify VAR
+Invention			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:DISPLAY	SAB:Invention
+Swashbuckler		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:DISPLAY	SAB:Swashbuckler						DEFINE:SwashbucklerBonusPoints|0												BONUS:VAR|SwashbucklingPointTotal|SwashbucklerBonusPoints
+Tactician			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:DISPLAY	SAB:Tactician						DEFINE:TacticianTactics|0		BONUS:ABILITYPOOL|Tactician|TacticianTactics
+Privilege			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:DISPLAY															BONUS:ABILITYPOOL|Noble Privilege|1
+Inspiring Presence	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:DISPLAY	SAB:Inspiring Presence					DEFINE:InspiringPresenceEffects|0	BONUS:ABILITYPOOL|Inspiring Presence|InspiringPresenceEffects
+Commoner's Aspect		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:DISPLAY	SAB:Commoner's Aspect ~ +%|CommonerAspectLV	DEFINE:CommonerAspectLV|0
+
+###Block: Man at Arms - Tactical
+# Ability Name		Category of Ability		Type									Visible		Special ABility								Define					Stackable?	Multiple?	Choose		Modify VAR
+Offensive Tactics		CATEGORY:Special Ability	TYPE:SpecialQuality.ManAtArmsTactics			VISIBLE:DISPLAY	SAB:Offensive Tactics - +%|OffensiveTacticTaken			DEFINE:OffensiveTacticTaken|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|OffensiveTacticTaken|1
+Defensive Tactics		CATEGORY:Special Ability	TYPE:SpecialQuality.ManAtArmsTactics			VISIBLE:DISPLAY	SAB:Defensive Tactics - +%|DefensiveTacticTaken			DEFINE:DefensiveTacticTaken|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|DefensiveTacticTaken|1
+Coordinated Maneuvers	CATEGORY:Special Ability	TYPE:SpecialQuality.ManAtArmsTactics			VISIBLE:DISPLAY	SAB:Coordinated Maneuvers - +%|CoordinatedManeuversTaken	DEFINE:CoordinatedManeuversTaken|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|CoordinatedManeuversTaken|2
+Stand Fast			CATEGORY:Special Ability	TYPE:SpecialQuality.ManAtArmsTactics.PriestInspire	VISIBLE:DISPLAY	SAB:Stand Fast - +%|StandFastTaken					DEFINE:StandFastTaken|0			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|StandFastTaken|2
+Heads Up			CATEGORY:Special Ability	TYPE:SpecialQuality.ManAtArmsTactics.PriestInspire	VISIBLE:DISPLAY	SAB:Heads Up - +%|HeadsUpTaken					DEFINE:HeadsUpTaken|0			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|HeadsUpTaken|2
+Inspiration			CATEGORY:Special Ability	TYPE:SpecialQuality.ManAtArmsTactics.PriestInspire	VISIBLE:DISPLAY	SAB:Inspiration - +%|InspirationTaken				DEFINE:InspirationTaken|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|InspirationTaken|2
+Coordinate			CATEGORY:Special Ability	TYPE:SpecialQuality.ManAtArmsTactics			VISIBLE:DISPLAY	SAB:Coordinate
+Close and Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.ManAtArmsTactics			VISIBLE:DISPLAY	SAB:Close and Attack - +%|CloseAndAttackTaken			DEFINE:CloseAndAttackTaken|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|CloseAndAttackTaken|2
+
+###Block: Noble
+# Ability Name	Category of Ability		Type						Special ABility
+Abbot			CATEGORY:Special Ability	TYPE:SpecialQuality.NoblePrivilege	SAB:Privilege (Abbot)
+Manorial Lord	CATEGORY:Special Ability	TYPE:SpecialQuality.NoblePrivilege	SAB:Privilege (Manorial Lord)
+Wandering Knight	CATEGORY:Special Ability	TYPE:SpecialQuality.NoblePrivilege	SAB:Privilege (Wandering Knight)
+
+###Block: Priest
+# Ability Name			Category of Ability		Type						Visible		Special ABility									Define						Stackable?	Multiple?	Choose		Modify VAR
+Calming Presence			CATEGORY:Special Ability	TYPE:SpecialQuality.PriestInspire	VISIBLE:DISPLAY	SAB:Calming Presence +%|CalmingPresence					DEFINE:CalmingPresence|0			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|CalmingPresence|2
+Everyone Has Their Time		CATEGORY:Special Ability	TYPE:SpecialQuality.PriestInspire	VISIBLE:DISPLAY	SAB:Everyone Has Their Time +%|EveryoneHasTheirTimeTaken		DEFINE:EveryoneHasTheirTimeTaken|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|EveryoneHasTheirTimeTaken|var("CL=Priest")
+Cast Out				CATEGORY:Special Ability	TYPE:SpecialQuality.PriestInspire	VISIBLE:DISPLAY	SAB:Cast Out
+Ecclesiastical Privilege	CATEGORY:Special Ability	TYPE:SpecialQuality.PriestInspire	VISIBLE:DISPLAY	SAB:Ecclesiastical Privilege - +%|EcclesiasticalPrivilegeTaken	DEFINE:EcclesiasticalPrivilegeTaken|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|EcclesiasticalPrivilegeTaken|var("CL=Priest")
+Fear God's Wrath			CATEGORY:Special Ability	TYPE:SpecialQuality.PriestInspire	VISIBLE:DISPLAY	SAB:Fear God's Wrath
+
+
+###Block: Conjurer
+# Ability Name				Category of Ability		Visible		Special ABility
+Fires Burn and Cauldrons Bubble	CATEGORY:Special Ability	VISIBLE:DISPLAY	SAB:Fires Burn and Cauldrons Bubble
+
+###Block: Charms and Curses
+# Ability Name				Category of Ability		Type				Visible		Required Ability										Special ABility
+Personal Magic				CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY													SAB:Personal Magic
+Reactive Charm/Retributive Curse	CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Personal Magic				SAB:Reactive Charm/Retributive Curse
+Greater Charm				CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Reactive Charm/Retributive Curse	SAB:Greater Charm
+Evil Eye					CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Greater Charm				SAB:Evil Eye
+
+###Block: Divination
+# Ability Name			Category of Ability		Type				Visible		Required Ability									Special ABility
+Augury				CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY												SAB:Augury
+Legend Lore				CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Augury				SAB:Legend Lore
+Locate Object or Person		CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Legend Lore			SAB:Locate Object or Person
+Clairaudience/Clairvoyance	CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Locate Object or Person	SAB:Clairaudience/Clairvoyance
+
+###Block: Enchantment
+# Ability Name			Category of Ability		Type				Visible		Required Ability									Special ABility
+Craft Talisman			CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY												SAB:Craft Talisman
+Brew Potion				CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Craft Talisman			SAB:Brew Potion
+Craft Magic Arms and Armor	CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Brew Potion			SAB:Craft Magic Arms and Armor
+Create Legendary Item		CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Craft Magic Arms and Armor	SAB:Create Legendary Item
+
+###Block: Fairy Lore
+# Ability Name	Category of Ability		Type				Visible		Required Ability							Special ABility					Define		Allow Follower		Allowed Companions
+Fey Friend		CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY										SAB:Fey Friend
+Familiar		CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY										SAB:Familiar	SAB:Summon Familiar	DEFINE:SFMLevel|0	FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel
+Monstrous Ally	CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fey Friend	SAB:Monstrous Ally
+
+
+#
+##EOF
+#

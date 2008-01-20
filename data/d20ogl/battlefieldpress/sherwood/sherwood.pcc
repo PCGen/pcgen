@@ -1,0 +1,78 @@
+# CVS $Revision$ $Author$ -- Sat Sep 22 13:52:50 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+CAMPAIGN:Battlefield Press - Sherwood - The Legend of Robin Hood
+GAMEMODE:35e
+TYPE:Battlefield Press.Sherwood
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Sourcebook
+SETTING:Fantasy
+PUBNAMELONG:Battlefield Press
+PUBNAMESHORT:BP
+PUBNAMEWEB:www.battlefieldpress.com
+SOURCELONG:Sherwood - The Legend of Robin Hood
+SOURCESHORT:Sherwood
+SOURCEWEB:www.battlefieldpress.com
+SOURCEDATE:2008-01
+ISOGL:YES
+#
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizard of the Coast, Inc.
+COPYRIGHT:Arms & Armor Copyright 2001, Bastion Press, Inc.
+COPYRIGHT:Minions: Fearsome Foes Copyright 2002, Bastion Press, Inc.
+COPYRIGHT:Path of Magic Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Spells & Spellcraft Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Path of the Sword Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Tournaments, Fairs, and Taverns, Copyright 2002, Natural 20 Press
+COPYRIGHT:Wild Spellcraft, Copyright 2002, Natural 20 Press
+COPYRIGHT:Traps & Treachery Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Deadlands d20 Copyright 2001, Pinnacle Entertainment Group
+COPYRIGHT:Dragonstar: Starfarer’s Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Open Game Content from The Tide of Years Copyright 2001, Michelle A. Brown Nephew
+COPYRIGHT:Seafarer’s Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Foul Locales: Urban Blight Copyright 2002, Mystic Eye Games
+COPYRIGHT:Quintessential Fighter Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Rogue Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Wizard Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Cleric Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Elf Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Dwarf Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Monk Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Witch Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Psychic Warrior Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Druid Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Samurai Copyright 2002, Mongoose Publishing
+COPYRIGHT:Quintessential Paladin Copyright 2002, Mongoose Publishing
+COPYRIGHT:Seas of Blood Copyright 2001, Mongoose Publishing
+COPYRIGHT:Gladiator: Sands of Death Copyright 2001, Mongoose Publishing
+COPYRIGHT:Crusades of Valour Copyright 2002, Mongoose Publishing
+COPYRIGHT:Ultimate Equipment Guide Copyright 2002, Mongoose Publishing
+COPYRIGHT:Sherwood: The Legend of Robin Hood Copyright 2007, Battlefield Press, Inc.
+
+COPYRIGHT:PCGen dataset conversion for Sherwood: The Legend of Robin Hood Copyright 2008, PCGen Data Team (including, but not limited to: Andrew Maitland, Eddy Anthony (MoSaT), Eric (Maredudd) Smith)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITYCATEGORY:sherwood_abilitycat.lst
+ABILITY:sherwood_ability_class.lst
+CLASS:sherwood_class.lst
+COMPANIONMOD:sherwood_companionmod.lst
+EQUIPMENT:sherwood_equip.lst
+FEAT:sherwood_feats.lst
+FEAT:sherwood_feats_mods.lst
+KIT:sherwood_kits.lst
+LANGUAGE:sherwood_languages.lst
+SKILL:sherwood_skills.lst
+TEMPLATE:sherwood_templates.lst
+
+###Mythic
+RACE:sherwood_race_monster.lst
+CLASS:sherwood_class_mythic.lst
+
+
+HIDETYPE:FEAT|Conjurer|Noble|ManAtArms|Engineer|Knave|Yeoman|Priest
+HIDETYPE:SKILL|AutoGain|MountedManeuver
+
+#
+# End
+#

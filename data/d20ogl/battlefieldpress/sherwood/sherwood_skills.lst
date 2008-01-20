@@ -1,0 +1,51 @@
+# CVS $Revision$ $Author$ -- Fri Jan 18 20:56:01 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-01
+#Original Entry: Andrew Maitland
+
+# Skill Name		Key Stat	Untrained?		Type					Bonus to skill															Source Page		Temporary effect description
+Knowledge (Law)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Knowledge.Intelligence																		SOURCEPAGE:pg.18
+Craft (Shoemaking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		BONUS:SKILL|Craft (Shoemaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=LeatherworkingTools|PREAPPLY:PC	SOURCEPAGE:pg. 86	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+
+###Block: Maneuvers
+# Skill Name					Key Stat	Untrained?		Visible		Bonus to skill																																						Source Page
+Maneuver (Attack From Above)			KEYSTAT:STR				VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Attack From Above)|skillinfo("MODIFIER", "Jump")-STR	BONUS:SKILL|Maneuver (Attack From Above)|2|PRESKILL:1,Tumble=5																	SOURCEPAGE:pg.43
+Maneuver (Beamwork)				KEYSTAT:DEX				VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Beamwork)|skillinfo("MODIFIER", "Balance")-DEX	BONUS:SKILL|Maneuver (Beamwork)|2|PRESKILL:1,Jump=5	BONUS:SKILL|Maneuver (Beamwork)|2|PRESKILL:1,Tumble=5											SOURCEPAGE:pg.43
+Maneuver (Cartwheeling)				KEYSTAT:DEX	USEUNTRAINED:NO	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Cartwheeling)|skillinfo("MODIFIER", "Tumble")-DEX	BONUS:SKILL|Maneuver (Cartwheeling)|2|PRESKILL:1,Jump=5																			SOURCEPAGE:pg.43
+Maneuver (Dance Around the Maypole)		KEYSTAT:DEX				VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Dance Around the Maypole)|skillinfo("MODIFIER", "Balance")-DEX	BONUS:SKILL|Maneuver (Dance Around the Maypole)|2|PRESKILL:1,Tumble=5														SOURCEPAGE:pg.44
+Maneuver (High Dive)				KEYSTAT:STR				VISIBLE:EXPORT	BONUS:SKILL|Maneuver (High Dive)|skillinfo("MODIFIER", "Jump")-STR	BONUS:SKILL|Maneuver (High Dive)|2|PRESKILL:1,Swim=5																				SOURCEPAGE:pg.44
+Maneuver (Leap to Different Elevation)	KEYSTAT:STR				VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Leap to Different Elevation)|skillinfo("MODIFIER", "Jump")-STR	BONUS:SKILL|Maneuver (Leap to Different Elevation)|2|PRESKILL:1,Tumble=5													SOURCEPAGE:pg.44
+Maneuver (Polework)				KEYSTAT:DEX	USEUNTRAINED:NO	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Polework)|skillinfo("MODIFIER", "Tumble")-DEX	BONUS:SKILL|Maneuver (Polework)|2|PRESKILL:1,Climb=5	BONUS:SKILL|Maneuver (Polework)|2|PRESKILL:1,Balance=5	BONUS:SKILL|Maneuver (Polework)|2|PRESKILL:1,Jump=5	SOURCEPAGE:pg.44
+Maneuver (Rappelling)				KEYSTAT:STR				VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Rappelling)|skillinfo("MODIFIER", "Climb")-STR	BONUS:SKILL|Maneuver (Rappelling)|2|PRESKILL:1,Balance=5																			SOURCEPAGE:pg.45
+Maneuver (Running Up Walls)			KEYSTAT:STR				VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Running Up Walls)|skillinfo("MODIFIER", "Climb")-STR	BONUS:SKILL|Maneuver (Running Up Walls)|2|PRESKILL:1,Tumble=5																	SOURCEPAGE:pg.45
+Maneuver (Swing Kick)				KEYSTAT:DEX	USEUNTRAINED:NO	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Swing Kick)|skillinfo("MODIFIER", "Tumble")-DEX	BONUS:SKILL|Maneuver (Swing Kick)|2|PRESKILL:1,Jump=5																				SOURCEPAGE:pg.45
+Maneuver (Swinging Attack)			KEYSTAT:STR				VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Swinging Attack)|skillinfo("MODIFIER", "Climb")-STR	BONUS:SKILL|Maneuver (Swinging Attack)|2|PRESKILL:1,Balance=5																	SOURCEPAGE:pg.46
+Maneuver (Vaulting)				KEYSTAT:STR				VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Vaulting)|skillinfo("MODIFIER", "Jump")-STR	BONUS:SKILL|Maneuver (Vaulting)|2|PRESKILL:1,Tumble=5																					SOURCEPAGE:pg.46
+
+###Block: Mounted Maneuvers
+# Skill Name					Key Stat	Type				Visible		Bonus to skill																																		Source Page
+Maneuver (Charged Jump)				KEYSTAT:STR	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Charged Jump)|skillinfo("MODIFIER", "Jump")-STR	BONUS:SKILL|Maneuver (Charged Jump)|2|PRESKILL:1,Handle Animal=5														SOURCEPAGE:pg.46
+Maneuver (Coax the Beast)			KEYSTAT:DEX	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Coax the Beast)|skillinfo("MODIFIER", "Ride")-DEX	BONUS:SKILL|Maneuver (Coax the Beast)|2|PRESKILL:1,Handle Animal=5													SOURCEPAGE:pg.47
+Maneuver (Deft Dodging)				KEYSTAT:DEX	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Deft Dodging)|skillinfo("MODIFIER", "Ride")-DEX	BONUS:SKILL|Maneuver (Deft Dodging)|2|PRESKILL:1,Balance=5															SOURCEPAGE:pg.47
+Maneuver (Jumping on Horseback)		KEYSTAT:DEX	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Jumping on Horseback)|skillinfo("MODIFIER", "Ride")-DEX	BONUS:SKILL|Maneuver (Jumping on Horseback)|2|PRESKILL:1,Jump=5	BONUS:SKILL|Maneuver (Jumping on Horseback)|2|PRESKILL:1,Balance=5	SOURCEPAGE:pg.47
+Maneuver (Lasso and Drag)			KEYSTAT:DEX	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Lasso and Drag)|skillinfo("MODIFIER", "Ride")-DEX	BONUS:SKILL|Maneuver (Lasso and Drag)|2|PRESKILL:1,Use Rope=5														SOURCEPAGE:pg.47
+Maneuver (Leap onto a Horse)			KEYSTAT:STR	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Leap onto a Horse)|skillinfo("MODIFIER", "Jump")-STR	BONUS:SKILL|Maneuver (Leap onto a Horse)|2|PRESKILL:1,Ride=5													SOURCEPAGE:pg.47
+Maneuver (Rider's Leap)				KEYSTAT:STR	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Rider's Leap)|skillinfo("MODIFIER", "Jump")-STR	BONUS:SKILL|Maneuver (Rider's Leap)|2|PRESKILL:1,Ride=5															SOURCEPAGE:pg.48
+Maneuver (Sideswipe)				KEYSTAT:DEX	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Sideswipe)|skillinfo("MODIFIER", "Ride")-DEX	BONUS:SKILL|Maneuver (Sideswipe)|2|PRESKILL:1,Handle Animal=5														SOURCEPAGE:pg.48
+Maneuver (Snatch and Go)			KEYSTAT:DEX	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Snatch and Go)|skillinfo("MODIFIER", "Ride")-DEX	BONUS:SKILL|Maneuver (Snatch and Go)|2|PRESKILL:1,Balance=5															SOURCEPAGE:pg.48
+Maneuver (Spinning Kick)			KEYSTAT:DEX	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Spinning Kick)|skillinfo("MODIFIER", "Ride")-DEX	BONUS:SKILL|Maneuver (Spinning Kick)|2|PRESKILL:1,Handle Animal=5														SOURCEPAGE:pg.49
+Maneuver (Straddling Two Horses)		KEYSTAT:DEX	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Straddling Two Horses)|skillinfo("MODIFIER", "Ride")-DEX	BONUS:SKILL|Maneuver (Straddling Two Horses)|2|PRESKILL:2,Balance,Handle Animal=5									SOURCEPAGE:pg.49
+Maneuver (Switching Horse in Mid-Gallop)	KEYSTAT:DEX	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Switching Horse in Mid-Gallop)|skillinfo("MODIFIER", "Ride")-DEX	BONUS:SKILL|Maneuver (Switching Horse in Mid-Gallop)|2|PRESKILL:1,Jump=5									SOURCEPAGE:pg.49
+Maneuver (Tackle)					KEYSTAT:STR	TYPE:MountedManeuver	VISIBLE:EXPORT	BONUS:SKILL|Maneuver (Tackle)|skillinfo("MODIFIER", "Jump")-STR	BONUS:SKILL|Maneuver (Tackle)|2|PRESKILL:1,Ride=5																	SOURCEPAGE:pg.49
+
+###Block: Skill MOD to transfer ranks
+# Skill Name	Bonus to skill rank																																															Class Skill
+Balance.MOD		BONUS:SKILLRANK|Maneuver (Beamwork),Maneuver (Dance Around the Maypole)|skillinfo("TOTALRANK", "Balance")																																	CSKILL:Maneuver (Beamwork)|Maneuver (Dance Around the Maypole)
+Climb.MOD		BONUS:SKILLRANK|Maneuver (Rappelling),Maneuver (Running Up Walls),Maneuver (Swinging Attack)|skillinfo("TOTALRANK", "Climb")																														CSKILL:Maneuver (Rappelling)|Maneuver (Running Up Walls)|Maneuver (Swinging Attack)
+Jump.MOD		BONUS:SKILLRANK|Maneuver (Attack From Above),Maneuver (High Dive),Maneuver (Leap to Different Elevation),Maneuver (Vaulting),Maneuver (Charged Jump),Maneuver (Leap onto a Horse),Maneuver (Rider's Leap),Maneuver (Tackle)|skillinfo("TOTALRANK", "Jump")									CSKILL:Maneuver (Attack From Above)|Maneuver (High Dive)|Maneuver (Leap to Different Elevation)|Maneuver (Vaulting)|Maneuver (Charged Jump)|Maneuver (Leap onto a Horse)|Maneuver (Rider's Leap)|Maneuver (Tackle)
+Tumble.MOD		BONUS:SKILLRANK|Maneuver (Cartwheeling),Maneuver (Polework),Maneuver (Swing Kick)|skillinfo("TOTALRANK", "Tumble")																															CSKILL:Maneuver (Cartwheeling)|Maneuver (Polework)|Maneuver (Swing Kick)
+Ride.MOD		BONUS:SKILLRANK|Maneuver (Coax the Beast),Maneuver (Deft Dodging),Maneuver (Jumping on Horseback),Maneuver (Lasso and Drag),Maneuver (Sideswipe),Maneuver (Switching Horse in Mid-Gallop),Maneuver (Snatch and Go),Maneuver (Straddling Two Horses),Maneuver (Spinning Kick)|skillinfo("TOTALRANK", "Ride")	CSKILL:Maneuver (Coax the Beast)|Maneuver (Deft Dodging)|Maneuver (Jumping on Horseback)|Maneuver (Lasso and Drag)|Maneuver (Sideswipe)|Maneuver (Switching Horse in Mid-Gallop)|Maneuver (Snatch and Go)|Maneuver (Straddling Two Horses)|Maneuver (Spinning Kick)
+
+
+#
+##EOF
+#
