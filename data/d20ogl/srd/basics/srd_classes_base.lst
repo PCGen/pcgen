@@ -49,8 +49,8 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Visible	Save checks bonus											Combat bonus
 CLASS:Ex Barbarian	HD:12		TYPE:Base.PC	ABB:XBbn		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Skill Pts/Lvl
-CLASS:Ex Barbarian	STARTSKILLPTS:4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Intuit Direction|Jump|Listen|Ride|Swim|Wilderness Lore
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -204,8 +204,8 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Bonus Languages	Visible	Save checks bonus											Combat bonus
 CLASS:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi.rtf	LANGAUTO:Druidic		LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Skill Pts/Lvl
-CLASS:Ex Druid	STARTSKILLPTS:4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
 ###Block:Proficiencies
 1	AUTO:FEAT|Druid Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -327,6 +327,8 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Visible	Save checks bonus											Combat bonus
 CLASS:Ex Paladin	HD:10		TYPE:Base.PC	ABB:XPal		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesii.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ex Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE.Profession|Ride
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
