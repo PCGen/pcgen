@@ -47,17 +47,17 @@ while (<ROADMAP>) {
         	my $cat = $_;
         	$cat =~ s/^[ \t]([A-Za-z ]*).*$/$1/;
         	$cat =~ s/\s*$//g;
-        	s/^[ \t][A-Za-z ]*/<li>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$trackerNum\"\>$trackerNum<\/a><\/li> \]/;
+        	s/^[ \t][A-Za-z ]*/<li>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$trackerNum\"\>$trackerNum<\/a> \]/;
         	s/\s+[0-9\-]+$//;
         	s/\s+[A-Za-z_0-9 \-\.]+\s+[A-Za-z_0-9 \-\.]+\s+[A-Za-z_0-9 \-\.]+$//;
         	s/\s*$//g;
-			push(@trackerLines, $cat . "@@@" . $_);
+			push(@trackerLines, $cat . "@@@" . $_ . "<\/li>");
 		}
 
         elsif (/^[0-9].*Closed *$/oi) {
-        	s/^([0-9]+)/<li>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$1\"\>$1<\/a><\/li> \]/;
+        	s/^([0-9]+)/<li>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$1\"\>$1<\/a> \]/;
         	s/\s*Closed *$//i;
-        	print CHANGELOG $_;
+        	print CHANGELOG $_."<\/li>";
         }
 }
 
@@ -96,9 +96,9 @@ while (<CHANGES>) {
 	s/href="team/href="http:\/\/pcgen.sourceforge.net\/autobuilds\/team/;
 	s/<tr class=".">/<li>/;
 	s/<\/*td>//g;
-	s/<\/tr>//g;
+	s/<\/tr>/<\/li>/g;
 	if (length $_ > 0 && !/<table/i && !/<\/table>/) {
-	   	print WHATSNEW $_ . "<\/li>\n";
+	   	print WHATSNEW $_ . "\n";
 	}
 }
 close WHATSNEW;
