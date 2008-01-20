@@ -1243,7 +1243,7 @@
 
 <hr>
 
-	<p class="new">*** New 5.8</p>
+	<p class="new">*** New 5.13.3</p>
 	<p class="indent0"><strong><a name="REPEATLEVEL">Tag Name:</a></strong> w:REPEATLEVEL:x|y|z</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Number (Class level)</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> SUBCLASSLEVEL:Number (Class level)</p>
@@ -1254,8 +1254,8 @@
 	<p class="indent1"><strong>Variables Used (z):</strong> MAX=Number (Maximum level, Optional)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>When encountered on a class level line all the tags included in the line
-			will be applied again at later levels at intervals specified by the tag.</li>
+		<li>When included, this tag must be the first tag on the line.</li>
+		<li>All the tags included on the line will be applied again at later levels at intervals specified by the tag.</li>
 		<li>The progression begins at the level the REPEATLEVEL tag is encountered in.</li>
 		<li>Variable x specifies the interval that the line will be repeated, so if you specified 3 at
 			level one the line would repeat again at level 4, 7, 10, etc...</li>
@@ -1275,8 +1275,46 @@
 	<p class="indent3">Would add at levels 1,2,3,4,6,7,8,9,11,12,13,14,... up to the MAXLEVEL defined by class.</p>
 	<p class="indent2"><code>2:REPEATLEVEL:2|SKIP=0|MAX=20 &lt;tab&gt; ADD:FEAT(ABonusFeat)</code></p>
 	<p class="indent3">Would add at levels 2,4,6,8,... up to level 20.</p>
+	<p class="indent1"><strong>Derecated Syntax:</strong> <a href="../datafilestagpages/datafilesclasses.html#OLDREPEATLEVEL">REPEATLEVEL</a></p>
+	<p class="indent2"><code>5 &lt;tab&gt; REPEATLEVEL:5 &lt;tab&gt;  ADD:FEAT(ABonusFeat)</code></p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Class Level Lines, Sub-class Level Lines, Substitution Level Lines.</p>
+	<p></ p>
+
+<hr>
+
+	<a name="OLDREPEATLEVEL"></a>
+	<p class="new">*** Deprecated 5.13.3 - Remove 6.0, use <a href="../datafilestagpages/datafilesclasses.html#REPEATLEVEL">REPEATLEVEL</a> tag instead.</p>
+	<p class="indent0"><strong>Tag Name:</strong> REPEATLEVEL:x|y|z:<level>:<level assigned item></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (level interval)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of intervals before skipping one
+	interval, use 0 for no skip, Optional)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Maximum level, Optional)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>When encountered on a class level line all the tags included in the line
+		will be applied again at later levels at intervals specified by the tag.</li>
+		<li>The progression begins at the level the REPEATLEVEL tag is encountered in.</li>
+		<li>Variable x specifies the interval that the line will be repeated, so if you specified 3 at
+		level one the line would repeat again at level 4, 7, 10, etc...</li>
+		<li>Variable y specifies the interval with the first interval where it will skip one interval,
+			to continue the above example if you specified 3 (variable x) at level one and 2 for variable y
+			the line would repeat again at level 4, 10, 13, 19, 22, 28, etc...</li>
+		<li>Variable z specifies the level at which the progression ends.</li>
+		<li>Variables y and z are optional but if you use z you must also use y which can be set to 0 if it
+		is not otherwise used.</li>
+		<li>Any valid class tags may be used on the line to be repeated.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>5 &lt;tab&gt; REPEATLEVEL:5 &lt;tab&gt;  ADD:FEAT(ABonusFeat)</code></p>
+	<p class="indent3">would add at levels 5,10,15,20,... up to the MAXLEVEL defined by class.</p>
+	<p class="indent2"><code>1 &lt;tab&gt; REPEATLEVEL:1|4 &lt;tab&gt; ADD:FEAT(ABonusFeat)</code></p>
+	<p class="indent3">would add at levels 1,2,3,4,6,7,8,9,11,12,13,14,... up to the MAXLEVEL defined by
+	class.</p>
+	<p class="indent2"><code>2 &lt;tab&gt; REPEATLEVEL:2|0|20 &lt;tab&gt; ADD:FEAT(ABonusFeat)</code></p>
+	<p class="indent3">would add at levels 2,4,6,8,... up to level 20.</p>
+	<p class="indent1"><strong>Where it is used:</strong></p>
+	<p class="indent2">Class Level Lines.</p>
 	<p></ p>
 
 <hr>
