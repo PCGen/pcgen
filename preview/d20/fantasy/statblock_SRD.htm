@@ -161,7 +161,7 @@ Tower Shield,
   <tr valign="top">
     <td width="25%"><b>Full Attack: </b></td>
     <td width="75%">
-|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 <strong>|WEAPON.%weap.NAME.NOSTAR| </strong>
 |IIF(WEAPON.%weap.BASEHIT:N/A)|
 |WEAPON.%weap.THHIT| melee (|WEAPON.%weap.THDAMAGE|
@@ -208,7 +208,7 @@ melee
   <tr valign="top">
     <td width="25%"><b>Attack: </b></td>
     <td width="75%">
-|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 <strong>|WEAPON.%weap.NAME.NOSTAR| </strong>
 |IIF(WEAPON.%weap.BASEHIT:N/A)|
 |WEAPON.%weap.THHIT.0| melee (|WEAPON.%weap.THDAMAGE|
