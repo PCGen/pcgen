@@ -77,378 +77,347 @@ import pcgen.util.PropertyFactory;
  *
  */
 @SuppressWarnings("serial")
-public class NPCGeneratorDlg extends JDialog
-{
-	private JButton okButton = new JButton();
-	private JButton cancelButton = new JButton();
-	private JComboBox alignCombo = new JComboBox();
-	private JComboBox raceCombo = new JComboBox();
-	private JButton editRace = new JButton();
-	private JButton editAlign = new JButton();
-	private JButton editGender = new JButton();
-	private JComboBox genderCombo = new JComboBox();
+public class NPCGeneratorDlg extends JDialog {
 
-	private JButton editStats = new JButton();
-	private JComboBox statsCombo = new JComboBox();
+    private JButton okButton = new JButton();
+    private JButton cancelButton = new JButton();
+    private JComboBox alignCombo = new JComboBox();
+    private JComboBox raceCombo = new JComboBox();
+    private JButton editRace = new JButton();
+    private JButton editAlign = new JButton();
+    private JButton editGender = new JButton();
+    private JComboBox genderCombo = new JComboBox();
+    private JButton editStats = new JButton();
+    private JComboBox statsCombo = new JComboBox();
+    public static final int OK_BUTTON = 1;
+    public static final int CANCEL_BUTTON = 0;
+    private int retValue = CANCEL_BUTTON;
+    private AlignGeneratorOption theAlignment = null;
+    private RaceGeneratorOption theRace = null;
+    private GenderGeneratorOption theGender = null;
+    private List<ClassGeneratorOption> theClassList = new ArrayList<ClassGeneratorOption>();
+    private List<LevelGeneratorOption> theLevelList = new ArrayList<LevelGeneratorOption>();
+    private GameModeRollMethod theRollMethod = null;
+    private static final int MAX_CLASSES = 3;
+    private JComboBox[] classCombos = new JComboBox[MAX_CLASSES];
+    private JComboBox[] lvlCombos = new JComboBox[MAX_CLASSES];
+    private JComboBox nameCombo = new JComboBox();
 
-	public static final int OK_BUTTON = 1;
-	public static final int CANCEL_BUTTON = 0;
+    public NPCGeneratorDlg(final Frame owner, final String title, final boolean modal) {
+        super(owner, title, modal);
+        try {
+            setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            initComponents();
+            pack();
+            setLocationRelativeTo(owner);
 
-	private int retValue = CANCEL_BUTTON;
-	private AlignGeneratorOption theAlignment = null;
-	private RaceGeneratorOption theRace = null;
-	private GenderGeneratorOption theGender = null;
-	private List<ClassGeneratorOption> theClassList = new ArrayList<ClassGeneratorOption>();
-	private List<LevelGeneratorOption> theLevelList = new ArrayList<LevelGeneratorOption>();
-	private GameModeRollMethod theRollMethod = null;
+            SwingUtilities.invokeLater(new Runnable() {
 
-	private static final int MAX_CLASSES = 3;
+                                   public void run() {
+                                       populateControls();
+                                   }
 
-	private JComboBox[] classCombos = new JComboBox[MAX_CLASSES];
-	private JComboBox[] lvlCombos = new JComboBox[MAX_CLASSES];
+                               });
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
 
-	private JComboBox nameCombo = new JComboBox();
-	
-	public NPCGeneratorDlg(final Frame owner, final String title, final boolean modal)
-	{
-		super(owner, title, modal);
-		try
-		{
-			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-			initComponents();
-			pack();
-			setLocationRelativeTo(owner);
+    public NPCGeneratorDlg() {
+        this(new Frame(), "NPC Generator", true);
+    }
 
-			SwingUtilities.invokeLater(new Runnable() {
-				public void run()
-				{
-					populateControls();
-				}
-			});
-		}
-		catch (Exception exception)
-		{
-			exception.printStackTrace();
-		}
-	}
+    public int getValue() {
+        return retValue;
+    }
 
-	public NPCGeneratorDlg()
-	{
-		this(new Frame(), "NPC Generator", true);
-	}
+    public AlignGeneratorOption getAlignment() {
+        return theAlignment;
+    }
 
-	public int getValue()
-	{
-		return retValue;
-	}
+    public RaceGeneratorOption getRace() {
+        return theRace;
+    }
 
-	public AlignGeneratorOption getAlignment()
-	{
-		return theAlignment;
-	}
+    public GenderGeneratorOption getGender() {
+        return theGender;
+    }
 
-	public RaceGeneratorOption getRace()
-	{
-		return theRace;
-	}
+    public List<ClassGeneratorOption> getClassList() {
+        return theClassList;
+    }
 
-	public GenderGeneratorOption getGender()
-	{
-		return theGender;
-	}
+    public List<LevelGeneratorOption> getLevels() {
+        return theLevelList;
+    }
 
-	public List<ClassGeneratorOption> getClassList()
-	{
-		return theClassList;
-	}
+    public GameModeRollMethod getRollMethod() {
+        return theRollMethod;
+    }
 
-	public List<LevelGeneratorOption> getLevels()
-	{
-		return theLevelList;
-	}
+    public NameElement getNameChoice() {
+        return (NameElement) nameCombo.getSelectedItem();
+    }
 
-	public GameModeRollMethod getRollMethod()
-	{
-		return theRollMethod;
-	}
+    private void okActionPerformed() {
+        if (okButton.isEnabled()) {
+            retValue = OK_BUTTON;
+            setVisible(false);
 
-	public NameElement getNameChoice()
-	{
-		return (NameElement)nameCombo.getSelectedItem();
-	}
-	
-	private void okActionPerformed()
-	{
-		if (okButton.isEnabled())
-		{
-			retValue = OK_BUTTON;
-			setVisible(false);
+            theAlignment = (AlignGeneratorOption) alignCombo.getSelectedItem();
 
-			theAlignment = (AlignGeneratorOption)alignCombo.getSelectedItem();
+            theRace = (RaceGeneratorOption) raceCombo.getSelectedItem();
 
-			theRace = (RaceGeneratorOption)raceCombo.getSelectedItem();
+            theGender = (GenderGeneratorOption) genderCombo.getSelectedItem();
+            for (int i = 0; i < MAX_CLASSES; i++) {
+                final Object selClass = classCombos[i].getSelectedItem();
+                if (selClass instanceof String && selClass.equals(Constants.s_NONESELECTED)) {
+                    continue;
+                }
+                theClassList.add((ClassGeneratorOption) classCombos[i].getSelectedItem());
+                theLevelList.add((LevelGeneratorOption) lvlCombos[i].getSelectedItem());
+            }
 
-			theGender = (GenderGeneratorOption)genderCombo.getSelectedItem();
-			for (int i = 0; i < MAX_CLASSES; i++)
-			{
-				final Object selClass = classCombos[i].getSelectedItem();
-				if (selClass instanceof String && selClass.equals(Constants.s_NONESELECTED))
-				{
-					continue;
-				}
-				theClassList.add((ClassGeneratorOption)classCombos[i].getSelectedItem());
-				theLevelList.add((LevelGeneratorOption)lvlCombos[i].getSelectedItem());
-			}
+            theRollMethod = (GameModeRollMethod) statsCombo.getSelectedItem();
 
-			theRollMethod = (GameModeRollMethod)statsCombo.getSelectedItem();
+            dispose();
+        }
+    }
 
-			dispose();
-		}
-	}
+    private void cancelActionPerformed() {
+        retValue = CANCEL_BUTTON;
+        setVisible(false);
+        dispose();
+    }
 
-	private void cancelActionPerformed()
-	{
-		retValue = CANCEL_BUTTON;
-		setVisible(false);
-		dispose();
-	}
-
-	private void initComponents()
-		throws Exception
-	{
-		setModal(true);
-		setResizable(true);
+    private void initComponents()
+            throws Exception {
+        setModal(true);
+        setResizable(true);
 //		setAlwaysOnTop(true);
 
-		addWindowListener(new WindowAdapter()
-			{
-				public void windowClosing(WindowEvent evt)
-				{
-					cancelActionPerformed();
-				}
-			});
+        addWindowListener(new WindowAdapter() {
 
-		getContentPane().setLayout(new FlowLayout());
+                      public void windowClosing(WindowEvent evt) {
+                          cancelActionPerformed();
+                      }
 
-		// Create the main panel
-		JPanel mainPanel = new JPanel();
-		BorderLayout borderLayout1 = new BorderLayout();
-		mainPanel.setLayout(borderLayout1);
+                  });
 
-		// Create the work panel
-		JPanel workPanel = new JPanel();
-		BoxLayout boxLayout1 = new BoxLayout(workPanel, BoxLayout.Y_AXIS);
-		workPanel.setLayout(boxLayout1);
+        getContentPane().setLayout(new FlowLayout());
 
-		// Create the Alignment Panel
-		JPanel alignPanel = new JPanel();
+        // Create the main panel
+        JPanel mainPanel = new JPanel();
+        BorderLayout borderLayout1 = new BorderLayout();
+        mainPanel.setLayout(borderLayout1);
 
-		FlowLayout flowLayout3 = new FlowLayout();
-		flowLayout3.setAlignment(FlowLayout.RIGHT);
-		alignPanel.setLayout(flowLayout3);
+        // Create the work panel
+        JPanel workPanel = new JPanel();
+        BoxLayout boxLayout1 = new BoxLayout(workPanel, BoxLayout.Y_AXIS);
+        workPanel.setLayout(boxLayout1);
+
+        // Create the Alignment Panel
+        JPanel alignPanel = new JPanel();
+
+        FlowLayout flowLayout3 = new FlowLayout();
+        flowLayout3.setAlignment(FlowLayout.RIGHT);
+        alignPanel.setLayout(flowLayout3);
 //		alignPanel.setBounds(new Rectangle(0, 0, 400, 267));
-		alignPanel.setMaximumSize(new Dimension(32767, 33));
+        alignPanel.setMaximumSize(new Dimension(32767, 33));
 //		alignPanel.setMinimumSize(new Dimension(32767, 25));
-		alignPanel.setPreferredSize(new Dimension(390, 33));
-		JLabel alignLbl = new JLabel(PropertyFactory.getString("in_alignString")
-									 + ": "); //$NON-NLS-1$ //$NON-NLS-2$
-		alignCombo.setMaximumSize(new Dimension(150, 19));
-		alignCombo.setPreferredSize(new Dimension(150, 19));
-		editAlign.setText("Edit");
-		Component alignStrut = Box.createHorizontalStrut(60);
-		alignPanel.add(alignLbl);
-		alignPanel.add(alignCombo);
-		alignPanel.add(editAlign);
-		alignPanel.add(alignStrut);
+        alignPanel.setPreferredSize(new Dimension(390, 33));
+        JLabel alignLbl = new JLabel(PropertyFactory.getString("in_alignString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+        alignCombo.setMaximumSize(new Dimension(150, 19));
+        alignCombo.setPreferredSize(new Dimension(150, 19));
+        editAlign.setText("Edit");
+        Component alignStrut = Box.createHorizontalStrut(60);
+        alignPanel.add(alignLbl);
+        alignPanel.add(alignCombo);
+//        alignPanel.add(editAlign); I have only prevented it from getting added
+//									so the edit box is still floating in the code
+//									in case someone finds a use for it later
+        alignPanel.add(alignStrut);
 
-		workPanel.add(alignPanel);
+        workPanel.add(alignPanel);
 
-		// Create Race Panel
-		JPanel racePanel = new JPanel();
-		FlowLayout flowLayout2 = new FlowLayout();
-		flowLayout2.setAlignment(FlowLayout.RIGHT);
-		racePanel.setLayout(flowLayout2);
-		racePanel.setMaximumSize(new Dimension(32767, 33));
-		JLabel raceLbl = new JLabel(PropertyFactory.getString("in_raceString")
-									+ ": "); //$NON-NLS-1$ //$NON-NLS-2$
-		raceCombo.setMaximumSize(new Dimension(150, 19));
-		raceCombo.setMinimumSize(new Dimension(150, 19));
-		raceCombo.setPreferredSize(new Dimension(150, 19));
-		Component raceStrut = Box.createHorizontalStrut(60);
-		editRace.setText("Edit");
-		racePanel.add(raceLbl);
-		racePanel.add(raceCombo);
-		racePanel.add(editRace);
-		racePanel.add(raceStrut);
+        // Create Race Panel
+        JPanel racePanel = new JPanel();
+        FlowLayout flowLayout2 = new FlowLayout();
+        flowLayout2.setAlignment(FlowLayout.RIGHT);
+        racePanel.setLayout(flowLayout2);
+        racePanel.setMaximumSize(new Dimension(32767, 33));
+        JLabel raceLbl = new JLabel(PropertyFactory.getString("in_raceString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+        raceCombo.setMaximumSize(new Dimension(150, 19));
+        raceCombo.setMinimumSize(new Dimension(150, 19));
+        raceCombo.setPreferredSize(new Dimension(150, 19));
+        Component raceStrut = Box.createHorizontalStrut(60);
+        editRace.setText("Edit");
+        racePanel.add(raceLbl);
+        racePanel.add(raceCombo);
+//        racePanel.add(editRace);I have only prevented it from getting added
+//									so the edit box is still floating in the code
+//									in case someone finds a use for it later
+        racePanel.add(raceStrut);
 
-		workPanel.add(racePanel);
+        workPanel.add(racePanel);
 
-		// Create the Gender panel
-		JPanel genderPanel = new JPanel();
-		FlowLayout flowLayout4 = new FlowLayout();
-		flowLayout4.setAlignment(FlowLayout.RIGHT);
-		genderPanel.setLayout(flowLayout4);
-		genderPanel.setMaximumSize(new Dimension(32767, 33));
-		editGender.setText("Edit");
-		JLabel genderLbl = new JLabel(PropertyFactory.getString("in_gender")
-									+ ": "); //$NON-NLS-1$ //$NON-NLS-2$
-		genderCombo.setMinimumSize(new Dimension(150, 19));
-		genderCombo.setPreferredSize(new Dimension(150, 19));
-		Component genderStrut = Box.createHorizontalStrut(60);
-		genderPanel.add(genderLbl);
-		genderPanel.add(genderCombo);
-		genderPanel.add(editGender);
-		genderPanel.add(genderStrut);
+        // Create the Gender panel
+        JPanel genderPanel = new JPanel();
+        FlowLayout flowLayout4 = new FlowLayout();
+        flowLayout4.setAlignment(FlowLayout.RIGHT);
+        genderPanel.setLayout(flowLayout4);
+        genderPanel.setMaximumSize(new Dimension(32767, 33));
+        editGender.setText("Edit");
+        JLabel genderLbl = new JLabel(PropertyFactory.getString("in_gender") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+        genderCombo.setMinimumSize(new Dimension(150, 19));
+        genderCombo.setPreferredSize(new Dimension(150, 19));
+        Component genderStrut = Box.createHorizontalStrut(60);
+        genderPanel.add(genderLbl);
+        genderPanel.add(genderCombo);
+//        genderPanel.add(editGender);I have only prevented it from getting added
+//									so the edit box is still floating in the code
+//									in case someone finds a use for it later
+        genderPanel.add(genderStrut);
 
-		workPanel.add(genderPanel);
+        workPanel.add(genderPanel);
 
-		// Create the class/level panels
-		for (int i = 0; i < MAX_CLASSES; i++)
-		{
-			createClassPanel(workPanel, i);
-		}
+        // Create the class/level panels
+        for (int i = 0; i < MAX_CLASSES; i++) {
+            createClassPanel(workPanel, i);
+        }
 
-		// Create the Roll Stats panel
-		JPanel statsPanel = new JPanel();
-		FlowLayout flowLayout5 = new FlowLayout();
-		flowLayout5.setAlignment(FlowLayout.RIGHT);
-		statsPanel.setLayout(flowLayout5);
-		statsPanel.setMaximumSize(new Dimension(32767, 33));
-		editStats.setText("Edit");
-		JLabel statsLbl = new JLabel(PropertyFactory.getString("in_Prefs_abilities")
-									+ ": "); //$NON-NLS-1$ //$NON-NLS-2$
-		statsCombo.setMinimumSize(new Dimension(150, 19));
-		statsCombo.setPreferredSize(new Dimension(150, 19));
-		Component statsStrut = Box.createHorizontalStrut(60);
-		statsPanel.add(statsLbl);
-		statsPanel.add(statsCombo);
-		statsPanel.add(editStats);
-		statsPanel.add(statsStrut);
+        // Create the Roll Stats panel
+        JPanel statsPanel = new JPanel();
+        FlowLayout flowLayout5 = new FlowLayout();
+        flowLayout5.setAlignment(FlowLayout.RIGHT);
+        statsPanel.setLayout(flowLayout5);
+        statsPanel.setMaximumSize(new Dimension(32767, 33));
+        editStats.setText("Edit");
+        JLabel statsLbl = new JLabel(PropertyFactory.getString("in_Prefs_abilities") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+        statsCombo.setMinimumSize(new Dimension(150, 19));
+        statsCombo.setPreferredSize(new Dimension(150, 19));
+        Component statsStrut = Box.createHorizontalStrut(60);
+        statsPanel.add(statsLbl);
+        statsPanel.add(statsCombo);
+//        statsPanel.add(editStats);I have only prevented it from getting added
+//									so the edit box is still floating in the code
+//									in case someone finds a use for it later
+        statsPanel.add(statsStrut);
 
-		workPanel.add(statsPanel);
+        workPanel.add(statsPanel);
 
-		final JPanel namePanel = new JPanel();
-		final JLabel nameLabel = new JLabel("Name Set:");
+        final JPanel namePanel = new JPanel();
+        final JLabel nameLabel = new JLabel("Name Set:");
 
-		nameCombo.setMinimumSize(new Dimension(210, 19));
-		nameCombo.setPreferredSize(new Dimension(210, 19));
-		namePanel.add(nameLabel);
-		namePanel.add(nameCombo);
+        nameCombo.setMinimumSize(new Dimension(210, 19));
+        nameCombo.setPreferredSize(new Dimension(210, 19));
+        namePanel.add(nameLabel);
+        namePanel.add(nameCombo);
 
-		workPanel.add(namePanel);
-		
-		mainPanel.add(workPanel, java.awt.BorderLayout.CENTER);
+        workPanel.add(namePanel);
 
-		// Create the Button panel
-		JPanel buttonPanel = new JPanel();
+        mainPanel.add(workPanel, java.awt.BorderLayout.CENTER);
 
-		okButton.setPreferredSize(new Dimension(70, 23));
-		okButton.setText("OK");
-		okButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					okActionPerformed();
-				}
-			});
-		cancelButton.setPreferredSize(new Dimension(70, 23));
-		cancelButton.setText("Cancel");
-		cancelButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					cancelActionPerformed();
-				}
-			});
-		buttonPanel.add(okButton);
-		buttonPanel.add(cancelButton);
+        // Create the Button panel
+        JPanel buttonPanel = new JPanel();
 
-		mainPanel.add(buttonPanel, java.awt.BorderLayout.SOUTH);
+        okButton.setPreferredSize(new Dimension(80, 23));
+        okButton.setText("OK");
+        okButton.addActionListener(new ActionListener() {
 
-		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(mainPanel, BorderLayout.CENTER);
-	}
+                               public void actionPerformed(ActionEvent evt) {
+                                   okActionPerformed();
+                               }
 
-	private void createClassPanel(final JPanel workPanel, final int number)
-	{
-		classCombos[number] = new JComboBox();
-		lvlCombos[number] = new JComboBox();
+                           });
+        cancelButton.setPreferredSize(new Dimension(80, 23));
+        cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new ActionListener() {
 
-		JPanel classPanel = new JPanel();
-		FlowLayout flowLayout5 = new FlowLayout();
-		flowLayout5.setAlignment(FlowLayout.CENTER);
-		classPanel.setLayout(flowLayout5);
-		JLabel classLbl = new JLabel(PropertyFactory.getString("in_classString") //$NON-NLS-1$
-									 + "# " + number + ": "); //$NON-NLS-1$ //$NON-NLS-2$
-		classCombos[number].setMinimumSize(new Dimension(150, 19));
-		classCombos[number].setPreferredSize(new Dimension(150, 19));
-		JLabel lvlLbl1 = new JLabel(PropertyFactory.getString("in_level") //$NON-NLS-1$
-									+ "# " + number + ": "); //$NON-NLS-1$ //$NON-NLS-2$
-		lvlCombos[number].setMinimumSize(new Dimension(80, 19));
-		lvlCombos[number].setPreferredSize(new Dimension(80, 19));
-		classPanel.add(classLbl);
-		classPanel.add(classCombos[number]);
-		classPanel.add(lvlLbl1);
-		classPanel.add(lvlCombos[number]);
+                                   public void actionPerformed(ActionEvent evt) {
+                                       cancelActionPerformed();
+                                   }
 
-		workPanel.add(classPanel);
-	}
+                               });
+        buttonPanel.add(okButton);
+        buttonPanel.add(cancelButton);
 
-	private void populateControls()
-	{
-		final NPCGenerator npcgen = NPCGenerator.getInst();
-		final List<AlignGeneratorOption> customAlignOptions = npcgen.getAlignmentOptions();
-		for ( final GeneratorOption opt : customAlignOptions )
-		{
-			alignCombo.addItem(opt);
-		}
+        mainPanel.add(buttonPanel, java.awt.BorderLayout.SOUTH);
 
-		final List<RaceGeneratorOption> customRaceOptions = npcgen.getCustomRaceOptions();
-		for ( final GeneratorOption opt : customRaceOptions )
-		{
-			raceCombo.addItem(opt);
-		}
+        getContentPane().setLayout(new BorderLayout());
+        getContentPane().add(mainPanel, BorderLayout.CENTER);
+    }
 
-		final List<GenderGeneratorOption> customGenderOptions = npcgen.getCustomGenderOptions();
-		for ( final GeneratorOption opt : customGenderOptions )
-		{
-			genderCombo.addItem(opt);
-		}
+    private void createClassPanel(final JPanel workPanel, final int number) {
+        classCombos[number] = new JComboBox();
+        lvlCombos[number] = new JComboBox();
 
-		for (int j = 0; j < MAX_CLASSES; j++)
-		{
-			final List<ClassGeneratorOption> customClassOptions = npcgen.getCustomClassOptions();
-			for ( final GeneratorOption opt : customClassOptions )
-			{
-				classCombos[j].addItem(opt);
-			}
-			if (j > 0)
-			{
-				classCombos[j].addItem(Constants.s_NONESELECTED);
-				classCombos[j].setSelectedItem(Constants.s_NONESELECTED);
-			}
-			final List<LevelGeneratorOption> customLevelOptions = npcgen.getCustomLevelOptions();
-			for ( final GeneratorOption opt : customLevelOptions )
-			{
-				lvlCombos[j].addItem(opt);
-			}
-		}
+        JPanel classPanel = new JPanel();
+        FlowLayout flowLayout5 = new FlowLayout();
+        flowLayout5.setAlignment(FlowLayout.CENTER);
+        classPanel.setLayout(flowLayout5);
+        JLabel classLbl = new JLabel(PropertyFactory.getString("in_classString") //$NON-NLS-1$
+                                     + "# " + number + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+        classCombos[number].setMinimumSize(new Dimension(150, 19));
+        classCombos[number].setPreferredSize(new Dimension(150, 19));
+        JLabel lvlLbl1 = new JLabel(PropertyFactory.getString("in_level") //$NON-NLS-1$
+                                    + "# " + number + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+        lvlCombos[number].setMinimumSize(new Dimension(80, 19));
+        lvlCombos[number].setPreferredSize(new Dimension(80, 19));
+        classPanel.add(classLbl);
+        classPanel.add(classCombos[number]);
+        classPanel.add(lvlLbl1);
+        classPanel.add(lvlCombos[number]);
 
-		GameMode gameMode = SettingsHandler.getGame();
-		GameModeRollMethod rm = gameMode.getRollingMethod(0);
-		int gmi = 0;
-		while(rm != null)
-		{
-			statsCombo.addItem(rm);
-			rm = gameMode.getRollingMethod(++gmi);
-		}
+        workPanel.add(classPanel);
+    }
 
-		List<NameElement> allNamesFiles = Names.findAllNamesFiles();
-		Collections.sort(allNamesFiles);
+    private void populateControls() {
+        final NPCGenerator npcgen = NPCGenerator.getInst();
+        final List<AlignGeneratorOption> customAlignOptions = npcgen.getAlignmentOptions();
+        for (final GeneratorOption opt : customAlignOptions) {
+            alignCombo.addItem(opt);
+        }
 
-		for (int i = 0; i < allNamesFiles.size(); i++)
-		{
-			nameCombo.addItem(allNamesFiles.get(i));
-		}
-	}
+        final List<RaceGeneratorOption> customRaceOptions = npcgen.getCustomRaceOptions();
+        for (final GeneratorOption opt : customRaceOptions) {
+            raceCombo.addItem(opt);
+        }
+
+        final List<GenderGeneratorOption> customGenderOptions = npcgen.getCustomGenderOptions();
+        for (final GeneratorOption opt : customGenderOptions) {
+            genderCombo.addItem(opt);
+        }
+
+        for (int j = 0; j < MAX_CLASSES; j++) {
+            final List<ClassGeneratorOption> customClassOptions = npcgen.getCustomClassOptions();
+            for (final GeneratorOption opt : customClassOptions) {
+                classCombos[j].addItem(opt);
+            }
+            if (j > 0) {
+                classCombos[j].addItem(Constants.s_NONESELECTED);
+                classCombos[j].setSelectedItem(Constants.s_NONESELECTED);
+            }
+            final List<LevelGeneratorOption> customLevelOptions = npcgen.getCustomLevelOptions();
+            for (final GeneratorOption opt : customLevelOptions) {
+                lvlCombos[j].addItem(opt);
+            }
+        }
+
+        GameMode gameMode = SettingsHandler.getGame();
+        GameModeRollMethod rm = gameMode.getRollingMethod(0);
+        int gmi = 0;
+        while (rm != null) {
+            statsCombo.addItem(rm);
+            rm = gameMode.getRollingMethod(++gmi);
+        }
+
+        List<NameElement> allNamesFiles = Names.findAllNamesFiles();
+        Collections.sort(allNamesFiles);
+
+        for (int i = 0; i < allNamesFiles.size(); i++) {
+            nameCombo.addItem(allNamesFiles.get(i));
+        }
+    }
+
 }
