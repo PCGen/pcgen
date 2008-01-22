@@ -43,9 +43,12 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import javax.swing.BorderFactory;
@@ -372,7 +375,7 @@ public class MainSource extends FilterAdapterPanel
 //				sb = new StringBuffer("<b>Behemoth3 - Masters and Minions - Horde Book 1: A Swarm of Stirges</b><br>\r\n"); 
 //				sb.append("<b>DESCRIPTION:</b> Textual Description, may be multiple lines  <br>");
 //				sb.append("<b>WEBSITE:</b> <a href=\"http://pcgen.sourceforge.net\" >Behemoth3 - Masters and Minions</a><br>");
-//				sb.append("<b>TYPE:</b> BEHEMOTH3.MASTERS AND MINIONS  <b>RANK:</b> 6  <b>GAME MODE:</b> 35e  <b>SOURCE:</b> A Swarm of Stirges<br>\r\n");
+//				sb.append("<b>TYPE:</b> BEHEMOTH3.MASTERS AND MINIONSï¿½ <b>RANK:</b> 6ï¿½ <b>GAME MODE:</b> 35eï¿½ <b>SOURCE:</b> A Swarm of Stirges<br>\r\n");
 //				sb.append("<b>PURCHASE:</b> <a href=\"http://pcgen.sourceforge.net\" >Buy this book from Amazon.com</a><br>");
 //				sb.append("<b>SURVEY:</b> <a href=\"http://pcgen.sourceforge.net\" >Tell us about your use of this dataset</a><br>");
 //
@@ -1099,6 +1102,7 @@ public class MainSource extends FilterAdapterPanel
 				return "";
 			}
 
+	    @Override
 			public void finished() {
 
 				if ((getParent() != null) && Globals.displayListsHappy())
@@ -1175,35 +1179,83 @@ public class MainSource extends FilterAdapterPanel
 
 	private void resetViewNodes()
 	{
-		final List<String> allowedModes = Globals.getAllowedGameModes();
+	    final List<String> allowedModes = Globals.getAllowedGameModes();
 
-		typePubRoot = new PObjectNode();
-		typePubSetRoot = new PObjectNode();
-		typePubFmtSetRoot = new PObjectNode();
-		//rankRoot = new PObjectNode();
+	    typePubRoot = new PObjectNode();
+	    typePubSetRoot = new PObjectNode();
+	    typePubFmtSetRoot = new PObjectNode();
+	    //rankRoot = new PObjectNode();
+	    //final CampainNodeComparator comparator = new CampainNodeComparator();
 
-		Set<String> aList = new TreeSet<String>(); //TYPE list
-		//Set<Integer> rankList = new TreeSet<Integer>(); //RANK list
+	    //Set<String> aList = new TreeSet<String>(); //TYPE list
 
-		for (Campaign aCamp : Globals.getCampaignList())
+	    Map<String, PObjectNode> pubMap = new TreeMap<String, PObjectNode>();
+	    Map<String, PObjectNode> pubSetMap = new TreeMap<String, PObjectNode>();
+	    Map<String, PObjectNode> pubFmtSetMap = new TreeMap<String, PObjectNode>();
+
+	    //Set<Integer> rankList = new TreeSet<Integer>(); //RANK list
+	    //int sourceCount = 0;
+	    for (Campaign camp : Globals.getCampaignList())
+	    {
+		if (camp.isGameMode(allowedModes))
 		{
-			if (aCamp.isGameMode(allowedModes))
+		    int typeCount = camp.getMyTypeCount();
+		    if (typeCount > 0)
+		    {
+			String pub = camp.getMyType(0);
+			if (!pubMap.containsKey(pub))
 			{
-				if (aCamp.getMyTypeCount() > 0)
-				{
-					aList.add(aCamp.getMyType(0)); //TYPE[0] = Publisher
-				}
-				//rankList.add(aCamp.getRank());
+			    PObjectNode node = new PObjectNode(pub);
+			    pubMap.put(pub, node);
+
+			    node = new PObjectNode(pub);
+			    pubSetMap.put(pub, node);
+
+			    node = new PObjectNode(pub);
+			    pubFmtSetMap.put(pub, node);
 			}
+			if (typeCount > 1)
+			{
+			    String fmt = camp.getMyType(1);
+			    if (!pubFmtSetMap.containsKey(pub + "." + fmt))
+			    {
+				PObjectNode node = new PObjectNode(fmt);
+				pubFmtSetMap.put(pub + "." + fmt, node);
+				pubFmtSetMap.get(pub).addChild(node);
+			    }
+			    if (typeCount > 2)
+			    {
+				String set = camp.getMyType(2);
+				if (!pubSetMap.containsKey(pub + "." + set))
+				{
+				    PObjectNode node = new PObjectNode(set);
+				    pubSetMap.put(pub + "." + set, node);
+				    pubSetMap.get(pub).addChild(node);
+
+				    node = new PObjectNode(set);
+				    pubFmtSetMap.get(pub + "." + fmt).addChild(node);
+				}
+			    }
+			}
+		    }
 		}
+	    }
+	    
+	    for(String key : pubMap.keySet())
+	    {
+		    typePubRoot.addChild(pubMap.get(key));
+		    typePubSetRoot.addChild(pubSetMap.get(key));
+		    typePubFmtSetRoot.addChild(pubFmtSetMap.get(key));
+	    }
 
 		// All non-typed/screwed-up items will end up in an "Other" node
-		aList.add("Other");
-
-		int size = aList.size();
-		PObjectNode[] p1 = new PObjectNode[size];
-		PObjectNode[] p2 = new PObjectNode[size];
-		PObjectNode[] p3 = new PObjectNode[size];
+//		aList.add("Other");
+//		nodeList.add(new PObjectNode("Other"));
+//		int size = nodeList.size();
+//		PObjectNode[] p1 = new PObjectNode[size];
+//		PObjectNode[] p2 = new PObjectNode[size];
+//		PObjectNode[] p3 = new PObjectNode[size];
+		
 //		PObjectNode[] pRank = new PObjectNode[rankList.size()+1];
 //		int arrayIdx = 0;
 //		for (Integer rank : rankList)
@@ -1218,124 +1270,149 @@ public class MainSource extends FilterAdapterPanel
 //		opon.setParent(rankRoot);
 //		pRank[arrayIdx++] = opon;
 //		rankRoot.setChildren(pRank);
-
-		int arrayIdx = 0;
-		for (String s : aList)
-		{
-			PObjectNode pon = new PObjectNode();
-			pon.setItem(s);
-			pon.setParent(typePubRoot);
-			p1[arrayIdx] = pon;
-			
-			pon = new PObjectNode();
-			pon.setItem(s);
-			pon.setParent(typePubSetRoot);
-			p2[arrayIdx] = pon;
-			
-			pon = new PObjectNode();
-			pon.setItem(s);
-			pon.setParent(typePubFmtSetRoot);
-			p3[arrayIdx] = pon;
-
-			arrayIdx++;
-		}
-
-		typePubRoot.setChildren(p1);
-		typePubSetRoot.setChildren(p2);
-		typePubFmtSetRoot.setChildren(p3);
-
-		for (PObjectNode pon : p2)
-		{
-			aList.clear();
-
-			for (Campaign bCamp : Globals.getCampaignList())
-			{
-				final String topType = pon.toString();
-
-				if (!bCamp.isType(topType))
-				{
-					continue;
-				}
-
-				if (bCamp.getMyTypeCount() > 2)
-				{
-					if (bCamp.isGameMode(allowedModes))
-					{
-						aList.add(bCamp.getMyType(2)); //TYPE[2] = Setting
-					}
-				}
-			}
-
-			for (String aString : aList)
-			{
-				PObjectNode d = new PObjectNode();
-				d.setParent(pon);
-				pon.addChild(d);
-				d.setItem(aString);
-			}
-		}
-
-		for (PObjectNode pon : p3)
-		{
-			aList.clear();
-
-			for (Campaign bCamp : Globals.getCampaignList())
-			{
-				final String topType = pon.toString();
-
-				if (!bCamp.isType(topType))
-				{
-					continue;
-				}
-
-				if (bCamp.getMyTypeCount() > 1)
-				{
-					if (bCamp.isGameMode(allowedModes))
-					{
-						aList.add(bCamp.getMyType(1)); //TYPE[1] = Format
-					}
-				}
-			}
-
-			for (String aString : aList)
-			{
-				PObjectNode d = new PObjectNode(aString);
-				pon.addChild(d);
-			}
-
-			List<PObjectNode> p4 = pon.getChildren();
-
-			for (int k = 0; (p4 != null) && (k < p4.size()); ++k)
-			{
-				final PObjectNode p4node = p4.get(k);
-				aList.clear();
-
-				for (Campaign cCamp : Globals.getCampaignList())
-				{
-					final String pubType = p4node.getParent().toString();
-					final String formatType = p4node.toString();
-
-					if (!cCamp.isType(pubType) || !cCamp.isType(formatType))
-					{
-						continue;
-					}
-
-					if (cCamp.getMyTypeCount() > 2)
-					{
-						if (cCamp.isGameMode(allowedModes))
-						{
-							aList.add(cCamp.getMyType(2)); //TYPE[2] = Setting
-						}
-					}
-				}
-
-				for (String aString : aList)
-				{
-					PObjectNode d = new PObjectNode(aString);
-					p4node.addChild(d);
-				}
-			}
-		}
+		
+//		int arrayIdx = 0;
+//		for (PObjectNode pon : nodeList)
+//		{
+//			p1[arrayIdx] = pon;
+//			
+//			pon = pon.clone();
+//			p2[arrayIdx] = pon;
+//			
+//			pon = pon.clone();
+//			p3[arrayIdx] = pon;
+//			
+//			//TreeSet<PObjectNode> p2children = new TreeSet<PObjectNode>(comparator);
+//			TreeSet<PObjectNode> p3children = new TreeSet<PObjectNode>(comparator);
+//			for (Campaign bCamp : Globals.getCampaignList())
+//			{
+//			    if (bCamp.isGameMode(allowedModes))
+//			    {
+//				if (!bCamp.isType(pon.getItem().toString()))
+//				{
+//				    continue;
+//				}
+//				int count = bCamp.getMyTypeCount();
+//				if(count > 1)
+//				{
+//				    PObjectNode childnode = new PObjectNode(bCamp.getMyType(1));
+//				    if(!p3children.add(childnode))
+//				    {
+//					childnode = p3children.floor(childnode);
+//				    }
+//				    
+//				    if(count > 2)
+//				    {
+//					childnode.addChild(new PObjectNode(bCamp.getMyType(2)));
+//					p2[arrayIdx].addChild(new PObjectNode(bCamp.getMyType(2)));
+//				    }
+//				}
+//				
+//			    }
+//			}
+//			for(PObjectNode childnode : p3children)
+//			{
+//			    p3[arrayIdx].addChild(childnode);
+//			}
+//			arrayIdx++;
+//		}
+//
+//		typePubRoot.setChildren(p1);
+//		typePubSetRoot.setChildren(p2);
+//		typePubFmtSetRoot.setChildren(p3);
+		
+//		for (PObjectNode pon : p2)
+//		{
+//			aList.clear();
+//
+//			for (Campaign bCamp : Globals.getCampaignList())
+//			{
+//				final String topType = pon.toString();
+//
+//				if (!bCamp.isType(topType))
+//				{
+//					continue;
+//				}
+//
+//				if (bCamp.getMyTypeCount() > 2)
+//				{
+//					if (bCamp.isGameMode(allowedModes))
+//					{
+//						aList.add(bCamp.getMyType(2)); //TYPE[2] = Setting
+//					}
+//				}
+//			}
+//
+//			for (String aString : aList)
+//			{
+//				PObjectNode d = new PObjectNode();
+//				d.setParent(pon);
+//				pon.addChild(d);
+//				d.setItem(aString);
+//			}
+//		}
+//
+//		for (PObjectNode pon : p3)
+//		{
+//			aList.clear();
+//
+//			for (Campaign bCamp : Globals.getCampaignList())
+//			{
+//				final String topType = pon.toString();
+//
+//				if (!bCamp.isType(topType))
+//				{
+//					continue;
+//				}
+//
+//				if (bCamp.getMyTypeCount() > 1)
+//				{
+//					if (bCamp.isGameMode(allowedModes))
+//					{
+//						aList.add(bCamp.getMyType(1)); //TYPE[1] = Format
+//					}
+//				}
+//			}
+//
+//			for (String aString : aList)
+//			{
+//				PObjectNode d = new PObjectNode(aString);
+//				pon.addChild(d);
+//			}
+//
+//			List<PObjectNode> p4 = pon.getChildren();
+//
+//			for (int k = 0; (p4 != null) && (k < p4.size()); ++k)
+//			{
+//				final PObjectNode p4node = p4.get(k);
+//				aList.clear();
+//
+//				for (Campaign cCamp : Globals.getCampaignList())
+//				{
+//					final String pubType = p4node.getParent().toString();
+//					final String formatType = p4node.toString();
+//
+//					if (!cCamp.isType(pubType) || !cCamp.isType(formatType))
+//					{
+//						continue;
+//					}
+//
+//					if (cCamp.getMyTypeCount() > 2)
+//					{
+//						if (cCamp.isGameMode(allowedModes))
+//						{
+//							aList.add(cCamp.getMyType(2)); //TYPE[2] = Setting
+//						}
+//					}
+//				}
+//
+//				for (String aString : aList)
+//				{
+//					PObjectNode d = new PObjectNode(aString);
+//					p4node.addChild(d);
+//				}
+//			}
+//		}
 	}
 
 	/**
@@ -1532,7 +1609,7 @@ public class MainSource extends FilterAdapterPanel
 			updateSelectedModel();
 		}
 	}
-
+	
 	/**
 	 * The basic idea of the TreeTableModel is that there is a single
 	 * <code>root</code> object. This root object has a null
