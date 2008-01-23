@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Jan 23 00:16:25 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://www.parentsbasementgames.com
 #Original Entry: Eddy Anthony (MoSaT)
 
 ###Block:Shadowtamer summoned Shadow Beast
-# Class of the Master	Type			Hit Dice	Special Ability																																										Define			Combat bonus
+# Class of the Master	Type			Hit Dice	Special ABility																																										Define			Combat bonus
 FOLLOWER:ShadowBeast=1	TYPE:Shadow Beast	HD:3		SAB:Shadow Beast	SAB:Incorporeal - Can be harmed only by other incorporeal creatures/+1 or better weapons/magic, 50% chance to ignore any damage from a corporeal source, Can pass through solid objects at will, Attacks pass through armor, Always moves silently	DEFINE:LOCK.STR|10	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT|DEX
 FOLLOWER:ShadowBeast=2	TYPE:Shadow Beast	HD:3
 FOLLOWER:ShadowBeast=3	TYPE:Shadow Beast	HD:3

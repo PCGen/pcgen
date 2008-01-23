@@ -18,8 +18,8 @@ Jousting Armor	TYPE:Armor.Heavy.Suit.Standard	COST:2000	WT:70		ACCHECK:-9		EQMOD
 
 ###Block: Special Weapons
 
-# Equipment Name			Output Name				Required Proficiency		Type												Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Reach Multiplier	Size		Source Page
-Chain (Spiked/Elongated)	OUTPUTNAME:Chain, Spiked	PROFICIENCY:Chain (Spiked)	TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Standard.Piercing.Chain	COST:25	WT:10		SLOTS:2	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	EQMOD:STEEL	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:p.24
+# Equipment Name			Output Name				Required Proficiency			Type												Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Reach Multiplier	Size		Source Page
+Chain (Spiked/Elongated)	OUTPUTNAME:Chain, Spiked	PROFICIENCY:WEAPON|Chain (Spiked)	TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Standard.Piercing.Chain	COST:25	WT:10		SLOTS:2	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	EQMOD:STEEL	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:p.24
 
 ###Block: Tools
 # Equipment Name			Type							Cost		Weight	Source Page		Bonus to skill

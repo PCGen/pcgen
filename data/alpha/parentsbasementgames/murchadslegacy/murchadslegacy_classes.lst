@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 10 22:01:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Wed Jan 23 00:16:25 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://www.parentsbasementgames.com
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -10,11 +10,11 @@ CLASS:Chain Dancer	PREATT:6	PREFEAT:1,Desolati	PRESKILL:1,Perform (Spiked Chain 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chain Dancer	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Jump|Listen|Move Silently|TYPE.Perform|Search|Sense Motive|Spot|Survival|Tumble|Use Rope
 ###Block: Enthral
-2	SAB:Enthrall (Ex) %d4 creatures effected for % rounds|EnthralledCreatures|EnthrallDuration|PREVARLT:EnthralledCreatures,4		BONUS:VAR|EnthralledCreatures|CL	DEFINE:EnthralledCreatures|0
+2	SAB:Enthrall (Ex) %d4 creatures effected for % rounds|EnthralledCreatures|EnthrallDuration|PREVARLT:EnthralledCreatures,4			BONUS:VAR|EnthralledCreatures|CL	DEFINE:EnthralledCreatures|0
 2	SAB:Master Enthrall (Ex) - %d4 creatures effected for % rounds|EnthralledCreatures|EnthrallDuration|PREVARGTEQ:EnthralledCreatures,4	BONUS:VAR|EnthrallDuration|CL		DEFINE:EnthrallDuration|0
-4																							BONUS:VAR|EnthrallDuration|CL
+4																								BONUS:VAR|EnthrallDuration|CL
 ###Block: Normal Level Progression
-1	SAB:Chain Parry (Ex) +%|ChainParryAC			BONUS:VAR|ChainParryAC|CL	BONUS:COMBAT|AC|ChainParryAC|TYPE=Temporary|PREAPPLY:PC	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	AUTO:FEAT|Weapon Specialization(Chain (Spiked))
+1	SAB:Chain Parry (Ex) +%|ChainParryAC		BONUS:VAR|ChainParryAC|CL	BONUS:COMBAT|AC|ChainParryAC|TYPE=Temporary|PREAPPLY:PC	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	AUTO:FEAT|Weapon Specialization(Chain (Spiked))
 3	SAB:Weapon Use (Elongated Spiked Chain)
 5	SAB:Weapon Proficiency (Elongated Spiked Chain)
 
@@ -28,10 +28,10 @@ CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|D
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Poison Use																					ADD:FEAT|1|Homefront Guardian Skill Bonus
+1	SAB:Poison Use																						ADD:FEAT|1|Homefront Guardian Skill Bonus
 2	SAB:+% Save vs. Poison|HomefrontPoisonSave	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2	DEFINE:HomefrontPoisonSave|0								AUTO:FEAT|Sneak Attack
-3	SAB:Homeblood use																					ADD:FEAT|1|Homefront Guardian Skill Bonus
-5	SAB:Homeblood Immunity (Ex)																			ADD:FEAT|1|Homefront Guardian Skill Bonus
+3	SAB:Homeblood use																						ADD:FEAT|1|Homefront Guardian Skill Bonus
+5	SAB:Homeblood Immunity (Ex)																				ADD:FEAT|1|Homefront Guardian Skill Bonus
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
@@ -59,11 +59,11 @@ CLASS:Knight of Pure Heart	PREATT:5	PRESKILL:2,Diplomacy,Ride=5	PRETEXT:You must
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of Pure Heart	STARTSKILLPTS:2	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|Knowledge (Local/Calisia)|TYPE.Perform|Ride|Speak Language
 1	SAB:Nobility	ADD:FEAT|1|TYPE.Passion
-3			ADD:FEAT|1|TYPE.PureHeart
-5			ADD:FEAT|1|TYPE.Passion
-6			ADD:FEAT|1|TYPE.PureHeart
-9			ADD:FEAT|1|TYPE.PureHeart
-10			ADD:FEAT|1|TYPE.Passion
+3				ADD:FEAT|1|TYPE.PureHeart
+5				ADD:FEAT|1|TYPE.Passion
+6				ADD:FEAT|1|TYPE.PureHeart
+9				ADD:FEAT|1|TYPE.PureHeart
+10				ADD:FEAT|1|TYPE.Passion
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -96,7 +96,7 @@ CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 3	CAST:3,1
 4	CAST:4,2,1		SAB:Augmentation (+%)|AugmentationBonus	BONUS:VAR|AugmentationBonus|2	DEFINE:AugmentationBonus|0
 5	CAST:4,2,2
-6	CAST:4,3,2,1	SAB:Remove Magical Tattoo (Su)			BONUS:VAR|AugmentationBonus|2
+6	CAST:4,3,2,1	SAB:Remove Magical Tattoo (Su)		BONUS:VAR|AugmentationBonus|2
 7	CAST:5,3,3,2
 8	CAST:5,4,3,2,1								BONUS:VAR|AugmentationBonus|2
 9	CAST:5,4,4,3,2
@@ -112,7 +112,7 @@ CLASS:Stargazer	STARTSKILLPTS:3	CSKILL:Appraise|Concentration|Craft (Alchemy)|De
 SUBCLASS:Stargazer (Bonfire)			COST:0
 SUBCLASSLEVEL:1	SAB:Opposing Sign - Polaris	SAB:May not cast Spells from the School of Necromancy			BONUS:VAR|SSBonfireLvl|1		AUTO:FEAT|Star Sign (Bonfire)
 SUBCLASS:Stargazer (Rainbow Dragon)		COST:0
-SUBCLASSLEVEL:1	SAB:Opposing Sign - Forgotten Child	SAB:May not cast Spells from the School of Enchantment		BONUS:VAR|SSRainbowDragonLvl|1	AUTO:FEAT|Star Sign (Rainbow Dragon)
+SUBCLASSLEVEL:1	SAB:Opposing Sign - Forgotten Child	SAB:May not cast Spells from the School of Enchantment	BONUS:VAR|SSRainbowDragonLvl|1	AUTO:FEAT|Star Sign (Rainbow Dragon)
 SUBCLASS:Stargazer (The Faceless)		COST:0
 SUBCLASSLEVEL:1	SAB:Opposing Sign - The Guide	SAB:May not cast Spells from the School of Divination			BONUS:VAR|SSFacelessLvl|1		AUTO:FEAT|Star Sign (The Faceless)
 SUBCLASS:Stargazer (The Guide)		COST:0
@@ -120,7 +120,7 @@ SUBCLASSLEVEL:1	SAB:Opposing Sign - The Faceless	SAB:May not cast Spells from th
 SUBCLASS:Stargazer (The Blacksmith)		COST:0
 SUBCLASSLEVEL:1	SAB:Opposing Sign - Imaginos the Grand	SAB:May not cast Spells from the School of Evocation	BONUS:VAR|SSBlacksmithLvl|1		AUTO:FEAT|Star Sign (The Blacksmith)
 SUBCLASS:Stargazer (Forgotten Child)	COST:0
-SUBCLASSLEVEL:1	SAB:Opposing Sign - Rainbow Dragon	SAB:May not cast Spells from the School of Conjuration		BONUS:VAR|SSForgottenLvl|1		AUTO:FEAT|Star Sign (Forgotten Child)
+SUBCLASSLEVEL:1	SAB:Opposing Sign - Rainbow Dragon	SAB:May not cast Spells from the School of Conjuration	BONUS:VAR|SSForgottenLvl|1		AUTO:FEAT|Star Sign (Forgotten Child)
 SUBCLASS:Stargazer (Polaris)			COST:0
 SUBCLASSLEVEL:1	SAB:Opposing Sign - Bonfire	SAB:May not cast Spells from the School of Abjuration			BONUS:VAR|SSPolarisLvl|1		AUTO:FEAT|Star Sign (Polaris)
 SUBCLASS:Stargazer (Imaginos the Grand)	COST:0
@@ -129,15 +129,15 @@ SUBCLASSLEVEL:1	SAB:Opposing Sign - The Blacksmith	SAB:May not cast Spells from 
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level Progression
-1	SAB:Navigation		ADD:SPELLCASTER|1|ANY
-2					ADD:SPELLCASTER|1|ANY
-3					ADD:SPELLCASTER|1|ANY
+1	SAB:Navigation			ADD:SPELLCASTER|1|ANY
+2						ADD:SPELLCASTER|1|ANY
+3						ADD:SPELLCASTER|1|ANY
 4	SAB:Fortune Telling (Su)	ADD:SPELLCASTER|1|ANY
-5					ADD:FEAT|1|TYPE.StarSign
-6					ADD:SPELLCASTER|1|ANY
-7					ADD:SPELLCASTER|1|ANY
-9					ADD:SPELLCASTER|1|ANY
-10					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.StarSign
+5						ADD:FEAT|1|TYPE.StarSign
+6						ADD:SPELLCASTER|1|ANY
+7						ADD:SPELLCASTER|1|ANY
+9						ADD:SPELLCASTER|1|ANY
+10						ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.StarSign
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -177,11 +177,11 @@ CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE.Craft|Disable Device|TYPE.Knowle
 ###Block: Normal Level Progression
 1																																AUTO:FEAT|Alertness
 2																												ADD:FEAT|1|TYPE.Gunnery
-4	SAB:Magical Alertness (Ex) +%|MagicalAlertnessBonus|PREVARLT:CL,10					BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0
+4	SAB:Magical Alertness (Ex) +%|MagicalAlertnessBonus|PREVARLT:CL,10				BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0
 5																												ADD:FEAT|1|TYPE.Gunnery
 7	SAB:Fear of Flame (Ex) +2 saving throw bonus versus any fire related attack or incident
 8																												ADD:FEAT|1|TYPE.Gunnery
-10	SAB:Improved Magical Alertness (Ex) +%|MagicalAlertnessBonus						BONUS:VAR|MagicalAlertnessBonus|4
+10	SAB:Improved Magical Alertness (Ex) +%|MagicalAlertnessBonus					BONUS:VAR|MagicalAlertnessBonus|4
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
