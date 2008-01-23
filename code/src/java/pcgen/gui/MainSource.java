@@ -1606,7 +1606,6 @@ public class MainSource extends FilterAdapterPanel
 						PObjectNode node = new PObjectNode(fmt);
 						nodeMap.put(pubfmt, node);
 						nodeMap.get(pub).addChild(node);
-
 					    }
 					    if (typeCount > 2)
 					    {
@@ -1620,8 +1619,7 @@ public class MainSource extends FilterAdapterPanel
 							nodeMap.put(pubfmtset, node);
 							nodeMap.get(pubfmt).addChild(node);
 						    }
-						    PObjectNode node = new PObjectNode(camp);
-						    nodeMap.get(pubfmtset).addChild(node);
+						    nodeMap.get(pubfmtset).addChild(new PObjectNode(camp));
 						}
 						else
 						{
@@ -1632,26 +1630,31 @@ public class MainSource extends FilterAdapterPanel
 							nodeMap.put(pubset, node);
 							nodeMap.get(pub).addChild(node);
 						    }
-						    PObjectNode node = new PObjectNode(camp);
-						    nodeMap.get(pubset).addChild(node);
+						    nodeMap.get(pubset).addChild(new PObjectNode(camp));
 						}
 					    }
 					    else if (mode == VIEW_PUBFMTSET)
 					    {
-						PObjectNode node = new PObjectNode(camp);
-						nodeMap.get(pubfmt).addChild(node);
+						nodeMap.get(pubfmt).addChild(new PObjectNode(camp));
 					    }
 					    else
 					    {
-						PObjectNode node = new PObjectNode(camp);
-						nodeMap.get(pub).addChild(node);
+						nodeMap.get(pub).addChild(new PObjectNode(camp));
 					    }
 					}
 					else
 					{
-					    PObjectNode node = new PObjectNode(camp);
-					    nodeMap.get(pub).addChild(node);
+					    nodeMap.get(pub).addChild(new PObjectNode(camp));
 					}
+				    }
+				    else
+				    {
+					String key = "Other";
+					if(!nodeMap.containsKey(key))
+					{
+					    nodeMap.put(key, new PObjectNode(key));
+					}
+					nodeMap.get(key).addChild(new PObjectNode(camp));
 				    }
 				}
 			    }
