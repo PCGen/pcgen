@@ -20,12 +20,12 @@ Hunter's Gift	TYPE:Armor.Light.Suit.Specific	COST:27000	WT:20		ACCHECK:-2		EQMOD
 Ring of Projectile Command	TYPE:Magic.Ring	COST:23000	SOURCEPAGE:34	VFEAT:Deflect Arrows
 
 ###BLOCK: Rod
-# Equipment Name		Output Name				Required Proficiency	Type																	Contains			Cost		Weight	Slot Needed	Base Item for EQMOD		Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Requires Modification?	Range		Source Page		Virtual Feat		Innate Spells																									Modify VAR			Weapon prop. bonus
-Rod (Hunter Might)	OUTPUTNAME:Rod of [NAME]	PROFICIENCY:Longbow	TYPE:Magic.Rod.Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:1|Arrow=1	COST:51700	WT:3		SLOTS:2	BASEITEM:Longbow (Composite)	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD.MWORKW.PLUS2W	MODS:REQUIRED		RANGE:110	SOURCEPAGE:p.34	VFEAT:Seeker Arrow	SPELLS:Rod of Hunters Might|TIMES=-1|Darkvision|Detect Animals or Plants|Detect Snares and Pits	SPELLS:Rod of Hunter Might|TIMES=3|True Strike|Hold Person|Shield	BONUS:VAR|SeekerArrow|1	BONUS:WEAPON|DAMAGE|min(STR,0)
+# Equipment Name		Output Name				Required Proficiency		Type																	Contains			Cost		Weight	Slot Needed	Base Item for EQMOD		Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Requires Modification?	Range		Source Page		Virtual Feat		Innate Spells																									Modify VAR			Weapon prop. bonus
+Rod (Hunter Might)	OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Longbow	TYPE:Magic.Rod.Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:1|Arrow=1	COST:51700	WT:3		SLOTS:2	BASEITEM:Longbow (Composite)	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD.MWORKW.PLUS2W	MODS:REQUIRED		RANGE:110	SOURCEPAGE:p.34	VFEAT:Seeker Arrow	SPELLS:Rod of Hunters Might|TIMES=-1|Darkvision|Detect Animals or Plants|Detect Snares and Pits	SPELLS:Rod of Hunter Might|TIMES=3|True Strike|Hold Person|Shield	BONUS:VAR|SeekerArrow|1	BONUS:WEAPON|DAMAGE|min(STR,0)
 
 ###BLOCK: Shield
-# Equipment Name		Required Proficiency		Type					Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Size		Source Page		% of Spell Failure	Innate Spells										Combat bonus
-The Silver Guardian	PROFICIENCY:Shield (Heavy)	TYPE:Shield.Heavy.Standard	COST:18770	WT:15		ACCHECK:-2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:STEEL.MITHRAL_SHLD.PLUS2S.ANMATD	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3x	SPELLFAILURE:15		SPELLS:The Silver Guardian|TIMES=1|CASTERLEVEL=5|Lightning Bolt,14	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+# Equipment Name		Required Proficiency			Type					Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Size		Source Page		% of Spell Failure	Innate Spells										Combat bonus
+The Silver Guardian	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard	COST:18770	WT:15		ACCHECK:-2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:STEEL.MITHRAL_SHLD.PLUS2S.ANMATD	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3x	SPELLFAILURE:15		SPELLS:The Silver Guardian|TIMES=1|CASTERLEVEL=5|Lightning Bolt,14	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
 
 ###BLOCK: Wondrous
 # Equipment Name			Type					Contains								Cost		Modifier				Source Page		Weapon prof. bonus

@@ -3,9 +3,9 @@ SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.nec
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
 ###Block:Rods
-# Equipment Name	Output Name				Required Proficiency	Type									Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Size		Source Page		Innate Spells																											Special Property
-Wand of Orcus	OUTPUTNAME:Wand of Orcus	PROFICIENCY:Greatclub	TYPE:Magic.Rod.Weapon.Martial.Melee.Bludgeoning.Club	COST:0	WT:8		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:WOOD.MWORKW.PLUS5W.UNHLY_M	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p. 125	SPELLS:Wand of Orcus|TIMES=3|CASTERLEVEL=20|Animate Dead|Deeper Darkness|Desecrate|Fear,29|Unhallow	SPELLS:Wand of Orcus|TIMES=2|CASTERLEVEL=20|Blasphemy|Unholy Aura,33	SPROP:Slays any living creature it touches (DC 40)
-Rod of Infernus	OUTPUTNAME:Wand of Orcus	PROFICIENCY:Greatclub	TYPE:Magic.Rod.Weapon.Martial.Melee.Bludgeoning.Club	COST:0	WT:8		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:WOOD.MWORKW.PLUS_6_WEAP		WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p. 125
+# Equipment Name	Output Name				Required Proficiency		Type									Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Size		Source Page		Innate Spells																											Special Property
+Wand of Orcus	OUTPUTNAME:Wand of Orcus	PROFICIENCY:WEAPON|Greatclub	TYPE:Magic.Rod.Weapon.Martial.Melee.Bludgeoning.Club	COST:0	WT:8		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:WOOD.MWORKW.PLUS5W.UNHLY_M	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p. 125	SPELLS:Wand of Orcus|TIMES=3|CASTERLEVEL=20|Animate Dead|Deeper Darkness|Desecrate|Fear,29|Unhallow	SPELLS:Wand of Orcus|TIMES=2|CASTERLEVEL=20|Blasphemy|Unholy Aura,33	SPROP:Slays any living creature it touches (DC 40)
+Rod of Infernus	OUTPUTNAME:Wand of Orcus	PROFICIENCY:WEAPON|Greatclub	TYPE:Magic.Rod.Weapon.Martial.Melee.Bludgeoning.Club	COST:0	WT:8		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:WOOD.MWORKW.PLUS_6_WEAP		WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p. 125
 
 ###Block:Staves
 # Equipment Name		Output Name					Type			Cost		Weight	Base Item for EQMOD	Modifier					Source Page		Innate Spells
