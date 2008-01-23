@@ -4,3 +4,4 @@ SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http
 
 # Weapon Name	Type
 Crystal Pistol	TYPE:PersonalFirearm
+Psi-Blade		TYPE:Exotic

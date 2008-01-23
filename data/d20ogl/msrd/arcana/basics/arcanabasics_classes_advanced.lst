@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jan 23 12:55:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Paul King
 
@@ -181,16 +181,16 @@ CLASS:Techno Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 ###Block: Spells
 1	SPELLLEVEL:CLASS|Techno Mage=0|Daze,Detect Magical Aura,Light,Mage Hand,Message,Prestidigitation,Read Magic,Resistance|Techno Mage=1|Burning Hands,Cause Fear,Change Self,Comprehend Languages,Feather Fall,Hold Portal,Jump,Mage Armor,Magic Missile,Magic Weapon,Power Device,Ray of Fatigue,Shield,Sleep,True Strike|Techno Mage=2|Arcane Lock,Blur,Darkvision,Enhance Ability,Glitterdust,Invisibility,Knock,Levitate,Locate Object,Magic Mouth,Protection from Arrows/Bullets,Resist Energy,See Invisibility,Spider Climb,Web|Techno Mage=3|Dispel Magic,Displacement,Fireball,Flaming Projectiles,Greater Magic Weapon,Halt Undead,Haste,Hold Person,Invisibility Sphere,Keen Edge,Lightning Bolt,Slow,Tongues,Water Breathing|Techno Mage=4|Animate Dead,Arcane Eye,Bestow Curse,Confusion,Dimension Door,Energy Trap,Fear,Ice Storm,Minor Globe of Invulnerability,Remove Curse,Shout,Stoneskin,Wall of Fire,Wall of Ice|Techno Mage=5|Cloudkill,Cone of Cold,Hold Monster,Passwall,Phantom Watchdog,Telekinesis,Wall of Force,Wall of Iron,Wall of Stone
 ###Block: Standard
-1	CAST:3,1		SAB:Arcane Skills				BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
+1	CAST:3,1		SAB:Arcane Skills		BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
 2	CAST:4,2		SAB:Machine Empathy
-3	CAST:4,2,1		SAB:Program Spell																																																													ADD:FEAT|TYPE=TechnoMage,TYPE=Metamagic
+3	CAST:4,2,1		SAB:Program Spell																																																											ADD:FEAT|TYPE=TechnoMage,TYPE=Metamagic
 4	CAST:4,3,2		SAB:Create Homunculus
-5	CAST:4,3,2,1	SAB:Arcane Spontaneous casting																																																																	CHOOSE:SPELLLIST|INT
-6	CAST:4,3,3,2																																																																ADD:FEAT|TYPE=TechnoMage,TYPE=Metamagic
-7	CAST:4,4,3,2,1																																																																											AUTO:FEAT|Spell Focus
+5	CAST:4,3,2,1																																																														ADD:FEAT|Arcane Spontaneous Casting
+6	CAST:4,3,3,2																																																														ADD:FEAT|TYPE=TechnoMage,TYPE=Metamagic
+7	CAST:4,4,3,2,1																																																																					AUTO:FEAT|Spell Focus
 8	CAST:4,4,3,3,2	SAB:Online Casting
-9	CAST:4,4,4,3,2,1																																																																ADD:FEAT|TYPE=TechnoMage,TYPE=Metamagic
-10	CAST:4,4,4,3,3,2																																																																											AUTO:FEAT|Quicken Spell
+9	CAST:4,4,4,3,2,1																																																														ADD:FEAT|TYPE=TechnoMage,TYPE=Metamagic
+10	CAST:4,4,4,3,3,2																																																																					AUTO:FEAT|Quicken Spell
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
 CLASS:Thrasher	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6

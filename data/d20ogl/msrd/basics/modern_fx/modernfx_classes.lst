@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jan 23 17:33:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -88,17 +88,25 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVE
 1	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:BattlemindML,6	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:BattlemindML,7
 1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:BattlemindML,8	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:BattlemindML,9
 1	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:BattlemindML,10
+###Block: PsiBlade Progression
+1	BONUS:VAR|PsiBladeEnhancement|1|PREVARGTEQ:BattlemindML,3				AUTO:FEAT|Battle Mind PsiBlade|Battle Mind PsiShield
+1	BONUS:VAR|PsiShieldDefense|3|PREVARGTEQ:BattlemindML,4
+1	BONUS:VAR|PsiBladeEnhancement|1|PREVARGTEQ:BattlemindML,5
+1	BONUS:VAR|PsiBladeEnhancement,PsiBladeDamage|1|PREVARGTEQ:BattlemindML,7
+1	BONUS:VAR|PsiShieldDefense|3|PREVARGTEQ:BattlemindML,8
+1	BONUS:VAR|PsiBladeEnhancement|1|PREVARGTEQ:BattlemindML,9
+1	BONUS:VAR|PsiBladeDamage|1|PREVARGTEQ:BattlemindML,10
 ###Block: Normal Level Progression
 1	KNOWN:2
-2	KNOWN:3		SAB:Imprint Tattoo											AUTO:EQUIP|PsiBlade[!PRECLASS:1,Battle Mind=3]
-3	KNOWN:3,1											ADD:FEAT|TYPE=Battlemind	AUTO:EQUIP|PsiBlade +1[!PRECLASS:1,Battle Mind=5]
-4	KNOWN:3,2																AUTO:EQUIP|PsiShield[!PRECLASS:1,Battle Mind=8]
-5	KNOWN:3,3,1		SAB:+4 to Concentation while manifesting defensively						AUTO:EQUIP|PsiBlade +2[!PRECLASS:1,Battle Mind=7]
+2	KNOWN:3		SAB:Imprint Tattoo
+3	KNOWN:3,1											ADD:FEAT|TYPE=Battlemind
+4	KNOWN:3,2
+5	KNOWN:3,3,1		SAB:+4 to Concentation while manifesting defensively
 6	KNOWN:3,3,2											ADD:FEAT|TYPE=Battlemind
-7	KNOWN:3,3,2,1															AUTO:EQUIP|PsiBlade +3[!PRECLASS:1,Battle Mind=9]
-8	KNOWN:3,3,3,1															AUTO:EQUIP|PsiShield (Improved)
-9	KNOWN:3,3,3,2										ADD:FEAT|TYPE=Battlemind	AUTO:EQUIP|PsiBlade +4[!PRECLASS:1,Battle Mind=10]
-10	KNOWN:3,3,3,2,1															AUTO:EQUIP|Ultimate PsiBlade
+7	KNOWN:3,3,2,1
+8	KNOWN:3,3,3,1
+9	KNOWN:3,3,3,2										ADD:FEAT|TYPE=Battlemind
+10	KNOWN:3,3,3,2,1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
