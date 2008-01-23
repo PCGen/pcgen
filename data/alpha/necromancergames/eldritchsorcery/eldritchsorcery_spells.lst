@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:33:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2005-06
 # Original Entry by: Tir Gwaith
 
 #	Several Spells have Save info None (harmless), and Spell Res No (harmless) ??

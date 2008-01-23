@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Thu Nov 22 21:59:27 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:33:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2005-06
 # Original Entry by: Tir Gwaith
 
-# Template Name	Hit Dice Size	Template		Source Page		Combat bonus						Add to vision			Modify VAR						Virtual Feat			Spell Res.	Type		Vision			Hit Dice																Innate Spells																																	SAB
-Plant Imbued	HITDIE:8		TEMPLATE:Plant	SOURCEPAGE:p.97	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:VISION|Darkvision|30	BONUS:VAR|UncannyDodgeFlankingLevel|TL	VFEAT:Improved Uncanny Dodge	SR:10+TL	TYPE:Plant	VISION:Darkvision (30')	HD:1-5:DR:5/Magic	HD:6-10:DR:10/Magic	HD:11-15:DR:15/Magic	HD:16+:DR:15/Magic and Cold Iron	SPELLS:Innate|TIMES=-1|CASTERLEVEL=9|Freedom of Movement,14+WIS	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Entangle,11+WIS|Magic Fang,11+WIS	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Sunburst,18+WIS|Tree Stride,15+WIS	SAB:Fast Healing (Ex) 5	SAB:Acute Senses (Ex)	SAB:Woodland Stride (Ex)
+# Template Name	Hit Dice Size	Damage Reduction					Template		Source Page		Special ABility											Combat bonus						Damage reduction																Add to vision			Modify VAR						Virtual Feat			Spell Res.	Type		Vision			Innate Spells
+Plant Imbued	HITDIE:8		DR:5/Magic	DR:0/Magic and Cold Iron	TEMPLATE:Plant	SOURCEPAGE:p.97	SAB:Fast Healing (Ex) 5	SAB:Acute Senses (Ex)	SAB:Woodland Stride (Ex)	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:DR|Magic|5|PREHD:MIN=6	BONUS:DR|Magic|5|PREHD:MIN=11	BONUS:DR|Magic and Cold Iron|15|PREHD:MIN=16	BONUS:VISION|Darkvision|30	BONUS:VAR|UncannyDodgeFlankingLevel|TL	VFEAT:Improved Uncanny Dodge	SR:10+TL	TYPE:Plant	VISION:Darkvision (30')	SPELLS:Innate|TIMES=-1|CASTERLEVEL=9|Freedom of Movement,14+WIS	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Entangle,11+WIS|Magic Fang,11+WIS	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Sunburst,18+WIS|Tree Stride,15+WIS

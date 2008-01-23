@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Oct 10 22:05:32 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
+# CVS $Revision$ $Author$ -- Tue Jan 22 21:49:29 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
 ###COMMENT: Some prereqs are unattainable with 3.5 - Skills Required: Perfomance, Alchemy, Animal Empathy!!! FEATS: Skill Focus (Performance)
@@ -141,10 +141,10 @@ CLASS:Chosen of Agri	PREALIGN:LN,TN,NG	PREATT:5	PREDEITY:Agri	PRESKILL:2,Surviva
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Religion)|Listen|Search|Spot|Spellcraft|Survival
 ###Block: Caster Level
-1					BONUS:DOMAIN|NUMBER|1
-2									ADD:SPELLCASTER|Divine
-4									ADD:SPELLCASTER|Divine
-6									ADD:SPELLCASTER|Divine
+1						BONUS:DOMAIN|NUMBER|1
+2										ADD:SPELLCASTER|Divine
+4										ADD:SPELLCASTER|Divine
+6										ADD:SPELLCASTER|Divine
 ### Special Abilities:
 3	SAB:Transport via Plants
 5	SAB:Command Plants
@@ -211,10 +211,10 @@ CLASS:Shadowblade	!PREALIGN:CG,LG,NG	PREATT:6	PREFEAT:3,Skill Focus,Weapon Fines
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowblade	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Disable Device|Forgery|Gather Information|Hide|Listen|Move Silently|Search|Spot
 ###Block: Special Abilities:
-1					BONUS:VAR|SneakAttack|1	AUTO:FEAT|Sneak Attack
+1						BONUS:VAR|SneakAttack|1	AUTO:FEAT|Sneak Attack
 2	SAB:Shadow Movement
 3	SAB:Vampiric Blade 1/day
-4					BONUS:VAR|SneakAttack|1
+4						BONUS:VAR|SneakAttack|1
 5	SAB:Shadow Form
 6	SAB:Death Resistance
 

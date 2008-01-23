@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Fri Aug 10 04:25:34 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2004-01
+# CVS $Revision$ $Author$ -- Tue Jan 22 21:49:29 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
 ###Block:FEATS
-# Feat Name			Visible	Special Ability						Define				Modify VAR
+# Feat Name			Visible	Special ABility							Define				Modify VAR
 Abyssal Smiting_1st	VISIBLE:NO	SAB:Abyssal Smiting (Su): +%|AbyssalSmitingLevel	DEFINE:AbyssalSmitingLevel|0	BONUS:VAR|AbyssalSmitingLevel|1
-Abyssal Smiting_2nd	VISIBLE:NO														BONUS:VAR|AbyssalSmitingLevel|1
-Abyssal Smiting_3rd	VISIBLE:NO														BONUS:VAR|AbyssalSmitingLevel|1
+Abyssal Smiting_2nd	VISIBLE:NO															BONUS:VAR|AbyssalSmitingLevel|1
+Abyssal Smiting_3rd	VISIBLE:NO															BONUS:VAR|AbyssalSmitingLevel|1
 
 ###Block: Special Abilities: Shalraeku & Zarakku
-# Feat Name				Output Name				Type				Visible	Required Template		Special Ability				Innate Spells											Save checks bonus		Combat bonus				Vision			Spell Res.
+# Feat Name				Output Name				Type				Visible	Required Template		Special ABility				Innate Spells											Save checks bonus		Combat bonus				Vision			Spell Res.
 Immunity to natural poisons						TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Immunity to natural poisons
 Darkvision 60 ft								TYPE:ShalraekuZarakku	VISIBLE:NO																																		VISION:Darkvision (60')
 ###CLARIFY: Although in the Sourcebook Listed as Damage Reduction, I believe the intent is actually a RESISTANCE
@@ -19,15 +19,15 @@ Darkvision 60 ft								TYPE:ShalraekuZarakku	VISIBLE:NO																								
 Resistance to Fire 5							TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Resistance to Fire 5
 Resistance to Electrical 5						TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Resistance to Electrical 5
 Resistance to Cold 5							TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Resistance to Cold 5
-Levitate									TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Levitate					SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
+Levitate									TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Levitate				SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
 Saving Throw +1								TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Saving Throw +1																BONUS:CHECKS|ALL|1
-Dimension Door								TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Dimension Door				SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
+Dimension Door								TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Dimension Door			SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
 AC Bonus (Shalraeku)		OUTPUTNAME:AC Bonus		TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Shalraeku	SAB:AC Bonus (Deflection)																			BONUS:COMBAT|AC|2|TYPE=Deflection
 AC Bonus (Zarakku)		OUTPUTNAME:AC Bonus		TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Zarakku	SAB:AC Bonus (Natural Armor)																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor
 Spell Resistance (Shalraeku)	OUTPUTNAME:Spell Resistance	TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Shalraeku	SAB:Spell Resistance																														SR:TL+WIS
 Spell Resistance (Zarakku)	OUTPUTNAME:Spell Resistance	TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Zarakku	SAB:Spell Resistance																														SR:TL+CON
 Cure Light Wounds								TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Shalraeku	SAB:Cure Light Wounds			SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
-Inflict Light Wounds							TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Zarakku	SAB:Inflict Light Wounds			SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cause Light Wounds,11+WIS
+Inflict Light Wounds							TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Zarakku	SAB:Inflict Light Wounds		SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cause Light Wounds,11+WIS
 
 ###Block:Flaw Modifications:
 # Feat Name			Prohibited Feat
@@ -41,10 +41,10 @@ Toughness.MOD		!PREFEAT:Easily Bruised
 
 
 ###Block:Trapper Class Abilities
-# Feat Name		Type			Visible	Special Ability			Weapon prof. bonus
+# Feat Name		Type			Visible	Special ABility				Weapon prof. bonus
 Trapmaking		TYPE:Class.Hidden	VISIBLE:NO	SAB:Trapmaking
 DetectDisarmTraps	TYPE:Class.Hidden	VISIBLE:NO	SAB:Detect/Disarm Traps
-NetUse		TYPE:Class.Hidden	VISIBLE:NO	SAB:Net Use				BONUS:WEAPONPROF=Net|TOHIT|2
+NetUse		TYPE:Class.Hidden	VISIBLE:NO	SAB:Net Use					BONUS:WEAPONPROF=Net|TOHIT|2
 DetectSecretDoors	TYPE:Class.Hidden	VISIBLE:NO	SAB:Detect Secret/Hidden Doors
 TrappedWeapons	TYPE:Class.Hidden	VISIBLE:NO	SAB:Trapped Weapons
 TrapPotency		TYPE:Class.Hidden	VISIBLE:NO	SAB:Trap Potency
@@ -53,26 +53,26 @@ MasterTrapMaker	TYPE:Class.Hidden	VISIBLE:NO	SAB:Master Trapmaker
 RevealTraps		TYPE:Class.Hidden	VISIBLE:NO	SAB:Reveal Traps
 
 ###Block:HEARTH MAGIC HIDDEN FEATS:
-# Feat Name						Product Identity?	Type			Visible	Special Ability							Source Page
-HearthMagicClarity				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Clarity					SOURCEPAGE:p.65
-HearthMagicDedication				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Dedication					SOURCEPAGE:p.66
-HearthMagicEaseBirth				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ease Birth					SOURCEPAGE:p.66
-HearthMagicFocus					NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Dedication					SOURCEPAGE:p.66
+# Feat Name						Product Identity?	Type			Visible	Special ABility								Source Page
+HearthMagicClarity				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Clarity						SOURCEPAGE:p.65
+HearthMagicDedication				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Dedication						SOURCEPAGE:p.66
+HearthMagicEaseBirth				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ease Birth						SOURCEPAGE:p.66
+HearthMagicFocus					NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Dedication						SOURCEPAGE:p.66
 HearthMagicHealingRest				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Healing Rest					SOURCEPAGE:p.67
-HearthMagicLuckyBreak				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Lucky Break					SOURCEPAGE:p.67
-HearthMagicMending				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Mending					SOURCEPAGE:p.67
-HearthMagicProsperity				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Prosperity					SOURCEPAGE:p.67
+HearthMagicLuckyBreak				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Lucky Break						SOURCEPAGE:p.67
+HearthMagicMending				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Mending						SOURCEPAGE:p.67
+HearthMagicProsperity				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Prosperity						SOURCEPAGE:p.67
 HearthMagicReduceFever				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Reduce Fever					SOURCEPAGE:p.67
-HearthMagicRitualCleansing			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ritual Cleansing				SOURCEPAGE:p.67
+HearthMagicRitualCleansing			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ritual Cleansing					SOURCEPAGE:p.67
 HearthMagicSoulBinding				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Soul Binding	SAB:Share the Pain (Su)	SOURCEPAGE:p.68
-HearthMagicWardAgainstDomesticDiscord	NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Domestic Discord		SOURCEPAGE:p.68
+HearthMagicWardAgainstDomesticDiscord	NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Domestic Discord			SOURCEPAGE:p.68
 HearthMagicWardAgainstMagic			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Magic				SOURCEPAGE:p.68
-HearthMagicWardAgainstPossession		NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Possession			SOURCEPAGE:p.68
-HearthMagicWardAgainstUndead			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Undead			SOURCEPAGE:p.68
-HearthMagicWardToProtectInnocence		NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward to Protect Innocence		SOURCEPAGE:p.69
+HearthMagicWardAgainstPossession		NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Possession				SOURCEPAGE:p.68
+HearthMagicWardAgainstUndead			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Undead				SOURCEPAGE:p.68
+HearthMagicWardToProtectInnocence		NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward to Protect Innocence			SOURCEPAGE:p.69
 
 ###Block: Monster Template - Feats
-# Feat Name			Type				Visible	Special Ability
+# Feat Name			Type				Visible	Special ABility
 Alignment Shift		TYPE:BenevolentSpirit	VISIBLE:NO	SAB:Alignment Shift (Su)
 Healing Touch		TYPE:BenevolentSpirit	VISIBLE:NO	SAB:Healing Touch (Su)
 Glare of Reckoning	TYPE:BenevolentSpirit	VISIBLE:NO	SAB:Glare of Reckoning (Su)

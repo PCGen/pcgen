@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Nov 22 21:59:27 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:33:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2005-06
 # Original Entry by: Tir Gwaith
 
 ###Block: Expansions on Turn/Rebuke
-# Feat Name	Type					Visible	Define																																						Source Page		SAB
-Rebuke Cold	TYPE:Special.Turning.TurnCold	VISIBLE:NO	DEFINE:TurnTimesCold|TurnTimesBase	DEFINE:TurnLevelCold|TurnLevelBase	DEFINE:TurnDiceCold|TurnDiceBase	DEFINE:TurnDieSizeCold|TurnDieSizeBase	DEFINE:TurnDamagePlusCold|TurnDamagePlusBase	DEFINE:TurnCheckCold|TurnCheckBase	SOURCEPAGE:p.17	SAB:Rebuke Cold (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesCold|TurnLevelCold|TurnDiceCold|TurnDieSizeCold|TurnDamagePlusCold
-Rebuke Ooze	TYPE:Special.Turning.TurnOoze	VISIBLE:NO	DEFINE:TurnTimesOoze|TurnTimesBase	DEFINE:TurnLevelOoze|TurnLevelBase	DEFINE:TurnDiceOoze|TurnDiceBase	DEFINE:TurnDieSizeOoze|TurnDieSizeBase	DEFINE:TurnDamagePlusOoze|TurnDamagePlusBase	DEFINE:TurnCheckOoze|TurnCheckBase	SOURCEPAGE:p.19	SAB:Rebuke Ooze (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesOoze|TurnLevelOoze|TurnDiceOoze|TurnDieSizeOoze|TurnDamagePlusOoze
+# Feat Name	Type					Visible	Special ABility																					Define																																						Source Page
+Rebuke Cold	TYPE:Special.Turning.TurnCold	VISIBLE:NO	SAB:Rebuke Cold (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesCold|TurnLevelCold|TurnDiceCold|TurnDieSizeCold|TurnDamagePlusCold	DEFINE:TurnTimesCold|TurnTimesBase	DEFINE:TurnLevelCold|TurnLevelBase	DEFINE:TurnDiceCold|TurnDiceBase	DEFINE:TurnDieSizeCold|TurnDieSizeBase	DEFINE:TurnDamagePlusCold|TurnDamagePlusBase	DEFINE:TurnCheckCold|TurnCheckBase	SOURCEPAGE:p.17
+Rebuke Ooze	TYPE:Special.Turning.TurnOoze	VISIBLE:NO	SAB:Rebuke Ooze (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesOoze|TurnLevelOoze|TurnDiceOoze|TurnDieSizeOoze|TurnDamagePlusOoze	DEFINE:TurnTimesOoze|TurnTimesBase	DEFINE:TurnLevelOoze|TurnLevelBase	DEFINE:TurnDiceOoze|TurnDiceBase	DEFINE:TurnDieSizeOoze|TurnDieSizeBase	DEFINE:TurnDamagePlusOoze|TurnDamagePlusBase	DEFINE:TurnCheckOoze|TurnCheckBase	SOURCEPAGE:p.19
