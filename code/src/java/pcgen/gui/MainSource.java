@@ -143,10 +143,6 @@ public class MainSource extends FilterAdapterPanel
 	//table model modes
 	private static final int MODEL_AVAIL = 0;
 	private static final int MODEL_SELECT = 1;
-	private static PObjectNode typePubRoot;
-	private static PObjectNode typePubSetRoot;
-	private static PObjectNode typePubFmtSetRoot;
-	//private static PObjectNode rankRoot;
 	private final JLabel avaLabel = new JLabel( /*"Available"*/
 		);
 	private final JLabel selLabel = new JLabel( /*"Selected"*/
@@ -254,7 +250,7 @@ public class MainSource extends FilterAdapterPanel
 	public void changedGameMode()
 	{
 		selectedCampaigns.clear();
-		resetViewNodes();
+		//resetViewNodes();
 		unloadAllCampaigns_actionPerformed();
 	}
 
@@ -817,8 +813,6 @@ public class MainSource extends FilterAdapterPanel
 	 */
 	private void initComponents()
 	{
-		resetViewNodes();
-
 		viewComboBox.addItem("Name Only");
 		viewComboBox.addItem("Company");
 		viewComboBox.addItem("Company/Setting");
@@ -1175,244 +1169,6 @@ public class MainSource extends FilterAdapterPanel
 	 */
 	public void resetUI() {
 		infoLabel.setBackground(bLeftPane.getBackground());
-	}
-
-	private void resetViewNodes()
-	{
-	    final List<String> allowedModes = Globals.getAllowedGameModes();
-
-	    typePubRoot = new PObjectNode();
-	    typePubSetRoot = new PObjectNode();
-	    typePubFmtSetRoot = new PObjectNode();
-	    //rankRoot = new PObjectNode();
-	    //final CampainNodeComparator comparator = new CampainNodeComparator();
-
-	    //Set<String> aList = new TreeSet<String>(); //TYPE list
-
-	    Map<String, PObjectNode> pubMap = new TreeMap<String, PObjectNode>();
-	    Map<String, PObjectNode> pubSetMap = new TreeMap<String, PObjectNode>();
-	    Map<String, PObjectNode> pubFmtSetMap = new TreeMap<String, PObjectNode>();
-
-	    //Set<Integer> rankList = new TreeSet<Integer>(); //RANK list
-	    //int sourceCount = 0;
-	    for (Campaign camp : Globals.getCampaignList())
-	    {
-		if (camp.isGameMode(allowedModes))
-		{
-		    int typeCount = camp.getMyTypeCount();
-		    if (typeCount > 0)
-		    {
-			String pub = camp.getMyType(0);
-			if (!pubMap.containsKey(pub))
-			{
-			    PObjectNode node = new PObjectNode(pub);
-			    pubMap.put(pub, node);
-
-			    node = new PObjectNode(pub);
-			    pubSetMap.put(pub, node);
-
-			    node = new PObjectNode(pub);
-			    pubFmtSetMap.put(pub, node);
-			}
-			if (typeCount > 1)
-			{
-			    String fmt = camp.getMyType(1);
-			    if (!pubFmtSetMap.containsKey(pub + "." + fmt))
-			    {
-				PObjectNode node = new PObjectNode(fmt);
-				pubFmtSetMap.put(pub + "." + fmt, node);
-				pubFmtSetMap.get(pub).addChild(node);
-			    }
-			    if (typeCount > 2)
-			    {
-				String set = camp.getMyType(2);
-				if (!pubSetMap.containsKey(pub + "." + set))
-				{
-				    PObjectNode node = new PObjectNode(set);
-				    pubSetMap.put(pub + "." + set, node);
-				    pubSetMap.get(pub).addChild(node);
-
-				    node = new PObjectNode(set);
-				    pubFmtSetMap.get(pub + "." + fmt).addChild(node);
-				}
-			    }
-			}
-		    }
-		}
-	    }
-	    
-	    for(String key : pubMap.keySet())
-	    {
-		    typePubRoot.addChild(pubMap.get(key));
-		    typePubSetRoot.addChild(pubSetMap.get(key));
-		    typePubFmtSetRoot.addChild(pubFmtSetMap.get(key));
-	    }
-
-		// All non-typed/screwed-up items will end up in an "Other" node
-//		aList.add("Other");
-//		nodeList.add(new PObjectNode("Other"));
-//		int size = nodeList.size();
-//		PObjectNode[] p1 = new PObjectNode[size];
-//		PObjectNode[] p2 = new PObjectNode[size];
-//		PObjectNode[] p3 = new PObjectNode[size];
-		
-//		PObjectNode[] pRank = new PObjectNode[rankList.size()+1];
-//		int arrayIdx = 0;
-//		for (Integer rank : rankList)
-//		{
-//			PObjectNode pon = new PObjectNode();
-//			pon.setItem(rank.toString());
-//			pon.setParent(rankRoot);
-//			pRank[arrayIdx++] = pon;
-//		}
-//		PObjectNode opon = new PObjectNode();
-//		opon.setItem("Other");
-//		opon.setParent(rankRoot);
-//		pRank[arrayIdx++] = opon;
-//		rankRoot.setChildren(pRank);
-		
-//		int arrayIdx = 0;
-//		for (PObjectNode pon : nodeList)
-//		{
-//			p1[arrayIdx] = pon;
-//			
-//			pon = pon.clone();
-//			p2[arrayIdx] = pon;
-//			
-//			pon = pon.clone();
-//			p3[arrayIdx] = pon;
-//			
-//			//TreeSet<PObjectNode> p2children = new TreeSet<PObjectNode>(comparator);
-//			TreeSet<PObjectNode> p3children = new TreeSet<PObjectNode>(comparator);
-//			for (Campaign bCamp : Globals.getCampaignList())
-//			{
-//			    if (bCamp.isGameMode(allowedModes))
-//			    {
-//				if (!bCamp.isType(pon.getItem().toString()))
-//				{
-//				    continue;
-//				}
-//				int count = bCamp.getMyTypeCount();
-//				if(count > 1)
-//				{
-//				    PObjectNode childnode = new PObjectNode(bCamp.getMyType(1));
-//				    if(!p3children.add(childnode))
-//				    {
-//					childnode = p3children.floor(childnode);
-//				    }
-//				    
-//				    if(count > 2)
-//				    {
-//					childnode.addChild(new PObjectNode(bCamp.getMyType(2)));
-//					p2[arrayIdx].addChild(new PObjectNode(bCamp.getMyType(2)));
-//				    }
-//				}
-//				
-//			    }
-//			}
-//			for(PObjectNode childnode : p3children)
-//			{
-//			    p3[arrayIdx].addChild(childnode);
-//			}
-//			arrayIdx++;
-//		}
-//
-//		typePubRoot.setChildren(p1);
-//		typePubSetRoot.setChildren(p2);
-//		typePubFmtSetRoot.setChildren(p3);
-		
-//		for (PObjectNode pon : p2)
-//		{
-//			aList.clear();
-//
-//			for (Campaign bCamp : Globals.getCampaignList())
-//			{
-//				final String topType = pon.toString();
-//
-//				if (!bCamp.isType(topType))
-//				{
-//					continue;
-//				}
-//
-//				if (bCamp.getMyTypeCount() > 2)
-//				{
-//					if (bCamp.isGameMode(allowedModes))
-//					{
-//						aList.add(bCamp.getMyType(2)); //TYPE[2] = Setting
-//					}
-//				}
-//			}
-//
-//			for (String aString : aList)
-//			{
-//				PObjectNode d = new PObjectNode();
-//				d.setParent(pon);
-//				pon.addChild(d);
-//				d.setItem(aString);
-//			}
-//		}
-//
-//		for (PObjectNode pon : p3)
-//		{
-//			aList.clear();
-//
-//			for (Campaign bCamp : Globals.getCampaignList())
-//			{
-//				final String topType = pon.toString();
-//
-//				if (!bCamp.isType(topType))
-//				{
-//					continue;
-//				}
-//
-//				if (bCamp.getMyTypeCount() > 1)
-//				{
-//					if (bCamp.isGameMode(allowedModes))
-//					{
-//						aList.add(bCamp.getMyType(1)); //TYPE[1] = Format
-//					}
-//				}
-//			}
-//
-//			for (String aString : aList)
-//			{
-//				PObjectNode d = new PObjectNode(aString);
-//				pon.addChild(d);
-//			}
-//
-//			List<PObjectNode> p4 = pon.getChildren();
-//
-//			for (int k = 0; (p4 != null) && (k < p4.size()); ++k)
-//			{
-//				final PObjectNode p4node = p4.get(k);
-//				aList.clear();
-//
-//				for (Campaign cCamp : Globals.getCampaignList())
-//				{
-//					final String pubType = p4node.getParent().toString();
-//					final String formatType = p4node.toString();
-//
-//					if (!cCamp.isType(pubType) || !cCamp.isType(formatType))
-//					{
-//						continue;
-//					}
-//
-//					if (cCamp.getMyTypeCount() > 2)
-//					{
-//						if (cCamp.isGameMode(allowedModes))
-//						{
-//							aList.add(cCamp.getMyType(2)); //TYPE[2] = Setting
-//						}
-//					}
-//				}
-//
-//				for (String aString : aList)
-//				{
-//					PObjectNode d = new PObjectNode(aString);
-//					p4node.addChild(d);
-//				}
-//			}
-//		}
 	}
 
 	/**
@@ -1794,305 +1550,167 @@ public class MainSource extends FilterAdapterPanel
 		 */
 		public void resetModel(int mode, boolean available, boolean newCall)
 		{
-			final List<String> allowedModes = Globals.getAllowedGameModes();
-			PCGen_Frame1 mainFrame = PCGen_Frame1.getInst();
-			PlayerCharacter aPC = null;
-			if (mainFrame != null)
-			{
-				aPC = mainFrame.getCurrentPC();
-			}
+		    final List<String> allowedModes = Globals.getAllowedGameModes();
+		    PCGen_Frame1 mainFrame = PCGen_Frame1.getInst();
+		    PlayerCharacter aPC = null;
+		    if (mainFrame != null)
+		    {
+			aPC = mainFrame.getCurrentPC();
+		    }
 
-			List<Campaign> campList;
+		    List<Campaign> campList;
 
-			if (available)
-			{
-				campList = Globals.getCampaignList();
-			}
-			else
-			{
-				campList = selectedCampaigns;
-			}
+		    if (available)
+		    {
+			campList = Globals.getCampaignList();
+		    }
+		    else
+		    {
+			campList = selectedCampaigns;
+		    }
 
-			switch (mode)
-			{
-				case VIEW_PUBFMTSET: // by Publisher/Format/Setting/Product Name
-					setRoot((PObjectNode) MainSource.typePubFmtSetRoot.clone());
-
-					for (Campaign aCamp : campList)
+		    switch (mode)
+		    {
+			case VIEW_PUBFMTSET: // by Publisher/Format/Setting/Product Name
+			case VIEW_PUBSET:
+			case VIEW_PUBLISH:
+			    /*
+			     * The following algorithm by cpmeister aka The Dragon Monkey
+			     */
+			    PObjectNode root = new PObjectNode();
+			    Map<String, PObjectNode> nodeMap = new TreeMap<String, PObjectNode>();
+			    for (Campaign camp : campList)
+			    {
+				if (camp.isGameMode(allowedModes) && shouldDisplayThis(camp, aPC) && (available ^ selectedCampaigns.contains(camp)))
+				{
+				    int typeCount = camp.getMyTypeCount();
+				    if (typeCount > 0)
+				    {
+					String pub = camp.getMyType(0);
+					if (!nodeMap.containsKey(pub))
 					{
-						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-
-						// filter out campaigns here
-						if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
-						{
-							continue;
-						}
-
-						//don't display selected campaigns in the available table
-						if (available && selectedCampaigns.contains(aCamp))
-						{
-							continue;
-						}
-
-						boolean added = false;
-
-						for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
-						{
-							if (aCamp.isType(rootAsPObjectNode.getChild(i).getItem().toString())
-								|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
-							{
-								// Items with less than 2 types will not show up unless we do this
-								List<PObjectNode> d;
-
-								if (aCamp.getMyTypeCount() < 2)
-								{
-									d = new ArrayList<PObjectNode>(1);
-									d.add(rootAsPObjectNode.getChild(i));
-								}
-								else
-								{
-									d = rootAsPObjectNode.getChild(i).getChildren();
-								}
-
-								// if there's no second level to drill-down to, just add the source here
-								if ((d != null) && (d.size() == 0))
-								{
-									PObjectNode aFN = new PObjectNode(aCamp);
-									PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
-									rootAsPObjectNode.getChild(i).addChild(aFN);
-									added = true;
-								}
-
-								for (int j = 0; (d != null) && (j < d.size()); ++j)
-								{
-									if (aCamp.isType((d.get(j)).getItem().toString())
-										|| (!added && (j == (d.size() - 1))))
-									{
-										// Items with less than 3 types will not show up unless we do this
-										List<PObjectNode> e;
-
-										if (aCamp.getMyTypeCount() == 2)
-										{
-											e = new ArrayList<PObjectNode>(1);
-											e.add(d.get(j));
-										}
-										else if (aCamp.getMyTypeCount() < 2)
-										{
-											e = new ArrayList<PObjectNode>(1);
-											e.add(rootAsPObjectNode.getChild(i));
-										}
-										else
-										{
-											e = (d.get(j)).getChildren();
-										}
-
-										for (int k = 0; (e != null) && (k < e.size()); ++k)
-										{
-											if (aCamp.isType((e.get(k)).getItem().toString())
-												|| (!added && (k == (e.size() - 1))))
-											{
-												PObjectNode aFN = new PObjectNode(aCamp);
-												PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
-												(e.get(k)).addChild(aFN);
-												added = true;
-											}
-										}
-									}
-								}
-							}
-						}
+					    PObjectNode node = new PObjectNode(pub);
+					    nodeMap.put(pub, node);
 					}
-
-					break;
-
-				case VIEW_PUBSET: // by Publisher/Setting/Product Name
-					setRoot((PObjectNode) MainSource.typePubSetRoot.clone());
-
-					for (Campaign aCamp : campList)
+					if (mode == VIEW_PUBLISH)
 					{
-						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-//						final Campaign aCamp = (Campaign) fI.next();
-
-						// filter out campaigns here
-						if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
-						{
-							continue;
-						}
-
-						//don't display selected campaigns in the available table
-						if (available && selectedCampaigns.contains(aCamp))
-						{
-							continue;
-						}
-
-						boolean added = false;
-
-						for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
-						{
-							if (aCamp.isType(rootAsPObjectNode.getChild(i).getItem().toString())
-								|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
-							{
-								// Items with less than 3 types will not show up unless we do this
-								List<PObjectNode> d;
-
-								if (aCamp.getMyTypeCount() < 3)
-								{
-									d = new ArrayList<PObjectNode>(1);
-									d.add(rootAsPObjectNode.getChild(i));
-								}
-								else
-								{
-									d = rootAsPObjectNode.getChild(i).getChildren();
-								}
-
-								for (int k = 0; (d != null) && (k < d.size()); ++k)
-								{
-									// Don't add children to items (those with only 1 type)
-									if (!((d.get(k)).getItem() instanceof PObject))
-									{
-										if (aCamp.isType((d.get(k)).getItem().toString())
-											|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
-										{
-											PObjectNode aFN = new PObjectNode(aCamp);
-											PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
-											(d.get(k)).addChild(aFN);
-											added = true;
-										}
-									}
-								}
-							}
-						}
+					    PObjectNode node = new PObjectNode(camp);
+					    nodeMap.get(pub).addChild(node);
 					}
-
-					break;
-
-				case VIEW_PUBLISH: // by Publisher/Product Name
-					setRoot((PObjectNode) MainSource.typePubRoot.clone());
-
-					for (Campaign aCamp : campList)
+					else if (typeCount > 1)
 					{
-						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-//						final Campaign aCamp = (Campaign) fI.next();
+					    String fmt = camp.getMyType(1);
+					    String pubfmt = pub + "." + fmt;
+					    if (mode == VIEW_PUBFMTSET && !nodeMap.containsKey(pubfmt))
+					    {
+						PObjectNode node = new PObjectNode(fmt);
+						nodeMap.put(pubfmt, node);
+						nodeMap.get(pub).addChild(node);
 
-						// filter out campaigns here
-						if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
+					    }
+					    if (typeCount > 2)
+					    {
+						String set = camp.getMyType(2);
+						if (mode == VIEW_PUBFMTSET)
 						{
-							continue;
+						    String pubfmtset = pubfmt + "." + set;
+						    if (!nodeMap.containsKey(pubfmtset))
+						    {
+							PObjectNode node = new PObjectNode(set);
+							nodeMap.put(pubfmtset, node);
+							nodeMap.get(pubfmt).addChild(node);
+						    }
+						    PObjectNode node = new PObjectNode(camp);
+						    nodeMap.get(pubfmtset).addChild(node);
 						}
-
-						//don't display selected campaigns in the available table
-						if (available && selectedCampaigns.contains(aCamp))
+						else
 						{
-							continue;
+						    String pubset = pub + "." + set;
+						    if (!nodeMap.containsKey(pubset))
+						    {
+							PObjectNode node = new PObjectNode(set);
+							nodeMap.put(pubset, node);
+							nodeMap.get(pub).addChild(node);
+						    }
+						    PObjectNode node = new PObjectNode(camp);
+						    nodeMap.get(pubset).addChild(node);
 						}
-
-						boolean added = false;
-
-						for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
-						{
-							//if we've matched Publisher, or we've reached the last node ("Other") then add it here
-							if (aCamp.isType(rootAsPObjectNode.getChild(i).getItem().toString())
-								|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
-							{
-								PObjectNode aFN = new PObjectNode();
-								aFN.setParent(rootAsPObjectNode.getChild(i));
-								aFN.setItem(aCamp);
-								PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
-								rootAsPObjectNode.getChild(i).addChild(aFN);
-								added = true;
-							}
-						}
+					    }
+					    else if (mode == VIEW_PUBFMTSET)
+					    {
+						PObjectNode node = new PObjectNode(camp);
+						nodeMap.get(pubfmt).addChild(node);
+					    }
+					    else
+					    {
+						PObjectNode node = new PObjectNode(camp);
+						nodeMap.get(pub).addChild(node);
+					    }
 					}
-
-					break;
-
-				case VIEW_PRODUCT: // by Product Name
-					setRoot(new PObjectNode()); // just need a blank one
-					String qFilter = this.getQFilter();
-
-					for (Campaign aCamp : campList)
+					else
 					{
-						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-//						final Campaign aCamp = (Campaign) fI.next();
-
-						// filter out campaigns here
-						if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
-						{
-							continue;
-						}
-
-						//don't display selected campaigns in the available table
-						if (available && selectedCampaigns.contains(aCamp))
-						{
-							continue;
-						}
-
-						if (qFilter == null ||
-								( aCamp.getKeyName().toLowerCase().indexOf(qFilter) >= 0 ||
-								  aCamp.getType().toLowerCase().indexOf(qFilter) >= 0 ))
-						{
-							PObjectNode aFN = new PObjectNode();
-							aFN.setParent(rootAsPObjectNode);
-							aFN.setItem(aCamp);
-							PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
-							rootAsPObjectNode.addChild(aFN);
-						}
+					    PObjectNode node = new PObjectNode(camp);
+					    nodeMap.get(pub).addChild(node);
 					}
+				    }
+				}
+			    }
+			    for (String key : nodeMap.keySet())
+			    {
+				if (key.indexOf('.') == -1)
+				{
+				    root.addChild(nodeMap.get(key));
+				}
+			    }
+			    setRoot(root);
+			    break;
 
-					break;
+			case VIEW_PRODUCT: // by Product Name
+			    setRoot(new PObjectNode()); // just need a blank one
+			    String qFilter = this.getQFilter();
 
-//				case VIEW_RANK: // by Rank/Product Name
-//					setRoot((PObjectNode) MainSource.rankRoot.clone());
-//
-//					for (Campaign aCamp : campList)
-//					{
-//						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-////						final Campaign aCamp = (Campaign) fI.next();
-//
-//						// filter out campaigns here
-//						if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
-//						{
-//							continue;
-//						}
-//
-//						//don't display selected campaigns in the available table
-//						if (available && selectedCampaigns.contains(aCamp))
-//						{
-//							continue;
-//						}
-//
-//						boolean added = false;
-//
-//						for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
-//						{
-//							//if we've matched Publisher, or we've reached the last node ("Other") then add it here
-//							if (String.valueOf(aCamp.getRank()).equals(rootAsPObjectNode.getChild(i).getItem().toString())
-//								|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
-//							{
-//								PObjectNode aFN = new PObjectNode();
-//								aFN.setParent(rootAsPObjectNode.getChild(i));
-//								aFN.setItem(aCamp);
-//								PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
-//								rootAsPObjectNode.getChild(i).addChild(aFN);
-//								added = true;
-//							}
-//						}
-//					}
-//
-//					break;
+			    for (Campaign aCamp : campList)
+			    {
+				PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
 
-				default:
-					Logging.errorPrint("In MainSource.CampaignlModel.resetModel the mode " + mode + " is not handled.");
+				// filter out campaigns here
+				if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
+				{
+				    continue;
+				}
 
-					break;
-			}
+				//don't display selected campaigns in the available table
+				if (available && selectedCampaigns.contains(aCamp))
+				{
+				    continue;
+				}
 
-			PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+				if (qFilter == null ||
+					(aCamp.getKeyName().toLowerCase().indexOf(qFilter) >= 0 ||
+					aCamp.getType().toLowerCase().indexOf(qFilter) >= 0))
+				{
+				    PObjectNode aFN = new PObjectNode();
+				    aFN.setParent(rootAsPObjectNode);
+				    aFN.setItem(aCamp);
+				    PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp);
+				    rootAsPObjectNode.addChild(aFN);
+				}
+			    }
 
-			if (rootAsPObjectNode.getChildCount() > 0)
-			{
-				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
-			}
+			    break;
+
+			default:
+			    Logging.errorPrint("In MainSource.CampaignlModel.resetModel the mode " + mode + " is not handled.");
+
+			    break;
+		    }
+
+		    PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+
+		    if (rootAsPObjectNode.getChildCount() > 0)
+		    {
+			fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+		    }
 		}
 
 		/**
