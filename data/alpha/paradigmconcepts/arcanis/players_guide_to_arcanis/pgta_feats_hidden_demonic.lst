@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
+# CVS $Revision$ $Author$ -- Wed Jan 23 01:15:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
 ###Order of the Inner Demon Inner Demon Feats
-# Feat Name				Type					Visible		Required Feat					Define			Innate Spells																					Virtual Feat			Add					Modify VAR				Spell Res.						SAB
+# Feat Name				Type					Visible		Required Feat					Special ABility							Define			Innate Spells																					Virtual Feat			Add					Modify VAR				Spell Res.
 Inner Demon Succubus		TYPE:Special.InnerDemon		VISIBLE:EXPORT
 Inner Demon Vrock			TYPE:Special.InnerDemon		VISIBLE:EXPORT
 Inner Demon Glabrezu		TYPE:Special.InnerDemon		VISIBLE:EXPORT
@@ -11,71 +11,71 @@ Inner Demon Osyluth		TYPE:Special.InnerDemon		VISIBLE:EXPORT
 Inner Demon Kyton			TYPE:Special.InnerDemon		VISIBLE:EXPORT
 Inner Demon Hamatula		TYPE:Special.InnerDemon		VISIBLE:EXPORT
 
-First Symbiosis - Succubus	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Succubus						SPELLS:Innate|TIMES=-1|CASTERLEVEL=12|Tongues
-First Symbiosis - Vrock		TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Vrock																																																				SAB:The Vrock's Claws (Su)
-First Symbiosis - Glabrezu	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Glabrezu																																		ADD:FEAT|1|Infernal Rage
-First Symbiosis - Osyluth	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Osyluth			DEFINE:FearAuraSave|0																																		BONUS:VAR|FearAuraSave|14+CHA								SAB:Fear Aura - Will save DC % (Su)|FearAuraSave
-First Symbiosis - Kyton		TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Kyton			DEFINE:UnnerveSave|0																																		BONUS:VAR|UnnerveSave|12+CHA								SAB:Unnerving Gaze - Will save DC % (Su)|UnnerveSave
-First Symbiosis - Hamatula	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Hamatula																																																			SAB:The Hooked Talons (Su)
+First Symbiosis - Succubus	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Succubus															SPELLS:Innate|TIMES=-1|CASTERLEVEL=12|Tongues
+First Symbiosis - Vrock		TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Vrock			SAB:The Vrock's Claws (Su)
+First Symbiosis - Glabrezu	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Glabrezu																																											ADD:FEAT|1|Infernal Rage
+First Symbiosis - Osyluth	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Osyluth			SAB:Fear Aura - Will save DC % (Su)|FearAuraSave	DEFINE:FearAuraSave|0																																		BONUS:VAR|FearAuraSave|14+CHA
+First Symbiosis - Kyton		TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Kyton			SAB:Unnerving Gaze - Will save DC % (Su)|UnnerveSave	DEFINE:UnnerveSave|0																																		BONUS:VAR|UnnerveSave|12+CHA
+First Symbiosis - Hamatula	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Hamatula		SAB:The Hooked Talons (Su)
 
-Second Symbiosis - Succubus	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Succubus																																																		SAB:Telepathy (100') (Su)
-Second Symbiosis - Vrock	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Vrock																													VFEAT:Wings of the Devil
-Second Symbiosis - Glabrezu	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Glabrezu																																																		SAB:Pincers of the Glabrezu (Su)
-Second Symbiosis - Osyluth	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Osyluth																																																			SAB:Infernal Fortitude (Su)
-Second Symbiosis - Kyton	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Kyton																																																			SAB:Dancing Chains (Su)
-Second Symbiosis - Hamatula	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Hamatula																																																		SAB:Barbed Defense (Su)
+Second Symbiosis - Succubus	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Succubus	SAB:Telepathy (100') (Su)
+Second Symbiosis - Vrock	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Vrock																																						VFEAT:Wings of the Devil
+Second Symbiosis - Glabrezu	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Glabrezu	SAB:Pincers of the Glabrezu (Su)
+Second Symbiosis - Osyluth	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Osyluth		SAB:Infernal Fortitude (Su)
+Second Symbiosis - Kyton	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Kyton		SAB:Dancing Chains (Su)
+Second Symbiosis - Hamatula	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Hamatula	SAB:Barbed Defense (Su)
 
-Third Symbiosis - Succubus	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Succubus					SPELLS:Innate|TIMES=-1|Polymorph (OID)	SPELLS:Innate|TIMES=max(CHA,0)|CASTERLEVEL=var("CL=Order of the Inner Demon")|Charm Monster
-Third Symbiosis - Vrock		TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Vrock		DEFINE:ScreechSave|0																																		BONUS:VAR|ScreechSave|15+CON								SAB:Stunning Screech (Su) - Save DC %|ScreechSave
-Third Symbiosis - Glabrezu	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Glabrezu																																																		SAB:Telepathy (100') (Su)
-Third Symbiosis - Osyluth	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Osyluth																																											SR:10+var("CL=Order of the Inner Demon")	SAB:Infernal Resistance (Ex)
-Third Symbiosis - Kyton		TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Kyton																																												SR:10+var("CL=Order of the Inner Demon")	SAB:Infernal Resistance (Ex)
-Third Symbiosis - Hamatula	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Hamatula																																											SR:10+var("CL=Order of the Inner Demon")	SAB:Infernal Resistance (Ex)
+Third Symbiosis - Succubus	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Succubus														SPELLS:Innate|TIMES=-1|Polymorph (OID)	SPELLS:Innate|TIMES=max(CHA,0)|CASTERLEVEL=var("CL=Order of the Inner Demon")|Charm Monster
+Third Symbiosis - Vrock		TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Vrock		SAB:Stunning Screech (Su) - Save DC %|ScreechSave	DEFINE:ScreechSave|0																																		BONUS:VAR|ScreechSave|15+CON
+Third Symbiosis - Glabrezu	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Glabrezu	SAB:Telepathy (100') (Su)
+Third Symbiosis - Osyluth	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Osyluth	SAB:Infernal Resistance (Ex)																																															SR:10+var("CL=Order of the Inner Demon")
+Third Symbiosis - Kyton		TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Kyton		SAB:Infernal Resistance (Ex)																																															SR:10+var("CL=Order of the Inner Demon")
+Third Symbiosis - Hamatula	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Hamatula	SAB:Infernal Resistance (Ex)																																															SR:10+var("CL=Order of the Inner Demon")
 
-Fourth Symbiosis - Succubus	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Succubus																												VFEAT:Wings of the Devil
-Fourth Symbiosis - Vrock	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Vrock																																																			SAB:Spores (Ex)
-Fourth Symbiosis - Glabrezu	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Glabrezu					SPELLS:Innate|TIMES=-1|CASTERLEVEL=14|True Seeing
-Fourth Symbiosis - Osyluth	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Osyluth																																																			SAB:Stinger (Su)
-Fourth Symbiosis - Kyton	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Kyton																																																			SAB:Regeneration (Ex)
-Fourth Symbiosis - Hamatula	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Hamatula																																																		SAB:Impale (Ex)
+Fourth Symbiosis - Succubus	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Succubus																																					VFEAT:Wings of the Devil
+Fourth Symbiosis - Vrock	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Vrock		SAB:Spores (Ex)
+Fourth Symbiosis - Glabrezu	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Glabrezu														SPELLS:Innate|TIMES=-1|CASTERLEVEL=14|True Seeing
+Fourth Symbiosis - Osyluth	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Osyluth		SAB:Stinger (Su)
+Fourth Symbiosis - Kyton	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Kyton		SAB:Regeneration (Ex)
+Fourth Symbiosis - Hamatula	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Hamatula	SAB:Impale (Ex)
 
 ###Block: Dark-Kin Racial Taint
-# Feat Name			Type			Visible	Combat bonus				SAB
-Acid Resistance		TYPE:FirstTaint	VISIBLE:NO							SAB:Racial Taint ~ Acid Resistance 2
-Barbed Flesh		TYPE:FirstTaint	VISIBLE:NO							SAB:Racial Taint ~ Barbed Flesh is treated as armor spikes. Armor costs twice as much.
-Cold Resistance		TYPE:FirstTaint	VISIBLE:NO							SAB:Racial Taint ~ Cold Resistance 2
-Electricity Resistance	TYPE:FirstTaint	VISIBLE:NO							SAB:Racial Taint ~ Electricity Resistance 2
-Fiendish Anatomy		TYPE:FirstTaint	VISIBLE:NO							SAB:Racial Taint ~ Fortitude save DC 15 + Opponents BAB to resist critical hit.  Heal checks are at -.
-Fire Resistance		TYPE:FirstTaint	VISIBLE:NO							SAB:Racial Taint ~ Fire Resistance 2
-Immune to Charm		TYPE:FirstTaint	VISIBLE:NO							SAB:Racial Taint ~ Immune to spells or psionic powers of the (Charm) subschool.
-Natural Armor		TYPE:FirstTaint	VISIBLE:NO	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	SAB:Racial Taint ~ +1 Natural Armor.
-Poison Resistance		TYPE:FirstTaint	VISIBLE:NO							SAB:Racial Taint ~ +4 to saving throws versus poison
-Scent				TYPE:FirstTaint	VISIBLE:NO							SAB:Racial Taint ~ Scent (Ex) as listed in the Monster Manual.  Gas- and scent-based attacks do double damage/duration.
-Vision of Darkness	TYPE:FirstTaint	VISIBLE:NO							SAB:Racial Taint ~ Can see through magical darkness.
+# Feat Name			Type			Visible	Special ABility																		Combat bonus
+Acid Resistance		TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ Acid Resistance 2
+Barbed Flesh		TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ Barbed Flesh is treated as armor spikes. Armor costs twice as much.
+Cold Resistance		TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ Cold Resistance 2
+Electricity Resistance	TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ Electricity Resistance 2
+Fiendish Anatomy		TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ Fortitude save DC 15 + Opponents BAB to resist critical hit.  Heal checks are at -.
+Fire Resistance		TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ Fire Resistance 2
+Immune to Charm		TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ Immune to spells or psionic powers of the (Charm) subschool.
+Natural Armor		TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ +1 Natural Armor.														BONUS:COMBAT|AC|1|TYPE=NaturalArmor
+Poison Resistance		TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ +4 to saving throws versus poison
+Scent				TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ Scent (Ex) as listed in the Monster Manual.  Gas- and scent-based attacks do double damage/duration.
+Vision of Darkness	TYPE:FirstTaint	VISIBLE:NO	SAB:Racial Taint ~ Can see through magical darkness.
 
 
 ###Block: Infernal Taint Aspects
-# Feat Name		Type				Visible	Bonus to skill						Source Page		SAB
-Devil Eyes		TYPE:InfernalTaint	VISIBLE:NO	BONUS:SKILL|Intimidate|3|TYPE=Circumstance	SOURCEPAGE:p.152	SAB:Infernal Taint ~ Devil Eyes|!PREFEAT:1,Daemon Eyes
-Massive Horns	TYPE:InfernalTaint	VISIBLE:NO									SOURCEPAGE:p.152	SAB:Infernal Taint ~ Massive Horns|!PREFEAT:1,Horns of the Beast
-Prehensile Tail	TYPE:InfernalTaint	VISIBLE:NO									SOURCEPAGE:p.152	SAB:Infernal Taint ~ Prehensile Tail|!PREFEAT:1,Wicked Sting
-Sharp Claws		TYPE:InfernalTaint	VISIBLE:NO									SOURCEPAGE:p.152	SAB:Infernal Taint ~ Sharp Claws|!PREFEAT:1,Wicked Claws
-Cloven Hooves	TYPE:InfernalTaint	VISIBLE:NO	BONUS:SKILL|Balance|3|TYPE=Circumstance		SOURCEPAGE:p.152	SAB:Infernal Taint ~ Cloven Hooves|!PREFEAT:1,Hooves of the Beast
-Wicked Teeth	TYPE:InfernalTaint	VISIBLE:NO									SOURCEPAGE:p.152	SAB:Infernal Taint ~ Wicked Teeth|!PREFEAT:1,Razor Teeth
+# Feat Name		Type				Visible	Special ABility									Bonus to skill						Source Page
+Devil Eyes		TYPE:InfernalTaint	VISIBLE:NO	SAB:Infernal Taint ~ Devil Eyes|!PREFEAT:1,Daemon Eyes		BONUS:SKILL|Intimidate|3|TYPE=Circumstance	SOURCEPAGE:p.152
+Massive Horns	TYPE:InfernalTaint	VISIBLE:NO	SAB:Infernal Taint ~ Massive Horns|!PREFEAT:1,Horns of the Beast									SOURCEPAGE:p.152
+Prehensile Tail	TYPE:InfernalTaint	VISIBLE:NO	SAB:Infernal Taint ~ Prehensile Tail|!PREFEAT:1,Wicked Sting									SOURCEPAGE:p.152
+Sharp Claws		TYPE:InfernalTaint	VISIBLE:NO	SAB:Infernal Taint ~ Sharp Claws|!PREFEAT:1,Wicked Claws										SOURCEPAGE:p.152
+Cloven Hooves	TYPE:InfernalTaint	VISIBLE:NO	SAB:Infernal Taint ~ Cloven Hooves|!PREFEAT:1,Hooves of the Beast	BONUS:SKILL|Balance|3|TYPE=Circumstance		SOURCEPAGE:p.152
+Wicked Teeth	TYPE:InfernalTaint	VISIBLE:NO	SAB:Infernal Taint ~ Wicked Teeth|!PREFEAT:1,Razor Teeth										SOURCEPAGE:p.152
 
 
 ###Block: Damonic Appearance Aspects
-# Feat Name			Type				Visible	Required Feat			Template			Bonus to skill			Weapon prof. bonus			Source Page		SAB
-Daemon Eyes			TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Devil Eyes																	SOURCEPAGE:p.140	SAB:Daemonic Appearance ~ Daemonic Eyes
-Horns of the Beast	TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Massive Horns						BONUS:SKILL|Intimidate|2	BONUS:WEAPONPROF=Gore|DAMAGESIZE|1	SOURCEPAGE:p.140	SAB:Daemonic Appearance ~ Horns of the Beast
-Razor Teeth			TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Wicked Teeth						BONUS:SKILL|Intimidate|2	BONUS:WEAPONPROF=Bite|DAMAGESIZE|2	SOURCEPAGE:p.140	SAB:Daemonic Appearance ~ Razor Teeth
-Wicked Sting		TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Prehensile Tail	TEMPLATE:WickedSting												SOURCEPAGE:p.140	SAB:Daemonic Appearance ~ Wicked Sting
-Wicked Claws		TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Sharp Claws											BONUS:WEAPONPROF=Claw|DAMAGESIZE|2	SOURCEPAGE:p.140	SAB:Daemonic Appearance ~ Wicked Claws
-Hooves of the Beast	TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Cloven Hooves																	SOURCEPAGE:p.140	SAB:Daemonic Appearance ~ Hoves of the Bast	SAB:+2 stability bonus to resist bull rush attempts or trip attacks.	SAB:+2d8 damage on a charge|PREFEAT:1,Horns of the Beast
+# Feat Name			Type				Visible	Required Feat			Special ABility																												Template			Bonus to skill			Weapon prof. bonus			Source Page
+Daemon Eyes			TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Devil Eyes		SAB:Daemonic Appearance ~ Daemonic Eyes																																							SOURCEPAGE:p.140
+Horns of the Beast	TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Massive Horns		SAB:Daemonic Appearance ~ Horns of the Beast																											BONUS:SKILL|Intimidate|2	BONUS:WEAPONPROF=Gore|DAMAGESIZE|1	SOURCEPAGE:p.140
+Razor Teeth			TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Wicked Teeth		SAB:Daemonic Appearance ~ Razor Teeth																												BONUS:SKILL|Intimidate|2	BONUS:WEAPONPROF=Bite|DAMAGESIZE|2	SOURCEPAGE:p.140
+Wicked Sting		TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Prehensile Tail	SAB:Daemonic Appearance ~ Wicked Sting																								TEMPLATE:WickedSting												SOURCEPAGE:p.140
+Wicked Claws		TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Sharp Claws		SAB:Daemonic Appearance ~ Wicked Claws																																	BONUS:WEAPONPROF=Claw|DAMAGESIZE|2	SOURCEPAGE:p.140
+Hooves of the Beast	TYPE:DaemonicTaint	VISIBLE:NO	PREFEAT:1,Cloven Hooves		SAB:Daemonic Appearance ~ Hoves of the Bast	SAB:+2 stability bonus to resist bull rush attempts or trip attacks.	SAB:+2d8 damage on a charge|PREFEAT:1,Horns of the Beast																SOURCEPAGE:p.140
 
 ###Block: Infernal Rage
-# Feat Name		Type			Visible	Define																										Save checks bonus					Combat bonus						Stat bonus													Modify VAR																																																													SAB
-Infernal Rage	TYPE:Special	VISIBLE:NO	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:CHECKS|Will|RageMorale|PREAPPLY:PC	BONUS:COMBAT|AC|-1*RageACPenalty|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1	BONUS:VAR|RageBonus|2|PREVARGTEQ:MightyRage,1	SAB:Infernal Rage (Ex) 1/day (% rounds)|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, Willpower +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*(TL+HD)|PREVARNEQ:Enraged,1
+# Feat Name		Type			Visible	Special ABility																																			Define																										Save checks bonus					Combat bonus						Stat bonus													Modify VAR
+Infernal Rage	TYPE:Special	VISIBLE:NO	SAB:Infernal Rage (Ex) 1/day (% rounds)|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, Willpower +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*(TL+HD)|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:CHECKS|Will|RageMorale|PREAPPLY:PC	BONUS:COMBAT|AC|-1*RageACPenalty|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1	BONUS:VAR|RageBonus|2|PREVARGTEQ:MightyRage,1
 
 #
 # End

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Dec 25 00:08:03 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
+# CVS $Revision$ $Author$ -- Wed Jan 23 01:15:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
 # Class Name	Automaticaly Gained Weapon Prof.
@@ -53,7 +53,7 @@ SUBCLASSLEVEL:1																																																																	
 SUBCLASSLEVEL:3	SAB:Wild Empathy (Ex)																																																																																																							AUTO:FEAT|Track
 SUBCLASSLEVEL:4																											BONUS:VAR|CompLevel|CL																																																																													AUTO:FEAT|Animal Companion
 SUBCLASS:Cleric of Sarish		PREDEITY:Sarish		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																																																ADD:Language|1|TYPE=Infernal	ADD:FEAT|1|TYPE=TurnUndead	ADD:EQUIP|1|Dagger (Sarishan Steel)												AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Rebuke Undead
+SUBCLASSLEVEL:1																																																																																ADD:LANGUAGE|1|TYPE=Infernal	ADD:FEAT|1|TYPE=TurnUndead	ADD:EQUIP|1|Dagger (Sarishan Steel)												AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Rebuke Undead
 SUBCLASSLEVEL:3																																																																																																											AUTO:FEAT|Magical Aptitude
 SUBCLASSLEVEL:10	SAB:Mark of My Brother
 SUBCLASS:Cleric of Yarris		PREDEITY:Yarris		CSKILL:Knowledge (Nature)|Survival|Swim
@@ -210,23 +210,23 @@ CLASS:Paladin	STARTSKILLPTS:2
 CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASS:1,Paladin=4
 #
 SUBCLASS:Paladin of Althares		PREDEITY:Althares										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
-SUBCLASSLEVEL:1	SAB:May multiclass with Philosophic Warrior (Holy Champion of Althares).								BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	DEFINE:BardicKnowledgeLevel|0		ADD:Language|1|TYPE=Imperial	ADD:EQUIP|1|Altherian Flintlock (Pistol),Altherian Flintlock (Rifle)	ADD:EQUIP|1|Blastpowder (10)	AUTO:FEAT|Exotic Weapon Proficiency(Altherian Flintlock (Pistol)|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:FEAT|Bardic Knowledge|Special Mount
+SUBCLASSLEVEL:1	SAB:May multiclass with Philosophic Warrior (Holy Champion of Althares).								BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	DEFINE:BardicKnowledgeLevel|0		ADD:LANGUAGE|1|TYPE=Imperial	ADD:EQUIP|1|Altherian Flintlock (Pistol),Altherian Flintlock (Rifle)	ADD:EQUIP|1|Blastpowder (10)	AUTO:FEAT|Exotic Weapon Proficiency(Altherian Flintlock (Pistol)|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:FEAT|Bardic Knowledge|Special Mount
 SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelAlthares											BONUS:VAR|ChannelLevelAlthares|ChannelLevelUndead-1						DEFINE:ChannelLevelAlthares|0
 SUBCLASS:Paladin of Belisarda		PREDEITY:Belisarda									CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Knowledge (Nature)|Survival
 SUBCLASSLEVEL:1	SAB:Wild Empathy (Ex)
 SUBCLASSLEVEL:4	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelUndead
 SUBCLASS:Paladin of Hurrian		PREDEITY:Hurrian										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
-SUBCLASSLEVEL:1																																									ADD:Language|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Longsword)
+SUBCLASSLEVEL:1																																									ADD:LANGUAGE|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Longsword)
 SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelHurrian											BONUS:VAR|ChannelLevelHurrian|ChannelLevelUndead-1						DEFINE:ChannelLevelHurrian|0
 SUBCLASS:Paladin of Illir		PREDEITY:Illir										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
-SUBCLASSLEVEL:1																																									ADD:Language|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Gladius)
+SUBCLASSLEVEL:1																																									ADD:LANGUAGE|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Gladius)
 SUBCLASSLEVEL:4	SAB:+2 on saving throws against Enchantment spells and abilities.	SAB:May prepare and cast Light as a 1st level spell.
 SUBCLASSLEVEL:8	SAB:May prepare and cast Searing Light as a 2nd level spell.
 SUBCLASS:Paladin of Nier		PREDEITY:Nier										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
-SUBCLASSLEVEL:1																																									ADD:Language|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Greatsword)
+SUBCLASSLEVEL:1																																									ADD:LANGUAGE|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Greatsword)
 SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelNier												BONUS:VAR|ChannelLevelNier|ChannelLevelUndead-1							DEFINE:ChannelLevelNier|0
 SUBCLASS:Paladin of Sarish		PREDEITY:Sarish										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
-SUBCLASSLEVEL:1	SAB:You gain a Sarishan Steel weapon of your choice.																																ADD:Language|2|TYPE=Imperial,TYPE=Infernal
+SUBCLASSLEVEL:1	SAB:You gain a Sarishan Steel weapon of your choice.																																ADD:LANGUAGE|2|TYPE=Imperial,TYPE=Infernal
 SUBCLASSLEVEL:6	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelSarish											BONUS:VAR|ChannelLevelSarish|ChannelLevelUndead-2						DEFINE:ChannelLevelSarish|0
 SUBCLASS:Paladin of the Fire Dragon	PREDEITY:Fire Dragon	PRETEMPLATE:Black Talon Male,Ashen Hide Male	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
 SUBCLASSLEVEL:1																																																															AUTO:FEAT|Weapon Focus(Flail (Heavy)
