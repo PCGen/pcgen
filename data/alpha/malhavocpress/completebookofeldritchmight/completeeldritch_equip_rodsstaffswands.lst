@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
+# CVS $Revision$ $Author$ -- Tue Jan 22 23:23:21 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # Original Entry by: Felipe Diniz
 
 ###Block: Rods
@@ -25,11 +25,11 @@ Rod (Slaysong)			OUTPUTNAME:[NAME] Rod		TYPE:Magic.Rod	COST:36000	WT:4		SOURCEPA
 Rod (Spell Lord)			OUTPUTNAME:[NAME]			TYPE:Magic.Rod	COST:41000	WT:4		SOURCEPAGE:p.173
 
 ###Block: Staffs
-# Equipment Name		Output Name					Required Proficiency		Type													Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier				Size		Source Page		Weapon prop. bonus
-Staff (Gemstaff)		OUTPUTNAME:[NAME]									TYPE:Magic.Staff											COST:120000	WT:8																											SOURCEPAGE:p.173
-Staff (Dragonstaff)	OUTPUTNAME:[NAME]									TYPE:Magic.Staff											COST:51500	WT:8																											SOURCEPAGE:p.173
-Staff (Corrosion)		OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:38162	WT:8		BASEITEM:Staff		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:SPL_CHRG|CHARGES[50]	SIZE:L	SOURCEPAGE:p.173	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
-Staff (Golden Fires)	OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff											COST:35000	WT:8																											SOURCEPAGE:p.174
-Staff (Icy Heart)		OUTPUTNAME:Staff of the [NAME]						TYPE:Magic.Staff											COST:67000	WT:8																											SOURCEPAGE:p.174
-Staff (Primal Lands)	OUTPUTNAME:Staff of the [NAME]						TYPE:Magic.Staff											COST:100000	WT:8																											SOURCEPAGE:p.174
-Staff (Secret Sound)	OUTPUTNAME:Staff of the [NAME]						TYPE:Magic.Staff											COST:35350	WT:8																											SOURCEPAGE:p.174
+# Equipment Name		Output Name					Required Proficiency			Type													Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier				Size		Source Page		Weapon prop. bonus
+Staff (Gemstaff)		OUTPUTNAME:[NAME]										TYPE:Magic.Staff											COST:120000	WT:8																											SOURCEPAGE:p.173
+Staff (Dragonstaff)	OUTPUTNAME:[NAME]										TYPE:Magic.Staff											COST:51500	WT:8																											SOURCEPAGE:p.173
+Staff (Corrosion)		OUTPUTNAME:Staff of [NAME]		PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:38162	WT:8		BASEITEM:Staff		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:SPL_CHRG|CHARGES[50]	SIZE:L	SOURCEPAGE:p.173	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Staff (Golden Fires)	OUTPUTNAME:Staff of [NAME]								TYPE:Magic.Staff											COST:35000	WT:8																											SOURCEPAGE:p.174
+Staff (Icy Heart)		OUTPUTNAME:Staff of the [NAME]							TYPE:Magic.Staff											COST:67000	WT:8																											SOURCEPAGE:p.174
+Staff (Primal Lands)	OUTPUTNAME:Staff of the [NAME]							TYPE:Magic.Staff											COST:100000	WT:8																											SOURCEPAGE:p.174
+Staff (Secret Sound)	OUTPUTNAME:Staff of the [NAME]							TYPE:Magic.Staff											COST:35350	WT:8																											SOURCEPAGE:p.174
