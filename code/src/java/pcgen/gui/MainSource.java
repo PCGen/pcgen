@@ -43,13 +43,9 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
@@ -77,7 +73,6 @@ import javax.swing.tree.TreePath;
 import pcgen.core.Campaign;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.PrereqHandler;
@@ -214,6 +209,7 @@ public class MainSource extends FilterAdapterPanel
 	 * specifies whether the "match any" option should be available
 	 * @return true
 	 */
+	@Override
 	public boolean isMatchAnyEnabled()
 	{
 		return true;
@@ -223,6 +219,7 @@ public class MainSource extends FilterAdapterPanel
 	 * specifies whether the "negate/reverse" option should be available
 	 * @return true
 	 */
+	@Override
 	public boolean isNegateEnabled()
 	{
 		return true;
@@ -239,6 +236,7 @@ public class MainSource extends FilterAdapterPanel
 	 * specifies the filter selection mode
 	 * @return FilterConstants.DISABLED_MODE = -2
 	 */
+	@Override
 	public int getSelectionMode()
 	{
 		return FilterConstants.DISABLED_MODE;
@@ -573,6 +571,7 @@ public class MainSource extends FilterAdapterPanel
 
 		MouseListener ml = new MouseAdapter()
 			{
+				@Override
 				public void mousePressed(MouseEvent e)
 				{
 					final int mlSelRow = tree.getRowForLocation(e.getX(), e.getY());
@@ -641,6 +640,7 @@ public class MainSource extends FilterAdapterPanel
 			});
 		ml = new MouseAdapter()
 				{
+					@Override
 					public void mousePressed(MouseEvent e)
 					{
 						final int mlSelRow = btree.getRowForLocation(e.getX(), e.getY());
@@ -750,6 +750,7 @@ public class MainSource extends FilterAdapterPanel
 	{
 		addComponentListener(new ComponentAdapter()
 			{
+				@Override
 				public void componentShown(ComponentEvent evt)
 				{
 					formComponentShown();
@@ -1403,6 +1404,7 @@ public class MainSource extends FilterAdapterPanel
 		}
 
 		// true for first column so that it highlights
+		@Override
 		public boolean isCellEditable(Object node, int column)
 		{
 			return (column == 0);
@@ -1413,6 +1415,7 @@ public class MainSource extends FilterAdapterPanel
 		 * @param column
 		 * @return Class
 		 */
+		@Override
 		public Class<?> getColumnClass(int column)
 		{
 			switch (column)
@@ -1472,6 +1475,7 @@ public class MainSource extends FilterAdapterPanel
 		}
 
 		// return the root node
+		@Override
 		public final Object getRoot()
 		{
 			return super.getRoot();
@@ -1786,11 +1790,13 @@ public class MainSource extends FilterAdapterPanel
 			treeTable.addKeyListener(myKeyListener);
 		}
 
+		@Override
 		public void mousePressed(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
 		}
 
+		@Override
 		public void mouseReleased(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
