@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn
 
 
-# Equipment Name	Required Proficiency		Type						Cost		Weight	AC Penalty Check	Source Page		% of Spell Failure	Combat bonus
-Shield (Breaker)	PROFICIENCY:Shield (Heavy)	TYPE:Shield.Heavy.Exotic.Standard	COST:20	WT:15		ACCHECK:-3		SOURCEPAGE:p.91	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
-Shield (Flank)	PROFICIENCY:Shield (Heavy)	TYPE:Shield.Heavy.Exotic.Standard	COST:20	WT:15		ACCHECK:-2		SOURCEPAGE:p.93	SPELLFAILURE:15		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+# Equipment Name	Required Proficiency			Type						Cost		Weight	AC Penalty Check	Source Page		% of Spell Failure	Combat bonus
+Shield (Breaker)	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Exotic.Standard	COST:20	WT:15		ACCHECK:-3		SOURCEPAGE:p.91	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+Shield (Flank)	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Exotic.Standard	COST:20	WT:15		ACCHECK:-2		SOURCEPAGE:p.93	SPELLFAILURE:15		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
 #AC+2 to mount...
 #

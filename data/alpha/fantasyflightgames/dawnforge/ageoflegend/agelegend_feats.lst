@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:18:39 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
 ###block: Regional Feats Chapter One
@@ -146,7 +146,8 @@ Blind Fight.MOD				TYPE:OrcTrustingEars
 Combat Reflexes.MOD			TYPE:OrcTrustingEars
 Eschew Materials.MOD			TYPE:TieflingCovertCasting
 Exotic Weapon Proficiency.MOD		TYPE:ForestWightTalentFeat.TieflingMartialTraining
-Improved Disarm,Improved Feint.MOD	TYPE:TieflingCombatManeuver
+Improved Disarm.MOD			TYPE:TieflingCombatManeuver
+Improved Feint.MOD			TYPE:TieflingCombatManeuver
 Improved Grapple.MOD			TYPE:TieflingCombatManeuver
 Improved Precise Shot.MOD		TYPE:ForestWightTalentFeat
 Improved Sunder.MOD			TYPE:TieflingCombatManeuver

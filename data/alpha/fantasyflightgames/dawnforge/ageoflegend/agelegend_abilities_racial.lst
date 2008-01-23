@@ -1,20 +1,19 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:37:10 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
 ###Block: Talent Skills
-# Ability Name										Category of Ability		Type								Visible	Restricted Ability										Stackable?	Multiple?	Choose		Bonus to skill						Source Page
-Talent +1 on Hide										CATEGORY:Dawnforge Ability	TYPE:GhostElfTalentSkill.ForestWightTalentSkill	VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Hide		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Hide|1|TYPE=Talent.STACK		SOURCEPAGE:p.25
-Talent +1 on Move Silently								CATEGORY:Dawnforge Ability	TYPE:GhostElfTalentSkill.ForestWightTalentSkill	VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Move Silently	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Move Silently|1|TYPE=Talent.STACK	SOURCEPAGE:p.25
-Talent +1 on Tumble									CATEGORY:Dawnforge Ability	TYPE:ForestWightTalentSkill				VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Tumble		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Tumble|1|TYPE=Talent.STACK		SOURCEPAGE:p.25
+# Ability Name									Category of Ability		Type								Visible	Restricted Ability										Stackable?	Multiple?	Choose		Bonus to skill						Source Page
+Talent +1 on Hide									CATEGORY:Dawnforge Ability	TYPE:GhostElfTalentSkill.ForestWightTalentSkill	VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Hide		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Hide|1|TYPE=Talent.STACK		SOURCEPAGE:p.25
+Talent +1 on Move Silently							CATEGORY:Dawnforge Ability	TYPE:GhostElfTalentSkill.ForestWightTalentSkill	VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Move Silently	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Move Silently|1|TYPE=Talent.STACK	SOURCEPAGE:p.25
+Talent +1 on Tumble								CATEGORY:Dawnforge Ability	TYPE:ForestWightTalentSkill				VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Tumble		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Tumble|1|TYPE=Talent.STACK		SOURCEPAGE:p.25
 
-CATEGORY=Dawnforge Ability|Talent +1 on Bluff.MOD									TYPE:ForestWightTalentSkill
-CATEGORY=Dawnforge Ability|Talent +1 on Craft (Armorsmithing).MOD							TYPE:ForestWightTalentSkill
-CATEGORY=Dawnforge Ability|Talent +1 on Craft (Weaponsmithing).MOD						TYPE:ForestWightTalentSkill
-CATEGORY=Dawnforge Ability|Talent +1 on Knowledge (Nature).MOD							TYPE:GhostElfTalentSkill.ForestWightTalentSkill
-CATEGORY=Dawnforge Ability|Talent +1 on Listen.MOD									TYPE:GhostElfTalentSkill
-CATEGORY=Dawnforge Ability|Talent +1 on Spot.MOD									TYPE:GhostElfTalentSkill
-CATEGORY=Dawnforge Ability|Talent +1 on Survival.MOD									TYPE:GhostElfTalentSkill.ForestWightTalentSkill
+CATEGORY=Dawnforge Ability|Talent +1 on Bluff.MOD								TYPE:ForestWightTalentSkill
+CATEGORY=Dawnforge Ability|Talent +1 on Craft Skills.MOD							TYPE:ForestWightTalentSkill
+CATEGORY=Dawnforge Ability|Talent +1 on Knowledge (Nature).MOD						TYPE:GhostElfTalentSkill.ForestWightTalentSkill
+CATEGORY=Dawnforge Ability|Talent +1 on Listen.MOD								TYPE:GhostElfTalentSkill
+CATEGORY=Dawnforge Ability|Talent +1 on Spot.MOD								TYPE:GhostElfTalentSkill
+CATEGORY=Dawnforge Ability|Talent +1 on Survival.MOD								TYPE:GhostElfTalentSkill.ForestWightTalentSkill
 
 ###Block: Transformation Skills
 # Ability Name									Category of Ability		Type								Visible	Restricted Ability											Stackable?	Multiple?	Choose		Bonus to skill								Source Page
