@@ -92,7 +92,7 @@ CLASS:Worm Doctor	PREALIGN:LN,NG,TN,CN,NE	PREFEAT:1,Toughness	PRESKILL:2,Heal,Kn
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Worm Doctor	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|Heal|Knowledge (Religion)|TYPE.Profession|Sense Motive|Spellcraft
 1	SAB:Worm Colony (Ex)		BONUS:VAR|WormDoctor|CL	DEFINE:WormDoctor|0
-2:REPEATLEVEL:1	ADD:SPELLLEVEL|Divine
+2:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 2														AUTO:FEAT|Worm Cast
 4	SAB:Worm Remedy (Su)
 8	SAB:Worm Heal (Su)
