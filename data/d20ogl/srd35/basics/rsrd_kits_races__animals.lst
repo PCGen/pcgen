@@ -1391,6 +1391,10 @@ STARTPACK:Awakened Tree	VISIBLE:NO	APPLY:INSTANT
 NAME:Awakened Tree
 STAT:INT=roll("3d6")|CHA=roll("3d6")|WIS=roll("3d6")
 
+###Block: Vermin Intelligence for Celestial and Fiendish templates
+
+STARTPACK:Vermin Intelligence	VISIBLE:NO	APPLY:INSTANT
+STAT:INT=3
 
 #
 # End
