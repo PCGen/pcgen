@@ -528,6 +528,9 @@ SKILL:Spot		RANK:5
 STARTPACK:Awakened Animal	VISIBLE:NO	APPLY:INSTANT
 STAT:INT=roll("3d6")+var("STAT.3.BASE")-var("STAT.3")|CHA=roll("1d3")+var("STAT.5.BASE")
 
+STARTPACK:Vermin Intelligence	VISIBLE:NO	APPLY:INSTANT
+STAT:INT=3
+
 #
 # End
 #
