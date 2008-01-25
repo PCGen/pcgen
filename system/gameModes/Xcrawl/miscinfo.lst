@@ -67,7 +67,7 @@ TAB:SKILLS			NAME:in_skills			CONTEXT:tabpages\players\tabskills.html
 TAB:SPELLS			NAME:in_spells			CONTEXT:tabpages\players\tabspells.html
 TAB:SUMMARY			NAME:in_summary			CONTEXT:tabpages\players\tabsummary.html
 # Inventory subpanels
-TAB:GEAR			NAME:in_InfoGear	CONTEXT:tabpages\players\inventory\inventorygear.html
+TAB:GEAR			NAME:in_InfoGear		CONTEXT:tabpages\players\inventory\inventorygear.html
 TAB:EQUIPPING		NAME:in_InfoEquipping	CONTEXT:tabpages\players\inventory\inventoryequipping.html
 TAB:RESOURCES		NAME:in_InfoResources	CONTEXT:tabpages\players\inventory\inventoryresources.html
 TAB:TEMPMOD			NAME:in_InfoTempMod	CONTEXT:tabpages\players\inventory\inventorytempbonus.html
@@ -116,8 +116,6 @@ BONUSFEATLEVELSTARTINTERVAL:3|3
 #interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
 BONUSSTATLEVELSTARTINTERVAL:4|4
 
-DEITY:None		DOMAINS:ALL		DESC:None	SYMBOL:None		SOURCEPAGE:None
-
 # Calculations for AC. Same as those used on the output sheets with the 'BONUS.' stripped off
 BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
 BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
@@ -144,7 +142,7 @@ WEAPONNONPROFPENALTY:-4
 PLUSCOST:AMMUNITION|BASEQTY*40*PLUS*PLUS
 PLUSCOST:ARMOR|1000*PLUS*PLUS
 PLUSCOST:SHIELD|1000*PLUS*PLUS
-PLUSCOST:WEAPON|2000*(PLUS+ALTPLUS)*(PLUS+ALTPLUS)
+PLUSCOST:WEAPON|(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)
 
 #Attack/Check Cycle attributes
 BABMAXATT:4
@@ -201,6 +199,25 @@ UNITSET:Metric		HEIGHTUNIT:cm	HEIGHTFACTOR:2.54	HEIGHTPATTERN:#		DISTANCEUNIT:m	
 # REACHMULT = equipment's reach multiple
 #
 WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
+
+#
+# Ability Categories
+#
+###Block: FEATs and subgroups
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
+ABILITYCATEGORY:FEAT				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT										PLURAL:Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Fighter Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter				PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Wizard Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Wizard.ItemCreation.Metamagic	PLURAL:Wizard Feats			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Internal			VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:0			CATEGORY:Internal
+###COMMENT: Internal Category is for all hidden abilities.
+
+###Block: Special Ability and subgroups
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
+ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability														
+ABILITYCATEGORY:Rogue Special Ability	VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:RogueAbilities			PLURAL:Rogue Special Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Enemy			VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:FavoredEnemy				PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
+
 
 PREVIEWDIR:d20/fantasy
 PREVIEWSHEET:preview.html
