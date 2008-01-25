@@ -1,21 +1,24 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Jan 25 12:41:56 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 # Original Entry by: Lone Jedi (MSRD by Barak & Hugo & Tir Gwaith)
 
 ###Block: Class Features (pseudofeats)
 # Feat Name			Type			Visible	Special ABility					Description		Multiple?	Choose
-Terrain Specialization	TYPE:Special	VISIBLE:NO	SAB:Terrain Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:NUMCHOICES=1|Chaparral|Desert|Grassland|Forest|Mountains|Swamp
+Terrain Specialization	TYPE:Special	VISIBLE:NO	SAB:Terrain Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Chaparral|Desert|Grassland|Forest|Mountains|Swamp
 
 
 ###Block: Professor abilities
-# Feat Name			Type			Visible	Special ABility				Multiple?	Choose																													Combat bonus					Bonus to skill			Source Page
-Smart Defense		TYPE:ClassAbility	VISIBLE:NO	SAB:Smart Defense																																				BONUS:COMBAT|AC|INT|TYPE=ClassFeature						SOURCEPAGE:p.182
-Quick Wits			TYPE:ClassAbility	VISIBLE:NO	SAB:Quick Wits																																																SOURCEPAGE:p.182
-Book Learnin'		TYPE:ClassAbility	VISIBLE:NO	SAB:Book Learnin'																																											BONUS:SKILL|TYPE.Knowledge|4	SOURCEPAGE:p.182
-Scientific Breakthrough	TYPE:ClassAbility	VISIBLE:NO	SAB:Academic Breakthrough (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)|1													SOURCEPAGE:p.182
-Smart Weapon		TYPE:ClassAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		MULT:YES	CHOOSE:WEAPONPROFS|LIST																																							SOURCEPAGE:p.182
-Real World Applications	TYPE:ClassAbility	VISIBLE:NO	SAB:Real-World Applications																																														SOURCEPAGE:p.182
+# Feat Name			Type			Visible	Special ABility				Multiple?	Choose																												Combat bonus					Bonus to skill			Source Page
+Smart Defense		TYPE:ClassAbility	VISIBLE:NO	SAB:Smart Defense																																			BONUS:COMBAT|AC|INT|TYPE=ClassFeature						SOURCEPAGE:p.182
+Quick Wits			TYPE:ClassAbility	VISIBLE:NO	SAB:Quick Wits																																															SOURCEPAGE:p.182
+Book Learnin'		TYPE:ClassAbility	VISIBLE:NO	SAB:Book Learnin'																																										BONUS:SKILL|TYPE.Knowledge|4	SOURCEPAGE:p.182
+Scientific Breakthrough	TYPE:ClassAbility	VISIBLE:NO	SAB:Academic Breakthrough (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)													SOURCEPAGE:p.182
+Smart Weapon		TYPE:ClassAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		MULT:YES	CHOOSE:WEAPONPROFS|LIST																																						SOURCEPAGE:p.182
+Real World Applications	TYPE:ClassAbility	VISIBLE:NO	SAB:Real-World Applications																																													SOURCEPAGE:p.182
 
+###Block: Mountain Man Favored Prey
+# Feat Name				Type			Visible	Special ABility			Choose
+Mountain Man Favored Prey	TYPE:ClassAbility	VISIBLE:NO	SAB:Favored Prey (%CHOICE)	CHOOSE:NUMCHOICES=1|STRING|Beavers|Buffaloes|Coyotes
 #
 # End
 #

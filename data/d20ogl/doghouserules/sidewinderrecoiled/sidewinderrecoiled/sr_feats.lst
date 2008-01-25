@@ -1,42 +1,42 @@
-# CVS $Revision$ $Author$ -- Mon Mar 27 17:49:29 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 25 12:41:56 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 # Original Entry by: Lone Jedi and Max Kuney (MSRD by Paul King, Barak, & Hugo)
 
 ###Block Sidewinder Specific Feats
 
-# Feat Name					Type													Req. Att.	Required Feat											Required Skill			Required Stat	Description															Multiple?	Choose														Automaticaly Gained Weapon Prof.	Bonus to skill		Source Page
-Blaze of Glory				TYPE:General.Gunslinger												PREFEAT:5,Dodge,Mobility,Point Blank Shot,Shot on the Run,Two-Weapon Fighting						PRESTAT:1,DEX=15	DESC:You can shoot with both hands while on the move.																																			SOURCEPAGE:p. 106
-Blazing Saddle				TYPE:General.PonySoldier.Rustler.Wrangler									PREFEAT:1,Defensive Riding									PRESKILL:1,Ride=6						DESC:You know how to shoot from horseback.																																				SOURCEPAGE:p. 106
-Card Sharp					TYPE:General																															PRESTAT:1,DEX=13	DESC:You know how to deal from the bottom and hold out an ace or two.																																SOURCEPAGE:p. 107
-Cavalry Training				TYPE:General.PonySoldier.Wrangler										PREFEAT:2,Blazing Saddle,Defensive Riding							PRESKILL:1,Ride=10					DESC:Firing from horseback is as easy as standing on your own two feet.																																SOURCEPAGE:p. 107
-Combat Loading				TYPE:General.Gunslinger										PREATT:1	PREFEAT:1,Quick Reload																		DESC:You can reload your firearm even when bullets are flying.																																	SOURCEPAGE:p. 108
-Defensive Riding				TYPE:General.Fast.Brave.Desperado.Rustler.Scout.TinStar																			PRESKILL:1,Ride=4						DESC:Your skill at riding lets you avoid attacks.																																			SOURCEPAGE:p. 109
-Exotic Ranged Weapon Proficiency	TYPE:General.BountyHunter.Wrangler								PREATT:1																						DESC:You are proficient in a specific exotic ranged weapon.							MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.ExoticRanged							AUTO:WEAPONPROF|%LIST							SOURCEPAGE:p. 111
-Gunplay					TYPE:General.Gunslinger.Showman.TinStar																						PRESKILL:1,Sleight of Hand=4				DESC:You can perform fancy tricks with firearms.																																			SOURCEPAGE:p. 111
-Hammer Down					TYPE:General.Gunslinger										PREATT:6	PREFEAT:2,Point Blank Shot,Slip Hammer												PRESTAT:1,DEX=13	DESC:You can fan your pistol, and really let the lead fly.																																		SOURCEPAGE:p. 113
-Hollow Leg					TYPE:General.Maverick																																	DESC:You can drink most anyone under the table.																																				SOURCEPAGE:p. 113
-Home Ground					TYPE:General.PonySoldier.Soldier.TinStar																														DESC:You receive bonuses if defending your territory.																																			SOURCEPAGE:p. 113
-Horse Tradin'				TYPE:General.Charismatic.Grifter.Preacher.Wrangler																				PRESKILL:1,Diplomacy=6					DESC:You can wrangle a good deal when trading.																																				SOURCEPAGE:p. 113
-Improved Dead Aim				TYPE:General.Rifleman												PREFEAT:2,Far Shot,Dead Aim														PRESTAT:1,WIS=13	DESC:You are a dead shot when you have time to aim.																																			SOURCEPAGE:p. 114
-Improved Sunder				TYPE:General													PREFEAT:1,Power Attack															PRESTAT:1,STR=13	DESC:You are skilled at attacking your opponent's weapon.																																		SOURCEPAGE:p. 115
-Improvised Weapon Damage		TYPE:General.Strong										PREATT:2	PREFEAT:1,Improvised Weapon Proficiency															DESC:You do more damage with improvised weapons.																																			SOURCEPAGE:p. 115
-Improvised Weapon Proficiency		TYPE:General.Strong										PREATT:2																						DESC:You are proficient with improvised weapons.																									AUTO:WEAPONPROF|TYPE=Improvised					SOURCEPAGE:p. 115
-Indian Lore					TYPE:General.Smart																																	DESC:You know a lot about the Native Americans in general.																																		SOURCEPAGE:p. 115
-Master Craftsman				TYPE:General.Professor																																	DESC:You can create mastercraft items.										MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Craft|1																		SOURCEPAGE:p. 116
-Mechanical					TYPE:General.Tough.Smart.Professor																															DESC:Provides a bonus on Operate Vehicle and Repair checks.							MULT:YES	CHOOSE:NUMCHOICES=2|SKILLSNAMED|TYPE.OperateVehicle|Repair|1											BONUS:SKILL|LIST|2	SOURCEPAGE:p. 117
-Ride-By Attack				TYPE:General.Desperado.PonySoldier.Scout.Wrangler							PREFEAT:1,Defensive Riding									PRESKILL:1,Ride=6						DESC:You can strike from horseback in the middle of your move.																																	SOURCEPAGE:p. 119
-Sidewinder					TYPE:General.Fast.Gunslinger.Maverick.PonySoldier.Rifleman.Rustler.TinStar			PREFEAT:1,Dodge																PRESTAT:1,DEX=13	DESC:You are skilled at dodging ranged attacks.																																				SOURCEPAGE:p. 119
-Slip Hammer					TYPE:General.Fast.Gunslinger									PREATT:1	PREFEAT:1,Point Blank Shot														PRESTAT:1,DEX=13	DESC:You can thumb the hammer back quickly and fire two bullets.																																	SOURCEPAGE:p. 119
-Sniping					TYPE:General.Rifleman												PREFEAT:2,Dead Aim,Far Shot														PRESTAT:1,WIS=13	DESC:Your shots hit extra hard when you take time to aim, thanks to your Wisdom.																														SOURCEPAGE:p. 120
-Spirited Charge				TYPE:General.PonySoldier.Wrangler										PREFEAT:2,Defensive Riding,Ride-By Attack							PRESKILL:1,Ride=6						DESC:You can use your mount to deal extra damage with a melee attack.																																SOURCEPAGE:p. 120
-Sprayin' Lead				TYPE:General											PREATT:11	PREFEAT:3,Point Blank Shot,Slip Hammer,Hammer Down										PRESTAT:1,DEX=15	DESC:You can empty your pistol into an area, and God help anyone standing there!																														SOURCEPAGE:p. 120
-Sundering Shot				TYPE:General													PREFEAT:2,Point Blank Shot,Precise Shot												PRESTAT:1,DEX=13	DESC:You are skilled at shooting the gun out of someone's hand.																																	SOURCEPAGE:p. 120
-Thumb Buster				TYPE:General											PREATT:4	PREFEAT:2,Point Blank Shot,Slip Hammer												PRESTAT:1,DEX=15	DESC:You only need one hand to let two bullets fly.																																			SOURCEPAGE:p. 121
-Trail Lore					TYPE:General.Smart.BountyHunter.PonySoldier.TinStar.Wrangler																										DESC:You have a lot knowledge relating to a specific state or territory.				MULT:YES	CHOOSE:NUMCHOICES=1|AZ|CO|NM|UT																				SOURCEPAGE:p. 121
-Trample					TYPE:General.PonySoldier.Wrangler										PREFEAT:2,Defensive Riding,Ride-By Attack							PRESKILL:1,Ride=6						DESC:You are skilled in running your mount right over anyone foolish enough to get in your way.																												SOURCEPAGE:p. 122
-Tribal Lore					TYPE:General.Brave																																	DESC:You know a lot about a specific Indian tribe.								MULT:YES	CHOOSE:NUMCHOICES=1|Cheyenne|Arapaho|Ute																			SOURCEPAGE:p. 122
-True Grit					TYPE:General.Tough.Desperado.Scout										PREFEAT:1,Toughness																		DESC:You are one tough hombre and can take shots that would drop others.																															SOURCEPAGE:p. 122
-Vehicle Proficiency			TYPE:General.Smart.Professor.Sawbones																														DESC:You can operate a select class of vehicle without penalties.						MULT:YES	CHOOSE:NUMCHOICES=1|Human-Powered Ground Vehicles|Sailing Ships|Steamships|Submersibles											SOURCEPAGE:p. 123
+# Feat Name					Type													Req. Att.	Required Feat											Required Skill			Required Stat	Description															Multiple?	Choose															Automaticaly Gained Weapon Prof.	Bonus to skill		Source Page
+Blaze of Glory				TYPE:General.Gunslinger												PREFEAT:5,Dodge,Mobility,Point Blank Shot,Shot on the Run,Two-Weapon Fighting						PRESTAT:1,DEX=15	DESC:You can shoot with both hands while on the move.																																				SOURCEPAGE:p. 106
+Blazing Saddle				TYPE:General.PonySoldier.Rustler.Wrangler									PREFEAT:1,Defensive Riding									PRESKILL:1,Ride=6						DESC:You know how to shoot from horseback.																																					SOURCEPAGE:p. 106
+Card Sharp					TYPE:General																															PRESTAT:1,DEX=13	DESC:You know how to deal from the bottom and hold out an ace or two.																																	SOURCEPAGE:p. 107
+Cavalry Training				TYPE:General.PonySoldier.Wrangler										PREFEAT:2,Blazing Saddle,Defensive Riding							PRESKILL:1,Ride=10					DESC:Firing from horseback is as easy as standing on your own two feet.																																	SOURCEPAGE:p. 107
+Combat Loading				TYPE:General.Gunslinger										PREATT:1	PREFEAT:1,Quick Reload																		DESC:You can reload your firearm even when bullets are flying.																																		SOURCEPAGE:p. 108
+Defensive Riding				TYPE:General.Fast.Brave.Desperado.Rustler.Scout.TinStar																			PRESKILL:1,Ride=4						DESC:Your skill at riding lets you avoid attacks.																																				SOURCEPAGE:p. 109
+Exotic Ranged Weapon Proficiency	TYPE:General.BountyHunter.Wrangler								PREATT:1																						DESC:You are proficient in a specific exotic ranged weapon.							MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.ExoticRanged								AUTO:WEAPONPROF|%LIST							SOURCEPAGE:p. 111
+Gunplay					TYPE:General.Gunslinger.Showman.TinStar																						PRESKILL:1,Sleight of Hand=4				DESC:You can perform fancy tricks with firearms.																																				SOURCEPAGE:p. 111
+Hammer Down					TYPE:General.Gunslinger										PREATT:6	PREFEAT:2,Point Blank Shot,Slip Hammer												PRESTAT:1,DEX=13	DESC:You can fan your pistol, and really let the lead fly.																																			SOURCEPAGE:p. 113
+Hollow Leg					TYPE:General.Maverick																																	DESC:You can drink most anyone under the table.																																					SOURCEPAGE:p. 113
+Home Ground					TYPE:General.PonySoldier.Soldier.TinStar																														DESC:You receive bonuses if defending your territory.																																				SOURCEPAGE:p. 113
+Horse Tradin'				TYPE:General.Charismatic.Grifter.Preacher.Wrangler																				PRESKILL:1,Diplomacy=6					DESC:You can wrangle a good deal when trading.																																					SOURCEPAGE:p. 113
+Improved Dead Aim				TYPE:General.Rifleman												PREFEAT:2,Far Shot,Dead Aim														PRESTAT:1,WIS=13	DESC:You are a dead shot when you have time to aim.																																				SOURCEPAGE:p. 114
+Improved Sunder				TYPE:General													PREFEAT:1,Power Attack															PRESTAT:1,STR=13	DESC:You are skilled at attacking your opponent's weapon.																																			SOURCEPAGE:p. 115
+Improvised Weapon Damage		TYPE:General.Strong										PREATT:2	PREFEAT:1,Improvised Weapon Proficiency															DESC:You do more damage with improvised weapons.																																				SOURCEPAGE:p. 115
+Improvised Weapon Proficiency		TYPE:General.Strong										PREATT:2																						DESC:You are proficient with improvised weapons.																										AUTO:WEAPONPROF|TYPE=Improvised					SOURCEPAGE:p. 115
+Indian Lore					TYPE:General.Smart																																	DESC:You know a lot about the Native Americans in general.																																			SOURCEPAGE:p. 115
+Master Craftsman				TYPE:General.Professor																																	DESC:You can create mastercraft items.										MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Craft|1																			SOURCEPAGE:p. 116
+Mechanical					TYPE:General.Tough.Smart.Professor																															DESC:Provides a bonus on Operate Vehicle and Repair checks.							MULT:YES	CHOOSE:NUMCHOICES=2|SKILLSNAMED|TYPE.OperateVehicle|Repair|1												BONUS:SKILL|LIST|2	SOURCEPAGE:p. 117
+Ride-By Attack				TYPE:General.Desperado.PonySoldier.Scout.Wrangler							PREFEAT:1,Defensive Riding									PRESKILL:1,Ride=6						DESC:You can strike from horseback in the middle of your move.																																		SOURCEPAGE:p. 119
+Sidewinder					TYPE:General.Fast.Gunslinger.Maverick.PonySoldier.Rifleman.Rustler.TinStar			PREFEAT:1,Dodge																PRESTAT:1,DEX=13	DESC:You are skilled at dodging ranged attacks.																																					SOURCEPAGE:p. 119
+Slip Hammer					TYPE:General.Fast.Gunslinger									PREATT:1	PREFEAT:1,Point Blank Shot														PRESTAT:1,DEX=13	DESC:You can thumb the hammer back quickly and fire two bullets.																																		SOURCEPAGE:p. 119
+Sniping					TYPE:General.Rifleman												PREFEAT:2,Dead Aim,Far Shot														PRESTAT:1,WIS=13	DESC:Your shots hit extra hard when you take time to aim, thanks to your Wisdom.																															SOURCEPAGE:p. 120
+Spirited Charge				TYPE:General.PonySoldier.Wrangler										PREFEAT:2,Defensive Riding,Ride-By Attack							PRESKILL:1,Ride=6						DESC:You can use your mount to deal extra damage with a melee attack.																																	SOURCEPAGE:p. 120
+Sprayin' Lead				TYPE:General											PREATT:11	PREFEAT:3,Point Blank Shot,Slip Hammer,Hammer Down										PRESTAT:1,DEX=15	DESC:You can empty your pistol into an area, and God help anyone standing there!																															SOURCEPAGE:p. 120
+Sundering Shot				TYPE:General													PREFEAT:2,Point Blank Shot,Precise Shot												PRESTAT:1,DEX=13	DESC:You are skilled at shooting the gun out of someone's hand.																																		SOURCEPAGE:p. 120
+Thumb Buster				TYPE:General											PREATT:4	PREFEAT:2,Point Blank Shot,Slip Hammer												PRESTAT:1,DEX=15	DESC:You only need one hand to let two bullets fly.																																				SOURCEPAGE:p. 121
+Trail Lore					TYPE:General.Smart.BountyHunter.PonySoldier.TinStar.Wrangler																										DESC:You have a lot knowledge relating to a specific state or territory.				MULT:YES	CHOOSE:NUMCHOICES=1|STRING|AZ|CO|NM|UT																				SOURCEPAGE:p. 121
+Trample					TYPE:General.PonySoldier.Wrangler										PREFEAT:2,Defensive Riding,Ride-By Attack							PRESKILL:1,Ride=6						DESC:You are skilled in running your mount right over anyone foolish enough to get in your way.																													SOURCEPAGE:p. 122
+Tribal Lore					TYPE:General.Brave																																	DESC:You know a lot about a specific Indian tribe.								MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Cheyenne|Arapaho|Ute																			SOURCEPAGE:p. 122
+True Grit					TYPE:General.Tough.Desperado.Scout										PREFEAT:1,Toughness																		DESC:You are one tough hombre and can take shots that would drop others.																																SOURCEPAGE:p. 122
+Vehicle Proficiency			TYPE:General.Smart.Professor.Sawbones																														DESC:You can operate a select class of vehicle without penalties.						MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Human-Powered Ground Vehicles|Sailing Ships|Steamships|Submersibles											SOURCEPAGE:p. 123
 
 ###Block MSRD Imported Feats
 
@@ -97,7 +97,8 @@ Improved Two-Weapon Fighting.MOD	TYPE:.CLEAR	TYPE:General.Gunslinger.Rifleman			
 Iron Will.MOD				TYPE:.CLEAR	TYPE:General.Smart.Dedicated.Charismatic.Preacher.Professor												DESC:You receive a bonus on Will saves.																			SOURCEPAGE:p. 116
 Knockout Punch.MOD			TYPE:.CLEAR	TYPE:General.Tough.BountyHunter.Desperado.MountainMan.Pugilist.Rustler.Soldier.TinStar							DESC:You know how to hit a varmint where it hurts when you throw the first punch.												SOURCEPAGE:p. 116
 Lightning Reflexes.MOD			TYPE:.CLEAR	TYPE:General.Smart.Charismatic																DESC:You receive a bonus on Reflex saves.																			SOURCEPAGE:p. 116
-Linguist.MOD																																																				SOURCEPAGE:p. 37
+#Linguist.MOD																																																				SOURCEPAGE:p. 37
+#TODO: this is now an ability
 Low Profile.MOD				TYPE:.CLEAR	TYPE:General.Charismatic.BountyHunter.Grifter.Maverick.Rustler.TinStar										DESC:Your reputation doesn't precede you.																			SOURCEPAGE:p. 116
 Medical Expert.MOD			TYPE:.CLEAR	TYPE:General.Dedicated.Preacher.Professor.Sawbones													DESC:Provides a bonus on Craft (pharmaceutical) and Treat Injury checks.													SOURCEPAGE:p. 117
 Meticulous.MOD				TYPE:.CLEAR	TYPE:General.Smart.Dedicated.Sawbones															DESC:Provides a bonus on Forgery and Search checks.																	SOURCEPAGE:p. 117
