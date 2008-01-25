@@ -86,6 +86,7 @@ import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.ClickHandler;
+import pcgen.gui.utils.InfoViewModelBuilder;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTreeTable;
@@ -1222,34 +1223,47 @@ public class InfoRaces extends BaseCharacterInfoTab
 		private void resetModel(int mode)
 		{
 			// set the root node
-			raceRoot = new PObjectNode();
-			setRoot(raceRoot);
+//			raceRoot = new PObjectNode();
+//			setRoot(raceRoot);
 
 			switch (mode)
 			{
 				// races by name
 				case GuiConstants.INFORACE_VIEW_NAME:
-					buildNameView();
+				    setRoot(InfoViewModelBuilder.buildNameView(InfoRaces.this,
+						getPc(),
+						Globals.getAllRaces(), 
+						getQFilter()));
 					break; // end VIEW_NAME
 
 				case GuiConstants.INFORACE_VIEW_TYPE:
-					buildTypeView();
+					setRoot(InfoViewModelBuilder.buildTypeView(InfoRaces.this,
+						getPc(),
+						Globals.getAllRaces()));
 					break; // end VIEW_TYPE
 
 				case GuiConstants.INFORACE_VIEW_SOURCE:
-					buildSourceView();
+					setRoot(InfoViewModelBuilder.buildSourceView(InfoRaces.this,
+						getPc(),
+						Globals.getAllRaces()));
 					break; // end VIEW_SOURCE
 
 				case GuiConstants.INFORACE_VIEW_RACETYPE_NAME:
-					buildRaceTypeView();
+					setRoot(InfoViewModelBuilder.buildRaceTypeView(InfoRaces.this,
+						getPc(),
+						Globals.getAllRaces()));
 					break;
 
 				case GuiConstants.INFORACE_VIEW_RACETYPE_SUBTYPE_NAME:
-					buildRaceTypeSubTypeView();
+					setRoot(InfoViewModelBuilder.buildRaceTypeSubTypeView(InfoRaces.this,
+						getPc(),
+						Globals.getAllRaces()));
 					break;
 
 				case GuiConstants.INFORACE_VIEW_ALL_TYPES:
-					buildAllTypesView();
+					setRoot(InfoViewModelBuilder.buildAllRaceTypesView(InfoRaces.this,
+						getPc(),
+						Globals.getAllRaces()));
 					break;
 
 				default:
@@ -1266,375 +1280,6 @@ public class InfoRaces extends BaseCharacterInfoTab
 				fireTreeNodesChanged(super.getRoot(), new TreePath(super
 					.getRoot()));
 			}
-		}
-
-		private void buildNameView()
-		{
-			List<Race> raceList = new ArrayList<Race>();
-			String qFilter = this.getQFilter();
-
-			// now loop through all the races and
-			// see which ones are not filtered out
-			for (final Race race : Globals.getAllRaces())
-			{
-				if (accept(getPc(), race))
-				{
-					if (qFilter == null
-						|| (race.getDisplayName().toLowerCase()
-							.indexOf(qFilter) >= 0 || race.getType()
-							.toLowerCase().indexOf(qFilter) >= 0))
-						raceList.add(race);
-				}
-			}
-
-			PObjectNode[] rn = new PObjectNode[raceList.size()];
-
-			// iterate through the race names
-			// and fill out the tree
-			for (int iName = 0; iName < raceList.size(); iName++)
-			{
-				final Race aRace = raceList.get(iName);
-
-				if (aRace != null)
-				{
-					rn[iName] = new PObjectNode();
-					rn[iName].setItem(aRace);
-					rn[iName].setParent(raceRoot);
-				}
-			}
-
-			// now add to the root node
-			raceRoot.setChildren(rn);
-		}
-
-		private void buildTypeView()
-		{
-			List<String> typeList = new ArrayList<String>();
-
-			// now loop through all the races and
-			// see which ones are not filtered out
-			for (final Race race : Globals.getAllRaces())
-			{
-				if (accept(getPc(), race))
-				{
-					if (!typeList.contains(race.getType()))
-					{
-						typeList.add(race.getType());
-					}
-				}
-			}
-
-			//build the TYPE root nodes
-			PObjectNode[] rt = new PObjectNode[typeList.size()];
-
-			// iterate through the race types
-			// and fill out the tree
-			for (int iType = 0; iType < typeList.size(); iType++)
-			{
-				final String aType = typeList.get(iType);
-				rt[iType] = new PObjectNode();
-				rt[iType].setItem(aType);
-
-				for (final Race race : Globals.getAllRaces())
-				{
-					if (race == null)
-					{
-						continue;
-					}
-
-					if (!race.getType().equals(aType))
-					{
-						continue;
-					}
-
-					PObjectNode aFN = new PObjectNode();
-					aFN.setItem(race);
-					aFN.setParent(rt[iType]);
-					rt[iType].addChild(aFN);
-				}
-
-				// if it's not empty, add it
-				if (!rt[iType].isLeaf())
-				{
-					rt[iType].setParent(raceRoot);
-				}
-			}
-
-			// now add to the root node
-			raceRoot.setChildren(rt);
-		}
-
-		private void buildSourceView()
-		{
-			List<String> sourceList = new ArrayList<String>();
-
-			// now loop through all the races and
-			// see which ones are not filtered out
-			for (final Race race : Globals.getAllRaces())
-			{
-				if (accept(getPc(), race))
-				{
-					final String aString =
-							race.getSourceEntry().getSourceBook().getLongName();
-					if (aString != null && !sourceList.contains(aString)
-						&& aString.length() > 0)
-					{
-						sourceList.add(aString);
-					}
-				}
-			}
-
-			//build the SOURCE root nodes
-			PObjectNode[] rs = new PObjectNode[sourceList.size()];
-
-			// iterate through the race sources
-			// and fill out the tree
-			for (int iSource = 0; iSource < sourceList.size(); iSource++)
-			{
-				final String aSource = sourceList.get(iSource);
-				rs[iSource] = new PObjectNode();
-				rs[iSource].setItem(aSource);
-
-				for (final Race race : Globals.getAllRaces())
-				{
-					if (race == null)
-					{
-						continue;
-					}
-
-					final String aString =
-							race.getSourceEntry().getSourceBook().getLongName();
-					if (aString != null && !aString.equals(aSource))
-					{
-						continue;
-					}
-
-					PObjectNode aFN = new PObjectNode();
-					aFN.setItem(race);
-					aFN.setParent(rs[iSource]);
-					rs[iSource].addChild(aFN);
-				}
-
-				// if it's not empty, add it
-				if (!rs[iSource].isLeaf())
-				{
-					rs[iSource].setParent(raceRoot);
-				}
-			}
-
-			// now add to the root node
-			raceRoot.setChildren(rs);
-		}
-
-		private void buildRaceTypeView()
-		{
-			List<String> typeList = new ArrayList<String>();
-
-			// now loop through all the races and
-			// see which ones are not filtered out
-			for (final Race race : Globals.getAllRaces())
-			{
-				if (accept(getPc(), race))
-				{
-					final String raceType = race.getRaceType();
-					if (!typeList.contains(raceType))
-					{
-						typeList.add(raceType);
-					}
-				}
-			}
-
-			//build the TYPE root nodes
-			PObjectNode[] rt = new PObjectNode[typeList.size()];
-
-			// iterate through the race types
-			// and fill out the tree
-			for (int iType = 0; iType < typeList.size(); iType++)
-			{
-				final String aType = typeList.get(iType);
-				rt[iType] = new PObjectNode();
-				rt[iType].setItem(aType);
-
-				for (final Race race : Globals.getAllRaces())
-				{
-					if (race == null)
-					{
-						continue;
-					}
-
-					if (!race.getRaceType().equals(aType))
-					{
-						continue;
-					}
-
-					PObjectNode aFN = new PObjectNode();
-					aFN.setItem(race);
-					aFN.setParent(rt[iType]);
-					rt[iType].addChild(aFN);
-				}
-
-				// if it's not empty, add it
-				if (!rt[iType].isLeaf())
-				{
-					rt[iType].setParent(raceRoot);
-				}
-			}
-
-			// now add to the root node
-			raceRoot.setChildren(rt);
-		}
-
-		private void buildRaceTypeSubTypeView()
-		{
-			List<String> typeList = new ArrayList<String>();
-
-			// now loop through all the races and
-			// see which ones are not filtered out
-			for (final Race race : Globals.getAllRaces())
-			{
-				if (accept(getPc(), race))
-				{
-					final String raceType = race.getRaceType();
-					if (!typeList.contains(raceType))
-					{
-						typeList.add(raceType);
-					}
-				}
-			}
-
-			//build the TYPE root nodes
-			PObjectNode[] rt = new PObjectNode[typeList.size()];
-
-			// iterate through the race types
-			// and fill out the tree
-			for (int iType = 0; iType < typeList.size(); iType++)
-			{
-				final String aType = typeList.get(iType);
-				rt[iType] = new PObjectNode();
-				rt[iType].setItem(aType);
-
-				HashMap<String, PObjectNode> subTypes =
-						new HashMap<String, PObjectNode>();
-				for (final Race race : Globals.getAllRaces())
-				{
-					if (race == null)
-					{
-						continue;
-					}
-
-					if (!race.getRaceType().equals(aType))
-					{
-						continue;
-					}
-
-					List<String> raceSubTypes = race.getRacialSubTypes();
-					if (raceSubTypes.size() > 0)
-					{
-						for (final String subTypeName : raceSubTypes)
-						{
-							PObjectNode subTypeNode = subTypes.get(subTypeName);
-							if (subTypeNode == null)
-							{
-								// We don't have this subtype at this level yet
-								// so create a node for it.
-								subTypeNode = new PObjectNode();
-								subTypeNode.setItem(subTypeName);
-								subTypeNode.setParent(rt[iType]);
-								rt[iType].addChild(subTypeNode);
-
-								// Dump it in the hashtable so we can find it
-								// later.
-								subTypes.put(subTypeName, subTypeNode);
-							}
-							PObjectNode raceNode = new PObjectNode();
-							raceNode.setItem(race);
-							raceNode.setParent(subTypeNode);
-							subTypeNode.addChild(raceNode);
-						}
-					}
-					else
-					{
-						PObjectNode aFN = new PObjectNode();
-						aFN.setItem(race);
-						aFN.setParent(rt[iType]);
-						rt[iType].addChild(aFN);
-					}
-				}
-
-				// if it's not empty, add it
-				if (!rt[iType].isLeaf())
-				{
-					rt[iType].setParent(raceRoot);
-				}
-			}
-
-			// now add to the root node
-			raceRoot.setChildren(rt);
-		}
-
-		private void buildAllTypesView()
-		{
-			List<String> typeList = new ArrayList<String>();
-
-			// now loop through all the races and
-			// see which ones are not filtered out
-			for (final Race race : Globals.getAllRaces())
-			{
-				if (accept(getPc(), race))
-				{
-					final String raceType = race.getRaceType();
-					if (!typeList.contains(raceType))
-					{
-						typeList.add(raceType);
-					}
-					for (String aType : race.getTypeList(true))
-					{
-						if (!typeList.contains(aType))
-						{
-							typeList.add(aType);
-						}
-					}
-				}
-			}
-
-			//build the TYPE root nodes
-			PObjectNode[] rt = new PObjectNode[typeList.size()];
-
-			// iterate through the race types
-			// and fill out the tree
-			for (int iType = 0; iType < typeList.size(); iType++)
-			{
-				final String aType = typeList.get(iType);
-				rt[iType] = new PObjectNode();
-				rt[iType].setItem(aType);
-
-				for (final Race race : Globals.getAllRaces())
-				{
-					if (race == null)
-					{
-						continue;
-					}
-
-					if (!race.getRaceType().equals(aType) && !race.isType(aType))
-					{
-						continue;
-					}
-
-					PObjectNode aFN = new PObjectNode();
-					aFN.setItem(race);
-					aFN.setParent(rt[iType]);
-					rt[iType].addChild(aFN);
-				}
-
-				// if it's not empty, add it
-				if (!rt[iType].isLeaf())
-				{
-					rt[iType].setParent(raceRoot);
-				}
-			}
-
-			// now add to the root node
-			raceRoot.setChildren(rt);
 		}
 
 		public List<String> getMColumnList()

@@ -42,7 +42,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -99,6 +98,7 @@ import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.AbstractTreeTableModel;
+import pcgen.gui.utils.InfoViewModelBuilder;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTableEx;
@@ -294,6 +294,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	 * specifies whether the "match any" option should be available
 	 * @return true
 	 */
+	@Override
 	public final boolean isMatchAnyEnabled()
 	{
 		return true;
@@ -303,6 +304,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	 * specifies whether the "negate/reverse" option should be available
 	 * @return true
 	 */
+	@Override
 	public final boolean isNegateEnabled()
 	{
 		return true;
@@ -312,6 +314,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	 * specifies the filter selection mode
 	 * @return FilterConstants.MULTI_MULTI_MODE = 2
 	 */
+	@Override
 	public final int getSelectionMode()
 	{
 		return FilterConstants.MULTI_MULTI_MODE;
@@ -687,6 +690,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		MouseListener aml = new MouseAdapter()
 		{
+			@Override
 			public void mousePressed(MouseEvent e)
 			{
 				final int avaRow = atree.getRowForLocation(e.getX(), e.getY());
@@ -833,6 +837,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// Make sure it updates when switching tabs
 		this.addFocusListener(new FocusAdapter()
 		{
+			@Override
 			public void focusGained(FocusEvent evt)
 			{
 				refresh();
@@ -841,6 +846,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		addComponentListener(new ComponentAdapter()
 		{
+			@Override
 			public void componentShown(ComponentEvent evt)
 			{
 				formComponentShown();
@@ -940,6 +946,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		addComponentListener(new ComponentAdapter()
 		{
+			@Override
 			public void componentShown(ComponentEvent evt)
 			{
 				formComponentShown();
@@ -1557,11 +1564,13 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			treeTable.addKeyListener(myKeyListener);
 		}
 
+		@Override
 		public void mousePressed(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
 		}
 
+		@Override
 		public void mouseReleased(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
@@ -1633,6 +1642,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		private class AddDeityActionListener extends DeityActionListener
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				selButton();
@@ -1641,6 +1651,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		private class EditDeityActionListener extends DeityActionListener
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				editDeityButtonClick();
@@ -1649,6 +1660,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		private class CreateDeityActionListener extends DeityActionListener
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				createDeityButtonClick();
@@ -1657,6 +1669,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		private class DeleteDeityActionListener extends DeityActionListener
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				deleteDeityButtonClick();
@@ -1735,11 +1748,13 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			treeTable.addKeyListener(myKeyListener);
 		}
 
+		@Override
 		public void mousePressed(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
 		}
 
+		@Override
 		public void mouseReleased(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
@@ -1805,6 +1820,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		private class RemoveClassActionListener extends ClassActionListener
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				InfoDomain.this.domainSelect.doClick();
@@ -1851,6 +1867,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		 * @param column
 		 * @return Class
 		 **/
+		@Override
 		public Class<?> getColumnClass(int column)
 		{
 			if (column == COL_NAME)
@@ -1883,6 +1900,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		 * return the root node
 		 * @return root
 		 **/
+		@Override
 		public Object getRoot()
 		{
 			return super.getRoot();
@@ -1982,23 +2000,34 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				// deities by name
 				case GuiConstants.INFODOMAIN_VIEW_NAME:
-					buildNameView();
+					setRoot(InfoViewModelBuilder.buildNameView(InfoDomain.this,
+						pc,
+						Globals.getDeityList(),
+						getQFilter()));
 					break; // end VIEW_NAME
 
 				case GuiConstants.INFODOMAIN_VIEW_ALIGNMENT:
-					buildAlignmentView();
+					setRoot(InfoViewModelBuilder.buildAlignmentView(InfoDomain.this,
+						pc,
+						Globals.getDeityList()));
 					break; // end VIEW_ALIGNMENT
 
 				case GuiConstants.INFODOMAIN_VIEW_DOMAIN:
-					buildDomainView();
+					setRoot(InfoViewModelBuilder.buildDomainView(InfoDomain.this,
+						pc,
+						Globals.getDeityList()));
 					break; // end VIEW_DOMAIN
 
 				case GuiConstants.INFODOMAIN_VIEW_PANTHEON:
-					buildPantheonView();
+					setRoot(InfoViewModelBuilder.buildPantheonView(InfoDomain.this,
+						pc,
+						Globals.getDeityList()));
 					break; // end VIEW_PANTHEON
 
 				case GuiConstants.INFODOMAIN_VIEW_SOURCE:
-					buildSourceView();
+					setRoot(InfoViewModelBuilder.buildSourceView(InfoDomain.this,
+						pc,
+						Globals.getDeityList()));
 					break; // end VIEW_SOURCE
 
 				default:
@@ -2015,309 +2044,6 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				fireTreeNodesChanged(super.getRoot(), new TreePath(super
 					.getRoot()));
 			}
-		}
-
-		private void buildNameView()
-		{
-			List<Deity> deityList = new ArrayList<Deity>();
-
-			String qFilter = getQFilter();
-			// now loop through all the deities and
-			// see which ones are not filtered out
-			for (Deity aDeity : Globals.getDeityList())
-			{
-				if (accept(pc, aDeity))
-				{
-					if (qFilter == null
-						|| aDeity.getDisplayName().toLowerCase().indexOf(
-							qFilter) >= 0)
-					{
-						deityList.add(aDeity);
-					}
-				}
-			}
-
-			PObjectNode[] rn = new PObjectNode[deityList.size()];
-
-			// iterate through the deity names
-			// and fill out the tree
-			for (int iName = 0; iName < deityList.size(); iName++)
-			{
-				final Deity aDeity = deityList.get(iName);
-
-				if (aDeity != null)
-				{
-					rn[iName] = new PObjectNode();
-					rn[iName].setItem(aDeity);
-					rn[iName].setParent(deityRoot);
-				}
-			}
-
-			// now add to the root node
-			deityRoot.setChildren(rn);
-		}
-
-		private void buildAlignmentView()
-		{
-			List<String> alignmentList = new ArrayList<String>();
-
-			// now loop through all the deities and
-			// see which ones are not filtered out
-			for (Deity aDeity : Globals.getDeityList())
-			{
-				if (accept(pc, aDeity))
-				{
-					String aString = aDeity.getAlignment();
-					if (aString != null && !alignmentList.contains(aString)
-						&& aString.length() > 0)
-					{
-						alignmentList.add(aString);
-					}
-				}
-			}
-			//build the Alignment root nodes
-			Collections.sort(alignmentList);
-			PObjectNode[] rs = new PObjectNode[alignmentList.size()];
-
-			// iterate through the deity alignments
-			// and fill out the tree
-			for (int iAlignment = 0; iAlignment < alignmentList.size(); iAlignment++)
-			{
-				final String anAlignment = alignmentList.get(iAlignment);
-				rs[iAlignment] = new PObjectNode();
-				rs[iAlignment].setItem(anAlignment);
-
-				for (Deity aDeity : Globals.getDeityList())
-				{
-					if (aDeity == null)
-					{
-						continue;
-					}
-
-					String aString = aDeity.getAlignment();
-					if (aString != null && !aString.equals(anAlignment))
-					{
-						continue;
-					}
-
-					PObjectNode aFN = new PObjectNode();
-					aFN.setItem(aDeity);
-					aFN.setParent(rs[iAlignment]);
-					rs[iAlignment].addChild(aFN);
-				}
-
-				// if it's not empty, add it
-				if (!rs[iAlignment].isLeaf())
-				{
-					rs[iAlignment].setParent(deityRoot);
-				}
-			}
-
-			// now add to the root node
-			deityRoot.setChildren(rs);
-		}
-
-		private void buildDomainView()
-		{
-			List<String> domainList = new ArrayList<String>();
-
-			// now loop through all the deities and
-			// see which ones are not filtered out
-			for (Deity aDeity : Globals.getDeityList())
-			{
-				if (accept(pc, aDeity)
-					&& !aDeity.getKeyName().equalsIgnoreCase("NONE"))
-				{
-					List<QualifiedObject<Domain>> deityDomains =
-							aDeity.getDomainList();
-					for (QualifiedObject<Domain> qualDomain : deityDomains)
-					{
-						String aString = qualDomain.getObject(null).getKeyName();
-						if (aString != null && !domainList.contains(aString)
-							&& aString.length() > 0)
-						{
-							domainList.add(aString);
-						}
-					}
-				}
-			}
-			//build the Domain root nodes
-			Collections.sort(domainList);
-			PObjectNode[] rs = new PObjectNode[domainList.size()];
-
-			// iterate through the deity domains
-			// and fill out the tree
-			for (int iDomain = 0; iDomain < domainList.size(); iDomain++)
-			{
-				final String sDomain = domainList.get(iDomain);
-				rs[iDomain] = new PObjectNode();
-				rs[iDomain].setItem(sDomain);
-
-				for (Deity aDeity : Globals.getDeityList())
-				{
-					if (aDeity == null
-						|| aDeity.getKeyName().equalsIgnoreCase("NONE"))
-					{
-						continue;
-					}
-
-					List<QualifiedObject<Domain>> deityDomains =
-						aDeity.getDomainList();
-					for (QualifiedObject<Domain> qualDomain : deityDomains)
-					{
-						String aString =
-								qualDomain.getObject(null).getKeyName();
-						if (aString != null && !aString.equals(sDomain))
-						{
-							continue;
-						}
-
-						PObjectNode aFN = new PObjectNode();
-						aFN.setItem(aDeity);
-						aFN.setParent(rs[iDomain]);
-						rs[iDomain].addChild(aFN);
-					}
-
-					// if it's not empty, add it
-					if (!rs[iDomain].isLeaf())
-					{
-						rs[iDomain].setParent(deityRoot);
-					}
-				}
-			}
-
-			// now add to the root node
-			deityRoot.setChildren(rs);
-		}
-
-		private void buildPantheonView()
-		{
-			List<String> pantheonList = new ArrayList<String>();
-
-			// now loop through all the deities and
-			// see which ones are not filtered out
-			for (Deity aDeity : Globals.getDeityList())
-			{
-				if (accept(pc, aDeity))
-				{
-					List<String> deityPantheons = aDeity.getPantheonList();
-					for (String aString : deityPantheons)
-					{
-						if (aString != null && !pantheonList.contains(aString)
-							&& aString.length() > 0)
-						{
-							pantheonList.add(aString);
-						}
-					}
-				}
-			}
-			//build the Pantheon root nodes
-			Collections.sort(pantheonList);
-			PObjectNode[] rs = new PObjectNode[pantheonList.size()];
-
-			// iterate through the deity pantheons
-			// and fill out the tree
-			for (int iPantheon = 0; iPantheon < pantheonList.size(); iPantheon++)
-			{
-				final String sPantheon = pantheonList.get(iPantheon);
-				rs[iPantheon] = new PObjectNode();
-				rs[iPantheon].setItem(sPantheon);
-
-				for (Deity aDeity : Globals.getDeityList())
-				{
-					if (aDeity == null)
-					{
-						continue;
-					}
-
-					List<String> deityPantheons = aDeity.getPantheonList();
-					for (String aString : deityPantheons)
-					{
-						if (aString != null && !aString.equals(sPantheon))
-						{
-							continue;
-						}
-
-						PObjectNode aFN = new PObjectNode();
-						aFN.setItem(aDeity);
-						aFN.setParent(rs[iPantheon]);
-						rs[iPantheon].addChild(aFN);
-					}
-
-					// if it's not empty, add it
-					if (!rs[iPantheon].isLeaf())
-					{
-						rs[iPantheon].setParent(deityRoot);
-					}
-				}
-			}
-
-			// now add to the root node
-			deityRoot.setChildren(rs);
-		}
-
-		private void buildSourceView()
-		{
-			List<String> sourceList = new ArrayList<String>();
-
-			// now loop through all the deities and
-			// see which ones are not filtered out
-			for (Deity aDeity : Globals.getDeityList())
-			{
-				if (accept(pc, aDeity))
-				{
-					final String aString =
-							aDeity.getSourceEntry().getSourceBook()
-								.getLongName();
-					if (aString != null && !sourceList.contains(aString)
-						&& aString.length() > 0)
-					{
-						sourceList.add(aString);
-					}
-				}
-			}
-
-			//build the SOURCE root nodes
-			PObjectNode[] rs = new PObjectNode[sourceList.size()];
-
-			// iterate through the deity sources
-			// and fill out the tree
-			for (int iSource = 0; iSource < sourceList.size(); iSource++)
-			{
-				final String aSource = sourceList.get(iSource);
-				rs[iSource] = new PObjectNode();
-				rs[iSource].setItem(aSource);
-
-				for (Deity aDeity : Globals.getDeityList())
-				{
-					if (aDeity == null)
-					{
-						continue;
-					}
-
-					final String aString =
-							aDeity.getSourceEntry().getSourceBook()
-								.getLongName();
-					if (aString != null && !aString.equals(aSource))
-					{
-						continue;
-					}
-
-					PObjectNode aFN = new PObjectNode();
-					aFN.setItem(aDeity);
-					aFN.setParent(rs[iSource]);
-					rs[iSource].addChild(aFN);
-				}
-
-				// if it's not empty, add it
-				if (!rs[iSource].isLeaf())
-				{
-					rs[iSource].setParent(deityRoot);
-				}
-			}
-
-			// now add to the root node
-			deityRoot.setChildren(rs);
 		}
 
 		public List<String> getMColumnList()
@@ -2414,6 +2140,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			return availDomainList;
 		}
 
+		@Override
 		public Class<?> getColumnClass(int col)
 		{
 			return getValueAt(0, col).getClass();
@@ -2445,6 +2172,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		// The default implementations of these methods in
 		// AbstractTableModel would work, but we can refine them.
+		@Override
 		public String getColumnName(int column)
 		{
 			return domainColList[column];
@@ -2625,6 +2353,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		private final ListSelectionModel lsm = domainTable.getSelectionModel();
 
+		@Override
 		public void mouseClicked(MouseEvent f)
 		{
 			final int selectedRow =
