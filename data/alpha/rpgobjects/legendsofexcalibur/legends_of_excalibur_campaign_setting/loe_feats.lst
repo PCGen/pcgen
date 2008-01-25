@@ -1,40 +1,40 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Jan 25 13:07:33 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
-# Feat Name				Type				Required Class			Required Feat		Required Language		Maximum Level	Req. Special Ability					Required Skill			Required Stat				Stackable?	Multiple?	Choose									Combat bonus										Bonus to DC				Bonus to skill				Stat bonus		Modify VAR				Class Skill				Source Page		SAB
-Channeling (Hermit)		TYPE:General							PREFEAT:1,Power Surge																																																																													SOURCEPAGE:p51
-Channeling (Hedge Mage)		TYPE:General							PREFEAT:1,Power Surge																																																																													SOURCEPAGE:p51
-Channeling (Crusader)		TYPE:General							PREFEAT:1,Power Surge																																																																													SOURCEPAGE:p51
-Channeling (Druid/Minstrel)	TYPE:General							PREFEAT:1,Power Surge																																																																													SOURCEPAGE:p51
-Channeling (Priest)		TYPE:General							PREFEAT:1,Power Surge																																																																													SOURCEPAGE:p51
+# Feat Name				Type				Required Class			Required Feat		Required Language		Req. Special Ability					Required Skill			Required Stat				Special ABility							Stackable?	Multiple?	Choose										Combat bonus										Bonus to DC				Bonus to skill				Stat bonus		Modify VAR				Class Skill				Source Page		PREPCLEVEL
+Channeling (Hermit)		TYPE:General							PREFEAT:1,Power Surge																																																																																				SOURCEPAGE:p51
+Channeling (Hedge Mage)		TYPE:General							PREFEAT:1,Power Surge																																																																																				SOURCEPAGE:p51
+Channeling (Crusader)		TYPE:General							PREFEAT:1,Power Surge																																																																																				SOURCEPAGE:p51
+Channeling (Druid/Minstrel)	TYPE:General							PREFEAT:1,Power Surge																																																																																				SOURCEPAGE:p51
+Channeling (Priest)		TYPE:General							PREFEAT:1,Power Surge																																																																																				SOURCEPAGE:p51
 
 # new feats
 #Dark Heritage			TYPE:General	TEMPLATE:ADDCHOICE:Dark Heritage template	BONUS:DC|CLASS.Hedge Mage|1	PREPCLEVEL:MAX=1	SOURCEPAGE:p51
-Dark Heritage			TYPE:General															PREPCLEVEL:MAX=1																																														BONUS:DC|CLASS.Hedge Mage|1																				SOURCEPAGE:p51
-Devotion				TYPE:General																		PRESA:Membership in an Order of Knighthood																										BONUS:COMBAT|TOHIT|1|TYPE.Moral	BONUS:COMBAT|DAMAGE|1|TYPE.Moral																									SOURCEPAGE:p51	SAB:+2 bonus when existance of order is threatened
-Faith					TYPE:General																															PRESTAT:1,WIS=11	PRESTAT:1,NOB=20																																														CSKILL:Knowledge (Religion)	SOURCEPAGE:p51
-Heritage of Nobility		TYPE:General															PREPCLEVEL:MAX=1																																																									BONUS:STAT|NOB|10											SOURCEPAGE:p51
-Inheritance				TYPE:General															PREPCLEVEL:MAX=1																																																																						SOURCEPAGE:p52
+Dark Heritage			TYPE:General																																																																						BONUS:DC|CLASS.Hedge Mage|1																				SOURCEPAGE:p51	PREPCLEVEL:MAX=1
+Devotion				TYPE:General															PRESA:Membership in an Order of Knighthood												SAB:+2 bonus when existance of order is threatened																BONUS:COMBAT|TOHIT|1|TYPE.Moral	BONUS:COMBAT|DAMAGE|1|TYPE.Moral																									SOURCEPAGE:p51
+Faith					TYPE:General																												PRESTAT:1,WIS=11	PRESTAT:1,NOB=20																																																								CSKILL:Knowledge (Religion)	SOURCEPAGE:p51
+Heritage of Nobility		TYPE:General																																																																																	BONUS:STAT|NOB|10											SOURCEPAGE:p51	PREPCLEVEL:MAX=1
+Inheritance				TYPE:General																																																																																														SOURCEPAGE:p52	PREPCLEVEL:MAX=1
 # need to figure out how to increase starting gold - +2d6 * nobility
 
 # not sure how to adjust a spell's spell point cost through metamagic.  these feats will be commented out until i figure it out.
 
 # Innate Spell	ADDSPELLPOINTS:-2	STACK:NO	MULT:YES	CHOOSE:SPELLLIST|1
 
-Metabolic Fuel			TYPE:General		PRECLASS:1,Spellcaster=5																				PRESKILL:1,Concentration=5																																																									SOURCEPAGE:p52
-Ordination				TYPE:General.Hermit										PRELANG:1,Literacy																	PRESTAT:1,WIS=13																																																						SOURCEPAGE:p52
-Piety					TYPE:General							PREFEAT:1,Faith																						PRESTAT:1,NOB=30																																																						SOURCEPAGE:p52
-Power Source			TYPE:General.Hermit						PREFEAT:1,Power Surge																													MULT:YES	CHOOSE:Crusader|Druid/Minstrel|Hedge Mage|Hermit|Priest																																					SOURCEPAGE:p52
-Power Surge				TYPE:General.Hermit																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																		BONUS:VAR|BONUSPOWERPOINTS|3						SOURCEPAGE:p52
+Metabolic Fuel			TYPE:General		PRECLASS:1,Spellcaster=5																	PRESKILL:1,Concentration=5																																																																			SOURCEPAGE:p52
+Ordination				TYPE:General.Hermit										PRELANG:1,Literacy														PRESTAT:1,WIS=13																																																																SOURCEPAGE:p52
+Piety					TYPE:General							PREFEAT:1,Faith																			PRESTAT:1,NOB=30																																																																SOURCEPAGE:p52
+Power Source			TYPE:General.Hermit						PREFEAT:1,Power Surge																																			MULT:YES	CHOOSE:STRING|Crusader|Druid/Minstrel|Hedge Mage|Hermit|Priest																																					SOURCEPAGE:p52
+Power Surge				TYPE:General.Hermit																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																			BONUS:VAR|BONUSPOWERPOINTS|3						SOURCEPAGE:p52
 
 # another new metamagic feat
 #Power Manipulation	PRECLASS:Spellcaster=8	PREFEAT:2,TYPE=Metamagic			SOURCEPAGE:p53
 
-Predestined				TYPE:General																																																																																							SOURCEPAGE:p52
-Second Sight			TYPE:General.Hermit																																																																			BONUS:SKILL|Sense Motive,Prophecy|2														SOURCEPAGE:p52
-Squire				TYPE:General		PRECLASS:1,Knight=3																																																																																		SOURCEPAGE:p52	SAB:See text
-Standard Bearer			TYPE:General																																																																																							SOURCEPAGE:p52
-Zealot				TYPE:General							PREFEAT:1,Faith																																																																														SOURCEPAGE:p53	SAB:+1 to hit and damage when fighting infidels
+Predestined				TYPE:General																																																																																														SOURCEPAGE:p52
+Second Sight			TYPE:General.Hermit																																																																										BONUS:SKILL|Sense Motive,Prophecy|2														SOURCEPAGE:p52
+Squire				TYPE:General		PRECLASS:1,Knight=3																													SAB:See text																																																										SOURCEPAGE:p52
+Standard Bearer			TYPE:General																																																																																														SOURCEPAGE:p52
+Zealot				TYPE:General							PREFEAT:1,Faith																									SAB:+1 to hit and damage when fighting infidels																																																					SOURCEPAGE:p53
 
 
 ###Block:Feat Description

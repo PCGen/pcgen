@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan  7 12:59:36 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Jan 25 13:07:33 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # Bard and Druid block.  Due to .MOD issues, redoing classes here
@@ -240,15 +240,15 @@ CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 CLASS:Robber Baron	HD:8		TYPE:Base.PC	ABB:RBr		MAXLEVEL:20	SOURCEPAGE:29	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Robber Baron	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Disguise|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|Move Silently|TYPE.Profession|Ride|Sleight of Hand
-1																					ADD:VFEAT|1|Improved Feint	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy						AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1																										VFEAT:Improved Feint	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy						AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 2																					ADD:FEAT|1|Mounted Combat
-3	SAB:Sneak Attack +%d6|SneakAttack	BONUS:VAR|SneakAttack|CL/3	BONUS:VAR|KnightLevel|CL-2																					AUTO:FEAT|Knight's Warhorse
-4																					ADD:Feat|1|TYPE=RobberBaron
+3	SAB:Sneak Attack +%d6|SneakAttack	BONUS:VAR|SneakAttack|CL/3	BONUS:VAR|KnightLevel|CL-2																									AUTO:FEAT|Knight's Warhorse
+4																					ADD:FEAT|1|TYPE=RobberBaron
 5							BONUS:VAR|MountedCombat|CL/5						DEFINE:MountedCombat|0
-8																					ADD:Feat|1|TYPE=RobberBaron
-12																					ADD:Feat|1|TYPE=RobberBaron
-16																					ADD:Feat|1|TYPE=RobberBaron
-20																					ADD:Feat|1|TYPE=RobberBaron
+8																					ADD:FEAT|1|TYPE=RobberBaron
+12																					ADD:FEAT|1|TYPE=RobberBaron
+16																					ADD:FEAT|1|TYPE=RobberBaron
+20																					ADD:FEAT|1|TYPE=RobberBaron
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages												Save checks bonus											Combat bonus
 CLASS:Skald		HD:8		TYPE:Base.PC	ABB:Ska		MAXLEVEL:20	SOURCEPAGE:p.31	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE

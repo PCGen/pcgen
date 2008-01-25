@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Jan 25 13:07:33 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
-# Template Name	Visible	Source Page		Class Skill						FAVOREDCLASS		Automatic Languages	REGION		SAB
-British		VISIBLE:YES	SOURCEPAGE:p7								FAVOREDCLASS:Yeoman					REGION:England
-French		VISIBLE:YES	SOURCEPAGE:7	CSKILL:Diplomacy|Gather Information						LANGAUTO:French		REGION:France
-Holy Roman Empire	VISIBLE:YES	SOURCEPAGE:7	CSKILL:Knowledge (Religion)|Diplomacy					LANGAUTO:Latin		REGION:Italy
-Irish			VISIBLE:YES	SOURCEPAGE:7	CSKILL:Sense Motive|Spot							LANGAUTO:Irish		REGION:Ireland
-Saracen		VISIBLE:YES	SOURCEPAGE:7	CSKILL:Handle Animal|Ride							LANGAUTO:Arabic		REGION:Arabia
-Saxon			VISIBLE:YES	SOURCEPAGE:7	CSKILL:Intimidate|Survival							LANGAUTO:Saxon		REGION:Saxony	SAB:Illiterate
-Scottish		VISIBLE:YES	SOURCEPAGE:7	CSKILL:Bluff|Hide									LANGAUTO:Scottish		REGION:Scotland
-Spanish		VISIBLE:YES	SOURCEPAGE:7	CSKILL:Appraise|Listen								LANGAUTO:Spanish		REGION:Spain
+# Template Name	Visible	Source Page		Special ABility	Class Skill						FAVOREDCLASS		Automatic Languages	REGION
+British		VISIBLE:YES	SOURCEPAGE:p7											FAVOREDCLASS:Yeoman					REGION:England
+French		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Diplomacy|Gather Information						LANGAUTO:French		REGION:France
+Holy Roman Empire	VISIBLE:YES	SOURCEPAGE:7				CSKILL:Knowledge (Religion)|Diplomacy					LANGAUTO:Latin		REGION:Italy
+Irish			VISIBLE:YES	SOURCEPAGE:7				CSKILL:Sense Motive|Spot							LANGAUTO:Irish		REGION:Ireland
+Saracen		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Handle Animal|Ride							LANGAUTO:Arabic		REGION:Arabia
+Saxon			VISIBLE:YES	SOURCEPAGE:7	SAB:Illiterate	CSKILL:Intimidate|Survival							LANGAUTO:Saxon		REGION:Saxony
+Scottish		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Bluff|Hide									LANGAUTO:Scottish		REGION:Scotland
+Spanish		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Appraise|Listen								LANGAUTO:Spanish		REGION:Spain
