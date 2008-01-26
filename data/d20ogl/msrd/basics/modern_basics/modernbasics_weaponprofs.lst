@@ -82,3 +82,4 @@ Metal Baton			TYPE:Simple
 Tonfa				TYPE:Simple
 Rifle Butt			TYPE:Simple
 Unarmed Strike		TYPE:Simple
+Quarterstaff		TYPE:Simple		HANDS:2
