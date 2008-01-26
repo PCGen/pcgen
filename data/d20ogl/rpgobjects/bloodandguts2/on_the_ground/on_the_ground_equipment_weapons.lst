@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 13:09:34 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Jan 25 22:30:04 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Blood and Guts 2: On the Ground	SOURCESHORT:BnG2-OtG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=285
 
 #CREATED BY: Paul W. King, Jan 2007
@@ -29,23 +29,23 @@ Howitzer		TYPE:Weapon.Ranged.Military.Indirect.Pojectile.Ballistic	DEFINE:vcrew|
 M9 Bayonet		TYPE:Weapon.Simple.Melee.Piercing.Standard.Metal	COST:15	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	SOURCEPAGE:p.9
 
 ###BLOCK: firearms
-# Equipment Name		Required Proficiency			Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property				Rate of Fire
-HK Mk 23 SOCOM Pistol	PROFICIENCY:HK Mk 23 SOCOM Pistol	TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Handgun			COST:20	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6		RANGE:30	SIZE:M	SOURCEPAGE:p.10	SPROP:Mil +3, 12 box magazine		RATEOFFIRE:S
+# Equipment Name		Required Proficiency				Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property				Rate of Fire
+HK Mk 23 SOCOM Pistol	PROFICIENCY:WEAPON|HK Mk 23 SOCOM Pistol	TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Handgun			COST:20	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6		RANGE:30	SIZE:M	SOURCEPAGE:p.10	SPROP:Mil +3, 12 box magazine		RATEOFFIRE:S
 
-M4/203			PROFICIENCY:M4/203			TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:20	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:60	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, 30 box magazine		RATEOFFIRE:S, A
-M16/203			PROFICIENCY:M16/203			TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:20	WT:13		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:80	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, 30 box magazine		RATEOFFIRE:S, A
-M24 Sniper			PROFICIENCY:M24 Sniper			TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:22	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12		RANGE:140	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, 5 box magazine		RATEOFFIRE:S
-M40A1 Sniper		PROFICIENCY:M40A1 Sniper		TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:24	WT:15		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10		RANGE:160	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, 5 box magazine		RATEOFFIRE:S
-M1014				PROFICIENCY:M1014				TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:18	WT:9		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:40	SIZE:L	SOURCEPAGE:p.10	SPROP:Res +2, 6 box magazine		RATEOFFIRE:S
+M4/203			PROFICIENCY:WEAPON|M4/203			TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:20	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:60	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, 30 box magazine		RATEOFFIRE:S, A
+M16/203			PROFICIENCY:WEAPON|M16/203			TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:20	WT:13		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:80	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, 30 box magazine		RATEOFFIRE:S, A
+M24 Sniper			PROFICIENCY:WEAPON|M24 Sniper			TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:22	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12		RANGE:140	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, 5 box magazine		RATEOFFIRE:S
+M40A1 Sniper		PROFICIENCY:WEAPON|M40A1 Sniper		TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:24	WT:15		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10		RANGE:160	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, 5 box magazine		RATEOFFIRE:S
+M1014				PROFICIENCY:WEAPON|M1014			TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:18	WT:9		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:40	SIZE:L	SOURCEPAGE:p.10	SPROP:Res +2, 6 box magazine		RATEOFFIRE:S
 
-Dragon			PROFICIENCY:Rocket Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d10		RANGE:4900	SIZE:H	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 1		RATEOFFIRE:1
-Javelin			PROFICIENCY:Rocket Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d10		RANGE:8200	SIZE:H	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 1		RATEOFFIRE:1
-M136 AT4			PROFICIENCY:Rocket Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6		RANGE:150	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 1		RATEOFFIRE:1
-M203				PROFICIENCY:Grenade Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:Varies	RANGE:80	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 1		RATEOFFIRE:1
-M249 SAW			PROFICIENCY:Heavy Machine Gun		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10		RANGE:90	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 100 box	RATEOFFIRE:A
-M240				PROFICIENCY:Heavy Machine Gun		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12		RANGE:120	SIZE:H	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of linked	RATEOFFIRE:A
-Stinger			PROFICIENCY:Rocket Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6		RANGE:150	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of varies	RATEOFFIRE:1
-TOW				PROFICIENCY:Rocket Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d12				SIZE:H	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 1		RATEOFFIRE:1
+Dragon			PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d10		RANGE:4900	SIZE:H	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 1		RATEOFFIRE:1
+Javelin			PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d10		RANGE:8200	SIZE:H	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 1		RATEOFFIRE:1
+M136 AT4			PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6		RANGE:150	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 1		RATEOFFIRE:1
+M203				PROFICIENCY:WEAPON|Grenade Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:Varies	RANGE:80	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 1		RATEOFFIRE:1
+M249 SAW			PROFICIENCY:WEAPON|Heavy Machine Gun	TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10		RANGE:90	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 100 box	RATEOFFIRE:A
+M240				PROFICIENCY:WEAPON|Heavy Machine Gun	TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12		RANGE:120	SIZE:H	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of linked	RATEOFFIRE:A
+Stinger			PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6		RANGE:150	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of varies	RATEOFFIRE:1
+TOW				PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Exotic.Ranged.Military.Projectile.Ballistic.HeavyWeapon	COST:28	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d12				SIZE:H	SOURCEPAGE:p.10	SPROP:Mil +3, magazine of 1		RATEOFFIRE:1
 
 ###BLOCK: personal munitions
 # Equipment Name	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property
@@ -53,7 +53,7 @@ Claymore		TYPE:Weapon.Ranged.Military.PersonalMunitions.Slashing	COST:20	WT:3		C
 Flash Bang		TYPE:Weapon.Ranged.Military.PersonalMunitions			COST:14	WT:1												RANGE:10	SIZE:T	SOURCEPAGE:p.11	SPROP:Mil +3, 10' radius
 
 ###BLOCK: indirect fire weapons
-# Equipment Name	Required Proficiency	Type								Cost		Weight	Damage	Range		Size		Source Page		Special Property		Rate of Fire
-M120 Mortar		PROFICIENCY:Mortar	TYPE:Weapon.Ranged.Military.Exotic.Projectile	COST:33	WT:320	DAMAGE:10d6	RANGE:23760	SIZE:H	SOURCEPAGE:p.12	SPROP:Mil +3, crew 4/1	RATEOFFIRE:5 rounds
-M224 Mortar		PROFICIENCY:Mortar	TYPE:Weapon.Ranged.Military.Exotic.Projectile	COST:20	WT:47		DAMAGE:8d6	RANGE:11616	SIZE:H	SOURCEPAGE:p.12	SPROP:Mil +3, crew 2/1	RATEOFFIRE:1 round
-M252 Mortar		PROFICIENCY:Mortar	TYPE:Weapon.Ranged.Military.Exotic.Projectile	COST:25	WT:91		DAMAGE:9d6	RANGE:18480	SIZE:H	SOURCEPAGE:p.12	SPROP:Mil +3, crew 3/1	RATEOFFIRE:2 rounds
+# Equipment Name	Required Proficiency		Type								Cost		Weight	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+M120 Mortar		PROFICIENCY:WEAPON|Mortar	TYPE:Weapon.Ranged.Military.Exotic.Projectile	COST:33	WT:320	DAMAGE:10d6	RANGE:23760	SIZE:H	SOURCEPAGE:p.12	SPROP:Mil +3, crew 4/1	RATEOFFIRE:5 rounds
+M224 Mortar		PROFICIENCY:WEAPON|Mortar	TYPE:Weapon.Ranged.Military.Exotic.Projectile	COST:20	WT:47		DAMAGE:8d6	RANGE:11616	SIZE:H	SOURCEPAGE:p.12	SPROP:Mil +3, crew 2/1	RATEOFFIRE:1 round
+M252 Mortar		PROFICIENCY:WEAPON|Mortar	TYPE:Weapon.Ranged.Military.Exotic.Projectile	COST:25	WT:91		DAMAGE:9d6	RANGE:18480	SIZE:H	SOURCEPAGE:p.12	SPROP:Mil +3, crew 3/1	RATEOFFIRE:2 rounds

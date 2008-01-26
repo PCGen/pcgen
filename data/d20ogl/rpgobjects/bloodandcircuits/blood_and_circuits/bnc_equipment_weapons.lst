@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 25 22:12:02 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Blood and Circuits	SOURCESHORT:BNC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
 
-# Equipment Name	Output Name				Required Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Rate of Fire
-Disk Blade							PROFICIENCY:Disk Blade		TYPE:Weapon.Ranged.Standard.Thrown.Slashing.Exotic.Aerodynamic	COST:18	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:30	SIZE:M	SOURCEPAGE:p.28
-Pipe Rifle							PROFICIENCY:Pipe Rifle		TYPE:Weapon.Simple.Ranged.Standard.Ballistic				COST:4	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	RANGE:40	SIZE:L	SOURCEPAGE:p.28	RATEOFFIRE:1
-X Blaster Pistol	OUTPUTNAME:X-Blaster Pistol	PROFICIENCY:X Blaster Pistol	TYPE:Weapon.Ranged.Standard.Fire.Firearm.Pistol				COST:17	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:30	SIZE:S	SOURCEPAGE:p.28	RATEOFFIRE:Single
-X Blaster Rifle	OUTPUTNAME:X-Blaster Rifle	PROFICIENCY:X Blaster Rifle	TYPE:Weapon.Ranged.Standard.Fire.Firearm.Longarm			COST:33	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d8	RANGE:90	SIZE:L	SOURCEPAGE:p.28	RATEOFFIRE:Single
+# Equipment Name	Output Name				Required Proficiency			Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Rate of Fire
+Disk Blade							PROFICIENCY:WEAPON|Disk Blade		TYPE:Weapon.Ranged.Standard.Thrown.Slashing.Exotic.Aerodynamic	COST:18	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:30	SIZE:M	SOURCEPAGE:p.28
+Pipe Rifle							PROFICIENCY:WEAPON|Pipe Rifle		TYPE:Weapon.Simple.Ranged.Standard.Ballistic				COST:4	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	RANGE:40	SIZE:L	SOURCEPAGE:p.28	RATEOFFIRE:1
+X Blaster Pistol	OUTPUTNAME:X-Blaster Pistol	PROFICIENCY:WEAPON|X Blaster Pistol	TYPE:Weapon.Ranged.Standard.Fire.Firearm.Pistol				COST:17	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:30	SIZE:S	SOURCEPAGE:p.28	RATEOFFIRE:Single
+X Blaster Rifle	OUTPUTNAME:X-Blaster Rifle	PROFICIENCY:WEAPON|X Blaster Rifle	TYPE:Weapon.Ranged.Standard.Fire.Firearm.Longarm			COST:33	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d8	RANGE:90	SIZE:L	SOURCEPAGE:p.28	RATEOFFIRE:Single

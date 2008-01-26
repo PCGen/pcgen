@@ -1,24 +1,24 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 06:23:48 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 25 22:38:41 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
 
 ###Block:Handguns
-# Equipment Name	Required Proficiency		Type														Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Rate of Fire
-Police Positive	PROFICIENCY:Police Positive	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Handgun.Ballistic.Container.Projectile	CONTAINS:1|Bullet=6	COST:14	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	RANGE:20	SIZE:T	SOURCEPAGE:p.12	RATEOFFIRE:S
-Webley Revolver	PROFICIENCY:Webley Revolver	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Handgun.Ballistic.Container.Projectile	CONTAINS:1|Bullet=6	COST:15	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:30	SIZE:S	SOURCEPAGE:p.12	RATEOFFIRE:S
-Colt Revolver	PROFICIENCY:Colt Revolver	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Handgun.Ballistic.Container.Projectile	CONTAINS:1|Bullet=6	COST:17	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:30	SIZE:S	SOURCEPAGE:p.12	RATEOFFIRE:S
-Luger			PROFICIENCY:Luger			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Handgun.Ballistic.Container.Projectile	CONTAINS:1|Bullet=8	COST:18	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:30	SIZE:S	SOURCEPAGE:p.12	RATEOFFIRE:S
+# Equipment Name	Required Proficiency			Type														Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Rate of Fire
+Police Positive	PROFICIENCY:WEAPON|Police Positive	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Handgun.Ballistic.Container.Projectile	CONTAINS:1|Bullet=6	COST:14	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	RANGE:20	SIZE:T	SOURCEPAGE:p.12	RATEOFFIRE:S
+Webley Revolver	PROFICIENCY:WEAPON|Webley Revolver	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Handgun.Ballistic.Container.Projectile	CONTAINS:1|Bullet=6	COST:15	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:30	SIZE:S	SOURCEPAGE:p.12	RATEOFFIRE:S
+Colt Revolver	PROFICIENCY:WEAPON|Colt Revolver	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Handgun.Ballistic.Container.Projectile	CONTAINS:1|Bullet=6	COST:17	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:30	SIZE:S	SOURCEPAGE:p.12	RATEOFFIRE:S
+Luger			PROFICIENCY:WEAPON|Luger		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Handgun.Ballistic.Container.Projectile	CONTAINS:1|Bullet=8	COST:18	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:30	SIZE:S	SOURCEPAGE:p.12	RATEOFFIRE:S
 
 ###Block:Longarms
-# Equipment Name			Required Proficiency				Type													Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Rate of Fire
-Thompson Submachine Gun		PROFICIENCY:Thompson Submachine Gun		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Container.Projectile	CONTAINS:1|Bullet=100	COST:18	WT:11		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:30	SIZE:L	SOURCEPAGE:p.12	RATEOFFIRE:S, A
-Stevens Model 410			PROFICIENCY:Stevens Model 410			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Container.Projectile	CONTAINS:1|Bullet=1	COST:14	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:40	SIZE:L	SOURCEPAGE:p.12	RATEOFFIRE:S
-Winchester Model 1892		PROFICIENCY:Winchester Model 1892		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Container.Projectile	CONTAINS:1|Bullet=4	COST:17	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:50	SIZE:M	SOURCEPAGE:p.12	RATEOFFIRE:Single
-Winchester Model 1897 Shotgun	PROFICIENCY:Winchester Model 1897 Shotgun	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Container.Projectile	CONTAINS:1|Bullet=5	COST:18	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:30	SIZE:L	SOURCEPAGE:p.13	RATEOFFIRE:S
-Browning Model 1918		PROFICIENCY:Browning Model 1918		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Container.Projectile	CONTAINS:1|Bullet=20	COST:20	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:50	SIZE:L	SOURCEPAGE:p.13	RATEOFFIRE:S, A
+# Equipment Name			Required Proficiency						Type													Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Rate of Fire
+Thompson Submachine Gun		PROFICIENCY:WEAPON|Thompson Submachine Gun		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Container.Projectile	CONTAINS:1|Bullet=100	COST:18	WT:11		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:30	SIZE:L	SOURCEPAGE:p.12	RATEOFFIRE:S, A
+Stevens Model 410			PROFICIENCY:WEAPON|Stevens Model 410			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Container.Projectile	CONTAINS:1|Bullet=1	COST:14	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:40	SIZE:L	SOURCEPAGE:p.12	RATEOFFIRE:S
+Winchester Model 1892		PROFICIENCY:WEAPON|Winchester Model 1892			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Container.Projectile	CONTAINS:1|Bullet=4	COST:17	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:50	SIZE:M	SOURCEPAGE:p.12	RATEOFFIRE:Single
+Winchester Model 1897 Shotgun	PROFICIENCY:WEAPON|Winchester Model 1897 Shotgun	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Container.Projectile	CONTAINS:1|Bullet=5	COST:18	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:30	SIZE:L	SOURCEPAGE:p.13	RATEOFFIRE:S
+Browning Model 1918		PROFICIENCY:WEAPON|Browning Model 1918			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Container.Projectile	CONTAINS:1|Bullet=20	COST:20	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:50	SIZE:L	SOURCEPAGE:p.13	RATEOFFIRE:S, A
 
 ###Block:Heavy Weapon
-# Equipment Name	Required Proficiency		Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
-French Window Gun	PROFICIENCY:French Window Gun	TYPE:Weapon.Ranged.Exotic.Firearm.HeavyWeapon.Ballistic.Container.Projectile	COST:23	WT:40		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:40	SIZE:H	SOURCEPAGE:p.13	SPROP:Lined ammunition	RATEOFFIRE:A
+# Equipment Name	Required Proficiency				Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+French Window Gun	PROFICIENCY:WEAPON|French Window Gun	TYPE:Weapon.Ranged.Exotic.Firearm.HeavyWeapon.Ballistic.Container.Projectile	COST:23	WT:40		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:40	SIZE:H	SOURCEPAGE:p.13	SPROP:Lined ammunition	RATEOFFIRE:A
 
 ###Block:Civilian cars
 # Equipment Name	Type							Cost		Define																														Modifier		Size		Source Page		Modify VAR
