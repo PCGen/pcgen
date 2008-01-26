@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Thu Jan 24 22:23:51 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
 # Original entry by: Ratheof Blithwyn and Paul "Yes, that Paul" Grosse
 
 ###Block: Staffs
-# Equipment Name		Output Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
-Staff (Illusionist)	OUTPUTNAME:The Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:200000	WT:0		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.60	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
-Staff (Terror)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:112500	WT:0																											SOURCEPAGE:p.60
+# Equipment Name		Output Name					Required Proficiency			Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
+Staff (Illusionist)	OUTPUTNAME:The Staff of the [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:200000	WT:0		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.60	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Staff (Terror)		OUTPUTNAME:Staff of [NAME]								TYPE:Magic.Staff																	COST:112500	WT:0																											SOURCEPAGE:p.60
 
 ###Block: Wands
 # Equipment Name			Output Name				Type				Weight	Base Item for EQMOD	Modifier														Source Page

@@ -41,7 +41,7 @@ Heavy Cell (15) (Laser Cannon)	TYPE:Ammunition.Standard.Fire.Cannon			COST:50	WT
 
 Missle (HE)					TYPE:Ammunition.Standard.Firearm.Explosive		COST:500	WT:5		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:1250	SIZE:S	SOURCEPAGE:p.100	SPROP:Guidance(20) 2500 second round
 Missle (HEAP)				TYPE:Ammunition.Standard.Firearm.Explosive		COST:750	WT:7		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	RANGE:1250	SIZE:S	SOURCEPAGE:p.100	SPROP:Guidance(20) 50% fire/piercing 2500ft
-Missle (AA)					TYPE:Ammunition.Standard.Firearm.Explosive		COST:1000	WT:10		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d10		RANGE:-	SIZE:S	SOURCEPAGE:p.100	SPROP:Guidance(25) 50% fire/bludgeoning 2500ft
+Missle (AA)					TYPE:Ammunition.Standard.Firearm.Explosive		COST:1000	WT:10		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d10		RANGE:0	SIZE:S	SOURCEPAGE:p.100	SPROP:Guidance(25) 50% fire/bludgeoning 2500ft
 Rocket (HE)					TYPE:Ammunition.Standard.Firearm.Explosive		COST:250	WT:3		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d8		RANGE:10	SIZE:S	SOURCEPAGE:p.100	SPROP:50% fire/piercing
 Rocket (HEAP)				TYPE:Ammunition.Standard.Firearm.Explosive		COST:400	WT:4		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d8		RANGE:10	SIZE:S	SOURCEPAGE:p.100	SPROP:50% fire/piercing
 

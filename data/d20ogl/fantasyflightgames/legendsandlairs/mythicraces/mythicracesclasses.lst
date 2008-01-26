@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Jan 24 22:20:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
@@ -116,14 +116,14 @@ CLASS:Soulless	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Dis
 ###Block: Normal Level Progression
 1	SAB:Alter Self %/day|AlterSelf	SAB:Essence Theft	SAB:Resistance to Necromancy	SAB:Soullessness	BONUS:VAR|AlterSelf|1	BONUS:SKILL|STAT=CHA|(0-2)	DEFINE:AlterSelf|0	ADD:SPELLCASTER|1|ANY
 2	SAB:Telepathy
-3																															ADD:SPELLCASTER|1|ANY	ADD:Resistance|1|Cold,Fire,Acid
+3																															ADD:SPELLCASTER|1|ANY	ADD:FEAT|Soulless Resistance
 4																		BONUS:VAR|AlterSelf|1
-5	SAB:See in Darkness																											ADD:SPELLCASTER|1|ANY	ADD:Immunity|1|Poison,Fire,Electricity
-6																															ADD:Resistance|1|Cold,Fire,Acid
+5	SAB:See in Darkness																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|Soulless Immunity
+6																															ADD:FEAT|Soulless Resistance
 7																		BONUS:VAR|AlterSelf|1										ADD:SPELLCASTER|1|ANY
 8	SAB:Unnerving Gaze
-9																															ADD:SPELLCASTER|1|ANY	ADD:Resistance|1|Cold,Fire,Acid
-10																		BONUS:VAR|AlterSelf|1										ADD:Immunity|1|Poison,Fire,Electricity
+9																															ADD:SPELLCASTER|1|ANY	ADD:FEAT|Soulless Resistance
+10																		BONUS:VAR|AlterSelf|1										ADD:FEAT|Soulless Immunity
 
 # Class Name		Hit Dice	Type			Max Level	Source Page			Save checks bonus								Combat bonus
 CLASS:Eletum Aemidun	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

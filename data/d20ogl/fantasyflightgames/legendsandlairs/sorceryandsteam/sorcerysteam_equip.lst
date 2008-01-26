@@ -1,32 +1,32 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Jan 24 21:46:03 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
 ###Block: Tools
 # Scholar's Tools-----------------------------------------------------------------------------------------------------------------------------
-# Equipment Name				Required Proficiency			Type						Cost		Weight	Slot Needed	Size		Source Page
-Alchemist's Lab (Steamcraft)								TYPE:Goods.Tools.Resizable		COST:1000	WT:200			SIZE:L	SOURCEPAGE:p.123
-Arcane Flux Detector									TYPE:Goods.Tools.Resizable		COST:500	WT:5				SIZE:T	SOURCEPAGE:p.123
-Arcane Pulse Disruptor									TYPE:Goods.Tools.Resizable		COST:3500	WT:60				SIZE:M	SOURCEPAGE:p.124
-Bard in a Box (Hand Cranked)								TYPE:Goods.Tools.Resizable		COST:450	WT:2				SIZE:S	SOURCEPAGE:p.124
-Bard in a Box (Steam Powered)								TYPE:Goods.Tools.Resizable		COST:900	WT:3				SIZE:S	SOURCEPAGE:p.124
-Calculating Engine (Large)								TYPE:Goods.Tools.Resizable		COST:10000	WT:2000			SIZE:H	SOURCEPAGE:p.124
-Calculating Engine (Small)								TYPE:Goods.Tools.Resizable		COST:20000	WT:10				SIZE:S	SOURCEPAGE:p.125
-Clockwork Chess Set (Skill Rank 15)							TYPE:Goods.Tools.Resizable		COST:1150	WT:100			SIZE:S	SOURCEPAGE:p.125
-Measuring Rod										TYPE:Goods.Tools.Resizable		COST:100	WT:1				SIZE:T	SOURCEPAGE:p.125
-Scribing Box										TYPE:Goods.Tools.Resizable		COST:500	WT:75				SIZE:M	SOURCEPAGE:p.125
-Vibrational Veradicator									TYPE:Goods.Tools.Resizable		COST:150	WT:8				SIZE:S	SOURCEPAGE:p.125
+# Equipment Name				Required Proficiency				Type						Cost		Weight	Slot Needed	Size		Source Page
+Alchemist's Lab (Steamcraft)									TYPE:Goods.Tools.Resizable		COST:1000	WT:200			SIZE:L	SOURCEPAGE:p.123
+Arcane Flux Detector										TYPE:Goods.Tools.Resizable		COST:500	WT:5				SIZE:T	SOURCEPAGE:p.123
+Arcane Pulse Disruptor										TYPE:Goods.Tools.Resizable		COST:3500	WT:60				SIZE:M	SOURCEPAGE:p.124
+Bard in a Box (Hand Cranked)									TYPE:Goods.Tools.Resizable		COST:450	WT:2				SIZE:S	SOURCEPAGE:p.124
+Bard in a Box (Steam Powered)									TYPE:Goods.Tools.Resizable		COST:900	WT:3				SIZE:S	SOURCEPAGE:p.124
+Calculating Engine (Large)									TYPE:Goods.Tools.Resizable		COST:10000	WT:2000			SIZE:H	SOURCEPAGE:p.124
+Calculating Engine (Small)									TYPE:Goods.Tools.Resizable		COST:20000	WT:10				SIZE:S	SOURCEPAGE:p.125
+Clockwork Chess Set (Skill Rank 15)								TYPE:Goods.Tools.Resizable		COST:1150	WT:100			SIZE:S	SOURCEPAGE:p.125
+Measuring Rod											TYPE:Goods.Tools.Resizable		COST:100	WT:1				SIZE:T	SOURCEPAGE:p.125
+Scribing Box											TYPE:Goods.Tools.Resizable		COST:500	WT:75				SIZE:M	SOURCEPAGE:p.125
+Vibrational Veradicator										TYPE:Goods.Tools.Resizable		COST:150	WT:8				SIZE:S	SOURCEPAGE:p.125
 
 # Rogue's Tools-------------------------------------------------------------------------------------------------------------------------------
-Clockwork Spider										TYPE:Goods.Tools				COST:500	WT:.25			SIZE:T	SOURCEPAGE:p.126
-Drillspike											TYPE:Goods.Tools				COST:50	WT:1				SIZE:T	SOURCEPAGE:p.126
-Far-Reaching Gauntlet			PROFICIENCY:Far-Reaching Gauntlet	TYPE:Goods.Tools.Glove.Resizable	COST:800	WT:2		SLOTS:1	SIZE:T	SOURCEPAGE:p.126
-Springsaw											TYPE:Goods.Tools				COST:200	WT:.5				SIZE:T	SOURCEPAGE:p.127
-Steamstilts											TYPE:Goods.Tools.Boot.Resizable	COST:150	WT:5		SLOTS:2	SIZE:T	SOURCEPAGE:p.127
+Clockwork Spider											TYPE:Goods.Tools				COST:500	WT:.25			SIZE:T	SOURCEPAGE:p.126
+Drillspike												TYPE:Goods.Tools				COST:50	WT:1				SIZE:T	SOURCEPAGE:p.126
+Far-Reaching Gauntlet			PROFICIENCY:WEAPON|Far-Reaching Gauntlet	TYPE:Goods.Tools.Glove.Resizable	COST:800	WT:2		SLOTS:1	SIZE:T	SOURCEPAGE:p.126
+Springsaw												TYPE:Goods.Tools				COST:200	WT:.5				SIZE:T	SOURCEPAGE:p.127
+Steamstilts												TYPE:Goods.Tools.Boot.Resizable	COST:150	WT:5		SLOTS:2	SIZE:T	SOURCEPAGE:p.127
 
 # Cleric's Tools------------------------------------------------------------------------------------------------------------------------------
-Holy Water Sprinkler									TYPE:Goods.Tools.Resizable		COST:600	WT:8				SIZE:M	SOURCEPAGE:p.128
-Prayer Watch										TYPE:Goods.Tools.Resizable		COST:800	WT:.25			SIZE:T	SOURCEPAGE:p.128
+Holy Water Sprinkler										TYPE:Goods.Tools.Resizable		COST:600	WT:8				SIZE:M	SOURCEPAGE:p.128
+Prayer Watch											TYPE:Goods.Tools.Resizable		COST:800	WT:.25			SIZE:T	SOURCEPAGE:p.128
 
 ###Block: General Items-------------------------------------------------------------------------------------------------------------------------------
 # Equipment Name				Type							Cost		Weight	Slot Needed	AC Penalty Check	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus					Bonus to skill					Special Property
@@ -35,7 +35,7 @@ Clockwork Animals				TYPE:Goods.General				COST:750	WT:1										SIZE:T	SOURCEP
 Coal (1 lb.)				TYPE:Goods.Trade					COST:.01	WT:1										SIZE:T	SOURCEPAGE:p.127
 Dwarven Miner's Glove			TYPE:Goods.Tools.Glove.Resizable		COST:700	WT:25		SLOTS:1							SIZE:S	SOURCEPAGE:p.129
 Electric Lantern				TYPE:Goods.General.Resizable			COST:50	WT:3										SIZE:S	SOURCEPAGE:p.129
-Electric Lantern Battery		TYPE:Goods.General.Consumable			COST:.1	WT:-										SIZE:T	SOURCEPAGE:p.129
+Electric Lantern Battery		TYPE:Goods.General.Consumable			COST:.1	WT:0										SIZE:T	SOURCEPAGE:p.129
 Jumping Boots				TYPE:Goods.Tools.Boot.Resizable		COST:150	WT:5		SLOTS:2							SIZE:T	SOURCEPAGE:p.127												BONUS:SKILL|Jump|10|TYPE=Circumstance
 Diving Suit					TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:50	WT:3				ACCHECK:0		MAXDEX:6		SIZE:S	SOURCEPAGE:p.129	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE	BONUS:SKILL|Swim|2|TYPE=Circumstance	SPROP:Supplies 1 hour of air
 Rocket Pack					TYPE:Goods.Transportation.Resizable		COST:5000	WT:40										SIZE:S	SOURCEPAGE:p.129
@@ -43,18 +43,18 @@ Steam Portal				TYPE:Goods.General				COST:600	WT:2000									SIZE:H	SOURCEPAGE
 
 ###Block: Firearm Accessories
 # Equipment Name		Type								Contains				Cost		Weight	Size		Source Page
-Apostle			TYPE:Ammunition.General.Container.Firearms	CONTAINS:UNLIM|Shot=1		COST:.2	WT:-		SIZE:D	SOURCEPAGE:p.150
+Apostle			TYPE:Ammunition.General.Container.Firearms	CONTAINS:UNLIM|Shot=1		COST:.2	WT:0		SIZE:D	SOURCEPAGE:p.150
 Bandoleer			TYPE:Goods.General.Container.Firearms		CONTAINS:3|Apostle=12|Any=4	COST:.5	WT:1		SIZE:S	SOURCEPAGE:p.150
 Bullet			TYPE:Ammunition.General.Firearms.Bullet							COST:.05	WT:.1		SIZE:D	SOURCEPAGE:p.150
 Bullet (Silver)		TYPE:Ammunition.General.Firearms.Bullet							COST:1	WT:.1		SIZE:D	SOURCEPAGE:p.150
 Cartridge Box		TYPE:Ammunition.General.Firearms								COST:.8	WT:1		SIZE:T	SOURCEPAGE:p.150
-Percussion Cap		TYPE:Ammunition.General.Firearms								COST:.1	WT:-		SIZE:D	SOURCEPAGE:p.150
+Percussion Cap		TYPE:Ammunition.General.Firearms								COST:.1	WT:0		SIZE:D	SOURCEPAGE:p.150
 Powder Horn			TYPE:Ammunition.General.Container.Firearms	CONTAINS:UNLIM|Shot=12		COST:1	WT:.5		SIZE:T	SOURCEPAGE:p.150
 Ramrod (Iron)		TYPE:Goods.General.Firearms									COST:.1	WT:3		SIZE:S	SOURCEPAGE:p.150
 Ramrod (Wooden)		TYPE:Goods.General.Firearms									COST:.05	WT:1		SIZE:S	SOURCEPAGE:p.150
 Swine Feather		TYPE:Goods.General.Firearms									COST:.2	WT:2		SIZE:S	SOURCEPAGE:p.150
 
-Gunpowder (1 Shot)	TYPE:Ammunition.General.Firearms.Shot							COST:.08	WT:-		SIZE:D	SOURCEPAGE:p.150
+Gunpowder (1 Shot)	TYPE:Ammunition.General.Firearms.Shot							COST:.08	WT:0		SIZE:D	SOURCEPAGE:p.150
 
 ###Block: Grenades
 # Equipment Name			Type						Cost		Weight	Size		Source Page		Special Property
@@ -70,15 +70,15 @@ Orcish Ale				TYPE:Goods.Ranged.Thrown.Grenade	COST:5	WT:1		SIZE:S	SOURCEPAGE:p.
 
 ###Block: Alchemical Gunpowder
 # Equipment Name					Type							Cost		Weight	Size		Source Page		Special Property
-Alchemical Gunpowder (Burning)		TYPE:Ammunition.General.Firearms.Shot	COST:5	WT:-		SIZE:D	SOURCEPAGE:p.151	SPROP:Adds 1d4 Fire Damage per Shot
-Alchemical Gunpowder (Charging)		TYPE:Ammunition.General.Firearms.Shot	COST:5	WT:-		SIZE:D	SOURCEPAGE:p.151	SPROP:Adds 1d4 Electrical Damage per Shot
-Alchemical Gunpowder (Deathbane)		TYPE:Ammunition.General.Firearms.Shot	COST:10	WT:-		SIZE:D	SOURCEPAGE:p.152	SPROP:Adds Ghost Touch Ability to Bullet
-Alchemical Gunpowder (Merfolk's Revenge)	TYPE:Ammunition.General.Firearms.Shot	COST:3	WT:-		SIZE:D	SOURCEPAGE:p.152	SPROP:Works even when damp or wet
-Alchemical Gunpowder (Outsider's Dust +1)	TYPE:Ammunition.General.Firearms.Shot	COST:5	WT:-		SIZE:D	SOURCEPAGE:p.152	SPROP:Overcomes an Outsiders DR up to +1
-Alchemical Gunpowder (Outsider's Dust +2)	TYPE:Ammunition.General.Firearms.Shot	COST:10	WT:-		SIZE:D	SOURCEPAGE:p.152	SPROP:Overcomes an Outsiders DR up to +2
-Alchemical Gunpowder (Outsider's Dust +3)	TYPE:Ammunition.General.Firearms.Shot	COST:20	WT:-		SIZE:D	SOURCEPAGE:p.152	SPROP:Overcomes an Outsiders DR up to +3
-Alchemical Gunpowder (Outsider's Dust +4)	TYPE:Ammunition.General.Firearms.Shot	COST:40	WT:-		SIZE:D	SOURCEPAGE:p.152	SPROP:Overcomes an Outsiders DR up to +4
-Alchemical Gunpowder (Outsider's Dust +5)	TYPE:Ammunition.General.Firearms.Shot	COST:80	WT:-		SIZE:D	SOURCEPAGE:p.152	SPROP:Overcomes an Outsiders DR up to +5
+Alchemical Gunpowder (Burning)		TYPE:Ammunition.General.Firearms.Shot	COST:5	WT:0		SIZE:D	SOURCEPAGE:p.151	SPROP:Adds 1d4 Fire Damage per Shot
+Alchemical Gunpowder (Charging)		TYPE:Ammunition.General.Firearms.Shot	COST:5	WT:0		SIZE:D	SOURCEPAGE:p.151	SPROP:Adds 1d4 Electrical Damage per Shot
+Alchemical Gunpowder (Deathbane)		TYPE:Ammunition.General.Firearms.Shot	COST:10	WT:0		SIZE:D	SOURCEPAGE:p.152	SPROP:Adds Ghost Touch Ability to Bullet
+Alchemical Gunpowder (Merfolk's Revenge)	TYPE:Ammunition.General.Firearms.Shot	COST:3	WT:0		SIZE:D	SOURCEPAGE:p.152	SPROP:Works even when damp or wet
+Alchemical Gunpowder (Outsider's Dust +1)	TYPE:Ammunition.General.Firearms.Shot	COST:5	WT:0		SIZE:D	SOURCEPAGE:p.152	SPROP:Overcomes an Outsiders DR up to +1
+Alchemical Gunpowder (Outsider's Dust +2)	TYPE:Ammunition.General.Firearms.Shot	COST:10	WT:0		SIZE:D	SOURCEPAGE:p.152	SPROP:Overcomes an Outsiders DR up to +2
+Alchemical Gunpowder (Outsider's Dust +3)	TYPE:Ammunition.General.Firearms.Shot	COST:20	WT:0		SIZE:D	SOURCEPAGE:p.152	SPROP:Overcomes an Outsiders DR up to +3
+Alchemical Gunpowder (Outsider's Dust +4)	TYPE:Ammunition.General.Firearms.Shot	COST:40	WT:0		SIZE:D	SOURCEPAGE:p.152	SPROP:Overcomes an Outsiders DR up to +4
+Alchemical Gunpowder (Outsider's Dust +5)	TYPE:Ammunition.General.Firearms.Shot	COST:80	WT:0		SIZE:D	SOURCEPAGE:p.152	SPROP:Overcomes an Outsiders DR up to +5
 
 ###Block: Cannons
 # Equipment Name		Type						Cost		Weight	Damage	Range		Source Page		Special Property

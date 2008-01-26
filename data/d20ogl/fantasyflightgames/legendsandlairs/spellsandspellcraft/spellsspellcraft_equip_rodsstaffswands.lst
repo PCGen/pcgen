@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Jan 24 22:28:36 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 #Original entry by: Knightcrawler
 SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 
 ###Block: Rods
 # Equipment Name	Required Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Weapon prop. bonus
-Necromancer's Rod	PROFICIENCY:Mace		TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Standard	COST:73000	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:S	SOURCEPAGE:p.168	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Necromancer's Rod	PROFICIENCY:WEAPON|Mace	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Standard	COST:73000	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:S	SOURCEPAGE:p.168	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
 Rod of Exchange					TYPE:Magic.Rod								COST:43500	WT:4														SOURCEPAGE:p.168
 
 ###Block: Staffs
-# Equipment Name	Required Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
-Staff of Bursting	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard	COST:36000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.169	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+# Equipment Name	Required Proficiency			Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
+Staff of Bursting	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard	COST:36000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.169	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
 
 ###Block: Wands
 # Equipment Name					Output Name				Type					Weight	Base Item for EQMOD	Modifier																Source Page
