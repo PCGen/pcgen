@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com
+# CVS $Revision$ $Author$ -- Thu Jan 24 20:10:06 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
 
@@ -71,7 +71,7 @@ Metabolized Creature			VISIBLE:YES																	SOURCEPAGE:p.63		SAB:+1 attac
 
 Gilled Creature				VISIBLE:YES																	SOURCEPAGE:p.63																																						PRELEVEL:MIN=4
 Aquatic Creature				VISIBLE:YES				TEMPLATE:CHOOSE:Gain Swim Speed (40')|Increase Swim Speed (20')			SOURCEPAGE:p.63																																						PRELEVEL:MIN=6	PRETEMPLATE:Gilled Creature																																																BONUS:SKILL|Swim|10|TYPE=Racial
-Deep Creature				VISIBLE:YES																	SOURCEPAGE:p.63																																						PRELEVEL:MIN=8	PRETEMPLATE:Aquatic Creature																																																																																																		VISION:Underwater Darkvision (120'),Darkvision (60')
+Deep Creature				VISIBLE:YES																	SOURCEPAGE:p.63																																						PRELEVEL:MIN=8	PRETEMPLATE:Aquatic Creature																																																																																																		VISION:Underwater Darkvision (120')|Darkvision (60')
 
 Fair Creature				VISIBLE:YES																	SOURCEPAGE:p.64																																						PRELEVEL:MIN=7																																																					BONUS:SKILL|Bluff,Diplomacy,Perform,Perform%|4|TYPE=Competence																		BONUS:STAT|CHA|2
 Empowered Creature			VISIBLE:YES																	SOURCEPAGE:p.64																																						PRELEVEL:MIN=8	PRETEMPLATE:Fair Creature																																																BONUS:SKILL|Animal Empathy,Handle Animal|4|TYPE=Competence																			BONUS:STAT|CHA|2											CSKILL:Use Magic Device
