@@ -1,6 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat Jul  9 09:08:51 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision$ $Author$ -- Fri Jan 25 00:14:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
 # Original Entry by: Tir Gwaith
 
-# Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
-All Exotic Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Exotic
+# Feat Name					Type			Visible	Multiple?	Choose						Automaticaly Gained Weapon Prof.
+All Exotic Weapon Proficiencies	TYPE:Special	VISIBLE:NO										AUTO:WEAPONPROF|TYPE.Exotic
+Craft Class Skills			TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMEDTOCSKILL|TYPE=Craft
+Knowledge Class Skills			TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMEDTOCSKILL|TYPE=Knowledge

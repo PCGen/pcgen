@@ -94,7 +94,7 @@ CLASS:Trader	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Gather Info
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Protector																																					ADD:Language|1|Trade	ADD:FEAT|1|Liked by All,Silver Tongue,Vulture	ADD:FEAT|1|Primitive Craft Class Skill,Skill Focus Advanced
+1	SAB:Protector																																					ADD:LANGUAGE|1|Trade	ADD:FEAT|1|Liked by All,Silver Tongue,Vulture	ADD:FEAT|1|Primitive Craft Class Skill,Skill Focus Advanced
 2	SAB:Spit Polish													BONUS:SKILL|Bluff,Diplomacy,Forgery|2|TYPE=Morale
 3	SAB:Ear to the Ground												BONUS:SKILL|Appraise|2|TYPE=Competence	BONUS:SKILL|Gather Information|4|TYPE=Competence
 4	SAB:Money Talks

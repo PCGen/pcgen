@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Jan 24 23:49:15 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:Assassin	SOURCEWEB:http//www.mongoosepublishing.com
 # Original Entry by: Mynex
 
-# Equipment Name		Output Name				Required Proficiency		Type									Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
-Blowgun (Mong)		OUTPUTNAME:Blowgun							TYPE:Weapon.Exotic.Ranged.Piercing.Wooden.Container	CONTAINS:UNLIM|Needle=1	COST:10	WT:2		CRITMULT:x2							DAMAGE:1	RANGE:5	SIZE:M	SOURCEPAGE:p.11,14-15
-Crossbow (Sniper's)	OUTPUTNAME:[NAME] Crossbow	PROFICIENCY:Crossbow (Light)	TYPE:Weapon.Exotic.Ranged.Piercing.Metal.Container	CONTAINS:UNLIM|Bolt=1	COST:335	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	RANGE:80	SIZE:M	SOURCEPAGE:p.11,14-15
+# Equipment Name		Output Name				Required Proficiency			Type									Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
+Blowgun (Mong)		OUTPUTNAME:Blowgun								TYPE:Weapon.Exotic.Ranged.Piercing.Wooden.Container	CONTAINS:UNLIM|Needle=1	COST:10	WT:2		CRITMULT:x2							DAMAGE:1	RANGE:5	SIZE:M	SOURCEPAGE:p.11,14-15
+Crossbow (Sniper's)	OUTPUTNAME:[NAME] Crossbow	PROFICIENCY:WEAPON|Crossbow (Light)	TYPE:Weapon.Exotic.Ranged.Piercing.Metal.Container	CONTAINS:UNLIM|Bolt=1	COST:335	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	RANGE:80	SIZE:M	SOURCEPAGE:p.11,14-15
