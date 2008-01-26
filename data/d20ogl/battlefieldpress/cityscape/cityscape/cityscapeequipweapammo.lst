@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com
+# CVS $Revision$ $Author$ -- Thu Jan 24 21:04:02 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 # Original Entry by: Mynex
 # Equipment Name			Type							Cost		Weight	Base Quantity	Source Page
 Arrow					TYPE:Ammunition.Standard.Wooden.Arrow	COST:.05	WT:.15				SOURCEPAGE:p.

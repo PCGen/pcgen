@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com
+# CVS $Revision$ $Author$ -- Thu Jan 24 21:04:02 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 # Original Entry by: Tir Gwaith
 
 #Light Weight --------------------------------------------------------------
@@ -33,12 +33,8 @@ Powered Armor			TYPE:Armor.Powered.Suit.Standard.Metal	COST:80000	WT:500	DEFINE:
 # Shields ------------------------------------------------------------------
 Buckler.MOD											COST:100
 Shield (Small/Wood).MOD									COST:150
-Shield (Small/Steel).MOD								COST:200
+Shield (Small/Metal).MOD								COST:200
 Shield (Large/Wood).MOD									COST:400
-Shield (Large/Steel).MOD								COST:450
+Shield (Large/Metal).MOD								COST:450
 Shield (Tower/Wood).MOD									COST:550
-
-# Extras -------------------------------------------------------------------
-Gauntlets (Locked).MOD									COST:50
-
 
