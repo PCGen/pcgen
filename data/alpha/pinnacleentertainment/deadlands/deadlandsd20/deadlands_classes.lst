@@ -57,7 +57,7 @@ CLASS:Blessed	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Faith|He
 CLASS:Blessed	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blessed|CL
 1	AUTO:FEAT|Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ADD:VFEAT|1|Turn Undead|PREALIGN:LG,NG,CG	AUTO:FEAT|Basic Turning
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								VFEAT:Turn Undead|PREALIGN:LG,NG,CG	AUTO:FEAT|Basic Turning
 1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base

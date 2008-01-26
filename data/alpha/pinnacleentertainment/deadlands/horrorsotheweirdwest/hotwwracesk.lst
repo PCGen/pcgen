@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Thu Nov 22 22:05:19 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Jan 25 00:46:43 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 #Kangee Languages - until the Deadlands language coding is completed, Kangee has 4 languages listed as both skills and LANGAUTO.
 # - interesting.  Deadlands language coding?  - Tir Gwaith
-# Race Name	Starting Feats	Size		Move			Reach		Required AL	Automatic Languages				Stat bonus																	Natural Attacks												MONSTERCLASS			Main Race Type	Hit Dice Advancement		CR	Source Page		SAB
-Kangee	STARTFEATS:1	SIZE:G	MOVE:Walk,30	REACH:20	PREALIGN:CE	LANGAUTO:Apache,English,Siouan,Spanish	BONUS:STAT|STR|11	BONUS:STAT|DEX|2	BONUS:STAT|CON|6	BONUS:STAT|INT|1	BONUS:STAT|WIS|3	BONUS:STAT|CHA|5	NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Piercing.Slashing.Bludgeoning,*6,1d3	MONSTERCLASS:Outsider:16	RACETYPE:Outsider	HITDICEADVANCEMENT:17,48	CR:10	SOURCEPAGE:p.62	SAB:Fear(Ex)	SAB:Animal control(Su)	SAB:Surveillance(Su)	SAB:Vulnerability(Su)
+# Race Name	Starting Feats	Size		Move			Reach		Required AL	Automatic Languages				Stat bonus																	Natural Attacks												Special ABility													MONSTERCLASS			Main Race Type	Hit Dice Advancement		CR	Source Page
+Kangee	STARTFEATS:1	SIZE:G	MOVE:Walk,30	REACH:20	PREALIGN:CE	LANGAUTO:Apache,English,Siouan,Spanish	BONUS:STAT|STR|11	BONUS:STAT|DEX|2	BONUS:STAT|CON|6	BONUS:STAT|INT|1	BONUS:STAT|WIS|3	BONUS:STAT|CHA|5	NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Piercing.Slashing.Bludgeoning,*6,1d3	SAB:Fear(Ex)	SAB:Animal control(Su)	SAB:Surveillance(Su)	SAB:Vulnerability(Su)	MONSTERCLASS:Outsider:16	RACETYPE:Outsider	HITDICEADVANCEMENT:17,48	CR:10	SOURCEPAGE:p.62
