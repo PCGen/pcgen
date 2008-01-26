@@ -5,7 +5,7 @@
   <id>pcgen</id>
   <groupId>pcgen</groupId>
   <name>PCGen</name>
-  <currentVersion>5.13.7</currentVersion>
+  <currentVersion>5.13.8</currentVersion>
   <organization>
     <name>SourceForge</name>
     <url>http://sourceforge.net/</url>
@@ -196,10 +196,10 @@
       <name>Joe Frazier</name>
       <id>jfrazierjr</id>
     </developer>
-	<developer>
-		<name>Connor Petty</name>
-		<id>cpmeister</id>
-	</developer>
+    <developer>
+      <name>Connor Petty</name>
+      <id>cpmeister</id>
+    </developer>
   </developers>
   <dependencies>
     <!-- Compiling --> 
@@ -499,6 +499,11 @@
       <id>5.13.7</id>
       <name>5.13.7</name>
       <tag>release-5.13.7</tag>
+    </version>
+    <version>
+      <id>5.13.8</id>
+      <name>5.13.8</name>
+      <tag>release-5.13.8</tag>
     </version>
   </versions>
 </project>
