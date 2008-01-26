@@ -27,7 +27,7 @@ CLASS:Bloodcarver	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Intimi
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Bloodcarver	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Bloodcarver|CL
 1			SAB:Bloodletting
-2			SAB:Ignore Pain										FEAT:Combat Casting
+2			SAB:Ignore Pain										AUTO:FEAT|Combat Casting
 3	DR:1/-	SAB:Damage Reduction 1
 4			SAB:Armour of Scars	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 5			SAB:Bloodcarving

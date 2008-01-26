@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 25 11:56:59 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -7,28 +7,28 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.c
 
 # Small --------------------------------------------------------------------------------------------
 
-# Equipment Name		Required Proficiency		Type											Cost		Weight	Critical Hit Range	Fumble Range	Damage	Range		Size		Source Page		Weapon prof. bonus				Special Property
-Bola				PROFICIENCY:Bola			TYPE:Gear.Standard.Weapon.Ranged.Thrown					COST:4	WT:5		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:-	RANGE:10	SIZE:S	SOURCEPAGE:p.120								SPROP:Entangle attack
+# Equipment Name		Required Proficiency			Type											Cost		Weight	Critical Hit Range	Fumble Range	Damage	Range		Size		Source Page		Weapon prof. bonus				Special Property
+Bola				PROFICIENCY:WEAPON|Bola			TYPE:Gear.Standard.Weapon.Ranged.Thrown					COST:4	WT:5		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:-	RANGE:10	SIZE:S	SOURCEPAGE:p.120								SPROP:Entangle attack
 
-Grenade (Concussion)	PROFICIENCY:Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:15	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:5d4	RANGE:10	SIZE:S	SOURCEPAGE:p.120								SPROP:Damage is subdual
-Grenade (CS gas)		PROFICIENCY:Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:12	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:-	RANGE:10	SIZE:S	SOURCEPAGE:p.120
-Grenade (Flash)		PROFICIENCY:Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:12	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:-	RANGE:10	SIZE:S	SOURCEPAGE:p.120
-Grenade (Flash/bang)	PROFICIENCY:Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:15	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:-	RANGE:10	SIZE:S	SOURCEPAGE:p.120
-Grenade (Framentation)	PROFICIENCY:Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:15	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:2d10	RANGE:10	SIZE:S	SOURCEPAGE:p.120
-Grenade (Incendiary)	PROFICIENCY:Grenade		TYPE:Gear.Standard.Weapon.Ranged.Consumable				COST:15	WT:.5		CRITRANGE:0			FUMBLERANGE:1-2	DAMAGE:3d6	RANGE:0	SIZE:S	SOURCEPAGE:p.120								SPROP:Fire damage
-Grenade (Smoke)		PROFICIENCY:Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:6	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:-	RANGE:10	SIZE:S	SOURCEPAGE:p.120
+Grenade (Concussion)	PROFICIENCY:WEAPON|Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:15	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:5d4	RANGE:10	SIZE:S	SOURCEPAGE:p.120								SPROP:Damage is subdual
+Grenade (CS gas)		PROFICIENCY:WEAPON|Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:12	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:-	RANGE:10	SIZE:S	SOURCEPAGE:p.120
+Grenade (Flash)		PROFICIENCY:WEAPON|Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:12	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:-	RANGE:10	SIZE:S	SOURCEPAGE:p.120
+Grenade (Flash/bang)	PROFICIENCY:WEAPON|Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:15	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:-	RANGE:10	SIZE:S	SOURCEPAGE:p.120
+Grenade (Framentation)	PROFICIENCY:WEAPON|Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:15	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:2d10	RANGE:10	SIZE:S	SOURCEPAGE:p.120
+Grenade (Incendiary)	PROFICIENCY:WEAPON|Grenade		TYPE:Gear.Standard.Weapon.Ranged.Consumable				COST:15	WT:.5		CRITRANGE:0			FUMBLERANGE:1-2	DAMAGE:3d6	RANGE:0	SIZE:S	SOURCEPAGE:p.120								SPROP:Fire damage
+Grenade (Smoke)		PROFICIENCY:WEAPON|Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:6	WT:.5		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:-	RANGE:10	SIZE:S	SOURCEPAGE:p.120
 
-Molotov cocktail		PROFICIENCY:Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:1	WT:2		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:1d4	RANGE:5	SIZE:S	SOURCEPAGE:p.120								SPROP:Fire damage
-Throwing dart		PROFICIENCY:Dart			TYPE:Gear.Standard.Weapon.Ranged.Piercing.Thrown			COST:.3	WT:.5		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d3	RANGE:20	SIZE:S	SOURCEPAGE:p.120
-Throwing knife		PROFICIENCY:Throwing knife	TYPE:Gear.Standard.Weapon.Ranged.Piercing.Thrown.Throwing knife	COST:.6	WT:1		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:1d4	RANGE:20	SIZE:S	SOURCEPAGE:p.120
+Molotov cocktail		PROFICIENCY:WEAPON|Grenade		TYPE:Gear.Standard.Weapon.Ranged.Thrown.Consumable			COST:1	WT:2		CRITRANGE:0			FUMBLERANGE:1-4	DAMAGE:1d4	RANGE:5	SIZE:S	SOURCEPAGE:p.120								SPROP:Fire damage
+Throwing dart		PROFICIENCY:WEAPON|Dart			TYPE:Gear.Standard.Weapon.Ranged.Piercing.Thrown			COST:.3	WT:.5		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d3	RANGE:20	SIZE:S	SOURCEPAGE:p.120
+Throwing knife		PROFICIENCY:WEAPON|Throwing knife	TYPE:Gear.Standard.Weapon.Ranged.Piercing.Thrown.Throwing knife	COST:.6	WT:1		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:1d4	RANGE:20	SIZE:S	SOURCEPAGE:p.120
 
 # Medium
 
-Composite bow		PROFICIENCY:Bow			TYPE:Gear.Standard.Weapon.Ranged.Piercing					COST:10	WT:3		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:1d6	RANGE:100	SIZE:M	SOURCEPAGE:p.120	BONUS:WEAPONPROF=Bow|DAMAGE|STR
-Crossbow			PROFICIENCY:Crossbow		TYPE:Gear.Standard.Weapon.Ranged.Piercing					COST:8	WT:6		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:1d8	RANGE:80	SIZE:M	SOURCEPAGE:p.120
-Netgun			PROFICIENCY:Netgun		TYPE:Gear.Standard.Weapon.Ranged						COST:7	WT:10		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:-	RANGE:10	SIZE:M	SOURCEPAGE:p.120								SPROP:Entangle attack
-Speargun			PROFICIENCY:Speargun		TYPE:Gear.Standard.Weapon.Ranged.Piercing					COST:9	WT:5		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	SOURCEPAGE:p.120
-Throwing axe		PROFICIENCY:Throwing axe	TYPE:Gear.Standard.Weapon.Ranged.Thrown.Piercing			COST:1	WT:4		CRITRANGE:2			FUMBLERANGE:1-2	DAMAGE:1d6	RANGE:10	SIZE:M	SOURCEPAGE:p.120	BONUS:WEAPONPROF=Throwing axe|DAMAGE|STR
+Composite bow		PROFICIENCY:WEAPON|Bow			TYPE:Gear.Standard.Weapon.Ranged.Piercing					COST:10	WT:3		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:1d6	RANGE:100	SIZE:M	SOURCEPAGE:p.120	BONUS:WEAPONPROF=Bow|DAMAGE|STR
+Crossbow			PROFICIENCY:WEAPON|Crossbow		TYPE:Gear.Standard.Weapon.Ranged.Piercing					COST:8	WT:6		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:1d8	RANGE:80	SIZE:M	SOURCEPAGE:p.120
+Netgun			PROFICIENCY:WEAPON|Netgun		TYPE:Gear.Standard.Weapon.Ranged						COST:7	WT:10		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:-	RANGE:10	SIZE:M	SOURCEPAGE:p.120								SPROP:Entangle attack
+Speargun			PROFICIENCY:WEAPON|Speargun		TYPE:Gear.Standard.Weapon.Ranged.Piercing					COST:9	WT:5		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	SOURCEPAGE:p.120
+Throwing axe		PROFICIENCY:WEAPON|Throwing axe	TYPE:Gear.Standard.Weapon.Ranged.Thrown.Piercing			COST:1	WT:4		CRITRANGE:2			FUMBLERANGE:1-2	DAMAGE:1d6	RANGE:10	SIZE:M	SOURCEPAGE:p.120	BONUS:WEAPONPROF=Throwing axe|DAMAGE|STR
 
 #
 # End ----------------------------------------------------------------------------------------------

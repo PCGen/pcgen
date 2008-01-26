@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Jan 25 00:29:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 ###Block: Relics - These have multiple powers, some are able to be done in the data file - Mynex 12/10/02
@@ -19,8 +19,8 @@ Armor of Grace			NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0							
 Black Book of Belsameth		NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0								SOURCEPAGE:p.203
 Clotstone				NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0								SOURCEPAGE:p.203
 ###Block: Divine Tokens
-# Equipment Name			Product Identity?	Type					Cost		Weight	Define			Source Page			Virtual Feat		Spell Res.	Innate Spells																																																			Save checks bonus						Combat bonus				Bonus to skill									Stat bonus								Modify VAR							Special ABility					Class Skill				Add
-Divine Tokens (Belsameth)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204	VFEAT:Negative Levels																																																																																										BONUS:VAR|NegLevels|1|PREALIGN:0,3,6														ADD:DOMAIN|1|Magic
+# Equipment Name			Product Identity?	Type					Cost		Weight	Define			Source Page			Virtual Feat		Spell Res.	Innate Spells																																																			Save checks bonus						Combat bonus				Bonus to skill									Stat bonus								Modify VAR							Special ABility					Class Skill
+Divine Tokens (Belsameth)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204	VFEAT:Negative Levels																																																																																										BONUS:VAR|NegLevels|1|PREALIGN:0,3,6
 Divine Tokens (Chardun)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204	VFEAT:Negative Levels																																																																						BONUS:SKILL|Intimidation|STR																BONUS:VAR|NegLevels|1|PREALIGN:0,3,6		SAB:Smite Good %/day|SmiteGood
 Divine Tokens (Corean)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204																																																												BONUS:CHECKS|Fortitude|2|PREALIGN:0,1,2,3,6																																			SAB:Defensive Stance %/day|DefStance
 Divine Tokens (Drendari)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0		DEFINE:ShadowJump|0	SOURCEPAGE:p.203-204																																																																																														BONUS:VAR|ShadowJump|10*CHA				SAB:Shadow Jump (% ft.)|ShadowJump		CSKILL:Hide|Move Silently

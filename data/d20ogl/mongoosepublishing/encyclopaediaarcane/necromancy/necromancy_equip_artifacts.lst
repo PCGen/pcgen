@@ -2,4 +2,4 @@
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com
 
 # Equipment Name	Type					Cost		Weight	Source Page		Special Property
-Black Banner	TYPE:Magic.Artifact.Major	COST:-	WT:-		SOURCEPAGE:p.45	SPROP:MP - Necromancy - See Text p.45
+Black Banner	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.45	SPROP:MP - Necromancy - See Text p.45

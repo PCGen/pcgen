@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Jan 24 21:16:23 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 # I just can't seem to figure out the demiform boots... someone else is welcome to them.
 SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/
 ##Wondrous Items
@@ -37,7 +37,7 @@ Arcane Battle Robes					TYPE:Magic.Wondrous.Robe												COST:108500	WT:5				
 Bag of Bones						TYPE:Magic.Wondrous													COST:18000	WT:1																SOURCEPAGE:pg. 39-40, Wondrous Items																																SPROP:See text
 Bandolier of Potion Storage				TYPE:Magic.Wondrous.Container							CONTAINS:UNLIM|Potion=25	COST:2000	WT:3																SOURCEPAGE:pg. 40-41, Wondrous Items																																SPROP:See text
 Band of Ferociousness					TYPE:Magic.Wondrous													COST:34500	WT:.25															SOURCEPAGE:pg. 41, Wondrous Items									BONUS:COMBAT|DAMAGE,TOHIT|2|TYPE=Enhancement																	SPROP:See text
-Basin of the Sea						TYPE:Magic.Wondrous													COST:39000	WT:.5,25															SOURCEPAGE:pg. 41, Wondrous Items																																	SPROP:See text
+Basin of the Sea						TYPE:Magic.Wondrous													COST:39000	WT:.5																SOURCEPAGE:pg. 41, Wondrous Items																																	SPROP:See text
 Binding Bandage						TYPE:Magic.Wondrous													COST:1200	WT:.5																SOURCEPAGE:pg. 41, Wondrous Items																																	SPROP:See text
 Book of Hidden Lore +1					TYPE:Magic.Wondrous.Book												COST:1020	WT:2																SOURCEPAGE:pg. 42, Wondrous Items																																	SPROP:See text
 Book of Hidden Lore +2					TYPE:Magic.Wondrous.Book												COST:4160	WT:2																SOURCEPAGE:pg. 42, Wondrous Items																																	SPROP:See text

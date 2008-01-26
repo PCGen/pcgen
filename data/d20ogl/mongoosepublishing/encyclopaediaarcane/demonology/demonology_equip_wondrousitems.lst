@@ -2,6 +2,6 @@
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology	SOURCESHORT:Demonology	SOURCEWEB:http://www.mongoosepublishing.com
 
 # Equipment Name			Type					Cost		Weight	Source Page
-Amulet of Mental Fortitude	TYPE:Magic.Wondrous.Amulet	COST:25000	WT:-		SOURCEPAGE:p.42
-Mask of Disguise			TYPE:magic.Wondrous.Headgear	COST:30000	WT:-		SOURCEPAGE:p.42-43
-Soul Gem				TYPE:Magic.Wondrous		COST:50000	WT:-		SOURCEPAGE:p.43
+Amulet of Mental Fortitude	TYPE:Magic.Wondrous.Amulet	COST:25000	WT:0		SOURCEPAGE:p.42
+Mask of Disguise			TYPE:magic.Wondrous.Headgear	COST:30000	WT:0		SOURCEPAGE:p.42-43
+Soul Gem				TYPE:Magic.Wondrous		COST:50000	WT:0		SOURCEPAGE:p.43

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 30 03:48:41 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Tue Jan 22 13:02:54 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by :Doug McMillan
 
@@ -16,6 +16,10 @@ Multiweapon Fighting									TYPE:General														PREHANDSGTEQ:3											
 Quicken Spell Like Ability	OUTPUTNAME:Quicken Spell-Like Ability	TYPE:General																																					DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
 Snatch											TYPE:General																								PRESIZEGTEQ:H											DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
 Wingover											TYPE:General																					PREMOVE:1,Fly=1														DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+
+###Block: Ability Focus Chooser
+# Feat Name		Stackable?	Multiple?	Choose
+Ability Focus.MOD	STACK:NO	MULT:YES	CHOOSE:STRING|Breath Weapon|Charming Gaze|Constrict|Corrupting Gaze|Corrupting Touch|Crush|Draining Touch |Fists|Frightful Moan|Gaze|Horrific Appearance|Improved Grab|Keening|Malevolence|Paralysis|Poison|Pounce|Rake|Ray|Roar|Seduction|Soul Portal|Sound Imitation|Stench|Swallow Whole|Tail Sweep|Trample
 
 ###Block: Descriptions
 #

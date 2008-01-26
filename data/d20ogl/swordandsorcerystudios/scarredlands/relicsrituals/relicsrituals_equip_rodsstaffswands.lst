@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 25 00:29:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 #Original entry for wands by: Paul "Yes, that Paul" Grosse
 
@@ -10,12 +10,12 @@ Rod (Blasphemy)		NAMEISPI:YES	OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:43305
 Rod (Blessed Rest)	NAMEISPI:YES	OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:110000	WT:5		SOURCEPAGE:p.172
 
 ###Block:Staffs
-# Equipment Name		Product Identity?	Output Name				Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page			Weapon prop. bonus
-Staff (Divine Flame)	NAMEISPI:YES	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning	COST:75600	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L	SOURCEPAGE:p.172		BONUS:WEAPON|DAMAGE,TOHIT|2
-Staff (Gaurak)		NAMEISPI:YES	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning	COST:105600	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L	SOURCEPAGE:p.172-173	BONUS:WEAPON|DAMAGE,TOHIT|1
-Staff (Hornsaw Wood)	NAMEISPI:YES	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning	COST:70600	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L	SOURCEPAGE:p.173		BONUS:WEAPON|DAMAGE,TOHIT|2
-Staff (Spirits)		NAMEISPI:YES	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning	COST:18600	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L	SOURCEPAGE:p.173		BONUS:WEAPON|DAMAGE,TOHIT|1
-Staff (The Wayfarer)	NAMEISPI:YES	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning	COST:82600	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L	SOURCEPAGE:p.173-174	BONUS:WEAPON|DAMAGE,TOHIT|2
+# Equipment Name		Product Identity?	Output Name				Required Proficiency			Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page			Weapon prop. bonus
+Staff (Divine Flame)	NAMEISPI:YES	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning	COST:75600	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L	SOURCEPAGE:p.172		BONUS:WEAPON|DAMAGE,TOHIT|2
+Staff (Gaurak)		NAMEISPI:YES	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning	COST:105600	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L	SOURCEPAGE:p.172-173	BONUS:WEAPON|DAMAGE,TOHIT|1
+Staff (Hornsaw Wood)	NAMEISPI:YES	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning	COST:70600	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L	SOURCEPAGE:p.173		BONUS:WEAPON|DAMAGE,TOHIT|2
+Staff (Spirits)		NAMEISPI:YES	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning	COST:18600	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L	SOURCEPAGE:p.173		BONUS:WEAPON|DAMAGE,TOHIT|1
+Staff (The Wayfarer)	NAMEISPI:YES	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning	COST:82600	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L	SOURCEPAGE:p.173-174	BONUS:WEAPON|DAMAGE,TOHIT|2
 
 ###Block: Wands
 # Equipment Name					Product Identity?	Output Name				Type					Weight	Base Item for EQMOD	Modifier															Source Page
