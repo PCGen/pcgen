@@ -15,7 +15,7 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #
 #####Example
 
-#Vampire		HITDIE:12		CR:2	DR:10/Silver and Magic		LEVELADJUSTMENT:8	TEMPLATE:Undead	TEMPLATE:CHOOSE:Slam (Fine)|Slam (Diminutive)|Slam (Tiny)|Slam (Small)|Slam (Medium)|Slam (Large)|Slam (Huge)|Slam (Gargantuan)|Slam (Colossal)	SOURCEPAGE:MonstersT-Z.rtf	SAB:Blood Drain (Ex)	SAB:Children of the Night (Su)	SAB:Dominate (Su) DC%|VampireAbilityDC	SAB:Energy Drain (Su)	SAB:Create Spawn (Su)	SAB:Alternate Form (Su)	SAB:Fast Healing 5 (Ex)	SAB:Gaseous Form (Su)	SAB:Energy Resistance Cold/Electricity 10	SAB:Turn Resistance +4 (Ex)	SAB:Spider Climb (Ex)	DEFINE:VampireAbilityDC|0		PREALIGN:2,5,8		BONUS:COMBAT|AC|6|TYPE=NaturalArmor.REPLACE		BONUS:SKILL|Bluff,Hide,Listen,Move Silently,Search,Sense Motive,Spot|8|TYPE=Racial	BONUS:STAT|STR|6	BONUS:STAT|DEX|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|VampireAbilityDC|15+CHA		FEAT:Alertness,Combat Reflexes,Dodge,Improved Initiative,Lightning Reflexes		TYPE:Undead
+#Vampire		HITDIE:12		CR:2	DR:10/Silver and Magic		LEVELADJUSTMENT:8	TEMPLATE:Undead	TEMPLATE:CHOOSE:Slam (Fine)|Slam (Diminutive)|Slam (Tiny)|Slam (Small)|Slam (Medium)|Slam (Large)|Slam (Huge)|Slam (Gargantuan)|Slam (Colossal)	SOURCEPAGE:MonstersT-Z.rtf	SAB:Blood Drain (Ex)	SAB:Children of the Night (Su)	SAB:Dominate (Su) DC%|VampireAbilityDC	SAB:Energy Drain (Su)	SAB:Create Spawn (Su)	SAB:Alternate Form (Su)	SAB:Fast Healing 5 (Ex)	SAB:Gaseous Form (Su)	SAB:Energy Resistance Cold/Electricity 10	SAB:Turn Resistance +4 (Ex)	SAB:Spider Climb (Ex)	DEFINE:VampireAbilityDC|0		PREALIGN:2,5,8		BONUS:COMBAT|AC|6|TYPE=NaturalArmor.REPLACE		BONUS:SKILL|Bluff,Hide,Listen,Move Silently,Search,Sense Motive,Spot|8|TYPE=Racial	BONUS:STAT|STR|6	BONUS:STAT|DEX|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|VampireAbilityDC|15+CHA		FEAT:Alertness,Combat Reflexes,Dodge,Improved Initiative,Lightning Reflexes		RACETYPE:Undead
 
 #####
 #Vampire is the name of the template. It will appear in the templates list on PCGen's Races tab and will be used if a template
@@ -56,7 +56,6 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #The FEAT tag gives a Feat as Bonus Feat to the character. You can grant multiple Feats by listing them seperated by the | (pipe)
 #delimiter.
 #
-#The TYPE tag is a special case within templates. In other files the TYPE would set the TYPE of the object you are dealing with
-#in the file (like a Feat in a Feats file), but in templates it has a different meaning: It changes the RACE type of the
-#creature. (The Race type is used internally by PCGen for matching up with Monster HD, and for references to race, such as
-#the Rangers Favored Enemy.)
+#The RACETYPE tag changes the race type of the creature. Each race in PCGen has a RACETYPE tag, when another RACETYPE tag is encounter
+#(such as when a RACETYPE tag exists in a template) the characters race type changes to the newly applied RACETYPE, a character can have only one race type at a time.
+#(RACETYPE is used internally by PCGen for matching up with Monster HD, and for references to race, such as the Rangers Favored Enemy.)

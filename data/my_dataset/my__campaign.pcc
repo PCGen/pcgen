@@ -12,6 +12,7 @@ PUBNAMEWEB:http://www.mywebsite.com
 SOURCELONG:My Campaign
 SOURCESHORT:My
 SOURCEWEB:http://www.mywebsite.com
+SOURCEDATE:2008-01
 ISOGL:NO
 COPYRIGHT:My Campaign, Copyright 2005 by me
 
@@ -40,7 +41,8 @@ COPYRIGHT:My Campaign, Copyright 2005 by me
 #HIDETYPE:FEAT|Leadership
 
 #Remove the '#' in front of those lines referring to files that you actually want to load
-#Remember to set the GAMEMODE to the one you really want. Options are 3e, 35e, Modern, Deadlands, Sidewinder, Spycraft, or Xcrawl.
+#Remember to set the GAMEMODE to the one you really want. 
+#Options in the Open Source data are 3e, 35e, Modern, Deadlands, Sidewinder, Spycraft, or Xcrawl.
 
 #If you use this framework to set up a dataset of your own, then you may want to rename the folder and files to something
 #different. Otherwise if you ever should install a newer version of PCGen into your existing directory or needed to re-install
