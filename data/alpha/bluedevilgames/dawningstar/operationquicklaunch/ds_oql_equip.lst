@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov  3 04:32:10 2006 -- reformated by prettylst.pl v1.35 (build 1495)
+# CVS $Revision$ $Author$ -- Fri Jan 25 23:05:47 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
 
 # Equipment Name	Type							Cost		Weight	Source Page		Bonus to skill
@@ -14,13 +14,13 @@ Smart link					TYPE:Goods.General.PL6	COST:21	WT:.5		SIZE:T	SOURCEPAGE:p.76	SPRO
 Stun Fence					TYPE:Goods.General.PL6	COST:18	WT:12		SIZE:M	SOURCEPAGE:p.76
 
 ###BLOCK: cyber equipment
-# Equipment Name			Required Proficiency				Type							Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page		Virtual Feat					Modify VAR				Special Property
-Astrogation Cortex									TYPE:Cybernetics					COST:23													SOURCEPAGE:p.98	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Lic(+1)
-Heuristic Combat Cortex									TYPE:Cybernetics					COST:28													SOURCEPAGE:p.98	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Mil(+3)
-Smart Link Cybernetic Implant								TYPE:Cybernetics.PL6				COST:26													SOURCEPAGE:p.76	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Res(+2)
-Weapon Digit (Explosive)								TYPE:Cybernetics					COST:21													SOURCEPAGE:p.98	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Burst Radius 10', Ill(+4), 3d8 Concussion Damage
-Weapon Digit (Micro Laser)	PROFICIENCY:Weapon Digit Micro Laser	TYPE:Cybernetics.Weapon.Ranged.Laser.Fire	COST:18	CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6	RANGE:10	SOURCEPAGE:p.99	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Ill(+4)
-Weapon Digit (Poison Darts)	PROFICIENCY:Weapon Digit Poison Dart	TYPE:Cybernetics.Weapon.Ranged.Piercing	COST:23	CRITMULT:x2			CRITRANGE:1			DAMAGE:1	RANGE:10	SOURCEPAGE:p.99	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Ill (+4)
+# Equipment Name			Required Proficiency					Type							Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page		Virtual Feat					Modify VAR				Special Property
+Astrogation Cortex										TYPE:Cybernetics					COST:23													SOURCEPAGE:p.98	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Lic(+1)
+Heuristic Combat Cortex										TYPE:Cybernetics					COST:28													SOURCEPAGE:p.98	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Mil(+3)
+Smart Link Cybernetic Implant									TYPE:Cybernetics.PL6				COST:26													SOURCEPAGE:p.76	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Res(+2)
+Weapon Digit (Explosive)									TYPE:Cybernetics					COST:21													SOURCEPAGE:p.98	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Burst Radius 10', Ill(+4), 3d8 Concussion Damage
+Weapon Digit (Micro Laser)	PROFICIENCY:WEAPON|Weapon Digit Micro Laser	TYPE:Cybernetics.Weapon.Ranged.Laser.Fire	COST:18	CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6	RANGE:10	SOURCEPAGE:p.99	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Ill(+4)
+Weapon Digit (Poison Darts)	PROFICIENCY:WEAPON|Weapon Digit Poison Dart	TYPE:Cybernetics.Weapon.Ranged.Piercing	COST:23	CRITMULT:x2			CRITRANGE:1			DAMAGE:1	RANGE:10	SOURCEPAGE:p.99	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Ill (+4)
 
 ###BLOCK: Computer equipment
 # Equipment Name		Type					Cost		Weight	Size		Source Page

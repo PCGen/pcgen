@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 22 21:30:55 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat Jan 26 00:28:37 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
@@ -7,15 +7,15 @@ CLASS:Inquisitor	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:CHECKS
 CLASS:Inquisitor	PREATT:2	PREFEAT:3,Conviction (Higher Power),Faith's Protection,Secret Society (Frater Torquemada/6)	PRESKILL:2,Knowledge (Theology and Philosophy),Sense Motive=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (History)|Knowledge (Theology and Philosophy)|Research|Search|Sense Motive
-1																	SAB:Detect Allegiances
-2	BONUS:VAR|InflictWounds|(CL+11)/5						AUTO:FEAT|Inflict Wounds
-3							ADD:FEAT|1|TYPE=Inquisitor
-4																	SAB:Detect Lies
-5																	SAB:Torturer's Art
-6							ADD:FEAT|1|TYPE=Inquisitor
-7																	SAB:Forced Confession
-8																	SAB:Forced Contrition
-9							ADD:FEAT|1|TYPE=Inquisitor
+1	SAB:Detect Allegiances
+2					BONUS:VAR|InflictWounds|(CL+11)/5						AUTO:FEAT|Inflict Wounds
+3											ADD:FEAT|1|TYPE=Inquisitor
+4	SAB:Detect Lies
+5	SAB:Torturer's Art
+6											ADD:FEAT|1|TYPE=Inquisitor
+7	SAB:Forced Confession
+8	SAB:Forced Contrition
+9											ADD:FEAT|1|TYPE=Inquisitor
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Exorcist	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
@@ -23,13 +23,13 @@ CLASS:Exorcist	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|
 CLASS:Exorcist	PREFEAT:5,Castigation,Conviction (Higher Power),Exorcism,Sacred Ritual,Secret Society (Doctrine/6)	PRESKILL:1,Knowledge (Theology and Philosophy)=10	PRESKILL:2,Read/Write Language,Speak Language=1	PRETEXT:Must be able to speak, read and write latin
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|Read/Write Language|Research|Search|Sense Motive|Speak Language|Treat Injury
-1	BONUS:VAR|PowerOfFaith|CL/4+1	DEFINE:PowerOfFaith|0									SAB:Power of Faith +%d6|PowerOfFaith
-2	BONUS:VAR|DivineFervor|CL/2	DEFINE:DivineFervor|0									SAB:Divine Fervor +%|DivineFervor
-3										ADD:FEAT|1|TYPE=Exorcist,TYPE=SacredRitual
-5	BONUS:VAR|LayOnHands|CL/5	DEFINE:LayOnHands|0									SAB:Lay On Hands +%d8|LayOnHands
-6										ADD:FEAT|1|TYPE=Exorcist,TYPE=SacredRitual
-7																		SAB:Adjuration of the Faithful
-9										ADD:FEAT|1|TYPE=Exorcist,TYPE=SacredRitual
+1	SAB:Power of Faith +%d6|PowerOfFaith	BONUS:VAR|PowerOfFaith|CL/4+1	DEFINE:PowerOfFaith|0
+2	SAB:Divine Fervor +%|DivineFervor		BONUS:VAR|DivineFervor|CL/2	DEFINE:DivineFervor|0
+3																	ADD:FEAT|1|TYPE=Exorcist,TYPE=SacredRitual
+5	SAB:Lay On Hands +%d8|LayOnHands		BONUS:VAR|LayOnHands|CL/5	DEFINE:LayOnHands|0
+6																	ADD:FEAT|1|TYPE=Exorcist,TYPE=SacredRitual
+7	SAB:Adjuration of the Faithful
+9																	ADD:FEAT|1|TYPE=Exorcist,TYPE=SacredRitual
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Omega Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7
@@ -37,14 +37,14 @@ CLASS:Omega Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:CHE
 CLASS:Omega Knight	PREATT:5	PREFEAT:2,Track,Secret Society (Isayeret Omega/6)	PRESKILL:1,Knowledge (Arcane Lore)=5	PRESKILL:1,Knowledge (Tactics)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Omega Knight	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Hide|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Move Silently|Spot|Survival|Swim
-1																	AUTO:FEAT|Weapon Focus
-2	BONUS:VAR|OmegaKnight|(CL+1)/3	DEFINE:OmegaKnight|0													SAB:Omega Knight +%|OmegaKnight
-3												ADD:FEAT|1|TYPE=OmegaKnight
-4							DEFINE:WeapSpecQualify|1						AUTO:FEAT|Weapon Specialization
-6												ADD:FEAT|1|TYPE=OmegaKnight
-7																							SAB:Forbidden Lore (Damage Reduction)
-9												ADD:FEAT|1|TYPE=OmegaKnight
-10																							SAB:Forbidden Lore (Critical)
+1																								AUTO:FEAT|Weapon Focus
+2	SAB:Omega Knight +%|OmegaKnight		BONUS:VAR|OmegaKnight|(CL+1)/3	DEFINE:OmegaKnight|0
+3																			ADD:FEAT|1|TYPE=OmegaKnight
+4														DEFINE:WeapSpecQualify|1						AUTO:FEAT|Weapon Specialization
+6																			ADD:FEAT|1|TYPE=OmegaKnight
+7	SAB:Forbidden Lore (Damage Reduction)
+9																			ADD:FEAT|1|TYPE=OmegaKnight
+10	SAB:Forbidden Lore (Critical)
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Knight of the Old Table	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
@@ -52,15 +52,15 @@ CLASS:Knight of the Old Table	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4
 CLASS:Knight of the Old Table	PREATT:8	PREFEAT:3,Archaic Weapons Proficiency,Weapon Focus(Longsword),Secret Society (Knights Templar/6)	PRESKILL:1,Knowledge (Theology and Philosophy)=8	PRESKILL:1,Knowledge (Tactics)=10
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Old Table	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Diplomacy|Drive|Intimidate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Sense Motive
-1																SAB:Master Fencer
-2																SAB:Knight Protector
-3										ADD:FEAT|1|TYPE=KnightOldTable
-4																SAB:Superior Lunge
-5	BONUS:VAR|MasterDefense|CL/5	DEFINE:MasterDefense|0							SAB:Master of Defense +%|MasterDefense
-6										ADD:FEAT|1|TYPE=KnightOldTable
-7																SAB:Stop Time
-8																SAB:Void the Foot
-9																SAB:Play the Fool
+1	SAB:Master Fencer
+2	SAB:Knight Protector
+3																	ADD:FEAT|1|TYPE=KnightOldTable
+4	SAB:Superior Lunge
+5	SAB:Master of Defense +%|MasterDefense	BONUS:VAR|MasterDefense|CL/5	DEFINE:MasterDefense|0
+6																	ADD:FEAT|1|TYPE=KnightOldTable
+7	SAB:Stop Time
+8	SAB:Void the Foot
+9	SAB:Play the Fool
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Coven Enchantress	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
@@ -68,16 +68,16 @@ CLASS:Coven Enchantress	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS
 CLASS:Coven Enchantress	PREFEAT:2,Brew Potion,Secret Society (Salem Seven/6)	PRESKILL:2,Craft (Chemical),Knowledge (Arcane Lore)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Coven Enchantress	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Diplomacy|Disguise|Gather Information|Handle Animal|Intimidate|Knowledge (Arcane Lore)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Navigate|Sense Motive|Survival|Swim
-1							SAB:Evil Eye	SAB:Synergistic Magic
-2	ADD:FEAT|1|TYPE=CovenEnchantress
-3							SAB:Hex
-4							SAB:Poison Immunity
-5							SAB:Clairvoyance
-6							SAB:Witchshape
-7							SAB:Witch's Flight
-8							SAB:Witch's Curse
-9	ADD:FEAT|1|TYPE=CovenEnchantress
-10							SAB:Witch's Doom
+1	SAB:Evil Eye	SAB:Synergistic Magic
+2								ADD:FEAT|1|TYPE=CovenEnchantress
+3	SAB:Hex
+4	SAB:Poison Immunity
+5	SAB:Clairvoyance
+6	SAB:Witchshape
+7	SAB:Witch's Flight
+8	SAB:Witch's Curse
+9								ADD:FEAT|1|TYPE=CovenEnchantress
+10	SAB:Witch's Doom
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Prophet of Fatima	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*7
@@ -85,12 +85,12 @@ CLASS:Prophet of Fatima	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.55	BONUS
 CLASS:Prophet of Fatima	PREFEAT:2,Second Sight,Secret Society (Seers of Fatima/6)	PRESKILL:2,Prophecy,Sense Motive=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Prophet of Fatima	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Investigate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|Prophecy|Research|Search|Sense Motive|Spot
-1	BONUS:VAR|Prescience|(CL+1)/2	BONUS:CHECKS|Reflex|Prescience	BONUS:COMBAT|INITIATIVE|Prescience	BONUS:SKILL|Prophecy|Prescience	DEFINE:Prescience|0	SAB:Prescience +%|Prescience
-2																												SAB:Flash of Insight - +% to all Action Point rolls|Prescience
-4																												SAB:Flash of Insight (Damage)
-6																												SAB:Flash of Insight (Defense)
-8																												SAB:Insightful Strike
-10																												SAB: Fate Weaver
+1	SAB:Prescience +%|Prescience							BONUS:VAR|Prescience|(CL+1)/2	BONUS:CHECKS|Reflex|Prescience	BONUS:COMBAT|INITIATIVE|Prescience	BONUS:SKILL|Prophecy|Prescience	DEFINE:Prescience|0
+2	SAB:Flash of Insight - +% to all Action Point rolls|Prescience
+4	SAB:Flash of Insight (Damage)
+6	SAB:Flash of Insight (Defense)
+8	SAB:Insightful Strike
+10	SAB: Fate Weaver
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Black Knight	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
@@ -98,10 +98,10 @@ CLASS:Black Knight	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECK
 CLASS:Black Knight	PREFEAT:3,Conviction (Dark Power),Profane Ritual,Secret Society (Teutonic Knights/6)	PRESKILL:1,Knowledge (Arcane Lore)=10	PRESKILL:1,Knowledge (History)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Knight	STARTSKILLPTS:4	CSKILL:Climb|Decipher Script|Disable Device|Forgery|Hide|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Move Silently|Research|Search|Sense Motive
-1																SAB:Dark Calling
-2																SAB:Immune to Disease
-3	BONUS:VAR|InflictWounds|(CL+3)/3					AUTO:FEAT|Inflict Wounds
-4																SAB:Contagious Touch
-5	BONUS:VAR|VerminSwarm|CL/5		DEFINE:VerminSwarm|0						SAB:Vermin Swarm %/day|VerminSwarm
-7																SAB:Vermin Shape
-8	BONUS:VAR|SneakAttack|((CL-6)/2)*2					AUTO:FEAT|Sneak Attack
+1	SAB:Dark Calling
+2	SAB:Immune to Disease
+3							BONUS:VAR|InflictWounds|(CL+3)/3					AUTO:FEAT|Inflict Wounds
+4	SAB:Contagious Touch
+5	SAB:Vermin Swarm %/day|VerminSwarm	BONUS:VAR|VerminSwarm|CL/5		DEFINE:VerminSwarm|0
+7	SAB:Vermin Shape
+8							BONUS:VAR|SneakAttack|((CL-6)/2)*2					AUTO:FEAT|Sneak Attack

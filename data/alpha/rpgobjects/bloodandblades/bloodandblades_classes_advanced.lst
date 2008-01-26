@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Jan 25 22:50:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe and Paul W. King
 
@@ -11,16 +11,16 @@ CLASS:Bounty Hunter (BNB)	OUTPUTNAME:Bounty Hunter	HD:6		TYPE:PC.Advanced	MAXLEV
 CLASS:Bounty Hunter (BNB)	PREATT:2	PRESKILL:3,Investigate,Listen,Sense Motive=6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter (BNB)	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spot
-1							AUTO:FEAT|Track
-2										SAB:Low-level Contact(Ex)
-3	ADD:FEAT|1|TYPE.BountyHunterBNB
-4										SAB:Nonlethal Force(Ex)
-5										SAB:Mid-level Contact(Ex)
-6	ADD:FEAT|1|TYPE.BountyHunterBNB
-7										SAB:Discern Lie(Ex)	SAB:Swift Tracker(Ex)
-8										SAB:High-level Contact(Ex)
-9	ADD:FEAT|1|TYPE.BountyHunterBNB
-10										SAB:Sixth Sense(Su)
+1															AUTO:FEAT|Track
+2	SAB:Low-level Contact(Ex)
+3									ADD:FEAT|1|TYPE.BountyHunterBNB
+4	SAB:Nonlethal Force(Ex)
+5	SAB:Mid-level Contact(Ex)
+6									ADD:FEAT|1|TYPE.BountyHunterBNB
+7	SAB:Discern Lie(Ex)	SAB:Swift Tracker(Ex)
+8	SAB:High-level Contact(Ex)
+9									ADD:FEAT|1|TYPE.BountyHunterBNB
+10	SAB:Sixth Sense(Su)
 
 # Class Name		Output Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Profiler (BNB)	OUTPUTNAME:Profiler	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|CL/3+1	BONUS:VAR|Reputation|CL/3+2	BONUS:VAR|Action|CL*6
@@ -28,16 +28,16 @@ CLASS:Profiler (BNB)	OUTPUTNAME:Profiler	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOUR
 CLASS:Profiler (BNB)	PREFEAT:1,Attentive	PRESKILL:3,Knowledge (Bahvioral),Sense Motive=6	PRESKILL:1,Gather Information=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Profiler (BNB)	STARTSKILLPTS:7	CSKILL:Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spot
-1														SAB:Profile(Ex)
-2	BONUS:VAR|ReadTarget|1	DEFINE:ReadTarget|0						SAB:Read Target +%|ReadTarget
-3									ADD:FEAT|1|TYPE.ProfilerBNB
-4														SAB:Identify Motive(Ex)
-5														SAB:Enhanced Profile(Ex)
-6	BONUS:VAR|ReadTarget|1					ADD:FEAT|1|TYPE.ProfilerBNB
-7														SAB:Anticipate Move(Ex)
-8	BONUS:VAR|ReadTarget|2
-9									ADD:FEAT|1|TYPE.ProfilerBNB
-10	BONUS:VAR|ReadTarget|2										SAB:Mindhunter(Ex)
+1	SAB:Profile(Ex)
+2	SAB:Read Target +%|ReadTarget	BONUS:VAR|ReadTarget|1	DEFINE:ReadTarget|0
+3														ADD:FEAT|1|TYPE.ProfilerBNB
+4	SAB:Identify Motive(Ex)
+5	SAB:Enhanced Profile(Ex)
+6						BONUS:VAR|ReadTarget|1					ADD:FEAT|1|TYPE.ProfilerBNB
+7	SAB:Anticipate Move(Ex)
+8						BONUS:VAR|ReadTarget|2
+9														ADD:FEAT|1|TYPE.ProfilerBNB
+10	SAB:Mindhunter(Ex)		BONUS:VAR|ReadTarget|2
 
 ###Slasher Advanced Classes
 
@@ -47,16 +47,16 @@ CLASS:Alter Ego	HD:6		TYPE:PC.Advanced.Slasher	ABB:AEgo		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Alter Ego	PREFEAT:2,Mental Disorder (Dissociative),Slasher Occupation (Organized Killer)	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alter Ego	STARTSKILLPTS:3	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Intimidate|Hide|Listen|Move Silently|Perform (Act)|Profession|Read/Write Language|Repair|Search|Sense Motive|Sleight of Hand|Speak Language|Spot
-1																SAB:Other Personality(Ex)
-2					BONUS:SKILL|Forgery|CL|TYPE=Insight						SAB:Signature(Ex)
-3	BONUS:VAR|Ladykiller|2								DEFINE:Ladykiller|0	SAB:Ladykiller +%|Ladykiller
-4					BONUS:SKILL|Spot|4								SAB:Peep(Ex)
-5																SAB:Hear Voices(Ex)
-6	BONUS:VAR|Ladykiller|2
-7					BONUS:SKILL|Disguise|CL*2|TYPE=Competence					SAB:Master of Disguise(Ex)
-8					BONUS:SKILL|Bluff|CL|TYPE=Insight						SAB:Truthful(Ex)
-9																SAB:Mental Retreat(Ex)
-10	BONUS:VAR|Ladykiller|2
+1	SAB:Other Personality(Ex)
+2	SAB:Signature(Ex)							BONUS:SKILL|Forgery|CL|TYPE=Insight
+3	SAB:Ladykiller +%|Ladykiller	BONUS:VAR|Ladykiller|2								DEFINE:Ladykiller|0
+4	SAB:Peep(Ex)							BONUS:SKILL|Spot|4
+5	SAB:Hear Voices(Ex)
+6						BONUS:VAR|Ladykiller|2
+7	SAB:Master of Disguise(Ex)					BONUS:SKILL|Disguise|CL*2|TYPE=Competence
+8	SAB:Truthful(Ex)							BONUS:SKILL|Bluff|CL|TYPE=Insight
+9	SAB:Mental Retreat(Ex)
+10						BONUS:VAR|Ladykiller|2
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Arawnite Guardian	HD:6		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/5+1	BONUS:VAR|Reputation|CL/2+1	BONUS:VAR|Action|6
@@ -75,16 +75,16 @@ CLASS:Arawnite Guardian	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	KNOWNSPELLS:L
 1	SPELLLEVEL:CLASS|Arawnite Guardian=4|Bestow Curse,Confusion,Cure Critical Wounds,Divination,Fear,Scrying,Wire Walk
 1	SPELLLEVEL:CLASS|Arawnite Guardian=5|Flaming Wrath,Greater Command,Hold Monster,Passwall,Secret Vault,Synchronicity
 ###Block:Standard Block
-1	CAST:3,2		VISION:Darkvision (60')														LANGAUTO:Ogham
-2	CAST:4,3						BONUS:CHECKS|ALL|max(0,CHA)												SAB:Dark Blessing(Su)
-3	CAST:4,3,2																						SAB:Trackless Step(Ex)
-4	CAST:5,4,3																						SAB:Aura of Despair(Su)
-5	CAST:5,4,3,2										ADD:FEAT|1|Evasion
-6	CAST:5,4,4,3										ADD:FEAT|1|Uncanny Dodge I,Uncanny Dodge II
-7	CAST:6,5,4,3,2																					SAB:Slippery Mind(Ex)
-8	CAST:6,5,4,4,3																					SAB:Hide in Plain Sight(Su)
-9	CAST:6,5,5,4,3,2																					SAB:Venom Immunity(Ex)
-10	CAST:6,5,5,4,4,3																					SAB:Improved Evasion(Ex)
+1	CAST:3,2		VISION:Darkvision (60')																			LANGAUTO:Ogham
+2	CAST:4,3						SAB:Dark Blessing(Su)		BONUS:CHECKS|ALL|max(0,CHA)
+3	CAST:4,3,2						SAB:Trackless Step(Ex)
+4	CAST:5,4,3						SAB:Aura of Despair(Su)
+5	CAST:5,4,3,2															ADD:FEAT|1|Evasion
+6	CAST:5,4,4,3															ADD:FEAT|1|Uncanny Dodge I,Uncanny Dodge II
+7	CAST:6,5,4,3,2					SAB:Slippery Mind(Ex)
+8	CAST:6,5,4,4,3					SAB:Hide in Plain Sight(Su)
+9	CAST:6,5,5,4,3,2					SAB:Venom Immunity(Ex)
+10	CAST:6,5,5,4,4,3					SAB:Improved Evasion(Ex)
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Mad Genius	HD:6		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|6
@@ -92,16 +92,16 @@ CLASS:Mad Genius	HD:6		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.48	BONU
 CLASS:Mad Genius	PREFEAT:1,Occupation (Academic)	PRESTAT:1,INT=18	PREVARLTEQ:CurrentSanity|-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mad Genius	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Intimidate|Hide|Listen|Move Silently|Perform (Act)|Profession|Read/Write Language|Repair|Search|Sense Motive|Sleight of Hand|Speak Language|Spot
-1					SAB:Trapmaster(Ex)
-2					SAB:Scientific Improvisation(Ex)
-3					SAB:Mad Knowledge(Ex) +% Bonus|CL+INT+2*(skillinfo("RANK","Knowledge (History)")>=5)
-4					SAB:Medical Mastery(Ex)
-5					SAB:Fascinate(Ex)
-6					SAB:Suggestion(Ex) Will save DC %|10+CL/2+CHA
-7					SAB:Smart Survival(Ex)
-8	ADD:FEAT|1|Smart Weapon
-9					SAB:One Step Ahead(Ex)
-10					SAB:Sow Distrust(Ex) Will save DC %|10+CL/2+CHA
+1	SAB:Trapmaster(Ex)
+2	SAB:Scientific Improvisation(Ex)
+3	SAB:Mad Knowledge(Ex) +% Bonus|CL+INT+2*(skillinfo("RANK","Knowledge (History)")>=5)
+4	SAB:Medical Mastery(Ex)
+5	SAB:Fascinate(Ex)
+6	SAB:Suggestion(Ex) Will save DC %|10+CL/2+CHA
+7	SAB:Smart Survival(Ex)
+8																ADD:FEAT|1|Smart Weapon
+9	SAB:One Step Ahead(Ex)
+10	SAB:Sow Distrust(Ex) Will save DC %|10+CL/2+CHA
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Psychogene	HD:4		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|CL/2+1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|6
@@ -143,13 +143,13 @@ CLASS:Stalker	HD:8		TYPE:PC:Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:C
 CLASS:Stalker	PREATT:2	PRESKILL:2,Hide,Move Silently=6	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Investigate|Jump|Listen|Move Silently|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
-1					BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Weapon Focus				AUTO:FEAT|Sneak Attack	SAB:Death Attack (Fortitude DC %)|10+CL+INT
-2									ADD:FEAT|1|Weapon Specialization
-3	VISION:Darkvision (60')	BONUS:VAR|SneakAttack|1
-4									ADD:FEAT|1|TYPE.Stalker								SAB:Right Behind You (Su)
-5									ADD:FEAT|1|Improved Critical
-6					BONUS:VAR|SneakAttack|1	ADD:FEAT|1|TYPE.Stalker
-7																				SAB:Hide in Plain Sight (Su)
-8					BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Greater Weapon Specialization
-9																				SAB:Without a Trace (Ex)
-10					BONUS:VAR|SneakAttack|1												SAB:Critical Strike (Ex)
+1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Weapon Focus				AUTO:FEAT|Sneak Attack
+2																	ADD:FEAT|1|Weapon Specialization
+3	VISION:Darkvision (60')									BONUS:VAR|SneakAttack|1
+4					SAB:Right Behind You (Su)								ADD:FEAT|1|TYPE.Stalker
+5																	ADD:FEAT|1|Improved Critical
+6													BONUS:VAR|SneakAttack|1	ADD:FEAT|1|TYPE.Stalker
+7					SAB:Hide in Plain Sight (Su)
+8													BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Greater Weapon Specialization
+9					SAB:Without a Trace (Ex)
+10					SAB:Critical Strike (Ex)				BONUS:VAR|SneakAttack|1

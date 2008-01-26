@@ -1,55 +1,55 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Jan 25 22:50:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe
 
 ###Block:Mental Disorders
-# Feat Name					Type					Visible	Stackable?	Multiple?	Choose																					Save checks bonus				Combat bonus				Bonus to skill										Source Page		SAB
-Motor Tension				TYPE:Anxiety			VISIBLE:NO																											BONUS:CHECKS|Fortitude|-2		BONUS:COMBAT|TOHIT|-2			BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution|-2		SOURCEPAGE:p.29	SAB:Mental Disorder - Anxiety(Motor Tension) - all checks involving STR,DEX or CON tak a -2 penalty
-Autonomic Hyperactivity			TYPE:Anxiety			VISIBLE:NO																											BONUS:CHECKS|ALL|-2			BONUS:COMBAT|TOHIT|-2			BONUS:SKILL|ALL|-2									SOURCEPAGE:p.29	SAB:Mental Disorder - Anxiety(Autonomic Hyperactivity)
-Expectations of Doom			TYPE:Anxiety			VISIBLE:NO																											BONUS:CHECKS|ALL|-2|TYPE=Morale	BONUS:COMBAT|TOHIT|-2|TYPE=Morale	BONUS:SKILL|ALL|-2|TYPE=Morale							SOURCEPAGE:p.29	SAB:Mental Disorder - Anxiety(Expectations of Doom)
-Vigilance					TYPE:Anxiety			VISIBLE:NO																											BONUS:CHECKS|Will|-4|TYPE=Morale							BONUS:SKILL|TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-4|TYPE=Morale	SOURCEPAGE:p.29	SAB:Mental Disorder - Anxiety(Vigilance)
-Panic Disorder				TYPE:Anxiety			VISIBLE:NO																																																			SOURCEPAGE:p.29	SAB:Mental Disorder - Anxiety(Panic Disorder)
-Agoraphobia					TYPE:Anxiety			VISIBLE:NO																																																			SOURCEPAGE:p.30	SAB:Mental Disorder - Anxiety(Agoraphobia)
-Obsessive Disorder			TYPE:Anxiety			VISIBLE:NO																																																			SOURCEPAGE:p.30	SAB:Mental Disorder - Anxiety(Obsessive)
-Compulsive Disorder			TYPE:Anxiety			VISIBLE:NO																																																			SOURCEPAGE:p.30	SAB:Mental Disorder - Anxiety(Compulsion)
-Post-Traumatic Stress Disorder	TYPE:Anxiety			VISIBLE:NO																																																			SOURCEPAGE:p.30	SAB:Mental Disorder - Anxiety(Post-Traumatic Stress)
-Phobias					TYPE:Anxiety			VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																												SOURCEPAGE:p.30	SAB:Mental Disorder - Anxiety(Phobias: %)|var("COUNT[FEATNAME=Phobia]")
-Manias					TYPE:Anxiety			VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																												SOURCEPAGE:p.30	SAB:Mental Disorder - Anxiety(Manias: %)|var("COUNT[FEATNAME=Mania]")
-Psychogenic Amnesia			TYPE:Dissociative			VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Dissociative(Psychogenic Amnesia)
-Dissociative Fugue			TYPE:Dissociative			VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Dissociative(Dissociative Fugue)
-Multiple Personality Disorder		TYPE:Dissociative			VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																												SOURCEPAGE:p.31	SAB:Mental Disorder - Dissociative(Multiple Personalities: %)|1+var("COUNT[FEATNAME=Multiple Personality Disorder]")
-Intermittent Explosive Disorder	TYPE:ImpulseControl		VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Impulse Control(Intermittent Explosive Disorder)
-Compulsive Gambling			TYPE:ImpulseControl		VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Impulse Control(Compulsive Gambling)
-Kleptomania					TYPE:ImpulseControl		VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Impulse Control(Kleptomania)
-Pathological Lying			TYPE:ImpulseControl		VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Impulse Control(Pathological Lying)
-Pyromania					TYPE:ImpulseControl		VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Impulse Control(Pyromania)
-Depression					TYPE:Mood				VISIBLE:NO																											BONUS:CHECKS|ALL|-4|TYPE=Morale	BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31	SAB:Mental Disorder - Mood(Depression)
-Mania						TYPE:Mood				VISIBLE:NO																											BONUS:CHECKS|ALL|-4|TYPE=Morale	BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31	SAB:Mental Disorder - Mood(Mania)
-Bipolar Disorder				TYPE:Mood				VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Mood(Manic Depressive)
-Antisocial					TYPE:PersonalityDisorder	VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Personality(Antisocial)
-Avoidant					TYPE:PersonalityDisorder	VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Personality(Avoidant)
-Borderline					TYPE:PersonalityDisorder	VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Personality(Borderline)
-Obsessive-Compulsive			TYPE:PersonalityDisorder	VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Personality(Obsessive-Compulsive)
-Dependent					TYPE:PersonalityDisorder	VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Personality(Dependent)
-Histrionic					TYPE:PersonalityDisorder	VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Personality(Histrionic)
-Narcissistic				TYPE:PersonalityDisorder	VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Personality(Narcissistic)
-Passive-Aggressive			TYPE:PersonalityDisorder	VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Personality(Passive-Aggressive)
-Paranoid					TYPE:PersonalityDisorder	VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Personality(Paranoid)
-Schizoid					TYPE:PersonalityDisorder	VISIBLE:NO																																																			SOURCEPAGE:p.31	SAB:Mental Disorder - Personality(Schizoid)
-Transsexualism				TYPE:Psychosexual			VISIBLE:NO																																																			SOURCEPAGE:p.32	SAB:Mental Disorder - Psychosexual(Transsexualism)
-Impaired Sexual Desire or Function	TYPE:Psychosexual			VISIBLE:NO																																																			SOURCEPAGE:p.32	SAB:Mental Disorder - Psychosexual(Impaired Sexual Desire or Function)
-Nymphomania/Satyriasis			TYPE:Psychosexual			VISIBLE:NO																																																			SOURCEPAGE:p.32	SAB:Mental Disorder - Psychosexual(Nymphomania/Satyriasis)
-Paraphilia					TYPE:Psychosexual			VISIBLE:NO																																																			SOURCEPAGE:p.32	SAB:Mental Disorder - Psychosexual(Paraphilia)
-Schizophrenia				TYPE:Psychotic			VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:Undifferentiated|Disorganized|Catatonic|Paranoid																																					SOURCEPAGE:p.32	SAB:Mental Disorder - Schizophrenia(%CHOICE)
-Other Psychotic Disorders		TYPE:Psychotic			VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:Amok running|Boufee Detirant|Brain Fag|Ghost Sickness|Piblofeio|Susro|Taijin Kyofusho|Voodoo Death|Wacinko|Wendigo Syndrome																									SOURCEPAGE:p.32	SAB:Mental Disorder - Psychotic(%CHOICE)
-Shared Paranoid Disorder		TYPE:Psychotic			VISIBLE:NO																																																			SOURCEPAGE:p.32	SAB:Mental Disorder - Psychotic(Shared Paranoid Disorder)
-Insomnia					TYPE:SleepDisorder		VISIBLE:NO																																																			SOURCEPAGE:p.33	SAB:Mental Disorder - Sleep(Insomnia)
-Narcolepsy					TYPE:SleepDisorder		VISIBLE:NO																																																			SOURCEPAGE:p.33	SAB:Mental Disorder - Sleep(Narcolepsy)
-Night Terrors				TYPE:SleepDisorder		VISIBLE:NO																																																			SOURCEPAGE:p.33	SAB:Mental Disorder - Sleep(Night Terrors)
-Somnambulism				TYPE:SleepDisorder		VISIBLE:NO																																																			SOURCEPAGE:p.33	SAB:Mental Disorder - Sleep(Somnambulism)
+# Feat Name					Type					Visible	Special ABility																		Stackable?	Multiple?	Choose																						Save checks bonus				Combat bonus				Bonus to skill										Source Page
+Motor Tension				TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Motor Tension) - all checks involving STR,DEX or CON tak a -2 penalty																															BONUS:CHECKS|Fortitude|-2		BONUS:COMBAT|TOHIT|-2			BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution|-2		SOURCEPAGE:p.29
+Autonomic Hyperactivity			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Autonomic Hyperactivity)																																						BONUS:CHECKS|ALL|-2			BONUS:COMBAT|TOHIT|-2			BONUS:SKILL|ALL|-2									SOURCEPAGE:p.29
+Expectations of Doom			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Expectations of Doom)																																							BONUS:CHECKS|ALL|-2|TYPE=Morale	BONUS:COMBAT|TOHIT|-2|TYPE=Morale	BONUS:SKILL|ALL|-2|TYPE=Morale							SOURCEPAGE:p.29
+Vigilance					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Vigilance)																																									BONUS:CHECKS|Will|-4|TYPE=Morale							BONUS:SKILL|TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-4|TYPE=Morale	SOURCEPAGE:p.29
+Panic Disorder				TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Panic Disorder)																																																																SOURCEPAGE:p.29
+Agoraphobia					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Agoraphobia)																																																																SOURCEPAGE:p.30
+Obsessive Disorder			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Obsessive)																																																																	SOURCEPAGE:p.30
+Compulsive Disorder			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Compulsion)																																																																	SOURCEPAGE:p.30
+Post-Traumatic Stress Disorder	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Post-Traumatic Stress)																																																															SOURCEPAGE:p.30
+Phobias					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Phobias: %)|var("COUNT[FEATNAME=Phobia]")									STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.30
+Manias					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Manias: %)|var("COUNT[FEATNAME=Mania]")									STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.30
+Psychogenic Amnesia			TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Psychogenic Amnesia)																																																														SOURCEPAGE:p.31
+Dissociative Fugue			TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Dissociative Fugue)																																																														SOURCEPAGE:p.31
+Multiple Personality Disorder		TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Multiple Personalities: %)|1+var("COUNT[FEATNAME=Multiple Personality Disorder]")	STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.31
+Intermittent Explosive Disorder	TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Intermittent Explosive Disorder)																																																												SOURCEPAGE:p.31
+Compulsive Gambling			TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Compulsive Gambling)																																																														SOURCEPAGE:p.31
+Kleptomania					TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Kleptomania)																																																															SOURCEPAGE:p.31
+Pathological Lying			TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Pathological Lying)																																																														SOURCEPAGE:p.31
+Pyromania					TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Pyromania)																																																															SOURCEPAGE:p.31
+Depression					TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Depression)																																									BONUS:CHECKS|ALL|-4|TYPE=Morale	BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31
+Mania						TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Mania)																																										BONUS:CHECKS|ALL|-4|TYPE=Morale	BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31
+Bipolar Disorder				TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Manic Depressive)																																																																SOURCEPAGE:p.31
+Antisocial					TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Antisocial)																																																																SOURCEPAGE:p.31
+Avoidant					TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Avoidant)																																																																SOURCEPAGE:p.31
+Borderline					TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Borderline)																																																																SOURCEPAGE:p.31
+Obsessive-Compulsive			TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Obsessive-Compulsive)																																																														SOURCEPAGE:p.31
+Dependent					TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Dependent)																																																																SOURCEPAGE:p.31
+Histrionic					TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Histrionic)																																																																SOURCEPAGE:p.31
+Narcissistic				TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Narcissistic)																																																																SOURCEPAGE:p.31
+Passive-Aggressive			TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Passive-Aggressive)																																																															SOURCEPAGE:p.31
+Paranoid					TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Paranoid)																																																																SOURCEPAGE:p.31
+Schizoid					TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Schizoid)																																																																SOURCEPAGE:p.31
+Transsexualism				TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Transsexualism)																																																															SOURCEPAGE:p.32
+Impaired Sexual Desire or Function	TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Impaired Sexual Desire or Function)																																																												SOURCEPAGE:p.32
+Nymphomania/Satyriasis			TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Nymphomania/Satyriasis)																																																														SOURCEPAGE:p.32
+Paraphilia					TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Paraphilia)																																																																SOURCEPAGE:p.32
+Schizophrenia				TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Schizophrenia(%CHOICE)													STACK:NO	MULT:YES	CHOOSE:STRING|Undifferentiated|Disorganized|Catatonic|Paranoid																																					SOURCEPAGE:p.32
+Other Psychotic Disorders		TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Psychotic(%CHOICE)														STACK:NO	MULT:YES	CHOOSE:STRING|Amok running|Boufee Detirant|Brain Fag|Ghost Sickness|Piblofeio|Susro|Taijin Kyofusho|Voodoo Death|Wacinko|Wendigo Syndrome																									SOURCEPAGE:p.32
+Shared Paranoid Disorder		TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Psychotic(Shared Paranoid Disorder)																																																														SOURCEPAGE:p.32
+Insomnia					TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Insomnia)																																																																	SOURCEPAGE:p.33
+Narcolepsy					TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Narcolepsy)																																																																	SOURCEPAGE:p.33
+Night Terrors				TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Night Terrors)																																																																SOURCEPAGE:p.33
+Somnambulism				TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Somnambulism)																																																																	SOURCEPAGE:p.33
 
 ###Block:Class Abilities
-# Feat Name		Type				Visible	!PREDR		Stackable?	Multiple?	Choose						Damage reduction	Weapon prof. bonus													Damage Reduction	Source Page		SAB
-Smart Weapon	TYPE:MadGeniusAbility	VISIBLE:NO				STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST|TYPE.NOT.2 handed				BONUS:WEAPONPROF=%LIST|TOHIT.MELEE|INT-STR	BONUS:WEAPONPROF=%LIST|TOHIT.RANGED|INT-DEX				SOURCEPAGE:p.49	SAB:Smart Weapon (%CHOICE)
+# Feat Name		Type				Visible	!PREDR		Special ABility			Stackable?	Multiple?	Choose						Damage reduction	Weapon prof. bonus													Damage Reduction	Source Page
+Smart Weapon	TYPE:MadGeniusAbility	VISIBLE:NO				SAB:Smart Weapon (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST|TYPE.NOT.2 handed				BONUS:WEAPONPROF=%LIST|TOHIT.MELEE|INT-STR	BONUS:WEAPONPROF=%LIST|TOHIT.RANGED|INT-DEX				SOURCEPAGE:p.49
 
-Initiate DR		TYPE:Workaround		VISIBLE:NO	!PREDR:1,-=1	STACK:NO	MULT:NO								BONUS:DR|-|-1																	DR:1/-
+Initiate DR		TYPE:Workaround		VISIBLE:NO	!PREDR:1,-=1						STACK:NO	MULT:NO								BONUS:DR|-|-1																	DR:1/-

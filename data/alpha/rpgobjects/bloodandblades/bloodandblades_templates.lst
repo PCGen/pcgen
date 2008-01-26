@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 25 00:10:17 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Jan 25 22:50:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe
 
@@ -11,9 +11,9 @@ SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodB
 Child			VISIBLE:YES	SOURCEPAGE:p.5	BONUS:STAT|STR|-3	BONUS:STAT|DEX|-1	BONUS:STAT|CON|-3	BONUS:STAT|INT|-3	BONUS:STAT|WIS|-3	BONUS:STAT|CHA|-3	REMOVABLE:YES	PREPCLEVEL:MAX=1
 
 ###Block:Sanity
-# Template Name		Visible	Source Page		Special ABility									Define							Modify VAR								Choose						Removable?		Temporary effect description
-Starting Sanity		VISIBLE:NO	SOURCEPAGE:p.24	SAB:Sanity: Starting % - Current %|StartingSanity|CurrentSanity	DEFINE:StartingSanity|0	DEFINE:CurrentSanity|0	BONUS:VAR|StartingSanity,CurrentSanity|WISSCORE*5								REMOVABLE:NO
-Sanity Loss Tracker	VISIBLE:NO	SOURCEPAGE:p.24																				BONUS:VAR|CurrentSanity|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|Sanity Loss				TEMPDESC:You have temporarily lost 1 or more Sanity points.
+# Template Name		Visible	Source Page		Special ABility									Define							Modify VAR								Choose							Removable?		Temporary effect description
+Starting Sanity		VISIBLE:NO	SOURCEPAGE:p.24	SAB:Sanity: Starting % - Current %|StartingSanity|CurrentSanity	DEFINE:StartingSanity|0	DEFINE:CurrentSanity|0	BONUS:VAR|StartingSanity,CurrentSanity|WISSCORE*5									REMOVABLE:NO
+Sanity Loss Tracker	VISIBLE:NO	SOURCEPAGE:p.24																				BONUS:VAR|CurrentSanity|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Sanity Loss				TEMPDESC:You have temporarily lost 1 or more Sanity points.
 
 ###Block:Slasher Templates (Creatures)
 # Template Name	Hit Dice Size	CR	Visible	Damage Reduction	Level Adjustment	Template						Source Page		Special ABility																																												Define			Required Race								Required Stat	Save checks bonus			Combat bonus						Add to base move				Bonus to skill							Stat bonus					Feat											Move		Main Race Type		Race Subtype		Natural Attacks
