@@ -249,7 +249,7 @@ Manual of Quickness of Action +3							TYPE:Magic.Wondrous.Book.Consumable						
 Manual of Quickness of Action +4							TYPE:Magic.Wondrous.Book.Consumable							COST:110000	WT:5														SOURCEPAGE:MagicItemsV.rtf
 Manual of Quickness of Action +5							TYPE:Magic.Wondrous.Book.Consumable							COST:137500	WT:5														SOURCEPAGE:MagicItemsV.rtf
 Marvelous Pigments									TYPE:Magic.Wondrous									COST:4000	WT:0														SOURCEPAGE:MagicItemsV.rtf
-Mask of the Skull										TYPE:Magic.Wondrous									COST:22000	WT:3														SOURCEPAGE:MagicItemsV.rtf
+Mask of the Skull										TYPE:Magic.Wondrous.Eyegear								COST:22000	WT:3														SOURCEPAGE:MagicItemsV.rtf
 Mattock of the Titans			PROFICIENCY:WEAPON|Morningstar	TYPE:Magic.Wondrous.Weapon.Simple.Melee.Bludgeoning.Piercing.Metal.Mace	COST:23348	WT:120	CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6	SIZE:G	SOURCEPAGE:MagicItemsV.rtf										BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement												SPROP:Smashes rock and removes dirt in the hands of a Huge user
 Maul of the Titans			PROFICIENCY:WEAPON|Greatclub		TYPE:Magic.Wondrous.Weapon.Martial.Melee.Bludgeoning.Wooden.Club		COST:25305	WT:160	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	SIZE:L	SOURCEPAGE:MagicItemsV.rtf										BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	BONUS:WEAPON|TOHIT|-4	BONUS:WEAPON|TOHIT|4|PRESTAT:1,STR=18	SPROP:Triple damage to inanimate objects, Must have an 18 Strength to wield properly
 Medallion of Thoughts									TYPE:Magic.Wondrous.Amulet								COST:12000	WT:0														SOURCEPAGE:MagicItemsV.rtf
