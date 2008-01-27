@@ -1,14 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri May  4 19:02:21 2007 -- reformated by prettylst.pl v1.38 (build 2829)
-SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
+# CVS $Revision$ $Author$ -- Sat Jan 26 22:10:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 
 ###Block: Hidden Racial Feats
-# Feat Name		Type			Visible	Maximum Level	Required Race			Var. Min. Value			Multiple?	Choose								Add				Bonus to skill		Cost		Source Page
-Dunkargan Classes	TYPE:General	VISIBLE:NO	PREPCLEVEL:MAX=1	PRERACE:1,Human (Dunkargan)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Fighter|Rogue				ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
-Karnuan Classes	TYPE:General	VISIBLE:NO	PREPCLEVEL:MAX=1	PRERACE:1,Human (Karnuan)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Mounted Warrior|Soldier		ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
-Nimorean Classes	TYPE:General	VISIBLE:NO	PREPCLEVEL:MAX=1	PRERACE:1,Human (Nimorean)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Sailor|Elemental Mage (Earth)	ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
-Nimran Classes	TYPE:General	VISIBLE:NO	PREPCLEVEL:MAX=1	PRERACE:1,Human (Nimran)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Sailor|Elemental Mage (Earth)	ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
-Trevenici Classes	TYPE:General	VISIBLE:NO	PREPCLEVEL:MAX=1	PRERACE:1,Human (Trevenici)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Barbarian|Fighter			ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
-Unhorsed Dwarf	TYPE:General	VISIBLE:NO				PRERACE:1,Dwarf (Unhorsed)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:SKILLSNAMED|Craft%|Profession%|1							BONUS:SKILL|LIST|2	COST:.5	SOURCEPAGE:p.
+# Feat Name		Type			Visible	Required Race			Var. Min. Value			Multiple?	Choose							Bonus to skill		Cost		Source Page
+Unhorsed Dwarf	TYPE:General	VISIBLE:NO	PRERACE:1,Dwarf (Unhorsed)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Craft|TYPE=Profession	BONUS:SKILL|LIST|2	COST:.5	SOURCEPAGE:p.
 
 ###Block: Proficiencies
 # Feat Name				Type			Visible	Automaticaly Gained Weapon Prof.
@@ -16,17 +11,17 @@ Archer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Shortbow|Sho
 Sailor Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Rapier|Net|Scimitar|Trident
 
 ###Block: Archer Class abilities
-# Feat Name				Type			Visible	Special Ability				Define			Stackable?	Multiple?	Choose											Weapon prof. bonus				Source Page
-Primary Weapon			TYPE:ClassAbility	VISIBLE:NO	SAB:Primary Weapon +%|PrimaryWeap	DEFINE:PrimaryWeap|0	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|Crossbow (Heavy)|Crossbow (Light)|Shortbow|Longbow	BONUS:WEAPONPROF=%LIST|TOHIT|PrimaryWeap	SOURCEPAGE:p.
+# Feat Name				Type			Visible	Special ABility				Define			Stackable?	Multiple?	Choose											Weapon prof. bonus				Source Page
+Primary Weapon			TYPE:ClassAbility	VISIBLE:NO	SAB:Primary Weapon +%|PrimaryWeap	DEFINE:PrimaryWeap|0	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|Crossbow (Heavy)|Crossbow (Light)|Shortbow|Longbow	BONUS:WEAPONPROF=%LIST|TOHIT|PrimaryWeap	SOURCEPAGE:p.
 Extra Shot				TYPE:ClassAbility	VISIBLE:NO	SAB:Extra Shot																															SOURCEPAGE:p.
 Improved Point Blank Shot	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Point Blank Shot																													SOURCEPAGE:p.
 Long Distance Accuracy		TYPE:ClassAbility	VISIBLE:NO	SAB:Long Distance Accuracy																													SOURCEPAGE:p.
 Ranged Disarm			TYPE:ClassAbility	VISIBLE:NO	SAB:Ranged Disarm																															SOURCEPAGE:p.
-Extended Range			TYPE:ClassAbility	VISIBLE:NO	SAB:Extended Range																															SOURCEPAGE:p.
+Extended Range			TYPE:ClassAbility	VISIBLE:NO	SAB:Extended Range																														SOURCEPAGE:p.
 
 ###Block: Mounted Warrior class abilities
-# Feat Name			Type			Visible	Special Ability		Source Page
-Mounted Attack		TYPE:ClassAbility	VISIBLE:NO	SAB:Mounted Attack		SOURCEPAGE:p.41
+# Feat Name			Type			Visible	Special ABility		Source Page
+Mounted Attack		TYPE:ClassAbility	VISIBLE:NO	SAB:Mounted Attack	SOURCEPAGE:p.41
 Guide Mount			TYPE:ClassAbility	VISIBLE:NO	SAB:Guide Mount		SOURCEPAGE:p.41
 Remain in Saddle		TYPE:ClassAbility	VISIBLE:NO	SAB:Remain in Saddle	SOURCEPAGE:p.41
 Direct Mount		TYPE:ClassAbility	VISIBLE:NO	SAB:Direct Mount		SOURCEPAGE:p.41
@@ -37,29 +32,29 @@ Moving Target		TYPE:ClassAbility	VISIBLE:NO	SAB:Moving Target		SOURCEPAGE:p.41
 Devastating Trample	TYPE:ClassAbility	VISIBLE:NO	SAB:Devastating Trample	SOURCEPAGE:p.41
 
 ###Block: Sailor class abilities
-# Feat Name				Type			Visible	Special Ability			Define			Stackable?	Multiple?	Choose				Weapon prof. bonus				Source Page
-Sailor Weapon Bonus		TYPE:Internal	VISIBLE:NO										STACK:YES	MULT:YES	CHOOSE:PROFICIENCY|WEAPON|PC	BONUS:WEAPONPROF=%LIST|TOHIT,DAMAGE|1	SOURCEPAGE:p.41
-Dirty Blow				TYPE:ClassAbility	VISIBLE:NO	SAB:Dirty Blow +%d4|DirtyBlow	DEFINE:DirtyBlow|0																	SOURCEPAGE:p.41
-Extraordinary Tolerance		TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Tolerance																					SOURCEPAGE:p.41
-Superior Improvised Weapon	TYPE:ClassAbility	VISIBLE:NO	SAB:Superior Improvised Weapon																					SOURCEPAGE:p.41
-Follow Up Strike			TYPE:ClassAbility	VISIBLE:NO	SAB:Follow Up Strike																						SOURCEPAGE:p.41
-Extraordinary Balance		TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Balance																					SOURCEPAGE:p.41
+# Feat Name				Type			Visible	Special ABility				Define			Stackable?	Multiple?	Choose										Weapon prof. bonus				Source Page
+Sailor Weapon Bonus		TYPE:Internal	VISIBLE:NO											STACK:YES	MULT:YES	CHOOSE:PROFICIENCY|WEAPON|PC|TYPE=Simple|TYPE=Martial|TYPE=Exotic	BONUS:WEAPONPROF=%LIST|TOHIT,DAMAGE|1	SOURCEPAGE:p.41
+Dirty Blow				TYPE:ClassAbility	VISIBLE:NO	SAB:Dirty Blow +%d4|DirtyBlow		DEFINE:DirtyBlow|0																							SOURCEPAGE:p.41
+Extraordinary Tolerance		TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Tolerance																												SOURCEPAGE:p.41
+Superior Improvised Weapon	TYPE:ClassAbility	VISIBLE:NO	SAB:Superior Improvised Weapon																											SOURCEPAGE:p.41
+Follow Up Strike			TYPE:ClassAbility	VISIBLE:NO	SAB:Follow Up Strike																													SOURCEPAGE:p.41
+Extraordinary Balance		TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Balance																												SOURCEPAGE:p.41
 
 ###Block: Soldier class abilities
-# Feat Name				Type			Visible	Special Ability				Define			Combat bonus				Source Page
+# Feat Name				Type			Visible	Special ABility				Define			Combat bonus				Source Page
 Quick Action			TYPE:ClassAbility	VISIBLE:NO	SAB:Quick Action +% |QuickAction	DEFINE:QuickAction|0	BONUS:COMBAT|INITIATIVE|QuickAction	SOURCEPAGE:p.49
 Superior Bull Rush		TYPE:ClassAbility	VISIBLE:NO	SAB:Superior Bull Rush													SOURCEPAGE:p.49
 Coordinated Strikes		TYPE:ClassAbility	VISIBLE:NO	SAB:Coordinated Strikes													SOURCEPAGE:p.49
 Superior Trip			TYPE:ClassAbility	VISIBLE:NO	SAB:Superior Trip														SOURCEPAGE:p.49
 Improved Close order Fighting	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Close-order Fighting											SOURCEPAGE:p.49
 Lightning Reaction		TYPE:ClassAbility	VISIBLE:NO	SAB:Lightning Reaction													SOURCEPAGE:p.49
-Maximize Cover			TYPE:ClassAbility	VISIBLE:NO	SAB:Maximize Cover														SOURCEPAGE:p.49
-Killing Strike			TYPE:ClassAbility	VISIBLE:NO	SAB:Killing Strike														SOURCEPAGE:p.49
+Maximize Cover			TYPE:ClassAbility	VISIBLE:NO	SAB:Maximize Cover													SOURCEPAGE:p.49
+Killing Strike			TYPE:ClassAbility	VISIBLE:NO	SAB:Killing Strike													SOURCEPAGE:p.49
 Reflexive Strike			TYPE:ClassAbility	VISIBLE:NO	SAB:Reflexive Strike													SOURCEPAGE:p.49
 
 ###Block: Stalker class abilities
-# Feat Name			Type			Visible	Special Ability				Define			Source Page
+# Feat Name			Type			Visible	Special ABility					Define			Source Page
 Skilled Disarm		TYPE:ClassAbility	VISIBLE:NO	SAB:Skilled Disarm +% |SkilledDisarm	DEFINE:SkilledDisarm|0	SOURCEPAGE:p.51
-Blinding Attack		TYPE:ClassAbility	VISIBLE:NO	SAB:Blinding Attack							SOURCEPAGE:p.51
-Incapacitating Attack	TYPE:ClassAbility	VISIBLE:NO	SAB:Incapacitating Attack						SOURCEPAGE:p.51
-Finishing Attack		TYPE:ClassAbility	VISIBLE:NO	SAB:Finishing Attack							SOURCEPAGE:p.51
+Blinding Attack		TYPE:ClassAbility	VISIBLE:NO	SAB:Blinding Attack								SOURCEPAGE:p.51
+Incapacitating Attack	TYPE:ClassAbility	VISIBLE:NO	SAB:Incapacitating Attack							SOURCEPAGE:p.51
+Finishing Attack		TYPE:ClassAbility	VISIBLE:NO	SAB:Finishing Attack								SOURCEPAGE:p.51

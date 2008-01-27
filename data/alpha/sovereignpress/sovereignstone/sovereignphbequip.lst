@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
+# CVS $Revision$ $Author$ -- Sat Jan 26 22:10:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 # Equipment Name			Type					Contains								Cost		Weight	Size		Source Page		Bonus to skill		Special Property
 Backpack				TYPE:Goods.General		CONTAINS:100|Any=100						COST:2	WT:2				SOURCEPAGE:p.
 Backpack (Small)			TYPE:Goods.General		CONTAINS:25|Any=25						COST:2	WT:.5				SOURCEPAGE:p.
@@ -80,7 +80,7 @@ Clothes (Small/Traveling)	TYPE:Goods.Clothing											COST:4	WT:1.5			SOURCEPA
 
 #Mounts and Tack Name
 Bit and Bridle			TYPE:Goods.Mount												COST:2	WT:1				SOURCEPAGE:p.
-Cart (Two Wheeled)		TYPE:Goods.Mount.Vehicle	CONTAINS:3120|Any=-1						COST:100	WT:200			SOURCEPAGE:p.
+Cart (Two Wheeled)		TYPE:Goods.Mount.Vehicle	CONTAINS:3120|Any=UNLIM						COST:100	WT:200			SOURCEPAGE:p.
 Donkey				TYPE:Goods.Mount			CONTAINS:150|Any=150						COST:.8	WT:0		SIZE:M	SOURCEPAGE:p.
 Feed (Per Day)			TYPE:Goods.Mount												COST:.5	WT:10				SOURCEPAGE:p.
 Horse (Heavy)			TYPE:Goods.Mount			CONTAINS:600|Any=600						COST:100	WT:0		SIZE:M	SOURCEPAGE:p.
@@ -95,9 +95,9 @@ Saddle (Military/Exotic)	TYPE:Goods.Mount												COST:60	WT:40				SOURCEPAGE
 Saddle (Pack/Exotic)		TYPE:Goods.Mount												COST:15	WT:20				SOURCEPAGE:p.
 Saddle (Riding/Exotic)		TYPE:Goods.Mount												COST:30	WT:30				SOURCEPAGE:p.
 Saddlebags				TYPE:Goods.Mount			CONTAINS:300|Any=50						COST:45	WT:8				SOURCEPAGE:p.
-Sled					TYPE:Goods.Mount.Vehicle	CONTAINS:2000|Any=-1						COST:20	WT:300			SOURCEPAGE:p.
+Sled					TYPE:Goods.Mount.Vehicle	CONTAINS:2000|Any=UNLIM						COST:20	WT:300			SOURCEPAGE:p.
 Stabling (Per Day)		TYPE:Goods.Mount												COST:.5					SOURCEPAGE:p.
-Wagon (Four Wheeled)		TYPE:Goods.Mount.Vehicle	CONTAINS:4000|Any=-1						COST:200	WT:400			SOURCEPAGE:p.
+Wagon (Four Wheeled)		TYPE:Goods.Mount.Vehicle	CONTAINS:4000|Any=UNLIM						COST:200	WT:400			SOURCEPAGE:p.
 #Mageware
 Paper (Sheet)			TYPE:Goods.Paper												COST:.1					SOURCEPAGE:p.
 Parchment (Sheet)			TYPE:Goods.Paper												COST:.3					SOURCEPAGE:p.

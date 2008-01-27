@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 14 16:08:37 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Sat Jan 26 20:12:45 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
 # Original Entry by: Jerril
 
@@ -17,3 +17,11 @@ Amputate			TYPE:General														PRESKILL:1,Heal=8	DESC:This is the brutal b
 Behead			TYPE:General	PREATT:4	PREFEAT:1,Power Attack	PREFEAT:1,Weapon Focus(TYPE.Slashing)				DESC:See Text																																									SOURCEPAGE:p.33
 Firearms Proficiency	TYPE:General																	DESC:The character is experienced in the use of an arquebuse.																		AUTO:WEAPONPROF|TYPE.Arquebuse	BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty	SOURCEPAGE:p.33
 Gunnery			TYPE:General																	DESC:The character is trained in the use of field cannon for sieges.																	AUTO:WEAPONPROF|TYPE.Cannon		BONUS:WEAPONPROF=Cannon|TOHIT|0|TYPE=GunneryPenalty	SOURCEPAGE:p.33
+
+###Block: Hidden Feats
+# Feat Name		Type				Visible	Special ABility																															Define				Multiple?	Choose
+Minor Poultice	TYPE:SpecialAbility	VISIBLE:NO	SAB:Brew Minor Poultice (%CHOICE) %/day|HerbalistMinorPoultices																												MULT:YES	CHOOSE:STRING|Blessing|Cure Light Wounds|Curse|Prowess
+Moderate Poultice	TYPE:SpecialAbility	VISIBLE:NO	SAB:Brew Moderate Poultice (%CHOICE) %/day|HerbalistModeratePoultices																											MULT:YES	CHOOSE:STRING|Cure Moderate Wounds|Love Potion|Protection From Evil|Remove Disease|Repel Minor Undead
+Major Poultice	TYPE:SpecialAbility	VISIBLE:NO	SAB:Brew Minour Poultice (%CHOICE) %/day|HerbalistMajorPoultices																												MULT:YES	CHOOSE:STRING|Cure Serious Wounds|Repel Major Undead
+Song of Power	TYPE:SpecialAbility	VISIBLE:NO	SAB:Song of Power (%CHOICE)																																		MULT:YES	CHOOSE:STRING|Allure|Bring the Rain|Call the Storm|Call the Herd|Calm Animal|Prowess|The Well Runs Dry
+Create Talisman	TYPE:SpecialAbility	VISIBLE:NO	SAB:Create Talisman (Standard)|PREVAREQ:TalismanProgression,1	SAB:Create Talisman (Reliable)|PREVAREQ:TalismanProgression,2	SAB:Create Talisman (Dependable)|PREVARGTEQ:TalismanProgression,3	DEFINE:TalismanProgression|0

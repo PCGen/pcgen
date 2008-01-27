@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri May  4 19:02:50 2007 -- reformated by prettylst.pl v1.38 (build 2829)
-SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
+# CVS $Revision$ $Author$ -- Sat Jan 26 22:10:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 
 # Class Name	Class Skill
 CLASS:Fighter.MOD	CSKILL:Literacy|Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim
@@ -83,7 +83,7 @@ CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledg
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1						BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2	ADD:FEAT|1|Sailor Weapon Bonus
-2																										AUTO:FEAT|:Improvised Weapon
+2																										AUTO:FEAT|Improvised Weapon
 3																						VFEAT:Evasion
 5																ADD:FEAT|1|Sailor Weapon Bonus					AUTO:FEAT|Extraordinary Tolerance
 7	BONUS:VAR|DirtyBlow|(CL-4)/3																					AUTO:FEAT|Dirty Blow

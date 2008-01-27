@@ -99,7 +99,7 @@ FEAT:aeg_feats_feats_appendix.lst
 TEMPLATE:aeg_feats_template_hidden.lst
 SKILL:aeg_feats_skills.lst
 SPELL:aeg_feats_spells.lst
-
+EQUIPMOD:aeg_feats_equipment_modifiers.lst
 #
 ##EOF
 #

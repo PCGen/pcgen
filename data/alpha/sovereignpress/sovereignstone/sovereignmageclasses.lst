@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
+# CVS $Revision$ $Author$ -- Sat Jan 26 22:10:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 # These are placed separately as it is very likely that people will use the non magical aspects in
 #	non Sovereign Stone Campaigns but not include the magic system. Or use the magic system and not
 #	include the non magical classes.
@@ -13,10 +13,10 @@ CLASS:Elemental Mage (Earth)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.C
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Elemental Mage (Earth)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Earth)|CL
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	ADD:Language|1|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
+1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	ADD:LANGUAGE|1|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
 2	CAST:2
 3	CAST:3
 4	CAST:4
@@ -44,10 +44,10 @@ CLASS:Elemental Mage (Air)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Cra
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Elemental Mage (Air)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Air)|CL
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	ADD:Language|1|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
+1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	ADD:LANGUAGE|1|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
 2	CAST:2
 3	CAST:3
 4	CAST:4
@@ -75,10 +75,10 @@ CLASS:Elemental Mage (Fire)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Cr
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Elemental Mage (Fire)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Fire)|CL
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	ADD:Language|1|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
+1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	ADD:LANGUAGE|1|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
 2	CAST:2
 3	CAST:3
 4	CAST:4
@@ -106,10 +106,10 @@ CLASS:Elemental Mage (Water)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.C
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Elemental Mage (Water)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Water)|CL
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	ADD:Language|1|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
+1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	ADD:LANGUAGE|1|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
 2	CAST:2
 3	CAST:3
 4	CAST:4
@@ -137,10 +137,10 @@ CLASS:Void Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Kno
 # Class Name	Spell Stat		Spell Type			Caster level
 CLASS:Void Mage	SPELLSTAT:INT	SPELLTYPE:EleVoidMage	BONUS:CASTERLEVEL|Void Mage|CL
 ###Block:Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency
-1	FEATAUTO:Armor Proficiency (Light)
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1	CAST:1	SAB:Tainted by Void	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	ADD:Language|1|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
+1	CAST:1	SAB:Tainted by Void	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	ADD:LANGUAGE|1|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
 2	CAST:2
 3	CAST:3
 4	CAST:4

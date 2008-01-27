@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Fri May  4 15:47:29 2007 -- reformated by prettylst.pl v1.38 (build 2829)
+# CVS $Revision$ $Author$ -- Sat Jan 26 22:10:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 # Players Handbook Classes modified for use in Sovereign Stone d20.
-SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
+SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 # This NEEDS to be changed to .MODs.  -- Tir Gwaith
 
 # Class Name	Hit Dice	Abbreviation	Source Page			Save checks bonus											Combat bonus
@@ -17,8 +17,8 @@ CLASS:Barbarian	STARTSKILLPTS:4
 ###Block: Rage variables
 1	BONUS:VAR|BarbRageTimesLVL|CL						DEFINE:BarbRageTimesLVL|0
 1	BONUS:VAR|BarbRagePowerLVL|CL						DEFINE:BarbRagePowerLVL|0
-1	BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL|15	DEFINE:GreaterRage|0
-1	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL|20	DEFINE:TirelessRage|0
+1	BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL,15	DEFINE:GreaterRage|0
+1	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,20	DEFINE:TirelessRage|0
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1			DEFINE:RageTimes|0
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies

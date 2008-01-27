@@ -1,22 +1,25 @@
 # CVS $Revision$ $Author$
-CAMPAIGN:SP - Sovereign Stone Core Rules
-GAMEMODE:SovereignStoneD20
+CAMPAIGN:SP - Sovereign Stone Campaign Sourcebook
+GAMEMODE:3e
 RANK:1
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Sovereign Stone
-TYPE:Sovereign Press.Core Rules.Sovereign Stone
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Sovereign Press.Sovereign Stone
 PUBNAMELONG:Sovereign Press
 PUBNAMESHORT:Sovereign
 PUBNAMEWEB:http://www.sovstone.com
-SOURCELONG:Sovereign Press - Sovereign Stone Core Rules
+SOURCELONG:Sovereign Stone Campaign Sourcebook
 SOURCESHORT:SovereignS
 SOURCEWEB:http://www.sovstone.com
+SOURCEDATE:2002-04
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
 COPYRIGHT:Sovereign Stone Campaign Sourcebook Copyright 2001, Sovereign Press, Inc.; Authors Timothy Kidwell, Jamie Chambers, Don Perrin, based on original material by Larry Elmore, Margaret Weis, and Tracy Hickman.
-COPYRIGHT:PCGen dataset conversion for Sovereign Stone Core Rules Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King)
+COPYRIGHT:PCGen dataset conversion for Sovereign Stone Campaign Sourcebook Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, Eddy Anthony)
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt

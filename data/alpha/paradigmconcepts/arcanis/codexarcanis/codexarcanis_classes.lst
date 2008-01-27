@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Dec 14 20:56:52 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Jan 26 21:23:47 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
@@ -118,13 +118,13 @@ CLASS:Wine Drinker	PREALIGN:LN,LE,TN,NE,CN,CE	!PRECLASS:1,SPELLCASTER.Arcane=1	P
 CLASS:Wine Drinker	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Diplomacy|Intimidate|Knowledge (Arcana)|TYPE.Profession|Sense Motive
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Wine Drinker	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Wine Drinker|CL
-1																										AUTO:WEAPONPROF|TYPE.Simple	WEAPONBONUS:TYPE.Martial
+1																												AUTO:WEAPONPROF|TYPE.Simple	WEAPONBONUS:TYPE.Martial
 1							SAB:Blood Dependence (Ex)	SAB:Blood Tolerance (Su)	SAB:School Access (Ex)
 1	CAST:0,1		KNOWN:0,1
 2	CAST:0,2		KNOWN:0,2		SAB:Sacrifice (Su)
 3	CAST:0,3,1		KNOWN:0,2,1		SAB:School Access II (Ex)
 4	CAST:0,4,2		KNOWN:0,2,2		SAB:Poison Tolerance (Su)
-5	CAST:0,5,3,1	KNOWN:0,2,2,1	SAB:School Access III (Ex)	SAB:Sorcerer's Blood (Ex)					ADD:FAVOREDCLASS|Sorcerer
+5	CAST:0,5,3,1	KNOWN:0,2,2,1	SAB:School Access III (Ex)	SAB:Sorcerer's Blood (Ex)					TEMPLATE:Wine Drinker's Favored Class
 
 
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus

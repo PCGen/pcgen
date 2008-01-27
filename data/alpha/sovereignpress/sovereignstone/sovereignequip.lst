@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
+# CVS $Revision$ $Author$ -- Sat Jan 26 22:10:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 # Equipment Name			Type					Contains							Cost		Weight	Size		Source Page
 Vial (Earth)			TYPE:Goods.Component.Vial	CONTAINS:3|SpellComponent=10				COST:.2					SOURCEPAGE:p.
 Vial (Water)			TYPE:Goods.Component.Vial	CONTAINS:3|SpellComponent=10				COST:.2					SOURCEPAGE:p.
@@ -33,8 +33,8 @@ Regulations (Work for Hire)	TYPE:Goods.Paper											COST:2					SOURCEPAGE:p.
 Decree (Royal)			TYPE:Goods.Paper											COST:2					SOURCEPAGE:p.
 
 #Mounts and Tack Name
-Carriage (Plain)			TYPE:Goods.Mount.Vehicle	CONTAINS:8000|Any=-1					COST:120	WT:350			SOURCEPAGE:p.
-Carriage (Ornate)			TYPE:Goods.Mount.Vehicle	CONTAINS:8000|Any=-1					COST:600	WT:500			SOURCEPAGE:p.
+Carriage (Plain)			TYPE:Goods.Mount.Vehicle	CONTAINS:8000|Any=UNLIM					COST:120	WT:350			SOURCEPAGE:p.
+Carriage (Ornate)			TYPE:Goods.Mount.Vehicle	CONTAINS:8000|Any=UNLIM					COST:600	WT:500			SOURCEPAGE:p.
 Horse (Dwarven/War)		TYPE:Goods.Mount			CONTAINS:690|Any=690					COST:600	WT:0		SIZE:M	SOURCEPAGE:p.
 Saddle blankets			TYPE:Goods.Mount											COST:1	WT:1				SOURCEPAGE:p.
 Tack					TYPE:Goods.Mount											COST:5	WT:3				SOURCEPAGE:p.

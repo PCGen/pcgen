@@ -1,19 +1,19 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 26 21:23:47 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
 # Martial Melee Weapons
-# Equipment Name			Required Proficiency			Type											Alternative Type		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Alternative Damage	Wield Category	Range		Size		Source Page		Special Property
-Gladius										TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal.Sword						COST:20	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8						WIELD:Light						SOURCEPAGE:p.177	SPROP:May NOT be used with Weapon Finesse
+# Equipment Name			Required Proficiency				Type											Alternative Type		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Alternative Damage	Wield Category	Range		Size		Source Page		Special Property
+Gladius											TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal.Sword						COST:20	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8						WIELD:Light						SOURCEPAGE:p.177	SPROP:May NOT be used with Weapon Finesse
 
 # Exotic Melee Weapons
-Yhark											TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double.Metal		ALTTYPE:Bludgeoning	COST:50	WT:20		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10		ALTDAMAGE:1d6					RANGE:10	SIZE:L	SOURCEPAGE:p.177	SPROP:May be set to receive a charge, gives a +4 to trip when used to dismount a rider.
-Tralian Hammer									TYPE:Weapon.Exotic.Melee.Standard.Bludgeoning.Piercing.Metal					COST:45	WT:18		CRITMULT:x4			CRITRANGE:1			DAMAGE:2d8											SIZE:L	SOURCEPAGE:p.177	SPROP:May be used as Piercing or Bludgeoning damage
+Yhark												TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double.Metal		ALTTYPE:Bludgeoning	COST:50	WT:20		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10		ALTDAMAGE:1d6					RANGE:10	SIZE:L	SOURCEPAGE:p.177	SPROP:May be set to receive a charge, gives a +4 to trip when used to dismount a rider.
+Tralian Hammer										TYPE:Weapon.Exotic.Melee.Standard.Bludgeoning.Piercing.Metal					COST:45	WT:18		CRITMULT:x4			CRITRANGE:1			DAMAGE:2d8											SIZE:L	SOURCEPAGE:p.177	SPROP:May be used as Piercing or Bludgeoning damage
 
 # Exotic Ranged Weapons
-Disk Crossbow (Repeating)							TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Wooden							COST:65	WT:10		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6+1								RANGE:100	SIZE:M	SOURCEPAGE:p.177
-Flintlock (Pistol)		PROFICIENCY:Flintlock (Pistol)	TYPE:Weapon.Exotic.Ranged.Piercing.Firearms				ALTTYPE:Bludgeoning	COST:1000	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10		ALTDAMAGE:1d6					RANGE:50	SIZE:S	SOURCEPAGE:p.177	SPROP:May be used as a Light Mace in Melee
-Flintlock (Rifle)			PROFICIENCY:Flintlock (Rifle)		TYPE:Weapon.Exotic.Ranged.Piercing.Firearms				ALTTYPE:Bludgeoning	COST:2000	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12		ALTDAMAGE:1d10					RANGE:60	SIZE:L	SOURCEPAGE:p.177	SPROP:May be used as a Great Club in Melee
+Disk Crossbow (Repeating)								TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Wooden							COST:65	WT:10		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6+1								RANGE:100	SIZE:M	SOURCEPAGE:p.177
+Flintlock (Pistol)		PROFICIENCY:WEAPON|Flintlock (Pistol)	TYPE:Weapon.Exotic.Ranged.Piercing.Firearms				ALTTYPE:Bludgeoning	COST:1000	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10		ALTDAMAGE:1d6					RANGE:50	SIZE:S	SOURCEPAGE:p.177	SPROP:May be used as a Light Mace in Melee
+Flintlock (Rifle)			PROFICIENCY:WEAPON|Flintlock (Rifle)	TYPE:Weapon.Exotic.Ranged.Piercing.Firearms				ALTTYPE:Bludgeoning	COST:2000	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12		ALTDAMAGE:1d10					RANGE:60	SIZE:L	SOURCEPAGE:p.177	SPROP:May be used as a Great Club in Melee
 
 ###Block: Ammunition
 # Equipment Name				Type					Cost		Weight	Base Quantity	Source Page

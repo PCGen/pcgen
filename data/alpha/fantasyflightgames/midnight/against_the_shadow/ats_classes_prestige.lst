@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 21 00:00:04 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Jan 26 20:59:37 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -30,16 +30,16 @@ CLASS:Aradil's Eye	HD:6		TYPE:PC.Prestige	ABB:ArEye		MAXLEVEL:10	SOURCEPAGE:p. 4
 CLASS:Aradil's Eye	PREFEAT:1,Inconspicuous	PRESKILL:3,Bluff,Gather Information,Hide=8	PRESKILL:4,Disguise,Move Silently,Sense Motive,Spot=5	PRETEXT:Must be a Caransil that is judged completely loyal to the Witch Queen.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Aradil's Eye	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Wilderness Lore
-1	AUTO:FEAT|Simple Weapon Proficiency
-1:BONUS:VAR|AlterEgoLvl|CL	AUTO:FEAT|Alter Ego
-1	AUTO:FEAT|Mindbond
-1	AUTO:FEAT|Closed Mind
-2	AUTO:FEAT|Aradil's Eye Spy
+1						AUTO:FEAT|Simple Weapon Proficiency
+1	BONUS:VAR|AlterEgoLvl|CL	AUTO:FEAT|Alter Ego
+1						AUTO:FEAT|Mindbond
+1						AUTO:FEAT|Closed Mind
+2						AUTO:FEAT|Aradil's Eye Spy
 #3	SPELLS:Aradil's Eye|TIMES=1|CASTERLEVEL=var("CL")|Undetectable Alignment
 #4	AUTO:FEAT|Fascinating Speech
-5	AUTO:FEAT|Still Mind
-6	AUTO:FEAT|Hide in Plain Sight
-7	AUTO:FEAT|Slippery Mind
+5						AUTO:FEAT|Still Mind
+6						AUTO:FEAT|Hide in Plain Sight
+7						AUTO:FEAT|Slippery Mind
 #8	Memory Alteration
 #9	Discerning Mind
 
