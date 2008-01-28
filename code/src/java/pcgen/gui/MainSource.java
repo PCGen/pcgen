@@ -66,15 +66,19 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.TreePath;
 
 import pcgen.core.Campaign;
+import pcgen.core.CampaignURL;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.CampaignURL.URLKind;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -83,6 +87,7 @@ import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.tabs.InfoTabUtils;
+import pcgen.gui.tabs.spells.InfoPreparedSpells;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.BrowserLauncher;
 import pcgen.gui.utils.IconUtilitities;
@@ -427,6 +432,15 @@ public class MainSource extends FilterAdapterPanel
 				.append(image.getURI())
 				.append("'><br>");
 		}
+		// Add the website URLs
+		List<CampaignURL> webURLs = aCamp.getUrlListForKind(URLKind.WEBSITE);
+		if (!webURLs.isEmpty())
+		{
+			sb.append("<b>WEBSITE</b>: ");
+			sb.append(buildURLListString(webURLs));
+			sb.append("<br>\n");
+		}
+		
 		if (aCamp.getType().length() > 0)
 		{
 			sb.append("<b>TYPE</b>: ")
@@ -449,6 +463,24 @@ public class MainSource extends FilterAdapterPanel
 				.append(bString);
 		}
 
+		// Add the purchase URLs
+		List<CampaignURL> purchaseURLs = aCamp.getUrlListForKind(URLKind.PURCHASE);
+		if (!purchaseURLs.isEmpty())
+		{
+			sb.append("<br><b>PURCHASE</b>: ");
+			sb.append(buildURLListString(purchaseURLs));
+			sb.append("\n");
+		}
+
+		// Add the purchase URLs
+		List<CampaignURL> surveyURLs = aCamp.getUrlListForKind(URLKind.SURVEY);
+		if (!surveyURLs.isEmpty())
+		{
+			sb.append("<br><b>SURVEY</b>: ");
+			sb.append(buildURLListString(surveyURLs));
+			sb.append("\n");
+		}
+		
 		boolean infoDisplayed = false;
 		bString = aCamp.getInfoText();
 
@@ -474,6 +506,34 @@ public class MainSource extends FilterAdapterPanel
 		}
 
 		sb.append("</html>");
+		return sb.toString();
+	}
+
+	/**
+	 * Builds a html display string based on the list of campaign urls.
+	 * 
+	 * @param urlList the list of urls
+	 * 
+	 * @return the display string
+	 */
+	private static String buildURLListString(List<CampaignURL> urlList)
+	{
+		StringBuffer sb = new StringBuffer();
+		boolean first = true;
+		for (CampaignURL campaignURL : urlList)
+		{
+			if (first)
+			{
+				first = false;
+			}
+			else
+			{
+				sb.append(" | ");
+			}
+			sb.append("<a href=\"").append(campaignURL.getUrl().toString());
+			sb.append("\">").append(campaignURL.getUrlDesc());
+			sb.append("</a>");
+		}
 		return sb.toString();
 	}
 
@@ -806,6 +866,30 @@ public class MainSource extends FilterAdapterPanel
 					clearQFilter();
 				}
 			});
+
+		infoLabel.addHyperlinkListener(new HyperlinkListener()
+		{
+			public void hyperlinkUpdate(HyperlinkEvent event)
+			{
+				if (event.getEventType() == HyperlinkEvent.EventType.ACTIVATED)
+				{
+					try
+					{
+						BrowserLauncher.openURL(event.getURL());
+					}
+					catch (IOException e)
+					{
+						Logging.errorPrint("Failed to open URL " //$NON-NLS-1$
+							+ event.getURL() + " due to ", e); //$NON-NLS-1$
+						ShowMessageDelegate.showMessageDialog(PropertyFactory
+							.getFormattedString("in_Src_browser", event //$NON-NLS-1$
+								.getURL().toString()), Constants.s_APPNAME,
+							MessageType.ERROR);
+					}
+				}
+			}
+		});
+		
 	}
 
 	/**

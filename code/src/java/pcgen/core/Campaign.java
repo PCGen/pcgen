@@ -24,6 +24,7 @@
  */
 package pcgen.core;
 
+import pcgen.core.CampaignURL.URLKind;
 import pcgen.core.utils.*;
 import pcgen.persistence.lst.CampaignSourceEntry;
 
@@ -31,7 +32,7 @@ import java.net.URI;
 import java.util.*;
 
 /**
- * <code>Campaign</code>.
+ * <code>Campaign</code> is a source or campaign defined in a *.pcc file.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
@@ -40,6 +41,7 @@ public class Campaign extends PObject
 {
 	private Map<String, String> publisherMap = new HashMap<String, String>();
 	private Properties options = new Properties();
+	private List<CampaignURL> urlList = new ArrayList<CampaignURL>();
 	private boolean isD20;
 	private boolean isLicensed;
 	private boolean isLoaded;
@@ -1372,5 +1374,40 @@ public class Campaign extends PObject
 		}
 
 		return newCampaign;
+	}
+
+	/**
+	 * Adds the url.
+	 * 
+	 * @param campUrl the url to be added
+	 */
+	public void addURL(CampaignURL campUrl)
+	{
+		urlList.add(campUrl);
+	}
+
+	/**
+	 * @return the urlList
+	 */
+	public List<CampaignURL> getUrlList()
+	{
+		return Collections.unmodifiableList(urlList);
+	}
+
+	/**
+	 * Returnr a list of urls of the specified kind.
+	 * @return the urlList
+	 */
+	public List<CampaignURL> getUrlListForKind(URLKind kind)
+	{
+		List<CampaignURL> kindList = new ArrayList<CampaignURL>();
+		for (CampaignURL url : urlList)
+		{
+			if (url.getUrlKind() == kind)
+			{
+				kindList.add(url);
+			}
+		}
+		return kindList;
 	}
 }

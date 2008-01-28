@@ -14,6 +14,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.URL;
 
 /**
  * BrowserLauncher is a class that provides one static method,
@@ -295,6 +296,18 @@ public final class BrowserLauncher
 		// Empty Constructor
 	}
 
+	/**
+	 * Attempts to open the default web browser to the given URL.
+	 * 
+	 * @param url The URL to open
+	 * @throws IOException If the web browser could not be located
+	 * or does not run
+	 */
+	public static void openURL(URL url) throws IOException
+	{
+		openURL(url.toString());
+	}
+	
 	/**
 	 * Attempts to open the default web browser to the given URL.
 	 * 
