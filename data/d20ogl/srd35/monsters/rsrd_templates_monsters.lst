@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec  4 00:48:56 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Jan 28 16:32:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 
@@ -31,6 +31,14 @@ Default Cauchemar Nightmare	VISIBLE:NO							CSKILL:Bluff|Knowledge (Arcana)
 
 Male Only				VISIBLE:NO															GENDERLOCK:Male
 Female Only				VISIBLE:NO															GENDERLOCK:Female
+
+###Block: Racial Variants
+# Template Name	Special ABility																						Required Race		Prohibited Template			Add to base move			Move			SUBRACE		Race Subtype		Nb Hands
+Hydra (Pyrohydra)	SAB:Breath Fire ~ % heads every 1d4 rounds/3d6 Fire Damage/DC % for half|HydraHeadCount|10+floor(HydraHeadCount/2)+CON	SAB:Immunity to Fire	PRERACE:1,Hydra%		!PRETEMPLATE:Hydra (Cryohydra)									SUBRACE:Pyrohydra	RACESUBTYPE:Fire
+Hydra (Cryohydra)	SAB:Breath Frost ~ % heads every 1d4 rounds/3d6 Cold Damage/DC % for half|HydraHeadCount|10+floor(HydraHeadCount/2)+CON	SAB:Immunity to Cold	PRERACE:1,Hydra%		!PRETEMPLATE:Hydra (Pyrohydra)									SUBRACE:Cryohydra	RACESUBTYPE:Cold
+Sahuagin (Mutant)																									PRERACE:1,Sahuagin															SUBRACE:Mutant					HANDS:4
+Troll (Scrag)	SAB:Regenerate only if mostly immersed in water																	PRERACE:1,Troll								BONUS:MOVEADD|TYPE.Walk|-10	MOVE:Swim,40	SUBRACE:Scrag	RACESUBTYPE:Aquatic
+
 #
 # End
 #

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Wed Dec 28 00:33:46 2005 -- reformated by prettylst.pl v1.35 (build 553)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Sahuagin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin%]
+STARTPACK:Sahuagin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 RACE:Sahuagin	!PRERACE:1,%
 NAME:Sahuagin
@@ -14,15 +14,25 @@ FEAT:Great Fortitude
 GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
 GEAR:Trident		SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Sahuagin (Mutant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin (Mutant)]
-RACE:Sahuagin (Mutant)	!PRERACE:1,%
+STARTPACK:Sahuagin (Mutant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]
+RACE:Sahuagin	!PRERACE:1,%
 KIT:Sahuagin Default
+TEMPLATE:Sahuagin (Mutant)
 NAME:Mutant Sahuagin
 
 STARTPACK:Sahuagin (Malenti) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin (Malenti)]
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 RACE:Sahuagin (Malenti)	!PRERACE:1,%
-KIT:Sahuagin Default
 NAME:Malenti
+ALIGN:LE
+SKILL:Handle Animal	RANK:5
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+FEAT:Great Fortitude
+GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
+GEAR:Trident		SIZE:PC	LOCATION:Both Hands
+
 
 STARTPACK:Salamander (Average) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Average)]
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
@@ -622,8 +632,8 @@ FEAT:Alertness
 FEAT:Iron Will
 FEAT:Track
 
-STARTPACK:Troll (Scrag) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Scrag)]
-RACE:Troll (Scrag)	!PRERACE:1,%
+STARTPACK:Troll (Scrag) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]
+RACE:Troll	!PRERACE:1,%
 KIT:Troll Default
 NAME:Scrag
-
+TEMPLATE:Troll (Scrag)

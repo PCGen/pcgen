@@ -615,187 +615,102 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Pyrohydra/Eight Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Eight Headed)]
-RACE:Hydra (Pyrohydra/Eight Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Eight Headed/Pyrohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Headed)]
+RACE:Hydra (Eight Headed)	!PRERACE:1,%
+KIT:Hydra (Eight Headed) Default
+TEMPLATE:Hydra (Pyrohydra)
 NAME:Eight Headed Pyrohydra
-ALIGN:TN
-SKILL:Spot		RANK:6
-SKILL:Listen	RANK:5
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Pyrohydra/Eleven Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Eleven Headed)]
-RACE:Hydra (Pyrohydra/Eleven Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Eleven Headed/Pyrohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Headed)]
+RACE:Hydra (Eleven Headed)	!PRERACE:1,%
+KIT:Hydra (Eleven Headed) Default
+TEMPLATE:Hydra (Pyrohydra)
 NAME:Eleven Headed Pyrohydra
-ALIGN:TN
-SKILL:Listen	RANK:7
-SKILL:Spot		RANK:7
-FEAT:Blind Fight
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Pyrohydra/Five Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Five Headed)]
-RACE:Hydra (Pyrohydra/Five Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Five Headed/Pyrohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Headed)]
+RACE:Hydra (Five Headed)	!PRERACE:1,%
+KIT:Hydra (Five Headed) Default
+TEMPLATE:Hydra (Pyrohydra)
 NAME:Five Headed Pyrohydra
-ALIGN:TN
-SKILL:Listen	RANK:4
-SKILL:Spot		RANK:4
-FEAT:Iron Will
-FEAT:Toughness
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Pyrohydra/Nine Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Nine Headed)]
-RACE:Hydra (Pyrohydra/Nine Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Nine Headed/Pyrohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Headed)]
+RACE:Hydra (Nine Headed)	!PRERACE:1,%
+KIT:Hydra (Nine Headed) Default
+TEMPLATE:Hydra (Pyrohydra)
 NAME:Nine Headed Pyrohydra
-ALIGN:TN
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:6
-FEAT:Blind Fight
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Pyrohydra/Seven Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Seven Headed)]
-RACE:Hydra (Pyrohydra/Seven Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Seven Headed/Pyrohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Headed)]
+RACE:Hydra (Seven Headed)	!PRERACE:1,%
+KIT:Hydra (Seven Headed) Default
+TEMPLATE:Hydra (Pyrohydra)
 NAME:Seven Headed Pyrohydra
-ALIGN:TN
-SKILL:Listen	RANK:5
-SKILL:Spot		RANK:5
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Pyrohydra/Six Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Six Headed)]
-RACE:Hydra (Pyrohydra/Six Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Six Headed/Pyrohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Headed)]
+RACE:Hydra (Six Headed)	!PRERACE:1,%
+KIT:Hydra (Six Headed) Default
+TEMPLATE:Hydra (Pyrohydra)
 NAME:Six Headed Pyrohydra
-ALIGN:TN
-SKILL:Listen	RANK:4
-SKILL:Spot		RANK:5
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Pyrohydra/Ten Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Ten Headed)]
-RACE:Hydra (Pyrohydra/Ten Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Ten Headed/Pyrohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Headed)]
+RACE:Hydra (Ten Headed)	!PRERACE:1,%
+KIT:Hydra (Ten Headed) Default
+TEMPLATE:Hydra (Pyrohydra)
 NAME:Ten Headed Pyrohydra
-ALIGN:TN
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:7
-FEAT:Blind Fight
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Pyrohydra/Twelve Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Pyrohydra/Twelve Headed)]
-RACE:Hydra (Pyrohydra/Twelve Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Twelve Headed/Pyrohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Headed)]
+RACE:Hydra (Twelve Headed)	!PRERACE:1,%
+KIT:Hydra (Twelve Headed) Default
+TEMPLATE:Hydra (Pyrohydra)
 NAME:Twelve Headed Pyrohydra
-ALIGN:TN
-SKILL:Spot		RANK:8
-SKILL:Listen	RANK:7
-FEAT:Blind Fight
-FEAT:Improved Natural Attack(Bite)
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Cryohydra/Eight Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Eight Headed)]
-RACE:Hydra (Cryohydra/Eight Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Eight Headed/Cryohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Headed)]
+RACE:Hydra (Eight Headed)	!PRERACE:1,%
+KIT:Hydra (Eight Headed) Default
+TEMPLATE:Hydra (Cryohydra)
 NAME:Eight Headed Cryohydra
-ALIGN:TN
-SKILL:Spot		RANK:6
-SKILL:Listen	RANK:5
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Cryohydra/Eleven Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Eleven Headed)]
-RACE:Hydra (Cryohydra/Eleven Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Eleven Headed/Cryohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Headed)]
+RACE:Hydra (Eleven Headed)	!PRERACE:1,%
+KIT:Hydra (Eleven Headed) Default
+TEMPLATE:Hydra (Cryohydra)
 NAME:Eleven Headed Cryohydra
-ALIGN:TN
-SKILL:Listen	RANK:7
-SKILL:Spot		RANK:7
-FEAT:Blind Fight
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Cryohydra/Five Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Five Headed)]
-RACE:Hydra (Cryohydra/Five Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Five Headed/Cryohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Headed)]
+RACE:Hydra (Five Headed)	!PRERACE:1,%
+KIT:Hydra (Five Headed) Default
+TEMPLATE:Hydra (Cryohydra)
 NAME:Five Headed Cryohydra
-ALIGN:TN
-SKILL:Listen	RANK:4
-SKILL:Spot		RANK:4
-FEAT:Iron Will
-FEAT:Toughness
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Cryohydra/Nine Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Nine Headed)]
-RACE:Hydra (Cryohydra/Nine Headed)	!PRERACE:1,%
-NAME:Nine Headed Cryohydra
-ALIGN:TN
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:6
-FEAT:Blind Fight
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
+STARTPACK:Hydra (Nine Headed/Cryohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Headed)]
+RACE:Hydra (Nine Headed)	!PRERACE:1,%
+KIT:Hydra (Five Headed) Default
+TEMPLATE:Hydra (Cryohydra)
+NAME:Five Headed Cryohydra
 
-STARTPACK:Hydra (Cryohydra/Seven Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Seven Headed)]
-RACE:Hydra (Cryohydra/Seven Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Seven Headed/Cryohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Headed)]
+RACE:Hydra (Seven Headed)	!PRERACE:1,%
+KIT:Hydra (Seven Headed) Default
+TEMPLATE:Hydra (Cryohydra)
 NAME:Seven Headed Cryohydra
-ALIGN:TN
-SKILL:Listen	RANK:5
-SKILL:Spot		RANK:5
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Cryohydra/Six Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Six Headed)]
-RACE:Hydra (Cryohydra/Six Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Six Headed/Cryohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Headed)]
+RACE:Hydra (Six Headed)	!PRERACE:1,%
+KIT:Hydra (Six Headed) Default
+TEMPLATE:Hydra (Cryohydra)
 NAME:Six Headed Cryohydra
-ALIGN:TN
-SKILL:Listen	RANK:4
-SKILL:Spot		RANK:5
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Cryohydra/Ten Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Ten Headed)]
-RACE:Hydra (Cryohydra/Ten Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Ten Headed/Cryohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Headed)]
+RACE:Hydra (Ten Headed)	!PRERACE:1,%
+KIT:Hydra (Ten Headed) Default
+TEMPLATE:Hydra (Cryohydra)
 NAME:Ten Headed Cryohydra
-ALIGN:TN
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:7
-FEAT:Blind Fight
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Cryohydra/Twelve Headed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Cryohydra/Twelve Headed)]
-RACE:Hydra (Cryohydra/Twelve Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Twelve Headed/Cryohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Headed)]
+RACE:Hydra (Twelve Headed)	!PRERACE:1,%
+KIT:Hydra (Twelve Headed) Default
+TEMPLATE:Hydra (Cryohydra)
 NAME:Twelve Headed Cryohydra
-ALIGN:TN
-SKILL:Spot		RANK:8
-SKILL:Listen	RANK:7
-FEAT:Blind Fight
-FEAT:Improved Natural Attack(Bite)
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Focus(Bite)
-STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
+#
+# End
+#
