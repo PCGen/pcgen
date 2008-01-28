@@ -23,6 +23,7 @@ INFOTEXT:RSRD Psionics options. Requires the RSRD Basics set.
 #EXTRAFILE:notes.txt
 
 # Psionics
+ABILITYCATEGORY:rsrd_ability_categories_psionic.lst
 BIOSET:rsrd_biosettings_base_psionic.lst
 RACE:rsrd_races__base_psionic.lst
 RACE:rsrd_races_psionic_a_o.lst

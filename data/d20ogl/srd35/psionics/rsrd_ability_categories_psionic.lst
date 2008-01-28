@@ -1,0 +1,10 @@
+# CVS $Revision: 1375 $ $Author: frank_kliewe $ -- Mon Sep 11 02:10:49 2006 -- reformated by prettylst.pl v1.35 (build 565)
+#SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Eddy Anthony
+
+ABILITYCATEGORY:Psion Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	CATEGORY:FEAT	TYPE:Psionic.Metapsionic.ItemCreation	PLURAL:Psion Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Warrior Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	CATEGORY:FEAT	TYPE:Psionic.Fighter				PLURAL:Psychic Warrior Feats	DISPLAYLOCATION:Feats
+
+#
+# End
+#

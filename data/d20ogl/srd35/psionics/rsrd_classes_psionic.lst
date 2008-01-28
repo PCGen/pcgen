@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 16 12:30:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Jan 28 13:01:14 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -45,26 +45,26 @@ SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Telepath|Psion	CSKILL:Conce
 1	BONUS:VAR|BonusPowerPoints|(INT*PsionML)/2|TYPE=PsionBonusPP
 
 ###Block: Class Info
-1	KNOWN:0,3				ADD:FEAT|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
+1	KNOWN:0,3				BONUS:ABILITYPOOL|Psion Feat|(CL/5)+1
 2	KNOWN:0,5
 3	KNOWN:0,5,2
 4	KNOWN:0,5,4
-5	KNOWN:0,5,4,2			ADD:FEAT|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
+5	KNOWN:0,5,4,2
 6	KNOWN:0,5,4,4
 7	KNOWN:0,5,4,4,2
 8	KNOWN:0,5,4,4,4
 9	KNOWN:0,5,4,4,4,2
-10	KNOWN:0,5,4,4,4,4			ADD:FEAT|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
+10	KNOWN:0,5,4,4,4,4
 11	KNOWN:0,5,4,4,4,4,1
 12	KNOWN:0,5,4,4,4,4,3
 13	KNOWN:0,5,4,4,4,4,3,1
 14	KNOWN:0,5,4,4,4,4,3,3
-15	KNOWN:0,5,4,4,4,4,3,3,1		ADD:FEAT|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
+15	KNOWN:0,5,4,4,4,4,3,3,1
 16	KNOWN:0,5,4,4,4,4,3,3,3
 17	KNOWN:0,5,4,4,4,4,3,3,3,1
 18	KNOWN:0,5,4,4,4,4,3,3,3,3
 19	KNOWN:0,5,4,4,4,4,3,3,3,4
-20	KNOWN:0,5,4,4,4,4,3,3,3,6	ADD:FEAT|TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation
+20	KNOWN:0,5,4,4,4,4,3,3,3,6
 
 
 # Class Name		Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
@@ -89,26 +89,26 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsychicWarriorML)/2|TYPE=PsychicWarriorBonusPP
 
 ###Block: Class Info
-1	KNOWN:0,1			ADD:FEAT|TYPE=Fighter,TYPE=Psionic
-2	KNOWN:0,2			ADD:FEAT|TYPE=Fighter,TYPE=Psionic
+1	KNOWN:0,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|((CL+1)/3)+1
+2	KNOWN:0,2
 3	KNOWN:0,3
 4	KNOWN:0,3,1
-5	KNOWN:0,3,2			ADD:FEAT|TYPE=Fighter,TYPE=Psionic
+5	KNOWN:0,3,2
 6	KNOWN:0,3,3
 7	KNOWN:0,3,3,1
-8	KNOWN:0,3,3,2		ADD:FEAT|TYPE=Fighter,TYPE=Psionic
+8	KNOWN:0,3,3,2
 9	KNOWN:0,3,3,3
 10	KNOWN:0,3,3,3,1
-11	KNOWN:0,3,3,3,2		ADD:FEAT|TYPE=Fighter,TYPE=Psionic
+11	KNOWN:0,3,3,3,2
 12	KNOWN:0,3,3,3,3
 13	KNOWN:0,3,3,3,3,1
-14	KNOWN:0,3,3,3,3,2		ADD:FEAT|TYPE=Fighter,TYPE=Psionic
+14	KNOWN:0,3,3,3,3,2
 15	KNOWN:0,3,3,3,3,3
 16	KNOWN:0,3,3,3,3,3,1
-17	KNOWN:0,3,3,3,3,3,2	ADD:FEAT|TYPE=Fighter,TYPE=Psionic
+17	KNOWN:0,3,3,3,3,3,2
 18	KNOWN:0,3,3,3,3,3,3
 19	KNOWN:0,3,3,3,3,3,4
-20	KNOWN:0,3,3,3,3,3,5	ADD:FEAT|TYPE=Fighter,TYPE=Psionic
+20	KNOWN:0,3,3,3,3,3,5
 
 
 # Class Name	Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
@@ -119,9 +119,6 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Cra
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
-
-###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1	ADD:FEAT|Wild Talent
 
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for
 #  mind blade powers, use BONUS:VAR|MndBladeECL|x in the PrC's class level line setup
@@ -138,9 +135,9 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Cra
 1						VFEAT:MindBlade Multiple Throw|PREVARGTEQ:MndBladeECL,17
 
 ###Block: Class Info
-1	AUTO:FEAT|Weapon Focus(Mind Blade)
-6	AUTO:FEAT|Speed of Thought
-9	AUTO:FEAT|Greater Weapon Focus(Mind Blade)
+1	TEMPLATE:Psionic	AUTO:FEAT|Weapon Focus(Mind Blade)|Wild Talent
+6				AUTO:FEAT|Speed of Thought
+9				AUTO:FEAT|Greater Weapon Focus(Mind Blade)
 
 # Class Name	Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Wilder	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
