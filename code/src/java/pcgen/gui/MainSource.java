@@ -432,6 +432,13 @@ public class MainSource extends FilterAdapterPanel
 				.append(image.getURI())
 				.append("'><br>");
 		}
+
+		if (!aCamp.getDescription().equals(Constants.EMPTY_STRING))
+		{
+			sb.append("<b>DESCRIPTION</b>: ");
+			sb.append(aCamp.getDescription());
+			sb.append("<br>\n");
+		}
 		// Add the website URLs
 		List<CampaignURL> webURLs = aCamp.getUrlListForKind(URLKind.WEBSITE);
 		if (!webURLs.isEmpty())
