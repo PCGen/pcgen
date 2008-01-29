@@ -1861,7 +1861,36 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				{
 					if (pc == null || sa.qualifies(pc))
 					{
-						saList.add(sa);
+						final String key = sa.getKeyName();
+						final int idx = key.indexOf("%CHOICE");
+						
+						if (idx >= 0)
+						{
+							StringBuilder sb = new StringBuilder();
+							sb.append(key.substring(0, idx));
+
+							if (getAssociatedCount() != 0)
+							{
+								for (int i = 0; i < getAssociatedCount(); ++i)
+								{
+									if (i != 0)
+									{
+										sb.append(" ,");
+									}
+
+									sb.append(getAssociated(i));
+								}
+							}
+							else
+							{
+								sb.append("<undefined>");
+							}
+
+							sb.append(key.substring(idx + 7));
+							sa = new SpecialAbility(sb.toString(), sa
+									.getSASource(), sa.getSADesc());
+							saList.add(sa);
+						}
 					}
 				}
 			}
@@ -1870,6 +1899,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	/**
 	 * Get the type of PObject
+	 * 
 	 * @return the type of PObject
 	 */
 	public String getType()
