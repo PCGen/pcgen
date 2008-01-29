@@ -20,6 +20,10 @@ INFOTEXT:This is a subset of the RSRD which excludes Psionics, this should not b
 #EXTRAFILE:@/d20ogl/srd35/OGL.txt
 
 # Basics
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
+
+ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
+
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_monsters.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_npc.lst
@@ -46,7 +50,6 @@ FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden2.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_monster.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
 
 KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst
 KIT:@/d20ogl/srd35/basics/rsrd_kits_races__base.lst
@@ -75,8 +78,11 @@ HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryToo
 
 
 # Advanced
-CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst
 ABILITY:@/d20ogl/srd35/advanced/rsrd_abilities_class_prestige.lst
+
+ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
+
+CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst
 
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_armorshields_specific.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_potions.lst

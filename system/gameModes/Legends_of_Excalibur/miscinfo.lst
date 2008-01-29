@@ -266,28 +266,10 @@ WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
 # Ability Categories
 #
 
-###Block: FEATs and subgroups
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
-ABILITYCATEGORY:FEAT				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT										PLURAL:Feats				DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Fighter Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter				PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Wizard Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Wizard.ItemCreation.Metamagic	PLURAL:Wizard Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Metamagic Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Metamagic				PLURAL:Metamagic Feats			DISPLAYLOCATION:Feats
-
-ABILITYCATEGORY:Internal			VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:0			CATEGORY:Internal
+ABILITYCATEGORY:FEAT		VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT	PLURAL:Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Internal	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal
 ###COMMENT: Internal Category is for all hidden abilities.
 
-###Block: Special Ability and subgroups
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
-ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability
-ABILITYCATEGORY:Rogue Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:RogueAbilities			PLURAL:Rogue Special Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:FavoredEnemies	CATEGORY:Special Ability		TYPE:FavoredEnemy				PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Enemy Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:FavoredEBonuses	CATEGORY:Special Ability		TYPE:FavoredEnemyBonus			PLURAL:Favored Enemy Bonuses		DISPLAYLOCATION:Class Abilities
-# RSRD Prestige Classes subgroups
-ABILITYCATEGORY:High Arcana Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:HighArcana				PLURAL:High Arcana Abilities		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Hierophant Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:Hierophant				PLURAL:Hierophant Abilities		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Terrain Mastery		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:Terrain				PLURAL:Terrain Masteries		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Advanced Terrain Mastery	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:Terrain.Planar			PLURAL:Advanced Terrain Masteries	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Loremaster Secret		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:LoremasterSecret			PLURAL:Loremaster Secrets		DISPLAYLOCATION:Class Abilities
 
 PREVIEWDIR:d20/fantasy
 PREVIEWSHEET:preview.html

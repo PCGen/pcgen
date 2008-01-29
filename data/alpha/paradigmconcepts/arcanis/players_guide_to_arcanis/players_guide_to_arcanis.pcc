@@ -82,6 +82,8 @@ TEMPLATE:pgta_templates.lst
 BIOSET:pgta_bio.lst
 
 # RSRD Imports - Basics
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
+ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(EXCLUDE:Cleric|Fighter|Monk|Paladin|Ranger|Rogue|Sorcerer|Wizard)
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_npc.lst
 COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
@@ -109,6 +111,8 @@ WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
 TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_types.lst
 
 # Advanced
+ABILITY:@/d20ogl/srd35/advanced/rsrd_abilities_class_prestige.lst
+ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
 CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst|(EXCLUDE:Hierophant|Dragon Disciple|Mystic Theurge)
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_wondrousitems.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_rodsstaffswands.lst

@@ -47,6 +47,10 @@ TEMPLATE:loe_templates_nationalities.lst
 TEMPLATE:loe_templates.lst
 
 # RSRD files that are included
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
+ABILITY:@/d20ogl/srd35/advanced/rsrd_abilities_class_prestige.lst
+ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
+ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(INCLUDE:Barbarian|Fighter|Rogue)
 CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst|(INCLUDE:Arcane Trickster)
 COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst

@@ -20,6 +20,10 @@ INFOTEXT:This is a subset of the RSRD containing rules generally found in Core B
 #EXTRAFILE:@/d20ogl/srd35/OGL.txt
 
 # Basics
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
+
+ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
+
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_monsters.lst|(INCLUDE:Animal|Magical Beast)
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_npc.lst
@@ -44,7 +48,6 @@ FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden2.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_monster.lst|(INCLUDE:Multiattack)
 FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
 
 KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst|(INCLUDE:Default Bat|Default Cat|Default Hawk|Default Lizard|Default Owl|Default Rat|Default Raven|Default Snake (Viper/Tiny)|Default Toad|Default Weasel|Default Dog (Riding)|Default Donkey|Default Horse (Heavy)|Default Horse (Light)|Default Horse (Heavy War)|Default Horse (Light War)|Default Mule|Default Pony|Default Pony (War))
 KIT:@/d20ogl/srd35/basics/rsrd_kits_races__base.lst
@@ -71,8 +74,11 @@ HIDETYPE:EQUIP|Starting
 HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools|LightSource
 
 # Advanced
-CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst
 ABILITY:@/d20ogl/srd35/advanced/rsrd_abilities_class_prestige.lst
+
+ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
+
+CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst
 
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_armorshields_specific.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_potions.lst
