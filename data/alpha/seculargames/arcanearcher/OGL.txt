@@ -33,5 +33,5 @@ The following text is the property of Wizards of the Coast, Inc. and is Copyrigh
 15 COPYRIGHT NOTICE
 Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 System Reference Document Copyright 2000-2004, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
-Advanced Character Guide - Arcane Archer, Copyright 2005, Secular Games; Author Giltônio Santos.
+Advanced Character Guide - Arcane Archer, Copyright 2005, Secular Games; Author Gilt™nio Santos.
 PCGen dataset conversion for Advanced Character Guide - Arcane Archer Copyright 2006, PCGen Data team (including, but not limited to, Paul W. King, Andrew McDougall (Tir Gwaith))

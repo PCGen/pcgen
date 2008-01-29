@@ -34,5 +34,5 @@ The following text is the property of Wizards of the Coast, Inc. and is Copyrigh
 Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 System Reference Document Copyright 2000-2004, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R.
 Cordell, based on original material by E. Gary Gygax and Dave Arneson.
-Lines of Legend – Winter Elves, Copyright 2006, Secular Games; Authors Giltônio Santos and Tiago Marinho.
+Lines of Legend – Winter Elves, Copyright 2006, Secular Games; Authors Gilt™nio Santos and Tiago Marinho.
 PCGen dataset conversion for Lines of Legend - Winter Elves Copyright 2007, PCGen Data team (Including, but not limited to Paul W. King, Andrew McDougall (Tir Gwaith))
