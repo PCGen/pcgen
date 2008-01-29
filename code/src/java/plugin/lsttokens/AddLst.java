@@ -97,8 +97,9 @@ public class AddLst implements GlobalLstToken
 		else
 		{
 			Logging
-				.deprecationPrint("Lack of a SUBTOKEN for ADD:SA is deprecated.");
+				.deprecationPrint("Invalid ADD: Token encountered or lack of a SUBTOKEN for ADD:SA is deprecated.");
 			Logging.deprecationPrint("Please use ADD:SA|name|[count|]X,X");
+			Logging.deprecationPrint("  Offending Token is: ADD:" + value);
 			key = "SA";
 		}
 		String contents;
