@@ -114,22 +114,26 @@
 	<p class="indent3"><strong>Note(s):</strong><code>&amp;copy</code> - This code coverts to a copyright symbol (&copy;) when put in the text of a COPYRIGHT tag.</p>
 	<p></ p>
 
- <!--
 <hr>
 
+	<p class="new">*** New 5.13.9</p>
 	<p class="indent0"><strong><a name="DESC">Tag Name:</a></strong> DESC:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Information)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Provides Text information that is displayed in the Source Information Panel on the Source Tab when the source material is selected.</li>
-		<li>This text will appear just below the cover image (if there is one) or the CAMPAIGN header (if there is no cover image).</li>
-		<li>The text is a short description of the selected source such as one might find at amazon.com or other book/pdf seller.</li>
-		<li>Functionally this is the same as INFOTEXT except where it appears in the Source Info panel. Like INFOTEXT, DESC should be used only once per pcc.</li>
+		<li>Provides text information that is displayed in the Source Information Panel, 
+		on the Source Tab, when the source material is selected.</li>
+		<li>This tag shall be used only once per pcc.</li>
+		<li>This text will appear just below the cover image (if there is one) or the 
+		CAMPAIGN header (if there is no cover image).</li>
+		<li>The text is a short description of the selected source such as one might 
+		find at amazon.com or other book/pdf seller.</li>
+		<li>Functionally this is the same as INFOTEXT except where it appears in the 
+		Source Info panel.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DESC:This pcc loads all the Foo source materials minus the FooWorld races</code></p>
 	<p></ p>
- -->
 
 <hr>
 
@@ -368,29 +372,31 @@
 	<p class="indent3">This source was published in December 2005.</p>
 	<p></ p>
 
-<!--
 <hr>
 
-	<p class="new">*** New 5.13.x</p>
-	<p class="indent0"><strong><a name="URL">Tag Name:</a></strong> URL:x</p>
+	<p class="new">*** New 5.13.9</p>
+	<p class="indent0"><strong><a name="URL">Tag Name:</a></strong> URL:x|y|z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (E-commerce site name. i.e. Amazon, DriveThruRPG, etc.)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> WEBSITE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SURVEY</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Hypertext link)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Text (Link description)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Specifies the URL for hyperlinks that will be displayed in the Source Tab in the Source Info panel when the dataset is selected.</li>
-		<li>Multiple HYPERLINK tags may be entered into the *,pcc file.</li>
+		<li>Specifies the URL for hyper-links that will be displayed in the Source Tab in the Source Info panel when the dataset is selected.</li>
+		<li>Multiple HYPERLINK tags may be entered into the *.pcc file.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>URL:WEBSITE|http://www.foopublisher.com|Visit FooPublishers website.</code></p>
-	<p class="indent3">Displays the text "Visit Foopublishers website" as an active link to the website &quot;http://www.foopublisher.com&quot;</p>
-	<p class="indent2"><code>URL:Barcommerce|http://www.barcommercesite.com/product_info.php?products_i\d=12345&affiliate_id=54321|Support PCGen by buying this source now!</code></p>
-	<p class="indent3">Displays the text &quot;Support PCGen by buying this source now!&quot; as an active link to the URL &quot;http://www.foobarcommercesite.com/product_info.php?products_id=12345&affiliate_\id=5432&quot;.</p>
-	<p class="indent2"><code>URL:SURVEY|http://www.pcgenubersite.com|Help PCGen out by visiting our user feedback page and letting us know what you think.</code></p>
-	<p class="indent3">Displays the text "Help PCGen out by visiting our user feedback page and letting us know what you think!" as an active link to the website &quot;http://www.pcgenubersite.com&quot;</p>
+	<blockquote class="indent2">
+		<p class="tagindent1"><code>URL:Barcommerce|http://www.barcommercesite.com/product_info.php?products_id=12345&affiliate_id=54321|Support PCGen by buying this source now!</code></p>
+		<p class="tagindent2" style="text-indent: -25px">Displays the text &quot;Support PCGen by buying this source now!&quot; as an active link to the URL &quot;http://www.foobarcommercesite.com/product_info.php?products_id=12345&affiliate_\id=5432&quot;.</p>
+		<p class="tagindent1"><code>URL:WEBSITE|http://www.foopublisher.com|Visit FooPublishers website.</code></p>
+		<p class="tagindent2" style="text-indent: -25px">Displays the text "Visit Foopublishers website" as an active link to the website &quot;http://www.foopublisher.com&quot;</p>
+		<p class="tagindent1"><code>URL:SURVEY|http://www.pcgenubersite.com|Help PCGen out by visiting our user feedback page and letting us know what you think.</code></p>
+		<p class="tagindent2" style="text-indent: -25px">Displays the text "Help PCGen out by visiting our user feedback page and letting us know what you think!" as an active link to the website &quot;http://www.pcgenubersite.com&quot;</p>
+	</blockquote>
 	<p></ p>
 
--->
 <hr>
 
 	<h2><a name="MAINBODYTAGS">Main Body Tags</a></h2>
