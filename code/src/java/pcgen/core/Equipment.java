@@ -3593,6 +3593,7 @@ public final class Equipment extends PObject implements Serializable,
 				// we don't have anything else to return
 				return this.getDisplayName();
 			}
+			return prof;
 		} catch (RuntimeException e) {
 			Logging.errorPrint("Problem with: " + this.getDisplayName(), e);
 		}
