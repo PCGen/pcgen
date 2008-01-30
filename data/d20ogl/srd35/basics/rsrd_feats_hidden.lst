@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jan 30 12:52:51 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -234,10 +234,10 @@ Camouflage				TYPE:Extraordinary	VISIBLE:NO	SAB:Camouflage (Ex)		SOURCEPAGE:Clas
 Hide in Plain Sight (Ranger)	TYPE:Extraordinary	VISIBLE:NO	SAB:Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Ranger Internal
-# Feat Name			Type			Visible	Define									Modify VAR																																Source Page
-Ranger Animal Companion	TYPE:Internal	VISIBLE:NO	DEFINE:RangerAnimalCompLVL|0						BONUS:VAR|CompLevel|RangerAnimalCompLVL/2																											SOURCEPAGE:ClassesII.rtf
-Ranger Combat Tree	TYPE:Internal	VISIBLE:NO	DEFINE:RangerCombatTreeLVL|0	DEFINE:RangerCombatTree|0	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11	SOURCEPAGE:ClassesII.rtf
-Ranger Favored Enemy	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0					BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5																SOURCEPAGE:ClassesII.rtf
+# Feat Name			Type			Visible	Define									Bonus to Ability Pool										Modify VAR																																Source Page
+Ranger Animal Companion	TYPE:Internal	VISIBLE:NO	DEFINE:RangerAnimalCompLVL|0																			BONUS:VAR|CompLevel|RangerAnimalCompLVL/2																											SOURCEPAGE:ClassesII.rtf
+Ranger Combat Tree	TYPE:Internal	VISIBLE:NO	DEFINE:RangerCombatTreeLVL|0	DEFINE:RangerCombatTree|0	BONUS:ABILITYPOOL|Ranger Combat Style|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11	SOURCEPAGE:ClassesII.rtf
+Ranger Favored Enemy	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0																		BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5																SOURCEPAGE:ClassesII.rtf
 
 ###Block: Rogue Abilities
 # Feat Name	Type			Visible	Special ABility	Source Page

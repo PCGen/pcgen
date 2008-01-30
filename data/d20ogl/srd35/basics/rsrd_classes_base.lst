@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 17 11:07:50 2007 -- reformated by prettylst.pl v1.38 (build 4308)
+# CVS $Revision$ $Author$ -- Wed Jan 30 12:52:51 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -337,23 +337,23 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Combat Trees
 1	BONUS:VAR|RangerCombatTreeLVL|CL	AUTO:FEAT|Ranger Combat Tree
 ###Block: Level progression
-1				BONUS:VAR|WildEmpathy|CL		ADD:FEAT|TYPE.RangerCombatStyle	AUTO:FEAT|Wild Empathy|Track
-2										ADD:FEAT|TYPE.RangerCombatStyle
-3																AUTO:FEAT|Endurance
-4	CAST:0,0		BONUS:VAR|RangerAnimalCompLVL|CL							AUTO:FEAT|Animal Companion|Ranger Animal Companion
+1				BONUS:VAR|WildEmpathy|CL		AUTO:FEAT|Wild Empathy|Track
+2
+3										AUTO:FEAT|Endurance
+4	CAST:0,0		BONUS:VAR|RangerAnimalCompLVL|CL	AUTO:FEAT|Animal Companion|Ranger Animal Companion
 5	CAST:0,0
 6	CAST:0,1
-7	CAST:0,1														AUTO:FEAT|Woodland Stride
-8	CAST:0,1,0														AUTO:FEAT|Swift Tracker
-9	CAST:0,1,0														AUTO:FEAT|Evasion
+7	CAST:0,1								AUTO:FEAT|Woodland Stride
+8	CAST:0,1,0								AUTO:FEAT|Swift Tracker
+9	CAST:0,1,0								AUTO:FEAT|Evasion
 10	CAST:0,1,1
 11	CAST:0,1,1,0
 12	CAST:0,1,1,1
-13	CAST:0,1,1,1													AUTO:FEAT|Camouflage
+13	CAST:0,1,1,1							AUTO:FEAT|Camouflage
 14	CAST:0,2,1,1,0
 15	CAST:0,2,1,1,1
 16	CAST:0,2,2,1,1
-17	CAST:0,2,2,2,1													AUTO:FEAT|Hide in Plain Sight (Ranger)
+17	CAST:0,2,2,2,1							AUTO:FEAT|Hide in Plain Sight (Ranger)
 18	CAST:0,3,2,2,1
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3

@@ -18,6 +18,7 @@ ABILITYCATEGORY:Metamagic Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACT
 ###Block: Special Ability and subgroups
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
 ABILITYCATEGORY:Rogue Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:RogueAbilities			PLURAL:Rogue Special Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Ranger Combat Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:RangerCombatStyle			PLURAL:Ranger Combat Styles		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEnemies	CATEGORY:Special Ability		TYPE:FavoredEnemy				PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Favored Enemy Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEBonuses	CATEGORY:Special Ability		TYPE:FavoredEnemyBonus			PLURAL:Favored Enemy Bonuses		DISPLAYLOCATION:Class Abilities
 
