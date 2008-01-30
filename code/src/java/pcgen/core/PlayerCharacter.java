@@ -7685,7 +7685,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			//
 			if (aProf.startsWith("SHIELDTYPE=") || aProf.startsWith("SHIELDTYPE."))
 			{
-				armorProfList.add(0, aProf);
+				shieldProfList.add(0, aProf);
 			}
 			else if (aProf.startsWith("TYPE=") || aProf.startsWith("TYPE."))
 			{
