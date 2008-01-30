@@ -16,7 +16,7 @@ CLASS:Dawn Archer	HD:10		TYPE:PC.Prestige	ABB:DaA		MAXLEVEL:5	SOURCEPAGE:p.75	BO
 CLASS:Dawn Archer	PREFEAT:3,Improved Precise Shot,Far Shot,Rapid Shot	PREFEAT:1,Weapon Focus(Shortbow),Weapon Focus(Longbow)	PREFEAT:1,Path of the Swift 5th Circle	PRESKILL:2,Listen,Move Silently=5	PRESKILL:2,Hide,Spot=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dawn Archer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Hide|Jump|Listen|Move Silently|TYPE.Profession|Spot|Swim
-1	ADD:FEAT|1|TYPE=DawnArcherLPL1,Enhanced Dexterity I,Enhanced Wisdom I		AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:SHIELDPROF|TYPE.Buckler	AUTO:WEAPONPROF|Shortbow|Longbow
+1	ADD:FEAT|1|TYPE=DawnArcherLPL1,Enhanced Dexterity I,Enhanced Wisdom I		AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:SHIELDPROF|SHIELDTYPE=Buckler	AUTO:WEAPONPROF|Shortbow|Longbow
 2	ADD:FEAT|1|TYPE=DawnArcherLPL2,Enhanced Dexterity II,Enhanced Wisdom II
 3	ADD:FEAT|1|TYPE=DawnArcherLPL3,Enhanced Dexterity III,Enhanced Wisdom III
 4	ADD:FEAT|1|TYPE=DawnArcherLPL4,Enhanced Dexterity IV,Enhanced Wisdom IV

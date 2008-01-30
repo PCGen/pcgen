@@ -13,7 +13,7 @@ CLASS:Bard ~ LoE	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CL
 1	BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	DEFINE:BardicKnowledgeLevel|0
 1	BONUS:VAR|BardicMusicLevel|CL	BONUS:VAR|BardicMusicTimes|BardicMusicLevel		DEFINE:BardicMusicLevel|0
 ###Block: Level progression
-1	CAST:1,2,12			KNOWN:4,2,1			BONUS:VAR|BASEPOWERPOINTS|1	VFEAT:Power Source(Hedge Mage)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:FEAT|Bardic Music|Bardic Knowledge	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=SIMPLE|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
+1	CAST:1,2,12			KNOWN:4,2,1			BONUS:VAR|BASEPOWERPOINTS|1	VFEAT:Power Source(Hedge Mage)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:FEAT|Bardic Music|Bardic Knowledge	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy	AUTO:WEAPONPROF|TYPE=SIMPLE|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
 2	CAST:1,1,8			KNOWN:5,2,1			BONUS:VAR|BASEPOWERPOINTS|1
 3	CAST:1,1,4,15		KNOWN:5,3,2,1		BONUS:VAR|BASEPOWERPOINTS|2
 4	CAST:1,1,3,10		KNOWN:6,3,2,1		BONUS:VAR|BASEPOWERPOINTS|3
@@ -40,7 +40,7 @@ CLASS:Druid ~ LoE	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rt
 CLASS:Druid ~ LoE	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
 CLASS:Druid ~ LoE	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Druid ~ LoE|CL
-1	CAST:1,2,12				SAB:Nature Sense (Ex)	SAB:Wild Empathy (Ex)	BONUS:VAR|CompLevel|CL	BONUS:VAR|BASEPOWERPOINTS|1									VFEAT:Power Source(Druid/Minstrel)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:FEAT|Animal Companion	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Longspear
+1	CAST:1,2,12				SAB:Nature Sense (Ex)	SAB:Wild Empathy (Ex)	BONUS:VAR|CompLevel|CL	BONUS:VAR|BASEPOWERPOINTS|1									VFEAT:Power Source(Druid/Minstrel)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:FEAT|Animal Companion	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Longspear
 # VFEAT:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2	CAST:1,1,8				SAB:Woodland Stride (Ex)				BONUS:VAR|BASEPOWERPOINTS|1
 3	CAST:1,1,4,15			SAB:Trackless Step (Ex)					BONUS:VAR|BASEPOWERPOINTS|2
@@ -119,7 +119,7 @@ CLASS:Hermit	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Decipher Scri
 CLASS:Hermit	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Hermit|CL
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
-1							AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
+1							AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy
 ###Block: Normal Level Progression
 1	CAST:1,2,12				SAB:Leech (Ex) +%|Lch		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|Lch|CL/2+1	DEFINE:Lch|0					VFEAT:Faith|Power Source(Hermit)
 2	CAST:1,1,8				SAB:Fast (Ex)			BONUS:VAR|BASEPOWERPOINTS|1
@@ -148,7 +148,7 @@ CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		MAXLEVEL:20	SOURCEPAGE:p.16	LANGAUTO:L
 CLASS:Knight	PRESTAT:1,NOB=41
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|TYPE.Profession|Ride|Swim
-1	SAB:Mounted Combat +% (Ex)|MountedCombat	SAB:Code of Chivalry (Ex)	BONUS:VAR|MountedCombat|CL/4+1					DEFINE:MountedCombat|0	ADD:FEAT|1|Mounted Combat	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy	AUTO:FEAT|Aura of Knighthood	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	SAB:Mounted Combat +% (Ex)|MountedCombat	SAB:Code of Chivalry (Ex)	BONUS:VAR|MountedCombat|CL/4+1					DEFINE:MountedCombat|0	ADD:FEAT|1|Mounted Combat	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy	AUTO:FEAT|Aura of Knighthood	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 2	SAB:Armor Tolerance +% (Ex)|ArmorTolerance					BONUS:VAR|ArmorTolerance|CL/2	BONUS:VAR|KnightLevel|CL	DEFINE:ArmorTolerance|0																	AUTO:FEAT|Knight's Warhorse
 3																											ADD:FEAT|1|Ride By Attack
 4	SAB:Dispense Justice (Ex)
@@ -170,7 +170,7 @@ CLASS:Minstrel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1	BONUS:VAR|MinstrelLoreLevel|CL	BONUS:VAR|MinstrelLore|MinstrelLoreLevel		DEFINE:MinstrelLoreLevel|0
 1	BONUS:VAR|MinstrelMusicLevel|CL	BONUS:VAR|MinstrelMusicTimes|MinstrelMusicLevel	DEFINE:MinstrelMusicLevel|0
 ###Block: Normal Level Progression
-1																																											AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple
+1																																											AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple
 2						SAB:Soothe the Savage Beast (Ex)
 4	CAST:1,2,12				SAB:Nature Sense (Ex)			BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS	BONUS:SKILL|Knowledge (Nature),Survival|2								VFEAT:Power Source(Druid/Minstrel)
 5	CAST:1,1,8										BONUS:VAR|BASEPOWERPOINTS|1																		ADD:FEAT|1|Track
@@ -196,7 +196,7 @@ CLASS:Noble		HD:8		TYPE:Base.PC	ABB:Nbl		MAXLEVEL:20	SOURCEPAGE:p.23	LANGAUTO:Li
 CLASS:Noble		PRESTAT:1,NOB=51
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE.Profession|Ride|Sense Motive
-1	SAB:Dispense Justice (Ex)	SAB:Aura of Nobility (Ex)	SAB:Nobless Oblige (Ex)	BONUS:VAR|AuraNobility|NOB/2									BONUS:SKILL|Intimidate|AuraNobility	DEFINE:AuraNobility|0	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	SAB:Dispense Justice (Ex)	SAB:Aura of Nobility (Ex)	SAB:Nobless Oblige (Ex)	BONUS:VAR|AuraNobility|NOB/2									BONUS:SKILL|Intimidate|AuraNobility	DEFINE:AuraNobility|0	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 2	SAB:Divine Grace (Su)																BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
 3	SAB:Quest +% (Ex)|Qust											BONUS:VAR|Qust|CL/3																DEFINE:Qust|0
 4	SAB:Aura of Courage (Su)
@@ -215,7 +215,7 @@ CLASS:Priest	HD:8		TYPE:Base.PC	ABB:Pri		MAXLEVEL:20	SOURCEPAGE:p.26	LANGAUTO:Li
 CLASS:Priest	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|Heal|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
 CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Priest|CL
-1	CAST:1,2,12				SAB:Aura of Piety (Ex)	SAB:Turn the Other Cheek (Ex)	BONUS:VAR|BASEPOWERPOINTS|1								VFEAT:Ordination|Power Source(Priest)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple
+1	CAST:1,2,12				SAB:Aura of Piety (Ex)	SAB:Turn the Other Cheek (Ex)	BONUS:VAR|BASEPOWERPOINTS|1								VFEAT:Ordination|Power Source(Priest)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple
 2	CAST:1,1,8				SAB:Sacraments (Su)						BONUS:VAR|BASEPOWERPOINTS|1
 3	CAST:1,1,4,15			SAB:Crusade (Ex) +%|Crus					BONUS:VAR|BASEPOWERPOINTS|2	BONUS:VAR|Crus|CL/3	DEFINE:Crus|0
 4	CAST:1,1,3,10			SAB:Absolution - Minor (Su)					BONUS:VAR|BASEPOWERPOINTS|3
@@ -240,7 +240,7 @@ CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 CLASS:Robber Baron	HD:8		TYPE:Base.PC	ABB:RBr		MAXLEVEL:20	SOURCEPAGE:29	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Robber Baron	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Disguise|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|Move Silently|TYPE.Profession|Ride|Sleight of Hand
-1																										VFEAT:Improved Feint	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy						AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1																										VFEAT:Improved Feint	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy						AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 2																					ADD:FEAT|1|Mounted Combat
 3	SAB:Sneak Attack +%d6|SneakAttack	BONUS:VAR|SneakAttack|CL/3	BONUS:VAR|KnightLevel|CL-2																									AUTO:FEAT|Knight's Warhorse
 4																					ADD:FEAT|1|TYPE=RobberBaron
@@ -254,7 +254,7 @@ CLASS:Robber Baron	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Disgui
 CLASS:Skald		HD:8		TYPE:Base.PC	ABB:Ska		MAXLEVEL:20	SOURCEPAGE:p.31	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Skald		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Heal|Intimidate|Jump|Listen|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Survival|Swim
-1	SAB:Inspire Courage +% (Su)|InspireCourage|PRESKILL:1,TYPE.Perform=3	BONUS:VAR|InspireCourage|CL/4+1	DEFINE:InspireCourage|0	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	SAB:Inspire Courage +% (Su)|InspireCourage|PRESKILL:1,TYPE.Perform=3	BONUS:VAR|InspireCourage|CL/4+1	DEFINE:InspireCourage|0	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 2	SAB:Marching Cadence (Su)|PRESKILL:1,TYPE.Perform=5
 3	SAB:Rally Cry %/day (Su)|RallyingCry						BONUS:VAR|RallyingCry|CL/3		DEFINE:RallyingCry|0
 5	SAB:Instill Rage %/day (Su)|InstillRage						BONUS:VAR|InstillRage|CL/4		DEFINE:InstillRage|0

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 12:41:56 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jan 30 02:26:26 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 # Original Entry by: Lone Jedi and Max Kuney (MSRD by Paul King, Barak, & Hugo)
 
@@ -50,7 +50,7 @@ Alertness.MOD				TYPE:.CLEAR	TYPE:General.Tough.Dedicated.BountyHunter.Brave.Des
 Animal Affinity.MOD			TYPE:.CLEAR	TYPE:General.Strong.Brave.MountainMan.PonySoldier.Sawbones.Showman										DESC:Provides a bonus to Handle Animal and Ride checks.																SOURCEPAGE:p. 106
 Archaic Weapons Proficiency.MOD	TYPE:.CLEAR	TYPE:General.Strong.Dedicated.BountyHunter.Brave.MountainMan.PonySoldier.Professor.Scout.Showman.Soldier				DESC:Proficient in sabers, bows, etc.																			SOURCEPAGE:p. 106
 Armor Proficiency (Heavy).MOD		TYPE:.CLEAR	TYPE:General																			DESC:Allows you to receive the full benefit of wearing heavy armor, with fewer penalties.											SOURCEPAGE:p. 106
-Armor Proficiency (Light).MOD		TYPE:.CLEAR	TYPE:General.Brave																		DESC:Allows you to receive the full benefit of wearing light armor, with fewer penalties.					AUTO:SHIELDPROF|TYPE=Shield		SOURCEPAGE:p. 106
+Armor Proficiency (Light).MOD		TYPE:.CLEAR	TYPE:General.Brave																		DESC:Allows you to receive the full benefit of wearing light armor, with fewer penalties.					AUTO:SHIELDPROF|SHIELDTYPE=Shield	SOURCEPAGE:p. 106
 Armor Proficiency (Medium).MOD	TYPE:.CLEAR	TYPE:General																			DESC:Allows you to receive the full benefit of wearing medium armor, with fewer penalties.										SOURCEPAGE:p. 106
 Athletic.MOD				TYPE:.CLEAR	TYPE:General.Strong.Tough.Brave.Desperado.Rustler.Scout												DESC:Provides a bonus to Climb and Swim checks.																		SOURCEPAGE:p. 106
 Attentive.MOD				TYPE:.CLEAR	TYPE:General.Dedicated.BountyHunter.Maverick.Preacher.Professor.Rustler.Sawbones								DESC:Provides a bonus to Investigate and Sense Motive checks.															SOURCEPAGE:p. 106
