@@ -31,6 +31,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AutoLstToken;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.Logging;
 
 public class FeatToken implements AutoLstToken
 {
@@ -64,10 +65,31 @@ public class FeatToken implements AutoLstToken
 				return false;
 			}
 		}
+		boolean first = true;
 		while (tok.hasMoreTokens())
 		{
 			String feat = tok.nextToken();
-			if (feat.startsWith(".CLEAR."))
+			if (feat.equals(".CLEAR"))
+			{
+				if (!first)
+				{
+					Logging.errorPrint("Non-sensical use of .CLEAR"
+							+ " in AUTO:FEAT, must appear first: " + value);
+					return false;
+				}
+				List<QualifiedObject<String>> ao =
+					target.getRawAbilityObjects(AbilityCategory.FEAT,
+						Ability.Nature.AUTOMATIC);
+				for (QualifiedObject<String> qo : ao)
+				{
+					if (qo instanceof QualifiedObject.AutoQualifiedObject)
+					{
+						target.removeAbility(AbilityCategory.FEAT,
+								Ability.Nature.AUTOMATIC, qo);
+					}
+				}
+			}
+			else if (feat.startsWith(".CLEAR."))
 			{
 				List<QualifiedObject<String>> ao =
 						target.getRawAbilityObjects(AbilityCategory.FEAT,
@@ -93,6 +115,7 @@ public class FeatToken implements AutoLstToken
 					new QualifiedObject.AutoQualifiedObject<String>(feat,
 						preReqs));
 			}
+			first = false;
 		}
 		return true;
 	}
