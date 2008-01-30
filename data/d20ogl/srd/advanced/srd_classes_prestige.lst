@@ -10,12 +10,12 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Intuit Direction|List
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Normal Progression
-1	BONUS:VAR|EnchantArrow|(CL+1)/2	ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Enchant Arrow
-2							ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Imbue Arrow
-4							ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Seeker Arrow
-6							ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Phase Arrow
-8							ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Hail of Arrows
-10							ABILITY:Class Abilities|AUTOMATIC|Arcane Archer ~ Arrow of Death
+1	BONUS:VAR|EnchantArrow|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Enchant Arrow
+2							ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
+4							ABILITY:Special Ability|AUTOMATIC|Seeker Arrow
+6							ABILITY:Special Ability|AUTOMATIC|Phase Arrow
+8							ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
+10							ABILITY:Special Ability|AUTOMATIC|Arrow of Death
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus												Combat bonus
 CLASS:Assassin	HD:6		TYPE:PC.Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

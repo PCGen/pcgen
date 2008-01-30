@@ -53,6 +53,8 @@ FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
 FEAT:cityscapeclassfeats.lst
 RACE:cityscaperaces.lst
 LANGUAGE:cityscapelanguages.lst
+ABILITYCATEGORY:@/d20ogl/srd/basics/srd_ability_categories_core.lst
+ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst
 CLASS:@/d20ogl/srd/basics/srd_classes_base.lst|(INCLUDE:Fighter|Rogue)
 CLASS:cityscapeclasses.lst
 TEMPLATE:cityscapetemplates.lst

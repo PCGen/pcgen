@@ -1,11 +1,15 @@
 # CVS $Revision$ $Author$ -- Sun Dec 16 12:00:20 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 #SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, Eddy Anthony
-
+#
 # Ability Categories
 #
 
-###Block: FEATs and subgroups
+###Block: Master Category
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
+ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability
+
+###Block: Bonus FEATs and subgroups
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
 ABILITYCATEGORY:Fighter Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter				PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Wizard Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Wizard.ItemCreation.Metamagic	PLURAL:Wizard Feats			DISPLAYLOCATION:Feats
@@ -13,7 +17,6 @@ ABILITYCATEGORY:Metamagic Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACT
 
 ###Block: Special Ability and subgroups
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
-ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability
 ABILITYCATEGORY:Rogue Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:RogueAbilities			PLURAL:Rogue Special Abilities	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEnemies	CATEGORY:Special Ability		TYPE:FavoredEnemy				PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Favored Enemy Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEBonuses	CATEGORY:Special Ability		TYPE:FavoredEnemyBonus			PLURAL:Favored Enemy Bonuses		DISPLAYLOCATION:Class Abilities

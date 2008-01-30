@@ -21,6 +21,8 @@ INFOTEXT:SRD Advanced options such as Prestige Classes and Magic Items.  Require
 
 ABILITY:srd_abilities_prc.lst
 
+ABILITYCATEGORY:srd_ability_categories_advanced.lst
+
 CLASS:srd_classes_prestige.lst
 
 EQUIPMENT:srd_equip_armorshields_specific.lst

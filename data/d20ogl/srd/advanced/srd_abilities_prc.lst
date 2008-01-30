@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Thu Dec 27 22:52:40 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
-###Comment: Low priority but start of bring srd closer to rsrd. -AM
 
-
-###NEW - Arcane Archer
-# Ability Name				Category of Ability		Type			Visible		Special ABility				Define
-Arcane Archer ~ Enchant Arrow		CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Enchant Arrow +%|EnchantArrow	DEFINE:EnchantArrow|0
-Arcane Archer ~ Imbue Arrow		CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Imbue Arrow
-Arcane Archer ~ Seeker Arrow		CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Seeker Arrow
-Arcane Archer ~ Phase Arrow		CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Phase Arrow
-Arcane Archer ~ Hail of Arrows	CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Hail of Arrows
-Arcane Archer ~ Arrow of Death	CATEGORY:Class Abilities	TYPE:ClassGranted	VISIBLE:DISPLAY	SAB:Arrow of Death
+###Block: Arcane Archer
+# Ability Name	Category of Ability		Type						Visible		Special ABility				Define
+Enchant Arrow	CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Enchant Arrow +%|EnchantArrow	DEFINE:EnchantArrow|0
+Imbue Arrow		CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Imbue Arrow
+Seeker Arrow	CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Seeker Arrow
+Phase Arrow		CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Phase Arrow
+Hail of Arrows	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Hail of Arrows
+Arrow of Death	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Arrow of Death
 
 ###Block: Dwarven Defender special abilities
 # VAR -

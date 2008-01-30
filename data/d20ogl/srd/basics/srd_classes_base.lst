@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Jan 29 22:21:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Uncanny Dodge should be moved to Feats/Feat with SAs...
@@ -49,7 +49,7 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Visible	Save checks bonus											Combat bonus
 CLASS:Ex Barbarian	HD:12		TYPE:Base.PC	ABB:XBbn		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Skill Pts/Lvl	Class Skill
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Intuit Direction|Jump|Listen|Ride|Swim|Wilderness Lore
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies

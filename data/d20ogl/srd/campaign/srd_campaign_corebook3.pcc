@@ -20,6 +20,10 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 INFOTEXT:This is a subset of the SRD containing rules generally found in Core Books I, II and III, this should not be loaded with any other SRD sets.
 
 # Basics
+ABILITYCATEGORY:@/d20ogl/srd/basics/srd_ability_categories_core.lst
+
+ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst
+
 CLASS:@/d20ogl/srd/basics/srd_classes_base.lst
 CLASS:@/d20ogl/srd/basics/srd_classes_creature_types.lst
 
@@ -42,7 +46,6 @@ EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
 FEAT:@/d20ogl/srd/basics/srd_feats_descriptions.lst
 FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
 FEAT:@/d20ogl/srd/basics/srd_feats.lst
-ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst
 
 KIT:@/d20ogl/srd/basics/srd_kits_races__animals.lst
 KIT:@/d20ogl/srd/basics/srd_kits_races__base.lst
@@ -68,6 +71,10 @@ HIDETYPE:EQUIP|TrapmakingTools |WeaponsmithingTools|WeavingTools|UntrainedTools|
 
 
 # Advanced
+ABILITY:@/d20ogl/srd/advanced/srd_abilities_prc.lst
+
+ABILITYCATEGORY:@/d20ogl/srd/advanced/srd_ability_categories_advanced.lst
+
 CLASS:@/d20ogl/srd/advanced/srd_classes_prestige.lst
 
 EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_armorshields_specific.lst
