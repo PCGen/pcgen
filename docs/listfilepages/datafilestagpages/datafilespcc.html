@@ -29,8 +29,7 @@
 
 	<h1>PCC files</h1>
 	<p>These are the PCGen Campaign Configuration files. Here you can specify what you want included in this campaign.
-		<span class="bolditalicunderline">Note - you cannot anywhere, other than immediately after the tag, use a colon (:) in the CAMPAIGN tag.</span>
-		Doing so will cause PCGen to report errors and not load correctly. It is recommended practice that your pcc files be located in the same directory as your list files,
+		It is recommended practice that your pcc files be located in the same directory as your list files,
 		the notable exception being if you have multiple directories, with multiple list files, then you locate a &quot;master&quot; pcc file in the main directory.
 		This will be explained below in the TAGs section.</p>
 
@@ -40,6 +39,11 @@
 	<p class="indent1"><strong><a href="#MAINBODYTAGS">Main Body Tags</a></strong> - are used to load the specific .lst files which make up the dataset.</p>
 	<p class="indent1"><strong><a href="#OTHERPCCTAGS">Other .pcc file tags</a></strong> - are used to provide additional functionality.</p>
 	<p></ p>
+
+	<p class="sidebar"><strong>Note:</strong> You cannot use a colon (:) in the in the PCC file anywhere other 
+	than immediately after the CAMPAIGN tag. Doing so will cause PCGen to report errors and not load correctly.</p>
+		
+<hr>
 
 	<h2><a name="SOURCETAGS">Source and Header Information Tags</a></h2>
 	<p class="indent0"><span class="new">NOTE:</span> The first three tags, CAMPAIGN, GAMEMODE and TYPE,
@@ -100,10 +104,11 @@
 	<p class="indent0"><strong><a name="COPYRIGHT">Tag Name:</a></strong> COPYRIGHT:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Text (Copyright information)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Used to display copyright information when a source is single clicked on, in the source selection page, upon program start.</p>
-	<p class="indent2">Sources included with PCGen should have the copyright information
-  		from section 15 of the Open Game License included in the source reproduced verbatim.</p>
-	<p class="indent2">An additional entry should be made listing all who worked on the PCGen conversion in the format shown below.</p>
+	<ul class="indent2">
+		<li>Used to display copyright information when a source is selected in the source selection page.</li>
+		<li>Sources included with PCGen should have the copyright information from section 15 of the Open Game License included in the source reproduced verbatim.</li>
+		<li>An additional entry should be made listing all who worked on the PCGen conversion in the format shown below.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>COPYRIGHT:PCGen dataset conversion for "X Book" Copyright XXXX-YYYY,
 		PCgen Data Team including, but not limited to, "Original Author", "Any secondary authors".</code></p>
@@ -388,8 +393,8 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<blockquote class="indent2">
-		<p class="tagindent1"><code>URL:Barcommerce|http://www.barcommercesite.com/product_info.php?products_id=12345&affiliate_id=54321|Support PCGen by buying this source now!</code></p>
-		<p class="tagindent2" style="text-indent: -25px">Displays the text &quot;Support PCGen by buying this source now!&quot; as an active link to the URL &quot;http://www.foobarcommercesite.com/product_info.php?products_id=12345&affiliate_\id=5432&quot;.</p>
+		<p class="tagindent1"><code>URL:Barcommerce|http://www.barcommercesite.com/product_info.php?products_id=12345&amp;affiliate_id=54321|Support PCGen by buying this source now!</code></p>
+		<p class="tagindent2" style="text-indent: -25px">Displays the text &quot;Support PCGen by buying this source now!&quot; as an active link to the URL &quot;http://www.foobarcommercesite.com/product_info.php?products_id=12345&amp;affiliate_\id=5432&quot;.</p>
 		<p class="tagindent1"><code>URL:WEBSITE|http://www.foopublisher.com|Visit FooPublishers website.</code></p>
 		<p class="tagindent2" style="text-indent: -25px">Displays the text "Visit Foopublishers website" as an active link to the website &quot;http://www.foopublisher.com&quot;</p>
 		<p class="tagindent1"><code>URL:SURVEY|http://www.pcgenubersite.com|Help PCGen out by visiting our user feedback page and letting us know what you think.</code></p>
