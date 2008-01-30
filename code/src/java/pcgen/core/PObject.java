@@ -1891,6 +1891,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 									.getSASource(), sa.getSADesc());
 							saList.add(sa);
 						}
+						else
+						{
+							saList.add(sa);
+						}
 					}
 				}
 			}
