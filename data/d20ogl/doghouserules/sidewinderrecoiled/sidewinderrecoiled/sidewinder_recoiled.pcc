@@ -51,3 +51,4 @@ SKILL:@/d20ogl/msrd/basics/modern_basics/modernbasics_skills.lst
 CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_pc.lst
 EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst
 ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_talents.lst
+ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
