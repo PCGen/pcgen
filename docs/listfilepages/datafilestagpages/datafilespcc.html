@@ -406,30 +406,33 @@
 	<p>The first and most common is by a relative file path. The path is relative to the .pcc file so if
 		the file and the .pcc file that calls it are in the same directory then all that is needed is the
 		name of the file.</p>
-	<p>The second method is a special absolute path which is useful if you need to call a specific file
-		from a known location in the data folder. By using an '@' symbol and a file path PCGen will locate
-		the file by looking in the data folder by the path specified. In the same way you can use the
-		'&amp;' symbol to access a file path in the vendor data directory.</p>
-	<p>The third method is by loading data files over the internet. To do this you must set
-		<a href="../../menupages/settings/pcgen/pcgensources.html"> PCGens preferences</a> to allow this.
-		You can then create a .pcc file which uses web address instead of file paths to load source files.</p>
-
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>CLASS:fhbclasses.lst</code></p>
 	<p class="indent3">Loads the file fhbclasses.lst which is in the same directory as the .pcc file calling it.</p>
+
+	<p>The second method is a special absolute path which is useful if you need to call a specific file
+		from a known location in the data or vendor folder. By using the 'at' (@) symbol and a file path, 
+		PCGen will locate the file by looking in the data folder by the path specified. In the same way 
+		you can use the ampersand (&amp;) to access a file path in the vendor data directory. Use of the 
+		asterisk (*) and a file path will first attempt to locate the file in the vendor folder and then 
+		will look in the data folder.</p>
+
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SPELL:@/d20ogl/srd/srdspells.lst</code></p>
 	<p class="indent3">Loads the file from a path relative to the data folder.</p>
-	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>CLASS:&amp;/complete_monkey/complete_monkey_classes.lst</code></p>
 	<p class="indent3">Loads the file from a path relative to the vendor data folder.</p>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>EQUIPMENT:||*/d20ogl/srd35/basics/||rsrd_equip.lst</code></p>
+	<p class="indent2"><code>EQUIPMENT:*/d20ogl/srd35/basics/rsrd_equip.lst</code></p>
 	<p class="indent3">Loads the file from a path relative to the vendor data folder and if that does
 			not exist, uses a path relative to the data folder.</p>
+
+	<p>The third method is by loading data files over the internet. To do this you must set
+		<a href="../../menupages/settings/pcgen/pcgensources.html"> PCGens preferences</a> to allow this.
+		You can then create a .pcc file which uses web address instead of file paths to load source files.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>CLASS:http://www.foogames.com/fhandbook/fhbclasses.lst</code></p>
 	<p class="indent3">Loads the source file from a web site.</p>
+
 
 	<p><span class="new">WARNING:</span> Do not use backslashes (\) for directory separators in file paths,
 		use only forward slashes (/). backslashes work correctly on Windows systems but cause problems on Unix
