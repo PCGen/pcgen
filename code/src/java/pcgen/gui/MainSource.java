@@ -414,11 +414,19 @@ public class MainSource extends FilterAdapterPanel
 		sb.append("<html><b>")
 			.append(aCamp.getDisplayName())
 			.append("</b><br>");
-		if(aCamp.getCoverFiles().size() > 0) {
+		if (aCamp.getCoverFiles().size() > 0)
+		{
 			CampaignSourceEntry image = aCamp.getCoverFiles().get(0);
-			sb.append("<img src='")
-				.append(image.getURI())
-				.append("'><br>");
+			sb.append("<img src='").append(image.getURI()).append("'> ");
+		}
+		if (aCamp.getLogoFiles().size() > 0)
+		{
+			CampaignSourceEntry image = aCamp.getLogoFiles().get(0);
+			sb.append("<img src='").append(image.getURI()).append("'>");
+		}
+		if (aCamp.getCoverFiles().size() > 0 || aCamp.getLogoFiles().size() > 0)
+		{
+			sb.append("<br>");
 		}
 
 

@@ -477,6 +477,16 @@ public class Campaign extends PObject
 	}
 
 	/**
+	 * Adds the logo file.
+	 * 
+	 * @param file the file
+	 */
+	public void addLogoFile(final CampaignSourceEntry file)
+	{
+		listChar.addToListFor(ListKey.FILE_LOGO, file);
+	}
+
+	/**
 	 *
 	 * @param file
 	 */
@@ -849,6 +859,16 @@ public class Campaign extends PObject
 	public List<CampaignSourceEntry> getLstExcludeFiles()
 	{
 		return getListFor(ListKey.FILE_LST_EXCLUDE);
+	}
+
+	/**
+	 * Gets the logo files.
+	 * 
+	 * @return the logo files
+	 */
+	public List<CampaignSourceEntry> getLogoFiles()
+	{
+		return getListFor(ListKey.FILE_LOGO);
 	}
 
 	/**

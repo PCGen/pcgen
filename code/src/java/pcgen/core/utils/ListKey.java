@@ -105,6 +105,8 @@ public final class ListKey<T> {
 	public static final ListKey<URI> LICENSE_FILE = new ListKey<URI>();
 	/** LINE - a ListKey */
 	public static final ListKey<String> LINE = new ListKey<String>();
+	/** LOGO - a ListKey */
+	public static final ListKey<CampaignSourceEntry> FILE_LOGO = new ListKey<CampaignSourceEntry>();
 	/** NATURAL_WEAPONS - a ListKey */
 	public static final ListKey<Equipment> NATURAL_WEAPONS = new ListKey<Equipment>();
 	/** PANTHEON - a ListKey */
