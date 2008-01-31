@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jan 30 23:19:59 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Class Name	Hit Dice	Type				Max Level	Subclass?		Source Page					Save checks bonus											Combat bonus					Modify VAR
@@ -40,19 +40,20 @@ SUBCLASS:Telepath	COST:0	SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:PsionML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:PsionML,19
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+###Block: Powers per day
+1	SAB:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|CL+var("BL=Psion")+3	AUTO:FEAT|Psicrystal
 ###Block: Level progression
-1												SAB:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|CL+var("BL=Psion")+3											AUTO:FEAT|Psicrystal
-1	KNOWN:2,0				SPECIALTYKNOWN:1,1																					ADD:FEAT|5|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+1	KNOWN:2,0				SPECIALTYKNOWN:1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|5
 2	KNOWN:2,1				SPECIALTYKNOWN:1,1
-3	KNOWN:2,2				SPECIALTYKNOWN:1,1																					ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+3	KNOWN:2,2				SPECIALTYKNOWN:1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
 4	KNOWN:3,2,0				SPECIALTYKNOWN:1,1,1
-5	KNOWN:3,2,1				SPECIALTYKNOWN:1,1,1																					ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+5	KNOWN:3,2,1				SPECIALTYKNOWN:1,1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
 6	KNOWN:4,2,1,0			SPECIALTYKNOWN:1,1,1,1
-7	KNOWN:4,3,2,1			SPECIALTYKNOWN:1,1,1,1																					ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+7	KNOWN:4,3,2,1			SPECIALTYKNOWN:1,1,1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
 8	KNOWN:5,3,2,1,0			SPECIALTYKNOWN:1,1,1,1,1
-9	KNOWN:5,3,2,2,1			SPECIALTYKNOWN:1,1,1,1,1																				ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+9	KNOWN:5,3,2,2,1			SPECIALTYKNOWN:1,1,1,1,1		BONUS:ABILITYPOOL|Psionic Combat Mode|1
 10	KNOWN:6,3,2,2,1,0			SPECIALTYKNOWN:1,1,1,1,1,1
-11	KNOWN:6,3,3,2,2,1			SPECIALTYKNOWN:1,1,1,1,1,1																				ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+11	KNOWN:6,3,3,2,2,1			SPECIALTYKNOWN:1,1,1,1,1,1		BONUS:ABILITYPOOL|Psionic Combat Mode|1
 12	KNOWN:7,3,3,2,2,1,0		SPECIALTYKNOWN:1,1,1,1,1,1,1
 13	KNOWN:7,4,3,3,2,2,1		SPECIALTYKNOWN:1,1,1,1,1,1,1
 14	KNOWN:7,4,3,3,2,2,1,0		SPECIALTYKNOWN:1,1,1,1,1,1,1,1
@@ -81,29 +82,29 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
+###Block: Powers per day
+1	SAB:Psychic Warrior 0 level powers (% free / day)|PsyWarFreePowers	DEFINE:PsyWarFreePowers|CL+var("BL=Psychic Warrior")+2
 ###Block: Level progression
-1					SAB:Psychic Warrior 0 level powers (% free / day)|PsyWarFreePowers	DEFINE:PsyWarFreePowers|CL+var("BL=Psychic Warrior")+2
-1
-1	KNOWN:2																									ADD:FEAT|1|TYPE=Fighter,TYPE=Psionic	ADD:FEAT|2|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-2	KNOWN:3																									ADD:FEAT|1|TYPE=Fighter,TYPE=Psionic
-3	KNOWN:3,1																									ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+1	KNOWN:2			BONUS:ABILITYPOOL|Psychic Warrior Feat|1	BONUS:ABILITYPOOL|Psionic Combat Mode|2
+2	KNOWN:3			BONUS:ABILITYPOOL|Psychic Warrior Feat|1
+3	KNOWN:3,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
 4	KNOWN:3,2
-5	KNOWN:3,3,1																									ADD:FEAT|1|TYPE=Fighter,TYPE=Psionic
-6	KNOWN:3,3,2																									ADD:VFEAT|1|Weapon Specialization
-7	KNOWN:3,3,2,1																								ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-8	KNOWN:3,3,3,1																								ADD:FEAT|1|TYPE=Fighter,TYPE=Psionic
-9	KNOWN:3,3,3,2																								ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-10	KNOWN:3,3,3,2,1																								ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-11	KNOWN:3,3,3,3,1																								ADD:FEAT|1|TYPE=Fighter,TYPE=Psionic
-12	KNOWN:3,3,3,3,2																								ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-13	KNOWN:3,3,3,3,2,1																								ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-14	KNOWN:3,3,3,3,3,1																								ADD:FEAT|1|TYPE=Fighter,TYPE=Psionic
-15	KNOWN:3,3,3,3,3,2																								ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-16	KNOWN:3,3,3,3,3,2,1																							ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-17	KNOWN:3,3,3,3,3,3,1																							ADD:FEAT|1|TYPE=Fighter,TYPE=Psionic
+5	KNOWN:3,3,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|1
+6	KNOWN:3,3,2																	ADD:VFEAT|1|Weapon Specialization
+7	KNOWN:3,3,2,1		BONUS:ABILITYPOOL|Psionic Combat Mode|1
+8	KNOWN:3,3,3,1		BONUS:ABILITYPOOL|Psychic Warrior Feat|1
+9	KNOWN:3,3,3,2		BONUS:ABILITYPOOL|Psionic Combat Mode|1
+10	KNOWN:3,3,3,2,1		BONUS:ABILITYPOOL|Psionic Combat Mode|1
+11	KNOWN:3,3,3,3,1		BONUS:ABILITYPOOL|Psychic Warrior Feat|1
+12	KNOWN:3,3,3,3,2		BONUS:ABILITYPOOL|Psionic Combat Mode|1
+13	KNOWN:3,3,3,3,2,1		BONUS:ABILITYPOOL|Psionic Combat Mode|1
+14	KNOWN:3,3,3,3,3,1		BONUS:ABILITYPOOL|Psychic Warrior Feat|1
+15	KNOWN:3,3,3,3,3,2		BONUS:ABILITYPOOL|Psionic Combat Mode|1
+16	KNOWN:3,3,3,3,3,2,1	BONUS:ABILITYPOOL|Psionic Combat Mode|1
+17	KNOWN:3,3,3,3,3,3,1	BONUS:ABILITYPOOL|Psychic Warrior Feat|1
 18	KNOWN:3,3,3,3,3,3,2
 19	KNOWN:3,4,3,3,3,3,2
-20	KNOWN:3,4,3,3,3,3,3																							ADD:FEAT|1|TYPE=Fighter,TYPE=Psionic
+20	KNOWN:3,4,3,3,3,3,3	BONUS:ABILITYPOOL|Psychic Warrior Feat|1
 
 # Class Name	Hit Dice	Type					Max Level	Subclass?		Source Page					Save checks bonus														Combat bonus					Modify VAR
 CLASS:Metamind	HD:4		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal
@@ -131,17 +132,17 @@ SUBCLASS:Metamind(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUB
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:MetamindML,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:MetamindML,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:MetamindML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:MetamindML,19
 ###Block: Level progression
-1				SAB:Power Psicrystal																												AUTO:FEAT|Psicrystal
-1	KNOWN:2																		ADD:FEAT|2|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode	ADD:FEAT|1|Inner Strength
-2	KNOWN:3																		ADD:FEAT|1|Inner Strength
-3	KNOWN:3,1																		ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode	ADD:FEAT|1|Trigger Power
-4	KNOWN:3,2																		ADD:FEAT|1|Inner Strength
-5	KNOWN:3,3,1																		ADD:FEAT|1|Trigger Power
-6	KNOWN:3,3,2																		ADD:FEAT|1|Inner Strength
-7	KNOWN:3,3,2,1																	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode	ADD:FEAT|1|Trigger Power
+1				SAB:Power Psicrystal																									AUTO:FEAT|Psicrystal
+1	KNOWN:2																		BONUS:ABILITYPOOL|Psionic Combat Mode|2	ADD:FEAT|1|Inner Strength
+2	KNOWN:3																									ADD:FEAT|1|Inner Strength
+3	KNOWN:3,1																		BONUS:ABILITYPOOL|Psionic Combat Mode|1	ADD:FEAT|1|Trigger Power
+4	KNOWN:3,2																									ADD:FEAT|1|Inner Strength
+5	KNOWN:3,3,1																									ADD:FEAT|1|Trigger Power
+6	KNOWN:3,3,2																									ADD:FEAT|1|Inner Strength
+7	KNOWN:3,3,2,1																	BONUS:ABILITYPOOL|Psionic Combat Mode|1	ADD:FEAT|1|Trigger Power
 8	KNOWN:3,3,3,1	SAB:Psychic Vampire (Manifest Psychic Vampire power as though using the Trigger Power feat)
-9	KNOWN:3,3,3,2																	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode	ADD:FEAT|1|Trigger Power
-10	KNOWN:3,3,3,2,1	SAB:Apotheosis														ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+9	KNOWN:3,3,3,2																	BONUS:ABILITYPOOL|Psionic Combat Mode|1	ADD:FEAT|1|Trigger Power
+10	KNOWN:3,3,3,2,1	SAB:Apotheosis														BONUS:ABILITYPOOL|Psionic Combat Mode|1
 
 # Class Name		Hit Dice	Type					Max Level	Subclass?		Source Page					Save checks bonus														Combat bonus
 CLASS:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -169,16 +170,16 @@ SUBCLASS:Pyrokineticist(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:PyrokineticistML,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:PyrokineticistML,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:PyrokineticistML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:PsionML,19
 ###Block: Level progression
-1				SAB:Fire Lash (PP 11+)	SAB:Touch Aflame (PP 1+)	ADD:FEAT|2|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+1				SAB:Fire Lash (PP 11+)	SAB:Touch Aflame (PP 1+)	BONUS:ABILITYPOOL|Psionic Combat Mode|2
 2				SAB:Hand Afire (PP 9+)	SAB:Fire Adaptation (PP 3+)
-3				SAB:Bolt of Fire (costs 3 PP)					ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+3				SAB:Bolt of Fire (costs 3 PP)					BONUS:ABILITYPOOL|Psionic Combat Mode|1
 4	KNOWN:1		SAB:Weapon Afire (PP 9+)
 5	KNOWN:2		SAB:Breath of the Dragon
 6	KNOWN:2,1		SAB:Nimbus (costs 9 PP/min)
-7	KNOWN:2,2		SAB:Firewalk (1 PP/10 feet)					ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+7	KNOWN:2,2		SAB:Firewalk (1 PP/10 feet)					BONUS:ABILITYPOOL|Psionic Combat Mode|1
 8	KNOWN:2,2,1		SAB:Fear no Fire (PP 19+)
-9	KNOWN:2,2,2		SAB:Heat Death (costs 13 PP)					ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-10	KNOWN:2,2,2,1	SAB:Fire Lord							ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+9	KNOWN:2,2,2		SAB:Heat Death (costs 13 PP)					BONUS:ABILITYPOOL|Psionic Combat Mode|1
+10	KNOWN:2,2,2,1	SAB:Fire Lord							BONUS:ABILITYPOOL|Psionic Combat Mode|1
 
 
 # Class Name	Hit Dice	Type					Max Level	Source Page					Save checks bonus														Combat bonus
@@ -205,16 +206,16 @@ CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sla
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
-1				SAB:Favored Enemy (Mortal Enemy)	SAB:Mortal Enemy Sense	ADD:FEAT|2|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+1				SAB:Favored Enemy (Mortal Enemy)	SAB:Mortal Enemy Sense	BONUS:ABILITYPOOL|Psionic Combat Mode|2
 2				SAB:Brain Nausea (Will Save DC 17)
-3														ADD:FEAT|1|TYPE=General,TYPE=Psionic,TYPE=Metapsionic	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+3														BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Psionic Combat Mode|1
 4	KNOWN:1		SAB:Lucid Buffer
-5	KNOWN:2												ADD:FEAT|1|TYPE=General,TYPE=Psionic,TYPE=Metapsionic
+5	KNOWN:2												BONUS:ABILITYPOOL|Slayer Feat|1
 6	KNOWN:2,1		SAB:Cerebral Blind (15+ PP)
-7	KNOWN:2,2												ADD:FEAT|1|TYPE=General,TYPE=Psionic,TYPE=Metapsionic	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+7	KNOWN:2,2												BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Psionic Combat Mode|1
 8	KNOWN:2,2,1		SAB:Breach Power Resistance
-9	KNOWN:2,2,2												ADD:FEAT|1|TYPE=General,TYPE=Psionic,TYPE=Metapsionic	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-10	KNOWN:2,2,2,1	SAB:Blast Feedback							ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+9	KNOWN:2,2,2												BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Psionic Combat Mode|1
+10	KNOWN:2,2,2,1	SAB:Blast Feedback							BONUS:ABILITYPOOL|Psionic Combat Mode|1
 
 # Class Name	Hit Dice	Type					Max Level	Subclass?		Source Page					Save checks bonus															Combat bonus
 CLASS:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -247,13 +248,13 @@ SUBCLASS:Soulknife(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESU
 ###Block:Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1																						ADD:FEAT|2|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+1										BONUS:ABILITYPOOL|Psionic Combat Mode|2
 2				SAB:Imbed Power
-3																						ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+3										BONUS:ABILITYPOOL|Psionic Combat Mode|1
 4	KNOWN:1		SAB:Imbed Psionic Attack
 5	KNOWN:2
 6	KNOWN:2,1		SAB:Free Draw	SAB:Sever Life
-7	KNOWN:2,2																				ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-8	KNOWN:2,2,1		SAB:Upgrade					BONUS:VAR|MindBladeDamageSizeAdj|1	DEFINE:MindBladeDamageSizeAdj|0
-9	KNOWN:2,2,2																				ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-10	KNOWN:2,2,2,1	SAB:Knife to the Soul															ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
+7	KNOWN:2,2								BONUS:ABILITYPOOL|Psionic Combat Mode|1
+8	KNOWN:2,2,1		SAB:Upgrade												BONUS:VAR|MindBladeDamageSizeAdj|1	DEFINE:MindBladeDamageSizeAdj|0
+9	KNOWN:2,2,2								BONUS:ABILITYPOOL|Psionic Combat Mode|1
+10	KNOWN:2,2,2,1	SAB:Knife to the Soul			BONUS:ABILITYPOOL|Psionic Combat Mode|1

@@ -20,6 +20,10 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 INFOTEXT:SRD Psionics options. Requires the SRD Basics set.
 
 
+ABILITYCATEGORY:srd_ability_categories_psionic.lst
+
+ABILITY:srd_abilities_class_psionic.lst
+
 CLASS:srd_classes_psionic.lst
 
 COMPANIONMOD:srd_companion_mods_psionic.lst
