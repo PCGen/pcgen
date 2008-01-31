@@ -595,25 +595,29 @@
 
 <hr>
 
+	<p class="new">*** New 5.13.9</p>
+	<p class="indent0"><strong><a name="LOGO">Tag Name:</a></strong> LOGO:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>Text (Image file path)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Tells PCGen to load the image file specified.</li>
+		<li>The image is displayed in the Source Tab in the Source Info panel when the dataset is selected.</li>
+		<li>The image represents the publishers &quot;logo&quot; with multiple datasets, from the same publisher, referencing the same image.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>LOGO:../barcompanylogo.jpg</code></p>
+	<p></ p>
+
+<hr>
+
 	<p class="indent0"><strong><a name="PCC">Tag Name:</a></strong> PCC:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Use to include other pcc files. It is recommended that you include this tag
-		before any tags that load LST files. When including data files you only need to use their
-		filename if they are located in the same directory as the PCC file, itself. If not, you must
-		include path information along with the filename:</p>
 	<ul class="indent2">
-		<li>you may use relative paths (e.g., <code>PCC:../peerdirectory/myothersource.pcc</code>), or;</li>
-		<li>a special absolute path (e.g., <code>PCC:@/foogames/sourcebooks/foo/core/fhandbook/fhb.pcc</code>).</li>
+		<li>Tells PCGen to load additional pcc files along with the current pcc file.</li>
+		<li><strong>Note:</strong> It is recommended that you include this tag before any tags 
+		that load LST files.</li>
 	</ul>
-	<p class="indent2">Using the special character <code>@</code> indicates that you want to start the
-		file search from the root data directory of PCGen instead of the directory where the current
-		PCC file is located.</p>
-	<p class="indent2">Using the special character <code>#</code> indicates that you want to start the
-		file search from the VENDOR folder (VENDORDATA), and then SECOND in the DATA folder.</p>
-	<p class="indent2"><span class="new">WARNING:</span> Do not use backslashes (\) for directory
-		separators in file paths, use only forward slashes (/). backslashes work correctly on Windows
-		systems but cause problems on Unix flavored systems such as Linux and Max OS X.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PCC:../foodir/foobook.pcc</code></p>
 	<p></ p>
