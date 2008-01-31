@@ -73,6 +73,7 @@ public class Campaign extends PObject
 		listChar.initializeListFor(ListKey.FILE_FEAT);
 		listChar.initializeListFor(ListKey.FILE_KIT);
 		listChar.initializeListFor(ListKey.FILE_LANGUAGE);
+		listChar.initializeListFor(ListKey.FILE_LOGO);
 		listChar.initializeListFor(ListKey.FILE_LST_EXCLUDE);
 		listChar.initializeListFor(ListKey.FILE_PCC);
 		listChar.initializeListFor(ListKey.FILE_RACE);
@@ -218,6 +219,15 @@ public class Campaign extends PObject
 	public void addAllLanguageFiles(final List<CampaignSourceEntry> files)
 	{
 		listChar.addAllToListFor(ListKey.FILE_LANGUAGE, files);
+	}
+
+	/**
+	 *
+	 * @param files
+	 */
+	public void addAllLogoFiles(final List<CampaignSourceEntry> files)
+	{
+		listChar.addAllToListFor(ListKey.FILE_LOGO, files);
 	}
 
 	/**
