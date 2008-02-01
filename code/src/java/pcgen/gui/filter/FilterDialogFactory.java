@@ -295,6 +295,7 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 			return PropertyFactory.getString("in_actTabNot");
 		}
 
+		@Override
 		public String toString()
 		{
 			return getName();
@@ -516,6 +517,7 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 	 * @param b
 	 *
 	 */
+	@Override
 	public void setVisible(boolean b)
 	{
 		if (b)
@@ -969,6 +971,7 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 		 * @param e
 		 *
 		 */
+		@Override
 		public void mouseClicked(MouseEvent e)
 		{
 			Object src = e.getSource();
@@ -1075,6 +1078,7 @@ final class SortedListModel extends DefaultListModel
 	 *
 	 * @param o
 	 */
+	@Override
 	public void addElement(Object o)
 	{
 		insertSorted(o);
@@ -1159,6 +1163,7 @@ final class FilterList extends JList
 		setCellRenderer(new FilterListCellRenderer());
 	}
 
+	@Override
 	public String getToolTipText(MouseEvent e)
 	{
 		int index = locationToIndex(e.getPoint());
@@ -1313,6 +1318,7 @@ final class FilterCustomDialog extends JDialog implements ActionListener
 	 * @param b
 	 *
 	 */
+	@Override
 	public void setVisible(boolean b)
 	{
 		if (b)
@@ -1609,6 +1615,7 @@ final class FilterCustomDialog extends JDialog implements ActionListener
 		 * @param e
 		 *
 		 */
+		@Override
 		public void mouseClicked(MouseEvent e)
 		{
 			Object src = e.getSource();
@@ -1701,6 +1708,7 @@ final class FilterNameDialog extends JDialog implements ActionListener
 	 *
 	 * @return the filter name
 	 */
+	@Override
 	public String getName()
 	{
 		return nameField.getText().trim();
@@ -1741,6 +1749,7 @@ final class FilterNameDialog extends JDialog implements ActionListener
 		}
 	}
 
+	@Override
 	public void setVisible(boolean b)
 	{
 		if (b)
@@ -2029,6 +2038,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 		}
 	}
 
+	@Override
 	public void setVisible(boolean b)
 	{
 		if (b)
@@ -2499,6 +2509,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 		 * @param e
 		 *
 		 */
+		@Override
 		public void mouseClicked(MouseEvent e)
 		{
 			Object src = e.getSource();
