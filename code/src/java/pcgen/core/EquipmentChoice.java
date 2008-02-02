@@ -558,10 +558,22 @@ final class EquipmentChoice
 		final StringTokenizer aTok       = new StringTokenizer(choiceString, "|", false);
 		boolean needStats = false;
 		boolean needSkills = false;
+		String category = null;
 
 		while (!forEqBuilder && aTok.hasMoreTokens())
 		{
 			String kind = aTok.nextToken();
+			if (category == null)
+			{
+				if (kind.equals("ABILITY"))
+				{
+					category = aTok.nextToken();
+				}
+				else
+				{
+					category = "FEAT";
+				}
+			}
 
 			this.adjustPool(available, numSelected);
 
@@ -589,13 +601,21 @@ final class EquipmentChoice
 						//New Style
 						needSkills = false;
 						this.addChoicesByType(parent, available, numSelected, kind,
-								"SKILL", "FEAT");
+								"SKILL", "");
+					}
+					else if (originalkind.equals("EQUIPMENT")
+							|| originalkind.equals("FEAT")
+							|| originalkind.equals("ABILITY"))
+					{
+						//New Style
+						this.addChoicesByType(parent, available, numSelected, kind,
+								originalkind, category);
 					}
 					else
 					{
 						//Old Style
 						this.addChoicesByType(parent, available, numSelected, kind,
-								getTitle(), "FEAT");
+								getTitle(), category);
 					}
 				}
 				else if ("STAT".equals(kind))
