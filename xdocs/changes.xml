@@ -8,6 +8,12 @@
     <release version="5.13.9" date="In SVN" description="Alpha release"> 
       <action dev="jdempsey" type="add" issue="1850536">DESC pcc tag</action> 
       <action dev="jdempsey" type="add" issue="1850537">URL pcc tag</action> 
+      <action dev="thpr" type="fix" issue="1836464">CHOOSE:NOCHOICE feats can be selected after failing PRE tags</action>  
+      <action dev="thpr" type="fix" issue="1829360">AUTO:FEAT|.CLEAR.Summon Familiar</action>  
+      <action dev="thpr" type="fix" issue="1878344">CHOOSE:EQUIPMENT should be a valid subtoken in EqMods</action>  
+      <action dev="thpr" type="fix" issue="1883253">Deprecation Messages should appear in load dialog</action>  
+      <action dev="thpr" type="fix" issue="1882119">AUTO:SHIELDPROF not working as designed</action>  
+      <action dev="thpr" type="fix" issue="1878424">SAB does not support %CHOICEd</action>  
     </release>  
     <release version="5.13.8" date="2008-01-26" description="Alpha release"> 
       <action dev="thpr" type="add" issue="1800342">FAVCLASS and FAVOREDCLASS updates</action>  
