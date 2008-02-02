@@ -94,13 +94,21 @@ public class FeatToken implements AutoLstToken
 				List<QualifiedObject<String>> ao =
 						target.getRawAbilityObjects(AbilityCategory.FEAT,
 							Ability.Nature.AUTOMATIC);
-				for (QualifiedObject<String> qo : ao)
+				/*
+				 * Have to clone the list to avoid a ConcurrentModificationException
+				 */
+				for (QualifiedObject<String> qo : new ArrayList<QualifiedObject<String>>(ao))
 				{
 					if (qo instanceof QualifiedObject.AutoQualifiedObject)
 					{
 						String name = feat.substring(7);
+						/*
+						 * Note the .toString on the preReqs lists here -
+						 * painful, but necessary since the 5.x Prerequisite
+						 * doesn't implement .equals()
+						 */
 						if (name.equalsIgnoreCase(qo.getObject(null))
-							&& preReqs.equals(qo.getPrereqs()))
+							&& preReqs.toString().equals(qo.getPrereqs().toString()))
 						{
 							target.removeAbility(AbilityCategory.FEAT,
 								Ability.Nature.AUTOMATIC, qo);
