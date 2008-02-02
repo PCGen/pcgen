@@ -283,15 +283,12 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 			return ABILITY_DUPLICATE;
 		}
 
-		if (!pcHasIt)
+		ability = Globals.getAbilityKeyed(theCategory, aKey);
+		if (ability != null
+			&& !PrereqHandler.passesAll(ability.getPreReqList(), pc,
+				ability) && !Globals.checkRule(RuleConstants.FEATPRE))
 		{
-			ability = Globals.getAbilityKeyed(theCategory, aKey);
-			if (ability != null
-				&& !PrereqHandler.passesAll(ability.getPreReqList(), pc,
-					ability) && !Globals.checkRule(RuleConstants.FEATPRE))
-			{
-				return ABILITY_NOT_QUALIFIED;
-			}
+			return ABILITY_NOT_QUALIFIED;
 		}
 
 		if ((ability != null))
