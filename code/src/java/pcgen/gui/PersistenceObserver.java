@@ -26,13 +26,16 @@
  */
 package pcgen.gui;
 
-import pcgen.core.PObject;
-
-import javax.swing.SwingUtilities;
-
 import java.net.URI;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
+
+import javax.swing.SwingUtilities;
+
+import pcgen.core.PObject;
+import pcgen.util.Logging;
 
 public class PersistenceObserver implements Observer {
 	int totalFileCount = 0;
@@ -171,4 +174,50 @@ public class PersistenceObserver implements Observer {
 		}
 	}
 
+	private LoadHandler handler = null;
+	
+	public LoadHandler getHandler()
+	{
+		if (handler == null)
+		{
+			handler = new LoadHandler();
+		}
+		return handler;
+	}
+	
+	private class LoadHandler extends Handler
+	{
+
+		public LoadHandler()
+		{
+			setLevel(Logging.LST_WARNING);
+		}
+
+		@Override
+		public void close() throws SecurityException
+		{
+			// Nothing to do
+		}
+
+		@Override
+		public void flush()
+		{
+			// Nothing to do
+		}
+
+		@Override
+		public void publish(final LogRecord arg0)
+		{
+			Runnable doWork = new Runnable()
+			{
+				public void run()
+				{
+					dialog.addMessage(arg0.getLevel() + " " + arg0.getMessage());
+					dialog.setErrorState(true);
+				}
+			};
+			SwingUtilities.invokeLater(doWork);
+		}
+		
+	}
 }

@@ -354,7 +354,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 				sourceEntry.getURI(), ple.getMessage());
 			Logging.errorPrint(message);
 			setChanged();
-			notifyObservers(new Exception(message));
 			return;
 		}
 
@@ -452,7 +451,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 								sourceEntry.getURI(), i + 1, ple.getMessage());
 					Logging.errorPrint(message);
 					setChanged();
-					notifyObservers(new Exception(message));
 					Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
 				}
 				catch (Throwable t)
@@ -463,7 +461,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 								sourceEntry.getURI(), i + 1, t.getMessage());
 					Logging.errorPrint(message);
 					setChanged();
-					notifyObservers(new Exception(message));
 					Logging.errorPrint(PropertyFactory
 						.getString("Errors.LstFileLoader.Ignoring"), //$NON-NLS-1$
 						t);
@@ -506,7 +503,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 					baseKey);
 				Logging.errorPrint(message);
 				setChanged();
-				notifyObservers(new Exception(message));
 
 				return null;
 			}
@@ -523,7 +519,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 				object.getClass().getName(), baseKey, copyName);
 			Logging.errorPrint(message);
 			setChanged();
-			notifyObservers(new Exception(message));
 		}
 		return null;
 	}
@@ -600,7 +595,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 				entry.getSource().getURI(), entry.getLineNumber(), key);
 			Logging.log(Logging.LST_ERROR, message);
 			setChanged();
-			notifyObservers(new Exception(message));
 			return;
 		}
 
@@ -646,7 +640,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 						ple.getMessage());
 					Logging.errorPrint(message);
 					setChanged();
-					notifyObservers(new Exception(message));
 				}
 			}
 			completeObject(entry.getSource(), object);
@@ -659,7 +652,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 					.getMessage());
 			Logging.errorPrint(message);
 			setChanged();
-			notifyObservers(new Exception(message));
 		}
 	}
 

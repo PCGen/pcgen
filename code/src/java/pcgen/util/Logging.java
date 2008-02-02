@@ -460,6 +460,15 @@ public class Logging
 	}
 	
 	/**
+	 * Removes a log handler.
+	 * @param handler The handler to be removed.
+	 */
+	public static void removeHandler(Handler handler)
+	{
+		Logger.getLogger("").removeHandler(handler);
+	}
+	
+	/**
 	 * Return a list of the supported logging levels in 
 	 * descending order of rank.
 	 * @return List of logging levels.

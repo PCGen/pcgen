@@ -1165,7 +1165,9 @@ public class MainSource extends FilterAdapterPanel
 		try
 		{
 			pManager.addObserver( observer );
+			Logging.registerHandler( observer.getHandler() );
 			pManager.loadCampaigns(selectedCampaigns);
+			Logging.removeHandler( observer.getHandler() );
 			pManager.deleteObserver( observer );
 		}
 		catch (PersistenceLayerException e)
