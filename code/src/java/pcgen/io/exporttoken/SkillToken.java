@@ -212,69 +212,69 @@ public class SkillToken extends Token
 	 */
 	private int getPropertyId(String property)
 	{
-		int cmp = 0;
+		int propId = 0;
 
 		if ("NAME".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_NAME;
+			propId= SKILL_NAME;
 		}
 		else if ("TOTAL".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_TOTAL;
+			propId = SKILL_TOTAL;
 		}
 		else if ("RANK".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_RANK;
+			propId= SKILL_RANK;
 		}
 		else if ("MOD".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_MOD;
+			propId= SKILL_MOD;
 		}
 		else if ("ABILITY".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_ABILITY;
+			propId= SKILL_ABILITY;
 		}
 		else if ("ABMOD".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_ABMOD;
+			propId= SKILL_ABMOD;
 		}
 		else if ("MISC".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_MISC;
+			propId= SKILL_MISC;
 		}
 		else if ("UNTRAINED".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_UNTRAINED;
+			propId= SKILL_UNTRAINED;
 		}
 		else if ("EXCLUSIVE".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_EXCLUSIVE;
+			propId= SKILL_EXCLUSIVE;
 		}
 		else if (property.regionMatches(true, 0, "UNTRAINED", 0, 9))
 		{
-			cmp = SKILL_UNTRAINED_EXTENDED;
+			propId= SKILL_UNTRAINED_EXTENDED;
 		}
 		else if (property.regionMatches(true, 0, "ACP", 0, 3))
 		{
-			cmp = SKILL_ACP;
+			propId= SKILL_ACP;
 		}
 		else if ("EXCLUSIVE_TOTAL".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_EXCLUSIVE_TOTAL;
+			propId= SKILL_EXCLUSIVE_TOTAL;
 		}
 		else if ("TRAINED_TOTAL".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_TRAINED_TOTAL;
+			propId= SKILL_TRAINED_TOTAL;
 		}
 		else if (property.regionMatches(true, 0, "EXPLAIN", 0, 7))
 		{
-			cmp = SKILL_EXPLANATION;
+			propId= SKILL_EXPLANATION;
 		}
 		else if ("TYPE".equalsIgnoreCase(property))
 		{
-			cmp = SKILL_TYPE;
+			propId= SKILL_TYPE;
 		}
-		return cmp;
+		return propId;
 	}
 
 	/**
@@ -407,7 +407,7 @@ public class SkillToken extends Token
 
 				default:
 					Logging
-						.errorPrint("In ExportHandler._writeSkillProperty the cmp value "
+						.errorPrint("In ExportHandler._writeSkillProperty the propIdvalue "
 							+ property + " is not handled.");
 
 					break;
@@ -480,65 +480,14 @@ public class SkillToken extends Token
 	{
 		final StringTokenizer aTok =
 				new StringTokenizer(property.substring(3), ",");
-		String acp_yes;
-		String acp_none;
-		String acp_nonprof;
-		String acp_weight;
-
-		if (aTok.hasMoreTokens())
-		{
-			acp_none = aTok.nextToken();
+		int numArgs = aTok.countTokens();
+		int acp = aSkill.getACheck();
+		String acpText[] = new String[numArgs]; 
+				
+		for (int i = 0; aTok.hasMoreTokens(); i++) {
+			acpText[i] = aTok.nextToken();
 		}
-		else
-		{
-			acp_none = "";
-		}
-
-		if (aTok.hasMoreTokens())
-		{
-			acp_yes = aTok.nextToken();
-		}
-		else
-		{
-			acp_yes = "";
-		}
-
-		if (aTok.hasMoreTokens())
-		{
-			acp_nonprof = aTok.nextToken();
-		}
-		else
-		{
-			acp_nonprof = "";
-		}
-
-		if (aTok.hasMoreTokens())
-		{
-			acp_weight = aTok.nextToken();
-		}
-		else
-		{
-			acp_weight = "";
-		}
-
-		if (aSkill.getACheck() == 0)
-		{
-			return acp_none;
-		}
-		else if (aSkill.getACheck() == 1)
-		{
-			return acp_yes;
-		}
-		else if (aSkill.getACheck() == 2)
-		{
-			return acp_nonprof;
-		}
-		else if (aSkill.getACheck() == 3)
-		{
-			return acp_weight;
-		}
-
-		return "";
+		return ((acp < numArgs) && (acp >= 0)) ? acpText[acp] : "";
 	}
 
 	// ================== Inner class =======================
