@@ -93,29 +93,32 @@
 
 <hr>
 
-	<p class="new">*** New 5.4 - Updated 5.11.12</p>
+	<p class="new">*** New 5.4 - Updated 5.13.8</p>
 	<p class="indent0"><strong><a name="CASTERLEVEL">Tag Name:</a></strong> CASTERLEVEL (Spell Variable)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">CASTERLEVEL (Spell Variable) is a special variable for use within <a href="#DESC">
-		DESC</a>, <a href="#DURATION">DURATION</a> and <a href="#TARGETAREA">TARGETAREA</a> tags
-		which treat anything found in parentheses as a formula to be parsed into a number. CASTERLEVEL (Spell
-		Variable) returns the caster level of the class which grants the spell. The value of CASTERLEVEL (Spell
-		Variable) is usually dependent on Class but can be effected by Race or the School, Descriptor or other
-		attribute of the Spell. CASTERLEVEL (Spell Variable) can be adjusted using the
-		<a href="../globalfilestagpages/globalfilesbonus.html#CASTERLEVEL">BONUS:CASTERLEVEL</a> tag. In some
-		cases where division and multiplication are used it is recommended that the
-		<a href="../globalfilestagpages/globalfilesformulas.html#Truncation">floor()</a> function be applied.</p>
+	<p class="indent2">CASTERLEVEL is a special variable for use within <a href="#DESC">
+		DESC</a>, <a href="#DURATION">DURATION</a> and <a href="#TARGETAREA">TARGETAREA</a> tags.
+		When these tags encounter text in parenthesis, they treat the text as a formula and
+		replace it with the result of evaluating the formula. When used inside parenthesis
+		in these tags, CASTERLEVEL returns the caster level of the class which grants the spell.
+		The value of CASTERLEVEL depends on mostly on the Class granting the spell, but can
+		be affected by Race or by other attributes of the Spell (e.g. School, Descriptor, etc.).
+		CASTERLEVEL can be adjusted using the
+		<a href="../globalfilestagpages/globalfilesbonus.html#CASTERLEVEL">BONUS:CASTERLEVEL</a>
+		tag. In some cases where division and multiplication are used it is recommended that the
+		<a href="../globalfilestagpages/globalfilesformulas.html#Truncation">floor()</a> function
+		be applied.</p>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>DESC:Electricity deals CASTERLEVEL (cl())d6 damage</code></p>
+	<p class="indent2"><code>DESC:Electricity deals (CASTERLEVEL)d6 damage</code></p>
 	<p class="indent3">If caster level is 2 output reads:Electricity deals 2d6 damage.</p>
-	<p class="indent2"><code>DURATION:((CASTERLEVEL (cl())/3)+1) rounds</code></p>
+	<p class="indent2"><code>DURATION:((CASTERLEVEL/3)+1) rounds</code></p>
 	<p class="indent3">If caster level is 6 output reads:DURATION:3 rounds</p>
-	<p class="indent2"><code>TARGETAREA:(floor CASTERLEVEL (cl())/2)*5+25)</code></p>
+	<p class="indent2"><code>TARGETAREA:(floor((CASTERLEVEL/2)*5)+25)</code></p>
 	<p class="indent3">If caster level is 7 output reads:TARGETAREA:40 (Note that if floor() were not used
 		formula would return 42).</p>
-	<p class="indent2"><code>DURATION:CASTERLEVEL (cl()) rounds</code></p>
+	<p class="indent2"><code>DURATION:(CASTERLEVEL) rounds</code></p>
 	<p class="indent3">If caster level is 3 output reads:DURATION:3 rounds</p>
-	<p class="indent2"><code>DESC:Random damage in area during duration, plus CASTERLEVEL (cl())d4 damage</code></p>
+	<p class="indent2"><code>DESC:Random damage in area during duration, plus (CASTERLEVEL)d4 damage</code></p>
 	<p class="indent3">If caster level is 3 output reads:DESC:Random damage in area during duration, plus 3d4 damage</p>
 	<p></p>
 
