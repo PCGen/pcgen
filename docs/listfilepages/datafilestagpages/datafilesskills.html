@@ -74,25 +74,24 @@
 
 <hr>
 	<p class="new">*** New 5.13.5</p>
-	<p class="indent0"><strong><a name="CHOOSE_LANGUAGE">Tag Name:</a></strong> CHOOSE:LANGUAGE|y,x,x.y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Language TYPE, i.e. Spoken, Written, or Read)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Language name, i.e. Draconic)</p>
+	<p class="indent0"><strong><a name="CHOOSE_LANGUAGE">Tag Name:</a></strong> CHOOSE:LANGUAGE|x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Language type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This provides the user with a list of languages that the character may speak.</li>
 		<li>The languages types are determined by the TYPE tag used in the Languages List File.</li>
 		<li>If the text is listed as Spoken, Written, or Read, ONLY the languages with the matching
 			TYPE tag from the Languages List File are supplied as viable choices.</li>
-		<li>You can also specify multiple types or languages by using a , (comma) delimited list.</li>
-		<li>You can also Specify a combination of language types using the . (period) delimiter.</li>
+		<li>You can also specify multiple types by using a period-delimited (.) list.</li>
+		<li>Only one skill with this tag is allowed to be loaded into PCGen at a time.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:LANGUAGE|Spoken,Draconic</code></p>
-	<p class="indent3">Choose between &quot;Spoken&quot; type languages or &quot;Draconic&quot;.</p>
-	<p class="indent2"><code>CHOOSE:LANGUAGE|Draconic,Common</code></p>
-	<p class="indent3">Choose between &quot;Draconic&quot; or &quot;Common&quot; languages.</p>
+	<p class="indent2"><code>CHOOSE:LANGUAGE|Spoken</code></p>
+	<p class="indent3">Choose between &quot;Spoken&quot; type languages.</p>
 	<p class="indent2"><code>CHOOSE:LANGUAGE|Spoken.Written</code></p>
 	<p class="indent3">Choose between languages which have both &quot;Spoken&quot; and &quot;Written&quot; types.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:Language(x.y,x.y)</code></p>
 	<p></p>
 
 <hr>
