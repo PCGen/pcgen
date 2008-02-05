@@ -19,6 +19,7 @@ package plugin.lsttokens.choose;
 
 import java.util.StringTokenizer;
 
+import pcgen.core.Ability;
 import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.ChooseLstToken;
@@ -29,6 +30,12 @@ public class SkillsNamedToCCSkillToken implements ChooseLstToken
 
 	public boolean parse(PObject po, String prefix, String value)
 	{
+		if (!(po instanceof Ability))
+		{
+			Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " only works in Abilities");
+			return false;
+		}
 		if (value == null)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
