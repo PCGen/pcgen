@@ -62,6 +62,12 @@ public class EquipTypeToken implements ChooseLstToken
 				+ " arguments uses double separator .. : " + value);
 			return false;
 		}
+		if (value.indexOf(",") != -1)
+		{
+			Logging.errorPrint("CHOOSE:" + getTokenName()
+				+ " may not have multiple , delimited arguments: " + value);
+			return false;
+		}
 		StringBuilder sb = new StringBuilder();
 		if (prefix.length() > 0)
 		{
