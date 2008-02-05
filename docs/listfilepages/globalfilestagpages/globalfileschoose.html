@@ -484,7 +484,6 @@
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></ p>
-
 <hr>
 
 	<p class="indent0"><strong><a name="SPELLCLASSES">Tag Name:</a></strong> CHOOSE:SPELLCLASSES</p>
@@ -539,6 +538,58 @@
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></ p>
 
+<!--
+<hr>
+
+	<p class="new">*** New - 5.13.x</p>
+	<p class="indent0"><strong><a name="SPELLS">Tag Name:</a></strong> CHOOSE:SPELLS|x,y,y[z]|x|y|y[z;z]</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Spell type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SCHOOL=Text (Spell school)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SUBSCHOOL=Text (Spell subschool)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DESCRIPTOR=Text (Spell descriptor)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> PROHIBITED=Boolean</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELLBOOK=Text (Spellbook name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> CLASSLIST=<class list></p>
+	<p class="indent1"><strong>Variables Used (y):</strong> DOMAINLIST=<domain list></p>
+	<p class="indent1"><strong>Variables Used (y):</strong> SPELLTYPE=<spell type> *Note spell type MUST be used in a SPELLTYPE: token within a loaded class</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> KNOWN=Boolean (YES limits list to known spells, NO limits spells to unknown spells) (If not used both are presented)
+	<p class="indent1"><strong>Variables Used (z):</strong> LEVELMIN=# (references all spells of the specified level and higher)
+	<p class="indent1"><strong>Variables Used (z):</strong> LEVELMAX=# (references all spells of the specified level and lower)
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li></li>
+		<li>PROHIBITED (YES limits list to prohibited spells, NO limits spells to non-prohibited spells) (If not used both are presented)</li>
+		<li>SPELLBOOK is used to reference the specific spell books, such as "Innate".</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<p class="indent2"></p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:SPELLS|Acid Arrow|Magic Missile|Ray of Frost</code></p>
+	<p class="indent3">Choose between Acid Arrow, Magic Missile and Ray of Frost</p>
+	<p class="indent2"><code>CHOOSE:SPELLS|CLASSLIST=Psion[LEVELMIN=1;LEVELMAX=3]</code></p>
+	<p class="indent3">Choose from Psion spells between first level and third level</p>
+	<p class="indent2"><code>CHOOSE:SPELLS|SPELLTYPE=Arcane,SCHOOL=Evocation</code></p>
+	<p class="indent3">Choose from Arcane Evocation spells</p>
+	<p class="indent2"><code>CHOOSE:SPELLS|DESCRIPTOR=Good</code></p>
+	<p class="indent3">Choose from spells with the Good descriptor</p>
+	<p class="indent2"><code>CHOOSE:SPELLS|ANY[KNOWN=YES]</code></p>
+	<p class="indent3">Choose from spells known by the PC.</p>
+	<p class="indent2"><code>CHOOSE:SPELLS|CLASSLIST=Sorcerer[LEVELMIN=1;LEVELMAX=MAXCASTABLE-1]</code></p>
+	<p class="indent3">Choose from Sorcerer spells between first level and one less than your max castable level of spell taken from the Sorcerer list</p>
+	<p class="indent2"><code>CHOOSE:SPELLS|SPELLTYPE=Psionic[KNOWN=YES]|SPELLTYPE=Psionic[LEVELMAX=MAXCASTABLE-1]</code></p>
+	<p class="indent3">Choose from any Psionic "Spell" known by the PC or available to any Psionic Caster at a level at least one less than the maximum level of Psionic "Spell" castable by the PC (notice the independence forces two [] items)</p>
+	<p class="indent2"><code>CHOOSE:SPELLS|SPELLTYPE=Psionic[KNOWN=YES;LEVELMAX=MAXCASTABLE-1]</code></p>
+	<p class="indent3">Choose from any Psionic "Spell" known by the PC at a level at least one less than the maximum level of Psionic "Spell" castable by the PC (notice the common case - dependence - can be done with one [] item)</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></ p>
+-->
 <hr>
 
 	<p class="new">*** New</p>
