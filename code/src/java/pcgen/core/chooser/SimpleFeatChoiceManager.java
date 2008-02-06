@@ -22,21 +22,19 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.*;
-import pcgen.core.prereq.PrereqHandler;
+import java.util.Collection;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.ArrayList;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 
 /**
- * Handle the logic necessary to choose a Feat.
- *
- * @author   Andrew Wilson <nuance@sourceforge.net>
- * @version  $Revision$
+ * Deal with choosing a Feat
  */
-
-public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager<Ability>
+public class SimpleFeatChoiceManager extends
+		AbstractEasyStringChoiceManager<Ability>
 {
 	/**
 	 * Creates a new SimpleFeatChoiceManager object.
@@ -50,82 +48,16 @@ public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager<Ability
 		super(aPObject, theChoices, aPC);
 	}
 
-	/**
-	 * Construct the choices available from this ChoiceManager in availableList.
-	 * Any Feats that are eligible to be added to availableList that the PC
-	 * already has will also be added to selectedList.
-	 * @param  aPc
-	 * @param  availableList
-	 * @param  selectedList
-	 */
-	public void getChoices(
-		final PlayerCharacter aPc,
-		final List<Ability>            availableList,
-		final List<Ability>            selectedList)
+	@Override
+	public Collection<Ability> getAllObjects()
 	{
-		if (pobject.getAssociatedCount() != 0)
-		{
-			List<String> abilityKeys = new ArrayList<String>();
-			pobject.addAssociatedTo( abilityKeys );
-			for ( String key : abilityKeys )
-			{
-				final Ability ability = Globals.getAbilityKeyed("FEAT", key);
-				if ( ability != null )
-				{
-					selectedList.add( ability );
-				}
-			}
-		}
-
-		Iterator<String> it = choices.iterator();
-
-		while (it.hasNext())
-		{
-			String featName = it.next();
-
-			final Ability anAbility = Globals.getAbilityKeyed("FEAT", featName);
-
-			if (
-				(anAbility != null) &&
-				PrereqHandler.passesAll(anAbility.getPreReqList(), aPc, anAbility))
-			{
-				availableList.add(anAbility);
-
-				if (aPc.hasRealFeat(anAbility) &&
-					!selectedList.contains(anAbility))
-				{
-					selectedList.add(anAbility);
-				}
-			}
-		}
+		return Globals.getAbilityList(AbilityCategory.FEAT);
 	}
 
-	/**
-	 * Apply the choices made to the PObject this choiceManager is associated with
-	 *
-	 * @param aPC
-	 * @param selected
-	 */
-	public void applyChoices(
-			PlayerCharacter  aPC,
-			List<Ability>             selected)
+	@Override
+	public Ability getSpecificObject(String key)
 	{
-		Iterator<Ability> i = selected.iterator();
-		while (i.hasNext())
-		{
-			Ability ability = i.next();
-			final String tempString = ability.getKeyName();
-			AbilityUtilities.modFeat(aPC, null, tempString, true, false);
-			pobject.addAssociated(tempString);
-		}
+		return Globals.getAbilityKeyed(AbilityCategory.FEAT, key);
 	}
 
-	/**
-	 * what type of chooser does this handle
-	 *
-	 * @return type of chooser
-	 */
-	public String typeHandled() {
-		return chooserHandled;
-	}
 }

@@ -2408,7 +2408,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		lc.setTitle(PropertyFactory.getString("in_ieBonChooserTitle"));
 		lc.setMessageText(PropertyFactory.getString("in_ieBonChooserMsg"));
 		lc.setAvailableList(sList);
-		lc.setPool(sList.size());
+		lc.setTotalChoicesAvail(sList.size());
 		lc.setPoolFlag(false);
 		lc.setVisible(true);
 

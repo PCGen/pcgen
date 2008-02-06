@@ -23,13 +23,12 @@
  */
 package pcgen.core.chooser;
 
+import java.util.List;
+
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * This is the chooser that deals with choosing a skill.
@@ -49,12 +48,15 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Skills Choice";
-		chooserHandled = "SKILLSNAMEDTOCSKILL";
+	}
 
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
+	@Override
+	protected void associateChoice(PlayerCharacter pc, String st)
+	{
+		super.associateChoice(pc, st);
+		if (pobject != null && pobject instanceof Ability)
+		{
+			pobject.addCSkill(st);
 		}
 	}
 
@@ -64,8 +66,8 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 	 *
 	 * @param aPc
 	 */
-	protected void cleanUpAssociated(
-			PlayerCharacter aPc, int size)
+	@Override
+	protected void cleanUpAssociated(PlayerCharacter aPC)
 	{
 		if (pobject != null && pobject instanceof Ability)
 		{
@@ -74,52 +76,20 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 			List<String> skillList = anAbility.getCSkillList();
 			if (skillList != null)
 			{
-				for (Iterator<String> cSkillIt = skillList.iterator(); cSkillIt.hasNext();)
+				Ability globalAbility = Globals.getAbilityKeyed(anAbility
+						.getCategory(), pobject.getKeyName());
+				List<String> globalList = globalAbility.getCSkillList();
+				anAbility.clearCSkills();
+				if (globalList != null)
 				{
-					final String tempString = cSkillIt.next();
-	
-					if (!"LIST".equals(tempString))
+					skillList.retainAll(globalList);
+					for (String keepMe : skillList)
 					{
-						String tempKey = pobject.getKeyName();
-						final Ability tempAbility = Globals.getAbilityKeyed("FEAT", tempKey);
-	
-						if (tempAbility != null)
-						{
-							if (tempAbility.getCSkillList() != null)
-							{
-								if (tempAbility.getCSkillList().contains(tempString))
-								{
-									cSkillIt.remove();
-								}
-							}
-						}
+						anAbility.addCSkill(keepMe);
 					}
 				}
 			}
-			anAbility.clearCSkills();
 		}
-
-		super.cleanUpAssociated(aPc, size);
+		super.cleanUpAssociated(aPC);
 	}
-
-	/**
-	 * Associate a choice with the pobject.
-	 *
-	 * @param aPc
-	 * @param item the choice to associate
-	 * @param prefix
-	 */
-	protected void associateChoice(
-			final PlayerCharacter aPc,
-			final String          item,
-			final String          prefix)
-	{
-		super.associateChoice(aPc, item, prefix);
-
-		if (pobject != null && pobject instanceof Ability)
-		{
-			pobject.addCSkill(item);
-		}
-	}
-
 }

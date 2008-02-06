@@ -242,9 +242,21 @@ public class ChooserUtilities
 
 		if (aMan == null) {return false;}
 
-		if (category != null && aMan instanceof AbstractComplexChoiceManager)
+		if (aMan instanceof AbstractBasicChoiceManager && aPObject instanceof Ability)
 		{
-			((AbstractComplexChoiceManager) aMan).setPoolAbilityCat(category);
+			Ability a = (Ability) aPObject;
+			AbilityCategory cat;
+			if (category == null)
+			{
+				cat = SettingsHandler.getGame().getAbilityCategory(
+						a.getCategory());
+			}
+			else
+			{
+				cat = category;
+			}
+			AbstractBasicChoiceManager abcm = (AbstractBasicChoiceManager) aMan;
+			abcm.setController(abcm.new AbilityChooseController(a, category, aPC));
 		}
 		aMan.getChoices(aPC, availableList, selectedList);
 
@@ -351,6 +363,7 @@ public class ChooserUtilities
 		classLookup.put("SHIELDPROF",           SimpleShieldProfChoiceManager.class.getName());
 		classLookup.put("USERINPUT",            UserInputChoiceManager.class.getName());
 		classLookup.put("WEAPONPROF",           SimpleWeaponProfChoiceManager.class.getName());
+		classLookup.put("NOCHOICE",             NoChoiceChoiceManager.class.getName());
 
 		// The following three choosers can be deprecated in favor of CHOOSE:SKILLSNAMED|CLASS
 		// and CHOOSE:SKILLSNAMED|CROSSCLASS. Also the first two can never have worked because 
@@ -387,7 +400,7 @@ public class ChooserUtilities
 			constructMap();
 		}
 
-		final String choiceString;
+		String choiceString;
 		if(theChoices != null && theChoices.length() > 0)
 		{
 			choiceString = theChoices;
@@ -396,7 +409,6 @@ public class ChooserUtilities
 		{
 			choiceString = aPObject.getChoiceString();
 		}
-
 		if (choiceString == null || choiceString.length() == 0)
 		{
 			return null;
@@ -424,8 +436,8 @@ public class ChooserUtilities
 		if (type.startsWith("FEAT=") || type.startsWith("FEAT."))
 		{
 			type = "SINGLEFEAT";
+			choiceString = "SINGLEFEAT|" + choiceString.substring(5);
 		}
-
 		String className = classLookup.get(type);
 
 		if (className == null)

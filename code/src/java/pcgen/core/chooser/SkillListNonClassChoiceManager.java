@@ -49,13 +49,6 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Skill Choice";
-		chooserHandled = "NONCLASSSKILLLIST";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
 	}
 
 	/**
@@ -64,11 +57,13 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
+		List<String> choices = getChoiceList();
 		final String choiceVal = choices.get(0) != null
 				? choices.get(0)
 				: pobject.getKeyName();
@@ -116,6 +111,7 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 		}
 
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
 
 }

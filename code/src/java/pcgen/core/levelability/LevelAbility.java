@@ -161,7 +161,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		}
 		else
 		{
-			if (c.getPool() == Integer.MIN_VALUE)
+			if (c.pickAll())
 			{
 				processChoice(
 						choicesList,
@@ -756,18 +756,18 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		{
 			if (rawTagData.substring(i + 1).equalsIgnoreCase("ALL"))
 			{
-				chooser.setPool(Integer.MIN_VALUE); // means pick all without asking
+				chooser.setPickAll(true);
 				rawTagData = rawTagData.substring(0, i + 1);
 			}
 			else
 			{
-				chooser.setPool(aPC.getVariableValue(rawTagData.substring(i + 1), "").intValue());
+				chooser.setTotalChoicesAvail(aPC.getVariableValue(rawTagData.substring(i + 1), "").intValue());
 				rawTagData = rawTagData.substring(0, i + 1);
 			}
 		}
 		else
 		{
-			chooser.setPool(1);
+			chooser.setTotalChoicesAvail(1);
 		}
 	}
 

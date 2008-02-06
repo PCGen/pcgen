@@ -23,6 +23,9 @@
  */
 package pcgen.core.chooser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -31,14 +34,10 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.ArrayList;
-
 /**
  * This is the chooser that deals with choosing a domain.
  */
-public class DomainChoiceManager extends AbstractComplexChoiceManager<Domain> {
+public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domain> {
 
 	/**
 	 * Make a new Armor Type chooser.
@@ -53,13 +52,7 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager<Domain> {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Domain Choice";
-		chooserHandled = "DOMAIN";
-
-		if (choices != null && choices.size() > 0 &&
-				(choices.get(0)).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Domain Choice");
 	}
 
 
@@ -69,15 +62,14 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager<Domain> {
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<Domain>            availableList,
 			final List<Domain>            selectedList)
 	{
-		Iterator<String> choiceIt = choices.iterator();
-		while (choiceIt.hasNext())
+		for (String option : getChoiceList())
 		{
-			String option = choiceIt.next();
 			if ("ANY".equals(option))
 			{
 				// returns a list of all loaded Domains.
@@ -157,6 +149,6 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager<Domain> {
 				selectedList.add( domain );
 			}
 		}
+		setPreChooserChoices(selectedList.size());
 	}
-
 }

@@ -1818,7 +1818,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 						final ChooserInterface c = ChooserFactory
 							.getChooserInstance();
-						c.setPool(1);
+						c.setTotalChoicesAvail(1);
 						c.setTitle("Feat Choice");
 						c.setAvailableList(featList);
 						c.setVisible(true);

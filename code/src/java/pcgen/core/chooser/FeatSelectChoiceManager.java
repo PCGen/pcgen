@@ -37,7 +37,7 @@ import pcgen.core.Categorisable;
  * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
-public class FeatSelectChoiceManager extends AbstractComplexChoiceManager<String>
+public class FeatSelectChoiceManager extends AbstractBasicStringChoiceManager
 {
 
 	/**
@@ -53,13 +53,7 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager<String
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Choose a Feat";
-		chooserHandled = "FEATSELECT";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Choose a Feat");
 	}
 
 	/**
@@ -68,17 +62,14 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager<String
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
-		Iterator<String> choiceIt = choices.iterator();
-
-		while (choiceIt.hasNext())
+		for (String aString : getChoiceList())
 		{
-			String aString = choiceIt.next();
-
 			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 			{
 				aString = aString.substring(5);
@@ -87,7 +78,7 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager<String
 					final Ability ability = (Ability)it.next();
 
 					if (ability.isType(aString) &&
-							(dupsAllowed || !availableList.contains(ability)))
+							(isStackYes() || !availableList.contains(ability)))
 
 					{
 						availableList.add(ability.getKeyName());
@@ -205,6 +196,7 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager<String
 		}
 
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
 
 }

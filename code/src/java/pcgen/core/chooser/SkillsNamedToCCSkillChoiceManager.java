@@ -23,12 +23,12 @@
  */
 package pcgen.core.chooser;
 
+import java.util.List;
+
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Skill;
-import pcgen.util.enumeration.Visibility;
 
 /**
  * This is the chooser that deals with choosing a skill.
@@ -48,13 +48,6 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Skills Choice";
-		chooserHandled = "SKILLSNAMEDTOCCSKILL";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
 	}
 
 	/**
@@ -64,23 +57,44 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 	 * @param item the choice to associate
 	 * @param prefix
 	 */
-	protected void associateChoice(
-			final PlayerCharacter aPc,
-			final String          item,
-			final String          prefix)
+	@Override
+	protected void associateChoice(PlayerCharacter pc, String st)
 	{
-		super.associateChoice(aPc, item, prefix);
+		super.associateChoice(pc, st);
+		if (pobject != null && pobject instanceof Ability)
+		{
+			pobject.addCcSkill(st);
+		}
+	}
 
+	/**
+	 * If pobject is an Ability object, clean up the list of Class skill
+	 * associated with it.
+	 */
+	@Override
+	protected void cleanUpAssociated(PlayerCharacter aPC)
+	{
 		if (pobject != null && pobject instanceof Ability)
 		{
 			Ability anAbility = (Ability) pobject;
-			for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
+
+			List<String> skillList = anAbility.getCcSkillList();
+			if (skillList != null)
 			{
-				if (skill.getRootName().equalsIgnoreCase(item))
+				Ability globalAbility = Globals.getAbilityKeyed(anAbility
+						.getCategory(), pobject.getKeyName());
+				List<String> globalList = globalAbility.getCcSkillList();
+				anAbility.clearCcSkills();
+				if (globalList != null)
 				{
-					anAbility.addCcSkill(skill.getKeyName());
+					skillList.retainAll(globalList);
+					for (String keepMe : skillList)
+					{
+						anAbility.addCcSkill(keepMe);
+					}
 				}
 			}
 		}
+		super.cleanUpAssociated(aPC);
 	}
 }

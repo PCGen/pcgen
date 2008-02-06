@@ -66,19 +66,13 @@ public interface ChooserInterface
 	void setNegativeAllowed(final boolean argFlag);
 
 	/**
-	 * Set pool
-	 * @param anInt
-	 */
-	void setPool(int anInt);
-
-	/**
 	 * Get pool
 	 * @return pool
 	 */
 	int getPool();
 
 	/**
-	 * Set poool flag
+	 * Set pool flag
 	 * @param poolFlag
 	 */
 	void setPoolFlag(boolean poolFlag);
@@ -129,4 +123,12 @@ public interface ChooserInterface
 	 * @param availableColumnNames
 	 */
 	public void setAvailableColumnNames(List<String> availableColumnNames);
+
+	void setChoicesPerUnit(int choicesPerUnitCost);
+
+	void setTotalChoicesAvail(int maxTotalChoices);
+
+	void setPickAll(boolean b);
+	
+	boolean pickAll();
 }

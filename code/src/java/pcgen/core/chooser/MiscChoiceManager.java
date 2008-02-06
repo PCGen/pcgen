@@ -23,17 +23,17 @@
  */
 package pcgen.core.chooser;
 
+import java.util.List;
+
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-
-import java.util.List;
 
 /**
  * This is the chooser that deals with choosing from among a set 
  * of supplied strings.
  */
-public class MiscChoiceManager extends AbstractComplexChoiceManager<String> {
-
+public class MiscChoiceManager extends AbstractBasicStringChoiceManager {
+	
 	/**
 	 * Make a new Miscellaneous chooser.  This is the chooser that deals
 	 * with choosing from among a set of supplied strings.
@@ -48,11 +48,12 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager<String> {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		chooserHandled = "MISC";
-		
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
+		/*
+		 * This is a hack for 5.x syntax
+		 */
+		if (!super.typeHandled().equals("MISC"))
+		{
+			getChoiceList().add(0, super.typeHandled());
 		}
 	}
 
@@ -68,14 +69,22 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager<String> {
 			List<String>            availableList,
 			List<String>            selectedList)
 	{
-		for ( String aString : choices )
+		for ( String aString : getChoiceList() )
 		{
-			if (dupsAllowed || !availableList.contains(aString))
+			if (isStackYes() || !availableList.contains(aString))
 			{
 				availableList.add(aString);
 			}
 		}
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
+
+	@Override
+	public String typeHandled()
+	{
+		return "MISC";
+	}
+
 
 }

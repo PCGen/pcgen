@@ -16639,20 +16639,23 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (final Ability ability : abilities)
 			{
 				final int subfeatCount = ability.getAssociatedCount();
+				double cost = ability.getCost(this);
+				int select = ability.getSelectCount();
+				double relativeCost = cost / select;
 				if (ability.getChoiceString() != null
 					&& ability.getChoiceString().length() > 0)
 				{
-					spent += subfeatCount;
+					spent += Math.ceil(subfeatCount * relativeCost);
 				}
 				else
 				{
 					if (!aCategory.allowFractionalPool())
 					{
-						spent += (int) Math.ceil(ability.getCost(this));
+						spent += (int) Math.ceil(relativeCost);
 					}
 					else
 					{
-						spent += ability.getCost(this);
+						spent += relativeCost;
 					}
 				}
 			}

@@ -4073,7 +4073,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return Description of the Return Value
 	 */
-	String rawProfName() {
+	public String rawProfName() {
 		if (isWeapon() && weaponProf != null)
 		{
 			return weaponProf;

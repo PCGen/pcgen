@@ -168,9 +168,10 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	/** Whether or not to force mPool=0 when closing */
 	private boolean mPoolFlag = true;
 
-	/** The choices remaining */
-	private int mPool;
-
+	private int selectionsPerUnitCost = 1;
+	
+	private int totalSelectionsAvailable = 1;
+	
 	/**
 	 * Chooser constructor.
 	 */
@@ -234,8 +235,8 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 */
 	public void setPool(final int anInt)
 	{
-		mPool = anInt;
-		mPoolText.setText(Integer.toString(mPool));
+		//TODO Need to update the UI!
+		//mPoolText.setText(Integer.toString(mPool));
 	}
 
 	/**
@@ -245,7 +246,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 */
 	public int getPool()
 	{
-		return mPool;
+		return getEffectivePool();
 	}
 
 	/**
@@ -392,7 +393,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 */
 	private boolean close()
 	{
-		if ((mPool <= 0) || !mPoolFlag)
+		if ((getEffectivePool() <= 0) || !mPoolFlag)
 		{
 			this.setVisible(false);
 
@@ -667,8 +668,6 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		final String selectedText =
 				mSelectedModel.getValueAt(selectedRow, 0).toString();
 
-		setPool(getPool() + getAdjustment(selectedText));
-
 		mSelectedList.remove(selectedRow);
 
 		updateSelectedTable();
@@ -684,7 +683,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	{
 		setMessageText(null);
 
-		if (getPool() <= 0)
+		if (getEffectivePool() <= 0)
 		{
 			setMessageText(in_noRemain);
 
@@ -722,7 +721,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		//
 		final int adjustment = getAdjustment(availText);
 
-		if ((getPool() - adjustment) < 0)
+		if ((getEffectivePool() - adjustment) < 0)
 		{
 			if (!canGoNegative)
 			{
@@ -735,7 +734,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		mSelectedList.add(availText);
 		updateSelectedTable();
 		mAvailableText.setText(Constants.EMPTY_STRING);		
-		setPool(getPool() - adjustment);
+		setPool(getEffectivePool() - adjustment);
 
 		updateButtonStates();
 	}
@@ -753,7 +752,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		String removeToolTip;
 		String closeToolTip;
 
-		if (mPool > 0)
+		if (getEffectivePool() > 0)
 		{
 			if (!mPoolFlag)
 			{
@@ -963,5 +962,31 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		}
 
 		return results;
+	}
+
+	public void setChoicesPerUnit(int cost)
+	{
+		selectionsPerUnitCost = cost;
+	}
+
+	public void setTotalChoicesAvail(int avail)
+	{
+		totalSelectionsAvailable = avail;
+	}
+
+	public int getEffectivePool()
+	{
+		return selectionsPerUnitCost * totalSelectionsAvailable
+				- mSelectedList.size();
+	}
+
+	public boolean pickAll()
+	{
+		return false;
+	}
+
+	public void setPickAll(boolean b)
+	{
+		throw new UnsupportedOperationException();
 	}
 }

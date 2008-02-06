@@ -2973,7 +2973,7 @@ public final class Globals
 	static <T> List<T> getChoiceFromList(final String title, final List<T> choiceList, final List<T> selectedList, final int pool, final boolean forceChoice)
 	{
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
-		c.setPool(pool);
+		c.setTotalChoicesAvail(pool);
 		c.setPoolFlag(forceChoice);
 		c.setAllowsDups(false);
 		c.setTitle(title);

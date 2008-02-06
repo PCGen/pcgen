@@ -32,7 +32,7 @@ import pcgen.core.SettingsHandler;
 /**
  * This is the chooser that deals with choosing a stat.
  */
-public class StatChoiceManager extends AbstractComplexChoiceManager<String> {
+public class StatChoiceManager extends AbstractBasicStringChoiceManager {
 
 	/**
 	 * Make a new stat chooser.
@@ -47,13 +47,7 @@ public class StatChoiceManager extends AbstractComplexChoiceManager<String> {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Stat choice";
-		chooserHandled = "STAT";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Stat choice");
 	}
 
 	/**
@@ -63,6 +57,7 @@ public class StatChoiceManager extends AbstractComplexChoiceManager<String> {
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>            availableList,
@@ -70,7 +65,7 @@ public class StatChoiceManager extends AbstractComplexChoiceManager<String> {
 	{
 		final List<String>     excludeList = new ArrayList<String>();
 
-		for ( String sExclude : choices )
+		for ( String sExclude : getChoiceList() )
 		{
 			final int iStat = SettingsHandler.getGame().getStatFromAbbrev(sExclude);
 
@@ -89,6 +84,7 @@ public class StatChoiceManager extends AbstractComplexChoiceManager<String> {
 		}
 
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
 
 }

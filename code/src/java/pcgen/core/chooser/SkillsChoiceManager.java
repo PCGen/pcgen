@@ -32,9 +32,7 @@ import pcgen.core.Skill;
 /**
  * This is one of the choosers that deals with choosing a skill.
  */
-public class SkillsChoiceManager extends AbstractComplexChoiceManager<String> {
-
-	protected List rootArrayList;
+public class SkillsChoiceManager extends AbstractBasicStringChoiceManager {
 
 	/**
 	 * Make a new Skill List chooser.
@@ -49,13 +47,7 @@ public class SkillsChoiceManager extends AbstractComplexChoiceManager<String> {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Skill Choice";
-		chooserHandled = "SKILLS";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Skill Choice");
 	}
 
 	/**
@@ -64,6 +56,7 @@ public class SkillsChoiceManager extends AbstractComplexChoiceManager<String> {
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPC,
 			final List<String>            availableList,
@@ -76,6 +69,7 @@ public class SkillsChoiceManager extends AbstractComplexChoiceManager<String> {
 		}
 
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
 
 }

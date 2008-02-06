@@ -68,8 +68,8 @@ public class SkillListChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=1|SKILLIST|Foo|Bar|Baz");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|SKILLIST|Foo|Bar|Baz"));
+		pObj.setChoiceString("NUMCHOICES=1|SKILLIST|Foo,Bar,Baz");
+		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|SKILLIST|Foo,Bar,Baz"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -90,10 +90,8 @@ public class SkillListChoiceManagerTest extends AbstractCharacterTestCase
 
 			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is(choices.size(), eq(3));
-			is(choices.get(0), strEq("Foo"));
-			is(choices.get(1), strEq("Bar"));
-			is(choices.get(2), strEq("Baz"));
+			is(choices.size(), eq(1));
+			is(choices.get(0), strEq("Foo,Bar,Baz"));
 		}
 		catch (IllegalAccessException e)
 		{

@@ -70,8 +70,8 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("ARMORPROF|1|TYPE=Light");
-		is(pObj.getChoiceString(), strEq("ARMORPROF|1|TYPE=Light"));
+		pObj.setChoiceString("NUMCHOICES=1|ARMORPROF|TYPE=Light");
+		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|ARMORPROF|TYPE=Light"));
 
 		PlayerCharacter aPC = getCharacter();
 

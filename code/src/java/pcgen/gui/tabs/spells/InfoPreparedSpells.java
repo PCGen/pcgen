@@ -1155,7 +1155,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		c.setTitle(addSpellWithMetaMagicTitle); //$NON-NLS-1$
 		c.setMessageText(PropertyFactory
 			.getString("InfoSpells.select.metamagic")); //$NON-NLS-1$
-		c.setPool(99);
+		c.setTotalChoicesAvail(99);
 		c.setVisible(true);
 
 		final List<String> fList = c.getSelectedList();

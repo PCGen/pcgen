@@ -150,7 +150,6 @@ class LevelAbilityFeat extends LevelAbility
 	String prepareChooser(final ChooserInterface chooser, PlayerCharacter aPC)
 	{
 		setNumberofChoices(chooser, aPC);
-		numFeats = chooser.getPool();
 
 		if (isVirtual)
 		{
@@ -209,7 +208,7 @@ class LevelAbilityFeat extends LevelAbility
 			// If automatically choosing all feats in a list, then set then
 			// number allowed to the number chosen. i.e. the number in the list
 			//
-			if (numFeats == Integer.MIN_VALUE)
+			if (aArrayList.equals(selectedList))
 			{
 				numFeats = selectedList.size();
 			}
@@ -750,14 +749,17 @@ class LevelAbilityFeat extends LevelAbility
 				{
 					break;
 				}
+				if (first)
+				{
+					choicesRemaining = ch.getPool();
+				}
 				if (!first || hasPrereqs)
 				{
-					ch.setPool(1);
+					ch.setTotalChoicesAvail(1);
 				}
 				else if (first && (dupChoices > 0))
 				{
-					choicesRemaining = numFeats;
-					ch.setPool(Math.min(choicesRemaining, dupChoices));
+					ch.setTotalChoicesAvail(Math.min(choicesRemaining, dupChoices));
 				}
 				else
 				{
@@ -777,7 +779,7 @@ class LevelAbilityFeat extends LevelAbility
 			}
 
 			/* Or displaying a chooser for the user */
-			else if (ch.getPool() == Integer.MIN_VALUE)
+			else if (ch.pickAll())
 			{
 				processChoice(choicesList, choicesList, aPC, pcLevelInfo);
 				selectionCount = ch.getSelectedList().size();

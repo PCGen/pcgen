@@ -34,7 +34,7 @@ import java.util.ArrayList;
 /**
  * This is the chooser that deals with choosing from among a PCs class skills.
  */
-public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager<Skill> {
+public class ClassSkillsChoiceManager extends AbstractBasicPObjectChoiceManager<Skill> {
 
 	/**
 	 * Make a new Class Skills chooser.
@@ -49,13 +49,7 @@ public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager<Skill
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Skill Choice";
-		chooserHandled = "CSKILLS";
-
-		if (choices != null && choices.size() > 0 &&
-				(choices.get(0)).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Skill Choice");
 	}
 
 
@@ -65,6 +59,7 @@ public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager<Skill
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<Skill>            availableList,
@@ -90,6 +85,7 @@ public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager<Skill
 				selectedList.add( skill );
 			}
 		}
+		setPreChooserChoices(selectedList.size());
 	}
 
 }

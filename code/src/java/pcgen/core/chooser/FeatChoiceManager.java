@@ -23,13 +23,9 @@
  */
 package pcgen.core.chooser;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.AssociatedChoice;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -38,7 +34,7 @@ import pcgen.core.PlayerCharacter;
  * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
-public class FeatChoiceManager extends AbstractComplexChoiceManager<String>
+public class FeatChoiceManager extends AbstractBasicStringChoiceManager
 {
 
 	/**
@@ -54,19 +50,12 @@ public class FeatChoiceManager extends AbstractComplexChoiceManager<String>
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Feat Choice";
-		chooserHandled = "FEAT";
-
-		if (choices != null && choices.size() > 0) {
-			Matcher mat = Pattern.compile("^FEAT[=.]").matcher(
-					choices.get(0));
-
-			if (mat.find()) {
-				ArrayList<String> newChoice = new ArrayList<String>();
-				newChoice.add(mat.replaceFirst(""));
-				newChoice.addAll(choices.subList(1,choices.size()));
-				choices = newChoice;
-			}
+		setTitle("Feat Choice");
+		List<String> list = getChoiceList();
+		if (list == null || list.size() > 1)
+		{
+			throw new IllegalArgumentException(
+					"Choice List for FeatChoiceManager must be 1 item");
 		}
 	}
 
@@ -76,13 +65,15 @@ public class FeatChoiceManager extends AbstractComplexChoiceManager<String>
 	 * @param availableList The list to be populated with the possible choices.
 	 * @param selectedList The list to be populated with the choices that have already been selected.
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
 		// Grab a list of occurrences of the feat being chosen in any category
-		final List<Ability> theFeats = aPc.getFeatNamedAnyCat(choices.get(0));
+		List<Ability> theFeats = aPc.getFeatNamedAnyCat(getChoiceList().get(0)
+				.substring(5));
 		for (Ability ability : theFeats)
 		{
 			for (AssociatedChoice<String> choice : ability.getAssociatedList())
@@ -95,6 +86,7 @@ public class FeatChoiceManager extends AbstractComplexChoiceManager<String>
 		{
 			selectedList.add(choice.getDefaultChoice());
 		}
+		setPreChooserChoices(selectedList.size());
 	}
 
 }

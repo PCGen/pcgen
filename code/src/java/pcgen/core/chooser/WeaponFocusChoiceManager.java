@@ -37,7 +37,7 @@ import pcgen.core.WeaponProf;
  * This is the chooser that deals with choosing a Weapon that currently has
  * Weapon focus applied.
  */
-public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager<String> {
+public class WeaponFocusChoiceManager extends AbstractBasicStringChoiceManager {
 
 	/**
 	 * Make a new Weapon Focus chooser.
@@ -52,12 +52,12 @@ public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager<Strin
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Weapon Focus Choice";
-		chooserHandled = "WEAPONFOCUS";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
+		setTitle("Weapon Focus Choice");
+		List<String> list = getChoiceList();
+		if (list == null || list.size() > 1)
+		{
+			throw new IllegalArgumentException(
+					"Choice List for WeaponFocusChoiceManager must be 1 item");
 		}
 	}
 
@@ -68,6 +68,7 @@ public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager<Strin
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>            availableList,
@@ -75,7 +76,9 @@ public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager<Strin
 	{
 		final Ability wfFeat = aPc.getFeatNamed("Weapon Focus");
 
-		if (choices.get(0) != null)
+		List<String> choices = getChoiceList();
+		
+		if (choices != null && choices.get(0) != null)
 		{
 			final String aString = choices.get(0);
 
@@ -116,6 +119,7 @@ public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager<Strin
 		}
 
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
 
 }

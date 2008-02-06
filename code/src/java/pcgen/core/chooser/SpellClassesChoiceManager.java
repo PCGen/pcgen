@@ -32,7 +32,7 @@ import pcgen.core.PlayerCharacter;
 /**
  * This is the chooser that deals with choosing a spellcasting class.
  */
-public class SpellClassesChoiceManager extends AbstractComplexChoiceManager<String> {
+public class SpellClassesChoiceManager extends AbstractBasicStringChoiceManager {
 
 	/**
 	 * Make a new spell casting class chooser.
@@ -47,13 +47,7 @@ public class SpellClassesChoiceManager extends AbstractComplexChoiceManager<Stri
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Spellcaster Classes";
-		chooserHandled = "SPELLCLASSES";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Spellcaster Classes");
 	}
 
 	/**
@@ -63,6 +57,7 @@ public class SpellClassesChoiceManager extends AbstractComplexChoiceManager<Stri
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>            availableList,
@@ -78,6 +73,7 @@ public class SpellClassesChoiceManager extends AbstractComplexChoiceManager<Stri
 		}
 
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
 
 }

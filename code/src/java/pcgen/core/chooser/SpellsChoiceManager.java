@@ -33,7 +33,7 @@ import pcgen.core.spell.Spell;
 /**
  * This is the chooser that deals with choosing a spell.
  */
-public class SpellsChoiceManager extends AbstractComplexChoiceManager<Spell> {
+public class SpellsChoiceManager extends AbstractBasicPObjectChoiceManager<Spell> {
 
 	/**
 	 * Make a new spell chooser.
@@ -48,13 +48,7 @@ public class SpellsChoiceManager extends AbstractComplexChoiceManager<Spell> {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Spell choice";
-		chooserHandled = "SPELLS";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Spell choice");
 	}
 
 	/**
@@ -64,12 +58,13 @@ public class SpellsChoiceManager extends AbstractComplexChoiceManager<Spell> {
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<Spell>            availableList,
 			final List<Spell>            selectedList)
 	{
-		for ( String token : choices )
+		for ( String token : getChoiceList() )
 		{
 			String domainName = "";
 			String className = "";
@@ -98,6 +93,7 @@ public class SpellsChoiceManager extends AbstractComplexChoiceManager<Spell> {
 			Spell spell = Globals.getSpellKeyed( choice );
 			selectedList.add( spell );
 		}
+		setPreChooserChoices(selectedList.size());
 	}
 
 }

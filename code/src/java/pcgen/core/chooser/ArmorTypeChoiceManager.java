@@ -32,7 +32,7 @@ import java.util.List;
  * This is the chooser that deals with choosing an armor type that the PC
  * is already proficient with.
  */
-public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager<String>
+public class ArmorTypeChoiceManager extends AbstractBasicStringChoiceManager
 {
 
 	/**
@@ -48,13 +48,7 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager<String>
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Armor Type Choice";
-		chooserHandled = "ARMORTYPE";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Armor Type Choice");
 	}
 
 	/**
@@ -63,6 +57,7 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager<String>
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>    availableList,
@@ -83,34 +78,6 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager<String>
 		}
 
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
-
-	/**
-	 * Associate a choice with the pobject.
-	 *
-	 * @param aPc
-	 * @param item the choice to associate
-	 * @param prefix
-	 */
-	protected void associateChoice(
-			final PlayerCharacter aPc,
-			final String          item,
-			final String          prefix)
-	{
-		/* this code was originally added to a class called Utility.java
-		 * in August 2002.  As far as I can see there was no mechanism then
-		 * which allowed aBonusList to be populated.  There has not been
-		 * any such mechanism in the code ever.  I believe that this
-		 * ChoiceManager is replacing a chooser which has never worked.
-		 * It is currently unused in the data repository.
-		 * Andrew Wilson 30 March 2006
-		 */
-		//		for (Iterator e = aBonusList.iterator(); e.hasNext();)
-		//		{
-		//			final String bString = (String) e.next();
-		//			pobject.addAssociated(prefix + item);
-		//			pobject.applyBonus("ARMORPROF=" + bString, item, aPc);
-		//		}
-	}
-
 }

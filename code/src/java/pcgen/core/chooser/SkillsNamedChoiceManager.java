@@ -23,6 +23,7 @@
  */
 package pcgen.core.chooser;
 
+import java.util.Collection;
 import java.util.List;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -33,7 +34,9 @@ import pcgen.util.enumeration.Visibility;
 /**
  * This is the chooser that deals with choosing a skill.
  */
-public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager<String> {
+public class SkillsNamedChoiceManager extends
+		AbstractEasyStringChoiceManager<Skill>
+{
 
 	/**
 	 * Make a new named skills chooser.
@@ -48,126 +51,100 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager<Strin
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Skills Choice";
-		chooserHandled = "SKILLSNAMED";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Skills Choice");
 	}
 
-	/**
-	 * Parse the Choice string and build a list of available choices.
-	 * @param aPc
-	 * @param availableList
-	 * @param selectedList
-	 */
-	public void getChoices(
-			final PlayerCharacter aPc,
-			final List<String>            availableList,
-			final List<String>            selectedList)
+	@Override
+	public Collection<Skill> getAllObjects()
 	{
-		for ( String token : choices )
+		return Globals.getPartialSkillList(Visibility.DISPLAY_ONLY);
+	}
+
+	@Override
+	public Skill getSpecificObject(String key)
+	{
+		return Globals.getSkillKeyed(key);
+	}
+
+	@Override
+	protected void processOther(String token, List<String> availableList,
+			PlayerCharacter aPc)
+	{
+		if ("CLASS".equals(token))
 		{
-			boolean startsWith = false;
-
-			if (token.startsWith("TYPE.") || token.startsWith("TYPE="))
+			for (Skill skill : getAllObjects())
 			{
-				for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
-				{
-					if (skill.isType(token.substring(5)))
-					{
-						availableList.add(skill.getKeyName());
-					}
-				}
-			}
-
-			if ("ALL".equals(token))
-			{
-				for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
-				{
-					availableList.add(skill.getKeyName());
-				}
-			}
-
-			if ("CLASS".equals(token))
-			{
-				for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
-				{
-					if (skill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Class())
-					{
-						availableList.add(skill.getKeyName());
-					}
-				}
-			}
-
-			if ("CROSSCLASS".equals(token))
-			{
-				for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
-				{
-					if (skill.costForPCClassList(aPc.getClassList(), aPc) > Globals.getGameModeSkillCost_Class())
-					{
-						availableList.add(skill.getKeyName());
-					}
-				}
-			}
-
-			if ("EXCLUSIVE".equals(token))
-			{
-				for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
-				{
-					if (skill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Exclusive())
-					{
-						availableList.add(skill.getKeyName());
-					}
-				}
-			}
-
-			if ("NORANK".equals(token))
-			{
-				for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
-				{
-					final Skill pcSkill = aPc.getSkillKeyed(skill.getKeyName());
-
-					if (pcSkill == null || Double.compare(pcSkill.getRank().doubleValue(), 0.0) == 0)
-					{
-						availableList.add(skill.getKeyName());
-					}
-				}
-			}
-
-			if (token.startsWith("RANKS="))
-			{
-				Double ranks = new Double(token.substring(6));
-				for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
-				{
-					final Skill pcSkill = aPc.getSkillKeyed(skill.getKeyName());
-
-					if (pcSkill != null && Double.compare(pcSkill.getRank().doubleValue(), ranks) >= 0)
-					{
-						availableList.add(skill.getKeyName());
-					}
-				}
-			}
-
-			if (token.endsWith("%"))
-			{
-				startsWith = true;
-				token = token.substring(0, token.length() - 1);
-			}
-
-			for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
-			{
-				if (skill.getKeyName().equals(token) || (startsWith && skill.getKeyName().startsWith(token)))
+				if (skill.costForPCClassList(aPc.getClassList(), aPc) == Globals
+						.getGameModeSkillCost_Class())
 				{
 					availableList.add(skill.getKeyName());
 				}
 			}
 		}
+		else if ("CROSSCLASS".equals(token))
+		{
+			for (Skill skill : getAllObjects())
+			{
+				if (skill.costForPCClassList(aPc.getClassList(), aPc) > Globals
+						.getGameModeSkillCost_Class())
+				{
+					availableList.add(skill.getKeyName());
+				}
+			}
+		}
+		else if ("EXCLUSIVE".equals(token))
+		{
+			for (Skill skill : getAllObjects())
+			{
+				if (skill.costForPCClassList(aPc.getClassList(), aPc) == Globals
+						.getGameModeSkillCost_Exclusive())
+				{
+					availableList.add(skill.getKeyName());
+				}
+			}
+		}
+		else if ("NORANK".equals(token))
+		{
+			for (Skill skill : getAllObjects())
+			{
+				final Skill pcSkill = aPc.getSkillKeyed(skill.getKeyName());
 
-		pobject.addAssociatedTo(selectedList);
+				if (pcSkill == null
+						|| Double.compare(pcSkill.getRank().doubleValue(), 0.0) == 0)
+				{
+					availableList.add(skill.getKeyName());
+				}
+			}
+		}
+		else if (token.startsWith("RANKS="))
+		{
+			Double ranks = new Double(token.substring(6));
+			for (Skill skill : getAllObjects())
+			{
+				final Skill pcSkill = aPc.getSkillKeyed(skill.getKeyName());
+
+				if (pcSkill != null
+						&& Double.compare(pcSkill.getRank().doubleValue(),
+								ranks) >= 0)
+				{
+					availableList.add(skill.getKeyName());
+				}
+			}
+		}
+		else if (token.endsWith("%"))
+		{
+			token = token.substring(0, token.length() - 1);
+			for (Skill skill : getAllObjects())
+			{
+				if (skill.getKeyName().startsWith(token))
+				{
+					availableList.add(skill.getKeyName());
+				}
+			}
+		}
+		else
+		{
+			super.processOther(token, availableList, aPc);
+		}
 	}
-
-
 }

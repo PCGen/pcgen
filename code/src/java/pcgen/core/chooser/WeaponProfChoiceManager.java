@@ -23,6 +23,13 @@
  */
 package pcgen.core.chooser;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+
 import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -32,18 +39,10 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 import pcgen.util.Logging;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.Collection;
-import java.util.logging.Logger;
-
 /**
  * This is the chooser that deals with choosing a Weapon Proficiency
  */
-public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<WeaponProf> {
+public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<WeaponProf> {
 
 	/**
 	 * Make a new Weapon Proficiency chooser.
@@ -58,13 +57,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Weapon Prof Choice";
-		chooserHandled = "WEAPONPROFS";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Weapon Prof Choice");
 	}
 
 	/**
@@ -74,16 +67,14 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<WeaponProf>            availableList,
 			final List<WeaponProf>            selectedList)
 	{
-		Iterator<String> choicesIt = choices.iterator();
-
-		while (choicesIt.hasNext())
+		for (String aString : getChoiceList())
 		{
-			final String aString = choicesIt.next();
 			if ("LIST".equalsIgnoreCase(aString))
 			{
 				for ( WeaponProf wp : aPc.getWeaponProfs() )
@@ -367,8 +358,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 				{
 					Logging.log(Logging.LST_INFO,
 						"Reference to non-existant weapon proficiency "
-							+ profKey + " in CHOOSE:" + chooserHandled
-							+ " tag ignored.");
+							+ profKey + " in CHOOSE:WEAPONPROFS tag ignored.");
 				}
 				if (wp != null && aPc.hasWeaponProf(wp) && !availableList.contains(wp))
 				{
@@ -385,5 +375,6 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 				selectedList.add(Globals.getWeaponProfKeyed(choice));
 			}
 		}
+		setPreChooserChoices(selectedList.size());
 	}
 }

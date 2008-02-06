@@ -43,10 +43,11 @@ import pcgen.util.InputInterface;
 /**
  * This is the chooser that deals with choosing a spell level.
  */
-public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
+public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 {
 	int                idxSelected = -1;
 	FeatMultipleChoice fmc         = null;
+	int maxSpellListSelections = 0;
 
 
 	/**
@@ -62,13 +63,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
 		PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title          = "Spell choice";
-		chooserHandled = "SPELLLIST";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Spell choice");
 	}
 
 	/**
@@ -78,6 +73,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
 	 * @param  availableList
 	 * @param  selectedList
 	 */
+	@Override
 	public void getChoices(
 		final PlayerCharacter aPc,
 		final List<String>            availableList,
@@ -92,8 +88,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
 			if (idxSelected >= 0)
 			{
 				fmc = (FeatMultipleChoice) pobject.getAssociatedObject(idxSelected);
-				maxNewSelections    = fmc.getMaxChoices();
-				requestedSelections = maxNewSelections;
+				setMaxChoices(fmc.getMaxChoices());
 			}
 		}
 		else
@@ -101,6 +96,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
 			availableList.clear();
 			selectedList.clear();
 		}
+		setPreChooserChoices(selectedList.size());
 	}
 
 	/**
@@ -147,7 +143,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
 		if (fmc == null)
 		{
 			fmc = new FeatMultipleChoice();
-			fmc.setMaxChoices(maxNewSelections);
+			fmc.setMaxChoices(maxSpellListSelections);
 			pobject.addAssociated(fmc);
 		}
 
@@ -253,7 +249,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
 		final List<String>            availableList,
 		final List<String>            selectedList)
 	{
-		Iterator<String> choicesIt = choices.iterator();
+		Iterator<String> choicesIt = getChoiceList().iterator();
 
 		final boolean needSpellbook;
 
@@ -301,7 +297,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
 
 		if (classes != null)
 		{
-			maxNewSelections = 0;
+			maxSpellListSelections = 0;
 
 			for (int j = 0; j < classes.size(); ++j)
 			{
@@ -329,7 +325,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
 
 				if (statMod > 0)
 				{
-					maxNewSelections = statMod;
+					maxSpellListSelections = statMod;
 				}
 			}
 

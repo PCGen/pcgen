@@ -36,7 +36,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * This is one of the choosers that deals with choosing a skill.
  */
-public class SkillListChoiceManager extends AbstractComplexChoiceManager<String>
+public class SkillListChoiceManager extends AbstractBasicStringChoiceManager
 {
 
 	protected List<String> rootArrayList;
@@ -54,12 +54,12 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager<String>
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Skill Choice";
-		chooserHandled = "SKILLIST";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
+		setTitle("Skill Choice");
+		List<String> list = getChoiceList();
+		if (list == null || list.size() > 1)
+		{
+			throw new IllegalArgumentException(
+					"Choice List for SkillListChoiceManager must be 1 item");
 		}
 	}
 
@@ -69,15 +69,13 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager<String>
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
-		final String choiceVal = choices.get(0) != null
-				? choices.get(0)
-				: pobject.getKeyName();
-
+		String choiceVal = getChoiceList().get(0);
 		if ((choiceVal.length() > 0) && !"LIST".equals(choiceVal))
 		{
 			StringTokenizer choiceTok = new StringTokenizer(choiceVal, ",");
@@ -116,21 +114,20 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager<String>
 		}
 
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
 
 	/**
 	 * Associate a choice with the pobject.
-	 *
 	 * @param aPc
 	 * @param item the choice to associate
 	 * @param prefix
 	 */
+	@Override
 	protected void associateChoice(
-			final PlayerCharacter aPc,
-			final String          item,
-			final String          prefix)
+			PlayerCharacter pc, final String          item)
 	{
-		super.associateChoice(aPc, item, prefix);
+		super.associateChoice(pc, item);
 
 		if (pobject != null && pobject instanceof Ability)
 		{

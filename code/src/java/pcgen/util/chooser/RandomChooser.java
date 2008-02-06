@@ -51,9 +51,12 @@ public final class RandomChooser implements ChooserInterface
 	/** The column containing the cost for an item */
 	private int theCostColumnNumber = -1;
 
-	/** The choices remaining */
-	private int thePool;
+	private int selectionsPerUnitCost = 1;
+	
+	private int totalSelectionsAvailable = 1;
 
+	private boolean pickAll = false;
+	
 	/**
 	 * Chooser constructor.
 	 */
@@ -115,7 +118,7 @@ public final class RandomChooser implements ChooserInterface
 	 */
 	public void setPool(final int anInt)
 	{
-		thePool = anInt;
+		//TODO REMOVE
 	}
 
 	/**
@@ -125,7 +128,7 @@ public final class RandomChooser implements ChooserInterface
 	 */
 	public int getPool()
 	{
-		return thePool;
+		return totalSelectionsAvailable - theSelectedList.size();
 	}
 
 	/**
@@ -184,7 +187,7 @@ public final class RandomChooser implements ChooserInterface
 	 */
 	public void setVisible(boolean b)
 	{
-		while (thePool > 0 && theAvailableList.size() > 0)
+		while (getEffectivePool() > 0 && theAvailableList.size() > 0)
 		{
 			selectAvailable();
 		}
@@ -218,7 +221,7 @@ public final class RandomChooser implements ChooserInterface
 	{
 		setMessageText(null);
 
-		if (getPool() <= 0)
+		if (getEffectivePool() <= 0)
 		{
 			return;
 		}
@@ -260,9 +263,6 @@ public final class RandomChooser implements ChooserInterface
 		//		}
 
 		theSelectedList.add(addObj);
-
-		//		setPool(getPool() - adjustment);
-		setPool(getPool() - 1);
 	}
 
 	public void setTitle(String title)
@@ -273,5 +273,31 @@ public final class RandomChooser implements ChooserInterface
 	public void show()
 	{
 		// Do nothing
+	}
+
+	public void setChoicesPerUnit(int cost)
+	{
+		selectionsPerUnitCost = cost;
+	}
+
+	public void setTotalChoicesAvail(int avail)
+	{
+		totalSelectionsAvailable = avail;
+	}
+
+	public void setPickAll(boolean b)
+	{
+		pickAll = b;
+	}
+	
+	public boolean pickAll()
+	{
+		return pickAll;
+	}
+	
+	public int getEffectivePool()
+	{
+		return selectionsPerUnitCost * totalSelectionsAvailable
+				- theSelectedList.size();
 	}
 }

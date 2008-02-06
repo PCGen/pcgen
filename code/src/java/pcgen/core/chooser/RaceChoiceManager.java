@@ -23,21 +23,20 @@
  */
 package pcgen.core.chooser;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
-
 /**
  * This is the chooser that deals with choosing a race.
  */
-public class RaceChoiceManager extends AbstractComplexChoiceManager<Race>
+public class RaceChoiceManager extends AbstractBasicPObjectChoiceManager<Race>
 {
 	/**
 	 * Make a new Race chooser.
@@ -52,13 +51,7 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager<Race>
 		PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title          = "Choose Race";
-		chooserHandled = "RACE";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		this.setTitle("Choose Race");
 	}
 
 
@@ -69,6 +62,7 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager<Race>
 	 * @param  availableList
 	 * @param  selectedList
 	 */
+	@Override
 	public void getChoices(
 		final PlayerCharacter aPc,
 		final List<Race>            availableList,
@@ -78,12 +72,8 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager<Race>
 		// or CHOOSE:RACE|[RACETYPE=x,RACESUBTYPE=y]
 		Collection<Race> races = Globals.getAllRaces();
 
-		Iterator<String> choiceIt = choices.iterator();
-
-		while (choiceIt.hasNext())
+		for (String choice : getChoiceList())
 		{
-			String choice = choiceIt.next();
-
 			// All top-level comma-separated items are added to the list.
 			if (choice.indexOf("[") != -1)
 			{
@@ -135,6 +125,18 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager<Race>
 				}
 			}
 		}
+		
+		List<String> raceKeys = new ArrayList<String>();
+		pobject.addAssociatedTo(raceKeys);
+		for (String key : raceKeys)
+		{
+			Race race = Globals.getRaceKeyed(key);
+			if (race != null)
+			{
+				selectedList.add(race);
+			}
+		}
+		setPreChooserChoices(selectedList.size());
 	}
 
 

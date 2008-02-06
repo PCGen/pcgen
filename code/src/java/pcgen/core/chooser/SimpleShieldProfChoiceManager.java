@@ -22,66 +22,81 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.utils.ListKey;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.core.AssociatedChoice;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+
 /**
- * Deal with choosing a shiled proficiency
- *
- * @author   Andrew Wilson <nuance@sourceforge.net>
- * @version  $Revision$
+ * Deal with choosing a shield proficiency
  */
-public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager<String>
+public class SimpleShieldProfChoiceManager extends
+		AbstractBasicChoiceManager<String>
 {
 	/**
 	 * Creates a new SimpleShieldProfChoiceManager object.
-	 *
-	 * @param  aPObject
-	 * @param  theChoices
-	 * @param  aPC
+	 * 
+	 * @param aPObject
+	 * @param theChoices
+	 * @param aPC
 	 */
-	public SimpleShieldProfChoiceManager(
-		PObject         aPObject,
-		String          theChoices,
-		PlayerCharacter aPC)
+	public SimpleShieldProfChoiceManager(PObject aPObject, String theChoices,
+			PlayerCharacter aPC)
 	{
 		super(aPObject, theChoices, aPC);
 	}
 
 	/**
 	 * Get a list of shield proficiencies
-	 * @param  aPc
-	 * @param  availableList
-	 * @param  selectedList
+	 * 
+	 * @param aPc
+	 * @param availableList
+	 * @param selectedList
 	 */
-	public void getChoices(
-		PlayerCharacter aPc,
-		List<String>            availableList,
-		List<String>            selectedList)
+	@Override
+	public void getChoices(PlayerCharacter aPc, List<String> availableList,
+			List<String> selectedList)
 	{
-		selectedList.addAll(pobject.getSafeListFor(ListKey.SELECTED_SHIELD_PROFS));
-
-		for ( String tempString : choices )
+		for (AssociatedChoice<String> choice : pobject.getAssociatedList())
 		{
-			if (tempString.startsWith("TYPE=") || tempString.startsWith("TYPE."))
+			selectedList.add(choice.getDefaultChoice());
+		}
+		setPreChooserChoices(selectedList.size());
+		for (String tempString : getChoiceList())
+		{
+			if (tempString.equals("ANY") || tempString.startsWith("ALL"))
 			{
 				tempString = tempString.substring(5);
 
-				for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList.getEquipmentListIterator(); i.hasNext();)
+				for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList
+						.getEquipmentListIterator(); i.hasNext();)
 				{
-					final Equipment eq    = i.next().getValue();
+					final Equipment eq = i.next().getValue();
 
-					if (
-						eq.isShield() &&
-						eq.isType(tempString) &&
-						!availableList.contains(eq.profKey(aPc)))
+					String profKey = eq.profKey(aPc);
+					if (eq.isShield() && !availableList.contains(profKey))
+					{
+						availableList.add(profKey);
+					}
+				}
+			}
+			else if (tempString.startsWith("TYPE=")
+					|| tempString.startsWith("TYPE."))
+			{
+				tempString = tempString.substring(5);
+
+				for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList
+						.getEquipmentListIterator(); i.hasNext();)
+				{
+					final Equipment eq = i.next().getValue();
+
+					if (eq.isShield() && eq.isType(tempString)
+							&& !availableList.contains(eq.profKey(aPc)))
 					{
 						availableList.add(eq.profKey(aPc));
 					}
@@ -89,12 +104,11 @@ public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager<S
 			}
 			else
 			{
-				final Equipment eq = EquipmentList.getEquipmentNamed(tempString);
+				final Equipment eq = EquipmentList
+						.getEquipmentNamed(tempString);
 
-				if (
-					(eq != null) &&
-					eq.isShield() &&
-					!availableList.contains(eq.profKey(aPc)))
+				if ((eq != null) && eq.isShield()
+						&& !availableList.contains(eq.profKey(aPc)))
 				{
 					availableList.add(eq.profKey(aPc));
 				}
@@ -104,23 +118,28 @@ public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager<S
 
 	/**
 	 * Add the selected shield proficiencies
-	 *
-	 * @param  aPC
-	 * @param  selected
+	 * 
+	 * @param aPC
+	 * @param selected
 	 */
-	public void applyChoices(
-		PlayerCharacter  aPC,
-		List<String> selected)
+	@Override
+	public void applyChoices(PlayerCharacter aPC, List<String> selected)
 	{
-		pobject.addSelectedShieldProfs(selected);
-	}
-
-	/**
-	 * what type of chooser does this handle
-	 *
-	 * @return type of chooser
-	 */
-	public String typeHandled() {
-		return chooserHandled;
+		pobject.clearAssociated();
+		for (String st : selected)
+		{
+			if (isMultYes() && !isStackYes())
+			{
+				if (!pobject.containsAssociated(st))
+				{
+					pobject.addAssociated(st);
+				}
+			}
+			else
+			{
+				pobject.addAssociated(st);
+			}
+		}
+		adjustPool(selected);
 	}
 }

@@ -167,6 +167,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	
 	private Set<String> types = new LinkedHashSet<String>();
 	
+	private int chooseSelectCount = 1;
+	
 	/* ************
 	 * Methods
 	 * ************/
@@ -2314,7 +2316,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			chooser.setPoolFlag(true); // user is not required to make any changes
 			chooser.setAllowsDups(false); // only stackable feats can be duped
 			chooser.setVisible(false);
-			chooser.setPool(remCount);
+			chooser.setTotalChoicesAvail(remCount);
 
 			String title = "Select for removal";
 			chooser.setTitle(title);
@@ -3685,7 +3687,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			final ChooserInterface c = ChooserFactory.getChooserInstance();
 			c.setTitle("Region Selection");
-			c.setPool(num);
+			c.setTotalChoicesAvail(num);
 			c.setPoolFlag(false);
 			c.setAvailableList(aList);
 			c.setVisible(true);
@@ -4058,7 +4060,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			final List<Language> selectedList; // selected list of choices
 
 			final ChooserInterface c = ChooserFactory.getChooserInstance();
-			c.setPool(1);
+			c.setTotalChoicesAvail(1);
 			c.setPoolFlag(false);
 			c.setTitle("Pick a Language: ");
 
@@ -5149,6 +5151,16 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	public void clearAdds() {
 		levelAbilityList.clear();
+	}
+
+	public void setSelect(int select)
+	{
+		chooseSelectCount = select;
+	}
+
+	public int getSelectCount()
+	{
+		return chooseSelectCount;
 	}
 
 //	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC, final String aBonusType, final String aBonusName)

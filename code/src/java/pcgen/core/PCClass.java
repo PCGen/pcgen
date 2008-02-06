@@ -5256,7 +5256,7 @@ public class PCClass extends PObject {
 											+ aClass.getDisplayName()
 											+ " to "
 											+ getDisplayName());
-							c.setPool(1);
+							c.setTotalChoicesAvail(1);
 							c.setPoolFlag(false);
 							c.setAvailableList(choiceNames);
 							c.setVisible(true);
@@ -6247,7 +6247,7 @@ public class PCClass extends PObject {
 		c.setMessageText("Make a selection.  The cost column indicates the cost of that selection. "
 						+ "If this cost is non-zero, you will be asked to also "
 						+ "select items from this list to give up to cover that cost.");
-		c.setPool(1);
+		c.setTotalChoicesAvail(1);
 		c.setPoolFlag(false);
 
 		// c.setCostColumnNumber(1); // Allow 1 choice, regardless of
@@ -6324,7 +6324,7 @@ public class PCClass extends PObject {
 				c1.setAvailableList(choiceList);
 				c1.setMessageText("Make a selection.  You must make as many selections "
 								+ "necessary to cover the cost of your previous selections.");
-				c1.setPool(sc.getCost());
+				c1.setTotalChoicesAvail(sc.getCost());
 				c1.setPoolFlag(true);
 				c1.setCostColumnNumber(1);
 				c1.setNegativeAllowed(true);
@@ -6367,7 +6367,7 @@ public class PCClass extends PObject {
 		c.setMessageText("Choose one of the listed substitution levels " +
                          "or the base class(top entry).  "
 						+"Pressing Close will take the standard class level.");
-		c.setPool(1);
+		c.setTotalChoicesAvail(1);
 		c.setPoolFlag(false);
 
 		c.setAvailableColumnNames(columnNames);
@@ -6420,7 +6420,7 @@ public class PCClass extends PObject {
 
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTitle("Select class whose class-skills this class will inherit");
-		c.setPool(classSkillChoices.getCount());
+		c.setTotalChoicesAvail(classSkillChoices.getCount());
 		c.setPoolFlag(false);
 		c.setAvailableList(classSkillChoiceList);
 		c.setVisible(true);
@@ -6451,7 +6451,7 @@ public class PCClass extends PObject {
 
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTitle("Select class whose list of spells this class will use");
-		c.setPool(classSpellChoices.getCount());
+		c.setTotalChoicesAvail(classSpellChoices.getCount());
 		c.setPoolFlag(false);
 		c.setAvailableList(classSpellChoiceList);
 		c.setVisible(true);

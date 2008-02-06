@@ -1022,11 +1022,11 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 		if (!equipChoice.isBAdd())
 		{
-			chooser.setPool(0);
+			chooser.setTotalChoicesAvail(0);
 		}
 		else
 		{
-			chooser.setPool(equipChoice.getPool());
+			chooser.setTotalChoicesAvail(equipChoice.getMaxSelect());
 		}
 
 		chooser.setAllowsDups(equipChoice.isAllowDuplicates());
@@ -1083,7 +1083,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 					chooser.setTitle("Select modifier (" + aString + ")");
 					chooser.setAvailableList(secondaryChoice);
 					chooser.setSelectedList(new ArrayList());
-					chooser.setPool(1);
+					chooser.setTotalChoicesAvail(1);
 					chooser.setVisible(true);
 
 					if (chooser.getSelectedList().size() == 0)

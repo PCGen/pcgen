@@ -176,7 +176,7 @@ public class LevelAbilityAbility extends LevelAbility
 
 			chooser.setPoolFlag(true);
 
-			if (chooser.getPool() == Integer.MIN_VALUE)
+			if (chooser.pickAll())
 			{
 				processChoice(
 					choicesList,
@@ -697,7 +697,7 @@ public class LevelAbilityAbility extends LevelAbility
 		{
 			// If automatically choosing all abilities in a list, then set the
 			// number allowed to the number available
-			if (numFeats == Integer.MIN_VALUE)
+			if (aArrayList.equals(selectedList))
 			{
 				numFeats = selectedList.size();
 			}

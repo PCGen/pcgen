@@ -850,7 +850,7 @@ public final class Skill extends PObject
 			lc.setVisible(false);
 			lc.setAvailableList(available);
 			lc.setSelectedList(selected);
-			lc.setPool(numLanguages - selected.size());
+			lc.setTotalChoicesAvail(numLanguages);
 			lc.setPoolFlag(false);
 			lc.setVisible(true);
 
@@ -1575,7 +1575,7 @@ public final class Skill extends PObject
 						c.setTitle(title);
 					}
 
-					c.setPool((int) (g + curRank + rankAdjustment) - getAssociatedCount());
+					c.setTotalChoicesAvail((int) (g + curRank + rankAdjustment));
 					c.setPoolFlag(false);
 					c.setAvailableList(aArrayList);
 

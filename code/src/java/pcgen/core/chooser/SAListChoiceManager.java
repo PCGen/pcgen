@@ -23,20 +23,19 @@
  */
 package pcgen.core.chooser;
 
+import java.util.List;
+
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.utils.CoreUtility;
 import pcgen.io.PCGIOHandler;
-
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * This is the chooser that deals with choosing from a list of SAs.
  */
-public class SAListChoiceManager extends AbstractComplexChoiceManager<String> {
+public class SAListChoiceManager extends AbstractBasicStringChoiceManager {
 
 	List<String>   aBonusList = null;
-	private final String stChoices;
 
 	/**
 	 * Make a new Armor Type chooser.
@@ -51,24 +50,7 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager<String> {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Special Ability Choice";
-		chooserHandled = "SALIST";
-
-		/* reconstruct a suitable choiceString to pass to buildSALIST.  This is
-		 * not necessarily the same as the choiceString that was passing because
-		 * we may have removed some | separated elements from the front of it in
-		 * the constructor of the superclass */
-
-		StringBuffer newChoice = new StringBuffer(choiceString.length());
-		Iterator choiceIt = choices.iterator();
-		while (choiceIt.hasNext()) {
-			if (newChoice.length() != 0) {
-				newChoice.append('|');
-			}
-			newChoice.append(choiceIt.next());
-		}
-
-		stChoices = newChoice.toString();
+		setTitle("Special Ability Choice");
 	}
 
 	/**
@@ -77,21 +59,25 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager<String> {
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
-		PCGIOHandler.buildSALIST(stChoices, availableList, aBonusList, aPc);
+		PCGIOHandler.buildSALIST("SALIST:"
+				+ CoreUtility.join(getChoiceList(), "|"), availableList,
+				aBonusList, aPc);
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
 
 	/**
 	 * Hook so we can add behaviour to some of the sub classes but not others.
 	 *
 	 */
-	protected void cleanUpAssociated(
-			final PlayerCharacter aPc, int size)
+	@Override
+	protected void cleanUpAssociated(PlayerCharacter aPC)
 	{
 		// remove previous selections from special abilities
 		// aBonusList contains all possible selections in form: <displayed info>|<special ability>
@@ -104,14 +90,14 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager<String> {
 			{
 				if (bString.startsWith(prefix))
 				{
-					pobject.removeBonus(bString.substring(bString.indexOf('|') + 1), "", aPc);
+					pobject.removeBonus(bString.substring(bString.indexOf('|') + 1), "", aPC);
 
 					break;
 				}
 			}
 		}
 
-		super.cleanUpAssociated(aPc, size);
+		super.cleanUpAssociated(aPC);
 	}
 
 
@@ -121,23 +107,19 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager<String> {
 	 * @param aPc
 	 * @param name the choice to associate
 	 */
+	@Override
 	protected void associateChoice(
 			final PlayerCharacter aPc,
-			final String          name,
-			final String          objPrefix)
+			final String          name)
 	{
-
-		if (multiples && !dupsAllowed)
+		if (isMultYes() && !isStackYes())
 		{
-			if (!pobject.containsAssociated(name))
-			{
-				pobject.addAssociated(name);
-			}
+			pobject.addAssociated(name);
 		}
 		else
 		{
 			final String prefix = name + "|";
-			pobject.addAssociated(objPrefix + name);
+			pobject.addAssociated(name);
 
 			// SALIST: aBonusList contains all possible selections in form: <displayed info>|<special ability>
 			for ( String bString : aBonusList )

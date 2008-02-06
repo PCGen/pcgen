@@ -23,19 +23,18 @@
  */
 package pcgen.core.chooser;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
-import java.util.Iterator;
-import java.util.List;
-import pcgen.core.Equipment;
-import java.util.ArrayList;
-
 /**
  * This is the chooser that deals with choosing from all equipment of a given type.
  */
-public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager<Equipment> {
+public class EquipmentTypeChoiceManager extends AbstractBasicPObjectChoiceManager<Equipment> {
 
 	/**
 	 * Make a new Equipment Type chooser.
@@ -50,12 +49,12 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager<Equ
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Equipment Choice";
-		chooserHandled = "EQUIPTYPE";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
+		setTitle("Equipment Choice");
+		List<String> list = getChoiceList();
+		if (list == null || list.size() > 1)
+		{
+			throw new IllegalArgumentException(
+					"Choice List for EquipmentTypeChoiceManager must be 1 item");
 		}
 	}
 
@@ -65,17 +64,15 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager<Equ
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<Equipment>            availableList,
 			final List<Equipment>            selectedList)
 	{
-		Iterator<String> choiceIt = choices.iterator();
-
-		String choiceSec = ((choiceIt.hasNext())
-				? choiceIt.next()
-				: pobject.getKeyName());
-
+		List<String> choices = getChoiceList();
+		String choiceSec = choices.isEmpty() ? pobject.getKeyName() : choices
+				.get(0);
 		availableList.addAll(EquipmentList.getEquipmentOfType(choiceSec, ""));
 
 		List<String> equipKeys = new ArrayList<String>();
@@ -88,6 +85,6 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager<Equ
 				selectedList.add( equip );
 			}
 		}
+		setPreChooserChoices(selectedList.size());
 	}
-
 }

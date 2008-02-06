@@ -46,9 +46,14 @@ public final class NonGuiChooser implements ChooserInterface
 	/** The list of selected items */
 	private List mSelectedList = new ArrayList();
 
-	/** The choices remaining */
-	private int mPool;
-
+	private int selectionsPerUnitCost = 1;
+	
+	private int totalSelectionsAvailable = 1;
+	
+	private int effectiveUsed = 0;
+	
+	private boolean pickAll = false;
+	
 	/**
 	 * Chooser constructor.
 	 */
@@ -112,7 +117,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setPool(final int anInt)
 	{
-		mPool = anInt;
+		//TODO Remove
 	}
 
 	/**
@@ -121,7 +126,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public int getPool()
 	{
-		return mPool;
+		return getEffectivePool();
 	}
 
 	/**
@@ -142,6 +147,11 @@ public final class NonGuiChooser implements ChooserInterface
 	public void setSelectedList(List selectedList)
 	{
 		mSelectedList = selectedList;
+		for (Object obj : mSelectedList)
+		{
+			//TODO need to update effectiveUsed more accurately than 1:1
+			effectiveUsed++;
+		}
 	}
 
 	/**
@@ -206,5 +216,31 @@ public final class NonGuiChooser implements ChooserInterface
 	public void setAvailableColumnNames(List<String> availableColumnNames)
 	{
 		// Do Nothing
+	}
+
+	public void setChoicesPerUnit(int cost)
+	{
+		selectionsPerUnitCost = cost;
+	}
+
+	public void setTotalChoicesAvail(int avail)
+	{
+		totalSelectionsAvailable = avail;
+	}
+
+	public void setPickAll(boolean b)
+	{
+		pickAll = b;
+	}
+	
+	public boolean pickAll()
+	{
+		return pickAll;
+	}
+	
+	public int getEffectivePool()
+	{
+		return selectionsPerUnitCost * totalSelectionsAvailable
+				- effectiveUsed;
 	}
 }

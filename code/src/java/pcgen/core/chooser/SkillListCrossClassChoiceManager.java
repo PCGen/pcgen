@@ -45,15 +45,9 @@ public class SkillListCrossClassChoiceManager extends SkillListChoiceManager {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Skill Choice";
-		chooserHandled = "CCSKILLIST";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
 	}
 
+	@Override
 	protected void addSkillToAbility( final Ability anAbility, final String aSkillKey )
 	{
 		anAbility.addCcSkill( aSkillKey );

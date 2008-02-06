@@ -91,14 +91,10 @@ public class SpellLevelChoiceManagerTest extends AbstractCharacterTestCase
 
 			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is(choices.size(), eq(4));
-			is(choices.get(0), strEq("SPELLLEVEL"));
-			is(choices.get(1), strEq("Foo"));
-			is(choices.get(2), strEq("Bar"));
-			is(choices.get(3), strEq("Baz"));
-
-			aField = (Field) TestHelper.findField(cMClass, "stChoices");
-			is(aField.get(choiceManager), strEq("SPELLLEVEL|Foo|Bar|Baz"));
+			is(choices.size(), eq(3));
+			is(choices.get(0), strEq("Foo"));
+			is(choices.get(1), strEq("Bar"));
+			is(choices.get(2), strEq("Baz"));
 		}
 		catch (IllegalAccessException e)
 		{

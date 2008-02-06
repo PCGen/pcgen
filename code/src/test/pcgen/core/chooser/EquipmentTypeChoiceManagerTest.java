@@ -69,9 +69,9 @@ public class EquipmentTypeChoiceManagerTest extends AbstractCharacterTestCase
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
 		pObj
-			.setChoiceString("COUNT=1|NUMCHOICES=2|EQUIPTYPE|one|two|three|four|five");
+			.setChoiceString("NUMCHOICES=2|EQUIPTYPE|one.two");
 		is(pObj.getChoiceString(),
-			strEq("COUNT=1|NUMCHOICES=2|EQUIPTYPE|one|two|three|four|five"));
+			strEq("NUMCHOICES=2|EQUIPTYPE|one.two"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -90,19 +90,10 @@ public class EquipmentTypeChoiceManagerTest extends AbstractCharacterTestCase
 					(Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is(aField.get(choiceManager), eq(2));
 
-			aField =
-					(Field) TestHelper
-						.findField(cMClass, "requestedSelections");
-			is(aField.get(choiceManager), eq(1));
-
 			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is(choices.size(), eq(5));
-			is(choices.get(0), strEq("one"));
-			is(choices.get(1), strEq("two"));
-			is(choices.get(2), strEq("three"));
-			is(choices.get(3), strEq("four"));
-			is(choices.get(4), strEq("five"));
+			is(choices.size(), eq(1));
+			is(choices.get(0), strEq("one.two"));
 		}
 		catch (IllegalAccessException e)
 		{

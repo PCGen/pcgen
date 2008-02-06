@@ -77,6 +77,8 @@ public class ChooseLst implements GlobalLstToken
 								+ value);
 						return false;
 					}
+					Logging.deprecationPrint("Support for COUNT= in CHOOSE"
+							+ "is tenuous, at best, use the SELECT: token " + value);
 				}
 				else if (key.startsWith("NUMCHOICES="))
 				{

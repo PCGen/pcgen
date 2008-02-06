@@ -20,24 +20,42 @@
  */
 package pcgen.gui.utils;
 
-import pcgen.core.Constants;
-import pcgen.core.Globals;
-import pcgen.core.SettingsHandler;
-import pcgen.util.PropertyFactory;
-import pcgen.util.chooser.ChooserInterface;
-import pcgen.gui.utils.chooser.ChooserTableModel;
-
-import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.TableModel;
-import java.awt.*;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Rectangle;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.StringTokenizer;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.WindowConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableModel;
+
+import pcgen.core.Constants;
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.gui.utils.chooser.ChooserTableModel;
+import pcgen.util.PropertyFactory;
+import pcgen.util.chooser.ChooserInterface;
 
 /**
  * This dialog type accepts a list of available items, a choice
@@ -56,7 +74,9 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	private static final String in_selected;
 	private static final String in_completeMess;
 	private static final String in_chooser;
-	private static final String in_selRemain;
+	private static final String in_selTotal;
+	private static final String in_selPerUnit;
+	private static final String in_selEffective;
 	private static final String in_validItem;
 	private static final String in_deselectOne;
 	private static final String in_noRemain;
@@ -78,7 +98,9 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		in_selected = PropertyFactory.getString("in_selected");
 		in_completeMess = PropertyFactory.getString("in_completeMess");
 		in_chooser = PropertyFactory.getString("in_chooser");
-		in_selRemain = PropertyFactory.getString("in_selRemain");
+		in_selTotal = PropertyFactory.getString("in_selTotal");
+		in_selPerUnit = PropertyFactory.getString("in_selPerUnit");
+		in_selEffective = PropertyFactory.getString("in_selEffective");
 		in_validItem = PropertyFactory.getString("in_validItem");
 		in_deselectOne = PropertyFactory.getString("in_deselectOne");
 		in_noRemain = PropertyFactory.getString("in_noRemain");
@@ -116,7 +138,13 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	private JButton mRemoveButton;
 
 	/** The JLabel showing the remaining pool */
-	private JLabel mPoolText;
+	private JLabel mTotalText;
+
+	/** The JLabel showing the remaining pool */
+	private JLabel mSelectedText;
+
+	/** The JLabel showing the remaining pool */
+	private JLabel mEffectiveText;
 
 	/** The JLabel showing messages */
 	private JLabelPane mMessageText;
@@ -155,9 +183,14 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	/** The column containing the cost for an item */
 	private int mCostColumnNumber = -1;
 
-	/** The choices remaining */
-	private int mPool;
-
+	private int selectionsPerUnitCost = 1;
+	
+	private int totalSelectionsAvailable = 1;
+	
+	private int effectiveUsed = 0;
+	
+	private boolean pickAll = false;
+	
 	/**
 	 * Chooser constructor.
 	 *
@@ -167,6 +200,8 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	{
 		super(Globals.getCurrentFrame());
 		initComponents();
+		setChoicesPerUnit(1);
+		setTotalChoicesAvail(1);
 	}
 
 	/**
@@ -226,8 +261,6 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 */
 	public void setPool(final int anInt)
 	{
-		mPool = anInt;
-		mPoolText.setText(Integer.toString(mPool));
 	}
 
 	/**
@@ -237,7 +270,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 */
 	public int getPool()
 	{
-		return mPool;
+		return getEffectivePool();
 	}
 
 	/**
@@ -406,6 +439,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	public void setSelectedList(List selectedList)
 	{
 		mSelectedList = selectedList;
+		setEffectiveUsed();
 	}
 
 	private void windowCloseEvent()
@@ -433,7 +467,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 */
 	private boolean close()
 	{
-		if ((mPool <= 0) || !mPoolFlag)
+		if ((getEffectivePool() <= 0) || !mPoolFlag)
 		{
 			this.setVisible(false);
 
@@ -551,14 +585,18 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		});
 
 		// Create labels
-		final JLabel selectionRemainingLabel = new JLabel(in_selRemain + ": ");
+		final JLabel totalLabel = new JLabel(in_selTotal + ": ");
+		final JLabel selectedLabel = new JLabel("     " + in_selPerUnit + ": ");
+		final JLabel effectiveRemainingLabel = new JLabel(in_selEffective + ": ");
 
 		// Create these labels with " " to force them to layout correctly
 		mMessageText = new JLabelPane();
 		mMessageText.setBackground(contentPane.getBackground());
 		setMessageText(null);
 
-		mPoolText = new JLabel(" ");
+		mTotalText = new JLabel(" ");
+		mSelectedText = new JLabel(" ");
+		mEffectiveText = new JLabel(" ");
 
 		// Create buttons
 		mAddButton = new JButton(PropertyFactory.getString("in_add"));
@@ -604,7 +642,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		constraints = new GridBagConstraints();
 		constraints.gridx = 0;
 		constraints.gridy = 0;
-		constraints.gridwidth = 3;
+		constraints.gridwidth = 4;
 		constraints.fill = GridBagConstraints.BOTH;
 		constraints.anchor = GridBagConstraints.WEST;
 		constraints.weightx = 1.0;
@@ -616,7 +654,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		constraints = new GridBagConstraints();
 		constraints.gridx = 0;
 		constraints.gridy = 1;
-		constraints.gridwidth = 3;
+		constraints.gridwidth = 4;
 		constraints.weighty = 0.01;
 		constraints.insets = new Insets(0, 4, 4, 4);
 		contentPane.add(mAddButton, constraints);
@@ -625,7 +663,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		constraints = new GridBagConstraints();
 		constraints.gridx = 0;
 		constraints.gridy = 2;
-		constraints.gridwidth = 3;
+		constraints.gridwidth = 4;
 		constraints.fill = GridBagConstraints.BOTH;
 		constraints.anchor = GridBagConstraints.WEST;
 		constraints.weighty = 1.0;
@@ -636,7 +674,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		constraints = new GridBagConstraints();
 		constraints.gridx = 0;
 		constraints.gridy = 3;
-		constraints.gridwidth = 3;
+		constraints.gridwidth = 4;
 		constraints.weighty = 0.01;
 		constraints.insets = new Insets(0, 4, 4, 4);
 		contentPane.add(mRemoveButton, constraints);
@@ -645,7 +683,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		constraints = new GridBagConstraints();
 		constraints.gridx = 0;
 		constraints.gridy = 4;
-		constraints.gridwidth = 2;
+		constraints.gridwidth = 4;
 		constraints.fill = GridBagConstraints.BOTH;
 		constraints.anchor = GridBagConstraints.WEST;
 		constraints.weighty = 0.01;
@@ -660,7 +698,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		constraints.anchor = GridBagConstraints.WEST;
 		constraints.weighty = 0.01;
 		constraints.insets = new Insets(0, 4, 4, 0);
-		contentPane.add(selectionRemainingLabel, constraints);
+		contentPane.add(totalLabel, constraints);
 
 		// Add selection remaining field
 		constraints = new GridBagConstraints();
@@ -671,12 +709,54 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		constraints.weightx = 1.0;
 		constraints.weighty = 0.01;
 		constraints.insets = new Insets(0, 4, 4, 0);
-		contentPane.add(mPoolText, constraints);
+		contentPane.add(mTotalText, constraints);
+
+		// Add selection remaining label
+		constraints = new GridBagConstraints();
+		constraints.gridx = 2;
+		constraints.gridy = 5;
+		constraints.fill = GridBagConstraints.BOTH;
+		constraints.anchor = GridBagConstraints.WEST;
+		constraints.weighty = 0.01;
+		constraints.insets = new Insets(0, 4, 4, 0);
+		contentPane.add(selectedLabel, constraints);
+
+		// Add selection remaining field
+		constraints = new GridBagConstraints();
+		constraints.gridx = 3;
+		constraints.gridy = 5;
+		constraints.fill = GridBagConstraints.BOTH;
+		constraints.anchor = GridBagConstraints.WEST;
+		constraints.weightx = 1.0;
+		constraints.weighty = 0.01;
+		constraints.insets = new Insets(0, 4, 4, 0);
+		contentPane.add(mSelectedText, constraints);
+
+		// Add selection remaining label
+		constraints = new GridBagConstraints();
+		constraints.gridx = 0;
+		constraints.gridy = 6;
+		constraints.fill = GridBagConstraints.BOTH;
+		constraints.anchor = GridBagConstraints.WEST;
+		constraints.weighty = 0.01;
+		constraints.insets = new Insets(0, 4, 4, 0);
+		contentPane.add(effectiveRemainingLabel, constraints);
+
+		// Add selection remaining field
+		constraints = new GridBagConstraints();
+		constraints.gridx = 1;
+		constraints.gridy = 6;
+		constraints.fill = GridBagConstraints.BOTH;
+		constraints.anchor = GridBagConstraints.WEST;
+		constraints.weightx = 1.0;
+		constraints.weighty = 0.01;
+		constraints.insets = new Insets(0, 4, 4, 0);
+		contentPane.add(mEffectiveText, constraints);
 
 		// Add 'close' button
 		constraints = new GridBagConstraints();
 		constraints.gridx = 2;
-		constraints.gridy = 5;
+		constraints.gridy = 6;
 		constraints.anchor = GridBagConstraints.EAST;
 		constraints.weighty = 0.01;
 		constraints.insets = new Insets(0, 4, 4, 4);
@@ -709,7 +789,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 
 		final int selectedRow = mSelectedTable.getSelectedRow();
 
-		setPool(getPool() + getAdjustment(mSelectedTable));
+		adjustPool(-getAdjustment(mSelectedTable));
 
 		mSelectedList.remove(selectedRow);
 
@@ -726,7 +806,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	{
 		setMessageText(null);
 
-		if (getPool() <= 0)
+		if (getEffectivePool() <= 0)
 		{
 			setMessageText(in_noRemain);
 
@@ -782,7 +862,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		//
 		final int adjustment = getAdjustment(mAvailableTable);
 
-		if ((getPool() - adjustment) < 0)
+		if ((getEffectivePool() - adjustment) < 0)
 		{
 			if (!canGoNegative)
 			{
@@ -791,7 +871,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 				return;
 			}
 		}
-
+		
 		final int selectedColumns = selectedModel.getColumnCount();
 
 		if (selectedColumns > 1 && selectedRow >= 0)
@@ -825,7 +905,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 
 		updateSelectedTable();
 
-		setPool(getPool() - adjustment);
+		adjustPool(adjustment);
 
 		updateButtonStates();
 	}
@@ -845,7 +925,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		String removeToolTip;
 		String closeToolTip;
 
-		if (mPool > 0)
+		if (getEffectivePool() > 0)
 		{
 			if (!mPoolFlag)
 			{
@@ -1144,5 +1224,65 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		}
 
 		return results;
+	}
+
+	public void setChoicesPerUnit(int cost)
+	{
+		selectionsPerUnitCost = cost;
+		mSelectedText.setText(Integer.toString(cost));
+		setEffectiveUsed();
+	}
+
+	public void setTotalChoicesAvail(int avail)
+	{
+		totalSelectionsAvailable = avail;
+		mTotalText.setText(Integer.toString(avail));
+		mEffectiveText.setText(Integer.toString(getEffectivePool()));
+	}
+
+	public void setPickAll(boolean b)
+	{
+		pickAll = b;
+	}
+	
+	public boolean pickAll()
+	{
+		return pickAll;
+	}
+	
+	public int getEffectivePool()
+	{
+		return selectionsPerUnitCost * totalSelectionsAvailable
+				- effectiveUsed;
+	}
+	
+	private void adjustPool(int adjustment)
+	{
+		effectiveUsed += adjustment;
+		mEffectiveText.setText(Integer.toString(getEffectivePool()));
+	}
+	
+	public void setEffectiveUsed()
+	{
+		if (mCostColumnNumber >= 0)
+		{
+			effectiveUsed = 0;
+			for (Object item : mSelectedList)
+			{
+				for (int i = mAvailableModel.getRowCount() - 1; i >= 0 ; i--)
+				{
+					if (item.equals(mAvailableModel.getValueAt(i, 0)))
+					{
+						Object o = mAvailableModel.getValueAt(i, mCostColumnNumber);
+						effectiveUsed += Integer.parseInt(o.toString());
+					}
+				}
+			}
+		}
+		else
+		{
+			effectiveUsed = mSelectedList.size();
+		}
+		mEffectiveText.setText(Integer.toString(getEffectivePool()));
 	}
 }

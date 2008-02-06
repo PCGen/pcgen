@@ -271,11 +271,11 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 			if (s.equalsIgnoreCase("ALL"))
 			{
-				chooser.setPool(Integer.MIN_VALUE);
+				chooser.setPickAll(true);
 			}
 			else
 			{
-				chooser.setPool(Integer.parseInt(s));
+				chooser.setTotalChoicesAvail(Integer.parseInt(s));
 			}
 		}
 

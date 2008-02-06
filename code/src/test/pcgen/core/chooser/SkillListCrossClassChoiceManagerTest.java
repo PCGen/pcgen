@@ -69,9 +69,9 @@ public class SkillListCrossClassChoiceManagerTest extends
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=3|CCSKILLIST|Foo|Bar|Baz|Qux");
+		pObj.setChoiceString("NUMCHOICES=3|CCSKILLIST|Foo,Bar,Baz,Qux");
 		is(pObj.getChoiceString(),
-			strEq("NUMCHOICES=3|CCSKILLIST|Foo|Bar|Baz|Qux"));
+			strEq("NUMCHOICES=3|CCSKILLIST|Foo,Bar,Baz,Qux"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -92,11 +92,8 @@ public class SkillListCrossClassChoiceManagerTest extends
 
 			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is(choices.size(), eq(4));
-			is(choices.get(0), strEq("Foo"));
-			is(choices.get(1), strEq("Bar"));
-			is(choices.get(2), strEq("Baz"));
-			is(choices.get(3), strEq("Qux"));
+			is(choices.size(), eq(1));
+			is(choices.get(0), strEq("Foo,Bar,Baz,Qux"));
 		}
 		catch (IllegalAccessException e)
 		{

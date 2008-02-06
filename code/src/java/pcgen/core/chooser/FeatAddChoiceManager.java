@@ -41,7 +41,7 @@ import pcgen.core.Categorisable;
  * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
-public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
+public class FeatAddChoiceManager extends AbstractBasicStringChoiceManager {
 
 
 	/**
@@ -57,13 +57,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Add a Feat";
-		chooserHandled = "FEATADD";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
+		setTitle("Add a Feat");
 	}
 
 	/**
@@ -72,17 +66,14 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
-		Iterator<String> choiceIt  = choices.iterator();
-
-		while (choiceIt.hasNext())
+		for (String aString : getChoiceList())
 		{
-			final String aString = choiceIt.next();
-
 			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 			{
 				final String featType = aString.substring(5);
@@ -112,6 +103,8 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 				}
 			}
 		}
+		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
 	}
 
 	/**
@@ -247,17 +240,14 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	/**
 	 * Associate a choice with the pobject.
-	 *
 	 * @param aPc
 	 * @param item the choice to associate
 	 * @param prefix
 	 */
-	protected void associateChoice(
-			final PlayerCharacter aPc,
-			final String          item,
-			final String          prefix)
+	@Override
+	protected void associateChoice(PlayerCharacter aPc, final String item)
 	{
-		super.associateChoice(aPc, item, prefix);
+		super.associateChoice(aPc, item);
 
 		boolean adjPool = !aPc.hasRealFeatNamed(item);
 		if (adjPool)

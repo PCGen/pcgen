@@ -109,7 +109,7 @@ public final class KitUtilities
 		{
 			final ChooserInterface c = ChooserFactory.getChooserInstance();
 			c.setTitle("Kit Selection");
-			c.setPool(num);
+			c.setTotalChoicesAvail(num);
 			c.setPoolFlag(false);
 			c.setAvailableList(aList);
 			c.setVisible(true);

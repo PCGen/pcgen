@@ -77,7 +77,7 @@ public class FeatChoiceManagerTest extends AbstractCharacterTestCase
 				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("FEAT"), "got expected chooser");
+		is(choiceManager.typeHandled(), strEq("SINGLEFEAT"), "got expected chooser");
 
 		try
 		{
@@ -85,7 +85,7 @@ public class FeatChoiceManagerTest extends AbstractCharacterTestCase
 
 			Field aField =
 					(Field) TestHelper
-						.findField(cMClass, "requestedSelections");
+						.findField(cMClass, "numberOfChoices");
 			is(aField.get(choiceManager), eq(-1));
 
 			aField = (Field) TestHelper.findField(cMClass, "choices");

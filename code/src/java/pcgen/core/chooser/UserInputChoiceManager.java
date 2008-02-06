@@ -23,16 +23,11 @@
 package pcgen.core.chooser;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-import pcgen.core.Ability;
 import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
@@ -45,9 +40,8 @@ import pcgen.util.chooser.ChooserInterface;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class UserInputChoiceManager extends AbstractComplexChoiceManager<String>
+public class UserInputChoiceManager extends AbstractBasicStringChoiceManager
 {
-	protected int     selectionsPerAbility  = 0;
 
 	/**
 	 * Creates a new UserInputChoiceManager object.
@@ -58,79 +52,7 @@ public class UserInputChoiceManager extends AbstractComplexChoiceManager<String>
 	 */
 	public UserInputChoiceManager(PObject aPObject, String theChoices, PlayerCharacter aPC)
 	{
-		super(aPObject, aPC);
-		chooserHandled = "USERINPUT";
-		infiniteAvail = true;
-		parseParams(theChoices, aPC);
-	}
-
-	/**
-	 * Parse the parameters supplied to the chooser. Expected format
-	 * is CHOOSE:USERINPUT|x|TITLE="y"
-	 * 
-	 * @param theChoices The list of parameters, seperated by |
-	 * @param aPC The character the chooser is for.
-	 */
-	private void parseParams(String theChoices, PlayerCharacter aPC) 
-	{
-		final List<String>   split = Arrays.asList(theChoices.split("[|]"));
-
-		choices = Collections.emptyList();
-
-		if (split.size() < 1)
-		{
-			return;
-		}
-	
-		for (int i = 0; i < split.size(); i++)
-		{
-			String param = split.get(i);
-			if (i == 0)
-			{
-				continue;
-			}
-			else if (param.startsWith("TITLE="))
-			{
-				param = param.substring(6);
-				if (param.startsWith("\""))
-				{
-					param = param.substring(1, param.length()-1);
-				}
-				title = param;
-			}
-			else if (i == 1)
-			{
-				requestedSelections    = aPC.getVariableValue(param, "").intValue();
-			}
-			else
-			{
-				Logging.errorPrintLocalised("in_uichooser_bad_param", param);
-			}
-		}
-		selectionsPerAbility = requestedSelections;
-
-		double pool = 0;
-		if (pobject instanceof Ability)
-		{
-			pool =
-					pc.getAvailableAbilityPool(
-						SettingsHandler.getGame().getAbilityCategory(
-							((Ability) pobject).getCategory())).doubleValue();
-		}
-		else
-		{
-			pool = aPC.getRawFeats(true);
-		}
-		maxSelections =
-				(int) ((pool* requestedSelections) + pobject.getAssociatedCount());
-
-		maxNewSelections = (int) (pool * requestedSelections);
-
-		if (cost == 0 && maxNewSelections == 0)
-		{
-			maxNewSelections = requestedSelections;
-		}
-		
+		super(aPObject, theChoices, aPC);
 	}
 
 	/**
@@ -142,6 +64,7 @@ public class UserInputChoiceManager extends AbstractComplexChoiceManager<String>
 	 * @param  availableList The list to be populated with available items.
 	 * @param  selectedList The list to be populated with already selected items.
 	 */
+	@Override
 	public void getChoices(
 		final PlayerCharacter aPc,
 		final List<String>            availableList,
@@ -155,6 +78,7 @@ public class UserInputChoiceManager extends AbstractComplexChoiceManager<String>
 		}
 		availableList.clear();
 		availableList.add(Constants.EMPTY_STRING);
+		setPreChooserChoices(selectedList.size());
 	}
 
 	/**
@@ -162,36 +86,9 @@ public class UserInputChoiceManager extends AbstractComplexChoiceManager<String>
 	 *  
 	 * @return The chooser to be displayed to the user.
 	 */
+	@Override
 	protected ChooserInterface getChooserInstance()
 	{
-		final ChooserInterface chooser = ChooserFactory.getUserInputInstance();
-		chooser.setTitle(title);
-		return chooser;
+		return ChooserFactory.getUserInputInstance();
 	}
-	
-
-	/**
-	 * Adjust the number of feats the PC has available to take account of this choice
-	 *
-	 * @param aPC The PC the chooser is for
-	 * @param selected The list of selected items.
-	 */
-	protected void adjustFeats(
-			PlayerCharacter aPC,
-			List<String>            selected)
-	{
-		double featCount = aPC.getFeats();
-
-		if (cost > 0)
-		{
-			featCount =
-					(selectionsPerAbility > 0)
-						? featCount
-							- (((selected.size() - preChooserChoices) / selectionsPerAbility) * cost)
-						: ((maxSelections - selected.size()) * cost);
-		}
-
-		aPC.adjustFeats(featCount - aPC.getFeats());
-	}
-	
 }

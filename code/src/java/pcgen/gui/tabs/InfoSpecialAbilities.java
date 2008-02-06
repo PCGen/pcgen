@@ -475,16 +475,16 @@ public final class InfoSpecialAbilities extends JPanel implements
 			{
 				if (Globals.checkRule(RuleConstants.INTBONUSLANG)) //$NON-NLS-1$
 				{
-					lc.setPool(numLanguages - selectedLangs.size());
+					lc.setTotalChoicesAvail(numLanguages);
 				}
 				else
 				{
-					lc.setPool(0);
+					lc.setTotalChoicesAvail(0);
 				}
 			}
 			else
 			{
-				lc.setPool(numLanguages - selectedLangs.size());
+				lc.setTotalChoicesAvail(numLanguages);
 			}
 
 			lc.setPoolFlag(false);
@@ -593,7 +593,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 		lc.setMessageText(PropertyFactory.getString("in_iaSelSpeAb"));
 		lc.setAvailableList(aList);
 		lc.setSelectedList(bList);
-		lc.setPool(aList.size());
+		lc.setTotalChoicesAvail(aList.size());
 		lc.setPoolFlag(false);
 		lc.setVisible(true);
 

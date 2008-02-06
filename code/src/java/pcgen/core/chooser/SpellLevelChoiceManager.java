@@ -24,21 +24,21 @@
 package pcgen.core.chooser;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
+
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.chooser.ChooserInterface;
 
 /**
  * This is the chooser that deals with choosing a spell level.
  */
-public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String>
+public class SpellLevelChoiceManager extends AbstractBasicStringChoiceManager
 {
 	private List<String> aBonusList = new ArrayList<String>();
-	private String    stChoices  = "";
-
+	private List<String> uniqueList = new ArrayList<String>();
 
 	/**
 	 * Make a new spell level chooser.
@@ -52,43 +52,33 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 		String          choiceString,
 		PlayerCharacter aPC)
 	{
-		super(aPObject, choiceString, aPC);
-		title          = "Spell Level choice";
-		chooserHandled = "SPELLLEVEL";
-
-		if ( choices.get(0).equals("SPELLLEVEL") )
+		super(aPObject, choiceString.indexOf('[') == -1 ? choiceString
+				: choiceString.substring(0, choiceString.indexOf('[')), aPC);
+		setTitle("Spell Level choice");
+		int bracketloc = choiceString.indexOf('[');
+		if (bracketloc != -1)
 		{
-			try
-			{
-				numberOfChoices = Integer.parseInt(choices.get(1));
-			}
-			catch (NumberFormatException e)
-			{
-				numberOfChoices = 1;
-			}
+			extractBonuses(choiceString.substring(bracketloc));
 		}
-		else
+	}
+
+	private void extractBonuses(String substring)
+	{
+		/*
+		 * This will need to be re-worked at some point when I can think of a
+		 * better way. This feat is different from the others in that it
+		 * requires a bonus to be embedded in the choice. Probably this whole
+		 * feat methodology needs to be re-thought as its getting a bit bloated -
+		 * a generic way to embed bonuses could be done to simplify this all
+		 * tremendously instead of so many special cases.
+		 */
+
+		final StringTokenizer cTok      = new StringTokenizer(substring, "[]");
+
+		while (cTok.hasMoreTokens())
 		{
-			numberOfChoices = 1;
+			aBonusList.add(cTok.nextToken());
 		}
-
-		/* reconstruct a suitable choiceString to pass to buildSpellTypeChoices.  This is
-		 * not necessarily the same as the choiceString that was passed in because we may
-		 * have removed some | separated elements from the front of it in the constructor
-		 * of the superclass */
-
-		StringBuffer newChoice = new StringBuffer(choiceString.length());
-
-		for ( String choice : choices )
-		{
-			if (newChoice.length() != 0)
-			{
-				newChoice.append('|');
-			}
-			newChoice.append(choice);
-		}
-
-		stChoices = newChoice.toString();
 	}
 
 	/**
@@ -98,37 +88,27 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 	 * @param  availableList
 	 * @param  selectedList
 	 */
+	@Override
 	public void getChoices(
 		final PlayerCharacter aPc,
 		final List<String>            availableList,
 		final List<String>            selectedList)
 	{
-		/* This will need to be re-worked at some point when I can think of a better way.
-		 * This feat is different from the others in that it requires a bonus to be
-		 * embedded in the choice.  Probably this whole feat methodology needs to be
-		 * re-thought as its getting a bit bloated - a generic way to embed bonuses could
-		 * be done to simplify this all tremendously instead of so many special
-		 * cases.*/
-
-		final StringTokenizer cTok      = new StringTokenizer(stChoices, "[]");
-		final String          choicesSt = cTok.nextToken();
-
-		while (cTok.hasMoreTokens())
-		{
-			aBonusList.add(cTok.nextToken());
-		}
-
-		String choicesArr[] = choicesSt.split("\\|");
-		List<String> choicesList = Arrays.asList(choicesArr);
-
 		// get appropriate choices for chooser
 		ChooserUtilities.buildSpellTypeChoices(
 			availableList,
 			uniqueList,
 			aPc,
-			Collections.enumeration(choicesList));
+			Collections.enumeration(getChoiceList()));
 
 		pobject.addAssociatedTo(selectedList);
+		setPreChooserChoices(selectedList.size());
+	}
+
+	@Override
+	protected void processUniqueItems(ChooserInterface chooser)
+	{
+		chooser.setUniqueList(uniqueList);
 	}
 
 	/**

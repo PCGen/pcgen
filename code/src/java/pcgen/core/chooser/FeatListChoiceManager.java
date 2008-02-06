@@ -35,7 +35,7 @@ import pcgen.core.PlayerCharacter;
  * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
-public class FeatListChoiceManager extends AbstractComplexChoiceManager<Ability>
+public class FeatListChoiceManager extends AbstractBasicPObjectChoiceManager<Ability>
 {
 
 	/**
@@ -51,12 +51,6 @@ public class FeatListChoiceManager extends AbstractComplexChoiceManager<Ability>
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		chooserHandled = "FEATLIST";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
 	}
 
 	/**
@@ -65,18 +59,15 @@ public class FeatListChoiceManager extends AbstractComplexChoiceManager<Ability>
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<Ability>            availableList,
 			final List<Ability>            selectedList)
 	{
-		String   aString;
-		Iterator<String> choiceIt = choices.iterator();
-
-		while (choiceIt.hasNext()){
-
-			aString = choiceIt.next();
-
+		boolean dupsAllowed = isStackYes();
+		for (String aString : getChoiceList())
+		{
 			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 			{
 				aString = aString.substring(5);
@@ -116,5 +107,6 @@ public class FeatListChoiceManager extends AbstractComplexChoiceManager<Ability>
 				selectedList.add( ability );
 			}
 		}
+		setPreChooserChoices(selectedList.size());
 	}
 }

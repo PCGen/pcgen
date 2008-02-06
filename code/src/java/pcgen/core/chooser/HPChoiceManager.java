@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * This is the chooser that deals with choosing HP.
  */
-public class HPChoiceManager extends AbstractComplexChoiceManager<String> {
+public class HPChoiceManager extends AbstractBasicStringChoiceManager {
 
 	/**
 	 * Make a new HP chooser.
@@ -47,12 +47,6 @@ public class HPChoiceManager extends AbstractComplexChoiceManager<String> {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		chooserHandled = "HP";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
 	}
 
 	/**
@@ -61,14 +55,15 @@ public class HPChoiceManager extends AbstractComplexChoiceManager<String> {
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
-		Iterator choiceIt = choices.iterator();
+		Iterator<String> choiceIt = getChoiceList().iterator();
 
-		String choiceSec = (String) (choiceIt.hasNext()
+		String choiceSec = (choiceIt.hasNext()
 				? choiceIt.next()
 				: pobject.getKeyName());
 
@@ -78,6 +73,7 @@ public class HPChoiceManager extends AbstractComplexChoiceManager<String> {
 		{
 			selectedList.add(choiceSec);
 		}
+		setPreChooserChoices(selectedList.size());
 	}
 
 

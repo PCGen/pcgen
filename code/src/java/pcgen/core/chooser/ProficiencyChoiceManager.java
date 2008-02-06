@@ -38,7 +38,7 @@ import java.util.ArrayList;
 /**
  * This is the chooser that deals with choosing a Weapon Proficiency
  */
-public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<WeaponProf>
+public class ProficiencyChoiceManager extends AbstractBasicPObjectChoiceManager<WeaponProf>
 {
 	static final int SCOPE_PC		= 0;
 	static final int SCOPE_ALL		= 1;
@@ -59,14 +59,8 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<Weapo
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		title = "Choose Proficiency";
-		chooserHandled = "PROFICIENCY";
-
-		if (choices != null && choices.size() > 0 &&
-				choices.get(0).equals(chooserHandled)) {
-			choices = choices.subList(1, choices.size());
-		}
-
+		setTitle("Choose Proficiency");
+		List<String> choices = getChoiceList();
 		switch (choices.size()) {
 			case 0:
 				Logging.errorPrint("CHOOSE:PROFICIENCY - Incorrect format, not enough tokens. " + choiceString);
@@ -118,11 +112,13 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<Weapo
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			final PlayerCharacter aPc,
 			final List<WeaponProf>            availableList,
 			final List<WeaponProf>            selectedList)
 	{
+		List<String> choices = getChoiceList();
 		Iterator<String> It = choices.subList(2, choices.size()).iterator();
 		if ("WEAPON".equals(typeOfProf))
 		{
@@ -292,5 +288,6 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<Weapo
 				selectedList.add( wp );
 			}
 		}
+		setPreChooserChoices(selectedList.size());
 	}
 }

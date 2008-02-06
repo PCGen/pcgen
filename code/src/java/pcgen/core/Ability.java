@@ -819,7 +819,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 					chooser.setPoolFlag(false); // user is not required to make any
 
 					// changes
-					chooser.setPool(1);
+					chooser.setTotalChoicesAvail(1);
 
 					chooser.setTitle("Select a "
 							+ SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES)
@@ -879,7 +879,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
 		chooser.setPoolFlag(true); // user is required to use all available
 								   // pool points
-		chooser.setPool(0); // need to remove 1 to add another
+		chooser.setTotalChoicesAvail(selectedList.size()); // need to remove 1 to add another
 
 		chooser.setTitle("Modify selections for " + abilityName);
 		Globals.sortChooserLists(abilityList, selectedList);
