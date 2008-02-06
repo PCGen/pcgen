@@ -82,10 +82,6 @@ public class AllJUnitTests extends TestCase
 
 		// core.chooser
 		suite.addTest(new TestSuite(
-			pcgen.core.chooser.AbilityFromTemplateChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.AbstractComplexChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
 			pcgen.core.chooser.ArmorProfChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.ArmorTypeChoiceManagerTest.class));
@@ -139,8 +135,6 @@ public class AllJUnitTests extends TestCase
 			pcgen.core.chooser.WeaponFocusChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.WeaponProfChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.chooser.WeaponProfTypeChoiceManagerTest.class));
 
 		// core.levelability
 		suite.addTest(new TestSuite(
