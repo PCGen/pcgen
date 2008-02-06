@@ -1645,7 +1645,12 @@
 <tr>
 <td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>STARTING OCCUPATION</b></font></td>
 </tr>
-|FOR.0,10,1,<td valign="top" width="100%" class="border8">\FEATALL.HIDDEN.Occupation.%\</td>,<tr>,</tr>,2|
+<td valign="top" width="100%" class="border8">|FEATALL.HIDDEN.Occupation.0||ABILITYALL.Occupation.0.TYPE=Occupation|
+|IIF(count("ABILITIES";"CATEGORY=Second Occupation")>0)|
+, |ABILITYALL.Second Occupation.0.TYPE=SecondOccupation|
+|ENDIF|
+</td>
+</tr>
 </table>
 <!-- STOP Occupations Table -->
 <font style="font-size:2pt"><br /></font>

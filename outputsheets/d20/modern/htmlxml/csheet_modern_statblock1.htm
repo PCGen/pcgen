@@ -129,7 +129,11 @@ $Date$
   </tr>
   <tr valign="top">
     <td width="25%"><b>Starting Occupation:</b></td>
-    <td width="75%">|FEATALL.HIDDEN.0.TYPE=Occupation|</td>
+    <td width="75%">|FEATALL.HIDDEN.0.TYPE=Occupation||ABILITYALL.Occupation.0.TYPE=Occupation|
+|IIF(count("ABILITIES";"CATEGORY=Second Occupation")>0)|
+, |ABILITYALL.Second Occupation.0.TYPE=SecondOccupation|
+|ENDIF|
+	</td>
   </tr>
   <tr valign="top">
     <td width="25%"><b>Reputation:</b></td>
