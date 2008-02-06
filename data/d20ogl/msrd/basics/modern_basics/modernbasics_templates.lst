@@ -1,13 +1,26 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb  6 10:33:23 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Tir Gwaith and Doug McMillan, Temporary Bonus Templates by Eddy Anthony
 
 #added Bonus from Weapon Finesse (Unarmed Strike) to Unarmed Lethal Strike template - Frank Kliewe
 
 ###Block: Starting Benefits
-# Template Name		Visible	Special ABility			Add
-Starting Benefits		VISIBLE:NO	SAB:Reputation %|Reputation	ADD:FEAT|1|TYPE=WealthRoll	ADD:LANGUAGE|1|TYPE=Spoken
-Starting Occupation	VISIBLE:NO						ADD:FEAT|TYPE=Occupation
+# Template Name	Visible	Special ABility			Add
+Starting Benefits	VISIBLE:NO	SAB:Reputation %|Reputation	ADD:LANGUAGE|1|TYPE=Spoken
+
+###Block: Occupation
+# Template Name	Visible	Template																Bonus to Ability Pool
+Occupation		VISIBLE:NO	TEMPLATE:CHOOSE:StrongSkills|FastSkills|ToughSkills|SmartSkills|DedicatedSkills|CharismaticSkills	BONUS:ABILITYPOOL|Occupation|1
+
+###Block: Assigned for Occupation prerequisites, it's how we know what class was taken first and thus which skills are 1st level class skills --Eddy
+# Template Name	Visible	Required Class
+StrongSkills	VISIBLE:NO	PRECLASS:1,Strong
+FastSkills		VISIBLE:NO	PRECLASS:1,Fast
+ToughSkills		VISIBLE:NO	PRECLASS:1,Tough
+SmartSkills		VISIBLE:NO	PRECLASS:1,Smart
+DedicatedSkills	VISIBLE:NO	PRECLASS:1,Dedicated
+CharismaticSkills	VISIBLE:NO	PRECLASS:1,Charismatic
+
 
 ###Block: Temporary Bonus Templates
 # Template Name			Visible	Bonus to skill															Temporary effect description
@@ -40,14 +53,12 @@ Total Defense			VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf																								BONU
 Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats.rtf		BONUS:COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary|PREAPPLY:PC	BONUS:COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary|PREAPPLY:PC																															CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.
 
 ###Block: Tracker Templates
-
 # Template Name		Visible	Source Page					Var. Min. Value			Modify VAR							Choose											Temporary effect description
 Wealth Adjustment		VISIBLE:NO	SOURCEPAGE:msrdwealth.rtf							BONUS:VAR|Wealth|%CHOICE|PREAPPLY:ANYPC		CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Adjust Wealth Score by this much	TEMPDESC:Over the course of play, the hero's Wealth bonus will decrease as the hero purchases expensive items and increase as the hero gains levels.
 Bonus Action Points	VISIBLE:NO	SOURCEPAGE:msrdactionpoints.rtf						BONUS:VAR|Action|%CHOICE|PREAPPLY:ANYPC		CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Bonus Action Points				TEMPDESC:This can be used to give Bonus Action Points to a character. If you have more than 10 this can be applied multiple times.
 Used Action Points	VISIBLE:NO	SOURCEPAGE:msrdactionpoints.rtf	PREVARGTEQ:ActionRemain,1	BONUS:VAR|ActionUsed|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=min(10,ActionRemain)|TITLE=Used Action Points	TEMPDESC:Use this to record the Action Points that the character spent. If you have more than 10 this can be applied multiple times.
 
 ###Block: CR adjuster for Ordinary base classes
-
 # Template Name	CR	Visible
 Ordinary CR		CR:-1	VISIBLE:NO
 

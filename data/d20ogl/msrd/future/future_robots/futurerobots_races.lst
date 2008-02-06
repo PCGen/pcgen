@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 22:15:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Mon Feb  4 17:37:17 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original entry by Eddy Anthony (MoSaT)
 
 ###Block: Heroic Robots
 
-# Race Name			Output Name			Starting Feats	Size		Move		Face/Space	Reach		Bonus to skill			Main Race Type		Type				Template				CR		Source Page
-Biodroid (Medium)		OUTPUTNAME:Biodroid	STARTFEATS:0	SIZE:M	MOVE:Walk,0	FACE:5,5	REACH:5	BONUS:SKILL|STAT.CON|CHA	RACETYPE:Construct	TYPE:Construct.Robot	TEMPLATE:Biodroid Traits	CR:1/2	SOURCEPAGE:FutureRobots.rtf
-Biodroid (Small)		OUTPUTNAME:Biodroid	STARTFEATS:0	SIZE:S	MOVE:Walk,0	FACE:5,5	REACH:5	BONUS:SKILL|STAT.CON|CHA	RACETYPE:Construct	TYPE:Construct.Robot	TEMPLATE:Biodroid Traits	CR:1/2	SOURCEPAGE:FutureRobots.rtf
-Bioreplica (Medium)	OUTPUTNAME:Bioreplica	STARTFEATS:0	SIZE:M	MOVE:Walk,0	FACE:5,5	REACH:5	BONUS:SKILL|STAT.CON|CHA	RACETYPE:Construct	TYPE:Construct.Robot	TEMPLATE:Bioreplica Traits	CR:1/2	SOURCEPAGE:FutureRobots.rtf
-Bioreplica (Small)	OUTPUTNAME:Bioreplica	STARTFEATS:0	SIZE:S	MOVE:Walk,0	FACE:5,5	REACH:5	BONUS:SKILL|STAT.CON|CHA	RACETYPE:Construct	TYPE:Construct.Robot	TEMPLATE:Bioreplica Traits	CR:1/2	SOURCEPAGE:FutureRobots.rtf
+# Race Name			Output Name			Starting Feats	Size		Move		Face/Space	Reach		Bonus to Ability Pool							Bonus to skill			Main Race Type		Type				Template				CR		Source Page
+Biodroid (Medium)		OUTPUTNAME:Biodroid	STARTFEATS:0	SIZE:M	MOVE:Walk,0	FACE:5,5	REACH:5	BONUS:ABILITYPOOL|Occupation|-1|PRETEMPLATE:Occupation	BONUS:SKILL|STAT.CON|CHA	RACETYPE:Construct	TYPE:Construct.Robot	TEMPLATE:Biodroid Traits	CR:1/2	SOURCEPAGE:FutureRobots.rtf
+Biodroid (Small)		OUTPUTNAME:Biodroid	STARTFEATS:0	SIZE:S	MOVE:Walk,0	FACE:5,5	REACH:5	BONUS:ABILITYPOOL|Occupation|-1|PRETEMPLATE:Occupation	BONUS:SKILL|STAT.CON|CHA	RACETYPE:Construct	TYPE:Construct.Robot	TEMPLATE:Biodroid Traits	CR:1/2	SOURCEPAGE:FutureRobots.rtf
+Bioreplica (Medium)	OUTPUTNAME:Bioreplica	STARTFEATS:0	SIZE:M	MOVE:Walk,0	FACE:5,5	REACH:5	BONUS:ABILITYPOOL|Occupation|-1|PRETEMPLATE:Occupation	BONUS:SKILL|STAT.CON|CHA	RACETYPE:Construct	TYPE:Construct.Robot	TEMPLATE:Bioreplica Traits	CR:1/2	SOURCEPAGE:FutureRobots.rtf
+Bioreplica (Small)	OUTPUTNAME:Bioreplica	STARTFEATS:0	SIZE:S	MOVE:Walk,0	FACE:5,5	REACH:5	BONUS:ABILITYPOOL|Occupation|-1|PRETEMPLATE:Occupation	BONUS:SKILL|STAT.CON|CHA	RACETYPE:Construct	TYPE:Construct.Robot	TEMPLATE:Bioreplica Traits	CR:1/2	SOURCEPAGE:FutureRobots.rtf
 
 ###Block: Non-heroic Robots
 

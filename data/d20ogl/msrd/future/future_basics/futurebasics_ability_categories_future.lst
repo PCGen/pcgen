@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Tue Jan 15 21:50:49 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+#SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI				Display where?
+ABILITYCATEGORY:Astronaut Trainee Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Astronaut_Trainee_Skills	PLURAL:Astronaut Trainee Occupation Skills	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Colonist Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Colonist_Skills		PLURAL:Colonist Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Drifter Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Drifter_Skills		PLURAL:Drifter Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Gladiator Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Gladiator_Skills		PLURAL:Gladiator Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Heir Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Heir_Skills			PLURAL:Heir Occupation Skills				DISPLAYLOCATION:Background
+ABILITYCATEGORY:Outcast Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Outcast_Skills		PLURAL:Outcast Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Scavenger Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Scavenger_Skills		PLURAL:Scavenger Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Transporter Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Transporter_Skills		PLURAL:Transporter Occupation Skills		DISPLAYLOCATION:Background
+
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI		Display where?
+ABILITYCATEGORY:Astronaut Trainee Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Astronaut_Trainee	PLURAL:Astronaut Trainee Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Colonist Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Colonist		PLURAL:Colonist Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Gladiator Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Gladiator		PLURAL:Gladiator Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Outcast Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Outcast		PLURAL:Outcast Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Transporter Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Transporter		PLURAL:Transporter Feats		DISPLAYLOCATION:Feats
+
+#
+## EOF
+#

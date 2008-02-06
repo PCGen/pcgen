@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Tue Jan 15 21:50:49 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+#SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI			Display where?
+ABILITYCATEGORY:Apothecary Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Apothecary_Skills		PLURAL:Apothecary Occupation Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Hedge Wizard Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Hedge_Wizard_Skills	PLURAL:Hedge Wizard Occupation Skills	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Novitiate Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Novitiate_Skills		PLURAL:Novitiate Occupation Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Psychic Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Psychic_Skills		PLURAL:Psychic Occupation Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Shadow Scholar Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Shadow_Scholar_Skills	PLURAL:Shadow Scholar Occupation Skills	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Squire Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Squire_Skills		PLURAL:Squire Occupation Skills		DISPLAYLOCATION:Background
+
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI	Display where?
+ABILITYCATEGORY:Apothecary Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Apothecary		PLURAL:Apothecary Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Hedge Wizard Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:HedgeWizard		PLURAL:Hedge Wizard Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Novitiate Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Novitiate		PLURAL:Novitiate Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Psychic		PLURAL:Psychic Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shadow Scholar Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ShadowScholar	PLURAL:Shadow Scholar Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Squire Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Squire			PLURAL:Squire Feats		DISPLAYLOCATION:Feats
+
+#
+## EOF
+#
