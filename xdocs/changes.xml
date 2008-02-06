@@ -13,7 +13,13 @@
       <action dev="thpr" type="fix" issue="1878344">CHOOSE:EQUIPMENT should be a valid subtoken in EqMods</action>  
       <action dev="thpr" type="fix" issue="1883253">Deprecation Messages should appear in load dialog</action>  
       <action dev="thpr" type="fix" issue="1882119">AUTO:SHIELDPROF not working as designed</action>  
-      <action dev="thpr" type="fix" issue="1878424">SAB does not support %CHOICEd</action>  
+      <action dev="thpr" type="fix" issue="1878424">SAB does not support %CHOICE</action>  
+      <action dev="thpr" type="add" issue="1882272">Deprecate CHOOSE:COUNT=</action>  
+      <action dev="thpr" type="add" issue="1882273">Implement CHOOSE:SELECT=</action>  
+      <action dev="thpr" type="fix" issue="1874314">NUMCHOICES Bug</action>  
+      <action dev="thpr" type="fix" issue="1885030">MSRD Educated Feat can't be removed</action>  
+      <action dev="thpr" type="fix" issue="1886536">CHOOSE: isn't properly charging Ability Pools</action>  
+      <action dev="thpr" type="fix" issue="1886541">CHOOSE:NUMCHOICES=/STACK not respected across Ability Pools</action>  
     </release>  
     <release version="5.13.8" date="2008-01-26" description="Alpha release"> 
       <action dev="thpr" type="add" issue="1800342">FAVCLASS and FAVOREDCLASS updates</action>  
