@@ -34,6 +34,8 @@ INFOTEXT:For best use load FX options with this.
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:dark_inheritance_abilities_occupations.lst
+ABILITYCATEGORY:dark_inheritance_ability_categories.lst
 CLASS:dark_inheritance_classes.lst
 EQUIPMENT:dark_inheritance_equip_FX.lst
 EQUIPMENT:dark_inheritance_equip_weap_ammo.lst
@@ -41,7 +43,6 @@ EQUIPMENT:dark_inheritance_equip_weap_ranged_firearms.lst
 EQUIPMOD:dark_inheritance_equipmods.lst
 FEAT:dark_inheritance_feats.lst
 FEAT:dark_inheritance_feats_hidden.lst
-FEAT:dark_inheritance_feats_occupations.lst
 KIT:dark_inheritance_kits_defaultmonsters.lst
 RACE:dark_inheritance_races.lst
 SPELL:dark_inheritance_spells_birthrights.lst

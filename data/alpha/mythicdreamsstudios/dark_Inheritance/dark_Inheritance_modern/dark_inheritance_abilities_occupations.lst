@@ -1,0 +1,106 @@
+# CVS $Revision$ $Author$ -- Wed Feb  6 13:14:52 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
+#Original Entry by: Frank Kliewe
+
+# Feat Name				Output Name		Type			Visible	Add											Modify VAR			Source Page
+# Ability Name	Output Name		Category of Ability	Type			Visible		Bonus to Ability Pool													Modify VAR			Source Page
+Caregiver					CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Caregiver Occupation Skills|3									BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.88
+Child						CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Child Occupation Skills|3	BONUS:ABILITYPOOL|Child Feat|1							SOURCEPAGE:p.88
+Cultist					CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Cultist Occupation Skills|2	BONUS:ABILITYPOOL|Cultist Feat|1			BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.88
+Gambler					CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Gambler Occupation Skills|3									BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.89
+Mystic					CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Mystic Occupation Skills|2	BONUS:ABILITYPOOL|Mystic Feat|1			BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.89
+Streetperson				CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Streetperson Occupation Skills|3												SOURCEPAGE:p.89
+Tribal ~DI		OUTPUTNAME:Tribal	CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Tribal (DI) Occupation Skills|3	BONUS:ABILITYPOOL|Tribal (DI) Feat|1					SOURCEPAGE:P.89
+
+
+###Block: The Skill choices
+# Feat Name								Type
+# Ability Name											Type
+CATEGORY=Occupation|Balance(class skill).MOD						TYPE:Child_Skills
+CATEGORY=Occupation|Balance(+1 to skill).MOD						TYPE:Child_Skills
+
+CATEGORY=Occupation|Bluff(class skill).MOD						TYPE:Gambler_Skills.Mystic_Skills.Streetperson_Skills
+CATEGORY=Occupation|Bluff(+1 to skill).MOD						TYPE:Gambler_Skills.Mystic_Skills.Streetperson_Skills
+
+CATEGORY=Occupation|Climb(class skill).MOD						TYPE:Child_Skills.Tribal_DI_Skills
+CATEGORY=Occupation|Climb(+1 to skill).MOD						TYPE:Child_Skills.Tribal_DI_Skills
+
+CATEGORY=Occupation|Concentration(class skill).MOD					TYPE:Caregiver_Skills.Cultist_Skills.Gambler_Skills.Mystic_Skills
+CATEGORY=Occupation|Concentration(+1 to skill).MOD					TYPE:Caregiver_Skills.Cultist_Skills.Gambler_Skills.Mystic_Skills
+
+CATEGORY=Occupation|Craft (Visual Art - class skill).MOD				TYPE:Caregiver_Skills
+CATEGORY=Occupation|Craft (Visual Art - +1 to skill).MOD				TYPE:Caregiver_Skills
+
+CATEGORY=Occupation|Decipher Script(class skill).MOD					TYPE:Cultist_Skills.Mystic_Skills
+CATEGORY=Occupation|Decipher Script(+1 to skill).MOD					TYPE:Cultist_Skills.Mystic_Skills
+
+CATEGORY=Occupation|Diplomacy(class skill).MOD						TYPE:Caregiver_Skills
+CATEGORY=Occupation|Diplomacy(+1 to skill).MOD						TYPE:Caregiver_Skills
+
+CATEGORY=Occupation|Gamble(class skill).MOD						TYPE:Gambler_Skills.Streetperson_Skills
+CATEGORY=Occupation|Gamble(+1 to skill).MOD						TYPE:Gambler_Skills.Streetperson_Skills
+
+CATEGORY=Occupation|Gather Information(class skill).MOD				TYPE:Gambler_Skills.Streetperson_Skills
+CATEGORY=Occupation|Gather Information(+1 to skill).MOD				TYPE:Gambler_Skills.Streetperson_Skills
+
+CATEGORY=Occupation|Handle Animal(class skill).MOD					TYPE:Tribal_DI_Skills
+CATEGORY=Occupation|Handle Animal(+1 to skill).MOD					TYPE:Tribal_DI_Skills
+
+CATEGORY=Occupation|Hide(class skill).MOD							TYPE:Child_Skills.Streetperson_Skills.Tribal_DI_Skills
+CATEGORY=Occupation|Hide(+1 to skill).MOD							TYPE:Child_Skills.Streetperson_Skills.Tribal_DI_Skills
+
+CATEGORY=Occupation|Jump(class skill).MOD							TYPE:Tribal_DI_Skills
+CATEGORY=Occupation|Jump(+1 to skill).MOD							TYPE:Tribal_DI_Skills
+
+CATEGORY=Occupation|Knowledge (Arcane Lore - class skill).MOD			TYPE:Cultist_Skills.Mystic_Skills
+CATEGORY=Occupation|Knowledge (Arcane Lore - +1 to skill).MOD			TYPE:Cultist_Skills.Mystic_Skills
+
+CATEGORY=Occupation|Knowledge (History - class skill).MOD				TYPE:Mystic_Skills
+CATEGORY=Occupation|Knowledge (History - +1 to skill).MOD				TYPE:Mystic_Skills
+
+CATEGORY=Occupation|Knowledge (Popular Culture - +1 to skill).MOD			TYPE:Caregiver_Skills.Streetperson_Skills
+
+CATEGORY=Occupation|Knowledge (Streetwise - +1 to skill).MOD			TYPE:Gambler_Skills.Streetperson_Skills
+
+CATEGORY=Occupation|Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Cultist_Skills.Mystic_Skills
+CATEGORY=Occupation|Knowledge (Theology and Philosophy - +1 to skill).MOD	TYPE:Cultist_Skills.Mystic_Skills
+
+CATEGORY=Occupation|Listen(class skill).MOD						TYPE:Caregiver_Skills.Tribal_DI_Skills
+CATEGORY=Occupation|Listen(+1 to skill).MOD						TYPE:Caregiver_Skills.Tribal_DI_Skills
+
+CATEGORY=Occupation|Move Silently(class skill).MOD					TYPE:Child_Skills
+CATEGORY=Occupation|Move Silently(+1 to skill).MOD					TYPE:Child_Skills
+
+CATEGORY=Occupation|Research(class skill).MOD						TYPE:Cultist_Skills
+CATEGORY=Occupation|Research(+1 to skill).MOD						TYPE:Cultist_Skills
+
+CATEGORY=Occupation|Ride(class skill).MOD							TYPE:Tribal_DI_Skills
+CATEGORY=Occupation|Ride(+1 to skill).MOD							TYPE:Tribal_DI_Skills
+
+CATEGORY=Occupation|Search(class skill).MOD						TYPE:Child_Skills.Streetperson_Skills
+CATEGORY=Occupation|Search(+1 to skill).MOD						TYPE:Child_Skills.Streetperson_Skills
+
+CATEGORY=Occupation|Sense Motive(class skill).MOD					TYPE:Caregiver_Skills.Child_Skills.Gambler_Skills.Mystic_Skills
+CATEGORY=Occupation|Sense Motive(+1 to skill).MOD					TYPE:Caregiver_Skills.Child_Skills.Gambler_Skills.Mystic_Skills
+
+CATEGORY=Occupation|Sleight of Hand(class skill).MOD					TYPE:Gambler_Skills.Mystic_Skills
+CATEGORY=Occupation|Sleight of Hand(+1 to skill).MOD					TYPE:Gambler_Skills.Mystic_Skills
+
+CATEGORY=Occupation|Spellcraft(class skill).MOD						TYPE:Mystic_Skills
+CATEGORY=Occupation|Spellcraft(+1 to skill).MOD						TYPE:Mystic_Skills
+
+CATEGORY=Occupation|Spot(class skill).MOD							TYPE:Child_Skills.Gambler_Skills.Streetperson_Skills.Tribal_DI_Skills
+CATEGORY=Occupation|Spot(+1 to skill).MOD							TYPE:Child_Skills.Gambler_Skills.Streetperson_Skills.Tribal_DI_Skills
+
+CATEGORY=Occupation|Survival(class skill).MOD						TYPE:Streetperson_Skills.Tribal_DI_Skills
+CATEGORY=Occupation|Survival(+1 to skill).MOD						TYPE:Streetperson_Skills.Tribal_DI_Skills
+
+CATEGORY=Occupation|Treat Injury(class skill).MOD					TYPE:Tribal_DI_Skills
+CATEGORY=Occupation|Treat Injury(+1 to skill).MOD					TYPE:Tribal_DI_Skills
+
+CATEGORY=Occupation|Tumble(class skill).MOD						TYPE:Child_Skills
+CATEGORY=Occupation|Tumble(+1 to skill).MOD						TYPE:Child_Skills
+
+#
+# EoF
+#
