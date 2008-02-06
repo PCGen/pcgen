@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 12:55:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb  5 23:54:06 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Feat Name				Type							Visible	Required Skill							Special ABility																																Define																																												Multiple?	Choose																																								Add Spell Lvl	Weapon prof. bonus
@@ -75,9 +75,9 @@ Vivilor Metallic Skin				TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Tougher Skin			
 Vivilor Serpentine				TYPE:VivB	VISIBLE:NO										SAB:Double slam damage
 
 ###Block: Techno Mage Ability
-# Feat Name				Visible	Special Ability					Choose
-Arcane Spontaneous Casting	VISIBLE:NO	SA:Arcane Spontaneous Casting (%CHOICE)	CHOOSE:SPELLS|CLASS=Techno Mage
-#TODO: change SA to SAB once it supports %CHOICE, add SELECT=INT to CHOOSE once that is supported, Set to known spells once CHOOSE:SPELLS can do that
+# Feat Name				Visible	Special ABility					Choose
+Arcane Spontaneous Casting	VISIBLE:NO	SAB:Arcane Spontaneous Casting (%CHOICE)	CHOOSE:SPELLS|CLASS=Techno Mage
+#TODO: add SELECT=INT to CHOOSE once that is supported, Set to known spells once CHOOSE:SPELLS can do that
 
 #
 # End
