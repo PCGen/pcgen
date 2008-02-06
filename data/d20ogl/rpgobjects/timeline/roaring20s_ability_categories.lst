@@ -1,0 +1,17 @@
+# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+#SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
+
+
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI				Display where?
+ABILITYCATEGORY:Explorer Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Explorer_Skills		PLURAL:Explorer Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Primitive Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Primitive_Skills		PLURAL:Primitive Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Psychic-Roaring 20s Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Psychic_Roaring_Skills	PLURAL:Psychic-Roaring 20s Occupation Skills	DISPLAYLOCATION:Background	POOL:PsychicRoaring20sSkills
+
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI		Display where?
+ABILITYCATEGORY:Primitive Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Primitive_Feat		PLURAL:Primitive Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic-Roaring 20s Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Psychic_Roaring_Feat	PLURAL:Psychic-Roaring 20s Feats	DISPLAYLOCATION:Feats	POOL:PsychicRoaring20sFeats
+
+
+#
+# End
+#

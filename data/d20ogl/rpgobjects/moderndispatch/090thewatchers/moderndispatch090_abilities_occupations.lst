@@ -1,0 +1,44 @@
+# CVS $Revision$ $Author$ -- Sat Feb  2 23:08:43 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224
+#Original entry by Paul W. King
+
+# Ability Name	Category of Ability	Type			Visible		Bonus to Ability Pool					Modify VAR			Source Page
+Celestial		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Celestial Occupation Skills|3	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.1
+
+
+###Block: The Skill choices
+# Ability Name											Type
+CATEGORY=Occupation|Bluff(class skill).MOD						TYPE:Celestial_Skills
+CATEGORY=Occupation|Bluff(+1 to skill).MOD						TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Decipher Script(class skill).MOD					TYPE:Celestial_Skills
+CATEGORY=Occupation|Decipher Script(+1 to skill).MOD					TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Intimidate(class skill).MOD						TYPE:Celestial_Skills
+CATEGORY=Occupation|Intimidate(+1 to skill).MOD						TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Knowledge (Arcane Lore - class skill).MOD			TYPE:Celestial_Skills
+CATEGORY=Occupation|Knowledge (Arcane Lore - +1 to skill).MOD			TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Knowledge (Art - class skill).MOD					TYPE:Celestial_Skills
+CATEGORY=Occupation|Knowledge (Art - +1 to skill).MOD					TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Knowledge (Behavioral Sciences - class skill).MOD		TYPE:Celestial_Skills
+CATEGORY=Occupation|Knowledge (Behavioral Sciences - +1 to skill).MOD		TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Knowledge (History - class skill).MOD				TYPE:Celestial_Skills
+CATEGORY=Occupation|Knowledge (History - +1 to skill).MOD				TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Knowledge (Streetwise - +1 to skill).MOD			TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Celestial_Skills
+CATEGORY=Occupation|Knowledge (Theology and Philosophy - +1 to skill).MOD	TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Listen(class skill).MOD						TYPE:Celestial_Skills
+CATEGORY=Occupation|Listen(+1 to skill).MOD						TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Sense Motive(class skill).MOD					TYPE:Celestial_Skills
+CATEGORY=Occupation|Sense Motive(+1 to skill).MOD					TYPE:Celestial_Skills
+
+CATEGORY=Occupation|Spot(class skill).MOD							TYPE:Celestial_Skills
+CATEGORY=Occupation|Spot(+1 to skill).MOD							TYPE:Celestial_Skills

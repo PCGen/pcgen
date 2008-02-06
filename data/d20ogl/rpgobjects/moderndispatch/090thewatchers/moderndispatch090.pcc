@@ -23,8 +23,9 @@ INFOTEXT:This dataset requires the use of the MSRD Future dataset
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:moderndispatch090_abilities_occupations.lst
+ABILITYCATEGORY:moderndispatch090_ability_categories.lst
 CLASS:moderndispatch090_class.lst
 FEAT:moderndispatch090_feats.lst
 FEAT:moderndispatch090_feats_hidden.lst
 FEAT:moderndispatch090_feats_mod.lst
-FEAT:moderndispatch090_feats_occupations.lst

@@ -20,10 +20,11 @@ COPYRIGHT:PCGen dataset conversion for Timeline: The Roaring 20s Copyright 2006,
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:roaring20s_abilities_occupations.lst
+ABILITYCATEGORY:roaring20s_ability_categories.lst
 CLASS:roaring20s_class.lst
 EQUIPMENT:roaring20s_equipment.lst
 FEAT:roaring20s_feats.lst
 FEAT:roaring20s_feats_hidden.lst
 FEAT:roaring20s_feats_mod.lst
-FEAT:roaring20s_feats_occupation.lst
 WEAPONPROF:roaring20s_weaponprof.lst
