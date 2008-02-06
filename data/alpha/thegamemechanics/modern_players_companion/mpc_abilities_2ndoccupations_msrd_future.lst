@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Mon Feb  4 16:07:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
+# Original Entry by: Frank Kliewe
+
+###Block:Moonlighter Feat Second Occupation MPC
+# Feat Name						Type				Visible		Required Feat				Prohibited Feat					Add							Modify VAR			Source Page
+# Ability Name	Category of Ability		Type				Visible		Restricted Ability						Required Feat				Bonus to Ability Pool							Modify VAR			Source Page
+Astronaut Trainee	CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Occupation,Astronaut Trainee	PREFEAT:1,TYPE.Astronaut_Trainee	BONUS:ABILITYPOOL|Astronaut Trainee Occupation Skills|2	BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Colonist		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Occupation,Colonist		PREFEAT:1,TYPE.Colonist			BONUS:ABILITYPOOL|Colonist Occupation Skills|2			BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Drifter		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Occupation,Drifter									BONUS:ABILITYPOOL|Drifter Occupation Skills|3			BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Gladiator		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Occupation,Gladiator		PREFEAT:1,TYPE.Gladiator		BONUS:ABILITYPOOL|Gladiator Occupation Skills|1			BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Heir			CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Occupation,Heir			PREFEAT:1,TYPE.Heir			BONUS:ABILITYPOOL|Heir Occupation Skills|2			BONUS:VAR|WealthBonus|6	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Outcast		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Occupation,Outcast			PREFEAT:1,Toughness			BONUS:ABILITYPOOL|Outcast Occupation Skills|1			BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Scavenger		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Occupation,Scavenger								BONUS:ABILITYPOOL|Scavenger Occupation Skills|3			BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Transporter		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Occupation,Transporter		PREFEAT:1,TYPE.Transporter		BONUS:ABILITYPOOL|Transporter Occupation Skills|2		BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+
+#
+# End
+#

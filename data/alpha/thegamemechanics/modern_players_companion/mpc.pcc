@@ -29,18 +29,18 @@ INFOTEXT:Modern Player's Companion requires at least the MSRD - Basics and MSRD 
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-
+ABILITY:mpc_abilities_2ndoccupations_msrd_arcana.lst
+ABILITY:mpc_abilities_2ndoccupations_msrd_future.lst
+ABILITY:mpc_abilities_2ndoccupations_msrd.lst
+ABILITY:mpc_abilities_occupations.lst
 ABILITY:mpc_abilities.lst
+ABILITYCATEGORY:mpc_ability_categories.lst
 CLASS:mpc_classes.lst
 EQUIPMENT:mpc_equip.lst
 EQUIPMENT:mpc_equip_FX.lst
 EQUIPMOD:mpc_equipmod.lst
 FEAT:mpc_feats.lst
 FEAT:mpc_feats_hidden.lst
-FEAT:mpc_feats_occupations.lst
-FEAT:mpc_feats_2ndoccupations_msrd.lst
-FEAT:mpc_feats_2ndoccupations_msrd_future.lst
-FEAT:mpc_feats_2ndoccupations_msrd_arcana.lst
 KIT:mpc_kits_equipmentpackages.lst
 LANGUAGE:mpc_languages.lst
 TEMPLATE:mpc_templates.lst
