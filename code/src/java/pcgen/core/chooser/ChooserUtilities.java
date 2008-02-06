@@ -32,11 +32,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
 
 
@@ -69,7 +71,7 @@ public class ChooserUtilities
 
 		while (elements.hasMoreElements())
 		{
-			String aString = elements.nextElement();
+			String aString = elements.nextElement(); //Throw away count
 
 			while (
 				!aString.startsWith("CLASS=") &&
@@ -343,12 +345,10 @@ public class ChooserUtilities
 		classLookup.put("STAT",                 StatChoiceManager.class.getName());
 		classLookup.put("WEAPONFOCUS",          WeaponFocusChoiceManager.class.getName());
 		classLookup.put("WEAPONPROFS",          WeaponProfChoiceManager.class.getName());
-		classLookup.put("WEAPONPROFTYPE",       WeaponProfTypeChoiceManager.class.getName());
 
 		classLookup.put("ARMORPROF",            SimpleArmorProfChoiceManager.class.getName());
 		classLookup.put("FEAT",                 SimpleFeatChoiceManager.class.getName());
 		classLookup.put("SHIELDPROF",           SimpleShieldProfChoiceManager.class.getName());
-		//classLookup.put("SPELLLEVEL",           SimpleSpellLevelChoiceManager.class.getName());
 		classLookup.put("USERINPUT",            UserInputChoiceManager.class.getName());
 		classLookup.put("WEAPONPROF",           SimpleWeaponProfChoiceManager.class.getName());
 
