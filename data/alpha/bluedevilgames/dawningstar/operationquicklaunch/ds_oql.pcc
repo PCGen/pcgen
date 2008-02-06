@@ -25,7 +25,9 @@ INFOTEXT:Vaasi is a trademark of Blue Devil Games and is used with permission
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITY:ds_oql_abilities_occupations.lst
 ABILITY:ds_oql_abilities_talents.lst
+ABILITYCATEGORY:ds_oql_ability_categories.lst
 BIOSET:ds_oql_bioset.lst
 CLASS:ds_oql_class_advanced.lst
 CLASS:ds_oql_class_prestige.lst
@@ -40,7 +42,6 @@ EQUIPMOD:ds_oql_equipmod.lst
 FEAT:ds_oql_feat.lst
 FEAT:ds_oql_feat_hidden.lst
 FEAT:ds_oql_feat_mod.lst
-FEAT:ds_oql_feat_occupations.lst
 KIT:ds_oql_kits_defaultmonster.lst
 LANGUAGE:ds_oql_languages.lst
 RACE:ds_oql_race.lst
