@@ -11,7 +11,7 @@ Armor Proficiency (Light).MOD		TYPE:BountyHunterBNB
 Armor Proficiency (Medium).MOD	TYPE:BountyHunterBNB
 Athletic.MOD				TYPE:Mundane
 Attentive.MOD				TYPE:Mundane
-Brawl.MOD					TYPE:BountyHunterBNB.Stalker
+Brawl.MOD					TYPE:BountyHunterBNB.Stalker.MentalPatient
 Builder.MOD					TYPE:Mundane
 Cautious.MOD				TYPE:Mundane
 Cleave.MOD					TYPE:Stalker
@@ -19,7 +19,7 @@ Combat Expertise.MOD			TYPE:Stalker
 Combat Reflexes.MOD			TYPE:Stalker
 Confident.MOD				TYPE:Mundane.ProfilerBNB
 Creative.MOD				TYPE:Mundane
-Deceptive.MOD				TYPE:Mundane.ProfilerBNB
+Deceptive.MOD				TYPE:Mundane.ProfilerBNB.OrganizedKiller
 Defensive Martial Arts.MOD		TYPE:BountyHunterBNB
 Dodge.MOD					TYPE:BountyHunterBNB.Stalker
 Double Tap.MOD				TYPE:BountyHunterBNB
@@ -45,7 +45,7 @@ Power Attack.MOD				TYPE:Stalker
 Renown.MOD					TYPE:ProfilerBNB
 Run.MOD					TYPE:Stalker
 Spring Attack.MOD				TYPE:Stalker
-Stealthy.MOD				TYPE:Mundane
+Stealthy.MOD				TYPE:Mundane.DisorganizedKiller.MentalPatient
 Streetfighting.MOD			TYPE:Stalker
 Studious.MOD				TYPE:Mundane.ProfilerBNB
 Sunder.MOD					TYPE:Stalker

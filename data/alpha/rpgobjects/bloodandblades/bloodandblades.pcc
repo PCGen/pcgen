@@ -75,6 +75,8 @@ INFOTEXT:This requires MSRD Core and MSRD Arcana to be loaded
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:bloodandblades_abilities_occupations.lst
+ABILITYCATEGORY:bloodandblades_ability_categories.lst
 CLASS:bloodandblades_classes_advanced.lst
 CLASS:bloodandblades_classes_mods.lst
 CLASS:bloodandblades_classes_victims.lst
@@ -85,7 +87,6 @@ FEAT:bloodandblades_feats.lst
 FEAT:bloodandblades_feats_flaws.lst
 FEAT:bloodandblades_feats_hidden.lst
 FEAT:bloodandblades_feats_mods.lst
-FEAT:bloodandblades_feats_occupations.lst
 KIT:bloodandblades_kits_defaultmonsters.lst
 LANGUAGE:bloodandblades_languages.lst
 RACE:bloodandblades_races.lst
