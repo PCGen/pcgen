@@ -167,7 +167,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	
 	private Set<String> types = new LinkedHashSet<String>();
 	
-	private int chooseSelectCount = 1;
+	private String chooseSelectCount = "1";
 	
 	/* ************
 	 * Methods
@@ -5153,12 +5153,12 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		levelAbilityList.clear();
 	}
 
-	public void setSelect(int select)
+	public void setSelect(String value)
 	{
-		chooseSelectCount = select;
+		chooseSelectCount = value;
 	}
 
-	public int getSelectCount()
+	public String getSelectCount()
 	{
 		return chooseSelectCount;
 	}

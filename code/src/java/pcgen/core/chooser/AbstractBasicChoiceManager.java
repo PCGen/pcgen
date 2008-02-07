@@ -70,7 +70,7 @@ public abstract class AbstractBasicChoiceManager<T> implements
 		pc = aPC;
 		StringTokenizer st = new StringTokenizer(theChoices, Constants.PIPE);
 		String chooserName = st.nextToken();
-		int selectionsPerUnitCost = pobject.getSelectCount();
+		String selectionsPerUnitCost = pobject.getSelectCount();
 		int totalChoices = -1;
 
 		/*
@@ -116,7 +116,8 @@ public abstract class AbstractBasicChoiceManager<T> implements
 		choices.trimToSize();
 		chooserHandled = chooserName;
 		numberOfChoices = totalChoices;
-		choicesPerUnitCost = selectionsPerUnitCost;
+		choicesPerUnitCost = aPC.getVariableValue(selectionsPerUnitCost, "")
+				.intValue();
 	}
 
 	/**

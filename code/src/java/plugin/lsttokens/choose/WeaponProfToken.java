@@ -138,7 +138,7 @@ public class WeaponProfToken implements ChooseLstToken
 		}
 		sb.append(getTokenName()).append('|').append(profs).append(suffix);
 		po.setChoiceString(sb.toString());
-		po.setSelect(firstarg);
+		po.setSelect(start);
 		/*
 		 * TODO Error catching here for SELECT/CHOOSE?
 		 */

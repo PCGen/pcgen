@@ -121,7 +121,7 @@ public class UserInputToken implements ChooseLstToken
 		po.setChoiceString(sb.toString());
 		if (firstarg != null)
 		{
-			po.setSelect(firstarg.intValue());
+			po.setSelect(firstarg.toString());
 		}
 		return true;
 	}
