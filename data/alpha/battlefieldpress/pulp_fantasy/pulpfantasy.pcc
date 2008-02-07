@@ -52,7 +52,9 @@ COPYRIGHT:PCGen dataset conversion for the Pulp Fantasy Roleplaying Game Copyrig
 
 #EXTRAFILE:OGL.txt
 
+ABILITY:pulpfantasy_abilities_occupations.lst
 ABILITY:pulpfantasy_abilities.lst
+ABILITYCATEGORY:pulpfantasy_ability_categories.lst
 CLASS:pulpfantasy_classes_advanced.lst
 CLASS:pulpfantasy_classes_base.lst
 CLASS:pulpfantasy_classes_monster.lst
@@ -68,7 +70,6 @@ EQUIPMOD:pulpfantasy_equipmods.lst
 FEAT:pulpfantasy_feats.lst
 FEAT:pulpfantasy_feats_hidden.lst
 FEAT:pulpfantasy_feats_mod.lst
-FEAT:pulpfantasy_feats_occupations.lst
 KIT:pulpfantasy_kits_defaultmonsters.lst
 LANGUAGE:pulpfantasy_languages.lst
 RACE:pulpfantasy_races.lst

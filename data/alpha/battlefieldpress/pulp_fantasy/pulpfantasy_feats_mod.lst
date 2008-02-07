@@ -82,7 +82,7 @@ Strong Plus.MOD																																																																	
 Studious.MOD				TYPE:Antiques_Dealer.Explorer.Scientist
 Surface Vehicle Operation.MOD		TYPE:CombatAce.Daredevil
 Tough Plus.MOD																																																																					DESC:Advancements in science coupled with your drive to excel enable you to progress faster toward becoming a truly tough hero.																					SOURCEPAGE:p.58
-Toughness.MOD				TYPE:Daredevil
+Toughness.MOD				TYPE:Daredevil.Outcast
 Trustworthy.MOD				TYPE:Politician.World_Traveller.Ambassador.Operator
 Two-Weapon Fighting.MOD			TYPE:Explorer.Mystery_Man
 Unbalance Opponent.MOD			TYPE:Brawler.Mystic_PF
