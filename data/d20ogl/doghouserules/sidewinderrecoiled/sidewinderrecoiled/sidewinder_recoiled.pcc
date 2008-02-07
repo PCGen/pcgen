@@ -22,6 +22,22 @@ COPYRIGHT:Sidewinder: Recoiled, Copyright © 2003 by Dog House Rules.
 COPYRIGHT:Sidewinder: Wild West Adventure, Copyright © 2002 by Citizen Games.
 COPYRIGHT:PCGen dataset conversion for Sidewinder: Recoiled Copyright 2004, PCGen Data team including, but not limited to, Jason Buchanan (Lone Jedi), Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony.
 
+# Stuff Imported from the MSRD
+
+ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_occupations.lst
+ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_talents.lst
+ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
+TEMPLATE:@/d20ogl/msrd/basics/modern_basics/modernbasics_templates.lst
+FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats_hidden.lst
+FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats.lst
+SKILL:@/d20ogl/msrd/basics/modern_basics/modernbasics_skills.lst
+CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_pc.lst
+EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst
+
+# Sidewinder data
+
+ABILITY:sr_abilities_occupations.lst
+ABILITYCATEGORY:sr_ability_categories.lst
 SKILL:sr_skills.lst
 CLASS:sr_classes_base.lst
 CLASS:sr_classes_advanced.lst
@@ -35,20 +51,11 @@ EQUIPMENT:sr_equip.lst
 EQUIPMOD:sr_equipmods.lst
 FEAT:sr_feats.lst
 FEAT:sr_feats_hidden.lst
-FEAT:sr_feats_occupations.lst
 RACE:sr_races.lst
 WEAPONPROF:sr_weaponprofs.lst
 LANGUAGE:sr_languages.lst
 TEMPLATE:sr_templates.lst
 
-# Stuff Imported from the MSRD
-
-TEMPLATE:@/d20ogl/msrd/basics/modern_basics/modernbasics_templates.lst
-FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats_hidden.lst
-FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats_occupations.lst
-FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats.lst
-SKILL:@/d20ogl/msrd/basics/modern_basics/modernbasics_skills.lst
-CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_pc.lst
-EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst
-ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_talents.lst
-ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
+#
+# End
+#
