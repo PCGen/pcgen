@@ -1,41 +1,41 @@
-# CVS $Revision$ $Author$ -- Mon Feb  4 16:07:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb  7 12:25:43 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
 # Original Entry by: Frank Kliewe
 
 
 ###Block: Categories for Logical Talent -
-# Feat Name					Visible	Required Skill							Special ABility					Bonus to skill												Source Page
-Category[Arcane lore]			VISIBLE:NO	PRESKILL:1,Knowledge (Arcane Lore)=4			SAB:Logical (Arcane Lore)			BONUS:SKILL|Knowledge (Theology and Philosophy)|var("CL=Smart")/2|TYPE=Synergy	SOURCEPAGE:p.6
-Category[Art]				VISIBLE:NO	PRESKILL:1,Knowledge (Art)=4					SAB:Logical (Art)					BONUS:SKILL|Craft (Visual Art)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
-Category[Behavioral sciences]		VISIBLE:NO	PRESKILL:1,Knowledge (Behavioral Sciences)=4		SAB:Logical (Behavioral Sciences)		BONUS:SKILL|Sense Motive|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
-Category[Business]			VISIBLE:NO	PRESKILL:1,Knowledge (Business)=4				SAB:Logical (Business)				BONUS:SKILL|Forgery|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
-Category[Civics]				VISIBLE:NO	PRESKILL:1,Knowledge (Civics)=4				SAB:Logical (Civics)				BONUS:SKILL|Diplomacy|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
-Category[Current events]		VISIBLE:NO	PRESKILL:1,Knowledge (Current Events)=4			SAB:Logical (Current Events)			BONUS:SKILL|Gather Information|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
-Category[Earth and life sciences]	VISIBLE:NO	PRESKILL:1,Knowledge (Earth and Life Sciences)=4	SAB:Logical (Earth and Life Sciences)	BONUS:SKILL|Treat Injury|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
-Category[History]				VISIBLE:NO	PRESKILL:1,Knowledge (History)=4				SAB:Logical (History)				BONUS:SKILL|Research|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
-Category[Physical sciences]		VISIBLE:NO	PRESKILL:1,Knowledge (Physical Sciences)=4		SAB:Logical (Physical Sciences)		BONUS:SKILL|Craft (Chemical)|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
-Category[Popular culture]		VISIBLE:NO	PRESKILL:1,Knowledge (Popular Culture)=4			SAB:Logical (Popular Culture)			BONUS:SKILL|Knowledge (Streetwise)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
-Category[Streetwise]			VISIBLE:NO	PRESKILL:1,Knowledge (Streetwise)=4				SAB:Logical (Streetwise)			BONUS:SKILL|Intimidate|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
-Category[Tactics]				VISIBLE:NO	PRESKILL:1,Knowledge (Tactics)=4				SAB:Logical (Tactics)				BONUS:SKILL|Investigate|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
-Category[Technology]			VISIBLE:NO	PRESKILL:1,Knowledge (Technology)=4				SAB:Logical (Technology)			BONUS:SKILL|Craft (Electronic)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
-Category[Theology and philosophy]	VISIBLE:NO	PRESKILL:1,Knowledge (Theology and Philosophy)=4	SAB:Logical (Theology and Philosophy)	BONUS:SKILL|Knowledge (Arcane Lore)|var("CL=Smart")/2|TYPE=Synergy			SOURCEPAGE:p.6
+# Feat Name					Type				Visible	Required Skill							Special ABility					Bonus to skill												Source Page
+Category[Arcane lore]			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Arcane Lore)=4			SAB:Logical (Arcane Lore)			BONUS:SKILL|Knowledge (Theology and Philosophy)|var("CL=Smart")/2|TYPE=Synergy	SOURCEPAGE:p.6
+Category[Art]				TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Art)=4					SAB:Logical (Art)					BONUS:SKILL|Craft (Visual Art)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
+Category[Behavioral sciences]		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Behavioral Sciences)=4		SAB:Logical (Behavioral Sciences)		BONUS:SKILL|Sense Motive|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
+Category[Business]			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Business)=4				SAB:Logical (Business)				BONUS:SKILL|Forgery|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
+Category[Civics]				TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Civics)=4				SAB:Logical (Civics)				BONUS:SKILL|Diplomacy|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
+Category[Current events]		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Current Events)=4			SAB:Logical (Current Events)			BONUS:SKILL|Gather Information|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
+Category[Earth and life sciences]	TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Earth and Life Sciences)=4	SAB:Logical (Earth and Life Sciences)	BONUS:SKILL|Treat Injury|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
+Category[History]				TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (History)=4				SAB:Logical (History)				BONUS:SKILL|Research|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
+Category[Physical sciences]		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Physical Sciences)=4		SAB:Logical (Physical Sciences)		BONUS:SKILL|Craft (Chemical)|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
+Category[Popular culture]		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Popular Culture)=4			SAB:Logical (Popular Culture)			BONUS:SKILL|Knowledge (Streetwise)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
+Category[Streetwise]			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Streetwise)=4				SAB:Logical (Streetwise)			BONUS:SKILL|Intimidate|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.6
+Category[Tactics]				TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Tactics)=4				SAB:Logical (Tactics)				BONUS:SKILL|Investigate|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
+Category[Technology]			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Technology)=4				SAB:Logical (Technology)			BONUS:SKILL|Craft (Electronic)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
+Category[Theology and philosophy]	TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Theology and Philosophy)=4	SAB:Logical (Theology and Philosophy)	BONUS:SKILL|Knowledge (Arcane Lore)|var("CL=Smart")/2|TYPE=Synergy			SOURCEPAGE:p.6
 
 ###Block: Categories for Talk a Good Game Talent
-# Feat Name					Visible	Required Feat						Special ABility						Source Page
-Category [Arcane lore]			VISIBLE:NO	PREFEAT:1,Category[Arcane lore]			SAB:Talk a Good Game (Arcane Lore)			SOURCEPAGE:p.6
-Category [Art]				VISIBLE:NO	PREFEAT:1,Category[Art]					SAB:Talk a Good Game (Art)				SOURCEPAGE:p.6
-Category [Behavioral sciences]	VISIBLE:NO	PREFEAT:1,Category[Behavioral sciences]		SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.6
-Category [Business]			VISIBLE:NO	PREFEAT:1,Category[Business]				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.6
-Category [Civics]				VISIBLE:NO	PREFEAT:1,Category[Civics]				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.6
-Category [Current events]		VISIBLE:NO	PREFEAT:1,Category[Current events]			SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.6
-Category [Earth and life sciences]	VISIBLE:NO	PREFEAT:1,Category[Earth and life sciences]	SAB:Talk a Good Game (Earth and Life Sciences)	SOURCEPAGE:p.6
-Category [History]			VISIBLE:NO	PREFEAT:1,Category[History]				SAB:Talk a Good Game (History)			SOURCEPAGE:p.6
-Category [Physical sciences]		VISIBLE:NO	PREFEAT:1,Category[Physical sciences]		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.6
-Category [Popular culture]		VISIBLE:NO	PREFEAT:1,Category[Popular culture]			SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.6
-Category [Streetwise]			VISIBLE:NO	PREFEAT:1,Category[Streetwise]			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.6
-Category [Tactics]			VISIBLE:NO	PREFEAT:1,Category[Tactics]				SAB:Talk a Good Game (Tactics)			SOURCEPAGE:p.6
-Category [Technology]			VISIBLE:NO	PREFEAT:1,Category[Technology]			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.6
-Category [Theology and philosophy]	VISIBLE:NO	PREFEAT:1,Category[Theology and philosophy]	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.6
+# Feat Name					Type					Visible	Required Feat						Special ABility						Source Page
+Category [Arcane lore]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Arcane lore]			SAB:Talk a Good Game (Arcane Lore)			SOURCEPAGE:p.6
+Category [Art]				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Art]					SAB:Talk a Good Game (Art)				SOURCEPAGE:p.6
+Category [Behavioral sciences]	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Behavioral sciences]		SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.6
+Category [Business]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Business]				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.6
+Category [Civics]				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Civics]				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.6
+Category [Current events]		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Current events]			SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.6
+Category [Earth and life sciences]	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Earth and life sciences]	SAB:Talk a Good Game (Earth and Life Sciences)	SOURCEPAGE:p.6
+Category [History]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[History]				SAB:Talk a Good Game (History)			SOURCEPAGE:p.6
+Category [Physical sciences]		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Physical sciences]		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.6
+Category [Popular culture]		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Popular culture]			SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.6
+Category [Streetwise]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Streetwise]			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.6
+Category [Tactics]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Tactics]				SAB:Talk a Good Game (Tactics)			SOURCEPAGE:p.6
+Category [Technology]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Technology]			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.6
+Category [Theology and philosophy]	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Theology and philosophy]	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.6
 
 
 ###Block: Advanced Class Abilities
@@ -50,7 +50,7 @@ Unarmed Weapon Finesse			TYPE:GentleWarriorAbility				VISIBLE:NO											SAB:U
 Uncanny Dodge X1				TYPE:GentleWarriorAbility				VISIBLE:NO						!PREFEAT:1,Uncanny Dodge I																																																			VFEAT:Uncanny Dodge I																																																	SOURCEPAGE:p.32
 Uncanny Dodge X2				TYPE:GentleWarriorAbility				VISIBLE:NO	PREFEAT:1,Uncanny Dodge I																																																								VFEAT:Uncanny Dodge II																																																	SOURCEPAGE:p.32
 Hacker Abilities				TYPE:HackerAbility					VISIBLE:NO											SAB:Hacker Abilities (%CHOICE)								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|STRING|Careful Progress|Electronic Empathy|False Trail|Install Backdoor|Instant Upgrade|Overclock|Passfirewall|Personal Database																																																													SOURCEPAGE:p.34
-Naturalist					TYPE:SurvivalistAbility					VISIBLE:NO											SAB:Naturalist (%CHOICE)									STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Arctic|Desert|Deciduous Forest|Jungle|Mountain [high altitude]|Mountain [low altitude]|Plains [temperate grasslands]|Rainforest|Savanna|Sea Coast|Swamp|Volcanic Plain																																																					SOURCEPAGE:p.40
+Naturalist					TYPE:SurvivalistAbility					VISIBLE:NO											SAB:Naturalist (%CHOICE)									STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Arctic|Desert|Deciduous Forest|Jungle|Mountain (high altitude)|Mountain (low altitude)|Plains (temperate grasslands)|Rainforest|Savanna|Sea Coast|Swamp|Volcanic Plain																																																					SOURCEPAGE:p.40
 Advanced Techniques			TYPE:MartialArtsMasterAbility				VISIBLE:NO											SAB:Advanced Techniques (%CHOICE)								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Crane Kick|Hands Without Shadow|Improvised Weapon Proficiency|Mat Techniques|Three Conflicts Stance																																																																SOURCEPAGE:p.46
 Trigger Power				TYPE:MentalistAbility					VISIBLE:NO											SAB:Trigger Power (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|LIST																																																																																SOURCEPAGE:p.50
 
