@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 16 17:25:24 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb  7 00:00:37 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original Entry by Tir Gwaith
 # Ranger Favored enemies aren't perfect but better than the ADD: in classes.. - Tir Gwaith 10/26/02
@@ -19,13 +19,12 @@ Favored Enemy V	CATEGORY:Special Ability	TYPE:FavoredEnemy	VISIBLE:YES	PREABILIT
 #Favored Enemy V		CATEGORY:Special Ability	TYPE:RangerFavored	VISIBLE:YES	PREABILITY:4,CATEGORY=Special Ability,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	SAB:favored enemy (%CHOICE) +%|FavoredEnemy5	DEFINE:FavoredEnemy5|FavoredEnemies-4	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|TYPE=Humanoid.SUBTYPE|TYPE=Outsider.SUBTYPE
 
 ###Block:Rogue special abilities
-# Feat Name		Category				Type				Visible		Special Ability		Description				Stackable?	Multiple?			Choose											Source Page
-# Ability Name	Category of Ability		Type				Visible	Special ABility			Description				Stackable?	Multiple?	Choose						BONUS:FEAT		Source Page
+# Ability Name	Category of Ability		Type				Visible	Special ABility			Description				Stackable?	Multiple?	Selections		Choose			BONUS:FEAT		Source Page
 Crippling Strike	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:YES	SAB:Crippling Strike																					SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Defensive Roll	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:YES	SAB:Defensive Roll																					SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:YES	SAB:Improved Evasion (Ex)																				SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Opportunist		CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:YES	SAB:Opportunist																						SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:YES						DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLS|LIST|3+INT				SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:YES						DESC:Take 10 on listed skills	STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL				SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Slippery Mind	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:YES	SAB:Slippery Mind																						SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Rogue Bonus Feat	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:YES											STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:FEAT|POOL|1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Rogue Bonus Feat	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:YES											STACK:YES	MULT:YES				CHOOSE:NOCHOICE		BONUS:FEAT|POOL|1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
