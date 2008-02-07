@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 16 14:00:26 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb  6 23:55:22 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -9,12 +9,12 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #     like to keep the PrC's abilities in a separate file from the standard ones as we go along tho. - Tir Gwaith
 
 ###Block: Rogue Special Abilities
-# Feat Name		Type							Visible		Special ABility												Define				Description				Stackable?	Multiple?	Choose						Modify VAR					Source Page
+# Feat Name		Type							Visible		Special ABility												Define				Description				Stackable?	Multiple?	Selections		Choose			Modify VAR					Source Page
 Crippling Strike	TYPE:Special.RogueAbilities.AttackOption	VISIBLE:NO		SAB:Crippling Strike (Ex)															DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
 Defensive Roll	TYPE:Special.RogueAbilities			VISIBLE:NO		SAB:Defensive Roll (Ex) %/day|DefensiveRollTimes						DEFINE:DefensiveRollTimes|0	DESC:Class Special Ability												BONUS:VAR|DefensiveRollTimes|1	SOURCEPAGE:ClassesII.rtf
 Opportunist		TYPE:Special.RogueAbilities.AttackOption	VISIBLE:NO		SAB:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character						DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
 Slippery Mind	TYPE:Special.RogueAbilities			VISIBLE:NO		SAB:Slippery Mind (Ex)																DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
-Skill Mastery	TYPE:Special.RogueAbilities			VISIBLE:EXPORT																				DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLS|LIST|3+INT							SOURCEPAGE:ClassesII.rtf
+Skill Mastery	TYPE:Special.RogueAbilities			VISIBLE:EXPORT																				DESC:Take 10 on listed skills	STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL							SOURCEPAGE:ClassesII.rtf
 
 ###Block: Arcane Archer Abilities
 # Feat Name		Type			Visible	Special ABility												Define									Modify VAR								Source Page
