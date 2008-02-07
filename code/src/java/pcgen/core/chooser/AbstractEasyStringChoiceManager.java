@@ -116,10 +116,13 @@ public abstract class AbstractEasyStringChoiceManager<T extends PObject>
 			PlayerCharacter aPC)
 	{
 		T feat = getSpecificObject(tempString);
-		String featKey = feat.getKeyName();
-		if (!availableList.contains(featKey))
+		if (feat != null)
 		{
-			availableList.add(featKey);
+			String featKey = feat.getKeyName();
+			if (!availableList.contains(featKey))
+			{
+				availableList.add(featKey);
+			}
 		}
 	}
 
