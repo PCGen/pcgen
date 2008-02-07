@@ -754,7 +754,7 @@
 
 <hr>
 
-	<p class="new">*** New 5.13.3*** Updated 5.13.6</p>
+	<p class="new">*** New 5.13.3 *** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="SAB">Tag Name:</a></strong> SAB:x</p>
 	<p><strong> Variables Used (x):</strong>Text (Special Ability Name)</p>
 	<p><strong> Variables Used (x):</strong>.CLEAR.Text (Clear Special Ability Totals)</p>
@@ -799,6 +799,24 @@
 	<p class="indent3">Clears the 4th level value and makes it &quot;Shield Brother (standard action)&quot;instead.</p>
 	<p class="indent2"><code>SAB:.CLEAR.Poison</code></p>
 	<p class="indent3">Clears the &quot;Poison&quot; value and replaces it with nothing.</p>
+	<p></ p>
+
+<hr>
+
+	<p class="new">*** New 5.13.9</p>
+	<p class="indent0"><strong><a name="SELECT">Tag Name:</a></strong>SELECT:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>Number, Variable, or Formula (Number of choices)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Defines the number of choices allowed every time the associated object is taken.</li>
+		<li>This tag must be used in conjunction with a <code>CHOOSE</code> tag that does not already have an integrated number for &quot;choices&quot;.</li>
+		<li>Tag is ignored when used in conjunction with <code>CHOOSE:NOCHOICE</code>.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>SELECT:3 &lt;tab&gt; CHOOSE:SKILLS</code></p>
+	<p class="indent3">Allows the selection of &quot;3&quot; skills selected from the list of skills currently held by the character.</p>
+	<p class="indent2"><code>SELECT:INT</code></p>
+	<p class="indent3">Allows a number of choices equal to the Intelligence ability bonus.</p>
 	<p></ p>
 
 <hr>
