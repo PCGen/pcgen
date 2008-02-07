@@ -48,6 +48,12 @@
 	</ul>
 	<p></ p>
 
+	<p>This page is organized into two sections:</p>
+	<ul>
+		<li><a href="#DICTIONARY">Global Choose Dictionary</a></li>
+		<li><a href="#PREFIX">Choose Tag Prefixes</a></li>
+	</ul>
+
 <hr>
 
 	<a name="DICTIONARY"></a>
@@ -783,7 +789,7 @@
 	
 <hr>
 
-  	<a name="PREFIX"></>
+  	<a name="PREFIX"></a>
   	<h3>CHOOSE Tag Prefixes</h3>
 	<p class="indent0">The CHOOSE tag uses &quot;Prefix&quot; tags to modify the application of 
 	the CHOOSE tag. The prefix tags are inserted into the CHOOSE tags syntax immediately after the 
@@ -811,8 +817,9 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Maximum number of total selections that can be taken)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Sets the number of choices that a feat can be selected at most.</li>
+		<li>Sets the total number of choices that can be made by taking a particular feat multiple times.</li>
 		<li>Used in conjunction with the MULT tag.</li>
+		<li>When used in conjunction with the <code>SELECT</code> tag, the NUMCHOICES value should equal a multiple of the SELECT value.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|Spot|Listen|Search</code></p>
@@ -825,6 +832,10 @@
 	<p class="indent3">The user will be allowed to select one skill from &quot;Strength&quot; &quot;Dexterity&quot;
 	&quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; skills each time the chooser 
 	is takem but is limited to a maximum of three such selections through this chooser.</p>
+	<p class="indent2"><code>SELECT:3 &lt;tab&gt; CHOOSE:NUMCHOICES=6|SKILLSNAMED|TYPE=Knowledge</code></p>
+	<p class="indent3">The user can select three (3) &quot;Knowledge&quot; type skills each time he takes the 
+	associated feat but may take no more than six (6) &quot;Knowledge&quot; type skills total no matter how 
+	many times the feat is taken.</p>
 	<p></ p>
 <hr>
 
