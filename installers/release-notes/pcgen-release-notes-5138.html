@@ -87,15 +87,22 @@
 
 		<h3>MSRD Character Changes</h3>
 
-		<p>When a pre-generated modern character is loaded, it will not recognize
-			the selected Talents anymore. For that reason one or more error
-			messages will be displayed at character load, which read: "Warning:
-			Unable to Find Ability: xxx", where xxx is the name of a Talent that
-			the character had previously selected.</p>
+		
+		<p>When a pre-generated modern character is loaded, it will not recognize previously 
+		   selected Talents, Wealth Rolls, Occupations and it's associated selections anymore. 
+		   For that reason one or more error messages will be displayed at character load, 
+		   which read: "Warning: Unable to Find Ability: xxx", where xxx is the name of 
+		   a Ability that the character had previously selected.</p>
 		<p>To fix this problem, you can take the following steps:</p>
 		<ol>
-			<li>Write down the Talents that are mentioned in those error messages somewhere.</li>
-			<li>Go to the Feats tab and select the new "Talents" subtab.</li>
+			<li>Write down the Abilities that are mentioned in those error messages somewhere.</li>
+			<li>Go to the Feats tab and select the new "Background" subtab.</li>
+			<li>For most characters you will see an available "Pool" for Wealth and Occupation.</li>
+			<li>Select the Wealth Pool and choose a Wealth Roll.</li>
+			<li>Select the Occupation Pool and choose an Occupation.</li>
+			<li>Once an Occupation is chosen a new pool for that Occupations skill selections becomes available.</li>
+			<li>Some Occupations also grant a choice of Feats, these options can be found and selected in the "Feats" subtab.</li>
+			<li>Next select the new "Talents" subtab.</li>
 			<li>In the lower right corner of the Talents tab you see a drop down
 				menus which reads "Talents". Select a class that one of the talents
 				you have noted was taken from. The "remaining" field should now show a
@@ -104,7 +111,19 @@
 				be displayed. Select your Talent(s) for that class there.</li>
 			<li>Repeat for any Talents that were taken from another class.</li>
 		</ol>
-
+		
+		<p>The way that the Base classes bonus feats are handled has been changed as well. 
+			  Instead of a pop up appearing when the character is leveled up a new Feat Pool 
+			  is created on the Feats subtab from which those feats can be chosen. Pre-generated 
+			  characters will now have an empty pool for these feats even though they have 
+			  already previously been selected.</p>
+		<p>To fix this problem, you can take the following steps:</p>
+		<ol>
+			<li>Determine which Feats in the standard Feat Pool were chosen as Bonus Feats.</li>
+			<li>Remove those Feats from the standard Pool and change the number in the Feats Remaining field to 0.</li>
+			<li>Select the Bonus Feat Pool and add you Feats back.</li>
+		</ol>
+		
 		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
 
 		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
