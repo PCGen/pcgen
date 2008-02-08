@@ -25,10 +25,16 @@ INFOTEXT:This dataset requires the use of the MSRD Future dataset
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:bns_pr_abilities_occupation.lst
+ABILITYCATEGORY:bns_pr_ability_categories.lst
 CLASS:bns_pr_classes_advanced.lst
 FEAT:bns_pr_feats.lst
 FEAT:bns_pr_feats_hidden.lst
 FEAT:bns_pr_feats_mod.lst
-FEAT:bns_pr_feats_occupation.lst
-FEAT:bns_pr_feats_occupation_mod.lst
 RACE:bns_pr_race.lst
+TEMPLATE:bns_pr_templates.lst
+KIT:bns_pr_race_kits.lst
+
+#
+# End
+#

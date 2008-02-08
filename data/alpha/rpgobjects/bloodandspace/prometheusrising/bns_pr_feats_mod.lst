@@ -2,6 +2,7 @@
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
 # Feat Name					Type
+Action Boost.MOD				TYPE:Gambler
 Aircraft Operation.MOD			TYPE:HumanComputer
 Alertness.MOD				TYPE:Sensitive
 Animal Affinity.MOD			TYPE:Sensitive
@@ -25,10 +26,16 @@ Improved Trip.MOD				TYPE:HumanComputer
 Iron Will.MOD				TYPE:Sensitive
 Meticulous.MOD				TYPE:HumanComputer
 Renown.MOD					TYPE:xenoArch
-Salvage.MOD					TYPE:xenoArch
+Salvage.MOD					TYPE:xenoArch.Hauler.Pirate
+Spacer.MOD					TYPE:Hauler
+Starship Operation.MOD			TYPE:Hauler.Pirate
 Studious.MOD				TYPE:HumanComputer.XenoArch
 Trustworthy.MOD				TYPE:HumanComputer.Sensitive
 Ultra Immune System.MOD			TYPE:xenoArch
 Unbalance Opponent.MOD			TYPE:Sensitive
 Windfall.MOD				TYPE:xenoArch
 Xenomedic.MOD				TYPE:xenoArch
+Zero G Training.MOD			TYPE:Pirate
+
+
+
