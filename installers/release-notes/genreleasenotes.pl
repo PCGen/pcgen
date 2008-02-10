@@ -15,6 +15,7 @@ use Readonly;
 use English;
 
 use IO::Handle;
+use LWP::Simple qw(get);
 
 
 # print immediately instead of waiting for a \n
@@ -87,11 +88,25 @@ close CHANGELOG;
 close ROADMAP;
 
 # Search through the changes report file trimming down text and adjusting URLs
-open CHANGES, "work/changes.txt";
+my $page = get "http://pcgen.sourceforge.net/autobuilds/changes.rss";
+if (!$page) {
+    print "Autobuild site is not accessible\n";
+    exit;
+}
+
+my $changeHtml = $page;
+$changeHtml =~ s/.*\<description\>.*?\<\/tr\>//s;
+$changeHtml =~ s/\s*<\/table>\s*<\/description>\s*<\/item>\s*<\/channel>\s*<\/rss>//s;
+
 open WHATSNEW, ">work/whatsnew.txt";
-while (<CHANGES>) {
+my @data = split(/\n/, $changeHtml);
+for (@data) {
 	s/^\s*//;
 	s/\s*$//;
+	s/^<tr>$//;
+	s/^<td>add<\/td>$/<li><img alt="add" title="add" src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images\/add.gif\">/;
+	s/^<td>fix<\/td>$/<li><img alt="fix" title="fix" src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images\/fix.gif\">/;
+	s/^<td>update<\/td>$/<li><img alt="update" title="update" src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images\/update.gif\">/;
 	s/src="images/src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images/;
 	s/href="team/href="http:\/\/pcgen.sourceforge.net\/autobuilds\/team/;
 	s/<tr class=".">/<li>/;
@@ -102,4 +117,3 @@ while (<CHANGES>) {
 	}
 }
 close WHATSNEW;
-close CHANGES;
