@@ -21,45 +21,67 @@ use LWP::Simple qw(get);
 # print immediately instead of waiting for a \n
 *STDOUT->autoflush();
 
-# search through the roadmap file only keeping heading and closed trackers
-my $firstTime = (1 == 1);
-my $discardingSectionState = 0; # States are 0=not discarding, 1=discard line regardless, 2=stop discard at next blank line
-my $trackerNum = "";
-my @trackerLines;
-open ROADMAP, "work/roadmap.txt";
-open CHANGELOG, ">work/changelog.txt";
-while (<ROADMAP>) {
-        if ( /^[0-9\.]+%$/){
-        	# do nothing with percentage match lines
-        }
-        elsif ( /^ ?[0-9] *\t *[0-9]+[ \t]*$/ ) {
-        	# Tracker number
-        	s/^ ?[0-9][ \t]*//;
-        	s/\s*$//g;
-        	$trackerNum = $_;
-        	#print "Found tracker " . $trackerNum . "\n"; 
-        } 
-		elsif ( /^[ \t]*$/) {
-			# Ignore blank lines
-		}
-		
-		elsif ( /^[ \t]/ ) {
-			# Tracker info line
-        	my $cat = $_;
-        	$cat =~ s/^[ \t]([A-Za-z ]*).*$/$1/;
-        	$cat =~ s/\s*$//g;
-        	s/^[ \t][A-Za-z ]*/<li>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$trackerNum\"\>$trackerNum<\/a> \]/;
-        	s/\s+[0-9\-]+$//;
-        	s/\s+[A-Za-z_0-9 \-\.]+\s+[A-Za-z_0-9 \-\.]+\s+[A-Za-z_0-9 \-\.]+$//;
-        	s/\s*$//g;
-			push(@trackerLines, $cat . "@@@" . $_ . "<\/li>");
-		}
+if ($#ARGV < 0) {
+	print "Error: no fromdate supplied. Usage is  perl genreleasenotes.pl fromdate\n";
+	print "  e.g. perl genreleasenotes.pl 20080126\n";
+	exit;
+}
+my $fromDate = $ARGV[0];
+my $toDate = sprintf("%04d%02d%02d",
+	sub {($_[5]+1900, $_[4]+1, $_[3])}->(localtime));
+print("Generating changes and tracker listing for trackers closed between " . 
+	$fromDate . " and " . $toDate . ".\n");
 
-        elsif (/^[0-9].*Closed *$/oi) {
-        	s/^([0-9]+)/<li>[ <a href\=\"http:\/\/sourceforge.net\/support\/tracker.php\?aid=$1\"\>$1<\/a> \]/;
-        	s/\s*Closed *$//i;
-        	print CHANGELOG $_."<\/li>";
-        }
+# Run the tracker search on SourceForge to retrieve the trackers closed in the period.
+my $page = get "http://sourceforge.net/search/index.php?group_id=25576&" .
+   "type_of_search=artifact&pmode=0&words=group_artifact_id%3A%28384719+" .
+   "384721+384722+439552+441567+453331+627102+679269+689516+748234+" . 
+   "748235+748296+748297+750091+750092+772045+1036937%29+AND+" . 
+   "status_id%3A%282%29+AND+last_update_date%3A%5B" . $fromDate . 
+   "+TO+" . $toDate. "%5D&Search=Search&limit=1000";
+if (!$page) {
+    print "Tracker search site is not accessible\n";
+    exit;
+}
+
+# Trim out headers and footers 
+$page =~ s/.*\<table id="searchtable"//s;
+$page =~ s/.*\<tbody>//s;
+$page =~ s/\s*\<\/tbody>\<\/table>.*//s;
+
+my $firstTime = (1 == 1);
+my $trackerCat = "";
+my $trackerNum = "";
+my $trackerName = "";
+my @trackerLines;
+
+# Scan the search results, building up the list of trackers
+open CHANGELOG, ">work/changelog.txt";
+my @data = split(/\n/, $page);
+for (@data) {
+	s/^\s*//;
+	s/\s*$//;
+    if ( /^^<a href=\"\/tracker\/index.php\?/ ) {
+    	# Extract tracker number and name from link. 
+    	$trackerNum = $_;
+    	$trackerNum =~ s/.*aid=([0-9]*).*/$1/;
+    	$trackerName = $_;
+    	$trackerName =~ s/.*?>(.*?)<\/a>\s*$/$1/;
+    } 
+	
+	elsif ( /^<a href=\"\/tracker\/\?group_id=25576&atid\=/ ) {
+		# Tracker info line
+    	$trackerCat = $_;
+    	$trackerCat =~ s/<.*?>//g;
+	}
+
+    elsif ( /<\/tr>/ ) {
+    	# End of tracker
+    	push(@trackerLines, $trackerCat . "@@@<li>[ <a " .
+    		"href=\"http://sourceforge.net/support/tracker.php?aid=" . 
+    		$trackerNum . "\">" . $trackerNum . "</a> ]	" . 
+    		$trackerName . "<\/li>");
+    } 
 }
 
 # Now output the info
@@ -85,24 +107,27 @@ foreach (@trackerLines) {
 
 print CHANGELOG "\n</ul>\n";
 close CHANGELOG;
-close ROADMAP;
+print " - Found " . @trackerLines . " trackers.\n";
 
 # Search through the changes report file trimming down text and adjusting URLs
-my $page = get "http://pcgen.sourceforge.net/autobuilds/changes.rss";
+$page = get "http://pcgen.sourceforge.net/autobuilds/changes.rss";
 if (!$page) {
     print "Autobuild site is not accessible\n";
     exit;
 }
 
-my $changeHtml = $page;
-$changeHtml =~ s/.*\<description\>.*?\<\/tr\>//s;
-$changeHtml =~ s/\s*<\/table>\s*<\/description>\s*<\/item>\s*<\/channel>\s*<\/rss>//s;
+$page =~ s/.*\<description\>.*?\<\/tr\>//s;
+$page =~ s/\s*<\/table>\s*<\/description>\s*<\/item>\s*<\/channel>\s*<\/rss>//s;
 
 open WHATSNEW, ">work/whatsnew.txt";
-my @data = split(/\n/, $changeHtml);
+@data = split(/\n/, $page);
+my $changeCount = 0;
 for (@data) {
 	s/^\s*//;
 	s/\s*$//;
+	if (/^<tr>$/) {
+	   	$changeCount++;
+	}
 	s/^<tr>$//;
 	s/^<td>add<\/td>$/<li><img alt="add" title="add" src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images\/add.gif\">/;
 	s/^<td>fix<\/td>$/<li><img alt="fix" title="fix" src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images\/fix.gif\">/;
@@ -117,3 +142,4 @@ for (@data) {
 	}
 }
 close WHATSNEW;
+print " - Found " . $changeCount . " changes.\n";
