@@ -66,7 +66,7 @@ for (@data) {
     	$trackerNum = $_;
     	$trackerNum =~ s/.*aid=([0-9]*).*/$1/;
     	$trackerName = $_;
-    	$trackerName =~ s/.*?>(.*?)<\/a>\s*$/$1/;
+    	$trackerName =~ s/.*?>(.*?)<\/a>.*$/$1/;
     } 
 	
 	elsif ( /^<a href=\"\/tracker\/\?group_id=25576&atid\=/ ) {
@@ -135,7 +135,7 @@ for (@data) {
 	s/src="images/src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images/;
 	s/href="team/href="http:\/\/pcgen.sourceforge.net\/autobuilds\/team/;
 	s/<tr class=".">/<li>/;
-	s/<\/*td>//g;
+	s/<\/td>//g;
 	s/<\/tr>/<\/li>/g;
 	if (length $_ > 0 && !/<table/i && !/<\/table>/) {
 	   	print WHATSNEW $_ . "\n";
