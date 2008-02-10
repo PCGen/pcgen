@@ -135,7 +135,7 @@ for (@data) {
 	s/src="images/src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images/;
 	s/href="team/href="http:\/\/pcgen.sourceforge.net\/autobuilds\/team/;
 	s/<tr class=".">/<li>/;
-	s/<\/td>//g;
+	s/<\/*td>//g;
 	s/<\/tr>/<\/li>/g;
 	if (length $_ > 0 && !/<table/i && !/<\/table>/) {
 	   	print WHATSNEW $_ . "\n";
