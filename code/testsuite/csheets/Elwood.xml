@@ -116,7 +116,7 @@ BIO
 		<speechtendency></speechtendency>
 		<type>Humanoid</type>
 		<vision></vision>
-		<wealth>6</wealth>
+		<wealth>7</wealth>
 		<weight>
 			<weight_unit>162 lbs.</weight_unit>
 			<weight_nounit>162</weight_nounit>
@@ -1769,7 +1769,7 @@ BIO
 			<description></description>
 		</ability>
 		<ability>
-			<name>Wealth Bonus 6 (Current) 6 (Starting)</name>
+			<name>Wealth Bonus 7 (Current) 7 (Starting)</name>
 			<description></description>
 		</ability>
 		<race></race>
@@ -1833,7 +1833,7 @@ BIO
 		<feat>
 			<name>Toughness</name>
 			<description>The character gains +3 hit points</description>
-			<type>GENERAL.TOUGH.DAREDEVIL.DREADNOUGHT.SPACEMONKEY</type>
+			<type>GENERAL.TOUGH.DAREDEVIL.DREADNOUGHT.SPACEMONKEY.OUTCAST</type>
 			<associated></associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -1866,52 +1866,12 @@ BIO
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-		<feat>
-			<name>Hide(+1 to skill)</name>
-			<description></description>
-			<type>OCCUPATION_SKILL.CRIMINAL_SKILLS.MILITARY_SKILLS.DRIFTER_SKILLS.OUTCAST_SKILLS</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Outcast</name>
-			<description>iOutcasti is not so much an occupation as a forced way of life. Persecuted and exiled for being different, outcasts are lone pariahs or shunned members of a culture whose customs or characteristics society finds deviant or abhorrent. Outcasts lurk on the fringes of civilization. Some strive for acceptance, while others are trapped by their own feelings of resentment, self-loathing, or hopelessness.</description>
-			<type>OCCUPATION</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Wealth Roll of 6</name>
-			<description></description>
-			<type>WEALTHROLL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
 		<feat>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Starting Wealth</name>
-			<description></description>
-			<type>STARTINGWEALTH</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1946,6 +1906,21 @@ BIO
 			<feat></feat>
 			<sa></sa>
 			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name></name>
+			<strmod></strmod>
+			<dexmod></dexmod>
+			<conmod></conmod>
+			<intmod></intmod>
+			<wismod></wismod>
+			<chamod></chamod>
+			<cr></cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr></sr>
 			<bonuslist></bonuslist>
 		</template>
 		<template>
