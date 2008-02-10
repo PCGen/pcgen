@@ -41,8 +41,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
-import org.mozilla.javascript.tools.debugger.downloaded.TreeTableModelAdapter;
-
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
