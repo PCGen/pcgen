@@ -1,0 +1,461 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.13.9</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.13.9</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.13.9</a></li>
+			<li><a href="#Chars">Character Changes</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.13.9</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.13.9</a></h2>
+
+		<p>PCGen v5.13.9 is an alpha release from our development branch to allow 
+			experimentation and testing of our latest work. The main changes in this release
+			are listed below.</p>
+
+		<ul>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif">
+ DESC pcc tag    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1850536">1850536</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#jdempsey">jdempsey</a>
+</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif">
+ URL pcc tag    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1850537">1850537</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#jdempsey">jdempsey</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ CHOOSE:NOCHOICE feats can be selected after failing PRE tags    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1836464">1836464</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ AUTO:FEAT|.CLEAR.Summon Familiar    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1829360">1829360</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ CHOOSE:EQUIPMENT should be a valid subtoken in EqMods    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1878344">1878344</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ Deprecation Messages should appear in load dialog    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1883253">1883253</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ AUTO:SHIELDPROF not working as designed    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1882119">1882119</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ SAB does not support %CHOICE    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1878424">1878424</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif">
+ Deprecate CHOOSE:COUNT=    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1882272">1882272</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif">
+ Implement CHOOSE:SELECT=    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1882273">1882273</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ NUMCHOICES Bug    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1874314">1874314</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ MSRD Educated Feat can't be removed    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1885030">1885030</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ CHOOSE: isn't properly charging Ability Pools    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1886536">1886536</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ CHOOSE:NUMCHOICES=/STACK not respected across Ability Pools    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1886541">1886541</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ [All] Move Core ABILITYCATEGORY from GameMode to data    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1881456">1881456</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#eddyanthony">eddyanthony</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ [RSRD] Ranger Combat path to Ability Object    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1882845">1882845</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#eddyanthony">eddyanthony</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ Psychic Warrior Bonus Feats    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1877459">1877459</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#eddyanthony">eddyanthony</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ [MSRD] Move Occupations to ABILITY    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1757673">1757673</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#eddyanthony">eddyanthony</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ [MSRD] Move Wealth Roll feats to Ability Objects    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1885542">1885542</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#eddyanthony">eddyanthony</a>
+</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif">
+ [MSRD] Base class bonus feats to Ability pool    Fixes
+<a href="http://sourceforge.net/support/tracker.php?aid=1885532">1885532</a>.
+<a href="http://pcgen.sourceforge.net/team-list.html#eddyanthony">eddyanthony</a>
+</li>
+
+		<h3>New Sources</h3>
+
+		<p>The following new sources were added in 5.13.9</p>
+
+		<ul>
+			<li>None for 5.13.9</li>
+			
+
+		</ul>
+
+
+		<h2><a name="Chars">Character Changes</a></h2>
+
+		<p>We've been making some major changes behind the scenes to the way special 
+			abilities for characters are handled. The benefit is that it lets us 
+			model them more accurately, with fighter feats tracked separately to normal 
+			feats for example, and that we can output them more accurately on the character 
+			sheet or stat block. However there is a downside - this means that there is some 
+			migration required for some characters. For details of what you need to do, see 
+			the sections for the affected game modes below.</p>
+		<p>This revamp of abilities is something we would like your feedback on. So please have a play 
+			with them and send your thoughts to the <a href="http://groups.yahoo.com/group/pcgen">PCGen list</a>.</p>
+
+		<h3>Fantasy Character Changes</h3>
+
+		<p>When a pre-generated SRD (3rd ed) or RSRD (3.5 ed) ranger, archmage or high level rogue 
+			character is loaded, it will not recognize
+			the selected abilities anymore. For that reason one or more error
+			messages will be displayed at character load, which read: "Warning:
+			Unable to Find Ability: xxx", where xxx is the name of an ability that
+			the character had previously selected.</p>
+		<p>To fix this problem, you can take the following steps:</p>
+		<ol>
+			<li>Write down the abilities that are mentioned in those error messages somewhere.</li>
+			<li>Go to the Feats tab and select the new "Class Abilities" subtab.</li>
+			<li>In the lower right corner of the Class Abilities tab you see a drop down
+				menu which reads "Rogue Special Abilities". Select the appropriate type of ability 
+				for one of the abilities that you have noted. The "remaining" field should now show a
+				positive number.</li>
+			<li>In the upper left field only abilities that belong to that group will
+				be displayed. Select your ability(s) for that group there.</li>
+			<li>Repeat for any abilities that were taken from another group.</li>
+		</ol>
+
+		<h3>MSRD Character Changes</h3>
+
+		
+		<p>When a pre-generated modern character is loaded, it will not recognize previously 
+		   selected Talents, Wealth Rolls, Occupations and it's associated selections anymore. 
+		   For that reason one or more error messages will be displayed at character load, 
+		   which read: "Warning: Unable to Find Ability: xxx", where xxx is the name of 
+		   a Ability that the character had previously selected.</p>
+		<p>To fix this problem, you can take the following steps:</p>
+		<ol>
+			<li>Write down the Abilities that are mentioned in the error messages.</li>
+			<li>The Occupation feature is activated via a template that is added when adding a level of any base class, 
+				to get this template applied to a pre-generated character you must add a level of a base class. 
+				You can add a level and then remove it as well as remove a level and add it back if you need to stay at the current level
+				(remember to write down your current experience point value before you level up so you can reset it when leveling back down). 
+				If you have more than one base class you will get a pop up chooser window for a template with choices like "FastSkills" or "SmartSkills", 
+				choose the template that corresponds to the class taken at level 1.</li>
+			<li>Go to the Feats tab and select the new "Background" subtab.</li>
+			<li>For most characters you will see an available "Pool" for Wealth and Occupation.</li>
+			<li>Select the Wealth Pool and choose a Wealth Roll.</li>
+			<li>Select the Occupation Pool and choose an Occupation.</li>
+			<li>Once an Occupation is chosen a new pool for that Occupations skill selections becomes available.</li>
+			<li>Some Occupations also grant a choice of Feats, these options can be found and selected in the "Feats" subtab.</li>
+			<li>Previously selected Occupation Feats will be in the main Feat Pool, see notes below on how to fix this.</li>
+			<li>Next select the new "Talents" subtab.</li>
+			<li>In the lower right corner of the Talents tab you see a drop down
+				menus which reads "Talents". Select a class that one of the talents
+				you have noted was taken from. The "remaining" field should now show a
+				positive number.</li>
+			<li>In the upper left field only Talents that belong to that class will
+				be displayed. Select your Talent(s) for that class there.</li>
+			<li>Repeat for any Talents that were taken from another class.</li>
+		</ol>
+		<p>The way that the Base classes bonus feats are handled has been changed as well. 
+			  Instead of a pop up appearing when the character is leveled up a new Feat Pool 
+			  is created on the Feats subtab from which those feats can be chosen. Pre-generated 
+			  characters will now have an empty pool for these feats even though they have 
+			  already previously been selected.</p>
+		<p>To fix this problem, you can take the following steps:</p>
+		<ol>
+			<li>Determine which Feats in the standard Feat Pool were chosen as Bonus Feats or Occupation Feats.</li>
+			<li>Remove those Feats from the standard Pool and change the number in the Feats Remaining field to 0.</li>
+			<li>Select the Bonus Feat Pool and add your Feats back.</li>
+		</ol>
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.13.9 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="#CustomDataSets">Custom Data Sets</a> section below before 
+			installing your new version of PCGen.</p>
+
+		<h3>Windows Users</h3>
+
+		<p>We recommend that you use the Windows installer.</p>
+
+		<h3>Mac Users</h3>
+
+		<p>We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+			This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+			handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+			the application window caused the program to crash at startup. At this point in time
+			the solution is to set the menu bar to appear in application menu.</p>
+
+		<p>Also new in this version is the configuration of the program, all the necessary
+			files are now included with the program package. You can still access the files
+			by right clicking the program and choosing <strong>Show Package Contents</strong>.
+			See the notes included in the installer DMG for all the details.</p>
+
+		<h3>Others (or advanced) users</h3>
+
+		<p>Pick the package with the features you want and unzip it. It is highly
+			recommended that you use a new directory for every new release. Once the
+			package is unzipped, see docs\index.html for the full documentation.</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5139_full.zip?download">pcgen5139_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5139_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5139_partial.zip?download">pcgen5139_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5139_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5139_win_install.exe?download">pcgen5139_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5139_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle with Ed's nifty installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5139_mac_install.dmg?download">pcgen5139_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5139_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></ p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. Both of these need some 
+			attention when upgrading PCGen.</P>
+
+		<h3>Migrating Data Created in the LST Editor</h3>
+
+		<p>If, as is recommended, you install PCGen into a new directory each time you upgrade, 
+			you will need to copy over the data created using the LST Editors. To do this follow
+			these steps.</p>
+		<ol>
+			<li>Stop PCGen, if it is currently running. PCGen must not be 
+				running when you copy the files, as PCGen writes a new copy of these files on exit.</LI>
+			<li>Copy the data/customsources folder and all of its contents from your old PCGen install 
+				directory to the new install directory.</LI>
+			<li>Start the new version of PCGen and verify that your custom data is present.</LI>
+		</ol>
+		<p>If you install PCGen in the same directory as your previous install, your LST 
+			editor data will still be present in the new version.</p> 
+
+		<h3>Migrating Data Created using the my_dataset files</h3>
+
+		<p>PCGen ships with an example set of data files ready to go to create you own data. This 
+			is in the data/my_dataset folder. As the example files ship with PCGen, it is very important
+			to note that these can be overwritten by a new PCGen install if you have not renamed the 
+			data set and install the new version of PCGen in the same location as the old one.</p>
+		<p>As a result, we strongly recommend that when using the my_dataset example files, you create a 
+			copy in a new folder and work with that copy, rather than editing the example files directly.</p>
+		<p>If you install PCGen into a new directory each time you upgrade, 
+			you may need to copy over the data you have created. If you cannot see your custom data, simply copy 
+			over the folder with your custom data to the same location in the new PCGen install. The data should 
+			then be visible when you restart PCGen. </p>
+		<p>If you are installing PCGen into the same directory, backup your custom data first, then make sure it 
+			does not use the default my_dataset folder name. Once you are sure you data is safe, then proceed with 
+			the upgrade of PCGen.</p>
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to Eric Smith (<a href="mailto:maredudd@blackroot.org">maredudd@blackroot.org</a>)
+			or Eddy Anthony (<a href="mailto:eddyba@mindspring.com">eddyba@mindspring.com</a>), or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></ p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.13.9</a></h2>
+
+<h3>Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1829360">1829360</a> ]	AUTO:FEAT|.CLEAR.Summon Familiar</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1836464">1836464</a> ]	CHOOSE:NOCHOICE feats can be selected after failing PRE tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1874314">1874314</a> ]	NUMCHOICES Bug</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1875191">1875191</a> ]	[5.13.7] ADD:FEAT not working properly inside a feat</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1878344">1878344</a> ]	CHOOSE:EQUIPMENT should be a valid subtoken in EqMods </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1878424">1878424</a> ]	SAB does not support %CHOICE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882119">1882119</a> ]	AUTO:SHIELDPROF not working as designed</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883253">1883253</a> ]	Deprecation Messages should appear in load dialog</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885030">1885030</a> ]	MSRD Educated Feat can&#039;t be removed</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1886536">1886536</a> ]	CHOOSE: isn&#039;t properly charging Ability Pools</li>
+</ul>
+
+<h3>Data Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1872410">1872410</a> ]	SRD Monk Fast Movement Typo</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1879374">1879374</a> ]	Invalid use of ADD: (FAVOREDCLASS)</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1879878">1879878</a> ]	[Sidewinder] Update MSRD Ability dependancies</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1880163">1880163</a> ]	[Pulp Fantasy] hidden feats with brackets in name</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882719">1882719</a> ]	[RSRD] Glory domain bonuses wrong VAR</li>
+</ul>
+
+<h3>Data Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1757673">1757673</a> ]	[MSRD] Move Occupations to ABILITY</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1763417">1763417</a> ]	Complete 5.14 Source Load Test</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1864700">1864700</a> ]	PROFICIENCY: Token requires subtoken WEAPON</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1870481">1870481</a> ]	AUTO: token changes</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1873119">1873119</a> ]	[RSRD] Hydra veriants (Cryo and Pyro) missing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1877459">1877459</a> ]	Psychic Warrior Bonus Feats</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1881456">1881456</a> ]	[All] Move Core ABILITYCATEGORY from GameMode to data</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882845">1882845</a> ]	[RSRD] Ranger Combat path to Ability Object</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885532">1885532</a> ]	[MSRD] Base class bonus feats to Ability pool</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885542">1885542</a> ]	[MSRD] Move Wealth Roll feats to Ability Objects</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1888295">1888295</a> ]	CHOOSE:COUNT= is deprecated</li>
+</ul>
+
+<h3>Documentation Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1884879">1884879</a> ]	CHOOSE:LANGUAGE docs incorrect</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885566">1885566</a> ]	ADD:VFEAT does activate a chooser.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1887291">1887291</a> ]	CHOOSE: items not Global</li>
+</ul>
+
+<h3>Documentation Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1881560">1881560</a> ]	Add DESC Tag to PCC Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1881562">1881562</a> ]	Add URL Tag to PCC Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883417">1883417</a> ]	Add LOGO tag to the Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1887442">1887442</a> ]	CHOOSE: items deprecated</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1888289">1888289</a> ]	SELECT: Token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1888291">1888291</a> ]	CHOOSE:COUNT= is deprecated</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1888526">1888526</a> ]	CHOOSE:NUMCHOICES description</li>
+</ul>
+
+<h3>Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1850536">1850536</a> ]	DESC pcc tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1850537">1850537</a> ]	URL pcc tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882211">1882211</a> ]	Add support for .CLEAR in AUTO:FEAT</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882272">1882272</a> ]	Deprecate CHOOSE:COUNT=</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882273">1882273</a> ]	Implement CHOOSE:SELECT=</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883216">1883216</a> ]	New pcc tag: LOGO</li>
+</ul>
+
+<h3>New Release Steps</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883127">1883127</a> ]	NATURALATTACKS problems</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883128">1883128</a> ]	Resolve CLASS.* in REMOVE:FEAT</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883130">1883130</a> ]	SPELLLIST embedded chooser problem</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883141">1883141</a> ]	Locking NATURALATTACKS characteristics</li>
+</ul>
+
+<h3>Output Sheet Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1763493">1763493</a> ]	xsl:template &#039;companions&#039;  twice in fantasy_master_std.xslt</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1863713">1863713</a> ]	psheet_fantasy_std.htm doesn&#039;t show characters&#039; portraits</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1869014">1869014</a> ]	Troubleshooting OS warnings</li>
+</ul>
+
+<h3>Plugin Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1860958">1860958</a> ]	Add experience doesn&#039;t work for CR&gt;20</li>
+
+</ul>
+
+
+
+	</body>
+</html>
