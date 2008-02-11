@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 29 22:20:41 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Feb 11 12:31:42 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -20,13 +20,13 @@ Spell-Like Ability		CATEGORY:Special Ability	TYPE:HighArcana.SpellLike.SpecialAt
 ###Block: Dragon Disciple Class Features
 # Dragon Disciple
 # Feat Name								Type						Visible	Required Class			Special Ability	Choose																				MOVECLONE
-#Bonus Spell Slot 1	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 2	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 3	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 4	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 5	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 6	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 7	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 1	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 2	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 3	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 4	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 5	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 6	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 7	CATEGORY:Special Ability	TYPE:Dragon Disciple			VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
 #Dragon Wings		CATEGORY:Special Ability	TYPE:Dragon Disciple.Extraordinary	VISIBLE:YES	PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)																	MOVECLONE:Walk,Fly,*1
 
 ###Block: Hierophant Abilities
@@ -68,17 +68,17 @@ Cavernous Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DI
 Other Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Other Planar Terrain Mastery
 
 ###Block: Loremaster Secrets
-# Ability Name			Category of Ability		Type							Visible		Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose																Bonus to Ability Pool		Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
-Instant Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,1		SAB:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK|1																														BONUS:SKILLRANK|LIST|4	SOURCEPAGE:PrestigeClasses.rtf
-Secret Health			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,2		SAB:Secret (Secret Health)																																								BONUS:HP|CURRENTMAX|3					SOURCEPAGE:PrestigeClasses.rtf
-Secrets of Inner Strength	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,3		SAB:Secret (Secrets of Inner Strength)																												BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:PrestigeClasses.rtf
-The Lore of True Stamina	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,4		SAB:Secret (The Lore of True Stamina)																												BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:PrestigeClasses.rtf
-Secret Knowledge of Avoidance	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,5		SAB:Secret (Secret Knowledge of Avoidance)																											BONUS:CHECKS|BASE.Reflex|2														SOURCEPAGE:PrestigeClasses.rtf
-Weapon Trick			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,6		SAB:Secret (Weapon Trick)																																			BONUS:COMBAT|BAB|1										SOURCEPAGE:PrestigeClasses.rtf
-Dodge Trick				CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,7		SAB:Secret (Dodge Trick)																																			BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:PrestigeClasses.rtf
-Applicable Knowledge		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,8		SAB:Secret (Applicable Knowledge)																								BONUS:ABILITYPOOL|FEAT|1																			SOURCEPAGE:PrestigeClasses.rtf
-Newfound Arcana			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,9		SAB:Secret (Newfound Arcana)				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:PrestigeClasses.rtf
-More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,10	SAB:Secret (More Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name			Category of Ability		Type							Visible		Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose														Bonus to Ability Pool		Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
+Instant Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,1		SAB:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK|1																												BONUS:SKILLRANK|LIST|4	SOURCEPAGE:PrestigeClasses.rtf
+Secret Health			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,2		SAB:Secret (Secret Health)																																						BONUS:HP|CURRENTMAX|3					SOURCEPAGE:PrestigeClasses.rtf
+Secrets of Inner Strength	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,3		SAB:Secret (Secrets of Inner Strength)																										BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:PrestigeClasses.rtf
+The Lore of True Stamina	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,4		SAB:Secret (The Lore of True Stamina)																										BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:PrestigeClasses.rtf
+Secret Knowledge of Avoidance	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,5		SAB:Secret (Secret Knowledge of Avoidance)																									BONUS:CHECKS|BASE.Reflex|2														SOURCEPAGE:PrestigeClasses.rtf
+Weapon Trick			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,6		SAB:Secret (Weapon Trick)																																	BONUS:COMBAT|BAB|1										SOURCEPAGE:PrestigeClasses.rtf
+Dodge Trick				CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,7		SAB:Secret (Dodge Trick)																																	BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:PrestigeClasses.rtf
+Applicable Knowledge		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,8		SAB:Secret (Applicable Knowledge)																						BONUS:ABILITYPOOL|FEAT|1																			SOURCEPAGE:PrestigeClasses.rtf
+Newfound Arcana			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,9		SAB:Secret (Newfound Arcana)				STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:PrestigeClasses.rtf
+More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:DISPLAY	PREVARGTEQ:SecretLore,10	SAB:Secret (More Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:PrestigeClasses.rtf
 
 #
 #EOF

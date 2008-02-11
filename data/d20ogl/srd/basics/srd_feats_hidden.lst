@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 29 22:21:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Feb 11 12:34:18 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Class Pseudo Feats....
 # Original Entry by Tir Gwaith
@@ -70,17 +70,17 @@ Uncanny Dodge		VISIBLE:NO	SAB:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	SAB:U
 Defensive Awareness	VISIBLE:NO	SAB:Defensive Awareness (Dex bonus to AC)|UncannyDodge	SAB:Defensive Awareness (can't be flanked)|ImprovedUncannyDodge	SAB:Defensive Awareness (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
 
 ###Block: Loremaster secrets
-# Feat Name				Type				Visible	Var. Min. Value			Special ABility							Stackable?	Multiple?	Choose																Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
-Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SAB:Loremaster Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK																									BONUS:SKILLRANK|LIST|4	SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SAB:Loremaster Secret (Secret Health)			STACK:NO	MULT:NO																												BONUS:HP|CURRENTMAX|3					SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SAB:Loremaster Secret (Secrets of Inner Strength)	STACK:NO	MULT:NO																		BONUS:CHECKS|Will|1															SOURCEPAGE:srdbasiccharacterclassesi.rtf
-The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,4		SAB:Loremaster Secret (The Lore of True Strength)	STACK:NO	MULT:NO																		BONUS:CHECKS|Fortitude|1														SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Secret Knowledge of Avoidance	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,5		SAB:Loremaster Secret (Secret Knowledge of Avoidance)	STACK:NO	MULT:NO																		BONUS:CHECKS|Reflex|1															SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Weapon Trick			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,6		SAB:Loremaster Secret (Weapon Trick)			STACK:NO	MULT:NO																							BONUS:COMBAT|TOHIT|1										SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Dodge Trick				TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,7		SAB:Loremaster Secret (Dodge Trick)				STACK:NO	MULT:NO																							BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Applicable Knowledge		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,8		SAB:Loremaster Secret (Applicable Knowledge)		STACK:NO	MULT:NO																																				SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SAB:Loremaster Secret (Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																			SOURCEPAGE:srdbasiccharacterclassesii.rtf
-More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SAB:Loremaster Secret (More Newfound Arcana)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																			SOURCEPAGE:srdbasiccharacterclassesii.rtf
+# Feat Name				Type				Visible	Var. Min. Value			Special ABility							Stackable?	Multiple?	Choose														Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
+Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SAB:Loremaster Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK																							BONUS:SKILLRANK|LIST|4	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SAB:Loremaster Secret (Secret Health)			STACK:NO	MULT:NO																										BONUS:HP|CURRENTMAX|3					SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SAB:Loremaster Secret (Secrets of Inner Strength)	STACK:NO	MULT:NO																BONUS:CHECKS|Will|1															SOURCEPAGE:srdbasiccharacterclassesi.rtf
+The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,4		SAB:Loremaster Secret (The Lore of True Strength)	STACK:NO	MULT:NO																BONUS:CHECKS|Fortitude|1														SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Secret Knowledge of Avoidance	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,5		SAB:Loremaster Secret (Secret Knowledge of Avoidance)	STACK:NO	MULT:NO																BONUS:CHECKS|Reflex|1															SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Weapon Trick			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,6		SAB:Loremaster Secret (Weapon Trick)			STACK:NO	MULT:NO																					BONUS:COMBAT|TOHIT|1										SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Dodge Trick				TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,7		SAB:Loremaster Secret (Dodge Trick)				STACK:NO	MULT:NO																					BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Applicable Knowledge		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,8		SAB:Loremaster Secret (Applicable Knowledge)		STACK:NO	MULT:NO																																		SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SAB:Loremaster Secret (Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																			SOURCEPAGE:srdbasiccharacterclassesii.rtf
+More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SAB:Loremaster Secret (More Newfound Arcana)		STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																			SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
 
 ###Block:Command special abilities (used by multiple classes)

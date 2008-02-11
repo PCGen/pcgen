@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  6 23:55:22 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Feb 11 12:31:42 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -113,17 +113,17 @@ Greater Lore	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Greater Lore (Ex)		S
 True Lore		TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:True Lore (Ex)		SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Loremaster Secrets
-# Feat Name				Type				Visible	Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose																Add										Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
-Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SAB:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK																																			BONUS:SKILLRANK|LIST|4	SOURCEPAGE:PrestigeClasses.rtf
-Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SAB:Secret (Secret Health)																																													BONUS:HP|CURRENTMAX|3					SOURCEPAGE:PrestigeClasses.rtf
-Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SAB:Secret (Secrets of Inner Strength)																																	BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:PrestigeClasses.rtf
-The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,4		SAB:Secret (The Lore of True Stamina)																																	BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:PrestigeClasses.rtf
-Secret Knowledge of Avoidance	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,5		SAB:Secret (Secret Knowledge of Avoidance)																																BONUS:CHECKS|BASE.Reflex|2														SOURCEPAGE:PrestigeClasses.rtf
-Weapon Trick			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,6		SAB:Secret (Weapon Trick)																																								BONUS:COMBAT|BAB|1										SOURCEPAGE:PrestigeClasses.rtf
-Dodge Trick				TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,7		SAB:Secret (Dodge Trick)																																								BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:PrestigeClasses.rtf
-Applicable Knowledge		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,8		SAB:Secret (Applicable Knowledge)																								ADD:FEAT|TYPE=Metamagic,TYPE=ItemCreation,TYPE=General																			SOURCEPAGE:PrestigeClasses.rtf
-Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SAB:Secret (Newfound Arcana)				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
-More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SAB:Secret (More Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
+# Feat Name				Type				Visible	Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose														Add										Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
+Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SAB:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK																																	BONUS:SKILLRANK|LIST|4	SOURCEPAGE:PrestigeClasses.rtf
+Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SAB:Secret (Secret Health)																																											BONUS:HP|CURRENTMAX|3					SOURCEPAGE:PrestigeClasses.rtf
+Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SAB:Secret (Secrets of Inner Strength)																															BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:PrestigeClasses.rtf
+The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,4		SAB:Secret (The Lore of True Stamina)																															BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:PrestigeClasses.rtf
+Secret Knowledge of Avoidance	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,5		SAB:Secret (Secret Knowledge of Avoidance)																														BONUS:CHECKS|BASE.Reflex|2														SOURCEPAGE:PrestigeClasses.rtf
+Weapon Trick			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,6		SAB:Secret (Weapon Trick)																																						BONUS:COMBAT|BAB|1										SOURCEPAGE:PrestigeClasses.rtf
+Dodge Trick				TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,7		SAB:Secret (Dodge Trick)																																						BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:PrestigeClasses.rtf
+Applicable Knowledge		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,8		SAB:Secret (Applicable Knowledge)																						ADD:FEAT|TYPE=Metamagic,TYPE=ItemCreation,TYPE=General																			SOURCEPAGE:PrestigeClasses.rtf
+Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SAB:Secret (Newfound Arcana)				STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
+More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SAB:Secret (More Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Shadowdancer special abilities
 # Feat Name		Type						Visible	Special ABility										Define									Innate Spells											Source Page
