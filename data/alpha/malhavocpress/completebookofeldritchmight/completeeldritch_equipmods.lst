@@ -10,7 +10,7 @@ Comfort			KEY:COMFORT		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.1
 Demon Repelling		KEY:DEMONREP	TYPE:Armor.Shield	PLUS:5	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor																		SPROP:Demons gets -2 penalty to attack you. You gain SR 20 against demons
 Dispelling			KEY:DISPEL		TYPE:Armor.Shield	PLUS:8	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor																		SPROP:Automatically dispels any spell on caster
 Grace				KEY:GRACE		TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor	BONUS:EQMARMOR|MAXDEX|50													SPROP:No MaxDex
-Hiding			KEY:HIDE		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor																		SPROP:No armor penalties for all Hide checks
+Hiding			KEY:HIDE_CBEM	TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor																		SPROP:No armor penalties for all Hide checks
 Maneuvering			KEY:MANEU		TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor	BONUS:EQMARMOR|ACCHECK|2													SPROP:-2 on Armor Check penalty
 Maneuvering (Greater)	KEY:MANEUGR		TYPE:Armor.Shield	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor	BONUS:EQMARMOR|ACCHECK|40													SPROP:No Armor Check penalty
 Moving Silently		KEY:MOVESIL		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:No armor penalties for all Move Silently checks
