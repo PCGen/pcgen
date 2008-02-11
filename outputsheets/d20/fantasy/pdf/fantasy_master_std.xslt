@@ -4216,7 +4216,7 @@
 	TEMPLATE - Other Companions
 ====================================
 ====================================-->
-	<xsl:template match="companions">
+	<xsl:template match="misc/companions">
 		<xsl:if test="count(companion) &gt; 0">
 			<fo:table table-layout="fixed" space-before.optimum="2mm">
 				<xsl:call-template name="attrib">
