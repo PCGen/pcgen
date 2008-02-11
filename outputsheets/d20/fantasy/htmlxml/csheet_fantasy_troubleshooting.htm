@@ -105,13 +105,13 @@ $Date: 2007/03/08 18:57:54 $
 |STAT.%stat.BASE.SIGN-(STAT.%stat.LEVEL.(VAR.TL)-STAT.%stat.LEVEL.1)|[USER] 		<!-- Report User Values -->
 														<!-- Report MISC Bonuses -->
 |STAT.%stat.LEVEL.1.NOPOST.NOEQUIP.NOTEMP-(STAT.%stat.BASE-(STAT.%stat.LEVEL.(VAR.TL)-STAT.%stat.LEVEL.1)).SIGN|[MISC] 
-|IIF(STAT.%stat.LEVEL.TL-STAT.%stat.LEVEL.TL.NOEQUIP==0)|					<!-- Report Equipment Bonuses -->
+|IIF(STAT.%stat.LEVEL.(VAR.TL)-STAT.%stat.LEVEL.(VAR.TL).NOEQUIP==0)|					<!-- Report Equipment Bonuses -->
 |ELSE|
-|STAT.%stat.LEVEL.TL-STAT.%stat.LEVEL.TL.NOEQUIP.SIGN|[GEAR] 
+|STAT.%stat.LEVEL.(VAR.TL)-STAT.%stat.LEVEL.(VAR.TL).NOEQUIP.SIGN|[GEAR] 
 |ENDIF|
-|IIF(STAT.%stat.LEVEL.TL-STAT.%stat.LEVEL.TL.NOTEMP==0)|					<!-- Report Temporary Bonuses -->
+|IIF(STAT.%stat.LEVEL.(VAR.TL)-STAT.%stat.LEVEL.(VAR.TL).NOTEMP==0)|					<!-- Report Temporary Bonuses -->
 |ELSE|
-|STAT.%stat.LEVEL.TL-STAT.%stat.LEVEL.TL.NOTEMP.SIGN|[TEMP] 
+|STAT.%stat.LEVEL.(VAR.TL)-STAT.%stat.LEVEL.(VAR.TL).NOTEMP.SIGN|[TEMP] 
 |ENDIF|
 |FOR,%bumps,1,VAR.TL,1,1|										<!-- Report Level adjustment bumps -->
 |IIF(var("(STAT.%stat.LEVEL.%bumps)-(STAT.%stat.LEVEL.(%bumps-1))")==0)|
