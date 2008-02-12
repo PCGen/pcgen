@@ -1,0 +1,31 @@
+# CVS $Revision$ $Author$ -- Fri Nov 30 13:26:59 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+CAMPAIGN:Modern Dispatch - #115 - Airborne Legionnaire
+RANK:6
+GAMEMODE:Modern
+GENRE:Modern
+BOOKTYPE:Supplement
+SETTING:Modern
+TYPE:RPGObjects.Modern Dispatch
+PUBNAMELONG:RPG Objects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
+SOURCELONG:Modern Dispatch #115 - Airborne Legionnaire
+SOURCESHORT:MD115
+SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=50353
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:System Reference Document Copyright 2000-2004, Wizards of the Coast, Inc.: Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Modern Dispatch #115 2007, RPGObjects; Author Mike Lafferty
+COPYRIGHT:PCGen dataset conversion for Modern Dispatch #115 Copyright 2007, PCGen Data team including, but not limited to, Paul W. King
+
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:moderndispatch115_class.lst
+FEAT:moderndispatch115_feat.lst
+
+#
+# End
+#

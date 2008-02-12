@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Sun Jan 27 14:11:41 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Modern Dispatch #115 - Airborne Legionnaire	SOURCESHORT:MD115	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=50353
+
+# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus								Combat bonus		Modify VAR
+CLASS:Airborne Legionnaire	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6
+# Class Name			Req. Att.	Multiple Requirements								Required Stat
+CLASS:Airborne Legionnaire	PREATT:8	PREMULT:1,[PRESKILL:1,Ride=4],[PRESKILL:2,Pilot,Handle Animal=4]	PRESTAT:1,DEX=13
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Airborne Legionnaire	STARTSKILLPTS:4	CSKILL:Balance|Climb|Listen|Jump|Spot|Navigate|Tumble|Ride|Handle Animal|Bluff|Concentration|Profession|Survival
+1	SAB:Share Spells									VFEAT:Flyby Attack
+2	SAB:Aerial Defense
+3						ADD:FEAT|TYPE=AirborneLegionnaire
+4	SAB:Evasive Action
+5						ADD:FEAT|TYPE=AirborneLegionnaire
+6	SAB:Enhanced Maneuverability
+7	SAB:Mounted Spellcasting
+8						ADD:FEAT|TYPE=AirborneLegionnaire
+9	SAB:Extended Empathic Link
+10	SAB:Improved Aerial Evasion

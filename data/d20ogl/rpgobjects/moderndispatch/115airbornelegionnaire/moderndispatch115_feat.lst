@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Sun Jan 27 14:11:41 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Modern Dispatch #115 - Airborne Legionnaire	SOURCESHORT:MD115	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=50353
+
+# Feat Name			Type
+Blind-Fight.MOD		TYPE:AirborneLegionnaire
+Brawl.MOD			TYPE:AirborneLegionnaire
+Combat Expertise.MOD	TYPE:AirborneLegionnaire
+Dead Aim.MOD		TYPE:AirborneLegionnaire
+Improved Brawl.MOD	TYPE:AirborneLegionnaire
+Improved Feint.MOD	TYPE:AirborneLegionnaire
+Iron Will.MOD		TYPE:AirborneLegionnaire
+Lightning Reflexes.MOD	TYPE:AirborneLegionnaire
+Strafe.MOD			TYPE:AirborneLegionnaire
