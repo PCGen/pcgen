@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 12 20:26:52 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Tue Feb 12 11:15:22 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Equipment Name			Type						Cost		Slot Needed	Choose					Modifier	Source Page					Bonus to skill			Special Property
@@ -74,17 +74,17 @@ Psychoactive Skin (Striking)		TYPE:Psionic.Universal.PsycoSkin	COST:24000				SOU
 Psychoactive Skin (Troll)		TYPE:Psionic.Universal.PsycoSkin	COST:90000				SOURCEPAGE:srdpsionicitems.rtf
 
 ###Block: Shards
-# Equipment Name	Type					Cost		Choose		Source Page					Bonus to skill
-Shard +1		TYPE:Psionic.Universal.Shard	COST:20	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|1
-Shard +2		TYPE:Psionic.Universal.Shard	COST:30	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|2
-Shard +3		TYPE:Psionic.Universal.Shard	COST:40	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|3
-Shard +4		TYPE:Psionic.Universal.Shard	COST:60	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|4
-Shard +5		TYPE:Psionic.Universal.Shard	COST:100	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|5
-Shard +6		TYPE:Psionic.Universal.Shard	COST:140	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|6
-Shard +7		TYPE:Psionic.Universal.Shard	COST:200	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|7
-Shard +8		TYPE:Psionic.Universal.Shard	COST:250	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|8
-Shard +9		TYPE:Psionic.Universal.Shard	COST:320	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|9
-Shard +10		TYPE:Psionic.Universal.Shard	COST:400	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|10
+# Equipment Name	Type							Cost		Requires Modification?	Source Page
+Shard +1		TYPE:Psionic.Universal.Shard.Shard1		COST:20	MODS:YES			SOURCEPAGE:srdpsionicitems.rtf
+Shard +2		TYPE:Psionic.Universal.Shard.Shard2		COST:30	MODS:YES			SOURCEPAGE:srdpsionicitems.rtf
+Shard +3		TYPE:Psionic.Universal.Shard.Shard3		COST:40	MODS:YES			SOURCEPAGE:srdpsionicitems.rtf
+Shard +4		TYPE:Psionic.Universal.Shard.Shard4		COST:60	MODS:YES			SOURCEPAGE:srdpsionicitems.rtf
+Shard +5		TYPE:Psionic.Universal.Shard.Shard5		COST:100	MODS:YES			SOURCEPAGE:srdpsionicitems.rtf
+Shard +6		TYPE:Psionic.Universal.Shard.Shard6		COST:140	MODS:YES			SOURCEPAGE:srdpsionicitems.rtf
+Shard +7		TYPE:Psionic.Universal.Shard.Shard7		COST:200	MODS:YES			SOURCEPAGE:srdpsionicitems.rtf
+Shard +8		TYPE:Psionic.Universal.Shard.Shard8		COST:250	MODS:YES			SOURCEPAGE:srdpsionicitems.rtf
+Shard +9		TYPE:Psionic.Universal.Shard.Shard9		COST:320	MODS:YES			SOURCEPAGE:srdpsionicitems.rtf
+Shard +10		TYPE:Psionic.Universal.Shard.Shard10	COST:400	MODS:YES			SOURCEPAGE:srdpsionicitems.rtf
 
 ###Block:Third Eyes
 # Equipment Name		Type						Cost		Source Page					Bonus to skill						Special Property
