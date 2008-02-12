@@ -41,6 +41,7 @@ $pub{'aleapublishinggroup'} = 'Alea Publishing Group';
 $pub{'atlasgames'} = 'Atlas Games';
 $pub{'aurand20'} = 'Auran d20';
 $pub{'avalanchepress'} = 'Avalanche Press';
+$pub{'badaxegames'} = 'Bad Axe Games';
 $pub{'bardsandsages'} = 'Bards and Sages';
 $pub{'bastionpress'} = 'Bastion Press';
 $pub{'battlefieldpress'} = 'Battlefield Press';
@@ -81,6 +82,7 @@ $pub{'stcooleypublishing'} = 'S T Cooley Publishing';
 $pub{'swordandsorcerystudios'} = 'Sword and Sorcery Studios';
 $pub{'swordsedgepublishing'} = 'Swords Edge Publishing';
 $pub{'thegamemechanics'} = 'The Game Mechanics Inc';
+$pub{'vigilancepress'} = 'Vigilance Press';
 $pub{'wizardsofthecoast'} = 'Wizards of the Coast';
 
 # Open the script output file
