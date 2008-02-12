@@ -16615,14 +16615,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 			final int subfeatCount = aFeat.getAssociatedCount();
-
-			if (subfeatCount > 1)
+			double cost = aFeat.getCost(this);
+			int select = getVariableValue(aFeat.getSelectCount(), "")
+					.intValue();
+			double relativeCost = cost / select;
+			if (aFeat.getChoiceString() != null
+				&& aFeat.getChoiceString().length() > 0)
 			{
-				iCount += subfeatCount;
+				iCount += Math.ceil(subfeatCount * relativeCost);
 			}
 			else
 			{
-				iCount += aFeat.getCost(this);
+				if (!AbilityCategory.FEAT.allowFractionalPool())
+				{
+					iCount += (int) Math.ceil(relativeCost);
+				}
+				else
+				{
+					iCount += relativeCost;
+				}
 			}
 		}
 
