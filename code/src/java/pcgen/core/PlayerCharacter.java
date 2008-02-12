@@ -13918,6 +13918,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private boolean includeSkill(final Skill skill, final int level)
 	{
 		boolean UntrainedExclusiveClass = false;
+		boolean IsQualified = true;
 
 		if (skill.isUntrained() && skill.isExclusive())
 		{
@@ -13927,10 +13928,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				UntrainedExclusiveClass = true;
 			}
 		}
+		else if (skill.isUntrained())
+		{
+			IsQualified = PrereqHandler.passesAll((skill).getPreReqList(), this, skill);
+		}
 
 		return (level == 2) || skill.isRequired()
 			|| (skill.getTotalRank(this).floatValue() > 0)
-			|| ((level == 1) && skill.isUntrained() && !skill.isExclusive())
+			|| ((level == 1) && skill.isUntrained() && IsQualified && !skill.isExclusive())
 			|| ((level == 1) && UntrainedExclusiveClass);
 	}
 

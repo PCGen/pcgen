@@ -34,6 +34,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.*;
 import pcgen.gui.filter.*;
+import static pcgen.gui.HTMLUtils.*;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.*;
 import pcgen.util.*;
@@ -286,10 +287,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	public static SkillWrapper createSkillWrapper(boolean available,
 		Skill skill, PlayerCharacter pc)
 	{
-		return available ? new SkillWrapper(skill, Integer.valueOf(0),
-			new Float(0), Integer.valueOf(0)) : new SkillWrapper(skill, skill
-			.modifier(pc), skill.getTotalRank(pc), Integer.valueOf(skill
-			.getOutputIndex()));
+		return available ? 
+			new SkillWrapper(skill, Integer.valueOf(0), new Float(0), Integer.valueOf(0),
+					PrereqHandler.passesAll((skill).getPreReqList(), pc, skill)) : 
+			new SkillWrapper(skill, skill.modifier(pc), skill.getTotalRank(pc), 
+					Integer.valueOf(skill.getOutputIndex()),
+					PrereqHandler.passesAll((skill).getPreReqList(), pc, skill));
 	}
 
 	/**
@@ -2209,34 +2212,33 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			b.append("<html><b>").append(aSkill.piSubString()).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$
 			if (!Globals.checkRule(RuleConstants.SKILLMAX))
 			{
-				b.append(PropertyFactory.getString("in_iskHtml_MAXRANK"))
-					.append(
-						pc
-							.getMaxRank(aSkill.getKeyName(),
-								getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
+				b.append(PropertyFactory.getString("in_iskHtml_MAXRANK")).append(pc.getMaxRank(aSkill.getKeyName(), getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
 			}
-			b
-					.append(PropertyFactory.getString("in_iskHtml_TYPE")).append(CoreUtility.join(aSkill.getTypeList(true), ". ")); //$NON-NLS-1$
-//			.append(PropertyFactory.getString("in_iskHtml_TYPE")).append(CoreUtility.join(aSkill.getTypeList(true), '.')); //$NON-NLS-1$
+			b.append(PropertyFactory.getString("in_iskHtml_TYPE")).append(CoreUtility.join(aSkill.getTypeList(true), ". ")); //$NON-NLS-1$
 
-			//			String aString = aSkill.getKeyStat();
 			String aString = aSkill.getKeyStatFromStats();
 			if (aString.length() != 0)
 			{
-				b
-					.append(PropertyFactory.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$
+				b.append(PropertyFactory.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$
 			}
-			b
-				.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")).append(aSkill.isUntrained() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); //$NON-NLS-1$
-			b
-				.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")).append(aSkill.getExclusive()); //$NON-NLS-1$
+			b.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")).append(aSkill.isUntrained() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); //$NON-NLS-1$
+			b.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")).append(aSkill.getExclusive()); //$NON-NLS-1$
 
-			String bString = aSkill.getDefaultSourceString();
+			String bString = aSkill.preReqHTMLStrings(pc, false);
 
 			if (bString.length() > 0)
 			{
-				b
-					.append(PropertyFactory.getString("in_iskHtml_SOURCE")).append(bString); //$NON-NLS-1$
+				b.append(TWO_SPACES);
+				b.append(BOLD);
+				b.append(PropertyFactory.getString("in_requirements")).append(": "); //$NON-NLS-1$
+				b.append(END_BOLD);
+				b.append(bString);
+			}
+
+			bString = aSkill.getDefaultSourceString();
+			if (bString.length() > 0)
+			{
+				b.append(PropertyFactory.getString("in_iskHtml_SOURCE")).append(bString); //$NON-NLS-1$
 			}
 
 			if (SettingsHandler.getShowSkillModifier())
@@ -2408,14 +2410,16 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		private Integer _mod;
 		private Integer _outputIndex;
 		private Skill _aSkill = null;
+		private boolean _bPassesPreReqs;
 
 		private SkillWrapper(Skill aSkill, Integer mod, Float ranks,
-			Integer outputIndex)
+			Integer outputIndex, boolean bPassesPreReqs)
 		{
 			_aSkill = aSkill;
 			_mod = mod;
 			_ranks = ranks;
 			_outputIndex = outputIndex;
+			_bPassesPreReqs = bPassesPreReqs;
 		}
 
 		public String toString()
@@ -2423,6 +2427,21 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			if (_aSkill == null)
 			{
 				return ""; //$NON-NLS-1$
+			}
+
+			if (!_bPassesPreReqs)
+			{
+				// indicates to LabelTreeCellRenderer to change text color
+				// to a user-preference (default is red)
+				Color aColor = Color.red;
+
+				if (SettingsHandler.getPrereqFailColor() != 0)
+				{
+					aColor =
+							new Color(SettingsHandler.getPrereqFailColor());
+				}
+
+				return "|" + aColor.getRGB() + "|" + _aSkill.piString();
 			}
 
 			return _aSkill.piString();
@@ -2882,8 +2901,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						aSkill.setOutputIndex(outputIndex);
 						skillA =
 								new SkillWrapper(aSkill, aSkill.modifier(pc),
-									aSkill.getTotalRank(pc), Integer
-										.valueOf(aSkill.getOutputIndex()));
+									aSkill.getTotalRank(pc), 
+									Integer.valueOf(aSkill.getOutputIndex()),
+									PrereqHandler.passesAll((aSkill).getPreReqList(), pc, aSkill));
 						fn.setItem(skillA);
 
 						if (needRefresh)
