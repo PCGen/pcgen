@@ -212,12 +212,10 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 8																										AUTO:FEAT|Dwarven Defender Mobile Defense
 
 
-# PREWEAPONPROF not exactly to prereq for class. should check for all Martial Weapon Proficiencies: Using 10 for now, per Tir
-
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Eldritch Knight	HD:6		TYPE:PC.Prestige	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Spell Type		Req. Weapond Prof.
-CLASS:Eldritch Knight	PRESPELLTYPE:1,Arcane=3	PREWEAPONPROF:10,TYPE.Martial
+CLASS:Eldritch Knight	PRESPELLTYPE:1,Arcane=3	PREFEAT:1,All Martial Weapon Proficiencies
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Jump|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|Ride|Sense Motive|Spellcraft|Swim
 1	BONUS:ABILITYPOOL|Fighter Feat|1
