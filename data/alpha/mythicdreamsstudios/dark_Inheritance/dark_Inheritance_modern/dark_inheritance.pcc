@@ -50,3 +50,5 @@ SPELL:dark_inheritance_spells_magic.lst
 TEMPLATE:dark_inheritance_templates.lst
 WEAPONPROF:dark_inheritance_weaponprofs.lst
 
+# Imported SRD Spells
+SPELL:@/d20ogl/srd/basics/srd_spells.lst|(INCLUDE:Dimension Door|Feather Fall|Freedom of Movement|See Invisibility|Spider Climb)

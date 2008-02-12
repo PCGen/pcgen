@@ -87,7 +87,6 @@ CATEGORY=Occupation|Sleight of Hand(class skill).MOD					TYPE:Gambler_Skills.Mys
 CATEGORY=Occupation|Sleight of Hand(+1 to skill).MOD					TYPE:Gambler_Skills.Mystic_Skills
 
 CATEGORY=Occupation|Spellcraft(class skill).MOD						TYPE:Mystic_Skills
-CATEGORY=Occupation|Spellcraft(+1 to skill).MOD						TYPE:Mystic_Skills
 
 CATEGORY=Occupation|Spot(class skill).MOD							TYPE:Child_Skills.Gambler_Skills.Streetperson_Skills.Tribal_DI_Skills
 CATEGORY=Occupation|Spot(+1 to skill).MOD							TYPE:Child_Skills.Gambler_Skills.Streetperson_Skills.Tribal_DI_Skills
