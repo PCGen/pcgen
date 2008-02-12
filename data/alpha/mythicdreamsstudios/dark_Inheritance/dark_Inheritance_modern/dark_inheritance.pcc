@@ -35,6 +35,7 @@ INFOTEXT:For best use load FX options with this.
 #EXTRAFILE:OGL.txt
 
 ABILITY:dark_inheritance_abilities_occupations.lst
+ABILITY:dark_inheritance_abilities_talents.lst
 ABILITYCATEGORY:dark_inheritance_ability_categories.lst
 CLASS:dark_inheritance_classes.lst
 EQUIPMENT:dark_inheritance_equip_FX.lst

@@ -54,19 +54,6 @@ Major Success high level contact		TYPE:MajorSuccess			VISIBLE:NO	SAB:Major Succe
 Animal Sense (low-light vision)	TYPE:AnimalSense	VISIBLE:NO				VISION:Low-light
 Animal Sense (scent)			TYPE:AnimalSense	VISIBLE:NO	SAB:Scent
 
-###Block: modified Talents for use by the Super Soldier class
-# Feat Name				Clear Prereq.	Multiple Requirements														Bonus to HP						Bonus to skill
-#Robust.MOD																								BONUS:HP|CURRENTMAX|CL=Super Soldier
-#Stamina.MOD				PRE:.CLEAR		PREMULT:1,[PREFEAT:1,Robust],[PRECLASS:1,Super Soldier=1]
-#Aware.MOD				PRE:.CLEAR		PREMULT:1,[PREFEAT:1,Skill Emphasis],[PRECLASS:1,Super Soldier=1]
-#Cool Under Pressure.MOD		PRE:.CLEAR		PREMULT:1,[PREMULT:2,[PREFEAT:1,Skill Emphasis],[PREFEAT:1,Aware,Faith]],[PRECLASS:1,Super Soldier=1]
-#Improved Aid Another.MOD	PRE:.CLEAR		PREMULT:1,[PREFEAT:1,Empathy],[PRECLASS:1,Super Soldier=1]
-#Intuition.MOD			PRE:.CLEAR		PREMULT:1,[PREFEAT:1,Empathy],[PRECLASS:1,Super Soldier=1]
-#Linguist.MOD			PRE:.CLEAR		PREMULT:1,[PRESKILLTOT:Read/Write Language,Speak Language=3],[PRECLASS:1,Super Soldier=1]
-#Plan.MOD				PRE:.CLEAR		PREMULT:1,[PREFEAT:1,TYPE=Research],[PRECLASS:1,Super Soldier=1]
-#Savant.MOD																															BONUS:SKILL|LIST|CL=Super Soldier
-#TODO: These are now abilties, need to make an ability file.
-
 ###Block: Daemon Form Abilities
 # Feat Name							Type			Visible	Required Size	Special ABility											Stackable?	Multiple?	Choose																			Template				Combat bonus						Bonus to HP			Adjust PC Size		Damage Reduction
 Claws (Daemon Form)					TYPE:DaemonForm	VISIBLE:NO				SAB:Claws(Ex)																																			TEMPLATE:Daemon Claws
