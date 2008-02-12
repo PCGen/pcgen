@@ -499,7 +499,11 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 			0));
 		dcPanel.setBackground(color);
 		dc.setFont(new java.awt.Font(DIALOG, 1, 10));
-		dc.setText(Integer.toString(spell.getDCForPlayerCharacter(pc, si)));
+		String SaveInfo = spell.getSaveInfo();
+		if (!"".equals(SaveInfo) && !"None".equals(SaveInfo) && !"No".equals(SaveInfo))
+		{
+			dc.setText(Integer.toString(spell.getDCForPlayerCharacter(pc, si)));
+		}
 		dcPanel.add(dc);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;

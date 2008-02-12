@@ -249,8 +249,12 @@ public class SpellMemToken extends Token
 						}
 						else if ("DC".equals(aLabel))
 						{
-							int dc = aSpell.getDCForPlayerCharacter(aPC, si);
-							retValue.append(String.valueOf(dc));
+							String SaveInfo = aSpell.getSaveInfo();
+							if (!"".equals(SaveInfo) && !"None".equals(SaveInfo) && !"No".equals(SaveInfo))
+							{
+								int dc = aSpell.getDCForPlayerCharacter(aPC, si);
+								retValue.append(String.valueOf(dc));
+							}
 						}
 						else if ("DURATION".equals(aLabel))
 						{
