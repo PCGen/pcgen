@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author: $ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Feb 11 23:19:00 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Roles and Classes - Covert Hero	SOURCESHORT:CovertHero	SOURCEWEB:http://swordsedgepublishing.ca/Products.html
 
 ###Block: Defensive Talent Tree
@@ -17,10 +17,10 @@ Sneak Attack				TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:YES					SAB:Sneak 
 
 ###Block: Scout Talent Tree
 # Feat Name		Type						Visible		Required Feat		Special Ability					Define			Description				Stackable?	Multiple?	Choose						Modify VAR			Source Page
-# Ability Name	Type						Visible	Required Feat		Special ABility					Define			Description				Stackable?	Multiple?	Choose						Modify VAR			Source Page
-Skill Mastery	TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES					SAB:Skill Mastery (Take 10 on %CHOICE)					DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLS|LIST|3+INT					SOURCEPAGE:p.3
+# Ability Name	Type						Visible	Required Feat		Special ABility					Define			Description				Stackable?	Multiple?	Selections		Choose		Modify VAR			Source Page
+Skill Mastery	TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES					SAB:Skill Mastery (Take 10 on %CHOICE)					DESC:Take 10 on listed skills	STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLS					SOURCEPAGE:p.3
 Trap Finding	TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES					SAB:Trap Finding
-Trap Sense		TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES	PREFEAT:1,Trap Finding	SAB:Trap Sense (Ex) +%|TrapSense		DEFINE:TrapSense|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|TrapSense|1
+Trap Sense		TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES	PREFEAT:1,Trap Finding	SAB:Trap Sense (Ex) +%|TrapSense		DEFINE:TrapSense|0						STACK:YES	MULT:YES				CHOOSE:NOCHOICE	BONUS:VAR|TrapSense|1
 
 #
 # End

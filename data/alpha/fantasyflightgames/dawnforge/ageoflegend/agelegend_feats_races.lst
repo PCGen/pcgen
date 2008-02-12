@@ -322,7 +322,7 @@ Thoughtful		TYPE:HHighlRacialTransformation	VISIBLE:NO														SAB:Thoughtf
 Elnaria			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Elnaria																				MULT:NO																			BONUS:SKILL|Knowledge (Geography)|2|TYPE=Talent		CSKILL:Knowledge (Geography)				SOURCEPAGE:p.47
 #+ a Knowledge skill of his choice...
 Larakis			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Larakis																				MULT:NO																																				SOURCEPAGE:p.47
-Ironwall			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Ironwall																			MULT:YES	CHOOSE:WEAPONPROFS|3								BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																COST:.33	SOURCEPAGE:p.47
+Ironwall			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Ironwall																			MULT:YES	SELECT:3	CHOOSE:WEAPONPROFS								BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																COST:.33	SOURCEPAGE:p.47
 #TODO:zzzzz Ironwall...
 Riversend			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Riversend																			MULT:NO																																				SOURCEPAGE:p.47
 Seaward			TYPE:HLowlRacialTalent			VISIBLE:NO	SAB:Seaward																				MULT:NO					BONUS:CHECKS|Fortitude|2|TYPE=Talent																									SOURCEPAGE:p.47
