@@ -1,0 +1,64 @@
+# CVS $Revision$ $Author$ -- Tue Feb 12 13:38:07 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+
+
+# Ability Name					Category of Ability	Type							Restricted Ability								Bonus to Ability Pool
+Choose Two Strength Based Powers		CATEGORY:Psionic Focus	TYPE:PsionicFocus.PsionicFocusChooser	!PREABILITY:1,CATEGORY=Psionic Focus,TYPE=PsionicFocusChooser	BONUS:ABILITYPOOL|Psionic Focus|2
+Choose Two Dexterity Based Powers		CATEGORY:Psionic Focus	TYPE:PsionicFocus.PsionicFocusChooser	!PREABILITY:1,CATEGORY=Psionic Focus,TYPE=PsionicFocusChooser	BONUS:ABILITYPOOL|Psionic Focus|2
+Choose Two Constitution Based Powers	CATEGORY:Psionic Focus	TYPE:PsionicFocus.PsionicFocusChooser	!PREABILITY:1,CATEGORY=Psionic Focus,TYPE=PsionicFocusChooser	BONUS:ABILITYPOOL|Psionic Focus|2
+Choose Two Intelligence Based Powers	CATEGORY:Psionic Focus	TYPE:PsionicFocus.PsionicFocusChooser	!PREABILITY:1,CATEGORY=Psionic Focus,TYPE=PsionicFocusChooser	BONUS:ABILITYPOOL|Psionic Focus|2
+Choose Two Wisdom Based Powers		CATEGORY:Psionic Focus	TYPE:PsionicFocus.PsionicFocusChooser	!PREABILITY:1,CATEGORY=Psionic Focus,TYPE=PsionicFocusChooser	BONUS:ABILITYPOOL|Psionic Focus|2
+Choose Two Charisma Based Powers		CATEGORY:Psionic Focus	TYPE:PsionicFocus.PsionicFocusChooser	!PREABILITY:1,CATEGORY=Psionic Focus,TYPE=PsionicFocusChooser	BONUS:ABILITYPOOL|Psionic Focus|2
+
+
+###Block: Strength Based Powers
+# Ability Name		Category of Ability	Type			Required Ability											Bonus to DC
+Verve				CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Strength Based Powers		BONUS:DC|SPELL.Verve|2
+Chameleon			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Strength Based Powers		BONUS:DC|SPELL.Chameleon|2
+Immovability		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Strength Based Powers		BONUS:DC|SPELL.Immovability|2
+
+# Dexterity Based Powers
+Burst				CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Burst|2
+Call Weaponry		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Call Weaponry|2
+Feather Fall		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Feather Fall|2
+Spider Climb		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Spider Climb|2
+Levitate			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Levitate|2
+Knock				CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Knock|2
+Dimension Slide		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Dimension Slide|2
+Fly				CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Fly|2
+Instant Reload		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Instant Reload|2
+Dimension Door		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Dimension Door|2
+Freedom of Movement	CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Freedom of Movement|2
+Ghost Shot			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Ghost Shot|2
+
+# Constitution Based Powers
+Far Punch			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Constitution Based Powers	BONUS:DC|SPELL.Far Punch|2
+Lesser Concussion		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Constitution Based Powers	BONUS:DC|SPELL.Lesser Concussion|2
+
+# Intelligence Based Powers
+Finger of Fire		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Intelligence Based Powers	BONUS:DC|SPELL.Finger of Fire|2
+Metaphysical Weapon	CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Intelligence Based Powers	BONUS:DC|SPELL.Metaphysical Weapon|2
+
+# Wisdom Based Powers
+Detect Poison		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Detect Poison|2
+Detect Psionics		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Detect Psionics|2
+Combat Precognition	CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Combat Precognition|2
+Identify			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Identify|2
+Object Reading		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Object Reading|2
+Combat Focus		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Combat Focus|2
+Combat Prescience		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Combat Prescience|2
+Darkvision			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Darkvision|2
+Sensitivity to Psychic	CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Sensitivity to Psychic|2
+Invisibility Purge	CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Invisibility Purge|2
+Prowess			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Prowess|2
+Ubiquitous Vision		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Ubiquitous Vision|2
+Fate of One			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Fate of One|2
+Steadfast Perception	CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Wisdom Based Powers		BONUS:DC|SPELL.Steadfast Perception|2
+
+# Charisma Based Powers
+Missive			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Charisma Based Powers		BONUS:DC|SPELL.Missive|2
+
+#
+# End
+#

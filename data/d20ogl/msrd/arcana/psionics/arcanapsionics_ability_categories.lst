@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+#SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI	Display where?
+ABILITYCATEGORY:Psionic Agent Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:PsionicAgent.Metapsionic	PLURAL:Psionic Agent Feats	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Psionic Focus			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Psionic Focus		TYPE:PsionicFocus		PLURAL:Psionic Focus		DISPLAYLOCATION:Class Abilities
+
+#
+# End
+#
