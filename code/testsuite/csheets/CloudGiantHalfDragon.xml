@@ -1506,7 +1506,7 @@ BIO
 					<range>Medium (250 ft.)</range>
 					<components>V, S</components>
 					<castingtime>1 standard action</castingtime>
-					<dc>13</dc>
+					<dc></dc>
 					<duration>150 minutes</duration>
 					<effect>Fog obscures vision.</effect>
 					<target>Fog spreads in 20-ft. radius, 20 ft. high</target>
@@ -1534,7 +1534,7 @@ BIO
 					<range>Personal</range>
 					<components>V, S, F</components>
 					<castingtime>1 standard action</castingtime>
-					<dc>13</dc>
+					<dc></dc>
 					<duration>15 minutes [D]</duration>
 					<effect>You move up and down at your direction.</effect>
 					<target>You and up to 2,000 pounds</target>
@@ -1562,7 +1562,7 @@ BIO
 					<range>20 ft.</range>
 					<components>V, S</components>
 					<castingtime>1 standard action</castingtime>
-					<dc>12</dc>
+					<dc></dc>
 					<duration>15 minutes</duration>
 					<effect>Fog surrounds you.</effect>
 					<target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
@@ -1609,7 +1609,7 @@ BIO
 					<range>Medium (250 ft.)</range>
 					<components>V, S</components>
 					<castingtime>1 standard action</castingtime>
-					<dc>13</dc>
+					<dc></dc>
 					<duration>150 minutes</duration>
 					<effect>Fog obscures vision.</effect>
 					<target>Fog spreads in 20-ft. radius, 20 ft. high</target>
@@ -1637,7 +1637,7 @@ BIO
 					<range>Personal</range>
 					<components>V, S, F</components>
 					<castingtime>1 standard action</castingtime>
-					<dc>13</dc>
+					<dc></dc>
 					<duration>15 minutes [D]</duration>
 					<effect>You move up and down at your direction.</effect>
 					<target>You and up to 2,000 pounds</target>
@@ -1665,7 +1665,7 @@ BIO
 					<range>20 ft.</range>
 					<components>V, S</components>
 					<castingtime>1 standard action</castingtime>
-					<dc>12</dc>
+					<dc></dc>
 					<duration>15 minutes</duration>
 					<effect>Fog surrounds you.</effect>
 					<target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>

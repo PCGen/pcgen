@@ -1366,7 +1366,7 @@ BIO
 					<range>Personal</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
-					<dc>12</dc>
+					<dc></dc>
 					<duration>1 minutes</duration>
 					<effect>The caster can communicate with natural animals.</effect>
 					<target>The character</target>
@@ -1394,7 +1394,7 @@ BIO
 					<range>Medium (110 ft.)</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
-					<dc>11</dc>
+					<dc></dc>
 					<duration>1 minute</duration>
 					<effect>Figment torches or other lights.</effect>
 					<target>Up to four illusionary lights, all within a 10-ft.-radius area</target>
@@ -1450,7 +1450,7 @@ BIO
 					<range>10 feet</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
-					<dc>11</dc>
+					<dc></dc>
 					<duration>1 hour</duration>
 					<effect>Performs minor tricks.</effect>
 					<target>See text</target>
@@ -1497,7 +1497,7 @@ BIO
 					<range>Personal</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
-					<dc>12</dc>
+					<dc></dc>
 					<duration>1 minutes</duration>
 					<effect>The caster can communicate with natural animals.</effect>
 					<target>The character</target>
@@ -1525,7 +1525,7 @@ BIO
 					<range>Medium (110 ft.)</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
-					<dc>11</dc>
+					<dc></dc>
 					<duration>1 minute</duration>
 					<effect>Figment torches or other lights.</effect>
 					<target>Up to four illusionary lights, all within a 10-ft.-radius area</target>
@@ -1581,7 +1581,7 @@ BIO
 					<range>10 feet</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
-					<dc>11</dc>
+					<dc></dc>
 					<duration>1 hour</duration>
 					<effect>Performs minor tricks.</effect>
 					<target>See text</target>

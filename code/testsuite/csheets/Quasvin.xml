@@ -1103,7 +1103,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<name>Artisan's Outfit</name>
+			<name>Artisan&#39;s Outfit</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1196,7 +1196,7 @@ BIO
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>Artisan's Outfit</name>
+					<name>Artisan&#39;s Outfit</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
@@ -1449,7 +1449,7 @@ BIO
 						<range>Close (35 ft.)</range>
 						<components>Ma Vi</components>
 						<castingtime>1 standard action</castingtime>
-						<dc>15</dc>
+						<dc></dc>
 						<duration>5 rounds</duration>
 						<effect>You entangle target in ectoplasmic goo on a successful ranged touch attack.</effect>
 						<target>One medium or smaller creature</target>
@@ -1505,7 +1505,7 @@ BIO
 						<range>Close; see text</range>
 						<components>Me</components>
 						<castingtime>1 standard action</castingtime>
-						<dc>15</dc>
+						<dc></dc>
 						<duration>50 min.</duration>
 						<effect>You forge a limited mental bond with another creature.</effect>
 						<target>You and one other willing creature within range that has an Intelligence score of 3 or higher</target>
@@ -1533,7 +1533,7 @@ BIO
 						<range>Personal or touch; see text</range>
 						<components>Ma, Vi</components>
 						<castingtime>1 standard action</castingtime>
-						<dc>15</dc>
+						<dc></dc>
 						<duration>5 min. [D]</duration>
 						<effect>Subject slides skillfully along the ground.</effect>
 						<target>You or one willing creature or one unattended object 0; see text</target>
@@ -1591,7 +1591,7 @@ BIO
 						<range>0 ft.</range>
 						<components>Ma, see text</components>
 						<castingtime>1 standard action</castingtime>
-						<dc>16</dc>
+						<dc></dc>
 						<duration>5 minutes [D]</duration>
 						<effect>Quasi-real film distorts your features, granting you concealment.</effect>
 						<target>Quasi-real amorphous film centered on you</target>

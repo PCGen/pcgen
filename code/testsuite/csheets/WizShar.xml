@@ -1117,7 +1117,7 @@ BIO
 						<range>0 ft</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>Permanent</duration>
 						<effect>Inscribes a personal rune [visible or invisible].</effect>
 						<target>One personal rune or mark, all of which must fit within 1 ft. square</target>
@@ -1145,7 +1145,7 @@ BIO
 						<range>Medium (110 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>1 minute</duration>
 						<effect>Figment torches or other lights.</effect>
 						<target>Up to four illusionary lights, all within a 10-ft.-radius area</target>
@@ -1201,7 +1201,7 @@ BIO
 						<range>60 feet</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>Concentration up to 1 minutes [D]</duration>
 						<effect>Detects spells and magic items within 60 ft.</effect>
 						<target>Quarter circle emanating from the character to the extreme of the range</target>
@@ -1229,7 +1229,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>Instantaneous/10 minutes per target HD</duration>
 						<effect>Detects poison in one creature or small object.</effect>
 						<target>One creature, one object, or a 5-ft. cube</target>
@@ -1257,7 +1257,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>Instantaneous</duration>
 						<effect>Deals 1d6 damage to one undead.</effect>
 						<target>Ray</target>
@@ -1341,7 +1341,7 @@ BIO
 						<range>Touch</range>
 						<components>V, M/DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>10 minutes [D]</duration>
 						<effect>Object shines like a torch.</effect>
 						<target>Object touched</target>
@@ -1369,7 +1369,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>Concentration</duration>
 						<effect>5-pound telekinesis.</effect>
 						<target>Nonmagical, unattended object weighing up to 5 lb.</target>
@@ -1453,7 +1453,7 @@ BIO
 						<range>10 feet</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>1 hour</duration>
 						<effect>Performs minor tricks.</effect>
 						<target>See text</target>
@@ -1481,7 +1481,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>Instantaneous</duration>
 						<effect>Ray deals 1d3 cold damage.</effect>
 						<target>Ray</target>
@@ -1509,7 +1509,7 @@ BIO
 						<range>Personal</range>
 						<components>V, S, F</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>10 minutes</duration>
 						<effect>Read scrolls and spellbooks.</effect>
 						<target>The character</target>

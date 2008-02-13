@@ -1555,7 +1555,7 @@ BIO
 						<range>Close (30 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>Instantaneous</duration>
 						<effect>Creates 4 gallons of pure water.</effect>
 						<target>Up to 4 gallons of water</target>
@@ -1611,7 +1611,7 @@ BIO
 						<range>60 feet</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>Concentration up to 2 minutes [D]</duration>
 						<effect>Detects spells and magic items within 60 ft.</effect>
 						<target>Quarter circle emanating from the character to the extreme of the range</target>
@@ -1639,7 +1639,7 @@ BIO
 						<range>Close (30 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>Instantaneous/10 minutes per target HD</duration>
 						<effect>Detects poison in one creature or small object.</effect>
 						<target>One creature, one object, or a 5-ft. cube</target>
@@ -1667,7 +1667,7 @@ BIO
 						<range>Touch</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>1 minute or until discharged</duration>
 						<effect>+1 on one roll, save, or check.</effect>
 						<target>Creature touched</target>
@@ -1723,7 +1723,7 @@ BIO
 						<range>Touch</range>
 						<components>V, M/DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>20 minutes [D]</duration>
 						<effect>Object shines like a torch.</effect>
 						<target>Object touched</target>
@@ -1807,7 +1807,7 @@ BIO
 						<range>Personal</range>
 						<components>V, S, F</components>
 						<castingtime>1 action</castingtime>
-						<dc>11</dc>
+						<dc></dc>
 						<duration>20 minutes</duration>
 						<effect>Read scrolls and spellbooks.</effect>
 						<target>The character</target>
@@ -1921,7 +1921,7 @@ BIO
 						<range>50 feet</range>
 						<components>V, S, DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>2 minutes</duration>
 						<effect>Allies gain +1 attack and +1 on saves against fear.</effect>
 						<target>All allies within 50 ft.</target>
@@ -2033,7 +2033,7 @@ BIO
 						<range>Personal</range>
 						<components>V, S, M/DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>20 minutes</duration>
 						<effect>Understands all spoken and written languages.</effect>
 						<target>The character</target>
@@ -2089,7 +2089,7 @@ BIO
 						<range>Close (30 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>20 minutes</duration>
 						<effect>Sees how wounded subjects within 30 ft. are.</effect>
 						<target>Quarter circle emanating from the character to the extreme of the range</target>
@@ -2117,7 +2117,7 @@ BIO
 						<range>60 feet</range>
 						<components>V, S, DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>Concentration up to 20 minutes [D]</duration>
 						<effect>Reveals creatures, spells, or objects.</effect>
 						<target>Quarter circle emanating from the character to the extreme of the range</target>
@@ -2145,7 +2145,7 @@ BIO
 						<range>60 feet</range>
 						<components>V, S, DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>Concentration up to 20 minutes [D]</duration>
 						<effect>Reveals creatures, spells, or objects.</effect>
 						<target>Quarter circle emanating from the character to the extreme of the range</target>
@@ -2173,7 +2173,7 @@ BIO
 						<range>60 feet</range>
 						<components>V, S, DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>Concentration up to 20 minutes [D]</duration>
 						<effect>Reveals creatures, spells, or objects.</effect>
 						<target>Quarter circle emanating from the character to the extreme of the range</target>
@@ -2201,7 +2201,7 @@ BIO
 						<range>60 feet</range>
 						<components>V, S, DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>Concentration up to 20 minutes [D]</duration>
 						<effect>Reveals creatures, spells, or objects.</effect>
 						<target>Quarter circle emanating from the character to the extreme of the range</target>
@@ -2229,7 +2229,7 @@ BIO
 						<range>60 feet</range>
 						<components>V, S, M/DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>Concentration up to 2 minutes [D]</duration>
 						<effect>Reveals undead within 60 ft.</effect>
 						<target>Quarter circle emanating from the character to the extreme of the range</target>
@@ -2257,7 +2257,7 @@ BIO
 						<range>Personal</range>
 						<components>V, S, DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>1 minute</duration>
 						<effect>The caster gains attack, damage bonus, +0.</effect>
 						<target>The character</target>
@@ -2313,7 +2313,7 @@ BIO
 						<range>Touch</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>24 hours</duration>
 						<effect>Ignores 5 damage/round from one energy type.</effect>
 						<target>Creature touched</target>
@@ -2341,7 +2341,7 @@ BIO
 						<range>Personal</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>2 minutes</duration>
 						<effect>Ranged attacks against the caster suffer 20% miss chance.</effect>
 						<target>The character</target>
@@ -2481,7 +2481,7 @@ BIO
 						<range>30 feet</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>2 minutes</duration>
 						<effect>Fog surrounds the caster.</effect>
 						<target>Cloud centered on the character spreads 30 ft. and is 20 ft. high</target>
@@ -2733,7 +2733,7 @@ BIO
 						<range>Close (30 ft.)</range>
 						<components>V, S, F/DF</components>
 						<castingtime>1 full round</castingtime>
-						<dc>12</dc>
+						<dc></dc>
 						<duration>2 rounds</duration>
 						<effect>Calls outsider to fight for the caster.</effect>
 						<target>One summoned creature</target>

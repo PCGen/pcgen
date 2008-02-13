@@ -1051,7 +1051,7 @@ BIO
 	  ====================================-->
 	<equipment>
 		<item>
-			<name>Explorer's Outfit</name>
+			<name>Explorer&#39;s Outfit</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1144,7 +1144,7 @@ BIO
 
       <equipmentset name="">
 		<item>
-					<name>Explorer's Outfit</name>
+					<name>Explorer&#39;s Outfit</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>

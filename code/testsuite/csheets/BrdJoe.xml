@@ -1250,7 +1250,7 @@ BIO
 						<range>Touch</range>
 						<components>V, M/DF</components>
 						<castingtime>1 action</castingtime>
-						<dc>10</dc>
+						<dc></dc>
 						<duration>10 minutes [D]</duration>
 						<effect>Object shines like a torch.</effect>
 						<target>Object touched</target>
@@ -1278,7 +1278,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
-						<dc>10</dc>
+						<dc></dc>
 						<duration>Concentration</duration>
 						<effect>5-pound telekinesis.</effect>
 						<target>Nonmagical, unattended object weighing up to 5 lb.</target>
