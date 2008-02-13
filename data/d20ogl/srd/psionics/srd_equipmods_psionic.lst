@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 12 11:41:16 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 12 21:48:44 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 ###Block: Special Materials
@@ -60,17 +60,17 @@ Wall							KEY:WALL					TYPE:Shield				PLUS:2										VISIBLE:QUALIFY	ITYPE:Psi
 |Power Effect (Single Use/Completion)	KEY:PWR_PS		NAMEOPT:SPELL	TYPE:PowerStone					COST:(25*(%SPELLLEVEL)*%CASTERLEVEL)			VISIBLE:QUALIFY	ITYPE:Psionic						SOURCEPAGE:PsionicItems.rtf		PRETYPE:PowerStone																																																			CHOOSE:EQBUILDER.SPELL|Psionic|1|9
 
 ###Block:Shard Skill Bonus
-# Modifier Name				Unique Key		Naming Option	Type		Cost		Visible		Source Page					Required Type	Bonus to skill					Special Property							Choose
-Shard Skill Bonus (Competence)	KEY:SHARD_SKILL1	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard1	BONUS:SKILL|%CHOICE|1|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
-Shard Skill Bonus (Competence)	KEY:SHARD_SKILL2	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard2	BONUS:SKILL|%CHOICE|2|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
-Shard Skill Bonus (Competence)	KEY:SHARD_SKILL3	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard3	BONUS:SKILL|%CHOICE|3|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
-Shard Skill Bonus (Competence)	KEY:SHARD_SKILL4	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard4	BONUS:SKILL|%CHOICE|4|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
-Shard Skill Bonus (Competence)	KEY:SHARD_SKILL5	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard5	BONUS:SKILL|%CHOICE|5|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
-Shard Skill Bonus (Competence)	KEY:SHARD_SKILL6	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard6	BONUS:SKILL|%CHOICE|6|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
-Shard Skill Bonus (Competence)	KEY:SHARD_SKILL7	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard7	BONUS:SKILL|%CHOICE|7|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
-Shard Skill Bonus (Competence)	KEY:SHARD_SKILL8	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard8	BONUS:SKILL|%CHOICE|8|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
-Shard Skill Bonus (Competence)	KEY:SHARD_SKILL9	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard9	BONUS:SKILL|%CHOICE|9|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
-Shard Skill Bonus (Competence)	KEY:SHARD_SKILL10	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard10	BONUS:SKILL|%CHOICE|10|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
+# Modifier Name				Unique Key		Naming Option	Type		Cost		Visible		Source Page					Required Type	Prohibited Type			Bonus to skill					Special Property							Choose
+Shard Skill Bonus (Competence)	KEY:SHARD_SKILL1	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard1	!PRETYPE:1,EQMODTYPE=Shard	BONUS:SKILL|%CHOICE|1|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
+Shard Skill Bonus (Competence)	KEY:SHARD_SKILL2	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard2	!PRETYPE:1,EQMODTYPE=Shard	BONUS:SKILL|%CHOICE|2|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
+Shard Skill Bonus (Competence)	KEY:SHARD_SKILL3	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard3	!PRETYPE:1,EQMODTYPE=Shard	BONUS:SKILL|%CHOICE|3|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
+Shard Skill Bonus (Competence)	KEY:SHARD_SKILL4	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard4	!PRETYPE:1,EQMODTYPE=Shard	BONUS:SKILL|%CHOICE|4|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
+Shard Skill Bonus (Competence)	KEY:SHARD_SKILL5	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard5	!PRETYPE:1,EQMODTYPE=Shard	BONUS:SKILL|%CHOICE|5|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
+Shard Skill Bonus (Competence)	KEY:SHARD_SKILL6	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard6	!PRETYPE:1,EQMODTYPE=Shard	BONUS:SKILL|%CHOICE|6|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
+Shard Skill Bonus (Competence)	KEY:SHARD_SKILL7	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard7	!PRETYPE:1,EQMODTYPE=Shard	BONUS:SKILL|%CHOICE|7|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
+Shard Skill Bonus (Competence)	KEY:SHARD_SKILL8	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard8	!PRETYPE:1,EQMODTYPE=Shard	BONUS:SKILL|%CHOICE|8|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
+Shard Skill Bonus (Competence)	KEY:SHARD_SKILL9	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard9	!PRETYPE:1,EQMODTYPE=Shard	BONUS:SKILL|%CHOICE|9|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
+Shard Skill Bonus (Competence)	KEY:SHARD_SKILL10	NAMEOPT:NONAME	TYPE:Shard	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Shard10	!PRETYPE:1,EQMODTYPE=Shard	BONUS:SKILL|%CHOICE|10|TYPE=Competence	SPROP:One time temporary competence bonus to %CHOICE	CHOOSE:SKILL|TITLE=Skill Bonus
 
 #
 # End
