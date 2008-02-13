@@ -613,7 +613,7 @@ public class EquipmentList {
 					}
 
 					// Get list of choices
-					final EquipmentChoice equipChoice = eqMod.buildEquipmentChoice(0, eq, false, false, 0);
+					final EquipmentChoice equipChoice = eqMod.buildEquipmentChoice(0, eq, false, false, 0, null);
 
 					// Iterate over list, creating an item for each choice.
 					final Iterator<String> equipIter = equipChoice.getChoiceIterator(true);
@@ -662,7 +662,7 @@ public class EquipmentList {
 				final EquipmentModifier eqMasterwork = getQualifiedModifierNamed("Masterwork", eq);
 
 				// Get list of choices (extract code from EquipmentModifier.getChoice)
-				final EquipmentChoice equipChoice = eqMasterwork.buildEquipmentChoice(0, eq, false, false, 0);
+				final EquipmentChoice equipChoice = eqMasterwork.buildEquipmentChoice(0, eq, false, false, 0, null);
 
 				// Iterate over list, creating an item for each choice.
 				final Iterator<String> equipIter = equipChoice.getChoiceIterator(true);

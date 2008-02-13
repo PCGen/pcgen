@@ -1608,7 +1608,7 @@ final class EqBuilder extends JPanel
 			{
 				if (eqMod.getAssociatedCount() == 0)
 				{
-					aNewEq.removeEqModifier(eqMod, true);
+					aNewEq.removeEqModifier(eqMod, true, aPC);
 				}
 			}
 		}
@@ -1636,13 +1636,13 @@ final class EqBuilder extends JPanel
 			//
 			aNewEq.setCostMod("0");
 
-			aNewEq.removeEqModifier(eqMod, bPrimary);
+			aNewEq.removeEqModifier(eqMod, bPrimary, aPC);
 			setEquipment(aNewEq, true);
 			updateDisplay(bPrimary);
 
 			if (aNewEq.isDouble() && eqMod.getAssignToAll())
 			{
-				aNewEq.removeEqModifier(eqMod, !bPrimary);
+				aNewEq.removeEqModifier(eqMod, !bPrimary, aPC);
 				updateDisplay(!bPrimary);
 			}
 
@@ -1742,7 +1742,7 @@ final class EqBuilder extends JPanel
 
 						if (Delta.decode(aString).intValue() > 0)
 						{
-							aNewEq.removeEqModifiers(modString, true);
+							aNewEq.removeEqModifiers(modString, true, aPC);
 							aNewEq.addEqModifiers(modString + aString, true);
 						}
 					}
@@ -1758,7 +1758,7 @@ final class EqBuilder extends JPanel
 			if (!aNewEq.isWeapon() || !aNewEq.isRanged())
 			{
 				removeAddedType("RANGED");
-				aNewEq.removeEqModifiers(modString, true);
+				aNewEq.removeEqModifiers(modString, true, aPC);
 			}
 
 			if (aNewEq.isArmor())

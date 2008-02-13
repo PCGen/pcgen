@@ -49,7 +49,7 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	private final ArrayList<String> choices = new ArrayList<String>();
 	private final List<String> uniqueList = new ArrayList<String>();
 
-	protected final PlayerCharacter pc;
+	private final PlayerCharacter pc;
 	protected final PObject pobject;
 
 	private ChooseController<T> controller = new ChooseController<T>();
