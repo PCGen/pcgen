@@ -43,6 +43,12 @@ public class ProficiencyToken implements EquipmentLstToken
 						+ value);
 				return false;
 			}
+			if (prof.indexOf("[hands]") != -1)
+			{
+				Logging.errorPrint("PROFICIENCY cannot have the String"
+						+ "[hands] in 5.14 format: feature is deprecated");
+				return false;
+			}
 			if (subtoken.equals("WEAPON"))
 			{
 				eq.setWeaponProf(prof);
