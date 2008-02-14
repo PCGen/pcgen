@@ -2455,7 +2455,8 @@ public class Initiative extends javax.swing.JPanel
 				activeRow++;
 			}
 		}
-		InitHolder iH = initList.get(activeRow);
+		// Look up the active row (-1 as arrays are indexed starting at 0)
+		InitHolder iH = initList.get(activeRow - 1);
 		Object data = combatantTable.getValueAt(row, column);
 		boolean atTop = (currentInit == initList.getMaxInit());
 		iH.editRow(columnList, column, data);
