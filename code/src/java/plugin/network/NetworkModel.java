@@ -198,22 +198,26 @@ public class NetworkModel
 		{
 			NetworkServer serverThread = null;
 			ThreadGroup tg = server.getThreadGroup();
-			Thread[] tl = new Thread[tg.activeCount()];
-			tg.enumerate(tl);
-			for (Thread t : tl)
+			// The Thread Group could be null if the server never started properly
+			if (tg != null)
 			{
-				if (t instanceof NetworkServer)
+				Thread[] tl = new Thread[tg.activeCount()];
+				tg.enumerate(tl);
+				for (Thread t : tl)
 				{
-					serverThread = (NetworkServer) t;
+					if (t instanceof NetworkServer)
+					{
+						serverThread = (NetworkServer) t;
+					}
+					else if (t instanceof NetworkServer.Handler)
+					{
+						((NetworkServer.Handler) t).setRun(false);
+					}
 				}
-				else if (t instanceof NetworkServer.Handler)
+				if (serverThread != null)
 				{
-					((NetworkServer.Handler) t).setRun(false);
+					serverThread.setRun(false);
 				}
-			}
-			if (serverThread != null)
-			{
-				serverThread.setRun(false);
 			}
 		}
 		server = null;
@@ -501,11 +505,18 @@ public class NetworkModel
 				try
 				{
 					stopServer();
+				}
+				catch (Exception e)
+				{
+					log("Local", "Local", "Failed to Shutdown Server.");
+				}
+				try
+				{
 					displayClientToolbar();
 				}
 				catch (Exception e)
 				{
-					// TODO Handle this?
+					log("Local", "Local", "Failed to Display the client tool bar.");
 				}
 			}
 		}
