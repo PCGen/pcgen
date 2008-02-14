@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb 14 13:16:22 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 #CHANGES 9/24 - ADDED Ritual Casting to all the spell casting classes in this data set.
@@ -101,8 +101,8 @@ CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral 
 9	CAST:5,5,4,3,2,2,2,2,1
 10	CAST:5,5,4,4,2,2,2,2,1,1										AUTO:FEAT|Shadow Home
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus											Combat bonus
-CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page		Save checks bonus											Combat bonus
+CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Skill						Req. Spell Type
 CLASS:Sea Witch	PRESKILL:2,Concentration,Profession (Sailor)=8	PRESPELLTYPE:1,Arcane=3,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill

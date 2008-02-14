@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb 14 13:10:33 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn and Tir Gwaith
 
@@ -136,7 +136,6 @@ CLASS:Sorcerer (DF)	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	HASSUBCLASS:YES	SOUR
 CLASS:Sorcerer (DF)	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Sorcerer (DF)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (DF)|CL	SPELLLIST:1|Sorcerer
-SUBCLASS:Sorcerer			COST:0
 SUBCLASS:Sorcerer (Life)	COST:0
 SUBCLASSLEVEL:1	SAB:Available Shools (Abjuration, Conjuration, Divination, Transmutation)
 SUBCLASSLEVEL:1	SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
@@ -196,21 +195,21 @@ SUBCLASSLEVEL:20	SAB:Quicken Spell (1/day)
 #TODO: Spell Focus granting +2 instead of +1 for available schools
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Automatic Languages	Bonus Languages		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Wizard (DF)	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:p.93	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page		Automatic Languages	Bonus Languages		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Wizard (DF)	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:p.93	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard (DF)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level				Use Spell List
 CLASS:Wizard (DF)	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard (DF)|CL	SPELLLIST:1|Wizard
 #
 SUBCLASS:Wizard (Life)		COST:0
-SUBCLASSLEVEL:1	SAB:Available Shools (Abjuration, Conjuration, Divination, Transmutation)
+SUBCLASSLEVEL:1	SAB:Available Schools (Abjuration, Conjuration, Divination, Transmutation)
 SUBCLASS:Wizard (Entropy)	COST:0
-SUBCLASSLEVEL:1	SAB:Available Shools (Evocation, Necromancy, Transmutation)
+SUBCLASSLEVEL:1	SAB:Available Schools (Evocation, Necromancy, Transmutation)
 SUBCLASS:Wizard (Dreams)	COST:0
-SUBCLASSLEVEL:1	SAB:Available Shools (Abjuration, Enchantment, Illusion, Transmutation)
+SUBCLASSLEVEL:1	SAB:Available Schools (Abjuration, Enchantment, Illusion, Transmutation)
 SUBCLASS:Wizard (Dominion)	COST:0
-SUBCLASSLEVEL:1	SAB:Available Shools (Conjuration, Divination, Enchantment, Necromancy)
+SUBCLASSLEVEL:1	SAB:Available Schools (Conjuration, Divination, Enchantment, Necromancy)
 #
 1						SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
 1						SAB:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SAB:Silent Spell (1/day)

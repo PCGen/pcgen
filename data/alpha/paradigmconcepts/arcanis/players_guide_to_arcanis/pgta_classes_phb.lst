@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 01:15:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb 14 13:12:55 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -11,8 +11,8 @@ CLASS:Druid.MOD	PREDEITY:Saluwe,Yarris,Belisarda,Fire Dragon
 CLASS:Aristocrat.MOD
 1	PREPCLEVEL:MAX=0
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
-CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:pg. 51	LANGAUTO:Literacy		LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
+CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:pg. 51	LANGAUTO:Literacy		LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
 # Class Name	Prohibited Template
 CLASS:Cleric	!PRETEMPLATE:Black Talon Male,Ashen Hide Male
 # Class Name	Skill Pts/Lvl
@@ -123,8 +123,8 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Examine Martial Technique|
 20											ADD:FEAT|1|TYPE=Fighter
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page			Automatic Languages	Define			Save checks bonus								Combat bonus
-CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		DEFINE:FlurryOfBlows|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page			Automatic Languages	Define			Save checks bonus								Combat bonus
+CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		DEFINE:FlurryOfBlows|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl
@@ -200,8 +200,8 @@ SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Imp
 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8					SAB:Perfect Self (Su)	SAB:Slow Fall (Any Distance)																					TEMPLATE:Monk Outsider
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Ex Class			Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	HASSUBCLASS:YES	EXCLASS:Ex Paladin	SOURCEPAGE:pg. 66	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|SMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Ex Class			Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
+CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		EXCLASS:Ex Paladin	SOURCEPAGE:pg. 66	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|SMLevel|CL
 # Class Name	Required AL
 CLASS:Paladin	PREALIGN:LG,NG,CG
 # Class Name	Skill Pts/Lvl

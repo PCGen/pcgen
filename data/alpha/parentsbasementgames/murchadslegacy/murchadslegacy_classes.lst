@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 00:16:25 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb 14 13:13:51 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://www.parentsbasementgames.com
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -103,8 +103,8 @@ CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 10	CAST:6,5,4,3,2	SAB:Ward
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus											Combat bonus
-CLASS:Stargazer	HD:6		TYPE:PC.Prestige	ABB:Star		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page		Save checks bonus											Combat bonus
+CLASS:Stargazer	HD:6		TYPE:PC.Prestige	ABB:Star		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Race					Required Skill												Req. Spell Type
 CLASS:Stargazer	PRERACE:1,Elf%,Half-Elf,Halfling%,Human	PRESKILL:3,Concentration,Knowledge (Astronomy),Spellcraft=7	PRESKILL:1,Survival=4	PRESPELLTYPE:1,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill

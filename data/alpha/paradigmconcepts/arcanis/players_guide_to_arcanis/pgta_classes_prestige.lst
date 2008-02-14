@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 01:15:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb 14 13:12:55 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -298,8 +298,8 @@ CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluf
 6	SAB:Great Lore (Ex)
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus											Combat bonus
-CLASS:Gladiator	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.186	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page		Save checks bonus											Combat bonus
+CLASS:Gladiator	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:p.186	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat
 CLASS:Gladiator	PREATT:3	PREFEAT:2,Combat Expertise,Dodge
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -335,8 +335,8 @@ SUBCLASSLEVEL:8																																															AUTO:FEAT|Improved
 10	SAB:As if They Were Gods (Ex)
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus											Combat bonus
-CLASS:Gladiator (Andabatae)	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.186	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Gladiator (Andabatae)	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10	SOURCEPAGE:p.186	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Feat
 CLASS:Gladiator (Andabatae)	PREATT:3	PREFEAT:2,Combat Expertise,Dodge
 # Class Name			Skill Pts/Lvl	Class Skill

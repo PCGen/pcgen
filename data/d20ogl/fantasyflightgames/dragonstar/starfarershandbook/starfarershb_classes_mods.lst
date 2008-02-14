@@ -1,4 +1,4 @@
-# CVS $Revision: 314 $ $Author: tir-gwaith $ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision: 314 $ $Author: tir-gwaith $ -- Thu Feb 14 13:14:16 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
@@ -31,8 +31,8 @@ CLASS:Cleric.MOD	CSKILL:Research
 1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
 1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]
 
-# Class Name	Subclass?
-CLASS:Druid.MOD	HASSUBCLASS:YES
+# Class Name	Subclass?		Base class as subclass?
+CLASS:Druid.MOD	HASSUBCLASS:YES	ALLOWBASECLASS:NO
 # Class Name	Class Skill
 CLASS:Druid.MOD	CSKILL:Freefall|TYPE.Science|Navigate
 # Druid Subclasses

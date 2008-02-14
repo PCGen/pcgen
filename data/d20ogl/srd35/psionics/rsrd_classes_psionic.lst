@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 28 13:01:14 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb 14 13:16:02 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -8,8 +8,8 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Notes - Soulknife needs Mind Blade enhancements done as EQMODS
 #         Need to do PsiCrystals as Familiars
 
-# Class Name	Hit Dice	Type				Max Level	Subclass?		Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name	Hit Dice	Type				Max Level	Subclass?		Base class as subclass?	Source Page				Save checks bonus											Combat bonus					Modify VAR
+CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level

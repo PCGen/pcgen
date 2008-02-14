@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 01:15:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb 14 13:12:55 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -388,8 +388,8 @@ CLASS:Philosophic Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEV
 
 ###################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
-CLASS:Priest	HD:4		TYPE:Base.PC	ABB:Pst		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:pg.117	LANGAUTO:Literacy		LANGBONUS:Altherin (Ancient Imperial)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
+CLASS:Priest	HD:4		TYPE:Base.PC	ABB:Pst		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:pg.117	LANGAUTO:Literacy		LANGBONUS:Altherin (Ancient Imperial)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Priest	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE.Local|TYPE.Religion|Knowledge (The Planes)|Perform (Oratory)|TYPE.Profession|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels
