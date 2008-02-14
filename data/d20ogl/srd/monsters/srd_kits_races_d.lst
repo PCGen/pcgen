@@ -666,21 +666,60 @@ FEAT:Dodge
 FEAT:Improved Initiative
 
 STARTPACK:Dwarf (Deep) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf (Deep)]
-RACE:Dwarf (Deep)	!PRERACE:1,%
+ALIGN:TN
+RACE:Dwarf (Deep)
 NAME:Dwarf (Deep)
-STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=8
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Appraise	RANK:2	FREE:YES
+FEAT:Exotic Weapon Proficiency(Waraxe (Dwarven))
+GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Large/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
+GEAR:Shortbow			SIZE:PC	LOCATION:Carried
 
 STARTPACK:Dwarf (Derro) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf (Derro)]
-RACE:Dwarf (Derro)	!PRERACE:1,%
+ALIGN:CE
+RACE:Dwarf (Derro)
 NAME:Dwarf (Derro)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Appraise	RANK:2	FREE:YES
+FEAT:Exotic Weapon Proficiency(Waraxe (Dwarven))
+GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Large/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
+GEAR:Shortbow			SIZE:PC	LOCATION:Carried
 
 STARTPACK:Dwarf (Duergar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf (Duergar)]
-RACE:Dwarf (Duergar)	!PRERACE:1,%
+ALIGN:LE
+RACE:Dwarf (Duergar)
 NAME:Dwarf (Duergar)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Appraise	RANK:2	FREE:YES
+FEAT:Exotic Weapon Proficiency(Waraxe (Dwarven))
+GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Large/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
+GEAR:Shortbow			SIZE:PC	LOCATION:Carried
 
 STARTPACK:Dwarf (Mountain) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf (Mountain)]
-RACE:Dwarf (Mountain)	!PRERACE:1,%
+RACE:Dwarf (Mountain)
 NAME:Dwarf (Mountain)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Appraise	RANK:2	FREE:YES
+FEAT:Exotic Weapon Proficiency(Waraxe (Dwarven))
+GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Large/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
+GEAR:Shortbow			SIZE:PC	LOCATION:Carried

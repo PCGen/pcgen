@@ -261,12 +261,30 @@ FEAT:Power Attack
 STARTPACK:Gnome (Svirfneblin) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome (Svirfneblin)]
 RACE:Gnome (Svirfneblin)	!PRERACE:1,%
 NAME:Gnome (Svirfneblin)
+ALIGN:NG
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Weapon Focus(Sword (Short))
+GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Sword (Short)		SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Gnome (Forest) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome (Forest)]
 RACE:Gnome (Forest)	!PRERACE:1,%
 NAME:Gnome (Forest)
+ALIGN:NG
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Weapon Focus(Sword (Short))
+GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Sword (Short)		SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Goblin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]
 RACE:Goblin	!PRERACE:1,%
@@ -383,12 +401,30 @@ FEAT:Great Fortitude
 STARTPACK:Halfling (Tallfellow) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Halfling (Tallfellow)]
 RACE:Halfling (Tallfellow)	!PRERACE:1,%
 NAME:Halfling (Tallfellow)
+ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
+CLASS:Warrior		LEVEL:1
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:2
+FEAT:Weapon Focus(Longsword)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Both Hands
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Halfling (Deep) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Halfling (Deep)]
 RACE:Halfling (Deep)	!PRERACE:1,%
 NAME:Halfling (Deep)
+ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
+CLASS:Warrior		LEVEL:1
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:2
+FEAT:Weapon Focus(Longsword)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Both Hands
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Harpy Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harpy]
 RACE:Harpy	!PRERACE:1,%
