@@ -713,6 +713,7 @@ public class PCClass extends PObject {
 	private HashMap<AttackType, String> attackCycleMap = null;
 
 	private SpellProgressionInfo castInfo = null;
+	private boolean allowBaseClass = true;
 
 //	private DoubleKeyMap<AbilityCategory, Integer, List<String>> theAutoAbilities = null;
 
@@ -6230,12 +6231,15 @@ public class PCClass extends PObject {
 		);
 		
 		// add base class to the chooser at the TOP
-		final List<Object> columnList2 = new ArrayList<Object>(3);
-		columnList2.add(this);
-		columnList2.add("0");
-		columnList2.add("");
-		choiceList.add(0,columnList2);
-		
+		if (this.allowBaseClass)
+		{
+			final List<Object> columnList2 = new ArrayList<Object>(3);
+			columnList2.add(this);
+			columnList2.add("0");
+			columnList2.add("");
+			choiceList.add(0,columnList2);
+		}
+			
 		
 		
 		/*
@@ -6243,12 +6247,15 @@ public class PCClass extends PObject {
 		 * not be a fabulous assumption
 		 */
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
+		
+
 		c.setTitle("School Choice (Specialisation)");
 		c.setMessageText("Make a selection.  The cost column indicates the cost of that selection. "
 						+ "If this cost is non-zero, you will be asked to also "
 						+ "select items from this list to give up to cover that cost.");
 		c.setTotalChoicesAvail(1);
 		c.setPoolFlag(false);
+		
 
 		// c.setCostColumnNumber(1); // Allow 1 choice, regardless of
 		// cost...cost will be applied in second phase
@@ -6260,12 +6267,27 @@ public class PCClass extends PObject {
 		} else if (choiceList.size() != 0) {
 			c.setVisible(true);
 		}
-
-		List<List<PCClass>> selectedList = c.getSelectedList(); 
+		
+		List<List<PCClass>> selectedList; 
+		if (!allowBaseClass)
+		{
+			while(c.getSelectedList().size()==0)
+			{
+				c.setVisible(true);
+			}
+			selectedList = c.getSelectedList();
+			
+		}
+		else
+		{
+			selectedList = c.getSelectedList();
+		}
+		
 		if (selectedList.size() == 0)
 		{
 			return;
 		}
+
 		List<PCClass> selectedRow = selectedList.get(0);
 		if (selectedRow.size() == 0)
 		{
@@ -6281,6 +6303,7 @@ public class PCClass extends PObject {
 			specialtyList = null;
 			
 			SubClass sc = (SubClass) subselected;
+			
 			choiceList = new ArrayList<List>();
 			
 			for (SubClass sub : subClassList) {
@@ -6887,6 +6910,23 @@ public class PCClass extends PObject {
 		}
 		return returnList;
 	}
+
+	/**
+	 * @return the allowBaseClass
+	 */
+	public boolean getAllowBaseClass()
+	{
+		return allowBaseClass;
+	}
+
+	/**
+	 * @param allowBaseClass the allowBaseClass to set
+	 */
+	public void setAllowBaseClass(final boolean allowBaseClass)
+	{
+		this.allowBaseClass = allowBaseClass;
+	}
+	
 	
 //	public void removeAutoAbilities(final AbilityCategory aCategory, final int aLevel)
 //	{

@@ -2243,11 +2243,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					 * FAV(ORED)CLASS token is attempting to reference an
 					 * invalid class
 					 */
-					/*
-					Logging.errorPrint("Invalid Class entry in " + tag
+					if(pcclass.getAllowBaseClass() == false)
+					{
+						Logging.errorPrint("Invalid Class entry in " + tag
 							+ " token in " + type + " " + key + ": " + cl
 							+ " ... Base class is prohibited in " + parent);
-					 */
+					}
+					 
 				}
 				else if (pcclass.getSubClassKeyed(subclass) == null)
 				{
