@@ -2233,16 +2233,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				String subclass = cl.substring(dotLoc + 1);
 				if (parent.equals(subclass))
 				{
-					/*
-					 * TODO 1849571 requires a change here
-					 * 
-					 * Today this is totally legal, so the case drops through.
-					 * Once 1849571 is implemented, this if case should check to
-					 * see if ALLOWBASECLASS is set to YES. If set to NO, an
-					 * error (shown below) should be reported, because the
-					 * FAV(ORED)CLASS token is attempting to reference an
-					 * invalid class
-					 */
 					if(pcclass.getAllowBaseClass() == false)
 					{
 						Logging.errorPrint("Invalid Class entry in " + tag
