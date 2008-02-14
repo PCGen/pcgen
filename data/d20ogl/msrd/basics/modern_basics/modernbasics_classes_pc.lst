@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Feb  5 23:54:06 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb 14 08:22:53 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Paul King, Barak
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus															Combat bonus		Modify VAR
-CLASS:Strong	HD:8		TYPE:Base.PC	ABB:Stron		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL)	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus															Combat bonus		Modify VAR
+CLASS:Strong	HD:8		TYPE:Base.PC	ABB:Stron		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL)	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Strong	STARTSKILLPTS:2	CSKILL:Climb|Craft (Structural)|Handle Animal|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Profession|Read/Write Language|Repair|Speak Language|Swim
 ###Block: Ordinary
@@ -17,8 +17,8 @@ SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Strong Feat|CL/2
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus															Combat bonus			Modify VAR
-CLASS:Fast		HD:8		TYPE:Base.PC	ABB:Fast		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(CL/2)+3	BONUS:VAR|Reputation|CL/3
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus															Combat bonus			Modify VAR
+CLASS:Fast		HD:8		TYPE:Base.PC	ABB:Fast		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(CL/2)+3	BONUS:VAR|Reputation|CL/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fast		STARTSKILLPTS:4	CSKILL:Balance|Craft (Mechanical)|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Pilot|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Tumble
 ###Block: Ordinary
@@ -32,8 +32,8 @@ SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Fast Feat|CL/2
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus															Combat bonus			Modify VAR
-CLASS:Tough		HD:10		TYPE:Base.PC	ABB:Toug		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus															Combat bonus			Modify VAR
+CLASS:Tough		HD:10		TYPE:Base.PC	ABB:Toug		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tough		STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Mechanical)|Craft (Structural)|Drive|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Ride|Speak Language|Spot|Survival
 ###Block: Ordinary
@@ -47,8 +47,8 @@ SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Tough Feat|CL/2
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus															Combat bonus		Modify VAR
-CLASS:Smart		HD:6		TYPE:Base.PC	ABB:Smar		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus															Combat bonus		Modify VAR
+CLASS:Smart		HD:6		TYPE:Base.PC	ABB:Smar		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Smart		STARTSKILLPTS:8	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Demolitions|Disable Device|Forgery|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Navigate|Profession|Read/Write Language|Repair|Research|Search|Speak Language
 ###Block: Ordinary
@@ -62,8 +62,8 @@ SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Smart Feat|CL/2
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus																Combat bonus			Modify VAR
-CLASS:Dedicated	HD:6		TYPE:Base.PC	ABB:Dedi		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus																Combat bonus			Modify VAR
+CLASS:Dedicated	HD:6		TYPE:Base.PC	ABB:Dedi		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dedicated	STARTSKILLPTS:4	CSKILL:Craft (Pharmaceutical)|Craft (Visual Art)|Craft (Writing)|Gamble|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spot|Survival|Treat Injury
 ###Block: Ordinary
@@ -77,8 +77,8 @@ SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Dedicated Feat|CL/2
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus																Combat bonus		Modify VAR
-CLASS:Charismatic	HD:6		TYPE:Base.PC	ABB:Char		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(((CL+6)*2)/5)-1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus																Combat bonus		Modify VAR
+CLASS:Charismatic	HD:6		TYPE:Base.PC	ABB:Char		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(((CL+6)*2)/5)-1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Charismatic	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Disguise|Gather Information|Handle Animal|Intimidate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Profession|Read/Write Language|Speak Language
 ###Block: Ordinary
