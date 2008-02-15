@@ -6330,16 +6330,20 @@ public class PCClass extends PObject {
 				columnList.add(sub);
 				columnList.add(Integer.toString(displayedCost));
 				columnList.add(sub.getSupplementalDisplayInfo());
+				columnList.add(sub.getChoice());
 
 				choiceList.add(columnList);
 			}
+			
 
 			setSubClassKey(sc.getKeyName());
 
 			if (sc.getChoice().length() > 0) {
 				addSpecialty(sc.getChoice());
 			}
-
+			
+			columnNames.add("Specialty");
+			
 			if (sc.getCost() != 0) {
 				final ChooserInterface c1 = ChooserFactory.getChooserInstance();
 				c1.setTitle("School Choice (Prohibited)");
