@@ -328,7 +328,8 @@
 --> 
   </dependencies>
   <reports>
-    <report>maven-changelog-plugin</report>
+    <report>maven-java-plugin</report>
+	<report>maven-changelog-plugin</report>
     <report>maven-changes-plugin</report>
     <!-- Runs slower'n molassas --> 
     <!-- <report>maven-checkstyle-plugin</report> --> 
@@ -338,11 +339,7 @@
     <report>maven-javadoc-plugin</report>
     <report>maven-jdepend-plugin</report>
     <report>maven-junit-report-plugin</report>
-    <!--  Overly large report --> 
-    <!--  <report>maven-jxr-plugin</report>  --> 
     <report>maven-license-plugin</report>
-    <!-- Another slow'un --> 
-    <!-- <report>maven-linkcheck-plugin</report> --> 
     <report>maven-pmd-plugin</report>
     <report>maven-simian-plugin</report>
     <report>maven-tasklist-plugin</report>
