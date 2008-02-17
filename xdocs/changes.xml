@@ -5,6 +5,8 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
+    <release version="5.13.10" date="In SVN" description="Alpha release">
+    </release> 
     <release version="5.13.9" date="2008-02-12" description="Alpha release"> 
       <action dev="jdempsey" type="add" issue="1850536">DESC pcc tag</action>  
       <action dev="jdempsey" type="add" issue="1850537">URL pcc tag</action>  
