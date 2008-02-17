@@ -88,7 +88,6 @@ import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.tabs.InfoTabUtils;
-import pcgen.gui.tabs.spells.InfoPreparedSpells;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.BrowserLauncher;
 import pcgen.gui.utils.IconUtilitities;

@@ -1909,7 +1909,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		Globals.getPCList().remove(index - FIRST_CHAR_TAB);
 
 		// Go to the source tab, not the dm tools, if no pc tabs
-		baseTabbedPane.setSelectedIndex((newIndex == (FIRST_CHAR_TAB - 1)) ? 0 : newIndex);
+		baseTabbedPane.setSelectedIndex((newIndex == (FIRST_CHAR_TAB - 1)) ? 0
+			: newIndex);
 
 		// Need to fire this manually
 		baseTabbedPane_changePanel();
@@ -1927,15 +1928,22 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		if (!Globals.displayListsHappy())
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_newCharNoSources"), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_newCharNoSources"), Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
 
-		if (Globals.getGameModeHasPointPool() && !SettingsHandler.getGame().isPurchaseStatMode())
+		if (Globals.getGameModeHasPointPool()
+			&& !SettingsHandler.getGame().isPurchaseStatMode())
 		{
-			ShowMessageDelegate.showMessageDialog("In order for this game mode to work properly you need to select a Purchase Mode in Settings->Preferences.\nThere should be a selection for user-rolled abilities as well.",
-						Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"In order for this game mode to work properly you "
+					+ "need to select a Purchase Mode in "
+					+ "Settings->Preferences.\nThere should be a "
+					+ "selection for user-rolled abilities as well.",
+				Constants.s_APPNAME, MessageType.ERROR);
 			return;
 		}
 
