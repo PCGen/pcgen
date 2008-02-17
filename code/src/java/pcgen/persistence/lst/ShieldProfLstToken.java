@@ -1,5 +1,5 @@
 /*
- * WeaponProfToken
+ * ShieldProfLstToken
  * Copyright 2008
  *
  * This library is free software; you can redistribute it and/or

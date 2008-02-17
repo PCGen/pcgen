@@ -7,14 +7,14 @@ import pcgen.persistence.lst.CampaignLstToken;
 import pcgen.persistence.lst.CampaignSourceEntry;
 
 /**
- * Class deals with WEAPONPROF Token
+ * Class deals with SHIELDPROF Token
  */
 public class ShieldprofToken implements CampaignLstToken
 {
 
 	public String getTokenName()
 	{
-		return "ArmorprofToken.java";
+		return "SHIELDPROF";
 	}
 
 	public boolean parse(Campaign campaign, String value, URI sourceUri)

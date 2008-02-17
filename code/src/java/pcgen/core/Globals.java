@@ -48,6 +48,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.text.Collator;
 import java.util.*;
+import java.util.logging.Level;
 import java.util.regex.Pattern;
 
 /**
@@ -2041,6 +2042,15 @@ public final class Globals
 	}
 
 	/**
+	 * Get the number of armor proficiencies defined.
+	 * @return number of armor proficiencies
+	 */
+	public static int getArmorProfSize()
+	{
+		return armorProfs.size();
+	}
+
+	/**
 	 * Searches for an exact key match.
 	 *
 	 * @param aKey
@@ -2049,6 +2059,15 @@ public final class Globals
 	public static ShieldProf getShieldProfKeyed(final String aKey)
 	{
 		return shieldProfs.getKeyed(aKey);
+	}
+
+	/**
+	 * Get the number of shield proficiencies defined.
+	 * @return number of shield proficiencies
+	 */
+	public static int getShieldProfSize()
+	{
+		return shieldProfs.size();
 	}
 
 	/**
@@ -2368,32 +2387,38 @@ public final class Globals
 	}
 
 	/**
-	 * Dsiplay happy message that lsts are loaded
+	 * Check if enough data has been loaded to support character creation.
+	 * Will also report to the log the number of items of each of the 
+	 * necessary types that are currently loaded.  
 	 * @return true or false
 	 */
 	public static boolean displayListsHappy()
 	{
-		Logging.debugPrint("Number of objects loaded. The following should all be greater than 0:");
-		Logging.debugPrint("Races=" + raceMap.size());
-		Logging.debugPrint("Classes=" + getClassList().size());
-		Logging.debugPrint("Skills=" + getSkillList().size());
-		Logging.debugPrint("Feats=" + getUnmodifiableAbilityList("FEAT").size());
-		Logging.debugPrint("Equipment=" + EquipmentList.size());
-		Logging.debugPrint("WeaponProfs=" + getWeaponProfSize());
-		Logging.debugPrint("Kits=" + kitMap.size());
-		Logging.debugPrint("Templates=" + templateList.size());
+		// NOTE: If you add something here be sure to update the log output below
+		//TODO: JD Reinstate armor and shield proficiency checks once data has been created.
+		boolean listsHappy =
+				!((raceMap.size() == 0) || (getClassList().size() == 0)
+					|| (getSkillList().size() == 0)
+					|| (getUnmodifiableAbilityList("FEAT").size() == 0)
+					|| (EquipmentList.size() == 0) || /*(getArmorProfSize() == 0)
+					|| (getShieldProfSize() == 0) ||*/ (getWeaponProfSize() == 0));
 
-		//
-		// NOTE: If you add something here be sure to update the debug output in pcgen.gui.MainSource in loadCampaigns_actionPerformed
-		//
-		if ((raceMap.size() == 0) || (getClassList().size() == 0) || (getSkillList().size() == 0)
-			|| (getUnmodifiableAbilityList("FEAT").size() == 0) || (EquipmentList.size() == 0)
-			|| (getWeaponProfSize() == 0))
-		{
-			return false;
-		}
+		Level logLevel = listsHappy ? Logging.DEBUG : Logging.WARNING;
+		Logging.log(logLevel, "Number of objects loaded. The following should "
+			+ "all be greater than 0:");
+		Logging.log(logLevel, "Races=" + raceMap.size());
+		Logging.log(logLevel, "Classes=" + getClassList().size());
+		Logging.log(logLevel, "Skills=" + getSkillList().size());
+		Logging.log(logLevel, "Feats="
+			+ getUnmodifiableAbilityList("FEAT").size());
+		Logging.log(logLevel, "Equipment=" + EquipmentList.size());
+		Logging.log(logLevel, "ArmorProfs=" + getArmorProfSize());
+		Logging.log(logLevel, "ShieldProfs=" + getShieldProfSize());
+		Logging.log(logLevel, "WeaponProfs=" + getWeaponProfSize());
+		Logging.log(logLevel, "Kits=" + kitMap.size());
+		Logging.log(logLevel, "Templates=" + templateList.size());
 
-		return true;
+		return listsHappy;
 	}
 
 	/**
@@ -2444,6 +2469,7 @@ public final class Globals
 		saSet = new TreeSet<SpecialAbility>();
 
 		clearWeaponProfs();
+		shieldProfs.clear();
 
 		// Clear Maps (not strictly necessary, but done for consistency)
 //		bonusSpellMap = new HashMap();

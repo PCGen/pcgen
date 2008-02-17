@@ -294,6 +294,26 @@ public class Campaign extends PObject
 	}
 
 	/**
+	 * Adds the list of armor proficiency files to this campaign.
+	 * 
+	 * @param files the files
+	 */
+	public void addAllArmorProfFiles(List<CampaignSourceEntry> files)
+	{
+		listChar.addAllToListFor(ListKey.FILE_ARMOR_PROF, files);
+	}
+
+	/**
+	 * Adds the list of shield proficiency files to this campaign.
+	 * 
+	 * @param files the files
+	 */
+	public void addAllShieldProfFiles(List<CampaignSourceEntry> files)
+	{
+		listChar.addAllToListFor(ListKey.FILE_SHIELD_PROF, files);
+	}
+
+	/**
 	 *
 	 * @param files
 	 */
