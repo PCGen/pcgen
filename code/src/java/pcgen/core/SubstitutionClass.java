@@ -70,7 +70,7 @@ public final class SubstitutionClass extends PCClass
 	 * Apply the level mods to a class
 	 * @param aClass
 	 */
-	public void applyLevelArrayModsToLevel(final PCClass aClass, final int aLevel)
+	public void applyLevelArrayModsToLevel(final PCClass aClass, final int aLevel, final PlayerCharacter aPC)
 	{
 		if (levelArray == null)
 		{
@@ -97,7 +97,10 @@ public final class SubstitutionClass extends PCClass
 				if (aLevel == modLevel)
 				{
 					final PCClassLoader classLoader = new PCClassLoader();
-					classLoader.parseLine(aClass, aLine, tempSource);
+					if (levelArrayQualifies(aPC, aLine, tempSource))
+					{
+						classLoader.parseLine(aClass, aLine, tempSource);
+					}
 				}
 			}
 		}
@@ -115,6 +118,52 @@ public final class SubstitutionClass extends PCClass
 	{
 		return modLevels.contains(Integer.valueOf(aLevel));
 	}
+	
+	public boolean qualifiesForSubstitutionLevel(PlayerCharacter pc, int level) 
+	{ 
+		boolean passes =false;
+	               for (String aLine : levelArray) 
+	               { 
+	                    final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf("\t"))); 
+	                    final Campaign customCampaign = new Campaign();
+	        			customCampaign.setName("Custom");
+	        			customCampaign.addDescription(new Description("Custom data"));
+
+	        			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, this.getSourceURI());
+	        			
+	                    if (level == modLevel) 
+	                    { 
+	                         passes = levelArrayQualifies(pc, aLine, tempSource); 
+	                    } 
+	               } 
+	               return passes; 
+	}
+
+	/**
+	 * @param pc
+	 * @param aLine
+	 * @param tempSource
+	 * @return
+	 */
+	private boolean levelArrayQualifies(final PlayerCharacter pc, final String aLine,
+		final CampaignSourceEntry tempSource)
+	{
+		final PCClassLoader classLoader = new PCClassLoader(); 
+		 PCClass dummyClass; // = new PCClass();
+		 dummyClass = this.clone();
+		 
+		 try
+		{
+			classLoader.parseLine(dummyClass, aLine, tempSource);
+		}
+		catch (PersistenceLayerException e)
+		{
+			Logging
+			.errorPrint("Unable to parse line from levelArray: " + aLine);
+		} 
+		 return dummyClass.qualifies(pc);
+	}
+	
 
 
 }

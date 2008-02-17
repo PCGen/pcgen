@@ -6053,7 +6053,11 @@ public class PCClass extends PObject {
 			if (!sc.hasLevelArrayModsForLevel(level)) {
 				continue;
 			}
-
+			if(!sc.qualifiesForSubstitutionLevel(aPC, level))
+			{
+				continue;
+			}
+				
 			choiceList.add(sc);
 		}
 		Collections.sort(choiceList); 	// sort the SubstitutionClass's 
@@ -6409,7 +6413,7 @@ public class PCClass extends PObject {
 		{
 			SubstitutionClass sc = (SubstitutionClass)selected;
 			setSubstitutionClassKey(sc.getKeyName(), aLevel);
-			sc.applyLevelArrayModsToLevel(this, aLevel);
+			sc.applyLevelArrayModsToLevel(this, aLevel, aPC);
 			return;
 		}
 		else 

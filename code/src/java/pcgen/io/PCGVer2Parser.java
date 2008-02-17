@@ -1526,7 +1526,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				aPCClass.setSubstitutionClassKey(substitutionClassKeyName,
 					level);
-				aSubstitutionClass.applyLevelArrayModsToLevel(aPCClass, level);
+				aSubstitutionClass.applyLevelArrayModsToLevel(aPCClass, level, thePC);
 			}
 			else if (TAG_HITPOINTS.equals(tag))
 			{
