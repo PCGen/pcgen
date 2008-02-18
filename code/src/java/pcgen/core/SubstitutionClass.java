@@ -149,8 +149,7 @@ public final class SubstitutionClass extends PCClass
 		final CampaignSourceEntry tempSource)
 	{
 		final PCClassLoader classLoader = new PCClassLoader(); 
-		 PCClass dummyClass; // = new PCClass();
-		 dummyClass = this.clone();
+		 PCClass dummyClass = new PCClass();   
 		 
 		 try
 		{
