@@ -70,7 +70,8 @@ TEMPLATE:rsrd_templates_types.lst
 TEMPLATE:rsrd_templates_tempmods.lst
 
 WEAPONPROF:rsrd_weaponprofs.lst
-
+ARMORPROF:rsrd_profs_armor.lst
+SHIELDPROF:rsrd_profs_shield.lst
 
 #Hiding Starting Outfits
 HIDETYPE:EQUIP|Starting
