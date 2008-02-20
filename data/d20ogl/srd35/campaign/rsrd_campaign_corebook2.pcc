@@ -66,6 +66,8 @@ TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_types.lst
 TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_tempmods.lst
 
 WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
+ARMORPROF:@/d20ogl/srd35/basics/rsrd_profs_armor.lst
+SHIELDPROF:@/d20ogl/srd35/basics/rsrd_profs_shield.lst
 
 
 #Hiding Starting Outfits

@@ -61,6 +61,8 @@ SPELL:@/d20ogl/srd/basics/srd_spells.lst
 TEMPLATE:@/d20ogl/srd/basics/srd_templates_types.lst
 
 WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs.lst
+ARMORPROF:@/d20ogl/srd/basics/srd_profs_armor.lst
+SHIELDPROF:@/d20ogl/srd/basics/srd_profs_shield.lst
 
 # Hiding internal types
 HIDETYPE:EQUIP|ArmorsmithingTools|BasketweavingTools|BookbindingTools|BowmakingTools|BlacksmithingTools|CalligraphyTools|CarpentryTools|CobblingTools
