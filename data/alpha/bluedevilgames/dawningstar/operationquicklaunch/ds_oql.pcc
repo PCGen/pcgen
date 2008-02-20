@@ -48,3 +48,5 @@ RACE:ds_oql_race.lst
 SKILL:ds_oql_skills.lst
 TEMPLATE:ds_oql_template.lst
 WEAPONPROF:ds_oql_weapon_prof.lst
+ARMORPROF:ds_oql_prof_armor.lst
+SHIELDPROF:ds_oql_prof_shield.lst

@@ -76,6 +76,7 @@ RACE:pulpfantasy_races.lst
 SKILL:pulpfantasy_skills.lst
 TEMPLATE:pulpfantasy_templates.lst
 WEAPONPROF:pulpfantasy_weaponprofs.lst
+ARMORPROF:pulpfantasy_profs_armor.lst
 
 #Stuff imported from the MSRD
 EQUIPMENT:@\d20ogl\msrd\arcana\basics\arcanabasics_equip_armorshields.lst|(INCLUDE:Padded Armor|Studded Leather Armor|Scale Mail|Half Plate|Hide Armor|Banded Mail|Splint Mail)

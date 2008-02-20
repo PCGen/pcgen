@@ -36,3 +36,5 @@ KIT:xcrawl_kits.lst
 SKILL:xcrawl_skills.lst
 SPELL:xcrawl_spells.lst
 WEAPONPROF:xcrawl_weapprofs.lst
+ARMORPROF:xcrawl_profs_armor.lst
+SHIELDPROF:xcrawl_profs_shield.lst

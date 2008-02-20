@@ -52,7 +52,6 @@ LANGUAGE:sovereignlanguages.lst
 # For the Evasion and Improved Evasion pseudo-feats
 FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion|Uncanny Dodge|Sneak Attack)
 
-EQUIPMENT:sovereignarmormasterwork.lst
 FEAT:sovereignmagicfeats.lst
 EQUIPMENT:sovereignweapmasterwork.lst
 #EQUIPMOD:sovereignequipmods.lst

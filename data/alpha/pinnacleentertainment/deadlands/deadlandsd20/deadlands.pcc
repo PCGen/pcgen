@@ -45,6 +45,8 @@ FEAT:deadlands_mon_feats.lst
 RACE:deadlands_mon_races.lst
 TEMPLATE:deadlands_mon_templates.lst
 WEAPONPROF:deadlands_mon_weaponprofs.lst
+ARMORPROF:deadlands_profs_armor.lst
+SHIELDPROF:deadlands_profs_shield.lst
 
 
 # For the Evasion and Improved Evasion pseudo-feats

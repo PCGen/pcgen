@@ -54,6 +54,7 @@ RACE:hotwwzombieanimals.lst
 SKILL:hotwwskills.lst
 TEMPLATE:hotwwtemplates.lst
 WEAPONPROF:hotwwweapprofs.lst
+ARMORPROF:hotwprofsarmor.lst
 
 # Imported from the SRD
 

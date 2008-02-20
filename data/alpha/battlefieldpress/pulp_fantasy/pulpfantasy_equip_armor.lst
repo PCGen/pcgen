@@ -1,26 +1,26 @@
-# CVS $Revision$ $Author$ -- Sat Nov 25 04:27:46 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Wed Feb 20 12:25:45 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
 ###Block:Light Armor
-# Equipment Name			Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
-Leather Jacket.MOD																		SOURCEPAGE:p.72	SPELLFAILURE:0
-Leather Armor.MOD																			SOURCEPAGE:p.72	SPELLFAILURE:0
-Padded Armor.MOD																			SOURCEPAGE:p.72	SPELLFAILURE:0
-Studded Leather Armor.MOD																	SOURCEPAGE:p.72	SPELLFAILURE:0
-Chemico Body Armor		TYPE:Armor.Light.Suit.Tactical	COST:16	WT:6		ACCHECK:-3		MAXDEX:4		SOURCEPAGE:p.72					BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK
+# Equipment Name			Required Proficiency				Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Leather Jacket.MOD																									SOURCEPAGE:p.72	SPELLFAILURE:0
+Leather Armor.MOD																										SOURCEPAGE:p.72	SPELLFAILURE:0
+Padded Armor.MOD																										SOURCEPAGE:p.72	SPELLFAILURE:0
+Studded Leather Armor.MOD																								SOURCEPAGE:p.72	SPELLFAILURE:0
+Chemico Body Armor		PROFICIENCY:ARMOR|Chemico Body Armor	TYPE:Armor.Light.Suit.Tactical	COST:16	WT:6		ACCHECK:-3		MAXDEX:4		SOURCEPAGE:p.72					BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK
 
 ###Block:Medium Armor
-# Equipment Name		Output Name				Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																Special Property
-Chainmail Shirt.MOD																						SOURCEPAGE:p.72	SPELLFAILURE:0
-Hide Armor.MOD																							SOURCEPAGE:p.72	SPELLFAILURE:0
-Scale Mail.MOD		OUTPUTNAME:Scale Mail Armor																	SOURCEPAGE:p.72	SPELLFAILURE:0
-EOB Body Armor							TYPE:Armor.Medium.Suit.Tactical	COST:18	WT:10		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:p.72					BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK	SPROP:Mil(+3)
+# Equipment Name		Output Name				Required Proficiency			Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																Special Property
+Chainmail Shirt.MOD																												SOURCEPAGE:p.72	SPELLFAILURE:0
+Hide Armor.MOD																													SOURCEPAGE:p.72	SPELLFAILURE:0
+Scale Mail.MOD		OUTPUTNAME:Scale Mail Armor																							SOURCEPAGE:p.72	SPELLFAILURE:0
+EOB Body Armor							PROFICIENCY:ARMOR|EOB Body Armor	TYPE:Armor.Medium.Suit.Tactical	COST:18	WT:10		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:p.72					BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK	SPROP:Mil(+3)
 
 ###Block:Heavy Armor
-# Equipment Name	Output Name				Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																Special Property
-Banded Mail.MOD																						SOURCEPAGE:p.72	SPELLFAILURE:0
-Half Plate.MOD	OUTPUTNAME:Half Plate Armor																	SOURCEPAGE:p.72	SPELLFAILURE:0
-Plate Mail.MOD																						SOURCEPAGE:p.72	SPELLFAILURE:0
-Splint Mail.MOD																						SOURCEPAGE:p.72	SPELLFAILURE:0
-M12 armored Vest						TYPE:Armor.Heavy.Suit.Tactical	COST:20	WT:12		ACCHECK:-4		MAXDEX:2		SOURCEPAGE:p.72					BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK	SPROP:Mil(+3)
+# Equipment Name	Output Name				Required Proficiency			Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																Special Property
+Banded Mail.MOD																												SOURCEPAGE:p.72	SPELLFAILURE:0
+Half Plate.MOD	OUTPUTNAME:Half Plate Armor																							SOURCEPAGE:p.72	SPELLFAILURE:0
+Plate Mail.MOD																												SOURCEPAGE:p.72	SPELLFAILURE:0
+Splint Mail.MOD																												SOURCEPAGE:p.72	SPELLFAILURE:0
+M12 armored Vest						PROFICIENCY:ARMOR|M12 armored Vest	TYPE:Armor.Heavy.Suit.Tactical	COST:20	WT:12		ACCHECK:-4		MAXDEX:2		SOURCEPAGE:p.72					BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK	SPROP:Mil(+3)
