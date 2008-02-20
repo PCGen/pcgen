@@ -33,6 +33,7 @@ FEAT:futurerobots_abilities.lst
 EQUIPMENT:futurerobots_equip_robotics.lst
 EQUIPMOD:futurerobots_equipmods.lst
 WEAPONPROF:futurerobots_weaponprofs.lst
+ARMORPROF:futurerobots_profs_armor.lst
 
 HIDETYPE:EQUIP|SkillChipSoftware1|SkillChipSoftware2|SkillChipSoftware3|SkillChipSoftware4|SkillChipSoftware5|SkillChipSoftware6|SkillChipSoftware7|SkillChipSoftware8
 HIDETYPE:EQUIP|SkillProgitSoftware4|SkillProgitSoftware8|SkillProgitSoftware12

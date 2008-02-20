@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 15 17:20:01 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 19 22:47:56 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original entry by Eddy Anthony (MoSaT)
 
@@ -34,15 +34,15 @@ Robot Manipulator (Task Hand)			OUTPUTNAME:[NAME]	PROFICIENCY:WEAPON|Manipulator
 ###Block: Integrated Armor
 #TODO: figure out how to do the weight, usualy given as a fraction of the Robots frame weight, may not be doable
 
-# Equipment Name						Output Name		Type				Source Page				Combat bonus									Add to base move							Special Property
-Robot Integrated Armor (Alumisteel Armor)		OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|5|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Integrated Armor (Duraplastic Armor)	OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|3|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot										SPROP:Purchase DC: %|5+(RobotPurchaseDC/2)
-Robot Integrated Armor (Duralloy Armor)		OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL6	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|8|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-10|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Integrated Armor (Resilium Armor)		OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL6	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|6|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot										SPROP:Purchase DC: %|5+(RobotPurchaseDC/2)
-Robot Integrated Armor (Crystal Carbon Armor)	OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL7	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|8|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot										SPROP:Purchase DC: %|15+(RobotPurchaseDC/2)
-Robot Integrated Armor (Neovulcanium Armor)	OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL7	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|7|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Integrated Armor (Megatanium Armor)		OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL8	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|10|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
-Robot Integrated Armor (Reactive Armor)		OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL8	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|8|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|5+(RobotPurchaseDC/2)
+# Equipment Name						Output Name		Required Proficiency				Type				Source Page				Combat bonus									Add to base move							Special Property
+Robot Integrated Armor (Alumisteel Armor)		OUTPUTNAME:[NAME]	PROFICIENCY:ARMOR|Robot Integrated Armor	TYPE:Robotic.Armor.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|5|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Integrated Armor (Duraplastic Armor)	OUTPUTNAME:[NAME]	PROFICIENCY:ARMOR|Robot Integrated Armor	TYPE:Robotic.Armor.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|3|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot										SPROP:Purchase DC: %|5+(RobotPurchaseDC/2)
+Robot Integrated Armor (Duralloy Armor)		OUTPUTNAME:[NAME]	PROFICIENCY:ARMOR|Robot Integrated Armor	TYPE:Robotic.Armor.PL6	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|8|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-10|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Integrated Armor (Resilium Armor)		OUTPUTNAME:[NAME]	PROFICIENCY:ARMOR|Robot Integrated Armor	TYPE:Robotic.Armor.PL6	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|6|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot										SPROP:Purchase DC: %|5+(RobotPurchaseDC/2)
+Robot Integrated Armor (Crystal Carbon Armor)	OUTPUTNAME:[NAME]	PROFICIENCY:ARMOR|Robot Integrated Armor	TYPE:Robotic.Armor.PL7	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|8|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot										SPROP:Purchase DC: %|15+(RobotPurchaseDC/2)
+Robot Integrated Armor (Neovulcanium Armor)	OUTPUTNAME:[NAME]	PROFICIENCY:ARMOR|Robot Integrated Armor	TYPE:Robotic.Armor.PL7	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|7|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Integrated Armor (Megatanium Armor)		OUTPUTNAME:[NAME]	PROFICIENCY:ARMOR|Robot Integrated Armor	TYPE:Robotic.Armor.PL8	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|10|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Integrated Armor (Reactive Armor)		OUTPUTNAME:[NAME]	PROFICIENCY:ARMOR|Robot Integrated Armor	TYPE:Robotic.Armor.PL8	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|8|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|5+(RobotPurchaseDC/2)
 
 ###Block: Sensor Systems
 

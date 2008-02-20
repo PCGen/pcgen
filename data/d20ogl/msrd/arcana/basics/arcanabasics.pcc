@@ -36,6 +36,7 @@ EQUIPMOD:arcanabasics_equipmods.lst
 EQUIPMOD:arcanabasics_equipmods_fx.lst
 EQUIPMOD:arcanabasics_equipmods_organizations.lst
 WEAPONPROF:arcanabasics_weaponprofs.lst
+ARMORPROF:arcanabasics_profs_armor.lst
 
 FEAT:arcanabasics_feats.lst
 FEAT:arcanabasics_feats_hidden.lst
