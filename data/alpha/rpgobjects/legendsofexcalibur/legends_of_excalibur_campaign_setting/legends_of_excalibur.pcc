@@ -71,6 +71,8 @@ RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Owl|Rat
 SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
 WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
+ARMORPROF:@/d20ogl/srd35/basics/rsrd_profs_armor.lst
+SHIELDPROF:@/d20ogl/srd35/basics/rsrd_profs_shield.lst
 
 #
 # End
