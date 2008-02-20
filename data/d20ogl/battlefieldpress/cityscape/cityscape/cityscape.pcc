@@ -59,6 +59,7 @@ CLASS:@/d20ogl/srd/basics/srd_classes_base.lst|(INCLUDE:Fighter|Rogue)
 CLASS:cityscapeclasses.lst
 TEMPLATE:cityscapetemplates.lst
 WEAPONPROF:cityscapeweapprofs.lst
+ARMORPROF:cityscapeprofsarmor.lst
 EQUIPMENT:cityscapeequip.lst
 EQUIPMENT:cityscapeequiparmorshields.lst
 EQUIPMENT:cityscapeequipweapammo.lst

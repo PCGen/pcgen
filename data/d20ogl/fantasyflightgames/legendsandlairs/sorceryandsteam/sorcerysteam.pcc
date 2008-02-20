@@ -43,3 +43,5 @@ EQUIPMENT:sorcerysteam_equip_magic.lst
 EQUIPMENT:sorcerysteam_equip_weap_melee.lst
 EQUIPMENT:sorcerysteam_equip_weap_ranged.lst
 WEAPONPROF:sorcerysteam_weaponprofs.lst
+ARMORPROF:sorcerysteam_profs_armor.lst
+SHIELDPROF:sorcerysteam_profs_shield.lst

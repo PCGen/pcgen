@@ -31,6 +31,7 @@ SPELL:seafarers_spells.lst
 DOMAIN:seafarers_domains.lst
 TEMPLATE:seafarers_templates.lst
 LANGUAGE:seafarers_languages.lst
+ARMORPROF:seafarers_profs_armor.lst
 
 KIT:seafarers_kits_races_monsters.lst
 

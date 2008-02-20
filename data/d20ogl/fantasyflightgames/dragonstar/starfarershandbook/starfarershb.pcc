@@ -46,6 +46,7 @@ EQUIPMENT:starfarershb_equip_weap_ranged.lst
 EQUIPMENT:starfarershb_equip_weap_ammo.lst
 EQUIPMENT:starfarershb_equip_mech.lst
 WEAPONPROF:starfarershb_weapprofs.lst
+ARMORPROF:starfarershb_profs_armor.lst
 # Commenting out - not ready yet
 EQUIPMOD:starfarershb_equipmods.lst
 

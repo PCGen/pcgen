@@ -35,3 +35,4 @@ EQUIPMENT:bnc_equipment_weapons.lst
 FEAT:bnc_feats.lst
 FEAT:bnc_feats_mod.lst
 WEAPONPROF:bnc_weapon_proficiency.lst
+ARMORPROF:bnc_proficiency_armor.lst

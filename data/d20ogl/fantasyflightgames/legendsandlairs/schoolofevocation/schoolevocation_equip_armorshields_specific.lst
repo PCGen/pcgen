@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Feb 20 00:50:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
 # Original entry by: Ratheof Blithwyn
 
-# Equipment Name	Type					Cost		AC Penalty Check	Source Page		Combat bonus
-Static Shield	TYPE:Magic.Shield.Specific	COST:25157	ACCHECK:0		SOURCEPAGE:p.55	BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+# Equipment Name	Required Proficiency			Type					Cost		AC Penalty Check	Source Page		Combat bonus
+Static Shield	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Magic.Shield.Specific	COST:25157	ACCHECK:0		SOURCEPAGE:p.55	BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE

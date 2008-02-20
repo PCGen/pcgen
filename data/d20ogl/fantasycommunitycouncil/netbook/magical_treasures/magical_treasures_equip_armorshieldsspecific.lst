@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 21:16:23 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 20 13:02:52 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 # I'm having issues with the shifting armor.  I can't figure out how to make it shift...
 SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/
 ##Armor
@@ -9,5 +9,5 @@ Divine Armor of the Faithful	PROFICIENCY:ARMOR|Full Plate		TYPE:Magic.Armor.Heav
 # Shifting Armor			PROFICIENCY:ARMOR|Full Plate		TYPE:Magic.Armor.Standard.Suit.Specific		COST:50650	WT:0		ACCHECK:0							SOURCEPAGE:pg. 10, Armor
 
 ##Shield
-Austere Shield of Effigies							TYPE:Magic.Shield.Standard.Specific			COST:37000	WT:6		ACCHECK:-1					SOURCEPAGE:pg. 8, Armor		SPELLFAILURE:5		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
-Shield of Shelter									TYPE:Magic.Shield.Standard.Wooden.Specific	COST:11365	WT:5		ACCHECK:0					SOURCEPAGE:pg. 10, Armor	SPELLFAILURE:5		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Austere Shield of Effigies	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Magic.Shield.Standard.Specific			COST:37000	WT:6		ACCHECK:-1					SOURCEPAGE:pg. 8, Armor		SPELLFAILURE:5		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Shield of Shelter			PROFICIENCY:SHIELD|Shield (Light)	TYPE:Magic.Shield.Standard.Wooden.Specific	COST:11365	WT:5		ACCHECK:0					SOURCEPAGE:pg. 10, Armor	SPELLFAILURE:5		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE

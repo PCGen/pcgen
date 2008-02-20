@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Feb 20 00:49:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 #Original Author: Beaver
 
 SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
 
 
 #Note from SRD Files: Shields are going to need PROFs too soon...  AUTO:SHIELDPROF or something like that....
-# Equipment Name		Product Identity?	Type						Cost		Weight	AC Penalty Check	Modifier				Source Page						% of Spell Failure	Special Property
-Shield of the Moonsage	NAMEISPI:YES	TYPE:Magic.Shield.Standard.Specific	COST:14170	WT:15		ACCHECK:-1		EQMOD:PLUS1A.MWORKA.BIND	SOURCEPAGE:Chap.5, Magic Items, p.40	SPELLFAILURE:15		SPROP:If used by someone currently wielding the sword of Moonsage, the shield surrounds her in a aura of moonlight that also functions as a continuous godspeed spell.
+# Equipment Name		Product Identity?	Required Proficiency			Type						Cost		Weight	AC Penalty Check	Modifier				Source Page						% of Spell Failure	Special Property
+Shield of the Moonsage	NAMEISPI:YES	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Magic.Shield.Standard.Specific	COST:14170	WT:15		ACCHECK:-1		EQMOD:PLUS1A.MWORKA.BIND	SOURCEPAGE:Chap.5, Magic Items, p.40	SPELLFAILURE:15		SPROP:If used by someone currently wielding the sword of Moonsage, the shield surrounds her in a aura of moonlight that also functions as a continuous godspeed spell.

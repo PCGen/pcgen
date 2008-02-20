@@ -29,6 +29,7 @@ EQUIPMOD:rocketrangers_equipmods.lst
 KIT:rocketrangers_kits_defaultmonsters.lst
 RACE:rocketrangers_races.lst
 WEAPONPROF:rocketrangers_weaponprofs.lst
+ARMORPROF:rocketrangers_profs_armor.lst
 
 #included creatures from MSRD
 KIT:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_kits_defaultmonsters.lst|(INCLUDE:Default Dinosaur (Deinonychus))
