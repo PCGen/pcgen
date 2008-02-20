@@ -53,6 +53,7 @@ FEAT:sr_feats.lst
 FEAT:sr_feats_hidden.lst
 RACE:sr_races.lst
 WEAPONPROF:sr_weaponprofs.lst
+ARMORPROF:sr_profs_armor.lst
 LANGUAGE:sr_languages.lst
 TEMPLATE:sr_templates.lst
 

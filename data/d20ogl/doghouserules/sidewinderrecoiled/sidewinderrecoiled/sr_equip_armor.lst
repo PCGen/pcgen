@@ -1,22 +1,21 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Feb 19 22:59:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 # Original Entry by: Lone Jedi (MSRD by Paul King & Phantom of Krankor)
 ###Need to work out Non-Prof penalties.
 
-# Equipment Name		Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus		Combat bonus																			Source Page
 #Light Armor
-# Equipment Name	Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
-Soft Leather	TYPE:Armor.Light.Suit.Impromptu	COST:5	WT:4		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE
-Leather Armor	TYPE:Armor.Light.Suit.Archaic		COST:8	WT:15		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Equipment.REPLACE
+# Equipment Name	Required Proficiency			Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
+Soft Leather	PROFICIENCY:ARMOR|Soft Leather	TYPE:Armor.Light.Suit.Impromptu	COST:5	WT:4		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE
+Leather Armor	PROFICIENCY:ARMOR|Leather Armor	TYPE:Armor.Light.Suit.Archaic		COST:8	WT:15		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Equipment.REPLACE
 
 #Medium Armor
-Hide Armor		TYPE:Armor.Medium.Suit.Impromptu	COST:5	WT:25		ACCHECK:3		MAXDEX:4		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE
-Bullet-Proof Vest	TYPE:Armor.Medium.Suit.Tactical	COST:8	WT:25		ACCHECK:3		MAXDEX:4		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE
-Chainmail Shirt	TYPE:Armor.Medium.Suit.Archaic	COST:45	WT:40		ACCHECK:5		MAXDEX:2		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE
-Breastplate		TYPE:Armor.Medium.Suit.Archaic	COST:80	WT:30		ACCHECK:4		MAXDEX:3		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE
+Hide Armor		PROFICIENCY:ARMOR|Hide Armor		TYPE:Armor.Medium.Suit.Impromptu	COST:5	WT:25		ACCHECK:3		MAXDEX:4		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE
+Bullet-Proof Vest	PROFICIENCY:ARMOR|Bullet-Proof Vest	TYPE:Armor.Medium.Suit.Tactical	COST:8	WT:25		ACCHECK:3		MAXDEX:4		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE
+Chainmail Shirt	PROFICIENCY:ARMOR|Chainmail Shirt	TYPE:Armor.Medium.Suit.Archaic	COST:45	WT:40		ACCHECK:5		MAXDEX:2		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE
+Breastplate		PROFICIENCY:ARMOR|Breastplate		TYPE:Armor.Medium.Suit.Archaic	COST:80	WT:30		ACCHECK:4		MAXDEX:3		SOURCEPAGE:p. 154	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE
 
 #Heavy Armor
-Plate Mail		TYPE:Armor.Heavy.Suit.Archaic		COST:200	WT:50		ACCHECK:6		MAXDEX:1		SOURCEPAGE:p. 155	BONUS:COMBAT|AC|3|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|5|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Equipment.REPLACE
+Plate Mail		PROFICIENCY:ARMOR|Plate Mail		TYPE:Armor.Heavy.Suit.Archaic		COST:200	WT:50		ACCHECK:6		MAXDEX:1		SOURCEPAGE:p. 155	BONUS:COMBAT|AC|3|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|5|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Equipment.REPLACE
 
 #Shields
-Tribal Shield	TYPE:Armor.Light.Shield			COST:4	WT:10		ACCHECK:2					SOURCEPAGE:p. 155	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Equipment.REPLACE
+Tribal Shield	PROFICIENCY:ARMOR|Tribal Shield	TYPE:Armor.Light.Shield			COST:4	WT:10		ACCHECK:2					SOURCEPAGE:p. 155	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Equipment.REPLACE
