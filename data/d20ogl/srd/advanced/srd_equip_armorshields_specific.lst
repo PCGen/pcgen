@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 15 13:25:39 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 19 22:17:11 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 ###Block: Specific Armor
@@ -17,15 +17,15 @@ Rhino Hide			PROFICIENCY:ARMOR|Hide		TYPE:Armor.Medium.Suit.Specific.Nonmetal		C
 
 ###Block: Specific Shields
 
-# Equipment Name		Required Proficiency		Type									Contains			Cost		Weight	AC Penalty Check	Modifier				Source Page					% of Spell Failure	Innate Spells							Combat bonus					Special Property
-Absorbing Shield		PROFICIENCY:SHIELD|Shield	TYPE:Enhancement.Shield.Specific.Specific							COST:49020	WT:15		ACCHECK:-2		EQMOD:STEEL.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:15											BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE	SPROP:Allows the wearer to disintegrate an object on command as a touch attack once every 2 days
-Adamantine Shield		PROFICIENCY:SHIELD|Shield	TYPE:Shield.Heavy.Specific									COST:170	WT:15		ACCHECK:-2		EQMOD:STEEL.ADAMANT_SHLD	SOURCEPAGE:SRDEquipment.rtf		SPELLFAILURE:15											BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
-Caster's Shield		PROFICIENCY:SHIELD|Shield	TYPE:Enhancement.Shield.Small.Specific.Nonmetal						COST:2003	WT:6		ACCHECK:-1		EQMOD:WOOD.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	SPROP:It has a reusable back strip that allows the wearer to scribe a single spell as a scroll
-Darkwood Shield		PROFICIENCY:SHIELD|Shield	TYPE:Shield.Large.Specific.Nonmetal								COST:7	WT:10					EQMOD:DARK				SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
-Lion's Shield		PROFICIENCY:SHIELD|Shield	TYPE:Enhancement.Shield.Large.Specific							COST:5020	WT:15		ACCHECK:-2		EQMOD:STEEL.MWORKA.PLUS2S	SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:It has a lion face that allows the wearer as a free action, to make a bite attack (wearer's BAB) and deals 2d6 damage, 3/day
-Mithral Large Shield	PROFICIENCY:SHIELD|Shield	TYPE:Shield.Large.Specific									COST:20	WT:15		ACCHECK:-2		EQMOD:MTHRL				SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
-Spined Shield		PROFICIENCY:SHIELD|Shield	TYPE:Enhancement.Large.Shield.Specific.Container	CONTAINS:3|Spine=3	COST:1520	WT:15		ACCHECK:-2		EQMOD:STEEL.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to fire a spine (+1, range 120 ft., 1d10 dam, 19-20x2) 3/day
-Winged Shield		PROFICIENCY:SHIELD|Shield	TYPE:Enhancement.Large.Shield.Specific.Nonmetal						COST:14009	WT:10		ACCHECK:-2		EQMOD:WOOD.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf					SPELLS:Winged Shield|TIMES=1|CASTERLEVEL=5|Fly,13	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to fly on command once per day
+# Equipment Name		Required Proficiency			Type									Contains			Cost		Weight	AC Penalty Check	Modifier				Source Page					% of Spell Failure	Innate Spells							Combat bonus					Special Property
+Absorbing Shield		PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Enhancement.Shield.Specific.Specific							COST:49020	WT:15		ACCHECK:-2		EQMOD:STEEL.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:15											BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE	SPROP:Allows the wearer to disintegrate an object on command as a touch attack once every 2 days
+Adamantine Shield		PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Specific									COST:170	WT:15		ACCHECK:-2		EQMOD:STEEL.ADAMANT_SHLD	SOURCEPAGE:SRDEquipment.rtf		SPELLFAILURE:15											BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Caster's Shield		PROFICIENCY:SHIELD|Shield (Light)	TYPE:Enhancement.Shield.Small.Specific.Nonmetal						COST:2003	WT:6		ACCHECK:-1		EQMOD:WOOD.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	SPROP:It has a reusable back strip that allows the wearer to scribe a single spell as a scroll
+Darkwood Shield		PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Large.Specific.Nonmetal								COST:7	WT:10					EQMOD:DARK				SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+Lion's Shield		PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Enhancement.Shield.Large.Specific							COST:5020	WT:15		ACCHECK:-2		EQMOD:STEEL.MWORKA.PLUS2S	SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:It has a lion face that allows the wearer as a free action, to make a bite attack (wearer's BAB) and deals 2d6 damage, 3/day
+Mithral Large Shield	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Large.Specific									COST:20	WT:15		ACCHECK:-2		EQMOD:MTHRL				SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+Spined Shield		PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Enhancement.Large.Shield.Specific.Container	CONTAINS:3|Spine=3	COST:1520	WT:15		ACCHECK:-2		EQMOD:STEEL.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to fire a spine (+1, range 120 ft., 1d10 dam, 19-20x2) 3/day
+Winged Shield		PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Enhancement.Large.Shield.Specific.Nonmetal						COST:14009	WT:10		ACCHECK:-2		EQMOD:WOOD.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf					SPELLS:Winged Shield|TIMES=1|CASTERLEVEL=5|Fly,13	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to fly on command once per day
 
 
 

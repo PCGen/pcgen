@@ -63,6 +63,8 @@ TEMPLATE:srd_templates_types.lst
 TEMPLATE:srd_templates_tempmods.lst
 
 WEAPONPROF:srd_weapprofs.lst
+ARMORPROF:srd_profs_armor.lst
+SHIELDPROF:srd_profs_shield.lst
 
 # Hiding internal types
 HIDETYPE:EQUIP|ArmorsmithingTools|BasketweavingTools|BookbindingTools|BowmakingTools|BlacksmithingTools|CalligraphyTools|CarpentryTools|CobblingTools
