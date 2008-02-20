@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Feb 20 15:28:41 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
 # Original entry by wizofice2001
 
 #Medium Weight -------------------------------------------------------------------------------------------------------------
-# Equipment Name	Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
-Beast Chitin	TYPE:Armor.Medium.Suit.Standard.Nonmetal	COST:200	WT:50		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:p.52	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+# Equipment Name	Required Proficiency	Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
+Beast Chitin	PROFICIENCY:ARMOR|Hide	TYPE:Armor.Medium.Suit.Standard.Nonmetal	COST:200	WT:50		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:p.52	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
