@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 30 12:52:51 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Feb 18 11:22:51 2008 -- reformated by prettylst.pl v1.38 (build 5211)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -214,13 +214,13 @@ Ki Strike	TYPE:Special.Supernatural	VISIBLE:NO	SAB:Ki Strike (Su) (Magic)|PREVAR
 Monk Ki Strike Advancement	TYPE:Internal	VISIBLE:NO	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Paladin Abilities
-# Feat Name		Type				Visible	Special ABility						Define								Innate Spells										Save checks bonus						Modify VAR							Source Page
-Aura of Courage	TYPE:Supernatural		VISIBLE:NO	SAB:Aura of Courage (Su)																																									SOURCEPAGE:ClassesII.rtf
-Divine Health	TYPE:Extraordinary	VISIBLE:NO	SAB:Divine Health (Ex)																																										SOURCEPAGE:ClassesII.rtf
-Remove Disease	TYPE:SpellLike		VISIBLE:NO	SAB:Remove Disease (Sp) %/week|RemoveDisease	DEFINE:RemoveDisease|0	DEFINE:RemoveDiseaseLVL|0																					BONUS:VAR|RemoveDisease|RemoveDiseaseLVL/3-1	SOURCEPAGE:ClassesII.rtf
-Lay on Hands	TYPE:Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|LayOnHands		DEFINE:LayOnHands|0	DEFINE:LayOnHandsLVL|0																						BONUS:VAR|LayOnHands|LayOnHandsLVL*max(CHA,0)	SOURCEPAGE:ClassesII.rtf
-Divine Grace	TYPE:Supernatural		VISIBLE:NO	SAB:Divine Grace (Su)																										BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)									SOURCEPAGE:ClassesII.rtf
-Detect Evil		TYPE:SpellLike		VISIBLE:NO	SAB:Detect Evil (Sp)					DEFINE:DetectEvilLVL|0						SPELLS:Paladin|TIMES=-1|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																	SOURCEPAGE:ClassesII.rtf
+# Feat Name		Type				Visible	Special ABility						Define								Innate Spells											Save checks bonus						Modify VAR							Source Page
+Aura of Courage	TYPE:Supernatural		VISIBLE:NO	SAB:Aura of Courage (Su)																																										SOURCEPAGE:ClassesII.rtf
+Divine Health	TYPE:Extraordinary	VISIBLE:NO	SAB:Divine Health (Ex)																																											SOURCEPAGE:ClassesII.rtf
+Remove Disease	TYPE:SpellLike		VISIBLE:NO	SAB:Remove Disease (Sp) %/week|RemoveDisease	DEFINE:RemoveDisease|0	DEFINE:RemoveDiseaseLVL|0																						BONUS:VAR|RemoveDisease|RemoveDiseaseLVL/3-1	SOURCEPAGE:ClassesII.rtf
+Lay on Hands	TYPE:Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|LayOnHands		DEFINE:LayOnHands|0	DEFINE:LayOnHandsLVL|0																							BONUS:VAR|LayOnHands|LayOnHandsLVL*max(CHA,0)	SOURCEPAGE:ClassesII.rtf
+Divine Grace	TYPE:Supernatural		VISIBLE:NO	SAB:Divine Grace (Su)																											BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)									SOURCEPAGE:ClassesII.rtf
+Detect Evil		TYPE:SpellLike		VISIBLE:NO	SAB:Detect Evil (Sp)					DEFINE:DetectEvilLVL|0						SPELLS:Class Ability|TIMES=-1|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Paladin Internals
 # Feat Name			Type			Visible	Define													Modify VAR																											Source Page
