@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 16 12:30:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 19 21:57:39 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: TaluronIscandar
 #     These are epic psionic feats derived from epic magic feats as allowed in the epic feat section
@@ -16,10 +16,10 @@ Manifestation Harrier			TYPE:Epic							PREFEAT:1,Combat Reflexes		PRELEVEL:MIN=
 Master Dorje				TYPE:Epic							PREFEAT:1,Craft Dorje			PRELEVEL:MIN=21	PRESKILL:1,Psicraft=15																												DESC:See Master Wand																																														SOURCEPAGE:EpicFeats.rtf
 Master Psicrown				TYPE:Epic							PREFEAT:1,Craft Psicrown		PRELEVEL:MIN=21	PRESKILL:1,Psicraft=15																												DESC:See Master Staff																																														SOURCEPAGE:EpicFeats.rtf
 Multipower					TYPE:Epic							PREFEAT:1,Quicken Power			PRELEVEL:MIN=21									PRESPELLTYPE:1,Psionic=9																			DESC:See Multispell												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																												SOURCEPAGE:EpicFeats.rtf
-Permanent Power Emanation		TYPE:Epic													PRELEVEL:MIN=21	PRESKILL:1,Psicraft=25																												DESC:See Permanent Emanation											STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|Y																									SOURCEPAGE:EpicFeats.rtf
-Power Stowaway				TYPE:Epic	PRECLASS:1,SPELLCASTER.Psionic=12							PRELEVEL:MIN=21	PRESKILL:1,Psicraft=24																												DESC:See Spell Stowaway												STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|Y																									SOURCEPAGE:EpicFeats.rtf
+Permanent Power Emanation		TYPE:Epic													PRELEVEL:MIN=21	PRESKILL:1,Psicraft=25																												DESC:See Permanent Emanation											STACK:NO	MULT:YES	CHOOSE:SPELLLIST|Y																											SOURCEPAGE:EpicFeats.rtf
+Power Stowaway				TYPE:Epic	PRECLASS:1,SPELLCASTER.Psionic=12							PRELEVEL:MIN=21	PRESKILL:1,Psicraft=24																												DESC:See Spell Stowaway												STACK:NO	MULT:YES	CHOOSE:SPELLLIST|Y																											SOURCEPAGE:EpicFeats.rtf
 Suppress Power Displays			TYPE:Epic													PRELEVEL:MIN=21	PRESKILL:1,Psicraft=25																												DESC:Take 10 on Concentration checks to supress displays, See Ignore material Components																																			SOURCEPAGE:EpicFeats.rtf
-Tenacious Psionics			TYPE:Epic													PRELEVEL:MIN=21	PRESKILL:1,Psicraft=15																												DESC:See Tenacious Magic											STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|Y																									SOURCEPAGE:EpicFeats.rtf
+Tenacious Psionics			TYPE:Epic													PRELEVEL:MIN=21	PRESKILL:1,Psicraft=15																												DESC:See Tenacious Magic											STACK:NO	MULT:YES	CHOOSE:SPELLLIST|Y																											SOURCEPAGE:EpicFeats.rtf
 
 ###BLOCK: Psionic Feats
 # Feat Name			Type			Required Feat				Required Lvl	Required Skill		Required Template		Description									Stackable?	Multiple?	Choose		Add					Source Page
