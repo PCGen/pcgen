@@ -1092,53 +1092,40 @@ Wisdom
 <!-- START Equipment Table -->
    <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Master Equipment Table"> <!-- Master Equipment Table -->
     <tr>
-     <td bgcolor="black" align="center" colspan="10"><font color="white" style="font-size: 9pt"><b>EQUIPMENT</b></font></td>
+     <td height="20" colspan="10" align="center" bgcolor="black" class="ab"><b>EQUIPMENT</b></td>
     </tr>
     <tr>
      <td width="50%" valign="top">
       <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Equipment Table Left Column"> <!-- Equipment Table left pane -->
        <tr>
-        <td valign="top" width="70%" class="border8"><b>ITEM</b></td>
-        <td valign="top" width="12%" class="border8" align="center"><b>LOCATION</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>QTY</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>WT.</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>COST</b></td>
+        <td valign="top" width="70%" class="border10"><b>ITEM</b></td>
+        <td valign="top" width="12%" class="border10" align="center"><b>LOCATION</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>QTY</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>WT.</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>COST</b></td>
        </tr>
 |FOR,%equip1,0,(COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1)/2,1,0|
 |OIF(EVEN:%equip1,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-        <td valign="top" class="border8">&nbsp;|EQ.Not.Coin.NOT.Gem.%equip1.NAME.MAGIC~<b>~</b>|<br />
+|IIF(EQ.Not.Coin.NOT.Gem.%equip1.TYPE:Magic)|
+        <td valign="top" class="border10">&nbsp;<b>|EQ.Not.Coin.NOT.Gem.%equip1.NAME|</b>
+|ELSE|
+        <td valign="top" class="border10">&nbsp;|EQ.Not.Coin.NOT.Gem.%equip1.NAME|
+|ENDIF|
+|IIF(VAR.IF(VAR("EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.CHARGES")>0;1;0):1)|
+        <span class="border8">&nbsp;(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.CHARGES| Charges)</span>
+|ENDIF|
+<br />
 |IIF(EQ.Not.Coin.NOT.Gem.%equip1.SPROP: )|
-        <font style="font-size: 5pt">(|EQ.Not.Coin.NOT.Gem.%equip1.SPROP|)</font>
+        <span class="border8">|EQ.Not.Coin.NOT.Gem.%equip1.SPROP|</span><br />
 |ENDIF|
 |IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE: )|
-        <span class="lt5">(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE|)</span><br />
-|ENDIF|
-|FOR,%charges,1,EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.CHARGES,1,0|
-        <font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.TYPE:Consumable)|
-|FOR,%consumable,1,EQ.%equip1.CHECKBOXES,1,0|
-        <font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.TYPE:Potion)|
-|FOR,%consumable,1,EQ.%equip1.CHECKBOXES,1,0|
-        <font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.TYPE:Ammunition)|
-|FOR,%consumable,1,EQ.%equip1.CHECKBOXES,1,0|
-        <font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|ENDIF|
-|ENDIF|
+        <span class="border8"><i>|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE|</i></span><br />
 |ENDIF|
         </td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.LOCATION|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.QTY|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.WT|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.COST|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.LOCATION|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.QTY|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.WT|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.COST|<br /></td>
        </tr>
 |ENDFOR|
       </table>
@@ -1146,58 +1133,46 @@ Wisdom
      <td width="50%" valign="top">
       <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Equipment Table Left Column"> <!-- Equipment Table right pane -->
        <tr>
-        <td valign="top" width="70%" class="border8"><b>ITEM</b></td>
-        <td valign="top" width="12%" class="border8" align="center"><b>LOCATION</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>QTY</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>WT.</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>COST</b></td>
+        <td valign="top" width="70%" class="border10"><b>ITEM</b></td>
+        <td valign="top" width="12%" class="border10" align="center"><b>LOCATION</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>QTY</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>WT.</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>COST</b></td>
        </tr>
 |FOR,%equip2,((COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1)/2)+1,COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1,1,0|
 |OIF(EVEN:%equip2,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-        <td valign="top" class="border8">&nbsp;|EQ.Not.Coin.NOT.Gem.%equip2.NAME.MAGIC~<b>~</b>|<br />
+|IIF(EQ.Not.Coin.NOT.Gem.%equip2.TYPE:Magic)|
+        <td valign="top" class="border10">&nbsp;<b>|EQ.Not.Coin.NOT.Gem.%equip2.NAME|</b>
+|ELSE|
+        <td valign="top" class="border10">&nbsp;|EQ.Not.Coin.NOT.Gem.%equip2.NAME|
+|ENDIF|
+|IIF(VAR.IF(VAR("EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHARGES")>0;1;0):1)|
+        <span class="border7">&nbsp;(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHARGES| Charges)</span>
+|ENDIF|
+<br />
 |IIF(EQ.Not.Coin.NOT.Gem.%equip2.SPROP: )|
-        <font style="font-size: 5pt">(|EQ.Not.Coin.NOT.Gem.%equip2.SPROP|)</font>
+        <span class="border8">(|EQ.Not.Coin.NOT.Gem.%equip2.SPROP|)</span><br />
 |ENDIF|
 |IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.NOTE: )|
-        <span class="lt5">(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.NOTE|)</span><br />
-|ENDIF|
-|FOR,%charges,1,EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHARGES,1,0|
-        <font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.TYPE:Consumable)|
-|FOR,%consumable,1,EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHECKBOXES,1,0|
-        <font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.TYPE:Potion)|
-|FOR,%consumable,1,EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHECKBOXES,1,0|
-        <font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.TYPE:Ammunition)|
-|FOR,%consumable,1,EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHECKBOXES,1,0|
-        <font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|ENDIF|
-|ENDIF|
+        <span class="border8">(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.NOTE|)</span><br />
 |ENDIF|
         </td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.LOCATION|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.QTY|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.WT|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.COST|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.LOCATION|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.QTY|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.WT|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.COST|<br /></td>
        </tr>
 |ENDFOR|
        <tr>
-        <td valign="top" width="41%" class="border" align="right" colspan="1"><font style="font-size: 8pt">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</font></td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP><font style="font-size: 8pt">|TOTAL.WEIGHT|</font></td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP><font style="font-size: 8pt">|TOTAL.VALUE|</font></td>
+        <td valign="top" width="41%" class="border" align="right" colspan="1" class="border10">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP class="border10">|TOTAL.WEIGHT|</td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP class="border10">|TOTAL.VALUE|</td>
        </tr>
       </table>
      </td>
     </tr>
    </table>
+   <br>
 <!-- STOP Equipment Table -->
   </tr>
   <tr>
@@ -1205,15 +1180,15 @@ Wisdom
 <!-- START Weight Table -->
     <table width="100%" cellspacing="0" cellpadding="3" summary="Weight Allowance Table">
      <tr>
-      <td bgcolor="black" align="center" colspan="6"><font color="white" style="font-size: 9pt"><b>WEIGHT ALLOWANCE</b></font></td>
+      <td bgcolor="black" align="center" colspan="6" class="ab"><b>WEIGHT ALLOWANCE</b></td>
      </tr>
      <tr>
-      <td valign="top" class="border8" align="right"><B>Light</B></td>
-      <td valign="top" class="border8">|WEIGHT.LIGHT|</td>
-      <td valign="top" class="border8" align="right"><B>Medium</B></td>
-      <td valign="top" class="border8">|WEIGHT.MEDIUM|</td>
-      <td valign="top" class="border8" align="right"><B>Heavy</B></td>
-      <td valign="top" class="border8">|WEIGHT.HEAVY|</td>
+      <td valign="top" class="border10" align="right"><B>Light</B></td>
+      <td valign="top" class="border10">|WEIGHT.LIGHT|</td>
+      <td valign="top" class="border10" align="right"><B>Medium</B></td>
+      <td valign="top" class="border10">|WEIGHT.MEDIUM|</td>
+      <td valign="top" class="border10" align="right"><B>Heavy</B></td>
+      <td valign="top" class="border10">|WEIGHT.HEAVY|</td>
      </tr>
     </table>
 <!-- STOP Weight Table -->
@@ -1225,17 +1200,17 @@ Wisdom
       <td class="ab" align="center" colspan="4"><b>ILLUMINATION</b></td>
      </tr>
      <tr>
-      	<td width="45%" class="border8"><B>Light Source</B></td>
-      	<td width="15%" class="border8"><B>Bright</B></td>
-       	<td width="15%" class="border8"><B>Shadowy</B></td>
-     	<td width="15%" class="border8"><B>Duration</B></td>
+      	<td width="45%" class="border10"><B>Light Source</B></td>
+      	<td width="15%" class="border10"><B>Bright</B></td>
+       	<td width="15%" class="border10"><B>Shadowy</B></td>
+     	<td width="15%" class="border10"><B>Duration</B></td>
      </tr>
 |FOR,%light,0,COUNT[EQTYPE.LightSource]-1,1,0|
 |OIF(EVEN:%light,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-      	<td class="border8">|EQTYPE.LightSource.%light.NAME|</td>
-      	<td class="border8">|EQTYPE.LightSource.%light.QUALITY.Bright Illumination|</td>
-       	<td class="border8">|EQTYPE.LightSource.%light.QUALITY.Shadowy Illumination|</td>
-     	<td class="border8">|EQTYPE.LightSource.%light.QUALITY.Duration|</td>
+      	<td class="border10">|EQTYPE.LightSource.%light.NAME|</td>
+      	<td class="border10">|EQTYPE.LightSource.%light.QUALITY.Bright Illumination|</td>
+       	<td class="border10">|EQTYPE.LightSource.%light.QUALITY.Shadowy Illumination|</td>
+     	<td class="border10">|EQTYPE.LightSource.%light.QUALITY.Duration|</td>
      </tr>
 |ENDFOR|
     </table>
@@ -1245,17 +1220,17 @@ Wisdom
 <br>
     <table width="100%" cellspacing="0" cellpadding="3" summary="Money">
      <tr>
-      <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>MONEY</b></font></td>
+      <td bgcolor="black" align="center" colspan="1" class="ab"><b>MONEY</b></td>
      </tr>
      <tr>
-      <td valign="top" width="70%" class="border"><font style="font-size: 8pt">
+      <td valign="top" width="70%" class="border10">
 |FOR.0,COUNT[EQTYPE.Coin],1,\EQTYPE.Coin.%.NAME\: \EQTYPE.Coin.%.QTY\, ,<br/>,1|
 |FOR.0,COUNT[EQTYPE.Gem],1,\EQTYPE.Gem.%.QTY\x\EQTYPE.Gem.%.NAME\ (\EQTYPE.Gem.%.COST\) , ,<br/>,1|
-<span class="notes">|MISC.FUNDS|</span></font></td>
+<span class="notes">|MISC.FUNDS|</span></td>
      </tr>
     </table>
 <!-- STOP Money Table -->
-    <font style="font-size:2pt"><br /></font>
+    <br />
 <!-- START Companions Tables -->
 |%FOLLOWERTYPE.Familiar|
     <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Familiar Table">
@@ -2213,10 +2188,10 @@ Wisdom
 <!-- START Language Table -->
    <table width="100%" cellspacing="0" cellpadding="3" summary="Language Table">
     <tr>
-     <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>LANGUAGES</b></font></td>
+     <td bgcolor="black" align="center" colspan="1" class="ab"><b>LANGUAGES</b></td>
     </tr>
     <tr>
-     <td valign="top" width="100%" class="border8">|LANGUAGES|<br /></td>
+     <td valign="top" width="100%" class="border10">|LANGUAGES|<br /></td>
     </tr>
    </table>
 <!-- STOP Language Table -->
@@ -2224,10 +2199,10 @@ Wisdom
 |%WEAPONPROF|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Proficiency Table">
     <tr>
-     <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>PROFICIENCIES</b></font></td>
+     <td bgcolor="black" align="center" colspan="1" class="ab"><b>PROFICIENCIES</b></td>
     </tr>
     <tr>
-     <td valign="top" width="100%" class="border8">|WEAPONPROFS|<br /></td>
+     <td valign="top" width="100%" class="border10">|WEAPONPROFS|<br /></td>
     </tr>
    </table>
 <!-- STOP Proficiency Table -->
@@ -2236,11 +2211,11 @@ Wisdom
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>SPECIAL ATTACKS</b></font></td>
+     <td bgcolor="black" align="center" colspan="2" class="ab"><b>SPECIAL ATTACKS</b></td>
     </tr>
     <tr>
-     <td valign="top" width="40%" class="border8"><b>NAME</b></td>
-     <td valign="top" width="60%" class="border8" align="left"><b>DESCRIPTION</b></td>
+     <td valign="top" width="40%" class="border10"><b>NAME</b></td>
+     <td valign="top" width="60%" class="border10" align="left"><b>DESCRIPTION</b></td>
     </tr>
 |FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack")-1,1,0|
 |OIF(EVEN:%specialAttack,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2265,11 +2240,11 @@ Wisdom
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>SPECIAL QUALITIES</b></font></td>
+     <td bgcolor="black" align="center" colspan="2" class="ab"><b>SPECIAL QUALITIES</b></td>
     </tr>
     <tr>
-     <td valign="top" width="40%" class="border8"><b>NAME</b></td>
-     <td valign="top" width="60%" class="border8" align="left"><b>DESCRIPTION</b></td>
+     <td valign="top" width="40%" class="border10"><b>NAME</b></td>
+     <td valign="top" width="60%" class="border10" align="left"><b>DESCRIPTION</b></td>
     </tr>
 |FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality")-1,1,0|
 |OIF(EVEN:%specialQuality,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2294,10 +2269,10 @@ Wisdom
 |%COUNT[SA]|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Special Abilities Table">
     <tr>
-     <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>SPECIAL ABILITIES</b></font></td>
+     <td bgcolor="black" align="center" colspan="1" class="ab"><b>SPECIAL ABILITIES</b></td>
     </tr>
     <tr>
-     <td valign="top" width="100%" class="border8">|SPECIALLIST|</td>
+     <td valign="top" width="100%" class="border10">|SPECIALLIST|</td>
     </tr>
    </table>
 |%|
@@ -2305,11 +2280,11 @@ Wisdom
 <!-- START Feat Table -->
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>FEATS</b></font></td>
+     <td bgcolor="black" align="center" colspan="2" class="ab"><b>FEATS</b></td>
     </tr>
     <tr>
-     <td valign="top" width="40%" class="border8"><b>NAME</b></td>
-     <td valign="top" width="60%" class="border8" align="left"><b>DESCRIPTION</b></td>
+     <td valign="top" width="40%" class="border10"><b>NAME</b></td>
+     <td valign="top" width="60%" class="border10" align="left"><b>DESCRIPTION</b></td>
     </tr>
 |FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
 |OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
