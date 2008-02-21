@@ -89,6 +89,7 @@ public final class SubstitutionClass extends PCClass
 			aClass.removeAllBonuses(aLevel);
 			aClass.removeAllAutoFeats(aLevel);
 			aClass.removeAllLevelAbilities(aLevel);
+			aClass.clearSABList(aLevel);
 
 			for (String aLine : levelArray)
 			{
