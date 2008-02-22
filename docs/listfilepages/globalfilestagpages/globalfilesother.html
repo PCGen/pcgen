@@ -631,27 +631,25 @@
 
 	<p class="new">*** Updated 5.11.7</p>
 	<p class="indent0"><strong><a name="QUALIFY">Tag Name:</a></strong> QUALIFY:x|y|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Object TYPE), Valid types are:</p>
-	<ul class="indent2">
-		<li>CLASS</li>
-		<li>DEITY</li>
-		<li>DOMAIN</li>
-		<li>EQUIPMENT</li>
-		<li>EQMOD</li>
-		<li>FEAT</li>
-		<li>RACE</li>
-		<li>SPELL</li>
-		<li>SKILL</li>
-		<li>TEMPLATE</li>
-		<li>WEAPONPROF</li>
-	</ul>
+	<p class="indent1"><strong>Variables Used (x):</strong> ABILITY=Text (Ability category)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CLASS</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DEITY</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DOMAIN</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> EQUIPMENT</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> EQMOD</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEAT</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> RACE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELL</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SKILL</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TEMPLATE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> WEAPONPROF</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Object KEY)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Counters PRExxx tags. Any objects listed will ignore all PRE tags and be a valid
-		selection for the character.</p>
-	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">Valid in most objects except .pcc files and class level lines.</p>
+	<p class="indent2">Counters PRExxx tags checking for the listed objects. Any objects 
+		listed will ignore all PRE tags and be a valid selection for the character.</p>
 	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>QUALIFY:ABILITY=FEAT|Mounted Combat|Ride-By Attack</code></p>
+	<p class="indent3">The character would be able to take the above feats whether they meet the prereqs or not.</p>
 	<p class="indent2"><code>QUALIFY:FEAT|Mounted Combat|Ride-By Attack</code></p>
 	<p class="indent3">The character would be able to take the above feats whether they meet the prereqs or not.</p>
 	<p class="indent2"><code>QUALIFY:CLASS|Monk</code></p>
@@ -659,6 +657,8 @@
 	<p class="indent2"><code>QUALIFY:CLASS|Battle Mind|Telepath</code></p>
 	<p class="indent3">The character would be able to take either the Battle Mind or Telepath class whether
 		they meet the prereqs or not.</p>
+	<p class="indent1"><strong>Where it is used:</strong></p>
+	<p class="indent2">Valid in most objects except .pcc files and class level lines.</p>
 	<p></ p>
 
 <hr>
