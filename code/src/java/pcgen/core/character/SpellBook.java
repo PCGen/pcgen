@@ -49,6 +49,8 @@ public class SpellBook implements Cloneable
 	public static final int TYPE_PREPARED_LIST = 2;
 	/** Spell book type indicating a written spell book. */
 	public static final int TYPE_SPELL_BOOK = 3;
+	/** Spell book type indicating a list of innate spells. */
+	public static final int TYPE_INNATE_SPELLS = 4;
 
 	private String name;
 	private int type;
@@ -215,6 +217,10 @@ public class SpellBook implements Cloneable
 
 			case SpellBook.TYPE_SPELL_BOOK:
 				retValue = "Spell Book";
+				break;
+
+			case SpellBook.TYPE_INNATE_SPELLS:
+				retValue = "Innate Spell List";
 				break;
 
 			default:

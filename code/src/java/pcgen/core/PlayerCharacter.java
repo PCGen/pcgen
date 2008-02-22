@@ -322,7 +322,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(),
 			SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Globals.INNATE_SPELL_BOOK_NAME,
-			SpellBook.TYPE_KNOWN_SPELLS));
+			SpellBook.TYPE_INNATE_SPELLS));
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
 		spellTracker = new PCSpellTracker(this);
 		setStringFor(StringKey.HANDED, PropertyFactory.getString("in_right")); //$NON-NLS-1$
@@ -12222,7 +12222,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				final CharacterSpell cs = new CharacterSpell(owner, aSpell);
 				cs.addInfo(slotLevel, times, book);
-				addSpellBook(book);
+				addSpellBook(new SpellBook(book, SpellBook.TYPE_INNATE_SPELLS));
 				owner.getSpellSupport().addCharacterSpell(cs);
 			}
 		}
