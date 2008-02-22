@@ -189,7 +189,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 <!-- Known Spells -->
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
 |IIF(SPELLLISTMEMORIZE.%class:false)|
-<b>Known |SPELLLISTCLASS.%class| Spells</b> (CL |SPELLLISTCLASS.%class.LEVEL|): 
+<b>Known |SPELLLISTCLASS.%class| Spells</b> (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
 |FOR,%level,0,9,1,1|
 |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.0.%level],COUNT[SPELLSINBOOK.%class.0.%level],1,0|
 |IIF(%spelllevelcount:0)|
@@ -230,11 +230,11 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 <!-- Prepared Spells -->
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
 
-|IIF(SPELLBOOK.%spellbook.NUMPAGES:0)|
-<b>|SPELLBOOKNAME.%spellbook|</b>
+|IIF(SPELLBOOK.%spellbook.TYPE:Prepared Spell List)|
+<b>|SPELLBOOKNAME.%spellbook| Prepared Spell List</b>
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
 |IIF(SPELLLISTMEMORIZE.%class:true)|
-<br>|SPELLLISTCLASS.%class| (CL |SPELLLISTCLASS.%class.LEVEL|): 
+<br>|SPELLLISTCLASS.%class| (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
 |FOR,%level,0,9,1,1|
 |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
 |IIF(%spelllevelcount:0)|
@@ -283,11 +283,10 @@ Domains:
 |%|
 <!-- End Domain list -->
 
-<!-- Spell-Like Abilities -->
-|FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0| <!-- 6 -->
-|IIF(%spellrace:0)|
-|ELSE|
-<b>Spell-Like Abilities (CL |SPELLMEM.0.1.0.0.CASTERLEVEL|):</b><br>
+<!-- Innate Spell-Like Abilities -->
+
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
+<br><b>Innate Spell-Like Abilities:</b>
 |FOR,%spellbook,1,1,1,0|
 |FOR,%class,0,0,1,0|
 |FOR,%level,0,0,1,0|
@@ -308,9 +307,36 @@ at will)
 |ENDFOR|
 |ENDFOR|
 |ENDFOR|
-<br>
 |ENDIF|
-<!-- End Spell-Like Abilities -->
+<!-- End Innate Spell-Like Abilities -->
+
+<!-- Other Spell-Like Abilities -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
+<br><b>|SPELLBOOK.%spellbook.NAME| Spell-Like Abilities:</b>
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will) 
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/day) 
+|ENDIF|
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+<!-- End Other Spell-Like Abilities -->
 
 <hr />
 
@@ -371,8 +397,7 @@ at will)
 
 <!-- SpellBooks -->
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-|IIF(SPELLBOOK.%spellbook.NUMPAGES:0)|
-|ELSE|
+|IIF(SPELLBOOK.%spellbook.TYPE:Spell Book)|
 <br><b>|SPELLBOOKNAME.%spellbook|</b>
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-2,1,1|
 |IIF(SPELLLISTMEMORIZE.%class:false)|
