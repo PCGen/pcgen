@@ -109,15 +109,16 @@ print CHANGELOG "\n</ul>\n";
 close CHANGELOG;
 print " - Found " . @trackerLines . " trackers.\n";
 
-# Search through the changes report file trimming down text and adjusting URLs
-$page = get "http://pcgen.sourceforge.net/autobuilds/changes.rss";
-if (!$page) {
-    print "Autobuild site is not accessible\n";
-    exit;
+# Search through the changes file trimming down text and adjusting URLs
+open CHANGES, "../../xdocs/changes.xml";
+while (<CHANGES>) {
+	$page .= $_ . "\n";
 }
+close CHANGES;
 
-$page =~ s/.*\<description\>.*?\<\/tr\>//s;
-$page =~ s/\s*<\/table>\s*<\/description>\s*<\/item>\s*<\/channel>\s*<\/rss>//s;
+$page =~ s/.*\<body\>//s;
+$page =~ s/\s*<\/release>.*//s;
+$page =~ s/.*\<release[ \"\.A-Za-z0-9\=]*\>\S*\n//s;
 
 open WHATSNEW, ">work/whatsnew.txt";
 @data = split(/\n/, $page);
@@ -125,21 +126,24 @@ my $changeCount = 0;
 for (@data) {
 	s/^\s*//;
 	s/\s*$//;
-	if (/^<tr>$/) {
-	   	$changeCount++;
+	if (!/^<action/) {
+		next;
 	}
-	s/^<tr>$//;
-	s/^<td>add<\/td>$/<li><img alt="add" title="add" src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images\/add.gif\">/;
-	s/^<td>fix<\/td>$/<li><img alt="fix" title="fix" src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images\/fix.gif\">/;
-	s/^<td>update<\/td>$/<li><img alt="update" title="update" src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images\/update.gif\">/;
-	s/src="images/src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images/;
-	s/href="team/href="http:\/\/pcgen.sourceforge.net\/autobuilds\/team/;
-	s/<tr class=".">/<li>/;
-	s/<\/*td>//g;
-	s/<\/tr>/<\/li>/g;
-	if (length $_ > 0 && !/<table/i && !/<\/table>/) {
-	   	print WHATSNEW $_ . "\n";
-	}
+   	$changeCount++;
+
+	my $dev = $_;
+	$dev =~ s/.*dev="([A-Za-z0-9 \-]*)".*/$1/;
+	my $type = $_;
+	$type =~ s/.*type="([A-Za-z0-9 \-]*)".*/$1/;
+	my $issue = $_;
+	$issue =~ s/.*issue="([A-Za-z0-9 \-]*)".*/$1/;
+	my $desc = $_;
+	$desc =~ s/.*>(.*)<\/action>/$1/;
+
+	my $result = "<li><img alt=\"${type}\" title=\"${type}\" src=\"http://pcgen.sourceforge.net/autobuilds/images/${type}.gif\"> " .
+		$desc . ". Fixes <a href=\"http://sourceforge.net/support/tracker.php?aid=${issue}\">${issue}</a> (" .
+		"<a href=\"http://pcgen.sourceforge.net/team-list.html#${dev}\">${dev}</a>)</li>";
+   	print WHATSNEW $result . "\n";
 }
 close WHATSNEW;
 print " - Found " . $changeCount . " changes.\n";
