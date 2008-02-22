@@ -54,7 +54,7 @@ public class LstUtils
 					PropertyFactory.getFormattedString(
 						"Warnings.LstTokens.Deprecated", //$NON-NLS-1$
 						token.getTokenName(), value, obj.getDisplayName(), obj
-							.getDefaultSourceString(),
+							.getSourceURI(),
 						((DeprecatedToken) token).getMessage(obj, value));
 			deprecationWarning(msg);
 		}
