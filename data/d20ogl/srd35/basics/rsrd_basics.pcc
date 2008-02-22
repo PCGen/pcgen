@@ -61,7 +61,6 @@ RACE:rsrd_races__base.lst
 SKILL:rsrd_skills.lst
 SPELL:rsrd_spells.lst
 SPELL:rsrd_spells_divine.lst
-SPELL:rsrd_spells.lst
 SPELL:rsrd_spells_monster.lst
 
 TEMPLATE:rsrd_templates_hidden.lst

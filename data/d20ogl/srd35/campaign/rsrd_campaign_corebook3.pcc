@@ -59,6 +59,7 @@ RACE:@/d20ogl/srd35/basics/rsrd_races__base.lst
 
 SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
+SPELL:@/d20ogl/srd35/basics/rsrd_spells_monster.lst
 
 TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_hidden.lst
 TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_tempmods.lst
