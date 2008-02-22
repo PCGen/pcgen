@@ -93,7 +93,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 
 		for (Spell aSpell : aArrayList)
 		{
-			if (aSpell.getKeyName() != null && aSpell.getKeyName().equalsIgnoreCase(spellName))
+			if (aSpell != null && aSpell.getKeyName() != null && aSpell.getKeyName().equalsIgnoreCase(spellName))
 			{
 				runningTotal++;
 			}
