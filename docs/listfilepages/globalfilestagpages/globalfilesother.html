@@ -1222,12 +1222,13 @@
 	<p>Warning: This section is nowhere near complete and will be expanded on as time progresses.</p>
 	<p></ p>
 	<p class="new">*** Updated 5.11.11 - 5.13</p>
-	<p class="indent0"><strong><a name="MOD">Tag Name:</a></strong> &lt;name&gt;.MOD</p>
-	<p class="indent1"><strong>Variables Used: </strong>Text, First field of the item to be modified</p>
+	<p class="indent0"><strong><a name="MOD">Tag Name:</a></strong> w|x.MOD</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> CATEGORY=Text (Ability category. Used only when modifying abilities.)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Object name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This defines what object is going to be modified.</li>
-		<li>Please note that the name must match EXACTLY (case sensitive, and the classes need the beginning
+		<li>Modifies an existing object.</li>
+		<li>The name of the object must match EXACTLY (case sensitive, and the classes need the beginning
 			CLASS: tag, see examples).</li>
 		<li>If you want to .MOD the name, you need to include the NAME: designator (see examples).</li>
 		<li>If you want to .MOD an eqmod, you use the KEY but not the KEY: designator (see examples).</li>
@@ -1260,8 +1261,9 @@
 	<p class="indent3">Modifies the Skill Focus feat (in feat.lst)</p>
 	<p class="indent2"><code>BOWSTR.MOD</code></p>
 	<p class="indent3">Modifies the &quot;BOWSTR&quot; eqmod (in eqmod.lst)</p>
-	<p class="indent2"><code>CATEGORY=(foo)|(key).MOD</code></p>
-	<p class="indent3">The new syntax to be used to .MOD an ability.</p>
+	<p class="indent2"><code>CATEGORY=Mutation|Weak Immune System.MOD</code></p>
+	<p class="indent3">Modifies an ability of the category Mutation, which is called Weak Immune System. 
+		Another ability of the same name, which belongs to another category, would not be affected.</p>
 	<p></ p>
 
 <hr>
