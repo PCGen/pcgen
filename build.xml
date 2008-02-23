@@ -693,6 +693,8 @@ pcgen.filepaths=user
 		</tstamp>
 		<echo message="Finished at ${finish.time}" />
 		<echo message="One or more JUnit tests failed." />
+		
+		<fail if="cibuild" />
 	</target>
 
 	<target name="success.notice" unless="junitfailure">
