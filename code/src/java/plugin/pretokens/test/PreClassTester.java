@@ -6,6 +6,10 @@
  */
 package plugin.pretokens.test;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import pcgen.core.Equipment;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -122,7 +126,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 		}
 		else
 		{
-			final PCClass aClass = character.getClassKeyed(aString);
+			PCClass aClass = character.getClassKeyed(aString);
 			if (aClass != null)
 			{
 				if (prereq.isCountMultiples())
@@ -135,6 +139,32 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 				else
 				{
 					runningTotal += aClass.getLevel();
+				}
+			}
+			else
+			{
+				for(PCClass theClass: character.getClassList())
+				{
+					List<Map<String,String>> theList = theClass.getServesAs();
+					for(Map<String,String> aMap : theList)
+					{
+						Set<String> keys = aMap.keySet();
+						for(String theString: keys)
+						{
+							if (theString.equalsIgnoreCase(aString))
+								if (prereq.isCountMultiples())
+								{
+									if (theClass.getLevel() >= preClass)
+									{
+										countedTotal++;
+									}
+								}
+								else
+								{
+									runningTotal += theClass.getLevel();
+								}
+						}
+					}
 				}
 			}
 		}

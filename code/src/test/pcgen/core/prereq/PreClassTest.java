@@ -86,7 +86,35 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final int passes = test.passes(prereq, character);
 		assertEquals(1, passes);
 	}
+	/**
+	 * Test to ensure that a character with a ServeAs class can be found
+	 * @throws Exception
+	 */
+	public void testNamedClassServesAs() throws Exception
+	{
+		final PCClass pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.putServesAs("Warrior", null); // the second parameter is for ability categories only
 
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(3, pcClass);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("class");
+		prereq.setKey("Warrior");
+		prereq.setOperand("1");
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
+
+		final PreClassTester test = new PreClassTester();
+		final int passes = test.passes(prereq, character);
+		assertEquals(1, passes);
+	}
+
+	
+	
+	
+	
 	/**
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels

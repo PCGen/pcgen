@@ -162,6 +162,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	private List<Description> theDescriptions = null;
 	
 	private DoubleKeyMap<Class, String, List<String>> qualifyKeys = null;
+	private List<Map<String,String>> servesAsList =null;
 	
 	private URI sourceURI = null;
 	
@@ -4258,6 +4259,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	private DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>> theAbilities = new DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>>();
+
+	
 	public void addAbility(final AbilityCategory aCategory, final Ability.Nature aNature, final QualifiedObject<String> anAbility)
 	{
 		List<QualifiedObject<String>> abilities = theAbilities.get(aCategory, aNature);
@@ -5163,6 +5166,42 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return chooseSelectCount;
 	}
 
+	public void putServesAs( final String key, final String category) 
+	{
+		if (servesAsList == null)
+		{
+			servesAsList = new ArrayList<Map<String,String>>();
+		}
+		Map<String,String> aMap = new HashMap<String, String>();
+		aMap.put(key,category);
+		servesAsList.add(aMap);
+	}
+	public void putServesAs( final List<Map<String,String>> sList ) 
+	{
+		if (servesAsList == null)
+		{
+			servesAsList = new ArrayList<Map<String,String>>();
+		}
+		else 
+		{
+			servesAsList.addAll(sList);
+		}
+	}
+	public final void clearServesAs()
+	{
+		servesAsList =null;
+	}
+	
+	//TODO This exposes internal structure - be careful.
+	public final List<Map<String,String>> getServesAs()
+	{
+		if (servesAsList == null)
+		{
+			servesAsList = new ArrayList<Map<String,String>>();
+		}
+		return servesAsList;
+	}
+	
 //	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC, final String aBonusType, final String aBonusName)
 //	{
 //		if (!PrereqHandler.passesAll(this.getPreReqList(), aPC, this))

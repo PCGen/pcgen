@@ -68,11 +68,15 @@ public class ServesAsToken implements GlobalLstToken
 			key = st.nextToken();
 		}
 		
-		while (true) {
-			obj.putQualifyString(c, category, key);
-			if (!st.hasMoreTokens()) {
+		while (true) 
+		{
+			obj.putServesAs( key, category);
+			
+			if (!st.hasMoreTokens()) 
+			{
 				break;
-			}
+			}			
+			
 			key = st.nextToken();
 		}
 		
@@ -80,8 +84,10 @@ public class ServesAsToken implements GlobalLstToken
 	}
 	
 	public List<Class<? extends PObject>> getLegalTypes() {
-		return Arrays.asList(Ability.class, Deity.class, Domain.class,
-				Equipment.class, PCClass.class, Race.class, Skill.class,
-				Spell.class, PCTemplate.class, WeaponProf.class);
+		return Arrays.asList(
+			//Ability.class, Deity.class, Domain.class,Equipment.class, 
+			PCClass.class, Ability.class
+			//Race.class, Skill.class,Spell.class, PCTemplate.class, WeaponProf.class
+			);
 	}
 }
