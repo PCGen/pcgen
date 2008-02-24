@@ -328,14 +328,14 @@
 		<p></ p><hr>
 		<p class="new">*** New 5.11.1</p>
 		<p class="indent0"><strong><a name="CATEGORY">Tag Name:</a></strong> CATEGORY:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability category name).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability category name.).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the &quot;parent&quot; 
-			ability category the category refers to.</li>
+			<li>Used to define the &quot;parent&quot; ability category that the new category is a sub-category of.</li>
+			<li>The parent category must exist and be loaded into PCGen.</li>
+			<li>For abilities that use <code>MULT:YES</code>, the parent category must be defined without a TYPE in order to 
+			funtion properly, with respect to the <code>MULT:YES</code> tag.</li>
 			<li>This tag is optional.</li>
-			<li>The parent category must be defined (without a TYPE) for abilities with <code>MULT:YES</code> to 
-			funtion properly, with repect to the <code>MULT:YES</code> tag.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CATEGORY:Feat</code></p>
