@@ -472,6 +472,11 @@
 						file. (i.e. &quot;General&quot;, &quot;Fighter&quot;, &quot;Metamagic&quot;, etc.)</li>
 						<li><code>&quot;VISIBILITY=&lt;text&gt;&quot;</code> - &quot;YES&quot;, &quot;NO&quot;, 
 						&quot;DISPLAY&quot;, or &quot;EXPORT&quot;.</li>
+						<li>Proper syntax for this formula when being used in output sheets to count abilities is:
+							<ul>
+								<li><code>&lt;abilityCount&gt;|VAR.count(&quot;ABILITIES&quot;,y)|&lt;/abilityCount&gt;</code></li>
+							</ul>
+						</li>
 					</ul>
 				</li>
 				<li>CLASSES - Not yet implemented.</li>
@@ -495,6 +500,8 @@
 	<p class="indent3">Returns the number of all visible Fighter type feat abilities.</p>
 	<p class="indent2"><code>count("ABILITIES","CATEGORY=FEAT",&quot;NAME=Toughness&quot;)</code></p>
 	<p class="indent3">Returns the number of times the Toughness feat was taken.</p>
+	<p class="indent2"><code>|VAR.count(&quot;ABILITIES&quot;,&quot;CATEGORY=Maneuver&quot;)|</code></p>
+	<p class="indent3">Returns the number of &quot;Maneuver&quot; abilities the character has.</p>
 	</blockquote>
 	<p></ p>
 
