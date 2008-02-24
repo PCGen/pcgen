@@ -36,21 +36,25 @@
 
 	<p class="new">*** New 5.11.1</p>
 		<p class="indent0"><strong><a name="ABILITY">Tag Name:</a></strong> ABILITY:x|y|z|z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Ability Category (The Ability Category this ability will be added to).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Ability Nature (The nature of the added ability: NORMAL, AUTOMATIC, or VIRTUAL)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Ability Key (The Ability to add. Can have choices specified in "()")</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability category)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Ability nature)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Text (Ability name or key)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Adds an Ability to a character.</li>
-			<li>The Ability is added to the Ability Category specified and that category's pool will be
-			charged if the Nature is NORMAL.</li>
+			<li>Adds an ability, of the given category and nature, to a character.</li>
+			<li>The listed Ability Category must have been defined in the appropriate <em>gamemode/miscinfo.lst</em> 
+				or <em>abilitycategory.lst</em> file.</li>
+			<li>Valid Ability Natures are NORMAL, AUTOMATIC, or VIRTUAL.</li>
+			<li>When adding an ability to a category, that category's pool will be charged only if the 
+				&quot;Nature&quot; is NORMAL.</li>
 			<li>This tag will not cause a chooser to appear so all required choices must be specified in the
-			tag.</li>
-			<li>Choices can be specified by including them in parenthesis after the ability key name
-			(whitespace is ignored).</li>
+				tag.</li>
+			<li>Abilities with a built-in chooser, e.g. Weapon Focus, can have the choice specified by including 
+				the choice in parenthesis after the ability name, e.g. Weapon Focus(Longsword).</li>
 			<li>The standard list for the ability category will be used to find a matching ability.</li>
 			<li>ABILITY tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
 			ABILITY tags qualified with PRExxx tags will not be added unless the character meets the prerequisites.</li>
+			<li>The use of <code>.CLEAR</code> and <code>.CLEAR.</code> with the this tag is valid but the ability category and nature MUST be specified.</li>
 			<li>This tag is a replacement for the following tags: FEAT, VFEAT, and FEATAUTO.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -58,6 +62,10 @@
 		<p class="indent3">Adds the empower spell feat as an Auto feat.</p>
 		<p class="indent2"><code>ABILITY:CLASSFEATURE|VIRTUAL|Stunning Fist</code></p>
 		<p class="indent3">Adds the Stunning Fist ability as a virtual class feature.</p>
+		<p class="indent2"><code>ABILITY:FEAT|AUTOMATIC|.CLEAR</code></p>
+		<p class="indent3">Clears all automatic feats from the character.</p>
+		<p class="indent2"><code>ABILITY:FEAT|VIRTUAL|.CLEAR.Empower Spell</code></p>
+		<p class="indent3">Clears the empower spell feat as an virtual feat.</p>
 		<p></ p>
 
 <hr>
@@ -1340,10 +1348,6 @@
 		the item.</p>
 	<p class="indent3">Two ways to do that.  a)  MULT:NO  - makes it a single feat, choice not supported.
 		b) CHOOSE:NOCHOICE  - no popup, but selectable multiple times. Tir Gwaith PCGen LST Chimp</p>
-	<p class="indent1"><strong><span class=alpha>Deprecated syntax:</span></strong></p>
-	<p class="indent2"><code>TAG:.CLEAR.&lt;New values to be added&gt;</code></p>
-	<p class="indent3">This syntax clears ALL the values of the original object and then adds back any items which follow the .CLEAR.
-		This should not be used. Instead use <code>TAG:.CLEAR</code> followed by a new tag to set the new values as shown above.<br></p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>CLASS:Toto</code></p>
 	<p class="indent2"><code>1 &lt;tab&gt; SA:Big Papa</code></p>
@@ -1362,6 +1366,10 @@
 	<p class="indent2"><code>Acid Arrow.MOD &lt;tab&gt; SCHOOL:.CLEAR &lt;tab&gt; SCHOOL:Lesser Conjuration</code></p>
 	<p class="indent3">Modifies the Acid Arrow spell by eliminating the original value of the SCHOOL tag
 		and then sets the new value with a second SCHOOL tag (in spell.lst)</p>
+	<p class="indent1"><strong><span class=alpha>Deprecated syntax:</span></strong></p>
+	<p class="indent2"><code>TAG:.CLEAR.&lt;New values to be added&gt;</code></p>
+	<p class="indent3">This syntax clears ALL the values of the original object and then adds back any items which follow the .CLEAR.
+		This should not be used. Instead use <code>TAG:.CLEAR</code> followed by a new tag to set the new values as shown above.<br></p>
 	<p></ p>
 
 <hr>
