@@ -6,6 +6,8 @@ package plugin.lsttokens;
 
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
+import pcgen.core.SettingsHandler;
+import pcgen.core.TimeUnit;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
@@ -60,6 +62,7 @@ public class SpellsLst implements GlobalLstToken
 			String spellBook = tok.nextToken();
 			String casterLevel = null;
 			String times = "1";
+			TimeUnit timeUnit = SettingsHandler.getGame().getDefaultTimeUnit();
 			List<String> preParseSpellList = new ArrayList<String>();
 			List<Prerequisite> preList = new ArrayList<Prerequisite>();
 			while (tok.hasMoreTokens())
@@ -84,6 +87,24 @@ public class SpellsLst implements GlobalLstToken
 						isPre = false;
 					}
 					times = token.substring(6);
+				}
+				else if (token.startsWith("TIMEUNIT="))
+				{
+					if (isPre)
+					{
+						Logging.errorPrint("Invalid " + getTokenName() + ": " + sourceLine);
+						Logging.errorPrint("  PRExxx must be at the END of the Token");
+						isPre = false;
+					}
+					String timeUnitKey = token.substring(9);
+					// Retrieve the time unit by key
+					timeUnit = SettingsHandler.getGame().getTimeUnit(timeUnitKey); 
+					if (timeUnit == null)
+					{
+						// For now we create a new one if it isn't already present
+						timeUnit = new TimeUnit(timeUnitKey);
+						SettingsHandler.getGame().addTimeUnit(timeUnit);
+					}
 				}
 				else if (PreParserFactory.isPreReqString(token))
 				{
@@ -126,6 +147,7 @@ public class SpellsLst implements GlobalLstToken
 				spell.setSpellbook(spellBook);
 				spell.setCasterLevelFormula(casterLevel);
 				spell.setTimesPerDay(times);
+				spell.setTimeUnit(timeUnit);
 				spell.setDcFormula(dcFormula);
 				for (Prerequisite prereq : preList)
 				{

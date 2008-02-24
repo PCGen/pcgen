@@ -1,5 +1,6 @@
 package pcgen.core;
 
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class PCSpell extends PObject {
 	private String timesPerDay = null;
 	private String casterLevelFormula = null;
 	private String dcFormula = null;
+	private TimeUnit timeUnit = null;
 
 	public PCSpell() {
 		super();
@@ -32,6 +34,10 @@ public class PCSpell extends PObject {
 	public String getPCCText() {
 		final StringBuffer sBuff = new StringBuffer();
 		sBuff.append(spellbook);
+		if(timeUnit != null && !timeUnit.equals("")) {
+			sBuff.append("|TIMEUNIT=");
+			sBuff.append(timeUnit.getKeyName());
+		}
 		if(timesPerDay != null && !timesPerDay.equals("")) {
 			sBuff.append("|TIMES=");
 			sBuff.append(timesPerDay);
@@ -47,7 +53,7 @@ public class PCSpell extends PObject {
 			sBuff.append(dcFormula);
 		}
 
-		final List preReqs = getPreReqList();
+		final List<Prerequisite> preReqs = getPreReqList();
 
 		sBuff
 			.append(PrerequisiteUtilities.getPrerequisitePCCText(preReqs, "|"));
@@ -72,6 +78,24 @@ public class PCSpell extends PObject {
 	 */
 	public String getSpellbook() {
 		return spellbook;
+	}
+
+	/**
+	 * Sets the time unit.
+	 * 
+	 * @param timeUnit the new time unit
+	 */
+	public void setTimeUnit(TimeUnit timeUnit)
+	{
+		this.timeUnit  = timeUnit;
+	}
+
+	/**
+	 * @return the timeUnit
+	 */
+	public TimeUnit getTimeUnit()
+	{
+		return timeUnit;
 	}
 
 	/**

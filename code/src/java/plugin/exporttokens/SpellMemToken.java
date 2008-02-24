@@ -209,7 +209,7 @@ public class SpellMemToken extends Token
 					}
 					else if ("TIMES".equals(aLabel))
 					{
-						if (si.getTimes() == -1)
+						if (si.getTimes() == SpellInfo.TIMES_AT_WILL)
 						{
 							retValue.append("At Will");
 						}
@@ -217,6 +217,10 @@ public class SpellMemToken extends Token
 						{
 							retValue.append(String.valueOf(si.getTimes()));
 						}
+					}
+					else if ("TIMEUNIT".equals(aLabel))
+					{
+						retValue.append(String.valueOf(si.getTimeUnit()));
 					}
 					else
 					// if (aSpell != null) can't be null

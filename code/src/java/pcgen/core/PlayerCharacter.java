@@ -12177,6 +12177,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			int times = 1;
 			int slotLevel = 0;
 			owner = race;
+			TimeUnit timeUnit = pcSpell.getTimeUnit();
 
 			if (castCount == null || castCount.equals(""))
 			{
@@ -12221,7 +12222,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 
 				final CharacterSpell cs = new CharacterSpell(owner, aSpell);
-				cs.addInfo(slotLevel, times, book);
+				SpellInfo si = cs.addInfo(slotLevel, times, book);
+				si.setTimeUnit(timeUnit);
+				
 				addSpellBook(new SpellBook(book, SpellBook.TYPE_INNATE_SPELLS));
 				owner.getSpellSupport().addCharacterSpell(cs);
 			}

@@ -26,6 +26,7 @@
 package pcgen.core.character;
 
 import pcgen.core.Globals;
+import pcgen.core.TimeUnit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,11 +44,15 @@ import pcgen.core.Ability;
  */
 public final class SpellInfo
 {
+	/** The special value for number of times per unit for 'At Will' spells. */
+	public static int TIMES_AT_WILL = -1;
+	
 	private CharacterSpell owner;
 	private List<Ability> featList; // a List of Feat objects
 	private String book = Globals.getDefaultSpellBook(); // name of book
 	private int actualLevel = -1;
 	private int times; // times the spell is in this list
+	private TimeUnit timeUnit; // the timeunit the times is for (day, week etc)
 	private int actualPPCost = -1;
 	private int numPages = 0;
 
@@ -113,6 +118,22 @@ public final class SpellInfo
 	public int getTimes()
 	{
 		return times;
+	}
+
+	/**
+	 * @return the timeUnit
+	 */
+	public TimeUnit getTimeUnit()
+	{
+		return timeUnit;
+	}
+
+	/**
+	 * @param timeUnit the timeUnit to set
+	 */
+	public void setTimeUnit(TimeUnit timeUnit)
+	{
+		this.timeUnit = timeUnit;
 	}
 
 	public final int getNumPages()
