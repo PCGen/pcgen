@@ -300,7 +300,7 @@ DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|,
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
 at will) 
 |ELSE|
-|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/day) 
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
 |ENDIF|
 |ENDFOR|
 |%|
@@ -327,7 +327,7 @@ DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|,
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
 at will) 
 |ELSE|
-|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/day) 
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
 |ENDIF|
 |ENDFOR|
 |%|
