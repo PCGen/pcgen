@@ -1,109 +1,109 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Sun Feb 24 01:22:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
 STARTPACK:Minor Wondrous Items	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
-GEAR:Feather Token (Anchor)					OPTION:1
-GEAR:Universal Solvent						OPTION:2
-GEAR:Elixir of Love						OPTION:3
-GEAR:Unguent of Timelessness					OPTION:4
-GEAR:Feather Token (Fan)					OPTION:5
-GEAR:Dust of Tracelessness					OPTION:6
-GEAR:Elixir of Hiding						OPTION:7
-GEAR:Elixir of Sneaking						OPTION:8
-GEAR:Elixir of Swimming						OPTION:9
-GEAR:Elixir of Vision						OPTION:10
-GEAR:Silversheen							OPTION:11
-GEAR:Feather Token (Bird)					OPTION:12
-GEAR:Feather Token (Tree)					OPTION:13
-GEAR:Feather Token (Swan Boat)				OPTION:14
-GEAR:Elixir of Truth						OPTION:15
-GEAR:Feather Token (Whip)					OPTION:16
-GEAR:Dust of Dryness						OPTION:17
-GEAR:Bag of Tricks (Gray)					OPTION:18
-GEAR:Hand of the Mage						OPTION:19
-GEAR:Bracers of Armor +1					OPTION:20
-GEAR:Cloak of Resistance +1					OPTION:21
-GEAR:Pearl of Power (1st Level)				OPTION:22
-GEAR:Phylactery of Faithfulness				OPTION:23
-GEAR:Salve of Slipperiness					OPTION:24
-GEAR:Elixir of Fire Breath					OPTION:25
-GEAR:Pipes of teh Sewers					OPTION:26
-GEAR:Dust of Illusion						OPTION:27
-GEAR:Goggles of Minute Seeing					OPTION:28
-GEAR:Brooch of Shielding					OPTION:29
-GEAR:Necklace of Fireballs I					OPTION:30
-GEAR:Dust of Appearance						OPTION:31
-GEAR:Hat of Disguise						OPTION:32
-GEAR:Pipes of Sounding						OPTION:33
-GEAR:Efficient Quiver						OPTION:34
-GEAR:Amulet of Natural Armor +1				OPTION:35
-GEAR:Handy Haversack						OPTION:36
-GEAR:Horn of Fog							OPTION:37
-GEAR:Elemental Gem						OPTION:38
-GEAR:Robe of Bones						OPTION:39
-GEAR:Sovereign Glue						OPTION:40
-GEAR:Bag of Holding (Type 1)					OPTION:41
-GEAR:Boots of Elvenkind						OPTION:42
-GEAR:Boots of the winterlands					OPTION:43
-GEAR:Candle of Truth						OPTION:44
-GEAR:Cloak of Elvenkind						OPTION:45
-GEAR:Eyes of the Eagle						OPTION:46
-GEAR:Scarab (Golembane)						OPTION:47
-GEAR:Necklace of Fireballs II					OPTION:48
-GEAR:Stone of Alarm						OPTION:49
-GEAR:Bag of Tricks (Rust)					OPTION:50
-GEAR:Bead of Force						OPTION:51
-GEAR:Chime of Opening						OPTION:52
-GEAR:Horseshoes of Speed					OPTION:53
-GEAR:Rope of Climbing						OPTION:54
-GEAR:Dust of Disappearance					OPTION:55
-GEAR:Lens of Detection						OPTION:56
-GEAR:Vestment (Druid)						OPTION:57
-GEAR:Figurine of Wondrous Power (Silver Raven)		OPTION:58
-GEAR:Amulet of Health +2					OPTION:59
-GEAR:Bracers of Armor +2					OPTION:60
-GEAR:Cloak of Charisma +2					OPTION:61
-GEAR:Cloak of Resistance +2					OPTION:62
-GEAR:Gauntlets of Ogre Power					OPTION:63
-GEAR:Gloves of Arrow Snaring					OPTION:64
-GEAR:Gloves of Dexterity +2					OPTION:65
-GEAR:Headband of Intellect +2					OPTION:66
-GEAR:Ioun Stone (Clear)						OPTION:67
-GEAR:Restorative Ointment					OPTION:68
-GEAR:Marvelous Pigments						OPTION:69
-GEAR:Pearl of Power (2nd Level)				OPTION:70
-GEAR:Periapt of Wisdom +2					OPTION:71
-GEAR:Stone Salve							OPTION:72
-GEAR:Necklace of Fireballs III				OPTION:73
-GEAR:Circlet of Persuasion					OPTION:74
-GEAR:Slippers of Spider Climbing				OPTION:75
-GEAR:Incense of Meditation					OPTION:76
-GEAR:Bag of Holding (Type 2)					OPTION:77
-GEAR:Bracers of Archery (Lesser)				OPTION:78
-GEAR:Ioun Stone (Dusty Rose)					OPTION:79
-GEAR:Helm of Comprehend Languages and Read Magic	OPTION:80
-GEAR:Vest of Escape						OPTION:81
-GEAR:Eversmoking Bottle						OPTION:82
-GEAR:Sustaining Spoon						OPTION:83
-GEAR:Necklace of Fireballs IV					OPTION:84
-GEAR:Boots of Striding and Springing			OPTION:85
-GEAR:Wind Fan							OPTION:86
-GEAR:Amulet of Mighty Fists +1				OPTION:87
-GEAR:Horseshoes of a Zephyr					OPTION:88
-GEAR:Pipes of Haunting						OPTION:89
-GEAR:Necklace of Fireballs V					OPTION:90
-GEAR:Gloves of Swimming and Climbing			OPTION:91
-GEAR:Bag of Tricks (Tan)					OPTION:92
-GEAR:Circlet of Blasting (Minor)				OPTION:93
-GEAR:Horn of Goodness/Evil					OPTION:94
-GEAR:Robe of Useful Items					OPTION:95
-GEAR:Boat (Folding)						OPTION:96
-GEAR:Cloak of the Manta Ray					OPTION:97
-GEAR:Bottle of Air						OPTION:98
-GEAR:Bag of Holding (Type 3)					OPTION:99
-GEAR:Periapt of Health						OPTION:100
+GEAR:Feather Token (Anchor)						OPTION:1
+GEAR:Universal Solvent							OPTION:2
+GEAR:Elixir of Love							OPTION:3
+GEAR:Unguent of Timelessness						OPTION:4
+GEAR:Feather Token (Fan)						OPTION:5
+GEAR:Dust of Tracelessness						OPTION:6
+GEAR:Elixir of Hiding							OPTION:7
+GEAR:Elixir of Sneaking							OPTION:8
+GEAR:Elixir of Swimming							OPTION:9
+GEAR:Elixir of Vision							OPTION:10
+GEAR:Silversheen								OPTION:11
+GEAR:Feather Token (Bird)						OPTION:12
+GEAR:Feather Token (Tree)						OPTION:13
+GEAR:Feather Token (Swan Boat)					OPTION:14
+GEAR:Elixir of Truth							OPTION:15
+GEAR:Feather Token (Whip)						OPTION:16
+GEAR:Dust of Dryness							OPTION:17
+GEAR:Bag of Tricks (Gray)						OPTION:18
+GEAR:Hand of the Mage							OPTION:19
+GEAR:Bracers of Armor +1						OPTION:20
+GEAR:Cloak of Resistance +1						OPTION:21
+GEAR:Pearl of Power (1st Level)					OPTION:22
+GEAR:Phylactery of Faithfulness					OPTION:23
+GEAR:Salve of Slipperiness						OPTION:24
+GEAR:Elixir of Fire Breath						OPTION:25
+GEAR:Pipes of the Sewers						OPTION:26
+GEAR:Dust of Illusion							OPTION:27
+GEAR:Goggles of Minute Seeing						OPTION:28
+GEAR:Brooch of Shielding						OPTION:29
+GEAR:Necklace of Fireballs I						OPTION:30
+GEAR:Dust of Appearance							OPTION:31
+GEAR:Hat of Disguise							OPTION:32
+GEAR:Pipes of Sounding							OPTION:33
+GEAR:Efficient Quiver							OPTION:34
+GEAR:Amulet of Natural Armor +1					OPTION:35
+GEAR:Handy Haversack							OPTION:36
+GEAR:Horn of Fog								OPTION:37
+GEAR:Elemental Gem (Transparent)					OPTION:38
+GEAR:Robe of Bones							OPTION:39
+GEAR:Sovereign Glue							OPTION:40
+GEAR:Bag of Holding (Type 1)						OPTION:41
+GEAR:Boots of Elvenkind							OPTION:42
+GEAR:Boots of the winterlands						OPTION:43
+GEAR:Candle of Truth							OPTION:44
+GEAR:Cloak of Elvenkind							OPTION:45
+GEAR:Eyes of the Eagle							OPTION:46
+GEAR:Scarab (Golembane)							OPTION:47
+GEAR:Necklace of Fireballs II						OPTION:48
+GEAR:Stone of Alarm							OPTION:49
+GEAR:Bag of Tricks (Rust)						OPTION:50
+GEAR:Bead of Force							OPTION:51
+GEAR:Chime of Opening							OPTION:52
+GEAR:Horseshoes of Speed						OPTION:53
+GEAR:Rope of Climbing							OPTION:54
+GEAR:Dust of Disappearance						OPTION:55
+GEAR:Lens of Detection							OPTION:56
+GEAR:Vestments (Druid)							OPTION:57
+GEAR:Figurine of Wondrous Power (Silver Raven)			OPTION:58
+GEAR:Amulet of Health +2						OPTION:59
+GEAR:Bracers of Armor +2						OPTION:60
+GEAR:Cloak of Charisma +2						OPTION:61
+GEAR:Cloak of Resistance +2						OPTION:62
+GEAR:Gauntlets of Ogre Power						OPTION:63
+GEAR:Gloves of Arrow Snaring						OPTION:64
+GEAR:Gloves of Dexterity +2						OPTION:65
+GEAR:Headband of Intellect +2						OPTION:66
+GEAR:Ioun Stone (Clear)							OPTION:67
+GEAR:Restorative Ointment						OPTION:68
+GEAR:Marvelous Pigments							OPTION:69
+GEAR:Pearl of Power (2nd Level)					OPTION:70
+GEAR:Periapt of Wisdom +2						OPTION:71
+GEAR:Stone Salve								OPTION:72
+GEAR:Necklace of Fireballs III					OPTION:73
+GEAR:Circlet of Persuasion						OPTION:74
+GEAR:Slippers of Spider Climbing					OPTION:75
+GEAR:Incense of Meditation						OPTION:76
+GEAR:Bag of Holding (Type 2)						OPTION:77
+GEAR:Bracers of Archery (Lesser)					OPTION:78
+GEAR:Ioun Stone (Dusty Rose)						OPTION:79
+GEAR:Helm of Comprehending Languages and Reading Magic	OPTION:80
+GEAR:Vest of Escape							OPTION:81
+GEAR:Eversmoking Bottle							OPTION:82
+GEAR:Sustaining Spoon							OPTION:83
+GEAR:Necklace of Fireballs IV						OPTION:84
+GEAR:Boots of Striding and Springing				OPTION:85
+GEAR:Wind Fan								OPTION:86
+GEAR:Amulet of Mighty Fists +1					OPTION:87
+GEAR:Horseshoes of a Zephyr						OPTION:88
+GEAR:Pipes of Haunting							OPTION:89
+GEAR:Necklace of Fireballs V						OPTION:90
+GEAR:Gloves of Swimming/Climbing					OPTION:91
+GEAR:Bag of Tricks (Tan)						OPTION:92
+GEAR:Circlet of Blasting (Minor)					OPTION:93
+GEAR:Horn of Goodness/Evil						OPTION:94
+GEAR:Robe of Useful Items						OPTION:95
+GEAR:Boat (Folding)							OPTION:96
+GEAR:Cloak of the Manta Ray						OPTION:97
+GEAR:Bottle of Air							OPTION:98
+GEAR:Bag of Holding (Type 3)						OPTION:99
+GEAR:Periapt of Health							OPTION:100
 
 STARTPACK:Medium Wondrous Items	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
@@ -244,7 +244,7 @@ GEAR:Cloak of Displacement (Major)				OPTION:31
 GEAR:Crystal Ball (See Invisibility)			OPTION:32
 KIT:Horn of Valhalla		OPTION:33
 GEAR:Crystal Ball (Detect Thoughts)				OPTION:34
-GEAR:Carpet of Flying (6x9)					OPTION:35
+GEAR:Carpet of Flying (5x10)					OPTION:35
 GEAR:Amulet of Mighty Fists +3				OPTION:36
 GEAR:Wings of Flying						OPTION:37
 GEAR:Cloak of Etherealness					OPTION:38

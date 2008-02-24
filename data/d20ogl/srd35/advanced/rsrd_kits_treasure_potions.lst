@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Sun Feb 24 01:22:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -11,15 +11,15 @@ GEAR:Potion (Hide from Undead)			OPTION:16,17
 GEAR:Potion (Jump)					OPTION:18,19
 GEAR:Potion (Mage Armor)				OPTION:20,22
 GEAR:Potion (Magic Fang)				OPTION:23,25
-GEAR:Oil of Magic Stone					OPTION:26
-GEAR:Oil of Magic Weapon				OPTION:27,29
+GEAR:Potion (Oil of Magic Stone)			OPTION:26
+GEAR:Potion (Oil of Magic Weapon)			OPTION:27,29
 GEAR:Potion (Pass without Trace)			OPTION:30
 KIT:Potion (Protection from Alignment)	OPTION:31,32
 GEAR:Potion (Remove Fear)				OPTION:33,34
 GEAR:Potion (Sanctuary)					OPTION:35
 GEAR:Potion (Shield of Faith +2)			OPTION:36,38
-GEAR:Oil of Shillelagh					OPTION:39
-GEAR:Oil of Bless Weapon				OPTION:40,41
+GEAR:Potion (Oil of Shillelagh)			OPTION:39
+GEAR:Potion(Oil of Bless Weapon)			OPTION:40,41
 GEAR:Potion (Enlarge Person)				OPTION:42,44
 GEAR:Potion (Reduce Person)				OPTION:45
 GEAR:Potion (Aid)						OPTION:46,47
@@ -30,7 +30,7 @@ GEAR:Potion (Bull's Strength)				OPTION:57,59
 GEAR:Potion (Cat's Grace)				OPTION:60,62
 GEAR:Potion (Cure Moderate Wounds)			OPTION:63,67
 GEAR:Potion (Oil of Darkness)				OPTION:68
-GEAR:Potion (Darkvision)				OPTION:69,71
+GEAR:Potion (Darkness)					OPTION:69,71
 GEAR:Potion (Delay Poison)				OPTION:72,74
 GEAR:Potion (Eagle's Splendor)			OPTION:75,76
 GEAR:Potion (Fox's Cunning)				OPTION:77,78
@@ -48,7 +48,7 @@ GEAR:Potion (Undetectable Alignment)		OPTION:100
 
 STARTPACK:Medium Potions	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
-GEAR:Oil of Bless Weapon				OPTION:1,2
+GEAR:Potion(Oil of Bless Weapon)			OPTION:1,2
 GEAR:Potion (Enlarge Person)				OPTION:3,4
 GEAR:Potion (Reduce Person)				OPTION:5
 GEAR:Potion (Aid)						OPTION:6
@@ -59,7 +59,7 @@ GEAR:Potion (Bull's Strength)				OPTION:14,16
 GEAR:Potion (Cat's Grace)				OPTION:17,19
 GEAR:Potion (Cure Moderate Wounds)			OPTION:20,27
 GEAR:Potion (Oil of Darkness)				OPTION:28
-GEAR:Potion (Darkvision)				OPTION:29,30
+GEAR:Potion (Darkness)					OPTION:29,30
 GEAR:Potion (Delay Poison)				OPTION:31
 GEAR:Potion (Eagle's Splendor)			OPTION:32,33
 GEAR:Potion (Fox's Cunning)				OPTION:34,35
@@ -105,7 +105,7 @@ STARTPACK:Major Potions	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Potion (Blur)					OPTION:1,2
 GEAR:Potion (Cure Moderate Wounds)			OPTION:3,7
-GEAR:Potion (Darkvision)				OPTION:8,9
+GEAR:Potion (Darkness)					OPTION:8,9
 KIT:Potion or Oil of Invisibility			OPTION:10,11
 GEAR:Potion (Lesser Restoration)			OPTION:12
 GEAR:Potion (Remove Paralysis)			OPTION:13
