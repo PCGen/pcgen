@@ -545,7 +545,6 @@
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Ability Files</p>
 	<p></ p>
-
 <!--
 <hr>
 
@@ -559,23 +558,23 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> PROHIBITED=Boolean (Optional)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> SPELLBOOK=Text (Spellbook name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ANY</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> CLASSLIST=<class list></p>
-	<p class="indent1"><strong>Variables Used (y):</strong> DOMAINLIST=<domain list></p>
+	<p class="indent1"><strong>Variables Used (y):</strong> CLASSLIST=Text (Class name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> DOMAINLIST=Text (Domain name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> SPELLTYPE=Text (Spell type)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> KNOWN=Boolean (YES limits list to known spells, NO limits spells to unknown spells) (If not used both are presented)
-	<p class="indent1"><strong>Variables Used (z):</strong> LEVELMIN=Number, Variable, Formula, or MAXCASTABLE (references all spells of the specified level and higher)
-	<p class="indent1"><strong>Variables Used (z):</strong> LEVELMAX=Number, Variable, Formula, or MAXCASTABLE (references all spells of the specified level and lower)
+	<p class="indent1"><strong>Variables Used (z):</strong> KNOWN=Boolean (Optional)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> LEVELMIN=Number, Variable, Formula, or MAXCASTABLE (Minimum spell level)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> LEVELMAX=Number, Variable, Formula, or MAXCASTABLE (Maximum spell level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li></li>
 		<li></li>
-		<li>The PROHIBITED sub-tag will restrict the presented spell list to prohibited spells (&quot;YESY&quot;) or non-prohibited (&quot;NO&quot;) spells. If it is not included, both are presented.</li>
-		<li>SPELLBOOK is used to reference the specific spell books, such as "Innate".</li>
-		<li>The spell type used in the SPELLTYPE tag above MUST be used in a SPELLTYPE tag within a loaded class.</li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<li>The <code>PROHIBITED</code> sub-tag will restrict the presented spell list to prohibited (&quot;YESY&quot;) spells or non-prohibited (&quot;NO&quot;) spells. If it is not included, both are presented.</li>
+		<li><code>SPELLBOOK</code> is used to reference the specific spell books, such as "Innate".</li>
+		<li>The spell type used in the <code>SPELLTYPE</code> sub-tag above MUST be used in a <code>SPELLTYPE</code> tag within a loaded class.</li>
+		<li>The <code>KNOWN</code> sub-tag will restrict the presented spell list to known (&quot;YES&quot;) spells or unknown (&quot;NO&quot;)spells. If it is not included, both are presented.</li>
+		<li><code>LEVELMIN</code> sub-tag references all spells of the specified level and higher.</li>
+		<li><code>LEVELMAX</code> sub-tag references all spells of the specified level and lower.</li>
+		<li>All sub-tags contained with a single pair of square brackets ([ ]) will be met by all spells presented.</li>
 	</ul>
 	<p class="indent2"></p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -590,11 +589,18 @@
 	<p class="indent2"><code>CHOOSE:SPELLS|ANY[KNOWN=YES]</code></p>
 	<p class="indent3">Choose from spells known by the PC.</p>
 	<p class="indent2"><code>CHOOSE:SPELLS|CLASSLIST=Sorcerer[LEVELMIN=1;LEVELMAX=MAXCASTABLE-1]</code></p>
-	<p class="indent3">Choose from Sorcerer spells between first level and one less than your max castable level of spell taken from the Sorcerer list</p>
+	<p class="indent3">Choose from Sorcerer spells between first level and one less than your max castable level 
+		of spell taken from the Sorcerer list</p>
 	<p class="indent2"><code>CHOOSE:SPELLS|SPELLTYPE=Psionic[KNOWN=YES]|SPELLTYPE=Psionic[LEVELMAX=MAXCASTABLE-1]</code></p>
-	<p class="indent3">Choose from any Psionic "Spell" known by the PC or available to any Psionic Caster at a level at least one less than the maximum level of Psionic "Spell" castable by the PC (notice the independence forces two [] items)</p>
+	<p class="indent3">Choose from any Psionic &quot;Spell&quot; known by the PC or available to any Psionic 
+		Caster at a level at least one less than the maximum level of Psionic &quot;Spell&quot; castable by 
+		the PC. Notice the independence of the <code>KNOWN</code> and <code>LEVELMAX</code> subtags forces 
+		the use of two sets of square brackets ([ ]).</p>
 	<p class="indent2"><code>CHOOSE:SPELLS|SPELLTYPE=Psionic[KNOWN=YES;LEVELMAX=MAXCASTABLE-1]</code></p>
-	<p class="indent3">Choose from any Psionic "Spell" known by the PC at a level at least one less than the maximum level of Psionic "Spell" castable by the PC (notice the common case - dependence - can be done with one [] item)</p>
+	<p class="indent3">Choose from any Psionic &quot;Spell&quot; known by the PC at a level at least one less than the 
+		maximum level of Psionic &quot;Spell&quot; castable by the PC. Notice the common case between the 
+		<code>KNOWN</code>, <code>LEVELMIN</code>, and <code>LEVELMAX</code> subtags can be done with one set 
+		of square brackets ([ ]).</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></ p>
