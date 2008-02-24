@@ -1232,25 +1232,32 @@
 	<p class="new">*** Updated 5.11.11 - 5.13</p>
 	<p class="indent0"><strong><a name="MOD">Tag Name:</a></strong> w|x.MOD</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> CATEGORY=Text (Ability category. Used only when modifying abilities.)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Object name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Object name or key)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Modifies an existing object.</li>
-		<li>The name of the object must match EXACTLY (case sensitive, and the classes need the beginning
-			CLASS: tag, see examples).</li>
-		<li>If you want to .MOD the name, you need to include the NAME: designator (see examples).</li>
-		<li>If you want to .MOD an eqmod, you use the KEY but not the KEY: designator (see examples).</li>
-		<li>Any tags that are listed are added to the list of tags already in the object.</li>
-		<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
-			replace the tag in the original entry.</li>
-		<li>If more than one tag is allowed (most notably BONUS statements), then the new tag will be added
-			to the other tags in the object.</li>
-		<li>When .MODing an object to remove or replace a numerical BONUS, you must duplicate the original
-			BONUS with the number or formula used for the numerical bonus multiplied by &quot;-1&quot;.</li>
-		<li>When .MODing abilities you reference the ability by its CATEGORY, i.e. CATEGORY=&lt;category&gt;, and its KEY.(see example below.)</li>
-		<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
-			.pcc RANK tag. Given: 1.MOD 1.FORGET 2.COPY 2.Blank 2.MOD 3.MOD. The order of processing is:
-			2. Blank 2.COPY 1.MOD 2.MOD 3.MOD 1.FORGET </li>
+		<li>Modifies a existing LST object.</li>
+		<li>When modifying abilities you reference the ability by its &quot;category&quot;, i.e. <code>CATEGORY=&lt;category&gt;</code>, 
+			and its name, or &quot;key&quot;.</li>
+		<li>The name of the object must match EXACTLY the existing object, i.e. case sensitive.</li>
+		<li>Modifying a &quot;class&quot; requires that the object include the beginning <code>CLASS:</code> tag.</li>
+		<li>If you want to <code>.MOD</code> the name of an object you need to include the <code>NAME:</code> tag.</li>
+		<li>If you want to <code>.MOD</code> an eqmod, you use the &quot;key&quot; but not the <code>KEY</code> tag.</li>
+		<li>Any tags that follow the <code>.MOD</code> tag are added to the list of tags already in the object.</li>
+		<li>If only one tag is allowed, such as <code>HD</code> for classes or <code>COST</code> in equipment, the new 
+			tag will replace the tag in the original entry.</li>
+		<li>If more than one tag is allowed, most notably <code>BONUS</code> statements, then the new tag will 
+			be added to the other tags in the object.</li>
+		<li>When modifying an object to remove or replace a numerical <code>BONUS</code>, you must duplicate the 
+			original <code>BONUS</code> with the number or formula used for the numerical bonus multiplied by 
+			&quot;-1&quot;.</li>
+		<li>The order of operations is: Native line, <code>COPY</code>, <code>MOD</code>, then <code>FORGET</code>, but the 
+			order of operation is also controlled by the <code>RANK</code> tag in the PCC file.
+			<ul>
+				<li>Given: <code>1.MOD</code> <code>1.FORGET</code> <code>2.COPY</code> <code>2.Blank</code> <code>2.MOD</code> <code>3.MOD</code></li>
+				<li>Order of processing is: <code>2.Blank</code> <code>2.COPY</code> <code>1.MOD</code> <code>2.MOD</code> 
+					<code>3.MOD</code> <code>1.FORGET</code></li>
+			</ul>
+		</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>Human.MOD</code></p>
@@ -1280,30 +1287,37 @@
 	<p></ p>
 
 	<p class="new">*** Updated 5.13</p>
-	<p class="indent0"><strong><a name="COPY">Tag Name:</a></strong> &lt;name&gt;.COPY=&lt;new name&gt;</p>
-	<p class="indent1"><strong>Variables Used: </strong>Text, First field of the item to be copied</p>
+	<p class="indent0"><strong><a name="COPY">Tag Name:</a></strong> w|x.COPY=y</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> CATEGORY=Text (Ability category. Used only when copying abilities.)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Object name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Copied object's name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This defines what object is going to be copied.</li>
-		<li>This creates a new object with the same properties of the original object.</li>
-		<li>Tags following the .COPY line modify the new object in the same way the .MOD tag modifies
-			objects.</li>
-		<li>Please note that the name must match EXACTLY (case sensitive, and the classes need the beginning
-			CLASS: tag).</li>
+		<li>Copies a LST object, creating a new object with the same properties as the original object.</li>
+		<li>When copying abilities you reference the ability by its &quot;category&quot;, i.e. <code>CATEGORY=&lt;category&gt;</code>, 
+			and its name, or &quot;key&quot;.</li>
+		<li>The name of the object must match EXACTLY the existing object, i.e. case sensitive.</li>
+		<li>Copying a &quot;class&quot; requires that the object include the beginning <code>CLASS:</code> tag.</li>
 		<li>Warning! While it can be done copying a Class is not recommended, the reason being that while
 			the class lines are copied into a new class there remain tags in those lines which refer to the
 			original class by name. The effect of this is that you r new class will not inherit any class
 			abilities that reference the old class name, some of these include: Spellcasting, Favored Enemies
 			and other special abilities.</li>
-		<li>Any tags that are listed are added to the list of tags already in the object.</li>
-		<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
-			replace the tag in the original entry.</li>
-		<li>If more than one tag is allowed (most notably BONUS statements), then the new tag will be added
-			to the other tags in the object.</li>
-		<li>When .COPYing abilities you reference the ability by its CATEGORY, i.e. CATEGORY=&lt;category&gt;, and its KEY.(see example below.)</li>
-		<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
-			.pcc RANK tag. Given: 1.MOD 1.FORGET 2.COPY 2.Blank 2.MOD 3.MOD. The order of processing is:
-			2. Blank 2.COPY 1.MOD 2.MOD 3.MOD 1.FORGET </li>
+		<li>Tags following the <code>.COPY</code> line modify the new object in the same way the <code>.MOD</code> 
+			tag modifies objects.</li>
+		<li>Any tags that follow the <code>.COPY</code> tag are added to the list of tags already in the object.</li>
+		<li>If only one tag is allowed, such as <code>HD</code> for classes or <code>COST</code> in equipment, the new 
+			tag will replace the tag in the original entry.</li>
+		<li>If more than one tag is allowed, most notably <code>BONUS</code> statements, then the new tag will 
+			be added to the other tags in the object.</li>
+		<li>The order of operations is: Native line, <code>COPY</code>, <code>MOD</code>, then <code>FORGET</code>, but the 
+			order of operation is also controlled by the <code>RANK</code> tag in the PCC file.
+			<ul>
+				<li>Given: <code>1.MOD</code> <code>1.FORGET</code> <code>2.COPY</code> <code>2.Blank</code> <code>2.MOD</code> <code>3.MOD</code></li>
+				<li>Order of processing is: <code>2.Blank</code> <code>2.COPY</code> <code>1.MOD</code> <code>2.MOD</code> 
+					<code>3.MOD</code> <code>1.FORGET</code></li>
+			</ul>
+		</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>Human.COPY=Aboriginee</code></p>
@@ -1377,17 +1391,25 @@
 	<h2>The .FORGET Tag</h2>
 	<p></ p>
 	<p class="new">*** Updated 5.13</p>
-	<p class="indent0"><strong><a name="FORGET">Tag Name:</a></strong> &lt;name&gt;.FORGET</p>
-	<p class="indent1"><strong>Variables Used:</strong> Text, First field of the item to be removed</p>
+	<p class="indent0"><strong><a name="FORGET">Tag Name:</a></strong> w|x.FORGET</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> CATEGORY=Text (Ability category. Used only when modifying abilities.)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Object name or key)</p>
 	<p class="indent1"><strong>What it does:</strong> </p>
 	<ul class="indent2">
-		<li>.FORGET completely removes a LST object from the loaded dataset.</li>
-		<li>.FORGET is ALWAYS done last so you can not .FORGET a LST object and then load a modified version.</li>
+		<li>Completely removes a LST object from the loaded dataset.</li>
+		<li>When forgeting abilities you reference the ability by its &quot;category&quot;, i.e. <code>CATEGORY=&lt;category&gt;</code>, 
+			and its name, or &quot;key&quot;.</li>
 		<li>This tag has no other tags following it.</li>
-		<li>When .FORGETing abilities you reference the ability by its CATEGORY, i.e. CATEGORY=&lt;category&gt;, and its KEY.(see example below.)</li>
-		<li>The order of operations is: native line, copy, mod, forget. This is also controlled by the
-			.pcc RANK tag. Given: 1.MOD 1.FORGET 2.COPY 2.Blank 2.MOD 3.MOD. The order of processing is:
-			2. Blank 2.COPY 1.MOD 2.MOD 3.MOD 1.FORGET </li>
+		<li>The name of the object must match EXACTLY the existing object, i.e. case sensitive.</li>
+		<li>Forgeting a &quot;class&quot; requires that the object include the beginning <code>CLASS:</code> tag.</li>
+		<li>The order of operations is: Native line, <code>COPY</code>, <code>MOD</code>, then <code>FORGET</code>, but the 
+			order of operation is also controlled by the <code>RANK</code> tag in the PCC file.
+			<ul>
+				<li>Given: <code>1.MOD</code> <code>1.FORGET</code> <code>2.COPY</code> <code>2.Blank</code> <code>2.MOD</code> <code>3.MOD</code></li>
+				<li>Order of processing is: <code>2.Blank</code> <code>2.COPY</code> <code>1.MOD</code> <code>2.MOD</code> 
+					<code>3.MOD</code> <code>1.FORGET</code></li>
+			</ul>
+		</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>Human.FORGET</code></p>
