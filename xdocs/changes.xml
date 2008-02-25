@@ -5,14 +5,14 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.13.10" date="In SVN" description="Alpha release">
+    <release version="5.13.10" date="2008-02-25" description="Alpha release"> 
       <action dev="karianna" type="fix" issue="1744534">Initiative lost during re-sort</action>  
       <action dev="jfrazierjr" type="add" issue="1847137">Add PRExxx capability to SUBSTITUTIONLEVEL line</action>  
       <action dev="jfrazierjr" type="add" issue="1849571">New Class tag: ALLOWBASECLASS:x</action>  
       <action dev="zaister" type="update" issue="1889954">Show Prerequisites for skills in GUI</action>  
       <action dev="zaister" type="update" issue="1891321">Remove Save DCs for spells with no save</action>  
-      <action dev="jfrazierjr" type="update" issue="1893274">Add "Choice" column to cost and prohibited subclass chooser</action>  
-    </release> 
+      <action dev="jfrazierjr" type="update" issue="1893274">Add "Choice" column to cost and prohibited subclass chooser</action> 
+    </release>  
     <release version="5.13.9" date="2008-02-12" description="Alpha release"> 
       <action dev="jdempsey" type="add" issue="1850536">DESC pcc tag</action>  
       <action dev="jdempsey" type="add" issue="1850537">URL pcc tag</action>  

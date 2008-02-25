@@ -5,7 +5,7 @@
   <id>pcgen</id>
   <groupId>pcgen</groupId>
   <name>PCGen</name>
-  <currentVersion>5.13.9</currentVersion>
+  <currentVersion>5.13.10</currentVersion>
   <organization>
     <name>SourceForge</name>
     <url>http://sourceforge.net/</url>
@@ -329,7 +329,7 @@
   </dependencies>
   <reports>
     <report>maven-java-plugin</report>
-	<report>maven-changelog-plugin</report>
+    <report>maven-changelog-plugin</report>
     <report>maven-changes-plugin</report>
     <!-- Runs slower'n molassas --> 
     <!-- <report>maven-checkstyle-plugin</report> --> 
@@ -506,6 +506,11 @@
       <id>5.13.9</id>
       <name>5.13.9</name>
       <tag>release-5.13.9</tag>
+    </version>
+    <version>
+      <id>5.13.10</id>
+      <name>5.13.10</name>
+      <tag>release-5.13.10</tag>
     </version>
   </versions>
 </project>
