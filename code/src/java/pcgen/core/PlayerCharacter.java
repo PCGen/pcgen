@@ -14689,6 +14689,42 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		this.descriptionLst = descriptionLst;
 	}
 
+	/*
+	 * Prepares this PC object for output by ensuring that all its
+	 * info is up to date.
+	 */
+	public void preparePCForOutput()
+	{
+		// Get the EquipSet used for output and calculations
+		// possibly include equipment from temporary bonuses
+		setCalcEquipmentList(getUseTempMods());
+
+		// Make sure spell lists are setup
+		getSpellList();
+
+		getAllSkillList(true); //force refresh of skills
+
+		int includeSkills = SettingsHandler.getIncludeSkills();
+
+		// TODO Reference a constant
+		if (includeSkills == SettingsHandler.INCLUDE_SKILLS_SKILLS_TAB)
+		{
+			includeSkills = SettingsHandler.getSkillsTab_IncludeSkills();
+		}
+
+		populateSkills(includeSkills);
+
+		for (PObject pcClass : getClassList())
+		{
+			pcClass.getSpellSupport().sortCharacterSpellList();
+		}
+
+		determinePrimaryOffWeapon();
+		modFromArmorOnWeaponRolls();
+		adjustMoveRates();
+		calcActiveBonuses();
+	}
+
 	private class CasterLevelSpellBonus
 	{
 		private int bonus;
