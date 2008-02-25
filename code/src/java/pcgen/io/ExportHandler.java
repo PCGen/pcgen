@@ -32,7 +32,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -96,7 +95,6 @@ import pcgen.util.enumeration.Visibility;
 public final class ExportHandler
 {
 	private static final Float JEP_TRUE        = new Float(1.0);
-	private static final NumberFormat NUM_FMT  = NumberFormat.getInstance();
 	private static Map<String, Token> tokenMap = new HashMap<String, Token>();
 	private static boolean tokenMapPopulated   = false;
 
@@ -198,10 +196,9 @@ public final class ExportHandler
 				aString = br.readLine();
 			}
 
-			aString = inputLine.toString();
-
 			final StringTokenizer aTok =
-					new StringTokenizer(aString, "\r\n", false);
+					new StringTokenizer(
+							inputLine.toString(), "\r\n", false);
 
 			final FileAccess fa = new FileAccess();
 
@@ -356,7 +353,7 @@ public final class ExportHandler
 
 	/**
 	 * Add to the token map, called mainly by the plugin loader
-	 * @param newToken
+	 * @param newToken the token to add
 	 */
 	public static void addToTokenMap(Token newToken)
 	{
@@ -674,11 +671,11 @@ public final class ExportHandler
 			final FileAccess fa, 
 			final PlayerCharacter aPC)
 	{
-		for (int y = 0; y < children.size(); ++y)
+		for (Object aChild : children)
 		{
-			if (children.get(y) instanceof FORNode)
+			if (aChild instanceof FORNode)
 			{
-				final FORNode nextFor = (FORNode) children.get(y);
+				final FORNode nextFor = (FORNode) aChild;
 				loopVariables.put(nextFor.var(), 0);
 				existsOnly = nextFor.exists();
 
@@ -694,29 +691,34 @@ public final class ExportHandler
 					}
 
 					final String fString = anObject.toString();
-					final String rString = loopVariables.get(fString).toString();
-					minString  = minString.replaceAll(Pattern.quote(fString), rString);
-					maxString  = maxString.replaceAll(Pattern.quote(fString), rString); 
-					stepString = stepString.replaceAll(Pattern.quote(fString), rString);
+					final String rString =
+							loopVariables.get(fString).toString();
+					minString = minString.replaceAll(
+							Pattern.quote(fString), rString);
+					maxString = maxString.replaceAll(
+							Pattern.quote(fString), rString);
+					stepString = stepString.replaceAll(
+							Pattern.quote(fString), rString);
 				}
 
-				loopFOR(nextFor, 
-				        getVarValue(minString, aPC), 
-				        getVarValue(maxString, aPC), 
-				        getVarValue(stepString, aPC), 
-				        output,
-				        fa, 
-				        aPC);
+				loopFOR(
+						nextFor,
+						getVarValue(minString, aPC),
+						getVarValue(maxString, aPC),
+						getVarValue(stepString, aPC),
+						output,
+						fa,
+						aPC);
 				existsOnly = nextFor.exists();
 				loopVariables.remove(nextFor.var());
 			}
-			else if (children.get(y) instanceof IIFNode)
+			else if (aChild instanceof IIFNode)
 			{
-				evaluateIIF((IIFNode) children.get(y), output, fa, aPC);
+				evaluateIIF((IIFNode) aChild, output, fa, aPC);
 			}
 			else
 			{
-				String lineString = (String) children.get(y);
+				String lineString = (String) aChild;
 
 				for (final Object anObject : loopVariables.keySet())
 				{
@@ -726,8 +728,10 @@ public final class ExportHandler
 					}
 
 					final String fString = anObject.toString();
-					final String rString = loopVariables.get(fString).toString();
-					lineString = lineString.replaceAll(Pattern.quote(fString), rString);
+					final String rString =
+							loopVariables.get(fString).toString();
+					lineString = lineString.replaceAll(
+							Pattern.quote(fString), rString);
 				}
 
 				replaceLine(lineString, output, aPC);
@@ -1062,10 +1066,10 @@ public final class ExportHandler
 						{
 							StringTokenizer bTok =
 									new StringTokenizer(attackData, "/");
-							String newAttackData = "";
 
 							if (bTok.countTokens() > 0)
 							{
+								String newAttackData = "";
 								while (bTok.hasMoreTokens())
 								{
 									final String bString = bTok.nextToken();
