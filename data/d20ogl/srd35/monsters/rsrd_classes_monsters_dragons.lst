@@ -208,7 +208,7 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 ###Block: Frightful Presence
 1	SAB:Frightful Presence (Ex) % ft DC %|FrightfulPresRange|FrightfulPresDC|PREVARGTEQ:FrightfulPresRange,1,FrightfulPresDC,1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresDC|10+(CL/2)+CHA
 ###Block: Normal Progression
-1																	DEFINE:DragonAge|1											SPELLS:Innate|TIMES=-1|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
+1																	DEFINE:DragonAge|1											SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
 7																	DEFINE:DragonAge|2
 10																	DEFINE:DragonAge|3						ADD:SPELLCASTER|1|Sorcerer
 12												BONUS:PCLEVEL|Sorcerer|1
@@ -248,7 +248,7 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 ###Block: Frightful Presence
 1	SAB:Frightful Presence (Ex) % ft DC %|FrightfulPresRange|FrightfulPresDC|PREVARGTEQ:FrightfulPresRange,1,FrightfulPresDC,1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresDC|10+(CL/2)+CHA
 ###Block: Normal Progression
-1				SAB:Water Breathing (Ex)							DEFINE:DragonAge|1						SPELLS:Innate|TIMES=-1|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
+1				SAB:Water Breathing (Ex)							DEFINE:DragonAge|1						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
 9															DEFINE:DragonAge|2
 12				SAB:Alternate Form (Su) 3/day							DEFINE:DragonAge|3	ADD:SPELLCASTER|1|Sorcerer
 14										BONUS:PCLEVEL|Sorcerer|1

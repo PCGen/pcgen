@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb 18 11:22:51 2008 -- reformated by prettylst.pl v1.38 (build 5211)
+# CVS $Revision$ $Author$ -- Tue Feb 26 12:25:22 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -31,10 +31,10 @@ Save against Poisons			TYPE:Extraordinary	VISIBLE:NO	SAB:+% save against poisons
 Hide in Plain Sight (Assassin)	TYPE:Supernatural		VISIBLE:NO	SAB:Hide in Plain Sight (Su)									SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Blackguard special abilities
-# Feat Name		Type			Visible	Special ABility			Innate Spells												Save checks bonus						Source Page
-Detect Good		TYPE:SpellLike	VISIBLE:NO	SAB:Detect Good (Sp)		SPELLS:Class Ability|TIMES=-1|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS									SOURCEPAGE:PrestigeClasses.rtf
-Dark Blessing	TYPE:Supernatural	VISIBLE:NO	SAB:Dark Blessing (Su)																BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
-Aura of Despair	TYPE:Supernatural	VISIBLE:NO	SAB:Aura of Despair (Su)																							SOURCEPAGE:PrestigeClasses.rtf
+# Feat Name		Type			Visible	Special ABility			Innate Spells											Save checks bonus						Source Page
+Detect Good		TYPE:SpellLike	VISIBLE:NO	SAB:Detect Good (Sp)		SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS									SOURCEPAGE:PrestigeClasses.rtf
+Dark Blessing	TYPE:Supernatural	VISIBLE:NO	SAB:Dark Blessing (Su)															BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
+Aura of Despair	TYPE:Supernatural	VISIBLE:NO	SAB:Aura of Despair (Su)																						SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Dragon Disciple Class Features
 # Dragon Disciple
@@ -126,9 +126,9 @@ Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SAB:
 More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SAB:Secret (More Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																													SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Shadowdancer special abilities
-# Feat Name		Type						Visible	Special ABility										Define									Innate Spells												Source Page
-Shadow Illusion	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SAB:Shadow Illusion (Sp)								DEFINE:ShadowIllusionLVL|0						SPELLS:Class Ability|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA	SOURCEPAGE:PrestigeClasses.rtf
-Shadow Jump		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	DEFINE:ShadowJump|0	DEFINE:ShadowJumpProgression|0															SOURCEPAGE:PrestigeClasses.rtf
+# Feat Name		Type						Visible	Special ABility										Define									Innate Spells										Source Page
+Shadow Illusion	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SAB:Shadow Illusion (Sp)								DEFINE:ShadowIllusionLVL|0						SPELLS:Class|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA	SOURCEPAGE:PrestigeClasses.rtf
+Shadow Jump		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	DEFINE:ShadowJump|0	DEFINE:ShadowJumpProgression|0													SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Thaumaturgist special abilities
 # Feat Name			Type			Visible	Special ABility			Source Page

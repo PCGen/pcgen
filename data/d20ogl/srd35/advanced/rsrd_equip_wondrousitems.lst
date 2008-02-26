@@ -182,7 +182,7 @@ Golem Manual (Greater Stone)										OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.
 ###Block: H's
 # Equipment Name						Unique Key								Type						Contains		Cost		Weight	Source Page				Virtual Feat	Innate Spells										Save checks bonus							Combat bonus					Bonus to nb of slots	Bonus to skill																			Bonus to skill point/L		Stat bonus					Modify VAR						Special Property						Add
 Hand of Glory															TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2		SOURCEPAGE:MagicItemsV.rtf				SPELLS:Magic Item|TIMES=1|CASTERLEVEL=9|Daylight,13|See Invisibility,13																	BONUS:SLOTS|RING|1
-Hand of the Mage															TYPE:Magic.Wondrous.Amulet					COST:900	WT:2		SOURCEPAGE:MagicItemsV.rtf				SPELLS:Magic Item|TIMES=-1|CASTERLEVEL=3|Mage Hand,10
+Hand of the Mage															TYPE:Magic.Wondrous.Amulet					COST:900	WT:2		SOURCEPAGE:MagicItemsV.rtf				SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Mage Hand,10
 Handy Haversack															TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5		SOURCEPAGE:MagicItemsV.rtf
 Harp of Charming															TYPE:Magic.Wondrous						COST:7500	WT:5		SOURCEPAGE:MagicItemsV.rtf
 Hat of Disguise															TYPE:Magic.Wondrous.Headgear					COST:1800	WT:0		SOURCEPAGE:MagicItemsV.rtf
