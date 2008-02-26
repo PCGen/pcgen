@@ -979,40 +979,39 @@
 <hr>
 
 	<p class="new">*** New 5.7.9</p>
-	<p class="indent0"><strong><a name="SPELLS">Tag Name:</a></strong> SPELLS:u|v|w|x,y|x,y|z|z</p>
-	<p><strong> Variables Used (u):</strong> Text (name of spellbook)</p>
-	<p><strong> Variables Used (v):</strong> TIMES=&lt;formula&gt; (Cast times per day, Optional)</p>
-	<p><strong> Variables Used (w):</strong> CASTERLEVEL=&lt;formula&gt; (Sets caster level, Optional)</p>
+	<p class="indent0"><strong><a name="SPELLS">Tag Name:</a></strong> SPELLS:s|u|v|w|x,y|x,y|z|z</p>
+	<p><strong> Variables Used (s):</strong> Text (name of spellbook)</p>
+	<p><strong> Variables Used (u):</strong> TIMES=ATWILL (Set Cast Times to &quot;At Will&quot;, Optional)</p>
+	<p><strong> Variables Used (u):</strong> TIMES=Number, Formula, or Variable (Cast times per unit time, Optional)</p>
+	<p><strong> Variables Used (v):</strong> TIMEUNIT=Text (Sets unit of time, Optional)</p>
+	<p><strong> Variables Used (w):</strong> CASTERLEVEL=Number, Formula, or Variable (Sets caster level, Optional)</p>
 	<p><strong> Variables Used (x):</strong> Text (Spell name)</p>
 	<p><strong> Variables Used (y):</strong> Number or Formula (Spell DC, Optional)</p>
 	<p><strong> Variables Used (z):</strong> PRExxx tag</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This grants the character spell like abilities.</li>
-		<li>The &lt;spellbook&gt; should never be the same name as a Class, as it will cause an exception in
+		<li>This grants the character spell-like abilities.</li>
+		<li>The spellbook should never be the same name as a Class, as it will cause an exception in
 			PCGen.</li>
-		<li>TIMES is an optional parameter and if not present will default to 1.</li>
-		<li>CASTERLEVEL is an optional parameter and if not present will default to 1.</li>
-		<li>&quot;-1&quot; in the times per day will result in &quot;At will&quot; on the Output Sheets.</li>
-		<li>There should never be more than one TIMES and CASTERLEVEL tag used within a SPELLS tag.</li>
-		<li>&lt;formula for DC&gt; is totally optional for each spell, and fills in the DC value in the
-			appropriate OS field.</li>
-		<li>You can apply PRExxx tags to the SPELLS tag. If a SPELLS tag requires multiple PRExxx statements
-			it is &quot;|&quot; delimited. Some of the PRExxx statements have &quot;|&quot; delimiting in them,
-			if a spell requires a PRExxx statement that has &quot;|&quot; delimiting in it, simply put that
-			PRExxx statement in a separate SPELLS tag by itself.</li>
-		<li> Once one PRExxx tag is reached at the end, all subsequent fields must also be PRExxx tags.
-			PRExxx's apply to the whole tag.</li>
-		<li>Formulas which use comma's within them should be encapsulated using parentheses &quot;( )&quot;,
-			see example.</li>
-			<li>Because the SPELLS tag is not associated with any one class the variable &quot;CL&quot; will not
-			work in it.</li>
+		<li><code>TIMES</code> is an optional parameter and if not present will default to 1.</li>
+		<li><code>CASTERLEVEL</code> is an optional parameter and if not present will default to 1.</li>
+		<li>There should never be more than one <code>TIMES</code> and <code>CASTERLEVEL</code> tag used within a <code>SPELLS</code> tag.</li>
+		<li>You can apply PRExxx tags to the <code>SPELLS</code> tag.
+			<ul>
+				<li>If a <code>SPELLS</code> tag requires multiple PRExxx tags they are pipe-delimited (&quot;|&quot;).</li>
+				<li>If a PRExxx tag has pipe-delimiting (&quot;|&quot;) within itself, place that PRExxx tag in a separate SPELLS tag by itself.</li>
+				<li> Once one PRExxx tag is reached at the end, all subsequent fields must also be PRExxx tags.</li>
+				<li>PRExxx's apply to the whole tag.</li>
+			</ul>
+		</li>
+		<li>Formulas which use comma's within them should be encapsulated using parentheses &quot;( )&quot;.</li>
+		<li>Because the <code>SPELLS</code> tag is not associated with any one class the variable &quot;CL&quot; will not work in it.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SPELLS:Innate|TIMES=3|CASTERLEVEL=(max(TL,1))|Acid Arrow,12+CHA|PRESTAT:1,CHA=12</code></p>
 	<p class="indent3">&quot;Acid Arrow&quot; is granted as an &quot;Innate&quot; spell 3 times per day if the
 			character has a Charisma score of at least 12. DC is 12+CHA, and the Caster level is the character's level (minimum 1).</p>
-	<p class="indent2"><code>SPELLS:Innate|TIMES=-1|CASTERLEVEL=TL|Fireball|Cure Light Wounds</code></p>
+	<p class="indent2"><code>SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Fireball|Cure Light Wounds</code></p>
 	<p class="indent3">Grants &quot;Fireball&quot; and &quot;Cure Light Wounds&quot; at will with a caster level
 			equal to your hitdice in the spellbook &quot;Innate&quot;</p>
 	<p class="indent2"><code>SPELLS:Innate|Charm Person,15</code></p>
@@ -1020,10 +1019,8 @@
 	<p class="indent2"><code>SPELLS:Dragon|CASTERLEVEL=18|Death Ward|PRESTAT:1,WIS=20|PREALIGN:LG,NG,CG</code></p>
 	<p class="indent3">Grants &quot;Death Ward&quot; once per day with a caster level of 18 in spellbook
 			&quot;Dragon&quot; requiring a Wisdom of 20 and any good alignment.</p>
-	<p class="indent2"><code>SPELLS:Innate|TIMES=5|Wall of Stone</code></p>
-	<p class="indent3">Grants &quot;Wall of Stone&quot;, 5 times a day at 1st level in Spellbook &quot;Innate&quot;.</p>
-	<p class="indent2"><code>Barkskin.COPY=Earthskin</code></p>
-	<p class="indent3">Renames &quot;Barkskin&quot; to &quot;Earthskin&quot;.</p>
+	<p class="indent2"><code>SPELLS:Innate|TIMES=5|TIMEUNIT=Week|Wall of Stone</code></p>
+	<p class="indent3">Grants &quot;Wall of Stone&quot;, 5 times per week at 1st level in Spellbook &quot;Innate&quot;.</p>
 	<p></ p>
 
 <hr>
