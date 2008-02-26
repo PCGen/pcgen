@@ -6,6 +6,7 @@
   </properties>  
   <body> 
     <release version="5.13.11" date="In SVN" description="Beta release">
+      <action dev="jdempsey" type="update" issue="1901191">Make At Will in SPELLS unambiguous</action>  
     </release> 
     <release version="5.13.10" date="2008-02-25" description="Alpha release"> 
       <action dev="karianna" type="fix" issue="1744534">Initiative lost during re-sort</action>  
