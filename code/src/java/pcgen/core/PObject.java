@@ -162,7 +162,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	private List<Description> theDescriptions = null;
 	
 	private DoubleKeyMap<Class, String, List<String>> qualifyKeys = null;
-	private List<Map<String,String>> servesAsList =null;
+	private HashMap<String,String> servesAsList =null;
 	
 	private URI sourceURI = null;
 	
@@ -5170,22 +5170,18 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	{
 		if (servesAsList == null)
 		{
-			servesAsList = new ArrayList<Map<String,String>>();
+			servesAsList = new HashMap<String,String>();
 		}
-		Map<String,String> aMap = new HashMap<String, String>();
-		aMap.put(key,category);
-		servesAsList.add(aMap);
+		servesAsList.put(key,category);
 	}
-	public void putServesAs( final List<Map<String,String>> sList ) 
+	public void putServesAs( final Map<String,String> ServersAs ) 
 	{
 		if (servesAsList == null)
 		{
-			servesAsList = new ArrayList<Map<String,String>>();
+			servesAsList = new HashMap<String,String>();
+			return;
 		}
-		else 
-		{
-			servesAsList.addAll(sList);
-		}
+		servesAsList = (HashMap<String, String>) ServersAs;
 	}
 	public final void clearServesAs()
 	{
@@ -5193,11 +5189,11 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 	
 	//TODO This exposes internal structure - be careful.
-	public final List<Map<String,String>> getServesAs()
+	public final Map<String,String> getServesAs()
 	{
 		if (servesAsList == null)
 		{
-			servesAsList = new ArrayList<Map<String,String>>();
+			servesAsList = new  HashMap<String,String>();
 		}
 		return servesAsList;
 	}

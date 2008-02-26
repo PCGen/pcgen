@@ -96,10 +96,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.putServesAs("Warrior", null); // the second parameter is for ability categories only
-
+		pcClass.putServesAs("Ranger", null); // the second parameter is for ability categories only
+		
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(3, pcClass);
-
+		
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("class");
 		prereq.setKey("Warrior");

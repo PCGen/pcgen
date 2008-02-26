@@ -145,25 +145,22 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 			{
 				for(PCClass theClass: character.getClassList())
 				{
-					List<Map<String,String>> theList = theClass.getServesAs();
-					for(Map<String,String> aMap : theList)
+					Map<String,String> theList = theClass.getServesAs();
+					Set<String> keys = theList.keySet();
+					for(String aKey  : keys)
 					{
-						Set<String> keys = aMap.keySet();
-						for(String theString: keys)
-						{
-							if (theString.equalsIgnoreCase(aString))
-								if (prereq.isCountMultiples())
+						if (aKey.equalsIgnoreCase(aString))
+							if (prereq.isCountMultiples())
+							{
+								if (theClass.getLevel() >= preClass)
 								{
-									if (theClass.getLevel() >= preClass)
-									{
-										countedTotal++;
-									}
+									countedTotal++;
 								}
-								else
-								{
-									runningTotal += theClass.getLevel();
-								}
-						}
+							}
+							else
+							{
+								runningTotal += theClass.getLevel();
+							}
 					}
 				}
 			}
