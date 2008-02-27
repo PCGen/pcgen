@@ -2208,7 +2208,7 @@ $Date:  $
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr> 
-    <td colspan="10" class="spellHeader">Racial Innate Spells</td>
+    <td colspan="10" class="spellHeader">Innate Spell-like Abilities</td>
   </tr>
   <tr> 
     <td colspan="2" class="spellStat"><b>Spell Name</b></td>
@@ -2230,11 +2230,11 @@ $Date:  $
     <td colspan="2" class="spellName" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</td>
     <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</td>
     <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</td>
-    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME| 
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|, 
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
 at will
 |ELSE|
-|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/day
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|
 |ENDIF|
 	</td>
     <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</td>
@@ -2262,7 +2262,7 @@ at will
 |FOR,%level,0,0,1,1|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
   <tr> 
-    <td colspan="10" class="spellHeader">|SPELLBOOKNAME.%spellbook| Innate Spells</td>
+    <td colspan="10" class="spellHeader">|SPELLBOOKNAME.%spellbook| Spell-like Abilities</td>
   </tr>
   <tr> 
     <td colspan="2" class="spellStat"><b>Spell Name</b></td>
@@ -2280,11 +2280,11 @@ at will
     <td colspan="2" class="spellName" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</td>
     <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</td>
     <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</td>
-    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME| 
+    <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|, 
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
 at will
 |ELSE|
-|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/day
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|
 |ENDIF|
 	</td>
     <td class="spellStat" |OIF(EVEN:%spell,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</td>
@@ -2536,9 +2536,9 @@ at will
 |ENDIF|
 |ENDFOR|
 |ENDFOR|
-</table>
 |ENDIF|
 |ENDFOR|
+</table>
 	</td>
     <td background="preview/d20/fantasy/images/gold/border_right.png"></td>
   </tr>

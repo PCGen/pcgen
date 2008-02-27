@@ -2304,8 +2304,7 @@ Wisdom
 |IIF(%spellrace:0)|
 	<!-- No innate spells -->
 |ELSE|
-<br style="page-break-after: always" />
-<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br />
+<br />
 |FOR,%spellbook,1,1,1,1|
 |FOR,%class,0,0,1,1|
 |FOR,%level,0,0,1,1|
@@ -2313,7 +2312,7 @@ Wisdom
 <!-- START Spell list Header Table (Racial Innate) -->
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="11" class="sphead"><b>Racial Innate Spells</b></td>
+  <td colspan="11" class="sphead"><b>Innate Spell-like Abilities</b></td>
  </tr>
 </table>
 <!-- End Spell List Header Table (Racial Innate) -->
@@ -2322,9 +2321,20 @@ Wisdom
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
   <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
-  <td class="sptab"><i>DC:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DC|<br /></td>
+  <td class="sptab">
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+  <i>DC:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DC|<br />
+|ENDIF|  
+  	</td>
   <td class="sptab"><i>Save:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|<br /></td>
-  <td class="sptab"><i>Time:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|<br /></td>
+  <td class="sptab"><i>Time:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|, 
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|
+|ENDIF|
+   <br /></td>
   <td class="sptab"><i>Duration:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DURATION|<br /></td>
   <td class="sptab"><i>Rng:</i> |SPELLMEM.%class.%spellbook.%level.%spell.RANGE|<br /></td>
   <td class="sptab"><i>Comp:</i> |SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|<br /></td>
@@ -2351,23 +2361,34 @@ Wisdom
 <!-- End Racial Innate Spells -->
 <!-- Start Other Innate Spells -->
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-<br />
 |FOR,%class,0,0,1,1|
 |FOR,%level,0,0,1,1|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <!-- START Spell list Header Table (Other Innate) -->
+<br />
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="9" class="sphead"><b>|SPELLBOOKNAME.%spellbook| Innate Spells</b></font></td>
+  <td colspan="9" class="sphead"><b>|SPELLBOOKNAME.%spellbook| Spell-like Abilities</b></font></td>
  </tr>
 </table>
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
   <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
-  <td class="sptab"><i>DC:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DC|<br /></td>
+  <td class="sptab">
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+  <i>DC:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DC|<br />
+|ENDIF|  
+  	</td>
   <td class="sptab"><i>Save:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|<br /></td>
-  <td class="sptab"><i>Time:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|<br /></td>
+  <td class="sptab"><i>Time:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|, 
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|
+|ENDIF|
+   <br /></td>
   <td class="sptab"><i>Duration:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DURATION|<br /></td>
   <td class="sptab"><i>Rng:</i> |SPELLMEM.%class.%spellbook.%level.%spell.RANGE|<br /></td>
   <td class="sptab"><i>Comp:</i> |SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|<br /></td>
@@ -2396,8 +2417,7 @@ Wisdom
 |ENDFOR|
 <!-- End Innate Spells -->
 |FOR,%spellbook,0,0,1,0|
-<br style="page-break-after: always" />
-<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br />
+<br />
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
 |%SPELLLISTCLASS.%class|
 <!-- START Spell list Header Table (Known) -->
@@ -2451,7 +2471,12 @@ Wisdom
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
   <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
-  <td class="sptab"><i>DC:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DC|<br /></td>
+  <td class="sptab">
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+  <i>DC:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DC|<br />
+|ENDIF|  
+  	</td>
   <td class="sptab"><i>Save:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|<br /></td>
   <td class="sptab"><i>Time:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|<br /></td>
   <td class="sptab"><i>Duration:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DURATION|<br /></td>
@@ -2470,9 +2495,6 @@ Wisdom
 |ENDFOR|
   </td>
 |ELSE|
-|IIF(SPELLLISTMEMORIZE.%class)|
-  <font style="font-size: 11pt">&#9744;&#9744;&#9744;</font></td>
-|ENDIF|
 |ENDIF|
  </tr>
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2488,7 +2510,7 @@ Wisdom
 |ENDFOR|
 |ENDFOR|
  <tr>
-  <td colspan="10" bgcolor="black"><font style="font-size: 8pt" color="white">* = Domain/Specialty Spell</font></td>
+  <td colspan="10" bgcolor="#FFFFFF" class="ablable" align="left">* = Domain/Specialty Spell</td>
  </tr>
 </table>
 <br />
@@ -2509,8 +2531,7 @@ Wisdom
 |FOR,%class,0,0,1,0|
 |FOR,%level,0,0,1,0|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
-<br style="page-break-after: always" />
-<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br />
+<br />
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
   <td colspan="11" align="center" bgcolor="black"><font color="white"><b>Racial Innate</b></font></td>
@@ -2590,8 +2611,7 @@ Wisdom
 |FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1|
 |IIF(%foo:0.OR.%bar:0)|
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-<br style="page-break-after: always" />
-<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br />
+<br />
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
   <td colspan="11" align="center" bgcolor="black"><font color="white"><b>|SPELLBOOKNAME.%spellbook|</b></font></td>
@@ -2675,8 +2695,7 @@ Wisdom
 <!-- End Prepared Spells -->
 <!-- ================================================================= -->
 |%BIO|
-<br style="page-break-after: always" />
-<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br />
+<br />
 <A NAME="Bio"></A>
 <!-- START Bio Table -->
 <TABLE width="100%" cellspacing="0" cellpadding="2">
@@ -2724,8 +2743,7 @@ Wisdom
 </table>
 |%|
 |%NOTES|
-<br style="page-break-after: always" />
-<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br />
+<br />
 <table width="100%" cellspacing="0" cellpadding="5">
  <tr>
   <td colspan="2" class="notehead"><b>Notes</b></td>
@@ -2737,6 +2755,7 @@ Wisdom
 |ENDFOR|
 </table>
 |%|
+<br /><center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center>
 </body>
 </html>
 
