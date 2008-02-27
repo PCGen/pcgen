@@ -981,9 +981,9 @@
 	<p class="new">*** New 5.7.9</p>
 	<p class="indent0"><strong><a name="SPELLS">Tag Name:</a></strong> SPELLS:s|u|v|w|x,y|x,y|z|z</p>
 	<p><strong> Variables Used (s):</strong> Text (name of spellbook)</p>
-	<p><strong> Variables Used (u):</strong> TIMES=ATWILL (Set Cast Times to &quot;At Will&quot;, Optional)</p>
+	<p><strong> Variables Used (u):</strong> TIMES=ATWILL (Optional)</p>
 	<p><strong> Variables Used (u):</strong> TIMES=Number, Formula, or Variable (Cast times per unit time, Optional)</p>
-	<p><strong> Variables Used (v):</strong> TIMEUNIT=Text (Sets unit of time, Optional)</p>
+	<p><strong> Variables Used (v):</strong> TIMEUNIT=Text (Unit of time. Optional)</p>
 	<p><strong> Variables Used (w):</strong> CASTERLEVEL=Number, Formula, or Variable (Sets caster level, Optional)</p>
 	<p><strong> Variables Used (x):</strong> Text (Spell name)</p>
 	<p><strong> Variables Used (y):</strong> Number or Formula (Spell DC, Optional)</p>
@@ -994,6 +994,8 @@
 		<li>The spellbook should never be the same name as a Class, as it will cause an exception in
 			PCGen.</li>
 		<li><code>TIMES</code> is an optional parameter and if not present will default to 1.</li>
+		<li><code>TIMEUNIT</code> can be any unit of time, e.g. Day, Week, Month, Encounter, etc., but is 
+			optional and if not present will default to &quot;Day&quot;.</li>
 		<li><code>CASTERLEVEL</code> is an optional parameter and if not present will default to 1.</li>
 		<li>There should never be more than one <code>TIMES</code> and <code>CASTERLEVEL</code> tag used within a <code>SPELLS</code> tag.</li>
 		<li>You can apply PRExxx tags to the <code>SPELLS</code> tag.
