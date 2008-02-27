@@ -4343,7 +4343,7 @@
 				<fo:table table-layout="fixed" space-before="5mm">
 					<xsl:call-template name="spells.known.header.row">
 						<xsl:with-param name="columnOne" select="''"/>
-						<xsl:with-param name="title" select="concat(@name, ' Innate Spells')"/>
+						<xsl:with-param name="title" select="concat(@name, ' Spell-like Abilities')"/>
 					</xsl:call-template>
 					<fo:table-body>
 						<xsl:apply-templates select="spell" mode="details">
@@ -4889,7 +4889,7 @@
 	<xsl:template match="spellbook" mode="spells.memorized.innate">
 		<xsl:if test="count(.//spell) &gt; 0">
 			<xsl:call-template name="spells.memorized.header">
-				<xsl:with-param name="title" select="concat(@name, ' Innate Spells')"/>
+				<xsl:with-param name="title" select="concat(@name, ' Spell-like Abilities')"/>
 			</xsl:call-template>
 			<fo:table table-layout="fixed">
 				<fo:table-column>
