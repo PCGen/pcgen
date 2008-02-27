@@ -185,8 +185,8 @@ Spell Resistance |SR|,
 
 <!-- Prepared Spells -->
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-|IIF(SPELLBOOK.%spellbook.NUMPAGES:0)|
-<b>|SPELLBOOKNAME.%spellbook|: </b>
+|IIF(SPELLBOOK.%spellbook.TYPE:Prepared Spell List)|
+<b>|SPELLBOOKNAME.%spellbook| Prepared Spell List: </b>
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
 |IIF(SPELLLISTMEMORIZE.%class:false)|
 |ELSE|
@@ -230,20 +230,42 @@ Spell Resistance |SR|,
 |ENDFOR|
 <!-- End Prepared Spells -->
 
+<!-- Innate Spell-like Abilities -->
 |%SPELLLISTBOOK.0.0.1|
-<b>Innate:</b>
+<br><b>Innate Spell-like Abilities:</b>
 |FOR,%spell,0,COUNT[SPELLSINBOOK0.1.0]-2,1,1|
 |SPELLMEM.0.1.0.%spell.NAME|,
 |ENDFOR|
 |FOR,%spell,COUNT[SPELLSINBOOK0.1.0]-1,COUNT[SPELLSINBOOK0.1.0]-1,1,1|
 |SPELLMEM.0.1.0.%spell.NAME|
 |ENDFOR|
-<br />
 |%|
+<!-- End Innate Spell-like Abilities -->
+
+<!-- Other Spell-Like Abilities -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
+<br><b>|SPELLBOOK.%spellbook.NAME| Spell-Like Abilities:</b>
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.NAME|,
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+<!-- End Other Spell-Like Abilities -->
+
+
 |FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
 |%SPELLLISTCLASS.%class|
-Spells per Day: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level)<br />
-<b>|SPELLLISTCLASS.%class| - Known: </b><br />
+<br><b>|SPELLLISTCLASS.%class|</b> - Spells per Day: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0| + spell level); 
+Known: 
 |FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
 |%SPELLLISTBOOK.%class.%level.0|
 <b>Level |%level|:</b>
@@ -253,7 +275,6 @@ Spells per Day: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%
 |FOR,%spell,COUNT[SPELLSINBOOK.%class.0.%level]-1,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,1|
 |SPELLMEM.%class.0.%level.%spell.NAME|
 |ENDFOR|
-<br />
 |%|
 |ENDFOR|
 |ENDFOR|

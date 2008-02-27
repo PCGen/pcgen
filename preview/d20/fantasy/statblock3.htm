@@ -201,163 +201,173 @@ Will
 |ENDIF|
 |ENDFOR|
 
-<!-- Start Prepared Spells -->
-|FOR,%memorised,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,1,0|
-
-|IIF(%memorised:0)|
-|ELSE|
-<!-- Start Innate Prepared -->
-|FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
-|IIF(%spellrace:0)|
-|ELSE|
-<p />&nbsp;&nbsp;&nbsp;&nbsp;
-|FOR,%spellbook,1,1,1,0|
-|FOR,%class,0,0,1,0|
-|FOR,%level,0,0,1,0|
-|%SPELLLISTBOOK.%class.%level.%spellbook|
-|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
-|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
-At Will:
-|ELSE|
-|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,A,NONE,NONE,2|
-|ENDIF|
-<b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)
-|ENDFOR|
-<br />
-|%|
-|ENDFOR|
-|ENDFOR|
-|ENDFOR|
-<br />
-
+<!-- SpellBooks -->
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-|FOR,%class,0,0,1,1|
-|FOR,%level,0,0,1,1|
-|%SPELLLISTBOOK.%class.%level.%spellbook|
-<p/>&nbsp;&nbsp;&nbsp;&nbsp;<i>|SPELLBOOK.%spellbook.NAME| Spells:</i> [|SPELLBOOK.%spellbook.TYPE|, |SPELLBOOK.%spellbook.NUMSPELLS| spells 
-|IIF(SPELLBOOK.%spellbook.NUMPAGES:0)|
+|IIF(SPELLBOOK.%spellbook.TYPE:Spell Book)|
+<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>|SPELLBOOKNAME.%spellbook|:</i>
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-2,1,1|
+|IIF(SPELLLISTMEMORIZE.%class:false)|
 |ELSE|
-, Used |SPELLBOOK.%spellbook.NUMPAGESUSED| of |SPELLBOOK.%spellbook.NUMPAGES| (|SPELLBOOK.%spellbook.PAGEFORMULA|) pages
-|ENDIF|
-]
-
-|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
-|SPELLMEM.%class.%spellbook.%level.%spell.NAME|
-|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
-(At Will)
-|ELSE|
-(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
-|ENDIF|
-|ENDFOR|
-|FOR,%spell,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,1,1|
-|SPELLMEM.%class.%spellbook.%level.%spell.NAME|
-|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
-(At Will)
-|ELSE|
-(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
-|ENDIF|
-|ENDFOR|
-|%|
-|ENDFOR|
-
-|ENDFOR|
-|ENDFOR|
-
-|ENDIF|
-|ENDFOR|
-<!-- End Innate Prepared -->
-|ENDIF|
-|ENDFOR|
-
-
-<!-- Start Regular Prepared -->
-|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-|FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1|
-|FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1|
-|IIF(%foo:0.OR.%bar:0)|
-<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-<p />&nbsp;&nbsp;&nbsp;&nbsp;<i>|SPELLBOOKNAME.%spellbook|</i>
-|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
-|%SPELLLISTCLASS.%class|
-(|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level)
 |FOR,%level,0,9,1,1|
 |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
 |IIF(%spelllevelcount:0)|
 <!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
 |ELSE|
-|%level|th&#150;<i>
+|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| -
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
-|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
-|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|,
-|ELSE|
-|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME| (|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|),
-|ENDIF|
-|ENDFOR|
-|FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
-|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
 |ELSE|
 (|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
 |ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+, 
 |ENDFOR|
-</i>;
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+|ENDFOR|
 |ENDIF|
 |ENDFOR|
 |ENDFOR|
-<!-- END FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0 -->
-|%| 
-|ENDFOR|
-<!-- ### END class Spellbook memorized spells ### -->
-<!-- START FALSE IIF(%memorised:0) -->
 |ENDIF|
 |ENDFOR|
+|ENDIF|
 |ENDFOR|
-|ENDFOR|
-<!-- ### END MEMORIZED ### -->
+<!-- End SpellBooks -->
 
+|%DOMAIN.1|
+<br /><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Deity:</i> |DEITY| <i>Domains:</i> |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\ (\DOMAIN.%.POWER\), ,NONE,2|
+
+|%|
+<!-- Prepared Spells -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Prepared Spell List)|
+<br /><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>|SPELLBOOKNAME.%spellbook| Prepared Spells: </i>
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+|IIF(SPELLLISTMEMORIZE.%class:false)|
+|ELSE|
+|SPELLLISTCLASS.%class| (CL |SPELLLISTCLASS.%class.LEVEL|): 
+|FOR,%level,0,9,1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+<!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
+|ELSE|
+|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| -
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+, 
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDFOR|
 <!-- End Prepared Spells -->
 
-<!-- Domain list -->
-|%DOMAIN.1|<p />&nbsp;&nbsp;&nbsp;&nbsp;
-*Domain spell. <i>Domains:</i> [
-|FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\ (\DOMAIN.%.POWER\);, ,NONE,1|
-] Deity: |DEITY|;
-|%|
-
-<!-- Known spells -->
-|%SPELLLISTCLASS.0|
-<p />&nbsp;&nbsp;&nbsp;&nbsp;
-<i>Spells Known</i>
-|%|
-
-|%SPELLLISTBOOK.0.0.1|
-<b>Innate:</b>
-|FOR,%spell,0,COUNT[SPELLSINBOOK0.1.0]-2,1,1|
-|SPELLMEM.0.1.0.%spell.NAME|,
+<!-- Innate Spell-Like Abilities -->
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
+<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Innate Spell-Like Abilities:</i>
+|FOR,%spellbook,1,1,1,0|
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will) 
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|ENDIF|
 |ENDFOR|
-|FOR,%spell,COUNT[SPELLSINBOOK0.1.0]-1,COUNT[SPELLSINBOOK0.1.0]-1,1,1|
-|SPELLMEM.0.1.0.%spell.NAME|
-|ENDFOR|
-<br />
 |%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+<!-- End Innate Spell-Like Abilities -->
+
+<!-- Other Spell-Like Abilities -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
+<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>|SPELLBOOK.%spellbook.NAME| Spell-Like Abilities:</i>
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will) 
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|ENDIF|
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+<!-- End Other Spell-Like Abilities -->
+
 |FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
-|%SPELLLISTCLASS.%class|
-<i>|SPELLLISTCLASS.%class|</i>
-(|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0|; base DC = |SPELLLISTDC.%class.0| + spell level):
+|%SPELLLISTCLASS.%class| 
+<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>|SPELLLISTCLASS.%class|: </i>
+Spells per Day: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level) 
+<i>Known: </i>
 |FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
 |%SPELLLISTBOOK.%class.%level.0|
-|%level|th&#150;<i>
+|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| - 
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-2,1,1|
 |SPELLMEM.%class.0.%level.%spell.NAME|,
 |ENDFOR|
 |FOR,%spell,COUNT[SPELLSINBOOK.%class.0.%level]-1,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,1|
-|SPELLMEM.%class.0.%level.%spell.NAME|</i>,
+|SPELLMEM.%class.0.%level.%spell.NAME|
 |ENDFOR|
 |%|
 |ENDFOR|
 |ENDFOR|
-
-|%|
 <!-- ================================================================= -->
 
 </body>

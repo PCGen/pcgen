@@ -176,12 +176,12 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 |ELSE|
  - 
 |ENDIF|
-<br>
+
 |IIF(count("ABILITIES";"TYPE=AttackOption")>0)|
-<b>Atk Options: </b> |ABILITYLIST.FEAT.TYPE=AttackOption| |ABILITYLIST.Special Ability.TYPE=AttackOption|<br>
+<br><b>Atk Options: </b> |ABILITYLIST.FEAT.TYPE=AttackOption| |ABILITYLIST.Special Ability.TYPE=AttackOption|
 |ENDIF|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
-<b>Special Actions </b> |ABILITYLIST.Special Ability.TYPE=SpecialAttack|<br>
+<br><b>Special Actions </b> |ABILITYLIST.Special Ability.TYPE=SpecialAttack|
 |ENDIF|
 
 <!-- TODO: Combat Gear need to be defined by Equipment TYPE -->
@@ -189,7 +189,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 <!-- Known Spells -->
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
 |IIF(SPELLLISTMEMORIZE.%class:false)|
-<b>Known |SPELLLISTCLASS.%class| Spells</b> (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
+<br><b>Known |SPELLLISTCLASS.%class| Spells</b> (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
 |FOR,%level,0,9,1,1|
 |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.0.%level],COUNT[SPELLSINBOOK.%class.0.%level],1,0|
 |IIF(%spelllevelcount:0)|
@@ -222,7 +222,6 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 |ENDIF|
 |ENDFOR|
 |ENDFOR|
-<br>
 |ENDIF|
 |ENDFOR|
 <!-- End Known Spells -->
@@ -231,7 +230,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
 
 |IIF(SPELLBOOK.%spellbook.TYPE:Prepared Spell List)|
-<b>|SPELLBOOKNAME.%spellbook| Prepared Spell List</b>
+<br><b>|SPELLBOOKNAME.%spellbook| Prepared Spell List</b>
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
 |IIF(SPELLLISTMEMORIZE.%class:true)|
 <br>|SPELLLISTCLASS.%class| (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
@@ -284,7 +283,6 @@ Domains:
 <!-- End Domain list -->
 
 <!-- Innate Spell-Like Abilities -->
-
 |IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
 <br><b>Innate Spell-Like Abilities:</b>
 |FOR,%spellbook,1,1,1,0|
@@ -439,6 +437,7 @@ at will)
 |ENDIF|
 |ENDFOR|
 <!-- End SpellBooks -->
+
 <hr />
 </body>
 </html>
