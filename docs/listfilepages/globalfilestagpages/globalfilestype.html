@@ -80,7 +80,7 @@
 		selected.</p>
 	<p class="indent1"><strong>Where it is used: </strong></p>
 	<p class="indent2">Class Line.</p>
-  	<p class="indent1"><strong>Special Case and Commonly used Types:</strong></p>
+  	<p class="indent1"><strong>Commonly Used Types:</strong></p>
 	<p class="indent2">RSRD</p>
 	<p class="indent3"><code>PC</code></p>
 	<p class="indent3"><code>NPC</code></p>
@@ -91,26 +91,44 @@
 	<p></ p>
 
 <hr>
-	<h2><a name="CompanionMod"></a>Companion Modifier TYPEs</h2>
-	<p class="indent1">See Companion Modifier <a href="../datafilestagpages/datafilescompanionmodifiers.html#TYPE">TYPE</a> entry.</p>
-	<p class="indent1">Unlike most other PCGen objects, which are defined in a single 
-	  line, Companion Modifiers can be composed of several lines. Each companion Modifier 
-	  line begins with a <a href="../datafilestagpages/datafilescompanionmodifiers.html#FOLLOWER">FOLLOWER</a> 
-	  or <a href="../datafilestagpages/datafilescompanionmodifiers.html#MASTERBONUSRACE">MASTERBONUSRACE</a> 
-	  tag and not a name or KEY. Companion Modifiers use TYPE as the primary identifier 
-	  instead.</p>
-	<p class="indent1">Another unusual property of TYPE in Companion Modifiers is 
-	  that Spaces can be used, this is normally not recommended.</p>
-  	<p class="indent1"><strong>Commonly used:</strong></p>
+
+	<h2><a name="CompanionMod"></a>Companion Modifier TYPE</h2>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Companion type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Used to define what the creature is for the purposes of display on the resources tab.</li>
+		<li>Companion Modifiers can be composed of several lines, each requiring the <code>TYPE</code> tag.</li>
+		<li>Each companion Modifier line begins with a <a href="../datafilestagpages/datafilescompanionmodifiers.html#FOLLOWER">FOLLOWER</a> 
+			or <a href="../datafilestagpages/datafilescompanionmodifiers.html#MASTERBONUSRACE">MASTERBONUSRACE</a> 
+			tag and not a name or KEY, using the type as the primary identifier instead.</li>
+		<li>Types in Companion Modifiers can contain Spaces, though this is normally not recommended.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Familiar</code></p>
+	<p class="indent3">Defines the creature as a &quot;Familiar&quot; for resources	tab display purposes.</p>
+  	<p class="indent1"><strong>Commonly Used Types:</strong></p>
 	<p class="indent2"><code>Familiar</code></p>
 	<p class="indent2"><code>Animal Companion</code></p>
 	<p class="indent2"><code>Special Mount</code></p>
-	
+	<p></ p>
+
 <hr>
-	<h2><a name="Deity"></a>Deity TYPEs</h2>
-	<p class="indent1">See Deity <a href="../datafilestagpages/datafilesdeities.html#TYPE">TYPE</a> entry.</p>
-	<p class="indent1">TYPE is not commonly used in Deity files.</p>
-  
+	<h2><a name="Deity"></a>Deity TYPE</h2>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Deity Type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This is a period-delimited (&quot;.&quot;) list of the types the deity belongs to.</li>
+		<li>TYPE is not commonly used in Deity files.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>TYPE:Good</code></p>
+	<p class="indent3">The deity belongs to the &quot;Good&quot; type.</p>
+	<p class="indent2"><code>TYPE:Good.Chaotic</code></p>
+	<p class="indent3">The deity belongs to the &quot;Good&quot; and &quot;Chaotic&quot; types.</p>
+	<p></ p>
+
 <hr>
 	<h2><a name="Equipment"></a>Equipment TYPEs</h2>
 	<p class="indent1">See Equipment <a href="../datafilestagpages/datafilesequipment.html#TYPE">TYPE</a> entry.</p>
@@ -199,20 +217,33 @@
 	<p class="indent2"><code>Container</code></p>		
 	<p class="indent3">Designates the item a container, activates the 
 		<a href="../datafilestagpages/datafilesequipment.html#CONTAINS">CONTAINS</a> tag in the item.</p>
-
+	<p></ p>
+	
 <hr>
-	<h2><a name="Equipmod"></a>Equipment Modifier TYPEs</h2>
-	<p class="indent1">See Equipment Modifier <a href="../datafilestagpages/datafilesequipmentmodifiers.html#TYPE">TYPE</a> entry.</p>
-	<p class="indent1">Equipment Modifier TYPEs are used to determine what equipment 
-	  the Equipment Modifiers can be applied to. An Equipment item must have at least one TYPE 
-	  that an equipment modifier has to be applied.</p>
+	<h2><a name="Equipmod"></a>Equipment Modifier TYPE</h2>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Provides a list of the types of items that the modifier can be applied to.</li>
+		<li>Equipment must have at least one type that an equipment modifier has in order for that modifier 
+			to be applied.</li>
+		<li>Used in conjunction with <code>PRETYPE</code> and <code>ITYPE</code>.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Armor.Shield</code></p>
+	<p class="indent3">Item is of the &quot;Armor&quot; &amp; &quot;Shield&quot; types.</p>
+	<p class="indent2"><code>EDF Combat Armor.MOD &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; TYPE:Armor.Medium.Suit.Tactical.PL6</code></p>
+	<p class="indent3">Modifies the item is of the &quot;Armor&quot; &quot;Medium&quot; &quot;Suit&quot; &quot;Tactical&quot; &quot;PL6&quot; types.</p>
+
   	<p class="indent1"><strong>Special Case:</strong></p>
 	<p class="indent2"><code>BaseMaterial</code></p>
 	<p class="indent3">The BaseMaterial TYPE is used to identify Equipment Modifiers 
 	  which represent materials an item can be made from such as Mithral, Adamantine, 
 	  Steel and Wood. An equipment item can only have one Equipment Modifier with 
-	  the BaseMaterial TYPE, if a second one is applied the first is automatically 
+	  the &quot;BaseMaterial&quot; type, if a second one is applied the first is automatically 
 	  removed.</p>
+	<p></ p>
 	  
 <hr>
 	<h2><a name="Feat"></a>Feat and Ability TYPEs</h2>
@@ -273,66 +304,147 @@
 	  weakness. This is used in some newer stat block formats.</p>
 	
 <hr>
-	<h2><a name="Language"></a>Language TYPEs</h2>
-	<p class="indent1">See Language <a href="../datafilestagpages/datafileslanguages.html#TYPE">TYPE</a> entry.</p>
-  	<p class="indent1"><strong>Commonly used:</strong></p>
+	<h2><a name="Language"></a>Language TYPE</h2>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Language type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is a period-delimited (&quot;.&quot;) list of the types that languages are.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Spoken.Written.Read</code></p>
+	<p class="indent3">Language is &quot;Spoken&quot;, &quot;Written&quot; and &quot;Read&quot;.</p>
+	<p class="indent2"><code>Celestial &lt;tab&gt; TYPE:Spoken</code></p>
+	<p class="indent3">Language Celestial is &quot;Spoken&quot;, not &quot;Written&quot; or &quot;Read&quot;.</p>
+  	<p class="indent1"><strong>Commonly Used Types:</strong></p>
 	<p class="indent2"><code>Read</code></p>
 	<p class="indent2"><code>Spoken</code></p>
 	<p class="indent2"><code>Written</code></p>
 	
 <hr>
-	<h2><a name="PCC"></a>PCC TYPEs</h2>
-	<p class="indent1">See PCC <a href="../datafilestagpages/datafilespcc.html#TYPE">TYPE</a> entry.</p>
-	<p class="indent1">TYPE in PCC files is used to set the source display tree in 
-	  the Sources Tab. Unlike most other places TYPE is used PCC TYPEs can contain 
-	  spaces. PCC TYPE tags cannot have more than three TYPEs.</p>
-	<p class="indent1"><strong>Caution:</strong> If two PCC files use the same TYPE 
-	  but in a different order the display in the Sources Tab can potentially be disrupted. 
-	  Side effects can include sources being displayed more than once. Duplicate TYPEs 
-	  should be used in the same order in every file.</p>
+	<h2><a name="PCC"></a>PCC TYPE</h2>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>Text (Source types)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This tag <strong><em>MUST</em></strong> be the third tag in the file.</li>
+		<li>The <code>TYPE</code> tag is used to set the source display tree in the Sources Tab.</li>
+		<li>PCC types can contain spaces.</li>
+		<li>PCC <code>TYPE</code> tags cannot have more than three type elements as follows:
+			<ul class="indent2">
+				<li>element 1 is the name of the company or individual that produced the material that the data files are based.</li>
+				<li>element 2 is the format of that original material (e.g., Sourcebook, Web Enhancement, Magazine, Supplement, etc.).</li>
+				<li>element 3 is the &quot;campaign setting&quot; for the original material (such as the publisher's campaign realm) and is optional.</li>
+			</ul>
+		</li>
+		<li><strong>Caution:</strong> If two PCC files use the same types but in different 
+			order the display in the Sources Tab can potentially be disrupted. Side effects 
+			can include sources being displayed more than once. Duplicate types should be 
+			used in the same order in every file.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Foo Games.Core Rules.Core</code></p>
+	<p></ p>
+
+<hr>
+	<h2><a name="Race"></a>Race TYPE</h2>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Race type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Defines the Type of creature the race is.</li>
+		<li>Important for matching up with Monster HD, and for references to race, such as the
+			Rangers Favored Enemy.</li>
+		<li>Currently existing selections from the Monster List include:<br />
+			Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid,
+			Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and
+			Vermin</li>
+		<li><strong>Note:</strong> In the past, the <code>TYPE</code> tag in race files has been used to 
+			set the races Creature Type as defined in the game rules. This function is now being performed 
+			by the <a href="../datafilestagpages/datafilesraces.html#RACETYPE">RACETYPE</a> tag and the 
+			use of the <code>TYPE</code> tag to set this is being phased out.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Outsider</code></p>
+	<p class="indent3">The race is of the &quot;Outsider&quot; type.</p>
+  	<p class="indent1"><strong>Commonly Used Types:</strong></p>
+	<p class="indent2"><code>Aberration<br />Animal<br />Beast<br />Construct<br />Dragon<br />Elemental<br />Fey<br />Giant<br />Humanoid<br />Magical Beast<br />Monstrous Humanoid<br />Ooze<br />Outsider<br />Plant<br />Shapechanger<br />Undead<br />Vermin</code></p>
+	<p></ p>
+
+<hr>
+	<h2><a name="Skill"></a>Skill TYPE</h2>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>All skill type tags should use the skill's key attribute as the first type (&quot;None&quot; is an acceptable option).</li>
+		<li>Multiple types can be specified as a period-delimited (&quot;.&quot;) list.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Charisma.Perform</code></p>
+	<p class="indent3">This skill belongs to the &quot;Charisma&quot; and &quot;Perform&quot; types.</p>
+	<p class="indent2"><code>Craft (Electronic - class skill).MOD &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; TYPE:Scientist_Skills.Terraformer_Skills</code></p>
+	<p class="indent3">This skill is modified to be in the &quot;Scientist_Skills&quot; and &quot;Terraformer_Skills&quot; types.</p>
+	<p class="indent1"><strong>Commonly Used Types:</p>
+	<p class="indent2">To group by relevant ability</strong></p>
+	<p class="indent3"><code>Strength<br />Dexterity<br />Constitution<br />Intelligence<br />Wisdom<br />Charisma</code></p>
+	<p class="indent2"><strong>To group by relevant skill type</strong></p>
+	<p class="indent3"><code>Craft<br />Knowledge<br />Perform</code></p>
+	<p></ p>
 	
 <hr>
-	<h2><a name="Race"></a>Race TYPEs</h2>
-	<p class="indent1">See Race <a href="../datafilestagpages/datafilesraces.html#TYPE">TYPE</a> entry.</p>
-	<p class="indent1">In the past TYPE in Race has been used to set the races Creature 
-	  Type as defined in the game rules. This function is now being performed by the 
-	  <a href="../datafilestagpages/datafilesraces.html#RACETYPE">RACETYPE</a> tag 
-	  and the use of TYPE to set this is being phased out.</p>
-  	<p class="indent1"><strong>Commonly used:</strong></p>
-	<p class="indent2"><code>Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, 
-	Giant, Humanoid, Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and Vermin</code></p>
-	
-<hr>
-	<h2><a name="Skill"></a>Skill TYPEs</h2>
-	<p class="indent1">See Skill <a href="../datafilestagpages/datafilesskills.html#TYPE">TYPE</a> entry.</p>
-	<p class="indent1"><strong>Commonly used to group by relevant ability:</strong></p>
-	<p class="indent2"><code>Strength<br />Dexterity<br />Constitution<br />Intelligence<br />Wisdom<br />Charisma</code></p>
-	<p class="indent1"><strong>Commonly used to group by relevant skill type:</strong></p>
-	<p class="indent2"><code>Craft<br />Knowledge<br />Perform</code></p>
-	
-<hr>
-	<h2><a name="Spell"></a>Spell TYPEs</h2>
-	<p class="indent1">See Spell <a href="../datafilestagpages/datafilesspells.html#TYPE">TYPE</a> entry.</p>
-  	<p class="indent1"><strong>Commonly used:</strong></p>
+	<h2><a name="Spell"></a>Spell TYPE</h2>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Indicates what &quot;types&quot; are associated with the spell.</li>
+		<li>You can also Specify multiple types using the . (period) delimiter.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Arcane.Divine</code></p>
+	<p class="indent3">Spell is both &quot;Arcane&quot; and &quot;Divine&quot;.</p>
+  	<p class="indent1"><strong>Commonly Used Types:</strong></p>
 	<p class="indent2"><code>Arcane</code></p>
 	<p class="indent2"><code>Divine</code></p>
 	<p class="indent2"><code>Psionic</code></p>
+	<p></ p>
 	
 <hr>
-	<h2><a name="Template"></a>Template TYPEs</h2>
-	<p class="indent1">See Template <a href="../datafilestagpages/datafilestemplates.html#TYPE">TYPE</a> entry.</p>
-	<p class="indent1">In the past TYPE in Templates have been used to alter the races 
-	  Creature Type as defined in the game rules. This function is now being performed 
-	  by the <a href="../datafilestagpages/datafilesraces.html#RACETYPE">RACETYPE</a> 
-	  tag and the use of TYPE to alter this is being phased out.</p>
+	<h2><a name="Template"></a>Template TYPE</h2>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Defines the Type of creature members of the template are.</li>
+		<li>Important for matching up with Monster HD, and for references to
+			race, such as the Rangers Favored Enemy</li>
+		<li><strong>Note:</strong> In the past, the <code>TYPE</code> tag in tTemplate files have been used to 
+			alter the races Creature Type as defined in the game rules. This function is now being performed 
+			by the <a href="../datafilestagpages/datafilesraces.html#RACETYPE">RACETYPE</a> tag and the use 
+			of <code>TYPE</code> to alter this is being phased out.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Outsider</code></p>
+	<p class="indent3">Is a &quot;Outsider&quot; if this template is selected.</p>
+	<p></ p>
 	
 <hr>
-	<h2><a name="WeaponProf"></a>Weapon Proficiency TYPEs</h2>
-	<p class="indent1">See Weapon Proficiency <a href="../datafilestagpages/datafilesweaponproficiencies.html#TYPE">TYPE</a> entry.</p>
-	<p class="indent1">Proficiency types are used to grant proficiencies and to grant 
-	  bonuses to weapons of a certain proficiency. TYPEs generally represent broad 
-	  groups of weapons, such as Simple, Martial and Exotic or a smaller, more specific 
-	  group of weapons such as Axe, Sword, Crossbow and Thrown used for granting bonuses.</p>
+	<h2><a name="WeaponProf"></a>Weapon Proficiency TYPE</h2>
+	<p class="indent0"><strong><a name="TYPE">Tag Name:</a></strong> TYPE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Defines what type of weapon proficiency isrequired for a character to be able to use 
+			a particular weapon.</li>
+		<li>Proficiency types are used to grant proficiencies and to grant bonuses to weapons of 
+			a certain proficiency.</li>
+		<li>Types generally represent broad groups of weapons, such as Simple, Martial and Exotic, 
+			or a smaller, more specific group of weapons such as Axe, Sword, Crossbow and Thrown 
+			used for granting bonuses.</li>
+	 </ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Simple</code></p>
+	<p class="indent3">Characters with &quot;Simple&quot; weapon proficiency can use this weapon.</p>
+	<p></ p>
   
 <hr>
 
