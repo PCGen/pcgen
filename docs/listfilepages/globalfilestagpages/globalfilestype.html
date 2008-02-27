@@ -17,14 +17,14 @@
 
 <head>
 
-	<title>Special Case TYPEs</title>
+	<title>Global TYPE Tag</title>
 	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
 <body>
 
-	<h1>Special Case TYPEs</h1>
+	<h1>Global TYPE Tag</h1>
 
 	<p>The LST file tag TYPE has many uses within the PCGen, most commonly it is used 
 	  to sort objects by type within the display or to identify a group of objects 
@@ -56,24 +56,38 @@
 	</ul>
 
 <hr>
-	<h2><a name="Class"></a>Class TYPEs</h2>
-	<p class="indent1">See Class <a href="../datafilestagpages/datafilesclasses.html#TYPE">TYPE</a> entry.</p>
-	<p class="indent1">In addition to sorting classes in the display class type 
-	  is used by the gameMode to define certain properties of the class as set 
-	  by the miscinfo.lst tag <a href="../systemfilestagpages/gamemodemiscinfolist.html#CLASSTYPE">CLASSTYPE</a>. 
-	  These properties include how much (if any) CR is added per level of the class, 
-	  weather or not the class is considered a monster class and if the class is subject to 
-	  an XP penalty for multiclassing. 
-	  See also <a href="../systemfilestagpages/gamemodemiscinfolist.html#CRFORMULA">CRFORMULA</a>, 
-	  <a href="../systemfilestagpages/gamemodemiscinfolist.html#ISMONSTER">ISMONSTER</a> 
-	  and <a href="../systemfilestagpages/gamemodemiscinfolist.html#XPPENALTY">XPPENALTY</a></p>
-  	<p class="indent1"><strong>Commonly used:</strong></p>
+	<h2><a name="Class"></a>Class TYPE</h2>
+
+	<p class="indent0"><strong>Tag Name:</strong> TYPE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class type)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class-"indent2">
+		<li>This is used within the filters of PCGen to sort the classes
+  			by their respective types (makes it easier to find a specific class).</li>
+  		<li>In addition to sorting classes in the display class type is used by the gameMode 
+			to define certain properties of the class as set by the miscinfo.lst tag 
+			<a href="../systemfilestagpages/gamemodemiscinfolist.html#CLASSTYPE">CLASSTYPE</a>. 
+			These properties include how much (if any) CR is added per level of the class, 
+			weather or not the class is considered a monster class and if the class is subject 
+			to an XP penalty for multiclassing.</li>
+		<li>See also <a href="../systemfilestagpages/gamemodemiscinfolist.html#CRFORMULA">CRFORMULA</a>, 
+			<a href="../systemfilestagpages/gamemodemiscinfolist.html#ISMONSTER">ISMONSTER</a> 
+			and <a href="../systemfilestagpages/gamemodemiscinfolist.html#XPPENALTY">XPPENALTY</a></li>
+	</ul>
+  	<p class="indent1"><strong>Commonly used (RSRD):</strong></p>
 	<p class="indent2"><code>PC</code></p>
 	<p class="indent2"><code>NPC</code></p>
 	<p class="indent2"><code>Prestige</code></p>
 	<p class="indent2"><code>Monster</code></p>
-  	<p class="indent1"><strong>Used in MSRD:</strong></p>
+  	<p class="indent1"><strong>Commonly Used (MSRD):</strong></p>
 	<p class="indent2"><code>Advanced</code></p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TYPE:Base.PC</code></p>
+	<p class="indent3">The class will appear if the &quot;Base&quot; or &quot;PC&quot; filter options are
+		selected.</p>
+	<p><strong>Where it is used: </strong></p>
+	<p class="indent2">Class Line.</p>
+	<p></ p>
 
 <hr>
 	<h2><a name="CompanionMod"></a>Companion Modifier TYPEs</h2>
