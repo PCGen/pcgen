@@ -95,16 +95,19 @@ These files can be renamed and used for releases.
 	<property name="zip.manual.file" value="manual.zip" />
 	<property name="zip.autobuild.file" value="autobuild.zip" />
 
+	<!-- The jars required to run PCGen --> 
 	<path id="project.jars">
 		<fileset dir="${lib.dir}" includes="**/*.jar" excludes="**/test/**,javacc.jar,**/emma/**" />
 	</path>
 
+	<!-- The Java CLASSPATH, used by the build process -->
 	<path id="project.classpath">
 		<pathelement path="${build.classes.dir}" />
 		<pathelement location="${bin.dir}/${jar.bin.file}" />
 		<path refid="project.jars" />
 	</path>
 
+	<!-- The Javadoc CLASSPATH, used by the javadoc process -->
 	<path id="javadoc.classpath">
 		<pathelement path="${build.classes.dir} ${lib.dir}/lib/junit.jar" />
 		<pathelement location="${bin.dir}/${jar.bin.file}" />
@@ -117,15 +120,16 @@ These files can be renamed and used for releases.
 	<property name="test.framework.class" value="AllJUnitTests" />
 	<property name="test.manifest.extra.jars" value="${manifest.extra.jars} ${s}/test/junit.jar ${lib.dir}/test/xmlunit1.0.jar" />
 	<property name="test.all-output.file" value="TEST-test.AllJUnitTests.txt" />
-
 	<property name="test.bin.pcgen.bat" value="pcgen-tests.bat" />
 	<property name="test.bin.pcgen.sh" value="pcgen-tests.sh" />
 
+	<!-- The jars required to test PCGen -->
 	<path id="project.test.jars">
 		<path refid="project.jars" />
 		<fileset dir="${lib.dir}" includes="**/test/*.jar" />
 	</path>
 
+	<!-- The Java CLASSPATH, used by the test process -->
 	<path id="test.project.classpath">
 		<pathelement path="${build.classes.dir}" />
 		<pathelement path="${build.testclasses.dir}" />
@@ -134,10 +138,12 @@ These files can be renamed and used for releases.
 		<path refid="project.test.jars" />
 	</path>
 
-	<!-- Internal targets:
+	<!--
+	   Internal targets:
 	   init, init-release, compile, jar (link), staging
--->
+    -->
 
+	<!-- Initialise the build, e.g.  Create the build directory structure -->
 	<target name="init">
 		<tstamp />
 		<mkdir dir="${build.dir}" />
@@ -148,22 +154,26 @@ These files can be renamed and used for releases.
 		<mkdir dir="${build.rpt.dir}" />
 	</target>
 
+	<!-- Compile the JavaCC sources -->
 	<target name="compile-compile" depends="init, properties" description="Compile JavaCC sources">
 		<javacc target="${src.java.dir}/pcgen/util/DiceExpression.jj" javacchome="${lib.dir}" outputdirectory="${build.src.dir}/pcgen/util" />
 	</target>
 
+	<!-- Compile the java code -->
 	<target name="compile" depends="compile-compile" description="Compile Java sources">
 		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="Yes" source="1.5" target="1.5" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
 			<classpath refid="project.classpath" />
 		</javac>
 	</target>
 
-	<target name="compile-optimize" depends="compile-compile" description="Compile Java sources">
+	<!-- Alternative compile target - compile the java code with optimzation on and debug off -->
+	<target name="compile-optimize" depends="compile-compile" description="Compile Java sources with optimisation on">
 		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="No" optimize="Yes" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
 			<classpath refid="project.classpath" />
 		</javac>
 	</target>
 
+	<!-- Copy property and image files into the build structure -->  
 	<target name="properties" depends="init" description="Copy property files">
 		<copy todir="${build.classes.dir}">
 			<fileset dir="${src.java.dir}" includes="**/*.properties" />
@@ -173,6 +183,7 @@ These files can be renamed and used for releases.
 		</copy>
 	</target>
 
+	<!-- Jar up PCGen -->
 	<target name="jar" depends="compile, manifest" description="Build (Link) program jar files">
 		<mkdir dir="${bin.dir}" />
 		<jar jarfile="${bin.dir}/${jar.bin.file}" manifest="${manifest.file}">
@@ -182,6 +193,7 @@ These files can be renamed and used for releases.
 		</jar>
 	</target>
 
+	<!-- Create the MANIFEST.MF file that's included inside the Pcgen.jar file -->
 	<target name="manifest" description="Write the Java manifest">
 		<echo file="${manifest.file}">Manifest-Version: 1.2
 Main-Class: ${manifest.main.class}
@@ -189,10 +201,9 @@ Class-Path: ${manifest.extra.jars}
 </echo>
 	</target>
 
+	<!-- Create the Windows and POSIX scripts that can be sued to start PCGen -->
 	<target name="scripts" depends="init" description="Write program scripts">
-		<!--
-	<echo file="${bin.dir}/${bin.pcgen.bat}" message="java -Dpcgen.filter=filter.ini -Dpcgen.options=options.ini -jar ${jar.bin.file}">
-		-->
+		<!-- <echo file="${bin.dir}/${bin.pcgen.bat}" message="java -Dpcgen.filter=filter.ini -Dpcgen.options=options.ini -jar ${jar.bin.file}"> -->
 		<echo file="${bin.dir}/${bin.pcgen.bat}">@ECHO OFF
 ECHO PCGEN.BAT
 ECHO ==================
@@ -298,21 +309,26 @@ pcgen.filepaths=user
 
 	<target name="build-extra" depends="scripts" description="Extra build steps" />
 
-
-	<!-- Top level targets.
+	<!-- 
+	   Top level targets:
 		build, test, clean, deploy, run
 		publish, fetch, docs/javadocs,
 		all, main
--->
+    -->
 
+	<!-- Clean, update from SVN, and build the jar file -->
 	<target name="rebuild" depends="clean, svnupdate, build" description="Clean, update from SVN, and build the jar file." />
 
+	<!-- Perform the full build and package excluding the svnupdate -->
 	<target name="all" depends="clean, build, test, emma.report, docs, deploy" description="Everything except update from SVN." />
 
+	<!-- Perform the full build and package including the svnupdate -->
 	<target name="complete" depends="clean, svnupdate, build, test, emma.report, docs, deploy" description="Everything including update from SVN." />
 
+	<!-- The deulat target, do an incremental build and test -->
 	<target name="main" depends="build, test" description="[default] Do an (incremental) build." />
 
+	<!-- Compile the Javadocs -->
 	<target name="docs" depends="compile-compile" description="Build Java API documentation">
 		<mkdir dir="${doc.dir}" />
 		<javadoc sourcepath="${src.java.dir}:${build.src.dir}" destdir="${doc.dir}" packagenames="pcgen.*,gmgen.*,plugin.*" classpathref="javadoc.classpath" author="true" version="true" use="true" package="true" splitindex="true" windowtitle="PCGen Packages" doctitle="&lt;h1&gt;PCGen Packages&lt;/h1&gt;" overview="${docs.overview}" maxmemory="256m">
@@ -337,17 +353,19 @@ pcgen.filepaths=user
 		</javadoc>
 	</target>
 
+	<!-- Perform the build, e.g.  compile and package --> 
 	<target name="build" depends="emma, compile, instrument, jar, jar-all-plugins, build-extra" description="Do an [incremental] build (compile, jar).">
-		<!-- fix for UNIXen; harmless on Windows -->
 		<copy todir="${basedir}">
 			<fileset dir="${bin.dir}" includes="**/*.jar" />
 			<fileset dir="${bin.dir}" includes="**/*.bat" />
 			<fileset dir="${bin.dir}" includes="**/*.sh" />
 		</copy>
+        <!-- fix for UNIXen; harmless on Windows -->
 		<chmod file="pcgen.sh" perm="a+rx" />
 		<chmod file="pcgendev.sh" perm="a+rx" />
 	</target>
 
+	<!-- MAVEN hook for building plugins, to be called by MAVEN build only -->
 	<target name="build-plugins" depends="clean-plugins" description="Maven hook for building plugins.">
 		<mkdir dir="${basedir}/target/classes" />
 		<antcall target="jar-all-plugins">
@@ -355,14 +373,17 @@ pcgen.filepaths=user
 		</antcall>
 	</target>
 
+	<!-- Deploy PCGen as various archives -->
 	<target name="deploy" depends="jar.src, zip.bins, zip.resources, zip.jars, zip.manual" description="Ship the jars, wars, whatever to the execution system.">
 	</target>
 
+	<!-- Jar up the PCGen source code -->
 	<target name="jar.src">
 		<mkdir dir="${dist.dir}" />
 		<jar jarfile="${dist.dir}/${jar.src.file}" basedir="${src.java.dir}" excludes="**/CVS/*, **/.svn/*, test, **/test/*" />
 	</target>
 
+	<!-- Zip up the binaries and executables, e.g. The PCGen jar file, the shell scripts etc --> 
 	<target name="zip.bins">
 		<mkdir dir="${dist.dir}" />
 		<zip zipfile="${dist.dir}/${zip.bins.file}">
@@ -380,6 +401,7 @@ pcgen.filepaths=user
 		</zip>
 	</target>
 
+	<!-- Zip up the resources, e.g. The data files -->
 	<target name="zip.resources">
 		<mkdir dir="${dist.dir}" />
 		<zip zipfile="${dist.dir}/${zip.resources.file}">
@@ -387,6 +409,7 @@ pcgen.filepaths=user
 		</zip>
 	</target>
 
+	<!-- Zip up the external libraries that PCGen uses e.g. JEP, FOP etc -->
 	<target name="zip.jars">
 		<mkdir dir="${dist.dir}" />
 		<zip zipfile="${dist.dir}/${zip.jars.file}">
@@ -402,6 +425,7 @@ pcgen.filepaths=user
 		</zip>
 	</target>
 
+	<!-- Zip up the manual, e.g.  The PCGen documentation -->
 	<target name="zip.manual">
 		<mkdir dir="${dist.dir}" />
 		<zip zipfile="${dist.dir}/${zip.manual.file}">
@@ -409,6 +433,7 @@ pcgen.filepaths=user
 		</zip>
 	</target>
 
+	<!-- Target for Zipping up a complete 'autobuild' -->
 	<target name="zip.autobuild">
 		<mkdir dir="${dist.dir}" />
 		<zip zipfile="${dist.dir}/${zip.autobuild.file}">
@@ -454,9 +479,11 @@ pcgen.filepaths=user
 		</zip>
 	</target>
 
+	<!-- Gzip PCGen for distribution to POSIX systems -->
 	<target name="gzip" depends="gzip.bins, gzip.resources" description="Ship the jars, wars, whatever to the execution system.">
 	</target>
 
+    <!-- Gzip up the binaries and executables, e.g. The PCGen jar file, the shell scripts etc -->	
 	<target name="gzip.bins">
 		<mkdir dir="${dist.dir}" />
 		<tar tarfile="${dist.dir}/pcgen.tar">
@@ -475,6 +502,7 @@ pcgen.filepaths=user
 		<gzip zipfile="${dist.dir}/pcgen.tar.gz" src="${dist.dir}/pcgen.tar" />
 	</target>
 
+    <!-- Gzip up the resources, e.g. The data files -->	
 	<target name="gzip.resources">
 		<mkdir dir="${dist.dir}" />
 		<tar tarfile="${dist.dir}/data.tar">
@@ -483,10 +511,12 @@ pcgen.filepaths=user
 		<gzip zipfile="${dist.dir}/data.tar.gz" src="${dist.dir}/data.tar" />
 	</target>
 
+	<!-- 
+	   Maintenance targets:
+	   clean, makedirs, real-clean etc  
+	-->
 
-
-	<!-- Maintenance targets -->
-
+	<!-- Clean the project, e.g.  wipe the build, bin, javadocs and dist directories -->
 	<target name="clean" depends="makedirs, clean-plugins" description="Clean all working files">
 		<delete dir="${build.dir}" />
 		<delete dir="${bin.dir}" />
@@ -497,44 +527,59 @@ pcgen.filepaths=user
 		<delete file="${test.all-output.file}" />
 	</target>
 
+	<!-- Make the needed directories -->
 	<target name="makedirs" depends="makeplugindirs" description="Creates any needed directories">
 	</target>
 
+	<!-- Extreme clean, cleans out outputsheets, data, docs and more -->
 	<target name="real-clean" depends="clean, clean-data, clean-docs, clean-sheets, clean-inifiles" description="Clean everything back to initial checkout" />
 
-	<!-- SVN targets -->
+	<!-- 
+	   SVN targets:
+	   svnupdate
+	-->
 	
+	<!-- Perform an svn update -->
 	<target name="svnupdate">
 		<exec executable="svn">
 			<arg line="up" />
 		</exec>
 	</target>
 
-	<!-- Cleanup targets -->
+	<!-- 
+	   Cleanup targets:
+	   clean-data, clean-docs etc 
+	-->
 
+	<!-- Remove the data dir -->
 	<target name="clean-data" description="Remove data directory">
 		<delete dir="${src.data.dir}" />
 	</target>
 
+	<!-- Remove the docs dir -->
 	<target name="clean-docs" description="Remove docs directory">
 		<delete dir="${src.docs.dir}" />
 	</target>
 
+    <!-- Remove the outputsheets dir -->
 	<target name="clean-sheets" description="Remove outputsheets directory">
 		<delete dir="${src.outputsheets.dir}" />
 	</target>
 
+	<!-- Remove the ini files dir -->	
 	<target name="clean-inifiles" description="Remove runtime .ini files">
 		<delete file="filepaths.ini" />
 		<delete file="filter.ini" />
 		<delete file="options.ini" />
 	</target>
 
-	<!-- EMMA
+	
+    <!-- 
+	    EMMA Targets:
+        emma.lib, emma etc 
 
-		 EMMA is a code coverage system that intruments the class files
-		 rather than the source files.
-
+		EMMA is a code coverage system that intruments the class files
+		rather than the source files.
 	-->
 	<path id="emma.lib">
 		<pathelement location="${lib.dir}/emma/emma.jar" />
@@ -542,18 +587,19 @@ pcgen.filepaths=user
 	</path>
 	<taskdef resource="emma_ant.properties" classpathref="emma.lib" />
 
-	<!-- turn on EMMA code coverage for the project.
+	<!-- 
+	     Turn on EMMA code coverage for the project.
 		 At the moment the code coverage will only be turned on
 		 when ant is run with -Demma.enabled=true
 
-		 To always use code coverage uncomment the following
-		 line.
+		 To always use code coverage uncomment property line below.
 	-->
 	<target name="emma" description="turns on EMMA instrumentation/reporting">
 		<!--property name="emma.enabled" value="true" /-->
 	</target>
 
-	<!-- The target for the instrumented files is the same as the
+	<!-- 
+	     The target for the instrumented files is the same as the
 		 original location, this is so that the rest of the build
 		 script works transparently and does not need to know if
 		 code coverage has been turned on or not.
@@ -573,9 +619,8 @@ pcgen.filepaths=user
 		</emma>
 	</target>
 
-
-
-	<!-- Dump the EMMA code coverate stats in a variety of formats.
+	<!-- 
+	     Dump the EMMA code coverate stats in a variety of formats.
 
 		 If instrumenting has been switched on the output should look
 		 something like this:
@@ -601,30 +646,39 @@ pcgen.filepaths=user
 		</emma>
 	</target>
 
+	<!-- 
+	    Clover targets:
+	    clover.lib, clover etc
 
-	<!-- Clover targets
-
-	Clover is not currently used. Some of the java files are so
-	large and complicated that when we add the compile time
-	instrumentation code the java compiler dies with an
-	out of memory exception.
-
-	Until the code is refactored sufficiently that clover will
-	run, all code coverage will be done with EMMA.
-
+    	Clover is not currently used. Some of the java files are so
+    	large and complicated that when we add the compile time
+    	instrumentation code the java compiler dies with an
+    	out of memory exception.
+    
+    	Until the code is refactored sufficiently that clover will
+    	run, all code coverage will be done with EMMA.
 	-->
 
-	<!-- If we specify a classpath when we try to load the
+	<!-- 
+	     If we specify a classpath when we try to load the
 		 taskdefs and typedefs then we do not need clover on
 		 the CLASSPATH. This is a lot better than the way that
-		 the clvoer docs say to do this. -->
+		 the clvoer docs say to do this.
+    -->
 	<path id="clover.lib">
 		<pathelement location="${lib.dir}/test/clover.jar" />
 	</path>
+	
+	<!-- Define clover tasks -->
 	<taskdef resource="clovertasks" classpathref="clover.lib" />
+	
+	<!-- Define clover types -->
 	<typedef resource="clovertypes" classpathref="clover.lib" />
+	
+	<!-- Define the clover directory -->
 	<property name="clover.dir" value="${build.dir}/clover" />
 
+	<!-- Run clover -->
 	<target name="clover" depends="init">
 		<mkdir dir="${clover.dir}" />
 		<clover-setup initstring="${clover.dir}/clover.db">
@@ -634,6 +688,7 @@ pcgen.filepaths=user
 		</clover-setup>
 	</target>
 
+	<!-- Generate the clvoer report -->
 	<target name="clover.report">
 		<clover-report>
 			<current outfile="${clover.dir}/current.xml" />
@@ -650,11 +705,16 @@ pcgen.filepaths=user
 		</clover-report>
 	</target>
 
-
-	<!-- Testing targets -->
+	<!--
+	    Testing targets:
+	    test, dotest etc
+	-->
+	
+	<!-- Run the full test cycle -->
 	<target name="test" depends="dotest, failure.notice, success.notice" description="Run test suite (include lib/test/junit.jar and lib/test/xmlunit1.0.jar in CLASSPATH)">
 	</target>
 
+	<!-- Run the tests --> 
 	<target name="dotest" depends="testclean, test.jar">
 		<junit fork="yes" printsummary="on" failureproperty="junitfailure" dir="${basedir}">
 			<jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
@@ -687,6 +747,7 @@ pcgen.filepaths=user
 		<echo message="JUnit report output to ${build.rpt.dir}/test-results" />
 	</target>
 
+	<!-- Generate a failure notice if the junit tests failed -->
 	<target name="failure.notice" if="junitfailure">
 		<tstamp>
 			<format property="finish.time" pattern="dd MMM yyyy HH:mm:ss z" />
@@ -697,6 +758,7 @@ pcgen.filepaths=user
 		<fail if="cibuild" />
 	</target>
 
+	<!-- Generate a failure notice if the junit tests passed -->
 	<target name="success.notice" unless="junitfailure">
 		<tstamp>
 			<format property="finish.time" pattern="dd MMM yyyy HH:mm:ss z" />
@@ -705,11 +767,13 @@ pcgen.filepaths=user
 		<echo message="Success! All JUnit tests passed." />
 	</target>
 
+	<!-- Clean the test results -->
 	<target name="testclean">
 		<delete dir="${build.dir}/test-results/xml" />
 		<mkdir dir="${build.dir}/test-results/xml" />
 	</target>
 
+	<!-- Create the Jar file with the test classes -->
 	<target name="test.jar" depends="test.compile, test.manifest">
 		<jar jarfile="${bin.dir}/${test.jar.file}" manifest="${test.manifest.file}" basedir="${build.testclasses.dir}" includes="**/*Test.class  **/*Tests.class test/**" />
 		<copy todir="${basedir}">
@@ -717,6 +781,7 @@ pcgen.filepaths=user
 		</copy>
 	</target>
 
+	<!-- Compile the test classes -->
 	<target name="test.compile" depends="jar, jar-all-plugins">
 		<mkdir dir="${build.testclasses.dir}" />
 		<javac srcdir="${src.test.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
@@ -724,13 +789,14 @@ pcgen.filepaths=user
 		</javac>
 	</target>
 
+	<!-- create the MANIFEST.MF file for the test jar -->
 	<target name="test.manifest" depends="init">
 		<echo file="${test.manifest.file}">Manifest-Version: 1.2
 Class-Path: ${test.manifest.extra.jars}
 </echo>
 	</target>
 
-
+    <!-- Create the Windows and POSIX scripts to externally run the tests -->
 	<target name="test.scripts" depends="init">
 		<echo file="${bin.dir}/${test.bin.pcgen.bat}">@echo off
 java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/test/junit.jar;lib/test/xmlunit1.0.jar;lib/fop/xercesImpl-2.2.1.jar;lib/fop/avalon-framework-cvs-20020806.jar;lib/fop/xml-apis.jar;lib/fop/xalan-2.4.1.jar;lib/fop/batik.jar;lib/fop/fop.jar;lib/lnf/kunststoff.jar;lib/lnf/skinlf.jar;lib/lnf/wraplf.jar;lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
@@ -741,15 +807,13 @@ java -classpath bin/pcgen-tests.jar:bin/pcgen.jar:lib/test/junit.jar:lib/test/xm
 		<chmod file="${bin.dir}/${test.bin.pcgen.sh}" perm="+x" />
 	</target>
 
-
-	<!--
-  <target name="testgui" depends="test.jar, test.scripts"
-		  description="Run test GUI suite (include lib/junit.jar lib/xmlunit1.0.jar in CLASSPATH)">
-	<junit printsummary="true">
-	  <classpath refid="test.project.classpath"/>
-	  <test name="${test.framework.class}" />
-	</junit>
-  </target>
--->
+    <!--
+    <target name="testgui" depends="test.jar, test.scripts" description="Run test GUI suite (include lib/junit.jar lib/xmlunit1.0.jar in CLASSPATH)">
+	   <junit printsummary="true">
+	       <classpath refid="test.project.classpath"/>
+	       <test name="${test.framework.class}" />
+	   </junit>
+    </target>
+    -->
 
 </project>
