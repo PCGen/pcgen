@@ -17837,6 +17837,21 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return feats;
 	}
 
+	public boolean hasSpellInSpellbook(Spell spell, String spellbookname)
+	{
+		for (PObject po : getPObjectList())
+		{
+			SpellSupport ss = po.getSpellSupport();
+			List<CharacterSpell> csl = ss.getCharacterSpell(spell,
+					spellbookname, -1);
+			if (csl != null && !csl.isEmpty())
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	// public double getBonusValue(final String aBonusType, final String
 	// aBonusName )
 	// {
