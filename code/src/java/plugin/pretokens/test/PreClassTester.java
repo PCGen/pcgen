@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -120,6 +121,31 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 					else
 					{
 						runningTotal = Math.max(runningTotal, cl.getLevel());
+					}
+				}
+				else
+				{
+					Map<String,String> theList =cl.getServesAs();
+					Set<String> keys = theList.keySet();
+SERVESAS:			for(String aKey  : keys)
+					{
+						PCClass aClass = Globals.getClassKeyed(aKey);
+						if (aClass == null)
+						{
+							continue SERVESAS;
+						}
+						if (aClass.isType(typeString))
+							if (prereq.isCountMultiples())
+							{
+								if (cl.getLevel() >= preClass)
+								{
+									countedTotal++;
+								}
+							}
+							else
+							{
+								runningTotal += cl.getLevel();
+							}
 					}
 				}
 			}
