@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:09:26 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
@@ -7,12 +7,12 @@ CLASS:Honor Guard	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECK
 CLASS:Honor Guard	PREALIGN:LG,NG,CG	PREATT:5	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy,Knowledge (Nobility and Royalty)=2	PRETEXT:Honor Guard, Honor score of 25+
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Honor Guard	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Listen|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Sense Motive|Spot
-1	SAB:Harm's Way (Ex)	SAB:Honor Guard (Ex)							SPELLS:Honor Guard|TIMES=-1|CASTERLEVEL=CL|Detect Evil,11+WIS
-2									BONUS:VAR|CombatSense|(CL+4)/6												AUTO:FEAT|Combat Sense
+1	SAB:Harm's Way (Ex)	SAB:Honor Guard (Ex)							SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil,11+WIS
+2									BONUS:VAR|CombatSense|(CL+4)/6											AUTO:FEAT|Combat Sense
 3	SAB:Lawful Strike (Su)
 4	SAB:Sudden Action
 5	SAB:Elite Honor Guard (Ex)
-6																										AUTO:FEAT|Diehard
+6																									AUTO:FEAT|Diehard
 7	SAB:Defensive Strike (Ex)
 10	SAB:Blanket Protection (Ex)
 

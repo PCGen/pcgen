@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 00:29:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:19:41 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 ###Block: Blood Witch class features
-# Feat Name		Type			Visible	Special ABility						Define			Innate Spells									Stackable?	Multiple?	Choose					Source Page
-Nature Magic	TYPE:ClassAbility	VISIBLE:NO	SAB:Nature Magic																															SOURCEPAGE:p.8
-Alter Self		TYPE:ClassAbility	VISIBLE:NO	SAB:Alter Self 1/day									SPELLS:Blood Witch|TIMES=1|CASTERLEVEL=TL|Alter Self,12+INT												SOURCEPAGE:p.8
-Minor Sacrifice	TYPE:ClassAbility	VISIBLE:NO	SAB:Minor Sacrifice|!PREFEAT:1,Major Sacrifice																										SOURCEPAGE:p.8
-Wildshape		TYPE:ClassAbility	VISIBLE:NO	SAB:Wildshape %/day|Wildshape				DEFINE:Wildshape|0	SPELLS:Class Ability|TIMES=1|CASTERLEVEL=TL|Polymorph Self,14+INT											SOURCEPAGE:p.8
-Major Sacrifice	TYPE:ClassAbility	VISIBLE:NO	SAB:Major Sacrifice																														SOURCEPAGE:p.8
-Blood Enhancement	TYPE:ClassAbility	VISIBLE:NO	SAB:Blood Enhancement (%CHOICE)																		STACK:NO	MULT:YES	CHOOSE:FEATLIST|TYPE=Metamagic	SOURCEPAGE:p.8
+# Feat Name		Type			Visible	Special ABility						Define			Innate Spells								Stackable?	Multiple?	Choose					Source Page
+Nature Magic	TYPE:ClassAbility	VISIBLE:NO	SAB:Nature Magic																														SOURCEPAGE:p.8
+Alter Self		TYPE:ClassAbility	VISIBLE:NO	SAB:Alter Self 1/day									SPELLS:Class|TIMES=1|CASTERLEVEL=TL|Alter Self,12+INT												SOURCEPAGE:p.8
+Minor Sacrifice	TYPE:ClassAbility	VISIBLE:NO	SAB:Minor Sacrifice|!PREFEAT:1,Major Sacrifice																									SOURCEPAGE:p.8
+Wildshape		TYPE:ClassAbility	VISIBLE:NO	SAB:Wildshape %/day|Wildshape				DEFINE:Wildshape|0	SPELLS:Class|TIMES=1|CASTERLEVEL=TL|Polymorph Self,14+INT											SOURCEPAGE:p.8
+Major Sacrifice	TYPE:ClassAbility	VISIBLE:NO	SAB:Major Sacrifice																													SOURCEPAGE:p.8
+Blood Enhancement	TYPE:ClassAbility	VISIBLE:NO	SAB:Blood Enhancement (%CHOICE)																	STACK:NO	MULT:YES	CHOOSE:FEATLIST|TYPE=Metamagic	SOURCEPAGE:p.8
 
 ###Block: Crypt Lord class features
 # Feat Name			Type			Visible	Special ABility													Define					Template		Source Page

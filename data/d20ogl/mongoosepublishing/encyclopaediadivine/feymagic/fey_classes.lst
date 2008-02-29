@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan  3 00:21:19 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:16:56 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
@@ -43,14 +43,14 @@ CLASS:Wylding	HD:6		TYPE:PC.Prestige	ABB:Wyl		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:
 CLASS:Wylding	PREFEAT:1,Forge Bond	PRESKILL:3,Wilderness Lore,Knowledge (Nature),Knowledge (Reverie)=8	PRESPELL:1,Speak with Plants
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wylding	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Wilderness Lore
-1	SAB:Safe Passage (Natural)															SPELLS:Innate|TIMES=1|Speak with Plants
+1	SAB:Safe Passage (Natural)															SPELLS:Class|TIMES=1|Speak with Plants
 2	SAB:Absorb Essence %|ABSORBESSENCE	BONUS:VAR|ABSORBESSENCE|1	DEFINE:ABSORBESSENCE|0	ADD:SPELLCASTER|1|ANY
-3	SAB:Plant Bond																	SPELLS:Innate|TIMES=2|Speak with Plants
+3	SAB:Plant Bond																	SPELLS:Class|TIMES=2|Speak with Plants
 4	SAB:Safe Passage (Enchanted)											ADD:SPELLCASTER|1|ANY
-5							BONUS:VAR|ABSORBESSENCE|1									SPELLS:Innate|TIMES=3|Speak with Plants
+5							BONUS:VAR|ABSORBESSENCE|1									SPELLS:Class|TIMES=3|Speak with Plants
 6																ADD:SPELLCASTER|1|ANY
-7																				SPELLS:Innate|TIMES=-1|Speak with Plants
-8																ADD:SPELLCASTER|1|ANY	SPELLS:Innate|TIMES=-1|Commune with Nature
+7																				SPELLS:Class|TIMES=ATWILL|Speak with Plants
+8																ADD:SPELLCASTER|1|ANY	SPELLS:Class|TIMES=ATWILL|Commune with Nature
 9							BONUS:VAR|ABSORBESSENCE|1
 10	SAB:Symbiosis													ADD:SPELLCASTER|1|ANY									TEMPLATE:Wylding Plant
 
@@ -62,15 +62,15 @@ CLASS:Chosen Protector	PREATT:5	PREFEAT:1,Track	PRESKILL:1,Wilderness Lore=8	PRE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen Protector	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Spot|Swim|Wilderness Lore
 1	SAB:Scent of the Hunter (+%)|CL	SAB:Slayer (+%)|CPSLAYER	BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1	DEFINE:CPSLAYER|0
-2	SAB:Augmentation													BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Listen,Spot,Wilderness Lore|1													TEMPLATE:Chosen Protector Natural Attacks
+2	SAB:Augmentation													BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Listen,Spot,Wilderness Lore|1												TEMPLATE:Chosen Protector Natural Attacks
 3												BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
-4																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally I
+4																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:Class|TIMES=1|Summon Nature's Ally I
 5												BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
-6																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally II
+6																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:Class|TIMES=1|Summon Nature's Ally II
 7												BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
-8																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally III
+8																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:Class|TIMES=1|Summon Nature's Ally III
 9												BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
-10																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally IV
+10																						BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:Class|TIMES=1|Summon Nature's Ally IV
 
 
 # Class Name
