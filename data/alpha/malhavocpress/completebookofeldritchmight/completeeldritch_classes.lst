@@ -85,7 +85,7 @@ CLASS:Diplomancer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECK
 CLASS:Diplomancer	PREFEAT:2,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:1,Diplomacy=10	PRESKILL:1,Sense Motive=8	PRESPELLSCHOOL:Enchantment,5,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|TYPE.Knowledge|Listen|Search|Sense Motive|Spellcraft|Spot
-1	SAB:Charm																																													ADD:SPELLCASTER|1|ANY	SPELLS:ClassAbility|TIMES=1|Charm
+1	SAB:Charm																																													ADD:SPELLCASTER|1|ANY	SPELLS:Class|TIMES=1|Charm
 2	SAB:Enchantment Affinity +% (Ex)|EnchantAffinity								BONUS:CASTERLEVEL|SCHOOL.Enchantment|EnchantAffinity	BONUS:DC|SCHOOL.Enchantment|EnchantAffinity|TYPE=Competence							DEFINE:EnchantAffinity|1
 3	SAB:Magical Seduction/Attractiveness (Su)																																								ADD:SPELLCASTER|1|ANY
 4	SAB:Protection from Evocations +%|ProtectionEvocations																																DEFINE:ProtectionEvocations|1
@@ -188,7 +188,7 @@ CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Knowledge (A
 8	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=6|Eyebite,Mirror Calling (Greater),Mirror Truth
 10	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=7|Mirror Portal,Simulacrum,Spell Turning
 ###Block: Normal Progression
-1	SAB:Mirror Thoughts (Sp)																		ADD:SPELLCASTER|1|ANY	SPELLS:Class Ability|TIMES=1|Detect Thoughts
+1	SAB:Mirror Thoughts (Sp)																		ADD:SPELLCASTER|1|ANY	SPELLS:Class|TIMES=1|Detect Thoughts
 2	SAB:Mirrored Eyes (Su)	SAB:Bonus Spells (1st and 2nd)
 3																							ADD:SPELLCASTER|1|ANY
 4	SAB:Piercing Gaze (Ex)	SAB:Bonus Spells (3rd and 4th)		BONUS:SKILL|Spot,Search,Intimidate,Sense Motive|2|TYPE=Competence
