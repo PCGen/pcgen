@@ -149,9 +149,9 @@ CLASS:Lady of the Lake	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Handle Ani
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block:Normal Level Progression
-1	SAB:Breathe Water (Su)	ADD:SPELLCASTER|1|Any	SPELLS:Lady of the Lake|TIMES=-1|CASTERLEVEL=CL|Water Breathing,13+CHA
+1	SAB:Breathe Water (Su)	ADD:SPELLCASTER|1|Any	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Water Breathing,13+CHA
 2					ADD:SPELLCASTER|1|Any
-3	SAB:Walk on Water (Su)	ADD:SPELLCASTER|1|Any	SPELLS:Lady of the Lake|TIMES=-1|CASTERLEVEL=CL|Water Walk,13+CHA
+3	SAB:Walk on Water (Su)	ADD:SPELLCASTER|1|Any	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Water Walk,13+CHA
 4					ADD:SPELLCASTER|1|Any
 5	SAB:Tap Water (Ex)	ADD:SPELLCASTER|1|Any
 
@@ -222,11 +222,11 @@ CLASS:Blue Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy
 ###Block: Normal Level Progression
-1				SAB:Breathe Water (Su)																				SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Breathing,13+CHA
+1				SAB:Breathe Water (Su)																				SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Water Breathing,13+CHA
 2								BONUS:VAR|KnightLevel|CL																																AUTO:FEAT|Knight's Warhorse
 3	CAST:1,2,12						BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS																				VFEAT:Power Source(Druid/Minstrel)
 4	CAST:1,1,8						BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4		DEFINE:MountedCombat|0
-5	CAST:1,1,4,15	SAB:Walk on Water (Su)	BONUS:VAR|BASEPOWERPOINTS|2															SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Walk,13+CHA
+5	CAST:1,1,4,15	SAB:Walk on Water (Su)	BONUS:VAR|BASEPOWERPOINTS|2															SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Water Walk,13+CHA
 6	CAST:1,1,3,10					BONUS:VAR|BASEPOWERPOINTS|3											ADD:FEAT|1|TYPE=Fighter
 7	CAST:0,1,2,5,18	SAB:Blue Armor (Ex)	BONUS:VAR|BASEPOWERPOINTS|3
 8	CAST:0,1,2,4,12					BONUS:VAR|BASEPOWERPOINTS|5

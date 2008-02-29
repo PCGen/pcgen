@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 01:15:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:54:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
 ###Order of the Inner Demon Inner Demon Feats
-# Feat Name				Type					Visible		Required Feat					Special ABility							Define			Innate Spells																					Virtual Feat			Add					Modify VAR				Spell Res.
+# Feat Name				Type					Visible		Required Feat					Special ABility							Define			Innate Spells																						Virtual Feat			Add					Modify VAR				Spell Res.
 Inner Demon Succubus		TYPE:Special.InnerDemon		VISIBLE:EXPORT
 Inner Demon Vrock			TYPE:Special.InnerDemon		VISIBLE:EXPORT
 Inner Demon Glabrezu		TYPE:Special.InnerDemon		VISIBLE:EXPORT
@@ -11,30 +11,30 @@ Inner Demon Osyluth		TYPE:Special.InnerDemon		VISIBLE:EXPORT
 Inner Demon Kyton			TYPE:Special.InnerDemon		VISIBLE:EXPORT
 Inner Demon Hamatula		TYPE:Special.InnerDemon		VISIBLE:EXPORT
 
-First Symbiosis - Succubus	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Succubus															SPELLS:Innate|TIMES=-1|CASTERLEVEL=12|Tongues
+First Symbiosis - Succubus	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Succubus															SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=12|Tongues
 First Symbiosis - Vrock		TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Vrock			SAB:The Vrock's Claws (Su)
-First Symbiosis - Glabrezu	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Glabrezu																																											ADD:FEAT|1|Infernal Rage
-First Symbiosis - Osyluth	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Osyluth			SAB:Fear Aura - Will save DC % (Su)|FearAuraSave	DEFINE:FearAuraSave|0																																		BONUS:VAR|FearAuraSave|14+CHA
-First Symbiosis - Kyton		TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Kyton			SAB:Unnerving Gaze - Will save DC % (Su)|UnnerveSave	DEFINE:UnnerveSave|0																																		BONUS:VAR|UnnerveSave|12+CHA
+First Symbiosis - Glabrezu	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Glabrezu																																												ADD:FEAT|1|Infernal Rage
+First Symbiosis - Osyluth	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Osyluth			SAB:Fear Aura - Will save DC % (Su)|FearAuraSave	DEFINE:FearAuraSave|0																																			BONUS:VAR|FearAuraSave|14+CHA
+First Symbiosis - Kyton		TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Kyton			SAB:Unnerving Gaze - Will save DC % (Su)|UnnerveSave	DEFINE:UnnerveSave|0																																			BONUS:VAR|UnnerveSave|12+CHA
 First Symbiosis - Hamatula	TYPE:Special.InnerDemonFirst	VISIBLE:NO		PREFEAT:1,Inner Demon Hamatula		SAB:The Hooked Talons (Su)
 
 Second Symbiosis - Succubus	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Succubus	SAB:Telepathy (100') (Su)
-Second Symbiosis - Vrock	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Vrock																																						VFEAT:Wings of the Devil
+Second Symbiosis - Vrock	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Vrock																																							VFEAT:Wings of the Devil
 Second Symbiosis - Glabrezu	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Glabrezu	SAB:Pincers of the Glabrezu (Su)
 Second Symbiosis - Osyluth	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Osyluth		SAB:Infernal Fortitude (Su)
 Second Symbiosis - Kyton	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Kyton		SAB:Dancing Chains (Su)
 Second Symbiosis - Hamatula	TYPE:Special.InnerDemonSecond	VISIBLE:NO		PREFEAT:1,First Symbiosis - Hamatula	SAB:Barbed Defense (Su)
 
-Third Symbiosis - Succubus	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Succubus														SPELLS:Innate|TIMES=-1|Polymorph (OID)	SPELLS:Innate|TIMES=max(CHA,0)|CASTERLEVEL=var("CL=Order of the Inner Demon")|Charm Monster
-Third Symbiosis - Vrock		TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Vrock		SAB:Stunning Screech (Su) - Save DC %|ScreechSave	DEFINE:ScreechSave|0																																		BONUS:VAR|ScreechSave|15+CON
+Third Symbiosis - Succubus	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Succubus														SPELLS:Innate|TIMES=ATWILL|Polymorph (OID)	SPELLS:Innate|TIMES=max(CHA,0)|CASTERLEVEL=var("CL=Order of the Inner Demon")|Charm Monster
+Third Symbiosis - Vrock		TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Vrock		SAB:Stunning Screech (Su) - Save DC %|ScreechSave	DEFINE:ScreechSave|0																																			BONUS:VAR|ScreechSave|15+CON
 Third Symbiosis - Glabrezu	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Glabrezu	SAB:Telepathy (100') (Su)
-Third Symbiosis - Osyluth	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Osyluth	SAB:Infernal Resistance (Ex)																																															SR:10+var("CL=Order of the Inner Demon")
-Third Symbiosis - Kyton		TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Kyton		SAB:Infernal Resistance (Ex)																																															SR:10+var("CL=Order of the Inner Demon")
-Third Symbiosis - Hamatula	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Hamatula	SAB:Infernal Resistance (Ex)																																															SR:10+var("CL=Order of the Inner Demon")
+Third Symbiosis - Osyluth	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Osyluth	SAB:Infernal Resistance (Ex)																																																SR:10+var("CL=Order of the Inner Demon")
+Third Symbiosis - Kyton		TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Kyton		SAB:Infernal Resistance (Ex)																																																SR:10+var("CL=Order of the Inner Demon")
+Third Symbiosis - Hamatula	TYPE:Special.InnerDemonThird	VISIBLE:NO		PREFEAT:1,Second Symbiosis - Hamatula	SAB:Infernal Resistance (Ex)																																																SR:10+var("CL=Order of the Inner Demon")
 
-Fourth Symbiosis - Succubus	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Succubus																																					VFEAT:Wings of the Devil
+Fourth Symbiosis - Succubus	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Succubus																																						VFEAT:Wings of the Devil
 Fourth Symbiosis - Vrock	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Vrock		SAB:Spores (Ex)
-Fourth Symbiosis - Glabrezu	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Glabrezu														SPELLS:Innate|TIMES=-1|CASTERLEVEL=14|True Seeing
+Fourth Symbiosis - Glabrezu	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Glabrezu														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=14|True Seeing
 Fourth Symbiosis - Osyluth	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Osyluth		SAB:Stinger (Su)
 Fourth Symbiosis - Kyton	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Kyton		SAB:Regeneration (Ex)
 Fourth Symbiosis - Hamatula	TYPE:Special.InnerDemonFourth	VISIBLE:NO		PREFEAT:1,Third Symbiosis - Hamatula	SAB:Impale (Ex)

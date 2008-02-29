@@ -237,7 +237,7 @@ SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelFireDragon						
 4	BONUS:VAR|ChannelDamagePlusBase|CL-3
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression
-1				SAB:Smite Evil (Su) %/day|SmiteEvil	SAB:Aura of Faith (Ex)		BONUS:VAR|SmiteEvil|(CL/5)+1										DEFINE:SmiteEvil|0	DEFINE:AllowHolyAvenger|1	SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+1				SAB:Smite Evil (Su) %/day|SmiteEvil	SAB:Aura of Faith (Ex)		BONUS:VAR|SmiteEvil|(CL/5)+1										DEFINE:SmiteEvil|0	DEFINE:AllowHolyAvenger|1	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2				SAB:Divine Grace (Su)	SAB:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
 3				SAB:Aura of Courage (Su)	SAB:Divine Health (Ex)
 4	CAST:0,0

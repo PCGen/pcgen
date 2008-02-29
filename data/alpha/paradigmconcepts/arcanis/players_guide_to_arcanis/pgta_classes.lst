@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb 14 13:12:55 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:54:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -98,8 +98,8 @@ CLASS:Deathbringer	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 4	BONUS:VAR|ChannelDamagePlusBase|CL-3
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
-1				SAB:Aura of Faith (Ex)	SAB:Smite Evil (Su) %/day|SmiteEvil				BONUS:VAR|SmiteEvil|1								DEFINE:SmiteEvil|0	SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil		AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2				SAB:Divine Grace (Ex)																BONUS:CHECKS|ALL|max(CHA,0)					SPELLS:ClassAbility|TIMES=max(CHA,1)|CASTERLEVEL=CL|Deathwatch
+1				SAB:Aura of Faith (Ex)	SAB:Smite Evil (Su) %/day|SmiteEvil				BONUS:VAR|SmiteEvil|1								DEFINE:SmiteEvil|0	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil		AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+2				SAB:Divine Grace (Ex)																BONUS:CHECKS|ALL|max(CHA,0)					SPELLS:Class|TIMES=max(CHA,1)|CASTERLEVEL=CL|Deathwatch
 3				SAB:Divine Health (Ex)	SAB:Aura of Courage (Ex)
 4	CAST:0,0		SAB:Turn Undead (Su) (Turn level %)|ChannelLevelUndead
 5	CAST:0,0
@@ -111,7 +111,7 @@ CLASS:Deathbringer	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 11	CAST:0,1,1,0
 12	CAST:0,1,1,1	SAB:To Hear My Voice is to Know Fear (Su)
 13	CAST:0,1,1,1
-14	CAST:0,2,1,1,0	SAB:Horror of Horrors (Sp) - May only be used against Evil aligned creatures																SPELLS:ClassAbility|TIMES=1|Phantasmal Killer,15+CHA
+14	CAST:0,2,1,1,0	SAB:Horror of Horrors (Sp) - May only be used against Evil aligned creatures																SPELLS:Class|TIMES=1|Phantasmal Killer,15+CHA
 15	CAST:0,2,1,1,1
 16	CAST:0,2,2,1,1	SAB:Shroud of Oblivion (Sp)
 17	CAST:0,2,2,2,1
@@ -178,7 +178,7 @@ CLASS:Harbinger of the Dawn	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|L
 4	BONUS:VAR|TurnDamagePlusBase|CL-3
 4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block:Level Stuff
-1				SAB:Aura of Faith (Su)	SAB:Smite Chaos (Su) (%/Day, +% to hit, +% Damage)|SmiteChaos|ChaosHit|ChaosDamage	BONUS:VAR|ChaosHit|max(CHA,0)	BONUS:VAR|ChaosDamage|CL									DEFINE:SmiteChaos|1	DEFINE:ChaosHit|0	DEFINE:ChaosDamage|0	SPELLS:ClassAbility|TIMES=-1|Detect Chaos	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1				SAB:Aura of Faith (Su)	SAB:Smite Chaos (Su) (%/Day, +% to hit, +% Damage)|SmiteChaos|ChaosHit|ChaosDamage	BONUS:VAR|ChaosHit|max(CHA,0)	BONUS:VAR|ChaosDamage|CL									DEFINE:SmiteChaos|1	DEFINE:ChaosHit|0	DEFINE:ChaosDamage|0	SPELLS:Class|TIMES=ATWILL|Detect Chaos	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 2				SAB:Lay on Hands (Su) % hp/day|LayOnHands	SAB:Divine Grace (Su)								BONUS:VAR|LayOnHands|max(CHA,0)*CL					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
 3				SAB:Aura of Courage (Ex)	SAB:Divine Health (Ex)
 4	CAST:0,0																																																								AUTO:FEAT|Weapon Focus(Gladius)
@@ -258,12 +258,12 @@ CLASS:Knight of the Twelve Oaks	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL
 4	BONUS:VAR|TurnDamagePlusBase|CL
 4	BONUS:VAR|TurnCheckBase|CHA|TYPE=Knight of the Twelve Oaks
 ###Block: Level Stuff
-1				SAB:Aura of Faith (Ex)											BONUS:VAR|SmiteEvil|(CL/6)+1																SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil				AUTO:FEAT|Smite Evil	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+1				SAB:Aura of Faith (Ex)											BONUS:VAR|SmiteEvil|(CL/6)+1																SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil				AUTO:FEAT|Smite Evil	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2				SAB:Divine Grace (Su)	SAB:Lay on Hands (Su) % hp/day|LayOnHands				BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
-3				SAB:Know Thy Friends (Sp)	SAB:Divine Health (Ex)																				DEFINE:DiscernTimes|max(CHA,1)	SPELLS:ClassAbility|TIMES=DiscernTimes|CASTERLEVEL=CL|Discern Lies
+3				SAB:Know Thy Friends (Sp)	SAB:Divine Health (Ex)																				DEFINE:DiscernTimes|max(CHA,1)	SPELLS:Class|TIMES=DiscernTimes|CASTERLEVEL=CL|Discern Lies
 4	CAST:0,0		SAB:Defender of the Children (Ex)
 5	CAST:0,0
-6	CAST:0,1		SAB:Special Mount (Sp)																															SPELLS:ClassAbility|TIMES=ChannelTimesBase|CASTERLEVEL=CL|Shield Other (KoTO)
+6	CAST:0,1		SAB:Special Mount (Sp)																															SPELLS:Class|TIMES=ChannelTimesBase|CASTERLEVEL=CL|Shield Other (KoTO)
 7	CAST:0,1
 8	CAST:0,1,0		SAB:Smite the Wayward Spirits (Su)
 9	CAST:0,1,0
@@ -271,7 +271,7 @@ CLASS:Knight of the Twelve Oaks	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL
 11	CAST:0,1,1,0
 12	CAST:0,1,1,1	SAB:One is Many (Sp)
 13	CAST:0,1,1,1
-14	CAST:0,2,1,1,0	SAB:The Truth is Revealed (Sp)	SAB:Touch of Belisarda (Sp) 1/week																							SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Heal
+14	CAST:0,2,1,1,0	SAB:The Truth is Revealed (Sp)	SAB:Touch of Belisarda (Sp) 1/week																							SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Heal
 15	CAST:0,2,1,1,1
 16	CAST:0,2,2,1,1	SAB:Divine Spell Resistance % (Su)|EloriiSpell	SAB:Smite Those Who Betray (Su)	BONUS:VAR|EloriiSpell|10+CL										DEFINE:EloriiSpell|0
 17	CAST:0,2,2,2,1
@@ -528,12 +528,12 @@ CLASS:Sentinel of the Blazing Wyrm	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 4	BONUS:VAR|ChannelDamagePlusBase|CL-3
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
-1				VISION:Darkvision (60')					SAB:Aura of Faith (Ex)	SAB:Detect Evil (Sp)																													SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil												AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+1				VISION:Darkvision (60')					SAB:Aura of Faith (Ex)	SAB:Detect Evil (Sp)																													SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil												AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2												SAB:Defensive Stance (Ex)	SAB:Divine Grace (Ex)	SAB:Talons of Flame (Su) % hp/day|TalonFlame	BONUS:VAR|TalonFlame|CHA*CL			BONUS:CHECKS|ALL|max(CHA,0)				DEFINE:TalonFlame|0
 3												SAB:Aura of COurage (Ex)	SAB:Burning Blood (Ex) ~ immune to natural poisons
 4	CAST:0,0										SAB:Ssethric Enforcer (Su)
 5	CAST:0,0
-6	CAST:0,1																																																																			AUTO:FEAT|Dragon's Hide
+6	CAST:0,1																																																																		AUTO:FEAT|Dragon's Hide
 7	CAST:0,1
 8	CAST:0,1,0										SAB:Protective Ward (Su)
 9	CAST:0,1,0										SAB:Sanction of the Fire Drake (Sp)
@@ -547,7 +547,7 @@ CLASS:Sentinel of the Blazing Wyrm	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 17	CAST:0,2,2,2,1
 18	CAST:0,3,2,2,1					SR:CHA+10	DR:10/Magic	SAB:Shimmering Scales (Su)
 19	CAST:0,3,3,3,2
-20	CAST:0,3,3,3,3									SAB:Dragon Apotheosis (Ex)																																										TEMPLATE:CHOOSE:Dragon Apotheosis (Red)|Dragon Apotheosis (Gold)
+20	CAST:0,3,3,3,3									SAB:Dragon Apotheosis (Ex)																																									TEMPLATE:CHOOSE:Dragon Apotheosis (Red)|Dragon Apotheosis (Gold)
 
 ###################################################################################################################
 
@@ -565,10 +565,10 @@ CLASS:Storm Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 4	BONUS:VAR|ChannelDamagePlusBase|CL-3
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
-1				SAB:Aura of Faith (Ex)														BONUS:VAR|SmiteEvil|1											SPELLS:ClassAbility|TIMES=-1|Detect Evil					AUTO:FEAT|Smite Evil	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+1				SAB:Aura of Faith (Ex)														BONUS:VAR|SmiteEvil|1											SPELLS:Class|TIMES=ATWILL|Detect Evil				AUTO:FEAT|Smite Evil	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2				SAB:Divine Grace (Su)	SAB:Electricity Resistance % (Su)|2*CL													BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
 3				SAB:Aura of Courage (Ex)	SAB:Divine Health (Ex)
-4	CAST:0,0																																												AUTO:FEAT|Weapon Focus (Longsword)
+4	CAST:0,0																																											AUTO:FEAT|Weapon Focus (Longsword)
 5	CAST:0,0
 6	CAST:0,1		SAB:Hand of the Storm Lord - Fortitude DC % (Sp)|10+CHA+(floor(CL/2))	SAB:Ride the Lightning (Sp)
 7	CAST:0,1
@@ -576,13 +576,13 @@ CLASS:Storm Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 9	CAST:0,1,0
 10	CAST:0,1,1		SAB:Special Mount (Sp)
 11	CAST:0,1,1,0
-12	CAST:0,1,1,1																																											AUTO:FEAT|Weapon Specialization (Longsword)
+12	CAST:0,1,1,1																																										AUTO:FEAT|Weapon Specialization (Longsword)
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0																		BONUS:VAR|SmiteEvil|max(CHA,1)
 15	CAST:0,2,1,1,1
-16	CAST:0,2,2,1,1	SAB:The Heavens Speak (Sp)																											SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Call Lightning Storm
+16	CAST:0,2,2,1,1	SAB:The Heavens Speak (Sp)																											SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Call Lightning Storm
 17	CAST:0,2,2,2,1
-18	CAST:0,3,2,2,1	SAB:Voice Like Thunder (Sp) 1/week																										SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Holy Word
+18	CAST:0,3,2,2,1	SAB:Voice Like Thunder (Sp) 1/week																										SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Holy Word
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3	SAB:I Am the Storm (Su)
 
@@ -604,22 +604,22 @@ CLASS:Twilight Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 ###BLOCK:Uncanny Dodge Stuff
 8	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
 ###Block: Level Stuff
-1				VISION:Darkvision (60')	SAB:Aura of Faith (Ex)	SAB:Pierce the Veil of Shadow (Su)																													AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+1				VISION:Darkvision (60')	SAB:Aura of Faith (Ex)	SAB:Pierce the Veil of Shadow (Su)																												AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2								SAB:Cloak of Cadic (Su)
 3								SAB:Shadow Jump (Su)
-4	CAST:0,0						SAB:Divine Grace (Su)									BONUS:VAR|SmiteEvil|1	BONUS:CHECKS|ALL|max(CHA,0)																		AUTO:FEAT|Smite Evil
+4	CAST:0,0						SAB:Divine Grace (Su)									BONUS:VAR|SmiteEvil|1	BONUS:CHECKS|ALL|max(CHA,0)																	AUTO:FEAT|Smite Evil
 5	CAST:0,0						SAB:Trapfinding
 6	CAST:0,1						SAB:Cloak of Cadic (Womb of Darkness) (Su)														ADD:FEAT|1|Evasion
 7	CAST:0,1
 8	CAST:0,1,0						SAB:Turn Shadows (Su)																		ADD:FEAT|1|Uncanny Dodge
 9	CAST:0,1,0
-10	CAST:0,1,1						SAB:Cloak of Cadic (Moonless Night) (Su)																				SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration
+10	CAST:0,1,1						SAB:Cloak of Cadic (Moonless Night) (Su)																				SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration
 11	CAST:0,1,1,0
 12	CAST:0,1,1,1					SAB:Aura of Courage (Ex)																	ADD:FEAT|1|Slippery Mind
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0					SAB:Cloak of Cadic (Cover of Night) (Su)	SAB:Hide in Plain Sight (Su)
 15	CAST:0,2,1,1,1
-16	CAST:0,2,2,1,1					SAB:Shadow Mage (Sp)																							SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration (Greater)
+16	CAST:0,2,2,1,1					SAB:Shadow Mage (Sp)																							SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration (Greater)
 17	CAST:0,2,2,2,1
 18	CAST:0,3,2,2,1					SAB:Shadow Master (Su)																		ADD:FEAT|1|Improved Evasion
 19	CAST:0,3,3,3,2

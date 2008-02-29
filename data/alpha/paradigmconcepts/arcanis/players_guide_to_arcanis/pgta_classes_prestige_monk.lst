@@ -34,7 +34,7 @@ CLASS:Order of the Bronze Sepulcher Elite	STARTSKILLPTS:4	CSKILL:Balance|Climb|T
 1	BONUS:VAR|MonkMoveLvl|CL
 ###Block: Normal progression
 1	SAB:Eagle Claw (Ex)																	BONUS:COMBAT|TOHIT.GRAPPLE|4
-2	SAB:Supreme Stunning Fist (Ex)											BONUS:VAR|InvisTimes|1						DEFINE:InvisTimes|0	SPELLS:ClassAbility|TIMES=InvisTimes|CASTERLEVEL=10|Invisibility
+2	SAB:Supreme Stunning Fist (Ex)											BONUS:VAR|InvisTimes|1						DEFINE:InvisTimes|0	SPELLS:Class|TIMES=InvisTimes|CASTERLEVEL=10|Invisibility
 3	SAB:Ghost Touch (Ex)
 4																	BONUS:VAR|InvisTimes|1
 5	SAB:Chill of the Grave (Ex)

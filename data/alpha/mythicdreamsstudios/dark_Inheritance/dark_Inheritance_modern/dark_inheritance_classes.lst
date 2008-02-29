@@ -110,13 +110,13 @@ CLASS:Mystic (Dk_Inh)	SPELLSTAT:WIS	SPELLTYPE:Any	PROHIBITED:Conjuration,Evocati
 1	CAST:3,2		SAB:Magical Skills
 2	CAST:4,3		SAB:Arcane Sense
 3	CAST:4,3,2						ADD:FEAT|1|TYPE=Mystic_DI
-4	CAST:5,4,3											SPELLS:Innate|TIMES=3|CASTERLEVEL=var("CL=Mystic (Dk_Inh)")|Lesser Mindlink,10+var("CL=Mystic (Dk_Inh)")
-5	CAST:5,4,3,2										SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Mystic (Dk_Inh)")|Clairaudience/Clairvoyance,10+var("CL=Mystic (Dk_Inh)")
+4	CAST:5,4,3											SPELLS:Class|TIMES=3|CASTERLEVEL=var("CL=Mystic (Dk_Inh)")|Lesser Mindlink,10+var("CL=Mystic (Dk_Inh)")
+5	CAST:5,4,3,2										SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL=Mystic (Dk_Inh)")|Clairaudience/Clairvoyance,10+var("CL=Mystic (Dk_Inh)")
 6	CAST:5,4,4,3					ADD:FEAT|1|TYPE=Mystic_DI
 7	CAST:6,5,4,3,2	SAB:Arcane Sight
 8	CAST:6,5,4,4,3	SAB:Combat Casting
 9	CAST:6,5,5,4,3,2					ADD:FEAT|1|TYPE=Mystic_DI
-10	CAST:6,5,5,4,4,3										SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Mystic (Dk_Inh)")|Mindlink,10+var("CL=Mystic (Dk_Inh)")
+10	CAST:6,5,5,4,4,3										SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL=Mystic (Dk_Inh)")|Mindlink,10+var("CL=Mystic (Dk_Inh)")
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus											Combat bonus					Modify VAR
 CLASS:Crusading Advocate	HD:8		TYPE:Advanced.PC	ABB:CrAdv		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3

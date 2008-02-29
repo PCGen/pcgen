@@ -109,7 +109,7 @@ Stone Guardian					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE
 Brothers in Blood					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mehan],[PRETEMPLATE:HolrynMehan]									SAB:Brothers in Blood (Su)
 
 ###val'Mordane Bloodline Powers
-I Know You Brother				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:I Know You, Brother (Sp)																									SPELLS:Innate|TIMES=-1|CASTERLEVEL=TL|Detect Undead
+I Know You Brother				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:I Know You, Brother (Sp)																									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Undead
 Neroth's Discourse				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:Neroth's Discourse (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Speak with Dead
 The Mercy of Neroth				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:The Mercy of Neroth (Su)
 All Things Die					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:All Things Die (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Rusting Grasp

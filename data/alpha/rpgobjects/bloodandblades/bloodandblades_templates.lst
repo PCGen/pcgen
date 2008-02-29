@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 22:50:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:55:15 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe
 
@@ -7,8 +7,8 @@ SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodB
 #problem is, that the BAB should be set to the new HD/2 and the CR also depends on the new HD. Additionally an Evil Doll
 #should loose all special qualities except extraordinary ones that improve its attacks.
 
-# Template Name	Visible	Source Page		Stat bonus																	Removable?		PREPCLEVEL
-Child			VISIBLE:YES	SOURCEPAGE:p.5	BONUS:STAT|STR|-3	BONUS:STAT|DEX|-1	BONUS:STAT|CON|-3	BONUS:STAT|INT|-3	BONUS:STAT|WIS|-3	BONUS:STAT|CHA|-3	REMOVABLE:YES	PREPCLEVEL:MAX=1
+# Template Name	Visible	Source Page		Required Non-Monster Lvl	Stat bonus																	Removable?
+Child			VISIBLE:YES	SOURCEPAGE:p.5	PREPCLEVEL:MAX=1			BONUS:STAT|STR|-3	BONUS:STAT|DEX|-1	BONUS:STAT|CON|-3	BONUS:STAT|INT|-3	BONUS:STAT|WIS|-3	BONUS:STAT|CHA|-3	REMOVABLE:YES
 
 ###Block:Sanity
 # Template Name		Visible	Source Page		Special ABility									Define							Modify VAR								Choose							Removable?		Temporary effect description

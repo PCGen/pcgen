@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 01:15:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:54:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -59,7 +59,7 @@ Ardakene Improved Bloodline		TYPE:Special.ImprovedBloodline	VISIBLE:EXPORT	PREMU
 Berokene Improved Bloodline		TYPE:Special.ImprovedBloodline	VISIBLE:EXPORT	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Berokene]																												DESC:When in water you gain water breathing and freedom of movement automatically with no actions required to activate them. These are supernatural abilities.
 Kelekene Improved Bloodline		TYPE:Special.ImprovedBloodline	VISIBLE:EXPORT	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Kelekene]																SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Haste					DESC:As a spell-like ability, you may cast haste 1/day.
 Marokene Improved Bloodline		TYPE:Special.ImprovedBloodline	VISIBLE:EXPORT	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Marokene]																SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Bear's Endurance (Bloodline)		DESC:As a spell-like ability, you may cast an extended bear's endurance 1/day.
-Osalikene Improved Bloodline		TYPE:Special.ImprovedBloodline	VISIBLE:EXPORT	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Osalikene]																SPELLS:Innate|TIMES=-1|CASTERLEVEL=TL|Feather Fall				DESC:As a spell-like ability, you may cast feather fall at will with no verbal component and no limit to the duration.  This is a spell-like ability.
+Osalikene Improved Bloodline		TYPE:Special.ImprovedBloodline	VISIBLE:EXPORT	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Osalikene]																SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Feather Fall			DESC:As a spell-like ability, you may cast feather fall at will with no verbal component and no limit to the duration.  This is a spell-like ability.
 
 Ardakene Heightened Bloodline		TYPE:Special.HeightenedBloodline	VISIBLE:EXPORT	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Ardakene]																SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Cure Light Wounds (Mass)		DESC:You may cast mass cure light wounds 1/day with a caster level equal to your character level.
 Berokene Heightened Bloodline		TYPE:Special.HeightenedBloodline	VISIBLE:EXPORT	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:Berokene]																SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Summon Monster V (Berokene)		DESC:You may cast summon monster V 1/day with a caster level equal to your character level. You always summon a large water elemental with this ability.

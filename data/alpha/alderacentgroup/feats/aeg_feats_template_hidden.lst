@@ -8,8 +8,8 @@ Grace Of The Fey ~ Not Proficient	VISIBLE:NO																																				
 
 ###Block: Natural Birth Gift
 # Template Name				Visible	Choose					Type					Innate Spells
-Natural Birth Gift ~ 2 0th level	VISIBLE:NO	CHOOSE:SPELLLEVEL|2|CLASS=Druid|0|0	TYPE:FeatChoice.Internal	SPELLS:Natural Birth Gift|TIMES=1|CASTERLEVEL=(max(TL,1))|%LIST,10+WIS
-Natural Birth Gift ~ 1 1st level	VISIBLE:NO	CHOOSE:SPELLLEVEL|1|CLASS=Druid|1|1	TYPE:FeatChoice.Internal	SPELLS:Natural Birth Gift|TIMES=1|CASTERLEVEL=(max(TL,1))|%LIST,11+WIS
+Natural Birth Gift ~ 2 0th level	VISIBLE:NO	CHOOSE:SPELLLEVEL|2|CLASS=Druid|0|0	TYPE:FeatChoice.Internal	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|%LIST,10+WIS
+Natural Birth Gift ~ 1 1st level	VISIBLE:NO	CHOOSE:SPELLLEVEL|1|CLASS=Druid|1|1	TYPE:FeatChoice.Internal	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|%LIST,11+WIS
 
 
 ###Block: FAVORED CLASS ADD-ON

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 22:50:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:55:15 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe and Paul W. King
 
@@ -100,7 +100,7 @@ CLASS:Tough Guy	STARTSKILLPTS:2	CSKILL:Bluff|Intimidate|Knowledge (Streetwise)|S
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Template
 CLASS:Child		HD:4		TYPE:NPC.Victim	MAXLEVEL:1	SOURCEPAGE:p.5	TEMPLATE:Child
-# Class Name	PREPCLEVEL
+# Class Name	Required Non-Monster Lvl
 CLASS:Child		PREPCLEVEL:MAX=1
 # Class Name	Add INT to Skill Points?
 CLASS:Child		MODTOSKILLS:NO

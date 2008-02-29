@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb 14 13:12:55 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:54:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -525,7 +525,7 @@ CLASS:Order of the Thundering Storm	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Diplomacy|
 5	SAB:The Tempest (Ex)
 6	SAB:Sword Mastery (Ex)															BONUS:WEAPONPROF=Longsword|TOHIT|1
 7	SAB:Eye of the Storm Lord (Su) ~ Will save DC % or shaken|EyeDC		BONUS:VAR|EyeDC|10+CL+CHA								DEFINE:EyeDC|0
-9	SAB:Fury of the Storm Lord (Sp)																								SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=TL|Call Lightning
+9	SAB:Fury of the Storm Lord (Sp)																								SPELLS:Class|TIMES=1|CASTERLEVEL=TL|Call Lightning
 10	SAB:Storm's Fury (Ex) %/day|FuryTimes						BONUS:VAR|FuryTimes|CON									DEFINE:FuryTimes|0
 
 
@@ -576,16 +576,16 @@ CLASS:Sensate of Savona	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SoS		MAXLEVEL:10
 CLASS:Sensate of Savona	!PREALIGN:LG,LN,LE	PREATT:5	PREDEITY:Larissa	PREFEAT:4,Dodge,Endurance,Improved Unarmed Strike,Weapon Focus(Unarmed Strike)	PRESKILL:2,Knowledge (Religion),Tumble=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sensate of Savona	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
-1								SAB:A Toast to Larissa (Sp) %/day|ToastTimes	SAB:The Life of the Party (Ex)	BONUS:VAR|ToastTimes|1+(CL>=3)+(CL>=5)+(CL>=7)+(CL>=9)							DEFINE:ToastTimes|0									SPELLS:ClassAbility|TIMES=ToastTimes|CASTERLEVEL=CL|Bear's Endurance|Bull's Strength|Cat's Grace|Cure Moderate Wounds	AUTO:FEAT|Alertness
+1								SAB:A Toast to Larissa (Sp) %/day|ToastTimes	SAB:The Life of the Party (Ex)	BONUS:VAR|ToastTimes|1+(CL>=3)+(CL>=5)+(CL>=7)+(CL>=9)							DEFINE:ToastTimes|0									SPELLS:Class|TIMES=ToastTimes|CASTERLEVEL=CL|Bear's Endurance|Bull's Strength|Cat's Grace|Cure Moderate Wounds	AUTO:FEAT|Alertness
 2	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6	SAB:Stumble (Ex)	SAB:Tolerance (Ex)																		BONUS:COMBAT|AC|1|TYPE=Dodge.STACK
 3	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																																			ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6	SAB:Barroom Brawler (Ex)																																																										AUTO:FEAT|Mobility
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6	SAB:Barroom Brawler (Ex)																																																									AUTO:FEAT|Mobility
 5	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-6	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8	SAB:Lurch (Ex)	SAB:That's the Good Stuff (Sp) 1/day																																	SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Haste|Freedom of Movement|Cure Critical Wounds						AUTO:FEAT|Improved Feint
+6	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8	SAB:Lurch (Ex)	SAB:That's the Good Stuff (Sp) 1/day																																	SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Haste|Freedom of Movement|Cure Critical Wounds						AUTO:FEAT|Improved Feint
 7	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																																			ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-8	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																																																															AUTO:FEAT|Spring Attack
-9	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																																																															AUTO:FEAT|Avoidance
-10	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6	SAB:Blindsence (Su) 30' radius																																					SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Transformation
+8	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																																																														AUTO:FEAT|Spring Attack
+9	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																																																														AUTO:FEAT|Avoidance
+10	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6	SAB:Blindsence (Su) 30' radius																																					SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Transformation
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Sky Knight	HD:10		TYPE:PC.Prestige	ABB:SkKn		MAXLEVEL:5	SOURCEPAGE:p.214	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -695,16 +695,16 @@ CLASS:Warrior of the Eternal Flame	PREALIGN:LG,LN,LE	PREATT:7	PREDEITY:Nier	PREF
 CLASS:Warrior of the Eternal Flame	STARTSKILLPTS:2	CSKILL:Concentraation|TYPE.Craft|Diplomacy|Examine Martial Technique|Handle Animal|Heal|Knwoledge (Nobility & Royalty)|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft
 # Class Name				Spell Stat		Spell Type		Memorize
 CLASS:Warrior of the Eternal Flame	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO
-1																								SAB:Blessing of the First Flame|PREVARLT:WotEFBlessing,4	SAB:Blessing of the Second Flame Flame|PREVARLT:WotEFBlessing,6	SAB:Blessing of the Third Flame|PREVARLT:WotEFBlessing,8	SAB:Blessing of the Fourth Flame|PREVARLT:WotEFBlessing,10	SAB:Blessing of the Final Flame|PREVAREQ:WotEFBlessing,10	SAB:Child of Nier (Su)	BONUS:VAR|WotEFBlessing|CL						DEFINE:WotEFBlessing|0																								AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+1																								SAB:Blessing of the First Flame|PREVARLT:WotEFBlessing,4	SAB:Blessing of the Second Flame Flame|PREVARLT:WotEFBlessing,6	SAB:Blessing of the Third Flame|PREVARLT:WotEFBlessing,8	SAB:Blessing of the Fourth Flame|PREVARLT:WotEFBlessing,10	SAB:Blessing of the Final Flame|PREVAREQ:WotEFBlessing,10	SAB:Child of Nier (Su)	BONUS:VAR|WotEFBlessing|CL						DEFINE:WotEFBlessing|0																							AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
 2	CAST:0,0		KNOWN:0,1
 3	CAST:0,1		KNOWN:0,1																			SAB:Call Forth His Servants (Sp) (Medium)|PREVARLT:WotEFBlessing,5	SAB:Call Forth His Servants (Sp) (Large)|PREVARLT:WotEFBlessing,8	SAB:Call Forth His Servants (Sp) (Greater)|PREVARGTEQ:WotEFBlessing,8
 4	CAST:0,1,0		KNOWN:0,2,1		KNOWNSPELLS:Burning Hands|Produce Flame|Wall of Fire|Resist Energy		DOMAIN:Fire
 5	CAST:0,1,1		KNOWN:0,2,1
 6	CAST:0,1,1,0	KNOWN:0,2,2,1	KNOWNSPELLS:Inflict Light Wounds|Shatter|Contagion|Inflict Critical Wounds	DOMAIN:Destruction
-7	CAST:0,2,1,1	KNOWN:0,3,2,1																		SAB:Fury of Nier (Sp)																																																																						SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL*2|Fire Storm,18+CHA
+7	CAST:0,2,1,1	KNOWN:0,3,2,1																		SAB:Fury of Nier (Sp)																																																																						SPELLS:Class|TIMES=1|CASTERLEVEL=CL*2|Fire Storm,18+CHA
 8	CAST:0,2,2,1,0	KNOWN:0,3,2,2,1
 9	CAST:0,3,2,1,1	KNOWN:0,3,3,2,2																		SAB:Nier's Embrace (Su) %d8 damage, %/day|EmbraceDamage|EmbraceTimes																																												BONUS:VAR|EmbraceDamage|CL	BONUS:VAR|EmbraceTimes|CL/2	DEFINE:EmbraceDamage|0	DEFINE:EmbraceTimes|0
-10	CAST:0,3,3,2,2	KNOWN:0,3,3,2,2																		SAB:Nier's Gift (Su)	SAB:Fire from the Gates of Heaven (Sp)																																																															SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=17|Elemental Swarm		TEMPLATE:Elemental|Fire|Vulnerability (Cold)
+10	CAST:0,3,3,2,2	KNOWN:0,3,3,2,2																		SAB:Nier's Gift (Su)	SAB:Fire from the Gates of Heaven (Sp)																																																															SPELLS:Class|TIMES=1|CASTERLEVEL=17|Elemental Swarm		TEMPLATE:Elemental|Fire|Vulnerability (Cold)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Weapon Savant	HD:8		TYPE:PC.Prestige	ABB:WpnSv		MAXLEVEL:5	SOURCEPAGE:p.225	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

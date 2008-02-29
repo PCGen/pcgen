@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb 11 23:14:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:23:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 ### General Feats Section ###
 # Original Entry: Andrew Maitland
 SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-07
@@ -323,24 +323,24 @@ Knowledge of the Sage	TYPE:General																					PRELEVEL:MIN=9								PRE
 Knowledgeable		TYPE:General																															PRESTAT:1,INT=13												DESC:You have acquired a basic understanding of a wide variety of topics during the course of your studies. While your knowledge is broad, it is not particularly deep in areas that you have not made a conscious effort to study.																																							BONUS:SKILL|Knowledge (Arcana)|2|TYPE=Synergy	SOURCEPAGE:pg.51
 
 ###Block: L
-# Feat Name				Type				Req. Att.	Required Feat						Required Race			Required Skill					Required Stat							Prohibited Stat	Required Text									Description																								Combat bonus			Bonus to skill							Class Skill			Source Page		PREPCLEVEL
-Lay of the Land			TYPE:General				PREFEAT:1,Track											PRESKILL:1,Wilderness Lore=4,Survival=4																								DESC:You have an uncanny sense of the wilderness.																																			SOURCEPAGE:pg.51
-Lead Missile Fire			TYPE:General				PREFEAT:1,Dodge											PRESKILL:1,Bluff=4				PRESTAT:1,DEX=13																					DESC:When enemy archers fire upon you while you are in melee combat, you are skilled at tricking them into striking their allies rather than you.																			SOURCEPAGE:pg.51
-Leaping Attack			TYPE:General		PREATT:3																																	PRETEXT:Aquatic creatUre							DESC:You can propel yourself from the water and strike with unerring precision.																														SOURCEPAGE:pg.52
-Legendary				TYPE:General																								PRESTAT:6,STR=12,DEX=12,CON=12,INT=12,WIS=12,CHA=12				PRETEXT:No ability scorebelow 12.						DESC:You are destined for greatness.																																					SOURCEPAGE:pg.52
+# Feat Name				Type				Req. Att.	Required Feat						Required Non-Monster Lvl	Required Race			Required Skill					Required Stat							Prohibited Stat	Required Text									Description																								Combat bonus			Bonus to skill							Class Skill			Source Page
+Lay of the Land			TYPE:General				PREFEAT:1,Track																PRESKILL:1,Wilderness Lore=4,Survival=4																								DESC:You have an uncanny sense of the wilderness.																																			SOURCEPAGE:pg.51
+Lead Missile Fire			TYPE:General				PREFEAT:1,Dodge																PRESKILL:1,Bluff=4				PRESTAT:1,DEX=13																					DESC:When enemy archers fire upon you while you are in melee combat, you are skilled at tricking them into striking their allies rather than you.																			SOURCEPAGE:pg.51
+Leaping Attack			TYPE:General		PREATT:3																																						PRETEXT:Aquatic creatUre							DESC:You can propel yourself from the water and strike with unerring precision.																														SOURCEPAGE:pg.52
+Legendary				TYPE:General																													PRESTAT:6,STR=12,DEX=12,CON=12,INT=12,WIS=12,CHA=12				PRETEXT:No ability scorebelow 12.						DESC:You are destined for greatness.																																					SOURCEPAGE:pg.52
 #comment: No Way to Currently Implement
-Light Footed			TYPE:General																								PRESTAT:1,DEX=13																					DESC:You are extremely-light on your feet. Your footfalls are more difficult for creatures with tremorsense to detect your presence.																					SOURCEPAGE:pg.52
-Lightning Grab			TYPE:General.Fighter			PREFEAT:1,Improved Initiative																PRESTAT:1,DEX=15																					DESC:You have cat-like reflexes allowing you to snatch an item from you opponent's hand.																													SOURCEPAGE:pg.52
-Lightning Initiative		TYPE:General.Fighter			PREFEAT:1,Improved Initiative																												PRETEXT:base Reflex save +6							DESC:You can react to the movements of your enemies with devastating speed, able to attack those around you before they have time to react.		BONUS:COMBAT|Initiative|4														SOURCEPAGE:pg.52
-Like My Father Before Me	TYPE:General				PREFEAT:1,Iron Will					PRERACE:1,Half-Elf,Half-Orc								PRESTAT:2,CON=13,WIS=13																				DESC:You follow in the footsteps of your father's (or mother's) lineage, despite your half-breed blood.																										SOURCEPAGE:pg.52
-Linguist				TYPE:General																								PRESTAT:1,INT=13																					DESC:You have a knack for language.																									BONUS:SKILL|Innuedo,Decipher Script|2|TYPE=Competence	CSKILL:Speak Language	SOURCEPAGE:pg.52
-Lion's Rage				TYPE:General.Fighter			PREFEAT:4,Cleave,Dodge,Mobility,Power Attack													PRESTAT:1,STR=13																					DESC:Your fighting style focuses on strength over guile, allowing you to push through your adversaries with ease.																									SOURCEPAGE:pg.52
-Literacy				TYPE:General																								PRESTAT:1,INT=13										PRETEXT:inability to read and write.					DESC:You can readandwrite your nativelanguage.																																				SOURCEPAGE:pg.52
-Living Shield			TYPE:General																																															DESC:You are adept at using captives, hostages, or anyone else you hold in your grasp as a human shield against attacks.																							SOURCEPAGE:pg.52
-Lizard's Skin			TYPE:General																																															DESC:You can withstand the effects of extremely heat.																																			SOURCEPAGE:pg.54
-The Longshot			TYPE:General																																															DESC:Excitement has a way of finding you.																																					SOURCEPAGE:pg.54
-Lookout				TYPE:General				PREFEAT:2,Alertness,Keen Vision																																						DESC:You are better at standing watch than most, keeping a keen eye out for the enemy.																BONUS:SKILL|Spot|4|TYPE=Competence								SOURCEPAGE:pg.54
-Low Key				TYPE:General																								PRESTAT:1,CHA=8							!PRESTAT:1,CHA=13	PRETEXT:A Charisma score no lower than 8 and no higher than 12.	DESC:You are often overlooked, by others. You easily blend into crowds, lacking any discernible features.													BONUS:SKILL|Disguise,Hide|3									SOURCEPAGE:pg.54	PREPCLEVEL:MAX=1
+Light Footed			TYPE:General																													PRESTAT:1,DEX=13																					DESC:You are extremely-light on your feet. Your footfalls are more difficult for creatures with tremorsense to detect your presence.																					SOURCEPAGE:pg.52
+Lightning Grab			TYPE:General.Fighter			PREFEAT:1,Improved Initiative																					PRESTAT:1,DEX=15																					DESC:You have cat-like reflexes allowing you to snatch an item from you opponent's hand.																													SOURCEPAGE:pg.52
+Lightning Initiative		TYPE:General.Fighter			PREFEAT:1,Improved Initiative																																	PRETEXT:base Reflex save +6							DESC:You can react to the movements of your enemies with devastating speed, able to attack those around you before they have time to react.		BONUS:COMBAT|Initiative|4														SOURCEPAGE:pg.52
+Like My Father Before Me	TYPE:General				PREFEAT:1,Iron Will										PRERACE:1,Half-Elf,Half-Orc								PRESTAT:2,CON=13,WIS=13																				DESC:You follow in the footsteps of your father's (or mother's) lineage, despite your half-breed blood.																										SOURCEPAGE:pg.52
+Linguist				TYPE:General																													PRESTAT:1,INT=13																					DESC:You have a knack for language.																									BONUS:SKILL|Innuedo,Decipher Script|2|TYPE=Competence	CSKILL:Speak Language	SOURCEPAGE:pg.52
+Lion's Rage				TYPE:General.Fighter			PREFEAT:4,Cleave,Dodge,Mobility,Power Attack																		PRESTAT:1,STR=13																					DESC:Your fighting style focuses on strength over guile, allowing you to push through your adversaries with ease.																									SOURCEPAGE:pg.52
+Literacy				TYPE:General																													PRESTAT:1,INT=13										PRETEXT:inability to read and write.					DESC:You can readandwrite your nativelanguage.																																				SOURCEPAGE:pg.52
+Living Shield			TYPE:General																																																				DESC:You are adept at using captives, hostages, or anyone else you hold in your grasp as a human shield against attacks.																							SOURCEPAGE:pg.52
+Lizard's Skin			TYPE:General																																																				DESC:You can withstand the effects of extremely heat.																																			SOURCEPAGE:pg.54
+The Longshot			TYPE:General																																																				DESC:Excitement has a way of finding you.																																					SOURCEPAGE:pg.54
+Lookout				TYPE:General				PREFEAT:2,Alertness,Keen Vision																																											DESC:You are better at standing watch than most, keeping a keen eye out for the enemy.																BONUS:SKILL|Spot|4|TYPE=Competence								SOURCEPAGE:pg.54
+Low Key				TYPE:General												PREPCLEVEL:MAX=1															PRESTAT:1,CHA=8							!PRESTAT:1,CHA=13	PRETEXT:A Charisma score no lower than 8 and no higher than 12.	DESC:You are often overlooked, by others. You easily blend into crowds, lacking any discernible features.													BONUS:SKILL|Disguise,Hide|3									SOURCEPAGE:pg.54
 
 ###Block: M
 # Feat Name					Type				Req. Att.	Required Class				Required Feat																Required Race	Required Skill							Required Stat		Required Text			Description																																Stackable?	Multiple?	Choose		Bonus to skill					Modify VAR				Weapon prof. bonus																											Source Page
@@ -686,8 +686,8 @@ Zen Swordsmanship	TYPE:General.Fighter	PREATT:7	PREFEAT:3,Combat Reflexes,Expert
 
 ###Block: Hunter
 # Feat Name						Type			Visible	Special ABility								Innate Spells
-Hunter of the Accursed ~ Detect Evil	TYPE:SpellLike	VISIBLE:NO	SAB:Detect Evil (Sp): At will, detect evil as the spell.	SPELLS:Hunter of the Accursed|TIMES=-1|CASTERLEVEL=TL|Detect Evil,11+WIS
-Hunter of the Damned ~ Detect Evil		TYPE:SpellLike	VISIBLE:NO	SAB:Detect Evil (Sp): At will, detect evil as the spell.	SPELLS:Hunter of the Damned|TIMES=-1|CASTERLEVEL=TL|Detect Evil,11+WIS
+Hunter of the Accursed ~ Detect Evil	TYPE:SpellLike	VISIBLE:NO	SAB:Detect Evil (Sp): At will, detect evil as the spell.	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Evil,11+WIS
+Hunter of the Damned ~ Detect Evil		TYPE:SpellLike	VISIBLE:NO	SAB:Detect Evil (Sp): At will, detect evil as the spell.	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Evil,11+WIS
 
 #
 ##EOF

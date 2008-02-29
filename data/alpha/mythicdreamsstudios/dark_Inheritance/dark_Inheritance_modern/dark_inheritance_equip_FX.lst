@@ -9,7 +9,7 @@ Deadly Stick	PROFICIENCY:WEAPON|Metal Baton	TYPE:FX.Specific.Weapon.Simple.Melee
 ###Block: Wondrous Items
 # Equipment Name		Type				Cost		Weight	Source Page		Innate Spells									Special Property
 The Chongquing Fan	TYPE:FX.Wondrous.Magic	COST:33	WT:3		SOURCEPAGE:p.49												SPROP:Protection from Arrows/Bullets vs. 100 points of damage (reloads after 24h)
-Fists of Shadow		TYPE:FX.Wondrous.Magic	COST:29	WT:0.5	SOURCEPAGE:p.49	SPELLS:Fists of Shadow|TIMES=-1|CASTERLEVEL=3|Spider Climb,11	SPROP:+4 to Hide in dark or shadowy conditions.
+Fists of Shadow		TYPE:FX.Wondrous.Magic	COST:29	WT:0.5	SOURCEPAGE:p.49	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Spider Climb,11	SPROP:+4 to Hide in dark or shadowy conditions.
 
 ###Block: Magic Items
 # Equipment Name			Type						Contains		Cost		Weight	Base Quantity	Modifier					Source Page		Vision			Special Property
