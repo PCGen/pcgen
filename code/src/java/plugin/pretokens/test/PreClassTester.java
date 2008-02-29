@@ -172,7 +172,7 @@ SERVESAS:			for(String aKey  : keys)
 			}
 			else
 			{
-				for(PCClass theClass: character.getClassList())
+CLASSLIST:		for(PCClass theClass: character.getClassList())
 				{
 					Map<String,String> theList = theClass.getServesAs();
 					Set<String> keys = theList.keySet();
@@ -191,7 +191,7 @@ SERVESAS:			for(String aKey  : keys)
 							{
 								runningTotal += theClass.getLevel();
 							}
-							break;
+							break CLASSLIST;
 						}
 					}
 				}
