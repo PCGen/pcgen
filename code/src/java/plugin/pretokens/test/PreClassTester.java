@@ -135,6 +135,7 @@ SERVESAS:			for(String aKey  : keys)
 							continue SERVESAS;
 						}
 						if (aClass.isType(typeString))
+						{
 							if (prereq.isCountMultiples())
 							{
 								if (cl.getLevel() >= preClass)
@@ -146,6 +147,8 @@ SERVESAS:			for(String aKey  : keys)
 							{
 								runningTotal += cl.getLevel();
 							}
+							break;
+						}
 					}
 				}
 			}
@@ -176,6 +179,7 @@ SERVESAS:			for(String aKey  : keys)
 					for(String aKey  : keys)
 					{
 						if (aKey.equalsIgnoreCase(aString))
+						{
 							if (prereq.isCountMultiples())
 							{
 								if (theClass.getLevel() >= preClass)
@@ -187,6 +191,8 @@ SERVESAS:			for(String aKey  : keys)
 							{
 								runningTotal += theClass.getLevel();
 							}
+							break;
+						}
 					}
 				}
 			}
