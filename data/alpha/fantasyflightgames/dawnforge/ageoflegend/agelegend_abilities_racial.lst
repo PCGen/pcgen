@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb 11 23:15:26 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:31:03 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -223,7 +223,7 @@ Rites of Blood		CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTalent	VISIBLE:YES
 Rites of Darkness		CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTalent	VISIBLE:YES																												SAB:Rites of Darkness (Ex)								MULT:NO	SOURCEPAGE:p.28
 Rites of Fury		CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTalent	VISIBLE:YES											PREALIGN:LE,NE,CE															SAB:Rites of Fury (Ex)									MULT:NO	SOURCEPAGE:p.28
 Rites of the Hunt		CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTalent	VISIBLE:YES														PREFEAT:1,Still Spell,Silent Spell					PRESPELLTYPE:1,Divine=2	SAB:Rites of the Hunt (Ex)								MULT:NO	SOURCEPAGE:p.28
-Songs of Mending		CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTalent	VISIBLE:YES																												SAB:Songs of Mending (Sp)		SPELLS:Innate|TIMES=-1|Mending	MULT:NO	SOURCEPAGE:p.28
+Songs of Mending		CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTalent	VISIBLE:YES																												SAB:Songs of Mending (Sp)		SPELLS:Innate|TIMES=ATWILL|Mending	MULT:NO	SOURCEPAGE:p.28
 Songs of Making		CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Songs of Mending																		SAB:Songs of Making (Ex)								MULT:NO	SOURCEPAGE:p.28
 Songs of Bladecrafting	CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Songs of Mending				PREFEAT:1,Craft Magic Arms and Armor	PRELEVEL:MIN=8					SAB:Songs of Bladecrafting (Ex)							MULT:NO	SOURCEPAGE:p.28
 Songs of Armorcrafting	CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Songs of Mending				PREFEAT:1,Craft Magic Arms and Armor	PRELEVEL:MIN=6					SAB:Songs of Armorcrafting (Ex)							MULT:NO	SOURCEPAGE:p.28
@@ -241,17 +241,17 @@ Taste the Shadow		CATEGORY:Dawnforge Ability	TYPE:NightElfRacialTransformation	V
 ###############
 
 ###Block: Gnome Racial Talents
-# Ability Name			Category of Ability		Type				Visible	Required Ability							Required Lvl	Required Stat		Special ABility				Innate Spells				Multiple?	Source Page
-Bend before the Wind		CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES																	SAB:Bend before the Wind (Ex)								MULT:NO	SOURCEPAGE:p.34
-Deep Roots				CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES																	SAB:Deep Roots (Ex)									MULT:NO	SOURCEPAGE:p.35
-Flash of Thunder			CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES										PRELEVEL:MIN=4					SAB:Flash of Thunder (Ex)								MULT:NO	SOURCEPAGE:p.35
-Part like Water			CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES										PRELEVEL:MIN=6	PRESTAT:2,DEX=13,WIS=13	SAB:Part like Water (Ex)								MULT:NO	SOURCEPAGE:p.35
-Roots Break the Mountain	CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Deep Roots	PRELEVEL:MIN=4					SAB:Roots Break the Mountain (Ex)							MULT:NO	SOURCEPAGE:p.35
-Call to Life			CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES																	SAB:Call to Life (Ex)									MULT:NO	SOURCEPAGE:p.34
-Drink the Soil's Strength	CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES													PRESTAT:1,WIS=13		SAB:Drink the Soil's Strength (Ex)							MULT:NO	SOURCEPAGE:p.34
-Friend of the Land		CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES										PRELEVEL:MIN=4	PRESTAT:1,WIS=13		SAB:Friend of the Land (Ex)								MULT:NO	SOURCEPAGE:p.34
-Shroud of Leaves			CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES																	SAB:Shroud of Leaves (Ex)								MULT:NO	SOURCEPAGE:p.34
-Voices on the Leaves		CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES																	SAB:Voices on the Leaves (Sp) 30'	SPELLS:Innate|TIMES=-1|Detect Magic	MULT:NO	SOURCEPAGE:p.34
+# Ability Name			Category of Ability		Type				Visible	Required Ability							Required Lvl	Required Stat		Special ABility				Innate Spells					Multiple?	Source Page
+Bend before the Wind		CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES																	SAB:Bend before the Wind (Ex)									MULT:NO	SOURCEPAGE:p.34
+Deep Roots				CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES																	SAB:Deep Roots (Ex)										MULT:NO	SOURCEPAGE:p.35
+Flash of Thunder			CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES										PRELEVEL:MIN=4					SAB:Flash of Thunder (Ex)									MULT:NO	SOURCEPAGE:p.35
+Part like Water			CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES										PRELEVEL:MIN=6	PRESTAT:2,DEX=13,WIS=13	SAB:Part like Water (Ex)									MULT:NO	SOURCEPAGE:p.35
+Roots Break the Mountain	CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Deep Roots	PRELEVEL:MIN=4					SAB:Roots Break the Mountain (Ex)								MULT:NO	SOURCEPAGE:p.35
+Call to Life			CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES																	SAB:Call to Life (Ex)										MULT:NO	SOURCEPAGE:p.34
+Drink the Soil's Strength	CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES													PRESTAT:1,WIS=13		SAB:Drink the Soil's Strength (Ex)								MULT:NO	SOURCEPAGE:p.34
+Friend of the Land		CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES										PRELEVEL:MIN=4	PRESTAT:1,WIS=13		SAB:Friend of the Land (Ex)									MULT:NO	SOURCEPAGE:p.34
+Shroud of Leaves			CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES																	SAB:Shroud of Leaves (Ex)									MULT:NO	SOURCEPAGE:p.34
+Voices on the Leaves		CATEGORY:Dawnforge Ability	TYPE:GnomeRacialTalent	VISIBLE:YES																	SAB:Voices on the Leaves (Sp) 30'	SPELLS:Innate|TIMES=ATWILL|Detect Magic	MULT:NO	SOURCEPAGE:p.34
 #TODO: Friend of the Land: animal companion....
 
 ###Block: Gnome Racial Transformations
@@ -372,14 +372,14 @@ Horse Talker	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES	PR
 Ironclad		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Ironclad (Ex)		MULT:NO																	SOURCEPAGE:p.107
 
 ###Block:Trueborn Racial Transformations
-# Ability Name		Category of Ability		Type						Visible	Req. Att.	Required Feat	Special ABility			Innate Spells			Multiple?	Add						Source Page
-Defending Soldier		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES			PREFEAT:1,Dodge	SAB:Defending Soldier (Ex)						MULT:NO							SOURCEPAGE:p.107
-Strength of Conquest	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Strength of Conquest (Su)						MULT:NO							SOURCEPAGE:p.107
-Holy Light			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Holy Light (Sp)		SPELLS:Innate|TIMES=-1|Light	MULT:NO							SOURCEPAGE:p.107
-Divine Health		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Divine Health (Ex)							MULT:NO							SOURCEPAGE:p.107
-Divine Heritage		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Divine Heritage (Ex)						MULT:NO							SOURCEPAGE:p.107
-Followthrough		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES	PREATT:6				SAB:Followthrough (Ex)							MULT:NO							SOURCEPAGE:p.107
-Staunch			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Staunch (Ex)								MULT:NO	ADD:FEAT|2|TYPE=HTrueStaunchBonus	SOURCEPAGE:p.107
+# Ability Name		Category of Ability		Type						Visible	Req. Att.	Required Feat	Special ABility			Innate Spells				Multiple?	Add						Source Page
+Defending Soldier		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES			PREFEAT:1,Dodge	SAB:Defending Soldier (Ex)							MULT:NO							SOURCEPAGE:p.107
+Strength of Conquest	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Strength of Conquest (Su)							MULT:NO							SOURCEPAGE:p.107
+Holy Light			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Holy Light (Sp)		SPELLS:Innate|TIMES=ATWILL|Light	MULT:NO							SOURCEPAGE:p.107
+Divine Health		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Divine Health (Ex)								MULT:NO							SOURCEPAGE:p.107
+Divine Heritage		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Divine Heritage (Ex)							MULT:NO							SOURCEPAGE:p.107
+Followthrough		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES	PREATT:6				SAB:Followthrough (Ex)								MULT:NO							SOURCEPAGE:p.107
+Staunch			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Staunch (Ex)									MULT:NO	ADD:FEAT|2|TYPE=HTrueStaunchBonus	SOURCEPAGE:p.107
 
 #################
 ### Minotaur  ###

@@ -30,7 +30,7 @@ Elemental Form	TYPE:ShamanElementalForm	VISIBLE:NO	SAB:Elemental Form (%CHOICE)	
 
 ###Block: Shapers Divine focuses
 # Feat Name			Type				Visible	Special ABility																		Innate Spells																	Virtual Feat			Add							Combat bonus								Bonus to skill
-Divine Focus Alignment	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Alignment (Domains:Chaos, Good, Evil, Lawful)	SAB:Damage reduction 1/opposed alignment|PRECLASS:1,Shaper=10	SPELLS:Innate|TIMES=-1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Undetectable Alignment,12+CHA
+Divine Focus Alignment	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Alignment (Domains:Chaos, Good, Evil, Lawful)	SAB:Damage reduction 1/opposed alignment|PRECLASS:1,Shaper=10	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Undetectable Alignment,12+CHA
 Divine Focus Defense	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Defense (Domains:Protection, Sun, Travel)																																												BONUS:COMBAT|AC|1	BONUS:COMBAT|AC|1|PRECLASS:1,Shaper=10
 Divine Focus Elemental	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Elemental (Domains:Air, Earth, Fire, Water)	SAB:Elemental resistance 10
 Divine Focus Nature	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Nature (Domains:Animal, Healing, Plant)	SAB:Animals and plants cannot attack you|PRECLASS:1,Shaper=10																																											BONUS:SKILL|Handle Animal,Heal,Survival|2

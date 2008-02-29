@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:31:03 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn and Tir-Gwaith
 
@@ -24,7 +24,7 @@ CLASS:Diamond Guardsman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Concentration|Di
 4	SAB:Shield Brother (standard action)|PREVARLT:CL,6
 6	SAB:Shield Brother (move action)
 8	SAB:Greater Combat Expertise
-10																			SPELLS:Innate|TIMES=1|Foresight
+10																			SPELLS:Class|TIMES=1|Foresight
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Forge Magus	HD:4		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -64,7 +64,7 @@ CLASS:Warden of the Watch	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.
 5	SAB:Words of Command
 6																ADD:SPELLCASTER|1|ANY
 8	SAB:Songs of Trust												ADD:SPELLCASTER|1|ANY
-10	SAB:True Sight													ADD:SPELLCASTER|1|ANY	SPELLS:Innate|TIMES=-1|Detect Evil
+10	SAB:True Sight													ADD:SPELLCASTER|1|ANY	SPELLS:Class|TIMES=ATWILL|Detect Evil
 #Warden of the Watch/Wall??
 #Sense/Mind the Pattern??
 #Direct Fire levels 2,5,8 or 3.6.9?
@@ -310,12 +310,12 @@ CLASS:Diabolist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1	SAB:Empower Summoning	SAB:Locate Pit	ADD:SPELLCASTER|1|Arcane	SPELLS:Innate|TIMES=CL|Locate Infernal Gateway
+1	SAB:Empower Summoning	SAB:Locate Pit	ADD:SPELLCASTER|1|Arcane	SPELLS:Class|TIMES=CL|Locate Infernal Gateway
 2								ADD:SPELLCASTER|1|Arcane
 3	SAB:Guardian Fiend				ADD:SPELLCASTER|1|Arcane
 4	SAB:Extend Summoning				ADD:SPELLCASTER|1|Arcane
 5								ADD:SPELLCASTER|1|Arcane
-6	SAB:Prepare Pit					ADD:SPELLCASTER|1|Arcane	SPELLS:Innate|TIMES=1|Unhallow
+6	SAB:Prepare Pit					ADD:SPELLCASTER|1|Arcane	SPELLS:Class|TIMES=1|Unhallow
 7	SAB:Quicken Summoning				ADD:SPELLCASTER|1|Arcane
 8								ADD:SPELLCASTER|1|Arcane
 9	SAB:Craft Pit					ADD:SPELLCASTER|1|Arcane									AUTO:FEAT|Craft Summoning Pit
@@ -377,12 +377,12 @@ CLASS:Knight Adamant	HD:10		TYPE:PC.Prestige	ABB:KAd		MAXLEVEL:10	SOURCEPAGE:p.1
 CLASS:Knight Adamant	PREALIGN:LG,LN,NG	PREATT:7	PREFEAT:2,Cleave,Power Attack	PRETEXT:The character must be a disciple of Alharra.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight Adamant	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Heal|TYPE.Profession|Ride|Sense Motive|Spot
-1																						AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency										AUTO:WEAPONPROF|TYPE.Martial
-1																						AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency
+1																							AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency										AUTO:WEAPONPROF|TYPE.Martial
+1																							AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency
 1	SAB:Headlong
 2	SAB:Disrupt Concentration
 3	SAB:Aura of Valor (%/day)|AuraValor	BONUS:VAR|AuraValor|CL/3	DEFINE:AuraValor|0
-4																SPELLS:Innate|TIMES=-1|Detect Evil
+4																SPELLS:Class|TIMES=ATWILL|Detect Evil
 5	SAB:Improved Power Attack
 7	SAB:Shield Followthrough
 8	SAB:Shining Beacon

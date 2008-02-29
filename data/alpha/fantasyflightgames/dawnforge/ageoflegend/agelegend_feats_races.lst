@@ -190,7 +190,7 @@ Rites of Blood		TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:1,Rites of Dark
 Rites of Darkness		TYPE:NightElfRacialTalent		VISIBLE:NO																								SAB:Rites of Darkness (Ex)								MULT:NO	SOURCEPAGE:p.28
 Rites of Fury		TYPE:NightElfRacialTalent		VISIBLE:NO	PREALIGN:LE,NE,CE																					SAB:Rites of Fury (Ex)									MULT:NO	SOURCEPAGE:p.28
 Rites of the Hunt		TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:1,Still Spell,Silent Spell							PRESPELLTYPE:1,Divine=2					SAB:Rites of the Hunt (Ex)								MULT:NO	SOURCEPAGE:p.28
-Songs of Mending		TYPE:NightElfRacialTalent		VISIBLE:NO																								SAB:Songs of Mending (Sp)		SPELLS:Innate|TIMES=-1|Mending	MULT:NO	SOURCEPAGE:p.28
+Songs of Mending		TYPE:NightElfRacialTalent		VISIBLE:NO																								SAB:Songs of Mending (Sp)		SPELLS:Innate|TIMES=ATWILL|Mending	MULT:NO	SOURCEPAGE:p.28
 Songs of Making		TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:1,Songs of Mending																SAB:Songs of Making (Ex)								MULT:NO	SOURCEPAGE:p.28
 Songs of Bladecrafting	TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:2,Songs of Mending,Craft Magic Arms and Armor	PRELEVEL:MIN=8									SAB:Songs of Bladecrafting (Ex)							MULT:NO	SOURCEPAGE:p.28
 Songs of Armorcrafting	TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:2,Songs of Mending,Craft Magic Arms and Armor	PRELEVEL:MIN=6									SAB:Songs of Armorcrafting (Ex)							MULT:NO	SOURCEPAGE:p.28
@@ -266,7 +266,7 @@ Call to Life			TYPE:GnomeRacialTalent			VISIBLE:NO												SAB:Call to Life (
 Drink the Soil's Strength	TYPE:GnomeRacialTalent			VISIBLE:NO								PRESTAT:1,WIS=13		SAB:Drink the Soil's Strength (Ex)									MULT:NO								SOURCEPAGE:p.34
 Friend of the Land		TYPE:GnomeRacialTalent			VISIBLE:NO					PRELEVEL:MIN=4	PRESTAT:1,WIS=13		SAB:Friend of the Land (Ex)										MULT:NO								SOURCEPAGE:p.34
 Shroud of Leaves			TYPE:GnomeRacialTalent			VISIBLE:NO												SAB:Shroud of Leaves (Ex)										MULT:NO								SOURCEPAGE:p.34
-Voices on the Leaves		TYPE:GnomeRacialTalent			VISIBLE:NO												SAB:Voices on the Leaves (Sp) 30'			SPELLS:Innate|TIMES=-1|Detect Magic	MULT:NO								SOURCEPAGE:p.34
+Voices on the Leaves		TYPE:GnomeRacialTalent			VISIBLE:NO												SAB:Voices on the Leaves (Sp) 30'			SPELLS:Innate|TIMES=ATWILL|Detect Magic	MULT:NO								SOURCEPAGE:p.34
 
 #TODO: Friend of the Land: animal companion....
 
@@ -622,7 +622,7 @@ Ironclad			TYPE:HTrueRacialTalent			VISIBLE:NO							SAB:Ironclad (Ex)								MU
 # Feat Name			Type						Visible	Req. Att.	Required Feat		Special ABility			Innate Spells			Multiple?	Add										Bonus to skill				Source Page
 Defending Soldier		TYPE:HTrueRacialTransformation	VISIBLE:NO			PREFEAT:1,Dodge		SAB:Defending Soldier (Ex)						MULT:NO																	SOURCEPAGE:p.107
 Strength of Conquest	TYPE:HTrueRacialTransformation	VISIBLE:NO							SAB:Strength of Conquest (Su)						MULT:NO																	SOURCEPAGE:p.107
-Holy Light			TYPE:HTrueRacialTransformation	VISIBLE:NO							SAB:Holy Light (Sp)		SPELLS:Innate|TIMES=-1|Light	MULT:NO																	SOURCEPAGE:p.107
+Holy Light			TYPE:HTrueRacialTransformation	VISIBLE:NO							SAB:Holy Light (Sp)		SPELLS:Innate|TIMES=ATWILL|Light	MULT:NO																	SOURCEPAGE:p.107
 Divine Health		TYPE:HTrueRacialTransformation	VISIBLE:NO							SAB:Divine Health (Ex)							MULT:NO																	SOURCEPAGE:p.107
 Divine Heritage		TYPE:HTrueRacialTransformation	VISIBLE:NO							SAB:Divine Heritage (Ex)						MULT:NO																	SOURCEPAGE:p.107
 Followthrough		TYPE:HTrueRacialTransformation	VISIBLE:NO	PREATT:6					SAB:Followthrough (Ex)							MULT:NO																	SOURCEPAGE:p.107
