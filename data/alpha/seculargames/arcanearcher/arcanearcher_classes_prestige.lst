@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:44:48 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa
 
 #Originally done by Paul W. King
@@ -57,12 +57,12 @@ CLASS:Deepwood Guardian	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Listen|Move Silen
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: standard
-1					BONUS:VAR|ArrowEnhancement|(CL+1)/2									AUTO:FEAT|Enhance Arrow
-2																			AUTO:FEAT|Imbue Arrow
-4	SAB:True Strike (Sp)							SPELLS:Deepwood Guardian|TIMES=1|True Strike
+1					BONUS:VAR|ArrowEnhancement|(CL+1)/2							AUTO:FEAT|Enhance Arrow
+2																	AUTO:FEAT|Imbue Arrow
+4	SAB:True Strike (Sp)							SPELLS:Class|TIMES=1|True Strike
 6	SAB:Arrow of Sleep (Sp)
 8	SAB:Arrow of Slow (Sp)
-10																			AUTO:FEAT|Arrow of Death
+10																	AUTO:FEAT|Arrow of Death
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Divine Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL

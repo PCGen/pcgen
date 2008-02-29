@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:44:48 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa
 #Originally done by Paul W. King
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Arcane Archer ~ Core	HD:8		TYPE:Base.PC.ArcaneArcher	MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
-# Class Name			Multiple Requirements															Required Race
+# Class Name			Multiple Requirements																Required Race
 CLASS:Arcane Archer ~ Core	PREMULT:1,[PREPCLEVEL:MAX=1],[PREMULT:1,[!PRECLASS:1,TYPE.ArcaneArcher=1],[PRECLASS:1,Arcane Archer ~ Core=1]]	PRERACE:1,Elf%,Half-Elf
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer ~ Core	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide|Listen|Move Silently|Ride|Spot|Survival|Use Rope
