@@ -75,7 +75,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 
 <b>AC</b> |AC.Total|, <b>touch</b> |AC.Touch|, <b>flat-footed</b> |AC.Flatfooted|; 
 
-|FOR,%ACfeats,COUNT[FEATTYPE.ModifyAC.ALL]-1,COUNT[FEATTYPE.ModifyAC.ALL]-1,1,1|
+|FOR,%ACfeats,0,COUNT[FEATTYPE.ModifyAC.ALL]-1,1,1|
 , |FEATALL.%ACfeats.TYPE=ModifyAC|
 |ENDFOR|
 <br>
