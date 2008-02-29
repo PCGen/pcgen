@@ -567,13 +567,16 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Presents a list of spells matching the criteria defined by the included sub-tags.</li>
-		<li>The <code>PROHIBITED</code> sub-tag will restrict the presented spell list to prohibited (&quot;YESY&quot;) spells or non-prohibited (&quot;NO&quot;) spells. If it is not included, both are presented.</li>
+		<li>The <code>PROHIBITED</code> sub-tag will restrict the presented spell list to prohibited (&quot;YES&quot;) spells or non-prohibited (&quot;NO&quot;) spells. If it is not included, both are presented.</li>
 		<li>The <code>SPELLBOOK</code> sub-tag is used to reference the specific spell book, such as "Innate", in which the spells is located.</li>
 		<li>The spell type used in the <code>SPELLTYPE</code> sub-tag above MUST be used in a <code>SPELLTYPE</code> tag within a loaded class.</li>
 		<li>The <code>KNOWN</code> sub-tag will restrict the presented spell list to known (&quot;YES&quot;) spells or unknown (&quot;NO&quot;) spells. If it is not included, both are presented.</li>
-		<li>The <code>LEVELMIN</code> sub-tag references all spells of the specified level and higher.</li>
-		<li>The <code>LEVELMAX</code> sub-tag references all spells of the specified level and lower.</li>
-		<li>All sub-tags contained with a single pair of square brackets ([ ]) will be met by all spells presented.</li>
+		<li>The <code>LEVELMIN</code> sub-tag references all spells of the specified level and higher within the context of the &quot;y&quot; variable preceding the brackets.</li>
+		<li>The <code>LEVELMAX</code> sub-tag references all spells of the specified level and lower within the context of the &quot;y&quot; variable preceding the brackets.</li>
+		<li>The "z" variable <strong>MUST</strong> be contained within a set of square-brackets ([ ]) and paired 
+			with a single "y" variable. Only one set of square brackets per "y" variable is allowed.</li>
+		<li>Multiple "z" variables within a single pair of square-brackets will be combined through a logical AND function while "z" variables paired with individual "y" variables will be combined through a logical OR function.</li>
+		<li><strong>Note:</strong> y[z;z]|y[z] is legal, y[z][z] is not.</li>
 	</ul>
 	<p class="indent2"></p>
 	<p class="indent1"><strong>Example:</strong></p>
