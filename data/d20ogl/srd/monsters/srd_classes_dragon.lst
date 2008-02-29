@@ -188,7 +188,7 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 1	SAB:Breath Weapon(Su) % ft Cone of Sleep DC %|max((SIZE-1)*10,15)|BreathWeaponDC				DEFINE:BreathWeaponDC|13
 1	SAB:Breath Weapon(Su) % ft Line of Fire %d6 Fire DC %|max((SIZE-1)*20,30)|DragonAge|BreathWeaponDC
 ###Block: Normal Progression
-1																																																						SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,12+CHA
+1																																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,12+CHA
 2																		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
 7													BONUS:VAR|BreathWeaponDC|1																						DEFINE:DragonAge|2
 10													BONUS:VAR|BreathWeaponDC|3														BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|3							ADD:SPELLCASTER|1|Sorcerer
@@ -221,7 +221,7 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentratio
 1	SAB:Breath Weapon(Su) % ft Line of Lightning %d6 Electricity DC %|(SIZE-1)*20|2*DragonAge|BreathWeaponDC	DEFINE:BreathWeaponDC|14
 1	SAB:Breath Weapon(Su) % ft Cone of Repulsion Gas DC %|(SIZE-1)*10|BreathWeaponDC
 ###Block: Normal Progression
-1																																																									SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,12+CHA
+1																																																									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,12+CHA
 2																		BONUS:COMBAT|AC|CL=Bronze Dragon|TYPE=NaturalArmor.REPLACE
 9													BONUS:VAR|BreathWeaponDC|2																								DEFINE:DragonAge|2
 12		SAB:Polymorph Self(Sp) 3/day							BONUS:VAR|BreathWeaponDC|2																BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|3								ADD:SPELLCASTER|1|Sorcerer
