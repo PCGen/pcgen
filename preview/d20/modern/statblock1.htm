@@ -168,16 +168,40 @@ Deity: |DEITY| <i>Domains</i>: |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\(\DOMAIN.%.PO
 <i>Spells:</i><br />
 |%|
 
+<!-- Innate Spell-like Abilities -->
 |%SPELLLISTBOOK.0.0.1|
-<b>Innate:</b>
+<b>Innate Spell-like Abilities:</b>
 |FOR,%spell,0,COUNT[SPELLSINBOOK0.1.0]-2,1,1|
 |SPELLMEM.0.1.0.%spell.NAME|,
 |ENDFOR|
 |FOR,%spell,COUNT[SPELLSINBOOK0.1.0]-1,COUNT[SPELLSINBOOK0.1.0]-1,1,1|
 |SPELLMEM.0.1.0.%spell.NAME|
 |ENDFOR|
-<br />
+<br>
 |%|
+<!-- End Innate Spell-like Abilities -->
+
+<!-- Other Spell-Like Abilities -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
+<b>|SPELLBOOK.%spellbook.NAME| Spell-Like Abilities:</b>
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.NAME|,
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+<br>
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+<!-- End Other Spell-Like Abilities -->
+
+
 |FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
 |%SPELLLISTCLASS.%class|
 Spells per Day: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level)<br />

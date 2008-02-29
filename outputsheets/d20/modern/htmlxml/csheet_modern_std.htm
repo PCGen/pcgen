@@ -63,6 +63,52 @@
 	}
 	span.notes p {margin-top:0; margin-bottom:0;}
 
+	.spname { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:left;
+		font-size:8pt;
+	}
+	.sptop { 
+		font-family: Arial; 
+		vertical-align:top;
+		border: 1px solid black; 
+		text-align:center;
+		font-size:8pt; 
+		color:white;
+	}
+	.splevel {  
+		font-family: Arial; 
+		background:black; 
+		text-align:center;
+		font-size:9pt; 
+		color:white;
+	}
+	.sphead {  
+		font-family: Arial; 
+		background:black; 
+		text-align:center;
+		font-size:12pt; 
+		color:white;
+	}
+	.sptab { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:center;
+		font-size:8pt;
+	}
+	.sptab1 { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:left;
+		font-size:8pt;
+	}
+	.sptab2 { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:right;
+		font-size:8pt;
+	}
 </style>
 </head>
 <body bgcolor="white">
@@ -1691,7 +1737,7 @@
 <!-- START Spell list Header Table (Racial Innate) -->
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="11" class="sphead"><b>Racial Innate Spells</b></td>
+  <td colspan="11" class="sphead"><b>Innate Spell-like Abilities</b></td>
  </tr>
 </table>
 <!-- End Spell List Header Table (Racial Innate) -->
@@ -1735,7 +1781,7 @@
 <!-- START Spell list Header Table (Other Innate) -->
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="9" class="sphead"><b>|SPELLBOOKNAME.%spellbook| Innate Spells</b></font></td>
+  <td colspan="9" class="sphead"><b>|SPELLBOOKNAME.%spellbook| Spell-like Abilities</b></font></td>
  </tr>
 </table>
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
@@ -1878,16 +1924,27 @@
 <center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br>
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>Racial Innate</b></font></td>
+  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>Innate Spell-like Abilities</b></font></td>
  </tr>
   <td valign="top">
    <table>
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
     <tr>
-     <td align="right"><font style="font-size: 9pt">
-|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,0|</font>
+     <td align="right">
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+<i>at will</i>
+|ELSE|
+<font style="font-size: 9pt">
+|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|
+</font>
+|ENDIF|
      </td>
-     <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
+     <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> 
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|  
+	</td>
     </tr>
 |ENDFOR|
    </table>
@@ -1909,16 +1966,27 @@
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>|SPELLBOOKNAME.%spellbook| Spells</b></font></td>
+  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>|SPELLBOOKNAME.%spellbook| Spell-like Abilities</b></font></td>
  </tr>
   <td valign="top">
    <table>
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
     <tr>
-     <td align="right"><font style="font-size: 9pt">
-|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|</font>
+     <td align="right">
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+<i>at will</i>
+|ELSE|
+<font style="font-size: 9pt">
+|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|
+</font>
+|ENDIF|
      </td>
-     <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
+     <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> 
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|  
+	</td>
     </tr>
 |ENDFOR|
    </table>
