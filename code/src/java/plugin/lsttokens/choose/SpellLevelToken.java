@@ -151,8 +151,14 @@ public class SpellLevelToken implements ChooseLstToken
 					+ " second argument must be an Integer : " + value);
 				return false;
 			}
-			//No validation can be performed because third is a formula :P
-			tok.nextToken();
+			String lastTok = tok.nextToken();
+			if (lastTok.indexOf(".A[") != -1 || lastTok.endsWith(".A"))
+			{
+				Logging.errorPrint("CHOOSE:" + getTokenName()
+						+ " use of .A in third argument is deprecated, "
+						+ "please contact the PCGen team for alternatives:"
+						+ value);
+			}
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append("NUMCHOICES=").append(choiceCount).append('|');
