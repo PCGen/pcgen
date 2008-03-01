@@ -199,47 +199,53 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		if (includeObject(source, pObj))
 		{
 			finishObject(pObj);
-			final T currentObj = getMatchingObject(pObj);
-
-			if (currentObj == null || !pObj.equals(currentObj))
-			{
-				addGlobalObject(pObj);
-			}
-			else
-			{
-				if (!currentObj.getSourceURI().equals(pObj.getSourceURI()))
-				{
-					if (SettingsHandler.isAllowOverride())
-					{
-						// If the new object is more recent than the current
-						// one, use the new object
-						final Date pObjDate =
-								pObj.getSourceEntry().getSourceBook().getDate();
-						final Date currentObjDate =
-								currentObj.getSourceEntry().getSourceBook()
-									.getDate();
-						if ((pObjDate != null)
-							&& ((currentObjDate == null) || ((pObjDate
-								.compareTo(currentObjDate) > 0))))
-						{
-							performForget(currentObj);
-							addGlobalObject(pObj);
-						}
-					}
-					else
-					{
-						// Duplicate loading error
-						Logging.errorPrintLocalised(
-							"Warnings.LstFileLoader.DuplicateObject", //$NON-NLS-1$
-							pObj.getKeyName(), currentObj.getSourceURI(), pObj
-								.getSourceURI());
-					}
-				}
-			}
+			storeObject(pObj);
 		}
 		else
 		{
 			excludedObjects.add(pObj.getKeyName());
+		}
+	}
+
+	protected void storeObject(final PObject pObj)
+	{
+		final T currentObj = getMatchingObject(pObj);
+
+		if (currentObj == null || !pObj.equals(currentObj))
+		{
+			addGlobalObject(pObj);
+		}
+		else
+		{
+			//Yes, this is instance equality, NOT .equals!!!!!
+			if (currentObj != pObj)
+			{
+				if (SettingsHandler.isAllowOverride())
+				{
+					// If the new object is more recent than the current
+					// one, use the new object
+					final Date pObjDate =
+							pObj.getSourceEntry().getSourceBook().getDate();
+					final Date currentObjDate =
+							currentObj.getSourceEntry().getSourceBook()
+								.getDate();
+					if ((pObjDate != null)
+						&& ((currentObjDate == null) || ((pObjDate
+							.compareTo(currentObjDate) > 0))))
+					{
+						performForget(currentObj);
+						addGlobalObject(pObj);
+					}
+				}
+				else
+				{
+					// Duplicate loading error
+					Logging.errorPrintLocalised(
+						"Warnings.LstFileLoader.DuplicateObject", //$NON-NLS-1$
+						pObj.getKeyName(), currentObj.getSourceURI(), pObj
+							.getSourceURI());
+				}
+			}
 		}
 	}
 

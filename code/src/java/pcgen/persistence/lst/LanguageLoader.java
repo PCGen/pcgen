@@ -22,6 +22,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -29,6 +30,7 @@ import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PObject;
+import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
@@ -143,4 +145,49 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 		// TODO - Create Globals.addLanguage( final Language aLang )
 		Globals.getLanguageList().add((Language) pObj);
 	}
+
+	@Override
+	protected void storeObject(PObject pObj)
+	{
+		final Language matching = getMatchingObject(pObj);
+
+		if (matching == null || !pObj.getType().equals(matching.getType()))
+		{
+			addGlobalObject(pObj);
+		}
+		else
+		{
+			//Yes, this is instance equality, NOT .equals!!!!!
+			if (matching != pObj)
+			{
+				if (SettingsHandler.isAllowOverride())
+				{
+					// If the new object is more recent than the current
+					// one, use the new object
+					final Date pObjDate =
+							pObj.getSourceEntry().getSourceBook().getDate();
+					final Date currentObjDate =
+							matching.getSourceEntry().getSourceBook()
+								.getDate();
+					if ((pObjDate != null)
+						&& ((currentObjDate == null) || ((pObjDate
+							.compareTo(currentObjDate) > 0))))
+					{
+						performForget(matching);
+						addGlobalObject(pObj);
+					}
+				}
+				else
+				{
+					// Duplicate loading error
+					Logging.errorPrintLocalised(
+						"Warnings.LstFileLoader.DuplicateObject", //$NON-NLS-1$
+						pObj.getKeyName(), matching.getSourceURI(), pObj
+							.getSourceURI());
+				}
+			}
+		}
+	}
+	
+	
 }
