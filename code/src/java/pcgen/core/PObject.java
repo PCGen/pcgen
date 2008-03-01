@@ -42,6 +42,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -79,6 +80,10 @@ import pcgen.util.enumeration.VisionType;
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
+ */
+/**
+ * @author Joe.Frazier
+ *
  */
 public class PObject extends PrereqObject implements Cloneable, Serializable, Comparable<Object>,
 	SourcedObject, KeyedListContainer, KeyedObject
@@ -4308,6 +4313,50 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 		return ret;
 	}
+	
+	/**
+	 * @return The ability categories as a List
+	 *
+	 */
+	public List<AbilityCategory> getAbilityCategories()
+	{
+		
+		if ( theAbilities == null )
+		{
+			return new ArrayList<AbilityCategory>();
+		}
+		final List<AbilityCategory> abList = new ArrayList<AbilityCategory>();
+		final Set<AbilityCategory> keys = theAbilities.getKeySet();
+		
+		for(AbilityCategory ab: keys)
+		{
+			abList.add(ab);
+		}
+		
+		return Collections.unmodifiableList(abList);
+	}
+	
+	/**
+	 * @param category
+	 * @return Return the ability nature (enum) as a list.
+	 */
+	public List<Ability.Nature> getAbilityNatures(final AbilityCategory category)
+	{
+		if ( theAbilities == null || theAbilities.isEmpty() )
+		{
+			return new ArrayList<Ability.Nature>();
+		}
+		final Set<Ability.Nature> keys = theAbilities.getSecondaryKeySet(category);
+		final List<Ability.Nature>  abNature = new ArrayList<Ability.Nature>();	
+		
+		for(Ability.Nature nature: keys)
+		{
+			abNature.add(nature);
+		}
+		return Collections.unmodifiableList(abNature);
+	}
+	
+	
 
 	/**
 	 * Get the list of bonuses for this object
