@@ -7,6 +7,12 @@
   <body> 
     <release version="5.13.11" date="In SVN" description="Beta release">
       <action dev="jdempsey" type="update" issue="1901191">Make At Will in SPELLS unambiguous</action>  
+      <action dev="thpr" type="update" issue="1904978">Deprecate .A in CHOOSE:SPELLLEVEL</action>
+      <action dev="thpr" type="update" issue="1898420">Deprecate CompanionMod SWITCHRACE</action>
+      <action dev="thpr" type="fix" issue="1905484">Language File distinguishes by TYPE and KEY</action>
+      <action dev="thpr" type="fix" issue="1903632">Closing a Chooser causes Feat Miscount</action>
+      <action dev="thpr" type="fix" issue="1902744">CHOOSE:FEAT broken</action>
+      <action dev="thpr" type="fix" issue="1901161">PRESPELLTYPE Works in certain conditions</action>
     </release> 
     <release version="5.13.10" date="2008-02-25" description="Alpha release"> 
       <action dev="karianna" type="fix" issue="1744534">Initiative lost during re-sort</action>  
