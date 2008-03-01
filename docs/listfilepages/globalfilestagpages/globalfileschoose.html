@@ -575,8 +575,11 @@
 		<li>The <code>LEVELMAX</code> sub-tag references all spells of the specified level and lower within the context of the &quot;y&quot; variable preceding the brackets.</li>
 		<li>The "z" variable <strong>MUST</strong> be contained within a set of square-brackets ([ ]) and paired 
 			with a single "y" variable. Only one set of square brackets per "y" variable is allowed.</li>
-		<li>Multiple "z" variables within a single pair of square-brackets will be combined through a logical 
-			AND function while multiple y-z pairs will be combined through a logical OR function.</li>
+		<li>Independent &quot;z&quot; parameters require the use of two sets of square brackets ([ ]), 
+			one for each &quot;z&quot; parameter paired with is own &quot;y&quot; parameter. 
+			(e.g. y[z]|y[z])</li>
+		<li>Dependent &quot;z&quot; parameters can use a common set of square-brackets ([ ]) paired 
+			with the associated &quot;y&quot; parameter. (e.g. y[z;z])</li>
 		<li><strong>Note:</strong> y[z;z]|y[z] is legal, y[z][z] is not.</li>
 	</ul>
 	<p class="indent2"></p>
