@@ -1,14 +1,16 @@
-package plugin.lsttokens.companionmod;
+package plugin.lsttokens.deprecated;
 
+import pcgen.core.PObject;
 import pcgen.core.character.CompanionMod;
 import pcgen.persistence.lst.CompanionModLstToken;
+import pcgen.persistence.lst.DeprecatedToken;
 
 import java.util.StringTokenizer;
 
 /**
  * Class deals with SWITCHRACE: Token
  */
-public class SwitchraceToken implements CompanionModLstToken
+public class SwitchraceToken implements CompanionModLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -31,5 +33,11 @@ public class SwitchraceToken implements CompanionModLstToken
 		{
 			return false;
 		}
+	}
+
+	public String getMessage(PObject obj, String value)
+	{
+		return getTokenName() + " in CompanionMod files is deprecated: "
+				+ value + ".  You should be using RACETYPEs instead";
 	}
 }
