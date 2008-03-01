@@ -72,8 +72,7 @@ public class FeatChoiceManager extends AbstractBasicStringChoiceManager
 			final List<String>            selectedList)
 	{
 		// Grab a list of occurrences of the feat being chosen in any category
-		List<Ability> theFeats = aPc.getFeatNamedAnyCat(getChoiceList().get(0)
-				.substring(5));
+		List<Ability> theFeats = aPc.getFeatNamedAnyCat(getChoiceList().get(0));
 		for (Ability ability : theFeats)
 		{
 			for (AssociatedChoice<String> choice : ability.getAssociatedList())
