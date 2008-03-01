@@ -8927,8 +8927,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			String classSpellType = aClass.getSpellType();
 			// Check for Constants.s_NONE just in case
 			// a programmer sends in a "" string
-			if ("Any".equalsIgnoreCase(spellType)
-					|| classSpellType.equalsIgnoreCase(spellType)
+			if (("Any".equalsIgnoreCase(spellType)
+					|| classSpellType.equalsIgnoreCase(spellType))
 					&& !classSpellType.equalsIgnoreCase(Constants.s_NONE))
 			{
 				// Get the number of known spells for the level
@@ -8942,6 +8942,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				// See if the character can cast
 				// at the required spell level
+				System.err.println("Cast: " + aClass.getCastForLevel(spellLevel, this));
 				if (aClass.getCastForLevel(spellLevel, this) >= minNumSpells)
 				{
 					return true;
