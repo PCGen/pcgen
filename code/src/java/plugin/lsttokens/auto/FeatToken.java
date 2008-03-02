@@ -27,6 +27,7 @@ import pcgen.core.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.QualifiedObject;
+import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AutoLstToken;
@@ -82,7 +83,7 @@ public class FeatToken implements AutoLstToken
 						Ability.Nature.AUTOMATIC);
 				for (QualifiedObject<String> qo : ao)
 				{
-					if (qo instanceof QualifiedObject.AutoQualifiedObject)
+					if (qo instanceof QualifiedObject.LevelAwareQualifiedObject)
 					{
 						target.removeAbility(AbilityCategory.FEAT,
 								Ability.Nature.AUTOMATIC, qo);
@@ -99,16 +100,12 @@ public class FeatToken implements AutoLstToken
 				 */
 				for (QualifiedObject<String> qo : new ArrayList<QualifiedObject<String>>(ao))
 				{
-					if (qo instanceof QualifiedObject.AutoQualifiedObject)
+					if (qo instanceof QualifiedObject.LevelAwareQualifiedObject)
 					{
 						String name = feat.substring(7);
-						/*
-						 * Note the .toString on the preReqs lists here -
-						 * painful, but necessary since the 5.x Prerequisite
-						 * doesn't implement .equals()
-						 */
+						QualifiedObject.LevelAwareQualifiedObject<String> aqo = (LevelAwareQualifiedObject<String>) qo;
 						if (name.equalsIgnoreCase(qo.getObject(null))
-							&& preReqs.toString().equals(qo.getPrereqs().toString()))
+								&& aqo.level == level)
 						{
 							target.removeAbility(AbilityCategory.FEAT,
 								Ability.Nature.AUTOMATIC, qo);
@@ -120,8 +117,8 @@ public class FeatToken implements AutoLstToken
 			{
 				target.addAbility(AbilityCategory.FEAT,
 					Ability.Nature.AUTOMATIC,
-					new QualifiedObject.AutoQualifiedObject<String>(feat,
-						preReqs));
+					new QualifiedObject.LevelAwareQualifiedObject<String>(level,
+								feat, preReqs));
 			}
 			first = false;
 		}

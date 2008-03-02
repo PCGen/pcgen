@@ -34,6 +34,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.core.Ability.Nature;
+import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -6940,43 +6941,21 @@ public class PCClass extends PObject {
 
 	public void removeAllAutoAbilites(final int alevel)
 	{
-		DoubleKeyMap<AbilityCategory, Nature, QualifiedObject<String>> abilityCategories = new DoubleKeyMap<AbilityCategory, Nature, QualifiedObject<String>>();
-		final List<AbilityCategory> theCategories = getAbilityCategories();
-		final Map<QualifiedObject<String>,AbilityCategory> QOs = new HashMap<QualifiedObject<String>,AbilityCategory>();
-
-		for (AbilityCategory category: theCategories)
+		for (AbilityCategory category: getAbilityCategories())
 		{
-			final List<QualifiedObject<String>> theQOs = getRawAbilityObjects(category, Nature.AUTOMATIC);
-			for (QualifiedObject<String> qo: theQOs)
+			for (QualifiedObject<String> qo : new ArrayList<QualifiedObject<String>>(
+					getRawAbilityObjects(category, Nature.AUTOMATIC)))
 			{
-				List<Prerequisite> thePreReqs = qo.getPrereqs();
-PREREQS:		for (Prerequisite pre : thePreReqs) 
+				if (qo instanceof QualifiedObject.LevelAwareQualifiedObject)
 				{
-					int prelevel;						 
-					try
+					QualifiedObject.LevelAwareQualifiedObject<String> aqo = (LevelAwareQualifiedObject<String>) qo;
+					if (aqo.level == level)
 					{
-						prelevel = Integer.parseInt(pre.getOperand());
-					}
-					catch (NumberFormatException e)
-					{
-						continue PREREQS;
-					}
-
-					if (	pre.getKey().equalsIgnoreCase(this.getDisplayName())
-							&& pre.getKind().equalsIgnoreCase("class")
-							&& pre.getOperator().toString().startsWith("gt")
-							&& prelevel == alevel )
-					{
-						QOs.put(qo, category);
+						removeAbility(category, Nature.AUTOMATIC, qo);
 					}
 				}
 			}
 		}	
-		for (QualifiedObject<String> qo : QOs.keySet())
-		{
-			AbilityCategory cat = QOs.get(qo);
-			removeAbility(cat, Nature.AUTOMATIC, qo);
-		}
 	}
 	
 	

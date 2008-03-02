@@ -219,23 +219,26 @@ public class QualifiedObject<T>
 		return new QualifiedObject<String>( obj, prereqs );
 	}
     
-    public static class AutoQualifiedObject<AT> extends QualifiedObject<AT>
+    public static class LevelAwareQualifiedObject<AT> extends QualifiedObject<AT>
     {
-    	//Just an identifier for 5.14
+    	public final int level;
     	
-		public AutoQualifiedObject()
+		public LevelAwareQualifiedObject(int lvl)
 		{
 			super();
+			level = lvl;
 		}
 
-		public AutoQualifiedObject(AT anObj, List<Prerequisite> aPrereqList)
+		public LevelAwareQualifiedObject(int lvl, AT anObj, List<Prerequisite> aPrereqList)
 		{
 			super(anObj, aPrereqList);
+			level = lvl;
 		}
 
-		public AutoQualifiedObject(AT anObj)
+		public LevelAwareQualifiedObject(int lvl, AT anObj)
 		{
 			super(anObj);
+			level = lvl;
 		}
     }
 }

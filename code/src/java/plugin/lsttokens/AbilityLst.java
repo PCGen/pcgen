@@ -33,6 +33,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
+import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
@@ -169,8 +170,8 @@ public class AbilityLst implements GlobalLstToken
 							for (QualifiedObject<String> ab : new ArrayList<QualifiedObject<String>>(
 									anObj.getRawAbilityObjects(category, nature)))
 							{
-								if (ab.getPrereqs().toString().equals(
-										preReqs.toString()))
+								QualifiedObject.LevelAwareQualifiedObject<String> aqo = (LevelAwareQualifiedObject<String>) ab;
+								if (aqo.level == anInt)
 								{
 									anObj.removeAbility(category, nature, ab);
 								}
@@ -189,9 +190,9 @@ public class AbilityLst implements GlobalLstToken
 						for (QualifiedObject<String> ab : new ArrayList<QualifiedObject<String>>(
 								anObj.getRawAbilityObjects(category, nature)))
 						{
-							if (abil.equals(ab.getObject(null))
-									&& ab.getPrereqs().toString().equals(
-											preReqs.toString()))
+							QualifiedObject.LevelAwareQualifiedObject<String> aqo = (LevelAwareQualifiedObject<String>) ab;
+							if (abil.equalsIgnoreCase(ab.getObject(null))
+									&& aqo.level == anInt)
 							{
 								anObj.removeAbility(category, nature, ab);
 							}
@@ -207,7 +208,8 @@ public class AbilityLst implements GlobalLstToken
 			for (final String ability : abilityList)
 			{
 				anObj.addAbility(category, nature,
-					new QualifiedObject<String>(ability, preReqs));
+						new QualifiedObject.LevelAwareQualifiedObject<String>(anInt,
+								ability, preReqs));
 			}
 			return true;
 		}
