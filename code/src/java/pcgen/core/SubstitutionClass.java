@@ -85,13 +85,6 @@ public final class SubstitutionClass extends PCClass
 
 			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, aClass.getSourceURI());
 
-			// remove all stuff from the original level
-			aClass.removeAllBonuses(aLevel);
-			//aClass.removeAllAutoFeats(aLevel);
-			aClass.removeAllAutoAbilites(aLevel);
-			aClass.removeAllLevelAbilities(aLevel);
-			aClass.clearSABList(aLevel);
-
 			for (String aLine : levelArray)
 			{
 				final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf("\t")));
@@ -101,6 +94,12 @@ public final class SubstitutionClass extends PCClass
 					final PCClassLoader classLoader = new PCClassLoader();
 					if (levelArrayQualifies(aPC, aLine, tempSource))
 					{
+						// remove all stuff from the original level
+						aClass.removeAllBonuses(aLevel);
+						//aClass.removeAllAutoFeats(aLevel);
+						aClass.removeAllAutoAbilites(aLevel);
+						aClass.removeAllLevelAbilities(aLevel);
+						aClass.clearSABList(aLevel);
 						classLoader.parseLine(aClass, aLine, tempSource);
 					}
 				}
@@ -124,21 +123,25 @@ public final class SubstitutionClass extends PCClass
 	public boolean qualifiesForSubstitutionLevel(PlayerCharacter pc, int level) 
 	{ 
 		boolean passes =false;
-	               for (String aLine : levelArray) 
-	               { 
-	                    final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf("\t"))); 
-	                    final Campaign customCampaign = new Campaign();
-	        			customCampaign.setName("Custom");
-	        			customCampaign.addDescription(new Description("Custom data"));
+		for (String aLine : levelArray) 
+		{ 
+			final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf("\t"))); 
+			final Campaign customCampaign = new Campaign();
+			customCampaign.setName("Custom");
+			customCampaign.addDescription(new Description("Custom data"));
 
-	        			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, this.getSourceURI());
-	        			
-	                    if (level == modLevel) 
-	                    { 
-	                         passes = levelArrayQualifies(pc, aLine, tempSource); 
-	                    } 
-	               } 
-	               return passes; 
+			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, this.getSourceURI());
+
+			if (level == modLevel) 
+			{ 
+				passes = levelArrayQualifies(pc, aLine, tempSource);
+				if (passes)
+				{
+					return passes;
+				} 
+			} 
+		} 
+		return passes; 
 	}
 
 	/**
