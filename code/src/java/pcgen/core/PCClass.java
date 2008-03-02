@@ -6938,7 +6938,7 @@ public class PCClass extends PObject {
 		this.allowBaseClass = allowBaseClass;
 	}
 
-	public void removeAllAbilites(final int alevel)
+	public void removeAllAutoAbilites(final int alevel)
 	{
 		DoubleKeyMap<AbilityCategory, Nature, QualifiedObject<String>> abilityCategories = new DoubleKeyMap<AbilityCategory, Nature, QualifiedObject<String>>();
 		final List<AbilityCategory> theCategories = getAbilityCategories();
@@ -6976,7 +6976,6 @@ PREREQS:		for (Prerequisite pre : thePreReqs)
 		{
 			AbilityCategory cat = QOs.get(qo);
 			removeAbility(cat, Nature.AUTOMATIC, qo);
-			System.out.println(qo);
 		}
 	}
 	
