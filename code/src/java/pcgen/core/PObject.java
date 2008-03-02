@@ -4277,6 +4277,13 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		abilities.add(anAbility);
 	}
 	
+	/**
+	 * @param aCategory
+	 * @param aNature
+	 * @return List<QualifiedObject<String>>
+	 * 
+	 * Returns a list of abilities for specific a specific category and nature
+	 */
 	public List<QualifiedObject<String>> getRawAbilityObjects(
 		final AbilityCategory aCategory, final Ability.Nature aNature)
 	{

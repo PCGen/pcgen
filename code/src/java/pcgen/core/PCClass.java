@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -6788,11 +6789,13 @@ public class PCClass extends PObject {
 	/**
 	 * Remove all auto feats gained via a level
 	 * @param aLevel
+	 * @deprecated
 	 */
 	/*
 	 * FINALPCCLASSONLY I think (heh) that committing this to the PCClassLevel really should
 	 * be part of the PCClass Factory, and thus part of the creation of the PCClassLevel
 	 * and thus only in PCClass
+	 * 
 	 */
 	public void removeAllAutoFeats(final int aLevel)
 	{
@@ -6933,6 +6936,48 @@ public class PCClass extends PObject {
 	public void setAllowBaseClass(final boolean allowBaseClass)
 	{
 		this.allowBaseClass = allowBaseClass;
+	}
+
+	public void removeAllAbilites(final int alevel)
+	{
+		DoubleKeyMap<AbilityCategory, Nature, QualifiedObject<String>> abilityCategories = new DoubleKeyMap<AbilityCategory, Nature, QualifiedObject<String>>();
+		final List<AbilityCategory> theCategories = getAbilityCategories();
+		final Map<QualifiedObject<String>,AbilityCategory> QOs = new HashMap<QualifiedObject<String>,AbilityCategory>();
+
+		for (AbilityCategory category: theCategories)
+		{
+			final List<QualifiedObject<String>> theQOs = getRawAbilityObjects(category, Nature.AUTOMATIC);
+			for (QualifiedObject<String> qo: theQOs)
+			{
+				List<Prerequisite> thePreReqs = qo.getPrereqs();
+PREREQS:		for (Prerequisite pre : thePreReqs) 
+				{
+					int prelevel;						 
+					try
+					{
+						prelevel = Integer.parseInt(pre.getOperand());
+					}
+					catch (NumberFormatException e)
+					{
+						continue PREREQS;
+					}
+
+					if (	pre.getKey().equalsIgnoreCase(this.getDisplayName())
+							&& pre.getKind().equalsIgnoreCase("class")
+							&& pre.getOperator().toString().startsWith("gt")
+							&& prelevel == alevel )
+					{
+						QOs.put(qo, category);
+					}
+				}
+			}
+		}	
+		for (QualifiedObject<String> qo : QOs.keySet())
+		{
+			AbilityCategory cat = QOs.get(qo);
+			removeAbility(cat, Nature.AUTOMATIC, qo);
+			System.out.println(qo);
+		}
 	}
 	
 	
