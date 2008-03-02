@@ -188,20 +188,21 @@
 		<p>All 3 of these tags <span class="underline"><strong>MUST</strong></span> appear in <span class="underline"><strong>ALL</strong></span> pcc and lst 
 		files*.</p>
 		
-		<p>These tags can be separate lines:</p>
+		<p>In the PCC file, the <code>SOURCExxx</code> tags must be on separate lines:</p>
 		
-		<p class="indent1"><code>
-		SOURCELONG:Dominant Game Publisher - System Reference Document<br />
-		SOURCESHORT:SRD<br />
-		SOURCEWEB:HTTP://www.rpgpublisher.com/
-		</code>
-		</p>
+		<p class="indent2"><code>SOURCELONG:Dominant Game Publisher - System Reference Document</code></p>
+		<p class="indent2"><code>SOURCESHORT:SRD</code></p>
+		<p class="indent2"><code>SOURCEWEB:HTTP://www.rpgpublisher.com/</code></p>
 		
-		<p>Or they can be all one line, separated by a tab delimiter:</p>
+		<p>In LST files, the <code>SORCExxx</code> tags must be on one line, separated by a tab delimiter:</p>
 		
-		<p class="indent1"><code>SOURCELONG:Dominant Game Publisher - System Reference Document &lt;tab&gt; 
-		SOURCESHORT:SRD &lt;tab&gt; SOURCEWEB:HTTP://www.rpgpublisher.com/</code></p>
-		
+		<blockquote class="indent2">
+			<p class="tagindent2"><code>SOURCELONG:Dominant Game Publisher - System Reference Document</code> &lt;tab&gt; 
+			<code>SOURCESHORT:SRD</code> &lt;tab&gt; <code>SOURCEWEB:HTTP://www.rpgpublisher.com/</code></p>
+		</blockquote>
+
+<hr>
+
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
        	src="../images/system/valid-html401.png"
