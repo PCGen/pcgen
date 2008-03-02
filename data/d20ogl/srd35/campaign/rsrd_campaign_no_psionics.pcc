@@ -88,6 +88,7 @@ ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
 CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst
 
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_armorshields_specific.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_artifacts.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_potions.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_rings.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_rodsstaffswands.lst

@@ -25,6 +25,7 @@ ABILITYCATEGORY:rsrd_ability_categories_advanced.lst
 CLASS:rsrd_classes_prestige.lst
 
 EQUIPMENT:rsrd_equip_armorshields_specific.lst
+EQUIPMENT:rsrd_equip_artifacts.lst
 EQUIPMENT:rsrd_equip_potions.lst
 EQUIPMENT:rsrd_equip_rings.lst
 EQUIPMENT:rsrd_equip_rodsstaffswands.lst
