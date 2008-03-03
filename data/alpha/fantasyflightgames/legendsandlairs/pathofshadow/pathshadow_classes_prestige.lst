@@ -370,7 +370,7 @@ CLASS:Unblinking Eye	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Deciphe
 1	AUTO:FEAT|Simple Weapon Proficiency|Unblinking Eye Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1	SAB:Surface Disguise (Sp)|PREVARLT:CL,4	SPELLS:Surface Disguise|TIMES=1|Alter Self
+1	SAB:Surface Disguise (Sp)|PREVARLT:CL,4	SPELLS:Class|TIMES=1|Alter Self
 3	SAB:Trained Memory (Ex)
 4	SAB:Greater Surface Disguise (Su)
 5	SAB:Major Hunch (Ex)

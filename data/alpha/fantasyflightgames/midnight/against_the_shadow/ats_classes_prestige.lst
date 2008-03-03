@@ -35,7 +35,7 @@ CLASS:Aradil's Eye	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Deciphe
 1						AUTO:FEAT|Mindbond
 1						AUTO:FEAT|Closed Mind
 2						AUTO:FEAT|Aradil's Eye Spy
-#3	SPELLS:Aradil's Eye|TIMES=1|CASTERLEVEL=var("CL")|Undetectable Alignment
+#3	SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL")|Undetectable Alignment
 #4	AUTO:FEAT|Fascinating Speech
 5						AUTO:FEAT|Still Mind
 6						AUTO:FEAT|Hide in Plain Sight

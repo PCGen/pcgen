@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Mon Feb 26 23:15:32 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Sun Mar  2 21:08:35 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we
 
 #CREATED BY: Paul W. King, Jan 2007
 #EDITED BY: Paul W. King, Feb 2007
 
 ###BLOCK:Winter Wolf mount
-# Class of the Master		Hit Dice	Spell Res.	Special Ability							Combat bonus						Add to base move						Stat bonus		Modify VAR
+# Class of the Master		Hit Dice	Spell Res.	Special ABility							Combat bonus						Add to base move						Stat bonus		Modify VAR
 FOLLOWER:FrostfangKnight=1					SAB:Empathic Link (Su)	SAB:Improved Evasion (Ex)
 FOLLOWER:FrostfangKnight=2	HD:1				SAB:Improved Speed (Ex)						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:STAT|STR|1	BONUS:VAR|WinterWolfBreathWeaponDice|1
 FOLLOWER:FrostfangKnight=3	HD:2													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE									BONUS:STAT|STR|1	BONUS:VAR|WinterWolfBreathWeaponDice|1

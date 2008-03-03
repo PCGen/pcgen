@@ -10,9 +10,9 @@ CLASS:Spectral Loremaster	HD:4		TYPE:PC.Prestige	ABB:SpL		MAXLEVEL:10	SOURCEPAGE
 CLASS:Spectral Loremaster	PREFEAT:1,Spell Focus	PRESKILL:2,Knowledge (Arcana),Knowledge (Necrology)=7	PRESPELLSCHOOL:Necromancy,1,1	!PRESPELLSCHOOLSUB:Divination,1,1	PRESPELLTYPE:1,Arcane=1
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Spectral Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|Gather Information|TYPE.Knowledge|Scry|Spellcraft
-1	SAB:Speak with Dead %/Day|SpeakDead	DEFINE:SpeakDead|1																		ADD:SPELLCASTER|1|Arcane												SPELLS:Special Ability|TIMES=1|Speak with Dead
+1	SAB:Speak with Dead %/Day|SpeakDead	DEFINE:SpeakDead|1																		ADD:SPELLCASTER|1|Arcane												SPELLS:Class|TIMES=1|Speak with Dead
 2	SAB:Spectral Investigation																							ADD:SPELLCASTER|1|Arcane
-3	SAB:Divination																									ADD:SPELLCASTER|1|Arcane												SPELLS:Special Ability|TIMES=1|Divination
+3	SAB:Divination																									ADD:SPELLCASTER|1|Arcane												SPELLS:Class|TIMES=1|Divination
 4	SAB:Lost Arcane Lore																								ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic,TYPE=Supernatural
 5	SAB:Commune																										ADD:SPELLCASTER|1|Arcane
 6	SAB:Contact Other Plane																								ADD:SPELLCASTER|1|Arcane

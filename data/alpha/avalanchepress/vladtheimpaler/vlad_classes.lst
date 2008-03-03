@@ -80,7 +80,7 @@ CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Int
 CLASS:Herbalist	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Nature)|Profession (Apothecary)|Search|Spellcraft|Spot|Use Magic Device|Wilderness Lore|TYPE.Craft
-1														ADD:FEAT|Minor Poultice		SPELLS:Herbalist|TIMES=CL|Cure Minor Wounds
+1														ADD:FEAT|Minor Poultice		SPELLS:Class|TIMES=CL|Cure Minor Wounds
 2	BONUS:VAR|HerbalistMinorPoultices|CL	DEFINE:HerbalistMinorPoultices|0	ADD:FEAT|Minor Poultice
 4														ADD:FEAT|Minor Poultice
 5	BONUS:VAR|HerbalistModeratePoultices|CL/2	DEFINE:HerbalistModeratePoultices|0	ADD:FEAT|Moderate Poultice
@@ -102,7 +102,7 @@ CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Cr
 2	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 2	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal Progression
-1											SPELLS:Lautar|TIMES=(CL/3)+1|CASTERLEVEL=CL|Protection from Evil
+1											SPELLS:Class|TIMES=(CL/3)+1|CASTERLEVEL=CL|Protection from Evil
 4							ADD:FEAT|Song of Power
 5							ADD:FEAT|Song of Power
 7							ADD:FEAT|Song of Power

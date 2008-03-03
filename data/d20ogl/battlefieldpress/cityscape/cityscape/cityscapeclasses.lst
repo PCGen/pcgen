@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 21:04:02 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sun Mar  2 21:09:08 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 # Original Entry by: Tir Gwaith
 
@@ -242,18 +242,18 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 ###Block: Proficiencies
 1	AUTO:FEAT|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block:Level progression
-1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2				SAB:Flurry of Blows																														VFEAT:Stunning Attack|Evasion	AUTO:FEAT|Improved Unarmed Strike
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																													AUTO:FEAT|Deflect Arrows
+1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2				SAB:Flurry of Blows																												VFEAT:Stunning Attack|Evasion	AUTO:FEAT|Improved Unarmed Strike
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																											AUTO:FEAT|Deflect Arrows
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8							SAB:Still Mind
 4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Slow Fall (% ft.)|SlowFall|PREVARLT:CL,18						BONUS:VAR|SlowFall|20	DEFINE:SlowFall|0
 5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Purity of Body
-6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:VAR|SlowFall|10																						AUTO:FEAT|Improved Trip
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:VAR|SlowFall|10																				AUTO:FEAT|Improved Trip
 7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Leap of the Clouds	SAB:Wholeness of Body (Su) % hp/day|WholenessHpLVL*2
 8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																			BONUS:VAR|SlowFall|20
-9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																							VFEAT:Improved Evasion
+9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																					VFEAT:Improved Evasion
 10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						SAB:Ki Strike (+%) (Su)|KiStrike												DEFINE:KiStrike|1
 11	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						SAB:Diamond Body (Su)
-12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SAB:Abundant Step (Sp)																		SPELLS:Abundant Step|TIMES=1|Dimension Door
+12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SAB:Abundant Step (Sp)																		SPELLS:Class|TIMES=1|Dimension Door
 13	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SR:10+MonkSR	SAB:Diamond Soul											BONUS:VAR|KiStrike|1
 14	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
 15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SAB:Quivering Palm (Su) %/week|QuiverPalm							BONUS:VAR|QuiverPalm|1	DEFINE:QuiverPalm|0
@@ -261,7 +261,7 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Timeless Body	SAB:Tongue of the Sun and Moon
 18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Slow Fall (any distance)
 19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Empty Body (Su) % rounds/day|EmptyBody						BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0
-20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Perfect Self																											TEMPLATE:Monk Outsider
+20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Perfect Self																									TEMPLATE:Monk Outsider
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Mutant Hero	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:MutH		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -678,13 +678,13 @@ CLASS:Technomancer	STARTSKILLPTS:6	CSKILL:Alchemy|Concentration|TYPE.Craft|Crypt
 CLASS:Technomancer	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Technomancer|CL
 1	CAST:0,0		SAB:Arcane Tools(Su)
 2	CAST:0,1
-3	CAST:0,1,0		SAB:Confuse Construct (Sp)	SPELLS:Technomancer|TIMES=1|Confusion
-4	CAST:0,1,1		SAB:Enhance Construct (Sp)	SPELLS:Technomancer|TIMES=1|Bull's Strength|Cat's Grace
+3	CAST:0,1,0		SAB:Confuse Construct (Sp)	SPELLS:Class|TIMES=1|Confusion
+4	CAST:0,1,1		SAB:Enhance Construct (Sp)	SPELLS:Class|TIMES=1|Bull's Strength|Cat's Grace
 5	CAST:0,1,1,0
-6	CAST:0,1,1,1						SPELLS:Technomancer|TIMES=1|Confusion
-7	CAST:0,2,1,1,0	SAB:Dominate Machine (Sp)	SPELLS:Technomancer|TIMES=1|Dominate Person
-8	CAST:0,2,1,1,1						SPELLS:Technomance|TIMES=1|Cat's Grace	SPELLS:Technomancer|TIMES=1|Bull's Strength
-9	CAST:0,2,2,1,1						SPELLS:Technomancer|TIMES=1|Confusion
+6	CAST:0,1,1,1						SPELLS:Class|TIMES=1|Confusion
+7	CAST:0,2,1,1,0	SAB:Dominate Machine (Sp)	SPELLS:Class|TIMES=1|Dominate Person
+8	CAST:0,2,1,1,1						SPELLS:Class|TIMES=1|Cat's Grace	SPELLS:Class|TIMES=1|Bull's Strength
+9	CAST:0,2,2,1,1						SPELLS:Class|TIMES=1|Confusion
 10	CAST:0,2,2,2,1	SAB:Meld with Construct (Su)
 
 
