@@ -6409,7 +6409,12 @@ public class PCClass extends PObject {
 		c.setVisible(true);
 
 		List<PCClass> selectedList = c.getSelectedList();
-		PCClass selected =selectedList.get(0);	
+		PCClass selected = null;
+		if (!selectedList.isEmpty())
+		{
+			selected = selectedList.get(0);
+		}
+		 	
 		
 		if ((!selectedList.isEmpty()) && selected instanceof SubstitutionClass) 
 		{
