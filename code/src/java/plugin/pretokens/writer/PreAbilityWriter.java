@@ -89,7 +89,7 @@ public class PreAbilityWriter extends AbstractPrerequisiteWriter implements
 			}
 			if (prereq.getCategoryName().length() >0)
 			{
-				writer.write("CATEGORY." + prereq.getCategoryName() + ",");
+				writer.write("CATEGORY=" + prereq.getCategoryName() + ",");
 			}
 			writer.write(prereq.getKey());
 			if (prereq.getSubKey() != null)
