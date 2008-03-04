@@ -36,6 +36,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 
 /**
  * Writer for PREARMORTYPE
@@ -44,7 +45,9 @@ public class PreArmorTypeWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
 	public String kindHandled()
@@ -52,20 +55,25 @@ public class PreArmorTypeWriter extends AbstractPrerequisiteWriter implements
 		return "ARMORTYPE";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-			PrerequisiteOperator.LT};
+		return new PrerequisiteOperator[] { PrerequisiteOperator.GTEQ,
+				PrerequisiteOperator.LT };
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer,
+	 *      pcgen.core.prereq.Prerequisite)
 	 */
 	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 		try
@@ -74,13 +82,74 @@ public class PreArmorTypeWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PREARMORTYPE:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
+			writer.write("PREARMORTYPE:"
+					+ (prereq.isOverrideQualify() ? "Q:" : "") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)
 		{
 			throw new PersistenceLayerException(e.getMessage());
 		}
+	}
+
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+			throws IOException
+	{
+		//
+		// If this is a PREMULT...
+		//
+		if (prereq.getKind() == null)
+		{
+			List<Prerequisite> prereqList = prereq.getPrerequisites();
+			PrerequisiteOperator oper = null;
+			for (Prerequisite p : prereqList)
+			{
+				//
+				// ...testing one item...
+				//
+				if (!"1".equals(p.getOperand()))
+				{
+					return false;
+				}
+				//
+				// ...with all PREARMORTYPE entries...
+				//
+				if (!kindHandled().equalsIgnoreCase(p.getKind()))
+				{
+					return false;
+				}
+				//
+				// ...and the same operator...
+				//
+				if (oper == null)
+				{
+					oper = p.getOperator();
+				}
+				else
+				{
+					if (!oper.equals(p.getOperator()))
+					{
+						return false;
+					}
+				}
+			}
+			if (oper.equals(PrerequisiteOperator.LT))
+			{
+				writer.write('!');
+			}
+
+			writer.write("PRE" + kindHandled() + ":"
+					+ (prereq.isOverrideQualify() ? "Q:" : ""));
+			writer.write(prereq.getOperand());
+			for (Prerequisite p : prereqList)
+			{
+				writer.write(',');
+				writer.write(p.getKey());
+			}
+			return true;
+		}
+		return false;
 	}
 
 }
