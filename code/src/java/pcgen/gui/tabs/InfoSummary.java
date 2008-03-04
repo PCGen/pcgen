@@ -98,6 +98,7 @@ import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.utils.FormattedCellEditor;
 import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.InfoLabelTextBuilder;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTableEx;
@@ -850,32 +851,21 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	 */
 	private void setInfoLabelText(Race aRace)
 	{
-		StringBuffer b = new StringBuffer();
-		b.append("<html>"); //$NON-NLS-1$
+		InfoLabelTextBuilder b = new InfoLabelTextBuilder();
 
 		if ((aRace != null) && !aRace.getDisplayName().startsWith("<none")) //$NON-NLS-1$
 		{
-			b
-				.append("<b>").append(PropertyFactory.getString("in_sumRace")).append(aRace.getDisplayName()).append("</b>"); //$NON-NLS-1$ //$NON-NLS-3$ //$NON-NLS-2$
-			b
-				.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumTYPE")).append("</b>:").append(aRace.getType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			b.appendSmallTitleElement(PropertyFactory.getString("in_sumRace") //$NON-NLS-1
+				+ aRace.getDisplayName());
+			
+			b.appendSpacer();
+			b.appendI18nElement("in_sumTYPE", aRace.getType()); //$NON-NLS-1
 
 			final String cString = aRace.preReqHTMLStrings(pc, false);
-
 			if (cString.length() > 0)
 			{
-				b
-					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumRequirements")); //$NON-NLS-1$ //$NON-NLS-2$
-				b.append("</b>:").append(cString); //$NON-NLS-1$
-			}
-
-			String bString = aRace.getDefaultSourceString();
-
-			if (bString.length() > 0)
-			{
-				b
-					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumSource1")); //$NON-NLS-1$ //$NON-NLS-2$
-				b.append("</b>:").append(bString); //$NON-NLS-1$
+				b.appendSpacer();
+				b.appendI18nElement("in_sumRequirements", cString); //$NON-NLS-1
 			}
 
 			final StringBuffer aString = new StringBuffer();
@@ -910,14 +900,12 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			if (aString.length() > 0)
 			{
-				b
-					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumStatAdj")).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				b.append(String.valueOf(aString));
+				b.appendSpacer();
+				b.appendI18nElement("in_sumStatAdj", aString.toString()); //$NON-NLS-1
 			}
 
-			b
-				.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumSize1")).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			b.append(aRace.getSize());
+			b.appendSpacer();
+			b.appendI18nElement("in_sumSize", aRace.getSize()); //$NON-NLS-1
 
 			List<Movement> movements = aRace.getMovements();
 			if (movements != null && !movements.isEmpty())
@@ -925,13 +913,13 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				final String movelabel = movements.get(0).toString();
 				if (movelabel.length() > 0)
 				{
-					b
-						.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumMove")).append("</b>").append(String.valueOf(movelabel)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					b.appendSpacer();
+					b.appendI18nElement("in_sumMove", String.valueOf(movelabel)); //$NON-NLS-1
 				}
 			}
 
-			b
-				.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumVision")).append("</b>").append(aRace.getDisplayVision(pc)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			b.appendSpacer();
+			b.appendI18nElement("in_sumVision", aRace.getDisplayVision(pc)); //$NON-NLS-1
 
 			if (aRace.getFavoredClass().length() != 0)
 			{
@@ -951,18 +939,24 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					PropertyFactory.getString("in_sumVarious"): //$NON-NLS-1$
 						favClassSet.toString();
 				
-				b
-					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>").append(favClassName); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b.appendSpacer();
+				b.appendI18nElement("in_sumFavoredClass", favClassName); //$NON-NLS-1
 			}
 
 			if (aRace.getLevelAdjustment(pc) > 0)
 			{
-				b
-					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumLevelAdj")).append("</b>:").append(String.valueOf(aRace.getLevelAdjustment(pc))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b.appendSpacer();
+				b.appendI18nElement("in_sumLevelAdj", String.valueOf(aRace.getLevelAdjustment(pc))); //$NON-NLS-1
+			}
+
+			String bString = aRace.getDefaultSourceString();
+			if (bString.length() > 0)
+			{
+				b.appendSpacer();
+				b.appendI18nElement("in_sumSource1", bString); //$NON-NLS-1
 			}
 		}
 
-		b.append("</html>"); //$NON-NLS-1$
 		infoPane.setText(b.toString());
 	}
 
@@ -975,41 +969,38 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	{
 		if (aClass != null)
 		{
-			StringBuffer b = new StringBuffer();
-			b
-				.append("<html><b>").append(PropertyFactory.getString("in_sumClass")).append(aClass.getDisplayName()).append("</b>"); //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-2$
-			b
-				.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumTYPE")).append("</b>:").append(aClass.getType()); //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
+			InfoLabelTextBuilder b = new InfoLabelTextBuilder();
+			b.appendSmallTitleElement(PropertyFactory.getString("in_sumClass") //$NON-NLS-1
+				+ aClass.getDisplayName());
+
+			
+			b.appendSpacer();
+			b.appendI18nElement("in_sumTYPE", aClass.getType()); //$NON-NLS-1
 
 			final String cString = aClass.preReqHTMLStrings(pc, false);
-
 			if (cString.length() > 0)
 			{
-				b
-					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumRequirements")).append("</b>:").append(cString); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b.appendSpacer();
+				b.appendI18nElement("in_sumRequirements", cString); //$NON-NLS-1
 			}
 
-			String bString = aClass.getDefaultSourceString();
-
-			if (bString.length() > 0)
-			{
-				b
-					.append(" <b>").append(PropertyFactory.getString("in_sumSource")).append("</b>:").append(bString); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			}
-
-			//			b.append(" <b>").append(PropertyFactory.getString("in_sumBAB1")).append("</b>").append(aClass.getAttackBonusType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			b
-				.append(" <b>").append(PropertyFactory.getString("in_sumHD")).append("</b>1D").append(aClass.getBaseHitDie() + ""); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+			b.appendSpacer();
+			b.appendI18nElement("in_sumHD", "d"+aClass.getBaseHitDie()); //$NON-NLS-1
 
 			if (Globals.getGameModeShowSpellTab())
 			{
-				b
-					.append(" <b>").append(PropertyFactory.getString("in_sumSpelltype")).append("</b>").append(aClass.getSpellType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				b
-					.append(" <b>").append(PropertyFactory.getString("in_sumBaseStat")).append("</b>").append(aClass.getSpellBaseStat()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b.appendSpacer();
+				b.appendI18nElement("in_sumSpelltype", aClass.getSpellType()); //$NON-NLS-1
+				b.appendSpacer();
+				b.appendI18nElement("in_sumBaseStat", aClass.getSpellBaseStat()); //$NON-NLS-1
 			}
 
-			b.append("</html>"); //$NON-NLS-1$
+			String bString = aClass.getDefaultSourceString();
+			if (bString.length() > 0)
+			{
+				b.appendSpacer();
+				b.appendI18nElement("in_sumSource1", bString); //$NON-NLS-1
+			}
 			infoPane.setText(b.toString());
 		}
 	}

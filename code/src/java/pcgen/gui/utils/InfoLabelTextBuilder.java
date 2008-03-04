@@ -18,21 +18,22 @@
  *
  * Created on 4-feb-07
  *
- * $Id: $
+ * $Id$
  */
 package pcgen.gui.utils;
 
+import pcgen.gui.HTMLUtils;
 import pcgen.util.PropertyFactory;
 
 /**
  * <code>InfoLabelTextBuilder</code> is a helper class for the various
  * setInfoLabelText methods in the gui tabs.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Koen Van Daele <vandaelek@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
 public class InfoLabelTextBuilder {
 
@@ -64,6 +65,17 @@ public class InfoLabelTextBuilder {
 	}
 	
 	/**
+	 * Adds a character to the LabelText.
+	 * @param ch Char to add
+	 * @return InfoLabelTextBuilder
+	 */
+	public InfoLabelTextBuilder append(final char ch)
+	{
+		buffer.append(ch);
+		return this;
+	}
+	
+	/**
 	 * Adds a line break to the LabelText.
 	 * @return InfoLabelTextBuilder
 	 */
@@ -71,6 +83,26 @@ public class InfoLabelTextBuilder {
 	{
 		buffer.append("<br>");
 		return this;
+	}
+	
+	/**
+	 * Adds a spacer to the LabelText.
+	 * @return InfoLabelTextBuilder
+	 */
+	public InfoLabelTextBuilder appendSpacer()
+	{
+		buffer.append(HTMLUtils.THREE_SPACES);
+		return this;
+	}
+	
+	/**
+	 * Append a title element with a regular sized font.
+	 * 
+	 * @param title the title
+	 */
+	public void appendSmallTitleElement(final String title)
+	{
+		buffer.append("<b>").append(title).append("</b>");
 	}
 	
 	private void appendTitleElement(final String title)
@@ -86,12 +118,12 @@ public class InfoLabelTextBuilder {
 	 */
 	public InfoLabelTextBuilder appendElement(final String key, final String value)
 	{
-		buffer.append(" <b>").append(key).append("</b>: ").append(value);
+		buffer.append("<b>").append(key).append(":</b>&nbsp;").append(value);
 		return this;
 	}
 	
 	/**
-	 * Used for internationalisation. Looks up the property throught the 
+	 * Used for internationalisation. Looks up the property through the 
 	 * <code>ProperyFactory</code> and uses that as the key.
 	 * @param propertyKey The name of a property in the LanguageProperties file.
 	 * @param value The value that belongs to the key.

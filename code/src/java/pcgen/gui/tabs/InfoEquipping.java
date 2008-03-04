@@ -116,6 +116,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.GuiConstants;
+import pcgen.gui.HTMLUtils;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.TableColumnManager;
 import pcgen.gui.TableColumnManagerModel;
@@ -126,6 +127,7 @@ import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.ClickHandler;
 import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.InfoLabelTextBuilder;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTreeTable;
@@ -612,17 +614,16 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (eqI != null)
 		{
-			//TODO:gorm optimize the initial capacity
-			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(eqI.piSubString())
-				.append("</b></font>");
-
+			StringBuffer title = new StringBuffer(40);
+			title.append(eqI.piSubString());
 			if (!eqI.longName().equals(eqI.getName()))
 			{
-				b.append("(").append(eqI.longName()).append(")");
+				title.append("(").append(eqI.longName()).append(")");
 			}
+			final InfoLabelTextBuilder b = new InfoLabelTextBuilder(title.toString());
 
-			b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextType")).append("</b>: ").append(eqI.getType());
+			b.appendLineBreak();
+			b.appendI18nElement("in_ieInfoLabelTextType",eqI.getType()); //$NON-NLS-1$
 
 			//
 			// Should only be meaningful for weapons, but if included on some other piece of
@@ -631,7 +632,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			if (eqI.isWeapon() || eqI.hasWield())
 			{
 				WieldCategory wCat = eqI.getEffectiveWieldCategory(pc);
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextWield")).append("</b>: ").append(wCat.getName());
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextWield",wCat.getName()); //$NON-NLS-1$
 			}
 
 			//
@@ -639,51 +641,44 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			//
 			if (eqI.isWeapon() || eqI.isArmor() || eqI.isShield())
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextProficient")).append("</b>:").append(
-					((pc.isProficientWith(eqI) && eqI.meetsPreReqs(pc)) ? PropertyFactory.getString("in_ieInfoLabelTextYes")
-						: (SettingsHandler.getPrereqFailColorAsHtmlStart()
-							+ PropertyFactory.getString("in_ieInfoLabelTextNo") + SettingsHandler
-							.getPrereqFailColorAsHtmlEnd())));
-			}
-
-			final String cString = eqI.preReqHTMLStrings(pc, false);
-
-			if (cString.length() > 0)
-			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextRequirements")).append("</b>:").append(cString);
-			}
-
-			String IDS = eqI.getInterestingDisplayString(pc);
-
-			if (IDS.length() > 0)
-			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextProperties")).append("</b>:").append(
-					eqI.getInterestingDisplayString(pc));
+				b.appendSpacer();
+				b.appendI18nElement(
+						"in_ieInfoLabelTextProficient",
+						((pc.isProficientWith(eqI) && eqI.meetsPreReqs(pc))
+							? PropertyFactory
+								.getString("in_ieInfoLabelTextYes")
+							: (SettingsHandler.getPrereqFailColorAsHtmlStart()
+								+ PropertyFactory
+									.getString("in_ieInfoLabelTextNo") + SettingsHandler
+								.getPrereqFailColorAsHtmlEnd())));
 			}
 
 			String bString =
 					Globals.getGameModeUnitSet().displayWeightInUnitSet(
 						eqI.getWeight(pc).doubleValue());
-
 			if (bString.length() > 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextWeight")).append("</b>:").append(bString).append(
-					Globals.getGameModeUnitSet().getWeightUnit());
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextWeight",bString); //$NON-NLS-1$
+				b.append(Globals.getGameModeUnitSet().getWeightUnit());
 			}
 
 			Integer a = eqI.getACBonus(pc);
-
 			if (a.intValue() > 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextAC")).append("</b>:").append(a.toString());
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextAC",a.toString()); //$NON-NLS-1$
 			}
 
 			if (eqI.isArmor() || eqI.isShield())
 			{
 				a = eqI.getMaxDex(pc);
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextMaxDex")).append("</b>:").append(a.toString());
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextMaxDex",a.toString()); //$NON-NLS-1$
+
 				a = eqI.acCheck(pc);
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextAcCheck")).append("</b>:").append(a.toString());
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextAcCheck",a.toString()); //$NON-NLS-1$
 			}
 
 			if (Globals.getGameModeShowSpellTab())
@@ -692,7 +687,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (eqI.isArmor() || eqI.isShield() || (a.intValue() != 0))
 				{
-					b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextArcaneFailure")).append("</b>:").append(a.toString());
+					b.appendSpacer();
+					b.appendI18nElement("in_ieInfoLabelTextArcaneFailure",a.toString()); //$NON-NLS-1$
 				}
 			}
 
@@ -704,8 +700,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (eqI.isArmor() || eqI.isShield() || (a.intValue() != 0))
 				{
-					b.append(" <b>").append(bString).append("</b>:").append(
-						a.toString());
+					b.appendSpacer();
+					b.appendElement(bString, a.toString());
 				}
 			}
 
@@ -713,21 +709,24 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextMove")).append("</b>:").append(bString);
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextMove",bString); //$NON-NLS-1$
 			}
 
 			bString = eqI.getSize();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextSize")).append("</b>:").append(bString);
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextSize",bString); //$NON-NLS-1$
 			}
 
 			bString = eqI.getDamage(pc);
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextDamage")).append("</b>:").append(bString);
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextDamage",bString); //$NON-NLS-1$
 
 				if (eqI.isDouble())
 				{
@@ -739,7 +738,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCritRange")).append("</b>:").append(bString);
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextCritRange",bString); //$NON-NLS-1$
 
 				if (eqI.isDouble()
 					&& !eqI.getCritRange(pc).equals(eqI.getAltCritRange(pc)))
@@ -752,7 +752,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCritMult")).append("</b>:").append(bString);
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextCritMult",bString); //$NON-NLS-1$
 
 				if (eqI.isDouble()
 					&& !(eqI.getCritMultiplier() == eqI.getAltCritMultiplier()))
@@ -769,50 +770,67 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (bString.length() > 0)
 				{
-					b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextRange")).append("</b>:").append(bString).append(
-						Globals.getGameModeUnitSet().getDistanceUnit());
+					b.appendSpacer();
+					b.appendI18nElement("in_ieInfoLabelTextRange",bString); //$NON-NLS-1$
 				}
-			}
-
-			bString = eqI.getContainerCapacityString();
-
-			if (bString.length() > 0)
-			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextContainer")).append("</b>:").append(bString);
-			}
-
-			bString = eqI.getContainerContentsString();
-
-			if (bString.length() > 0)
-			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCurrentlyContains")).append("</b>:").append(bString);
-
-				BigDecimal d =
-						new BigDecimal(String
-							.valueOf(eqI.getContainedValue(pc)));
-				String aVal =
-						BigDecimalHelper.formatBigDecimal(d, 2).toString();
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextContainedValue")).append("</b>:").append(aVal).append(
-					Globals.getCurrencyDisplay());
 			}
 
 			final int charges = eqI.getRemainingCharges();
 
 			if (charges >= 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCharges")).append("</b>:").append(charges);
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextCharges",String.valueOf(charges)); //$NON-NLS-1$
 			}
 
-			b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCost")).append("</b>:").append(eqI.getCost(pc));
+			b.appendSpacer();
+			b.appendI18nElement("in_ieInfoLabelTextCost",eqI.getCost(pc).toString()); //$NON-NLS-1$
+			b.append(Globals.getCurrencyDisplay());
 
-			bString = eqI.getDefaultSourceString();
+			String IDS = eqI.getInterestingDisplayString(pc);
+			if (IDS.length() > 0)
+			{
+				b.appendLineBreak();
+				b.appendI18nElement("in_ieInfoLabelTextProperties",IDS); //$NON-NLS-1$
+			}
 
+			bString = eqI.getContainerCapacityString();
 			if (bString.length() > 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCostSource")).append("</b>: ").append(bString);
+				b.appendLineBreak();
+				b.appendI18nElement("in_ieInfoLabelTextContainer",bString); //$NON-NLS-1$
 			}
 
-			b.append("</html>");
+			bString = eqI.getContainerContentsString();
+			if (bString.length() > 0)
+			{
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextCurrentlyContains",bString); //$NON-NLS-1$
+
+				BigDecimal d =
+						new BigDecimal(String
+							.valueOf(eqI.getContainedValue(pc)));
+				String aVal =
+						BigDecimalHelper.formatBigDecimal(d, 2).toString();
+				b.appendSpacer();
+				b.appendI18nElement("in_ieInfoLabelTextContainedValue",aVal); //$NON-NLS-1$
+				b.append(Globals.getCurrencyDisplay());
+			}
+
+			final String cString = eqI.preReqHTMLStrings(pc, false);
+			if (cString.length() > 0)
+			{
+				b.appendLineBreak();
+				b.appendI18nElement("in_ieInfoLabelTextRequirements",cString); //$NON-NLS-1$
+			}
+
+			bString = eqI.getDefaultSourceString();
+			if (bString.length() > 0)
+			{
+				b.appendLineBreak();
+				b.appendI18nElement("in_ieInfoLabelTextCostSource",bString); //$NON-NLS-1$
+			}
+
 			infoLabel.setText(b.toString());
 		}
 	}

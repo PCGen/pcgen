@@ -110,33 +110,30 @@ public class AbilityInfoPanel extends JPanel
 		}
 
 		final StringBuffer sb = new StringBuffer();
-		sb.append(HTML).append(BOLD);
+		sb.append(HTML).append(FONT_PLUS_1).append(BOLD);
 		sb.append(theAbility.piSubString());
-		sb.append(END_BOLD).append(TWO_SPACES);
-		sb.append(BOLD);
-		sb.append(PropertyFactory.getString("in_type")).append(':'); //$NON-NLS-1$
-		sb.append(END_BOLD);
-		sb.append(CoreUtility.join(theAbility.getTypeList(true), ". "));
+		sb.append(END_BOLD).append(END_FONT).append(BR);
+		sb.append(PropertyFactory.getFormattedString(
+			"in_clInfoType", //$NON-NLS-1$
+			CoreUtility.join(theAbility.getTypeList(true), ". "))); //$NON-NLS-1$
 
 		final String costStr = theAbility.getCostString();
 		if (!costStr.equals("1")) //$NON-NLS-1$
 		{
-			sb.append(' ').append(BOLD);
-			sb
-				.append(PropertyFactory.getString("Ability.Info.Cost")).append(':'); //$NON-NLS-1$
-			sb.append(END_BOLD);
-			sb.append(costStr);
+			sb.append(PropertyFactory.getFormattedString(
+				"Ability.Info.Cost", //$NON-NLS-1$
+				costStr));
 		}
 
 		if (theAbility.isMultiples())
 		{
-			sb.append(TWO_SPACES).append(
+			sb.append(THREE_SPACES).append(
 				PropertyFactory.getString("Ability.Info.Multiple")); //$NON-NLS-1$
 		}
 
 		if (theAbility.isStacks())
 		{
-			sb.append(TWO_SPACES).append(
+			sb.append(THREE_SPACES).append(
 				PropertyFactory.getString("Ability.Info.Stacks")); //$NON-NLS-1$
 		}
 
@@ -144,36 +141,28 @@ public class AbilityInfoPanel extends JPanel
 
 		if (cString.length() > 0)
 		{
-			sb.append(TWO_SPACES);
-
-			sb.append(BOLD);
-			sb.append(PropertyFactory.getString("in_requirements")).append(':'); //$NON-NLS-1$
-			sb.append(END_BOLD);
-			sb.append(cString);
+			sb.append(PropertyFactory.getFormattedString(
+				"in_InfoRequirements", //$NON-NLS-1$
+				cString));
 		}
 
-		sb.append(TWO_SPACES);
-
-		sb.append(BOLD);
-		sb.append(PropertyFactory.getString("in_descrip")).append(':'); //$NON-NLS-1$
-		sb.append(END_BOLD);
-		sb.append(theAbility.piDescSubString(thePC));
+		sb.append(BR);
+		sb.append(PropertyFactory.getFormattedString(
+			"in_InfoDescription", //$NON-NLS-1$
+			theAbility.piDescSubString(thePC)));
 
 		final String bene = theAbility.getBenefits(thePC);
 		if (bene != null && bene.length() > 0)
 		{
-			sb.append(TWO_SPACES);
-			sb.append(BOLD);
-			sb.append("Benefit:");
-			sb.append(END_BOLD);
-			sb.append(theAbility.getBenefits(thePC));
+			sb.append(BR);
+			sb.append(PropertyFactory.getFormattedString(
+				"Ability.Info.Benefit", //$NON-NLS-1$
+				theAbility.getBenefits(thePC)));
 		}
 		
-		sb.append(TWO_SPACES);
-		sb.append(BOLD);
-		sb.append(PropertyFactory.getString("in_sourceLabel")).append(':'); //$NON-NLS-1$
-		sb.append(END_BOLD);
-		sb.append(theAbility.getDefaultSourceString());
+		sb.append(PropertyFactory.getFormattedString(
+			"in_InfoSource", //$NON-NLS-1$
+			theAbility.getDefaultSourceString()));
 
 		sb.append(END_HTML);
 

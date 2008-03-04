@@ -824,12 +824,12 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 			if (addString.length() > 0)
 			{
-				b.append(" &nbsp;").append(addString); //$NON-NLS-1$
+				b.append(" ").append(addString); //$NON-NLS-1$
 			}
 
-			b.append(" &nbsp;<b>"); //$NON-NLS-1$
+			b.append("<br/><b>"); //$NON-NLS-1$
 			b.append(PropertyFactory.getString("InfoSpells.level.title")); //$NON-NLS-1$
-			b.append("</b>&nbsp; "); //$NON-NLS-1$
+			b.append("</b>&nbsp;"); //$NON-NLS-1$
 			if (cs.getOwner() != null)
 			{
 
@@ -846,7 +846,10 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 					b.append(levels[index]);
 				}
 			}
-			else b.append(aSpell.getLevelString());
+			else
+			{
+				b.append(aSpell.getLevelString());
+			}
 
 			b.append(PropertyFactory.getFormattedString(
 				"InfoSpells.html.spell.details", //$NON-NLS-1$
@@ -887,9 +890,9 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 			if (spellSource.length() > 0)
 			{
-				b.append(" &nbsp;<b>"); //$NON-NLS-1$
-				b.append(PropertyFactory.getString("InfoSpells.source.title")); //$NON-NLS-1$
-				b.append("</b>&nbsp;").append(spellSource); //$NON-NLS-1$
+				b.append(PropertyFactory.getFormattedString(
+					"InfoSpells.html.spell.source", //$NON-NLS-1$
+					spellSource));
 			}
 
 			b.append("</html>"); //$NON-NLS-1$
@@ -928,28 +931,20 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 		if (book.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
-			b.append("<b>"); //$NON-NLS-1$
-			b
-				.append(PropertyFactory.getString("InfoSpellsSubTab.NumPages")).append("</b>: "); //$NON-NLS-1$//$NON-NLS-2$
-			b.append(book.getNumPages());
-			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b
-				.append(PropertyFactory.getString("InfoSpellsSubTab.UsedPages")).append("</b>: "); //$NON-NLS-1$//$NON-NLS-2$
-			b.append(book.getNumPagesUsed());
-			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b
-				.append(PropertyFactory.getString("InfoSpellsSubTab.PageUse")).append("</b>: "); //$NON-NLS-1$//$NON-NLS-2$
-			b.append(book.getPageFormula());
-			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b
-				.append(PropertyFactory.getString("InfoSpellsSubTab.NumSpells")).append("</b>: "); //$NON-NLS-1$//$NON-NLS-2$
-			b.append(book.getNumSpells());
-			b.append("<br>"); //$NON-NLS-1$
+			b.append(PropertyFactory.getFormattedString(
+				"InfoSpells.html.spellbook.details", //$NON-NLS-1$
+				new Object[]{
+					book.getNumPages(),
+					book.getNumPagesUsed(),
+					book.getPageFormula(),
+					book.getNumSpells()}));
 		}
 
 		if (book.getDescription() != null)
 		{
-			b.append(book.getDescription());
+			b.append(PropertyFactory.getFormattedString(
+				"in_InfoDescription", //$NON-NLS-1$
+				book.getDescription()));
 		}
 
 		b.append("</html>"); //$NON-NLS-1$

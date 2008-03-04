@@ -675,17 +675,32 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		if ((temp != null))
 		{
-			b.append("<b>").append(temp.piSubString()).append("</b>");
-			b.append("<br><b>RACE TYPE</b>: ").append(temp.getRaceType());
+			b.append("<font size=+1><b>").append(temp.piSubString()).append(
+				"</b></font><br/>");
+			b.append(PropertyFactory.getFormattedString(
+				"in_irInfoRaceType", //$NON-NLS-1$
+				temp.getRaceType()));
 			if (temp.getType().length() > 0)
 			{
-				b.append(" &nbsp;<b>TYPE</b>:").append(temp.getType());
+				b.append(PropertyFactory.getFormattedString(
+					"in_irInfoType", //$NON-NLS-1$
+					temp.getType()));
 			}
-			String bString = temp.getDefaultSourceString();
 
+			String bString = temp.preReqHTMLStrings(getPc(), false);
 			if (bString.length() > 0)
 			{
-				b.append(" &nbsp;<b>SOURCE</b>:").append(bString);
+				b.append(PropertyFactory.getFormattedString(
+					"in_InfoRequirements", //$NON-NLS-1$
+					bString));
+			}
+
+			bString = temp.getDefaultSourceString();
+			if (bString.length() > 0)
+			{
+				b.append("<br/><b>").append(
+					PropertyFactory.getString("in_sourceLabel"))
+					.append("</b>:").append(bString);
 			}
 		}
 

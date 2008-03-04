@@ -89,6 +89,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.CharacterInfoTab;
+import pcgen.gui.HTMLUtils;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.TableColumnManager;
 import pcgen.gui.filter.FilterAdapterPanel;
@@ -99,6 +100,7 @@ import pcgen.gui.tabs.resources.AvailableFollowerModel;
 import pcgen.gui.tabs.resources.SelectedFollowerModel;
 import pcgen.gui.utils.ClickHandler;
 import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.InfoLabelTextBuilder;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTreeTable;
@@ -1175,11 +1177,8 @@ public class InfoResources extends FilterAdapterPanel implements
 				return;
 			}
 
-			final StringBuffer b = new StringBuffer();
-			String bString = ""; //$NON-NLS-1$
-			b.append(HTML).append(FONT_PLUS_1).append(BOLD);
-			b.append(aRace.getDisplayName());
-			b.append(END_BOLD).append(END_FONT);
+			final InfoLabelTextBuilder b =
+					new InfoLabelTextBuilder(aRace.getDisplayName());
 			b.append(": "); //$NON-NLS-1$
 			final SizeAdjustment sadj =
 					SettingsHandler.getGame().getSizeAdjustmentNamed(
@@ -1189,49 +1188,40 @@ public class InfoResources extends FilterAdapterPanel implements
 				b.append(sadj.getDisplayName());
 			}
 			b.append(" ").append(aRace.getRaceType()); //$NON-NLS-1$
-			b.append("; "); //$NON-NLS-1$
 
-			b.append(BOLD);
-			b.append(PropertyFactory.getString("in_hdLabel")); //$NON-NLS-1$
-			b.append(END_BOLD);
-			b.append(": "); //$NON-NLS-1$
-			b.append(aRace.hitDice(null, false));
+			b.appendLineBreak();
+			b.appendI18nElement("in_hdLabel", //$NON-NLS-1$
+				String.valueOf(aRace.hitDice(null, false))); 
 			b.append("d"); //$NON-NLS-1$
-			b.append(aRace.getHitDiceSize(null, false));
+			b.append(String.valueOf(aRace.getHitDiceSize(null, false)));
 
-			if (option != null)
-			{
-				if (option.preReqHTMLStrings(pc).length() > 0)
-				{
-					b
-						.append(" ").append(BOLD).append(PropertyFactory.getString("in_requirements")).append(END_BOLD).append(":"); //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
-					b.append(" " + option.preReqHTMLStrings(pc)); //$NON-NLS-1$
-				}
-			}
-
+			String bString = "";
 			List<Movement> movements = aRace.getMovements();
 			if (movements != null && !movements.isEmpty())
 			{
 				bString = movements.get(0).toString();
 			}
-
 			if (bString.length() > 0)
 			{
-				b
-					.append(" ").append(BOLD).append(PropertyFactory.getString("in_move")).append(END_BOLD).append(":"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				b.append(bString);
+				b.appendSpacer();
+				b.appendI18nElement("in_move", bString); //$NON-NLS-1$
 			}
 
+
+			if (option != null && option.preReqHTMLStrings(pc).length() > 0)
+			{
+				b.appendLineBreak();
+				b.appendI18nElement("in_requirements", //$NON-NLS-1$
+					option.preReqHTMLStrings(pc));
+			}
+			
 			bString = aRace.getDefaultSourceString();
-
 			if (bString.length() > 0)
 			{
-				b
-					.append(" ").append(BOLD).append(PropertyFactory.getString("in_sumSource1")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				b.append(bString);
+				b.appendLineBreak();
+				b.appendI18nElement("in_ieInfoLabelTextCostSource", bString); //$NON-NLS-1$
 			}
 
-			b.append(END_HTML);
 			infoLabel.setText(b.toString());
 		}
 		else if (obj instanceof Follower)

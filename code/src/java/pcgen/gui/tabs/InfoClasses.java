@@ -381,71 +381,34 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		if (aClass != null)
 		{
 			StringBuffer b = new StringBuffer();
-			b.append("<html><b>").append(aClass.piSubString()).append("</b>");
+			b.append("<html><font size=+1><b>").append(aClass.piSubString()).append(
+			"</b></font><br/>");
 
 			//
 			// Type
 			//
 			aString = aClass.getType();
-
 			if (isSubClass && (aString.length() == 0))
 			{
 				aString = lastClass.getType();
 			}
-
-			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_type"))
-				.append("</b>:").append(aString);
-
-			//
-			// Prereqs
-			//
-			aString = aClass.preReqHTMLStrings(pc, false);
-
-			if (isSubClass && (aString.length() == 0))
-			{
-				aString = lastClass.preReqHTMLStrings(pc, false);
-			}
-
-			if (aString.length() > 0)
-			{
-				b.append(" &nbsp;<b>").append(
-					PropertyFactory.getString("in_requirements")).append(
-					"</b>:").append(aString);
-			}
-
-			//
-			// Source
-			//
-			aString = aClass.getDefaultSourceString();
-
-			if (isSubClass && (aString.length() == 0))
-			{
-				aString = lastClass.getDefaultSourceString();
-			}
-
-			if (aString.length() > 0)
-			{
-				b.append(" <b>").append(
-					PropertyFactory.getString("in_sourceLabel"))
-					.append("</b>:").append(aString);
-			}
-
-			//			aString = getBabTitle();
-			//			b.append(" <b>").append(aString).append(":</b>:").append(aClass.getAttackBonusType());
+			b.append(PropertyFactory.getFormattedString(
+				"in_clInfoType", //$NON-NLS-1$
+				aString));
 
 			//
 			// Hit Die
 			//
 			int hitDie = aClass.getBaseHitDie();
-
 			if (isSubClass && (hitDie == 0))
 			{
 				hitDie = lastClass.getBaseHitDie();
 			}
-
 			if (hitDie != 0)
 			{
-				b.append(" <b>HD:</b>:1d").append(hitDie);
+				b.append(PropertyFactory.getFormattedString(
+					"in_clInfoHD", //$NON-NLS-1$
+					hitDie));
 			}
 
 			if (Globals.getGameModeShowSpellTab())
@@ -459,9 +422,9 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					aString = lastClass.getSpellType();
 				}
 
-				b.append(" <b>").append(
-					PropertyFactory.getString("in_spellType")).append("</b>:")
-					.append(aString);
+				b.append(PropertyFactory.getFormattedString(
+					"in_clInfoSpellType", //$NON-NLS-1$
+					aString));
 
 				aString = aClass.getSpellBaseStat();
 
@@ -479,10 +442,47 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					aString = lastClass.getSpellBaseStat();
 				}
 
-				b.append(" <b>").append(
-					PropertyFactory.getString("in_baseStat")).append("</b>:")
-					.append(aString);
+				b.append(PropertyFactory.getFormattedString(
+					"in_clInfoBaseStat", //$NON-NLS-1$
+					aString));
 			}
+
+			//
+			// Prereqs
+			//
+			aString = aClass.preReqHTMLStrings(pc, false);
+
+			if (isSubClass && (aString.length() == 0))
+			{
+				aString = lastClass.preReqHTMLStrings(pc, false);
+			}
+
+			if (aString.length() > 0)
+			{
+				b.append(PropertyFactory.getFormattedString(
+					"in_InfoRequirements", //$NON-NLS-1$
+					aString));
+			}
+
+			//
+			// Source
+			//
+			aString = aClass.getDefaultSourceString();
+
+			if (isSubClass && (aString.length() == 0))
+			{
+				aString = lastClass.getDefaultSourceString();
+			}
+
+			if (aString.length() > 0)
+			{
+				b.append(PropertyFactory.getFormattedString(
+					"in_InfoSource", //$NON-NLS-1$
+					aString));
+			}
+
+			//			aString = getBabTitle();
+			//			b.append(" <b>").append(aString).append(":</b>:").append(aClass.getAttackBonusType());
 
 			b.append("</html>");
 			infoLabel.setText(b.toString());

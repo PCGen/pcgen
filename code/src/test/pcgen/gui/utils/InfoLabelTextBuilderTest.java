@@ -18,7 +18,7 @@
  *
  * Created on 4-feb-07
  *
- * $Id: $
+ * $Id$
  */
 package pcgen.gui.utils;
 
@@ -31,11 +31,11 @@ import junit.textui.TestRunner;
 /**
  * <code>InfoLabelTextBuilderTest</code> tests the InfoLabelTextBuilder.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Koen Van Daele <vandaelek@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
 public class InfoLabelTextBuilderTest extends TestCase
 {
@@ -73,7 +73,7 @@ public class InfoLabelTextBuilderTest extends TestCase
 		
 		b.appendElement("HP" , "25");
 		
-		assertEquals("<html> <b>HP</b>: 25</html>" , b.toString());
+		assertEquals("<html><b>HP:</b>&nbsp;25</html>" , b.toString());
 	}
 	
 	/**
@@ -85,7 +85,7 @@ public class InfoLabelTextBuilderTest extends TestCase
 		
 		b.appendI18nElement("in_player" , "Koen");
 		
-		assertEquals("<html> <b>Player</b>: Koen</html>" , b.toString());
+		assertEquals("<html><b>Player:</b>&nbsp;Koen</html>" , b.toString());
 	}
 	
 	/**
@@ -98,7 +98,7 @@ public class InfoLabelTextBuilderTest extends TestCase
 		b.appendLineBreak().appendI18nElement("in_player" , "Koen");
 		
 		assertEquals("<html><b><font size=+1>Character</font></b>"+
-				"<br> <b>Player</b>: Koen</html>" , b.toString());
+				"<br><b>Player:</b>&nbsp;Koen</html>" , b.toString());
 	}
 	
 

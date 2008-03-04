@@ -512,6 +512,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			}
 			
 			final InfoLabelTextBuilder b = new InfoLabelTextBuilder(title.toString());
+			b.appendLineBreak();
 			
 			b.appendI18nElement("in_igInfoLabelTextType", //$NON-NLS-1$
 					CoreUtility.join(aEq.getTypeList(true), ". "));
@@ -523,6 +524,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			//
 			if (aEq.isWeapon() || aEq.hasWield())
 			{
+				b.appendSpacer();
 				final WieldCategory wCat = aEq.getEffectiveWieldCategory(pc);
 				b.appendI18nElement("in_igInfoLabelTextWield", //$NON-NLS-1$
 					wCat.getName());
@@ -533,6 +535,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			//
 			if (aEq.isWeapon() || aEq.isArmor() || aEq.isShield())
 			{
+				b.appendSpacer();
 				final String value = (pc.isProficientWith(aEq) && aEq.meetsPreReqs(pc))
 						? PropertyFactory.getString("in_igInfoLabelTextYes") //$NON-NLS-1$ 
 						: (SettingsHandler.getPrereqFailColorAsHtmlStart()
@@ -545,6 +548,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (cString.length() > 0)
 			{
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextReq",cString); //$NON-NLS-1$
 			}
 
@@ -552,6 +556,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (IDS.length() > 0)
 			{
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextProp",IDS); //$NON-NLS-1$
 			}
 
@@ -561,6 +566,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
+				b.appendSpacer();
 				bString += Globals.getGameModeUnitSet().getWeightUnit();
 				b.appendI18nElement("in_igInfoLabelTextWeight",bString); //$NON-NLS-1$
 					
@@ -570,6 +576,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (a.intValue() != 100)
 			{
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextMaxDex",a.toString()); //$NON-NLS-1$
 			}
 
@@ -577,6 +584,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 			{
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextAcCheck",a.toString()); //$NON-NLS-1$
 			}
 
@@ -586,8 +594,10 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 				if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 				{
-					//TODO: How to internationalize this?
-					b.appendElement(Globals.getGameModeACText()+ " Bonus",a.toString()); 
+					b.appendSpacer();
+					b.appendElement(PropertyFactory.getFormattedString(
+						"in_igInfoLabelTextAcBonus", //$NON-NLS-1$
+						Globals.getGameModeACText()), a.toString()); 
 				}
 			}
 
@@ -597,6 +607,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 				if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 				{
+					b.appendSpacer();
 					b.appendI18nElement("in_igInfoLabelTextArcaneFailure",a.toString()); //$NON-NLS-1$
 				}
 			}
@@ -609,6 +620,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 				if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 				{
+					b.appendSpacer();
 					b.appendElement(bString , a.toString());
 				}
 			}
@@ -617,6 +629,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextMove" , bString); //$NON-NLS-1$
 			}
 
@@ -624,6 +637,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextSize" , bString); //$NON-NLS-1$
 			}
 
@@ -637,6 +651,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					bString += "/" + aEq.getAltDamage(pc); //$NON-NLS-1$
 				}
 				
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextDamage",bString); //$NON-NLS-1$
 			}
 
@@ -651,6 +666,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					bString += "/" + aEq.getAltCritRange(pc); //$NON-NLS-1$
 				}
 				
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextCritRange" , bString); //$NON-NLS-1$
 			}
 
@@ -665,6 +681,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					bString += "/" + aEq.getAltCritMult(); //$NON-NLS-1$
 				}
 				
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextCritMult" , bString ); //$NON-NLS-1$
 			}
 
@@ -676,6 +693,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 				if (bString.length() > 0)
 				{
+					b.appendSpacer();
 					b.appendI18nElement("in_igInfoLabelTextRange" , bString + //$NON-NLS-1$
 						Globals.getGameModeUnitSet().getDistanceUnit());
 				}
@@ -685,6 +703,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextContainer" , bString); //$NON-NLS-1$
 			}
 
@@ -692,6 +711,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextCurrentlyContains" , bString); //$NON-NLS-1$
 			}
 
@@ -699,18 +719,21 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (charges >= 0)
 			{
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextCharges" , Integer.valueOf(charges).toString() ); //$NON-NLS-1$
 			}
 
 			bString = aEq.getQualityString();
 			if (bString.length() > 0)
 			{
+				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextQualities", bString); //$NON-NLS-1$
 			}
 
 			bString = aEq.getDefaultSourceString();
 			if (bString.length() > 0)
 			{
+				b.appendLineBreak();
 				b.appendI18nElement("in_igInfoLabelTextSource", bString); //$NON-NLS-1$
 			}
 

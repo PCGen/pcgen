@@ -2209,30 +2209,35 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		if (aSkill != null)
 		{
 			StringBuffer b = new StringBuffer();
-			b.append("<html><b>").append(aSkill.piSubString()).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$
+			b.append(HTML).append(FONT_PLUS_1).append(BOLD)
+				.append(aSkill.piSubString())
+				.append(END_BOLD).append(END_FONT).append(BR);
 			if (!Globals.checkRule(RuleConstants.SKILLMAX))
 			{
-				b.append(PropertyFactory.getString("in_iskHtml_MAXRANK")).append(pc.getMaxRank(aSkill.getKeyName(), getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
+				b.append(PropertyFactory.getString("in_iskHtml_MAXRANK"))
+					.append(pc.getMaxRank(aSkill.getKeyName(), getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
+				b.append(THREE_SPACES); 
 			}
-			b.append(PropertyFactory.getString("in_iskHtml_TYPE")).append(CoreUtility.join(aSkill.getTypeList(true), ". ")); //$NON-NLS-1$
+			b.append(PropertyFactory.getString("in_iskHtml_TYPE"))
+				.append(CoreUtility.join(aSkill.getTypeList(true), ". ")); //$NON-NLS-1$
 
 			String aString = aSkill.getKeyStatFromStats();
 			if (aString.length() != 0)
 			{
 				b.append(PropertyFactory.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$
 			}
-			b.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")).append(aSkill.isUntrained() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")).append(aSkill.getExclusive()); //$NON-NLS-1$
+			b.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")) //$NON-NLS-1$
+				.append(aSkill.isUntrained() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); 
+			b.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")) //$NON-NLS-1$
+				.append(aSkill.isExclusive() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); 
 
 			String bString = aSkill.preReqHTMLStrings(pc, false);
 
 			if (bString.length() > 0)
 			{
-				b.append(TWO_SPACES);
-				b.append(BOLD);
-				b.append(PropertyFactory.getString("in_requirements")).append(": "); //$NON-NLS-1$
-				b.append(END_BOLD);
-				b.append(bString);
+				b.append(PropertyFactory.getFormattedString(
+					"in_InfoRequirements", //$NON-NLS-1$
+					bString));
 			}
 
 			bString = aSkill.getDefaultSourceString();
@@ -2249,7 +2254,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					bString = pcSkill.getModifierExplanation(pc, false);
 					if (bString.length() != 0)
 					{
-						b.append("<br><b>PC Modifier</b>: ").append(bString);
+						b.append(PropertyFactory.getFormattedString(
+							"in_iskHtml_PcMod", //$NON-NLS-1$
+							bString));
 					}
 				}
 			}
@@ -2262,12 +2269,14 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					bString = pcSkill.getRanksExplanation();
 					if (bString.length() != 0)
 					{
-						b.append("<br><b>PC Ranks</b>: ").append(bString);
+						b.append(PropertyFactory.getFormattedString(
+							"in_iskHtml_Ranks", //$NON-NLS-1$
+							bString));
 					}
 				}
 			}
 
-			b.append("</html>"); //$NON-NLS-1$
+			b.append(END_HTML);
 			infoLabel.setText(b.toString());
 		}
 	}

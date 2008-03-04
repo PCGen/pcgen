@@ -42,7 +42,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -399,32 +398,51 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		if ((aRace != null) && !aRace.getKeyName().startsWith("<none"))
 		{
-			b.append("<b>").append(aRace.piSubString()).append("</b>");
-			b.append("<br><b>RACE TYPE</b>: ").append(aRace.getRaceType());
+			b.append("<font size=+1><b>").append(aRace.piSubString()).append(
+				"</b></font><br/>");
+
+			b.append(PropertyFactory.getFormattedString(
+				"in_irInfoRaceType", //$NON-NLS-1$
+				aRace.getRaceType()));
 			List<String> subTypes = aRace.getRacialSubTypes();
 			if (subTypes.size() > 0)
 			{
-				b.append(" &nbsp;<b>SUBTYPES</b>: ");
+				StringBuffer subtypes = new StringBuffer();
 				boolean first = true;
 				for (String s : subTypes)
 				{
 					if (!first)
 					{
-						b.append(", ");
+						subtypes.append(", ");
 					}
-					b.append(s);
+					subtypes.append(s);
 					first = false;
 				}
+				b.append(PropertyFactory.getFormattedString(
+					"in_irInfoSubType", //$NON-NLS-1$
+					subtypes.toString()));
 			}
 			if (aRace.getType().length() > 0)
 			{
-				b.append(" &nbsp;<b>TYPE</b>:").append(aRace.getType());
+				b.append(PropertyFactory.getFormattedString(
+					"in_irInfoType", //$NON-NLS-1$
+					aRace.getType()));
 			}
-			String bString = aRace.getDefaultSourceString();
 
+			String bString = aRace.preReqHTMLStrings(getPc(), false);
 			if (bString.length() > 0)
 			{
-				b.append(" &nbsp;<b>SOURCE</b>:").append(bString);
+				b.append(PropertyFactory.getFormattedString(
+					"in_InfoRequirements", //$NON-NLS-1$
+					bString));
+			}
+
+			bString = aRace.getDefaultSourceString();
+			if (bString.length() > 0)
+			{
+				b.append(PropertyFactory.getFormattedString(
+					"in_InfoSource", //$NON-NLS-1$
+					bString));
 			}
 		}
 

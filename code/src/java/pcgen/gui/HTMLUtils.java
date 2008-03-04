@@ -60,4 +60,7 @@ public final class HTMLUtils
 
 	/** Constant for 2 spaces in HTML */
 	public static final String TWO_SPACES = " &nbsp;"; //$NON-NLS-1$
+
+	/** Constant for 3 spaces in HTML */
+	public static final String THREE_SPACES = " &nbsp; "; //$NON-NLS-1$
 }

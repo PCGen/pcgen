@@ -27,6 +27,8 @@
  */
 package pcgen.gui.tabs;
 
+import static pcgen.gui.HTMLUtils.*;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -353,62 +355,70 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		if (aDeity != null)
 		{
 			StringBuffer infoText =
-					new StringBuffer().append("<html><b>").append(
-						aDeity.piSubString()).append("</b>");
+					new StringBuffer().append(HTML).append(FONT_PLUS_1).append(BOLD).append(
+						aDeity.piSubString()).append(END_BOLD).append(END_FONT);
 
 			String aString = aDeity.getTitle();
 
 			if (aString.length() != 0)
 			{
-				infoText.append("&nbsp;(").append(aString).append(")");
+				infoText.append(THREE_SPACES).append("(").append(aString).append(")");
 			}
 
-			infoText.append(" &nbsp;<b>").append(
-				PropertyFactory.getString("in_descrip")).append("</b>:")
-				.append(aDeity.piDescString(pc));
-
-			aString = aDeity.preReqHTMLStrings(pc, false);
-
-			if (aString.length() != 0)
-			{
-				infoText.append(" &nbsp;<b>").append(
-					PropertyFactory.getString("in_requirements")).append(
-					"</b>:").append(aString);
-			}
+			infoText.append(BR);
+			infoText.append(PropertyFactory.getFormattedString(
+				"in_InfoDescription", //$NON-NLS-1$
+				aDeity.piDescString(pc)));
 
 			aString = aDeity.getFavoredWeapon();
-
 			if (aString.length() != 0)
 			{
-				infoText.append(" &nbsp;<b>").append(
-					PropertyFactory.getString("in_deityFavWeap")).append(
-					"</b>:").append(aString);
+				infoText.append(THREE_SPACES);
+				infoText.append(PropertyFactory.getFormattedString(
+					"in_deityFavWeap", //$NON-NLS-1$
+					aString));
 			}
 
 			aString = aDeity.getHolyItem();
-
 			if (aString.length() != 0)
 			{
-				infoText.append(" &nbsp;<b>").append(
-					PropertyFactory.getString("in_deityHolyIt"))
-					.append("</b>:").append(aString);
+				infoText.append(THREE_SPACES);
+				infoText.append(PropertyFactory.getFormattedString(
+					"in_deityHolyIt", //$NON-NLS-1$
+					aString));
 			}
 
 			aString = aDeity.getWorshippers();
-
 			if (aString.length() != 0)
 			{
-				infoText.append(" &nbsp;<b>").append(
-					PropertyFactory.getString("in_deityWorshippers")).append(
-					"</b>:").append(aString);
+				infoText.append(THREE_SPACES);
+				infoText.append(PropertyFactory.getFormattedString(
+					"in_deityWorshippers", //$NON-NLS-1$
+					aString));
 			}
 
-			infoText.append("</html>");
+			aString = aDeity.preReqHTMLStrings(pc, false);
+			if (aString.length() != 0)
+			{
+				infoText.append(PropertyFactory.getFormattedString(
+					"in_InfoRequirements", //$NON-NLS-1$
+					aString));
+			}
+
+			aString = aDeity.getDefaultSourceString();
+			if (aString.length() > 0)
+			{
+				infoText.append(PropertyFactory.getFormattedString(
+					"in_InfoSource", //$NON-NLS-1$
+					aString));
+			}
+
+			infoText.append(END_HTML);
 			deityInfo.setText(infoText.toString());
 		}
 		else
 		{
-			deityInfo.setText();
+			deityInfo.setText(HTML + END_HTML);
 		}
 	}
 
@@ -419,36 +429,45 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	 */
 	private void setDomainInfoText(Domain aDomain, List<Prerequisite> prereqs)
 	{
-		StringBuffer infoText = new StringBuffer().append("<html>");
+		StringBuffer infoText = new StringBuffer().append(HTML);
 
 		if (aDomain != null)
 		{
-			infoText.append("<b>").append(aDomain.piSubString());
+			infoText.append(FONT_PLUS_1).append(BOLD).append(
+				aDomain.piSubString()).append(END_BOLD).append(END_FONT);
 
 			String aString = aDomain.getDescription(getPc());
-
 			if (aString.length() != 0)
 			{
-				infoText.append(" &nbsp;").append(
-					PropertyFactory.getString("in_domainGrant"))
-					.append("</b>:").append(aString);
+				infoText.append(BR);
+				infoText.append(PropertyFactory.getFormattedString(
+					"in_domainGrant", //$NON-NLS-1$
+					aString));
 			}
 
 			aString = aDomain.preReqHTMLStrings(pc, false);
-
 			if (aString.length() != 0)
 			{
-				infoText.append(" &nbsp;<b>").append(
-					PropertyFactory.getString("in_requirements")).append(
-					"</b>:").append(aString);
+				infoText.append(PropertyFactory.getFormattedString(
+					"in_InfoRequirements", //$NON-NLS-1$
+					aString));
 			}
 			
 			aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, prereqs, false);
 			if (aString.length() != 0)
 			{
-				infoText.append(" &nbsp;<b>").append(
-					PropertyFactory.getString("in_domainRequirements")).append(
-					"</b>:").append(aString);
+				infoText.append(BR);
+				infoText.append(PropertyFactory.getFormattedString(
+					"in_domainRequirements", //$NON-NLS-1$
+					aString));
+			}
+
+			aString = aDomain.getDefaultSourceString();
+			if (aString.length() > 0)
+			{
+				infoText.append(PropertyFactory.getFormattedString(
+					"in_InfoSource", //$NON-NLS-1$
+					aString));
 			}
 			
 
