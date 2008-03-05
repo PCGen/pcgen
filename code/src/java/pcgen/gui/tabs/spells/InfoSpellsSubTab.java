@@ -67,10 +67,12 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.GuiConstants;
+import pcgen.gui.HTMLUtils;
 import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.utils.ClickHandler;
+import pcgen.gui.utils.InfoLabelTextBuilder;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTreeTable;
@@ -680,8 +682,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			lastClass = aClass.getKeyName();
 
 			int highestSpellLevel = aClass.getHighestLevelSpell(pc);
-			StringBuffer b = new StringBuffer();
-			b.append("<html><table border=1><tr><td><font size=-2><b>"); //$NON-NLS-1$
+			final InfoLabelTextBuilder b = new InfoLabelTextBuilder();
+			b.append("<table border=1><tr><td><font size=-2><b>"); //$NON-NLS-1$
 			b.append(aClass.piSubString()).append(" ["); //$NON-NLS-1$
 			b.append(String.valueOf(aClass.getLevel()
 				+ (int) pc.getTotalBonusTo("PCLEVEL", aClass.getKeyName()))); //$NON-NLS-1$
@@ -690,7 +692,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			for (int i = 0; i <= highestSpellLevel; ++i)
 			{
 				b.append("<td><font size=-2><b><center>&nbsp;"); //$NON-NLS-1$
-				b.append(i);
+				b.append(String.valueOf(i));
 				b.append("&nbsp;</b></center></font></td>"); //$NON-NLS-1$
 			}
 
@@ -720,7 +722,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 					}
 
 					b.append("<td><font size=-1><center>"); //$NON-NLS-1$
-					b.append(a).append(bString);
+					b.append(String.valueOf(a)).append(bString.toString());
 					b.append("</center></font></td>"); //$NON-NLS-1$
 				}
 			}
@@ -730,32 +732,28 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			for (int i = 0; i <= highestSpellLevel; ++i)
 			{
 				b.append("<td><font size=-1><center>"); //$NON-NLS-1$
-				b.append(getDC(aClass, i, pc));
+				b.append(String.valueOf(getDC(aClass, i, pc)));
 				b.append("</center></font></td>"); //$NON-NLS-1$
 			}
 
 			b.append("</tr></table>"); //$NON-NLS-1$
 
-			b.append(PropertyFactory.getString("InfoSpells.caster.type")); //$NON-NLS-1$
-			b.append("<b>").append(aClass.getSpellType()); //$NON-NLS-1$
-			b.append("</b><br>"); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("InfoSpells.stat.bonus")); //$NON-NLS-1$
-			b.append("<b>"); //$NON-NLS-1$
-			b.append(aClass.getSpellBaseStat()).append("</b><br>"); //$NON-NLS-1$
+			b.appendI18nElement("InfoSpells.caster.type", aClass.getSpellType()); //$NON-NLS-1$
+			b.appendLineBreak();
+			b.appendI18nElement("InfoSpells.stat.bonus", aClass.getSpellBaseStat()); //$NON-NLS-1$ 
 
 			if (aClass.hasSpecialtyList() || pc.hasCharacterDomainList())
 			{
-				b.append(PropertyFactory.getString("InfoSpells.school")); //$NON-NLS-1$
-				b.append("<b>"); //$NON-NLS-1$
 				boolean needComma = false;
+				StringBuffer schoolInfo = new StringBuffer(); 
 				for (final String spec : aClass.getSpecialtyList())
 				{
 					if (needComma)
 					{
-						b.append(',');
+						schoolInfo.append(',');
 					}
 					needComma = true;
-					b.append(spec);
+					schoolInfo.append(spec);
 				}
 
 				for (CharacterDomain cd : pc.getCharacterDomainList())
@@ -764,34 +762,30 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 					{
 						if (needComma)
 						{
-							b.append(',');
+							schoolInfo.append(',');
 						}
 						needComma = true;
-						b.append(cd.getDomain().getKeyName());
+						schoolInfo.append(cd.getDomain().getKeyName());
 					}
 				}
-				b.append("</b><br>"); //$NON-NLS-1$
+				b.appendLineBreak();
+				b.appendI18nElement("InfoSpells.school", schoolInfo.toString()); //$NON-NLS-1$ 
 			}
 
 			if (aClass.getProhibitedSchools() != null)
 			{
-				b.append(PropertyFactory
-					.getString("InfoSpells.prohibited.school")); //$NON-NLS-1$
-				b.append("<b>"); //$NON-NLS-1$
-				b.append(CoreUtility.join(aClass.getProhibitedSchools(), ","));
-				b.append("</b><br>"); //$NON-NLS-1$
+				b.appendLineBreak();
+				b.appendI18nElement("InfoSpells.prohibited.school", //$NON-NLS-1$ 
+					CoreUtility.join(aClass.getProhibitedSchools(), ",")); //$NON-NLS-1$ 
 			}
 
 			String bString = aClass.getDefaultSourceString();
-
 			if (bString.length() > 0)
 			{
-				b.append("<b>"); //$NON-NLS-1$
-				b.append(PropertyFactory.getString("InfoSpells.source")); //$NON-NLS-1$
-				b.append("</b>").append(bString); //$NON-NLS-1$
+				b.appendLineBreak();
+				b.appendI18nElement("in_source", bString); //$NON-NLS-1$ 
 			}
 
-			b.append("</html>"); //$NON-NLS-1$
 			classLabel.setText(b.toString());
 		}
 	}
@@ -816,20 +810,16 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 		if (aSpell != null)
 		{
-			StringBuffer b = new StringBuffer();
-			b.append("<html><font size=+1><b>"); //$NON-NLS-1$
-			b.append(aSpell.piSubString()).append("</b></font>"); //$NON-NLS-1$
+			final InfoLabelTextBuilder b =
+					new InfoLabelTextBuilder(aSpell.piSubString());
 
 			final String addString = si.toString(); // would add [featList]
-
 			if (addString.length() > 0)
 			{
 				b.append(" ").append(addString); //$NON-NLS-1$
 			}
 
-			b.append("<br/><b>"); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("InfoSpells.level.title")); //$NON-NLS-1$
-			b.append("</b>&nbsp;"); //$NON-NLS-1$
+			StringBuffer levelString = new StringBuffer();
 			if (cs.getOwner() != null)
 			{
 
@@ -840,16 +830,18 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				{
 					if (index > 0)
 					{
-						b.append(',');
+						levelString.append(',');
 					}
 
-					b.append(levels[index]);
+					levelString.append(levels[index]);
 				}
 			}
 			else
 			{
-				b.append(aSpell.getLevelString());
+				levelString.append(aSpell.getLevelString());
 			}
+			b.appendLineBreak();
+			b.appendI18nElement("InfoSpells.level.title", levelString.toString()); //$NON-NLS-1$
 
 			b.append(PropertyFactory.getFormattedString(
 				"InfoSpells.html.spell.details", //$NON-NLS-1$
@@ -865,37 +857,33 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 					pc.parseSpellString(aSpell, aSpell.getTarget(), cs
 						.getOwner()),
 					aSpell.getSaveInfo(),
-					aSpell.getSpellResistance(),
-					pc.parseSpellString(aSpell, aSpell.getDescription(getPc()),
-						cs.getOwner())}));
-
+					aSpell.getSpellResistance()}));
+			
 			if (Spell.hasPPCost())
 			{
-				b
-					.append(
-						PropertyFactory.getString("InfoSpellsSubTab.PPCost")).append( //$NON-NLS-1$
-						aSpell.getPPCost());
+				b.appendSpacer();
+				b.appendI18nElement("InfoSpellsSubTab.PPCost", String //$NON-NLS-1$
+					.valueOf(aSpell.getPPCost()));
 			}
+
+			b.appendLineBreak();
+			b.appendI18nElement("in_descrip", pc.parseSpellString(aSpell, 
+				aSpell.getDescription(getPc()), cs.getOwner()));
 
 			final String cString = aSpell.preReqHTMLStrings(pc, false);
 			if (cString.length() > 0)
 			{
-				b
-					.append(
-						PropertyFactory
-							.getString("InfoSpellsSubTab.Requirements")).append(cString); //$NON-NLS-1$
+				b.appendLineBreak();
+				b.appendI18nElement("in_requirements", cString); //$NON-NLS-1$
 			}
 
 			String spellSource = aSpell.getDefaultSourceString();
-
 			if (spellSource.length() > 0)
 			{
-				b.append(PropertyFactory.getFormattedString(
-					"InfoSpells.html.spell.source", //$NON-NLS-1$
-					spellSource));
+				b.appendLineBreak();
+				b.appendI18nElement("in_source", spellSource); //$NON-NLS-1$
 			}
 
-			b.append("</html>"); //$NON-NLS-1$
 			infoLabel.setText(b.toString());
 		}
 	}
@@ -913,22 +901,20 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			return;
 		}
 
-		StringBuffer b = new StringBuffer();
-		b.append("<html><font size=+1><b>"); //$NON-NLS-1$
-		b.append(book.getName()).append("</b></font>"); //$NON-NLS-1$
+		final InfoLabelTextBuilder b = new InfoLabelTextBuilder(book.getName());
 
 		b.append(" ("); //$NON-NLS-1$
 		b.append(book.getTypeName());
 		if (book.getName().equals(pc.getSpellBookNameToAutoAddKnown()))
 		{
-			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b
-				.append(
-					PropertyFactory
-						.getString("InfoSpellsSubTab.DefaultKnownBook")).append("</b> "); //$NON-NLS-1$//$NON-NLS-2$
+			b.append(HTMLUtils.TWO_SPACES).append(HTMLUtils.BOLD);
+			b.append(
+				PropertyFactory.getString("InfoSpellsSubTab.DefaultKnownBook")) //$NON-NLS-1$
+				.append(HTMLUtils.END_BOLD);
 		}
-		b.append(")<br>"); //$NON-NLS-1$
-
+		b.append(")"); //$NON-NLS-1$
+		b.appendLineBreak();
+		
 		if (book.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
 			b.append(PropertyFactory.getFormattedString(
@@ -942,12 +928,10 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 		if (book.getDescription() != null)
 		{
-			b.append(PropertyFactory.getFormattedString(
-				"in_InfoDescription", //$NON-NLS-1$
-				book.getDescription()));
+			b.appendLineBreak();
+			b.appendI18nElement("in_descrip", book.getDescription()); //$NON-NLS-1$
 		}
 
-		b.append("</html>"); //$NON-NLS-1$
 		infoLabel.setText(b.toString());
 	}
 

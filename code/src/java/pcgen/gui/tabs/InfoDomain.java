@@ -473,7 +473,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		}
 
-		infoText.append("</html>");
+		infoText.append(END_HTML);
 		domainInfo.setText(infoText.toString());
 	}
 

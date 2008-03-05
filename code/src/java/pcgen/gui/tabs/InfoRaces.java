@@ -85,6 +85,7 @@ import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.ClickHandler;
+import pcgen.gui.utils.InfoLabelTextBuilder;
 import pcgen.gui.utils.InfoViewModelBuilder;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
@@ -393,17 +394,15 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 	private void setInfoLabelText(Race aRace)
 	{
-		StringBuffer b = new StringBuffer();
-		b.append("<html>");
+		final InfoLabelTextBuilder b = new InfoLabelTextBuilder();
 
 		if ((aRace != null) && !aRace.getKeyName().startsWith("<none"))
 		{
-			b.append("<font size=+1><b>").append(aRace.piSubString()).append(
-				"</b></font><br/>");
+			b.appendTitleElement(aRace.piSubString());
 
-			b.append(PropertyFactory.getFormattedString(
-				"in_irInfoRaceType", //$NON-NLS-1$
-				aRace.getRaceType()));
+			b.appendLineBreak();
+			b.appendI18nElement("in_irInfoRaceType",aRace.getRaceType()); //$NON-NLS-1$
+			
 			List<String> subTypes = aRace.getRacialSubTypes();
 			if (subTypes.size() > 0)
 			{
@@ -418,35 +417,30 @@ public class InfoRaces extends BaseCharacterInfoTab
 					subtypes.append(s);
 					first = false;
 				}
-				b.append(PropertyFactory.getFormattedString(
-					"in_irInfoSubType", //$NON-NLS-1$
-					subtypes.toString()));
+				b.appendSpacer();
+				b.appendI18nElement("in_irInfoSubType", subtypes.toString()); //$NON-NLS-1$
 			}
 			if (aRace.getType().length() > 0)
 			{
-				b.append(PropertyFactory.getFormattedString(
-					"in_irInfoType", //$NON-NLS-1$
-					aRace.getType()));
+				b.appendSpacer();
+				b.appendI18nElement("in_irInfoType", aRace.getType()); //$NON-NLS-1$
 			}
 
 			String bString = aRace.preReqHTMLStrings(getPc(), false);
 			if (bString.length() > 0)
 			{
-				b.append(PropertyFactory.getFormattedString(
-					"in_InfoRequirements", //$NON-NLS-1$
-					bString));
+				b.appendLineBreak();
+				b.appendI18nElement("in_requirements", bString); //$NON-NLS-1$
 			}
 
 			bString = aRace.getDefaultSourceString();
 			if (bString.length() > 0)
 			{
-				b.append(PropertyFactory.getFormattedString(
-					"in_InfoSource", //$NON-NLS-1$
-					bString));
+				b.appendLineBreak();
+				b.appendI18nElement("in_sourceLabel", bString); //$NON-NLS-1$
 			}
 		}
 
-		b.append("</html>");
 		infoLabel.setText(b.toString());
 	}
 

@@ -86,6 +86,7 @@ import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.ClickHandler;
 import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.InfoLabelTextBuilder;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTreeTable;
@@ -670,41 +671,36 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	{
 		lastTemplate = temp; //even if that's null
 
-		StringBuffer b = new StringBuffer();
-		b.append("<html>");
+		final InfoLabelTextBuilder b = new InfoLabelTextBuilder();
 
 		if ((temp != null))
 		{
-			b.append("<font size=+1><b>").append(temp.piSubString()).append(
-				"</b></font><br/>");
-			b.append(PropertyFactory.getFormattedString(
-				"in_irInfoRaceType", //$NON-NLS-1$
-				temp.getRaceType()));
+			b.appendTitleElement(temp.piSubString());
+
+			b.appendLineBreak();
+			b.appendI18nElement("in_irInfoRaceType",temp.getRaceType()); //$NON-NLS-1$
+
 			if (temp.getType().length() > 0)
 			{
-				b.append(PropertyFactory.getFormattedString(
-					"in_irInfoType", //$NON-NLS-1$
-					temp.getType()));
+				b.appendSpacer();
+				b.appendI18nElement("in_irInfoType", temp.getType()); //$NON-NLS-1$
 			}
 
 			String bString = temp.preReqHTMLStrings(getPc(), false);
 			if (bString.length() > 0)
 			{
-				b.append(PropertyFactory.getFormattedString(
-					"in_InfoRequirements", //$NON-NLS-1$
-					bString));
+				b.appendLineBreak();
+				b.appendI18nElement("in_requirements", bString); //$NON-NLS-1$
 			}
 
 			bString = temp.getDefaultSourceString();
 			if (bString.length() > 0)
 			{
-				b.append("<br/><b>").append(
-					PropertyFactory.getString("in_sourceLabel"))
-					.append("</b>:").append(bString);
+				b.appendLineBreak();
+				b.appendI18nElement("in_sourceLabel", bString); //$NON-NLS-1$
 			}
 		}
 
-		b.append("</html>");
 		infoLabel.setText(b.toString());
 	}
 

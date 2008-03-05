@@ -105,7 +105,12 @@ public class InfoLabelTextBuilder {
 		buffer.append("<b>").append(title).append("</b>");
 	}
 	
-	private void appendTitleElement(final String title)
+	/**
+	 * Append a title element with a larger sized font.
+	 * 
+	 * @param title the title
+	 */
+	public void appendTitleElement(final String title)
 	{
 		buffer.append("<b><font size=+1>").append(title).append("</font></b>");
 	}

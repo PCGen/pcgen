@@ -99,6 +99,7 @@ import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.ClickHandler;
 import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.InfoLabelTextBuilder;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTreeTable;
@@ -380,10 +381,10 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		if (aClass != null)
 		{
-			StringBuffer b = new StringBuffer();
-			b.append("<html><font size=+1><b>").append(aClass.piSubString()).append(
-			"</b></font><br/>");
+			final InfoLabelTextBuilder b = new InfoLabelTextBuilder(aClass.piSubString());
+			b.appendLineBreak();
 
+			
 			//
 			// Type
 			//
@@ -392,9 +393,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			{
 				aString = lastClass.getType();
 			}
-			b.append(PropertyFactory.getFormattedString(
-				"in_clInfoType", //$NON-NLS-1$
-				aString));
+			b.appendI18nElement("in_clInfoType",aString); //$NON-NLS-1$
 
 			//
 			// Hit Die
@@ -406,9 +405,8 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			}
 			if (hitDie != 0)
 			{
-				b.append(PropertyFactory.getFormattedString(
-					"in_clInfoHD", //$NON-NLS-1$
-					hitDie));
+				b.appendSpacer();
+				b.appendI18nElement("in_clInfoHD", "d" + hitDie); //$NON-NLS-1$  //$NON-NLS-2$
 			}
 
 			if (Globals.getGameModeShowSpellTab())
@@ -422,9 +420,8 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					aString = lastClass.getSpellType();
 				}
 
-				b.append(PropertyFactory.getFormattedString(
-					"in_clInfoSpellType", //$NON-NLS-1$
-					aString));
+				b.appendSpacer();
+				b.appendI18nElement("in_clInfoSpellType", aString); //$NON-NLS-1$
 
 				aString = aClass.getSpellBaseStat();
 
@@ -442,9 +439,8 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					aString = lastClass.getSpellBaseStat();
 				}
 
-				b.append(PropertyFactory.getFormattedString(
-					"in_clInfoBaseStat", //$NON-NLS-1$
-					aString));
+				b.appendSpacer();
+				b.appendI18nElement("in_clInfoBaseStat", aString); //$NON-NLS-1$
 			}
 
 			//
@@ -459,9 +455,8 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 			if (aString.length() > 0)
 			{
-				b.append(PropertyFactory.getFormattedString(
-					"in_InfoRequirements", //$NON-NLS-1$
-					aString));
+				b.appendLineBreak();
+				b.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 			}
 
 			//
@@ -476,15 +471,10 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 			if (aString.length() > 0)
 			{
-				b.append(PropertyFactory.getFormattedString(
-					"in_InfoSource", //$NON-NLS-1$
-					aString));
+				b.appendLineBreak();
+				b.appendI18nElement("in_source", aString); //$NON-NLS-1$
 			}
 
-			//			aString = getBabTitle();
-			//			b.append(" <b>").append(aString).append(":</b>:").append(aClass.getAttackBonusType());
-
-			b.append("</html>");
 			infoLabel.setText(b.toString());
 		}
 	}
