@@ -25,16 +25,26 @@
  */
 package plugin.pretokens.test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
+import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.Ability.Nature;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -87,10 +97,66 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements
 		String subKey = prereq.getSubKey();
 		String categoryName = prereq.getCategoryName();
 		AbilityCategory category = gameMode.getAbilityCategory(categoryName);
-		int runningTotal =
-				PrerequisiteUtilities.passesAbilityTest(prereq, character,
-					countMults, number, key, subKey, categoryName, category);
+		
+		Set<Ability> servesAsList = getServesAsList(character);
+		int runningTotal;
+
+		runningTotal = PrerequisiteUtilities.passesAbilityTest(prereq, character,
+						countMults, number, key, subKey, categoryName, category);
+		if (runningTotal ==0)
+		{
+			for (Ability ability: servesAsList)
+			{
+				try
+				{
+					Prerequisite newPre = prereq.clone();
+					String newCatName = ability.getCategory();
+					AbilityCategory newCategory = gameMode.getAbilityCategory(newCatName);
+					String newKey = ability.getDisplayName();
+					
+					newPre.setCategoryName(newCatName);
+					newPre.setKey(newKey);
+					runningTotal = PrerequisiteUtilities.passesAbilityTest(newPre, character,
+						countMults, number, newKey, subKey, newCatName, newCategory);	
+					if (runningTotal > 0)
+					{
+						break;
+					}
+				}
+				catch (CloneNotSupportedException e)
+				{
+					Logging.debugPrint("");
+				}
+				
+				
+			}
+		}
 		return countedTotal(prereq, runningTotal);
+	}
+
+	/**
+	 * Returns a set for all the characters abilities that have 
+	 * a servesAs list.
+	 * 
+	 * @param character
+	 * @return Set<Ability>
+	 */
+	private Set<Ability> getServesAsList(final PlayerCharacter character)
+	{
+		Map<Nature, Set<Ability>> allAbilities = character.getAbilitiesSet();
+		Set<Ability> theAbilitiesToCheck = new TreeSet<Ability>();
+		for(Nature nature: allAbilities.keySet())
+		{
+			Set<Ability> abilityItems = allAbilities.get(nature);
+			for (Ability ab: abilityItems)
+			{
+				if (ab.getServesAs().size() > 0)
+				{
+					theAbilitiesToCheck.add(ab);
+				}
+			}			
+		}
+		return theAbilitiesToCheck;
 	}
 
 	@Override
