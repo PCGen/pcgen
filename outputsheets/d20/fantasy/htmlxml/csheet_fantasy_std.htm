@@ -17,7 +17,7 @@ $Date$
 <head>
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
 <title>|NAME| [|POOL.COST| Points]</title>
-<style TYPE="text/css">
+<style type="text/css">
 	.font4 {  font-family: Arial; font-size:4pt; }
 	.font5 {  font-family: Arial; font-size:5pt; }
 	.font6 {  font-family: Arial; font-size:6pt; }
@@ -96,7 +96,7 @@ $Date$
   <td colspan="1" class="h">|ALIGNMENT|</td>
   <td colspan="1" class="h">|DEITY|</td>
   <td class="h">|POOL.COST|</td>
-  <td rowspan="6" align="center" width="1%" class="border"><font style="font-size:10pt"><A HREF="#Bio"><IMG SRC="|PORTRAIT|" height="100" ALT="Click for Bio" BORDER="0" /></A><br /></font></td>
+  <td rowspan="6" align="center" width="1%" class="border"><font style="font-size:10pt"><a href="#Bio"><img src="|PORTRAIT|" height="100" alt="Click for Bio" border="0" /></a><br /></font></td>
  </tr>
  <tr>
   <td colspan="2" class="topline">CHARACTER NAME</td>
@@ -952,14 +952,15 @@ Wisdom
 |ENDFOR|
        <tr>
         <td valign="top" width="41%" class="border" align="right" colspan="1"><font style="font-size: 8pt">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</font></td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP><font style="font-size: 8pt">|TOTAL.WEIGHT|</font></td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP><font style="font-size: 8pt">|TOTAL.VALUE|</font></td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: 8pt">|TOTAL.WEIGHT|</font></td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: 8pt">|TOTAL.VALUE|</font></td>
        </tr>
       </table>
      </td>
     </tr>
    </table>
 <!-- STOP Equipment Table -->
+   </td>
   </tr>
   <tr>
    <td width="50%" valign="top">
@@ -969,18 +970,18 @@ Wisdom
       <td bgcolor="black" align="center" colspan="6"><font color="white" style="font-size: 9pt"><b>WEIGHT ALLOWANCE</b></font></td>
      </tr>
      <tr>
-      <td valign="top" class="border8" align="right"><B>Light</B></td>
+      <td valign="top" class="border8" align="right"><b>Light</b></td>
       <td valign="top" class="border8">|WEIGHT.LIGHT|</td>
-      <td valign="top" class="border8" align="right"><B>Medium</B></td>
+      <td valign="top" class="border8" align="right"><b>Medium</b></td>
       <td valign="top" class="border8">|WEIGHT.MEDIUM|</td>
-      <td valign="top" class="border8" align="right"><B>Heavy</B></td>
+      <td valign="top" class="border8" align="right"><b>Heavy</b></td>
       <td valign="top" class="border8">|WEIGHT.HEAVY|</td>
      </tr>
     </table>
 <!-- STOP Weight Table -->
 <!-- START Illumination Table -->
 |IIF(VAR.IF(var("COUNT[EQTYPE.LightSource]")>0;1;0):1)|
-<br>
+<br/>
     <table width="100%" cellspacing="0" cellpadding="3" summary="Illumination">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>ILLUMINATION</b></font></td>
