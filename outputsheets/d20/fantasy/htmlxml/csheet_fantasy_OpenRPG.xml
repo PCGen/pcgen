@@ -9,7 +9,7 @@
       <text multiline="0" send_button="0">|RACE|</text>
     </nodehandler>
     <nodehandler class="textctrl_handler" icon="note" module="forms" name="Classes">
- <text multiline="0" send_button="0">|CLASSLIST|</text>
+      <text multiline="0" send_button="0">|CLASSLIST|</text>
     </nodehandler>
     <nodehandler class="textctrl_handler" icon="note" module="forms" name="Speed">
       <text multiline="0" send_button="0">|MOVEMENT|</text>
@@ -46,8 +46,8 @@
         <macro name=""/>
       </macros>
     </nodehandler>
-    
   </nodehandler>
+    
   <nodehandler class="form_handler" icon="form" module="forms" name="Special Abilities">
     <form height="600" width="400"/>
     <nodehandler class="textctrl_handler" icon="note" module="forms" name="Feats" version="1.0">
@@ -207,8 +207,8 @@
     	</nodehandler>
 |ENDFOR|
     </nodehandler>
-|ENDFOR| <!- All Ranges -->
-|ELSE| <!- Else if  contents -->
+|ENDFOR| <!-- All Ranges -->
+|ELSE| <!-- Else if  contents -->
 <!-- contents -->
 |FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
 |FOR,%range,0,4,1,0|

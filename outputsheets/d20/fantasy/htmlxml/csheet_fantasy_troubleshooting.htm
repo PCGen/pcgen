@@ -96,8 +96,8 @@ $Date: 2007/03/08 18:57:54 $
 |ENDIF|
 <br>
 
-<p><hr align="left" width="50%">
-<b>Ability Scores</b></p>
+<hr align="left" width="50%">
+<p><b>Ability Scores</b></p>
 
 <blockquote>
 |FOR,%stat,0,COUNT[STATS]-1,1,1|
@@ -123,8 +123,8 @@ $Date: 2007/03/08 18:57:54 $
 |ENDFOR|
 </blockquote>
 
-<p><hr align="left" width="50%">
-<b>Saving Throws</b></p>
+<hr align="left" width="50%">
+<p><b>Saving Throws</b></p>
 
 <blockquote>
 <b>Fortitude</b>: |CHECK.FORTITUDE.TOTAL| = 
@@ -186,8 +186,8 @@ $Date: 2007/03/08 18:57:54 $
 <br>
 </blockquote>
 
-<p><hr align="left" width="50%">
-<b>Attacks</b></p>
+<hr align="left" width="50%">
+<p><b>Attacks</b></p>
 
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 <b>|WEAPON.%weap.NAME.NOSTAR| </b>
@@ -255,8 +255,8 @@ To Hit:
 <br>
 |ENDFOR|
 
-<p><hr align="left" width="50%">
-<b>Skills</b></p>
+<hr align="left" width="50%">
+<p><b>Skills</b></p>
 
 <blockquote>
 |FOR,%skill,0,COUNT[SKILLS]-1,1,0|
@@ -271,7 +271,7 @@ To Hit:
 |ENDFOR|
 </blockquote>
 
-<b>Skill Points</b></p>
+<p><b>Skill Points</b></p>
 <blockquote>
 |FOR,%points,0,COUNT[CLASSES]-1,1,0|
 |MANUALWHITESPACE| |CLASS.%points.LEVEL| |TEXT.NUMSUFFIX.CLASS.%points.LEVEL| |ENDMANUALWHITESPACE| level |CLASS.%points|: <b>|SKILLPOINTS.TOTAL.%points|</b>
@@ -286,7 +286,7 @@ To Hit:
 
 |IIF(var("COUNT[FEATS.VISIBLE]")==0)|
 |ELSE|
-<b>Feats</b></p>
+<p><b>Feats</b></p>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[FEATS.VISIBLE]-1,1,0|
@@ -296,7 +296,7 @@ To Hit:
 
 |IIF(var("COUNT[FEATSAUTO.VISIBLE]")==0)|
 |ELSE|
-<b>Feats (Automatic)</b></p>
+<p><b>Feats (Automatic)</b></p>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[FEATSAUTO.VISIBLE]-1,1,0|
@@ -306,7 +306,7 @@ To Hit:
 
 |IIF(var("COUNT[VFEATS.VISIBLE]")==0)|
 |ELSE|
-<b>Feats (Virtual)</b></p>
+<p><b>Feats (Virtual)</b></p>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|
@@ -319,7 +319,7 @@ To Hit:
 
 |IIF(var("COUNT[FEATS.HIDDEN]")==0)|
 |ELSE|
-<b>Feats (Hidden)</b></p>
+<p><b>Feats (Hidden)</b></p>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[FEATS.HIDDEN]-1,1,0|
@@ -329,7 +329,7 @@ To Hit:
 
 |IIF(var("COUNT[FEATSAUTO.HIDDEN]")==0)|
 |ELSE|
-<b>Feats (Hidden Automatic)</b></p>
+<p><b>Feats (Hidden Automatic)</b></p>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[FEATSAUTO.HIDDEN]-1,1,0|
@@ -339,7 +339,7 @@ To Hit:
 
 |IIF(var("COUNT[VFEATS.HIDDEN]")==0)|
 |ELSE|
-<b>Feats (Hidden Virtual)</b></p>
+<p><b>Feats (Hidden Virtual)</b></p>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[VFEATS.HIDDEN]-1,1,0|

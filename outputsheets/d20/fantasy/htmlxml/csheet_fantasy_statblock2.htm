@@ -162,7 +162,7 @@ Will
 <!-- SpellBooks -->
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
 |IIF(SPELLBOOK.%spellbook.TYPE:Spell Book)|
-<br><b>|SPELLBOOKNAME.%spellbook|</b>
+<br /><b>|SPELLBOOKNAME.%spellbook|</b>
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-2,1,1|
 |IIF(SPELLLISTMEMORIZE.%class:false)|
 |ELSE|
@@ -257,7 +257,7 @@ Will
 
 <!-- Innate Spell-Like Abilities -->
 |IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
-<br><b>Innate Spell-Like Abilities:</b>
+<br /><b>Innate Spell-Like Abilities:</b>
 |FOR,%spellbook,1,1,1,0|
 |FOR,%class,0,0,1,0|
 |FOR,%level,0,0,1,0|
@@ -285,7 +285,7 @@ at will)
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
 |IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
 |IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
-<br><b>|SPELLBOOK.%spellbook.NAME| Spell-Like Abilities:</b>
+<br /><b>|SPELLBOOK.%spellbook.NAME| Spell-Like Abilities:</b>
 |FOR,%class,0,0,1,0|
 |FOR,%level,0,0,1,0|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
@@ -311,7 +311,7 @@ at will)
 
 |FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
 |%SPELLLISTCLASS.%class| 
-<br><b>|SPELLLISTCLASS.%class|: </b>
+<br /><b>|SPELLLISTCLASS.%class|: </b>
 <i>Spells per Day</i>: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level) 
 <i>Known: </i>
 |FOR,%level,0,MAXSPELLLEVEL.%class,1,1|

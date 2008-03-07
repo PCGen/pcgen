@@ -155,10 +155,10 @@ TBODY TR TD.firstItem
 <!-- Start Weapon Section -->
 |FOR,%num,0,COUNT[EQTYPE.Weapon]-1,1,0|
 |IIF(WEAPON.%num.CATEGORY:Ranged)|
-				<table COLS="7" width="100%" summary="Weapons Table">
+				<table width="100%" summary="Weapons Table">
 				<thead>
 					<tr>
-						<th COLSPAN="2" width="25%" class="l10l5">WEAPON</th>
+						<th colspan="2" width="25%" class="l10l5">WEAPON</th>
 					    <th width="12.5%" class="c6sw">RANGE</th>
 					    <th width="12.5%" class="c6sw">Rate of Fire</th>
 					    <th width="12.5%" class="c6sw">HAND</th>
@@ -236,10 +236,10 @@ TBODY TR TD.firstItem
 				<br />
 |ELSE|
 |IIF(WEAPON.%num.CATEGORY:Exotic)|
-				<table COLS="7" width="100%" cellspacing="0" cellpadding="0" summary="Weapons Table">
+				<table width="100%" cellspacing="0" cellpadding="0" summary="Weapons Table">
 				<thead>
 					<tr>
-						<th COLSPAN="2" width="25%" class="l10l5">WEAPON</th>
+						<th colspan="2" width="25%" class="l10l5">WEAPON</th>
 					    <th width="15%" class="c6sw">RANGE</th>
 					    <th width="15%" class="c6sw">HAND</th>
 					    <th width="15%" class="c6sw" >TYPE</th>
@@ -256,7 +256,7 @@ TBODY TR TD.firstItem
 				        <td class="c8mgB">|WEAPON.%num.CRIT|/x|WEAPON.%num.MULT|
 				     </tr>
 </table>
-<table cols="4">
+<table>
 <tr>
 	<td class="c6mwB" width="15%" height="15">ATTACK BONUS</td>
 	<td class="c6mwB" width="15%" height="15">DAMAGE</td>
@@ -269,10 +269,10 @@ TBODY TR TD.firstItem
 </tr>
 </table>
 |ELSE|
-				<table COLS="7" width="100%" summary="Weapons Table">
+				<table width="100%" summary="Weapons Table">
 				<thead>
 					<tr>
-						<th COLSPAN="2" width="25%" class="l10l5">WEAPON</th>
+						<th colspan="2" width="25%" class="l10l5">WEAPON</th>
 					    <th width="15%" class="c6sw">RANGE</th>
 					    <th width="15%" class="c6sw">HAND</th>
 					    <th width="15%" class="c6sw" >TYPE</th>
@@ -333,7 +333,7 @@ TBODY TR TD.firstItem
 
 <!-- start Armor section -->
 |%ARMOR1|
-<table COLS="6" summary="Armor Table">
+<table summary="Armor Table">
   <thead>
     <tr>
     <th width="25%" class="first">ARMOR</th>
@@ -364,7 +364,7 @@ TBODY TR TD.firstItem
 <!-- Start Shield Section -->
 
 |%ARMOR.SHIELD1|
-<table COLS="5" summary="Shield Tabnle">
+<table summary="Shield Tabnle">
   <thead>
     <tr style="font-weight: bold;">
       <th width="20%" class="first">SHIELD</th>
@@ -393,7 +393,7 @@ TBODY TR TD.firstItem
 
 <!-- Start AC Item Section -->
 |%ARMOR.ITEM1|
-  <table COLS="3" summary="AC Item Table">
+  <table summary="AC Item Table">
     <thead>
     <tr>
       <th width="30%" class="first">PROTECTIVE ITEMS</th>
@@ -417,8 +417,8 @@ TBODY TR TD.firstItem
 <!-- end AC Item Section -->
 
 <!-- start other items Section -->
-<td WIDTH="40%" valign="top">
-  <table COLS="4" summary="Euipment Table">
+<td width="40%" valign="top">
+  <table summary="Euipment Table">
     <thead>
     <tr>
       <th colspan="4" align="center"><font style="font-size:12pt">EQUIPMENT</font></th>
@@ -443,7 +443,7 @@ TBODY TR TD.firstItem
       <td style="text-align: left;">
         |EQ.%num.NAME.MAGIC~<b>~</b>|
         <span style="font-size: 6pt; text-align:right">(|EQ.%num.LOCATION|)</span>
-        <br>
+        <br />
         <span style="font-size: 6pt;">|EQ.%num.SPROP||EQ.%num.NOTE||EQ.%num.CONTENTS|</span>
         </td>
       <td>|EQ.%num.QTY|</td>
@@ -466,3 +466,5 @@ TBODY TR TD.firstItem
 </div>
 <!-- The next line tells the eqsheet template parser where to stop looping -->
 |EQSET.END|
+</body>
+</html>
