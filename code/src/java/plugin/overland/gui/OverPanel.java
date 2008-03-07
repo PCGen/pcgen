@@ -5,20 +5,22 @@
  */
 package plugin.overland.gui;
 
+import java.io.File;
+import java.text.NumberFormat;
+import java.text.ParseException;
+
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+
 import org.jdom.DocType;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
+
 import pcgen.util.Logging;
 import plugin.overland.util.PairList;
 import plugin.overland.util.RBCost;
 import plugin.overland.util.TravelMethod;
-
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import java.io.File;
-import java.text.NumberFormat;
-import java.text.ParseException;
 
 /**
  *
@@ -1013,7 +1015,7 @@ public class OverPanel extends javax.swing.JPanel
 			{
 				type = method.getChild("type").getTextTrim();
 				name = method.getChild("name").getTextTrim();
-				priceS = method.getChild("speed").getTextTrim();
+				priceS = method.getChild("price").getTextTrim();
 
 				try
 				{
@@ -1022,18 +1024,19 @@ public class OverPanel extends javax.swing.JPanel
 				catch (NumberFormatException e1)
 				{
 					JOptionPane.showMessageDialog(null,
-						"Invalid number formatin XML File");
+						"Invalid number formating XML File");
 				}
 				catch (ParseException e1)
 				{
 					JOptionPane.showMessageDialog(null,
-						"Invalid number formatin XML File");
+						"Invalid number formating XML File");
 				}
 
-				/*These if-else statements are OK for now.  Eventually, I would
-				 *like to make it so that if new types are present in the data
-				 *file, the system will automatically add new drop-down boxes.
-				 *That, however, is a long-term project.
+				/*
+				 * These if-else statements are OK for now.  Eventually, I would
+				 * like to make it so that if new types are present in the data
+				 * file, the system will automatically add new drop-down boxes.
+				 * That, however, is a long-term project.
 				 */
 				if (type.equals("Inn"))
 				{

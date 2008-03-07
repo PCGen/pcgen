@@ -12,41 +12,41 @@
     <item>
     	<type>Inn</type>
         <name>Poor</name>
-        <speed>.2</speed>
+        <price>.2</price>
     </item>
     <item>
     	<type>Inn</type>
         <name>Common</name>
-        <speed>0.5</speed>
+        <price>0.5</price>
     </item>
     <item>
     	<type>Inn</type>
         <name>Good</name>
-        <speed>2</speed>
+        <price>2</price>
     </item>
     <item>
     	<type>Food</type>
         <name>Poor</name>
-        <speed>0.1</speed>
+        <price>0.1</price>
     </item>
     <item>
     	<type>Food</type>
         <name>Common</name>
-        <speed>0.3</speed>
+        <price>0.3</price>
     </item>
     <item>
     	<type>Food</type>
         <name>Good</name>
-        <speed>0.5</speed>
+        <price>0.5</price>
     </item>
     <item>
     	<type>Animal</type>
         <name>Feed</name>
-        <speed>0.05</speed>
+        <price>0.05</price>
     </item>
     <item>
     	<type>Animal</type>
         <name>Stabling</name>
-        <speed>0.5</speed>
+        <price>0.5</price>
     </item>
 </table>
