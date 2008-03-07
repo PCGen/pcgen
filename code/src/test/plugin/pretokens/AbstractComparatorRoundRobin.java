@@ -9,17 +9,17 @@ public abstract class AbstractComparatorRoundRobin extends
 	public abstract boolean isBaseAllowed();
 
 	@Override
-	public void runRoundRobin(String s)
+	public void runPositiveRoundRobin(String s)
 	{
-		super.runRoundRobin("PRE" + getBaseString() + "GT:" + s);
-		super.runRoundRobin("PRE" + getBaseString() + "GTEQ:" + s);
-		super.runRoundRobin("PRE" + getBaseString() + "LT:" + s);
-		super.runRoundRobin("PRE" + getBaseString() + "LTEQ:" + s);
-		super.runRoundRobin("PRE" + getBaseString() + "NEQ:" + s);
-		super.runRoundRobin("PRE" + getBaseString() + "EQ:" + s);
+		super.runPositiveRoundRobin("PRE" + getBaseString() + "GT:" + s);
+		super.runPositiveRoundRobin("PRE" + getBaseString() + "GTEQ:" + s);
+		super.runPositiveRoundRobin("PRE" + getBaseString() + "LT:" + s);
+		super.runPositiveRoundRobin("PRE" + getBaseString() + "LTEQ:" + s);
+		super.runPositiveRoundRobin("PRE" + getBaseString() + "NEQ:" + s);
+		super.runPositiveRoundRobin("PRE" + getBaseString() + "EQ:" + s);
 		if (isBaseAllowed())
 		{
-			//super.runRoundRobin("PRE" + getBaseString() + ":" + s);
+			//super.runPositiveRoundRobin("PRE" + getBaseString() + ":" + s);
 		}
 	}
 

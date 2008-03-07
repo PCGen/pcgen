@@ -13,6 +13,12 @@ public class AbstractPreRoundRobin extends TestCase
 {
 	public void runRoundRobin(String s)
 	{
+		runPositiveRoundRobin(s);
+		runNegativeRoundRobin(s);
+	}
+
+	public void runPositiveRoundRobin(String s)
+	{
 		try
 		{
 			Prerequisite p = PreParserFactory.getInstance().parse(s);
@@ -25,19 +31,28 @@ public class AbstractPreRoundRobin extends TestCase
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			assertEquals(s, w.toString());
+		}
+		catch (PersistenceLayerException e)
+		{
+			fail(e.getLocalizedMessage());
+		}
+	}
 
+	public void runNegativeRoundRobin(String s)
+	{
+		try
+		{
 			String not = "!" + s;
-			p = PreParserFactory.getInstance().parse(not);
-			writer = PrerequisiteWriterFactory
+			Prerequisite p = PreParserFactory.getInstance().parse(not);
+			PrerequisiteWriterInterface writer = PrerequisiteWriterFactory
 					.getInstance().getWriter(p.getKind());
 			if (writer == null)
 			{
 				fail("Could not find Writer for: " + p.getKind());
 			}
-			w = new StringWriter();
+			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			assertEquals(not, w.toString());
-
 		}
 		catch (PersistenceLayerException e)
 		{

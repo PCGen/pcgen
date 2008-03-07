@@ -66,7 +66,7 @@ public class PreBaseSizeRoundRobin extends AbstractComparatorRoundRobin
 
 	public void testSimpleString()
 	{
-		runRoundRobin("Fine");
+		runPositiveRoundRobin("Fine");
 	}
 
 	@Override
