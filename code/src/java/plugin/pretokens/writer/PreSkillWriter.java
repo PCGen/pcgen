@@ -96,5 +96,4 @@ public class PreSkillWriter extends AbstractPrerequisiteWriter implements
 			throw new PersistenceLayerException(e.getMessage());
 		}
 	}
-
 }

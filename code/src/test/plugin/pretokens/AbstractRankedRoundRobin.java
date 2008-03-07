@@ -1,7 +1,6 @@
 package plugin.pretokens;
 
-public abstract class AbstractRankedRoundRobin extends
-		AbstractPreRoundRobin
+public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 {
 
 	public abstract String getBaseString();
@@ -18,6 +17,40 @@ public abstract class AbstractRankedRoundRobin extends
 	public void testMultiple()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Foo=1,Bar=2");
+	}
+
+	public void testNoCombineSub()
+	{
+		runRoundRobin("PREMULT:1,[PRE" + getBaseString()
+				+ ":1,Foo=1,Bar=2],[PRE" + getBaseString()
+				+ ":2,Spot=3,Listen=4]");
+	}
+
+	public void testCombineSub()
+	{
+		runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString()
+				+ ":1,Foo=1],[!PRE" + getBaseString() + ":1,Spot=2]", "!PRE"
+				+ getBaseString() + ":2,Foo=1,Spot=2");
+	}
+
+	public void testCombineSubNegative()
+	{
+		runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString()
+				+ ":1,Foo=1],[!PRE" + getBaseString() + ":1,Spot=2]", "PRE"
+				+ getBaseString() + ":2,Foo=1,Spot=2");
+	}
+
+	public void testNoCombineSubNegative()
+	{
+		runRoundRobin("PREMULT:1,[!PRE" + getBaseString() + ":1,Foo=1],[!PRE"
+				+ getBaseString() + ":1,Spot=3]");
+	}
+
+	public void testNoCombineMult()
+	{
+		runRoundRobin("PREMULT:2,[PRE" + getBaseString()
+				+ ":1,Foo=1,Bar=2],[PRE" + getBaseString()
+				+ ":1,Spot=3,Listen=4]");
 	}
 
 	public void testHigher()
@@ -66,7 +99,7 @@ public abstract class AbstractRankedRoundRobin extends
 	{
 		if (isTypeAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString() + ":3,Foo,TYPE.Bar=4");
+			runRoundRobin("PRE" + getBaseString() + ":3,Foo=3,TYPE.Bar=4");
 		}
 	}
 

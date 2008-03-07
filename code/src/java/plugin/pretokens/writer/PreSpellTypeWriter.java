@@ -93,27 +93,27 @@ public class PreSpellTypeWriter extends AbstractPrerequisiteWriter implements
 	public boolean specialCase(Writer writer, Prerequisite prereq)
 		throws IOException
 	{
-		//
-		// If this is a PREMULT with all PRESPELLTYPEs ...
-		//
-		if (checkForPremultOfKind(prereq, kindHandled(), true))
+		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, true);
+		if (po == null)
 		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
-			{
-				writer.write('!');
-			}
-
-			writer.write("PRESPELLTYPE:" + (prereq.isOverrideQualify() ? "Q:":""));
-			writer.write(prereq.getOperand());
-			for (Prerequisite element : prereq.getPrerequisites())
-			{
-				writer.write(',');
-				writer.write(element.getKey());
-				writer.write('=');
-				writer.write(element.getSubKey());
-			}
-			return true;
+			return false;
 		}
-		return false;
+		if (!po.equals(prereq.getOperator()))
+		{
+			writer.write('!');
+		}
+
+		writer.write("PRESPELLTYPE:"
+				+ (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
+				: "1");
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			writer.write(',');
+			writer.write(p.getKey());
+			writer.write('=');
+			writer.write(p.getSubKey());
+		}
+		return true;
 	}
 }

@@ -17,6 +17,38 @@ public abstract class AbstractBasicRoundRobin extends AbstractPreRoundRobin
 		runRoundRobin("PRE" + getBaseString() + ":1,Spot,Listen");
 	}
 
+	public void testNoCombineSub()
+	{
+		runRoundRobin("PREMULT:1,[PRE" + getBaseString() + ":1,Foo,Bar],[PRE"
+				+ getBaseString() + ":2,Spot,Listen]");
+	}
+
+	public void testNoCombineSubNegative()
+	{
+		runRoundRobin("PREMULT:1,[!PRE" + getBaseString() + ":1,Foo],[!PRE"
+				+ getBaseString() + ":1,Spot]");
+	}
+
+	public void testCombineSub()
+	{
+		runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString()
+				+ ":1,Foo],[!PRE" + getBaseString() + ":1,Spot]", "!PRE"
+				+ getBaseString() + ":1,Foo,Spot");
+	}
+
+	public void testCombineSubNegative()
+	{
+		runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString()
+				+ ":1,Foo],[!PRE" + getBaseString() + ":1,Spot]", "PRE"
+				+ getBaseString() + ":1,Foo,Spot");
+	}
+
+	public void testNoCombineMult()
+	{
+		runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":1,Foo,Bar],[PRE"
+				+ getBaseString() + ":1,Spot,Listen]");
+	}
+
 	public void testMultipleCount()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":2,Foo,Bar");

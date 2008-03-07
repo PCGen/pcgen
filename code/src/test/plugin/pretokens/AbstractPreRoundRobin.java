@@ -19,15 +19,15 @@ public class AbstractPreRoundRobin extends TestCase
 
 	public void runPositiveRoundRobin(String s)
 	{
-		runSimpleRoundRobin(s);
+		runSimpleRoundRobin(s, s);
 	}
 
 	public void runNegativeRoundRobin(String s)
 	{
-		runSimpleRoundRobin("!" + s);
+		runSimpleRoundRobin("!" + s, "!" + s);
 	}
 
-	public void runSimpleRoundRobin(String s)
+	public void runSimpleRoundRobin(String s, String d)
 	{
 		try
 		{
@@ -40,7 +40,7 @@ public class AbstractPreRoundRobin extends TestCase
 			}
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
-			assertEquals(s, w.toString());
+			assertEquals(d, w.toString());
 		}
 		catch (PersistenceLayerException e)
 		{

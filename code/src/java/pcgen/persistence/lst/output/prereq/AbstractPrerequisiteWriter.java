@@ -35,6 +35,7 @@ import pcgen.persistence.PersistenceLayerException;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 
 /**
  * This class handles writing pre reqs for LST Tokens
@@ -118,5 +119,70 @@ public class AbstractPrerequisiteWriter
 		{
 			throw new IOException();
 		}
+	}
+	
+	protected PrerequisiteOperator getConsolidateMethod(String handled,
+			Prerequisite prereq, boolean ranked)
+	{
+		// If this is NOT a PREMULT... fail
+		if (prereq.getKind() != null)
+		{
+			return null;
+		}
+		List<Prerequisite> prereqList = prereq.getPrerequisites();
+		PrerequisiteOperator oper = null;
+		for (Prerequisite p : prereqList)
+		{
+			//
+			// ...testing one item...
+			//
+			if (!ranked && !"1".equals(p.getOperand()))
+			{
+				return null;
+			}
+			//
+			// ...with all PREARMORTYPE entries...
+			//
+			if (!handled.equalsIgnoreCase(p.getKind()))
+			{
+				return null;
+			}
+			//
+			// ...and the same operator...
+			//
+			if (oper == null)
+			{
+				oper = p.getOperator();
+			}
+			else
+			{
+				if (!oper.equals(p.getOperator()))
+				{
+					return null;
+				}
+			}
+		}
+		String count = prereq.getOperand();
+		if (PrerequisiteOperator.LT.equals(oper))
+		{
+			try
+			{
+				int i = Integer.parseInt(count);
+				if (prereqList.size() != i)
+				{
+					return null;
+				}
+			}
+			catch (NumberFormatException e)
+			{
+				return null;
+			}
+		}
+		else if (!PrerequisiteOperator.GTEQ.equals(oper))
+		{
+			// TODO Not sure whether these can be consolidated...
+			return null;
+		}
+		return oper;
 	}
 }

@@ -29,7 +29,6 @@
 package plugin.pretokens.parser;
 
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
@@ -69,7 +68,6 @@ public class PreLanguageParser extends AbstractPrerequisiteListParser implements
 		{
 			for (Prerequisite element : prereq.getPrerequisites())
 			{
-				element.setOperator(PrerequisiteOperator.EQ);
 				if (element.getKey().equalsIgnoreCase("ANY"))
 				{
 					element.setCountMultiples(true);
