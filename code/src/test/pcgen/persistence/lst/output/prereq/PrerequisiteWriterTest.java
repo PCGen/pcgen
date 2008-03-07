@@ -164,7 +164,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREREGION:Slithe (Barrows)",													"PREREGION:Slithe (Barrows)",
 		"PRERULE:SYS_WTPSK",															"PRERULE:1,SYS_WTPSK",
 		"PRESA:1,Turn undead,Rebuke undead,Smite Evil",									"PREMULT:1,[PRESA:1,Turn undead],[PRESA:1,Rebuke undead],[PRESA:1,Smite Evil]",
-		"PRESHIELDPROF:1,Buckler,Large Shield",											"PREMULT:1,[PRESHIELDPROF:1,Buckler],[PRESHIELDPROF:1,Large Shield]",
+		"PRESHIELDPROF:1,Buckler,Large Shield",											"PRESHIELDPROF:1,Buckler,Large Shield",
 		"PREARMORPROF:1,TYPE.Tower",													"PREARMORPROF:1,TYPE.Tower",
 		"PRESIZEEQ:H",																	"PRESIZEEQ:H",
 		"PRESKILL:1,Spot,Listen=10",													"PREMULT:1,[PRESKILL:1,Spot=10],[PRESKILL:1,Listen=10]",
