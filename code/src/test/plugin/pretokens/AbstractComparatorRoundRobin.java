@@ -19,8 +19,13 @@ public abstract class AbstractComparatorRoundRobin extends
 		super.runPositiveRoundRobin("PRE" + getBaseString() + "EQ:" + s);
 		if (isBaseAllowed())
 		{
-			//super.runPositiveRoundRobin("PRE" + getBaseString() + ":" + s);
+			// super.runPositiveRoundRobin("PRE" + getBaseString() + ":" + s);
 		}
+	}
+
+	@Override
+	public void runNegativeRoundRobin(String s)
+	{
 	}
 
 }

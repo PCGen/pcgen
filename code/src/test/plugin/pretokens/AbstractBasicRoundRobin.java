@@ -30,6 +30,14 @@ public abstract class AbstractBasicRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	public void testTypeMultipleCount()
+	{
+		if (isTypeAllowed())
+		{
+			runRoundRobin("PRE" + getBaseString() + ":2,TYPE=Foo");
+		}
+	}
+
 	public void testMultipleType()
 	{
 		if (isTypeAllowed())

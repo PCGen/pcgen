@@ -140,9 +140,9 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREHANDSGT:2",																	"PREHANDSGT:2",
 		"PREITEM:1,Sword (Long),Sword (Short)",											"PREMULT:1,[PREITEM:1,Sword (Long)],[PREITEM:1,Sword (Short)]",
 		"PREITEM:2,TYPE=Armor,TYPE=Armor",												"PREMULT:2,[PREITEM:1,TYPE=Armor],[PREITEM:1,TYPE=Armor]",
-		"PRELANG:1,Dwarven,Elven",														"PREMULT:1,[PRELANG:1,Dwarven],[PRELANG:1,Elven]",
-		"PRELANG:2,Dwarven,Elven",														"PREMULT:2,[PRELANG:1,Dwarven],[PRELANG:1,Elven]",
-		"PRELANG:2,Dwarven,Elven,Halfling",												"PREMULT:2,[PRELANG:1,Dwarven],[PRELANG:1,Elven],[PRELANG:1,Halfling]",
+		"PRELANG:1,Dwarven,Elven",														"PRELANG:1,Dwarven,Elven",
+		"PRELANG:2,Dwarven,Elven",														"PRELANG:2,Dwarven,Elven",
+		"PRELANG:2,Dwarven,Elven,Halfling",												"PRELANG:2,Dwarven,Elven,Halfling",
 		"PRELANG:3,ANY",																"PRELANG:3,ANY",
 		"PRELEGSGTEQ:4",																"PRELEGSGTEQ:4",
 		"PRELEVEL:MIN=5",																"PRELEVEL:MIN=5",
@@ -156,10 +156,10 @@ public class PrerequisiteWriterTest extends TestCase
 				
 		"PREMOVE:Walk=30,Fly=20",														"PREMULT:1,[PREMOVE:1,Walk=30],[PREMOVE:1,Fly=20]",
 		"PREMOVE:Swim=10",																"PREMOVE:1,Swim=10",
-		"PREMULT:1,[PRERACE:Gnome],[PRECLASS:1,Cleric=1]",								"PREMULT:1,[PRERACE:Gnome],[PRECLASS:1,Cleric=1]",
-		"PREMULT:1,[PRERACE:Gnome],[PREMULT:2,[PRESIZEGTEQ:M],[PREFEAT:1,Alertness]]",	"PREMULT:1,[PRERACE:Gnome],[PREMULT:2,[PRESIZEGTEQ:M],[PREFEAT:1,Alertness]]",
-		"PRERACE:Dwarf,Elf,Human",														"PREMULT:1,[PRERACE:Dwarf],[PRERACE:Elf],[PRERACE:Human]",
-		"PRERACE:Elf,[Elf (aquatic)]",													"PREMULT:2,[PRERACE:Elf],[!PRERACE:Elf (aquatic)]",
+		"PREMULT:1,[PRERACE:Gnome],[PRECLASS:1,Cleric=1]",								"PREMULT:1,[PRERACE:1,Gnome],[PRECLASS:1,Cleric=1]",
+		"PREMULT:1,[PRERACE:Gnome],[PREMULT:2,[PRESIZEGTEQ:M],[PREFEAT:1,Alertness]]",	"PREMULT:1,[PRERACE:1,Gnome],[PREMULT:2,[PRESIZEGTEQ:M],[PREFEAT:1,Alertness]]",
+		"PRERACE:Dwarf,Elf,Human",														"PRERACE:1,Dwarf,Elf,Human",
+		"PRERACE:Elf,[Elf (aquatic)]",													"PREMULT:2,[PRERACE:1,Elf],[!PRERACE:1,Elf (aquatic)]",
 		"PREREGION:Slithe",																"PREREGION:Slithe",
 		"PREREGION:Slithe (Barrows)",													"PREREGION:Slithe (Barrows)",
 		"PRERULE:SYS_WTPSK",															"PRERULE:1,SYS_WTPSK",
@@ -207,7 +207,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREWIELD:1,TwoHanded",															"PREWIELD:1,TwoHanded",
 		"PREWIELD:Q:1,TwoHanded",														"PREWIELD:Q:1,TwoHanded",
 
-		"PRERACE:Orc,[%]",																"PREMULT:2,[PRERACE:Orc],[!PRERACE:%]",
+		"PRERACE:Orc,[%]",																"PREMULT:2,[PRERACE:1,Orc],[!PRERACE:1,%]",
 
 //
 // Not in the docs
@@ -224,7 +224,7 @@ public class PrerequisiteWriterTest extends TestCase
 // Just for good measure
 //
 		"PREMULT:1,[PREFEAT:1,CHECKMULT,Dodge],[PREFEAT:1,CHECKMULT,Combat Reflexes]",	"PREMULT:1,[PREFEAT:1,CHECKMULT,Dodge],[PREFEAT:1,CHECKMULT,Combat Reflexes]",
-		"PRERACE:Dwarf",																"PRERACE:Dwarf",
+		"PRERACE:Dwarf",																"PRERACE:1,Dwarf",
 		"PRESPELLDESCRIPTOR:4,Mind-Affecting=3",										"PRESPELLDESCRIPTOR:4,Mind-Affecting=3",
 		"PRESPELLDESCRIPTOR:4,Mind-Affecting=3,Fire=2",									"PRESPELLDESCRIPTOR:4,Mind-Affecting=3,Fire=2",
 		"PRESPELLSCHOOL:3,Necromancy=2",												"PRESPELLSCHOOL:3,Necromancy=2",
@@ -382,7 +382,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"!PREAPPLY:Wooden,Blunt",														"!PREAPPLY:Wooden,Blunt",
 		"!PREAPPLY:ANYPC",																"!PREAPPLY:ANYPC",
 	// From PrerequisiteLanguageWriterTest.java
-		"!PRELANG:1,Dwarven,Elven",														"!PREMULT:1,[PRELANG:1,Dwarven],[PRELANG:1,Elven]",
+		"!PRELANG:1,Dwarven,Elven",														"!PRELANG:1,Dwarven,Elven",
 		"PRELANG:2,Any",																"PRELANG:2,Any",
 		"!PRELANG:2,Any",																"!PRELANG:2,Any",
 	// From PrerequisiteSkillWriterTest.java

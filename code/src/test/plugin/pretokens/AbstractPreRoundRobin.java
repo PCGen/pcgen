@@ -11,13 +11,23 @@ import junit.framework.TestCase;
 
 public class AbstractPreRoundRobin extends TestCase
 {
-	public void runRoundRobin(String s)
+	public final void runRoundRobin(String s)
 	{
 		runPositiveRoundRobin(s);
 		runNegativeRoundRobin(s);
 	}
 
 	public void runPositiveRoundRobin(String s)
+	{
+		runSimpleRoundRobin(s);
+	}
+
+	public void runNegativeRoundRobin(String s)
+	{
+		runSimpleRoundRobin("!" + s);
+	}
+
+	public void runSimpleRoundRobin(String s)
 	{
 		try
 		{
@@ -31,28 +41,6 @@ public class AbstractPreRoundRobin extends TestCase
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			assertEquals(s, w.toString());
-		}
-		catch (PersistenceLayerException e)
-		{
-			fail(e.getLocalizedMessage());
-		}
-	}
-
-	public void runNegativeRoundRobin(String s)
-	{
-		try
-		{
-			String not = "!" + s;
-			Prerequisite p = PreParserFactory.getInstance().parse(not);
-			PrerequisiteWriterInterface writer = PrerequisiteWriterFactory
-					.getInstance().getWriter(p.getKind());
-			if (writer == null)
-			{
-				fail("Could not find Writer for: " + p.getKind());
-			}
-			StringWriter w = new StringWriter();
-			writer.write(w, p);
-			assertEquals(not, w.toString());
 		}
 		catch (PersistenceLayerException e)
 		{

@@ -28,8 +28,8 @@ package plugin.pretokens;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
-import plugin.pretokens.parser.PreBaseSizeParser;
-import plugin.pretokens.writer.PreBaseSizeWriter;
+import plugin.pretokens.parser.PreHandsParser;
+import plugin.pretokens.writer.PreHandsWriter;
 
 /**
  * <code>PreAbilityParserTest</code> tests the function of the PREABILITY
@@ -41,11 +41,11 @@ import plugin.pretokens.writer.PreBaseSizeWriter;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 1777 $
  */
-public class PreBaseSizeRoundRobin extends AbstractComparatorRoundRobin
+public class PreHandsRoundRobin extends AbstractComparatorRoundRobin
 {
 	public static void main(String args[])
 	{
-		TestRunner.run(PreBaseSizeRoundRobin.class);
+		TestRunner.run(PreHandsRoundRobin.class);
 	}
 
 	/**
@@ -53,26 +53,26 @@ public class PreBaseSizeRoundRobin extends AbstractComparatorRoundRobin
 	 */
 	public static Test suite()
 	{
-		return new TestSuite(PreBaseSizeRoundRobin.class);
+		return new TestSuite(PreHandsRoundRobin.class);
 	}
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		TokenRegistration.register(new PreBaseSizeParser());
-		TokenRegistration.register(new PreBaseSizeWriter());
+		TokenRegistration.register(new PreHandsParser());
+		TokenRegistration.register(new PreHandsWriter());
 	}
 
-	public void testSimpleString()
+	public void testSimpleInteger()
 	{
-		runRoundRobin("Fine");
+		runRoundRobin("1");
 	}
 
 	@Override
 	public String getBaseString()
 	{
-		return "BASESIZE";
+		return "HANDS";
 	}
 
 	@Override
