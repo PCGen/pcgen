@@ -75,7 +75,8 @@ import pcgen.util.SwingWorker;
  *@version    3.3
  *@since      GMGen 3.3
  */
-public final class GMGenSystem extends JFrame implements ChangeListener, MenuListener, ActionListener, GMBComponent
+public final class GMGenSystem extends JFrame implements ChangeListener,
+		MenuListener, ActionListener, GMBComponent
 {
 	/**
 	 *  Holds an instance of the top window, so components and windows can get
@@ -86,7 +87,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 	/**
 	 *  Boolean true if this is a Macintosh system.
 	 */
-	public static final boolean MAC_OS_X = (System.getProperty("os.name").equals("Mac OS X"));
+	public static final boolean MAC_OS_X =
+			(System.getProperty("os.name").equals("Mac OS X"));
 
 	/**
 	 *  The copy menu item in the edit menu.
@@ -128,7 +130,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 	 */
 
 	//private SourceView sourceView;
-
 	/**
 	 *  The main <code>JPanel</code> view for the system.
 	 */
@@ -208,11 +209,14 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		// sk4p 12 Dec 2002
 		if (MAC_OS_X)
 		{
-			System.setProperty("com.apple.mrj.application.growbox.intrudes", "false");
-			System.setProperty("com.apple.mrj.application.live-resize", "false");
+			System.setProperty("com.apple.mrj.application.growbox.intrudes",
+				"false");
+			System
+				.setProperty("com.apple.mrj.application.live-resize", "false");
 			System.setProperty("com.apple.macos.smallTabs", "true");
 			System.setProperty("apple.laf.useScreenMenuBar", "true");
-			System.setProperty("com.apple.mrj.application.apple.menu.about.name", "GMGen");
+			System.setProperty(
+				"com.apple.mrj.application.apple.menu.about.name", "GMGen");
 			macOSXRegistration();
 
 			// Set up our application to respond to the Mac OS X application menu
@@ -270,7 +274,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		else if (e.getSource() == exitFileItem)
 		{
 			GMBus.send(new WindowClosedMessage(this));
-
 			//System.exit(0);
 		}
 		else if (e.getSource() == newFileItem)
@@ -319,13 +322,14 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 			editMenu.add(preferencesEditItem);
 			preferencesEditItem.setEnabled(true);
 
-			ActionListener[] listenerArray = preferencesEditItem.getActionListeners();
+			ActionListener[] listenerArray =
+					preferencesEditItem.getActionListeners();
 			for (int i = 0; i < listenerArray.length; i++)
 			{
 				preferencesEditItem.removeActionListener(listenerArray[i]);
 			}
-			preferencesEditItem.addActionListener(
-				new java.awt.event.ActionListener()
+			preferencesEditItem
+				.addActionListener(new java.awt.event.ActionListener()
 				{
 					public void actionPerformed(java.awt.event.ActionEvent evt)
 					{
@@ -352,7 +356,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 	 */
 	public void handleFileMenu()
 	{
-	    // TODO
+		// TODO
 	}
 
 	/**
@@ -367,15 +371,18 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		if (message instanceof TabAddMessage)
 		{
 			TabAddMessage tmessage = (TabAddMessage) message;
-			if(tmessage.getSystem().equals(Constants.s_SYSTEM_GMGEN))
+			if (tmessage.getSystem().equals(Constants.s_SYSTEM_GMGEN))
 			{
-				Logging.debugPrint("Creating Tab " + GMGenSystemView.getTabPane().getTabCount());
-				theView.insertPane(tmessage.getName(), tmessage.getPane(), GMGenSystemView.getTabPane().getTabCount());
+				Logging.debugPrint("Creating Tab "
+					+ GMGenSystemView.getTabPane().getTabCount());
+				theView.insertPane(tmessage.getName(), tmessage.getPane(),
+					GMGenSystemView.getTabPane().getTabCount());
 			}
 		}
 		else if (message instanceof PreferencesPanelAddMessage)
 		{
-			PreferencesPanelAddMessage pmessage = (PreferencesPanelAddMessage) message;
+			PreferencesPanelAddMessage pmessage =
+					(PreferencesPanelAddMessage) message;
 			Logging.debugPrint("Creating Preferences Panel");
 			rootNode.addPanel(pmessage.getName(), pmessage.getPane());
 		}
@@ -388,6 +395,9 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		else if (message instanceof WindowClosedMessage)
 		{
 			setCloseSettings();
+			// Karianna 07/03/2008 - Added a call to exitForm passing in no window event
+			// TODO This sequence of calls simply hides GMGen as opposed to unloading it
+			exitForm(null);
 		}
 		else if (message instanceof PCLoadedMessage)
 		{
@@ -403,7 +413,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 	 */
 	public void handleToolsMenu()
 	{
-	    // TODO
+		// TODO
 	}
 
 	/**
@@ -428,12 +438,14 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 			try
 			{
 				Class<?> osxAdapter = Class.forName("gmgen.util.OSXAdapter");
-				Class[] defArgs = { GMGenSystem.class };
-				Method registerMethod = osxAdapter.getDeclaredMethod("registerMacOSXApplication", defArgs);
+				Class[] defArgs = {GMGenSystem.class};
+				Method registerMethod =
+						osxAdapter.getDeclaredMethod(
+							"registerMacOSXApplication", defArgs);
 
 				if (registerMethod != null)
 				{
-					Object[] args = { this };
+					Object[] args = {this};
 					registerMethod.invoke(osxAdapter, args);
 				}
 
@@ -442,11 +454,12 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 				// gets converted for you by the reflection system.
 				defArgs[0] = boolean.class;
 
-				Method prefsEnableMethod = osxAdapter.getDeclaredMethod("enablePrefs", defArgs);
+				Method prefsEnableMethod =
+						osxAdapter.getDeclaredMethod("enablePrefs", defArgs);
 
 				if (prefsEnableMethod != null)
 				{
-					Object[] args = { Boolean.TRUE };
+					Object[] args = {Boolean.TRUE};
 					prefsEnableMethod.invoke(osxAdapter, args);
 				}
 			}
@@ -454,17 +467,17 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 			{
 				// This will be thrown first if the OSXAdapter is loaded on a system without the EAWT
 				// because OSXAdapter extends ApplicationAdapter in its def
-				System.err.println(
-				    "This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
-				    + e + ")");
+				System.err
+					.println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
+						+ e + ")");
 			}
 			catch (ClassNotFoundException e)
 			{
 				// This shouldn't be reached; if there's a problem with the OSXAdapter we should get the
 				// above NoClassDefFoundError first.
-				System.err.println(
-				    "This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
-				    + e + ")");
+				System.err
+					.println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
+						+ e + ")");
 			}
 			catch (Exception e)
 			{
@@ -482,7 +495,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 	 */
 	public void menuCanceled(MenuEvent e)
 	{
-	    // TODO
+		// TODO
 	}
 
 	/**
@@ -493,7 +506,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 	 */
 	public void menuDeselected(MenuEvent e)
 	{
-	    // TODO
+		// TODO
 	}
 
 	/**
@@ -559,7 +572,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		}
 		else if ((getExtendedState() & Frame.MAXIMIZED_HORIZ) != 0)
 		{
-			SettingsHandler.setGMGenOption("WindowState", Frame.MAXIMIZED_HORIZ);
+			SettingsHandler
+				.setGMGenOption("WindowState", Frame.MAXIMIZED_HORIZ);
 		}
 		else if ((getExtendedState() & Frame.MAXIMIZED_VERT) != 0)
 		{
@@ -617,7 +631,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		}
 		catch (Exception e)
 		{
-		    // TODO
+			// TODO
 		}
 	}
 
@@ -712,19 +726,20 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 			editMenu.add(preferencesEditItem);
 			preferencesEditItem.setEnabled(true);
 
-			ActionListener[] listenerArray = preferencesEditItem.getActionListeners();
+			ActionListener[] listenerArray =
+					preferencesEditItem.getActionListeners();
 			for (int i = 0; i < listenerArray.length; i++)
 			{
 				preferencesEditItem.removeActionListener(listenerArray[i]);
 			}
 
 			preferencesEditItem.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
 				{
-					public void actionPerformed(ActionEvent evt)
-					{
-						mPreferencesActionPerformed(evt);
-					}
-				});
+					mPreferencesActionPerformed(evt);
+				}
+			});
 		}
 
 		systemMenu.add(editMenu);
@@ -780,28 +795,27 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		setTabbedPanes();
 
 		addWindowListener(new WindowAdapter()
+		{
+			@Override
+			public void windowClosing(WindowEvent evt)
 			{
-				public void windowClosing(WindowEvent evt)
-				{
-					exitForm(evt);
-				}
+				exitForm(evt);
 			}
-		);
+		});
 
-		addWindowFocusListener(
-			new java.awt.event.WindowFocusListener()
+		addWindowFocusListener(new java.awt.event.WindowFocusListener()
+		{
+			public void windowGainedFocus(java.awt.event.WindowEvent e)
 			{
-				public void windowGainedFocus(java.awt.event.WindowEvent e)
-				{
-					stateUpdate(e);
-				}
-				public void windowLostFocus(java.awt.event.WindowEvent e)
-				{
-				    //Intentionally left blank because WindowFocusListener requires
-					//the method to be implemented.
-				}
+				stateUpdate(e);
 			}
-		);
+
+			public void windowLostFocus(java.awt.event.WindowEvent e)
+			{
+				//Intentionally left blank because WindowFocusListener requires
+				//the method to be implemented.
+			}
+		});
 
 		//sourceView.getLoadButton().addActionListener(this);
 		//sourceView.getUnloadAllButton().addActionListener(this);
@@ -810,7 +824,9 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		getContentPane().add(theView, BorderLayout.CENTER);
 
 		Toolkit kit = Toolkit.getDefaultToolkit();
-		Image img = kit.getImage(getClass().getResource("/pcgen/gui/resource/gmgen_icon.png"));
+		Image img =
+				kit.getImage(getClass().getResource(
+					"/pcgen/gui/resource/gmgen_icon.png"));
 		setIconImage(img);
 	}
 
@@ -823,7 +839,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 	 */
 	private void initLogger()
 	{
-		LogUtilities.inst().setLoggingOn(SettingsHandler.getGMGenOption("Logging.On", false));
+		LogUtilities.inst().setLoggingOn(
+			SettingsHandler.getGMGenOption("Logging.On", false));
 	}
 
 	/**
@@ -841,7 +858,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		int iWinHeight = SettingsHandler.getGMGenOption("WindowHeight", 580);
 		setSize(iWinWidth, iWinHeight);
 
-		int windowState = SettingsHandler.getGMGenOption("WindowState", Frame.NORMAL);
+		int windowState =
+				SettingsHandler.getGMGenOption("WindowState", Frame.NORMAL);
 
 		if (windowState != Frame.NORMAL)
 		{
@@ -857,19 +875,21 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		PreferencesDialog dialog = new PreferencesDialog(this, true, rootNode);
 		dialog.setVisible(true);
 	}
-	
+
 	private class Renderer extends SwingWorker
 	{
 
+		@Override
 		public Object construct()
 		{
 			return "";
 		}
 
+		@Override
 		public void finished()
 		{
 			GMGenSystem.this.initialize();
 		}
 	}
-	
+
 }
