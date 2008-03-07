@@ -25,6 +25,19 @@ public class AbstractPreRoundRobin extends TestCase
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			assertEquals(s, w.toString());
+
+			String not = "!" + s;
+			p = PreParserFactory.getInstance().parse(not);
+			writer = PrerequisiteWriterFactory
+					.getInstance().getWriter(p.getKind());
+			if (writer == null)
+			{
+				fail("Could not find Writer for: " + p.getKind());
+			}
+			w = new StringWriter();
+			writer.write(w, p);
+			assertEquals(not, w.toString());
+
 		}
 		catch (PersistenceLayerException e)
 		{

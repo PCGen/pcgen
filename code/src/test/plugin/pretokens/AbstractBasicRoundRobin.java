@@ -14,7 +14,7 @@ public abstract class AbstractBasicRoundRobin extends AbstractPreRoundRobin
 
 	public void testMultiple()
 	{
-		runRoundRobin("PRE" + getBaseString() + ":1,Foo,Bar");
+		runRoundRobin("PRE" + getBaseString() + ":1,Spot,Listen");
 	}
 
 	public void testMultipleCount()
