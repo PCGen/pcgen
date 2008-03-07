@@ -62,9 +62,9 @@ public class PreLanguageParserTest extends TestCase
 		System.out.println(prereq);
 		assertEquals(
 			"<prereq operator=\"gteq\" operand=\"1\" >\n"
-				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Dwarven\" operator=\"eq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Dwarven\" operator=\"gteq\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Elven\" operator=\"eq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Elven\" operator=\"gteq\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -80,9 +80,9 @@ public class PreLanguageParserTest extends TestCase
 		System.out.println(prereq);
 		assertEquals(
 			"<prereq operator=\"lt\" operand=\"1\" >\n"
-				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Dwarven\" operator=\"eq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Dwarven\" operator=\"gteq\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Elven\" operator=\"eq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Elven\" operator=\"gteq\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
