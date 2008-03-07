@@ -755,7 +755,7 @@ KIT:+1 Weapon Md Special Ability	OPTION:1,10
 KIT:+2 Weapon Md Special Ability	OPTION:11,29
 KIT:+3 Weapon Md Special Ability	OPTION:30,58
 KIT:+4 Weapon Md Special Ability	OPTION:59,62
-KIT:Md Weapons Special Ability	OPTION:63,100
+KIT:Medium Weapons Special Ability	OPTION:63,100
 
 STARTPACK:+1 Weapon Md Special Ability	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
