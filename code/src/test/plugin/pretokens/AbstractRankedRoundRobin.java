@@ -30,14 +30,14 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString()
 				+ ":1,Foo=1],[!PRE" + getBaseString() + ":1,Spot=2]", "!PRE"
-				+ getBaseString() + ":2,Foo=1,Spot=2");
+				+ getBaseString() + ":1,Foo=1,Spot=2");
 	}
 
 	public void testCombineSubNegative()
 	{
 		runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString()
 				+ ":1,Foo=1],[!PRE" + getBaseString() + ":1,Spot=2]", "PRE"
-				+ getBaseString() + ":2,Foo=1,Spot=2");
+				+ getBaseString() + ":1,Foo=1,Spot=2");
 	}
 
 	public void testNoCombineSubNegative()
