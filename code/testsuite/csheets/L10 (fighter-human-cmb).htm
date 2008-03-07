@@ -34,7 +34,7 @@ $Date: 2004/08/16 01:19:36 $
 -->
 <head>
 <title>Gulak Kurgar [0 Points]</title>
-<style TYPE="text/css">
+<style type="text/css">
 	.font4 {  font-family: Arial; font-size:4pt; }
 	.font5 {  font-family: Arial; font-size:5pt; }
 	.font6 {  font-family: Arial; font-size:6pt; }
@@ -2352,14 +2352,6 @@ function DefensiveCombatMods( newDefState )
 };
 // ********************************************
 // ********************************************
-function DefFightingButtons()
-{
-	document.write( "<TR>" );
-	document.write( '<TD align="center"><INPUT id=defFightButton1 type=button value="Normal Combat" name=defFightButton1 onclick="SetDefFighting(0);">&nbsp;<INPUT id=defFightButton2 type=button value="Fighting Defensively" name=defFightButton2 onclick="SetDefFighting(1);">&nbsp;<INPUT id=defFightButton3 type=button value="Total Defense" name=defFightButton3 onclick="SetDefFighting(2);">' );
-	document.write( "</TD></TR>" );
-};
-// ********************************************
-// ********************************************
 function SetDefFighting( defFightLvl )
 {
    for ( i=0; i<StateArr.length; ++i )
@@ -2423,14 +2415,18 @@ function RemoveStat (attribute) {
 <body bgcolor="white" onload="Compact();" onbeforeprint="RemoveConfigElements()" onafterprint="RedrawConfigElements()">
 <center><font size="-1">Created using PCGen 5.6.0 on 26/06/2004</font></center><br>
 
-<TABLE ID="Config" WIDTH="100%" BORDER=0 CELLSPACING=1 CELLPADDING=1>
-	<TR>
-		<TD align="center"><INPUT id=button3 type=button value="1 Page" name=button3 onclick="Compact();">&nbsp;<INPUT id=button2 type=button value="2 Page" name=button2 onclick="TwoPage();">&nbsp;<INPUT id=button2 type=button value="3-4 Page" name=button2 onclick="ThreePage();">&nbsp;<INPUT id=button1 type=button value="4 Page+" name=button1 onclick="Comprehensive();">&nbsp;<INPUT id=button4 type=button value="Print" name=button4 onclick="MyPrint();"></TD>
-	</TR>
+<table id="Config" width="100%" border=0 cellspacing=1 cellpadding=1>
+	<tr>
+		<td align="center"><INPUT id=button3 type=button value="1 Page" name=button3 onclick="Compact();">&nbsp;<INPUT id=button2 type=button value="2 Page" name=button2 onclick="TwoPage();">&nbsp;<INPUT id=button2 type=button value="3-4 Page" name=button2 onclick="ThreePage();">&nbsp;<INPUT id=button1 type=button value="4 Page+" name=button1 onclick="Comprehensive();">&nbsp;<INPUT id=button4 type=button value="Print" name=button4 onclick="MyPrint();"></TD>
+	</tr>
 
-   <SCRIPT>DefFightingButtons();</SCRIPT>
+    <tr>
+        <td align="center">
+            <input id=defFightButton1 type=button value="Normal Combat" name=defFightButton1 onclick="SetDefFighting(0);">&nbsp;<INPUT id=defFightButton2 type=button value="Fighting Defensively" name=defFightButton2 onclick="SetDefFighting(1);">&nbsp;<INPUT id=defFightButton3 type=button value="Total Defense" name=defFightButton3 onclick="SetDefFighting(2);">
+        </td>
+    </tr>
+
 </TABLE>
-<font style="font-size:6pt">
 <table id="FullHeader" cellpadding="0" cellspacing="4" border="0" width="100%">
 <tr>
 <td id=charName colspan="2" class="h"><B><FONT style="font-size:12pt">Gulak Kurgar</font></B></td>
@@ -2438,7 +2434,7 @@ function RemoveStat (attribute) {
 <td class="h">Chaotic Neutral</td>
 <td class="h">Tempus</td>
 <td class="h">0</td>
-<td id="CharacterImage" rowspan="7" align="center" width="1%" class="border"><font style="font-size:10pt"><A HREF="#Bio"><IMG SRC="" height="100" ALT="Click for Bio" BORDER="0" onerror="document.getElementById('CharacterImage').style.display = 'none';"></A><br /></font></td>
+<td id="CharacterImage" rowspan="7" align="center" width="1%" class="border"><font style="font-size:10pt"><a href="#Bio"><img src="" height="100" alt="Click for Bio" border="0" onerror="document.getElementById('CharacterImage').style.display = 'none';"></A><br /></font></td>
 </tr>
 <tr>
 <td colspan="2" class="hs">CHARACTER NAME</td>
@@ -2719,25 +2715,25 @@ function RemoveStat (attribute) {
 		</div>
 <!-- END Domain stats (main table row 3) -->
 <!-- START Ammunition stats (main table row 3) -->
-		<font style="font-size:8pt"><center><b>AMMUNITION</b></center></font>
+		<center><font style="font-size:8pt"><b>AMMUNITION</b></font></center>
 		<table width="100%">
 		<tr>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt">Arrows (20) <SCRIPT LANGUAGE="Javascript">if('2'!='') document.write('('+StripZero('2')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt">Arrows (20) <SCRIPT language="Javascript">if('2'!='') document.write('('+StripZero('2')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
 		</tr>
 		<tr>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
 		</tr>
 		<tr>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
 		</tr>
 		</table>
 <!-- END Ammunition stats (main table row 3) -->
@@ -2746,13 +2742,12 @@ function RemoveStat (attribute) {
 </table>
 <!-- END MAIN TABLE -->
  
-<BR><CENTER><font style="font-size: 7pt">PCGen Character Template by ROG, mods/maint by Arcady, Barak & Dimrill.  For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</font></CENTER>
+<BR><CENTER><font style="font-size: 7pt">PCGen Character Template by ROG, mods/maint by Arcady, Barak &amp; Dimrill.  For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</font></CENTER>
 <div id="SecondPage">
 <br style="page-break-after: always" />
  
 <center><font size="-1">Created using PCGen 5.6.0 on 26/06/2004</font></center><br>
 <!-- 2nd page MAIN TABLE -->
-<table width="100%" border="0">
 <table width="100%" border="0"> <!-- Master Page Table -->
  <tr>
   <td colspan="2" width="100%" valign="top">
@@ -3005,8 +3000,8 @@ function RemoveStat (attribute) {
        </tr>
        <tr>
         <td valign="top" width="41%" class="border" align="right" colspan="1"><font style="font-size: 8pt">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</font></td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP><font style="font-size: 8pt">113.0  lbs.</font></td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP><font style="font-size: 8pt">369858.2 gp</font></td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: 8pt">113.0  lbs.</font></td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: 8pt">369858.2 gp</font></td>
        </tr>
       </table>
      </td>
@@ -3183,7 +3178,7 @@ function RemoveStat (attribute) {
 		</div>
 <!-- END Semicompact SPELLS Table -->
  
-		<div id="FeatsComprehensive">
+<div id="FeatsComprehensive">
 <!-- Comprehensive FEATS Table -->
 <!-- START Feat Table -->
    <table width="100%" cellspacing="0" cellpadding="2">
@@ -3263,9 +3258,6 @@ function RemoveStat (attribute) {
      <td valign="top" align="left"><font style="font-size: 8pt">You gain a +2 bonus on all damage rolls you make using the selected weapon.</font></td>
     </tr>
    </table>
-  </td>
- </tr>
-</table>
 <!-- STOP Feat Table -->
 		</div>
 <!-- END Comprehensive FEATS Table -->
@@ -3363,49 +3355,49 @@ function RemoveStat (attribute) {
 </div>
 <!-- END 4+-page spell listing Table    This is only displayed in 4+-page mode -->
  
-<div id="BioComprehensive"><A NAME="Bio"></A>
+<div id="BioComprehensive"><A name="Bio"></A>
 <br style="page-break-after: always" />
  
 <center><font size="-1">Created using PCGen 5.6.0 on 26/06/2004</font></center><br>
 <TABLE  width="100%" cellspacing="0" cellpadding="2">
 <TR><TD colspan="2"><font style="font-size: 14pt">Gulak Kurgar</font></td></tr>
-<TR><TD id="BioImage" CLASS="border" HEIGHT="400" width="1%"><IMG SRC="Gulak Kurgar_Full.jpg" HEIGHT="400" alt="Gulak Kurgar's portrait" onerror="document.getElementById('BioImage').style.display = 'none';"></TD><TD valign="top" width="99%">
+<TR><TD id="BioImage" class="border" height="400" width="1%"><IMG src="Gulak Kurgar_Full.jpg" height="400" alt="Gulak Kurgar's portrait" onerror="document.getElementById('BioImage').style.display = 'none';"></TD><TD valign="top" width="99%">
 <TABLE width="100%" cellspacing="0" cellpadding="2">
 <TR><TD class="biodata">Human<br/></td></tr>
-<TR><TD CLASS="hs">RACE</td></tr>
+<TR><TD class="hs">RACE</td></tr>
 <TR><TD class="biodata">20<br/></td></tr>
-<TR><TD CLASS="hs">AGE</td></tr>
+<TR><TD class="hs">AGE</td></tr>
 <TR><TD class="biodata">6&#39; 4&quot;<br/></td></tr>
-<TR><TD CLASS="hs">HEIGHT</td></tr>
+<TR><TD class="hs">HEIGHT</td></tr>
 <TR><TD class="biodata">228  lbs.<br/></td></tr>
-<TR><TD CLASS="hs">WEIGHT</td></tr>
+<TR><TD class="hs">WEIGHT</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">EYE COLOR</td></tr>
+<TR><TD class="hs">EYE COLOR</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">SKIN COLOR</td></tr>
+<TR><TD class="hs">SKIN COLOR</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">HAIR COLOR</td></tr>
+<TR><TD class="hs">HAIR COLOR</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">HAIR LENGTH</td></tr>
+<TR><TD class="hs">HAIR LENGTH</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">PHOBIAS</td></tr>
+<TR><TD class="hs">PHOBIAS</td></tr>
 <TR><TD class="biodata"> <br/></td></tr>
-<TR><TD CLASS="hs">PERSONALITY TRAITS</td></tr>
+<TR><TD class="hs">PERSONALITY TRAITS</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">INTERESTS</td></tr>
+<TR><TD class="hs">INTERESTS</td></tr>
 <TR><TD class="biodata"> <br/></td></tr>
-<TR><TD CLASS="hs">SPOKEN STYLE</td></tr>
+<TR><TD class="hs">SPOKEN STYLE</td></tr>
 </TABLE>
 </TD></TR>
-<TR><TD CLASS="borderbottom" colspan="2"><font style="font-size: 14pt">Description</font></td></tr>
+<TR><TD class="borderbottom" colspan="2"><font style="font-size: 14pt">Description</font></td></tr>
 </TABLE>
 <font style="font-size: 9pt"></font>
 <TABLE  width="100%" cellspacing="0" cellpadding="2">
-<TR><TD CLASS="borderbottom" colspan="2"><font style="font-size: 14pt">Home</font></td></tr>
+<TR><TD class="borderbottom" colspan="2"><font style="font-size: 14pt">Home</font></td></tr>
 </TABLE>
 <font style="font-size: 9pt"> , </font>
 <TABLE  width="100%" cellspacing="0" cellpadding="2">
-<TR><TD CLASS="borderbottom" colspan="2"><font style="font-size: 14pt">Biography</font></td></tr>
+<TR><TD class="borderbottom" colspan="2"><font style="font-size: 14pt">Biography</font></td></tr>
 </TABLE>
 <font style="font-size: 9pt"></font>
 </div>

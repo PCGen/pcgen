@@ -34,7 +34,7 @@ $Date: 2004/08/16 01:19:39 $
 -->
 <head>
 <title>Thor Khazad [0 Points]</title>
-<style TYPE="text/css">
+<style type="text/css">
 	.font4 {  font-family: Arial; font-size:4pt; }
 	.font5 {  font-family: Arial; font-size:5pt; }
 	.font6 {  font-family: Arial; font-size:6pt; }
@@ -2325,14 +2325,6 @@ function DefensiveCombatMods( newDefState )
 };
 // ********************************************
 // ********************************************
-function DefFightingButtons()
-{
-	document.write( "<TR>" );
-	document.write( '<TD align="center"><INPUT id=defFightButton1 type=button value="Normal Combat" name=defFightButton1 onclick="SetDefFighting(0);">&nbsp;<INPUT id=defFightButton2 type=button value="Fighting Defensively" name=defFightButton2 onclick="SetDefFighting(1);">&nbsp;<INPUT id=defFightButton3 type=button value="Total Defense" name=defFightButton3 onclick="SetDefFighting(2);">' );
-	document.write( "</TD></TR>" );
-};
-// ********************************************
-// ********************************************
 function SetDefFighting( defFightLvl )
 {
    for ( i=0; i<StateArr.length; ++i )
@@ -2396,14 +2388,18 @@ function RemoveStat (attribute) {
 <body bgcolor="white" onload="Compact();" onbeforeprint="RemoveConfigElements()" onafterprint="RedrawConfigElements()">
 <center><font size="-1">Created using PCGen 5.6.0 on 27/06/2004</font></center><br>
 
-<TABLE ID="Config" WIDTH="100%" BORDER=0 CELLSPACING=1 CELLPADDING=1>
-	<TR>
-		<TD align="center"><INPUT id=button3 type=button value="1 Page" name=button3 onclick="Compact();">&nbsp;<INPUT id=button2 type=button value="2 Page" name=button2 onclick="TwoPage();">&nbsp;<INPUT id=button2 type=button value="3-4 Page" name=button2 onclick="ThreePage();">&nbsp;<INPUT id=button1 type=button value="4 Page+" name=button1 onclick="Comprehensive();">&nbsp;<INPUT id=button4 type=button value="Print" name=button4 onclick="MyPrint();"></TD>
-	</TR>
+<table id="Config" width="100%" border=0 cellspacing=1 cellpadding=1>
+	<tr>
+		<td align="center"><input id=button3 type=button value="1 Page" name=button3 onclick="Compact();">&nbsp;<INPUT id=button2 type=button value="2 Page" name=button2 onclick="TwoPage();">&nbsp;<INPUT id=button2 type=button value="3-4 Page" name=button2 onclick="ThreePage();">&nbsp;<INPUT id=button1 type=button value="4 Page+" name=button1 onclick="Comprehensive();">&nbsp;<INPUT id=button4 type=button value="Print" name=button4 onclick="MyPrint();"></TD>
+	</tr>
 
-   <SCRIPT>DefFightingButtons();</SCRIPT>
+    <tr>
+        <td align="center">
+            <input id=defFightButton1 type=button value="Normal Combat" name=defFightButton1 onclick="SetDefFighting(0);">&nbsp;<INPUT id=defFightButton2 type=button value="Fighting Defensively" name=defFightButton2 onclick="SetDefFighting(1);">&nbsp;<INPUT id=defFightButton3 type=button value="Total Defense" name=defFightButton3 onclick="SetDefFighting(2);">
+        </td>
+    </tr>
+
 </TABLE>
-<font style="font-size:6pt">
 <table id="FullHeader" cellpadding="0" cellspacing="4" border="0" width="100%">
 <tr>
 <td id=charName colspan="2" class="h"><B><FONT style="font-size:12pt">Thor Khazad</font></B></td>
@@ -2411,7 +2407,7 @@ function RemoveStat (attribute) {
 <td class="h">Chaotic Neutral</td>
 <td class="h">Haela Brightaxe</td>
 <td class="h">0</td>
-<td id="CharacterImage" rowspan="7" align="center" width="1%" class="border"><font style="font-size:10pt"><A HREF="#Bio"><IMG SRC="" height="100" ALT="Click for Bio" BORDER="0" onerror="document.getElementById('CharacterImage').style.display = 'none';"></A><br /></font></td>
+<td id="CharacterImage" rowspan="7" align="center" width="1%" class="border"><font style="font-size:10pt"><a href="#Bio"><img src="" height="100" alt="Click for Bio" border="0" onerror="document.getElementById('CharacterImage').style.display = 'none';"></A><br /></font></td>
 </tr>
 <tr>
 <td colspan="2" class="hs">CHARACTER NAME</td>
@@ -2781,8 +2777,8 @@ function RemoveStat (attribute) {
 			<td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>Cleric of Haela Brightaxe</b></font></td>
 		</tr>
 		<tr>
-			<td class="spname"><b>Domain</b><br /></font></td>
-			<td class="spname"><b>Granted Power</b><br /></font></td>
+			<td class="spname"><b>Domain</b><br /></td>
+			<td class="spname"><b>Granted Power</b><br /></td>
 		</tr>
 <!--Bjorn Ehlert: The use of COUNT[DOMAINS]+1 doesn't result in empty TDs at the end of the TABLE-->
  <tr><td valign="top" class="border7">Chaos<br /></td><td valign="top" class="border7">You cast chaos spells at +1 caster level.<br /></td></tr>  <tr><td valign="top" class="border7">Luck<br /></td><td valign="top" class="border7">You gain the power of good fortune, which is usable once per day. This extraordinary ability allows you to reroll one roll that you have just made before the DM declares whether the roll results in success or failure. You must take the result of the reroll, even if it&#39;s worse than the original roll.<br /></td></tr> 
@@ -2791,25 +2787,25 @@ function RemoveStat (attribute) {
 		</div>
 <!-- END Domain stats (main table row 3) -->
 <!-- START Ammunition stats (main table row 3) -->
-		<font style="font-size:8pt"><center><b>AMMUNITION</b></center></font>
+		<center><font style="font-size:8pt"><b>AMMUNITION</b></font></center>
 		<table width="100%">
 		<tr>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
 		</tr>
 		<tr>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
 		</tr>
 		<tr>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
-			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT LANGUAGE="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
-			<td valign="bottom" NOWRAP><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
+			<td width="45%" class="borderbottom"><font style="font-size: 7pt"> <SCRIPT language="Javascript">if(''!='') document.write('('+StripZero('')+')');</SCRIPT><br /></font></td>
+			<td valign="bottom" nowrap><font face="Wingdings" style="font-size: 5pt">ooooo ooooo<br />ooooo ooooo</font></td>
 		</tr>
 		</table>
 <!-- END Ammunition stats (main table row 3) -->
@@ -2818,13 +2814,12 @@ function RemoveStat (attribute) {
 </table>
 <!-- END MAIN TABLE -->
  
-<BR><CENTER><font style="font-size: 7pt">PCGen Character Template by ROG, mods/maint by Arcady, Barak & Dimrill.  For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</font></CENTER>
+<BR><CENTER><font style="font-size: 7pt">PCGen Character Template by ROG, mods/maint by Arcady, Barak &amp; Dimrill.  For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</font></CENTER>
 <div id="SecondPage">
 <br style="page-break-after: always" />
  
 <center><font size="-1">Created using PCGen 5.6.0 on 27/06/2004</font></center><br>
 <!-- 2nd page MAIN TABLE -->
-<table width="100%" border="0">
 <table width="100%" border="0"> <!-- Master Page Table -->
  <tr>
   <td colspan="2" width="100%" valign="top">
@@ -3059,8 +3054,8 @@ function RemoveStat (attribute) {
        </tr>
        <tr>
         <td valign="top" width="41%" class="border" align="right" colspan="1"><font style="font-size: 8pt">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</font></td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP><font style="font-size: 8pt">74.54  lbs.</font></td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP><font style="font-size: 8pt">249642.8 gp</font></td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: 8pt">74.54  lbs.</font></td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: 8pt">249642.8 gp</font></td>
        </tr>
       </table>
      </td>
@@ -3421,11 +3416,8 @@ function RemoveStat (attribute) {
      <td valign="top" align="left"><font style="font-size: 8pt">You gain a +2 bonus on all damage rolls you make using the selected weapon.</font></td>
     </tr>
    </table>
-  </td>
- </tr>
-</table>
 <!-- STOP Feat Table -->
-		</div>
+</div>
 <!-- END Comprehensive FEATS Table -->
  
 <!-- Weapons spillover Table -->
@@ -3433,8 +3425,6 @@ function RemoveStat (attribute) {
 			<script language="Javascript">WeaponPrint();</script>
 		</div>
 <!-- END Weapons spillover Table -->
-	</td>
-</tr>
 </table>  <!-- End of 2nd page table -->
 </div>  <!-- id="SecondPage" -->
  
@@ -3463,7 +3453,7 @@ function RemoveStat (attribute) {
 					<td bgcolor="black"><font style="font-size:8pt" color="white"><b>&nbsp;Cleric</b></font></td><td align="center" bgcolor="black"><font style="font-size:4pt" color="white"><b>0<br /></b></font></td><td align="center" bgcolor="black"><font style="font-size:4pt" color="white"><b>1<br /></b></font></td><td align="center" bgcolor="black"><font style="font-size:4pt" color="white"><b>2<br /></b></font></td><td align="center" bgcolor="black"><font style="font-size:4pt" color="white"><b>3<br /></b></font></td><td align="center" bgcolor="black"><font style="font-size:4pt" color="white"><b>4<br /></b></font></td><td align="center" bgcolor="black"><font style="font-size:4pt" color="white"><b>5<br /></b></font></td><td align="center" bgcolor="black"><font style="font-size:4pt" color="white"><b>6<br /></b></font></td><td align="center" bgcolor="black"><font style="font-size:4pt" color="white"><b>7<br /></b></font></td><td align="center" bgcolor="black"><font style="font-size:4pt" color="white"><b>8<br /></b></font></td><td align="center" bgcolor="black"><font style="font-size:4pt" color="white"><b>9<br /></b></font></td>
 				</tr>
 				<tr>
-					<td><font style="font-size:8pt" color="black" width="40%"><b>&nbsp;&nbsp;Per Day</b></td>
+					<td width="40%"><font style="font-size:8pt" color="black"><b>&nbsp;&nbsp;Per Day</b></font></td>
 					<td align="center" width="6%"><font style="font-size:8pt" color="black">4<br /></font></td>
 					<td align="center" width="6%"><font style="font-size:8pt" color="black">3+1<br /></font></td>
 					<td align="center" width="6%"><font style="font-size:8pt" color="black">2+1<br /></font></td>
@@ -3621,25 +3611,25 @@ function RemoveStat (attribute) {
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b> Guidance</b> (DC:14)</td>
+     <td><font style="font-size: 9pt" color="black"><b> Guidance</b> (DC:14)</font></td>
     </tr>
     <tr>
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b> Light</b> (DC:14)</td>
+     <td><font style="font-size: 9pt" color="black"><b> Light</b> (DC:14)</font></td>
     </tr>
     <tr>
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b> Resistance</b> (DC:14)</td>
+     <td><font style="font-size: 9pt" color="black"><b> Resistance</b> (DC:14)</font></td>
     </tr>
     <tr>
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b> Virtue</b> (DC:14)</td>
+     <td><font style="font-size: 9pt" color="black"><b> Virtue</b> (DC:14)</font></td>
     </tr>
    </table>
   </td>
@@ -3652,25 +3642,25 @@ o</font>
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b> Bless</b> (DC:15)</td>
+     <td><font style="font-size: 9pt" color="black"><b> Bless</b> (DC:15)</font></td>
     </tr>
     <tr>
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b> Divine Favor</b> (DC:15)</td>
+     <td><font style="font-size: 9pt" color="black"><b> Divine Favor</b> (DC:15)</font></td>
     </tr>
     <tr>
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b>** Entropic Shield</b> (DC:15)</td>
+     <td><font style="font-size: 9pt" color="black"><b>** Entropic Shield</b> (DC:15)</font></td>
     </tr>
     <tr>
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b> Shield of Faith</b> (DC:15)</td>
+     <td><font style="font-size: 9pt" color="black"><b> Shield of Faith</b> (DC:15)</font></td>
     </tr>
    </table>
   </td>
@@ -3683,19 +3673,19 @@ o</font>
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b>** Aid</b> (DC:16)</td>
+     <td><font style="font-size: 9pt" color="black"><b>** Aid</b> (DC:16)</font></td>
     </tr>
     <tr>
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b> Bear's Endurance</b> (DC:16)</td>
+     <td><font style="font-size: 9pt" color="black"><b> Bear's Endurance</b> (DC:16)</font></td>
     </tr>
     <tr>
      <td align="right"><font face="Wingdings" style="font-size: 9pt">
 o</font>
      </td>
-     <td><font style="font-size: 9pt" color="black"><b> Bull's Strength</b> (DC:16)</td>
+     <td><font style="font-size: 9pt" color="black"><b> Bull's Strength</b> (DC:16)</font></td>
     </tr>
    </table>
   </td>
@@ -5557,49 +5547,49 @@ o</font>
 </div>
 <!-- END 4+-page spell listing Table    This is only displayed in 4+-page mode -->
  
-<div id="BioComprehensive"><A NAME="Bio"></A>
+<div id="BioComprehensive"><A name="Bio"></A>
 <br style="page-break-after: always" />
  
 <center><font size="-1">Created using PCGen 5.6.0 on 27/06/2004</font></center><br>
 <TABLE  width="100%" cellspacing="0" cellpadding="2">
 <TR><TD colspan="2"><font style="font-size: 14pt">Thor Khazad</font></td></tr>
-<TR><TD id="BioImage" CLASS="border" HEIGHT="400" width="1%"><IMG SRC="Thor Khazad_Full.jpg" HEIGHT="400" alt="Thor Khazad's portrait" onerror="document.getElementById('BioImage').style.display = 'none';"></TD><TD valign="top" width="99%">
+<TR><TD id="BioImage" class="border" height="400" width="1%"><img src="Thor Khazad_Full.jpg" height="400" alt="Thor Khazad's portrait" onerror="document.getElementById('BioImage').style.display = 'none';"></TD><TD valign="top" width="99%">
 <TABLE width="100%" cellspacing="0" cellpadding="2">
 <TR><TD class="biodata">Dwarf<br/></td></tr>
-<TR><TD CLASS="hs">RACE</td></tr>
+<TR><TD class="hs">RACE</td></tr>
 <TR><TD class="biodata">58<br/></td></tr>
-<TR><TD CLASS="hs">AGE</td></tr>
+<TR><TD class="hs">AGE</td></tr>
 <TR><TD class="biodata">4&#39; 4&quot;<br/></td></tr>
-<TR><TD CLASS="hs">HEIGHT</td></tr>
+<TR><TD class="hs">HEIGHT</td></tr>
 <TR><TD class="biodata">214  lbs.<br/></td></tr>
-<TR><TD CLASS="hs">WEIGHT</td></tr>
+<TR><TD class="hs">WEIGHT</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">EYE COLOR</td></tr>
+<TR><TD class="hs">EYE COLOR</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">SKIN COLOR</td></tr>
+<TR><TD class="hs">SKIN COLOR</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">HAIR COLOR</td></tr>
+<TR><TD class="hs">HAIR COLOR</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">HAIR LENGTH</td></tr>
+<TR><TD class="hs">HAIR LENGTH</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">PHOBIAS</td></tr>
+<TR><TD class="hs">PHOBIAS</td></tr>
 <TR><TD class="biodata"> <br/></td></tr>
-<TR><TD CLASS="hs">PERSONALITY TRAITS</td></tr>
+<TR><TD class="hs">PERSONALITY TRAITS</td></tr>
 <TR><TD class="biodata"><br/></td></tr>
-<TR><TD CLASS="hs">INTERESTS</td></tr>
+<TR><TD class="hs">INTERESTS</td></tr>
 <TR><TD class="biodata"> <br/></td></tr>
-<TR><TD CLASS="hs">SPOKEN STYLE</td></tr>
+<TR><TD class="hs">SPOKEN STYLE</td></tr>
 </TABLE>
 </TD></TR>
-<TR><TD CLASS="borderbottom" colspan="2"><font style="font-size: 14pt">Description</font></td></tr>
+<TR><TD class="borderbottom" colspan="2"><font style="font-size: 14pt">Description</font></td></tr>
 </TABLE>
 <font style="font-size: 9pt"></font>
 <TABLE  width="100%" cellspacing="0" cellpadding="2">
-<TR><TD CLASS="borderbottom" colspan="2"><font style="font-size: 14pt">Home</font></td></tr>
+<TR><TD class="borderbottom" colspan="2"><font style="font-size: 14pt">Home</font></td></tr>
 </TABLE>
 <font style="font-size: 9pt"> , </font>
 <TABLE  width="100%" cellspacing="0" cellpadding="2">
-<TR><TD CLASS="borderbottom" colspan="2"><font style="font-size: 14pt">Biography</font></td></tr>
+<TR><TD class="borderbottom" colspan="2"><font style="font-size: 14pt">Biography</font></td></tr>
 </TABLE>
 <font style="font-size: 9pt"></font>
 </div>
