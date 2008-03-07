@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 13:07:33 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Mar  7 16:34:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # Bard and Druid block.  Due to .MOD issues, redoing classes here
@@ -71,13 +71,12 @@ CLASS:Fool		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Diplo
 1	AUTO:FEAT|Armor Proficiency (Light)
 1							AUTO:WEAPONPROF|TYPE=Simple|Crossbow (Hand)|Rapier|Shortbow|Sword (Short)
 ###Block: Normal Level Progression
-1																																																	VFEAT:Improved Feint
-2	SAB:Banter (Ex)																													BONUS:COMBAT|AC|max(CHA,0)
-3	SAB:Fool's Luck (Ex) +%|FoolsLuck					BONUS:VAR|FoolsLuck|CL/3												BONUS:CHECKS|ALL|FoolsLuck						DEFINE:FoolsLuck|0
-4	SAB:Barrel Roll (Ex) +%|BarrelRoll	SAB:Uncanny Dodge		BONUS:VAR|BarrelRoll|CL/4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE											DEFINE:BarrelRoll|0	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-5	SAB:Jig (Su) %/day|JigPerDay|PRESKILL:1,Perform (Dance)=8	BONUS:VAR|JigPerDay|CL/5																						DEFINE:JigPerDay|0
+1																																																			VFEAT:Improved Feint
+2	SAB:Banter (Ex)																																			BONUS:COMBAT|AC|max(CHA,0)
+3	SAB:Fool's Luck (Ex) +%|FoolsLuck					BONUS:VAR|FoolsLuck|CL/3																		BONUS:CHECKS|ALL|FoolsLuck						DEFINE:FoolsLuck|0
+4	SAB:Barrel Roll (Ex) +%|BarrelRoll	SAB:Uncanny Dodge		BONUS:VAR|BarrelRoll|CL/4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|CL/4											DEFINE:BarrelRoll|0	TEMPLATE:Uncanny Dodge
+5	SAB:Jig (Su) %/day|JigPerDay|PRESKILL:1,Perform (Dance)=8	BONUS:VAR|JigPerDay|CL/5																												DEFINE:JigPerDay|0
 7	SAB:Wit (Ex)
-8																																									ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
 11	SAB:Rapier Wit (Ex)
 13	SAB:Tongue Lashing (Ex)
 14	SAB:Razon Wit (Ex)

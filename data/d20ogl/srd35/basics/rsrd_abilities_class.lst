@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  6 23:55:22 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Mar  7 14:23:28 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -93,6 +93,14 @@ Slippery Mind	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.Special
 Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities.SpecialQuality						VISIBLE:YES																					DESC:Take 10 on listed skills																					STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL										SOURCEPAGE:ClassesII.rtf
 Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY																				DESC:1 Extra Feat (Spend on Feat tab)																			STACK:YES	MULT:YES				CHOOSE:NOCHOICE		BONUS:FEAT|POOL|1							SOURCEPAGE:ClassesII.rtf
 
+###Block: Uncanny Dodge
+# Use: TEMPLATE:Uncanny Dodge to add the Uncanny Dodge/Improved Uncanny Dodge feature
+# Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
+# put this on class line one of any class that gets Uncanny Dodge
+#	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
+# Ability Name		Category of Ability		Type				Special ABility															Modify VAR								Source Page
+Uncanny Dodge		CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Uncanny Dodge (Dex bonus to AC)|var("COUNT[FEATNAME=Improved Uncanny Dodge.ALL]")-1												SOURCEPAGE:ClassesII.rtf
+Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Improved Uncanny Dodge (can't be flanked except by a level % rogue)|UncannyDodgeFlankingLevel	BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:ClassesII.rtf
 
 #
 #EOF

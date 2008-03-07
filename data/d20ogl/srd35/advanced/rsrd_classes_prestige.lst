@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb 18 11:22:51 2008 -- reformated by prettylst.pl v1.38 (build 5211)
+# CVS $Revision$ $Author$ -- Fri Mar  7 15:45:29 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -63,14 +63,14 @@ CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assa
 1	AUTO:FEAT|Assassin Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2									AUTO:FEAT|Sneak Attack|Death Attack|Poison Use
-2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2																	ADD:FEAT|Uncanny Dodge,Improved Uncanny Dodge	AUTO:FEAT|Save against Poisons
+1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2					AUTO:FEAT|Sneak Attack|Death Attack|Poison Use
+2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3										TEMPLATE:Uncanny Dodge	AUTO:FEAT|Save against Poisons
 3	CAST:0,2,0		KNOWN:0,3,2
 4	CAST:0,3,1		KNOWN:0,4,3
-5	CAST:0,3,2,0	KNOWN:0,4,3,2																							ADD:FEAT|Uncanny Dodge,Improved Uncanny Dodge
+5	CAST:0,3,2,0	KNOWN:0,4,3,2
 6	CAST:0,3,3,1	KNOWN:0,4,4,3
 7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2
-8	CAST:0,3,3,3,1	KNOWN:0,4,4,3,3																															AUTO:FEAT|Hide in Plain Sight (Assassin)
+8	CAST:0,3,3,3,1	KNOWN:0,4,4,3,3																											AUTO:FEAT|Hide in Plain Sight (Assassin)
 9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3
 10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4
 
@@ -205,11 +205,11 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3						AUTO:FEAT|Defensive Stance|Dwarven Defender AC Bonus
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE										ADD:FEAT|TYPE=UncannyDodge
-4	BONUS:VAR|TrapSense|CL/4																					AUTO:FEAT|Trap Sense Ability
-6	BONUS:VAR|DwarvenDefenderDRLVL|CL															ADD:FEAT|TYPE=UncannyDodge	AUTO:FEAT|Dwarven Defender DR
-8																										AUTO:FEAT|Dwarven Defender Mobile Defense
+1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3					AUTO:FEAT|Defensive Stance|Dwarven Defender AC Bonus
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4			TEMPLATE:Uncanny Dodge
+4	BONUS:VAR|TrapSense|CL/4																				AUTO:FEAT|Trap Sense Ability
+6	BONUS:VAR|DwarvenDefenderDRLVL|CL																			AUTO:FEAT|Dwarven Defender DR
+8																									AUTO:FEAT|Dwarven Defender Mobile Defense
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
@@ -295,15 +295,15 @@ CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomac
 1	AUTO:FEAT|Shadowdancer Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1																					AUTO:FEAT|Hide in Plain Sight (Assassin)
-2	VISION:Darkvision (60')	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|TYPE.UncannyDodge	AUTO:FEAT|Evasion
-3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanion|CL									AUTO:FEAT|Shadow Illusion|Summon Shadow
-4					BONUS:VAR|ShadowJump|20													AUTO:FEAT|Shadow Jump
-5																ADD:FEAT|TYPE.UncannyDodge	AUTO:FEAT|Defensive Roll
+1																											AUTO:FEAT|Hide in Plain Sight (Assassin)
+2	VISION:Darkvision (60')	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	TEMPLATE:Uncanny Dodge	AUTO:FEAT|Evasion
+3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanion|CL															AUTO:FEAT|Shadow Illusion|Summon Shadow
+4					BONUS:VAR|ShadowJump|20																			AUTO:FEAT|Shadow Jump
+5																											AUTO:FEAT|Defensive Roll
 6					BONUS:VAR|ShadowJump|20
-7																					AUTO:FEAT|Slippery Mind
+7																											AUTO:FEAT|Slippery Mind
 8					BONUS:VAR|ShadowJump|40
-10					BONUS:VAR|ShadowJump|80													AUTO:FEAT|Improved Evasion
+10					BONUS:VAR|ShadowJump|80																			AUTO:FEAT|Improved Evasion
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	ABB:Tha		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE

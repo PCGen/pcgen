@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Mar  7 16:07:43 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 
 # Class Name		List of Class Spells by Level
 CLASS:Beast Handler.MOD	SPELLLEVEL:CLASS|Beast Handler=1|Enlarge Person,Hide from Animals,Reduce Person|Beast Handler=2|Charm Animal,Magic Fang (Greater),Summon Nature's Ally II
@@ -18,7 +18,7 @@ CLASS:Footman.MOD	PRE:.CLEAR		PREATT:3	PREFEAT:2,Dodge,Combat Expertise	PRESIZEL
 
 # Class Name			Removed Class Skill	Class Skill
 CLASS:Gutter Fighter.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Search|Sleight of Hand|Spot|Swim|Tumble
-8	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	AUTO:FEAT|Uncanny Dodge
+8	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLevel|1	TEMPLATE:Uncanny Dodge	AUTO:FEAT|.CLEAR.Uncanny Dodge
 
 # Class Name			Removed Class Skill	Class Skill
 CLASS:Knight Chaplain.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|Heal|Listen|Ride|Search|Spot

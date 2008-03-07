@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:54:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Mar  7 17:31:30 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -396,43 +396,43 @@ CLASS:Priest	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Scri
 CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
 #
 SUBCLASS:Priest of Althares		PREDEITY:Althares
-SUBCLASSLEVEL:1						SAB:Right to Carry																																																																											ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnUndead			VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))							AUTO:WEAPONPROF|Warhammer
+SUBCLASSLEVEL:1						SAB:Right to Carry																																																																											ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnUndead							VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))							AUTO:WEAPONPROF|Warhammer
 SUBCLASSLEVEL:5																																BONUS:VAR|AgesKnowledgeLevel|CL/2|PREDEITY:Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT|1|Knowledge of the Ages
 SUBCLASS:Priest of Anshar		PREDEITY:Anshar
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead								VFEAT:Improved Unarmed Strike
-SUBCLASSLEVEL:3																																																																																																VFEAT:Endurance
-SUBCLASSLEVEL:9																																																																																																VFEAT:Diehard
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Improved Unarmed Strike
+SUBCLASSLEVEL:3																																																																																																				VFEAT:Endurance
+SUBCLASSLEVEL:9																																																																																																				VFEAT:Diehard
 SUBCLASS:Priest of Belisarda		PREDEITY:Belisarda	CSKILL:Knowledge (Geography)|Knowledge (Nature)|Survival
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead																									AUTO:WEAPONPROF|Longbow
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead																													AUTO:WEAPONPROF|Longbow
 SUBCLASS:Priest of Beltine		PREDEITY:Beltine
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																		AUTO:WEAPONPROF|Quarterstaff
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																						AUTO:WEAPONPROF|Quarterstaff
 SUBCLASS:Priest of Cadic		PREDEITY:Cadic		CSKILL:Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnCadicGood			VFEAT:Martial Weapon Proficiency(Crossbow (Hand))									AUTO:WEAPONPROF|Sword (Short)
-SUBCLASSLEVEL:5																																BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																																										ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnCadicGood							VFEAT:Martial Weapon Proficiency(Crossbow (Hand))									AUTO:WEAPONPROF|Sword (Short)
+SUBCLASSLEVEL:5																																BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1																																																	TEMPLATE:Uncanny Dodge
 SUBCLASS:Priest of Hurrian		PREDEITY:Hurrian		CSKILL:Survival
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead																									AUTO:WEAPONPROF|Longsword
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead																													AUTO:WEAPONPROF|Longsword
 SUBCLASS:Priest of Illir		PREDEITY:Illir
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnIllirGood			VFEAT:Gladius Exotic Weapon Proficiency											AUTO:WEAPONPROF|Gladius
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnIllirGood							VFEAT:Gladius Exotic Weapon Proficiency											AUTO:WEAPONPROF|Gladius
 SUBCLASSLEVEL:5						SAB:Fearless (Ex)
 SUBCLASS:Priest of the Fire Dragon	PREDEITY:Fire Dragon	CSKILL:Survival
-SUBCLASSLEVEL:1						SAB:Ignore detrimental effects from natural heat between 80-150 degrees F.																																																																		ADD:FEAT|1|TYPE=TurnUndead																									AUTO:WEAPONPROF|Flail (Heavy)
+SUBCLASSLEVEL:1						SAB:Ignore detrimental effects from natural heat between 80-150 degrees F.																																																																		ADD:FEAT|1|TYPE=TurnUndead																													AUTO:WEAPONPROF|Flail (Heavy)
 SUBCLASS:Priest of Larissa		PREDEITY:Larissa		CSKILL:TYPE.Perform|Tumble
-SUBCLASSLEVEL:1	DOMAIN:Divination|Pleasure																																																													BONUS:DOMAIN|NUMBER|1															ADD:FEAT|1|TYPE=TurnUndead								VFEAT:Exotic Weapon Proficiency(Whip)					AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Rapier
+SUBCLASSLEVEL:1	DOMAIN:Divination|Pleasure																																																													BONUS:DOMAIN|NUMBER|1															ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Exotic Weapon Proficiency(Whip)					AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Rapier
 SUBCLASSLEVEL:3																																																				BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
 SUBCLASS:Priest of Neroth		PREDEITY:Neroth
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																		AUTO:WEAPONPROF|Scythe
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																						AUTO:WEAPONPROF|Scythe
 SUBCLASS:Priest of Nier			PREDEITY:Nier
-SUBCLASSLEVEL:1						SAB:+1 per die of damage on spells cast with the fire descriptor.	SAB:When turning undead, the Priest of Nier must destroy the undead or nothing happens.																																																					ADD:FEAT|1|TYPE=TurnUndead																									AUTO:WEAPONPROF|Greatsword
+SUBCLASSLEVEL:1						SAB:+1 per die of damage on spells cast with the fire descriptor.	SAB:When turning undead, the Priest of Nier must destroy the undead or nothing happens.																																																					ADD:FEAT|1|TYPE=TurnUndead																													AUTO:WEAPONPROF|Greatsword
 SUBCLASS:Priest of Saluwe		PREDEITY:Saluwe
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead																									AUTO:WEAPONPROF|Spear
-SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex)																																																																																																		AUTO:FEAT|Track
-SUBCLASSLEVEL:4																																BONUS:VAR|CompLevel|CL																																																																								AUTO:FEAT|Animal Companion
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead																													AUTO:WEAPONPROF|Spear
+SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex)																																																																																																						AUTO:FEAT|Track
+SUBCLASSLEVEL:4																																BONUS:VAR|CompLevel|CL																																																																												AUTO:FEAT|Animal Companion
 SUBCLASS:Priest of Sarish		PREDEITY:Sarish
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:EQUIP|1|Dagger (Sarishan Steel)																			AUTO:WEAPONPROF|Dagger		LANGAUTO:Infernal
-SUBCLASSLEVEL:3																																																																																																											AUTO:FEAT|Magical Aptitude
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:EQUIP|1|Dagger (Sarishan Steel)																							AUTO:WEAPONPROF|Dagger		LANGAUTO:Infernal
+SUBCLASSLEVEL:3																																																																																																															AUTO:FEAT|Magical Aptitude
 SUBCLASSLEVEL:10						SAB:Mark of My Brother
 SUBCLASS:Priest of Yarris		PREDEITY:Yarris		CSKILL:Knowledge (Nature)|Survival|Swim
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnYarrisGood																			AUTO:WEAPONPROF|Trident
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnYarrisGood																							AUTO:WEAPONPROF|Trident
 SUBCLASSLEVEL:2						SAB:Effected by Endure Elements when within 1 mile of any large body of water.
 SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex) (Water Only)																																																											BONUS:SKILL|Profession (Navigator),Survival,Swim|2
 ###Block: Basic Turn Undead
@@ -604,24 +604,24 @@ CLASS:Twilight Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 ###BLOCK:Uncanny Dodge Stuff
 8	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
 ###Block: Level Stuff
-1				VISION:Darkvision (60')	SAB:Aura of Faith (Ex)	SAB:Pierce the Veil of Shadow (Su)																												AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+1				VISION:Darkvision (60')	SAB:Aura of Faith (Ex)	SAB:Pierce the Veil of Shadow (Su)																																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2								SAB:Cloak of Cadic (Su)
 3								SAB:Shadow Jump (Su)
-4	CAST:0,0						SAB:Divine Grace (Su)									BONUS:VAR|SmiteEvil|1	BONUS:CHECKS|ALL|max(CHA,0)																	AUTO:FEAT|Smite Evil
+4	CAST:0,0						SAB:Divine Grace (Su)									BONUS:VAR|SmiteEvil|1		BONUS:CHECKS|ALL|max(CHA,0)																					AUTO:FEAT|Smite Evil
 5	CAST:0,0						SAB:Trapfinding
-6	CAST:0,1						SAB:Cloak of Cadic (Womb of Darkness) (Su)														ADD:FEAT|1|Evasion
+6	CAST:0,1						SAB:Cloak of Cadic (Womb of Darkness) (Su)															ADD:FEAT|1|Evasion
 7	CAST:0,1
-8	CAST:0,1,0						SAB:Turn Shadows (Su)																		ADD:FEAT|1|Uncanny Dodge
+8	CAST:0,1,0						SAB:Turn Shadows (Su)									BONUS:VAR|UncannyDodgeLevel|1																						TEMPLATE:Uncanny Dodge
 9	CAST:0,1,0
-10	CAST:0,1,1						SAB:Cloak of Cadic (Moonless Night) (Su)																				SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration
+10	CAST:0,1,1						SAB:Cloak of Cadic (Moonless Night) (Su)																					SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration
 11	CAST:0,1,1,0
-12	CAST:0,1,1,1					SAB:Aura of Courage (Ex)																	ADD:FEAT|1|Slippery Mind
+12	CAST:0,1,1,1					SAB:Aura of Courage (Ex)																		ADD:FEAT|1|Slippery Mind
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0					SAB:Cloak of Cadic (Cover of Night) (Su)	SAB:Hide in Plain Sight (Su)
 15	CAST:0,2,1,1,1
-16	CAST:0,2,2,1,1					SAB:Shadow Mage (Sp)																							SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration (Greater)
+16	CAST:0,2,2,1,1					SAB:Shadow Mage (Sp)																								SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration (Greater)
 17	CAST:0,2,2,2,1
-18	CAST:0,3,2,2,1					SAB:Shadow Master (Su)																		ADD:FEAT|1|Improved Evasion
+18	CAST:0,3,2,2,1					SAB:Shadow Master (Su)																			ADD:FEAT|1|Improved Evasion
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3					SAB:Shadow Jump 1000 ft. (Su)	SAB:Shadow Blend (Su)
 

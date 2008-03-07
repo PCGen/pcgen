@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 13:07:33 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Mar  7 17:09:54 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # due to .MOD issues of CAST and KNOWN, Assassin copy here
@@ -14,11 +14,11 @@ CLASS:Assassin ~ LoE	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVE
 1							AUTO:WEAPONPROF|TYPE.Crossbow|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Sword (Short)
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,2,12		KNOWN:0,2,1		SAB:Poison Use	SAB:Death Attack (DC %)|DeathAttack	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	DEFINE:DeathAttack|10+INT									VFEAT:Power Source(Hedge Mage)	AUTO:FEAT|Sneak Attack
-2	CAST:0,1,8		KNOWN:0,2,1		SAB:+% save against poisons|AssassinPoisonSave		BONUS:VAR|AssassinPoisonSave|CL/2																	DEFINE:AssassinPoisonSave|0	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
+1	CAST:0,2,12		KNOWN:0,2,1		SAB:Poison Use	SAB:Death Attack (DC %)|DeathAttack	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	DEFINE:DeathAttack|10+INT					VFEAT:Power Source(Hedge Mage)	AUTO:FEAT|Sneak Attack
+2	CAST:0,1,8		KNOWN:0,2,1		SAB:+% save against poisons|AssassinPoisonSave		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3										DEFINE:AssassinPoisonSave|0	TEMPLATE:Uncanny Dodge
 3	CAST:0,1,4,15	KNOWN:0,3,2,1
 4	CAST:0,1,3,10	KNOWN:0,3,2,1
-5	CAST:0,1,2,5,18	KNOWN:0,4,3,2,1																																					ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
+5	CAST:0,1,2,5,18	KNOWN:0,4,3,2,1
 6	CAST:0,1,2,4,12	KNOWN:0,4,3,2,1
 7	CAST:0,1,2,3,6	KNOWN:0,5,3,3,2
 8	CAST:0,1,2,3,5	KNOWN:0,5,3,3,2	SAB:Hide in Plain Sight (Su)

@@ -1,4 +1,4 @@
-# CVS $Revision: 400 $ $Author: eddyanthony $ -- Sat Dec 29 22:15:12 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision: 400 $ $Author: eddyanthony $ -- Fri Mar  7 14:23:28 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -77,6 +77,14 @@ Disease Damage (Mummy rot)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BO
 Disease Damage (Red ache)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Stength Damage		TEMPDESC:Infection DC 15 (Injury), Incubation 1d3 days, Damage 1d6 Str, Apply this temporary bonus each day the victim takes damage.
 Disease Damage (Shakes)				VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|DEX|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=8|TITLE=Dexterity Damage	TEMPDESC:Infection DC 13 (Contact), Incubation 1 day, Damage 1d8 Dex, Apply this temporary bonus each day the victim takes damage.
 Disease Damage (Slimy doom)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Constitution Damage	TEMPDESC:Infection DC 14 (Contact), Incubation 1 day, Damage 1d4 Con (When damaged, character must succeed on another saving throw or 1 point of damage is permanent drain instead), Apply this temporary bonus each day the victim takes damage.
+
+###Block: Uncanny Dodge Class Ability
+# Use: TEMPLATE:Uncanny Dodge to add the Uncanny Dodge/Improved Uncanny Dodge feature
+# Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
+# put this on class line one of any class that gets Uncanny Dodge
+#	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
+# Template Name	Visible	Define										ABILITY
+Uncanny Dodge	VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVAREQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
 
 #
 # End

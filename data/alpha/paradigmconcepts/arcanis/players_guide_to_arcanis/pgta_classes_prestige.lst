@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:54:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Mar  7 17:28:07 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -325,12 +325,12 @@ SUBCLASS:Sefacci		COST:0
 SUBCLASSLEVEL:1	SAB:You lose the benefits of this class style when you wear medium or heavy armor																																	AUTO:FEAT|Two Weapon Fighting
 SUBCLASSLEVEL:4																																															AUTO:FEAT|Two Weapon Defense
 SUBCLASSLEVEL:8																																															AUTO:FEAT|Improved Two Weapon Fighting
-1																														AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-3																														AUTO:FEAT|Endurance
+1																																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+2											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4	TEMPLATE:Uncanny Dodge
+3																																	AUTO:FEAT|Endurance
 5	SAB:Idolized by the Mob (Ex)	SAB:Signature Weapon (Ex)
-6	SAB:Amazing Fortitude (Ex)																	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-7	SAB:Defensive Roll (Ex)																										AUTO:FEAT|Diehard
+6	SAB:Amazing Fortitude (Ex)
+7	SAB:Defensive Roll (Ex)																													AUTO:FEAT|Diehard
 9	SAB:Legendary Fortitude (Ex)
 10	SAB:As if They Were Gods (Ex)
 
@@ -341,14 +341,14 @@ CLASS:Gladiator (Andabatae)	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10	SOURCE
 CLASS:Gladiator (Andabatae)	PREATT:3	PREFEAT:2,Combat Expertise,Dodge
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Gladiator (Andabatae)	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Diplomacy|Escape Artist|Examine Martial Technique|Intimidate|Jump|Listen|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2	SAB:You lose the benefits of this class style when you wear medium or heavy armor																				AUTO:FEAT|Improved Unarmed Strike	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																				AUTO:FEAT|Endurance
-4	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																				AUTO:FEAT|Blind Fight	AUTO:FEAT|Weapon Focus(Unarmed Strike)
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2	SAB:You lose the benefits of this class style when you wear medium or heavy armor																							AUTO:FEAT|Improved Unarmed Strike	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4	TEMPLATE:Uncanny Dodge
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																							AUTO:FEAT|Endurance
+4	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																							AUTO:FEAT|Blind Fight	AUTO:FEAT|Weapon Focus(Unarmed Strike)
 5	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SAB:Idolized by the Mob (Ex)	SAB:Signature Weapon (Ex)
-6	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SAB:Amazing Fortitude (Ex)																					ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-7	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SAB:Defensive Roll (Ex)																														AUTO:FEAT|Diehard
-8	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																				AUTO:FEAT|Improved Grapple	AUTO:FEAT|Weapon Specialization(Unarmed Strike)
+6	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SAB:Amazing Fortitude (Ex)
+7	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SAB:Defensive Roll (Ex)																																	AUTO:FEAT|Diehard
+8	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																							AUTO:FEAT|Improved Grapple	AUTO:FEAT|Weapon Specialization(Unarmed Strike)
 9	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			SAB:Legendary Fortitude (Ex)
 10	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			SAB:As if They Were Gods (Ex)
 

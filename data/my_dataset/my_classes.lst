@@ -21,14 +21,14 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #1	AUTO:FEAT|Armor Proficiency (Light)
 #1	BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
 #1	SAB:Trapfinding
-#2																												AUTO:FEAT|Evasion
-#3				BONUS:VAR|TrapSense|CL/3																				AUTO:FEAT|Trap Sense Ability
-#4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-#8															ADD:FEAT|1|Uncanny Dodge,Improved Uncanny Dodge
-#10															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-#13															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-#16															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-#19															ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+#2																																					AUTO:FEAT|Evasion
+#3				BONUS:VAR|TrapSense|CL/3																													AUTO:FEAT|Trap Sense Ability
+#4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1														TEMPLATE:Uncanny Dodge
+#8															BONUS:VAR|UncannyDodgeLevel|1
+#10																				ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+#13																				ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+#16																				ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+#19																				ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 
 #####
 #Class files are where each class is listed, given it's important information for the correct output and functioning of the
