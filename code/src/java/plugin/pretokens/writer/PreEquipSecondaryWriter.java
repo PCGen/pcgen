@@ -127,7 +127,7 @@ public class PreEquipSecondaryWriter extends AbstractPrerequisiteWriter
 					}
 				}
 			}
-			if (oper.equals(PrerequisiteOperator.LT))
+			if (PrerequisiteOperator.LT.equals(prereq.getOperator()))
 			{
 				writer.write('!');
 			}

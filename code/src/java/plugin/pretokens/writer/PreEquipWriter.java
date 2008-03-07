@@ -126,7 +126,7 @@ public class PreEquipWriter extends AbstractPrerequisiteWriter implements
 					}
 				}
 			}
-			if (oper.equals(PrerequisiteOperator.LT))
+			if (PrerequisiteOperator.LT.equals(prereq.getOperator()))
 			{
 				writer.write('!');
 			}
