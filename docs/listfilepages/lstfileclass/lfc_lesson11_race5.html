@@ -51,7 +51,7 @@
 		a monster as provided in the source material.</p>
 		<p>The first thing to note is that a different file set is used when creating Default Monster
 		Kits than when creating the monster.&nbsp; The files in question are called &quot;Starting Kits&quot;
-		or just Kits for short.&nbsp Kit files have a slightly different syntax than other LST files
+		or just Kits for short.&nbsp; Kit files have a slightly different syntax than other LST files
 		you may already be familiar with.</p>
 		<p>The format for a Kit file is each Kit starts with a <code>STARTPACK</code> tag and ends when
 		the code sees another <code>STARTPACK</code> tag or the end of file.&nbsp; Most tags in
@@ -285,7 +285,7 @@ longbow.&nbsp; To enter this into the kit we first grant the base item with the
 <code>GEAR</code> tag like so &quot;<code>GEAR:Greatsword</code>&quot;.</p>
 <p>Then we need to add the special abilities to the base item.&nbsp; We do this by adding
 EQMODs just like using the equipment customizer.&nbsp; For the greatsword we need to
-add the following EQMODs, MWORKW, PLUS5W, DANCE, and VORPAL.&nbsp So we will add the
+add the following EQMODs, MWORKW, PLUS5W, DANCE, and VORPAL.&nbsp; So we will add the
 following code to the <code>GEAR</code> line we created earlier: <code>EQMOD:MWORKW.PLUS5W.DANCE.VORPAL</code>.</p>
 <p>Now we need to make sure that the item is the correct size for the creature we are
 creating.&nbsp; By default, PCGen creates all items at Medium size.&nbsp; Our Solar however
@@ -301,7 +301,7 @@ could be useful for items left in the monster's lair but in our case we actually
 Solar to use its greatsword.&nbsp; To do this we use the <code>LOCATION</code> tag.&nbsp; 
 This tag uses the same locations as you would see in the user interface when equipping an item.&nbsp;
 A greatsword is a two-handed weapon so it can only be equipped to one place &quot;Both Hands&quot;.&nbsp;
-We add the tag <code>LOCATION:Both Hands</code>.&nbsp For items that are not weapons that
+We add the tag <code>LOCATION:Both Hands</code>.&nbsp; For items that are not weapons that
 can only be equipped to one place on the body (like a ring) you can simply specify 
 &quot;Equipped&quot; in the <code>LOCATION</code> tag and PCGen will equip it to the 
 correct location.</p>

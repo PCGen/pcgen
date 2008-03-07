@@ -24,7 +24,7 @@
 
 	<body>
 		<h1>Miscellaneous Output Sheet Tokens</h1>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -61,7 +61,7 @@
 		<p class="indent2"><code>(VAR.RangeMod-2).INTVAL.SIGN</code></p>
 		<p class="indent3">Displays the integer portion preceded with a sign (+ or -) for the result of the Range
 			Modifier minus 2.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -122,7 +122,7 @@
 		<p class="indent2"><code>|%WEAPON.3|</code></p>
 		<p class="indent3">The filter will stop all output (until this filter is
 			ended or the next filter started) unless the character has at least 3 weapons.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -138,7 +138,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUSLIST.COMBAT.AC</code></p>
 		<p class="indent3">Would list all COMBAT.AC bonuses as a comma-space delimited list.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -150,7 +150,7 @@
 		<p class="indent2"><code>2|BR|3</code></p>
 		<p class="indent3">Then the output would look like:<br/>
 			<code>2<br/>3</code></p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -238,12 +238,12 @@
 															ENDFOR</code></p>
 		<p class="indent3">The {statements} would be processed for each of the 0<sup>th</sup> level spells in
 			the 1<sup>st</sup> classes 1<sup>st</sup> spellbook (known) that the character has.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
 		<p class="indent0"><strong><a name="count">Token Name:</a></strong> count(x,y) - See <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">jep count ()</a> function in the Global Formulas page.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -261,7 +261,7 @@
 		<p class="indent3">This would change the field delimiter from the default &quot;\&quot; character for
 			&quot;~&quot;. This allows the FOR/DFOR loop to be used in RTF output which does not allow the
 			&quot;\&quot; character to be used</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -306,7 +306,7 @@
 															&lt;td&gt;\SKILL%.ABILITY\&lt;/td&gt;&lt;td&gt;\SKILL%.MOD\,&lt;tr
 																align=&quot;center&quot;&gt;,&lt;/tr&gt;,0</code></p>
 		<p class="indent3">Produces a 2 column row table of all skills.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -336,7 +336,7 @@
 		  in &quot;<code>D:\RPG\PCGen</code>&quot;.</p>
 		<p class="indent2"><code>DIR.TEMP</code></p>
 		<p class="indent3">Would display &quot;<code>C:\Temp</code>&quot; if that was the Operating System's temp directory.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -352,7 +352,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>EXPORT.DATE</code></p>
 		<p class="indent3">Displays the date of export.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -380,7 +380,7 @@
 															{Statements}<br />
 															ENDFOR</code></p>
 		<p class="indent3">Counts from 0 to 20 minus the sting length of the skill name.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -415,7 +415,7 @@
 														 |FOR.0,10,1,[td]\\%.FOR.0,100,1,\SKILL%\,(,),2\\,&lt;tr&gt;,&lt;/tr&gt;,1|<br />
 														 &lt;/table&gt;</code></p>
 		<p class="indent3">Produces a list of all the party member's skills.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -438,7 +438,7 @@
 			<li>Nested IIFs are supported.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>IIF(CL>3) <br>{True Statement} <br>ELSE <br>{False Statement} <br>ENDIF</code></p>
+		<p class="indent2"><code>IIF(CL&gt;3) <br>{True Statement} <br>ELSE <br>{False Statement} <br>ENDIF</code></p>
 		<p class="indent3">Returns the results of the evaluation of the true statement if Class Level is greater then 3.
 		Otherwise, the results of the evaluation of the false statement is returned.</p>
 
@@ -451,14 +451,14 @@
 			<li>The logical operator and second expression are optional.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>IIF(CL>3.AND.TL<10)</code></p>
+		<p class="indent2"><code>IIF(CL&gt;3.AND.TL&lt;10)</code></p>
 		<p class="indent3">Returns TRUE is Class Level was greater then 3 and the Total Level was less than 10.</p>
 
 		<p class="indent0"><strong>Token Name:</strong> IIF(&lt;JEP boolean expression&gt;)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Evaluates the <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#Boolean">JEP boolean expression</a>.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>IIF((CL>5)||(TL>5))</code></p>
+		<p class="indent2"><code>IIF((CL&gt;5)||(TL&gt;5))</code></p>
 		<p class="indent3">Returns TRUE if Class Level or Total Level are greater-then 5.</p>
 
 		<p class="indent0"><strong>Token Name:</strong> IIF(EVEN)</p>
@@ -473,7 +473,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">True if the variable is an uneven number.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>IIF(VAR.IF(VAR("COUNT[SKILLTYPE=Strength]")>0;1;0):1)</code></p>
+		<p class="indent2"><code>IIF(VAR.IF(VAR("COUNT[SKILLTYPE=Strength]")&gt;0;1;0):1)</code></p>
 		<p class="indent3">Evaluates to true if number of skills with type of Strength are
 							greater than 0
 
@@ -482,7 +482,7 @@
 
 							Byngl</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(HASEQUIP)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">True if the character has the listed equipment.</p>
@@ -490,7 +490,7 @@
 		<p class="indent2"><code>IIF(HASEQUIP:Dagger)</code></p>
 		<p class="indent3">Would be true if character had a dagger.</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(HASFEAT)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">True if the character has the listed feat.</p>
@@ -498,7 +498,7 @@
 		<p class="indent2"><code>IIF(HASFEAT:Sneak Attack)</code></p>
 		<p class="indent3">Would be true if character has the Sneak Attack Feat.</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(HASSA)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">True if the character has the listed Special Ability.</p>
@@ -506,7 +506,7 @@
 		<p class="indent2"><code>IIF(HASSA:Greater Rage)</code></p>
 		<p class="indent3">Would be true if character has the Greater Rage Special Ability.</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(HASVAR)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2"> True if the user has taken a class that defined the named (often used to determine
@@ -515,7 +515,7 @@
 		<p class="indent2"><code>IIF(HASVAR:BasePowerPoints)</code></p>
 		<p class="indent3">Would be true if character has a class with Base Power Points.</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(SKILL.x.UNTRAINED)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The array number of the skill).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -524,7 +524,7 @@
 		<p class="indent2"><code>IIF(SKILL.%skill.UNTRAINED)</code></p>
 		<p class="indent3">Would be true if the current skill is usable untrained.</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(SKILL.UNTRAINED,x,y)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Result if usable untrained).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Result if usable trained).</p>
@@ -541,7 +541,7 @@
 		<p class="indent3">Prints out &quot;YES&quot; if the skill is usable untrained or &quot;NO&quot;
 		  if not usable untrained.</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(SKILL.ACP,w,x,y,z)</p>
 		<p class="indent1"><strong> Variables Used (w):</strong> Text (Result if the skill is not affected by ACP).</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Result if the skill is affected by ACP).</p>
@@ -555,7 +555,7 @@
 		  if the skill is effected by ACP, &quot;UNTRAINED&quot; if the skill is effected by ACP only if the character is untrained
 			, &quot;SWIM&quot; if the skill is effected by ACP only if it has a special weight penalty.</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(SPELLCASTER:x)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Caster Type - Possible values include Wizard or Arcane).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -564,7 +564,7 @@
 		<p class="indent2"><code>IIF(SPELLCASTER:Wizard)</code></p>
 		<p class="indent3">Would be true if the character is a Wizard.</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(SPELLCASTER:x=PREPARE)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The array number of the spellcaster class).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -575,7 +575,7 @@
 		<p class="indent2"><code>IIF(SPELLCASTER:0=!PREPARE)</code></p>
 		<p class="indent3">Would be true if the character's 1st class does not prepare spells.</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(WEAPON.x.CATEGORY:y)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The array number of the weapon).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Weapon Type - Possible values include:
@@ -586,7 +586,7 @@
 		<p class="indent2"><code>IIF(WEAPON.%weap.CATEGORY:Ranged)</code></p>
 		<p class="indent3">True if the current weapon is part of the Ranged category.</p>
 
-		<p></ p>
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(x:y)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any valid token).</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Condition variable).</p>
@@ -595,7 +595,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>IIF(COMBAT.AC.TOTAL:20)</code></p>
 		<p class="indent3">Would be true if the combat AC total was 20.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -622,7 +622,7 @@
 look like:<br/>
 
 <code>1&amp;nbsp;Chuck Pint23&lt;br&gt;4</code></p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -640,10 +640,10 @@ look like:<br/>
 		<p class="indent2"><code>OIF(HASFEAT:Armor Proficiency (Light),YES,NO)</code></p>
 		<p class="indent3">If the character has the Light Armor proficiency, then returns
 		  &quot;YES&quot;. Otherwise it returns &quot;NO&quot;.</p>
-		<p class="indent2"><code>OIF((CL>5)||(TL>5),YES,NO)</code></p>
+		<p class="indent2"><code>OIF((CL&gt;5)||(TL&gt;5),YES,NO)</code></p>
 		<p class="indent3">Returns &quot;YES&quot; if Class Level or Total Level ar greater then 5. 
 		Oterwise it returns &quot;NO&quot;</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -653,7 +653,7 @@ look like:<br/>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>Pipe|PIPE|Example</code></p>
 		<p class="indent3">Would display &quot;Pipe|Example&quot;.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -663,7 +663,7 @@ look like:<br/>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SUB10.SPELLMEM.0.0.0.0.COMPONENTS</code></p>
 		<p class="indent3">Would limit the output from the above tag to no more than 10 characters.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		
@@ -685,7 +685,7 @@ look like:<br/>
 		<p class="indent3">Would output the name for the spell in lower case.</p>
 		<p class="indent2"><code>TEXT.NUMSUFFIX.22</code></p>
 		<p class="indent3">Would output a suffix of nd rather than the value 22.</p>
-		<p></ p>
+		<p></p>
 
 <hr>
 		

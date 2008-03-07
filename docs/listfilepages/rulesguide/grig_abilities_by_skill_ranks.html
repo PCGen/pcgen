@@ -80,19 +80,19 @@
 	<p class="indent1">The mechanics of this rule, as implemented on this page, work this way:</p>
 
 	<ul class="indent1">
-		<li class="tagindent0">When the character is loaded, the <lstvar>AbilitybySkillMax</lstvar> 
+		<li class="tagindent0">When the character is loaded, the <span class="lstvar">AbilitybySkillMax</span> 
 			variable is initialized and set to half of the characters total level.</li>
 		<li class="tagindent0">Each rank taken in the skill named &quot;Ability by Skill&quot; adds 
 			one point to the ability pool for the &quot;AbilitybySkill&quot; category of abilities.</li>
 		<li class="tagindent0">&quot;AbilitybySkill&quot; abilities become available under the 
 			&quot;AbilitybySkill&quot; sub-tab on the feats tab.</li>
 		<li class="tagindent0">The first such ability the character takes defines and initializes the 
-			<lstvar>AbilitybySkillCount</lstvar> variable.</li>
+			<span class="lstvar">AbilitybySkillCount</span> variable.</li>
 		<li class="tagindent0"> Subsequent AbilitybySkill abilities taken by the character increases the 
-			value of the variable, <lstvar>AbilitybySkillCount</lstvar>, by one.</li>
-		<li class="tagindent0">Once <lstvar>AbilitybySkillCount</lstvar> equals or exceeds <lstvar>AbilitybySkillMax</lstvar>, 
+			value of the variable, <span class="lstvar">AbilitybySkillCount</span>, by one.</li>
+		<li class="tagindent0">Once <span class="lstvar">AbilitybySkillCount</span> equals or exceeds <span class="lstvar">AbilitybySkillMax</span>, 
 			AbilitybySkill abilities become unavailable until the character goes up a level, thereby 
-			increasing the <lstvar>AbilitybySkillMax</lstvar> variable.</li>
+			increasing the <span class="lstvar">AbilitybySkillMax</span> variable.</li>
 	</ul>
 	
 	<p class="indent1">We will discuss, below, each of the LST entries required, and the tags that make 
@@ -145,13 +145,13 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>POOL:AbilitybySkillPool</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This establishes the base ability 
-		pool for AbilitybySkill equal to the value of the variable <lstvar>AbilitybySkillPool</lstvar>. 
+		pool for AbilitybySkill equal to the value of the variable <span class="lstvar">AbilitybySkillPool</span>. 
 		(See DEFINE tag below.)</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillPool|0</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
-		<lstvar>AbilitybySkillPool</lstvar> and initialize its value to zero.</p>
+		<span class="lstvar">AbilitybySkillPool</span> and initialize its value to zero.</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>VISIBLE:QUALIFY</code></p>
@@ -177,7 +177,7 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillMax|TL/2</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
-		<lstvar>AbilitybySkillMax</lstvar> to have a value of half the character's total level.</p>
+		<span class="lstvar">AbilitybySkillMax</span> to have a value of half the character's total level.</p>
 	</blockquote>
 
 	<p class="indent1">You will find the modified <a href="#STATSANDSCHECKS">Intellegence Stat</a> below.</p>
@@ -263,14 +263,14 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>PREVARLT:AbilitybySkillCount,AbilitybySkillMax</code></p>
 		<p class="indent1"><strong>What it Does:</strong> Sets a prerequisite for the &quot;Generic Skill Bought Ability&quot; 
-		ability. Specifically, the variable <lstvar>AbilitybySkillCount</lstvar> must be less than the variable 
-		<lstvar>AbilitybySkillMax</lstvar> in order for the ability to be selected.</p>
+		ability. Specifically, the variable <span class="lstvar">AbilitybySkillCount</span> must be less than the variable 
+		<span class="lstvar">AbilitybySkillMax</span> in order for the ability to be selected.</p>
 	</blockquote>
 
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillCount|0</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
-		<lstvar>AbilitybySkillCount</lstvar> and to initialize it to the value zero.</p>
+		<span class="lstvar">AbilitybySkillCount</span> and to initialize it to the value zero.</p>
 	</blockquote>
 
 	<blockquote class="indent1">
@@ -284,7 +284,7 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:VAR|AbilitybySkillCount|1</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This bonus tag increases the value of 
-		the variable <lstvar>AbilitybySkillCount</lstvar> by 1.</p>
+		the variable <span class="lstvar">AbilitybySkillCount</span> by 1.</p>
 	</blockquote>
 
 	<h4 class="indent0">Ability - Increasing Skill Bought Ability Max</h4>
@@ -316,7 +316,7 @@
 	<h3>Known Issues</h3>
 	
 	<p class="indent1">None?</p>
-	<p></ p>
+	<p></p>
 	
 <hr>
 
@@ -326,7 +326,7 @@
 	part of any official PCGen dataset.</p>
 	<a name="MISCINFO"></a>
 	<p class="indent1">Miscinfo Gamemode File: &quot;AbilitybySkill&quot; category.</p>
-	<p></ p>
+	<p></p>
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>ABILITYCATEGORY:AbilitybySkill</code></p>
 		<p class="tagindent1"><code>CATEGORY:AbilitybySkill</code></p>
@@ -341,7 +341,7 @@
 
 	<a name="STATSANDSCHECKS"></a>
 	<p class="indent1">Stats and Checks Gamemode File: Modifying the stat &quot;Intelligence&quot;.</p>
-	<p></ p>
+	<p></p>
 	<blockquote class="indent2">
 	<p class="tagindent1"><code>STATNAME:Intelligence</code></p>
 	<p class="tagindent1"><code>ABB:INT</code></p>
@@ -354,7 +354,7 @@
 
 	<a name="SKILLS"></a>
 	<p class="indent1">Skills File: &quot;Ability by Skill&quot;</p>
-	<p></ p>
+	<p></p>
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>Ability by Skill</code></p>
 		<p class="tagindent1"><code>TYPE:NoStat</code></p>
@@ -364,7 +364,7 @@
 
 	<a name="ABILITY"></a>
 	<p class="indent1">Ability Files: &quot;AbilitybySkill&quot; abilities</p>
-	<p></ p>
+	<p></p>
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>Generic Skill Bought Ability</code></p>
 		<p class="tagindent1"><code>CATEGORY:AbilitybySkill</code></p>
@@ -377,7 +377,7 @@
 		<p class="tagindent1"><code>DESC:&lt;appropriate description&gt;</code></p>
 		<p class="tagindent1"><code>BONUS:VAR|AbilitybySkillCount|1</code></p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>Increasing Skill Bought Ability Max</code></p>
@@ -389,11 +389,11 @@
 		<p class="tagindent1"><code>STACK:YES</code></p>
 		<p class="tagindent1"><code>BONUS:VAR|AbilitybySkillMax|1</code></p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 	<a name="CLASS"></a>
 	<p class="indent1">Class File: &quot;&quot; modifications</p>
-	<p></ p>
+	<p></p>
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>CLASS:Generic Class</code></p>
 		<p class="tagindent1"><code>CLASS:Generic Class</code></p>

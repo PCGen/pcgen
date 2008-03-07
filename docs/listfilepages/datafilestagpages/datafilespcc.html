@@ -38,7 +38,7 @@
 	<p class="indent1"><strong><a href="#SOURCETAGS">Source and Header Information Tags</a></strong> - are used to provide information about the dataset</p>
 	<p class="indent1"><strong><a href="#MAINBODYTAGS">Main Body Tags</a></strong> - are used to load the specific .lst files which make up the dataset.</p>
 	<p class="indent1"><strong><a href="#OTHERPCCTAGS">Other .pcc file tags</a></strong> - are used to provide additional functionality.</p>
-	<p></ p>
+	<p></p>
 
 	<p class="sidebar"><strong>Note:</strong> You cannot use a colon (:) in the in the PCC file anywhere other 
 	than immediately after the CAMPAIGN tag. Doing so will cause PCGen to report errors and not load correctly.</p>
@@ -48,7 +48,7 @@
 	<h2><a name="SOURCETAGS">Source and Header Information Tags</a></h2>
 	<p class="indent0"><span class="new">NOTE:</span> The first three tags, CAMPAIGN, GAMEMODE and TYPE,
 		are presented first out of alphabetical order to emphasize that they are required tags which must be the first three lines in a .pcc file.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -59,7 +59,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CAMPAIGN:FGI - FooB Core Rulebook I - FHB</code></p>
 	<p class="indent3"><span class="new">WARNING:</span> The use of the ampersand (&amp;) sign will cause significant problems with PCGen, so recommended usage is to replace with the word &quot;and&quot; or the letter &quot;n&quot; to avoid this.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -69,7 +69,7 @@
 	<p class="indent2"> This <em>MUST</em> be 2nd in the file. This tells PCGen what genre this is in PCGen and must be entered exactly as shown.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>GAMEMODE:3e</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -80,7 +80,7 @@
 	<p class="indent2">Eventually This will be used to filter sources.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BOOKTYPE:Supplement</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -100,7 +100,7 @@
 		Please list all contributors to the dataset.</p>
 	<p class="indent2"><code>COPYRIGHT:Foo Reference Document &amp;copy 2003 Foo Games, Inc.</code></p>
 	<p class="indent3"><strong>Note(s):</strong><code>&amp;copy</code> - This code coverts to a copyright symbol (&copy;) when put in the text of a COPYRIGHT tag.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -121,13 +121,13 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DESC:This pcc loads all the Foo source materials minus the FooWorld races</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
-	<p class="new">*** Deprecated <5.8.1 - Remove 6.0 - Use <a href="#GAMEMODE">GAMEMODE</a> tag instead.</p>
+	<p class="new">*** Deprecated 5.8.1 - Remove 6.0 - Use <a href="#GAMEMODE">GAMEMODE</a> tag instead.</p>
 	<p class="indent0"><strong><a name="GAME">Tag Name:</a></strong> GAME:x</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -138,7 +138,7 @@
 	<p class="indent2">Eventually This will be used to filter sources.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>GENRE:Fantasy</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -150,7 +150,7 @@
 		source tab and selecting &quot;Product Help...&quot;.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HELP:http://www.foogames.com/producthelp.html</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -160,14 +160,14 @@
 	<p class="indent2">Provides Text information that is displayed in the Information Window on the Source Tab when the source material is selected.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>INFOTEXT:This pcc loads all the Foo source materials minus the FooWorld races</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">Deprecated 5.4</p>
 	<p class="new">*** Deprecated 5.4 - Remove 6.0 - Use <a href="#ISOGL">ISOGL</a> tag instead.</p>
 	<p class="indent0"><strong><a name="ISD20">Tag Name:</a></strong> ISD20:x</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -185,7 +185,7 @@
 	<p class="indent2"><code>ISMATURE:NO</code></p>
 	<p class="indent2">Does not cause a pop-up to fire saying "This dataset contains content of a mature
 		nature. User discretion is advised."</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -196,7 +196,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>ISOGL:YES</code></p>
 	<p class="indent2"><code>ISOGL:NO</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -208,7 +208,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>ISLICENSED:YES</code></p>
 	<p class="indent2"><code>ISLICENSED:NO</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -223,7 +223,7 @@
 	<p class="indent3">Would display the text in a nice box with other licenses.</p>
 	<p class="indent2"><code>LICENSE:FILE=foolicense.html</code></p>
 	<p class="indent3">Doing a <code>FILE=</code> allows PCC to point to an HTML formatted file, which will display in a box of its own.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -234,7 +234,7 @@
 	<p class="indent2">The Publisher's full name.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PUBNAMELONG:Foo Games, Inc.</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -245,7 +245,7 @@
 	<p class="indent2"> The Publisher's abbreviated name (usually their initials).</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PUBNAMESHORT:FGI</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -256,7 +256,7 @@
 	<p class="indent2"> The Publisher's website/URL.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PUBNAMEWEB:http://www.foogames.com/index.php</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -285,7 +285,7 @@
 	<p class="indent2"> RANK:6 - 3rd party supplements</p>
 	<p class="indent2"> RANK:7 - 3rd party web enhancements</p>
 	<p class="indent2"> RANK:8 and 9 - Homebrew</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -296,7 +296,7 @@
 	<p class="indent2">Eventually This will be used to filter sources.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SETTING:Ravenloft</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -306,7 +306,7 @@
 	<p class="indent2"><code>SHOWINMENU:YES</code></p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">When set to YES, this tag tells PCGen to display this campaign in the <em>Settings -&gt; Campaigns</em> menu. When selected, it will unload all other campaigns, and load this campaign. It will also set any options listed in the PCC file. It will appear in a submenu of its gamemode.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -318,7 +318,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SOURCELONG:Core Rulebook I (Foo Handbook)</code></p>
 	<p class="indent3">The long source name for this file is &quot;Core Rulebook I (Foo Handbook)&quot;.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -330,7 +330,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SOURCESHORT:FHB</code></p>
 	<p class="indent3">The short source name for this file is &quot;FHB&quot;.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -342,7 +342,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SOURCEWEB:http://www.foogames.com/product.php?products=654321</code></p>
 	<p class="indent3">The web site for this source is &quot;SOURCEWEB:http://www.foogames.com/product.php?products=654321&quot;.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -358,7 +358,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SOURCEDATE:2005-12</code></p>
 	<p class="indent3">This source was published in December 2005.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -383,7 +383,7 @@
 		<p class="tagindent1"><code>URL:SURVEY|http://www.pcgenubersite.com|Help PCGen out by visiting our user feedback page and letting us know what you think.</code></p>
 		<p class="tagindent2" style="text-indent: -25px">Displays the text "Help PCGen out by visiting our user feedback page and letting us know what you think!" as an active link to the website &quot;http://www.pcgenubersite.com&quot;</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -436,7 +436,7 @@
 		These tags only tell PCGen where to go to get the information it needs, it points it to the right spot.
 		Each list file will be fully explained below, separated by the list file name, with a full list of the
 		tags that can be used in each one.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -447,7 +447,7 @@
 	<p class="indent2">Tells PCGen to load the Ability list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ABILITY:specialabilities.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -461,7 +461,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ABILITYCATEGORY:myabilitycategories.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -471,7 +471,7 @@
 	<p class="indent2">Tells PCGen to load the biosettings list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BIOSET:biosettings.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -481,7 +481,7 @@
 	<p class="indent2">Tells PCGen to load the classes list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CLASS:fhbclasses.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -491,7 +491,7 @@
 	<p class="indent2">Tells PCGen to load the companion modifiers list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>COMPANIONMOD:foocompanionmods.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -503,7 +503,7 @@
 		The image is displayed in the Source Tab in the Source Info panel when the dataset is selected.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>COVER:foohandbookcover.jpg</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -513,7 +513,7 @@
 	<p class="indent2">Tells PCGen to load the deities list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DEITY:foodeities.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -523,7 +523,7 @@
 	<p class="indent2">Tells PCGen to load the domains list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DOMAIN:foodomains.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -534,7 +534,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>EQUIPMENT:fooallequip.lst</code></p>
 	<p class="indent2"><code>EQUIPMENT:fooequiparmorsshields.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -544,7 +544,7 @@
 	<p class="indent2">Tells PCGen to load the equipment  modifiers list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>EQUIPMOD:fooequipmods.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -554,7 +554,7 @@
 	<p class="indent2">Tells PCGen to load the feats list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FEAT:foofeats.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -564,7 +564,7 @@
 	<p class="indent2">Tells PCGen to load the starting kits list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>KIT:foostartingkits.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -574,7 +574,7 @@
 	<p class="indent2">Tells PCGen to load the languages list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>LANGUAGE:foolanguages.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -589,7 +589,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>LOGO:../barcompanylogo.jpg</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -603,7 +603,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PCC:../foodir/foobook.pcc</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -613,7 +613,7 @@
 	<p class="indent2">Tells PCGen to load the races list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RACE:fooraces.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -623,7 +623,7 @@
 	<p class="indent2">Tells PCGen to load the skills list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SKILL:fooskills.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -633,7 +633,7 @@
 	<p class="indent2">Tells PCGen to load the spells list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SPELL:foospells.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -643,7 +643,7 @@
 	<p class="indent2">Tells PCGen to load the template list file specified</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TEMPLATE:footemplates.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -656,13 +656,13 @@
 	<p class="indent3">Load the weapons proficiencies fooweapprofsimple list file.</p>
 	<p class="indent2"><code>WEAPONPROF:fooweapprofsimple.lst.FORGET</code></p>
 	<p class="indent3">Forgets to load the weapons proficiencies fooweapprofsimple list file.</p>
-	<p></ p>
+	<p></p>
 <hr>
 
 	<h2><a name="OTHERPCCTAGS">Other .pcc file tags</a></h2>
 
 	<p>The tags below do not provide information about the dataset nor do they load files by themselves but instead provide additional functionality.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -678,7 +678,7 @@
 	<p class="indent2"><code>LSTEXCLUDE:fooraces.lst</code></p>
 	<p class="indent2"><code>LSTEXCLUDE:fooraces.lst|foogods.lst</code></p>
 	<p class="indent2"><code>LSTEXCLUDE:@d20ogl/foogames/foohandbook/fooclasses.lst</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -699,7 +699,7 @@
 	<p class="indent2"><code>RACE:fhbrace.lst|myrace.lst|(INCLUDE:Happy Elf|Dower Dwarf)</code></p>
 	<p class="indent3">This loads all the races from the <code>fhbrace.lst</code> file, then loads only the &quot;Happy Elf&quot; and the &quot;Dower Dward&quot; from <code>myrace.lst</code>.</p>
 	<p><span class="new">IMPORTANT NOTE:</span> Using INCLUDE for the same file on multiple lines will cause only the first line with INCLUDE to be processed.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -717,7 +717,7 @@
 	<p class="indent2"><code>RACE:fhbrace.lst|(EXCLUDE:Fooman|Foowarf)|myrace.lst</code></p>
 	<p class="indent3">This loads all the races from the <code>fhbrace.lst</code> file except for
 		the Fooman and Foowarf races, then adds loads all the races defined in <code>myrace.lst</code>.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -735,7 +735,7 @@
 	<p class="indent2"><code>HIDETYPE:EQUIP|Starting|SpecialTools</code></p>
 	<p class="indent3">The Types Starting and SpecialTools will not be visible in the user interface.
 		The equipment type &quot;Starting&quot; is hardcoded into the feature which provides free clothing at first level.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -746,7 +746,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>OPTION:hpMaxAtFirstLevel=true</code></p>
 	<p class="indent2"><code>OPTION:pcgen.options.maxWandSpellLevel=4</code></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 

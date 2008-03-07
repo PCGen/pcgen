@@ -69,7 +69,7 @@
 		<li>Multiple BENEFIT tags per line are allowed with all qualifying BENEFIT tags being concatonated for output and separated by commas (,).</li>
 		<li><code>.CLEAR</code> will clear all BENEFIT tags.</li>
 		<li><code>.CLEAR.(regular expression match)</code> will clear specific instances.</li>
-		<li>BENEFIT tags will take variable substitution.</li>
+		<li>BENEFIT tags will take variable substitution.
 		<ul>
 			<li>Within the text a % followed by a number will substitute the #th variable from the 
 				variable list associated with the BENEFIT.</li>
@@ -78,7 +78,7 @@
 			<li>If the parameter needs to be next to a number the parameter number should be surrounded 
 				in curly brackets { }. For example, %{1000}gp.</li>
 		</ul>
-		<li>The following special variables are allowed within the variable list:</li>
+		<li>The following special variables are allowed within the variable list:
 		<ul>
 			<li><code>%NAME</code> - The name of the object this BENEFIT tag is in.</li>
 			<li><code>%FEAT</code> - Will substitute the descriptions of feats within the object that match the associated preqrequisites.</li>
@@ -86,7 +86,7 @@
 			<li><code>%LIST</code> - Will substitute all choices into that parameter as a comma-delimited list.</li>
 		</ul>
 		<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and 
-			formulas within parentheses.</li>
+			formulas within parentheses.
 		<ul>
 			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for
 				this purpose, is commonly used though other variables can be used as well.</li>

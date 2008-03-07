@@ -90,12 +90,12 @@
 		<p class="indent3">Would calculate a stat modification as STAT
 			divided by 2, round down, minus 5 (SCORE is the variable name for the stat value).
 			Note:  the formula can only contain 1 SCORE variable.</p>
-		<p class="indent2"><code>STATMOD:if(CL<10,1,2)</code></p>
+		<p class="indent2"><code>STATMOD:if(CL&lt;10,1,2)</code></p>
 				<p class="indent3">Would compare CL to 10 and return 1 or 2 as required.</p>
-		<p class="indent2"><code>STATMOD:if((CL>5)||(TL>5),2,-4)</code></p>
+		<p class="indent2"><code>STATMOD:if((CL&gt;5)||(TL&gt;5),2,-4)</code></p>
 				<p class="indent3">Asks if Class Level or Total Level is greater than 5 then
 			returns 2 or else returns -4.</p>
-		<p class="indent2"><code>STATMOD:if(STR>DEX,STR,DEX)</code></p>
+		<p class="indent2"><code>STATMOD:if(STR&gt;DEX,STR,DEX)</code></p>
 				<p class="indent3">Asks if STR is greater than DEX then returns STR or else returns DEX</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">STATNAME Line.</p>

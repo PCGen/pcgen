@@ -55,7 +55,7 @@
   		followed by the PRExxx statement but there are some tags that use a different
   		syntax, like enclosing the PRExxx statement in brackets [ ], see the individual
   		entries for examples.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -69,7 +69,7 @@
 	<p class="indent1"><strong>Variables Used (z):</strong>ALL (Any ability applies).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Checks for the required number of Abilities.>/li>
+		<li>Checks for the required number of Abilities.</li>
 		<li>If CATEGORY=ALL is used the tag checks all categories (including feats) for an Ability of the specified name or type.</li>
 		<li>The list of abilities, by name and/or type, is a comma=delimited list.</li>
 	</ul>
@@ -82,7 +82,7 @@
 	<p class="indent3">Requires any 3 Mutation category Abilities.</p>
 	<p class="indent2"><code>PREABILITY:2,CATEGORY=Mutation,TYPE.MajorMutation</code></p>
 	<p class="indent3">Requires 2 Mutation category Abilities of type MajorMutation.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -107,7 +107,7 @@
 	<p class="indent3">Requires the PC to be younger than Venerable.</p>
 	<p class="indent2"><code>PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]</code></p>
 	<p class="indent3">Requires the PC to be Middle Age but not older.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -133,7 +133,7 @@
 	<p class="indent3">Requires Lawful Good or the characters chosen Deities alignment.</p>
 	<p class="indent2"><code>!PREALIGN:LG,NG,CG</code></p>
 	<p class="indent3">Requires the PC not be of &quot;Good&quot; alignment.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -168,7 +168,7 @@
 	<p class="indent3">This would apply the bonus to Ranged OR Melee weapons.</p>
 	<p class="indent2"><code>PREAPPLY:Weapon,Blunt</code></p>
 	<p class="indent3">This would apply the bonus to Wooden Blunt weapons.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -183,7 +183,7 @@
 	<p class="indent3">Character must be proficient with either "Chainmail" or "Full Plate".</p>
 	<p class="indent2"><code>PREARMORPROF:1,TYPE.Medium</code></p>
 	<p class="indent3">Character must be proficient with Medium armor.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 	<p class="new">*** New 5.10</p>
@@ -205,7 +205,7 @@
 	<p class="indent3">Character must have a Medium type armor equipped.</p>
 	<p class="indent2"><code>PREARMORTYPE:1,LIST</code></p>
 	<p class="indent3">Character must be proficient in the armor equipped.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -217,7 +217,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREATT:6</code></p>
 	<p class="indent3">This would apply only if the PC had minimum base attack bonus of 6.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -240,7 +240,7 @@
 	<p class="indent2"><code>BONUS:COMBAT|AC|2|PREBASESIZELTEQ:Medium|TYPE=NaturalArmor.STACK</code></p>
 	<p class="indent3">This would apply the combat AC bonus of 2 that stacks with Natural Armor
 		if the  PC's size is less than or equal to &quot;medium&quot;.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -251,7 +251,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREBIRTHPLACE:Klamath</code></p>
 	<p class="indent3">Character must have been born in &quot;Klamath&quot;.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -267,7 +267,7 @@
 	<p class="indent3">Would succeed if Fortitude meets or exceeds 5 or Reflex meets or exceeds 3.</p>
 	<p class="indent2"><code>PRECHECK:2,Fortitude=5,Reflex=3,Willpower=4</code></p>
 	<p class="indent3">Would succeed if any 2 of the 3 three listed conditions were met.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -284,7 +284,7 @@
 	<p class="indent3">Would succeed if both Fortitude meets or exceeds 3 and Reflex meets or exceeds 3.</p>
 	<p class="indent2"><code>PRECHECKBASE:1,Fortitude=5,Reflex=3</code></p>
 	<p class="indent3">Would succeed if Fortitude meets or exceeds 5 or Reflex meets or exceeds 3.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -296,7 +296,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRECITY:Klamath</code></p>
 	<p class="indent3">Character must currently reside in &quot;Klamath&quot;.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -345,13 +345,13 @@
 	<p class="indent2"><code>PRECLASS:1,SPELLCASTER.Divine=6,SPELLCASTER.Psionic=3.MOD &lt;tab&gt; PRECLASS:1,Rogue=6,Ranger=3.MOD</code></p>
 	<p class="indent3">Changes the character must have 6 levels in any divine spellcasting class or 3 levels in any psionic manifesting class, with a requirement for either Rogue at 6 levels or Ranger at 3 levels.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong> <a href="#FPRECLASSOLD">PRECLASS:&lt;ClassName&gt;=&lt;Level&gt;</a></p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">*** Deprecated - use <a href="#PRECLASS">PRECLASS:x,y=z,y=z</a></p>
 	<p class="indent0"><strong><a name="PRECLASSOLD">Tag Name:</a></strong> PRECLASS:&lt;ClassName&gt;=&lt;Level&gt;</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -367,7 +367,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRECLASSLEVELMAX:Fighter,SPELLCASTER=2</code></p>
 	<p class="indent3">Character cannot have more than 2 levels of fighter and cannot have more than 2 levels in any spellcasting class.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 	<p class="new">*** New 5.9.0</p>
@@ -385,7 +385,7 @@
 	<p class="indent3">Character must have either &quot;Spot&quot; or &quot;Listen&quot; as a Class Skill.</p>
 	<p class="indent2"><code>PRECSKILL:2,TYPE.Spy</code></p>
 	<p class="indent3">Character must have two &quot;Spy&quot; skills as Class Skills.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -409,7 +409,7 @@
 	<p class="indent3">This bonus is applied when the <strong>Use Default Monsters</strong> checkbox is checked.</p>
 	<p class="indent2"><code>BONUS:COMBAT|BAB|6|PREDEFAULTMONSTER:Y</code></p>
 	<p class="indent3">This bonus is applied when the <strong>Use Default Monsters</strong> checkbox is checked.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -432,7 +432,7 @@
 	<p class="indent3">Character must have chosen either &quot;Zeus&quot;, &quot;Odin&quot; or a deity in the &quot;Celtic&quot; pantheon.</p>
 	<p class="indent2"><code>CLASS:Druid.MOD &lt;tab&gt; PREDEITY:Saluwe,Yarris,Belisarda,Fire Dragon</code></p>
 	<p class="indent3">Character must have chosen either &quot;Saluwe&quot; &quot;Yarris&quot; &quot;Belisarda&quot; or &quot;Fire Dragon&quot;.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -453,7 +453,7 @@
 	<p class="indent3">Character must have chosen a Lawful Good deity.</p>
 	<p class="indent2"><code>PREDEITYALIGN:LG,NG,CG</code></p>
 	<p class="indent3">Character must have chosen a deity of any Good alignment.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -468,7 +468,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREDEITYDOMAIN:1,Good,Law </code></p>
 	<p class="indent3">Character must have chosen of deity with either the &quot;good&quot; domain or the &quot;law&quot; domain.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -486,7 +486,7 @@
 	<p class="indent3">Character must have 1 of the two listed domains.</p>
 	<p class="indent2"><code>PREDOMAIN:2,ANY</code></p>
 	<p class="indent3">Character must have 2 domains of any type.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -501,7 +501,7 @@
 	<p class="indent3">Must have DR of 10/+1 or greater (but DR Type must be +1).</p>
 	<p class="indent2"><code>PREDR:1,-=10,+1=10,+2=10,+3=10,+4=10,+5=10,Silver=10</code></p>
 	<p class="indent3">Must have DR of 10 or greater of any type listed.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -528,7 +528,7 @@
 	<p class="indent3">Must be equipped with any Armor and any Shield.</p>
 	<p class="indent2"><code>PREEQUIP:1,WIELDCATEGORY=TwoHanded</code></p>
 	<p class="indent3">Must be equipped with a two handed weapon.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -552,7 +552,7 @@
 	<p class="indent3">Must have some type of slashing weapon equipped in the primary hand.</p>
 	<p class="indent2"><code>PREEQUIPPRIMARY:1,WIELDCATEGORY=OneHanded</code></p>
 	<p class="indent3">Must have a one handed weapon equipped in the primary hand.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -576,7 +576,7 @@
 	<p class="indent3">Must have some type of slashing weapon equipped in the secondary hand.</p>
 	<p class="indent2"><code>PREEQUIPSECONDARY:1,WIELDCATEGORY=Light</code></p>
 	<p class="indent3">Must have a light weapon equipped in the secondary hand.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -595,7 +595,7 @@
 	<p class="indent3">The &quot;%&quot; allows for items named Sword (Great/Masterwork) etc.</p>
 	<p class="indent2"><code>PREEQUIPBOTH:1,TYPE=Slashing</code></p>
 	<p class="indent3">Must have a slashing type weapon equipped in both hands.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -619,7 +619,7 @@
 	<p class="indent3">Must have a Sword (Short) equipped as one of two weapons for two weapon fighting.</p>
 	<p class="indent2"><code>PREEQUIPTWOWEAPON:1,WIELDCATEGORY=Light</code></p>
 	<p class="indent3">Must have a light weapon equipped for two weapon fighting.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -659,7 +659,7 @@
 	<p class="indent3">Character must have one Skill Focus Knowledge sub-type (%) feats.</p>
 	<p class="indent2"><code>Magecraft (Charismatic).MOD &lt;tab&gt; !PREFEAT:1,Untapped Potential</code></p>
 	<p class="indent3">Character must not (!) have one feat called Untapped Potential.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -671,7 +671,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREGENDER:M</code></p>
 	<p class="indent3">Character's gender must start with &quot;M&quot;.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -688,7 +688,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREHANDSGT:2</code></p>
 	<p class="indent3">Character must have a number of hands greater than 2.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -711,7 +711,7 @@
 	<p class="indent3">The character must have four or fewer racial hit die.</p>
 	<p class="indent2"><code>!PREHD:MIN=5,MAX=7</code></p>
 	<p class="indent3">Character must have between 0-4 OR 7 or greater racial hit die.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -723,7 +723,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREHP:50</code></p>
 	<p class="indent3">The character must have at least 50 hp.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -744,7 +744,7 @@
 	<p class="indent3">Character must possess two sets of armor.</p>
 	<p class="indent2"><code>PREITEM:1,TYPE=Natural</code></p>
 	<p class="indent3">Character must possess one natural item.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -767,7 +767,7 @@
 	<p class="indent3">Character must be able to speak any three languages.</p>
 	<p class="indent2"><code>PRELANG:4,TYPE=Spoken</code></p>
 	<p class="indent3">Character must be able to speak any four languages that can be spoken.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -784,7 +784,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRELEGSGTEQ:4</code></p>
 	<p class="indent3">Character must have at least 4 legs.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -807,7 +807,7 @@
 	<p class="indent3">Character must be at least 5th level but no greater than 10th level.</p>
 	<p class="indent2"><code>!PRELEVEL:MIN=3,MAX=6</code></p>
 	<p class="indent3">Character must NOT be 3rd, 4th, 5th or 6th level.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -820,7 +820,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRELEVELMAX:10</code></p>
 	<p class="indent3">Character cannot be over level 10.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -839,7 +839,7 @@
 	<p class="indent3">Character must be able to swim at speed 10</p>
 	<p class="indent2"><code>PREMOVE:2,Walk=30,Climb=15</code></p>
 	<p class="indent3">Character must be able to walk at speed 30 AND climb at speed 15</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -858,7 +858,7 @@
 	<p class="indent3">Character only be from a &quot;Bunch of Rocks&quot;.</p>
 	<p class="indent2"><code>Stamina.MOD &lt;tab&gt; PRE:.CLEAR &lt;tab&gt; PREMULT:1,[PREFEAT:1,Robust],[PRECLASS:1,Super Soldier=1]</code></p>
 	<p class="indent3">The Stamna feat is modified to remove all PRE tags and replace with the following.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -887,7 +887,7 @@
 	<p class="indent3">Character must be at least 5th level but no greater than 10th level.</p>
 	<p class="indent2"><code>!PREPCLEVEL:MIN=2,MAX=4</code></p>
 	<p class="indent3">Character must NOT be 2nd, 3rd or 4th level.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -901,7 +901,7 @@
 	<p class="indent3">Sets a prerequisite of &quot;Standard&quot; for the point-buy saved method.</p>
 	<p class="indent2"><code>PREPOINTBUYMETHOD:Standard,High-powered</code></p>
 	<p class="indent3">Sets a prerequisite of &quot;Standard&quot; or &quot;High-powered&quot; for the point-buy saved method.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -954,7 +954,7 @@
 	<p class="indent3">This will pass if a humanoid race has been selected.</p>
 	<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; !PRERACE:Human</code></p>
 	<p class="indent3">This will pass if no Human race has been selected.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -974,7 +974,7 @@
 	<p class="indent3">Character must have at least a reach of 10 ft..</p>
 	<p class="indent2"><code>PREREACHEQ:5</code></p>
 	<p class="indent3">Character must have a reach of exactly 5 ft..</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -990,7 +990,7 @@
 	<p class="indent3">Character must hail from the &quot;Slithe&quot; region.</p>
 	<p class="indent2"><code>PREREGION:Slithe (Barrows)</code></p>
 	<p class="indent3">Character must hail from the &quot;Slithe&quot; region and &quot;Barrows&quot; subregion.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1004,7 +1004,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRERULE:SYS_WTPSK</code></p>
 	<p class="indent3">The rule WeightPenaltyToSkill must be checked for this to apply.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1023,7 +1023,7 @@
 		&quot;Rebuke Undead&quot; or &quot;Smite Evil&quot;.</p>
 	<p class="indent2"><code>CLASS:Mystic Theurge.MOD &lt;tab&gt; !PRESA:1,Theurgy</code></p>
 	<p class="indent3">Character must not have any Special Abilities of &quot;Theurgy&quot;.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1038,7 +1038,7 @@
 	<p class="indent3">Character must be proficient with either "Buckler" or "Large Shield".</p>
 	<p class="indent2"><code>PREARMORPROF:1,TYPE.Tower</code></p>
 	<p class="indent3">Character must be proficient with Tower shields.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1063,7 +1063,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRESIZEEQ:H</code></p>
 	<p class="indent3">Character must be &quot;Huge&quot; in size.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1091,7 +1091,7 @@
 		in each of them.</p>
 	<p class="indent2"><code>PRESKILL:3,Appraise,Decipher Script,Knowledge (TYPE=Other)=3</code></p>
 	<p class="indent3">Character must have three skills with at least three ranks in each of them.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1116,7 +1116,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRESKILLMULT:1,Spot,Listen=10</code></p>
 	<p class="indent3">Character must have a Spot or Listen at 10 or above.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1132,7 +1132,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRESKILLTOT:Spot,Listen,Search=30</code></p>
 	<p class="indent3">Character must have a total of 30 non-bonus ranks between Spot, Search, and Listen skills.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1144,7 +1144,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRESPELL:1,Magic Missile,Lightning Bolt</code></p>
 	<p class="indent3">Character must have either Magic Missile OR Lightning Bolt in their spell list.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1158,7 +1158,7 @@
 	<p class="indent3">At least one of the character's classes must use spell books.</p>
 	<p class="indent2"><code>PRESPELLBOOK:NO</code></p>
 	<p class="indent3">None of the character's classes can use spell books.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1184,7 +1184,7 @@
 	<p class="indent3">Character must be able to cast divine spells.</p>
 	<p class="indent2"><code>PRESPELLCAST:TYPE=Arcane,TYPE=Divine</code></p>
 	<p class="indent3">Character must be able to cast arcane/divine spells.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1201,7 +1201,7 @@
 	<p class="indent2"><code>PRESPELLDESCRIPTOR:Mind-Affecting,4,3</code></p>
 	<p class="indent3">Character must have at least four 3rd level or higher Mind-Affecting spells to 
 		meet the requirement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1218,7 +1218,7 @@
 	<p class="indent2"><code>PRESPELLSCHOOL:Necromancy,3,2</code></p>
 	<p class="indent3">Character must have at least three 2nd level or higher &quot;Necromancy spells to meet
 		the requirement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1236,7 +1236,7 @@
 	<p class="indent2"><code>PRESPELLSCHOOL:3,Necromancy=2</code></p>
 	<p class="indent3">Character must have at least three 2nd level or higher Necromancy spells to meet
 		the requirement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1253,7 +1253,7 @@
 	<p class="indent2"><code>PRESPELLSCHOOLSUB:Creation,3,2</code></p>
 	<p class="indent3">Character must have at least three 2nd level &quot;Creation&quot; spells to meet
 		the requirement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1271,7 +1271,7 @@
 	<p class="indent2"><code>PRESPELLSCHOOLSUB:3,Creation=2</code></p>
 	<p class="indent3">Character must have at least three 2nd level &quot;Creation&quot; spells to meet
 		the requirement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1300,7 +1300,7 @@
 	<ul class="indent2">
 		<li>x is &lt;spell type&gt;, y is &lt;number of spells&gt;, and z is &lt;spell level&gt;.</li>
 	</ul>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1317,7 +1317,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRESRGTEQ:10</code></p>
 	<p class="indent3">Character must have spell resistance of at least 10.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1339,7 +1339,7 @@
 	<p class="indent3">Either STR at 15 or WIS at 13 - one of the two listed must meet the requirements.</p>
 	<p class="indent2"><code>PRESTAT:2,STR=13,INT=10,CHA=13</code></p>
 	<p class="indent3">Either STR at 13, INT at 10 or CHA at 13 - two of the three listed must meet the requirements.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1351,7 +1351,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PRESUBCLASS:1,Evoker,Abjurer,Enchanter,Illusionist</code></p>
 	<p class="indent3">Character must be one of the listed subclasses.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1370,7 +1370,7 @@
 	<p class="indent3">Removes the character requirement to be any subrace of Feral.</p>
 	<p class="indent2"><code>CLASS:Eldritch Knight.MOD &lt;tab&gt; PRETEMPLATE:.CLEAR &lt;tab&gt; PRETEMPLATE:Celestial%,Fiendish%</code></p>
 	<p class="indent3">Removes the character requirement to be either &quot;Celestial&quot; or &quot;Fiendish&quot;, and allows any subrace of either.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1383,7 +1383,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRETEXT:Character must make a sacrifice of bananas to the Monkey God.</code></p>
 	<p class="indent3">Explains what additional requirements are needed for the character to qualify.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1405,7 +1405,7 @@
 	<p class="indent3">Type must either Elemental,Fey or Outsider</p>
 	<p class="indent2"><code>PRETYPE:2,Humanoid,Undead</code></p>
 	<p class="indent3">Character must be an Undead Humanoid.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1416,7 +1416,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREUATT:4</code></p>
 	<p class="indent3">This would apply only if the PC had minimum unarmed attack bonus of 4.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1440,7 +1440,7 @@
 	<p class="indent2"><code>PREVARGT:SneakAttack,5,Rage,4</code></p>
 	<p class="indent3">Character must do Sneak Attack damage greater than 5d6
 		AND be able to rage more than four time per day.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1457,7 +1457,7 @@
 	<p class="indent3">Character must have both Normal and Darkvision.</p>
 	<p class="indent2"><code>PREVISION:1,Blindsight,Darkvision=30</code></p>
 	<p class="indent3">Character must have either Blindsight or Darkvision at at least 30.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1478,7 +1478,7 @@
 	<p class="indent3">Character must have proficiency with either the Chain (Spiked) or any martial weapon.</p>
 	<p class="indent2"><code>PREWEAPONPROF:1,DEITYWEAPON</code></p>
 	<p class="indent3">Weapon Prof in question must be one of the chosen deity's favored weapons.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1499,7 +1499,7 @@
 <hr>
 
 	<h2>Misc PRExxx Stuff</h2>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1510,7 +1510,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRE:.CLEAR</code></p>
 	<p class="indent3">Clears all prerequisites.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1526,7 +1526,7 @@
 	<p class="indent3">If you have QUALIFY:Whirlwind Attack in a template (which means
   		the character ignores all the prereqs), but you still want the DEX prereq to
   		be enforced, you would edit the PRE in the Whirlwind Attack feat to read as above. </p>
-	<p></ p>
+	<p></p>
 	
 <hr>
 

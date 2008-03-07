@@ -43,7 +43,7 @@
 	<p class="indent1">For the Formula syntax, see the <a href="globalfilesformulas.html">Math Operators and Formulas</a> page.</p>
     <p class="indent1"><code>LIST</code> is a special case in <em>feats.lst</em>. It can be placed in most &lt;group&gt; categories. LIST
 		will be replaced by the choice from the CHOOSE tag in the feat.</p>
- 	<p></ p>
+ 	<p></p>
 
 <hr>
 
@@ -56,7 +56,7 @@
 		<li>The <strong>.REPLACE</strong> bonus type (TYPE=name.REPLACE)</li>
 		<li>The <strong>.STACK</strong> bonus type (TYPE=name.STACK)</li>
 	</ol>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -73,7 +73,7 @@
 	<p class="indent3">This bonus would grant the character a bonus to the listed skills of four.<br /></p>
 	<p class="indent2"><code>BONUS:SKILL|STAT=DEX|1</code></p>
 	<p class="indent3">This would grant the character a bonus of one to all skills based on DEX.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -102,7 +102,7 @@
 		BONUS:SKILL|Bluff,Listen|4|TYPE=Divine</code></p>
 	<p class="indent3">This would also return a value of 7, since 3 is the highest Luck bonus, and 4 is
 		the highest Divine bonus.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -128,7 +128,7 @@
 		BONUS:SKILL|Bluff,Listen|6|TYPE=Luck</code></p>
 	<p class="indent3">This would take the values from the .REPLACE (total 4), and compares it to the
 		standards, which are 2 and 6, and takes the highest value, for 6.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -160,7 +160,7 @@
 	<p class="indent2"><code>BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.STACK</code></p>
 	<p class="indent3">This would take the normal (4), compare it to the total <code>.REPLACE</code> (2), give the higher
 		value, then add in the <code>.STACK</code> (6) for a final value of 10.</p>
-	<p></ p>
+	<p></p>
 	
 <hr>
 
@@ -200,7 +200,7 @@
 	<p class="indent2"><code>ClassDefense</code></p>
 	<p class="indent2"><code>Dodge</code></p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 	
@@ -211,7 +211,7 @@
 	<p class="indent1">While you can't <code>.CLEAR</code> a <code>BONUS</code> tag you can add a counter 
 		bonus that would negate it. In this case you would add a counter bonus and <code>PRExxx</code> 
 		tag it with the reverse of the feats prerequisite.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -228,7 +228,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:ABILITYPOOL|Salient Divine Ability|1</code></p>
 	<p class="indent3">The character may take one additional Salient Divine Ability.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -284,7 +284,7 @@
 	<p class="indent2"><code>BONUS:CASTERLEVEL|SCHOOL.Evocation.RESET|3</code></p>
 	<p class="indent3">These two bonuses in combination would result in a caster level of 10 for Fireball
 		(because it is also in the school of Evocation) and 3 for all other Evocation spells</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -301,11 +301,11 @@
 	<p class="indent3">CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will &lt;tab&gt; BONUS:CHECKS|%LIST|1</p>
 	<p class="indent3">CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will, of which the selection is put into BONUS:CHECKS|%LIST|1<br /></p>
 	<p class="indent2"><code>BONUS:CHECKS|Willpower||max(CHA,WIS)-WIS</code></p>
-	<p class="indent3">> How does one code up something like 'you can add your Charisma modifier instead of
+	<p class="indent3">How does one code up something like 'you can add your Charisma modifier instead of
 		Wisdom for Willpower saves'?</p>
 	<p class="indent2"><code>BONUS:CHECKS|Fortitude|2|TYPE=Resistance</code></p>
-	<p class="indent3">> Adds two to Fortitude checks due to Resistance.</p>
-	<p></ p>
+	<p class="indent3">Adds two to Fortitude checks due to Resistance.</p>
+	<p></p>
 
 <hr>
 
@@ -317,7 +317,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1</code></p>
 	<p class="indent3">Adds one to the base &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -332,7 +332,7 @@
 	<p class="indent3">Adds one to the all saves.</p>
 	<p class="indent2"><code>BONUS:CHECKS|ALL|3|TYPE=Morale|PREAPPLY:ANYPC</code></p>
 	<p class="indent3">Adds three to the all saves due to morale to all PC Characters.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -344,7 +344,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|Armor|2|TYPE=NaturalArmor.STACK</code></p>
 	<p class="indent3">Increases Natural armor bonus to two.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -360,14 +360,14 @@
 	<p class="indent3">Increases enchantment armor bonus to two.</p>
 	<p class="indent2"><code>BONUS:COMBAT|AC|1|TYPE=NaturalArmor</code></p>
 	<p class="indent3">Increases natural armor bonus to one.</p>
-	<p class="indent2"><code>>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
+	<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
 		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
-		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code>></p>
+		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
 	<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the
 		SIZENAME:.</p>
 	<p class="indent2"><code>BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE</code></p>
 	<p class="indent3">Replaces the natural armor bonus to seven.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -379,7 +379,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|ATTACKS|2</code></p>
 	<p class="indent3">Increases number of attacks to two.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -398,7 +398,7 @@
 	<p class="indent3">Increases base attack bonus by one.</p>
 	<p class="indent2"><code>BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE</code></p>
 	<p class="indent3">Increases base attack bonus by Character Level, replacing the Base value.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -415,7 +415,7 @@
 	<p class="indent3">Increases &quot;Melee&quot; damage bonus by two.</p>
 	<p class="indent2"><code>BONUS:COMBAT|DAMAGE.Unarmed,DAMAGE.Thrown|DEX</code></p>
 	<p class="indent3">Adds the characters Dexterity modifier to both &quot;Unarmed&quot; and &quot;Thrown&quot; damage.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -448,7 +448,7 @@
 		wielding it off handed.</p>
 	<p class="indent1"><strong>NOTE:</strong> BONUSes are additive between each BONUS.  Two
 		<code>BONUS:WEAPON|DAMAGEMULT:0|1.5</code> tags will do a total of x3 (1.5 + 1.5), not 2.25.
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -491,7 +491,7 @@
 	<p class="indent3">If the base damage dice is 1d8 this would scale it up to 3d6.</p>
 	<p class="indent2"><code>BONUS:COMBAT|DAMAGESIZE|-1</code></p>
 	<p class="indent3">If the base damage dice is 1d4 this would scale it down to 1d3.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -505,7 +505,7 @@
 	<p class="indent3">Increases initiative by three.</p>
 	<p class="indent2"><code>BONUS:COMBAT|INITIATIVE|2|TYPE=Competence</code></p>
 	<p class="indent3">Increases initiative by two for Competence.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -516,7 +516,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|REACH|10</code></p>
 	<p class="indent3">Increases reach by ten feet.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -528,7 +528,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|SECONDARYATTACKS|1</code></p>
 	<p class="indent3">Increases secondary attacks by one.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -539,7 +539,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|SECONDARYDAMAGE|2</code></p>
 	<p class="indent3">Increases the secondary attack damage bonus by two.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -556,13 +556,13 @@
 	<p class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 	<p class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
-	<p class="indent2"><code>>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
+	<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
 		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
-		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code>></p>
+		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
 	<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
 	<p class="indent2"><code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt; BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code></p>
 	<p class="indent3">Increases Attack bonus by one for three WEAPONPROFS based on Talent.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -584,13 +584,13 @@
 	<p class="indent3">Increases Attack bonus by two (total three) if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
 	<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
 		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
-		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code>></p>
+		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
 	<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT.GRAPPLE|2|TYPE=Circumstance|PREAPPLY:ANYPC</code></p>
 	<p class="indent3">Increases Attack bonus by two when grappling depending on the circumstance to any PC Character.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged</code></p>
 	<p class="indent3">Increases Attack bonus by calculated amount when using a Finesseable weapon, within your personal space, close shave anyone.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -608,7 +608,7 @@
 	<p class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-PRIMARY|WIS|TYPE=Ranged</code></p>
 	<p class="indent3">Increases Attack bonus by the Wisdom Modifier for ranged attacks. Class Level or ClassSubLevel</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -624,7 +624,7 @@
 	<p class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-SECONDARY|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
 	<p class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -642,19 +642,19 @@
 	<p class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-SHORTRANGE|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
 	<p class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">*** deprecated 4.3.8 - use <a href="#COMBATDAMAGE">BONUS:COMBAT|DAMAGE.x|y</a></p>
 	<p class="indent0"><strong><a name="DAMAGE">Tag Name:</a></strong> BONUS:DAMAGE|x</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">*** deprecated 5.5.8 - use <a href="#COMBATDAMAGE">BONUS:COMBAT|DAMAGE.x|y</a></p>
 	<p class="indent0"><strong><a name="DAMAGETYPE">Tag Name:</a></strong> BONUS:DAMAGE|TYPE.x|y</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -669,7 +669,7 @@
 	<p class="indent3">Adds 7 to the DC of the spell Fireball.</p>
 	<p class="indent2"><code>CHOOSE:SCHOOLS|1 &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|1</code></p>
 	<p class="indent3">Choose 1 School and add 1 to its DC.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -681,7 +681,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|ALLSPELLS|1</code></p>
 	<p class="indent3">Adds 1 to the DC of all spells.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -693,7 +693,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|CLASS.Sorcerer|2</code></p>
 	<p class="indent3">Adds 2 to the DC of sorcerer spells.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -708,7 +708,7 @@
 	<p class="indent2"><code>BONUS:DC|DESCRIPTOR.Law,DOMAIN.Law|3</code></p>
 	<p class="indent3">Adds 3 to the DC of any spells with the Law domain or descriptor and
 		would add 6 to a spell with both the Law Domain and Law Descriptor.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -722,7 +722,7 @@
 	<p class="indent3">Adds 6 to the DC of War Domain spells.</p>
 	<p class="indent2"><code>MULT:YES &lt;tab&gt; CHOOSE:Afterlife|Air|Ancestor|Animal|Artificer|Binding|Cavern|Charm|Cold|Commerce|Daemonology|Death|Destruction|Disease|Divination|Earth|Fate|Fire|Glory|Healing|Holy|Honor|Knowledge|Luck|Magic|Murder|Music|Nature|Oath|Pain|Plant|Pleasure|Protection|Refuge|Saurian|Sea|Secrets|Senses|Storm|Strength|Subterfuge|Suffering|Sun|Trickery|Undead|War|Water &lt;tab&gt; BONUS:DC|DOMAIN.%LIST|1</code></p>
 	<p class="indent3">A chooser to add 1 to the DC of Domain spells, may be used multiple times.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -734,7 +734,7 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:DC|FEATBONUS|1</code></p>
 	<p class="indent3">Adds 1 to the DC of spells that this bonus applies to by raising the spell's level by 1. The Heighten Spell metamagic feat is an example of where this is used.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -751,7 +751,7 @@
 	<p class="indent3">Adds 2 to Psychic school focus.</p>
 	<p class="indent2"><code>BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline</code></p>
 	<p class="indent3">Subtracts the Chrisma Modifier to Telepathy School Subdiscipline.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -763,7 +763,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|SUBSCHOOL.something|5</code></p>
 	<p class="indent3">Adds 5 to the any spell with a subschool of &quot;something&quot;.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -775,7 +775,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|TYPE.Arcane|3</code></p>
 	<p class="indent3">Adds 3 to arcane spell DCs.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -788,7 +788,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DR|+1|10</code></p>
 	<p class="indent3">If the +1 DR type, was currently at 5/+1 this tag would add 10 making it 15/+1.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -803,7 +803,7 @@
 	<p class="indent3">Character gains access to one additional Domain.</p>
 	<p class="indent2"><code>BONUS:DOMAIN|NUMBER|3</code></p>
 	<p class="indent3">Character gains access to three additional Domains.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -816,7 +816,7 @@
 	<p class="indent3">Sets the number of hands required by the item to one.</p>
 	<p class="indent2"><code>BONUS:EQM|HANDS|-EQHANDS</code></p>
 	<p class="indent3">Sets the number of hands required by the item to zero.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -830,7 +830,7 @@
 	<p class="indent3">Adds half a weight unit to the item's weight.</p>
 	<p class="indent2"><code>BONUS:EQM|WEIGHTADD|-10|TYPE=Enhancement</code></p>
 	<p class="indent3">Subtracts 10 from the item's weight due to enhancement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -844,7 +844,7 @@
 	<p class="indent3">Divides the weight of the item in half.</p>
 	<p class="indent2"><code>BONUS:EQM|WEIGHTDIV|2|TYPE=Enhancement.REPLACE</code></p>
 	<p class="indent3">Divides the weight of the item in half, replaces the original amount by enhancement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -859,7 +859,7 @@
 	<p class="indent3">Doubles the weight of the item.</p>
 	<p class="indent2"><code>BONUS:EQM|WEIGHTMULT|1.2|TYPE=Enhancement</code></p>
 	<p class="indent3">Multiples the weight of the item by 1.2 by enhancement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -874,7 +874,7 @@
 	<p class="indent3">Decreases the armor check penalty by 3.</p>
 	<p class="indent2"><code>BONUS:EQMARMOR|ACCHECK|2|TYPE=Enhancement</code></p>
 	<p class="indent3">Decreases the armor check penalty by 2 by enhancement.</p>
-	<p></ p>
+	<p></p>
 
 
 <hr>
@@ -886,7 +886,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:EQMARMOR|EDR|1</code></p>
 	<p class="indent3">Makes the damage resistance for the armor 1 higher.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -902,7 +902,7 @@
 	<p class="indent3">Increases maximum dexterity bonus of the armor by 2.</p>
 	<p class="indent2"><code>BONUS:EQMARMOR|MAXDEX|2|TYPE=Enhancement</code></p>
 	<p class="indent3">Increases maximum dexterity bonus of the armor by 2, by enhancement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -918,7 +918,7 @@
 	<p class="indent3">Decreases the spell failure chance of the armor by 10%.</p>
 	<p class="indent2"><code>BONUS:EQMARMOR|SPELLFAILURE|-10|TYPE=Enhancement</code></p>
 	<p class="indent3">Decreases the spell failure chance of the armor by 10% by enhancement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -929,7 +929,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:EQMWEAPON|CRITRANGEADD|1</code></p>
 	<p class="indent3">Increases the critical threat range of the weapon by 1.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -943,7 +943,7 @@
 	<p class="indent3">Doubles the critical threat range of the weapon.</p>
 	<p class="indent2"><code>BONUS:EQMWEAPON|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit</code></p>
 	<p class="indent3">Adds one to the non-stacking-critical threat range of the weapon.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -954,7 +954,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:EQMWEAPON|DAMAGESIZE|1</code></p>
 	<p class="indent3">Modifies the weapon's damage as if it were 1 size larger.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -968,7 +968,7 @@
 	<p class="indent3">Adds 10 distance units to the weapon's range.</p>
 	<p class="indent2"><code>BONUS:EQMWEAPON|RANGEADD|5|TYPE=CONVERSION</code></p>
 	<p class="indent3">Adds 5 distance units to the weapon's range by conversion.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -979,7 +979,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:EQMWEAPON|RANGEMULT|2</code></p>
 	<p class="indent3">Doubles the range of the weapon.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -995,7 +995,7 @@
 	<p class="indent3">Increases the feat pool by one and will not stack with other BONUS:FEAT|POOL tags with TYPE=Enhancement.</p>
 	<p class="indent2"><code>BONUS:FEAT|POOL|-1|PREFEAT:1,Alertness</code></p>
 	<p class="indent3">Decreases the feat pool by one if the character has the feat Alertness.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1014,7 +1014,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:FOLLOWERS|Familiar|1</code></p>
 	<p class="indent3">A character is allowed 1 additional Familiar.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1028,7 +1028,7 @@
 	<p class="indent3">Increases maximum of the HD by two points (1d4 goes to 1d6).</p>
 	<p class="indent2"><code> BONUS:HD|MIN|1</code></p>
 	<p class="indent3">Increases the minimum of the HD by 1 point (1d4 goes to 1d3+1 for example 2 - 4 are the possibilities).</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1042,7 +1042,7 @@
 	<p class="indent3">Adds three to total the secondary hit points.</p>
 	<p class="indent2"><code>BONUS:HP|ALTHP|5|TYPE=Species</code></p>
 	<p class="indent3">Adds five to total the secondary hit points for species reasons.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1061,7 +1061,7 @@
 		time, does not stack.</p>
 	<p class="indent2">BONUS:HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary|PREAPPLY:PC</p>
 	<p class="indent3">Character gains additional hit points temporary based on the calculation.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1078,7 +1078,7 @@
 	<p class="indent3">Adds 200 to the cost if the item has the Weapon type.</p>
 	<p class="indent2"><code>BONUS:ITEMCOST|TYPE.Armor.Light|BASECOST*2</code></p>
 	<p class="indent3">Doubles the cost if the item has the Armor and Light types.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1089,7 +1089,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:MISC|ACCHECK|1</code></p>
 	<p class="indent3">Adds one to total Armor Check.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1101,7 +1101,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:MISC|CR|2</code></p>
 	<p class="indent3">Adds 2 to the challange rating.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1112,7 +1112,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:MISC|MAXDEX|1</code></p>
 	<p class="indent3">Adds one to total Maximum Dex allowed while wearing armor.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1127,7 +1127,7 @@
 	<p class="indent3">Adds 5% to Spell Failure chance.</p>
 	<p class="indent2"><code>BONUS:MISC|SPELLFAILURE|20|PREEQUIP:2,TYPE=Armor,TYPE=Light</code></p>
 	<p class="indent3">Adds 20% to Spell Failure chance if equipped with light armor.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1141,14 +1141,14 @@
 	<p class="indent3">Adds 10 to the spell resistance.</p>
 	<p class="indent2"><code>BONUS:MISC|SR|10+CL|TYPE=EbonLink</code></p>
 	<p class="indent3">Adds 10 plus the Character Level to the spell resistance due to EbonLink.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">*** Deprecated 4.3.8 Use <a href="#MOVEADD">BONUS:MOVEADD</a> or
   		<a href="#POSTMOVEADD">BONUS:POSTMOVEADD</a></p>
 	<p class="indent0"><strong><a name="MOVE">Tag Name:</a></strong> BONUS:MOVE|x|y</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1171,7 +1171,7 @@
 	<p class="indent3">Adds 5 to Walk so long as the character is not at medium load.</p>
 	<p class="indent2"><code>BONUS:MOVEADD|TYPE.Walk|10|TYPE=Enhancement|PREAPPLY:ANYPC</code></p>
 	<p class="indent3">Adds 5 to the characters Walk as an enhancement of some sort.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1192,7 +1192,7 @@
 	<p class="indent3">Multiplies the Walk &amp; Fly movement rates by two.</p>
 	<p class="indent2"><code>BONUS:MOVEMULT|TYPE=Walk,TYPE=Fly,TYPE=Climb,TYPE=Hover,TYPE=Swim|2</code></p>
 	<p class="indent3">Multiplies the Walk, Fly, Climb, Hover, Swim movement rates by two.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1210,7 +1210,7 @@
 	<p class="indent3">Adds 1 to Sorcerer spell caster level.</p>
 	<p class="indent2"><code>BONUS:PCLEVEL|TYPE.Arcane|1</code></p>
 	<p class="indent3">Adds 1 to Arcane spell caster level.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1225,7 +1225,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:PCLEVEL|TYPE=Arcane|1</code></p>
 	<p class="indent3">Adds 1 level to all arcane spellcaster levels that the character already has levels in.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1246,7 +1246,7 @@
 	<p class="indent3">Adds 10 to Walk.</p>
 	<p class="indent2"><code>BONUS:POSTMOVEADD|TYPE.Walk,TYPE.Burrow,TYPE.Climb,TYPE.Fly,TYPE.Swim|30|TYPE=Enhancement|PREAPPLY:PC</code></p>
 	<p class="indent3">Adds 30 to Walk, Burrow, Climb, Fly and Swim to any PC Character that has this enhancement.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1265,7 +1265,7 @@
 	<p class="indent3">Would increase the range of projectile weapons by 5.</p>
 	<p class="indent2"><code>BONUS:POSTRANGEADD|THROWN|10</code></p>
 	<p class="indent3">Would increase the range of thrown weapons by 10.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1284,7 +1284,7 @@
 	<p class="indent3">Would increase the range of projectile weapons by 5.</p>
 	<p class="indent2"><code>BONUS:RANGEADD|THROWN|10</code></p>
 	<p class="indent3">Would increase the range of thrown weapons by 10.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1307,7 +1307,7 @@
 	<p class="indent3">Would increase the range of thrown weapons by 100% (x2).</p>
 	<p class="indent2"><code>BONUS:RANGEMULT|TYPE=Starship|50</code></p>
 	<p class="indent3">Would increase the range of starship weapons by 50% (x1.5).</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1318,7 +1318,7 @@
 		<li>Moves the character's size up or down the size range by the indicated number of steps.</li>
 		<li>All stat modifications caused by a size change will take effect.</li>
 		<li>Size Categories in order are: Fine, Diminutive, Tiny, Small, Medium, Large, Huge, Gargantuan, Colossal.</li>
-	</ul> <p></ p>
+	</ul> <p></p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|1</code></p>
 	<p class="indent3">Adds one to size. A &quot;Medium&quot; character would become &quot;Large&quot;.</p>
@@ -1336,7 +1336,7 @@
 	<p class="indent3">Removes the if Total Levels (TL) are more than 3 and less than 7, and you are a Dire Wolf, reduce the SIZEMOD by 1.</p>
 	<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|1|PRESIZEGT:T.MOD &lt;tab&gt; BONUS:SIZEMOD|NUMBER|2|PRESIZEGT:T</code></p>
 	<p class="indent3">Changes the if size is greater than Tiny (T) add 1 to SIZEMOD to add 2 to the SIZEMOD.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1367,7 +1367,7 @@
 	<p class="indent3">Adds 1 to Hide skill due to Talent and does Stack with all other Talent type.</p>
 	<p class="indent2"><code>Balance.MOD &lt;tab&gt; BONUS:SKILL|Balance|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*SynergyBonus|TYPE=Synergy.STACK</code></p>
 	<p class="indent3">Modifies the Balance skill to include the Synergy Bonus.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1379,7 +1379,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SKILL|ALL|1</code></p>
 	<p class="indent3">Adds one to all skills.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1393,7 +1393,7 @@
 	<p class="indent3">Adds two to selected &quot;Strength&quot; skill.</p>
 	<p class="indent2"><code>CHOOSE:SKILLSNAMEDTOCSKILL|2 &lt;tab&gt; BONUS:SKILL|LIST|6|TYPE=Legendary</code></p>
 	<p class="indent3">Adds six to the two selected Class Skills skill learned during Legendary Class.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1405,7 +1405,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SKILL|STAT.STR|1</code></p>
 	<p class="indent3">Adds one to all &quot;Strength&quot; based skills.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1424,7 +1424,7 @@
 	<p class="indent3">Adds two to Strength type skills.</p>
 	<p class="indent2"><code>BONUS:SKILLRANK|Speak Language,Decipher Script,Innuendo|2|TYPE=Insight</code></p>
 	<p class="indent3">Adds two to three skills for insight purposes.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1447,7 +1447,7 @@
 	<p class="indent2"><code>BONUS:SKILLPOINTS|NUMBER|6|PRELEVELMAX:3</code></p>
 	<p class="indent3">Adds 6 additional skillpoints to the character at first to third levels only, above
 		and beyond any other skillpoints gained for race or class, etc.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1471,7 +1471,7 @@
 	<p class="indent2"><code>BONUS:SKILLPOOL|CLASS=Wizard;LEVEL=5|4|PRESTAT:1,INT=18</code></p>
 	<p class="indent3">Adds 4 additional skillpoints to the characters skill pool
 		at the fifth level of the characters Wizard Class if he has an intelligence of 18 or better.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1514,7 +1514,7 @@
 	<p class="indent3">Adds one ring slot to character.</p>
 	<p class="indent2"><code>BONUS:SLOTS|LIST|1 &lt;tab&gt; CHOOSE:Armor|Shield|Bracer</code></p>
 	<p class="indent3">Adds one slot chosen from Armor, Shield or Bracer to the character.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1527,7 +1527,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLCAST|CLASS=Wizard;LEVEL=1|1</code></p>
 	<p class="indent3">You can cast 1 more 1<sup>st</sup> lvl <code>Wizard</code> spell.</p>
- 	<p></ p>
+ 	<p></p>
 
 <hr>
 
@@ -1540,7 +1540,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLCAST|TYPE=Arcane;LEVEL=1|1</code></p>
 	<p class="indent3">You can cast 1 more 1<sup>st</sup> lvl spell of Arcane type.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1553,7 +1553,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLCASTMULT|CLASS=Wizard;LEVEL=1|2</code></p>
 	<p class="indent3">You can cast 2 times as many 1<sup>st</sup> lvl <code>Wizard</code> spells as normal.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1566,7 +1566,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2</code></p>
 	<p class="indent3">You can cast 2 times as many 1<sup>st</sup> lvl spell of Arcane type as normal.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1579,7 +1579,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1</code></p>
 	<p class="indent3">You know 1 more 1<sup>st</sup> lvl Bard spell.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1592,7 +1592,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1</code></p>
 	<p class="indent3">You know 1 more 1<sup>st</sup> lvl spell of Arcane type.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1606,7 +1606,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|2</code></p>
 	<p class="indent3">You know 2 times more 1<sup>st</sup> lvl Bard spells.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1620,7 +1620,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|2</code></p>
 	<p class="indent3">You know 2 times more 1<sup>st</sup> lvl spells of Arcane type.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1646,7 +1646,7 @@
 		at 5, +2 to CON at 7, +2 to WIS at 9.</p>
 	<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:Ability|STR|DEX|CON &lt;tab&gt; BONUS:STAT|%LIST|2|TYPE=Inherent</code></p>
 	<p class="indent3">Adds two to character's Chosen stat from Inherent ability, doesn't stack, but can be selected multiple times.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1659,7 +1659,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLKNOWNSTAT|1</code></p>
 	<p class="indent3">Adds 1 to all of the character's base spell stat bonus when calculating the number of spells known.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1673,7 +1673,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLKNOWNSTAT:Class=Wizard|2</code></p>
 	<p class="indent3">Adds 2 to character's base spell stat bonus for the Wizard class when calculating the number of spells known.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1684,7 +1684,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLSTAT|1</code></p>
 	<p class="indent3">Adds 1 to all of the character's base spell stat bonus.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1696,19 +1696,19 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLSTAT:Class=Wizard|2</code></p>
 	<p class="indent3">Adds 2 to character's base spell stat bonus for the Wizard class.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">*** deprecated 5.3.12 - use <a href="#COMBATTOHIT">BONUS:COMBAT|TOHIT|x</a></p>
 	<p class="indent0"><strong><a name="TOHIT">Tag Name:</a></strong> BONUS:TOHIT|x</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">*** deprecated 5.3.12 - use <a href="#COMBATTOHITSHORTRANGE">BONUS:COMBAT|TOHIT-SHORTRANGE|x</a></p>
 	<p class="indent0"><strong><a name="TOHITSHORTRANGE">Tag Name:</a></strong> BONUS:TOHIT-SHORTRANGE|x</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1725,7 +1725,7 @@
 	<p class="indent3">Unarmed damage is treated as a Monk of five levels higher. For this to work you must have Monk levels.</p>
 	<p class="indent2"><code>BONUS:UDAM|CLASS.Monk|CL=SpecialMonk</code></p>
 	<p class="indent3">Would raise the Monk's Unarmed Damage "level" by the Class Level of the "SpecialMonk" class.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1749,7 +1749,7 @@
 	<p class="indent3">A chooser to let you select the number of points to add, from 1 to 10, if your a Titan and a PC.</p>
 	<p class="indent2"><code>BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base</code></p>
 	<p class="indent3">Sets the character's base TurnTimesBase variable to three plus the Charasma Modifier.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1816,7 +1816,7 @@
 	<p class="indent3">Raises the weapons wieldcatagory, if it were Light it becomes OneHanded.</p>
 	<p class="indent2"><code>BONUS:WEAPON|DAMAGE,TOHIT|min(2,(TL/6)|TYPE=Enhancement|PRELEVEL:6</code></p>
 	<p class="indent3">Raises the weapons damage and to-hit, between 2 and (Total Level divided by 6) if character is over level 6.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -1870,7 +1870,7 @@
 	<p class="indent3">Chooser for weapons proficiency to add 2 to the damager of a Weapon Focus.</p>
   	<p class="indent2"><code>BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty</code></p>
   	<p class="indent3">Subtracts two from the to hit of Cannons due to gunnery.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 

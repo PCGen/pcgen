@@ -27,7 +27,7 @@
 	<h1>Spell Files</h1>
 		<p class="new">*** Updated 5.13.6
 	<p class="indent1">The first field is the name of the spell.</p>
-	<p></ p>
+	<p></p>
 	<p class="indent2"><code>Ghost Sound</code></p>
 	<p class="indent3">The spell named &quot;Ghost Sound&quot; is to be created.</p>
 	<p class="indent2"><code>Silent Image.MOD</code></p>
@@ -36,7 +36,7 @@
 	<p class="indent3">Copy the spell &quot;Magic Aura&quot; and rename to &quot;Nystal's Undetectable Aura&quot; in all aspects.</p>
 	<p class="indent2"><code>Holy Smite.FORGET</code></p>
 	<p class="indent3">Copy the spell &quot;Holy Smite&quot; is to be forgotten.</p>
-	<p></ p>
+	<p></p>
 
 	<p>Initial Comment:<br /></p>
 	<p class="indent1">In all four versions of KEY (Spell - Potion) or KEY (Spell - Scroll) or KEY (Spell -
@@ -61,11 +61,11 @@
 	<p class="indent1">In another file:
 	<ul>
 		<li>PRESPELL:1,Whiz Bangy</li>
-		<li>WILL NOT WORK/li>
+		<li>WILL NOT WORK</li>
 		<li>Requires:</li>
 		<li>PRESPELL:1,Foo.</li>
 	</ul>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -89,7 +89,7 @@
 		putting 2 more point the Effective Caster Level is 5d6 damage
 		for a total of 7 PP. The maximum extra PP is 7 for this example getting
 		the maximum of 10d6 damage.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -120,7 +120,7 @@
 	<p class="indent3">If caster level is 3 output reads:DURATION:3 rounds</p>
 	<p class="indent2"><code>DESC:Random damage in area during duration, plus (CASTERLEVEL)d4 damage</code></p>
 	<p class="indent3">If caster level is 3 output reads:DESC:Random damage in area during duration, plus 3d4 damage</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -131,7 +131,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CASTTIME:1 Round</code></p>
 	<p class="indent3">This spell takes 1 round to cast.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -147,7 +147,7 @@
 		enclose the PRExxx statement with [ ] instead of the usual Pipe delineation.</p>
 	<p class="new">*** Deprecatee both DOMAINS:.CLEAR and CLASSES:.CLEAR, replaced by DOMAINS:.CLEARALL and
 		CLASSES:.CLEARALL.  This is done due to the past side-effects between the two tokens.  You may wish to
-		note that any single .CLEAR is equivalent to both .CLEARALLs due to this (old) interaction.</p><p></ p>
+		note that any single .CLEAR is equivalent to both .CLEARALLs due to this (old) interaction.</p><p></p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>CLASSES:Wizard=5|Enchanter=3|Druid=6</code></p>
 	<p class="indent3">Indicates this spell is 5th Lvl Wizard, 3rd Lvl Enchanter, and 6th Lvl Druid.</p>
@@ -167,7 +167,7 @@
 		does not otherwise have a spell progression.</p>
 	<p class="indent2"><code>Misdirection.MOD &lt;tab&gt; CLASSES:Circle Walker=2</code></p>
 	<p class="indent3">Indicates this spell is modified to 2nd Level for Circle Walker classes.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -181,7 +181,7 @@
 	<p class="indent3">This spell has &quot;Verbal&quot; and &quot;Somatic&quot; components.</p>
 	<p class="indent2"><code>SpellFoo &lt;tab&gt; COMPS:.CLEAR &lt;tab&gt; COMPS:V &lt;tab&gt; COMPS:S</code></p>
 	<p class="indent3">The spell SpellFoo has its COMPS cleared and &quot;Verbal&quot; and &quot;Somatic&quot; components added.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -197,7 +197,7 @@
 	<p class="indent2"><code>COST:1000|Druid,0|Cleric,100</code></p>
 	<p class="indent3">This spell's components cost 0 for a Druid, 100 for a Cleric and 1000 for everyone
 		else.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -207,11 +207,11 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This roll is applied/accumulated toward the Casting Threshold of the spell that the
 		mage is casting.</p>
-	<p class="indent2">CT must be in integer >= 0</p>
+	<p class="indent2">CT must be in integer &gt;= 0</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CT:41</code></p>
 	<p class="indent3">This spell takes 41+ points to cast.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -226,7 +226,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DESCISPI:YES</code></p>
 	<p class="indent3">Description is closed content.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -243,7 +243,7 @@
 		types.</p>
 	<p class="indent2"><code>DESCRIPTOR:.CLEAR|Fire</code></p>
 	<p class="indent3">This clears the spell list and replaces with &quot;Fire&quot; types.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -257,7 +257,7 @@
 		enclose the PRExxx statement with [ ] instead of the usual Pipe delineation.</p>
 	<p class="new">*** Deprecatee both DOMAINS:.CLEAR and CLASSES:.CLEAR, replaced by DOMAINS:.CLEARALL and
 		CLASSES:.CLEARALL.  This is done due to the past side-effects between the two tokens.  You may wish to
-		note that any single .CLEAR is equivalent to both .CLEARALLs due to this (old) interaction.</p><p></ p>
+		note that any single .CLEAR is equivalent to both .CLEARALLs due to this (old) interaction.</p><p></p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>DOMAINS:Charm=2|Beauty=3</code></p>
 	<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain, and 3rd level for the
@@ -271,7 +271,7 @@
 		prestige class.</p>
 	<p class="indent2"><code>Binding.MOD &lt;tab&gt; DOMAINS:Fate=8</code></p>
 	<p class="indent3">Indicates that this is a 8th level spell for the Fate domain.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -289,19 +289,19 @@
 	<p class="indent3">This spell lasts for one round per level.</p>
 	<p class="indent2"><code>DURATION:(CASTERLEVEL) rounds</code></p>
 	<p class="indent3">If CASTERLEVEL is equal to 3 then this outputs: "3 rounds".</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#DESC">DESC</a> tag instead.</p>
 	<p class="indent0"><strong><a name="EFFECTS">Tag Name:</a></strong> EFFECTS:x</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#TARGETAREA">TARGETAREA</a> tag instead.</p>
 	<p class="indent0"><strong><a name="EFFECTTYPE">Tag Name:</a></strong> EFFECTTYPE:x</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -318,7 +318,7 @@
 	<p class="indent3">This spell can be used in a potion.</p>
 	<p class="indent2"><code>ITEM:[Scroll]</code></p>
 	<p class="indent3">This spell can NOT be used in a scroll.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -327,11 +327,11 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This is a point pool cost to purchase/cast the spell
-		works with SKILLTOTAL=>skill name<)</p>
+		works with SKILLTOTAL=&gt;skill name)</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PPCOST:9</code></p>
 	<p class="indent3">This spell costs 9 points to use.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -345,7 +345,7 @@
 	<p class="indent3">This spell has a range of 100 feet plus 5 feet per level.</p>
 	<p class="indent2"><code>RANGE:.CLEAR &lt;tab&gt; RANGE:Personal</code></p>
 	<p class="indent3">This clears the previous range and replaces with &quot;Personal&quot; range.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -356,7 +356,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SAVEINFO:Will Negates</code></p>
 	<p class="indent3">A successful Will save will negate the spell effects.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -376,19 +376,19 @@
 	<p class="indent3">For the Class Channeler of level 7 the spell Summon Monster VII is modified, moving it from whatever schools it was in to just &quot;Greater Conjuration&quot;.</p>
 	<p class="indent2"><code>SCHOOL:.CLEAR &lt;tab&gt; SCHOOL:Illusion</code></p>
 	<p class="indent3">This clears the schools list and replaces with &quot;Illusion&quot; schools.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="../globalfilestagpages/globalfilesother.html#SPELLLEVEL">SPELLLEVEL</a> tag instead</p>
 	<p class="indent0"><strong><a name="SPELLLEVEL">Tag Name:</a></strong> SPELLLEVEL:CLASS|x|DOMAIN|x</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
 	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#CLASSES">CLASSES</a> or <a href="#DOMAINS">DOMAINS</a> tags instead</p>
 	<p class="indent0"><strong><a name="SPELLLEVELCLASS">Tag Name:</a></strong> SPELLLEVEL:CLASS|x|DOMAIN|x</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -407,7 +407,7 @@
 	<p class="indent3">This spell is susceptible to Good Creatures.</p>
 	<p class="indent2"><code>SPELLRES:.CLEAR</code></p>
 	<p class="indent3">This clears the Spell resistance setting.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -425,7 +425,7 @@
 	<p class="indent3">When used in conjunction with the <code>SPELLSTAT:SPELL</code> tag
 		in a class file, a spell with this tag will use the charisma modifier to determine
 		bonus spells and maximum level the character can cast.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -445,7 +445,7 @@
 	<p class="indent3">This spell belongs to the &quot;Force&quot; sub-school.</p>
 	<p class="indent2"><code>SUBSCHOOL:.CLEAR|Charm</code></p>
 	<p class="indent3">This clears the subschools list and replaces with &quot;Charm&quot; sub-school.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -468,7 +468,7 @@
 	<p class="indent3">Spell has a cone area of effect.</p>
 	<p class="indent2"><code>TARGETAREA:(CASTERLEVEL*10) ft. cube</code></p>
 	<p class="indent3">If CASTERLEVEL is equal to 3 then this outputs: "30 ft. cube".</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -492,7 +492,7 @@
 	<p class="indent3">Removes all variants of the spell.</p>
 	<p class="indent2"><code>VARIANTS:.CLEAR|Acorn Grenades|Holly Berry Bombs</code></p>
 	<p class="indent3">Removes all variants of the spell Fire seeds.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -501,7 +501,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Denotes how much the spell costs to cast, used for determining potion, wand, etc
 		costs.</p>
-	<p class="indent2">XPCOST must be an integer >= 0</p>
+	<p class="indent2">XPCOST must be an integer &gt;= 0</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>XPCOST:1250</code></p>
 	<p class="indent3">Spell costs 1250 Experience points to cast.</p>

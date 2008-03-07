@@ -37,11 +37,11 @@
 	<p class="indent0">To reverse the sign (go from positive number to negative) use -1*().	EXAMPLE:</p>
 	<p class="indent2"><code>BONUS:CHECKS|BASE.Will|CL/3</code> is a positive 1 at 3rd level and</p>
 	<p class="indent2"><code>BONUS:CHECKS|BASE.Will|-1*(CL/3)</code> is a -1 at 3rd level.</p>
-	<p></ p>
+	<p></p>
 	<p class="indent0"><strong><em>PCGen *does* round each tag down rather than add the tags together and then round down.  See
 		example before 'Operators'</em></strong></p>
 	<p class="indent1"><strong>Using variables within JEP expressions</strong></p>
-	<p></ p>
+	<p></p>
 	<p class="indent2">In most cases variables can be used directly in an expression,
   		however there are some cases when you must use the var() function. This is
   		because some variables can contain characters which are not valid JEP variables.
@@ -53,30 +53,30 @@
   		a-z and A-Z.<br><br></p>
 	<p class="indent2">Examples of variables that may be used alone:</p>
 	<p class="indent3"><code>CL, TL, ARMORACCHECK, BardicKnowledgeLevel, TirelessRage.</code>,</p>
-	<p></ p>
+	<p></p>
 	<p class="indent2">Examples of variables that must be called with the getvar() function:</p>
 	<p class="indent3"><code>var(&quot;CL=Fighter&quot;), var(&quot;COUNT[FEATS]&quot;),
 		var(&quot;COUNT[FEATTYPE=type]&quot;).</code></p>
-	<p></ p>
+	<p></p>
 	<p class="indent2">Consult the <a href="globalfilesdefine.html">DEFINE</a> page
 			for the list of hard coded variables available for use in formulas.</p>
 	<p class="indent1"><strong>Operator order of processing:</strong></p>
-	<p></ p>
+	<p></p>
 	<p class="indent2">Anything within ()'s are done first, and processing is done left-to-right.</p>
-	<p></ p>
+	<p></p>
 	<p class="indent2"><code>2+(3*5+2)/2</code></p>
 	<p class="indent3">Would become 2+(15+2)/2 (3*5 replaced)</p>
-	<p></ p>
+	<p></p>
 	<p class="indent3">then 2+17/2 (15+2 replaced)</p>
-	<p></ p>
+	<p></p>
 	<p class="indent3">then 19/2 (2+17 replaced)</p>
-	<p></ p>
+	<p></p>
 	<p class="indent3">then 9 (result of 19/2, the .5 is dropped, see below.).</p>
-	<p></ p>
+	<p></p>
 	<p class="indent2"><strong>PCGen truncates (or rounds down to the nearest integer) the results of each
 		formula,</strong> so 4/3 will return a 1 and 7/3 will return a 2 etc. If you need to truncate within the
 		formula you can use the min(x,y) or max(x,y) and floor(a) or ceil(a) tags.</p>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -97,7 +97,7 @@
 			<li>These are the four traditional mathematical operators.</li>
 			<li>Order of Operation:
 				<ul class="indent2">
-					<li>For JEP Commands - Per standard mathematical order of operation. (i.e. Parenthises -&gt Multiplication/Division -&gt Addition/Subtraction)</li>
+					<li>For JEP Commands - Per standard mathematical order of operation. (i.e. Parenthises -&gt; Multiplication/Division -&gt; Addition/Subtraction)</li>
 					<li>For Non-JEP Commands - Parenthesis are resolved first, then operators will be processed from left to right.</li>
 					<li>Parenthesis may be nested with the inner-most parenthesis being processed first.</li>
 				</ul>
@@ -117,7 +117,7 @@
 		<p class="indent2"><code>((CL+1)+(3*TL)/2)+4</code> (Non-JEP Expression)</p>
 		<p class="indent3">Returns the result of Class Level plus 1, plus three multiplied by Total Level, divided by two, plus four.  Assuming CL=TL=4, this expression returns 12.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -154,7 +154,7 @@
 		<p class="indent2"><code>(CL&gt;5)||(TL&gt;5)</code></p>
 		<p class="indent3">Will return &quot;True&quot; if Class Level <strong>or</strong> Total Level is greater than 5.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -229,7 +229,7 @@
 		<p class="indent3">Divides the character's class level by 3 and returns the remainder</p>
 		<p class="indent3">If the class level was 7, the remainder is 1.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -250,7 +250,7 @@
 		<p class="indent2"><code>max(3,CL,TL/2)</code> given a multi-class character: Wiz4/Rog6 and looking at it from the Rogue's perspective.</p>
 		<p class="indent3">Evaluating: max(3,[CL=6],[TL/2 -&gt; (4+6)/2 -&gt; (10/2)=5]) -&gt; max returns the value &quot;6&quot;.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -268,7 +268,7 @@
 		<p class="indent2"><code>ceil(STR/2)</code> Assume STR=15</p>
 		<p class="indent3">Evaluate: STR/2 -&gt; 15/2 -&gt; 7 1/2 -&gt; ceil returns 8.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -289,18 +289,18 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>if(CL&lt;10,1,2)</code></p>
 		<p class="indent3">Asks if Class Level is less than 10 then returns 1 or else returns 2.</p>
-		<p class="indent2"><code>if(CL>=4,10,0)</code></p>
+		<p class="indent2"><code>if(CL&gt;=4,10,0)</code></p>
 		<p class="indent3">Asks if Class Level is greater than or equal to 4 then returns 10 or else returns 0.</p>
 		<p class="indent2"><code>if((CL&gt;5)||(TL&gt;5),2,-4)</code></p>
 		<p class="indent3">Asks if Class Level <strong>or</strong> Total Level is greater than 5 then returns 2 or else returns -4.</p>
 		<p class="indent2"><code>if(STR,5,0)</code></p>
 		<p class="indent3">Asks if Strength modifier is greater than or less than 0 then returns 5 or else returns 0.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
-	<a name="RandomNumbers">
+	<a name="RandomNumbers" ></a>
 	<h4>Random Number Generation (JEP Expression)</h4>
 	
 	<p class="indent1"><strong>Formula:</strong> <code>roll("x")</code></p>
@@ -329,7 +329,7 @@
 			times while you use the program. So if you were to use roll("2d6") in a base attack bonus it would 
 			appear to add a number between 2 and 12 which would change frequently. Currently the QTY tag used 
 			<a href="../datafilestagpages/datafilesstartingkits.html#FUNDS">FUNDS</a> lines in Kit files is one 
-			of the few places this JEP operator functions in a useful way.</li>
+			of the few places this JEP operator functions in a useful way.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>roll(&quot;3d6&quot;)</code></p>
 		<p class="indent3">Simulates rolling 3 six-sided dice.</p>
@@ -350,7 +350,7 @@
 		<p class="indent2"><code>roll(&quot;roll(3,[2,3,4,5,6],[2,3])&quot;)</code></p>
 		<p class="indent3">Simulates rolling three 2, 3, 4, 5, or 6 sided dice, randomly selected and keeps the highest 2.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -367,7 +367,7 @@
 		<p class="indent2"><code>classlevel(&quot;Bard&quot;)</code></p>
 		<p class="indent3">Returns the number of levels of Bard.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -398,7 +398,7 @@
 		<p class="indent2"><code>skillinfo(&quot;TOTAL&quot;, &quot;Spellcraft&quot;)</code></p>
 		<p class="indent3">Returns the grand total in Spellcraft.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -438,7 +438,7 @@
 		<p class="indent2"><code>charbonusto("CHECKS", "REFLEX")</code></p>
 		<p class="indent3">Will return Reflex bonuses from a high Dexterity and other bonuses but not the full reflex save value.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -503,7 +503,7 @@
 	<p class="indent2"><code>|VAR.count(&quot;ABILITIES&quot;,&quot;CATEGORY=Maneuver&quot;)|</code></p>
 	<p class="indent3">Returns the number of &quot;Maneuver&quot; abilities the character has.</p>
 	</blockquote>
-	<p></ p>
+	<p></p>
 
 <hr>
 
@@ -511,7 +511,7 @@
 	<h2>Deprecated Functions</h2>
 	
 	<p class="indent1">The following operators are deprecated as of version 5.7.1. The syntax will be replaced with JEP syntax.</p>
-	<p></ p>
+	<p></p>
 	<p class="indent2"><code>((TL/3).TRUNC)*2</code></p>
 	<p class="indent3">Truncation - would divide TL by 3, truncate (or round down) and then multiply by 2.</p>
 	<p class="indent3">Deprecated, use floor(a).</p>
@@ -527,8 +527,7 @@
 <hr>
 
 	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
+	<a href="http://validator.w3.org/check?uri=referer"><img src="../../images/system/valid-html401.png"
        	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
 	</p>
 
