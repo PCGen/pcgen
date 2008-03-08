@@ -66,9 +66,10 @@ public class SkillsNamedToken implements ChooseLstToken
 			return false;
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		String tokString = null;
 		while (st.hasMoreTokens())
 		{
-			String tokString = st.nextToken();
+			tokString = st.nextToken();
 			int equalsLoc = tokString.indexOf("=");
 			if (equalsLoc == tokString.length() - 1)
 			{
@@ -77,6 +78,16 @@ public class SkillsNamedToken implements ChooseLstToken
 				Logging.errorPrint("  entire token was: " + value);
 				return false;
 			}
+		}
+		try
+		{
+			Integer.parseInt(tokString);
+			Logging.deprecationPrint("Trailing number on CHOOSE:SKILLSNAMED "
+					+ "is deprecated: " + value);
+		}
+		catch (NumberFormatException e)
+		{
+			//This is what we want
 		}
 		StringBuilder sb = new StringBuilder();
 		if (prefix.length() > 0)
