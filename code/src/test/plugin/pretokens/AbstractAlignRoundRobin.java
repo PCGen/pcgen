@@ -25,7 +25,6 @@
  */
 package plugin.pretokens;
 
-
 /**
  * <code>PreAbilityParserTest</code> tests the function of the PREABILITY
  * parser.
@@ -39,7 +38,7 @@ package plugin.pretokens;
 public abstract class AbstractAlignRoundRobin extends AbstractPreRoundRobin
 {
 	public abstract String getBaseString();
-	
+
 	public void testSimple()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":LG");
@@ -52,12 +51,18 @@ public abstract class AbstractAlignRoundRobin extends AbstractPreRoundRobin
 
 	public void testNumber()
 	{
-		runRoundRobin("PRE" + getBaseString() + ":3");
+		runSimpleRoundRobin("PRE" + getBaseString() + ":3", "PRE"
+				+ getBaseString() + ":NG");
+		runSimpleRoundRobin("!PRE" + getBaseString() + ":3", "!PRE"
+				+ getBaseString() + ":NG");
 	}
 
 	public void testNumberMultiple()
 	{
-		runRoundRobin("PRE" + getBaseString() + ":3,4,5");
+		runSimpleRoundRobin("PRE" + getBaseString() + ":3,4,5", "PRE"
+				+ getBaseString() + ":NG,TN,NE");
+		runSimpleRoundRobin("!PRE" + getBaseString() + ":3,4,5", "!PRE"
+				+ getBaseString() + ":NG,TN,NE");
 	}
 
 }

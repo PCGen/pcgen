@@ -79,9 +79,9 @@ public class PrerequisiteWriterTest extends TestCase
 	// Examples from the PCGen documentation - note that there are two columns for each entry below
 	//
 		"PREABILITY:1,CATEGORY=Special Attack,Sneak Attack",							"PREABILITY:1,CHECKMULT,CATEGORY=Special Attack,Sneak Attack",
-		"PREALIGN:LG,NG,CG",															"PREMULT:1,[PREALIGN:LG],[PREALIGN:NG],[PREALIGN:CG]",
-		"PREALIGN:2,5,8",																"PREMULT:1,[PREALIGN:LE],[PREALIGN:NE],[PREALIGN:CE]",
-		"PREALIGN:LG,Deity",															"PREMULT:1,[PREALIGN:LG],[PREALIGN:Deity]",
+		"PREALIGN:LG,NG,CG",															"PREALIGN:LG,NG,CG",
+		"PREALIGN:2,5,8",																"PREALIGN:LE,NE,CE",
+		"PREALIGN:LG,Deity",															"PREALIGN:LG,Deity",
 		"PREAPPLY:ANYPC",																"PREAPPLY:ANYPC",
 		"PREAPPLY:PC",																	"PREAPPLY:PC",
 		"PREAPPLY:Ranged;Melee",														"PREAPPLY:Ranged;Melee",

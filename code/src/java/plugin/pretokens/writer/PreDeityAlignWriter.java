@@ -96,7 +96,6 @@ public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements
 			PrerequisiteOperator oper = null;
 			for (Prerequisite p : prereqList)
 			{
-				System.err.println(p + " " + p.getKey());
 				//
 				// ...with all PREARMORTYPE entries...
 				//

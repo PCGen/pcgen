@@ -36,6 +36,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 
 public class PreAlignWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
@@ -80,4 +81,86 @@ public class PreAlignWriter extends AbstractPrerequisiteWriter implements
 		}
 	}
 
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+			throws IOException
+	{
+		// If this is NOT a PREMULT... fail
+		if (prereq.getKind() != null)
+		{
+			return false;
+		}
+		List<Prerequisite> prereqList = prereq.getPrerequisites();
+		PrerequisiteOperator oper = null;
+		for (Prerequisite p : prereqList)
+		{
+			//
+			// ...testing one item...
+			//
+			if (!"1".equals(p.getOperand()))
+			{
+				return false;
+			}
+			//
+			// ...with all PREARMORTYPE entries...
+			//
+			if (!kindHandled().equalsIgnoreCase(p.getKind()))
+			{
+				return false;
+			}
+			//
+			// ...and the same operator...
+			//
+			if (oper == null)
+			{
+				oper = p.getOperator();
+			}
+			else
+			{
+				if (!oper.equals(p.getOperator()))
+				{
+					return false;
+				}
+			}
+		}
+		String count = prereq.getOperand();
+		if (PrerequisiteOperator.NEQ.equals(oper))
+		{
+			try
+			{
+				int i = Integer.parseInt(count);
+				if (prereqList.size() != i)
+				{
+					return false;
+				}
+			}
+			catch (NumberFormatException e)
+			{
+				return false;
+			}
+		}
+		else if (!PrerequisiteOperator.EQ.equals(oper))
+		{
+			return false;
+		}
+		if (!PrerequisiteOperator.GTEQ.equals(prereq.getOperator())
+				^ !PrerequisiteOperator.EQ.equals(oper))
+		{
+			writer.write('!');
+		}
+
+		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+				+ (prereq.isOverrideQualify() ? "Q:" : ""));
+		boolean first = true;
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			if (!first)
+			{
+				writer.write(',');
+			}
+			writer.write(p.getKey());
+			first = false;
+		}
+		return true;
+	}
 }

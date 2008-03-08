@@ -122,7 +122,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		super(name);
 	}
 
-	private PCAlignment createAlignment(final String longName,
+	public static PCAlignment createAlignment(final String longName,
 		final String shortName)
 	{
 		final PCAlignment align = new PCAlignment();
