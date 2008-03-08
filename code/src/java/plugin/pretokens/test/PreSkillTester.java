@@ -59,6 +59,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		final int requiredRanks = Integer.parseInt(prereq.getOperand());
+		SkillMatcher matcher = this.getSkillMatcher();
 
 		// Compute the skill name from the Prerequisite
 		String requiredSkillKey = prereq.getKey().toUpperCase();
@@ -154,7 +155,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 						int theTotal = getRunningTotal(mock, character, prereq, foundMatch
 							, runningTotal, requiredRanks);
 						runningTotal += theTotal;
-						System.out.println("Fakeas: " +target  + "\nSkill:" +mock + " -> " + theTotal + " -> " +runningTotal );
 					}
 				}
 			}
@@ -257,9 +257,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 			}
 			else
 			{
-				System.out.println("PreReq: "+ prereq 
-					+ "\nSkill:" + aSkill 
-					+ "\nRanks:" + aSkill.getTotalRank(character).intValue());
 				if (prereq.getOperator().compare(
 					aSkill.getTotalRank(character).intValue(),
 					requiredRanks) > 0)
@@ -273,5 +270,53 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 			}
 		}
 		return runningTotal;
+	}
+	private SkillMatcher getSkillMatcher()
+	{
+		return new SkillMatcher();
+	}
+	public class SkillMatcher
+	{
+		private int runningTotal=0;
+		private boolean matchesFound = false;
+		private boolean foundOneMatch = false;
+		private int totalRanks =0;
+		
+		public final int getTotalRanks()
+		{
+			return totalRanks;
+		}
+		public final void incrementTotalRanks(final int num)
+		{
+			totalRanks += num;
+		}
+		protected final int getRunningTotal()
+		{
+			return runningTotal;
+		}
+		protected final void setRunningTotal(int runningTotal)
+		{
+			this.runningTotal = runningTotal;
+		}
+		protected final boolean isMatchesFound()
+		{
+			return matchesFound;
+		}
+		protected final void setMatchesFound(boolean matchesFound)
+		{
+			this.matchesFound = matchesFound;
+		}
+		protected final boolean isFoundOneMatch()
+		{
+			return foundOneMatch;
+		}
+		protected final void setFoundOneMatch(boolean SkillFound)
+		{
+			this.foundOneMatch = SkillFound;
+		}
+		protected final void setTotalRanks(int totalRanks)
+		{
+			this.totalRanks = totalRanks;
+		}		
 	}
 }
