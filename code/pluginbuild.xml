@@ -4226,6 +4226,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-SpellPointCost.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/SpellPointCostToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
 
 	<target name="jar-lst-subclass-plugins" depends="makeplugindirs" description="Build (Link) SubClass Lst Token plugin jar files">

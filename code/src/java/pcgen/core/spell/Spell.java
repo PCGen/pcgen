@@ -84,8 +84,15 @@ public final class Spell extends PObject
 	private int castingThreshold = 0;
 	private int xpCost = 0;
 	private int ppCost = 0;
+	public enum SpellPointType
+	{
+		ACTUALCOST,
+		EFFECTIVECOST		
+	}
+	private HashMap<String, HashMap<SpellPointType, Integer>> spellPointCost = new HashMap<String,HashMap<SpellPointType, Integer>>();
 
 	static boolean hasPPCost = false;
+	static boolean hasSpellPointCost = false;
 
 	/** An enumeration of &quot;Standard&quot; spell components */
 	public enum Component {
@@ -704,6 +711,10 @@ public final class Spell extends PObject
 		{
 			txt.append("\tPPCOST:").append(getPPCost());
 		}
+		if (hasSpellPointCost())
+		{
+			txt.append(getSPCostStrings());
+		}
 
 		txt.append(super.getPCCText(false));
 
@@ -1253,4 +1264,68 @@ public final class Spell extends PObject
 	public int hashCode() {
 		return getKeyName().hashCode();
 	}
+	
+	public void clearSpellPointCost()
+	{
+		spellPointCost.clear();
+	}
+	
+	public void setParsedSpellPointCost(String component, final int value)
+	{
+		hasSpellPointCost = true;
+		HashMap<SpellPointType, Integer> costs = new HashMap<SpellPointType, Integer>();
+		costs.put(SpellPointType.ACTUALCOST, value);
+		costs.put(SpellPointType.EFFECTIVECOST, value);
+		spellPointCost.put(component.toUpperCase(), costs);
+	}
+	public static boolean hasSpellPointCost()
+	{
+		return hasSpellPointCost;
+	}
+	public Map<String,Integer> getSpellPointCostActualParts()
+	{
+		Map<String,Integer> spCost = new HashMap<String, Integer>();
+		int RunningTotal =0;
+				
+		for (String spComponent: spellPointCost.keySet())
+		{
+			HashMap<SpellPointType, Integer> costs  = spellPointCost.get(spComponent);
+			int value = costs.get(SpellPointType.ACTUALCOST);
+			int translatedValue =  value;
+			spCost.put(spComponent, translatedValue);
+		}
+		return spCost;		
+	}
+	public String getSPCostStrings()
+	{
+		Map<String,Integer> spCost = getSpellPointCostActualParts();
+		int totalSpellPoints =  getSPCostActual(spCost);
+		StringBuffer sb = new StringBuffer();
+		sb.append(totalSpellPoints); 
+		if(spCost.size()==1 && spCost.containsKey("TOTAL"))
+		{
+			return sb.toString();
+		}
+		sb.append(" [");
+		for (String aComponent: spCost.keySet())
+		{
+			sb.append(aComponent);
+			sb.append(" ");
+			sb.append(spCost.get(aComponent));
+			sb.append("/");
+		}
+		sb.replace(sb.length()-1, sb.length(), "");
+		sb.append("]");
+		return sb.toString();	
+	}
+	public int getSPCostActual(final Map<String,Integer> spCost)
+	{	
+		int runnintTotal = 0;
+		for (String aComponent: spCost.keySet())
+		{
+			runnintTotal += spCost.get(aComponent);
+		}
+		return runnintTotal;
+	}
+	
 }
