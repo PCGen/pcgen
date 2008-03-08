@@ -87,10 +87,16 @@ public class PreAbilityWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write("CHECKMULT,");
 			}
-			if (prereq.getCategoryName().length() >0)
+			String cat = prereq.getCategoryName();
+			if (cat == null)
 			{
-				writer.write("CATEGORY=" + prereq.getCategoryName() + ",");
+				writer.write("CATEGORY=ANY,");
 			}
+			else
+			{
+				writer.write("CATEGORY=" + cat + ",");
+			}
+
 			writer.write(prereq.getKey());
 			if (prereq.getSubKey() != null)
 			{
