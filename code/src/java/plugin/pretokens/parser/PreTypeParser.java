@@ -13,7 +13,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-import pcgen.util.Logging;
 
 /**
  * @author Valued Customer
