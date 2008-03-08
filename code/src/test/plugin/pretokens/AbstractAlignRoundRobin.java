@@ -65,4 +65,10 @@ public abstract class AbstractAlignRoundRobin extends AbstractPreRoundRobin
 				+ getBaseString() + ":NG,TN,NE");
 	}
 
+	public void testNoCompress()
+	{
+		runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":NG],[PRE"
+				+ getBaseString() + ":LG]");
+	}
+
 }
