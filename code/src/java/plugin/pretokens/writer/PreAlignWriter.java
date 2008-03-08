@@ -143,6 +143,11 @@ public class PreAlignWriter extends AbstractPrerequisiteWriter implements
 		{
 			return false;
 		}
+		if (oper.equals(PrerequisiteOperator.EQ)
+				&& !"1".equals(prereq.getOperand()))
+		{
+			return false;
+		}
 		if (!PrerequisiteOperator.GTEQ.equals(prereq.getOperator())
 				^ !PrerequisiteOperator.EQ.equals(oper))
 		{

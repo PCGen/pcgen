@@ -118,6 +118,11 @@ public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements
 					}
 				}
 			}
+			if (oper.equals(PrerequisiteOperator.EQ)
+					&& !"1".equals(prereq.getOperand()))
+			{
+				return false;
+			}
 			if (PrerequisiteOperator.LT.equals(prereq.getOperator()))
 			{
 				writer.write('!');
