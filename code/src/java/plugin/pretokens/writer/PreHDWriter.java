@@ -56,7 +56,7 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements
 	public PrerequisiteOperator[] operatorsHandled()
 	{
 		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-			PrerequisiteOperator.LT};
+				PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,PrerequisiteOperator.GT};
 	}
 
 	/* (non-Javadoc)
@@ -67,33 +67,37 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
-		// Case of PREHD:<min>-<max> is handled in PREMULT writer.
-		// Only need to hand the PREHD:<min>+ version here
-
 		try
 		{
 			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
 				writer.write('!');
+				writer.write("PREHD:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MIN=");
+				writer.write(prereq.getOperand());
 			}
-			if (prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+			else if(prereq.getOperator().equals(PrerequisiteOperator.GT))
 			{
-				writer.write("PREHD:MIN=");
+				writer.write('!');
+				writer.write("PREHD:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MAX=");
+				writer.write(prereq.getOperand());	
+			}
+			else if (prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+			{
+				writer.write("PREHD:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MIN=");
 				writer.write(prereq.getOperand());
 			}
 			else if(prereq.getOperator().equals(PrerequisiteOperator.LTEQ))
 			{
-				writer.write("PREHD:MAX=");
+				writer.write("PREHD:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MAX=");
 				writer.write(prereq.getOperand());
 			}
-			
+
 		}
 		catch (IOException e)
 		{
 			throw new PersistenceLayerException(e.getMessage());
 		}
 	}
-
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
 	 */
