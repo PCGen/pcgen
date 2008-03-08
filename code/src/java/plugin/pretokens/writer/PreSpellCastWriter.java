@@ -82,4 +82,38 @@ public class PreSpellCastWriter extends AbstractPrerequisiteWriter implements
 		}
 	}
 
+
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+			throws IOException
+	{
+		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
+		if (po == null)
+		{
+			return false;
+		}
+		if (po.equals(PrerequisiteOperator.GTEQ) && !"1".equals(prereq.getOperand()))
+		{
+			return false;
+		}
+		if (!po.equals(prereq.getOperator()))
+		{
+			writer.write('!');
+		}
+
+		writer.write("PRESPELLCAST:"
+				+ (prereq.isOverrideQualify() ? "Q:" : ""));
+		boolean first = true;
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			if (!first)
+			{
+				writer.write(',');
+			}
+			writer.write("TYPE=" + p.getKey());
+			first = false;
+		}
+		return true;
+	}
+
 }
