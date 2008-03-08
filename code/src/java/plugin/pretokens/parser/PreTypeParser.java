@@ -54,9 +54,9 @@ public class PreTypeParser extends AbstractPrerequisiteParser implements
 			// First token was not a number,
 			// must be old style syntax.
 			Prerequisite oldPre = parseOldPreType(kind, formula, invertResult);
-			Logging.deprecationPrint("You are using an old syntax of PRETYPE," +
-					"you should use PRETYPE:x,y,y: " + formula);
-			//oldPre.setDeprecated();
+			// Logging.deprecationPrint("You are using an old syntax of
+			// PRETYPE," +
+			// "you should use PRETYPE:x,y,y: " + formula);
 			return oldPre;
 		}
 
