@@ -109,7 +109,7 @@ public class SpellsChoiceManager extends
 									+ " did not have matching brackets");
 						}
 						domainName = token.substring(11, bracketLoc);
-						r = getRestriction("DOMAIN|" + domainName, token
+						r = getRestriction("DOMAIN:" + domainName, token
 								.substring(bracketLoc + 1, token.length() - 1),
 								aPc);
 					}
@@ -134,7 +134,7 @@ public class SpellsChoiceManager extends
 									+ " did not have matching brackets");
 						}
 						className = token.substring(10, bracketLoc);
-						r = getRestriction("CLASS|" + className, token
+						r = getRestriction("CLASS:" + className, token
 								.substring(bracketLoc + 1, token.length() - 1),
 								aPc);
 					}
@@ -234,21 +234,11 @@ public class SpellsChoiceManager extends
 			String tok = restr.nextToken();
 			if (tok.startsWith("LEVELMAX="))
 			{
-				/*
-				 * TODO MAXCASTABLE needs to be available here, but I'm not sure
-				 * if it's implemented elsewhere (doesn't look like it based on
-				 * searching the source code for that string)
-				 */
 				levelMax = pc.getVariableValue(tok.substring(9), item)
 						.intValue();
 			}
 			else if (tok.startsWith("LEVELMIN="))
 			{
-				/*
-				 * TODO MAXCASTABLE needs to be available here, but I'm not sure
-				 * if it's implemented elsewhere (doesn't look like it based on
-				 * searching the source code for that string)
-				 */
 				levelMin = pc.getVariableValue(tok.substring(9), item)
 						.intValue();
 			}

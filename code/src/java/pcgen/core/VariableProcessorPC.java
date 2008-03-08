@@ -479,6 +479,43 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			valString = Integer.toString(getPc().baseAttackBonus());
 		}
+		else if ("MAXCASTABLE".equals(valString) && src.startsWith("CLASS:"))
+		{
+			String classKey = src.substring(6);
+			PCClass spClass = getPc().getClassKeyed(classKey);
+			int cutoff = spClass.getHighestLevelSpell();
+			int max = 0;
+			for (int i = 0; i < cutoff; i++) {
+				if (spClass.getKnownForLevel(i, getPc()) != 0)
+				{
+					max = Math.max(max,i);
+				}
+			}
+			valString = Integer.toString(max);
+		}
+		else if ("MAXCASTABLE".equals(valString) && src.startsWith("DOMAIN:"))
+		{
+			String domainKey = src.substring(6);
+
+			// check if this is a domain spell
+			CharacterDomain aCD = getPc()
+					.getCharacterDomainForDomain(domainKey);
+			if (aCD != null) // yup, it's a domain alright
+			{
+				String classKey = aCD.getObjectName(); // returns Domain source
+														// (e.g, "Cleric")
+				PCClass spClass = getPc().getClassKeyed(classKey);
+				int cutoff = spClass.getHighestLevelSpell();
+				int max = 0;
+				for (int i = 0; i < cutoff; i++) {
+					if (spClass.getKnownForLevel(i, getPc()) != 0)
+					{
+						max = Math.max(max,i);
+					}
+				}
+				valString = Integer.toString(max);
+			}
+		}
 		else if (valString.startsWith("CLASSLEVEL=") || valString.startsWith("CLASSLEVEL."))
 		{
 			valString = getPc().getClassLevelString(valString.substring(11), true);
