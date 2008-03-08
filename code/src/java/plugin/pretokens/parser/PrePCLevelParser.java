@@ -27,7 +27,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-import pcgen.util.Logging;
 
 /**
  * @author jfrazierjr
@@ -52,6 +51,7 @@ public class PrePCLevelParser extends AbstractPrerequisiteParser implements
 		{ "PCLEVEL" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula,
 	        boolean invertResult, boolean overrideQualify)
 	        throws PersistenceLayerException
