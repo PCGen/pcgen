@@ -2470,6 +2470,7 @@ public final class Globals
 
 		clearWeaponProfs();
 		shieldProfs.clear();
+		armorProfs.clear();
 
 		// Clear Maps (not strictly necessary, but done for consistency)
 //		bonusSpellMap = new HashMap();
