@@ -8942,7 +8942,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				// See if the character can cast
 				// at the required spell level
-				System.err.println("Cast: " + aClass.getCastForLevel(spellLevel, this));
 				if (aClass.getCastForLevel(spellLevel, this) >= minNumSpells)
 				{
 					return true;
