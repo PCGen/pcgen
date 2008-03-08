@@ -32,6 +32,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -56,6 +57,10 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	Skill balance = null;
 	Skill knowledge = null;
 	Skill tumble = null;
+	Skill fake = null;
+	Skill fake2 = null;
+	Skill target = null;
+	Skill target2 = null;
 
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
@@ -74,6 +79,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		knowledge.setTypeInfo("KNOWLEDGE.INT");
 		knowledge.modRanks(8.0, myClass, true, character);
 		character.addSkill(knowledge);
+		Globals.getSkillList().add((Skill) knowledge);
 
 		tumble = new Skill();
 		tumble.addClassList("My Class");
@@ -81,6 +87,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		tumble.setTypeInfo("DEX");
 		tumble.modRanks(8.0, myClass, true, character);
 		character.addSkill(tumble);
+		Globals.getSkillList().add((Skill) tumble);
 
 		balance = new Skill();
 		balance.addClassList("My Class");
@@ -88,6 +95,38 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		balance.setTypeInfo("DEX");
 		balance.modRanks(4.0, myClass, true, character);
 		character.addSkill(balance);
+		Globals.getSkillList().add((Skill) balance);
+		
+		fake = new Skill();
+		fake.addClassList("My Class");
+		fake.setName("Fake");
+		fake.setTypeInfo("INT");
+		fake.modRanks(6.0, myClass, true, character);
+		character.addSkill(fake);
+		Globals.getSkillList().add((Skill) fake);
+		
+		fake2 = new Skill();
+		fake2.addClassList("My Class");
+		fake2.setName("Fake 2");
+		fake2.setTypeInfo("INT");
+		fake2.modRanks(8.0, myClass, true, character);
+		character.addSkill(fake2);
+		Globals.getSkillList().add((Skill) fake2);
+		
+		target = new Skill();
+		target.addClassList("My Class");
+		target.setName("Target");
+		target.setTypeInfo("INT");
+		Globals.getSkillList().add((Skill) target);
+		
+		target2 = new Skill();
+		target2.addClassList("My Class");
+		target2.setName("Target2");
+		target2.setTypeInfo("INT");
+		Globals.getSkillList().add((Skill) target2);
+		
+		fake.putServesAs(target.getDisplayName(), null);		
+		fake.putServesAs(target2.getDisplayName(), null);		
 
 	}
 
@@ -309,5 +348,25 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		Prerequisite prereq = factory.parse("PRESKILL:2,Balance=4,Tumble=2");
 
 		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+	}
+	public void testServesAsExactMatch() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		Prerequisite prereq = factory.parse("PRESKILL:2,Target,Target2=4");
+		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PRESKILL:1,Target,Target2=5");
+		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PRESKILL:2,Target,Target2=7");
+		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PRESKILL:2,Target=4,Target2=7");
+		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		
+		
+		
 	}
 }
