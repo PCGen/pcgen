@@ -43,7 +43,7 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Conce
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Archmage	HD:4		TYPE:PC.Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat										Multiple Requirements																																										Required Skill						Req. Spell Type
-CLASS:Archmage	PREFEAT:1,Skill Focus (Spellcraft)	PREFEAT:2,CHECKMULT,Spell Focus	PREMULT:5,[PRESPELLSCHOOL:Abjuration,1,5],[PRESPELLSCHOOL:Conjuration,1,5],[PRESPELLSCHOOL:Divination,1,5],[PRESPELLSCHOOL:Enchantment,1,5],[PRESPELLSCHOOL:Evocation,1,5],[PRESPELLSCHOOL:Illusion,1,5],[PRESPELLSCHOOL:Necromancy,1,5],[PRESPELLSCHOOL:Transmutation,1,5]	PRESKILL:2,Knowledge (Arcana),Spellcraft=15	PRESPELLTYPE:1,Arcane=7
+CLASS:Archmage	PREFEAT:1,Skill Focus (Spellcraft)	PREFEAT:2,CHECKMULT,Spell Focus	PREMULT:5,[PRESPELLSCHOOL:1,Abjuration=5],[PRESPELLSCHOOL:1,Conjuration=5],[PRESPELLSCHOOL:1,Divination=5],[PRESPELLSCHOOL:1,Enchantment=5],[PRESPELLSCHOOL:1,Evocation=5],[PRESPELLSCHOOL:1,Illusion=5],[PRESPELLSCHOOL:1,Necromancy=5],[PRESPELLSCHOOL:1,Transmutation=5]	PRESKILL:2,Knowledge (Arcana),Spellcraft=15	PRESPELLTYPE:1,Arcane=7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
 1	BONUS:ABILITYPOOL|High Arcana Ability|CL	ADD:SPELLCASTER|Arcane
@@ -249,13 +249,13 @@ CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Anima
 6	BONUS:ABILITYPOOL|Advanced Terrain Mastery|min(CL-5,5)
 
 # Modified: 10-19-2003
-# Change: Changed PREMULT:6,[PRESPELLSCHOOL:Divination,1,1],[PRESPELLSCHOOL:Divination,1,2],[PRESPELLSCHOOL:Divination,1,4],[PRESPELLSCHOOL:Divination,1,5],[PRESPELLSCHOOL:Divination,1,6],[PRESPELLSCHOOL:Divination,1,7],[PRESPELLSCHOOL:Divination,1,8],[PRESPELLSCHOOL:Divination,1,9] to PRESPELLSCHOOL:Divination,7,0
+# Change: Changed PREMULT:6,[PRESPELLSCHOOL:1,Divination=1],[PRESPELLSCHOOL:1,Divination=2],[PRESPELLSCHOOL:1,Divination=4],[PRESPELLSCHOOL:1,Divination=5],[PRESPELLSCHOOL:1,Divination=6],[PRESPELLSCHOOL:1,Divination=7],[PRESPELLSCHOOL:1,Divination=8],[PRESPELLSCHOOL:1,Divination=9] to PRESPELLSCHOOL:7,Divination=0
 # Reason: Misinterpretation of pre req, and DOC's of the PRESPELLSCHOOL tag not correctly stating tag function.
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat												Required Skill						Required Spell School
-CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge,TYPE.Knowledge=10	PRESPELLSCHOOL:Divination,1,3	PRESPELLSCHOOL:Divination,7,0
+CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Speak Language|Spellcraft|Use Magic Device
 1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:SPELLCASTER|ANY
