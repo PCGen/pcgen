@@ -145,13 +145,9 @@ public class SpellLevelChoiceManager extends AbstractBasicStringChoiceManager
 	 * @param item the choice to associate
 	 * @param prefix
 	 */
-	protected void associateChoice(
-			final PlayerCharacter aPc,
-			final String          item,
-			final String          prefix)
+	@Override
+	protected void associateChoice(final PlayerCharacter aPc, final String name)
 	{
-		final String name = prefix + item;
-
 		for ( String bString : aBonusList )
 		{
 			pobject.addAssociated(name);

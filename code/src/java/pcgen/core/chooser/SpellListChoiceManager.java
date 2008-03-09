@@ -135,10 +135,10 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 	 * @param item the choice to associate
 	 * @param prefix
 	 */
+	@Override
 	protected void associateChoice(
 			final PlayerCharacter aPc,
-			final String          item,
-			final String          prefix)
+			final String          item)
 	{
 		if (fmc == null)
 		{

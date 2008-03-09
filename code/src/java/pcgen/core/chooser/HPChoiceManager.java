@@ -75,14 +75,4 @@ public class HPChoiceManager extends AbstractBasicStringChoiceManager {
 		}
 		setPreChooserChoices(selectedList.size());
 	}
-
-
-	/**
-	 * Associate a choice with the pobject.
-	 * @param name
-	 */
-	protected void associateChoice(PlayerCharacter aPc, final String name, String prefix) {
-		pobject.addAssociated(name);
-	}
-
 }
