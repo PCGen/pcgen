@@ -54,7 +54,6 @@ FEAT:Personal Firearms Proficiency
 FEAT:Advanced Firearms Proficiency
 FEAT:Burst Fire
 FEAT:Quick Draw
-LANGAUTO:English
 GEAR:Knife						LOCATION:Carried
 GEAR:MAC Ingram M10 (.45 machine pistol)	LOCATION:Primary Hand	EQMOD:SPPRSS_PIS
 GEAR:Leather Jacket				LOCATION:DEFAULT
