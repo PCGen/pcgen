@@ -151,7 +151,7 @@ CLASS:Spellbinder	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.K
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Summoner	HD:4		TYPE:PC.Prestige	ABB:Sum		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat							Required Skill										Required Spell School
-CLASS:Summoner	PREFEAT:2,Spell Focus(Conjuration),Heighten Spell	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (Outsiders)=6	PRESPELLSCHOOL:Conjuration,1,1
+CLASS:Summoner	PREFEAT:2,Spell Focus(Conjuration),Heighten Spell	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (Outsiders)=6	PRESPELLSCHOOL:1,Conjuration=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 1	AUTO:FEAT|Wizard Weapon Proficiencies
@@ -172,7 +172,7 @@ CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Know
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Swamp Witch	HD:4		TYPE:PC.Prestige	ABB:Sww		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Skill							Required Spell School
-CLASS:Swamp Witch	PREFEAT:1,Brew Potion	PRESKILL:1,Scry=10	PRESKILL:1,Wilderness Lore=6	PRESPELLSCHOOL:Divination,7,1
+CLASS:Swamp Witch	PREFEAT:1,Brew Potion	PRESKILL:1,Scry=10	PRESKILL:1,Wilderness Lore=6	PRESPELLSCHOOL:7,Divination=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swamp Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency

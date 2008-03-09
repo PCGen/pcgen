@@ -17,10 +17,10 @@ Illusion Library Message		TYPE:General																	PREMULT:1,[PRESUBCLASS:1,
 Illusion Library Shadow			TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
 Illusion Library Terror			TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
 Illusion Library True Illusion	TYPE:General																	PREMULT:1,[PRESUBCLASS:1,Illusionist],[PRECLASS:1,Devoted Illusionist=1]																						DESC:You have access to all spells from a certain discipline of illusion magic and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.25
-Infuse Reality				TYPE:Metamagic																														PRESPELLSCHOOL:Illusion,1,1																	DESC:You can add shadow energy to your illusion spells to make them partially real.												SOURCEPAGE:p.25
-Infuse Truth				TYPE:Metamagic																														PRESPELLSCHOOL:Illusion,1,1																	DESC:You can cause your illusion spells to affect undead and other creatures normally immune to them.									SOURCEPAGE:p.25
+Infuse Reality				TYPE:Metamagic																														PRESPELLSCHOOL:1,Illusion=1																	DESC:You can add shadow energy to your illusion spells to make them partially real.												SOURCEPAGE:p.25
+Infuse Truth				TYPE:Metamagic																														PRESPELLSCHOOL:1,Illusion=1																	DESC:You can cause your illusion spells to affect undead and other creatures normally immune to them.									SOURCEPAGE:p.25
 Opposed Spell				TYPE:General																																								PRESPELLTYPE:1,Arcane=1								DESC:You can cast a spell from a school of magic normally not available to you.												SOURCEPAGE:p.25
-Shadow Familiar				TYPE:General												PREFEAT:1,Summon Familiar																			PRESPELLSCHOOLSUB:Shadow,3,1												DESC:Your familiar has been infused with energy from the Plane of Shadow.													SOURCEPAGE:p.25
+Shadow Familiar				TYPE:General												PREFEAT:1,Summon Familiar																			PRESPELLSCHOOLSUB:3,Shadow=1												DESC:Your familiar has been infused with energy from the Plane of Shadow.													SOURCEPAGE:p.25
 # The descriptions of Opposed Spell and Shadow Familiar is messed up in the source.
 
 # Hidden feat: Discipline mastery for the Devoted Illusionist

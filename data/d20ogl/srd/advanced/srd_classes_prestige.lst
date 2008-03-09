@@ -99,7 +99,7 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
 CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat												Required Skill						Required Spell School
-CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge %)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge,TYPE.Knowledge=10	PRESPELLSCHOOL:Divination,1,3	PRESPELLSCHOOL:Divination,7,0
+CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge %)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|Decipher Script|Gather Information|Handle Animal|Heal|TYPE.Knowledge|Perform|TYPE.Profession|Scry|Speak Language|Spellcraft|Use Magic Device
 1						DEFINE:SecretLore|CL+INT	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret

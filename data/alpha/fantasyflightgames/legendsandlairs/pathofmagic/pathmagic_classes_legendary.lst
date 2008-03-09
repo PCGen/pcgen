@@ -90,7 +90,7 @@ CLASS:Maestro	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concen
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Oracle	HD:6		TYPE:PC.Prestige	ABB:Ora		MAXLEVEL:5	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat			Multiple Requirements																										Required Skill												Required Text
-CLASS:Oracle	PREFEAT:1,Skill Focus(Scry)	PREMULT:5,[PRESPELLSCHOOL:Divination,5,1],[PRESPELLSCHOOL:Divination,4,2],[PRESPELLSCHOOL:Divination,3,3],[PRESPELLSCHOOL:Divination,2,4],[PRESPELLSCHOOL:Divination,1,5]	PRESKILL:1,Concentration=8	PRESKILL:1,Sense Motive=5	PRESKILL:1,Scry=15	PRETEXT:The character must suffer some physical deformity, such as being blind or missing a hand or foot. Quests: See Text.
+CLASS:Oracle	PREFEAT:1,Skill Focus(Scry)	PREMULT:5,[PRESPELLSCHOOL:5,Divination=1],[PRESPELLSCHOOL:4,Divination=2],[PRESPELLSCHOOL:3,Divination=3],[PRESPELLSCHOOL:2,Divination=4],[PRESPELLSCHOOL:1,Divination=5]	PRESKILL:1,Concentration=8	PRESKILL:1,Sense Motive=5	PRESKILL:1,Scry=15	PRETEXT:The character must suffer some physical deformity, such as being blind or missing a hand or foot. Quests: See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Oracle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency

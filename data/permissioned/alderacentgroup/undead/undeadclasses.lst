@@ -26,7 +26,7 @@ CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Intimidate|Knowledg
 # Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31-34	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat							Required Skill													Req. Known Spell			Required Spell School		Required Text
-CLASS:Chirurgeon	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus(Necromancy)	PRESKILL:1,Craft (Autopsy)=6	PRESKILL:1,Heal=3	PRESKILL:2,Alchemy,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:Necromancy,4,0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
+CLASS:Chirurgeon	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus(Necromancy)	PRESKILL:1,Craft (Autopsy)=6	PRESKILL:1,Heal=3	PRESKILL:2,Alchemy,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:4,Necromancy=0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chirurgeon	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 1	SAB:Touch of Repose %/day|TouchofRepose		BONUS:VAR|TouchofRepose|1	DEFINE:TouchofRepose|0	ADD:SPELLCASTER|1|ANY
@@ -216,7 +216,7 @@ CLASS:Risen		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Swim
 # Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Sacred Theurgist	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.54-56	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL				Required Feat				Required Skill				Required Spell School		Req. Spell Type		Required Text
-CLASS:Sacred Theurgist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLSCHOOL:Necromancy,1,3	PRESPELLTYPE:1,Arcane=3	PRETEXT:Special (see text)
+CLASS:Sacred Theurgist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Arcane=3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sacred Theurgist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 1	SAB:Bonus Spells
@@ -256,7 +256,7 @@ CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 # Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Feat			Required Skill															Required Spell School		Req. Spell Type		Required Text
-CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:1,Knowledge (Arcana)=4	PRESKILL:3,Wilderness Lore,Knowledge (Nature),Animal Empathy=8	PRESPELLSCHOOL:Necromancy,1,3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
+CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:1,Knowledge (Arcana)=4	PRESKILL:3,Wilderness Lore,Knowledge (Nature),Animal Empathy=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
 ###Block: Turn Undead stuff

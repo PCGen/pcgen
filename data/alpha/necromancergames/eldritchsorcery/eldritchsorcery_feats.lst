@@ -37,6 +37,6 @@ Master Alchemist		TYPE:ItemCreation										PREFEAT:2,Brew Potion,Herbalist	PRE
 ###Block: Metamagic Feats
 # Feat Name		Required Class							Req. Casting Type		Required Spell School		Req. Spell Type		Required Stat	Description													Add Spell Lvl	Source Page
 Anchored Spell										PRESPELLCAST:MEMORIZE=Y													DESC:You can cast spells without material components by scribing them on your body.	ADDSPELLLEVEL:1	SOURCEPAGE:p.10
-Colorize Spell														PRESPELLSCHOOL:Illusion,1,1					PRESTAT:1,INT=13	DESC:You can add color to or change the colors of any visible spell effect.		ADDSPELLLEVEL:0	SOURCEPAGE:p.10
+Colorize Spell														PRESPELLSCHOOL:1,Illusion=1					PRESTAT:1,INT=13	DESC:You can add color to or change the colors of any visible spell effect.		ADDSPELLLEVEL:0	SOURCEPAGE:p.10
 Sacramental Magic																			PRESPELLTYPE:1,Divine=1				DESC:You imbue your damaging spells with divine essence.					ADDSPELLLEVEL:1	SOURCEPAGE:p.11
 Sympathetic Magic	PRECLASS:1,SPELLCASTER.Arcane=1,SPELLCASTER.Divine=1																	DESC:Your spells are harder to resist if you have a bit of the target's substance.	ADDSPELLLEVEL:0	SOURCEPAGE:p.11

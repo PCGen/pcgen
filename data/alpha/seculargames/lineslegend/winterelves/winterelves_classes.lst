@@ -58,7 +58,7 @@ CLASS:Knight of the Frostfang	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Ani
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Thrall of Gaulgardos	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2
 # Class Name			Required AL		Required Race		Required Skill								Req. Known Spell			Required Spell School
-CLASS:Thrall of Gaulgardos	PREALIGN:LE,NE,CE	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=10	PRESPELL:1,Summon Monster IV	PRESPELLSCHOOL:Conjuration,2,3	PRESPELLSCHOOL:Conjuration,3,2
+CLASS:Thrall of Gaulgardos	PREALIGN:LE,NE,CE	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=10	PRESPELL:1,Summon Monster IV	PRESPELLSCHOOL:2,Conjuration=3	PRESPELLSCHOOL:3,Conjuration=2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Gaulgardos	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
 1													AUTO:FEAT|Bloodbond|Demon Ally I

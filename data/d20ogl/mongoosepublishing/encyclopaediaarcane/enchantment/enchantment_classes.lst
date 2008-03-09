@@ -4,7 +4,7 @@ SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Empath	HD:4		TYPE:PC.Prestige	ABB:Emp		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
 # Class Name	Required Feat				Required Skill									Req. Known Spell			Required Spell School		Required Sub-school			Req. Spell Type		Required Stat
-CLASS:Empath	PREFEAT:1,Spell Focus(Enchantment)	PRESKILL:4,Bluff,Diplomacy,Gather Information,Sense Motive=5	PRESPELL:1,Vampiric Touch	PRESPELLSCHOOL:Necromancy,3,1	PRESPELLSCHOOLSUB:Compulsion,3,1	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,CHA=14
+CLASS:Empath	PREFEAT:1,Spell Focus(Enchantment)	PRESKILL:4,Bluff,Diplomacy,Gather Information,Sense Motive=5	PRESPELL:1,Vampiric Touch	PRESPELLSCHOOL:3,Necromancy=1	PRESPELLSCHOOLSUB:3,Compulsion=1	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,CHA=14
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Empath	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
 1	SAB:Striking Appearance +%|StrikingAppearance	SAB:Detect Emotion	BONUS:VAR|StrikingAppearance|1	DEFINE:StrikingAppearance|0		ADD:SPELLCASTER|1|Arcane
@@ -21,7 +21,7 @@ CLASS:Empath	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Gat
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Puppeteer	HD:4		TYPE:PC.Prestige	ABB:Pup		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
 # Class Name	Required Feat								Required Skill					Required Sub-school			Req. Spell Type		Required Stat
-CLASS:Puppeteer	PREFEAT:3,Spell Focus(Enchantment),Iron Will,Skill Focus	PRESKILL:3,Bluff,Diplomacy,Sense Motive=5	PRESPELLSCHOOLSUB:Compulsion,3,1	PRESPELLTYPE:1,Arcane=3	PRESTAT:2,CHA=16|WIS=14
+CLASS:Puppeteer	PREFEAT:3,Spell Focus(Enchantment),Iron Will,Skill Focus	PRESKILL:3,Bluff,Diplomacy,Sense Motive=5	PRESPELLSCHOOLSUB:3,Compulsion=1	PRESPELLTYPE:1,Arcane=3	PRESTAT:2,CHA=16|WIS=14
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Puppeteer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Innuendo|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
 1	SAB:Compell	SAB:Improved Enchantment (+% DC)|ImprovedEnchantment	BONUS:VAR|ImprovedEnchantment|1	DEFINE:ImprovedEnchantment|0	ADD:SPELLCASTER|1|Arcane
@@ -38,7 +38,7 @@ CLASS:Puppeteer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Dark Temptress	HD:4		TYPE:PC.Prestige	ABB:DkT		MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
 # Class Name		Required Feat				Required Skill									Req. Known Spell			Required Spell School		Required Sub-school			Req. Spell Type		Required Stat
-CLASS:Dark Temptress	PREFEAT:1,Spell Focus(Enchantment)	PRESKILL:4,Bluff,Diplomacy,Gather Information,Sense Motive=5	PRESPELL:1,Vampiric Touch	PRESPELLSCHOOL:Necromancy,3,1	PRESPELLSCHOOLSUB:Compulsion,3,1	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,CHA=16
+CLASS:Dark Temptress	PREFEAT:1,Spell Focus(Enchantment)	PRESKILL:4,Bluff,Diplomacy,Gather Information,Sense Motive=5	PRESPELL:1,Vampiric Touch	PRESPELLSCHOOL:3,Necromancy=1	PRESPELLSCHOOLSUB:3,Compulsion=1	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,CHA=16
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dark Temptress	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
 1						SAB:Pleasing Shape	SAB:Sense Souls																															ADD:SPELLCASTER|1|Arcane
@@ -55,7 +55,7 @@ CLASS:Dark Temptress	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplo
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Mindmender	HD:4		TYPE:PC.Prestige	ABB:Mmn		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
 # Class Name	Required Feat										Required Skill				Required Sub-school			Req. Spell Type		Required Stat
-CLASS:Mindmender	PREFEAT:3,Iron Will,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:2,Diplomacy,Sense Motive=6	PRESPELLSCHOOLSUB:Compulsion,2,1	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,WIS=16
+CLASS:Mindmender	PREFEAT:3,Iron Will,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:2,Diplomacy,Sense Motive=6	PRESPELLSCHOOLSUB:2,Compulsion=1	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,WIS=16
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mindmender	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
 1	SAB:Sense Charm	SAB:Word of Comfort (DC 15)														ADD:SPELLCASTER|1|Arcane

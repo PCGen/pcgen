@@ -38,7 +38,7 @@ CLASS:Dim Mak Practitioner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TY
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Diviner	HD:4		TYPE:PC.Prestige	ABB:Div		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill					Required Spell School
-CLASS:Diviner	PREFEAT:1,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana),Scry=8	PRESPELLSCHOOL:Divination,7,3
+CLASS:Diviner	PREFEAT:1,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana),Scry=8	PRESPELLSCHOOL:7,Divination=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diviner	STARTSKILLPTS:2	CSKILL:Concentration|Decipher Script|Gather Information|TYPE.Knowledge|Scry|Spellcraft
 # Class Name	Use Spell List

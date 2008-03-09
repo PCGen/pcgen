@@ -25,7 +25,7 @@ CLASS:Buccaneer	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Di
 # Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	ABB:Nvw		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat		Required Skill				Required Spell School
-CLASS:Navigator Wizard	PREFEAT:1,Spell Mastery	PRESKILL:1,Profession (Navigator)=6	PRESPELLSCHOOL:Divination,1,2
+CLASS:Navigator Wizard	PREFEAT:1,Spell Mastery	PRESKILL:1,Profession (Navigator)=6	PRESPELLSCHOOL:1,Divination=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gather Information|TYPE.Knowledge|Profession (Navigator)|Scry|Spellcraft
 1	SAB:Infallible Direction			BONUS:SKILL|Profession (Navigation)|2								ADD:SPELLCASTER|1|ANY

@@ -187,7 +187,7 @@ CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE.Craft|Disable Device|TYPE.Knowle
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shadowtamer	HD:6		TYPE:PC.Prestige	ABB:ShTmr		MAXLEVEL:5	SOURCEPAGE:p.37	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|min(3,(var("CL=Shadowtamer")-1))|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat	Required Skill																					Required Spell School
-CLASS:Shadowtamer	PREATT:3	PREFEAT:1,Shintai	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=8	PRESKILL:1,Knowledge (Nature)=4	PRESKILL:1,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:Necromancy,1,3
+CLASS:Shadowtamer	PREATT:3	PREFEAT:1,Shintai	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=8	PRESKILL:1,Knowledge (Nature)=4	PRESKILL:1,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:1,Necromancy=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowtamer	STARTSKILLPTS:3	CSKILL:Concentration|TYPE.Craft|Gather Information|TYPE.Knowledge|TYPE.Profession|Speak Language|Spellcraft
 1	SAB:Lure of the Dammed	BONUS:VAR|ShadowBeast|CL							ADD:SPELLCASTER|1|ANY							AUTO:FEAT|Summon Shadow Beast

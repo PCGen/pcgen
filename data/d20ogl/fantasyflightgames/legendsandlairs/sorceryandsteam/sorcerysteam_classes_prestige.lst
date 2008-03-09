@@ -166,7 +166,7 @@ CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimida
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Hypnotist	HD:4		TYPE:PC.Prestige	ABB:Hyp		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Skill								Required Spell School
-CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:2,Bluff,Concentration=5	PRESKILL:1,Spellcraft=8	PRESPELLSCHOOL:Enchantment,1,3
+CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:2,Bluff,Concentration=5	PRESKILL:1,Spellcraft=8	PRESPELLSCHOOL:1,Enchantment=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Sense Motive|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency

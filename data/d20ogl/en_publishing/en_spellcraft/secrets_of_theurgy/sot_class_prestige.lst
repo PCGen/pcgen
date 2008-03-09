@@ -27,7 +27,7 @@ SUBSTITUTIONLEVEL:2	BONUS:VAR|DomainAccess|CL-1	ADD:SPELLCASTER|1|ANY	ABILITY:Sp
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Lord of Undeath	HD:4		TYPE:Prestige.PC	ABB:LoU		MAXLEVEL:10	SOURCEPAGE:6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat					Required Skill							Req. Known Spell		Required Spell School		Req. Spell Type						Required Text
-CLASS:Lord of Undeath	PREFEAT:2,Extra Turning,Rebuke Undead	PRESKILL:2,Knowledge (Religion),Knowledge (Arcana)=6	PRESPELL:1,Animate Dead	PRESPELLSCHOOL:Necromancy,2,2	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PRETEXT:Patron deity must not be adverse to the creation of undead. Must be able to cast 1 level 2 arcane/necromancy spell and 1 level 2 divine/necromancy spell.
+CLASS:Lord of Undeath	PREFEAT:2,Extra Turning,Rebuke Undead	PRESKILL:2,Knowledge (Religion),Knowledge (Arcana)=6	PRESPELL:1,Animate Dead	PRESPELLSCHOOL:2,Necromancy=2	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PRETEXT:Patron deity must not be adverse to the creation of undead. Must be able to cast 1 level 2 arcane/necromancy spell and 1 level 2 divine/necromancy spell.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Lord of Undeath	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Search|Spellcraft
 1	BONUS:VAR|NegativeChannelLevel|CL	ADD:SPELLCASTER|1|Divine	ADD:SPELLCASTER|1|Arcane	ABILITY:Special Ability|AUTOMATIC|Theurgy|Negative Channel
