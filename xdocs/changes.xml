@@ -13,6 +13,11 @@
       <action dev="thpr" type="fix" issue="1903632">Closing a Chooser causes Feat Miscount</action>
       <action dev="thpr" type="fix" issue="1902744">CHOOSE:FEAT broken</action>
       <action dev="thpr" type="fix" issue="1901161">PRESPELLTYPE Works in certain conditions</action>
+      <action dev="thpr" type="fix" issue="1906000">Armor Profs are not unloaded on "Unload All"</action>
+      <action dev="thpr" type="fix" issue="1906002">PREABILITY cannot unparse CATEGORY=ANY</action>
+      <action dev="thpr" type="fix" issue="1901819">PREHD: no longer fully supported for write</action>
+      <action dev="thpr" type="update" issue="1886721">Spell Chooser [Discussed on _exp]</action>
+      <action dev="thpr" type="update" issue="1909637">Remove LANGAUTO from Kit file type</action>
     </release> 
     <release version="5.13.10" date="2008-02-25" description="Alpha release"> 
       <action dev="karianna" type="fix" issue="1744534">Initiative lost during re-sort</action>  
