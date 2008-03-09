@@ -44,7 +44,9 @@ AC Acid Resist				VISIBLE:NO																																																				
 
 #Astral Construct Menu B Abilities
 Astral Construct B Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Two A Abilities|Energy Touch Ability|Extra Attack Ability|Fast Healing Ability|Heavy Deflection Ability|Improved Buff Ability|Improved Critical Ability|Improved Damage Reduction Ability|Improved Fly Ability|Improved Grab Ability|Improved Swim Ability|Muscle Ability|Poison Touch Ability|Pounce Ability|Smite Ability|Trample Ability																										PRERACE:1,Astral Construct%
-Two A Abilities				VISIBLE:NO				TEMPLATE:Astral Construct A Ability	TEMPLATE:Astral Construct A Ability
+Two A Abilities				VISIBLE:NO				TEMPLATE:First A Ability	TEMPLATE:Second A Ability
+First A Ability				VISIBLE:NO				TEMPLATE:CHOOSE:Buff Ability|Celerity Ability|Cleave Ability|Deflection Ability|Fly Ability|Improved Bull Rush Ability|Improved Slam Attack Ability|Mobility Ability|Power Attack Ability|Resistance Ability|Swim Ability|Trip Ability
+Second A Ability				VISIBLE:NO				TEMPLATE:CHOOSE:Buff Ability|Celerity Ability|Cleave Ability|Deflection Ability|Fly Ability|Improved Bull Rush Ability|Improved Slam Attack Ability|Mobility Ability|Power Attack Ability|Resistance Ability|Swim Ability|Trip Ability
 Energy Touch Ability			VISIBLE:NO				TEMPLATE:CHOOSE:AC ETouch Fire|AC ETouch Cold|AC ETouch Acid|AC ETouch Electricity
 Extra Attack Ability			VISIBLE:NO																																																														SAB:Extra Slam Attack (1) (Ex)|PRESIZELTEQ:M	SAB:Extra Slam Attack (2) (Ex)|PRESIZEGT:M
 Fast Healing Ability			VISIBLE:NO																																																														SAB:Fast Healing 2 (Ex)
@@ -67,7 +69,9 @@ AC ETouch Fire				VISIBLE:NO																																																				
 
 #Astral Construct Menu C Abilities
 Astral Construct C Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Two B Abilities|Blindsight Ability|Concussion Ability|Constrict Ability|Dimension Slide Ability|Energy Bolt Ability|Extra Buff Ability|Extreme Damage Reduction Ability|Extreme Deflection Ability|Natural Invisibility Ability|Power Resistance Ability|Rend Ability|Spring Attack Ability|Whirlwind Attack Ability																													PRERACE:1,Astral Construct%
-Two B Abilities				VISIBLE:NO				TEMPLATE:Astral Construct B Ability	TEMPLATE:Astral Construct B Ability
+Two B Abilities				VISIBLE:NO				TEMPLATE:First B Ability	TEMPLATE:Second B Ability
+First B Ability				VISIBLE:NO				TEMPLATE:CHOOSE:Two A Abilities|Energy Touch Ability|Extra Attack Ability|Fast Healing Ability|Heavy Deflection Ability|Improved Buff Ability|Improved Critical Ability|Improved Damage Reduction Ability|Improved Fly Ability|Improved Grab Ability|Improved Swim Ability|Muscle Ability|Poison Touch Ability|Pounce Ability|Smite Ability|Trample Ability
+Second B Ability				VISIBLE:NO				TEMPLATE:CHOOSE:Two A Abilities|Energy Touch Ability|Extra Attack Ability|Fast Healing Ability|Heavy Deflection Ability|Improved Buff Ability|Improved Critical Ability|Improved Damage Reduction Ability|Improved Fly Ability|Improved Grab Ability|Improved Swim Ability|Muscle Ability|Poison Touch Ability|Pounce Ability|Smite Ability|Trample Ability
 Blindsight Ability			VISIBLE:NO																																																														SAB:Blindsight (Ex)																																																										VISION:Blindsight (60')
 Concussion Ability			VISIBLE:NO																																																														SAB:Concussion (Concussion Blast (7th lvl) 1x/round) (Sp)
 Constrict Ability				VISIBLE:NO																																																														SAB:Constrict (Ex)
