@@ -39,14 +39,14 @@ Aura of Despair	TYPE:Supernatural	VISIBLE:NO	SAB:Aura of Despair (Su)											
 ###Block: Dragon Disciple Class Features
 # Dragon Disciple
 # Feat Name			Type				Visible	Required Class			Special ABility	Choose												MOVECLONE
-Bonus Spell Slot 1	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 2	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 3	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 4	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 5	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 6	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 7	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Dragon Wings		TYPE:DragonDisciple	VISIBLE:NO	PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)														MOVECLONE:Walk,Fly,*1
+#Bonus Spell Slot 1	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 2	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 3	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 4	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 5	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 6	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Bonus Spell Slot 7	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+#Dragon Wings		TYPE:DragonDisciple	VISIBLE:NO	PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)														MOVECLONE:Walk,Fly,*1
 
 ###Block: Duelist special abilities
 # Feat Name		Type						Visible	Special ABility								Define								Combat bonus																					Modify VAR												Source Page
