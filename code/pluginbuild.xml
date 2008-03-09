@@ -1715,7 +1715,7 @@ jar-all-plugins - Generate the plugin jar files
 				<patternset>
 					<include name="plugin/pretokens/parser/PreSkillParser.class" />
 					<include name="plugin/pretokens/parser/PreSkillTotalParser.class" />
-					<include name="plugin/pretokens/test/PreSkillTester.class" />
+					<include name="plugin/pretokens/test/PreSkillTester*.class" />
 					<include name="plugin/pretokens/test/PreSkillMultTester.class" />
 					<include name="plugin/pretokens/writer/PreSkillWriter.class" />
 					<include name="plugin/pretokens/writer/PreSkillMultWriter.class" />
