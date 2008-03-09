@@ -1,11 +1,8 @@
 package plugin.lsttokens.spell;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.StringTokenizer;
 
 import pcgen.core.spell.Spell;
-import pcgen.core.spell.Spell.SpellPointType;
 import pcgen.persistence.lst.SpellLstToken;
 import pcgen.util.Logging;
 
