@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb 28 23:26:26 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Mon Mar 10 17:11:03 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
@@ -102,16 +102,16 @@ CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:srdbasic
 CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge %)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|Decipher Script|Gather Information|Handle Animal|Heal|TYPE.Knowledge|Perform|TYPE.Profession|Scry|Speak Language|Spellcraft|Use Magic Device
-1						DEFINE:SecretLore|CL+INT	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
-2	SAB:Lore (+%)|SecretLore						ADD:SPELLCASTER|1|ANY
-3											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
-4											ADD:SPELLCASTER|1|ANY	ADD:LANGUAGE|1|TYPE=Spoken
-5											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
-6	SAB:Greater Lore(Ex)							ADD:SPELLCASTER|1|ANY
-7											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
-8											ADD:SPELLCASTER|1|ANY	ADD:LANGUAGE|1|TYPE=Spoken
-9											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=LoremasterSecret
-10	SAB:True Lore(Ex)								ADD:SPELLCASTER|1|ANY
+1						BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	DEFINE:SecretLore|CL+INT	ADD:SPELLCASTER|1|ANY
+2	SAB:Lore (+%)|SecretLore														ADD:SPELLCASTER|1|ANY
+3																			ADD:SPELLCASTER|1|ANY
+4																			ADD:SPELLCASTER|1|ANY	ADD:LANGUAGE|1|TYPE=Spoken
+5																			ADD:SPELLCASTER|1|ANY
+6	SAB:Greater Lore(Ex)															ADD:SPELLCASTER|1|ANY
+7																			ADD:SPELLCASTER|1|ANY
+8																			ADD:SPELLCASTER|1|ANY	ADD:LANGUAGE|1|TYPE=Spoken
+9																			ADD:SPELLCASTER|1|ANY
+10	SAB:True Lore(Ex)																ADD:SPELLCASTER|1|ANY
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus												Combat bonus
 CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesii.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
