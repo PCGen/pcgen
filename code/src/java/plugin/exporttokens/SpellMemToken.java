@@ -402,6 +402,18 @@ public class SpellMemToken extends Token
 						{
 							retValue.append(aSpell.getXPCost());
 						}
+						else if ("SPELLPOINTCOST".equals(aLabel))
+						{
+							if("NUMELEMENTS".equals(altLabel))
+							{
+								retValue.append(aSpell.getSpellPointCostElementTotal());
+							}
+							else if("TOTAL".equals(altLabel))
+							{
+								retValue.append(aSpell.getSpellPointCostActual());
+							}
+						}
+						
 					}
 				}
 				else if (eh != null && eh.getExistsOnly())

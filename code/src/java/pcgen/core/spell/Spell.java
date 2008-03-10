@@ -1299,7 +1299,7 @@ public final class Spell extends PObject
 	public String getSPCostStrings()
 	{
 		Map<String,Integer> spCost = getSpellPointCostActualParts();
-		int totalSpellPoints =  getSPCostActual(spCost);
+		int totalSpellPoints =  getSpellPointCostActual();
 		StringBuffer sb = new StringBuffer();
 		sb.append(totalSpellPoints); 
 		if(spCost.size()==1 && spCost.containsKey("TOTAL"))
@@ -1318,14 +1318,20 @@ public final class Spell extends PObject
 		sb.append("]");
 		return sb.toString();	
 	}
-	public int getSPCostActual(final Map<String,Integer> spCost)
+	public int getSpellPointCostActual()
 	{	
 		int runnintTotal = 0;
+		Map<String,Integer> spCost = getSpellPointCostActualParts();
 		for (String aComponent: spCost.keySet())
 		{
 			runnintTotal += spCost.get(aComponent);
 		}
 		return runnintTotal;
+	}
+	
+	public int getSpellPointCostElementTotal()
+	{
+		return getSpellPointCostActualParts().size();
 	}
 	
 }
