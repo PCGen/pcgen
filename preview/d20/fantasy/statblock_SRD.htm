@@ -25,9 +25,9 @@ $Date$
 <body>
 <blockquote> <em><font size="+2" color="#500000"><strong>|NAME|</strong><br />
   </font></em> </p> 
-  <table width="100%" border="1" cellpadding="1" cellspacing="2" bordercolor="#666666" bgcolor="#FFFFCC" summary="Character Info Table">
+  <table width="100%" border="1" cellpadding="1" cellspacing="2" style="border-color:#666666" bgcolor="#FFFFCC" summary="Character Info Table">
     <tr valign="top">
-      <td width="25%" bordercolor="#999999"></td>
+      <td width="25%" style="border-color:#999999"></td>
     <td width="75%"><strong>|RACE|</strong>
 |FOR,%class,0,COUNT[CLASSES]-1,1,1|
 |IIF(CLASS.%class.TYPE:Monster)|
@@ -548,7 +548,7 @@ at will)
 
 <!--   Trouble-shooting stuff   -->
  
-<hr>
+<hr />
 
 |IIF(VAR.IF(var("FEATPOINTS")==0;1;0):1)|
 |ELSE|

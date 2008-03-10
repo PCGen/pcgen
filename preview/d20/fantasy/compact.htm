@@ -19,7 +19,7 @@ $Date$
 <head>
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
 <title>|NAME| [|POOL.COST| Points]</title>
-<style TYPE="text/css">
+<style type="text/css">
 	.font4 {  font-family: Arial; font-size:4pt; }
 	.font5 {  font-family: Arial; font-size:5pt; }
 	.font6 {  font-family: Arial; font-size:6pt; }
@@ -94,7 +94,7 @@ $Date$
 </style>
 </head>
 <body bgcolor="white">
-<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br>
+<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br />
 <!-- START Top Character Data -->
 <table cellpadding="0" cellspacing="4" border="0" width="100%" summary="Character Information">
 	<tr>
@@ -380,8 +380,8 @@ $Date$
 				<tr>
 					<td align="left" class="border" valign="top">
 						<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Skills Table">
-							<TR><TD align="left" class="borderbottom"><font style="font-size: 5pt">&nbsp;Name</FONT></TD><TD align="left" class="borderbottom"><font style="font-size: 5pt">Abb</FONT></TD><TD align="right" class="borderbottom"><font style="font-size: 5pt">Rnk</FONT></TD><TD align="right" class="borderbottom"><font style="font-size: 5pt">Tot&nbsp;</FONT></TD><TD align="left" class="borderbottom"><font style="font-size: 5pt">&nbsp;Name</FONT></TD><TD align="left" class="borderbottom"><font style="font-size: 5pt">Abb</FONT></TD><TD align="right" class="borderbottom"><font style="font-size: 5pt">Rnk</FONT></TD><TD align="right" class="borderbottom"><font style="font-size: 5pt">Tot&nbsp;</FONT></TD><TD align="left" class="borderbottom"><font style="font-size: 5pt">&nbsp;Name</FONT></TD><TD align="left" class="borderbottom"><font style="font-size: 5pt">Abb</FONT></TD><TD align="right" class="borderbottom"><font style="font-size: 5pt">Rnk</FONT></TD><TD align="right" class="borderbottom"><font style="font-size: 5pt">Tot&nbsp;</FONT></TD></TR>
-							|DFOR.0,(COUNT[SKILLS]+2)/3,1,COUNT[SKILLS],(COUNT[SKILLS]+2)/3,<TD align="left"><font style="font-size: 5pt">&nbsp;\SKILL.%.NAME\</FONT></TD><TD align="left"><font style="font-size: 5pt">\SKILL.%.ABILITY\</FONT></TD><TD align="right"><font style="font-size: 5pt">\SKILL.%.RANK\</FONT></TD><TD align="right" class="borderright"><font style="font-size: 5pt">\SKILL.%.TOTAL\&nbsp;</FONT></TD>,<TR>,</TR>,0|
+							<tr><td align="left" class="borderbottom"><font style="font-size: 5pt">&nbsp;Name</font></td><td align="left" class="borderbottom"><font style="font-size: 5pt">Abb</font></td><td align="right" class="borderbottom"><font style="font-size: 5pt">Rnk</font></td><td align="right" class="borderbottom"><font style="font-size: 5pt">Tot&nbsp;</font></td><td align="left" class="borderbottom"><font style="font-size: 5pt">&nbsp;Name</font></td><td align="left" class="borderbottom"><font style="font-size: 5pt">Abb</font></td><td align="right" class="borderbottom"><font style="font-size: 5pt">Rnk</font></td><td align="right" class="borderbottom"><font style="font-size: 5pt">Tot&nbsp;</font></td><td align="left" class="borderbottom"><font style="font-size: 5pt">&nbsp;Name</font></td><td align="left" class="borderbottom"><font style="font-size: 5pt">Abb</font></td><td align="right" class="borderbottom"><font style="font-size: 5pt">Rnk</font></td><td align="right" class="borderbottom"><font style="font-size: 5pt">Tot&nbsp;</font></td></tr>
+							|DFOR.0,(COUNT[SKILLS]+2)/3,1,COUNT[SKILLS],(COUNT[SKILLS]+2)/3,<td align="left"><font style="font-size: 5pt">&nbsp;\SKILL.%.NAME\</font></td><td align="left"><font style="font-size: 5pt">\SKILL.%.ABILITY\</font></td><td align="right"><font style="font-size: 5pt">\SKILL.%.RANK\</font></td><td align="right" class="borderright"><font style="font-size: 5pt">\SKILL.%.TOTAL\&nbsp;</font></td>,<tr>,</tr>,0|
 						</table>
 					</td>
 				</tr>
@@ -443,7 +443,7 @@ $Date$
 <!-- STOP Money Table -->
 <!-- START Companions Table -->
 |%COMPANIONS|
-			<table width="100%" cellspacing="0" cellpadding="3" sumary="Companions Table">
+			<table width="100%" cellspacing="0" cellpadding="3" summary="Companions Table">
 				<tr>
 					<td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>COMPANIONS</b></font></td>
 				</tr>
@@ -510,7 +510,7 @@ $Date$
 								<td width="27%"></td><td width="6%"></td><td width="27%"></td><td width="6%"></td><td width="27%"></td><td width="6%"></td>
 							</tr>
 |FOR,%spellbook,0,COUNT[SPELLBOOKS]-1,1,0|
-							|FOR.0,100,3,<TD width="27%" class="spcomp2">\SPELLMEM.0.%spellbook.0.%.BONUSSPELL\\SPELLMEM.0.%spellbook.0.%.NAME\ (DC: \SPELLMEM.0.%spellbook.0.%.DC\) </TD><TD class="spch2">&nbsp;</TD>,<TR>,</TR>,2|
+							|FOR.0,100,3,<td width="27%" class="spcomp2">\SPELLMEM.0.%spellbook.0.%.BONUSSPELL\\SPELLMEM.0.%spellbook.0.%.NAME\ (DC: \SPELLMEM.0.%spellbook.0.%.DC\) </td><td class="spch2">&nbsp;</td>,<tr>,</tr>,2|
 |ENDFOR|
 						</table>
 					</td>
@@ -557,7 +557,7 @@ $Date$
 							<td width="27%"></td>
 							<td width="6%"></td>
 							</tr>
-							|FOR.0,100,3,<TD width="27%" class="spcomp2">\SPELLMEM.%class.%sbook.%level.%.BONUSSPELL\\SPELLMEM.%class.%sbook.%level.%.NAME\ (DC: \SPELLMEM.%class.%sbook.%level.%.DC\) </TD><TD class="spch2">ooo&nbsp;</TD>,<TR>,</TR>,2|
+							|FOR.0,100,3,<td width="27%" class="spcomp2">\SPELLMEM.%class.%sbook.%level.%.BONUSSPELL\\SPELLMEM.%class.%sbook.%level.%.NAME\ (DC: \SPELLMEM.%class.%sbook.%level.%.DC\) </td><td class="spch2">ooo&nbsp;</td>,<tr>,</tr>,2|
 						</table>
 					</td>
 				</tr>
@@ -566,7 +566,7 @@ $Date$
 |ENDFOR|
 
 |%SPELLLISTCLASS.%class|
-				<tr><td class="spcomp2"><b>*</b> = Domain/Specialty Spell</td><TD class="spch2">&nbsp;</td></tr>
+				<tr><td class="spcomp2"><b>*</b> = Domain/Specialty Spell</td><td class="spch2">&nbsp;</td></tr>
 			</table>
 |%|
 |ENDFOR|
@@ -735,7 +735,7 @@ Wisdom
 				<tr>
 					<td align="left" class="border">
 						<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Equipment Table">
-							|DFOR.0,(COUNT[EQUIPMENT]+1)/2,1,COUNT[EQUIPMENT],(COUNT[EQUIPMENT]+1)/2,<TD width="50%" align="left" valign="top" class="font7">\EQ.%.QTY\ x \EQ.%.NAME.MAGIC~<b>~</b>\<font style="font-size: 5pt">&nbsp;(\EQ.%.SPROP\)</FONT></TD><TD align="right" valign="top" class="font7">\EQ.%.WT\&nbsp;&nbsp;</TD>,<TR>,</TR>,0|
+							|DFOR.0,(COUNT[EQUIPMENT]+1)/2,1,COUNT[EQUIPMENT],(COUNT[EQUIPMENT]+1)/2,<td width="50%" align="left" valign="top" class="font7">\EQ.%.QTY\ x \EQ.%.NAME.MAGIC~<b>~</b>\<font style="font-size: 5pt">&nbsp;(\EQ.%.SPROP\)</font></td><td align="right" valign="top" class="font7">\EQ.%.WT\&nbsp;&nbsp;</td>,<tr>,</tr>,0|
 						</table>
 					</td>
 				</tr>
@@ -770,7 +770,9 @@ Wisdom
 		</td>
 	</tr>
 </table>
-<BR><CENTER><font style="font-size: 7pt">PCGen Character Template by ROG, mods/maint by Arcady, Barak &amp; Dimrill.  For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</font></CENTER>
+<br /><center><font style="font-size: 7pt">PCGen Character Template by ROG, mods/maint by Arcady, Barak &amp; Dimrill.  For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</font></center>
+</body>
+</html>
 
 
 

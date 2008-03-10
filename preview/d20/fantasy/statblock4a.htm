@@ -373,11 +373,11 @@ function printSpaceReach(aSpace,aReach) {
 |ELSE|
 |IIF(TEXT.LENGTH.CLASS.%class.LEVEL:0)|
 |ELSE|
-<script language="javascript" text="text/javascript">addClass("|CLASS.%class|", "|CLASS.%class.LEVEL|");</script>
+<script language="javascript" type="text/javascript">addClass("|CLASS.%class|", "|CLASS.%class.LEVEL|");</script>
 |ENDIF|
 |ENDIF|
 |ENDFOR|
-<script language="javascript" text="text/javascript">printClasses();</script>
+<script language="javascript" type="text/javascript">printClasses();</script>
 <br />
 |ALIGNMENT.SHORT| |SIZELONG| |RACETYPE|
 <!-- Silly for loop to allow us to test against the number of subtypes -->
@@ -1149,7 +1149,7 @@ combat&#x0020;gear&#x0020;plus&#x0020;
 <!--
 <script language="javascript" type="text/javascript">printFeatsOfType("Any","Trick","<br /><b>Tricks</b> ", "<br/>");</script>
 -->
-<hr>
+<hr />
 <!-- Explaination of abilities -->
 |MANUALWHITESPACE|
 |FOR,%feat,0,COUNT[FEATSALL.HIDDEN]-1,1,1|

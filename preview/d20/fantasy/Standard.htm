@@ -17,7 +17,7 @@ $Date$
 <head>
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
 <title>|NAME| [|POOL.COST| Points]</title>
-<style TYPE="text/css">
+<style type="text/css">
 	.font4 {  
 		font-family: Arial; 
 		font-size:4pt; 
@@ -245,7 +245,7 @@ $Date$
   <td colspan="1" class="h">|ALIGNMENT|</td>
   <td colspan="1" class="h">|DEITY|</td>
   <td class="h">|POOL.COST|</td>
-  <td rowspan="6" align="center" width="1%" class="border"><font style="font-size:10pt"><A HREF="#Bio"><IMG SRC="|PORTRAIT|" height="100" ALT="Click for Bio" BORDER="0" /></A><br /></font></td>
+  <td rowspan="6" align="center" width="1%" class="border"><font style="font-size:10pt"><a href="#Bio"><img src="|PORTRAIT|" height="100" alt="Click for Bio" border="0" /></a><br /></font></td>
  </tr>
  <tr>
   <td colspan="2" class="topline">CHARACTER NAME</td>
@@ -1166,14 +1166,14 @@ Wisdom
 |ENDFOR|
        <tr>
         <td valign="top" width="41%" class="border" align="right" colspan="1" class="border10">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP class="border10">|TOTAL.WEIGHT|</td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" NOWRAP class="border10">|TOTAL.VALUE|</td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap class="border10">|TOTAL.WEIGHT|</td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap class="border10">|TOTAL.VALUE|</td>
        </tr>
       </table>
      </td>
     </tr>
    </table>
-   <br>
+   <br />
 <!-- STOP Equipment Table -->
   </tr>
   <tr>
@@ -1184,27 +1184,27 @@ Wisdom
       <td bgcolor="black" align="center" colspan="6" class="ab"><b>WEIGHT ALLOWANCE</b></td>
      </tr>
      <tr>
-      <td valign="top" class="border10" align="right"><B>Light</B></td>
+      <td valign="top" class="border10" align="right"><b>Light</b></td>
       <td valign="top" class="border10">|WEIGHT.LIGHT|</td>
-      <td valign="top" class="border10" align="right"><B>Medium</B></td>
+      <td valign="top" class="border10" align="right"><b>Medium</b></td>
       <td valign="top" class="border10">|WEIGHT.MEDIUM|</td>
-      <td valign="top" class="border10" align="right"><B>Heavy</B></td>
+      <td valign="top" class="border10" align="right"><b>Heavy</b></td>
       <td valign="top" class="border10">|WEIGHT.HEAVY|</td>
      </tr>
     </table>
 <!-- STOP Weight Table -->
 <!-- START Illumination Table -->
 |IIF(VAR.IF(var("COUNT[EQTYPE.LightSource]")>0;1;0):1)|
-<br>
+<br />
     <table width="100%" cellspacing="0" cellpadding="3" summary="Illumination">
      <tr>
       <td class="ab" align="center" colspan="4"><b>ILLUMINATION</b></td>
      </tr>
      <tr>
-      	<td width="45%" class="border10"><B>Light Source</B></td>
-      	<td width="15%" class="border10"><B>Bright</B></td>
-       	<td width="15%" class="border10"><B>Shadowy</B></td>
-     	<td width="15%" class="border10"><B>Duration</B></td>
+      	<td width="45%" class="border10"><b>Light Source</b></td>
+      	<td width="15%" class="border10"><b>Bright</b></td>
+       	<td width="15%" class="border10"><b>Shadowy</b></td>
+     	<td width="15%" class="border10"><b>Duration</b></td>
      </tr>
 |FOR,%light,0,COUNT[EQTYPE.LightSource]-1,1,0|
 |OIF(EVEN:%light,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -1218,7 +1218,7 @@ Wisdom
 |ENDIF|
 <!-- STOP Illumination Table -->
 <!-- START Money Table -->
-<br>
+<br />
     <table width="100%" cellspacing="0" cellpadding="3" summary="Money">
      <tr>
       <td bgcolor="black" align="center" colspan="1" class="ab"><b>MONEY</b></td>
@@ -2696,9 +2696,9 @@ at will
 <!-- ================================================================= -->
 |%BIO|
 <br />
-<A NAME="Bio"></A>
+<a name="Bio"></a>
 <!-- START Bio Table -->
-<TABLE width="100%" cellspacing="0" cellpadding="2">
+<table width="100%" cellspacing="0" cellpadding="2">
  <tr>
   <td colspan="2"><font style="font-size: 14pt">|NAME| |%FOLLOWEROF|- |FOLLOWEROF| |%| |%BIO|</font></td>
  </tr>
