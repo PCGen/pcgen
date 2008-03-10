@@ -979,11 +979,17 @@ public final class Spell extends PObject
 			aSpell.saveInfo = new TreeSet<String>(saveInfo);
 			aSpell.spellResistance = new TreeSet<String>(spellResistance);
 			aSpell.descriptorList = new ArrayList<String>(descriptorList);
+			aSpell.ppCost = new Integer(ppCost);
 
 			if (variantList != null)
 			{
 				aSpell.variantList = new ArrayList<String>();
 				aSpell.variantList.addAll(variantList);
+			}
+			if (spellPointCost != null)
+			{
+				aSpell.spellPointCost = new HashMap<String, HashMap<SpellPointType,Integer>>(spellPointCost);
+				
 			}
 
 			if (levelInfo != null)
