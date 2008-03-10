@@ -8033,6 +8033,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 				si.setActualPPCost(ppCost);
 			}
+			if (Spell.hasSpellPointCost())
+			{
+				final Spell theSpell = acs.getSpell();
+				int spellPointCost = theSpell.getSpellPointCostActual();
+				for (Ability feat : aFeatList)
+				{
+					spellPointCost += (int) feat.bonusTo("SPELLPOINTCOST", theSpell
+						.getKeyName(), this, this);
+				}
+				si.setActualSpellPointCost(spellPointCost);
+			}
 		}
 		// Set number of pages on the spell
 		si.setNumPages(si.getNumPages() + numPages);

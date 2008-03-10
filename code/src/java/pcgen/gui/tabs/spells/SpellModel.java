@@ -78,10 +78,11 @@ public final class SpellModel extends AbstractTreeTableModel implements
 	private static final int COL_SR = 11;
 	private static final int COL_SRC = 12;
 	private static final int COL_PPCOST = 13;
+	private static final int COL_SPCOST = 14;
 
 	private final int[] colDefaultWidth =
 			{200, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
-				100};
+				100, 100};
 
 	// there are two roots. One for available spells
 	// and one for selected spells (spellbooks)
@@ -133,6 +134,14 @@ public final class SpellModel extends AbstractTreeTableModel implements
 						COL_DESCRIPTOR, COL_PPCOST, COL_COMPONENT,
 						COL_CASTTIME, COL_RANGE, COL_DESCRIPTION, COL_TARGET,
 						COL_DURATION, COL_SAVE, COL_SR, COL_SRC};
+		}
+		else if(Spell.hasSpellPointCost())
+		{
+			colTranslateList =
+				new int[]{COL_NAME, COL_SCHOOL, COL_SUBSCHOOL,
+					COL_DESCRIPTOR, COL_SPCOST, COL_COMPONENT,
+					COL_CASTTIME, COL_RANGE, COL_DESCRIPTION, COL_TARGET,
+					COL_DURATION, COL_SAVE, COL_SR, COL_SRC};
 		}
 		else
 		{
@@ -225,6 +234,10 @@ public final class SpellModel extends AbstractTreeTableModel implements
 					aString = PropertyFactory.getString("SpellModel.PPCost"); //$NON-NLS-1$
 					break;
 
+				case COL_SPCOST:
+					aString = PropertyFactory.getString("SpellModel.SpellPointCost"); //$NON-NLS-1$
+					break;
+					
 				default:
 					aString = Integer.toString(transList[i]);
 					break;
@@ -252,6 +265,12 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				retList.add(Boolean.valueOf(getColumnViewOption(
 					colNameList[i++], true))); //COL_PPCOST
 			}
+			else if (Spell.hasSpellPointCost())
+			{
+				retList.add(Boolean.valueOf(getColumnViewOption(
+					colNameList[i++], true))); //COL_SPCOST
+			}
+			
 			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++],
 				false))); //COL_COMPONENT
 			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++],
@@ -284,6 +303,11 @@ public final class SpellModel extends AbstractTreeTableModel implements
 			{
 				retList.add(Boolean.valueOf(getColumnViewOption(
 					colNameList[i++], true))); //COL_PPCOST
+			}
+			else if (Spell.hasSpellPointCost())
+			{
+				retList.add(Boolean.valueOf(getColumnViewOption(
+					colNameList[i++], true))); //COL_SPCOST
 			}
 			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++],
 				false))); //COL_COMPONENT
@@ -471,10 +495,14 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				return (aSpell != null) ? aSpell.getDefaultSourceString()
 					: null;
 
+			case COL_SPCOST:
+				return (spellA != null) ? Integer.valueOf(((SpellInfo) fn
+					.getItem()).getActualSpellPointCost()) : null;
+
 			case COL_PPCOST:
 				return (spellA != null) ? Integer.valueOf(((SpellInfo) fn
 					.getItem()).getActualPPCost()) : null;
-
+				
 			default:
 				return fn.getItem();
 		}

@@ -713,7 +713,7 @@ public final class Spell extends PObject
 		}
 		if (hasSpellPointCost())
 		{
-			txt.append(getSPCostStrings());
+			txt.append(getSpellPointCostActual());
 		}
 
 		txt.append(super.getPCCText(false));

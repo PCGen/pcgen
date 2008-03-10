@@ -54,6 +54,7 @@ public final class SpellInfo
 	private int times; // times the spell is in this list
 	private TimeUnit timeUnit; // the timeunit the times is for (day, week etc)
 	private int actualPPCost = -1;
+	private int actualSpellPointCost = 0;
 	private int numPages = 0;
 
 	/**
@@ -93,6 +94,15 @@ public final class SpellInfo
 	public int getActualPPCost()
 	{
 		return actualPPCost;
+	}
+	public void setActualSpellPointCost(final int actualSPCost)
+	{
+		actualSpellPointCost = actualSPCost;
+	}
+
+	public int getActualSpellPointCost()
+	{
+		return actualSpellPointCost;
 	}
 
 	public String getBook()
