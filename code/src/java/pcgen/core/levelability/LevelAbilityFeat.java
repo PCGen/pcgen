@@ -208,7 +208,7 @@ class LevelAbilityFeat extends LevelAbility
 			// If automatically choosing all feats in a list, then set then
 			// number allowed to the number chosen. i.e. the number in the list
 			//
-			if (aArrayList.equals(selectedList))
+			if (aArrayList == null || aArrayList.equals(selectedList))
 			{
 				numFeats = selectedList.size();
 			}
