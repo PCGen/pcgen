@@ -115,17 +115,17 @@ SKILL:Ride		RANK:9
 SKILL:Swim		RANK:1
 FEAT:Alertness
 FEAT:Lightning Reflexes
-LEVELABILITY:Fighter=1	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Focus(Sword (Bastard/Martial))
-LEVELABILITY:Fighter=2	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Power Attack
+ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Sword (Bastard/Martial))
+ABILITY:CATEGORY=Fighter Feat|Power Attack
 FEAT:Run
-LEVELABILITY:Fighter=4	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Specialization (Sword (Bastard/Martial))
+ABILITY:CATEGORY=Fighter Feat|Weapon Specialization (Sword (Bastard/Martial))
 FEAT:Track
-LEVELABILITY:Fighter=6	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Cleave
-LEVELABILITY:Fighter=8	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Great Cleave
+ABILITY:CATEGORY=Fighter Feat|Cleave
+ABILITY:CATEGORY=Fighter Feat|Great Cleave
 FEAT:Blind Fight
-LEVELABILITY:Fighter=10	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Quick Draw
+ABILITY:CATEGORY=Fighter Feat|Quick Draw
 FEAT:Improved Initiative
-LEVELABILITY:Fighter=12	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Sunder
+ABILITY:CATEGORY=Fighter Feat|Improved Sunder
 GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W
 GEAR:Full Plate			SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
 GEAR:Cloak of Resistance +2	SIZE:PC	LOCATION:Equipped
