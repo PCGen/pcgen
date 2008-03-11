@@ -72,7 +72,9 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PREAGESET:" + (prereq.isOverrideQualify() ? "Q:":""));  
+			writer.write("PREAGESET:" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write(prereq.getOperand());
+			writer.write(',');
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

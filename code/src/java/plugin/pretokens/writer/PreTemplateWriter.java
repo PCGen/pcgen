@@ -76,7 +76,9 @@ public class PreTemplateWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRETEMPLATE:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
+			writer.write("PRETEMPLATE:" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write(prereq.getOperand());
+			writer.write(',');
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

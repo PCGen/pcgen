@@ -74,6 +74,8 @@ public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter
 			}
 
 			writer.write("PREPOINTBUYMETHOD:" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write(prereq.getOperand());
+			writer.write(',');
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)
