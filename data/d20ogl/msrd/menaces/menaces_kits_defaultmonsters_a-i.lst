@@ -121,7 +121,7 @@ SKILL:Hide		RANK:5
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 SKILL:Tumble	RANK:4
-LEVELABILITY:Monstrous Humanoid=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Monstrous Humanoid Proficiency|Simple Weapons Proficiency
 FEAT:Improved Initiative
 FEAT:Personal Firearms Proficiency
 GEAR:Glock 17 (9mm autoloader)	LOCATION:Primary Hand
@@ -272,7 +272,7 @@ SKILL:Knowledge (Arcane Lore)	RANK:8
 SKILL:Listen			RANK:7
 SKILL:Move Silently		RANK:6
 SKILL:Spot				RANK:7
-LEVELABILITY:Undead=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Undead Proficiency|Simple Weapons Proficiency
 FEAT:Stealthy
 FEAT:Weapon Focus (Claw)
 GEAR:Tattered clothing					LOCATION:Torso
@@ -350,7 +350,7 @@ SKILL:Knowledge (Behavioral Sciences)	RANK:4
 SKILL:Listen					RANK:4
 SKILL:Move Silently				RANK:4
 SKILL:Spot						RANK:4
-LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
+ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
 FEAT:Weapon Focus (Knife)
 FEAT:Weapon Finesse (Knife)
 FEAT:Simple Weapons Proficiency
@@ -452,7 +452,7 @@ SKILL:Hide		RANK:5
 SKILL:Listen	RANK:5
 SKILL:Search	RANK:5
 SKILL:Survival	RANK:3
-LEVELABILITY:Monstrous Humanoid=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
+ABILITY:CATEGORY=Monstrous Humanoid Proficiency|Archaic Weapons Proficiency
 FEAT:Brawl
 GEAR:Spear	LOCATION:Both Hands
 
@@ -465,7 +465,7 @@ SKILL:Listen		RANK:5
 SKILL:Perform (Act)	RANK:2
 SKILL:Perform (Sing)	RANK:2
 SKILL:Spot			RANK:6
-LEVELABILITY:Monstrous Humanoid=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Monstrous Humanoid Proficiency|Simple Weapons Proficiency
 FEAT:Flyby Attack
 FEAT:Personal Firearms Proficiency
 GEAR:Leather Jacket				LOCATION:Armor

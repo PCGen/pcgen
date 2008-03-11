@@ -38,7 +38,7 @@ STARTPACK:Kinori Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PR
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 RACE:Kinori	!PRERACE:1,%
 NAME:Kinori
-LEVELABILITY:Monstrous Humanoid=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Monstrous Humanoid Proficiency|Simple Weapons Proficiency
 FEAT:Multiattack
 FEAT:Archaic Weapons Proficiency
 SKILL:Climb			RANK:4
@@ -64,7 +64,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Luciferan	!PRERACE:1,%
 NAME:Luciferan
 SKILL:Knowledge (Arcane Lore)	RANK:5
-LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Outsider Proficiency|Simple Weapons Proficiency
 FEAT:Personal Firearms Proficiency
 GEAR:Colt Python (.357 revolver)	LOCATION:Primary Hand
 GEAR:Bullet (.357)			QTY:12
@@ -163,7 +163,7 @@ SKILL:Hide			RANK:6
 SKILL:Listen		RANK:2
 SKILL:Sense Motive	RANK:2
 SKILL:Spot			RANK:2
-LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Outsider Proficiency|Simple Weapons Proficiency
 FEAT:Stealthy
 
 STARTPACK:Neothelid Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neothelid]
@@ -195,7 +195,7 @@ SKILL:Move Silently				RANK:4
 SKILL:Search					RANK:2
 SKILL:Sense Motive				RANK:6
 SKILL:Spot						RANK:3
-LEVELABILITY:Fey=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Fey Proficiency|Simple Weapons Proficiency
 FEAT:Improved Initiative
 FEAT:Renown
 GEAR:Cleaver				LOCATION:Primary Hand
@@ -256,7 +256,7 @@ NAME:Sasquatch (Weren)
 SKILL:Climb		RANK:2
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-LEVELABILITY:Giant=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Giant Proficiency|Simple Weapons Proficiency
 FEAT:Alertness
 
 STARTPACK:Satanic Ichor Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satanic Ichor]
@@ -323,7 +323,7 @@ SKILL:Climb		RANK:6
 SKILL:Jump		RANK:6
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-LEVELABILITY:Undead=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Undead Proficiency|Simple Weapons Proficiency
 
 STARTPACK:Skin Feaster (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skin Feaster (Advanced)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
@@ -333,7 +333,7 @@ SKILL:Climb		RANK:5
 SKILL:Jump		RANK:5
 SKILL:Listen	RANK:8
 SKILL:Spot		RANK:8
-LEVELABILITY:Undead=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Undead Proficiency|Simple Weapons Proficiency
 FEAT:Agile Riposte
 FEAT:Dodge
 
@@ -376,7 +376,7 @@ SKILL:Listen			RANK:4
 SKILL:Pilot				RANK:4
 SKILL:Spot				RANK:4
 SKILL:Swim				RANK:2
-LEVELABILITY:Aberration=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Aberration Proficiency|Simple Weapons Proficiency
 FEAT:Alertness
 FEAT:Athletic
 FEAT:Builder
@@ -395,7 +395,7 @@ SKILL:Pilot				RANK:4
 SKILL:Spot				RANK:4
 SKILL:Swim				RANK:2
 SKILL:Move Silently		RANK:7
-LEVELABILITY:Aberration=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Aberration Proficiency|Simple Weapons Proficiency
 FEAT:Alertness
 FEAT:Athletic
 FEAT:Builder
@@ -415,7 +415,7 @@ SKILL:Move Silently		RANK:4
 SKILL:Pilot				RANK:4
 SKILL:Spot				RANK:4
 SKILL:Swim				RANK:3
-LEVELABILITY:Aberration=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Aberration Proficiency|Simple Weapons Proficiency
 FEAT:Alertness
 FEAT:Athletic
 FEAT:Builder
@@ -435,7 +435,7 @@ SKILL:Move Silently		RANK:1
 SKILL:Pilot				RANK:4
 SKILL:Spot				RANK:4
 SKILL:Swim				RANK:5
-LEVELABILITY:Aberration=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Aberration Proficiency|Simple Weapons Proficiency
 FEAT:Alertness
 FEAT:Athletic
 FEAT:Builder
@@ -456,7 +456,7 @@ SKILL:Move Silently		RANK:2
 SKILL:Pilot				RANK:4
 SKILL:Spot				RANK:4
 SKILL:Swim				RANK:8
-LEVELABILITY:Aberration=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Aberration Proficiency|Simple Weapons Proficiency
 FEAT:Alertness
 FEAT:Athletic
 FEAT:Builder
@@ -572,5 +572,5 @@ SKILL:Hide			RANK:7
 SKILL:Listen		RANK:7
 SKILL:Move Silently	RANK:7
 SKILL:Spot			RANK:7
-LEVELABILITY:Aberration=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Aberration Proficiency|Simple Weapons Proficiency
 FEAT:Improved Initiative

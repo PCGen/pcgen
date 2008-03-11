@@ -17,7 +17,7 @@ SKILL:Hide			RANK:2
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
-LEVELABILITY:Humanoid=2	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Humanoid Proficiency|Simple Weapons Proficiency
 FEAT:Personal Firearms Proficiency	FREE:YES
 FEAT:Alertness
 GEAR:Leather Jacket			LOCATION:Equipped
@@ -53,7 +53,7 @@ SKILL:Search		RANK:5
 SKILL:Spot			RANK:5
 SKILL:Survival		RANK:5
 SKILL:TYPE=Knowledge	RANK:5
-LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Outsider Proficiency|Simple Weapons Proficiency
 FEAT:Multiattack
 FEAT:Track
 
@@ -68,7 +68,7 @@ SKILL:TYPE=Knowledge	RANK:4
 SKILL:Search		RANK:9
 SKILL:Spot			RANK:9
 SKILL:Survival		RANK:9
-LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Outsider Proficiency|Simple Weapons Proficiency
 FEAT:Cleave
 FEAT:Power Attack
 
@@ -87,7 +87,7 @@ SKILL:Survival		RANK:12
 SKILL:TYPE=Knowledge	RANK:12
 SKILL:TYPE=Knowledge	RANK:12
 SKILL:TYPE=Knowledge	RANK:12
-LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Outsider Proficiency|Simple Weapons Proficiency
 FEAT:Blind-Fight
 FEAT:Frightful Presence
 FEAT:Iron Will
@@ -108,7 +108,7 @@ RACE:Gnoll	!PRERACE:1,%
 NAME:Gnoll
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-LEVELABILITY:Humanoid=2	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Humanoid Proficiency|Simple Weapons Proficiency
 FEAT:Personal Firearms Proficiency
 GEAR:Metal Baton				LOCATION:Primary Hand
 GEAR:TEC-9 (9mm machine pistol)	LOCATION:Carried
@@ -179,7 +179,7 @@ SKILL:Bluff			RANK:9
 SKILL:Disguise		RANK:9
 SKILL:Spot			RANK:9
 SKILL:Move Silently	RANK:7
-LEVELABILITY:Monstrous Humanoid=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Monstrous Humanoid Proficiency|Simple Weapons Proficiency
 FEAT:Personal Firearms Proficiency
 FEAT:Point Blank Shot
 FEAT:Weapon Finesse (Snakes)
@@ -199,7 +199,7 @@ SKILL:Listen	RANK:4
 SKILL:Search	RANK:4
 SKILL:Spot		RANK:4
 SKILL:Jump		RANK:4
-LEVELABILITY:Monstrous Humanoid=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
+ABILITY:CATEGORY=Monstrous Humanoid Proficiency|Archaic Weapons Proficiency
 FEAT:Power Attack
 FEAT:Great Fortitude
 GEAR:Club	SIZE:H	LOCATION:Both Hands
@@ -286,7 +286,7 @@ SKILL:Hide			RANK:9
 SKILL:Move Silently	RANK:9
 SKILL:Spot			RANK:5
 SKILL:Listen		RANK:5
-LEVELABILITY:Undead=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
+ABILITY:CATEGORY=Undead Proficiency|Archaic Weapons Proficiency
 FEAT:Alertness
 FEAT:Toughness
 
@@ -297,7 +297,7 @@ NAME:Ogre
 SKILL:Climb		RANK:1
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-LEVELABILITY:Giant=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Giant Proficiency|Simple Weapons Proficiency
 FEAT:Weapon Focus (Huge Club)
 GEAR:Club	SIZE:H	LOCATION:Both Hands
 
@@ -341,7 +341,7 @@ SKILL:Sense Motive	RANK:3
 SKILL:Sleight of Hand	RANK:3
 SKILL:Spot			RANK:3
 SKILL:Tumble		RANK:3
-LEVELABILITY:Fey=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Fey Proficiency|Simple Weapons Proficiency
 FEAT:Improved Initiative
 FEAT:Renown
 GEAR:Knife	LOCATION:Primary Hand
@@ -352,7 +352,7 @@ RACE:Troglodyte	!PRERACE:1,%
 NAME:Troglodyte
 SKILL:Hide		RANK:3
 SKILL:Listen	RANK:3
-LEVELABILITY:Humanoid=2	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Humanoid Proficiency|Simple Weapons Proficiency
 FEAT:Multiattack
 GEAR:Sap		LOCATION:Carried
 GEAR:Javelin	LOCATION:Primary Hand
@@ -364,7 +364,7 @@ RACE:Troll	!PRERACE:1,%
 NAME:Troll
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-LEVELABILITY:Giant=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
+ABILITY:CATEGORY=Giant Proficiency|Simple Weapons Proficiency
 FEAT:Alertness
 FEAT:Multiattack
 

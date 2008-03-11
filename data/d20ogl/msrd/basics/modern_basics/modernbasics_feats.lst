@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  6 22:47:40 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Mar 11 12:53:43 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Paul King, Barak, & Hugo
 # Two-Weapon Fighting done as described in the MSRD Combat section (reported to be correct) - Tir Gwaith
@@ -239,6 +239,12 @@ Weapon Finesse.MOD			DESC:.CLEAR		DESC:Choose one light melee weapon, a rapier (
 Weapon Focus.MOD				DESC:.CLEAR		DESC:Choose a specific weapon. A character can choose unarmed strike or grapple for your weapon for purposes of this feat
 Whirlwind Attack.MOD			DESC:.CLEAR		DESC:When the character performs a full-round action, the character can give up his or her regular attacks and instead make one melee attack at the character's highest base attack bonus against each adjacent opponent
 Windfall.MOD				DESC:.CLEAR		DESC:The character's Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all Profession checks
+
+###Block: Feat MOD for Creature Type Proficiency Bonus Feat Pools
+# Feat Name					Type
+Simple Weapons Proficiency.MOD	TYPE:AberrationProficiency.FeyProficiency.GiantProficiency.HumanoidProficiency.MonstrousHumanoidProficiency.OutsiderProficiency.UndeadProficiency
+Archaic Weapons Proficiency.MOD	TYPE:AberrationProficiency.FeyProficiency.GiantProficiency.HumanoidProficiency.MonstrousHumanoidProficiency.OutsiderProficiency.UndeadProficiency
+Armor Proficiency (Light).MOD		TYPE:HumanoidProficiency
 
 #
 # End

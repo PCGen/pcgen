@@ -59,4 +59,4 @@ SHIELDPROF:modernbasics_profs_shields.lst
 HIDETYPE:EQUIP|SpecialSuppressor|LightSource
 HIDETYPE:SKILL|Science
 HIDETYPE:ABILITY|Leadership
-HIDETYPE:FEAT|Leadership
+HIDETYPE:FEAT|Leadership|AberrationProficiency|FeyProficiency|GiantProficiency|HumanoidProficiency|MonstrousHumanoidProficiency|OutsiderProficiency|UndeadProficiency
