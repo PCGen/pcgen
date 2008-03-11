@@ -1094,7 +1094,8 @@ public class AbilityUtilities
 		final String cat,
 		final String token)
 	{
-		Ability ability = Globals.getAbilityKeyed(cat, token);
+		AbilityCategory aCat = AbilityUtilities.getAbilityCategory(cat);
+		Ability ability = Globals.getAbilityKeyed(aCat, token);
 
 		if (ability != null)
 		{
@@ -1102,7 +1103,7 @@ public class AbilityUtilities
 		}
 
 		final String stripped = removeChoicesFromName(token);
-		ability = Globals.getAbilityKeyed(cat, stripped);
+		ability = Globals.getAbilityKeyed(aCat, stripped);
 
 		if (ability != null)
 		{

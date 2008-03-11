@@ -160,20 +160,20 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 
 		for (Iterator<Categorisable> kAbInnerIt = getIterator(); kAbInnerIt.hasNext();)
 		{
-			final AbilityInfo Info = (AbilityInfo) kAbInnerIt.next();
+			final AbilityInfo info = (AbilityInfo) kAbInnerIt.next();
 
-			if (!Info.qualifies(aPC))
+			if (!info.qualifies(aPC))
 			{
 				continue;
 			}
 
-			if (Info.getAbility() != null)
+			if (info.getAbility() != null)
 			{
-				AbilityInfo abI = nameMap.put(Info.toString(), Info);
-				catMap.put(Info.getCategory() + " " + Info.toString(), Info);
+				AbilityInfo abI = nameMap.put(info.toString(), info);
+				catMap.put(info.getCategory() + " " + info.toString(), info);
 				abilityCat =
 						SettingsHandler.getGame().getAbilityCategory(
-							Info.getCategory());
+							info.getCategory());
 
 				if (abI != null)
 				{
@@ -182,7 +182,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 			}
 			else
 			{
-				warnings.add("ABILITY: Non-existant Ability \"" + Info.getKeyName()
+				warnings.add("ABILITY: Non-existant Ability \"" + info.getKeyName()
 							 + "\"");
 			}
 		}
