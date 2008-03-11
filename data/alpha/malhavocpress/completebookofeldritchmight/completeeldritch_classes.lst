@@ -120,7 +120,7 @@ CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Hid
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Embermage	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat									Required Skill				Req. Spell Descriptor		Req. Spell Type		!PRESPELLDESCRIPTOR
-CLASS:Embermage	PREFEAT:3,Endurance,Spell Focus(Evocation),Spell Penetration	PRESKILL:1,Knowledge (Arcana)=10	PRESPELLDESCRIPTOR:Fire,5,1	PRESPELLTYPE:3,Arcane=1	!PRESPELLDESCRIPTOR:Cold,1,1
+CLASS:Embermage	PREFEAT:3,Endurance,Spell Focus(Evocation),Spell Penetration	PRESKILL:1,Knowledge (Arcana)=10	PRESPELLDESCRIPTOR:5,Fire=1	PRESPELLTYPE:3,Arcane=1	!PRESPELLDESCRIPTOR:1,Cold=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Embermage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft
 1	SAB:Burning Touch (Sp)			ADD:SPELLCASTER|1|ANY
