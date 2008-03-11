@@ -14,8 +14,8 @@ SKILL:Knowledge (Dungeoneering)	RANK:10
 SKILL:Knowledge (History)		RANK:10
 SKILL:Knowledge (The Planes)		RANK:10
 CLASS:Wizard	LEVEL:10	SUBCLASS:Wizard
-LEVELABILITY:Wizard=5	ABILITY:PROMPT:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)|CHOICE:Empower Spell
-LEVELABILITY:Wizard=10	ABILITY:PROMPT:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)|CHOICE:Eschew Materials
+ABILITY:CATEGORY=Wizard Feat|Empower Spell
+ABILITY:CATEGORY=Wizard Feat|Eschew Materials
 SKILL:Concentration			RANK:7
 SKILL:Decipher Script			RANK:10
 SKILL:Knowledge (Dungeoneering)	RANK:10

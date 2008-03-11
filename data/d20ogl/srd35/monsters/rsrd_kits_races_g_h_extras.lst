@@ -45,12 +45,12 @@ CLASS:Fighter	LEVEL:7
 SKILL:Bluff			RANK:2
 SKILL:Intimidate		RANK:1
 SKILL:Listen		RANK:1
-LEVELABILITY:Fighter=1	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Focus(Longbow)
-LEVELABILITY:Fighter=2	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Point Blank Shot
+ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Longbow)
+ABILITY:CATEGORY=Fighter Feat|Point Blank Shot
 FEAT:Rapid Shot
-LEVELABILITY:Fighter=4	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Specialization(Longbow)
+ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Longbow)
 FEAT:Improved Critical(Longbow)
-LEVELABILITY:Fighter=6	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Manyshot
+ABILITY:CATEGORY=Fighter Feat|Manyshot
 GEAR:Studded Leather			SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
 GEAR:Longbow (Composite)		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.FROST_R.BOWSTR|1
 GEAR:Arrow					QTY:10	SIZE:PC	LOCATION:Carried	EQMOD:C_IRON

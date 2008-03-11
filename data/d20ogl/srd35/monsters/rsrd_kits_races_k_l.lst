@@ -277,7 +277,7 @@ RACE:Human	!PRERACE:1,%
 CLASS:Fighter	LEVEL:1
 FEAT:Power Attack
 FEAT:Exotic Weapon Proficiency(Sword (Bastard))
-LEVELABILITY:Fighter=1	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Focus (Sword (Bastard))
+ABILITY:CATEGORY=Fighter Feat|Weapon Focus (Sword (Bastard))
 TEMPLATE:Lycanthrope[TEMPLATE:Dire Werewolf][TEMPLATE:Natural Lycanthrope]
 FEAT:Alertness
 FEAT:Run
@@ -288,14 +288,14 @@ SKILL:Survival		RANK:4
 SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:10
-LEVELABILITY:Fighter=2	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Combat Reflexes
+ABILITY:CATEGORY=Fighter Feat|Combat Reflexes
 FEAT:Stealthy
-LEVELABILITY:Fighter=4	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Specialization(Sword (Bastard))
+ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Sword (Bastard))
 FEAT:Improved Critical(Sword (Bastard))
-LEVELABILITY:Fighter=6	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Cleave
-LEVELABILITY:Fighter=8	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Critical(Bite)
+ABILITY:CATEGORY=Fighter Feat|Cleave
+ABILITY:CATEGORY=Fighter Feat|Improved Critical(Bite)
 FEAT:Improved Natural Armor
-LEVELABILITY:Fighter=10	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Natural Attack(Bite)
+ABILITY:CATEGORY=Fighter Feat|Improved Natural Attack(Bite)
 FEAT:Weapon Focus(Bite)					FREE:YES
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped	EQMOD:MITHRAL_ARMR_LT.PLUS2A
 GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3S

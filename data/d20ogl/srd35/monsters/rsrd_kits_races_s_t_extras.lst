@@ -31,10 +31,10 @@ FEAT:Alertness
 FEAT:Iron Will
 FEAT:Power Attack
 CLASS:Ranger	LEVEL:6
-LEVELABILITY:Ranger=1	ABILITY:PROMPT:FEAT(TYPE.Favored Enemy)|CHOICE:Favored Enemy (Humanoid (Elf))
-LEVELABILITY:Ranger=2	ABILITY:PROMPT:FEAT(TYPE.RangerCombatStyle)|CHOICE:Two Weapon Fighting Combat Style
-LEVELABILITY:Ranger=5	ABILITY:PROMPT:FEAT(TYPE.Favored Enemy)|CHOICE:Favored Enemy (Humanoid (Human))
-LEVELABILITY:Ranger=5	ABILITY:PROMPT:FEAT(TYPE.FavoredEnemyBonus)|CHOICE:Favored Bonus__Humanoid_Elf
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Elf))
+ABILITY:CATEGORY=Ranger Combat Style|Two Weapon Fighting Combat Style
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Human))
+ABILITY:CATEGORY=Favored Enemy Bonus|Favored Bonus__Humanoid_Elf
 SKILL:Knowledge (Nature)		RANK:6
 SKILL:Knowledge (Dungeoneering)	RANK:6
 SKILL:Move Silently			RANK:9
