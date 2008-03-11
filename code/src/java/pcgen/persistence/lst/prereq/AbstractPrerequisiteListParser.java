@@ -26,12 +26,13 @@
  */
 package pcgen.persistence.lst.prereq;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
-
-import java.util.ArrayList;
-import java.util.Iterator;
+import pcgen.util.Logging;
 
 /**
  * @author wardc
@@ -151,6 +152,10 @@ public abstract class AbstractPrerequisiteListParser extends
 		}
 		catch (NumberFormatException nfe)
 		{
+			Logging.deprecationPrint("You are using a deprecated syntax of PRE"
+					+ kind + ": " + formula
+					+ " ... You should be using a leading number, e.g.: PRE"
+					+ kind + ":1,First,Second");
 			parseOldStyle = true;
 		}
 
@@ -203,7 +208,7 @@ public abstract class AbstractPrerequisiteListParser extends
 
 					Prerequisite subreq = new Prerequisite();
 					subreq.setKind(kind.toLowerCase());
-					subreq.setCountMultiples(true);
+					subreq.setCountMultiples(prereq.isCountMultiples());
 
 					if (elements[i].indexOf('=') >= 0)
 					{
