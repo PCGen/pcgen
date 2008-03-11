@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Feb 24 01:22:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Mar 11 00:47:06 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -488,14 +488,14 @@ GEAR:Bullet (Sling)	QTY:50	SIZE:PC	EQMOD:MWORKW.PLUS5W	OPTION:81,100
 
 STARTPACK:Minor Specific Weapon	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
-GEAR:Sleep Arrow										OPTION:1,15
-GEAR:Screaming Bolt									OPTION:16,25
-GEAR:Dagger					SIZE:PC	EQMOD:MWORKW.ALCHM	OPTION:26,45
-GEAR:Longsword				SIZE:PC	EQMOD:MWORKW.C_IRON	OPTION:46,65
-GEAR:Javelin of Lightning								OPTION:66,75
-GEAR:Slaying Arrow									OPTION:76,80
-GEAR:Dagger					SIZE:PC	EQMOD:MWORKW.ADAM		OPTION:81,90
-GEAR:Battleaxe				SIZE:PC	EQMOD:MWORKW.ADAM		OPTION:91,100
+GEAR:Sleep Arrow			OPTION:1,15
+GEAR:Screaming Bolt		OPTION:16,25
+GEAR:Dagger				SIZE:PC	EQMOD:MWORKW.ALCHM	OPTION:26,45
+GEAR:Longsword			SIZE:PC	EQMOD:MWORKW.C_IRON	OPTION:46,65
+GEAR:Javelin of Lightning	OPTION:66,75
+GEAR:Slaying Arrow		OPTION:76,80
+GEAR:Dagger				SIZE:PC	EQMOD:MWORKW.ADAM	OPTION:81,90
+GEAR:Battleaxe			SIZE:PC	EQMOD:MWORKW.ADAM	OPTION:91,100
 
 STARTPACK:Medium Specific Weapon	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
