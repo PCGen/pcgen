@@ -5,8 +5,8 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 #added Bonus from Weapon Finesse (Unarmed Strike) to Unarmed Lethal Strike template - Frank Kliewe
 
 ###Block: Starting Benefits
-# Template Name	Visible	Special ABility			Add
-Starting Benefits	VISIBLE:NO	SAB:Reputation %|Reputation	ADD:LANGUAGE|1|TYPE=Spoken
+# Template Name	Visible	Special ABility
+Starting Benefits	VISIBLE:NO	SAB:Reputation %|Reputation
 
 ###Block: Occupation
 # Template Name	Visible	Template																Bonus to Ability Pool
