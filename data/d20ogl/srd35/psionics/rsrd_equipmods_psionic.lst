@@ -2,6 +2,6 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 
-# Modifier Name	Unique Key		Naming Option	Type		Cost		Visible		Type granted		Source Page				Required Type	BONUS:EQMWEAPON
-Psionic Blade	KEY:PSIBLADE	NAMEOPT:NORMAL	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Energy.Masterwork	SOURCEPAGE:PsionicClasses.rtf	PRETYPE:MindBlade
-Thrown Psiblade	KEY:T_PSIBLADE	NAMEOPT:NORMAL	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Ranged.Thrown	SOURCEPAGE:PsionicClasses.rtf	PRETYPE:MindBlade	BONUS:EQMWEAPON|RANGEADD|30
+# Modifier Name	Unique Key		Naming Option	Type		Cost		Visible		Type granted		Source Page				Required Type		BONUS:EQMWEAPON
+Psionic Blade	KEY:PSIBLADE	NAMEOPT:NORMAL	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Energy.Masterwork	SOURCEPAGE:PsionicClasses.rtf	PRETYPE:1,MindBlade
+Thrown Psiblade	KEY:T_PSIBLADE	NAMEOPT:NORMAL	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Ranged.Thrown	SOURCEPAGE:PsionicClasses.rtf	PRETYPE:1,MindBlade	BONUS:EQMWEAPON|RANGEADD|30
