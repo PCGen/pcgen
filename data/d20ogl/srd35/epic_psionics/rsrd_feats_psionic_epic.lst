@@ -23,14 +23,14 @@ Tenacious Psionics			TYPE:Epic													PRELEVEL:MIN=21	PRESKILL:1,Psicraft=1
 
 ###BLOCK: Psionic Feats
 # Feat Name			Type			Required Feat				Required Lvl	Required Skill		Required Template		Description									Stackable?	Multiple?	Choose		Add					Source Page
-Epic Psionic Endowment	TYPE:Epic.Psionic	PREFEAT:1,Greater Psionic Endowment	PRELEVEL:MIN=21					PRETEMPLATE:Psionic	DESC:See Epic Spell Focus, Greater Psionic Endowment														SOURCEPAGE:EpicFeats.rtf
-Epic Psionic Focus	TYPE:Epic.Psionic							PRELEVEL:MIN=21					PRETEMPLATE:Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|Add Psionic Focus	SOURCEPAGE:EpicFeats.rtf
-Epic Power Penetration	TYPE:Epic.Psionic	PREFEAT:1,Greater Power Penetration	PRELEVEL:MIN=21					PRETEMPLATE:Psionic	DESC:See Epic Spell Penetration, Greater Power Penetration													SOURCEPAGE:EpicFeats.rtf
-Improved Metapsionics	TYPE:Epic.Psionic	PREFEAT:4,TYPE.Metapsionic		PRELEVEL:MIN=21	PRESKILL:1,Psicraft=30	PRETEMPLATE:Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|ImpMetapsionics	SOURCEPAGE:EpicFeats.rtf
+Epic Psionic Endowment	TYPE:Epic.Psionic	PREFEAT:1,Greater Psionic Endowment	PRELEVEL:MIN=21					PRETEMPLATE:1,Psionic	DESC:See Epic Spell Focus, Greater Psionic Endowment														SOURCEPAGE:EpicFeats.rtf
+Epic Psionic Focus	TYPE:Epic.Psionic							PRELEVEL:MIN=21					PRETEMPLATE:1,Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|Add Psionic Focus	SOURCEPAGE:EpicFeats.rtf
+Epic Power Penetration	TYPE:Epic.Psionic	PREFEAT:1,Greater Power Penetration	PRELEVEL:MIN=21					PRETEMPLATE:1,Psionic	DESC:See Epic Spell Penetration, Greater Power Penetration													SOURCEPAGE:EpicFeats.rtf
+Improved Metapsionics	TYPE:Epic.Psionic	PREFEAT:4,TYPE.Metapsionic		PRELEVEL:MIN=21	PRESKILL:1,Psicraft=30	PRETEMPLATE:1,Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|ImpMetapsionics	SOURCEPAGE:EpicFeats.rtf
 
 ###BLOCK: Metapsionics
 # Feat Name		Type				Required Feat					Required Lvl	Required Skill		Required Template		Description								Source Page
-Intensify Power	TYPE:Epic.Metapsionic	PREFEAT:2,Empower Power,Maximize Power	PRELEVEL:MIN=21	PRESKILL:1,Psicraft=30	PRETEMPLATE:Psionic	DESC:See Intesify Spell, +12PP, expend psionic focus	SOURCEPAGE:EpicFeats.rtf
+Intensify Power	TYPE:Epic.Metapsionic	PREFEAT:2,Empower Power,Maximize Power	PRELEVEL:MIN=21	PRESKILL:1,Psicraft=30	PRETEMPLATE:1,Psionic	DESC:See Intesify Spell, +12PP, expend psionic focus	SOURCEPAGE:EpicFeats.rtf
 
 ###BLOCK: Item Creation
 # Feat Name					Type				Required Feat					Required Lvl	Required Skill						Description						Source Page

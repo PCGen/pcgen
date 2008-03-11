@@ -9,7 +9,7 @@ Corrupting Touch		TYPE:GhostAbility	VISIBLE:NO	SAB:Corrupting Touch (Su) DC%|Gho
 Draining Touch		TYPE:GhostAbility	VISIBLE:NO	SAB:Draining Touch (Su) DC%|GhostAbilityDC
 Frightful Moan		TYPE:GhostAbility	VISIBLE:NO	SAB:Frightful Moan (Su) DC%|GhostAbilityDC
 Horrific Appearance	TYPE:GhostAbility	VISIBLE:NO	SAB:Horrific Appearance (Su) DC%|GhostAbilityDC
-Malevolence			TYPE:GhostAbility	VISIBLE:NO	SAB:Malevolence (Su) DC%|15+max(CHA,0)|PRETEMPLATE:Ghost
+Malevolence			TYPE:GhostAbility	VISIBLE:NO	SAB:Malevolence (Su) DC%|15+max(CHA,0)|PRETEMPLATE:1,Ghost
 Telekinesis			TYPE:GhostAbility	VISIBLE:NO	SAB:Telekinesis (Su) DC%|GhostAbilityDC
 
 ###Block: Half Dragon Abilities

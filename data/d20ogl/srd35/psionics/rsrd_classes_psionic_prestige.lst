@@ -79,7 +79,7 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	ABB:Sla		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Req. Att.	Required Feat	Required Skill					Required Template
-CLASS:Slayer	PREATT:4	PREFEAT:1,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRETEMPLATE:Psionic
+CLASS:Slayer	PREATT:4	PREFEAT:1,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRETEMPLATE:1,Psionic
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
 ###Block:Proficiencies
@@ -136,7 +136,7 @@ CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TY
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required AL		Required Skill										Required Template
-CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Concentration=8,Craft (Alchemy)=1,Knowledge (Psionics)=2	PRETEMPLATE:Psionic
+CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Concentration=8,Craft (Alchemy)=1,Knowledge (Psionics)=2	PRETEMPLATE:1,Psionic
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Intimidate|Jump|Psicraft
 ###Block: Psionic Variables
@@ -173,7 +173,7 @@ CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Cr
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Restricted AL		Req. Att.	Required Skill								Required Template
-CLASS:War Mind	!PREALIGN:CG,CN,CE	PREATT:3	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=8	PRETEMPLATE:Psionic
+CLASS:War Mind	!PREALIGN:CG,CN,CE	PREATT:3	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=8	PRETEMPLATE:1,Psionic
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:War Mind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|Intimidate|Knowledge (History)|Knowledge (Psionics)|Psicraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
