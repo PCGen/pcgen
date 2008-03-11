@@ -58,10 +58,10 @@ RighteousMightDR	VISIBLE:NO	SAB:DR %/Evil|RighteousMightDR_Evil	SAB:DR %/Good|Ri
 # Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class			Multiple Requirements						Stat bonus
 Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable									PRECLASS:1,Druid=15,Monk=17
 
-Timeless Body ~ Adult		VISIBLE:NO																									!PREAGESET:Middle Age															BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:Venerable
-Timeless Body ~ Middle Age	VISIBLE:NO																																		PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:Venerable
-Timeless Body ~ Old		VISIBLE:NO																																		PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|3|PREAGESET:Venerable
-Timeless Body ~ Venerable	VISIBLE:NO																					PREAGESET:Venerable
+Timeless Body ~ Adult		VISIBLE:NO																									!PREAGESET:1,Middle Age															BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:1,Middle Age],[!PREAGESET:1,Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:1,Venerable
+Timeless Body ~ Middle Age	VISIBLE:NO																																		PREMULT:2,[PREAGESET:1,Middle Age],[!PREAGESET:1,Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:1,Venerable
+Timeless Body ~ Old		VISIBLE:NO																																		PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|3|PREAGESET:1,Venerable
+Timeless Body ~ Venerable	VISIBLE:NO																					PREAGESET:1,Venerable
 
 ###Block: Diseases
 
