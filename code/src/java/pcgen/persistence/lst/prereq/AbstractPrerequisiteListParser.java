@@ -208,7 +208,7 @@ public abstract class AbstractPrerequisiteListParser extends
 
 					Prerequisite subreq = new Prerequisite();
 					subreq.setKind(kind.toLowerCase());
-					subreq.setCountMultiples(prereq.isCountMultiples());
+					subreq.setCountMultiples(true);
 
 					if (elements[i].indexOf('=') >= 0)
 					{
