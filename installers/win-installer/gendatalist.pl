@@ -68,6 +68,7 @@ $pub{'mythicdreamsstudios'} = 'Mythic Dreams Studios';
 $pub{'necromancergames'} = 'Necromancer Games';
 $pub{'pandahead'} = 'Pandahead';
 $pub{'paradigmconcepts'} = 'Paradigm Concepts Inc';
+$pub{'paizo'} = 'Paizo Publishing';
 $pub{'parentsbasementgames'} = 'Parents Basement Games';
 $pub{'pcgen'} = 'PCGen OGL';
 $pub{'pinnacleentertainment'} = 'Pinnacle Entertainment';
