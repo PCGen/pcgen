@@ -25,6 +25,7 @@ package pcgen.core.spell;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -1282,7 +1283,7 @@ public final class Spell extends PObject
 		HashMap<SpellPointType, Integer> costs = new HashMap<SpellPointType, Integer>();
 		costs.put(SpellPointType.ACTUALCOST, value);
 		costs.put(SpellPointType.EFFECTIVECOST, value);
-		spellPointCost.put(component.toUpperCase(), costs);
+		spellPointCost.put(component, costs);
 	}
 	public static boolean hasSpellPointCost()
 	{
@@ -1307,20 +1308,65 @@ public final class Spell extends PObject
 		Map<String,Integer> spCost = getSpellPointCostActualParts();
 		int totalSpellPoints =  getSpellPointCostActual();
 		StringBuffer sb = new StringBuffer();
+		StringBuffer sb2 = new StringBuffer();
+		
+		sb2.append("");
 		sb.append(totalSpellPoints); 
+		if (spCost.size() ==0)
+		{
+			return sb.toString();
+		}
 		if(spCost.size()==1 && spCost.containsKey("TOTAL"))
 		{
 			return sb.toString();
 		}
 		sb.append(" [");
-		for (String aComponent: spCost.keySet())
+		
+		// Using a TreeSet so they are sorted no matter what order the data is input 
+		// by the lst coder
+		TreeSet<String> fields = new TreeSet<String>();
+		fields.addAll(spCost.keySet());
+
+		
+		for (String aComponent: fields)
 		{
-			sb.append(aComponent);
-			sb.append(" ");
-			sb.append(spCost.get(aComponent));
-			sb.append("/");
+			if (aComponent.equalsIgnoreCase("Range"))
+			{
+				sb2.append(aComponent);
+				sb2.append(" ");
+				sb2.append(spCost.get(aComponent));
+				sb2.append("/");
+			}
+			else if(aComponent.equalsIgnoreCase("Area of Effect"))
+			{
+				sb2.append(aComponent);
+				sb2.append(" ");
+				sb2.append(spCost.get(aComponent));
+				sb2.append("/");
+			}
+			else if (aComponent.equalsIgnoreCase("Duration"))
+			{
+				sb2.append(aComponent);
+				sb2.append(" ");
+				sb2.append(spCost.get(aComponent));
+				sb2.append("/");
+			}
+			else
+			{
+				sb.append(aComponent);
+				sb.append(" ");
+				sb.append(spCost.get(aComponent));
+				sb.append("/");
+			}
+			
 		}
-		sb.replace(sb.length()-1, sb.length(), "");
+		if(sb2.length() < 1)
+		{
+			sb.replace(sb.length()-1, sb.length(), "");
+		}
+		sb2.replace(sb2.length()-1, sb2.length(), "");
+		
+		sb.append(sb2.toString());
 		sb.append("]");
 		return sb.toString();	
 	}
@@ -1338,6 +1384,34 @@ public final class Spell extends PObject
 	public int getSpellPointCostElementTotal()
 	{
 		return getSpellPointCostActualParts().size();
+	}
+	public String getSpellPointCostPartName(final int elementNumber )
+	{
+		Map<String,Integer> spCosts = getSpellPointCostActualParts();
+		Set<String> spKeys = new TreeSet<String>();
+		spKeys.addAll(spCosts.keySet());
+		String [] theKeys = (String[]) spKeys.toArray();
+		int size = spKeys.size();
+		if (elementNumber < size)
+		{
+			return theKeys[elementNumber];
+		}
+		
+		return "";
+	}
+	public String getSpellPointCostPartValue(final int elementNumber )
+	{
+		Map<String,Integer> spCosts =getSpellPointCostActualParts();
+		Set<String> spKeys = new TreeSet<String>();
+		spKeys.addAll(spCosts.keySet());
+		String [] theKeys = (String[]) spKeys.toArray();
+		int size = spKeys.size();
+		if (elementNumber < size)
+		{
+			return spCosts.get( theKeys[elementNumber]).toString();
+		}
+		
+		return "";
 	}
 	
 }

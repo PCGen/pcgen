@@ -412,6 +412,37 @@ public class SpellMemToken extends Token
 							{
 								retValue.append(aSpell.getSpellPointCostActual());
 							}
+							else if ("".equals(altLabel))
+							{
+								retValue.append(aSpell.getSPCostStrings());
+							}
+							if (aTok.hasMoreTokens())
+							{
+								String element = aTok.nextToken();
+								try
+								{
+									int partNumber = Integer.parseInt(element);
+									if (aTok.hasMoreTokens())
+									{
+										String elementValue = aTok.nextToken();
+										if ("NAME".equals(elementValue))
+										{
+											retValue.append(aSpell.getSpellPointCostPartName(partNumber));
+										}
+										else if("VALUE".equals(elementValue))
+										{
+											retValue.append(aSpell.getSpellPointCostPartValue(partNumber));
+										}
+									}
+									
+									
+								}
+								catch (NumberFormatException e)
+								{
+									
+								}
+								
+							}
 						}
 						
 					}
@@ -585,4 +616,5 @@ public class SpellMemToken extends Token
 		}
 		return sAlt;
 	}
+	
 }
