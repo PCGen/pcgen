@@ -28,11 +28,11 @@
 		<h2><a name="WhatsNew">What's new for v5.13.11</a></h2>
 
 		<p>PCGen v5.13.11 is the first beta release for the 5.14 development cycle. 
-		 This release will be the first beta and includes all code features intended for release in 
+		 Being the first beta, this release includes all code features intended for release in 
 		 5.14. The main changes in this release are listed below.</p>
 
 <ul>
-		<li><img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"> Make At Will in SPELLS unambiguous. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1901191">1901191</a> (<a href="http://pcgen.sourceforge.net/team-list.html#jdempsey">jdempsey</a>)</li>
+<li><img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"> Make At Will in SPELLS unambiguous. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1901191">1901191</a> (<a href="http://pcgen.sourceforge.net/team-list.html#jdempsey">jdempsey</a>)</li>
 <li><img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"> Deprecate .A in CHOOSE:SPELLLEVEL. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1904978">1904978</a> (<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>)</li>
 <li><img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"> Deprecate CompanionMod SWITCHRACE. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1898420">1898420</a> (<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>)</li>
 <li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"> Language File distinguishes by TYPE and KEY. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1905484">1905484</a> (<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>)</li>
@@ -280,6 +280,7 @@
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905484">1905484</a> ]	Language File distinguishes by TYPE and KEY</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1906000">1906000</a> ]	Armor Profs are not unloaded on &quot;Unload All&quot;</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1906002">1906002</a> ]	PREABILITY cannot unparse CATEGORY=ANY</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1907166">1907166</a> ]	ABILITY kit tag pool use broken</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909249">1909249</a> ]	PRESHIELDPROF Assumes count = 1</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909251">1909251</a> ]	PREWEAPONPROF assumes count=1</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909831">1909831</a> ]	PREAMOR* assumes 1,</li>
@@ -293,6 +294,7 @@
 
 <ul>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900081">1900081</a> ]	[RSRD] Kit files reference non-existant Kits</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900101">1900101</a> ]	Kit LEVELABILITY tag with missing ADD kills kit</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900968">1900968</a> ]	[SRD/RSRD] typo in unholy eqmod</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1904746">1904746</a> ]	Remove DEFINE tag in my_gamemode</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909754">1909754</a> ]	Make Uncanny Dodge an automatic ability</li>
@@ -303,6 +305,7 @@
 <h3>Data Feature Requests</h3>
 
 <ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885521">1885521</a> ]	[MSRD] Problems with Languages</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1897476">1897476</a> ]	Standardize SPELLS spellbook name usage</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900704">1900704</a> ]	[RSRD] Missing Artifacts</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1902374">1902374</a> ]	[ALL] Update SPELLS tags</li>
@@ -311,6 +314,11 @@
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1908804">1908804</a> ]	[BP]Add cover art, logos, and hyperlinks</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1908824">1908824</a> ]	[B&amp;S]Add Cover Art, Logos, and Hyperlinks</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909014">1909014</a> ]	[BDG]Add Cover Art, Logos, and Hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911603">1911603</a> ]	PREAGESET syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911604">1911604</a> ]	PRERULE syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911605">1911605</a> ]	PREPOINTBUYMETHOD syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1912184">1912184</a> ]	PRECLASS syntax update</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1912324">1912324</a> ]	Deprecate PREAGESET using numbers</li>
 </ul>
 
 <h3>Documentation Bugs</h3>
@@ -342,10 +350,12 @@
 <ul>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1814803">1814803</a> ]	UI Text Clean up request</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1886721">1886721</a> ]	Spell Chooser [Discussed on _exp]</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1894301">1894301</a> ]	Alter build to distribute identical Output Sheets</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1898420">1898420</a> ]	Deprecate CompanionMod SWITCHRACE</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1901191">1901191</a> ]	Make At Will in SPELLS unambiguous</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1904978">1904978</a> ]	Deprecate .A in CHOOSE:SPELLLEVEL</li>
 <li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909637">1909637</a> ]	Remove LANGAUTO from Kit file type</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911083">1911083</a> ]	Add Initial support for flexible SpellPoints</li>
 </ul>
 
 <h3>Output Sheet Bugs</h3>
