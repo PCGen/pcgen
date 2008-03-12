@@ -196,7 +196,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREUATT:4",																	"PREUATT:4",
 		"PREVARGT:Rage,4",																"PREVARGT:Rage,4",
 		"PREVARGT:SneakAttack,5",														"PREVARGT:SneakAttack,5",
-		"PREVARGT:SneakAttack,5,Rage,4",												"PREMULT:2,[PREVARGT:SneakAttack,5],[PREVARGT:Rage,4]",
+		"PREVARGT:SneakAttack,5,Rage,4",												"PREVARGT:SneakAttack,5,Rage,4",
 		"PREVISION:2,Normal,Darkvision",												"PREVISION:2,Normal=1,Darkvision=1",
 		"PREVISION:1,Blindsight,Darkvision=30",											"PREVISION:1,Blindsight=30,Darkvision=30",
 		"PREWEAPONPROF:2,Kama,Katana",													"PREWEAPONPROF:2,Kama,Katana",
@@ -217,8 +217,8 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREHD:MIN=3",																	"PREHD:MIN=3",
 		"PREHD:MIN=3,MAX=12",															"PREHD:MIN=3,MAX=12",
 		"PREHP:12",																		"PREHP:12",
-		"PREPOINTBUYMETHOD:Standard",													"PREPOINTBUYMETHOD:Standard",
-		"PREPOINTBUYMETHOD:Standard,High-powered",										"PREPOINTBUYMETHOD:Standard,High-powered",
+		"PREPOINTBUYMETHOD:Standard",													"PREPOINTBUYMETHOD:1,Standard",
+		"PREPOINTBUYMETHOD:Standard,High-powered",										"PREPOINTBUYMETHOD:1,Standard,High-powered",
 
 //
 // Just for good measure
@@ -320,7 +320,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"!PRESTATLTEQ:1,STR=18",														"PRESTATGT:1,STR=18",
 		"!PRESTATGT:1,STR=18",															"PRESTATLTEQ:1,STR=18",
 		"!PREVISION:1,Blindsight",														"!PREVISION:1,Blindsight=1",
-		"!PREPOINTBUYMETHOD:Standard",													"!PREPOINTBUYMETHOD:Standard",
+		"!PREPOINTBUYMETHOD:Standard",													"!PREPOINTBUYMETHOD:1,Standard",
 		"!PRESKILLTOT:Spot,Listen,Search=30",											"!PRESKILLTOT:Spot,Listen,Search=30",
 		"!PREFEAT:1,Dodge",																"!PREFEAT:1,Dodge",
 		"!PRESPELLDESCRIPTOR:Mind-Affecting,4,3",										"!PRESPELLDESCRIPTOR:4,Mind-Affecting=3",
@@ -336,7 +336,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"!PRESPELLSCHOOLSUB:3,Subshool1=2,Subshool2=4",									"!PRESPELLSCHOOLSUB:3,Subshool1=2,Subshool2=4",
 		"!PRESPELLDESCRIPTOR:4,Mind-Affecting=3,Fire=2",								"!PRESPELLDESCRIPTOR:4,Mind-Affecting=3,Fire=2",
 		"!PRESKILLTOT:TYPE.Knowledge=20",												"!PRESKILLTOT:TYPE.Knowledge=20",
-		"!PREPOINTBUYMETHOD:Standard,High-powered",										"!PREPOINTBUYMETHOD:Standard,High-powered",
+		"!PREPOINTBUYMETHOD:Standard,High-powered",										"!PREPOINTBUYMETHOD:1,Standard,High-powered",
 
 //
 		"PREALIGN:8",																	"PREALIGN:CE",

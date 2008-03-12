@@ -28,21 +28,26 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+import java.util.List;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
-
-import java.io.IOException;
-import java.io.Writer;
 
 /**
  * Writes out PREVAR token
  */
-public class PreVariableWriter implements PrerequisiteWriterInterface
+public class PreVariableWriter extends AbstractPrerequisiteWriter implements
+		PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
 	public String kindHandled()
@@ -50,7 +55,9 @@ public class PreVariableWriter implements PrerequisiteWriterInterface
 		return "var";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
@@ -59,28 +66,32 @@ public class PreVariableWriter implements PrerequisiteWriterInterface
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer,
+	 *      pcgen.core.prereq.Prerequisite)
 	 */
 	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		try
 		{
 			writer.write("PREVAR");
 			writer.write(prereq.getOperator().toString().toUpperCase());
-			writer.write(':' + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write(':' + (prereq.isOverrideQualify() ? "Q:" : ""));
 			writer.write(prereq.getKey());
 			writer.write(',');
 			writer.write(prereq.getOperand());
-			//			for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext(); )
-			//			{
-			//				final Prerequisite p = (Prerequisite) iter.next();
-			//				writer.write(',');
-			//				writer.write(p.getKey());
-			//				writer.write(',');
-			//				writer.write(p.getOperand());
-			//			}
+			// for (Iterator iter = prereq.getPrerequisites().iterator();
+			// iter.hasNext(); )
+			// {
+			// final Prerequisite p = (Prerequisite) iter.next();
+			// writer.write(',');
+			// writer.write(p.getKey());
+			// writer.write(',');
+			// writer.write(p.getOperand());
+			// }
 		}
 		catch (IOException e)
 		{
@@ -88,4 +99,69 @@ public class PreVariableWriter implements PrerequisiteWriterInterface
 		}
 	}
 
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+			throws IOException
+	{
+		if (prereq.getKind() != null)
+		{
+			return false;
+		}
+		String handled = kindHandled();
+		List<Prerequisite> prereqList = prereq.getPrerequisites();
+		String count = prereq.getOperand();
+		try
+		{
+			int i = Integer.parseInt(count);
+			if (prereqList.size() != i)
+			{
+				return false;
+			}
+		}
+		catch (NumberFormatException e)
+		{
+			return false;
+		}
+		PrerequisiteOperator oper = null;
+		for (Prerequisite p : prereqList)
+		{
+			//
+			// ...with all PREARMORTYPE entries...
+			//
+			if (!handled.equalsIgnoreCase(p.getKind()))
+			{
+				return false;
+			}
+			//
+			// ...and the same operator...
+			//
+			if (oper == null)
+			{
+				oper = p.getOperator();
+			}
+			else
+			{
+				if (!oper.equals(p.getOperator()))
+				{
+					return false;
+				}
+			}
+		}
+		writer.write("PREVAR");
+		writer.write(oper.toString().toUpperCase());
+		writer.write(':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+		boolean first = true;
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			if (!first)
+			{
+				writer.write(',');
+			}
+			writer.write(p.getKey());
+			writer.write(',');
+			writer.write(p.getOperand());
+			first = false;
+		}
+		return true;
+	}
 }

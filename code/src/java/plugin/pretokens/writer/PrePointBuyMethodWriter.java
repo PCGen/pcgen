@@ -89,31 +89,27 @@ public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter
 	 */
 	@Override
 	public boolean specialCase(Writer writer, Prerequisite prereq)
-		throws IOException
+			throws IOException
 	{
-		//
-		// If this is a PREMULT with all PREPOINTBUYMETHODs ...
-		//
-		if (checkForPremultOfKind(prereq, kindHandled(), false))
+		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
+		if (po == null)
 		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
-			{
-				writer.write('!');
-			}
-
-			writer.write("PREPOINTBUYMETHOD:" + (prereq.isOverrideQualify() ? "Q:":""));
-			boolean needComma = false;
-			for (Prerequisite element : prereq.getPrerequisites())
-			{
-				if (needComma)
-				{
-					writer.write(',');
-				}
-				needComma = true;
-				writer.write(element.getKey());
-			}
-			return true;
+			return false;
 		}
-		return false;
+		if (!po.equals(prereq.getOperator()))
+		{
+			writer.write('!');
+		}
+
+		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+				+ (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
+				: "1");
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			writer.write(',');
+			writer.write(p.getKey());
+		}
+		return true;
 	}
 }

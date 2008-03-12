@@ -80,6 +80,39 @@ public class PreVarRoundRobin extends AbstractComparatorRoundRobin
 		return "VAR";
 	}
 
+	public void testMultipleCompare()
+	{
+		runRoundRobin("abs(STR),4,abs(INT),3");
+	}
+
+	public void testDiffCompare()
+	{
+		runSimpleRoundRobin(
+				"PREMULT:2,[PREVARGT:abs(STR),4],[PREVARLT:abs(INT),3]",
+				"PREMULT:2,[PREVARGT:abs(STR),4],[PREVARLT:abs(INT),3]");
+	}
+
+	public void testCloseCompare()
+	{
+		runSimpleRoundRobin(
+				"PREMULT:2,[PREVARGT:abs(STR),4],[PREVARGTEQ:abs(INT),3]",
+				"PREMULT:2,[PREVARGT:abs(STR),4],[PREVARGTEQ:abs(INT),3]");
+	}
+
+	public void testCountOne()
+	{
+		runSimpleRoundRobin(
+				"PREMULT:1,[PREVARGT:abs(STR),4],[PREVARGT:abs(INT),3]",
+				"PREMULT:1,[PREVARGT:abs(STR),4],[PREVARGT:abs(INT),3]");
+	}
+
+	public void testFunConsolidation()
+	{
+		runSimpleRoundRobin(
+				"PREMULT:2,[PREVARGT:abs(STR),4],[!PREVARLTEQ:abs(INT),3]",
+				"PREVARGT:abs(STR),4,abs(INT),3");
+	}
+
 	@Override
 	public boolean isBaseAllowed()
 	{
