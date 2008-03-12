@@ -4,7 +4,7 @@ SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahea
 ###Block:Armor
 # Modifier Name		Unique Key	Type					Cost			Type granted		Source Page		Required Type							Prohibited Type			BONUS:EQM							BONUS:EQMARMOR									Bonus to skill					Special Property
 Billboard			KEY:BLBD	TYPE:Armor				COST:BASECOST*.1					SOURCEPAGE:95															BONUS:EQM|WEIGHTDIV|20	BONUS:EQM|WEIGHTMULT|21
-Chemical Treating		KEY:CHTR	TYPE:Armor				COST:2000		ITYPE:ChemicalTreated	SOURCEPAGE:95	PRETYPE:Metal							!PRETYPE:1,HeatResistant																											SPROP:+4 saving throw against acid or other corrosive attacks
+Chemical Treating		KEY:CHTR	TYPE:Armor				COST:2000		ITYPE:ChemicalTreated	SOURCEPAGE:95	PRETYPE:1,Metal							!PRETYPE:1,HeatResistant																											SPROP:+4 saving throw against acid or other corrosive attacks
 Dwarven Masterwork	KEY:DWMW	TYPE:MasterworkQuality.Armor	COST:BASECOST*3	ITYPE:Masterwork		SOURCEPAGE:95																							BONUS:EQMARMOR|ACCHECK|-2														SPROP:If the armor itself is ever attacked, it gains +2 to saves and has an additional two points of hardness
 Easy-Off (Light Armor)	KEY:EOLA	TYPE:Armor				COST:50						SOURCEPAGE:95	PRETYPE:1,Light																																						SPROP:Can be taken off in 2 rounds
 Easy-Off (Medium Armor)	KEY:EOLM	TYPE:Armor				COST:200						SOURCEPAGE:95	PRETYPE:1,Medium																																						SPROP:Can be taken off in 4 rounds
@@ -20,4 +20,4 @@ Popknife			KEY:PKNIFE	TYPE:Armor				COST:75						SOURCEPAGE:95
 # Modifier Name		Unique Key	Type		Cost		Type granted	Source Page		Minimum Size	Required Type		Prohibited Type	Combat bonus			BONUS:EQM			BONUS:EQMWEAPON			Special Property
 Secret Compartment	KEY:SECCOMP	TYPE:Weapon	COST:50				SOURCEPAGE:94
 Shock Core			KEY:SHCOR	TYPE:Weapon	COST:100				SOURCEPAGE:94	PRESIZEGTEQ:M	PRETYPE:1,Bludgeoning									BONUS:EQM|WEIGHTADD|2						SPROP:Adds 1d2 damage
-Weapon Balancing		KEY:WPNBAL	TYPE:Weapon	COST:100	ITYPE:Ranged	SOURCEPAGE:94								!PRETYPE:Ranged	BONUS:COMBAT|TOHIT.THROWN|-2					BONUS:EQMWEAPON|RANGEADD|15
+Weapon Balancing		KEY:WPNBAL	TYPE:Weapon	COST:100	ITYPE:Ranged	SOURCEPAGE:94								!PRETYPE:1,Ranged	BONUS:COMBAT|TOHIT.THROWN|-2					BONUS:EQMWEAPON|RANGEADD|15

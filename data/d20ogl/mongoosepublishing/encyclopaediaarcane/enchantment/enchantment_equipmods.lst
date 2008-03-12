@@ -4,4 +4,4 @@ SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:
 ###Block: Armor special qualities
 
 # Modifier Name	Unique Key		Type		Plus		Source Page		Required Type			Special Property
-Assumption		KEY:ASSUMPTION	TYPE:Armor	PLUS:2	SOURCEPAGE:p.54	PRETYPE:Enhancement,Armor	SPROP:-5 to Hide checks
+Assumption		KEY:ASSUMPTION	TYPE:Armor	PLUS:2	SOURCEPAGE:p.54	PRETYPE:2,Enhancement,Armor	SPROP:-5 to Hide checks

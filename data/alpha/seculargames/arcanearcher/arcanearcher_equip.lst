@@ -5,7 +5,7 @@ SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOU
 
 ###BLOCK: General
 # Equipment Name				Type								Cost		Weight	Source Page		Bonus to skill
-Artisan's Tools (Poison Making)	TYPE:Goods.Tools.Artisan.PoisonMakingTools	COST:5	WT:5		SOURCEPAGE:p.13	BONUS:SKILL|Craft (Poison Making)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Poison Making)	TYPE:Goods.Tools.Artisan.PoisonMakingTools	COST:5	WT:5		SOURCEPAGE:p.13	BONUS:SKILL|Craft (Poison Making)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 
 ###BLOCK: Ammunition
 # Equipment Name	Type							Cost		Source Page

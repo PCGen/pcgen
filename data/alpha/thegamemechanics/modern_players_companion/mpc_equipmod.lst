@@ -4,8 +4,8 @@ SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHO
 
 #Ammunition Modifiers
 # Modifier Name	Unique Key			Type			Cost			Visible		Keys to replace		Required Type	Special Property
-Hot Loads		KEY:AMMO_HOT_LOAD		TYPE:Ammunition	COST:BASECOST	VISIBLE:QUALIFY	REPLACES:AMMO_COLD_LOAD	PRETYPE:Bullet	SPROP:Hot loads do +1 point of damage	SPROP:If combined with ammunition that causes unreliability, such as AET, hot loads count as a seperate source of unreliability (e.g. AET hot loads will jam on a natural 1 or 2 on the attack roll)
-Cold Loads		KEY:AMMO_COLD_LOAD	TYPE:Ammunition	COST:1		VISIBLE:QUALIFY	REPLACES:AMMO_HOT_LOAD	PRETYPE:Bullet	SPROP:Cold loads suffer an additional -1 penalty for each range increment	SPROP:Required by some weapons to be really quiet
+Hot Loads		KEY:AMMO_HOT_LOAD		TYPE:Ammunition	COST:BASECOST	VISIBLE:QUALIFY	REPLACES:AMMO_COLD_LOAD	PRETYPE:1,Bullet	SPROP:Hot loads do +1 point of damage	SPROP:If combined with ammunition that causes unreliability, such as AET, hot loads count as a seperate source of unreliability (e.g. AET hot loads will jam on a natural 1 or 2 on the attack roll)
+Cold Loads		KEY:AMMO_COLD_LOAD	TYPE:Ammunition	COST:1		VISIBLE:QUALIFY	REPLACES:AMMO_HOT_LOAD	PRETYPE:1,Bullet	SPROP:Cold loads suffer an additional -1 penalty for each range increment	SPROP:Required by some weapons to be really quiet
 
 #Accelerated Energy Transfer	KEY:AMMO_AET		TYPE:Ammunition	COST:0												SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
 #Armor Piercing			KEY:AMMO_AP			TYPE:Ammunition	COST:0												SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)

@@ -1,31 +1,31 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Wed Mar 12 15:25:26 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Fantasy Folio - Masterwork Qualities	SOURCESHORT:MW Qual	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=6569&	SOURCEDATE:2006-03
 #Original Entry by: Paul W. King
 
 ###Block: Melee weapon qualities
-# Modifier Name	Unique Key		Type		Cost		Visible		Source Page		Multiple Requirements									Required Type					Combat bonus			BONUS:EQMWEAPON								Weapon prop. bonus	Special Property					Apply to both heads
-Custom Hilt		KEY:CUST_HILT	TYPE:Weapon	COST:15	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																					SPROP:+1 to resist disarm			ASSIGNTOALL:NO
-Flexible		KEY:FLEXIBLE	TYPE:Weapon	COST:40	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PREMULT:2,[PRETYPE:Masterwork,Weapon,Melee],[PRETYPE:Slasing|Piercing]																																		ASSIGNTOALL:NO
-Guard			KEY:GUARD		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Weapon,Melee,Masterwork																					SPROP:+1 to AC against melee			ASSIGNTOALL:NO
-Hook			KEY:HOOK		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																					SPROP:+1 to all trip attempts			ASSIGNTOALL:NO
-Multipart		KEY:MULTIPART	TYPE:Weapon	COST:40	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																												ASSIGNTOALL:YES
-Perfect Balance	KEY:PERF_BAL	TYPE:Weapon	COST:15	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee		BONUS:COMBAT|INITIATIVE|1																						ASSIGNTOALL:NO
-Perfect Edge	KEY:PERF_EDGE	TYPE:Weapon	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee,Slashing																BONUS:WEAPON|TOHIT|1								ASSIGNTOALL:NO
-Reinforced		KEY:REINFRCD_WEAP	TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																												ASSIGNTOALL:NO
-Serrated		KEY:SERRATED	TYPE:Weapon	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee,Slashing						BONUS:EQMWEAPON|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit												ASSIGNTOALL:NO
-Tassel		KEY:TASSLE		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																					SPROP:+1 to Bluff when feinting in combat	ASSIGNTOALL:NO
-Trap			KEY:TRAP		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2													PRETYPE:Masterwork,Weapon,Melee																					SPROP:+1 to disarm				ASSIGNTOALL:NO
+# Modifier Name	Unique Key		Type		Cost		Visible		Source Page		Multiple Requirements										Required Type						Combat bonus			BONUS:EQMWEAPON								Weapon prop. bonus	Special Property					Apply to both heads
+Custom Hilt		KEY:CUST_HILT	TYPE:Weapon	COST:15	VISIBLE:QUALIFY	SOURCEPAGE:p.2														PRETYPE:3,Masterwork,Weapon,Melee																						SPROP:+1 to resist disarm			ASSIGNTOALL:NO
+Flexible		KEY:FLEXIBLE	TYPE:Weapon	COST:40	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PREMULT:2,[PRETYPE:3,Masterwork,Weapon,Melee],[PRETYPE:1,Slasing,Piercing]																																			ASSIGNTOALL:NO
+Guard			KEY:GUARD		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2														PRETYPE:3,Weapon,Melee,Masterwork																						SPROP:+1 to AC against melee			ASSIGNTOALL:NO
+Hook			KEY:HOOK		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2														PRETYPE:3,Masterwork,Weapon,Melee																						SPROP:+1 to all trip attempts			ASSIGNTOALL:NO
+Multipart		KEY:MULTIPART	TYPE:Weapon	COST:40	VISIBLE:QUALIFY	SOURCEPAGE:p.2														PRETYPE:3,Masterwork,Weapon,Melee																													ASSIGNTOALL:YES
+Perfect Balance	KEY:PERF_BAL	TYPE:Weapon	COST:15	VISIBLE:QUALIFY	SOURCEPAGE:p.2														PRETYPE:3,Masterwork,Weapon,Melee			BONUS:COMBAT|INITIATIVE|1																						ASSIGNTOALL:NO
+Perfect Edge	KEY:PERF_EDGE	TYPE:Weapon	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.2														PRETYPE:4,Masterwork,Weapon,Melee,Slashing																BONUS:WEAPON|TOHIT|1								ASSIGNTOALL:NO
+Reinforced		KEY:REINFRCD_WEAP	TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2														PRETYPE:3,Masterwork,Weapon,Melee																													ASSIGNTOALL:NO
+Serrated		KEY:SERRATED	TYPE:Weapon	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.2														PRETYPE:4,Masterwork,Weapon,Melee,Slashing						BONUS:EQMWEAPON|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit												ASSIGNTOALL:NO
+Tassel		KEY:TASSLE		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2														PRETYPE:3,Masterwork,Weapon,Melee																						SPROP:+1 to Bluff when feinting in combat	ASSIGNTOALL:NO
+Trap			KEY:TRAP		TYPE:Weapon	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.2														PRETYPE:3,Masterwork,Weapon,Melee																						SPROP:+1 to disarm				ASSIGNTOALL:NO
 
 ###Block: Ranged weapon qualities
-# Modifier Name	Unique Key		Type			Cost		Visible		Source Page		Required Type					BONUS:EQMWEAPON									Weapon prop. bonus
-Balanced		KEY:BAL_THROWN	TYPE:Ammunition	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Thrown,Ammunition	BONUS:EQMWEAPON|RANGEADD|5
-Balanced		KEY:BAL_RANGE	TYPE:Ammunition	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Projectile,Ammunition	BONUS:EQMWEAPON|RANGEADD|10
-Barbed		KEY:BARBED		TYPE:Ammunition	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Ammunition,Arrow|Bolt
-Dire			KEY:DIRE		TYPE:Ammunition	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Ammunition,Arrow|Bolt	BONUS:EQMWEAPON|CRITRANGEADD|1	BONUS:EQMWEAPON|RANGEADD|-10	BONUS:WEAPON|TOHIT|-2
+# Modifier Name	Unique Key		Type			Cost		Visible		Source Page		Required Type								BONUS:EQMWEAPON									Weapon prop. bonus
+Balanced		KEY:BAL_THROWN	TYPE:Ammunition	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:3,Masterwork,Thrown,Ammunition				BONUS:EQMWEAPON|RANGEADD|5
+Balanced		KEY:BAL_RANGE	TYPE:Ammunition	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:3,Masterwork,Projectile,Ammunition			BONUS:EQMWEAPON|RANGEADD|10
+Barbed		KEY:BARBED		TYPE:Ammunition	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:2,Masterwork,Ammunition	PRETYPE:1,Arrow,Bolt
+Dire			KEY:DIRE		TYPE:Ammunition	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:2,Masterwork,Ammunition	PRETYPE:1,Arrow,Bolt	BONUS:EQMWEAPON|CRITRANGEADD|1	BONUS:EQMWEAPON|RANGEADD|-10	BONUS:WEAPON|TOHIT|-2
 
 ###Block: Armor qualities
-# Modifier Name	Unique Key		Type		Cost		Visible		Source Page		Required Type					BONUS:EQMARMOR		Special Property
-Reinforced		KEY:REINFRCD_ARMR	TYPE:Armor	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Armor
-Articulated		KEY:ARTICULATED	TYPE:Armor	COST:30	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Armor,Heavy		BONUS:EQMARMOR|MAXDEX|1
-Fortified		KEY:FORTIFIED	TYPE:Armor	COST:15	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterowrk,Armor,Medium|Heavy
-Insulated		KEY:INSULATED	TYPE:Armor	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:Masterwork,Armor							SPROP:Cold resistance 2
+# Modifier Name	Unique Key		Type		Cost		Visible		Source Page		Required Type							BONUS:EQMARMOR		Special Property
+Reinforced		KEY:REINFRCD_ARMR	TYPE:Armor	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:2,Masterwork,Armor
+Articulated		KEY:ARTICULATED	TYPE:Armor	COST:30	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:3,Masterwork,Armor,Heavy				BONUS:EQMARMOR|MAXDEX|1
+Fortified		KEY:FORTIFIED	TYPE:Armor	COST:15	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:2,Masterowrk,Armor	PRETYPE:1,Medium,Heavy
+Insulated		KEY:INSULATED	TYPE:Armor	COST:10	VISIBLE:QUALIFY	SOURCEPAGE:p.3	PRETYPE:2,Masterwork,Armor									SPROP:Cold resistance 2

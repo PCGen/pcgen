@@ -23,12 +23,12 @@ EXCLUDEEQ_PHB	VISIBLE:NO	ITYPE:Masterwork.Adamantine
 
 ###Block:Weapon
 # Modifier Name	Type		Cost			Keys to replace	Source Page		Required Item		Required Type	BONUS:EQMWEAPON						Bonus to skill		Weapon prop. bonus
-Engraved		TYPE:Weapon	COST:BASECOST/5				SOURCEPAGE:p.65					PRETYPE:Firearm
-Gold-inlaid		TYPE:Weapon	COST:BASECOST/4	REPLACES:Engraved	SOURCEPAGE:p.65					PRETYPE:Firearm
-Hardin's Card	TYPE:Weapon	COST:0					SOURCEPAGE:p.197	PREITEM:1,Hardin's Card	PRETYPE:Pistol													BONUS:WEAPON|TOHIT|2|TYPE=ENHANCEMENT
-Ivory-handled	TYPE:Weapon	COST:10					SOURCEPAGE:p.65					PRETYPE:Firearm
-Long barrel		TYPE:Weapon	COST:15					SOURCEPAGE:p.64					PRETYPE:Firearm	BONUS:EQMWEAPON|RANGEADD|5|TYPE=CONVERSION	BONUS:SKILL|Holdout|-2
-Nickel-plated	TYPE:Weapon	COST:BASECOST				SOURCEPAGE:p.65					PRETYPE:Firearm
-Pearl-handled	TYPE:Weapon	COST:10					SOURCEPAGE:p.65					PRETYPE:Firearm
-Short barrel	TYPE:Weapon	COST:5					SOURCEPAGE:p.65					PRETYPE:Firearm	BONUS:EQMWEAPON|RANGEADD|-5|TYPE=CONVERSION	BONUS:SKILL|Holdout|2
-Silver-plated	TYPE:Weapon	COST:BASECOST*2				SOURCEPAGE:p.65					PRETYPE:Firearm
+Engraved		TYPE:Weapon	COST:BASECOST/5				SOURCEPAGE:p.65					PRETYPE:1,Firearm
+Gold-inlaid		TYPE:Weapon	COST:BASECOST/4	REPLACES:Engraved	SOURCEPAGE:p.65					PRETYPE:1,Firearm
+Hardin's Card	TYPE:Weapon	COST:0					SOURCEPAGE:p.197	PREITEM:1,Hardin's Card	PRETYPE:1,Pistol													BONUS:WEAPON|TOHIT|2|TYPE=ENHANCEMENT
+Ivory-handled	TYPE:Weapon	COST:10					SOURCEPAGE:p.65					PRETYPE:1,Firearm
+Long barrel		TYPE:Weapon	COST:15					SOURCEPAGE:p.64					PRETYPE:1,Firearm	BONUS:EQMWEAPON|RANGEADD|5|TYPE=CONVERSION	BONUS:SKILL|Holdout|-2
+Nickel-plated	TYPE:Weapon	COST:BASECOST				SOURCEPAGE:p.65					PRETYPE:1,Firearm
+Pearl-handled	TYPE:Weapon	COST:10					SOURCEPAGE:p.65					PRETYPE:1,Firearm
+Short barrel	TYPE:Weapon	COST:5					SOURCEPAGE:p.65					PRETYPE:1,Firearm	BONUS:EQMWEAPON|RANGEADD|-5|TYPE=CONVERSION	BONUS:SKILL|Holdout|2
+Silver-plated	TYPE:Weapon	COST:BASECOST*2				SOURCEPAGE:p.65					PRETYPE:1,Firearm

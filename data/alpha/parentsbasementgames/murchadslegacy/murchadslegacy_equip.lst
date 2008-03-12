@@ -23,7 +23,7 @@ Chain (Spiked/Elongated)	OUTPUTNAME:Chain, Spiked	PROFICIENCY:WEAPON|Chain (Spik
 
 ###Block: Tools
 # Equipment Name			Type							Cost		Weight	Source Page		Bonus to skill
-Artisan's Tools (Gunsmithing)	TYPE:Goods.Tools.Artisan.GunsmithingTools	COST:5	WT:5		SOURCEPAGE:p.36	BONUS:SKILL|Craft (Gunsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Gunsmithing)	TYPE:Goods.Tools.Artisan.GunsmithingTools	COST:5	WT:5		SOURCEPAGE:p.36	BONUS:SKILL|Craft (Gunsmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 
 #
 # End

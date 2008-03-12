@@ -129,7 +129,7 @@ CLASS:Fey Prankster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Fey-Touched	HD:6		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat			Required Skill			Prohibited Type
-CLASS:Fey-Touched	PREATT:4	PREFEAT:2,Alertness,Dodge	PRESKILL:1,Knowledge (Fey)=5	!PRETYPE:Fey
+CLASS:Fey-Touched	PREATT:4	PREFEAT:2,Alertness,Dodge	PRESKILL:1,Knowledge (Fey)=5	!PRETYPE:1,Fey
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Information|Hide|Innuendo|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Sense Motive|Spellcraft|Spot
 1	VISION:Low-light	SAB:Fey Sense (Su)										AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
@@ -146,7 +146,7 @@ CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Fey	HD:10		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL			Req. Att.	Required Feat												Required Skill														Required Type
-CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:5,Armor Proficiency (Heavy),Power Attack,Cleave,Great Cleave,Mounted Combat	PRESKILL:2,Diplomacy,Ride=4	PRESKILL:2,Knowledge (Fey),Knowledge (Nobility and Royalty)=5	PRETYPE:Fey
+CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:5,Armor Proficiency (Heavy),Power Attack,Cleave,Great Cleave,Mounted Combat	PRESKILL:2,Diplomacy,Ride=4	PRESKILL:2,Knowledge (Fey),Knowledge (Nobility and Royalty)=5	PRETYPE:1,Fey
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Fey)|Knowledge (Nobility and Royalty)|Ride|Spot
 ###Block: Proficiencies
@@ -185,7 +185,7 @@ CLASS:Mage of the Circle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mortal Slayer	HD:10		TYPE:PC.Prestige	ABB:MSl		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat								Required Skill							Required Type
-CLASS:Mortal Slayer	PREATT:6	PREFEAT:3,Improved Initiative,Mounted Combat,Quick Draw	PRESKILL:2,Knowledge (Fey),Knowledge (Folk Tales)=8	PRETYPE:Fey
+CLASS:Mortal Slayer	PREATT:6	PREFEAT:3,Improved Initiative,Mounted Combat,Quick Draw	PRESKILL:2,Knowledge (Fey),Knowledge (Folk Tales)=8	PRETYPE:1,Fey
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mortal Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level

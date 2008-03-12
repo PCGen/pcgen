@@ -3,7 +3,7 @@ SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.nec
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
 # Modifier Name	Unique Key	Type			Plus		Visible		Source Page		Required Type						Special Property
-Crushing		KEY:CRUSH	TYPE:Weapon.Melee	PLUS:5	VISIBLE:QUALIFY	SOURCEPAGE:p. 118	PRETYPE:Enhancement,Weapon,Melee,Bludgeoning	SPROP:Crushes opponents skull on natural 20 critical hit
+Crushing		KEY:CRUSH	TYPE:Weapon.Melee	PLUS:5	VISIBLE:QUALIFY	SOURCEPAGE:p. 118	PRETYPE:4,Enhancement,Weapon,Melee,Bludgeoning	SPROP:Crushes opponents skull on natural 20 critical hit
 Smiting		KEY:SMITE	TYPE:Weapon.Melee	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p. 13									SPROP:+2 enhancement bonus against constructs.  Any critical destroys construct.  Any critical on an outsider does x4.
 Telescoping		KEY:TELE	TYPE:Weapon.Melee	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p. 140									SPROP:Increase range by 10 feet as a free action.
 
