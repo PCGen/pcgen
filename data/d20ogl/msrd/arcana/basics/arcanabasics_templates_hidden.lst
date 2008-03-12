@@ -6,58 +6,58 @@ Shadowkind		VISIBLE:NO	SOURCEPAGE:ArcanaShadowkind.rtf	SAB:Shadowkind	SAB:Can on
 
 ###Block: Celestial Immunities
 # Template Name			Visible	Source Page					Special ABility				Prohibited Template
-Acid Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Acid Immunity (Ex)			!PRETEMPLATE:Acid Resistance 10	!PRETEMPLATE:Acid Resistance 20
+Acid Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Acid Immunity (Ex)			!PRETEMPLATE:1,Acid Resistance 10	!PRETEMPLATE:1,Acid Resistance 20
 Ballistic Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Ballistic Immunity (Ex)
-Cold Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Cold Immunity (Ex)			!PRETEMPLATE:Cold Resistance 10	!PRETEMPLATE:Cold Resistance 20
-Electricity Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Electricity Immunity (Ex)		!PRETEMPLATE:Electricty Resistance 10	!PRETEMPLATE:Electricty Resistance 20
-Fire Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Fire Immunity (Ex)			!PRETEMPLATE:Fire Resistance 10	!PRETEMPLATE:Fire Resistance 20
+Cold Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Cold Immunity (Ex)			!PRETEMPLATE:1,Cold Resistance 10	!PRETEMPLATE:1,Cold Resistance 20
+Electricity Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Electricity Immunity (Ex)		!PRETEMPLATE:1,Electricty Resistance 10	!PRETEMPLATE:1,Electricty Resistance 20
+Fire Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Fire Immunity (Ex)			!PRETEMPLATE:1,Fire Resistance 10	!PRETEMPLATE:1,Fire Resistance 20
 Piercing Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Piercing Immunity (Ex)
 Poison Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Poison Immunity (Ex)
 Radiation Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Radiation Immunity (Ex)
 Slashing Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Slashing Immunity (Ex)
-Sonic/Concussion Immunity	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Sonic/Concussion Immunity (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 10	!PRETEMPLATE:Sonic/Concussion Resistance 20
+Sonic/Concussion Immunity	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Sonic/Concussion Immunity (Ex)	!PRETEMPLATE:1,Sonic/Concussion Resistance 10	!PRETEMPLATE:1,Sonic/Concussion Resistance 20
 
 ###Block: Celestial Resistances
 # Template Name				Visible	Source Page					Special ABility					Prohibited Template
-Acid Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Acid Resistance 10 (Ex)			!PRETEMPLATE:Acid Resistance 20	!PRETEMPLATE:Acid Immunity
-Acid Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Acid Resistance 20 (Ex)			!PRETEMPLATE:Acid Resistance 10	!PRETEMPLATE:Acid Immunity
-Cold Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Cold Resistance 10 (Ex)			!PRETEMPLATE:Cold Resistance 20	!PRETEMPLATE:Cold Immunity
-Cold Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Cold Resistance 20 (Ex)			!PRETEMPLATE:Cold Resistance 10	!PRETEMPLATE:Cold Immunity
-Electricity Resistance 10		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Electricity Resistance 10 (Ex)		!PRETEMPLATE:Electricity Resistance 20	!PRETEMPLATE:Electricity Immunity
-Electricity Resistance 20		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Electricity Resistance 20 (Ex)		!PRETEMPLATE:Electricity Resistance 10	!PRETEMPLATE:Electricity Immunity
-Fire Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Fire Resistance 10 (Ex)			!PRETEMPLATE:Fire Resistance 20	!PRETEMPLATE:Fire Immunity
-Fire Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Fire Resistance 20 (Ex)			!PRETEMPLATE:Fire Resistance 10	!PRETEMPLATE:Fire Immunity
-Sonic/Concussion Resistance 10	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Sonic/Concussion Resistance 10 (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 20	!PRETEMPLATE:Sonic/Concussion Immunity
-Sonic/Concussion Resistance 20	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Sonic/Concussion Resistance 20 (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 10	!PRETEMPLATE:Sonic/Concussion Immunity
+Acid Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Acid Resistance 10 (Ex)			!PRETEMPLATE:1,Acid Resistance 20	!PRETEMPLATE:1,Acid Immunity
+Acid Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Acid Resistance 20 (Ex)			!PRETEMPLATE:1,Acid Resistance 10	!PRETEMPLATE:1,Acid Immunity
+Cold Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Cold Resistance 10 (Ex)			!PRETEMPLATE:1,Cold Resistance 20	!PRETEMPLATE:1,Cold Immunity
+Cold Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Cold Resistance 20 (Ex)			!PRETEMPLATE:1,Cold Resistance 10	!PRETEMPLATE:1,Cold Immunity
+Electricity Resistance 10		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Electricity Resistance 10 (Ex)		!PRETEMPLATE:1,Electricity Resistance 20	!PRETEMPLATE:1,Electricity Immunity
+Electricity Resistance 20		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Electricity Resistance 20 (Ex)		!PRETEMPLATE:1,Electricity Resistance 10	!PRETEMPLATE:1,Electricity Immunity
+Fire Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Fire Resistance 10 (Ex)			!PRETEMPLATE:1,Fire Resistance 20	!PRETEMPLATE:1,Fire Immunity
+Fire Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Fire Resistance 20 (Ex)			!PRETEMPLATE:1,Fire Resistance 10	!PRETEMPLATE:1,Fire Immunity
+Sonic/Concussion Resistance 10	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Sonic/Concussion Resistance 10 (Ex)	!PRETEMPLATE:1,Sonic/Concussion Resistance 20	!PRETEMPLATE:1,Sonic/Concussion Immunity
+Sonic/Concussion Resistance 20	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SAB:Sonic/Concussion Resistance 20 (Ex)	!PRETEMPLATE:1,Sonic/Concussion Resistance 10	!PRETEMPLATE:1,Sonic/Concussion Immunity
 
 ###Block: DR
 # Template Name	Visible	Damage Reduction	Source Page					Prohibited Template
-5/silver		VISIBLE:NO	DR:5/Silver		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Silver	!PRETEMPLATE:15/Silver
-10/silver		VISIBLE:NO	DR:10/Silver	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Silver	!PRETEMPLATE:15/Silver
-20/silver		VISIBLE:NO	DR:20/Silver	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Silver	!PRETEMPLATE:10/Silver
-5/wood		VISIBLE:NO	DR:5/Wood		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Wood	!PRETEMPLATE:15/Wood
-10/wood		VISIBLE:NO	DR:10/Wood		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Wood	!PRETEMPLATE:15/Wood
-20/wood		VISIBLE:NO	DR:20/Wood		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Wood	!PRETEMPLATE:10/Wood
-5/ballistic		VISIBLE:NO	DR:5/Ballistic	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Ballistic	!PRETEMPLATE:15/Ballistic
-10/ballistic	VISIBLE:NO	DR:10/Ballistic	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Ballistic	!PRETEMPLATE:15/Ballistic
-20/ballistic	VISIBLE:NO	DR:20/Ballistic	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Ballistic	!PRETEMPLATE:10/Ballistic
-5/bludgeoning	VISIBLE:NO	DR:5/Bludgeoning	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Bludgeoning	!PRETEMPLATE:15/Bludgeoning
-10/bludgeoning	VISIBLE:NO	DR:10/Bludgeoning	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Bludgeoning	!PRETEMPLATE:15/Bludgeoning
-20/bludgeoning	VISIBLE:NO	DR:20/Bludgeoning	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Bludgeoning	!PRETEMPLATE:10/Bludgeoning
-5/piercing		VISIBLE:NO	DR:5/Piercing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Piercing	!PRETEMPLATE:15/Piercing
-10/piercing		VISIBLE:NO	DR:10/Piercing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Piercing	!PRETEMPLATE:15/Piercing
-20/piercing		VISIBLE:NO	DR:20/Piercing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Piercing	!PRETEMPLATE:10/Piercing
-5/slashing		VISIBLE:NO	DR:5/Slashing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Slashing	!PRETEMPLATE:15/Slashing
-10/slashing		VISIBLE:NO	DR:10/Slashing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Slashing	!PRETEMPLATE:15/Slashing
-20/slashing		VISIBLE:NO	DR:20/Slashing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Slashing	!PRETEMPLATE:10/Slashing
-5/+1			VISIBLE:NO	DR:5/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
-10/+1			VISIBLE:NO	DR:10/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
-15/+1			VISIBLE:NO	DR:15/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
-20/+1			VISIBLE:NO	DR:20/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
-5/+2			VISIBLE:NO	DR:5/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
-10/+2			VISIBLE:NO	DR:10/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
-15/+2			VISIBLE:NO	DR:15/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:20/+2
-20/+2			VISIBLE:NO	DR:20/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2
+5/silver		VISIBLE:NO	DR:5/Silver		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,10/Silver	!PRETEMPLATE:1,15/Silver
+10/silver		VISIBLE:NO	DR:10/Silver	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Silver	!PRETEMPLATE:1,15/Silver
+20/silver		VISIBLE:NO	DR:20/Silver	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Silver	!PRETEMPLATE:1,10/Silver
+5/wood		VISIBLE:NO	DR:5/Wood		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,10/Wood	!PRETEMPLATE:1,15/Wood
+10/wood		VISIBLE:NO	DR:10/Wood		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Wood	!PRETEMPLATE:1,15/Wood
+20/wood		VISIBLE:NO	DR:20/Wood		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Wood	!PRETEMPLATE:1,10/Wood
+5/ballistic		VISIBLE:NO	DR:5/Ballistic	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,10/Ballistic	!PRETEMPLATE:1,15/Ballistic
+10/ballistic	VISIBLE:NO	DR:10/Ballistic	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Ballistic	!PRETEMPLATE:1,15/Ballistic
+20/ballistic	VISIBLE:NO	DR:20/Ballistic	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Ballistic	!PRETEMPLATE:1,10/Ballistic
+5/bludgeoning	VISIBLE:NO	DR:5/Bludgeoning	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,10/Bludgeoning	!PRETEMPLATE:1,15/Bludgeoning
+10/bludgeoning	VISIBLE:NO	DR:10/Bludgeoning	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Bludgeoning	!PRETEMPLATE:1,15/Bludgeoning
+20/bludgeoning	VISIBLE:NO	DR:20/Bludgeoning	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Bludgeoning	!PRETEMPLATE:1,10/Bludgeoning
+5/piercing		VISIBLE:NO	DR:5/Piercing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,10/Piercing	!PRETEMPLATE:1,15/Piercing
+10/piercing		VISIBLE:NO	DR:10/Piercing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Piercing	!PRETEMPLATE:1,15/Piercing
+20/piercing		VISIBLE:NO	DR:20/Piercing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Piercing	!PRETEMPLATE:1,10/Piercing
+5/slashing		VISIBLE:NO	DR:5/Slashing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,10/Slashing	!PRETEMPLATE:1,15/Slashing
+10/slashing		VISIBLE:NO	DR:10/Slashing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Slashing	!PRETEMPLATE:1,15/Slashing
+20/slashing		VISIBLE:NO	DR:20/Slashing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/Slashing	!PRETEMPLATE:1,10/Slashing
+5/+1			VISIBLE:NO	DR:5/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,10/+1	!PRETEMPLATE:1,15/+1	!PRETEMPLATE:1,20/+1	!PRETEMPLATE:1,5/+2	!PRETEMPLATE:1,10/+2	!PRETEMPLATE:1,15/+2	!PRETEMPLATE:1,20/+2
+10/+1			VISIBLE:NO	DR:10/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/+1	!PRETEMPLATE:1,15/+1	!PRETEMPLATE:1,20/+1	!PRETEMPLATE:1,5/+2	!PRETEMPLATE:1,10/+2	!PRETEMPLATE:1,15/+2	!PRETEMPLATE:1,20/+2
+15/+1			VISIBLE:NO	DR:15/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/+1	!PRETEMPLATE:1,10/+1	!PRETEMPLATE:1,20/+1	!PRETEMPLATE:1,5/+2	!PRETEMPLATE:1,10/+2	!PRETEMPLATE:1,15/+2	!PRETEMPLATE:1,20/+2
+20/+1			VISIBLE:NO	DR:20/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/+1	!PRETEMPLATE:1,10/+1	!PRETEMPLATE:1,15/+1	!PRETEMPLATE:1,5/+2	!PRETEMPLATE:1,10/+2	!PRETEMPLATE:1,15/+2	!PRETEMPLATE:1,20/+2
+5/+2			VISIBLE:NO	DR:5/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/+1	!PRETEMPLATE:1,10/+1	!PRETEMPLATE:1,15/+1	!PRETEMPLATE:1,20/+1	!PRETEMPLATE:1,10/+2	!PRETEMPLATE:1,15/+2	!PRETEMPLATE:1,20/+2
+10/+2			VISIBLE:NO	DR:10/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/+1	!PRETEMPLATE:1,10/+1	!PRETEMPLATE:1,15/+1	!PRETEMPLATE:1,20/+1	!PRETEMPLATE:1,5/+2	!PRETEMPLATE:1,15/+2	!PRETEMPLATE:1,20/+2
+15/+2			VISIBLE:NO	DR:15/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/+1	!PRETEMPLATE:1,10/+1	!PRETEMPLATE:1,15/+1	!PRETEMPLATE:1,20/+1	!PRETEMPLATE:1,5/+2	!PRETEMPLATE:1,10/+2	!PRETEMPLATE:1,20/+2
+20/+2			VISIBLE:NO	DR:20/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:1,5/+1	!PRETEMPLATE:1,10/+1	!PRETEMPLATE:1,15/+1	!PRETEMPLATE:1,20/+1	!PRETEMPLATE:1,5/+2	!PRETEMPLATE:1,10/+2	!PRETEMPLATE:1,15/+2
 
 ###Block: Demonic Auto
 # Template Name	Damage Reduction	Template						Source Page					Special ABility							Type				Vision
