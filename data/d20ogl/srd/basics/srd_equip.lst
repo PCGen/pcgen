@@ -123,26 +123,26 @@ Saddlebags				TYPE:Goods.Container.Mount.Resizable	CONTAINS:UNLIM|Any=UNLIM	COST
 # Equipment Name				Type									Number of Pages	Page Usage				Cost		Weight	Modifier					Source Page				Bonus to skill																					Special Property
 Alchemist's Lab				TYPE:Goods.Tools.Resizable													COST:500	WT:40		EQMOD:MWORKT|Alchemy			SOURCEPAGE:SRDEquipmentII.rtf
 Alchemy materials				TYPE:Goods.Tools.Resizable													COST:1	WT:0								SOURCEPAGE:SRDEquipmentII.rtf
-Artisan's Tools (Armorsmithing)	TYPE:Goods.Tools.Artisan.ArmorsmithingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Armorsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Basketweaving)	TYPE:Goods.Tools.Artisan.BasketweavingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Basketweaving)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Bookbinding)		TYPE:Goods.Tools.Artisan.BookbindingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Bookbinding)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Bowmaking)		TYPE:Goods.Tools.Artisan.BowmakingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Bowmaking)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Blacksmithing)	TYPE:Goods.Tools.Artisan.BlacksmithingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Blacksmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Calligraphy)		TYPE:Goods.Tools.Artisan.CalligraphyTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Calligraphy)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Carpentry)		TYPE:Goods.Tools.Artisan.CarpentryTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Cobbling)		TYPE:Goods.Tools.Artisan.CobblingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Cobbling)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Gemcutting)		TYPE:Goods.Tools.Artisan.GemcuttingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Gemcutting)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Leatherworking)	TYPE:Goods.Tools.Artisan.LeatherworkingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Leatherworking)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Locksmithing)	TYPE:Goods.Tools.Artisan.LocksmithingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Locksmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Painting)		TYPE:Goods.Tools.Artisan.PaintingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Painting)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Pottery)		TYPE:Goods.Tools.Artisan.PotteryTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Sculpture)		TYPE:Goods.Tools.Artisan.SculptureTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Sculpture)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Shipmaking)		TYPE:Goods.Tools.Artisan.ShipmakingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Shipmaking)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Stoneworking)	TYPE:Goods.Tools.Artisan.StoneworkingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Stoneworking)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Trapmaking)		TYPE:Goods.Tools.Artisan.TrapmakingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Trapmaking)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Weaponsmithing)	TYPE:Goods.Tools.Artisan.WeaponsmithingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Weaponsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Weaving)		TYPE:Goods.Tools.Artisan.WeavingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Weaving)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Untrained)		TYPE:Goods.Tools.Artisan.UntrainedTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Untrained)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Armorsmithing)	TYPE:Goods.Tools.Artisan.ArmorsmithingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Armorsmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Basketweaving)	TYPE:Goods.Tools.Artisan.BasketweavingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Basketweaving)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Bookbinding)		TYPE:Goods.Tools.Artisan.BookbindingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Bookbinding)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Bowmaking)		TYPE:Goods.Tools.Artisan.BowmakingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Bowmaking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Blacksmithing)	TYPE:Goods.Tools.Artisan.BlacksmithingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Blacksmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Calligraphy)		TYPE:Goods.Tools.Artisan.CalligraphyTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Calligraphy)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Carpentry)		TYPE:Goods.Tools.Artisan.CarpentryTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Cobbling)		TYPE:Goods.Tools.Artisan.CobblingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Cobbling)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Gemcutting)		TYPE:Goods.Tools.Artisan.GemcuttingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Gemcutting)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Leatherworking)	TYPE:Goods.Tools.Artisan.LeatherworkingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Leatherworking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Locksmithing)	TYPE:Goods.Tools.Artisan.LocksmithingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Locksmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Painting)		TYPE:Goods.Tools.Artisan.PaintingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Painting)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Pottery)		TYPE:Goods.Tools.Artisan.PotteryTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Sculpture)		TYPE:Goods.Tools.Artisan.SculptureTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Sculpture)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Shipmaking)		TYPE:Goods.Tools.Artisan.ShipmakingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Shipmaking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Stoneworking)	TYPE:Goods.Tools.Artisan.StoneworkingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Stoneworking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Trapmaking)		TYPE:Goods.Tools.Artisan.TrapmakingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Trapmaking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Weaponsmithing)	TYPE:Goods.Tools.Artisan.WeaponsmithingTools										COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Weaponsmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Weaving)		TYPE:Goods.Tools.Artisan.WeavingTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Weaving)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Untrained)		TYPE:Goods.Tools.Artisan.UntrainedTools											COST:5	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Untrained)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Climber's Kit				TYPE:Goods.Tools.Resizable													COST:80	WT:5								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Climb|2|TYPE=Circumstance
 Disguise Kit				TYPE:Goods.Tools.Resizable.Consumable											COST:50	WT:8								SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Disguise|2|TYPE=Circumstance
 Healer's Kit				TYPE:Goods.Tools															COST:50	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Heal|2|TYPE=Circumstance
@@ -166,7 +166,7 @@ Musical Instrument (Shawm)		TYPE:Goods.Instrument.Wind.Resizable											COST:
 Musical Instrument (Trumpet)		TYPE:Goods.Instrument.Metal.Wind.Resizable										COST:5	WT:3		EQMOD:BRASS					SOURCEPAGE:SRDEquipmentII.rtf
 Scale (Merchant's)			TYPE:Goods.Tools.Resizable													COST:2	WT:1		EQMOD:BRASS					SOURCEPAGE:SRDEquipmentII.rtf
 Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Resizable.Spellbook			NUMPAGES:100	PAGEUSAGE:max(2*SPELLLEVEL,1)	COST:15	WT:3		EQMOD:LEATHER.PAPER			SOURCEPAGE:SRDEquipmentII.rtf
-Thieves' Tools				TYPE:Goods.Tools.Resizable.Thief.ThiefTools										COST:30	WT:1		EQMOD:IRON					SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Disable Device,Open Lock|0|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|2|TYPE=Circumstance|PRETYPE:Masterwork
+Thieves' Tools				TYPE:Goods.Tools.Resizable.Thief.ThiefTools										COST:30	WT:1		EQMOD:IRON					SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Disable Device,Open Lock|0|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Waterclock					TYPE:Goods.Tools.Resizable													COST:1000	WT:200							SOURCEPAGE:SRDEquipmentII.rtf
 
 ###Block:Trade Goods

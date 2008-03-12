@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 15 15:31:36 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Mar 11 21:56:05 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Specific Templates used in monster races
 #
@@ -18,11 +18,11 @@ Dragon(Silver)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5
 ###Block: Animated Objects
 # Template Name	Visible		Source Page				Special ABility					Required Race			Prohibited Template							Add to base move			MOVECLONE			Removable?
 Float			VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Float			PRERACE:1,Animated Object%																MOVECLONE:Walk,Swim,/2	REMOVABLE:YES
-Multiple Legs	VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Multiple Legs	PRERACE:1,Animated Object%	!PRETEMPLATE:Two Legs|Wheeled|Sheet-like				BONUS:MOVEADD|TYPE.Walk|20					REMOVABLE:YES
-Sheet-like		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Sheet-like		PRERACE:1,Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Multiple Legs|Sinuous							MOVECLONE:Walk,Fly,/2	REMOVABLE:YES
-Sinuous		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Sinuous		PRERACE:1,Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Sheet-like									MOVECLONE:Walk,Climb,/2	REMOVABLE:YES
-Two Legs		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Two Legs		PRERACE:1,Animated Object%	!PRETEMPLATE:Multiple Legs|Wheeled|Sinuous|Sheet-like		BONUS:MOVEADD|TYPE.Walk|10					REMOVABLE:YES
-Wheeled		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Wheeled		PRERACE:1,Animated Object%	!PRETEMPLATE:Two Legs|Multiple Legs|Sinuous|Sheet-like	BONUS:MOVEADD|TYPE.Walk|40					REMOVABLE:YES
+Multiple Legs	VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Multiple Legs	PRERACE:1,Animated Object%	!PRETEMPLATE:1,Two Legs,Wheeled,Sheet-like			BONUS:MOVEADD|TYPE.Walk|20					REMOVABLE:YES
+Sheet-like		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Sheet-like		PRERACE:1,Animated Object%	!PRETEMPLATE:1,Wheeled,Two Legs,Multiple Legs,Sinuous							MOVECLONE:Walk,Fly,/2	REMOVABLE:YES
+Sinuous		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Sinuous		PRERACE:1,Animated Object%	!PRETEMPLATE:1,Wheeled,Two Legs,Sheet-like								MOVECLONE:Walk,Climb,/2	REMOVABLE:YES
+Two Legs		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Two Legs		PRERACE:1,Animated Object%	!PRETEMPLATE:1,Multiple Legs,Wheeled,Sinuous,Sheet-like	BONUS:MOVEADD|TYPE.Walk|10					REMOVABLE:YES
+Wheeled		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SAB:Improved Speed(Ex) Wheeled		PRERACE:1,Animated Object%	!PRETEMPLATE:1,Two Legs,Multiple Legs,Sinuous,Sheet-like	BONUS:MOVEADD|TYPE.Walk|40					REMOVABLE:YES
 #
 ###Block: Demon/Devil
 # Template Name	Visible	Source Page				Special ABility																Required AL	Removable?		SUBRACE
@@ -39,12 +39,12 @@ Hunting		VISIBLE:NO	SOURCEPAGE:srdmonstersvermin.rtf																												
 Web Spinning	VISIBLE:NO	SOURCEPAGE:srdmonstersvermin.rtf	SAB:Web(Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|14	DEFINE:MonstrousSpiderWebBreakDC|20	DEFINE:MonstrousSpiderWebHp|0						BONUS:SKILL|Hide,Spot|4|TYPE=Racial													BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|2|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|4|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|6|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|12|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|14|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|16|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|18|PRESIZEEQ:C	REMOVABLE:YES	SUBRACE:Yes
 #
 ###Block: Hydra Variants
-# Template Name		CR	Visible	Source Page				Special ABility																																										Prohibited Template				Removable?		SUBRACE
-Pyrohydra			CR:1	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Fire Subtype(Ex)	SAB:Fire Jets(Ex) once every 1d4 rounds per head - 3d6 fire per jet																													!PRETEMPLATE:Cyrohydra|Lernaean Cryohydra	REMOVABLE:YES	SUBRACE:Yes
-Cryohydra			CR:1	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Cold Subtype(Ex)	SAB:Frost Jets(Ex) once every 1d4 rounds per head - 3d6 cold per jet																													!PRETEMPLATE:Pyrohydra|Lernaean Pyrohydra	REMOVABLE:YES	SUBRACE:Yes
-Lernaean			CR:2	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds																								REMOVABLE:YES	SUBRACE:Yes
-Lernaean Pyrohydra	CR:3	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds	SAB:Fire Subtype(Ex)	SAB:Fire Jets(Ex) once every 1d4 rounds per head - 3d6 fire per jet	!PRETEMPLATE:Cyrohydra|Lernaean Cryohydra	REMOVABLE:YES	SUBRACE:Yes
-Lernaean Cryohydra	CR:3	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds	SAB:Cold Subtype(Ex)	SAB:Frost Jets(Ex) once every 1d4 rounds per head - 3d6 cold per jet	!PRETEMPLATE:Pyrohydra|Lernaean Pyrohydra	REMOVABLE:YES	SUBRACE:Yes
+# Template Name		CR	Visible	Source Page				Special ABility																																										Prohibited Template					Removable?		SUBRACE
+Pyrohydra			CR:1	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Fire Subtype(Ex)	SAB:Fire Jets(Ex) once every 1d4 rounds per head - 3d6 fire per jet																													!PRETEMPLATE:1,Cyrohydra,Lernaean Cryohydra	REMOVABLE:YES	SUBRACE:Yes
+Cryohydra			CR:1	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Cold Subtype(Ex)	SAB:Frost Jets(Ex) once every 1d4 rounds per head - 3d6 cold per jet																													!PRETEMPLATE:1,Pyrohydra,Lernaean Pyrohydra	REMOVABLE:YES	SUBRACE:Yes
+Lernaean			CR:2	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds																									REMOVABLE:YES	SUBRACE:Yes
+Lernaean Pyrohydra	CR:3	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds	SAB:Fire Subtype(Ex)	SAB:Fire Jets(Ex) once every 1d4 rounds per head - 3d6 fire per jet	!PRETEMPLATE:1,Cyrohydra,Lernaean Cryohydra	REMOVABLE:YES	SUBRACE:Yes
+Lernaean Cryohydra	CR:3	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds	SAB:Cold Subtype(Ex)	SAB:Frost Jets(Ex) once every 1d4 rounds per head - 3d6 cold per jet	!PRETEMPLATE:1,Pyrohydra,Lernaean Pyrohydra	REMOVABLE:YES	SUBRACE:Yes
 #
 ###Block: Drow Genders
 # Template Name	Visible	Source Page				Required Race		Stat bonus		FAVOREDCLASS		Removable?		SUBRACE		GENDERLOCK
