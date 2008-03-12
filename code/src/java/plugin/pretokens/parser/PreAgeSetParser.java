@@ -28,6 +28,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.util.Logging;
 
 /**
  * @author perchrh
@@ -57,6 +58,8 @@ implements PrerequisiteParserInterface
 		//Operand should be either an integer or a recognizable String
 		try{
 			Integer.parseInt(formula);
+			Logging.errorPrint("You are using an old form of PREAGESET,"
+					+ " you should use the age set name, e.g.: PREAGESET:1,Old");
 		}
 		catch (NumberFormatException exc){
 			prereq.setOperand(formula); //assume recognizable String for now
