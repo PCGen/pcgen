@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  7 17:28:07 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -8,7 +8,7 @@ SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.parad
 CLASS:Arcane Archer.MOD	PRE:.CLEAR		PREATT:6	PREFEAT:2,Point Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus(Longbow),Weapon Focus(Shortbow)	PRERACE:1,Elorii	PRESPELLTYPE:1,Arcane=1
 
 # Class Name			Required Template
-CLASS:Eldritch Knight.MOD	PRETEMPLATE:Hawk,Shield
+CLASS:Eldritch Knight.MOD	PRETEMPLATE:1,Hawk,Shield
 
 # Class Name		Required Deity
 CLASS:Thaumaturgist.MOD	PREDEITY:Sarish
@@ -287,7 +287,7 @@ CLASS:Combat Style (Sword that Believes)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Di
 # Class Name				Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Emerald Society Archaeologist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:ESArc		MAXLEVEL:6	SOURCEPAGE:p.185	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name				Required Feat							Req. Special Ability	!PRESA			Required Skill																														Required Template
-CLASS:Emerald Society Archaeologist	PREFEAT:2,Diligent,Skill Focus(Knowledge (History))	PRESA:1,Trapfinding	!PRESA:1,Illiterate	PRESKILL:3,Appraise,Decipher Script,Knowledge (TYPE=Other)=3	PRESKILL:1,Knowledge (Geography)=5	PRESKILL:1,Knowledge (History)=8	PRESKILL:3,Disable Device,Gather Information,Search=4	PRETEMPLATE:Emerald Society
+CLASS:Emerald Society Archaeologist	PREFEAT:2,Diligent,Skill Focus(Knowledge (History))	PRESA:1,Trapfinding	!PRESA:1,Illiterate	PRESKILL:3,Appraise,Decipher Script,Knowledge (TYPE=Other)=3	PRESKILL:1,Knowledge (Geography)=5	PRESKILL:1,Knowledge (History)=8	PRESKILL:3,Disable Device,Gather Information,Search=4	PRETEMPLATE:1,Emerald Society
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Gather Information|Hide|TYPE.Knowledge|Listen|Open Locks|TYPE.Profession|Research|Ride|Search|Sense Motive|Survival|Swim|Use Magic Device|Use Rope
 1	SAB:Ancient Lore (Ex)	SAB:Subject Specialization (Ex)														ADD:FEAT|1|Emerald Proficiency	ADD:FEAT|1|Subject Specialization
@@ -633,7 +633,7 @@ CLASS:Tal Kanath	STARTSKILLPTS:2	CSKILL:Balance|Jump|Hide|Listen|Move Silently|T
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Talon of the Hawk	HD:6		TYPE:PC.Prestige	ABB:TotHk		MAXLEVEL:10	SOURCEPAGE:p.217	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat														Required Skill															Required Template
-CLASS:Talon of the Hawk	PREATT:5	PREFEAT:2,Spell Penetration,Improved Counterspell	PREFEAT:1,Favored Enemy (Ymandrakes)	PRESKILL:1,Concentration=8	PRESKILL:2,Knowledge (Arcana),Spellcraft=5	PRESKILL:1,Survival=4	PRETEMPLATE:Hawk
+CLASS:Talon of the Hawk	PREATT:5	PREFEAT:2,Spell Penetration,Improved Counterspell	PREFEAT:1,Favored Enemy (Ymandrakes)	PRESKILL:1,Concentration=8	PRESKILL:2,Knowledge (Arcana),Spellcraft=5	PRESKILL:1,Survival=4	PRETEMPLATE:1,Hawk
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Talon of the Hawk	STARTSKILLPTS:4	CSKILL:Balance|Climb|Craft|Diplomacy|Examine Martial Technique|Gather Information|Hide|Intimidate|Jump|Knowledge (Arcana)|Knowledge (History)|Listen|Move Silently|TYPE.Profession|Ride|Sense Motive|Survival|Spot|Swim|Tumble|Use Magic Device
 1	SAB:Dispel Focus +%|DispelFocus			BONUS:VAR|SneakAttack|1+(CL>=4)+(CL>=7)+(CL>=10)	BONUS:VAR|DispelFocus|2+(2*(CL>=8))	DEFINE:DispelFocus|0						AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency|Sneak Attack	AUTO:WEAPONPROF|TYPE.Martial
@@ -649,8 +649,8 @@ CLASS:Talon of the Hawk	STARTSKILLPTS:4	CSKILL:Balance|Climb|Craft|Diplomacy|Exa
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					List of Class Spells by Level
 CLASS:Ulfian Ranger	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:UlfR		MAXLEVEL:5	SOURCEPAGE:p.218	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Ulfian Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass Without Trace,Resist Elements,Shillelagh|Ulfian Ranger=2|Cure Light Wounds,Delay Poison,Heat Metal,Protection from Energy,Shocking Grasp,Spider Climb|Ulfian Ranger=3|Call Lightning,Commune with Nature,Gust of Wind
-# Class Name		Req. Att.	Required Feat			Multiple Requirements										Required Region	Required Skill
-CLASS:Ulfian Ranger	PREATT:4	PREFEAT:2,Endurance,Track	PREMULT:1,[PREDEITY:Hurrian],[PRETEMPLATE:Tensen],[PRETEMPLATE:HolrynTensen]	PREREGION:Coryan	PRESKILL:1,Climb=4	PRESKILL:2,Knowledge (Nature),Survival=8
+# Class Name		Req. Att.	Required Feat			Multiple Requirements											Required Region	Required Skill
+CLASS:Ulfian Ranger	PREATT:4	PREFEAT:2,Endurance,Track	PREMULT:1,[PREDEITY:Hurrian],[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]	PREREGION:Coryan	PRESKILL:1,Climb=4	PRESKILL:2,Knowledge (Nature),Survival=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ulfian Ranger	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels
@@ -664,7 +664,7 @@ CLASS:Ulfian Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Alarm|Detect Anim
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Val'Mehan Emissary	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:VME		MAXLEVEL:5	SOURCEPAGE:p.220	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Feat						Required Skill														Required Stat	Required Template
-CLASS:Val'Mehan Emissary	PREALIGN:LG,LN,LE	PREFEAT:2,Judge of Character,Honey Tongued	PRESKILL:1,Bluff=4	PRESKILL:3,Diplomacy,Knowledge (Nobility & Royalty),Sense Motive=8	PRESTAT:1,CHA=16	PRETEMPLATE:Mehan
+CLASS:Val'Mehan Emissary	PREALIGN:LG,LN,LE	PREFEAT:2,Judge of Character,Honey Tongued	PRESKILL:1,Bluff=4	PRESKILL:3,Diplomacy,Knowledge (Nobility & Royalty),Sense Motive=8	PRESTAT:1,CHA=16	PRETEMPLATE:1,Mehan
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Disguise|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Speak Language|Spellcraft|Spot|Swim
 1	SAB:Silver Tongue (Ex)	SAB:Heart of Stone (Ex)	BONUS:SKILL|Bluff,Sense Motive,Diplomacy|2	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial

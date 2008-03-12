@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 23:58:23 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -161,7 +161,7 @@ Merfolk Jaw/Mouth						VISIBLE:NO	TEMPLATE:Merfolk Head																	SAB:Merf
 
 Merfolk Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|4|TYPE=Racial																																																																													VISION:Darkvision (60')
 Merfolk Ear							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|4|TYPE=Racial
-Merfolk Head						VISIBLE:NO																					SAB:Amphibious|PRETEMPLATE:Merfolk Head (Left),Merfolk Head (Right),Merfolk Jaw/Mouth		PRERACE:Mongrelman
+Merfolk Head						VISIBLE:NO																					SAB:Amphibious|PRETEMPLATE:1,Merfolk Head (Left),Merfolk Head (Right),Merfolk Jaw/Mouth		PRERACE:Mongrelman
 Merfolk Leg							VISIBLE:NO																																					PRERACE:Mongrelman																																	BONUS:MOVEMULT|TYPE.Walk|.5
 Merfolk Torso (Lower)					VISIBLE:NO																																					PRERACE:Mongrelman																												BONUS:MOVEADD|TYPE.Walk|-25																																																																																						MOVE:Swim,50
 
@@ -185,7 +185,7 @@ Locathah Jaw/Mouth					VISIBLE:NO	TEMPLATE:Locathah Head																	SAB:Loc
 
 Locathah Eye						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|3|TYPE=Racial																																																																													VISION:Darkvision (60')
 Locathah Ear						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|3|TYPE=Racial
-Locathah Head						VISIBLE:NO																					SAB:Amphibious|PRETEMPLATE:Locathah Head (Left),Locathah Head (Right),Locathah Jaw/Mouth		PRERACE:Mongrelman
+Locathah Head						VISIBLE:NO																					SAB:Amphibious|PRETEMPLATE:1,Locathah Head (Left),Locathah Head (Right),Locathah Jaw/Mouth	PRERACE:Mongrelman
 
 Sahuagin Head (Left)					VISIBLE:NO	TEMPLATE:Sahuagin Eye	TEMPLATE:Sahuagin Ear	TEMPLATE:Sahuagin Head									SAB:Sahuagin Left Side of Head											PRERACE:Mongrelman
 Sahuagin Head (Right)					VISIBLE:NO	TEMPLATE:Sahuagin Eye	TEMPLATE:Sahuagin Ear	TEMPLATE:Sahuagin Head									SAB:Sahuagin Right Side of Head											PRERACE:Mongrelman
@@ -208,7 +208,7 @@ Sahuagin Jaw/Mouth					VISIBLE:NO	TEMPLATE:Sahuagin Head																	SAB:Sah
 Sahuagin Eye						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|3|TYPE=Racial																																FEAT:Light Blindness																																										VISION:Darkvision (60')
 Sahuagin Ear						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|3|TYPE=Racial
 Sahuagin Arm						VISIBLE:NO																					SAB:+2 on Str checks using arm											PRERACE:Mongrelman
-Sahuagin Head						VISIBLE:NO																					SAB:Amphibious|PRETEMPLATE:Sahuagin Head (Left),Sahuagin Head (Right),Sahuagin Jaw/Mouth		PRERACE:Mongrelman
+Sahuagin Head						VISIBLE:NO																					SAB:Amphibious|PRETEMPLATE:1,Sahuagin Head (Left),Sahuagin Head (Right),Sahuagin Jaw/Mouth	PRERACE:Mongrelman
 
 Dwarf Head (Left)						VISIBLE:NO	TEMPLATE:Dwarf Eye	TEMPLATE:Dwarf Head													SAB:Dwarf Left Side of Head												PRERACE:Mongrelman
 Dwarf Head (Right)					VISIBLE:NO	TEMPLATE:Dwarf Eye	TEMPLATE:Dwarf Head													SAB:Dwarf Right Side of Head												PRERACE:Mongrelman
@@ -229,7 +229,7 @@ Dwarf Hand (Right)					VISIBLE:NO																					SAB:Dwarf Hand												
 Dwarf Jaw/Mouth						VISIBLE:NO	TEMPLATE:Dwarf Head																	SAB:Dwarf Jaw/Mouth													PRERACE:Mongrelman
 
 Dwarf Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																																																																																																												VISION:Darkvision (60')
-Dwarf Head							VISIBLE:NO																					SAB:Stonecunning|PRETEMPLATE:Dwarf Head (Left),Dwarf Head (Right),Dwarf Jaw/Mouth			PRERACE:Mongrelman
+Dwarf Head							VISIBLE:NO																					SAB:Stonecunning|PRETEMPLATE:1,Dwarf Head (Left),Dwarf Head (Right),Dwarf Jaw/Mouth			PRERACE:Mongrelman
 Dwarf Torso (Upper)					VISIBLE:NO																					SAB:+2 saves vs. poison													PRERACE:Mongrelman
 
 Elf Head (Left)						VISIBLE:NO	TEMPLATE:Elf Eye	TEMPLATE:Elf Ear	TEMPLATE:Elf Head												SAB:Elf Left Side of Head												PRERACE:Mongrelman
@@ -252,7 +252,7 @@ Elf Jaw/Mouth						VISIBLE:NO	TEMPLATE:Elf Head																		SAB:Elf Jaw/Mou
 
 Elf Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Search,Spot|2|TYPE=Racial																																																																												VISION:Low-light
 Elf Ear							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|2|TYPE=Racial
-Elf Head							VISIBLE:NO																					SAB:+2 saves vs. enchantments|PRETEMPLATE:Elf Head (Left),Elf Head (Right),Elf Jaw/Mouth		PRERACE:Mongrelman
+Elf Head							VISIBLE:NO																					SAB:+2 saves vs. enchantments|PRETEMPLATE:1,Elf Head (Left),Elf Head (Right),Elf Jaw/Mouth	PRERACE:Mongrelman
 
 Gnome Head (Left)						VISIBLE:NO	TEMPLATE:Gnome Eye	TEMPLATE:Gnome Ear	TEMPLATE:Gnome Head									SAB:Gnome Left Side of Head												PRERACE:Mongrelman
 Gnome Head (Right)					VISIBLE:NO	TEMPLATE:Gnome Eye	TEMPLATE:Gnome Ear	TEMPLATE:Gnome Head									SAB:Gnome Right Side of Head												PRERACE:Mongrelman
@@ -274,12 +274,12 @@ Gnome Jaw/Mouth						VISIBLE:NO	TEMPLATE:Gnome Head																	SAB:Gnome Ja
 
 Gnome Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																																																																																																												VISION:Low-light
 Gnome Ear							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|2|TYPE=Racial
-Gnome Head							VISIBLE:NO																					SAB:+2 saves vs. illusions|PRETEMPLATE:Gnome Head (Left),Gnome Head (Right),Gnome Jaw/Mouth	PRERACE:Mongrelman
+Gnome Head							VISIBLE:NO																					SAB:+2 saves vs. illusions|PRETEMPLATE:1,Gnome Head (Left),Gnome Head (Right),Gnome Jaw/Mouth	PRERACE:Mongrelman
 
 Halfling Head (Left)					VISIBLE:NO	TEMPLATE:Halfling Ear																	SAB:Halfling Left Side of Head											PRERACE:Mongrelman
 Halfling Head (Right)					VISIBLE:NO	TEMPLATE:Halfling Ear																	SAB:Halfling Right Side of Head											PRERACE:Mongrelman
-Halfling Upper Torso					VISIBLE:NO	TEMPLATE:Halfling Torso (Both)|PRETEMPLATE:Halfling Lower Torso										SAB:Halfling Upper Torso												PRERACE:Mongrelman
-Halfling Lower Torso					VISIBLE:NO	TEMPLATE:Halfling Torso (Lower)	TEMPLATE:Halfling Torso (Both)|PRETEMPLATE:Halfling Upper Torso				SAB:Halfling Lower Torso												PRERACE:Mongrelman
+Halfling Upper Torso					VISIBLE:NO	TEMPLATE:Halfling Torso (Both)|PRETEMPLATE:1,Halfling Lower Torso										SAB:Halfling Upper Torso												PRERACE:Mongrelman
+Halfling Lower Torso					VISIBLE:NO	TEMPLATE:Halfling Torso (Lower)	TEMPLATE:Halfling Torso (Both)|PRETEMPLATE:1,Halfling Upper Torso				SAB:Halfling Lower Torso												PRERACE:Mongrelman
 Halfling Upper Arm (Left)				VISIBLE:NO	TEMPLATE:Halfling Arm																	SAB:Halfling Left Upper Arm												PRERACE:Mongrelman
 Halfling Upper Arm (Right)				VISIBLE:NO	TEMPLATE:Halfling Arm																	SAB:Halfling Right Upper Arm												PRERACE:Mongrelman
 Halfling Lower Arm (Left)				VISIBLE:NO	TEMPLATE:Halfling Arm																	SAB:Halfling Left Lower Arm												PRERACE:Mongrelman
@@ -426,8 +426,8 @@ Minotaur Jaw/Mouth					VISIBLE:NO																					SAB:Minotaur Jaw/Mouth				
 Minotaur Eye						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Search,Spot|4|TYPE=Racial																																																																												VISION:Darkvision (60')
 Minotaur Ear						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|4|TYPE=Racial
 Minotaur Arm						VISIBLE:NO																					SAB:+8 on Str checks using arm											PRERACE:Mongrelman
-Minotaur Head (Partial)					VISIBLE:NO																																					PRERACE:Mongrelman																		!PRETEMPLATE:Minotaur Head (Left),Minotaur Head (Right)																																																																																																																																																											NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
-Minotaur Head (Whole)					VISIBLE:NO																																					PRERACE:Mongrelman								PRETEMPLATE:Minotaur Head (Left),Minotaur Head (Right)																																																																																																																																																																					NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d8
+Minotaur Head (Partial)					VISIBLE:NO																																					PRERACE:Mongrelman																		!PRETEMPLATE:1,Minotaur Head (Left),Minotaur Head (Right)																																																																																																																																																											NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
+Minotaur Head (Whole)					VISIBLE:NO																																					PRERACE:Mongrelman								PRETEMPLATE:1,Minotaur Head (Left),Minotaur Head (Right)																																																																																																																																																																					NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d8
 
 Flind Head (Left)						VISIBLE:NO	TEMPLATE:Flind Eye	TEMPLATE:Flind Ear													SAB:Flind Left Side of Head												PRERACE:Mongrelman
 Flind Head (Right)					VISIBLE:NO	TEMPLATE:Flind Eye	TEMPLATE:Flind Ear													SAB:Flind Right Side of Head												PRERACE:Mongrelman

@@ -2,12 +2,12 @@
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # Class Name		Automatic Languages
-CLASS:Barbarian.MOD	LANGAUTO:.CLEAR	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]
+CLASS:Barbarian.MOD	LANGAUTO:.CLEAR	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:Base/Criminal,Common/Serf]]
 # Class Name		Clear Prereq.
 CLASS:Barbarian.MOD	PRE:.CLEAR
 
 # Class Name	Automatic Languages
-CLASS:Fighter.MOD	LANGAUTO:.CLEAR	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]
+CLASS:Fighter.MOD	LANGAUTO:.CLEAR	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:Base/Criminal,Common/Serf]]
 
 # Class Name	Automatic Languages
-CLASS:Rogue.MOD	LANGAUTO:.CLEAR	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]
+CLASS:Rogue.MOD	LANGAUTO:.CLEAR	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:Base/Criminal,Common/Serf]]

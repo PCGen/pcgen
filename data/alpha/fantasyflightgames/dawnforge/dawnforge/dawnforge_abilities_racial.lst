@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:31:03 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn, conversion to Abilities by Eddy Anthony
 
@@ -393,11 +393,11 @@ Ogre Transformation Feats	CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformati
 ###########
 
 ###Block: Racial Talents
-# Ability Name				Category of Ability		Type				Visible	Prohibited Template		Required Text									Stackable?	Multiple?	Choose		Template			Bonus to Ability Pool				Combat bonus								Modify VAR			Source Page
-The Bigger the Wound the Better	CATEGORY:Dawnforge Ability	TYPE:OrcRacialTalent	VISIBLE:YES																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE												BONUS:COMBAT|TOHIT.TYPE.TwoHanded|1|TYPE=Talent.REPLACE					SOURCEPAGE:p.50
-Orcish Rage					CATEGORY:Dawnforge Ability	TYPE:OrcRacialTalent	VISIBLE:YES	!PRETEMPLATE:Orcish Rage New												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	TEMPLATE:Orcish Rage																		BONUS:VAR|OrcishRage|1	SOURCEPAGE:p.50
-Orc Talent Skills				CATEGORY:Dawnforge Ability	TYPE:OrcRacialTalent	VISIBLE:YES																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:ABILITYPOOL|Orc Talent Skill|5															SOURCEPAGE:p.50
-Orc Talent Feats				CATEGORY:Dawnforge Ability	TYPE:OrcRacialTalent	VISIBLE:YES						PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:ABILITYPOOL|Orc Talent Feat|1																SOURCEPAGE:p.50
+# Ability Name				Category of Ability		Type				Visible	Prohibited Template			Required Text									Stackable?	Multiple?	Choose		Template			Bonus to Ability Pool				Combat bonus								Modify VAR			Source Page
+The Bigger the Wound the Better	CATEGORY:Dawnforge Ability	TYPE:OrcRacialTalent	VISIBLE:YES																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE												BONUS:COMBAT|TOHIT.TYPE.TwoHanded|1|TYPE=Talent.REPLACE					SOURCEPAGE:p.50
+Orcish Rage					CATEGORY:Dawnforge Ability	TYPE:OrcRacialTalent	VISIBLE:YES	!PRETEMPLATE:1,Orcish Rage New												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	TEMPLATE:Orcish Rage																		BONUS:VAR|OrcishRage|1	SOURCEPAGE:p.50
+Orc Talent Skills				CATEGORY:Dawnforge Ability	TYPE:OrcRacialTalent	VISIBLE:YES																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:ABILITYPOOL|Orc Talent Skill|5															SOURCEPAGE:p.50
+Orc Talent Feats				CATEGORY:Dawnforge Ability	TYPE:OrcRacialTalent	VISIBLE:YES							PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:ABILITYPOOL|Orc Talent Feat|1																SOURCEPAGE:p.50
 
 ###Block: Racial Transformations
 # Ability Name			Category of Ability		Type					Visible	Required Lvl	Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool					Damage reduction	Add to vision			Source Page

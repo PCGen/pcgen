@@ -22,12 +22,12 @@ Resistance to Cold 5							TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Resistance t
 Levitate									TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Levitate				SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
 Saving Throw +1								TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Saving Throw +1																BONUS:CHECKS|ALL|1
 Dimension Door								TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Dimension Door			SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
-AC Bonus (Shalraeku)		OUTPUTNAME:AC Bonus		TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Shalraeku	SAB:AC Bonus (Deflection)																			BONUS:COMBAT|AC|2|TYPE=Deflection
-AC Bonus (Zarakku)		OUTPUTNAME:AC Bonus		TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Zarakku	SAB:AC Bonus (Natural Armor)																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor
-Spell Resistance (Shalraeku)	OUTPUTNAME:Spell Resistance	TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Shalraeku	SAB:Spell Resistance																														SR:TL+WIS
-Spell Resistance (Zarakku)	OUTPUTNAME:Spell Resistance	TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Zarakku	SAB:Spell Resistance																														SR:TL+CON
-Cure Light Wounds								TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Shalraeku	SAB:Cure Light Wounds			SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
-Inflict Light Wounds							TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:Zarakku	SAB:Inflict Light Wounds		SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cause Light Wounds,11+WIS
+AC Bonus (Shalraeku)		OUTPUTNAME:AC Bonus		TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Shalraeku	SAB:AC Bonus (Deflection)																			BONUS:COMBAT|AC|2|TYPE=Deflection
+AC Bonus (Zarakku)		OUTPUTNAME:AC Bonus		TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Zarakku	SAB:AC Bonus (Natural Armor)																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor
+Spell Resistance (Shalraeku)	OUTPUTNAME:Spell Resistance	TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Shalraeku	SAB:Spell Resistance																														SR:TL+WIS
+Spell Resistance (Zarakku)	OUTPUTNAME:Spell Resistance	TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Zarakku	SAB:Spell Resistance																														SR:TL+CON
+Cure Light Wounds								TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Shalraeku	SAB:Cure Light Wounds			SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
+Inflict Light Wounds							TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Zarakku	SAB:Inflict Light Wounds		SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cause Light Wounds,11+WIS
 
 ###Block:Flaw Modifications:
 # Feat Name			Prohibited Feat

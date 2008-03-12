@@ -6,19 +6,19 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 ###Block: Elemental Aspects
 
 # Feat Name			Type				Visible	Prohibited Feat				Multiple Requirements										Required Template				Special ABility							Define				Stackable?	Multiple?	Choose		MOVECLONE			Combat bonus				Bonus to skill			Modify VAR
-Light Step			TYPE:ElementalAspect	VISIBLE:NO	!PREFEAT:5,CHECKMULT,Light Step	PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Air Elemental Taint]							SAB:Light Step (Su)											STACK:YES	MULT:YES	CHOOSE:NOCHOICE											BONUS:SKILL|Move Silently|2
-Breathless			TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Air Elemental Taint]							SAB:Breathless (Ex)
-Acidic Secretions		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Earth Elemental Taint]							SAB:Acidic Secretions (Ex)
-Skin of Stone		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Earth Elemental Taint]							SAB:Skin of Stone (Ex)																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor
-Fiery Metabolism		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Fire Elemental Taint]							SAB:Fiery Metabolism (Ex)
-Heat Body			TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Fire Elemental Taint]							SAB:Heat Body %/day (Su)|HeatBodyTimes			DEFINE:HeatBodyTimes|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|HeatBodyTimes|1
-Water Adaptation		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Water Elemental Taint]							SAB:Water Adaptation (Ex)																	MOVECLONE:Walk,Swim,/2
-Aquatic Form		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:Water Elemental Taint]							SAB:Aquatic Form (Ex)																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Swim|4
+Light Step			TYPE:ElementalAspect	VISIBLE:NO	!PREFEAT:5,CHECKMULT,Light Step	PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Air Elemental Taint]							SAB:Light Step (Su)											STACK:YES	MULT:YES	CHOOSE:NOCHOICE											BONUS:SKILL|Move Silently|2
+Breathless			TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Air Elemental Taint]							SAB:Breathless (Ex)
+Acidic Secretions		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Earth Elemental Taint]							SAB:Acidic Secretions (Ex)
+Skin of Stone		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Earth Elemental Taint]							SAB:Skin of Stone (Ex)																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor
+Fiery Metabolism		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Fire Elemental Taint]							SAB:Fiery Metabolism (Ex)
+Heat Body			TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Fire Elemental Taint]							SAB:Heat Body %/day (Su)|HeatBodyTimes			DEFINE:HeatBodyTimes|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|HeatBodyTimes|1
+Water Adaptation		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Water Elemental Taint]							SAB:Water Adaptation (Ex)																	MOVECLONE:Walk,Swim,/2
+Aquatic Form		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Water Elemental Taint]							SAB:Aquatic Form (Ex)																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Swim|4
 
-Air Elemental Cohort	TYPE:ElementalCohort	VISIBLE:YES																				PRETEMPLATE:Air Elemental Taint	SAB:Air Elemental cohort % HD|ElementalCohortHD		DEFINE:ElementalCohortHD|0
-Earth Elemental Cohort	TYPE:ElementalCohort	VISIBLE:YES																				PRETEMPLATE:Earth Elemental Taint	SAB:Earth Elemental cohort % HD|ElementalCohortHD	DEFINE:ElementalCohortHD|0
-Fire Elemental Cohort	TYPE:ElementalCohort	VISIBLE:YES																				PRETEMPLATE:Fire Elemental Taint	SAB:Fire Elemental cohort % HD|ElementalCohortHD	DEFINE:ElementalCohortHD|0
-Water Elemental Cohort	TYPE:ElementalCohort	VISIBLE:YES																				PRETEMPLATE:Water Elemental Taint	SAB:Water Elemental cohort % HD|ElementalCohortHD	DEFINE:ElementalCohortHD|0
+Air Elemental Cohort	TYPE:ElementalCohort	VISIBLE:YES																				PRETEMPLATE:1,Air Elemental Taint	SAB:Air Elemental cohort % HD|ElementalCohortHD		DEFINE:ElementalCohortHD|0
+Earth Elemental Cohort	TYPE:ElementalCohort	VISIBLE:YES																				PRETEMPLATE:1,Earth Elemental Taint	SAB:Earth Elemental cohort % HD|ElementalCohortHD	DEFINE:ElementalCohortHD|0
+Fire Elemental Cohort	TYPE:ElementalCohort	VISIBLE:YES																				PRETEMPLATE:1,Fire Elemental Taint	SAB:Fire Elemental cohort % HD|ElementalCohortHD	DEFINE:ElementalCohortHD|0
+Water Elemental Cohort	TYPE:ElementalCohort	VISIBLE:YES																				PRETEMPLATE:1,Water Elemental Taint	SAB:Water Elemental cohort % HD|ElementalCohortHD	DEFINE:ElementalCohortHD|0
 
 ###Block: Energy Resistances and Immunities
 

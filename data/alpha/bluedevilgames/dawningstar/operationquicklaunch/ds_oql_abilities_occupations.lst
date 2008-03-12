@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  6 15:22:40 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
 
 ###BLOCK: occupation
@@ -22,16 +22,16 @@ Xeno Expert		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PRESTAT:1,INT=1
 ###BLOCK: new occupation skills
 # Feat Name					Type																										Visible	Required Class Skill			Prohibited Class SKill			Bonus to skill							Class Skill
 # Ability Name				Type																										Visible	Required Template														Bonus to skill					Class Skill
-Barter(class skill)			TYPE:Bureaucrat_Skills.Ranch_Hand_Skills																				VISIBLE:NO	PRETEMPLATE:StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills											CSKILL:Barter
-Barter(+1 to skill)			TYPE:Bureaucrat_Skills.Ranch_Hand_Skills																				VISIBLE:NO	PRETEMPLATE:CharismaticSkills												BONUS:SKILL|Barter|1|TYPE=Competance
+Barter(class skill)			TYPE:Bureaucrat_Skills.Ranch_Hand_Skills																				VISIBLE:NO	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills											CSKILL:Barter
+Barter(+1 to skill)			TYPE:Bureaucrat_Skills.Ranch_Hand_Skills																				VISIBLE:NO	PRETEMPLATE:1,CharismaticSkills											BONUS:SKILL|Barter|1|TYPE=Competance
 
-Craft (Tribal - class skill)		TYPE:Hunter_Skills.Nomad_Skills.Terraformer_Skills.Tribal_Leader_Skills															VISIBLE:NO	PRETEMPLATE:StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								CSKILL:Craft (Tribal)
+Craft (Tribal - class skill)		TYPE:Hunter_Skills.Nomad_Skills.Terraformer_Skills.Tribal_Leader_Skills															VISIBLE:NO	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								CSKILL:Craft (Tribal)
 
-Knowledge (Local - class skill)	TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Spacer_Skills.Terraformer_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills	VISIBLE:NO	PRETEMPLATE:StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								CSKILL:Knowledge (Local)
+Knowledge (Local - class skill)	TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Spacer_Skills.Terraformer_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills	VISIBLE:NO	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								CSKILL:Knowledge (Local)
 
-Knowledge (Species - class skill)	TYPE:Explorer_Skills.Hunter_Skills.Xeno_Expert_Skills																		VISIBLE:NO	PRETEMPLATE:StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								CSKILL:Knowledge (Species)
+Knowledge (Species - class skill)	TYPE:Explorer_Skills.Hunter_Skills.Xeno_Expert_Skills																		VISIBLE:NO	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								CSKILL:Knowledge (Species)
 
-Terraforming(class skill)		TYPE:Scientst_Skills.Terraformer_Skills																				VISIBLE:NO	PRETEMPLATE:StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								CSKILL:Terraforming
+Terraforming(class skill)		TYPE:Scientst_Skills.Terraformer_Skills																				VISIBLE:NO	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								CSKILL:Terraforming
 
 
 ###BLOCK: .MOD occupation skills

@@ -14,7 +14,7 @@ CLASS:Aristocrat.MOD
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
 CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:pg. 51	LANGAUTO:Literacy		LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
 # Class Name	Prohibited Template
-CLASS:Cleric	!PRETEMPLATE:Black Talon Male,Ashen Hide Male
+CLASS:Cleric	!PRETEMPLATE:1,Black Talon Male,Ashen Hide Male
 # Class Name	Skill Pts/Lvl
 CLASS:Cleric	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -154,7 +154,7 @@ SUBCLASSLEVEL:1	SAB:May multiplass with Fighter.																																
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Deflect Arrows
 SUBCLASSLEVEL:3																																																		ADD:VFEAT|1|Iron Skin
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip
-SUBCLASS:Order of the Irridescent Scale	COST:0				PREMULT:2,[PRERACE:1,Ss'ressen],[PRETEMPLATE:Black Talon Male,Black Talon Female]								CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
+SUBCLASS:Order of the Irridescent Scale	COST:0				PREMULT:2,[PRERACE:1,Ss'ressen],[PRETEMPLATE:1,Black Talon Male,Black Talon Female]								CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
 SUBCLASSLEVEL:1	SAB:May Multiclass with Ranger.	SAB:+2 Dodge bonus to AC against attacks of opprtunity induced by moving.																										BONUS:MOVEADD|TYPE.Walk|10	ADD:VFEAT|1|Iron Skin,Stunning Fist
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Combat Reflexes,Tail Attack
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Avalanche,Improved Trip
@@ -228,7 +228,7 @@ SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelNier												
 SUBCLASS:Paladin of Sarish		PREDEITY:Sarish										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
 SUBCLASSLEVEL:1	SAB:You gain a Sarishan Steel weapon of your choice.																																ADD:LANGUAGE|2|TYPE=Imperial,TYPE=Infernal
 SUBCLASSLEVEL:6	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelSarish											BONUS:VAR|ChannelLevelSarish|ChannelLevelUndead-2						DEFINE:ChannelLevelSarish|0
-SUBCLASS:Paladin of the Fire Dragon	PREDEITY:Fire Dragon	PRETEMPLATE:Black Talon Male,Ashen Hide Male	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
+SUBCLASS:Paladin of the Fire Dragon	PREDEITY:Fire Dragon	PRETEMPLATE:1,Black Talon Male,Ashen Hide Male	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
 SUBCLASSLEVEL:1																																																															AUTO:FEAT|Weapon Focus(Flail (Heavy)
 SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelFireDragon											BONUS:VAR|ChannelLevelFireDragon|ChannelLevelUndead-1						DEFINE:ChannelLevelFireDragon|0
 ###Block: Channeling Stuff

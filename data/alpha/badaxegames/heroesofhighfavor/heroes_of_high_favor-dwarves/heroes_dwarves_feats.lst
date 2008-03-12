@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan 11 23:56:04 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 # Original Entry by: Andrew Maitland
 
@@ -23,11 +23,11 @@ Spear Mastery			TYPE:General.Fighter			PREFEAT:1,Weapon Specialization(LongSpear
 Sturdy Back				TYPE:General																																																											DESC:You are accustomed to carrying heavy loads over long distances.																																																																																SOURCEPAGE:pg.6
 
 ###Block: FIGHTING STYLES - Specializations - Requires Fighter level 4 to qualify - Also requires the templates since they have all the Pre-reqs.
-# Feat Name						Type			Required Class		Required Template				Description			Source Page
-Single Weapon Style Specialization		TYPE:Fighter	PRECLASS:1,Fighter=4	PRETEMPLATE:Single Weapon Style	DESC:Increased bonuses.	SOURCEPAGE:pg.7
-Weapon and Shield Style Specialization	TYPE:Fighter	PRECLASS:1,Fighter=4	PRETEMPLATE:Weapon and Shield Style	DESC:Increased bonuses.	SOURCEPAGE:pg.7
-Two-Handed Style Specialization		TYPE:Fighter	PRECLASS:1,Fighter=4	PRETEMPLATE:Two-Handed Style		DESC:Increased bonuses.	SOURCEPAGE:pg.7
-Two-Weapon Style Specialization		TYPE:Fighter	PRECLASS:1,Fighter=4	PRETEMPLATE:Two-Weapon Style		DESC:Increased bonuses.	SOURCEPAGE:pg.8
+# Feat Name						Type			Required Class		Required Template					Description			Source Page
+Single Weapon Style Specialization		TYPE:Fighter	PRECLASS:1,Fighter=4	PRETEMPLATE:1,Single Weapon Style		DESC:Increased bonuses.	SOURCEPAGE:pg.7
+Weapon and Shield Style Specialization	TYPE:Fighter	PRECLASS:1,Fighter=4	PRETEMPLATE:1,Weapon and Shield Style	DESC:Increased bonuses.	SOURCEPAGE:pg.7
+Two-Handed Style Specialization		TYPE:Fighter	PRECLASS:1,Fighter=4	PRETEMPLATE:1,Two-Handed Style		DESC:Increased bonuses.	SOURCEPAGE:pg.7
+Two-Weapon Style Specialization		TYPE:Fighter	PRECLASS:1,Fighter=4	PRETEMPLATE:1,Two-Weapon Style		DESC:Increased bonuses.	SOURCEPAGE:pg.8
 
 ###Block: Runes
 # Feat Name			Type				Required Stat	Required Text											Description																							Source Page

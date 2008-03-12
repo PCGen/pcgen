@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Jul 26 17:31:57 2007 -- reformated by prettylst.pl v1.38 (build 2949)
+# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:GuideMO	SOURCEWEB:http://www.aleapublishing.com
 # Original Entry: Andrew Maitland
 
 
 # Feat Name				Type							Visible	Var. Min. Value							Special Ability															Define							Stackable?	Multiple?	Choose																															Virtual Feat														Modify VAR																		Class Skill
 ### Solomon Brotherhood Class
-# Feat Name				Type							Visible	Var. Min. Value							Special Ability						Define							Modify VAR																			Allow Follower			Allowed Companions													Class Skill
+# Feat Name				Type							Visible	Var. Min. Value							Special ABility							Define							Modify VAR																			Allow Follower			Allowed Companions													Class Skill
 hiddensolomonbrotherhood	TYPE:Class.Hidden					VISIBLE:NO										SAB:Knightly Order						DEFINE:BrotherhoodSolomonSecretEnlightenment|0	BONUS:VAR|BrotherhoodSolomonSecretEnlightenment|var("CL=Monk")	BONUS:VAR|BrotherhoodSolomonSecretEnlightenment|WIS																						CSKILL:Concentration|Diplomacy|Knowledge (Arcana)|Knowledge (Arcane)|Profession (Soldier)|Ride
 hiddensolomonbrotherhood-4	TYPE:Class.Hidden					VISIBLE:NO										SAB:Enlightenment
 hiddensolomonbrotherhood-7	TYPE:Class.Hidden					VISIBLE:NO										SAB:Knighthood
@@ -72,6 +72,6 @@ Two-Weapons (One Mind)		TYPE:Class.Hidden.TeutonicKnightCombat	VISIBLE:NO	PREVAR
 #hiddenTeutonicKnight-5		TYPE:Class.Hidden					VISIBLE:NO																																			STACK:NO	MULT:YES	CHOOSE:FEAT|Predator|Quick Feint|Zealous Charge|Firm Grasp|Zealous Haste|Zealous Strike|One-Weapon (One Mind)|Two-Weapons (One Mind)
 
 ### Extra Hidden Feats to simulate other features:
-Animal Companion Extra		TYPE:Internal					VISIBLE:NO										SAB:Animal Companion (Ex)				DEFINE:ExtraAnimalCompLVL|0				BONUS:VAR|CompLevel|ExtraAnimalCompLVL/2														FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Dog,Dog (Riding),Hawk,Horse (Light),Horse (Heavy),Pony,Wolf
+Animal Companion Extra		TYPE:Internal					VISIBLE:NO										SAB:Animal Companion (Ex)					DEFINE:ExtraAnimalCompLVL|0				BONUS:VAR|CompLevel|ExtraAnimalCompLVL/2														FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Dog,Dog (Riding),Hawk,Horse (Light),Horse (Heavy),Pony,Wolf
 
 

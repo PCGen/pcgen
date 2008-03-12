@@ -1,186 +1,186 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 01:15:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
 
 ###val'Abebi Bloodline Powers
-# Feat Name						Type					Visible	Multiple Requirements															Special ABility																			Define							Innate Spells															Template		Virtual Feat	Combat bonus			Add to base move			Bonus to skill						Modify VAR											Class Skill			Vision
-Enhanced Memory					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SAB:Enhanced Memory (Ex)
-The Tongues of Man are of All Men		TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SAB:The Tongues of Man are of All Men (Sp)																						SPELLS:Innate|TIMES=BloodTotal|CASTERLEVEL=TL|Comprehend Languages
-Wisdom of the Ages				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SAB:Wisdom of the ages (Ex)																																																																														CSKILL:TYPE.Knowledge
-The Face of Althares				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SAB:The Face of Althares (Su)																									SPELLS:Innate|TIMES=BloodTotal|CASTERLEVEL=TL|Undetectable Alignment
-The Lessons of Master Craftsmen		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SAB:The Lessons of Master Craftsmen (Su)
-Perfect Recollection				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SAB:Perfect Recollection (Ex)
-The Gift						TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SAB:The Gift (Su)																																															VFEAT:Brew Potion
-The Secrets of Antiquity			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SAB:The Secrets of Antiquity (Sp)
-The Blast						TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Abebi],[PRETEMPLATE:HolrynAbebi]									SAB:The Blast (Ex)
+# Feat Name						Type					Visible	Multiple Requirements																Special ABility																			Define							Innate Spells															Template		Virtual Feat	Combat bonus			Add to base move			Bonus to skill						Modify VAR											Class Skill			Vision
+Enhanced Memory					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Abebi],[PRETEMPLATE:1,HolrynAbebi]										SAB:Enhanced Memory (Ex)
+The Tongues of Man are of All Men		TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Abebi],[PRETEMPLATE:1,HolrynAbebi]										SAB:The Tongues of Man are of All Men (Sp)																						SPELLS:Innate|TIMES=BloodTotal|CASTERLEVEL=TL|Comprehend Languages
+Wisdom of the Ages				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Abebi],[PRETEMPLATE:1,HolrynAbebi]										SAB:Wisdom of the ages (Ex)																																																																														CSKILL:TYPE.Knowledge
+The Face of Althares				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Abebi],[PRETEMPLATE:1,HolrynAbebi]										SAB:The Face of Althares (Su)																									SPELLS:Innate|TIMES=BloodTotal|CASTERLEVEL=TL|Undetectable Alignment
+The Lessons of Master Craftsmen		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Abebi],[PRETEMPLATE:1,HolrynAbebi]										SAB:The Lessons of Master Craftsmen (Su)
+Perfect Recollection				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Abebi],[PRETEMPLATE:1,HolrynAbebi]										SAB:Perfect Recollection (Ex)
+The Gift						TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Abebi],[PRETEMPLATE:1,HolrynAbebi]										SAB:The Gift (Su)																																															VFEAT:Brew Potion
+The Secrets of Antiquity			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Abebi],[PRETEMPLATE:1,HolrynAbebi]										SAB:The Secrets of Antiquity (Sp)
+The Blast						TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Abebi],[PRETEMPLATE:1,HolrynAbebi]										SAB:The Blast (Ex)
 
 ###val'Assante Bloodline Powers
-The Morning Banishes Shadows			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Assante],[PRETEMPLATE:HolrynAssante]									SAB:The Morning Banishes Shadows (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Dispel Magic (Assante)
-Illir Lights Your Way				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Assante],[PRETEMPLATE:HolrynAssante]									SAB:Illir Lights Your Way (Su)
-The Blinding Light of Truth			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Assante],[PRETEMPLATE:HolrynAssante]									SAB:The Blinding Light of Truth (Sp)																							SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Discern Lies,10+BloodTotal+CHA
-His Glory is With You Always			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Assante],[PRETEMPLATE:HolrynAssante]									SAB:His Glory is With You Always (Sp)																							SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Daylight
-He is With Me I Shall Not Fail		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Assante],[PRETEMPLATE:HolrynAssante]									SAB:He is With Me, I Shall Not Fail (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Divine Power
-The Searing Light of Illirs Glory		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Assante],[PRETEMPLATE:HolrynAssante]									SAB:The Searing Light of Illir's Glory (Sp)																						SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Searing Light,10+BloodTotal+CHA
-The Gift of Perfection				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Assante],[PRETEMPLATE:HolrynAssante]									SAB:The Gift of Perfection (Su)
-The Voice of the King of Gods			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Assante],[PRETEMPLATE:HolrynAssante]									SAB:The Voice of the King of Gods (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Command (Greater)
-Word of Illir					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Assante],[PRETEMPLATE:HolrynAssante]									SAB:Word of Illir (Sp)
+The Morning Banishes Shadows			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Assante],[PRETEMPLATE:1,HolrynAssante]									SAB:The Morning Banishes Shadows (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Dispel Magic (Assante)
+Illir Lights Your Way				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Assante],[PRETEMPLATE:1,HolrynAssante]									SAB:Illir Lights Your Way (Su)
+The Blinding Light of Truth			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Assante],[PRETEMPLATE:1,HolrynAssante]									SAB:The Blinding Light of Truth (Sp)																							SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Discern Lies,10+BloodTotal+CHA
+His Glory is With You Always			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Assante],[PRETEMPLATE:1,HolrynAssante]									SAB:His Glory is With You Always (Sp)																							SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Daylight
+He is With Me I Shall Not Fail		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Assante],[PRETEMPLATE:1,HolrynAssante]									SAB:He is With Me, I Shall Not Fail (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Divine Power
+The Searing Light of Illirs Glory		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Assante],[PRETEMPLATE:1,HolrynAssante]									SAB:The Searing Light of Illir's Glory (Sp)																						SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Searing Light,10+BloodTotal+CHA
+The Gift of Perfection				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Assante],[PRETEMPLATE:1,HolrynAssante]									SAB:The Gift of Perfection (Su)
+The Voice of the King of Gods			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Assante],[PRETEMPLATE:1,HolrynAssante]									SAB:The Voice of the King of Gods (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Command (Greater)
+Word of Illir					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Assante],[PRETEMPLATE:1,HolrynAssante]									SAB:Word of Illir (Sp)
 
 ###val'Baucisz Bloodline Powers
-Consort With the Master's Pets		TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Baucisz],[PRETEMPLATE:HolrynBaucisz]									SAB:Consort With the Master's Pets (Sp)
-Visage of the Damned				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Baucisz],[PRETEMPLATE:HolrynBaucisz]									SAB:Visage of the Damned (Sp)
-Thy Kindred Shall Protect ans Serve		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Baucisz],[PRETEMPLATE:HolrynBaucisz]									SAB:Thy Kindred Shall Protect ans Serve Thee (Sp)																					SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Summon Monster III
-Tale of Blood					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Baucisz],[PRETEMPLATE:HolrynBaucisz]									SAB:Tale of Blood (Su)
-Ward of the Oathmaker				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Baucisz],[PRETEMPLATE:HolrynBaucisz]									SAB:Ward of the Oathmaker (Sp)
-Black Prince of the Night			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Baucisz],[PRETEMPLATE:HolrynBaucisz]									SAB:Black Prince of the Night (Sp)
+Consort With the Master's Pets		TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Baucisz],[PRETEMPLATE:1,HolrynBaucisz]									SAB:Consort With the Master's Pets (Sp)
+Visage of the Damned				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Baucisz],[PRETEMPLATE:1,HolrynBaucisz]									SAB:Visage of the Damned (Sp)
+Thy Kindred Shall Protect ans Serve		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Baucisz],[PRETEMPLATE:1,HolrynBaucisz]									SAB:Thy Kindred Shall Protect ans Serve Thee (Sp)																					SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Summon Monster III
+Tale of Blood					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Baucisz],[PRETEMPLATE:1,HolrynBaucisz]									SAB:Tale of Blood (Su)
+Ward of the Oathmaker				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Baucisz],[PRETEMPLATE:1,HolrynBaucisz]									SAB:Ward of the Oathmaker (Sp)
+Black Prince of the Night			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Baucisz],[PRETEMPLATE:1,HolrynBaucisz]									SAB:Black Prince of the Night (Sp)
 
 ###val'Borda Bloodline Powers
-Music's Soothing Charms				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Borda],[PRETEMPLATE:HolrynBorda]									SAB:Music's Soothing Charms (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Hypnotism,10+BloodTotal+CHA																																											CSKILL:TYPE.Perform
-Summon Night's Shadow				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Borda],[PRETEMPLATE:HolrynBorda]									SAB:Summon Night's Shadow (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Darkness
-To Know the Gloom of Night			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Borda],[PRETEMPLATE:HolrynBorda]									SAB:To Know the Gloom of Night (Ex)
-Cadic Guides My Hand				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Borda],[PRETEMPLATE:HolrynBorda]									SAB:Cadic Guides My Hand (Su)
-To Pierce the Veil of Shadow			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Borda],[PRETEMPLATE:HolrynBorda]									SAB:To Pierce the Veil of Shadow (Su)
-Within Night's Embrace				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Borda],[PRETEMPLATE:HolrynBorda]									SAB:Within Night's Embrace (Sp) %/day|(BloodTotal/2)+1
-In Darkness There Is Death			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Borda],[PRETEMPLATE:HolrynBorda]									SAB:In Darkness There Is Death (Su)
-Walking the Web of Shadows			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Borda],[PRETEMPLATE:HolrynBorda]									SAB:Walking the Web of Shadows (Sp)																								SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Shadow Stride
-Path of Shadows					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Borda],[PRETEMPLATE:HolrynBorda]									SAB:Path of Shadows (Sp) (See Text)
+Music's Soothing Charms				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Borda],[PRETEMPLATE:1,HolrynBorda]										SAB:Music's Soothing Charms (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Hypnotism,10+BloodTotal+CHA																																											CSKILL:TYPE.Perform
+Summon Night's Shadow				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Borda],[PRETEMPLATE:1,HolrynBorda]										SAB:Summon Night's Shadow (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Darkness
+To Know the Gloom of Night			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Borda],[PRETEMPLATE:1,HolrynBorda]										SAB:To Know the Gloom of Night (Ex)
+Cadic Guides My Hand				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Borda],[PRETEMPLATE:1,HolrynBorda]										SAB:Cadic Guides My Hand (Su)
+To Pierce the Veil of Shadow			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Borda],[PRETEMPLATE:1,HolrynBorda]										SAB:To Pierce the Veil of Shadow (Su)
+Within Night's Embrace				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Borda],[PRETEMPLATE:1,HolrynBorda]										SAB:Within Night's Embrace (Sp) %/day|(BloodTotal/2)+1
+In Darkness There Is Death			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Borda],[PRETEMPLATE:1,HolrynBorda]										SAB:In Darkness There Is Death (Su)
+Walking the Web of Shadows			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Borda],[PRETEMPLATE:1,HolrynBorda]										SAB:Walking the Web of Shadows (Sp)																								SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Shadow Stride
+Path of Shadows					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Borda],[PRETEMPLATE:1,HolrynBorda]										SAB:Path of Shadows (Sp) (See Text)
 
 ###val'Dellenov Bloodline Powers
-The Hands of Our Mother				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Dellenov],[PRETEMPLATE:HolrynDellenov]								SAB:The Hands of Our Mother (Su)
-We Are All Her Children				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Dellenov],[PRETEMPLATE:HolrynDellenov]								SAB:We Are All Her Children (Sp)
-The Earth's Grasping Hand			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Dellenov],[PRETEMPLATE:HolrynDellenov]								SAB:The Earth's Grasping Hand (Sp)																								SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Entangle,10+BloodTotal+CHA
-Nature's Voice					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Dellenov],[PRETEMPLATE:HolrynDellenov]								SAB:Nature's Voice (Ex)
-We Are One with Her Domain			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Dellenov],[PRETEMPLATE:HolrynDellenov]								SAB:We Are One with Her Domain (Su)
-The Thousand Forms of Nature			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Dellenov],[PRETEMPLATE:HolrynDellenov]								SAB:The Thousand Forms of Nature (Sp)
-The Land is My Ally				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Dellenov],[PRETEMPLATE:HolrynDellenov]								SAB:The Land is My Ally (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Summon Nature's Ally V (Dellenov)
-The Wild Within					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Dellenov],[PRETEMPLATE:HolrynDellenov]								SAB:The Wild Within (Su)
-The Fist of the Earth				TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Dellenov],[PRETEMPLATE:HolrynDellenov]								SAB:The Fist of the Earth (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Elemental Swarm
+The Hands of Our Mother				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Dellenov],[PRETEMPLATE:1,HolrynDellenov]									SAB:The Hands of Our Mother (Su)
+We Are All Her Children				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Dellenov],[PRETEMPLATE:1,HolrynDellenov]									SAB:We Are All Her Children (Sp)
+The Earth's Grasping Hand			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Dellenov],[PRETEMPLATE:1,HolrynDellenov]									SAB:The Earth's Grasping Hand (Sp)																								SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Entangle,10+BloodTotal+CHA
+Nature's Voice					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Dellenov],[PRETEMPLATE:1,HolrynDellenov]									SAB:Nature's Voice (Ex)
+We Are One with Her Domain			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Dellenov],[PRETEMPLATE:1,HolrynDellenov]									SAB:We Are One with Her Domain (Su)
+The Thousand Forms of Nature			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Dellenov],[PRETEMPLATE:1,HolrynDellenov]									SAB:The Thousand Forms of Nature (Sp)
+The Land is My Ally				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Dellenov],[PRETEMPLATE:1,HolrynDellenov]									SAB:The Land is My Ally (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Summon Nature's Ally V (Dellenov)
+The Wild Within					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Dellenov],[PRETEMPLATE:1,HolrynDellenov]									SAB:The Wild Within (Su)
+The Fist of the Earth				TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Dellenov],[PRETEMPLATE:1,HolrynDellenov]									SAB:The Fist of the Earth (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Elemental Swarm
 
 ###val'Emman Bloodline Powers
-None Shall Stand Who Oppose the Gods	TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Emman],[PRETEMPLATE:HolrynEmman],[PRETEMPLATE:Virdan],[PRETEMPLATE:HolrynVirdan]	SAB:None Shall Stand Who Oppose the Gods (Su) (Smite %/Day, +4 to hit, +% damage)|SmiteTimes|SmiteDamage				DEFINE:SmiteTimes|0	DEFINE:SmiteDamage|0																																										BONUS:VAR|SmiteTimes|(BloodTotal/2)+1	BONUS:VAR|SmiteDamage|TL
-The Dancing Flame					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Emman],[PRETEMPLATE:HolrynEmman]									SAB:The Dancing Flame (Su)
-To Know the Sight of Our Lord			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Emman],[PRETEMPLATE:HolrynEmman]									SAB:Sight of Our Lord (Ex)
-The Flickering Flame				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Emman],[PRETEMPLATE:HolrynEmman]									SAB:The Flickering Flame (Sp)
-The Sword of Heaven				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Emman],[PRETEMPLATE:HolrynEmman],[PRETEMPLATE:Virdan],[PRETEMPLATE:HolrynVirdan]	SAB:The Sword of Heaven (Su)
-To Withstand the Crucible of Flame		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Emman],[PRETEMPLATE:HolrynEmman],[PRETEMPLATE:Virdan],[PRETEMPLATE:HolrynVirdan]	SAB:To Withstand the Crucible of Flame (Sp)																						SPELLS:Innate|TIMES=1|CASTERLEVEL=max(5,BloodTotal*2)|Protection from Energy
-The Pussiant Warrior				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Emman],[PRETEMPLATE:HolrynEmman],[PRETEMPLATE:Virdan],[PRETEMPLATE:HolrynVirdan]	SAB:The Pussiant Warrior (Su)
-The Wrath of the Just				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Emman],[PRETEMPLATE:HolrynEmman],[PRETEMPLATE:Virdan],[PRETEMPLATE:HolrynVirdan]	SAB:The Wrath of the Just (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Flame Strike,10+BloodTotal+CHA
-Burn the Heavens					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Emman],[PRETEMPLATE:HolrynEmman]									SAB:Burn the Heavens (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Meteor Swarm,10+BloodTotal+CHA
+None Shall Stand Who Oppose the Gods	TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Emman],[PRETEMPLATE:1,HolrynEmman],[PRETEMPLATE:1,Virdan],[PRETEMPLATE:1,HolrynVirdan]	SAB:None Shall Stand Who Oppose the Gods (Su) (Smite %/Day, +4 to hit, +% damage)|SmiteTimes|SmiteDamage				DEFINE:SmiteTimes|0	DEFINE:SmiteDamage|0																																										BONUS:VAR|SmiteTimes|(BloodTotal/2)+1	BONUS:VAR|SmiteDamage|TL
+The Dancing Flame					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Emman],[PRETEMPLATE:1,HolrynEmman]										SAB:The Dancing Flame (Su)
+To Know the Sight of Our Lord			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Emman],[PRETEMPLATE:1,HolrynEmman]										SAB:Sight of Our Lord (Ex)
+The Flickering Flame				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Emman],[PRETEMPLATE:1,HolrynEmman]										SAB:The Flickering Flame (Sp)
+The Sword of Heaven				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Emman],[PRETEMPLATE:1,HolrynEmman],[PRETEMPLATE:1,Virdan],[PRETEMPLATE:1,HolrynVirdan]	SAB:The Sword of Heaven (Su)
+To Withstand the Crucible of Flame		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Emman],[PRETEMPLATE:1,HolrynEmman],[PRETEMPLATE:1,Virdan],[PRETEMPLATE:1,HolrynVirdan]	SAB:To Withstand the Crucible of Flame (Sp)																						SPELLS:Innate|TIMES=1|CASTERLEVEL=max(5,BloodTotal*2)|Protection from Energy
+The Pussiant Warrior				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Emman],[PRETEMPLATE:1,HolrynEmman],[PRETEMPLATE:1,Virdan],[PRETEMPLATE:1,HolrynVirdan]	SAB:The Pussiant Warrior (Su)
+The Wrath of the Just				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Emman],[PRETEMPLATE:1,HolrynEmman],[PRETEMPLATE:1,Virdan],[PRETEMPLATE:1,HolrynVirdan]	SAB:The Wrath of the Just (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Flame Strike,10+BloodTotal+CHA
+Burn the Heavens					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Emman],[PRETEMPLATE:1,HolrynEmman]										SAB:Burn the Heavens (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Meteor Swarm,10+BloodTotal+CHA
 
 ###val'Haupt Bloodline Powers
-Swan's Song						TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Haupt],[PRETEMPLATE:HolrynHaupt]									SAB:Swan's Song (Sp)																										SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Bless
-Fierce Defender					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Haupt],[PRETEMPLATE:HolrynHaupt]									SAB:Fierce Defender (Sp)
-Swan's Grace					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Haupt],[PRETEMPLATE:HolrynHaupt]									SAB:Swan's Grace (Ex)																																																											BONUS:SKILL|Balance,Diplomacy,Jump,Tumble|2
-Into the Wind					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Haupt],[PRETEMPLATE:HolrynHaupt]									SAB:Into the Wind (Sp)
-The Migration					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Haupt],[PRETEMPLATE:HolrynHaupt]									SAB:The Migration (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Teleport
-Whistling Swan					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Haupt],[PRETEMPLATE:HolrynHaupt]									SAB:Whistling Swan (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Shout (Greater),10+BloodTotal+CHA
+Swan's Song						TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Haupt],[PRETEMPLATE:1,HolrynHaupt]										SAB:Swan's Song (Sp)																										SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Bless
+Fierce Defender					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Haupt],[PRETEMPLATE:1,HolrynHaupt]										SAB:Fierce Defender (Sp)
+Swan's Grace					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Haupt],[PRETEMPLATE:1,HolrynHaupt]										SAB:Swan's Grace (Ex)																																																											BONUS:SKILL|Balance,Diplomacy,Jump,Tumble|2
+Into the Wind					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Haupt],[PRETEMPLATE:1,HolrynHaupt]										SAB:Into the Wind (Sp)
+The Migration					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Haupt],[PRETEMPLATE:1,HolrynHaupt]										SAB:The Migration (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Teleport
+Whistling Swan					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Haupt],[PRETEMPLATE:1,HolrynHaupt]										SAB:Whistling Swan (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Shout (Greater),10+BloodTotal+CHA
 
 ###val'Inares Bloodline Powers
-She Takes Our Burden				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Inares],[PRETEMPLATE:HolrynInares]									SAB:She Takes Our Burden (Ex)
-Walk the Path of Stars				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Inares],[PRETEMPLATE:HolrynInares]									SAB:Walk the Path of Stars (Sp)
-To Stride the World Entire			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Inares],[PRETEMPLATE:HolrynInares]									SAB:To Stride the World Entire (Ex)
-Anshar Guides My Steps				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Inares],[PRETEMPLATE:HolrynInares]									SAB:Anshar Guides My Steps (Sp)																																																																													CSKILL:Survival
-As Always We Endure				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Inares],[PRETEMPLATE:HolrynInares]									SAB:As Always, We Endure (Ex)
-Endure the Pain of Others			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Inares],[PRETEMPLATE:HolrynInares]									SAB:Endure the Pain of Others (Su)
-Anshar's Mighty Strides				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Inares],[PRETEMPLATE:HolrynInares]									SAB:Anshar's Mighty Strides (Sp)																								SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Dimension Door
-As We Suffer So Shall They			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Inares],[PRETEMPLATE:HolrynInares]									SAB:As We Suffer, So Shall They (Su)
-Her Gates are Everywhere			TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Inares],[PRETEMPLATE:HolrynInares]									SAB:Her Gates are Everywhere (Sp)
+She Takes Our Burden				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Inares],[PRETEMPLATE:1,HolrynInares]									SAB:She Takes Our Burden (Ex)
+Walk the Path of Stars				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Inares],[PRETEMPLATE:1,HolrynInares]									SAB:Walk the Path of Stars (Sp)
+To Stride the World Entire			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Inares],[PRETEMPLATE:1,HolrynInares]									SAB:To Stride the World Entire (Ex)
+Anshar Guides My Steps				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Inares],[PRETEMPLATE:1,HolrynInares]									SAB:Anshar Guides My Steps (Sp)																																																																													CSKILL:Survival
+As Always We Endure				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Inares],[PRETEMPLATE:1,HolrynInares]									SAB:As Always, We Endure (Ex)
+Endure the Pain of Others			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Inares],[PRETEMPLATE:1,HolrynInares]									SAB:Endure the Pain of Others (Su)
+Anshar's Mighty Strides				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Inares],[PRETEMPLATE:1,HolrynInares]									SAB:Anshar's Mighty Strides (Sp)																								SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Dimension Door
+As We Suffer So Shall They			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Inares],[PRETEMPLATE:1,HolrynInares]									SAB:As We Suffer, So Shall They (Su)
+Her Gates are Everywhere			TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Inares],[PRETEMPLATE:1,HolrynInares]									SAB:Her Gates are Everywhere (Sp)
 
 ###val'Ishi Bloodline Powers
-Return to Your Rest				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ishi],[PRETEMPLATE:HolrynIshi]										SAB:Return to Your Rest (Sp)																									SPELLS:Innate|TIMES=TL|CASTERLEVEL=TL|Disrupt Undead (Ishi)
-Speak With the Voice of Ancestors		TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ishi],[PRETEMPLATE:HolrynIshi]										SAB:Speak With the Voice of Ancestors (Sp)																						SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Speak with Dead
-The Hand of Ghosts				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ishi],[PRETEMPLATE:HolrynIshi]										SAB:The Hand of Ghosts (Su)
-The Loving Caress of Our Goddess		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ishi],[PRETEMPLATE:HolrynIshi]										SAB:The Loving Caress of Our Goddess (Sp)																							SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Cure Light Wounds (Mass Ishi),10+BloodTotal+CHA
-The Spirit Endures				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ishi],[PRETEMPLATE:HolrynIshi]										SAB:The Spirit Endures (Su)
-To Heal the Soul					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ishi],[PRETEMPLATE:HolrynIshi]										SAB:To Heal the Soul (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Restoration,10+BloodTotal+CHA
-Our Mistress Returns the Lost			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ishi],[PRETEMPLATE:HolrynIshi]										SAB:Our Mistress Returns the Lost (Sp)
-The Body is But a Shell				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ishi],[PRETEMPLATE:HolrynIshi]										SAB:The Body is But a Shell (Su)
-The Mortal Coil is not Easily Abandoned	TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ishi],[PRETEMPLATE:HolrynIshi]										SAB:The Mortal Coil is Not Easily Abandoned (Sp)																					SPELLS:Innate|TIMES=1|CASTERLEVEL=BloodTotal|Heal (Mass Ishi),10+BloodTotal+CHA
+Return to Your Rest				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ishi],[PRETEMPLATE:1,HolrynIshi]										SAB:Return to Your Rest (Sp)																									SPELLS:Innate|TIMES=TL|CASTERLEVEL=TL|Disrupt Undead (Ishi)
+Speak With the Voice of Ancestors		TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ishi],[PRETEMPLATE:1,HolrynIshi]										SAB:Speak With the Voice of Ancestors (Sp)																						SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Speak with Dead
+The Hand of Ghosts				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ishi],[PRETEMPLATE:1,HolrynIshi]										SAB:The Hand of Ghosts (Su)
+The Loving Caress of Our Goddess		TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ishi],[PRETEMPLATE:1,HolrynIshi]										SAB:The Loving Caress of Our Goddess (Sp)																							SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Cure Light Wounds (Mass Ishi),10+BloodTotal+CHA
+The Spirit Endures				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ishi],[PRETEMPLATE:1,HolrynIshi]										SAB:The Spirit Endures (Su)
+To Heal the Soul					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ishi],[PRETEMPLATE:1,HolrynIshi]										SAB:To Heal the Soul (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Restoration,10+BloodTotal+CHA
+Our Mistress Returns the Lost			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ishi],[PRETEMPLATE:1,HolrynIshi]										SAB:Our Mistress Returns the Lost (Sp)
+The Body is But a Shell				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ishi],[PRETEMPLATE:1,HolrynIshi]										SAB:The Body is But a Shell (Su)
+The Mortal Coil is not Easily Abandoned	TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ishi],[PRETEMPLATE:1,HolrynIshi]										SAB:The Mortal Coil is Not Easily Abandoned (Sp)																					SPELLS:Innate|TIMES=1|CASTERLEVEL=BloodTotal|Heal (Mass Ishi),10+BloodTotal+CHA
 
 ###val'Mehan Bloodline Powers
-Arcane Servant					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mehan],[PRETEMPLATE:HolrynMehan]									SAB:Arcane Servant (Su)
-Oath Maker						TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mehan],[PRETEMPLATE:HolrynMehan]									SAB:Oath Maker (Sp)
-Sarish is Known to His Chosen			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mehan],[PRETEMPLATE:HolrynMehan]									SAB:Sarish is Known to His Chosen (Sp)
-Blood Calls to Blood				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mehan],[PRETEMPLATE:HolrynMehan]									SAB:Blood Calls to Blood (Sp)
-Our Master Bids You Obey			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mehan],[PRETEMPLATE:HolrynMehan]									SAB:Our Master Bids You Obey (Su)
-Grace of the Cat Lord				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mehan],[PRETEMPLATE:HolrynMehan]									SAB:Grace of the Cat Lord (Su)																																															BONUS:COMBAT|AC|1|TYPE=Dodge	BONUS:MOVEADD|TYPE.Walk|5	BONUS:SKILL|Balance|5
-Know the Work of Sarish				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mehan],[PRETEMPLATE:HolrynMehan]									SAB:Know the Work of Sarish (Sp)
-Stone Guardian					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mehan],[PRETEMPLATE:HolrynMehan]									SAB:Stone Guardian (Su)
-Brothers in Blood					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mehan],[PRETEMPLATE:HolrynMehan]									SAB:Brothers in Blood (Su)
+Arcane Servant					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mehan],[PRETEMPLATE:1,HolrynMehan]										SAB:Arcane Servant (Su)
+Oath Maker						TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mehan],[PRETEMPLATE:1,HolrynMehan]										SAB:Oath Maker (Sp)
+Sarish is Known to His Chosen			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mehan],[PRETEMPLATE:1,HolrynMehan]										SAB:Sarish is Known to His Chosen (Sp)
+Blood Calls to Blood				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mehan],[PRETEMPLATE:1,HolrynMehan]										SAB:Blood Calls to Blood (Sp)
+Our Master Bids You Obey			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mehan],[PRETEMPLATE:1,HolrynMehan]										SAB:Our Master Bids You Obey (Su)
+Grace of the Cat Lord				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mehan],[PRETEMPLATE:1,HolrynMehan]										SAB:Grace of the Cat Lord (Su)																																															BONUS:COMBAT|AC|1|TYPE=Dodge	BONUS:MOVEADD|TYPE.Walk|5	BONUS:SKILL|Balance|5
+Know the Work of Sarish				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mehan],[PRETEMPLATE:1,HolrynMehan]										SAB:Know the Work of Sarish (Sp)
+Stone Guardian					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mehan],[PRETEMPLATE:1,HolrynMehan]										SAB:Stone Guardian (Su)
+Brothers in Blood					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mehan],[PRETEMPLATE:1,HolrynMehan]										SAB:Brothers in Blood (Su)
 
 ###val'Mordane Bloodline Powers
-I Know You Brother				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:I Know You, Brother (Sp)																									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Undead
-Neroth's Discourse				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:Neroth's Discourse (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Speak with Dead
-The Mercy of Neroth				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:The Mercy of Neroth (Su)
-All Things Die					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:All Things Die (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Rusting Grasp
-Eternal Servant					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:Eternal Servant (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Skeletal Companion
-Neroth's Embrace					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:Neroth's Embrace (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Contagion,10+BloodTotal+CHA
-Brother Feed Elsewhere				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:Brother, Feed Elsewhere (Sp)
-Death is Not an Ending				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:Death is Not an Ending (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Animate Dead
-Neroth's Final Blessing				TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Mordane],[PRETEMPLATE:HolrynMordane]									SAB:Neroth's Final Blessing (Ex)																																									TEMPLATE:Undead
+I Know You Brother				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mordane],[PRETEMPLATE:1,HolrynMordane]									SAB:I Know You, Brother (Sp)																									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Undead
+Neroth's Discourse				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mordane],[PRETEMPLATE:1,HolrynMordane]									SAB:Neroth's Discourse (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Speak with Dead
+The Mercy of Neroth				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mordane],[PRETEMPLATE:1,HolrynMordane]									SAB:The Mercy of Neroth (Su)
+All Things Die					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mordane],[PRETEMPLATE:1,HolrynMordane]									SAB:All Things Die (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Rusting Grasp
+Eternal Servant					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mordane],[PRETEMPLATE:1,HolrynMordane]									SAB:Eternal Servant (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Skeletal Companion
+Neroth's Embrace					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mordane],[PRETEMPLATE:1,HolrynMordane]									SAB:Neroth's Embrace (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Contagion,10+BloodTotal+CHA
+Brother Feed Elsewhere				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mordane],[PRETEMPLATE:1,HolrynMordane]									SAB:Brother, Feed Elsewhere (Sp)
+Death is Not an Ending				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mordane],[PRETEMPLATE:1,HolrynMordane]									SAB:Death is Not an Ending (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Animate Dead
+Neroth's Final Blessing				TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Mordane],[PRETEMPLATE:1,HolrynMordane]									SAB:Neroth's Final Blessing (Ex)																																									TEMPLATE:Undead
 
 ###val'Ossan Bloodline Powers
-Upon the Oceanlord's Back			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ossan],[PRETEMPLATE:HolrynOssan]									SAB:Upon the Oceanlord's Back (Sp)
-Yarris' Breath					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ossan],[PRETEMPLATE:HolrynOssan]									SAB:Yarris' Breath (Ex)
-Yarris' Step					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ossan],[PRETEMPLATE:HolrynOssan]									SAB:Yarris' Step (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=BloodTotal|Water Walk (Yarris)
-He is Master of Waters				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ossan],[PRETEMPLATE:HolrynOssan]									SAB:He is Master of Waters (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=BloodTotal|Control Water (Yarris)
-My Brothers Shall Not Harm Me			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ossan],[PRETEMPLATE:HolrynOssan]									SAB:My Brothers Shall Not Harm Me (Su)
-My Lord's Domain is as Mine			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ossan],[PRETEMPLATE:HolrynOssan]									SAB:My Lord's Domain is as Mine (Su)
-The Oceanlord's Gift				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ossan],[PRETEMPLATE:HolrynOssan]									SAB:The Oceanlord's Gift (Sp)
-The Sea is My Ally				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ossan],[PRETEMPLATE:HolrynOssan]									SAB:The Sea is My Ally (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Summon Nature's Ally V (Dellenov)
-Redeem What is His				TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Ossan],[PRETEMPLATE:HolrynOssan]									SAB:Redeem What is His (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Horrid Wilting,10+BloodTotal+CHA
+Upon the Oceanlord's Back			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ossan],[PRETEMPLATE:1,HolrynOssan]										SAB:Upon the Oceanlord's Back (Sp)
+Yarris' Breath					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ossan],[PRETEMPLATE:1,HolrynOssan]										SAB:Yarris' Breath (Ex)
+Yarris' Step					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ossan],[PRETEMPLATE:1,HolrynOssan]										SAB:Yarris' Step (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=BloodTotal|Water Walk (Yarris)
+He is Master of Waters				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ossan],[PRETEMPLATE:1,HolrynOssan]										SAB:He is Master of Waters (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=BloodTotal|Control Water (Yarris)
+My Brothers Shall Not Harm Me			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ossan],[PRETEMPLATE:1,HolrynOssan]										SAB:My Brothers Shall Not Harm Me (Su)
+My Lord's Domain is as Mine			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ossan],[PRETEMPLATE:1,HolrynOssan]										SAB:My Lord's Domain is as Mine (Su)
+The Oceanlord's Gift				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ossan],[PRETEMPLATE:1,HolrynOssan]										SAB:The Oceanlord's Gift (Sp)
+The Sea is My Ally				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ossan],[PRETEMPLATE:1,HolrynOssan]										SAB:The Sea is My Ally (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Summon Nature's Ally V (Dellenov)
+Redeem What is His				TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Ossan],[PRETEMPLATE:1,HolrynOssan]										SAB:Redeem What is His (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Horrid Wilting,10+BloodTotal+CHA
 
 ###val'Sheem Bloodline Powers
-Fortune Favors the Bold				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sheem],[PRETEMPLATE:HolrynSheem]									SAB:Fortune Favors the Bold (Su)
-Walk the Web of Fate				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sheem],[PRETEMPLATE:HolrynSheem]									SAB:Walk the Web of Fate (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Augury
-Gift of Joy and Pleasure			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sheem],[PRETEMPLATE:HolrynSheem]									SAB:Gift of Joy and Pleasure (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Bless
-The Temptations of the Flesh			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sheem],[PRETEMPLATE:HolrynSheem]									SAB:The Temptations of the Flesh (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Charm Person,10+BloodTotal+CHA
-Our Waters are as Wine				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sheem],[PRETEMPLATE:HolrynSheem]									SAB:Our Waters are as Wine (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Transmute Liquid
-The Rewards of the Flesh			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sheem],[PRETEMPLATE:HolrynSheem]									SAB:The Rewards of the Flesh (Su)
-Look Through the Eyes of Our Mistress	TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sheem],[PRETEMPLATE:HolrynSheem]									SAB:Look Through the Eyes of Our Mistress (Su)
-Touch of Pleasure					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sheem],[PRETEMPLATE:HolrynSheem]									SAB:Touch of Pleasure (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Euphoria
-My Lover My Heart					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sheem],[PRETEMPLATE:HolrynSheem]									SAB:My Lover My Heart (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Phantasmal Lover (Sheem)
+Fortune Favors the Bold				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sheem],[PRETEMPLATE:1,HolrynSheem]										SAB:Fortune Favors the Bold (Su)
+Walk the Web of Fate				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sheem],[PRETEMPLATE:1,HolrynSheem]										SAB:Walk the Web of Fate (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Augury
+Gift of Joy and Pleasure			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sheem],[PRETEMPLATE:1,HolrynSheem]										SAB:Gift of Joy and Pleasure (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Bless
+The Temptations of the Flesh			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sheem],[PRETEMPLATE:1,HolrynSheem]										SAB:The Temptations of the Flesh (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Charm Person,10+BloodTotal+CHA
+Our Waters are as Wine				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sheem],[PRETEMPLATE:1,HolrynSheem]										SAB:Our Waters are as Wine (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Transmute Liquid
+The Rewards of the Flesh			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sheem],[PRETEMPLATE:1,HolrynSheem]										SAB:The Rewards of the Flesh (Su)
+Look Through the Eyes of Our Mistress	TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sheem],[PRETEMPLATE:1,HolrynSheem]										SAB:Look Through the Eyes of Our Mistress (Su)
+Touch of Pleasure					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sheem],[PRETEMPLATE:1,HolrynSheem]										SAB:Touch of Pleasure (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Euphoria
+My Lover My Heart					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sheem],[PRETEMPLATE:1,HolrynSheem]										SAB:My Lover My Heart (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Phantasmal Lover (Sheem)
 
 ###val'Sosi Bloodline Powers
-Soothe the Spirit					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sosi],[PRETEMPLATE:HolrynSosi]										SAB:Soothe the Spirit (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Calm Emotions,10+BloodTotal+CHA
-Strength of Spirit				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sosi],[PRETEMPLATE:HolrynSosi]										SAB:Strength of Spirit (Ex)	SAB:+4 on Will saves against mind-affecting and compulsion spells from the Enchantment School.
-All Spirits Are the Same			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sosi],[PRETEMPLATE:HolrynSosi]										SAB:All Spirits Are the Same (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Good Hope,10+BloodTotal+CHA
-Touch the Spirit					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sosi],[PRETEMPLATE:HolrynSosi]										SAB:Touch the Spirit (Sp)
-The Spirit Endures				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sosi],[PRETEMPLATE:HolrynSosi]										SAB:The Spirit Endures (Su)
-To Heal the Shattered Spirit			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sosi],[PRETEMPLATE:HolrynSosi]										SAB:To Heal the Shattered Spirit (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Restoration (Greater),10+BloodTotal+CHA
+Soothe the Spirit					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sosi],[PRETEMPLATE:1,HolrynSosi]										SAB:Soothe the Spirit (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Calm Emotions,10+BloodTotal+CHA
+Strength of Spirit				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sosi],[PRETEMPLATE:1,HolrynSosi]										SAB:Strength of Spirit (Ex)	SAB:+4 on Will saves against mind-affecting and compulsion spells from the Enchantment School.
+All Spirits Are the Same			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sosi],[PRETEMPLATE:1,HolrynSosi]										SAB:All Spirits Are the Same (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Good Hope,10+BloodTotal+CHA
+Touch the Spirit					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sosi],[PRETEMPLATE:1,HolrynSosi]										SAB:Touch the Spirit (Sp)
+The Spirit Endures				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sosi],[PRETEMPLATE:1,HolrynSosi]										SAB:The Spirit Endures (Su)
+To Heal the Shattered Spirit			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sosi],[PRETEMPLATE:1,HolrynSosi]										SAB:To Heal the Shattered Spirit (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Restoration (Greater),10+BloodTotal+CHA
 
 ###val'Sungha Bloodline Powers
-Do You Know Who I Am				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sungha],[PRETEMPLATE:HolrynSungha]									SAB:Do You Know Who I Am? (Sp)																								SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Disguise Self,10+BloodTotal+CHA
-A Winning Smile					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sungha],[PRETEMPLATE:HolrynSungha]									SAB:A Winning Smile (Su)
-Smoke and Mirrors					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sungha],[PRETEMPLATE:HolrynSungha]									SAB:Smoke and Mirrors (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Major Image,10+BloodTotal+CHA
-Have You Heard the One				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sungha],[PRETEMPLATE:HolrynSungha]									SAB:Have You Heard the One (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Hideous Laughter,10+BloodTotal+CHA
-Dance of Enthrallment				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sungha],[PRETEMPLATE:HolrynSungha]									SAB:Dance of Enthrallment (Sp)
-The Faces of Many					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Sungha],[PRETEMPLATE:HolrynSungha]									SAB:The Faces of Many (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Veil,10+BloodTotal+CHA
+Do You Know Who I Am				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sungha],[PRETEMPLATE:1,HolrynSungha]									SAB:Do You Know Who I Am? (Sp)																								SPELLS:Innate|TIMES=(BloodTotal/2)+1|CASTERLEVEL=TL|Disguise Self,10+BloodTotal+CHA
+A Winning Smile					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sungha],[PRETEMPLATE:1,HolrynSungha]									SAB:A Winning Smile (Su)
+Smoke and Mirrors					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sungha],[PRETEMPLATE:1,HolrynSungha]									SAB:Smoke and Mirrors (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Major Image,10+BloodTotal+CHA
+Have You Heard the One				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sungha],[PRETEMPLATE:1,HolrynSungha]									SAB:Have You Heard the One (Sp)																								SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Hideous Laughter,10+BloodTotal+CHA
+Dance of Enthrallment				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sungha],[PRETEMPLATE:1,HolrynSungha]									SAB:Dance of Enthrallment (Sp)
+The Faces of Many					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Sungha],[PRETEMPLATE:1,HolrynSungha]									SAB:The Faces of Many (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Veil,10+BloodTotal+CHA
 
 ###val'Tensen Bloodline Powers
-His Might is Our Own				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Tensen],[PRETEMPLATE:HolrynTensen]									SAB:His Might is Our Own (Ex)
-His Redoubtable Strength			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Tensen],[PRETEMPLATE:HolrynTensen]									SAB:His Redoubtable Strength (Sp)
-Electricity is Our Ally				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Tensen],[PRETEMPLATE:HolrynTensen]									SAB:Electricity is Our Ally (Su)	SAB:Electricity Resistance %|BloodTotal
-Hurrian's Wrath					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Tensen],[PRETEMPLATE:HolrynTensen]									SAB:Hurrian's Wrath (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Call Lightning,10+BloodTotal+CHA
-The Thunderer's Gift				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Tensen],[PRETEMPLATE:HolrynTensen]									SAB:The Thunderer's Gift (Su)
-The Reluctant Warrior				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Tensen],[PRETEMPLATE:HolrynTensen]									SAB:The Reluctant Warrior (Ex)
-Reluctant No More					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Tensen],[PRETEMPLATE:HolrynTensen]									SAB:Reluctant No More (Su)
-The Winds are Mine to Command			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Tensen],[PRETEMPLATE:HolrynTensen]									SAB:The Winds are Mine to Command (Sp)
-The Tempest						TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Tensen],[PRETEMPLATE:HolrynTensen]									SAB:The Tempest (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Elemental Swarm
+His Might is Our Own				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]									SAB:His Might is Our Own (Ex)
+His Redoubtable Strength			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]									SAB:His Redoubtable Strength (Sp)
+Electricity is Our Ally				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]									SAB:Electricity is Our Ally (Su)	SAB:Electricity Resistance %|BloodTotal
+Hurrian's Wrath					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]									SAB:Hurrian's Wrath (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Call Lightning,10+BloodTotal+CHA
+The Thunderer's Gift				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]									SAB:The Thunderer's Gift (Su)
+The Reluctant Warrior				TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]									SAB:The Reluctant Warrior (Ex)
+Reluctant No More					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]									SAB:Reluctant No More (Su)
+The Winds are Mine to Command			TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]									SAB:The Winds are Mine to Command (Sp)
+The Tempest						TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]									SAB:The Tempest (Sp)																										SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Elemental Swarm
 
 ###val'Trisin Bloodline Powers
-Our Voice Rings Clear				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Trisin],[PRETEMPLATE:HolrynTrisin]									SAB:Our Voice Rings Clear (Su)
-Music Calms the Savage Beast			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Trisin],[PRETEMPLATE:HolrynTrisin]									SAB:Music Calms the Savage Beast (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Calm Animals,10+BloodTotal+CHA
-Webs for My Harp					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Trisin],[PRETEMPLATE:HolrynTrisin]									SAB:Webs for My Harp (Su)
-Steady Tempo					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Trisin],[PRETEMPLATE:HolrynTrisin]									SAB:Steady Tempo (Ex)
-Music Calms the Soul				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Trisin],[PRETEMPLATE:HolrynTrisin]									SAB:Music Calms the Soul (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Calm Emotions,10+BloodTotal+CHA
-The Highest Note					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Trisin],[PRETEMPLATE:HolrynTrisin]									SAB:The Highest Note (Sp)
+Our Voice Rings Clear				TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Trisin],[PRETEMPLATE:1,HolrynTrisin]									SAB:Our Voice Rings Clear (Su)
+Music Calms the Savage Beast			TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Trisin],[PRETEMPLATE:1,HolrynTrisin]									SAB:Music Calms the Savage Beast (Sp)																							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Calm Animals,10+BloodTotal+CHA
+Webs for My Harp					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Trisin],[PRETEMPLATE:1,HolrynTrisin]									SAB:Webs for My Harp (Su)
+Steady Tempo					TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Trisin],[PRETEMPLATE:1,HolrynTrisin]									SAB:Steady Tempo (Ex)
+Music Calms the Soul				TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Trisin],[PRETEMPLATE:1,HolrynTrisin]									SAB:Music Calms the Soul (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Calm Emotions,10+BloodTotal+CHA
+The Highest Note					TYPE:Special.BloodRankThree	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Trisin],[PRETEMPLATE:1,HolrynTrisin]									SAB:The Highest Note (Sp)
 
 ###val'Virdan Bloodline Powers
-Sight of Our Lord					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Virdan],[PRETEMPLATE:HolrynVirdan]									SAB:To Know the Sight of Our Lord (Ex)																																																																																VISION:Darkvision (30')
-The Unwavering Resolve of the Destroyer	TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Virdan],[PRETEMPLATE:HolrynVirdan]									SAB:The Unwavering Resolve of the Destroyer (Ex)
-Judgement Awaits the Unworthy			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Virdan],[PRETEMPLATE:HolrynVirdan]									SAB:Judgement Awaits the Unworthy (Su)
-The Blazing Swarm					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:Virdan],[PRETEMPLATE:HolrynVirdan]									SAB:The Blazing Swarm (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Elemental Swarm
+Sight of Our Lord					TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Virdan],[PRETEMPLATE:1,HolrynVirdan]									SAB:To Know the Sight of Our Lord (Ex)																																																																																VISION:Darkvision (30')
+The Unwavering Resolve of the Destroyer	TYPE:Special.BloodRankOne	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Virdan],[PRETEMPLATE:1,HolrynVirdan]									SAB:The Unwavering Resolve of the Destroyer (Ex)
+Judgement Awaits the Unworthy			TYPE:Special.BloodRankTwo	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Virdan],[PRETEMPLATE:1,HolrynVirdan]									SAB:Judgement Awaits the Unworthy (Su)
+The Blazing Swarm					TYPE:Special.BloodRankFour	VISIBLE:NO	PREMULT:1,[PRETEMPLATE:1,Virdan],[PRETEMPLATE:1,HolrynVirdan]									SAB:The Blazing Swarm (Sp)																									SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Elemental Swarm
 
 #
 # End

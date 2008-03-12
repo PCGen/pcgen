@@ -595,11 +595,11 @@ Whip Fighting		TYPE:TieflingRacialTalent		VISIBLE:NO	PREFEAT:1,Weapon Focus(Whip
 # Feat Name			Type						Visible	Required Feat			Prohibited Feat				Required Lvl	Required Stat	Required Template			Special ABility			Define					Innate Spells										Multiple?	Move		Add																			Combat bonus			Bonus to skill													Bonus to nb of slots	Modify VAR					Source Page
 Claws				TYPE:TieflingRacialTransformation	VISIBLE:NO																							SAB:Claws (1d3)																					MULT:NO																											BONUS:SKILL|Open Locks,Sleight of Hand|-2|TYPE=Racial																	SOURCEPAGE:p.94
 #TODO: Claws as weapons plus multiple time...
-Fiendish Form		TYPE:TieflingRacialTransformation	VISIBLE:NO																		PRETEMPLATE:Tiefling Outsider	SAB:Fiendish Form (Ex)																				MULT:NO																						BONUS:COMBAT|TOHIT.GRAPPLE|2	BONUS:SKILL|Hide|4|TYPE=Transformation	BONUS:SKILL|Handle Animal,Ride|-4|TYPE=Racial											SOURCEPAGE:p.94
+Fiendish Form		TYPE:TieflingRacialTransformation	VISIBLE:NO																		PRETEMPLATE:1,Tiefling Outsider	SAB:Fiendish Form (Ex)																				MULT:NO																						BONUS:COMBAT|TOHIT.GRAPPLE|2	BONUS:SKILL|Hide|4|TYPE=Transformation	BONUS:SKILL|Handle Animal,Ride|-4|TYPE=Racial											SOURCEPAGE:p.94
 Inured to Good		TYPE:TieflingRacialTransformation	VISIBLE:NO																							SAB:Inured to Good (Ex)																				MULT:NO																																																				SOURCEPAGE:p.94
 Tail				TYPE:TieflingRacialTransformation	VISIBLE:NO																							SAB:Tail																						MULT:NO																											BONUS:SKILL|Balance|2|TYPE=Transformation									BONUS:SLOTS|RING|1							SOURCEPAGE:p.94
 #TODO: Tail as weapon plus multiple time...
-Wings				TYPE:TieflingRacialTransformation	VISIBLE:NO	PREFEAT:1,Fiendish Form														PRETEMPLATE:Tiefling Outsider	SAB:Wings																						MULT:NO	MOVE:Fly,30																																																		SOURCEPAGE:p.94
+Wings				TYPE:TieflingRacialTransformation	VISIBLE:NO	PREFEAT:1,Fiendish Form														PRETEMPLATE:1,Tiefling Outsider	SAB:Wings																						MULT:NO	MOVE:Fly,30																																																		SOURCEPAGE:p.94
 
 
 #######################

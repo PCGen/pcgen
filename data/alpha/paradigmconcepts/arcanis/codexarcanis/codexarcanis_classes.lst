@@ -5,7 +5,7 @@ SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://w
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Altherian Sharp Shooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:5	SOURCEPAGE:p.165	BONUS:CHECKS|BASE.Fortitude|CL/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Feat																		Required Skill			Required Template
-CLASS:Altherian Sharp Shooter	PREATT:5	PREFEAT:5,Precise Shot,Quick Reload,Combat Firing,Exotic Weapon Proficiency (Flintlock %),Weapon Focus (Flintlock %)	PRESKILL:1,Concentration=2	PRETEMPLATE:Altheria
+CLASS:Altherian Sharp Shooter	PREATT:5	PREFEAT:5,Precise Shot,Quick Reload,Combat Firing,Exotic Weapon Proficiency (Flintlock %),Weapon Focus (Flintlock %)	PRESKILL:1,Concentration=2	PRETEMPLATE:1,Altheria
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Altherian Sharp Shooter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Hide|Jump|Move Silently|TYPE.Profession|Ride|Swim|Tumble
 1	SAB:Range Sneak Attack +%d6|RangeSneakAttack	BONUS:VAR|RangeSneakAttack|1	DEFINE:RangeSneakAttack|0
