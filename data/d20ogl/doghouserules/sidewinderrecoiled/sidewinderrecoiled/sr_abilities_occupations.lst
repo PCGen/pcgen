@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  6 17:52:33 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Mar 12 14:15:11 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 # Original Entry by: Lone Jedi (MSRD by Barak & Tir Gwaith)
 
@@ -51,14 +51,14 @@ CATEGORY=Occupation|White Collar.FORGET
 ###Block: Sidewinder Skill Feats
 
 # Ability Name						Category of Ability	Type									Visible		Required Template												Bonus to skill									Class Skill
-Operate Vehicle (Aircraft - class skill)		CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:DISPLAY	PRETEMPLATE:StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills												CSKILL:Operate Vehicle (Aircraft)
-Operate Vehicle (Aircraft - +1 to skill)		CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:DISPLAY	PRETEMPLATE:SmartSkills											BONUS:SKILL|Operate Vehicle (Aircraft)|1|TYPE=Competance
+Operate Vehicle (Aircraft - class skill)		CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills												CSKILL:Operate Vehicle (Aircraft)
+Operate Vehicle (Aircraft - +1 to skill)		CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills										BONUS:SKILL|Operate Vehicle (Aircraft)|1|TYPE=Competance
 
-Operate Vehicle (Ground Vehicles - class skill)	CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:DISPLAY	PRETEMPLATE:StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills												CSKILL:Operate Vehicle (Ground Vehicles)
-Operate Vehicle (Ground Vehicles - +1 to skill)	CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:DISPLAY	PRETEMPLATE:SmartSkills											BONUS:SKILL|Operate Vehicle (Ground Vehicles)|1|TYPE=Competance
+Operate Vehicle (Ground Vehicles - class skill)	CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills												CSKILL:Operate Vehicle (Ground Vehicles)
+Operate Vehicle (Ground Vehicles - +1 to skill)	CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills										BONUS:SKILL|Operate Vehicle (Ground Vehicles)|1|TYPE=Competance
 
-Operate Vehicle (Watercraft - class skill)	CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills.Mariner_Skills	VISIBLE:DISPLAY	PRETEMPLATE:DedicatedSkills,CharismaticSkills																		CSKILL:Operate Vehicle (Watercraft)
-Operate Vehicle (Watercraft - +1 to skill)	CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills.Mariner_Skills	VISIBLE:DISPLAY	PRETEMPLATE:StrongSkills,FastSkills,ToughSkills,SmartSkills					BONUS:SKILL|Operate Vehicle (Watercraft)|1|TYPE=Competance
+Operate Vehicle (Watercraft - class skill)	CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills.Mariner_Skills	VISIBLE:DISPLAY	PRETEMPLATE:1,DedicatedSkills,CharismaticSkills																		CSKILL:Operate Vehicle (Watercraft)
+Operate Vehicle (Watercraft - +1 to skill)	CATEGORY:Occupation	TYPE:Engineer_Skills.Idle_Rich_Skills.Mariner_Skills	VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills				BONUS:SKILL|Operate Vehicle (Watercraft)|1|TYPE=Competance
 
 
 ###Block: MSRD Skill Feat MODs

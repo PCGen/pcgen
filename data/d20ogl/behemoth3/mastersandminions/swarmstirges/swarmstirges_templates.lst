@@ -4,8 +4,8 @@ SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.co
 
 ###Block: Hollow Husk support
 # Template Name			Visible	Source Page		Special ABility																				Prohibited Template				Bonus to skill
-Hollow Husk (Air Filled)	VISIBLE:YES	SOURCEPAGE:p.10	SAB:Filled with air	SAB:Treated as Fine creatures for the sake of resisting wind effects.							!PRETEMPLATE:Hollow Husk (Water Filled)	BONUS:SKILL|Tumble|8|TYPE=Racial	BONUS:SKILL|Jump|10|TYPE=Racial
-Hollow Husk (Water Filled)	VISIBLE:YES	SOURCEPAGE:p.10	SAB:Filled with water	SAB:Receive a +5 racial bonus to Move Silently and Hide checks as long as they are submerged in water.	!PRETEMPLATE:Hollow Husk (Air Filled)
+Hollow Husk (Air Filled)	VISIBLE:YES	SOURCEPAGE:p.10	SAB:Filled with air	SAB:Treated as Fine creatures for the sake of resisting wind effects.							!PRETEMPLATE:1,Hollow Husk (Water Filled)	BONUS:SKILL|Tumble|8|TYPE=Racial	BONUS:SKILL|Jump|10|TYPE=Racial
+Hollow Husk (Water Filled)	VISIBLE:YES	SOURCEPAGE:p.10	SAB:Filled with water	SAB:Receive a +5 racial bonus to Move Silently and Hide checks as long as they are submerged in water.	!PRETEMPLATE:1,Hollow Husk (Air Filled)
 
 ###Block: Wing Jockey Mount support
 

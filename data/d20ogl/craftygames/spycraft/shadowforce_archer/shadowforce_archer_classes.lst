@@ -85,7 +85,7 @@ CLASS:Sniper	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																	Combat bonus																									Modify VAR
 CLASS:Shadespeaker	HD:10		TYPE:Prestige.PC	ABB:ShSpk		MAXLEVEL:10	SOURCEPAGE:p.216	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|(((CL+1)*5)/13)+1	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(CL/2)+1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL/2
 # Class Name		Required Feat		Required Lvl	Required Stat	Required Template
-CLASS:Shadespeaker	PREFEAT:1,Sixth Sense	PRELEVEL:MIN=5	PRESTAT:1,WIS=13	PRETEMPLATE:Chamber - Guardians of the Whispering Knife
+CLASS:Shadespeaker	PREFEAT:1,Sixth Sense	PRELEVEL:MIN=5	PRESTAT:1,WIS=13	PRETEMPLATE:1,Chamber - Guardians of the Whispering Knife
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE.Craft|First Aid|Gather Information|Handle Animal|TYPE.Hobby|Jump|TYPE.Knowledge|Languages|Listen|Sense Motive|Spot|Survival|Tumble
 1	SAB:The Call (Questions)|PREVARLT:CL,5				BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Shadespeaker Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Hurled)
