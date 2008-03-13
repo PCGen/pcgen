@@ -1855,7 +1855,7 @@ BIO
 		<feat>
 			<name>Simple Weapons Proficiency</name>
 			<description>The character makes attack rolls with simple weapons normally</description>
-			<type>GENERAL</type>
+			<type>GENERAL.ABERRATIONPROFICIENCY.FEYPROFICIENCY.GIANTPROFICIENCY.HUMANOIDPROFICIENCY.MONSTROUSHUMANOIDPROFICIENCY.OUTSIDERPROFICIENCY.UNDEADPROFICIENCY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
