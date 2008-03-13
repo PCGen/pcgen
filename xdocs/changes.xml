@@ -5,20 +5,20 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.13.11" date="In SVN" description="Beta release">
+    <release version="5.13.11" date="2008-03-13" description="Beta release"> 
       <action dev="jdempsey" type="update" issue="1901191">Make At Will in SPELLS unambiguous</action>  
-      <action dev="thpr" type="update" issue="1904978">Deprecate .A in CHOOSE:SPELLLEVEL</action>
-      <action dev="thpr" type="update" issue="1898420">Deprecate CompanionMod SWITCHRACE</action>
-      <action dev="thpr" type="fix" issue="1905484">Language File distinguishes by TYPE and KEY</action>
-      <action dev="thpr" type="fix" issue="1903632">Closing a Chooser causes Feat Miscount</action>
-      <action dev="thpr" type="fix" issue="1902744">CHOOSE:FEAT broken</action>
-      <action dev="thpr" type="fix" issue="1901161">PRESPELLTYPE Works in certain conditions</action>
-      <action dev="thpr" type="fix" issue="1906000">Armor Profs are not unloaded on "Unload All"</action>
-      <action dev="thpr" type="fix" issue="1906002">PREABILITY cannot unparse CATEGORY=ANY</action>
-      <action dev="thpr" type="fix" issue="1901819">PREHD: no longer fully supported for write</action>
-      <action dev="thpr" type="update" issue="1886721">Spell Chooser [Discussed on _exp]</action>
-      <action dev="thpr" type="update" issue="1909637">Remove LANGAUTO from Kit file type</action>
-    </release> 
+      <action dev="thpr" type="update" issue="1904978">Deprecate .A in CHOOSE:SPELLLEVEL</action>  
+      <action dev="thpr" type="update" issue="1898420">Deprecate CompanionMod SWITCHRACE</action>  
+      <action dev="thpr" type="fix" issue="1905484">Language File distinguishes by TYPE and KEY</action>  
+      <action dev="thpr" type="fix" issue="1903632">Closing a Chooser causes Feat Miscount</action>  
+      <action dev="thpr" type="fix" issue="1902744">CHOOSE:FEAT broken</action>  
+      <action dev="thpr" type="fix" issue="1901161">PRESPELLTYPE Works in certain conditions</action>  
+      <action dev="thpr" type="fix" issue="1906000">Armor Profs are not unloaded on "Unload All"</action>  
+      <action dev="thpr" type="fix" issue="1906002">PREABILITY cannot unparse CATEGORY=ANY</action>  
+      <action dev="thpr" type="fix" issue="1901819">PREHD: no longer fully supported for write</action>  
+      <action dev="thpr" type="update" issue="1886721">Spell Chooser [Discussed on _exp]</action>  
+      <action dev="thpr" type="update" issue="1909637">Remove LANGAUTO from Kit file type</action> 
+    </release>  
     <release version="5.13.10" date="2008-02-25" description="Alpha release"> 
       <action dev="karianna" type="fix" issue="1744534">Initiative lost during re-sort</action>  
       <action dev="jfrazierjr" type="add" issue="1847137">Add PRExxx capability to SUBSTITUTIONLEVEL line</action>  
@@ -26,8 +26,8 @@
       <action dev="zaister" type="update" issue="1889954">Show Prerequisites for skills in GUI</action>  
       <action dev="zaister" type="update" issue="1891321">Remove Save DCs for spells with no save</action>  
       <action dev="jfrazierjr" type="update" issue="1893274">Add "Choice" column to cost and prohibited subclass chooser</action>  
-      <action dev="jdempsey" type="add" issue="1900267">SPELLS tag time unit enhancements</action>  
-    </release> 
+      <action dev="jdempsey" type="add" issue="1900267">SPELLS tag time unit enhancements</action> 
+    </release>  
     <release version="5.13.9" date="2008-02-12" description="Alpha release"> 
       <action dev="jdempsey" type="add" issue="1850536">DESC pcc tag</action>  
       <action dev="jdempsey" type="add" issue="1850537">URL pcc tag</action>  
