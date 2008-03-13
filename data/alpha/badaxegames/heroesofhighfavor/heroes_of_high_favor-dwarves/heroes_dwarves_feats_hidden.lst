@@ -1,23 +1,28 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan 11 23:56:04 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision: $ $Author: $ -- Wed Mar 12 22:20:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 # Original Entry by: Andrew Maitland
 
+###Block: Aceldamist Hidden Class Feats
+# Feat Name						Type			Visible	Special ABility							Description					Stackable?	Multiple?	Choose													BONUS:EQMARMOR				Source Page
+Ancestral Lore					TYPE:Aceldamist	VISIBLE:NO	SAB:Ancestral Lore						DESC:See Text				STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|10|TYPE=Arcane|0|MAXLEVEL+1[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]							SOURCEPAGE:pg.54
+Armored Casting					TYPE:Aceldamist	VISIBLE:NO	SAB:Armored Casting						DESC:See Text						MULT:YES	CHOOSE:ARMORTYPE												BONUS:EQMARMOR|SPELLFAILURE|-5	SOURCEPAGE:pg.54
+Blood Magic						TYPE:Aceldamist	VISIBLE:NO	SAB:Blood Magic							DESC:See Text																												SOURCEPAGE:pg.54
+Fellblade Magic					TYPE:Aceldamist	VISIBLE:NO	SAB:Fellblade Magic						DESC:See Text																												SOURCEPAGE:pg.55
+Signature Metaspell ~ Empower Spell		TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Metaspell (Empower Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
+Signature Metaspell ~ Enlarge Spell		TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Metaspell (Enlarge Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
+Signature Metaspell ~ Extend Spell		TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Metaspell (Extend Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
+Signature Metaspell ~ Heighten Spell	TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Metaspell (Heighten Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
+Signature Metaspell ~ Maximize Spell	TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Metaspell (Maximize Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
+Signature Metaspell ~ Quicken Spell		TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Metaspell (Quicken Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
+Signature Metaspell ~ Silent Spell		TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Metaspell (Silent Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
+Signature Metaspell ~ Still Spell		TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Metaspell (Still Spell ~ %CHOICE)		DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
+Signature Spell Focus				TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Spell Focus (%CHOICE)				DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
+Signature Spell Immunity			TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Spell Immunity (%CHOICE)			DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
+Signature Spell Penetration			TYPE:Aceldamist	VISIBLE:NO	SAB:Signature Spell Penetration (%CHOICE)			DESC:Signature Spell Penetration			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]														SOURCEPAGE:pg.55
 
-#Hidden
-
-###Block: HIDDEN CLASS FEATS
-# Feat Name				Output Name				Type			Visible	Required Class			Special ABility				Description					Stackable?	Multiple?	Choose				BONUS:EQMARMOR				Source Page
-Ancestral Lore								TYPE:Aceldamist	VISIBLE:NO						SAB:Ancestral Lore			DESC:See Text						MULT:YES	CHOOSE:SPELLLIST|1								SOURCEPAGE:pg.54
-Armored Casting								TYPE:Aceldamist	VISIBLE:NO						SAB:Armored Casting			DESC:See Text						MULT:YES	CHOOSE:ARMORTYPE			BONUS:EQMARMOR|SPELLFAILURE|-5	SOURCEPAGE:pg.54
-Blood Magic									TYPE:Aceldamist	VISIBLE:NO						SAB:Blood Magic				DESC:See Text																			SOURCEPAGE:pg.54
-Fellblade Magic								TYPE:Aceldamist	VISIBLE:NO						SAB:Fellblade Magic			DESC:See Text																			SOURCEPAGE:pg.55
-Signature Metaspell							TYPE:Aceldamist	VISIBLE:NO						SAB:Signature Metaspell			DESC:See Text						MULT:YES	CHOOSE:SPELLLIST|1								SOURCEPAGE:pg.55
-Signature Spell Focus							TYPE:Aceldamist	VISIBLE:NO						SAB:Signature Spell Focus		DESC:See Text						MULT:YES	CHOOSE:SPELLLIST|1								SOURCEPAGE:pg.55
-Signature Spell Immunity						TYPE:Aceldamist	VISIBLE:NO						SAB:Signature Spell Immunity		DESC:See Text						MULT:YES	CHOOSE:SPELLLIST|1								SOURCEPAGE:pg.55
-Signature Spell Penetration						TYPE:Aceldamist	VISIBLE:NO						SAB:Signature Spell Penetration	DESC:Signature Spell Penetration			MULT:YES	CHOOSE:SPELLLIST|1								SOURCEPAGE:pg.55
-
-
-SlayerSkillMastery		OUTPUTNAME:Skill Mastery	TYPE:SlayerHidden	VISIBLE:NO	PRECLASS:1,Slayer ~ HoHFD=1	SAB:Skill Mastery of (%CHOICE)	DESC:Skill Mastery of (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CLASS
+###Block: Slayer Hidden Class Feats
+# Feat Name			Output Name				Type			Visible	Required Class			Special ABility				Description					Stackable?	Multiple?	Choose
+SlayerSkillMastery	OUTPUTNAME:Skill Mastery	TYPE:SlayerHidden	VISIBLE:NO	PRECLASS:1,Slayer ~ HoHFD=1	SAB:Skill Mastery of (%CHOICE)	DESC:Skill Mastery of (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CLASS
 
 ###Block:  COMMENTS: Slayer get a virtual feat usable against only favored enemies - Don't stack. Using SA to display
 # Feat Name					Type					Visible	Required Feat				Special ABility								Description					Source Page

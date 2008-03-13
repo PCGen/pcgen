@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan 11 23:56:04 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision: $ $Author: $ -- Wed Mar 12 22:25:23 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 # Original Entry by: Andrew Maitland
 
@@ -185,8 +185,8 @@ CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disab
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Aceldamist	HD:6		TYPE:PC.Prestige	ABB:Aceld		MAXLEVEL:10	SOURCEPAGE:pg.54	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Req. Armor Prof.			Required Check Base		Required Feat							Required Skill									Req. Casting Type		Req. Spell Type
-CLASS:Aceldamist	PREARMORPROF:1,TYPE.Heavy	PRECHECKBASE:1,Fortitude=4	PREFEAT:3,Combat Casting,Dodge,Improved Initiative	PRESKILL:3,Concentration=6,Knowledge (Arcana)=6,Spellcraft=6	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=3
+# Class Name	Required Check Base		Required Feat							Multiple Requirements										Required Skill									Req. Casting Type		Req. Spell Type
+CLASS:Aceldamist	PRECHECKBASE:1,Fortitude=4	PREFEAT:3,Combat Casting,Dodge,Improved Initiative	PREMULT:1,[PREARMORPROF:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PRESKILL:3,Concentration=6,Knowledge (Arcana)=6,Spellcraft=6	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aceldamist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Scry|Spellcraft
 
@@ -206,8 +206,8 @@ CLASS:Aceldamist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimid
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Artificer	HD:6		TYPE:PC.Prestige	ABB:ArtF		MAXLEVEL:10	SOURCEPAGE:pg.58	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Req. Armor Prof.			Required Feat					Req. Shield Prof.											Required Skill											Req. Weapond Prof.
-CLASS:Artificer	PREARMORPROF:1,TYPE.Heavy	PREFEAT:1,Craft Magic Arms and Armor	PRESHIELDPROF:1,TYPE.Shield,TYPE.Buckler,TYPE.Tower,TYPE.Light,TYPE.Heavy	PRESKILL:3,Craft (Armorsmithing)=9,Craft (Weaponsmithing)=9,Spellcraft=9	PREWEAPONPROF:2,TYPE.Simple,TYPE.Martial
+# Class Name	Required Feat					Multiple Requirements																														Required Skill											Req. Weapond Prof.
+CLASS:Artificer	PREFEAT:1,Craft Magic Arms and Armor	PREMULT:1,[PREARMORPROF:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PREMULT:1,[PREFEAT:1,Shield Proficiency],[PRESHIELDPROF:1,TYPE.Shield,TYPE.Buckler,TYPE.Tower,TYPE.Light,TYPE.Heavy]	PRESKILL:3,Craft (Armorsmithing)=9,Craft (Weaponsmithing)=9,Spellcraft=9	PREWEAPONPROF:2,TYPE.Simple,TYPE.Martial
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Artificer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Scry|Spellcraft|Use Magic Device
 
