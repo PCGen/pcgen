@@ -27,14 +27,54 @@ package plugin.initiative.gui;
 
 import gmgen.GMGenSystem;
 import gmgen.io.SimpleFileFilter;
-import gmgen.plugin.*;
+import gmgen.plugin.Combatant;
+import gmgen.plugin.Dice;
+import gmgen.plugin.Event;
+import gmgen.plugin.InfoCharacterDetails;
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.Spell;
+import gmgen.plugin.SystemHP;
+import gmgen.plugin.SystemInitiative;
 import gmgen.pluginmgr.GMBComponent;
 import gmgen.pluginmgr.GMBus;
 import gmgen.pluginmgr.messages.CombatantUpdatedMessage;
 import gmgen.util.LogUtilities;
+
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+import javax.swing.DefaultCellEditor;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+import javax.swing.text.DefaultFormatter;
+import javax.swing.text.NumberFormatter;
+
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
+
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -42,22 +82,15 @@ import pcgen.core.StatList;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.util.Logging;
-import plugin.initiative.*;
-
-import javax.swing.*;
-import javax.swing.event.HyperlinkEvent;
-import javax.swing.event.HyperlinkListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.*;
-import javax.swing.text.DefaultFormatter;
-import javax.swing.text.NumberFormatter;
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.*;
+import plugin.initiative.AttackModel;
+import plugin.initiative.CheckModel;
+import plugin.initiative.DiceRollModel;
+import plugin.initiative.InitOutputter;
+import plugin.initiative.InitiativePlugin;
+import plugin.initiative.PObjectModel;
+import plugin.initiative.SaveModel;
+import plugin.initiative.SpellModel;
+import plugin.initiative.XMLCombatant;
 
 /**
  *@author     Devon Jones
@@ -141,9 +174,9 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	/**
-	 *  Sets the active Initiative to be the passed in value
+	 * Sets the active Initiative to be the passed in value
 	 *
-	 *@param  init  The new Active Initiative value
+	 * @param init - The new Active Initiative value
 	 */
 	public void setCurrentInit(int init)
 	{
@@ -2445,18 +2478,26 @@ public class Initiative extends javax.swing.JPanel
 
 	private void editTable(int row, int column)
 	{
+		// Figure out which row is the active row
+		// Karianna - Commented out this section to fix bug 
+		/*
 		int activeRow = 0;
 		for (int i = 0; i < initList.size(); i++)
 		{
 			InitHolder c = initList.get(i);
+			// IF the InitHolder status is not Dead or showDead is selected (e.g. InitHolder is alive or we're showeing the dead)
+			// AND InitHolder is not an Event or we're shoeing events
+			// THEN update the active row
 			if ((!c.getStatus().equals("Dead") || showDead.isSelected())
 				&& (!(c instanceof Event) || showEvents.isSelected()))
 			{
 				activeRow++;
 			}
 		}
+		*/
 		// Look up the active row (-1 as arrays are indexed starting at 0)
-		InitHolder iH = initList.get(activeRow - 1);
+		//InitHolder iH = initList.get(activeRow - 1);
+		InitHolder iH = initList.get(row);
 		Object data = combatantTable.getValueAt(row, column);
 		boolean atTop = (currentInit == initList.getMaxInit());
 		iH.editRow(columnList, column, data);
@@ -2736,11 +2777,13 @@ public class Initiative extends javax.swing.JPanel
 		jSplitPane1.setPreferredSize(new java.awt.Dimension(800, 405));
 		combatantTable.addMouseListener(new java.awt.event.MouseAdapter()
 		{
+			@Override
 			public void mousePressed(java.awt.event.MouseEvent evt)
 			{
 				combatantTableMousePressed(evt);
 			}
 
+			@Override
 			public void mouseReleased(java.awt.event.MouseEvent evt)
 			{
 				combatantTableMouseReleased(evt);
@@ -2967,11 +3010,13 @@ public class Initiative extends javax.swing.JPanel
 		JTableHeader header = combatantTable.getTableHeader();
 		header.addMouseListener(new java.awt.event.MouseAdapter()
 		{
+			@Override
 			public void mousePressed(java.awt.event.MouseEvent evt)
 			{
 				combatantTableMousePressed(evt);
 			}
 
+			@Override
 			public void mouseReleased(java.awt.event.MouseEvent evt)
 			{
 				combatantTableMouseReleased(evt);

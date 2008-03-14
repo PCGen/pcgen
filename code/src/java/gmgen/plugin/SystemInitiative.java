@@ -4,7 +4,7 @@
 package gmgen.plugin;
 
 /**
- * Deals with the iniative part of the GMGen plugin 
+ * Deals with the initiative part of the GMGen plugin 
  */
 public class SystemInitiative
 {
@@ -78,7 +78,8 @@ public class SystemInitiative
 	public void setBonus(int bonus)
 	{
 		this.bonus = bonus - attribute.getModifier();
-		if(getCurrentInitiative() > 0) {
+		if (getCurrentInitiative() > 0)
+		{
 			setCurrentInitiative(roll + getModifier() + mod);
 		}
 	}
@@ -99,7 +100,7 @@ public class SystemInitiative
 	{
 		currentInitiative = 0;
 	}
-	
+
 	/**
 	 * Set the current initiative
 	 * @param currentInitiative
