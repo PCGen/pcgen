@@ -6,5 +6,4 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 CLASS:Cerebremancer.MOD	MAXLEVEL:NOLIMIT
 11:REPEATLEVEL:2	ADD:SPELLCASTER|Arcane
 12:REPEATLEVEL:2	ADD:SPELLCASTER|Psionic
-16:REPEATLEVEL:6	ADD:FEAT|Automatic Quicken Power,Automatic Quicken Spell,Automatic Silent Spell,Automatic Still Spell,Enhance Spell,Epic Psionic Endowment,Epic Psionic Focus,Epic Spell Focus,Epic Spell Penetration,Epic Manifestation,Epic Power Penetration,Epic Spellcasting,Ignore Material Components,Improved Combat Casting,Improved Combat Manifestation,Improved Heighten Spell,Improved Metamagic,Improved Manifestation,Improved Metapsionics,Improved Spell Capacity,Intensify Power,Intensify Spell,Multipower,Multispell,Permanent Emanation,Permanent Power Emanation,Power Stowaway,Spell Knowledge,Spell Opportunity,Spell Stowaway,Spontaneous Spell,Suppress Power Displays,Tenacious Magic,Tenacious Psionics
-
+16:REPEATLEVEL:6	BONUS:ABILITYPOOL|Epic Cerebremancer Feat|1

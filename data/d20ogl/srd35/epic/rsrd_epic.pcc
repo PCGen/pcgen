@@ -20,6 +20,8 @@ COPYRIGHT:COPYRIGHT:PCGen dataset conversion for the System Reference Document C
 INFOTEXT:RSRD Epic options. Requires the RSRD Basics set.
 
 # Epic
+ABILITY:rsrd_abilities_class_epic.lst
+ABILITYCATEGORY:rsrd_ability_categories_epic.lst
 CLASS:rsrd_classes_base_epic.lst
 CLASS:rsrd_classes_epic.lst
 CLASS:rsrd_classes_monsters_dragons_epic.lst
@@ -41,6 +43,10 @@ KIT:rsrd_kits_epic_races.lst
 KIT:rsrd_kits_epic_races_dragons.lst
 
 WEAPONPROF:rsrd_weaponprofs_epic.lst
+
+HIDETYPE:FEAT|EpicBarbarian|EpicBard|EpicCleric|EpicDruid|EpicFighter|EpicMonk|EpicPaladin|EpicRanger|EpicRogue|EpicSorcerer|EpicWizard
+HIDETYPE:FEAT|EpicArcaneArcher|EpicArcaneTrickster|EpicAssassin|EpicBlackguard|EpicDragonDisciple|EpicDuelist|EpicDwarvenDefender|EpicEldritchKnight|EpicHorizonWalker|EpicLoremaster|EpicMysticTheurge|EpicShadowdancer
+HIDETYPE:FEAT|AgentRetriever|CosmicDescryer|DivineEmissary|GuardianParamount|HighProselytizer|LegendaryDreadnought|PerfectWight
 
 #
 # End

@@ -22,7 +22,10 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 INFOTEXT:RSRD Epic Psionics options. Requires the RSRD Basics and RSRD Psionics sets.
 
 # Epic
+ABILITYCATEGORY:rsrd_ability_categories_epic_psionic.lst
 FEAT:rsrd_feats_psionic_epic.lst
 CLASS:rsrd_classes_psionic_epic.lst
 CLASS:rsrd_classes_psionic_prestige_epic.lst
 SKILL:rsrd_skills_psionic_epic.lst
+
+HIDETYPE:FEAT|EpicCerebremancer

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 26 12:25:22 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Mar 14 13:24:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -13,7 +13,7 @@ CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|
 2																						SPELLS:Class|CASTERLEVEL=14|TIMES=((var("CL=Agent Retriever")+3)/5)|Plane Shift,17+CHA
 3	SAB:Force Sphere (Sp) %/day DC %|((CL+2)/5)|20+(CL/2)+DEX
 4																						SPELLS:Class|CASTERLEVEL=14|TIMES=((var("CL=Agent Retriever")+1)/5)|Ethereal Jaunt,17+CHA
-5:REPEATLEVEL:5																						ADD:FEAT|Epic Endurance,Epic Prowess,Epic Speed,Epic Toughness,Epic Weapon Focus,Fast Healing,Improved Combat Casting,Improved Spell Capacity,Legendary Climber,Legendary Rider,Legendary Tracker,Perfect Health,Permanent Emanation,Spontaneous Spell,Storm of Throws,Swarm of Arrows,Uncanny Accuracy
+5:REPEATLEVEL:5																						BONUS:ABILITYPOOL|Agent Retriever Feat|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
@@ -23,9 +23,10 @@ CLASS:Cosmic Descryer	PREFEAT:2,Spell Focus (Conjuration),Energy Resistance	PREL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Sense Motive|Spellcraft|TYPE.Craft|TYPE.Profession
 1	SAB:Superior Planar Summoning (Ex) +% HD|SuperiorSummoning	BONUS:VAR|SuperiorSummoning|4*ceil(CL/4)		DEFINE:SuperiorSummoning|0
-2:REPEATLEVEL:2																								ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Naturalization
+2																								AUTO:FEAT|Naturalization
+2:REPEATLEVEL:2																								ADD:SPELLCASTER|ANY	BONUS:VAR|CSNaturalization|1
 3	SAB:Enduring Gate (Su) % days|EnduringGate			BONUS:VAR|EnduringGate|floor(CL/3)			DEFINE:EnduringGate|0
-5:REPEATLEVEL:5																								ADD:FEAT|Augmented Alchemy,Automatic Quicken Spell,Automatic Silent Spell,Automatic Still Spell,Combat Casting,Craft Epic Magic Arms and Armor,Craft Epic Rod,Craft Epic Staff,Craft Epic Wondrous Item,Efficient Item Creation,Enhance Spell,Epic Spell Focus,Epic Spell Penetration,Epic Spellcasting,Familiar Spell,Forge Epic Ring,Ignore Material Components,Improved Combat Casting,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Multispell,Permanent Emanation,Scribe Epic Scroll,Spell Focus,Spell Knowledge,Spell Mastery,Spell Opportunity,Spell Penetration,Spell Stowaway,Spontaneous Spell,Tenacious Magic
+5:REPEATLEVEL:5																								BONUS:ABILITYPOOL|Cosmic Descryer Feat|1
 7	SAB:Cosmic Connection (Su) %/day|CosmicConnection		BONUS:VAR|CosmicConnection|floor((CL-2)/5)	DEFINE:CosmicConnection|0
 
 
@@ -39,7 +40,7 @@ CLASS:Divine Emissary	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Disguise|Ga
 1	SAB:Divine Inspiration (Sp) %/day|DEDivineInspiration	BONUS:VAR|DEDivineInspiration|ceil(CL/3)																										BONUS:DOMAIN|NUMBER|1	DEFINE:DEDivineInspiration|0
 2										BONUS:VAR|SmiteGood|DESmite|PREFEAT:1,Smite Good	BONUS:VAR|SmiteEvil|DESmite|PREFEAT:1,Smite Evil	BONUS:VAR|SmiteAnyTimes|DESmite|PREFEAT:1,Smite	BONUS:VAR|DESmite|((CL+1)/3)+1					DEFINE:DESmite|0
 3																																																			SPELLS:Class|CASTERLEVEL=TL|TIMES=(CL+7)/10|Planar Ally (Greater),18+WIS
-6:REPEATLEVEL:10																																																			ADD:FEAT|Armor Skin,Devastating Critical,Epic Leadership,Epic Prowess,Epic Reputation,Epic Toughness,Epic Weapon Focus,Great Smiting,Holy Strike,Improved Aura of Courage,Improved Combat Casting,Improved Spell Capacity,Legendary Commander,Legendary Rider,Overwhelming Critical,Perfect Health,Permanent Emanation,Planar Turning,Positive Energy Aura,Spectral Strike,Spontaneous Spell,Widen Aura of Courage
+6:REPEATLEVEL:10	BONUS:ABILITYPOOL|Divine Emissary Feat|1
 9	SAB:Divine Hand (Su) %/day|DEDivineHand			BONUS:VAR|DEDivineHand|floor((CL+1)/10)																														DEFINE:DEDivineHand|0
 
 
@@ -50,7 +51,7 @@ CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:2,Alertness,Polyglot	P
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Sense Motive|Sleight of Hand|Spot|TYPE.Craft|TYPE.Profession
 1	SAB:Improved Cover Identity (Ex/Su) %/day|EICover		BONUS:VAR|EICover|(2+ceil(CL/4))	BONUS:VAR|SneakAttack|ceil(CL/3)	DEFINE:EICover|0																					AUTO:FEAT|Sneak Attack
-2:REPEATLEVEL:3																															ADD:FEAT|TYPE=SpecialistTraining
+2:REPEATLEVEL:3																											BONUS:ABILITYPOOL|Infiltrator Specialist Training|1
 3	SAB:Read Thoughts (Su) %/day|EIReadThoughts			BONUS:VAR|EIReadThoughts|((CL+1)/4)							DEFINE:EIReadThoughts|0					SPELLS:Class|CASTERLEVEL=15|TIMES=((var("CL=Epic Infiltrator")+5)/8)|Mind Blank,18+INT
 4	SAB:Far Senses (Su) %/day % ft|EIFarSenses|FarSensesRange	BONUS:VAR|EIFarSenses|((CL+1)/4)	BONUS:VAR|FarSensesRange|20*(CL+1)	DEFINE:EIFarSenses|0	DEFINE:FarSensesRange|0
 
@@ -66,7 +67,7 @@ CLASS:Guardian Paramount	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Intimidate
 1	SAB:Uncanny Dodge Enabler (Ex) %/day|GPEnabler	BONUS:VAR|GPEnabler|(2+ceil(CL/3))		DEFINE:GPEnabler|0	ADD:FEAT|Bulwark of Defense,Combat Archery,Damage Reduction,Dexterous Fortitude,Dexterous Will,Epic Dodge,Epic Fortitude,Epic Reflexes,Epic Reputation,Epic Skill Focus,Epic Speed,Epic Toughness,Epic Will,Exceptional Deflection,Fast Healing,Great Dexterity,Improved Combat Reflexes,Improved Sneak Attack,Improved Spell Resistance,Infinite Deflection,Legendary Climber,Lingering Damage,Mobile Defense,Perfect Health,Reflect Arrows,Self Concealment,Sneak Attack of Opportunity,Spellcasting Harrier,Uncanny Accuracy
 2	SAB:Evasive Preceptor (Ex) %/day|GPPreceptor	BONUS:VAR|GPPreceptor|floor((CL+1)/3)	DEFINE:GPPreceptor|0
 3	SAB:Protective Aura (Sp) %/day|GPAura		BONUS:VAR|GPAura|CL/3				DEFINE:GPAura|0
-4:REPEATLEVEL:3																				ADD:FEAT|Bulwark of Defense,Combat Archery,Damage Reduction,Dexterous Fortitude,Dexterous Will,Epic Dodge,Epic Fortitude,Epic Reflexes,Epic Reputation,Epic Skill Focus,Epic Speed,Epic Toughness,Epic Will,Exceptional Deflection,Fast Healing,Great Dexterity,Improved Combat Reflexes,Improved Sneak Attack,Improved Spell Resistance,Infinite Deflection,Legendary Climber,Lingering Damage,Mobile Defense,Perfect Health,Reflect Arrows,Self Concealment,Sneak Attack of Opportunity,Spellcasting Harrier,Uncanny Accuracy
+4:REPEATLEVEL:3	BONUS:ABILITYPOOL|Guardian Paramount Feat|1
 5	SAB:Adjust Probability (Ex) %/day|GPProbability	BONUS:VAR|GPProbability|1+floor((CL+1)/3)	DEFINE:GPProbability|0
 6	SAB:Call Back (Sp) %/day|GPCallBack			BONUS:VAR|GPCallBack|CL/6			DEFINE:GPCallBack|0
 
@@ -81,7 +82,7 @@ CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Know
 2:REPEATLEVEL:2																						ADD:SPELLCASTER|Divine
 2																						SPELLS:Class|CASTERLEVEL=(TL)|TIMES=((var("CL=High Proselytizer")+2)/4)|Heal,16+WIS
 3	SAB:Proselytize (Deific Touch) (Sp) %/day|HPProsetilyzeDT	BONUS:VAR|HPProsetilyzeDT|(CL+7)/10	DEFINE:HPProsetilyzeDT|0
-4:REPEATLEVEL:4																						ADD:FEAT|Armor Skin,Automatic Quicken Spell,Automatic Silent Spell,Automatic Still Spell,Bonus Domain,Enhance Spell,Epic Reputation,Epic Spell Focus,Epic Spell Penetration,Epic Spellcasting,Epic Will,Extended Life Span,Great Charisma,Great Wisdom,Ignore Material Components,Improved Alignment Based Casting,Improved Combat Casting,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Legendary Commander,Multispell,Negative Energy Burst,Permanent Emanation,Planar Turning,Polyglot,Positive Energy Aura,Spectral Strike,Spell Stowaway,Spell Opportunity,Spontaneous Domain Access,Spontaneous Spell,Tenacious Magic,Undead Mastery,Zone of Animation
+4:REPEATLEVEL:4	BONUS:ABILITYPOOL|High Proselytizer Feat|1
 5	SAB:Proselytize (Deific Word) (Sp) %/day|HPProsetilyzeDW	BONUS:VAR|HPProsetilyzeDW|(CL+5)/10	DEFINE:HPProsetilyzeDW|0
 7	SAB:Proselytize (Deific Face) (Sp) %/day|HPProsetilyzeDF	BONUS:VAR|HPProsetilyzeDF|(CL+3)/10	DEFINE:HPProsetilyzeDF|0
 9	SAB:Proselytize (Deific Aura) (Sp) %/day|HPProsetilyzeDA	BONUS:VAR|HPProsetilyzeDA|(CL+1)/10	DEFINE:HPProsetilyzeDA|0
@@ -97,7 +98,7 @@ CLASS:Legendary Dreadnought	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim|TY
 2			SAB:Unmovable (Ex) %/day|LDUnmovable	BONUS:VAR|LDUnmovable|(CL+3)/5													DEFINE:LDUnmovable|0
 3			SAB:Shrug Off Punishment (Ex)			BONUS:VAR|LDShrugOff|12*floor((CL+2)/5)						BONUS:HP|CURRENTMAX|LDShrugOff	DEFINE:LDShrugOff|0
 4	DR:3/-	SAB:Thick Skinned (Ex)											BONUS:DR|-|3*((CL+1)/5-1)
-5:REPEATLEVEL:5																																ADD:FEAT|Armor Skin,Devastating Critical,Dire Charge,Epic Fortitude,Epic Prowess,Epic Toughness,Epic Weapon Focus,Epic Weapon Specialization,Fast Healing,Great Constitution,Great Strength,Improved Combat Reflexes,Overwhelming Critical,Penetrate Damage Reduction
+5:REPEATLEVEL:5	BONUS:ABILITYPOOL|Legendary Dreadnought Feat|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
@@ -110,7 +111,7 @@ CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomac
 2	SAB:Improved Legerdemain (Su) %/day|PWLengerdemain	BONUS:VAR|PWLengerdemain|(CL+3)/5	DEFINE:PWLengerdemain|0
 3	SAB:Incorporeal (Su) %/day|PWIncorporeal			BONUS:VAR|PWIncorporeal|(CL+2)/5	DEFINE:PWIncorporeal|0
 4	SAB:Shadow Form (Su) %/day|PWShadowForm			BONUS:VAR|PWShadowForm|(CL+1)/5	DEFINE:PWShadowForm|0
-5:REPEATLEVEL:5																				ADD:FEAT|Blinding Speed,Combat Archery,Dexterous Fortitude,Dexterous Will,Epic Dodge,Epic Reputation,Epic Skill Focus,Epic Speed,Improved Combat Reflexes,Improved Sneak Attack,Legendary Climber,Lingering Damage,Self Concealment,Sneak Attack of Opportunity,Spellcasting Harrier,Superior Initiative,Uncanny Accuracy
+5:REPEATLEVEL:5	BONUS:ABILITYPOOL|Perfect Wight Feat|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus

@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+# SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+###Block: Epic Psionic Core Class Feat Pools
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object							Plural description for UI		Display where?
+ABILITYCATEGORY:Epic Psion Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Epic.Psionic.Metapsionic.ItemCreation		PLURAL:Epic Psion Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Epic Psychic Warrior Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Epic.Psionic.Metapsionic.ItemCreation.Fighter	PLURAL:Epic Psychic Warrior Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Epic Soulknife Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Epic.Psionic.Metapsionic.ItemCreation		PLURAL:Epic Soulknife Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Epic Cerebremancer Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:EpicCerebremancer						PLURAL:Epic Cerebremancer Feats		DISPLAYLOCATION:Feats
+
+#
+# End
+#

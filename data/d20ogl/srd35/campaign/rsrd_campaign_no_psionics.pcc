@@ -1,4 +1,4 @@
-# CVS $Revision: 415 $ $Author: eddyanthony $ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+# CVS $Revision$ $Author$ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
 CAMPAIGN:3.5 RSRD - Campaign Set - No Psionics
 RANK:1
 GAMEMODE:35e
@@ -171,6 +171,7 @@ TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates.lst
 
 
 # Epic
+ABILITYCATEGORY:rsrd_abilitycategories_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_base_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_monsters_dragons_epic.lst
@@ -187,6 +188,9 @@ SKILL:@/d20ogl/srd35/epic/rsrd_skills_epic.lst
 EQUIPMENT:@/d20ogl/srd35/epic/rsrd_equip_epic.lst
 EQUIPMOD:@/d20ogl/srd35/epic/rsrd_equipmods_epic_enhancing.lst
 SPELL:@/d20ogl/srd35/epic/rsrd_spells_epic.lst
+HIDETYPE:FEAT|EpicBarbarian|EpicBard|EpicCleric|EpicDruid|EpicFighter|EpicMonk|EpicPaladin|EpicRanger|EpicRogue|EpicSorcerer|EpicWizard
+HIDETYPE:FEAT|EpicArcaneArcher|EpicArcaneTrickster|EpicAssassin|EpicBlackguard|EpicDragonDisciple|EpicDuelist|EpicDwarvenDefender|EpicEldritchKnight|EpicHorizonWalker|EpicLoremaster|EpicMysticTheurge|EpicShadowdancer
+HIDETYPE:FEAT|AgentRetriever|CosmicDescryer|DivineEmissary|GuardianParamount|HighProselytizer|LegendaryDreadnought|PerfectWight
 
 # Divine
 ABILITY:@/d20ogl/srd35/divine/rsrd_divine_feats_sda.lst

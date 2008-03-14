@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 22:38:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Mar 14 17:45:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: TaluronIscandar
 #     These are epic psionic feats derived from epic magic feats as allowed in the epic feat section
@@ -49,3 +49,41 @@ ImpMetapsionics				TYPE:ImpMetapsionics	VISIBLE:NO	SAB:Metapsionic powers you ma
 
 ###Block: Feat Descriptions
 # Feat Name					Description
+
+###Block: Cerebremancer Epic Bonus Feat Pool MODs
+# Feat Name					Type
+Automatic Quicken Power.MOD		TYPE:EpicCerebremancer
+Automatic Quicken Spell.MOD		TYPE:EpicCerebremancer
+Automatic Silent Spell.MOD		TYPE:EpicCerebremancer
+Automatic Still Spell.MOD		TYPE:EpicCerebremancer
+Enhance Spell.MOD				TYPE:EpicCerebremancer
+Epic Psionic Endowment.MOD		TYPE:EpicCerebremancer
+Epic Psionic Focus.MOD			TYPE:EpicCerebremancer
+Epic Spell Focus.MOD			TYPE:EpicCerebremancer
+Epic Spell Penetration.MOD		TYPE:EpicCerebremancer
+Epic Manifestation.MOD			TYPE:EpicCerebremancer
+Epic Power Penetration.MOD		TYPE:EpicCerebremancer
+Epic Spellcasting.MOD			TYPE:EpicCerebremancer
+Ignore Material Components.MOD	TYPE:EpicCerebremancer
+Improved Combat Casting.MOD		TYPE:EpicCerebremancer
+Improved Combat Manifestation.MOD	TYPE:EpicCerebremancer
+Improved Heighten Spell.MOD		TYPE:EpicCerebremancer
+Improved Metamagic.MOD			TYPE:EpicCerebremancer
+Improved Manifestation.MOD		TYPE:EpicCerebremancer
+Improved Metapsionics.MOD		TYPE:EpicCerebremancer
+Improved Spell Capacity.MOD		TYPE:EpicCerebremancer
+Intensify Power.MOD			TYPE:EpicCerebremancer
+Intensify Spell.MOD			TYPE:EpicCerebremancer
+Multipower.MOD				TYPE:EpicCerebremancer
+Multispell.MOD				TYPE:EpicCerebremancer
+Permanent Emanation.MOD			TYPE:EpicCerebremancer
+Permanent Power Emanation.MOD		TYPE:EpicCerebremancer
+Power Stowaway.MOD			TYPE:EpicCerebremancer
+Spell Knowledge.MOD			TYPE:EpicCerebremancer
+Spell Opportunity.MOD			TYPE:EpicCerebremancer
+Spell Stowaway.MOD			TYPE:EpicCerebremancer
+Spontaneous Spell.MOD			TYPE:EpicCerebremancer
+Suppress Power Displays.MOD		TYPE:EpicCerebremancer
+Tenacious Magic.MOD			TYPE:EpicCerebremancer
+Tenacious Psionics.MOD			TYPE:EpicCerebremancer
+

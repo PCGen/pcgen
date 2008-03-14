@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 22:57:35 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Mar 14 13:24:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -201,9 +201,768 @@ Improved Flyby Attack		TYPE:General			PREFEAT:3,Dodge,Flyby Attack,Mobility					
 Improved Multiattack		TYPE:General			PREFEAT:1,Multiattack								PREHANDSGTEQ:3							DESC:Your secondary attacks with natural weapons have no penalty.																								SOURCEPAGE:EpicFeats.rtf
 Improved Multiweapon Fighting	TYPE:General	PREATT:9	PREFEAT:1,Multiweapon Fighting						PREHANDSGTEQ:3				PRESTAT:1,DEX=15	DESC:In addition to the single extra attack you get with each extra weapon from Multiweapon Fighting, you get a second attack with each extra weapon, albeit at a -5 penalty.						SOURCEPAGE:EpicFeats.rtf
 
-###BLOCK: Mod Shadow Jump:
+###Block: Mod Shadow Jump:
 # Feat Name		Special ABility																																								Define
 Shadow Jump.MOD	SAB:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SAB:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SAB:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:EpicShadowJump|0
+
+###Block: Epic Rogue Ability work-around: this tranfers a feat pool point to the Rogue Ability Pool
+# Feat Name							Type				Visible		Required Class			Required Text										Multiple?	Choose		Bonus to Ability Pool
+Additional Rogue Ability (Epic Rogue)		TYPE:EpicRogue		VISIBLE:DISPLAY	PRECLASS:1,Rogue=24		PRETEXT:This should be used in the Epic Rogue Feat pool only.		MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Rogue Special Ability|1
+Additional Loremaster Secret (Epic Loremaster)	TYPE:EpicLoremaster	VISIBLE:DISPLAY	PRECLASS:1,Loremaster=24	PRETEXT:This should be used in the Epic Loremaster Feat pool only.	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Loremaster Secret|1
+
+###Block: Epic Class Feat Pool MODs
+#Barbarian
+# Feat Name						Type
+Armor Skin.MOD					TYPE:EpicBarbarian
+Chaotic Rage.MOD					TYPE:EpicBarbarian
+Damage Reduction.MOD				TYPE:EpicBarbarian
+Devastating Critical.MOD			TYPE:EpicBarbarian
+Dire Charge.MOD					TYPE:EpicBarbarian
+Epic Endurance.MOD				TYPE:EpicBarbarian
+Epic Prowess.MOD					TYPE:EpicBarbarian
+Epic Speed.MOD					TYPE:EpicBarbarian
+Epic Toughness.MOD				TYPE:EpicBarbarian
+Epic Weapon Focus.MOD				TYPE:EpicBarbarian
+Fast Healing.MOD					TYPE:EpicBarbarian
+Incite Rage.MOD					TYPE:EpicBarbarian
+Legendary Climber.MOD				TYPE:EpicBarbarian
+Legendary Leaper.MOD				TYPE:EpicBarbarian
+Legendary Rider.MOD				TYPE:EpicBarbarian
+Legendary Tracker.MOD				TYPE:EpicBarbarian
+Legendary Wrestler.MOD				TYPE:EpicBarbarian
+Mighty Rage.MOD					TYPE:EpicBarbarian
+Overwhelming Critical.MOD			TYPE:EpicBarbarian
+Ruinous Rage.MOD					TYPE:EpicBarbarian
+Terrifying Rage.MOD				TYPE:EpicBarbarian
+Thundering Rage.MOD				TYPE:EpicBarbarian
+
+#Bard
+Augmented Alchemy.MOD				TYPE:EpicBard
+Deafening Song.MOD				TYPE:EpicBard
+Epic Inspiration.MOD				TYPE:EpicBard
+Epic Leadership.MOD				TYPE:EpicBard
+Epic Reputation.MOD				TYPE:EpicBard
+Epic Skill Focus.MOD				TYPE:EpicBard
+Group Inspiration.MOD				TYPE:EpicBard
+Hindering Song.MOD				TYPE:EpicBard
+Improved Combat Casting.MOD			TYPE:EpicBard
+Improved Metamagic.MOD				TYPE:EpicBard
+Improved Spell Capacity.MOD			TYPE:EpicBard
+Inspire Excellence.MOD				TYPE:EpicBard
+Lasting Inspiration.MOD				TYPE:EpicBard
+Master Staff.MOD					TYPE:EpicBard
+Master Wand.MOD					TYPE:EpicBard
+Music of the Gods.MOD				TYPE:EpicBard
+Permanent Emanation.MOD				TYPE:EpicBard
+Polyglot.MOD					TYPE:EpicBard
+Ranged Inspiration.MOD				TYPE:EpicBard
+Rapid Inspiration.MOD				TYPE:EpicBard
+Reactive Countersong.MOD			TYPE:EpicBard
+Spell Knowledge.MOD				TYPE:EpicBard
+Spell Opportunity.MOD				TYPE:EpicBard
+Spell Stowaway.MOD				TYPE:EpicBard
+Tenacious Magic.MOD				TYPE:EpicBard
+
+#Cleric
+Armor Skin.MOD					TYPE:EpicCleric
+Automatic Quicken Spell.MOD			TYPE:EpicCleric
+Automatic Silent Spell.MOD			TYPE:EpicCleric
+Automatic Still Spell.MOD			TYPE:EpicCleric
+Bonus Domain.MOD					TYPE:EpicCleric
+Enhance Spell.MOD					TYPE:EpicCleric
+Epic Spell Focus.MOD				TYPE:EpicCleric
+Epic Spell Penetration.MOD			TYPE:EpicCleric
+Epic Spellcasting.MOD				TYPE:EpicCleric
+Ignore Material Components.MOD		TYPE:EpicCleric
+Improved Alignment Based Casting.MOD	TYPE:EpicCleric
+Improved Combat Casting.MOD			TYPE:EpicCleric
+Improved Heighten Spell.MOD			TYPE:EpicCleric
+Improved Metamagic.MOD				TYPE:EpicCleric
+Improved Spell Capacity.MOD			TYPE:EpicCleric
+Intensify Spell.MOD				TYPE:EpicCleric
+Multispell.MOD					TYPE:EpicCleric
+Negative Energy Burst.MOD			TYPE:EpicCleric
+Permanent Emanation.MOD				TYPE:EpicCleric
+Planar Turning.MOD				TYPE:EpicCleric
+Positive Energy Aura.MOD			TYPE:EpicCleric
+Spectral Strike.MOD				TYPE:EpicCleric
+Spell Opportunity.MOD				TYPE:EpicCleric
+Spell Stowaway.MOD				TYPE:EpicCleric
+Spontaneous Domain Access.MOD			TYPE:EpicCleric
+Spontaneous Spell.MOD				TYPE:EpicCleric
+Tenacious Magic.MOD				TYPE:EpicCleric
+Undead Mastery.MOD				TYPE:EpicCleric
+Zone of Animation.MOD				TYPE:EpicCleric
+
+#Druid
+Automatic Quicken Spell.MOD			TYPE:EpicDruid
+Automatic Silent Spell.MOD			TYPE:EpicDruid
+Automatic Still Spell.MOD			TYPE:EpicDruid
+Colossal Wild Shape.MOD				TYPE:EpicDruid
+Diminutive Wild Shape.MOD			TYPE:EpicDruid
+Dragon Wild Shape.MOD				TYPE:EpicDruid
+Energy Resistance.MOD				TYPE:EpicDruid
+Enhance Spell.MOD					TYPE:EpicDruid
+Epic Spell Focus.MOD				TYPE:EpicDruid
+Epic Spell Penetration.MOD			TYPE:EpicDruid
+Epic Spellcasting.MOD				TYPE:EpicDruid
+Fast Healing.MOD					TYPE:EpicDruid
+Fine Wild Shape.MOD				TYPE:EpicDruid
+Gargantuan Wild Shape.MOD			TYPE:EpicDruid
+Ignore Material Components.MOD		TYPE:EpicDruid
+Improved Combat Casting.MOD			TYPE:EpicDruid
+Improved Elemental Wild Shape.MOD		TYPE:EpicDruid
+Improved Heighten Spell.MOD			TYPE:EpicDruid
+Improved Metamagic.MOD				TYPE:EpicDruid
+Improved Spell Capacity.MOD			TYPE:EpicDruid
+Intensify Spell.MOD				TYPE:EpicDruid
+Magical Beast Companion.MOD			TYPE:EpicDruid
+Magical Beast Wild Shape.MOD			TYPE:EpicDruid
+Multispell.MOD					TYPE:EpicDruid
+Perfect Health.MOD				TYPE:EpicDruid
+Permanent Emanation.MOD				TYPE:EpicDruid
+Plant Wild Shape.MOD				TYPE:EpicDruid
+Spell Opportunity.MOD				TYPE:EpicDruid
+Spell Stowaway.MOD				TYPE:EpicDruid
+Spontaneous Spell.MOD				TYPE:EpicDruid
+Tenacious Magic.MOD				TYPE:EpicDruid
+Vermin Wild Shape.MOD				TYPE:EpicDruid
+
+#Fighter
+Armor Skin.MOD					TYPE:EpicFighter
+Combat Archery.MOD				TYPE:EpicFighter
+Damage Reduction.MOD				TYPE:EpicFighter
+Devastating Critical.MOD			TYPE:EpicFighter
+Dire Charge.MOD					TYPE:EpicFighter
+Distant Shot.MOD					TYPE:EpicFighter
+Energy Resistance.MOD				TYPE:EpicFighter
+Epic Endurance.MOD				TYPE:EpicFighter
+Epic Leadership.MOD				TYPE:EpicFighter
+Epic Prowess.MOD					TYPE:EpicFighter
+Epic Toughness.MOD				TYPE:EpicFighter
+Epic Weapon Focus.MOD				TYPE:EpicFighter
+Epic Weapon Specialization.MOD		TYPE:EpicFighter
+Exceptional Deflection.MOD			TYPE:EpicFighter
+Improved Combat Reflexes.MOD			TYPE:EpicFighter
+Improved Manyshot.MOD				TYPE:EpicFighter
+Improved Stunning Fist.MOD			TYPE:EpicFighter
+Improved Whirlwind Attack.MOD			TYPE:EpicFighter
+Infinite Deflection.MOD				TYPE:EpicFighter
+Instant Reload.MOD				TYPE:EpicFighter
+Legendary Commander.MOD				TYPE:EpicFighter
+Legendary Rider.MOD				TYPE:EpicFighter
+Legendary Wrestler.MOD				TYPE:EpicFighter
+Overwhelming Critical.MOD			TYPE:EpicFighter
+Penetrate Damage Reduction.MOD		TYPE:EpicFighter
+Perfect Two Weapon Fighting.MOD		TYPE:EpicFighter
+Reflect Arrows.MOD				TYPE:EpicFighter
+Spellcasting Harrier.MOD			TYPE:EpicFighter
+Storm of Throws.MOD				TYPE:EpicFighter
+Superior Initiative.MOD				TYPE:EpicFighter
+Swarm of Arrows.MOD				TYPE:EpicFighter
+Two Weapon Rend.MOD				TYPE:EpicFighter
+Uncanny Accuracy.MOD				TYPE:EpicFighter
+
+#Monk
+Armor Skin.MOD					TYPE:EpicMonk
+Blinding Speed.MOD				TYPE:EpicMonk
+Damage Reduction.MOD				TYPE:EpicMonk
+Energy Resistance.MOD				TYPE:EpicMonk
+Epic Prowess.MOD					TYPE:EpicMonk
+Epic Speed.MOD					TYPE:EpicMonk
+Epic Toughness.MOD				TYPE:EpicMonk
+Exceptional Deflection.MOD			TYPE:EpicMonk
+Fast Healing.MOD					TYPE:EpicMonk
+Improved Combat Reflexes.MOD			TYPE:EpicMonk
+Improved Spell Resistance.MOD			TYPE:EpicMonk
+Improved Stunning Fist.MOD			TYPE:EpicMonk
+Improved Ki Strike.MOD				TYPE:EpicMonk
+Infinite Deflection.MOD				TYPE:EpicMonk
+Keen Strike.MOD					TYPE:EpicMonk
+Legendary Climber.MOD				TYPE:EpicMonk
+Legendary Wrestler.MOD				TYPE:EpicMonk
+Reflect Arrows.MOD				TYPE:EpicMonk
+Righteous Strike.MOD				TYPE:EpicMonk
+Self Concealment.MOD				TYPE:EpicMonk
+Shattering Strike.MOD				TYPE:EpicMonk
+Vorpal Strike.MOD					TYPE:EpicMonk
+
+#Paladin
+Armor Skin.MOD					TYPE:EpicPaladin
+Devastating Critical.MOD			TYPE:EpicPaladin
+Epic Leadership.MOD				TYPE:EpicPaladin
+Epic Prowess.MOD					TYPE:EpicPaladin
+Epic Reputation.MOD				TYPE:EpicPaladin
+Epic Toughness.MOD				TYPE:EpicPaladin
+Epic Weapon Focus.MOD				TYPE:EpicPaladin
+Great Smiting.MOD					TYPE:EpicPaladin
+Holy Strike.MOD					TYPE:EpicPaladin
+Improved Aura of Courage.MOD			TYPE:EpicPaladin
+Improved Combat Casting.MOD			TYPE:EpicPaladin
+Improved Spell Capacity.MOD			TYPE:EpicPaladin
+Legendary Commander.MOD				TYPE:EpicPaladin
+Legendary Rider.MOD				TYPE:EpicPaladin
+Overwhelming Critical.MOD			TYPE:EpicPaladin
+Perfect Health.MOD				TYPE:EpicPaladin
+Permanent Emanation.MOD				TYPE:EpicPaladin
+Planar Turning.MOD				TYPE:EpicPaladin
+Positive Energy Aura.MOD			TYPE:EpicPaladin
+Spectral Strike.MOD				TYPE:EpicPaladin
+Spontaneous Spell.MOD				TYPE:EpicPaladin
+Widen Aura of Courage.MOD			TYPE:EpicPaladin
+
+#Ranger
+Bane of Enemies.MOD				TYPE:EpicRanger
+Blinding Speed.MOD				TYPE:EpicRanger
+Combat Archery.MOD				TYPE:EpicRanger
+Death of Enemies.MOD				TYPE:EpicRanger
+Distant Shot.MOD					TYPE:EpicRanger
+Epic Endurance.MOD				TYPE:EpicRanger
+Epic Prowess.MOD					TYPE:EpicRanger
+Epic Speed.MOD					TYPE:EpicRanger
+Epic Toughness.MOD				TYPE:EpicRanger
+Epic Weapon Focus.MOD				TYPE:EpicRanger
+Fast Healing.MOD					TYPE:EpicRanger
+Improved Combat Casting.MOD			TYPE:EpicRanger
+Improved Favored Enemy.MOD			TYPE:EpicRanger
+Improved Manyshot.MOD				TYPE:EpicRanger
+Improved Spell Capacity.MOD			TYPE:EpicRanger
+Legendary Climber.MOD				TYPE:EpicRanger
+Legendary Rider.MOD				TYPE:EpicRanger
+Legendary Tracker.MOD				TYPE:EpicRanger
+Perfect Health.MOD				TYPE:EpicRanger
+Perfect Two Weapon Fighting.MOD		TYPE:EpicRanger
+Permanent Emanation.MOD				TYPE:EpicRanger
+Spontaneous Spell.MOD				TYPE:EpicRanger
+Storm of Throws.MOD				TYPE:EpicRanger
+Swarm of Arrows.MOD				TYPE:EpicRanger
+Two Weapon Rend.MOD				TYPE:EpicRanger
+Uncanny Accuracy.MOD				TYPE:EpicRanger
+
+#Rogue
+Blinding Speed.MOD				TYPE:EpicRogue
+Combat Archery.MOD				TYPE:EpicRogue
+Dexterous Fortitude.MOD				TYPE:EpicRogue
+Dexterous Will.MOD				TYPE:EpicRogue
+Epic Dodge.MOD					TYPE:EpicRogue
+Epic Reputation.MOD				TYPE:EpicRogue
+Epic Skill Focus.MOD				TYPE:EpicRogue
+Epic Speed.MOD					TYPE:EpicRogue
+Improved Combat Reflexes.MOD			TYPE:EpicRogue
+Improved Sneak Attack.MOD			TYPE:EpicRogue
+Legendary Climber.MOD				TYPE:EpicRogue
+Lingering Damage.MOD				TYPE:EpicRogue
+Self Concealment.MOD				TYPE:EpicRogue
+Sneak Attack of Opportunity.MOD		TYPE:EpicRogue
+Spellcasting Harrier.MOD			TYPE:EpicRogue
+Superior Initiative.MOD				TYPE:EpicRogue
+Trap Sense.MOD					TYPE:EpicRogue
+Uncanny Accuracy.MOD				TYPE:EpicRogue
+
+#Sorcerer
+Augmented Alchemy.MOD				TYPE:EpicSorcerer
+Automatic Quicken Spell.MOD			TYPE:EpicSorcerer
+Automatic Silent Spell.MOD			TYPE:EpicSorcerer
+Automatic Still Spell.MOD			TYPE:EpicSorcerer
+Energy Resistance.MOD				TYPE:EpicSorcerer
+Enhance Spell.MOD					TYPE:EpicSorcerer
+Epic Spell Focus.MOD				TYPE:EpicSorcerer
+Epic Spell Penetration.MOD			TYPE:EpicSorcerer
+Epic Spellcasting.MOD				TYPE:EpicSorcerer
+Familiar Spell.MOD				TYPE:EpicSorcerer
+Ignore Material Components.MOD		TYPE:EpicSorcerer
+Improved Combat Casting.MOD			TYPE:EpicSorcerer
+Improved Heighten Spell.MOD			TYPE:EpicSorcerer
+Improved Metamagic.MOD				TYPE:EpicSorcerer
+Improved Spell Capacity.MOD			TYPE:EpicSorcerer
+Intensify Spell.MOD				TYPE:EpicSorcerer
+Master Staff.MOD					TYPE:EpicSorcerer
+Master Wand.MOD					TYPE:EpicSorcerer
+Multispell.MOD					TYPE:EpicSorcerer
+Permanent Emanation.MOD				TYPE:EpicSorcerer
+Spell Knowledge.MOD				TYPE:EpicSorcerer
+Spell Opportunity.MOD				TYPE:EpicSorcerer
+Spell Stowaway.MOD				TYPE:EpicSorcerer
+
+#Wizard
+Augmented Alchemy.MOD				TYPE:EpicWizard
+Automatic Quicken Spell.MOD			TYPE:EpicWizard
+Automatic Silent Spell.MOD			TYPE:EpicWizard
+Automatic Still Spell.MOD			TYPE:EpicWizard
+Combat Casting.MOD				TYPE:EpicWizard
+Craft Epic Magic Arms and Armor.MOD		TYPE:EpicWizard
+Craft Epic Rod.MOD				TYPE:EpicWizard
+Craft Epic Staff.MOD				TYPE:EpicWizard
+Craft Epic Wondrous Item.MOD			TYPE:EpicWizard
+Efficient Item Creation.MOD			TYPE:EpicWizard
+Enhance Spell.MOD					TYPE:EpicWizard
+Epic Spell Focus.MOD				TYPE:EpicWizard
+Epic Spell Penetration.MOD			TYPE:EpicWizard
+Epic Spellcasting.MOD				TYPE:EpicWizard
+Familiar Spell.MOD				TYPE:EpicWizard
+Forge Epic Ring.MOD				TYPE:EpicWizard
+Ignore Material Components.MOD		TYPE:EpicWizard
+Improved Combat Casting.MOD			TYPE:EpicWizard
+Improved Heighten Spell.MOD			TYPE:EpicWizard
+Improved Metamagic.MOD				TYPE:EpicWizard
+Improved Spell Capacity.MOD			TYPE:EpicWizard
+Intensify Spell.MOD				TYPE:EpicWizard
+Multispell.MOD					TYPE:EpicWizard
+Permanent Emanation.MOD				TYPE:EpicWizard
+Scribe Epic Scroll.MOD				TYPE:EpicWizard
+Spell Focus.MOD					TYPE:EpicWizard
+Spell Knowledge.MOD				TYPE:EpicWizard
+Spell Mastery.MOD					TYPE:EpicWizard
+Spell Opportunity.MOD				TYPE:EpicWizard
+Spell Penetration.MOD				TYPE:EpicWizard
+Spell Stowaway.MOD				TYPE:EpicWizard
+Spontaneous Spell.MOD				TYPE:EpicWizard
+Tenacious Magic.MOD				TYPE:EpicWizard
+
+###Block: Epic Prestige Class Bonus Feat MODs
+#Arcane Archer
+# Feat Name						Type
+Blinding Speed.MOD				TYPE:EpicArcaneArcher
+Combat Archery.MOD				TYPE:EpicArcaneArcher
+Distant Shot.MOD					TYPE:EpicArcaneArcher
+Epic Prowess.MOD					TYPE:EpicArcaneArcher
+Epic Speed.MOD					TYPE:EpicArcaneArcher
+Epic Toughness.MOD				TYPE:EpicArcaneArcher
+Epic Weapon Focus.MOD				TYPE:EpicArcaneArcher
+Improved Arrow of Death.MOD			TYPE:EpicArcaneArcher
+Improved Combat Casting.MOD			TYPE:EpicArcaneArcher
+Improved Low light Vision.MOD			TYPE:EpicArcaneArcher
+Improved Manyshot.MOD				TYPE:EpicArcaneArcher
+Swarm of Arrows.MOD				TYPE:EpicArcaneArcher
+Uncanny Accuracy.MOD				TYPE:EpicArcaneArcher
+
+#Arcane Trickster
+Automatic Silent Spell.MOD			TYPE:EpicArcaneTrickster
+Automatic Still Spell.MOD			TYPE:EpicArcaneTrickster
+Blinding Speed.MOD				TYPE:EpicArcaneTrickster
+Epic Skill Focus.MOD				TYPE:EpicArcaneTrickster
+Improved Combat Casting.MOD			TYPE:EpicArcaneTrickster
+Improved Sneak Attack.MOD			TYPE:EpicArcaneTrickster
+Improved Spell Capacity.MOD			TYPE:EpicArcaneTrickster
+Lingering Damage.MOD				TYPE:EpicArcaneTrickster
+Self Concealment.MOD				TYPE:EpicArcaneTrickster
+Sneak Attack of Opportunity.MOD		TYPE:EpicArcaneTrickster
+Spell Knowledge.MOD				TYPE:EpicArcaneTrickster
+Spell Opportunity.MOD				TYPE:EpicArcaneTrickster
+Spell Stowaway.MOD				TYPE:EpicArcaneTrickster
+
+#Assassin
+Dexterous Fortitude.MOD				TYPE:EpicAssassin
+Dexterous Will.MOD				TYPE:EpicAssassin
+Improved Combat Casting.MOD			TYPE:EpicAssassin
+Improved Death Attack.MOD			TYPE:EpicAssassin
+Improved Sneak Attack.MOD			TYPE:EpicAssassin
+Improved Spell Capacity.MOD			TYPE:EpicAssassin
+Legendary Tracker.MOD				TYPE:EpicAssassin
+Lingering Damage.MOD				TYPE:EpicAssassin
+Sneak Attack of Opportunity.MOD		TYPE:EpicAssassin
+Spell Knowledge.MOD				TYPE:EpicAssassin
+Spontaneous Spell.MOD				TYPE:EpicAssassin
+Superior Initiative.MOD				TYPE:EpicAssassin
+Tenacious Magic.MOD				TYPE:EpicAssassin
+Uncanny Accuracy.MOD				TYPE:EpicAssassin
+
+#Blackguard
+Armor Skin.MOD					TYPE:EpicBlackguard
+Devastating Critical.MOD			TYPE:EpicBlackguard
+Epic Leadership.MOD				TYPE:EpicBlackguard
+Epic Prowess.MOD					TYPE:EpicBlackguard
+Epic Reputation.MOD				TYPE:EpicBlackguard
+Epic Toughness.MOD				TYPE:EpicBlackguard
+Epic Weapon Focus.MOD				TYPE:EpicBlackguard
+Great Smiting.MOD					TYPE:EpicBlackguard
+Improved Aura of Despair.MOD			TYPE:EpicBlackguard
+Improved Combat Casting.MOD			TYPE:EpicBlackguard
+Improved Sneak Attack.MOD			TYPE:EpicBlackguard
+Improved Spell Capacity.MOD			TYPE:EpicBlackguard
+Legendary Commander.MOD				TYPE:EpicBlackguard
+Legendary Rider.MOD				TYPE:EpicBlackguard
+Lingering Damage.MOD				TYPE:EpicBlackguard
+Negative Energy Burst.MOD			TYPE:EpicBlackguard
+Overwhelming Critical.MOD			TYPE:EpicBlackguard
+Perfect Health.MOD				TYPE:EpicBlackguard
+Permanent Emanation.MOD				TYPE:EpicBlackguard
+Planar Turning.MOD				TYPE:EpicBlackguard
+Spontaneous Spell.MOD				TYPE:EpicBlackguard
+Undead Mastery.MOD				TYPE:EpicBlackguard
+Unholy Strike.MOD					TYPE:EpicBlackguard
+Widen Aura of Despair.MOD			TYPE:EpicBlackguard
+Zone of Animation.MOD				TYPE:EpicBlackguard
+
+#Dragon Disciple
+Armor Skin.MOD					TYPE:EpicDragonDisciple
+Damage Reduction.MOD				TYPE:EpicDragonDisciple
+Epic Prowess.MOD					TYPE:EpicDragonDisciple
+Epic Skill Focus.MOD				TYPE:EpicDragonDisciple
+Epic Toughness.MOD				TYPE:EpicDragonDisciple
+Extended Life Span.MOD				TYPE:EpicDragonDisciple
+Flyby Attack.MOD					TYPE:EpicDragonDisciple
+Great Charisma.MOD				TYPE:EpicDragonDisciple
+Great Constitution.MOD				TYPE:EpicDragonDisciple
+Great Strength.MOD				TYPE:EpicDragonDisciple
+Hover.MOD						TYPE:EpicDragonDisciple
+Improved Combat Casting.MOD			TYPE:EpicDragonDisciple
+Improved Darkvision.MOD				TYPE:EpicDragonDisciple
+Improved Spell Capacity.MOD			TYPE:EpicDragonDisciple
+Improved Spell Resistance.MOD			TYPE:EpicDragonDisciple
+Snatch.MOD						TYPE:EpicDragonDisciple
+Spell Knowledge.MOD				TYPE:EpicDragonDisciple
+Wingover.MOD					TYPE:EpicDragonDisciple
+
+#Duelist
+Blinding Speed.MOD				TYPE:EpicDuelist
+Epic Prowess.MOD					TYPE:EpicDuelist
+Epic Reputation.MOD				TYPE:EpicDuelist
+Epic Skill Focus.MOD				TYPE:EpicDuelist
+Epic Speed.MOD					TYPE:EpicDuelist
+Epic Weapon Focus.MOD				TYPE:EpicDuelist
+Exceptional Deflection.MOD			TYPE:EpicDuelist
+Improved Combat Reflexes.MOD			TYPE:EpicDuelist
+Improved Whirlwind Attack.MOD			TYPE:EpicDuelist
+Infinite Deflection.MOD				TYPE:EpicDuelist
+Perfect Two Weapon Fighting.MOD		TYPE:EpicDuelist
+Superior Initiative.MOD				TYPE:EpicDuelist
+Two Weapon Rend.MOD				TYPE:EpicDuelist
+
+#Dwarven Defender
+Armor Skin.MOD					TYPE:EpicDwarvenDefender
+Bulwark of Defense.MOD				TYPE:EpicDwarvenDefender
+Damage Reduction.MOD				TYPE:EpicDwarvenDefender
+Devastating Critical.MOD			TYPE:EpicDwarvenDefender
+Energy Resistance.MOD				TYPE:EpicDwarvenDefender
+Epic Endurance.MOD				TYPE:EpicDwarvenDefender
+Epic Prowess.MOD					TYPE:EpicDwarvenDefender
+Epic Toughness.MOD				TYPE:EpicDwarvenDefender
+Epic Weapon Focus.MOD				TYPE:EpicDwarvenDefender
+Fast Healing.MOD					TYPE:EpicDwarvenDefender
+Improved Combat Reflexes.MOD			TYPE:EpicDwarvenDefender
+Improved Darkvision.MOD				TYPE:EpicDwarvenDefender
+Instant Reload.MOD				TYPE:EpicDwarvenDefender
+Mobile Defense.MOD				TYPE:EpicDwarvenDefender
+Overwhelming Critical.MOD			TYPE:EpicDwarvenDefender
+Perfect Health.MOD				TYPE:EpicDwarvenDefender
+Spellcasting Harrier.MOD			TYPE:EpicDwarvenDefender
+
+#Eldritch Knight
+Armor Skin.MOD					TYPE:EpicEldritchKnight
+Automatic Still Spell.MOD			TYPE:EpicEldritchKnight
+Combat Archery.MOD				TYPE:EpicEldritchKnight
+Damage Reduction.MOD				TYPE:EpicEldritchKnight
+Devastating Critical.MOD			TYPE:EpicEldritchKnight
+Dire Charge.MOD					TYPE:EpicEldritchKnight
+Distant Shot.MOD					TYPE:EpicEldritchKnight
+Enhance Spell.MOD					TYPE:EpicEldritchKnight
+Epic Prowess.MOD					TYPE:EpicEldritchKnight
+Epic Spell Focus.MOD				TYPE:EpicEldritchKnight
+Epic Spell Penetration.MOD			TYPE:EpicEldritchKnight
+Epic Spellcasting.MOD				TYPE:EpicEldritchKnight
+Epic Toughness.MOD				TYPE:EpicEldritchKnight
+Epic Weapon Focus.MOD				TYPE:EpicEldritchKnight
+Ignore Material Components.MOD		TYPE:EpicEldritchKnight
+Improved Combat Casting.MOD			TYPE:EpicEldritchKnight
+Improved Combat Reflexes.MOD			TYPE:EpicEldritchKnight
+Improved Manyshot.MOD				TYPE:EpicEldritchKnight
+Improved Spell Capacity.MOD			TYPE:EpicEldritchKnight
+Improved Whirlwind Attack.MOD			TYPE:EpicEldritchKnight
+Instant Reload.MOD				TYPE:EpicEldritchKnight
+Legendary Rider.MOD				TYPE:EpicEldritchKnight
+Overwhelming Critical.MOD			TYPE:EpicEldritchKnight
+Penetrate Damage Reduction.MOD		TYPE:EpicEldritchKnight
+Perfect Two Weapon Fighting.MOD		TYPE:EpicEldritchKnight
+Permanent Emanation.MOD				TYPE:EpicEldritchKnight
+Spell Knowledge.MOD				TYPE:EpicEldritchKnight
+Spell Opportunity.MOD				TYPE:EpicEldritchKnight
+Spell Stowaway.MOD				TYPE:EpicEldritchKnight
+Spellcasting Harrier.MOD			TYPE:EpicEldritchKnight
+Spontaneous Spell.MOD				TYPE:EpicEldritchKnight
+Storm of Throws.MOD				TYPE:EpicEldritchKnight
+Superior Initiative.MOD				TYPE:EpicEldritchKnight
+Swarm of Arrows.MOD				TYPE:EpicEldritchKnight
+Tenacious Magic.MOD				TYPE:EpicEldritchKnight
+Two Weapon Rend.MOD				TYPE:EpicEldritchKnight
+Uncanny Accuracy.MOD				TYPE:EpicEldritchKnight
+
+#Horizon Walker
+Armor Skin.MOD					TYPE:EpicHorizonWalker
+Blinding Speed.MOD				TYPE:EpicHorizonWalker
+Energy Resistance.MOD				TYPE:EpicHorizonWalker
+Epic Endurance.MOD				TYPE:EpicHorizonWalker
+Epic Prowess.MOD					TYPE:EpicHorizonWalker
+Epic Reputation.MOD				TYPE:EpicHorizonWalker
+Epic Skill Focus.MOD				TYPE:EpicHorizonWalker
+Epic Speed.MOD					TYPE:EpicHorizonWalker
+Epic Toughness.MOD				TYPE:EpicHorizonWalker
+Extended Life Span.MOD				TYPE:EpicHorizonWalker
+Legendary Climber.MOD				TYPE:EpicHorizonWalker
+Perfect Health.MOD				TYPE:EpicHorizonWalker
+Polyglot.MOD					TYPE:EpicHorizonWalker
+
+#Loremaster
+Augmented Alchemy.MOD				TYPE:EpicLoremaster
+Automatic Quicken Spell.MOD			TYPE:EpicLoremaster
+Automatic Silent Spell.MOD			TYPE:EpicLoremaster
+Automatic Still Spell.MOD			TYPE:EpicLoremaster
+Craft Epic Magic Arms and Armor.MOD		TYPE:EpicLoremaster
+Craft Epic Rod.MOD				TYPE:EpicLoremaster
+Craft Epic Staff.MOD				TYPE:EpicLoremaster
+Craft Epic Wondrous Item.MOD			TYPE:EpicLoremaster
+Efficient Item Creation.MOD			TYPE:EpicLoremaster
+Enhance Spell.MOD					TYPE:EpicLoremaster
+Epic Spell Focus.MOD				TYPE:EpicLoremaster
+Epic Spell Penetration.MOD			TYPE:EpicLoremaster
+Epic Spellcasting.MOD				TYPE:EpicLoremaster
+Forge Epic Ring.MOD				TYPE:EpicLoremaster
+Ignore Material Components.MOD		TYPE:EpicLoremaster
+Improved Combat Casting.MOD			TYPE:EpicLoremaster
+Improved Heighten Spell.MOD			TYPE:EpicLoremaster
+Improved Metamagic.MOD				TYPE:EpicLoremaster
+Improved Spell Capacity.MOD			TYPE:EpicLoremaster
+Intensify Spell.MOD				TYPE:EpicLoremaster
+Master Staff.MOD					TYPE:EpicLoremaster
+Master Wand.MOD					TYPE:EpicLoremaster
+Multispell.MOD					TYPE:EpicLoremaster
+Permanent Emanation.MOD				TYPE:EpicLoremaster
+Polyglot.MOD					TYPE:EpicLoremaster
+Scribe Epic Scroll.MOD				TYPE:EpicLoremaster
+Spell Knowledge.MOD				TYPE:EpicLoremaster
+Spell Opportunity.MOD				TYPE:EpicLoremaster
+Spell Stowaway.MOD				TYPE:EpicLoremaster
+Spontaneous Spell.MOD				TYPE:EpicLoremaster
+Tenacious Magic.MOD				TYPE:EpicLoremaster
+
+#Mystic Theurge
+Automatic Quicken Spell.MOD			TYPE:EpicMysticTheurge
+Automatic Silent Spell.MOD			TYPE:EpicMysticTheurge
+Automatic Still Spell.MOD			TYPE:EpicMysticTheurge
+Bonus Domain.MOD					TYPE:EpicMysticTheurge
+Enhance Spell.MOD					TYPE:EpicMysticTheurge
+Epic Spell Focus.MOD				TYPE:EpicMysticTheurge
+Epic Spell Penetration.MOD			TYPE:EpicMysticTheurge
+Epic Spellcasting.MOD				TYPE:EpicMysticTheurge
+Ignore Material Components.MOD		TYPE:EpicMysticTheurge
+Improved Alignment Based Casting.MOD	TYPE:EpicMysticTheurge
+Improved Combat Casting.MOD			TYPE:EpicMysticTheurge
+Improved Heighten Spell.MOD			TYPE:EpicMysticTheurge
+Improved Metamagic.MOD				TYPE:EpicMysticTheurge
+Improved Spell Capacity.MOD			TYPE:EpicMysticTheurge
+Intensify Spell.MOD				TYPE:EpicMysticTheurge
+Multispell.MOD					TYPE:EpicMysticTheurge
+Permanent Emanation.MOD				TYPE:EpicMysticTheurge
+Spell Knowledge.MOD				TYPE:EpicMysticTheurge
+Spell Opportunity.MOD				TYPE:EpicMysticTheurge
+Spell Stowaway.MOD				TYPE:EpicMysticTheurge
+Spontaneous Domain Access.MOD			TYPE:EpicMysticTheurge
+Spontaneous Spell.MOD				TYPE:EpicMysticTheurge
+Tenacious Magic.MOD				TYPE:EpicMysticTheurge
+
+#Shadowdancer
+Blinding Speed.MOD				TYPE:EpicShadowdancer
+Dexterous Fortitude.MOD				TYPE:EpicShadowdancer
+Dexterous Will.MOD				TYPE:EpicShadowdancer
+Epic Dodge.MOD					TYPE:EpicShadowdancer
+Epic Skill Focus.MOD				TYPE:EpicShadowdancer
+Epic Speed.MOD					TYPE:EpicShadowdancer
+Exceptional Deflection.MOD			TYPE:EpicShadowdancer
+Improved Combat Reflexes.MOD			TYPE:EpicShadowdancer
+Improved Darkvision.MOD				TYPE:EpicShadowdancer
+Improved Whirlwind Attack.MOD			TYPE:EpicShadowdancer
+Infinite Deflection.MOD				TYPE:EpicShadowdancer
+Legendary Leaper.MOD				TYPE:EpicShadowdancer
+Reflect Arrows.MOD				TYPE:EpicShadowdancer
+Self Concealment.MOD				TYPE:EpicShadowdancer
+Spellcasting Harrier.MOD			TYPE:EpicShadowdancer
+Superior Initiative.MOD				TYPE:EpicShadowdancer
+
+
+###Block: Epic Class Feat Pools
+# Agent Retriever
+# Feat Name						Type
+Epic Endurance.MOD				TYPE:AgentRetriever
+Epic Prowess.MOD					TYPE:AgentRetriever
+Epic Speed.MOD					TYPE:AgentRetriever
+Epic Toughness.MOD				TYPE:AgentRetriever
+Epic Weapon Focus.MOD				TYPE:AgentRetriever
+Fast Healing.MOD					TYPE:AgentRetriever
+Improved Combat Casting.MOD			TYPE:AgentRetriever
+Improved Spell Capacity.MOD			TYPE:AgentRetriever
+Legendary Climber.MOD				TYPE:AgentRetriever
+Legendary Rider.MOD				TYPE:AgentRetriever
+Legendary Tracker.MOD				TYPE:AgentRetriever
+Perfect Health.MOD				TYPE:AgentRetriever
+Permanent Emanation.MOD				TYPE:AgentRetriever
+Spontaneous Spell.MOD				TYPE:AgentRetriever
+Storm of Throws.MOD				TYPE:AgentRetriever
+Swarm of Arrows.MOD				TYPE:AgentRetriever
+Uncanny Accuracy.MOD				TYPE:AgentRetriever
+
+# Cosmic Descryer
+Augmented Alchemy.MOD				TYPE:CosmicDescryer
+Automatic Quicken Spell.MOD			TYPE:CosmicDescryer
+Automatic Silent Spell.MOD			TYPE:CosmicDescryer
+Automatic Still Spell.MOD			TYPE:CosmicDescryer
+Combat Casting.MOD				TYPE:CosmicDescryer
+Craft Epic Magic Arms and Armor.MOD		TYPE:CosmicDescryer
+Craft Epic Rod.MOD				TYPE:CosmicDescryer
+Craft Epic Staff.MOD				TYPE:CosmicDescryer
+Craft Epic Wondrous Item.MOD			TYPE:CosmicDescryer
+Efficient Item Creation.MOD			TYPE:CosmicDescryer
+Enhance Spell.MOD					TYPE:CosmicDescryer
+Epic Spell Focus.MOD				TYPE:CosmicDescryer
+Epic Spell Penetration.MOD			TYPE:CosmicDescryer
+Epic Spellcasting.MOD				TYPE:CosmicDescryer
+Familiar Spell.MOD				TYPE:CosmicDescryer
+Forge Epic Ring.MOD				TYPE:CosmicDescryer
+Ignore Material Components.MOD		TYPE:CosmicDescryer
+Improved Combat Casting.MOD			TYPE:CosmicDescryer
+Improved Heighten Spell.MOD			TYPE:CosmicDescryer
+Improved Metamagic.MOD				TYPE:CosmicDescryer
+Improved Spell Capacity.MOD			TYPE:CosmicDescryer
+Intensify Spell.MOD				TYPE:CosmicDescryer
+Multispell.MOD					TYPE:CosmicDescryer
+Permanent Emanation.MOD				TYPE:CosmicDescryer
+Scribe Epic Scroll.MOD				TYPE:CosmicDescryer
+Spell Focus.MOD					TYPE:CosmicDescryer
+Spell Knowledge.MOD				TYPE:CosmicDescryer
+Spell Mastery.MOD					TYPE:CosmicDescryer
+Spell Opportunity.MOD				TYPE:CosmicDescryer
+Spell Penetration.MOD				TYPE:CosmicDescryer
+Spell Stowaway.MOD				TYPE:CosmicDescryer
+Spontaneous Spell.MOD				TYPE:CosmicDescryer
+Tenacious Magic.MOD				TYPE:CosmicDescryer
+
+# Divine Emissary
+Armor Skin.MOD					TYPE:DivineEmissary
+Devastating Critical.MOD			TYPE:DivineEmissary
+Epic Leadership.MOD				TYPE:DivineEmissary
+Epic Prowess.MOD					TYPE:DivineEmissary
+Epic Reputation.MOD				TYPE:DivineEmissary
+Epic Toughness.MOD				TYPE:DivineEmissary
+Epic Weapon Focus.MOD				TYPE:DivineEmissary
+Great Smiting.MOD					TYPE:DivineEmissary
+Holy Strike.MOD					TYPE:DivineEmissary
+Improved Aura of Courage.MOD			TYPE:DivineEmissary
+Improved Combat Casting.MOD			TYPE:DivineEmissary
+Improved Spell Capacity.MOD			TYPE:DivineEmissary
+Legendary Commander.MOD				TYPE:DivineEmissary
+Legendary Rider.MOD				TYPE:DivineEmissary
+Overwhelming Critical.MOD			TYPE:DivineEmissary
+Perfect Health.MOD				TYPE:DivineEmissary
+Permanent Emanation.MOD				TYPE:DivineEmissary
+Planar Turning.MOD				TYPE:DivineEmissary
+Positive Energy Aura.MOD			TYPE:DivineEmissary
+Spectral Strike.MOD				TYPE:DivineEmissary
+Spontaneous Spell.MOD				TYPE:DivineEmissary
+Widen Aura of Courage.MOD			TYPE:DivineEmissary
+
+# Guardian Paramount
+Bulwark of Defense.MOD				TYPE:GuardianParamount
+Combat Archery.MOD				TYPE:GuardianParamount
+Damage Reduction.MOD				TYPE:GuardianParamount
+Dexterous Fortitude.MOD				TYPE:GuardianParamount
+Dexterous Will.MOD				TYPE:GuardianParamount
+Epic Dodge.MOD					TYPE:GuardianParamount
+Epic Fortitude.MOD				TYPE:GuardianParamount
+Epic Reflexes.MOD					TYPE:GuardianParamount
+Epic Reputation.MOD				TYPE:GuardianParamount
+Epic Skill Focus.MOD				TYPE:GuardianParamount
+Epic Speed.MOD					TYPE:GuardianParamount
+Epic Toughness.MOD				TYPE:GuardianParamount
+Epic Will.MOD					TYPE:GuardianParamount
+Exceptional Deflection.MOD			TYPE:GuardianParamount
+Fast Healing.MOD					TYPE:GuardianParamount
+Great Dexterity.MOD				TYPE:GuardianParamount
+Improved Combat Reflexes.MOD			TYPE:GuardianParamount
+Improved Sneak Attack.MOD			TYPE:GuardianParamount
+Improved Spell Resistance.MOD			TYPE:GuardianParamount
+Infinite Deflection.MOD				TYPE:GuardianParamount
+Legendary Climber.MOD				TYPE:GuardianParamount
+Lingering Damage.MOD				TYPE:GuardianParamount
+Mobile Defense.MOD				TYPE:GuardianParamount
+Perfect Health.MOD				TYPE:GuardianParamount
+Reflect Arrows.MOD				TYPE:GuardianParamount
+Self Concealment.MOD				TYPE:GuardianParamount
+Sneak Attack of Opportunity.MOD		TYPE:GuardianParamount
+Spellcasting Harrier.MOD			TYPE:GuardianParamount
+Uncanny Accuracy.MOD				TYPE:GuardianParamount
+
+# High Proselytizer
+Armor Skin.MOD					TYPE:HighProselytizer
+Automatic Quicken Spell.MOD			TYPE:HighProselytizer
+Automatic Silent Spell.MOD			TYPE:HighProselytizer
+Automatic Still Spell.MOD			TYPE:HighProselytizer
+Bonus Domain.MOD					TYPE:HighProselytizer
+Enhance Spell.MOD					TYPE:HighProselytizer
+Epic Reputation.MOD				TYPE:HighProselytizer
+Epic Spell Focus.MOD				TYPE:HighProselytizer
+Epic Spell Penetration.MOD			TYPE:HighProselytizer
+Epic Spellcasting.MOD				TYPE:HighProselytizer
+Epic Will.MOD					TYPE:HighProselytizer
+Extended Life Span.MOD				TYPE:HighProselytizer
+Great Charisma.MOD				TYPE:HighProselytizer
+Great Wisdom.MOD					TYPE:HighProselytizer
+Ignore Material Components.MOD		TYPE:HighProselytizer
+Improved Alignment Based Casting.MOD	TYPE:HighProselytizer
+Improved Combat Casting.MOD			TYPE:HighProselytizer
+Improved Heighten Spell.MOD			TYPE:HighProselytizer
+Improved Metamagic.MOD				TYPE:HighProselytizer
+Improved Spell Capacity.MOD			TYPE:HighProselytizer
+Intensify Spell.MOD				TYPE:HighProselytizer
+Legendary Commander.MOD				TYPE:HighProselytizer
+Multispell.MOD					TYPE:HighProselytizer
+Negative Energy Burst.MOD			TYPE:HighProselytizer
+Permanent Emanation.MOD				TYPE:HighProselytizer
+Planar Turning.MOD				TYPE:HighProselytizer
+Polyglot.MOD					TYPE:HighProselytizer
+Positive Energy Aura.MOD			TYPE:HighProselytizer
+Spectral Strike.MOD				TYPE:HighProselytizer
+Spell Stowaway.MOD				TYPE:HighProselytizer
+Spell Opportunity.MOD				TYPE:HighProselytizer
+Spontaneous Domain Access.MOD			TYPE:HighProselytizer
+Spontaneous Spell.MOD				TYPE:HighProselytizer
+Tenacious Magic.MOD				TYPE:HighProselytizer
+Undead Mastery.MOD				TYPE:HighProselytizer
+Zone of Animation.MOD				TYPE:HighProselytizer
+
+# Legendary Dreadnought
+Armor Skin.MOD					TYPE:LegendaryDreadnought
+Devastating Critical.MOD			TYPE:LegendaryDreadnought
+Dire Charge.MOD					TYPE:LegendaryDreadnought
+Epic Fortitude.MOD				TYPE:LegendaryDreadnought
+Epic Prowess.MOD					TYPE:LegendaryDreadnought
+Epic Toughness.MOD				TYPE:LegendaryDreadnought
+Epic Weapon Focus.MOD				TYPE:LegendaryDreadnought
+Epic Weapon Specialization.MOD		TYPE:LegendaryDreadnought
+Fast Healing.MOD					TYPE:LegendaryDreadnought
+Great Constitution.MOD				TYPE:LegendaryDreadnought
+Great Strength.MOD				TYPE:LegendaryDreadnought
+Improved Combat Reflexes.MOD			TYPE:LegendaryDreadnought
+Overwhelming Critical.MOD			TYPE:LegendaryDreadnought
+Penetrate Damage Reduction.MOD		TYPE:LegendaryDreadnought
+
+# Perfect Wight
+Blinding Speed.MOD				TYPE:PerfectWight
+Combat Archery.MOD				TYPE:PerfectWight
+Dexterous Fortitude.MOD				TYPE:PerfectWight
+Dexterous Will.MOD				TYPE:PerfectWight
+Epic Dodge.MOD					TYPE:PerfectWight
+Epic Reputation.MOD				TYPE:PerfectWight
+Epic Skill Focus.MOD				TYPE:PerfectWight
+Epic Speed.MOD					TYPE:PerfectWight
+Improved Combat Reflexes.MOD			TYPE:PerfectWight
+Improved Sneak Attack.MOD			TYPE:PerfectWight
+Legendary Climber.MOD				TYPE:PerfectWight
+Lingering Damage.MOD				TYPE:PerfectWight
+Self Concealment.MOD				TYPE:PerfectWight
+Sneak Attack of Opportunity.MOD		TYPE:PerfectWight
+Spellcasting Harrier.MOD			TYPE:PerfectWight
+Superior Initiative.MOD				TYPE:PerfectWight
+Uncanny Accuracy.MOD				TYPE:PerfectWight
+
 #
 # End
 #
