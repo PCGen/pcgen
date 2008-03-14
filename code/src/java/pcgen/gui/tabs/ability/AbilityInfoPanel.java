@@ -114,7 +114,7 @@ public class AbilityInfoPanel extends JPanel
 		sb.append(theAbility.piSubString());
 		sb.append(END_BOLD).append(END_FONT).append(BR);
 		sb.append(PropertyFactory.getFormattedString(
-			"in_clInfoType", //$NON-NLS-1$
+			"Ability.Info.Type", //$NON-NLS-1$
 			CoreUtility.join(theAbility.getTypeList(true), ". "))); //$NON-NLS-1$
 
 		final String costStr = theAbility.getCostString();
