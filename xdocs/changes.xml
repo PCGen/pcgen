@@ -5,6 +5,8 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
+    <release version="5.13.12" date="In SVN" description="Beta release">
+    </release>
     <release version="5.13.11" date="2008-03-13" description="Beta release"> 
       <action dev="jdempsey" type="update" issue="1901191">Make At Will in SPELLS unambiguous</action>  
       <action dev="thpr" type="update" issue="1904978">Deprecate .A in CHOOSE:SPELLLEVEL</action>  
