@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +44,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.PObject;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -51,6 +53,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
+import plugin.bonustokens.SpellPointCosts;
 
 /**
  * <code>Spell</code> creates a new tabbed panel.
@@ -1370,6 +1373,160 @@ public final class Spell extends PObject
 		sb.append("]");
 		return sb.toString();	
 	}
+	public String getSPCostStrings(PlayerCharacter aPC)
+	{
+		Map<String,Integer> spCost = getSpellPointCostActualParts();
+		int totalSpellPoints =  getSpellPointCostActual();
+		StringBuffer sb = new StringBuffer();
+		StringBuffer sb2 = new StringBuffer();
+		List<BonusObj> allBonuses = aPC.getActiveBonusList();
+		boolean isMatchingSpell = false;
+		
+		String key ="";
+		String value = "";
+		
+		for (BonusObj bonus: allBonuses)
+		{
+			if (!(bonus.getBonusName().equals("SPELLPOINTCOST")))
+			{
+				continue;
+			}
+			String bonusInfo = bonus.getBonusInfo();
+			StringTokenizer aTok = new StringTokenizer(bonusInfo, ";");
+					
+			while (aTok.hasMoreTokens())
+			{
+				String token = aTok.nextToken();
+				String tokenPart = "";
+				if (token.startsWith("SCHOOL."))
+				{
+					tokenPart = token.substring(token.indexOf(".")+1);
+					for(String theString: this.getSchools())
+					{
+						isMatchingSpell = theString.equalsIgnoreCase(tokenPart);
+						if (isMatchingSpell)
+						{
+							break;
+						}
+					}
+				}
+				else if (token.startsWith("SUBSCHOOL."))
+				{
+					tokenPart = token.substring(token.indexOf(".")+1);
+					for(String theString: this.getSubschools())
+					{
+						isMatchingSpell = theString.equalsIgnoreCase(tokenPart);
+						if (isMatchingSpell)
+						{
+							break;
+						}
+					}
+				}
+				else if (token.startsWith("SPELL."))
+				{
+					tokenPart = token.substring(token.indexOf(".")+1);
+					if (this.getKeyName().equalsIgnoreCase(tokenPart))
+					{
+						isMatchingSpell = true;
+					}
+				}
+				else 
+				{
+					if (isMatchingSpell)
+					{
+						key = token.substring(0,token.indexOf("="));
+						value = token.substring(token.indexOf("=")+1);
+					}
+				}
+			}
+		}
+		System.out.println("Key:" + key);
+		System.out.println("Val:" + value);
+		
+		sb2.append("");
+		sb.append(totalSpellPoints); 
+		if (spCost.size() ==0)
+		{
+			return sb.toString();
+		}
+		if(spCost.size()==1 && spCost.containsKey("TOTAL"))
+		{
+			return sb.toString();
+		}
+		sb.append(" [");
+		
+		// Using a TreeSet so they are sorted no matter what order the data is input 
+		// by the lst coder
+		TreeSet<String> fields = new TreeSet<String>();
+		fields.addAll(spCost.keySet());
+
+		
+		for (String aComponent: fields)
+		{
+			if (aComponent.equalsIgnoreCase("Range"))
+			{
+				sb2.append(aComponent);
+				sb2.append(" ");
+				sb2.append(spCost.get(aComponent));
+				if (key.equalsIgnoreCase(aComponent))
+				{
+					sb2.append("(");
+					sb2.append(value);
+					sb2.append(")");
+				}
+				sb2.append("/");
+			}
+			else if(aComponent.equalsIgnoreCase("Area of Effect"))
+			{
+				sb2.append(aComponent);
+				sb2.append(" ");
+				sb2.append(spCost.get(aComponent));
+				if (key.equalsIgnoreCase(aComponent))
+				{
+					sb2.append("(");
+					sb2.append(value);
+					sb2.append(")");
+				}
+				sb2.append("/");
+			}
+			else if (aComponent.equalsIgnoreCase("Duration"))
+			{
+				sb2.append(aComponent);
+				sb2.append(" ");
+				sb2.append(spCost.get(aComponent));
+				if (key.equalsIgnoreCase(aComponent))
+				{
+					sb2.append("(");
+					sb2.append(value);
+					sb2.append(")");
+				}
+				sb2.append("/");
+			}
+			else
+			{
+				sb.append(aComponent);
+				sb.append(" ");
+				sb.append(spCost.get(aComponent));
+				if (key.equalsIgnoreCase(aComponent))
+				{
+					sb2.append("(");
+					sb2.append(value);
+					sb2.append(")");
+				}
+				sb.append("/");
+			}
+			
+		}
+		if(sb2.length() < 1)
+		{
+			sb.replace(sb.length()-1, sb.length(), "");
+		}
+		sb2.replace(sb2.length()-1, sb2.length(), "");
+		
+		sb.append(sb2.toString());
+		sb.append("]");
+		return sb.toString();
+	}
 	public int getSpellPointCostActual()
 	{	
 		int runnintTotal = 0;
@@ -1412,6 +1569,5 @@ public final class Spell extends PObject
 		}
 		
 		return "";
-	}
-	
+	}	
 }

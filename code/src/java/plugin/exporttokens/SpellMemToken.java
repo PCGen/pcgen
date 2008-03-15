@@ -414,7 +414,7 @@ public class SpellMemToken extends Token
 							}
 							else if ("".equals(altLabel))
 							{
-								retValue.append(aSpell.getSPCostStrings());
+								retValue.append(aSpell.getSPCostStrings(aPC));
 							}
 							if (aTok.hasMoreTokens())
 							{
