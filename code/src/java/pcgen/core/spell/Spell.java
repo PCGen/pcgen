@@ -1440,8 +1440,6 @@ public final class Spell extends PObject
 				}
 			}
 		}
-		System.out.println("Key:" + key);
-		System.out.println("Val:" + value);
 		
 		sb2.append("");
 		sb.append(totalSpellPoints); 
