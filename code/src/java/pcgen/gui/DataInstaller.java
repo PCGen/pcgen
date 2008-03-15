@@ -655,7 +655,7 @@ public class DataInstaller extends JFrame
 				{
 					directories.add(entry.getName());
 				}
-				else if (!entry.getName().equals("Install.lst"))
+				else if (!entry.getName().equalsIgnoreCase("install.lst"))
 				{
 					files.add(entry.getName());
 				}
@@ -689,9 +689,20 @@ public class DataInstaller extends JFrame
 			// Open the ZIP file
 			ZipFile in = new ZipFile(dataSet);
 
-			// Get the install file
-			ZipEntry entry = in.getEntry("Install.lst");
-			if (entry == null)
+			// Get the install file in a case insensitive manner
+			ZipEntry installEntry = null;
+			@SuppressWarnings("unchecked")
+		    Enumeration entries = in.entries();
+			while (entries.hasMoreElements())
+			{
+				ZipEntry entry = (ZipEntry) entries.nextElement();
+				if (entry.getName().equalsIgnoreCase("install.lst"))
+				{
+					installEntry = entry;
+					break;
+				}
+			}
+			if (installEntry == null)
 			{
 				// Report that it isn't a valid data set
 				Logging.errorPrint("File " + dataSet
@@ -704,7 +715,7 @@ public class DataInstaller extends JFrame
 			}
 			
 			// Parse the install file
-			InputStream inStream = in.getInputStream(entry);
+			InputStream inStream = in.getInputStream(installEntry);
 			StringBuffer installInfo = new StringBuffer();
 			byte[] b = new byte[512];
 			int len = 0;
