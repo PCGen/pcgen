@@ -1,9 +1,9 @@
 # CVS $Revision$ $Author$ -- Thu Jan 24 22:20:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
-# Feat Name		Type			Visible	Required Race			Var. Min. Value			Multiple?	Choose							Bonus to skill		Source Page
-Racial Craft	TYPE:Special	VISIBLE:NO	PRERACE:1,Coivald,Rhoode	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Craft%|1		BONUS:SKILL|LIST|2	SOURCEPAGE:p.
-Artistic Craft	TYPE:Special	VISIBLE:NO						PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Art|1	BONUS:SKILL|LIST|2	SOURCEPAGE:p.
+# Feat Name		Type			Visible	Bonus to skill
+Racial Craft	TYPE:Special	VISIBLE:NO	BONUS:SKILL|TYPE.Craft|2
+Artistic Craft	TYPE:Special	VISIBLE:NO	BONUS:SKILL|TYPE.Art|2
 
 
 ###Block: Proficiencies

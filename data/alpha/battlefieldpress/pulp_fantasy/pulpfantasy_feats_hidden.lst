@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb  7 12:10:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
@@ -73,9 +73,9 @@ Fast Learner (Smart Lvl 10)	TYPE:FastLearnerLevel	VISIBLE:NO	PREMULT:2,[PRECLASS
 Cross Training Selection	TYPE:CrossTraining	VISIBLE:NO	SAB:Cross Training (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS	CSKILL:LIST	COST:0	SOURCEPAGE:p.23
 
 ###Block:Cross Training Sub-Entries
-# Feat Name		Type			Visible	Special ABility				Stackable?	Multiple?	Choose				BONUS:FEAT		Stat bonus			Source Page
-Raise Abilities	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (+1 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|STAT				BONUS:STAT|%LIST|1	SOURCEPAGE:p.23
-Lower Ability	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (-2 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|STAT	BONUS:FEAT|POOL|1	BONUS:STAT|%LIST|-2	SOURCEPAGE:p.23
+# Feat Name		Type			Visible	Special ABility				Stackable?	Multiple?	Selections	Choose	BONUS:FEAT		Stat bonus			Source Page
+Raise Abilities	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (+1 to %CHOICE)	STACK:NO	MULT:YES	SELECT:2	CHOOSE:STAT				BONUS:STAT|%LIST|1	SOURCEPAGE:p.23
+Lower Ability	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (-2 to %CHOICE)	STACK:NO	MULT:YES			CHOOSE:STAT	BONUS:FEAT|POOL|1	BONUS:STAT|%LIST|-2	SOURCEPAGE:p.23
 
 ###Block:Eclectic Selections
 # Feat Name					Type				Visible	Prohibited Class
@@ -309,14 +309,14 @@ Relic Hunter Bonus Feat	TYPE:RelicHunterAbility	VISIBLE:NO	PREFEAT:1,Uncanny Dod
 Miraculous Escape		TYPE:RelicHunterAbility	VISIBLE:NO						SAB:Miraculous Escape													SOURCEPAGE:p.116
 
 ###Block:Scientist Class Abilities
-# Feat Name				Type				Visible	Special ABility				Stackable?	Multiple?	Choose																								Combat bonus						Modify VAR			Source Page
-Smart Defense			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Defense																																	BONUS:COMBAT|AC|max(0,INT)|TYPE=Ability.STACK					SOURCEPAGE:p.117
-Scientific Improvisation	TYPE:ScientistAbility	VISIBLE:NO	SAB:Scientific Improvisation																																											SOURCEPAGE:p.117
-Scientist Skill Mastery		TYPE:ScientistAbility	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=INT+3|CSKILLS																																SOURCEPAGE:p.118
-Minor Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Minor Breakthrough (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)									BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
-Smart Survival			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Survival																																												SOURCEPAGE:p.118
-Smart Weapon			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFS|LIST|TYPE.Not.2 handed																												SOURCEPAGE:p.118
-Major Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Major Breakthrough																																								BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
+# Feat Name				Type				Visible	Special ABility				Stackable?	Multiple?	Selections		Choose																								Combat bonus						Modify VAR			Source Page
+Smart Defense			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Defense																																				BONUS:COMBAT|AC|max(0,INT)|TYPE=Ability.STACK					SOURCEPAGE:p.117
+Scientific Improvisation	TYPE:ScientistAbility	VISIBLE:NO	SAB:Scientific Improvisation																																														SOURCEPAGE:p.117
+Scientist Skill Mastery		TYPE:ScientistAbility	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)		STACK:NO	MULT:YES	SELECT:INT+3	CHOOSE:CSKILLS																																			SOURCEPAGE:p.118
+Minor Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Minor Breakthrough (%CHOICE)	STACK:NO	MULT:YES				CHOOSE:NUMCHOICES=1|STRING|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)									BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
+Smart Survival			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Survival																																															SOURCEPAGE:p.118
+Smart Weapon			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		STACK:NO	MULT:YES				CHOOSE:NUMCHOICES=1|WEAPONPROFS|LIST|TYPE.Not.2 handed																												SOURCEPAGE:p.118
+Major Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Major Breakthrough																																											BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
 
 ###Block:Shadowy Avenger Class Abilities
 # Feat Name		Type					Visible	Special ABility			Define			Stackable?	Multiple?	Choose		Modify VAR			Source Page

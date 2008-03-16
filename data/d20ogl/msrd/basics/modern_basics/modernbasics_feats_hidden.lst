@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar  9 12:06:10 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Barak & Hugo & Tir Gwaith
 
@@ -18,9 +18,9 @@ Improved Critical			TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Specialization					
 Greater Weapon Focus		TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Focus										SAB:Greater Weapon Focus (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus		BONUS:WEAPONPROF=%LIST|TOHIT|1		SOURCEPAGE:msrdadvancedclasses.rtf
 
 ###Block: Creature Feats
-# Feat Name			Type			Visible	Description		Stackable?	Multiple?	Choose							Bonus to skill rank	Source Page
-HighFiendKnowledge	TYPE:General	VISIBLE:NO	DESC:See text	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE.Knowledge	BONUS:SKILLRANK|LIST|15	SOURCEPAGE:Internal pcgen
-LowFiendKnowledge		TYPE:General	VISIBLE:NO	DESC:See text	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Knowledge	BONUS:SKILLRANK|LIST|5	SOURCEPAGE:Internal pcgen
+# Feat Name			Type			Visible	Description		Stackable?	Multiple?	Selections	Choose					Bonus to skill rank	Source Page
+HighFiendKnowledge	TYPE:General	VISIBLE:NO	DESC:See text	STACK:NO	MULT:YES	SELECT:3	CHOOSE:SKILLSNAMED|TYPE.Knowledge	BONUS:SKILLRANK|LIST|15	SOURCEPAGE:Internal pcgen
+LowFiendKnowledge		TYPE:General	VISIBLE:NO	DESC:See text	STACK:NO	MULT:YES			CHOOSE:SKILLSNAMED|TYPE.Knowledge	BONUS:SKILLRANK|LIST|5	SOURCEPAGE:Internal pcgen
 
 ###Block:Shadow Slayer Favored Enemies
 # Feat Name		Type			Visible	Required Class			Required Feat			Prohibited Feat			Special ABility			Multiple?	Choose

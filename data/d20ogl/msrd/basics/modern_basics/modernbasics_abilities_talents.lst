@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 15 21:50:49 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 ###Block: Talents
 ### TODO: SAs become DESC in abilities once the OS is updated. -AM
 
@@ -52,13 +52,13 @@ Intuition				CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Empathic	VISIBLE:YES	P
 Healing Knack			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Healing		VISIBLE:YES																																		SAB:Healing Knack																																																																		BONUS:SKILL|Treat Injury|2										SOURCEPAGE:msrdbasicclasses.rtf
 Healing Touch I			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Healing		VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Healing Knack																										SAB:Healing Touch																																																																																SOURCEPAGE:msrdbasicclasses.rtf
 Healing Touch II			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Healing		VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Healing Knack,Healing Touch I																								SAB:Healing Touch																																																																																SOURCEPAGE:msrdbasicclasses.rtf
-Skill Emphasis			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Insightful	VISIBLE:YES																																		SAB:Skill Emphasis (%CHOICE)											MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma																															BONUS:SKILL|LIST|3											SOURCEPAGE:msrdbasicclasses.rtf
+Skill Emphasis			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Insightful	VISIBLE:YES																																		SAB:Skill Emphasis (%CHOICE)											MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma																																	BONUS:SKILL|LIST|3											SOURCEPAGE:msrdbasicclasses.rtf
 Aware					CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Insightful	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Skill Emphasis																										SAB:Aware																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
 Faith					CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Insightful	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Skill Emphasis																										SAB:Faith																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
 Cool Under Pressure		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Insightful	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Skill Emphasis	PREABILITY:1,CATEGORY=Talent,Faith,Aware																			SAB:Cool Under Pressure																																																																															SOURCEPAGE:msrdbasicclasses.rtf
 
 #Charismatic Talents
-Charm					CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Charm		VISIBLE:YES																																		SAB:Charm (%CHOICE)												MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Male|Female																																																											SOURCEPAGE:msrdbasicclasses.rtf
+Charm					CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Charm		VISIBLE:YES																																		SAB:Charm (%CHOICE)												MULT:YES	CHOOSE:STRING|Male|Female																																																													SOURCEPAGE:msrdbasicclasses.rtf
 Favor					CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Charm		VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Charm																												SAB:Favor																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
 Captivate				CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Charm		VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Charm,Favor																											SAB:Captivate																																																																																SOURCEPAGE:msrdbasicclasses.rtf
 Fast-Talk				CATEGORY:Talent		TYPE:Talent.CharismaticTalent.FastTalk	VISIBLE:YES																																		SAB:Fast-Talk																																																																																SOURCEPAGE:msrdbasicclasses.rtf

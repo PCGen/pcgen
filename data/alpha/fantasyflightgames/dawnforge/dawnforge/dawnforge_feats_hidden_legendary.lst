@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn
 
@@ -85,32 +85,32 @@ Enhanced Charisma V		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.Legend
 
 
 ###Block:Dawn Archer legendary abilities
-# Feat Name				Type								Visible	Required Class			Prohibited Feat						Special ABility					Multiple?	Choose														Source Page
-Second Nature Senses I		TYPE:LegendarySecondNatureSenses.DawnArcherLPL1	VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SAB:Second-Nature Senses I (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Hide|Listen|Move Silently|Spot|Survival				SOURCEPAGE:p75
-Second Nature Senses II		TYPE:LegendarySecondNatureSenses.DawnArcherLPL2	VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SAB:Second-Nature Senses II (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=2|STRING|Hide|Listen|Move Silently|Spot|Survival				SOURCEPAGE:p75
-Second Nature Senses III	TYPE:LegendarySecondNatureSenses.DawnArcherLPL3	VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SAB:Second-Nature Senses III (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=3|STRING|Hide|Listen|Move Silently|Spot|Survival				SOURCEPAGE:p75
-Second Nature Senses IV		TYPE:LegendarySecondNatureSenses.DawnArcherLPL4	VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SAB:Second-Nature Senses IV (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=4|STRING|Hide|Listen|Move Silently|Spot|Survival				SOURCEPAGE:p75
-Second Nature Senses V		TYPE:LegendarySecondNatureSenses.DawnArcherLPL5	VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SAB:Second-Nature Senses V (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=5|STRING|Hide|Listen|Move Silently|Spot|Survival				SOURCEPAGE:p75
-Deadeye I				TYPE:LegendaryDeadeye.DawnArcherLPL1		VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryDeadeye			SAB:Deadeye I (+1)																					SOURCEPAGE:p75
-Deadeye II				TYPE:LegendaryDeadeye.DawnArcherLPL2		VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryDeadeye			SAB:Deadeye II (+2)																					SOURCEPAGE:p75
-Deadeye III				TYPE:LegendaryDeadeye.DawnArcherLPL3		VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryDeadeye			SAB:Deadeye III (+3)																					SOURCEPAGE:p75
-Deadeye IV				TYPE:LegendaryDeadeye.DawnArcherLPL4		VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryDeadeye			SAB:Deadeye IV (+4)																					SOURCEPAGE:p75
-Deadeye V				TYPE:LegendaryDeadeye.DawnArcherLPL5		VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryDeadeye			SAB:Deadeye V (+5)																					SOURCEPAGE:p75
-Unstoppable Arrows I		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL1	VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SAB:Unstoppable Arrows I (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
-Unstoppable Arrows II		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL2	VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SAB:Unstoppable Arrows II (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=2|STRING|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
-Unstoppable Arrows III		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL3	VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SAB:Unstoppable Arrows III (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=3|STRING|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
-Unstoppable Arrows IV		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL4	VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SAB:Unstoppable Arrows IV (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=4|STRING|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
-Unstoppable Arrows V		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL5	VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SAB:Unstoppable Arrows V (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=5|STRING|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
-Enchanted Bow I			TYPE:LegendaryEnchantedBow.DawnArcherLPL1		VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SAB:Enchanted Bow I (+1)																				SOURCEPAGE:p76
-Enchanted Bow II			TYPE:LegendaryEnchantedBow.DawnArcherLPL2		VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SAB:Enchanted Bow II (+2)																				SOURCEPAGE:p76
-Enchanted Bow III			TYPE:LegendaryEnchantedBow.DawnArcherLPL3		VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SAB:Enchanted Bow III (+3)																				SOURCEPAGE:p76
-Enchanted Bow IV			TYPE:LegendaryEnchantedBow.DawnArcherLPL4		VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SAB:Enchanted Bow IV (+4)																				SOURCEPAGE:p76
-Enchanted Bow V			TYPE:LegendaryEnchantedBow.DawnArcherLPL5		VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SAB:Enchanted Bow V (+5)																				SOURCEPAGE:p76
-Crippling Accuracy I		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL1	VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SAB:Crippling Accuracy I (1/day)																			SOURCEPAGE:p76
-Crippling Accuracy II		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL2	VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SAB:Crippling Accuracy II (2/day)																			SOURCEPAGE:p76
-Crippling Accuracy III		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL3	VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SAB:Crippling Accuracy III (3/day)																			SOURCEPAGE:p76
-Crippling Accuracy IV		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL4	VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SAB:Crippling Accuracy IV (4/day)																			SOURCEPAGE:p76
-Crippling Accuracy V		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL5	VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SAB:Crippling Accuracy V (5/day)																			SOURCEPAGE:p76
+# Feat Name				Type								Visible	Required Class			Prohibited Feat						Special ABility					Multiple?	Selections	Choose														Source Page
+Second Nature Senses I		TYPE:LegendarySecondNatureSenses.DawnArcherLPL1	VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SAB:Second-Nature Senses I (%CHOICE)	MULT:YES			CHOOSE:NUMCHOICES=1|STRING|Hide|Listen|Move Silently|Spot|Survival				SOURCEPAGE:p75
+Second Nature Senses II		TYPE:LegendarySecondNatureSenses.DawnArcherLPL2	VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SAB:Second-Nature Senses II (%CHOICE)	MULT:YES	SELECT:2	CHOOSE:NUMCHOICES=1|STRING|Hide|Listen|Move Silently|Spot|Survival				SOURCEPAGE:p75
+Second Nature Senses III	TYPE:LegendarySecondNatureSenses.DawnArcherLPL3	VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SAB:Second-Nature Senses III (%CHOICE)	MULT:YES	SELECT:3	CHOOSE:NUMCHOICES=1|STRING|Hide|Listen|Move Silently|Spot|Survival				SOURCEPAGE:p75
+Second Nature Senses IV		TYPE:LegendarySecondNatureSenses.DawnArcherLPL4	VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SAB:Second-Nature Senses IV (%CHOICE)	MULT:YES	SELECT:4	CHOOSE:NUMCHOICES=1|STRING|Hide|Listen|Move Silently|Spot|Survival				SOURCEPAGE:p75
+Second Nature Senses V		TYPE:LegendarySecondNatureSenses.DawnArcherLPL5	VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SAB:Second-Nature Senses V (%CHOICE)	MULT:YES	SELECT:5	CHOOSE:NUMCHOICES=1|STRING|Hide|Listen|Move Silently|Spot|Survival				SOURCEPAGE:p75
+Deadeye I				TYPE:LegendaryDeadeye.DawnArcherLPL1		VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryDeadeye			SAB:Deadeye I (+1)																							SOURCEPAGE:p75
+Deadeye II				TYPE:LegendaryDeadeye.DawnArcherLPL2		VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryDeadeye			SAB:Deadeye II (+2)																							SOURCEPAGE:p75
+Deadeye III				TYPE:LegendaryDeadeye.DawnArcherLPL3		VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryDeadeye			SAB:Deadeye III (+3)																							SOURCEPAGE:p75
+Deadeye IV				TYPE:LegendaryDeadeye.DawnArcherLPL4		VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryDeadeye			SAB:Deadeye IV (+4)																							SOURCEPAGE:p75
+Deadeye V				TYPE:LegendaryDeadeye.DawnArcherLPL5		VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryDeadeye			SAB:Deadeye V (+5)																							SOURCEPAGE:p75
+Unstoppable Arrows I		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL1	VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SAB:Unstoppable Arrows I (%CHOICE)		MULT:YES			CHOOSE:NUMCHOICES=1|STRING|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
+Unstoppable Arrows II		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL2	VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SAB:Unstoppable Arrows II (%CHOICE)		MULT:YES	SELECT:2	CHOOSE:NUMCHOICES=1|STRING|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
+Unstoppable Arrows III		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL3	VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SAB:Unstoppable Arrows III (%CHOICE)	MULT:YES	SELECT:3	CHOOSE:NUMCHOICES=1|STRING|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
+Unstoppable Arrows IV		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL4	VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SAB:Unstoppable Arrows IV (%CHOICE)		MULT:YES	SELECT:4	CHOOSE:NUMCHOICES=1|STRING|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
+Unstoppable Arrows V		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL5	VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SAB:Unstoppable Arrows V (%CHOICE)		MULT:YES	SELECT:5	CHOOSE:NUMCHOICES=1|STRING|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
+Enchanted Bow I			TYPE:LegendaryEnchantedBow.DawnArcherLPL1		VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SAB:Enchanted Bow I (+1)																						SOURCEPAGE:p76
+Enchanted Bow II			TYPE:LegendaryEnchantedBow.DawnArcherLPL2		VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SAB:Enchanted Bow II (+2)																						SOURCEPAGE:p76
+Enchanted Bow III			TYPE:LegendaryEnchantedBow.DawnArcherLPL3		VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SAB:Enchanted Bow III (+3)																						SOURCEPAGE:p76
+Enchanted Bow IV			TYPE:LegendaryEnchantedBow.DawnArcherLPL4		VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SAB:Enchanted Bow IV (+4)																						SOURCEPAGE:p76
+Enchanted Bow V			TYPE:LegendaryEnchantedBow.DawnArcherLPL5		VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SAB:Enchanted Bow V (+5)																						SOURCEPAGE:p76
+Crippling Accuracy I		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL1	VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SAB:Crippling Accuracy I (1/day)																					SOURCEPAGE:p76
+Crippling Accuracy II		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL2	VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SAB:Crippling Accuracy II (2/day)																					SOURCEPAGE:p76
+Crippling Accuracy III		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL3	VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SAB:Crippling Accuracy III (3/day)																					SOURCEPAGE:p76
+Crippling Accuracy IV		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL4	VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SAB:Crippling Accuracy IV (4/day)																					SOURCEPAGE:p76
+Crippling Accuracy V		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL5	VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SAB:Crippling Accuracy V (5/day)																					SOURCEPAGE:p76
 
 ###Block:Fleetwind legendary abilities
 # Feat Name			Type							Visible	Required Class		Prohibited Feat					Special ABility				Source Page

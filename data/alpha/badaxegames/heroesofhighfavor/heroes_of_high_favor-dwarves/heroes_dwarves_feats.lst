@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 # Original Entry by: Andrew Maitland
 
@@ -45,10 +45,10 @@ Rune of Vengeance		TYPE:General.Dwarf	PRESTAT:1,WIS=17	PRETEXT:inscribe on any w
 #BONUS:WEAPONPROF=%LIST|TOHIT|1
 
 ###Block: Refined Skill Focus Subset:
-# Feat Name			Type			Visible	Multiple?	Choose																				Bonus to skill		Bonus to skill rank
-RSF +2 to Two Skills	TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:NUMCHOICES=2|SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity	BONUS:SKILL|LIST|2
-RSF +3 to 1 Skill		TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity	BONUS:SKILL|LIST|3
-+2 Ranks to 1 skill	TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity					BONUS:SKILLRANK|LIST|2
+# Feat Name			Type			Visible	Multiple?	Selections	Choose																		Bonus to skill		Bonus to skill rank
+RSF +2 to Two Skills	TYPE:Special	VISIBLE:NO	MULT:YES	SELECT:2	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity	BONUS:SKILL|LIST|2
+RSF +3 to 1 Skill		TYPE:Special	VISIBLE:NO	MULT:YES			CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity	BONUS:SKILL|LIST|3
++2 Ranks to 1 skill	TYPE:Special	VISIBLE:NO	MULT:YES			CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity					BONUS:SKILLRANK|LIST|2
 
 #
 ## EOF

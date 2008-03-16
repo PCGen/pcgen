@@ -15,7 +15,7 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #
 #####1st Example
 
-#Skill Focus		TYPE:General		DESC:See Text		MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1		BONUS:SKILL|LIST|3		SOURCEPAGE:Feats.rtf
+#Skill Focus		TYPE:General		DESC:See Text		MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma		BONUS:SKILL|LIST|3		SOURCEPAGE:Feats.rtf
 
 #####
 #Each feat takes one line and the first field must be the feat's name. In the Example the name of the feat is Skill Focus.
