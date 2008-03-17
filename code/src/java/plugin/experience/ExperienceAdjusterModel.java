@@ -5,12 +5,13 @@ import gmgen.plugin.Combatant;
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.util.LogUtilities;
-import pcgen.core.SettingsHandler;
-import pcgen.util.Logging;
-import plugin.experience.gui.PreferencesExperiencePanel;
 
 import java.io.File;
 import java.util.Observable;
+
+import pcgen.core.SettingsHandler;
+import pcgen.util.Logging;
+import plugin.experience.gui.PreferencesExperiencePanel;
 
 /**
  * This <code>class</code> holds all the necessary data in order to have
@@ -22,6 +23,7 @@ import java.util.Observable;
  */
 public class ExperienceAdjusterModel extends Observable
 {
+	private ReadXML experienceTable = null;
 	protected ExperienceList enemies = new ExperienceList();
 	protected ExperienceList party = new ExperienceList();
 	protected InitHolderList combat;
@@ -227,7 +229,11 @@ public class ExperienceAdjusterModel extends Observable
 		int experience = 0;
 		File experienceFile =
 				new File(dir + File.separator + "experience_tables/7_1.xml");
-		ReadXML experienceTable = new ReadXML(experienceFile);
+		// Lets not load the massive XML file more than we have to
+		if (experienceTable == null)
+		{
+			experienceTable = new ReadXML(experienceFile);
+		}
 
 		for (int i = 0; i < enemies.size(); i++)
 		{
@@ -281,7 +287,11 @@ public class ExperienceAdjusterModel extends Observable
 		int experience = 0;
 		File experienceFile =
 				new File(dir + File.separator + "experience_tables/7_1.xml");
-		ReadXML experienceTable = new ReadXML(experienceFile);
+		// Lets not load the massive XML file more than we have to
+		if (experienceTable == null)
+		{
+			experienceTable = new ReadXML(experienceFile);
+		}
 
 		for (int i = 0; i < enemies.size(); i++)
 		{

@@ -1,15 +1,17 @@
 package gmgen.io;
 
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-import pcgen.util.Logging;
+import java.io.File;
+import java.io.IOException;
+import java.util.Vector;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.io.IOException;
-import java.util.Vector;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import pcgen.util.Logging;
 
 /**
  * This class is used to read through XML tables on disk.
@@ -20,7 +22,7 @@ import java.util.Vector;
 public class ReadXML
 {
 	/** The document used for XML parsing. */
-	private Document d;
+	private Document document;
 
 	/** The name of the table. */
 	private String tableName;
@@ -71,22 +73,6 @@ public class ReadXML
 		return tableName;
 	}
 
-//testing only
-
-	/**
-	 * Displays the table on paper for testing.
-	 */
-	public void displayTable()
-	{
-		for (int x = 0; x < rows; x++)
-		{
-			for (int y = 0; y < cols; y++)
-			{
-			    // TODO - This loop currently achieves nothing?
-			}
-		}
-	}
-
 	/**
 	 * Finds the percentage of an entry.
 	 * @param value a value to look for in the table.
@@ -118,28 +104,33 @@ public class ReadXML
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db;
 		int items;
+		Logging.debugPrint("readxmlFile called.");
 
 		try
 		{
 			db = dbf.newDocumentBuilder();
-			d = db.parse(table);
-			tableName = d.getElementsByTagName("lookuptable").item(0).getAttributes().getNamedItem("name").getNodeValue();
+			document = db.parse(table);
+			tableName =
+					document.getElementsByTagName("lookuptable").item(0)
+						.getAttributes().getNamedItem("name").getNodeValue();
 
-			rows = d.getElementsByTagName("row").getLength();
-			items = d.getElementsByTagName("item").getLength();
+			rows = document.getElementsByTagName("row").getLength();
+			items = document.getElementsByTagName("item").getLength();
 			cols = items / rows;
 
 			vt.setName(table.getPath());
 
 			int pos = 0;
 
+			Vector<String> row;
 			for (int x = 0; x < rows; x++)
 			{
-				Vector<String> row = new Vector<String>();
+				row = new Vector<String>();
 
 				for (int y = 0; y < cols; y++)
 				{
-					row.add(d.getElementsByTagName("item").item(pos).getChildNodes().item(0).getNodeValue());
+					row.add(document.getElementsByTagName("item").item(pos)
+						.getChildNodes().item(0).getNodeValue());
 					pos++;
 				}
 

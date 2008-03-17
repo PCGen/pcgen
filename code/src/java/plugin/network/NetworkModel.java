@@ -16,12 +16,7 @@ import gmgen.plugin.InitHolderList;
 import gmgen.util.LogReceiver;
 import gmgen.util.LogUtilities;
 import gmgen.util.MiscUtilities;
-import pcgen.core.SettingsHandler;
-import plugin.network.gui.NetworkView;
 
-import javax.swing.*;
-import javax.swing.text.Document;
-import javax.swing.text.EditorKit;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,7 +24,21 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextPane;
+import javax.swing.text.Document;
+import javax.swing.text.EditorKit;
+
+import pcgen.core.SettingsHandler;
+import plugin.network.gui.NetworkView;
 
 /**
  *
@@ -447,11 +456,14 @@ public class NetworkModel
 
 	public void refresh()
 	{
-		for (InitHolder iH : combat)
+		if (combat != null)
 		{
-			if (iH instanceof Combatant)
+			for (InitHolder iH : combat)
 			{
-				sendCombatant((Combatant) iH);
+				if (iH instanceof Combatant)
+				{
+					sendCombatant((Combatant) iH);
+				}
 			}
 		}
 	}
@@ -516,7 +528,8 @@ public class NetworkModel
 				}
 				catch (Exception e)
 				{
-					log("Local", "Local", "Failed to Display the client tool bar.");
+					log("Local", "Local",
+						"Failed to Display the client tool bar.");
 				}
 			}
 		}

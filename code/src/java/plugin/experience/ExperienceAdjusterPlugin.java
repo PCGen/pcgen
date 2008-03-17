@@ -7,14 +7,18 @@ import gmgen.plugin.InitHolderList;
 import gmgen.pluginmgr.GMBMessage;
 import gmgen.pluginmgr.GMBPlugin;
 import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.*;
-import pcgen.core.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.core.utils.CoreUtility;
-import pcgen.gui.utils.TabbedPaneUtilities;
-import plugin.experience.gui.AddDefeatedCombatant;
-import plugin.experience.gui.ExperienceAdjusterView;
-import plugin.experience.gui.PreferencesExperiencePanel;
+import gmgen.pluginmgr.messages.CombatRequestMessage;
+import gmgen.pluginmgr.messages.PreferencesPanelAddMessage;
+import gmgen.pluginmgr.messages.SaveMessage;
+import gmgen.pluginmgr.messages.StateChangedMessage;
+import gmgen.pluginmgr.messages.TabAddMessage;
+import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.text.NumberFormat;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -23,11 +27,15 @@ import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileFilter;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.text.NumberFormat;
+
+import pcgen.core.Constants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.utils.CoreUtility;
+import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.util.Logging;
+import plugin.experience.gui.AddDefeatedCombatant;
+import plugin.experience.gui.ExperienceAdjusterView;
+import plugin.experience.gui.PreferencesExperiencePanel;
 
 /**
  * The <code>ExperienceAdjusterController</code> handles the functionality of
@@ -68,6 +76,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		// Do Nothing
 	}
 
+	@Override
 	public FileFilter[] getFileTypes()
 	{
 		return null;
@@ -76,6 +85,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
+	@Override
 	public void start()
 	{
 		eaModel = new ExperienceAdjusterModel(getDataDir());
@@ -88,12 +98,14 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		initMenus();
 	}
 
+	@Override
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
 			Constants.s_SYSTEM_GMGEN);
 	}
 
+	@Override
 	public int getPluginLoadOrder()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 50);
@@ -112,6 +124,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	 * Accessor for name
 	 * @return name
 	 */
+	@Override
 	public String getName()
 	{
 		return name;
@@ -121,6 +134,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	 * Accessor for version
 	 * @return version
 	 */
+	@Override
 	public String getVersion()
 	{
 		return version;
@@ -181,10 +195,11 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		{
 			try
 			{
-				cbt.setCR(Integer.parseInt(inputValue));
+				cbt.setCR(Float.parseFloat(inputValue));
 			}
 			catch (NumberFormatException e)
 			{
+				Logging.errorPrint("Value could not be parsed into a number.");
 				adjustCR(cbt);
 			}
 		}
@@ -466,6 +481,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	 * @param message the source of the event from the system
 	 * @see GMBPlugin#handleMessage(GMBMessage)
 	 */
+	@Override
 	public void handleMessage(GMBMessage message)
 	{
 		if (message instanceof CombatRequestMessage)
