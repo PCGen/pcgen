@@ -894,16 +894,19 @@
 
 <hr>
 
-	<p class="new">*** New 5.9.6</p>
-	<p class="indent0"><strong><a name="PREPOINTBUYMETHOD">Tag Name:</a></strong> PREPOINTBUYMETHOD:x,x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Pointbuy saved method)</p>
+	<p class="new">*** Updated 5.13.12</p>
+	<p class="indent0"><strong><a name="PREPOINTBUYMETHOD">Tag Name:</a></strong> PREPOINTBUYMETHOD:x,y,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of required point buy methods)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Pointbuy method)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Sets a prerequisite based upon the saved method used by the point-buy method of stat determination.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>PREPOINTBUYMETHOD:Standard</code></p>
+	<p class="indent2"><code>PREPOINTBUYMETHOD:1,Standard</code></p>
 	<p class="indent3">Sets a prerequisite of &quot;Standard&quot; for the point-buy saved method.</p>
-	<p class="indent2"><code>PREPOINTBUYMETHOD:Standard,High-powered</code></p>
+	<p class="indent2"><code>PREPOINTBUYMETHOD:1,Standard,High-powered</code></p>
 	<p class="indent3">Sets a prerequisite of &quot;Standard&quot; or &quot;High-powered&quot; for the point-buy saved method.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>PREPOINTBUYMETHOD:y,y</code> (<span class="new">Deprecated 5.13.12</span>)</p>
 	<p></p>
 
 <hr>
