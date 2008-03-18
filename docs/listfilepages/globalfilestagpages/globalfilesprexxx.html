@@ -994,16 +994,20 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PRERULE">Tag Name:</a></strong> PRERULE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Rule name)</p>
+	<p class="indent0"><strong><a name="PRERULE">Tag Name:</a></strong> PRERULE:x,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of rules required)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Rule name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Checks for the state of a rule.</p>
-	<p class="indent2">Rule name (x) has been defined in the system/gameModes/rules.lst file.</p>
-	<p class="indent2">Rule name (x) must match the VAR: entry from the rules.lst file.</p>
-	<p class="indent2">Rules can be turned on and off by the user in the House Rules section of the preferences.</p>
+	<ul class="indent2">
+		<li>Checks for the state of a rule.</li>
+		<li>The rule name must have been defined and match the variable (<code>VAR</code>) entry in the <em>system/gameModes/rules.lst</em> file.</li>
+		<li>Rules can be turned on and off by the user in the <strong>House Rules</strong> section of the preferences.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRERULE:SYS_WTPSK</code></p>
+	<p class="indent2"><code>PRERULE:1,SYS_WTPSK</code></p>
 	<p class="indent3">The rule WeightPenaltyToSkill must be checked for this to apply.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>PRERULE:y</code> (<span class="new">Deprecated 5.13.12</span>)</p>
 	<p></p>
 
 <hr>
