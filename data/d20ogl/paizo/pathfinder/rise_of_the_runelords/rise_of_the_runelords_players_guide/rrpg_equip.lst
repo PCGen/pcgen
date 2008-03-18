@@ -1,0 +1,18 @@
+# CVS $Revision$ $Author$ -- Fri Feb 15 12:12:54 2008 -- reformated by prettylst.pl v1.38 (build 4387)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# Original Entry by: Stefan Radermacher
+
+###Block:Alchemical Stuff and Liquids
+# Equipment Name	Type						Cost		Weight	Source Page
+Barbarian Chew	TYPE:Goods.Alchemical.Consumable	COST:15	WT:0		SOURCEPAGE:p.10
+Harpy Musk		TYPE:Goods.Alchemical.Consumable	COST:2	WT:0		SOURCEPAGE:p.10
+
+###Block:Goods
+# Equipment Name		Output Name			Type				Cost		Weight	Source Page
+False Jewelry						TYPE:Goods.General	COST:20	WT:0		SOURCEPAGE:p.10
+Scarf (Pocketed)		OUTPUTNAME:[NAME] Scarf	TYPE:Goods.General	COST:8	WT:0		SOURCEPAGE:p.11
+Scarf (Reinforced)	OUTPUTNAME:[NAME] Scarf	TYPE:Goods.General	COST:10	WT:0		SOURCEPAGE:p.11
+
+###Block:Tools
+# Equipment Name	Type					Cost		Weight	Source Page
+Varisian Idol	TYPE:Goods.Tools.Consumable	COST:50	WT:0		SOURCEPAGE:p.11

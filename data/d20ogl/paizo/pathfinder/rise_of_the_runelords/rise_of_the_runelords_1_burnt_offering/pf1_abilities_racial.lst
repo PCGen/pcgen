@@ -1,0 +1,39 @@
+# CVS $Revision$ $Author$ -- Wed Mar  5 13:06:01 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
+
+###Block: Giant Gecko Abilities
+# Feat Name		Type							Visible	Special ABility					Define			Modify VAR
+# Ability Name	Category of Ability		Type							Visible	Special ABility					Define			Modify VAR
+Aura of Sobs	CATEGORY:Special Ability	TYPE:SpecialQuality.Aura.Supernatural	VISIBLE:NO	SAB:Aura of Sobs (Su)
+Steal Breath	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		VISIBLE:NO	SAB:Steal Breath (Su) DC %|StealBreathDC	DEFINE:StealBreathDC|0	BONUS:VAR|StealBreathDC|10+(HD/2)+CHA
+Steal Voice		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		VISIBLE:NO	SAB:Steal Voice (Su) DC %|StealVoiceDC	DEFINE:StealVoiceDC|0	BONUS:VAR|StealVoiceDC|10+(HD/2)+CHA
+
+###Block: Giant Gecko Abilities
+# Feat Name		Type						Visible	Special ABility		Bonus to skill
+# Ability Name	Category of Ability		Type						Visible	Special ABility		Bonus to skill
+Expert Climber	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Expert Climber (Ex)	BONUS:SKILL|Climb|8
+
+###Block: Goblin Dog Abilities
+# Feat Name		Type						Visible	Special ABility							Define				Modify VAR
+# Ability Name	Category of Ability		Type						Visible	Special ABility							Define				Modify VAR
+Allergic Reaction	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Allergic Reaction (Ex) DC %|AllergicReactionDC	DEFINE:AllergicReactionDC|0	BONUS:VAR|AllergicReactionDC|10+(HD/2)+CON
+
+###Block: Goblin Snake Abilities
+# Feat Name		Type						Visible	Special ABility						Define			Modify VAR
+# Ability Name	Category of Ability		Type						Visible	Special ABility						Define			Modify VAR
+Goblin Breath	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Goblin Breath (Ex) DC %|GoblinBreathDC	DEFINE:GoblinBreathDC|0	BONUS:VAR|GoblinBreathDC|10+(HD/2)+CON
+Lunge			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Lunge (Ex)
+Snake Empathy	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Snake Empathy (Ex) +%|SnakeEmpathy		DEFINE:SnakeEmpathy|0	BONUS:VAR|SnakeEmpathy|HD	BONUS:VAR|SnakeEmpathy|4|TYPE=Racial
+
+###Block: Sandpoint Devil Abilities
+# Feat Name		Type						Visible	Special ABility						Define				Modify VAR
+# Ability Name	Category of Ability		Type						Visible	Special ABility						Define				Modify VAR
+Bay			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Bay (Su) DC %|BayDC					DEFINE:BayDC|0			BONUS:VAR|BayDC|10+(HD/2)+CHA
+Hellfire Breath	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Hellfire Breath (Su) DC %|HellfireBreathDC	DEFINE:HellfireBreathDC|0	BONUS:VAR|HellfireBreathDC|10+(HD/2)+CON
+
+###Block: Sinspawn Abilities
+# Feat Name		Type						Visible	Special ABility						Define			Modify VAR
+# Ability Name	Category of Ability		Type						Visible	Special ABility						Define			Modify VAR
+Scent Sin		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Scent Sin (Su)
+Wrathful Bite	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Wrathful Bite (Su) DC %|WrathfulBiteDC	DEFINE:WrathfulBiteDC|0	BONUS:VAR|WrathfulBiteDC|10+(HD/2)+CHA
+Sinful Bite		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Sinful Bite (Su) DC %|SinfulBiteDC		DEFINE:SinfulBiteDC|0	BONUS:VAR|SinfulBiteDC|10+(HD/2)+CHA

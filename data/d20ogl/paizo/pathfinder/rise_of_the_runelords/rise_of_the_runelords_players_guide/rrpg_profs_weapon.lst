@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Fri Feb 15 12:12:54 2008 -- reformated by prettylst.pl v1.38 (build 4387)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# Original Entry by: Stefan Radermacher
+
+# MARTIAL
+# -- light
+# Weapon Name	Type
+Dogslicer		TYPE:Martial
+Starknife		TYPE:Martial
+War Razor		TYPE:Martial
+
+# 1-handers
+Klar			TYPE:Martial
+
+# 2-handers
+Earth Breaker	TYPE:Martial
+Ogre Hook		TYPE:Martial
+
+# EXOTIC
+# -- 2-handers
+Scarf (Bladed)	TYPE:Exotic

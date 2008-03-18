@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Thu Feb 28 20:37:44 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# Original Entry by: Stefan Radermacher
+
+# Language		Product Identity?	Type
+Boggard					TYPE:Spoken.Written.Read
+Chelaxian		NAMEISPI:YES	TYPE:Spoken.Written.Read
+Shoanti		NAMEISPI:YES	TYPE:Spoken.Written.Read
+Thassilonian	NAMEISPI:YES	TYPE:Spoken.Written.Read
+Varisian		NAMEISPI:YES	TYPE:Spoken.Written.Read

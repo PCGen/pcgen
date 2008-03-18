@@ -1,0 +1,36 @@
+# CVS $Revision$ $Author$ -- Sat Dec  8 13:08:09 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Paizo - Rise of the Runelords - Chapter 1: Burnt Offerings
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Chronicles.Rise of the Runelords
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings
+SOURCESHORT:PF1
+SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr
+SOURCEDATE:2007-08
+ISOGL:YES
+ISLICENSED:NO
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rise of the Runelords Player’s Guide. Copyright 2007 Paizo Publishing LLC. Author: F. Wesley Schneider.
+COPYRIGHT:Tome of Horrors. Copyright 2002 Necromancer Games, Inc.; Author: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:The Book of Fiends. Copyright 2003 Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb..
+COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords - Chapter 1: Burnt Offerings" Copyright 2007-2008, PCGen Data Team (including, but not limited to, Stefan Radermacher.)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:pf1_abilities_racial.lst
+EQUIPMENT:pf1_equip_weap_melee.lst
+EQUIPMENT:pf1_equip_wondrousitems.lst
+FEAT:pf1_feats.lst
+KIT:pf1_kits_races.lst
+RACE:pf1_races.lst
+TEMPLATE:pf1_templates.lst
+WEAPONPROF:pf1_weaponprofs.lst

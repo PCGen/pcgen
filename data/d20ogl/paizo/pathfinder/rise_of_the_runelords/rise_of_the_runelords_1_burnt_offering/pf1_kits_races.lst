@@ -1,0 +1,136 @@
+# CVS $Revision$ $Author$ -- Sun Mar  2 22:49:32 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
+
+STARTPACK:Attic Whisperer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Attic Whisperer]	SOURCEPAGE:p.92
+RACE:Attic Whisperer	!PRERACE:1,%
+NAME:Attic Whisperer
+ALIGN:NE
+SKILL:Bluff			RANK:9
+SKILL:Climb			RANK:6
+SKILL:Hide			RANK:9
+SKILL:Knowledge (Local)	RANK:6
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Spot			RANK:6
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Gecko (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gecko (Giant)]	SOURCEPAGE:p.89
+RACE:Gecko (Giant)	!PRERACE:1,%
+NAME:Giant Gecko
+ALIGN:TN
+SKILL:Climb	RANK:5
+FEAT:Improved Initiative
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Goblin Dog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin Dog]	SOURCEPAGE:p.87
+RACE:Goblin Dog	!PRERACE:1,%
+NAME:Goblin Dog
+ALIGN:TN
+SKILL:Jump	RANK:4
+FEAT:Toughness
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Goblin Snake Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin Snake]	SOURCEPAGE:p.88
+RACE:Goblin Snake	!PRERACE:1,%
+NAME:Goblin Snake
+ALIGN:CE
+SKILL:Bluff		RANK:1
+SKILL:Hide		RANK:1
+SKILL:Intimidate	RANK:1
+SKILL:Spot		RANK:2
+FEAT:Alertness
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Sandpoint Devil Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sandpoint Devil]	SOURCEPAGE:p.94
+RACE:Sandpoint Devil	!PRERACE:1,%
+NAME:The Sandpoint Devil
+ALIGN:NE
+SKILL:Climb				RANK:7
+SKILL:Disguise			RANK:6
+SKILL:Hide				RANK:15
+SKILL:Intimidate			RANK:5
+SKILL:Knowledge (Geography)	RANK:8
+SKILL:Listen			RANK:15
+SKILL:Move Silently		RANK:15
+SKILL:Search			RANK:7
+SKILL:Spot				RANK:15
+SKILL:Survival			RANK:8
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Spring Attack
+FEAT:Stealthy
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Sinspawn Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn]	SOURCEPAGE:p.90
+RACE:Sinspawn	!PRERACE:1,%
+NAME:Sinspawn
+ALIGN:NE
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+FEAT:Improved Initiative
+FEAT:Multiattack
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Sinspawn (Envyspawn) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Envyspawn)]	SOURCEPAGE:p.91
+RACE:Sinspawn (Envyspawn)	!PRERACE:1,%
+NAME:Envyspawn
+ALIGN:NE
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+FEAT:Improved Initiative
+FEAT:Multiattack
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Sinspawn (Gluttonspawn) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Gluttonspawn)]	SOURCEPAGE:p.91
+RACE:Sinspawn (Gluttonspawn)	!PRERACE:1,%
+NAME:Envyspawn
+ALIGN:NE
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+FEAT:Improved Initiative
+FEAT:Multiattack
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Sinspawn (Greedspawn) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Greedspawn)]	SOURCEPAGE:p.91
+RACE:Sinspawn (Greedspawn)	!PRERACE:1,%
+NAME:Envyspawn
+ALIGN:NE
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+FEAT:Improved Initiative
+FEAT:Multiattack
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Sinspawn (Lustspawn) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Lustspawn)]	SOURCEPAGE:p.91
+RACE:Sinspawn (Lustspawn)	!PRERACE:1,%
+NAME:Envyspawn
+ALIGN:NE
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+FEAT:Improved Initiative
+FEAT:Multiattack
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Sinspawn (Pridespawn) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Pridespawn)]	SOURCEPAGE:p.91
+RACE:Sinspawn (Pridespawn)	!PRERACE:1,%
+NAME:Envyspawn
+ALIGN:NE
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+FEAT:Improved Initiative
+FEAT:Multiattack
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Sinspawn (Slothspawn) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Slothspawn)]	SOURCEPAGE:p.91
+RACE:Sinspawn (Slothspawn)	!PRERACE:1,%
+NAME:Envyspawn
+ALIGN:NE
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+FEAT:Improved Initiative
+FEAT:Multiattack
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10

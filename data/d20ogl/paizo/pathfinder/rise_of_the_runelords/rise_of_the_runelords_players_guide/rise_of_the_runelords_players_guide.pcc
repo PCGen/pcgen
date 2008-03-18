@@ -1,0 +1,48 @@
+# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Paizo - Rise of the Runelords - Player's Guide
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Chronicles.Rise of the Runelords
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Rise of the Runelords Player's Guide
+SOURCESHORT:RRPG
+SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx
+SOURCEDATE:2007-08
+ISOGL:YES
+ISLICENSED:NO
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author F. Wesley Schneider.
+COPYRIGHT:PCGen dataset conversion for the Rise of the Runelords Player's Guide Copyright 2007-2008, PCGen Data Team (including, but not limited to Stefan Radermacher, Eric C. Smith)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+BIOSET:rrpg_biosettings.lst
+COMPANIONMOD:rrpg_companionmods.lst
+DEITY:rrpg_deities.lst
+EQUIPMENT:rrpg_equip_armorshields.lst
+EQUIPMENT:rrpg_equip.lst
+EQUIPMENT:rrpg_equip_weap_melee.lst
+FEAT:rrpg_feats_hidden.lst
+FEAT:rrpg_feats.lst
+KIT:rrpg_kits_races_animals.lst
+KIT:rrpg_kits_races.lst
+LANGUAGE:rrpg_languages.lst
+RACE:rrpg_races_animals.lst
+RACE:rrpg_races.lst
+TEMPLATE:rrpg_templates.lst
+ARMORPROF:rrpg_profs_armor.lst
+SHIELDPROF:rrpg_profs_shield.lst
+WEAPONPROF:rrpg_profs_weapon.lst
+
+
+# Hide internally used feat types
+HIDETYPE:FEAT|CityBorn|Varisia|VarisianTattoo
+

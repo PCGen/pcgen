@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Fri Feb 15 12:12:54 2008 -- reformated by prettylst.pl v1.38 (build 4387)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
+# Original Entry by: Stefan Radermacher
+
+####Block: Martial Weapons
+#------light---------
+# Equipment Name	Output Name				Required Proficiency			Type													Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Range		Reach Multiplier	Size		Source Page
+Dogslicer							PROFICIENCY:WEAPON|Dogslicer		TYPE:Weapon.Melee.Finesseable.Martial.Standard.Slashing.Sword			COST:8	WT:1				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:STEEL	WIELD:Light							SIZE:S	SOURCEPAGE:p.10
+Starknife							PROFICIENCY:WEAPON|Starknife		TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Martial.Standard.Piercing.Dagger	COST:24	WT:3				CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4	EQMOD:STEEL	WIELD:Light		RANGE:20				SIZE:M	SOURCEPAGE:p.11
+War Razor							PROFICIENCY:WEAPON|War Razor		TYPE:Weapon.Melee.Finesseable.Martial.Standard.Slashing.Dagger			COST:8	WT:1				CRITMULT:x2			CRITRANGE:3			DAMAGE:1d4	EQMOD:STEEL	WIELD:Light							SIZE:M	SOURCEPAGE:p.11
+#-----one handed -------
+#Klar
+#-----two handed -------
+Earth Breaker						PROFICIENCY:WEAPON|Earth Breaker	TYPE:Weapon.Melee.Martial.Standard.Bludgeoning.Hammer					COST:40	WT:14				CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6	EQMOD:STEEL	WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.10
+Ogre Hook							PROFICIENCY:WEAPON|Ogre Hook		TYPE:Weapon.Melee.Martial.Standard.Piercing.Hook					COST:24	WT:10				CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12	EQMOD:STEEL	WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.10
+
+####Block: Exotic Weapons
+#-----two handed -------
+Scarf (Bladed)	OUTPUTNAME:Scarf, Bladed	PROFICIENCY:WEAPON|Scarf (Bladed)	TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Standard.Slashing.Scarf		COST:12	WT:2		SLOTS:2	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:STEEL	WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.11
