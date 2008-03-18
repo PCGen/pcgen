@@ -86,10 +86,11 @@
 
 <hr>
 
-	<p class="new">*** New 5.11.8</p>
-	<p class="indent0"><strong><a name="PREAGESET">Tag Name:</a></strong> PREAGESET:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>Text (Ageset abbreviation).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>Number (Ageset array number).</p>
+	<p class="new">*** Updated 5.13.12</p>
+	<p class="indent0"><strong><a name="PREAGESET">Tag Name:</a></strong> PREAGESET:x,y,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong>Number (Number of agesets required)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong>Text (Ageset abbreviation)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong>Number (Ageset array number)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Requires the PC to have the specified Ageset or older.</li>
@@ -99,14 +100,16 @@
 		<li>There are four Agesets defined in the 35e gameMode, they are: 0=Adulthood, 1=Middle Age, 2=Old, 3=Venerable.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PREAGESET:Old</code></p>
-	<p class="indent3">Requires the PC to be Old or Venerable.</p>
-	<p class="indent2"><code>PREAGESET:3</code></p>
-	<p class="indent3">Requires the PC to be Venerable.</p>
-	<p class="indent2"><code>!PREAGESET:Venerable</code></p>
-	<p class="indent3">Requires the PC to be younger than Venerable.</p>
-	<p class="indent2"><code>PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]</code></p>
-	<p class="indent3">Requires the PC to be Middle Age but not older.</p>
+	<p class="indent2"><code>PREAGESET:1,Old</code></p>
+	<p class="indent3">Requires the PC to be &quot;Old&quot; or &quot;Venerable&quot;.</p>
+	<p class="indent2"><code>PREAGESET:1,3</code></p>
+	<p class="indent3">Requires the PC to be &quot;Venerable&quot;.</p>
+	<p class="indent2"><code>!PREAGESET:1,Venerable</code></p>
+	<p class="indent3">Requires the PC to be younger than &quot;Venerable&quot;.</p>
+	<p class="indent2"><code>PREMULT:1,2,[PREAGESET:Middle Age],[!PREAGESET:Old]</code></p>
+	<p class="indent3">Requires the PC to be &quot;Middle Age&quot; but not older.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>PREAGESET:y,y</code> (<span class="new">Deprecated 5.13.12</span>)</p>
 	<p></p>
 
 <hr>
