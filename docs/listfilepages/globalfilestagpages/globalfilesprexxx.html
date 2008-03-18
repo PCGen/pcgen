@@ -1077,17 +1077,18 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number
 		(The number of skills that must be equal to or greater than the numbers specified for the check
 		to succeed).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined skill name).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (A defined skill type).</p>
-	<p class="indent2"><strong>Note:</strong> If you require multiples of that type,
-		you need to add TYPE.x for each instance in the comma delimited list.</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Skill name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Skill type)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number
 		(The number of ranks the associated skill must meet or exceed).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets skill requirements.</p>
-	<p class="indent2"><strong>NOTE: </strong>In skills types with multiple versions like Craft (Pottery)
-		or Knowledge (Local) there must be a space between the name and the parentheses because the text must
-		match the entry exactly.</p>
+	<ul class="indent2">
+		<li>Sets skill requirements.</li>
+		<li>If you require multiples of a particular type of skill, you need to include a <code>TYPE.Text</code> 
+			sub-tag for each instance in the comma delimited list.</li>
+		<li>Skills types with multiple versions like &quot;Craft (Pottery)&quot; or &quot;Knowledge (Local)&quot; 
+			there must be a space between the name and the parentheses because the text must match the entry exactly.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PRESKILL:1,Spot,Listen=10</code></p>
 	<p class="indent3">Character must have at least 10 ranks in either &quot;Spot&quot; or
