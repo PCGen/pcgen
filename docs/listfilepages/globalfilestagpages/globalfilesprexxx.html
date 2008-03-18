@@ -1195,24 +1195,23 @@
 
 <hr>
 
-	<p class="new">*** New 5.7.4</p>
 	<p class="indent0"><strong><a name="PRESPELLDESCRIPTOR">Tag Name:</a></strong> PRESPELLDESCRIPTOR:x,y,z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a spell descriptor).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (The quantity of spells with the proper 
-		spell descriptor and level the character must know).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (The minimum spell level of spells a 
-		character must know with the spell descriptor).</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of spells known)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Spell descriptor)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Minimum spell level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets spell descriptor requirements.</p>
+	<p class="indent2">Sets spell descriptor requirements. (i.e. Fire, Acid, Sonic, Evil, Good, Mind-Affecting, etc.)</p>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRESPELLDESCRIPTOR:Mind-Affecting,4,3</code></p>
+	<p class="indent2"><code>PRESPELLDESCRIPTOR:4,Mind-Affecting=3</code></p>
 	<p class="indent3">Character must have at least four 3rd level or higher Mind-Affecting spells to 
 		meet the requirement.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>PRESPELLDESCRIPTOR:y,x,z</code></p>
 	<p></p>
 
 <hr>
 
-	<p class="new">*** Updated 5.11.6*** To Be Deprecated 5.11.6-5.12.0, Use <a href="#PRESPELLSCHOOL2">PRESPELLSCHOOL:x,y=z</a> tag instead.</p>
+	<p class="new">*** Deprecated 5.11.6-5.12.0, Use <a href="#PRESPELLSCHOOL2">PRESPELLSCHOOL:x,y=z</a> tag instead.</p>
 	<p class="indent0"><strong><a name="PRESPELLSCHOOL">Tag Name:</a></strong> PRESPELLSCHOOL:x,y,z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a school of magic).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (The quantity of spells of the proper
@@ -1247,7 +1246,7 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.11.6*** To Be Deprecated 5.11.6-5.12.0, Use <a href="#PRESPELLSCHOOLSUB2">PRESPELLSCHOOLSUB:x,y=z</a></p>
+	<p class="new">*** Deprecated 5.11.6-5.12.0, Use <a href="#PRESPELLSCHOOLSUB2">PRESPELLSCHOOLSUB:x,y=z</a></p>
 	<p class="indent0"><strong><a name="PRESPELLSCHOOLSUB">Tag Name:</a></strong> PRESPELLSCHOOLSUB:x,y,z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The quantity of spells of the proper
 		sub-school and level the character must know).</p>
