@@ -1402,23 +1402,23 @@
 <hr>
 
 	<p class="indent0"><strong><a name="PRETYPE">Tag Name:</a></strong> PRETYPE:x,y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of types that must match the specified requirements).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Racial type).</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of types required)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Make specific racial type a prerequisite.</p>
 	<ul class="indent2">
-		<li><span class=new>Note</span>: PRETYPE has a different use in Equipment
-    	and Equipment Modifier files, it checks for equipment and EQMOD types.</li>
-		<li>See the PRETYPE entry in <a href="../datafilestagpages/datafilesequipment.html#PRETYPE">Equipment</a> or
+		<li>Sets specific &quot;type&quot; requirements appropriate to the object being applied to, i.e. Racial, Equipment, EqMod, Template, etc.</li>
+		<li>See the <code>PRETYPE</code> entry in <a href="../datafilestagpages/datafilesequipment.html#PRETYPE">Equipment</a> or
 		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#PRETYPE">Equipment Modifier</a> files for usage.</li>
 		<li>If you need to prerequisite race type from equipment you can use
 		<a href="#PRETEMPLATE">PRETEMPLATE</a> to check for the racial type template.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PRETYPE:1,Elemental,Fey,Outsider</code></p>
-	<p class="indent3">Type must either Elemental,Fey or Outsider</p>
+	<p class="indent3">Type must either &quot;Elemental&quot;, &quot;Fey&quot; or &quot;Outsider&quot;.</p>
 	<p class="indent2"><code>PRETYPE:2,Humanoid,Undead</code></p>
-	<p class="indent3">Character must be an Undead Humanoid.</p>
+	<p class="indent3">Character must be an &quot;Undead Humanoid&quot;.</p>
+	<p class="indent2"><code>PRETYPE:1,Heavy</code></p>
+	<p class="indent3">Object must have the type &quot;Heavy&quot;.</p>
 	<p></p>
 
 <hr>
