@@ -601,14 +601,11 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PREEQUIPTWOWEAPON">Tag Name:</a></strong> PREEQUIPTWOWEAPONx,y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number
-		(The number of items from the list that must be equipped in a two weapon fighting manner - 1 or 2).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text
-		(The name of a weapon - &quot;%&quot; may be used as a wildcard)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text
-		(The type of a weapon that must be equipped in a two weapon fighting manner).</p>
-	<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (The wield category of a weapon).</p>
+	<p class="indent0"><strong><a name="PREEQUIPTWOWEAPON">Tag Name:</a></strong> PREEQUIPTWOWEAPON:x,y,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items that must be equipped in a two weapon fighting manner - 1 or 2).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon name - &quot;%&quot; may be used as a wildcard)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Weapon type)</p>
+	<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (Wield category).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This is used to determine if a character has a particular item
 		(usually a weapon) equipped and used two weapon style.</p>
@@ -616,9 +613,9 @@
 	<p class="indent2"><code>PREEQUIPTWOWEAPON:1,Sword (Short)</code></p>
 	<p class="indent3">Must have a Sword (Short) equipped as one of two weapons for two weapon fighting.</p>
 	<p class="indent2"><code>PREEQUIPTWOWEAPON:1,Sword (Short%</code></p>
-	<p class="indent3">The &quot;%&quot; allows for items named Sword (Short/Masterwork) etc.</p>
+	<p class="indent3">Must have a Sword (Short) equipped as one of two weapons and allows for items named Sword (Short/Masterwork) etc.</p>
 	<p class="indent2"><code>PREEQUIPTWOWEAPON:1,TYPE=Slashing</code></p>
-	<p class="indent3">Must have a Sword (Short) equipped as one of two weapons for two weapon fighting.</p>
+	<p class="indent3">Must have a &quot;Slashing&quot; type weapon equipped as one of two weapons for two weapon fighting.</p>
 	<p class="indent2"><code>PREEQUIPTWOWEAPON:1,WIELDCATEGORY=Light</code></p>
 	<p class="indent3">Must have a light weapon equipped for two weapon fighting.</p>
 	<p></p>
