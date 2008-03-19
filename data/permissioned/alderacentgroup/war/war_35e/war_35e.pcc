@@ -16,6 +16,13 @@ ISOGL:YES
 COPYRIGHT:Open Game License v1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:PCGen dataset conversion for War Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King)
 
+COVER:../war.jpg
+LOGO:@/publisher_logos/Alderac_Entertainment_Group.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Alderac Entertainment Group.
+DESC:Fight. Fight. Fight. Fight! AEG's latest in a long line of d20 System(TM) related sourcebooks, this book gives GMs rules for mass combat, the causes and effects of war, more prestige classes, and rules and notes on the effects of magic on mass combat. This book brings to life the very thing that topples nations and makes history. With campaign advice and artifacts that men have destroyed royalty to find, this book has everything a growing campaign needs. By the team that brought you Dragons and Evil.
+URL:WEBSITE|http://www.alderac.com/|Visit Alderac Entertainment Group
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=24399&it=1|Buy this pdf from RPGNow.com!
+
 DOMAIN:wardomains_35e.lst
 CLASS:warclasses_35e.lst
 
