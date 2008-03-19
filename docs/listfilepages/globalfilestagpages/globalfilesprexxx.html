@@ -892,10 +892,14 @@
 
 	<p class="new">*** Updated 5.13.12</p>
 	<p class="indent0"><strong><a name="PREPOINTBUYMETHOD">Tag Name:</a></strong> PREPOINTBUYMETHOD:x,y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of required point buy methods)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of required point-buy methods)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Pointbuy method)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets a prerequisite based upon the saved method used by the point-buy method of stat determination.</p>
+	<ul class="indent2">
+		<li>Sets a prerequisite based upon the saved method used by the point-buy system of stat determination.</li>
+		<li><strong>Note:</strong> Only one (1) point-buy method is used at any given time so using a value greater 
+			then one is unecessary.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREPOINTBUYMETHOD:1,Standard</code></p>
 	<p class="indent3">Sets a prerequisite of &quot;Standard&quot; for the point-buy saved method.</p>
@@ -1367,7 +1371,6 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Sets template requirements. If one of the template names in the list matches, the prerequisite is met.</li>
-		<li><code>.CLEAR</code> will work within this tag.</li>
 		<li>The wildcard character (%) can be used within this tag.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1375,10 +1378,6 @@
 	<p class="indent3">Character must be either &quot;Celestial&quot; or &quot;Fiendish&quot;.</p>
 	<p class="indent2"><code>PRETEMPLATE:1,Feral%</code></p>
 	<p class="indent3">Character must be any subrace of Feral.</p>
-	<p class="indent2"><code>PRETEMPLATE:Feral%.CLEAR</code></p>
-	<p class="indent3">Removes the character requirement to be any subrace of &quot;Feral&quot;.</p>
-	<p class="indent2"><code>CLASS:Eldritch Knight.MOD &lt;tab&gt; PRETEMPLATE:.CLEAR &lt;tab&gt; PRETEMPLATE:1,Celestial%,Fiendish%</code></p>
-	<p class="indent3">Removes the character requirement to be either &quot;Celestial&quot; or &quot;Fiendish&quot;, and allows any subrace of either.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
 	<p class="indent2"><code>PRETEMPLATE:y,y</code> (<span class="new">Deprecated 5.13.12</span>)</p>
 	<p></p>
