@@ -956,8 +956,13 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 			int levels = race.getMonsterClassLevels(aPC, false);
 			Logging.debugPrint("Monster Class: "
 				+ monsterClass.getDisplayName() + " Level: " + levels);
-			int currentLevels =
-					aPC.getClassKeyed(monsterClass.getKeyName()).getLevel();
+			PCClass pcClass = aPC.getClassKeyed(monsterClass.getKeyName());
+
+			int currentLevels = 0;
+			if (pcClass != null)
+			{
+				currentLevels = pcClass.getLevel();
+			}
 			if (currentLevels < levels)
 			{
 				aPC.incrementClassLevel(levels - currentLevels, monsterClass);
