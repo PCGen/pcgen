@@ -347,6 +347,11 @@ public final class ExportHandler
 			}
 			strlenIndex = vString.indexOf("STRLEN[", strlenIndex + 1);
 		}
+		if (varString.startsWith("${") && varString.endsWith("}"))
+		{
+			String jepString = varString.substring(2, varString.length()-1);
+			return aPC.getVariableValue(jepString.replace(';',','), "").intValue();
+		}
 
 		return aPC.getVariableValue(vString, "").intValue();
 	}
@@ -1585,6 +1590,12 @@ public final class ExportHandler
 				canWrite = true;
 
 				return 0;
+			}
+			if (aString.startsWith("${") && aString.endsWith("}"))
+			{
+				String jepString = aString.substring(2, aString.length()-1);
+				FileAccess.write(output, aPC.getVariableValue(jepString, "").toString());
+				return aString.trim().length();
 			}
 
 			FileAccess.maxLength(-1);

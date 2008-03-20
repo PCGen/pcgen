@@ -32,6 +32,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.LevelInfo;
 import pcgen.core.PCClass;
@@ -41,6 +42,7 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.character.EquipSet;
+import pcgen.util.Logging;
 
 /**
  * <code>SkillTokenTest</code> contains tests to verify that the
@@ -274,12 +276,72 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	public void testFor() throws IOException
 	{
 		PlayerCharacter pc = getCharacter();
+		Ability dummyFeat1 = new Ability();
+		dummyFeat1.setName("1");
+		dummyFeat1.setCategory("FEAT");	
+		
+		Ability dummyFeat2 = new Ability();
+		dummyFeat2.setName("2");
+		dummyFeat2.setCategory("FEAT");	
+		
+		Ability dummyFeat3 = new Ability();
+		dummyFeat3.setName("3");
+		dummyFeat3.setCategory("FEAT");	
+		
+		Ability dummyFeat4 = new Ability();
+		dummyFeat4.setName("4");
+		dummyFeat4.setCategory("FEAT");
+		
+		Ability dummyFeat5 = new Ability();
+		dummyFeat5.setName("5");
+		dummyFeat5.setCategory("FEAT");
+		
+		Ability dummyFeat6 = new Ability();
+		dummyFeat6.setName("6");
+		dummyFeat6.setCategory("FEAT");	
+		
+		Ability dummyFeat7 = new Ability();
+		dummyFeat7.setName("7");
+		dummyFeat7.setCategory("FEAT");		
+		
+		pc.addFeat(dummyFeat1, null);
+		pc.addFeat(dummyFeat2, null);
+		pc.addFeat(dummyFeat3, null);
+		pc.addFeat(dummyFeat4, null);
+		pc.addFeat(dummyFeat5, null);
+		pc.addFeat(dummyFeat6, null);
+		pc.addFeat(dummyFeat7, null);
+		
 		assertEquals("Test for evaluates correctly", "----------------",
 			evaluateToken(
 				"FOR.1,((24-STRLEN[SKILL.0])).INTVAL,24,-,NONE,NONE,1", pc));
 		assertEquals("Test for evaluates correctly", "                ",
 			evaluateToken(
 				"FOR.1,((24-STRLEN[SKILL.0])).INTVAL,24, ,NONE,NONE,1", pc));
+		
+		String tok = "DFOR." +
+		"0" +
+		",${((count(\"ABILITIES\";\"CATEGORY=FEAT\")+1)/2)}" +
+		",1" +
+		",${(count(\"ABILITIES\";\"CATEGORY=FEAT\")+1)}" +
+		",${((count(\"ABILITIES\";\"CATEGORY=FEAT\")+1)/2)}" +
+		", \\FEAT.%.NAME\\ " +
+		",[" +
+		",]" +
+		",0";
+		
+		
+		//Logging.errorPrint( "DFOR Test: " + evaluateToken(tok, pc));
+		
+		
+		// Test DFOR with alternate syntax for jep passthrough.  ie, anything 
+		// surrounded by ${x} will tbe sent straight to be processed.  We
+		// will assume that x is a well formed type of value.  This was to get around 
+		// the problems with DFOR not taking ((count("ABILITIES";"CATEGORY=FEAT")+1)
+		// since it could not figure out how to parse it to send to the right place.
+		assertEquals("Test for DFOR ","[ 1  5 ][ 2  6 ][ 3  7 ][ 4   ]", 
+				evaluateToken(tok, pc)	);
+					
 	}
 	
 	public void testForNoMoreItems() throws IOException
@@ -346,6 +408,19 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")";
 		assertFalse("Token: |" + tok + "| != 1.0 ",  evaluateToken(tok, pc).equals("1.0"));
+		
+		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
+		assertFalse("Token: |" + tok + "| == 5.0 ",  evaluateToken(tok, pc).equals("5.0"));
+		
+		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
+		assertTrue("Token: |" + tok + "| != 6.0 ",  evaluateToken(tok, pc).equals("6.0"));
+		
+		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
+		assertFalse("Token: |" + tok + "| == 3.0 ",  evaluateToken(tok, pc).equals("3.0"));
+		
+		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
+		assertTrue("Token: |" + tok + "| != 2.0 ",  evaluateToken(tok, pc).equals("2.0"));
+		
 		
 	}
 
