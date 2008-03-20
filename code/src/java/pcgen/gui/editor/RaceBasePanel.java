@@ -22,17 +22,6 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.core.*;
-import pcgen.core.bonus.Bonus;
-import pcgen.core.bonus.BonusObj;
-import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -41,6 +30,22 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import pcgen.core.Constants;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.Race;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
+
 /**
  * <code>RaceBasePanel</code>
  *
@@ -48,24 +53,21 @@ import java.util.StringTokenizer;
  */
 public class RaceBasePanel extends BasePanel
 {
-	private static final String[] sizeTitles = new String[]
-		{
-			"Fine", "Diminutive", "Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan", "Colossal"
-		};
-	private static final String[] sizeAbbrev = new String[]{ "F", "D", "T", "S", "M", "L", "H", "G", "C" };
-	private static final String[] hitDiceSizeValues = new String[]
-		{
-			"1", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20"
-		};
+	private static final String[] sizeTitles =
+			new String[]{"Fine", "Diminutive", "Tiny", "Small", "Medium",
+				"Large", "Huge", "Gargantuan", "Colossal"};
+	private static final String[] sizeAbbrev =
+			new String[]{"F", "D", "T", "S", "M", "L", "H", "G", "C"};
+	private static final String[] hitDiceSizeValues =
+			new String[]{"1", "2", "4", "6", "8", "10", "12", "14", "16", "18",
+				"20"};
 	private static final String[] crValues =
-	{
-		"1/10", "1/8", "1/6", "1/4", "1/3", "1/2", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
-		"13", "14", "15", "16", "17", "18", "19", "20"
-	};
+			{"1/10", "1/8", "1/6", "1/4", "1/3", "1/2", "0", "1", "2", "3",
+				"4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14",
+				"15", "16", "17", "18", "19", "20"};
 	private JComboBoxEx cmbBonusFeats;
 	private JComboBoxEx cmbBonusSkillPoints;
 
-	//private JTextField txtCR;
 	private JComboBoxEx cmbCR;
 	private JComboBoxEx cmbHands;
 	private JComboBoxEx cmbHitDiceNumber;
@@ -81,7 +83,7 @@ public class RaceBasePanel extends BasePanel
 	private JTextField txtHitDiceAdvancement;
 	private JTextField txtLevelAdj;
 
-//	private AvailableSelectedPanel pnlTemplateTypes;
+	//	private AvailableSelectedPanel pnlTemplateTypes;
 	private TypePanel pnlTemplateTypes;
 
 	/** Creates new form TemplateBasePanel */
@@ -106,7 +108,8 @@ public class RaceBasePanel extends BasePanel
 
 	public void setBonusSkillPoints(final int bonusSkillPoints)
 	{
-		if ((bonusSkillPoints >= 0) && (bonusSkillPoints < cmbBonusSkillPoints.getItemCount()))
+		if ((bonusSkillPoints >= 0)
+			&& (bonusSkillPoints < cmbBonusSkillPoints.getItemCount()))
 		{
 			cmbBonusSkillPoints.setSelectedIndex(bonusSkillPoints);
 		}
@@ -117,24 +120,12 @@ public class RaceBasePanel extends BasePanel
 		return cmbBonusSkillPoints.getSelectedIndex();
 	}
 
-	public void setCR(final int argCR)
+	public void setCR(final float argCR)
 	{
-		//txtCR.setText(String.valueOf(argCR));
-		String txtCR;
-
-		if (argCR < 0)
-		{
-			txtCR = "1/" + Integer.toString(-argCR);
-		}
-		else
-		{
-			txtCR = Integer.toString(argCR);
-		}
-
-		cmbCR.setSelectedItem(txtCR);
+		cmbCR.setSelectedItem(Float.toString(argCR));
 	}
 
-	public int getCR()
+	public float getCR()
 	{
 		String txtCR = null;
 
@@ -149,14 +140,16 @@ public class RaceBasePanel extends BasePanel
 
 			if (txtCR.startsWith("1/"))
 			{
-				return Integer.parseInt(txtCR.substring(2));
+				float fraction = Float.parseFloat(txtCR.substring(2));
+				return 1 / fraction;
 			}
-
-			return Integer.parseInt(txtCR);
+			// Default else
+			return Float.parseFloat(txtCR);
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.errorPrint("Couldn't figure out what CR " + txtCR + " means.");
+			Logging.errorPrint("Couldn't figure out what CR " + txtCR
+				+ " means, returning CR of 0.");
 		}
 
 		return 0;
@@ -187,7 +180,8 @@ public class RaceBasePanel extends BasePanel
 
 	public void setHitDiceAdvancement(final Race thisRace)
 	{
-		if ((thisRace == null) || (thisRace.getNumberOfHitDiceAdvancements() == 0))
+		if ((thisRace == null)
+			|| (thisRace.getNumberOfHitDiceAdvancements() == 0))
 		{
 			txtHitDiceAdvancement.setText("");
 		}
@@ -195,20 +189,23 @@ public class RaceBasePanel extends BasePanel
 		{
 			StringBuffer adv = new StringBuffer();
 
-			for (int index = 0; index < thisRace.getNumberOfHitDiceAdvancements(); index++)
+			for (int index = 0; index < thisRace
+				.getNumberOfHitDiceAdvancements(); index++)
 			{
 				if (index > 0)
 				{
 					adv.append(',');
 				}
 
-				if ((thisRace.getHitDiceAdvancement(index) == -1) && thisRace.isAdvancementUnlimited())
+				if ((thisRace.getHitDiceAdvancement(index) == -1)
+					&& thisRace.isAdvancementUnlimited())
 				{
 					adv.append('*');
 				}
 				else
 				{
-					adv.append(String.valueOf(thisRace.getHitDiceAdvancement(index)));
+					adv.append(String.valueOf(thisRace
+						.getHitDiceAdvancement(index)));
 				}
 			}
 
@@ -218,11 +215,13 @@ public class RaceBasePanel extends BasePanel
 
 	public int[] getHitDiceAdvancement()
 	{
-		if ((txtHitDiceAdvancement.getText() == null) || (txtHitDiceAdvancement.getText().trim().length() == 0))
+		if ((txtHitDiceAdvancement.getText() == null)
+			|| (txtHitDiceAdvancement.getText().trim().length() == 0))
 		{
-			return new int[]{  };
+			return new int[]{};
 		}
-		final StringTokenizer advancement = new StringTokenizer(txtHitDiceAdvancement.getText(), ",");
+		final StringTokenizer advancement =
+				new StringTokenizer(txtHitDiceAdvancement.getText(), ",");
 		String temp;
 		int[] hitDiceAdvancement = new int[advancement.countTokens()];
 		for (int x = 0; x < hitDiceAdvancement.length; ++x)
@@ -243,9 +242,11 @@ public class RaceBasePanel extends BasePanel
 
 	public boolean getHitDiceAdvancementUnlimited()
 	{
-		if ((txtHitDiceAdvancement.getText() != null) && (txtHitDiceAdvancement.getText().trim().length() > 0))
+		if ((txtHitDiceAdvancement.getText() != null)
+			&& (txtHitDiceAdvancement.getText().trim().length() > 0))
 		{
-			final StringTokenizer advancement = new StringTokenizer(txtHitDiceAdvancement.getText(), ",");
+			final StringTokenizer advancement =
+					new StringTokenizer(txtHitDiceAdvancement.getText(), ",");
 			String temp;
 
 			int[] hitDiceAdvancement = new int[advancement.countTokens()];
@@ -397,12 +398,14 @@ public class RaceBasePanel extends BasePanel
 		return cmbSkillMult.getSelectedIndex();
 	}
 
-	public void setTypesAvailableList(final List<String> aList, final boolean sort)
+	public void setTypesAvailableList(final List<String> aList,
+		final boolean sort)
 	{
 		pnlTemplateTypes.setAvailableList(aList, sort);
 	}
 
-	public void setTypesSelectedList(final List<String> aList, final boolean sort)
+	public void setTypesSelectedList(final List<String> aList,
+		final boolean sort)
 	{
 		pnlTemplateTypes.setSelectedList(aList, sort);
 	}
@@ -412,15 +415,16 @@ public class RaceBasePanel extends BasePanel
 		return pnlTemplateTypes.getSelectedList();
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		Race thisRace = (Race) thisPObject;
 
 		StringBuffer sb = new StringBuffer();
-        	sb.append("FEAT|POOL|").append(getBonusFeats());
-        	final BonusObj bon = Bonus.newBonus(sb.toString());
-        	thisRace.setBonusInitialFeats(bon);
-        
+		sb.append("FEAT|POOL|").append(getBonusFeats());
+		final BonusObj bon = Bonus.newBonus(sb.toString());
+		thisRace.setBonusInitialFeats(bon);
+
 		thisRace.setBonusSkillsPerLevel(getBonusSkillPoints());
 		thisRace.setCR(getCR());
 		thisRace.setDisplayName(getDisplayName());
@@ -456,6 +460,7 @@ public class RaceBasePanel extends BasePanel
 		}
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		Iterator e;
@@ -468,7 +473,7 @@ public class RaceBasePanel extends BasePanel
 		List<String> availableList = new ArrayList<String>();
 		List<String> selectedList = new ArrayList<String>();
 
-		for ( final Race race : Globals.getAllRaces() )
+		for (final Race race : Globals.getAllRaces())
 		{
 			for (String type : race.getTypeList(false))
 			{
@@ -597,7 +602,6 @@ public class RaceBasePanel extends BasePanel
 		cmbBonusSkillPoints = new JComboBoxEx();
 		cmbBonusFeats = new JComboBoxEx();
 
-		//txtCR = new JTextField();
 		cmbCR = new JComboBoxEx();
 		txtDisplayName = new JTextField();
 		cmbHands = new JComboBoxEx();
@@ -615,7 +619,8 @@ public class RaceBasePanel extends BasePanel
 		pnlTemplateMisc = new JPanel();
 
 		//pnlTemplateTypes = new AvailableSelectedPanel();
-		pnlTemplateTypes = new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
+		pnlTemplateTypes =
+				new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
 
 		setLayout(new GridBagLayout());
 
@@ -686,7 +691,6 @@ public class RaceBasePanel extends BasePanel
 		gridBagConstraints = buildConstraints(1, 4);
 		gridBagConstraints.weightx = 0.4;
 
-		//pnlTemplateMisc.add(txtCR, gridBagConstraints);
 		pnlTemplateMisc.add(cmbCR, gridBagConstraints);
 
 		tempLabel = new JLabel("Level Adjustment");

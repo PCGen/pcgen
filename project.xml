@@ -63,6 +63,7 @@
       <organization>PCGen</organization>
       <roles>
         <role>Chair Monkey</role>
+        <role>Code Lemur</role>
       </roles>
       <timezone>0</timezone>
     </developer>
@@ -202,11 +203,17 @@
     </developer>
   </developers>
   <dependencies>
-    <!-- Compiling --> 
+    <!-- Compiling -->
     <dependency>
       <groupId>cobra</groupId>
       <artifactId>cobra</artifactId>
       <version>0.97.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
+      <url>http://commons.apache.org/lang/</url>
     </dependency>
     <dependency>
       <groupId>rhino</groupId>

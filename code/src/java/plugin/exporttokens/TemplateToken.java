@@ -112,12 +112,19 @@ public class TemplateToken extends Token
 			}
 			else if ("CR".equals(aLabel))
 			{
-				retString = Integer.toString(getCRToken(template, pc));
+				// If the CR ends in .0, remove that for display purposes
+				retString = Float.toString(getCRToken(template, pc));
+				String decimalPlaceValue =
+						retString.substring(retString.length() - 2);
+				if (decimalPlaceValue.equals(".0"))
+				{
+					retString = retString.substring(0, retString.length() - 2);
+				}
+				return retString;
 			}
 			else if ("DR".equals(aLabel))
 			{
 				retString = pc.calcDR();
-				//				retString = getDRToken(template, pc);
 			}
 			else
 			{
@@ -134,21 +141,11 @@ public class TemplateToken extends Token
 	 * @param pc
 	 * @return value of CR Sub Token
 	 */
-	public static int getCRToken(PCTemplate template, PlayerCharacter pc)
+	public static float getCRToken(PCTemplate template, PlayerCharacter pc)
 	{
 		return template.getCR(pc.getTotalLevels(), pc.totalHitDice());
 	}
 
-	/**
-	 * Get value of DR sub token
-	 * @param template
-	 * @param pc
-	 * @return value of DR sub token
-	 */
-	//	public static String getDRToken(PCTemplate template, PlayerCharacter pc)
-	//	{
-	//		return template.getDR(pc.getTotalLevels(), pc.totalHitDice());
-	//	}
 	/**
 	 * Get value of FEAT sub token
 	 * @param template

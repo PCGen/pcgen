@@ -25,6 +25,8 @@
  */
 package plugin.exporttokens;
 
+import org.apache.commons.lang.math.Fraction;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -40,6 +42,7 @@ public class CRToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -48,6 +51,7 @@ public class CRToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
@@ -56,20 +60,46 @@ public class CRToken extends Token
 
 	/**
 	 * Get CR Token
-	 * @param pc
+	 * 
+	 * TODO Much of this code is repeated in CRToken, Race, XMLCombatant and PlayerCharacterOutput
+	 * 
+	 * @param pc The PC we are get the CR for
 	 * @return CR Token
 	 */
 	public static String getCRToken(PlayerCharacter pc)
 	{
 		String retString = "";
-		int cr = pc.calcCR();
+		float cr = pc.calcCR();
 
-		if (cr < 0)
+		String crAsString = Float.toString(cr);
+		String decimalPlaceValue =
+				crAsString.substring(crAsString.length() - 2);
+
+		// If the CR is a fractional CR then we convert to a 1/x format
+		if (cr > 0 && cr < 1)
 		{
-			retString = "1/";
-			cr = -cr;
+			Fraction fraction = Fraction.getFraction(cr);// new Fraction(CR);
+			int denominator = fraction.getDenominator();
+			int numerator = fraction.getNumerator();
+			retString = numerator + "/" + denominator;
 		}
+		else if (cr >= 1 || cr == 0)
+		{
+			int newCr = -99;
+			if (decimalPlaceValue.equals(".0"))
+			{
+				newCr = (int) cr;
+			}
 
-		return retString + cr;
+			if (newCr > -99)
+			{
+				retString = retString + newCr;
+			}
+			else
+			{
+				retString = retString + cr;
+			}
+		}
+		return retString;
 	}
 }

@@ -70,7 +70,8 @@ public final class PCTemplate extends PObject implements HasCost
 	 * granted at with a prefix of L (level-based) or H (hitdice-based) keyed on
 	 * AbilityCategory.
 	 */
-	private Map<AbilityCategory, Map<String, String>> theChosenAbilityKeys = null;
+	private Map<AbilityCategory, Map<String, String>> theChosenAbilityKeys =
+			null;
 
 	private List<String> templatesAdded = null;
 	private String cost = "1";
@@ -89,7 +90,7 @@ public final class PCTemplate extends PObject implements HasCost
 	private String subregion = Constants.s_NONE;
 	private String templateSize = "";
 	private boolean removable = true;
-	private int ChallengeRating = 0;
+	private float challengeRating = 0;
 	private int bonusInitialFeats = 0;
 	private int bonusSkillsPerLevel = 0;
 	private String hitDieLock = "";
@@ -178,9 +179,9 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @param argCR
 	 *            The adjustment to challenge rating
 	 */
-	public void setCR(final int argCR)
+	public void setCR(final float argCR)
 	{
-		ChallengeRating = argCR;
+		challengeRating = argCR;
 	}
 
 	/**
@@ -195,9 +196,9 @@ public final class PCTemplate extends PObject implements HasCost
 	 * 
 	 * @return a Challenge Rating adjustment
 	 */
-	public int getCR(final int level, final int hitdice)
+	public float getCR(final int level, final int hitdice)
 	{
-		int localCR = ChallengeRating;
+		float localCR = challengeRating;
 
 		if (theLevelAbilities != null)
 		{
@@ -206,7 +207,7 @@ public final class PCTemplate extends PObject implements HasCost
 				final String crValue = theLevelAbilities.get(lvl, "CR");
 				if (crValue != null)
 				{
-					localCR += Integer.parseInt(crValue);
+					localCR += Float.parseFloat(crValue);
 				}
 			}
 		}
@@ -216,8 +217,9 @@ public final class PCTemplate extends PObject implements HasCost
 			if (contains(hitDiceStrings.get(x), "CR:")
 				&& doesHitDiceQualify(hitdice, x))
 			{
-				localCR += Integer.parseInt(getStringAfter("CR:",
-					hitDiceStrings.get(x)));
+				localCR +=
+						Float.parseFloat(getStringAfter("CR:", hitDiceStrings
+							.get(x)));
 			}
 		}
 
@@ -322,7 +324,7 @@ public final class PCTemplate extends PObject implements HasCost
 		else
 		{
 			Logging.errorPrint("Unsure what to do with GENDERLOCK: "
-					+ genderString + " should be FEMALE, MALE, or NEUTER");
+				+ genderString + " should be FEMALE, MALE, or NEUTER");
 		}
 	}
 
@@ -466,8 +468,8 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public boolean isNonAbility(final int statIdx)
 	{
-		final List<PCStat> statList = SettingsHandler.getGame()
-			.getUnmodifiableStatList();
+		final List<PCStat> statList =
+				SettingsHandler.getGame().getUnmodifiableStatList();
 
 		if ((statIdx < 0) || (statIdx >= statList.size()))
 		{
@@ -479,7 +481,7 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			return false;
 		}
-		
+
 		String aStat = "|LOCK." + statList.get(statIdx).getAbb() + "|10";
 		for (int i = 0, x = getVariableCount(); i < x; ++i)
 		{
@@ -505,8 +507,8 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public boolean isUnlocked(final int statIdx)
 	{
-		final List<PCStat> statList = SettingsHandler.getGame()
-			.getUnmodifiableStatList();
+		final List<PCStat> statList =
+				SettingsHandler.getGame().getUnmodifiableStatList();
 
 		if ((statIdx < 0) || (statIdx >= statList.size()))
 		{
@@ -557,6 +559,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * 
 	 * @return PCC Text
 	 */
+	@Override
 	public String getPCCText()
 	{
 		final StringBuffer txt = new StringBuffer(200);
@@ -583,9 +586,9 @@ public final class PCTemplate extends PObject implements HasCost
 			txt.append("\tCOST:").append(String.valueOf(getCost()));
 		}
 
-		if (ChallengeRating != 0)
+		if (challengeRating != 0)
 		{
-			txt.append("\tCR:").append(ChallengeRating);
+			txt.append("\tCR:").append(challengeRating);
 		}
 
 		if ((favoredClass != null) && (favoredClass.length() > 0))
@@ -977,8 +980,9 @@ public final class PCTemplate extends PObject implements HasCost
 			if (contains(hitDiceStrings.get(x), "SR:")
 				&& doesHitDiceQualify(hitdice, x))
 			{
-				aSR = Math.max(Integer.parseInt(getStringAfter("SR:",
-					hitDiceStrings.get(x))), aSR);
+				aSR =
+						Math.max(Integer.parseInt(getStringAfter("SR:",
+							hitDiceStrings.get(x))), aSR);
 			}
 		}
 
@@ -1041,6 +1045,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * 
 	 * @return ArrayList of granted templates
 	 */
+	@Override
 	public List<String> getTemplateList()
 	{
 		return templates;
@@ -1276,6 +1281,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @param templateList
 	 *            the templates/template choices to add
 	 */
+	@Override
 	public void addTemplate(final String templateList)
 	{
 		if (templateList.startsWith("CHOOSE:"))
@@ -1359,8 +1365,8 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (theLevelAbilities != null)
 		{
-			aTemp.theLevelAbilities = new DoubleKeyMap<Integer, String, String>(
-				theLevelAbilities);
+			aTemp.theLevelAbilities =
+					new DoubleKeyMap<Integer, String, String>(theLevelAbilities);
 		}
 
 		if (getListSize(hitDiceStrings) != 0)
@@ -1375,14 +1381,15 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (chosenFeatStrings != null)
 		{
-			aTemp.chosenFeatStrings = new HashMap<String, String>(
-				chosenFeatStrings);
+			aTemp.chosenFeatStrings =
+					new HashMap<String, String>(chosenFeatStrings);
 		}
 
 		if (theChosenAbilityKeys != null)
 		{
-			aTemp.theChosenAbilityKeys = new HashMap<AbilityCategory, Map<String, String>>(
-				theChosenAbilityKeys);
+			aTemp.theChosenAbilityKeys =
+					new HashMap<AbilityCategory, Map<String, String>>(
+						theChosenAbilityKeys);
 		}
 		return aTemp;
 	}
@@ -1433,9 +1440,9 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (aPC == null)
 		{
-			if (ChallengeRating != 0)
+			if (challengeRating != 0)
 			{
-				mods.append("CR:").append(ChallengeRating).append(' ');
+				mods.append("CR:").append(challengeRating).append(' ');
 			}
 
 			final int x = getSR(aPC);
@@ -1493,6 +1500,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * 
 	 * @return a list of templates
 	 */
+	@Override
 	List<String> getTemplates(final boolean isImporting,
 		final PlayerCharacter aPC)
 	{
@@ -1507,8 +1515,9 @@ public final class PCTemplate extends PObject implements HasCost
 
 				if (templateKey.startsWith("CHOOSE:"))
 				{
-					templateKey = chooseTemplate(this,
-						templateKey.substring(7), true, aPC);
+					templateKey =
+							chooseTemplate(this, templateKey.substring(7),
+								true, aPC);
 				}
 
 				if (templateKey.length() != 0)
@@ -1561,8 +1570,8 @@ public final class PCTemplate extends PObject implements HasCost
 			if (contains(hitDiceStrings.get(x), "SA:")
 				&& doesHitDiceQualify(hitdice, x))
 			{
-				final String saString = getStringAfter("SA:", hitDiceStrings
-					.get(x));
+				final String saString =
+						getStringAfter("SA:", hitDiceStrings.get(x));
 				final SpecialAbility sa = new SpecialAbility(saString);
 
 				aList.add(sa);
@@ -1664,6 +1673,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * 
 	 * @return a list of Templates
 	 */
+	@Override
 	public List<String> templatesAdded()
 	{
 		List<String> returnList;
@@ -1762,8 +1772,8 @@ public final class PCTemplate extends PObject implements HasCost
 			return false;
 		}
 
-		StringTokenizer tokens = new StringTokenizer(hitDiceStrings.get(index),
-			":");
+		StringTokenizer tokens =
+				new StringTokenizer(hitDiceStrings.get(index), ":");
 		final String hitDiceString = tokens.nextToken();
 
 		if (hitDiceString.endsWith("+"))
@@ -1798,8 +1808,9 @@ public final class PCTemplate extends PObject implements HasCost
 		while (true)
 		{
 			List<String> featList = new ArrayList<String>();
-			final LevelAbility la = LevelAbility.createAbility(this, lvl,
-				"FEAT(" + featString + ")");
+			final LevelAbility la =
+					LevelAbility.createAbility(this, lvl, "FEAT(" + featString
+						+ ")");
 
 			la.process(featList, aPC, null);
 
@@ -1816,8 +1827,8 @@ public final class PCTemplate extends PObject implements HasCost
 					{
 						Collections.sort(featList);
 
-						final ChooserInterface c = ChooserFactory
-							.getChooserInstance();
+						final ChooserInterface c =
+								ChooserFactory.getChooserInstance();
 						c.setTotalChoicesAvail(1);
 						c.setTitle("Feat Choice");
 						c.setAvailableList(featList);
@@ -1871,7 +1882,8 @@ public final class PCTemplate extends PObject implements HasCost
 		}
 		if (theChosenAbilityKeys == null)
 		{
-			theChosenAbilityKeys = new HashMap<AbilityCategory, Map<String, String>>();
+			theChosenAbilityKeys =
+					new HashMap<AbilityCategory, Map<String, String>>();
 		}
 		Map<String, String> choices = theChosenAbilityKeys.get(aCategory);
 		if (choices == null)
@@ -1903,7 +1915,8 @@ public final class PCTemplate extends PObject implements HasCost
 			featStrings = new ArrayList<String>();
 		}
 
-		final StringTokenizer aTok = new StringTokenizer(abilityString, "|", false);
+		final StringTokenizer aTok =
+				new StringTokenizer(abilityString, "|", false);
 
 		while (aTok.hasMoreTokens())
 		{
@@ -1985,8 +1998,8 @@ public final class PCTemplate extends PObject implements HasCost
 				// We haven't selected one yet. Ask for one if we are allowed.
 				if (featKey == null && addNew == true)
 				{
-					final String featString = theLevelAbilities
-						.get(lvl, "FEAT");
+					final String featString =
+							theLevelAbilities.get(lvl, "FEAT");
 					if (featString != null)
 					{
 						getLevelFeat(featString, lvl, lvlKey, aPC);

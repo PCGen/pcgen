@@ -28,16 +28,28 @@ package gmgen.plugin;
 import gmgen.pluginmgr.GMBComponent;
 import gmgen.pluginmgr.GMBus;
 import gmgen.pluginmgr.messages.OpenPCGRequestMessage;
-import org.jdom.Element;
-import pcgen.core.*;
-import pcgen.core.character.CharacterSpell;
-import pcgen.core.spell.Spell;
-import pcgen.util.Logging;
-import pcgen.util.enumeration.Visibility;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.jdom.Element;
+
+import pcgen.core.CharacterDomain;
+import pcgen.core.Constants;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.StatList;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.Visibility;
 
 /**
  *@author     devon
@@ -62,8 +74,9 @@ public class PcgCombatant extends Combatant
 		this.init = new PcgSystemInitiative(pc);
 
 		StatList sl = pc.getStatList();
-		this.hitPoints = new SystemHP(new SystemAttribute("Constitution", sl.getTotalStatFor("CON")), pc.hitPoints(),
-				pc.hitPoints());
+		this.hitPoints =
+				new SystemHP(new SystemAttribute("Constitution", sl
+					.getTotalStatFor("CON")), pc.hitPoints(), pc.hitPoints());
 		setCombatantType("PC");
 	}
 
@@ -83,35 +96,46 @@ public class PcgCombatant extends Combatant
 	{
 		try
 		{
-			File pcgFile = new File(combatant.getChild("PCG").getAttribute("file").getValue());
-			OpenPCGRequestMessage msg = new OpenPCGRequestMessage(comp, pcgFile, true);
+			File pcgFile =
+					new File(combatant.getChild("PCG").getAttribute("file")
+						.getValue());
+			OpenPCGRequestMessage msg =
+					new OpenPCGRequestMessage(comp, pcgFile, true);
 			GMBus.send(msg);
 			this.pc = msg.getPlayerCharacter();
 			Globals.setCurrentPC(pc);
 			this.init = new PcgSystemInitiative(pc);
 
 			StatList sl = pc.getStatList();
-			this.hitPoints = new SystemHP(new SystemAttribute("Constitution", sl.getTotalStatFor("CON")),
-					pc.hitPoints(), pc.hitPoints());
+			this.hitPoints =
+					new SystemHP(new SystemAttribute("Constitution", sl
+						.getTotalStatFor("CON")), pc.hitPoints(), pc
+						.hitPoints());
 
 			setStatus(combatant.getAttribute("status").getValue());
 			setCombatantType(combatant.getAttribute("type").getValue());
 
-			init.setBonus(combatant.getChild("Initiative").getAttribute("bonus").getIntValue());
+			init.setBonus(combatant.getChild("Initiative")
+				.getAttribute("bonus").getIntValue());
 
 			try
 			{
-				init.setCurrentInitiative(combatant.getChild("Initiative").getAttribute("current").getIntValue());
+				init.setCurrentInitiative(combatant.getChild("Initiative")
+					.getAttribute("current").getIntValue());
 			}
 			catch (Exception e)
 			{
 				//Not necessarily set
 			}
 
-			hitPoints.setMax(combatant.getChild("HitPoints").getAttribute("max").getIntValue());
-			hitPoints.setCurrent(combatant.getChild("HitPoints").getAttribute("current").getIntValue());
-			hitPoints.setSubdual(combatant.getChild("HitPoints").getAttribute("subdual").getIntValue());
-			hitPoints.setState(combatant.getChild("HitPoints").getAttribute("state").getValue());
+			hitPoints.setMax(combatant.getChild("HitPoints")
+				.getAttribute("max").getIntValue());
+			hitPoints.setCurrent(combatant.getChild("HitPoints").getAttribute(
+				"current").getIntValue());
+			hitPoints.setSubdual(combatant.getChild("HitPoints").getAttribute(
+				"subdual").getIntValue());
+			hitPoints.setState(combatant.getChild("HitPoints").getAttribute(
+				"state").getValue());
 		}
 		catch (Exception e)
 		{
@@ -120,10 +144,17 @@ public class PcgCombatant extends Combatant
 	}
 
 	/**
-	 *  Adjusts the CR for this combatant
+	 * Adjusts the CR for this combatant
+	 * 
+	 * TODO  I'm not sure that it should be current - the newly calculated or an entire replacement
+	 * It appears it's called from 2 different places, one which adjusts the CR, the other ?
+	 * 
+	 * In the case of adjusting the CR the calculation is wrong anyhow, surely it should be calculated 
+	 * - the value passed in?
 	 *
-	 *@param  cr  new CR value
+	 * @param  cr  new CR value
 	 */
+	@Override
 	public void setCR(float cr)
 	{
 		Globals.setCurrentPC(pc);
@@ -131,10 +162,11 @@ public class PcgCombatant extends Combatant
 	}
 
 	/**
-	 *  Gets the CR for the character
+	 * Gets the CR for the character
 	 *
-	 *@return    CR
+	 * @return    CR
 	 */
+	@Override
 	public float getCR()
 	{
 		Globals.setCurrentPC(pc);
@@ -147,6 +179,7 @@ public class PcgCombatant extends Combatant
 	 *
 	 *@param  name  The new name
 	 */
+	@Override
 	public void setName(String name)
 	{
 		pc.setName(name);
@@ -208,7 +241,8 @@ public class PcgCombatant extends Combatant
 
 		if (init.getCurrentInitiative() > 0)
 		{
-			initiative.setAttribute("current", init.getCurrentInitiative() + "");
+			initiative
+				.setAttribute("current", init.getCurrentInitiative() + "");
 		}
 
 		retElement.addContent(initiative);
@@ -232,6 +266,7 @@ public class PcgCombatant extends Combatant
 	 *
 	 *@param  experience  Experience value
 	 */
+	@Override
 	public void setXP(int experience)
 	{
 		pc.setXP(experience);
@@ -243,6 +278,7 @@ public class PcgCombatant extends Combatant
 	 *
 	 *@return    Experience value
 	 */
+	@Override
 	public int getXP()
 	{
 		return pc.getXP();
@@ -319,15 +355,18 @@ public class PcgCombatant extends Combatant
 		}
 	}
 
+	@Override
 	public String toHtmlString()
 	{
-		if(renderer == null) {
+		if (renderer == null)
+		{
 			renderer = new PcRenderer();
 		}
 		return renderer.getHtmlText();
 	}
 
-	protected class PcRenderer {
+	protected class PcRenderer
+	{
 		protected String htmlString;
 		protected int serial = 0;
 
@@ -350,7 +389,8 @@ public class PcgCombatant extends Combatant
 		 */
 		public String getHtmlText()
 		{
-			if(serial < pc.getSerial() || htmlString == null) {
+			if (serial < pc.getSerial() || htmlString == null)
+			{
 				StringBuffer statBuf = new StringBuffer();
 
 				statBuf.append("<html>");
@@ -430,7 +470,8 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getHitPoints()); //|HP|
 			statBuf.append("; ");
 
-			statBuf.append("<font class='type'>Init</font> <font class='highlight'>");
+			statBuf
+				.append("<font class='type'>Init</font> <font class='highlight'>");
 			statBuf.append(pcOut.getInitTotal()); //|INITIATIVEMOD|
 			statBuf.append("</font> (");
 			statBuf.append(pcOut.getInitStatMod()); //|STAT.1.MOD|
@@ -442,7 +483,8 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getSpeed()); //|MOVEMENT|
 			statBuf.append("; ");
 
-			statBuf.append("<font class='type'>AC</font> <font class='highlight'>");
+			statBuf
+				.append("<font class='type'>AC</font> <font class='highlight'>");
 			statBuf.append(pcOut.getAC()); //|AC.Total|
 			statBuf.append("</font> (flatfooted <font class='highlight'>");
 			statBuf.append(pcOut.getACFlatFooted()); //|AC.Flatfooted|
@@ -450,13 +492,15 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getACTouch()); //|AC.Touch|
 			statBuf.append("</font>); ");
 
-			statBuf.append("<font class='type'>Melee:</font> <a href='attack:Melee\\");
+			statBuf
+				.append("<font class='type'>Melee:</font> <a href='attack:Melee\\");
 			statBuf.append(pcOut.getMeleeTotal()); //|ATTACK.MELEE.TOTAL|
 			statBuf.append("' class='highlight'>");
 			statBuf.append(pcOut.getMeleeTotal()); //|ATTACK.MELEE.TOTAL|
 			statBuf.append("</a>; ");
 
-			statBuf.append("<font class='type'>Ranged:</font> <a href='attack:Ranged\\");
+			statBuf
+				.append("<font class='type'>Ranged:</font> <a href='attack:Ranged\\");
 			statBuf.append(pcOut.getRangedTotal()); //|ATTACK.RANGED.TOTAL|
 			statBuf.append("' class='highlight'>");
 			statBuf.append(pcOut.getRangedTotal()); //|ATTACK.RANGED.TOTAL|
@@ -464,7 +508,8 @@ public class PcgCombatant extends Combatant
 
 			statBuf.append("<font class='type'>Weapons:</font>");
 
-			List<Equipment> weaponList = pc.getExpandedWeapons(Constants.MERGE_ALL);
+			List<Equipment> weaponList =
+					pc.getExpandedWeapons(Constants.MERGE_ALL);
 
 			for (int i = 0; i < weaponList.size(); i++)
 			{
@@ -560,28 +605,64 @@ public class PcgCombatant extends Combatant
 			statBuf.append("<font class='type'>SA:</font> ");
 			statBuf.append(pcOut.getSpecialAbilities()); //|SPECIALLIST|
 
-			int turnTimes = pc.getVariableValue("TurnTimesUndead", "").intValue();
+			int turnTimes =
+					pc.getVariableValue("TurnTimesUndead", "").intValue();
 			if (turnTimes > 0)
 			{
-				int turnDieNumber = pc.getVariableValue("TurnDiceUndead", "").intValue();
-				int turnDieSize = pc.getVariableValue("TurnDieSizeUndead", "").intValue();
-				int turnDamage = pc.getVariableValue("TurnDamagePlusUndead", "").intValue();
-				int turnLevel = pc.getVariableValue("TurnLevelUndead", "").intValue();
-				int turnCheck = pc.getVariableValue("TurnCheckUndead", "").intValue();
+				int turnDieNumber =
+						pc.getVariableValue("TurnDiceUndead", "").intValue();
+				int turnDieSize =
+						pc.getVariableValue("TurnDieSizeUndead", "").intValue();
+				int turnDamage =
+						pc.getVariableValue("TurnDamagePlusUndead", "")
+							.intValue();
+				int turnLevel =
+						pc.getVariableValue("TurnLevelUndead", "").intValue();
+				int turnCheck =
+						pc.getVariableValue("TurnCheckUndead", "").intValue();
 
-				statBuf.append("; <font class='type'>Turn/Rebuke Undead:</font> Turning level "
-						+ "<a href=" + '"' + "dice:Turn Undead (Max HD Affected)\\"
-						+ "max(min(max((ceil((1d20" + (turnCheck > 0 ? "+" : "") + turnCheck + ")/3)-4),-4),4)+" + turnLevel + ",0)"
-						+ '"' + " class=" + '"' + "dialog" + '"' + "> "
+				statBuf
+					.append("; <font class='type'>Turn/Rebuke Undead:</font> Turning level "
+						+ "<a href="
+						+ '"'
+						+ "dice:Turn Undead (Max HD Affected)\\"
+						+ "max(min(max((ceil((1d20"
+						+ (turnCheck > 0 ? "+" : "")
+						+ turnCheck
+						+ ")/3)-4),-4),4)+"
+						+ turnLevel
+						+ ",0)"
+						+ '"'
+						+ " class="
+						+ '"'
+						+ "dialog"
+						+ '"'
+						+ "> "
 						+ turnLevel
 						+ "</a>, Turn Damage: "
-						+ "<a href=" + '"' + "dice:Turn Damage (Total HD Affected)\\"
-						+ "max(" + turnDieNumber + "d" + turnDieSize + (turnDamage > 0 ? "+" : "") + turnDamage + ",0)"
-						+ '"' + " class=" + '"' + "dialog" + '"' + "> "
-						+ turnDieNumber + "d" + turnDieSize + (turnDamage > 0 ? "+" : "") + turnDamage
+						+ "<a href="
+						+ '"'
+						+ "dice:Turn Damage (Total HD Affected)\\"
+						+ "max("
+						+ turnDieNumber
+						+ "d"
+						+ turnDieSize
+						+ (turnDamage > 0 ? "+" : "")
+						+ turnDamage
+						+ ",0)"
+						+ '"'
+						+ " class="
+						+ '"'
+						+ "dialog"
+						+ '"'
+						+ "> "
+						+ turnDieNumber
+						+ "d"
+						+ turnDieSize
+						+ (turnDamage > 0 ? "+" : "")
+						+ turnDamage
 						+ "</a>, "
-						+ turnTimes
-						+ "/day");
+						+ turnTimes + "/day");
 			}
 			statBuf.append("; ");
 
@@ -593,7 +674,8 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getAlignmentShort()); //|ALIGNMENT.SHORT|
 			statBuf.append("; ");
 
-			statBuf.append("<font class='type'>Sv:</font> Fort <font class='highlight'>");
+			statBuf
+				.append("<font class='type'>Sv:</font> Fort <font class='highlight'>");
 			statBuf.append("<a href='save:FORTITUDE\\");
 			statBuf.append(pcOut.getSaveFort()); //|CHECK.FORTITUDE.TOTAL|
 			statBuf.append("' class='highlight'> ");
@@ -696,7 +778,8 @@ public class PcgCombatant extends Combatant
 			StringBuffer statBuf = new StringBuffer();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
-			statBuf.append("<p><font class='type'>Skills and Feats:</font>&nbsp;");
+			statBuf
+				.append("<p><font class='type'>Skills and Feats:</font>&nbsp;");
 
 			pc.getAllSkillList(true); //force refresh of skills
 
@@ -711,11 +794,12 @@ public class PcgCombatant extends Combatant
 				includeSkills = SettingsHandler.getSkillsTab_IncludeSkills();
 			}
 
-			ArrayList<Skill> skillList = pc.getSkillListInOutputOrder(pc
-				.getPartialSkillList(Visibility.OUTPUT_ONLY));
+			ArrayList<Skill> skillList =
+					pc.getSkillListInOutputOrder(pc
+						.getPartialSkillList(Visibility.OUTPUT_ONLY));
 			boolean firstLine = true;
 
-			for ( Skill skill : skillList )
+			for (Skill skill : skillList)
 			{
 				if (!firstLine)
 				{
@@ -728,16 +812,22 @@ public class PcgCombatant extends Combatant
 
 				if (skill.getKeyStat().compareToIgnoreCase(Constants.s_NONE) != 0)
 				{
-					modSkill = skill.modifier(pc).intValue() - pc.getStatList().getStatModFor(skill.getKeyStat());
+					modSkill =
+							skill.modifier(pc).intValue()
+								- pc.getStatList().getStatModFor(
+									skill.getKeyStat());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 
-				int temp = skill.modifier(pc).intValue() + skill.getTotalRank(pc).intValue();
+				int temp =
+						skill.modifier(pc).intValue()
+							+ skill.getTotalRank(pc).intValue();
 
 				statBuf.append("<a href='skill:");
 				statBuf.append(skill.getOutputName()); //|SKILL.%skill|
 				statBuf.append("\\1d20");
-				statBuf.append(((temp < 0) ? Integer.toString(temp) : "+" + temp)); //|SKILL.%skill.TOTAL|
+				statBuf.append(((temp < 0) ? Integer.toString(temp) : "+"
+					+ temp)); //|SKILL.%skill.TOTAL|
 				statBuf.append("' class='dialog'> ");
 
 				statBuf.append(skill.getOutputName()); //|SKILL.%skill|
@@ -770,7 +860,7 @@ public class PcgCombatant extends Combatant
 				//Domain List with powers
 				boolean firstLine = true;
 
-				for ( CharacterDomain cd : pc.getCharacterDomainList() )
+				for (CharacterDomain cd : pc.getCharacterDomainList())
 				{
 					if (!firstLine)
 					{
@@ -937,12 +1027,13 @@ public class PcgCombatant extends Combatant
 				 <!-- ### END MEMORIZED ### -->
 				 <!-- End Prepared Spells -->
 			 */
-			ArrayList<PObject> classList = new ArrayList<PObject>(pc.getClassList());
+			ArrayList<PObject> classList =
+					new ArrayList<PObject>(pc.getClassList());
 			classList.add(pc.getRace());
 
 			List<String> bookList = new ArrayList<String>(pc.getSpellBooks());
 			bookList.add(Globals.getDefaultSpellBook());
-			for ( String book : bookList )
+			for (String book : bookList)
 			{
 				statBlockLineSpellBook(pc, statBuf, classList, book);
 			}
@@ -950,33 +1041,40 @@ public class PcgCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuffer statBuf, ArrayList<PObject> classList, String spellBookName)
+		protected void statBlockLineSpellBook(PlayerCharacter aPC,
+			StringBuffer statBuf, ArrayList<PObject> classList,
+			String spellBookName)
 		{
 			boolean printedFirst = false;
-			for ( PObject pObj : classList )
+			for (PObject pObj : classList)
 			{
 				if (pObj != null)
 				{
 					int level = 0;
-					List<CharacterSpell> spellList = pObj.getSpellSupport().getCharacterSpell(null, spellBookName, level);
+					List<CharacterSpell> spellList =
+							pObj.getSpellSupport().getCharacterSpell(null,
+								spellBookName, level);
 
 					if (spellList.size() >= 1)
 					{
 						if (!printedFirst)
 						{
-							statBuf.append("<br><font class='type'>" + spellBookName + ":</font><br> ");
+							statBuf.append("<br><font class='type'>"
+								+ spellBookName + ":</font><br> ");
 						}
-						statBuf.append("<font class='type'>" + pObj.getDisplayName() + ":</font><br> ");
+						statBuf.append("<font class='type'>"
+							+ pObj.getDisplayName() + ":</font><br> ");
 						printedFirst = true;
 					}
 
 					while (spellList.size() >= 1)
 					{
-						statBuf.append("<font class='type'>Level " + level + ":</font> ");
+						statBuf.append("<font class='type'>Level " + level
+							+ ":</font> ");
 
 						boolean firstLine = true;
 
-						for ( CharacterSpell cs : spellList )
+						for (CharacterSpell cs : spellList)
 						{
 							if (!firstLine)
 							{
@@ -989,7 +1087,8 @@ public class PcgCombatant extends Combatant
 							statBuf.append("<a href=" + '"' + "spell:");
 							statBuf.append(spell.getDisplayName());
 							statBuf.append("\\");
-							statBuf.append(aPC.parseSpellString(spell, spell.getDescription(aPC), cs.getOwner()));
+							statBuf.append(aPC.parseSpellString(spell, spell
+								.getDescription(aPC), cs.getOwner()));
 							statBuf.append("\\");
 							statBuf.append(spell.getRange());
 							statBuf.append("\\");
@@ -997,10 +1096,13 @@ public class PcgCombatant extends Combatant
 							statBuf.append("\\");
 							statBuf.append(spell.getSaveInfo());
 							statBuf.append("\\");
-							statBuf.append(aPC.parseSpellString(spell, spell.getDuration(), cs.getOwner()));
+							statBuf.append(aPC.parseSpellString(spell, spell
+								.getDuration(), cs.getOwner()));
 							statBuf.append("\\");
-							statBuf.append(aPC.parseSpellString(spell, spell.getTarget(), cs.getOwner()));
-							statBuf.append('"' + " class=" + '"' + "dialog" + '"' + ">");
+							statBuf.append(aPC.parseSpellString(spell, spell
+								.getTarget(), cs.getOwner()));
+							statBuf.append('"' + " class=" + '"' + "dialog"
+								+ '"' + ">");
 
 							statBuf.append(spell.getDisplayName());
 							statBuf.append("</a>");
@@ -1008,7 +1110,9 @@ public class PcgCombatant extends Combatant
 
 						level++;
 						statBuf.append("<br>");
-						spellList = pObj.getSpellSupport().getCharacterSpell(null, spellBookName, level);
+						spellList =
+								pObj.getSpellSupport().getCharacterSpell(null,
+									spellBookName, level);
 					}
 				}
 			}
@@ -1028,7 +1132,8 @@ public class PcgCombatant extends Combatant
 
 			String region = pcOut.getRegion(); //|REGION|.|%|
 
-			if (!"".equals(region) && (region != null) && !"None".equals(region))
+			if (!"".equals(region) && (region != null)
+				&& !"None".equals(region))
 			{
 				statBuf.append(" From " + region + " ");
 			}

@@ -30,6 +30,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import org.apache.commons.lang.math.Fraction;
+
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
@@ -70,8 +72,8 @@ public final class Race extends PObject
 	//private String type = "Humanoid";
 	private int[] hitDiceAdvancement;
 	private boolean unlimitedAdvancement = false;
-//	private int BAB = 0;
-	private int CR = 0;
+	//private int BAB = 0;
+	private float CR = 0;
 	private int bonusSkillsPerLevel = 0;
 	private int hands = 2;
 	private int hitDice = 0;
@@ -107,15 +109,15 @@ public final class Race extends PObject
 		return unlimitedAdvancement;
 	}
 
-//	public void setAgeString(final String aString)
-//	{
-//		ageString = aString;
-//	}
+	//	public void setAgeString(final String aString)
+	//	{
+	//		ageString = aString;
+	//	}
 
-//	public void setBAB(final int newBAB)
-//	{
-//		BAB = newBAB;
-//	}
+	//	public void setBAB(final int newBAB)
+	//	{
+	//		BAB = newBAB;
+	//	}
 
 	public void setBonusInitialFeats(final BonusObj bon)
 	{
@@ -142,12 +144,12 @@ public final class Race extends PObject
 		return bonusSkillsPerLevel;
 	}
 
-	public void setCR(final int newCR)
+	public void setCR(final float newCR)
 	{
 		CR = newCR;
 	}
 
-	public int getCR()
+	public float getCR()
 	{
 		return CR;
 	}
@@ -198,7 +200,7 @@ public final class Race extends PObject
 	{
 		return favoredClass;
 	}
-	
+
 	public void setFeatList(final String featList)
 	{
 		this.featList = featList;
@@ -215,7 +217,8 @@ public final class Race extends PObject
 		// so a new tag MFEAT has been added.
 		// --- arcady 1/18/2002
 
-		if (checkPC && (aPC!=null) && aPC.isMonsterDefault() && !"".equals(mFeatList))
+		if (checkPC && (aPC != null) && aPC.isMonsterDefault()
+			&& !"".equals(mFeatList))
 		{
 			return featList + "|" + mFeatList;
 		}
@@ -228,7 +231,7 @@ public final class Race extends PObject
 			return "";
 		}
 	}
-	
+
 	public void setHands(final int newHands)
 	{
 		hands = newHands;
@@ -253,7 +256,9 @@ public final class Race extends PObject
 	{
 		if (newHitDice < 0)
 		{
-			ShowMessageDelegate.showMessageDialog("Invalid number of hit dice in race " + displayName, "PCGen", MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Invalid number of hit dice in race " + displayName, "PCGen",
+				MessageType.ERROR);
 
 			return;
 		}
@@ -266,10 +271,10 @@ public final class Race extends PObject
 		hitDiceAdvancement = advancement;
 	}
 
-//	public int[] getHitDiceAdvancement()
-//	{
-//		return hitDiceAdvancement;
-//	}
+	//	public int[] getHitDiceAdvancement()
+	//	{
+	//		return hitDiceAdvancement;
+	//	}
 	public int getHitDiceAdvancement(final int index)
 	{
 		return hitDiceAdvancement[index];
@@ -287,7 +292,7 @@ public final class Race extends PObject
 
 	public int getHitDiceSize(final PlayerCharacter aPC, final boolean checkPC)
 	{
-		if (!checkPC || ((aPC!=null) && aPC.isMonsterDefault()))
+		if (!checkPC || ((aPC != null) && aPC.isMonsterDefault()))
 		{
 			return hitDiceSize;
 		}
@@ -441,7 +446,7 @@ public final class Race extends PObject
 			}
 			else if (bString.startsWith("TYPE.") || bString.startsWith("TYPE="))
 			{
-				for ( Skill skill : Globals.getSkillList() )
+				for (Skill skill : Globals.getSkillList())
 				{
 					if (skill.isType(bString.substring(5)))
 					{
@@ -475,7 +480,7 @@ public final class Race extends PObject
 			}
 			else if (bString.startsWith("TYPE.") || bString.startsWith("TYPE="))
 			{
-				for ( Skill skill : Globals.getSkillList() )
+				for (Skill skill : Globals.getSkillList())
 				{
 					if (skill.isType(bString.substring(5)))
 					{
@@ -495,7 +500,8 @@ public final class Race extends PObject
 		monsterClass = string;
 	}
 
-	public String getMonsterClass(final PlayerCharacter aPC, final boolean checkPC)
+	public String getMonsterClass(final PlayerCharacter aPC,
+		final boolean checkPC)
 	{
 		if (!checkPC || ((aPC != null) && !aPC.isMonsterDefault()))
 		{
@@ -514,9 +520,10 @@ public final class Race extends PObject
 		return getMonsterClassLevels(aPC, true);
 	}
 
-	public int getMonsterClassLevels(final PlayerCharacter aPC, final boolean checkPC)
+	public int getMonsterClassLevels(final PlayerCharacter aPC,
+		final boolean checkPC)
 	{
-		if (!checkPC || ((aPC!= null) && !aPC.isMonsterDefault()))
+		if (!checkPC || ((aPC != null) && !aPC.isMonsterDefault()))
 		{
 			return monsterClassLevels;
 		}
@@ -525,7 +532,8 @@ public final class Race extends PObject
 
 	public boolean isNonAbility(final int statIdx)
 	{
-		final List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
+		final List<PCStat> statList =
+				SettingsHandler.getGame().getUnmodifiableStatList();
 
 		if ((statIdx < 0) || (statIdx >= statList.size()))
 		{
@@ -565,8 +573,8 @@ public final class Race extends PObject
 	 */
 	public boolean isUnlocked(final int statIdx)
 	{
-		final List<PCStat> statList = SettingsHandler.getGame()
-			.getUnmodifiableStatList();
+		final List<PCStat> statList =
+				SettingsHandler.getGame().getUnmodifiableStatList();
 
 		if ((statIdx < 0) || (statIdx >= statList.size()))
 		{
@@ -599,11 +607,14 @@ public final class Race extends PObject
 	public String getUdam()
 	{
 		final int iSize = Globals.sizeInt(getSize());
-		final SizeAdjustment defAdj = SettingsHandler.getGame().getDefaultSizeAdjustment();
-		final SizeAdjustment sizAdj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize);
+		final SizeAdjustment defAdj =
+				SettingsHandler.getGame().getDefaultSizeAdjustment();
+		final SizeAdjustment sizAdj =
+				SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize);
 		if ((defAdj != null) && (sizAdj != null))
 		{
-			return Globals.adjustDamage("1d3", defAdj.getAbbreviation(), sizAdj.getAbbreviation());
+			return Globals.adjustDamage("1d3", defAdj.getAbbreviation(), sizAdj
+				.getAbbreviation());
 		}
 		return "1d3";
 	}
@@ -627,7 +638,7 @@ public final class Race extends PObject
 	{
 		racialSubTypes.clear();
 	}
-	
+
 	public boolean removeRacialSubType(final String aSubType)
 	{
 		return racialSubTypes.remove(aSubType);
@@ -642,6 +653,7 @@ public final class Race extends PObject
 	 * Produce a tailored PCC output, used for saving custom races.
 	 * @return PCC Text
 	 */
+	@Override
 	public String getPCCText()
 	{
 		// 29 July 2003 : sage_sam corrected order
@@ -662,7 +674,8 @@ public final class Race extends PObject
 			txt.append("\tREACH:").append(reach);
 		}
 
-		if ((getChooseLanguageAutos() != null) && (getChooseLanguageAutos().length() > 0))
+		if ((getChooseLanguageAutos() != null)
+			&& (getChooseLanguageAutos().length() > 0))
 		{
 			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
 		}
@@ -671,7 +684,7 @@ public final class Race extends PObject
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for ( Language lang : getLanguageBonus() )
+			for (Language lang : getLanguageBonus())
 			{
 				if (buffer.length() != 0)
 				{
@@ -688,7 +701,7 @@ public final class Race extends PObject
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for ( final String profKey : getWeaponProfBonus() )
+			for (final String profKey : getWeaponProfBonus())
 			{
 				if (buffer.length() != 0)
 				{
@@ -720,7 +733,7 @@ public final class Race extends PObject
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for ( Equipment natEquip : getNaturalWeapons() )
+			for (Equipment natEquip : getNaturalWeapons())
 			{
 				if (buffer.length() != 0)
 				{
@@ -732,14 +745,20 @@ public final class Race extends PObject
 
 				if (index >= 0)
 				{
-					eqName = eqName.substring(0, index) + eqName.substring(index + " (Natural/Primary)".length());
+					eqName =
+							eqName.substring(0, index)
+								+ eqName.substring(index
+									+ " (Natural/Primary)".length());
 				}
 
 				index = eqName.indexOf(" (Natural/Secondary)");
 
 				if (index >= 0)
 				{
-					eqName = eqName.substring(0, index) + eqName.substring(index + " (Natural/Secondary)".length());
+					eqName =
+							eqName.substring(0, index)
+								+ eqName.substring(index
+									+ " (Natural/Secondary)".length());
 				}
 
 				buffer.append(eqName).append(',');
@@ -750,7 +769,10 @@ public final class Race extends PObject
 					buffer.append('*');
 				}
 
-				buffer.append((int) natEquip.bonusTo(null, "WEAPON", "ATTACKS", true) + 1).append(',');
+				buffer
+					.append(
+						(int) natEquip.bonusTo(null, "WEAPON", "ATTACKS", true) + 1)
+					.append(',');
 				buffer.append(natEquip.getDamage(null));
 			}
 
@@ -771,7 +793,7 @@ public final class Race extends PObject
 		List<String> templates = getTemplateList();
 		if ((templates != null) && (templates.size() > 0))
 		{
-			for ( String template : templates )
+			for (String template : templates)
 			{
 				txt.append("\tTEMPLATE:").append(template);
 			}
@@ -788,7 +810,8 @@ public final class Race extends PObject
 					txt.append(',');
 				}
 
-				if ((hitDiceAdvancement[index] == -1) && isAdvancementUnlimited())
+				if ((hitDiceAdvancement[index] == -1)
+					&& isAdvancementUnlimited())
 				{
 					txt.append('*');
 				}
@@ -799,18 +822,44 @@ public final class Race extends PObject
 			}
 		}
 
+		/*
+		 * TODO Much of this code is repeated in CRToken, Race, XMLCombatant and PlayerCharacterOutput
+		 */
 		if (CR != 0)
 		{
 			txt.append("\tCR:");
 
-			if (CR < 0)
+			String retString = "";
+			String crAsString = Float.toString(CR);
+			String decimalPlaceValue =
+					crAsString.substring(crAsString.length() - 2);
+
+			// If the CR is a fractional CR then we convert to a 1/x format
+			if (CR > 0 && CR < 1)
 			{
-				txt.append("1/").append(-CR);
+				Fraction fraction = Fraction.getFraction(CR);// new Fraction(CR);
+				int denominator = fraction.getDenominator();
+				int numerator = fraction.getNumerator();
+				retString = numerator + "/" + denominator;
 			}
-			else
+			else if (CR >= 1 || CR == 0)
 			{
-				txt.append(CR);
+				int newCr = -99;
+				if (decimalPlaceValue.equals(".0"))
+				{
+					newCr = (int) CR;
+				}
+
+				if (newCr > -99)
+				{
+					retString = retString + newCr;
+				}
+				else
+				{
+					retString = retString + CR;
+				}
 			}
+			txt.append(retString);
 		}
 
 		if (startingAC.intValue() != 10)
@@ -818,23 +867,24 @@ public final class Race extends PObject
 			txt.append("\tAC:").append(startingAC.toString());
 		}
 
-/*
-   if (ageString != null && !Constants.s_NONE.equals(ageString) && ageString.length() > 0)
-   {
-	   txt.append("\tAGE:").append(ageString);
-   }
-   if (BAB != 0)
-   {
-	   txt.append("\tBAB:").append(BAB);
-   }
- */
-		if(CoreUtility.doublesEqual(face.getY(), 0.0))
+		/*
+		   if (ageString != null && !Constants.s_NONE.equals(ageString) && ageString.length() > 0)
+		   {
+			   txt.append("\tAGE:").append(ageString);
+		   }
+		   if (BAB != 0)
+		   {
+			   txt.append("\tBAB:").append(BAB);
+		   }
+		 */
+		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
-			txt.append("\tFACE:").append( face.getX() + " ft.");
+			txt.append("\tFACE:").append(face.getX() + " ft.");
 		}
 		else
 		{
-			txt.append("\tFACE:").append( face.getX() + " ft. by " + face.getY() + " ft.");
+			txt.append("\tFACE:").append(
+				face.getX() + " ft. by " + face.getY() + " ft.");
 		}
 
 		if ((featList != null) && (featList.length() > 0))
@@ -844,7 +894,8 @@ public final class Race extends PObject
 
 		if ((hitDice != 0) || (hitDiceSize != 0))
 		{
-			txt.append("\tHITDICE:").append(hitDice).append(',').append(hitDiceSize);
+			txt.append("\tHITDICE:").append(hitDice).append(',').append(
+				hitDiceSize);
 		}
 
 		if (initMod.intValue() != 0)
@@ -877,7 +928,7 @@ public final class Race extends PObject
 			txt.append("\tXTRASKILLPTSPERLVL:").append(bonusSkillsPerLevel);
 		}
 
-//		txt.append(super.getPCCText(false));
+		//		txt.append(super.getPCCText(false));
 		return txt.toString();
 	}
 
@@ -927,7 +978,7 @@ public final class Race extends PObject
 			aRace.initialSkillMultiplier = initialSkillMultiplier;
 			aRace.levelAdjustment = levelAdjustment;
 			aRace.CR = CR;
-//			aRace.BAB = BAB;
+			//			aRace.BAB = BAB;
 			aRace.hitDice = hitDice;
 			aRace.hitDiceSize = hitDiceSize;
 			aRace.hitPointMap = new HashMap<String, Integer>(hitPointMap);
@@ -939,7 +990,8 @@ public final class Race extends PObject
 		}
 		catch (CloneNotSupportedException exc)
 		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(exc.getMessage(),
+				Constants.s_APPNAME, MessageType.ERROR);
 		}
 
 		return aRace;
@@ -958,6 +1010,7 @@ public final class Race extends PObject
 	 * Overridden to only consider the race's name.
 	 * @return hash code
 	 */
+	@Override
 	public int hashCode()
 	{
 		return getKeyName().hashCode();
@@ -987,17 +1040,20 @@ public final class Race extends PObject
 		if (!aPC.isImporting())
 		{
 			final int min = 1 + (int) aPC.getTotalBonusTo("HD", "MIN");
-			final int max = hitDiceSize + (int) aPC.getTotalBonusTo("HD", "MAX");
+			final int max =
+					hitDiceSize + (int) aPC.getTotalBonusTo("HD", "MAX");
 
 			for (int x = 0; x < hitDice; ++x)
 			{
-				setHitPoint(x, Integer.valueOf(Globals.rollHP(min, max, getKeyName(), x + 1)));
+				setHitPoint(x, Integer.valueOf(Globals.rollHP(min, max,
+					getKeyName(), x + 1)));
 			}
 		}
 
 		aPC.setCurrentHP(aPC.hitPoints());
 	}
 
+	@Override
 	protected int getSR(final PlayerCharacter aPC)
 	{
 		int intSR;
@@ -1023,6 +1079,7 @@ public final class Race extends PObject
 		return intSR;
 	}
 
+	@Override
 	protected void doGlobalTypeUpdate(final String aString)
 	{
 		Globals.getRaceTypes().add(aString);
@@ -1030,18 +1087,18 @@ public final class Race extends PObject
 
 	int getBAB(final PlayerCharacter aPC)
 	{
-//		if ((aPC != null) && aPC.isMonsterDefault())
-//		{
-//			// "BAB" not being used on races any more; instead using a BONUS tag.
-//			// This will fix a bug this causes for default monsters.  Bug #647163
-//			// sage_sam 03 Dec 2002
-//			if (BAB == 0)
-//			{
-//				BAB = (int) bonusTo("COMBAT", "BAB", aPC, aPC);
-//			}
-//
-//			return BAB;
-//		}
+		//		if ((aPC != null) && aPC.isMonsterDefault())
+		//		{
+		//			// "BAB" not being used on races any more; instead using a BONUS tag.
+		//			// This will fix a bug this causes for default monsters.  Bug #647163
+		//			// sage_sam 03 Dec 2002
+		//			if (BAB == 0)
+		//			{
+		//				BAB = (int) bonusTo("COMBAT", "BAB", aPC, aPC);
+		//			}
+		//
+		//			return BAB;
+		//		}
 		return 0;
 	}
 
@@ -1073,7 +1130,8 @@ public final class Race extends PObject
 		{
 			final String skillList = aTok.nextToken();
 			final int anInt = Integer.parseInt(aTok.nextToken());
-			final StringTokenizer bTok = new StringTokenizer(skillList, ",", false);
+			final StringTokenizer bTok =
+					new StringTokenizer(skillList, ",", false);
 
 			while (bTok.hasMoreTokens())
 			{
@@ -1117,10 +1175,12 @@ public final class Race extends PObject
 		{
 			for (Prerequisite prereq : getPreReqList())
 			{
-				if ("ALIGN".equalsIgnoreCase( prereq.getKind() ))
+				if ("ALIGN".equalsIgnoreCase(prereq.getKind()))
 				{
 					String alignStr = aString;
-					final String[] aligns = SettingsHandler.getGame().getAlignmentListStrings(false);
+					final String[] aligns =
+							SettingsHandler.getGame().getAlignmentListStrings(
+								false);
 					try
 					{
 						final int align = Integer.parseInt(alignStr);
@@ -1161,7 +1221,7 @@ public final class Race extends PObject
 			return true;
 		}
 
-		for ( String mSkill : monCCSkillList )
+		for (String mSkill : monCCSkillList)
 		{
 			if (mSkill.lastIndexOf('%') >= 0)
 			{
@@ -1202,7 +1262,7 @@ public final class Race extends PObject
 			}
 		}
 
-		for ( String mSkill : monCSkillList )
+		for (String mSkill : monCSkillList)
 		{
 			if (mSkill.lastIndexOf('%') >= 0)
 			{
@@ -1233,7 +1293,8 @@ public final class Race extends PObject
 		{
 			for (int x = 0; x < hitDiceAdvancement.length; x++)
 			{
-				if ((HD <= hitDiceAdvancement[x]) || (hitDiceAdvancement[x] == -1))
+				if ((HD <= hitDiceAdvancement[x])
+					|| (hitDiceAdvancement[x] == -1))
 				{
 					return x;
 				}

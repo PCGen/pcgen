@@ -31,11 +31,14 @@ import gmgen.plugin.Combatant;
 import gmgen.plugin.SystemAttribute;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
-import org.jdom.Element;
-import pcgen.util.Logging;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.lang.math.Fraction;
+import org.jdom.Element;
+
+import pcgen.util.Logging;
 
 /**
  *@author     devon
@@ -314,6 +317,7 @@ public class XMLCombatant extends Combatant
 	 *
 	 * @param cr   The challenge rating
 	 */
+	@Override
 	public void setCR(float cr)
 	{
 		this.cr = cr;
@@ -323,9 +327,52 @@ public class XMLCombatant extends Combatant
 	 * <p>Gets the CR value for the character</p>
 	 * @return CR value
 	 */
+	@Override
 	public float getCR()
 	{
 		return cr;
+	}
+
+	/**
+	 * 
+	 * TODO Much of this code is repeated in CRToken, Race, XMLCombatant and PlayerCharacterOutput
+	 * 
+	 * <p>Gets the CR value for the character for output</p>
+	 * @return CR value
+	 */
+	public String getCRForOutput()
+	{
+		String retString = "";
+		String crAsString = Float.toString(cr);
+		String decimalPlaceValue =
+				crAsString.substring(crAsString.length() - 2);
+
+		// If the CR is a fractional CR then we convert to a 1/x format
+		if (cr > 0 && cr < 1)
+		{
+			Fraction fraction = Fraction.getFraction(cr);// new Fraction(CR);
+			int denominator = fraction.getDenominator();
+			int numerator = fraction.getNumerator();
+			retString = numerator + "/" + denominator;
+		}
+		else if (cr >= 1 || cr == 0)
+		{
+			int newCr = -99;
+			if (decimalPlaceValue.equals(".0"))
+			{
+				newCr = (int) cr;
+			}
+
+			if (newCr > -99)
+			{
+				retString = retString + newCr;
+			}
+			else
+			{
+				retString = retString + cr;
+			}
+		}
+		return retString;
 	}
 
 	/**
@@ -359,6 +406,7 @@ public class XMLCombatant extends Combatant
 	 *
 	 * @param  name  The new name value
 	 */
+	@Override
 	public void setName(String name)
 	{
 		combatant.getAttribute("player").setValue(name);
@@ -500,6 +548,7 @@ public class XMLCombatant extends Combatant
 	 *
 	 * @param xp The XP value
 	 */
+	@Override
 	public void setXP(int xp)
 	{
 		this.xp = xp;
@@ -509,6 +558,7 @@ public class XMLCombatant extends Combatant
 	 * Gets the experience value for the character
 	 * @return Experience value
 	 */
+	@Override
 	public int getXP()
 	{
 		return xp;
@@ -613,6 +663,7 @@ public class XMLCombatant extends Combatant
 	 * Return as HTML String
 	 * @return PCRenderer as HTML string
 	 */
+	@Override
 	public String toHtmlString()
 	{
 		return new PcRenderer().getHtmlText();
@@ -677,7 +728,8 @@ public class XMLCombatant extends Combatant
 			StringBuffer statBuf = new StringBuffer();
 
 			statBuf.append("<font class='type'>CR</font> ");
-			statBuf.append(getCR());
+			// statBuf.append(getCR());
+			statBuf.append(getCRForOutput());
 			statBuf.append("; ");
 
 			statBuf.append("<font class='type'>hp</font> ");

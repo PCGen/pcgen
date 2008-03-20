@@ -25,6 +25,10 @@
  */
 package plugin.initiative.gui;
 
+import java.awt.Color;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.JFormattedTextField;
 import javax.swing.JSlider;
@@ -32,9 +36,6 @@ import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.text.NumberFormatter;
-import java.awt.Color;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 /**
  * <p>
@@ -48,10 +49,10 @@ public class Utils
 {
 
 	/**
-	 *
 	 * <p>Builds a formatted text field with specified min and max</p>
-	 * @param min
-	 * @param max
+	 * 
+	 * @param min minimum value
+	 * @param max maximum value
 	 * @return JFormattedTextField
 	 */
 	public static JFormattedTextField buildIntegerField(int min, int max)
@@ -64,6 +65,56 @@ public class Utils
 		final JFormattedTextField returnValue =
 				new JFormattedTextField(formatter);
 		returnValue.setColumns(3);
+		returnValue.addPropertyChangeListener(new PropertyChangeListener()
+		{
+
+			Border m_originalBorder = returnValue.getBorder();
+
+			public void propertyChange(PropertyChangeEvent evt)
+			{
+				if (evt.getPropertyName() != null
+					&& evt.getPropertyName().equals("editValid"))
+				{
+					if (evt.getNewValue() != null
+						&& evt.getNewValue() instanceof Boolean)
+					{
+						if (((Boolean) evt.getNewValue()).booleanValue())
+						{
+							returnValue.setBorder(m_originalBorder);
+						}
+						else
+						{
+							returnValue.setBorder(BorderFactory
+								.createLineBorder(Color.red));
+						}
+					}
+				}
+			}
+		});
+		return returnValue;
+	}
+
+	/**
+	 * <p>Builds a formatted text field with specified min and max</p>
+	 * 
+	 * @param min minimum value
+	 * @param max maximum value
+	 * @return JFormattedTextField
+	 */
+	public static JFormattedTextField buildFloatField(float min, float max)
+	{
+		java.text.NumberFormat numberFormat =
+				java.text.NumberFormat.getNumberInstance();
+
+		// numberFormat.setParseIntegerOnly(false);
+
+		NumberFormatter formatter = new NumberFormatter(numberFormat);
+		//formatter.getCommitsOnValidEdit();
+		formatter.setMinimum(Float.valueOf(min));
+		formatter.setMaximum(Float.valueOf(max));
+		final JFormattedTextField returnValue =
+				new JFormattedTextField(formatter);
+		returnValue.setColumns(4);
 		returnValue.addPropertyChangeListener(new PropertyChangeListener()
 		{
 

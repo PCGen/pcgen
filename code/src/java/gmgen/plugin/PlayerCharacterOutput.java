@@ -1,16 +1,26 @@
 package gmgen.plugin;
 
-import pcgen.core.*;
-import pcgen.core.utils.CoreUtility;
-import pcgen.io.ExportHandler;
-import pcgen.util.enumeration.AttackType;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.text.DecimalFormat;
 import java.util.StringTokenizer;
+
+import org.apache.commons.lang.math.Fraction;
+
+import pcgen.core.Ability;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.StatList;
+import pcgen.core.utils.CoreUtility;
+import pcgen.io.ExportHandler;
+import pcgen.util.enumeration.AttackType;
 
 public class PlayerCharacterOutput
 {
@@ -39,12 +49,14 @@ public class PlayerCharacterOutput
 
 	public String getAlignmentLong()
 	{
-		return SettingsHandler.getGame().getLongAlignmentAtIndex(pc.getAlignment());
+		return SettingsHandler.getGame().getLongAlignmentAtIndex(
+			pc.getAlignment());
 	}
 
 	public String getAlignmentShort()
 	{
-		return SettingsHandler.getGame().getShortAlignmentAtIndex(pc.getAlignment());
+		return SettingsHandler.getGame().getShortAlignmentAtIndex(
+			pc.getAlignment());
 	}
 
 	public String getBAB()
@@ -52,9 +64,45 @@ public class PlayerCharacterOutput
 		return Integer.toString(pc.baseAttackBonus());
 	}
 
+	/**
+	 * TODO Much of this code is repeated in CRToken, Race, XMLCombatant and PlayerCharacterOutput
+	 *  
+	 * @return An output version of the CR
+	 */
 	public String getCR()
 	{
-		return Integer.toString(pc.calcCR());
+		float cr = pc.calcCR();
+		String retString = "";
+		String crAsString = Float.toString(cr);
+		String decimalPlaceValue =
+				crAsString.substring(crAsString.length() - 2);
+
+		// If the CR is a fractional CR then we convert to a 1/x format
+		if (cr > 0 && cr < 1)
+		{
+			Fraction fraction = Fraction.getFraction(cr);// new Fraction(CR);
+			int denominator = fraction.getDenominator();
+			int numerator = fraction.getNumerator();
+			retString = numerator + "/" + denominator;
+		}
+		else if (cr >= 1 || cr == 0)
+		{
+			int newCr = -99;
+			if (decimalPlaceValue.equals(".0"))
+			{
+				newCr = (int) cr;
+			}
+
+			if (newCr > -99)
+			{
+				retString = retString + newCr;
+			}
+			else
+			{
+				retString = retString + cr;
+			}
+		}
+		return retString;
 	}
 
 	public String getClasses()
@@ -123,7 +171,8 @@ public class PlayerCharacterOutput
 
 	public String getExportToken(String token)
 	{
-		try {
+		try
+		{
 			StringWriter retWriter = new StringWriter();
 			BufferedWriter bufWriter = new BufferedWriter(retWriter);
 			ExportHandler export = new ExportHandler(new File(""));
@@ -141,7 +190,8 @@ public class PlayerCharacterOutput
 
 			return retWriter.toString();
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			System.out.println("Failure fetching token: " + token);
 			return "";
 		}
@@ -206,8 +256,11 @@ public class PlayerCharacterOutput
 
 	public String getMeleeTotal()
 	{
-		int tohitBonus = (int) pc.getTotalBonusTo("TOHIT", "TOHIT") + (int) pc.getTotalBonusTo("TOHIT", "TYPE.MELEE")
-			+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT") + (int) pc.getTotalBonusTo("COMBAT", "TOHIT.MELEE");
+		int tohitBonus =
+				(int) pc.getTotalBonusTo("TOHIT", "TOHIT")
+					+ (int) pc.getTotalBonusTo("TOHIT", "TYPE.MELEE")
+					+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT")
+					+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT.MELEE");
 
 		return pc.getAttackString(AttackType.MELEE, tohitBonus);
 	}
@@ -224,8 +277,11 @@ public class PlayerCharacterOutput
 
 	public String getRangedTotal()
 	{
-		int tohitBonus = (int) pc.getTotalBonusTo("TOHIT", "TOHIT") + (int) pc.getTotalBonusTo("TOHIT", "TYPE.RANGED")
-			+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT") + (int) pc.getTotalBonusTo("COMBAT", "TOHIT.RANGED");
+		int tohitBonus =
+				(int) pc.getTotalBonusTo("TOHIT", "TOHIT")
+					+ (int) pc.getTotalBonusTo("TOHIT", "TYPE.RANGED")
+					+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT")
+					+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT.RANGED");
 
 		return pc.getAttackString(AttackType.MELEE, tohitBonus);
 	}
@@ -266,7 +322,11 @@ public class PlayerCharacterOutput
 
 		for (int i = 0; i < pc.getNumberOfMovements(); i++)
 		{
-			sb.append(pc.getMovementType(i) + " " + Globals.getGameModeUnitSet().convertDistanceToUnitSet(pc.movement(i)) + Globals.getGameModeUnitSet().getDistanceUnit());
+			sb.append(pc.getMovementType(i)
+				+ " "
+				+ Globals.getGameModeUnitSet().convertDistanceToUnitSet(
+					pc.movement(i))
+				+ Globals.getGameModeUnitSet().getDistanceUnit());
 		}
 
 		return sb.toString();
@@ -291,7 +351,8 @@ public class PlayerCharacterOutput
 		StatList sl = pc.getStatList();
 		returnValue = sl.getStatModFor(statAbbrev);
 
-		return (returnValue < 0) ? Integer.toString(returnValue) : "+" + returnValue;
+		return (returnValue < 0) ? Integer.toString(returnValue) : "+"
+			+ returnValue;
 	}
 
 	public String getVision()
@@ -299,7 +360,8 @@ public class PlayerCharacterOutput
 		return pc.getVision();
 	}
 
-	public String getWeaponToken(int weaponNo, String Token) {
+	public String getWeaponToken(int weaponNo, String Token)
+	{
 		return getExportToken("WEAPON." + weaponNo + "." + Token);
 	}
 
@@ -343,7 +405,8 @@ public class PlayerCharacterOutput
 
 	public String getWeaponRange(Equipment eq)
 	{
-		return eq.getRange(pc).toString() + Globals.getGameModeUnitSet().getDistanceUnit();
+		return eq.getRange(pc).toString()
+			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
 	public String getWeaponSize(Equipment eq)
@@ -376,7 +439,9 @@ public class PlayerCharacterOutput
 	public String getWeaponType(Equipment eq, boolean primary)
 	{
 		StringBuffer sb = new StringBuffer();
-		StringTokenizer aTok = new StringTokenizer(SettingsHandler.getGame().getWeaponTypes(), "|", false);
+		StringTokenizer aTok =
+				new StringTokenizer(SettingsHandler.getGame().getWeaponTypes(),
+					"|", false);
 
 		while (aTok.countTokens() >= 2)
 		{

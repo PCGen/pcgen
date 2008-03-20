@@ -18,12 +18,16 @@ public class CrToken implements RaceLstToken
 	{
 		try
 		{
-			String intValue = value;
-			if (intValue.startsWith("1/"))
+			String floatValue = value;
+			if (floatValue.startsWith("1/"))
 			{
-				intValue = "-" + intValue.substring(2);
+				float fraction = Float.parseFloat(floatValue.substring(2));
+				race.setCR(1 / fraction);
 			}
-			race.setCR(Integer.parseInt(intValue));
+			else
+			{
+				race.setCR(Float.parseFloat(floatValue));
+			}
 			return true;
 		}
 		catch (NumberFormatException nfe)

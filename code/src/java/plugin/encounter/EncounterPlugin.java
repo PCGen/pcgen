@@ -14,7 +14,37 @@ import gmgen.pluginmgr.messages.InitHolderListSendMessage;
 import gmgen.pluginmgr.messages.StateChangedMessage;
 import gmgen.pluginmgr.messages.TabAddMessage;
 import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
-import pcgen.core.*;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+import java.util.Vector;
+
+import javax.swing.JFrame;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.ListModel;
+import javax.swing.filechooser.FileFilter;
+
+import pcgen.core.Constants;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
 import pcgen.gui.utils.TabbedPaneUtilities;
@@ -22,13 +52,6 @@ import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserRadio;
 import plugin.encounter.gui.EncounterView;
-
-import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
-import java.awt.event.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.*;
 
 /**
  * The <code>EncounterPlugin</code> controlls the various classes that are
@@ -79,6 +102,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		super();
 	}
 
+	@Override
 	public FileFilter[] getFileTypes()
 	{
 		return null;
@@ -87,6 +111,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
+	@Override
 	public void start()
 	{
 		theModel = new EncounterModel(getDataDir());
@@ -99,12 +124,14 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		initMenus();
 	}
 
+	@Override
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
 			Constants.s_SYSTEM_GMGEN);
 	}
 
+	@Override
 	public int getPluginLoadOrder()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 30);
@@ -132,6 +159,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	 * Accessor for name
 	 * @return name
 	 */
+	@Override
 	public String getName()
 	{
 		return name;
@@ -150,6 +178,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	 * Accessor for version
 	 * @return version
 	 */
+	@Override
 	public String getVersion()
 	{
 		return version;
@@ -194,7 +223,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 		else if (e.getSource() == theView.getGenerateEncounter())
 		{
-			handeGenerateEncounter(theModel);
+			handleGenerateEncounter(theModel);
 		}
 		else
 		{
@@ -209,7 +238,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	 * Handles the <b>Generate Encounter</b> button.
 	 * @param m the encounter model.
 	 */
-	public void handeGenerateEncounter(EncounterModel m)
+	public void handleGenerateEncounter(EncounterModel m)
 	{
 		File f =
 				new File(getDataDir() + File.separator + "encounter_tables"
@@ -270,6 +299,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	 * @param message the source of the event from the system
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
+	@Override
 	public void handleMessage(GMBMessage message)
 	{
 		if (message instanceof StateChangedMessage)
@@ -358,10 +388,12 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 				theList.add(new PcgCombatant(aPC, "Enemy"));
 			}
 
-			JOptionPane.showMessageDialog(null, "You will now be returned to PCGen so that you can finalise your selected combatants.\nOnce they are finalised, return to the GMGen Initiative tab to begin the combat!",
-					"Combatant Setup Complete",
-					JOptionPane.INFORMATION_MESSAGE);
-			
+			JOptionPane
+				.showMessageDialog(
+					null,
+					"You will now be returned to PCGen so that you can finalise your selected combatants.\nOnce they are finalised, return to the GMGen Initiative tab to begin the combat!",
+					"Combatant Setup Complete", JOptionPane.INFORMATION_MESSAGE);
+
 			GMBus.send(new InitHolderListSendMessage(this, theList));
 			removeAll();
 		}
@@ -521,33 +553,33 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 		// Get any currently selected items in the Races list
 		ArrayList<Object> selected = new ArrayList<Object>();
-		
-		for( int index : theView.getLibraryCreatures().getSelectedIndices() )
+
+		for (int index : theView.getLibraryCreatures().getSelectedIndices())
 		{
 			selected.add(theRaces.elementAt(index));
 		}
-			
+
 		theRaces.update();
 		theEnvironments.update();
-		
+
 		//	We need to check that the items in the encounter model still exist in the
 		//	Races list - this might be a problem if the loaded sources are changed
 		//  IF it is not in the races model then remove it from the encounter model
 		//	TODO: This is only a quick fix to clear the encounter list if the 
 		//	the sources are changed - it will only remove the items when focus is
 		//	returned to this control, 
-		for( Object obj : theModel.toArray() )
+		for (Object obj : theModel.toArray())
 		{
-			if( !theRaces.contains(obj))
+			if (!theRaces.contains(obj))
 				theModel.removeElement(obj);
 		}
-				
+
 		theView.getEnvironment().setSelectedIndex(sel);
 		theView.setTotalEncounterLevel(Integer.toString(theModel.getCR()));
-		
+
 		//	If there are no races in the the races model, make sure we cannot accidentally
 		//	generate an encounter
-		if( theRaces.getSize() > 1)
+		if (theRaces.getSize() > 1)
 		{
 			theView.getGenerateEncounter().setEnabled(true);
 		}
@@ -564,30 +596,30 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		{
 			theView.getTransferToTracker().setEnabled(true);
 		}
-		
+
 		// re-select the selected creatures only if they still exist in 
 		//	the Races list - may not if sources have been changed
 		ArrayList<Integer> stillSelected = new ArrayList<Integer>();
-		
-		for( Object obj : selected )
+
+		for (Object obj : selected)
 		{
-			if( theRaces.contains(obj) )
+			if (theRaces.contains(obj))
 			{
 				stillSelected.add(theRaces.indexOf(obj));
 			}
 		}
-		
+
 		//	convert the ArrayList to an integer array - needed
 		//	to select multiple indices
-		if( stillSelected.size() > 0 )
+		if (stillSelected.size() > 0)
 		{
-			int[] ints=new int[stillSelected.size()];
-			for(int i =0; i<ints.length; i++)
+			int[] ints = new int[stillSelected.size()];
+			for (int i = 0; i < ints.length; i++)
 			{
-				ints[i]=((Integer)stillSelected.get(i)).intValue();
+				ints[i] = (stillSelected.get(i)).intValue();
 			}
-			
-			theView.getLibraryCreatures().setSelectedIndices(ints);			
+
+			theView.getLibraryCreatures().setSelectedIndices(ints);
 		}
 	}
 
@@ -745,8 +777,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		for (int i = 0; i < eqList.size(); i++)
 		{
 			final Equipment eq = eqList.get(i);
-			addEquipToTarget(aPC, eqSet, "", eq.clone(), new Float(
-				1));
+			addEquipToTarget(aPC, eqSet, "", eq.clone(), new Float(1));
 		}
 	}
 
@@ -791,14 +822,15 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 
 		//	If we don't find anything just return.
-		if( critters.size() < 1 )
+		if (critters.size() < 1)
 		{
 			// TODO: Maybe we need a message here to inform the user that nothing was found
 			// in the currently selected environment that matches the EL criteria
-			Logging.debugPrint("EncounterPlugin - generateXfromY found no matches");
+			Logging
+				.debugPrint("EncounterPlugin - generateXfromY found no matches");
 			return;
 		}
-		
+
 		for (int x = 0; x < ((Integer) critters.firstElement()).intValue(); x++)
 		{
 			theModel.addElement(critters.lastElement().toString());
@@ -863,10 +895,9 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 			//	FIX: for tracker 1472565 - Kevin F. - 07/21/2007
 			//	check that the cr has a "/" in order to use the second element
 			//	of crSplit.  There might be a better way to do this?
-			if( cr.indexOf("/") >= 0 )
+			if (cr.indexOf("/") >= 0)
 				crNum = -1 * Integer.parseInt(crSplit[1]);
-			else
-				crNum = Integer.parseInt(cr);			
+			else crNum = Integer.parseInt(cr);
 		}
 		catch (NumberFormatException e)
 		{

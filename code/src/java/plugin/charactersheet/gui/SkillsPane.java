@@ -6,6 +6,8 @@
 
 package plugin.charactersheet.gui;
 
+import gmgen.plugin.PlayerCharacterOutput;
+
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -13,7 +15,6 @@ import java.awt.GridBagConstraints;
 import java.util.ArrayList;
 import java.util.List;
 
-import gmgen.plugin.PlayerCharacterOutput;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -346,9 +347,9 @@ public class SkillsPane extends javax.swing.JPanel
 					.getPartialSkillList(Visibility.OUTPUT_ONLY));
 
 		// Remove only the skill lines, not the header block. 
-		for(int i = 0; i < componentList.size(); i++) 
+		for (int i = 0; i < componentList.size(); i++)
 		{
-			remove((java.awt.Component)componentList.get(i));
+			remove(componentList.get(i));
 		}
 		componentList.clear();
 

@@ -22,12 +22,17 @@
  */
 package pcgen.gui.editor;
 
-import javax.swing.*;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import pcgen.core.Constants;
 import pcgen.core.Globals;
@@ -44,13 +49,15 @@ import pcgen.util.enumeration.Visibility;
  */
 public class TemplateBasePanel extends BasePanel
 {
-	private static final String[] genderLockValues = new String[]{ "None", "Male", "Female", "Neuter" };
-	private static final String[] visibleValues = new String[]{ "No", "Yes", "Export", "Display" };
-	private static final String[] sizeTitles = new String[]
-		{
-			"(no change)", "Fine", "Diminutive", "Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan", "Colossal"
-		};
-	private static final String[] sizeAbbrev = new String[]{ "", "F", "D", "T", "S", "M", "L", "H", "G", "C" };
+	private static final String[] genderLockValues =
+			new String[]{"None", "Male", "Female", "Neuter"};
+	private static final String[] visibleValues =
+			new String[]{"No", "Yes", "Export", "Display"};
+	private static final String[] sizeTitles =
+			new String[]{"(no change)", "Fine", "Diminutive", "Tiny", "Small",
+				"Medium", "Large", "Huge", "Gargantuan", "Colossal"};
+	private static final String[] sizeAbbrev =
+			new String[]{"", "F", "D", "T", "S", "M", "L", "H", "G", "C"};
 	private JCheckBox chkRemovable;
 	private JComboBoxEx cmbBonusFeats;
 	private JComboBoxEx cmbBonusSkillPoints;
@@ -64,7 +71,7 @@ public class TemplateBasePanel extends BasePanel
 	private JTextField txtSubRace;
 	private JTextField txtSubRegion;
 
-//	private AvailableSelectedPanel pnlTemplateTypes;
+	//	private AvailableSelectedPanel pnlTemplateTypes;
 	private TypePanel pnlTemplateTypes;
 
 	/** Creates new form TemplateBasePanel */
@@ -101,7 +108,8 @@ public class TemplateBasePanel extends BasePanel
 	 */
 	public void setBonusSkillPoints(final int bonusSkillPoints)
 	{
-		if ((bonusSkillPoints >= 0) && (bonusSkillPoints < cmbBonusSkillPoints.getItemCount()))
+		if ((bonusSkillPoints >= 0)
+			&& (bonusSkillPoints < cmbBonusSkillPoints.getItemCount()))
 		{
 			cmbBonusSkillPoints.setSelectedIndex(bonusSkillPoints);
 		}
@@ -120,7 +128,7 @@ public class TemplateBasePanel extends BasePanel
 	 * Set the CR
 	 * @param argCR
 	 */
-	public void setCR(final int argCR)
+	public void setCR(final float argCR)
 	{
 		txtCR.setText(String.valueOf(argCR));
 	}
@@ -129,9 +137,9 @@ public class TemplateBasePanel extends BasePanel
 	 * Get the CR
 	 * @return the CR
 	 */
-	public int getCR()
+	public float getCR()
 	{
-		return Integer.parseInt(txtCR.getText());
+		return Float.parseFloat(txtCR.getText());
 	}
 
 	/**
@@ -212,7 +220,7 @@ public class TemplateBasePanel extends BasePanel
 		int npIdx;
 		if (nonProficiencyPenalty > 0)
 		{
-			npIdx = 0;					// no change
+			npIdx = 0; // no change
 		}
 		else
 		{
@@ -220,7 +228,7 @@ public class TemplateBasePanel extends BasePanel
 		}
 		if (npIdx >= cmbNonProficiencyPenalty.getItemCount())
 		{
-			npIdx = -1;					// no selection
+			npIdx = -1; // no selection
 		}
 		cmbNonProficiencyPenalty.setSelectedIndex(npIdx);
 	}
@@ -249,7 +257,8 @@ public class TemplateBasePanel extends BasePanel
 	 */
 	public void setSubRace(final String aString)
 	{
-		if (Constants.s_NONE.equals(aString) || (aString == null) || ("".equals(aString)))
+		if (Constants.s_NONE.equals(aString) || (aString == null)
+			|| ("".equals(aString)))
 		{
 			txtSubRace.setText("");
 		}
@@ -265,7 +274,8 @@ public class TemplateBasePanel extends BasePanel
 	 */
 	public String getSubRace()
 	{
-		if ((txtSubRace.getText() == null) || (txtSubRace.getText().trim().length() == 0))
+		if ((txtSubRace.getText() == null)
+			|| (txtSubRace.getText().trim().length() == 0))
 		{
 			return Constants.s_NONE;
 		}
@@ -278,7 +288,8 @@ public class TemplateBasePanel extends BasePanel
 	 */
 	public void setSubRegion(final String aString)
 	{
-		if (Constants.s_NONE.equals(aString) || (aString == null) || ("".equals(aString)))
+		if (Constants.s_NONE.equals(aString) || (aString == null)
+			|| ("".equals(aString)))
 		{
 			txtSubRegion.setText("");
 		}
@@ -294,7 +305,8 @@ public class TemplateBasePanel extends BasePanel
 	 */
 	public String getSubRegion()
 	{
-		if ((txtSubRegion.getText() == null) || (txtSubRegion.getText().trim().length() == 0))
+		if ((txtSubRegion.getText() == null)
+			|| (txtSubRegion.getText().trim().length() == 0))
 		{
 			return Constants.s_NONE;
 		}
@@ -382,6 +394,7 @@ public class TemplateBasePanel extends BasePanel
 		return Visibility.values()[cmbVisible.getSelectedIndex()];
 	}
 
+	@Override
 	public void updateData(PObject thisPObject)
 	{
 		PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
@@ -409,6 +422,7 @@ public class TemplateBasePanel extends BasePanel
 		}
 	}
 
+	@Override
 	public void updateView(PObject thisPObject)
 	{
 		PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
@@ -419,7 +433,7 @@ public class TemplateBasePanel extends BasePanel
 		List<String> availableList = new ArrayList<String>();
 		List<String> selectedList = new ArrayList<String>();
 
-		for (PCTemplate aTemplate :Globals.getTemplateList())
+		for (PCTemplate aTemplate : Globals.getTemplateList())
 		{
 			for (String type : aTemplate.getTypeList(false))
 			{
@@ -510,7 +524,8 @@ public class TemplateBasePanel extends BasePanel
 		txtSubRace = new JTextField();
 
 		//pnlTemplateTypes = new AvailableSelectedPanel();
-		pnlTemplateTypes = new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
+		pnlTemplateTypes =
+				new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
 
 		setLayout(new GridBagLayout());
 

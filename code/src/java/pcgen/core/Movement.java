@@ -23,9 +23,9 @@
  */
 package pcgen.core;
 
-import pcgen.util.Logging;
-
 import java.util.StringTokenizer;
+
+import pcgen.util.Logging;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -110,8 +110,8 @@ public class Movement
 		if (i < 0)
 		{
 			throw new IllegalArgumentException(
-					"Argument of array length to ConcreteMovement"
-							+ "constructor cannot be negative");
+				"Argument of array length to ConcreteMovement"
+					+ "constructor cannot be negative");
 		}
 		movementTypes = new String[i];
 		movements = new Double[i];
@@ -303,29 +303,35 @@ public class Movement
 	public String toString()
 	{
 		final StringBuffer movelabel = new StringBuffer();
-		movelabel.append(movementTypes[0]);
-		movelabel.append(' ').append(
-				Globals.getGameModeUnitSet().convertDistanceToUnitSet(
-						movements[0].doubleValue()));
-		movelabel.append(Globals.getGameModeUnitSet().getDistanceUnit());
-		if (movementMult[0].doubleValue() != 0)
+		// movementTypes can be empty if a race is created without a MOVE tag in 
+		// the LST editor
+		if (movementTypes != null && movementTypes.length > 0)
 		{
-			movelabel.append('(').append(movementMultOp[0]).append(
-					movementMult[0]).append(')');
-		}
-
-		for (int i = 1; i < movementTypes.length; ++i)
-		{
-			movelabel.append(", ");
-			movelabel.append(movementTypes[i]);
+			movelabel.append(movementTypes[0]);
 			movelabel.append(' ').append(
-					Globals.getGameModeUnitSet().convertDistanceToUnitSet(
-							movements[i].doubleValue()));
+				Globals.getGameModeUnitSet().convertDistanceToUnitSet(
+					movements[0].doubleValue()));
 			movelabel.append(Globals.getGameModeUnitSet().getDistanceUnit());
-			if (movementMult[i].doubleValue() != 0)
+			if (movementMult[0].doubleValue() != 0)
 			{
-				movelabel.append('(').append(movementMultOp[i]).append(
+				movelabel.append('(').append(movementMultOp[0]).append(
+					movementMult[0]).append(')');
+			}
+
+			for (int i = 1; i < movementTypes.length; ++i)
+			{
+				movelabel.append(", ");
+				movelabel.append(movementTypes[i]);
+				movelabel.append(' ').append(
+					Globals.getGameModeUnitSet().convertDistanceToUnitSet(
+						movements[i].doubleValue()));
+				movelabel
+					.append(Globals.getGameModeUnitSet().getDistanceUnit());
+				if (movementMult[i].doubleValue() != 0)
+				{
+					movelabel.append('(').append(movementMultOp[i]).append(
 						movementMult[i]).append(')');
+				}
 			}
 		}
 		return movelabel.toString();
@@ -344,16 +350,16 @@ public class Movement
 		txt.append("\tMOVE");
 		switch (moveRatesFlag)
 		{
-		case 1: // MOVEA:
-			txt.append('A');
-			break;
+			case 1: // MOVEA:
+				txt.append('A');
+				break;
 
-		case 2: // MOVECLONE:
-			txt.append("CLONE");
-			break;
+			case 2: // MOVECLONE:
+				txt.append("CLONE");
+				break;
 
-		default: // MOVE:
-			break;
+			default: // MOVE:
+				break;
 		}
 		txt.append(':');
 		for (int index = 0; index < movementTypes.length; ++index)
@@ -364,7 +370,7 @@ public class Movement
 			}
 
 			if ((movementTypes[index] != null)
-					&& (movementTypes[index].length() > 0))
+				&& (movementTypes[index].length() > 0))
 			{
 				txt.append(movementTypes[index]).append(',');
 			}
@@ -399,7 +405,7 @@ public class Movement
 		if (moveparse == null)
 		{
 			throw new IllegalArgumentException(
-					"Null initialization String illegal");
+				"Null initialization String illegal");
 		}
 		final StringTokenizer moves = new StringTokenizer(moveparse, ",");
 		Movement cm;
@@ -421,7 +427,7 @@ public class Movement
 			if (moves.countTokens() != 0)
 			{
 				Logging.errorPrint("Badly formed MOVE token "
-						+ "(extra value at end of list): " + moveparse);
+					+ "(extra value at end of list): " + moveparse);
 			}
 		}
 		return cm;

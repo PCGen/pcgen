@@ -25,11 +25,12 @@
  */
 package plugin.initiative.gui;
 
+import javax.swing.JFormattedTextField;
+
 import pcgen.core.SettingsHandler;
+import pcgen.util.Logging;
 import plugin.initiative.InitiativePlugin;
 import plugin.initiative.XMLCombatant;
-
-import javax.swing.JFormattedTextField;
 
 /**
  * <p>
@@ -158,8 +159,8 @@ public class AddCombatant extends javax.swing.JDialog
 							getIntegerValue(reflexField, 0), getIntegerValue(
 								willField, 0), getIntegerValue(hpField, 1),
 							getIntegerValue(hpField, 1), 0, getIntegerValue(
-								bonusField, 0), comString, getIntegerValue(
-								crField, 0), 0);
+								bonusField, 0), comString, getFloatValue(
+								crField, 1), 0);
 				initiative.initList.add(xmlcbt);
 				initiative.addTab(xmlcbt);
 			}
@@ -178,8 +179,8 @@ public class AddCombatant extends javax.swing.JDialog
 						getIntegerValue(reflexField, 0), getIntegerValue(
 							willField, 0), getIntegerValue(hpField, 1),
 						getIntegerValue(hpField, 1), 0, getIntegerValue(
-							bonusField, 0), comString, getIntegerValue(crField,
-							0), 0);
+							bonusField, 0), comString,
+						getFloatValue(crField, 1), 0);
 			initiative.initList.add(xmlcbt);
 			initiative.addTab(xmlcbt);
 		}
@@ -271,7 +272,7 @@ public class AddCombatant extends javax.swing.JDialog
 		nameField = new javax.swing.JTextField();
 		playerField = new javax.swing.JTextField();
 
-		crField = Utils.buildIntegerField(-10, 50);
+		crField = Utils.buildFloatField(-10, 50);
 		conField = Utils.buildIntegerField(0, 100);
 		strField = Utils.buildIntegerField(0, 100);
 		dexField = Utils.buildIntegerField(0, 100);
@@ -290,6 +291,7 @@ public class AddCombatant extends javax.swing.JDialog
 
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
+			@Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				closeDialog(evt);
@@ -634,7 +636,7 @@ public class AddCombatant extends javax.swing.JDialog
 		getContentPane().add(crLabel, gridBagConstraints);
 
 		noteLabel
-			.setText("(Note, use negative numbers for fractions. Ex: -2 = 1/2)");
+			.setText("(Note, use decimal fractions for CR less than 1. Ex: .5 = 1/2)");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 7;
@@ -685,6 +687,28 @@ public class AddCombatant extends javax.swing.JDialog
 		if (field.isValid() && field.getValue() instanceof Integer)
 		{
 			returnValue = ((Integer) field.getValue()).intValue();
+		}
+		return returnValue;
+	}
+
+	/**
+	 * <p>Returns the float value of the given field</p>
+	 * @param field A <code>JFormattedTextField</code> with an <code>Float</code> value
+	 * @param defaultValue
+	 * @return float
+	 */
+	private float getFloatValue(JFormattedTextField field, float defaultValue)
+	{
+		float returnValue = defaultValue;
+		if (field.isValid() && field.getValue() instanceof Float)
+		{
+			returnValue = ((Float) field.getValue()).floatValue();
+		}
+		else
+		{
+			Logging
+				.debugPrint("Was unable to read CR value, using default of ["
+					+ defaultValue + "]");
 		}
 		return returnValue;
 	}

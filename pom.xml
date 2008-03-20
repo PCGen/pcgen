@@ -9,9 +9,18 @@
     <plugins>      <plugin>        <groupId>org.apache.maven.plugins</groupId>        <artifactId>maven-site-plugin</artifactId>        <configuration>          <locales>de,en,fr</locales>        </configuration>      </plugin>    </plugins>
   </build>
   <dependencies>
-    <!-- Compiling -->    <dependency>      <groupId>mrj</groupId>      <artifactId>MRJ141Stubs</artifactId>      <version>0</version>    </dependency>
+    <!-- Compiling -->
+    
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
+    </dependency>
+        <dependency>      <groupId>mrj</groupId>      <artifactId>MRJ141Stubs</artifactId>      <version>0</version>    </dependency>
+
     <dependency>      <groupId>skinlf</groupId>      <artifactId>skinlf</artifactId>      <version>1.2.3</version>    </dependency>
     <dependency>      <groupId>wraplf</groupId>      <artifactId>wraplf</artifactId>      <version>0.2</version>    </dependency>
+
     <dependency>      <groupId>fop</groupId>      <artifactId>fop</artifactId>      <version>0.20.5</version>    </dependency>
     <dependency>      <groupId>jep</groupId>      <artifactId>jep</artifactId>      <version>2.24</version>    </dependency>
     <dependency>      <groupId>jep</groupId>      <artifactId>djep</artifactId>      <version>2.24</version>    </dependency>

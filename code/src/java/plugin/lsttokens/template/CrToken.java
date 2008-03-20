@@ -18,7 +18,7 @@ public class CrToken implements PCTemplateLstToken
 	{
 		try
 		{
-			template.setCR(Integer.parseInt(value));
+			template.setCR(Float.parseFloat(value));
 		}
 		catch (NumberFormatException nfe)
 		{
