@@ -31,7 +31,9 @@ import gmgen.pluginmgr.messages.OpenPCGRequestMessage;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.jdom.Element;
 
@@ -40,6 +42,7 @@ import pcgen.core.Constants;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -1041,78 +1044,82 @@ public class PcgCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected void statBlockLineSpellBook(PlayerCharacter aPC,
-			StringBuffer statBuf, ArrayList<PObject> classList,
-			String spellBookName)
+		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuffer statBuf, ArrayList<PObject> classList, String spellBookName)
 		{
 			boolean printedFirst = false;
-			for (PObject pObj : classList)
+			Set<PObject> classes = new HashSet<PObject>();
+			classes.addAll(classList);
+			
+			for ( PObject pObj : classes )
 			{
 				if (pObj != null)
 				{
-					int level = 0;
-					List<CharacterSpell> spellList =
-							pObj.getSpellSupport().getCharacterSpell(null,
-								spellBookName, level);
-
-					if (spellList.size() >= 1)
+					int maxLevel = 100;
+					if (pObj instanceof PCClass) 
 					{
-						if (!printedFirst)
-						{
-							statBuf.append("<br><font class='type'>"
-								+ spellBookName + ":</font><br> ");
-						}
-						statBuf.append("<font class='type'>"
-							+ pObj.getDisplayName() + ":</font><br> ");
-						printedFirst = true;
+						PCClass theClass = (PCClass) pObj;
+						maxLevel = (theClass.getLevel() ==0) ? maxLevel: theClass.getMaxCastLevel();
 					}
-
-					while (spellList.size() >= 1)
+					StringBuffer spellBuff = new StringBuffer();
+					for (int level = 0; level <=maxLevel; level++)
 					{
-						statBuf.append("<font class='type'>Level " + level
-							+ ":</font> ");
+						List<CharacterSpell> spellList = pObj.getSpellSupport().getCharacterSpell(null, spellBookName, level);
 
-						boolean firstLine = true;
-
-						for (CharacterSpell cs : spellList)
+						if (spellList.size() >= 1)
 						{
-							if (!firstLine)
+							spellBuff.append("<font class='type'>Level " + level + ":</font> ");
+
+							boolean firstLine = true;
+
+							for ( CharacterSpell cs : spellList )
 							{
-								statBuf.append(", ");
+								if (!firstLine)
+								{
+									spellBuff.append(", ");
+								}
+
+								firstLine = false;
+
+								Spell spell = cs.getSpell();
+								spellBuff.append("<a href=" + '"' + "spell:");
+								spellBuff.append(spell.getDisplayName());
+								spellBuff.append("\\");
+								spellBuff.append(aPC.parseSpellString(spell, spell.getDescription(aPC), cs.getOwner()));
+								spellBuff.append("\\");
+								spellBuff.append(spell.getRange());
+								spellBuff.append("\\");
+								spellBuff.append(spell.getCastingTime());
+								spellBuff.append("\\");
+								spellBuff.append(spell.getSaveInfo());
+								spellBuff.append("\\");
+								spellBuff.append(aPC.parseSpellString(spell, spell.getDuration(), cs.getOwner()));
+								spellBuff.append("\\");
+								spellBuff.append(aPC.parseSpellString(spell, spell.getTarget(), cs.getOwner()));
+								spellBuff.append('"' + " class=" + '"' + "dialog" + '"' + ">");
+
+								spellBuff.append(spell.getDisplayName());
+								spellBuff.append("</a>");
 							}
-
-							firstLine = false;
-
-							Spell spell = cs.getSpell();
-							statBuf.append("<a href=" + '"' + "spell:");
-							statBuf.append(spell.getDisplayName());
-							statBuf.append("\\");
-							statBuf.append(aPC.parseSpellString(spell, spell
-								.getDescription(aPC), cs.getOwner()));
-							statBuf.append("\\");
-							statBuf.append(spell.getRange());
-							statBuf.append("\\");
-							statBuf.append(spell.getCastingTime());
-							statBuf.append("\\");
-							statBuf.append(spell.getSaveInfo());
-							statBuf.append("\\");
-							statBuf.append(aPC.parseSpellString(spell, spell
-								.getDuration(), cs.getOwner()));
-							statBuf.append("\\");
-							statBuf.append(aPC.parseSpellString(spell, spell
-								.getTarget(), cs.getOwner()));
-							statBuf.append('"' + " class=" + '"' + "dialog"
-								+ '"' + ">");
-
-							statBuf.append(spell.getDisplayName());
-							statBuf.append("</a>");
+							spellBuff.append("<br>");
 						}
-
-						level++;
-						statBuf.append("<br>");
-						spellList =
-								pObj.getSpellSupport().getCharacterSpell(null,
-									spellBookName, level);
+					}
+					if (maxLevel >-1 || (!(pObj instanceof PCClass) ))
+					{
+						if (spellBuff.length() >0 )
+						{
+							statBuf.append("<br><font class='type'>" + spellBookName + ":</font><br> ");
+							statBuf.append("<font class='type'>" + pObj.getDisplayName() + ":</font><br> ");
+							statBuf.append(spellBuff);
+						}
+					}
+					else 
+					{
+						if (spellBuff.length() >0 )
+						{
+							statBuf.append("<br><font class='type'>" + spellBookName + ":</font><br> ");
+							statBuf.append("<font class='type'>" + pObj.getDisplayName() + ":</font><br> ");
+							statBuf.append(spellBuff);
+						}
 					}
 				}
 			}
