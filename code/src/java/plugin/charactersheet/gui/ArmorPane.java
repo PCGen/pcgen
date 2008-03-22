@@ -183,7 +183,7 @@ public class ArmorPane extends javax.swing.JPanel
 	/**
 	 * Refreshes the pane
 	 */
-	public void refresh()
+	public synchronized void refresh()
 	{
 		PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 		final String armorType = typeName.getText();
