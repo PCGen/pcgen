@@ -26,7 +26,9 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.ShieldProf;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -49,27 +51,42 @@ public class PreShieldProfTester extends AbstractPrerequisiteTest implements
 		int runningTotal = 0;
 
 		final String aString = prereq.getKey();
+		final boolean isType =
+				aString.startsWith("TYPE") && aString.length() > 5;
+		ShieldProf keyProf = Globals.getShieldProfKeyed(aString);
 		for (String profName : character.getShieldProfList())
 		{
 			if (profName.equalsIgnoreCase(aString))
 			{
 				runningTotal++;
 			}
-			else if (profName.substring(5).equalsIgnoreCase(
-				aString.substring(5)))
+			else if (isType && profName.startsWith("TYPE")
+				&& profName.substring(5).equalsIgnoreCase(aString.substring(5)))
 			{
 				runningTotal++;
 			}
 			else if (profName.startsWith("SHIELDTYPE"))
 			{
-				if (profName.substring(6).equalsIgnoreCase(prereq.getKey()))
+				String profType = profName.substring(11);
+				if (profType.equalsIgnoreCase(prereq.getKey()))
 				{
 					runningTotal++;
 				}
-				else if (profName.substring(11).equalsIgnoreCase(
-						prereq.getKey()))
+				else if (isType && profType.equalsIgnoreCase(
+					aString.substring(5)))
 				{
 					runningTotal++;
+				}
+				else if (keyProf != null)
+				{
+					for (String keyProfType : keyProf.getTypeList(false))
+					{
+						if (profType.equalsIgnoreCase(keyProfType))
+						{
+							runningTotal++;
+							break;
+						}
+					}
 				}
 			}
 		}

@@ -66,6 +66,8 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements
 		}
 
 		ArmorProf keyProf = Globals.getArmorProfKeyed(prereq.getKey());
+		final boolean isType =
+			prereq.getKey().startsWith("TYPE") && prereq.getKey().length() > 5;
 		
 		for (String profName : character.getArmorProfList())
 		{
@@ -73,7 +75,8 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements
 			{
 				runningTotal++;
 			}
-			else if (profName.substring(5).equalsIgnoreCase(prereq.getKey()))
+			else if (isType && profName.startsWith("TYPE")
+					&& profName.substring(5).equalsIgnoreCase(prereq.getKey()))
 			{
 				// TYPE=Light equals TYPE.Light
 				runningTotal++;
@@ -85,9 +88,8 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements
 				{
 					runningTotal++;
 				}
-				else if (prereq.getKey().length() > 5
-					&& profType.equalsIgnoreCase(
-						prereq.getKey().substring(5)))
+				else if (isType
+					&& profType.equalsIgnoreCase(prereq.getKey().substring(5)))
 				{
 					runningTotal++;
 				}

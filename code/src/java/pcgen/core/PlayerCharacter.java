@@ -2821,8 +2821,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<String> getShieldProfList()
 	{
-		shieldProfList.clear();
-
 		final List<String> autoShieldProfList = getAutoShieldProfList();
 		addShieldProfs(autoShieldProfList);
 
