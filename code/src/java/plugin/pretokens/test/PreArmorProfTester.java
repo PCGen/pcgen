@@ -26,14 +26,21 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.core.ArmorProf;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.util.PropertyFactory;
 
 /**
- * @author wardc
+ * <code>PreArmorProfTester</code> does the testing of armor proficiency 
+ * prerequisites. 
  *
+ * @author Chris Ward <frugal@purplewombat.co.uk>
+ * @version $Revision$
  */
 public class PreArmorProfTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
@@ -43,10 +50,23 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
 	{
 		int runningTotal = 0;
 
+		final int number;
+		try
+		{
+			number = Integer.parseInt(prereq.getOperand());
+		}
+		catch (NumberFormatException exceptn)
+		{
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"Prereq.error", "PREARMOR", prereq.toString())); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+
+		ArmorProf keyProf = Globals.getArmorProfKeyed(prereq.getKey());
+		
 		for (String profName : character.getArmorProfList())
 		{
 			if (profName.equalsIgnoreCase(prereq.getKey()))
@@ -60,17 +80,32 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements
 			}
 			else if (profName.startsWith("ARMORTYPE"))
 			{
-				if (profName.substring(5).equalsIgnoreCase(prereq.getKey()))
+				String profType = profName.substring(10);
+				if (profType.equalsIgnoreCase(prereq.getKey()))
 				{
 					runningTotal++;
 				}
-				else if (profName.substring(10).equalsIgnoreCase(prereq.getKey()))
+				else if (prereq.getKey().length() > 5
+					&& profType.equalsIgnoreCase(
+						prereq.getKey().substring(5)))
 				{
 					runningTotal++;
+				}
+				else if (keyProf != null)
+				{
+					for (String keyProfType : keyProf.getTypeList(false))
+					{
+						if (profType.equalsIgnoreCase(keyProfType))
+						{
+							runningTotal++;
+							break;
+						}
+					}
 				}
 			}
 		}
 
+		runningTotal = prereq.getOperator().compare(runningTotal, number);
 		return countedTotal(prereq, runningTotal);
 	}
 
