@@ -422,9 +422,8 @@ public final class BrowserLauncher
 
 					try
 					{
-						Logging.errorPrint(PropertyFactory
-							.getFormattedString("in_BLEr11",
-							url));
+						Logging.log(Logging.INFO, PropertyFactory
+							.getFormattedString("in_BLEr11", url));
 						openURL.invoke(null, new Object[]{url});
 					}
 					catch (InvocationTargetException ite)
@@ -521,21 +520,21 @@ public final class BrowserLauncher
 				return;
 			}
 
-			Logging.errorPrint(PropertyFactory.getFormattedString("in_BLEr15",
-				browserPath));
+			Logging.log(Logging.INFO, PropertyFactory.getFormattedString(
+				"in_BLEr15", browserPath));
 
 			// On MacOS X, one must use open -a to launch an app.
 			if ((jvm == MRJ_3_1) && browserPath.toLowerCase().endsWith(".app"))
 			{
-				Logging.errorPrint(PropertyFactory.getFormattedString("in_BLEr16",
-					browserPath,url));
+				Logging.log(Logging.INFO, PropertyFactory.getFormattedString(
+					"in_BLEr16", browserPath, url));
 				Runtime.getRuntime().exec(
 					new String[]{"open", "-a", browserPath, url});
 			}
 			else
 			{
-				Logging.errorPrint(PropertyFactory.getFormattedString("in_BLEr17",
-					browserPath,url));
+				Logging.log(Logging.INFO, PropertyFactory.getFormattedString(
+					"in_BLEr17", browserPath, url));
 				Runtime.getRuntime().exec(new String[]{browserPath, url});
 			}
 		}
