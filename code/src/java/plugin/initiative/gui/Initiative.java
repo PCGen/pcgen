@@ -144,6 +144,7 @@ public class Initiative extends javax.swing.JPanel
 	private javax.swing.JPanel jPanel2;
 	private javax.swing.JPopupMenu tablePopup;
 	private javax.swing.JScrollPane jScrollPane1;
+	private javax.swing.JScrollPane jScrollEvents;
 	private FlippingSplitPane jSplitPane1;
 	private javax.swing.JTabbedPane tpaneInfo;
 	private javax.swing.JTable combatantTable;
@@ -2551,6 +2552,7 @@ public class Initiative extends javax.swing.JPanel
 		lCounter = new javax.swing.JLabel();
 		jSplitPane1 = new FlippingSplitPane();
 		jScrollPane1 = new javax.swing.JScrollPane();
+		jScrollEvents = new javax.swing.JScrollPane();
 		combatantTable = new javax.swing.JTable();
 		tpaneInfo = new javax.swing.JTabbedPane();
 		tpCombatInfo = new javax.swing.JTextArea();
@@ -2800,10 +2802,11 @@ public class Initiative extends javax.swing.JPanel
 			});
 
 		jScrollPane1.setViewportView(combatantTable);
-
+		jScrollEvents.setViewportView(tpCombatInfo);
+		
 		jSplitPane1.setLeftComponent(jScrollPane1);
 
-		tpaneInfo.addTab("Events", tpCombatInfo);
+		tpaneInfo.addTab("Events", jScrollEvents);
 
 		jSplitPane1.setRightComponent(tpaneInfo);
 
