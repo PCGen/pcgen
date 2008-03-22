@@ -129,7 +129,7 @@ public class AddLst implements GlobalLstToken
 			{
 				Logging
 					.deprecationPrint("ADD: syntax with parenthesis is deprecated.");
-				Logging.deprecationPrint("Please use ADD:" + key + "|...");
+				Logging.deprecationPrint("Please use ADD:" + key + "|... in ADD:"+ value);
 				obj.addAddList(anInt, value);
 				return true;
 			}
