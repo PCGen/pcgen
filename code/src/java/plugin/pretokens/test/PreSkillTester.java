@@ -182,7 +182,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		{
 			Skill finalSkill = null ;
 			Set<Skill> servesAs = new HashSet<Skill>();
-			for(String fakeSkill: aSkill.getServesAs().keySet())
+			for(String fakeSkill: aSkill.getServesAs(""))
 			{
 				finalSkill = Globals.getSkillKeyed(fakeSkill);
 				servesAs.add(finalSkill);

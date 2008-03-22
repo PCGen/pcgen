@@ -125,8 +125,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 				}
 				else
 				{
-					Map<String,String> theList =cl.getServesAs();
-					Set<String> keys = theList.keySet();
+					List<String> keys =cl.getServesAs("");
 SERVESAS:			for(String aKey  : keys)
 					{
 						PCClass aClass = Globals.getClassKeyed(aKey);
@@ -174,8 +173,7 @@ SERVESAS:			for(String aKey  : keys)
 			{
 CLASSLIST:		for(PCClass theClass: character.getClassList())
 				{
-					Map<String,String> theList = theClass.getServesAs();
-					Set<String> keys = theList.keySet();
+					List<String> keys = theClass.getServesAs("");
 					for(String aKey  : keys)
 					{
 						if (aKey.equalsIgnoreCase(aString))

@@ -125,8 +125,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		target2.setTypeInfo("INT");
 		Globals.getSkillList().add((Skill) target2);
 		
-		fake.putServesAs(target.getDisplayName(), null);		
-		fake.putServesAs(target2.getDisplayName(), null);		
+		fake.putServesAs(target.getDisplayName(), "");		
+		fake.putServesAs(target2.getDisplayName(), "");		
 
 	}
 

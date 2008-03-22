@@ -40,7 +40,7 @@ public class ServesAsToken implements GlobalLstToken
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String key = st.hasMoreTokens() ? st.nextToken() : "";
 		Class c;
-		String category = null;
+		String category = "";
 		int equalLoc = key.indexOf('=');
 		if (equalLoc == -1) {
 			if ("ABILITY".equals(key)) {

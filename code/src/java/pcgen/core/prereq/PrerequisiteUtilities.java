@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
@@ -398,6 +399,33 @@ public final class PrerequisiteUtilities
 					if (aCat.getAbilityCategory().equals(categoryName))
 					{
 						abilityList.addAll(character.getAggregateAbilityList(aCat));
+					}
+				}
+			}
+			
+			// Now scan for relevant SERVESAS occurrences
+			for (AbilityCategory aCat : allCats)
+			{
+				for (Ability ability : character.getAggregateAbilityList(aCat))
+				{
+					final Map<String, List<String>> servesAsMap = ability.getServesAs();
+					for (String cat : servesAsMap.keySet())
+					{
+						if (categoryName == null || categoryName.equals(cat))
+						{
+							for (String abilityKey : servesAsMap.get(cat))
+							{
+								AbilityCategory saCat =
+										SettingsHandler.getGame()
+											.getAbilityCategory(cat);
+								Ability saAbility =
+										Globals.getAbilityKeyed(saCat, abilityKey);
+								if (saAbility != null)
+								{
+									abilityList.add(saAbility);
+								}
+							}
+						}
 					}
 				}
 			}

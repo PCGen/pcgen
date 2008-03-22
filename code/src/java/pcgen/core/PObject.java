@@ -167,7 +167,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	private List<Description> theDescriptions = null;
 	
 	private DoubleKeyMap<Class, String, List<String>> qualifyKeys = null;
-	private HashMap<String,String> servesAsList =null;
+	private HashMap<String,List<String>> servesAsList =null;
 	
 	private URI sourceURI = null;
 	
@@ -5226,32 +5226,41 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	{
 		if (servesAsList == null)
 		{
-			servesAsList = new HashMap<String,String>();
+			servesAsList = new HashMap<String,List<String>>();
 		}
-		servesAsList.put(key,category);
-	}
-	public void putServesAs( final Map<String,String> ServersAs ) 
-	{
-		if (servesAsList == null)
+		List<String> list = servesAsList.get(category);
+		if (list == null)
 		{
-			servesAsList = new HashMap<String,String>();
-			return;
+			list = new ArrayList<String>();
+			servesAsList.put(category, list);
 		}
-		servesAsList = (HashMap<String, String>) ServersAs;
+		list.add(key);
 	}
+
 	public final void clearServesAs()
 	{
 		servesAsList =null;
 	}
 	
 	//TODO This exposes internal structure - be careful.
-	public final Map<String,String> getServesAs()
+	public final Map<String,List<String>> getServesAs()
 	{
 		if (servesAsList == null)
 		{
-			servesAsList = new  HashMap<String,String>();
+			servesAsList = new  HashMap<String,List<String>>();
 		}
 		return servesAsList;
+	}
+	
+	public final List<String> getServesAs(String category)
+	{
+		if (servesAsList == null)
+		{
+			servesAsList = new  HashMap<String,List<String>>();
+		}
+		List<String> result = servesAsList.get(category); 
+		return result == null ? new ArrayList<String>() : Collections
+			.unmodifiableList(result);
 	}
 	
 //	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC, final String aBonusType, final String aBonusName)
