@@ -39,6 +39,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.utils.AbstractTreeTableModel;
@@ -533,8 +534,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		{
 			final Ability aFeat = fList.get(i);
 
-			// TODO - Change this when we have PRExxx tags for Ability
-			if (!aFeat.hasPreReqTypeOf("FEAT")) //$NON-NLS-1$
+			if (!aFeat.hasPreReqTypeOf("FEAT") //$NON-NLS-1$
+				&& !aFeat.hasPreReqTypeOf("ABILITY"))  //$NON-NLS-1$
 			{
 				fList.remove(aFeat);
 				aList.add(aFeat);
@@ -552,36 +553,22 @@ public class AbilityModel extends AbstractTreeTableModel implements
 
 		for (int i = 0; i < aList.size(); ++i)
 		{
-			final Ability ability = aList.get(i);
-
-			directChildren[i] = new PObjectNode();
-			directChildren[i].setItem(ability);
-			directChildren[i].setParent(rootAsPObjectNode);
-
-			switch (ability.getFeatType())
-			{
-				case AUTOMATIC:
-					directChildren[i].setColor(SettingsHandler
-						.getFeatAutoColor());
-					break;
-				case VIRTUAL:
-					directChildren[i].setColor(SettingsHandler
-						.getFeatVirtualColor());
-					break;
-			}
+			directChildren[i] =
+					createAbilityPObjectNode(rootAsPObjectNode, aList.get(i));
 		}
 
 		rootAsPObjectNode.setChildren(directChildren);
 
 		// fList now contains only those abilities that have prereqs on other
 		// abilities.
+		final List<Ability> unmatchedList = new ArrayList<Ability>(fList);
 		int loopmax = 6; // only go 6 levels...
 		while ((fList.size() > 0) && (loopmax-- > 0))
 		{
 			for (int i = 0; i < fList.size(); ++i)
 			{
 				final Ability ability = fList.get(i);
-				int placed = 0;
+				boolean placed = false;
 
 				// Make a copy of the prereq
 				// list so we don't destroy
@@ -590,66 +577,133 @@ public class AbilityModel extends AbstractTreeTableModel implements
 
 				for (Prerequisite prereq : ability.getPreReqList())
 				{
-					// TODO - Fix this. See comment above.
-					if ((prereq.getKind() != null)
-						&& prereq.getKind().equalsIgnoreCase("FEAT")) //$NON-NLS-1$
+					if (PrerequisiteUtilities.hasPreReqKindOf(prereq, "FEAT") //$NON-NLS-1$
+						|| PrerequisiteUtilities.hasPreReqKindOf(prereq,
+							"ABILITY")) //$NON-NLS-1$
 					{
 						preReqList.add(prereq);
 					}
 				}
-				// TODO - What should happen if an ability has multiple pres?
+				// Add ability in each location where it fits, we will tidy up duplicates later
 				for (int j = 0; j < rootAsPObjectNode.getChildCount(); ++j)
 				{
 					final PObjectNode po = rootAsPObjectNode.getChild(j);
 
-					placed = placedThisFeatInThisTree(ability, po, preReqList);
+					placed |= placedThisFeatInThisTree(ability, po, preReqList);
+				}
 
-					if (placed > 0)
+				if (placed)
+				{
+					unmatchedList.remove(ability);
+				}
+			}
+		}
+		pruneDuplicatesFromTree(rootAsPObjectNode);
+
+		// These abilities have PREABILITY tags but we couldn't find a match
+		// for the ability. e.g. PREABILITY:1,TYPE.Metamagic
+		// Add them into the root like any other ability.
+		if (unmatchedList.size() > 0)
+		{
+			final PObjectNode[] cc = new PObjectNode[unmatchedList.size()];
+
+			for (int i = 0; i < unmatchedList.size(); ++i)
+			{
+				cc[i] = createAbilityPObjectNode(rootAsPObjectNode, unmatchedList.get(i));
+				rootAsPObjectNode.addChild(cc[i], true);
+			}
+		}
+	}
+
+	/**
+	 * Ensure that each ability only occurs at the deepest level in a 
+	 * particular sub tree. So for Dodge/Mobility/Spring Attack, Spring Attack 
+	 * should only occur under mobility, and not also under dodge. We had to 
+	 * populate first and then remove to ensure that the ability is in all 
+	 * appropriate locations.
+	 * @param parent The parent node to have duplicates pruned from.
+	 */
+	private void pruneDuplicatesFromTree(PObjectNode parent)
+	{
+		if (parent == null || parent.getChildCount() == 0)
+		{
+			return;
+		}
+
+		List<PObjectNode> deletions = new ArrayList<PObjectNode>();
+		for (PObjectNode child : parent.getChildren())
+		{
+			for (PObjectNode sibling : parent.getChildren())
+			{
+				if (sibling != child)
+				{
+					if (hasChild(sibling, child.getItem()))
 					{
+						deletions.add(child);
 						break;
 					}
 				}
-
-				// TODO - Make a constant for this?
-				if (placed == 2) // i.e. tree match
-				{
-					fList.remove(ability);
-					--i; // since we're incrementing in the for loop
-				}
 			}
-		}
 
-		// These abilities have PREABILITY tags but we couldn't find a match
-		// for the ability.  
-		// TODO - This shouldn't happen should it?
-		if (fList.size() > 0)
+			pruneDuplicatesFromTree(child);
+		}
+		for (PObjectNode objectNode : deletions)
 		{
-			PObjectNode po = new PObjectNode();
-			po.setItem(PropertyFactory.getString("in_other")); //$NON-NLS-1$
-			final PObjectNode[] cc = new PObjectNode[fList.size()];
-
-			for (int i = 0; i < fList.size(); ++i)
-			{
-				final Ability ability = fList.get(i);
-
-				cc[i] = new PObjectNode();
-				cc[i].setItem(ability);
-				cc[i].setParent(po);
-
-				switch (ability.getFeatType())
-				{
-					case AUTOMATIC:
-						cc[i].setColor(SettingsHandler.getFeatAutoColor());
-						break;
-					case VIRTUAL:
-						cc[i].setColor(SettingsHandler.getFeatVirtualColor());
-						break;
-				}
-			}
-
-			po.setChildren(cc);
-			rootAsPObjectNode.addChild(po);
+			parent.getChildren().remove(objectNode);
 		}
+	}
+
+	/**
+	 * Identify if a node has a child node with the specified item.
+	 * @param node The node whose descendants will be scanned
+	 * @param item The item we are looking for
+	 * @return true if any descendant has the item, false if not.
+	 */
+	private boolean hasChild(PObjectNode node, Object item)
+	{
+		if (node == null || node.getChildCount() == 0)
+		{
+			return false;
+		}
+		
+		for (PObjectNode child : node.getChildren())
+		{
+			if (item == child.getItem())
+			{
+				return true;
+			}
+			if (hasChild(child, item))
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+	/**
+	 * Create a PObjectNode for an ability
+	 * @param parent The intended parent of the node.
+	 * @param ability The ability the node will hold
+	 * @return A new PObjectNode.
+	 */
+	private PObjectNode createAbilityPObjectNode(PObjectNode parent,
+		final Ability ability)
+	{
+		final PObjectNode newNode = new PObjectNode();
+		newNode.setItem(ability);
+		newNode.setParent(parent);
+
+		switch (ability.getFeatType())
+		{
+			case AUTOMATIC:
+				newNode.setColor(SettingsHandler.getFeatAutoColor());
+				break;
+			case VIRTUAL:
+				newNode.setColor(SettingsHandler.getFeatVirtualColor());
+				break;
+		}
+		return newNode;
 	}
 
 	/**
@@ -804,61 +858,53 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		}
 	}
 
-	private int placedThisFeatInThisTree(final Ability anAbility,
+	private boolean placedThisFeatInThisTree(final Ability anAbility,
 		final PObjectNode po, final List<Prerequisite> aList)
 	{
 		final Ability parentAbility = (Ability) po.getItem(); // must be a Feat
-		boolean trychildren = false;
-		boolean thisisit = false;
+		boolean placed = false;
 
 		for (final Prerequisite prereq : aList)
 		{
-			final String pString = prereq.getKey();
-
-			if (pString.equalsIgnoreCase(parentAbility.getKeyName()))
+			if ((PrerequisiteUtilities.hasPreReqMatching(prereq, "FEAT",
+				parentAbility.getKeyName())
+				|| PrerequisiteUtilities.hasPreReqMatching(prereq, "ABILITY",
+					parentAbility.getKeyName())))
 			{
-				thisisit = true;
-			}
-			else
-			{
-				trychildren = true; // might be a child
-			}
-
-			if (thisisit)
-			{
-				final PObjectNode p = new PObjectNode();
-				p.setItem(anAbility);
-				p.setParent(po);
-				po.addChild(p);
-
-				switch (anAbility.getFeatType())
+				boolean alreadyPresent = false;
+				if (po.getChildCount() > 0)
 				{
-					case AUTOMATIC:
-						p.setColor(SettingsHandler.getFeatAutoColor());
-						break;
-					case VIRTUAL:
-						p.setColor(SettingsHandler.getFeatVirtualColor());
-						break;
-				}
-
-				return 2; // successfully added
-			}
-			else if (trychildren)
-			{
-				for (int i = 0; i < po.getChildCount(); ++i)
-				{
-					int j =
-							placedThisFeatInThisTree(anAbility, po.getChild(i),
-								aList);
-
-					if (j == 2)
+					for (PObjectNode pnode : po.getChildren())
 					{
-						return 2;
-					}
+						if (anAbility.equals(pnode.getItem()))
+						{
+							alreadyPresent = true;
+							break;
+						}
+					} 
+				}
+				if (!alreadyPresent)
+				{
+					final PObjectNode p = createAbilityPObjectNode(po, anAbility);
+					po.addChild(p);
+	
+					placed = true; // successfully added
+				}
+			}
+
+			for (int i = 0; i < po.getChildCount(); ++i)
+			{
+				boolean j =
+						placedThisFeatInThisTree(anAbility, po.getChild(i),
+							aList);
+
+				if (j)
+				{
+					placed = true;
 				}
 			}
 		}
-		return 0; // not here
+		return placed; // not here
 	}
 
 	public void setCurrentAbilityCategory(AbilityCategory newCat)

@@ -236,16 +236,9 @@ public class PrereqObject implements Cloneable
 
 		for (Prerequisite prereq : getPreReqList())
 		{
-			if (prereq != null)
+			if (PrerequisiteUtilities.hasPreReqKindOf(prereq, matchType))
 			{
-				if (matchType == null && prereq.getKind() == null)
-				{
-					return true;
-				}
-				if (matchType.equalsIgnoreCase(prereq.getKind()))
-				{
-					return true;
-				}
+				return true;
 			}
 		}
 

@@ -571,5 +571,74 @@ public final class PrerequisiteUtilities
 		}
 		return returnTotal;
 	}
+
+	/**
+	 * Identify if the prerequisite is itself of the supplied kind or has a 
+	 * descendant of the required kind.
+	 * @param prereq Prerequisite to be checked
+	 * @param matchKind Kind to be checked for.
+	 * @return
+	 */
+	public static final boolean hasPreReqKindOf(final Prerequisite prereq, String matchKind)
+	{
+		if (prereq == null)
+		{
+			return false;
+		}
+
+		if (matchKind == null && prereq.getKind() == null)
+		{
+			return true;
+		}
+		if (matchKind.equalsIgnoreCase(prereq.getKind()))
+		{
+			return true;
+		}
+		
+		for (Prerequisite childPrereq : prereq.getPrerequisites())
+		{
+			if (hasPreReqKindOf(childPrereq, matchKind))
+			{
+				return true;
+			}
+		}
+	
+		return false;
+	}
+
+	/**
+	 * Identify if the prerequisite is itself of the supplied kind or has a 
+	 * descendant of the required kind.
+	 * @param prereq Prerequisite to be checked
+	 * @param matchKind Kind to be checked for.
+	 * @return
+	 */
+	public static final boolean hasPreReqMatching(final Prerequisite prereq, String matchKind, String matchKey)
+	{
+		if (prereq == null)
+		{
+			return false;
+		}
+
+		if ((matchKind == null && prereq.getKind() == null)
+			|| (matchKind.equalsIgnoreCase(prereq.getKind())))
+		{
+			if ((matchKey == null && prereq.getKey() == null)
+				|| (matchKey.equalsIgnoreCase(prereq.getKey())))
+			{
+				return true;
+			}
+		}
+		
+		for (Prerequisite childPrereq : prereq.getPrerequisites())
+		{
+			if (hasPreReqMatching(childPrereq, matchKind, matchKey))
+			{
+				return true;
+			}
+		}
+	
+		return false;
+	}
 	
 }
