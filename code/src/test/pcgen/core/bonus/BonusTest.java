@@ -30,6 +30,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.character.EquipSet;
+import pcgen.core.spell.Spell;
 import plugin.bonustokens.Var;
 
 /**
@@ -172,5 +173,26 @@ public class BonusTest extends AbstractCharacterTestCase
 		monkMove.setValue("VAR|MonkMove|floor(var(\"monkLvl\")/3)*10");
 		assertTrue("Should have flagged a dependancy on monkLvl", monkMove
 			.getDependsOn("MONKLVL"));
+	}
+	public void testSpellPointCost()
+	{
+		Spell sp = new Spell();
+		sp.setName("Test");
+		sp.addSchool("INFUSE");
+		sp.setParsedSpellPointCost("Duration", 4);
+		sp.setParsedSpellPointCost("Infuse Fire", 4);
+		
+		int spCosts = sp.getSpellPointCostActual();
+		
+		final PlayerCharacter character = getCharacter();
+		Globals.setCurrentPC(character);
+		final BonusObj spCost =
+				Bonus.newBonus("SPELLPOINTCOST|SCHOOL.Infuse;Duration|2|TYPE=Specialist");
+		spCost.setCreatorObject(sp);
+		sp.addBonusList(spCost);
+		sp.activateBonuses(character);
+		
+		Double a = sp.calcBonusFrom(spCost, character, character);
+		assertEquals(10, spCosts + a.intValue());
 	}
 }

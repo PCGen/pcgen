@@ -45,6 +45,9 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.PObject;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusObj.StackType;
+import pcgen.core.bonus.util.SpellPointCostInfo;
+import pcgen.core.bonus.util.SpellPointCostInfo.SpellPointFilterType;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -88,12 +91,8 @@ public final class Spell extends PObject
 	private int castingThreshold = 0;
 	private int xpCost = 0;
 	private int ppCost = 0;
-	public enum SpellPointType
-	{
-		ACTUALCOST,
-		EFFECTIVECOST		
-	}
-	private HashMap<String, HashMap<SpellPointType, Integer>> spellPointCost = new HashMap<String,HashMap<SpellPointType, Integer>>();
+
+	private HashMap<String, Integer> spellPointCost = new HashMap<String,  Integer>();
 
 	static boolean hasPPCost = false;
 	static boolean hasSpellPointCost = false;
@@ -992,7 +991,7 @@ public final class Spell extends PObject
 			}
 			if (spellPointCost != null)
 			{
-				aSpell.spellPointCost = new HashMap<String, HashMap<SpellPointType,Integer>>(spellPointCost);
+				aSpell.spellPointCost = new HashMap<String,Integer>(spellPointCost);
 				
 			}
 
@@ -1283,10 +1282,7 @@ public final class Spell extends PObject
 	public void setParsedSpellPointCost(String component, final int value)
 	{
 		hasSpellPointCost = true;
-		HashMap<SpellPointType, Integer> costs = new HashMap<SpellPointType, Integer>();
-		costs.put(SpellPointType.ACTUALCOST, value);
-		costs.put(SpellPointType.EFFECTIVECOST, value);
-		spellPointCost.put(component, costs);
+		spellPointCost.put(component, value);
 	}
 	public static boolean hasSpellPointCost()
 	{
@@ -1299,8 +1295,7 @@ public final class Spell extends PObject
 				
 		for (String spComponent: spellPointCost.keySet())
 		{
-			HashMap<SpellPointType, Integer> costs  = spellPointCost.get(spComponent);
-			int value = costs.get(SpellPointType.ACTUALCOST);
+			int value = spellPointCost.get(spComponent);
 			int translatedValue =  value;
 			spCost.put(spComponent, translatedValue);
 		}
@@ -1376,81 +1371,25 @@ public final class Spell extends PObject
 	public String getSPCostStrings(PlayerCharacter aPC)
 	{
 		Map<String,Integer> spCost = getSpellPointCostActualParts();
-		int totalSpellPoints =  getSpellPointCostActual();
+		int totalSpellPoints =  getSpellPointCostActual(aPC);
 		StringBuffer sb = new StringBuffer();
 		StringBuffer sb2 = new StringBuffer();
-		List<BonusObj> allBonuses = aPC.getActiveBonusList();
-		boolean isMatchingSpell = false;
-		
-		String key ="";
-		String value = "";
-		
-		for (BonusObj bonus: allBonuses)
-		{
-			if (!(bonus.getBonusName().equals("SPELLPOINTCOST")))
-			{
-				continue;
-			}
-			String bonusInfo = bonus.getBonusInfo();
-			StringTokenizer aTok = new StringTokenizer(bonusInfo, ";");
-					
-			while (aTok.hasMoreTokens())
-			{
-				String token = aTok.nextToken();
-				String tokenPart = "";
-				if (token.startsWith("SCHOOL."))
-				{
-					tokenPart = token.substring(token.indexOf(".")+1);
-					for(String theString: this.getSchools())
-					{
-						isMatchingSpell = theString.equalsIgnoreCase(tokenPart);
-						if (isMatchingSpell)
-						{
-							break;
-						}
-					}
-				}
-				else if (token.startsWith("SUBSCHOOL."))
-				{
-					tokenPart = token.substring(token.indexOf(".")+1);
-					for(String theString: this.getSubschools())
-					{
-						isMatchingSpell = theString.equalsIgnoreCase(tokenPart);
-						if (isMatchingSpell)
-						{
-							break;
-						}
-					}
-				}
-				else if (token.startsWith("SPELL."))
-				{
-					tokenPart = token.substring(token.indexOf(".")+1);
-					if (this.getKeyName().equalsIgnoreCase(tokenPart))
-					{
-						isMatchingSpell = true;
-					}
-				}
-				else 
-				{
-					if (isMatchingSpell)
-					{
-						key = token.substring(0,token.indexOf("="));
-						value = token.substring(token.indexOf("=")+1);
-					}
-				}
-			}
-		}
-		
+ 
+		int bonus =0;		
 		sb2.append("");
-		sb.append(totalSpellPoints); 
+		 
 		if (spCost.size() ==0)
 		{
+			sb.append(totalSpellPoints);
 			return sb.toString();
 		}
-		if(spCost.size()==1 && spCost.containsKey("TOTAL"))
+		else if(spCost.size()==1 && spCost.containsKey("TOTAL"))
 		{
+			sb.append(totalSpellPoints);
 			return sb.toString();
 		}
+		
+		sb.append(totalSpellPoints);
 		sb.append(" [");
 		
 		// Using a TreeSet so they are sorted no matter what order the data is input 
@@ -1461,15 +1400,28 @@ public final class Spell extends PObject
 		
 		for (String aComponent: fields)
 		{
+			bonus = 0;
 			if (aComponent.equalsIgnoreCase("Range"))
 			{
 				sb2.append(aComponent);
 				sb2.append(" ");
 				sb2.append(spCost.get(aComponent));
-				if (key.equalsIgnoreCase(aComponent))
+
+				for (String school: getSchools())
+				{
+					bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL." + school.toUpperCase() +";"+ aComponent.toUpperCase());
+				}
+				for (String subSchool: getSubschools())
+				{
+					bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL." + subSchool.toUpperCase() +";"+ aComponent.toUpperCase());
+				}
+				bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SPELL." + this.getKeyName() +";"+ aComponent.toUpperCase());
+				if (bonus != 0)	
 				{
 					sb2.append("(");
-					sb2.append(value);
+					String sign = (bonus >0)? "+": "-"; 
+					sb2.append(sign);
+					sb2.append(bonus);
 					sb2.append(")");
 				}
 				sb2.append("/");
@@ -1479,10 +1431,21 @@ public final class Spell extends PObject
 				sb2.append(aComponent);
 				sb2.append(" ");
 				sb2.append(spCost.get(aComponent));
-				if (key.equalsIgnoreCase(aComponent))
+				for (String school: getSchools())
+				{
+					bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL." + school.toUpperCase() +";"+ aComponent.toUpperCase());
+				}
+				for (String subSchool: getSubschools())
+				{
+					bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL." + subSchool.toUpperCase() +";"+ aComponent.toUpperCase());
+				}
+				bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SPELL." + this.getKeyName() +";"+ aComponent.toUpperCase());
+				if (bonus != 0)	
 				{
 					sb2.append("(");
-					sb2.append(value);
+					String sign = (bonus >0)? "+": "-"; 
+					sb2.append(sign);
+					sb2.append(bonus);
 					sb2.append(")");
 				}
 				sb2.append("/");
@@ -1492,28 +1455,49 @@ public final class Spell extends PObject
 				sb2.append(aComponent);
 				sb2.append(" ");
 				sb2.append(spCost.get(aComponent));
-				if (key.equalsIgnoreCase(aComponent))
+				for (String school: getSchools())
+				{
+					bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL." + school.toUpperCase() +";"+ aComponent.toUpperCase());
+				}
+				for (String subSchool: getSubschools())
+				{
+					bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL." + subSchool.toUpperCase() +";"+ aComponent.toUpperCase());
+				}
+				bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SPELL." + this.getKeyName() +";"+ aComponent.toUpperCase());
+				if (bonus != 0)	
 				{
 					sb2.append("(");
-					sb2.append(value);
+					String sign = (bonus >0)? "+": "-"; 
+					sb2.append(sign);
+					sb2.append(bonus);
 					sb2.append(")");
 				}
 				sb2.append("/");
 			}
 			else
 			{
+				for (String school: getSchools())
+				{
+					bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL." + school.toUpperCase() +";"+ aComponent.toUpperCase());
+				}
+				for (String subSchool: getSubschools())
+				{
+					bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL." + subSchool.toUpperCase() +";"+ aComponent.toUpperCase());
+				}
+				bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SPELL." + this.getKeyName() +";"+ aComponent.toUpperCase());
 				sb.append(aComponent);
 				sb.append(" ");
 				sb.append(spCost.get(aComponent));
-				if (key.equalsIgnoreCase(aComponent))
-				{
-					sb2.append("(");
-					sb2.append(value);
-					sb2.append(")");
-				}
 				sb.append("/");
-			}
-			
+				if (bonus != 0)	
+				{
+					sb.append("(");
+					String sign = (bonus >0)? "+": "-"; 
+					sb.append(sign);
+					sb.append(bonus);
+					sb.append(")");
+				}
+			}			
 		}
 		if(sb2.length() < 1)
 		{
@@ -1534,6 +1518,65 @@ public final class Spell extends PObject
 			runnintTotal += spCost.get(aComponent);
 		}
 		return runnintTotal;
+	}
+	public int getSpellPointCostActual(PlayerCharacter aPC)
+	{	
+		int runningTotal = 0;
+		List<BonusObj> bonusList = aPC.getActiveBonusList();
+		Set<BonusObj> bonuses = new HashSet<BonusObj>();
+		bonuses.addAll(bonusList);
+		
+		Map<String,Integer> spCost = getSpellPointCostActualParts();
+		for (String aComponent: spCost.keySet())
+		{
+			runningTotal += spCost.get(aComponent);
+		}
+		for (BonusObj b: bonuses)
+		{
+			if (b.toString().contains("SPELLPOINTCOST"))
+			{
+				try {
+					List<SpellPointCostInfo> spBonusInfo = (List<SpellPointCostInfo>) b.getBonusInfoList();
+					for (SpellPointCostInfo info: spBonusInfo)
+					{
+						if (!info.isVirtual())
+						{
+							boolean getBonus = false;
+							if(info.getSpellPointPartFilter() == SpellPointFilterType.SCHOOL 
+									&& this.getSchools().contains(info.getSpellPointPartFilterValue().toUpperCase()))
+							{
+								getBonus = true;
+							}
+							else if(info.getSpellPointPartFilter() == SpellPointFilterType.SUBSCHOOL 
+									&& this.getSubschools().contains(info.getSpellPointPartFilterValue().toUpperCase()))
+							{
+								getBonus = true;
+							}
+							else if(info.getSpellPointPartFilter() == SpellPointFilterType.SPELL 
+									&& this.getKeyName().equals(info.getSpellPointPartFilterValue().toUpperCase()))
+							{
+								getBonus = true;
+							}
+							
+							if(getBonus)
+							{
+								String value = b.getValue();
+								if(value != null)
+								{
+									runningTotal += Integer.parseInt(value);
+								}
+							}
+						}
+					}
+				} 
+				catch (Exception e) 
+				{
+					
+				}
+				
+			}
+		}
+		return runningTotal;
 	}
 	
 	public int getSpellPointCostElementTotal()
