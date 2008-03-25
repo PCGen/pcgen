@@ -1418,7 +1418,7 @@ public final class Spell extends PObject
 				bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SPELL." + this.getKeyName() +";"+ aComponent.toUpperCase());
 				if (bonus != 0)	
 				{
-					sb2.append("(");
+					sb2.append(" (");
 					String sign = (bonus >0)? "+": "-"; 
 					sb2.append(sign);
 					sb2.append(bonus);
@@ -1442,7 +1442,7 @@ public final class Spell extends PObject
 				bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SPELL." + this.getKeyName() +";"+ aComponent.toUpperCase());
 				if (bonus != 0)	
 				{
-					sb2.append("(");
+					sb2.append(" (");
 					String sign = (bonus >0)? "+": "-"; 
 					sb2.append(sign);
 					sb2.append(bonus);
@@ -1466,7 +1466,7 @@ public final class Spell extends PObject
 				bonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SPELL." + this.getKeyName() +";"+ aComponent.toUpperCase());
 				if (bonus != 0)	
 				{
-					sb2.append("(");
+					sb2.append(" (");
 					String sign = (bonus >0)? "+": "-"; 
 					sb2.append(sign);
 					sb2.append(bonus);
@@ -1491,7 +1491,7 @@ public final class Spell extends PObject
 				sb.append("/");
 				if (bonus != 0)	
 				{
-					sb.append("(");
+					sb.append(" (");
 					String sign = (bonus >0)? "+": "-"; 
 					sb.append(sign);
 					sb.append(bonus);
@@ -1542,22 +1542,27 @@ public final class Spell extends PObject
 						if (!info.isVirtual())
 						{
 							boolean getBonus = false;
-							if(info.getSpellPointPartFilter() == SpellPointFilterType.SCHOOL 
-									&& this.getSchools().contains(info.getSpellPointPartFilterValue().toUpperCase()))
+							if(info.getSpellPointPartFilter() == SpellPointFilterType.SCHOOL)
 							{
-								getBonus = true;
+								for (String aSchool: this.getSchools())
+								{
+									if (info.getSpellPointPartFilterValue().toUpperCase().equalsIgnoreCase(aSchool))
+									getBonus = true;
+								}
 							}
-							else if(info.getSpellPointPartFilter() == SpellPointFilterType.SUBSCHOOL 
-									&& this.getSubschools().contains(info.getSpellPointPartFilterValue().toUpperCase()))
+							else if(info.getSpellPointPartFilter() == SpellPointFilterType.SUBSCHOOL)
 							{
-								getBonus = true;
+								for (String aSchool: this.getSubschools())
+								{
+									if (info.getSpellPointPartFilterValue().toUpperCase().equalsIgnoreCase(aSchool))
+									getBonus = true;
+								}
 							}
 							else if(info.getSpellPointPartFilter() == SpellPointFilterType.SPELL 
-									&& this.getKeyName().equals(info.getSpellPointPartFilterValue().toUpperCase()))
+									&& this.getDisplayName().equalsIgnoreCase(info.getSpellPointPartFilterValue().toUpperCase()))
 							{
 								getBonus = true;
 							}
-							
 							if(getBonus)
 							{
 								String value = b.getValue();

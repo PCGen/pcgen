@@ -869,7 +869,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			{
 				b.appendSpacer();
 				b.appendI18nElement("InfoSpellsSubTab.SpellPointCost", String //$NON-NLS-1$
-					.valueOf(aSpell.getSPCostStrings()));
+					.valueOf(aSpell.getSPCostStrings(pc)));
 			}
 			b.appendLineBreak();
 			b.appendI18nElement("in_descrip", pc.parseSpellString(aSpell, 

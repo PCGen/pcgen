@@ -496,7 +496,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 					: null;
 
 			case COL_SPCOST:
-				return (spellA != null) ? aSpell.getSpellPointCostActual(): null;
+				return (spellA != null) ? aSpell.getSpellPointCostActual(pc): null;
 
 			case COL_PPCOST:
 				return (spellA != null) ? aSpell.getPPCost(): null; 
