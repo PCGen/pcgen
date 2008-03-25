@@ -5,7 +5,7 @@
   <id>pcgen</id>
   <groupId>pcgen</groupId>
   <name>PCGen</name>
-  <currentVersion>5.13.11</currentVersion>
+  <currentVersion>5.13.12</currentVersion>
   <organization>
     <name>SourceForge</name>
     <url>http://sourceforge.net/</url>
@@ -203,7 +203,7 @@
     </developer>
   </developers>
   <dependencies>
-    <!-- Compiling -->
+    <!-- Compiling --> 
     <dependency>
       <groupId>cobra</groupId>
       <artifactId>cobra</artifactId>
@@ -523,6 +523,11 @@
       <id>5.13.11</id>
       <name>5.13.11</name>
       <tag>release-5.13.11</tag>
+    </version>
+    <version>
+      <id>5.13.12</id>
+      <name>5.13.12</name>
+      <tag>release-5.13.12</tag>
     </version>
   </versions>
 </project>

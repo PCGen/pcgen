@@ -5,10 +5,10 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.13.12" date="In SVN" description="Beta release">
+    <release version="5.13.12" date="2008-03-25" description="Beta release"> 
       <action dev="eddyanthony" type="fix" issue="1905559">[Paizo] Rise of the Runelords Player's Guide</action>  
-      <action dev="eddyanthony" type="fix" issue="1905557">[Paizo] Rise of the Runelords - Chapter 1</action>  
-    </release>
+      <action dev="eddyanthony" type="fix" issue="1905557">[Paizo] Rise of the Runelords - Chapter 1</action> 
+    </release>  
     <release version="5.13.11" date="2008-03-13" description="Beta release"> 
       <action dev="jdempsey" type="update" issue="1901191">Make At Will in SPELLS unambiguous</action>  
       <action dev="thpr" type="update" issue="1904978">Deprecate .A in CHOOSE:SPELLLEVEL</action>  
