@@ -6,8 +6,10 @@
   </properties>  
   <body> 
     <release version="5.13.12" date="2008-03-25" description="Beta release"> 
-      <action dev="eddyanthony" type="fix" issue="1905559">[Paizo] Rise of the Runelords Player's Guide</action>  
-      <action dev="eddyanthony" type="fix" issue="1905557">[Paizo] Rise of the Runelords - Chapter 1</action> 
+      <action dev="eddyanthony" type="add" issue="1905559">[Paizo] Rise of the Runelords Player's Guide</action>  
+      <action dev="eddyanthony" type="add" issue="1905557">[Paizo] Rise of the Runelords - Chapter 1</action>  
+      <action dev="eddyanthony" type="update" issue="1846621">Update screenshots and walkthrough for 5.14</action>  
+      <action dev="jfrazierjr" type="add" issue="1789856">SERVESAS Token - Classes and Abilities</action>  
     </release>  
     <release version="5.13.11" date="2008-03-13" description="Beta release"> 
       <action dev="jdempsey" type="update" issue="1901191">Make At Will in SPELLS unambiguous</action>  
