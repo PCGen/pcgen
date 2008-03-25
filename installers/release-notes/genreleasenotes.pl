@@ -11,7 +11,6 @@
 
 use strict;
 use warnings;
-use Readonly;
 use English;
 
 use IO::Handle;
@@ -33,12 +32,15 @@ print("Generating changes and tracker listing for trackers closed between " .
 	$fromDate . " and " . $toDate . ".\n");
 
 # Run the tracker search on SourceForge to retrieve the trackers closed in the period.
-my $page = get "http://sourceforge.net/search/index.php?group_id=25576&" .
+my $url = "http://sourceforge.net/search/index.php?group_id=25576&" .
    "type_of_search=artifact&pmode=0&words=group_artifact_id%3A%28384719+" .
    "384721+384722+439552+441567+453331+627102+679269+689516+748234+" . 
    "748235+748296+748297+750091+750092+772045+1036937%29+AND+" . 
    "status_id%3A%282%29+AND+last_update_date%3A%5B" . $fromDate . 
    "+TO+" . $toDate. "%5D&Search=Search&limit=1000";
+#print $url . "\n";   
+my $page = get $url;
+   
 if (!$page) {
     print "Tracker search site is not accessible\n";
     exit;
