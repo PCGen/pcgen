@@ -26,6 +26,7 @@ NAME:WeightPenaltyToSkill		VAR:SYS_WTPSK		DEFAULT:Yes					DESC:Apply Weight Pena
 NAME:WeaponSizePenalty			VAR:SYS_35WP		DEFAULT:Yes					DESC:Apply 3.5 Size Category Penalty to Attacks
 NAME:ClericDomainBonus			VAR:SYS_DOMAIN		DEFAULT:Yes					DESC:Apply Casterlevel Bonuses from Domains to all Spells
 NAME:DisplayTypeTraits			VAR:DISPLAYTYPETRAITS	DEFAULT:No					DESC:Display full text of Type Traits on output
+NAME:DisplayConditionalSkills		VAR:DISPLAYSKILLUSE	DEFAULT:Yes					DESC:Display conditional skill uses on output
 
 NAME:HitPointDamage			VAR:DAMAGE_HP		DEFAULT:Yes	EXCLUDE:DAMAGE_VW		DESC:Use Hit Points
 NAME:VitalityDamage			VAR:DAMAGE_VW		DEFAULT:No	EXCLUDE:DAMAGE_HP		DESC:Use Vitality and Wound Points

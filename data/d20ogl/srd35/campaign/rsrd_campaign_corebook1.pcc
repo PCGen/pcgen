@@ -1,4 +1,4 @@
-# CVS $Revision: 415 $ $Author: eddyanthony $ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+# CVS $Revision$ $Author$ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
 CAMPAIGN:3.5 RSRD - Campaign Set - Core Book I
 RANK:1
 GAMEMODE:35e
@@ -56,6 +56,7 @@ RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Lizard|
 RACE:@/d20ogl/srd35/basics/rsrd_races__base.lst
 
 SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst|(EXCLUDE:Control Shape)
+SKILL:@/d20ogl/srd35/basics/rsrd_skills_conditional.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells_monster.lst
 

@@ -59,6 +59,7 @@ RACE:rsrd_races__animals.lst
 RACE:rsrd_races__base.lst
 
 SKILL:rsrd_skills.lst
+SKILL:rsrd_skills_conditional.lst
 SPELL:rsrd_spells.lst
 SPELL:rsrd_spells_divine.lst
 SPELL:rsrd_spells_monster.lst
