@@ -565,38 +565,38 @@
 	<p class="indent1"><strong>Variables Used (z):</strong> Text (Natural weapon damage)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent1">
-		<li>This tag is used to define non-equipment attacks a race may possess.</li>
-		<li>As a global tag, this rag is used in abilities, feats, races and templates,
-			adding the natural attacks to the character when the object is assigned to the
-			character.</li>
-		<li>Though this tag is a global tag, it has no effect when applied in deities,
-			domains, equipment, skills or spells files.</li>
+		<li>This tag is used to define natural attacks and add them to the character when the 
+			the containing object is assigned to the character.</li>
 		<li>This is a comma (,) and pipe (|) delimited list of the natural attacks a
-			creature has. If the creature has multiple attacks pipes are used to separate
-			the entries. Commas are used to delimit variables within a single attack listing.
-			All four variables separated by three commas must be present or PCGen will hang
-			when attempting to load the .pcc file.</li>
-		<li>Natural weapon typesshould be delimited with periods (.). This must always
-			start with &quot;Weapon&quot; and &quot;Natural&quot; and must be followed
-			by either &quot;Melee&quot; or &quot;Ranged&quot;.	After that the weapons
-			damage types are listed which can be &quot;Bludgeoning&quot;,
-			&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</li>
+			creature has.
+			<ul>
+				<li>Pipes are used to separate the entries if the creature has multiple attacks.</li>
+				<li>Commas are used to delimit variables within a single attack listing. All four 
+					variables separated by three commas must be present or PCGen will hang when 
+					attempting to load the .pcc file.</li>
+			</ul>
+			<li>Natural weapon types should be period-delimited (.). This must always
+				start with &quot;Weapon&quot; and &quot;Natural&quot; and must be followed
+				by either &quot;Melee&quot; or &quot;Ranged&quot;.	After that the weapons
+				damage types are listed which can be &quot;Bludgeoning&quot;,
+				&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</li>
 		<li>If the number of attacks (y) has an asterisk in front of the number it
-			indicates that the number of attacks is non-iterative, that is it is not
-			based on the creatures attack progression but rather how many of the
-			natural weapons it possesses.</li>
+				indicates that the number of attacks is non-iterative, that is it is not
+				based on the creatures attack progression but rather how many of the
+				natural weapons it possesses.</li>
 		<li>The damage the natural weapon does is entered in the standard dice notation
-			such as &quot;1d8&quot; and &quot;4d10&quot;.</li>
-		<li>The NATURALATTACKS tag creates a proficiency for the its attacks on the
-			fly which allows the use of the BONUS:WEAPONPROF tag to effect it. For example,
-			if you used the NATURALATTACKS tag to create a Bite attack you could then use
-			<code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code> to add 2 to the attack and
-			damage rolls.</li>
+				such as &quot;1d8&quot; and &quot;4d10&quot;.</li>
+		<li>The NATURALATTACKS tag creates a proficiency for the attacks on the fly which allows 
+			the use of the BONUS:WEAPONPROF tag to effect it. For example, if you used the NATURALATTACKS 
+			tag to create a Bite attack you could then use <code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code> 
+			to add 2 to the attack and damage rolls.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,
 		1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>
 	<p class="indent3">Race has 2 Claw attacks and a Bite attack.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Ability, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
