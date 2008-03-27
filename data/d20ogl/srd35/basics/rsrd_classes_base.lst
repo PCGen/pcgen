@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Mar 13 13:05:52 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Thu Mar 27 00:41:59 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -255,26 +255,26 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 #	different progression rates, some that stack with Monk.
 4	BONUS:VAR|KiStrikeLVL|CL	AUTO:FEAT|Ki Strike|Monk Ki Strike Advancement
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2						ADD:VFEAT|1|Improved Grapple,Stunning Fist					AUTO:FEAT|Improved Unarmed Strike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6									ADD:VFEAT|1|Combat Reflexes,Deflect Arrows					AUTO:FEAT|Evasion
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																					AUTO:FEAT|Still Mind
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|SlowFallLVL|CL													AUTO:FEAT|Slow Fall
-5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																					AUTO:FEAT|Purity of Body
-6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6									ADD:VFEAT|1|Improved Disarm,Improved Trip
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|WholenessBodyLVL|CL													AUTO:FEAT|Wholeness of Body
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2	BONUS:ABILITYPOOL|Monk Feat|1										AUTO:FEAT|Improved Unarmed Strike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:ABILITYPOOL|Monk Feat|1										AUTO:FEAT|Evasion
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																		AUTO:FEAT|Still Mind
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6									BONUS:VAR|SlowFallLVL|CL					AUTO:FEAT|Slow Fall
+5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																		AUTO:FEAT|Purity of Body
+6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:ABILITYPOOL|Monk Feat|1
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6									BONUS:VAR|WholenessBodyLVL|CL					AUTO:FEAT|Wholeness of Body
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																					AUTO:FEAT|Improved Evasion
+9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																		AUTO:FEAT|Improved Evasion
 10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																					AUTO:FEAT|Diamond Body
-12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																					AUTO:FEAT|Abundant Step
-13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				BONUS:VAR|DiamondSoulLVL|CL													AUTO:FEAT|Diamond Soul
+11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																		AUTO:FEAT|Diamond Body
+12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																		AUTO:FEAT|Abundant Step
+13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6									BONUS:VAR|DiamondSoulLVL|CL					AUTO:FEAT|Diamond Soul
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				BONUS:VAR|QuiveringPalmLVL|CL													AUTO:FEAT|Quivering Palm
+15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6									BONUS:VAR|QuiveringPalmLVL|CL					AUTO:FEAT|Quivering Palm
 16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	TEMPLATE:Timeless Body	AUTO:FEAT|Timeless Body|Tongue of the Sun and Moon
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8														TEMPLATE:Timeless Body	AUTO:FEAT|Timeless Body|Tongue of the Sun and Moon
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8				BONUS:VAR|EmptyBodyLVL|CL													AUTO:FEAT|Empty Body
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8																				AUTO:FEAT|Perfect Self
+19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8									BONUS:VAR|EmptyBodyLVL|CL					AUTO:FEAT|Empty Body
+20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8																	AUTO:FEAT|Perfect Self
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page				Save checks bonus											Combat bonus

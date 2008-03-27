@@ -1,15 +1,17 @@
-# CVS $Revision$ $Author$ -- Fri Mar  7 14:23:28 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Mar 26 17:17:00 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
-# Original Entry by: Tir Gwaith, DLM, GldDragon35
+# Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
-#########Block: Ranger Internal
-####### Feat Name			Type			Visible	Define									Modify VAR																																Source Page
-######Ranger Animal Companion	TYPE:Internal	VISIBLE:NO	DEFINE:RangerAnimalCompLVL|0						BONUS:VAR|CompLevel|RangerAnimalCompLVL/2																											SOURCEPAGE:ClassesII.rtf
-######Ranger Combat Tree	TYPE:Internal	VISIBLE:NO	DEFINE:RangerCombatTreeLVL|0	DEFINE:RangerCombatTree|0	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11	SOURCEPAGE:ClassesII.rtf
-######Ranger Favored Enemy	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0					BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5																SOURCEPAGE:ClassesII.rtf
+###Block: Monk Bonus Feats
+# Ability Name					Category of Ability		Type				Visible		Restricted Ability											Required Class	Virtual Feat
+Monk Lvl 1 Bonus Feat (Improved Grapple)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 1 Bonus Feat (Stunning Fist)		PRECLASS:1,Monk=1	VFEAT:Improved Grapple
+Monk Lvl 1 Bonus Feat (Stunning Fist)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 1 Bonus Feat (Improved Grapple)	PRECLASS:1,Monk=1	VFEAT:Stunning Fist
+Monk Lvl 2 Bonus Feat (Combat Reflexes)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 2 Bonus Feat (Deflect Arrows)		PRECLASS:1,Monk=2	VFEAT:Combat Reflexes
+Monk Lvl 2 Bonus Feat (Deflect Arrows)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 2 Bonus Feat (Combat Reflexes)	PRECLASS:1,Monk=2	VFEAT:Deflect Arrows
+Monk Lvl 6 Bonus Feat (Improved Disarm)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 6 Bonus Feat (Improved Trip)		PRECLASS:1,Monk=6	VFEAT:Improved Disarm
+Monk Lvl 6 Bonus Feat (Improved Trip)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 6 Bonus Feat (Improved Disarm)	PRECLASS:1,Monk=6	VFEAT:Improved Trip
 
 ###Block: Ranger Combat Styles
-# Feat Name										Type				Visible		Prohibited Feat									Special ABility					Virtual Feat
 # Ability Name				Category of Ability		Type				Visible		Restricted Ability								Special ABility					Virtual Feat
 Two Weapon Fighting Combat Style	CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	SAB:Two Weapon Fighting Combat Style	VFEAT:Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Greater Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
 Archery Combat Style			CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	SAB:Archery Combat Style			VFEAT:Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Manyshot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
