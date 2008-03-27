@@ -16,6 +16,14 @@ ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:PCGen dataset conversion for Slayer's Guide to Gnolls Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001)
 
+COVER:slayersgnoll.jpg
+LOGO:@/publisher_logos/Mongoose_Publishing.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Mongoose Publishing
+DESC:The second supplement to be printed in the acclaimed series from Mongoose Publishing, The Slayer's Guide to Gnolls focuses on this bloodthirsty race, from their brutal and savage society to their lethal tactics of ambush. Ravenous packs of gnolls are the bane of many adventurers. Inhuman in the extreme, this vicious race delights in acts of cruelty and brutality against the weak, the defenceless and the innocent. This book contains everything you need to hunt down and annihilate these evil creatures.
+URL:WEBSITE|http://www.mongoosepublishing.com|Visit Mongoose Publishing.
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=2831&it=1&filters=0_0_0|Buy this pdf from RPGNow.com!
+URL:Amazon.com|http://www.amazon.com/Slayers-Guide-Gnolls-Various/dp/1903980011/ref=sr_1_1?ie=UTF8&s=books&qid=1206585296&sr=1-1|Buy this book from Amazon.com!
+
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 

@@ -16,6 +16,14 @@ ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:PCGen dataset conversion for Slayer's Guide to Hobgoblins Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001)
 
+COVER:slayershobgob.jpg
+LOGO:@/publisher_logos/Mongoose_Publishing.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Mongoose Publishing
+DESC:The Slayer's Guide to Hobgoblins is the first in a new series of comprehensive sourcebooks from Mongoose Publishing. It features extensive information on the military race of Hobgoblins, from their complex tribal structure to their very efficient methods of waging war. Games Masters will find a huge amount of new material they can incorporate into their existing campaigns, allowing them to portray hobgoblins with incredible depth. Players will find each Slayer's Guide to be an invaluable tool for their survival, giving them that necessary vital edge.
+URL:WEBSITE|http://www.mongoosepublishing.com|Visit Mongoose Publishing.
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=1842&it=1&filters=0_0_0|Buy this pdf from RPGNow.com!
+URL:Amazon.com|http://www.amazon.com/Slayers-Guide-Hobgoblins-Matthew-Sprange/dp/1903980003/ref=sr_1_1?ie=UTF8&s=books&qid=1206585423&sr=1-1|Buy this book from Amazon.com!
+
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
