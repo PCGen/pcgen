@@ -16,6 +16,14 @@ ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:PCGen dataset conversion for Slayer's Guide to Minotaurs Copyright 2004, PCGen Data team including, but not limited to, Emily Smirle, Eddy Anthony (MoSaT) and Joshua Nelson (DJ_Chair).
 
+COVER:slayersminotaur.jpg
+LOGO:@/publisher_logos/Mongoose_Publishing.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Mongoose Publishing
+DESC:Many adventurers are familiar with the minotaur, at least in general terms. It is quite common to hear stories about dashing, heroic fighters battling a fierce minotaur to the death at the heart of the foul creature's dark labyrinth. Some of these stories, no doubt, have some truth to them. However, it is the vast amount of untold stories that truly tell the tale of the minotaur. These tales tell of a more dangerous beast, one, which does not merely sit at the centre of its labyrinth waiting to be slaughtered. They speak of a creature that utilises the darkness and the confusion inherent to its labyrinthine home to torment those foolish enough to venture into this den of evil.
+URL:WEBSITE|http://www.mongoosepublishing.com|Visit Mongoose Publishing.
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=1843&it=1|Buy this pdf from RPGNow.com!
+URL:Amazon.com|http://www.amazon.com/Slayers-Guide-Minotaurs-d20-System/dp/1904577628/ref=sr_1_1?ie=UTF8&s=books&qid=1206583294&sr=1-1|Buy this book from Amazon.com!
+
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
