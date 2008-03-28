@@ -1,17 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
-
 <html>
-
 	<!--
 
 		PCGen Documentation Project
 
-
 		$Author$
 		$Date$
 		$Revision$
-
 
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
@@ -19,358 +15,266 @@
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
 		Eric C. Smith - mareduddATblackrootDOTorg
 
-
-
 		Description:
 		Provides information on the use of PCGen Ability Tags.
-
 	-->
 
-<head>
+	<head>
 
-	<title>ABILITY: Tag</title>
+		<title>ABILITY: Tag</title>
 
-	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
 
+	<body>
 
+		<h1>Ability Files</h1>
+	
+		<p class="indent0">The Ability files are used to identify and implement the individual class/racial 
+			abilities that make up each character.</p>
 
-<body>
-
-	<h1>Ability Tags</h1>
-
-	<p></p>
-
-	<p><strong>NOTE:</strong> This page is broken into three sections. The first section, the <a href="#AbilityFileTags">Ability File Tags</a>, lists the new ability file tags, the second section, <a href="#GlobalAbilityTags">Global Ability Tags</a>, and the third section, <a href="#OtherAbilityTags">Other Ability Tags</a>, lists the tags located else where in
- the PCGen documentation.</p>
-
-
-	<p></p>
-
-<hr>
-
-
-	<h2><a name="AbilityFileTags">The Ability File Tags</a></h2>
-
-
-	<p></p>
-
-<hr>
-
-	<p class="new">*** New 5.11.x</p>
-
-	<p class="indent0"><strong><a name="ADDSPELLLEVEL">Tag Name:</a></strong> ADDSPELLLEVEL:x</p>
-
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Increase in spell slot level)</p>
-
-	<p class="indent1"><strong>What it does:</strong></p>
-
-	<p class="indent2"> This tag is used in metamagic abilities to denote how much higher the spell levelslot requires.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-
-	<p class="indent2"><code>ADDSPELLLEVEL:2</code></p>
-
-	<p class="indent3">A spell with this metamagic ability applied to it takes up a slot two levels higher than the normal spell.</p>
-
-
-	<p></p>
+		<p class="indent1">The following tags are discussed in the <a href="#abilitytagdictionary">Ability Tag Dictionary</a> section below:</p>
+		<p></p>
+		<p class="indent2"><a href="#ADDSPELLLEVEL">ADDSPELLLEVEL</a> <span class="note">(Ability)</span></p>
+		<p class="indent2"><a href="#BENEFIT">BENEFIT</a></p>
+		<p class="indent2"><a href="#CATEGORY2">CATEGORY</a></p>
+		<p class="indent2"><a href="#COST">COST</a></p>
+		<p class="indent2"><a href="#MODIFYABILITYCHOICE">MODIFYABILITYCHOICE</a></p>
+		<p class="indent2"><a href="#MULT">MULT</a></p>
+		<p class="indent2"><a href="#STACK">STACK</a></p>
+		<p class="indent2"><a href="#VISIBLE">VISIBLE</a></p>
+		<p class="indent2"><a href="listfilepages/globalfilestagpages/globalfilesother.html#CLEAR">&lt;ability&gt;.CLEAR</a></p>
+		<p class="indent2"><a href="listfilepages/globalfilestagpages/globalfilesother.html#COPY">&lt;ability&gt;.COPY</a></p>
+		<p class="indent2"><a href="listfilepages/globalfilestagpages/globalfilesother.html#FORGET">&lt;ability&gt;.FORGET</a></p>
+		<p class="indent2"><a href="listfilepages/globalfilestagpages/globalfilesother.html#MOD">&lt;ability&gt;.MOD</a></p>
+		<p></p>
 
 <hr>
 
+		<h2>How to Build an Ability</h2>
 
-	<p class="new">*** New 5.11.x</p>
+		<p class="indent12">The first field is the Deity Name, this is a required field and does not have a tag.</p>
+		<p></p>
+		
+<hr>
 
-	<p class="indent0"><strong><a name="BENEFIT">Tag Name:</a></strong> BENEFIT:x</p>
-
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (benefit text)</p>
-
-	<p class="indent1"><strong>What it does:</strong></p>
-
-	<p class="indent2">This is the benefit text of the ability from the source material.
- This text will be displayed in the feat description field if the
- <a href="../../menupages/settings/appearance/appearancedisplay.html">&quot;Display
-		Feat Description&quot;</a> checkbox in the Appearance/Display Options Preference window
-is unchecked. Otherwise the text from the DESC tag will be displayed.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-
-	<p class="indent2"><code>BENEFIT:This is sample text for the example purposes</code></p>
-
-	<p class="indent3">Adds ability benefit.</p>
-
-
-	<p></p>
+		<h2><a name="abilitytagdictionary">Ability File Tag Dictionary</a></h2>
+	
+		<p class="indent1">This section is broken into three subsections. The first, the 
+			<a href="#AbilityFileTags">Ability File Tags</a> subsection, lists the new ability file tags, 
+			the second subsection, <a href="#GlobalAbilityTags">Global Ability Tags</a>, and the third 
+			subsection, <a href="#OtherAbilityTags">Other Ability Tags</a>, lists the tags located else 
+			where in the PCGen documentation.</p>
 
 <hr>
 
-	<p class="new">*** Updated 5.13.6</p>
-	<p class="indent0"><strong><a name="CATEGORY2">Tag Name:</a></strong> CATEGORY:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability category)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is the ability category [link to docs for Ability Category game mode tag] that
-		the ability belongs to. The ability category is a broad group of abilities, defined in the game
-		mode. An ability's key name need only be unique within its category.</p>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>CATEGORY:SpecialAttack</code></p>
-	<p class="indent3">This ability is part of the &quot;SpecialAttack&quot; ability category.</p>
-	<p class="indent2"><code>CATEGORY:Feat</code></p>
-	<p class="indent3">This ability is part of the &quot;Feat&quot; ability category, which is a special case of
-		abilities that can be selected as feats.</p>
-	<p class="indent2"><code>CATEGORY=Talent|Uncanny Dodge II.MOD &lt;tab&gt; PRE:.CLEAR</code></p>
-	<p class="indent3">This ability is part of the &quot;Talent&quot; ability category, which is aimed at
-		the feat of &quot;Uncanny Dodge II&quot; so that it can be modified by removing the PRExxx.</p>
-	<p></p>
+		<h3><a name="AbilityFileTags">The Ability File Tags</a></h3>
 
 <hr>
 
-
-	<p class="new">*** New 5.11.x</p>
-
-	<p class="indent0"><strong><a name="COST">Tag Name:</a></strong> COST:x</p>
-
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (ability point cost)</p>
-
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is how many ability points the ability costs. A decimal value, as the example below, would mean that it only costs 1/2 an ability point.</p>
-
-	<p class="indent1"><strong>Example:</strong></p>
-
-	<p class="indent2"><code>COST:1</code></p>
-	<p class="indent3">Ability costs one ability point.</p>
-
-	<p class="indent2"><code>COST:.5</code></p>
-
-	<p class="indent3">Ability costs half a ability point.</p>
-
-
-	<p></p>
+		<p class="new">*** New 5.11.x</p>
+		<p class="indent0"><strong><a name="ADDSPELLLEVEL">Tag Name:</a></strong> ADDSPELLLEVEL:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Increase in spell slot level)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> This tag is used in metamagic abilities to denote how much higher the spell levelslot requires.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ADDSPELLLEVEL:2</code></p>
+		<p class="indent3">A spell with this metamagic ability applied to it takes up a slot two levels higher than the normal spell.</p>
+		<p></p>
 
 <hr>
 
-
-	<p class="new">*** New 5.11.x</p>
-
-	<p class="indent0"><strong><a name="MODIFYABILITYCHOICE">Tag Name:</a></strong> MODIFYABILITYCHOICE:x</p>
-
-	<p class="indent1"><strong>Variables Used (x):</strong>Text (ability name)</p>
-
-	<p class="indent1"><strong>Variables Used (x):</strong>TYPE=Text (ability type)</p>
-
-	<p class="indent1"><strong>What it does:</strong></p>
-
-	<ul class="indent2">
-
-		<li>This tag allows for a previous ability choice to be replaced by a new one.</li>
-
-		<li>The ability called must allow choices to be a valid ability.</li>
-
-	</ul>
-
-	<p class="indent1"><strong>Example:</strong></p>
-
-	<p class="indent2"><code>MODIFYABILITYCHOICE:TYPE=NinjaMonkeySchool</code></p>
-
-	<p class="indent3">An ability with this tag will allow the selection of a new school from a list of schools of type 'NinjaMonkeySchool' to replace a previously selected one.</p>
-
-	<p class="indent2"><code>MODIFYABILITYCHOICE:Ninja Monkey Primary Weapon Reselection</code></p>
-
-	<p class="indent3">Allows a ninja monkey to select a new primary weapon, replacing an earlier selected primary weapon.</p>
-	<p></p>
+		<p class="new">*** New 5.11.x</p>
+		<p class="indent0"><strong><a name="BENEFIT">Tag Name:</a></strong> BENEFIT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (benefit text)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is the benefit text of the ability from the source material. 
+			This text will be displayed in the feat description field if the 
+			<a href="../../menupages/settings/appearance/appearancedisplay.html">&quot;Display 
+			Feat Description&quot;</a> checkbox in the Appearance/Display Options Preference window 
+			is unchecked. Otherwise the text from the DESC tag will be displayed.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BENEFIT:This is sample text for the example purposes</code></p>
+		<p class="indent3">Adds ability benefit.</p>
+		<p></p>
 
 <hr>
 
-
-	<p class="new">*** New 5.11.x</p>
-
-	<p class="indent0"><strong><a name="MULT">Tag Name:</a></strong> MULT:x</p>
-
-	<p class="indent1"><strong>Variables Used (x):</strong> Boolean ('YES' or 'NO')</p>
-
-	<p class="indent1"><strong>What it does:</strong></p>
-
-	<p class="indent2">This determines if an ability can be taken multiple times. If the value is set to 'YES', then you <strong>MUST</strong> also use a 'CHOOSE' tag.</p>
-
-	<p class="indent1"><strong>Example:</strong></p>
-
-	<p class="indent2"><code>MULT:YES</code></p>
-
-	<p class="indent3">This Ability can be taken multiple times.</p>
-
-
-	<p></p>
+		<p class="new">*** Updated 5.13.6</p>
+		<p class="indent0"><strong><a name="CATEGORY2">Tag Name:</a></strong> CATEGORY:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability category)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is the ability category [link to docs for Ability Category game mode tag] that
+			the ability belongs to. The ability category is a broad group of abilities, defined in the game
+			mode. An ability's key name need only be unique within its category.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>CATEGORY:SpecialAttack</code></p>
+		<p class="indent3">This ability is part of the &quot;SpecialAttack&quot; ability category.</p>
+		<p class="indent2"><code>CATEGORY:Feat</code></p>
+		<p class="indent3">This ability is part of the &quot;Feat&quot; ability category, which is a special case of
+			abilities that can be selected as feats.</p>
+		<p class="indent2"><code>CATEGORY=Talent|Uncanny Dodge II.MOD &lt;tab&gt; PRE:.CLEAR</code></p>
+		<p class="indent3">This ability is part of the &quot;Talent&quot; ability category, which is aimed at
+			the feat of &quot;Uncanny Dodge II&quot; so that it can be modified by removing the PRExxx.</p>
+		<p></p>
 
 <hr>
 
-
-	<p class="new">*** New 5.11.x</p>
-
-	<p class="indent0"><strong><a name="STACK">Tag Name:</a></strong> STACK:x</p>
-
-	<p class="indent1"><strong>Variables Used (x):</strong> Boolean ('YES' or 'NO')</p>
-
-	<p class="indent1"><strong>What it does:</strong></p>
-
-	<p class="indent2">This tells PCGen if the ability benefits may be stacked on one another.</p>
-
-	<p class="indent1"><strong>Example:</strong></p>
-
-	<p class="indent2"><code>STACK:YES</code></p>
-	<p class="indent3">This Ability may be stack on it's self.</p>
-
-
-	<p></p>
+		<p class="new">*** New 5.11.x</p>
+		<p class="indent0"><strong><a name="COST">Tag Name:</a></strong> COST:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (ability point cost)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is how many ability points the ability costs. A decimal value, as the example below, would mean that it only costs 1/2 an ability point.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>COST:1</code></p>
+		<p class="indent3">Ability costs one ability point.</p>
+		<p class="indent2"><code>COST:.5</code></p>
+		<p class="indent3">Ability costs half a ability point.</p>
+		<p></p>
 
 <hr>
 
+		<p class="new">*** New 5.11.x</p>
+		<p class="indent0"><strong><a name="MODIFYABILITYCHOICE">Tag Name:</a></strong> MODIFYABILITYCHOICE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (ability name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>TYPE=Text (ability type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This tag allows for a previous ability choice to be replaced by a new one.</li>
+			<li>The ability called must allow choices to be a valid ability.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MODIFYABILITYCHOICE:TYPE=NinjaMonkeySchool</code></p>
+		<p class="indent3">An ability with this tag will allow the selection of a new school from a list of schools of type 'NinjaMonkeySchool' to replace a previously selected one.</p>
+		<p class="indent2"><code>MODIFYABILITYCHOICE:Ninja Monkey Primary Weapon Reselection</code></p>
+		<p class="indent3">Allows a ninja monkey to select a new primary weapon, replacing an earlier selected primary weapon.</p>
+		<p></p>
 
-	<p class="new">*** New 5.11.x</p>
+<hr>
 
-	<p class="indent0"><strong><a name="VISIBLE">Tag Name:</a></strong> VISIBLE:x</p>
+		<p class="new">*** New 5.11.x</p>
+		<p class="indent0"><strong><a name="MULT">Tag Name:</a></strong> MULT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean ('YES' or 'NO')</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This determines if an ability can be taken multiple times. If the value is set to 'YES', then you <strong>MUST</strong> also use a 'CHOOSE' tag.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MULT:YES</code></p>
+		<p class="indent3">This Ability can be taken multiple times.</p>
+		<p></p>
 
-	<p class="indent1"><strong>Variables Used (x):</strong> YES</p>
+<hr>
 
-	<p class="indent1"><strong>Variables Used (x):</strong> NO</p>
+		<p class="new">*** New 5.11.x</p>
+		<p class="indent0"><strong><a name="STACK">Tag Name:</a></strong> STACK:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean ('YES' or 'NO')</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tells PCGen if the ability benefits may be stacked on one another.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>STACK:YES</code></p>
+		<p class="indent3">This Ability may be stack on it's self.</p>
+		<p></p>
 
-	<p class="indent1"><strong>Variables Used (x):</strong> DISPLAY</p>
+<hr>
 
-	<p class="indent1"><strong>Variables Used (x):</strong> EXPORT</p>
-
-	<p class="indent1"><strong>What it does:</strong></p>
-
-	<ul class="indent2">
-
-		<li><code>YES</code> - Shows the ability name in PCGen and on export to a character sheet.
+		<p class="new">*** New 5.11.x</p>
+		<p class="indent0"><strong><a name="VISIBLE">Tag Name:</a></strong> VISIBLE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> YES</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> NO</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> DISPLAY</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> EXPORT</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li><code>YES</code> - Shows the ability name in PCGen and on export to a character sheet.
 				(This is the default setting).</li>
-
-		<li><code>NO</code> - Hides the ability name in PCGen and on export to a character sheet.</li>
-
-		<li><code>DISPLAY</code> - Displays the ability name in PCGen but not on the character sheet.</li>
-
-		<li><code>EXPORT</code> - Hides the ability name from PCGen but displays it on the character sheet.</li>		</ul>
-
-	<p class="indent1"><strong>Example:</strong></p>
-
-	<p class="indent2"><code>VISIBLE:YES</code></p>
-
-	<p class="indent3">Shows the ability name in PCGen and on the Output sheet.</p>
-
-
-	<p></p>
+			<li><code>NO</code> - Hides the ability name in PCGen and on export to a character sheet.</li>
+			<li><code>DISPLAY</code> - Displays the ability name in PCGen but not on the character sheet.</li>
+			<li><code>EXPORT</code> - Hides the ability name from PCGen but displays it on the character sheet.</li>		</ul>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>VISIBLE:YES</code></p>
+		<p class="indent3">Shows the ability name in PCGen and on the Output sheet.</p>
+		<p></p>
 
 <hr>
 
+		<h3><a name="GlobalAbilityTags">Global Ability Tags</a></h3>
 
-	<h2><a name="GlobalAbilityTags">Global Ability Tags</a></h2>
-
-
-	<ul>
-		<li><a href="../globalfilestagpages/globalfilesother.html#ABILITY2">ABILITY</a> <span class="note">(Global Other)</span></li>
-	</ul>
-
-
-	<p></p>
+		<ul>
+			<li><a href="../globalfilestagpages/globalfilesother.html#ABILITY2">ABILITY</a> <span class="note">(Global Other)</span></li>
+		</ul>
+		<p></p>
 
 <hr>
 
+		<h3><a name="OtherAbilityTags">Other Ability Tags</a></h3>
 
-	<h2><a name="OtherAbilityTags">Other Ability Tags</a></h2>
-
-
-	<p>These are not true global tags as the tags in the first section are.  All tags are being listed
- here to make them easier to locate and understand.</p>
-
-
-	<p></p>
+		<p>These are not true global tags as the tags in the first section are.  All tags are being listed
+			 here to make them easier to locate and understand.</p>
+		<p></p>
 
 <hr>
 
+		<h4><a name="GameModeMiscInfoAbilityTags">Game Mode - Misc Info File</a></h4>
 
-	<h3><a name="GameModeMiscInfoAbilityTags">Game Mode - Misc Info File</a></h3>
-
-
-	<ul>
-		<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a> <span class="note">(Misc Info)</span></li>
-
-		<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#CATEGORY">CATEGORY</a> <span class="note">(Misc Info)</span></li>
-
-		<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#DISPLAYNAME">DISPLAYNAME</a> <span class="note">(Misc Info)</span></li>
-
-		<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITABLE">EDITABLE</a> <span class="note">(Misc Info)</span></li>
-
-		<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITPOOL">EDITPOOL</a> <span class="note">(Misc Info)</span></li>
-
-		<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#FRACTIONALPOOL">FRACTIONALPOOL</a> <span class="note">(Misc Info)</span></li>
-
-		<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#PLURAL">PLURAL</a> <span class="note">(Misc Info)</span></li>
-
-		<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#POOL">POOL</a> <span class="note">(Misc Info)</span></li>
-
-		<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#TYPE">TYPE</a> <span class="note">(Misc Info)</span></li>
-
-		<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#VISIBLE">VISIBLE</a> <span class="note">(Misc Info)</span></li>
-
-
-	</ul>
-	<p></p>
+		<ul>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a> <span class="note">(Misc Info)</span></li>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#CATEGORY">CATEGORY</a> <span class="note">(Misc Info)</span></li>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#DISPLAYNAME">DISPLAYNAME</a> <span class="note">(Misc Info)</span></li>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITABLE">EDITABLE</a> <span class="note">(Misc Info)</span></li>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITPOOL">EDITPOOL</a> <span class="note">(Misc Info)</span></li>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#FRACTIONALPOOL">FRACTIONALPOOL</a> <span class="note">(Misc Info)</span></li>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#PLURAL">PLURAL</a> <span class="note">(Misc Info)</span></li>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#POOL">POOL</a> <span class="note">(Misc Info)</span></li>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#TYPE">TYPE</a> <span class="note">(Misc Info)</span></li>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#VISIBLE">VISIBLE</a> <span class="note">(Misc Info)</span></li>
+		</ul>
+		<p></p>
 
 <hr>
 
+		<h4><a name="GameModeMiscgamemodestatsandcheckslist">Game Mode - Stats and Checks File</a></h4>
 
-	<h3><a name="GameModeMiscgamemodestatsandcheckslist">Game Mode - Stats and Checks File</a></h3>
-
-
-	<ul>
-	<li><a href="../systemfilestagpages/gamemodestatsandcheckslist.html#ABILITYADDSPELLLEVEL">ABILITY:ADDSPELLLEVEL</a> <span class="note">(Stats &amp; Checks, in STATNAME Line)</span></li>
-
-
-	</ul>
-	<p></p>
+		<ul>
+			<li><a href="../systemfilestagpages/gamemodestatsandcheckslist.html#ABILITYADDSPELLLEVEL">ABILITY:ADDSPELLLEVEL</a> <span class="note">(Stats &amp; Checks, in STATNAME Line)</span></li>
+		</ul>
+		<p></p>
 
 <hr>
 
+		<h4><a name="BonusAbilityTags">Bonus Ability Tags</a></h4>
 
-	<h3><a name="BonusAbilityTags">Bonus Ability Tags</a></h3>
-
-
-	<ul>
-	<li><a href="../globalfilestagpages/globalfilesbonus.html#ABILITYPOOL">BONUS:ABILITYPOOL</a> <span class="note">(Global BONUS)</span></li>
-
-
-	</ul>
-	<p></p>
+		<ul>
+			<li><a href="../globalfilestagpages/globalfilesbonus.html#ABILITYPOOL">BONUS:ABILITYPOOL</a> <span class="note">(Global BONUS)</span></li>
+		</ul>
+		<p></p>
 
 <hr>
 
+		<h4><a name="Starting Kit Tags">Starting Kit Tags</a></h4>
 
-	<h3><a name="Starting Kit Tags">Starting Kit Tags</a></h3>
-
-        <ul>
-	<li><a href="../datafilestagpages/datafilesstartingkits.html#CATEGORY">ABILITY:CATEGORY</a> <span class="note">(Starting Kit)</span></li>
-
-	<li><a href="../datafilestagpages/datafilesstartingkits.html#ABILITY">ABILITY:PROMPT:FEAT</a> <span class="note">(Starting Kit)</span></li>
-	</ul>
-	<p></p>
+    	<ul>
+			<li><a href="../datafilestagpages/datafilesstartingkits.html#CATEGORY">ABILITY:CATEGORY</a> <span class="note">(Starting Kit)</span></li>
+			<li><a href="../datafilestagpages/datafilesstartingkits.html#ABILITY">ABILITY:PROMPT:FEAT</a> <span class="note">(Starting Kit)</span></li>
+		</ul>
+		<p></p>
 
 <hr>
 
+		<h4><a name="PCCAbilityTags">PCC Ability Tags</a></h4>
 
-	<h3><a name="PCCAbilityTags">PCC Ability Tags</a></h3>
+		<ul>
+			<li><a href="../datafilestagpages/datafilespcc.html#ABILITYPCC">ABILITY</a> <span class="note">(PCC)</span></li>
+		</ul>
 
+<hr>
 
-	<ul>
-	<li><a href="../datafilestagpages/datafilespcc.html#ABILITYPCC">ABILITY</a> <span class="note">(PCC)</span></li>
+		<p>
+		<a href="http://validator.w3.org/check?uri=referer"><img
+    	   	src="../../images/system/valid-html401.png"
+    	   	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+		</p>
 
-
-
-	</ul>
-
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
-
-</body>
-
+	</body>
 
 </html>
