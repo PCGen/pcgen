@@ -37,7 +37,9 @@ import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.RaceLoader;
+import pcgen.util.TestHelper;
 import pcgen.util.UnreachableError;
+import pcgen.util.chooser.ChooserFactory;
 
 /**
  * Test the PObject class.
@@ -377,6 +379,30 @@ public class PObjectTest extends AbstractCharacterTestCase
 			Nature.AUTOMATIC, ab1));
 		assertTrue("Character should have ability2.", pc.hasAbility(cat,
 			Nature.AUTOMATIC, ab2));
+	}
+	
+	/**
+	 * Test the REMOVE:FEAT functions  
+	 */
+	public void testRemoveFeat()
+	{
+		ChooserFactory.setInterfaceClassname("pcgen.util.chooser.RandomChooser");
+		Ability alertness = TestHelper.makeAbility("Alertness", AbilityCategory.FEAT.getAbilityCategory(), "General");
+		Race arRace = TestHelper.makeRace("AddRemove");
+		arRace.addAddList(1, "FEAT(KEY_Alertness)");
+		PCClass pcClass = TestHelper.makeClass("Remove Feat Test");
+		pcClass.setRemoveString("2|FEAT(KEY_Alertness)1");
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(arRace);
+		assertEquals("Initial number of feats", 0.0, pc.getFeats(), 0.1);
+		
+		pc.incrementClassLevel(1, pcClass);
+		assertEquals("Number of feats at 1st level", 0.0, pc.getFeats(), 0.1);
+		assertNotNull("Has feat", pc.getFeatKeyed(alertness.getKeyName()));
+		
+		pc.incrementClassLevel(2, pcClass);
+		assertEquals("Number of feats at 2nd level", 1.0, pc.getFeats(), 0.1);
+		assertNull("No longer has feat", pc.getFeatKeyed(alertness.getKeyName()));
 	}
 	
 	/**

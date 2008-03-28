@@ -2353,6 +2353,17 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			for (int ci = 0; ci < chooser.getSelectedList().size(); ci++)
 			{
 				final String chosenItem = (String) chooser.getSelectedList().get(ci);
+				final Ability anAbility = Globals.getAbilityKeyed("FEAT", chosenItem);
+//				if (anAbility == null)
+//				{
+//					aPC.adjustFeats(-1);
+//					Logging.debugPrint("There is no feat '" + chosenItem + "'. Adjusting feat count by -1");
+//				}
+//				else
+//				{
+//					aPC.adjustFeats(-anAbility.getCost());
+//				}
+
 				AbilityUtilities.modFeat(aPC, null, chosenItem, false, false);
 			}
 		}
@@ -2361,6 +2372,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			for (int ix = theFeatList.size() - 1; ix >= 0; ix--)
 			{
 				Ability aFeat = theFeatList.get(ix);
+				aPC.adjustFeats(-aFeat.getCost());
 				AbilityUtilities.modFeat(aPC, null, aFeat.getKeyName(), false, false);
 				if (ix > theFeatList.size())
 					ix = theFeatList.size();
