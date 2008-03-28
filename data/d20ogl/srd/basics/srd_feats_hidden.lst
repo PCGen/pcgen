@@ -82,13 +82,6 @@ Defensive Awareness	VISIBLE:NO	SAB:Defensive Awareness (Dex bonus to AC)|Uncanny
 #Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SAB:Loremaster Secret (Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																			SOURCEPAGE:srdbasiccharacterclassesii.rtf
 #More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SAB:Loremaster Secret (More Newfound Arcana)		STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																			SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
-
-###Block:Command special abilities (used by multiple classes)
-# Feat Name		Type					Visible	Special ABility						Define										Source Page
-Evasion							VISIBLE:NO	SAB:Evasion (Ex)|PHBFeatEvasion			DEFINE:PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Improved Evasion	TYPE:RogueSpecialAbilities	VISIBLE:NO	SAB:Improved Evasion (Ex)															SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Sneak Attack	TYPE:Special			VISIBLE:NO	SAB:Sneak Attack %d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6				SOURCEPAGE:srdbasiccharacterclassesii.rtf
-
 ###Block: Proficiencies
 # Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
 All Automatic Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
