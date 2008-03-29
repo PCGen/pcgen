@@ -297,6 +297,21 @@ public class TestHelper
 	}
 
 	/**
+	 * Set the important info about a Race
+	 * @param name The race name
+	 * @return The race (which has also been added to global storage)
+	 */
+	public static PCClass makeClass(final String name)
+	{
+		final PCClass aClass = new PCClass();
+		aClass.setName(name);
+		aClass.setKeyName("KEY_" + name);
+
+		Globals.getClassList().add(aClass);
+		return aClass;
+	}
+	
+	/**
      * Get the Ability Category of the Ability object passed in.  If it does
      * not exist in the game mode, a new object wil be created and added to
      * the game mode
