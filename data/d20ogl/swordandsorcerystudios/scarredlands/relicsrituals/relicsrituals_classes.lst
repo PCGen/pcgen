@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb 14 13:16:22 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Mar 28 17:37:02 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 #CHANGES 9/24 - ADDED Ritual Casting to all the spell casting classes in this data set.
@@ -31,7 +31,7 @@ CLASS:Crypt Lord	PREALIGN:LE,NE,CE	PREFEAT:1,Spell Focus(Necromancy)	PRESKILL:1,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (Undead)|TYPE.Profession|Scry|Spellcraft
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|1+CHA|TYPE=NoStack						ADD:FEAT|1|Rebuke Undead	AUTO:FEAT|Basic Turning
+1	BONUS:VAR|TurnTimesBase|1+CHA|TYPE=NoStack						ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
 1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack

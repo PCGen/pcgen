@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 20:12:45 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Mar 28 17:31:26 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
 # Original Entry by: Jerril
 
@@ -97,10 +97,10 @@ CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gath
 CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device
-2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	ADD:FEAT|1|TYPE=TurnUndead	AUTO:FEAT|Basic Turning
-2	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE
-2	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
-2	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+2	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	ABILITY:Special Ability|AUTOMATIC|Basic Turning
+2										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE
+2										BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+2										BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal Progression
 1											SPELLS:Class|TIMES=(CL/3)+1|CASTERLEVEL=CL|Protection from Evil
 4							ADD:FEAT|Song of Power

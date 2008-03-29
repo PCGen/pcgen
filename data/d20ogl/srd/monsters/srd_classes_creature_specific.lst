@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Mar 28 18:02:53 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 #
@@ -21,12 +21,18 @@ CLASS:Drider Cleric	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LE
 CLASS:Drider Cleric	PRERACE:1,Drider (Cleric)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
-1	SAB:Spontaneous casting	BONUS:VAR|TurnLevelBase|CL					ADD:SPELLCASTER|1|Cleric	ADD:FEAT|1|TYPE=TurnUndead	AUTO:FEAT|Basic Turning
-2										BONUS:PCLEVEL|Cleric|1
-3										BONUS:PCLEVEL|Cleric|1
-4										BONUS:PCLEVEL|Cleric|1
-5										BONUS:PCLEVEL|Cleric|1
-6										BONUS:PCLEVEL|Cleric|1
+###Block: Turn Undead
+1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ABILITY:Special Ability|AUTOMATIC|Basic Turning
+1										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1										BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+1										BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+###Block: Progression
+1	SAB:Spontaneous casting					ADD:SPELLCASTER|1|Cleric
+2					BONUS:PCLEVEL|Cleric|1
+3					BONUS:PCLEVEL|Cleric|1
+4					BONUS:PCLEVEL|Cleric|1
+5					BONUS:PCLEVEL|Cleric|1
+6					BONUS:PCLEVEL|Cleric|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Drider Sorcerer	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

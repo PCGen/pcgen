@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jun 28 18:36:12 2007 -- reformated by prettylst.pl v1.38 (build 2949)
+# CVS $Revision$ $Author$ -- Fri Mar 28 17:34:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWEB:http://www.lionsdenpress.com/
 # Original Entry by: Tir Gwaith
 
@@ -24,7 +24,7 @@ CLASS:Planar Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|
 1	SPELLLEVEL:CLASS|Planar Mage=8|Binding,Dimensional Lock,Maze,Planar Binding (Greater),Summon Monster VIII
 1	SPELLLEVEL:CLASS|Planar Mage=9|Astral Projection,Gate,Mage's Disjunction,Summon Monster IX,Teleportation Circle
 ###Block: Planar Turning stuff stuff
-4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			AUTO:FEAT|Basic Turning|Planar Turning
+4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			ABILITY:Special Ability|AUTOMATIC|Basic Turning	AUTO:FEAT|Planar Turning
 4	BONUS:VAR|TurnLevelBase|CL/2|TYPE=Level.REPLACE
 4	BONUS:VAR|TurnDamagePlusBase|CL/2|TYPE=Level.REPLACE
 4	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base

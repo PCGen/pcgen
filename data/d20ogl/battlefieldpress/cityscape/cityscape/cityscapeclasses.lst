@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar  2 21:09:08 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Mar 28 17:34:07 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 # Original Entry by: Tir Gwaith
 
@@ -77,10 +77,10 @@ CLASS:Cleric (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ADD:FEAT|1|TYPE=TurnUndead	AUTO:FEAT|Basic Turning
-1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
-1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
-1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ABILITY:Special Ability|AUTOMATIC|Basic Turning
+1										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1										BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+1										BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Level progression
 1	CAST:3,1				SAB:Spontaneous casting
 2	CAST:4,2

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Mar 27 00:41:59 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Mar 28 14:46:53 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -110,10 +110,10 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 #	both OS and data to include modifications for differences in Turning ability for Undead,
 #	Air, Fire, etc.
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ADD:FEAT|TYPE=TurnUndead	AUTO:FEAT|Basic Turning|Cleric Turning
+1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ABILITY:Special Ability|AUTOMATIC|Basic Turning	AUTO:FEAT|Cleric Turning
 ###Block: Spontaneous casting
-1	VFEAT:Spontaneous casting - Cure spells|PREFEAT:1,Turn Undead
-1	VFEAT:Spontaneous casting - Inflict spells|PREFEAT:1,Rebuke Undead
+1	VFEAT:Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
+1	VFEAT:Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
@@ -290,12 +290,12 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
-1				BONUS:VAR|AuraGood,DetectEvilLVL,PaladinSmiteEvilLVL|CL	DEFINE:AllowHolyAvenger|1	AUTO:FEAT|Aura of Good|Detect Evil|Smite Evil|Paladin Smite Evil
-2				BONUS:VAR|LayOnHandsLVL|CL											AUTO:FEAT|Divine Grace|Lay on Hands
-3																			AUTO:FEAT|Aura of Courage|Divine Health
-4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											AUTO:FEAT|Basic Turning|Turn Undead|Paladin Turn Undead
-5	CAST:0,0		BONUS:VAR|SMLevel|CL												AUTO:FEAT|Special Mount
-6	CAST:0,1		BONUS:VAR|RemoveDiseaseLVL|CL											AUTO:FEAT|Remove Disease
+1				BONUS:VAR|AuraGood,DetectEvilLVL,PaladinSmiteEvilLVL|CL	DEFINE:AllowHolyAvenger|1											AUTO:FEAT|Aura of Good|Detect Evil|Smite Evil|Paladin Smite Evil
+2				BONUS:VAR|LayOnHandsLVL|CL																					AUTO:FEAT|Divine Grace|Lay on Hands
+3																													AUTO:FEAT|Aura of Courage|Divine Health
+4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											ABILITY:Special Ability|AUTOMATIC|Basic Turning|Turn Undead	AUTO:FEAT|Paladin Turn Undead
+5	CAST:0,0		BONUS:VAR|SMLevel|CL																						AUTO:FEAT|Special Mount
+6	CAST:0,1		BONUS:VAR|RemoveDiseaseLVL|CL																					AUTO:FEAT|Remove Disease
 7	CAST:0,1
 8	CAST:0,1,0
 9	CAST:0,1,0

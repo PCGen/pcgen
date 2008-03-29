@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  7 17:31:30 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Mar 28 22:43:24 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -52,14 +52,14 @@ CLASS:Beltinian Hospitaler	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplo
 # Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level
 CLASS:Beltinian Hospitaler	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Beltinian Hospitaler|CL/2|PRECLASS:1,Beltinian Hospitaler=2
 ###Block: Channeling Stuff
-4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT|1|TYPE=Channeling	AUTO:FEAT|Basic Channeling
-4	BONUS:VAR|ChannelLevelBase|CL-3
-4	BONUS:VAR|ChannelDamagePlusBase|CL-3
-4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
-4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT|1|TYPE=TurnUndead	AUTO:FEAT|Basic Turning
-4	BONUS:VAR|TurnLevelBase|CL-3				DEFINE:AllowExtraTurning|1
-4	BONUS:VAR|TurnDamagePlusBase|CL-3
-4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+4										BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT|1|TYPE=Channeling									AUTO:FEAT|Basic Channeling
+4										BONUS:VAR|ChannelLevelBase|CL-3
+4										BONUS:VAR|ChannelDamagePlusBase|CL-3
+4										BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+4	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1						ABILITY:Special Ability|AUTOMATIC|Basic Turning
+4										BONUS:VAR|TurnLevelBase|CL-3				DEFINE:AllowExtraTurning|1
+4										BONUS:VAR|TurnDamagePlusBase|CL-3
+4										BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)	SAB:Mercy For All	SAB:Weapons of Our Mother (Ex)																						VFEAT:Two Weapon Fighting|PREMULT:1,[PREEQUIPBOTH:1,Quarterstaff],[PREEQUIPTWOWEAPON:1,Mace (Light)]	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2	CAST:0,0		SAB:Divine Grace (Su)	SAB:Lay on Hands (Su) % hp/day|LayOnHands	SAB:Merciful Strike (Ex)	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
@@ -169,14 +169,14 @@ CLASS:Harbinger of the Dawn	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Dipl
 # Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level
 CLASS:Harbinger of the Dawn	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Harbinger of the Dawn|CL/2|PRECLASS:1,Harbinger of the Dawn=4
 ###Block: Channeling Stuff
-4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT|1|TYPE=Channeling	AUTO:FEAT|Basic Channeling
-4	BONUS:VAR|ChannelLevelBase|CL-3
-4	BONUS:VAR|ChannelDamagePlusBase|CL-3
-4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
-4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT|1|TYPE=TurnUndead	AUTO:FEAT|Basic Turning
-4	BONUS:VAR|TurnLevelBase|CL-3				DEFINE:AllowExtraTurning|1
-4	BONUS:VAR|TurnDamagePlusBase|CL-3
-4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+4										BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT|1|TYPE=Channeling									AUTO:FEAT|Basic Channeling
+4										BONUS:VAR|ChannelLevelBase|CL-3
+4										BONUS:VAR|ChannelDamagePlusBase|CL-3
+4										BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+4	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1						ABILITY:Special Ability|AUTOMATIC|Basic Turning
+4										BONUS:VAR|TurnLevelBase|CL-3				DEFINE:AllowExtraTurning|1
+4										BONUS:VAR|TurnDamagePlusBase|CL-3
+4										BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block:Level Stuff
 1				SAB:Aura of Faith (Su)	SAB:Smite Chaos (Su) (%/Day, +% to hit, +% Damage)|SmiteChaos|ChaosHit|ChaosDamage	BONUS:VAR|ChaosHit|max(CHA,0)	BONUS:VAR|ChaosDamage|CL									DEFINE:SmiteChaos|1	DEFINE:ChaosHit|0	DEFINE:ChaosDamage|0	SPELLS:Class|TIMES=ATWILL|Detect Chaos	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 2				SAB:Lay on Hands (Su) % hp/day|LayOnHands	SAB:Divine Grace (Su)								BONUS:VAR|LayOnHands|max(CHA,0)*CL					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
@@ -249,14 +249,14 @@ CLASS:Knight of the Twelve Oaks	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|
 # Class Name				Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
 CLASS:Knight of the Twelve Oaks	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Knight of the Twelve Oaks|CL/2|PRECLASS:1,Knight of the Twelve Oaks=4
 ###Block: Channeling Stuff
-4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack								ADD:FEAT|1|TYPE=Channeling	AUTO:FEAT|Basic Channeling
-4	BONUS:VAR|ChannelLevelBase|CL-3
-4	BONUS:VAR|ChannelDamagePlusBase|CL-3
-4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
-4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack			DEFINE:AllowImprovedTurning|1	ADD:FEAT|1|TYPE=TurnUndead	AUTO:FEAT|Basic Turning
-4	BONUS:VAR|TurnLevelBase|CL						DEFINE:AllowExtraTurning|1
-4	BONUS:VAR|TurnDamagePlusBase|CL
-4	BONUS:VAR|TurnCheckBase|CHA|TYPE=Knight of the Twelve Oaks
+4										BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack								ADD:FEAT|1|TYPE=Channeling									AUTO:FEAT|Basic Channeling
+4										BONUS:VAR|ChannelLevelBase|CL-3
+4										BONUS:VAR|ChannelDamagePlusBase|CL-3
+4										BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+4	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack			DEFINE:AllowImprovedTurning|1						ABILITY:Special Ability|AUTOMATIC|Basic Turning
+4										BONUS:VAR|TurnLevelBase|CL						DEFINE:AllowExtraTurning|1
+4										BONUS:VAR|TurnDamagePlusBase|CL
+4										BONUS:VAR|TurnCheckBase|CHA|TYPE=Knight of the Twelve Oaks
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)											BONUS:VAR|SmiteEvil|(CL/6)+1																SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil				AUTO:FEAT|Smite Evil	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2				SAB:Divine Grace (Su)	SAB:Lay on Hands (Su) % hp/day|LayOnHands				BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
@@ -290,11 +290,11 @@ CLASS:Order of the Inner Demon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|D
 # Class Name				Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
 CLASS:Order of the Inner Demon	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Order of the Inner Demon|CL/2|PRECLASS:1,Order of the Inner Demon=4
 ###Block: Channeling Stuff
-4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT|1|TYPE=Channeling	AUTO:FEAT|Basic Channeling
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT|1|TYPE=Channeling									AUTO:FEAT|Basic Channeling
 4	BONUS:VAR|ChannelLevelBase|CL-3
 4	BONUS:VAR|ChannelDamagePlusBase|CL-3
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
-4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT|1|Turn Infernal	AUTO:FEAT|Basic Turning
+4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT|1|Turn Infernal	ABILITY:Special Ability|AUTOMATIC|Basic Turning
 4	BONUS:VAR|TurnLevelBase|CL-3				DEFINE:AllowExtraTurning|1
 4	BONUS:VAR|TurnDamagePlusBase|CL-3
 4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
@@ -396,47 +396,47 @@ CLASS:Priest	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Scri
 CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
 #
 SUBCLASS:Priest of Althares		PREDEITY:Althares
-SUBCLASSLEVEL:1						SAB:Right to Carry																																																																											ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnUndead							VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))							AUTO:WEAPONPROF|Warhammer
-SUBCLASSLEVEL:5																																BONUS:VAR|AgesKnowledgeLevel|CL/2|PREDEITY:Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT|1|Knowledge of the Ages
+SUBCLASSLEVEL:1						SAB:Right to Carry																							BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																					VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))							AUTO:WEAPONPROF|Warhammer
+SUBCLASSLEVEL:5																																									BONUS:VAR|AgesKnowledgeLevel|CL/2|PREDEITY:Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT|1|Knowledge of the Ages
 SUBCLASS:Priest of Anshar		PREDEITY:Anshar
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Improved Unarmed Strike
-SUBCLASSLEVEL:3																																																																																																				VFEAT:Endurance
-SUBCLASSLEVEL:9																																																																																																				VFEAT:Diehard
+SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																					VFEAT:Improved Unarmed Strike
+SUBCLASSLEVEL:3																																																																																																													VFEAT:Endurance
+SUBCLASSLEVEL:9																																																																																																													VFEAT:Diehard
 SUBCLASS:Priest of Belisarda		PREDEITY:Belisarda	CSKILL:Knowledge (Geography)|Knowledge (Nature)|Survival
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead																													AUTO:WEAPONPROF|Longbow
+SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																						AUTO:WEAPONPROF|Longbow
 SUBCLASS:Priest of Beltine		PREDEITY:Beltine
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																						AUTO:WEAPONPROF|Quarterstaff
+SUBCLASSLEVEL:1																																																																																													ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																						AUTO:WEAPONPROF|Quarterstaff
 SUBCLASS:Priest of Cadic		PREDEITY:Cadic		CSKILL:Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnCadicGood							VFEAT:Martial Weapon Proficiency(Crossbow (Hand))									AUTO:WEAPONPROF|Sword (Short)
-SUBCLASSLEVEL:5																																BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1																																																	TEMPLATE:Uncanny Dodge
+SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																					ADD:FEAT|1|TYPE=TurnCadicGood												VFEAT:Martial Weapon Proficiency(Crossbow (Hand))									AUTO:WEAPONPROF|Sword (Short)
+SUBCLASSLEVEL:5																																									BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1																																																	TEMPLATE:Uncanny Dodge
 SUBCLASS:Priest of Hurrian		PREDEITY:Hurrian		CSKILL:Survival
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead																													AUTO:WEAPONPROF|Longsword
+SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																						AUTO:WEAPONPROF|Longsword
 SUBCLASS:Priest of Illir		PREDEITY:Illir
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnIllirGood							VFEAT:Gladius Exotic Weapon Proficiency											AUTO:WEAPONPROF|Gladius
+SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																					ADD:FEAT|1|TYPE=TurnIllirGood												VFEAT:Gladius Exotic Weapon Proficiency											AUTO:WEAPONPROF|Gladius
 SUBCLASSLEVEL:5						SAB:Fearless (Ex)
 SUBCLASS:Priest of the Fire Dragon	PREDEITY:Fire Dragon	CSKILL:Survival
-SUBCLASSLEVEL:1						SAB:Ignore detrimental effects from natural heat between 80-150 degrees F.																																																																		ADD:FEAT|1|TYPE=TurnUndead																													AUTO:WEAPONPROF|Flail (Heavy)
+SUBCLASSLEVEL:1						SAB:Ignore detrimental effects from natural heat between 80-150 degrees F.														BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																						AUTO:WEAPONPROF|Flail (Heavy)
 SUBCLASS:Priest of Larissa		PREDEITY:Larissa		CSKILL:TYPE.Perform|Tumble
-SUBCLASSLEVEL:1	DOMAIN:Divination|Pleasure																																																													BONUS:DOMAIN|NUMBER|1															ADD:FEAT|1|TYPE=TurnUndead												VFEAT:Exotic Weapon Proficiency(Whip)					AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Rapier
-SUBCLASSLEVEL:3																																																				BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
+SUBCLASSLEVEL:1	DOMAIN:Divination|Pleasure																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																			BONUS:DOMAIN|NUMBER|1																															VFEAT:Exotic Weapon Proficiency(Whip)					AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Rapier
+SUBCLASSLEVEL:3																																																													BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
 SUBCLASS:Priest of Neroth		PREDEITY:Neroth
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																						AUTO:WEAPONPROF|Scythe
+SUBCLASSLEVEL:1																																																																																													ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																						AUTO:WEAPONPROF|Scythe
 SUBCLASS:Priest of Nier			PREDEITY:Nier
-SUBCLASSLEVEL:1						SAB:+1 per die of damage on spells cast with the fire descriptor.	SAB:When turning undead, the Priest of Nier must destroy the undead or nothing happens.																																																					ADD:FEAT|1|TYPE=TurnUndead																													AUTO:WEAPONPROF|Greatsword
+SUBCLASSLEVEL:1						SAB:+1 per die of damage on spells cast with the fire descriptor.	SAB:When turning undead, the Priest of Nier must destroy the undead or nothing happens.	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																						AUTO:WEAPONPROF|Greatsword
 SUBCLASS:Priest of Saluwe		PREDEITY:Saluwe
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead																													AUTO:WEAPONPROF|Spear
-SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex)																																																																																																						AUTO:FEAT|Track
-SUBCLASSLEVEL:4																																BONUS:VAR|CompLevel|CL																																																																												AUTO:FEAT|Animal Companion
+SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																						AUTO:WEAPONPROF|Spear
+SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex)																																																																																																															AUTO:FEAT|Track
+SUBCLASSLEVEL:4																																									BONUS:VAR|CompLevel|CL																																																																												AUTO:FEAT|Animal Companion
 SUBCLASS:Priest of Sarish		PREDEITY:Sarish
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:EQUIP|1|Dagger (Sarishan Steel)																							AUTO:WEAPONPROF|Dagger		LANGAUTO:Infernal
-SUBCLASSLEVEL:3																																																																																																															AUTO:FEAT|Magical Aptitude
+SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																					ADD:EQUIP|1|Dagger (Sarishan Steel)																												AUTO:WEAPONPROF|Dagger		LANGAUTO:Infernal
+SUBCLASSLEVEL:3																																																																																																																								AUTO:FEAT|Magical Aptitude
 SUBCLASSLEVEL:10						SAB:Mark of My Brother
 SUBCLASS:Priest of Yarris		PREDEITY:Yarris		CSKILL:Knowledge (Nature)|Survival|Swim
-SUBCLASSLEVEL:1																																																																																				ADD:FEAT|1|TYPE=TurnUndead	ADD:FEAT|1|TYPE=TurnYarrisGood																							AUTO:WEAPONPROF|Trident
+SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																					ADD:FEAT|1|TYPE=TurnYarrisGood																												AUTO:WEAPONPROF|Trident
 SUBCLASSLEVEL:2						SAB:Effected by Endure Elements when within 1 mile of any large body of water.
-SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex) (Water Only)																																																											BONUS:SKILL|Profession (Navigator),Survival,Swim|2
+SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex) (Water Only)																																																																				BONUS:SKILL|Profession (Navigator),Survival,Swim|2
 ###Block: Basic Turn Undead
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack							DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:TurnLevelSpecial|0	AUTO:FEAT|Basic Turning
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack							DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:TurnLevelSpecial|0	ABILITY:Special Ability|AUTOMATIC|Basic Turning
 1	BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:Althares,Cadic,Fire Dragon,Larissa,Sarish
 1	BONUS:VAR|TurnLevelBase|CL-2|PREDEITY:Hurrian,Yarris
 1	BONUS:VAR|TurnLevelBase|CL-1|PREDEITY:Anshar,Illir,Saluwe

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Mar 10 17:11:03 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Mar 28 17:35:42 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
@@ -57,8 +57,8 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 5	SAB:Fiendish Servant					BONUS:VAR|FSLevel|TL							DEFINE:FSLevel|0
 5	SAB:Undead Companion|PRECLASS:1,Ex Paladin=9	BONUS:VAR|UndeadCompanionLVL|TL|PRECLASS:1,Ex Paladin=9	DEFINE:UndeadCompanionLVL|0
 ###Block: Ex-Paladin stuff
-1														BONUS:VAR|SmiteGood|1|PRECLASS:1,Ex Paladin=1									AUTO:FEAT|Smite Good
-3														BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL-2|TYPE=Base.REPLACE						AUTO:FEAT|Rebuke Undead|Basic Turning
+1														BONUS:VAR|SmiteGood|1|PRECLASS:1,Ex Paladin=1																						AUTO:FEAT|Smite Good
+3														BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL-2|TYPE=Base.REPLACE						ABILITY:Special Ability|AUTOMATIC|Turn Undead|Rebuke Undead|Basic Turning
 1	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL				DEFINE:BlackguardLayOnHands|0
 1	SAB:Fiendish Summoning|PRECLASS:1,Ex Paladin=7
 ###Block: Normal Class Progression

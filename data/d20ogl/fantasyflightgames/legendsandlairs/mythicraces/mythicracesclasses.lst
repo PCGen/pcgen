@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 22:20:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Mar 28 17:34:32 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
@@ -134,7 +134,7 @@ CLASS:Eletum Aemidun	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|D
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base										AUTO:FEAT|Rebuke Undead|Basic Turning
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base										ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
 1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE				DEFINE:AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|var("CL=Cleric")|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
