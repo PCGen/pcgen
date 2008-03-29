@@ -2608,8 +2608,9 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The feature to be added to the EqModifier attribute
 	 * @param bPrimary
 	 *            The feature to be added to the EqModifier attribute
+	 * @param isLoading Is the equipment item being loaded currently. 
 	 */
-	public void addEqModifier(final String aString, final boolean bPrimary) {
+	private void addEqModifier(final String aString, final boolean bPrimary, final boolean isLoading) {
 		final StringTokenizer aTok = new StringTokenizer(aString, "|");
 
 		// The type of EqMod, eg: ABILITYPLUS
@@ -2655,7 +2656,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (eqMod.getChoiceString().length() != 0) {
 			while (aTok.hasMoreTokens()) {
 				final String x = aTok.nextToken();
-				if (eqMod.getChoiceString().startsWith("EQBUILDER")) {
+				if (eqMod.getChoiceString().startsWith("EQBUILDER") && !isLoading) {
 					// We clear the associated info to avoid a buildup of info
 					// like number of charges.
 					eqMod.clearAssociated();
@@ -2832,13 +2833,28 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The feature to be added to the EqModifiers attribute
 	 */
 	public void addEqModifiers(final String aString, final boolean bPrimary) {
+		addEqModifiers(aString, bPrimary, false);
+	}
+	
+	/**
+	 * Add a list equipment modifiers and their associated information eg:
+	 * Bane|Vermin|Fey.Keen.Vorpal.ABILITYPLUS|CHA=+6 <p/> Adds a feature to the
+	 * EqModifiers attribute of the Equipment object
+	 * 
+	 * @param aString
+	 *            The feature to be added to the EqModifiers attribute
+	 * @param bPrimary
+	 *            The feature to be added to the EqModifiers attribute
+	 * @param isLoading Is the equipment item being loaded currently. 
+	 */
+	public void addEqModifiers(final String aString, final boolean bPrimary, final boolean isLoading) {
 		final StringTokenizer aTok = new StringTokenizer(aString, ".");
 
 		while (aTok.hasMoreTokens()) {
 			final String aEqModName = aTok.nextToken();
 
 			if (!aEqModName.equalsIgnoreCase(Constants.s_NONE)) {
-				addEqModifier(aEqModName, bPrimary);
+				addEqModifier(aEqModName, bPrimary, isLoading);
 			}
 		}
 
@@ -3415,7 +3431,7 @@ public final class Equipment extends PObject implements Serializable,
 			} else if (aString.startsWith("SIZE" + endPart)) {
 				newSize = aString.substring(4 + endPartLen);
 			} else if (aString.startsWith("EQMOD" + endPart)) {
-				addEqModifiers(aString.substring(5 + endPartLen), true);
+				addEqModifiers(aString.substring(5 + endPartLen), true, true);
 			} else if (aString.startsWith("ALTEQMOD" + endPart)) {
 				addEqModifiers(aString.substring(8 + endPartLen), false);
 			} else if (aString.startsWith("SPROP" + endPart)) {
