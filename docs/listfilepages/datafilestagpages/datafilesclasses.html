@@ -87,6 +87,14 @@
 		<li>Placed after the Sub-Class Level Lines that define the associated sub-class.</li>
 		<li>Only the Sub-Class Level Lines that contain tags need to be included.</li>
 		<li>Only tags identified as Sub-Class Line or Class Line tags should be used on this line.</li>
+		<ul>
+			<li>SPELLLIST does not work on CLASS Line IF SUBCLASS or SUBSTITUTIONCLASS is present. In those
+					cases, the SPELLLIST tag must be placed ON EACH SUBCLASS or SUBSTITUTION class line (Not
+					Level Line).</li>
+			<li>Another noted behavior - mainly code bug: Such classes will NOT display there Known Spells OR
+					cast information on the spells tab.</li>
+			<li>This behavior is expected to be fixed once CDOM is operational.</li>
+		</ul>
 	</ul>
 	<p><strong>A Sub-Class Example</strong></p>
 	<blockquote>
@@ -104,6 +112,7 @@
         	<code>19 . . .</code><br>
         	<code>20 . . .</code></p>
 	</blockquote>
+
 	<h3>Substitution Class and Substitution Level Lines</h3>
 	<p>Substitution levels can be implemented with the inclusion of the <code><a 		href="#SUBSTITUTIONCLASS">SUBSTITUTIONCLASS</a></code> and <code><a 		href="#SUBSTITUTIONLEVEL">SUBSTITUTIONLEVEL</a></code> tags.</p>
 	<p><strong>The Substitution Class Line</strong></p>
@@ -119,6 +128,14 @@
 		<li>Placed after the Substitution Class Lines that define the associated substitution class.</li>
 		<li>Only the Substitution Level Lines that contain tags need to	be included.</li>
 		<li>Only tags identified as Substitution Level Line or Class Level Line tags should be used on this 			line.</li>
+		<ul>
+			<li>SPELLLIST does not work on CLASS Line IF SUBCLASS or SUBSTITUTIONCLASS is present. In those
+					cases, the SPELLLIST tag must be placed ON EACH SUBCLASS or SUBSTITUTION class line (Not
+					Level Line).</li>
+			<li>Another noted behavior - mainly code bug: Such classes will NOT display there Known Spells OR
+					cast information on the spells tab.</li>
+			<li>This behavior is expected to be fixed once CDOM is operational.</li>
+		</ul>
 	</ul>
 	<p><strong>A Substitution Level Example: Part of a Base Class Entry</strong></p>
 	<blockquote>
@@ -181,7 +198,7 @@
 
 	<p class="new">*** New 5.11.11</p>
 	<p class="indent0"><strong><a name="CLASSSKILLS|">Tag Name:</a></strong> ADD:CLASSSKILLS|x|y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>  Number, Variable or Formula (Number of 
+	<p class="indent1"><strong>Variables Used (x):</strong>  Number, Variable or Formula (Number of
 	choices granted. Optional)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of skill)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of skill)</p>
@@ -203,28 +220,28 @@
 	<p class="indent2"><code>ADD:CLASSSKILLS|Knowledge (Reverie)</code></p>
 	<p class="indent3">Add &quot;Knowledge (Reverie)&quot; skill to the characters list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|Knowledge (nature),Survival,AUTORANK=3</code></p>
-	<p class="indent3">Add &quot;Knowledge (nature)&quot; and &quot;Survival&quot; 
+	<p class="indent3">Add &quot;Knowledge (nature)&quot; and &quot;Survival&quot;
 	skills to the characters list of class skills and grant 2 free ranks in each.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|TYPE=Craft</code></p>
-	<p class="indent3">Add one skill from the list of &quot;Craft&quot; type skills 
+	<p class="indent3">Add one skill from the list of &quot;Craft&quot; type skills
 	to the characters list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|3|ANY</code></p>
-	<p class="indent3">Add three skills from the full list of skills to the characters 
+	<p class="indent3">Add three skills from the full list of skills to the characters
 	list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|CROSSCLASSSKILLSY</code></p>
-	<p class="indent3">Add one skill from the list of cross-class skills to the 
+	<p class="indent3">Add one skill from the list of cross-class skills to the
 	characters list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|UNTRIANED</code></p>
-	<p class="indent3">Add one skill from the list of skills that can be used 
+	<p class="indent3">Add one skill from the list of skills that can be used
 	untrained to the characters list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|3|TRAINED</code></p>
-	<p class="indent3">Add three skills from the list of skills that require 
+	<p class="indent3">Add three skills from the list of skills that require
 	training to the characters list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|2|EXCLUSIVE</code></p>
-	<p class="indent3">Add two skills from the list of exclusive skills to the 
+	<p class="indent3">Add two skills from the list of exclusive skills to the
 	characters list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|2|NONEXCLUSIVE</code></p>
-	<p class="indent3">Add two skills from the list of non-exclusive skills to 
+	<p class="indent3">Add two skills from the list of non-exclusive skills to
 	the characters list of class skills.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong> <a href="CLASSSKILLS(">ADD:CLASSSKILLS(y,y)z</a></p>
 	<p></p>
@@ -1403,7 +1420,7 @@
 	<ul class="indent2">
 		<li>This is a pipe-delimited (|) list of weapons or weapon types that are granted to the class as
 			a choice of ONE of the listed weapons.</li>
-		<li>This tag does not use a CHOOSE pop-up to make a selection.  You nust use the &quot;Lang, Weapon, 
+		<li>This tag does not use a CHOOSE pop-up to make a selection.  You nust use the &quot;Lang, Weapon,
 			and SA&quot; dialog found on the &quot;Summary&quot; tab.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
