@@ -137,7 +137,7 @@ CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Jump|Knowle
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																		Combat bonus
 CLASS:Chosen of Agri	HD:8		TYPE:PC.Prestige	ABB:CA		MAXLEVEL:6	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Fortitude|(CL+2)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/2-CL==1	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Deity	Required Skill					Required Stat		Required Text
-CLASS:Chosen of Agri	PREALIGN:LN,TN,NG	PREATT:5	PREDEITY:Agri	PRESKILL:2,Survival,Knowledge (Nature)=8	PRESTAT:2,WIS=15,CON=12	PRETEXT:Ability to cast Speak with Plants
+CLASS:Chosen of Agri	PREALIGN:LN,TN,NG	PREATT:5	PREDEITY:1,Agri	PRESKILL:2,Survival,Knowledge (Nature)=8	PRESTAT:2,WIS=15,CON=12	PRETEXT:Ability to cast Speak with Plants
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Religion)|Listen|Search|Spot|Spellcraft|Survival
 ###Block: Caster Level
@@ -155,7 +155,7 @@ CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|K
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
 CLASS:Chosen of Roarth	HD:8		TYPE:PC.Prestige	ABB:CR		MAXLEVEL:7	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude|(CL+3)/2-CL==1	BONUS:CHECKS|BASE.Reflex|CL/2	BONUS:CHECKS|BASE.Will|(CL+2)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Deity	Required Feat								Required Skill				Required Stat
-CLASS:Chosen of Roarth	PREALIGN:LG,NG,CG	PREATT:5	PREDEITY:Roarth	PREFEAT:1,Weapon Focus(TYPE=Bow),Weapon Focus(TYPE=Spear)	PRESKILL:2,Handle Animal,Survival=8	PRESTAT:1,WIS=13
+CLASS:Chosen of Roarth	PREALIGN:LG,NG,CG	PREATT:5	PREDEITY:1,Roarth	PREFEAT:1,Weapon Focus(TYPE=Bow),Weapon Focus(TYPE=Spear)	PRESKILL:2,Handle Animal,Survival=8	PRESTAT:1,WIS=13
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|Knowledge (Nature)|Ride|Use Rope|Survival
 ###Block: Caster Level
@@ -174,7 +174,7 @@ CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
 CLASS:Healer	HD:6		TYPE:PC.Prestige	ABB:HLR		MAXLEVEL:5	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude|(CL-1)/2	BONUS:CHECKS|BASE.Reflex|(CL-1)*2/3	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|(CL-1)/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Deity	Required Feat					Required Skill											Required Stat	Required Text
-CLASS:Healer	PREALIGN:LG,NG,CG	PREDEITY:Agri	PREFEAT:2,Brew Potion,Skill Focus(Heal)	PRESKILL:3,Heal,Knowledge (Nature)=8,Craft (Alchemy),Knowledge (Anatomy)=4	PRESTAT:1,WIS=13	PRETEXT:Ability to cast Cure light wounds
+CLASS:Healer	PREALIGN:LG,NG,CG	PREDEITY:1,Agri	PREFEAT:2,Brew Potion,Skill Focus(Heal)	PRESKILL:3,Heal,Knowledge (Nature)=8,Craft (Alchemy),Knowledge (Anatomy)=4	PRESTAT:1,WIS=13	PRETEXT:Ability to cast Cure light wounds
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Nature)|Knowledge (Anatomy)|Profession (Doctor)|Spellcraft|Survival
 ###Block: Special Abilities:
@@ -240,7 +240,7 @@ CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Disable Device|Hide|Int
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus						Add domain number
 CLASS:Swan Bard	HD:6		TYPE:PC.Prestige	ABB:SB		MAXLEVEL:7	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|(CL-1)/2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+1	BONUS:COMBAT|BAB|(CL-1)/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
 # Class Name	Required AL		!PREDEITY			Required Feat											Required Skill			Required Stat	Required Text
-CLASS:Swan Bard	PREALIGN:CG,CN,CE	!PREDEITY:Adrienne	PREFEAT:1,Skill Focus(Bluff),Skill Focus(Diplomacy),Skill Focus(Perform%)	PRESKILL:1,TYPE.Perform=10	PRESTAT:1,CHA=16	PRETEXT:Ability to cast bardic spells or Attractive Human Male (GM Discretion)
+CLASS:Swan Bard	PREALIGN:CG,CN,CE	!PREDEITY:1,Adrienne	PREFEAT:1,Skill Focus(Bluff),Skill Focus(Diplomacy),Skill Focus(Perform%)	PRESKILL:1,TYPE.Perform=10	PRESTAT:1,CHA=16	PRETEXT:Ability to cast bardic spells or Attractive Human Male (GM Discretion)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swan Bard	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Diplomacy|Gather Information|Listen|Move Silently|TYPE.Perform|Sense Motive|Spot|Tumble
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level				Use Spell List
@@ -264,7 +264,7 @@ CLASS:Swan Bard	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:WildWalker	HD:10		TYPE:PC.Prestige	ABB:WW		MAXLEVEL:6	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|CL/2	BONUS:COMBAT|BAB|(CL+2)/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Deity		Required Race	Required Skill		Required Stat
-CLASS:WildWalker	PREALIGN:CG,CN,CE	PREATT:6	PREDEITY:Sophia Kalla	PRERACE:1,Neiyar	PRESKILL:1,Survival=12	PRESTAT:2,STR=14,CON=12
+CLASS:WildWalker	PREALIGN:CG,CN,CE	PREATT:6	PREDEITY:1,Sophia Kalla	PRERACE:1,Neiyar	PRESKILL:1,Survival=12	PRESTAT:2,STR=14,CON=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:WildWalker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (Geography)|Move Silently|Ride|Swim|Survival|Use Rope
 ###Block: Special Abilities:

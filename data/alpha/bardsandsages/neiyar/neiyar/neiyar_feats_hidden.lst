@@ -31,12 +31,12 @@ Inflict Light Wounds							TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Zarakk
 
 ###Block:Flaw Modifications:
 # Feat Name			Prohibited Feat
-Iron Will.MOD		!PREFEAT:Weak willed
-Investigator.MOD		!PREFEAT:Gullible
-Leadership.MOD		!PREFEAT:Creepy
-Lightning Reflexes.MOD	!PREFEAT:Skittish
-Combat Reflexes.MOD	!PREFEAT:Skittish
-Toughness.MOD		!PREFEAT:Easily Bruised
+Iron Will.MOD		!PREFEAT:1,Weak willed
+Investigator.MOD		!PREFEAT:1,Gullible
+Leadership.MOD		!PREFEAT:1,Creepy
+Lightning Reflexes.MOD	!PREFEAT:1,Skittish
+Combat Reflexes.MOD	!PREFEAT:1,Skittish
+Toughness.MOD		!PREFEAT:1,Easily Bruised
 ###Flaws changed to Feats, redid the PRExxx -- Andrew
 
 

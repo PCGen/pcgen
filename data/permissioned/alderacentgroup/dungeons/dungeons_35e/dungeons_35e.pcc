@@ -26,7 +26,6 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?manufacturers_id=22&products_
 URL:Amazon.com|http://www.amazon.com/Dungeons-Aeg/dp/1887953272/ref=sr_1_6?ie=UTF8&s=books&qid=1205896236&sr=1-6|Buy this book from Amazon.com!
 
 CLASS:dungeonsclasses_35e.lst
-FEAT:dungeonsclassfeats_35e.lst
 FEAT:dungeonsfeats_35e.lst
 
 CLASS:../dungeonsclasses.lst

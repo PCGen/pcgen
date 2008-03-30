@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sun Mar 30 00:42:02 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -314,16 +314,16 @@ Thoughtful		CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTransformation	VISIB
 ########################
 
 ###Block:Lowlander Racial Talents
-# Ability Name	Category of Ability		Type					Visible	Special ABility	Multiple?	Selections	Choose			Save checks bonus					Combat bonus					Bonus to skill							Class Skill					Source Page
-Elnaria		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Elnaria		MULT:NO																					BONUS:SKILL|Knowledge (Geography)|2|TYPE=Talent		CSKILL:Knowledge (Geography)		SOURCEPAGE:p.47
+# Ability Name	Category of Ability		Type					Visible	Special ABility	Multiple?	Selections	Choose							Save checks bonus					Combat bonus					Bonus to skill							Class Skill					Source Page
+Elnaria		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Elnaria		MULT:NO																									BONUS:SKILL|Knowledge (Geography)|2|TYPE=Talent		CSKILL:Knowledge (Geography)		SOURCEPAGE:p.47
 #+ a Knowledge skill of his choice...
-Larakis		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Larakis		MULT:NO																																				SOURCEPAGE:p.47
-Ironwall		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Ironwall	MULT:YES	SELECT:3	CHOOSE:WEAPONPROFS								BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																SOURCEPAGE:p.47
+Larakis		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Larakis		MULT:NO																																								SOURCEPAGE:p.47
+Ironwall		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Ironwall	MULT:YES	SELECT:3	CHOOSE:WEAPONPROFS|TYPE=Simple|TYPE=Martial								BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																SOURCEPAGE:p.47
 #TODO:zzzzz Ironwall...
-Riversend		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Riversend	MULT:NO																																				SOURCEPAGE:p.47
-Seaward		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Seaward		MULT:NO							BONUS:CHECKS|Fortitude|2|TYPE=Talent																							SOURCEPAGE:p.47
-Saranor		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Saranor		MULT:NO																																				SOURCEPAGE:p.48
-Stormhaven		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Stormhaven	MULT:NO																					BONUS:SKILL|Decipher Script,Forgery|2|TYPE=Talent	CSKILL:Decipher Script|Forgery	SOURCEPAGE:p.48
+Riversend		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Riversend	MULT:NO																																								SOURCEPAGE:p.47
+Seaward		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Seaward		MULT:NO											BONUS:CHECKS|Fortitude|2|TYPE=Talent																							SOURCEPAGE:p.47
+Saranor		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Saranor		MULT:NO																																								SOURCEPAGE:p.48
+Stormhaven		CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	SAB:Stormhaven	MULT:NO																									BONUS:SKILL|Decipher Script,Forgery|2|TYPE=Talent	CSKILL:Decipher Script|Forgery	SOURCEPAGE:p.48
 
 ###Block:Lowlander Racial Transformations
 # Ability Name		Category of Ability		Type						Visible	Special ABility										Innate Spells							Multiple?	Source Page
