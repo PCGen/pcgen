@@ -1,0 +1,327 @@
+# CVS $Revision$ $Author$ -- Sat Mar 29 22:07:11 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
+
+STARTPACK:NPC (Goblin Warchanter)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p. 12
+RACE:Goblin	!PRERACE:1,%
+NAME:Goblin Warchanter
+ALIGN:NE
+CLASS:Bard	LEVEL:1
+STAT:STR=10|DEX=14|CON=13|INT=8|WIS=12|CHA=15
+SKILL:Concentration	RANK:4
+SKILL:Jump			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Perform (Sing)	RANK:4
+SKILL:Tumble		RANK:4
+FEAT:Combat Reflexes
+GEAR:Potion (Cure Light Wounds)	LOCATION:Carried
+GEAR:Studded Leather			SIZE:S	LOCATION:Equipped
+GEAR:Whip					SIZE:S	LOCATION:Primary Hand
+GEAR:Shortbow				SIZE:S	LOCATION:Carried
+GEAR:Arrow					SIZE:S	LOCATION:Carried	QUANTITY:21
+GEAR:Coin (Gold)				LOCATION:Carried	QUANTITY:20
+GEAR:Dogslicer				LOCATION:Carried
+
+
+STARTPACK:NPC (Goblin Commando)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p. 13
+RACE:Goblin	!PRERACE:1,%
+NAME:Goblin Commando
+ALIGN:NE
+CLASS:Ranger	LEVEL:1
+STAT:STR=14|DEX=15|CON=13|INT=8|WIS=12|CHA=10
+SKILL:Handle Animal	RANK:4
+SKILL:Listen		RANK:4
+SKILL:Ride			RANK:4
+SKILL:Spot			RANK:4
+SKILL:Survival		RANK:4
+FEAT:Mounted Combat
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Animal)
+GEAR:Studded Leather	SIZE:S	LOCATION:Equipped
+GEAR:Horsechopper		LOCATION:Both Hands	EQMOD:MWORKW.STEEL
+GEAR:Shortbow		SIZE:S	LOCATION:Carried
+GEAR:Arrow			QTY:20	SIZE:S	LOCATION:Carried
+
+
+STARTPACK:NPC (Tsuto Kaijitsu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Half-Elf]	SOURCEPAGE:p. 23
+RACE:Half-Elf	!PRERACE:1,%
+NAME:Tsuto Kaijitsu
+ALIGN:LE
+CLASS:Rogue	LEVEL:1
+STAT:STR=12|DEX=15|CON=8|INT=13|WIS=14|CHA=10
+SKILL:Tumble				RANK:4
+SKILL:Bluff					RANK:4
+SKILL:Diplomacy				RANK:4
+SKILL:Disable Device			RANK:2
+SKILL:Disguise				RANK:4
+SKILL:Gather Information		RANK:4
+SKILL:Intimidate				RANK:4
+SKILL:Open Lock				RANK:2
+SKILL:Perform (Wind Instruments)	RANK:4
+SKILL:Search				RANK:3
+CLASS:Monk	LEVEL:2
+SKILL:Tumble				RANK:2
+SKILL:Bluff					RANK:1
+SKILL:Disable Device			RANK:1
+FEAT:Dodge
+FEAT:Weapon Finesse
+ABILITY:CATEGORY=Monk Feat|Monk Lvl 1 Bonus Feat (Stunning Fist)
+ABILITY:CATEGORY=Monk Feat|Monk Lvl 2 Bonus Feat (Deflect Arrows)
+GEAR:Potion (Cure Light Wounds)	LOCATION:Equipped
+GEAR:Shortbow (Composite)		LOCATION:Both Hands	EQMOD:BOWSTR|+1.WOOD
+GEAR:Ring (Protection +1)		LOCATION:Equipped
+GEAR:Thieves' Tools			LOCATION:Equipped	EQMOD:MWORKT
+GEAR:Musical Instrument (Flute)	LOCATION:Equipped	EQMOD:MWORKI
+GEAR:Flurry of Blows			LOCATION:Equipped
+
+
+STARTPACK:NPC (Koruvus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p. 28
+RACE:Goblin	!PRERACE:1,%
+NAME:Koruvus
+ALIGN:CE
+CLASS:Fighter	LEVEL:2
+STAT:STR=17|DEX=11|CON=16|INT=3|WIS=8|CHA=12
+SKILL:Intimidate	RANK:5
+FEAT:Great Fortitude
+ABILITY:CATEGORY=Fighter Feat|Improved Initiative
+ABILITY:CATEGORY=Fighter Feat|Toughness
+TEMPLATE:Waters of Lamashtu (Koruvus's Mutation)
+GEAR:Longsword	LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Handaxe	LOCATION:Secondary Hand	EQMOD:MWORKW
+GEAR:Dagger		LOCATION:Carried	EQMOD:ALCHM
+
+
+STARTPACK:NPC (Gogmurt)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p. 35
+RACE:Goblin	!PRERACE:1,%
+NAME:Gogmurt
+ALIGN:NE
+CLASS:Druid	LEVEL:4
+STAT:STR=10|DEX=12|CON=14|INT=8|WIS=15|CHA=14
+SKILL:Handle Animal		RANK:7
+SKILL:Knowledge (Nature)	RANK:7
+SKILL:Survival			RANK:7
+FEAT:Brew Potion
+FEAT:Combat Casting
+GEAR:Potion (Cure Light Wounds)	QTY:2	LOCATION:Carried
+GEAR:Wand					LOCATION:Carried	EQMOD:SPL_CHRG|SPELLNAME[Produce Flame]CASTER[Druid]SPELLTYPE[Divine]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
+GEAR:Leather				SIZE:S	LOCATION:Equipped	EQMOD:PLUS1A.LEATHER
+GEAR:Spear					SIZE:S	LOCATION:Both Hands
+GEAR:Sling					SIZE:S	LOCATION:Carried
+GEAR:Cloak of Resistance +1		LOCATION:Equipped
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Animal Messenger|Charm Animal|Cure Light Wounds=2|Cure Minor Wounds|Entangle|Flame Blade|Flare=2|Guidance|Mending|Restoration (Lesser)
+
+
+STARTPACK:NPC (Warchief Ripnugget)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p. 40
+RACE:Goblin	!PRERACE:1,%
+NAME:Warchief Ripnugget
+ALIGN:NE
+CLASS:Fighter	LEVEL:4
+STAT:STR=14|DEX=12|CON=14|INT=10|WIS=8|CHA=15
+SKILL:Handle Animal	RANK:5
+SKILL:Intimidate		RANK:4
+SKILL:Ride			RANK:5
+FEAT:Weapon Focus(Dogslicer)
+FEAT:Weapon Specialization(Dogslicer)
+ABILITY:CATEGORY=Fighter Feat|Mounted Combat
+ABILITY:CATEGORY=Fighter Feat|Ride By Attack
+ABILITY:CATEGORY=Fighter Feat|Spirited Charge
+GEAR:Potion (Barkskin +2)		LOCATION:Carried
+GEAR:Potion (Cure Moderate Wounds)	QTY:2	LOCATION:Carried
+GEAR:Breastplate				SIZE:S	LOCATION:Equipped	EQMOD:MWORKA.STEEL
+GEAR:Dogslicer				SIZE:S	LOCATION:Equipped	EQMOD:PLUS1W.STEEL
+
+
+STARTPACK:NPC (Bruthazamus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]	SOURCEPAGE:p. 44
+RACE:Bugbear	!PRERACE:1,%
+NAME:Bruthazamus
+ALIGN:CE
+CLASS:Ranger	LEVEL:1
+STAT:STR=13|DEX=14|CON=16|INT=8|WIS=12|CHA=10
+SKILL:Hide			RANK:7
+SKILL:Move Silently	RANK:5
+SKILL:Survival		RANK:5
+FEAT:Point Blank Shot
+FEAT:Weapon Focus(Longbow)
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Elf))
+GEAR:Potion (Cure Moderate Wounds)	LOCATION:Carried
+GEAR:Studded Leather			LOCATION:Equipped
+GEAR:Flail (Heavy)			LOCATION:Both Hands
+GEAR:Longbow (Composite)		LOCATION:Carried	EQMOD:BOWSTR|+3.MWORKW
+GEAR:Arrow					QTY:20	LOCATION:Carried
+GEAR:Arrow					QTY:4	LOCATION:Carried	EQMOD:PLUS1W.BANE_A|Humanoids (elf)
+
+
+STARTPACK:NPC (Orik Vancaskerkin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 46
+RACE:Human	!PRERACE:1,%
+NAME:Orik Vancaskerkin
+ALIGN:CN
+CLASS:Fighter	LEVEL:3
+STAT:STR=15|DEX=13|CON=14|INT=10|WIS=12|CHA=8
+SKILL:Climb			RANK:6
+SKILL:Intimidate		RANK:6
+SKILL:Speak Language	RANK:1
+SKILL:Swim			RANK:4
+FEAT:Weapon Focus(Sword (Bastard))
+FEAT:Athletic
+FEAT:Blind Fight
+ABILITY:CATEGORY=Fighter Feat|Exotic Weapon Proficiency(Sword (Bastard))
+ABILITY:CATEGORY=Fighter Feat|Power Attack
+GEAR:Potion (Cure Moderate Wounds)	LOCATION:Carried
+GEAR:Banded Mail				LOCATION:Equipped	EQMOD:PLUS1A
+GEAR:Shield (Heavy/Metal)		LOCATION:Equipped	EQMOD:MWORKA
+GEAR:Sword (Bastard)			LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Arrow					QTY:20	LOCATION:Carried
+GEAR:Longbow (Composite)		LOCATION:Carried
+GEAR:Everburning Torch			LOCATION:Carried
+GEAR:Coin (Platinum)			QTY:2	LOCATION:Carried
+
+
+STARTPACK:NPC (Lyrie Akenja)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 50
+RACE:Human	!PRERACE:1,%
+NAME:Lyrie Akenja
+ALIGN:CE
+CLASS:Wizard	LEVEL:3	SUBCLASS:Wizard
+
+STAT:STR=8|DEX=14|CON=12|INT=15|WIS=10|CHA=13
+SKILL:Concentration		RANK:6
+SKILL:Knowledge (Arcana)	RANK:6
+SKILL:Knowledge (Local)		RANK:6
+SKILL:Move Silently		RANK:3
+SKILL:Spellcraft			RANK:6
+FEAT:Mobility
+FEAT:Dodge
+FEAT:Spell Focus(Evocation)
+GEAR:Wand						LOCATION:Equipped	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
+GEAR:Potion (Cure Light Wounds)		LOCATION:Equipped
+GEAR:Scroll (Sleep)				LOCATION:Equipped
+GEAR:Scroll (Comprehend Languages/Arcane)	LOCATION:Equipped
+GEAR:Scroll (Minor Image)			LOCATION:Equipped
+GEAR:Scroll (See Invisibility)		LOCATION:Equipped
+GEAR:Scroll (Whispering Wind)			LOCATION:Equipped
+GEAR:Dagger						LOCATION:Equipped
+GEAR:Cloak of Resistance +1			LOCATION:Equipped
+GEAR:Everburning Torch				LOCATION:Equipped
+GEAR:Spellbook (Wizard's/Blank)		LOCATION:Equipped
+
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Burning Hands
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Mage Armor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Mirror Image
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Prestidigitation
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ray of Enfeeblement
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ray of Frost
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Shatter
+
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Burning Hands
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Comprehend Languages
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Detect Secret Doors
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Floating Disk
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Identify
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Locate Object
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Minor Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Mirror Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Obscuring Mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ray of Enfeeblement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|See Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Shatter
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Sleep
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Spider Climb
+
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Acid Splash
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Arcane Mark
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Burning Hands
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Comprehend Languages
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Dancing Lights
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Daze
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Detect Magic
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Detect Poison
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Detect Secret Doors
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Disrupt Undead
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Flare
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Floating Disk
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Ghost Sound
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Identify
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Light
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Locate Object
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mage Armor
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mage Hand
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mending
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Message
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Minor Image
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mirror Image
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Obscuring Mist
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Open/Close
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Prestidigitation
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Ray of Enfeeblement
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Ray of Frost
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Read Magic
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Resistance
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|See Invisibility
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Shatter
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Sleep
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Spider Climb
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Touch of Fatigue
+
+
+STARTPACK:NPC (Nualia)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Planetouched (Aasimar)]	SOURCEPAGE:p. 52
+RACE:Planetouched (Aasimar)	!PRERACE:1,%
+NAME:Nualia
+ALIGN:CE
+STAT:STR=16|DEX=8|CON=14|INT=10|WIS=12|CHA=13
+CLASS:Fighter	LEVEL:2
+SKILL:Intimidate			RANK:5
+SKILL:Ride				RANK:5
+CLASS:Cleric	LEVEL:3
+DEITY:Lamashtu	DOMAIN:Evil|Strength
+SKILL:Concentration		RANK:3
+SKILL:Knowledge (Religion)	RANK:3
+FEAT:Weapon Focus(Sword (Bastard))
+FEAT:Lamashtu's Mark
+ABILITY:CATEGORY=Fighter Feat|Exotic Weapon Proficiency(Sword (Bastard))
+ABILITY:CATEGORY=Fighter Feat|Power Attack
+ABILITY:CATEGORY=Turn Undead|Rebuke Undead
+TEMPLATE:Lamashtu's Gift
+GEAR:Breastplate			LOCATION:Equipped	EQMOD:PLUS1A
+GEAR:Sword (Bastard)		LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Sihedron Medallion		LOCATION:Carried
+GEAR:Longbow (Composite)	EQMOD:BOWSTR|+3.MWORKW	LOCATION:Carried
+GEAR:Arrow				QTY:20	LOCATION:Carried
+GEAR:Holy Symbol (Silver)	LOCATION:Carried	EQMOD:GOLD
+GEAR:Coin (Platinum)		QTY:7	LOCATION:Carried
+GEAR:Coin (Gold)			QTY:5	LOCATION:Carried
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cause Fear
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Minor Wounds=2
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Knell
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Mending
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Shatter
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bull's Strength
+SPELLS:SPELLBOOK=Known Spells|CLASS=Cleric|Enlarge Person
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Good
+
+
+STARTPACK:NPC (Malfeshnekor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest (Greater)]	SOURCEPAGE:p. 56
+RACE:Barghest (Greater)	!PRERACE:1,%
+NAME:Malfeshnekor
+ALIGN:NE
+CLASS:Outsider	LEVEL:1
+STAT:STR=16|DEX=14|CON=13|INT=10|WIS=8|CHA=13
+SKILL:Bluff				RANKS:13
+SKILL:Climb				RANKS:13
+SKILL:Diplomacy			RANKS:13
+SKILL:Hide				RANKS:13
+SKILL:Intimidate			RANKS:13
+SKILL:Jump				RANK:13
+SKILL:Knowledge (History)	RANK:6.5
+SKILL:Listen			RANK:13
+SKILL:Move Silently		RANK:13
+SKILL:Sense Motive		RANK:13
+SKILL:Spot				RANK:13
+SKILL:Tumble			RANK:13
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Improved Natural Attack(Bite)
+FEAT:Power Attack
+

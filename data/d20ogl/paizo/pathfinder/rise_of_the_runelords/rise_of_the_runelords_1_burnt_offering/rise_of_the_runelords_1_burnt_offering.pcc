@@ -30,6 +30,7 @@ ABILITY:pf1_abilities_racial.lst
 EQUIPMENT:pf1_equip_weap_melee.lst
 EQUIPMENT:pf1_equip_wondrousitems.lst
 FEAT:pf1_feats.lst
+KIT:pf1_kits_npcs.lst
 KIT:pf1_kits_races.lst
 RACE:pf1_races.lst
 TEMPLATE:pf1_templates.lst
