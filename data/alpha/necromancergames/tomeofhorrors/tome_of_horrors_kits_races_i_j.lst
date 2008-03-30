@@ -2,9 +2,9 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Inphidian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Inphidian]
+STARTPACK:Inphidian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inphidian]
 ALIGN:NE
-RACE:Inphidian	!PRERACE:%
+RACE:Inphidian	!PRERACE:1,%
 NAME:Inphidian
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Craft (Poisonmaking)	RANK:7
@@ -16,16 +16,16 @@ SKILL:Spot				RANK:3
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Iron Cobra Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Iron Cobra]
+STARTPACK:Iron Cobra Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Iron Cobra]
 GENDER:None
 ALIGN:TN
-RACE:Iron Cobra	!PRERACE:%
+RACE:Iron Cobra	!PRERACE:1,%
 NAME:Iron Cobra
 STAT:STR=10|DEX=11|WIS=11|CHA=11
 
-STARTPACK:Jack-O-Lantern Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jack-O-Lantern]
+STARTPACK:Jack-O-Lantern Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jack-O-Lantern]
 ALIGN:TN
-RACE:Jack-O-Lantern	!PRERACE:%
+RACE:Jack-O-Lantern	!PRERACE:1,%
 NAME:Jack-O-Lantern	GENDER:None
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Hide			RANK:3
@@ -35,24 +35,24 @@ FEAT:Dodge
 FEAT:Mobility
 FEAT:Stealthy
 
-STARTPACK:Jaculi Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jaculi]
+STARTPACK:Jaculi Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jaculi]
 ALIGN:TN
-RACE:Jaculi	!PRERACE:%
+RACE:Jaculi	!PRERACE:1,%
 NAME:Jaculi
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 FEAT:Weapon Finesse
 
-STARTPACK:Jellyfish (Monstrous) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jellyfish (Monstrous)]
+STARTPACK:Jellyfish (Monstrous) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Monstrous)]
 ALIGN:TN
-RACE:Jellyfish (Monstrous)	!PRERACE:%
+RACE:Jellyfish (Monstrous)	!PRERACE:1,%
 NAME:Jellyfish, Monstrous
 STAT:STR=11|DEX=10|CON=10|WIS=10|CHA=10
 
-STARTPACK:Jupiter Bloodsucker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jupiter Bloodsucker]
+STARTPACK:Jupiter Bloodsucker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jupiter Bloodsucker]
 ALIGN:TN
-RACE:Jupiter Bloodsucker	!PRERACE:%
+RACE:Jupiter Bloodsucker	!PRERACE:1,%
 NAME:Jupiter Bloodsucker
 STAT:STR=10|DEX=11|CON=10|WIS=10|CHA=10
 

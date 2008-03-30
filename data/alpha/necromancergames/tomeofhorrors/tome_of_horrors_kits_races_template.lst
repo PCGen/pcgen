@@ -2,8 +2,8 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Abomination (Owlephant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Owlephant)]
-RACE:Abomination (Owlephant)	!PRERACE:%
+STARTPACK:Abomination (Owlephant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Owlephant)]
+RACE:Abomination (Owlephant)	!PRERACE:1,%
 NAME:Owlephant
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -14,8 +14,8 @@ FEAT:Endurance
 FEAT:Iron Will
 FEAT:Skill Focus (Listen)
 
-STARTPACK:Abomination (Tigrilla) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Tigrilla)]
-RACE:Abomination (Tigrilla)	!PRERACE:%
+STARTPACK:Abomination (Tigrilla) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Tigrilla)]
+RACE:Abomination (Tigrilla)	!PRERACE:1,%
 NAME:Tigrilla
 ALIGN:CE
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -35,8 +35,8 @@ NAME:Bleeding Horror Minotaur
 TEMPLATE:Bleeding Horror
 ALIGN:CE
 
-STARTPACK:Dire Bison Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Bison]
-RACE:Dire Bison	!PRERACE:%
+STARTPACK:Dire Bison Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Bison]
+RACE:Dire Bison	!PRERACE:1,%
 NAME:Dire Bison
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
@@ -47,8 +47,8 @@ FEAT:Endurance
 FEAT:Great Fortitude
 FEAT:Power Attack
 
-STARTPACK:Dire Goat Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Goat]
-RACE:Dire Goat	!PRERACE:%
+STARTPACK:Dire Goat Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Goat]
+RACE:Dire Goat	!PRERACE:1,%
 NAME:Dire Goat
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -57,8 +57,8 @@ SKILL:Spot		RANK:2
 FEAT:Alertness
 FEAT:Great Fortitude
 
-STARTPACK:Dire Hippopotamus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Hippopotamus]
-RACE:Dire Hippopotamus	!PRERACE:%
+STARTPACK:Dire Hippopotamus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Hippopotamus]
+RACE:Dire Hippopotamus	!PRERACE:1,%
 NAME:Dire Hippopotamus (Behemoth)
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -70,8 +70,8 @@ FEAT:Great Fortitude
 FEAT:Toughness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Dire Porcupine Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Porcupine]
-RACE:Dire Porcupine	!PRERACE:%
+STARTPACK:Dire Porcupine Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Porcupine]
+RACE:Dire Porcupine	!PRERACE:1,%
 NAME:Dire Porcupine
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -79,8 +79,8 @@ SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
 FEAT:Weapon Focus (Quills)
 
-STARTPACK:Dire Ram Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Ram]
-RACE:Dire Ram	!PRERACE:%
+STARTPACK:Dire Ram Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Ram]
+RACE:Dire Ram	!PRERACE:1,%
 NAME:Dire Ram
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -89,8 +89,8 @@ SKILL:Spot		RANK:4
 FEAT:Alertness
 FEAT:Endurance
 
-STARTPACK:Foo Dog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Foo Dog]
-RACE:Foo Dog	!PRERACE:%
+STARTPACK:Foo Dog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Foo Dog]
+RACE:Foo Dog	!PRERACE:1,%
 NAME:Foo Dog
 ALIGN:CG
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -132,8 +132,8 @@ GEAR:Cloak of Resistance +2	SIZE:PC	LOCATION:Equipped
 GEAR:Boots of Speed		SIZE:PC	LOCATION:Equipped
 TEMPLATE:Skeleton Warrior
 
-STARTPACK:Slime Zombie Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slime Zombie]
-RACE:Slime Zombie	!PRERACE:%
+STARTPACK:Slime Zombie Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slime Zombie]
+RACE:Slime Zombie	!PRERACE:1,%
 NAME:Slime Zombie
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -142,8 +142,8 @@ SKILL:Spot		RANK:3
 FEAT:Alertness
 FEAT:Weapon Focus (Morningstar)
 
-STARTPACK:Spectral Troll Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Spectral Troll]
-RACE:Spectral Troll	!PRERACE:%
+STARTPACK:Spectral Troll Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spectral Troll]
+RACE:Spectral Troll	!PRERACE:1,%
 NAME:Spectral Troll
 ALIGN:CE
 STAT:STR=11|DEX=10|INT=10|WIS=11|CHA=10

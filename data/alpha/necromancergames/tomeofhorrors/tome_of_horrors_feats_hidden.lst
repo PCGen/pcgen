@@ -15,8 +15,6 @@ Rebuke Snakes												TYPE:SpecialAction.Turning.TurnAir			VISIBLE:NO					SAB
 ### Modify Standard feats to be placed in the right category
 Dodge.MOD													TYPE:AC
 Mobility.MOD												TYPE:AC
-Uncanny Dodge.MOD												TYPE:AC
-Improved Uncanny Dodge.MOD										TYPE:AC
 Two Weapon Defense.MOD											TYPE:AC
 Diehard.MOD													TYPE:HP
 Cleave.MOD													TYPE:AtkOptions

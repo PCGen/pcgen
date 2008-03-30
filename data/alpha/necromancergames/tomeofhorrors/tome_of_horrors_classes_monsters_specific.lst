@@ -5,7 +5,7 @@ SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.nec
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus								Combat bonus		Add domain number
 CLASS:The Oinodaemon	HD:8		TYPE:Monster	MAXLEVEL:49	SOURCEPAGE:p. 83	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:DOMAIN|NUMBER|3
 # Class Name		Required Race				Reg. Race Type
-CLASS:The Oinodaemon	PRERACE:Daemon (The Oinodaemon)	PRERACETYPE:Outsider
+CLASS:The Oinodaemon	PRERACE:1,Daemon (The Oinodaemon)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:The Oinodaemon	STARTSKILLPTS:8	MODTOSKILLS:YES
 1					ADD:SPELLCASTER|1|Cleric

@@ -2,9 +2,9 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Daemon (Cacodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Daemon (Cacodaemon)]
+STARTPACK:Daemon (Cacodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Cacodaemon)]
 ALIGN:NE
-RACE:Daemon (Cacodaemon)	!PRERACE:%
+RACE:Daemon (Cacodaemon)	!PRERACE:1,%
 NAME:Cacodaemon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Climb				RANK:15
@@ -25,9 +25,9 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Longsword)
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W
 
-STARTPACK:Daemon (Charon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Daemon (Charon)]
+STARTPACK:Daemon (Charon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Charon)]
 ALIGN:NE
-RACE:Daemon (Charon)	!PRERACE:%
+RACE:Daemon (Charon)	!PRERACE:1,%
 NAME:Charon
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Bluff				RANK:35
@@ -63,9 +63,9 @@ FEAT:Weapon Focus (Quarterstaff)
 FEAT:Superior Initiative
 GEAR:Quarterstaff	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W
 
-STARTPACK:Daemon (Charonadaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Daemon (Charonadaemon)]
+STARTPACK:Daemon (Charonadaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Charonadaemon)]
 ALIGN:NE
-RACE:Daemon (Charonadaemon)	!PRERACE:%
+RACE:Daemon (Charonadaemon)	!PRERACE:1,%
 NAME:Charonadaemon
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 SKILL:Bluff				RANK:13
@@ -85,9 +85,9 @@ FEAT:Negotiator
 FEAT:Power Attack
 GEAR:Quarterstaff	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Daemon (Derghodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Daemon (Derghodaemon)]
+STARTPACK:Daemon (Derghodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Derghodaemon)]
 ALIGN:NE
-RACE:Daemon (Derghodaemon)	!PRERACE:%
+RACE:Daemon (Derghodaemon)	!PRERACE:1,%
 NAME:Derghodaemon
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Hide			RANK:13
@@ -103,9 +103,9 @@ FEAT:Multiweapon Fighting
 FEAT:Power Attack
 GEAR:Longsword	QTY:3	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Daemon (Hydrodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Daemon (Hydrodaemon)]
+STARTPACK:Daemon (Hydrodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Hydrodaemon)]
 ALIGN:NE
-RACE:Daemon (Hydrodaemon)	!PRERACE:%
+RACE:Daemon (Hydrodaemon)	!PRERACE:1,%
 NAME:Hydrodaemon
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Hide			RANK:10
@@ -119,9 +119,9 @@ FEAT:Cleave
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Daemon (The Oinodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Daemon (The Oinodaemon)]
+STARTPACK:Daemon (The Oinodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (The Oinodaemon)]
 ALIGN:NE
-RACE:Daemon (The Oinodaemon)	!PRERACE:%
+RACE:Daemon (The Oinodaemon)	!PRERACE:1,%
 NAME:The Oinodaemon
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=11|CHA=11
 SKILL:Balance			RANK:40
@@ -166,9 +166,9 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Inflict Light Wounds|Death Knell|C
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water|Inflict Minor Wounds=3|Light|Read Magic|Resistance|Bane|Comprehend Languages|Curse Water|Doom|Inflict Light Wounds=2|Protection from Good|Sanctuary|Darkness|Enthrall|Inflict Moderate Wounds=3|Shatter|Sound Burst|Bestow Curse|Blindness/Deafness|Contagion=2|Inflict Serious Wounds=2|Invisibility Purge|Death Ward|Dimensional Anchor|Discern Lies|Divine Power|Giant Vermin|Inflict Critical Wounds|Poison|Break Enchantment|Dispel Good|Insect Plague|Scrying|Slay Living=2|Symbol of Pain|Blade Barrier|Forbiddance|Harm=2|Word of Recall|Blasphemy|Inflict Serious Wounds (Mass)=3|Symbol of Weakness|Antimagic Field|Inflict Critical Wounds (Mass)=2|Symbol of Death|Unholy Aura|Astral Projection|Energy Drain=3|Storm of Vengeance
 GEAR:Staff (Lower Planes)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Daemon (Piscodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Daemon (Piscodaemon)]
+STARTPACK:Daemon (Piscodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Piscodaemon)]
 ALIGN:NE
-RACE:Daemon (Piscodaemon)	!PRERACE:%
+RACE:Daemon (Piscodaemon)	!PRERACE:1,%
 NAME:Piscodaemon
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Climb				RANK:10
@@ -188,9 +188,9 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Dakon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dakon]
+STARTPACK:Dakon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dakon]
 ALIGN:LN
-RACE:Dakon	!PRERACE:%
+RACE:Dakon	!PRERACE:1,%
 NAME:Dakon
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Climb			RANK:1
@@ -199,9 +199,9 @@ SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
 FEAT:Alertness
 
-STARTPACK:Dark Creeper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dark Creeper]
+STARTPACK:Dark Creeper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dark Creeper]
 ALIGN:CN
-RACE:Dark Creeper	!PRERACE:%
+RACE:Dark Creeper	!PRERACE:1,%
 NAME:Dark Creeper
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 CLASS:Warrior	LEVEL:1
@@ -212,9 +212,9 @@ SKILL:Spot			RANK:1
 FEAT:Alertness
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Dark Stalker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dark Stalker]
+STARTPACK:Dark Stalker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dark Stalker]
 ALIGN:CN
-RACE:Dark Stalker	!PRERACE:%
+RACE:Dark Stalker	!PRERACE:1,%
 NAME:Dark Stalker
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Hide			RANK:2
@@ -225,9 +225,9 @@ SKILL:Spot			RANK:2
 FEAT:Weapon Finesse
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Darnoc Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Darnoc]
+STARTPACK:Darnoc Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Darnoc]
 ALIGN:LE
-RACE:Darnoc	!PRERACE:%
+RACE:Darnoc	!PRERACE:1,%
 NAME:Darnoc
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 SKILL:Hide		RANK:11
@@ -239,9 +239,9 @@ FEAT:Blind Fight
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
-STARTPACK:Death Dog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Death Dog]
+STARTPACK:Death Dog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Death Dog]
 ALIGN:NE
-RACE:Death Dog	!PRERACE:%
+RACE:Death Dog	!PRERACE:1,%
 NAME:Death Dog
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Listen		RANK:1
@@ -250,9 +250,9 @@ SKILL:Spot			RANK:1
 SKILL:Survival		RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Death Worm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Death Worm]
+STARTPACK:Death Worm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Death Worm]
 ALIGN:TN
-RACE:Death Worm	!PRERACE:%
+RACE:Death Worm	!PRERACE:1,%
 NAME:Death Worm
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
 SKILL:Hide		RANK:2
@@ -262,9 +262,9 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Toughness
 
-STARTPACK:Decapus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Decapus]
+STARTPACK:Decapus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Decapus]
 ALIGN:CE
-RACE:Decapus	!PRERACE:%
+RACE:Decapus	!PRERACE:1,%
 NAME:Decapus
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Climb			RANK:3
@@ -274,9 +274,9 @@ SKILL:Spot			RANK:4
 FEAT:Alertness
 FEAT:Power Attack
 
-STARTPACK:Demiurge Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demiurge]
+STARTPACK:Demiurge Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demiurge]
 ALIGN:CE
-RACE:Demiurge	!PRERACE:%
+RACE:Demiurge	!PRERACE:1,%
 NAME:Demiurge
 STAT:DEX=11|INT=10|WIS=10|CHA=10
 SKILL:Hide			RANK:11
@@ -289,9 +289,9 @@ FEAT:Alertness
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
-STARTPACK:Demodand (Shaggy) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demodand (Shaggy)]
+STARTPACK:Demodand (Shaggy) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demodand (Shaggy)]
 ALIGN:CE
-RACE:Demodand (Shaggy)	!PRERACE:%
+RACE:Demodand (Shaggy)	!PRERACE:1,%
 NAME:Demodand, Shaggy
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Bluff				RANK:15
@@ -318,9 +318,9 @@ FEAT:Multiattack
 FEAT:Power Attack
 GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Demodand (Slime) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demodand (Slime)]
+STARTPACK:Demodand (Slime) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demodand (Slime)]
 ALIGN:CE
-RACE:Demodand (Slime)	!PRERACE:%
+RACE:Demodand (Slime)	!PRERACE:1,%
 NAME:Demodand, Slime
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Bluff				RANK:10
@@ -343,9 +343,9 @@ FEAT:Great Cleave
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Demodand (Tarry) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demodand (Tarry)]
+STARTPACK:Demodand (Tarry) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demodand (Tarry)]
 ALIGN:CE
-RACE:Demodand (Tarry)	!PRERACE:%
+RACE:Demodand (Tarry)	!PRERACE:1,%
 NAME:Demodand, Tarry
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Bluff				RANK:9
@@ -367,9 +367,9 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Claw)
 
 
-STARTPACK:Demonic Knight Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demonic Knight]
+STARTPACK:Demonic Knight Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Knight]
 ALIGN:CE
-RACE:Demonic Knight	!PRERACE:%
+RACE:Demonic Knight	!PRERACE:1,%
 NAME:Demonic Knight
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Bluff				RANK:12
@@ -391,9 +391,9 @@ FEAT:Weapon Focus (Longsword)
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W.CHAOS_M
 GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Devil Dog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil Dog]
+STARTPACK:Devil Dog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil Dog]
 ALIGN:CE
-RACE:Devil Dog	!PRERACE:%
+RACE:Devil Dog	!PRERACE:1,%
 NAME:Devil Dog
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Hide			RANK:1
@@ -405,15 +405,15 @@ FEAT:Alertness
 FEAT:Track
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Diger Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Diger]
+STARTPACK:Diger Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Diger]
 ALIGN:TN
-RACE:Diger	!PRERACE:%
+RACE:Diger	!PRERACE:1,%
 NAME:Diger
 STAT:STR=11|DEX=10|CON=11|WIS=10|CHA=10
 
-STARTPACK:Dire Corby Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Corby]
+STARTPACK:Dire Corby Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Corby]
 ALIGN:NE
-RACE:Dire Corby	!PRERACE:%
+RACE:Dire Corby	!PRERACE:1,%
 NAME:Dire Corby
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Climb		RANK:1
@@ -422,9 +422,9 @@ SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 FEAT:Blind Fight
 
-STARTPACK:Disenchanter Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Disenchanter]
+STARTPACK:Disenchanter Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Disenchanter]
 ALIGN:TN
-RACE:Disenchanter	!PRERACE:%
+RACE:Disenchanter	!PRERACE:1,%
 NAME:Disenchanter
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:4
@@ -432,7 +432,7 @@ SKILL:Spot		RANK:4
 FEAT:Iron Will
 FEAT:Weapon Focus (Snout)
 
-STARTPACK:Common Dracolisk	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dracolisk%]
+STARTPACK:Common Dracolisk	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
 ALIGN:TN
 NAME:Dracolisk
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -448,38 +448,38 @@ FEAT:Blind Fight
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Dracolisk (Black) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dracolisk%]
-RACE:Dracolisk (Black)	!PRERACE:%
+STARTPACK:Dracolisk (Black) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
+RACE:Dracolisk (Black)	!PRERACE:1,%
 KIT:Common Dracolisk
 
-STARTPACK:Dracolisk (Black) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dracolisk%]
-RACE:Dracolisk (Blue)	!PRERACE:%
+STARTPACK:Dracolisk (Black) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
+RACE:Dracolisk (Blue)	!PRERACE:1,%
 KIT:Common Dracolisk
 
-STARTPACK:Dracolisk (Black) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dracolisk%]
-RACE:Dracolisk (Green)	!PRERACE:%
+STARTPACK:Dracolisk (Black) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
+RACE:Dracolisk (Green)	!PRERACE:1,%
 KIT:Common Dracolisk
 
-STARTPACK:Dracolisk (Black) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dracolisk%]
-RACE:Dracolisk (Red)	!PRERACE:%
+STARTPACK:Dracolisk (Black) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
+RACE:Dracolisk (Red)	!PRERACE:1,%
 KIT:Common Dracolisk
 
-STARTPACK:Dracolisk (Black) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dracolisk%]
-RACE:Dracolisk (White)	!PRERACE:%
+STARTPACK:Dracolisk (Black) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
+RACE:Dracolisk (White)	!PRERACE:1,%
 KIT:Common Dracolisk
 
-STARTPACK:Dragon (Cloud/Wyrmling) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Wyrmling) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Wyrmling Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:8
 SKILL:Search	RANK:8
 SKILL:Spot		RANK:8
 
-STARTPACK:Dragon (Cloud/Very Young) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Very Young) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Very Young Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:3
@@ -487,9 +487,9 @@ SKILL:Listen	RANK:11
 SKILL:Search	RANK:11
 SKILL:Spot		RANK:11
 
-STARTPACK:Dragon (Cloud/Young) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Young) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Young Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:6
@@ -497,9 +497,9 @@ SKILL:Listen	RANK:14
 SKILL:Search	RANK:14
 SKILL:Spot		RANK:14
 
-STARTPACK:Dragon (Cloud/Juvenile) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Juvenile) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Juvenile Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:9
@@ -507,9 +507,9 @@ SKILL:Listen	RANK:17
 SKILL:Search	RANK:17
 SKILL:Spot		RANK:17
 
-STARTPACK:Dragon (Cloud/Young Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Young Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Young Adult Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:12
@@ -517,9 +517,9 @@ SKILL:Listen	RANK:20
 SKILL:Search	RANK:20
 SKILL:Spot		RANK:20
 
-STARTPACK:Dragon (Cloud/Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Adult Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:15
@@ -527,9 +527,9 @@ SKILL:Listen	RANK:23
 SKILL:Search	RANK:23
 SKILL:Spot		RANK:23
 
-STARTPACK:Dragon (Cloud/Mature Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Mature Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Mature Adult Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:18
@@ -537,9 +537,9 @@ SKILL:Listen	RANK:26
 SKILL:Search	RANK:26
 SKILL:Spot		RANK:26
 
-STARTPACK:Dragon (Cloud/Old) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Old) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Old Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:21
@@ -547,9 +547,9 @@ SKILL:Listen	RANK:29
 SKILL:Search	RANK:29
 SKILL:Spot		RANK:29
 
-STARTPACK:Dragon (Cloud/Very Old) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Very Old) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Very Old Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:24
@@ -557,9 +557,9 @@ SKILL:Listen	RANK:32
 SKILL:Search	RANK:32
 SKILL:Spot		RANK:32
 
-STARTPACK:Dragon (Cloud/Ancient) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Ancient) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Ancient Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:27
@@ -567,9 +567,9 @@ SKILL:Listen	RANK:35
 SKILL:Search	RANK:35
 SKILL:Spot		RANK:35
 
-STARTPACK:Dragon (Cloud/Wyrm) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Wyrm) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Wyrm Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:30
@@ -577,9 +577,9 @@ SKILL:Listen	RANK:38
 SKILL:Search	RANK:38
 SKILL:Spot		RANK:38
 
-STARTPACK:Dragon (Cloud/Great Wyrm) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Cloud)]
+STARTPACK:Dragon (Cloud/Great Wyrm) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Cloud)]
 ALIGN:TN
-RACE:Dragon (Cloud)	!PRERACE:%
+RACE:Dragon (Cloud)	!PRERACE:1,%
 NAME:Greay Wyrm Cloud Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 CLASS:Cloud Dragon	LEVEL:33
@@ -587,9 +587,9 @@ SKILL:Listen	RANK:41
 SKILL:Search	RANK:41
 SKILL:Spot		RANK:41
 
-STARTPACK:Dragon (Faerie) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Faerie)]
+STARTPACK:Dragon (Faerie) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Faerie)]
 ALIGN:TN
-RACE:Dragon (Faerie)	!PRERACE:%
+RACE:Dragon (Faerie)	!PRERACE:1,%
 NAME:Dragon, Faerie
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Hide		RANK:5
@@ -599,9 +599,9 @@ SKILL:Spot		RANK:5
 SKILL:Swim		RANK:5
 FEAT:Hover
 
-STARTPACK:Dragon Horse Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon Horse]
+STARTPACK:Dragon Horse Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon Horse]
 ALIGN:NG
-RACE:Dragon Horse	!PRERACE:%
+RACE:Dragon Horse	!PRERACE:1,%
 NAME:Dragon Horse
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Concentration		RANK:9
@@ -614,9 +614,9 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Iron Will
 
-STARTPACK:Dragonfish Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragonfish]
+STARTPACK:Dragonfish Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonfish]
 ALIGN:NG
-RACE:Dragonfish	!PRERACE:%
+RACE:Dragonfish	!PRERACE:1,%
 NAME:Dragonfish
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Hide		RANK:1
@@ -624,15 +624,15 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 FEAT:Alertness
 
-STARTPACK:Dragonfly (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragonfly (Giant)]
+STARTPACK:Dragonfly (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonfly (Giant)]
 ALIGN:TN
-RACE:Dragonfly (Giant)	!PRERACE:%
+RACE:Dragonfly (Giant)	!PRERACE:1,%
 NAME:Dragonfly, Giant
 STAT:STR=11|DEX=11|CON=10|WIS=10|CHA=11
 
-STARTPACK:Dragonnel Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragonnel]
+STARTPACK:Dragonnel Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonnel]
 ALIGN:TN
-RACE:Dragonnel	!PRERACE:%
+RACE:Dragonnel	!PRERACE:1,%
 NAME:Dragonnel
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:5
@@ -641,9 +641,9 @@ FEAT:Alertness
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Drake (Fire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Drake (Fire)]
+STARTPACK:Drake (Fire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Fire)]
 ALIGN:TN
-RACE:Drake (Fire)	!PRERACE:%
+RACE:Drake (Fire)	!PRERACE:1,%
 NAME:Drake, Fire
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:7
@@ -652,9 +652,9 @@ SKILL:Hide		RANK:7
 FEAT:Flyby Attack
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Drake (Ice) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Drake (Ice)]
+STARTPACK:Drake (Ice) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Ice)]
 ALIGN:CE
-RACE:Drake (Ice)	!PRERACE:%
+RACE:Drake (Ice)	!PRERACE:1,%
 NAME:Drake, Ice
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Bluff			RANK:6
@@ -664,9 +664,9 @@ SKILL:Spot			RANK:6
 FEAT:Flyby Attack
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Drake (Salt) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Drake (Salt)]
+STARTPACK:Drake (Salt) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Salt)]
 ALIGN:TN
-RACE:Drake (Salt)	!PRERACE:%
+RACE:Drake (Salt)	!PRERACE:1,%
 NAME:Drake, Salt
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Hide		RANK:14
@@ -677,9 +677,9 @@ FEAT:Cleave
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Draug Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Draug]
+STARTPACK:Draug Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Draug]
 ALIGN:TN
-RACE:Draug	!PRERACE:%
+RACE:Draug	!PRERACE:1,%
 NAME:Draug
 STAT:STR=10|DEX=11|INT=10|WIS=10|CHA=10
 SKILL:Balance			RANK:6
@@ -697,9 +697,9 @@ FEAT:Great Fortitude
 FEAT:Weapon Focus (Cutlass)
 GEAR:Cutlass	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Drelb Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Drelb]
+STARTPACK:Drelb Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drelb]
 ALIGN:TN
-RACE:Drelb	!PRERACE:%
+RACE:Drelb	!PRERACE:1,%
 NAME:Drelb (Haunting Custodian)
 STAT:DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Bluff				RANK:8
@@ -714,9 +714,9 @@ SKILL:Survival			RANK:8
 FEAT:Blind Fight
 FEAT:Improved Initiative
 
-STARTPACK:Dust Digger Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dust Digger]
+STARTPACK:Dust Digger Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dust Digger]
 ALIGN:TN
-RACE:Dust Digger	!PRERACE:%
+RACE:Dust Digger	!PRERACE:1,%
 NAME:Dust Digger
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Hide		RANK:2

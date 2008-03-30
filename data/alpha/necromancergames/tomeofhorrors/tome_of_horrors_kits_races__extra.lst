@@ -2,9 +2,9 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Swarm (Snake) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Swarm (Snake)]
+STARTPACK:Swarm (Snake) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Snake)]
 ALIGN:TN
-RACE:Swarm (Snake)	!PRERACE:%
+RACE:Swarm (Snake)	!PRERACE:1,%
 NAME:Swarm (Snake)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Climb		RANK:1
