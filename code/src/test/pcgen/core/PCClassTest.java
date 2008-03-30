@@ -38,6 +38,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.core.Ability.Nature;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -658,6 +659,155 @@ public class PCClassTest extends AbstractCharacterTestCase
 	
 
 	/**
+	 * Test the function of the LEVELSPERFEAT in setLevel()
+	 * Monster class without a levels per feat setting.
+	 */
+	public void testDefaultLevelsPerFeatMonster()
+	{
+		SettingsHandler.setMonsterDefault(false);
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(nymphRace);
+		List<BonusObj> bonusList = nymphClass.getBonusList();
+		assertEquals("Bonus list empty", 0, bonusList.size());
+
+		nymphClass.setLevel(1, pc);
+		bonusList = nymphClass.getBonusList();
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|CL/3", bonusList.get(0).toString());
+		assertEquals("Only one bonus", 1, bonusList.size());
+	}
+
+	/**
+	 * Test the function of the LEVELSPERFEAT in setLevel()
+	 * Monster class in default monster mode without a levels per feat setting.
+	 */
+	public void testDefaultLevelsPerFeatMonsterDefMonster()
+	{
+		SettingsHandler.setMonsterDefault(true);
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(nymphRace);
+		List<BonusObj> bonusList = nymphClass.getBonusList();
+		assertEquals("Bonus list empty", 0, bonusList.size());
+
+		nymphClass.setLevel(1, pc);
+		bonusList = nymphClass.getBonusList();
+		assertEquals("Bonus added ", "0|FEAT|MONSTERPOOL|MAX(0,FLOOR((CL-0)/3))", bonusList.get(0).toString());
+		assertEquals("Only one bonus", 1, bonusList.size());
+	}
+
+	/**
+	 * Test the function of the LEVELSPERFEAT in setLevel()
+	 * Monster class with a levels per feat setting.
+	 */
+	public void testLevelsPerFeatMonster()
+	{
+		SettingsHandler.setMonsterDefault(false);
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(nymphRace);
+		nymphClass.setLevelsPerFeat(4);
+		List<BonusObj> bonusList = nymphClass.getBonusList();
+		assertEquals("Bonus list empty", 0, bonusList.size());
+
+		nymphClass.setLevel(1, pc);
+		bonusList = nymphClass.getBonusList();
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|CL/4", bonusList.get(0).toString());
+		assertEquals("Only one bonus", 1, bonusList.size());
+	}
+
+	/**
+	 * Test the function of the LEVELSPERFEAT in setLevel()
+	 * Monster class in default monster mode with a levels per feat setting.
+	 */
+	public void testLevelsPerFeatMonsterDefMonster()
+	{
+		SettingsHandler.setMonsterDefault(true);
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(nymphRace);
+		nymphClass.setLevelsPerFeat(4);
+		List<BonusObj> bonusList = nymphClass.getBonusList();
+		assertEquals("Bonus list empty", 0, bonusList.size());
+
+		nymphClass.setLevel(1, pc);
+		bonusList = nymphClass.getBonusList();
+		assertEquals("Bonus added ", "0|FEAT|MONSTERPOOL|MAX(0,FLOOR((CL-0)/4))", bonusList.get(0).toString());
+		assertEquals("Only one bonus", 1, bonusList.size());
+	}
+	
+
+	/**
+	 * Test the function of the LEVELSPERFEAT in setLevel()
+	 * Non monster class without a levels per feat setting.
+	 */
+	public void testDefaultLevelsPerFeatNonMonster()
+	{
+		SettingsHandler.setMonsterDefault(false);
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(nymphRace);
+		List<BonusObj> bonusList = humanoidClass.getBonusList();
+		assertEquals("Bonus list starting size", 3, bonusList.size());
+
+		humanoidClass.setLevel(1, pc);
+		bonusList = humanoidClass.getBonusList();
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|CL/3", bonusList.get(3).toString());
+		assertEquals("Only one new bonus", 4, bonusList.size());
+	}
+
+	/**
+	 * Test the function of the LEVELSPERFEAT in setLevel()
+	 * Non monster class in default monster mode without a levels per feat setting.
+	 */
+	public void testDefaultLevelsPerFeatNonMonsterDefMonster()
+	{
+		SettingsHandler.setMonsterDefault(true);
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(nymphRace);
+		List<BonusObj> bonusList = humanoidClass.getBonusList();
+		assertEquals("Bonus list starting size", 3, bonusList.size());
+
+		humanoidClass.setLevel(1, pc);
+		bonusList = humanoidClass.getBonusList();
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|CL/3", bonusList.get(3).toString());
+		assertEquals("Only one new bonus", 4, bonusList.size());
+	}
+
+	/**
+	 * Test the function of the LEVELSPERFEAT in setLevel()
+	 * Non monster class with a levels per feat setting.
+	 */
+	public void testLevelsPerFeatNonMonster()
+	{
+		SettingsHandler.setMonsterDefault(false);
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(nymphRace);
+		humanoidClass.setLevelsPerFeat(4);
+		List<BonusObj> bonusList = humanoidClass.getBonusList();
+		assertEquals("Bonus list starting size", 3, bonusList.size());
+
+		humanoidClass.setLevel(1, pc);
+		bonusList = humanoidClass.getBonusList();
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|CL/4", bonusList.get(3).toString());
+		assertEquals("Only one new bonus", 4, bonusList.size());
+	}
+
+	/**
+	 * Test the function of the LEVELSPERFEAT in setLevel()
+	 * Non monster class in default monster mode with a levels per feat setting.
+	 */
+	public void testLevelsPerFeatNonMonsterDefMonster()
+	{
+		SettingsHandler.setMonsterDefault(true);
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(nymphRace);
+		humanoidClass.setLevelsPerFeat(4);
+		List<BonusObj> bonusList = humanoidClass.getBonusList();
+		assertEquals("Bonus list starting size", 3, bonusList.size());
+
+		humanoidClass.setLevel(1, pc);
+		bonusList = humanoidClass.getBonusList();
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|CL/4", bonusList.get(3).toString());
+		assertEquals("Only one new bonus", 4, bonusList.size());
+	}
+	
+	/**
 	 * Parse a class definition and return the populated PCClass object.
 	 *
 	 * @param classPCCText The textual definition of the class.
@@ -757,6 +907,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nymphRace.setKeyName("KEY_Nymph");
 		nymphRace.setSize("M");
 		nymphRace.setAdvancementUnlimited(true);
+		nymphRace.setMonsterClass(nymphClass.getKeyName());
 		Globals.addRace(nymphRace);
 
 		// Setup class with prereqs and var based abilities with prereqs.
