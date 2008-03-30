@@ -677,7 +677,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 			theTable.updateUI();
 			theTable.expandPathList(pathList);
 			removeListSelectionListener();
-			if (selObj != null)
+			if (selObj != null && selRow < theTable.getRowCount())
 			{
 				theTable.addRowSelectionInterval(selRow, selRow);
 			}
