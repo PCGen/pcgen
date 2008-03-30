@@ -23,11 +23,14 @@
  */
 package plugin.exporttokens;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -37,6 +40,9 @@ import pcgen.core.StatList;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.lst.BonusSpellLoader;
+import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.util.UnreachableError;
 
 /**
  * <code>SpellListTokenTest</code> is ...
@@ -78,6 +84,21 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+
+		SettingsHandler.getGame().setSpellBaseDC("10+SPELLLEVEL+BASESPELLSTAT");
+
+		BonusSpellLoader bonusSpellLoader = new BonusSpellLoader();
+		try
+		{
+			URI testURI = new URI("file:/" + getClass().getName() + ".java");
+			bonusSpellLoader.parseLine("BONUSSPELLLEVEL:1	BASESTATSCORE:12	STATRANGE:8", testURI);
+			bonusSpellLoader.parseLine("BONUSSPELLLEVEL:2	BASESTATSCORE:14	STATRANGE:8", testURI);
+			bonusSpellLoader.parseLine("BONUSSPELLLEVEL:3	BASESTATSCORE:16	STATRANGE:8", testURI);
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}		
 
 		// Human
 		human = new Race();
@@ -162,12 +183,6 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, arcaneClass, true);
 
 		SpellListCastToken token = new SpellListCastToken();
-		// These don't work yet, so skip them to avoid false errors.
-		if (true)
-		{
-			return;
-		}
-		//TODO: Get these tests to work
 		assertEquals("testSpellListCastToken(1lv TA)", "2", token.getToken(
 			"SPELLLISTCAST.0.1", character, null));
 	}
@@ -225,14 +240,10 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.calcActiveBonuses();
 
 		SpellListDcToken token = new SpellListDcToken();
-		// These don't work yet, so skip them to avoid false errors.
-		if (true)
-		{
-			return;
-		}
-		//TODO: Get these tests to work
-		assertEquals("SpellListDcToken(1lv TA)", "2", token.getToken(
-			"SPELLLISTDC.0.1", character, null));
+		assertEquals("SpellListDcToken(1lv TA)", "12", token.getToken(
+			"SPELLLISTDC.0.0", character, null));
+		assertEquals("SpellListDcToken(1lv TA)", "15", token.getToken(
+			"SPELLLISTDC.0.3", character, null));
 	}
 
 	/**

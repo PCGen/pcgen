@@ -78,14 +78,10 @@ public class SpellListDcToken extends SpellListToken
 			}
 
 			Spell aSpell = new Spell();
-			String SaveInfo = aSpell.getSaveInfo();
-			if (!"".equals(SaveInfo) && !"None".equals(SaveInfo) && !"No".equals(SaveInfo))
-			{
-				int DC =
-					aSpell.getDCForPlayerCharacter(pc, null, aClass, params
-						.getLevel());
-				retValue.append(Integer.toString(DC));
-			}
+			int DC =
+				aSpell.getDCForPlayerCharacter(pc, null, aClass, params
+					.getLevel());
+			retValue.append(Integer.toString(DC));
 		}
 
 		return retValue.toString();
