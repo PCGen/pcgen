@@ -118,6 +118,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 	 * The object that is controlling the filtering (using the PCGen Filters).
 	 */
 	private Filterable theFilter = null;
+	private ListSelectionListener listSelListener = null;
 
 	/**
 	 * Construct and build a new panel to display a list of abilities.
@@ -356,8 +357,9 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 	 */
 	private void addListSelectionListener()
 	{
-		theTable.getSelectionModel().addListSelectionListener(
-			new ListSelectionListener()
+		if (listSelListener == null)
+		{
+			listSelListener = new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -392,9 +394,24 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 							});
 						}
 					}
-				}
-			});
-
+				};
+			};
+		}
+		theTable.getSelectionModel().addListSelectionListener(listSelListener);
+	}
+	
+	/**
+	 * Remove the selection listener from the ability table. Normally a 
+	 * temporary measure to suppress event generation from a system triggered 
+	 * change.  
+	 */
+	private void removeListSelectionListener()
+	{
+		if (listSelListener != null)
+		{
+			theTable.getSelectionModel().removeListSelectionListener(
+				listSelListener);
+		}
 	}
 
 	/**
@@ -659,10 +676,12 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 			}
 			theTable.updateUI();
 			theTable.expandPathList(pathList);
+			removeListSelectionListener();
 			if (selObj != null)
 			{
 				theTable.addRowSelectionInterval(selRow, selRow);
 			}
+			addListSelectionListener();
 		}
 	}
 
